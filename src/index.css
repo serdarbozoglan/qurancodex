@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN SYSTEM - Kur'an-ı Kerim'in Görünmeyen Mimarisi
+   ============================================ */
+
+@theme {
+  --color-cosmic-black: #0a0a1a;
+  --color-deep-navy: #0d1b2a;
+  --color-gold: #d4a574;
+  --color-royal-gold: #c9a227;
+  --color-emerald: #1a7a4c;
+  --color-soft-emerald: #2ecc71;
+  --color-off-white: #e8e6e3;
+  --color-silver: #94a3b8;
+  --color-soft-red: #e74c3c;
+  --color-sky-blue: #3498db;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-strong: rgba(255, 255, 255, 0.08);
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+/* ---- Base ---- */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cosmic-black);
+  color: var(--color-off-white);
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+::selection {
+  background: rgba(212, 165, 116, 0.3);
+  color: var(--color-off-white);
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cosmic-black);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 165, 116, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 165, 116, 0.5);
+}
+
+/* ---- Glassmorphism ---- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+.glass-card-strong {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+}
+
+/* ---- Glow Effects ---- */
+.gold-glow {
+  text-shadow:
+    0 0 20px rgba(212, 165, 116, 0.5),
+    0 0 40px rgba(212, 165, 116, 0.3),
+    0 0 60px rgba(212, 165, 116, 0.1);
+}
+
+.emerald-glow {
+  text-shadow:
+    0 0 20px rgba(46, 204, 113, 0.5),
+    0 0 40px rgba(46, 204, 113, 0.3);
+}
+
+.box-glow-gold {
+  box-shadow: 0 0 30px rgba(212, 165, 116, 0.15), 0 0 60px rgba(212, 165, 116, 0.05);
+}
+
+.box-glow-emerald {
+  box-shadow: 0 0 30px rgba(46, 204, 113, 0.15), 0 0 60px rgba(46, 204, 113, 0.05);
+}
+
+/* ---- Section Gradients ---- */
+.gradient-divider {
+  height: 150px;
+  background: linear-gradient(180deg, var(--color-cosmic-black), var(--color-deep-navy));
+  pointer-events: none;
+}
+
+.gradient-divider-reverse {
+  height: 150px;
+  background: linear-gradient(180deg, var(--color-deep-navy), var(--color-cosmic-black));
+  pointer-events: none;
+}
+
+/* ---- Animations ---- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(12px); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 80s linear infinite;
+}
+
+.animate-scroll-bounce {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ---- Islamic Pattern (SVG inline) ---- */
+.islamic-pattern-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 0L74 46H120L82 74L96 120L60 92L24 120L38 74L0 46H46Z' fill='none' stroke='%23d4a574' stroke-width='0.5' opacity='0.4'/%3E%3Ccircle cx='60' cy='60' r='30' fill='none' stroke='%23d4a574' stroke-width='0.3' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+/* ---- Counter Animation Helpers ---- */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Arabic Text ---- */
+.arabic-verse {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  text-align: right;
+  line-height: 2.2;
+  unicode-bidi: bidi-override;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Focus Styles ---- */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}

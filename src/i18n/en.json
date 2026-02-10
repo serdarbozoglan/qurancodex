@@ -1,0 +1,532 @@
+{
+  "nav": {
+    "logo": "QURAN CODEX",
+    "math": "Mathematical Miracle",
+    "linguistic": "Linguistic DNA",
+    "sounds": "Sound Architecture",
+    "science": "Scientific Signs",
+    "history": "Historical Evidence",
+    "conclusion": "Conclusion"
+  },
+  "hero": {
+    "title": "THE INVISIBLE ARCHITECTURE OF THE QURAN",
+    "subtitle": "Linguistic, Mathematical & Scientific Evidence",
+    "description": "Beneath the surface of a 1,400-year-old text lies an order invisible to the naked eye. Every word measured, every sound calculated, every story part of a grand design. Modern science is only now beginning to decode it.",
+    "cta": "Begin the Discovery",
+    "scroll": "Scroll down"
+  },
+  "mathMiracle": {
+    "badge": "Mathematical Miracle",
+    "title": "The Impossible Balance of Numbers",
+    "intro": "The Quran was revealed over 23 years, piece by piece, in response to different events and circumstances. If a book's chapters were written at different times, in different contexts, could the word counts within it be perfectly balanced by coincidence? Statisticians estimate the probability at less than 1 in 10,000.",
+    "pairs": [
+      {
+        "conceptA": "Life",
+        "countA": 145,
+        "conceptB": "Death",
+        "countB": 145,
+        "note": "Perfect balance"
+      },
+      {
+        "conceptA": "World (Dunya)",
+        "countA": 115,
+        "conceptB": "Hereafter (Akhira)",
+        "countB": 115,
+        "note": "Perfect balance"
+      },
+      {
+        "conceptA": "Angel",
+        "countA": 88,
+        "conceptB": "Satan",
+        "countB": 88,
+        "note": "Perfect balance"
+      },
+      {
+        "conceptA": "Day (yawm)",
+        "countA": 365,
+        "note": "Days in a year"
+      },
+      {
+        "conceptA": "Month (shahr)",
+        "countA": 12,
+        "note": "Months in a year"
+      }
+    ],
+    "seaLand": {
+      "title": "Sea and Land Ratio",
+      "seaLabel": "Sea",
+      "seaCount": 32,
+      "landLabel": "Land",
+      "landCount": 13,
+      "totalLabel": "Total",
+      "ratioNote": "This matches Earth's actual sea-to-land ratio exactly!"
+    },
+    "closing": "These numbers emerge from thousands of verses spread across different chapters, revealed over 23 years. No human could plan this - because no one could know which verse would be revealed when."
+  },
+  "linguisticDNA": {
+    "badge": "Linguistic DNA",
+    "title": "A 1,400-Year-Old Code",
+    "intro": "Twenty-nine chapters of the Quran open with mysterious letters: Alif-Lam-Mim. Ha-Mim. Ya-Sin. No one knows for certain what they mean. A code that has remained unsolved for 1,400 years. But here is what we do know: these 14 letters make up exactly half of the 28-letter Arabic alphabet... and account for 70% of all letters used in the Quran. Even more intriguing: when modern cryptographers examine these letters, they see something familiar - a checksum, a verification code designed to protect data integrity.",
+    "stats": {
+      "letters": {
+        "label": "Unique Letters",
+        "description": "Half of the Arabic alphabet (14 out of 28)"
+      },
+      "suras": {
+        "label": "Chapters",
+        "description": "29 out of 114 chapters begin with these letters"
+      },
+      "coverage": {
+        "label": "Letter Coverage",
+        "description": "Approximately 70% of all Quranic letters consist of these 14 letters"
+      }
+    },
+    "kaf": {
+      "title": "The Mathematics of Sura Qaf",
+      "description": "The letter Qaf (ق) appears exactly 57 times in Sura Qaf. 57 x 2 = 114 - the total number of chapters in the Quran.",
+      "firstHalf": "First Half",
+      "secondHalf": "Second Half",
+      "total": "Total Chapters"
+    },
+    "checksum": {
+      "title": "The Digital Checksum Analogy",
+      "description": "Just as modern digital systems use checksums to protect data integrity, these mysterious letters may serve as a built-in verification mechanism safeguarding the integrity of the Quranic text."
+    },
+    "verse": {
+      "arabic": "الٓمٓ",
+      "translation": "Alif-Lam-Mim.",
+      "reference": "Bakara, 2:1"
+    }
+  },
+  "impossibleRhythm": {
+    "badge": "The Impossible Rhythm",
+    "title": "Neither Poetry Nor Prose",
+    "intro": "In 7th-century Arabia, language existed in two forms: rigid poetry bound to 16 strict meters, or free-form prose. No other category was conceivable. When the Quran arrived, the Arabs were stunned. This text fit none of the 16 meters - yet it was not prose either. It was rhythmic but unmeasured. Disciplined yet free. A form never heard before. Linguists call it sui generis - a category unto itself. The Quran's language created its own genre in the history of literature.",
+    "poetry": "Poetry",
+    "poetryDesc": "Rigid structure bound to 16 strict meters",
+    "quran": "QURAN",
+    "quranDesc": "Rhythmic yet meterless - a form never seen before",
+    "prose": "Prose",
+    "proseDesc": "Free-form, unstructured, without rhythm",
+    "unique": "Unique",
+    "examplesTitle": "Striking Examples",
+    "examples": [
+      {
+        "sura": "Sura An-Najm",
+        "detail": "62 consecutive verses ending with the same sound"
+      },
+      {
+        "sura": "Sura Ad-Duha",
+        "detail": "11 verses, every one ending with '-a'"
+      },
+      {
+        "sura": "Sura Al-Kawthar",
+        "detail": "Just 3 verses, but a rhythm so powerful it silenced poets"
+      }
+    ],
+    "quote": "A rhythm without meter, freedom within discipline."
+  },
+  "soundArchitecture": {
+    "badge": "Sound Architecture",
+    "title": "These Sounds Are No Coincidence",
+    "intro": "Read the verses about punishment and hellfire aloud. You will hear harsh, explosive consonants: ta, qaf, kaf, ta. Your tongue and palate collide. Your body tenses. Now read the verses about paradise and mercy. You will hear soft, flowing sounds: mim, nun, lam, ra. Your breathing eases. Your heart slows.",
+    "punishment": {
+      "title": "Verses of Punishment",
+      "description": "Dominated by harsh, explosive consonants: ta, qaf, kaf, ta. Your tongue and palate collide, your body tenses.",
+      "suraLabel": "Example Sura",
+      "sura": "Sura Al-Muddaththir (warning/punishment)",
+      "barLabel": "Hard Consonant Ratio"
+    },
+    "mercy": {
+      "title": "Verses of Mercy",
+      "description": "Dominated by soft, flowing sounds: mim, nun, lam, ra. Your breathing eases, your heart slows.",
+      "suraLabel": "Example Sura",
+      "sura": "Sura Maryam (mercy/peace)",
+      "barLabel": "Soft Consonant Ratio"
+    },
+    "neuroscience": {
+      "title": "Neuroscientific Evidence",
+      "description": "Modern neuroscience shows that harsh consonants activate the amygdala (the brain's fear center), while soft sounds trigger oxytocin release. fMRI studies have confirmed this."
+    },
+    "closing": "The Quran communicates through sound BEFORE meaning."
+  },
+  "hiddenSymmetry": {
+    "badge": "Hidden Symmetry",
+    "title": "A Mirror Within a Mirror",
+    "intro": "Consider Sura Al-Fatiha. Seven verses. Seems simple. But look at its structure: a perfect mirror symmetry. A-B-C-CENTER-C'-B'-A'. According to Raymond Farrin's research, 70% of the Quran's chapters carry this structure. Known as 'ring composition,' it took centuries to discover.",
+    "fatiha": {
+      "title": "Sura Al-Fatiha",
+      "subtitle": "A-B-C-D-C'-B'-A' Ring Composition",
+      "layers": [
+        {
+          "label": "A — Allah's Name",
+          "text": "Opens with the name of Allah"
+        },
+        {
+          "label": "B — Lord of the Worlds",
+          "text": "Lord of all the worlds"
+        },
+        {
+          "label": "C — The Most Merciful",
+          "text": "The Most Merciful, the Most Compassionate"
+        },
+        {
+          "label": "D — Center Pivot",
+          "text": "Day of Judgment (the center pivot)"
+        },
+        {
+          "label": "C' — Worship",
+          "text": "You alone we worship (response to Mercy)"
+        },
+        {
+          "label": "B' — The Straight Path",
+          "text": "The straight path (response to Lord)"
+        },
+        {
+          "label": "A' — Those Who Received Grace",
+          "text": "Those who received grace (response to Allah's name)"
+        }
+      ]
+    },
+    "stat": {
+      "label": "Ring Composition Rate",
+      "description": "According to Raymond Farrin's research, 70% of the Quran's chapters exhibit this mirror symmetry structure. This structure was unknown in 7th-century Arabic literature."
+    },
+    "closing": "This structure was unknown in 7th-century Arabic literature. Ring composition was only identified through modern literary analysis."
+  },
+  "sevenLayers": {
+    "badge": "Seven Layers",
+    "title": "One Verse, Seven Universes",
+    "intro": "Verse 35 of Sura An-Nur is one of the most extensively interpreted verses in the Quran. Ibn Arabi, Ghazali, Razi - the great scholars wrote volumes on this single verse. Why? Because like light passing through a prism, this verse reveals a different reality from every angle.",
+    "verse": {
+      "arabic": "اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ",
+      "translation": "Allah is the Light of the heavens and the earth...",
+      "reference": "Nur, 24:35"
+    },
+    "layers": [
+      {
+        "number": 1,
+        "title": "Literal (Physical)",
+        "description": "Light, lamp, glass, olive oil - a physical description of illumination"
+      },
+      {
+        "number": 2,
+        "title": "Metaphoric (Spiritual)",
+        "description": "Divine guidance as light piercing through darkness"
+      },
+      {
+        "number": 3,
+        "title": "Cosmological (Scientific)",
+        "description": "Light as the fundamental force of the universe, photons, the electromagnetic spectrum"
+      },
+      {
+        "number": 4,
+        "title": "Epistemological (Philosophical)",
+        "description": "Knowledge as illumination, ignorance as darkness"
+      },
+      {
+        "number": 5,
+        "title": "Psychological (Inner World)",
+        "description": "The inner light of the soul, consciousness, awareness"
+      },
+      {
+        "number": 6,
+        "title": "Mystical (Sufi)",
+        "description": "The Sufi concept of divine light (Nur al-Muhammadi), stages of enlightenment"
+      },
+      {
+        "number": 7,
+        "title": "Theological (Divine)",
+        "description": "Allah as the source of all existence, light beyond light"
+      }
+    ],
+    "closing": "These seven layers demonstrate how deeply multi-dimensional a single verse can be. Each perspective illuminates a different reality."
+  },
+  "scientificSigns": {
+    "badge": "Scientific Signs",
+    "title": "What Science Discovered 1,400 Years Later",
+    "intro": "The Quran is not a book of science. But certain verses point to realities that modern science would not discover for centuries. Here are four striking examples.",
+    "tabs": {
+      "iron": "Iron",
+      "universe": "Universe",
+      "ocean": "Oceans",
+      "embryo": "Embryology"
+    },
+    "factsTitle": "Key Details",
+    "iron": {
+      "title": "The Cosmic Journey of Iron",
+      "content": "The Quran uses a peculiar word for iron: 'sent down' (anzalna). Not 'created' - sent down. In the 7th century, this would have seemed illogical. Iron comes from the ground, found in mines. Why would it be 'sent down'? Modern astrophysics provides the answer: Iron CANNOT form in stars like our Sun. The temperature is insufficient. Iron can only be produced in the supernova explosions of massive stars, then scattered into space. All the iron on Earth arrived from space - via meteorites - billions of years ago. Iron was literally 'sent down.' And one more detail: Sura Al-Hadid (Iron) is the 57th chapter of the Quran. The most common isotope of iron? Fe-57.",
+      "verse": {
+        "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
+        "translation": "We sent down iron, wherein is great might and benefits for humanity.",
+        "reference": "Hadid, 57:25"
+      },
+      "facts": [
+        "Hadid 57:25 - The word 'anzalna' (we sent down) is used specifically for iron",
+        "Iron cannot form in stars like our Sun (insufficient temperature)",
+        "Iron is only produced in supernovae and scattered into space",
+        "All iron on Earth arrived via meteorites billions of years ago",
+        "Sura Al-Hadid = 57th chapter, Fe-57 = most common iron isotope"
+      ]
+    },
+    "universe": {
+      "title": "The Expanding Universe",
+      "content": "In 1929, Edwin Hubble discovered that galaxies are moving away from us. The universe was expanding. This was one of the greatest discoveries in the history of science. The Quran, 1,400 years earlier, states: 'We constructed the heaven with power, and indeed, We are its expander.' The word 'Musi'un' uses the present continuous tense, indicating ongoing expansion. Not a description of a static universe - but an active, continuing expansion. Precisely what Hubble discovered.",
+      "verse": {
+        "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
+        "translation": "We constructed the heaven with power, and indeed, We are its expander.",
+        "reference": "Zariyat, 51:47"
+      },
+      "facts": [
+        "1929: Edwin Hubble discovered the expansion of the universe",
+        "The word 'Musi'un' indicates continuous expansion (present tense)",
+        "In Sura Al-Anbiya 21:30, 'ratq' (joined) and 'fatq' (split apart) - pointing to the Big Bang"
+      ]
+    },
+    "ocean": {
+      "title": "The Ocean Barrier",
+      "content": "Two seas flow side by side, yet they do not mix. An invisible barrier separates them. This is what modern oceanography calls a 'halocline' - a boundary layer caused by differences in salinity. It can be observed at the Strait of Gibraltar, the Bosphorus, and the Red Sea. Jacques Cousteau documented this phenomenon in his films in the 1960s. The Quran describes this with the word 'barzakh' (barrier). Two bodies of water meet but do not 'transgress' upon each other - meaning no sudden mixing occurs. This is the precise definition of a halocline.",
+      "verse": {
+        "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ ﴿١٩﴾ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
+        "translation": "He released the two seas, meeting side by side. Between them is a barrier which they do not transgress.",
+        "reference": "Rahman, 55:19-20"
+      },
+      "facts": [
+        "Halocline: a natural boundary layer caused by differences in salinity",
+        "Observed at the Strait of Gibraltar, the Bosphorus, and the Red Sea",
+        "Jacques Cousteau documented this phenomenon in the 1960s"
+      ]
+    },
+    "embryo": {
+      "title": "Embryology - The Word 'Alaqah'",
+      "content": "The Quran describes the second stage of the human embryo with the word 'alaqah.' This word carries THREE meanings in Arabic - and all three are facts confirmed by modern embryology. In the 7th century, there were no microscopes. The implantation process was invisible to the eye. The embryo measured just 1-2 mm. Where did this knowledge come from?",
+      "meaningsTitle": "Three Meanings of 'Alaqah'",
+      "meanings": [
+        {
+          "term": "A clinging substance",
+          "explanation": "The embryo CLINGS to the uterine wall (implantation, days 6-12)"
+        },
+        {
+          "term": "A blood clot",
+          "explanation": "The early embryo looks like a RED MASS as blood vessels form"
+        },
+        {
+          "term": "A leech",
+          "explanation": "The embryo feeds on the mother's blood and resembles a LEECH in shape (C-shaped, rounded head)"
+        }
+      ],
+      "facts": [
+        "Dr. Keith L. Moore: \"The correlation between Quranic descriptions of the embryo and modern science is remarkable.\"",
+        "The Quran states bones form BEFORE muscles (Mu'minun 23:14) - modern embryology confirms this",
+        "Galen claimed the opposite (muscles first) - the Quran was right"
+      ]
+    }
+  },
+  "historicalProof": {
+    "badge": "Historical Evidence",
+    "title": "Three Stories Confirmed by History",
+    "intro": "For centuries, details in the Quran were dismissed as 'errors.' Modern archaeology and linguistics proved them right. Here are three striking examples.",
+    "pharaoh": {
+      "title": "The Pharaoh's Body",
+      "subtitle": "~1200 BCE — Confirmed in 1881",
+      "content": "Sura Yunus 10:92 - God tells the drowning Pharaoh: 'Today We will preserve your body so that you may be a sign for those who come after you.' A strange promise. The Torah makes no mention of the Pharaoh's body being preserved. It simply says he 'drowned' and closes the story.",
+      "points": [
+        "The Torah is silent about the Pharaoh's body (Exodus 14:28 - just 'drowned')",
+        "1881: 3,000-year-old mummies discovered at Deir el-Bahari",
+        "Ramesses II's mummy is now displayed at the Cairo Egyptian Museum",
+        "Salt crystals found in the body (possible seawater evidence)",
+        "In the 7th century, the existence of these mummies was unknown"
+      ],
+      "verse": {
+        "arabic": "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ آيَةً",
+        "translation": "Today We will preserve your body so that you may be a sign for those who come after you.",
+        "reference": "Yunus, 10:92"
+      }
+    },
+    "haman": {
+      "title": "The Haman Code",
+      "subtitle": "~1300 BCE — Confirmed in 1935",
+      "content": "For centuries, critics claimed the Quran contained an 'error': the name Haman. In the Torah, Haman lives in the Persian Empire (~480 BCE). In the Quran, Haman appears alongside the Pharaoh (~1300 BCE). An 800-year discrepancy!",
+      "points": [
+        "800-year discrepancy between the Torah's Haman and the Quran's Haman",
+        "Rosetta Stone (1799) → Champollion (1822) → Hieroglyphs decoded",
+        "Ranke's encyclopedia (1935): 'Hm-n-h' found in Egyptian records",
+        "Role: overseer of stone workers, construction manager - New Kingdom period",
+        "The Quran describes Haman as a construction official - historically verified"
+      ]
+    },
+    "rome": {
+      "title": "Rome's Impossible Victory",
+      "subtitle": "614-628 CE — Confirmed by historical records",
+      "content": "614 CE: The Sasanian Persians capture Jerusalem. The Byzantine Empire is on the verge of collapse. No one believes Byzantium can recover. At precisely this time, the Quran offers a startling prophecy.",
+      "points": [
+        "'Bid'i sineen' (a few years) = 3-9 years in Arabic",
+        "From 622 to 628 = 6 years - right within the boundaries",
+        "'Adna al-ard' means both 'the nearest land' and 'the lowest land'",
+        "The Dead Sea area: 430 meters below sea level - the lowest point on Earth",
+        "This geographical fact was only discovered in the 19th century"
+      ],
+      "verse": {
+        "arabic": "الم ﴿١﴾ غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
+        "translation": "Alif-Lam-Mim. The Romans have been defeated in the nearest land. But after their defeat, they will triumph within a few years.",
+        "reference": "Rum, 30:1-4"
+      }
+    }
+  },
+  "livingPreservation": {
+    "badge": "Living Preservation",
+    "title": "The Only Unchanged Text on Earth",
+    "intro": "The Quran in Mecca = the Quran in Medina = Istanbul = Cairo = Jakarta. Letter for letter, identical. 1.8 billion Muslims, different denominations, different countries, different languages. Yet they all read the SAME text. Variation: zero.",
+    "counters": {
+      "huffaz": {
+        "label": "Huffaz (Worldwide)",
+        "description": "People who have memorized the entire Quran"
+      },
+      "years": {
+        "label": "Years Preserved",
+        "description": "Continuous preservation period"
+      },
+      "variation": {
+        "label": "Textual Variation",
+        "description": "Zero differences across all copies worldwide"
+      }
+    },
+    "written": {
+      "title": "Written Preservation",
+      "description": "Over 40 scribes during the Prophet's lifetime, the first compilation under Abu Bakr, standardization and distribution to 7 cities under Uthman."
+    },
+    "oral": {
+      "title": "Living Preservation",
+      "description": "Over 10 million huffaz (people who have memorized the entire Quran) worldwide. Each hafiz learned from their teacher, who learned from theirs - an unbroken chain reaching back to the Prophet Muhammad."
+    },
+    "experiment": "A thought experiment: if every written copy of the Quran vanished overnight, huffaz could reconstruct it letter by letter. This is true of no other book in existence.",
+    "birmingham": {
+      "title": "Birmingham Manuscript",
+      "description": "2015: A manuscript at the University of Birmingham was carbon-dated to 568-645 CE - overlapping with the Prophet Muhammad's own lifetime!"
+    }
+  },
+  "zeroRedundancy": {
+    "badge": "Zero Redundancy",
+    "title": "Every Word Carries a Purpose",
+    "intro": "At first glance, the Quran appears to repeat itself. The story of Moses is told in over 30 chapters. But each retelling emphasizes a DIFFERENT aspect. This is not redundancy - it is pedagogical design. Like a textbook: teaching the same subject from different angles.",
+    "mosesTitle": "The Story of Moses - Different Chapters, Different Lessons",
+    "mosesExamples": [
+      {
+        "sura": "Al-Baqara",
+        "theme": "The rebellion of the Israelites (theme of ingratitude)"
+      },
+      {
+        "sura": "Ta-Ha",
+        "theme": "Dialogue with Pharaoh (methodology of invitation)"
+      },
+      {
+        "sura": "Al-Qasas",
+        "theme": "Moses' birth and flight (biographical narrative)"
+      },
+      {
+        "sura": "Ash-Shu'ara",
+        "theme": "Confrontation with the sorcerers (truth versus falsehood)"
+      }
+    ],
+    "stats": {
+      "totalWords": {
+        "label": "Total Words",
+        "value": "77,800",
+        "description": "Total word count in the Quran"
+      },
+      "uniqueRoots": {
+        "label": "Unique Roots",
+        "value": "1,700",
+        "description": "Distinct word roots"
+      },
+      "uniqueWords": {
+        "label": "Unique Words",
+        "value": "14,870",
+        "description": "Non-repeating words"
+      }
+    },
+    "comparisonTitle": "Redundancy Comparison",
+    "comparison": {
+      "quran": {
+        "label": "Quran"
+      },
+      "shakespeare": {
+        "label": "Shakespeare"
+      },
+      "bible": {
+        "label": "Bible (New Testament)"
+      }
+    },
+    "zemahseriQuote": "Every word of the Quran is a treasure. Remove one, and the entire edifice collapses.",
+    "zemahseriAttribution": "Zamakhshari (d. 1144)"
+  },
+  "highlights": {
+    "badge": "Additional Discoveries",
+    "title": "More Discoveries",
+    "scrollHint": "Scroll to discover more",
+    "cards": [
+      {
+        "title": "The Prefrontal Cortex",
+        "content": "The Quran says the liar will be seized by his 'forelock' - the forehead (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (directly behind the forehead) is the center of lying, moral reasoning, and deception. Brain functions were unknown in the 7th century."
+      },
+      {
+        "title": "Fingerprints",
+        "content": "'We are able to restore even his fingertips' (Al-Qiyama 75:4). Why mention fingertips specifically, out of all body parts? In 1892, Sir Francis Galton discovered that every human fingerprint is unique. The probability of two being identical: 1 in 64 billion. They differ even in identical twins."
+      },
+      {
+        "title": "Modular Narrative",
+        "content": "Moses' story is distributed across 30+ chapters in 10 distinct 'blocks.' Each block reads independently, yet together they form a unified whole. Modern cinema calls this 'non-linear narrative.' 1,400 years before Pulp Fiction."
+      },
+      {
+        "title": "The Word Map",
+        "content": "The root for 'faith' (iman): 811 occurrences. The root for 'disbelief' (kufr): 525 occurrences. Ratio: 1.54 - a positive bias. Mercy: 294. Punishment: 343. The root for 'knowledge': 1.1% of all words. The Quran has a richer word distribution than Shakespeare (hapax legomena: 18-20% vs 15%)."
+      },
+      {
+        "title": "Time Flexibility",
+        "content": "In the Quran, future events are described in past tense (Prophetic Perfect) - as though they have already occurred. And past events are narrated in present tense (Historical Present) - as though happening now. The Sleepers of the Cave: 300 solar years = 309 lunar years. The difference is the exact solar-lunar calendar conversion."
+      },
+      {
+        "title": "Iltifat (Shifts in Perspective)",
+        "content": "Sura Al-Fatiha uses 3 different perspectives in just 7 verses: third person (He), second person (You), first person plural (We). In modern literature, this is known as 'polyphonic voice.' Achieving this in 7 verses is unprecedented in literary history."
+      }
+    ]
+  },
+  "conclusion": {
+    "badge": "Conclusion",
+    "title": "Seeing the Invisible",
+    "points": [
+      "Its words carry mathematical balance",
+      "Its sounds guide emotions",
+      "Its structure forms mirror symmetries",
+      "Each verse holds seven layers of meaning",
+      "It pointed to scientific truths 1,400 years in advance",
+      "Its historical details are confirmed by archaeology",
+      "Not a single unnecessary word among its 77,800",
+      "Preserved letter by letter, unchanged for 1,400 years"
+    ],
+    "question": "Could this text be the work of a human being?",
+    "verseIntro": "The Quran asks this very question:",
+    "verse": {
+      "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ ۚ وَلَوْ كَانَ مِنْ عِندِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
+      "translation": "Will they not reflect upon the Quran? If it had been from anyone other than Allah, they would have found within it much contradiction.",
+      "reference": "Nisa, 4:82"
+    }
+  },
+  "footer": {
+    "title": "Quran Codex",
+    "methodology": "A synthesis of linguistic, mathematical, and scientific research on the Holy Quran.",
+    "sourcesTitle": "Sources",
+    "sources": [
+      "Abdel Razek Naufal - Numerical Miracle Research in the Quran",
+      "Raymond Farrin - Structure and Qur'anic Interpretation (2014)",
+      "Corpus Coranicum - Berlin-Brandenburg Academy of Sciences",
+      "Dr. Keith L. Moore - The Developing Human (Embryology)",
+      "Dr. Maurice Bucaille - The Bible, the Quran and Science",
+      "Hermann Ranke - Die agyptischen Personennamen (1935)",
+      "Zamakhshari - Al-Kashshaf (12th century)",
+      "University of Birmingham Quran Manuscript (2015)",
+      "Quranic Arabic Corpus - University of Leeds"
+    ],
+    "copyright": "Quran Codex. All rights reserved."
+  }
+}

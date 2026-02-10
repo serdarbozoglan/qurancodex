@@ -1,0 +1,532 @@
+{
+  "nav": {
+    "logo": "QURAN CODEX",
+    "math": "Sayısal Mucize",
+    "linguistic": "Dilsel DNA",
+    "sounds": "Ses Mimarisi",
+    "science": "Bilimsel İşaretler",
+    "history": "Tarihsel Kanıtlar",
+    "conclusion": "Sonuç"
+  },
+  "hero": {
+    "title": "KUR'AN-I KERİM'İN GÖRÜNMEYEN MİMARİSİ",
+    "subtitle": "Dilbilimsel, Matematiksel ve Bilimsel Kanıtlarla",
+    "description": "1.400 yıllık bir metnin derinliklerinde, çıplak gözle görülemeyen bir düzen yatıyor. Her kelimesi ölçülmüş, her sesi hesaplanmış, her hikayesi bir yapının parçası. Modern bilim bu düzeni çözmeye yeni başlıyor.",
+    "cta": "Keşfe Başla",
+    "scroll": "Aşağı kaydır"
+  },
+  "mathMiracle": {
+    "badge": "Sayısal Mucize",
+    "title": "Sayıların İmkansız Dengesi",
+    "intro": "Kur'an 23 yılda, farklı olaylar üzerine, parça parça nazil oldu. Bir kitabın bölümleri farklı zamanlarda, farklı bağlamlarda yazılsa, içindeki kelimelerin sayısı tesadüfen dengeli olabilir mi? İstatistikçiler bunun olasılığını 10.000'de 1'den az buluyor.",
+    "pairs": [
+      {
+        "conceptA": "Hayat",
+        "countA": 145,
+        "conceptB": "Ölüm",
+        "countB": 145,
+        "note": "Mükemmel denge"
+      },
+      {
+        "conceptA": "Dünya",
+        "countA": 115,
+        "conceptB": "Ahiret",
+        "countB": 115,
+        "note": "Mükemmel denge"
+      },
+      {
+        "conceptA": "Melek",
+        "countA": 88,
+        "conceptB": "Şeytan",
+        "countB": 88,
+        "note": "Mükemmel denge"
+      },
+      {
+        "conceptA": "Gün (yevm)",
+        "countA": 365,
+        "note": "Bir yıldaki gün sayısı"
+      },
+      {
+        "conceptA": "Ay (şehr)",
+        "countA": 12,
+        "note": "Bir yıldaki ay sayısı"
+      }
+    ],
+    "seaLand": {
+      "title": "Deniz ve Kara Oranı",
+      "seaLabel": "Deniz",
+      "seaCount": 32,
+      "landLabel": "Kara",
+      "landCount": 13,
+      "totalLabel": "Toplam",
+      "ratioNote": "Dünya'nın gerçek deniz-kara oranıyla birebir örtüşüyor!"
+    },
+    "closing": "Bu sayılar, farklı surelere, farklı yıllara yayılmış binlerce ayetin içinden çıkıyor. Bir insan bunu planlayamaz - çünkü 23 yıl boyunca hangi ayetin ne zaman ineceğini bilemez."
+  },
+  "linguisticDNA": {
+    "badge": "Dilsel DNA",
+    "title": "1.400 Yıllık Şifre",
+    "intro": "Kur'an'ın 29 suresi gizemli harflerle başlar: Elif-Lâm-Mîm. Hâ-Mîm. Yâ-Sîn. Bu harflerin ne anlama geldiğini kesin olarak kimse bilmiyor. 1.400 yıldır çözülemeyen bir şifre. Ama bildiğimiz şey şu: Bu 14 harf, Arap alfabesinin yarısı... ve Kur'an'daki tüm harflerin %70'ini oluşturuyor. Daha da ilginç olanı: Modern kriptografi bu harflere baktığında tanıdık bir şey görüyor - bir checksum, yani veri bütünlüğünü koruyan bir doğrulama kodu.",
+    "stats": {
+      "letters": {
+        "label": "Benzersiz Harf",
+        "description": "Arap alfabesinin yarısı (28 harfin 14'ü)"
+      },
+      "suras": {
+        "label": "Sure",
+        "description": "114 surenin 29'u bu harflerle başlar"
+      },
+      "coverage": {
+        "label": "Harf Kapsama Oranı",
+        "description": "Kur'an'daki tüm harflerin yaklaşık %70'i bu 14 harften oluşur"
+      }
+    },
+    "kaf": {
+      "title": "Kâf Suresi Matematiği",
+      "description": "Kâf (ق) harfi, Kâf Suresi'nde tam 57 kez geçer. 57 × 2 = 114, yani Kur'an'daki toplam sure sayısı.",
+      "firstHalf": "İlk Yarı",
+      "secondHalf": "İkinci Yarı",
+      "total": "Toplam Sure"
+    },
+    "checksum": {
+      "title": "Dijital Checksum Benzetmesi",
+      "description": "Tıpkı modern dijital sistemlerin veri bütünlüğünü korumak için checksum kullanması gibi, bu gizemli harfler de Kur'an metninin bütünlüğünü koruyan bir doğrulama mekanizması işlevi görüyor olabilir."
+    },
+    "verse": {
+      "arabic": "الٓمٓ",
+      "translation": "Elif-Lâm-Mîm.",
+      "reference": "Bakara, 2:1"
+    }
+  },
+  "impossibleRhythm": {
+    "badge": "İmkansız Ritim",
+    "title": "Ne Şiir, Ne Düzyazı",
+    "intro": "7. yüzyıl Arabistan'ında dil iki kutuptan ibaretti: 16 farklı vezne sahip katı şiir geleneği, ya da serbest düzyazı. Başka bir form düşünülemezdi. Kur'an geldiğinde, Araplar şaşkına döndü. Bu metin 16 vezinden hiçbirine uymuyordu - ama düzyazı da değildi. Ritmiydi ama ölçüsüzdü. Disiplinliydi ama özgürdü. Daha önce hiç duyulmamış bir formdu. Dilbilimciler buna sui generis (eşsiz, benzersiz tür) diyor. Kur'an'ın dili, edebiyat tarihinde kendi kategorisini yarattı.",
+    "poetry": "Şiir",
+    "poetryDesc": "16 farklı vezne bağlı katı yapı",
+    "quran": "KUR'AN",
+    "quranDesc": "Ritmik ama vezinsiz - daha önce görülmemiş bir form",
+    "prose": "Düzyazı",
+    "proseDesc": "Serbest, yapısız, ritimden bağımsız",
+    "unique": "Eşsiz",
+    "examplesTitle": "Çarpıcı Örnekler",
+    "examples": [
+      {
+        "sura": "Necm Suresi",
+        "detail": "62 ardışık ayet, aynı sesle biten"
+      },
+      {
+        "sura": "Duha Suresi",
+        "detail": "11 ayet, her biri '-â' ile biten"
+      },
+      {
+        "sura": "Kevser Suresi",
+        "detail": "Sadece 3 ayet, ama şairleri susturan bir ritim"
+      }
+    ],
+    "quote": "Vezinsiz ama ritmli, serbest ama disiplinli."
+  },
+  "soundArchitecture": {
+    "badge": "Ses Mimarisi",
+    "title": "Sesler Tesadüf Değil",
+    "intro": "Kur'an'da azap ve cehennem anlatan ayetleri yüksek sesle okuyun. Sert, patlayıcı ünsüzler duyarsınız: ت، ق، ك، ط. Diliniz ve damağınız çarpışır. Vücudunuz gerginleşir. Şimdi cennet ve rahmet ayetlerini okuyun. Yumuşak, akıcı sesler duyarsınız: م، ن، ل، ر. Nefes rahatlar. Kalp yavaşlar.",
+    "punishment": {
+      "title": "Azap Ayetleri",
+      "description": "Sert, patlayıcı ünsüzler hakimdir: ت، ق، ك، ط. Diliniz ve damağınız çarpışır, vücudunuz gerginleşir.",
+      "suraLabel": "Örnek Sure",
+      "sura": "Müddessir Suresi (uyarı/azap)",
+      "barLabel": "Sert Ünsüz Oranı"
+    },
+    "mercy": {
+      "title": "Rahmet Ayetleri",
+      "description": "Yumuşak, akıcı sesler hakimdir: م، ن، ل، ر. Nefes rahatlar, kalp yavaşlar.",
+      "suraLabel": "Örnek Sure",
+      "sura": "Meryem Suresi (rahmet/huzur)",
+      "barLabel": "Yumuşak Ünsüz Oranı"
+    },
+    "neuroscience": {
+      "title": "Nörobilimsel Kanıt",
+      "description": "Modern nörobilim, sert ünsüzlerin amigdalayı (korku merkezi) aktive ettiğini, yumuşak seslerin ise oksitosin salgılattığını gösteriyor. fMRI çalışmaları bunu doğruladı."
+    },
+    "closing": "Kur'an, anlamdan ÖNCE sesle iletişim kuruyor."
+  },
+  "hiddenSymmetry": {
+    "badge": "Gizli Simetri",
+    "title": "Ayna İçinde Ayna",
+    "intro": "Fatiha suresini düşünün. 7 ayet. Basit görünür. Ama yapısına bakın: Mükemmel bir ayna simetrisi. A-B-C-MERKEZ-C'-B'-A'. Raymond Farrin'in araştırmasına göre, Kur'an surelerinin %70'i bu yapıyı taşıyor. Bu yapı, 'ring composition' (halka kompozisyon) olarak bilinir ve onu keşfetmek yüzyıllar sürdü.",
+    "fatiha": {
+      "title": "Fatiha Suresi",
+      "subtitle": "A-B-C-D-C'-B'-A' Halka Kompozisyon",
+      "layers": [
+        {
+          "label": "A — Allah'ın İsmi",
+          "text": "Allah'ın ismi ile başlar"
+        },
+        {
+          "label": "B — Alemlerin Rabbi",
+          "text": "Alemlerin Rabbi"
+        },
+        {
+          "label": "C — Rahman ve Rahim",
+          "text": "Rahman ve Rahim"
+        },
+        {
+          "label": "D — Merkez Nokta",
+          "text": "Din Günü (merkez nokta)"
+        },
+        {
+          "label": "C' — Kulluk",
+          "text": "Yalnız sana kulluk (Rahim'e cevap)"
+        },
+        {
+          "label": "B' — Doğru Yol",
+          "text": "Doğru yol (Rabb'e cevap)"
+        },
+        {
+          "label": "A' — Nimet Verilenler",
+          "text": "Nimet verilenler (Allah'ın ismine cevap)"
+        }
+      ]
+    },
+    "stat": {
+      "label": "Halka Kompozisyon Oranı",
+      "description": "Raymond Farrin'in araştırmasına göre Kur'an surelerinin %70'i bu ayna simetrisi yapısını taşıyor. Bu yapı, 7. yüzyıl Arap edebiyatında bilinmiyordu."
+    },
+    "closing": "Bu yapı, 7. yüzyıl Arap edebiyatında bilinmiyordu. Ring composition kavramı, modern edebi analiz ile keşfedildi."
+  },
+  "sevenLayers": {
+    "badge": "Yedi Katman",
+    "title": "Tek Ayet, Yedi Evren",
+    "intro": "Nur Suresi'nin 35. ayeti, Kur'an'ın en çok tefsir edilen ayetlerinden biridir. İbn Arabi, Gazali, Razi - büyük alimler bu tek ayet üzerine ciltler yazmıştır. Neden? Çünkü bu ayet, bir prizmadan geçen ışık gibi, her bakış açısından farklı bir gerçeklik gösterir.",
+    "verse": {
+      "arabic": "اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ",
+      "translation": "Allah, göklerin ve yerin nurudur...",
+      "reference": "Nur, 24:35"
+    },
+    "layers": [
+      {
+        "number": 1,
+        "title": "Fiziksel (Literal)",
+        "description": "Işık, kandil, cam, zeytinyağı - aydınlanmanın fiziksel tasviri"
+      },
+      {
+        "number": 2,
+        "title": "Manevi (Metaforik)",
+        "description": "Karanlığı delen ilahi rehberlik ışığı"
+      },
+      {
+        "number": 3,
+        "title": "Bilimsel (Kozmolojik)",
+        "description": "Evrenin temel kuvveti olarak ışık, fotonlar, elektromanyetik spektrum"
+      },
+      {
+        "number": 4,
+        "title": "Felsefi (Epistemolojik)",
+        "description": "Aydınlanma olarak bilgi, karanlık olarak cehalet"
+      },
+      {
+        "number": 5,
+        "title": "İç Dünya (Psikolojik)",
+        "description": "Ruhun iç ışığı, bilinç, farkındalık"
+      },
+      {
+        "number": 6,
+        "title": "Tasavvufi (Mistik)",
+        "description": "Nur-u Muhammedi kavramı, aydınlanmanın mertebeleri"
+      },
+      {
+        "number": 7,
+        "title": "İlahi (Teolojik)",
+        "description": "Tüm varlığın kaynağı olarak Allah, nurun ötesindeki nur"
+      }
+    ],
+    "closing": "Bu yedi katman, tek bir ayetin ne kadar derin ve çok boyutlu olduğunu gösteriyor. Her bakış açısı, farklı bir gerçekliği aydınlatıyor."
+  },
+  "scientificSigns": {
+    "badge": "Bilimsel İşaretler",
+    "title": "Bilimin 1.400 Yıl Sonra Keşfettikleri",
+    "intro": "Kur'an bir bilim kitabı değildir. Ama bazı ayetleri, modern bilimin yüzyıllar sonra keşfedeceği gerçeklere işaret eder. İşte dört çarpıcı örnek.",
+    "tabs": {
+      "iron": "Demir",
+      "universe": "Evren",
+      "ocean": "Denizler",
+      "embryo": "Embriyoloji"
+    },
+    "factsTitle": "Önemli Detaylar",
+    "iron": {
+      "title": "Demirin Kozmik Yolculuğu",
+      "content": "Kur'an demir için garip bir kelime kullanır: 'indirdik' (enzelnâ). Demiri yarattık değil - indirdik. 7. yüzyılda bu ifade mantıksız görünürdü. Demir yerden çıkar, madenlerde bulunur. Neden 'indirilsin'? Modern astrofizik cevabı veriyor: Demir, Güneş gibi yıldızlarda OLUŞAMAZ. Yeterli sıcaklık yok. Demir ancak dev yıldızların süpernova patlamalarında üretilir ve uzaya saçılır. Dünya'daki tüm demir, milyarlarca yıl önce uzaydan - meteorlarla - gelmiştir. Demir gerçekten 'indirilmiştir.' Ve bir detay daha: Hadid (Demir) Suresi, Kur'an'ın 57. suresidir. Demirin en yaygın izotopu? Fe-57.",
+      "verse": {
+        "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
+        "translation": "Biz demiri indirdik; onda büyük bir güç ve insanlar için faydalar vardır.",
+        "reference": "Hadid, 57:25"
+      },
+      "facts": [
+        "Hadid 57:25 - Demir için özellikle 'enzelnâ' (indirdik) kelimesi kullanılır",
+        "Demir, Güneş gibi yıldızlarda oluşamaz (yetersiz sıcaklık)",
+        "Demir yalnızca süpernovalarda üretilir ve uzaya saçılır",
+        "Dünya'daki tüm demir milyarlarca yıl önce meteorlarla gelmiştir",
+        "Hadid Suresi = 57. sure, Fe-57 = demirin en yaygın izotopu"
+      ]
+    },
+    "universe": {
+      "title": "Genişleyen Evren",
+      "content": "1929'da Edwin Hubble, galaksilerin bizden uzaklaştığını keşfetti. Evren genişliyordu. Bu, bilim tarihinin en büyük keşiflerinden biriydi. Kur'an, 1.400 yıl önce şöyle diyor: 'Göğü biz kudretimizle bina ettik ve şüphesiz onu genişletmekteyiz.' 'Mûsi'ûn' kelimesi, şimdiki zaman kipi ile sürekli genişlemeyi ifade eder. Statik bir evren tanımı değil - aktif, devam eden bir genişleme. Hubble'ın keşfettiğinin ta kendisi.",
+      "verse": {
+        "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
+        "translation": "Göğü kudretimizle bina ettik ve şüphesiz onu genişletmekteyiz.",
+        "reference": "Zariyat, 51:47"
+      },
+      "facts": [
+        "1929: Edwin Hubble evrenin genişlediğini keşfetti",
+        "'Mûsi'ûn' kelimesi sürekli genişlemeyi ifade eder (şimdiki zaman kipi)",
+        "Enbiya 21:30'da 'ratk' (birleşik) ve 'fetk' (ayrılma) - Big Bang'e işaret"
+      ]
+    },
+    "ocean": {
+      "title": "Denizler Bariyeri",
+      "content": "İki deniz yan yana akar, ama karışmaz. Aralarında görünmez bir bariyer vardır. Bu, modern oşinografinin 'halokline' dediği fenomendir - tuzluluk farkından kaynaklanan bir sınır katmanı. Cebelitarık Boğazı'nda, İstanbul Boğazı'nda, Kızıldeniz'de gözlemlenir. Jacques Cousteau 1960'larda bunu filmlerinde belgeledi. Kur'an bu fenomeni 'berzah' (engel, bariyer) kelimesiyle tanımlıyor. İki su kütlesi buluşur ama birbirine 'tecavüz etmez' - yani ani karışma olmaz. Bu, halokline'in tam tanımıdır.",
+      "verse": {
+        "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ ﴿١٩﴾ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
+        "translation": "İki denizi salıverdi, birbirine kavuşuyorlar. Aralarında bir engel (berzah) var, birbirlerine geçmezler.",
+        "reference": "Rahman, 55:19-20"
+      },
+      "facts": [
+        "Halokline: tuzluluk farkından kaynaklanan doğal sınır katmanı",
+        "Cebelitarık Boğazı, İstanbul Boğazı ve Kızıldeniz'de gözlemlenir",
+        "Jacques Cousteau bu fenomeni 1960'larda belgeledi"
+      ]
+    },
+    "embryo": {
+      "title": "Embriyoloji - Alaka Kelimesi",
+      "content": "Kur'an, insan embriyosunun ikinci evresini 'alaka' kelimesiyle tanımlar. Bu kelimenin Arapça'da ÜÇ anlamı var - ve üçü de modern embriyolojinin doğruladığı gerçekler. 7. yüzyılda mikroskop yoktu. İmplantasyon süreci gözle görülemezdi. Embriyo 1-2 mm boyutundaydı. Bu bilgi nereden geldi?",
+      "meaningsTitle": "'Alaka' Kelimesinin Üç Anlamı",
+      "meanings": [
+        {
+          "term": "Yapışan şey",
+          "explanation": "Embriyo, rahim duvarına YAPIŞIR (implantasyon, gün 6-12)"
+        },
+        {
+          "term": "Kan pıhtısı",
+          "explanation": "Erken embriyo, kan damarları oluşurken KIRMIZI BİR KÜTLE gibi görünür"
+        },
+        {
+          "term": "Sülük",
+          "explanation": "Embriyo, annenin kanından beslenir ve şeklen bir SÜLÜĞE benzer (C-şekli, yuvarlak baş)"
+        }
+      ],
+      "facts": [
+        "Dr. Keith L. Moore: \"Kur'an'daki embriyolojik tanımlar ile modern bilim arasındaki uyum çarpıcıdır.\"",
+        "Kur'an kemiklerin kastan ÖNCE oluştuğunu söyler (Mu'minun 23:14) - modern embriyoloji bunu doğrular",
+        "Galen bunun tersini iddia ediyordu (kaslar önce) - Kur'an haklı çıktı"
+      ]
+    }
+  },
+  "historicalProof": {
+    "badge": "Tarihsel Kanıtlar",
+    "title": "Tarihin Doğruladığı Üç Hikaye",
+    "intro": "Yüzyıllar boyunca 'hata' denilen detaylar, modern arkeoloji ve dilbilim tarafından doğrulandı. İşte üç çarpıcı örnek.",
+    "pharaoh": {
+      "title": "Firavun'un Bedeni",
+      "subtitle": "MÖ ~1200 — 1881'de doğrulandı",
+      "content": "Yunus Suresi 10:92 - Allah, Firavun'a boğulurken der ki: 'Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.' Garip bir vaat. Tevrat'ta Firavun'un bedeninden tek kelime bahsedilmez. Sadece 'boğuldu' der, hikayeyi kapatır.",
+      "points": [
+        "Tevrat Firavun'un bedeni hakkında sessiz kalır (Çıkış 14:28 - sadece 'boğuldu')",
+        "1881: Deir el-Bahari'de 3.000 yıllık mumyalar keşfedildi",
+        "Ramses II mumyası bugün Kahire Mısır Müzesi'nde sergileniyor",
+        "Mumyada tuz kristalleri bulundu (deniz suyu kanıtı olabilir)",
+        "7. yüzyılda bu mumyaların varlığı bilinmiyordu"
+      ],
+      "verse": {
+        "arabic": "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ آيَةً",
+        "translation": "Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.",
+        "reference": "Yunus, 10:92"
+      }
+    },
+    "haman": {
+      "title": "Haman Şifresi",
+      "subtitle": "MÖ ~1300 — 1935'te doğrulandı",
+      "content": "Yüzyıllarca eleştirmenler Kur'an'da bir 'hata' olduğunu iddia etti: Haman ismi. Tevrat'ta Haman, Pers İmparatorluğu'nda (MÖ ~480) yaşar. Kur'an'da ise Haman, Firavun'un yanında (MÖ ~1300). 800 yıllık fark!",
+      "points": [
+        "Tevrat'taki Haman ile 800 yıllık tarih farkı",
+        "Rosetta Taşı (1799) → Champollion (1822) → Hiyeroglifler çözüldü",
+        "Ranke'nin ansiklopedisi (1935): Mısır kayıtlarında 'Ḥm-n-ḥ' ismi bulundu",
+        "Görevi: taş işçileri gözetmeni, inşaat sorumlusu - Yeni Krallık dönemi",
+        "Kur'an Haman'ı inşaat sorumlusu olarak tanımlıyor - tarihsel olarak doğrulandı"
+      ]
+    },
+    "rome": {
+      "title": "Roma'nın İmkansız Zaferi",
+      "subtitle": "MS 614-628 — Tarihsel kayıtlarla doğrulandı",
+      "content": "614: Sasani Persler Kudüs'ü ele geçirir. Bizans İmparatorluğu çöküş halindedir. Kimse Bizans'ın toparlanabileceğini düşünmüyor. Tam bu dönemde Kur'an şaşırtıcı bir kehanet sunar.",
+      "points": [
+        "'Bid' sinin' (birkaç yıl) = Arapça'da 3-9 yıl demektir",
+        "622'den 628'e = 6 yıl - tam sınırların içinde",
+        "'Edna el-ard' hem 'en yakın yer' hem 'en alçak yer' anlamına gelir",
+        "Ölü Deniz çevresi: deniz seviyesinden 430 metre aşağıda - dünyanın en alçak kara noktası",
+        "Bu coğrafi gerçek 19. yüzyılda keşfedildi"
+      ],
+      "verse": {
+        "arabic": "الم ﴿١﴾ غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
+        "translation": "Elif-Lâm-Mîm. Rumlar en yakın yerde yenildi. Ama onlar, yenilgilerinden sonra birkaç yıl içinde galip gelecekler.",
+        "reference": "Rum, 30:1-4"
+      }
+    }
+  },
+  "livingPreservation": {
+    "badge": "Yaşayan Koruma",
+    "title": "Dünya Çapında Tek Metin",
+    "intro": "Mekke'deki Kur'an = Medine'deki = İstanbul'daki = Kahire'deki = Jakarta'daki. Harf harf aynı. 1.8 milyar müslüman, farklı mezhep, farklı ülke, farklı dil. Ama hepsi AYNI metni okuyor. Varyasyon: sıfır.",
+    "counters": {
+      "huffaz": {
+        "label": "Hafız (Dünya Çapında)",
+        "description": "Tüm Kur'an'ı ezbere bilen insan sayısı"
+      },
+      "years": {
+        "label": "Yıldır Korunuyor",
+        "description": "Kesintisiz koruma süresi"
+      },
+      "variation": {
+        "label": "Metin Varyasyonu",
+        "description": "Dünya çapındaki tüm nüshalar arasında sıfır fark"
+      }
+    },
+    "written": {
+      "title": "Yazılı Koruma",
+      "description": "Hz. Muhammed döneminde 40'tan fazla katip, Ebu Bekir döneminde ilk derleme, Osman döneminde standartlaştırma ve 7 şehre dağıtım."
+    },
+    "oral": {
+      "title": "Canlı Koruma",
+      "description": "10+ milyon hafız (tüm Kur'an'ı ezbere bilen insan) dünya çapında. Her hafız, hocasından öğrenir, o da kendi hocasından - kesintisiz bir zincir Hz. Muhammed'e kadar uzanır."
+    },
+    "experiment": "Teorik bir deney: Dünyadaki tüm mushaflar bir anda yok olsa, hafızlar Kur'an'ı harf harf yeniden yazabilir. Bu, başka hiçbir kitap için geçerli değildir.",
+    "birmingham": {
+      "title": "Birmingham El Yazması",
+      "description": "2015: Birmingham Üniversitesi'nde bulunan el yazması, karbon-14 testiyle MS 568-645 arasına tarihlendi - Hz. Muhammed'in yaşadığı dönemle örtüşüyor!"
+    }
+  },
+  "zeroRedundancy": {
+    "badge": "Sıfır Gereksizlik",
+    "title": "Her Kelime Bir Görev Taşır",
+    "intro": "İlk bakışta Kur'an tekrar ediyor gibi görünür. Hz. Musa'nın hikayesi 30'dan fazla surede anlatılır. Ama her anlatımda FARKLI bir yön vurgulanır. Bu redundancy (gereksiz tekrar) değil, pedagojik tasarım. Bir ders kitabı gibi: aynı konuyu farklı açılardan öğretmek.",
+    "mosesTitle": "Hz. Musa'nın Hikayesi - Farklı Sureler, Farklı Dersler",
+    "mosesExamples": [
+      {
+        "sura": "Bakara",
+        "theme": "İsrailoğulları'nın isyanı (nankörlük teması)"
+      },
+      {
+        "sura": "Tâ-Hâ",
+        "theme": "Firavun ile diyalog (davet metodolojisi)"
+      },
+      {
+        "sura": "Kasas",
+        "theme": "Musa'nın doğumu ve kaçışı (hayat hikayesi)"
+      },
+      {
+        "sura": "Şuara",
+        "theme": "Büyücülerle mücadele (hakikat-batıl çatışması)"
+      }
+    ],
+    "stats": {
+      "totalWords": {
+        "label": "Toplam Kelime",
+        "value": "77,800",
+        "description": "Kur'an'daki toplam kelime sayısı"
+      },
+      "uniqueRoots": {
+        "label": "Benzersiz Kök",
+        "value": "1,700",
+        "description": "Farklı kelime kökleri"
+      },
+      "uniqueWords": {
+        "label": "Benzersiz Kelime",
+        "value": "14,870",
+        "description": "Tekrar etmeyen kelimeler"
+      }
+    },
+    "comparisonTitle": "Gereksiz Tekrar Karşılaştırması",
+    "comparison": {
+      "quran": {
+        "label": "Kur'an"
+      },
+      "shakespeare": {
+        "label": "Shakespeare"
+      },
+      "bible": {
+        "label": "İncil (Yeni Ahit)"
+      }
+    },
+    "zemahseriQuote": "Kur'an'ın her kelimesi bir hazinedir. Bir kelimeyi çıkarsan, bina çöker.",
+    "zemahseriAttribution": "Zemahşeri (ö. 1144)"
+  },
+  "highlights": {
+    "badge": "Ek Keşifler",
+    "title": "Daha Fazla Keşif",
+    "scrollHint": "Kaydırarak daha fazlasını keşfedin",
+    "cards": [
+      {
+        "title": "Prefrontal Korteks",
+        "content": "Kur'an, yalancıyı 'alnından' yakalayacağını söyler (Alak 96:15-16). Modern nörobilim: prefrontal korteks (alnın hemen arkası) yalan söyleme, ahlaki muhakeme ve aldatma merkezdir. 7. yüzyılda beyin fonksiyonları bilinmiyordu."
+      },
+      {
+        "title": "Parmak İzleri",
+        "content": "'Parmak uçlarını bile düzeltmeye kadiriz' (Kıyamet 75:4). Neden tüm organlar arasında özellikle parmak uçları? 1892'de Sir Francis Galton keşfetti: her insanın parmak izi benzersizdir. İki kişide aynı olma olasılığı: 1/64 milyar. İkizlerde bile farklıdır."
+      },
+      {
+        "title": "Modüler Anlatı",
+        "content": "Hz. Musa'nın hikayesi 10 farklı 'blok' halinde 30+ sureye dağıtılmış. Her blok bağımsız okunabilir, ama birlikte bir bütün oluşturur. Modern sinema buna 'non-linear narrative' diyor. Pulp Fiction'dan 1.400 yıl önce."
+      },
+      {
+        "title": "Kelime Haritası",
+        "content": "İman kökü: 811 kez. Küfür kökü: 525 kez. Oran: 1.54 - pozitif önyargı. Rahmet: 294. Azap: 343. İlim kökü: tüm kelimelerin %1.1'i. Kur'an, Shakespeare'den daha zengin bir kelime dağılımına sahip (hapax legomena: %18-20 vs %15)."
+      },
+      {
+        "title": "Zaman Esnekliği",
+        "content": "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (Prophetic Perfect) - sanki zaten olmuş gibi. Ve geçmiş, şimdiki zamanla anlatılır (Historical Present) - sanki şu an yaşanıyor. Ashab-ı Kehf: 300 güneş yılı = 309 ay yılı. Fark tam olarak güneş-ay takvimi dönüşümü."
+      },
+      {
+        "title": "İltifât (Bakış Açısı Değişimleri)",
+        "content": "Fatiha suresi, sadece 7 ayette 3 farklı bakış açısı kullanır: 3. kişi (O), 2. kişi (Sen), 1. kişi çoğul (Biz). Bu, modern edebiyatta 'polyphonic voice' (çok sesli anlatı) olarak bilinir. 7 ayette yapılması, edebiyat tarihinde benzersizdir."
+      }
+    ]
+  },
+  "conclusion": {
+    "badge": "Sonuç",
+    "title": "Görünmeyeni Görmek",
+    "points": [
+      "Kelimeleri matematiksel denge taşıyor",
+      "Sesleri duyguları yönlendiriyor",
+      "Yapısı ayna simetrisi oluşturuyor",
+      "Her ayeti yedi katmanlı anlam barındırıyor",
+      "Bilimsel gerçeklere 1.400 yıl öncesinden işaret ediyor",
+      "Tarihsel detayları arkeoloji ile doğrulanıyor",
+      "77.800 kelimesinde tek bir gereksiz kelime yok",
+      "1.400 yıldır harf harf değişmeden korunuyor"
+    ],
+    "question": "Bu metin, bir insanın eseri olabilir mi?",
+    "verseIntro": "Kur'an bunu kendisi sorar:",
+    "verse": {
+      "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ ۚ وَلَوْ كَانَ مِنْ عِندِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
+      "translation": "Kur'an'ı düşünüp incelemezler mi? Eğer Allah'tan başkasından olsaydı, onda birçok çelişki bulurlardı.",
+      "reference": "Nisa, 4:82"
+    }
+  },
+  "footer": {
+    "title": "Quran Codex",
+    "methodology": "Kur'an-ı Kerim üzerine yapılan dilbilimsel, matematiksel ve bilimsel araştırmaların bir sentezi.",
+    "sourcesTitle": "Kaynaklar",
+    "sources": [
+      "Abdel Razek Naufal - Kur'an'da Sayısal Mucize Araştırmaları",
+      "Raymond Farrin - Structure and Qur'anic Interpretation (2014)",
+      "Corpus Coranicum - Berlin-Brandenburg Bilimler Akademisi",
+      "Dr. Keith L. Moore - The Developing Human (Embriyoloji)",
+      "Dr. Maurice Bucaille - The Bible, the Quran and Science",
+      "Hermann Ranke - Die ägyptischen Personennamen (1935)",
+      "Zemahşeri - el-Keşşâf (12. yüzyıl)",
+      "Birmingham Üniversitesi Kur'an El Yazması (2015)",
+      "Quranic Arabic Corpus - Leeds Üniversitesi"
+    ],
+    "copyright": "Quran Codex. Tüm hakları saklıdır."
+  }
+}
