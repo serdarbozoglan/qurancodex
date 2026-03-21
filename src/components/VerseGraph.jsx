@@ -1247,11 +1247,12 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
   const label = (tr, en) => language === 'tr' ? tr : en;
 
   return (
-    <div style={{
-      position: 'absolute', left: 0, top: 0, bottom: 0, width: '260px', zIndex: 15,
-      background: 'linear-gradient(to right, rgba(6,8,18,0.97) 80%, transparent)',
-      padding: '72px 20px 24px 20px', overflowY: 'auto', pointerEvents: 'auto',
+    <div className="surah-info-panel" style={{
+      position: 'absolute', left: 0, top: 0, bottom: 0, width: '360px', zIndex: 15,
+      background: 'linear-gradient(to right, rgba(6,8,18,0.97) 85%, transparent)',
+      padding: '72px 24px 24px 24px', overflowY: 'auto', pointerEvents: 'auto',
       display: 'flex', flexDirection: 'column', gap: '20px',
+      scrollbarWidth: 'none', msOverflowStyle: 'none',
     }}>
       {/* Sure ismi + nav okları — sadece FullGraph'ta göster */}
       {showName && (

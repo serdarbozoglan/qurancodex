@@ -48,6 +48,11 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
+/* Sure info panel scrollbar gizle */
+.surah-info-panel::-webkit-scrollbar {
+  display: none;
+}
 ::-webkit-scrollbar-track {
   background: var(--color-cosmic-black);
 }
