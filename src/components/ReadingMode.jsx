@@ -69,7 +69,7 @@ function AudioBar({ surah, ayah, playing, onToggle, language, reciterIdx }) {
 }
 
 // ─── Single verse row ─────────────────────────────────────────────────────────
-function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, language, showTranslation }) {
+function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, language, showTranslation, reciterIdx }) {
   const vt = language === 'tr' ? (cleanTr(verse.turkish) || verse.english) : (verse.english || cleanTr(verse.turkish));
   const gold = '#d4a574';
 
@@ -100,7 +100,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, lang
           playing={audioPlaying}
           onToggle={(e) => { e.stopPropagation(); onAudioToggle(verse); }}
           language={language}
-          reciterIdx={0}
+          reciterIdx={reciterIdx}
         />
       </div>
 
@@ -350,6 +350,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               audioPlaying={playingVerseId === verse.id}
               language={language}
               showTranslation={showTranslation}
+              reciterIdx={reciterIdx}
             />
           </div>
         ))}
