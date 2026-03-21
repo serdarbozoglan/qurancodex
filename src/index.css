@@ -5,8 +5,8 @@
    ============================================ */
 
 @theme {
-  --color-cosmic-black: #0a0a1a;
-  --color-deep-navy: #0d1b2a;
+  --color-cosmic-black: #080a1e;
+  --color-deep-navy: #0c0e28;
   --color-gold: #d4a574;
   --color-royal-gold: #c9a227;
   --color-emerald: #1a7a4c;
@@ -15,9 +15,9 @@
   --color-silver: #94a3b8;
   --color-soft-red: #e74c3c;
   --color-sky-blue: #3498db;
-  --color-glass: rgba(255, 255, 255, 0.05);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
-  --color-glass-strong: rgba(255, 255, 255, 0.08);
+  --color-glass: rgba(255, 245, 220, 0.04);
+  --color-glass-border: rgba(212, 165, 116, 0.12);
+  --color-glass-strong: rgba(255, 245, 220, 0.07);
 
   --font-display: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
@@ -179,8 +179,9 @@ body {
   font-family: var(--font-arabic);
   direction: rtl;
   text-align: right;
-  line-height: 2.2;
+  line-height: 2.4;
   unicode-bidi: bidi-override;
+  font-feature-settings: "calt" 1, "liga" 1;
 }
 
 /* ---- Reduced Motion ---- */

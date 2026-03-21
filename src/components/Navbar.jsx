@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+
+const VerseGraph = lazy(() => import('./VerseGraph'));
 
 const navSections = [
   { id: 'math', key: 'nav.math' },
@@ -15,6 +17,7 @@ export default function Navbar() {
   const { language, toggleLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [graphOpen, setGraphOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -28,6 +31,7 @@ export default function Navbar() {
   };
 
   return (
+    <>
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
@@ -59,6 +63,25 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
+          <button
+            onClick={() => setGraphOpen(true)}
+            className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200 hidden lg:flex items-center gap-2"
+            aria-label={language === 'tr' ? 'Ayet Haritasını Aç' : 'Open Verse Map'}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="2" fill="currentColor" />
+              <circle cx="4" cy="6" r="2" fill="currentColor" />
+              <circle cx="20" cy="6" r="2" fill="currentColor" />
+              <circle cx="4" cy="18" r="2" fill="currentColor" />
+              <circle cx="20" cy="18" r="2" fill="currentColor" />
+              <line x1="12" y1="12" x2="4" y2="6" />
+              <line x1="12" y1="12" x2="20" y2="6" />
+              <line x1="12" y1="12" x2="4" y2="18" />
+              <line x1="12" y1="12" x2="20" y2="18" />
+            </svg>
+            {language === 'tr' ? 'Ayet Haritası' : 'Verse Map'}
+          </button>
+
           <button
             onClick={toggleLanguage}
             className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200"
@@ -112,5 +135,12 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </nav>
+
+    {graphOpen && (
+      <Suspense fallback={null}>
+        <VerseGraph onClose={() => setGraphOpen(false)} />
+      </Suspense>
+    )}
+    </>
   );
 }
