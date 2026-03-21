@@ -241,8 +241,9 @@ export default function DuaVerses({ onClose }) {
   }, []);
 
   const handlePlay = (dua) => {
-    // Stop any currently playing audio
     if (audioRef.current) {
+      audioRef.current.onended = null;
+      audioRef.current.onerror = null;
       audioRef.current.pause();
       audioRef.current = null;
     }
@@ -250,17 +251,31 @@ export default function DuaVerses({ onClose }) {
       setPlayingId(null);
       return;
     }
-    const url = getAudioUrl(dua.surah, dua.ayah);
-    const audio = new Audio(url);
-    audioRef.current = audio;
-    audio.play().catch(() => {});
-    audio.onended = () => setPlayingId(null);
-    audio.onerror = () => setPlayingId(null);
+
+    const endAyah = dua.ayah_end || dua.ayah;
+
+    const playNext = (ayah) => {
+      const audio = new Audio(getAudioUrl(dua.surah, ayah));
+      audioRef.current = audio;
+      audio.play().catch(() => setPlayingId(null));
+      audio.onended = () => {
+        if (ayah < endAyah) {
+          playNext(ayah + 1);
+        } else {
+          setPlayingId(null);
+        }
+      };
+      audio.onerror = () => setPlayingId(null);
+    };
+
+    playNext(dua.ayah);
     setPlayingId(dua.id);
   };
 
   const handleStop = () => {
     if (audioRef.current) {
+      audioRef.current.onended = null;
+      audioRef.current.onerror = null;
       audioRef.current.pause();
       audioRef.current = null;
     }
