@@ -1274,7 +1274,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
             >‹</button>
           )}
-          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2, flex: 1, minWidth: 0 }}>
+          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2, flex: 1, minWidth: 0, textAlign: 'center' }}>
             {surah}. {SURAH_NAMES_TR[surah - 1]}
           </div>
           {onNavigate && (
