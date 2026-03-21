@@ -1349,8 +1349,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
       <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
         {[
           { val: primaryCount, lbl: language === 'tr' ? 'ayet' : 'verses', accent: gold },
-          ...(ghostCount > 0 ? [{ val: ghostCount, lbl: language === 'tr' ? 'dış ayet' : 'ext.', accent: muted }] : []),
-          { val: linkCount, lbl: language === 'tr' ? 'bağlantı' : 'links', accent: gold },
+          { val: linkCount, lbl: language === 'tr' ? 'anlamsal bağ' : 'semantic links', accent: gold },
         ].map(({ val, lbl, accent }, i) => (
           <div key={i} style={{ flex: 1, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '10px', padding: '10px 6px', textAlign: 'center' }}>
             <div style={{ color: accent, fontSize: '1rem', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>{val}</div>
