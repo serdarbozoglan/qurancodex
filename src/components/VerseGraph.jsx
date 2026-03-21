@@ -1351,9 +1351,9 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
           { val: primaryCount, lbl: language === 'tr' ? 'ayet' : 'verses', accent: gold },
           { val: linkCount, lbl: language === 'tr' ? 'anlamsal bağ' : 'semantic links', accent: gold },
         ].map(({ val, lbl, accent }, i) => (
-          <div key={i} style={{ flex: 1, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '10px', padding: '10px 6px', textAlign: 'center' }}>
-            <div style={{ color: accent, fontSize: '1rem', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>{val}</div>
-            <div style={{ color: dim, fontSize: '0.6rem', marginTop: '4px', letterSpacing: '0.04em' }}>{lbl}</div>
+          <div key={i} style={{ flex: 1, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '8px', padding: '5px 6px', textAlign: 'center' }}>
+            <div style={{ color: accent, fontSize: '0.82rem', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>{val}</div>
+            <div style={{ color: dim, fontSize: '0.58rem', marginTop: '3px', letterSpacing: '0.04em' }}>{lbl}</div>
           </div>
         ))}
       </div>
