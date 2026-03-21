@@ -1246,157 +1246,128 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
   const gold = '#d4a574', muted = '#94a3b8', dim = '#64748b';
   const label = (tr, en) => language === 'tr' ? tr : en;
 
+  const navBtn = (disabled) => ({
+    flexShrink: 0, width: '32px', height: '32px', borderRadius: '50%',
+    background: 'transparent',
+    border: `1px solid ${disabled ? 'rgba(212,165,116,0.1)' : 'rgba(212,165,116,0.3)'}`,
+    color: disabled ? 'rgba(212,165,116,0.18)' : gold,
+    cursor: disabled ? 'default' : 'pointer',
+    fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+    transition: 'all 0.2s',
+  });
+
+  const sectionLabel = (tr, en) => (
+    <div style={{ color: '#475569', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '10px' }}>
+      {label(tr, en)}
+    </div>
+  );
+
+  const divider = <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', margin: '0 0 4px 0' }} />;
+
+  const arabicStyle = { fontFamily: "'Amiri', serif", fontSize: '1.05rem', direction: 'rtl', textAlign: 'right', color: gold, opacity: 0.9, lineHeight: 2, display: 'block', marginTop: '6px' };
+
+  const pages = SURAH_PAGES[surah - 1];
+  const [p1, p2] = pages || [null, null];
+  const pageCount = p1 && p2 ? p2 - p1 + 1 : null;
+  const isMedeni = info?.period?.tr === 'Medenî' || info?.period?.en === 'Medinan';
+
+  const primaryCount = graphData.nodes.filter(n => !n.ghost).length;
+  const ghostCount = graphData.nodes.filter(n => n.ghost).length;
+  const linkCount = graphData.links.length;
+
   return (
     <div className="surah-info-panel" style={{
       position: 'absolute', left: 0, top: 0, bottom: 0, width: '360px', zIndex: 15,
-      background: 'linear-gradient(to right, rgba(6,8,18,0.97) 85%, transparent)',
-      padding: '72px 24px 24px 24px', overflowY: 'auto', pointerEvents: 'auto',
-      display: 'flex', flexDirection: 'column', gap: '20px',
+      background: 'linear-gradient(to right, rgba(6,8,18,0.98) 60%, rgba(6,8,18,0.85) 78%, transparent)',
+      padding: '68px 28px 32px 28px', overflowY: 'auto', pointerEvents: 'auto',
+      display: 'flex', flexDirection: 'column', gap: '0',
       scrollbarWidth: 'none', msOverflowStyle: 'none',
     }}>
-      {/* Sure ismi + nav okları — sadece FullGraph'ta göster */}
+
+      {/* ── Sure ismi + nav ── */}
       {showName && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
           {onNavigate && (
-            <button
-              onClick={() => onNavigate(-1)}
-              disabled={surah <= 1}
-              title={language === 'tr' ? 'Önceki sure' : 'Previous surah'}
-              style={{
-                flexShrink: 0, width: '28px', height: '28px', borderRadius: '50%',
-                background: 'transparent',
-                border: `1px solid ${surah <= 1 ? 'rgba(212,165,116,0.1)' : 'rgba(212,165,116,0.35)'}`,
-                color: surah <= 1 ? 'rgba(212,165,116,0.2)' : gold,
-                cursor: surah <= 1 ? 'default' : 'pointer',
-                fontSize: '1rem', lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'background 0.2s, border-color 0.2s',
-              }}
-              onMouseEnter={e => { if (surah > 1) e.currentTarget.style.background = 'rgba(212,165,116,0.12)'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+            <button onClick={() => onNavigate(-1)} disabled={surah <= 1} title={language === 'tr' ? 'Önceki sure' : 'Previous surah'}
+              style={navBtn(surah <= 1)}
+              onMouseEnter={e => { if (surah > 1) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; }}
             >‹</button>
           )}
-          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2, flex: 1, minWidth: 0, textAlign: 'center' }}>
+          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.35rem', fontWeight: 700, lineHeight: 1.2, flex: 1, textAlign: 'center' }}>
             {surah}. {SURAH_NAMES_TR[surah - 1]}
           </div>
           {onNavigate && (
-            <button
-              onClick={() => onNavigate(1)}
-              disabled={surah >= 114}
-              title={language === 'tr' ? 'Sonraki sure' : 'Next surah'}
-              style={{
-                flexShrink: 0, width: '28px', height: '28px', borderRadius: '50%',
-                background: 'transparent',
-                border: `1px solid ${surah >= 114 ? 'rgba(212,165,116,0.1)' : 'rgba(212,165,116,0.35)'}`,
-                color: surah >= 114 ? 'rgba(212,165,116,0.2)' : gold,
-                cursor: surah >= 114 ? 'default' : 'pointer',
-                fontSize: '1rem', lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'background 0.2s, border-color 0.2s',
-              }}
-              onMouseEnter={e => { if (surah < 114) e.currentTarget.style.background = 'rgba(212,165,116,0.12)'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+            <button onClick={() => onNavigate(1)} disabled={surah >= 114} title={language === 'tr' ? 'Sonraki sure' : 'Next surah'}
+              style={navBtn(surah >= 114)}
+              onMouseEnter={e => { if (surah < 114) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; }}
             >›</button>
           )}
         </div>
       )}
 
-      {/* Anlamı */}
+      {/* ── Anlamı ── */}
       {info && (
-        <div style={{ color: muted, fontSize: '0.78rem', marginTop: showName ? 0 : '4px' }}>
-          <span style={{ color: '#64748b', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginRight: '6px' }}>
-            {label('Anlamı', 'Meaning')}
-          </span>
-          <span style={{ fontStyle: 'italic' }}>{label(info.meaning.tr, info.meaning.en)}</span>
+        <div style={{ marginBottom: '16px' }}>
+          <div style={{ color: '#475569', fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>{label('Anlamı', 'Meaning')}</div>
+          <div style={{ color: '#c8c0b4', fontSize: '0.95rem', fontStyle: 'italic', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
+            {label(info.meaning.tr, info.meaning.en)}
+          </div>
         </div>
       )}
 
-      {/* Dönem + Sayfa */}
-      {info && (() => {
-        const pages = SURAH_PAGES[surah - 1];
-        const [p1, p2] = pages || [null, null];
-        const pageCount = p1 && p2 ? p2 - p1 + 1 : null;
-        const pageLabel = p1 === null ? null
-          : p1 === p2
-            ? (language === 'tr' ? `${p1}. sayfa` : `Page ${p1}`)
-            : (language === 'tr' ? `${p1}–${p2}. sayfalar` : `Pages ${p1}–${p2}`);
-        const pageCountLabel = pageCount && pageCount > 1
-          ? (language === 'tr' ? ` · ${pageCount} sayfa` : ` · ${pageCount} pages`)
-          : '';
-        return (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              {(() => {
-                const isMedeni = info.period.tr === 'Medenî' || info.period.en === 'Medinan';
-                const bg = isMedeni ? 'rgba(26,122,76,0.15)' : 'rgba(212,165,116,0.12)';
-                const border = isMedeni ? '1px solid rgba(26,122,76,0.45)' : '1px solid rgba(212,165,116,0.25)';
-                const color = isMedeni ? '#2ecc71' : gold;
-                return (
-                  <span style={{ background: bg, border, borderRadius: '20px', color, fontSize: '0.7rem', padding: '3px 10px', fontWeight: 600 }}>
-                    {label(info.period.tr, info.period.en)}
-                  </span>
-                );
-              })()}
-              <span style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', color: muted, fontSize: '0.7rem', padding: '3px 10px' }}>
-                {language === 'tr' ? `M.S. ${info.period.approx}` : `${info.period.approx} CE`}
-              </span>
-            </div>
-            {pageLabel && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-                <span style={{ color: '#475569', fontSize: '0.62rem', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 600 }}>
-                  {language === 'tr' ? 'Sayfa' : 'Pages'}
-                </span>
-                <span style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: '#94a3b8', fontSize: '0.72rem', padding: '2px 8px', fontVariantNumeric: 'tabular-nums' }}>
-                  {p1 === p2 ? p1 : `${p1} – ${p2}`}
-                </span>
-                {pageCount > 1 && (
-                  <span style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: '#64748b', fontSize: '0.72rem', padding: '2px 8px' }}>
-                    {pageCount} {language === 'tr' ? 'sayfa' : 'pages'}
-                  </span>
-                )}
-              </div>
-            )}
-            {/* Ayet sayısı ve bağlantılar — stat grid */}
-            {(() => {
-              const primaryCount = graphData.nodes.filter(n => !n.ghost).length;
-              const ghostCount = graphData.nodes.filter(n => n.ghost).length;
-              const linkCount = graphData.links.length;
-              const statStyle = {
-                flex: 1, background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(255,255,255,0.07)', borderRadius: '8px',
-                padding: '6px 4px', textAlign: 'center',
-              };
-              return (
-                <div style={{ display: 'flex', gap: '5px' }}>
-                  <div style={statStyle}>
-                    <div style={{ color: gold, fontSize: '0.85rem', fontWeight: 700, lineHeight: 1 }}>{primaryCount}</div>
-                    <div style={{ color: dim, fontSize: '0.6rem', marginTop: '3px' }}>{language === 'tr' ? 'ayet' : 'verses'}</div>
-                  </div>
-                  {ghostCount > 0 && (
-                    <div style={statStyle}>
-                      <div style={{ color: muted, fontSize: '0.85rem', fontWeight: 700, lineHeight: 1 }}>{ghostCount}</div>
-                      <div style={{ color: dim, fontSize: '0.6rem', marginTop: '3px' }}>{language === 'tr' ? 'dış ayet' : 'ext. verses'}</div>
-                    </div>
-                  )}
-                  <div style={statStyle}>
-                    <div style={{ color: gold, fontSize: '0.85rem', fontWeight: 700, lineHeight: 1 }}>{linkCount}</div>
-                    <div style={{ color: dim, fontSize: '0.6rem', marginTop: '3px' }}>{language === 'tr' ? 'bağlantı' : 'connections'}</div>
-                  </div>
-                </div>
-              );
-            })()}
-          </div>
-        );
-      })()}
-
-      {/* Ana Temalar */}
+      {/* ── Dönem + Tarih ── */}
       {info && (
-        <div>
-          <div style={{ color: gold, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.7 }}>
-            {label('Ana Temalar', 'Main Themes')}
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
+          <span style={{
+            background: isMedeni ? 'rgba(26,122,76,0.15)' : 'rgba(212,165,116,0.1)',
+            border: `1px solid ${isMedeni ? 'rgba(26,122,76,0.4)' : 'rgba(212,165,116,0.25)'}`,
+            borderRadius: '20px', color: isMedeni ? '#2ecc71' : gold,
+            fontSize: '0.72rem', padding: '4px 12px', fontWeight: 600,
+          }}>{label(info.period.tr, info.period.en)}</span>
+          <span style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: '20px', color: muted, fontSize: '0.72rem', padding: '4px 12px' }}>
+            {language === 'tr' ? `M.S. ${info.period.approx}` : `${info.period.approx} CE`}
+          </span>
+        </div>
+      )}
+
+      {/* ── Sayfa aralığı ── */}
+      {p1 && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+          <span style={{ color: '#3d4f63', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{language === 'tr' ? 'Sayfa' : 'Pages'}</span>
+          <span style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: '#7a8fa6', fontSize: '0.75rem', padding: '3px 10px', fontVariantNumeric: 'tabular-nums' }}>
+            {p1 === p2 ? p1 : `${p1} – ${p2}`}
+          </span>
+          {pageCount > 1 && (
+            <span style={{ color: '#3d4f63', fontSize: '0.72rem' }}>{pageCount} {language === 'tr' ? 'sayfa' : 'pages'}</span>
+          )}
+        </div>
+      )}
+
+      {/* ── Stat grid ── */}
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
+        {[
+          { val: primaryCount, lbl: language === 'tr' ? 'ayet' : 'verses', accent: gold },
+          ...(ghostCount > 0 ? [{ val: ghostCount, lbl: language === 'tr' ? 'dış ayet' : 'ext.', accent: muted }] : []),
+          { val: linkCount, lbl: language === 'tr' ? 'bağlantı' : 'links', accent: gold },
+        ].map(({ val, lbl, accent }, i) => (
+          <div key={i} style={{ flex: 1, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '10px', padding: '10px 6px', textAlign: 'center' }}>
+            <div style={{ color: accent, fontSize: '1rem', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>{val}</div>
+            <div style={{ color: dim, fontSize: '0.6rem', marginTop: '4px', letterSpacing: '0.04em' }}>{lbl}</div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+        ))}
+      </div>
+
+      {/* ── Ana Temalar ── */}
+      {info && (
+        <div style={{ marginBottom: '20px' }}>
+          {divider}
+          {sectionLabel('Ana Temalar', 'Main Themes')}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             {(language === 'tr' ? info.themes.tr : info.themes.en).map((t, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '7px', color: muted, fontSize: '0.75rem', lineHeight: 1.4 }}>
-                <span style={{ color: gold, opacity: 0.5, flexShrink: 0, marginTop: '1px' }}>◆</span>
+              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#8fa3b8', fontSize: '0.78rem', lineHeight: 1.5 }}>
+                <span style={{ color: gold, opacity: 0.4, flexShrink: 0, marginTop: '3px', fontSize: '0.55rem' }}>◆</span>
                 {t}
               </div>
             ))}
@@ -1404,49 +1375,46 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
         </div>
       )}
 
-      {/* Güçlü Bağlantılar */}
+      {/* ── Güçlü Bağlantılar ── */}
       {topLinks.length > 0 && (
-        <div>
-          <div style={{ color: gold, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.7 }}>
-            {label('Güçlü Bağlantılar', 'Strong Connections')}
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+        <div style={{ marginBottom: '20px' }}>
+          {divider}
+          {sectionLabel('Güçlü Bağlantılar', 'Strong Connections')}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
             {topLinks.map(({ surah: s, count }) => (
-              <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{ flex: 1, background: 'rgba(255,255,255,0.04)', borderRadius: '4px', height: '4px', overflow: 'hidden' }}>
-                  <div style={{ height: '100%', background: gold, opacity: 0.6, width: `${Math.min(100, (count / (topLinks[0]?.count || 1)) * 100)}%` }} />
+              <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ flex: 1, background: 'rgba(255,255,255,0.04)', borderRadius: '4px', height: '3px', overflow: 'hidden' }}>
+                  <div style={{ height: '100%', background: `linear-gradient(to right, ${gold}, rgba(212,165,116,0.4))`, width: `${Math.min(100, (count / (topLinks[0]?.count || 1)) * 100)}%` }} />
                 </div>
-                <span style={{ color: muted, fontSize: '0.7rem', whiteSpace: 'nowrap' }}>{s}. {surahNameTr(s)}</span>
-                <span style={{ color: dim, fontSize: '0.65rem' }}>{count}</span>
+                <span style={{ color: '#8fa3b8', fontSize: '0.72rem', whiteSpace: 'nowrap', minWidth: '90px', textAlign: 'right' }}>{s}. {surahNameTr(s)}</span>
+                <span style={{ color: '#475569', fontSize: '0.68rem', minWidth: '20px', textAlign: 'right' }}>{count}</span>
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* Öne Çıkan Özellikler — notes + fadail birleşik */}
+      {/* ── Öne Çıkan Özellikler ── */}
       {(notes || info?.fadail) && (() => {
         const noteItems = notes ? (language === 'tr' ? notes.tr : notes.en) : [];
         const fadailText = info?.fadail ? label(info.fadail.tr, info.fadail.en) : null;
         const fadailArabic = info?.fadail?.arabic || null;
-        const arabicStyle = { fontFamily: "'Amiri', serif", fontSize: '0.95rem', direction: 'rtl', textAlign: 'right', color: gold, opacity: 0.85, lineHeight: 1.8, display: 'block', marginTop: '4px' };
         return (
           <div>
-            <div style={{ color: gold, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.7 }}>
-              {label('Öne Çıkan Özellikler', 'Notable Facts')}
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            {divider}
+            {sectionLabel('Öne Çıkan Özellikler', 'Notable Facts')}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {fadailText && (
-                <div style={{ borderLeft: '2px solid rgba(212,165,116,0.2)', paddingLeft: '8px', marginBottom: '2px' }}>
-                  <span style={{ color: muted, fontSize: '0.73rem', lineHeight: 1.5, fontStyle: 'italic' }}>{fadailText}</span>
+                <div style={{ borderLeft: '2px solid rgba(212,165,116,0.25)', paddingLeft: '10px', marginBottom: '4px' }}>
+                  <span style={{ color: '#8fa3b8', fontSize: '0.78rem', lineHeight: 1.6, fontStyle: 'italic' }}>{fadailText}</span>
                   {fadailArabic && <span style={arabicStyle}>{fadailArabic}</span>}
                 </div>
               )}
               {noteItems.map((note, i) => {
                 const [noteText, noteArabic] = note.split('||');
                 return (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '7px', color: muted, fontSize: '0.73rem', lineHeight: 1.5 }}>
-                    <span style={{ color: gold, opacity: 0.45, flexShrink: 0, marginTop: '2px', fontSize: '0.6rem' }}>★</span>
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#8fa3b8', fontSize: '0.78rem', lineHeight: 1.6 }}>
+                    <span style={{ color: gold, opacity: 0.5, flexShrink: 0, marginTop: '4px', fontSize: '0.55rem' }}>★</span>
                     <div style={{ flex: 1 }}>
                       {noteText}
                       {noteArabic && <span style={arabicStyle}>{noteArabic}</span>}
