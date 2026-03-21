@@ -1220,7 +1220,7 @@ function linkEndId(endpoint) {
   return typeof endpoint === 'object' ? endpoint.id : endpoint;
 }
 
-function SurahInfoPanel({ surah, language, graphData, showName = false }) {
+function SurahInfoPanel({ surah, language, graphData, showName = false, onNavigate = null }) {
   const [info, setInfo] = useState(null);
   const [notes, setNotes] = useState(null);
   useEffect(() => {
@@ -1253,10 +1253,28 @@ function SurahInfoPanel({ surah, language, graphData, showName = false }) {
       padding: '72px 20px 24px 20px', overflowY: 'auto', pointerEvents: 'auto',
       display: 'flex', flexDirection: 'column', gap: '20px',
     }}>
-      {/* Sure ismi — sadece FullGraph'ta göster */}
+      {/* Sure ismi + nav okları — sadece FullGraph'ta göster */}
       {showName && (
-        <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.3rem', fontWeight: 700, lineHeight: 1.2 }}>
-          {surah}. {SURAH_NAMES_TR[surah - 1]}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {onNavigate && (
+            <button
+              onClick={() => onNavigate(-1)}
+              disabled={surah <= 1}
+              style={{ background: 'none', border: 'none', color: surah <= 1 ? '#2a2a3a' : gold, cursor: surah <= 1 ? 'default' : 'pointer', fontSize: '1rem', padding: '2px 4px', lineHeight: 1, flexShrink: 0 }}
+              title={language === 'tr' ? 'Önceki sure' : 'Previous surah'}
+            >‹</button>
+          )}
+          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2, flex: 1, minWidth: 0 }}>
+            {surah}. {SURAH_NAMES_TR[surah - 1]}
+          </div>
+          {onNavigate && (
+            <button
+              onClick={() => onNavigate(1)}
+              disabled={surah >= 114}
+              style={{ background: 'none', border: 'none', color: surah >= 114 ? '#2a2a3a' : gold, cursor: surah >= 114 ? 'default' : 'pointer', fontSize: '1rem', padding: '2px 4px', lineHeight: 1, flexShrink: 0 }}
+              title={language === 'tr' ? 'Sonraki sure' : 'Next surah'}
+            >›</button>
+          )}
         </div>
       )}
 
@@ -1285,9 +1303,17 @@ function SurahInfoPanel({ surah, language, graphData, showName = false }) {
         return (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              <span style={{ background: 'rgba(212,165,116,0.12)', border: '1px solid rgba(212,165,116,0.25)', borderRadius: '20px', color: gold, fontSize: '0.7rem', padding: '3px 10px', fontWeight: 600 }}>
-                {label(info.period.tr, info.period.en)}
-              </span>
+              {(() => {
+                const isMedeni = info.period.tr === 'Medenî' || info.period.en === 'Medinan';
+                const bg = isMedeni ? 'rgba(59,130,246,0.13)' : 'rgba(212,165,116,0.12)';
+                const border = isMedeni ? '1px solid rgba(59,130,246,0.35)' : '1px solid rgba(212,165,116,0.25)';
+                const color = isMedeni ? '#60a5fa' : gold;
+                return (
+                  <span style={{ background: bg, border, borderRadius: '20px', color, fontSize: '0.7rem', padding: '3px 10px', fontWeight: 600 }}>
+                    {label(info.period.tr, info.period.en)}
+                  </span>
+                );
+              })()}
               <span style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', color: muted, fontSize: '0.7rem', padding: '3px 10px' }}>
                 {language === 'tr' ? `M.S. ${info.period.approx}` : `${info.period.approx} CE`}
               </span>
@@ -1765,7 +1791,10 @@ function FullGraph({ verses, onBack, language }) {
     <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e' }}>
       {/* Sure bilgi paneli — sadece sure filtresi aktifken */}
       {filterSurah && (
-        <SurahInfoPanel surah={filterSurah} language={language} graphData={graphData} showName={true} />
+        <SurahInfoPanel
+          surah={filterSurah} language={language} graphData={graphData} showName={true}
+          onNavigate={(dir) => setFilterSurah(s => Math.max(1, Math.min(114, s + dir)))}
+        />
       )}
 
       {/* Header */}
