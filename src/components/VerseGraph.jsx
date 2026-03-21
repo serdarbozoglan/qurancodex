@@ -1255,25 +1255,25 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
     }}>
       {/* Sure ismi + nav okları — sadece FullGraph'ta göster */}
       {showName && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          {onNavigate && (
-            <button
-              onClick={() => onNavigate(-1)}
-              disabled={surah <= 1}
-              style={{ background: 'none', border: 'none', color: surah <= 1 ? '#2a2a3a' : gold, cursor: surah <= 1 ? 'default' : 'pointer', fontSize: '1rem', padding: '2px 4px', lineHeight: 1, flexShrink: 0 }}
-              title={language === 'tr' ? 'Önceki sure' : 'Previous surah'}
-            >‹</button>
-          )}
-          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2, flex: 1, minWidth: 0 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2 }}>
             {surah}. {SURAH_NAMES_TR[surah - 1]}
           </div>
           {onNavigate && (
-            <button
-              onClick={() => onNavigate(1)}
-              disabled={surah >= 114}
-              style={{ background: 'none', border: 'none', color: surah >= 114 ? '#2a2a3a' : gold, cursor: surah >= 114 ? 'default' : 'pointer', fontSize: '1rem', padding: '2px 4px', lineHeight: 1, flexShrink: 0 }}
-              title={language === 'tr' ? 'Sonraki sure' : 'Next surah'}
-            >›</button>
+            <div style={{ display: 'flex', gap: '6px' }}>
+              <button
+                onClick={() => onNavigate(-1)}
+                disabled={surah <= 1}
+                style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px', color: surah <= 1 ? '#2a2a3a' : gold, cursor: surah <= 1 ? 'default' : 'pointer', fontSize: '1rem', padding: '3px 12px', lineHeight: 1 }}
+                title={language === 'tr' ? 'Önceki sure' : 'Previous surah'}
+              >← {language === 'tr' ? 'Önceki' : 'Prev'}</button>
+              <button
+                onClick={() => onNavigate(1)}
+                disabled={surah >= 114}
+                style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px', color: surah >= 114 ? '#2a2a3a' : gold, cursor: surah >= 114 ? 'default' : 'pointer', fontSize: '1rem', padding: '3px 12px', lineHeight: 1 }}
+                title={language === 'tr' ? 'Sonraki sure' : 'Next surah'}
+              >{language === 'tr' ? 'Sonraki' : 'Next'} →</button>
+            </div>
           )}
         </div>
       )}
