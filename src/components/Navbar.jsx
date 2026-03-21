@@ -130,6 +130,23 @@ export default function Navbar() {
                   {t(key)}
                 </button>
               ))}
+              <button
+                onClick={() => { setGraphOpen(true); setMobileOpen(false); }}
+                className="text-gold hover:text-royal-gold transition-colors text-left py-3 text-sm font-body font-semibold flex items-center gap-2"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="2" fill="currentColor" />
+                  <circle cx="4" cy="6" r="2" fill="currentColor" />
+                  <circle cx="20" cy="6" r="2" fill="currentColor" />
+                  <circle cx="4" cy="18" r="2" fill="currentColor" />
+                  <circle cx="20" cy="18" r="2" fill="currentColor" />
+                  <line x1="12" y1="12" x2="4" y2="6" />
+                  <line x1="12" y1="12" x2="20" y2="6" />
+                  <line x1="12" y1="12" x2="4" y2="18" />
+                  <line x1="12" y1="12" x2="20" y2="18" />
+                </svg>
+                {language === 'tr' ? 'Ayet Haritası' : 'Verse Map'}
+              </button>
             </div>
           </motion.div>
         )}
