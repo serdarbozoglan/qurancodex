@@ -120,7 +120,7 @@ export default function RevelationTimeline({ onClose }) {
       )}
 
       {!loading && orderData && (
-        <div style={{ flex: 1, overflowY: 'auto', padding: '20px' }}>
+        <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden', padding: '20px' }}>
           {/* Legend */}
           <div style={{ display: 'flex', gap: '16px', marginBottom: '16px', fontSize: '0.72rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -185,57 +185,61 @@ export default function RevelationTimeline({ onClose }) {
           )}
 
           {viewMode === 'timeline' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              {/* Period labels */}
-              <div style={{ display: 'flex', gap: '4px', marginBottom: '8px', position: 'sticky', top: 0, background: '#080a1e', padding: '4px 0', zIndex: 1 }}>
-                {[['Mekke Dönemi (~610–622)', '86 sûre'], ['Medine Dönemi (~622–632)', '28 sûre']].map(([label, sub], i) => (
-                  <div key={i} style={{ flex: i === 0 ? '86' : '28', background: `rgba(${i === 0 ? '201,162,39' : '52,152,219'},0.08)`, border: `1px solid rgba(${i === 0 ? '201,162,39' : '52,152,219'},0.2)`, borderRadius: '6px', padding: '6px 10px', textAlign: 'center' }}>
-                    <div style={{ color: i === 0 ? mekiColor : medeniColor, fontSize: '0.72rem', fontWeight: 700 }}>{language === 'tr' ? label.split('(')[0].trim() : (i === 0 ? 'Meccan Period' : 'Medinan Period')}</div>
-                    <div style={{ color: '#4a5568', fontSize: '0.62rem' }}>{sub}</div>
-                  </div>
-                ))}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {/* Horizontal scrollable timeline */}
+              <div style={{ overflowX: 'auto', paddingBottom: '4px' }}>
+                <div style={{ display: 'flex', gap: '3px', alignItems: 'flex-end', minWidth: 'max-content', height: '200px' }}>
+                  {(filter === 'all' ? orderData : displayed).map((s) => {
+                    const ayahCount = AYAH_COUNTS[s.surah - 1] || 10;
+                    const height = Math.max(18, Math.min(180, ayahCount * 0.55));
+                    const isHov = hovered === s.surah;
+                    return (
+                      <div key={s.surah}
+                        onMouseEnter={() => setHovered(s.surah)}
+                        onMouseLeave={() => setHovered(null)}
+                        style={{
+                          width: '16px', flexShrink: 0, height: `${height}px`,
+                          background: isHov
+                            ? periodColor(s.period)
+                            : `rgba(${s.period === 'mekki' ? '201,162,39' : '52,152,219'},${0.25 + (s.rank / 114) * 0.5})`,
+                          borderRadius: '2px 2px 0 0', cursor: 'default', transition: 'background 0.12s',
+                          outline: isHov ? `1px solid ${periodColor(s.period)}` : 'none',
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+                {/* Bottom axis line */}
+                <div style={{ height: '2px', background: 'rgba(255,255,255,0.06)', marginTop: '1px' }} />
               </div>
 
-              {/* Horizontal scrollable timeline */}
-              <div style={{ display: 'flex', gap: '3px', overflowX: 'auto', paddingBottom: '8px' }}>
-                {(filter === 'all' ? orderData : displayed).map((s, i) => {
-                  const name = SURAH_NAMES_TR[s.surah - 1] || `${s.surah}`;
-                  const isHovered = hovered === s.surah;
-                  const ayahCount = AYAH_COUNTS[s.surah - 1] || 10;
-                  const height = Math.max(40, Math.min(180, ayahCount * 0.4));
+              {/* Hover info bar */}
+              <div style={{
+                minHeight: '44px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
+                borderRadius: '8px', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '12px',
+              }}>
+                {hovered ? (() => {
+                  const s = orderData.find(x => x.surah === hovered);
+                  if (!s) return null;
+                  const name = SURAH_NAMES_TR[s.surah - 1];
+                  const ayahCount = AYAH_COUNTS[s.surah - 1] || '?';
+                  const delta = s.surah - s.rank;
                   return (
-                    <div key={s.surah}
-                      onMouseEnter={() => setHovered(s.surah)}
-                      onMouseLeave={() => setHovered(null)}
-                      title={`${s.rank}. ${name} (Sûre ${s.surah}) — ${ayahCount} ayet`}
-                      style={{
-                        width: '18px', flexShrink: 0, alignSelf: 'flex-end',
-                        height: `${height}px`,
-                        background: isHovered
-                          ? periodColor(s.period)
-                          : `rgba(${s.period === 'mekki' ? '201,162,39' : '52,152,219'},${0.3 + (s.rank / 114) * 0.4})`,
-                        borderRadius: '2px 2px 0 0', cursor: 'default', transition: 'all 0.15s',
-                        position: 'relative',
-                      }}
-                    >
-                      {isHovered && (
-                        <div style={{
-                          position: 'absolute', bottom: `${height + 4}px`, left: '50%', transform: 'translateX(-50%)',
-                          background: 'rgba(8,10,22,0.97)', border: '1px solid rgba(212,165,116,0.25)',
-                          borderRadius: '6px', padding: '6px 10px', whiteSpace: 'nowrap', zIndex: 10,
-                          color: gold, fontSize: '0.7rem', fontWeight: 700, pointerEvents: 'none',
-                        }}>
-                          #{s.rank} · {name} (Sûre {s.surah})
-                          <div style={{ color: '#64748b', fontSize: '0.62rem', fontWeight: 400, marginTop: '2px' }}>{ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</div>
-                        </div>
-                      )}
-                    </div>
+                    <>
+                      <span style={{ background: `rgba(${s.period === 'mekki' ? '201,162,39' : '52,152,219'},0.2)`, color: periodColor(s.period), fontSize: '0.65rem', fontWeight: 700, padding: '2px 7px', borderRadius: '4px' }}>#{s.rank}</span>
+                      <span style={{ color: gold, fontWeight: 700, fontSize: '0.85rem' }}>{name}</span>
+                      <span style={{ color: '#64748b', fontSize: '0.72rem' }}>Sûre {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'v.'}</span>
+                      <span style={{ color: periodColor(s.period), fontSize: '0.72rem' }}>{s.period === 'mekki' ? (language === 'tr' ? 'Mekkî' : 'Meccan') : (language === 'tr' ? 'Medenî' : 'Medinan')}</span>
+                      {delta !== 0 && <span style={{ color: '#4a5568', fontSize: '0.65rem', marginLeft: 'auto' }}>{language === 'tr' ? 'Mushaf sırası:' : 'Mushaf pos:'} {delta > 0 ? `▲${delta}` : `▼${Math.abs(delta)}`}</span>}
+                    </>
                   );
-                })}
+                })() : (
+                  <span style={{ color: '#4a5568', fontSize: '0.75rem' }}>{language === 'tr' ? 'Bir sütunun üzerine gelin…' : 'Hover over a bar…'}</span>
+                )}
               </div>
 
               {/* Axis labels */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', color: '#4a5568', fontSize: '0.62rem', paddingTop: '4px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', color: '#4a5568', fontSize: '0.62rem' }}>
                 <span>{language === 'tr' ? '← İlk Vahiy (Alak)' : '← First Revelation (Alaq)'}</span>
                 <span>{language === 'tr' ? 'Son Vahiy (Nasr) →' : 'Last Revelation (Nasr) →'}</span>
               </div>

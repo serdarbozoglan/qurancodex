@@ -50,31 +50,41 @@ const SURAH_NAMES_TR = [
   'El-Mesed','El-İhlâs','El-Felak','En-Nâs',
 ];
 
-// Preset interesting searches
+// Preset interesting searches — includes recurring Quranic formulas
 const PRESETS_TR = [
-  { label: 'Allah', term: 'الله', lang: 'ar' },
-  { label: 'Rahmet', term: 'rahmet', lang: 'tr' },
-  { label: 'Cennet', term: 'cennet', lang: 'tr' },
-  { label: 'Cehennem', term: 'cehennem', lang: 'tr' },
-  { label: 'Sabır', term: 'sabr', lang: 'tr' },
-  { label: 'Hayat', term: 'hayat', lang: 'tr' },
-  { label: 'Ölüm', term: 'ölüm', lang: 'tr' },
-  { label: 'Musa', term: 'musa', lang: 'tr' },
-  { label: 'İsa', term: 'isa', lang: 'tr' },
-  { label: 'İbrahim', term: 'ibrahim', lang: 'tr' },
+  // Kelimeler
+  { label: 'Allah', term: 'الله', group: 'kelime' },
+  { label: 'Rahmet', term: 'rahmet', group: 'kelime' },
+  { label: 'Cennet', term: 'cennet', group: 'kelime' },
+  { label: 'Cehennem', term: 'cehennem', group: 'kelime' },
+  { label: 'Hayat', term: 'hayat', group: 'kelime' },
+  { label: 'Ölüm', term: 'ölüm', group: 'kelime' },
+  { label: 'Hz. Musa', term: 'musa', group: 'kelime' },
+  { label: 'Hz. İbrahim', term: 'ibrahim', group: 'kelime' },
+  // Tekrarlayan Kalıplar (Arapça metinde arama)
+  { label: "Hâliku's-semâvât…", term: 'خالق السموات والارض', group: 'kalıp' },
+  { label: 'Tecrî min tahtihâ…', term: 'تجري من تحتها الانهار', group: 'kalıp' },
+  { label: 'er-Rahmânir-Rahîm', term: 'الرحمن الرحيم', group: 'kalıp' },
+  { label: 'Alîmun Hakîm', term: 'عليم حكيم', group: 'kalıp' },
+  { label: 'Azîzun Hakîm', term: 'عزيز حكيم', group: 'kalıp' },
+  { label: 'Kul hüvallâhu ahad', term: 'قل هو الله احد', group: 'kalıp' },
 ];
 
 const PRESETS_EN = [
-  { label: 'Allah', term: 'الله', lang: 'ar' },
-  { label: 'Mercy', term: 'mercy', lang: 'en' },
-  { label: 'Paradise', term: 'paradise', lang: 'en' },
-  { label: 'Fire', term: 'fire', lang: 'en' },
-  { label: 'Life', term: 'life', lang: 'en' },
-  { label: 'Death', term: 'death', lang: 'en' },
-  { label: 'Moses', term: 'moses', lang: 'en' },
-  { label: 'Jesus', term: 'jesus', lang: 'en' },
-  { label: 'Abraham', term: 'abraham', lang: 'en' },
-  { label: 'Prayer', term: 'prayer', lang: 'en' },
+  { label: 'Allah', term: 'الله', group: 'word' },
+  { label: 'Mercy', term: 'mercy', group: 'word' },
+  { label: 'Paradise', term: 'paradise', group: 'word' },
+  { label: 'Fire', term: 'fire', group: 'word' },
+  { label: 'Life', term: 'life', group: 'word' },
+  { label: 'Death', term: 'death', group: 'word' },
+  { label: 'Moses', term: 'moses', group: 'word' },
+  { label: 'Abraham', term: 'abraham', group: 'word' },
+  // Recurring formulas
+  { label: 'Creator of Heavens & Earth', term: 'خالق السموات والارض', group: 'formula' },
+  { label: 'Rivers flowing beneath', term: 'تجري من تحتها الانهار', group: 'formula' },
+  { label: 'The Most Gracious, Merciful', term: 'الرحمن الرحيم', group: 'formula' },
+  { label: 'All-Knowing, All-Wise', term: 'عليم حكيم', group: 'formula' },
+  { label: 'Almighty, All-Wise', term: 'عزيز حكيم', group: 'formula' },
 ];
 
 // Count per-surah occurrences of a search term
@@ -211,18 +221,33 @@ export default function WordHeatmap({ onClose }) {
           </button>
         </div>
 
-        {/* Presets */}
-        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-          {presets.map(p => (
-            <button key={p.term} onClick={() => handleSearch(p.term)} style={{
-              background: searchTerm === p.term ? 'rgba(212,165,116,0.2)' : 'rgba(255,255,255,0.04)',
-              border: `1px solid ${searchTerm === p.term ? 'rgba(212,165,116,0.4)' : 'rgba(255,255,255,0.08)'}`,
-              borderRadius: '16px', color: searchTerm === p.term ? gold : '#94a3b8',
-              cursor: 'pointer', padding: '4px 12px', fontSize: '0.75rem', transition: 'all 0.15s',
-            }}>
-              {p.label}
-            </button>
-          ))}
+        {/* Presets — grouped */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {[
+            { key: language === 'tr' ? 'kelime' : 'word', label: language === 'tr' ? 'Kelimeler' : 'Words' },
+            { key: language === 'tr' ? 'kalıp' : 'formula', label: language === 'tr' ? 'Tekrarlayan Kalıplar' : 'Recurring Formulas' },
+          ].map(group => {
+            const groupPresets = presets.filter(p => p.group === group.key);
+            if (!groupPresets.length) return null;
+            return (
+              <div key={group.key}>
+                <div style={{ color: '#4a5568', fontSize: '0.63rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>{group.label}</div>
+                <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+                  {groupPresets.map(p => (
+                    <button key={p.term} onClick={() => handleSearch(p.term)} style={{
+                      background: searchTerm === p.term ? 'rgba(212,165,116,0.2)' : 'rgba(255,255,255,0.04)',
+                      border: `1px solid ${searchTerm === p.term ? 'rgba(212,165,116,0.4)' : 'rgba(255,255,255,0.08)'}`,
+                      borderRadius: '14px', color: searchTerm === p.term ? gold : '#94a3b8',
+                      cursor: 'pointer', padding: '3px 10px', fontSize: '0.73rem', transition: 'all 0.15s',
+                      direction: /[\u0600-\u06FF]/.test(p.label) ? 'rtl' : 'ltr',
+                    }}>
+                      {p.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {loading && <div style={{ color: '#64748b', fontSize: '0.85rem', textAlign: 'center', padding: '40px' }}>{language === 'tr' ? 'Yükleniyor...' : 'Loading...'}</div>}
