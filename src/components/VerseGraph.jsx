@@ -1418,6 +1418,8 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
       {(notes || info?.fadail) && (() => {
         const noteItems = notes ? (language === 'tr' ? notes.tr : notes.en) : [];
         const fadailText = info?.fadail ? label(info.fadail.tr, info.fadail.en) : null;
+        const fadailArabic = info?.fadail?.arabic || null;
+        const arabicStyle = { fontFamily: "'Amiri', serif", fontSize: '0.95rem', direction: 'rtl', textAlign: 'right', color: gold, opacity: 0.85, lineHeight: 1.8, display: 'block', marginTop: '4px' };
         return (
           <div>
             <div style={{ color: gold, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.7 }}>
@@ -1425,16 +1427,23 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               {fadailText && (
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '7px', color: muted, fontSize: '0.73rem', lineHeight: 1.5, borderLeft: '2px solid rgba(212,165,116,0.2)', paddingLeft: '8px', fontStyle: 'italic', marginBottom: '2px' }}>
-                  {fadailText}
+                <div style={{ borderLeft: '2px solid rgba(212,165,116,0.2)', paddingLeft: '8px', marginBottom: '2px' }}>
+                  <span style={{ color: muted, fontSize: '0.73rem', lineHeight: 1.5, fontStyle: 'italic' }}>{fadailText}</span>
+                  {fadailArabic && <span style={arabicStyle}>{fadailArabic}</span>}
                 </div>
               )}
-              {noteItems.map((note, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '7px', color: muted, fontSize: '0.73rem', lineHeight: 1.5 }}>
-                  <span style={{ color: gold, opacity: 0.45, flexShrink: 0, marginTop: '2px', fontSize: '0.6rem' }}>★</span>
-                  {note}
-                </div>
-              ))}
+              {noteItems.map((note, i) => {
+                const [noteText, noteArabic] = note.split('||');
+                return (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '7px', color: muted, fontSize: '0.73rem', lineHeight: 1.5 }}>
+                    <span style={{ color: gold, opacity: 0.45, flexShrink: 0, marginTop: '2px', fontSize: '0.6rem' }}>★</span>
+                    <div style={{ flex: 1 }}>
+                      {noteText}
+                      {noteArabic && <span style={arabicStyle}>{noteArabic}</span>}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         );
