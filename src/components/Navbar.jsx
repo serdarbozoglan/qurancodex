@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 const VerseGraph = lazy(() => import('./VerseGraph'));
 const ReadingMode = lazy(() => import('./ReadingMode'));
 const WordHeatmap = lazy(() => import('./WordHeatmap'));
+const RevelationTimeline = lazy(() => import('./RevelationTimeline'));
 
 const navSections = [
   { id: 'math', key: 'nav.math' },
@@ -23,6 +24,8 @@ export default function Navbar() {
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
   const [readingOpen, setReadingOpen] = useState(false);
   const [heatmapOpen, setHeatmapOpen] = useState(false);
+  const [revelationOpen, setRevelationOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -45,6 +48,16 @@ export default function Navbar() {
     const urlVerse = new URLSearchParams(window.location.search).get('verse');
     if (urlVerse) setGraphOpen(true);
   }, []);
+
+  // Close tools dropdown on outside click
+  useEffect(() => {
+    if (!toolsOpen) return;
+    const h = (e) => {
+      if (!e.target.closest('[data-tools-dropdown]')) setToolsOpen(false);
+    };
+    document.addEventListener('mousedown', h);
+    return () => document.removeEventListener('mousedown', h);
+  }, [toolsOpen]);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -83,49 +96,48 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => setGraphOpen(true)}
-            className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200 hidden lg:flex items-center gap-2"
-            aria-label={language === 'tr' ? 'Ayet Haritasını Aç' : 'Open Verse Map'}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="2" fill="currentColor" />
-              <circle cx="4" cy="6" r="2" fill="currentColor" />
-              <circle cx="20" cy="6" r="2" fill="currentColor" />
-              <circle cx="4" cy="18" r="2" fill="currentColor" />
-              <circle cx="20" cy="18" r="2" fill="currentColor" />
-              <line x1="12" y1="12" x2="4" y2="6" />
-              <line x1="12" y1="12" x2="20" y2="6" />
-              <line x1="12" y1="12" x2="4" y2="18" />
-              <line x1="12" y1="12" x2="20" y2="18" />
-            </svg>
-            {language === 'tr' ? 'Ayet Haritası' : 'Verse Map'}
-          </button>
+        <div className="flex items-center gap-3">
+          {/* Tools dropdown */}
+          <div className="relative hidden lg:block" data-tools-dropdown>
+            <button
+              onClick={() => setToolsOpen(p => !p)}
+              className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200 flex items-center gap-2"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="2" fill="currentColor" />
+                <circle cx="4" cy="6" r="2" fill="currentColor" />
+                <circle cx="20" cy="6" r="2" fill="currentColor" />
+                <circle cx="4" cy="18" r="2" fill="currentColor" />
+                <circle cx="20" cy="18" r="2" fill="currentColor" />
+                <line x1="12" y1="12" x2="4" y2="6" />
+                <line x1="12" y1="12" x2="20" y2="6" />
+                <line x1="12" y1="12" x2="4" y2="18" />
+                <line x1="12" y1="12" x2="20" y2="18" />
+              </svg>
+              {language === 'tr' ? 'Keşfet' : 'Explore'}
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
 
-          <button
-            onClick={() => setHeatmapOpen(true)}
-            className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200 hidden lg:flex items-center gap-2"
-            aria-label={language === 'tr' ? 'Kelime Haritası' : 'Word Map'}
-          >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
-            </svg>
-            {language === 'tr' ? 'Kelime' : 'Words'}
-          </button>
-
-          <button
-            onClick={() => setReadingOpen(true)}
-            className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200 hidden lg:flex items-center gap-2"
-            aria-label={language === 'tr' ? 'Okuma Modunu Aç' : 'Open Reading Mode'}
-          >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
-            {language === 'tr' ? 'Okuma' : 'Read'}
-          </button>
+            {toolsOpen && (
+              <div className="absolute right-0 top-full mt-2 w-52 glass-card-strong rounded-xl py-2 z-50"
+                style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.6)', border: '1px solid rgba(212,165,116,0.18)' }}>
+                {[
+                  { label: language === 'tr' ? 'Ayet Haritası' : 'Verse Map', icon: '⬡', action: () => { setGraphOpen(true); setToolsOpen(false); } },
+                  { label: language === 'tr' ? 'Okuma Modu' : 'Reading Mode', icon: '📖', action: () => { setReadingOpen(true); setToolsOpen(false); } },
+                  { label: language === 'tr' ? 'Kelime Haritası' : 'Word Map', icon: '⊞', action: () => { setHeatmapOpen(true); setToolsOpen(false); } },
+                  { label: language === 'tr' ? 'Nüzul Sırası' : 'Revelation Order', icon: '📅', action: () => { setRevelationOpen(true); setToolsOpen(false); } },
+                ].map(item => (
+                  <button key={item.label} onClick={item.action}
+                    className="w-full text-left px-4 py-2.5 text-sm font-body text-silver hover:text-gold hover:bg-white/5 transition-colors flex items-center gap-3">
+                    <span className="text-base">{item.icon}</span>
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
           <button
             onClick={toggleLanguage}
@@ -175,43 +187,23 @@ export default function Navbar() {
                   {t(key)}
                 </button>
               ))}
-              <button
-                onClick={() => { setHeatmapOpen(true); setMobileOpen(false); }}
-                className="text-gold hover:text-royal-gold transition-colors text-left py-3 text-sm font-body font-semibold flex items-center gap-2"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-                  <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
-                </svg>
-                {language === 'tr' ? 'Kelime Haritası' : 'Word Map'}
-              </button>
-              <button
-                onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
-                className="text-gold hover:text-royal-gold transition-colors text-left py-3 text-sm font-body font-semibold flex items-center gap-2"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                </svg>
-                {language === 'tr' ? 'Okuma Modu' : 'Reading Mode'}
-              </button>
-              <button
-                onClick={() => { setGraphOpen(true); setMobileOpen(false); }}
-                className="text-gold hover:text-royal-gold transition-colors text-left py-3 text-sm font-body font-semibold flex items-center gap-2"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="2" fill="currentColor" />
-                  <circle cx="4" cy="6" r="2" fill="currentColor" />
-                  <circle cx="20" cy="6" r="2" fill="currentColor" />
-                  <circle cx="4" cy="18" r="2" fill="currentColor" />
-                  <circle cx="20" cy="18" r="2" fill="currentColor" />
-                  <line x1="12" y1="12" x2="4" y2="6" />
-                  <line x1="12" y1="12" x2="20" y2="6" />
-                  <line x1="12" y1="12" x2="4" y2="18" />
-                  <line x1="12" y1="12" x2="20" y2="18" />
-                </svg>
-                {language === 'tr' ? 'Ayet Haritası' : 'Verse Map'}
-              </button>
+              {/* Tools section in mobile menu */}
+              <div className="border-t border-white/5 pt-2 mt-1">
+                <p className="text-[0.65rem] text-silver/40 uppercase tracking-[0.15em] mb-1 px-0">
+                  {language === 'tr' ? 'Araçlar' : 'Tools'}
+                </p>
+                {[
+                  { label: language === 'tr' ? 'Ayet Haritası' : 'Verse Map', action: () => { setGraphOpen(true); setMobileOpen(false); } },
+                  { label: language === 'tr' ? 'Okuma Modu' : 'Reading Mode', action: () => { setReadingOpen(true); setMobileOpen(false); } },
+                  { label: language === 'tr' ? 'Kelime Haritası' : 'Word Map', action: () => { setHeatmapOpen(true); setMobileOpen(false); } },
+                  { label: language === 'tr' ? 'Nüzul Sırası' : 'Revelation Order', action: () => { setRevelationOpen(true); setMobileOpen(false); } },
+                ].map(item => (
+                  <button key={item.label} onClick={item.action}
+                    className="text-gold hover:text-royal-gold transition-colors text-left py-2.5 text-sm font-body font-semibold w-full">
+                    {item.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
@@ -236,6 +228,12 @@ export default function Navbar() {
     {heatmapOpen && (
       <Suspense fallback={null}>
         <WordHeatmap onClose={() => setHeatmapOpen(false)} />
+      </Suspense>
+    )}
+
+    {revelationOpen && (
+      <Suspense fallback={null}>
+        <RevelationTimeline onClose={() => setRevelationOpen(false)} />
       </Suspense>
     )}
     </>
