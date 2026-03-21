@@ -1255,25 +1255,45 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
     }}>
       {/* Sure ismi + nav okları — sadece FullGraph'ta göster */}
       {showName && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          {onNavigate && (
+            <button
+              onClick={() => onNavigate(-1)}
+              disabled={surah <= 1}
+              title={language === 'tr' ? 'Önceki sure' : 'Previous surah'}
+              style={{
+                flexShrink: 0, width: '28px', height: '28px', borderRadius: '50%',
+                background: 'transparent',
+                border: `1px solid ${surah <= 1 ? 'rgba(212,165,116,0.1)' : 'rgba(212,165,116,0.35)'}`,
+                color: surah <= 1 ? 'rgba(212,165,116,0.2)' : gold,
+                cursor: surah <= 1 ? 'default' : 'pointer',
+                fontSize: '1rem', lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'background 0.2s, border-color 0.2s',
+              }}
+              onMouseEnter={e => { if (surah > 1) e.currentTarget.style.background = 'rgba(212,165,116,0.12)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+            >‹</button>
+          )}
+          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2, flex: 1, minWidth: 0 }}>
             {surah}. {SURAH_NAMES_TR[surah - 1]}
           </div>
           {onNavigate && (
-            <div style={{ display: 'flex', gap: '6px' }}>
-              <button
-                onClick={() => onNavigate(-1)}
-                disabled={surah <= 1}
-                style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px', color: surah <= 1 ? '#2a2a3a' : gold, cursor: surah <= 1 ? 'default' : 'pointer', fontSize: '1rem', padding: '3px 12px', lineHeight: 1 }}
-                title={language === 'tr' ? 'Önceki sure' : 'Previous surah'}
-              >← {language === 'tr' ? 'Önceki' : 'Prev'}</button>
-              <button
-                onClick={() => onNavigate(1)}
-                disabled={surah >= 114}
-                style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px', color: surah >= 114 ? '#2a2a3a' : gold, cursor: surah >= 114 ? 'default' : 'pointer', fontSize: '1rem', padding: '3px 12px', lineHeight: 1 }}
-                title={language === 'tr' ? 'Sonraki sure' : 'Next surah'}
-              >{language === 'tr' ? 'Sonraki' : 'Next'} →</button>
-            </div>
+            <button
+              onClick={() => onNavigate(1)}
+              disabled={surah >= 114}
+              title={language === 'tr' ? 'Sonraki sure' : 'Next surah'}
+              style={{
+                flexShrink: 0, width: '28px', height: '28px', borderRadius: '50%',
+                background: 'transparent',
+                border: `1px solid ${surah >= 114 ? 'rgba(212,165,116,0.1)' : 'rgba(212,165,116,0.35)'}`,
+                color: surah >= 114 ? 'rgba(212,165,116,0.2)' : gold,
+                cursor: surah >= 114 ? 'default' : 'pointer',
+                fontSize: '1rem', lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'background 0.2s, border-color 0.2s',
+              }}
+              onMouseEnter={e => { if (surah < 114) e.currentTarget.style.background = 'rgba(212,165,116,0.12)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+            >›</button>
           )}
         </div>
       )}
