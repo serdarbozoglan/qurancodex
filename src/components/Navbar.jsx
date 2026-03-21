@@ -18,11 +18,22 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [graphOpen, setGraphOpen] = useState(false);
+  const [graphInitialSearch, setGraphInitialSearch] = useState('');
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Listen for openVerseGraph events dispatched from other sections (e.g. MathMiracle)
+  useEffect(() => {
+    const handler = (e) => {
+      setGraphInitialSearch(e.detail?.search || '');
+      setGraphOpen(true);
+    };
+    window.addEventListener('openVerseGraph', handler);
+    return () => window.removeEventListener('openVerseGraph', handler);
   }, []);
 
   const scrollTo = (id) => {
@@ -155,7 +166,10 @@ export default function Navbar() {
 
     {graphOpen && (
       <Suspense fallback={null}>
-        <VerseGraph onClose={() => setGraphOpen(false)} />
+        <VerseGraph
+          onClose={() => { setGraphOpen(false); setGraphInitialSearch(''); }}
+          initialSearch={graphInitialSearch}
+        />
       </Suspense>
     )}
     </>

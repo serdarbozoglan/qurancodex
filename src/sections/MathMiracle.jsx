@@ -3,6 +3,10 @@ import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import AnimatedCounter from '../components/AnimatedCounter';
 
+function openGraphSearch(term) {
+  window.dispatchEvent(new CustomEvent('openVerseGraph', { detail: { search: term } }));
+}
+
 export default function MathMiracle() {
   const { t } = useLanguage();
   const pairs = t('mathMiracle.pairs') || [];
@@ -46,15 +50,20 @@ export default function MathMiracle() {
                 /* Paired concepts */
                 <div className="flex items-center justify-between gap-4">
                   {/* Left concept */}
-                  <div className="flex-1 text-center">
-                    <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body">
+                  <button
+                    onClick={() => pair.searchA && openGraphSearch(pair.searchA)}
+                    className="flex-1 text-center group cursor-pointer hover:opacity-80 transition-opacity bg-transparent border-0 p-0"
+                    title={pair.searchA ? `"${pair.conceptA}" ayetlerini haritada göster` : undefined}
+                  >
+                    <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body group-hover:text-gold transition-colors">
                       {pair.conceptA}
                     </p>
                     <AnimatedCounter
                       target={pair.countA}
                       className="text-3xl md:text-4xl text-gold"
                     />
-                  </div>
+                    {pair.searchA && <p className="text-gold/30 text-[0.6rem] mt-1 font-body group-hover:text-gold/60 transition-colors">↗ haritada ara</p>}
+                  </button>
 
                   {/* Equals sign */}
                   <div className="flex-shrink-0">
@@ -62,27 +71,37 @@ export default function MathMiracle() {
                   </div>
 
                   {/* Right concept */}
-                  <div className="flex-1 text-center">
-                    <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body">
+                  <button
+                    onClick={() => pair.searchB && openGraphSearch(pair.searchB)}
+                    className="flex-1 text-center group cursor-pointer hover:opacity-80 transition-opacity bg-transparent border-0 p-0"
+                    title={pair.searchB ? `"${pair.conceptB}" ayetlerini haritada göster` : undefined}
+                  >
+                    <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body group-hover:text-soft-emerald transition-colors">
                       {pair.conceptB}
                     </p>
                     <AnimatedCounter
                       target={pair.countB}
                       className="text-3xl md:text-4xl text-soft-emerald"
                     />
-                  </div>
+                    {pair.searchB && <p className="text-soft-emerald/30 text-[0.6rem] mt-1 font-body group-hover:text-soft-emerald/60 transition-colors">↗ haritada ara</p>}
+                  </button>
                 </div>
               ) : (
                 /* Single concept */
-                <div className="text-center">
-                  <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body">
+                <button
+                  onClick={() => pair.searchA && openGraphSearch(pair.searchA)}
+                  className="w-full text-center group cursor-pointer hover:opacity-80 transition-opacity bg-transparent border-0 p-0"
+                  title={pair.searchA ? `"${pair.conceptA}" ayetlerini haritada göster` : undefined}
+                >
+                  <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body group-hover:text-gold transition-colors">
                     {pair.conceptA}
                   </p>
                   <AnimatedCounter
                     target={pair.countA}
                     className="text-3xl md:text-4xl text-gold"
                   />
-                </div>
+                  {pair.searchA && <p className="text-gold/30 text-[0.6rem] mt-1 font-body group-hover:text-gold/60 transition-colors">↗ haritada ara</p>}
+                </button>
               )}
 
               {/* Note */}
@@ -104,25 +123,27 @@ export default function MathMiracle() {
           {seaLand.title}
         </h3>
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-6">
-          <div className="text-center">
-            <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body">
+          <button onClick={() => openGraphSearch('deniz')} className="text-center group bg-transparent border-0 p-0 cursor-pointer hover:opacity-80 transition-opacity">
+            <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body group-hover:text-sky-blue transition-colors">
               {seaLand.seaLabel}
             </p>
             <AnimatedCounter
               target={seaLand.seaCount || 32}
               className="text-4xl md:text-5xl text-sky-blue"
             />
-          </div>
+            <p className="text-sky-blue/30 text-[0.6rem] mt-1 font-body group-hover:text-sky-blue/60 transition-colors">↗ haritada ara</p>
+          </button>
           <span className="text-gold/40 text-3xl font-body">+</span>
-          <div className="text-center">
-            <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body">
+          <button onClick={() => openGraphSearch('kara')} className="text-center group bg-transparent border-0 p-0 cursor-pointer hover:opacity-80 transition-opacity">
+            <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body group-hover:text-soft-emerald transition-colors">
               {seaLand.landLabel}
             </p>
             <AnimatedCounter
               target={seaLand.landCount || 13}
               className="text-4xl md:text-5xl text-soft-emerald"
             />
-          </div>
+            <p className="text-soft-emerald/30 text-[0.6rem] mt-1 font-body group-hover:text-soft-emerald/60 transition-colors">↗ haritada ara</p>
+          </button>
           <span className="text-gold/40 text-3xl font-body">=</span>
           <div className="text-center">
             <p className="text-silver text-xs uppercase tracking-[0.2em] mb-2 font-body">

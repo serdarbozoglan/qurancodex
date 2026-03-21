@@ -22,32 +22,40 @@
     "pairs": [
       {
         "conceptA": "Life",
+        "searchA": "hayat",
         "countA": 145,
         "conceptB": "Death",
+        "searchB": "ölüm",
         "countB": 145,
         "note": "Perfect balance"
       },
       {
         "conceptA": "World (Dunya)",
+        "searchA": "dünya",
         "countA": 115,
         "conceptB": "Hereafter (Akhira)",
+        "searchB": "ahiret",
         "countB": 115,
         "note": "Perfect balance"
       },
       {
         "conceptA": "Angel",
+        "searchA": "melek",
         "countA": 88,
         "conceptB": "Satan",
+        "searchB": "şeytan",
         "countB": 88,
         "note": "Perfect balance"
       },
       {
         "conceptA": "Day (yawm)",
+        "searchA": "gün",
         "countA": 365,
         "note": "Days in a year"
       },
       {
         "conceptA": "Month (shahr)",
+        "searchA": "ay",
         "countA": 12,
         "note": "Months in a year"
       }

@@ -22,32 +22,40 @@
     "pairs": [
       {
         "conceptA": "Hayat",
+        "searchA": "hayat",
         "countA": 145,
         "conceptB": "Ölüm",
+        "searchB": "ölüm",
         "countB": 145,
         "note": "Mükemmel denge"
       },
       {
         "conceptA": "Dünya",
+        "searchA": "dünya",
         "countA": 115,
         "conceptB": "Ahiret",
+        "searchB": "ahiret",
         "countB": 115,
         "note": "Mükemmel denge"
       },
       {
         "conceptA": "Melek",
+        "searchA": "melek",
         "countA": 88,
         "conceptB": "Şeytan",
+        "searchB": "şeytan",
         "countB": 88,
         "note": "Mükemmel denge"
       },
       {
         "conceptA": "Gün (yevm)",
+        "searchA": "gün",
         "countA": 365,
         "note": "Bir yıldaki gün sayısı"
       },
       {
         "conceptA": "Ay (şehr)",
+        "searchA": "ay",
         "countA": 12,
         "note": "Bir yıldaki ay sayısı"
       }

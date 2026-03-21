@@ -664,11 +664,11 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
 }
 
 // ─── ClusterView — SVG bubble map ────────────────────────────────────────────
-function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, language, onClose }) {
+function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, language, onClose, initialSearch = '' }) {
   const svgRef = useRef(null);
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 });
   const [hovered, setHovered] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
   const drag = useRef(null);
   const hasInitFit = useRef(false);
   const [viewMode, setViewMode] = useState('semantic'); // 'semantic' | 'classical'
@@ -1992,7 +1992,7 @@ function FullGraph({ verses, onBack, language }) {
 }
 
 // ─── Root: view state machine ─────────────────────────────────────────────────
-export default function VerseGraph({ onClose }) {
+export default function VerseGraph({ onClose, initialSearch = '' }) {
   const { language } = useLanguage();
   const [view, setView] = useState('clusters'); // 'clusters' | 'verses' | '3d'
   const [selectedSurah, setSelectedSurah] = useState(null);
@@ -2046,6 +2046,7 @@ export default function VerseGraph({ onClose }) {
       onSelectSurah={(surah) => { setSelectedSurah(surah); setAutoFocusVerseId(null); setView('verses'); }}
       onSelectVerse={(verse) => { setSelectedSurah(verse.surah); setAutoFocusVerseId(verse.id); setView('verses'); }}
       onClose={onClose}
+      initialSearch={initialSearch}
     />
   );
 
@@ -2068,6 +2069,131 @@ export default function VerseGraph({ onClose }) {
   );
 }
 
+// ─── Audio player for a single verse ─────────────────────────────────────────
+// Uses everyayah.com CDN (free, no API key): 001_001.mp3 → surah 1 ayah 1
+function VerseAudioPlayer({ surah, ayah, language }) {
+  const [playing, setPlaying] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const audioRef = useRef(null);
+
+  const reciters = [
+    { id: 'Mishary_Rashid_Al-Afasy_128kbps', labelTr: 'Meşarî Raşid', labelEn: 'Mishary Alafasy' },
+    { id: 'Abdul_Basit_Murattal_192kbps',   labelTr: 'Abdülbasit',    labelEn: 'Abdul Basit'    },
+    { id: 'Husary_128kbps',                 labelTr: 'Husarî',         labelEn: 'Al-Husary'      },
+  ];
+  const [reciterIdx, setReciterIdx] = useState(0);
+
+  const buildUrl = (rId) => {
+    const s = String(surah).padStart(3, '0');
+    const a = String(ayah).padStart(3, '0');
+    return `https://everyayah.com/data/${rId}/${s}_${a}.mp3`;
+  };
+
+  // Reset when verse changes
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = '';
+    }
+    setPlaying(false);
+    setError(false);
+    setLoading(false);
+  }, [surah, ayah]);
+
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+    if (playing) {
+      audioRef.current.pause();
+      setPlaying(false);
+    } else {
+      setError(false);
+      setLoading(true);
+      audioRef.current.src = buildUrl(reciters[reciterIdx].id);
+      audioRef.current.play().then(() => {
+        setPlaying(true);
+        setLoading(false);
+      }).catch(() => {
+        setError(true);
+        setLoading(false);
+        setPlaying(false);
+      });
+    }
+  };
+
+  const switchReciter = (idx) => {
+    setReciterIdx(idx);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = '';
+    }
+    setPlaying(false);
+    setError(false);
+    setLoading(false);
+  };
+
+  const gold = '#d4a574';
+  const reciter = reciters[reciterIdx];
+
+  return (
+    <div style={{
+      background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.18)',
+      borderRadius: '10px', padding: '12px 14px',
+      display: 'flex', flexDirection: 'column', gap: '8px',
+    }}>
+      <audio ref={audioRef}
+        onEnded={() => setPlaying(false)}
+        onError={() => { setError(true); setLoading(false); setPlaying(false); }}
+      />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        {/* Play / pause button */}
+        <button onClick={togglePlay} style={{
+          width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0,
+          background: playing ? 'rgba(212,165,116,0.25)' : 'rgba(212,165,116,0.12)',
+          border: `1px solid ${playing ? 'rgba(212,165,116,0.6)' : 'rgba(212,165,116,0.3)'}`,
+          color: gold, cursor: 'pointer',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: '0.9rem', transition: 'all 0.2s',
+          boxShadow: playing ? '0 0 12px rgba(212,165,116,0.25)' : 'none',
+        }}>
+          {loading ? <span style={{ fontSize: '0.6rem', color: '#94a3b8' }}>…</span>
+            : playing ? '❙❙' : '▶'}
+        </button>
+
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ color: gold, fontSize: '0.75rem', fontWeight: 600 }}>
+            {language === 'tr' ? reciter.labelTr : reciter.labelEn}
+          </div>
+          <div style={{ color: '#64748b', fontSize: '0.66rem', marginTop: '1px' }}>
+            {error
+              ? (language === 'tr' ? 'Ses yüklenemedi' : 'Could not load audio')
+              : (playing
+                  ? (language === 'tr' ? 'Dinleniyor…' : 'Playing…')
+                  : (language === 'tr' ? 'Tilaveti dinle' : 'Listen to recitation')
+                )
+            }
+          </div>
+        </div>
+
+        {/* Reciter selector */}
+        <div style={{ display: 'flex', gap: '3px' }}>
+          {reciters.map((r, i) => (
+            <button key={r.id} onClick={() => switchReciter(i)} style={{
+              background: reciterIdx === i ? 'rgba(212,165,116,0.2)' : 'transparent',
+              border: `1px solid ${reciterIdx === i ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.12)'}`,
+              borderRadius: '5px', color: reciterIdx === i ? gold : '#64748b',
+              fontSize: '0.58rem', padding: '2px 5px', cursor: 'pointer',
+              whiteSpace: 'nowrap', transition: 'all 0.15s',
+            }}>
+              {language === 'tr' ? r.labelTr : r.labelEn}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Verse detail panel ───────────────────────────────────────────────────────
 function VersePanel({ node, verses, language, onClose, onNavigate }) {
   const [expandedId, setExpandedId] = useState(null);
@@ -2080,6 +2206,17 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
       .map(c => ({ ...c, verse: verses.find(v => v.id === c.id) }))
       .filter(c => c.verse)
       .sort((a, b) => b.score - a.score);
+  }, [node, verses]);
+
+  // Context: previous & next 2 verses in same surah
+  const contextVerses = useMemo(() => {
+    if (!verses) return { prev: [], next: [] };
+    const surahVerses = verses.filter(v => v.surah === node.surah).sort((a, b) => a.ayah - b.ayah);
+    const idx = surahVerses.findIndex(v => v.id === node.id);
+    return {
+      prev: idx > 0 ? surahVerses.slice(Math.max(0, idx - 2), idx) : [],
+      next: idx >= 0 ? surahVerses.slice(idx + 1, idx + 3) : [],
+    };
   }, [node, verses]);
 
   const visibleConnections = showAll ? connections : connections.slice(0, PREVIEW_COUNT);
@@ -2117,6 +2254,50 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
       <div style={{ color: '#c8c5c0', fontSize: '0.92rem', lineHeight: 1.85, borderLeft: '2px solid rgba(212,165,116,0.3)', paddingLeft: '14px' }}>
         {vt(node)}
       </div>
+
+      {/* Audio player */}
+      <VerseAudioPlayer surah={node.surah} ayah={node.ayah} language={language} />
+
+      {/* Context verses */}
+      {(contextVerses.prev.length > 0 || contextVerses.next.length > 0) && (
+        <div>
+          <div style={{ color: '#64748b', fontSize: '0.68rem', fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            {language === 'tr' ? 'Bağlam' : 'Context'}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            {contextVerses.prev.map(v => (
+              <button key={v.id} onClick={() => onNavigate(v.id)} style={{
+                background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)',
+                borderRadius: '7px', padding: '8px 12px', textAlign: 'left', cursor: 'pointer',
+                transition: 'all 0.15s', opacity: 0.65,
+              }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.2)'; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = '0.65'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'; }}>
+                <span style={{ color: '#64748b', fontSize: '0.65rem', marginRight: '6px' }}>{v.id}</span>
+                <span style={{ color: '#94a3b8', fontSize: '0.76rem' }}>{vt(v)?.slice(0, 90)}…</span>
+              </button>
+            ))}
+            {/* Current verse marker */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '2px 12px' }}>
+              <div style={{ height: '1px', flex: 1, background: 'rgba(212,165,116,0.2)' }} />
+              <span style={{ color: '#d4a574', fontSize: '0.65rem', whiteSpace: 'nowrap' }}>◈ {node.id}</span>
+              <div style={{ height: '1px', flex: 1, background: 'rgba(212,165,116,0.2)' }} />
+            </div>
+            {contextVerses.next.map(v => (
+              <button key={v.id} onClick={() => onNavigate(v.id)} style={{
+                background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)',
+                borderRadius: '7px', padding: '8px 12px', textAlign: 'left', cursor: 'pointer',
+                transition: 'all 0.15s', opacity: 0.65,
+              }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.2)'; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = '0.65'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'; }}>
+                <span style={{ color: '#64748b', fontSize: '0.65rem', marginRight: '6px' }}>{v.id}</span>
+                <span style={{ color: '#94a3b8', fontSize: '0.76rem' }}>{vt(v)?.slice(0, 90)}…</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div style={{ height: '1px', background: 'linear-gradient(to right, rgba(212,165,116,0.15), transparent)' }} />
 
