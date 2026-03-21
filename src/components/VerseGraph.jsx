@@ -1339,9 +1339,18 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
               </span>
             </div>
             {pageLabel && (
-              <div style={{ color: '#64748b', fontSize: '0.7rem' }}>
-                <span style={{ marginRight: '4px' }}>📖</span>
-                {pageLabel}{pageCountLabel}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
+                <span style={{ color: '#475569', fontSize: '0.62rem', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 600 }}>
+                  {language === 'tr' ? 'Sayfa' : 'Pages'}
+                </span>
+                <span style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: '#94a3b8', fontSize: '0.72rem', padding: '2px 8px', fontVariantNumeric: 'tabular-nums' }}>
+                  {p1 === p2 ? p1 : `${p1} – ${p2}`}
+                </span>
+                {pageCount > 1 && (
+                  <span style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: '#64748b', fontSize: '0.72rem', padding: '2px 8px' }}>
+                    {pageCount} {language === 'tr' ? 'sayfa' : 'pages'}
+                  </span>
+                )}
               </div>
             )}
             {/* Ayet sayısı ve bağlantılar — stat grid */}
