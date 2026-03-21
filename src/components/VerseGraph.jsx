@@ -1578,11 +1578,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
           ← {language === 'tr' ? 'Sûre Haritası' : 'Surahs'}
         </button>
 
-        <div style={{ flex: 1 }}>
-          <span style={{ fontFamily: 'Playfair Display, serif', color: '#d4a574', fontSize: '1.05rem', fontWeight: 700 }}>
-            {surah}. {surahNameTr(surah)}
-          </span>
-        </div>
+        <div style={{ flex: 1 }} />
 
         <button onClick={onOpenFull3D}
           style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#d4a574', padding: '6px 12px', fontSize: '0.78rem', cursor: 'pointer' }}>
