@@ -141,11 +141,13 @@ function DuaCard({ dua, language, isPlaying, onPlay, onStop }) {
       <div style={{
         fontFamily: "'Amiri', serif",
         fontSize: '1.5rem',
-        lineHeight: 2,
+        lineHeight: 2.2,
         color: gold,
         textAlign: 'right',
         direction: 'rtl',
         letterSpacing: '0.02em',
+        padding: '6px 0 4px',
+        overflow: 'visible',
       }}>
         {dua.arabic}
       </div>
