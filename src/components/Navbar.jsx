@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const VerseGraph = lazy(() => import('./VerseGraph'));
+const ReadingMode = lazy(() => import('./ReadingMode'));
 
 const navSections = [
   { id: 'math', key: 'nav.math' },
@@ -19,6 +20,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [graphOpen, setGraphOpen] = useState(false);
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
+  const [readingOpen, setReadingOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -94,6 +96,18 @@ export default function Navbar() {
           </button>
 
           <button
+            onClick={() => setReadingOpen(true)}
+            className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200 hidden lg:flex items-center gap-2"
+            aria-label={language === 'tr' ? 'Okuma Modunu Aç' : 'Open Reading Mode'}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+            {language === 'tr' ? 'Okuma' : 'Read'}
+          </button>
+
+          <button
             onClick={toggleLanguage}
             className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200"
             aria-label={`Switch to ${language === 'tr' ? 'English' : 'Turkish'}`}
@@ -142,6 +156,16 @@ export default function Navbar() {
                 </button>
               ))}
               <button
+                onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
+                className="text-gold hover:text-royal-gold transition-colors text-left py-3 text-sm font-body font-semibold flex items-center gap-2"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+                {language === 'tr' ? 'Okuma Modu' : 'Reading Mode'}
+              </button>
+              <button
                 onClick={() => { setGraphOpen(true); setMobileOpen(false); }}
                 className="text-gold hover:text-royal-gold transition-colors text-left py-3 text-sm font-body font-semibold flex items-center gap-2"
               >
@@ -170,6 +194,12 @@ export default function Navbar() {
           onClose={() => { setGraphOpen(false); setGraphInitialSearch(''); }}
           initialSearch={graphInitialSearch}
         />
+      </Suspense>
+    )}
+
+    {readingOpen && (
+      <Suspense fallback={null}>
+        <ReadingMode onClose={() => setReadingOpen(false)} />
       </Suspense>
     )}
     </>
