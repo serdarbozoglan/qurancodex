@@ -1325,9 +1325,9 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               {(() => {
                 const isMedeni = info.period.tr === 'Medenî' || info.period.en === 'Medinan';
-                const bg = isMedeni ? 'rgba(59,130,246,0.13)' : 'rgba(212,165,116,0.12)';
-                const border = isMedeni ? '1px solid rgba(59,130,246,0.35)' : '1px solid rgba(212,165,116,0.25)';
-                const color = isMedeni ? '#60a5fa' : gold;
+                const bg = isMedeni ? 'rgba(26,122,76,0.15)' : 'rgba(212,165,116,0.12)';
+                const border = isMedeni ? '1px solid rgba(26,122,76,0.45)' : '1px solid rgba(212,165,116,0.25)';
+                const color = isMedeni ? '#2ecc71' : gold;
                 return (
                   <span style={{ background: bg, border, borderRadius: '20px', color, fontSize: '0.7rem', padding: '3px 10px', fontWeight: 600 }}>
                     {label(info.period.tr, info.period.en)}
