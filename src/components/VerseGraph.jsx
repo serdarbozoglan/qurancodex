@@ -1504,12 +1504,11 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
           if (node && graphRef.current) {
             setSelected(node);
             setFocusedNodeId(node.id);
-            // zoomToFit fires via focusedSet useEffect below
             return;
           }
         }
-        graphRef.current?.zoomToFit(800, 60, node => !node.ghost);
-      }, 300);
+        graphRef.current?.zoomToFit(800, 80, node => !node.ghost);
+      }, 800);
     }
   }, [graphData, autoFocusVerseId]);
 
@@ -2052,6 +2051,7 @@ export default function VerseGraph({ onClose }) {
 
   if (view === 'verses') return (
     <VerseView
+      key={selectedSurah}
       verses={verses} surah={selectedSurah} language={language}
       autoFocusVerseId={autoFocusVerseId}
       onBack={() => { setAutoFocusVerseId(null); setView('clusters'); }}
