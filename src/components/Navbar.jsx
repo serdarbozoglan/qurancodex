@@ -6,6 +6,7 @@ const VerseGraph = lazy(() => import('./VerseGraph'));
 const ReadingMode = lazy(() => import('./ReadingMode'));
 const WordHeatmap = lazy(() => import('./WordHeatmap'));
 const RevelationTimeline = lazy(() => import('./RevelationTimeline'));
+const DuaVerses = lazy(() => import('./DuaVerses'));
 
 const navSections = [
   { id: 'math', key: 'nav.math' },
@@ -26,6 +27,7 @@ export default function Navbar() {
   const [heatmapOpen, setHeatmapOpen] = useState(false);
   const [revelationOpen, setRevelationOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
+  const [duaOpen, setDuaOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -128,6 +130,7 @@ export default function Navbar() {
                   { label: language === 'tr' ? 'Okuma Modu' : 'Reading Mode', icon: '📖', action: () => { setReadingOpen(true); setToolsOpen(false); } },
                   { label: language === 'tr' ? 'Kelime Haritası' : 'Word Map', icon: '⊞', action: () => { setHeatmapOpen(true); setToolsOpen(false); } },
                   { label: language === 'tr' ? 'Nüzul Sırası' : 'Revelation Order', icon: '📅', action: () => { setRevelationOpen(true); setToolsOpen(false); } },
+                  { label: language === 'tr' ? 'Dua Ayetleri' : 'Prayer Verses', icon: '🤲', action: () => { setDuaOpen(true); setToolsOpen(false); } },
                 ].map(item => (
                   <button key={item.label} onClick={item.action}
                     className="w-full text-left px-4 py-2.5 text-sm font-body text-silver hover:text-gold hover:bg-white/5 transition-colors flex items-center gap-3">
@@ -197,6 +200,7 @@ export default function Navbar() {
                   { label: language === 'tr' ? 'Okuma Modu' : 'Reading Mode', action: () => { setReadingOpen(true); setMobileOpen(false); } },
                   { label: language === 'tr' ? 'Kelime Haritası' : 'Word Map', action: () => { setHeatmapOpen(true); setMobileOpen(false); } },
                   { label: language === 'tr' ? 'Nüzul Sırası' : 'Revelation Order', action: () => { setRevelationOpen(true); setMobileOpen(false); } },
+                  { label: language === 'tr' ? 'Dua Ayetleri' : 'Prayer Verses', action: () => { setDuaOpen(true); setMobileOpen(false); } },
                 ].map(item => (
                   <button key={item.label} onClick={item.action}
                     className="text-gold hover:text-royal-gold transition-colors text-left py-2.5 text-sm font-body font-semibold w-full">
@@ -234,6 +238,12 @@ export default function Navbar() {
     {revelationOpen && (
       <Suspense fallback={null}>
         <RevelationTimeline onClose={() => setRevelationOpen(false)} />
+      </Suspense>
+    )}
+
+    {duaOpen && (
+      <Suspense fallback={null}>
+        <DuaVerses onClose={() => setDuaOpen(false)} />
       </Suspense>
     )}
     </>
