@@ -1396,8 +1396,17 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
       {/* ── Öne Çıkan Özellikler ── */}
       {(notes || info?.fadail) && (() => {
         const noteItems = notes ? (language === 'tr' ? notes.tr : notes.en) : [];
-        const fadailText = info?.fadail ? label(info.fadail.tr, info.fadail.en) : null;
-        const fadailArabic = info?.fadail?.arabic || null;
+        const fadailRaw = info?.fadail ? label(info.fadail.tr, info.fadail.en) : null;
+        const [fadailText, fadailArabicInline] = fadailRaw ? fadailRaw.split('||') : [null, null];
+        const fadailArabic = fadailArabicInline || info?.fadail?.arabic || null;
+        const renderWithArabic = (text) => {
+          const parts = text.split(/([\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]+)/g);
+          return parts.map((part, j) =>
+            /[\u0600-\u06FF]/.test(part)
+              ? <span key={j} style={{ fontFamily: "'Amiri', serif", color: gold, fontWeight: 700, fontSize: '0.88rem', direction: 'rtl', unicodeBidi: 'embed' }}>{part}</span>
+              : part
+          );
+        };
         return (
           <div>
             {divider}
@@ -1405,21 +1414,12 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {fadailText && (
                 <div style={{ borderLeft: '2px solid rgba(212,165,116,0.25)', paddingLeft: '10px', marginBottom: '4px' }}>
-                  <span style={{ color: '#8fa3b8', fontSize: '0.78rem', lineHeight: 1.6, fontStyle: 'italic' }}>{fadailText}</span>
+                  <span style={{ color: '#8fa3b8', fontSize: '0.78rem', lineHeight: 1.6, fontStyle: 'italic' }}>{renderWithArabic(fadailText)}</span>
                   {fadailArabic && <span style={arabicStyle}>{fadailArabic}</span>}
                 </div>
               )}
               {noteItems.map((note, i) => {
                 const [noteText, noteArabic] = note.split('||');
-                // Satır içi Arapça karakterleri altın renk + Amiri ile render et
-                const renderWithArabic = (text) => {
-                  const parts = text.split(/([\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]+)/g);
-                  return parts.map((part, j) =>
-                    /[\u0600-\u06FF]/.test(part)
-                      ? <span key={j} style={{ fontFamily: "'Amiri', serif", color: gold, fontWeight: 700, fontSize: '0.88rem', direction: 'rtl', unicodeBidi: 'embed' }}>{part}</span>
-                      : part
-                  );
-                };
                 return (
                   <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#8fa3b8', fontSize: '0.78rem', lineHeight: 1.6 }}>
                     <span style={{ color: gold, opacity: 0.5, flexShrink: 0, marginTop: '4px', fontSize: '0.55rem' }}>★</span>
@@ -1508,7 +1508,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
             return;
           }
         }
-        graphRef.current?.zoomToFit(800, 60);
+        graphRef.current?.zoomToFit(800, 60, node => !node.ghost);
       }, 300);
     }
   }, [graphData, autoFocusVerseId]);

@@ -591,13 +591,13 @@
     },
     "themes": {
       "tr": [
-        "18 peygamberin kısa kıssaları",
+        "16 nebî ve 2 tartışmalı ismin (Zü'l-Kifl, Hz. Meryem) kıssaları",
         "Tevhid ve diriliş",
         "Dünyanın geçiciliği",
         "Kıyamet sahneleri"
       ],
       "en": [
-        "Brief stories of 18 prophets",
+        "Stories of 16 prophets and 2 disputed figures (Dhul-Kifl, Mary)",
         "Monotheism and resurrection",
         "Transience of the world",
         "Scenes of the Day of Judgment"
@@ -621,7 +621,7 @@
     "themes": {
       "tr": [
         "Hac ibadeti",
-        "Kabe'nin inşası",
+        "Kâbe'nin inşası",
         "Kıyamet sahneleri",
         "İzin verilen savaş hükmü"
       ],
@@ -633,7 +633,7 @@
       ]
     },
     "fadail": {
-      "tr": "İçinde iki secde ayeti bulunan nadir sûrelerden biridir. Kabe'nin Hz. İbrahim'e tahsisini anlatır.",
+      "tr": "İçinde iki secde ayeti bulunan nadir sûrelerden biridir. Hz. İbrahim'in Kâbe'yi inşa edişini ve ilk hac davetini anlatır (22:26-27).",
       "en": "One of the few surahs with two prostration verses. Describes the dedication of the Kaaba to Abraham."
     }
   },
@@ -691,7 +691,7 @@
       ]
     },
     "fadail": {
-      "tr": "Nur ayetini (24:35) barındırır — Kur'an tarihi boyunca en çok tefsir edilmiş ayetlerden biri.",
+      "tr": "Nur ayetini (24:35) barındırır — Kur'an tarihi boyunca en çok tefsir edilmiş ayetlerden biri.||اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ",
       "en": "Contains the Verse of Light (24:35) — one of the most extensively commented verses in Quranic history."
     }
   },
@@ -720,8 +720,8 @@
       ]
     },
     "fadail": {
-      "tr": "'Rahman'ın kulları' pasajı (25:63-77) Kur'an'ın en kapsamlı erdem tablosunu çizer.",
-      "en": "The 'Servants of the Most Merciful' passage (25:63-77) draws the Quran's most comprehensive virtue chart."
+      "tr": "'İbâdurrahmân' (25:63-76): Kur'an'ın ideal mü'mine çizdiği en ayrıntılı ahlak portresi — tevazu, sabır, dürüstlük ve tevekkül dahil 12 temel erdemi sıralar.",
+      "en": "'Ibad al-Rahman' (25:63-76): The Quran's most detailed moral portrait of the ideal believer — enumerating 12 core virtues including humility, patience, honesty and reliance on God."
     }
   },
   "26": {
@@ -736,15 +736,13 @@
     },
     "themes": {
       "tr": [
-        "Altı peygamberin kıssası (Hz. Musa, Hz. İbrahim, Hz. Nuh, Hz. Hud, Hz. Salih, Hz. Lut)",
-        "Şiir ve hakikat",
-        "Kur'an'ın şiirle farkı",
+        "Altı peygamberin kıssası (Hz. Musa, Hz. İbrahim, Hz. Nuh, Hz. Hud, Hz. Sâlih, Hz. Lut)",
+        "Kur'an'ın şiirden farkı ve peygamberin şair olmadığı",
         "Hz. Muhammed'in müşriklerle mücadelesi"
       ],
       "en": [
-        "Stories of six prophets",
-        "Poetry and truth",
-        "Quran vs. poetry",
+        "Stories of six prophets (Moses, Ibrahim, Noah, Hud, Salih, Lot)",
+        "The Quran's distinction from poetry and the Prophet's non-poet status",
         "Muhammad's struggle with Meccan polytheists"
       ]
     },
@@ -778,8 +776,8 @@
       ]
     },
     "fadail": {
-      "tr": "Hem Bismillah hem de bir sûre içinde Bismillah geçen tek sûredir (27:30). Hz. Süleyman'ın hayvanlarla diyaloğunu aktarır.",
-      "en": "The only surah where Bismillah appears twice — once at the start and once within a verse (27:30)."
+      "tr": "Kur'an'da Besmele'nin hem sûre başında hem de sûre içinde ayrıca geçtiği tek sûredir — 27:30'da Hz. Süleyman'ın Belkıs'a yazdığı mektup Besmele ile başlar.",
+      "en": "The only surah in the Quran where the Basmala appears both at the beginning and within the surah itself — at 27:30, Hz. Sulayman's letter to Bilqis opens with the Basmala."
     }
   },
   "28": {
@@ -794,7 +792,7 @@
     },
     "themes": {
       "tr": [
-        "Hz. Musa'nın doğumundan Firavun'un helakine tam hikaye",
+        "Hz. Musa'nın doğumundan Firavun'un helakine tam kıssası",
         "Karun'un kibri",
         "Hz. Muhammed'in hicreti",
         "Dünya malına aldanmama"
@@ -865,8 +863,8 @@
       ]
     },
     "fadail": {
-      "tr": "Kur'an'ın en önemli tarihsel kehanetini içerir: Bizans'ın 6 yıl içinde zafer kazanacağı. Ve kazandı.",
-      "en": "Contains the Quran's most notable historical prophecy: Byzantine victory within 9 years — which came true."
+      "tr": "Kur'an'ın en çarpıcı tarihsel kehanetini içerir (30:2-4): Bizans'ın Sasaniler karşısında ağır yenilgiye uğradığı, hazinesinin tükendiği ve toparlanmasının imkânsız göründüğü 614'te, 'birkaç yıl içinde galip gelecekler' dedi. 622'de Heraklius karşı saldırıya geçti; 628'de Sasaniler yenildi. Kehanetin mucizesi, Bizans'ın kazanacağını değil — kazanmasının mümkün olmadığı an söylenmiş olmasıdır.",
+      "en": "Contains the Quran's most striking historical prophecy (30:2-4): In 614, when Byzantium had suffered crushing defeat, its treasury was empty, and recovery seemed impossible, the Quran declared they would prevail 'within a few years.' In 622 Heraclius launched his counterattack; by 628 the Sassanids were defeated. The miracle is not merely that Byzantium won — but that this was said at the moment victory seemed impossible."
     }
   },
   "31": {
@@ -894,8 +892,8 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. Lokman'ın oğluna öğütleri (31:13-19) İslam terbiye anlayışının özeti sayılır. 'Gurur yüzüyle yürüme' emri buradandır.",
-      "en": "Luqman's advice to his son (31:13-19) is considered the essence of Islamic upbringing and moral education."
+      "tr": "Hz. Lokman'ın oğluna öğütleri (31:13-19) Kur'an'da yalnızca bu sûrede geçer ve İslam terbiye anlayışının özeti sayılır. 'Yeryüzünde kibirle yürüme' emri buradandır.",
+      "en": "Luqman's advice to his son (31:13-19) appears only in this surah and is considered a summary of Islamic moral education. 'Do not walk on earth with arrogance' comes from here."
     }
   },
   "32": {
@@ -981,7 +979,7 @@
       ]
     },
     "fadail": {
-      "tr": "'Sebe bahçesi' hikayesiyle nankörlüğün medeniyeti nasıl yıktığını gösterir. Şükrün sûresidir.",
+      "tr": "'Sebe bahçesi' kıssasıyla nankörlüğün medeniyeti nasıl yıktığını gösterir. Şükrün sûresidir.",
       "en": "The 'Gardens of Sheba' story shows how ingratitude destroys civilization. The surah of gratitude."
     }
   },
@@ -3029,7 +3027,7 @@
       "tr": [
         "Ebrehe'nin ordusu ve filleri",
         "Ababîl kuşları",
-        "Kabe'nin korunması",
+        "Kâbe'nin korunması",
         "Allah'ın küçük araçlarla büyük düşmanı yok etmesi"
       ],
       "en": [
@@ -3040,7 +3038,7 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. Peygamber'in doğum yılında gerçekleşen (570 CE) tarihsel mucizeyi anlatır. Kabe'nin korunmasının belgesi.",
+      "tr": "Hz. Peygamber'in doğum yılında gerçekleşen (570 CE) tarihsel mucizeyi anlatır. Kâbe'nin korunmasının belgesi.",
       "en": "Describes the historical miracle that occurred in the year of the Prophet's birth (570 CE). The Kaaba's divine protection."
     }
   },
@@ -3058,7 +3056,7 @@
       "tr": [
         "Kureyş'in ticaret yolculukları",
         "Allah'ın nimetine şükretmek",
-        "Kabe'nin bereketinden faydalanmak",
+        "Kâbe'nin bereketinden faydalanmak",
         "Açlık ve korku yerine güvenlik"
       ],
       "en": [
@@ -3069,7 +3067,7 @@
       ]
     },
     "fadail": {
-      "tr": "Önceki sûre (Fil) ile anlam bütünlüğü taşır: Allah Kabe'yi korudu, Kureyş de bunun şükrünü ödemelidir.",
+      "tr": "Önceki sûre (Fil) ile anlam bütünlüğü taşır: Allah Kâbe'yi korudu, Kureyş de bunun şükrünü ödemelidir.",
       "en": "Forms a thematic pair with surah 105: God protected the Kaaba, and Quraysh must repay this with gratitude."
     }
   },
