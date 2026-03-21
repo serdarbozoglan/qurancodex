@@ -4,6 +4,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 
 const VerseGraph = lazy(() => import('./VerseGraph'));
 const ReadingMode = lazy(() => import('./ReadingMode'));
+const WordHeatmap = lazy(() => import('./WordHeatmap'));
 
 const navSections = [
   { id: 'math', key: 'nav.math' },
@@ -21,6 +22,7 @@ export default function Navbar() {
   const [graphOpen, setGraphOpen] = useState(false);
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
   const [readingOpen, setReadingOpen] = useState(false);
+  const [heatmapOpen, setHeatmapOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -102,6 +104,18 @@ export default function Navbar() {
           </button>
 
           <button
+            onClick={() => setHeatmapOpen(true)}
+            className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200 hidden lg:flex items-center gap-2"
+            aria-label={language === 'tr' ? 'Kelime Haritası' : 'Word Map'}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+            </svg>
+            {language === 'tr' ? 'Kelime' : 'Words'}
+          </button>
+
+          <button
             onClick={() => setReadingOpen(true)}
             className="glass-card px-4 py-1.5 text-sm font-body font-semibold text-gold hover:bg-white/10 transition-all duration-200 hidden lg:flex items-center gap-2"
             aria-label={language === 'tr' ? 'Okuma Modunu Aç' : 'Open Reading Mode'}
@@ -162,6 +176,16 @@ export default function Navbar() {
                 </button>
               ))}
               <button
+                onClick={() => { setHeatmapOpen(true); setMobileOpen(false); }}
+                className="text-gold hover:text-royal-gold transition-colors text-left py-3 text-sm font-body font-semibold flex items-center gap-2"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                  <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+                </svg>
+                {language === 'tr' ? 'Kelime Haritası' : 'Word Map'}
+              </button>
+              <button
                 onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
                 className="text-gold hover:text-royal-gold transition-colors text-left py-3 text-sm font-body font-semibold flex items-center gap-2"
               >
@@ -206,6 +230,12 @@ export default function Navbar() {
     {readingOpen && (
       <Suspense fallback={null}>
         <ReadingMode onClose={() => setReadingOpen(false)} />
+      </Suspense>
+    )}
+
+    {heatmapOpen && (
+      <Suspense fallback={null}>
+        <WordHeatmap onClose={() => setHeatmapOpen(false)} />
       </Suspense>
     )}
     </>
