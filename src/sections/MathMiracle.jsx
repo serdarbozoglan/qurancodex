@@ -1,14 +1,176 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import AnimatedCounter from '../components/AnimatedCounter';
+
+function BesmeleWidget({ language }) {
+  const [step, setStep] = useState(0);
+  const ref = useRef(null);
+  const triggered = useRef(false);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !triggered.current) {
+        triggered.current = true;
+        setTimeout(() => setStep(1), 200);
+        setTimeout(() => setStep(2), 900);
+        setTimeout(() => setStep(3), 1700);
+        setTimeout(() => setStep(4), 2400);
+      }
+    }, { threshold: 0.4 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+
+  const tr = language === 'tr';
+
+  return (
+    <div ref={ref} className="glass-card-strong p-8 md:p-10 mb-12">
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-6">
+        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.25em]">
+          {tr ? 'Besmele Dengesi' : 'Bismillah Balance'}
+        </span>
+      </div>
+
+      {/* Arabic Bismillah */}
+      <div className="text-center mb-8">
+        <p
+          className="font-display text-gold"
+          style={{ fontFamily: 'Amiri, serif', fontSize: '1.7rem', lineHeight: 1.8, direction: 'rtl' }}
+        >
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </p>
+        <p className="text-silver/50 text-xs font-body mt-1">
+          {tr ? 'Bismillâhirrahmânirrahîm' : 'In the name of Allah, the Most Gracious, the Most Merciful'}
+        </p>
+      </div>
+
+      {/* 114 surah grid — small dots */}
+      <div className="flex flex-wrap gap-[3px] justify-center mb-8 max-w-lg mx-auto">
+        {Array.from({ length: 114 }, (_, i) => {
+          const n = i + 1;
+          const isTevbe = n === 9;
+          const isNeml = n === 27;
+          return (
+            <div
+              key={n}
+              title={`Sure ${n}`}
+              style={{
+                width: '14px', height: '14px', borderRadius: '3px',
+                transition: 'all 0.4s ease',
+                background: isTevbe
+                  ? 'rgba(231,76,60,0.7)'
+                  : isNeml
+                  ? 'rgba(212,165,116,0.9)'
+                  : 'rgba(212,165,116,0.18)',
+                border: isTevbe
+                  ? '1px solid rgba(231,76,60,0.9)'
+                  : isNeml
+                  ? '1px solid rgba(212,165,116,0.7)'
+                  : '1px solid rgba(212,165,116,0.06)',
+                transform: (isTevbe || isNeml) ? 'scale(1.2)' : 'scale(1)',
+              }}
+            />
+          );
+        })}
+      </div>
+      <p className="text-center text-silver/40 text-xs font-body mb-8">
+        {tr ? '114 sure — her kare bir sure' : '114 surahs — each square is one surah'}
+      </p>
+
+      {/* Equation steps */}
+      <div className="max-w-sm mx-auto space-y-4">
+        {/* Step 1: 114 surahs */}
+        <div
+          className="flex items-center justify-between glass-card px-5 py-3 transition-all duration-500"
+          style={{ opacity: step >= 1 ? 1 : 0, transform: step >= 1 ? 'translateY(0)' : 'translateY(12px)' }}
+        >
+          <span className="text-silver text-sm font-body">
+            {tr ? 'Toplam sure sayısı' : 'Total surahs'}
+          </span>
+          <span className="text-off-white font-extrabold text-xl font-body">114</span>
+        </div>
+
+        {/* Step 2: Tevbe — no Bismillah */}
+        <div
+          className="flex items-center justify-between px-5 py-3 rounded-xl transition-all duration-500"
+          style={{
+            opacity: step >= 2 ? 1 : 0,
+            transform: step >= 2 ? 'translateY(0)' : 'translateY(12px)',
+            background: 'rgba(231,76,60,0.08)',
+            border: '1px solid rgba(231,76,60,0.25)',
+          }}
+        >
+          <div>
+            <p className="text-[#e74c3c] text-xs font-body uppercase tracking-wider mb-0.5">
+              {tr ? 'Sure 9 · Tevbe · Besmele yok' : 'Surah 9 · At-Tawbah · No Bismillah'}
+            </p>
+            <p className="text-silver/60 text-xs font-body">
+              {tr ? '→ 113 başlangıç besmelesi' : '→ 113 opening Bismillahs'}
+            </p>
+          </div>
+          <span className="text-[#e74c3c] font-extrabold text-xl font-body">−1</span>
+        </div>
+
+        {/* Step 3: Naml — extra Bismillah */}
+        <div
+          className="flex items-center justify-between px-5 py-3 rounded-xl transition-all duration-500"
+          style={{
+            opacity: step >= 3 ? 1 : 0,
+            transform: step >= 3 ? 'translateY(0)' : 'translateY(12px)',
+            background: 'rgba(212,165,116,0.08)',
+            border: '1px solid rgba(212,165,116,0.25)',
+          }}
+        >
+          <div>
+            <p className="text-gold text-xs font-body uppercase tracking-wider mb-0.5">
+              {tr ? 'Sure 27 · Neml · 27:30 · Sure içinde' : 'Surah 27 · An-Naml · 27:30 · Within verse'}
+            </p>
+            <p className="text-silver/60 text-xs font-body">
+              {tr ? '→ Hz. Süleyman\'ın mektubu' : '→ Prophet Solomon\'s letter'}
+            </p>
+          </div>
+          <span className="text-gold font-extrabold text-xl font-body">+1</span>
+        </div>
+
+        {/* Step 4: Result */}
+        <div
+          className="flex items-center justify-between px-5 py-4 rounded-xl transition-all duration-500"
+          style={{
+            opacity: step >= 4 ? 1 : 0,
+            transform: step >= 4 ? 'translateY(0)' : 'translateY(12px)',
+            background: 'rgba(212,165,116,0.12)',
+            border: '1px solid rgba(212,165,116,0.4)',
+          }}
+        >
+          <span className="text-gold font-body text-sm font-semibold">
+            113 + 1
+          </span>
+          <span className="text-gold/50 font-body text-lg">=</span>
+          <div className="text-right">
+            <span className="text-gold font-extrabold text-3xl font-body">114</span>
+            <span className="text-gold/60 text-sm font-body ml-2">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <p className="text-silver/50 text-xs text-center mt-6 font-body italic max-w-sm mx-auto">
+        {tr
+          ? 'Tevbe suresindeki eksiklik, Neml suresinde karşılığını bulur. Denge korunur.'
+          : 'The absence in At-Tawbah finds its counterpart in An-Naml. The balance is preserved.'}
+      </p>
+    </div>
+  );
+}
 
 function openGraphSearch(term) {
   window.dispatchEvent(new CustomEvent('openVerseGraph', { detail: { search: term } }));
 }
 
 export default function MathMiracle() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const pairs = t('mathMiracle.pairs') || [];
   const seaLand = t('mathMiracle.seaLand') || {};
 
@@ -173,6 +335,11 @@ export default function MathMiracle() {
             <span className="text-soft-emerald">28.9%</span>
           </div>
         </div>
+      </motion.div>
+
+      {/* Besmele Balance Widget */}
+      <motion.div variants={fadeUpItem}>
+        <BesmeleWidget language={language} />
       </motion.div>
 
       {/* Closing */}
