@@ -2194,10 +2194,99 @@ function VerseAudioPlayer({ surah, ayah, language }) {
   );
 }
 
+// ─── Share modal ──────────────────────────────────────────────────────────────
+function ShareModal({ node, language, onClose }) {
+  const [copied, setCopied] = useState(false);
+  const vt = language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish));
+  const surahName = surahNameTr(node.surah);
+  const ref = `— ${surahName}, ${node.id}`;
+
+  const shareText = `${node.arabic}\n\n"${vt}"\n${ref}`;
+  const shareUrl = `${window.location.origin}${window.location.pathname}?verse=${node.id}`;
+
+  const copyText = async () => {
+    await navigator.clipboard.writeText(shareText + '\n\n' + shareUrl).catch(() => {});
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const nativeShare = async () => {
+    if (!navigator.share) return;
+    await navigator.share({ title: `Kur'an — ${node.id}`, text: shareText, url: shareUrl }).catch(() => {});
+  };
+
+  const gold = '#d4a574';
+
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 10100,
+      background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(6px)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px',
+    }} onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} style={{
+        background: 'rgba(8,10,22,0.99)', border: '1px solid rgba(212,165,116,0.2)',
+        borderRadius: '16px', padding: '24px', maxWidth: '480px', width: '100%',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
+      }}>
+        {/* Preview card */}
+        <div style={{
+          background: 'linear-gradient(135deg, #0a0c1e, #0d1028)',
+          border: '1px solid rgba(212,165,116,0.25)', borderRadius: '12px',
+          padding: '24px 20px', marginBottom: '16px', position: 'relative', overflow: 'hidden',
+        }}>
+          {/* Decorative corner */}
+          <div style={{ position: 'absolute', top: 0, right: 0, width: '80px', height: '80px', background: 'radial-gradient(circle at 100% 0%, rgba(212,165,116,0.12), transparent 70%)', pointerEvents: 'none' }} />
+
+          <div style={{ fontFamily: "'Amiri', serif", fontSize: '1.6rem', lineHeight: 2.2, color: '#e8c98a', textAlign: 'right', direction: 'rtl', marginBottom: '16px' }}>
+            {node.arabic}
+          </div>
+          <div style={{ color: '#c8c5c0', fontSize: '0.88rem', lineHeight: 1.8, borderLeft: '2px solid rgba(212,165,116,0.3)', paddingLeft: '12px', marginBottom: '12px' }}>
+            "{vt}"
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ color: gold, fontSize: '0.72rem', fontWeight: 700 }}>{ref}</span>
+            <span style={{ color: '#2d3748', fontSize: '0.65rem' }}>qurancodex.com</span>
+          </div>
+        </div>
+
+        {/* Action buttons */}
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <button onClick={copyText} style={{
+            flex: 1, background: copied ? 'rgba(46,204,113,0.15)' : 'rgba(212,165,116,0.1)',
+            border: `1px solid ${copied ? 'rgba(46,204,113,0.4)' : 'rgba(212,165,116,0.25)'}`,
+            borderRadius: '8px', color: copied ? '#2ecc71' : gold,
+            padding: '10px 16px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600, transition: 'all 0.2s',
+          }}>
+            {copied ? '✓ Kopyalandı' : '⎘ Metni Kopyala'}
+          </button>
+
+          {typeof navigator !== 'undefined' && navigator.share && (
+            <button onClick={nativeShare} style={{
+              flex: 1, background: 'rgba(52,152,219,0.1)',
+              border: '1px solid rgba(52,152,219,0.25)',
+              borderRadius: '8px', color: '#3498db',
+              padding: '10px 16px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600,
+            }}>
+              ↗ {language === 'tr' ? 'Paylaş' : 'Share'}
+            </button>
+          )}
+
+          <button onClick={onClose} style={{
+            background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '8px', color: '#64748b',
+            padding: '10px 12px', cursor: 'pointer', fontSize: '0.8rem',
+          }}>✕</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Verse detail panel ───────────────────────────────────────────────────────
 function VersePanel({ node, verses, language, onClose, onNavigate }) {
   const [expandedId, setExpandedId] = useState(null);
   const [showAll, setShowAll] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
   const PREVIEW_COUNT = 5;
 
   const connections = useMemo(() => {
@@ -2243,9 +2332,17 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
             {connections.length > 0 && <span style={{ background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.25)', borderRadius: '10px', color: '#d4a574', fontSize: '0.65rem', padding: '1px 7px' }}>{connections.length} {language === 'tr' ? 'benzer ayet' : 'similar verses'}</span>}
           </div>
         </div>
-        <button onClick={onClose}
-          style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: '#64748b', cursor: 'pointer', fontSize: '0.8rem', padding: '3px 8px' }}>✕</button>
+        <div style={{ display: 'flex', gap: '5px' }}>
+          <button onClick={() => setShareOpen(true)}
+            style={{ background: 'rgba(212,165,116,0.07)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px', color: '#d4a574', cursor: 'pointer', fontSize: '0.72rem', padding: '3px 9px' }}>
+            ↗ {language === 'tr' ? 'Paylaş' : 'Share'}
+          </button>
+          <button onClick={onClose}
+            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: '#64748b', cursor: 'pointer', fontSize: '0.8rem', padding: '3px 8px' }}>✕</button>
+        </div>
       </div>
+
+      {shareOpen && <ShareModal node={node} language={language} onClose={() => setShareOpen(false)} />}
 
       <div style={{ fontFamily: "'Amiri', serif", fontSize: '2.1rem', lineHeight: 2.4, color: '#d4b483', textAlign: 'right', direction: 'rtl', padding: '18px 20px', background: 'linear-gradient(135deg, rgba(212,165,116,0.08), rgba(180,130,70,0.03))', borderRadius: '10px', border: '1px solid rgba(212,165,116,0.15)' }}>
         {node.arabic}
