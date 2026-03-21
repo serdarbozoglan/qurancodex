@@ -2011,6 +2011,22 @@ export default function VerseGraph({ onClose, initialSearch = '' }) {
         setVerses(verseData);
         setSurahClusters(clusterData);
         setLoading(false);
+
+        // Handle ?verse=2:255 URL parameter — auto-navigate to that verse
+        const urlVerse = new URLSearchParams(window.location.search).get('verse');
+        if (urlVerse) {
+          const [surahStr, ayahStr] = urlVerse.split(':');
+          const surah = parseInt(surahStr);
+          if (!isNaN(surah)) {
+            setSelectedSurah(surah);
+            setAutoFocusVerseId(urlVerse);
+            setView('verses');
+            // Clean up URL without reload
+            const url = new URL(window.location.href);
+            url.searchParams.delete('verse');
+            window.history.replaceState({}, '', url);
+          }
+        }
       })
       .catch(err => { setError(err.message); setLoading(false); });
   }, []);

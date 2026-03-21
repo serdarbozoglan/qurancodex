@@ -38,6 +38,12 @@ export default function Navbar() {
     return () => window.removeEventListener('openVerseGraph', handler);
   }, []);
 
+  // Auto-open VerseGraph if ?verse= param present in URL on page load
+  useEffect(() => {
+    const urlVerse = new URLSearchParams(window.location.search).get('verse');
+    if (urlVerse) setGraphOpen(true);
+  }, []);
+
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMobileOpen(false);
