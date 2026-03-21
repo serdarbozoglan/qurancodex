@@ -1411,11 +1411,20 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
               )}
               {noteItems.map((note, i) => {
                 const [noteText, noteArabic] = note.split('||');
+                // Satır içi Arapça karakterleri altın renk + Amiri ile render et
+                const renderWithArabic = (text) => {
+                  const parts = text.split(/([\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]+)/g);
+                  return parts.map((part, j) =>
+                    /[\u0600-\u06FF]/.test(part)
+                      ? <span key={j} style={{ fontFamily: "'Amiri', serif", color: gold, fontWeight: 700, fontSize: '0.88rem', direction: 'rtl', unicodeBidi: 'embed' }}>{part}</span>
+                      : part
+                  );
+                };
                 return (
                   <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#8fa3b8', fontSize: '0.78rem', lineHeight: 1.6 }}>
                     <span style={{ color: gold, opacity: 0.5, flexShrink: 0, marginTop: '4px', fontSize: '0.55rem' }}>★</span>
                     <div style={{ flex: 1 }}>
-                      {noteText}
+                      {renderWithArabic(noteText)}
                       {noteArabic && <span style={arabicStyle}>{noteArabic}</span>}
                     </div>
                   </div>
