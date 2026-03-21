@@ -1443,7 +1443,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
   );
 }
 
-function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVerseId }) {
+function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVerseId, onSurahChange }) {
   const graphRef = useRef(null);
   const initialFitDone = useRef(false);
   const [selected, setSelected] = useState(null);
@@ -1562,7 +1562,10 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e' }}>
       {/* Sure info panel — left side */}
-      <SurahInfoPanel surah={surah} language={language} graphData={graphData} />
+      <SurahInfoPanel
+        surah={surah} language={language} graphData={graphData} showName={true}
+        onNavigate={onSurahChange ? (dir) => onSurahChange(Math.max(1, Math.min(114, surah + dir))) : null}
+      />
 
       {/* Header */}
       <div style={{
@@ -2062,6 +2065,7 @@ export default function VerseGraph({ onClose }) {
       autoFocusVerseId={autoFocusVerseId}
       onBack={() => { setAutoFocusVerseId(null); setView('clusters'); }}
       onOpenFull3D={() => setView('3d')}
+      onSurahChange={(n) => setSelectedSurah(n)}
     />
   );
 
