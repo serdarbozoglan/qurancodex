@@ -2086,7 +2086,7 @@ export default function VerseGraph({ onClose, initialSearch = '' }) {
 }
 
 // ─── Audio player for a single verse ─────────────────────────────────────────
-// Uses everyayah.com CDN (free, no API key): 001_001.mp3 → surah 1 ayah 1
+// Uses everyayah.com CDN (free, no API key): 001001.mp3 → surah 1 ayah 1
 function VerseAudioPlayer({ surah, ayah, language }) {
   const [playing, setPlaying] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -2094,16 +2094,16 @@ function VerseAudioPlayer({ surah, ayah, language }) {
   const audioRef = useRef(null);
 
   const reciters = [
-    { id: 'Mishary_Rashid_Al-Afasy_128kbps', labelTr: 'Meşarî Raşid', labelEn: 'Mishary Alafasy' },
-    { id: 'Abdul_Basit_Murattal_192kbps',   labelTr: 'Abdülbasit',    labelEn: 'Abdul Basit'    },
-    { id: 'Husary_128kbps',                 labelTr: 'Husarî',         labelEn: 'Al-Husary'      },
+    { id: 'Alafasy_128kbps',              labelTr: 'Meşarî Raşid', labelEn: 'Mishary Alafasy' },
+    { id: 'Abdul_Basit_Murattal_192kbps', labelTr: 'Abdülbasit',   labelEn: 'Abdul Basit'    },
+    { id: 'Husary_128kbps',               labelTr: 'Husarî',        labelEn: 'Al-Husary'      },
   ];
   const [reciterIdx, setReciterIdx] = useState(0);
 
   const buildUrl = (rId) => {
     const s = String(surah).padStart(3, '0');
     const a = String(ayah).padStart(3, '0');
-    return `https://everyayah.com/data/${rId}/${s}_${a}.mp3`;
+    return `https://everyayah.com/data/${rId}/${s}${a}.mp3`;
   };
 
   // Reset when verse changes

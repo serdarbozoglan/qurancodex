@@ -38,7 +38,7 @@ function pad(n, width) {
 }
 
 function getAudioUrl(surah, ayah) {
-  return `https://everyayah.com/data/Mishary_Rashid_Al-Afasy_128kbps/${pad(surah, 3)}${pad(ayah, 3)}.mp3`;
+  return `https://everyayah.com/data/Alafasy_128kbps/${pad(surah, 3)}${pad(ayah, 3)}.mp3`;
 }
 
 function getSurahRef(dua, language) {
@@ -333,8 +333,14 @@ export default function DuaVerses({ onClose }) {
         </button>
       </div>
 
-      <div style={{ flex: 1, overflowY: 'auto', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {/* Search bar */}
+      {/* Search + filter bar — fixed, does not scroll */}
+      <div style={{
+        flexShrink: 0,
+        padding: '10px 20px 12px',
+        borderBottom: '1px solid rgba(255,255,255,0.05)',
+        display: 'flex', flexDirection: 'column', gap: '10px',
+        background: 'rgba(8,10,18,0.98)',
+      }}>
         <input
           value={searchValue}
           onChange={e => setSearchValue(e.target.value)}
@@ -342,18 +348,12 @@ export default function DuaVerses({ onClose }) {
           placeholder={language === 'tr' ? 'Ayet veya dua ara...' : 'Search verses or supplications...'}
           style={{
             background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(212,165,116,0.25)',
-            borderRadius: '8px', color: '#e8e6e3', padding: '9px 14px',
+            borderRadius: '8px', color: '#e8e6e3', padding: '8px 14px',
             fontSize: '0.88rem', outline: 'none', width: '100%', boxSizing: 'border-box',
             fontFamily: 'Inter, sans-serif',
           }}
         />
-
-        {/* Category filter bar */}
-        <div style={{
-          display: 'flex', gap: '6px', overflowX: 'auto', paddingBottom: '4px',
-          scrollbarWidth: 'none',
-        }}>
-          {/* All button */}
+        <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', paddingBottom: '2px', scrollbarWidth: 'none' }}>
           <button
             onClick={() => setActiveCategory('all')}
             style={{
@@ -362,51 +362,40 @@ export default function DuaVerses({ onClose }) {
               border: `1px solid ${activeCategory === 'all' ? 'rgba(212,165,116,0.45)' : 'rgba(255,255,255,0.08)'}`,
               borderRadius: '14px', color: activeCategory === 'all' ? gold : silver,
               cursor: 'pointer', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600,
-              display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap',
-              transition: 'all 0.15s',
+              display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', transition: 'all 0.15s',
             }}
           >
             {language === 'tr' ? 'Tümü' : 'All'}
-            <span style={{
-              background: 'rgba(212,165,116,0.15)', borderRadius: '8px',
-              padding: '0 5px', fontSize: '0.65rem', fontWeight: 700,
-            }}>
+            <span style={{ background: 'rgba(212,165,116,0.15)', borderRadius: '8px', padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>
               {categoryCounts.all || 0}
             </span>
           </button>
-
           {CATEGORY_ORDER.map(cat => {
             const cfg = CATEGORY_CONFIG[cat];
             const count = categoryCounts[cat] || 0;
             if (!count) return null;
             const isActive = activeCategory === cat;
             return (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(isActive ? 'all' : cat)}
-                style={{
-                  flexShrink: 0,
-                  background: isActive ? cfg.color.replace('0.8)', '0.15)') : 'rgba(255,255,255,0.04)',
-                  border: `1px solid ${isActive ? cfg.color.replace('0.8)', '0.4)') : 'rgba(255,255,255,0.08)'}`,
-                  borderRadius: '14px',
-                  color: isActive ? cfg.color.replace('0.8)', '1)') : silver,
-                  cursor: 'pointer', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600,
-                  display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap',
-                  transition: 'all 0.15s',
-                }}
-              >
+              <button key={cat} onClick={() => setActiveCategory(isActive ? 'all' : cat)} style={{
+                flexShrink: 0,
+                background: isActive ? cfg.color.replace('0.8)', '0.15)') : 'rgba(255,255,255,0.04)',
+                border: `1px solid ${isActive ? cfg.color.replace('0.8)', '0.4)') : 'rgba(255,255,255,0.08)'}`,
+                borderRadius: '14px', color: isActive ? cfg.color.replace('0.8)', '1)') : silver,
+                cursor: 'pointer', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600,
+                display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', transition: 'all 0.15s',
+              }}>
                 {cfg.icon} {language === 'tr' ? cfg.label_tr : cfg.label_en}
-                <span style={{
-                  background: isActive ? cfg.color.replace('0.8)', '0.2)') : 'rgba(255,255,255,0.06)',
-                  borderRadius: '8px', padding: '0 5px', fontSize: '0.65rem', fontWeight: 700,
-                }}>
+                <span style={{ background: isActive ? cfg.color.replace('0.8)', '0.2)') : 'rgba(255,255,255,0.06)', borderRadius: '8px', padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>
                   {count}
                 </span>
               </button>
             );
           })}
         </div>
+      </div>
 
+      {/* Scrollable cards */}
+      <div style={{ flex: 1, overflowY: 'auto', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
         {/* Content */}
         {loading && (
           <div style={{ color: '#64748b', fontSize: '0.85rem', textAlign: 'center', padding: '60px' }}>

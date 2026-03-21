@@ -34,15 +34,15 @@ const SURAH_NAMES_TR = [
 ];
 
 const RECITERS = [
-  { id: 'Mishary_Rashid_Al-Afasy_128kbps', labelTr: 'Meşarî', labelEn: 'Alafasy' },
-  { id: 'Abdul_Basit_Murattal_192kbps',    labelTr: 'Abdülbasit', labelEn: 'Abdul Basit' },
-  { id: 'Husary_128kbps',                  labelTr: 'Husarî', labelEn: 'Al-Husary' },
+  { id: 'Alafasy_128kbps',              labelTr: 'Meşarî', labelEn: 'Alafasy' },
+  { id: 'Abdul_Basit_Murattal_192kbps', labelTr: 'Abdülbasit', labelEn: 'Abdul Basit' },
+  { id: 'Husary_128kbps',               labelTr: 'Husarî', labelEn: 'Al-Husary' },
 ];
 
 function audioUrl(reciterId, surah, ayah) {
   const s = String(surah).padStart(3, '0');
   const a = String(ayah).padStart(3, '0');
-  return `https://everyayah.com/data/${reciterId}/${s}_${a}.mp3`;
+  return `https://everyayah.com/data/${reciterId}/${s}${a}.mp3`;
 }
 
 // ─── Inline audio bar ────────────────────────────────────────────────────────
