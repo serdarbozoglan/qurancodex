@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayet Benzerlik Motoru — Metodoloji</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.8;
+      padding: 40px 20px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    h1 { font-size: 1.75rem; color: #d4a574; margin-bottom: 6px; }
+    .subtitle { color: #64748b; font-size: 0.9rem; margin-bottom: 40px; }
+
+    h2 { font-size: 1.1rem; color: #d4a574; margin: 36px 0 12px; border-left: 3px solid #d4a574; padding-left: 12px; }
+    h3 { font-size: 0.95rem; color: #94a3b8; margin: 20px 0 8px; }
+
+    p { margin-bottom: 12px; font-size: 0.92rem; }
+
+    .pipeline {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .step {
+      background: rgba(212,165,116,0.08);
+      border: 1px solid rgba(212,165,116,0.2);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      text-align: center;
+      flex: 1;
+      min-width: 130px;
+    }
+    .step .label { color: #64748b; font-size: 0.72rem; margin-bottom: 4px; }
+    .step .value { color: #e8e6e3; font-weight: bold; }
+    .arrow { color: #d4a574; padding: 0 8px; font-size: 1.2rem; flex-shrink: 0; }
+
+    .formula {
+      background: #161b22;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.88rem;
+      color: #2ecc71;
+      margin: 16px 0;
+    }
+    .formula span { color: #d4a574; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.85rem;
+    }
+    th {
+      background: rgba(212,165,116,0.1);
+      color: #d4a574;
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(212,165,116,0.2);
+      font-size: 0.8rem;
+      font-weight: normal;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #94a3b8; }
+    td:first-child { color: #e8e6e3; }
+    tr:last-child td { border-bottom: none; }
+
+    .highlight { color: #2ecc71; font-weight: bold; }
+    .dim { color: #64748b; }
+
+    .verse-example {
+      background: #161b22;
+      border: 1px solid rgba(212,165,116,0.15);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .verse-id { color: #d4a574; font-size: 0.78rem; font-weight: bold; margin-bottom: 4px; }
+    .verse-arabic { font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 1.1rem; direction: rtl; text-align: right; color: #d4a574; margin: 8px 0; line-height: 2; }
+    .verse-tr { color: #94a3b8; font-size: 0.85rem; font-style: italic; }
+    .score-row { display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; }
+    .score-badge {
+      background: rgba(46,204,113,0.1);
+      border: 1px solid rgba(46,204,113,0.2);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.75rem;
+      color: #2ecc71;
+    }
+    .score-badge.sem { background: rgba(52,152,219,0.1); border-color: rgba(52,152,219,0.2); color: #3498db; }
+    .score-badge.lex { background: rgba(155,89,182,0.1); border-color: rgba(155,89,182,0.2); color: #9b59b6; }
+
+    .callout {
+      background: rgba(212,165,116,0.06);
+      border-left: 3px solid #d4a574;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 0.87rem;
+    }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } .pipeline { flex-direction: column; } .arrow { transform: rotate(90deg); } }
+
+    .model-card {
+      background: #161b22;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .model-card .name { color: #e8e6e3; font-weight: bold; font-size: 0.9rem; margin-bottom: 6px; }
+    .model-card .meta { color: #64748b; font-size: 0.78rem; margin-bottom: 10px; }
+    .model-card ul { padding-left: 16px; font-size: 0.83rem; color: #94a3b8; }
+    .model-card li { margin-bottom: 4px; }
+
+    footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); color: #64748b; font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Ayet Benzerlik Motoru</h1>
+  <p class="subtitle">Quran Codex — Teknik Metodoloji Notu &nbsp;·&nbsp; Mart 2026</p>
+
+  <!-- ÖZET -->
+  <h2>Özet</h2>
+  <p>
+    Kur'an'ın 6.236 ayeti arasındaki anlamsal ve sözcüksel benzerlikleri hesaplamak için
+    <strong>hibrit bir skorlama sistemi</strong> kullanıldı. Sistem iki bileşenden oluşur:
+  </p>
+  <ul style="padding-left:20px; font-size:0.9rem; margin-bottom:12px;">
+    <li style="margin-bottom:6px;"><strong>Semantik (anlam) bileşeni</strong> — Cümle embedding modeli ile iki ayetin genel anlamsal yakınlığı ölçülür.</li>
+    <li><strong>Sözcüksel (kelime) bileşeni</strong> — BM25 algoritması ile ortak kelime/kök paylaşımı ölçülür.</li>
+  </ul>
+  <p>Bu iki puanın ağırlıklı ortalaması, nihai benzerlik skorunu oluşturur.</p>
+
+  <!-- PIPELINE -->
+  <h2>İşlem Adımları</h2>
+  <div class="pipeline">
+    <div class="step"><div class="label">Kaynak</div><div class="value">Arapça metin<br><span class="dim" style="font-size:0.75rem;">quran-json API</span></div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="label">Embedding</div><div class="value">multilingual‑e5‑large<br><span class="dim" style="font-size:0.75rem;">1024-boyut vektör</span></div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="label">BM25 İndeksi</div><div class="value">Sözcüksel skor<br><span class="dim" style="font-size:0.75rem;">harekesiz Arapça</span></div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="label">Hibrit Skor</div><div class="value">%65 + %35<br><span class="dim" style="font-size:0.75rem;">en iyi 20 ayet</span></div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="label">UMAP 3D</div><div class="value">Uzamsal yerleşim<br><span class="dim" style="font-size:0.75rem;">cosine metrik</span></div></div>
+  </div>
+
+  <!-- MODEL -->
+  <h2>Embedding Modeli</h2>
+  <div class="two-col">
+    <div class="model-card">
+      <div class="name">intfloat/multilingual-e5-large</div>
+      <div class="meta">XLM-RoBERTa tabanlı &nbsp;·&nbsp; 560M parametre &nbsp;·&nbsp; 1024 boyut</div>
+      <ul>
+        <li>100+ dil desteği, Arapça dahil</li>
+        <li>Cümle benzerliği için ince ayarlı (fine-tuned)</li>
+        <li>Her ayet <code>passage: [metin]</code> önekiyle encode edildi</li>
+        <li>Son gizli katmanların ortalaması alındı (mean pool)</li>
+        <li>L2 normalizasyonu ile birim vektörlerine dönüştürüldü</li>
+      </ul>
+    </div>
+    <div class="model-card">
+      <div class="name">Neden bu model?</div>
+      <div class="meta">Alternatifler ve gerekçe</div>
+      <ul>
+        <li><strong>CAMeL-BERT</strong> denendi — klasik Arapça eğitimi iyi, fakat ince ayarsız BERT tüm cümlelere benzer vektör üretiyor (degeneration). Semantik ayrıştırma yetersiz kaldı.</li>
+        <li><strong>E5-large</strong> benzerlik görevi için optimize edildiğinden ayrıştırma çalışıyor; BM25 sözcüksel katmanı tamamlıyor.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BM25 -->
+  <h2>BM25 — Sözcüksel Skorlama</h2>
+  <p>
+    BM25 (Best Match 25), bilgi erişiminde yaygın kullanılan bir TF-IDF varyantıdır.
+    Bir ayetin sorgudaki kelimeleri ne sıklıkla ve ne özgünlükte içerdiğini ölçer.
+  </p>
+  <h3>Harekesiz Arapça</h3>
+  <p>
+    Arap yazısındaki harekeler (ُ ِ َ ّ) tokenizasyondan önce temizlendi.
+    Bu sayede <span style="font-family:serif;font-size:1rem;color:#d4a574;">أُنزِلَ</span> ve
+    <span style="font-family:serif;font-size:1rem;color:#d4a574;">انزل</span> aynı token olarak eşleşiyor.
+  </p>
+  <div class="callout">
+    BM25 skoru 0–1 aralığına normalize edildi. Her ayet için kendi maksimum skoruna bölündü.
+    Kendi kendine benzerlik (diagonal) sıfırlandı.
+  </div>
+
+  <!-- HYBRID -->
+  <h2>Hibrit Skor Formülü</h2>
+  <div class="formula">
+    score = <span>0.65</span> × cosine_similarity(e5_embedding_A, e5_embedding_B)<br>
+          + <span>0.35</span> × bm25_normalized(A, B)
+  </div>
+  <p>
+    Semantik ağırlığın daha yüksek tutulması, anlam benzerliğini ön plana çıkarır.
+    BM25 ağırlığı ise kelime kelime örtüşen ayetlerin (örn. tekrar eden dualar, formüller)
+    birbirini bulmasını garanti eder.
+  </p>
+
+  <table>
+    <tr><th>Parametre</th><th>Değer</th><th>Açıklama</th></tr>
+    <tr><td>Semantik ağırlık</td><td class="highlight">% 65</td><td>E5-large cosine similarity</td></tr>
+    <tr><td>Sözcüksel ağırlık</td><td class="highlight">% 35</td><td>BM25 (harekesiz Arapça)</td></tr>
+    <tr><td>Minimum eşik</td><td>0.40</td><td>Bu skorun altındaki bağlantılar dahil edilmedi</td></tr>
+    <tr><td>Saklanan bağlantı</td><td>En iyi 20</td><td>Her ayet için en benzer 20 ayet</td></tr>
+    <tr><td>UMAP bileşen</td><td>3D</td><td>Cosine metrik, n_neighbors=15</td></tr>
+  </table>
+
+  <!-- ÖRNEK -->
+  <h2>Örnek: 2:4 ve Bağlantıları</h2>
+  <p>Bakara 2:4 için en benzer ayetlerin ilk üçü (yeni embeddingler sonrası):</p>
+
+  <div class="verse-example">
+    <div class="verse-id">📖 El-Bakara 2:4 — Kaynak ayet</div>
+    <div class="verse-arabic">وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ</div>
+    <div class="verse-tr">Hem sana indirilen kitabı, hem de senden önce indirilen kitapları tasdik ederler. Âhirete de kesin olarak inanırlar.</div>
+  </div>
+
+  <div class="verse-example">
+    <div class="verse-id">🔗 En-Nisâ 4:162 — Skor: 0.758 &nbsp;|&nbsp; <span class="dim">1. sıra</span></div>
+    <div class="verse-arabic">لَّٰكِنِ الرَّاسِخُونَ فِي الْعِلْمِ مِنْهُمْ وَالْمُؤْمِنُونَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ</div>
+    <div class="verse-tr">Fakat içlerinden ilimde derinleşenler ve müminler, sana indirilen ve senden önce indirilenlere inanırlar.</div>
+    <div class="score-row">
+      <div class="score-badge">Toplam: 75.8%</div>
+      <div class="score-badge sem">Semantik: 94.3%</div>
+      <div class="score-badge lex">BM25: 41.3%</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Not:</strong> CAMeL-BERT ile üretilen önceki veri setinde 4:162 tamamen eksikti —
+    model tüm ayetlere 0.95–1.00 arası benzer vektör ürettiği için anlamlı sıralama yapılamıyordu.
+    E5-large ile 4:162 doğru biçimde ilk sıraya yerleşti.
+  </div>
+
+  <!-- ÇIKTI -->
+  <h2>Çıktı Dosyası</h2>
+  <p>
+    <code>public/verse-graph.json</code> — 10.9 MB, 6.236 ayet,
+    her ayet için en fazla 20 bağlantı.
+    Her bağlantı kaydı şu alanları içerir:
+  </p>
+  <div class="formula" style="color:#c9d1d9;">
+    {<br>
+    &nbsp;&nbsp;"id": "4:162",&nbsp;&nbsp;&nbsp;<span style="color:#64748b;">// Sure:Ayet</span><br>
+    &nbsp;&nbsp;"score": 0.7578,&nbsp;<span style="color:#64748b;">// Hibrit skor (0–1)</span><br>
+    &nbsp;&nbsp;"sem": 0.9434,&nbsp;&nbsp;<span style="color:#64748b;">// E5-large cosine similarity</span><br>
+    &nbsp;&nbsp;"lex": 0.4132&nbsp;&nbsp;&nbsp;<span style="color:#64748b;">// BM25 normalize skor</span><br>
+    }
+  </div>
+
+  <!-- SURE HARİTASI -->
+  <h2>Sûre Haritası — Yerleşim Metodolojisi</h2>
+  <p>
+    Sûre Haritası, 114 sûreyi görsel bir küme olarak sunar. Her balonun büyüklüğü sûrenin ayet sayısını,
+    rengi ise Mekkî (altın) / Medenî (mavi) ayrımını gösterir.
+    Sûrelerin ekrandaki <em>konumları</em> aşağıdaki adımlarla hesaplanır.
+  </p>
+
+  <h3>Adım 1 — 114×114 Sûre Benzerlik Matrisi</h3>
+  <p>
+    Ayet benzerlik hesabı (<code>verse-graph.json</code>) tamamlandıktan sonra, her sûre çifti (A, B)
+    için şu skor hesaplanır:
+  </p>
+  <div class="formula">
+    Benzerlik(A, B) = <span>ortalama</span>( tüm ayet bağlantı skorları: src_sure=A → dst_sure=B )
+  </div>
+  <p>
+    Yani A sûresindeki her ayetin B sûresindeki ayetlere kurduğu bağlantıların hibrit skorlarının
+    ortalaması alınır. Hiç bağlantı yoksa skor sıfırdır.
+    Matris simetrik hâle getirilir: <code>max(sim[A,B], sim[B,A])</code>.
+  </p>
+  <div class="callout">
+    Bu yaklaşım, sûreleri <em>metinsel örtüşme ve anlam yakınlığı</em> üzerinden konumlandırır.
+    Geleneksel İslam ilmi sınıflandırması (Tıval, Hâmim, Mufassal vb.) ile farklılık gösterebilir —
+    bu ayrım bilinçli ve şeffaf bir tasarım tercihidir.
+  </div>
+
+  <h3>Adım 2 — UMAP ile 2 Boyuta İndirgeme</h3>
+  <p>
+    114×114 benzerlik matrisi, önce mesafe matrisine dönüştürülür: <code>mesafe = 1 − benzerlik/max</code>.
+    Bu matris doğrudan UMAP'a verilir (<code>metric="precomputed"</code>), sonuç olarak her sûre için
+    2D koordinat üretilir ve <code>public/surah-clusters.json</code>'a kaydedilir.
+  </p>
+
+  <table>
+    <tr><th>Parametre</th><th>Değer</th></tr>
+    <tr><td>n_components</td><td>2</td></tr>
+    <tr><td>metric</td><td>precomputed (1 − normalize benzerlik)</td></tr>
+    <tr><td>n_neighbors</td><td>10</td></tr>
+    <tr><td>min_dist</td><td>0.25</td></tr>
+    <tr><td>random_state</td><td>42 (deterministik)</td></tr>
+    <tr><td>Çıktı boyutu</td><td>11.4 KB — 114 sûre &nbsp;·&nbsp; (x, y) koordinatları</td></tr>
+  </table>
+
+  <h3>Adım 3 — Force Separation (Çakışma Giderme)</h3>
+  <p>
+    UMAP koordinatları tarayıcıda görüntüleme koordinatlarına dönüştürüldükten sonra bazı balonlar
+    örtüşebilir. İteratif bir itme algoritması bu örtüşmeleri çözer:
+    her ayet çifti arasındaki mesafe minimum <code>r₁ + r₂ + 5px</code>'in altında ise her iki balon
+    eşit miktarda birbirinden uzaklaştırılır. 80 iterasyon veya hareketsizliğe ulaşıncaya kadar devam eder.
+  </p>
+
+  <h3>İki Görünüm Modu</h3>
+  <div class="two-col">
+    <div class="model-card">
+      <div class="name">Anlamsal Görünüm</div>
+      <div class="meta">Veri güdümlü — verse-graph bağlantılarından türetilmiş</div>
+      <ul>
+        <li>Ayet-ayet hibrit skorlarından 114×114 matris</li>
+        <li>UMAP → 2D yerleşim</li>
+        <li>Beklenmedik komşuluklar gerçek anlamsal ilişkiyi yansıtır</li>
+        <li>Felak ve Nâs ayrı düşebilir — kelime dağarcıkları farklıdır</li>
+      </ul>
+    </div>
+    <div class="model-card">
+      <div class="name">Klasik Görünüm</div>
+      <div class="meta">Küratörlü — İslam ilmi geleneği sınıflandırması</div>
+      <ul>
+        <li>11 grup: Tıval, Büyük Medenî, Kıssas-ı Enbiyâ, Hâmim, Kelam &amp; Yaratılış, Medenî İdare, Orta Mekkî, Kıyamet &amp; Haberler, Kısa Mekkî, Muavvizât</li>
+        <li>Her sûre grup merkezine yumuşak yay (spring) ile çekiliyor</li>
+        <li>Grup içinde force separation ile çakışmalar gideriliyor</li>
+        <li>Muavvizeteyn (113 + 114) ve İhlâs (112) aynı grupta gösterilir</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">
+    <strong>Neden iki görünüm?</strong> Anlamsal görünüm verinin söylediğini, klasik görünüm
+    âlimlerin dediğini gösterir. İkisi arasındaki fark — hangi sûrelerin birbirinden beklenmedik
+    biçimde ayrıldığı veya yaklaştığı — bu görselleştirmenin özgün katkısıdır.
+  </div>
+
+  <footer>
+    Quran Codex &nbsp;·&nbsp; intfloat/multilingual-e5-large + BM25Okapi (rank-bm25) + UMAP-learn
+    &nbsp;·&nbsp; Apple MPS (M-serisi) üzerinde hesaplandı, ~35 dakika
+    &nbsp;·&nbsp; Sûre haritası: <code>compute-surah-clusters.py</code> (verse-graph → 114×114 → UMAP 2D)
+  </footer>
+
+</div>
+</body>
+</html>

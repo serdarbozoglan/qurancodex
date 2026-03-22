@@ -18,7 +18,6 @@ Her font bir index numarasıyla takip edilir (0'dan başlar).
 | 10 | `Alkalami` | Hat 11 | `'Alkalami', serif` | Google Fonts | SIL — Kuzey Afrika Kur'an geleneği | ✅ Tam |
 | 11 | `ReemKufiInk` | Hat 12 | `'Reem Kufi Ink', serif` | Google Fonts | Kûfî mürekkep efektli | ⚠️ Kısmi |
 | 12 | `Katibeh` | Hat 13 | `'Katibeh', serif` | Google Fonts | Hat sanatı tarzı dekoratif | ⚠️ Kısmi |
-| 13 | `HusrevHatti` | Hat 14 | `'HusrevHatti', serif` | /public/fonts/husrev-hatti.woff (CDNFonts) | **Ahmed Hüsrev Hattı** — Hayrat Vakfı & Diyanet onaylı Türkiye baskılarında kullanılan resmi hat. Fatih Babacan tarafından dijitalleştirildi (2010). | ✅ Tam |
 
 ## Notlar
 
