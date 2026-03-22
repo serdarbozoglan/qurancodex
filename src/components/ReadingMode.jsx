@@ -202,6 +202,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     { id: 'Alkalami',      label: 'Alkalami',          family: "'Alkalami', serif" },
     { id: 'ReemKufiInk',   label: 'Reem Kufi Ink',    family: "'Reem Kufi Ink', serif" },
     { id: 'Katibeh',       label: 'Katibeh',           family: "'Katibeh', serif" },
+    { id: 'HusrevHatti',   label: 'Hüsrev Hattı',     family: "'HusrevHatti', serif" },
   ];
   const currentFont = ARABIC_FONTS.find(f => f.id === arabicFont)?.family ?? "'Amiri', serif";
   const audioRef = useRef(null);
