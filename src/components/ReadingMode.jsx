@@ -6,19 +6,25 @@ import { useLanguage } from '../i18n/LanguageContext';
 //        superscript alef (U+0670), subscript alef (U+0656), extended letters.
 // Remove: waqf markers, Islamic phrase abbreviations, annotation marks, sajda sign, etc.
 // U+06E1 (Uthmani open-circle sukun) is intentionally kept — it is phonetic.
+// Clean Arabic: remove decorative/structural marks that have no phonetic value.
+// IMPORTANT: U+06EA (ARABIC EMPTY CENTRE LOW STOP) is kept because KFGQPC Uthmani
+// encoding repurposes it as a subscript vowel diacritic (e.g. the kasra in "مِنّ۪ي").
+// U+06E1 (Uthmani open-circle sukun) is also kept — it is phonetic.
+// Everything else in U+06DF–U+06ED that renders as a visible circle/stop marker is removed.
 function cleanArabic(str) {
   if (!str) return str;
   return str
-    // Islamic phrase abbreviations & small high annotation marks (U+0610–U+0617)
+    // Islamic phrase abbreviations (U+0610–U+0617)
     .replace(/[\u0610-\u0617]/g, '')
-    // Quranic number/footnote prefix marks (U+0600–U+0605)
+    // Quranic number / footnote prefix marks (U+0600–U+0605)
     .replace(/[\u0600-\u0605]/g, '')
-    // Waqf / pause markers (U+06D6–U+06DC): صلى، قلى، ط، لا، ۛ etc.
+    // Waqf / pause markers (U+06D6–U+06DC)
     .replace(/[\u06D6-\u06DC]/g, '')
     // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9)
     .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    // Remaining Quranic annotation marks (skip U+06E1 = Uthmani sukun)
-    .replace(/[\u06DF\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EA-\u06ED]/g, '')
+    // Visual stop/circle annotation marks — render as dots/circles in KFGQPC
+    // Skip U+06E1 (phonetic sukun) and U+06EA (phonetic subscript vowel)
+    .replace(/[\u06DF\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB-\u06ED]/g, '')
     // Ornate parentheses
     .replace(/[\uFD3E\uFD3F]/g, '');
 }
@@ -176,6 +182,22 @@ const SURAH_NAMES_TR = [
   'Ez-Zelzele','El-Âdiyât','El-Kâri\'a','Et-Tekâsür','El-Asr',
   'El-Hümeze','El-Fîl','Kureyş','El-Mâûn','El-Kevser','El-Kâfirûn',
   'En-Nasr','El-Mesed','El-İhlâs','El-Felak','En-Nâs',
+];
+
+// Arabic surah names (standard Uthmani spelling)
+const SURAH_NAMES_AR = [
+  'الفَاتِحَة','البَقَرَة','آل عِمْرَان','النِّسَاء','المَائِدَة','الأَنْعَام','الأَعْرَاف','الأَنْفَال','التَّوْبَة','يُونُس',
+  'هُود','يُوسُف','الرَّعْد','إِبْرَاهِيم','الحِجْر','النَّحْل','الإِسْرَاء','الكَهْف','مَرْيَم','طٰهٰ',
+  'الأَنْبِيَاء','الحَجّ','المُؤْمِنُون','النُّور','الفُرْقَان','الشُّعَرَاء','النَّمْل','القَصَص','العَنْكَبُوت','الرُّوم',
+  'لُقْمَان','السَّجْدَة','الأَحْزَاب','سَبَأ','فَاطِر','يٰسٓ','الصَّافَّات','صٓ','الزُّمَر','غَافِر',
+  'فُصِّلَت','الشُّورَى','الزُّخْرُف','الدُّخَان','الجَاثِيَة','الأَحْقَاف','مُحَمَّد','الفَتْح','الحُجُرَات','قٓ',
+  'الذَّارِيَات','الطُّور','النَّجْم','القَمَر','الرَّحْمٰن','الوَاقِعَة','الحَدِيد','المُجَادَلَة','الحَشْر','المُمْتَحِنَة',
+  'الصَّفّ','الجُمُعَة','المُنَافِقُون','التَّغَابُن','الطَّلَاق','التَّحْرِيم','المُلْك','القَلَم','الحَاقَّة','المَعَارِج',
+  'نُوح','الجِنّ','المُزَّمِّل','المُدَّثِّر','القِيَامَة','الإِنْسَان','المُرْسَلَات','النَّبَأ','النَّازِعَات','عَبَسَ',
+  'التَّكْوِير','الانفِطَار','المُطَفِّفِين','الانشِقَاق','البُرُوج','الطَّارِق','الأَعْلَى','الغَاشِيَة','الفَجْر','البَلَد',
+  'الشَّمْس','اللَّيْل','الضُّحَى','الشَّرْح','التِّين','العَلَق','القَدْر','البَيِّنَة','الزَّلْزَلَة','العَادِيَات',
+  'القَارِعَة','التَّكَاثُر','العَصْر','الهُمَزَة','الفِيل','قُرَيْش','المَاعُون','الكَوْثَر','الكَافِرُون','النَّصْر',
+  'المَسَد','الإِخْلَاص','الفَلَق','النَّاس',
 ];
 
 const RECITERS = [
@@ -1452,7 +1474,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                   display: 'flex', flexDirection: 'column', gap: '2px',
                 }}>
                   {/* Attribution */}
-                  <div style={{ padding: '0 12px 8px', fontSize: '0.68rem', color: 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
+                  <div style={{ padding: '0 12px 8px', fontSize: '0.68rem', color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
                     {selectedMealAuthor.label}
                   </div>
                   {versesOnPage.map(verse => {
@@ -1477,7 +1499,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                             width: '26px', height: '26px', borderRadius: '50%', flexShrink: 0, marginTop: '2px',
                             border: `1.5px solid ${isActive ? 'rgba(212,165,116,0.8)' : 'rgba(212,165,116,0.55)'}`,
-                            boxShadow: `0 0 0 2.5px rgba(8,10,18,0.95), 0 0 0 4px ${isActive ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.2)'}`,
+                            boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${isActive ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.2)'}`,
                             background: 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
                             color: isActive ? 'rgba(240,216,152,1)' : 'rgba(232,185,100,0.9)',
                             fontSize: verse.ayah >= 100 ? '0.5rem' : verse.ayah >= 10 ? '0.55rem' : '0.62rem',
@@ -1533,7 +1555,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                         width: '1.72em', height: '1.72em',
                         textAlign: 'center', borderRadius: '50%',
                         border: '1.5px solid rgba(212,165,116,0.65)',
-                        boxShadow: '0 0 0 2.5px rgba(8,10,18,0.95), 0 0 0 4px rgba(212,165,116,0.28)',
+                        boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px rgba(212,165,116,0.28)`,
                         color: 'rgba(232,185,100,0.95)',
                         fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
                         fontFamily: "'Amiri', serif",
@@ -1556,7 +1578,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           <div style={{ padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
             {/* Attribution */}
             {showTranslation && (
-              <div style={{ padding: '4px 20px 8px', fontSize: '0.68rem', color: 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
+              <div style={{ padding: '4px 20px 8px', fontSize: '0.68rem', color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
                 {selectedMealAuthor.label}
               </div>
             )}
@@ -1664,11 +1686,11 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             style={{
               position: 'absolute', top: '50%', transform: 'translateY(-50%)',
               zIndex: 20, width: '44px', height: '120px',
-              background: enabled ? 'rgba(212,165,116,0.06)' : 'transparent',
-              border: enabled ? '1px solid rgba(212,165,116,0.15)' : 'none',
-              borderLeft: side === 'right' && enabled ? '1px solid rgba(212,165,116,0.15)' : (side === 'left' ? 'none' : undefined),
-              borderRight: side === 'left' && enabled ? '1px solid rgba(212,165,116,0.15)' : (side === 'right' ? 'none' : undefined),
-              color: enabled ? 'rgba(212,165,116,0.45)' : 'rgba(255,255,255,0.05)',
+              background: enabled ? (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.06)') : 'transparent',
+              border: enabled ? `1px solid ${dayMode ? 'rgba(100,60,10,0.2)' : 'rgba(212,165,116,0.15)'}` : 'none',
+              borderLeft: side === 'right' && enabled ? `1px solid ${dayMode ? 'rgba(100,60,10,0.2)' : 'rgba(212,165,116,0.15)'}` : (side === 'left' ? 'none' : undefined),
+              borderRight: side === 'left' && enabled ? `1px solid ${dayMode ? 'rgba(100,60,10,0.2)' : 'rgba(212,165,116,0.15)'}` : (side === 'right' ? 'none' : undefined),
+              color: enabled ? (dayMode ? 'rgba(100,60,10,0.5)' : 'rgba(212,165,116,0.45)') : (dayMode ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)'),
               cursor: enabled ? 'pointer' : 'default',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               transition: 'all 0.18s', flexDirection: 'column', gap: '4px',
