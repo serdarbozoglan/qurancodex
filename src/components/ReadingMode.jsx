@@ -5,42 +5,256 @@ import { useLanguage } from '../i18n/LanguageContext';
 // Keep: core letters (U+0621–U+063A, U+0641–U+064A), standard harakat (U+064B–U+0655),
 //        superscript alef (U+0670), subscript alef (U+0656), extended letters.
 // Remove: waqf markers, Islamic phrase abbreviations, annotation marks, sajda sign, etc.
-// U+06E1 (Uthmani open-circle sukun) is intentionally kept — it is phonetic.
 // Clean Arabic: remove decorative/structural marks that have no phonetic value.
-// IMPORTANT: U+06EA (ARABIC EMPTY CENTRE LOW STOP) is kept because KFGQPC Uthmani
-// encoding repurposes it as a subscript vowel diacritic (e.g. the kasra in "مِنّ۪ي").
-// U+06E1 (Uthmani open-circle sukun) is also kept — it is phonetic.
-// Everything else in U+06DF–U+06ED that renders as a visible circle/stop marker is removed.
+// U+06E1 (Uthmani open-circle sukun) is kept — it is phonetic.
+// U+06EA (ARABIC EMPTY CENTRE LOW STOP) is used in the acikkuran dataset as a subscript
+// kasra diacritic (e.g. جَمِيعاً → جَمَ۪يعاً, مِنِّي → مِنّ۪ي). It renders as a circle
+// in fallback fonts so we normalize it to a standard kasra (U+0650) instead of removing it.
 function cleanArabic(str) {
   if (!str) return str;
   return str
-    // Islamic phrase abbreviations (U+0610–U+0617)
-    .replace(/[\u0610-\u0617]/g, '')
+    // Normalize Uthmani subscript kasra (U+06EA) → standard kasra (U+0650)
+    .replace(/\u06EA/g, '\u0650')
+    // U+0653 (maddah above): tüm durumlar wrapWaqfOnly/applyTajweed pipeline'ında CSS overlay ile
+    // işlenir (makeShaddaMaddaWrap / makeHarakaMaddaWrap / makeBareHarakaMaddaWrap).
+    // cleanArabic'te herhangi bir stripping yapılmıyor — hareke+maddah kombinasyonu korunur.
+    // U+0671 (Arabic Letter Alef Wasla / ٱ) — KFGQPC üstünde ص işareti render ediyor
+    // Düz alef (U+0627) ile normalize et; wasl harekesi zaten hareke ile gösterilir
+    .replace(/\u0671/g, '\u0627')
+    // U+06CC (Arabic Letter Farsi Yeh / ی) — KFGQPC desteklemiyor, siyah tofu üretiyor
+    // Standart Arabic Yeh (U+064A) ile normalize et
+    .replace(/\u06CC/g, '\u064A')
+    // Islamic phrase abbreviations (U+0610–U+0614, U+0616–U+0617)
+    // U+0615 (ARABIC SMALL HIGH TAH = ط waqf işareti) hariç tutuldu — wrapWaqfOnly'de render edilecek
+    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
     // Quranic number / footnote prefix marks (U+0600–U+0605)
     .replace(/[\u0600-\u0605]/g, '')
-    // Waqf / pause markers (U+06D6–U+06DC)
-    .replace(/[\u06D6-\u06DC]/g, '')
+    // Waqf / pause markers (U+06D6–U+06DC) — applyTajweed'de absolute konumlandırma ile gösterilir
+    // cleanArabic'te kaldırılmıyor; tajweed pipeline'ı handle ediyor
     // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9)
     .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    // Visual stop/circle annotation marks — render as dots/circles in KFGQPC
-    // Skip U+06E1 (phonetic sukun) and U+06EA (phonetic subscript vowel)
-    .replace(/[\u06DF\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB-\u06ED]/g, '')
+    // U+06DF (صفر مستدير/Ayn) + U+06EC (kasr) applyTajweed'e bırakılıyor — diğerleri siliniyor
+    .replace(/[\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '')
     // Ornate parentheses
     .replace(/[\uFD3E\uFD3F]/g, '');
 }
 
-// Tajweed coloring — simplified visual approximation with key rules
-function applyTajweed(text) {
+// Tajweed coloring.
+// Renk sistemi (gece / gündüz iki palet):
+//   Kalkale           (قلقلة)        ← ق ط ب ج د + sükun
+//   Gunne / İdgam-m.  (غنة/مثلين)   ← ن/م+şedde | مْ+م | نْ/tenv + وينم
+//   İdgam bilağunne  (إدغام بلاغنة) ← نْ/tenv + ل ر
+//   İklab            (إقلاب)         ← نْ/tenv + ب
+//   İhfa-i aslî      (إخفاء أصلي)   ← نْ/tenv + 15 harf
+//   İhfa-i şefevî    (إخفاء شفوي)   ← مْ + ب
+//   Med              (مد)            ← فتحة+ألف | ضمة+واو | كسرة+ياء
+//
+// NUN_SAK / MIM_SAK: sükun harfin hemen ardından gelir — ara diacritic olamaz
+// (aynı harfte hem sükun hem başka hareke olması fonetik olarak imkânsız).
+// DIAC grubunun sükunu içermesi nedeniyle `[DIAC]*[sukun]` regex'te backtracking
+// sorunu çıkabilir; doğrudan `harf+sükun` eşlemesi daha güvenilirdir.
+const DIAC    = '\u064B-\u065F\u06E1\u0670'; // hareke + Osmanlı küçük sükun + dagger alef
+const NUN_SAK = 'ن[\u0652\u06E1]';    // نْ — sükun doğrudan
+const MIM_SAK = 'م[\u0652\u06E1]';    // مْ — sükun doğrudan
+const TANWIN  = '[\u064B-\u064D]';    // tenvîn (ً ٌ ٍ)
+const IKHFA_L = 'تثجدذزسشصضطظفقك';   // 15 ihfa harfi
+const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; // Arapça harf
+
+// Vakıf işaretlerini tecvid renkleri olmadan wrap eder (tecvid kapalıyken kullanılır)
+// Vakıf + med/kasr + sekte + küçük mim/nun işaretleri — kırmızı, metnin üstünde
+// Gündüz: koyu kırmızı (#c0392b) — Gece: yumuşak terrakota (#c87a72, göz yormaz)
+const makeWaqfSpan = (dayMode) => (m) =>
+  `<span style="display:inline-block;font-size:0.72em;font-weight:700;line-height:1;vertical-align:super;` +
+  `position:relative;left:-0.08em;margin-left:-0.18em;` +
+  `font-family:'KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
+  `pointer-events:none;user-select:none;">${m}</span>`;
+
+// Vakıf işaretleri:
+//   U+06D6–06DC: King Fahd/acikkuran.com Uthmani vakıf işaretleri
+//   U+06DF:      صفر مستدير / Ayn
+//   U+0615:      ARABIC SMALL HIGH TAH (ط) — Diyanet baskısı waqf mutlak işareti
+const UTHMANI_MARKS_RE = /[\u06D6-\u06DA\u06DC\u06DF\u0615]\u06DB?/gu;
+
+// Allah lafzı renklendirme: tilde kırmızısıyla aynı renk (gündüz/gece uyumlu).
+// Eşleşme: ا + ل + (hareke*) + ل (şedde dahil) + (hareke*) + ه + (hareke*)
+const ALLAH_RE = /\u0627\u0644[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u06E1\u0651]*\u0647[\u064B-\u065F\u0670\u06E1]*/gu;
+const makeAllahWrap = (dayMode) => (m) =>
+  `<span style="color:${dayMode ? '#4338ca' : '#93c5fd'};">${m}</span>`;
+
+// Şedde (U+0651) + hareke + maddah (U+0653): KFGQPC üçünü üst üste koyuyor.
+// Çözüm: harfi şedde+hareke ile fontta render et, maddah tilde'ı CSS absolute ile üstüne yerleştir.
+// display:inline (inline-block değil): inline-block Arapça harf bağlantılarını (ض←ل←ا) kesiyor,
+// shaping engine harfi izole form olarak render ediyor. display:inline ile harf akış içinde kalır.
+// Tüm maddah (U+0653) durumlarını tek geçişte işler; ardışık tildeleri kademelendirerek
+// üst üste binmeyi önler. Her ardışık tilde öncekinden MADDA_STAGGER em daha aşağıda durur.
+//
+// Üç case, en özelden en genele (regex alternation önceliği):
+//   Case 1: harf + şedde (U+0651) + hareke + maddah  — örn. آ (elif üstündeki uzatma işareti)
+//   Case 2: harf + hareke + maddah (şeddesiz)         — örn. بِمَآ'daki م
+//   Case 3: harf + yalın maddah                       — örn. الٓمٓ huruf mukattaa
+//
+// display:inline (inline-block değil): inline-block Arapça harf bağlantısını (şekil seçimini) kesiyor.
+const MADDA_STAGGER = 0.18; // her ardışık tilde için em cinsinden düşüş
+// U+0670 (asar/dagger alef) maddah'tan önce veya sonra gelebilir; her iki sıralama yakalanır.
+// Gerçek data sırası: ل + U+0670 + U+0653  →  Case 3'te baPreDagger ile yakalanır.
+// Asar span içine alınır → tilde asarın ÜSTÜNDE konumlanır (yüksek baseBottom).
+const COMBINED_MADDA_RE =
+  /([\u0600-\u06FF])\u0651([\u064B-\u0650\u0652])\u0653|([\u0600-\u06FF])([\u064B-\u0650\u0652])(\u0670?)\u0653(\u0670?)|([\u0600-\u06FF])(\u0670?)\u0653(\u0670?)/gu;
+
+function wrapAllMadda(text, dayMode) {
+  const color = dayMode ? '#c0392b' : '#c87a72';
+  let lastEnd = -1;
+  let runLen  = 0;
+  return text.replace(
+    COMBINED_MADDA_RE,
+    (match, shLetter, shHareke,
+            haLetter, haHareke, haPreDagger, haPostDagger,
+            baLetter, baPreDagger, baPostDagger,
+            offset) => {
+      runLen  = (offset === lastEnd) ? runLen + 1 : 0;
+      lastEnd = offset + match.length;
+
+      let content, xOffset, baseBottom;
+      if (shLetter !== undefined) {
+        // Case 1: şedde + hareke + maddah
+        content    = `${shLetter}\u0651${shHareke}`;
+        xOffset    = '-0.6em';
+        baseBottom = 1.38;
+      } else if (haLetter !== undefined) {
+        // Case 2: hareke + maddah (asar varsa daha yüksek)
+        // 1.30em → fatha/damma'nın (~0.9em) üstünde net boşluk bırakır
+        const hasDagger = !!(haPreDagger || haPostDagger);
+        content    = `${haLetter}${haHareke}${haPreDagger || ''}${haPostDagger || ''}`;
+        xOffset    = '-0.45em';
+        baseBottom = hasDagger ? 1.45 : 1.30;
+      } else {
+        // Case 3: yalın maddah — örn. لٰٓ'daki ل+U+0670+U+0653 sırası
+        const hasDagger = !!(baPreDagger || baPostDagger);
+        content    = `${baLetter}${baPreDagger || ''}${baPostDagger || ''}`;
+        xOffset    = '-0.5em';
+        baseBottom = hasDagger ? 1.40 : 1.05;
+      }
+
+      const bottom = (baseBottom - runLen * MADDA_STAGGER).toFixed(2);
+      return (
+        `<span style="display:inline;position:relative;">${content}` +
+        `<span style="position:absolute;bottom:${bottom}em;left:50%;` +
+        `transform:translateX(-50%) translateX(${xOffset}) scaleX(1.9);` +
+        `font-size:1.0em;line-height:1;font-family:'KFGQPC','Amiri Quran',serif;` +
+        `pointer-events:none;user-select:none;color:${color};white-space:nowrap;">ٓ</span></span>`
+      );
+    }
+  );
+}
+
+// U+06EC (ARABIC ROUNDED HIGH STOP WITH FILLED CENTRE): acikkuran verisinde و (vav)
+// sonrasına yerleştirilir. Vav'ın hemen altına, kasra hizasında küçük "قصر" etiketi
+// gösterilir. position:absolute kullanımı sayesinde satır yüksekliğini etkilemez.
+const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06EB\u06ED])*)\u06EC/gu;
+const makeKasrWrap = (dayMode) => (_, letter) =>
+  `<span style="display:inline-block;position:relative;">${letter}` +
+  `<span style="position:absolute;bottom:0.9em;left:50%;transform:translateX(-50%);` +
+  `font-size:0.4em;font-weight:700;line-height:1;` +
+  `font-family:'KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
+  `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
+
+function wrapWaqfOnly(text, dayMode = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  // Qalqalah letters (ق ط ب ج د) + sukun → electric blue
-  html = html.replace(/[قطبجد]\u0652/gu, m => `<span style="color:#4fc3f7">${m}</span>`);
-  // Ghunna: ن or م + shaddah → bright green
-  html = html.replace(/[نم]\u0651/gu, m => `<span style="color:#a5d6a7">${m}</span>`);
-  // Remaining shaddah (idgham / ikhfa) → lavender
-  html = html.replace(/(?<![نم])\u0651/gu, '<span style="color:#ce93d8">\u0651</span>');
-  // Tanwin (fathatan / dammatan / kasratan) → warm amber
-  html = html.replace(/[\u064B-\u064D]/gu, m => `<span style="color:#ffcc80">${m}</span>`);
+  html = wrapAllMadda(html, dayMode);
+  html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
+  html = html.replace(KASR_RE, makeKasrWrap(dayMode));
+  html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
+  return html;
+}
+
+function applyTajweed(text, dayMode) {
+  if (!text) return '';
+  let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  // Vakıf işaretleri (U+06D6–U+06DC):
+  //   vertical-align:3em → işaretin kendi font-size'ına (0.55em ≈ 20px) göre 3×20 = 60px yukarı
+  //   Harekeler baseline'dan max ~50px çıkar → 60px > 50px, overlap imkânsız
+  //   line-height:0 → satır yüksekliğini etkilemez
+  //   position:absolute kullanılmıyor → overflow:hidden olan container'larda kesilme riski yok
+  html = wrapAllMadda(html, dayMode);
+  html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
+  html = html.replace(KASR_RE, makeKasrWrap(dayMode));
+
+  // Renk paleti: altın metin renginden (#d4a574) maksimum kontrast sağlanır.
+  // Amber/turuncu tonlar altın renge yakın olduğu için ihfa → cyan, ihfa-şefevî → teal.
+  const K = dayMode ? {
+    qalqala:   '#b91c1c',  // koyu kırmızı
+    gunne:     '#166534',  // koyu yeşil
+    idgamBila: '#1e40af',  // koyu mavi
+    iklab:     '#9d174d',  // koyu pembe
+    ihfa:      '#0e7490',  // koyu cyan  (ihfa-i aslî)
+    ihfaSef:   '#0f766e',  // koyu teal  (ihfa-i şefevî)
+    med:       '#6d28d9',  // koyu mor
+  } : {
+    qalqala:   '#f87171',  // coral kırmızı   — kalkale
+    gunne:     '#4ade80',  // parlak yeşil    — gunne / idgam-ı misleyn / idgam meağunne
+    idgamBila: '#60a5fa',  // açık mavi       — idgam bilağunne
+    iklab:     '#f472b6',  // pembe           — iklab
+    ihfa:      '#22d3ee',  // cyan            — ihfa-i aslî  (altından çok farklı)
+    ihfaSef:   '#2dd4bf',  // teal/nane       — ihfa-i şefevî (dudak ihfası)
+    med:       '#c084fc',  // leylak          — med
+  };
+  const sp = (c, m) => `<span style="color:${c}">${m}</span>`;
+
+  const CMID = '[\\u064B-\\u065F\\u06E1]*'; // combining marklar (U+0670 hariç)
+  const NEG  = '(?![\\u064E\\u064F\\u0650\\u0651\\u0652])';
+
+  // ── 1. Gunne: ن/م + şedde — HER ZAMAN İLK çalışır ──────────────────────────
+  // Şeddeli tüm nun ve mimleri önce renklendiriyoruz; diğer kurallar bu spanı bozmaz.
+  html = html.replace(
+    new RegExp(`([نم])([${DIAC}]*\\u0651[${DIAC}]*)`, 'gu'),
+    (_, l, d) => sp(K.gunne, l + d)
+  );
+
+  // ── 2. Gunne sonrası med: نَّا / مَّا gibi kelimelerde span hemen ardından ──────
+  // Gunne spanı fathayı içine alınca, genel med kuralı span sınırını geçemez.
+  // Çözüm: </span>'in hemen ardındaki bare elif/vav/ya → med.
+  html = html.replace(/(<\/span>)([\u0627\u0649\u0670])(?![\u064E\u064F\u0650\u0651\u0652])/gu,
+    (_, c, a) => c + sp(K.med, a));
+  html = html.replace(/(<\/span>)(\u0648)(?![\u064E\u064F\u0650\u0651\u0652])/gu,
+    (_, c, w) => c + sp(K.med, w));
+  html = html.replace(/(<\/span>)(\u064A)(?![\u064E\u064F\u0650\u0651\u0652])/gu,
+    (_, c, y) => c + sp(K.med, y));
+
+  // ── 3. Kalkale ───────────────────────────────────────────────────────────────
+  html = html.replace(/[قطبجد][\u0652\u06E1]/gu, m => sp(K.qalqala, m));
+
+  // ── 4. Med (genel) ───────────────────────────────────────────────────────────
+  // U+0670 (dagger alef): Uthmani encoding'de süperskript elif — daima med
+  html = html.replace(/\u0670/gu, m => sp(K.med, m));
+  // Fatha + elif / elif-maksura
+  html = html.replace(new RegExp(`(\\u064E)(${CMID})([\\u0627\\u0649])${NEG}`, 'gu'),
+    (_, f, mid, a) => f + mid + sp(K.med, a));
+  // Damme + vav
+  html = html.replace(new RegExp(`(\\u064F)(${CMID})(\\u0648)${NEG}`, 'gu'),
+    (_, d, mid, w) => d + mid + sp(K.med, w));
+  // Kasra + ye
+  html = html.replace(new RegExp(`(\\u0650)(${CMID})(\\u064A)${NEG}`, 'gu'),
+    (_, k, mid, y) => k + mid + sp(K.med, y));
+
+  // ── 5. Mim Sakin ─────────────────────────────────────────────────────────────
+  html = html.replace(new RegExp(`${MIM_SAK}(?=\\s*م)`, 'gu'), m => sp(K.gunne,   m)); // İdgam-ı misleyn
+  html = html.replace(new RegExp(`${MIM_SAK}(?=\\s*ب)`, 'gu'), m => sp(K.ihfaSef, m)); // İhfa-i şefevî
+
+  // ── 6. Nûn Sakin ─────────────────────────────────────────────────────────────
+  html = html.replace(new RegExp(`${NUN_SAK}(?=\\s*[لر])`,         'gu'), m => sp(K.idgamBila, m));
+  html = html.replace(new RegExp(`${NUN_SAK}(?=\\s*ب)`,            'gu'), m => sp(K.iklab,     m));
+  html = html.replace(new RegExp(`${NUN_SAK}(?=\\s*[${IKHFA_L}])`, 'gu'), m => sp(K.ihfa,      m));
+  html = html.replace(new RegExp(`${NUN_SAK}(?=\\s*[وينم])`,       'gu'), m => sp(K.gunne,     m));
+
+  // ── 7. Tenvîn (base harf + tenvîn birlikte — combining char sorunu) ──────────
+  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*[لر])`,         'gu'), m => sp(K.idgamBila, m));
+  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*ب)`,            'gu'), m => sp(K.iklab,     m));
+  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*[${IKHFA_L}])`, 'gu'), m => sp(K.ihfa,      m));
+  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*[وينم])`,       'gu'), m => sp(K.gunne,     m));
+
+  html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
   return html;
 }
 
@@ -94,12 +308,16 @@ const ShareIcon = ({ size = 14 }) => (
     <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
   </svg>
 );
-const ClockIcon = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+const PlayIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <polygon points="5,3 19,12 5,21" />
   </svg>
 );
-
+const PauseIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/>
+  </svg>
+);
 // Sajda (secde) verses — 15 obligatory prostration points (Hanafi)
 const SAJDA_VERSES = new Set([
   '7:206', '13:15', '16:49', '17:107', '19:58',
@@ -111,18 +329,19 @@ const SAJDA_VERSES = new Set([
 const toArabicNumerals = (n) =>
   String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
 
-// Starting page number for each surah (standard 604-page Medina mushaf, Hafs)
+// Starting page number for each surah (Diyanet 604-page mushaf, Hafs — from acikkuran.com API)
+// Index 0 = Fatiha = page 0 (unnumbered in Diyanet edition), Index 66 = Mülk = page 561
 const SURAH_PAGES = [
-  1,   2,  50,  77, 106, 128, 151, 177, 187, 208,
-221, 235, 249, 255, 262, 267, 282, 293, 305, 312,
-322, 333, 342, 350, 359, 367, 377, 385, 396, 404,
-411, 415, 418, 428, 434, 440, 446, 453, 458, 467,
-477, 483, 489, 496, 499, 502, 507, 511, 515, 518,
-520, 523, 526, 528, 531, 534, 537, 542, 545, 549,
-551, 553, 554, 556, 558, 560, 562, 564, 566, 568,
-570, 572, 574, 575, 577, 578, 580, 582, 583, 585,
-586, 587, 587, 589, 590, 591, 591, 592, 593, 594,
-595, 595, 596, 596, 597, 597, 598, 598, 599, 599,
+  0,   1,  49,  76, 105, 127, 150, 176, 186, 207,
+220, 234, 248, 254, 261, 266, 281, 292, 304, 311,
+321, 331, 341, 349, 358, 366, 376, 384, 395, 403,
+410, 414, 417, 427, 433, 439, 445, 452, 457, 466,
+476, 482, 488, 495, 498, 501, 506, 510, 514, 517,
+519, 522, 525, 527, 530, 533, 536, 541, 544, 548,
+550, 552, 553, 555, 557, 559, 561, 563, 565, 567,
+569, 571, 573, 574, 576, 577, 579, 581, 582, 584,
+585, 586, 587, 588, 589, 590, 591, 591, 592, 593,
+594, 595, 595, 596, 596, 597, 598, 598, 599, 599,
 600, 600, 601, 601, 601, 602, 602, 602, 603, 603,
 603, 604, 604, 604,
 ];
@@ -200,6 +419,14 @@ const SURAH_NAMES_AR = [
   'المَسَد','الإِخْلَاص','الفَلَق','النَّاس',
 ];
 
+// Madani surahs (standard classification — all others are Makki)
+const MADANI_SURAHS = new Set([
+  2, 3, 4, 5, 8, 9, 13, 22, 24, 33, 47, 48, 49,
+  55, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 76, 98, 99, 110,
+]);
+
+
+
 const RECITERS = [
   { id: 'Alafasy_128kbps',              labelTr: 'Meşarî', labelEn: 'Alafasy' },
   { id: 'Abdul_Basit_Murattal_192kbps', labelTr: 'Abdülbasit', labelEn: 'Abdul Basit' },
@@ -242,12 +469,12 @@ function AudioBar({ surah, ayah, playing, onToggle, language, reciterIdx }) {
       <button onClick={onToggle} style={{
         width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
         background: playing ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
-        border: `1px solid ${playing ? 'rgba(212,165,116,0.5)' : 'rgba(212,165,116,0.2)'}`,
+        border: `1px solid ${playing ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
         color: gold, cursor: 'pointer', fontSize: '0.7rem',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         transition: 'all 0.18s',
       }}>
-        {playing ? '❙❙' : '▶'}
+        {playing ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
       </button>
       <span style={{ color: '#64748b', fontSize: '0.65rem' }}>
         {language === 'tr' ? reciter.labelTr : reciter.labelEn}
@@ -266,11 +493,11 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, lang
     <div
       onClick={() => onSelect(verse)}
       style={{
-        display: 'flex', flexDirection: 'column', gap: '12px',
-        padding: '20px 24px',
+        display: 'flex', flexDirection: 'column', gap: '14px',
+        padding: '24px 24px',
         borderBottom: '1px solid rgba(255,255,255,0.04)',
         background: isActive ? 'rgba(212,165,116,0.05)' : 'transparent',
-        borderLeft: isActive ? `3px solid ${gold}` : '3px solid transparent',
+        borderLeft: isActive ? `3px solid ${gold}cc` : '3px solid transparent',
         cursor: 'pointer', transition: 'all 0.18s',
       }}
       onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
@@ -281,9 +508,10 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, lang
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <span style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            width: '28px', height: '28px', borderRadius: '50%',
-            border: `1px solid ${isActive ? 'rgba(212,165,116,0.5)' : 'rgba(212,165,116,0.15)'}`,
-            color: isActive ? gold : '#64748b', fontSize: '0.7rem', fontWeight: 600, flexShrink: 0,
+            width: '32px', height: '32px', borderRadius: '50%',
+            border: `1.5px solid ${isActive ? 'rgba(212,165,116,0.8)' : 'rgba(212,165,116,0.35)'}`,
+            background: 'radial-gradient(circle, rgba(212,165,116,0.15) 0%, rgba(212,165,116,0.04) 70%)',
+            color: isActive ? gold : '#64748b', fontSize: '0.72rem', fontWeight: 600, flexShrink: 0,
           }}>{verse.ayah}</span>
           {isSajda && (
             <span style={{
@@ -310,12 +538,12 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, lang
         color: isActive ? '#e8c98a' : '#d4b483',
         textAlign: 'right', direction: 'rtl',
       }}>
-        {cleanArabic(verse.arabic)}
+        <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(cleanArabic(verse.arabic), dayMode) }} />
       </div>
 
       {/* Translation */}
       {showTranslation && (
-        <div style={{ color: '#c2bbb0', fontSize: '1rem', lineHeight: 1.85 }}>
+        <div style={{ color: '#c2bbb0', fontSize: '1.1rem', lineHeight: 1.85 }}>
           {vt}
         </div>
       )}
@@ -333,23 +561,38 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     catch { return initialSurah; }
   });
   const [activeVerse, setActiveVerse] = useState(null);
-  const [showTranslation, setShowTranslation] = useState(true);
+  const [showTranslation, setShowTranslation] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_show_translation') ?? 'true'); }
+    catch { return true; }
+  });
   const [showSurahPicker, setShowSurahPicker] = useState(false);
-  const [reciterIdx, setReciterIdx] = useState(0);
+  const [reciterIdx, setReciterIdx] = useState(() => {
+    try { return parseInt(localStorage.getItem('qurancodex_reciter_idx') || '0', 10); }
+    catch { return 0; }
+  });
   const [playingVerseId, setPlayingVerseId] = useState(null);
-  const [bookMode, setBookMode] = useState(true); // default: book mode
+  const [bookMode, setBookMode] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_book_mode') ?? 'true'); }
+    catch { return true; }
+  });
   const [bookPage, setBookPage] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_last_position') || 'null')?.page ?? null; }
     catch { return null; }
   });
   const [showJuzPicker, setShowJuzPicker] = useState(false);
+  const [pickerSelectedSurah, setPickerSelectedSurah] = useState(null); // surah selected in picker, awaiting verse input
+  const [pickerVerseInput, setPickerVerseInput] = useState('');
   const [pendingScrollAyah, setPendingScrollAyah] = useState(null);
+  const [pendingJuzPage, setPendingJuzPage] = useState(null); // exact JUZ_PAGES target for toolbar sync
   const [showPageInput, setShowPageInput] = useState(false);
   const [pageInputValue, setPageInputValue] = useState('');
   const [surahSearch, setSurahSearch] = useState('');
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedMealId, setSelectedMealId] = useState('local');
+  const [selectedMealId, setSelectedMealId] = useState(() => {
+    try { return localStorage.getItem('qurancodex_meal_id') || 'local'; }
+    catch { return 'local'; }
+  });
   const [showMealPicker, setShowMealPicker] = useState(false);
   const [mealLoading, setMealLoading] = useState(false);
   const mealCacheRef = useRef(new Map()); // key: "mealId:surahNum" → Map<ayah, text>
@@ -403,18 +646,20 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     catch { return false; }
   });
   // ── Tajweed coloring toggle ────────────────────────────────────────────────
-  const [showTajweed, setShowTajweed] = useState(false);
+  const [showTajweed, setShowTajweed] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_tajweed') ?? 'false'); }
+    catch { return false; }
+  });
   // ── Share / copy feedback ─────────────────────────────────────────────────
   const [copiedVerseId, setCopiedVerseId] = useState(null);
-  // ── Reading stats panel ───────────────────────────────────────────────────
-  const [showStats, setShowStats] = useState(false);
+  const [showFontPicker, setShowFontPicker] = useState(false);
 
   const currentFont = "'KFGQPC', 'Amiri Quran', serif";
   const audioRef = useRef(null);
   const containerRef = useRef(null);
   // Refs for Escape handler — always reflect current state without closure staleness
   const overlayStateRef = useRef({});
-  overlayStateRef.current = { showSearch, showMealPicker, showSurahPicker, showJuzPicker, showBookmarks, showStats };
+  overlayStateRef.current = { showSearch, showMealPicker, showSurahPicker, showJuzPicker, showBookmarks, showFontPicker };
 
   const normalizeText = (str) =>
     str
@@ -488,10 +733,10 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     if (e.key !== 'Escape') return;
     if (showSearch)      { setShowSearch(false); setSearchQuery(''); return; }
     if (showMealPicker)  { setShowMealPicker(false); return; }
-    if (showSurahPicker) { setShowSurahPicker(false); return; }
+    if (showSurahPicker) { setShowSurahPicker(false); setSurahSearch(''); setPickerSelectedSurah(null); setPickerVerseInput(''); return; }
     if (showJuzPicker)   { setShowJuzPicker(false); return; }
     if (showBookmarks)    { setShowBookmarks(false); return; }
-    if (showStats)        { setShowStats(false); return; }
+    if (showFontPicker)   { setShowFontPicker(false); return; }
     onClose();
   };
 
@@ -511,22 +756,15 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     const arabic = cleanArabic(verse.arabic);
     const translation = getTranslation(verse);
     const ref = `${SURAH_NAMES_TR[verse.surah - 1]} ${verse.surah}:${verse.ayah}`;
-    const shareText = `${arabic}\n\n"${translation}"\n— ${ref} | Quran Codex`;
-    if (navigator.share) {
-      navigator.share({ title: ref, text: shareText }).catch(() => {});
-    } else {
-      navigator.clipboard.writeText(shareText).then(() => {
-        setCopiedVerseId(verse.id);
-        setTimeout(() => setCopiedVerseId(null), 2000);
-      }).catch(() => {});
-    }
+    const shareText = `${arabic}\n\n"${translation}"\n— ${ref}`;
+    navigator.clipboard.writeText(shareText).then(() => {
+      setCopiedVerseId(verse.id);
+      setTimeout(() => setCopiedVerseId(null), 2000);
+    }).catch(() => {});
   }, [getTranslation]);
 
   const handleSelectVerse = useCallback((verse) => {
     setActiveVerse(verse);
-    // Scroll into view
-    const el = document.getElementById(`rm-verse-${verse.id}`);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, []);
 
   // Auto-save last position whenever surah or page changes
@@ -537,40 +775,26 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     localStorage.setItem('qurancodex_last_position', JSON.stringify({ surah: selectedSurah, page }));
   }, [selectedSurah, bookPage, loading]);
 
-  // Persist font size and day mode preferences
+  // Persist preferences
   useEffect(() => { localStorage.setItem('qurancodex_font_size', String(arabicFontSize)); }, [arabicFontSize]);
   useEffect(() => { localStorage.setItem('qurancodex_day_mode', JSON.stringify(dayMode)); }, [dayMode]);
+  useEffect(() => { localStorage.setItem('qurancodex_book_mode', JSON.stringify(bookMode)); }, [bookMode]);
+  useEffect(() => { localStorage.setItem('qurancodex_reciter_idx', String(reciterIdx)); }, [reciterIdx]);
+  useEffect(() => { localStorage.setItem('qurancodex_show_translation', JSON.stringify(showTranslation)); }, [showTranslation]);
+  useEffect(() => { localStorage.setItem('qurancodex_tajweed', JSON.stringify(showTajweed)); }, [showTajweed]);
+  useEffect(() => { localStorage.setItem('qurancodex_meal_id', selectedMealId); }, [selectedMealId]);
 
-  // ── Reading stats tracking ────────────────────────────────────────────────
-  const sessionStartRef = useRef(Date.now());
-  const pagesVisitedRef = useRef(new Set());
-
+  // Book mode: auto-sync selectedSurah when navigating to a page with no verses from current surah.
+  // Uses bookPage + selectedSurah (state vars) instead of derived currentPage to avoid TDZ.
   useEffect(() => {
-    if (!loading) {
-      const page = bookPage ?? SURAH_PAGES[selectedSurah - 1];
-      pagesVisitedRef.current.add(`${selectedSurah}:${page}`);
+    if (!bookMode || !verses || verses.length === 0) return;
+    const page = bookPage ?? (SURAH_PAGES[selectedSurah - 1] ?? 1);
+    const hasCurrentSurahOnPage = verses.some(v => v.page === page && v.surah === selectedSurah);
+    if (!hasCurrentSurahOnPage) {
+      const firstOnPage = verses.find(v => v.page === page);
+      if (firstOnPage) setSelectedSurah(firstOnPage.surah);
     }
-  }, [selectedSurah, bookPage, loading]);
-
-  useEffect(() => {
-    const save = () => {
-      const mins = Math.max(0, Math.round((Date.now() - sessionStartRef.current) / 60000));
-      if (mins === 0 && pagesVisitedRef.current.size === 0) return;
-      const prev = (() => { try { return JSON.parse(localStorage.getItem('qurancodex_stats') || '{}'); } catch { return {}; } })();
-      const today = new Date().toISOString().slice(0, 10);
-      const next = {
-        totalMinutes: (prev.totalMinutes || 0) + mins,
-        todayMinutes: (prev.lastDate === today ? (prev.todayMinutes || 0) : 0) + mins,
-        totalPages: (prev.totalPages || 0) + pagesVisitedRef.current.size,
-        lastDate: today,
-      };
-      localStorage.setItem('qurancodex_stats', JSON.stringify(next));
-      sessionStartRef.current = Date.now();
-      pagesVisitedRef.current.clear();
-    };
-    window.addEventListener('beforeunload', save);
-    return () => { save(); window.removeEventListener('beforeunload', save); };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [bookMode, bookPage, selectedSurah, verses]);
 
   // Arrow key navigation
   useEffect(() => {
@@ -620,11 +844,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     if (surah !== selectedSurah) {
       changeSurah(surah);
       setPendingScrollAyah(ayah);
+      setPendingJuzPage(JUZ_PAGES[juz]); // exact page so toolbar shows correct juz
     } else if (bookMode) {
-      // Same surah, book mode: calculate and navigate to the correct page
-      const ratio = surahVerses.length > 0 ? (ayah - 1) / surahVerses.length : 0;
-      const targetPage = surahStartPage + Math.floor(ratio * surahPageCount);
-      navigateToPage(targetPage);
+      navigateToPage(JUZ_PAGES[juz]); // use exact juz page, not verse-ratio estimate
     } else {
       // Same surah, verse mode: scroll to verse
       const verse = surahVerses.find(v => v.ayah >= ayah);
@@ -632,14 +854,33 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     }
   };
 
+  const navigateToPickerSurahVerse = () => {
+    if (!pickerSelectedSurah) return;
+    const surahData = surahGroups.find(s => s.surah === pickerSelectedSurah);
+    const maxAyah = surahData?.count || 1;
+    const ayah = Math.max(1, Math.min(maxAyah, parseInt(pickerVerseInput, 10) || 1));
+    if (pickerSelectedSurah !== selectedSurah) {
+      changeSurah(pickerSelectedSurah);
+      setPendingScrollAyah(ayah);
+    } else {
+      const verse = surahVerses.find(v => v.ayah >= ayah);
+      if (verse) handleSelectVerse(verse);
+    }
+    setShowSurahPicker(false);
+    setSurahSearch('');
+    setPickerSelectedSurah(null);
+    setPickerVerseInput('');
+  };
+
   // Navigate to pending ayah after surah verses load
   useEffect(() => {
     if (pendingScrollAyah && surahVerses.length > 0) {
       if (bookMode && surahPageCount > 1) {
-        // In book mode: jump to the mushaf page that contains this ayah
-        const ratio = (pendingScrollAyah - 1) / surahVerses.length;
-        const targetPage = surahStartPage + Math.floor(ratio * surahPageCount);
+        // Use exact juz page if set (from jumpToJuz), else estimate from verse ratio
+        const targetPage = pendingJuzPage
+          ?? (surahVerses.find(v => v.ayah >= pendingScrollAyah)?.page ?? surahStartPage);
         navigateToPage(targetPage, true);
+        setPendingJuzPage(null);
         const verse = surahVerses.find(v => v.ayah >= pendingScrollAyah);
         if (verse) setTimeout(() => handleSelectVerse(verse), 80);
       } else {
@@ -653,19 +894,19 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
   // ── Theme colors (day / night) ────────────────────────────────────────────
   const C = dayMode ? {
-    bg: '#f2ede3', gold: '#8b6020',
-    arabic: '#2c1200', arabicActive: '#7a4c00',
-    translation: '#4a3020', translationActive: '#8b5c00',
-    bismillah: 'rgba(100,60,10,0.75)',
-    activeHighlight: 'rgba(100,60,10,0.07)', activeBorder: 'rgba(100,60,10,0.55)',
-    muted: '#907060', scrollbar: 'rgba(100,60,10,0.3) transparent',
-    footerBg: 'rgba(235,226,210,0.98)', footerBorder: 'rgba(139,104,56,0.18)',
+    bg: '#ece3d0', gold: '#7a5215',
+    arabic: '#2c1200', arabicActive: '#6b3c00',
+    translation: '#3d2510', translationActive: '#7a4500',
+    bismillah: 'rgba(90,50,5,0.8)',
+    activeHighlight: 'rgba(90,50,5,0.09)', activeBorder: 'rgba(90,50,5,0.5)',
+    muted: '#806040', scrollbar: 'rgba(90,50,5,0.3) transparent',
+    footerBg: 'rgba(228,218,198,0.98)', footerBorder: 'rgba(122,82,21,0.2)',
   } : {
     bg: '#080a1e', gold: '#d4a574',
     arabic: '#cca96a', arabicActive: '#f0d898',
     translation: '#c2bbb0', translationActive: '#e8c98a',
     bismillah: 'rgba(212,165,116,0.7)',
-    activeHighlight: 'rgba(212,165,116,0.06)', activeBorder: 'rgba(212,165,116,0.5)',
+    activeHighlight: 'rgba(212,165,116,0.06)', activeBorder: 'rgba(200,185,165,0.72)',
     muted: '#64748b', scrollbar: 'rgba(212,165,116,0.2) transparent',
     footerBg: 'rgba(6,8,16,0.98)', footerBorder: 'rgba(212,165,116,0.12)',
   };
@@ -673,23 +914,48 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const surahName = SURAH_NAMES_TR[selectedSurah - 1] || `Sûre ${selectedSurah}`;
 
   // Page navigation helpers
-  const surahStartPage = SURAH_PAGES[selectedSurah - 1];
+  const surahStartPage = SURAH_PAGES[selectedSurah - 1] ?? 1;
   const nextSurahStartPage = selectedSurah < 114 ? SURAH_PAGES[selectedSurah] : 605;
-  const surahPageCount = Math.max(1, nextSurahStartPage - surahStartPage);
+  // surahLastPage: derived from actual verse page data (accurate Diyanet layout)
+  const surahLastPage = surahVerses.length > 0
+    ? (surahVerses[surahVerses.length - 1].page ?? surahStartPage)
+    : (nextSurahStartPage - 1);
+  const surahPageCount = Math.max(1, surahLastPage - surahStartPage + 1);
   const currentPage = bookPage ?? surahStartPage;
   const isCurrentPageBookmarked = bookmarks.some(b => b.surah === selectedSurah && b.page === currentPage);
 
   // Verses that belong to the current mushaf page (book mode only)
   const versesOnPage = useMemo(() => {
-    if (!bookMode || surahVerses.length === 0 || surahPageCount <= 1) return surahVerses;
-    const pageOffset = currentPage - surahStartPage;
-    const startIdx = Math.round(pageOffset * surahVerses.length / surahPageCount);
-    const endIdx = Math.round((pageOffset + 1) * surahVerses.length / surahPageCount);
-    return surahVerses.slice(startIdx, Math.max(startIdx + 1, endIdx));
-  }, [bookMode, surahVerses, currentPage, surahStartPage, surahPageCount]);
+    if (!bookMode || surahVerses.length === 0) return surahVerses;
+    const pageVerses = surahVerses.filter(v => v.page === currentPage);
+    return pageVerses.length > 0 ? pageVerses : surahVerses;
+  }, [bookMode, surahVerses, currentPage]);
+
+  // Scroll to active verse — if on a different page navigate there first, then scroll
+  useEffect(() => {
+    if (!activeVerse || !bookMode) return;
+    const onPage = versesOnPage.find(v => v.id === activeVerse.id);
+    if (!onPage && activeVerse.page) {
+      const clamped = Math.max(0, Math.min(604, activeVerse.page));
+      setBookPage(clamped);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeVerse]);
+
+  useEffect(() => {
+    if (!activeVerse) return;
+    const timer = setTimeout(() => {
+      const el = document.getElementById(`rm-verse-${activeVerse.id}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 60);
+    return () => clearTimeout(timer);
+  }, [activeVerse, versesOnPage]);
 
   const navigateToPage = (page, preserveActive = false) => {
-    const clamped = Math.max(surahStartPage, Math.min(nextSurahStartPage - 1, page));
+    // In book mode: page-centric navigation across entire mushaf (0–604)
+    const clamped = bookMode
+      ? Math.max(0, Math.min(604, page))
+      : Math.max(surahStartPage, Math.min(surahLastPage, page));
     setBookPage(clamped);
     if (!preserveActive) setActiveVerse(null);
     if (containerRef.current) containerRef.current.scrollTop = 0;
@@ -723,8 +989,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             handleSelectVerse(next);
             // Book mode: if next verse is not on current page, turn the page
             if (bookMode && !versesOnPage.find(v => v.id === next.id)) {
-              const ratio = (next.ayah - 1) / surahVerses.length;
-              navigateToPage(surahStartPage + Math.floor(ratio * surahPageCount), true);
+              navigateToPage(next.page ?? currentPage, true);
             }
           } else {
             setPlayingVerseId(null);
@@ -755,21 +1020,21 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                   height: '44px', padding: '0 12px', borderRadius: '8px',
-                  border: `1px solid ${active ? 'rgba(255,255,255,0.07)' : 'transparent'}`,
-                  background: active ? 'rgba(255,255,255,0.03)' : 'transparent',
+                  border: `1px solid ${active ? 'rgba(255,255,255,0.10)' : 'transparent'}`,
+                  background: active ? 'rgba(255,255,255,0.05)' : 'transparent',
                   cursor: active ? 'pointer' : 'default', transition: 'all 0.15s', flexShrink: 0, gap: '2px',
                 }}
                 onMouseEnter={e => { if (active) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}}
-                onMouseLeave={e => { if (active) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}}
+                onMouseLeave={e => { if (active) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)'; }}}
               >
                 {active && (
                   <>
-                    <span style={{ fontSize: '0.55rem', color: '#8899aa', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1, display: 'flex', alignItems: 'center', gap: '3px' }}>
+                    <span style={{ fontSize: '0.55rem', color: 'rgba(200,185,165,0.72)', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1, display: 'flex', alignItems: 'center', gap: '3px' }}>
                       {dir === 'prev' && <ChevronLeft size={9} />}
                       {language === 'tr' ? 'Sure' : 'Surah'} {surahNum}
                       {dir === 'next' && <ChevronRight size={9} />}
                     </span>
-                    <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.72)', fontWeight: 700, lineHeight: 1.2, maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.90)', fontWeight: 700, lineHeight: 1.2, maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {name}
                     </span>
                   </>
@@ -785,14 +1050,14 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                   height: '44px', padding: '0 12px', borderRadius: '8px', cursor: 'pointer',
-                  border: `1px solid ${showSurahPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)'}`,
-                  background: showSurahPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.03)',
+                  border: `1px solid ${showSurahPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'}`,
+                  background: showSurahPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)',
                   transition: 'all 0.15s', gap: '2px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = showSurahPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = showSurahPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = showSurahPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = showSurahPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'; }}
               >
-                <span style={{ fontSize: '0.55rem', color: '#8899aa', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                <span style={{ fontSize: '0.55rem', color: 'rgba(200,185,165,0.72)', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
                   {language === 'tr' ? 'Sure' : 'Surah'} {selectedSurah}
                   {surahVerses.length > 0 && <span style={{ color: '#7a8a9a', marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
                 </span>
@@ -823,7 +1088,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               <input
                 autoFocus
                 type="number"
-                min={1} max={604}
+                min={0} max={604}
                 value={pageInputValue}
                 onChange={e => setPageInputValue(e.target.value)}
                 onBlur={() => { setShowPageInput(false); setPageInputValue(''); }}
@@ -839,29 +1104,47 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             </form>
           ) : (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-              {/* Prev page — crosses surah boundaries */}
+              {/* Cüz button — opens juz picker, sits left of page nav */}
+              <button
+                onClick={() => { setShowJuzPicker(p => !p); setShowSurahPicker(false); }}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  height: '44px', padding: '0 10px', borderRadius: '8px', cursor: 'pointer',
+                  border: `1px solid ${showJuzPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'}`,
+                  background: showJuzPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)',
+                  transition: 'all 0.15s', gap: '2px', flexShrink: 0,
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = showJuzPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = showJuzPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'; }}
+                title={language === 'tr' ? 'Cüze git' : 'Go to juz'}
+              >
+                <span style={{ fontSize: '0.55rem', color: 'rgba(200,185,165,0.72)', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  {language === 'tr' ? 'Cüz' : 'Juz'}
+                </span>
+                <span style={{ fontSize: '0.82rem', color: showJuzPicker ? gold : 'rgba(255,255,255,0.90)', fontWeight: 700, lineHeight: 1.2 }}>
+                  {currentDisplayJuz}
+                </span>
+              </button>
+
+              <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.10)' }} />
+
+              {/* Prev page — page-centric across entire mushaf */}
               {(() => {
-                const canPrev = currentPage > surahStartPage || selectedSurah > 1;
+                const canPrev = currentPage > 0;
                 const handlePrev = () => {
-                  if (currentPage > surahStartPage) { navigateToPage(currentPage - 1); }
-                  else if (selectedSurah > 1) {
-                    const ps = selectedSurah - 1;
-                    const psEnd = SURAH_PAGES[ps] ?? 605;
-                    changeSurah(ps);
-                    setBookPage(psEnd - 1);
-                  }
+                  if (currentPage > 0) navigateToPage(currentPage - 1);
                 };
                 return (
                   <button
                     onClick={handlePrev} disabled={!canPrev}
                     style={{
                       width: '32px', height: '44px', borderRadius: '8px', cursor: canPrev ? 'pointer' : 'default',
-                      border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.05)',
                       color: canPrev ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
                     }}
                     onMouseEnter={e => { if (canPrev) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; e.currentTarget.style.color = gold; }}}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = canPrev ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)'; e.currentTarget.style.color = canPrev ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)'; }}
                   >
                     <ChevronLeft size={13} />
                   </button>
@@ -874,14 +1157,14 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                   height: '44px', padding: '0 14px', borderRadius: '8px', cursor: 'pointer',
-                  border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.05)',
                   transition: 'all 0.15s', gap: '2px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)'; }}
                 title={language === 'tr' ? 'Sayfaya git' : 'Go to page'}
               >
-                <span style={{ fontSize: '0.55rem', color: '#8899aa', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                <span style={{ fontSize: '0.55rem', color: 'rgba(200,185,165,0.72)', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
                   {language === 'tr' ? 'Sayfa' : 'Page'}
                 </span>
                 <span style={{ fontSize: '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2 }}>
@@ -889,24 +1172,23 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 </span>
               </button>
 
-              {/* Next page — crosses surah boundaries */}
+              {/* Next page — page-centric across entire mushaf */}
               {(() => {
-                const canNext = currentPage < nextSurahStartPage - 1 || selectedSurah < 114;
+                const canNext = currentPage < 604;
                 const handleNext = () => {
-                  if (currentPage < nextSurahStartPage - 1) { navigateToPage(currentPage + 1); }
-                  else if (selectedSurah < 114) { changeSurah(selectedSurah + 1); }
+                  if (currentPage < 604) navigateToPage(currentPage + 1);
                 };
                 return (
                   <button
                     onClick={handleNext} disabled={!canNext}
                     style={{
                       width: '32px', height: '44px', borderRadius: '8px', cursor: canNext ? 'pointer' : 'default',
-                      border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.05)',
                       color: canNext ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
                     }}
                     onMouseEnter={e => { if (canNext) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; e.currentTarget.style.color = gold; }}}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = canNext ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)'; e.currentTarget.style.color = canNext ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)'; }}
                   >
                     <ChevronRight size={13} />
                   </button>
@@ -924,36 +1206,40 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                 width: '64px', height: '44px', borderRadius: '8px', cursor: 'pointer',
-                border: `1px solid ${active ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)'}`,
-                background: active ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.03)',
+                border: `1px solid ${active ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'}`,
+                background: active ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)',
                 transition: 'all 0.15s', flexShrink: 0, gap: '2px',
               }}
               onMouseEnter={onEnter || (e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; })}
-              onMouseLeave={onLeave || (e => { e.currentTarget.style.background = active ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = active ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)'; })}
+              onMouseLeave={onLeave || (e => { e.currentTarget.style.background = active ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = active ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'; })}
             >
-              <span style={{ fontSize: '0.55rem', color: '#8899aa', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>{label}</span>
-              <span style={{ fontSize: '0.78rem', color: active ? gold : 'rgba(255,255,255,0.72)', fontWeight: 700, lineHeight: 1.2 }}>{value}</span>
+              <span style={{ fontSize: '0.55rem', color: 'rgba(200,185,165,0.72)', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>{label}</span>
+              <span style={{ fontSize: '0.78rem', color: active ? gold : 'rgba(255,255,255,0.90)', fontWeight: 700, lineHeight: 1.2 }}>{value}</span>
             </button>
           );
 
           return (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
 
-              {/* Font size A− / A+ */}
-              {['A−', 'A+'].map((label) => (
-                <button key={label}
-                  onClick={() => setArabicFontSize(s => label === 'A−'
-                    ? Math.max(1.4, +(s - 0.2).toFixed(1))
-                    : Math.min(3.6, +(s + 0.2).toFixed(1)))}
-                  style={{
-                    width: '32px', height: '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
-                    border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)',
-                    color: 'rgba(255,255,255,0.72)', fontSize: '0.72rem', fontWeight: 700, transition: 'all 0.15s',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; e.currentTarget.style.color = gold; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = 'rgba(255,255,255,0.72)'; }}
-                >{label}</button>
-              ))}
+              {/* Font size — single Aa button */}
+              <button
+                onClick={() => setShowFontPicker(p => !p)}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  width: '44px', height: '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  border: `1px solid ${showFontPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'}`,
+                  background: showFontPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)',
+                  transition: 'all 0.15s', gap: '1px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = showFontPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = showFontPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'; }}
+                title={language === 'tr' ? 'Yazı boyutu' : 'Font size'}
+              >
+                <span style={{ fontSize: '0.55rem', color: 'rgba(200,185,165,0.72)', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  {language === 'tr' ? 'Yazı' : 'Font'}
+                </span>
+                <span style={{ fontSize: '0.78rem', color: showFontPicker ? gold : 'rgba(255,255,255,0.90)', fontWeight: 700, lineHeight: 1.2 }}>Aa</span>
+              </button>
 
               {/* Day / Night mode */}
               {btn(dayMode,
@@ -967,17 +1253,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 language === 'tr' ? 'Tecvid' : 'Tajweed',
                 <span style={{ fontFamily: "'KFGQPC', serif", fontSize: '0.9rem', lineHeight: 1 }}>تج</span>)}
 
-              {/* Reading stats */}
-              {btn(showStats,
-                () => { setShowStats(p => !p); setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); setShowBookmarks(false); },
-                language === 'tr' ? 'İstatistik' : 'Stats',
-                <ClockIcon size={13} />)}
-
-              <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.07)', margin: '0 2px' }} />
-
-              {/* Cüz */}
-              {btn(showJuzPicker, () => { setShowJuzPicker(p => !p); setShowSurahPicker(false); },
-                language === 'tr' ? 'Cüz' : 'Juz', currentDisplayJuz)}
+              <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.10)', margin: '0 2px' }} />
 
               {/* Görünüm: Kitap / Ayet */}
               {btn(bookMode, () => setBookMode(v => !v),
@@ -1010,13 +1286,13 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 <SearchIcon size={14} />)}
 
               {/* Divider */}
-              <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.07)', margin: '0 2px' }} />
+              <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.10)', margin: '0 2px' }} />
 
               {/* Kapat */}
               {btn(false, onClose,
                 language === 'tr' ? 'Kapat' : 'Close', '✕',
                 e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.querySelector('span:last-child').style.color = '#f87171'; },
-                e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.querySelector('span:last-child').style.color = 'rgba(255,255,255,0.72)'; }
+                e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)'; e.currentTarget.querySelector('span:last-child').style.color = 'rgba(255,255,255,0.90)'; }
               )}
             </div>
           );
@@ -1049,37 +1325,85 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             />
           </div>
           {/* Results */}
-          <div style={{ maxHeight: '340px', overflowY: 'auto' }}>
+          <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
             {surahGroups
               .filter(({ surah, name }) => {
-                const q = surahSearch.toLowerCase();
-                return !q || name.toLowerCase().includes(q) || String(surah).includes(q);
+                const q = normalizeText(surahSearch);
+                return !q || normalizeText(name).includes(q) || String(surah).includes(q);
               })
-              .map(({ surah, name, count }) => (
-                <button key={surah} onClick={() => { changeSurah(surah); setShowSurahPicker(false); setSurahSearch(''); }}
-                  style={{
-                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    width: '100%', padding: '8px 14px', textAlign: 'left',
-                    background: surah === selectedSurah ? 'rgba(212,165,116,0.1)' : 'transparent',
-                    border: 'none', borderBottom: '1px solid rgba(255,255,255,0.03)',
-                    color: surah === selectedSurah ? gold : '#a8b4c0', cursor: 'pointer', fontSize: '0.8rem',
-                    transition: 'background 0.12s',
-                  }}
-                  onMouseEnter={e => { if (surah !== selectedSurah) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
-                  onMouseLeave={e => { if (surah !== selectedSurah) e.currentTarget.style.background = 'transparent'; }}
-                >
-                  <span><span style={{ color: '#64748b', marginRight: '8px', fontSize: '0.7rem' }}>{surah}.</span>{name}</span>
-                  <span style={{ color: '#64748b', fontSize: '0.7rem' }}>{count}</span>
-                </button>
-              ))}
+              .map(({ surah, name, count }) => {
+                const isPicked = surah === pickerSelectedSurah;
+                return (
+                  <button key={surah}
+                    onClick={() => { setPickerSelectedSurah(surah); setPickerVerseInput(''); }}
+                    style={{
+                      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                      width: '100%', padding: '8px 14px', textAlign: 'left',
+                      background: isPicked ? 'rgba(212,165,116,0.15)' : surah === selectedSurah ? 'rgba(212,165,116,0.06)' : 'transparent',
+                      border: 'none', borderBottom: '1px solid rgba(255,255,255,0.05)',
+                      color: isPicked ? gold : surah === selectedSurah ? 'rgba(212,165,116,0.7)' : '#a8b4c0',
+                      cursor: 'pointer', fontSize: '0.8rem', transition: 'background 0.12s',
+                    }}
+                    onMouseEnter={e => { if (!isPicked) e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
+                    onMouseLeave={e => { if (!isPicked) e.currentTarget.style.background = surah === selectedSurah ? 'rgba(212,165,116,0.06)' : 'transparent'; }}
+                  >
+                    <span><span style={{ color: '#64748b', marginRight: '8px', fontSize: '0.7rem' }}>{surah}.</span>{name}</span>
+                    <span style={{ color: isPicked ? gold : '#64748b', fontSize: '0.7rem' }}>{count}</span>
+                  </button>
+                );
+              })}
           </div>
+
+          {/* Verse navigation footer — appears after a surah is selected */}
+          {pickerSelectedSurah && (() => {
+            const sd = surahGroups.find(s => s.surah === pickerSelectedSurah);
+            return (
+              <div style={{
+                borderTop: '1px solid rgba(212,165,116,0.15)',
+                padding: '10px 12px',
+                display: 'flex', alignItems: 'center', gap: '8px',
+                background: 'rgba(212,165,116,0.04)',
+              }}>
+                <span style={{ fontSize: '0.7rem', color: 'rgba(200,185,165,0.72)', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                  {language === 'tr' ? 'Ayet' : 'Verse'}
+                </span>
+                <input
+                  autoFocus
+                  type="number"
+                  min={1} max={sd?.count || 1}
+                  value={pickerVerseInput}
+                  onChange={e => setPickerVerseInput(e.target.value)}
+                  onKeyDown={e => { if (e.key === 'Enter') navigateToPickerSurahVerse(); if (e.key === 'Escape') { setPickerSelectedSurah(null); setPickerVerseInput(''); } }}
+                  placeholder="1"
+                  style={{
+                    width: '60px', padding: '5px 8px', borderRadius: '6px', flexShrink: 0,
+                    background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(212,165,116,0.3)',
+                    color: gold, fontSize: '0.82rem', fontWeight: 700, textAlign: 'center', outline: 'none',
+                  }}
+                />
+                <span style={{ fontSize: '0.68rem', color: '#64748b', flexShrink: 0 }}>/ {sd?.count}</span>
+                <button
+                  onClick={navigateToPickerSurahVerse}
+                  style={{
+                    marginLeft: 'auto', padding: '5px 14px', borderRadius: '6px', cursor: 'pointer',
+                    background: 'rgba(212,165,116,0.18)', border: '1px solid rgba(212,165,116,0.35)',
+                    color: gold, fontSize: '0.75rem', fontWeight: 700, transition: 'all 0.15s',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.28)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.18)'; }}
+                >
+                  {language === 'tr' ? 'Git' : 'Go'}
+                </button>
+              </div>
+            );
+          })()}
         </div>
       )}
 
       {/* Juz picker dropdown */}
       {showJuzPicker && (
         <div style={{
-          position: 'absolute', top: '54px', right: '16px', zIndex: 100,
+          position: 'absolute', top: '54px', left: '50%', transform: 'translateX(-50%)', zIndex: 100,
           background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
           border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
           padding: '8px',
@@ -1096,18 +1420,77 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               <button key={juz} onClick={() => jumpToJuz(juz)}
                 style={{
                   padding: '7px 4px', borderRadius: '6px', border: 'none', cursor: 'pointer',
-                  background: isActive ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.03)',
+                  background: isActive ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.05)',
                   color: isActive ? gold : '#a0abb8',
                   fontSize: '0.78rem', fontWeight: isActive ? 700 : 400,
                   transition: 'all 0.12s', textAlign: 'center',
                 }}
-                onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = '#e2e8f0'; }}}
-                onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = '#a0abb8'; }}}
+                onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.10)'; e.currentTarget.style.color = '#e2e8f0'; }}}
+                onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#a0abb8'; }}}
               >
                 {juz}
               </button>
             );
           })}
+        </div>
+      )}
+
+      {/* Font size popover */}
+      {showFontPicker && (
+        <div style={{
+          position: 'absolute', top: '54px', right: '16px', zIndex: 100,
+          background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
+          padding: '12px 16px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+          display: 'flex', flexDirection: 'column', gap: '10px', width: '220px',
+        }}>
+          <span style={{ fontSize: '0.62rem', color: '#64748b', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            {language === 'tr' ? 'Yazı Boyutu' : 'Font Size'}
+          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            {/* Decrease */}
+            <button
+              onClick={() => setArabicFontSize(s => Math.max(1.4, +(s - 0.2).toFixed(1)))}
+              style={{
+                width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0,
+                border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)',
+                color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.15)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+            >−</button>
+
+            {/* Slider */}
+            <input
+              type="range" min={1.4} max={3.6} step={0.2}
+              value={arabicFontSize}
+              onChange={e => setArabicFontSize(+parseFloat(e.target.value).toFixed(1))}
+              style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
+            />
+
+            {/* Increase */}
+            <button
+              onClick={() => setArabicFontSize(s => Math.min(3.6, +(s + 0.2).toFixed(1)))}
+              style={{
+                width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0,
+                border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)',
+                color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.15)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+            >+</button>
+          </div>
+
+          {/* Current value + reset */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
+            <button
+              onClick={() => setArabicFontSize(2.3)}
+              style={{ fontSize: '0.65rem', color: '#64748b', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#a0abb8'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#64748b'; }}
+            >{language === 'tr' ? 'Sıfırla' : 'Reset'}</button>
+          </div>
         </div>
       )}
 
@@ -1186,51 +1569,6 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         </div>
       )}
 
-      {/* Stats panel */}
-      {showStats && (() => {
-        const stats = (() => { try { return JSON.parse(localStorage.getItem('qurancodex_stats') || '{}'); } catch { return {}; } })();
-        const sessionMins = Math.max(0, Math.round((Date.now() - sessionStartRef.current) / 60000));
-        const today = new Date().toISOString().slice(0, 10);
-        const todayMins = (stats.lastDate === today ? (stats.todayMinutes || 0) : 0) + sessionMins;
-        const fmt = (m) => m >= 60 ? `${Math.floor(m / 60)}s ${m % 60}dk` : `${m || 0}dk`;
-        const rows = [
-          [language === 'tr' ? 'Bu oturum' : 'This session', fmt(sessionMins)],
-          [language === 'tr' ? 'Bugün toplam' : 'Today total', fmt(todayMins)],
-          [language === 'tr' ? 'Genel toplam' : 'All time', fmt((stats.totalMinutes || 0) + sessionMins)],
-          [language === 'tr' ? 'Ziyaret edilen sayfalar' : 'Pages visited', (stats.totalPages || 0) + pagesVisitedRef.current.size],
-        ];
-        return (
-          <div style={{
-            position: 'absolute', top: '54px', right: '16px', zIndex: 100,
-            background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
-            width: '220px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)', overflow: 'hidden',
-          }}>
-            <div style={{ padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-              <span style={{ color: gold, fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.03em' }}>
-                {language === 'tr' ? 'Okuma İstatistikleri' : 'Reading Stats'}
-              </span>
-            </div>
-            {rows.map(([label, value]) => (
-              <div key={label} style={{ padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.04)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ color: '#8899aa', fontSize: '0.75rem' }}>{label}</span>
-                <span style={{ color: gold, fontSize: '0.82rem', fontWeight: 600 }}>{value}</span>
-              </div>
-            ))}
-            <div style={{ padding: '8px 14px' }}>
-              <button
-                onClick={() => { localStorage.removeItem('qurancodex_stats'); sessionStartRef.current = Date.now(); setShowStats(false); }}
-                style={{ color: '#64748b', fontSize: '0.65rem', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-                onMouseEnter={e => e.currentTarget.style.color = '#f87171'}
-                onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
-              >
-                {language === 'tr' ? 'İstatistikleri sıfırla' : 'Reset stats'}
-              </button>
-            </div>
-          </div>
-        );
-      })()}
-
       {/* Meal picker dropdown */}
       {showMealPicker && (
         <div style={{
@@ -1246,7 +1584,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               onClick={() => setShowTranslation(v => !v)}
               style={{
                 width: '40px', height: '22px', borderRadius: '11px', cursor: 'pointer', position: 'relative',
-                background: showTranslation ? 'rgba(212,165,116,0.5)' : 'rgba(255,255,255,0.1)',
+                background: showTranslation ? 'rgba(200,185,165,0.72)' : 'rgba(255,255,255,0.1)',
                 border: `1px solid ${showTranslation ? 'rgba(212,165,116,0.7)' : 'rgba(255,255,255,0.15)'}`,
                 transition: 'all 0.2s',
               }}
@@ -1277,7 +1615,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     color: isActive ? gold : '#a8b4c0', cursor: 'pointer', fontSize: '0.82rem',
                     transition: 'background 0.12s', textAlign: 'left',
                   }}
-                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; }}
                   onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
                 >
                   <span>{author.label}</span>
@@ -1304,7 +1642,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     color: isActive ? gold : '#a8b4c0', cursor: 'pointer', fontSize: '0.82rem',
                     transition: 'background 0.12s', textAlign: 'left',
                   }}
-                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; }}
                   onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
                 >
                   <span>{author.label}</span>
@@ -1438,31 +1776,48 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       <div
         ref={containerRef}
         style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar }}
-        onClick={() => { setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); setShowStats(false); }}
+        onClick={() => { setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); setShowFontPicker(false); }}
       >
         {loading && (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '200px', color: '#64748b', fontSize: '0.85rem' }}>
-            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh', gap: '20px' }}>
+            <div style={{
+              width: '48px', height: '48px', borderRadius: '50%',
+              border: `3px solid ${dayMode ? 'rgba(100,60,10,0.12)' : 'rgba(212,165,116,0.12)'}`,
+              borderTopColor: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.7)',
+              animation: 'rm-spin 0.9s linear infinite',
+            }} />
+            <span style={{ color: dayMode ? 'rgba(100,60,10,0.5)' : 'rgba(200,185,165,0.72)', fontSize: '0.82rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              {language === 'tr' ? 'Yükleniyor' : 'Loading'}
+            </span>
+            <style>{`@keyframes rm-spin { to { transform: rotate(360deg); } }`}</style>
           </div>
         )}
 
 
-        {/* Bismillah header — only in verse mode (book mode renders it inline) */}
-        {!loading && surahVerses.length > 0 && selectedSurah !== 1 && selectedSurah !== 9 && !bookMode && (
-          <div style={{ textAlign: 'center', padding: '32px 24px 12px', fontFamily: currentFont, fontSize: '2.2rem', color: C.bismillah, lineHeight: 2 }}>
-            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        {/* Verse mode: bismillah */}
+        {!loading && surahVerses.length > 0 && !bookMode && (
+          <div style={{ padding: '8px 40px 0' }}>
+            {selectedSurah !== 1 && selectedSurah !== 9 && (
+              <div style={{ textAlign: 'center', padding: '0 24px 12px', fontFamily: currentFont, fontSize: '2.2rem', color: C.bismillah, lineHeight: 2 }}>
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+              </div>
+            )}
           </div>
         )}
 
         {bookMode ? (
           /* ── Book format — all surahs ── */
           <>
-          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '28px 56px 60px' }}>
-            {/* Bismillah — only on first page of surah (not surah 1 or 9) */}
-            {selectedSurah !== 1 && selectedSurah !== 9 && currentPage === surahStartPage && (
-              <div style={{ textAlign: 'center', fontFamily: currentFont, fontSize: '2.4rem', color: C.bismillah, lineHeight: 2.2, marginBottom: '32px' }}>
-                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-              </div>
+          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '28px 56px 60px 24px' }}>
+            {/* Book mode: surah banner + bismillah when primary surah's first verse is on this page */}
+            {versesOnPage.some(v => v.surah === selectedSurah && v.ayah === 1) && (
+              <>
+                {selectedSurah !== 1 && selectedSurah !== 9 && (
+                  <div style={{ textAlign: 'center', fontFamily: currentFont, fontSize: '2.4rem', color: C.bismillah, lineHeight: 2.2, marginBottom: '20px' }}>
+                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                  </div>
+                )}
+              </>
             )}
 
             <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? '45fr 55fr' : '1fr', gap: '0' }}>
@@ -1474,47 +1829,70 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                   display: 'flex', flexDirection: 'column', gap: '2px',
                 }}>
                   {/* Attribution */}
-                  <div style={{ padding: '0 12px 8px', fontSize: '0.68rem', color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
+                  <div style={{ padding: '0 12px 8px', fontSize: '0.78rem', color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
                     {selectedMealAuthor.label}
                   </div>
-                  {versesOnPage.map(verse => {
-                    const vt = getTranslation(verse);
-                    const isActive = activeVerse?.id === verse.id;
-                    return (
-                      <div
-                        key={verse.id}
-                        onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
-                        style={{
-                          cursor: 'pointer', borderRadius: '8px',
-                          padding: '10px 12px',
-                          background: isActive ? 'rgba(212,165,116,0.08)' : 'transparent',
-                          borderLeft: `2px solid ${isActive ? 'rgba(212,165,116,0.5)' : 'transparent'}`,
-                          transition: 'all 0.18s',
-                        }}
-                        onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
-                        onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                          <span style={{
-                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                            width: '26px', height: '26px', borderRadius: '50%', flexShrink: 0, marginTop: '2px',
-                            border: `1.5px solid ${isActive ? 'rgba(212,165,116,0.8)' : 'rgba(212,165,116,0.55)'}`,
-                            boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${isActive ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.2)'}`,
-                            background: 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                            color: isActive ? 'rgba(240,216,152,1)' : 'rgba(232,185,100,0.9)',
-                            fontSize: verse.ayah >= 100 ? '0.5rem' : verse.ayah >= 10 ? '0.55rem' : '0.62rem',
-                            fontFamily: "'Amiri', serif",
-                            textShadow: '0 0 6px rgba(212,165,116,0.4)',
-                          }}>{verse.ayah}</span>
-                          <p style={{
-                            margin: 0, color: isActive ? C.translationActive : C.translation,
-                            fontSize: '1.0rem', lineHeight: 1.8, fontStyle: 'italic',
-                            flex: 1,
-                          }}>{vt}</p>
+                  {/* Bismillah translation — shown when first verse of surah is on this page */}
+                  {versesOnPage.some(v => v.surah === selectedSurah && v.ayah === 1) &&
+                    selectedSurah !== 1 && selectedSurah !== 9 && (
+                    <div style={{ padding: '0 12px 12px', textAlign: 'center', color: dayMode ? 'rgba(90,50,5,0.55)' : 'rgba(200,185,165,0.5)', fontSize: '0.82rem', fontStyle: 'italic', borderBottom: `1px solid ${dayMode ? 'rgba(90,50,5,0.08)' : 'rgba(212,165,116,0.08)'}`, marginBottom: '8px' }}>
+                      {language === 'tr' ? 'Rahman ve Rahim olan Allah\'ın adıyla.' : 'In the name of Allah, the Most Gracious, the Most Merciful.'}
+                    </div>
+                  )}
+                  {(() => {
+                    const items = [];
+                    let prevSurah = null;
+                    for (const verse of versesOnPage) {
+                      if (prevSurah !== null && verse.surah !== prevSurah) {
+                        items.push({ type: 'surahHeader', surah: verse.surah });
+                      }
+                      items.push({ type: 'verse', verse });
+                      prevSurah = verse.surah;
+                    }
+                    return items.map(item => {
+                      if (item.type === 'surahHeader') {
+                        return null;
+                      }
+                      const { verse } = item;
+                      const vt = getTranslation(verse);
+                      const isActive = activeVerse?.id === verse.id;
+                      return (
+                        <div
+                          key={verse.id}
+                          onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
+                          style={{
+                            cursor: 'pointer', borderRadius: '6px',
+                            padding: '14px 12px',
+                            background: isActive ? C.activeHighlight : 'transparent',
+                            borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
+                            transition: 'all 0.18s',
+                          }}
+                          onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+                          onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                            <span style={{
+                              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                              width: '32px', height: '32px', borderRadius: '50%', flexShrink: 0, marginTop: '1px',
+                              border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
+                              background: dayMode
+                                ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
+                                : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                              color: C.gold,
+                              fontSize: verse.ayah >= 100 ? '0.66rem' : verse.ayah >= 10 ? '0.74rem' : '0.84rem',
+                              fontFamily: "'Amiri', serif",
+                              fontWeight: dayMode ? 600 : 400,
+                            }}>{verse.ayah}</span>
+                            <p style={{
+                              margin: 0, color: isActive ? C.translationActive : C.translation,
+                              fontSize: '1.1rem', lineHeight: 1.85, fontStyle: 'italic',
+                              flex: 1,
+                            }}>{vt}</p>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    });
+                  })()}
                 </div>
               )}
 
@@ -1528,46 +1906,72 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 color: C.arabic,
                 textAlign: 'justify',
               }}>
-                {versesOnPage.map(verse => {
-                  const isActive = activeVerse?.id === verse.id;
-                  return (
-                    <span
-                      key={verse.id}
-                      onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
-                      spellCheck={false}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      <span style={{
-                        background: isActive ? 'rgba(212,165,116,0.15)' : 'transparent',
-                        borderRadius: '4px', padding: '2px 4px',
-                        transition: 'background 0.2s',
-                        color: isActive ? C.arabicActive : 'inherit',
-                      }}>
-                        {showTajweed
-                          ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(verse.arabic)) }} />
-                          : cleanArabic(verse.arabic)}
+                {(() => {
+                  const items = [];
+                  let prevSurah = null;
+                  for (const verse of versesOnPage) {
+                    if (prevSurah !== null && verse.surah !== prevSurah) {
+                      items.push({ type: 'surahHeader', surah: verse.surah });
+                    }
+                    items.push({ type: 'verse', verse });
+                    prevSurah = verse.surah;
+                  }
+                  return items.map(item => {
+                    if (item.type === 'surahHeader') {
+                      return (
+                        <span key={`ar-sh-${item.surah}`} style={{ display: 'block' }}>
+                          {/* Bismillah — not for At-Tawbah (9) or Al-Fatiha (already verse 1) */}
+                          {item.surah !== 9 && (
+                            <div style={{ textAlign: 'center', direction: 'rtl', fontFamily: currentFont, fontSize: `${arabicFontSize * 0.82}rem`, color: C.arabic, marginBottom: '8px', lineHeight: 2 }}>
+                              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                            </div>
+                          )}
+                        </span>
+                      );
+                    }
+                    const { verse } = item;
+                    const isActive = activeVerse?.id === verse.id;
+                    return (
+                      <span
+                        key={verse.id}
+                        id={`rm-verse-${verse.id}`}
+                        onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
+                        spellCheck={false}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <span style={{
+                          background: isActive ? 'rgba(212,165,116,0.15)' : 'transparent',
+                          borderRadius: '4px', padding: '2px 4px',
+                          transition: 'background 0.2s',
+                          color: isActive ? C.arabicActive : 'inherit',
+                        }}>
+                          {showTajweed
+                            ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(verse.arabic), dayMode) }} />
+                            : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(cleanArabic(verse.arabic), dayMode) }} />}
+                        </span>
+                        {/* Verse end marker — double-ring badge */}
+                        <span style={{
+                          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                          verticalAlign: 'middle',
+                          margin: '0 8px',
+                          width: '1.72em', height: '1.72em',
+                          textAlign: 'center', borderRadius: '50%',
+                          border: `1.5px solid ${C.gold}aa`,
+                          boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
+                          color: C.gold,
+                          fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
+                          fontFamily: "'Amiri', serif",
+                          background: dayMode
+                            ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
+                            : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                          boxSizing: 'border-box', flexShrink: 0,
+                        }}>
+                          {toArabicNumerals(verse.ayah)}
+                        </span>
                       </span>
-                      {/* Verse end marker — double-ring badge */}
-                      <span style={{
-                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                        verticalAlign: 'middle',
-                        margin: '0 8px',
-                        width: '1.72em', height: '1.72em',
-                        textAlign: 'center', borderRadius: '50%',
-                        border: '1.5px solid rgba(212,165,116,0.65)',
-                        boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px rgba(212,165,116,0.28)`,
-                        color: 'rgba(232,185,100,0.95)',
-                        fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
-                        fontFamily: "'Amiri', serif",
-                        background: 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                        boxSizing: 'border-box', flexShrink: 0,
-                        textShadow: '0 0 6px rgba(212,165,116,0.4)',
-                      }}>
-                        {toArabicNumerals(verse.ayah)}
-                      </span>
-                    </span>
-                  );
-                })}
+                    );
+                  });
+                })()}
               </div>
             </div>
 
@@ -1594,27 +1998,28 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                   style={{
                     display: 'grid', gridTemplateColumns: '1fr 1fr',
                     gap: '16px', alignItems: 'center',
-                    padding: '16px 20px',
-                    borderRadius: '10px',
-                    background: isActive ? 'rgba(212,165,116,0.06)' : 'transparent',
-                    borderLeft: `3px solid ${isActive ? gold : 'transparent'}`,
+                    padding: '18px 20px',
+                    borderRadius: '6px',
+                    background: isActive ? C.activeHighlight : 'transparent',
+                    borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                     cursor: 'pointer', transition: 'all 0.18s',
                   }}
                   onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
                   onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
                 >
-                  {/* Left: double-ring badge + translation */}
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  {/* Left: badge + translation */}
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                     <span style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                      width: '26px', height: '26px', borderRadius: '50%', flexShrink: 0, marginTop: '2px',
-                      border: `1.5px solid ${isActive ? 'rgba(212,165,116,0.8)' : 'rgba(212,165,116,0.55)'}`,
-                      boxShadow: `0 0 0 2.5px rgba(8,10,18,0.95), 0 0 0 4px ${isActive ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.2)'}`,
-                      background: 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                      color: isActive ? 'rgba(240,216,152,1)' : 'rgba(232,185,100,0.9)',
-                      fontSize: verse.ayah >= 100 ? '0.5rem' : verse.ayah >= 10 ? '0.55rem' : '0.62rem',
+                      width: '32px', height: '32px', borderRadius: '50%', flexShrink: 0, marginTop: '1px',
+                      border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
+                      background: dayMode
+                        ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
+                        : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                      color: C.gold,
+                      fontSize: verse.ayah >= 100 ? '0.66rem' : verse.ayah >= 10 ? '0.74rem' : '0.84rem',
                       fontFamily: "'Amiri', serif",
-                      textShadow: '0 0 6px rgba(212,165,116,0.4)',
+                      fontWeight: dayMode ? 600 : 400,
                     }}>{verse.ayah}</span>
                     <div style={{ flex: 1 }}>
                       {showTranslation && (
@@ -1643,8 +2048,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     textAlign: 'right', direction: 'rtl',
                   }}>
                     {showTajweed
-                      ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(verse.arabic)) }} />
-                      : cleanArabic(verse.arabic)}
+                      ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(verse.arabic), dayMode) }} />
+                      : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(cleanArabic(verse.arabic), dayMode) }} />}
                   </div>
 
                 </div>
@@ -1654,32 +2059,33 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         )}
 
         {/* Bottom padding */}
-        <div style={{ height: '80px' }} />
+        <div style={{ height: '40px' }} />
+      </div>
+
+      {/* Waqf standard attribution — modal footer, shown once outside the scrollable area */}
+      <div style={{
+        padding: '6px 24px',
+        textAlign: 'center',
+        color: dayMode ? 'rgba(80,60,30,0.58)' : 'rgba(212,165,116,0.50)',
+        fontSize: '0.63rem',
+        fontFamily: 'Inter, sans-serif',
+        letterSpacing: '0.02em',
+        lineHeight: 1.5,
+        userSelect: 'none',
+        flexShrink: 0,
+        borderTop: dayMode ? '1px solid rgba(0,0,0,0.06)' : '1px solid rgba(255,255,255,0.05)',
+      }}>
+        {language === 'tr'
+          ? 'Vakıf işaretleri Kral Fahd Mushaf Basım Kompleksi (Uthmani) standardına göredir.'
+          : 'Waqf marks follow the King Fahd Quran Printing Complex (Uthmani) standard.'}
       </div>
 
       {/* Side page arrows — book mode always visible */}
       {bookMode && (() => {
-        const canGoPrev = currentPage > surahStartPage || selectedSurah > 1;
-        const canGoNext = currentPage < nextSurahStartPage - 1 || selectedSurah < 114;
-        const handlePrev = () => {
-          if (currentPage > surahStartPage) {
-            navigateToPage(currentPage - 1);
-          } else if (selectedSurah > 1) {
-            // Jump to last page of previous surah
-            const prevSurah = selectedSurah - 1;
-            const prevStart = SURAH_PAGES[prevSurah - 1];
-            const prevEnd = SURAH_PAGES[prevSurah] ?? 605;
-            changeSurah(prevSurah);
-            setBookPage(prevEnd - 1);
-          }
-        };
-        const handleNext = () => {
-          if (currentPage < nextSurahStartPage - 1) {
-            navigateToPage(currentPage + 1);
-          } else if (selectedSurah < 114) {
-            changeSurah(selectedSurah + 1);
-          }
-        };
+        const canGoPrev = currentPage > 0;
+        const canGoNext = currentPage < 604;
+        const handlePrev = () => { if (currentPage > 0) navigateToPage(currentPage - 1); };
+        const handleNext = () => { if (currentPage < 604) navigateToPage(currentPage + 1); };
         const arrowBtn = (enabled, onClick, side, title) => (
           <button
             onClick={onClick} disabled={!enabled} title={title}
@@ -1730,19 +2136,21 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             {/* LEFT: verse reference + reciter + text */}
             <div style={{ minWidth: 0 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '5px' }}>
-                <span style={{ color: gold, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.04em' }}>
+                <span style={{ color: gold, fontSize: '0.88rem', fontWeight: 700, letterSpacing: '0.04em' }}>
                   {SURAH_NAMES_TR[activeVerse.surah - 1]} · {activeVerse.ayah}
                 </span>
                 <span style={{
-                  color: '#64748b', fontSize: '0.65rem', padding: '1px 7px',
-                  border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px',
+                  color: C.muted, fontSize: '0.75rem', padding: '1px 7px',
+                  border: `1px solid ${dayMode ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.08)'}`, borderRadius: '4px',
                 }}>
                   {language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn}
                 </span>
               </div>
-              <div style={{ color: '#8a9aaa', fontSize: '0.82rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', lineHeight: 1.5 }}>
-                {verseText}
-              </div>
+              {!showTranslation && (
+                <div style={{ color: dayMode ? C.translation : '#8a9aaa', fontSize: '0.92rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', lineHeight: 1.5 }}>
+                  {verseText}
+                </div>
+              )}
             </div>
 
             {/* CENTER: prev / play / next */}
@@ -1750,60 +2158,92 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               <button
                 onClick={() => prevVerse && handleSelectVerse(prevVerse)}
                 disabled={!prevVerse}
-                style={{ background: 'none', border: 'none', color: prevVerse ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.1)', cursor: prevVerse ? 'pointer' : 'default', padding: '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
+                style={{ background: 'none', border: 'none', color: prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.1)'), cursor: prevVerse ? 'pointer' : 'default', padding: '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
                 onMouseEnter={e => { if (prevVerse) e.currentTarget.style.color = gold; }}
-                onMouseLeave={e => { e.currentTarget.style.color = prevVerse ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.1)'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.1)'); }}
               >
-                <ChevronLeft size={16} />
+                <ChevronLeft size={20} />
               </button>
 
               <button
                 onClick={() => handleAudioToggle(activeVerse)}
                 style={{
-                  width: '44px', height: '44px', borderRadius: '50%', flexShrink: 0,
-                  background: isPlaying ? 'rgba(212,165,116,0.2)' : 'rgba(212,165,116,0.1)',
-                  border: `1px solid ${isPlaying ? 'rgba(212,165,116,0.5)' : 'rgba(212,165,116,0.25)'}`,
-                  color: gold, cursor: 'pointer', fontSize: '1rem',
+                  width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0,
+                  background: isPlaying ? gold : 'rgba(212,165,116,0.12)',
+                  border: `1.5px solid ${isPlaying ? gold : 'rgba(212,165,116,0.35)'}`,
+                  color: isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold, cursor: 'pointer',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  transition: 'all 0.18s',
+                  transition: 'all 0.18s', boxShadow: isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.25)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.6)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = isPlaying ? 'rgba(212,165,116,0.2)' : 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = isPlaying ? 'rgba(212,165,116,0.5)' : 'rgba(212,165,116,0.25)'; }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = isPlaying ? '#c8935e' : 'rgba(212,165,116,0.22)';
+                  e.currentTarget.style.boxShadow = `0 0 16px rgba(212,165,116,0.3)`;
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = isPlaying ? gold : 'rgba(212,165,116,0.12)';
+                  e.currentTarget.style.boxShadow = isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none';
+                }}
               >
-                {isPlaying ? '❙❙' : '▶'}
+                <span style={{ color: isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold }}>
+                  {isPlaying ? <PauseIcon size={16} /> : <PlayIcon size={16} />}
+                </span>
               </button>
 
               <button
                 onClick={() => nextVerse && handleSelectVerse(nextVerse)}
                 disabled={!nextVerse}
-                style={{ background: 'none', border: 'none', color: nextVerse ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.1)', cursor: nextVerse ? 'pointer' : 'default', padding: '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
+                style={{ background: 'none', border: 'none', color: nextVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.1)'), cursor: nextVerse ? 'pointer' : 'default', padding: '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
                 onMouseEnter={e => { if (nextVerse) e.currentTarget.style.color = gold; }}
-                onMouseLeave={e => { e.currentTarget.style.color = nextVerse ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.1)'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = nextVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.1)'); }}
               >
-                <ChevronRight size={16} />
+                <ChevronRight size={20} />
               </button>
             </div>
 
-            {/* RIGHT: share button */}
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            {/* RIGHT: share + dismiss */}
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
               <button
                 onClick={() => shareVerse(activeVerse)}
                 title={language === 'tr' ? 'Paylaş / Kopyala' : 'Share / Copy'}
                 style={{
-                  display: 'flex', alignItems: 'center', gap: '6px',
-                  padding: '8px 14px', borderRadius: '8px', cursor: 'pointer',
-                  background: copiedVerseId === activeVerse.id ? 'rgba(46,204,113,0.15)' : 'rgba(255,255,255,0.04)',
-                  border: `1px solid ${copiedVerseId === activeVerse.id ? 'rgba(46,204,113,0.4)' : 'rgba(255,255,255,0.08)'}`,
-                  color: copiedVerseId === activeVerse.id ? '#2ecc71' : 'rgba(255,255,255,0.5)',
-                  fontSize: '0.75rem', transition: 'all 0.18s',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px',
+                  padding: '0 12px', height: '40px', borderRadius: '8px', cursor: 'pointer',
+                  minWidth: copiedVerseId === activeVerse.id ? 'auto' : '40px',
+                  background: copiedVerseId === activeVerse.id
+                    ? 'rgba(46,204,113,0.15)'
+                    : (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(255,255,255,0.06)'),
+                  border: `1px solid ${copiedVerseId === activeVerse.id
+                    ? 'rgba(46,204,113,0.4)'
+                    : (dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(255,255,255,0.12)')}`,
+                  color: copiedVerseId === activeVerse.id ? '#2ecc71' : C.muted,
+                  transition: 'all 0.18s',
                 }}
-                onMouseEnter={e => { if (copiedVerseId !== activeVerse.id) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; e.currentTarget.style.color = gold; }}}
-                onMouseLeave={e => { if (copiedVerseId !== activeVerse.id) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; }}}
+                onMouseEnter={e => { if (copiedVerseId !== activeVerse.id) { e.currentTarget.style.background = 'rgba(212,165,116,0.14)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; e.currentTarget.style.color = gold; }}}
+                onMouseLeave={e => { if (copiedVerseId !== activeVerse.id) { e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.muted; }}}
               >
-                <ShareIcon size={12} />
                 {copiedVerseId === activeVerse.id
-                  ? (language === 'tr' ? 'Kopyalandı!' : 'Copied!')
-                  : (language === 'tr' ? 'Paylaş' : 'Share')}
+                  ? <><span style={{ fontSize: '0.78rem' }}>✓</span><span style={{ fontSize: '0.72rem', fontWeight: 600, whiteSpace: 'nowrap' }}>{language === 'tr' ? 'Kopyalandı' : 'Copied'}</span></>
+                  : <ShareIcon size={14} />}
+              </button>
+
+              <button
+                onClick={() => {
+                  if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; }
+                  setPlayingVerseId(null);
+                  setActiveVerse(null);
+                }}
+                title={language === 'tr' ? 'Kapat' : 'Dismiss'}
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: '40px', height: '40px', borderRadius: '8px', cursor: 'pointer',
+                  background: dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(255,255,255,0.06)',
+                  border: `1px solid ${dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(255,255,255,0.12)'}`,
+                  color: C.muted, transition: 'all 0.18s', fontSize: '0.9rem',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.style.color = '#f87171'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.muted; }}
+              >
+                ✕
               </button>
             </div>
           </div>

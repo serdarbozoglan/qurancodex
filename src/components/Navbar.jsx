@@ -23,7 +23,9 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [graphOpen, setGraphOpen] = useState(false);
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
-  const [readingOpen, setReadingOpen] = useState(false);
+  const [readingOpen, setReadingOpen] = useState(
+    () => localStorage.getItem('qurancodex_reading_open') === 'true'
+  );
   const [heatmapOpen, setHeatmapOpen] = useState(false);
   const [revelationOpen, setRevelationOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
@@ -34,6 +36,11 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Persist reading mode open state so page refresh returns to reading mode
+  useEffect(() => {
+    localStorage.setItem('qurancodex_reading_open', String(readingOpen));
+  }, [readingOpen]);
 
   // Listen for openVerseGraph events dispatched from other sections (e.g. MathMiracle)
   useEffect(() => {
