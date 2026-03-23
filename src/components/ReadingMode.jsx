@@ -1,6 +1,15 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 
+// Clean Arabic text: remove only truly decorative/formatting markers
+// that have no phonetic value (end-of-ayah markers, rub el hizb, sajda sign, etc.)
+// Do NOT strip diacritics or sukun (U+06E1 is the Uthmani open-circle sukun!)
+function cleanArabic(str) {
+  if (!str) return str;
+  return str
+    .replace(/[\u06DD\u06DE\u06E9\u0600-\u0607\uFD3E\uFD3F]/g, ''); // purely decorative markers
+}
+
 // Strip footnote refs from Suat Yıldırım translation
 function cleanTr(str) {
   if (!str) return str;
@@ -10,12 +19,33 @@ function cleanTr(str) {
     .trim();
 }
 
+const SearchIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+  </svg>
+);
+
+const ChevronLeft = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="15 18 9 12 15 6" />
+  </svg>
+);
+const ChevronRight = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="9 18 15 12 9 6" />
+  </svg>
+);
+
 // Sajda (secde) verses — 15 obligatory prostration points (Hanafi)
 const SAJDA_VERSES = new Set([
   '7:206', '13:15', '16:49', '17:107', '19:58',
   '22:18', '22:77', '25:60', '27:25', '32:15',
   '38:24', '41:37', '53:62', '84:21', '96:19',
 ]);
+
+// Convert Western digits to Eastern Arabic-Indic numerals (١٢٣...)
+const toArabicNumerals = (n) =>
+  String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
 
 // Starting page number for each surah (standard 604-page Medina mushaf, Hafs)
 const SURAH_PAGES = [
@@ -31,6 +61,24 @@ const SURAH_PAGES = [
 595, 595, 596, 596, 597, 597, 598, 598, 599, 599,
 600, 600, 601, 601, 601, 602, 602, 602, 603, 603,
 603, 604, 604, 604,
+];
+
+// Starting mushaf page for each juz in the standard 604-page Medina mushaf (index 0 unused)
+const JUZ_PAGES = [
+  0, 1, 22, 42, 62, 82, 102, 121, 142, 162, 182,
+  201, 222, 242, 262, 282, 302, 322, 342, 362, 382,
+  402, 422, 442, 462, 482, 502, 522, 542, 562, 582,
+];
+
+// Starting [surah, ayah] for each juz (1-indexed; index 0 unused)
+const JUZ_START = [
+  null,
+  [1,1],[2,142],[2,253],[3,92],[4,24],
+  [4,148],[5,82],[6,111],[7,87],[8,41],
+  [9,93],[11,6],[12,53],[15,1],[17,1],
+  [18,75],[21,1],[23,1],[25,21],[27,56],
+  [29,46],[33,31],[36,28],[39,32],[41,47],
+  [46,1],[51,31],[58,1],[67,1],[78,1],
 ];
 
 // Juz (cüz) number each surah starts in
@@ -76,6 +124,27 @@ const RECITERS = [
   { id: 'Alafasy_128kbps',              labelTr: 'Meşarî', labelEn: 'Alafasy' },
   { id: 'Abdul_Basit_Murattal_192kbps', labelTr: 'Abdülbasit', labelEn: 'Abdul Basit' },
   { id: 'Husary_128kbps',               labelTr: 'Husarî', labelEn: 'Al-Husary' },
+];
+
+// Quran translations — 'local'/'en_local' use verse-graph.json; others fetched from api.acikkuran.com
+// Author IDs verified from https://api.acikkuran.com/authors
+const MEAL_AUTHORS = [
+  // Turkish
+  { id: 'local',       label: 'Suat Yıldırım',           shortLabel: 'Suat Y.',   lang: 'tr', apiId: null },
+  { id: 'diyanet',     label: 'Diyanet İşleri',           shortLabel: 'Diyanet',  lang: 'tr', apiId: 11   },
+  { id: 'alibulac',    label: 'Ali Bulaç',                shortLabel: 'A. Bulaç', lang: 'tr', apiId: 6    },
+  { id: 'islamoglu',   label: 'Mustafa İslamoğlu',        shortLabel: 'İslamoğlu', lang: 'tr', apiId: 38  },
+  { id: 'elmalili',    label: 'Elmalılı Hamdi Yazır',     shortLabel: 'Elmalılı', lang: 'tr', apiId: 14   },
+  { id: 'suleymanate', label: 'Süleyman Ateş',            shortLabel: 'S. Ateş',  lang: 'tr', apiId: 27   },
+  { id: 'bayraktar',   label: 'Bayraktar Bayraklı',       shortLabel: 'Bayraklı', lang: 'tr', apiId: 8    },
+  { id: 'yaşarnuri',   label: 'Yaşar Nuri Öztürk',        shortLabel: 'Y. Nuri',  lang: 'tr', apiId: 30   },
+  { id: 'okuyan',      label: 'Mehmet Okuyan',            shortLabel: 'M. Okuyan', lang: 'tr', apiId: 107 },
+  // English
+  { id: 'en_local',    label: 'Sahih International',      shortLabel: 'Sahih',    lang: 'en', apiId: null },
+  { id: 'en_yusufali', label: 'Abdullah Yusuf Ali',       shortLabel: 'Y. Ali',   lang: 'en', apiId: 2    },
+  { id: 'en_pickthall', label: 'Marmaduke Pickthall',     shortLabel: 'Pickthall', lang: 'en', apiId: 109  },
+  { id: 'en_asad',     label: 'Muhammad Asad',            shortLabel: 'M. Asad',  lang: 'en', apiId: 9    },
+  { id: 'en_haleem',   label: 'Abdul Haleem',             shortLabel: 'Haleem',   lang: 'en', apiId: 113  },
 ];
 
 function audioUrl(reciterId, surah, ayah) {
@@ -156,17 +225,17 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, lang
       </div>
 
       {/* Arabic */}
-      <div style={{
+      <div spellCheck={false} style={{
         fontFamily: "'Amiri', serif", fontSize: '1.7rem', lineHeight: 2.2,
         color: isActive ? '#e8c98a' : '#d4b483',
         textAlign: 'right', direction: 'rtl',
       }}>
-        {verse.arabic}
+        {cleanArabic(verse.arabic)}
       </div>
 
       {/* Translation */}
       {showTranslation && (
-        <div style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.8 }}>
+        <div style={{ color: '#c2bbb0', fontSize: '1rem', lineHeight: 1.85 }}>
           {vt}
         </div>
       )}
@@ -186,26 +255,52 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const [reciterIdx, setReciterIdx] = useState(0);
   const [playingVerseId, setPlayingVerseId] = useState(null);
   const [bookMode, setBookMode] = useState(false);
-  const [arabicFont, setArabicFont] = useState('Amiri'); // 'Amiri' | 'AmiriQuran' | 'KFGQPC'
+  const [bookPage, setBookPage] = useState(null); // null = first page of surah
+  const [showJuzPicker, setShowJuzPicker] = useState(false);
+  const [pendingScrollAyah, setPendingScrollAyah] = useState(null);
+  const [showPageInput, setShowPageInput] = useState(false);
+  const [pageInputValue, setPageInputValue] = useState('');
+  const [surahSearch, setSurahSearch] = useState('');
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedMealId, setSelectedMealId] = useState('local');
+  const [showMealPicker, setShowMealPicker] = useState(false);
+  const [mealLoading, setMealLoading] = useState(false);
+  const mealCacheRef = useRef(new Map()); // key: "mealId:surahNum" → Map<ayah, text>
 
-  const ARABIC_FONTS = [
-    { id: 'Amiri',         label: 'Amiri',             family: "'Amiri', serif" },
-    { id: 'AmiriQuran',    label: 'Amiri Quran',       family: "'Amiri Quran', serif" },
-    { id: 'KFGQPC',       label: 'KFGQPC',            family: "'KFGQPC', serif" },
-    { id: 'Scheherazade',  label: 'Scheherazade',      family: "'Scheherazade New', serif" },
-    { id: 'NotoNaskh',     label: 'Noto Naskh',        family: "'Noto Naskh Arabic', serif" },
-    { id: 'Lateef',        label: 'Lateef',            family: "'Lateef', serif" },
-    { id: 'ReemKufi',      label: 'Reem Kufi',         family: "'Reem Kufi', serif" },
-    { id: 'ArefRuqaa',     label: 'Aref Ruqaa',        family: "'Aref Ruqaa', serif" },
-    { id: 'MarkaziText',   label: 'Markazi Text',      family: "'Markazi Text', serif" },
-    { id: 'Harmattan',     label: 'Harmattan',         family: "'Harmattan', serif" },
-    { id: 'Alkalami',      label: 'Alkalami',          family: "'Alkalami', serif" },
-    { id: 'ReemKufiInk',   label: 'Reem Kufi Ink',    family: "'Reem Kufi Ink', serif" },
-    { id: 'Katibeh',       label: 'Katibeh',           family: "'Katibeh', serif" },
-  ];
-  const currentFont = ARABIC_FONTS.find(f => f.id === arabicFont)?.family ?? "'Amiri', serif";
+  const currentFont = "'ShaykhHamdullah', serif";
   const audioRef = useRef(null);
   const containerRef = useRef(null);
+  // Refs for Escape handler — always reflect current state without closure staleness
+  const overlayStateRef = useRef({});
+  overlayStateRef.current = { showSearch, showMealPicker, showSurahPicker, showJuzPicker };
+
+  const normalizeText = (str) =>
+    str
+      .toLowerCase()
+      .replace(/İ/g, 'i').replace(/I/g, 'i')   // Turkish dotted/dotless I
+      .replace(/ı/g, 'i')
+      .replace(/ş/g, 's').replace(/ğ/g, 'g')
+      .replace(/ç/g, 'c').replace(/ö/g, 'o').replace(/ü/g, 'u')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // strip â î û ā etc.
+      // Note: do NOT remove non-latin chars here — that changes string length
+      // and breaks highlight index alignment with the original text
+
+  const searchResults = useMemo(() => {
+    const q = normalizeText(searchQuery.trim());
+    if (!verses || q.length < 2) return [];
+    const results = [];
+    for (const v of verses) {
+      // Search only the active language field — prevents cross-language false positives
+      const text = language === 'tr' ? (cleanTr(v.turkish) || '') : (v.english || '');
+      const surahName = SURAH_NAMES_TR[v.surah - 1] || '';
+      if (normalizeText(text).includes(q) || normalizeText(surahName).includes(q)) {
+        results.push(v);
+        if (results.length >= 60) break;
+      }
+    }
+    return results;
+  }, [verses, searchQuery, language]);
 
   useEffect(() => {
     fetch('/verse-graph.json')
@@ -214,25 +309,48 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       .catch(() => setLoading(false));
   }, []);
 
-  // Keyboard navigation
+  // Fetch non-local meal translation for current surah (all via api.acikkuran.com)
   useEffect(() => {
-    const h = (e) => {
-      if (e.key === 'Escape') { onClose(); return; }
-      if (!surahVerses.length) return;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
-        const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
-        if (next) handleSelectVerse(next);
-      }
-      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
-        const prev = surahVerses[Math.max(idx - 1, 0)];
-        if (prev) handleSelectVerse(prev);
-      }
-    };
-    window.addEventListener('keydown', h);
-    return () => window.removeEventListener('keydown', h);
-  });
+    const author = MEAL_AUTHORS.find(a => a.id === selectedMealId);
+    if (!author?.apiId) return; // 'local' and 'en_local' need no fetch
+    const cacheKey = `${selectedMealId}:${selectedSurah}`;
+    if (mealCacheRef.current.has(cacheKey)) return;
+    setMealLoading(true);
+    fetch(`https://api.acikkuran.com/surah/${selectedSurah}?author=${author.apiId}`)
+      .then(r => r.json())
+      .then(json => {
+        const map = new Map();
+        for (const v of (json.data?.verses || [])) {
+          map.set(v.verse_number, v.translation?.text || '');
+        }
+        mealCacheRef.current.set(cacheKey, map);
+        setMealLoading(false);
+      })
+      .catch(() => setMealLoading(false));
+  }, [selectedMealId, selectedSurah]);
+
+  // Get translation text for a verse based on selected meal author
+  const getTranslation = (verse) => {
+    if (selectedMealId === 'en_local') return verse.english || cleanTr(verse.turkish) || '';
+    if (selectedMealId !== 'local') {
+      const cacheKey = `${selectedMealId}:${verse.surah}`;
+      const cache = mealCacheRef.current.get(cacheKey);
+      if (cache) return cache.get(verse.ayah) || cleanTr(verse.turkish) || verse.english || '';
+    }
+    return language === 'tr' ? (cleanTr(verse.turkish) || verse.english || '') : (verse.english || cleanTr(verse.turkish) || '');
+  };
+
+  const selectedMealAuthor = MEAL_AUTHORS.find(a => a.id === selectedMealId) || MEAL_AUTHORS[0];
+
+  // Stable Escape handler — mounted once, reads exclusively from refs (StrictMode safe)
+  const handleEscapeKey = (e) => {
+    if (e.key !== 'Escape') return;
+    if (showSearch)      { setShowSearch(false); setSearchQuery(''); return; }
+    if (showMealPicker)  { setShowMealPicker(false); return; }
+    if (showSurahPicker) { setShowSurahPicker(false); return; }
+    if (showJuzPicker)   { setShowJuzPicker(false); return; }
+    onClose();
+  };
 
   const surahVerses = useMemo(() => {
     if (!verses) return [];
@@ -253,6 +371,25 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, []);
 
+  // Arrow key navigation
+  useEffect(() => {
+    const h = (e) => {
+      if (!surahVerses.length) return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+        const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
+        if (next) handleSelectVerse(next);
+      }
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+        const prev = surahVerses[Math.max(idx - 1, 0)];
+        if (prev) handleSelectVerse(prev);
+      }
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, [surahVerses, activeVerse, handleSelectVerse]);
+
   const handleAudioToggle = useCallback((verse) => {
     if (!audioRef.current) return;
     if (playingVerseId === verse.id) {
@@ -269,21 +406,94 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const changeSurah = (n) => {
     const clamped = Math.max(1, Math.min(114, n));
     setSelectedSurah(clamped);
+    setBookPage(null);
     setActiveVerse(null);
     setPlayingVerseId(null);
     if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; }
     if (containerRef.current) containerRef.current.scrollTop = 0;
   };
 
+  const jumpToJuz = (juz) => {
+    const [surah, ayah] = JUZ_START[juz];
+    setShowJuzPicker(false);
+    if (surah !== selectedSurah) {
+      changeSurah(surah);
+      setPendingScrollAyah(ayah);
+    } else if (bookMode) {
+      // Same surah, book mode: calculate and navigate to the correct page
+      const ratio = surahVerses.length > 0 ? (ayah - 1) / surahVerses.length : 0;
+      const targetPage = surahStartPage + Math.floor(ratio * surahPageCount);
+      navigateToPage(targetPage);
+    } else {
+      // Same surah, verse mode: scroll to verse
+      const verse = surahVerses.find(v => v.ayah >= ayah);
+      if (verse) handleSelectVerse(verse);
+    }
+  };
+
+  // Navigate to pending ayah after surah verses load
+  useEffect(() => {
+    if (pendingScrollAyah && surahVerses.length > 0) {
+      if (bookMode && surahPageCount > 1) {
+        // In book mode: jump to the mushaf page that contains this ayah
+        const ratio = (pendingScrollAyah - 1) / surahVerses.length;
+        const targetPage = surahStartPage + Math.floor(ratio * surahPageCount);
+        navigateToPage(targetPage, true);
+        const verse = surahVerses.find(v => v.ayah >= pendingScrollAyah);
+        if (verse) setTimeout(() => handleSelectVerse(verse), 80);
+      } else {
+        const verse = surahVerses.find(v => v.ayah >= pendingScrollAyah);
+        if (verse) setTimeout(() => handleSelectVerse(verse), 80);
+      }
+      setPendingScrollAyah(null);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [surahVerses, pendingScrollAyah]);
+
   const gold = '#d4a574';
   const surahName = SURAH_NAMES_TR[selectedSurah - 1] || `Sûre ${selectedSurah}`;
 
+  // Page navigation helpers
+  const surahStartPage = SURAH_PAGES[selectedSurah - 1];
+  const nextSurahStartPage = selectedSurah < 114 ? SURAH_PAGES[selectedSurah] : 605;
+  const surahPageCount = Math.max(1, nextSurahStartPage - surahStartPage);
+  const currentPage = bookPage ?? surahStartPage;
+
+  // Verses that belong to the current mushaf page (book mode only)
+  const versesOnPage = useMemo(() => {
+    if (!bookMode || surahVerses.length === 0 || surahPageCount <= 1) return surahVerses;
+    const pageOffset = currentPage - surahStartPage;
+    const startIdx = Math.round(pageOffset * surahVerses.length / surahPageCount);
+    const endIdx = Math.round((pageOffset + 1) * surahVerses.length / surahPageCount);
+    return surahVerses.slice(startIdx, Math.max(startIdx + 1, endIdx));
+  }, [bookMode, surahVerses, currentPage, surahStartPage, surahPageCount]);
+
+  const navigateToPage = (page, preserveActive = false) => {
+    const clamped = Math.max(surahStartPage, Math.min(nextSurahStartPage - 1, page));
+    setBookPage(clamped);
+    if (!preserveActive) setActiveVerse(null);
+    if (containerRef.current) containerRef.current.scrollTop = 0;
+  };
+
+  // Compute current juz from mushaf page number — reliable and direct
+  const currentDisplayJuz = useMemo(() => {
+    const page = bookMode ? currentPage : surahStartPage;
+    let juz = 1;
+    for (let j = 1; j <= 30; j++) {
+      if (JUZ_PAGES[j] <= page) juz = j;
+      else break;
+    }
+    return juz;
+  }, [bookMode, currentPage, surahStartPage]);
+
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e', display: 'flex', flexDirection: 'column' }}>
+    <div
+      onKeyDown={handleEscapeKey}
+      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e', display: 'flex', flexDirection: 'column' }}
+    >
       <audio
         ref={audioRef}
         onEnded={() => {
-          // Auto-advance to next verse
           const idx = surahVerses.findIndex(v => v.id === playingVerseId);
           if (idx >= 0 && idx < surahVerses.length - 1) {
             const next = surahVerses[idx + 1];
@@ -291,6 +501,11 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             audioRef.current.play().catch(() => {});
             setPlayingVerseId(next.id);
             handleSelectVerse(next);
+            // Book mode: if next verse is not on current page, turn the page
+            if (bookMode && !versesOnPage.find(v => v.id === next.id)) {
+              const ratio = (next.ayah - 1) / surahVerses.length;
+              navigateToPage(surahStartPage + Math.floor(ratio * surahPageCount), true);
+            }
           } else {
             setPlayingVerseId(null);
           }
@@ -300,113 +515,250 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
       {/* Header */}
       <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 20px', height: '54px', flexShrink: 0,
-        background: 'rgba(8,10,18,0.95)', backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(212,165,116,0.1)',
+        display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+        alignItems: 'center',
+        padding: '0 16px', height: '64px', flexShrink: 0,
+        background: 'rgba(8,10,18,0.97)', backdropFilter: 'blur(24px)',
+        borderBottom: '1px solid rgba(212,165,116,0.08)',
       }}>
-        {/* Left: surah nav */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <button onClick={() => changeSurah(selectedSurah - 1)} disabled={selectedSurah <= 1}
-            style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px', color: selectedSurah <= 1 ? '#2d3748' : gold, cursor: selectedSurah <= 1 ? 'default' : 'pointer', padding: '4px 10px', fontSize: '0.8rem', transition: 'all 0.15s' }}>
-            ‹
-          </button>
-          <button
-            onClick={() => setShowSurahPicker(p => !p)}
-            style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: gold, cursor: 'pointer', padding: '5px 14px', fontSize: '0.85rem', fontWeight: 600 }}
-          >
-            {selectedSurah}. {surahName}
-            <span style={{ color: '#64748b', fontSize: '0.7rem', marginLeft: '8px' }}>
-              ({surahVerses.length} {language === 'tr' ? 'ayet' : 'verses'})
-            </span>
-          </button>
-          <span style={{ color: '#4a5568', fontSize: '0.68rem', whiteSpace: 'nowrap' }}>
-            {language === 'tr' ? 'Sayfa' : 'Page'} {SURAH_PAGES[selectedSurah - 1]}
-            <span style={{ margin: '0 4px', opacity: 0.4 }}>·</span>
-            {language === 'tr' ? 'Cüz' : 'Juz'} {SURAH_JUZ[selectedSurah - 1]}
-          </span>
-          <button onClick={() => changeSurah(selectedSurah + 1)} disabled={selectedSurah >= 114}
-            style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px', color: selectedSurah >= 114 ? '#2d3748' : gold, cursor: selectedSurah >= 114 ? 'default' : 'pointer', padding: '4px 10px', fontSize: '0.8rem', transition: 'all 0.15s' }}>
-            ›
-          </button>
-        </div>
 
-        {/* Right: controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          {/* Arabic font navigator — Fatiha only */}
-          {selectedSurah === 1 && (() => {
-            const idx = ARABIC_FONTS.findIndex(f => f.id === arabicFont);
-            const total = ARABIC_FONTS.length;
+        {/* LEFT: surah navigation */}
+        {(() => {
+          const prevName = selectedSurah > 1 ? SURAH_NAMES_TR[selectedSurah - 2] : null;
+          const nextName = selectedSurah < 114 ? SURAH_NAMES_TR[selectedSurah] : null;
+          const navBtn = (surahNum, name, dir, onClick) => {
+            const active = !!name;
             return (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.15)', borderRadius: '8px', padding: '3px 6px' }} title={language === 'tr' ? 'Arapça yazı tipi' : 'Arabic font'}>
-                <span style={{ fontSize: '0.6rem', color: '#4a5568', paddingRight: '4px', borderRight: '1px solid rgba(212,165,116,0.1)', marginRight: '2px', whiteSpace: 'nowrap' }}>
-                  {language === 'tr' ? 'Hat' : 'Font'} ✦
-                </span>
-                <button
-                  onClick={() => setArabicFont(ARABIC_FONTS[(idx - 1 + total) % total].id)}
-                  style={{ background: 'none', border: 'none', color: gold, cursor: 'pointer', fontSize: '0.85rem', padding: '0 4px', lineHeight: 1 }}
-                >‹</button>
-                <div style={{ textAlign: 'center', minWidth: '120px' }}>
-                  <div style={{ fontFamily: ARABIC_FONTS[idx].family, fontSize: '1rem', color: gold, lineHeight: 1.4, direction: 'rtl' }}>
-                    بِسْمِ اللَّهِ
-                  </div>
-                  <div style={{ fontSize: '0.55rem', color: '#4a5568', marginTop: '1px' }}>
-                    {idx + 1}/{total}
-                  </div>
-                </div>
-                <button
-                  onClick={() => setArabicFont(ARABIC_FONTS[(idx + 1) % total].id)}
-                  style={{ background: 'none', border: 'none', color: gold, cursor: 'pointer', fontSize: '0.85rem', padding: '0 4px', lineHeight: 1 }}
-                >›</button>
-              </div>
-
-            );
-          })()}
-
-          {/* Book mode toggle — Fatiha only */}
-          {selectedSurah === 1 && (
-            <button onClick={() => setBookMode(v => !v)} style={{
-              background: bookMode ? 'rgba(212,165,116,0.12)' : 'transparent',
-              border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px',
-              color: bookMode ? gold : '#64748b', cursor: 'pointer',
-              padding: '4px 10px', fontSize: '0.72rem', transition: 'all 0.15s',
-            }}>
-              {language === 'tr' ? (bookMode ? '≡ Ayet' : '📖 Kitap') : (bookMode ? '≡ Verse' : '📖 Book')}
-            </button>
-          )}
-
-          {/* Translation toggle */}
-          <button onClick={() => setShowTranslation(v => !v)} style={{
-            background: showTranslation ? 'rgba(212,165,116,0.12)' : 'transparent',
-            border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px',
-            color: showTranslation ? gold : '#64748b', cursor: 'pointer',
-            padding: '4px 10px', fontSize: '0.72rem', transition: 'all 0.15s',
-          }}>
-            {language === 'tr' ? 'Meal' : 'Translation'}
-          </button>
-
-          {/* Reciter selector */}
-          <div style={{ display: 'flex', gap: '3px' }}>
-            {RECITERS.map((r, i) => (
-              <button key={r.id} onClick={() => {
-                setReciterIdx(i);
-                if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; setPlayingVerseId(null); }
-              }} style={{
-                background: reciterIdx === i ? 'rgba(212,165,116,0.15)' : 'transparent',
-                border: `1px solid ${reciterIdx === i ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.1)'}`,
-                borderRadius: '5px', color: reciterIdx === i ? gold : '#64748b',
-                fontSize: '0.65rem', padding: '3px 7px', cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.15s',
-              }}>
-                {language === 'tr' ? r.labelTr : r.labelEn}
+              <button
+                onClick={onClick}
+                disabled={!active}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  height: '44px', padding: '0 12px', borderRadius: '8px',
+                  border: `1px solid ${active ? 'rgba(255,255,255,0.07)' : 'transparent'}`,
+                  background: active ? 'rgba(255,255,255,0.03)' : 'transparent',
+                  cursor: active ? 'pointer' : 'default', transition: 'all 0.15s', flexShrink: 0, gap: '2px',
+                }}
+                onMouseEnter={e => { if (active) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}}
+                onMouseLeave={e => { if (active) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}}
+              >
+                {active && (
+                  <>
+                    <span style={{ fontSize: '0.55rem', color: '#8899aa', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1, display: 'flex', alignItems: 'center', gap: '3px' }}>
+                      {dir === 'prev' && <ChevronLeft size={9} />}
+                      {language === 'tr' ? 'Sure' : 'Surah'} {surahNum}
+                      {dir === 'next' && <ChevronRight size={9} />}
+                    </span>
+                    <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.72)', fontWeight: 700, lineHeight: 1.2, maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {name}
+                    </span>
+                  </>
+                )}
               </button>
-            ))}
-          </div>
+            );
+          };
+          return (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              {navBtn(selectedSurah - 1, prevName, 'prev', () => changeSurah(selectedSurah - 1))}
 
-          <button onClick={onClose} style={{
-            background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)',
-            borderRadius: '6px', color: '#64748b', cursor: 'pointer', padding: '4px 10px', fontSize: '0.8rem',
-          }}>✕</button>
-        </div>
+              <button onClick={() => { setShowSurahPicker(p => !p); setSurahSearch(''); setShowJuzPicker(false); }}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  height: '44px', padding: '0 12px', borderRadius: '8px', cursor: 'pointer',
+                  border: `1px solid ${showSurahPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)'}`,
+                  background: showSurahPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.03)',
+                  transition: 'all 0.15s', gap: '2px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = showSurahPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = showSurahPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)'; }}
+              >
+                <span style={{ fontSize: '0.55rem', color: '#8899aa', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  {language === 'tr' ? 'Sure' : 'Surah'} {selectedSurah}
+                  {surahVerses.length > 0 && <span style={{ color: '#7a8a9a', marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
+                </span>
+                <span style={{ fontSize: '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
+                  {surahName}
+                </span>
+              </button>
+
+              {navBtn(selectedSurah + 1, nextName, 'next', () => changeSurah(selectedSurah + 1))}
+            </div>
+          );
+        })()}
+
+
+        {/* CENTER: Page navigation (book mode only) */}
+        {bookMode ? (
+          showPageInput ? (
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                const n = parseInt(pageInputValue, 10);
+                if (!isNaN(n)) navigateToPage(n);
+                setShowPageInput(false);
+                setPageInputValue('');
+              }}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center' }}
+            >
+              <input
+                autoFocus
+                type="number"
+                min={1} max={604}
+                value={pageInputValue}
+                onChange={e => setPageInputValue(e.target.value)}
+                onBlur={() => { setShowPageInput(false); setPageInputValue(''); }}
+                onKeyDown={e => { if (e.key === 'Escape') { setShowPageInput(false); setPageInputValue(''); } }}
+                placeholder={String(currentPage)}
+                style={{
+                  width: '60px', padding: '4px 8px', borderRadius: '6px',
+                  background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(212,165,116,0.4)',
+                  color: gold, fontSize: '0.88rem', fontWeight: 700, textAlign: 'center', outline: 'none',
+                }}
+              />
+              <span style={{ color: '#64748b', fontSize: '0.72rem' }}>/ 604</span>
+            </form>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+              {/* Prev page — crosses surah boundaries */}
+              {(() => {
+                const canPrev = currentPage > surahStartPage || selectedSurah > 1;
+                const handlePrev = () => {
+                  if (currentPage > surahStartPage) { navigateToPage(currentPage - 1); }
+                  else if (selectedSurah > 1) {
+                    const ps = selectedSurah - 1;
+                    const psEnd = SURAH_PAGES[ps] ?? 605;
+                    changeSurah(ps);
+                    setBookPage(psEnd - 1);
+                  }
+                };
+                return (
+                  <button
+                    onClick={handlePrev} disabled={!canPrev}
+                    style={{
+                      width: '32px', height: '44px', borderRadius: '8px', cursor: canPrev ? 'pointer' : 'default',
+                      border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)',
+                      color: canPrev ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
+                    }}
+                    onMouseEnter={e => { if (canPrev) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; e.currentTarget.style.color = gold; }}}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = canPrev ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)'; }}
+                  >
+                    <ChevronLeft size={13} />
+                  </button>
+                );
+              })()}
+
+              {/* Page number — click to type */}
+              <button
+                onClick={() => { setShowPageInput(true); setPageInputValue(String(currentPage)); }}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  height: '44px', padding: '0 14px', borderRadius: '8px', cursor: 'pointer',
+                  border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)',
+                  transition: 'all 0.15s', gap: '2px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
+                title={language === 'tr' ? 'Sayfaya git' : 'Go to page'}
+              >
+                <span style={{ fontSize: '0.55rem', color: '#8899aa', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  {language === 'tr' ? 'Sayfa' : 'Page'}
+                </span>
+                <span style={{ fontSize: '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2 }}>
+                  {currentPage} <span style={{ color: '#7a8a9a', fontWeight: 400 }}>/ 604</span>
+                </span>
+              </button>
+
+              {/* Next page — crosses surah boundaries */}
+              {(() => {
+                const canNext = currentPage < nextSurahStartPage - 1 || selectedSurah < 114;
+                const handleNext = () => {
+                  if (currentPage < nextSurahStartPage - 1) { navigateToPage(currentPage + 1); }
+                  else if (selectedSurah < 114) { changeSurah(selectedSurah + 1); }
+                };
+                return (
+                  <button
+                    onClick={handleNext} disabled={!canNext}
+                    style={{
+                      width: '32px', height: '44px', borderRadius: '8px', cursor: canNext ? 'pointer' : 'default',
+                      border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)',
+                      color: canNext ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
+                    }}
+                    onMouseEnter={e => { if (canNext) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; e.currentTarget.style.color = gold; }}}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = canNext ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)'; }}
+                  >
+                    <ChevronRight size={13} />
+                  </button>
+                );
+              })()}
+            </div>
+          )
+        ) : <div />}
+
+        {/* RIGHT: controls */}
+        {(() => {
+          const btn = (active, onClick, label, value, onEnter, onLeave) => (
+            <button
+              onClick={onClick}
+              style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                width: '64px', height: '44px', borderRadius: '8px', cursor: 'pointer',
+                border: `1px solid ${active ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)'}`,
+                background: active ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.03)',
+                transition: 'all 0.15s', flexShrink: 0, gap: '2px',
+              }}
+              onMouseEnter={onEnter || (e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; })}
+              onMouseLeave={onLeave || (e => { e.currentTarget.style.background = active ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = active ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)'; })}
+            >
+              <span style={{ fontSize: '0.55rem', color: '#8899aa', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>{label}</span>
+              <span style={{ fontSize: '0.78rem', color: active ? gold : 'rgba(255,255,255,0.72)', fontWeight: 700, lineHeight: 1.2 }}>{value}</span>
+            </button>
+          );
+
+          return (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
+
+              {/* Cüz */}
+              {btn(showJuzPicker, () => { setShowJuzPicker(p => !p); setShowSurahPicker(false); },
+                language === 'tr' ? 'Cüz' : 'Juz', currentDisplayJuz)}
+
+              {/* Görünüm: Kitap / Ayet */}
+              {btn(bookMode, () => setBookMode(v => !v),
+                language === 'tr' ? 'Görünüm' : 'View',
+                bookMode ? (language === 'tr' ? 'Kitap' : 'Book') : (language === 'tr' ? 'Ayet' : 'Verse'))}
+
+              {/* Meal */}
+              {btn(showTranslation || showMealPicker,
+                () => { setShowMealPicker(p => !p); setShowSurahPicker(false); setShowJuzPicker(false); },
+                language === 'tr' ? 'Meal' : 'Trans.',
+                showTranslation ? selectedMealAuthor.shortLabel : (language === 'tr' ? 'Kapalı' : 'Off'))}
+
+              {/* Kari */}
+              {btn(false, () => {
+                const next = (reciterIdx + 1) % RECITERS.length;
+                setReciterIdx(next);
+                if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; setPlayingVerseId(null); }
+              }, language === 'tr' ? 'Kari' : 'Reciter',
+                language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn)}
+
+              {/* Ara */}
+              {btn(showSearch, () => { setShowSearch(p => !p); setSearchQuery(''); },
+                language === 'tr' ? 'Ara' : 'Search',
+                <SearchIcon size={14} />)}
+
+              {/* Divider */}
+              <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.07)', margin: '0 2px' }} />
+
+              {/* Kapat */}
+              {btn(false, onClose,
+                language === 'tr' ? 'Kapat' : 'Close', '✕',
+                e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.querySelector('span:last-child').style.color = '#f87171'; },
+                e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.querySelector('span:last-child').style.color = 'rgba(255,255,255,0.72)'; }
+              )}
+            </div>
+          );
+        })()}
       </div>
 
       {/* Surah picker dropdown */}
@@ -415,26 +767,288 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           position: 'absolute', top: '54px', left: '20px', zIndex: 100,
           background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
           border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
-          maxHeight: '360px', overflowY: 'auto', width: '240px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+          width: '260px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+          display: 'flex', flexDirection: 'column',
         }}>
-          {surahGroups.map(({ surah, name, count }) => (
-            <button key={surah} onClick={() => { changeSurah(surah); setShowSurahPicker(false); }}
+          {/* Search input */}
+          <div style={{ padding: '10px 12px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            <input
+              autoFocus
+              type="text"
+              value={surahSearch}
+              onChange={e => setSurahSearch(e.target.value)}
+              placeholder={language === 'tr' ? 'Sure ara...' : 'Search surah...'}
+              spellCheck={false}
               style={{
-                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                width: '100%', padding: '8px 14px', textAlign: 'left',
-                background: surah === selectedSurah ? 'rgba(212,165,116,0.1)' : 'transparent',
-                border: 'none', borderBottom: '1px solid rgba(255,255,255,0.03)',
-                color: surah === selectedSurah ? gold : '#94a3b8', cursor: 'pointer', fontSize: '0.8rem',
-                transition: 'background 0.12s',
+                width: '100%', padding: '6px 10px', borderRadius: '6px',
+                background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(212,165,116,0.2)',
+                color: '#e2e8f0', fontSize: '0.8rem', outline: 'none', boxSizing: 'border-box',
               }}
-              onMouseEnter={e => { if (surah !== selectedSurah) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
-              onMouseLeave={e => { if (surah !== selectedSurah) e.currentTarget.style.background = 'transparent'; }}
+            />
+          </div>
+          {/* Results */}
+          <div style={{ maxHeight: '340px', overflowY: 'auto' }}>
+            {surahGroups
+              .filter(({ surah, name }) => {
+                const q = surahSearch.toLowerCase();
+                return !q || name.toLowerCase().includes(q) || String(surah).includes(q);
+              })
+              .map(({ surah, name, count }) => (
+                <button key={surah} onClick={() => { changeSurah(surah); setShowSurahPicker(false); setSurahSearch(''); }}
+                  style={{
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    width: '100%', padding: '8px 14px', textAlign: 'left',
+                    background: surah === selectedSurah ? 'rgba(212,165,116,0.1)' : 'transparent',
+                    border: 'none', borderBottom: '1px solid rgba(255,255,255,0.03)',
+                    color: surah === selectedSurah ? gold : '#a8b4c0', cursor: 'pointer', fontSize: '0.8rem',
+                    transition: 'background 0.12s',
+                  }}
+                  onMouseEnter={e => { if (surah !== selectedSurah) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+                  onMouseLeave={e => { if (surah !== selectedSurah) e.currentTarget.style.background = 'transparent'; }}
+                >
+                  <span><span style={{ color: '#64748b', marginRight: '8px', fontSize: '0.7rem' }}>{surah}.</span>{name}</span>
+                  <span style={{ color: '#64748b', fontSize: '0.7rem' }}>{count}</span>
+                </button>
+              ))}
+          </div>
+        </div>
+      )}
+
+      {/* Juz picker dropdown */}
+      {showJuzPicker && (
+        <div style={{
+          position: 'absolute', top: '54px', right: '16px', zIndex: 100,
+          background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
+          padding: '8px',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+          display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '4px',
+          width: '280px',
+        }}>
+          <div style={{ gridColumn: '1/-1', color: '#64748b', fontSize: '0.65rem', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '4px 4px 8px', borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: '4px' }}>
+            {language === 'tr' ? '30 Cüz' : '30 Juz'}
+          </div>
+          {Array.from({ length: 30 }, (_, i) => i + 1).map(juz => {
+            const isActive = currentDisplayJuz === juz;
+            return (
+              <button key={juz} onClick={() => jumpToJuz(juz)}
+                style={{
+                  padding: '7px 4px', borderRadius: '6px', border: 'none', cursor: 'pointer',
+                  background: isActive ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.03)',
+                  color: isActive ? gold : '#a0abb8',
+                  fontSize: '0.78rem', fontWeight: isActive ? 700 : 400,
+                  transition: 'all 0.12s', textAlign: 'center',
+                }}
+                onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = '#e2e8f0'; }}}
+                onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = '#a0abb8'; }}}
+              >
+                {juz}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Meal picker dropdown */}
+      {showMealPicker && (
+        <div style={{
+          position: 'absolute', top: '54px', right: '16px', zIndex: 100,
+          background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
+          width: '240px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+        }}>
+          {/* On/off toggle */}
+          <div style={{ padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ color: '#a8b4c0', fontSize: '0.78rem' }}>{language === 'tr' ? 'Meali göster' : 'Show translation'}</span>
+            <button
+              onClick={() => setShowTranslation(v => !v)}
+              style={{
+                width: '40px', height: '22px', borderRadius: '11px', cursor: 'pointer', position: 'relative',
+                background: showTranslation ? 'rgba(212,165,116,0.5)' : 'rgba(255,255,255,0.1)',
+                border: `1px solid ${showTranslation ? 'rgba(212,165,116,0.7)' : 'rgba(255,255,255,0.15)'}`,
+                transition: 'all 0.2s',
+              }}
             >
-              <span><span style={{ color: '#64748b', marginRight: '8px', fontSize: '0.7rem' }}>{surah}.</span>{name}</span>
-              <span style={{ color: '#4a5568', fontSize: '0.7rem' }}>{count}</span>
+              <span style={{
+                position: 'absolute', top: '2px', left: showTranslation ? '18px' : '2px',
+                width: '16px', height: '16px', borderRadius: '50%',
+                background: showTranslation ? gold : 'rgba(255,255,255,0.35)',
+                transition: 'all 0.2s',
+              }} />
             </button>
-          ))}
+          </div>
+
+          {/* Turkish translations */}
+          <div style={{ padding: '6px 0' }}>
+            <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: '#4a5568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              Türkçe
+            </div>
+            {MEAL_AUTHORS.filter(a => a.lang === 'tr').map(author => {
+              const isActive = selectedMealId === author.id;
+              return (
+                <button key={author.id}
+                  onClick={() => { setSelectedMealId(author.id); if (!showTranslation) setShowTranslation(true); }}
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    width: '100%', padding: '7px 14px', border: 'none',
+                    background: isActive ? 'rgba(212,165,116,0.1)' : 'transparent',
+                    color: isActive ? gold : '#a8b4c0', cursor: 'pointer', fontSize: '0.82rem',
+                    transition: 'background 0.12s', textAlign: 'left',
+                  }}
+                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+                  onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                >
+                  <span>{author.label}</span>
+                  {isActive && <span style={{ fontSize: '0.7rem', color: gold }}>✓</span>}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* English translations */}
+          <div style={{ padding: '6px 0', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: '#4a5568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              English
+            </div>
+            {MEAL_AUTHORS.filter(a => a.lang === 'en').map(author => {
+              const isActive = selectedMealId === author.id;
+              return (
+                <button key={author.id}
+                  onClick={() => { setSelectedMealId(author.id); if (!showTranslation) setShowTranslation(true); }}
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    width: '100%', padding: '7px 14px', border: 'none',
+                    background: isActive ? 'rgba(212,165,116,0.1)' : 'transparent',
+                    color: isActive ? gold : '#a8b4c0', cursor: 'pointer', fontSize: '0.82rem',
+                    transition: 'background 0.12s', textAlign: 'left',
+                  }}
+                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+                  onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                >
+                  <span>{author.label}</span>
+                  {isActive && <span style={{ fontSize: '0.7rem', color: gold }}>✓</span>}
+                </button>
+              );
+            })}
+          </div>
+          {mealLoading && (
+            <div style={{ padding: '8px 14px', borderTop: '1px solid rgba(255,255,255,0.06)', fontSize: '0.72rem', color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ animation: 'spin 1s linear infinite', display: 'inline-block' }}>⟳</span>
+              {language === 'tr' ? 'Meal yükleniyor...' : 'Loading...'}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Search overlay */}
+      {showSearch && (
+        <div
+          style={{ position: 'absolute', inset: 0, zIndex: 200, background: 'rgba(5,7,18,0.6)', backdropFilter: 'blur(4px)' }}
+          onClick={e => { if (e.target === e.currentTarget) { setShowSearch(false); setSearchQuery(''); } }}
+        >
+          <div style={{
+            position: 'absolute', top: '70px', left: '50%', transform: 'translateX(-50%)',
+            width: '100%', maxWidth: '680px',
+            background: 'rgba(10,12,28,0.98)', backdropFilter: 'blur(24px)',
+            border: '1px solid rgba(212,165,116,0.2)', borderRadius: '14px',
+            boxShadow: '0 24px 64px rgba(0,0,0,0.7)',
+            display: 'flex', flexDirection: 'column', maxHeight: 'calc(100vh - 100px)',
+          }}>
+          {/* Search input bar */}
+          <div style={{
+            padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)',
+            display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0,
+          }}>
+            <SearchIcon size={18} />
+            <input
+              autoFocus
+              type="text"
+              spellCheck={false}
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              placeholder={language === 'tr' ? 'Meal veya sure adında ara...' : 'Search in translation or surah name...'}
+              style={{
+                flex: 1, background: 'none', border: 'none', outline: 'none',
+                color: '#e8e6e3', fontSize: '1.05rem', fontFamily: "'Inter', sans-serif",
+              }}
+            />
+            {searchQuery && (
+              <button onClick={() => setSearchQuery('')}
+                style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}>
+                ✕
+              </button>
+            )}
+          </div>
+
+          {/* Results */}
+          <div style={{ flex: 1, overflowY: 'auto', padding: '4px 0' }}>
+            {searchQuery.trim().length < 2 ? (
+              <div style={{ textAlign: 'center', padding: '60px 24px', color: '#4a5568', fontSize: '0.9rem' }}>
+                {language === 'tr' ? 'En az 2 karakter girin' : 'Type at least 2 characters'}
+              </div>
+            ) : searchResults.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '60px 24px', color: '#4a5568', fontSize: '0.9rem' }}>
+                {language === 'tr' ? 'Sonuç bulunamadı' : 'No results found'}
+              </div>
+            ) : (
+              <>
+                <div style={{ padding: '8px 24px 12px', fontSize: '0.65rem', color: '#4a5568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                  {searchResults.length === 60
+                    ? (language === 'tr' ? 'İlk 60 sonuç gösteriliyor' : 'Showing first 60 results')
+                    : (language === 'tr' ? `${searchResults.length} sonuç` : `${searchResults.length} results`)}
+                </div>
+                {searchResults.map(verse => {
+                  const tr = cleanTr(verse.turkish) || '';
+                  const text = language === 'tr' ? tr : (verse.english || tr);
+                  const q = normalizeText(searchQuery.trim());
+                  const surahName = SURAH_NAMES_TR[verse.surah - 1];
+
+                  // Highlight matching segment (normalize both sides to find position)
+                  const idx = normalizeText(text).indexOf(q);
+                  const highlighted = idx >= 0 ? (
+                    <span>
+                      {text.slice(0, idx)}
+                      <mark style={{ background: 'rgba(212,165,116,0.3)', color: '#f0d898', borderRadius: '2px', padding: '0 1px' }}>
+                        {text.slice(idx, idx + q.length)}
+                      </mark>
+                      {text.slice(idx + q.length)}
+                    </span>
+                  ) : <span>{text}</span>;
+
+                  return (
+                    <button key={verse.id}
+                      onClick={() => {
+                        setShowSearch(false);
+                        setSearchQuery('');
+                        if (verse.surah !== selectedSurah) {
+                          changeSurah(verse.surah);
+                          setPendingScrollAyah(verse.ayah);
+                        } else {
+                          const v = surahVerses.find(sv => sv.ayah === verse.ayah);
+                          if (v) handleSelectVerse(v);
+                        }
+                      }}
+                      style={{
+                        display: 'block', width: '100%', textAlign: 'left',
+                        padding: '12px 24px', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.04)',
+                        background: 'transparent', cursor: 'pointer', transition: 'background 0.12s',
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.05)'}
+                      onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                    >
+                      <div style={{ fontSize: '0.7rem', color: gold, fontWeight: 600, marginBottom: '5px', letterSpacing: '0.03em' }}>
+                        {surahName} · {verse.surah}:{verse.ayah}
+                      </div>
+                      <div style={{ fontSize: '0.88rem', color: '#c2bbb0', lineHeight: 1.65 }}>
+                        {highlighted}
+                      </div>
+                    </button>
+                  );
+                })}
+              </>
+            )}
+          </div>
+          </div>
         </div>
       )}
 
@@ -442,7 +1056,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       <div
         ref={containerRef}
         style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: 'rgba(212,165,116,0.2) transparent' }}
-        onClick={() => setShowSurahPicker(false)}
+        onClick={() => { setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); }}
       >
         {loading && (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '200px', color: '#64748b', fontSize: '0.85rem' }}>
@@ -450,51 +1064,72 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           </div>
         )}
 
-        {/* Bismillah header (for all surahs except 9; hide for Fatiha in book mode since verse 1 is the bismillah) */}
-        {!loading && surahVerses.length > 0 && selectedSurah !== 9 && !(selectedSurah === 1 && bookMode) && (
-          <div style={{ textAlign: 'center', padding: '28px 24px 8px', fontFamily: "'Amiri', serif", fontSize: '1.5rem', color: 'rgba(212,165,116,0.6)', lineHeight: 2 }}>
+
+        {/* Bismillah header — only in verse mode (book mode renders it inline) */}
+        {!loading && surahVerses.length > 0 && selectedSurah !== 1 && selectedSurah !== 9 && !bookMode && (
+          <div style={{ textAlign: 'center', padding: '32px 24px 12px', fontFamily: currentFont, fontSize: '2.2rem', color: 'rgba(212,165,116,0.7)', lineHeight: 2 }}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </div>
         )}
 
-        {selectedSurah === 1 && bookMode ? (
-          /* ── Fatiha: book format ── */
-          <div style={{ maxWidth: '860px', margin: '0 auto', padding: '48px 32px 100px' }}>
-            {/* Bismillah centered */}
-            <div style={{ textAlign: 'center', fontFamily: currentFont, fontSize: '1.8rem', color: 'rgba(212,165,116,0.65)', lineHeight: 2.2, marginBottom: '40px' }}>
-              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-            </div>
+        {bookMode ? (
+          /* ── Book format — all surahs ── */
+          <>
+          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '28px 56px 60px' }}>
+            {/* Bismillah — only on first page of surah (not surah 1 or 9) */}
+            {selectedSurah !== 1 && selectedSurah !== 9 && currentPage === surahStartPage && (
+              <div style={{ textAlign: 'center', fontFamily: currentFont, fontSize: '2.4rem', color: 'rgba(212,165,116,0.7)', lineHeight: 2.2, marginBottom: '32px' }}>
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+              </div>
+            )}
 
             <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? '45fr 55fr' : '1fr', gap: '0' }}>
               {/* Left: Translation — hidden when Meal is off */}
               {showTranslation && (
                 <div style={{
-                  paddingRight: '36px',
+                  paddingRight: '32px',
                   borderRight: '1px solid rgba(212,165,116,0.12)',
-                  color: '#8899aa',
-                  fontSize: '0.92rem',
-                  lineHeight: 2.1,
-                  fontStyle: 'italic',
+                  display: 'flex', flexDirection: 'column', gap: '2px',
                 }}>
-                  {surahVerses.map(verse => {
-                    const vt = language === 'tr' ? (cleanTr(verse.turkish) || verse.english) : (verse.english || cleanTr(verse.turkish));
+                  {/* Attribution */}
+                  <div style={{ padding: '0 12px 8px', fontSize: '0.68rem', color: 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
+                    {selectedMealAuthor.label}
+                  </div>
+                  {versesOnPage.map(verse => {
+                    const vt = getTranslation(verse);
                     const isActive = activeVerse?.id === verse.id;
                     return (
-                      <span
+                      <div
                         key={verse.id}
                         onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
-                        style={{ cursor: 'pointer' }}
+                        style={{
+                          cursor: 'pointer', borderRadius: '8px',
+                          padding: '10px 12px',
+                          background: isActive ? 'rgba(212,165,116,0.08)' : 'transparent',
+                          borderLeft: `2px solid ${isActive ? 'rgba(212,165,116,0.5)' : 'transparent'}`,
+                          transition: 'all 0.18s',
+                        }}
+                        onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+                        onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
                       >
-                        <sup style={{ color: '#d4a574', fontSize: '0.6rem', opacity: 0.7, verticalAlign: 'super', marginRight: '2px' }}>{verse.ayah}</sup>
-                        <span style={{
-                          background: isActive ? 'rgba(212,165,116,0.12)' : 'transparent',
-                          borderRadius: '3px', padding: '1px 3px',
-                          transition: 'background 0.2s',
-                          color: isActive ? '#e8c98a' : 'inherit',
-                        }}>
-                          {vt}
-                        </span>{' '}
-                      </span>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                          <span style={{
+                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                            width: '26px', height: '26px', borderRadius: '50%', flexShrink: 0, marginTop: '2px',
+                            border: `1.5px solid ${isActive ? 'rgba(212,165,116,0.8)' : 'rgba(212,165,116,0.55)'}`,
+                            boxShadow: `0 0 0 2.5px rgba(8,10,18,0.95), 0 0 0 4px ${isActive ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.2)'}`,
+                            background: 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                            color: isActive ? 'rgba(240,216,152,1)' : 'rgba(232,185,100,0.9)',
+                            fontSize: verse.ayah >= 100 ? '0.5rem' : verse.ayah >= 10 ? '0.55rem' : '0.62rem',
+                            fontFamily: "'Amiri', serif",
+                            textShadow: '0 0 6px rgba(212,165,116,0.4)',
+                          }}>{verse.ayah}</span>
+                          <p style={{
+                            margin: 0, color: isActive ? '#e8c98a' : '#c2bbb0',
+                            fontSize: '1.0rem', lineHeight: 1.8, fontStyle: 'italic',
+                          }}>{vt}</p>
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
@@ -505,17 +1140,18 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 paddingLeft: showTranslation ? '36px' : '0',
                 direction: 'rtl',
                 fontFamily: currentFont,
-                fontSize: '2.1rem',
-                lineHeight: 2.5,
+                fontSize: '2.3rem',
+                lineHeight: 2.6,
                 color: '#cca96a',
                 textAlign: 'justify',
               }}>
-                {surahVerses.map(verse => {
+                {versesOnPage.map(verse => {
                   const isActive = activeVerse?.id === verse.id;
                   return (
                     <span
                       key={verse.id}
-                      onClick={() => handleSelectVerse(verse)}
+                      onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
+                      spellCheck={false}
                       style={{ cursor: 'pointer' }}
                     >
                       <span style={{
@@ -524,11 +1160,25 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                         transition: 'background 0.2s',
                         color: isActive ? '#f0d898' : 'inherit',
                       }}>
-                        {verse.arabic}
+                        {cleanArabic(verse.arabic)}
                       </span>
-                      {/* Arabic verse number marker */}
-                      <span style={{ color: '#d4a574', fontSize: '1.1rem', margin: '0 4px', opacity: 0.8 }}>
-                        ﴿{verse.ayah}﴾
+                      {/* Verse end marker — double-ring badge */}
+                      <span style={{
+                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                        verticalAlign: 'middle',
+                        margin: '0 8px',
+                        width: '1.72em', height: '1.72em',
+                        textAlign: 'center', borderRadius: '50%',
+                        border: '1.5px solid rgba(212,165,116,0.65)',
+                        boxShadow: '0 0 0 2.5px rgba(8,10,18,0.95), 0 0 0 4px rgba(212,165,116,0.28)',
+                        color: 'rgba(232,185,100,0.95)',
+                        fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
+                        fontFamily: "'Amiri', serif",
+                        background: 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                        boxSizing: 'border-box', flexShrink: 0,
+                        textShadow: '0 0 6px rgba(212,165,116,0.4)',
+                      }}>
+                        {toArabicNumerals(verse.ayah)}
                       </span>
                     </span>
                   );
@@ -536,145 +1186,268 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               </div>
             </div>
 
-            {/* Hint */}
-            <p style={{ textAlign: 'center', color: '#3d4f63', fontSize: '0.7rem', marginTop: '40px', fontStyle: 'italic' }}>
-              {language === 'tr' ? 'Bir ayete tıklayarak sesi çalabilirsiniz' : 'Tap a verse to play audio'}
-            </p>
           </div>
-        ) : selectedSurah === 1 ? (
-          /* ── Fatiha: two-column layout (verse by verse) ── */
-          <div style={{ padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
-            {surahVerses.map(verse => {
-              const vt = language === 'tr' ? (cleanTr(verse.turkish) || verse.english) : (verse.english || cleanTr(verse.turkish));
-              const isActive = activeVerse?.id === verse.id;
-              const isSajda = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
-              const gold = '#d4a574';
-              return (
-                <div
-                  key={verse.id}
-                  id={`rm-verse-${verse.id}`}
-                  onClick={() => handleSelectVerse(verse)}
-                  style={{
-                    display: 'grid', gridTemplateColumns: '1fr 1fr',
-                    gap: '16px', alignItems: 'center',
-                    padding: '16px 20px',
-                    borderRadius: '10px',
-                    background: isActive ? 'rgba(212,165,116,0.06)' : 'transparent',
-                    borderLeft: isActive ? `3px solid ${gold}` : '3px solid transparent',
-                    cursor: 'pointer', transition: 'all 0.18s',
-                  }}
-                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
-                  onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
-                >
-                  {/* Left: ayah number + translation */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          </>
+        ) : (
+          /* ── Verse mode — same visual layout as book mode ── */
+          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '28px 56px 60px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? '45fr 55fr' : '1fr', gap: '0' }}>
+
+              {/* Left: Translation column */}
+              {showTranslation && (
+                <div style={{
+                  paddingRight: '32px',
+                  borderRight: '1px solid rgba(212,165,116,0.12)',
+                  display: 'flex', flexDirection: 'column', gap: '2px',
+                }}>
+                  {/* Attribution */}
+                  <div style={{ padding: '0 12px 8px', fontSize: '0.68rem', color: 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
+                    {selectedMealAuthor.label}
+                  </div>
+                  {surahVerses.map(verse => {
+                    const vt = getTranslation(verse);
+                    const isActive = activeVerse?.id === verse.id;
+                    const isSajda = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
+                    return (
+                      <div
+                        key={verse.id}
+                        id={`rm-verse-${verse.id}`}
+                        onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
+                        style={{
+                          cursor: 'pointer', borderRadius: '8px',
+                          padding: '10px 12px',
+                          background: isActive ? 'rgba(212,165,116,0.08)' : 'transparent',
+                          borderLeft: `2px solid ${isActive ? 'rgba(212,165,116,0.5)' : 'transparent'}`,
+                          transition: 'all 0.18s',
+                        }}
+                        onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+                        onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                          <span style={{
+                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                            width: '26px', height: '26px', borderRadius: '50%', flexShrink: 0, marginTop: '2px',
+                            border: `1.5px solid ${isActive ? 'rgba(212,165,116,0.8)' : 'rgba(212,165,116,0.55)'}`,
+                            boxShadow: `0 0 0 2.5px rgba(8,10,18,0.95), 0 0 0 4px ${isActive ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.2)'}`,
+                            background: 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                            color: isActive ? 'rgba(240,216,152,1)' : 'rgba(232,185,100,0.9)',
+                            fontSize: verse.ayah >= 100 ? '0.5rem' : verse.ayah >= 10 ? '0.55rem' : '0.62rem',
+                            fontFamily: "'Amiri', serif",
+                            textShadow: '0 0 6px rgba(212,165,116,0.4)',
+                          }}>{verse.ayah}</span>
+                          <div style={{ flex: 1 }}>
+                            <p style={{
+                              margin: 0, color: isActive ? '#e8c98a' : '#c2bbb0',
+                              fontSize: '1.0rem', lineHeight: 1.8, fontStyle: 'italic',
+                            }}>{vt}</p>
+                            {isSajda && (
+                              <span style={{
+                                display: 'inline-block', marginTop: '4px',
+                                fontSize: '0.6rem', padding: '2px 6px', borderRadius: '4px',
+                                background: 'rgba(46,204,113,0.12)', border: '1px solid rgba(46,204,113,0.3)',
+                                color: '#2ecc71', fontFamily: "'Amiri', serif",
+                              }}>
+                                {language === 'tr' ? 'Secde' : 'Sajda'} ۩
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* Right: Arabic — continuous with verse-end double-ring markers */}
+              <div style={{
+                paddingLeft: showTranslation ? '36px' : '0',
+                direction: 'rtl',
+                fontFamily: currentFont,
+                fontSize: '2.3rem',
+                lineHeight: 2.6,
+                color: '#cca96a',
+                textAlign: 'justify',
+              }}>
+                {surahVerses.map(verse => {
+                  const isActive = activeVerse?.id === verse.id;
+                  return (
+                    <span
+                      key={verse.id}
+                      onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
+                      spellCheck={false}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <span style={{
+                        background: isActive ? 'rgba(212,165,116,0.15)' : 'transparent',
+                        borderRadius: '4px', padding: '2px 4px',
+                        transition: 'background 0.2s',
+                        color: isActive ? '#f0d898' : 'inherit',
+                      }}>
+                        {cleanArabic(verse.arabic)}
+                      </span>
+                      {/* Verse end marker — double-ring badge */}
                       <span style={{
                         display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                        width: '26px', height: '26px', borderRadius: '50%', flexShrink: 0,
-                        border: `1px solid ${isActive ? 'rgba(212,165,116,0.5)' : 'rgba(212,165,116,0.15)'}`,
-                        color: isActive ? gold : '#64748b', fontSize: '0.68rem', fontWeight: 600,
-                      }}>{verse.ayah}</span>
-                      {isSajda && (
-                        <span style={{
-                          fontSize: '0.6rem', padding: '2px 6px', borderRadius: '4px',
-                          background: 'rgba(46,204,113,0.12)', border: '1px solid rgba(46,204,113,0.3)',
-                          color: '#2ecc71', fontFamily: "'Amiri', serif",
-                        }}>
-                          {language === 'tr' ? 'Secde' : 'Sajda'} ۩
-                        </span>
-                      )}
-                    </div>
-                    {showTranslation && (
-                      <p style={{ color: '#94a3b8', fontSize: '0.85rem', lineHeight: 1.75, margin: 0 }}>
-                        {vt}
-                      </p>
-                    )}
-                  </div>
+                        verticalAlign: 'middle',
+                        margin: '0 8px',
+                        width: '1.72em', height: '1.72em',
+                        textAlign: 'center', borderRadius: '50%',
+                        border: '1.5px solid rgba(212,165,116,0.65)',
+                        boxShadow: '0 0 0 2.5px rgba(8,10,18,0.95), 0 0 0 4px rgba(212,165,116,0.28)',
+                        color: 'rgba(232,185,100,0.95)',
+                        fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
+                        fontFamily: "'Amiri', serif",
+                        background: 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                        boxSizing: 'border-box', flexShrink: 0,
+                        textShadow: '0 0 6px rgba(212,165,116,0.4)',
+                      }}>
+                        {toArabicNumerals(verse.ayah)}
+                      </span>
+                    </span>
+                  );
+                })}
+              </div>
 
-                  {/* Right: Arabic + audio */}
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '10px' }}>
-                    <div style={{
-                      fontFamily: currentFont, fontSize: '2.2rem', lineHeight: 2.2,
-                      color: isActive ? '#e8c98a' : '#d4b483',
-                      textAlign: 'right', direction: 'rtl',
-                    }}>
-                      {verse.arabic}
-                    </div>
-                    <AudioBar
-                      surah={verse.surah} ayah={verse.ayah}
-                      playing={playingVerseId === verse.id}
-                      onToggle={(e) => { e.stopPropagation(); handleAudioToggle(verse); }}
-                      language={language}
-                      reciterIdx={reciterIdx}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          surahVerses.map(verse => (
-            <div key={verse.id} id={`rm-verse-${verse.id}`}>
-              <VerseRow
-                verse={verse}
-                isActive={activeVerse?.id === verse.id}
-                onSelect={handleSelectVerse}
-                onAudioToggle={handleAudioToggle}
-                audioPlaying={playingVerseId === verse.id}
-                language={language}
-                showTranslation={showTranslation}
-                reciterIdx={reciterIdx}
-              />
             </div>
-          ))
+          </div>
         )}
 
         {/* Bottom padding */}
         <div style={{ height: '80px' }} />
       </div>
 
-      {/* Active verse footer bar */}
-      {activeVerse && (
-        <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0,
-          background: 'rgba(8,10,18,0.97)', backdropFilter: 'blur(20px)',
-          borderTop: '1px solid rgba(212,165,116,0.15)',
-          padding: '10px 20px', display: 'flex', alignItems: 'center', gap: '12px',
-        }}>
-          {bookMode ? (
-            /* Book mode: centered player */
-            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
-              <span style={{ color: gold, fontSize: '0.72rem', fontWeight: 700 }}>{activeVerse.id}</span>
-              <AudioBar
-                surah={activeVerse.surah} ayah={activeVerse.ayah}
-                playing={playingVerseId === activeVerse.id}
-                onToggle={() => handleAudioToggle(activeVerse)}
-                language={language}
-                reciterIdx={reciterIdx}
-              />
-              <span style={{ color: '#64748b', fontSize: '0.78rem', maxWidth: '400px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {language === 'tr' ? (cleanTr(activeVerse.turkish) || activeVerse.english) : (activeVerse.english || cleanTr(activeVerse.turkish))}
-              </span>
+      {/* Side page arrows — book mode always visible */}
+      {bookMode && (() => {
+        const canGoPrev = currentPage > surahStartPage || selectedSurah > 1;
+        const canGoNext = currentPage < nextSurahStartPage - 1 || selectedSurah < 114;
+        const handlePrev = () => {
+          if (currentPage > surahStartPage) {
+            navigateToPage(currentPage - 1);
+          } else if (selectedSurah > 1) {
+            // Jump to last page of previous surah
+            const prevSurah = selectedSurah - 1;
+            const prevStart = SURAH_PAGES[prevSurah - 1];
+            const prevEnd = SURAH_PAGES[prevSurah] ?? 605;
+            changeSurah(prevSurah);
+            setBookPage(prevEnd - 1);
+          }
+        };
+        const handleNext = () => {
+          if (currentPage < nextSurahStartPage - 1) {
+            navigateToPage(currentPage + 1);
+          } else if (selectedSurah < 114) {
+            changeSurah(selectedSurah + 1);
+          }
+        };
+        const arrowBtn = (enabled, onClick, side, title) => (
+          <button
+            onClick={onClick} disabled={!enabled} title={title}
+            style={{
+              position: 'absolute', top: '50%', transform: 'translateY(-50%)',
+              zIndex: 20, width: '44px', height: '120px',
+              background: enabled ? 'rgba(212,165,116,0.06)' : 'transparent',
+              border: enabled ? '1px solid rgba(212,165,116,0.15)' : 'none',
+              borderLeft: side === 'right' && enabled ? '1px solid rgba(212,165,116,0.15)' : (side === 'left' ? 'none' : undefined),
+              borderRight: side === 'left' && enabled ? '1px solid rgba(212,165,116,0.15)' : (side === 'right' ? 'none' : undefined),
+              color: enabled ? 'rgba(212,165,116,0.45)' : 'rgba(255,255,255,0.05)',
+              cursor: enabled ? 'pointer' : 'default',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              transition: 'all 0.18s', flexDirection: 'column', gap: '4px',
+              [side]: '0',
+              borderRadius: side === 'left' ? '0 10px 10px 0' : '10px 0 0 10px',
+            }}
+            onMouseEnter={e => { if (enabled) { e.currentTarget.style.background = 'rgba(212,165,116,0.14)'; e.currentTarget.style.color = gold; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; }}}
+            onMouseLeave={e => { if (enabled) { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; e.currentTarget.style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.15)'; }}}
+          >
+            {side === 'left' ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+          </button>
+        );
+        return (
+          <>
+            {arrowBtn(canGoPrev, handlePrev, 'left', language === 'tr' ? 'Önceki sayfa' : 'Previous page')}
+            {arrowBtn(canGoNext, handleNext, 'right', language === 'tr' ? 'Sonraki sayfa' : 'Next page')}
+          </>
+        );
+      })()}
+
+      {/* Active verse footer — media player bar */}
+      {activeVerse && (() => {
+        const isPlaying = playingVerseId === activeVerse.id;
+        const verseText = getTranslation(activeVerse);
+        const activeIdx = surahVerses.findIndex(v => v.id === activeVerse.id);
+        const prevVerse = activeIdx > 0 ? surahVerses[activeIdx - 1] : null;
+        const nextVerse = activeIdx < surahVerses.length - 1 ? surahVerses[activeIdx + 1] : null;
+        return (
+          <div style={{
+            position: 'absolute', bottom: 0, left: 0, right: 0,
+            background: 'rgba(6,8,16,0.98)', backdropFilter: 'blur(24px)',
+            borderTop: '1px solid rgba(212,165,116,0.12)',
+            padding: '14px 32px',
+            display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+            alignItems: 'center', gap: '24px',
+          }}>
+            {/* LEFT: verse reference + reciter + text */}
+            <div style={{ minWidth: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '5px' }}>
+                <span style={{ color: gold, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.04em' }}>
+                  {SURAH_NAMES_TR[activeVerse.surah - 1]} · {activeVerse.ayah}
+                </span>
+                <span style={{
+                  color: '#64748b', fontSize: '0.65rem', padding: '1px 7px',
+                  border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px',
+                }}>
+                  {language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn}
+                </span>
+              </div>
+              <div style={{ color: '#8a9aaa', fontSize: '0.82rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', lineHeight: 1.5 }}>
+                {verseText}
+              </div>
             </div>
-          ) : (
-            /* Verse mode: standard left-aligned bar */
-            <>
-              <span style={{ color: gold, fontSize: '0.72rem', fontWeight: 700, flexShrink: 0 }}>{activeVerse.id}</span>
-              <span style={{ color: '#64748b', fontSize: '0.78rem', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {language === 'tr' ? (cleanTr(activeVerse.turkish) || activeVerse.english) : (activeVerse.english || cleanTr(activeVerse.turkish))}
-              </span>
-              <AudioBar
-                surah={activeVerse.surah} ayah={activeVerse.ayah}
-                playing={playingVerseId === activeVerse.id}
-                onToggle={() => handleAudioToggle(activeVerse)}
-                language={language}
-                reciterIdx={reciterIdx}
-              />
-            </>
-          )}
-        </div>
-      )}
+
+            {/* CENTER: prev / play / next */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+              <button
+                onClick={() => prevVerse && handleSelectVerse(prevVerse)}
+                disabled={!prevVerse}
+                style={{ background: 'none', border: 'none', color: prevVerse ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.1)', cursor: prevVerse ? 'pointer' : 'default', padding: '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
+                onMouseEnter={e => { if (prevVerse) e.currentTarget.style.color = gold; }}
+                onMouseLeave={e => { e.currentTarget.style.color = prevVerse ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.1)'; }}
+              >
+                <ChevronLeft size={16} />
+              </button>
+
+              <button
+                onClick={() => handleAudioToggle(activeVerse)}
+                style={{
+                  width: '44px', height: '44px', borderRadius: '50%', flexShrink: 0,
+                  background: isPlaying ? 'rgba(212,165,116,0.2)' : 'rgba(212,165,116,0.1)',
+                  border: `1px solid ${isPlaying ? 'rgba(212,165,116,0.5)' : 'rgba(212,165,116,0.25)'}`,
+                  color: gold, cursor: 'pointer', fontSize: '1rem',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  transition: 'all 0.18s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.25)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.6)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = isPlaying ? 'rgba(212,165,116,0.2)' : 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = isPlaying ? 'rgba(212,165,116,0.5)' : 'rgba(212,165,116,0.25)'; }}
+              >
+                {isPlaying ? '❙❙' : '▶'}
+              </button>
+
+              <button
+                onClick={() => nextVerse && handleSelectVerse(nextVerse)}
+                disabled={!nextVerse}
+                style={{ background: 'none', border: 'none', color: nextVerse ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.1)', cursor: nextVerse ? 'pointer' : 'default', padding: '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
+                onMouseEnter={e => { if (nextVerse) e.currentTarget.style.color = gold; }}
+                onMouseLeave={e => { e.currentTarget.style.color = nextVerse ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.1)'; }}
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+
+            {/* RIGHT: empty for balance */}
+            <div />
+          </div>
+        );
+      })()}
     </div>
   );
 }
