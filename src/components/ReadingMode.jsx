@@ -23,6 +23,21 @@ function cleanArabic(str) {
     .replace(/[\uFD3E\uFD3F]/g, '');
 }
 
+// Tajweed coloring — simplified visual approximation with key rules
+function applyTajweed(text) {
+  if (!text) return '';
+  let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // Qalqalah letters (ق ط ب ج د) + sukun → electric blue
+  html = html.replace(/[قطبجد]\u0652/gu, m => `<span style="color:#4fc3f7">${m}</span>`);
+  // Ghunna: ن or م + shaddah → bright green
+  html = html.replace(/[نم]\u0651/gu, m => `<span style="color:#a5d6a7">${m}</span>`);
+  // Remaining shaddah (idgham / ikhfa) → lavender
+  html = html.replace(/(?<![نم])\u0651/gu, '<span style="color:#ce93d8">\u0651</span>');
+  // Tanwin (fathatan / dammatan / kasratan) → warm amber
+  html = html.replace(/[\u064B-\u064D]/gu, m => `<span style="color:#ffcc80">${m}</span>`);
+  return html;
+}
+
 // Strip footnote refs from Suat Yıldırım translation
 function cleanTr(str) {
   if (!str) return str;
@@ -51,6 +66,31 @@ const ChevronRight = ({ size = 14 }) => (
 const BookmarkIcon = ({ size = 14, filled = false }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+  </svg>
+);
+const SunIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+);
+const MoonIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+);
+const ShareIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+  </svg>
+);
+const ClockIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
   </svg>
 );
 
@@ -330,12 +370,29 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
   // isCurrentPageBookmarked is computed below after currentPage is defined
 
+  // ── Font size (persisted) ──────────────────────────────────────────────────
+  const [arabicFontSize, setArabicFontSize] = useState(() => {
+    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.3'); }
+    catch { return 2.3; }
+  });
+  // ── Day / Night mode (persisted) ───────────────────────────────────────────
+  const [dayMode, setDayMode] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_day_mode') || 'false'); }
+    catch { return false; }
+  });
+  // ── Tajweed coloring toggle ────────────────────────────────────────────────
+  const [showTajweed, setShowTajweed] = useState(false);
+  // ── Share / copy feedback ─────────────────────────────────────────────────
+  const [copiedVerseId, setCopiedVerseId] = useState(null);
+  // ── Reading stats panel ───────────────────────────────────────────────────
+  const [showStats, setShowStats] = useState(false);
+
   const currentFont = "'KFGQPC', 'Amiri Quran', serif";
   const audioRef = useRef(null);
   const containerRef = useRef(null);
   // Refs for Escape handler — always reflect current state without closure staleness
   const overlayStateRef = useRef({});
-  overlayStateRef.current = { showSearch, showMealPicker, showSurahPicker, showJuzPicker, showBookmarks };
+  overlayStateRef.current = { showSearch, showMealPicker, showSurahPicker, showJuzPicker, showBookmarks, showStats };
 
   const normalizeText = (str) =>
     str
@@ -412,6 +469,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     if (showSurahPicker) { setShowSurahPicker(false); return; }
     if (showJuzPicker)   { setShowJuzPicker(false); return; }
     if (showBookmarks)    { setShowBookmarks(false); return; }
+    if (showStats)        { setShowStats(false); return; }
     onClose();
   };
 
@@ -427,6 +485,21 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     return Object.entries(counts).map(([s, c]) => ({ surah: +s, count: c, name: SURAH_NAMES_TR[+s - 1] || s }));
   }, [verses]);
 
+  const shareVerse = useCallback((verse) => {
+    const arabic = cleanArabic(verse.arabic);
+    const translation = getTranslation(verse);
+    const ref = `${SURAH_NAMES_TR[verse.surah - 1]} ${verse.surah}:${verse.ayah}`;
+    const shareText = `${arabic}\n\n"${translation}"\n— ${ref} | Quran Codex`;
+    if (navigator.share) {
+      navigator.share({ title: ref, text: shareText }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(shareText).then(() => {
+        setCopiedVerseId(verse.id);
+        setTimeout(() => setCopiedVerseId(null), 2000);
+      }).catch(() => {});
+    }
+  }, [getTranslation]);
+
   const handleSelectVerse = useCallback((verse) => {
     setActiveVerse(verse);
     // Scroll into view
@@ -441,6 +514,41 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     const page = bookPage ?? SURAH_PAGES[selectedSurah - 1];
     localStorage.setItem('qurancodex_last_position', JSON.stringify({ surah: selectedSurah, page }));
   }, [selectedSurah, bookPage, loading]);
+
+  // Persist font size and day mode preferences
+  useEffect(() => { localStorage.setItem('qurancodex_font_size', String(arabicFontSize)); }, [arabicFontSize]);
+  useEffect(() => { localStorage.setItem('qurancodex_day_mode', JSON.stringify(dayMode)); }, [dayMode]);
+
+  // ── Reading stats tracking ────────────────────────────────────────────────
+  const sessionStartRef = useRef(Date.now());
+  const pagesVisitedRef = useRef(new Set());
+
+  useEffect(() => {
+    if (!loading) {
+      const page = bookPage ?? SURAH_PAGES[selectedSurah - 1];
+      pagesVisitedRef.current.add(`${selectedSurah}:${page}`);
+    }
+  }, [selectedSurah, bookPage, loading]);
+
+  useEffect(() => {
+    const save = () => {
+      const mins = Math.max(0, Math.round((Date.now() - sessionStartRef.current) / 60000));
+      if (mins === 0 && pagesVisitedRef.current.size === 0) return;
+      const prev = (() => { try { return JSON.parse(localStorage.getItem('qurancodex_stats') || '{}'); } catch { return {}; } })();
+      const today = new Date().toISOString().slice(0, 10);
+      const next = {
+        totalMinutes: (prev.totalMinutes || 0) + mins,
+        todayMinutes: (prev.lastDate === today ? (prev.todayMinutes || 0) : 0) + mins,
+        totalPages: (prev.totalPages || 0) + pagesVisitedRef.current.size,
+        lastDate: today,
+      };
+      localStorage.setItem('qurancodex_stats', JSON.stringify(next));
+      sessionStartRef.current = Date.now();
+      pagesVisitedRef.current.clear();
+    };
+    window.addEventListener('beforeunload', save);
+    return () => { save(); window.removeEventListener('beforeunload', save); };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Arrow key navigation
   useEffect(() => {
@@ -521,7 +629,25 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [surahVerses, pendingScrollAyah]);
 
-  const gold = '#d4a574';
+  // ── Theme colors (day / night) ────────────────────────────────────────────
+  const C = dayMode ? {
+    bg: '#f2ede3', gold: '#8b6020',
+    arabic: '#2c1200', arabicActive: '#7a4c00',
+    translation: '#4a3020', translationActive: '#8b5c00',
+    bismillah: 'rgba(100,60,10,0.75)',
+    activeHighlight: 'rgba(100,60,10,0.07)', activeBorder: 'rgba(100,60,10,0.55)',
+    muted: '#907060', scrollbar: 'rgba(100,60,10,0.3) transparent',
+    footerBg: 'rgba(235,226,210,0.98)', footerBorder: 'rgba(139,104,56,0.18)',
+  } : {
+    bg: '#080a1e', gold: '#d4a574',
+    arabic: '#cca96a', arabicActive: '#f0d898',
+    translation: '#c2bbb0', translationActive: '#e8c98a',
+    bismillah: 'rgba(212,165,116,0.7)',
+    activeHighlight: 'rgba(212,165,116,0.06)', activeBorder: 'rgba(212,165,116,0.5)',
+    muted: '#64748b', scrollbar: 'rgba(212,165,116,0.2) transparent',
+    footerBg: 'rgba(6,8,16,0.98)', footerBorder: 'rgba(212,165,116,0.12)',
+  };
+  const gold = C.gold;
   const surahName = SURAH_NAMES_TR[selectedSurah - 1] || `Sûre ${selectedSurah}`;
 
   // Page navigation helpers
@@ -561,7 +687,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   return (
     <div
       onKeyDown={handleEscapeKey}
-      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e', display: 'flex', flexDirection: 'column' }}
+      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: C.bg, display: 'flex', flexDirection: 'column' }}
     >
       <audio
         ref={audioRef}
@@ -791,6 +917,42 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           return (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
 
+              {/* Font size A− / A+ */}
+              {['A−', 'A+'].map((label) => (
+                <button key={label}
+                  onClick={() => setArabicFontSize(s => label === 'A−'
+                    ? Math.max(1.4, +(s - 0.2).toFixed(1))
+                    : Math.min(3.6, +(s + 0.2).toFixed(1)))}
+                  style={{
+                    width: '32px', height: '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                    border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)',
+                    color: 'rgba(255,255,255,0.72)', fontSize: '0.72rem', fontWeight: 700, transition: 'all 0.15s',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; e.currentTarget.style.color = gold; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = 'rgba(255,255,255,0.72)'; }}
+                >{label}</button>
+              ))}
+
+              {/* Day / Night mode */}
+              {btn(dayMode,
+                () => setDayMode(v => !v),
+                dayMode ? (language === 'tr' ? 'Gündüz' : 'Day') : (language === 'tr' ? 'Gece' : 'Night'),
+                dayMode ? <SunIcon size={13} /> : <MoonIcon size={13} />)}
+
+              {/* Tajweed coloring */}
+              {btn(showTajweed,
+                () => setShowTajweed(v => !v),
+                language === 'tr' ? 'Tecvid' : 'Tajweed',
+                <span style={{ fontFamily: "'KFGQPC', serif", fontSize: '0.9rem', lineHeight: 1 }}>تج</span>)}
+
+              {/* Reading stats */}
+              {btn(showStats,
+                () => { setShowStats(p => !p); setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); setShowBookmarks(false); },
+                language === 'tr' ? 'İstatistik' : 'Stats',
+                <ClockIcon size={13} />)}
+
+              <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.07)', margin: '0 2px' }} />
+
               {/* Cüz */}
               {btn(showJuzPicker, () => { setShowJuzPicker(p => !p); setShowSurahPicker(false); },
                 language === 'tr' ? 'Cüz' : 'Juz', currentDisplayJuz)}
@@ -1002,6 +1164,51 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         </div>
       )}
 
+      {/* Stats panel */}
+      {showStats && (() => {
+        const stats = (() => { try { return JSON.parse(localStorage.getItem('qurancodex_stats') || '{}'); } catch { return {}; } })();
+        const sessionMins = Math.max(0, Math.round((Date.now() - sessionStartRef.current) / 60000));
+        const today = new Date().toISOString().slice(0, 10);
+        const todayMins = (stats.lastDate === today ? (stats.todayMinutes || 0) : 0) + sessionMins;
+        const fmt = (m) => m >= 60 ? `${Math.floor(m / 60)}s ${m % 60}dk` : `${m || 0}dk`;
+        const rows = [
+          [language === 'tr' ? 'Bu oturum' : 'This session', fmt(sessionMins)],
+          [language === 'tr' ? 'Bugün toplam' : 'Today total', fmt(todayMins)],
+          [language === 'tr' ? 'Genel toplam' : 'All time', fmt((stats.totalMinutes || 0) + sessionMins)],
+          [language === 'tr' ? 'Ziyaret edilen sayfalar' : 'Pages visited', (stats.totalPages || 0) + pagesVisitedRef.current.size],
+        ];
+        return (
+          <div style={{
+            position: 'absolute', top: '54px', right: '16px', zIndex: 100,
+            background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
+            width: '220px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)', overflow: 'hidden',
+          }}>
+            <div style={{ padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+              <span style={{ color: gold, fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.03em' }}>
+                {language === 'tr' ? 'Okuma İstatistikleri' : 'Reading Stats'}
+              </span>
+            </div>
+            {rows.map(([label, value]) => (
+              <div key={label} style={{ padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.04)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ color: '#8899aa', fontSize: '0.75rem' }}>{label}</span>
+                <span style={{ color: gold, fontSize: '0.82rem', fontWeight: 600 }}>{value}</span>
+              </div>
+            ))}
+            <div style={{ padding: '8px 14px' }}>
+              <button
+                onClick={() => { localStorage.removeItem('qurancodex_stats'); sessionStartRef.current = Date.now(); setShowStats(false); }}
+                style={{ color: '#64748b', fontSize: '0.65rem', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                onMouseEnter={e => e.currentTarget.style.color = '#f87171'}
+                onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+              >
+                {language === 'tr' ? 'İstatistikleri sıfırla' : 'Reset stats'}
+              </button>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Meal picker dropdown */}
       {showMealPicker && (
         <div style={{
@@ -1208,8 +1415,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       {/* Verse list */}
       <div
         ref={containerRef}
-        style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: 'rgba(212,165,116,0.2) transparent' }}
-        onClick={() => { setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); }}
+        style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar }}
+        onClick={() => { setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); setShowStats(false); }}
       >
         {loading && (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '200px', color: '#64748b', fontSize: '0.85rem' }}>
@@ -1220,7 +1427,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
         {/* Bismillah header — only in verse mode (book mode renders it inline) */}
         {!loading && surahVerses.length > 0 && selectedSurah !== 1 && selectedSurah !== 9 && !bookMode && (
-          <div style={{ textAlign: 'center', padding: '32px 24px 12px', fontFamily: currentFont, fontSize: '2.2rem', color: 'rgba(212,165,116,0.7)', lineHeight: 2 }}>
+          <div style={{ textAlign: 'center', padding: '32px 24px 12px', fontFamily: currentFont, fontSize: '2.2rem', color: C.bismillah, lineHeight: 2 }}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </div>
         )}
@@ -1231,7 +1438,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '28px 56px 60px' }}>
             {/* Bismillah — only on first page of surah (not surah 1 or 9) */}
             {selectedSurah !== 1 && selectedSurah !== 9 && currentPage === surahStartPage && (
-              <div style={{ textAlign: 'center', fontFamily: currentFont, fontSize: '2.4rem', color: 'rgba(212,165,116,0.7)', lineHeight: 2.2, marginBottom: '32px' }}>
+              <div style={{ textAlign: 'center', fontFamily: currentFont, fontSize: '2.4rem', color: C.bismillah, lineHeight: 2.2, marginBottom: '32px' }}>
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
               </div>
             )}
@@ -1278,7 +1485,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                             textShadow: '0 0 6px rgba(212,165,116,0.4)',
                           }}>{verse.ayah}</span>
                           <p style={{
-                            margin: 0, color: isActive ? '#e8c98a' : '#c2bbb0',
+                            margin: 0, color: isActive ? C.translationActive : C.translation,
                             fontSize: '1.0rem', lineHeight: 1.8, fontStyle: 'italic',
                             flex: 1,
                           }}>{vt}</p>
@@ -1294,9 +1501,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 paddingLeft: showTranslation ? '36px' : '0',
                 direction: 'rtl',
                 fontFamily: currentFont,
-                fontSize: '2.3rem',
+                fontSize: `${arabicFontSize}rem`,
                 lineHeight: 2.6,
-                color: '#cca96a',
+                color: C.arabic,
                 textAlign: 'justify',
               }}>
                 {versesOnPage.map(verse => {
@@ -1312,9 +1519,11 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                         background: isActive ? 'rgba(212,165,116,0.15)' : 'transparent',
                         borderRadius: '4px', padding: '2px 4px',
                         transition: 'background 0.2s',
-                        color: isActive ? '#f0d898' : 'inherit',
+                        color: isActive ? C.arabicActive : 'inherit',
                       }}>
-                        {cleanArabic(verse.arabic)}
+                        {showTajweed
+                          ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(verse.arabic)) }} />
+                          : cleanArabic(verse.arabic)}
                       </span>
                       {/* Verse end marker — double-ring badge */}
                       <span style={{
@@ -1388,7 +1597,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     <div style={{ flex: 1 }}>
                       {showTranslation && (
                         <p style={{
-                          margin: 0, color: isActive ? '#e8c98a' : '#c2bbb0',
+                          margin: 0, color: isActive ? C.translationActive : C.translation,
                           fontSize: '1.0rem', lineHeight: 1.8, fontStyle: 'italic',
                         }}>{vt}</p>
                       )}
@@ -1407,11 +1616,13 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
                   {/* Right: Arabic */}
                   <div spellCheck={false} style={{
-                    fontFamily: currentFont, fontSize: '2.2rem', lineHeight: 2.2,
-                    color: isActive ? '#e8c98a' : '#d4b483',
+                    fontFamily: currentFont, fontSize: `${arabicFontSize}rem`, lineHeight: 2.2,
+                    color: isActive ? C.arabicActive : C.arabic,
                     textAlign: 'right', direction: 'rtl',
                   }}>
-                    {cleanArabic(verse.arabic)}
+                    {showTajweed
+                      ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(verse.arabic)) }} />
+                      : cleanArabic(verse.arabic)}
                   </div>
 
                 </div>
@@ -1488,8 +1699,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         return (
           <div style={{
             position: 'absolute', bottom: 0, left: 0, right: 0,
-            background: 'rgba(6,8,16,0.98)', backdropFilter: 'blur(24px)',
-            borderTop: '1px solid rgba(212,165,116,0.12)',
+            background: C.footerBg, backdropFilter: 'blur(24px)',
+            borderTop: `1px solid ${C.footerBorder}`,
             padding: '14px 32px',
             display: 'grid', gridTemplateColumns: '1fr auto 1fr',
             alignItems: 'center', gap: '24px',
@@ -1551,8 +1762,28 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               </button>
             </div>
 
-            {/* RIGHT: empty for balance */}
-            <div />
+            {/* RIGHT: share button */}
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <button
+                onClick={() => shareVerse(activeVerse)}
+                title={language === 'tr' ? 'Paylaş / Kopyala' : 'Share / Copy'}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '6px',
+                  padding: '8px 14px', borderRadius: '8px', cursor: 'pointer',
+                  background: copiedVerseId === activeVerse.id ? 'rgba(46,204,113,0.15)' : 'rgba(255,255,255,0.04)',
+                  border: `1px solid ${copiedVerseId === activeVerse.id ? 'rgba(46,204,113,0.4)' : 'rgba(255,255,255,0.08)'}`,
+                  color: copiedVerseId === activeVerse.id ? '#2ecc71' : 'rgba(255,255,255,0.5)',
+                  fontSize: '0.75rem', transition: 'all 0.18s',
+                }}
+                onMouseEnter={e => { if (copiedVerseId !== activeVerse.id) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; e.currentTarget.style.color = gold; }}}
+                onMouseLeave={e => { if (copiedVerseId !== activeVerse.id) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; }}}
+              >
+                <ShareIcon size={12} />
+                {copiedVerseId === activeVerse.id
+                  ? (language === 'tr' ? 'Kopyalandı!' : 'Copied!')
+                  : (language === 'tr' ? 'Paylaş' : 'Share')}
+              </button>
+            </div>
           </div>
         );
       })()}
