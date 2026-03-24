@@ -33,9 +33,10 @@ function cleanArabic(str) {
     // cleanArabic'te kaldırılmıyor; tajweed pipeline'ı handle ediyor
     // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9)
     .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    // U+06E6 (ARABIC SMALL YEH ۦ) — KFGQPC'de ه harfinin sola bağlanmasına yol açıyor
-    // (رِزْقِهِۦوَإِلَيْهِ gibi kelime birleşmeleri). Stilistik işaret; kaldırılması okunuşu etkilemez.
-    .replace(/\u06E6/g, '')
+    // U+06E6 (ARABIC SMALL YEH ۦ) → U+200C (ZWNJ) ile değiştir.
+    // ۦ kaldırılırsa ه (dual-joining) solundaki harfe bağlanır → رِزْقِهِوَإِلَيْهِ birleşir.
+    // ZWNJ görsel boşluk eklemeden bağlantıyı keser.
+    .replace(/\u06E6/g, '\u200C')
     // U+06DF (صفر مستدير/Ayn) + U+06EC (kasr) applyTajweed'e bırakılıyor — diğerleri siliniyor
     .replace(/[\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '')
     // Ornate parentheses
