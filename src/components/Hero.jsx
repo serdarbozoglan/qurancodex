@@ -50,7 +50,7 @@ export default function Hero() {
 
         {/* Description */}
         <motion.p
-          className="text-silver text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-14 font-body"
+          className="text-silver text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-14 font-body tracking-[0.02em]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.2 }}
@@ -81,10 +81,10 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 1 }}
       >
-        <span className="text-gold/40 text-xs font-body tracking-widest uppercase">
+        <span className="text-gold/25 text-xs font-body tracking-widest uppercase">
           {t('hero.scroll')}
         </span>
-        <div className="animate-scroll-bounce text-gold/50">
+        <div className="animate-scroll-bounce text-gold/30">
           <svg
             width="20"
             height="20"

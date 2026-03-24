@@ -164,10 +164,10 @@ export default function Navbar() {
       labelTr: 'Ayet Haritası', labelEn: 'Verse Map',
       descTr: '6.236 ayeti uzayda gör', descEn: 'See 6,236 verses in 3D space',
       icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="2" fill="currentColor" />
-          <circle cx="4" cy="6" r="1.5" fill="currentColor" /><circle cx="20" cy="6" r="1.5" fill="currentColor" />
-          <circle cx="4" cy="18" r="1.5" fill="currentColor" /><circle cx="20" cy="18" r="1.5" fill="currentColor" />
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <circle cx="12" cy="12" r="2" />
+          <circle cx="4" cy="6" r="1.5" /><circle cx="20" cy="6" r="1.5" />
+          <circle cx="4" cy="18" r="1.5" /><circle cx="20" cy="18" r="1.5" />
           <line x1="12" y1="12" x2="4" y2="6" /><line x1="12" y1="12" x2="20" y2="6" />
           <line x1="12" y1="12" x2="4" y2="18" /><line x1="12" y1="12" x2="20" y2="18" />
         </svg>
@@ -178,7 +178,7 @@ export default function Navbar() {
       labelTr: 'Kelime Haritası', labelEn: 'Word Map',
       descTr: 'Hangi kelime nerede yoğunlaşıyor?', descEn: 'Where does each word concentrate?',
       icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
           <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" />
           <rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
         </svg>
@@ -189,7 +189,7 @@ export default function Navbar() {
       labelTr: 'Nüzul Sırası', labelEn: 'Revelation Order',
       descTr: '23 yıllık vahyin kronolojisi', descEn: 'The chronology of 23 years of revelation',
       icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
           <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" />
           <line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
         </svg>
@@ -200,9 +200,11 @@ export default function Navbar() {
       labelTr: 'Dua Ayetleri', labelEn: 'Prayer Verses',
       descTr: 'Kur\'an\'dan 35 seçilmiş dua', descEn: '35 selected supplications from the Quran',
       icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-          <line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" />
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 11V8a2 2 0 0 0-4 0v4" />
+          <path d="M14 11.5V6a2 2 0 0 0-4 0v6" />
+          <path d="M10 11.5V8a2 2 0 0 0-4 0v4" />
+          <path d="M6 11h12v2a6 6 0 0 1-12 0v-2z" />
         </svg>
       ),
       action: () => { setDuaOpen(true); setToolsOpen(false); },

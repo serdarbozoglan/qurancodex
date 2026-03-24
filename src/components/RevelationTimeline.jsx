@@ -125,7 +125,7 @@ export default function RevelationTimeline({ onClose }) {
           <div style={{ display: 'flex', gap: '16px', marginBottom: '16px', fontSize: '0.72rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: mekiColor, opacity: 0.8 }} />
-              <span style={{ color: '#94a3b8' }}>{language === 'tr' ? 'Mekkî (Hz. Muhammed Mekke\'de, 610–622)' : 'Meccan (610–622 CE, Mecca)'}</span>
+              <span style={{ color: '#94a3b8' }}>{language === 'tr' ? 'Mekkî (Hz. Muhammed ﷺ Mekke\'de, 610–622)' : 'Meccan (610–622 CE, Mecca)'}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: medeniColor, opacity: 0.8 }} />
