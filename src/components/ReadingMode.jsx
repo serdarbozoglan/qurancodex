@@ -33,6 +33,9 @@ function cleanArabic(str) {
     // cleanArabic'te kaldırılmıyor; tajweed pipeline'ı handle ediyor
     // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9)
     .replace(/[\u06DD\u06DE\u06E9]/g, '')
+    // U+06E6 (ARABIC SMALL YEH ۦ) — KFGQPC'de ه harfinin sola bağlanmasına yol açıyor
+    // (رِزْقِهِۦوَإِلَيْهِ gibi kelime birleşmeleri). Stilistik işaret; kaldırılması okunuşu etkilemez.
+    .replace(/\u06E6/g, '')
     // U+06DF (صفر مستدير/Ayn) + U+06EC (kasr) applyTajweed'e bırakılıyor — diğerleri siliniyor
     .replace(/[\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '')
     // Ornate parentheses
@@ -103,9 +106,9 @@ const MADDA_STAGGER = 0.28; // her ardışık tilde için em cinsinden düşüş
 const COMBINED_MADDA_RE =
   /([\u0600-\u06FF])\u0651([\u064B-\u0650\u0652])\u0653|([\u0600-\u06FF])([\u064B-\u0650\u0652])(\u0670?)\u0653(\u0670?)|([\u0600-\u06FF])(\u0670?)\u0653(\u0670?)/gu;
 
-// compact=true → kitap modu (lineHeight:2.9); tilde daha aşağıda → önceki satıra taşmaz.
-// compact=false → ayet modu; her ayet kendi bloğunda olduğu için taşma sorun değil, tilde yüksek.
-function wrapAllMadda(text, dayMode, compact = false) {
+// compact parametresi artık kullanılmıyor — lineHeight:2.9 ile tüm baseBottom değerleri güvenli.
+// (lineHeight:2.9 × 2rem = 92.8px; max baseBottom 1.65em = 52.8px + tilde 16px = 68.8px < ~83px sınır)
+function wrapAllMadda(text, dayMode, _compact = false) {
   const color = dayMode ? '#c0392b' : '#c87a72';
   let lastEnd = -1;
   let runLen  = 0;
@@ -122,24 +125,23 @@ function wrapAllMadda(text, dayMode, compact = false) {
 
       let content, xOffset, baseBottom;
       if (shLetter !== undefined) {
-        // Case 1: şedde + hareke + maddah
+        // Case 1: şedde + hareke + maddah (örn. كُلَّمَآ)
         content    = `${shLetter}\u0651${shHareke}`;
         xOffset    = '-0.6em';
-        baseBottom = compact ? 1.05 : 1.38;
+        baseBottom = 1.38;
       } else if (haLetter !== undefined) {
         // Case 2: hareke + maddah (asar varsa daha yüksek)
         const hasDagger = !!(haPreDagger || haPostDagger);
         content    = `${haLetter}${haHareke}${haPreDagger || ''}${haPostDagger || ''}`;
         xOffset    = '-0.30em';
-        baseBottom = hasDagger ? (compact ? 1.15 : 1.45) : (compact ? 1.00 : 1.30);
+        baseBottom = hasDagger ? 1.45 : 1.30;
       } else {
         // Case 3: yalın maddah — mukattaa harfleri ve dagger alefli uzun sesli harfler.
-        // hasDagger=true → dagger alef ~1.2em'de; verse modda 1.65em, book modda 1.30em.
-        // hasDagger=false → mukattaa (الٓمٓ): verse 1.40em, book 1.05em.
+        // hasDagger=true → dagger alef ~1.2em'de → 1.65em; hasDagger=false → 1.40em.
         const hasDagger = !!(baPreDagger || baPostDagger);
         content    = `${baLetter}${baPreDagger || ''}${baPostDagger || ''}`;
         xOffset    = runLen >= 1 ? '-0.4em' : '-0.7em';
-        baseBottom = hasDagger ? (compact ? 1.30 : 1.65) : (compact ? 1.05 : 1.40);
+        baseBottom = hasDagger ? 1.65 : 1.40;
       }
 
       const bottom = (baseBottom - runLen * MADDA_STAGGER).toFixed(2);
