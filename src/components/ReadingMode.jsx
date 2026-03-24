@@ -65,7 +65,7 @@ const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; /
 // Gündüz: koyu kırmızı (#c0392b) — Gece: yumuşak terrakota (#c87a72, göz yormaz)
 const makeWaqfSpan = (dayMode) => (m) =>
   `<span style="display:inline-block;font-size:0.72em;font-weight:700;line-height:1;vertical-align:super;` +
-  `position:relative;left:-0.08em;margin-left:-0.18em;` +
+  `position:relative;left:-0.32em;margin-left:-0.38em;` +
   `font-family:'KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;">${m}</span>`;
 
@@ -76,8 +76,10 @@ const makeWaqfSpan = (dayMode) => (m) =>
 const UTHMANI_MARKS_RE = /[\u06D6-\u06DA\u06DC\u06DF\u0615]\u06DB?/gu;
 
 // Allah lafzı renklendirme: tilde kırmızısıyla aynı renk (gündüz/gece uyumlu).
-// Eşleşme: ا + ل + (hareke*) + ل (şedde dahil) + (hareke*) + ه + (hareke*)
-const ALLAH_RE = /\u0627\u0644[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u06E1\u0651]*\u0647[\u064B-\u065F\u0670\u06E1]*/gu;
+// Eşleşme: ا + (hareke*) + ل + (hareke*) + ل (şedde dahil) + (hareke*) + ه + (hareke*)
+// ا üzerinde fatha (U+064E) veya başka hareke olabilir (örn. Secde 32:4 başı) — alef sonrasına
+// [\u064B-\u065F\u0670\u06E1]* eklenerek bu durum da yakalanır.
+const ALLAH_RE = /\u0627[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u06E1\u0651]*\u0647[\u064B-\u065F\u0670\u06E1]*/gu;
 const makeAllahWrap = (dayMode) => (m) =>
   `<span style="color:${dayMode ? '#4338ca' : '#93c5fd'};">${m}</span>`;
 
@@ -94,14 +96,16 @@ const makeAllahWrap = (dayMode) => (m) =>
 //   Case 3: harf + yalın maddah                       — örn. الٓمٓ huruf mukattaa
 //
 // display:inline (inline-block değil): inline-block Arapça harf bağlantısını (şekil seçimini) kesiyor.
-const MADDA_STAGGER = 0.18; // her ardışık tilde için em cinsinden düşüş
+const MADDA_STAGGER = 0.28; // her ardışık tilde için em cinsinden düşüş
 // U+0670 (asar/dagger alef) maddah'tan önce veya sonra gelebilir; her iki sıralama yakalanır.
 // Gerçek data sırası: ل + U+0670 + U+0653  →  Case 3'te baPreDagger ile yakalanır.
 // Asar span içine alınır → tilde asarın ÜSTÜNDE konumlanır (yüksek baseBottom).
 const COMBINED_MADDA_RE =
   /([\u0600-\u06FF])\u0651([\u064B-\u0650\u0652])\u0653|([\u0600-\u06FF])([\u064B-\u0650\u0652])(\u0670?)\u0653(\u0670?)|([\u0600-\u06FF])(\u0670?)\u0653(\u0670?)/gu;
 
-function wrapAllMadda(text, dayMode) {
+// compact=true → kitap modu (lineHeight:2.9); tilde daha aşağıda → önceki satıra taşmaz.
+// compact=false → ayet modu; her ayet kendi bloğunda olduğu için taşma sorun değil, tilde yüksek.
+function wrapAllMadda(text, dayMode, compact = false) {
   const color = dayMode ? '#c0392b' : '#c87a72';
   let lastEnd = -1;
   let runLen  = 0;
@@ -111,7 +115,9 @@ function wrapAllMadda(text, dayMode) {
             haLetter, haHareke, haPreDagger, haPostDagger,
             baLetter, baPreDagger, baPostDagger,
             offset) => {
-      runLen  = (offset === lastEnd) ? runLen + 1 : 0;
+      // "Yakın tilde" kontrolü: ardışık veya aralarında ≤3 karakter olan (örn. boşluk, elif)
+      // mukattaa harfleri aynı kademeli dizinin parçası sayılır.
+      runLen  = (offset <= lastEnd + 3) ? runLen + 1 : 0;
       lastEnd = offset + match.length;
 
       let content, xOffset, baseBottom;
@@ -119,20 +125,21 @@ function wrapAllMadda(text, dayMode) {
         // Case 1: şedde + hareke + maddah
         content    = `${shLetter}\u0651${shHareke}`;
         xOffset    = '-0.6em';
-        baseBottom = 1.38;
+        baseBottom = compact ? 1.05 : 1.38;
       } else if (haLetter !== undefined) {
         // Case 2: hareke + maddah (asar varsa daha yüksek)
-        // 1.30em → fatha/damma'nın (~0.9em) üstünde net boşluk bırakır
         const hasDagger = !!(haPreDagger || haPostDagger);
         content    = `${haLetter}${haHareke}${haPreDagger || ''}${haPostDagger || ''}`;
-        xOffset    = '-0.45em';
-        baseBottom = hasDagger ? 1.45 : 1.30;
+        xOffset    = '-0.30em';
+        baseBottom = hasDagger ? (compact ? 1.15 : 1.45) : (compact ? 1.00 : 1.30);
       } else {
-        // Case 3: yalın maddah — örn. لٰٓ'daki ل+U+0670+U+0653 sırası
+        // Case 3: yalın maddah — mukattaa harfleri ve dagger alefli uzun sesli harfler.
+        // hasDagger=true → dagger alef ~1.2em'de; verse modda 1.65em, book modda 1.30em.
+        // hasDagger=false → mukattaa (الٓمٓ): verse 1.40em, book 1.05em.
         const hasDagger = !!(baPreDagger || baPostDagger);
         content    = `${baLetter}${baPreDagger || ''}${baPostDagger || ''}`;
-        xOffset    = '-0.5em';
-        baseBottom = hasDagger ? 1.40 : 1.05;
+        xOffset    = runLen >= 1 ? '-0.4em' : '-0.7em';
+        baseBottom = hasDagger ? (compact ? 1.30 : 1.65) : (compact ? 1.05 : 1.40);
       }
 
       const bottom = (baseBottom - runLen * MADDA_STAGGER).toFixed(2);
@@ -158,17 +165,17 @@ const makeKasrWrap = (dayMode) => (_, letter) =>
   `font-family:'KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
 
-function wrapWaqfOnly(text, dayMode = false) {
+function wrapWaqfOnly(text, dayMode = false, compact = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  html = wrapAllMadda(html, dayMode);
+  html = wrapAllMadda(html, dayMode, compact);
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
   html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
   return html;
 }
 
-function applyTajweed(text, dayMode) {
+function applyTajweed(text, dayMode, compact = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -177,7 +184,7 @@ function applyTajweed(text, dayMode) {
   //   Harekeler baseline'dan max ~50px çıkar → 60px > 50px, overlap imkânsız
   //   line-height:0 → satır yüksekliğini etkilemez
   //   position:absolute kullanılmıyor → overflow:hidden olan container'larda kesilme riski yok
-  html = wrapAllMadda(html, dayMode);
+  html = wrapAllMadda(html, dayMode, compact);
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
 
@@ -387,7 +394,7 @@ const SURAH_NAMES_TR = [
   'El-İsrâ','El-Kehf','Meryem','Tâhâ','El-Enbiyâ','El-Hac',
   'El-Mü\'minûn','En-Nûr','El-Furkân','Eş-Şuarâ','En-Neml',
   'El-Kasas','El-Ankebût','Er-Rûm','Lokmân','Es-Secde','El-Ahzâb',
-  'Sebe\'','Fâtır','Yâ-Sîn','Es-Sâffât','Sâd','Ez-Zümer','Ğâfir',
+  'Sebe\'','Fâtır','Yâ-Sîn','Es-Sâffât','Sâd','Ez-Zümer',"Mü'min",
   'Fussilet','Eş-Şûrâ','Ez-Zuhruf','Ed-Duhân','El-Câsiye','El-Ahkâf',
   'Muhammed','El-Feth','El-Hucurât','Kâf','Ez-Zâriyât','Et-Tûr',
   'En-Necm','El-Kamer','Er-Rahmân','El-Vâkıa','El-Hadîd','El-Mücâdele',
@@ -400,7 +407,7 @@ const SURAH_NAMES_TR = [
   'Ed-Duhâ','Eş-Şerh','Et-Tîn','El-Alak','El-Kadr','El-Beyyine',
   'Ez-Zelzele','El-Âdiyât','El-Kâri\'a','Et-Tekâsür','El-Asr',
   'El-Hümeze','El-Fîl','Kureyş','El-Mâûn','El-Kevser','El-Kâfirûn',
-  'En-Nasr','El-Mesed','El-İhlâs','El-Felak','En-Nâs',
+  'En-Nasr','Tebbet','El-İhlâs','El-Felak','En-Nâs',
 ];
 
 // Arabic surah names (standard Uthmani spelling)
@@ -428,9 +435,12 @@ const MADANI_SURAHS = new Set([
 
 
 const RECITERS = [
-  { id: 'Alafasy_128kbps',              labelTr: 'Meşarî', labelEn: 'Alafasy' },
-  { id: 'Abdul_Basit_Murattal_192kbps', labelTr: 'Abdülbasit', labelEn: 'Abdul Basit' },
-  { id: 'Husary_128kbps',               labelTr: 'Husarî', labelEn: 'Al-Husary' },
+  { id: 'Alafasy_128kbps',              labelTr: 'Meşarî',            labelEn: 'Alafasy' },
+  { id: 'Ghamadi_40kbps',               labelTr: 'Sa\'d el-Ğâmidî',   labelEn: 'Saad Al-Ghamdi' },
+  { id: 'Abdul_Basit_Murattal_192kbps', labelTr: 'Abdülbasit',        labelEn: 'Abdul Basit' },
+  { id: 'Husary_128kbps',               labelTr: 'Husarî',            labelEn: 'Al-Husary' },
+  { id: 'Minshawy_Murattal_128kbps',    labelTr: 'Minşâvî',           labelEn: 'Al-Minshawy' },
+  { id: 'Muhammad_Jibreel_128kbps',     labelTr: 'Muhammed Cibrîl',   labelEn: 'Muhammad Jibreel' },
 ];
 
 // Quran translations — 'local'/'en_local' use verse-graph.json; others fetched from api.acikkuran.com
@@ -594,6 +604,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     catch { return 'local'; }
   });
   const [showMealPicker, setShowMealPicker] = useState(false);
+  const [showReciterPicker, setShowReciterPicker] = useState(false);
   const [mealLoading, setMealLoading] = useState(false);
   const mealCacheRef = useRef(new Map()); // key: "mealId:surahNum" → Map<ayah, text>
 
@@ -653,13 +664,14 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   // ── Share / copy feedback ─────────────────────────────────────────────────
   const [copiedVerseId, setCopiedVerseId] = useState(null);
   const [showFontPicker, setShowFontPicker] = useState(false);
+  const [showSettingsPicker, setShowSettingsPicker] = useState(false);
 
   const currentFont = "'KFGQPC', 'Amiri Quran', serif";
   const audioRef = useRef(null);
   const containerRef = useRef(null);
   // Refs for Escape handler — always reflect current state without closure staleness
   const overlayStateRef = useRef({});
-  overlayStateRef.current = { showSearch, showMealPicker, showSurahPicker, showJuzPicker, showBookmarks, showFontPicker };
+  overlayStateRef.current = { showSearch, showMealPicker, showReciterPicker, showSurahPicker, showJuzPicker, showBookmarks, showFontPicker, showSettingsPicker };
 
   const normalizeText = (str) =>
     str
@@ -672,20 +684,29 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       // Note: do NOT remove non-latin chars here — that changes string length
       // and breaks highlight index alignment with the original text
 
+  // Escape special regex characters in query
+  const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  // Word-start match: "gün" matches "günün","güne" but NOT "bozguncu","yoğun"
+  // Turkish is agglutinative — suffixes attach at the end, so startsWith is correct
+  const makeWordRe = (q) => new RegExp(`(?:^|[^a-z])${escapeRe(q)}`);
+
   const searchResults = useMemo(() => {
     const q = normalizeText(searchQuery.trim());
-    if (!verses || q.length < 2) return [];
-    const results = [];
+    if (!verses || q.length < 2) return { hits: [], total: 0 };
+    const wordRe = makeWordRe(q);
+    const hits = [];
+    let total = 0;
     for (const v of verses) {
       // Search only the active language field — prevents cross-language false positives
       const text = language === 'tr' ? (cleanTr(v.turkish) || '') : (v.english || '');
       const surahName = SURAH_NAMES_TR[v.surah - 1] || '';
-      if (normalizeText(text).includes(q) || normalizeText(surahName).includes(q)) {
-        results.push(v);
-        if (results.length >= 60) break;
+      if (wordRe.test(normalizeText(text)) || normalizeText(surahName).includes(q)) {
+        total++;
+        if (hits.length < 60) hits.push(v);
       }
     }
-    return results;
+    return { hits, total };
   }, [verses, searchQuery, language]);
 
   useEffect(() => {
@@ -728,17 +749,25 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
   const selectedMealAuthor = MEAL_AUTHORS.find(a => a.id === selectedMealId) || MEAL_AUTHORS[0];
 
-  // Stable Escape handler — mounted once, reads exclusively from refs (StrictMode safe)
-  const handleEscapeKey = (e) => {
-    if (e.key !== 'Escape') return;
-    if (showSearch)      { setShowSearch(false); setSearchQuery(''); return; }
-    if (showMealPicker)  { setShowMealPicker(false); return; }
-    if (showSurahPicker) { setShowSurahPicker(false); setSurahSearch(''); setPickerSelectedSurah(null); setPickerVerseInput(''); return; }
-    if (showJuzPicker)   { setShowJuzPicker(false); return; }
-    if (showBookmarks)    { setShowBookmarks(false); return; }
-    if (showFontPicker)   { setShowFontPicker(false); return; }
-    onClose();
-  };
+  // Stable Escape handler — mounted once, reads from overlayStateRef (no stale closure)
+  useEffect(() => {
+    const h = (e) => {
+      if (e.key !== 'Escape') return;
+      const s = overlayStateRef.current;
+      if (s.showSearch)        { setShowSearch(false); setSearchQuery(''); return; }
+      if (s.showMealPicker)    { setShowMealPicker(false); return; }
+      if (s.showReciterPicker) { setShowReciterPicker(false); return; }
+      if (s.showSurahPicker)   { setShowSurahPicker(false); setSurahSearch(''); setPickerSelectedSurah(null); setPickerVerseInput(''); return; }
+      if (s.showJuzPicker)     { setShowJuzPicker(false); return; }
+      if (s.showBookmarks)     { setShowBookmarks(false); return; }
+      if (s.showFontPicker)        { setShowFontPicker(false); return; }
+      if (s.showSettingsPicker)    { setShowSettingsPicker(false); return; }
+      // Intentionally no fallthrough: Escape should not close reading mode.
+      // Only the explicit Kapat (✕) button closes it.
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const surahVerses = useMemo(() => {
     if (!verses) return [];
@@ -974,7 +1003,6 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
   return (
     <div
-      onKeyDown={handleEscapeKey}
       style={{ position: 'fixed', inset: 0, zIndex: 9999, background: C.bg, display: 'flex', flexDirection: 'column' }}
     >
       <audio
@@ -1219,39 +1247,27 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           );
 
           return (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '8px' }}>
 
-              {/* Font size — single Aa button */}
+              {/* Settings gear — groups Font size, Day/Night, Tajweed */}
               <button
-                onClick={() => setShowFontPicker(p => !p)}
+                onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); setShowJuzPicker(false); }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                   width: '44px', height: '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
-                  border: `1px solid ${showFontPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'}`,
-                  background: showFontPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)',
+                  border: `1px solid ${showSettingsPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'}`,
+                  background: showSettingsPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)',
                   transition: 'all 0.15s', gap: '1px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = showFontPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = showFontPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'; }}
-                title={language === 'tr' ? 'Yazı boyutu' : 'Font size'}
+                onMouseLeave={e => { e.currentTarget.style.background = showSettingsPicker ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = showSettingsPicker ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'; }}
+                title={language === 'tr' ? 'Ayarlar' : 'Settings'}
               >
                 <span style={{ fontSize: '0.55rem', color: 'rgba(200,185,165,0.72)', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
-                  {language === 'tr' ? 'Yazı' : 'Font'}
+                  {language === 'tr' ? 'Ayar' : 'Settings'}
                 </span>
-                <span style={{ fontSize: '0.78rem', color: showFontPicker ? gold : 'rgba(255,255,255,0.90)', fontWeight: 700, lineHeight: 1.2 }}>Aa</span>
+                <span style={{ fontSize: '1.1rem', color: showSettingsPicker ? gold : 'rgba(255,255,255,0.80)', lineHeight: 1.2 }}>⚙</span>
               </button>
-
-              {/* Day / Night mode */}
-              {btn(dayMode,
-                () => setDayMode(v => !v),
-                dayMode ? (language === 'tr' ? 'Gündüz' : 'Day') : (language === 'tr' ? 'Gece' : 'Night'),
-                dayMode ? <SunIcon size={13} /> : <MoonIcon size={13} />)}
-
-              {/* Tajweed coloring */}
-              {btn(showTajweed,
-                () => setShowTajweed(v => !v),
-                language === 'tr' ? 'Tecvid' : 'Tajweed',
-                <span style={{ fontFamily: "'KFGQPC', serif", fontSize: '0.9rem', lineHeight: 1 }}>تج</span>)}
 
               <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.10)', margin: '0 2px' }} />
 
@@ -1262,21 +1278,20 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
               {/* Meal */}
               {btn(showTranslation || showMealPicker,
-                () => { setShowMealPicker(p => !p); setShowSurahPicker(false); setShowJuzPicker(false); },
+                () => { setShowMealPicker(p => !p); setShowSurahPicker(false); setShowJuzPicker(false); setShowReciterPicker(false); setShowSettingsPicker(false); },
                 language === 'tr' ? 'Meal' : 'Trans.',
                 showTranslation ? selectedMealAuthor.shortLabel : (language === 'tr' ? 'Kapalı' : 'Off'))}
 
               {/* Kari */}
-              {btn(false, () => {
-                const next = (reciterIdx + 1) % RECITERS.length;
-                setReciterIdx(next);
-                if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; setPlayingVerseId(null); }
+              {btn(showReciterPicker, () => {
+                setShowReciterPicker(p => !p);
+                setShowMealPicker(false); setShowSurahPicker(false); setShowJuzPicker(false); setShowSettingsPicker(false);
               }, language === 'tr' ? 'Kari' : 'Reciter',
                 language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn)}
 
               {/* Yer İmi */}
               {btn(showBookmarks || isCurrentPageBookmarked,
-                () => { setShowBookmarks(p => !p); setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); },
+                () => { setShowBookmarks(p => !p); setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); setShowSettingsPicker(false); },
                 language === 'tr' ? 'Yer İmi' : 'Bookmark',
                 <BookmarkIcon size={13} filled={isCurrentPageBookmarked} />)}
 
@@ -1285,8 +1300,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 language === 'tr' ? 'Ara' : 'Search',
                 <SearchIcon size={14} />)}
 
-              {/* Divider */}
-              <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.10)', margin: '0 2px' }} />
+              {/* Divider before close */}
+              <div style={{ width: '1px', height: '28px', background: 'rgba(255,255,255,0.10)', margin: '0 12px' }} />
 
               {/* Kapat */}
               {btn(false, onClose,
@@ -1494,6 +1509,99 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         </div>
       )}
 
+      {/* Settings dropdown — font size + day/night + tajweed */}
+      {showSettingsPicker && (
+        <div style={{
+          position: 'absolute', top: '54px', right: '16px', zIndex: 100,
+          background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
+          padding: '14px 16px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+          display: 'flex', flexDirection: 'column', gap: '14px', width: '230px',
+        }}>
+          {/* Font size section */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <span style={{ fontSize: '0.62rem', color: '#64748b', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              {language === 'tr' ? 'Yazı Boyutu' : 'Font Size'}
+            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <button
+                onClick={() => setArabicFontSize(s => Math.max(1.4, +(s - 0.2).toFixed(1)))}
+                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.15)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+              >−</button>
+              <input
+                type="range" min={1.4} max={3.6} step={0.2}
+                value={arabicFontSize}
+                onChange={e => setArabicFontSize(+parseFloat(e.target.value).toFixed(1))}
+                style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
+              />
+              <button
+                onClick={() => setArabicFontSize(s => Math.min(3.6, +(s + 0.2).toFixed(1)))}
+                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.15)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+              >+</button>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
+              <button
+                onClick={() => setArabicFontSize(2.3)}
+                style={{ fontSize: '0.65rem', color: '#64748b', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#a0abb8'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#64748b'; }}
+              >{language === 'tr' ? 'Sıfırla' : 'Reset'}</button>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.07)' }} />
+
+          {/* Day / Night toggle */}
+          <button
+            onClick={() => setDayMode(v => !v)}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              border: `1px solid ${dayMode ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'}`,
+              background: dayMode ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.12)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = dayMode ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'; }}
+          >
+            <span style={{ fontSize: '0.82rem', color: dayMode ? gold : 'rgba(255,255,255,0.80)' }}>
+              {dayMode ? (language === 'tr' ? '☀ Gündüz Modu' : '☀ Day Mode') : (language === 'tr' ? '🌙 Gece Modu' : '🌙 Night Mode')}
+            </span>
+            <span style={{ fontSize: '0.7rem', color: dayMode ? gold : '#64748b', fontWeight: 600 }}>
+              {dayMode ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
+            </span>
+          </button>
+
+          {/* Tajweed toggle */}
+          <button
+            onClick={() => setShowTajweed(v => !v)}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              border: `1px solid ${showTajweed ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'}`,
+              background: showTajweed ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.12)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = showTajweed ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = showTajweed ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.10)'; }}
+          >
+            <span style={{ fontSize: '0.82rem', color: showTajweed ? gold : 'rgba(255,255,255,0.80)' }}>
+              <span style={{ fontFamily: "'KFGQPC', serif", marginRight: '6px' }}>تج</span>
+              {language === 'tr' ? 'Tecvid Renkleri' : 'Tajweed Colors'}
+            </span>
+            <span style={{ fontSize: '0.7rem', color: showTajweed ? gold : '#64748b', fontWeight: 600 }}>
+              {showTajweed ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
+            </span>
+          </button>
+        </div>
+      )}
+
       {/* Bookmarks panel */}
       {showBookmarks && (
         <div style={{
@@ -1660,6 +1768,45 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         </div>
       )}
 
+      {/* Reciter picker dropdown */}
+      {showReciterPicker && (
+        <div style={{
+          position: 'absolute', top: '54px', right: '16px', zIndex: 100,
+          background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
+          width: '220px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+          padding: '6px 0',
+        }}>
+          <div style={{ padding: '4px 14px 8px', fontSize: '0.6rem', color: '#4a5568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            {language === 'tr' ? 'Kari Seç' : 'Select Reciter'}
+          </div>
+          {RECITERS.map((reciter, idx) => {
+            const isActive = reciterIdx === idx;
+            return (
+              <button key={reciter.id}
+                onClick={() => {
+                  setReciterIdx(idx);
+                  setShowReciterPicker(false);
+                  if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; setPlayingVerseId(null); }
+                }}
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  width: '100%', padding: '8px 14px', border: 'none',
+                  background: isActive ? 'rgba(212,165,116,0.1)' : 'transparent',
+                  color: isActive ? gold : '#a8b4c0', cursor: 'pointer', fontSize: '0.82rem',
+                  transition: 'background 0.12s', textAlign: 'left',
+                }}
+                onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; }}
+                onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+              >
+                <span>{language === 'tr' ? reciter.labelTr : reciter.labelEn}</span>
+                {isActive && <span style={{ fontSize: '0.7rem', color: gold }}>✓</span>}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       {/* Search overlay */}
       {showSearch && (
         <div
@@ -1706,25 +1853,31 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               <div style={{ textAlign: 'center', padding: '60px 24px', color: '#4a5568', fontSize: '0.9rem' }}>
                 {language === 'tr' ? 'En az 2 karakter girin' : 'Type at least 2 characters'}
               </div>
-            ) : searchResults.length === 0 ? (
+            ) : searchResults.total === 0 ? (
               <div style={{ textAlign: 'center', padding: '60px 24px', color: '#4a5568', fontSize: '0.9rem' }}>
                 {language === 'tr' ? 'Sonuç bulunamadı' : 'No results found'}
               </div>
             ) : (
               <>
                 <div style={{ padding: '8px 24px 12px', fontSize: '0.65rem', color: '#4a5568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                  {searchResults.length === 60
-                    ? (language === 'tr' ? 'İlk 60 sonuç gösteriliyor' : 'Showing first 60 results')
-                    : (language === 'tr' ? `${searchResults.length} sonuç` : `${searchResults.length} results`)}
+                  {searchResults.total > 60
+                    ? (language === 'tr'
+                        ? `${searchResults.total} sonuç — ilk 60 gösteriliyor`
+                        : `${searchResults.total} results — showing first 60`)
+                    : (language === 'tr'
+                        ? `${searchResults.total} sonuç`
+                        : `${searchResults.total} results`)}
                 </div>
-                {searchResults.map(verse => {
+                {searchResults.hits.map(verse => {
                   const tr = cleanTr(verse.turkish) || '';
                   const text = language === 'tr' ? tr : (verse.english || tr);
                   const q = normalizeText(searchQuery.trim());
                   const surahName = SURAH_NAMES_TR[verse.surah - 1];
 
-                  // Highlight matching segment (normalize both sides to find position)
-                  const idx = normalizeText(text).indexOf(q);
+                  // Highlight matching segment — use word-start regex to find position
+                  const _normText = normalizeText(text);
+                  const _hlMatch = makeWordRe(normalizeText(searchQuery.trim())).exec(_normText);
+                  const idx = _hlMatch ? _hlMatch.index + _hlMatch[0].length - normalizeText(searchQuery.trim()).length : -1;
                   const highlighted = idx >= 0 ? (
                     <span>
                       {text.slice(0, idx)}
@@ -1776,7 +1929,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       <div
         ref={containerRef}
         style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar }}
-        onClick={() => { setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); setShowFontPicker(false); }}
+        onClick={() => { setShowSurahPicker(false); setShowJuzPicker(false); setShowMealPicker(false); setShowFontPicker(false); setShowSettingsPicker(false); }}
       >
         {loading && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh', gap: '20px' }}>
@@ -1825,7 +1978,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               {showTranslation && (
                 <div style={{
                   paddingRight: '32px',
-                  borderRight: '1px solid rgba(212,165,116,0.12)',
+                  borderRight: `1px solid ${dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.22)'}`,
                   display: 'flex', flexDirection: 'column', gap: '2px',
                 }}>
                   {/* Attribution */}
@@ -1902,7 +2055,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 direction: 'rtl',
                 fontFamily: currentFont,
                 fontSize: `${arabicFontSize}rem`,
-                lineHeight: 2.6,
+                lineHeight: 2.9,
                 color: C.arabic,
                 textAlign: 'justify',
               }}>
@@ -1946,14 +2099,14 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                           color: isActive ? C.arabicActive : 'inherit',
                         }}>
                           {showTajweed
-                            ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(verse.arabic), dayMode) }} />
-                            : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(cleanArabic(verse.arabic), dayMode) }} />}
+                            ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(verse.arabic), dayMode, true) }} />
+                            : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(cleanArabic(verse.arabic), dayMode, true) }} />}
                         </span>
                         {/* Verse end marker — double-ring badge */}
                         <span style={{
                           display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                           verticalAlign: 'middle',
-                          margin: '0 8px',
+                          margin: '0 18px',
                           width: '1.72em', height: '1.72em',
                           textAlign: 'center', borderRadius: '50%',
                           border: `1.5px solid ${C.gold}aa`,

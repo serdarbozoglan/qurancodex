@@ -87,7 +87,7 @@ const SURAH_NAMES_TR = [
   'El-İsrâ','El-Kehf','Meryem','Tâhâ','El-Enbiyâ','El-Hac',
   'El-Mü\'minûn','En-Nûr','El-Furkân','Eş-Şuarâ','En-Neml',
   'El-Kasas','El-Ankebût','Er-Rûm','Lokmân','Es-Secde','El-Ahzâb',
-  'Sebe\'','Fâtır','Yâ-Sîn','Es-Sâffât','Sâd','Ez-Zümer','Ğâfir',
+  'Sebe\'','Fâtır','Yâ-Sîn','Es-Sâffât','Sâd','Ez-Zümer',"Mü'min",
   'Fussilet','Eş-Şûrâ','Ez-Zuhruf','Ed-Duhân','El-Câsiye','El-Ahkâf',
   'Muhammed','El-Feth','El-Hucurât','Kâf','Ez-Zâriyât','Et-Tûr',
   'En-Necm','El-Kamer','Er-Rahmân','El-Vâkıa','El-Hadîd','El-Mücâdele',
@@ -100,7 +100,7 @@ const SURAH_NAMES_TR = [
   'Ed-Duhâ','Eş-Şerh','Et-Tîn','El-Alak','El-Kadr','El-Beyyine',
   'Ez-Zilzâl','El-Âdiyât','El-Kâria','Et-Tekâsür','El-Asr','El-Hümeze',
   'El-Fîl','Kureyş','El-Mâûn','El-Kevser','El-Kâfirûn','En-Nasr',
-  'El-Mesed','El-İhlâs','El-Felak','En-Nâs',
+  'Tebbet','El-İhlâs','El-Felak','En-Nâs',
 ];
 function surahNameTr(n) { return SURAH_NAMES_TR[n - 1] || ''; }
 
@@ -960,22 +960,6 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
 
         <SurahDropdown value={null} onChange={onSelectSurah} language={language} allowAll={false} />
 
-        {/* Semantic / Classical toggle */}
-        <div style={{ display: 'flex', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', overflow: 'hidden', height: '32px', boxSizing: 'border-box', flexShrink: 0 }}>
-          {['semantic', 'classical'].map(mode => (
-            <button key={mode} onClick={() => setViewMode(mode)}
-              style={{ padding: '0 12px', fontSize: '0.75rem', cursor: 'pointer', border: 'none', height: '100%',
-                background: viewMode === mode ? 'rgba(212,165,116,0.25)' : 'transparent',
-                color: viewMode === mode ? '#d4a574' : '#64748b',
-                fontWeight: viewMode === mode ? 600 : 400,
-                transition: 'all 0.15s', borderRight: mode === 'semantic' ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
-              {mode === 'semantic'
-                ? (language === 'tr' ? 'Anlamsal' : 'Semantic')
-                : (language === 'tr' ? 'Klasik' : 'Classical')}
-            </button>
-          ))}
-        </div>
-
         <button onClick={onClose}
           style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#64748b', padding: '0 14px', fontSize: '0.78rem', cursor: 'pointer', height: '32px', boxSizing: 'border-box' }}
           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
@@ -1107,13 +1091,13 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
       </svg>
 
       {/* Legend */}
-      <div style={{ position: 'absolute', bottom: '20px', right: '20px', display: 'flex', gap: '14px', alignItems: 'center', pointerEvents: 'none' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: '#94a3b8' }}>
-          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: MEKKI_COLOR, flexShrink: 0 }} />
+      <div style={{ position: 'absolute', bottom: '24px', left: '24px', display: 'flex', gap: '12px', alignItems: 'center', pointerEvents: 'none' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148,163,184,0.6)', fontFamily: "'Inter', sans-serif" }}>
+          <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: MEKKI_COLOR, flexShrink: 0 }} />
           {language === 'tr' ? 'Mekkî' : 'Meccan'}
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: '#94a3b8' }}>
-          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: MEDENI_COLOR, flexShrink: 0 }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148,163,184,0.6)', fontFamily: "'Inter', sans-serif" }}>
+          <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: MEDENI_COLOR, flexShrink: 0 }} />
           {language === 'tr' ? 'Medenî' : 'Medinan'}
         </div>
       </div>
@@ -1155,15 +1139,55 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         );
       })()}
 
-      {/* Hint */}
-      <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', color: '#64748b', fontSize: '0.7rem', textAlign: 'center', pointerEvents: 'none', maxWidth: '600px' }}>
-        {viewMode === 'semantic'
-          ? (language === 'tr'
-            ? <>Anlamsal görünüm: Yerleşim, ayet-ayet bağlantı skorlarından hesaplanmış metinsel benzerliğe dayanır.<br />Geleneksel gruplamalardan farklılık gösterebilir.</>
-            : <>Semantic view: Positions are based on textual similarity computed from verse-verse connection scores.<br />May differ from traditional groupings.</>)
-          : (language === 'tr'
-            ? <>Klasik görünüm: Sûreler, İslam ilmi geleneğindeki sınıflandırmaya göre gruplandırılmıştır.<br />Tıval · Kıssas-ı Enbiyâ · Hâmim · Mufassal vb.</>
-            : <>Classical view: Surahs grouped by traditional Islamic scholarly classification.<br />Tiwāl · Prophet Narratives · Hā-Mīm · Mufassal etc.</>)}
+      {/* View mode toggle — bottom right */}
+      <div style={{
+        position: 'absolute', bottom: '24px', right: '24px', zIndex: 20,
+        display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-end',
+      }}>
+        <span style={{ color: 'rgba(148,163,184,0.45)', fontSize: '0.62rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif" }}>
+          {language === 'tr' ? 'Görünüm' : 'View'}
+        </span>
+        <div style={{
+          display: 'flex', gap: '6px',
+        }}>
+          {[
+            {
+              mode: 'semantic',
+              labelTr: 'Anlam Kümeleri', labelEn: 'Semantic Clusters',
+              tipTr: 'Ayetlerin anlamsal benzerliğine göre konumlandırılmış',
+              tipEn: 'Positioned by semantic similarity of verses',
+            },
+            {
+              mode: 'classical',
+              labelTr: 'İlmî Gruplar', labelEn: 'Traditional Groups',
+              tipTr: 'İslam ilmi geleneğine göre: Tıval, Mufassal vb.',
+              tipEn: 'By Islamic scholarly tradition: Tiwāl, Mufassal etc.',
+            },
+          ].map(({ mode, labelTr, labelEn, tipTr, tipEn }) => {
+            const active = viewMode === mode;
+            return (
+              <button
+                key={mode}
+                onClick={() => setViewMode(mode)}
+                title={language === 'tr' ? tipTr : tipEn}
+                style={{
+                  padding: '7px 14px', borderRadius: '8px', border: 'none', cursor: 'pointer',
+                  background: active ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.04)',
+                  color: active ? '#d4a574' : 'rgba(148,163,184,0.55)',
+                  fontSize: '0.75rem', fontFamily: "'Inter', sans-serif",
+                  fontWeight: active ? 600 : 400,
+                  outline: active ? '1px solid rgba(212,165,116,0.3)' : '1px solid rgba(255,255,255,0.07)',
+                  transition: 'all 0.15s',
+                  backdropFilter: 'blur(12px)',
+                }}
+                onMouseEnter={e => { if (!active) { e.currentTarget.style.color = '#d4d8e0'; e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}}
+                onMouseLeave={e => { if (!active) { e.currentTarget.style.color = 'rgba(148,163,184,0.55)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}}
+              >
+                {language === 'tr' ? labelTr : labelEn}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

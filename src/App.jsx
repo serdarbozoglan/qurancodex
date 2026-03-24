@@ -1,7 +1,7 @@
 import { LanguageProvider } from './i18n/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import MathMiracle from './sections/MathMiracle';
+import ProphetAtlas from './sections/ProphetAtlas';
 import LinguisticDNA from './sections/LinguisticDNA';
 import ImpossibleRhythm from './sections/ImpossibleRhythm';
 import SoundArchitecture from './sections/SoundArchitecture';
@@ -22,7 +22,7 @@ export default function App() {
       <main>
         <Hero />
         <div className="gradient-divider" />
-        <MathMiracle />
+        <ProphetAtlas />
         <div className="gradient-divider-reverse" />
         <LinguisticDNA />
         <div className="gradient-divider" />
