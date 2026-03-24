@@ -20,6 +20,26 @@ const REVELATION = [
 const RANK_BY_SURAH = {};
 REVELATION.forEach(x => { RANK_BY_SURAH[x.s] = x.r; });
 
+// "(2:31)" → "(Bakara 31)" dönüşümü
+function fmtRef(text, lang = 'tr') {
+  return text.replace(/\((\d+):(\d+)\)/g, (_, s, v) => {
+    const name = SURAH_NAMES[+s];
+    const label = name ? (lang === 'tr' ? name.tr : name.en) : `Sure ${s}`;
+    return `(${label} ${v})`;
+  });
+}
+
+// Dua Arapçası için temel normalizasyon (KFGQPC uyumluluğu)
+function cleanDuaAr(str) {
+  if (!str) return str;
+  return str
+    .replace(/\u0671/g, '\u0627') // alef wasla → düz alef (KFGQPC'de ص gösterir)
+    .replace(/\u06CC/g, '\u064A') // Farsça ye → Arapça ye
+    .replace(/\u06E6/g, ' ')      // small yeh → boşluk (kelime ayracı)
+    .replace(/[\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '') // Uthmani işaretler
+    .replace(/[\u0610-\u0614\u0616\u0617]/g, ''); // kısaltma işaretleri
+}
+
 const SURAH_NAMES = {
   1:{tr:'Fâtiha',en:'Al-Fatiha'}, 2:{tr:'Bakara',en:'Al-Baqarah'}, 3:{tr:'Âl-i İmrân',en:'Al-Imran'},
   4:{tr:'Nisâ',en:'An-Nisa'}, 5:{tr:'Mâide',en:'Al-Maidah'}, 6:{tr:'En\'âm',en:'Al-Anam'},
@@ -1501,7 +1521,7 @@ export default function ProphetAtlas() {
                               lineHeight: 1.6, marginBottom: '4px',
                               fontFamily: 'Inter, sans-serif',
                             }}>
-                              {g}
+                              {fmtRef(g, language)}
                             </li>
                           ))}
                         </ul>
@@ -1528,11 +1548,11 @@ export default function ProphetAtlas() {
                           <div style={{
                             direction: 'rtl', textAlign: 'right',
                             fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                            fontSize: '1.1rem', lineHeight: 1.9,
+                            fontSize: '1.45rem', lineHeight: 2.0,
                             color: '#d4a574',
                             marginBottom: '8px',
                           }}>
-                            {p.duaAr}
+                            {cleanDuaAr(p.duaAr)}
                           </div>
                           {/* Translation */}
                           <div style={{
