@@ -23,9 +23,7 @@ export default function App() {
         <Hero />
         <div className="gradient-divider" />
         <ProphetAtlas />
-        <div className="gradient-divider-reverse" />
         <LinguisticDNA />
-        <div className="gradient-divider" />
         <ImpossibleRhythm />
         <div className="gradient-divider-reverse" />
         <SoundArchitecture />

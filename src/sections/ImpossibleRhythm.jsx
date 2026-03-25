@@ -7,7 +7,7 @@ export default function ImpossibleRhythm() {
   const examples = t('impossibleRhythm.examples') || [];
 
   return (
-    <SectionWrapper id="rhythm" dark={true}>
+    <SectionWrapper id="rhythm" dark={true} className="!pt-8 md:!pt-12">
       {/* Section badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">

@@ -1,118 +1,574 @@
 {
   "order": [
-    {"surah": 96, "rank": 1, "period": "mekki"},
-    {"surah": 68, "rank": 2, "period": "mekki"},
-    {"surah": 73, "rank": 3, "period": "mekki"},
-    {"surah": 74, "rank": 4, "period": "mekki"},
-    {"surah": 1,  "rank": 5, "period": "mekki"},
-    {"surah": 111,"rank": 6, "period": "mekki"},
-    {"surah": 81, "rank": 7, "period": "mekki"},
-    {"surah": 87, "rank": 8, "period": "mekki"},
-    {"surah": 92, "rank": 9, "period": "mekki"},
-    {"surah": 89, "rank": 10, "period": "mekki"},
-    {"surah": 93, "rank": 11, "period": "mekki"},
-    {"surah": 94, "rank": 12, "period": "mekki"},
-    {"surah": 103,"rank": 13, "period": "mekki"},
-    {"surah": 100,"rank": 14, "period": "mekki"},
-    {"surah": 108,"rank": 15, "period": "mekki"},
-    {"surah": 102,"rank": 16, "period": "mekki"},
-    {"surah": 107,"rank": 17, "period": "mekki"},
-    {"surah": 109,"rank": 18, "period": "mekki"},
-    {"surah": 105,"rank": 19, "period": "mekki"},
-    {"surah": 113,"rank": 20, "period": "mekki"},
-    {"surah": 114,"rank": 21, "period": "mekki"},
-    {"surah": 112,"rank": 22, "period": "mekki"},
-    {"surah": 53, "rank": 23, "period": "mekki"},
-    {"surah": 80, "rank": 24, "period": "mekki"},
-    {"surah": 97, "rank": 25, "period": "mekki"},
-    {"surah": 91, "rank": 26, "period": "mekki"},
-    {"surah": 85, "rank": 27, "period": "mekki"},
-    {"surah": 95, "rank": 28, "period": "mekki"},
-    {"surah": 106,"rank": 29, "period": "mekki"},
-    {"surah": 101,"rank": 30, "period": "mekki"},
-    {"surah": 75, "rank": 31, "period": "mekki"},
-    {"surah": 104,"rank": 32, "period": "mekki"},
-    {"surah": 77, "rank": 33, "period": "mekki"},
-    {"surah": 50, "rank": 34, "period": "mekki"},
-    {"surah": 90, "rank": 35, "period": "mekki"},
-    {"surah": 86, "rank": 36, "period": "mekki"},
-    {"surah": 54, "rank": 37, "period": "mekki"},
-    {"surah": 38, "rank": 38, "period": "mekki"},
-    {"surah": 7,  "rank": 39, "period": "mekki"},
-    {"surah": 72, "rank": 40, "period": "mekki"},
-    {"surah": 36, "rank": 41, "period": "mekki"},
-    {"surah": 25, "rank": 42, "period": "mekki"},
-    {"surah": 35, "rank": 43, "period": "mekki"},
-    {"surah": 19, "rank": 44, "period": "mekki"},
-    {"surah": 20, "rank": 45, "period": "mekki"},
-    {"surah": 56, "rank": 46, "period": "mekki"},
-    {"surah": 26, "rank": 47, "period": "mekki"},
-    {"surah": 27, "rank": 48, "period": "mekki"},
-    {"surah": 28, "rank": 49, "period": "mekki"},
-    {"surah": 17, "rank": 50, "period": "mekki"},
-    {"surah": 10, "rank": 51, "period": "mekki"},
-    {"surah": 11, "rank": 52, "period": "mekki"},
-    {"surah": 12, "rank": 53, "period": "mekki"},
-    {"surah": 15, "rank": 54, "period": "mekki"},
-    {"surah": 6,  "rank": 55, "period": "mekki"},
-    {"surah": 37, "rank": 56, "period": "mekki"},
-    {"surah": 31, "rank": 57, "period": "mekki"},
-    {"surah": 34, "rank": 58, "period": "mekki"},
-    {"surah": 39, "rank": 59, "period": "mekki"},
-    {"surah": 40, "rank": 60, "period": "mekki"},
-    {"surah": 41, "rank": 61, "period": "mekki"},
-    {"surah": 42, "rank": 62, "period": "mekki"},
-    {"surah": 43, "rank": 63, "period": "mekki"},
-    {"surah": 44, "rank": 64, "period": "mekki"},
-    {"surah": 45, "rank": 65, "period": "mekki"},
-    {"surah": 46, "rank": 66, "period": "mekki"},
-    {"surah": 51, "rank": 67, "period": "mekki"},
-    {"surah": 88, "rank": 68, "period": "mekki"},
-    {"surah": 18, "rank": 69, "period": "mekki"},
-    {"surah": 16, "rank": 70, "period": "mekki"},
-    {"surah": 71, "rank": 71, "period": "mekki"},
-    {"surah": 14, "rank": 72, "period": "mekki"},
-    {"surah": 21, "rank": 73, "period": "mekki"},
-    {"surah": 23, "rank": 74, "period": "mekki"},
-    {"surah": 32, "rank": 75, "period": "mekki"},
-    {"surah": 52, "rank": 76, "period": "mekki"},
-    {"surah": 67, "rank": 77, "period": "mekki"},
-    {"surah": 69, "rank": 78, "period": "mekki"},
-    {"surah": 70, "rank": 79, "period": "mekki"},
-    {"surah": 78, "rank": 80, "period": "mekki"},
-    {"surah": 79, "rank": 81, "period": "mekki"},
-    {"surah": 82, "rank": 82, "period": "mekki"},
-    {"surah": 84, "rank": 83, "period": "mekki"},
-    {"surah": 30, "rank": 84, "period": "mekki"},
-    {"surah": 29, "rank": 85, "period": "mekki"},
-    {"surah": 83, "rank": 86, "period": "mekki"},
-    {"surah": 2,  "rank": 87, "period": "medeni"},
-    {"surah": 8,  "rank": 88, "period": "medeni"},
-    {"surah": 3,  "rank": 89, "period": "medeni"},
-    {"surah": 33, "rank": 90, "period": "medeni"},
-    {"surah": 60, "rank": 91, "period": "medeni"},
-    {"surah": 4,  "rank": 92, "period": "medeni"},
-    {"surah": 99, "rank": 93, "period": "medeni"},
-    {"surah": 57, "rank": 94, "period": "medeni"},
-    {"surah": 47, "rank": 95, "period": "medeni"},
-    {"surah": 13, "rank": 96, "period": "medeni"},
-    {"surah": 55, "rank": 97, "period": "medeni"},
-    {"surah": 76, "rank": 98, "period": "medeni"},
-    {"surah": 65, "rank": 99, "period": "medeni"},
-    {"surah": 98, "rank": 100, "period": "medeni"},
-    {"surah": 59, "rank": 101, "period": "medeni"},
-    {"surah": 110,"rank": 102, "period": "medeni"},
-    {"surah": 24, "rank": 103, "period": "medeni"},
-    {"surah": 22, "rank": 104, "period": "medeni"},
-    {"surah": 63, "rank": 105, "period": "medeni"},
-    {"surah": 58, "rank": 106, "period": "medeni"},
-    {"surah": 49, "rank": 107, "period": "medeni"},
-    {"surah": 66, "rank": 108, "period": "medeni"},
-    {"surah": 64, "rank": 109, "period": "medeni"},
-    {"surah": 61, "rank": 110, "period": "medeni"},
-    {"surah": 62, "rank": 111, "period": "medeni"},
-    {"surah": 48, "rank": 112, "period": "medeni"},
-    {"surah": 5,  "rank": 113, "period": "medeni"},
-    {"surah": 9,  "rank": 114, "period": "medeni"}
+    {
+      "surah": 96,
+      "rank": 1,
+      "period": "mekki"
+    },
+    {
+      "surah": 68,
+      "rank": 2,
+      "period": "mekki"
+    },
+    {
+      "surah": 73,
+      "rank": 3,
+      "period": "mekki"
+    },
+    {
+      "surah": 74,
+      "rank": 4,
+      "period": "mekki"
+    },
+    {
+      "surah": 1,
+      "rank": 5,
+      "period": "mekki"
+    },
+    {
+      "surah": 111,
+      "rank": 6,
+      "period": "mekki"
+    },
+    {
+      "surah": 81,
+      "rank": 7,
+      "period": "mekki"
+    },
+    {
+      "surah": 87,
+      "rank": 8,
+      "period": "mekki"
+    },
+    {
+      "surah": 92,
+      "rank": 9,
+      "period": "mekki"
+    },
+    {
+      "surah": 89,
+      "rank": 10,
+      "period": "mekki"
+    },
+    {
+      "surah": 93,
+      "rank": 11,
+      "period": "mekki"
+    },
+    {
+      "surah": 94,
+      "rank": 12,
+      "period": "mekki"
+    },
+    {
+      "surah": 103,
+      "rank": 13,
+      "period": "mekki"
+    },
+    {
+      "surah": 100,
+      "rank": 14,
+      "period": "mekki"
+    },
+    {
+      "surah": 108,
+      "rank": 15,
+      "period": "mekki"
+    },
+    {
+      "surah": 102,
+      "rank": 16,
+      "period": "mekki"
+    },
+    {
+      "surah": 107,
+      "rank": 17,
+      "period": "mekki"
+    },
+    {
+      "surah": 109,
+      "rank": 18,
+      "period": "mekki"
+    },
+    {
+      "surah": 105,
+      "rank": 19,
+      "period": "mekki"
+    },
+    {
+      "surah": 113,
+      "rank": 20,
+      "period": "mekki"
+    },
+    {
+      "surah": 114,
+      "rank": 21,
+      "period": "mekki"
+    },
+    {
+      "surah": 112,
+      "rank": 22,
+      "period": "mekki"
+    },
+    {
+      "surah": 53,
+      "rank": 23,
+      "period": "mekki"
+    },
+    {
+      "surah": 80,
+      "rank": 24,
+      "period": "mekki"
+    },
+    {
+      "surah": 97,
+      "rank": 25,
+      "period": "mekki"
+    },
+    {
+      "surah": 91,
+      "rank": 26,
+      "period": "mekki"
+    },
+    {
+      "surah": 85,
+      "rank": 27,
+      "period": "mekki"
+    },
+    {
+      "surah": 95,
+      "rank": 28,
+      "period": "mekki"
+    },
+    {
+      "surah": 106,
+      "rank": 29,
+      "period": "mekki"
+    },
+    {
+      "surah": 101,
+      "rank": 30,
+      "period": "mekki"
+    },
+    {
+      "surah": 75,
+      "rank": 31,
+      "period": "mekki"
+    },
+    {
+      "surah": 104,
+      "rank": 32,
+      "period": "mekki"
+    },
+    {
+      "surah": 77,
+      "rank": 33,
+      "period": "mekki"
+    },
+    {
+      "surah": 50,
+      "rank": 34,
+      "period": "mekki"
+    },
+    {
+      "surah": 90,
+      "rank": 35,
+      "period": "mekki"
+    },
+    {
+      "surah": 86,
+      "rank": 36,
+      "period": "mekki"
+    },
+    {
+      "surah": 54,
+      "rank": 37,
+      "period": "mekki"
+    },
+    {
+      "surah": 38,
+      "rank": 38,
+      "period": "mekki"
+    },
+    {
+      "surah": 7,
+      "rank": 39,
+      "period": "mekki"
+    },
+    {
+      "surah": 72,
+      "rank": 40,
+      "period": "mekki"
+    },
+    {
+      "surah": 36,
+      "rank": 41,
+      "period": "mekki"
+    },
+    {
+      "surah": 25,
+      "rank": 42,
+      "period": "mekki"
+    },
+    {
+      "surah": 35,
+      "rank": 43,
+      "period": "mekki"
+    },
+    {
+      "surah": 19,
+      "rank": 44,
+      "period": "mekki"
+    },
+    {
+      "surah": 20,
+      "rank": 45,
+      "period": "mekki"
+    },
+    {
+      "surah": 56,
+      "rank": 46,
+      "period": "mekki"
+    },
+    {
+      "surah": 26,
+      "rank": 47,
+      "period": "mekki"
+    },
+    {
+      "surah": 27,
+      "rank": 48,
+      "period": "mekki"
+    },
+    {
+      "surah": 28,
+      "rank": 49,
+      "period": "mekki"
+    },
+    {
+      "surah": 17,
+      "rank": 50,
+      "period": "mekki"
+    },
+    {
+      "surah": 10,
+      "rank": 51,
+      "period": "mekki"
+    },
+    {
+      "surah": 11,
+      "rank": 52,
+      "period": "mekki"
+    },
+    {
+      "surah": 12,
+      "rank": 53,
+      "period": "mekki"
+    },
+    {
+      "surah": 15,
+      "rank": 54,
+      "period": "mekki"
+    },
+    {
+      "surah": 6,
+      "rank": 55,
+      "period": "mekki"
+    },
+    {
+      "surah": 37,
+      "rank": 56,
+      "period": "mekki"
+    },
+    {
+      "surah": 31,
+      "rank": 57,
+      "period": "mekki"
+    },
+    {
+      "surah": 34,
+      "rank": 58,
+      "period": "mekki"
+    },
+    {
+      "surah": 39,
+      "rank": 59,
+      "period": "mekki"
+    },
+    {
+      "surah": 40,
+      "rank": 60,
+      "period": "mekki"
+    },
+    {
+      "surah": 41,
+      "rank": 61,
+      "period": "mekki"
+    },
+    {
+      "surah": 42,
+      "rank": 62,
+      "period": "mekki"
+    },
+    {
+      "surah": 43,
+      "rank": 63,
+      "period": "mekki"
+    },
+    {
+      "surah": 44,
+      "rank": 64,
+      "period": "mekki"
+    },
+    {
+      "surah": 45,
+      "rank": 65,
+      "period": "mekki"
+    },
+    {
+      "surah": 46,
+      "rank": 66,
+      "period": "mekki"
+    },
+    {
+      "surah": 51,
+      "rank": 67,
+      "period": "mekki"
+    },
+    {
+      "surah": 88,
+      "rank": 68,
+      "period": "mekki"
+    },
+    {
+      "surah": 18,
+      "rank": 69,
+      "period": "mekki"
+    },
+    {
+      "surah": 16,
+      "rank": 70,
+      "period": "mekki"
+    },
+    {
+      "surah": 71,
+      "rank": 71,
+      "period": "mekki"
+    },
+    {
+      "surah": 14,
+      "rank": 72,
+      "period": "mekki"
+    },
+    {
+      "surah": 21,
+      "rank": 73,
+      "period": "mekki"
+    },
+    {
+      "surah": 23,
+      "rank": 74,
+      "period": "mekki"
+    },
+    {
+      "surah": 32,
+      "rank": 75,
+      "period": "mekki"
+    },
+    {
+      "surah": 52,
+      "rank": 76,
+      "period": "mekki"
+    },
+    {
+      "surah": 67,
+      "rank": 77,
+      "period": "mekki"
+    },
+    {
+      "surah": 69,
+      "rank": 78,
+      "period": "mekki"
+    },
+    {
+      "surah": 70,
+      "rank": 79,
+      "period": "mekki"
+    },
+    {
+      "surah": 78,
+      "rank": 80,
+      "period": "mekki"
+    },
+    {
+      "surah": 79,
+      "rank": 81,
+      "period": "mekki"
+    },
+    {
+      "surah": 82,
+      "rank": 82,
+      "period": "mekki"
+    },
+    {
+      "surah": 84,
+      "rank": 83,
+      "period": "mekki"
+    },
+    {
+      "surah": 30,
+      "rank": 84,
+      "period": "mekki"
+    },
+    {
+      "surah": 29,
+      "rank": 85,
+      "period": "mekki"
+    },
+    {
+      "surah": 83,
+      "rank": 86,
+      "period": "mekki"
+    },
+    {
+      "surah": 2,
+      "rank": 87,
+      "period": "medeni"
+    },
+    {
+      "surah": 8,
+      "rank": 88,
+      "period": "medeni"
+    },
+    {
+      "surah": 3,
+      "rank": 89,
+      "period": "medeni"
+    },
+    {
+      "surah": 33,
+      "rank": 90,
+      "period": "medeni"
+    },
+    {
+      "surah": 60,
+      "rank": 91,
+      "period": "medeni"
+    },
+    {
+      "surah": 4,
+      "rank": 92,
+      "period": "medeni"
+    },
+    {
+      "surah": 99,
+      "rank": 93,
+      "period": "medeni"
+    },
+    {
+      "surah": 57,
+      "rank": 94,
+      "period": "medeni"
+    },
+    {
+      "surah": 47,
+      "rank": 95,
+      "period": "medeni"
+    },
+    {
+      "surah": 13,
+      "rank": 96,
+      "period": "medeni"
+    },
+    {
+      "surah": 55,
+      "rank": 97,
+      "period": "medeni"
+    },
+    {
+      "surah": 76,
+      "rank": 98,
+      "period": "medeni"
+    },
+    {
+      "surah": 65,
+      "rank": 99,
+      "period": "medeni"
+    },
+    {
+      "surah": 98,
+      "rank": 100,
+      "period": "medeni"
+    },
+    {
+      "surah": 59,
+      "rank": 101,
+      "period": "medeni"
+    },
+    {
+      "surah": 24,
+      "rank": 102,
+      "period": "medeni"
+    },
+    {
+      "surah": 22,
+      "rank": 103,
+      "period": "medeni"
+    },
+    {
+      "surah": 63,
+      "rank": 104,
+      "period": "medeni"
+    },
+    {
+      "surah": 58,
+      "rank": 105,
+      "period": "medeni"
+    },
+    {
+      "surah": 49,
+      "rank": 106,
+      "period": "medeni"
+    },
+    {
+      "surah": 66,
+      "rank": 107,
+      "period": "medeni"
+    },
+    {
+      "surah": 64,
+      "rank": 108,
+      "period": "medeni"
+    },
+    {
+      "surah": 61,
+      "rank": 109,
+      "period": "medeni"
+    },
+    {
+      "surah": 62,
+      "rank": 110,
+      "period": "medeni"
+    },
+    {
+      "surah": 48,
+      "rank": 111,
+      "period": "medeni"
+    },
+    {
+      "surah": 5,
+      "rank": 112,
+      "period": "medeni"
+    },
+    {
+      "surah": 9,
+      "rank": 113,
+      "period": "medeni"
+    },
+    {
+      "surah": 110,
+      "rank": 114,
+      "period": "medeni"
+    }
   ]
 }

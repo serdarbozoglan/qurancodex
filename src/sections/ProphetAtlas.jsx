@@ -1587,7 +1587,7 @@ export default function ProphetAtlas() {
   return (
     <section id="math" style={{
       background: 'linear-gradient(180deg, #0a0a1a 0%, #0d1b2a 50%, #0a0a1a 100%)',
-      padding: '100px 0 80px',
+      padding: '100px 0 24px',
       position: 'relative',
       overflow: 'hidden',
     }}>

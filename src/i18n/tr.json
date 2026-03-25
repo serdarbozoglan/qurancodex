@@ -74,7 +74,7 @@
   "linguisticDNA": {
     "badge": "Dilsel DNA",
     "title": "1.400 Yıllık Şifre",
-    "intro": "Kur'an'ın 29 suresi gizemli harflerle başlar: Elif-Lâm-Mîm. Hâ-Mîm. Yâ-Sîn. Bu harflerin ne anlama geldiğini kesin olarak kimse bilmiyor. 1.400 yıldır çözülemeyen bir şifre. Ama bildiğimiz şey şu: Bu 14 harf, Arap alfabesinin yarısı... ve Kur'an'daki tüm harflerin %70'ini oluşturuyor. Daha da ilginç olanı: Modern kriptografi bu harflere baktığında tanıdık bir şey görüyor - bir checksum, yani veri bütünlüğünü koruyan bir doğrulama kodu.",
+    "intro": "Kur'an'ın 29 suresi gizemli harflerle başlar: Elif-Lâm-Mîm. Hâ-Mîm. Yâ-Sîn. Bu harflerin ne anlama geldiğini kesin olarak kimse bilmiyor. 1.400 yıldır çözülemeyen bir şifre. Ama bildiğimiz şey şu: Bu 14 harf, Arap alfabesinin yarısı... ve Kur'an'daki tüm harflerin %70'ini oluşturuyor. Bu harflerin neden tam olarak bu 14 tanesi seçildiği, neden alfabenin yarısı olduğu — 1.400 yıldır cevapsız kalan sorular. Bir şifre mi? Bir denge sistemi mi? Yalnızca Allah bilir.",
     "stats": {
       "letters": {
         "label": "Benzersiz Harf",
@@ -97,8 +97,8 @@
       "total": "Toplam Sure"
     },
     "checksum": {
-      "title": "Dijital Checksum Benzetmesi",
-      "description": "Tıpkı modern dijital sistemlerin veri bütünlüğünü korumak için checksum kullanması gibi, bu gizemli harfler de Kur'an metninin bütünlüğünü koruyan bir doğrulama mekanizması işlevi görüyor olabilir."
+      "title": "Dijital Checksum Benzetmesi ⓘ",
+      "description": "Bazı araştırmacılar, tıpkı modern dijital sistemlerin veri bütünlüğünü korumak için checksum kullanması gibi, bu harflerin de Kur'an metninin bütünlüğünü koruyan bir doğrulama mekanizması işlevi görmüş olabileceğini ileri sürmüştür. Bu yorum akademik bir hipotezdir; harflerin kesin işlevi Kur'an tarafından açıklanmamıştır."
     },
     "verse": {
       "arabic": "الٓمٓ",

@@ -74,7 +74,7 @@
   "linguisticDNA": {
     "badge": "Linguistic DNA",
     "title": "A 1,400-Year-Old Code",
-    "intro": "Twenty-nine chapters of the Quran open with mysterious letters: Alif-Lam-Mim. Ha-Mim. Ya-Sin. No one knows for certain what they mean. A code that has remained unsolved for 1,400 years. But here is what we do know: these 14 letters make up exactly half of the 28-letter Arabic alphabet... and account for 70% of all letters used in the Quran. Even more intriguing: when modern cryptographers examine these letters, they see something familiar - a checksum, a verification code designed to protect data integrity.",
+    "intro": "Twenty-nine chapters of the Quran open with mysterious letters: Alif-Lam-Mim. Ha-Mim. Ya-Sin. No one knows for certain what they mean. A code that has remained unsolved for 1,400 years. But here is what we do know: these 14 letters make up exactly half of the 28-letter Arabic alphabet... and account for 70% of all letters used in the Quran. Why exactly these 14 letters were chosen, why precisely half the alphabet — questions that have gone unanswered for 1,400 years. A cipher? A system of balance? Only Allah knows.",
     "stats": {
       "letters": {
         "label": "Unique Letters",
@@ -97,8 +97,8 @@
       "total": "Total Chapters"
     },
     "checksum": {
-      "title": "The Digital Checksum Analogy",
-      "description": "Just as modern digital systems use checksums to protect data integrity, these mysterious letters may serve as a built-in verification mechanism safeguarding the integrity of the Quranic text."
+      "title": "The Digital Checksum Analogy ⓘ",
+      "description": "Some researchers have proposed that, just as modern digital systems use checksums to protect data integrity, these letters may have served a similar built-in verification function for the Quranic text. This remains an academic hypothesis — the Quran itself does not explain the purpose of these letters."
     },
     "verse": {
       "arabic": "الٓمٓ",
