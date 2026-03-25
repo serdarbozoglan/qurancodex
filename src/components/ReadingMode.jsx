@@ -171,9 +171,10 @@ const makeKasrWrap = (dayMode) => (_, letter) =>
 function wrapWaqfOnly(text, dayMode = false, compact = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  // wrapAllMadda devre dışı: ShaykhHamdullah maddah'ı (U+0653) natively render eder.
-  // CSS overlay sistemi KFGQPC'nin bozuk maddah rendering'i için yazılmıştı;
-  // ShaykhHamdullah'ta span'lar lam-elif gibi ligature'ları kırıyor.
+  // Maddah (U+0653) — sadece renk: combining mark olduğu için sadece wrap edilmesi
+  // ligature'ları kırmaz (base karaktere dokunulmadığı için).
+  const maddahColor = dayMode ? '#c0392b' : '#c87a72';
+  html = html.replace(/\u0653/g, `<span style="color:${maddahColor};">ٓ</span>`);
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
   html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
@@ -189,7 +190,9 @@ function applyTajweed(text, dayMode, compact = false) {
   //   Harekeler baseline'dan max ~50px çıkar → 60px > 50px, overlap imkânsız
   //   line-height:0 → satır yüksekliğini etkilemez
   //   position:absolute kullanılmıyor → overflow:hidden olan container'larda kesilme riski yok
-  // wrapAllMadda devre dışı: ShaykhHamdullah maddah natively render eder.
+  // Maddah rengi — wrapWaqfOnly ile aynı yaklaşım.
+  const maddahColorT = dayMode ? '#c0392b' : '#c87a72';
+  html = html.replace(/\u0653/g, `<span style="color:${maddahColorT};">ٓ</span>`);
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
 
