@@ -2037,36 +2037,21 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                           margin: '0 18px',
                           width: '1.72em', height: '1.72em',
                           textAlign: 'center', borderRadius: '50%',
-                          border: `1.5px solid ${C.gold}aa`,
-                          boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                          color: C.gold,
-                          fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
-                          fontFamily: "'Amiri', serif",
-                          background: dayMode
-                            ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
-                            : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                          border: `1.5px solid ${isSajdaBook ? 'rgba(46,204,113,0.8)' : C.gold + 'aa'}`,
+                          boxShadow: isSajdaBook
+                            ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px rgba(46,204,113,0.3)`
+                            : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
+                          color: isSajdaBook ? '#2ecc71' : C.gold,
+                          fontSize: isSajdaBook ? '0.38em' : verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
+                          fontFamily: currentFont,
+                          background: isSajdaBook
+                            ? 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)'
+                            : dayMode
+                              ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
+                              : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
                           boxSizing: 'border-box', flexShrink: 0,
                         }}>
-                          {toArabicNumerals(verse.ayah)}
-                        </span>
-                        {isSajdaBook && (
-                          <span style={{
-                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                            verticalAlign: 'middle',
-                            margin: '0 4px 0 -10px',
-                            fontSize: '0.45em',
-                            fontFamily: currentFont,
-                            color: '#2ecc71',
-                            background: 'rgba(46,204,113,0.12)',
-                            border: '1px solid rgba(46,204,113,0.35)',
-                            borderRadius: '4px',
-                            padding: '0.15em 0.45em',
-                            letterSpacing: '0.03em',
-                            userSelect: 'none',
-                          }}>
-                            سجدة
-                          </span>
-                        )}
+                          {isSajdaBook ? 'سجدة' : toArabicNumerals(verse.ayah)}
                       </span>
                     );
                   });
