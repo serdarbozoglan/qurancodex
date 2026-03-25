@@ -252,10 +252,10 @@ const PauseIcon = ({ size = 16 }) => (
     <rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/>
   </svg>
 );
-// Sajda (secde) verses — 15 obligatory prostration points (Hanafi)
+// Sajda (secde) verses — 14 obligatory prostration points (Hanafi)
 const SAJDA_VERSES = new Set([
   '7:206', '13:15', '16:49', '17:107', '19:58',
-  '22:18', '22:77', '25:60', '27:25', '32:15',
+  '22:18', '25:60', '27:25', '32:15',
   '38:24', '41:37', '53:62', '84:21', '96:19',
 ]);
 
