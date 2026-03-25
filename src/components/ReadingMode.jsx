@@ -2011,6 +2011,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     }
                     const { verse } = item;
                     const isActive = activeVerse?.id === verse.id;
+                    const isSajdaBook = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
                     return (
                       <span
                         key={verse.id}
@@ -2048,6 +2049,24 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                         }}>
                           {toArabicNumerals(verse.ayah)}
                         </span>
+                        {isSajdaBook && (
+                          <span style={{
+                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                            verticalAlign: 'middle',
+                            margin: '0 4px 0 -10px',
+                            fontSize: '0.45em',
+                            fontFamily: currentFont,
+                            color: '#2ecc71',
+                            background: 'rgba(46,204,113,0.12)',
+                            border: '1px solid rgba(46,204,113,0.35)',
+                            borderRadius: '4px',
+                            padding: '0.15em 0.45em',
+                            letterSpacing: '0.03em',
+                            userSelect: 'none',
+                          }}>
+                            سجدة
+                          </span>
+                        )}
                       </span>
                     );
                   });
