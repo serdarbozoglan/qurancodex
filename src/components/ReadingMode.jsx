@@ -575,8 +575,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
   // ── Font size (persisted) ──────────────────────────────────────────────────
   const [arabicFontSize, setArabicFontSize] = useState(() => {
-    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.3'); }
-    catch { return 2.3; }
+    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.2'); }
+    catch { return 2.2; }
   });
   // ── Day / Night mode (persisted) ───────────────────────────────────────────
   const [dayMode, setDayMode] = useState(() => {
