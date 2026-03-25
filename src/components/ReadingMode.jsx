@@ -87,75 +87,6 @@ const ALLAH_RE = /\u0627[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u
 const makeAllahWrap = (dayMode) => (m) =>
   `<span style="color:${dayMode ? '#4338ca' : '#93c5fd'};">${m}</span>`;
 
-// Şedde (U+0651) + hareke + maddah (U+0653): KFGQPC üçünü üst üste koyuyor.
-// Çözüm: harfi şedde+hareke ile fontta render et, maddah tilde'ı CSS absolute ile üstüne yerleştir.
-// display:inline (inline-block değil): inline-block Arapça harf bağlantılarını (ض←ل←ا) kesiyor,
-// shaping engine harfi izole form olarak render ediyor. display:inline ile harf akış içinde kalır.
-// Tüm maddah (U+0653) durumlarını tek geçişte işler; ardışık tildeleri kademelendirerek
-// üst üste binmeyi önler. Her ardışık tilde öncekinden MADDA_STAGGER em daha aşağıda durur.
-//
-// Üç case, en özelden en genele (regex alternation önceliği):
-//   Case 1: harf + şedde (U+0651) + hareke + maddah  — örn. آ (elif üstündeki uzatma işareti)
-//   Case 2: harf + hareke + maddah (şeddesiz)         — örn. بِمَآ'daki م
-//   Case 3: harf + yalın maddah                       — örn. الٓمٓ huruf mukattaa
-//
-// display:inline (inline-block değil): inline-block Arapça harf bağlantısını (şekil seçimini) kesiyor.
-const MADDA_STAGGER = 0.28; // her ardışık tilde için em cinsinden düşüş
-// U+0670 (asar/dagger alef) maddah'tan önce veya sonra gelebilir; her iki sıralama yakalanır.
-// Gerçek data sırası: ل + U+0670 + U+0653  →  Case 3'te baPreDagger ile yakalanır.
-// Asar span içine alınır → tilde asarın ÜSTÜNDE konumlanır (yüksek baseBottom).
-const COMBINED_MADDA_RE =
-  /([\u0600-\u06FF])\u0651([\u064B-\u0650\u0652])\u0653|([\u0600-\u06FF])([\u064B-\u0650\u0652])(\u0670?)\u0653(\u0670?)|([\u0600-\u06FF])(\u0670?)\u0653(\u0670?)/gu;
-
-// compact parametresi artık kullanılmıyor — lineHeight:2.9 ile tüm baseBottom değerleri güvenli.
-// (lineHeight:2.9 × 2rem = 92.8px; max baseBottom 1.65em = 52.8px + tilde 16px = 68.8px < ~83px sınır)
-function wrapAllMadda(text, dayMode, _compact = false) {
-  const color = dayMode ? '#c0392b' : '#c87a72';
-  let lastEnd = -1;
-  let runLen  = 0;
-  return text.replace(
-    COMBINED_MADDA_RE,
-    (match, shLetter, shHareke,
-            haLetter, haHareke, haPreDagger, haPostDagger,
-            baLetter, baPreDagger, baPostDagger,
-            offset) => {
-      // "Yakın tilde" kontrolü: ardışık veya aralarında ≤3 karakter olan (örn. boşluk, elif)
-      // mukattaa harfleri aynı kademeli dizinin parçası sayılır.
-      runLen  = (offset <= lastEnd + 3) ? runLen + 1 : 0;
-      lastEnd = offset + match.length;
-
-      let content, xOffset, baseBottom;
-      if (shLetter !== undefined) {
-        // Case 1: şedde + hareke + maddah (örn. كُلَّمَآ)
-        content    = `${shLetter}\u0651${shHareke}`;
-        xOffset    = '-0.6em';
-        baseBottom = 1.38;
-      } else if (haLetter !== undefined) {
-        // Case 2: hareke + maddah (asar varsa daha yüksek)
-        const hasDagger = !!(haPreDagger || haPostDagger);
-        content    = `${haLetter}${haHareke}${haPreDagger || ''}${haPostDagger || ''}`;
-        xOffset    = '-0.30em';
-        baseBottom = hasDagger ? 1.45 : 1.30;
-      } else {
-        // Case 3: yalın maddah — mukattaa harfleri ve dagger alefli uzun sesli harfler.
-        // hasDagger=true → dagger alef ~1.2em'de → 1.65em; hasDagger=false → 1.40em.
-        const hasDagger = !!(baPreDagger || baPostDagger);
-        content    = `${baLetter}${baPreDagger || ''}${baPostDagger || ''}`;
-        xOffset    = runLen >= 1 ? '-0.4em' : '-0.7em';
-        baseBottom = hasDagger ? 1.65 : 1.40;
-      }
-
-      const bottom = (baseBottom - runLen * MADDA_STAGGER).toFixed(2);
-      return (
-        `<span style="display:inline;position:relative;">${content}` +
-        `<span style="position:absolute;bottom:${bottom}em;left:50%;` +
-        `transform:translateX(-50%) translateX(${xOffset}) scaleX(1.9);` +
-        `font-size:1.0em;line-height:1;font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;` +
-        `pointer-events:none;user-select:none;color:${color};white-space:nowrap;">ٓ</span></span>`
-      );
-    }
-  );
-}
 
 // U+06EC (ARABIC ROUNDED HIGH STOP WITH FILLED CENTRE): acikkuran verisinde و (vav)
 // sonrasına yerleştirilir. Vav'ın hemen altına, kasra hizasında küçük "قصر" etiketi
@@ -181,11 +112,6 @@ function applyTajweed(text, dayMode, compact = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-  // Vakıf işaretleri (U+06D6–U+06DC):
-  //   vertical-align:3em → işaretin kendi font-size'ına (0.55em ≈ 20px) göre 3×20 = 60px yukarı
-  //   Harekeler baseline'dan max ~50px çıkar → 60px > 50px, overlap imkânsız
-  //   line-height:0 → satır yüksekliğini etkilemez
-  //   position:absolute kullanılmıyor → overflow:hidden olan container'larda kesilme riski yok
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
 
