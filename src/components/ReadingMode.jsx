@@ -2142,23 +2142,6 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         <div style={{ height: '40px' }} />
       </div>
 
-      {/* Waqf standard attribution — modal footer, shown once outside the scrollable area */}
-      <div style={{
-        padding: '6px 24px',
-        textAlign: 'center',
-        color: dayMode ? 'rgba(80,60,30,0.58)' : 'rgba(212,165,116,0.50)',
-        fontSize: '0.63rem',
-        fontFamily: 'Inter, sans-serif',
-        letterSpacing: '0.02em',
-        lineHeight: 1.5,
-        userSelect: 'none',
-        flexShrink: 0,
-        borderTop: dayMode ? '1px solid rgba(0,0,0,0.06)' : '1px solid rgba(255,255,255,0.05)',
-      }}>
-        {language === 'tr'
-          ? 'Vakıf işaretleri Kral Fahd Mushaf Basım Kompleksi (Uthmani) standardına göredir.'
-          : 'Waqf marks follow the King Fahd Quran Printing Complex (Uthmani) standard.'}
-      </div>
 
       {/* Side page arrows — book mode always visible */}
       {bookMode && (() => {
