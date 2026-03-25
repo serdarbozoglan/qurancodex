@@ -5,13 +5,13 @@ import ProphetAtlas from './sections/ProphetAtlas';
 import LinguisticDNA from './sections/LinguisticDNA';
 import ImpossibleRhythm from './sections/ImpossibleRhythm';
 import SoundArchitecture from './sections/SoundArchitecture';
-import HiddenSymmetry from './sections/HiddenSymmetry';
-import SevenLayers from './sections/SevenLayers';
+import HiddenArchitecture from './sections/HiddenArchitecture';
 import ScientificSigns from './sections/ScientificSigns';
 import HistoricalProof from './sections/HistoricalProof';
 import LivingPreservation from './sections/LivingPreservation';
 import ZeroRedundancy from './sections/ZeroRedundancy';
 import Highlights from './sections/Highlights';
+import HumanDefinition from './sections/HumanDefinition';
 import Conclusion from './sections/Conclusion';
 import Footer from './components/Footer';
 
@@ -25,13 +25,8 @@ export default function App() {
         <ProphetAtlas />
         <LinguisticDNA />
         <ImpossibleRhythm />
-        <div className="gradient-divider-reverse" />
         <SoundArchitecture />
-        <div className="gradient-divider" />
-        <HiddenSymmetry />
-        <div className="gradient-divider-reverse" />
-        <SevenLayers />
-        <div className="gradient-divider" />
+        <HiddenArchitecture />
         <ScientificSigns />
         <div className="gradient-divider-reverse" />
         <HistoricalProof />
@@ -41,6 +36,8 @@ export default function App() {
         <ZeroRedundancy />
         <div className="gradient-divider" />
         <Highlights />
+        <div className="gradient-divider" />
+        <HumanDefinition />
         <div className="gradient-divider-reverse" />
         <Conclusion />
       </main>

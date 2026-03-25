@@ -117,19 +117,38 @@
     "prose": "Prose",
     "proseDesc": "Free-form, unstructured, without rhythm",
     "unique": "Unique",
-    "examplesTitle": "Striking Examples",
+    "ijaz": {
+      "label": "The Literary Challenge — I'jaz",
+      "text": "The Arabs called it poetry — the poets rejected it. They called it prose — the scholars refused it. The challenge to \"bring something like it\" has gone unanswered for 1,400 years."
+    },
+    "fasila": {
+      "title": "Fasila: Each Sura's Sound Signature",
+      "desc": "Every sura in the Quran has its own distinctive closing sound — called 'fasila'. This pattern at the end of each verse is neither bound by rhyme rules nor accidental. It is a sound architecture.",
+      "soundLabel": "Dominant closing sound"
+    },
+    "duha": {
+      "title": "Sura Ad-Duha — The '-â' Fasila",
+      "note": "The first 8 verses end with the same long '-â' sound. No rhyme scheme is imposed; yet the sound pattern flows as a natural extension of the meaning.",
+      "badge": "-â"
+    },
+    "examplesTitle": "Sound Consistency: Examples",
     "examples": [
       {
-        "sura": "Sura An-Najm",
-        "detail": "62 consecutive verses ending with the same sound"
+        "sura": "Sura An-Najm (53)",
+        "detail": "The dominant closing sound remains consistent across 62 verses — a sonic coherence no Arabic poem of this length has achieved.",
+        "info": false
       },
       {
-        "sura": "Sura Ad-Duha",
-        "detail": "11 verses, every one ending with '-a'"
+        "sura": "Sura Ar-Rahman (55)",
+        "detail": "After every two verses, the refrain 'Which of your Lord's favors will you deny?' returns — fasila and refrain working together, interwoven.",
+        "info": true,
+        "infoText": "Refrain: A line or stanza repeated at intervals in poetry or music. In Ar-Rahman, this verse is repeated 31 times."
       },
       {
-        "sura": "Sura Al-Kawthar",
-        "detail": "Just 3 verses, but a rhythm so powerful it silenced poets"
+        "sura": "Sura Al-Qamar (54)",
+        "detail": "The '-în / -ûn' sounds dominate as the closing pattern across all 55 verses. Each section closes with the refrain 'Is there any who will take heed?'",
+        "info": true,
+        "infoText": "Refrain: A line repeated at intervals in poetry. In Al-Qamar, 'And We have certainly made the Quran easy to remember — so is there any who will take heed?' (54:17) is repeated 4 times."
       }
     ],
     "quote": "A rhythm without meter, freedom within discipline."
@@ -137,31 +156,17 @@
   "soundArchitecture": {
     "badge": "Sound Architecture",
     "title": "These Sounds Are No Coincidence",
-    "intro": "Read the verses about punishment and hellfire aloud. You will hear harsh, explosive consonants: ta, qaf, kaf, ta. Your tongue and palate collide. Your body tenses. Now read the verses about paradise and mercy. You will hear soft, flowing sounds: mim, nun, lam, ra. Your breathing eases. Your heart slows.",
-    "punishment": {
-      "title": "Verses of Punishment",
-      "description": "Dominated by harsh, explosive consonants: ta, qaf, kaf, ta. Your tongue and palate collide, your body tenses.",
-      "suraLabel": "Example Sura",
-      "sura": "Sura Al-Muddaththir (warning/punishment)",
-      "barLabel": "Hard Consonant Ratio"
-    },
-    "mercy": {
-      "title": "Verses of Mercy",
-      "description": "Dominated by soft, flowing sounds: mim, nun, lam, ra. Your breathing eases, your heart slows.",
-      "suraLabel": "Example Sura",
-      "sura": "Sura Maryam (mercy/peace)",
-      "barLabel": "Soft Consonant Ratio"
-    },
-    "neuroscience": {
-      "title": "Neuroscientific Evidence",
-      "description": "Modern neuroscience shows that harsh consonants activate the amygdala (the brain's fear center), while soft sounds trigger oxytocin release. fMRI studies have confirmed this."
+    "intro": "Read the verses about punishment aloud. You will hear harsh, explosive consonants: ق ك ط ص. Now read the verses of mercy and paradise. You will hear soft, flowing sounds: م ن ل ر. This contrast is not accidental — linguistics calls this phenomenon 'phonetic symbolism.'",
+    "phonetics": {
+      "title": "Phonetic Symbolism",
+      "description": "Linguists and phoneticians have observed that plosive consonants (ق ك ط) create physiological tension, while nasal and fricative sounds (م ن ل ر) facilitate relaxation. This phenomenon, known as phonetic symbolism, is found across many languages. In the Quran, the pattern shows a systematic correspondence between a verse's subject and the texture of its sounds."
     },
     "closing": "The Quran communicates through sound BEFORE meaning."
   },
   "hiddenSymmetry": {
     "badge": "Hidden Symmetry",
     "title": "A Mirror Within a Mirror",
-    "intro": "Consider Sura Al-Fatiha. Seven verses. Seems simple. But look at its structure: a perfect mirror symmetry. A-B-C-CENTER-C'-B'-A'. According to Raymond Farrin's research, 70% of the Quran's chapters carry this structure. Known as 'ring composition,' it took centuries to discover.",
+    "intro": "Consider Sura Al-Fatiha. Seven verses. Seems simple. But look at its structure: a perfect mirror symmetry. A-B-C-CENTER-C'-B'-A'. Ring composition is a structure that could only be systematically identified through modern literary analysis — the kind developed by scholars like Mary Douglas in the 20th century. For 1,400 years, commentators wrote volumes without naming this framework — the structure was there, but it had no name. How a text revealed in fragments over 23 years carries such consistent architecture remains an open question.",
     "fatiha": {
       "title": "Sura Al-Fatiha",
       "subtitle": "A-B-C-D-C'-B'-A' Ring Composition",
@@ -197,10 +202,13 @@
       ]
     },
     "stat": {
-      "label": "Ring Composition Rate",
-      "description": "According to Raymond Farrin's research, 70% of the Quran's chapters exhibit this mirror symmetry structure. This structure was unknown in 7th-century Arabic literature."
+      "label": "Academic Reference",
+      "book": "Structure and Quranic Interpretation",
+      "author": "Raymond Farrin",
+      "year": "2014",
+      "description": "Raymond Farrin's Structure and Quranic Interpretation (2014) is among the most comprehensive academic analyses to identify widespread ring composition structures in the Quran. These findings raise questions about the text's internal architecture."
     },
-    "closing": "This structure was unknown in 7th-century Arabic literature. Ring composition was only identified through modern literary analysis."
+    "closing": "This structure could only be formally named in the modern era. But it had always been there — unnamed, within the text, from the very beginning."
   },
   "sevenLayers": {
     "badge": "Seven Layers",
@@ -253,81 +261,94 @@
   "scientificSigns": {
     "badge": "Scientific Signs",
     "title": "What Science Discovered 1,400 Years Later",
-    "intro": "The Quran is not a book of science. But certain verses point to realities that modern science would not discover for centuries. Here are four striking examples.",
+    "intro": "The Quran is not a book of science. But certain verses point to realities that modern science would not discover for centuries. Each example is accompanied by an honest question.",
     "tabs": {
       "iron": "Iron",
       "universe": "Universe",
       "ocean": "Oceans",
       "embryo": "Embryology"
     },
-    "factsTitle": "Key Details",
     "iron": {
       "title": "The Cosmic Journey of Iron",
-      "content": "The Quran uses a peculiar word for iron: 'sent down' (anzalna). Not 'created' - sent down. In the 7th century, this would have seemed illogical. Iron comes from the ground, found in mines. Why would it be 'sent down'? Modern astrophysics provides the answer: Iron CANNOT form in stars like our Sun. The temperature is insufficient. Iron can only be produced in the supernova explosions of massive stars, then scattered into space. All the iron on Earth arrived from space - via meteorites - billions of years ago. Iron was literally 'sent down.' And one more detail: Sura Al-Hadid (Iron) is the 57th chapter of the Quran. The most common isotope of iron? Fe-57.",
+      "content": "The Quran chooses an extraordinary verb for iron: anzalnā — We sent down. Not created, not formed: sent down. In the 7th century, this would have seemed illogical; iron comes from the ground, found in mines. Modern astrophysics explains why this choice is correct. Iron cannot form in medium-sized stars like our Sun — the required fusion energy is simply not available. Iron is only synthesized at the end of massive stars' lives, in supernova explosions, then scattered into space. The iron on Earth arrived via meteorites from such an explosion billions of years ago. The correspondence between this word choice and astrophysical reality is something scholars have interpreted in various ways across centuries.",
       "verse": {
         "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
         "translation": "We sent down iron, wherein is great might and benefits for humanity.",
         "reference": "Hadid, 57:25"
       },
       "facts": [
-        "Hadid 57:25 - The word 'anzalna' (we sent down) is used specifically for iron",
-        "Iron cannot form in stars like our Sun (insufficient temperature)",
+        "Hadid 57:25 — the verb 'anzalnā' (We sent down) is used specifically for iron",
+        "Iron cannot form in stars like our Sun: insufficient temperature and pressure for fusion",
         "Iron is only produced in supernovae and scattered into space",
         "All iron on Earth arrived via meteorites billions of years ago",
-        "Sura Al-Hadid = 57th chapter, Fe-57 = most common iron isotope"
-      ]
+        "Sura Al-Hadid is the 57th chapter; Fe-57 is the most common iron isotope — a striking coincidence, though it may be incidental"
+      ],
+      "criticalNote": "Whether 'anzalnā' in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean 'We bestowed' or 'We provided.' The astrophysical interpretation is a reading that became prominent in the 20th century."
     },
     "universe": {
       "title": "The Expanding Universe",
-      "content": "In 1929, Edwin Hubble discovered that galaxies are moving away from us. The universe was expanding. This was one of the greatest discoveries in the history of science. The Quran, 1,400 years earlier, states: 'We constructed the heaven with power, and indeed, We are its expander.' The word 'Musi'un' uses the present continuous tense, indicating ongoing expansion. Not a description of a static universe - but an active, continuing expansion. Precisely what Hubble discovered.",
+      "content": "In 1929, Edwin Hubble measured that galaxies are moving away from us. The universe was not static — it was expanding in every direction. This was one of the greatest discoveries in the history of science. Verse 47 of Sura Al-Dhariyat states: 'We constructed the heaven with power, and indeed We are its expander.' The Arabic word mūsi'ūn is grammatically notable: in the active participle form, it denotes present tense and continuity — not a completed past action, but an ongoing, active process. In Sura Al-Anbiya 21:30, the words ratq (joined) and fatq (split apart) point to the heavens and earth separating from a single whole. The correspondence between this linguistic structure and modern cosmological findings is an area of ongoing academic interest.",
       "verse": {
         "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
-        "translation": "We constructed the heaven with power, and indeed, We are its expander.",
+        "translation": "We constructed the heaven with power, and indeed We are its expander.",
         "reference": "Zariyat, 51:47"
       },
       "facts": [
-        "1929: Edwin Hubble discovered the expansion of the universe",
-        "The word 'Musi'un' indicates continuous expansion (present tense)",
-        "In Sura Al-Anbiya 21:30, 'ratq' (joined) and 'fatq' (split apart) - pointing to the Big Bang"
-      ]
+        "1929: Edwin Hubble observed galaxies receding, proving the universe is expanding",
+        "Mūsi'ūn — active participle, present tense, indicating continuous and active expansion",
+        "Not a static description — an ongoing process, linguistically aligned with Hubble's dynamics",
+        "Al-Anbiya 21:30 — ratq (joined) and fatq (split apart): heavens and earth separating from a single whole",
+        "This interpretation became prominent in the 20th century; classical commentaries read it in different contexts"
+      ],
+      "criticalNote": "The cosmic expansion interpretation is supported by scholars including Mawdudi and Sayyid Qutb, as well as some contemporary academics. However, some linguists argue that 'mūsi'ūn' in classical usage means 'one who possesses power and capacity.' Both interpretations are linguistically defensible."
     },
     "ocean": {
       "title": "The Ocean Barrier",
-      "content": "Two seas flow side by side, yet they do not mix. An invisible barrier separates them. This is what modern oceanography calls a 'halocline' - a boundary layer caused by differences in salinity. It can be observed at the Strait of Gibraltar, the Bosphorus, and the Red Sea. Jacques Cousteau documented this phenomenon in his films in the 1960s. The Quran describes this with the word 'barzakh' (barrier). Two bodies of water meet but do not 'transgress' upon each other - meaning no sudden mixing occurs. This is the precise definition of a halocline.",
+      "content": "Two distinct bodies of water flow side by side, yet they do not mix. An invisible boundary separates them. This is what modern oceanography calls a halocline: a natural boundary layer formed by differences in salinity, density, and temperature. The Atlantic and the Mediterranean at the Strait of Gibraltar, and the Black Sea and the Sea of Marmara at the Bosphorus, separate in exactly this way. The Quran describes this phenomenon in two separate verses: in Al-Rahman 55:19-20, two seas meet without transgressing each other; in Al-Furqan 25:53, a barzakh (barrier) lies between them. When compared to modern oceanographic terminology, the technical precision of these descriptions is striking.",
       "verse": {
         "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ ﴿١٩﴾ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
         "translation": "He released the two seas, meeting side by side. Between them is a barrier which they do not transgress.",
         "reference": "Rahman, 55:19-20"
       },
       "facts": [
-        "Halocline: a natural boundary layer caused by differences in salinity",
-        "Observed at the Strait of Gibraltar, the Bosphorus, and the Red Sea",
-        "Jacques Cousteau documented this phenomenon in the 1960s"
-      ]
+        "Halocline: a natural boundary layer caused by differences in salinity and density",
+        "Observed scientifically at the Strait of Gibraltar, the Bosphorus, and the Red Sea",
+        "Al-Rahman 55:19-20: two seas meet but yabghiyān — they do not transgress upon each other",
+        "Al-Furqan 25:53: between them is a barzakh (barrier) and hijr mahjūr (forbidden boundary)",
+        "Barzakh: an impassable intermediate zone — corresponds precisely to the halocline definition"
+      ],
+      "criticalNote": "Quranic statements about the seas are exaggerated in some popular narratives. The widely cited story that Jacques Cousteau discovered this verse and converted to Islam cannot be verified in the sources; no such statement appears in Cousteau's own writings. The interpretation presented here is based solely on oceanographic data and the Quranic text."
     },
     "embryo": {
-      "title": "Embryology - The Word 'Alaqah'",
-      "content": "The Quran describes the second stage of the human embryo with the word 'alaqah.' This word carries THREE meanings in Arabic - and all three are facts confirmed by modern embryology. In the 7th century, there were no microscopes. The implantation process was invisible to the eye. The embryo measured just 1-2 mm. Where did this knowledge come from?",
+      "title": "Embryology — The Word 'Alaqah'",
+      "content": "The Quran describes the second stage of the human embryo with the word alaqah. This word simultaneously means three different things in Arabic: a clinging substance, a blood clot, and a leech. Modern embryology confirms that all three descriptions physically apply to the early embryo. In the 7th century, there were no microscopes; the implantation process was invisible to the eye; the embryo measured just 1-2 millimeters. Meanwhile, the era's medical authority Galen taught that muscles form before bones. The Quran in Al-Mu'minun 23:14 states that bones form first, then flesh covers them. Modern embryology vindicates the Quran, not Galen.",
+      "verse": {
+        "arabic": "ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا",
+        "translation": "Then We made the sperm-drop into a clinging clot, and We made the clot into a lump of flesh, and We made the flesh into bones, and We covered the bones with flesh.",
+        "reference": "Al-Mu'minun, 23:14"
+      },
       "meaningsTitle": "Three Meanings of 'Alaqah'",
       "meanings": [
         {
           "term": "A clinging substance",
-          "explanation": "The embryo CLINGS to the uterine wall (implantation, days 6-12)"
+          "explanation": "The embryo clings to the uterine wall — implantation, days 6–12"
         },
         {
           "term": "A blood clot",
-          "explanation": "The early embryo looks like a RED MASS as blood vessels form"
+          "explanation": "The early embryo appears as a red mass as blood vessels are forming"
         },
         {
           "term": "A leech",
-          "explanation": "The embryo feeds on the mother's blood and resembles a LEECH in shape (C-shaped, rounded head)"
+          "explanation": "The embryo resembles a leech in its C-shape and rounded head; it feeds from the mother"
         }
       ],
       "facts": [
-        "Dr. Keith L. Moore: \"The correlation between Quranic descriptions of the embryo and modern science is remarkable.\"",
-        "The Quran states bones form BEFORE muscles (Mu'minun 23:14) - modern embryology confirms this",
-        "Galen claimed the opposite (muscles first) - the Quran was right"
-      ]
+        "Alaqah — three simultaneous definitions: clinging substance / blood clot / leech; all three apply to the early embryo",
+        "Days 6–12: embryo clings to the uterine wall — matches 'clinging substance'",
+        "Al-Mu'minun 23:14: bones form first, then flesh — the opposite of Galen; modern embryology confirms the Quran",
+        "Dr. Keith L. Moore (The Developing Human, 5th ed.): noted the correspondence between Quranic embryological descriptions and modern science as remarkable"
+      ],
+      "criticalNote": "Keith Moore's interpretations are disputed in the scientific community; some academics argue that Quranic descriptions may reflect the Greek medical traditions of the era. The linguistic interpretation of alaqah, however, is strong on its own terms and can be evaluated independently of Moore."
     }
   },
   "historicalProof": {
@@ -519,6 +540,56 @@
       "translation": "Will they not reflect upon the Quran? If it had been from anyone other than Allah, they would have found within it much contradiction.",
       "reference": "Nisa, 4:82"
     }
+  },
+  "humanDefinition": {
+    "badge": "The Human in the Quran",
+    "title": "How Does It See You?",
+    "subtitle": "Across 6,236 verses, the Quran defines, classifies, and seeks to transform the human being.",
+    "intro": "The Quran descends on two fundamental axes: to introduce Allah and to transform the human being. But the destination of that transformation is not vague — it is precisely defined. Who is the Muʾmin? Who is the Muḥsin? What does Muttaqī mean? These terms are not synonyms; each defines a different level of maturity, a different inner state. This section dissects the anatomy of that definition.",
+    "methodologyNote": "The data in this section is based on Quranic verses. Occurrence counts and categories are compiled from classical tafsir sources and may vary slightly between scholars. Information drawn from hadith sources is separately marked.",
+    "stats": {
+      "total": {
+        "label": "Total Verses",
+        "desc": "The complete Quran"
+      },
+      "human": {
+        "label": "Human & Society Verses",
+        "desc": "Approximate estimate"
+      },
+      "terms": {
+        "label": "Distinct Terms for 'Human'",
+        "desc": "A deliberate terminology system"
+      }
+    },
+    "termsTitle": "4 Distinct Words for Human",
+    "termsSubtitle": "The Quran uses 4 different Arabic words for the human being. Each carries a different layer of meaning — not coincidental, but a deliberate terminological system.",
+    "termsCountLabel": "occurrences",
+    "termsNoteLabel": "Context",
+    "termsVerseLabel": "Example Verse",
+    "muminTitle": "The Anatomy of a Believer",
+    "muminIntro": "The Quran's most comprehensive definition of the 'ideal human' appears in Al-Muʾminun, verses 1–11. Seven traits form an interconnected system.",
+    "muminHeaderVerse": "قَدْ أَفْلَحَ الْمُؤْمِنُونَ",
+    "muminHeaderTr": "\"Indeed, the believers have succeeded.\"",
+    "muminHeaderRef": "Al-Muʾminun 23:1",
+    "muminWow1": "All traits use the active participle (ism-i fail) — not a momentary act, but a continuous character state.",
+    "muminWow2": "\"قَدْ أَفْلَحَ\" is written in the past tense but refers to the future — emphasis on absolute certainty.",
+    "muminWow3": "The sura opens with humility in prayer and closes with preserving prayer — both the beginning and destination: salah.",
+    "muminClickHint": "Click each trait for details",
+    "oppositionTitle": "The Quran's System of Contrasts",
+    "oppositionIntro": "The Quran frequently defines human types through opposing pairs. This is a structural pedagogical choice: to describe a virtue, it also shows its opposite.",
+    "oppositionNote": "In Arabic rhetoric this is called \"muqābala\" (the art of contrast). The Quran employs it systematically.",
+    "oppositionRef": "Source",
+    "istikaametTitle": "Istiqāma: A One-Sentence Roadmap",
+    "istikaametIntro": "The Quran contains hundreds of directives. But the one verse the Prophet described as having aged him is a single verse: Hud 112. Because 'be upright as you have been commanded' is not an action — it is a continuous state.",
+    "istikaametVerse": "فَاسْتَقِمْ كَمَا أُمِرْتَ وَمَن تَابَ مَعَكَ وَلَا تَطْغَوْا ۚ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
+    "istikaametRef": "Hud 11:112",
+    "istikaametTr": "\"Be upright as you have been commanded — and those who repented with you. Do not transgress. Indeed, He is fully aware of what you do.\"",
+    "istikaametHadith": "The Prophet: \"Hud and similar suras have made me old.\"",
+    "istikaametHadithNote": "This account comes from hadith sources (Tirmidhi), not from the Quran.",
+    "istikaametClickHint": "Click each word for linguistic analysis",
+    "transformationTitle": "The Transformation Process",
+    "transformationIntro": "The Quran defines a three-stage human transformation. These stages follow one another in sequence, yet are also deeply interwoven.",
+    "transformationHadithNote": "The definition of iḥsān ('worship Allah as though you see Him') is from the Hadith of Gabriel — a hadith source (Muslim), not the Quran."
   },
   "footer": {
     "title": "Quran Codex",

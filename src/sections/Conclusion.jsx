@@ -47,7 +47,7 @@ export default function Conclusion() {
       {/* Question */}
       <motion.p
         variants={fadeUpItem}
-        className="text-off-white text-2xl md:text-3xl font-display font-bold italic text-center leading-relaxed mb-10 max-w-3xl mx-auto"
+        className="text-off-white text-2xl md:text-3xl font-display font-bold italic leading-relaxed mb-10 max-w-3xl"
       >
         {t('conclusion.question')}
       </motion.p>
@@ -55,7 +55,7 @@ export default function Conclusion() {
       {/* Verse intro text */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg text-center mb-6 font-body"
+        className="text-silver text-lg mb-6 font-body"
       >
         {t('conclusion.verseIntro')}
       </motion.p>

@@ -160,7 +160,7 @@ export default function LinguisticDNA() {
       {/* Intro */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-5xl mb-10"
+        className="text-silver text-lg leading-relaxed max-w-3xl mb-10"
       >
         {highlightGroups(t('linguisticDNA.intro'))}
       </motion.p>

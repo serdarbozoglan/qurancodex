@@ -1602,25 +1602,25 @@ export default function ProphetAtlas() {
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+        <div style={{ marginBottom: '48px' }}>
           <div style={{
-            display: 'inline-block', color: '#d4a574', fontSize: '0.75rem',
-            fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase',
-            marginBottom: '16px', opacity: 0.85,
+            color: '#d4a574', fontSize: '0.72rem',
+            fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase',
+            marginBottom: '16px', opacity: 0.7,
           }}>
             {tr('Anlatı Haritası', 'Narrative Map')}
           </div>
           <h2 style={{
             fontFamily: '"Playfair Display", serif',
-            fontSize: 'clamp(2rem, 5vw, 3.2rem)',
-            fontWeight: 900, color: '#e8e6e3',
-            margin: '0 0 20px', lineHeight: 1.15,
+            fontSize: 'clamp(1.9rem, 4vw, 3rem)',
+            fontWeight: 700, color: '#e8e6e3',
+            margin: '0 0 16px', lineHeight: 1.2,
           }}>
             {tr('Peygamberler Atlası', 'Prophets Atlas')}
           </h2>
           <p style={{
-            color: '#94a3b8', fontSize: '1.1rem', lineHeight: 1.7,
-            maxWidth: '640px', margin: '0 auto',
+            color: '#94a3b8', fontSize: '1.05rem', lineHeight: 1.75,
+            maxWidth: '640px',
           }}>
             {tr(
               'Kur\'an\'da her peygamberin anlatısı, vahyin belirli dönemlerine ve sûrelerine dağıtılmıştır. Birden fazla peygamberi seçerek anlatıların nerede örtüştüğünü karşılaştırabilirsiniz.',
@@ -2239,26 +2239,26 @@ export default function ProphetAtlas() {
         </div>
 
         {/* Insight section */}
-        <div style={{ marginTop: '64px', maxWidth: '920px', margin: '64px auto 0' }}>
+        <div style={{ marginTop: '64px' }}>
 
           {/* Header */}
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <div style={{ marginBottom: '36px' }}>
             <div style={{
               color: '#d4a574', fontSize: '0.72rem', fontWeight: 700,
-              letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '14px',
+              letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.7,
             }}>
               {tr('Vahyin Pedagojik Tasarımı', 'The Pedagogical Design of Revelation')}
             </div>
             <h3 style={{
               fontFamily: '"Playfair Display", serif',
               fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              fontWeight: 700, color: '#e8e6e3', margin: '0 0 16px',
+              fontWeight: 700, color: '#e8e6e3', margin: '0 0 14px',
             }}>
               {tr('Her Kıssa Bir Ayna', 'Every Story Was a Mirror')}
             </h3>
             <p style={{
               color: '#94a3b8', fontSize: '1rem', lineHeight: 1.75,
-              maxWidth: '680px', margin: '0 auto',
+              maxWidth: '680px',
             }}>
               {tr(
                 'Kur\'an\'daki peygamber kıssaları rastlantısal değil; her biri Hz. Muhammed\'in (s.a.v.) o anda yaşadığı duruma birebir denk gelecek şekilde nazil olmuştur. Vahiy, 23 yıl boyunca hedeflenmiş bir destek ve eğitim programı gibi işlemiştir.',
@@ -2475,23 +2475,23 @@ export default function ProphetAtlas() {
         {/* ── 25 Quranic Prophets Reference Panel ── */}
         <div style={{ marginTop: '80px' }}>
           {/* Section header */}
-          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+          <div style={{ marginBottom: '28px' }}>
             <div style={{
               color: '#d4a574', fontSize: '0.72rem', fontWeight: 700,
-              letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '14px',
+              letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.7,
             }}>
               {tr("Kur'an'da İsmi Geçen 25 Peygamber", '25 Prophets Named in the Quran')}
             </div>
             <h3 style={{
               fontFamily: '"Playfair Display", serif',
               fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)',
-              fontWeight: 700, color: '#e8e6e3', margin: '0 0 12px',
+              fontWeight: 700, color: '#e8e6e3', margin: '0 0 10px',
             }}>
               {tr('Vasıflar ve Dualar', 'Attributes and Prayers')}
             </h3>
             <p style={{
               color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.7,
-              maxWidth: '600px', margin: '0 auto',
+              maxWidth: '600px',
             }}>
               {tr(
                 "Her kart yalnızca Kur'an âyetlerine dayanmaktadır. Hadis veya siyer kaynakları kullanılmamıştır.",
@@ -2629,23 +2629,23 @@ export default function ProphetAtlas() {
 
         {/* ── Silsile — Quran-confirmed lineage ── */}
         <div style={{ marginTop: '64px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div style={{ marginBottom: '28px' }}>
             <div style={{
               color: '#d4a574', fontSize: '0.72rem', fontWeight: 700,
-              letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '14px',
+              letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.7,
             }}>
               {tr("Kur'an'da Geçen Soy Bağları", 'Lineage Confirmed by the Quran')}
             </div>
             <h3 style={{
               fontFamily: '"Playfair Display", serif',
               fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)',
-              fontWeight: 700, color: '#e8e6e3', margin: '0 0 12px',
+              fontWeight: 700, color: '#e8e6e3', margin: '0 0 10px',
             }}>
               {tr('Peygamberler Silsilesi', 'The Chain of Prophets')}
             </h3>
             <p style={{
               color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.7,
-              maxWidth: '600px', margin: '0 auto',
+              maxWidth: '600px',
             }}>
               {tr(
                 "Yalnızca Kur'an âyetlerinde açıkça zikredilen aile bağları gösterilmektedir.",

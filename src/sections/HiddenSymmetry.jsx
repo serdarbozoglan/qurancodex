@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
-import AnimatedCounter from '../components/AnimatedCounter';
 
 const layerColors = [
   'text-gold border-gold',           // A
@@ -175,22 +174,36 @@ export default function HiddenSymmetry() {
         </div>
       </motion.div>
 
-      {/* 70% Stat Card */}
+      {/* Academic Citation Card */}
       <motion.div
         variants={fadeUpItem}
-        className="glass-card-strong p-8 md:p-10 text-center mb-10"
+        className="glass-card-strong p-8 md:p-10 mb-10"
+        style={{ borderLeft: '4px solid rgba(212,165,116,0.5)' }}
       >
-        <p className="text-silver text-xs uppercase tracking-[0.3em] mb-3 font-body">
+        <p className="text-gold/60 text-xs uppercase tracking-[0.3em] mb-5 font-body">
           {t('hiddenSymmetry.stat.label')}
         </p>
-        <div className="flex items-center justify-center gap-2">
-          <AnimatedCounter
-            target={70}
-            suffix="%"
-            className="text-5xl md:text-7xl text-gold"
-          />
+        <div className="flex items-start gap-5 mb-5">
+          {/* Book icon */}
+          <div style={{
+            flexShrink: 0, width: '44px', height: '54px',
+            background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.25)',
+            borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <div>
+            <p className="text-gold font-display font-bold text-lg leading-snug mb-1">
+              <em>{t('hiddenSymmetry.stat.book')}</em>
+            </p>
+            <p className="text-silver text-sm font-body">
+              {t('hiddenSymmetry.stat.author')} · {t('hiddenSymmetry.stat.year')}
+            </p>
+          </div>
         </div>
-        <p className="text-off-white/70 text-sm mt-4 font-body max-w-md mx-auto leading-relaxed">
+        <p className="text-off-white/70 text-sm font-body leading-relaxed">
           {t('hiddenSymmetry.stat.description')}
         </p>
       </motion.div>

@@ -117,19 +117,38 @@
     "prose": "Düzyazı",
     "proseDesc": "Serbest, yapısız, ritimden bağımsız",
     "unique": "Eşsiz",
-    "examplesTitle": "Çarpıcı Örnekler",
+    "ijaz": {
+      "label": "Edebî Meydan Okuma — İ'câz",
+      "text": "Araplar bunu şiir saydı — şairler reddetti. Düzyazı saydı — edebiyatçılar kabul etmedi. \"Bir benzeri getirin\" meydan okuması 1.400 yıldır yanıtsız."
+    },
+    "fasila": {
+      "title": "Fasıla: Her Sûrenin Ses İmzası",
+      "desc": "Kur'an'da her sûrenin kendine özgü bir bitiş sesi var — buna 'fasıla' denir. Ayet sonlarındaki bu ses örüntüsü ne kafiye zorunluluğuna bağlı ne de rastlantısal. Bir ses mimarisi.",
+      "soundLabel": "Baskın bitiş sesi"
+    },
+    "duha": {
+      "title": "Duhâ Sûresi — '-â' Fasılası",
+      "note": "İlk 8 ayet aynı uzun '-â' sesiyle biter. Kafiye kuralı yok; ama ses örüntüsü anlamın doğal bir parçası gibi akar.",
+      "badge": "-â"
+    },
+    "examplesTitle": "Ses Tutarlılığı: Örnekler",
     "examples": [
       {
-        "sura": "Necm Suresi",
-        "detail": "62 ardışık ayet, aynı sesle biten"
+        "sura": "Necm Sûresi (53)",
+        "detail": "62 ayet boyunca baskın bitiş sesi sabit kalır — hiçbir Arap şiirinin bu uzunlukta koruyamadığı bir ses tutarlılığı.",
+        "info": false
       },
       {
-        "sura": "Duha Suresi",
-        "detail": "11 ayet, her biri '-â' ile biten"
+        "sura": "Rahmân Sûresi (55)",
+        "detail": "Her iki ayette bir 'Rabbinizin hangi nimetlerini yalanlıyorsunuz?' refreni gelir — fasıla ve refrein aynı anda, iç içe işliyor.",
+        "info": true,
+        "infoText": "Refrein: Şiir veya müzikte belirli aralıklarla tekrarlanan satır ya da kıta. Rahmân'da bu ayet 31 kez yinelenir."
       },
       {
-        "sura": "Kevser Suresi",
-        "detail": "Sadece 3 ayet, ama şairleri susturan bir ritim"
+        "sura": "Kamer Sûresi (54)",
+        "detail": "55 ayet boyunca '-în / -ûn' sesleri baskın bitiş sesi olarak sürer. Her bölümün ardından 'Öğüt alanlar var mı?' refreni geri döner.",
+        "info": true,
+        "infoText": "Refrein: Şiir veya müzikte belirli aralıklarla tekrarlanan satır. Kamer'de 'Andolsun, Kur'an'ı öğüt için kolaylaştırdık; öğüt alan yok mu?' (54:17) 4 kez yinelenir."
       }
     ],
     "quote": "Vezinsiz ama ritmli, serbest ama disiplinli."
@@ -137,31 +156,17 @@
   "soundArchitecture": {
     "badge": "Ses Mimarisi",
     "title": "Sesler Tesadüf Değil",
-    "intro": "Kur'an'da azap ve cehennem anlatan ayetleri yüksek sesle okuyun. Sert, patlayıcı ünsüzler duyarsınız: ت، ق، ك، ط. Diliniz ve damağınız çarpışır. Vücudunuz gerginleşir. Şimdi cennet ve rahmet ayetlerini okuyun. Yumuşak, akıcı sesler duyarsınız: م، ن، ل، ر. Nefes rahatlar. Kalp yavaşlar.",
-    "punishment": {
-      "title": "Azap Ayetleri",
-      "description": "Sert, patlayıcı ünsüzler hakimdir: ت، ق، ك، ط. Diliniz ve damağınız çarpışır, vücudunuz gerginleşir.",
-      "suraLabel": "Örnek Sure",
-      "sura": "Müddessir Suresi (uyarı/azap)",
-      "barLabel": "Sert Ünsüz Oranı"
-    },
-    "mercy": {
-      "title": "Rahmet Ayetleri",
-      "description": "Yumuşak, akıcı sesler hakimdir: م، ن، ل، ر. Nefes rahatlar, kalp yavaşlar.",
-      "suraLabel": "Örnek Sure",
-      "sura": "Meryem Suresi (rahmet/huzur)",
-      "barLabel": "Yumuşak Ünsüz Oranı"
-    },
-    "neuroscience": {
-      "title": "Nörobilimsel Kanıt",
-      "description": "Modern nörobilim, sert ünsüzlerin amigdalayı (korku merkezi) aktive ettiğini, yumuşak seslerin ise oksitosin salgılattığını gösteriyor. fMRI çalışmaları bunu doğruladı."
+    "intro": "Kur'an'da azap ve cehennem anlatan ayetleri yüksek sesle okuyun. Sert, patlayıcı ünsüzler duyarsınız: ق ك ط ص. Şimdi rahmet ve cennet ayetlerini okuyun. Yumuşak, akıcı sesler duyarsınız: م ن ل ر. Bu kontrast tesadüf değil — dilbilim bu olguya 'ses sembolizmi' (phonetic symbolism) adını veriyor.",
+    "phonetics": {
+      "title": "Ses Sembolizmi",
+      "description": "Dilbilimciler ve fonetik araştırmacılar, patlayıcı ünsüzlerin (ق ك ط) fizyolojik gerginlik yarattığını, nazal ve sürtünmeli seslerin (م ن ل ر) ise rahatlamayı kolaylaştırdığını gözlemlemiştir. Bu olgu 'ses sembolizmi' olarak bilinir ve pek çok dilde geçerlidir. Kur'an'da bu örüntü, sözün konusuyla sesin dokusu arasındaki sistematik uyumu gösterir."
     },
     "closing": "Kur'an, anlamdan ÖNCE sesle iletişim kuruyor."
   },
   "hiddenSymmetry": {
     "badge": "Gizli Simetri",
     "title": "Ayna İçinde Ayna",
-    "intro": "Fatiha suresini düşünün. 7 ayet. Basit görünür. Ama yapısına bakın: Mükemmel bir ayna simetrisi. A-B-C-MERKEZ-C'-B'-A'. Raymond Farrin'in araştırmasına göre, Kur'an surelerinin %70'i bu yapıyı taşıyor. Bu yapı, 'ring composition' (halka kompozisyon) olarak bilinir ve onu keşfetmek yüzyıllar sürdü.",
+    "intro": "Fatiha suresini düşünün. 7 ayet. Basit görünür. Ama yapısına bakın: mükemmel bir ayna simetrisi. A-B-C-MERKEZ-C'-B'-A'. Halka kompozisyon, ancak 20. yüzyılda Mary Douglas gibi akademisyenlerin geliştirdiği modern edebi analiz yöntemleriyle sistematik olarak tanımlanabilen bir yapıdır. 1.400 yıl boyunca hiçbir müfessir bu çerçeveyi kullanmadan tefsir yazdı — yapı vardı, ama adı yoktu. Peki 23 yıl boyunca parça parça inen bir metnin bu denli tutarlı bir mimariyi nasıl taşıdığı sorusu hâlâ yanıtsızdır.",
     "fatiha": {
       "title": "Fatiha Suresi",
       "subtitle": "A-B-C-D-C'-B'-A' Halka Kompozisyon",
@@ -197,10 +202,13 @@
       ]
     },
     "stat": {
-      "label": "Halka Kompozisyon Oranı",
-      "description": "Raymond Farrin'in araştırmasına göre Kur'an surelerinin %70'i bu ayna simetrisi yapısını taşıyor. Bu yapı, 7. yüzyıl Arap edebiyatında bilinmiyordu."
+      "label": "Akademik Referans",
+      "book": "Structure and Quranic Interpretation",
+      "author": "Raymond Farrin",
+      "year": "2014",
+      "description": "Raymond Farrin'in Structure and Quranic Interpretation (2014) adlı çalışması, Kur'an'da yaygın halka kompozisyon yapıları tespit eden kapsamlı akademik analizlerden biridir. Bu bulgular, metnin iç mimarisine dair sorular doğurmaktadır."
     },
-    "closing": "Bu yapı, 7. yüzyıl Arap edebiyatında bilinmiyordu. Ring composition kavramı, modern edebi analiz ile keşfedildi."
+    "closing": "Bu yapı, formalize bir edebi teori olarak ancak modern çağda tanımlanabildi. Ama metnin içinde, tanımsız biçimde, başından beri vardı."
   },
   "sevenLayers": {
     "badge": "Yedi Katman",
@@ -253,81 +261,94 @@
   "scientificSigns": {
     "badge": "Bilimsel İşaretler",
     "title": "Bilimin 1.400 Yıl Sonra Keşfettikleri",
-    "intro": "Kur'an bir bilim kitabı değildir. Ama bazı ayetleri, modern bilimin yüzyıllar sonra keşfedeceği gerçeklere işaret eder. İşte dört çarpıcı örnek.",
+    "intro": "Kur'an bir bilim kitabı değildir. Ama bazı ayetleri, modern bilimin yüzyıllar sonra keşfedeceği gerçeklere işaret eder. Her örnek, dürüstçe sunulmuş bir soruyu da beraberinde taşıyor.",
     "tabs": {
       "iron": "Demir",
       "universe": "Evren",
       "ocean": "Denizler",
       "embryo": "Embriyoloji"
     },
-    "factsTitle": "Önemli Detaylar",
     "iron": {
       "title": "Demirin Kozmik Yolculuğu",
-      "content": "Kur'an demir için garip bir kelime kullanır: 'indirdik' (enzelnâ). Demiri yarattık değil - indirdik. 7. yüzyılda bu ifade mantıksız görünürdü. Demir yerden çıkar, madenlerde bulunur. Neden 'indirilsin'? Modern astrofizik cevabı veriyor: Demir, Güneş gibi yıldızlarda OLUŞAMAZ. Yeterli sıcaklık yok. Demir ancak dev yıldızların süpernova patlamalarında üretilir ve uzaya saçılır. Dünya'daki tüm demir, milyarlarca yıl önce uzaydan - meteorlarla - gelmiştir. Demir gerçekten 'indirilmiştir.' Ve bir detay daha: Hadid (Demir) Suresi, Kur'an'ın 57. suresidir. Demirin en yaygın izotopu? Fe-57.",
+      "content": "Kur'an demir için sıradışı bir fiil seçer: enzelnâ — indirdik. Yarattık değil, inşa ettik değil: indirdik. 7. yüzyılda bu ifade mantıksız görünürdü; demir yerden çıkar, madenlerde bulunur. Modern astrofizik ise bu seçimin neden doğru olduğunu açıklıyor. Demir, Güneş gibi orta büyüklükteki yıldızlarda oluşamaz — bunun için gereken füzyon enerjisi mevcut değildir. Demir yalnızca dev yıldızların ömürlerinin sonunda, süpernova patlamalarında sentezlenir ve uzaya saçılır. Dünya'daki demir, milyarlarca yıl önce böyle bir patlamadan gelen meteorlarla geldi. Kelime seçimi ile astrofizik gerçeği arasındaki bu örtüşme, müfessirlerin yüzyıllar boyunca farklı biçimlerde yorumladığı bir meseledir.",
       "verse": {
         "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
         "translation": "Biz demiri indirdik; onda büyük bir güç ve insanlar için faydalar vardır.",
         "reference": "Hadid, 57:25"
       },
       "facts": [
-        "Hadid 57:25 - Demir için özellikle 'enzelnâ' (indirdik) kelimesi kullanılır",
-        "Demir, Güneş gibi yıldızlarda oluşamaz (yetersiz sıcaklık)",
+        "Hadid 57:25 — demir için özellikle 'enzelnâ' (indirdik) fiili kullanılır",
+        "Demir, Güneş gibi yıldızlarda oluşamaz: füzyon için yeterli sıcaklık ve basınç yoktur",
         "Demir yalnızca süpernovalarda üretilir ve uzaya saçılır",
         "Dünya'daki tüm demir milyarlarca yıl önce meteorlarla gelmiştir",
-        "Hadid Suresi = 57. sure, Fe-57 = demirin en yaygın izotopu"
-      ]
+        "Hadid Suresi Kur'an'ın 57. suresidir; Fe-57 demirin en yaygın izotopudur — ilgi çekici bir örtüşme, ancak tesadüf niteliği taşıyabilir"
+      ],
+      "criticalNote": "'Enzelnâ' kelimesinin bu bağlamda kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin büyük çoğunluğu bu fiili 'lütfettik, ihsan ettik' anlamında yorumlamıştır. Modern astrofizik yorumu, 20. yüzyıldan itibaren öne çıkan bir okumadır."
     },
     "universe": {
       "title": "Genişleyen Evren",
-      "content": "1929'da Edwin Hubble, galaksilerin bizden uzaklaştığını keşfetti. Evren genişliyordu. Bu, bilim tarihinin en büyük keşiflerinden biriydi. Kur'an, 1.400 yıl önce şöyle diyor: 'Göğü biz kudretimizle bina ettik ve şüphesiz onu genişletmekteyiz.' 'Mûsi'ûn' kelimesi, şimdiki zaman kipi ile sürekli genişlemeyi ifade eder. Statik bir evren tanımı değil - aktif, devam eden bir genişleme. Hubble'ın keşfettiğinin ta kendisi.",
+      "content": "1929'da Edwin Hubble, galaksilerin bizden uzaklaştığını ölçtü. Evren statik değil, her yönde genişliyordu — bu, bilim tarihinin en büyük keşiflerinden biriydi. Zariyat Suresi 47. ayette şu ifade geçer: 'Göğü kudretimizle bina ettik; ve şüphesiz onu genişletmekteyiz.' Arapçadaki mûsi'ûn kelimesi dilbilgisi açısından dikkat çekicidir: ism-i fail kalıbında, şimdiki zaman ve süreklilik bildirir. Tamamlanmış geçmiş bir eylem değil — devam eden, aktif bir süreç. Enbiya 21:30'da ratk (birleşik) ve fetk (ayrılmış) kelimeleri, gökler ve yerin bir bütünden ayrıldığına işaret eder. Bu dil yapısının modern kozmoloji bulgularıyla örtüşmesi, akademisyenlerin ilgisini çeken bir alandır.",
       "verse": {
         "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
         "translation": "Göğü kudretimizle bina ettik ve şüphesiz onu genişletmekteyiz.",
         "reference": "Zariyat, 51:47"
       },
       "facts": [
-        "1929: Edwin Hubble evrenin genişlediğini keşfetti",
-        "'Mûsi'ûn' kelimesi sürekli genişlemeyi ifade eder (şimdiki zaman kipi)",
-        "Enbiya 21:30'da 'ratk' (birleşik) ve 'fetk' (ayrılma) - Big Bang'e işaret"
-      ]
+        "1929: Edwin Hubble galaksilerin uzaklaştığını gözlemledi, evrenin genişlediğini kanıtladı",
+        "Mûsi'ûn — ism-i fail, şimdiki zaman kipi, sürekli ve aktif bir genişlemeyi ifade eder",
+        "Statik değil, devam eden bir süreç — Hubble'ın ölçtüğü dinamikle dilbilgisel uyum",
+        "Enbiya 21:30 — ratk (birleşik) ve fetk (ayrılmış): gökler ve yerin tek bir bütünden ayrılması",
+        "Bu yorum 20. yüzyılda öne çıkmıştır; klasik tefsirler farklı bağlamlarda yorumlamıştır"
+      ],
+      "criticalNote": "Kozmik genişleme yorumu, özellikle Mûdudi, Seyyid Kutup ve bazı çağdaş akademisyenler tarafından desteklenmektedir. Ancak bir kısım dilbilimci, 'mûsi'ûn' kelimesinin klasik kullanımda 'güç ve kapasite sahibi olan' anlamına geldiğini öne sürer. Her iki yorum da dilbilgisel açıdan savunulabilir niteliktedir."
     },
     "ocean": {
       "title": "Denizler Bariyeri",
-      "content": "İki deniz yan yana akar, ama karışmaz. Aralarında görünmez bir bariyer vardır. Bu, modern oşinografinin 'halokline' dediği fenomendir - tuzluluk farkından kaynaklanan bir sınır katmanı. Cebelitarık Boğazı'nda, İstanbul Boğazı'nda, Kızıldeniz'de gözlemlenir. Jacques Cousteau 1960'larda bunu filmlerinde belgeledi. Kur'an bu fenomeni 'berzah' (engel, bariyer) kelimesiyle tanımlıyor. İki su kütlesi buluşur ama birbirine 'tecavüz etmez' - yani ani karışma olmaz. Bu, halokline'in tam tanımıdır.",
+      "content": "İki farklı su kütlesi yan yana akar, ama birbirine karışmaz. Aralarında görünmez bir sınır vardır. Bu, modern oşinografinin halocline adını verdiği fenomendir: tuzluluk, yoğunluk ve sıcaklık farkından oluşan doğal bir sınır katmanı. Cebelitarık Boğazı'nda Atlantik ile Akdeniz, İstanbul Boğazı'nda Karadeniz ile Marmara bu şekilde ayrışır. Kur'an bu fenomeni iki ayrı ayette tanımlar: Rahman 55:19-20'de iki denizin 'birbirini geçmeden' buluşması, Furkan 25:53'te ise aralarında berzah (engel, perde) bulunması. Modern oşinografinin terminolojisiyle kıyaslandığında bu tanımın teknik isabeti dikkat çekmektedir.",
       "verse": {
         "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ ﴿١٩﴾ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
         "translation": "İki denizi salıverdi, birbirine kavuşuyorlar. Aralarında bir engel (berzah) var, birbirlerine geçmezler.",
         "reference": "Rahman, 55:19-20"
       },
       "facts": [
-        "Halokline: tuzluluk farkından kaynaklanan doğal sınır katmanı",
-        "Cebelitarık Boğazı, İstanbul Boğazı ve Kızıldeniz'de gözlemlenir",
-        "Jacques Cousteau bu fenomeni 1960'larda belgeledi"
-      ]
+        "Halocline: tuzluluk ve yoğunluk farkından kaynaklanan doğal sınır katmanı",
+        "Cebelitarık Boğazı, İstanbul Boğazı ve Kızıldeniz'de bilimsel olarak gözlemlenir",
+        "Rahman 55:19-20: iki deniz buluşur ama yebğiyân — birbirine tecavüz etmezler",
+        "Furkan 25:53: aralarında berzah (engel) ve hicr mahcûr (yasak sınır) vardır",
+        "Berzah kelimesi: iki şey arasındaki geçit vermez ara bölge — halocline tanımıyla örtüşür"
+      ],
+      "criticalNote": "Kur'an'ın denizler hakkındaki ifadeleri, bazı yaygın anlatılarda abartılmaktadır. Sıkça atıfta bulunulan 'Jacques Cousteau bu ayeti keşfedip Müslüman oldu' hikayesi kaynaklarda doğrulanamamaktadır; Cousteau'nun kendi yazılarında böyle bir ifadeye rastlanmamaktadır. Burada sunulan yorum yalnızca oşinografik veriye ve Kur'an metnine dayanmaktadır."
     },
     "embryo": {
-      "title": "Embriyoloji - Alaka Kelimesi",
-      "content": "Kur'an, insan embriyosunun ikinci evresini 'alaka' kelimesiyle tanımlar. Bu kelimenin Arapça'da ÜÇ anlamı var - ve üçü de modern embriyolojinin doğruladığı gerçekler. 7. yüzyılda mikroskop yoktu. İmplantasyon süreci gözle görülemezdi. Embriyo 1-2 mm boyutundaydı. Bu bilgi nereden geldi?",
+      "title": "Embriyoloji — Alaka Kelimesi",
+      "content": "Kur'an, insan embriyosunun ikinci evresini alaka kelimesiyle tanımlar. Bu kelime Arapçada aynı anda üç farklı şey demektir: yapışan şey, kan pıhtısı ve sülük. Modern embriyoloji bu üç tanımın da erken embriyoya fiziksel olarak uyduğunu doğruluyor. 7. yüzyılda mikroskop yoktu; implantasyon süreci gözle görülemezdi; embriyo 1-2 milimetre boyutundaydı. Aynı dönemde tıp otoritesi Galen, kasların kemiklerden önce oluştuğunu öğretiyordu. Kur'an Mü'minun 23:14'te kemiklerin önce oluştuğunu, ardından etin kapladığını söyler. Modern embriyoloji Kur'an'ı doğrular, Galen'i değil.",
+      "verse": {
+        "arabic": "ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا",
+        "translation": "Sonra nutfeyi alaka olarak yarattık; alakayı mudğa olarak yarattık; mudğadan kemikler yarattık; kemikleri etle kapladık.",
+        "reference": "Mü'minun, 23:14"
+      },
       "meaningsTitle": "'Alaka' Kelimesinin Üç Anlamı",
       "meanings": [
         {
           "term": "Yapışan şey",
-          "explanation": "Embriyo, rahim duvarına YAPIŞIR (implantasyon, gün 6-12)"
+          "explanation": "Embriyo, rahim duvarına yapışır — implantasyon, gün 6-12"
         },
         {
           "term": "Kan pıhtısı",
-          "explanation": "Erken embriyo, kan damarları oluşurken KIRMIZI BİR KÜTLE gibi görünür"
+          "explanation": "Erken embriyo, kan damarları oluşurken kırmızı bir kütle görünümündedir"
         },
         {
           "term": "Sülük",
-          "explanation": "Embriyo, annenin kanından beslenir ve şeklen bir SÜLÜĞE benzer (C-şekli, yuvarlak baş)"
+          "explanation": "Embriyo C-şekli ve yuvarlak başıyla sülüğe benzer; anneden beslenir"
         }
       ],
       "facts": [
-        "Dr. Keith L. Moore: \"Kur'an'daki embriyolojik tanımlar ile modern bilim arasındaki uyum çarpıcıdır.\"",
-        "Kur'an kemiklerin kastan ÖNCE oluştuğunu söyler (Mu'minun 23:14) - modern embriyoloji bunu doğrular",
-        "Galen bunun tersini iddia ediyordu (kaslar önce) - Kur'an haklı çıktı"
-      ]
+        "Alaka — üç eş anlamlı tanım: yapışan şey / kan pıhtısı / sülük; üçü de erken embriyoya uyar",
+        "Gün 6-12: embriyo rahim duvarına yapışır — 'yapışan şey' tanımıyla örtüşür",
+        "Mü'minun 23:14: kemikler önce oluşur, ardından et — Galen'in tam tersi; modern embriyoloji Kur'an'ı doğrular",
+        "Dr. Keith L. Moore (The Developing Human, 5. baskı): Kur'an'daki embriyolojik tanımların modern bilimle uyumunu incelemiş, örtüşmeleri dikkat çekici bulduğunu belirtmiştir"
+      ],
+      "criticalNote": "Keith Moore'un yorumları bilim dünyasında tartışmalıdır; bir kısım akademisyen, Kur'an'daki ifadelerin dönemin Yunan tıbbından etkilenmiş olabileceğini öne sürer. Alaka kelimesinin bu bağlamdaki yorumu ise dilbilimsel açıdan güçlüdür ve Moore'dan bağımsız olarak değerlendirilebilir."
     }
   },
   "historicalProof": {
@@ -519,6 +540,56 @@
       "translation": "Kur'an'ı düşünüp incelemezler mi? Eğer Allah'tan başkasından olsaydı, onda birçok çelişki bulurlardı.",
       "reference": "Nisa, 4:82"
     }
+  },
+  "humanDefinition": {
+    "badge": "Kur'an'da İnsan",
+    "title": "Sizi Nasıl Görüyor?",
+    "subtitle": "6.236 ayet boyunca Kur'an insanı tanımlıyor, sınıflandırıyor ve dönüştürmeye çalışıyor.",
+    "intro": "Kur'an iki temel eksende iner: Allah'ı tanıtmak ve insanı dönüştürmek. Ama bu dönüşümün hedefi belirsiz değil — çok net tanımlanmış. Mü'min kim? Muhsin kim? Muttakî ne demek? Bu terimler eş anlamlı değil; her biri farklı bir olgunluk seviyesini, farklı bir iç hali tanımlıyor. Bu bölüm o tanımın anatomisini çıkarıyor.",
+    "methodologyNote": "Bu bölümdeki veriler Kur'an ayetlerine dayanmaktadır. Geçme sayıları ve kategoriler klasik tefsir kaynaklarından derlenmiş olup araştırmacılar arasında küçük farklılıklar gösterebilir. Hadis kaynaklarından alınan bilgiler ayrıca işaretlenmiştir.",
+    "stats": {
+      "total": {
+        "label": "Toplam Ayet",
+        "desc": "Kur'an'ın tamamı"
+      },
+      "human": {
+        "label": "İnsan & Toplum Ayeti",
+        "desc": "Yaklaşık tahmin"
+      },
+      "terms": {
+        "label": "Farklı İnsan Terimi",
+        "desc": "Bilinçli terminoloji sistemi"
+      }
+    },
+    "termsTitle": "4 Farklı İnsan Kelimesi",
+    "termsSubtitle": "Kur'an insan için 4 farklı Arapça kelime kullanır. Her biri farklı bir anlam katmanı taşır — bu tesadüf değil, bilinçli bir terminoloji sistemidir.",
+    "termsCountLabel": "kez geçiyor",
+    "termsNoteLabel": "Bağlam",
+    "termsVerseLabel": "Örnek Ayet",
+    "muminTitle": "Mü'min Anatomisi",
+    "muminIntro": "Kur'an'ın en kapsamlı 'ideal insan' tarifi Mü'minûn Sûresi 1-11. ayetlerde geçiyor. 7 vasıf, birbiriyle ilişkili bir sistem oluşturuyor.",
+    "muminHeaderVerse": "قَدْ أَفْلَحَ الْمُؤْمِنُونَ",
+    "muminHeaderTr": "\"Gerçekten mü'minler kurtuluşa ermiştir.\"",
+    "muminHeaderRef": "Mü'minûn 23:1",
+    "muminWow1": "Tüm vasıflar ism-i fail (sıfat-fiil) formunda — anlık eylem değil, sürekli karakter hali.",
+    "muminWow2": "\"قَدْ أَفْلَحَ\" geçmiş zaman kipiyle yazılmış, ama geleceği ifade ediyor — kesinlik vurgusu.",
+    "muminWow3": "Sûre huşu ile başlayıp namazı 'korumak' ile bitiyor — başlangıç ve varış noktası: namaz.",
+    "muminClickHint": "Ayrıntı için her vasfa tıklayın",
+    "oppositionTitle": "Kur'an'ın Zıtlık Sistemi",
+    "oppositionIntro": "Kur'an insan tiplerini çoğunlukla zıt çiftler üzerinden tanımlar. Bu yapısal bir pedagoji tercihidir: bir erdemi anlatmak için zıddını da gösterir.",
+    "oppositionNote": "Bu yapıya Arap retoriğinde \"mukâbele\" (karşıtlık sanatı) denir. Kur'an bunu sistematik biçimde kullanır.",
+    "oppositionRef": "Kaynak",
+    "istikaametTitle": "İstikâmet: Tek Cümlelik Yol Haritası",
+    "istikaametIntro": "Kur'an'da yüzlerce direktif var. Ama Hz. Peygamber'in 'beni ihtiyarlatan ayet' dediği tek bir ayet var: Hûd 112. Çünkü 'emrolunduğun gibi dosdoğru ol' bir eylem değil — sürekli bir hal.",
+    "istikaametVerse": "فَاسْتَقِمْ كَمَا أُمِرْتَ وَمَن تَابَ مَعَكَ وَلَا تَطْغَوْا ۚ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
+    "istikaametRef": "Hûd 11:112",
+    "istikaametTr": "\"Emrolunduğun gibi dosdoğru ol — seninle tövbe edenlerle birlikte. Aşırıya gitmeyin. Şüphesiz O, yaptıklarınızı hakkıyla görmektedir.\"",
+    "istikaametHadith": "Hz. Peygamber: \"Hûd ve benzeri sûreler beni ihtiyarlattı.\"",
+    "istikaametHadithNote": "Bu rivayet hadis kaynaklarından gelmektedir (Tirmizî), Kur'an'dan değil.",
+    "istikaametClickHint": "Her kelimeye tıklayarak dilbilimsel analizi görün",
+    "transformationTitle": "Dönüşüm Süreci",
+    "transformationIntro": "Kur'an üç aşamalı bir insan dönüşümü tanımlar. Bu aşamalar hem birbirini takip eder hem de iç içe geçer.",
+    "transformationHadithNote": "İhsan tanımı (\"Allah'ı görüyormuşsun gibi ibadet et\") Cebrail hadisinden alınmıştır — hadis kaynağı (Müslim), Kur'an'dan değil."
   },
   "footer": {
     "title": "Quran Codex",
