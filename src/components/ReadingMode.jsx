@@ -69,7 +69,6 @@ const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; /
 // Gündüz: koyu kırmızı (#c0392b) — Gece: yumuşak terrakota (#c87a72, göz yormaz)
 const makeWaqfSpan = (dayMode) => (m) =>
   `<span style="display:inline-block;font-size:0.72em;font-weight:700;line-height:1;vertical-align:super;` +
-  `position:relative;left:-0.32em;margin-left:-0.38em;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;">${m}</span>`;
 
@@ -2032,26 +2031,39 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                         </span>
                         {/* Verse end marker — double-ring badge */}
                         <span style={{
-                          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                          display: 'inline-flex', flexDirection: 'column', alignItems: 'center',
                           verticalAlign: 'middle',
                           margin: '0 18px',
-                          width: '1.72em', height: '1.72em',
-                          textAlign: 'center', borderRadius: '50%',
-                          border: `1.5px solid ${isSajdaBook ? 'rgba(46,204,113,0.8)' : C.gold + 'aa'}`,
-                          boxShadow: isSajdaBook
-                            ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px rgba(46,204,113,0.3)`
-                            : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                          color: isSajdaBook ? '#2ecc71' : C.gold,
-                          fontSize: isSajdaBook ? '0.38em' : verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
-                          fontFamily: currentFont,
-                          background: isSajdaBook
-                            ? 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)'
-                            : dayMode
-                              ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
-                              : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                          boxSizing: 'border-box', flexShrink: 0,
+                          gap: '2px',
                         }}>
-                          {isSajdaBook ? 'سجدة' : toArabicNumerals(verse.ayah)}
+                          {isSajdaBook && (
+                            <span style={{
+                              fontSize: '0.48em', lineHeight: 1,
+                              color: dayMode ? '#1a7a4c' : '#2ecc71',
+                              fontFamily: currentFont,
+                              letterSpacing: '0.02em',
+                            }}>سجدة</span>
+                          )}
+                          <span style={{
+                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                            width: '1.72em', height: '1.72em',
+                            textAlign: 'center', borderRadius: '50%',
+                            border: `1.5px solid ${isSajdaBook ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : C.gold + 'aa'}`,
+                            boxShadow: isSajdaBook
+                              ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`
+                              : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
+                            color: isSajdaBook ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.gold,
+                            fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
+                            fontFamily: currentFont,
+                            background: isSajdaBook
+                              ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.18) 0%, rgba(26,122,76,0.05) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
+                              : dayMode
+                                ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
+                                : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                            boxSizing: 'border-box', flexShrink: 0,
+                          }}>
+                            {toArabicNumerals(verse.ayah)}
+                          </span>
                         </span>
                       </span>
                     );
@@ -2116,9 +2128,10 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                           {isSajda && (
                             <span style={{
                               display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle',
-                              fontSize: '0.6rem', padding: '2px 6px', borderRadius: '4px',
-                              background: 'rgba(46,204,113,0.12)', border: '1px solid rgba(46,204,113,0.3)',
-                              color: '#2ecc71', fontFamily: "'Amiri', serif",
+                              fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px',
+                              background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
+                              border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
+                              color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: "'Amiri', serif",
                             }}>
                               {language === 'tr' ? 'Secde' : 'Sajda'} ۩
                             </span>
@@ -2140,9 +2153,10 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     {isSajda && (
                       <span style={{
                         display: 'inline-block', marginRight: '8px', verticalAlign: 'middle',
-                        fontSize: '0.45rem', padding: '2px 8px', borderRadius: '4px',
-                        background: 'rgba(46,204,113,0.12)', border: '1px solid rgba(46,204,113,0.3)',
-                        color: '#2ecc71', fontFamily: currentFont,
+                        fontSize: '1.2rem', padding: '2px 8px', borderRadius: '4px',
+                        background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
+                        border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
+                        color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: currentFont,
                       }}>
                         سجدة
                       </span>
