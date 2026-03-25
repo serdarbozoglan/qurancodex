@@ -70,7 +70,7 @@ const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; /
 const makeWaqfSpan = (dayMode) => (m) =>
   `<span style="display:inline-block;font-size:0.72em;font-weight:700;line-height:1;vertical-align:super;` +
   `position:relative;left:-0.32em;margin-left:-0.38em;` +
-  `font-family:'KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;">${m}</span>`;
 
 // Vakıf işaretleri:
@@ -150,7 +150,7 @@ function wrapAllMadda(text, dayMode, _compact = false) {
         `<span style="display:inline;position:relative;">${content}` +
         `<span style="position:absolute;bottom:${bottom}em;left:50%;` +
         `transform:translateX(-50%) translateX(${xOffset}) scaleX(1.9);` +
-        `font-size:1.0em;line-height:1;font-family:'KFGQPC','Amiri Quran',serif;` +
+        `font-size:1.0em;line-height:1;font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;` +
         `pointer-events:none;user-select:none;color:${color};white-space:nowrap;">ٓ</span></span>`
       );
     }
@@ -165,7 +165,7 @@ const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;">${letter}` +
   `<span style="position:absolute;bottom:0.9em;left:50%;transform:translateX(-50%);` +
   `font-size:0.4em;font-weight:700;line-height:1;` +
-  `font-family:'KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
 
 function wrapWaqfOnly(text, dayMode = false, compact = false) {
@@ -547,7 +547,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, lang
 
       {/* Arabic */}
       <div spellCheck={false} style={{
-        fontFamily: "'Amiri', serif", fontSize: '1.7rem', lineHeight: 2.2,
+        fontFamily: currentFont, fontSize: '1.7rem', lineHeight: 2.2,
         color: isActive ? '#e8c98a' : '#d4b483',
         textAlign: 'right', direction: 'rtl',
       }}>
@@ -669,7 +669,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const [showFontPicker, setShowFontPicker] = useState(false);
   const [showSettingsPicker, setShowSettingsPicker] = useState(false);
 
-  const currentFont = "'KFGQPC', 'Amiri Quran', serif";
+  const currentFont = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
   const audioRef = useRef(null);
   const containerRef = useRef(null);
   // Refs for Escape handler — always reflect current state without closure staleness
