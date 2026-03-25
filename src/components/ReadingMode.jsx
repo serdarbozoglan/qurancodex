@@ -2135,6 +2135,17 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     {showTajweed
                       ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(verse.arabic), dayMode) }} />
                       : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(cleanArabic(verse.arabic), dayMode) }} />}
+                    {isSajda && (
+                      <div style={{ marginTop: '6px', textAlign: 'right' }}>
+                        <span style={{
+                          fontSize: '0.45rem', padding: '2px 8px', borderRadius: '4px',
+                          background: 'rgba(46,204,113,0.12)', border: '1px solid rgba(46,204,113,0.3)',
+                          color: '#2ecc71', fontFamily: currentFont,
+                        }}>
+                          سجدة
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                 </div>
