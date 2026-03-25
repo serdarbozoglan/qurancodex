@@ -2052,6 +2052,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                           boxSizing: 'border-box', flexShrink: 0,
                         }}>
                           {isSajdaBook ? 'سجدة' : toArabicNumerals(verse.ayah)}
+                        </span>
                       </span>
                     );
                   });
