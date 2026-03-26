@@ -1514,20 +1514,22 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           {(() => {
             // Shared: Mescid-i Nebevi SVG icon (Medani surahs)
             const iconMescid = (
-              <svg width="20" height="17" viewBox="0 0 32 26" fill="none" style={{ display: 'block' }}>
-                <rect x="0.5" y="7" width="4" height="18" rx="1" fill="#d8cfc0"/>
-                <ellipse cx="2.5" cy="6" rx="2.2" ry="3.5" fill="#d8cfc0"/>
-                <circle cx="2.5" cy="2.8" r="1" fill="#c9a227"/>
-                <line x1="2.5" y1="1.8" x2="2.5" y2="0.5" stroke="#c9a227" strokeWidth="0.8" strokeLinecap="round"/>
-                <rect x="27.5" y="7" width="4" height="18" rx="1" fill="#d8cfc0"/>
-                <ellipse cx="29.5" cy="6" rx="2.2" ry="3.5" fill="#d8cfc0"/>
-                <circle cx="29.5" cy="2.8" r="1" fill="#c9a227"/>
-                <line x1="29.5" y1="1.8" x2="29.5" y2="0.5" stroke="#c9a227" strokeWidth="0.8" strokeLinecap="round"/>
-                <rect x="5" y="18" width="22" height="7" rx="1" fill="#d8cfc0"/>
-                <path d="M8 18 Q16 7 24 18 Z" fill="#1a7a3c"/>
-                <path d="M8 18 Q14 9 16 7" stroke="#156632" strokeWidth="0.6" fill="none" strokeLinecap="round"/>
-                <circle cx="16" cy="7.8" r="1.4" fill="#c9a227"/>
-                <line x1="16" y1="6.4" x2="16" y2="5" stroke="#c9a227" strokeWidth="1" strokeLinecap="round"/>
+              <svg width="22" height="20" viewBox="0 0 32 28" fill="none" style={{ display: 'block' }}>
+                {/* Sol minare */}
+                <rect x="1" y="10" width="3.5" height="16" rx="1" fill={gold} fillOpacity="0.35"/>
+                <path d="M1 10 Q2.75 5.5 4.5 10 Z" fill={gold} fillOpacity="0.5"/>
+                <circle cx="2.75" cy="5" r="0.9" fill={gold} fillOpacity="0.8"/>
+                {/* Sağ minare */}
+                <rect x="27.5" y="10" width="3.5" height="16" rx="1" fill={gold} fillOpacity="0.35"/>
+                <path d="M27.5 10 Q29.25 5.5 31 10 Z" fill={gold} fillOpacity="0.5"/>
+                <circle cx="29.25" cy="5" r="0.9" fill={gold} fillOpacity="0.8"/>
+                {/* Ana kubbe — yeşil (Mescid-i Nebevi'nin yeşil kubbesi) */}
+                <path d="M7 26 L7 18 Q7 10 16 10 Q25 10 25 18 L25 26 Z" fill="#1a7a4c" fillOpacity="0.25" stroke="#1a7a4c" strokeWidth="1.2"/>
+                {/* Taban duvarı */}
+                <rect x="5" y="22" width="22" height="4" rx="1" fill={gold} fillOpacity="0.15" stroke={gold} strokeOpacity="0.25" strokeWidth="0.8"/>
+                {/* Alemdeki hilal */}
+                <line x1="16" y1="7.5" x2="16" y2="10" stroke={gold} strokeWidth="1" strokeLinecap="round"/>
+                <path d="M14.3 6.8 A2.2 2.2 0 0 1 17.7 6.8 A1.6 1.6 0 0 0 14.3 6.8 Z" fill={gold} fillOpacity="0.9"/>
               </svg>
             );
 
