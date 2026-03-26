@@ -576,7 +576,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const [pickerVerseInput, setPickerVerseInput] = useState('');
   const [pendingScrollAyah, setPendingScrollAyah] = useState(null);
   const [pendingJuzPage, setPendingJuzPage] = useState(null); // exact JUZ_PAGES target for toolbar sync
-  const swipeTouchX = useRef(null); // touch start X for swipe gesture
+  const swipeTouchX = useRef(null);
+  const swipeTouchY = useRef(null);
   const [showPageInput, setShowPageInput] = useState(false);
   const [pageInputValue, setPageInputValue] = useState('');
   const [surahSearch, setSurahSearch] = useState('');
@@ -1472,10 +1473,13 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       {/* Surah picker dropdown */}
       {showSurahPicker && (
         <div style={{
-          position: 'absolute', top: '54px', left: '20px', zIndex: 100,
+          position: 'absolute', top: isMobile ? '52px' : '54px',
+          left: isMobile ? '8px' : '20px',
+          right: isMobile ? '8px' : 'auto',
+          zIndex: 100,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: '10px',
-          width: '260px', boxShadow: dropC.shadow,
+          width: isMobile ? 'auto' : '260px', boxShadow: dropC.shadow,
           display: 'flex', flexDirection: 'column',
         }}>
           {/* Search input */}
@@ -2260,12 +2264,15 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         ref={containerRef}
         style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar, position: 'relative' }}
         onClick={() => { setShowSurahPicker(false); setShowMealPicker(false); setShowFontPicker(false); setShowSettingsPicker(false); }}
-        onTouchStart={isMobile && bookMode ? (e) => { swipeTouchX.current = e.touches[0].clientX; } : undefined}
+        onTouchStart={isMobile && bookMode ? (e) => { swipeTouchX.current = e.touches[0].clientX; swipeTouchY.current = e.touches[0].clientY; } : undefined}
         onTouchEnd={isMobile && bookMode ? (e) => {
           if (swipeTouchX.current === null) return;
           const dx = e.changedTouches[0].clientX - swipeTouchX.current;
+          const dy = e.changedTouches[0].clientY - swipeTouchY.current;
           swipeTouchX.current = null;
-          if (Math.abs(dx) < 50) return; // too short, ignore
+          swipeTouchY.current = null;
+          // Yalnızca net yatay swipe: en az 60px yatay ve dikey hareketten 1.5x fazla
+          if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
           if (dx < 0 && currentPage < 604) navigateToPage(currentPage + 1); // swipe left → next page
           if (dx > 0 && currentPage > 0) navigateToPage(currentPage - 1);   // swipe right → prev page
         } : undefined}
