@@ -1227,7 +1227,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 style={{
                   width: '60px', padding: '4px 8px', borderRadius: '6px',
                   background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(212,165,116,0.4)',
-                  color: gold, fontSize: '0.88rem', fontWeight: 700, textAlign: 'center', outline: 'none',
+                  color: gold, fontSize: '16px', fontWeight: 700, textAlign: 'center', outline: 'none',
                 }}
               />
               <span style={{ color: '#64748b', fontSize: '0.72rem' }}>/ 604</span>
@@ -1490,7 +1490,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               style={{
                 width: '100%', padding: '6px 10px', borderRadius: '6px',
                 background: dropC.inputBg, border: `1px solid ${dropC.inputBorder}`,
-                color: dayMode ? 'rgba(30,15,5,0.88)' : '#e2e8f0', fontSize: '0.8rem', outline: 'none', boxSizing: 'border-box',
+                color: dayMode ? 'rgba(30,15,5,0.88)' : '#e2e8f0', fontSize: '16px', outline: 'none', boxSizing: 'border-box',
               }}
             />
           </div>
@@ -1773,7 +1773,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                   style={{
                     width: '60px', padding: '5px 8px', borderRadius: '6px', flexShrink: 0,
                     background: dropC.inputBg, border: `1px solid ${dropC.inputBorder}`,
-                    color: gold, fontSize: '0.82rem', fontWeight: 700, textAlign: 'center', outline: 'none',
+                    color: gold, fontSize: '16px', fontWeight: 700, textAlign: 'center', outline: 'none',
                   }}
                 />
                 <span style={{ fontSize: '0.68rem', color: dropC.textMuted, flexShrink: 0 }}>/ {maxAyah}</span>
