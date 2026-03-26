@@ -1549,33 +1549,38 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             // Shared: render a standard surah row (used in both modes)
             const renderSurahRow = (surah) => {
               const name = SURAH_NAMES_TR[surah - 1];
+              const nameAr = SURAH_NAMES_AR[surah - 1];
+              const ayahCount = SURAH_AYAH_COUNTS[surah - 1];
               const isPicked = surah === pickerSelectedSurah;
               const isActive = surah === selectedSurah;
               const isMadani = MADANI_SURAHS.has(surah);
-              const pageStart = SURAH_PAGES[surah - 1] + 1;
-              const pageEnd = surah < 114 ? SURAH_PAGES[surah] : 604;
               return (
                 <button key={surah}
                   onClick={() => { changeSurah(surah); setShowSurahPicker(false); setSurahSearch(''); setPickerSelectedSurah(null); setPickerVerseInput(''); }}
                   style={{
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    width: '100%', padding: '7px 14px', textAlign: 'left',
+                    width: '100%', padding: '8px 14px', textAlign: 'left',
                     background: isPicked || isActive ? dropC.itemBgActive : 'transparent',
                     border: 'none', borderBottom: `1px solid ${dropC.divider}`,
-                    cursor: 'pointer', transition: 'background 0.12s', gap: '8px',
+                    cursor: 'pointer', transition: 'background 0.12s', gap: '10px',
                   }}
                   onMouseEnter={e => { if (!isPicked && !isActive) e.currentTarget.style.background = dropC.itemBgHover; }}
                   onMouseLeave={e => { if (!isPicked && !isActive) e.currentTarget.style.background = 'transparent'; }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', minWidth: 0, overflow: 'hidden' }}>
-                    <span style={{ color: dropC.textMuted, fontSize: '0.65rem', flexShrink: 0, minWidth: '18px' }}>{surah}.</span>
+                  {/* Left: number + icon + name + ayah count */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0, overflow: 'hidden' }}>
+                    <span style={{ color: dropC.textMuted, fontSize: '0.62rem', flexShrink: 0, minWidth: '20px', textAlign: 'right' }}>{surah}</span>
                     <span style={{ flexShrink: 0, lineHeight: 1, display: 'flex', alignItems: 'center' }}>
                       {isMadani ? iconMescid : <span style={{ fontSize: '0.85rem', lineHeight: 1 }}>🕋</span>}
                     </span>
-                    <span style={{ color: isPicked || isActive ? gold : dropC.text, fontSize: '0.82rem', fontWeight: isPicked || isActive ? 700 : 400, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</span>
+                    <div style={{ minWidth: 0, overflow: 'hidden' }}>
+                      <div style={{ color: isPicked || isActive ? gold : dropC.text, fontSize: '0.82rem', fontWeight: isPicked || isActive ? 700 : 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</div>
+                      <div style={{ color: dropC.textMuted, fontSize: '0.6rem', marginTop: '1px' }}>{ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</div>
+                    </div>
                   </div>
-                  <span style={{ fontSize: '0.62rem', color: isPicked || isActive ? gold : dropC.textMuted, flexShrink: 0, whiteSpace: 'nowrap' }}>
-                    {pageStart === pageEnd ? `s.${pageStart}` : `s.${pageStart}–${pageEnd}`}
+                  {/* Right: Arabic name */}
+                  <span style={{ fontFamily: "'Amiri', serif", fontSize: '1rem', color: isPicked || isActive ? gold : dropC.textMuted, flexShrink: 0, direction: 'rtl' }}>
+                    {nameAr}
                   </span>
                 </button>
               );
