@@ -393,7 +393,7 @@ export default function Navbar() {
           {/* Oku — primary CTA */}
           <button
             onClick={() => setReadingOpen(true)}
-            className="hidden lg:flex items-center px-5 transition-all duration-200"
+            className="flex items-center transition-all duration-200"
             style={{
               background: 'linear-gradient(135deg, #d4a574 0%, #c8991e 100%)',
               border: 'none',
@@ -404,6 +404,7 @@ export default function Navbar() {
               fontWeight: 700,
               letterSpacing: '0.07em',
               height: '36px',
+              padding: '0 14px',
               boxShadow: '0 2px 16px rgba(212,165,116,0.3)',
             }}
             onMouseEnter={e => {
