@@ -1483,7 +1483,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           display: 'flex', flexDirection: 'column',
         }}>
           {/* Search input */}
-          <div style={{ padding: '10px 12px', borderBottom: `1px solid ${dropC.divider}` }}>
+          <div style={{ padding: '10px 12px', borderBottom: `1px solid ${dropC.divider}`, display: 'flex', alignItems: 'center', gap: '8px' }}>
             <input
               autoFocus
               type="text"
@@ -1492,11 +1492,23 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               placeholder={language === 'tr' ? 'Sure · Sayfa · Cüz' : 'Surah · Page · Juz'}
               spellCheck={false}
               style={{
-                width: '100%', padding: '6px 10px', borderRadius: '6px',
+                flex: 1, padding: '6px 10px', borderRadius: '6px',
                 background: dropC.inputBg, border: `1px solid ${dropC.inputBorder}`,
                 color: dayMode ? 'rgba(30,15,5,0.88)' : '#e2e8f0', fontSize: '16px', outline: 'none', boxSizing: 'border-box',
               }}
             />
+            {isMobile && (
+              <button
+                onClick={() => setShowSurahPicker(false)}
+                style={{
+                  flexShrink: 0, width: '28px', height: '28px', borderRadius: '6px',
+                  background: 'transparent', border: `1px solid ${dropC.inputBorder}`,
+                  color: dayMode ? 'rgba(30,15,5,0.5)' : '#64748b',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', fontSize: '1rem', lineHeight: 1,
+                }}
+              >×</button>
+            )}
           </div>
           {/* Surah picker body — smart search or normal list */}
           {(() => {
