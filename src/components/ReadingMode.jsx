@@ -2183,8 +2183,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           swipeTouchY.current = null;
           // Yalnızca net yatay swipe: en az 60px yatay ve dikey hareketten 1.5x fazla
           if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-          if (dx < 0 && currentPage < 604) navigateToPage(currentPage + 1); // swipe left → next page
-          if (dx > 0 && currentPage > 0) navigateToPage(currentPage - 1);   // swipe right → prev page
+          if (dx > 0 && currentPage < 604) navigateToPage(currentPage + 1); // swipe right → next page (RTL)
+          if (dx < 0 && currentPage > 0) navigateToPage(currentPage - 1);   // swipe left → prev page (RTL)
         } : undefined}
       >
         {/* ── Hatim Duası screen ────────────────────────────────────────── */}
