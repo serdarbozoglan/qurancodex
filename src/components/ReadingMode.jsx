@@ -2827,39 +2827,53 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       </div>
 
 
-      {/* Side page arrows — book mode always visible */}
+      {/* Side page arrows — book mode, desktop only (RTL: left=next, right=prev) */}
       {bookMode && (() => {
         const canGoPrev = currentPage > 0;
         const canGoNext = currentPage < 604;
         const handlePrev = () => { if (currentPage > 0) navigateToPage(currentPage - 1); };
         const handleNext = () => { if (currentPage < 604) navigateToPage(currentPage + 1); };
-        const arrowBtn = (enabled, onClick, side, title) => (
-          <button
-            onClick={onClick} disabled={!enabled} title={title}
-            style={{
-              position: 'absolute', top: '50%', transform: 'translateY(-50%)',
-              zIndex: 20, width: isMobile ? '28px' : '44px', height: isMobile ? '72px' : '120px',
-              background: enabled ? (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.06)') : 'transparent',
-              border: enabled ? `1px solid ${dayMode ? 'rgba(100,60,10,0.2)' : 'rgba(212,165,116,0.15)'}` : 'none',
-              borderLeft: side === 'right' && enabled ? `1px solid ${dayMode ? 'rgba(100,60,10,0.2)' : 'rgba(212,165,116,0.15)'}` : (side === 'left' ? 'none' : undefined),
-              borderRight: side === 'left' && enabled ? `1px solid ${dayMode ? 'rgba(100,60,10,0.2)' : 'rgba(212,165,116,0.15)'}` : (side === 'right' ? 'none' : undefined),
-              color: enabled ? (dayMode ? 'rgba(100,60,10,0.5)' : 'rgba(212,165,116,0.45)') : (dayMode ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)'),
-              cursor: enabled ? 'pointer' : 'default',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              transition: 'all 0.18s', flexDirection: 'column', gap: '4px',
-              [side]: '0',
-              borderRadius: side === 'left' ? '0 10px 10px 0' : '10px 0 0 10px',
-            }}
-            onMouseEnter={e => { if (enabled) { e.currentTarget.style.background = 'rgba(212,165,116,0.14)'; e.currentTarget.style.color = gold; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; }}}
-            onMouseLeave={e => { if (enabled) { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; e.currentTarget.style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.15)'; }}}
-          >
-            {side === 'left' ? <ChevronLeft size={isMobile ? 13 : 20} /> : <ChevronRight size={isMobile ? 13 : 20} />}
-          </button>
-        );
+        const arrowBtn = (enabled, onClick, side, title) => {
+          const defaultBg = enabled ? (dayMode ? 'rgba(100,60,10,0.03)' : 'rgba(212,165,116,0.02)') : 'transparent';
+          const defaultColor = enabled ? (dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(212,165,116,0.18)') : 'transparent';
+          const defaultBorder = enabled ? (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.06)') : 'transparent';
+          return (
+            <button
+              onClick={onClick} disabled={!enabled} title={title}
+              style={{
+                position: 'absolute', top: '50%', transform: 'translateY(-50%)',
+                zIndex: 20, width: '44px', height: '120px',
+                background: defaultBg,
+                border: `1px solid ${defaultBorder}`,
+                borderLeft: side === 'left' ? 'none' : undefined,
+                borderRight: side === 'right' ? 'none' : undefined,
+                color: defaultColor,
+                cursor: enabled ? 'pointer' : 'default',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'all 0.22s ease',
+                [side]: '0',
+                borderRadius: side === 'left' ? '0 10px 10px 0' : '10px 0 0 10px',
+              }}
+              onMouseEnter={e => { if (enabled) {
+                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.10)' : 'rgba(212,165,116,0.12)';
+                e.currentTarget.style.color = gold;
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.35)';
+              }}}
+              onMouseLeave={e => { if (enabled) {
+                e.currentTarget.style.background = defaultBg;
+                e.currentTarget.style.color = defaultColor;
+                e.currentTarget.style.borderColor = defaultBorder;
+              }}}
+            >
+              {side === 'left' ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+            </button>
+          );
+        };
         return (
           <>
-            {!isMobile && arrowBtn(canGoPrev, handlePrev, 'left', language === 'tr' ? 'Önceki sayfa' : 'Previous page')}
-            {!isMobile && arrowBtn(canGoNext, handleNext, 'right', language === 'tr' ? 'Sonraki sayfa' : 'Next page')}
+            {/* RTL: left arrow = forward (next page), right arrow = backward (prev page) */}
+            {!isMobile && arrowBtn(canGoNext, handleNext, 'left', language === 'tr' ? 'Sonraki sayfa' : 'Next page')}
+            {!isMobile && arrowBtn(canGoPrev, handlePrev, 'right', language === 'tr' ? 'Önceki sayfa' : 'Previous page')}
           </>
         );
       })()}
