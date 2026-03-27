@@ -491,9 +491,8 @@
     "zemahseriAttribution": "Zemahşeri (ö. 1144)"
   },
   "highlights": {
-    "badge": "Ek Keşifler",
-    "title": "Daha Fazla Keşif",
-    "scrollHint": "Kaydırarak daha fazlasını keşfedin",
+    "badge": "Daha Derin Git",
+    "title": "Altı Konu, Altı Sır",
     "cards": [
       {
         "title": "Prefrontal Korteks",
@@ -534,8 +533,11 @@
       "77.800 kelimesinde tek bir gereksiz kelime yok",
       "1.400 yıldır harf harf değişmeden korunuyor"
     ],
+    "summary": "Kelimeleri dengeli. Sesleri duygusal. Yapısı simetrik. Anlamı katmanlı. 1.400 yıldır değişmemiş.",
     "question": "Bu metin, bir insanın eseri olabilir mi?",
     "verseIntro": "Kur'an bunu kendisi sorar:",
+    "ctaExplore": "Başa dön",
+    "ctaRead": "Kur'an okumaya başla",
     "verse": {
       "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ ۚ وَلَوْ كَانَ مِنْ عِندِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
       "translation": "Kur'an'ı düşünüp incelemezler mi? Eğer Allah'tan başkasından olsaydı, onda birçok çelişki bulurlardı.",
@@ -597,15 +599,13 @@
     "methodology": "Kur'an-ı Kerim üzerine yapılan dilbilimsel, matematiksel ve bilimsel araştırmaların bir sentezi.",
     "sourcesTitle": "Kaynaklar",
     "sources": [
-      "Abdel Razek Naufal - Kur'an'da Sayısal Mucize Araştırmaları",
-      "Raymond Farrin - Structure and Qur'anic Interpretation (2014)",
-      "Corpus Coranicum - Berlin-Brandenburg Bilimler Akademisi",
-      "Dr. Keith L. Moore - The Developing Human (Embriyoloji)",
-      "Dr. Maurice Bucaille - The Bible, the Quran and Science",
-      "Hermann Ranke - Die ägyptischen Personennamen (1935)",
-      "Zemahşeri - el-Keşşâf (12. yüzyıl)",
-      "Birmingham Üniversitesi Kur'an El Yazması (2015)",
-      "Quranic Arabic Corpus - Leeds Üniversitesi"
+      { "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)", "section": "Gizli Simetri" },
+      { "name": "Corpus Coranicum — Berlin-Brandenburg Bilimler Akademisi", "section": "Metin Analizi" },
+      { "name": "Dr. Keith L. Moore — The Developing Human", "section": "Bilimsel İşaretler · Embriyoloji" },
+      { "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science", "section": "Bilimsel İşaretler · Tarihsel Doğrulama" },
+      { "name": "Zemahşeri — el-Keşşâf (12. yüzyıl)", "section": "Sıfır Gereksizlik" },
+      { "name": "Birmingham Üniversitesi Kur'an El Yazması (2015)", "section": "Yaşayan Koruma" },
+      { "name": "Quranic Arabic Corpus — Leeds Üniversitesi", "section": "Dilsel Analiz" }
     ],
     "copyright": "Quran Codex. Tüm hakları saklıdır."
   }

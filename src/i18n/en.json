@@ -491,9 +491,8 @@
     "zemahseriAttribution": "Zamakhshari (d. 1144)"
   },
   "highlights": {
-    "badge": "Additional Discoveries",
-    "title": "More Discoveries",
-    "scrollHint": "Scroll to discover more",
+    "badge": "Go Deeper",
+    "title": "Six Topics, Six Secrets",
     "cards": [
       {
         "title": "The Prefrontal Cortex",
@@ -534,8 +533,11 @@
       "Not a single unnecessary word among its 77,800",
       "Preserved letter by letter, unchanged for 1,400 years"
     ],
+    "summary": "Its words balanced. Its sounds emotional. Its structure symmetric. Its meaning layered. Unchanged for 1,400 years.",
     "question": "Could this text be the work of a human being?",
     "verseIntro": "The Quran asks this very question:",
+    "ctaExplore": "Back to top",
+    "ctaRead": "Start reading the Quran",
     "verse": {
       "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ ۚ وَلَوْ كَانَ مِنْ عِندِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
       "translation": "Will they not reflect upon the Quran? If it had been from anyone other than Allah, they would have found within it much contradiction.",
@@ -597,15 +599,13 @@
     "methodology": "A synthesis of linguistic, mathematical, and scientific research on the Holy Quran.",
     "sourcesTitle": "Sources",
     "sources": [
-      "Abdel Razek Naufal - Numerical Miracle Research in the Quran",
-      "Raymond Farrin - Structure and Qur'anic Interpretation (2014)",
-      "Corpus Coranicum - Berlin-Brandenburg Academy of Sciences",
-      "Dr. Keith L. Moore - The Developing Human (Embryology)",
-      "Dr. Maurice Bucaille - The Bible, the Quran and Science",
-      "Hermann Ranke - Die agyptischen Personennamen (1935)",
-      "Zamakhshari - Al-Kashshaf (12th century)",
-      "University of Birmingham Quran Manuscript (2015)",
-      "Quranic Arabic Corpus - University of Leeds"
+      { "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)", "section": "Hidden Symmetry" },
+      { "name": "Corpus Coranicum — Berlin-Brandenburg Academy of Sciences", "section": "Textual Analysis" },
+      { "name": "Dr. Keith L. Moore — The Developing Human", "section": "Scientific Signs · Embryology" },
+      { "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science", "section": "Scientific Signs · Historical Proof" },
+      { "name": "Zamakhshari — Al-Kashshaf (12th century)", "section": "Zero Redundancy" },
+      { "name": "University of Birmingham Quran Manuscript (2015)", "section": "Living Preservation" },
+      { "name": "Quranic Arabic Corpus — University of Leeds", "section": "Linguistic Analysis" }
     ],
     "copyright": "Quran Codex. All rights reserved."
   }

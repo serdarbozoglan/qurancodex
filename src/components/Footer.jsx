@@ -27,12 +27,21 @@ export default function Footer() {
           </h4>
           <ul className="text-silver text-sm space-y-2 leading-relaxed columns-1 md:columns-2 gap-8">
             {Array.isArray(sources) &&
-              sources.map((source, i) => (
-                <li key={i} className="flex items-start gap-2 break-inside-avoid mb-2">
-                  <span className="text-gold/60 mt-0.5 shrink-0">•</span>
-                  <span>{source}</span>
-                </li>
-              ))}
+              sources.map((source, i) => {
+                const name = typeof source === 'object' ? source.name : source;
+                const section = typeof source === 'object' ? source.section : null;
+                return (
+                  <li key={i} className="flex items-start gap-2 break-inside-avoid mb-2">
+                    <span className="text-gold/60 mt-0.5 shrink-0">•</span>
+                    <span>
+                      {name}
+                      {section && (
+                        <span className="text-silver/35 text-xs ml-1.5">· {section}</span>
+                      )}
+                    </span>
+                  </li>
+                );
+              })}
           </ul>
         </div>
 
