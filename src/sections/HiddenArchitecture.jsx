@@ -955,12 +955,20 @@ export default function HiddenArchitecture() {
               );
             })()}
           </AnimatePresence>
+
+          {/* Closing note — below the right card */}
+          <p style={{
+            marginTop: '22px',
+            fontSize: '0.82rem',
+            color: 'rgba(148,163,184,0.52)',
+            fontStyle: 'italic',
+            lineHeight: 1.75,
+            fontFamily: "'Inter', sans-serif",
+          }}>
+            {t('sevenLayers.closing')}
+          </p>
         </div>
       </motion.div>
-
-      <motion.p variants={fadeUpItem} className="text-silver text-lg leading-relaxed max-w-3xl italic">
-        {t('sevenLayers.closing')}
-      </motion.p>
 
     </SectionWrapper>
   );
