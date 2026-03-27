@@ -95,6 +95,7 @@ export default function ZeroRedundancy() {
             <div className="w-full bg-white/5 rounded-full h-4 overflow-hidden">
               <motion.div
                 className="bg-gold/60 h-full rounded-full"
+                style={{ minWidth: '8px' }}
                 initial={{ width: 0 }}
                 whileInView={{ width: '2%' }}
                 viewport={{ once: true }}
@@ -141,6 +142,11 @@ export default function ZeroRedundancy() {
             </div>
           </div>
         </div>
+        {t('zeroRedundancy.comparisonNote') && (
+          <p className="text-silver/40 text-xs font-body mt-5 leading-relaxed italic">
+            * {t('zeroRedundancy.comparisonNote')}
+          </p>
+        )}
       </motion.div>
 
       {/* Zemahseri Quote */}

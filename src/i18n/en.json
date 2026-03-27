@@ -396,9 +396,9 @@
         "This geographical fact was only discovered in the 19th century"
       ],
       "verse": {
-        "arabic": "الم ﴿١﴾ غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
-        "translation": "Alif-Lam-Mim. The Romans have been defeated in the nearest land. But after their defeat, they will triumph within a few years.",
-        "reference": "Rum, 30:1-4"
+        "arabic": "غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
+        "translation": "The Romans have been defeated in the nearest land. But after their defeat, they will triumph within a few years.",
+        "reference": "Rum, 30:2-4"
       }
     }
   },
@@ -426,12 +426,12 @@
     },
     "oral": {
       "title": "Living Preservation",
-      "description": "Over 10 million huffaz (people who have memorized the entire Quran) worldwide. Each hafiz learned from their teacher, who learned from theirs - an unbroken chain reaching back to the Prophet Muhammad ﷺ."
+      "description": "Over 10 million huffaz (people who have memorized the entire Quran) worldwide. Each hafiz learned from their teacher, who learned from theirs - an unbroken chain reaching back to the Prophet Muhammad (pbuh)."
     },
     "experiment": "A thought experiment: if every written copy of the Quran vanished overnight, huffaz could reconstruct it letter by letter. This is true of no other book in existence.",
     "birmingham": {
       "title": "Birmingham Manuscript",
-      "description": "2015: A manuscript at the University of Birmingham was carbon-dated to 568-645 CE - overlapping with the Prophet Muhammad's ﷺ own lifetime!"
+      "description": "2015: A manuscript at the University of Birmingham was carbon-dated to 568-645 CE - overlapping with the Prophet Muhammad's (pbuh) own lifetime!"
     }
   },
   "zeroRedundancy": {
@@ -442,39 +442,40 @@
     "mosesExamples": [
       {
         "sura": "Al-Baqara",
-        "theme": "The rebellion of the Israelites (theme of ingratitude)"
+        "theme": "The rebellion of the Israelites and the theme of ingratitude"
       },
       {
         "sura": "Ta-Ha",
-        "theme": "Dialogue with Pharaoh (methodology of invitation)"
+        "theme": "Dialogue with Pharaoh: methodology of invitation"
       },
       {
         "sura": "Al-Qasas",
-        "theme": "Moses' birth and flight (biographical narrative)"
+        "theme": "Prophet Moses' birth, upbringing and flight"
       },
       {
         "sura": "Ash-Shu'ara",
-        "theme": "Confrontation with the sorcerers (truth versus falsehood)"
+        "theme": "Confrontation with the sorcerers: truth versus falsehood"
       }
     ],
     "stats": {
       "totalWords": {
         "label": "Total Words",
-        "value": "77,800",
-        "description": "Total word count in the Quran"
+        "value": "~77,800",
+        "description": "Total word count in the Quran (approximate)"
       },
       "uniqueRoots": {
         "label": "Unique Roots",
-        "value": "1,700",
-        "description": "Distinct word roots"
+        "value": "~1,700",
+        "description": "Distinct word roots (approximate)"
       },
       "uniqueWords": {
         "label": "Unique Words",
-        "value": "14,870",
-        "description": "Non-repeating words"
+        "value": "~14,870",
+        "description": "Non-repeating words (approximate)"
       }
     },
     "comparisonTitle": "Redundancy Comparison",
+    "comparisonNote": "Percentages are approximate; figures may vary depending on the corpus analysis method and the texts selected for comparison.",
     "comparison": {
       "quran": {
         "label": "Quran"
