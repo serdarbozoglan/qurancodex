@@ -1512,26 +1512,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           </div>
           {/* Surah picker body — smart search or normal list */}
           {(() => {
-            // Shared: Mescid-i Nebevi SVG icon (Medani surahs)
-            const iconMescid = (
-              <svg width="22" height="20" viewBox="0 0 32 28" fill="none" style={{ display: 'block' }}>
-                {/* Sol minare */}
-                <rect x="1" y="10" width="3.5" height="16" rx="1" fill={gold} fillOpacity="0.35"/>
-                <path d="M1 10 Q2.75 5.5 4.5 10 Z" fill={gold} fillOpacity="0.5"/>
-                <circle cx="2.75" cy="5" r="0.9" fill={gold} fillOpacity="0.8"/>
-                {/* Sağ minare */}
-                <rect x="27.5" y="10" width="3.5" height="16" rx="1" fill={gold} fillOpacity="0.35"/>
-                <path d="M27.5 10 Q29.25 5.5 31 10 Z" fill={gold} fillOpacity="0.5"/>
-                <circle cx="29.25" cy="5" r="0.9" fill={gold} fillOpacity="0.8"/>
-                {/* Ana kubbe — yeşil (Mescid-i Nebevi'nin yeşil kubbesi) */}
-                <path d="M7 26 L7 18 Q7 10 16 10 Q25 10 25 18 L25 26 Z" fill="#1a7a4c" fillOpacity="0.25" stroke="#1a7a4c" strokeWidth="1.2"/>
-                {/* Taban duvarı */}
-                <rect x="5" y="22" width="22" height="4" rx="1" fill={gold} fillOpacity="0.15" stroke={gold} strokeOpacity="0.25" strokeWidth="0.8"/>
-                {/* Alemdeki hilal */}
-                <line x1="16" y1="7.5" x2="16" y2="10" stroke={gold} strokeWidth="1" strokeLinecap="round"/>
-                <path d="M14.3 6.8 A2.2 2.2 0 0 1 17.7 6.8 A1.6 1.6 0 0 0 14.3 6.8 Z" fill={gold} fillOpacity="0.9"/>
-              </svg>
-            );
+            // Shared: Mescid-i Nebevi + Kaabe icons
+            const iconMescid = <img src="/icons/masjid-al-nabawi.png" alt="Mescid-i Nebevi" width="22" height="22" style={{ display: 'block', objectFit: 'contain' }} />;
+            const iconKaabe = <img src="/icons/kaaba.png" alt="Kabe" width="20" height="20" style={{ display: 'block', objectFit: 'contain' }} />;
 
             // Shared: arrow icon
             const arrowIcon = (
@@ -1573,7 +1556,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0, overflow: 'hidden' }}>
                     <span style={{ color: dropC.textMuted, fontSize: '0.62rem', flexShrink: 0, minWidth: '20px', textAlign: 'right' }}>{surah}</span>
                     <span style={{ flexShrink: 0, lineHeight: 1, display: 'flex', alignItems: 'center' }}>
-                      {isMadani ? iconMescid : <span style={{ fontSize: '0.85rem', lineHeight: 1 }}>🕋</span>}
+                      {isMadani ? iconMescid : iconKaabe}
                     </span>
                     <div style={{ minWidth: 0, overflow: 'hidden' }}>
                       <div style={{ color: isPicked || isActive ? gold : dropC.text, fontSize: '0.82rem', fontWeight: isPicked || isActive ? 700 : 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</div>
