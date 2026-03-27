@@ -1779,6 +1779,27 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             </span>
           </button>
 
+          {/* Ara / Search — shown in settings on mobile where toolbar search is hidden */}
+          {isMobile && (
+            <button
+              onClick={() => { setShowSearch(true); setShowSettingsPicker(false); }}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                border: `1px solid ${dropC.btnBorder}`,
+                background: dropC.btnBg,
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+              onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; }}
+            >
+              <span style={{ fontSize: '0.82rem', color: dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <SearchIcon size={13} />
+                {language === 'tr' ? 'Ara' : 'Search'}
+              </span>
+            </button>
+          )}
+
           <div style={{ height: '1px', background: dropC.divider }} />
 
           {/* Tajweed toggle */}
