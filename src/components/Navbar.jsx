@@ -34,7 +34,7 @@ const navSections = [
   },
   {
     id: 'linguistic', keyTr: 'Dilsel DNA', keyEn: 'Linguistic DNA',
-    descTr: 'Hiç kimsenin çözemediği şifre', descEn: 'A cipher no one has ever solved',
+    descTr: 'Kur\'an\'ın kelime mimarisi', descEn: 'The linguistic architecture of the Quran',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M5 3c3 2 5 4 7 9s4 7 7 9"/><path d="M19 3c-3 2-5 4-7 9s-4 7-7 9"/>
@@ -61,7 +61,7 @@ const navSections = [
     ),
   },
   {
-    id: 'hidden-architecture', keyTr: 'Gizli Mimari', keyEn: 'Hidden Architecture',
+    id: 'hidden-architecture', keyTr: 'Yapısal Mimari', keyEn: 'Structural Architecture',
     descTr: 'Ayna simetrisi ve yedi katmanlı anlam', descEn: 'Mirror symmetry and seven layers of meaning',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -72,7 +72,7 @@ const navSections = [
   },
   {
     id: 'science', keyTr: 'Bilimsel İşaretler', keyEn: 'Scientific Signs',
-    descTr: 'Bilim 14 asır sonra yetişebildi', descEn: 'Science took 14 centuries to catch up',
+    descTr: 'Modern bilimin keşfettikleri', descEn: 'What modern science discovered',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
@@ -132,6 +132,13 @@ export default function Navbar() {
     };
     window.addEventListener('openVerseGraph', handler);
     return () => window.removeEventListener('openVerseGraph', handler);
+  }, []);
+
+  // Listen for openReadingMode events (e.g. Conclusion CTA)
+  useEffect(() => {
+    const handler = () => setReadingOpen(true);
+    window.addEventListener('openReadingMode', handler);
+    return () => window.removeEventListener('openReadingMode', handler);
   }, []);
 
   // Auto-open VerseGraph if ?verse= param in URL
