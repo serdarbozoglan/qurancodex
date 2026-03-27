@@ -11,6 +11,9 @@ export default function QuranVerse({
     <motion.blockquote
       className={`glass-card p-8 md:p-10 my-8 border-l-4 border-gold ${className}`}
       variants={fadeUpItem}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-60px' }}
     >
       <p
         className="font-arabic text-2xl md:text-3xl leading-relaxed text-gold mb-6"
