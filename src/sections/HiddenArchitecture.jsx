@@ -337,10 +337,13 @@ export default function HiddenArchitecture() {
                 </button>
 
                 {/* Connector */}
-                <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', width: '28px' }}>
-                  <div style={{ width: '100%', height: '1px', background: isActive ? color.border : 'rgba(255,255,255,0.08)', transition: 'background 0.25s' }} />
-                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: isActive ? color.text : 'rgba(255,255,255,0.12)', transition: 'background 0.25s' }} />
-                  <div style={{ width: '100%', height: '1px', background: isActive ? color.border : 'rgba(255,255,255,0.08)', transition: 'background 0.25s' }} />
+                <div style={{ flexShrink: 0, width: '36px', textAlign: 'center' }}>
+                  <span style={{
+                    fontSize: '1.25rem',
+                    color: isActive ? color.text : 'rgba(255,255,255,0.18)',
+                    transition: 'color 0.25s',
+                    lineHeight: 1,
+                  }}>↔</span>
                 </div>
 
                 {/* Right card */}
