@@ -1204,8 +1204,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         {!isMobile && bookMode ? (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <span style={{
-              fontSize: '0.72rem', color: navC.label,
-              fontFamily: "'Inter', sans-serif", letterSpacing: '0.05em',
+              fontSize: '0.82rem',
+              color: dayMode ? 'rgba(80,50,20,0.75)' : 'rgba(200,185,165,0.85)',
+              fontFamily: "'Inter', sans-serif", letterSpacing: '0.06em',
             }}>
               {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
             </span>
