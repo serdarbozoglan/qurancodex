@@ -672,6 +672,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
   const drag = useRef(null);
   const hasInitFit = useRef(false);
   const [viewMode, setViewMode] = useState('semantic'); // 'semantic' | 'classical'
+  const [showClickHint, setShowClickHint] = useState(true);
+  useEffect(() => { const t = setTimeout(() => setShowClickHint(false), 4000); return () => clearTimeout(t); }, []);
 
   const clusterSearchResults = useMemo(() => {
     if (!verses || searchQuery.length < 2) return { direct: null, surahs: [], verses: [] };
@@ -1090,6 +1092,17 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         </g>
       </svg>
 
+      {/* Click hint — auto-dismisses after 4s */}
+      <div style={{
+        position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
+        zIndex: 20, background: 'rgba(10,10,26,0.88)', border: '1px solid rgba(255,255,255,0.08)',
+        borderRadius: '20px', padding: '6px 18px', color: 'rgba(148,163,184,0.75)', fontSize: '0.7rem',
+        whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
+        opacity: showClickHint ? 1 : 0, transition: 'opacity 1s ease',
+      }}>
+        {language === 'tr' ? 'Daireye tıkla: sureye git  ·  Sürükle: kaydır  ·  Tekerlek: yakınlaştır' : 'Click a circle: go to surah  ·  Drag: pan  ·  Scroll: zoom'}
+      </div>
+
       {/* Legend */}
       <div style={{ position: 'absolute', bottom: '24px', left: '24px', display: 'flex', gap: '12px', alignItems: 'center', pointerEvents: 'none' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148,163,184,0.6)', fontFamily: "'Inter', sans-serif" }}>
@@ -1144,8 +1157,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         position: 'absolute', bottom: '24px', right: '24px', zIndex: 20,
         display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-end',
       }}>
-        <span style={{ color: 'rgba(148,163,184,0.45)', fontSize: '0.62rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif" }}>
-          {language === 'tr' ? 'Görünüm' : 'View'}
+        <span style={{ color: 'rgba(148,163,184,0.65)', fontSize: '0.62rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif" }}>
+          {language === 'tr' ? 'Sıralama düzeni' : 'Layout'}
         </span>
         <div style={{
           display: 'flex', gap: '6px',
