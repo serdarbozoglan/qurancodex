@@ -33,7 +33,7 @@ export default function SectionWrapper({
     <motion.section
       id={id}
       className={`relative overflow-hidden ${
-        noPadding ? '' : 'py-24 md:py-32 px-6 md:px-12 lg:px-16'
+        noPadding ? '' : 'py-12 md:py-16 px-6 md:px-12 lg:px-16'
       } ${dark ? 'bg-deep-navy' : 'bg-cosmic-black'} ${className}`}
       variants={staggerContainer}
       initial="hidden"
