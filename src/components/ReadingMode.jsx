@@ -1257,89 +1257,28 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 </span>
               </button>
 
-              {/* Tajweed + Kari — mobile only, quick access */}
-              {isMobile && (<>
-                <button
-                  onClick={() => setShowTajweed(v => !v)}
-                  style={{
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    width: '34px', height: '42px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
-                    border: `1px solid ${showTajweed ? navC.btnBorderActive : navC.btnBorder}`,
-                    background: showTajweed ? navC.btnBgActive : navC.btnBg,
-                    transition: 'all 0.15s', gap: '3px',
-                  }}
-                  title={language === 'tr' ? 'Tecvid Renkleri' : 'Tajweed Colors'}
-                >
-                  <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '15px', fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '0.75rem', fontWeight: 700, color: gold, lineHeight: 1 }}>تج</span>
-                  <span style={{ fontSize: '0.40rem', color: navC.label, letterSpacing: '0.04em', textTransform: 'uppercase', lineHeight: 1 }}>
-                    {language === 'tr' ? 'Tecvid' : 'Tajweed'}
-                  </span>
-                </button>
-                <button
-                  onClick={() => { setShowReciterPicker(p => !p); setShowMealPicker(false); setShowSurahPicker(false); setShowSettingsPicker(false); }}
-                  style={{
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    width: '34px', height: '42px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
-                    border: `1px solid ${showReciterPicker ? navC.btnBorderActive : navC.btnBorder}`,
-                    background: showReciterPicker ? navC.btnBgActive : navC.btnBg,
-                    transition: 'all 0.15s', gap: '3px',
-                  }}
-                  title={language === 'tr' ? 'Kari Seç' : 'Select Reciter'}
-                >
-                  <span style={{ color: gold, display: 'flex', alignItems: 'center' }}>
-                    <MicIcon size={15} />
-                  </span>
-                  <span style={{ fontSize: '0.40rem', color: navC.label, letterSpacing: '0.04em', textTransform: 'uppercase', lineHeight: 1 }}>
-                    {language === 'tr' ? 'Kari' : 'Reciter'}
-                  </span>
-                </button>
-              </>)}
-
-              {/* Settings gear — desktop only (font size + tajweed); hidden on mobile */}
-              {!isMobile && (
-                <button
-                  onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); }}
-                  style={{
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    width: '44px', height: '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
-                    border: `1px solid ${showSettingsPicker ? navC.btnBorderActive : navC.btnBorder}`,
-                    background: showSettingsPicker ? navC.btnBgActive : navC.btnBg,
-                    transition: 'all 0.15s', gap: '1px',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = showSettingsPicker ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showSettingsPicker ? navC.btnBorderActive : navC.btnBorder; }}
-                  title={language === 'tr' ? 'Ayarlar' : 'Settings'}
-                >
-                  <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
-                    {language === 'tr' ? 'Ayar' : 'Settings'}
-                  </span>
-                  <span style={{ fontSize: '1.1rem', color: gold, lineHeight: 1.2 }}>⚙</span>
-                </button>
-              )}
+              {/* Settings gear — mobile + desktop */}
+              <button
+                onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); }}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px',
+                  borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  border: `1px solid ${showSettingsPicker ? navC.btnBorderActive : navC.btnBorder}`,
+                  background: showSettingsPicker ? navC.btnBgActive : navC.btnBg,
+                  transition: 'all 0.15s', gap: '1px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                onMouseLeave={e => { e.currentTarget.style.background = showSettingsPicker ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showSettingsPicker ? navC.btnBorderActive : navC.btnBorder; }}
+                title={language === 'tr' ? 'Ayarlar' : 'Settings'}
+              >
+                <span style={{ fontSize: isMobile ? '1.0rem' : '1.1rem', color: gold, lineHeight: 1.2 }}>⚙</span>
+                <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  {language === 'tr' ? 'Ayar' : 'Settings'}
+                </span>
+              </button>
 
               <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 2px' }} />
-
-              {/* Görünüm: Kitap / Ayet */}
-              {btn(bookMode, () => setBookMode(v => !v),
-                language === 'tr' ? 'Görünüm' : 'View',
-                isMobile
-                  ? (bookMode ? <BookIcon size={17} /> : <ListIcon size={17} />)
-                  : (bookMode ? (language === 'tr' ? 'Kitap' : 'Book') : (language === 'tr' ? 'Ayet' : 'Verse')))}
-
-              {/* Meal */}
-              {btn(showTranslation || showMealPicker,
-                () => { setShowMealPicker(p => !p); setShowSurahPicker(false); setShowReciterPicker(false); setShowSettingsPicker(false); },
-                language === 'tr' ? 'Meal' : 'Trans.',
-                isMobile
-                  ? <TranslateIcon size={16} />
-                  : (showTranslation ? selectedMealAuthor.shortLabel : (language === 'tr' ? 'Kapalı' : 'Off')))}
-
-              {/* Kari */}
-              {!isMobile && btn(showReciterPicker, () => {
-                setShowReciterPicker(p => !p);
-                setShowMealPicker(false); setShowSurahPicker(false); setShowSettingsPicker(false);
-              }, language === 'tr' ? 'Kari' : 'Reciter',
-                language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn)}
 
               {/* Yer İmi — hidden on mobile */}
               {!isMobile && btn(showBookmarks || isCurrentPageBookmarked,
@@ -1756,58 +1695,93 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         </div>
       )}
 
-      {/* Settings dropdown — font size + day/night + tajweed */}
+      {/* Settings dropdown */}
       {showSettingsPicker && (
         <div style={{
-          position: 'absolute', top: '54px', right: '16px', zIndex: 100,
+          position: 'absolute', top: isMobile ? '52px' : '54px',
+          right: isMobile ? '8px' : '16px', zIndex: 100,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: '10px',
           padding: '14px 16px', boxShadow: dropC.shadow,
-          display: 'flex', flexDirection: 'column', gap: '14px', width: '230px',
+          display: 'flex', flexDirection: 'column', gap: '12px',
+          width: isMobile ? '240px' : '250px',
         }}>
-          {/* Font size section — desktop only */}
-          {!isMobile && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <span style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                {language === 'tr' ? 'Yazı Boyutu' : 'Font Size'}
-              </span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <button
-                  onClick={() => setArabicFontSize(s => Math.max(1.4, +(s - 0.2).toFixed(1)))}
-                  style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
-                  onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
-                >−</button>
-                <input
-                  type="range" min={1.4} max={3.6} step={0.2}
-                  value={arabicFontSize}
-                  onChange={e => setArabicFontSize(+parseFloat(e.target.value).toFixed(1))}
-                  style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
-                />
-                <button
-                  onClick={() => setArabicFontSize(s => Math.min(3.6, +(s + 0.2).toFixed(1)))}
-                  style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
-                  onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
-                >+</button>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
-                <button
-                  onClick={() => setArabicFontSize(2.2)}
-                  style={{ fontSize: '0.65rem', color: dropC.textMuted, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-                  onMouseEnter={e => { e.currentTarget.style.color = dropC.text; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
-                >{language === 'tr' ? 'Sıfırla' : 'Reset'}</button>
-              </div>
-            </div>
-          )}
 
-          {/* Divider — desktop only */}
-          {!isMobile && <div style={{ height: '1px', background: dropC.divider }} />}
+          {/* Section label */}
+          <span style={{ fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            {language === 'tr' ? 'Ayarlar' : 'Settings'}
+          </span>
 
-          {/* Tajweed toggle — desktop only (mobile has it in navbar) */}
-          {!isMobile && <button
+          {/* Görünüm: Kitap / Ayet */}
+          <button
+            onClick={() => { setBookMode(v => !v); setShowSettingsPicker(false); }}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              border: `1px solid ${bookMode ? navC.btnBorderActive : dropC.btnBorder}`,
+              background: bookMode ? dropC.itemBgActive : dropC.btnBg,
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+            onMouseLeave={e => { e.currentTarget.style.background = bookMode ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = bookMode ? navC.btnBorderActive : dropC.btnBorder; }}
+          >
+            <span style={{ fontSize: '0.82rem', color: bookMode ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+              {bookMode ? <BookIcon size={13} /> : <ListIcon size={13} />}
+              {language === 'tr' ? 'Görünüm' : 'View'}
+            </span>
+            <span style={{ fontSize: '0.7rem', color: bookMode ? gold : dropC.textMuted, fontWeight: 600 }}>
+              {bookMode ? (language === 'tr' ? 'Kitap' : 'Book') : (language === 'tr' ? 'Ayet' : 'Verse')}
+            </span>
+          </button>
+
+          {/* Meal / Translation */}
+          <button
+            onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowSurahPicker(false); setShowReciterPicker(false); }}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              border: `1px solid ${showTranslation ? navC.btnBorderActive : dropC.btnBorder}`,
+              background: showTranslation ? dropC.itemBgActive : dropC.btnBg,
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+            onMouseLeave={e => { e.currentTarget.style.background = showTranslation ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : dropC.btnBorder; }}
+          >
+            <span style={{ fontSize: '0.82rem', color: showTranslation ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <TranslateIcon size={13} />
+              {language === 'tr' ? 'Meal' : 'Translation'}
+            </span>
+            <span style={{ fontSize: '0.7rem', color: showTranslation ? gold : dropC.textMuted, fontWeight: 600 }}>
+              {showTranslation ? selectedMealAuthor.shortLabel : (language === 'tr' ? 'Kapalı' : 'Off')}
+            </span>
+          </button>
+
+          {/* Kari / Reciter */}
+          <button
+            onClick={() => { setShowReciterPicker(p => !p); setShowSettingsPicker(false); setShowMealPicker(false); setShowSurahPicker(false); }}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              border: `1px solid ${dropC.btnBorder}`,
+              background: dropC.btnBg,
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+            onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; }}
+          >
+            <span style={{ fontSize: '0.82rem', color: dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <MicIcon size={13} />
+              {language === 'tr' ? 'Kari' : 'Reciter'}
+            </span>
+            <span style={{ fontSize: '0.7rem', color: dropC.textMuted, fontWeight: 600, maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textAlign: 'right' }}>
+              {language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn}
+            </span>
+          </button>
+
+          <div style={{ height: '1px', background: dropC.divider }} />
+
+          {/* Tajweed toggle */}
+          <button
             onClick={() => setShowTajweed(v => !v)}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -1826,7 +1800,45 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             <span style={{ fontSize: '0.7rem', color: showTajweed ? gold : dropC.textMuted, fontWeight: 600 }}>
               {showTajweed ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
             </span>
-          </button>}
+          </button>
+
+          <div style={{ height: '1px', background: dropC.divider }} />
+
+          {/* Font size */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <span style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              {language === 'tr' ? 'Yazı Boyutu' : 'Font Size'}
+            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <button
+                onClick={() => setArabicFontSize(s => Math.max(1.4, +(s - 0.2).toFixed(1)))}
+                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
+                onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
+              >−</button>
+              <input
+                type="range" min={1.4} max={3.6} step={0.2}
+                value={arabicFontSize}
+                onChange={e => setArabicFontSize(+parseFloat(e.target.value).toFixed(1))}
+                style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
+              />
+              <button
+                onClick={() => setArabicFontSize(s => Math.min(3.6, +(s + 0.2).toFixed(1)))}
+                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
+                onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
+              >+</button>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
+              <button
+                onClick={() => setArabicFontSize(2.2)}
+                style={{ fontSize: '0.65rem', color: dropC.textMuted, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                onMouseEnter={e => { e.currentTarget.style.color = dropC.text; }}
+                onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
+              >{language === 'tr' ? 'Sıfırla' : 'Reset'}</button>
+            </div>
+          </div>
         </div>
       )}
 
