@@ -594,14 +594,14 @@ export default function HiddenArchitecture() {
       </motion.div>
 
       {/* ── Side-by-side: Prism + Detail ── */}
-      <motion.div variants={fadeUpItem} className="grid lg:grid-cols-[300px_1fr] gap-5 items-start mb-10">
+      <motion.div variants={fadeUpItem} className="grid lg:grid-cols-[360px_1fr] gap-5 items-start mb-10">
 
         {/* LEFT: Compact prism + layer list (sticky on desktop) */}
         <div className="lg:sticky lg:top-20 lg:self-start">
 
           {/* Prism SVG */}
           <div className="glass-card-strong p-4 mb-3">
-            <svg width="100%" viewBox="-170 0 440 290" style={{ display: 'block' }}>
+            <svg width="100%" viewBox="-80 -5 285 300" style={{ display: 'block' }}>
               <defs>
                 {/* Ray glow */}
                 <filter id="ray-glow" x="-80%" y="-80%" width="260%" height="260%">
@@ -703,22 +703,22 @@ export default function HiddenArchitecture() {
               <circle cx="132" cy="10" r="3.5" fill="rgba(220,235,255,0.7)" filter="url(#dot-glow)"/>
 
               {/* Incoming light ray — outer soft glow */}
-              <line x1="-160" y1="141" x2="79" y2="141"
+              <line x1="-76" y1="141" x2="79" y2="141"
                 stroke="white" strokeWidth="16" strokeLinecap="round"
                 opacity="0.08" filter="url(#in-ray-glow)"/>
               {/* Incoming light ray — inner glow */}
-              <line x1="-160" y1="141" x2="79" y2="141"
+              <line x1="-76" y1="141" x2="79" y2="141"
                 stroke="white" strokeWidth="7" strokeLinecap="round"
                 opacity="0.22" filter="url(#in-ray-glow)"/>
               {/* Incoming light ray — core beam with fade gradient */}
-              <line x1="-160" y1="141" x2="79" y2="141"
+              <line x1="-76" y1="141" x2="79" y2="141"
                 stroke="url(#in-ray-grad)" strokeWidth="3" strokeLinecap="round"/>
               {/* Entry point on prism face */}
               <circle cx="79" cy="141" r="5" fill="white" fillOpacity="0.95"
                 filter="url(#dot-glow)"/>
 
               {/* "Nur" label — Latin, gold, near origin of ray */}
-              <text x="-160" y="129"
+              <text x="-74" y="129"
                 style={{
                   fill: '#d4a574',
                   fontSize: '14px',
@@ -834,7 +834,7 @@ export default function HiddenArchitecture() {
         </div>
 
         {/* RIGHT: Content detail panel */}
-        <div>
+        <div style={{ alignSelf: 'start' }}>
           <AnimatePresence mode="wait">
             {activeLayer === null ? (
               <motion.div
