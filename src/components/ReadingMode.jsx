@@ -350,26 +350,26 @@ const SURAH_JUZ = [
 ];
 
 const SURAH_NAMES_TR = [
-  'Fatiha','Bakara','Âl-i İmrân','Nisâ','Mâide',
-  'En\'âm','A\'râf','Enfâl','Tevbe','Yûnus',
-  'Hûd','Yûsuf','Ra\'d','İbrâhim','Hicr','Nahl',
-  'İsrâ','Kehf','Meryem','Tâhâ','Enbiyâ','Hac',
-  'Mü\'minûn','Nûr','Furkân','Şuarâ','Neml',
-  'Kasas','Ankebût','Rûm','Lokmân','Secde','Ahzâb',
-  'Sebe\'','Fâtır','Yâ-Sîn','Sâffât','Sâd','Zümer',"Mü'min",
-  'Fussilet','Şûrâ','Zuhruf','Duhân','Câsiye','Ahkâf',
-  'Muhammed','Feth','Hucurât','Kâf','Zâriyât','Tûr',
-  'Necm','Kamer','Rahmân','Vâkıa','Hadîd','Mücâdele',
-  'Haşr','Mümtehine','Saf','Cum\'a','Münâfikûn',
-  'Teğâbun','Talâk','Tahrîm','Mülk','Kalem','Hâkka',
-  'Meâric','Nûh','Cin','Müzzemmil','Müddessir','Kıyâme',
-  'İnsân','Mürselât','Nebe\'','Nâziât','Abese','Tekvîr',
-  'İnfitâr','Mutaffifîn','İnşikâk','Burûc','Târık',
-  'A\'lâ','Ğâşiye','Fecr','Beled','Şems','Leyl',
-  'Duhâ','Şerh','Tîn','Alak','Kadr','Beyyine',
-  'Zelzele','Âdiyât','Kâri\'a','Tekâsür','Asr',
-  'Hümeze','Fîl','Kureyş','Mâûn','Kevser','Kâfirûn',
-  'Nasr','Tebbet','İhlâs','Felak','Nâs',
+  'El-Fatiha','El-Bakara','Âl-i İmrân','El-Nisâ','El-Mâide',
+  "El-En'âm","El-A'râf",'El-Enfâl','El-Tevbe','Yûnus',
+  'Hûd','Yûsuf',"El-Ra'd",'İbrâhim','El-Hicr','El-Nahl',
+  "El-İsrâ",'El-Kehf','Meryem','Tâhâ','El-Enbiyâ','El-Hac',
+  "El-Mü'minûn",'El-Nûr','El-Furkân','El-Şuarâ','El-Neml',
+  'El-Kasas','El-Ankebût','El-Rûm','Lokmân','El-Secde','El-Ahzâb',
+  "Sebe'",'Fâtır','Yâ-Sîn','El-Sâffât','Sâd','El-Zümer',"Mü'min",
+  'Fussilet','El-Şûrâ','El-Zuhruf','El-Duhân','El-Câsiye','El-Ahkâf',
+  'Muhammed','El-Feth','El-Hucurât','Kâf','El-Zâriyât','El-Tûr',
+  'El-Necm','El-Kamer','El-Rahmân','El-Vâkıa','El-Hadîd','El-Mücâdele',
+  'El-Haşr','El-Mümtehine','El-Saf',"El-Cum'a",'El-Münâfikûn',
+  'El-Teğâbun','El-Talâk','El-Tahrîm','El-Mülk','El-Kalem','El-Hâkka',
+  'El-Meâric','Nûh','El-Cin','El-Müzzemmil','El-Müddessir','El-Kıyâme',
+  "El-İnsân",'El-Mürselât',"El-Nebe'",'El-Nâziât','Abese','El-Tekvîr',
+  'El-İnfitâr','El-Mutaffifîn','El-İnşikâk','El-Burûc','El-Târık',
+  "El-A'lâ",'El-Ğâşiye','El-Fecr','El-Beled','El-Şems','El-Leyl',
+  'El-Duhâ','El-Şerh','El-Tîn','El-Alak','El-Kadr','El-Beyyine',
+  'El-Zelzele',"El-Âdiyât","El-Kâri'a",'El-Tekâsür','El-Asr',
+  'El-Hümeze','El-Fîl','Kureyş','El-Mâûn','El-Kevser','El-Kâfirûn',
+  'El-Nasr','Tebbet','El-İhlâs','El-Felak','El-Nâs',
 ];
 
 // Arabic surah names (standard Uthmani spelling)
@@ -1186,15 +1186,12 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
               {!isMobile && navBtn(selectedSurah + 1, nextName, 'next', () => changeSurah(selectedSurah + 1))}
 
-              {/* Mobile: inline page + cüz info */}
+              {/* Mobile: cüz info only */}
               {isMobile && bookMode && (
                 <>
                   <div style={{ width: '1px', height: '18px', background: navC.divider, opacity: 0.5, flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.72rem', color: gold, fontWeight: 700, flexShrink: 0 }}>
-                    {currentPage}
-                  </span>
                   <span style={{ fontSize: '0.6rem', color: navC.label, flexShrink: 0, whiteSpace: 'nowrap' }}>
-                    {language === 'tr' ? `· Cüz ${currentDisplayJuz}` : `· Juz ${currentDisplayJuz}`}
+                    {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
                   </span>
                 </>
               )}
@@ -1203,117 +1200,16 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         })()}
 
 
-        {/* CENTER: Page navigation (book mode, desktop only) */}
+        {/* CENTER: Cüz info (book mode, desktop only) */}
         {!isMobile && bookMode ? (
-          showPageInput ? (
-            <form
-              onSubmit={e => {
-                e.preventDefault();
-                const n = parseInt(pageInputValue, 10);
-                if (!isNaN(n)) navigateToPage(n);
-                setShowPageInput(false);
-                setPageInputValue('');
-              }}
-              style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center' }}
-            >
-              <input
-                autoFocus
-                type="number"
-                min={0} max={604}
-                value={pageInputValue}
-                onChange={e => setPageInputValue(e.target.value)}
-                onBlur={() => { setShowPageInput(false); setPageInputValue(''); }}
-                onKeyDown={e => { if (e.key === 'Escape') { setShowPageInput(false); setPageInputValue(''); } }}
-                placeholder={String(currentPage)}
-                style={{
-                  width: '60px', padding: '4px 8px', borderRadius: '6px',
-                  background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(212,165,116,0.4)',
-                  color: gold, fontSize: '16px', fontWeight: 700, textAlign: 'center', outline: 'none',
-                }}
-              />
-              <span style={{ color: '#64748b', fontSize: '0.72rem' }}>/ 604</span>
-            </form>
-          ) : (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: isMobile ? 'flex-start' : 'center', gap: isMobile ? '3px' : '4px', gridColumn: isMobile ? '1 / -1' : undefined, gridRow: isMobile ? '2' : undefined, padding: isMobile ? '0 0 2px 0' : undefined }}>
-              {/* Prev page — page-centric across entire mushaf */}
-              {(() => {
-                const canPrev = currentPage > 0;
-                const handlePrev = () => {
-                  if (currentPage > 0) navigateToPage(currentPage - 1);
-                };
-                return (
-                  <button
-                    onClick={handlePrev} disabled={!canPrev}
-                    style={{
-                      width: isMobile ? '26px' : '32px', height: isMobile ? '28px' : '44px', borderRadius: '8px', cursor: canPrev ? 'pointer' : 'default',
-                      border: `1px solid ${navC.btnBorder}`, background: navC.btnBg,
-                      color: canPrev ? navC.chevron : navC.chevronDisabled,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
-                    }}
-                    onMouseEnter={e => { if (canPrev) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}}
-                    onMouseLeave={e => { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.color = canPrev ? navC.chevron : navC.chevronDisabled; }}
-                  >
-                    <ChevronLeft size={13} />
-                  </button>
-                );
-              })()}
-
-              {/* Page number — click to type */}
-              <button
-                onClick={() => { setShowPageInput(true); setPageInputValue(String(currentPage)); }}
-                style={{
-                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  height: isMobile ? '28px' : '44px', padding: isMobile ? '0 8px' : '0 14px', borderRadius: '8px', cursor: 'pointer',
-                  border: `1px solid ${navC.btnBorder}`, background: navC.btnBg,
-                  transition: 'all 0.15s', gap: '2px',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-                onMouseLeave={e => { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; }}
-                title={language === 'tr' ? 'Sayfaya git' : 'Go to page'}
-              >
-                <>
-                  <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
-                    {language === 'tr' ? 'Sayfa' : 'Page'}
-                  </span>
-                  <span style={{ fontSize: isMobile ? '0.75rem' : '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2 }}>
-                    {currentPage}{!isMobile && <span style={{ color: '#7a8a9a', fontWeight: 400 }}> / 604</span>}
-                  </span>
-                </>
-              </button>
-
-              {/* Next page — page-centric across entire mushaf */}
-              {(() => {
-                const canNext = currentPage < 604;
-                const handleNext = () => {
-                  if (currentPage < 604) navigateToPage(currentPage + 1);
-                };
-                return (
-                  <button
-                    onClick={handleNext} disabled={!canNext}
-                    style={{
-                      width: isMobile ? '26px' : '32px', height: isMobile ? '28px' : '44px', borderRadius: '8px', cursor: canNext ? 'pointer' : 'default',
-                      border: `1px solid ${navC.btnBorder}`, background: navC.btnBg,
-                      color: canNext ? navC.chevron : navC.chevronDisabled,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
-                    }}
-                    onMouseEnter={e => { if (canNext) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}}
-                    onMouseLeave={e => { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.color = canNext ? navC.chevron : navC.chevronDisabled; }}
-                  >
-                    <ChevronRight size={13} />
-                  </button>
-                );
-              })()}
-
-              {/* Cüz label — static info, no button */}
-              <span style={{
-                fontSize: '0.62rem', color: navC.label,
-                fontFamily: "'Inter', sans-serif", letterSpacing: '0.04em',
-                whiteSpace: 'nowrap', paddingLeft: '2px',
-              }}>
-                {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
-              </span>
-            </div>
-          )
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{
+              fontSize: '0.72rem', color: navC.label,
+              fontFamily: "'Inter', sans-serif", letterSpacing: '0.05em',
+            }}>
+              {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
+            </span>
+          </div>
         ) : (!isMobile ? <div /> : null)}
 
         {/* RIGHT: controls */}
@@ -1479,7 +1375,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           zIndex: 100,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: '10px',
-          width: isMobile ? 'auto' : '260px', boxShadow: dropC.shadow,
+          width: isMobile ? 'auto' : '320px', boxShadow: dropC.shadow,
           display: 'flex', flexDirection: 'column',
         }}>
           {/* Search input */}
@@ -1526,7 +1422,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             // Shared: find surah number for a given mushaf page
             const surahAtPage = (page) => {
               for (let i = SURAH_PAGES.length - 1; i >= 0; i--) {
-                if (SURAH_PAGES[i] + 1 <= page) return i + 1;
+                if (SURAH_PAGES[i] <= page) return i + 1;
               }
               return 1;
             };
@@ -2817,6 +2713,100 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* Bottom page navigator */}
+        {bookMode && (
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            gap: '12px', padding: '18px 0 8px',
+          }}>
+            <button
+              onClick={() => { if (currentPage < 604) navigateToPage(currentPage + 1); }}
+              disabled={currentPage >= 604}
+              style={{
+                width: '36px', height: '36px', borderRadius: '50%',
+                border: `1px solid ${currentPage < 604 ? (dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)') : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
+                background: currentPage < 604 ? (dayMode ? 'rgba(100,60,10,0.06)' : 'rgba(212,165,116,0.06)') : 'transparent',
+                color: currentPage < 604 ? gold : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.12)'),
+                cursor: currentPage < 604 ? 'pointer' : 'default',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'all 0.18s',
+              }}
+            >
+              <ChevronLeft size={16} />
+            </button>
+
+            {currentPage === 0 ? (
+              <span style={{
+                fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
+                color: gold, letterSpacing: '0.06em',
+                padding: '2px 6px',
+              }}>
+                {language === 'tr' ? 'Açılış' : 'Opening'}
+              </span>
+            ) : showPageInput ? (
+              <form
+                onSubmit={e => {
+                  e.preventDefault();
+                  const n = parseInt(pageInputValue, 10);
+                  if (!isNaN(n) && n >= 1 && n <= 604) navigateToPage(n);
+                  setShowPageInput(false);
+                  setPageInputValue('');
+                }}
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                <input
+                  autoFocus
+                  type="number"
+                  min={1} max={604}
+                  value={pageInputValue}
+                  onChange={e => setPageInputValue(e.target.value)}
+                  onBlur={() => { setShowPageInput(false); setPageInputValue(''); }}
+                  onKeyDown={e => { if (e.key === 'Escape') { setShowPageInput(false); setPageInputValue(''); } }}
+                  placeholder={String(currentPage)}
+                  style={{
+                    width: '56px', padding: '4px 8px', borderRadius: '6px',
+                    background: dayMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.08)',
+                    border: `1px solid ${dayMode ? 'rgba(100,60,10,0.35)' : 'rgba(212,165,116,0.4)'}`,
+                    color: gold, fontSize: '16px', fontWeight: 700, textAlign: 'center', outline: 'none',
+                  }}
+                />
+                <span style={{ color: dayMode ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.25)', fontSize: '0.75rem' }}>/ 604</span>
+              </form>
+            ) : (
+              <button
+                onClick={() => { setShowPageInput(true); setPageInputValue(String(currentPage)); }}
+                title={language === 'tr' ? 'Sayfaya git' : 'Go to page'}
+                style={{
+                  background: 'transparent', border: 'none', cursor: 'pointer', padding: '2px 6px',
+                  fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", fontWeight: 500,
+                  color: dayMode ? 'rgba(80,50,10,0.65)' : 'rgba(212,165,116,0.6)',
+                  letterSpacing: '0.04em',
+                }}
+              >
+                {language === 'tr' ? 'Sayfa' : 'Page'}{' '}
+                <span style={{ color: gold, fontWeight: 700 }}>{currentPage}</span>
+                <span style={{ color: dayMode ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.2)' }}> / 604</span>
+              </button>
+            )}
+
+            <button
+              onClick={() => { if (currentPage > 0) navigateToPage(currentPage - 1); }}
+              disabled={currentPage <= 0}
+              style={{
+                width: '36px', height: '36px', borderRadius: '50%',
+                border: `1px solid ${currentPage > 0 ? (dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)') : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
+                background: currentPage > 0 ? (dayMode ? 'rgba(100,60,10,0.06)' : 'rgba(212,165,116,0.06)') : 'transparent',
+                color: currentPage > 0 ? gold : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.12)'),
+                cursor: currentPage > 0 ? 'pointer' : 'default',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'all 0.18s',
+              }}
+            >
+              <ChevronRight size={16} />
+            </button>
           </div>
         )}
 
