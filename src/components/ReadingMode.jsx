@@ -2055,23 +2055,32 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       {/* Search overlay */}
       {showSearch && (
         <div
-          style={{ position: 'absolute', inset: 0, zIndex: 200, background: 'rgba(5,7,18,0.6)', backdropFilter: 'blur(4px)' }}
+          style={{
+            position: 'absolute', inset: 0, zIndex: 200,
+            background: dayMode ? 'rgba(180,155,110,0.25)' : 'rgba(5,7,18,0.6)',
+            backdropFilter: 'blur(4px)',
+          }}
           onClick={e => { if (e.target === e.currentTarget) { setShowSearch(false); setSearchQuery(''); } }}
         >
           <div style={{
             position: 'absolute', top: '70px', left: '50%', transform: 'translateX(-50%)',
             width: '100%', maxWidth: '680px',
-            background: 'rgba(10,12,28,0.98)', backdropFilter: 'blur(24px)',
-            border: '1px solid rgba(212,165,116,0.2)', borderRadius: '14px',
-            boxShadow: '0 24px 64px rgba(0,0,0,0.7)',
+            background: dayMode ? 'rgba(245,239,228,0.99)' : 'rgba(10,12,28,0.98)',
+            backdropFilter: 'blur(24px)',
+            border: `1px solid ${dayMode ? 'rgba(122,82,21,0.2)' : 'rgba(212,165,116,0.2)'}`,
+            borderRadius: '14px',
+            boxShadow: dayMode ? '0 24px 64px rgba(0,0,0,0.12)' : '0 24px 64px rgba(0,0,0,0.7)',
             display: 'flex', flexDirection: 'column', maxHeight: 'calc(100vh - 100px)',
           }}>
           {/* Search input bar */}
           <div style={{
-            padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)',
+            padding: '16px 20px',
+            borderBottom: `1px solid ${dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)'}`,
             display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0,
           }}>
-            <SearchIcon size={18} />
+            <span style={{ color: dayMode ? 'rgba(80,50,20,0.5)' : 'rgba(200,185,165,0.5)' }}>
+              <SearchIcon size={18} />
+            </span>
             <input
               autoFocus
               type="text"
@@ -2081,12 +2090,13 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               placeholder={language === 'tr' ? 'Meal veya sure adında ara...' : 'Search in translation or surah name...'}
               style={{
                 flex: 1, background: 'none', border: 'none', outline: 'none',
-                color: '#e8e6e3', fontSize: '1.05rem', fontFamily: "'Inter', sans-serif",
+                color: dayMode ? 'rgba(30,15,5,0.88)' : '#e8e6e3',
+                fontSize: '1.05rem', fontFamily: "'Inter', sans-serif",
               }}
             />
             {searchQuery && (
               <button onClick={() => setSearchQuery('')}
-                style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}>
+                style={{ background: 'none', border: 'none', color: dayMode ? 'rgba(80,50,20,0.4)' : '#64748b', cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}>
                 ✕
               </button>
             )}
@@ -2095,16 +2105,16 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           {/* Results */}
           <div style={{ flex: 1, overflowY: 'auto', padding: '4px 0' }}>
             {searchQuery.trim().length < 2 ? (
-              <div style={{ textAlign: 'center', padding: '60px 24px', color: '#4a5568', fontSize: '0.9rem' }}>
+              <div style={{ textAlign: 'center', padding: '60px 24px', color: dayMode ? 'rgba(80,50,20,0.4)' : '#4a5568', fontSize: '0.9rem' }}>
                 {language === 'tr' ? 'En az 2 karakter girin' : 'Type at least 2 characters'}
               </div>
             ) : searchResults.total === 0 ? (
-              <div style={{ textAlign: 'center', padding: '60px 24px', color: '#4a5568', fontSize: '0.9rem' }}>
+              <div style={{ textAlign: 'center', padding: '60px 24px', color: dayMode ? 'rgba(80,50,20,0.4)' : '#4a5568', fontSize: '0.9rem' }}>
                 {language === 'tr' ? 'Sonuç bulunamadı' : 'No results found'}
               </div>
             ) : (
               <>
-                <div style={{ padding: '8px 24px 12px', fontSize: '0.65rem', color: '#4a5568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                <div style={{ padding: '8px 24px 12px', fontSize: '0.65rem', color: dayMode ? 'rgba(80,50,20,0.45)' : '#4a5568', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                   {searchResults.total > 60
                     ? (language === 'tr'
                         ? `${searchResults.total} sonuç — ilk 60 gösteriliyor`
@@ -2126,7 +2136,11 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                   const highlighted = idx >= 0 ? (
                     <span>
                       {text.slice(0, idx)}
-                      <mark style={{ background: 'rgba(212,165,116,0.3)', color: '#f0d898', borderRadius: '2px', padding: '0 1px' }}>
+                      <mark style={{
+                        background: dayMode ? 'rgba(180,130,40,0.2)' : 'rgba(212,165,116,0.3)',
+                        color: dayMode ? 'rgba(100,60,10,0.95)' : '#f0d898',
+                        borderRadius: '2px', padding: '0 1px',
+                      }}>
                         {text.slice(idx, idx + q.length)}
                       </mark>
                       {text.slice(idx + q.length)}
@@ -2148,16 +2162,17 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       }}
                       style={{
                         display: 'block', width: '100%', textAlign: 'left',
-                        padding: '12px 24px', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.04)',
+                        padding: '12px 24px', border: 'none',
+                        borderBottom: `1px solid ${dayMode ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.04)'}`,
                         background: 'transparent', cursor: 'pointer', transition: 'background 0.12s',
                       }}
-                      onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.05)'}
+                      onMouseEnter={e => e.currentTarget.style.background = dayMode ? 'rgba(122,82,21,0.06)' : 'rgba(212,165,116,0.05)'}
                       onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                     >
                       <div style={{ fontSize: '0.7rem', color: gold, fontWeight: 600, marginBottom: '5px', letterSpacing: '0.03em' }}>
                         {surahName} · {verse.surah}:{verse.ayah}
                       </div>
-                      <div style={{ fontSize: '0.88rem', color: '#c2bbb0', lineHeight: 1.65 }}>
+                      <div style={{ fontSize: '0.88rem', color: dayMode ? 'rgba(30,15,5,0.72)' : '#c2bbb0', lineHeight: 1.65 }}>
                         {highlighted}
                       </div>
                     </button>
