@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, lazy, Suspense, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -7,6 +7,7 @@ const ReadingMode = lazy(() => import('./ReadingMode'));
 const WordHeatmap = lazy(() => import('./WordHeatmap'));
 const RevelationTimeline = lazy(() => import('./RevelationTimeline'));
 const DuaVerses = lazy(() => import('./DuaVerses'));
+const WowFacts  = lazy(() => import('./WowFacts'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -105,14 +106,29 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [exploreOpen, setExploreOpen]   = useState(false);
   const [toolsOpen, setToolsOpen]       = useState(false);
-  const [graphOpen, setGraphOpen]       = useState(false);
+  const [graphOpen, setGraphOpen]       = useState(
+    () => localStorage.getItem('qurancodex_graph_open') === 'true'
+  );
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
+  const graphBackRef = useRef(null); // set by VerseGraph when it has internal back state
   const [readingOpen, setReadingOpen]   = useState(
     () => localStorage.getItem('qurancodex_reading_open') === 'true'
   );
   const [heatmapOpen, setHeatmapOpen]   = useState(false);
   const [revelationOpen, setRevelationOpen] = useState(false);
   const [duaOpen, setDuaOpen]           = useState(false);
+  const [wowOpen, setWowOpen]           = useState(false);
+  const [duaCount, setDuaCount]         = useState(null);
+
+  useEffect(() => {
+    fetch('/dua-verses.json')
+      .then(r => r.json())
+      .then(data => {
+        if (Array.isArray(data)) setDuaCount(data.length);
+        else if (data?.duas && Array.isArray(data.duas)) setDuaCount(data.duas.length);
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -123,6 +139,10 @@ export default function Navbar() {
   useEffect(() => {
     localStorage.setItem('qurancodex_reading_open', String(readingOpen));
   }, [readingOpen]);
+
+  useEffect(() => {
+    localStorage.setItem('qurancodex_graph_open', String(graphOpen));
+  }, [graphOpen]);
 
   // Listen for openVerseGraph events from other sections (e.g. MathMiracle)
   useEffect(() => {
@@ -149,23 +169,32 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen]);
 
   useEffect(() => {
     const handlePop = () => {
       if (readingOpen)    { setReadingOpen(false);    return; }
-      if (graphOpen)      { setGraphOpen(false);      return; }
+      if (graphOpen) {
+        if (graphBackRef.current) {
+          graphBackRef.current();                          // VerseGraph handles internally
+          window.history.pushState({ overlay: true }, ''); // restore history entry for graph
+        } else {
+          setGraphOpen(false);
+        }
+        return;
+      }
       if (heatmapOpen)    { setHeatmapOpen(false);    return; }
       if (revelationOpen) { setRevelationOpen(false); return; }
       if (duaOpen)        { setDuaOpen(false);        return; }
+      if (wowOpen)        { setWowOpen(false);         return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -188,15 +217,28 @@ export default function Navbar() {
 
   const tools = [
     {
+      labelTr: "Kur'an'ı Tanı", labelEn: 'Meet the Quran',
+      descTr: 'Az bilinen, şaşırtan gerçekler', descEn: 'Hidden gems & surprising facts',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <path d="M12 2l1.5 6.5L20 12l-6.5 1.5L12 22l-1.5-6.5L4 12l6.5-1.5z" />
+        </svg>
+      ),
+      action: () => { setWowOpen(true); setToolsOpen(false); },
+    },
+    {
       labelTr: 'Ayet Haritası', labelEn: 'Verse Map',
       descTr: '6.236 ayeti uzayda gör', descEn: 'See 6,236 verses in 3D space',
       icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <circle cx="12" cy="12" r="2" />
-          <circle cx="4" cy="6" r="1.5" /><circle cx="20" cy="6" r="1.5" />
-          <circle cx="4" cy="18" r="1.5" /><circle cx="20" cy="18" r="1.5" />
-          <line x1="12" y1="12" x2="4" y2="6" /><line x1="12" y1="12" x2="20" y2="6" />
-          <line x1="12" y1="12" x2="4" y2="18" /><line x1="12" y1="12" x2="20" y2="18" />
+        // Scattered dots of different sizes — no lines, no X
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <circle cx="5"  cy="6"  r="2.5" />
+          <circle cx="14" cy="4"  r="1.5" />
+          <circle cx="20" cy="10" r="3"   />
+          <circle cx="8"  cy="16" r="2"   />
+          <circle cx="18" cy="19" r="1.5" />
+          <circle cx="3"  cy="19" r="1"   />
+          <circle cx="12" cy="12" r="1"   />
         </svg>
       ),
       action: () => { setGraphOpen(true); setToolsOpen(false); },
@@ -205,9 +247,12 @@ export default function Navbar() {
       labelTr: 'Kelime Haritası', labelEn: 'Word Map',
       descTr: 'Hangi kelime nerede yoğunlaşıyor?', descEn: 'Where does each word concentrate?',
       icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" />
-          <rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
+        // Frequency bars — 4 bars of different heights like a bar chart
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <rect x="2"  y="14" width="4" height="8"  rx="1" />
+          <rect x="7"  y="8"  width="4" height="14" rx="1" />
+          <rect x="13" y="4"  width="4" height="18" rx="1" />
+          <rect x="18" y="10" width="4" height="12" rx="1" />
         </svg>
       ),
       action: () => { setHeatmapOpen(true); setToolsOpen(false); },
@@ -216,22 +261,28 @@ export default function Navbar() {
       labelTr: 'Nüzul Sırası', labelEn: 'Revelation Order',
       descTr: '23 yıllık vahyin kronolojisi', descEn: 'The chronology of 23 years of revelation',
       icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" />
-          <line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
+        // Timeline: horizontal axis with milestone dots and vertical tick marks at different heights
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+          <line x1="2" y1="18" x2="22" y2="18" />
+          <line x1="5" y1="18" x2="5" y2="8" />
+          <circle cx="5" cy="7" r="1.8" fill="currentColor" stroke="none" />
+          <line x1="10" y1="18" x2="10" y2="13" />
+          <circle cx="10" cy="12" r="1.5" fill="currentColor" stroke="none" />
+          <line x1="15" y1="18" x2="15" y2="7" />
+          <circle cx="15" cy="6" r="1.8" fill="currentColor" stroke="none" />
+          <line x1="20" y1="18" x2="20" y2="11" />
+          <circle cx="20" cy="10" r="1.5" fill="currentColor" stroke="none" />
         </svg>
       ),
       action: () => { setRevelationOpen(true); setToolsOpen(false); },
     },
     {
       labelTr: 'Dua Ayetleri', labelEn: 'Prayer Verses',
-      descTr: 'Kur\'an\'dan 35 seçilmiş dua', descEn: '35 selected supplications from the Quran',
+      descTr: `Kur'an'dan ${duaCount ?? '...'} seçilmiş dua`, descEn: `${duaCount ?? '...'} selected supplications from the Quran`,
       icon: (
+        // Crescent moon — universal Islamic prayer/supplication symbol
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 11V8a2 2 0 0 0-4 0v4" />
-          <path d="M14 11.5V6a2 2 0 0 0-4 0v6" />
-          <path d="M10 11.5V8a2 2 0 0 0-4 0v4" />
-          <path d="M6 11h12v2a6 6 0 0 1-12 0v-2z" />
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       ),
       action: () => { setDuaOpen(true); setToolsOpen(false); },
@@ -260,19 +311,22 @@ export default function Navbar() {
       role="navigation"
       aria-label="Main navigation"
     >
-      {/* 3-column grid — logo | center nav | right actions */}
-      <div className="max-w-7xl mx-auto px-8" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '16px' }}>
+      {/* Left: logo + nav | Right: actions */}
+      <div className="max-w-7xl mx-auto px-8" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
 
-        {/* Logo — left */}
+        {/* Left group: logo + nav links */}
+        <div className="flex items-center gap-6">
+
+        {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="text-gold font-display font-bold tracking-[0.18em] hover:text-royal-gold transition-colors"
-          style={{ fontSize: '1.05rem', justifySelf: 'start' }}
+          style={{ fontSize: '1.05rem', flexShrink: 0 }}
         >
           QURAN CODEX
         </button>
 
-        {/* Center nav — always truly centered */}
+        {/* Nav links */}
         <div className="hidden lg:flex items-center gap-1">
 
           {/* Keşfet dropdown */}
@@ -394,8 +448,10 @@ export default function Navbar() {
           </div>
         </div>
 
+        </div>{/* end left group */}
+
         {/* Right: Oku + Language + Mobile */}
-        <div className="flex items-center gap-3" style={{ justifySelf: 'end' }}>
+        <div className="flex items-center gap-3">
 
           {/* Oku — primary CTA */}
           <button
@@ -546,8 +602,15 @@ export default function Navbar() {
     {graphOpen && (
       <Suspense fallback={null}>
         <VerseGraph
-          onClose={() => { setGraphOpen(false); setGraphInitialSearch(''); }}
+          onClose={() => {
+            setGraphOpen(false);
+            setGraphInitialSearch('');
+            graphBackRef.current = null;
+            localStorage.removeItem('qurancodex_graph_view');
+            localStorage.removeItem('qurancodex_graph_surah');
+          }}
           initialSearch={graphInitialSearch}
+          onRegisterBackHandler={(fn) => { graphBackRef.current = fn; }}
         />
       </Suspense>
     )}
@@ -569,6 +632,11 @@ export default function Navbar() {
     {duaOpen && (
       <Suspense fallback={null}>
         <DuaVerses onClose={() => setDuaOpen(false)} />
+      </Suspense>
+    )}
+    {wowOpen && (
+      <Suspense fallback={null}>
+        <WowFacts onClose={() => setWowOpen(false)} />
       </Suspense>
     )}
     </>
