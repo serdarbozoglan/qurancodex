@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -181,23 +181,10 @@ export default function HiddenArchitecture() {
   const [activePair,    setActivePair]    = useState(null);
   const [activeSurah,   setActiveSurah]   = useState('fatiha');
   const [showInfo,      setShowInfo]      = useState(false);
-  const [audioPlaying,  setAudioPlaying]  = useState(false);
-  const audioRef = useRef(null);
   const surah = SURAHS[activeSurah];
 
-  const handleAudioToggle = () => {
-    if (!audioRef.current) return;
-    if (audioPlaying) {
-      audioRef.current.pause();
-      setAudioPlaying(false);
-    } else {
-      audioRef.current.play().catch(() => {});
-      setAudioPlaying(true);
-    }
-  };
-
   return (
-    <SectionWrapper id="hidden-architecture" dark={true} className="!pt-8 md:!pt-12 !pb-8 md:!pb-12">
+    <SectionWrapper id="hidden-architecture" dark={true}>
 
       {/* ── Section header ── */}
       <motion.div variants={fadeUpItem}>
@@ -550,47 +537,15 @@ export default function HiddenArchitecture() {
         {t('sevenLayers.intro')}
       </motion.p>
 
-      {/* ── Verse + audio button ── */}
-      <motion.div variants={fadeUpItem} className="relative mb-8">
-        <audio
-          ref={audioRef}
-          src="https://everyayah.com/data/Alafasy_128kbps/024035.mp3"
-          onEnded={() => setAudioPlaying(false)}
-        />
+      {/* ── Verse + audio (fallback chain via QuranVerse) ── */}
+      <motion.div variants={fadeUpItem} className="mb-8">
         <QuranVerse
           arabic={t('sevenLayers.verse.arabic')}
           translation={t('sevenLayers.verse.translation')}
           reference={t('sevenLayers.verse.reference')}
           className="gold-glow"
+          surah={24} ayah={35}
         />
-        {/* Play / pause button */}
-        <button
-          onClick={handleAudioToggle}
-          title={audioPlaying
-            ? (language === 'tr' ? 'Durdur' : 'Pause')
-            : (language === 'tr' ? 'Dinle' : 'Listen')}
-          style={{
-            position: 'absolute', bottom: '14px', right: '14px',
-            width: '38px', height: '38px', borderRadius: '50%',
-            background: audioPlaying ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.06)',
-            border: `1px solid ${audioPlaying ? 'rgba(212,165,116,0.55)' : 'rgba(255,255,255,0.12)'}`,
-            boxShadow: audioPlaying ? '0 0 18px rgba(212,165,116,0.25)' : 'none',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: 'pointer', transition: 'all 0.25s',
-            color: audioPlaying ? '#d4a574' : '#94a3b8',
-          }}
-        >
-          {audioPlaying ? (
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-              <rect x="6" y="4" width="4" height="16" rx="1"/>
-              <rect x="14" y="4" width="4" height="16" rx="1"/>
-            </svg>
-          ) : (
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="6,3 20,12 6,21"/>
-            </svg>
-          )}
-        </button>
       </motion.div>
 
       {/* ── Side-by-side: Prism + Detail ── */}

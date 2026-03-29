@@ -6,6 +6,13 @@ import QuranVerse from '../components/QuranVerse';
 
 const storyKeys = ['pharaoh', 'haman', 'rome'];
 
+// Verse coordinates (surah/ayah) — audio handled with fallback by QuranVerse
+const storyVerses = {
+  pharaoh: { surah: 10, ayah: 92 },
+  haman:   { surah: 28, ayah: 38 },
+  rome:    [{ surah: 30, ayah: 2 }, { surah: 30, ayah: 3 }, { surah: 30, ayah: 4 }],
+};
+
 const storyAccents = {
   pharaoh: {
     border: 'border-gold',
@@ -79,7 +86,7 @@ export default function HistoricalProof() {
               >
                 {/* Timeline dot */}
                 <div
-                  className={`absolute left-2.5 md:left-3.5 top-6 w-4 h-4 rounded-full border-2 ${accent.border} ${
+                  className={`absolute left-2 md:left-3 top-6 w-5 h-5 md:w-4 md:h-4 rounded-full border-2 ${accent.border} ${
                     isExpanded ? accent.dot : 'bg-cosmic-black'
                   } transition-colors duration-300 z-10`}
                 />
@@ -135,7 +142,7 @@ export default function HistoricalProof() {
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
-                        <div className="px-5 md:px-6 pb-6 md:pb-8 space-y-4">
+                        <div className="px-5 md:px-6 pb-6 md:pb-8 space-y-2">
                           {/* Content paragraphs */}
                           <p className="text-silver text-sm leading-relaxed font-body">
                             {story.content}
@@ -167,6 +174,10 @@ export default function HistoricalProof() {
                               arabic={story.verse.arabic}
                               translation={story.verse.translation}
                               reference={story.verse.reference}
+                              {...(Array.isArray(storyVerses[key])
+                                ? { verses: storyVerses[key] }
+                                : { surah: storyVerses[key].surah, ayah: storyVerses[key].ayah }
+                              )}
                             />
                           )}
                         </div>

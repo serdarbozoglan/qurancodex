@@ -178,7 +178,7 @@ export default function ProphetMap({ activeProphet, prophet }) {
   const tr = (t, e) => language === 'tr' ? t : e;
 
   useEffect(() => {
-    fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+    fetch('/world-atlas.json')
       .then(r => r.json())
       .then(data => {
         const geo = topojson.feature(data, data.objects.countries);

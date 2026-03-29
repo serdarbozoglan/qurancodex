@@ -141,7 +141,7 @@ export default function LinguisticDNA() {
   const [openGroup, setOpenGroup] = useState(null);
 
   return (
-    <SectionWrapper id="linguistic" dark={false} className="!pb-8 md:!pb-12">
+    <SectionWrapper id="linguistic" dark={false}>
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">

@@ -281,7 +281,7 @@
         "Demir, Güneş gibi yıldızlarda oluşamaz: füzyon için yeterli sıcaklık ve basınç yoktur",
         "Demir yalnızca süpernovalarda üretilir ve uzaya saçılır",
         "Dünya'daki tüm demir milyarlarca yıl önce meteorlarla gelmiştir",
-        "Hadid Suresi Kur'an'ın 57. suresidir; Fe-57 demirin en yaygın izotopudur — ilgi çekici bir örtüşme, ancak tesadüf niteliği taşıyabilir"
+        "Hadid Suresi Kur'an'ın 57. suresidir; Fe-57 demirin stabil izotoplarından biridir — ilgi çekici bir örtüşme. Ancak demirin en bol izotopu Fe-56'dır (%91.75); bu örtüşme bilimsel doğrulama olarak sunulamaz"
       ],
       "criticalNote": "'Enzelnâ' kelimesinin bu bağlamda kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin büyük çoğunluğu bu fiili 'lütfettik, ihsan ettik' anlamında yorumlamıştır. Modern astrofizik yorumu, 20. yüzyıldan itibaren öne çıkan bir okumadır."
     },
@@ -387,7 +387,7 @@
     "rome": {
       "title": "Roma'nın İmkansız Zaferi",
       "subtitle": "MS 614-628 — Tarihsel kayıtlarla doğrulandı",
-      "content": "614: Sasani Persler Kudüs'ü ele geçirir. Bizans İmparatorluğu çöküş halindedir. Kimse Bizans'ın toparlanabileceğini düşünmüyor. Tam bu dönemde Kur'an şaşırtıcı bir kehanet sunar.",
+      "content": "614: Sasani Persler Kudüs'ü ele geçirir. Bizans İmparatorluğu çöküş halindedir. Kimse Bizans'ın toparlanabileceğini düşünmüyor. Tam bu dönemde Kur'an çarpıcı bir tarihsel öngörü sunar.",
       "points": [
         "'Bid' sinin' (birkaç yıl) = Arapça'da 3-9 yıl demektir",
         "622'den 628'e = 6 yıl - tam sınırların içinde",
@@ -500,7 +500,7 @@
       },
       {
         "title": "Parmak İzleri",
-        "content": "'Parmak uçlarını bile düzeltmeye kadiriz' (Kıyamet 75:4). Neden tüm organlar arasında özellikle parmak uçları? 1892'de Sir Francis Galton keşfetti: her insanın parmak izi benzersizdir. İki kişide aynı olma olasılığı: 1/64 milyar. İkizlerde bile farklıdır."
+        "content": "'Parmak uçlarını bile düzeltmeye kadiriz' (Kıyamet 75:4) — diriliş inkârcılarına Allah'ın kudretini en ince ayrıntıyla ortaya koyan cevap. Bazı çağdaş yorumcular bu ifadeyle parmak izinin benzersizliği arasında bağlantı kurmuştur; ancak klasik tefsir bu ayeti yeniden yaratma gücüne odaklanarak yorumlar."
       },
       {
         "title": "Modüler Anlatı",
@@ -599,13 +599,34 @@
     "methodology": "Kur'an-ı Kerim üzerine yapılan dilbilimsel, matematiksel ve bilimsel araştırmaların bir sentezi.",
     "sourcesTitle": "Kaynaklar",
     "sources": [
-      { "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)", "section": "Gizli Simetri" },
-      { "name": "Corpus Coranicum — Berlin-Brandenburg Bilimler Akademisi", "section": "Metin Analizi" },
-      { "name": "Dr. Keith L. Moore — The Developing Human", "section": "Bilimsel İşaretler · Embriyoloji" },
-      { "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science", "section": "Bilimsel İşaretler · Tarihsel Doğrulama" },
-      { "name": "Zemahşeri — el-Keşşâf (12. yüzyıl)", "section": "Sıfır Gereksizlik" },
-      { "name": "Birmingham Üniversitesi Kur'an El Yazması (2015)", "section": "Yaşayan Koruma" },
-      { "name": "Quranic Arabic Corpus — Leeds Üniversitesi", "section": "Dilsel Analiz" }
+      {
+        "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)",
+        "section": "Gizli Simetri"
+      },
+      {
+        "name": "Corpus Coranicum — Berlin-Brandenburg Bilimler Akademisi",
+        "section": "Metin Analizi"
+      },
+      {
+        "name": "Dr. Keith L. Moore — The Developing Human",
+        "section": "Bilimsel İşaretler · Embriyoloji"
+      },
+      {
+        "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science",
+        "section": "Bilimsel İşaretler · Tarihsel Doğrulama"
+      },
+      {
+        "name": "Zemahşeri — el-Keşşâf (12. yüzyıl)",
+        "section": "Sıfır Gereksizlik"
+      },
+      {
+        "name": "Birmingham Üniversitesi Kur'an El Yazması (2015)",
+        "section": "Yaşayan Koruma"
+      },
+      {
+        "name": "Quranic Arabic Corpus — Leeds Üniversitesi",
+        "section": "Dilsel Analiz"
+      }
     ],
     "copyright": "Quran Codex. Tüm hakları saklıdır."
   }

@@ -54,6 +54,16 @@ body {
 .surah-info-panel::-webkit-scrollbar {
   display: none;
 }
+
+/* Mobilde panel tam genişlik + safe area padding */
+@media (max-width: 480px) {
+  .surah-info-panel {
+    width: 100vw !important;
+    padding-left: max(20px, env(safe-area-inset-left, 16px)) !important;
+    padding-right: max(20px, env(safe-area-inset-right, 16px)) !important;
+    overflow-x: hidden !important;
+  }
+}
 ::-webkit-scrollbar-track {
   background: var(--color-cosmic-black);
 }

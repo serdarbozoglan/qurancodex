@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
+import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 
 // Splits text at Arabic character sequences and wraps them with styled spans.
 // Keeps spaces between Arabic letters/punctuation so "ق، ك، ط" stays one span.
@@ -90,48 +91,90 @@ const SURAS = [
   },
 ];
 
+// Parse audioKey (e.g. '074026') → { surah: 74, ayah: 26 }
+function parseAudioKey(key) {
+  return { surah: parseInt(key.slice(0, 3), 10), ayah: parseInt(key.slice(3), 10) };
+}
+
 export default function SoundArchitecture() {
   const { t, language } = useLanguage();
   const [activeSura, setActiveSura] = useState(null);
   const [playing, setPlaying] = useState(null);
+  const [failedSura, setFailedSura] = useState(null);
   const [infoOpen, setInfoOpen] = useState(false);
   const audioRef = useRef(null);
+  const liveIdRef = useRef(null); // tracks which sura's playback is active
 
-  const selectSura = (sura) => {
-    // Toggle: clicking active sura collapses it
-    if (activeSura?.id === sura.id) {
-      audioRef.current?.pause();
+  const stopAudio = () => {
+    liveIdRef.current = null;
+    if (audioRef.current) {
+      audioRef.current.onerror = null;
+      audioRef.current.onended = null;
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+    setPlaying(null);
+  };
+
+  const playWithFallback = (sura, urlIdx, urls) => {
+    if (liveIdRef.current !== sura.id) return;
+    if (urlIdx >= urls.length) {
+      setFailedSura(sura.id);
       setPlaying(null);
-      setActiveSura(null);
       return;
     }
-    // Stop current audio
-    audioRef.current?.pause();
-    // Auto-play new selection
-    const url = `https://everyayah.com/data/Alafasy_128kbps/${sura.audioKey}.mp3`;
-    audioRef.current = new Audio(url);
-    audioRef.current.play().catch(() => {});
-    audioRef.current.onended = () => setPlaying(null);
+    const audio = new Audio(urls[urlIdx]);
+    audioRef.current = audio;
+    audio.onended = () => {
+      if (liveIdRef.current === sura.id) setPlaying(null);
+    };
+    audio.onerror = () => {
+      if (audioRef.current !== audio) return;
+      audio.onerror = null;
+      playWithFallback(sura, urlIdx + 1, urls);
+    };
+    audio.play()
+      .then(() => { if (liveIdRef.current === sura.id) setPlaying(sura.id); })
+      .catch(err => {
+        if (err?.name === 'AbortError') return;
+        if (audioRef.current !== audio) return;
+        playWithFallback(sura, urlIdx + 1, urls);
+      });
+  };
+
+  const startPlay = (sura) => {
+    stopAudio();
+    setFailedSura(null);
+    const { surah, ayah } = parseAudioKey(sura.audioKey);
+    const urls = buildFallbackUrls(surah, ayah);
+    liveIdRef.current = sura.id;
     setPlaying(sura.id);
+    playWithFallback(sura, 0, urls);
+  };
+
+  const selectSura = (sura) => {
+    if (activeSura?.id === sura.id) {
+      stopAudio();
+      setActiveSura(null);
+      setFailedSura(null);
+      return;
+    }
+    stopAudio();
     setActiveSura(sura);
+    setFailedSura(null);
+    startPlay(sura);
   };
 
   const togglePlay = (sura) => {
     if (playing === sura.id) {
-      audioRef.current?.pause();
-      setPlaying(null);
+      stopAudio();
     } else {
-      audioRef.current?.pause();
-      const url = `https://everyayah.com/data/Alafasy_128kbps/${sura.audioKey}.mp3`;
-      audioRef.current = new Audio(url);
-      audioRef.current.play().catch(() => {});
-      audioRef.current.onended = () => setPlaying(null);
-      setPlaying(sura.id);
+      startPlay(sura);
     }
   };
 
   return (
-    <SectionWrapper id="sounds" dark={false} className="!pt-8 md:!pt-12 !pb-8 md:!pb-12">
+    <SectionWrapper id="sounds" dark={false}>
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
@@ -319,20 +362,31 @@ export default function SoundArchitecture() {
             <p style={{ color: '#94a3b8', fontSize: '0.85rem', fontFamily: 'Inter, sans-serif', lineHeight: 1.6, flex: 1 }}>
               {language === 'tr' ? activeSura.descTr : activeSura.descEn}
             </p>
-            <button
-              onClick={() => togglePlay(activeSura)}
-              style={{
-                display: 'flex', alignItems: 'center', gap: '6px',
-                background: playing === activeSura.id ? `${activeSura.color}22` : 'rgba(255,255,255,0.05)',
-                border: `1px solid ${playing === activeSura.id ? activeSura.border : 'rgba(255,255,255,0.1)'}`,
-                borderRadius: '20px', padding: '6px 14px',
-                color: activeSura.color, fontSize: '0.75rem', fontFamily: 'Inter, sans-serif',
-                cursor: 'pointer', transition: 'all 0.18s', flexShrink: 0,
-              }}
-            >
-              {playing === activeSura.id ? <PauseIcon /> : <PlayIcon />}
-              <span>{language === 'tr' ? 'Dinle' : 'Listen'}</span>
-            </button>
+            {(() => {
+              const isFailed = failedSura === activeSura.id;
+              const isPlaying = playing === activeSura.id;
+              return (
+                <button
+                  onClick={() => !isFailed && togglePlay(activeSura)}
+                  disabled={isFailed}
+                  title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '6px',
+                    background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? `${activeSura.color}22` : 'rgba(255,255,255,0.05)',
+                    border: `1px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? activeSura.border : 'rgba(255,255,255,0.1)'}`,
+                    borderRadius: '20px', padding: '6px 14px',
+                    color: isFailed ? '#475569' : activeSura.color,
+                    fontSize: '0.75rem', fontFamily: 'Inter, sans-serif',
+                    cursor: isFailed ? 'not-allowed' : 'pointer',
+                    opacity: isFailed ? 0.5 : 1,
+                    transition: 'all 0.18s', flexShrink: 0,
+                  }}
+                >
+                  {isPlaying ? <PauseIcon /> : <PlayIcon />}
+                  <span>{language === 'tr' ? 'Dinle' : 'Listen'}</span>
+                </button>
+              );
+            })()}
           </div>
         </motion.div>
       )}

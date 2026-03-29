@@ -7,6 +7,7 @@ export default function AnimatedCounter({
   prefix = '',
   suffix = '',
   decimals = 0,
+  localeFormat = false,
   className = '',
 }) {
   const [count, setCount] = useState(0);
@@ -40,7 +41,7 @@ export default function AnimatedCounter({
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      {prefix}{decimals > 0 ? count.toFixed(decimals) : count}{suffix}
+      {prefix}{localeFormat ? Math.floor(count).toLocaleString('tr-TR') : decimals > 0 ? count.toFixed(decimals) : count}{suffix}
     </motion.span>
   );
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
+import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const SURAH_NAMES = [
@@ -17,14 +18,14 @@ const SURAH_NAMES = [
 ];
 
 const CATEGORY_CONFIG = {
-  af:      { color: 'rgba(231,76,60,0.8)',    label_tr: 'Af',      label_en: 'Forgiveness', icon: '🤲' },
-  hidayet: { color: 'rgba(52,152,219,0.8)',   label_tr: 'Hidayet', label_en: 'Guidance',    icon: '🌟' },
-  sabir:   { color: 'rgba(155,89,182,0.8)',   label_tr: 'Sabır',   label_en: 'Patience',    icon: '💪' },
-  sikinit: { color: 'rgba(230,126,34,0.8)',   label_tr: 'Sıkıntıda', label_en: 'In Distress', icon: '🌊' },
-  aile:    { color: 'rgba(46,204,113,0.8)',   label_tr: 'Aile',    label_en: 'Family',      icon: '👨‍👩‍👧' },
-  sukur:   { color: 'rgba(241,196,15,0.8)',   label_tr: 'Şükür',   label_en: 'Gratitude',   icon: '🙏' },
-  rizik:   { color: 'rgba(26,122,76,0.8)',    label_tr: 'Rızık',   label_en: 'Provision',   icon: '🌿' },
-  genel:   { color: 'rgba(149,165,166,0.8)',  label_tr: 'Genel',   label_en: 'General',     icon: '✨' },
+  af:      { color: 'rgba(245,158,11,0.8)',   label_tr: 'Af',        label_en: 'Forgiveness' },
+  hidayet: { color: 'rgba(52,152,219,0.8)',   label_tr: 'Hidayet',   label_en: 'Guidance'    },
+  sabir:   { color: 'rgba(155,89,182,0.8)',   label_tr: 'Sabır',     label_en: 'Patience'    },
+  sikinit: { color: 'rgba(230,126,34,0.8)',   label_tr: 'Sıkıntıda', label_en: 'In Distress' },
+  aile:    { color: 'rgba(46,204,113,0.8)',   label_tr: 'Aile',      label_en: 'Family'      },
+  sukur:   { color: 'rgba(212,165,116,0.8)',  label_tr: 'Şükür',     label_en: 'Gratitude'   },
+  rizik:   { color: 'rgba(26,122,76,0.8)',    label_tr: 'Rızık',     label_en: 'Provision'   },
+  genel:   { color: 'rgba(149,165,166,0.8)',  label_tr: 'Genel',     label_en: 'General'     },
 };
 
 const CATEGORY_ORDER = ['af', 'hidayet', 'sabir', 'sikinit', 'aile', 'sukur', 'rizik', 'genel'];
@@ -35,10 +36,6 @@ const bg = '#080a1e';
 
 function pad(n, width) {
   return String(n).padStart(width, '0');
-}
-
-function getAudioUrl(surah, ayah) {
-  return `https://everyayah.com/data/Alafasy_128kbps/${pad(surah, 3)}${pad(ayah, 3)}.mp3`;
 }
 
 function getSurahRef(dua, language) {
@@ -55,35 +52,18 @@ function normalizeSearch(str) {
     .replace(/â/g, 'a').replace(/î/g, 'i').replace(/û/g, 'u');
 }
 
-// Animated waveform for playing state
-function WaveformIcon() {
-  return (
-    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '2px', height: '14px' }}>
-      {[1, 2, 3, 4].map(i => (
-        <span
-          key={i}
-          style={{
-            display: 'inline-block',
-            width: '3px',
-            background: gold,
-            borderRadius: '2px',
-            animation: `duaWave ${0.5 + i * 0.1}s ease-in-out infinite alternate`,
-            animationDelay: `${i * 0.1}s`,
-            height: `${6 + i * 2}px`,
-          }}
-        />
-      ))}
-      <style>{`
-        @keyframes duaWave {
-          from { transform: scaleY(0.4); }
-          to   { transform: scaleY(1); }
-        }
-      `}</style>
-    </span>
-  );
-}
+const PlayIcon = ({ size = 11 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <polygon points="5,3 19,12 5,21" />
+  </svg>
+);
+const PauseIcon = ({ size = 11 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/>
+  </svg>
+);
 
-function DuaCard({ dua, language, isPlaying, onPlay, onStop }) {
+function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
   const cfg = CATEGORY_CONFIG[dua.category] || CATEGORY_CONFIG.genel;
   const translation = language === 'tr' ? dua.tr : dua.en;
   const prophet = language === 'tr' ? dua.prophet_tr : dua.prophet_en;
@@ -115,7 +95,7 @@ function DuaCard({ dua, language, isPlaying, onPlay, onStop }) {
             padding: '2px 9px',
             letterSpacing: '0.03em',
           }}>
-            {cfg.icon} {language === 'tr' ? cfg.label_tr : cfg.label_en}
+            {language === 'tr' ? cfg.label_tr : cfg.label_en}
           </span>
           {/* Prophet badge */}
           {prophet && (
@@ -137,17 +117,16 @@ function DuaCard({ dua, language, isPlaying, onPlay, onStop }) {
         </span>
       </div>
 
-      {/* Arabic text */}
+      {/* Arabic text — minHeight = 2 lines so shorter duas don't shift content below */}
       <div style={{
-        fontFamily: "'Amiri', serif",
-        fontSize: '1.5rem',
+        fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+        fontSize: '1.55rem',
         lineHeight: 2.2,
-        color: gold,
+        color: '#d4b483',
         textAlign: 'right',
         direction: 'rtl',
-        letterSpacing: '0.02em',
         padding: '6px 0 4px',
-        overflow: 'visible',
+        minHeight: '7.5rem',
       }}>
         {dua.arabic}
       </div>
@@ -168,43 +147,38 @@ function DuaCard({ dua, language, isPlaying, onPlay, onStop }) {
           color: '#4a6080',
           fontSize: '0.75rem',
           fontStyle: 'italic',
-          borderTop: '1px solid rgba(255,255,255,0.05)',
-          paddingTop: '8px',
         }}>
           {note}
         </div>
       )}
 
-      {/* Audio row */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      {/* Audio row — marginTop:auto pushes this to card bottom so buttons align across all cards */}
+      <div style={{
+        marginTop: 'auto',
+        borderTop: '1px solid rgba(255,255,255,0.05)',
+        paddingTop: '10px',
+        display: 'flex', alignItems: 'center', gap: '8px',
+      }}>
         <button
-          onClick={isPlaying ? onStop : onPlay}
+          onClick={isFailed ? undefined : (isPlaying ? onStop : onPlay)}
+          disabled={isFailed}
+          title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
           style={{
-            background: isPlaying ? 'rgba(212,165,116,0.15)' : 'rgba(255,255,255,0.04)',
-            border: `1px solid ${isPlaying ? 'rgba(212,165,116,0.4)' : 'rgba(255,255,255,0.1)'}`,
-            borderRadius: '8px',
-            color: isPlaying ? gold : silver,
-            cursor: 'pointer',
-            padding: '5px 12px',
-            fontSize: '0.75rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px',
-            transition: 'all 0.15s',
+            width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+            background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
+            border: `1px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
+            color: isFailed ? '#475569' : gold,
+            cursor: isFailed ? 'not-allowed' : 'pointer',
+            opacity: isFailed ? 0.5 : 1,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transition: 'all 0.18s',
           }}
         >
-          {isPlaying ? (
-            <>
-              <WaveformIcon />
-              <span>{language === 'tr' ? 'Durdur' : 'Stop'}</span>
-            </>
-          ) : (
-            <>
-              <span style={{ fontSize: '0.8rem' }}>▶</span>
-              <span>{language === 'tr' ? 'Dinle' : 'Listen'}</span>
-            </>
-          )}
+          {isPlaying ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
         </button>
+        <span style={{ color: '#4a5568', fontSize: '0.65rem' }}>
+          {language === 'tr' ? 'Tilâvet' : 'Recitation'}
+        </span>
       </div>
     </div>
   );
@@ -217,6 +191,7 @@ export default function DuaVerses({ onClose }) {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchValue, setSearchValue] = useState('');
   const [playingId, setPlayingId] = useState(null);
+  const [failedIds, setFailedIds] = useState(new Set());
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -255,22 +230,37 @@ export default function DuaVerses({ onClose }) {
     }
 
     const endAyah = dua.ayah_end || dua.ayah;
+    // Sentinel: detect if this playback was superseded
+    const id = dua.id;
 
-    const playNext = (ayah) => {
-      const audio = new Audio(getAudioUrl(dua.surah, ayah));
-      audioRef.current = audio;
-      audio.play().catch(() => setPlayingId(null));
-      audio.onended = () => {
-        if (ayah < endAyah) {
-          playNext(ayah + 1);
-        } else {
+    const playAyah = (ayah) => {
+      if (ayah > endAyah) { setPlayingId(null); return; }
+      const urls = buildFallbackUrls(dua.surah, ayah);
+      const tryUrl = (urlIdx) => {
+        if (urlIdx >= urls.length) {
+          // All URLs for this ayah failed → fail whole dua
+          setFailedIds(prev => new Set([...prev, id]));
           setPlayingId(null);
+          return;
         }
+        const audio = new Audio(urls[urlIdx]);
+        audioRef.current = audio;
+        audio.onended = () => { if (audioRef.current === audio) playAyah(ayah + 1); };
+        audio.onerror = () => {
+          if (audioRef.current !== audio) return;
+          audio.onerror = null;
+          tryUrl(urlIdx + 1);
+        };
+        audio.play().catch(err => {
+          if (err?.name === 'AbortError') return;
+          if (audioRef.current !== audio) return;
+          tryUrl(urlIdx + 1);
+        });
       };
-      audio.onerror = () => setPlayingId(null);
+      tryUrl(0);
     };
 
-    playNext(dua.ayah);
+    playAyah(dua.ayah);
     setPlayingId(dua.id);
   };
 
@@ -310,6 +300,15 @@ export default function DuaVerses({ onClose }) {
         return haystack.includes(q);
       });
     }
+    // Short duas (≤ 100 chars) first, in original order.
+    // Long duas (> 100 chars) sorted by ascending length so the very longest go last.
+    result = [...result].sort((a, b) => {
+      const aLong = a.arabic.length > 100 ? 1 : 0;
+      const bLong = b.arabic.length > 100 ? 1 : 0;
+      if (aLong !== bLong) return aLong - bLong;
+      if (aLong === 1) return a.arabic.length - b.arabic.length;
+      return 0;
+    });
     return result;
   }, [duas, activeCategory, searchValue]);
 
@@ -401,7 +400,7 @@ export default function DuaVerses({ onClose }) {
                 cursor: 'pointer', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600,
                 display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', transition: 'all 0.15s',
               }}>
-                {cfg.icon} {language === 'tr' ? cfg.label_tr : cfg.label_en}
+                {language === 'tr' ? cfg.label_tr : cfg.label_en}
                 <span style={{ background: isActive ? cfg.color.replace('0.8)', '0.2)') : 'rgba(255,255,255,0.06)', borderRadius: '8px', padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>
                   {count}
                 </span>
@@ -438,6 +437,7 @@ export default function DuaVerses({ onClose }) {
                 dua={dua}
                 language={language}
                 isPlaying={playingId === dua.id}
+                isFailed={failedIds.has(dua.id)}
                 onPlay={() => handlePlay(dua)}
                 onStop={handleStop}
               />

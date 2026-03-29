@@ -281,7 +281,7 @@
         "Iron cannot form in stars like our Sun: insufficient temperature and pressure for fusion",
         "Iron is only produced in supernovae and scattered into space",
         "All iron on Earth arrived via meteorites billions of years ago",
-        "Sura Al-Hadid is the 57th chapter; Fe-57 is the most common iron isotope — a striking coincidence, though it may be incidental"
+        "Sura Al-Hadid is the 57th chapter; Fe-57 is one of iron's stable isotopes — a noted coincidence. However, iron's most abundant isotope is Fe-56 (~91.75%); this numerical overlap cannot be presented as scientific verification"
       ],
       "criticalNote": "Whether 'anzalnā' in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean 'We bestowed' or 'We provided.' The astrophysical interpretation is a reading that became prominent in the 20th century."
     },
@@ -500,7 +500,7 @@
       },
       {
         "title": "Fingerprints",
-        "content": "'We are able to restore even his fingertips' (Al-Qiyama 75:4). Why mention fingertips specifically, out of all body parts? In 1892, Sir Francis Galton discovered that every human fingerprint is unique. The probability of two being identical: 1 in 64 billion. They differ even in identical twins."
+        "content": "'We are able to restore even his fingertips' (Al-Qiyama 75:4) — God's answer to resurrection-deniers, demonstrating power to recreate in the finest detail. Some contemporary commentators have noted a connection to fingerprint uniqueness; classical exegesis, however, interprets this verse as being about the power of resurrection."
       },
       {
         "title": "Modular Narrative",
@@ -599,13 +599,34 @@
     "methodology": "A synthesis of linguistic, mathematical, and scientific research on the Holy Quran.",
     "sourcesTitle": "Sources",
     "sources": [
-      { "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)", "section": "Hidden Symmetry" },
-      { "name": "Corpus Coranicum — Berlin-Brandenburg Academy of Sciences", "section": "Textual Analysis" },
-      { "name": "Dr. Keith L. Moore — The Developing Human", "section": "Scientific Signs · Embryology" },
-      { "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science", "section": "Scientific Signs · Historical Proof" },
-      { "name": "Zamakhshari — Al-Kashshaf (12th century)", "section": "Zero Redundancy" },
-      { "name": "University of Birmingham Quran Manuscript (2015)", "section": "Living Preservation" },
-      { "name": "Quranic Arabic Corpus — University of Leeds", "section": "Linguistic Analysis" }
+      {
+        "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)",
+        "section": "Hidden Symmetry"
+      },
+      {
+        "name": "Corpus Coranicum — Berlin-Brandenburg Academy of Sciences",
+        "section": "Textual Analysis"
+      },
+      {
+        "name": "Dr. Keith L. Moore — The Developing Human",
+        "section": "Scientific Signs · Embryology"
+      },
+      {
+        "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science",
+        "section": "Scientific Signs · Historical Proof"
+      },
+      {
+        "name": "Zamakhshari — Al-Kashshaf (12th century)",
+        "section": "Zero Redundancy"
+      },
+      {
+        "name": "University of Birmingham Quran Manuscript (2015)",
+        "section": "Living Preservation"
+      },
+      {
+        "name": "Quranic Arabic Corpus — University of Leeds",
+        "section": "Linguistic Analysis"
+      }
     ],
     "copyright": "Quran Codex. All rights reserved."
   }

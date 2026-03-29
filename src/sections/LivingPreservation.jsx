@@ -44,6 +44,7 @@ export default function LivingPreservation() {
           <AnimatedCounter
             target={10000000}
             suffix="+"
+            localeFormat={true}
             className="text-3xl md:text-4xl text-gold"
           />
           <p className="text-off-white/60 text-sm mt-3 font-body">

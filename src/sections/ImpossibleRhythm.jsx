@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
+import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 
 const PlayIcon = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21" /></svg>
@@ -76,99 +77,138 @@ export default function ImpossibleRhythm() {
   const examples = t('impossibleRhythm.examples') || [];
   const [openTooltip, setOpenTooltip] = useState(null);
   const [discoveryStep, setDiscoveryStep] = useState(0);
+  const [suiGenerisOpen, setSuiGenerisOpen] = useState(false);
   const [playingVerse, setPlayingVerse] = useState(null);
+  const [failedVerses, setFailedVerses] = useState(new Set());
   const [duhaPlaying, setDuhaPlaying] = useState(false);
+  const [duhaFailed, setDuhaFailed] = useState(false);
   const [kawtharPlaying, setKawtharPlaying] = useState(false);
+  const [kawtharFailed, setKawtharFailed] = useState(false);
   const [selectedNajm, setSelectedNajm] = useState(null);
+  const [failedNajm, setFailedNajm] = useState(new Set());
   const [najmInfoOpen, setNajmInfoOpen] = useState(false);
   const audioRef = useRef(null);
   const najmAudioRef = useRef(null);
 
+  // Play a single ayah with full CDN fallback chain
+  const playAyah = (surah, ayah, ref, urlIdx, onEnded, onFailed) => {
+    const urls = urlIdx === 0 ? buildFallbackUrls(surah, ayah) : null;
+    // urls passed via closure from outer call; we re-build only at urlIdx=0
+    // Use a simpler inline approach:
+    const allUrls = buildFallbackUrls(surah, ayah);
+    const tryUrl = (i) => {
+      if (i >= allUrls.length) { onFailed(); return; }
+      const audio = new Audio(allUrls[i]);
+      ref.current = audio;
+      audio.onended = onEnded;
+      audio.onerror = () => {
+        if (ref.current !== audio) return;
+        audio.onerror = null;
+        tryUrl(i + 1);
+      };
+      audio.play().catch(err => {
+        if (err?.name === 'AbortError') return;
+        if (ref.current !== audio) return;
+        tryUrl(i + 1);
+      });
+    };
+    tryUrl(urlIdx);
+  };
+
+  // Play sequence of ayahs (surah, ayah 1..count) with fallback per ayah
+  const playSequence = (surah, count, ref, liveRef, onDone) => {
+    let ayah = 1;
+    const next = () => {
+      if (!liveRef.current || ayah > count) { if (liveRef.current) onDone(); return; }
+      const a = ayah;
+      playAyah(surah, a, ref, 0,
+        () => { if (liveRef.current) { ayah++; next(); } },
+        () => { if (liveRef.current) { ayah++; next(); } } // skip failed ayah, continue
+      );
+    };
+    next();
+  };
+
+  const duhaLiveRef = useRef(false);
+  const kawtharLiveRef = useRef(false);
+
   const toggleAudio = (verseIndex) => {
-    const url = `https://everyayah.com/data/Alafasy_128kbps/108${String(verseIndex + 1).padStart(3, '0')}.mp3`;
     if (playingVerse === verseIndex) {
-      audioRef.current?.pause();
+      if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); audioRef.current = null; }
       setPlayingVerse(null);
     } else {
-      if (audioRef.current) { audioRef.current.pause(); }
+      if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); }
+      duhaLiveRef.current = false;
+      kawtharLiveRef.current = false;
       setDuhaPlaying(false);
-      audioRef.current = new Audio(url);
-      audioRef.current.play();
-      audioRef.current.onended = () => setPlayingVerse(null);
+      setKawtharPlaying(false);
       setPlayingVerse(verseIndex);
+      playAyah(108, verseIndex + 1, audioRef, 0,
+        () => setPlayingVerse(null),
+        () => { setFailedVerses(prev => new Set([...prev, verseIndex])); setPlayingVerse(null); }
+      );
     }
   };
 
   const toggleDuha = () => {
     if (duhaPlaying) {
-      audioRef.current?.pause();
+      duhaLiveRef.current = false;
+      if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); audioRef.current = null; }
       setDuhaPlaying(false);
       return;
     }
-    if (audioRef.current) { audioRef.current.pause(); }
+    if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); }
     setPlayingVerse(null);
-    let ayah = 1;
-    const playNext = () => {
-      if (ayah > 3) { setDuhaPlaying(false); return; }
-      const url = `https://everyayah.com/data/Alafasy_128kbps/093${String(ayah).padStart(3, '0')}.mp3`;
-      audioRef.current = new Audio(url);
-      audioRef.current.play();
-      audioRef.current.onended = () => { ayah++; playNext(); };
-    };
+    kawtharLiveRef.current = false;
+    setKawtharPlaying(false);
+    setDuhaFailed(false);
+    duhaLiveRef.current = true;
     setDuhaPlaying(true);
-    playNext();
+    playSequence(93, 3, audioRef, duhaLiveRef, () => setDuhaPlaying(false));
   };
 
   const toggleKawthar = () => {
     if (kawtharPlaying) {
-      audioRef.current?.pause();
+      kawtharLiveRef.current = false;
+      if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); audioRef.current = null; }
       setKawtharPlaying(false);
       return;
     }
-    if (audioRef.current) { audioRef.current.pause(); }
+    if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); }
     setPlayingVerse(null);
+    duhaLiveRef.current = false;
     setDuhaPlaying(false);
-    let ayah = 1;
-    const playNext = () => {
-      if (ayah > 3) { setKawtharPlaying(false); return; }
-      const url = `https://everyayah.com/data/Alafasy_128kbps/108${String(ayah).padStart(3, '0')}.mp3`;
-      audioRef.current = new Audio(url);
-      audioRef.current.play();
-      audioRef.current.onended = () => { ayah++; playNext(); };
-    };
+    setKawtharFailed(false);
+    kawtharLiveRef.current = true;
     setKawtharPlaying(true);
-    playNext();
+    playSequence(108, 3, audioRef, kawtharLiveRef, () => setKawtharPlaying(false));
   };
 
   const handleNajmClick = (index) => {
-    // Stop any other playing audio
-    audioRef.current?.pause();
+    if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); }
+    duhaLiveRef.current = false;
+    kawtharLiveRef.current = false;
     setPlayingVerse(null);
     setDuhaPlaying(false);
     setKawtharPlaying(false);
 
-    // Toggle: clicking the same square again closes the popup and stops audio
     if (selectedNajm === index) {
-      najmAudioRef.current?.pause();
-      najmAudioRef.current = null;
+      if (najmAudioRef.current) { najmAudioRef.current.onerror = null; najmAudioRef.current.pause(); najmAudioRef.current = null; }
       setSelectedNajm(null);
       return;
     }
 
-    // Stop previous najm audio if any
-    najmAudioRef.current?.pause();
-
-    // Play this verse (surah 53)
-    const url = `https://everyayah.com/data/Alafasy_128kbps/053${String(index + 1).padStart(3, '0')}.mp3`;
-    najmAudioRef.current = new Audio(url);
-    najmAudioRef.current.play().catch(() => {});
-    najmAudioRef.current.onended = () => { najmAudioRef.current = null; };
-
+    if (najmAudioRef.current) { najmAudioRef.current.onerror = null; najmAudioRef.current.pause(); }
     setSelectedNajm(index);
+
+    playAyah(53, index + 1, najmAudioRef, 0,
+      () => { najmAudioRef.current = null; },
+      () => { setFailedNajm(prev => new Set([...prev, index])); najmAudioRef.current = null; }
+    );
   };
 
   return (
-    <SectionWrapper id="rhythm" dark={true} className="!pt-8 md:!pt-12 !pb-12 md:!pb-16">
+    <SectionWrapper id="rhythm" dark={true}>
 
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
@@ -247,12 +287,15 @@ export default function ImpossibleRhythm() {
                 {language === 'tr' ? 'Duhâ Sûresi, 93:1–3' : 'Ad-Duha, 93:1–3'}
               </p>
               <button
-                onClick={toggleDuha}
+                onClick={!duhaFailed ? toggleDuha : undefined}
+                disabled={duhaFailed}
                 style={{
                   width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
-                  background: duhaPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
-                  border: `1px solid ${duhaPlaying ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
-                  color: '#d4a574', cursor: 'pointer',
+                  background: duhaFailed ? 'rgba(100,116,139,0.08)' : duhaPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
+                  border: `1px solid ${duhaFailed ? 'rgba(100,116,139,0.2)' : duhaPlaying ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
+                  color: duhaFailed ? '#475569' : '#d4a574',
+                  cursor: duhaFailed ? 'not-allowed' : 'pointer',
+                  opacity: duhaFailed ? 0.5 : 1,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transition: 'all 0.18s',
                 }}
@@ -416,9 +459,75 @@ export default function ImpossibleRhythm() {
                     ? 'Kendi kategorisini yaratan eser. Edebiyat tarihinde bir ilk — ne şiir ne düzyazı, ikisinin ötesinde, kendine özgü bir form. Arap dili ve edebiyatı kriterleriyle 1.400 yıldır kimse bir benzeri yazamadı.'
                     : 'A work that created its own category. Unique in the history of literature — neither poetry nor prose, beyond both, a form entirely its own. By the standards of Arabic language and literature, no one has produced its equal in 1,400 years.'}
                 </p>
+                {/* Accordion: Neden sui generis? */}
+                <div className="mt-6 text-left" style={{ maxWidth: '520px', margin: '24px auto 0' }}>
+                  <button
+                    onClick={() => setSuiGenerisOpen(p => !p)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '8px',
+                      background: 'none', border: 'none', cursor: 'pointer',
+                      color: 'rgba(212,165,116,0.6)', fontSize: '0.8rem',
+                      fontFamily: "'Inter', sans-serif", fontWeight: 500,
+                      letterSpacing: '0.02em', padding: '4px 0',
+                      transition: 'color 0.15s',
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.color = 'rgba(212,165,116,1)'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(212,165,116,0.6)'}
+                  >
+                    <span style={{ fontSize: '0.7rem', transition: 'transform 0.2s', transform: suiGenerisOpen ? 'rotate(90deg)' : 'rotate(0deg)', display: 'inline-block' }}>▶</span>
+                    {language === 'tr' ? 'Neden yeterince güçlü bir iddia?' : 'Why is this claim well-founded?'}
+                  </button>
+
+                  <AnimatePresence>
+                    {suiGenerisOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.22 }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <div className="mt-3 rounded-xl p-5 text-left" style={{ background: 'rgba(212,165,116,0.04)', border: '1px solid rgba(212,165,116,0.15)' }}>
+                          {language === 'tr' ? (
+                            <div className="font-body text-sm leading-relaxed" style={{ color: 'rgba(232,230,227,0.75)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                              <p>
+                                <span style={{ color: '#d4a574', fontWeight: 600 }}>Sadece iki form değil, bilinen her form denendi.</span>{' '}
+                                7. yüzyıl Arapça'sında şiir ve düzyazının yanı sıra üç form daha vardı: <em>sac'</em> (kâhinlerin kısa kafiyeli düzyazısı), <em>hutbe</em> (hitabet düzyazısı) ve <em>mesel</em> (veciz atasözü formu). Kur'an bunların hiçbirine de uymadı.
+                              </p>
+                              <p>
+                                <span style={{ color: '#d4a574', fontWeight: 600 }}>Serbest şiirle farkı nedir?</span>{' '}
+                                Serbest şiir (free verse) tanımlanabilir bir geleneğin içinden çıktı — 19. yüzyıl Batı edebiyatının kasıtlı bir kırılması. Kur'an ise mevcut hiçbir geleneğin kırılması değil; o geleneklerin dışında, 7. yüzyılda, referans noktasız ortaya çıktı.
+                              </p>
+                              <p>
+                                <span style={{ color: '#d4a574', fontWeight: 600 }}>Tahaddi — meydan okuma.</span>{' '}
+                                Kur'an bizzat meydan okudu: "Benzerini getirin." Bunu duyanlar hem o dili en iyi bilen hem de onu çürütmek için her nedeni olan insanlardı. 1.400 yıl boyunca kimse bu meydan okumayı karşılayamadı.
+                              </p>
+                            </div>
+                          ) : (
+                            <div className="font-body text-sm leading-relaxed" style={{ color: 'rgba(232,230,227,0.75)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                              <p>
+                                <span style={{ color: '#d4a574', fontWeight: 600 }}>Not just two forms — every known form was tested.</span>{' '}
+                                7th-century Arabic had more than poetry and prose: <em>saj'</em> (the rhymed cadenced prose of soothsayers), <em>khutba</em> (oratory prose), and <em>masal</em> (the concise proverb form). The Quran matched none of these either.
+                              </p>
+                              <p>
+                                <span style={{ color: '#d4a574', fontWeight: 600 }}>How is it different from free verse?</span>{' '}
+                                Free verse emerged from within a recognizable tradition — a deliberate 19th-century break from Western poetic convention. The Quran, by contrast, did not break from any tradition; it appeared in the 7th century with no predecessor to define itself against.
+                              </p>
+                              <p>
+                                <span style={{ color: '#d4a574', fontWeight: 600 }}>The challenge — and the silence.</span>{' '}
+                                The Quran itself issued a challenge: produce something like it. Those who heard it were the finest masters of the language — and had every reason to respond. They could not. For 1,400 years, no one has.
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
                 <button
-                  onClick={() => setDiscoveryStep(0)}
-                  className="mt-6 text-silver/30 text-xs font-body hover:text-silver/60 transition-colors"
+                  onClick={() => { setDiscoveryStep(0); setSuiGenerisOpen(false); }}
+                  className="mt-5 text-silver/30 text-xs font-body hover:text-silver/60 transition-colors"
                 >
                   {language === 'tr' ? '↺ Baştan başla' : '↺ Start over'}
                 </button>
@@ -523,12 +632,15 @@ export default function ImpossibleRhythm() {
           ))}
           <div className="flex items-center justify-center gap-3 pt-3 mt-2" style={{ borderTop: '1px solid rgba(212,165,116,0.1)' }}>
             <button
-              onClick={toggleKawthar}
+              onClick={!kawtharFailed ? toggleKawthar : undefined}
+              disabled={kawtharFailed}
               style={{
                 width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
-                background: kawtharPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
-                border: `1px solid ${kawtharPlaying ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
-                color: '#d4a574', cursor: 'pointer',
+                background: kawtharFailed ? 'rgba(100,116,139,0.08)' : kawtharPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
+                border: `1px solid ${kawtharFailed ? 'rgba(100,116,139,0.2)' : kawtharPlaying ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
+                color: kawtharFailed ? '#475569' : '#d4a574',
+                cursor: kawtharFailed ? 'not-allowed' : 'pointer',
+                opacity: kawtharFailed ? 0.5 : 1,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.18s',
               }}
@@ -554,6 +666,7 @@ export default function ImpossibleRhythm() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '16px' }}>
           {NAJM_FASILA.map((type, i) => {
             const isSelected = selectedNajm === i;
+            const isFailed = failedNajm.has(i);
             const bg = type === 'aa' ? '#d4a574' : type === 'mq' ? '#7c3f58' : '#1e293b';
             const border = isSelected
               ? '2px solid #fff'
@@ -575,8 +688,9 @@ export default function ImpossibleRhythm() {
                   fontSize: '0.5rem', color, fontFamily: 'Inter, sans-serif', fontWeight: 600,
                   cursor: 'pointer',
                   transform: isSelected ? 'scale(1.2)' : 'scale(1)',
-                  transition: 'transform 0.12s, border 0.12s',
+                  transition: 'transform 0.12s, border 0.12s, opacity 0.2s',
                   boxShadow: isSelected ? '0 0 8px rgba(255,255,255,0.3)' : 'none',
+                  opacity: isFailed ? 0.35 : 1,
                 }}
                 onMouseEnter={e => { if (!isSelected) e.currentTarget.style.transform = 'scale(1.12)'; }}
                 onMouseLeave={e => { if (!isSelected) e.currentTarget.style.transform = 'scale(1)'; }}

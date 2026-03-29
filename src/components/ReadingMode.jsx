@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 
 // Clean Arabic text: remove decorative/annotation markers with no phonetic value.
 // Keep: core letters (U+0621–U+063A, U+0641–U+064A), standard harakat (U+064B–U+0655),
@@ -447,19 +448,26 @@ function audioUrl(reciterId, surah, ayah) {
 }
 
 // ─── Inline audio bar ────────────────────────────────────────────────────────
-function AudioBar({ surah, ayah, playing, onToggle, language, reciterIdx }) {
+function AudioBar({ surah, ayah, playing, failed, onToggle, language, reciterIdx }) {
   const reciter = RECITERS[reciterIdx];
   const gold = '#d4a574';
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-      <button onClick={onToggle} style={{
-        width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
-        background: playing ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
-        border: `1px solid ${playing ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
-        color: gold, cursor: 'pointer', fontSize: '0.7rem',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        transition: 'all 0.18s',
-      }}>
+      <button
+        onClick={failed ? undefined : onToggle}
+        disabled={failed}
+        title={failed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
+        style={{
+          width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+          background: failed ? 'rgba(100,116,139,0.08)' : playing ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
+          border: `1px solid ${failed ? 'rgba(100,116,139,0.2)' : playing ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
+          color: failed ? '#475569' : gold,
+          cursor: failed ? 'not-allowed' : 'pointer',
+          opacity: failed ? 0.5 : 1,
+          fontSize: '0.7rem',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          transition: 'all 0.18s',
+        }}>
         {playing ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
       </button>
       <span style={{ color: '#64748b', fontSize: '0.65rem' }}>
@@ -470,7 +478,7 @@ function AudioBar({ surah, ayah, playing, onToggle, language, reciterIdx }) {
 }
 
 // ─── Single verse row ─────────────────────────────────────────────────────────
-function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, language, showTranslation, reciterIdx }) {
+function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audioFailed, language, showTranslation, reciterIdx }) {
   const vt = language === 'tr' ? (cleanTr(verse.turkish) || verse.english) : (verse.english || cleanTr(verse.turkish));
   const gold = '#d4a574';
   const isSajda = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
@@ -512,6 +520,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, lang
         <AudioBar
           surah={verse.surah} ayah={verse.ayah}
           playing={audioPlaying}
+          failed={audioFailed}
           onToggle={(e) => { e.stopPropagation(); onAudioToggle(verse); }}
           language={language}
           reciterIdx={reciterIdx}
@@ -557,6 +566,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     catch { return 0; }
   });
   const [playingVerseId, setPlayingVerseId] = useState(null);
+  const [failedVerseId, setFailedVerseId] = useState(null);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
   useEffect(() => {
     const handler = () => setIsMobile(window.innerWidth < 640);
@@ -723,6 +733,19 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     if (!author?.apiId) return; // 'local' and 'en_local' need no fetch
     const cacheKey = `${selectedMealId}:${selectedSurah}`;
     if (mealCacheRef.current.has(cacheKey)) return;
+
+    // Check localStorage cache before fetching
+    const lsKey = `meal:${cacheKey}`;
+    try {
+      const cached = localStorage.getItem(lsKey);
+      if (cached) {
+        const entries = JSON.parse(cached);
+        const map = new Map(entries);
+        mealCacheRef.current.set(cacheKey, map);
+        return;
+      }
+    } catch (_) { /* ignore parse/quota errors */ }
+
     setMealLoading(true);
     fetch(`https://api.acikkuran.com/surah/${selectedSurah}?author=${author.apiId}`)
       .then(r => r.json())
@@ -732,6 +755,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           map.set(v.verse_number, v.translation?.text || '');
         }
         mealCacheRef.current.set(cacheKey, map);
+        try {
+          localStorage.setItem(lsKey, JSON.stringify([...map]));
+        } catch (_) { /* ignore quota errors */ }
         setMealLoading(false);
       })
       .catch(() => setMealLoading(false));
@@ -844,27 +870,66 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     return () => window.removeEventListener('keydown', h);
   }, [surahVerses, activeVerse, handleSelectVerse]);
 
-  const handleAudioToggle = useCallback((verse) => {
-    if (!audioRef.current) return;
-    if (playingVerseId === verse.id) {
-      audioRef.current.pause();
+  // Refs for imperative audio (no DOM <audio> element needed)
+  const audioLiveRef = useRef(null); // currently active Audio instance
+  const autoNextRef = useRef(null);  // updated each render; called when a verse finishes
+
+  const stopAudio = useCallback(() => {
+    const a = audioLiveRef.current;
+    if (a) { a.onerror = null; a.onended = null; a.pause(); audioLiveRef.current = null; }
+    setPlayingVerseId(null);
+    setFailedVerseId(null);
+  }, []);
+
+  const playVerseWithFallback = useCallback((verse, urlIdx, urls) => {
+    if (urlIdx >= urls.length) {
+      setFailedVerseId(verse.id);
       setPlayingVerseId(null);
       return;
     }
-    audioRef.current.pause();
-    audioRef.current.src = audioUrl(RECITERS[reciterIdx].id, verse.surah, verse.ayah);
+    const audio = new Audio(urls[urlIdx]);
+    audioLiveRef.current = audio;
+
+    audio.onerror = () => {
+      if (audioLiveRef.current !== audio) return;
+      audio.onerror = null; audio.onended = null;
+      playVerseWithFallback(verse, urlIdx + 1, urls);
+    };
+
+    audio.onended = () => {
+      if (audioLiveRef.current !== audio) return;
+      audioLiveRef.current = null;
+      autoNextRef.current?.(verse.id);
+    };
+
+    audio.play()
+      .then(() => { if (audioLiveRef.current === audio) setPlayingVerseId(verse.id); })
+      .catch(err => {
+        if (err?.name === 'AbortError') return;
+        if (audioLiveRef.current !== audio) return;
+        playVerseWithFallback(verse, urlIdx + 1, urls);
+      });
+  }, []);
+
+  const handleAudioToggle = useCallback((verse) => {
+    if (playingVerseId === verse.id) {
+      stopAudio();
+      return;
+    }
+    stopAudio();
+    setFailedVerseId(null);
+    const urls = buildFallbackUrlsFromReciter(RECITERS[reciterIdx].id, verse.surah, verse.ayah);
     setPlayingVerseId(verse.id);
-    audioRef.current.play().catch(() => setPlayingVerseId(null));
-  }, [playingVerseId, reciterIdx]);
+    playVerseWithFallback(verse, 0, urls);
+  }, [playingVerseId, reciterIdx, stopAudio, playVerseWithFallback]);
 
   const changeSurah = (n) => {
     const clamped = Math.max(1, Math.min(114, n));
     setSelectedSurah(clamped);
     setBookPage(null);
     setActiveVerse(null);
-    setPlayingVerseId(null);
+    stopAudio();
     setShowHatimDua(false);
-    if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; }
     if (containerRef.current) containerRef.current.scrollTop = 0;
     // Save last read (page will be surah start page)
     const lr = { surah: clamped, page: SURAH_PAGES[clamped - 1] ?? 1 };
@@ -1055,6 +1120,23 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     localStorage.setItem('qurancodex_last_read', JSON.stringify(lr));
   };
 
+  // Update autoNextRef on every render so onended always has fresh state
+  autoNextRef.current = (currentVerseId) => {
+    const idx = surahVerses.findIndex(v => v.id === currentVerseId);
+    if (idx >= 0 && idx < surahVerses.length - 1) {
+      const next = surahVerses[idx + 1];
+      setPlayingVerseId(next.id);
+      handleSelectVerse(next);
+      if (bookMode && !versesOnPage.find(v => v.id === next.id)) {
+        navigateToPage(next.page ?? currentPage, true);
+      }
+      const urls = buildFallbackUrlsFromReciter(RECITERS[reciterIdx].id, next.surah, next.ayah);
+      playVerseWithFallback(next, 0, urls);
+    } else {
+      setPlayingVerseId(null);
+    }
+  };
+
   // Compute current juz from mushaf page number
   const currentDisplayJuz = useMemo(() => {
     const page = bookMode ? currentPage : surahStartPage;
@@ -1078,26 +1160,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           style={{ position: 'absolute', inset: 0, zIndex: 50, background: 'transparent' }}
         />
       )}
-      <audio
-        ref={audioRef}
-        onEnded={() => {
-          const idx = surahVerses.findIndex(v => v.id === playingVerseId);
-          if (idx >= 0 && idx < surahVerses.length - 1) {
-            const next = surahVerses[idx + 1];
-            audioRef.current.src = audioUrl(RECITERS[reciterIdx].id, next.surah, next.ayah);
-            audioRef.current.play().catch(() => {});
-            setPlayingVerseId(next.id);
-            handleSelectVerse(next);
-            // Book mode: if next verse is not on current page, turn the page
-            if (bookMode && !versesOnPage.find(v => v.id === next.id)) {
-              navigateToPage(next.page ?? currentPage, true);
-            }
-          } else {
-            setPlayingVerseId(null);
-          }
-        }}
-        onError={() => setPlayingVerseId(null)}
-      />
+      {/* Audio is handled imperatively via audioLiveRef — no DOM <audio> element needed */}
 
       {/* Header */}
       <div style={{
@@ -2053,7 +2116,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 onClick={() => {
                   setReciterIdx(idx);
                   setShowReciterPicker(false);
-                  if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; setPlayingVerseId(null); }
+                  stopAudio();
                 }}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -2918,6 +2981,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       {/* Active verse footer — media player bar */}
       {activeVerse && (() => {
         const isPlaying = playingVerseId === activeVerse.id;
+        const isFailed = failedVerseId === activeVerse.id;
         const activeIdx = surahVerses.findIndex(v => v.id === activeVerse.id);
         const prevVerse = activeIdx > 0 ? surahVerses[activeIdx - 1] : null;
         const nextVerse = activeIdx < surahVerses.length - 1 ? surahVerses[activeIdx + 1] : null;
@@ -2958,25 +3022,31 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               </button>
 
               <button
-                onClick={() => handleAudioToggle(activeVerse)}
+                onClick={isFailed ? undefined : () => handleAudioToggle(activeVerse)}
+                disabled={isFailed}
+                title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
                 style={{
                   width: isMobile ? '36px' : '48px', height: isMobile ? '36px' : '48px', borderRadius: '50%', flexShrink: 0,
-                  background: isPlaying ? gold : 'rgba(212,165,116,0.12)',
-                  border: `1.5px solid ${isPlaying ? gold : 'rgba(212,165,116,0.35)'}`,
-                  color: isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold, cursor: 'pointer',
+                  background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? gold : 'rgba(212,165,116,0.12)',
+                  border: `1.5px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? gold : 'rgba(212,165,116,0.35)'}`,
+                  color: isFailed ? '#475569' : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold,
+                  cursor: isFailed ? 'not-allowed' : 'pointer',
+                  opacity: isFailed ? 0.5 : 1,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transition: 'all 0.18s', boxShadow: isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none',
                 }}
                 onMouseEnter={e => {
+                  if (isFailed) return;
                   e.currentTarget.style.background = isPlaying ? '#c8935e' : 'rgba(212,165,116,0.22)';
                   e.currentTarget.style.boxShadow = `0 0 16px rgba(212,165,116,0.3)`;
                 }}
                 onMouseLeave={e => {
+                  if (isFailed) return;
                   e.currentTarget.style.background = isPlaying ? gold : 'rgba(212,165,116,0.12)';
                   e.currentTarget.style.boxShadow = isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none';
                 }}
               >
-                <span style={{ color: isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold }}>
+                <span style={{ color: isFailed ? '#475569' : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold }}>
                   {isPlaying ? <PauseIcon size={16} /> : <PlayIcon size={16} />}
                 </span>
               </button>
@@ -3020,8 +3090,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
               <button
                 onClick={() => {
-                  if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; }
-                  setPlayingVerseId(null);
+                  stopAudio();
                   setActiveVerse(null);
                 }}
                 title={language === 'tr' ? 'Kapat' : 'Dismiss'}

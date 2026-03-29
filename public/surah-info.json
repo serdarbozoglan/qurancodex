@@ -51,8 +51,8 @@
       ]
     },
     "fadail": {
-      "tr": "'Kur'an'ın zirvesi'dir. Son iki ayeti (Âmenerresulü) gece okuyanı korur. Sihri bozar.",
-      "en": "Called 'the peak of the Quran'. Its last two verses protect the reciter at night."
+      "tr": "'Kur'an'ın zirvesi'dir. Son iki ayetinin (Âmenerresulü) gece okunmasının koruyucu olduğu Buhârî'de rivayet edilir. 'Sihri bozar' ifadesi bazı kaynaklarda geçmekle birlikte sıhhati tartışmalıdır.",
+      "en": "Called 'the peak of the Quran'. Bukhari narrates that reciting its final two verses at night is protective. The claim that it 'breaks magic' appears in some sources but is of disputed authenticity."
     }
   },
   "3": {
@@ -488,8 +488,8 @@
       ]
     },
     "fadail": {
-      "tr": "Miracın anlatıldığı sûre. Her gece okunması tavsiye edilmiştir. 'Kur'an'ın on emri'ni barındırır (17:22-39).",
-      "en": "Describes the Miraj (Ascension). Recommended for nightly recitation. Contains the 'Quranic Ten Commandments' (17:22-39)."
+      "tr": "Miracın anlatıldığı sûre. Bazı rivayetlerde her gece okunması tavsiye edilmiş olsa da bu rivayetlerin sıhhati tartışmalıdır. 'Kur'an'ın on emri'ni barındırır (17:22-39).",
+      "en": "Describes the Miraj (Ascension). Some narrations recommend nightly recitation, though the authenticity of these reports is debated. Contains the 'Quranic Ten Commandments' (17:22-39)."
     }
   },
   "18": {
@@ -850,7 +850,7 @@
     },
     "themes": {
       "tr": [
-        "Bizans-İran savaşı kehaneti",
+        "Bizans-İran savaşı öngörüsü",
         "Allah'ın tabiat kanunları",
         "Evliliğin anlamı",
         "İnsanın fıtratı"
@@ -863,7 +863,7 @@
       ]
     },
     "fadail": {
-      "tr": "Kur'an'ın en çarpıcı tarihsel kehanetini içerir (30:2-4): Bizans'ın Sasaniler karşısında ağır yenilgiye uğradığı, hazinesinin tükendiği ve toparlanmasının imkânsız göründüğü 614'te, 'birkaç yıl içinde galip gelecekler' dedi. 622'de Heraklius karşı saldırıya geçti; 628'de Sasaniler yenildi. Kehanetin mucizesi, Bizans'ın kazanacağını değil — kazanmasının mümkün olmadığı an söylenmiş olmasıdır.",
+      "tr": "Kur'an'ın en çarpıcı tarihsel öngörüsünü içerir (30:2-4): Bizans'ın Sasaniler karşısında ağır yenilgiye uğradığı, hazinesinin tükendiği ve toparlanmasının imkânsız göründüğü 614'te, 'birkaç yıl içinde galip gelecekler' dedi. 622'de Heraklius karşı saldırıya geçti; 628'de Sasaniler yenildi. Bu öngörünün mucizesi, Bizans'ın kazanacağını değil — kazanmasının mümkün olmadığı an söylenmiş olmasıdır.",
       "en": "Contains the Quran's most striking historical prophecy (30:2-4): In 614, when Byzantium had suffered crushing defeat, its treasury was empty, and recovery seemed impossible, the Quran declared they would prevail 'within a few years.' In 622 Heraclius launched his counterattack; by 628 the Sassanids were defeated. The miracle is not merely that Byzantium won — but that this was said at the moment victory seemed impossible."
     }
   },
@@ -921,8 +921,8 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. Peygamber'in her Cuma sabahı namazında okuduğu sûre. İçindeki secde ayetiyle ibadete davet eder.",
-      "en": "Reported to be recited by the Prophet every Friday morning prayer. Contains a verse of prostration."
+      "tr": "Hz. Peygamber'in her Cuma sabahı fecir namazında okuduğu rivayet edilir (Müslim). İçindeki secde ayetiyle ibadete davet eder.",
+      "en": "Narrated that the Prophet recited it every Friday morning (Fajr) prayer (Muslim). Contains a verse of prostration."
     }
   },
   "33": {
@@ -1036,9 +1036,10 @@
         "Scenes of the Day of Judgment"
       ]
     },
+    "cuz": "22–23",
     "fadail": {
-      "tr": "'Kur'an'ın kalbi' olarak anılır. Can çekişenlere ve ölülerinizin yanında okunması tavsiye edilmiştir.",
-      "en": "Called 'the heart of the Quran.' Recommended for the dying and recitation in the presence of the deceased."
+      "tr": "Tirmizî'de geçen bir rivayete göre 'Kur'an'ın kalbi' (kalbu'l-Kur'an) lakabıyla anılır. Ölmekte olan kişinin yanında okunmasına dair rivayetler mevcuttur; ancak bu hadislerin sıhhati alimler arasında tartışmalıdır.",
+      "en": "According to a narration in al-Tirmidhî, called the 'Heart of the Quran' (Qalb al-Quran). Traditions recommending its recitation beside the dying exist, though scholars debate their authenticity."
     }
   },
   "37": {
@@ -1094,9 +1095,10 @@
         "Details of Iblis's rebellion"
       ]
     },
+    "cuz": "23",
     "fadail": {
-      "tr": "Hz. Eyyub'un sabrının zirvesini (38:44) anlatır. 'Sabır' kelimesinin Kur'an'daki en derin bağlamlarından biri.",
-      "en": "Narrates the pinnacle of Job's patience (38:44). One of the deepest Quranic contexts for the word 'patience'."
+      "tr": "Hz. Eyyub'un sabrını ve meşhur duasını (38:41) anlatır — 'Rabbi bana dert dokundu.' İslam geleneğinde en çok okunan dua ayetlerinden biri. Sure, kasem ile açılır: 'Sâd. Şeref dolu Kur'an'a yemin olsun.'",
+      "en": "Narrates Job's trial and his famous supplication (38:41) — 'My Lord, adversity has touched me.' One of the most recited supplication verses in Islamic tradition. The surah opens with a sworn oath: 'Sâd. By the Quran full of honour.'"
     }
   },
   "39": {
@@ -1130,8 +1132,8 @@
   },
   "40": {
     "meaning": {
-      "tr": "Mü'min / Bağışlayan",
-      "en": "The Believer / The Forgiver"
+      "tr": "Mü'min (İnanan Kişi)",
+      "en": "The Believer"
     },
     "period": {
       "tr": "Mekkî",
@@ -1141,15 +1143,15 @@
     "themes": {
       "tr": [
         "Mü'min kişinin (Firavun'un adamı) cesur tanıklığı",
-        "Dua ve ibadet",
+        "Duanın kabulü (40:60)",
         "Allah'ın azamet ve gücü",
-        "Mübaşşirat"
+        "Hz. Musa ile Firavun diyalogu"
       ],
       "en": [
-        "Believer of Pharaoh's court",
-        "Prayer and worship",
+        "Courage of the believer in Pharaoh's court",
+        "Acceptance of supplication (40:60)",
         "God's majesty and power",
-        "Good news for believers"
+        "Dialogue between Moses and Pharaoh"
       ]
     },
     "fadail": {
@@ -1181,9 +1183,10 @@
         "Responding to evil with good"
       ]
     },
+    "cuz": "24–25",
     "fadail": {
-      "tr": "'Kötülüğü en güzel şeyle def et' (41:34) ayetiyle ahlaki erdemin zirvesini gösterir.",
-      "en": "Verse 41:34 — 'Repel evil with what is better' — shows the pinnacle of moral virtue."
+      "tr": "'Kötülüğü en güzel şeyle def et' (41:34) ayetiyle ahlaki erdemin zirvesini gösterir. 41:53 — 'Ufuklarda ve kendi nefislerinde ayetlerimizi göstereceğiz' — Kur'an'ın en çok atıfta bulunulan bilimsel işaret ayetlerinden biri bu sûrede yer alır.",
+      "en": "Verse 41:34 — 'Repel evil with what is better' — shows the pinnacle of moral virtue. Verse 41:53 — 'We will show them Our signs in the horizons and within themselves' — one of the Quran's most cited verses on scientific signs."
     }
   },
   "42": {
@@ -1210,9 +1213,10 @@
         "God's unifying judgment"
       ]
     },
+    "cuz": "25",
     "fadail": {
-      "tr": "'İşleri aralarında istişare ile olan müminler' (42:38) İslam'da şura (meşveret) ilkesinin temel ayetidir.",
-      "en": "Verse 42:38 — 'believers whose affairs are conducted by mutual consultation' — the Quranic basis of shura."
+      "tr": "Hâmim sûreleri zincirinin (40-46) üçüncüsüdür. '42:38 — İşleri aralarında istişare ile olan müminler' — İslam'da şura ilkesinin temel ayetidir. 42:11 — 'O'nun benzeri hiçbir şey yoktur' — tevhid inancının Kur'an'daki en özlü ifadelerinden biri.",
+      "en": "Third of the Hâ-Mîm series (40-46). Verse 42:38 — 'believers whose affairs are conducted by mutual consultation' — the Quranic basis of shura. Verse 42:11 — 'There is nothing like Him' — one of the most concise expressions of Tawhid in the Quran."
     }
   },
   "43": {
@@ -1239,9 +1243,10 @@
         "Not being deceived by worldly adornments"
       ]
     },
+    "cuz": "25",
     "fadail": {
-      "tr": "Hz. İsa'nın ilahi değil beşeri bir peygamber olduğunu en net anlatan sûrelerden biridir.",
-      "en": "One of the clearest surahs affirming that Jesus was a human prophet, not divine."
+      "tr": "Hâmim sûreleri zincirinin (40-46) dördüncüsüdür. Hz. İsa'nın ilahi değil beşeri bir peygamber olduğunu en net anlatan sûrelerden biridir. 43:61 — 'O kıyametin bilgisidir' — Hz. İsa'nın kıyamet alameti olarak anılması, dinlerarası diyalogda en çok atıfta bulunulan ayetlerden biri.",
+      "en": "Fourth of the Hâ-Mîm series (40-46). One of the clearest surahs affirming that Jesus was a human prophet, not divine. Verse 43:61 — 'He is a sign of the Hour' — Jesus referenced as a sign of the Last Day, one of the most cited verses in interfaith dialogue."
     }
   },
   "44": {
@@ -1268,9 +1273,10 @@
         "Descriptions of hell and paradise"
       ]
     },
+    "cuz": "25",
     "fadail": {
-      "tr": "Kadir Gecesi'ne atıfta bulunur (44:3). Cuma akşamı okunması tavsiye edilmiştir.",
-      "en": "References the Night of Decree (44:3). Recommended for recitation on Thursday evenings."
+      "tr": "Hâmim sûreleri zincirinin (40-46) beşincisidir. Kadir Gecesi'ne atıfta bulunur (44:3). Cuma akşamı okunmasına dair rivayetler mevcuttur; ancak ilgili hadis Tirmizî'de zayıf zincirle geçmektedir.",
+      "en": "Fifth of the Hâ-Mîm series (40-46). References the Night of Decree (44:3). Traditions recommending recitation on Thursday evenings exist, though the relevant hadith is transmitted via a weak chain in al-Tirmidhî."
     }
   },
   "45": {
@@ -1297,9 +1303,10 @@
         "Limits of human intellect"
       ]
     },
+    "cuz": "25",
     "fadail": {
-      "tr": "'Diz çökmüş milletleri' tasviriyle kıyametin evrenselliğini vurgular. Kibri yıkan bir sûredir.",
-      "en": "The image of 'every nation crouching' emphasizes the universality of the Day of Judgment. It shatters arrogance."
+      "tr": "Hâmim sûreleri zincirinin (40-46) altıncısıdır. 'Diz çökmüş milletleri' tasviriyle kıyametin evrenselliğini vurgular. 45:24 — inkarcıların materyalist dünya görüşünü Kur'an'ın en net biçimde aktardığı ayet: 'Hayat ancak bu dünyadan ibarettir, bizi ancak zaman yok eder.'",
+      "en": "Sixth of the Hâ-Mîm series (40-46). The image of 'every nation crouching' emphasizes the universality of Judgment. Verse 45:24 — the Quran's clearest rendering of the materialist worldview: 'There is nothing but our worldly life; we die and live, and nothing destroys us but time.'"
     }
   },
   "46": {
@@ -1326,9 +1333,10 @@
         "Futility of calling on other than God"
       ]
     },
+    "cuz": "26",
     "fadail": {
-      "tr": "Hâmim serisi'nin son sûresidir. Cinlerin Kur'an'ı duyunca hemen iman etmesini (46:29-32) anlatır.",
-      "en": "Final surah of the Hâ-Mîm series. Describes jinn immediately embracing faith upon hearing the Quran (46:29-32)."
+      "tr": "Hâmim sûreleri zincirinin (40-46) yedincisi ve sonuncusudur. Cinlerin Kur'an'ı duyunca hemen iman etmesini (46:29-32) anlatır. 46:15 — 'Hamileliği ve sütten kesmesi otuz aydır' — 6 aylık gebelik + 24 aylık emzirme; modern tıbbın doğruladığı biyolojik eşik.",
+      "en": "Seventh and final surah of the Hâ-Mîm series (40-46). Describes jinn immediately embracing faith upon hearing the Quran (46:29-32). Verse 46:15 — 'His gestation and weaning is thirty months' — 6-month minimum pregnancy + 24-month nursing; a biological threshold confirmed by modern medicine."
     }
   },
   "47": {
@@ -1355,9 +1363,10 @@
         "Detachment from worldly desires"
       ]
     },
+    "cuz": "26",
     "fadail": {
-      "tr": "Peygamber'in ismini taşıyan iki sûreden biridir. Müminleri Allah yolunda azimli olmaya davet eder.",
-      "en": "One of two surahs bearing the Prophet's name. Calls believers to steadfast determination in God's path."
+      "tr": "Kur'an'da Hz. Muhammed'in adı 4 kez geçer (3:144, 33:40, 47:2, 48:29); bu sure o ismi başlığına taşıyan tek sûredir. 47:24 — 'Kur'an'ı düşünmüyorlar mı, yoksa kalpler üzerinde kilitler mi var?' — sitenin tedebbür (Kur'an'ı düşünme) temasıyla doğrudan örtüşen güçlü bir ayet.",
+      "en": "The name Muhammad appears 4 times in the Quran (3:144, 33:40, 47:2, 48:29); this is the only surah to carry that name as its title. Verse 47:24 — 'Do they not reflect upon the Quran, or are there locks upon their hearts?' — directly parallels the site's core theme of tadabbur (deep reflection on the Quran)."
     }
   },
   "48": {
@@ -1385,9 +1394,10 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. Peygamber 'Bu gece bana öyle bir sûre indi ki bütün dünyadan daha değerlidir' demiştir bu sûre için.",
-      "en": "The Prophet said of this surah: 'Tonight a surah was revealed to me that is more beloved to me than the whole world.'"
-    }
+      "tr": "Hz. Peygamber'in 'Bu gece bana bütün dünyadan daha değerli bir sûre indi' buyurduğu rivayet edilir (Buhârî).",
+      "en": "Narrated that the Prophet said: 'Tonight a surah was revealed to me that is more precious than the whole world' (Bukhari)."
+    },
+    "cuz": 26
   },
   "49": {
     "meaning": {
@@ -1404,19 +1414,22 @@
         "Peygamber'e saygı edebi",
         "Müslümanlar arası kardeşlik",
         "Gıybet ve kötü zannın haramlığı",
-        "İman ile İslam'ın farkı"
+        "İman ile İslam'ın farkı",
+        "İnsanların eşitliği ve milletler arası tanışma (49:13)"
       ],
       "en": [
         "Etiquette of respect for the Prophet",
         "Brotherhood among Muslims",
         "Prohibition of backbiting and suspicion",
-        "Difference between faith and submission"
+        "Difference between faith and submission",
+        "Human equality and recognition among peoples (49:13)"
       ]
     },
     "fadail": {
       "tr": "İslam ahlakının anayasası sayılır. Toplumsal ilişkilerin düzenlenmesi için temel referans.",
       "en": "Considered the 'constitution of Islamic ethics.' The primary reference for regulating social relationships."
-    }
+    },
+    "cuz": 26
   },
   "50": {
     "meaning": {
@@ -1443,9 +1456,10 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. Peygamber'in her Cuma hutbesinde okuduğu sûre. 'Biz insanı yarattık ve içinden geçenleri biliriz' (50:16).",
-      "en": "The surah the Prophet recited in Friday sermons. Contains: 'We created man and know what his soul whispers' (50:16)."
-    }
+      "tr": "Müslim rivayetine göre Hz. Peygamber bu sûreyi Cuma hutbelerinde düzenli olarak okumuştur. Ümmü Hişam hadisiyle sabittir.",
+      "en": "According to Muslim, the Prophet regularly recited this surah in Friday sermons — confirmed by the hadith of Umm Hisham."
+    },
+    "cuz": 26
   },
   "51": {
     "meaning": {
@@ -1474,7 +1488,8 @@
     "fadail": {
       "tr": "'Ben cinleri ve insanları yalnızca bana kulluk etsinler diye yarattım' (51:56) — yaratılış gayesinin özeti.",
       "en": "Contains 51:56: 'I created jinn and humans only to worship Me' — the single-verse summary of creation's purpose."
-    }
+    },
+    "cuz": 26
   },
   "52": {
     "meaning": {
@@ -1501,9 +1516,10 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. Ömer bu sûreyi dinlerken ağlamış, hasta yatağında da okutturmuştur.",
-      "en": "Umar ibn al-Khattab wept upon hearing this surah and had it recited during his final illness."
-    }
+      "tr": "İbn Kesir'in naklettiği rivayete göre Hz. Ömer bu sûreyi namazda duyduğunda derinden etkilenmiş ve ağlamıştır.",
+      "en": "According to a narration in Ibn Kathir, Umar ibn al-Khattab was profoundly moved and wept upon hearing this surah recited during prayer."
+    },
+    "cuz": 27
   },
   "53": {
     "meaning": {
@@ -1530,9 +1546,10 @@
       ]
     },
     "fadail": {
-      "tr": "İlk kez secde ayetiyle Mekke'de hem müminler hem müşrikler secde etmiştir (53:62). Tarihi bir an.",
-      "en": "The first time both Muslims and polytheists in Mecca prostrated together (53:62). A historic moment."
-    }
+      "tr": "Buhârî rivayetine göre bu sûrenin tilâvet secdesi geldiğinde Mekke'de hem müminler hem müşrikler birlikte secde etmiştir (53:62). İslam tarihinde eşine az rastlanan bir an.",
+      "en": "According to Bukhari, when the prostration verse of this surah was recited in Mecca, both Muslims and polytheists prostrated together (53:62) — a rare moment in Islamic history."
+    },
+    "cuz": 27
   },
   "54": {
     "meaning": {
@@ -1546,22 +1563,23 @@
     },
     "themes": {
       "tr": [
-        "Ay'ın yarılması mucizesi",
+        "Ay'ın yarılması (54:1) ve kıyametin yakınlığı",
         "Hz. Nuh, Ad, Semud, Hz. Lut, Firavun'un helaki",
         "Kıyametin yakınlığı",
         "'Kur'an'ı kolaylaştırdık' tekrarı"
       ],
       "en": [
-        "Miracle of the splitting of the moon",
+        "The splitting of the moon (54:1) and nearness of the Hour",
         "Destructions of Noah, Aad, Thamud, Lot, Pharaoh",
         "Nearness of the Hour",
         "Refrain: 'We have made the Quran easy to remember'"
       ]
     },
     "fadail": {
-      "tr": "'Kur'an'ı öğüt için kolaylaştırdık, öğüt alan yok mu?' (54:17) dört kez tekrarlanır — eşsiz bir çağrı.",
-      "en": "'We have made the Quran easy to remember — is there anyone who will take heed?' (54:17) repeated four times."
-    }
+      "tr": "54:17, 54:22, 54:32, 54:40 — 'Andolsun Kur'an'ı öğüt için kolaylaştırdık; öğüt alan yok mu?' sorusu sûre boyunca dört kez tekrarlanır. Kur'an'da bu denli vurgulu bir retorik yapı nadirdir.",
+      "en": "54:17, 54:22, 54:32, 54:40 — 'We have made the Quran easy for remembrance; is there any who will take heed?' is repeated four times throughout the surah — a remarkably emphatic rhetorical structure."
+    },
+    "cuz": 27
   },
   "55": {
     "meaning": {
@@ -1569,9 +1587,9 @@
       "en": "The Most Merciful"
     },
     "period": {
-      "tr": "Medenî",
-      "en": "Medinan",
-      "approx": "~622"
+      "tr": "Tartışmalı (Mekkî görüşü daha yaygın)",
+      "en": "Disputed (Meccan view predominant)",
+      "approx": "~615-622"
     },
     "themes": {
       "tr": [
@@ -1588,9 +1606,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Rabbinizin hangi nimetlerini yalanlıyorsunuz?' sorusu 31 kez tekrarlanır — eşsiz bir ritim ve anlam. 'Kur'an'ın gelini' olarak anılır.",
-      "en": "'Which of your Lord's blessings will you both deny?' is repeated 31 times. Called 'the bride of the Quran'."
-    }
+      "tr": "Bazı rivayetlerde 'Kur'an'ın gelini' (arûsu'l-Kur'an) olarak anılır; bu nitelemenin kaynağı zayıf hadis olarak değerlendirilmektedir.",
+      "en": "Some narrations refer to it as 'the Bride of the Quran' (arus al-Quran); the hadith behind this title is considered weak by hadith scholars."
+    },
+    "cuz": 27
   },
   "56": {
     "meaning": {
@@ -1617,9 +1636,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Öne geçenler öne geçmiştir' (56:10) — kıyamette öncüler kimdir? sorusunu yanıtlar. Her gece okunması tavsiye edilir.",
-      "en": "'And the forerunners, the forerunners — those are the ones brought near [to Allah]' (56:10-11). Recommended nightly."
-    }
+      "tr": "'Öne geçenler öne geçmiştir' (56:10) — kıyamette Allah'a en yakın tutulanların kim olduğunu tanımlar. İbn Mesud'a atfedilen bazı rivayetlerde bu sûreyi düzenli okumanın fazileti zikredilmiştir.",
+      "en": "'And the forerunners, the forerunners — those are the ones brought near' (56:10). Some narrations attributed to Ibn Masud mention the virtue of reciting this surah regularly."
+    },
+    "cuz": 27
   },
   "57": {
     "meaning": {
@@ -1646,8 +1666,8 @@
       ]
     },
     "fadail": {
-      "tr": "'Demiri indirdik' (57:25) — Fe-57 izotopu ve süpernova bağlantısıyla bilimin doğruladığı ayet. Sûrenin sırası da 57.",
-      "en": "'We sent down iron' (57:25) — verified by science: iron forms only in supernovae. The surah number is also 57."
+      "tr": "57:25 'Demiri indirdik' (enzelnâ) — modern astrofiziğin örtüştüğü bir anlam katmanı: demir, Güneş gibi yıldızlarda oluşamaz; yalnızca süpernova patlamalarında üretilir ve uzaya saçılır.",
+      "en": "57:25 'We sent down iron' (anzalna) — a meaning layer that aligns with modern astrophysics: iron cannot form in stars like our Sun; it is produced only in supernova explosions and scattered into space."
     }
   },
   "58": {
@@ -1687,7 +1707,7 @@
     "period": {
       "tr": "Medenî",
       "en": "Medinan",
-      "approx": "~625"
+      "approx": "~625 (H. 4)"
     },
     "themes": {
       "tr": [
@@ -1701,11 +1721,11 @@
         "Rules for distributing fayy",
         "Believers and hypocrites",
         "God's most beautiful names (final verses)"
-      ],
-      "fadail": {
-        "tr": "Son üç ayeti (59:22-24) Allah'ın en kapsamlı isim listesini içerir ve sabah-akşam okunması tavsiye edilir.",
-        "en": "Its last three verses (59:22-24) contain the most comprehensive list of God's names. Recommended morning and evening."
-      }
+      ]
+    },
+    "fadail": {
+      "tr": "Son üç ayeti (59:22-24) Allah'ın Güzel İsimleri'nin Kur'an'daki en yoğun ve art arda geçtiği pasajlardan birini oluşturur. Sabah-akşam okunması tavsiye edilir.",
+      "en": "Its final three verses (59:22-24) form one of the densest consecutive listings of God's Beautiful Names in the Quran. Recommended for morning and evening recitation."
     }
   },
   "60": {
@@ -1733,8 +1753,8 @@
       ]
     },
     "fadail": {
-      "tr": "Mekke'nin fethinden önce düşmanlarla ilişkiyi düzenleyen kritik bir sûredir. Siyasi İslam'ın temel referanslarından.",
-      "en": "A critical surah regulating relations with enemies before the Conquest of Mecca. A key reference for political Islam."
+      "tr": "Mekke'nin fethinden önce düşmanlarla ilişkiyi düzenleyen kritik bir sûredir. İslam devletler hukuku (siyer) ve velâ-berâ meselesinin temel kaynaklarından.",
+      "en": "A critical surah regulating relations with enemies before the Conquest of Mecca. Among the foundational sources of Islamic international law (siyar) and the doctrine of alliance and disavowal."
     }
   },
   "61": {
@@ -1745,7 +1765,7 @@
     "period": {
       "tr": "Medenî",
       "en": "Medinan",
-      "approx": "~625"
+      "approx": "~625-628"
     },
     "themes": {
       "tr": [
@@ -1762,8 +1782,8 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. İsa'nın 'Ahmed'i müjdeliyorum' (61:6) sözünü barındırır. Söz-eylem tutarlılığının sûresidir.",
-      "en": "Contains Jesus's prophecy of 'Ahmad' (61:6). The surah of consistency between word and action."
+      "tr": "Hz. İsa'nın 'Ahmed'i müjdeliyorum' (61:6) sözünü barındırır — İslam geleneğinde Hz. Muhammed'i önceden haber veren bir beyan olarak yorumlanır. Söz-eylem tutarlılığının sûresidir.",
+      "en": "Contains Jesus's words 'I bring glad tidings of a messenger... named Ahmad' (61:6) — interpreted in the Islamic tradition as a prophecy foretelling Muhammad. The surah of consistency between word and action."
     }
   },
   "62": {
@@ -1861,7 +1881,7 @@
     "period": {
       "tr": "Medenî",
       "en": "Medinan",
-      "approx": "~629"
+      "approx": "~628-629"
     },
     "themes": {
       "tr": [
@@ -1878,8 +1898,8 @@
       ]
     },
     "fadail": {
-      "tr": "Boşanma hukukunun en detaylı kaynağı. 'Kim Allah'tan korkarsa ona çıkış yolu açar' (65:2-3) ayetiyle tesellisi büyük.",
-      "en": "Most detailed source of Islamic divorce law. Verse 65:2-3 offers consolation: 'God will provide a way out for those who fear Him.'"
+      "tr": "Boşanma prosedürünü adım adım düzenleyen en sistematik sûredir. 'Kim Allah'tan korkarsa ona çıkış yolu açar' (65:2-3) ayetiyle en ağır anlarda teselli sunar.",
+      "en": "The most systematic surah regulating divorce procedure step by step. Verse 65:2-3 offers consolation in the hardest moments: 'Whoever fears God — He will make for him a way out.'"
     }
   },
   "66": {
@@ -1936,8 +1956,8 @@
       ]
     },
     "fadail": {
-      "tr": "'Kabre engel olan sûre.' Okuyanı kabir azabından korur (Hadis). Her gece okunması tavsiye edilir. 'Tebârak' olarak da bilinir.",
-      "en": "Known as 'the barrier surah.' Reported to protect the reciter from torment of the grave. Recommended nightly."
+      "tr": "Okuyanına kabir azabında şefaat edeceği Tirmizî'de rivayet edilir; hadis alimleri senedi hakkında ihtilaf etmiştir. 'Tebârak' olarak bilinir, her gece okunması tavsiye edilir.",
+      "en": "Tirmizi narrates that it will intercede for its reciter against punishment of the grave; hadith scholars have debated the chain. Known as 'Tabaarak'; recommended for nightly recitation."
     }
   },
   "68": {
@@ -1948,7 +1968,7 @@
     "period": {
       "tr": "Mekkî",
       "en": "Meccan",
-      "approx": "~610"
+      "approx": "~610-611"
     },
     "themes": {
       "tr": [
@@ -1965,8 +1985,8 @@
       ]
     },
     "fadail": {
-      "tr": "'Şüphesiz sen büyük bir ahlak üzeresin' (68:4) — Hz. Muhammed'in ahlakını övdüğü sûre. İkinci nazil olan.",
-      "en": "'You are truly of exalted character' (68:4) — the surah praising the Prophet's moral excellence. Second to be revealed."
+      "tr": "'Şüphesiz sen büyük bir ahlak üzeresin' (68:4) — Hz. Muhammed'in ahlakını doğrudan öven ayet. Bazı rivayetlerde ikinci nazil olan sûre olarak geçer; nüzul sırası alimler arasında tartışmalıdır.",
+      "en": "'You are truly of exalted character' (68:4) — the verse directly praising the Prophet's moral excellence. Mentioned in some narrations as the second surah revealed; the order of revelation is debated among scholars."
     }
   },
   "69": {
@@ -1994,8 +2014,8 @@
       ]
     },
     "fadail": {
-      "tr": "Kıyameti üç ismiyle (Hâkka, Kâria, Tâmme) en dramatik biçimde anlatan sûrelerden biri.",
-      "en": "One of the most dramatic surahs describing the Day of Judgment by three of its names."
+      "tr": "Kıyameti iki farklı ismiyle — Hâkka (69:1-3) ve Vâkıa (69:15) — aynı sûrede sunan nadir örneklerden biri. Kur'an'ın vahiy kimliğini kozmik yıkım tasviri içinde ilan eder (69:41-47).",
+      "en": "One of the rare surahs presenting two names for the Day of Judgment in the same text — al-Haqqa (69:1-3) and al-Waqi'a (69:15). Declares the Quran's identity as revelation within the midst of cosmic destruction (69:41-47)."
     }
   },
   "70": {
@@ -2023,8 +2043,8 @@
       ]
     },
     "fadail": {
-      "tr": "'Melekler ve Cebrail oraya günü 50.000 yıl olan bir günde yükselir' (70:4) — zamanın göreliliğine işaret.",
-      "en": "'The angels and the Spirit ascend to Him in a day of 50,000 years' (70:4) — a reference to the relativity of time."
+      "tr": "70:4 'Melekler ve Ruh, miktarı 50.000 yıl olan bir günde O'na yükselir' — ahiret zamanının beşer idrakinin ötesine geçtiğini bildiren ayet; klasik müfessirler bunu kâfirler için o günün ağırlığı veya Allah katındaki süre olarak yorumlamıştır.",
+      "en": "70:4 'The angels and the Spirit ascend to Him in a day whose measure is fifty thousand years' — a verse stating that the time of the Hereafter transcends human comprehension; classical commentators interpreted this as the weight of that day for disbelievers or duration in God's reckoning."
     }
   },
   "71": {
@@ -2040,13 +2060,13 @@
     "themes": {
       "tr": [
         "Hz. Nuh'un 950 yıllık daveti",
-        "Oğlunun imanı reddetmesi",
+        "Kavmin put ibadeti (Vedd, Suvâ, Yeğûs — 71:23)",
         "Tufan",
         "İstiğfarın bereketi"
       ],
       "en": [
         "Noah's 950-year mission",
-        "His son's rejection of faith",
+        "People's idol worship (Wadd, Suwa, Yaghuth — 71:23)",
         "The Great Flood",
         "Blessings of seeking forgiveness"
       ]
@@ -2081,8 +2101,8 @@
       ]
     },
     "fadail": {
-      "tr": "Görünmeyen alemin (cin) Kur'an'a nasıl muhatap olduğunu anlatan eşsiz bir sûre. 'İnsanlardan korunmak için cinden sığınırlardı.'",
-      "en": "A unique surah showing how the invisible realm (jinn) responded to the Quran's message."
+      "tr": "Görünmez alemin (cin) Kur'an'a nasıl muhatap olduğunu anlatan eşsiz bir sûre. Cahiliye döneminde yaygın olan cine sığınma pratiğini eleştirir (72:6) ve bunun cinlerin kibrini artırdığını bildirir.",
+      "en": "A unique surah showing how the invisible realm (jinn) responded to the Quran's message. Critiques the pre-Islamic practice of seeking refuge in jinn (72:6), noting that it only increased their arrogance."
     }
   },
   "73": {
@@ -2091,19 +2111,19 @@
       "en": "The Enshrouded One"
     },
     "period": {
-      "tr": "Mekkî",
-      "en": "Meccan",
+      "tr": "Mekkî (20. ayet Medenî)",
+      "en": "Meccan (final verse Medinan)",
       "approx": "~610"
     },
     "themes": {
       "tr": [
-        "Gece ibadeti ve teheccüd",
+        "Kıyâmü'l-leyl (gece ibadeti) emri",
         "Sabır ve güzel bir sabrla sabretmek",
         "İnfak ve hayır",
         "Kur'an okuyuşunun ağırlığı"
       ],
       "en": [
-        "Night worship and tahajjud",
+        "Night prayer (qiyam al-layl) command",
         "Patience with beautiful patience",
         "Charity and good deeds",
         "Weight of Quranic recitation"
@@ -2157,19 +2177,19 @@
       "tr": [
         "Diriliş inkarcılarına cevap",
         "Can çekişme anı",
-        "Parmak izlerinin benzersizliği",
+        "Allah'ın diriltme gücü (75:4)",
         "Ölüm anındaki gerçek"
       ],
       "en": [
         "Answer to resurrection-deniers",
         "The moment of death",
-        "Uniqueness of fingerprints",
+        "God's power to resurrect (75:4)",
         "Truth at the moment of death"
       ]
     },
     "fadail": {
-      "tr": "'Parmak uçlarını bile yeniden oluşturmaya gücümüz yeter' (75:4) — 1892'de keşfedilen parmak izi gerçeğine işaret.",
-      "en": "Verse 75:4 — 'We are able to restore even his fingerprints' — pointing to fingerprint uniqueness discovered in 1892."
+      "tr": "Kıyamete bizzat kendi adına yemin ederek açılan tek sûredir — 'Kıyamet gününe yemin ederim, nefsi levvâmeye yemin ederim.' İnkâr eden vicdanı da tanık olarak çağırır.",
+      "en": "The only surah that opens with God swearing by the Day of Resurrection itself — and by the self-reproaching soul. It calls the denying conscience itself as a witness."
     }
   },
   "76": {
@@ -2178,8 +2198,8 @@
       "en": "The Human / Time"
     },
     "period": {
-      "tr": "Medenî",
-      "en": "Medinan",
+      "tr": "Tartışmalı (Mekkî veya erken Medenî)",
+      "en": "Disputed (Meccan or early Medinan)",
       "approx": "~622"
     },
     "themes": {
@@ -2255,9 +2275,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Büyük Haber' sûresinin açılışıyla kıyametin kaçınılmazlığı ilan edilir. Kısa ama derin bir sûredir.",
-      "en": "Opens with the announcement of the Great News — the inevitable Resurrection. Short but profound."
-    }
+      "tr": "'Büyük Haber' sûresi — açılışta soruyla başlayıp cevabı kozmik delillerle ören özgün bir yapıya sahiptir.",
+      "en": "The 'Great News' surah — opens with a question and builds its answer through a sequence of cosmic proofs, a distinctive rhetorical structure."
+    },
+    "cuz": 30
   },
   "79": {
     "meaning": {
@@ -2284,9 +2305,10 @@
       ]
     },
     "fadail": {
-      "tr": "Ölüm meleğinin kafirlerin ruhunu şiddetle, müminlerin ruhunu yumuşakça almasını anlatır. Ölüme hazırlık sûresi.",
-      "en": "Describes how the angel of death seizes souls of disbelievers harshly and believers gently — preparation for death."
-    }
+      "tr": "Ölümün ve kıyametin kaçınılmazlığını kozmik yeminler ve Firavun kıssasıyla ispat eden sûre. Bazı müfessirlere göre açılış yeminleri, kâfirlerin ruhunu şiddetle mü'minlerin ruhunu yumuşakça alan meleklere işaret eder — ancak yorum tartışmalıdır.",
+      "en": "A surah proving the inevitability of death and resurrection through cosmic oaths and the story of Pharaoh. According to some commentators, the opening oaths refer to angels who seize the souls of disbelievers harshly and believers gently — though this interpretation is debated."
+    },
+    "cuz": 30
   },
   "80": {
     "meaning": {
@@ -2313,9 +2335,10 @@
       ]
     },
     "fadail": {
-      "tr": "Peygamber'in Abdullah ibn Ümmi Mektum'u geri çevirdiği tarihi olayı anlatır. İslam'da eşitliğin en güçlü örneği.",
-      "en": "Narrates the historical incident of turning away a blind man. The strongest example of equality in Islam."
-    }
+      "tr": "Rivayete göre, görme engelli sahabeye yönelik tutumu üçüncü şahısla anlatan sûre — bir peygamberin bile ilahi murakabe altında olduğunu gösteren, İslam'ın hesap verebilirlik anlayışının çarpıcı bir örneği.",
+      "en": "A surah recounting — in the third person — a reproach directed at the Prophet regarding a blind companion. A striking example of divine accountability: even a prophet is subject to divine correction."
+    },
+    "cuz": 30
   },
   "81": {
     "meaning": {
@@ -2342,9 +2365,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Kim kıyameti görmek istiyorsa Tekvir, İnfitar, İnşikak sûrelerini okusun' (Hadis). Kıyamet tablosunun en canlı tasviri.",
-      "en": "'Whoever wishes to see the Day of Judgment should read Surahs 81, 82, and 84' (Hadith). The most vivid Judgment tableau."
-    }
+      "tr": "'Kim kıyameti görmek istiyorsa Tekvîr, İnfitâr, İnşikâk sûrelerini okusun' (Tirmizî, hasen). Tirmizî hadisinde özel olarak zikredilen bu üç kıyamet sûresinin ilkidir.",
+      "en": "'Whoever wishes to see the Day of Judgment should read Surahs at-Takwir, al-Infitar, and al-Inshiqaq' (Tirmidhi, hasan). The first of the three Judgment surahs specifically cited in this hadith."
+    },
+    "cuz": 30
   },
   "82": {
     "meaning": {
@@ -2373,7 +2397,8 @@
     "fadail": {
       "tr": "'Ey insan, seni yaratana karşı seni ne aldattı?' (82:6) — insanlığın en derin sorusu bu sûrede yer alır.",
       "en": "'O man — what has deceived you about your Lord?' (82:6) — one of the deepest questions posed to humanity."
-    }
+    },
+    "cuz": 30
   },
   "83": {
     "meaning": {
@@ -2381,9 +2406,9 @@
       "en": "The Defrauders"
     },
     "period": {
-      "tr": "Mekkî",
-      "en": "Meccan",
-      "approx": "~612"
+      "tr": "Mekkî veya Hicret dönemi (tartışmalı)",
+      "en": "Meccan or early Medinan — period disputed",
+      "approx": "~622"
     },
     "themes": {
       "tr": [
@@ -2402,7 +2427,8 @@
     "fadail": {
       "tr": "Ekonomik adaletsizliğe karşı en sert uyarı sûresi. Hesabın her alanda (ticaret dahil) verileceğini anlatır.",
       "en": "The surah with the harshest warning against economic injustice. Accountability in every domain, including trade."
-    }
+    },
+    "cuz": 30
   },
   "84": {
     "meaning": {
@@ -2431,7 +2457,8 @@
     "fadail": {
       "tr": "'İnsan kademe kademe halden hale geçecektir' (84:19) — insan hayatının sürekli dönüşümünü anlatan derin ayet.",
       "en": "Verse 84:19 — 'You will progress from stage to stage' — a profound verse on the constant transformation of human life."
-    }
+    },
+    "cuz": 30
   },
   "85": {
     "meaning": {
@@ -2445,22 +2472,23 @@
     },
     "themes": {
       "tr": [
-        "Ashab-ı Uhdud (hendek faciası)",
+        "Ashab-ı Uhdud (ateş dolu çukur faciası)",
         "İman sahipleri için müjde",
         "Allah'ın arşının azameti",
         "Firavun ve Semud'a işaret"
       ],
       "en": [
-        "People of the Pit (Companions of the Trench)",
+        "People of the Pit — believers thrown into fire-filled trenches",
         "Good news for believers",
         "Majesty of God's Throne",
         "Reference to Pharaoh and Thamud"
       ]
     },
     "fadail": {
-      "tr": "İlk büyük dini katliam olan Ashab-ı Uhdud kıssasını anlatır. İnanç uğruna şehit olmanın yüceltildiği sûre.",
-      "en": "Narrates the first recorded religious massacre. The surah glorifying martyrdom for the sake of faith."
-    }
+      "tr": "Tarihte organize dini zülmün en çarpıcı örneklerinden biri olan Ashab-ı Uhdud olayını anlatır. İnanç uğruna şehit olmanın yüceltildiği sûre.",
+      "en": "Narrates the Ashab al-Ukhdud incident — one of history's most striking examples of organized religious persecution. The surah glorifying steadfastness and martyrdom for the sake of faith."
+    },
+    "cuz": 30
   },
   "86": {
     "meaning": {
@@ -2475,21 +2503,22 @@
     "themes": {
       "tr": [
         "Gece gelen yıldız (sabah yıldızı)",
-        "Her insanı koruyan melek",
+        "Her insanı gözeten varlık (86:4)",
         "İnsanın yaratılışındaki su",
         "Kıyametin gerçekliği"
       ],
       "en": [
         "The nightcomer star (morning star)",
-        "Angel watching over every person",
+        "A watcher over every soul (86:4)",
         "Water in human creation",
         "Reality of the Resurrection"
       ]
     },
     "fadail": {
-      "tr": "'Her insan üzerinde mutlaka bir gözetleyici vardır' (86:4) — meleklerin koruyucu rolüne dair temel ayet.",
-      "en": "Verse 86:4 — 'Over every soul there is a watcher' — the foundational verse on angels' protective role."
-    }
+      "tr": "'Her insan üzerinde mutlaka bir gözetleyici vardır' (86:4) — Allah'ın ilmi veya koruyucu melekler olarak yorumlanan, insanın gözetim altında olduğunu bildiren temel ayet.",
+      "en": "'Over every soul there is a watcher' (86:4) — interpreted as divine omniscience or guardian angels; a foundational verse on the certainty of divine oversight."
+    },
+    "cuz": 30
   },
   "87": {
     "meaning": {
@@ -2516,9 +2545,10 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. Peygamber'in Cuma namazı ile bayram namazlarında okuduğu sûre. 'Rabbinin adını tesbih et' ile açılır.",
-      "en": "Surah the Prophet recited in Friday and Eid prayers. Opens with: 'Glorify the name of your Lord, the Most High.'"
-    }
+      "tr": "Hz. Peygamber'in Cuma ve bayram namazlarında El-A'lâ ile El-Ğâşiye'yi okuduğu rivayet edilir (Müslim). 'Rabbinin adını tesbih et' ile açılan tesbih sûresi.",
+      "en": "Reported in Muslim that the Prophet recited Al-A'la and Al-Ghashiyya in Friday and Eid prayers. Opens with the command to glorify the name of the Most High Lord."
+    },
+    "cuz": 30
   },
   "88": {
     "meaning": {
@@ -2545,9 +2575,10 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. Peygamber'in Cuma ve bayram namazlarında A'lâ ile birlikte okuduğu sûre. Deveden ibret almayı emreder (88:17).",
-      "en": "Recited by the Prophet in Friday and Eid prayers alongside surah 87. Commands reflection on the camel (88:17)."
-    }
+      "tr": "Hz. Peygamber'in Cuma ve bayram namazlarında El-A'lâ ile birlikte okuduğu rivayet edilen sûre (Müslim). Deveden göğe tabiat üzerine tefekkür çağrısını barındırır (88:17-20).",
+      "en": "Reported in Muslim that the Prophet recited this surah alongside Al-A'la in Friday and Eid prayers. Contains an invitation to contemplate nature from camel to sky (88:17-20)."
+    },
+    "cuz": 30
   },
   "89": {
     "meaning": {
@@ -2576,7 +2607,8 @@
     "fadail": {
       "tr": "'Ey huzura kavuşmuş nefis, razı edilmiş ve razı olmuş olarak Rabbine dön' (89:27-28) — en teselli edici ayetlerden biri.",
       "en": "Verses 89:27-28 — 'O reassured soul, return to your Lord, pleased and pleasing' — among the most comforting verses."
-    }
+    },
+    "cuz": 30
   },
   "90": {
     "meaning": {
@@ -2605,7 +2637,8 @@
     "fadail": {
       "tr": "'Biz insanı yorgunluk içinde yarattık' (90:4) — hayatın zor olmasının ilahi tasarım olduğunu öğretir.",
       "en": "Verse 90:4 — 'We created the human in hardship' — teaches that life's difficulty is by divine design."
-    }
+    },
+    "cuz": 30
   },
   "91": {
     "meaning": {
@@ -2619,13 +2652,13 @@
     },
     "themes": {
       "tr": [
-        "Güneş, ay, gündüz, geceye yemin",
+        "Kur'an'ın en uzun zincirleme yemin dizisi (yedi yemin, 91:1-7)",
         "Nefsin tezkiyesi",
         "Semud kavminin kibri ve helaki",
         "İç arınmanın önemi"
       ],
       "en": [
-        "Oath by sun, moon, day, night",
+        "Quran's longest chained oath sequence (seven oaths, 91:1-7)",
         "Purification of the soul",
         "Arrogance and destruction of Thamud",
         "Importance of inner purification"
@@ -2634,7 +2667,8 @@
     "fadail": {
       "tr": "'Nefsini arındıran kurtuluşa ermiştir' (91:9) — Kur'an'ın tezkiye (nefis arındırma) ilkesinin özeti.",
       "en": "Verse 91:9 — 'Successful is the one who purifies it (the soul)' — the Quranic summary of self-purification."
-    }
+    },
+    "cuz": 30
   },
   "92": {
     "meaning": {
@@ -2661,9 +2695,10 @@
       ]
     },
     "fadail": {
-      "tr": "Cömertlik ve cimrilik arasındaki zıtlığı anlatır. Ebu Bekir'in bu sûrenin mucibince hareket ettiği rivayet edilir.",
-      "en": "Contrasts generosity and miserliness. Abu Bakr is reported to have lived according to this surah's message."
-    }
+      "tr": "Cömertlik ve cimrilik arasındaki zıtlığı keskin biçimde sunar. Hz. Ebu Bekir'in bu sûrenin ruhuna uygun biçimde hareket ederek Bilal-i Habeşî dahil birçok köleyi azad ettiği rivayet edilir (İbn İshak, Siyer).",
+      "en": "Presents a sharp contrast between generosity and miserliness. It is reported (Ibn Ishaq, Sira) that Abu Bakr acted in the spirit of this surah, purchasing and freeing several slaves including Bilal al-Habashi."
+    },
+    "cuz": 30
   },
   "93": {
     "meaning": {
@@ -2680,19 +2715,20 @@
         "Allah'ın peygamberi terk etmediği",
         "Vahiy kesilince teselli",
         "Yetimliğin şükrü",
-        "Üç nimet: yetimlik, dalalettten kurtarılma, zenginleşme"
+        "Üç nimet: yetimliğe barınak, dalalet'ten hidayet, yoksulluktan zenginlik (93:6-8)"
       ],
       "en": [
         "God has not forsaken the Prophet",
         "Consolation after pause in revelation",
         "Gratitude for being an orphan",
-        "Three blessings: orphanhood, guidance, enrichment"
+        "Three blessings: shelter from orphanhood, guidance from loss, enrichment from poverty (93:6-8)"
       ]
     },
     "fadail": {
-      "tr": "Vahiy gecikmesi sırasında peygamberi teselli eden sûre. 'Rabbin seni ne terk etti ne de senden soğudu' (93:3).",
-      "en": "The surah that consoled the Prophet during the pause in revelation. 'Your Lord has not forsaken you nor hated you' (93:3)."
-    }
+      "tr": "Vahiy gecikmesi (fetret-i vahy) sırasında peygamberi teselli eden sûre. 'Rabbin seni ne terk etti ne de senden soğudu' (93:3) — ilahi güvencenin en kişisel ifadesi.",
+      "en": "The surah consoling the Prophet during the pause in revelation (fatra). 'Your Lord has not forsaken you, nor has He become displeased with you' (93:3) — the most personal expression of divine assurance."
+    },
+    "cuz": 30
   },
   "94": {
     "meaning": {
@@ -2719,9 +2755,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Her zorluğun yanında bir kolaylık vardır' (94:5-6) — iki kez tekrarlanır. Kriz anlarında en çok okunan sûre.",
-      "en": "'With hardship comes ease' (94:5-6) — repeated twice. The most-recited surah during times of difficulty."
-    }
+      "tr": "'Her güçlükle birlikte bir kolaylık vardır' (94:5-6) — iki kez tekrarlanan bu ifadenin sûresidir. Zorluk anlarında teselli için başvurulan sûrelerin başında gelir.",
+      "en": "'With every hardship comes ease' (94:5-6) — the surah where this affirmation is stated twice. Among the first surahs sought for consolation in times of difficulty."
+    },
+    "cuz": 30
   },
   "95": {
     "meaning": {
@@ -2748,9 +2785,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Biz insanı en güzel biçimde yarattık' (95:4) — yaratılış şerefinin en güçlü ilanı. Kısa ama çok derin.",
-      "en": "Verse 95:4 — 'We created man in the best form' — the most powerful proclamation of human dignity. Short but profound."
-    }
+      "tr": "'Biz insanı en güzel biçimde yarattık' (95:4) — yaratılış şerefinin en güçlü ilanı. Dört yeminin üç peygamberin coğrafyasını (Hz. İsa, Hz. Musa, Hz. Muhammed) kapsadığı özgün bir açılış.",
+      "en": "'We created man in the best of forms' (95:4) — the Quran's most powerful declaration of human dignity. The four oaths span the geography of three prophets: Jesus, Moses, and Muhammad."
+    },
+    "cuz": 30
   },
   "96": {
     "meaning": {
@@ -2777,9 +2815,10 @@
       ]
     },
     "fadail": {
-      "tr": "İlk inen ayetleri (96:1-5) barındırır. 'Oku' emriyle İslam'ın ilk sözü ilim olmuştur. Tarihsel önemi benzersiz.",
-      "en": "Contains the first revealed verses (96:1-5). Islam's first word was 'Read' — knowledge is the foundation of faith."
-    }
+      "tr": "Cumhur görüşüne göre ilk inen ayetleri (96:1-5) barındıran sûre — Hira mağarasında. 'Oku' emriyle İslam'ın ilk sözü ilim olmuştur.",
+      "en": "According to the majority view, contains the first verses revealed (96:1-5) — in the Cave of Hira. Islam's first word was 'Read' — knowledge as the foundation of faith."
+    },
+    "cuz": 30
   },
   "97": {
     "meaning": {
@@ -2787,8 +2826,8 @@
       "en": "The Power"
     },
     "period": {
-      "tr": "Mekkî",
-      "en": "Meccan",
+      "tr": "Mekkî (tartışmalı — erken Medenî görüşü de mevcuttur)",
+      "en": "Meccan — though some scholars consider it early Medinan",
       "approx": "~610"
     },
     "themes": {
@@ -2806,9 +2845,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Kadir gecesi bin aydan hayırlıdır' (97:3). 5 ayetle Kur'an'ın en kısa sûrelerinden biri ama en değerlisi.",
-      "en": "'The Night of Power is better than a thousand months' (97:3). One of the shortest surahs but most precious in value."
-    }
+      "tr": "'Kadir gecesi bin aydan hayırlıdır' (97:3). Anlattığı gecenin yüceliğiyle orantılı bir derinlik taşıyan beş ayetlik sûre. 'Kadir' kelimesi hem güç/yücelik hem takdir/ölçü anlamı taşır.",
+      "en": "'The Night of Power is better than a thousand months' (97:3). A five-verse surah whose depth is proportional to the greatness of the night it describes. 'Qadr' carries both the sense of power/majesty and divine decree/measure."
+    },
+    "cuz": 30
   },
   "98": {
     "meaning": {
@@ -2837,7 +2877,8 @@
     "fadail": {
       "tr": "Hz. Peygamber, Hz. Ubeyy ibn Ka'b'a: 'Allah bana bu sûreyi sana okumamı emretti' buyurmuştur (Buhari, Müslim). Ubeyy 'Beni mi kastetti?' diye sormuş, Hz. Peygamber 'Evet' demiştir — bu sûrenin ümmete özel bir hitap taşıdığını gösterir.",
       "en": "The Prophet told Hz. Ubayy ibn Ka'b: 'Allah commanded me to recite this surah to you' (Bukhari, Muslim). Ubayy asked 'Did He mention me by name?' and the Prophet said 'Yes' — showing this surah's special address to the community."
-    }
+    },
+    "cuz": 30
   },
   "99": {
     "meaning": {
@@ -2847,7 +2888,7 @@
     "period": {
       "tr": "Medenî",
       "en": "Medinan",
-      "approx": "~624"
+      "approx": "~622-624"
     },
     "themes": {
       "tr": [
@@ -2864,9 +2905,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Kim zerre kadar iyilik yaparsa onu görür, kim zerre kadar kötülük yaparsa onu görür' (99:7-8). Kur'an'ın adalet özeti.",
-      "en": "Verses 99:7-8 — 'Whoever does an atom's weight of good will see it; whoever does an atom's weight of evil will see it.'"
-    }
+      "tr": "'Kim zerre kadar iyilik yaparsa onu görür, kim zerre kadar kötülük yaparsa onu görür' (99:7-8) — Kur'an'ın adalet özeti. İmam Şâfiî bu sûreyi İslam'ın adalet anlayışının tam özeti olarak nitelendirmiştir (Beyhakî, Şuabü'l-İman).",
+      "en": "'Whoever does an atom's weight of good will see it; whoever does an atom's weight of evil will see it' (99:7-8) — the Quran's summary of justice. Imam al-Shafi'i considered this surah the perfect encapsulation of Islamic justice (al-Bayhaqi, Shu'ab al-Iman)."
+    },
+    "cuz": 30
   },
   "100": {
     "meaning": {
@@ -2874,8 +2916,8 @@
       "en": "The Racers"
     },
     "period": {
-      "tr": "Mekkî",
-      "en": "Meccan",
+      "tr": "Mekkî (cumhur) — Medenî görüşü de mevcuttur",
+      "en": "Meccan (majority view) — Medinan opinion also exists",
       "approx": "~612"
     },
     "themes": {
@@ -2895,7 +2937,8 @@
     "fadail": {
       "tr": "Atların soluk alışının duyulduğu canlı bir tablonun eşliğinde insanın nankörlüğü sorgulanır.",
       "en": "Human ingratitude is questioned against the vivid backdrop of racing horses — one of the most kinetic surahs."
-    }
+    },
+    "cuz": 30
   },
   "101": {
     "meaning": {
@@ -2922,9 +2965,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Kıyamet nedir, ne olduğunu bilir misiniz?' sorusuyla üç kez kıyameti tasvir eder. Çarpıcı ama çok kısa.",
-      "en": "Describes the Last Hour three times with 'What is the Striking Calamity? And what will make you know what it is?'"
-    }
+      "tr": "İsim → 'nedir bu?' → 'ne bileceksin?' zincirleme soru yapısıyla kıyameti tanıtan sûre — El-Hâkka (69) ile aynı retorik teknik: önce merak, sonra tasvir.",
+      "en": "Introduces the Day of Judgment through a chain of name → 'what is it?' → 'what will make you know?' — the same rhetorical technique as Al-Haqqa (69): first curiosity, then vivid description."
+    },
+    "cuz": 30
   },
   "102": {
     "meaning": {
@@ -2951,9 +2995,10 @@
       ]
     },
     "fadail": {
-      "tr": "8 kısa ayette tüketim toplumunun eleştirisini yapar. 'Sizi çoğalma tutkusu oyalıyor, ta mezarlara varana kadar.'",
-      "en": "Critiques a consumption society in 8 short verses. 'Rivalry for worldly increase distracts you — until you reach the grave.'"
-    }
+      "tr": "Modern yorumcuların 'tüketim toplumunun en özlü eleştirisi' olarak değerlendirdiği sûre. 8 ayette: 'Sizi çoğalma tutkusu oyalıyor, ta mezarlara varana kadar.'",
+      "en": "A surah modern commentators describe as the most concise critique of a consumption-driven society — in 8 verses: 'Rivalry in worldly increase distracts you, until you visit the graves.'"
+    },
+    "cuz": 30
   },
   "103": {
     "meaning": {
@@ -2980,9 +3025,10 @@
       ]
     },
     "fadail": {
-      "tr": "İmam Şafii: 'Kur'an'dan yalnız bu sûre insana yeterdi.' 3 ayette dinin özü. Her toplantıda okunması sünnet.",
-      "en": "Imam Al-Shafi'i: 'This surah alone would suffice for humanity.' The essence of religion in 3 verses."
-    }
+      "tr": "İmam Şâfiî'nin 'Bu sûre insanlara yeterdi' dediği rivayet edilir (Beyhakî). 3 ayette tek iddia → tek istisna → dört şart: tam bir medeniyet felsefesi.",
+      "en": "Imam al-Shafi'i reportedly said 'This surah alone would suffice for people' (al-Bayhaqi). Three verses: one claim → one exception → four conditions — a complete philosophy of civilization."
+    },
+    "cuz": 30
   },
   "104": {
     "meaning": {
@@ -3009,9 +3055,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Malını saydı durdu, zenginlik onu ölümsüz kılacak sandı' (104:2-3) — kapitalizm eleştirisinin Kur'anik özeti.",
-      "en": "Verses 104:2-3 — 'Who counts his wealth and thinks it will make him immortal' — the Quranic critique of capitalist obsession."
-    }
+      "tr": "'Malını saydı durdu, zenginlik onu ölümsüz kılacak sandı' (104:2-3) — servet saplantısının ahiretteki sonucunu anlatan; çağdaş yorumcuların sermaye/tüketim eleştirisiyle ilişkilendirdiği sûre.",
+      "en": "'Who counts his wealth and thinks it will make him immortal' (104:2-3) — a surah on the consequences of wealth obsession; contemporary commentators often connect it to critiques of capitalist accumulation."
+    },
+    "cuz": 30
   },
   "105": {
     "meaning": {
@@ -3038,9 +3085,10 @@
       ]
     },
     "fadail": {
-      "tr": "Hz. Peygamber'in doğum yılında gerçekleşen (570 CE) tarihsel mucizeyi anlatır. Kâbe'nin korunmasının belgesi.",
-      "en": "Describes the historical miracle that occurred in the year of the Prophet's birth (570 CE). The Kaaba's divine protection."
-    }
+      "tr": "Geleneksel rivayete göre Hz. Peygamber'in doğduğu yıl civarında (yaklaşık M.S. 570) yaşandığı kabul edilen tarihsel olayı anlatır. Kâbe'nin koruyucusunun kim olduğunu Hz. Peygamber'e hitapla hatırlatır.",
+      "en": "Describes a historical event traditionally believed to have occurred around the year of the Prophet's birth (approximately 570 CE). Reminds the Prophet — and Meccans — of who truly guards the Kaaba."
+    },
+    "cuz": 30
   },
   "106": {
     "meaning": {
@@ -3069,7 +3117,8 @@
     "fadail": {
       "tr": "Önceki sûre (Fil) ile anlam bütünlüğü taşır: Allah Kâbe'yi korudu, Kureyş de bunun şükrünü ödemelidir.",
       "en": "Forms a thematic pair with surah 105: God protected the Kaaba, and Quraysh must repay this with gratitude."
-    }
+    },
+    "cuz": 30
   },
   "107": {
     "meaning": {
@@ -3077,8 +3126,8 @@
       "en": "Small Kindnesses"
     },
     "period": {
-      "tr": "Mekkî",
-      "en": "Meccan",
+      "tr": "Karma (ilk üç ayeti Mekkî, son dört ayeti Medenî — tartışmalı)",
+      "en": "Mixed — first three verses Meccan, last four Medinan according to some traditions",
       "approx": "~612"
     },
     "themes": {
@@ -3098,7 +3147,8 @@
     "fadail": {
       "tr": "Dini yalanlayanı sosyal adalet bağlamında tanımlar — yetim hakkını çiğneyen ve miskini doyurmayan kişi.",
       "en": "Defines the religion-denier through social justice: one who tramples orphan's rights and refuses to feed the poor."
-    }
+    },
+    "cuz": 30
   },
   "108": {
     "meaning": {
@@ -3106,8 +3156,8 @@
       "en": "Abundance"
     },
     "period": {
-      "tr": "Mekkî",
-      "en": "Meccan",
+      "tr": "Mekkî (Medenî olduğu da rivayet edilir)",
+      "en": "Meccan (some traditions report Medinan)",
       "approx": "~611"
     },
     "themes": {
@@ -3125,9 +3175,10 @@
       ]
     },
     "fadail": {
-      "tr": "Kur'an'ın en kısa sûresi (3 ayet, 10 kelime). Hz. Muhammed'in soyunun 'ebter' (soyu kesik) olmadığının ilahi cevabı.",
-      "en": "The Quran's shortest surah (3 verses). Divine response to those who said the Prophet was 'cut off' with no lineage."
-    }
+      "tr": "Kur'an'ın en kısa sûresi (3 ayet, yaklaşık 10 kelime). Hz. Muhammed'in soyunun 'ebter' (soyu kesik) olmadığının ilahi cevabı.",
+      "en": "The Quran's shortest surah (3 verses, approximately 10 words). Divine response to those who said the Prophet was 'cut off' with no lineage."
+    },
+    "cuz": 30
   },
   "109": {
     "meaning": {
@@ -3154,9 +3205,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Dinde zorlama yoktur' (Bakara 2:256) ile birlikte din özgürlüğünün temel referansı. Her sabah ve akşam okunması tavsiye edilir.",
-      "en": "Alongside 2:256, the primary reference for religious freedom. Recommended every morning and evening."
-    }
+      "tr": "'Dinde zorlama yoktur' (Bakara 2:256) ile birlikte din özgürlüğünün temel referansı. Sabah namazı sünneti ve tavaf sonrasında okunması hadislerle rivayet edilmiştir (Müslim, Salâtü'l-Müsâfirîn).",
+      "en": "Alongside 2:256, the primary Quranic reference for religious freedom. Reported in hadith (Muslim, Salat al-Musafirin) to be recited after Fajr sunnah and after Tawaf."
+    },
+    "cuz": 30
   },
   "110": {
     "meaning": {
@@ -3183,9 +3235,10 @@
       ]
     },
     "fadail": {
-      "tr": "Son inen sûredir. Hz. Peygamber bu sûreyi okuyunca 'Ecelim yaklaştı' dedi. Vedanın ve tamamlanmanın sûresi.",
-      "en": "The last surah revealed. The Prophet said upon its revelation: 'My time is near.' The surah of completion and farewell."
-    }
+      "tr": "Tam bir sûre olarak en son inen sûreler arasında gösterilir (tartışmalı; son inen tek ayet meselesi ayrıdır). Hz. Peygamber bu sûreyi okuyunca 'Ecelim yaklaştı' dedi. Vedanın ve tamamlanmanın sûresi.",
+      "en": "Counted among the last complete surahs revealed (debated; the question of the very last verse is separate). The Prophet said upon its revelation: 'My time is near.' The surah of completion and farewell."
+    },
+    "cuz": 30
   },
   "111": {
     "meaning": {
@@ -3212,9 +3265,10 @@
       ]
     },
     "fadail": {
-      "tr": "İsmiyle anan tek gerçek kişi (Ebu Leheb). Hicri 11. yılda öldü ve bu ayet onun hakkında kehanet niteliği taşıdı.",
-      "en": "The only real person named in the Quran. Abu Lahab died in the 11th year of the mission — fulfilling this prophecy."
-    }
+      "tr": "Kur'an'da olumsuz bağlamda künyesiyle/lakabıyla anılan ve cehennem akıbetiyle haber verilen nadir kişilerden biri. (Not: Zeyd ibn Hârise gerçek adıyla 33:37'de geçer — adıyla anılma yalnızca bu sûreye özgü değildir.) Ebu Leheb Hicri 11. yılda öldü; ayet, iman etmeyeceğini önceden bildirmişti.",
+      "en": "One of the rare individuals referred to in the Quran by kunya/nickname in a context of condemnation and hellfire. (Note: Zayd ibn Harithah is mentioned by his actual name in 33:37 — being named is not unique to Abu Lahab.) Abu Lahab died in the 11th Hijri year; the verse had predicted he would never accept faith."
+    },
+    "cuz": 30
   },
   "112": {
     "meaning": {
@@ -3241,9 +3295,10 @@
       ]
     },
     "fadail": {
-      "tr": "'Kur'an'ın üçte birine eşdeğer' (Hadis). Her namazda okunabilir, her dilde anlaşılır. Tevhidin DNA'sı.",
-      "en": "'Equivalent to one-third of the Quran' (Hadith). The DNA of monotheism — recitable in every prayer."
-    }
+      "tr": "'Kur'an'ın üçte birine eşdeğer' olduğu sahih hadislerle sabittir (Buhârî, Fedâilü'l-Kur'ân; Müslim, Salâtü'l-Müsâfirîn). Her namazda okunabilir, her dilde anlaşılır. Tevhidin DNA'sı.",
+      "en": "Established in authentic hadiths (Bukhari, Fada'il al-Quran; Muslim, Salat al-Musafirin) as 'equivalent to one-third of the Quran'. The DNA of monotheism — recitable in every prayer."
+    },
+    "cuz": 30
   },
   "113": {
     "meaning": {
@@ -3270,9 +3325,10 @@
       ]
     },
     "fadail": {
-      "tr": "Muavvizeteyn'in (113-114) ilki. Her hastalık ve korku durumunda Hz. Peygamber bu iki sûreyi okurdu.",
-      "en": "First of the Muawwidhatain (113-114). The Prophet recited these two surahs for illness, fear, and evil eye."
-    }
+      "tr": "Muavvizeteyn'in (113-114) ilki. Hz. Peygamber'in hastalık ve sıkıntı anlarında bu iki sûreyi okuduğu, yatmadan önce her gece İhlâs ile birlikte avuçlarına üfleyerek bedenine sürdüğü rivayet edilir (Buhârî, Fedâilü'l-Kur'ân).",
+      "en": "First of the Muawwidhatain (113-114). Narrated (Bukhari, Fada'il al-Quran) that the Prophet recited these two surahs during illness, and every night before sleep he would blow on his palms and wipe his body with them, together with Al-Ikhlas."
+    },
+    "cuz": 30
   },
   "114": {
     "meaning": {
@@ -3299,8 +3355,9 @@
       ]
     },
     "fadail": {
-      "tr": "Kur'an'ın son sûresi ve son sığınağı. 'İnsanların Rabbi, İnsanların Meliki, İnsanların İlahı'na sığınmak — tevhidin mühürü.",
-      "en": "The Quran's final surah and ultimate refuge. Seeking shelter in 'the Lord, King, and God of Mankind' — the seal of tawhid."
-    }
+      "tr": "Kur'an'ın son sûresi ve son sığınağı. 'İnsanların Rabbi, İnsanların Meliki, İnsanların İlahı'na sığınmak — tevhidin mühürü. Kur'an El-Alak'ta 'Oku!' emriyle başlar, En-Nâs'ta 'sığın!' duasıyla kapanır — bilgi kibir değil, teslimiyete götürür.",
+      "en": "The Quran's final surah and ultimate refuge. Seeking shelter in 'the Lord, King, and God of Mankind' — the seal of tawhid. The Quran opens in Al-Alaq with the command 'Read!' and closes in An-Nas with the prayer 'seek refuge' — knowledge leads not to arrogance, but to submission."
+    },
+    "cuz": 30
   }
 }

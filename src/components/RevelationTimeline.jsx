@@ -65,7 +65,7 @@ export default function RevelationTimeline({ onClose }) {
 
   const gold = '#d4a574';
   const mekiColor = '#c9a227';
-  const medeniColor = '#3498db';
+  const medeniColor = '#2ecc71';
 
   const periodColor = (p) => p === 'mekki' ? mekiColor : medeniColor;
 
@@ -143,10 +143,18 @@ export default function RevelationTimeline({ onClose }) {
               <span style={{ color: '#4a6568', fontSize: '0.68rem', fontWeight: 700 }}>▲▼</span>
               <span style={{ color: '#94a3b8' }}>
                 {language === 'tr'
-                  ? 'Mushaf sırası ile nüzul sırası arasındaki fark (▲ = mushafta daha geride, ▼ = mushafta daha önde)'
-                  : 'Difference between mushaf order and revelation order (▲ = placed later in mushaf, ▼ = placed earlier)'}
+                  ? 'Mushaf–nüzul farkı (▲ = mushafta daha geride, ▼ = mushafta daha önde)'
+                  : 'Mushaf vs revelation gap (▲ = placed later in mushaf, ▼ = placed earlier)'}
               </span>
             </div>
+            {viewMode === 'timeline' && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ color: '#4a6568', fontSize: '0.68rem' }}>↕</span>
+                <span style={{ color: '#94a3b8' }}>
+                  {language === 'tr' ? 'Bar yüksekliği = ayet sayısı' : 'Bar height = verse count'}
+                </span>
+              </div>
+            )}
           </div>
 
           {viewMode === 'grid' && (
@@ -172,7 +180,7 @@ export default function RevelationTimeline({ onClose }) {
                       onMouseEnter={() => setHovered(s.surah)}
                       onMouseLeave={() => setHovered(null)}
                       style={{
-                        background: isHovered ? `rgba(${s.period === 'mekki' ? '201,162,39' : '52,152,219'},0.15)` : 'rgba(255,255,255,0.025)',
+                        background: isHovered ? `rgba(${s.period === 'mekki' ? '201,162,39' : '46,204,113'},0.15)` : 'rgba(255,255,255,0.025)',
                         border: `1px solid ${isHovered ? periodColor(s.period) + '60' : 'rgba(255,255,255,0.05)'}`,
                         borderLeft: `3px solid ${periodColor(s.period)}`,
                         borderRadius: '8px', padding: '10px 12px', cursor: 'default',
@@ -183,7 +191,7 @@ export default function RevelationTimeline({ onClose }) {
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '5px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                           <span style={{
-                            background: `rgba(${s.period === 'mekki' ? '201,162,39' : '52,152,219'},0.2)`,
+                            background: `rgba(${s.period === 'mekki' ? '201,162,39' : '46,204,113'},0.2)`,
                             color: periodColor(s.period),
                             fontSize: '0.68rem', fontWeight: 700, padding: '1px 6px', borderRadius: '3px',
                           }}>#{s.rank}</span>
@@ -197,7 +205,18 @@ export default function RevelationTimeline({ onClose }) {
                           )}
                         </div>
                         {diffFromMushaf !== 0 && (
-                          <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>
+                          <span
+                            title={
+                              diffFromMushaf > 0
+                                ? (language === 'tr'
+                                    ? `Mushaf sırası nüzul sırasından ${diffFromMushaf} pozisyon geridedir`
+                                    : `Placed ${diffFromMushaf} positions later in the mushaf than revealed`)
+                                : (language === 'tr'
+                                    ? `Mushaf sırası nüzul sırasından ${Math.abs(diffFromMushaf)} pozisyon öndedir`
+                                    : `Placed ${Math.abs(diffFromMushaf)} positions earlier in the mushaf than revealed`)
+                            }
+                            style={{ color: '#4a5568', fontSize: '0.62rem', cursor: 'help' }}
+                          >
                             {diffFromMushaf > 0 ? `▲${diffFromMushaf}` : `▼${Math.abs(diffFromMushaf)}`}
                           </span>
                         )}
@@ -228,7 +247,7 @@ export default function RevelationTimeline({ onClose }) {
                           width: '16px', flexShrink: 0, height: `${height}px`,
                           background: isHov
                             ? periodColor(s.period)
-                            : `rgba(${s.period === 'mekki' ? '201,162,39' : '52,152,219'},${0.25 + (s.rank / 114) * 0.5})`,
+                            : `rgba(${s.period === 'mekki' ? '201,162,39' : '46,204,113'},${0.25 + (s.rank / 114) * 0.5})`,
                           borderRadius: '2px 2px 0 0', cursor: 'default', transition: 'background 0.12s',
                           outline: isHov ? `1px solid ${periodColor(s.period)}` : 'none',
                         }}
@@ -240,10 +259,10 @@ export default function RevelationTimeline({ onClose }) {
                 <div style={{ height: '2px', background: 'rgba(255,255,255,0.06)', marginTop: '1px' }} />
               </div>
 
-              {/* Hover info bar */}
+              {/* Info panel */}
               <div style={{
-                minHeight: '44px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
-                borderRadius: '8px', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '12px',
+                minHeight: '72px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
+                borderRadius: '8px', padding: '10px 14px',
               }}>
                 {hovered ? (() => {
                   const s = orderData.find(x => x.surah === hovered);
@@ -252,17 +271,62 @@ export default function RevelationTimeline({ onClose }) {
                   const ayahCount = AYAH_COUNTS[s.surah - 1] || '?';
                   const delta = s.surah - s.rank;
                   return (
-                    <>
-                      <span style={{ background: `rgba(${s.period === 'mekki' ? '201,162,39' : '52,152,219'},0.2)`, color: periodColor(s.period), fontSize: '0.65rem', fontWeight: 700, padding: '2px 7px', borderRadius: '4px' }}>#{s.rank}</span>
-                      <span style={{ color: gold, fontWeight: 700, fontSize: '0.85rem' }}>{name}</span>
-                      <span style={{ color: '#64748b', fontSize: '0.72rem' }}>Sûre {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'v.'}</span>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px' }}>
+                      <span style={{ background: `rgba(${s.period === 'mekki' ? '201,162,39' : '46,204,113'},0.2)`, color: periodColor(s.period), fontSize: '0.65rem', fontWeight: 700, padding: '2px 7px', borderRadius: '4px' }}>#{s.rank}</span>
+                      <span style={{ color: gold, fontWeight: 700, fontSize: '0.9rem' }}>{name}</span>
+                      <span style={{ color: '#64748b', fontSize: '0.72rem' }}>{language === 'tr' ? 'Sûre' : 'Surah'} {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</span>
                       <span style={{ color: periodColor(s.period), fontSize: '0.72rem' }}>{s.period === 'mekki' ? (language === 'tr' ? 'Mekkî' : 'Meccan') : (language === 'tr' ? 'Medenî' : 'Medinan')}</span>
-                      {delta !== 0 && <span style={{ color: '#4a5568', fontSize: '0.65rem', marginLeft: 'auto' }}>{language === 'tr' ? 'Mushaf sırası:' : 'Mushaf pos:'} {delta > 0 ? `▲${delta}` : `▼${Math.abs(delta)}`}</span>}
-                    </>
+                      {delta !== 0 && (
+                        <span style={{ color: '#64748b', fontSize: '0.7rem', marginLeft: 'auto' }}>
+                          {language === 'tr' ? 'Mushaf farkı:' : 'Mushaf gap:'}{' '}
+                          <span style={{ color: '#94a3b8', fontWeight: 600 }}>{delta > 0 ? `▲${delta}` : `▼${Math.abs(delta)}`}</span>
+                          <span style={{ color: '#4a5568', fontSize: '0.62rem', marginLeft: '4px' }}>
+                            {delta > 0
+                              ? (language === 'tr' ? '(mushafta daha geride)' : '(placed later in mushaf)')
+                              : (language === 'tr' ? '(mushafta daha önde)' : '(placed earlier in mushaf)')}
+                          </span>
+                        </span>
+                      )}
+                    </div>
                   );
-                })() : (
-                  <span style={{ color: '#4a5568', fontSize: '0.75rem' }}>{language === 'tr' ? 'Bir sütunun üzerine gelin…' : 'Hover over a bar…'}</span>
-                )}
+                })() : (() => {
+                  const totalAyah = (filter === 'all' ? orderData : displayed).reduce((sum, s) => sum + (AYAH_COUNTS[s.surah - 1] || 0), 0);
+                  const shownMekki = (filter === 'all' ? orderData : displayed).filter(s => s.period === 'mekki').length;
+                  const shownMedeni = (filter === 'all' ? orderData : displayed).filter(s => s.period === 'medeni').length;
+                  const maxAyahSurah = (filter === 'all' ? orderData : displayed).reduce((max, s) => (AYAH_COUNTS[s.surah - 1] || 0) > (AYAH_COUNTS[max.surah - 1] || 0) ? s : max, (filter === 'all' ? orderData : displayed)[0]);
+                  return (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center' }}>
+                      <div>
+                        <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'Gösterilen sûre' : 'Shown surahs'}</div>
+                        <div style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>{shownMekki + shownMedeni}</div>
+                      </div>
+                      <div>
+                        <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'Toplam ayet' : 'Total verses'}</div>
+                        <div style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>{totalAyah.toLocaleString()}</div>
+                      </div>
+                      <div>
+                        <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>Mekkî / Medenî</div>
+                        <div style={{ fontSize: '0.82rem', fontWeight: 600 }}>
+                          <span style={{ color: mekiColor }}>{shownMekki}</span>
+                          <span style={{ color: '#4a5568' }}> / </span>
+                          <span style={{ color: medeniColor }}>{shownMedeni}</span>
+                        </div>
+                      </div>
+                      {maxAyahSurah && (
+                        <div>
+                          <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'En uzun sûre' : 'Longest surah'}</div>
+                          <div style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>
+                            {SURAH_NAMES_TR[maxAyahSurah.surah - 1]}
+                            <span style={{ color: '#4a5568', fontWeight: 400, fontSize: '0.72rem', marginLeft: '4px' }}>({AYAH_COUNTS[maxAyahSurah.surah - 1]} {language === 'tr' ? 'ayet' : 'v.'})</span>
+                          </div>
+                        </div>
+                      )}
+                      <div style={{ marginLeft: 'auto', color: '#4a5568', fontSize: '0.68rem', fontStyle: 'italic' }}>
+                        {language === 'tr' ? 'Detay için bir bara tıklayın' : 'Hover a bar for details'}
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
 
               {/* Axis labels */}

@@ -4,6 +4,14 @@ import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
 
+// Verse coordinates for each tab (surah:ayah) — audio handled with fallback by QuranVerse
+const TAB_VERSE = {
+  iron:     { surah: 57, ayah: 25 }, // Hadid 57:25
+  universe: { surah: 51, ayah: 47 }, // Zariyat 51:47
+  ocean:    { surah: 55, ayah: 19 }, // Rahman 55:19
+  embryo:   { surah: 23, ayah: 13 }, // Mu'minun 23:13
+};
+
 // Per-tab accent colours + discovery badge text
 const TAB_META = {
   iron: {
@@ -72,7 +80,7 @@ export default function ScientificSigns() {
   const tabKeys = ['iron', 'universe', 'ocean', 'embryo'];
 
   return (
-    <SectionWrapper id="science" dark={true} className="!pt-8 md:!pt-12 !pb-8 md:!pb-12">
+    <SectionWrapper id="science" dark={true}>
 
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
@@ -232,6 +240,8 @@ export default function ScientificSigns() {
                         arabic={tabData.verse.arabic}
                         translation={tabData.verse.translation}
                         reference={tabData.verse.reference}
+                        surah={TAB_VERSE[key].surah}
+                        ayah={TAB_VERSE[key].ayah}
                       />
                     </div>
                   )}

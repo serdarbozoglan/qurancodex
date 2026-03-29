@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -268,9 +268,9 @@ const TRANSFORMATION = [
       en: '"But yes — whoever submits his face to Allah while doing good..."',
       ref: 'Bakara 2:112',
     },
-    color: '#2ecc71',
-    glow: 'rgba(46,204,113,0.12)',
-    border: 'rgba(46,204,113,0.35)',
+    color: '#0D9E73',
+    glow: 'rgba(13,158,115,0.12)',
+    border: 'rgba(13,158,115,0.35)',
   },
 ];
 
@@ -284,6 +284,8 @@ export default function HumanDefinition() {
   const [openTrait, setOpenTrait] = useState(null);
   const [openPair, setOpenPair] = useState(null);
   const [activeWord, setActiveWord] = useState(null);
+  const [muminPlaying, setMuminPlaying] = useState(false);
+  const muminAudioRef = useRef(null);
 
   const tr = (key) => t(`humanDefinition.${key}`);
   const lang = language;
@@ -470,10 +472,52 @@ export default function HumanDefinition() {
         <div
           className="rounded-xl p-6 text-center mb-8"
           style={{
+            position: 'relative',
             background: 'rgba(212,165,116,0.05)',
             border: '1px solid rgba(212,165,116,0.2)',
           }}
         >
+          <audio
+            ref={muminAudioRef}
+            src="https://everyayah.com/data/Alafasy_128kbps/023001.mp3"
+            onEnded={() => setMuminPlaying(false)}
+          />
+          <button
+            onClick={() => {
+              const audio = muminAudioRef.current;
+              if (!audio) return;
+              if (muminPlaying) {
+                audio.pause();
+                audio.currentTime = 0;
+                setMuminPlaying(false);
+              } else {
+                audio.play().catch(() => {});
+                setMuminPlaying(true);
+              }
+            }}
+            title={muminPlaying ? 'Durdur' : 'Dinle'}
+            style={{
+              position: 'absolute', bottom: '14px', right: '14px',
+              width: '36px', height: '36px', borderRadius: '50%',
+              background: muminPlaying ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.06)',
+              border: `1px solid ${muminPlaying ? 'rgba(212,165,116,0.55)' : 'rgba(255,255,255,0.12)'}`,
+              boxShadow: muminPlaying ? '0 0 16px rgba(212,165,116,0.25)' : 'none',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer', transition: 'all 0.25s',
+              color: muminPlaying ? '#d4a574' : '#94a3b8',
+            }}
+          >
+            {muminPlaying ? (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16" rx="1"/>
+                <rect x="14" y="4" width="4" height="16" rx="1"/>
+              </svg>
+            ) : (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6,3 20,12 6,21"/>
+              </svg>
+            )}
+          </button>
           <p
             className="text-2xl md:text-3xl leading-loose mb-2"
             style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#d4a574' }}
@@ -605,18 +649,18 @@ export default function HumanDefinition() {
                 >
                   <span
                     className="text-lg md:text-xl"
-                    style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#2ecc71' }}
+                    style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#0D9E73' }}
                     dir="rtl"
                   >
                     {pair.pos.ar}
                   </span>
-                  <span className="text-soft-emerald text-sm font-body font-semibold">
+                  <span className="text-sm font-body font-semibold" style={{ color: '#0D9E73' }}>
                     {lang === 'tr' ? pair.pos.tr : pair.pos.en}
                   </span>
                 </div>
 
                 {/* Center ref */}
-                <div className="flex flex-col items-center justify-center px-3 py-2 text-center flex-shrink-0">
+                <div className="flex flex-col items-center justify-center px-3 py-2 text-center flex-shrink-0 w-28">
                   <span className="text-silver/25 text-lg mb-1">↔</span>
                   <span className="text-silver/30 text-xs font-body whitespace-nowrap">{pair.ref}</span>
                 </div>
@@ -627,12 +671,12 @@ export default function HumanDefinition() {
                 >
                   <span
                     className="text-lg md:text-xl"
-                    style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#e74c3c' }}
+                    style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#D4523E' }}
                     dir="rtl"
                   >
                     {pair.neg.ar}
                   </span>
-                  <span className="font-body text-sm font-semibold" style={{ color: '#e74c3c' }}>
+                  <span className="font-body text-sm font-semibold" style={{ color: '#D4523E' }}>
                     {lang === 'tr' ? pair.neg.tr : pair.neg.en}
                   </span>
                 </div>
@@ -652,12 +696,12 @@ export default function HumanDefinition() {
                       style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
                     >
                       <div className="p-4 text-center" style={{ borderRight: '1px solid rgba(255,255,255,0.06)' }}>
-                        <p className="text-soft-emerald/70 text-xs font-body italic">
+                        <p className="text-xs font-body italic" style={{ color: 'rgba(13,158,115,0.7)' }}>
                           {lang === 'tr' ? pair.pos.noteTr : pair.pos.noteEn}
                         </p>
                       </div>
                       <div className="p-4 text-center">
-                        <p className="text-xs font-body italic" style={{ color: 'rgba(231,76,60,0.65)' }}>
+                        <p className="text-xs font-body italic" style={{ color: 'rgba(212,82,62,0.65)' }}>
                           {lang === 'tr' ? pair.neg.noteTr : pair.neg.noteEn}
                         </p>
                       </div>
@@ -845,13 +889,15 @@ export default function HumanDefinition() {
                 </div>
               </div>
 
-              {/* Arrow between stages */}
-              {i < TRANSFORMATION.length - 1 && (
-                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 md:w-full md:h-10 text-silver/25 text-xl">
-                  <span className="hidden md:block">→</span>
-                  <span className="md:hidden">↓</span>
-                </div>
-              )}
+              {/* Arrow between stages — placeholder keeps all cards equal height */}
+              <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 md:w-full md:h-10 text-silver/25 text-xl">
+                {i < TRANSFORMATION.length - 1 ? (
+                  <>
+                    <span className="hidden md:block">→</span>
+                    <span className="md:hidden">↓</span>
+                  </>
+                ) : null}
+              </div>
             </div>
           ))}
         </div>
