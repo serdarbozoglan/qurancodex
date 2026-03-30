@@ -1293,19 +1293,30 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
 
         {/* CENTER: Cüz + Sayfa info (book mode only, desktop only) */}
-        {!isMobile && (
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
-            {bookMode && currentPage > 0 && (
-              <span style={{ fontSize: '0.60rem', color: dayMode ? 'rgba(80,50,20,0.5)' : 'rgba(200,185,165,0.5)', letterSpacing: '0.04em' }}>
-                {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
-                {' · '}
-                {language === 'tr' ? 'S.' : 'P.'}
-                <span style={{ fontWeight: 600, color: dayMode ? 'rgba(160,100,20,0.7)' : 'rgba(212,165,116,0.7)' }}>{currentPage}</span>
-                /604
+        {!isMobile && bookMode ? (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1px' }}>
+            <span style={{
+              fontSize: '0.82rem',
+              color: dayMode ? 'rgba(80,50,20,0.75)' : 'rgba(200,185,165,0.85)',
+              fontFamily: "'Inter', sans-serif", letterSpacing: '0.06em',
+            }}>
+              {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
+            </span>
+            {currentPage > 0 && (
+              <span style={{
+                fontSize: '0.68rem',
+                color: dayMode ? 'rgba(80,50,20,0.4)' : 'rgba(200,185,165,0.4)',
+                fontFamily: "'Inter', sans-serif", letterSpacing: '0.03em',
+              }}>
+                {language === 'tr' ? 'Sayfa' : 'Page'}{' '}
+                <span style={{ color: dayMode ? 'rgba(160,100,20,0.7)' : 'rgba(212,165,116,0.7)', fontWeight: 600 }}>
+                  {currentPage}
+                </span>
+                {' / 604'}
               </span>
             )}
           </div>
-        )}
+        ) : (!isMobile && <div />)}
 
         {/* RIGHT: controls */}
         {(() => {
