@@ -6,5 +6,11 @@
     "env": {
       "NODE_VERSION": "20"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/kuran-proxy/:path*",
+      "destination": "https://www.kuran.com/:path*"
+    }
+  ]
 }
