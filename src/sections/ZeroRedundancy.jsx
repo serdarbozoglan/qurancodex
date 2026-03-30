@@ -4,8 +4,32 @@ import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
 
 export default function ZeroRedundancy() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const mosesExamples = t('zeroRedundancy.mosesExamples') || [];
+
+  const refrainExamples = [
+    {
+      surah: language === 'tr' ? 'Rahman (55)' : 'Ar-Rahman (55)',
+      count: '31×',
+      context: language === 'tr'
+        ? 'Her seferinde farklı bir nimetin ardından geliyor'
+        : 'Follows a different blessing each time',
+    },
+    {
+      surah: language === 'tr' ? 'Mürselat (77)' : 'Al-Mursalat (77)',
+      count: '10×',
+      context: language === 'tr'
+        ? 'Her yeni azap sahnesinin ardından yineleniyor'
+        : 'Repeated after each new scene of judgment',
+    },
+    {
+      surah: language === 'tr' ? 'Kamer (54)' : 'Al-Qamar (54)',
+      count: '4×',
+      context: language === 'tr'
+        ? 'Her helak edilen kavmin hikayesinin ardından'
+        : 'After each destroyed nation\'s story',
+    },
+  ];
 
   return (
     <SectionWrapper id="redundancy" dark={false}>
@@ -31,6 +55,51 @@ export default function ZeroRedundancy() {
       >
         {t('zeroRedundancy.intro')}
       </motion.p>
+
+      {/* Refrain vs Redundancy — addresses the "but some verses literally repeat" objection */}
+      <motion.div variants={fadeUpItem} className="glass-card p-6 md:p-8 mb-12 border-l-4 border-gold/40">
+        <h3 className="font-display text-lg md:text-xl font-bold text-off-white mb-3">
+          {language === 'tr'
+            ? '"Ama bazı ayetler birebir tekrar ediyor" — Haklı bir itiraz'
+            : '"But some verses repeat word-for-word" — A fair objection'}
+        </h3>
+        <p className="text-silver text-base leading-relaxed mb-6">
+          {language === 'tr'
+            ? 'Rahman Suresi\'nde aynı ayet 31 kez geçiyor. Mürselat\'ta 10 kez, Kamer\'de 4 kez. Bunlar gerçek, literal tekrarlardır — inkâr edilemez.'
+            : 'In Surah Rahman, the same verse appears 31 times. In Al-Mursalat 10 times, in Al-Qamar 4 times. These are real, literal repetitions — undeniable.'}
+        </p>
+
+        {/* Three examples */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+          {refrainExamples.map((ex, i) => (
+            <div key={i} className="bg-white/5 rounded-xl p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-gold text-sm font-semibold font-body">{ex.surah}</span>
+                <span className="text-gold/70 text-lg font-bold font-body">{ex.count}</span>
+              </div>
+              <p className="text-silver/70 text-xs font-body leading-relaxed">{ex.context}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="border-t border-white/10 pt-5 space-y-3">
+          <p className="text-silver text-base leading-relaxed">
+            {language === 'tr'
+              ? 'Fark şu: Redundancy, aynı bağlamda, hiçbir ek anlam katmadan tekrar etmektir. Bu ayetlerde bağlam her seferinde değişiyor — farklı bir nimet, farklı bir azap sahnesi, farklı bir kavim. Refren aynı, ama her seferinde farklı bir şeyi soruyor ya da farklı bir gerçeği pekiştiriyor.'
+              : 'The difference: Redundancy is repeating in the same context with no added meaning. In these verses, the context shifts each time — a different blessing, a different scene, a different destroyed nation. The refrain is the same, but each time it addresses something new.'}
+          </p>
+          <p className="text-silver text-base leading-relaxed">
+            {language === 'tr'
+              ? 'Modern edebiyat buna "anafora" ya da "refrein" diyor. Beatles\'ın "Let it be" nakaratı gereksiz mi? Bir avukatın her delil için "Bu delile ne diyeceksiniz?" sorusunu tekrarlaması boş mu? Hayır — birikimli bir etki yaratıyor.'
+              : 'Modern literature calls this "anaphora" or "refrain." Is the Beatles\' "Let it be" chorus redundant? Is a lawyer\'s repeated "What do you say to this evidence?" for each piece of evidence unnecessary? No — it creates a cumulative effect.'}
+          </p>
+          <p className="text-gold/80 text-base font-semibold leading-relaxed">
+            {language === 'tr'
+              ? 'Kur\'an\'daki tekrarlar, bilgi teorisindeki "gereksiz tekrar" değil — retorik amplifikasyon, yapısal menteşe ve psikolojik içselleştirme mekanizmasıdır.'
+              : 'The Quran\'s repetitions are not "redundancy" in the information-theory sense — they are rhetorical amplification, structural hinges, and psychological internalization.'}
+          </p>
+        </div>
+      </motion.div>
 
       {/* Moses Examples Grid */}
       <motion.div variants={fadeUpItem} className="mb-12">
