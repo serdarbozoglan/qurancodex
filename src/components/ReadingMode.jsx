@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
+import InterlinearView from './InterlinearView';
 
 // Clean Arabic text: remove decorative/annotation markers with no phonetic value.
 // Keep: core letters (U+0621–U+063A, U+0641–U+064A), standard harakat (U+064B–U+0655),
@@ -576,6 +577,10 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const [bookMode, setBookMode] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_book_mode') ?? 'true'); }
     catch { return true; }
+  });
+  const [interlinearMode, setInterlinearMode] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_interlinear_mode') || 'false'); }
+    catch { return false; }
   });
   const [bookPage, setBookPage] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_last_position') || 'null')?.page ?? null; }
@@ -1253,9 +1258,18 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               {isMobile && bookMode && (
                 <>
                   <div style={{ width: '1px', height: '18px', background: navC.divider, opacity: 0.5, flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.6rem', color: navC.label, flexShrink: 0, whiteSpace: 'nowrap' }}>
-                    {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
-                  </span>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', flexShrink: 0 }}>
+                    <span style={{ fontSize: '0.6rem', color: navC.label, whiteSpace: 'nowrap' }}>
+                      {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
+                    </span>
+                    {currentPage > 0 && (
+                      <span style={{ fontSize: '0.55rem', color: navC.label, opacity: 0.55, whiteSpace: 'nowrap' }}>
+                        {language === 'tr' ? 'S.' : 'P.'}{' '}
+                        <span style={{ fontWeight: 600 }}>{currentPage}</span>
+                        {' /604'}
+                      </span>
+                    )}
+                  </div>
                 </>
               )}
             </div>
@@ -1263,9 +1277,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         })()}
 
 
-        {/* CENTER: Cüz info (book mode, desktop only) */}
+        {/* CENTER: Cüz + Sayfa info (book mode, desktop only) */}
         {!isMobile && bookMode ? (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1px' }}>
             <span style={{
               fontSize: '0.82rem',
               color: dayMode ? 'rgba(80,50,20,0.75)' : 'rgba(200,185,165,0.85)',
@@ -1273,6 +1287,19 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             }}>
               {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
             </span>
+            {currentPage > 0 && (
+              <span style={{
+                fontSize: '0.68rem',
+                color: dayMode ? 'rgba(80,50,20,0.4)' : 'rgba(200,185,165,0.4)',
+                fontFamily: "'Inter', sans-serif", letterSpacing: '0.03em',
+              }}>
+                {language === 'tr' ? 'Sayfa' : 'Page'}{' '}
+                <span style={{ color: dayMode ? 'rgba(160,100,20,0.7)' : 'rgba(212,165,116,0.7)', fontWeight: 600 }}>
+                  {currentPage}
+                </span>
+                {' / 604'}
+              </span>
+            )}
           </div>
         ) : (!isMobile ? <div /> : null)}
 
