@@ -279,6 +279,12 @@ const CloseIcon = ({ size = 13 }) => (
     <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
   </svg>
 );
+const LayoutIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+    <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+  </svg>
+);
 const PlayIcon = ({ size = 16 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
     <polygon points="5,3 19,12 5,21" />
@@ -582,6 +588,10 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     try { return JSON.parse(localStorage.getItem('qurancodex_interlinear_mode') || 'false'); }
     catch { return false; }
   });
+  const [interlinearLang, setInterlinearLang] = useState(() => {
+    try { return localStorage.getItem('qurancodex_interlinear_lang') || 'en'; }
+    catch { return 'en'; }
+  });
   const [bookPage, setBookPage] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_last_position') || 'null')?.page ?? null; }
     catch { return null; }
@@ -669,15 +679,16 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const [copiedVerseId, setCopiedVerseId] = useState(null);
   const [showFontPicker, setShowFontPicker] = useState(false);
   const [showSettingsPicker, setShowSettingsPicker] = useState(false);
+  const [showViewPicker, setShowViewPicker] = useState(false);
 
   const currentFont = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
   const audioRef = useRef(null);
   const containerRef = useRef(null);
   // Refs for Escape handler — always reflect current state without closure staleness
   const overlayStateRef = useRef({});
-  overlayStateRef.current = { showSearch, showMealPicker, showReciterPicker, showSurahPicker, showBookmarks, showFontPicker, showSettingsPicker };
+  overlayStateRef.current = { showSearch, showMealPicker, showReciterPicker, showSurahPicker, showBookmarks, showFontPicker, showSettingsPicker, showViewPicker };
 
-  const anyMenuOpen = showSearch || showMealPicker || showReciterPicker || showSurahPicker || showBookmarks || showFontPicker || showSettingsPicker;
+  const anyMenuOpen = showSearch || showMealPicker || showReciterPicker || showSurahPicker || showBookmarks || showFontPicker || showSettingsPicker || showViewPicker;
 
   const closeAllMenus = () => {
     setShowSearch(false); setSearchQuery('');
@@ -687,6 +698,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     setShowBookmarks(false);
     setShowFontPicker(false);
     setShowSettingsPicker(false);
+    setShowViewPicker(false);
   };
 
   const normalizeText = (str) =>
@@ -793,6 +805,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       if (s.showBookmarks)     { setShowBookmarks(false); return; }
       if (s.showFontPicker)        { setShowFontPicker(false); return; }
       if (s.showSettingsPicker)    { setShowSettingsPicker(false); return; }
+      if (s.showViewPicker)        { setShowViewPicker(false); return; }
       // Intentionally no fallthrough: Escape should not close reading mode.
       // Only the explicit Kapat (✕) button closes it.
     };
@@ -839,6 +852,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   useEffect(() => { localStorage.setItem('qurancodex_font_size', String(arabicFontSize)); }, [arabicFontSize]);
   useEffect(() => { localStorage.setItem('qurancodex_day_mode', JSON.stringify(dayMode)); }, [dayMode]);
   useEffect(() => { localStorage.setItem('qurancodex_book_mode', JSON.stringify(bookMode)); }, [bookMode]);
+  useEffect(() => { localStorage.setItem('qurancodex_interlinear_mode', JSON.stringify(interlinearMode)); }, [interlinearMode]);
+  useEffect(() => { localStorage.setItem('qurancodex_interlinear_lang', interlinearLang); }, [interlinearLang]);
   useEffect(() => { localStorage.setItem('qurancodex_reciter_idx', String(reciterIdx)); }, [reciterIdx]);
   useEffect(() => { localStorage.setItem('qurancodex_show_translation', JSON.stringify(showTranslation)); }, [showTranslation]);
   useEffect(() => { localStorage.setItem('qurancodex_tajweed', JSON.stringify(showTajweed)); }, [showTajweed]);
@@ -1277,31 +1292,20 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         })()}
 
 
-        {/* CENTER: Cüz + Sayfa info (book mode, desktop only) */}
-        {!isMobile && bookMode ? (
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1px' }}>
-            <span style={{
-              fontSize: '0.82rem',
-              color: dayMode ? 'rgba(80,50,20,0.75)' : 'rgba(200,185,165,0.85)',
-              fontFamily: "'Inter', sans-serif", letterSpacing: '0.06em',
-            }}>
-              {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
-            </span>
-            {currentPage > 0 && (
-              <span style={{
-                fontSize: '0.68rem',
-                color: dayMode ? 'rgba(80,50,20,0.4)' : 'rgba(200,185,165,0.4)',
-                fontFamily: "'Inter', sans-serif", letterSpacing: '0.03em',
-              }}>
-                {language === 'tr' ? 'Sayfa' : 'Page'}{' '}
-                <span style={{ color: dayMode ? 'rgba(160,100,20,0.7)' : 'rgba(212,165,116,0.7)', fontWeight: 600 }}>
-                  {currentPage}
-                </span>
-                {' / 604'}
+        {/* CENTER: Cüz + Sayfa info (book mode only, desktop only) */}
+        {!isMobile && (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '3px' }}>
+            {bookMode && currentPage > 0 && (
+              <span style={{ fontSize: '0.60rem', color: dayMode ? 'rgba(80,50,20,0.5)' : 'rgba(200,185,165,0.5)', letterSpacing: '0.04em' }}>
+                {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
+                {' · '}
+                {language === 'tr' ? 'S.' : 'P.'}
+                <span style={{ fontWeight: 600, color: dayMode ? 'rgba(160,100,20,0.7)' : 'rgba(212,165,116,0.7)' }}>{currentPage}</span>
+                /604
               </span>
             )}
           </div>
-        ) : (!isMobile ? <div /> : null)}
+        )}
 
         {/* RIGHT: controls */}
         {(() => {
@@ -1345,6 +1349,29 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 </span>
                 <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: isMobile ? '0.05em' : '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
                   {dayMode ? (language === 'tr' ? 'Gündüz' : 'Day') : (language === 'tr' ? 'Gece' : 'Night')}
+                </span>
+              </button>
+
+              {/* Görünüm (View) picker button — mobile + desktop */}
+              <button
+                onClick={() => { setShowViewPicker(p => !p); setShowSettingsPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); }}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px',
+                  borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  border: `1px solid ${showViewPicker ? navC.btnBorderActive : navC.btnBorder}`,
+                  background: showViewPicker ? navC.btnBgActive : navC.btnBg,
+                  transition: 'all 0.15s', gap: '1px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                onMouseLeave={e => { e.currentTarget.style.background = showViewPicker ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showViewPicker ? navC.btnBorderActive : navC.btnBorder; }}
+                title={language === 'tr' ? 'Görünüm' : 'View'}
+              >
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <LayoutIcon size={isMobile ? 15 : 18} />
+                </span>
+                <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  {language === 'tr' ? 'Mod' : 'View'}
                 </span>
               </button>
 
@@ -1786,6 +1813,94 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         </div>
       )}
 
+      {/* View picker dropdown */}
+      {showViewPicker && (
+        <div style={{
+          position: 'absolute', top: isMobile ? '52px' : '54px',
+          right: isMobile ? '8px' : '16px', zIndex: 100,
+          background: dropC.bg, backdropFilter: 'blur(20px)',
+          border: `1px solid ${dropC.border}`, borderRadius: '10px',
+          padding: '14px 16px', boxShadow: dropC.shadow,
+          display: 'flex', flexDirection: 'column', gap: '10px',
+          width: isMobile ? '220px' : '230px',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              {language === 'tr' ? 'Görünüm' : 'View'}
+            </span>
+            {isMobile && (
+              <button
+                onClick={() => setShowViewPicker(false)}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '2px 4px', color: dropC.textMuted, lineHeight: 1, fontSize: '0.85rem' }}
+                onMouseEnter={e => { e.currentTarget.style.color = dropC.text; }}
+                onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
+              >✕</button>
+            )}
+          </div>
+
+          {/* 3-option segmented control */}
+          <div style={{ display: 'flex', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: '8px', padding: '3px', gap: '2px' }}>
+            {[
+              { id: 'book',        labelTr: 'Kitap',      labelEn: 'Book',        icon: <BookIcon size={12} /> },
+              { id: 'verse',       labelTr: 'Ayet',       labelEn: 'Verse',       icon: <ListIcon size={12} /> },
+              { id: 'interlinear', labelTr: 'Kırık Meal', labelEn: 'Interlinear', icon: <span style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '0.9rem', lineHeight: 1 }}>ك</span> },
+            ].map(({ id, labelTr, labelEn, icon }) => {
+              const isActive = id === 'book'
+                ? bookMode
+                : id === 'verse'
+                ? (!bookMode && !interlinearMode)
+                : (!bookMode && interlinearMode);
+              return (
+                <button
+                  key={id}
+                  onClick={() => {
+                    if (id === 'book')       { setBookMode(true);  setInterlinearMode(false); }
+                    else if (id === 'verse') { setBookMode(false); setInterlinearMode(false); }
+                    else                     { setBookMode(false); setInterlinearMode(true);  }
+                  }}
+                  style={{
+                    flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    gap: '4px', padding: '5px 4px', borderRadius: '6px', cursor: 'pointer',
+                    border: 'none',
+                    background: isActive
+                      ? (dayMode ? 'rgba(180,83,9,0.12)' : 'rgba(212,165,116,0.15)')
+                      : 'transparent',
+                    color: isActive ? gold : dropC.text,
+                    fontSize: '0.70rem', fontWeight: isActive ? 700 : 500,
+                    transition: 'all 0.15s', whiteSpace: 'nowrap',
+                  }}
+                >
+                  {icon}
+                  {language === 'tr' ? labelTr : labelEn}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* TR / EN lang pills — only when Kırık Meal is active */}
+          {!bookMode && interlinearMode && (
+            <div style={{ display: 'flex', gap: '4px', padding: '3px', borderRadius: '8px', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}` }}>
+              {['tr', 'en'].map(l => (
+                <button
+                  key={l}
+                  onClick={() => setInterlinearLang(l)}
+                  style={{
+                    flex: 1, padding: '4px 0', borderRadius: '6px', cursor: 'pointer',
+                    border: 'none', fontSize: '0.72rem', fontWeight: 700,
+                    fontFamily: "'Inter', sans-serif", letterSpacing: '0.04em',
+                    background: interlinearLang === l ? gold : 'transparent',
+                    color: interlinearLang === l ? '#0a0a1a' : dropC.textMuted,
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  {l.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Settings dropdown */}
       {showSettingsPicker && (
         <div style={{
@@ -1803,27 +1918,71 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             {language === 'tr' ? 'Ayarlar' : 'Settings'}
           </span>
 
-          {/* Görünüm: Kitap / Ayet */}
-          <button
-            onClick={() => { setBookMode(v => !v); setShowSettingsPicker(false); }}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
-              border: `1px solid ${bookMode ? navC.btnBorderActive : dropC.btnBorder}`,
-              background: bookMode ? dropC.itemBgActive : dropC.btnBg,
-              transition: 'all 0.15s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-            onMouseLeave={e => { e.currentTarget.style.background = bookMode ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = bookMode ? navC.btnBorderActive : dropC.btnBorder; }}
-          >
-            <span style={{ fontSize: '0.82rem', color: bookMode ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
-              {bookMode ? <BookIcon size={13} /> : <ListIcon size={13} />}
+          {/* Görünüm: 3-seçenekli segmented control — sadece mobile'da (desktop'ta navbar'da gösteriliyor) */}
+          {isMobile && <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <span style={{ fontSize: '0.65rem', color: dropC.textMuted, padding: '0 2px', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
               {language === 'tr' ? 'Görünüm' : 'View'}
             </span>
-            <span style={{ fontSize: '0.7rem', color: bookMode ? gold : dropC.textMuted, fontWeight: 600 }}>
-              {bookMode ? (language === 'tr' ? 'Kitap' : 'Book') : (language === 'tr' ? 'Ayet' : 'Verse')}
-            </span>
-          </button>
+            <div style={{ display: 'flex', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: '8px', padding: '3px', gap: '2px' }}>
+              {[
+                { id: 'book',        labelTr: 'Kitap',      labelEn: 'Book',        icon: <BookIcon size={12} /> },
+                { id: 'verse',       labelTr: 'Ayet',       labelEn: 'Verse',       icon: <ListIcon size={12} /> },
+                { id: 'interlinear', labelTr: 'Kırık Meal', labelEn: 'Interlinear', icon: <span style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '0.9rem', lineHeight: 1 }}>ك</span> },
+              ].map(({ id, labelTr, labelEn, icon }) => {
+                const isActive = id === 'book'
+                  ? bookMode
+                  : id === 'verse'
+                  ? (!bookMode && !interlinearMode)
+                  : (!bookMode && interlinearMode);
+                return (
+                  <button
+                    key={id}
+                    onClick={() => {
+                      if (id === 'book')        { setBookMode(true);  setInterlinearMode(false); }
+                      else if (id === 'verse')  { setBookMode(false); setInterlinearMode(false); }
+                      else                      { setBookMode(false); setInterlinearMode(true);  }
+                    }}
+                    style={{
+                      flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      gap: '4px', padding: '5px 4px', borderRadius: '6px', cursor: 'pointer',
+                      border: 'none',
+                      background: isActive
+                        ? (dayMode ? 'rgba(180,83,9,0.12)' : 'rgba(212,165,116,0.15)')
+                        : 'transparent',
+                      color: isActive ? gold : dropC.text,
+                      fontSize: '0.70rem', fontWeight: isActive ? 700 : 500,
+                      transition: 'all 0.15s', whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {icon}
+                    {language === 'tr' ? labelTr : labelEn}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* TR / EN dil pilleri — sadece Kırık Meal seçiliyken */}
+            {!bookMode && interlinearMode && (
+              <div style={{ display: 'flex', gap: '4px', padding: '3px', borderRadius: '8px', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}` }}>
+                {['tr', 'en'].map(l => (
+                  <button
+                    key={l}
+                    onClick={() => setInterlinearLang(l)}
+                    style={{
+                      flex: 1, padding: '4px 0', borderRadius: '6px', cursor: 'pointer',
+                      border: 'none', fontSize: '0.72rem', fontWeight: 700,
+                      fontFamily: "'Inter', sans-serif", letterSpacing: '0.04em',
+                      background: interlinearLang === l ? gold : 'transparent',
+                      color: interlinearLang === l ? '#0a0a1a' : dropC.textMuted,
+                      transition: 'all 0.15s',
+                    }}
+                  >
+                    {l.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>}
 
           {/* Meal / Translation */}
           <button
@@ -2731,11 +2890,28 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           </>
         ) : (
           /* ── Verse mode — ayet ayet, sayfa moduyla aynı rozet ve renk stili ── */
+          interlinearMode ? (
+            <div style={{ padding: isMobile ? '8px 0 40px' : '16px 24px 60px' }}>
+              <InterlinearView
+                surahNumber={selectedSurah}
+                verses={surahVerses}
+                dayMode={dayMode}
+                isMobile={isMobile}
+                activeVerseId={activeVerse?.id}
+                onVerseClick={(verse) => { handleSelectVerse(verse); handleAudioToggle(verse); }}
+                lang={interlinearLang}
+                arabicFontSize={arabicFontSize}
+                arabicFont={currentFont}
+                getTranslation={showTranslation ? getTranslation : null}
+                mealAuthorLabel={showTranslation ? selectedMealAuthor.label : null}
+              />
+            </div>
+          ) : (
           <div style={{ padding: isMobile ? '8px 0' : '16px 24px', display: 'flex', flexDirection: 'column', gap: '0' }}>
             {/* Attribution */}
             {showTranslation && (
               <div style={{ padding: isMobile ? '4px 16px 6px' : '4px 20px 8px', fontSize: '0.68rem', color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
-                {selectedMealAuthor.label}
+                {`Meal: ${selectedMealAuthor.label}`}
               </div>
             )}
             {surahVerses.map((verse, verseIdx) => {
@@ -2781,8 +2957,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     </div>
                   )}
 
-                  {/* Left: badge + translation */}
+                  {/* Left: badge + translation — badge hidden when meal is off */}
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
+                    {showTranslation && (
                     <span style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
@@ -2796,6 +2973,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       fontFamily: "'Amiri', serif",
                       fontWeight: dayMode ? 600 : 400,
                     }}>{verse.ayah}</span>
+                    )}
                     <div style={{ flex: 1 }}>
                       {showTranslation && (
                         <p style={{
@@ -2823,29 +3001,46 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
                   {/* Right: Arabic — only in desktop or mobile without translation */}
                   {(!isMobile || !showTranslation) && (
-                  <div spellCheck={false} style={{
-                    fontFamily: currentFont, fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`, lineHeight: isMobile ? 1.8 : 2.2,
-                    color: (verse.surah === 1 && verse.ayah === 1) ? C.bismillah : (isActive ? C.arabicActive : C.arabic),
-                    textAlign: 'right', direction: 'rtl',
-                  }}>
-                    {(() => {
-                      const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
-                      const ar = isFatiha1 ? cleanArabic(verse.arabic).replace(/\u064E\u0670/g, '\u0670').replace(/\u0670\u064E/g, '\u0670') : cleanArabic(verse.arabic);
-                      return showTajweed
-                        ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(ar, dayMode, false, isFatiha1) }} />
-                        : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(ar, dayMode, false, isFatiha1) }} />;
-                    })()}
-                    {isSajda && (
-                      <span style={{
-                        display: 'inline-block', marginRight: '8px', verticalAlign: 'middle',
-                        fontSize: '1.2rem', padding: '2px 8px', borderRadius: '4px',
-                        background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
-                        border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
-                        color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: currentFont,
-                      }}>
-                        سجدة
-                      </span>
-                    )}
+                  <div style={{ display: 'flex', direction: 'rtl', alignItems: 'center', gap: '8px' }}>
+                    {/* Verse number badge — same style as left column badge */}
+                    <span style={{
+                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                      width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
+                      borderRadius: '50%', flexShrink: 0,
+                      border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
+                      background: dayMode
+                        ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
+                        : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                      color: C.gold,
+                      fontSize: verse.ayah >= 100 ? (isMobile ? '0.58rem' : '0.66rem') : verse.ayah >= 10 ? (isMobile ? '0.64rem' : '0.74rem') : (isMobile ? '0.72rem' : '0.84rem'),
+                      fontFamily: "'Amiri', serif",
+                      fontWeight: dayMode ? 600 : 400,
+                    }}>{toArabicNumerals(verse.ayah)}</span>
+
+                    <div spellCheck={false} style={{
+                      fontFamily: currentFont, fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`, lineHeight: isMobile ? 1.8 : 2.2,
+                      color: (verse.surah === 1 && verse.ayah === 1) ? C.bismillah : (isActive ? C.arabicActive : C.arabic),
+                      textAlign: 'right', direction: 'rtl', flex: 1,
+                    }}>
+                      {(() => {
+                        const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
+                        const ar = isFatiha1 ? cleanArabic(verse.arabic).replace(/\u064E\u0670/g, '\u0670').replace(/\u0670\u064E/g, '\u0670') : cleanArabic(verse.arabic);
+                        return showTajweed
+                          ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(ar, dayMode, false, isFatiha1) }} />
+                          : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(ar, dayMode, false, isFatiha1) }} />;
+                      })()}
+                      {isSajda && (
+                        <span style={{
+                          display: 'inline-block', marginRight: '8px', verticalAlign: 'middle',
+                          fontSize: '1.2rem', padding: '2px 8px', borderRadius: '4px',
+                          background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
+                          border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
+                          color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: currentFont,
+                        }}>
+                          سجدة
+                        </span>
+                      )}
+                    </div>
                   </div>
                   )}
 
@@ -2853,6 +3048,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               );
             })}
           </div>
+          )
         )}
 
         {/* Bottom page navigator */}
