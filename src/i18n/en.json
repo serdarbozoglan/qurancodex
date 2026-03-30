@@ -629,5 +629,480 @@
       }
     ],
     "copyright": "Quran Codex. All rights reserved."
+  },
+  "psychology": {
+    "badge": "Human Psychology",
+    "title": "The Quran's Map of the Human Mind",
+    "intro": "Modern psychology has spent centuries trying to understand the human mind. Freud mapped the self, Jung the archetypes, Maslow the hierarchy of needs, Frankl the search for meaning. The Quran had drawn this complete map 1,400 years earlier — in a different language.",
+    "tabs": {
+      "nefs": "Map of the Self",
+      "kalp": "Heart Psychology",
+      "korku": "Fear & Anxiety",
+      "savunma": "Defense Mechanisms",
+      "yusuf": "Trauma & Healing",
+      "sosyal": "Social Psychology",
+      "araclar": "Psychological Tools",
+      "anlam": "Psychology of Meaning",
+      "modern": "Differences with Modern Psychology",
+      "ekler": "Appendices"
+    },
+    "sections": {
+      "nefs": {
+        "title": "Map of the Self (Nafs)",
+        "intro": "The Quran describes the inner world of the human being through the concept of 'nafs'. Not a single static thing — but a journey. The nafs transforms, develops through stages. While modern psychology is only now discovering these stages, the Quran named them fourteen centuries ago.",
+        "items": [
+          {
+            "id": "emmare",
+            "title": "Ammāra — The Self Commanding Evil",
+            "arabic": "إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ",
+            "translation": "Indeed, the soul is a persistent enjoiner of evil.",
+            "reference": "Yusuf, 12:53",
+            "description": "The rawest, most primitive state. It prioritizes instant gratification, ego satisfaction, and aggression. The closest Quranic concept to Freud's 'id'. In the Ammāra state, the individual surrenders to instincts; the conscience is still barely audible.",
+            "modernNote": "Maps to Freud's id: the pleasure-principle drive that recognizes no moral boundaries."
+          },
+          {
+            "id": "levvame",
+            "title": "Lawwāma — The Self-Reproaching Self",
+            "arabic": "وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ",
+            "translation": "And I swear by the reproaching soul.",
+            "reference": "Qiyama, 75:2",
+            "description": "The conscience has awakened. The person blames themselves when they err, feels remorse. This is the mark of healthy moral development. Not constant self-flagellation — but the effort to notice mistakes and correct them. The Quran swears by this soul, honoring it.",
+            "modernNote": "Parallels the concept of 'healthy conscience' and the cognitive dissonance mechanism in psychology."
+          },
+          {
+            "id": "mulhime",
+            "title": "Mulhima — The Inspired Self",
+            "arabic": "فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا",
+            "translation": "And inspired it with its wickedness and its righteousness.",
+            "reference": "Shams, 91:8",
+            "description": "The self now consciously carries the capacity for both good and evil. Intuition, creativity, spiritual inspiration begin to bloom at this stage. The person doesn't merely react; they choose.",
+            "modernNote": "Connected to Jung's 'higher self' and transpersonal psychology's 'intuitive self' concepts."
+          },
+          {
+            "id": "mutmainne",
+            "title": "Mutma'inna — The Tranquil Self",
+            "arabic": "يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ",
+            "translation": "O tranquil soul!",
+            "reference": "Fajr, 89:27",
+            "description": "Inner conflict has quieted. The person is at peace with themselves, their Lord, and existence. Anxiety, fear, and anger are temporary; the ground is peace. Psychology calls this 'ego integration'. The Quran presents it in its purest expression.",
+            "modernNote": "Overlaps with Maslow's peak of self-actualization and Frankl's concept of 'peace through meaning'."
+          },
+          {
+            "id": "radiye",
+            "title": "Rāḍiya / Marḍiyya — The Pleased and Pleasing Self",
+            "arabic": "ارْجِعِي إِلَى رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",
+            "translation": "Return to your Lord, well-pleased and pleasing to Him.",
+            "reference": "Fajr, 89:28",
+            "description": "The highest rung of the journey. Not one-sided but mutual: the servant pleased with Allah, and Allah pleased with the servant. This stage is not just inner peace — it is the completion of a divine relationship. Even death is not a threat, but a reunion.",
+            "modernNote": "The highest developmental stage that psychologists call 'transcendence' and 'self-transcendence'."
+          }
+        ]
+      },
+      "kalp": {
+        "title": "Heart Psychology",
+        "intro": "In the Quran, the heart (qalb) is not a physical organ — it is the center of consciousness, will, and morality. The Quran defines this center in five distinct states. When modern neuroscience discovered the heart's connection to the nervous system, it understood how deep this metaphor truly is.",
+        "items": [
+          {
+            "id": "selim",
+            "title": "Qalb Salīm — The Sound, Purified Heart",
+            "arabic": "إِلَّا مَنْ أَتَى اللَّهَ بِقَلْبٍ سَلِيمٍ",
+            "translation": "Except one who comes to Allah with a sound heart.",
+            "reference": "Shu'ara, 26:89",
+            "description": "The ideal heart state in the Quran. Purified of envy, arrogance, and hypocrisy; oriented toward Allah. This is the attribute of Prophet Ibrahim. On the Day of Judgment, neither wealth nor children will avail — only this heart.",
+            "modernNote": "Overlaps with positive psychology's 'psychological integration' and 'authentic living' concepts."
+          },
+          {
+            "id": "munib",
+            "title": "Qalb Munīb — The Returning, Repentant Heart",
+            "arabic": "مَنْ خَشِيَ الرَّحْمَنَ بِالْغَيْبِ وَجَاءَ بِقَلْبٍ مُنِيبٍ",
+            "translation": "Who feared the Most Merciful unseen and came with a repentant heart.",
+            "reference": "Qaf, 50:33",
+            "description": "The heart that constantly turns toward Allah, returning when it strays. The mechanism of repentance lies here — not a one-time event but a chronic tendency to return. The Munib heart makes mistakes but does not surrender.",
+            "modernNote": "Parallels psychological resilience and post-traumatic growth concepts."
+          },
+          {
+            "id": "mariz",
+            "title": "Qalb Marīḍ — The Diseased Heart",
+            "arabic": "فِي قُلُوبِهِم مَّرَضٌ فَزَادَهُمُ اللَّهُ مَرَضًا",
+            "translation": "In their hearts is disease, and Allah has increased their disease.",
+            "reference": "Baqara, 2:10",
+            "description": "The home of psychological pathologies like hypocrisy, doubt, envy, and arrogance. Like a patient who cannot see their illness, the diseased heart is unaware of its own condition. Treatment: awareness, repentance, knowledge.",
+            "modernNote": "Connected to psychological defense mechanisms and 'projective identification'."
+          },
+          {
+            "id": "muhurlu",
+            "title": "The Sealed Heart",
+            "arabic": "خَتَمَ اللَّهُ عَلَى قُلُوبِهِمْ وَعَلَى سَمْعِهِمْ",
+            "translation": "Allah has set a seal upon their hearts and upon their hearing.",
+            "reference": "Baqara, 2:7",
+            "description": "After prolonged denial and obstinacy, the heart no longer responds to external stimuli. This is not a divine punishment — it is the natural consequence of a person's own choices. In psychology, it resembles 'learned helplessness' and 'emotional numbness'.",
+            "modernNote": "Structural similarity to Seligman's 'learned helplessness': repeated exposure to uncontrollable outcomes leads to passivity."
+          },
+          {
+            "id": "pasli",
+            "title": "The Rusted Heart — Rān",
+            "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ",
+            "translation": "No! Rather, what they were earning has covered their hearts with rust.",
+            "reference": "Mutaffifin, 83:14",
+            "description": "Unlike the sealed heart, rust can be cleaned. The Prophet said: 'When a servant commits a sin, a black dot appears on his heart; if he repents and is forgiven, it is wiped away. If it continues, it grows.' Rān is the accumulated dirt of neglect.",
+            "modernNote": "Overlaps with neuropsychological 'emotional load accumulation' and trauma layering mechanisms."
+          }
+        ]
+      },
+      "korku": {
+        "title": "Fear, Anxiety and Tranquility",
+        "intro": "Modern psychology defines fear in one dimension: threat perception → amygdala activation → fight or flight. The Quran defines four distinct emotional states: Hawf, Khashya, Huzn, and Sakina. Each has a different source, function, and remedy.",
+        "items": [
+          {
+            "id": "havf",
+            "title": "Hawf — Natural Fear",
+            "arabic": "وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ",
+            "translation": "There will be no fear concerning them, nor will they grieve.",
+            "reference": "Baqara, 2:62",
+            "description": "Fear arising from consequences. The normal human response to pain, loss, and danger. The Quran does not deny this fear — it even says the friends of Allah experience fear in this world. It is not pathological; it is a functional warning system.",
+            "modernNote": "Adaptive fear response: amygdala-based survival mechanism. The Quran normalizes this."
+          },
+          {
+            "id": "hasyet",
+            "title": "Khashya — Deep Reverence Born of Knowledge",
+            "arabic": "إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ",
+            "translation": "Only those fear Allah, from among His servants, who have knowledge.",
+            "reference": "Fatir, 35:28",
+            "description": "Deeper than Hawf. Khashya is the deep reverence-fear created by truly knowing Allah — born not from punishment but from helplessness before greatness. The more you know, the more khashya you feel. This overlaps with psychology's 'awe' experience.",
+            "modernNote": "Dacher Keltner's awe research: the shrinking of ego before greatness → connection and sense of meaning."
+          },
+          {
+            "id": "huzun",
+            "title": "Huzn — Healthy Grief and Sorrow",
+            "arabic": "قَالُوا يَا أَبَانَا إِنَّا ذَهَبْنَا نَسْتَبِقُ وَتَرَكْنَا يُوسُفَ",
+            "translation": "They said: Our father, we went racing and left Yusuf...",
+            "reference": "Yusuf, 12:17",
+            "description": "Prophet Ya'qub wept for years after losing Yusuf — until his eyes went white. The Quran does not present this as weakness; it conveys it as the natural expression of depth, love, and human pain. Grief should not be suppressed — it must be experienced.",
+            "modernNote": "The importance of healthy grief: Elizabeth Kübler-Ross's stages of grief. Suppressed grief turns into trauma."
+          },
+          {
+            "id": "sekinet",
+            "title": "Sakīna — Divine Tranquility, Deep Serenity",
+            "arabic": "هُوَ الَّذِي أَنزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ",
+            "translation": "It is He who sent down tranquility into the hearts of the believers.",
+            "reference": "Fath, 48:4",
+            "description": "Sakina is not tranquility achieved through human effort — it is a state that is 'sent down'. A state of mind that descends upon the prophet and companions in moments of war, danger, and uncertainty. Not the opposite of anxiety — but a foundation that exists within anxiety.",
+            "modernNote": "The 'equanimity' concept in mindfulness research: an inner balance independent of external conditions."
+          }
+        ]
+      },
+      "savunma": {
+        "title": "Defense Mechanisms",
+        "intro": "Freud's daughter Anna Freud systematically described defense mechanisms in 1936. The Quran had displayed these mechanisms through concrete human stories 1,400 years earlier — without naming them, but with crystal clarity.",
+        "items": [
+          {
+            "id": "rasyonalizasyon",
+            "title": "Rationalization — Creating Excuses",
+            "arabic": "وَإِذَا قِيلَ لَهُمْ لَا تُفْسِدُوا فِي الْأَرْضِ قَالُوا إِنَّمَا نَحْنُ مُصْلِحُونَ",
+            "translation": "When they are told 'Do not cause corruption on earth,' they say 'We are only reformers.'",
+            "reference": "Baqara, 2:11",
+            "description": "Producing seemingly rational explanations to justify wrong actions. The classic mechanism of hypocrites: they are causing harm, but they call it 'reform'. It is an unconscious process — they genuinely believe it.",
+            "modernNote": "Matches Anna Freud's definition of rationalization: a secondary explanation that conceals the true motivation."
+          },
+          {
+            "id": "projeksiyon",
+            "title": "Projection — Displacing Blame onto Others",
+            "arabic": "وَجَاءُوا عَلَى قَمِيصِهِ بِدَمٍ كَذِبٍ",
+            "translation": "They brought his shirt with false blood on it.",
+            "reference": "Yusuf, 12:18",
+            "description": "Yusuf's brothers covered their own guilt (jealousy, scheming) with a wolf they invented. They projected the pain of their conscience outward. Projection: displacing one's own unacceptable impulses onto others or transferring responsibility.",
+            "modernNote": "Classic psychoanalytic projection: 'Not me, them!' — externalizing one's own rejected feelings."
+          },
+          {
+            "id": "inkar",
+            "title": "Denial — Rejecting Reality",
+            "arabic": "وَجَحَدُوا بِهَا وَاسْتَيْقَنَتْهَا أَنفُسُهُمْ ظُلْمًا وَعُلُوًّا",
+            "translation": "They denied them, while their souls were certain of them, out of injustice and haughtiness.",
+            "reference": "Naml, 27:14",
+            "description": "Pharaoh's attitude in the face of miracles. Seeing, understanding, but not accepting. This is denial born not from ignorance — but from arrogance. In psychology, 'conscious denial': knowing the truth but rejecting it for ego protection.",
+            "modernNote": "Festinger's cognitive dissonance reduction mechanism: rejecting threatening truths."
+          },
+          {
+            "id": "erteleme",
+            "title": "Procrastination — 'I'll Repent Tomorrow'",
+            "arabic": "حَتَّى إِذَا حَضَرَ أَحَدَهُمُ الْمَوْتُ قَالَ إِنِّي تُبْتُ الْآنَ",
+            "translation": "When death comes to one of them, he says 'I repent now.'",
+            "reference": "Nisa, 4:18",
+            "description": "Constantly postponing change — both a defense mechanism and a trap. The Quran clearly warns of this procrastination: there is a threshold beyond which repentance on the last breath is not accepted. The psychological root of procrastination: escape from the anxiety that change creates.",
+            "modernNote": "Hyperbolic discounting in behavioral economics: inability to value distant rewards, escape to immediate comfort."
+          },
+          {
+            "id": "sosyaluyum",
+            "title": "Conformity Pressure — Following the Herd",
+            "arabic": "إِنَّا وَجَدْنَا آبَاءَنَا عَلَى أُمَّةٍ وَإِنَّا عَلَى آثَارِهِم مُّقْتَدُونَ",
+            "translation": "We found our fathers following a religion, and we are following in their footsteps.",
+            "reference": "Zukhruf, 43:23",
+            "description": "The universal resistance every prophet faced: 'Our ancestors did it this way.' Rejection of truth in the name of tradition, social norms, and identity protection. The Milgram and Asch experiments confirmed this mechanism in the laboratory.",
+            "modernNote": "Asch's conformity experiments (1951): tendency to give clearly wrong answers to conform to the group — the power of social pressure."
+          },
+          {
+            "id": "kibirkalkani",
+            "title": "The Pride Shield — Defensive Grandiosity",
+            "arabic": "وَإِذَا قِيلَ لَهُ اتَّقِ اللَّهَ أَخَذَتْهُ الْعِزَّةُ بِالْإِثْمِ",
+            "translation": "When he is told 'Fear Allah,' pride drives him to sin.",
+            "reference": "Baqara, 2:206",
+            "description": "Arrogance in response to criticism or warning is a defense mechanism: 'I have no fault, the warner is wrong.' This reaction conceals underlying vulnerability. It is the defensive grandiosity response to narcissistic injury.",
+            "modernNote": "Narcissistic defense: covering an underlying sense of inadequacy with claims of superiority."
+          }
+        ]
+      },
+      "yusuf": {
+        "title": "Trauma and Healing — The Story of Prophet Yusuf",
+        "intro": "The Quran calls the story of Yusuf 'ahsanul-qasas' — the best of stories. Not merely a beautiful narrative: it is a complete trauma recovery map encompassing jealousy, betrayal, slavery, false accusation, imprisonment, rise, and forgiveness.",
+        "items": [
+          {
+            "id": "ihanet",
+            "title": "Stage 1: Betrayal and Being Thrown into the Well",
+            "arabic": "وَأَجْمَعُوا أَن يَجْعَلُوهُ فِي غَيَابَتِ الْجُبِّ",
+            "translation": "They agreed to put him in the bottom of the well.",
+            "reference": "Yusuf, 12:15",
+            "description": "The beginning of trauma: betrayal from those most trusted. Being thrown by brothers — attachment figures becoming a threat. In modern trauma theory, this is the deepest wound: betrayal experienced within a trust relationship.",
+            "modernNote": "Bowlby's attachment theory: the breaking of secure attachment leaves deep psychological damage."
+          },
+          {
+            "id": "kolelik",
+            "title": "Stage 2: Slavery and Foreign Lands",
+            "arabic": "وَشَرَوْهُ بِثَمَنٍ بَخْسٍ دَرَاهِمَ مَعْدُودَةٍ",
+            "translation": "They sold him for a low price, a few counted coins.",
+            "reference": "Yusuf, 12:20",
+            "description": "Identity stripped away. His name, freedom, family taken. But the Quran drops a critical note: 'Allah was with him.' The divine foundation present in the trauma experience — a framework of meaning that does not completely vanish.",
+            "modernNote": "Posttraumatic growth: the capacity to grow even under the most severe conditions."
+          },
+          {
+            "id": "iftira",
+            "title": "Stage 3: False Accusation and Prison",
+            "arabic": "قَالَ رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ",
+            "translation": "He said: My Lord! Prison is more dear to me than what they invite me to.",
+            "reference": "Yusuf, 12:33",
+            "description": "Falsely accused and imprisoned while innocent. Yet Yusuf didn't scream, didn't rebel — he chose prayer. Psychology's locus of control: choosing not one's external circumstances but one's response. Directly overlaps with what Viktor Frankl learned from the camp.",
+            "modernNote": "Frankl: 'The last freedom — the freedom to choose one's response to circumstances.' Even prison cannot take this freedom."
+          },
+          {
+            "id": "yalnizlik",
+            "title": "Stage 4: Long Solitude and Patience",
+            "arabic": "فَلَبِثَ فِي السِّجْنِ بِضْعَ سِنِينَ",
+            "translation": "He remained in prison for several years.",
+            "reference": "Yusuf, 12:42",
+            "description": "Years pass. No guarantee of release. Yet Yusuf continues interpreting dreams, helping people. Producing meaning — serving meaning even while imprisoned — is the foundation of healing.",
+            "modernNote": "Frankl's logotherapy: finding meaning makes suffering bearable. Not helplessness but a sense of mission."
+          },
+          {
+            "id": "yukselis",
+            "title": "Stage 5: Rise — Transformation of Trauma",
+            "arabic": "وَكَذَلِكَ مَكَّنَّا لِيُوسُفَ فِي الْأَرْضِ",
+            "translation": "And thus We established Yusuf in the land.",
+            "reference": "Yusuf, 12:56",
+            "description": "From slavery to position of power. His traumatic past did not destroy him — on the contrary, it prepared him for that position. The pinnacle of posttraumatic growth: the painful experience transformed into the capacity to serve others.",
+            "modernNote": "Tedeschi and Calhoun's posttraumatic growth model: deepening of relationships, broadening of life perception, discovery of personal strength."
+          },
+          {
+            "id": "bagislama",
+            "title": "Stage 6: Forgiveness — The Peak of Healing",
+            "arabic": "قَالَ لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ",
+            "translation": "He said: No blame upon you today.",
+            "reference": "Yusuf, 12:92",
+            "description": "The Quran's most powerful forgiveness scene. Yusuf said 'No blame upon you today' to the brothers who had thrown him into the well. Forgiveness when he had every right to revenge. Forgiveness is not the weakness of the wronged — it is the strength of the healed.",
+            "modernNote": "Forgiveness therapy: forgiveness reduces anxiety and depression, and liberates the victim — not the perpetrator."
+          }
+        ]
+      },
+      "sosyal": {
+        "title": "Social Psychology",
+        "intro": "The Quran defines the human being as a social creature. It goes to the root of social diseases and provides their cure. Arrogance, envy, and backbiting — three fundamental pathologies that destroy social bonds.",
+        "items": [
+          {
+            "id": "kibir",
+            "title": "Arrogance — The Pathology of Grandiosity",
+            "arabic": "إِنَّهُ لَا يُحِبُّ الْمُسْتَكْبِرِينَ",
+            "translation": "Indeed, He does not like the arrogant.",
+            "reference": "Nahl, 16:23",
+            "description": "The most criticized character trait. Iblis fell because of arrogance. Pharaoh met his end because of arrogance. The Quran presents arrogance from a transcendent source: a created being claiming greatness against the Creator — an ontological contradiction.",
+            "modernNote": "Narcissistic personality: covering underlying vulnerability with grandiosity. Arrogance turns outward, shame turns inward."
+          },
+          {
+            "id": "haset",
+            "title": "Envy and Righteous Emulation — Destructive vs. Constructive",
+            "arabic": "أَمْ يَحْسُدُونَ النَّاسَ عَلَى مَا آتَاهُمُ اللَّهُ مِن فَضْلِهِ",
+            "translation": "Or do they envy people for what Allah has given them of His bounty?",
+            "reference": "Nisa, 4:54",
+            "description": "The Quran uses two separate concepts: Hasad (wanting another's blessing to be taken away) and Ghib'ta (wanting to have the same). Hasad is destructive, ghib'ta is acceptable. Getting rich without effort, appearing successful without working — these trigger hasad.",
+            "modernNote": "Social comparison theory (Festinger): comparing oneself to others is natural, but envy turns comparison into destruction."
+          },
+          {
+            "id": "giybet",
+            "title": "Backbiting — Destruction of Social Fabric",
+            "arabic": "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا ۚ أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا",
+            "translation": "And do not backbite one another. Would one of you like to eat the flesh of his dead brother?",
+            "reference": "Hujurat, 49:12",
+            "description": "The metaphor the Quran gives for backbiting is shocking: eating dead flesh. Why so severe? Because backbiting targets the defenseless — those who cannot respond. Psychology's function of gossip: building group identity, gaining status, diverting attention from one's own failures.",
+            "modernNote": "Social psychology: gossip's evolutionary function is to provide group cohesion, but when dysfunctional it destroys social fabric."
+          }
+        ]
+      },
+      "araclar": {
+        "title": "Psychological Tools",
+        "intro": "The Quran doesn't just diagnose problems — it gives the tools for solutions. Four fundamental tools: Patience, Gratitude, Remembrance (Dhikr), and Prayer. They carry remarkable overlaps with modern therapy techniques — tested psychological strategies.",
+        "items": [
+          {
+            "id": "sabir",
+            "title": "Patience — Active Resistance, Not Passive Endurance",
+            "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
+            "translation": "O you who believe! Seek help through patience and prayer.",
+            "reference": "Baqara, 2:153",
+            "description": "Patience in English suggests 'endurance' but in the Quran it is active resistance. Perseverance, not giving up, continuing to move forward. The Quran calls us not away from impatience but away from cowardly surrender. It is no coincidence that patience appears in over 90 verses.",
+            "modernNote": "Overlaps with clinical psychology's 'distress tolerance' and ACT therapy's 'psychological flexibility' concept."
+          },
+          {
+            "id": "sukur",
+            "title": "Gratitude — A Practice That Changes Brain Chemistry",
+            "arabic": "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+            "translation": "If you are grateful, I will surely increase you.",
+            "reference": "Ibrahim, 14:7",
+            "description": "Gratitude is not a courtesy ritual — it is a cognitive reframing practice. Shifting focus from 'what is missing' to 'what is present'. The Quran says gratitude brings 'increase' — neuroscience confirms this happens through dopamine and serotonin increases.",
+            "modernNote": "Robert Emmons' gratitude research: regular gratitude practice reduces depression by 25% and improves sleep quality."
+          },
+          {
+            "id": "zikir",
+            "title": "Dhikr — The Medicine of the Heart",
+            "arabic": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
+            "translation": "Verily, in the remembrance of Allah do hearts find rest.",
+            "reference": "Ra'd, 13:28",
+            "description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement — changes brain frequency. fMRI studies show that during repetitive religious practice, amygdala activity decreases and prefrontal cortex activity increases.",
+            "modernNote": "Mindfulness and meditation research: repetitive focused practice lowers cortisol, activates the parasympathetic nervous system."
+          },
+          {
+            "id": "dua",
+            "title": "Prayer (Du'a) — Conscious Surrender",
+            "arabic": "وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ",
+            "translation": "Your Lord said: Call upon Me; I will respond to you.",
+            "reference": "Ghafir, 40:60",
+            "description": "Prayer is not a wish list — it is a practice of conscious surrender. The Quran says 'He will respond to those who ask'; but this response is not always the granting of what was asked. Prayer transfers anxiety externally, making it easier to let go of the illusion of control.",
+            "modernNote": "Psychotherapy research: spiritual and religious practice shows additional therapeutic effect in clinical anxiety and depression."
+          }
+        ]
+      },
+      "anlam": {
+        "title": "Psychology of Meaning",
+        "intro": "Viktor Frankl explained survival at Auschwitz through meaning: 'He who has a why to live can bear almost any how.' The Quran had given this answer 1,400 years earlier — in a broader and deeper framework.",
+        "items": [
+          {
+            "id": "amac",
+            "title": "Purpose of Creation — The Foundation of Existence",
+            "arabic": "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",
+            "translation": "I did not create jinn and humans except to worship Me.",
+            "reference": "Dhariyat, 51:56",
+            "description": "The Quran's framework of meaning is not existential — it is cosmological. The human being was created not randomly but with a conscious purpose. 'Worship' is not a narrow ritual — it is an orientation that makes all of life meaningful. On this foundation, no suffering is meaningless.",
+            "modernNote": "Frankl's logotherapy: meaning is not 'found', it is discovered. The Quran takes this one step further: meaning has been given; it needs to be recognized."
+          },
+          {
+            "id": "sinav",
+            "title": "The Meaning of Suffering — The Trial Framework",
+            "arabic": "أَحَسِبَ النَّاسُ أَن يُتْرَكُوا أَن يَقُولُوا آمَنَّا وَهُمْ لَا يُفْتَنُونَ",
+            "translation": "Do people think they will be left alone because they say 'We believe' and not be tried?",
+            "reference": "Ankabut, 29:2",
+            "description": "Suffering is not punishment — it is a development mechanism. The Quran's trial framework takes suffering from meaningless to a layer of meaning. The Quran's answer to 'Why me?' is not 'Because you can bear it' but 'Because this will transform you.'",
+            "modernNote": "Posttraumatic growth research: after even the most severe trauma, 70% of people report meaningful positive transformation."
+          },
+          {
+            "id": "olum",
+            "title": "Meaning in the Face of Death",
+            "arabic": "كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ",
+            "translation": "Every soul shall taste death.",
+            "reference": "Ali Imran, 3:185",
+            "description": "Existential psychology sees escape from death as the greatest source of anxiety (death anxiety). The Quran makes death inevitable but meaningful: not an end but a transition. This framework does not eliminate death anxiety — it transforms it.",
+            "modernNote": "Ernest Becker, 'Denial of Death' (1973): much of life is spent in strategies denying death anxiety. The Quran calls not to denial but to confrontation."
+          },
+          {
+            "id": "tutarlilik",
+            "title": "Sense of Coherence — The Ground of Resilience",
+            "arabic": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+            "translation": "Indeed, with hardship will be ease.",
+            "reference": "Inshirah, 94:6",
+            "description": "The center of Aaron Antonovsky's 'salutogenesis' theory: sense of coherence — the feeling that the world is comprehensible, manageable, and meaningful. The Quran systematically builds this coherence: difficulty is always temporary, ease always accompanies it.",
+            "modernNote": "Antonovsky's salutogenesis model: meaningfulness, manageability, and comprehensibility — the three pillars of psychological health."
+          }
+        ]
+      },
+      "modern": {
+        "title": "Key Differences with Modern Psychology",
+        "intro": "The Quran and modern psychology study the same human being, but from different frameworks. These differences are not contradictions — they are differences of complementarity and depth. The Quran had long defined dimensions that modern psychology couldn't see or recognized late.",
+        "items": [
+          {
+            "id": "nefs_ego",
+            "title": "Nafs Theory ↔ Psychoanalytic Model",
+            "description": "Freud: id (drives) / ego (reality) / superego (morality) — three static structures. The Quran: Ammāra → Lawwāma → Mulhima → Mutma'inna → Rāḍiya — a five-stage developmental journey. Freud's model describes; the Quran's model shows transformation. The most critical difference: the Quran sees the nafs as changeable.",
+            "modernNote": "Freud's model: structural, static. Quran's model: dynamic, teleological (goal-directed). Positive psychology is closer to the Quran on this point."
+          },
+          {
+            "id": "ilahi_boyut",
+            "title": "The Divine Dimension — The Limit of Secular Psychology",
+            "description": "Modern psychology prefers to leave the 'God' variable outside. But in the Quran, every psychological process has a divine dimension: Sakina descends from Allah, the heart turns to Allah, patience is for Allah. When you remove this dimension, the coherence of the system breaks down.",
+            "modernNote": "Spiritual psychology and psychology of religion (from William James to today) has begun re-examining this dimension. The APA now recognizes the 'spirituality' factor."
+          },
+          {
+            "id": "topluluk",
+            "title": "Individualism ↔ Community Centeredness",
+            "description": "Western psychology places individual autonomy at the center: 'self-actualize, set your boundaries, be yourself.' The Quran's psychology is relational: the person is defined within the web of relationships with Allah, family, and community. The self is meaningless outside of relationship.",
+            "modernNote": "WEIRD bias (Western, Educated, Industrialized, Rich, Democratic): Western psychology's sample represents 12% of the world population but carries universal claims."
+          },
+          {
+            "id": "gunah_psikoloji",
+            "title": "Sin and Repentance — A Psychological Cleansing Mechanism",
+            "description": "In Freud, guilt is pathological — a neurotic burden created by repressed desires. In the Quran, sin is real but can be erased through repentance. This mechanism is liberating: a mistake is not a permanent mark, it is an erasable condition. Not constant self-criticism but active pursuit of forgiveness.",
+            "modernNote": "The difference between liberating guilt vs. destructive shame (Brené Brown): guilt is 'I did wrong', shame is 'I am wrong'. Repentance resolves healthy guilt."
+          },
+          {
+            "id": "maslow",
+            "title": "Maslow's Hierarchy ↔ The Quran's Order of Priority",
+            "description": "Maslow: physiological → safety → belonging → esteem → self-actualization. Peak point: realization of individual potential. The Quran: self-actualization is not enough — transcendence is required. Maslow added 'self-transcendence' to his theory at the end of his life. The Quran was always there.",
+            "modernNote": "Maslow (1969), one year before his death, added a sixth level to his hierarchy: self-transcendence. Islam had defined this 1,400 years ago."
+          }
+        ]
+      }
+    },
+    "appendix": {
+      "tabs": {
+        "a": "App. A: Human Weaknesses",
+        "b": "App. B: Emotional Intelligence",
+        "c": "App. C: Psychological Mechanisms"
+      },
+      "a": {
+        "title": "Human Weaknesses",
+        "intro": "The Quran does not idealize human nature. It defines both the potential and the limitations with crystal clarity. These weaknesses are not fate — they are a call to transformation.",
+        "items": [
+          { "id": "aceleci", "title": "Hastiness — Wanting It Now", "arabic": "وَكَانَ الْإِنسَانُ عَجُولًا", "translation": "And man is ever hasty.", "reference": "Isra, 17:11", "description": "Placing immediate gratification ahead of long-term benefit. Impatience is the main source of rash decisions, regrets, and missed opportunities. The Quran defines this as a fitrah (innate nature) characteristic — it can be overcome but cannot be ignored." },
+          { "id": "hirs", "title": "Greed — Never Having Enough", "arabic": "إِنَّ الْإِنسَانَ لَيَطْغَى أَن رَّآهُ اسْتَغْنَى", "translation": "Indeed, man transgresses when he sees himself self-sufficient.", "reference": "Alaq, 96:6-7", "description": "Not getting rich — but when rich, knowing no bounds. Greed initially looks like motivation, then takes over identity. The Quran defines 'tughyan' (transgression) as a psychological threat born of excess." },
+          { "id": "nankor", "title": "Ingratitude — Not Seeing the Blessings", "arabic": "وَكَانَ الْإِنسَانُ كَفُورًا", "translation": "And man has ever been ungrateful.", "reference": "Isra, 17:67", "description": "Seeing what one doesn't have rather than what one has. Gratitude-blind. The Quran's observation of hedonic adaptation (things acquired losing their appeal): the human forgets the rescuer after being rescued." },
+          { "id": "tartismaci", "title": "Argumentativeness — The Need to Be Right", "arabic": "وَكَانَ الْإِنسَانُ أَكْثَرَ شَيْءٍ جَدَلًا", "translation": "And man is the most contentious of things.", "reference": "Kahf, 18:54", "description": "Not seeking truth — but appearing right. Argumentativeness separates intelligence from truth and redirects it toward ego protection. The Quran emphasizes this tendency as a warning: even the most intelligent minds can be misdirected." },
+          { "id": "zaaf", "title": "Weakness — Vulnerability", "arabic": "وَخُلِقَ الْإِنسَانُ ضَعِيفًا", "translation": "And man was created weak.", "reference": "Nisa, 4:28", "description": "The recognition of human fragility — not an accusation but an acknowledgment of reality. And Allah, seeing this reality, lightens the human burden. Knowing one's weakness is the beginning of the search for strength." }
+        ]
+      },
+      "b": {
+        "title": "Emotional Intelligence",
+        "intro": "Daniel Goleman defined emotional intelligence in 1995: self-awareness, self-management, empathy, social skills. The Quran conveys each of these skills through concrete examples and frameworks.",
+        "items": [
+          { "id": "oz_farkindalik", "title": "Self-Awareness", "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ", "translation": "And within yourselves — will you not see?", "reference": "Dhariyat, 51:21", "description": "The Quran places internal observation alongside external observation. Seeing one's own intentions, motivations, and weak points — it is the foundation of psychological health. Muraqaba (self-monitoring) practice is the Islamic counterpart of self-awareness." },
+          { "id": "empati", "title": "Empathy — Entering the Other's Interior", "arabic": "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَى", "translation": "And cooperate in righteousness and piety.", "reference": "Maidah, 5:2", "description": "The Quran describes the Prophet's empathy: 'There has come to you a messenger from among yourselves; grievous to him is what you suffer.' (Tawba 9:128). Empathy is not a feeling — it is an active orientation: feeling another's burden and moving toward them." },
+          { "id": "ofke", "title": "Anger Management", "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ", "translation": "Those who restrain anger and pardon people.", "reference": "Ali Imran, 3:134", "description": "The Quran does not deny anger — it rewards 'swallowing' it. Not emotional suppression but conscious regulation. The Prophet: 'The strong one is not who wins in wrestling, but who can restrain themselves in anger.' Anger energy preserves existence but requires direction." },
+          { "id": "sosyal_farkindalik", "title": "Social Awareness", "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَى", "translation": "O people! We created you from a male and female.", "reference": "Hujurat, 49:13", "description": "The Quran presents diversity not as a threat but as an opportunity for acquaintance. Social awareness: being conscious of different experiences, backgrounds, and vulnerabilities. This is the social version of taqwa (God-consciousness)." },
+          { "id": "iliski_yonetimi", "title": "Relationship Management — Justice and Compassion", "arabic": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ", "translation": "Indeed, Allah commands justice and good conduct.", "reference": "Nahl, 16:90", "description": "Two fundamental relationship principles: adl (fairness) and ihsan (beautiful conduct beyond the standard). Relationship management is not just avoiding conflict — it is actively producing goodness. Ihsan is a form of giving that does not expect reciprocity." }
+        ]
+      },
+      "c": {
+        "title": "Psychological Mechanisms",
+        "intro": "Some fundamental mechanisms that modern psychology discovered in the laboratory had already been defined in the Quran through concrete examples and systematic frameworks.",
+        "items": [
+          { "id": "bilissel_carpitma", "title": "Cognitive Distortions", "arabic": "زُيِّنَ لِلنَّاسِ حُبُّ الشَّهَوَاتِ", "translation": "Beautified for people is the love of desires.", "reference": "Ali Imran, 3:14", "description": "The Quran uses the concept of 'tazyin': beautifying, making attractive. Desire distorts reality — the person sees what they desire as right. Aaron Beck's cognitive distortion theory: emotions filter thought, reflecting not objective reality but desire." },
+          { "id": "motivasyon", "title": "Hierarchy of Motivation", "arabic": "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ", "translation": "And you do not will except that Allah wills.", "reference": "Insan, 76:30", "description": "The Quran defines two layers of motivation: human will and divine will. This is not a paradox — it is a framework that makes tawakkul (trust in Allah) possible without eliminating responsibility. Not external motivation (reward-punishment) but internalized meaning motivation." },
+          { "id": "aliskanlik", "title": "Habit Loop", "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ", "translation": "No! Rather, what they were earning has covered their hearts with rust.", "reference": "Mutaffifin, 83:14", "description": "The Quran describes the cumulative effect of repeated actions on the heart. Matches Charles Duhigg's habit loop (cue-routine-reward): each repetition facilitates the next. Valid for both positive and negative habits." },
+          { "id": "sosyal_kimlik", "title": "Social Identity and Belonging", "arabic": "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ", "translation": "The believers are but brothers.", "reference": "Hujurat, 49:10", "description": "Tajfel's social identity theory: people construct identity through group membership, assign higher value to in-group, develop out-group bias. The Quran transforms this tendency: brotherhood is universalized, the 'in-group' extends to all of humanity." }
+        ]
+      }
+    }
   }
 }

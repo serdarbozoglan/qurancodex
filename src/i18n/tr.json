@@ -629,5 +629,480 @@
       }
     ],
     "copyright": "Quran Codex. Tüm hakları saklıdır."
+  },
+  "psychology": {
+    "badge": "İnsan Psikolojisi",
+    "title": "Kur'an'ın Psikoloji Haritası",
+    "intro": "Modern psikoloji, insan zihnini anlamak için yüzyıllardır çaba harcıyor. Freud benliği, Jung arketipleri, Maslow ihtiyaç hiyerarşisini, Frankl anlamı keşfetti. Kur'an 1.400 yıl önce bu haritanın tamamını çoktan çizmişti — sadece farklı bir dille.",
+    "tabs": {
+      "nefs": "Nefsin Haritası",
+      "kalp": "Kalp Psikolojisi",
+      "korku": "Korku ve Kaygı",
+      "savunma": "Savunma Mekanizmaları",
+      "yusuf": "Travma ve İyileşme",
+      "sosyal": "Sosyal Psikoloji",
+      "araclar": "Psikolojik Araçlar",
+      "anlam": "Anlam Psikolojisi",
+      "modern": "Modern Psikoloji ile Farklar",
+      "ekler": "Ekler"
+    },
+    "sections": {
+      "nefs": {
+        "title": "Nefsin Haritası",
+        "intro": "Kur'an, insanın iç dünyasını 'nefis' kavramıyla tanımlar. Tek bir şey değil — bir yolculuk. Nefis, aşamalar boyunca dönüşen, gelişen bir varlık. Modern psikoloji bu aşamaları yeni yeni keşfederken, Kur'an onları on dört asır önce adlandırmıştı.",
+        "items": [
+          {
+            "id": "emmare",
+            "title": "Emmâre — Kötülüğü Emreden Nefis",
+            "arabic": "إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ",
+            "translation": "Şüphesiz nefis, kötülüğü şiddetle emreder.",
+            "reference": "Yusuf, 12:53",
+            "description": "En ham, en ilkel hâl. Anlık hazları, ego tatminini, saldırganlığı ön plana çıkarır. Freud'un 'id'ine en yakın kavram. Emmâre'de birey, içgüdülerine teslim olmuştur; vicdan henüz sesi kısık çıkarır.",
+            "modernNote": "Freud'un id kavramıyla örtüşür: zevk ilkesiyle çalışan, ahlaki sınır tanımayan ilkel sürücü."
+          },
+          {
+            "id": "levvame",
+            "title": "Levvâme — Kınayan, Pişmanlık Duyan Nefis",
+            "arabic": "وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ",
+            "translation": "Kınayan nefse yemin ederim.",
+            "reference": "Kıyamet, 75:2",
+            "description": "Vicdan uyanmıştır. Kişi hata yaptığında kendini kınar, pişmanlık duyar. Bu, sağlıklı ahlaki gelişimin işaretidir. Sürekli öz-kıyı değil — hatayı fark edip düzeltme çabası. Kur'an bu nefse yemin ederek ona değer verir.",
+            "modernNote": "Psikolojideki 'sağlıklı vicdan' ve bilişsel çelişki (cognitive dissonance) mekanizmasıyla paraleldir."
+          },
+          {
+            "id": "mulhime",
+            "title": "Mülhime — İlham Alan Nefis",
+            "arabic": "فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا",
+            "translation": "Ona fücurunu da takvasını da ilham etti.",
+            "reference": "Şems, 91:8",
+            "description": "Nefis artık hem iyiye hem kötüye yönelme kapasitesini bilinçle taşır. Sezgi, yaratıcılık, manevi ilham bu aşamada filizlenir. Kişi sadece tepki vermez; seçim yapar.",
+            "modernNote": "Jung'un 'higher self' ve transpersonal psikolojinin 'sezgisel benlik' kavramlarıyla bağlantılıdır."
+          },
+          {
+            "id": "mutmainne",
+            "title": "Mutmainne — Huzura Kavuşmuş Nefis",
+            "arabic": "يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ",
+            "translation": "Ey huzura kavuşmuş nefis!",
+            "reference": "Fecr, 89:27",
+            "description": "İç çatışma dinmiştir. Kişi kendisiyle, Rabbi'yle ve varoluşla barışıktır. Kaygı, korku, öfke geçicidir; zemin huzurdur. Psikolojide buna 'ego bütünleşmesi' denir. Kur'an bunu en saf ifadesiyle sunar.",
+            "modernNote": "Maslow'un öz-gerçekleştirme zirvesiyle ve Frankl'ın 'anlam huzuru' kavramıyla örtüşür."
+          },
+          {
+            "id": "radiye",
+            "title": "Râdıye / Mardıyye — Razı Olan ve Razı Olunan Nefis",
+            "arabic": "ارْجِعِي إِلَى رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",
+            "translation": "Rabbine dön; sen O'ndan razı, O da senden razı olarak.",
+            "reference": "Fecr, 89:28",
+            "description": "Yolculuğun en üst basamağı. Tek taraflı değil karşılıklı: kul Allah'tan, Allah kuldan razı. Bu aşama sadece iç huzur değil, ilahi bir ilişkinin tamamlanmasıdır. Ölüm bile tehdit değil, bir kavuşmadır.",
+            "modernNote": "Psikologların 'transcendence' ve 'self-transcendence' adını verdiği en üst gelişim aşamasıdır."
+          }
+        ]
+      },
+      "kalp": {
+        "title": "Kalp Psikolojisi",
+        "intro": "Kur'an'da kalp (qalb), fiziksel bir organ değil — bilinç, irade ve ahlakın merkezi. Kur'an bu merkezi beş farklı hâlde tanımlar. Modern nörobilim, kalbin sinir sistemiyle olan bağını keşfedince bu metaforun ne kadar derin olduğunu anladı.",
+        "items": [
+          {
+            "id": "selim",
+            "title": "Kalb-i Selîm — Sağlam, Arınmış Kalp",
+            "arabic": "إِلَّا مَنْ أَتَى اللَّهَ بِقَلْبٍ سَلِيمٍ",
+            "translation": "Ancak Allah'a sağlam bir kalp ile gelenler (kurtulur).",
+            "reference": "Şuara, 26:89",
+            "description": "Kur'an'ın ideal kalp hâli. Hasetten, kibirden, ikiyüzlülükten arınmış; Allah'a yönelmiş. Hz. İbrahim'in vasfıdır. Kıyamet günü mal ve evlat değil, yalnızca bu kalp fayda verir.",
+            "modernNote": "Pozitif psikolojinin 'psikolojik bütünleşme' ve 'otantik yaşam' kavramlarıyla örtüşür."
+          },
+          {
+            "id": "munib",
+            "title": "Kalb-i Münîb — Dönen, Tövbeden Dönen Kalp",
+            "arabic": "مَنْ خَشِيَ الرَّحْمَنَ بِالْغَيْبِ وَجَاءَ بِقَلْبٍ مُنِيبٍ",
+            "translation": "Gaybte Rahman'dan korkan ve gönülden dönen bir kalp ile gelen kimse.",
+            "reference": "Kaf, 50:33",
+            "description": "Sürekli Allah'a yönelen, uzaklaşınca geri dönen kalp. Tövbe mekanizması burada yatar — tek seferlik değil, kronik bir dönüş eğilimi. Münib kalp hata yapar ama teslim olmaz.",
+            "modernNote": "Psikolojik dayanıklılık (resilience) ve 'büyüme sonrası travma' kavramlarıyla paraleldir."
+          },
+          {
+            "id": "mariz",
+            "title": "Kalb-i Marîz — Hasta Kalp",
+            "arabic": "فِي قُلُوبِهِم مَّرَضٌ فَزَادَهُمُ اللَّهُ مَرَضًا",
+            "translation": "Kalplerinde hastalık vardır; Allah da hastalıklarını artırdı.",
+            "reference": "Bakara, 2:10",
+            "description": "Nifak (ikiyüzlülük), şüphe, haset, kibir gibi psikolojik patolojilerin yurdu. Hastanın hastalığı görmemesi gibi, hasta kalp da kendi durumundan habersizdir. Tedavisi: farkındalık, tövbe, ilim.",
+            "modernNote": "Psikolojik savunma mekanizmaları ve 'yansıtmalı tanımsızlık' (projective identification) ile bağlantılıdır."
+          },
+          {
+            "id": "muhurlu",
+            "title": "Mühürlenmiş Kalp",
+            "arabic": "خَتَمَ اللَّهُ عَلَى قُلُوبِهِمْ وَعَلَى سَمْعِهِمْ",
+            "translation": "Allah onların kalplerini ve kulaklarını mühürledi.",
+            "reference": "Bakara, 2:7",
+            "description": "Uzun süreli inkâr ve inat sonucu kalp artık dış uyarılara tepki vermez hâle gelir. Bu ilahi bir ceza değil, insanın kendi tercihlerinin doğal sonucudur. Psikolojide 'öğrenilmiş çaresizlik' ve 'duygusal körelme'ye benzer.",
+            "modernNote": "Seligman'ın 'öğrenilmiş çaresizlik' (learned helplessness) kavramıyla yapısal benzerlik taşır."
+          },
+          {
+            "id": "pasli",
+            "title": "Paslı Kalp — Rân",
+            "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ",
+            "translation": "Hayır! Aksine, kazandıkları şeyler kalplerini pas tuttu.",
+            "reference": "Mutaffifîn, 83:14",
+            "description": "Mühürden farklı olarak pas temizlenebilir. Hz. Peygamber: 'Kul günah işlediğinde kalbine siyah bir nokta düşer; tövbe edip affedilirse o nokta silinir. Devam ederse büyür.' Rân, ihmal sonucu oluşan birikimli kirliliktir.",
+            "modernNote": "Nöropsikolojideki 'duygusal yük birikimi' ve travma katmanlaşması mekanizmasıyla örtüşür."
+          }
+        ]
+      },
+      "korku": {
+        "title": "Korku, Kaygı ve Huzur",
+        "intro": "Modern psikoloji korkuyu tek boyutlu tanımlar: tehdit algısı → amigdala aktivasyonu → kaç ya da savaş. Kur'an dört farklı duygusal hâl tanımlar: Havf, Haşyet, Hüzün ve Sekinet. Her birinin kaynağı, işlevi ve tedavisi birbirinden farklıdır.",
+        "items": [
+          {
+            "id": "havf",
+            "title": "Havf — Doğal Korku",
+            "arabic": "وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ",
+            "translation": "Onlara korku yoktur ve onlar üzülmeyecekler.",
+            "reference": "Bakara, 2:62",
+            "description": "Sonuçtan doğan korku. Acı, kayıp, tehlike karşısında hissedilen normal insanî tepki. Kur'an bu korkuyu inkâr etmez — Allah'ın dostlarının bile dünyada korku yaşadığını söyler. Patolojik değil, işlevsel bir uyarı sistemidir.",
+            "modernNote": "Adaptif korku yanıtı: amigdala tabanlı hayatta kalma mekanizması. Kur'an bunu normalleştirir."
+          },
+          {
+            "id": "hasyet",
+            "title": "Haşyet — Bilgiden Doğan Derin Saygı-Korku",
+            "arabic": "إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ",
+            "translation": "Allah'tan ancak âlim kulları korkar (haşyet duyar).",
+            "reference": "Fâtır, 35:28",
+            "description": "Havf'tan derin. Haşyet, Allah'ı tanımanın yarattığı derin saygı-korkudur — cezadan değil, büyüklük karşısındaki aczden doğar. Ne kadar çok bilirsen o kadar çok haşyet duyarsın. Bu, psikolojideki 'huşu' (awe) deneyimiyle örtüşür.",
+            "modernNote": "Dacher Keltner'ın 'hayranlık/awe' araştırmaları: büyüklük karşısında egonun küçülmesi → bağ ve anlam hissi."
+          },
+          {
+            "id": "huzun",
+            "title": "Hüzün — Sağlıklı Yas ve Üzüntü",
+            "arabic": "قَالُوا يَا أَبَانَا إِنَّا ذَهَبْنَا نَسْتَبِقُ وَتَرَكْنَا يُوسُفَ",
+            "translation": "Dediler ki: Babamız, biz yarışmaya gitmiştik...",
+            "reference": "Yusuf, 12:17",
+            "description": "Hz. Yakup, Yusuf'u kaybedince yıllarca ağladı — gözleri aktı. Kur'an bunu zayıflık olarak göstermez; derinlemenin, sevginin ve beşerî acının doğal ifadesi olarak aktarır. Hüzün bastırılmamalı; yaşanmalı.",
+            "modernNote": "Sağlıklı yas sürecinin önemi: Elizabeth Kübler-Ross'un yas aşamaları. Bastırılmış yas travmaya dönüşür."
+          },
+          {
+            "id": "sekinet",
+            "title": "Sekînet — İlahi Huzur, Derin Sükunet",
+            "arabic": "هُوَ الَّذِي أَنزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ",
+            "translation": "O, mü'minlerin kalplerine sekînet indiren Allah'tır.",
+            "reference": "Fetih, 48:4",
+            "description": "Sekinat, insan çabasıyla ulaşılan bir huzur değil — 'indirilmiş' bir hâldir. Savaş, tehlike, belirsizlik anlarında peygamber ve sahabelerine inen bir ruh hâli. Kaygının tam karşısında değil — ama kaygının içinde var olan bir temel.",
+            "modernNote": "Mindfulness araştırmalarındaki 'equanimity' (içsel denge) kavramı. Dış koşullardan bağımsız bir zemin."
+          }
+        ]
+      },
+      "savunma": {
+        "title": "Savunma Mekanizmaları",
+        "intro": "Freud'un kızı Anna Freud, 1936'da savunma mekanizmalarını sistematik olarak tanımladı. Kur'an, bu mekanizmaları somut insan hikayeleri üzerinden 1.400 yıl önce sergiledi — isim vermeden ama kristal netliğiyle.",
+        "items": [
+          {
+            "id": "rasyonalizasyon",
+            "title": "Rasyonalizasyon — Bahaneler Üretmek",
+            "arabic": "وَإِذَا قِيلَ لَهُمْ لَا تُفْسِدُوا فِي الْأَرْضِ قَالُوا إِنَّمَا نَحْنُ مُصْلِحُونَ",
+            "translation": "'Yeryüzünde fesat çıkarmayın' denince: 'Biz sadece ıslah edicileriz' derler.",
+            "reference": "Bakara, 2:11",
+            "description": "Yanlış eylemi meşrulaştırmak için mantıklı görünen açıklamalar üretmek. Münafıkların klasik mekanizması: zarar veriyorlar, ama buna 'ıslah' diyorlar. Bilinçsiz bir süreçtir — gerçekten inanırlar.",
+            "modernNote": "Anna Freud'un rasyonalizasyon tanımıyla birebir örtüşür: gerçek motivasyonu gizleyen ikincil açıklama."
+          },
+          {
+            "id": "projeksiyon",
+            "title": "Projeksiyon — Suçu Başkasına Yüklemek",
+            "arabic": "وَجَاءُوا عَلَى قَمِيصِهِ بِدَمٍ كَذِبٍ",
+            "translation": "Yalan bir kanla lekelenmiş gömleğini getirdiler.",
+            "reference": "Yusuf, 12:18",
+            "description": "Yusuf'un kardeşleri, kendi suçlarını (kıskançlık, plan) kurdurduğun kurtla örttü. İçlerindeki vicdan acısını dışarıya yansıttılar. Projeksiyon: kendi kabul edilemez dürtülerini başkasında görmek veya sorumluluğu başkasına atmak.",
+            "modernNote": "Klasik psikanalitik projeksiyon: 'Ben değil, o!' — kendi reddedilen duygularını dışarıya atma."
+          },
+          {
+            "id": "inkar",
+            "title": "İnkâr — Gerçeği Reddetmek",
+            "arabic": "وَجَحَدُوا بِهَا وَاسْتَيْقَنَتْهَا أَنفُسُهُمْ ظُلْمًا وَعُلُوًّا",
+            "translation": "Haksızlık ve kibir nedeniyle inkâr ettiler; oysa içleri bunun doğru olduğuna kesinlikle inanmıştı.",
+            "reference": "Neml, 27:14",
+            "description": "Firavun'un mucizeler karşısındaki tutumu. Gören, anlayan ama kabul etmeyen. Bu, bilgisizlikten değil — kibirden kaynaklanan inkârdır. Psikolojide 'bilinçli inkâr': gerçeği bilmek ama ego koruması için reddetmek.",
+            "modernNote": "Festinger'ın 'bilişsel çelişki azaltma' mekanizması: tehdit edici gerçeği reddetme."
+          },
+          {
+            "id": "erteleme",
+            "title": "Erteleme — 'Yarın Tövbe Ederim'",
+            "arabic": "حَتَّى إِذَا حَضَرَ أَحَدَهُمُ الْمَوْتُ قَالَ إِنِّي تُبْتُ الْآنَ",
+            "translation": "Ölüm birine gelince 'İşte şimdi tövbe ettim' der.",
+            "reference": "Nisa, 4:18",
+            "description": "Değişimi sürekli ertelemek, hem bir savunma hem bir tuzak. Kur'an bu erteleme mekanizmasını açıkça uyarır: Son nefeste tövbenin kabul edilmeyeceği bir sınır vardır. Procrastination'ın psikolojik kökeni: değişimin yarattığı kaygıdan kaçış.",
+            "modernNote": "Davranışsal ekonomideki 'hyperbolic discounting': uzak ödüllere değer biçememe, anlık rahata kaçış."
+          },
+          {
+            "id": "sosyaluyum",
+            "title": "Sosyal Uyum Baskısı — Sürüye Uymak",
+            "arabic": "إِنَّا وَجَدْنَا آبَاءَنَا عَلَى أُمَّةٍ وَإِنَّا عَلَى آثَارِهِم مُّقْتَدُونَ",
+            "translation": "Biz atalarımızı bir din üzerinde bulduk, biz de onların izinden gidiyoruz.",
+            "reference": "Zuhruf, 43:23",
+            "description": "Her peygamberin karşılaştığı evrensel direnç: 'Atalarımız böyle yapardı.' Gelenek baskısı, sosyal normlar ve kimlik koruması adına gerçeğin reddedilmesi. Milgram ve Asch deneyleri bu mekanizmayı laboratuvarda doğruladı.",
+            "modernNote": "Asch'ın uyum deneyleri (1951): Gruba uymak için açıkça yanlış cevap verme eğilimi — sosyal baskının gücü."
+          },
+          {
+            "id": "kibirkalkani",
+            "title": "Kibir Kalkanı — Savunmacı Büyüklenme",
+            "arabic": "وَإِذَا قِيلَ لَهُ اتَّقِ اللَّهَ أَخَذَتْهُ الْعِزَّةُ بِالْإِثْمِ",
+            "translation": "'Allah'tan kork' denince, kibri onu günaha sürükler.",
+            "reference": "Bakara, 2:206",
+            "description": "Eleştiri veya uyarıya karşı duyulan kibir, bir savunma mekanizmasıdır: 'Benim hatam yok, uyaran yanlış.' Bu tepki, altta yatan kırılganlığı gizler. Narcissistic injury'ye (narsistik yara) verilen savunmacı büyüklük tepkisidir.",
+            "modernNote": "Narsistik savunma: altta yatan yetersizlik hissini üstünlük iddiasıyla örtme."
+          }
+        ]
+      },
+      "yusuf": {
+        "title": "Travma ve İyileşme — Hz. Yusuf Kıssası",
+        "intro": "Kur'an, Yusuf kıssasını 'ahsenü'l-kasas' — kıssaların en güzeli olarak tanımlar. Sadece güzel bir hikaye değil: kıskançlık, ihanet, kölelik, iftira, hapis, yükseliş ve bağışlamayı kapsayan eksiksiz bir travma iyileşme haritası.",
+        "items": [
+          {
+            "id": "ihanet",
+            "title": "1. Aşama: İhanet ve Kuyuya Atılma",
+            "arabic": "وَأَجْمَعُوا أَن يَجْعَلُوهُ فِي غَيَابَتِ الْجُبِّ",
+            "translation": "Onu kuyunun dibine bırakmeye karar verdiler.",
+            "reference": "Yusuf, 12:15",
+            "description": "Travmanın başlangıcı: en güvendiği insanlardan gelen ihanet. Kardeşler tarafından atılmak — bağlanma figürlerinin tehdit kaynağı haline gelmesi. Modern travma teorisinde en derin yara budur: güven ilişkisi içinde yaşanan ihanet.",
+            "modernNote": "Bowlby'nin bağlanma teorisi: güvenli bağın kırılması derin psikolojik hasar bırakır."
+          },
+          {
+            "id": "kolelik",
+            "title": "2. Aşama: Kölelik ve Yabancı Topraklar",
+            "arabic": "وَشَرَوْهُ بِثَمَنٍ بَخْسٍ دَرَاهِمَ مَعْدُودَةٍ",
+            "translation": "Onu düşük bir fiyata, sayılı birkaç dirheme sattılar.",
+            "reference": "Yusuf, 12:20",
+            "description": "Kimlik soyulması. İsmi, özgürlüğü, ailesi elinden alındı. Ancak Kur'an kritik bir notu düşer: 'Allah onun yanındaydı.' Travma deneyiminde var olan ilahi zemin — tamamen yok olmayan bir anlam çerçevesi.",
+            "modernNote": "Posttraumatic growth (travma sonrası büyüme): en ağır koşullarda bile büyüme kapasitesi."
+          },
+          {
+            "id": "iftira",
+            "title": "3. Aşama: İftira ve Hapis",
+            "arabic": "قَالَ رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ",
+            "translation": "Dedi ki: Rabbim! Beni çağırdıkları şeyden hapishane bana daha sevgilidir.",
+            "reference": "Yusuf, 12:33",
+            "description": "Masum olduğu hâlde iftiraya uğradı, hapsedildi. Ama Yusuf bağırmadı, isyan etmedi — duayı seçti. Psikolojide kontrol odağı (locus of control): dış koşulları değil, tepkisini seçmek. Viktor Frankl'ın kamptan öğrendikleriyle birebir örtüşür.",
+            "modernNote": "Frankl: 'Son özgürlük — koşullara verilen tepkiyi seçme özgürlüğü.' Hapishane bile bu özgürlüğü alamaz."
+          },
+          {
+            "id": "yalnizlik",
+            "title": "4. Aşama: Uzun Yalnızlık ve Sabır",
+            "arabic": "فَلَبِثَ فِي السِّجْنِ بِضْعَ سِنِينَ",
+            "translation": "Zindanda birkaç yıl kaldı.",
+            "reference": "Yusuf, 12:42",
+            "description": "Yıllar geçiyor. Çıkış garantisi yok. Ama Yusuf rüyaları yorumlamaya, insanlara yardım etmeye devam ediyor. Anlam üretmek — hapse düşmüş bile olsa anlama hizmet etmek — iyileşmenin temelidir.",
+            "modernNote": "Frankl'ın logoterapi: anlam bulmak acıyı katlanılır kılar. Çaresizlik değil, misyon bilinci."
+          },
+          {
+            "id": "yukselis",
+            "title": "5. Aşama: Yükseliş — Travmanın Dönüşümü",
+            "arabic": "وَكَذَلِكَ مَكَّنَّا لِيُوسُفَ فِي الْأَرْضِ",
+            "translation": "İşte böyle Yusuf'u yeryüzünde yerleştirdik.",
+            "reference": "Yusuf, 12:56",
+            "description": "Kölelikten vezirliğe. Travma geçmişi onu yok etmedi — aksine o makama hazırladı. Posttraumatic growth'un doruk noktası: acı deneyim, başkalarına hizmet kapasitesine dönüştü.",
+            "modernNote": "Tedeschi ve Calhoun'un posttraumatic growth modeli: ilişkilerde derinleşme, yaşam algısında genişleme, kişisel güç keşfi."
+          },
+          {
+            "id": "bagislama",
+            "title": "6. Aşama: Bağışlama — İyileşmenin Zirvesi",
+            "arabic": "قَالَ لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ",
+            "translation": "Dedi ki: Bugün size kınama yok.",
+            "reference": "Yusuf, 12:92",
+            "description": "Kur'an'ın en güçlü bağışlama sahnesi. Yusuf, onu kuyuya atan kardeşlerine 'Bugün size kınama yok' dedi. İntikam hakkı varken seçtiği bağışlama. Bağışlama, mazlumun zayıflığı değil — iyileşmiş insanın gücüdür.",
+            "modernNote": "Forgiveness therapy: bağışlama, anksiyete ve depresyonu azaltır, kurbanı özgürleştirir — suçluyu değil."
+          }
+        ]
+      },
+      "sosyal": {
+        "title": "Sosyal Psikoloji",
+        "intro": "Kur'an, insanı toplumsal bir varlık olarak tanımlar. Toplumsal hastalıkların kökenine iner ve tedavisini verir. Kibir, haset ve gıybet — sosyal bağları tahrip eden üç temel patoloji.",
+        "items": [
+          {
+            "id": "kibir",
+            "title": "Kibir — Büyüklenme Patolojisi",
+            "arabic": "إِنَّهُ لَا يُحِبُّ الْمُسْتَكْبِرِينَ",
+            "translation": "Şüphesiz O, büyüklük taslayanları sevmez.",
+            "reference": "Nahl, 16:23",
+            "description": "Kibir, en çok eleştirilen karakter özelliği. İblis'in düşüşü kibir yüzünden. Firavun'un felaketi kibir yüzünden. Kur'an kibri aşkın bir kaynaktan gösterir: yaratılmışın Yaratıcı'ya rağmen büyüklük iddiası — ontolojik bir çelişki.",
+            "modernNote": "Narsisistik kişilik: altta yatan kırılganlığı büyüklenmeyle örtmek. Kibir dışa, utanç içe döner."
+          },
+          {
+            "id": "haset",
+            "title": "Haset ve Gıbta — Yıkıcı ve Yapıcı Kıskançlık",
+            "arabic": "أَمْ يَحْسُدُونَ النَّاسَ عَلَى مَا آتَاهُمُ اللَّهُ مِن فَضْلِهِ",
+            "translation": "Yoksa Allah'ın kendi lütfundan insanlara verdiği şeylere karşı haset mi ediyorlar?",
+            "reference": "Nisa, 4:54",
+            "description": "Kur'an iki ayrı kavram kullanır: Haset (başkasının nimetinin elinden gitmesini istemek) ve Gıbta (aynısına sahip olmak istemek). Haset yıkıcı, gıbta kabul edilebilir. Sefer etmeden zengin olmak, çalışmadan başarılı görünmek — hasedi tetikler.",
+            "modernNote": "Social comparison theory (Festinger): kendini başkalarıyla kıyaslama doğal, ama haset kıyaslamayı yıkıma dönüştürür."
+          },
+          {
+            "id": "giybet",
+            "title": "Gıybet — Sosyal Doku Tahribatı",
+            "arabic": "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا ۚ أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا",
+            "translation": "Birbirinizin gıybetini etmeyin. Ölü kardeşinizin etini yemek ister miydiniz?",
+            "reference": "Hucurât, 49:12",
+            "description": "Kur'an'ın gıybete verdiği metafor şoke edicidir: ölü et yemek. Neden bu kadar ağır? Çünkü gıybet, savunmasızı hedef alır — cevap veremeyeni. Psikolojide gıybetin işlevi: grup kimliği oluşturma, statü kazanma, kendi başarısızlığından dikkati çekme.",
+            "modernNote": "Sosyal psikoloji: gossip'in evrimsel işlevi grup kohezyon sağlamak, ama işlev bozulunca sosyal dokuyu tahrip eder."
+          }
+        ]
+      },
+      "araclar": {
+        "title": "Psikolojik Araçlar",
+        "intro": "Kur'an sadece sorunları teşhis etmez — çözüm araçlarını da verir. Dört temel araç: Sabır, Şükür, Zikir ve Dua. Modern terapi teknikleriyle dikkat çekici örtüşmeler taşıyan, test edilmiş psikolojik stratejiler.",
+        "items": [
+          {
+            "id": "sabir",
+            "title": "Sabır — Aktif Direnç, Pasif Katlanma Değil",
+            "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
+            "translation": "Ey iman edenler! Sabır ve namazla (Allah'tan) yardım isteyin.",
+            "reference": "Bakara, 2:153",
+            "description": "Sabır Türkçede 'katlanmak' çağrışımı taşır ama Kur'an'da aktif bir dirençtir. Sebat etmek, vazgeçmemek, ilerlemeye devam etmek. Kur'an sabırsızlıktan değil, korkakça teslimiyetten kaçınmamızı ister. Sabrın 90'dan fazla ayette geçmesi tesadüf değildir.",
+            "modernNote": "Klinik psikolojideki 'distress tolerance' (sıkıntıya tahammül) ve ACT terapisindeki 'psikolojik esneklik' kavramlarıyla örtüşür."
+          },
+          {
+            "id": "sukur",
+            "title": "Şükür — Beyin Kimyasını Değiştiren Pratik",
+            "arabic": "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+            "translation": "Eğer şükrederseniz, sizi artırırım.",
+            "reference": "İbrahim, 14:7",
+            "description": "Şükür bir kibarlık ritüeli değil — bir bilişsel yeniden çerçeveleme (reframing) pratiği. Odağı 'eksik olanlar'dan 'mevcut olanlar'a kaydırmak. Kur'an şükrün 'artırmayı' getireceğini söylüyor — nörobilim bunun dopamin ve serotonin artışıyla gerçekleştiğini doğruluyor.",
+            "modernNote": "Robert Emmons'ın minnet (gratitude) araştırmaları: düzenli şükür pratiği depresyonu %25 azaltır, uyku kalitesini artırır."
+          },
+          {
+            "id": "zikir",
+            "title": "Zikir — Kalbin İlacı",
+            "arabic": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
+            "translation": "Biliniz ki kalpler ancak Allah'ı zikretmekle huzur bulur.",
+            "reference": "Ra'd, 13:28",
+            "description": "Kur'an kalpler için tek bir reçete yazar: Allah'ın zikri. Tekrarlayan, ritimli ses ve hareket — beyin frekansını değiştirir. fMRI çalışmaları, tekrarlayan dini pratik sırasında amigdala aktivitesinin düştüğünü, prefrontal korteks aktivitesinin arttığını gösteriyor.",
+            "modernNote": "Mindfulness ve meditasyon araştırmaları: tekrarlayan odaklanma pratiği kortizolü düşürür, parasempatik sinir sistemini aktive eder."
+          },
+          {
+            "id": "dua",
+            "title": "Dua — Bilinçli Teslim",
+            "arabic": "وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ",
+            "translation": "Rabbiniz şöyle buyurdu: Bana dua edin, size karşılık vereyim.",
+            "reference": "Mü'min, 40:60",
+            "description": "Dua bir dilekçe listesi değil — bilinçli bir teslim pratiği. Kur'an 'isteyenlere karşılık vereceğini' söyler; ama bu karşılık her zaman istenenin verilmesi değildir. Dua kaygıyı dışa transfer eder, kontrol yanılsamasını bırakmayı kolaylaştırır.",
+            "modernNote": "Psikoterapi araştırmaları: ibadet ve manevi pratik, klinik kaygı ve depresyonda ek terapötik etki gösteriyor."
+          }
+        ]
+      },
+      "anlam": {
+        "title": "Anlam Psikolojisi",
+        "intro": "Viktor Frankl, Auschwitz'de hayatta kalmayı anlamla açıkladı: 'Yaşamak için bir nedeni olan insan, neredeyse her nasılı kaldırabilir.' Kur'an bu cevabı 1.400 yıl önce vermişti — hem daha geniş hem daha derin bir çerçevede.",
+        "items": [
+          {
+            "id": "amac",
+            "title": "Yaratılış Amacı — Varoluşun Temeli",
+            "arabic": "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",
+            "translation": "Ben cinleri ve insanları yalnızca bana kulluk etsinler diye yarattım.",
+            "reference": "Zariyat, 51:56",
+            "description": "Kur'an'ın anlam çerçevesi varoluşsal değil — kozmolojik. İnsan rastgele değil, bilinçli bir amaçla yaratılmış. 'İbadet' kelimesi dar bir ritüel değil — tüm yaşamı anlamlı kılacak bir yönelim. Bu zemin üzerinde hiçbir acı anlamsız değildir.",
+            "modernNote": "Frankl'ın logoterapi: anlam 'bulunmaz', keşfedilir. Kur'an bunu bir adım ileri götürür: anlam verilmiştir, fark edilmesi gerekir."
+          },
+          {
+            "id": "sinav",
+            "title": "Acının Anlamı — Sınav Çerçevesi",
+            "arabic": "أَحَسِبَ النَّاسُ أَن يُتْرَكُوا أَن يَقُولُوا آمَنَّا وَهُمْ لَا يُفْتَنُونَ",
+            "translation": "İnsanlar 'İnandık' demeleriyle bırakılıvereceklerini mi sandılar, sınanmayacaklar mı?",
+            "reference": "Ankebut, 29:2",
+            "description": "Acı, cezalandırma değil — gelişim mekanizması. Kur'an'ın sınav çerçevesi, acıyı anlamsız kılmak yerine anlam katmanına taşır. 'Neden ben?' sorusuna Kur'an'ın cevabı: 'Çünkü sen kaldırabilirsin' değil, 'Çünkü bu seni dönüştürecek.'",
+            "modernNote": "Posttraumatic growth araştırmaları: en ağır travmadan sonra insanların %70'i anlamlı pozitif dönüşüm bildiriyor."
+          },
+          {
+            "id": "olum",
+            "title": "Ölüm Karşısında Anlam",
+            "arabic": "كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ",
+            "translation": "Her nefis ölümü tadacaktır.",
+            "reference": "Al-i İmran, 3:185",
+            "description": "Varoluşçu psikoloji ölümden kaçışı en büyük kaygı kaynağı olarak görür (death anxiety). Kur'an ölümü kaçınılmaz ama anlamlı kılar: bir son değil, geçiş. Bu çerçeve ölüm kaygısını ortadan kaldırmaz ama dönüştürür.",
+            "modernNote": "Ernest Becker, 'Denial of Death' (1973): yaşamın çoğu, ölüm kaygısını inkâr etme stratejisiyle geçer. Kur'an inkâra değil yüzleşmeye çağırır."
+          },
+          {
+            "id": "tutarlilik",
+            "title": "Tutarlılık Duygusu — Koherans",
+            "arabic": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+            "translation": "Muhakkak ki güçlükle birlikte kolaylık vardır.",
+            "reference": "İnşirah, 94:6",
+            "description": "Aaron Antonovsky'nin 'salutogenesis' (sağlık yaratma) teorisinin merkezi: koherans duygusu — dünyanın anlaşılabilir, yönetilebilir ve anlamlı olduğu hissi. Kur'an bu koheransı sistematik olarak inşa eder: güçlük daima geçicidir, kolaylık daima beraberindedir.",
+            "modernNote": "Antonovsky'nin salutogenesis modeli: anlam, yönetilebilirlik ve kavranılırlık — psikolojik sağlığın üç sütunu."
+          }
+        ]
+      },
+      "modern": {
+        "title": "Modern Psikoloji ile Temel Farklar",
+        "intro": "Kur'an ve modern psikoloji aynı insanı inceler, ama farklı çerçevelerden. Bu farklar çelişki değil — tamamlayıcılık ve derinlik farkı. Modern psikolojinin göremediği ya da geç fark ettiği boyutları Kur'an çoktan tanımlamıştı.",
+        "items": [
+          {
+            "id": "nefs_ego",
+            "title": "Nefis Teorisi ↔ Psikanalitik Model",
+            "description": "Freud: id (dürtü) / ego (gerçeklik) / süperego (ahlak) — üç statik yapı. Kur'an: Emmâre → Levvâme → Mülhime → Mutmainne → Râdıye — beş aşamalı gelişim yolculuğu. Freud'un modeli tanımlar; Kur'an'ın modeli dönüşümü gösterir. İki model arasındaki en kritik fark: Kur'an nefsi değiştirilebilir görür.",
+            "modernNote": "Freud modeli: yapısal, statik. Kur'an modeli: dinamik, teleolojik (amaca yönelik). Pozitif psikoloji bu noktada Kur'an'a daha yakın."
+          },
+          {
+            "id": "ilahi_boyut",
+            "title": "İlahi Boyut — Seküler Psikolojinin Sınırı",
+            "description": "Modern psikoloji 'Tanrı' değişkenini dışarıda bırakmayı tercih eder. Kur'an'da ise her psikolojik sürecin ilahi bir boyutu var: Sekînet Allah'tan iner, kalp Allah'a yönelir, sabır Allah için edilir. Bu boyutu çıkardığınızda sistemin tutarlılığı bozulur.",
+            "modernNote": "Spiritüel psikoloji ve din psikolojisi (William James'ten günümüze) bu boyutu tekrar incelemeye başladı. APA artık 'spiritüelite' faktörünü tanıyor."
+          },
+          {
+            "id": "topluluk",
+            "title": "Bireycilik ↔ Topluluk Merkezlilik",
+            "description": "Batı psikolojisi bireysel özerkliği merkeze alır: 'kendini gerçekleştir, sınırlarını koy, kendin ol.' Kur'an'ın psikolojisi ilişkiseldir: kişi Allah ile, ailesiyle, toplumla kurduğu ilişkiler ağında tanımlanır. Self, ilişki dışında anlamsızdır.",
+            "modernNote": "WEIRD bias (Western, Educated, Industrialized, Rich, Democratic): Batı psikolojisinin örneklemi dünya nüfusunun %12'sini temsil ediyor ama evrensel iddia taşıyor."
+          },
+          {
+            "id": "gunah_psikoloji",
+            "title": "Günah ve Tövbe — Psikolojik Temizlik Mekanizması",
+            "description": "Freud'da suçluluk duygusu patolojiktir — bastırılmış arzuların yarattığı nevrotik yük. Kur'an'da günah gerçektir ama tövbeyle silinebilir. Bu mekanizma özgürleştiricidir: hata kalıcı bir iz değil, silinebilir bir durumdur. Sürekli özeleştiri değil, eylemli bağışlanma arayışı.",
+            "modernNote": "Özgürleştirici suçluluk vs. yıkıcı utanç farkı (Brené Brown): suçluluk 'yanlış yaptım', utanç 'ben yanlışım.' Tövbe sağlıklı suçluluğu çözer."
+          },
+          {
+            "id": "maslow",
+            "title": "Maslow Hiyerarşisi ↔ Kur'an'ın Öncelik Sırası",
+            "description": "Maslow: fizyolojik → güvenlik → ait olma → saygınlık → öz-gerçekleştirme. Tepe noktası: bireysel potansiyelin gerçekleşmesi. Kur'an: öz-gerçekleştirme yeterli değil — transandans gerekir. Maslow hayatının sonunda 'self-transcendence'ı (benliği aşma) teorisine ekledi. Kur'an baştan beri oradaydı.",
+            "modernNote": "Maslow (1969), ölmeden bir yıl önce hiyerarşisine altıncı seviye ekledi: self-transcendence. İslam bunu 1.400 yıl önce tanımlamıştı."
+          }
+        ]
+      }
+    },
+    "appendix": {
+      "tabs": {
+        "a": "EK A: İnsan Zaafiyetleri",
+        "b": "EK B: Duygusal Zekâ",
+        "c": "EK C: Psikolojik Mekanizmalar"
+      },
+      "a": {
+        "title": "İnsan Zaafiyetleri",
+        "intro": "Kur'an insan doğasını idealize etmez. Hem potansiyeli hem de sınırları kristal netliğinde tanımlar. Bu zaafiyetler kader değil — dönüşüm çağrısı.",
+        "items": [
+          { "id": "aceleci", "title": "Acelesizlik — Hemen İstemek", "arabic": "وَكَانَ الْإِنسَانُ عَجُولًا", "translation": "İnsan çok aceleci yaratılmıştır.", "reference": "İsrâ, 17:11", "description": "Anlık tatmini uzun vadeli faydanın önüne koymak. Sabırsızlık, ihtiyatsız kararların, pişmanlıkların ve fırsatları kaçırmanın ana kaynağı. Kur'an bunu bir fıtrat özelliği olarak tanımlar — aşılabilir ama göz ardı edilemez." },
+          { "id": "hirs", "title": "Hırs — Asla Yetmemek", "arabic": "إِنَّ الْإِنسَانَ لَيَطْغَى أَن رَّآهُ اسْتَغْنَى", "translation": "İnsan, kendini zengin görmekle azar.", "reference": "Alak, 96:6-7", "description": "Zenginleşmek değil — zenginleşince sınır tanımamak. Hırs başlangıçta motivasyon gibi görünür, sonunda kimliği ele geçirir. Kur'an 'tuğyan'ı (sınır aşma) fazlalıktan doğan bir psikolojik tehdit olarak tanımlar." },
+          { "id": "nankor", "title": "Nankörlük — Nimetleri Görmemek", "arabic": "وَكَانَ الْإِنسَانُ كَفُورًا", "translation": "İnsan çok nankördür.", "reference": "İsrâ, 17:67", "description": "Sahip olduklarını değil, sahip olmadıklarını görmek. Minnet körü. Kur'an'ın hedonik adaptasyon (edinilen şeyin cazibesini yitirmesi) tespiti: insan, kurtarılınca kurtaranı unutur." },
+          { "id": "tartismaci", "title": "Tartışmacılık — Haklı Olmak İhtiyacı", "arabic": "وَكَانَ الْإِنسَانُ أَكْثَرَ شَيْءٍ جَدَلًا", "translation": "İnsan, her şeyden çok tartışmayı sever.", "reference": "Kehf, 18:54", "description": "Gerçeği aramak değil — haklı görünmek. Tartışmacılık zekâyı hakikatten ayırır ve onu ego korumasına yöneltir. Kur'an bu eğilimi uyarı olarak vurgular: en zekî zihinler yanlış yönlendirilebilir." },
+          { "id": "zaaf", "title": "Zaaf — Kırılganlık", "arabic": "وَخُلِقَ الْإِنسَانُ ضَعِيفًا", "translation": "İnsan zayıf yaratılmıştır.", "reference": "Nisa, 4:28", "description": "İnsanın kırılganlığının tanınması — bir suçlama değil, bir gerçeklik tespiti. Ve Allah bu gerçekliği görerek insanın yükünü hafifletir. Zayıflığı bilmek, güç arayışının başlangıcıdır." }
+        ]
+      },
+      "b": {
+        "title": "Duygusal Zekâ",
+        "intro": "Daniel Goleman, duygusal zekâyı 1995'te tanımladı: öz farkındalık, öz yönetim, empati, sosyal beceriler. Kur'an bu becerilerin her birini somut örnekler ve çerçeveler aracılığıyla aktarır.",
+        "items": [
+          { "id": "oz_farkindalik", "title": "Öz Farkındalık", "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ", "translation": "Ve kendi içinizde de (ayetler var). Görmüyor musunuz?", "reference": "Zariyat, 51:21", "description": "Kur'an içsel gözlemi dışsal gözlemle yan yana koyar. Kendi niyetlerini, motivasyonlarını, zayıf noktalarını görmek — psikolojik sağlığın temelidir. Murakebe (öz denetim) pratiği, öz farkındalığın İslami karşılığıdır." },
+          { "id": "empati", "title": "Empati — Ötekinin İçine Girmek", "arabic": "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَى", "translation": "İyilik ve takva üzerine yardımlaşın.", "reference": "Maide, 5:2", "description": "Hz. Peygamber'in empatisini Kur'an şöyle tanımlar: 'Size kendinizden bir peygamber geldi; sıkıntıya düşmeniz onu zorlar.' (Tevbe 9:128). Empati bir duygu değil — aktif bir yönelim: başkasının yükünü hissetmek ve ona doğru harekete geçmek." },
+          { "id": "ofke", "title": "Öfke Yönetimi", "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ", "translation": "Öfkelerini yutanlar ve insanları affedenler.", "reference": "Al-i İmran, 3:134", "description": "Kur'an öfkeyiinkâr etmez — 'yutmayı' ödüllendirir. Duygusal baskılama değil, bilinçli düzenleme. Hz. Peygamber: 'Güçlü olan güreşi yenen değil, öfkesinde kendini tutabilen.' Öfke enerjisi varoluşunu korur ama yönlendirme gerektir." },
+          { "id": "sosyal_farkindalik", "title": "Sosyal Farkındalık", "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَى", "translation": "Ey insanlar! Sizi bir erkek ve kadından yarattık.", "reference": "Hucurât, 49:13", "description": "Kur'an çeşitliliği bir tehdit değil, tanışma fırsatı olarak sunar. Sosyal farkındalık: farklı deneyimlerin, arka planların, kırılganlıkların bilincinde olmak. Takvanın (Allah bilinci) sosyal versiyonu budur." },
+          { "id": "iliski_yonetimi", "title": "İlişki Yönetimi — Adalet ve Şefkat", "arabic": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ", "translation": "Allah, adaleti ve ihsanı (güzel muameleyi) emreder.", "reference": "Nahl, 16:90", "description": "İki temel ilişki ilkesi: adalet (hakkaniyetli olmak) ve ihsan (standartın üzerinde iyilik yapmak). İlişki yönetimi sadece çatışmadan kaçınmak değil — aktif olarak iyilik üretmek. İhsan, karşılık beklemeyen bir verme biçimidir." }
+        ]
+      },
+      "c": {
+        "title": "Psikolojik Mekanizmalar",
+        "intro": "Modern psikolojinin laboratuvarda keşfettiği bazı temel mekanizmalar, Kur'an'da somut örnekler ve sistematik çerçeveler aracılığıyla çoktan tanımlanmıştı.",
+        "items": [
+          { "id": "bilissel_carpitma", "title": "Bilişsel Çarpıtmalar", "arabic": "زُيِّنَ لِلنَّاسِ حُبُّ الشَّهَوَاتِ", "translation": "İnsanlara, şehvetlerin sevgisi süslü gösterildi.", "reference": "Al-i İmran, 3:14", "description": "Kur'an 'tezyin' kavramını kullanır: süsleme, çekici hâle getirme. Arzu, gerçekliği bozar — insan arzuladığını doğru görür. Aaron Beck'in bilişsel çarpıtma teorisi: duygular düşünceyi filtreler, nesnel gerçeği değil arzuyu yansıtır." },
+          { "id": "motivasyon", "title": "Motivasyon Hiyerarşisi", "arabic": "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ", "translation": "Allah dilemedikçe siz dileyemezsiniz.", "reference": "İnsan, 76:30", "description": "Kur'an iki motivasyon katmanı tanımlar: insan iradesi ve ilahi irade. Bu paradoks değil — sorumluluğu ortadan kaldırmadan tevekkülü mümkün kılan bir çerçeve. Dışsal motivasyon (ödül-ceza) değil, içselleştirilmiş anlam motivasyonu." },
+          { "id": "aliskanlik", "title": "Alışkanlık Döngüsü", "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ", "translation": "Hayır! Aksine kazandıkları şeyler kalplerini pas tuttu.", "reference": "Mutaffifîn, 83:14", "description": "Kur'an tekrarlayan eylemlerin kalp üzerindeki birikim etkisini tanımlar. Charles Duhigg'in alışkanlık döngüsü (cue-routine-reward) ile örtüşür: her tekrar, sonraki tekrarı kolaylaştırır. Hem pozitif hem negatif alışkanlıklar için geçerli." },
+          { "id": "sosyal_kimlik", "title": "Sosyal Kimlik ve Aidiyet", "arabic": "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ", "translation": "Müminler ancak kardeştirler.", "reference": "Hucurât, 49:10", "description": "Tajfel'ın sosyal kimlik teorisi: insanlar grup üyeliği üzerinden kimlik inşa eder, gruba daha yüksek değer biçer, dışarıya yönelik önyargı geliştirir. Kur'an bu eğilimi dönüştürür: kardeşlik evrenselleşir, 'iç grup' insanlığın tamamına uzanır." }
+        ]
+      }
+    }
   }
 }

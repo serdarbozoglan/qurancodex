@@ -7,7 +7,8 @@ const ReadingMode = lazy(() => import('./ReadingMode'));
 const WordHeatmap = lazy(() => import('./WordHeatmap'));
 const RevelationTimeline = lazy(() => import('./RevelationTimeline'));
 const DuaVerses = lazy(() => import('./DuaVerses'));
-const WowFacts  = lazy(() => import('./WowFacts'));
+const WowFacts      = lazy(() => import('./WowFacts'));
+const ProphetAtlas  = lazy(() => import('../sections/ProphetAtlas'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -23,16 +24,6 @@ const BookIcon = () => (
 );
 
 const navSections = [
-  {
-    id: 'math', keyTr: 'Peygamberler Atlası', keyEn: 'Prophets Atlas',
-    descTr: '23 yıla yayılan anlatıların gizli haritası', descEn: 'The hidden map of narratives across 23 years',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-        <circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/>
-        <path d="M7 12h3M14 12h3M12 7v3M12 14v3"/>
-      </svg>
-    ),
-  },
   {
     id: 'linguistic', keyTr: 'Dilsel DNA', keyEn: 'Linguistic DNA',
     descTr: 'Kur\'an\'ın kelime mimarisi', descEn: 'The linguistic architecture of the Quran',
@@ -90,6 +81,24 @@ const navSections = [
     ),
   },
   {
+    id: 'human-definition', keyTr: "Kur'an'da İnsan", keyEn: 'The Human in the Quran',
+    descTr: "Kur'an insanı nasıl tanımlar?", descEn: 'How does the Quran define the human being?',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'psychology', keyTr: 'İnsan Psikolojisi', keyEn: 'Human Psychology',
+    descTr: "Nefis, kalp ve savunma mekanizmaları — Kur'an'ın psikoloji haritası", descEn: "Nafs, heart and defense mechanisms — the Quran's map of the mind",
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+    ),
+  },
+  {
     id: 'conclusion', keyTr: 'Sonuç', keyEn: 'Conclusion',
     descTr: 'Bir insan eseri olabilir mi?', descEn: 'Could this be the work of a human?',
     icon: (
@@ -118,6 +127,7 @@ export default function Navbar() {
   const [revelationOpen, setRevelationOpen] = useState(false);
   const [duaOpen, setDuaOpen]           = useState(false);
   const [wowOpen, setWowOpen]           = useState(false);
+  const [prophetOpen, setProphetOpen]   = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -169,7 +179,7 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
@@ -191,10 +201,11 @@ export default function Navbar() {
       if (revelationOpen) { setRevelationOpen(false); return; }
       if (duaOpen)        { setDuaOpen(false);        return; }
       if (wowOpen)        { setWowOpen(false);         return; }
+      if (prophetOpen)    { setProphetOpen(false);     return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -275,6 +286,17 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setRevelationOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Peygamberler Atlası', labelEn: 'Prophets Atlas',
+      descTr: '23 yıla yayılan anlatıların gizli haritası', descEn: 'The hidden map of narratives across 23 years',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/>
+          <path d="M7 12h3M14 12h3M12 7v3M12 14v3"/>
+        </svg>
+      ),
+      action: () => { setProphetOpen(true); setToolsOpen(false); },
     },
     {
       labelTr: 'Dua Ayetleri', labelEn: 'Prayer Verses',
@@ -637,6 +659,33 @@ export default function Navbar() {
     {wowOpen && (
       <Suspense fallback={null}>
         <WowFacts onClose={() => setWowOpen(false)} />
+      </Suspense>
+    )}
+    {prophetOpen && (
+      <Suspense fallback={null}>
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 200,
+          background: '#0a0a1a',
+          overflowY: 'auto',
+        }}>
+          <button
+            onClick={() => setProphetOpen(false)}
+            style={{
+              position: 'fixed', top: '16px', right: '20px', zIndex: 201,
+              background: 'rgba(255,255,255,0.08)',
+              border: '1px solid rgba(255,255,255,0.15)',
+              borderRadius: '50%', width: '36px', height: '36px',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer', color: '#e8e6e3',
+            }}
+            aria-label="Close"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+          <ProphetAtlas />
+        </div>
       </Suspense>
     )}
     </>
