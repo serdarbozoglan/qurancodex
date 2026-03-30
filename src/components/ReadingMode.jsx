@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
-import InterlinearView from './InterlinearView';
 
 // Clean Arabic text: remove decorative/annotation markers with no phonetic value.
 // Keep: core letters (U+0621–U+063A, U+0641–U+064A), standard harakat (U+064B–U+0655),
@@ -577,10 +576,6 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const [bookMode, setBookMode] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_book_mode') ?? 'true'); }
     catch { return true; }
-  });
-  const [interlinearMode, setInterlinearMode] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('qurancodex_interlinear_mode') || 'false'); }
-    catch { return false; }
   });
   const [bookPage, setBookPage] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_last_position') || 'null')?.page ?? null; }
@@ -1824,6 +1819,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               {bookMode ? (language === 'tr' ? 'Kitap' : 'Book') : (language === 'tr' ? 'Ayet' : 'Verse')}
             </span>
           </button>
+
+          {/* Interlinear (Kırık Meal) toggle — only visible in verse mode */}
 
           {/* Meal / Translation */}
           <button
