@@ -1258,7 +1258,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
                     </span>
                     {currentPage > 0 && (
-                      <span style={{ fontSize: '0.55rem', color: navC.label, opacity: 0.55, whiteSpace: 'nowrap' }}>
+                      <span style={{ fontSize: '0.62rem', color: navC.label, opacity: 0.72, whiteSpace: 'nowrap' }}>
                         {language === 'tr' ? 'S.' : 'P.'}{' '}
                         <span style={{ fontWeight: 600 }}>{currentPage}</span>
                         {' /604'}
