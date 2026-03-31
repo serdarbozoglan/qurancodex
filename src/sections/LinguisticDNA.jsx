@@ -467,49 +467,55 @@ export default function LinguisticDNA() {
             { ar: 'ص',    num: 38, name: "Sâd",     nameEn: "Sad",      desc: language === 'tr' ? 'tek harf, güçlü hitap' : 'single letter, powerful address' },
             { ar: 'ق',    num: 50, name: "Kâf",     nameEn: "Qaf",      desc: language === 'tr' ? '"Şanlı Kur\'an\'a andolsun" (50:1)' : '"By the glorious Quran" (50:1)' },
             { ar: 'ن',    num: 68, name: "Kalem",   nameEn: "Al-Qalam", desc: language === 'tr' ? 'ن = "hokka" — kalemle birlikte yemin (68:1)' : 'ن = "inkwell" — sworn alongside the pen (68:1)' },
-          ].map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.06, duration: 0.4 }}
-              viewport={{ once: true }}
-              className="relative overflow-hidden rounded-xl flex flex-col items-center justify-between pt-5 pb-4 px-3 text-center"
-              style={{
-                background: 'rgba(148,163,184,0.04)',
-                border: '1px solid rgba(148,163,184,0.15)',
-                minHeight: '130px',
-              }}
-            >
-              {/* Arabic letter — large, centered */}
-              <span
+          ].map((s, i) => {
+            const letterCount = s.ar.length;
+            const fontSize = letterCount === 1 ? '3rem' : letterCount === 2 ? '2.5rem' : letterCount <= 3 ? '2rem' : letterCount === 4 ? '1.7rem' : '1.4rem';
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(212,165,116,0.12)', borderColor: 'rgba(212,165,116,0.35)' }}
+                transition={{ delay: i * 0.06, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="relative overflow-hidden rounded-xl flex flex-col items-center justify-between pt-5 pb-4 px-3 text-center cursor-default"
                 style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                  fontSize: s.ar.length > 3 ? '1.6rem' : '2.4rem',
-                  color: '#94a3b8',
-                  lineHeight: 1.1,
-                  display: 'block',
-                  marginBottom: '0.5rem',
-                  letterSpacing: '0.04em',
+                  background: 'rgba(148,163,184,0.04)',
+                  border: '1px solid rgba(148,163,184,0.15)',
+                  minHeight: '140px',
+                  transition: 'border-color 0.2s, box-shadow 0.2s',
                 }}
               >
-                {s.ar}
-              </span>
-              {/* Sure number badge */}
-              <span
-                className="font-body text-xs px-2 py-0.5 rounded-full mb-1"
-                style={{
-                  background: 'rgba(148,163,184,0.1)',
-                  color: '#94a3b8',
-                  border: '1px solid rgba(148,163,184,0.2)',
-                }}
-              >
-                {s.num}. {language === 'tr' ? s.name : s.nameEn}
-              </span>
-              {/* Desc */}
-              <span className="text-xs font-body leading-tight" style={{ color: '#b8a06e' }}>{s.desc}</span>
-            </motion.div>
-          ))}
+                {/* Arabic letter — size varies by letter count */}
+                <span
+                  style={{
+                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontSize,
+                    color: '#e8e6e3',
+                    lineHeight: 1.1,
+                    display: 'block',
+                    marginBottom: '0.6rem',
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  {s.ar}
+                </span>
+                {/* Sure number badge — more prominent */}
+                <span
+                  className="font-body text-xs px-2.5 py-0.5 rounded-full mb-2"
+                  style={{
+                    background: 'rgba(212,165,116,0.12)',
+                    color: '#d4a574',
+                    border: '1px solid rgba(212,165,116,0.3)',
+                  }}
+                >
+                  {s.num}. {language === 'tr' ? s.name : s.nameEn}
+                </span>
+                {/* Desc — muted white, not gold */}
+                <span className="text-xs font-body leading-tight" style={{ color: 'rgba(232,230,227,0.55)' }}>{s.desc}</span>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
 
