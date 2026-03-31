@@ -275,22 +275,20 @@ export default function ImpossibleRhythm() {
         <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(212,165,116,0.15)', background: 'rgba(255,255,255,0.02)' }}>
 
           {/* Verse display */}
-          <div className="p-6 md:p-8 border-b border-white/5 text-center">
+          <div className="p-6 md:p-8 text-center" style={{ borderBottom: '1px solid transparent', backgroundImage: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.03) 100%)', paddingBottom: '2rem' }}>
             <p className="text-gold/50 text-xs font-body uppercase tracking-[0.25em] mb-4">
               {language === 'tr' ? 'Aşağıdaki ayetleri inceleyin' : 'Examine the verses below'}
             </p>
             <p dir="rtl" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.6rem', lineHeight: 2.2, color: '#e8e6e3' }}>
               وَالضُّحَىٰ ﴿١﴾ وَاللَّيْلِ إِذَا سَجَىٰ ﴿٢﴾ مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ﴿٣﴾
             </p>
-            <div className="flex items-center justify-center gap-3 mt-3">
-              <p className="text-silver/50 text-xs font-body">
-                {language === 'tr' ? 'Duhâ Sûresi, 93:1–3' : 'Ad-Duha, 93:1–3'}
-              </p>
+            {/* Play button centered, then reference below */}
+            <div className="flex justify-center mt-4 mb-2">
               <button
                 onClick={!duhaFailed ? toggleDuha : undefined}
                 disabled={duhaFailed}
                 style={{
-                  width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+                  width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0,
                   background: duhaFailed ? 'rgba(100,116,139,0.08)' : duhaPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
                   border: `1px solid ${duhaFailed ? 'rgba(100,116,139,0.2)' : duhaPlaying ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
                   color: duhaFailed ? '#475569' : '#d4a574',
@@ -303,6 +301,9 @@ export default function ImpossibleRhythm() {
                 {duhaPlaying ? <PauseIcon /> : <PlayIcon />}
               </button>
             </div>
+            <p className="text-silver/50 text-xs font-body">
+              {language === 'tr' ? 'Duhâ Sûresi, 93:1–3' : 'Ad-Duha, 93:1–3'}
+            </p>
           </div>
 
           {/* Steps */}
