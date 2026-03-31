@@ -12,6 +12,7 @@ const ProphetAtlas  = lazy(() => import('../sections/ProphetAtlas'));
 const ConceptGraph     = lazy(() => import('./ConceptGraph'));
 const KissaAtlas       = lazy(() => import('./KissaAtlas'));
 const SurahComparator  = lazy(() => import('./SurahComparator'));
+const EsbabNuzul       = lazy(() => import('./EsbabNuzul'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -161,6 +162,7 @@ export default function Navbar() {
   const [conceptOpen,    setConceptOpen]    = useState(false);
   const [kissaOpen,      setKissaOpen]      = useState(false);
   const [comparatorOpen, setComparatorOpen] = useState(false);
+  const [esbabOpen,      setEsbabOpen]      = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -220,11 +222,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -250,10 +252,11 @@ export default function Navbar() {
       if (conceptOpen)    { setConceptOpen(false);       return; }
       if (kissaOpen)      { setKissaOpen(false);         return; }
       if (comparatorOpen) { setComparatorOpen(false);    return; }
+      if (esbabOpen)      { setEsbabOpen(false);          return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -385,6 +388,18 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setComparatorOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Nüzul Haritası', labelEn: 'Revelation Map',
+      descTr: 'Hangi ayet, hangi olay üzerine indi?', descEn: 'Which verse was revealed on which occasion?',
+      icon: (
+        // Map pin + scroll/book — revelation occasion marker
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/>
+        </svg>
+      ),
+      action: () => { setEsbabOpen(true); setToolsOpen(false); },
     },
     {
       labelTr: 'Dua Ayetleri', labelEn: 'Prayer Verses',
@@ -595,8 +610,8 @@ export default function Navbar() {
                         </span>
                       </button>
                     );
-                    // tools order: [0]Kur'an'ı Tanı [1]Ayet Haritası [2]Kelime Haritası [3]Nüzul Sırası [4]Peygamberler Atlası [5]Kavram Ağı [6]Kıssa Atlası [7]Dua Ayetleri
-                    const vizTools    = [tools[1], tools[2], tools[3], tools[6]];
+                    // tools: [0]Kur'an'ı Tanı [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Dua
+                    const vizTools    = [tools[1], tools[2], tools[3], tools[6], tools[8]];
                     const researchTools = [tools[0], tools[4], tools[5], tools[7]];
                     return (
                       <div style={{ display: 'flex' }}>
@@ -857,6 +872,11 @@ export default function Navbar() {
     {comparatorOpen && (
       <Suspense fallback={null}>
         <SurahComparator onClose={() => setComparatorOpen(false)} />
+      </Suspense>
+    )}
+    {esbabOpen && (
+      <Suspense fallback={null}>
+        <EsbabNuzul onClose={() => setEsbabOpen(false)} />
       </Suspense>
     )}
     </>
