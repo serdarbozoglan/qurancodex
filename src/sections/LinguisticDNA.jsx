@@ -292,7 +292,7 @@ export default function LinguisticDNA() {
       </motion.div>
 
       {/* ── Group Cards ── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 items-start">
         {GROUPS.map((group, i) => {
           const isOpen = openGroup === i;
           return (
@@ -337,7 +337,7 @@ export default function LinguisticDNA() {
                     <span
                       style={{
                         fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                        fontSize: '1.8rem',
+                        fontSize: '2.2rem',
                         color: group.color,
                         lineHeight: 1,
                         display: 'block',
@@ -396,9 +396,39 @@ export default function LinguisticDNA() {
                     className="pt-4 mt-2"
                     style={{ borderTop: `1px solid ${group.borderColor}` }}
                   >
-                    <p className="text-silver text-sm font-body leading-relaxed">
-                      {language === 'tr' ? group.detail : group.detailEn}
-                    </p>
+                    <ul className="space-y-2">
+                      {(language === 'tr' ? group.bullets : group.bulletsEn).map((bullet, bi) => {
+                        if (bullet.startsWith('→ quote:')) {
+                          const text = bullet.slice('→ quote:'.length).trim();
+                          return (
+                            <li
+                              key={bi}
+                              className="font-body text-sm italic leading-relaxed pl-3 py-1"
+                              style={{
+                                borderLeft: `2px solid ${group.borderColor}`,
+                                color: group.color,
+                              }}
+                            >
+                              {text}
+                            </li>
+                          );
+                        }
+                        if (bullet.startsWith('→ not:') || bullet.startsWith('→ note:')) {
+                          const text = bullet.replace(/^→ not(?:e)?:/, '').trim();
+                          return (
+                            <li key={bi} className="font-body text-xs leading-relaxed text-silver/55 pl-3">
+                              ✦ {text}
+                            </li>
+                          );
+                        }
+                        return (
+                          <li key={bi} className="flex gap-2 items-start font-body text-sm text-silver leading-relaxed">
+                            <span style={{ color: group.color, marginTop: '0.2em', flexShrink: 0 }}>·</span>
+                            <span>{bullet}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </motion.div>
                 )}
 
@@ -429,10 +459,10 @@ export default function LinguisticDNA() {
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-14">
           {[
-            { ar: 'المص', num: 7,  name: "A'râf",  nameEn: "Al-A'raf",  desc: language === 'tr' ? 'iki grubun bileşimi' : 'blend of two groups' },
-            { ar: 'المر', num: 13, name: "Ra'd",   nameEn: "Ar-Ra'd",   desc: language === 'tr' ? 'vahyin haklığı'      : 'the truth of revelation' },
+            { ar: 'المص', num: 7,  name: "A'râf",  nameEn: "Al-A'raf",  desc: language === 'tr' ? 'sadece bu surede görülen 4 harfli açılış' : 'unique 4-letter opening found only here' },
+            { ar: 'المر', num: 13, name: "Ra'd",   nameEn: "Ar-Ra'd",   desc: language === 'tr' ? 'sadece bu surede görülen 4 harfli açılış' : 'unique 4-letter opening found only here' },
             { ar: 'كهيعص', num: 19, name: 'Meryem', nameEn: 'Maryam',   desc: language === 'tr' ? 'en uzun huruf (5)'   : 'longest letters (5)' },
-            { ar: 'طه',   num: 20, name: "Tâ-Hâ",  nameEn: "Ta-Ha",    desc: language === 'tr' ? 'teselli ve hatırlatma' : 'consolation & reminder' },
+            { ar: 'طه',   num: 20, name: "Tâ-Hâ",  nameEn: "Ta-Ha",    desc: language === 'tr' ? 'Peygamber\'e sabır — Hz. Musa\'nın kıssası' : 'patience to the Prophet — story of Moses' },
             { ar: 'يس',   num: 36, name: "Yâ-Sîn", nameEn: "Ya-Sin",   desc: language === 'tr' ? 'hikmetli Kur\'an'    : 'the wise Quran' },
             { ar: 'ص',    num: 38, name: "Sâd",     nameEn: "Sad",      desc: language === 'tr' ? 'tek harf, güçlü hitap' : 'single letter, powerful address' },
             { ar: 'ق',    num: 50, name: "Kâf",     nameEn: "Qaf",      desc: language === 'tr' ? '"Şanlı Kur\'an\'a andolsun" (50:1)' : '"By the glorious Quran" (50:1)' },
