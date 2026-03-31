@@ -533,7 +533,7 @@ export default function LinguisticDNA() {
             <>In <span style={{ color: '#d4a574' }}>25</span> of 29 Suras</>
           )}
         </p>
-        <p className="text-silver text-base md:text-lg font-body mb-7 max-w-xl mx-auto">
+        <p className="text-silver text-lg md:text-xl font-body mb-7 max-w-2xl mx-auto">
           {language === 'tr'
             ? <>Kesik harflerin hemen ardından <span className="text-gold font-semibold">Kitab'a, Kur'an'a veya vahye</span> atıf geliyor</>
             : <>The mysterious letters are immediately followed by a reference to <span className="text-gold font-semibold">the Book, the Quran, or revelation</span></>}
@@ -560,7 +560,7 @@ export default function LinguisticDNA() {
             <span>100%</span>
           </div>
         </div>
-        <p className="text-silver/40 text-xs font-body italic">
+        <p className="text-silver/55 text-sm font-body italic">
           {language === 'tr'
             ? '"Bu kadar tutarlı bir örüntü tesadüf olamaz."'
             : '"A pattern this consistent cannot be coincidental."'}
