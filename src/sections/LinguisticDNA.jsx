@@ -50,8 +50,20 @@ const GROUPS = [
     ],
     pattern: 'Altısında da hemen ardından Kitab\'a atıf — "imanın sınanması" teması hepsinde güçlü',
     patternEn: 'All six immediately followed by a reference to the Book — the theme of testing faith runs through all',
-    detail: 'Medenî ve Mekkî-Medenî geçiş döneminin sûreleri. "Sınanmayacaklarını mı sandılar?" — Ankebût 29:2. Bakara\'da müttakilerin özellikleri, Rûm\'da gaybî bir sınav.',
-    detailEn: 'Medinan and transitional suras. "Do people think they will be left alone saying we believe without being tested?" — Ankabut 29:2.',
+    bullets: [
+      'Medenî ve Mekkî-Medenî geçiş döneminin sûreleri',
+      '→ quote: "Sınanmayacaklarını mı sandılar?" — Ankebût 29:2',
+      'Bakara: müttakilerin özellikleri ve İsrâîloğulları kıssaları',
+      'Rûm: Bizans-İran savaşı üzerinden gaybî bir sınav',
+      'Lokmân & Secde: hikmete davet, secde ve yaratılış delilleri',
+    ],
+    bulletsEn: [
+      'Medinan and transitional-period suras',
+      '→ quote: "Do people think they will be left alone saying \'we believe\' without being tested?" — Al-Ankabut 29:2',
+      'Al-Baqarah: traits of the righteous and stories of the Children of Israel',
+      'Ar-Rum: a prophecy and unseen test framed by the Byzantine-Persian war',
+      'Luqman & As-Sajdah: wisdom, prostration, and signs of creation',
+    ],
   },
   {
     arabic: 'الر',
@@ -71,8 +83,20 @@ const GROUPS = [
     ],
     pattern: 'Beşinde de peygamber kıssaları ve Hz. Muhammed\'e (s.a.v.) teselli vurgusu',
     patternEn: 'All five center on prophetic narratives and offer consolation to the Prophet',
-    detail: 'Hepsi Mekkî — baskı ve zulüm döneminin sûreleri. "Göğsünde sıkıntı olmasın", "sabret", "sana en güzel kıssayı anlatıyoruz." Yûsuf sûresi baştan sona tek bir kıssa, diğerleri birden fazla.',
-    detailEn: 'All Meccan — suras of persecution and pressure. "Be not distressed", "be patient", "We tell you the best of stories." Surah Yusuf tells a single story from start to finish.',
+    bullets: [
+      'Hepsi Mekkî — baskı, sürgün ve zulüm döneminin sûreleri',
+      '→ quote: "Göğsünde sıkıntı olmasın" · "Sabret" · "Sana en güzel kıssayı anlatıyoruz"',
+      'Yûsuf: baştan sona tek ve bütünlüklü bir kıssa — Kur\'an\'da eşsiz',
+      'Yûnus & Hûd: birden fazla peygamberin kıssası art arda',
+      'İbrâhîm & Hicr: tevhide davet ve geçmiş kavimlerin ibret haberleri',
+    ],
+    bulletsEn: [
+      'All Meccan — suras of persecution, exile, and pressure',
+      '→ quote: "Be not distressed" · "Be patient" · "We tell you the best of stories"',
+      'Yusuf: a single, continuous narrative from beginning to end — unique in the Quran',
+      'Yunus & Hud: multiple prophetic stories in succession',
+      'Ibrahim & Al-Hijr: the call to monotheism and lessons from past nations',
+    ],
   },
   {
     arabic: 'حم',
@@ -94,8 +118,18 @@ const GROUPS = [
     ],
     pattern: 'Mushaf\'ta 40-46 arası kesintisiz — İslam alimleri bunları bir "aile" olarak görür',
     patternEn: 'Suras 40-46 in sequence — Islamic scholars have always treated these seven as a single family',
-    detail: 'Yedisinde de "tenzîl" (indirilme) kelimesi ve Allah\'ın sıfatları: Azîz, Hakîm, Alîm, Rahmân, Rahîm. Yedisinde de gökler, yer ve yaratılış delillerine dikkat çekilir. Hepsi Mekkî. Not: Şûrâ (42) grupta özel bir konumdadır — "حم" ile başlayıp ikinci bir ayete "عسق" (Ayn-Sîn-Kaf) ile devam eder; Kur\'an\'da başında iki ayrı huruf-i mukattaa satırı bulunan tek suredir.',
-    detailEn: 'All seven begin with "revelation" and name divine attributes: Al-Aziz, Al-Hakim, Al-Alim, Ar-Rahman, Ar-Rahim. All seven reference the heavens, earth, and signs of creation. All Meccan. Note: Sura Shura (42) holds a unique position — it opens with "Ha Mim" then continues in a second verse with "Ayn Sin Qaf"; the only sura in the Quran with two separate lines of opening letters.',
+    bullets: [
+      'Hepsi Mekkî ve hepsinde "tenzîl" (indirilme) vurgusu',
+      'Ortak ilahi sıfatlar: Azîz · Hakîm · Alîm · Rahmân · Rahîm',
+      'Yedisinde de gökler, yer ve yaratılış delillerine dikkat çekilir',
+      '→ not: Şûrâ (42) özel — "حم" ile açılır, ardından "عسق" gelir; Kur\'an\'da iki ayrı huruf-i mukattaa satırı olan tek sure',
+    ],
+    bulletsEn: [
+      'All Meccan, all opening with emphasis on "revelation" (tanzīl)',
+      'Shared divine attributes: Al-Aziz · Al-Hakim · Al-Alim · Ar-Rahman · Ar-Rahim',
+      'All seven reference the heavens, earth, and signs of creation',
+      '→ note: Ash-Shura (42) is unique — opens with "Ha Mim" then "Ayn Sin Qaf"; the only sura with two separate lines of opening letters',
+    ],
   },
   {
     arabic: 'طس',
@@ -113,8 +147,20 @@ const GROUPS = [
     ],
     pattern: 'Mushaf\'ta 26-28 ardışık — tematik olarak en sıkı bağlı grup',
     patternEn: 'Suras 26-28 in direct sequence — the most thematically cohesive group',
-    detail: 'Üçünde de Hz. Mûsâ ve Firavun kıssası merkeze alınır: Şuarâ\'da ilk karşılaşma, Neml\'de hikmet ve güç, Kasas\'ta tam biyografi. Mushaf\'ın en sıkı tematik üçlüsü: iktidara ve zulme karşı hakkın mücadelesi.',
-    detailEn: 'All three center on Moses and Pharaoh: Shu\'ara covers the first confrontation, Naml covers wisdom and power, Qasas gives the full biography — the most thematically cohesive trilogy in the Quran: truth against tyranny.',
+    bullets: [
+      'Üçünde de Hz. Mûsâ ve Firavun kıssası merkez — her biri farklı bir boyutu işler',
+      'Şuarâ (26): ilk karşılaşma ve mucizelerin sergilenmesi',
+      'Neml (27): hikmet, güç ve Süleyman kıssasıyla tematik genişleme',
+      'Kasas (28): Mûsâ\'nın doğumundan çıkışına tam biyografi',
+      'Mushaf\'ın en sıkı tematik üçlüsü: iktidara karşı hakkın mücadelesi',
+    ],
+    bulletsEn: [
+      'All three center on Moses and Pharaoh — each covering a different dimension',
+      'Ash-Shu\'ara (26): the first confrontation and display of miracles',
+      'An-Naml (27): wisdom and power, expanded with the story of Solomon',
+      'Al-Qasas (28): full biography from Moses\' birth to the Exodus',
+      'The most thematically cohesive trilogy in the Quran: truth against tyranny',
+    ],
   },
 ];
 
@@ -226,7 +272,7 @@ export default function LinguisticDNA() {
             </motion.div>
           ))}
         </div>
-        <p className="text-center text-silver/40 text-xs font-body">
+        <p className="text-center text-silver/60 text-sm font-body">
           {language === 'tr'
             ? 'Arap alfabesinin yarısı · Kur\'an harflerinin ~%70\'ini oluşturur · 14 farklı kombinasyon'
             : 'Half the Arabic alphabet · Make up ~70% of all Quranic letters · 14 unique combinations'}
