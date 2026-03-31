@@ -626,7 +626,7 @@ export default function HumanDefinition() {
                   dir="rtl"
                   style={{
                     fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                    fontSize: '1.35rem',
+                    fontSize: '1.5rem',
                     color: openTrait === i ? '#d4a574' : 'rgba(212,165,116,0.65)',
                     transition: 'color 0.25s',
                   }}
