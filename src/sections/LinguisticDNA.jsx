@@ -171,9 +171,9 @@ const DISCOVERIES = [
     desc: '"Kur\'an", "Kitap", "vahiy" veya "tenzîl" — harflerin hemen ardından gelir. Bu tutarlılık tesadüf sınırını çok aşıyor.',
   },
   {
-    num: '40–46',
-    label: 'Havâmîm\'in Sıralanması',
-    desc: 'Havâmîm\'in 7 bölümü mushaf tertibinde kesintisiz yan yana sıralanmış. Rastgele tertip değil.',
+    num: '7/7',
+    label: 'Havâmîm — Kesintisiz Sıra',
+    desc: 'Hâ-Mîm\'in 7 sûresi mushafta 40-46 arasında hiç bölünmeden arka arkaya geliyor. Bir aile gibi, bir blok gibi.',
   },
   {
     num: '1.400+',
@@ -524,12 +524,11 @@ export default function LinguisticDNA() {
         variants={fadeUpItem}
         className="rounded-2xl p-8 md:p-12 mb-8 text-center"
         style={{
-          background: 'linear-gradient(135deg, rgba(212,165,116,0.06), rgba(201,162,39,0.04))',
-          border: '1px solid rgba(212,165,116,0.25)',
-          boxShadow: '0 0 60px rgba(212,165,116,0.06)',
+          background: 'linear-gradient(135deg, rgba(212,165,116,0.07), rgba(201,162,39,0.03))',
+          boxShadow: '0 0 0 1px rgba(212,165,116,0.1), 0 0 60px rgba(212,165,116,0.1), inset 0 1px 0 rgba(212,165,116,0.08)',
         }}
       >
-        <p className="text-gold/50 text-xs uppercase tracking-[0.3em] font-body mb-3">
+        <p className="text-silver/40 text-xs uppercase tracking-[0.3em] font-body mb-3">
           {language === 'tr' ? 'Büyük Örüntü' : 'The Grand Pattern'}
         </p>
         <p className="font-display text-3xl md:text-4xl font-bold text-off-white mb-3">
@@ -547,22 +546,33 @@ export default function LinguisticDNA() {
 
         {/* Animated progress bar */}
         <div className="max-w-sm mx-auto mb-3">
-          <div
-            className="h-2 rounded-full overflow-hidden"
-            style={{ background: 'rgba(255,255,255,0.06)' }}
-          >
-            <motion.div
-              className="h-full rounded-full"
-              style={{ background: 'linear-gradient(90deg, #c9a227, #d4a574)' }}
-              initial={{ width: 0 }}
-              whileInView={{ width: '86%' }}
-              transition={{ duration: 1.4, ease: 'easeOut', delay: 0.2 }}
-              viewport={{ once: true }}
-            />
+          <div className="relative mb-1.5">
+            <div
+              className="h-2.5 rounded-full overflow-hidden"
+              style={{ background: 'rgba(255,255,255,0.06)' }}
+            >
+              <motion.div
+                className="h-full rounded-full"
+                style={{
+                  background: 'linear-gradient(90deg, #c9a227, #d4a574)',
+                  boxShadow: '0 0 12px rgba(212,165,116,0.6)',
+                }}
+                initial={{ width: 0 }}
+                whileInView={{ width: '86%' }}
+                transition={{ duration: 1.4, ease: 'easeOut', delay: 0.2 }}
+                viewport={{ once: true }}
+              />
+            </div>
+            {/* %86 label pinned at 86% */}
+            <div
+              className="absolute -top-6 font-body text-xs font-semibold"
+              style={{ left: '86%', transform: 'translateX(-50%)', color: '#d4a574' }}
+            >
+              %86
+            </div>
           </div>
-          <div className="flex justify-between text-silver/35 text-xs font-body mt-1.5">
+          <div className="flex justify-between text-silver/30 text-xs font-body mt-1">
             <span>0%</span>
-            <span style={{ color: '#d4a574' }}>%86</span>
             <span>100%</span>
           </div>
         </div>
@@ -592,7 +602,7 @@ export default function LinguisticDNA() {
               {d.num}
             </span>
             <p className="text-off-white text-sm font-body font-semibold mb-2">{d.label}</p>
-            <p className="text-silver/55 text-xs font-body leading-relaxed">{d.desc}</p>
+            <p className="text-silver/65 text-sm font-body leading-relaxed">{d.desc}</p>
           </motion.div>
         ))}
       </div>
