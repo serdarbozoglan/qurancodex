@@ -580,53 +580,140 @@ export default function HumanDefinition() {
           <p className="text-silver/40 text-xs font-body">{tr('muminHeaderRef')}</p>
         </div>
 
-        {/* 7 traits */}
-        <p className="text-silver/40 text-xs font-body mb-4">{tr('muminClickHint')}</p>
-        <div className="space-y-2 mb-8">
-          {MUMIN_TRAITS.map((trait, i) => (
+        {/* 7 traits — card grid */}
+        <p className="text-silver/40 text-xs font-body mb-5">{tr('muminClickHint')}</p>
+
+        {/* Cards 1–6: 3-column grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+          {MUMIN_TRAITS.slice(0, 6).map((trait, i) => (
             <motion.div
               key={i}
               variants={fadeUpItem}
-              className="rounded-xl overflow-hidden cursor-pointer"
-              style={{
-                background: openTrait === i ? 'rgba(212,165,116,0.06)' : 'rgba(255,255,255,0.025)',
-                border: openTrait === i
-                  ? '1px solid rgba(212,165,116,0.3)'
-                  : '1px solid rgba(255,255,255,0.06)',
-                transition: 'all 0.2s',
-              }}
               onClick={() => setOpenTrait(openTrait === i ? null : i)}
+              className="rounded-2xl cursor-pointer flex flex-col"
+              style={{
+                background: openTrait === i ? 'rgba(212,165,116,0.07)' : 'rgba(255,255,255,0.03)',
+                border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.08)'}`,
+                transition: 'all 0.25s',
+                boxShadow: openTrait === i ? '0 0 24px rgba(212,165,116,0.08)' : 'none',
+              }}
             >
-              <div className="p-4 flex items-center gap-4">
-                <span
-                  className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold font-body"
+              {/* Card body */}
+              <div className="p-5 flex flex-col flex-1">
+                {/* Number + ref row */}
+                <div className="flex items-center justify-between mb-4">
+                  <span
+                    className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold font-body flex-shrink-0"
+                    style={{
+                      background: openTrait === i ? 'rgba(212,165,116,0.2)' : 'rgba(255,255,255,0.06)',
+                      color: openTrait === i ? '#d4a574' : '#64748b',
+                      border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.4)' : 'rgba(255,255,255,0.1)'}`,
+                    }}
+                  >{trait.num}</span>
+                  <span
+                    className="text-xs font-body"
+                    style={{
+                      color: openTrait === i ? 'rgba(212,165,116,0.8)' : 'rgba(148,163,184,0.4)',
+                      letterSpacing: '0.03em',
+                      transition: 'color 0.25s',
+                    }}
+                  >{lang === 'tr' ? 'Mü\'minun ' : 'Al-Muʾminun '}{trait.ref}</span>
+                </div>
+
+                {/* Arabic text — prominent */}
+                <p
+                  className="text-right leading-loose mb-4 flex-1"
+                  dir="rtl"
                   style={{
-                    background: openTrait === i ? 'rgba(212,165,116,0.2)' : 'rgba(255,255,255,0.05)',
-                    color: openTrait === i ? '#d4a574' : '#94a3b8',
-                    border: openTrait === i ? '1px solid rgba(212,165,116,0.4)' : '1px solid rgba(255,255,255,0.08)',
+                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontSize: '1.15rem',
+                    color: openTrait === i ? '#d4a574' : 'rgba(212,165,116,0.65)',
+                    transition: 'color 0.25s',
                   }}
-                >
-                  {trait.num}
-                </span>
-                <p className="flex-1 text-off-white/85 text-sm font-body font-medium">
-                  {lang === 'tr' ? trait.traitTr : trait.traitEn}
-                </p>
-                <span
-                  className="flex-shrink-0 text-xs font-body"
+                >{trait.arabic}</p>
+
+                {/* Trait name + expand indicator */}
+                <div className="flex items-center justify-between gap-2 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                  <p className="text-off-white/80 text-sm font-body font-medium leading-snug">
+                    {lang === 'tr' ? trait.traitTr : trait.traitEn}
+                  </p>
+                  <span style={{ color: 'rgba(148,163,184,0.3)', fontSize: '0.65rem', flexShrink: 0 }}>
+                    {openTrait === i ? '▲' : '▼'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Expanded note */}
+              <AnimatePresence>
+                {openTrait === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-5 pb-5 pt-3" style={{ borderTop: '1px solid rgba(212,165,116,0.12)' }}>
+                      <p className="text-silver/60 text-sm font-body leading-relaxed italic">
+                        {lang === 'tr' ? trait.noteTr : trait.noteEn}
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Card 7 — full-width culmination card */}
+        {(() => {
+          const trait = MUMIN_TRAITS[6];
+          const i = 6;
+          return (
+            <motion.div
+              variants={fadeUpItem}
+              onClick={() => setOpenTrait(openTrait === i ? null : i)}
+              className="rounded-2xl cursor-pointer mb-8"
+              style={{
+                background: openTrait === i ? 'rgba(212,165,116,0.09)' : 'rgba(212,165,116,0.03)',
+                border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.45)' : 'rgba(212,165,116,0.18)'}`,
+                transition: 'all 0.25s',
+                boxShadow: openTrait === i ? '0 0 32px rgba(212,165,116,0.1)' : 'none',
+              }}
+            >
+              <div className="p-6 flex flex-col md:flex-row md:items-center gap-5">
+                {/* Left: number + trait name */}
+                <div className="flex items-center gap-4 md:w-56 flex-shrink-0">
+                  <span
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold font-body flex-shrink-0"
+                    style={{
+                      background: 'rgba(212,165,116,0.2)',
+                      color: '#d4a574',
+                      border: '1px solid rgba(212,165,116,0.4)',
+                    }}
+                  >{trait.num}</span>
+                  <div>
+                    <p className="text-gold font-body font-semibold text-sm">
+                      {lang === 'tr' ? trait.traitTr : trait.traitEn}
+                    </p>
+                    <p className="text-gold/50 text-xs font-body mt-0.5">
+                      {lang === 'tr' ? 'Mü\'minun ' : 'Al-Muʾminun '}{trait.ref}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right: Arabic text */}
+                <p
+                  className="flex-1 text-right leading-loose"
+                  dir="rtl"
                   style={{
-                    color: openTrait === i ? '#d4a574' : 'rgba(148,163,184,0.55)',
-                    background: openTrait === i ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.04)',
-                    border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.25)' : 'rgba(255,255,255,0.08)'}`,
-                    borderRadius: '6px',
-                    padding: '2px 7px',
-                    letterSpacing: '0.02em',
-                    transition: 'all 0.2s',
-                    whiteSpace: 'nowrap',
+                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontSize: '1.25rem',
+                    color: '#d4a574',
                   }}
-                >
-                  {lang === 'tr' ? 'Mü\'minun ' : 'Al-Muʾminun '}{trait.ref}
-                </span>
-                <span className="text-silver/25 text-xs flex-shrink-0">
+                >{trait.arabic}</p>
+
+                <span style={{ color: 'rgba(148,163,184,0.3)', fontSize: '0.65rem', flexShrink: 0 }}>
                   {openTrait === i ? '▲' : '▼'}
                 </span>
               </div>
@@ -640,15 +727,8 @@ export default function HumanDefinition() {
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-4 pb-4 space-y-3" style={{ borderTop: '1px solid rgba(212,165,116,0.1)' }}>
-                      <p
-                        className="text-lg md:text-xl leading-loose pt-3 text-right"
-                        style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#d4a574' }}
-                        dir="rtl"
-                      >
-                        {trait.arabic}
-                      </p>
-                      <p className="text-silver/65 text-sm font-body leading-relaxed italic">
+                    <div className="px-6 pb-5 pt-3" style={{ borderTop: '1px solid rgba(212,165,116,0.15)' }}>
+                      <p className="text-silver/60 text-sm font-body leading-relaxed italic">
                         {lang === 'tr' ? trait.noteTr : trait.noteEn}
                       </p>
                     </div>
@@ -656,8 +736,8 @@ export default function HumanDefinition() {
                 )}
               </AnimatePresence>
             </motion.div>
-          ))}
-        </div>
+          );
+        })()}
 
         {/* Linguistic wow notes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
