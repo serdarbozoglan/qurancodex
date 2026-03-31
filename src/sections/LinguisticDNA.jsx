@@ -452,10 +452,10 @@ export default function LinguisticDNA() {
         <h3 className="font-display text-xl md:text-2xl font-bold text-off-white mb-1">
           {language === 'tr' ? 'Diğer 8 Sûre — Her Biri Kendine Özgü' : '8 Other Suras — Each Unique'}
         </h3>
-        <p className="text-silver/55 text-sm font-body mb-6">
+        <p className="text-silver/65 text-base font-body mb-6">
           {language === 'tr'
-            ? 'Tek veya çift harfli, doğrudan ve vurucu mesajlarla başlar. Hepsinde ortak: Kitab\'a atıf.'
-            : 'One or two letters each, direct and striking openings. Common to all: a reference to the Scripture.'}
+            ? <>Tek veya çift harfli, doğrudan ve vurucu mesajlarla başlar. Hepsinde ortak: <span className="text-gold font-semibold">Kitab'a atıf.</span></>
+            : <>One or two letters each, direct and striking openings. Common to all: <span className="text-gold font-semibold">a reference to the Scripture.</span></>}
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-14">
           {[
