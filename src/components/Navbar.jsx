@@ -9,8 +9,9 @@ const RevelationTimeline = lazy(() => import('./RevelationTimeline'));
 const DuaVerses = lazy(() => import('./DuaVerses'));
 const WowFacts      = lazy(() => import('./WowFacts'));
 const ProphetAtlas  = lazy(() => import('../sections/ProphetAtlas'));
-const ConceptGraph  = lazy(() => import('./ConceptGraph'));
-const KissaAtlas    = lazy(() => import('./KissaAtlas'));
+const ConceptGraph     = lazy(() => import('./ConceptGraph'));
+const KissaAtlas       = lazy(() => import('./KissaAtlas'));
+const SurahComparator  = lazy(() => import('./SurahComparator'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -142,6 +143,7 @@ export default function Navbar() {
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [toolsOpen, setToolsOpen]       = useState(false);
+  const [exploreOpen, setExploreOpen]   = useState(false);
   const [graphOpen, setGraphOpen]       = useState(
     () => localStorage.getItem('qurancodex_graph_open') === 'true'
   );
@@ -156,8 +158,9 @@ export default function Navbar() {
   const [duaOpen, setDuaOpen]           = useState(false);
   const [wowOpen, setWowOpen]           = useState(false);
   const [prophetOpen, setProphetOpen]   = useState(false);
-  const [conceptOpen, setConceptOpen]   = useState(false);
-  const [kissaOpen,   setKissaOpen]     = useState(false);
+  const [conceptOpen,    setConceptOpen]    = useState(false);
+  const [kissaOpen,      setKissaOpen]      = useState(false);
+  const [comparatorOpen, setComparatorOpen] = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -217,11 +220,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -244,24 +247,26 @@ export default function Navbar() {
       if (duaOpen)        { setDuaOpen(false);        return; }
       if (wowOpen)        { setWowOpen(false);         return; }
       if (prophetOpen)    { setProphetOpen(false);     return; }
-      if (conceptOpen)    { setConceptOpen(false);     return; }
-      if (kissaOpen)      { setKissaOpen(false);       return; }
+      if (conceptOpen)    { setConceptOpen(false);       return; }
+      if (kissaOpen)      { setKissaOpen(false);         return; }
+      if (comparatorOpen) { setComparatorOpen(false);    return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
-    if (!toolsOpen) return;
+    if (!toolsOpen && !exploreOpen) return;
     const h = (e) => {
       if (!e.target.closest('[data-dropdown]')) {
         setToolsOpen(false);
+        setExploreOpen(false);
       }
     };
     document.addEventListener('mousedown', h);
     return () => document.removeEventListener('mousedown', h);
-  }, [toolsOpen]);
+  }, [toolsOpen, exploreOpen]);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -372,6 +377,16 @@ export default function Navbar() {
       action: () => { setKissaOpen(true); setToolsOpen(false); },
     },
     {
+      labelTr: 'Sure DNA', labelEn: 'Surah DNA',
+      descTr: 'İki sureyi karşılaştır — ortak temalar ve kelimeler', descEn: 'Compare two surahs — shared themes and words',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
+        </svg>
+      ),
+      action: () => { setComparatorOpen(true); setToolsOpen(false); },
+    },
+    {
       labelTr: 'Dua Ayetleri', labelEn: 'Prayer Verses',
       descTr: `Kur'an'dan ${duaCount ?? '...'} seçilmiş dua`, descEn: `${duaCount ?? '...'} selected supplications from the Quran`,
       icon: (
@@ -424,22 +439,96 @@ export default function Navbar() {
         {/* Nav links */}
         <div className="hidden lg:flex items-center gap-1">
 
-          {/* Keşfet anchor */}
-          <button
-            onClick={() => scrollTo('linguistic')}
-            style={{
-              display: 'flex', alignItems: 'center',
-              padding: '8px 14px', borderRadius: '8px', border: 'none',
-              background: 'transparent',
-              color: '#d4d8e0',
-              fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
-              cursor: 'pointer', transition: 'all 0.15s', letterSpacing: '0.01em',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}
-          >
-            {language === 'tr' ? 'Keşfet' : 'Discover'}
-          </button>
+          {/* Keşfet dropdown */}
+          <div className="relative" data-dropdown>
+            <button
+              onClick={() => { setExploreOpen(p => !p); setToolsOpen(false); }}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '5px',
+                padding: '8px 14px', borderRadius: '8px', border: 'none',
+                background: exploreOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
+                color: exploreOpen ? '#d4a574' : '#d4d8e0',
+                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
+                cursor: 'pointer', transition: 'all 0.15s', letterSpacing: '0.01em',
+              }}
+              onMouseEnter={e => { if (!exploreOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+              onMouseLeave={e => { if (!exploreOpen) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
+            >
+              {language === 'tr' ? 'Keşfet' : 'Discover'}
+              <span style={{ transition: 'transform 0.2s', transform: exploreOpen ? 'rotate(180deg)' : 'rotate(0deg)', opacity: 0.6 }}>
+                <ChevronDown />
+              </span>
+            </button>
+
+            <AnimatePresence>
+              {exploreOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.15 }}
+                  style={{ ...dropdownStyle, left: 0, minWidth: '520px', padding: 0 }}
+                >
+                  {/* Mega-menu: two columns */}
+                  {(() => {
+                    const colLabel = {
+                      color: 'rgba(148,163,184,0.4)',
+                      fontSize: '0.62rem',
+                      fontFamily: "'Inter', sans-serif",
+                      fontWeight: 700,
+                      letterSpacing: '0.13em',
+                      textTransform: 'uppercase',
+                      padding: '10px 12px 6px',
+                    };
+                    const secBtn = (sec) => (
+                      <button
+                        key={sec.id}
+                        onClick={() => { scrollTo(sec.id); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>{sec.icon}</span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? sec.keyTr : sec.keyEn}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? sec.descTr : sec.descEn}
+                          </span>
+                        </span>
+                      </button>
+                    );
+                    const leftIds  = ['linguistic','rhythm','rhetoric','dua-language','sounds','hidden-architecture'];
+                    const rightIds = ['science','history','human-definition','psychology','conclusion'];
+                    const leftSecs  = navSections.filter(s => leftIds.includes(s.id));
+                    const rightSecs = navSections.filter(s => rightIds.includes(s.id));
+                    return (
+                      <div style={{ display: 'flex' }}>
+                        {/* Left: Dil & Yapı */}
+                        <div style={{ flex: 1, padding: '8px' }}>
+                          <div style={colLabel}>{language === 'tr' ? 'Dil & Yapı' : 'Language & Structure'}</div>
+                          {leftSecs.map(secBtn)}
+                        </div>
+                        {/* Divider */}
+                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                        {/* Right: Tarih & İnsan */}
+                        <div style={{ flex: 1, padding: '8px' }}>
+                          <div style={colLabel}>{language === 'tr' ? 'Tarih & İnsan' : 'History & Human'}</div>
+                          {rightSecs.map(secBtn)}
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Araçlar dropdown */}
           <div className="relative" data-dropdown>
@@ -469,32 +558,63 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.15 }}
-                  style={{ ...dropdownStyle, left: 0, minWidth: '200px' }}
+                  style={{ ...dropdownStyle, left: 0, minWidth: '440px', padding: 0 }}
                 >
-                  {tools.map(tool => (
-                    <button
-                      key={tool.labelTr}
-                      onClick={tool.action}
-                      style={{
-                        display: 'flex', alignItems: 'center', gap: '12px',
-                        width: '100%', textAlign: 'left',
-                        padding: '10px 12px', borderRadius: '10px', border: 'none',
-                        background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                      }}
-                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.ti').style.color = '#d4a574'; e.currentTarget.querySelector('.tl').style.color = '#d4a574'; }}
-                      onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.ti').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.tl').style.color = '#e8e6e3'; }}
-                    >
-                      <span className="ti" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>{tool.icon}</span>
-                      <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                        <span className="tl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                          {language === 'tr' ? tool.labelTr : tool.labelEn}
+                  {/* Mega-menu: two columns */}
+                  {(() => {
+                    const colLabel = {
+                      color: 'rgba(148,163,184,0.4)',
+                      fontSize: '0.62rem',
+                      fontFamily: "'Inter', sans-serif",
+                      fontWeight: 700,
+                      letterSpacing: '0.13em',
+                      textTransform: 'uppercase',
+                      padding: '10px 12px 6px',
+                    };
+                    const toolBtn = (tool) => (
+                      <button
+                        key={tool.labelTr}
+                        onClick={tool.action}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.ti').style.color = '#d4a574'; e.currentTarget.querySelector('.tl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.ti').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.tl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="ti" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>{tool.icon}</span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="tl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? tool.labelTr : tool.labelEn}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? tool.descTr : tool.descEn}
+                          </span>
                         </span>
-                        <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                          {language === 'tr' ? tool.descTr : tool.descEn}
-                        </span>
-                      </span>
-                    </button>
-                  ))}
+                      </button>
+                    );
+                    // tools order: [0]Kur'an'ı Tanı [1]Ayet Haritası [2]Kelime Haritası [3]Nüzul Sırası [4]Peygamberler Atlası [5]Kavram Ağı [6]Kıssa Atlası [7]Dua Ayetleri
+                    const vizTools    = [tools[1], tools[2], tools[3], tools[6]];
+                    const researchTools = [tools[0], tools[4], tools[5], tools[7]];
+                    return (
+                      <div style={{ display: 'flex' }}>
+                        {/* Left: Görselleştirme */}
+                        <div style={{ flex: 1, padding: '8px' }}>
+                          <div style={colLabel}>{language === 'tr' ? 'Görselleştirme' : 'Visualisation'}</div>
+                          {vizTools.map(toolBtn)}
+                        </div>
+                        {/* Divider */}
+                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                        {/* Right: Keşif & Araştırma */}
+                        <div style={{ flex: 1, padding: '8px' }}>
+                          <div style={colLabel}>{language === 'tr' ? 'Keşif & Araştırma' : 'Explore & Research'}</div>
+                          {researchTools.map(toolBtn)}
+                        </div>
+                      </div>
+                    );
+                  })()}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -506,33 +626,34 @@ export default function Navbar() {
         {/* Right: Oku + Language + Mobile */}
         <div className="flex items-center gap-3">
 
-          {/* Oku — primary CTA */}
+          {/* Oku — ghost CTA */}
           <button
             onClick={() => setReadingOpen(true)}
             className="hidden lg:flex items-center transition-all duration-200"
             style={{
-              background: 'linear-gradient(135deg, #d4a574 0%, #c8991e 100%)',
-              border: 'none',
+              background: 'transparent',
+              border: '1px solid rgba(201,162,39,0.55)',
               borderRadius: '6px',
-              color: '#1c0f00',
+              color: '#c9a227',
               fontFamily: "'Inter', sans-serif",
-              fontSize: '0.82rem',
-              fontWeight: 700,
+              fontSize: '0.78rem',
+              fontWeight: 600,
               letterSpacing: '0.07em',
-              height: '36px',
-              padding: '0 20px',
-              boxShadow: '0 2px 16px rgba(212,165,116,0.3)',
+              height: '30px',
+              padding: '0 16px',
+              cursor: 'pointer',
+              transition: 'all 0.15s',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #e2b87a 0%, #d4a420 100%)';
-              e.currentTarget.style.boxShadow = '0 4px 24px rgba(212,165,116,0.5)';
+              e.currentTarget.style.background = 'rgba(201,162,39,0.1)';
+              e.currentTarget.style.borderColor = 'rgba(201,162,39,0.85)';
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #d4a574 0%, #c8991e 100%)';
-              e.currentTarget.style.boxShadow = '0 2px 16px rgba(212,165,116,0.3)';
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.borderColor = 'rgba(201,162,39,0.55)';
             }}
           >
-            {language === 'tr' ? 'Kur\'an Oku' : 'Read Quran'}
+            {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
           </button>
 
           {/* Language toggle */}
@@ -731,6 +852,11 @@ export default function Navbar() {
     {kissaOpen && (
       <Suspense fallback={null}>
         <KissaAtlas onClose={() => setKissaOpen(false)} />
+      </Suspense>
+    )}
+    {comparatorOpen && (
+      <Suspense fallback={null}>
+        <SurahComparator onClose={() => setComparatorOpen(false)} />
       </Suspense>
     )}
     </>
