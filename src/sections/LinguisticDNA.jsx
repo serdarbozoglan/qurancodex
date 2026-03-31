@@ -5,12 +5,12 @@ import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
 
 const GROUP_HIGHLIGHTS = [
-  { term: 'Elif-Lâm-Mîm', color: '#d4a574' },
-  { term: 'Hâ-Mîm',       color: '#c9a227' },
-  { term: 'Yâ-Sîn',       color: '#e8c87a' },
-  { term: 'Alif-Lam-Mim', color: '#d4a574' },
-  { term: 'Ha-Mim',       color: '#c9a227' },
-  { term: 'Ya-Sin',       color: '#e8c87a' },
+  { term: 'Elif-Lâm-Mîm', color: '#2ab5a0' },
+  { term: 'Hâ-Mîm',       color: '#e8b860' },
+  { term: 'Yâ-Sîn',       color: '#e8b860' },
+  { term: 'Alif-Lam-Mim', color: '#2ab5a0' },
+  { term: 'Ha-Mim',       color: '#e8b860' },
+  { term: 'Ya-Sin',       color: '#e8b860' },
 ];
 
 function highlightGroups(text) {
@@ -35,11 +35,13 @@ const GROUPS = [
     arabic: 'الم',
     latin: 'Elif · Lâm · Mîm',
     count: 6,
+    period: 'Karma',
+    periodEn: 'Mixed',
     theme: 'Kitap & İman İmtihanı',
     themeEn: 'Scripture & Trial of Faith',
-    color: '#d4a574',
-    glowColor: 'rgba(212,165,116,0.12)',
-    borderColor: 'rgba(212,165,116,0.35)',
+    color: '#2ab5a0',
+    glowColor: 'rgba(42,181,160,0.12)',
+    borderColor: 'rgba(42,181,160,0.35)',
     suras: [
       { num: 2, name: 'Bakara' },
       { num: 3, name: 'Âl-i İmrân' },
@@ -69,11 +71,13 @@ const GROUPS = [
     arabic: 'الر',
     latin: 'Elif · Lâm · Râ',
     count: 5,
+    period: 'Mekkî',
+    periodEn: 'Meccan',
     theme: 'Peygamber Kıssaları & Teselli',
     themeEn: 'Prophetic Narratives & Consolation',
-    color: '#3498db',
-    glowColor: 'rgba(52,152,219,0.12)',
-    borderColor: 'rgba(52,152,219,0.35)',
+    color: '#e8b860',
+    glowColor: 'rgba(232,184,96,0.12)',
+    borderColor: 'rgba(232,184,96,0.35)',
     suras: [
       { num: 10, name: 'Yûnus' },
       { num: 11, name: 'Hûd' },
@@ -102,11 +106,13 @@ const GROUPS = [
     arabic: 'حم',
     latin: 'Hâ · Mîm (Havâmîm)',
     count: 7,
+    period: 'Mekkî',
+    periodEn: 'Meccan',
     theme: 'İlahi Azamet & Kâinat Delilleri',
     themeEn: 'Divine Majesty & Signs in Creation',
-    color: '#2ecc71',
-    glowColor: 'rgba(46,204,113,0.12)',
-    borderColor: 'rgba(46,204,113,0.35)',
+    color: '#e8b860',
+    glowColor: 'rgba(232,184,96,0.12)',
+    borderColor: 'rgba(232,184,96,0.35)',
     suras: [
       { num: 40, name: 'Mü\'min' },
       { num: 41, name: 'Fussilet' },
@@ -135,11 +141,13 @@ const GROUPS = [
     arabic: 'طس',
     latin: 'Tâ · Sîn (ve Tâ Sîn Mîm)',
     count: 3,
-    theme: 'Mûsâ Kıssası & Güce Karşı Hak',
+    period: 'Mekkî',
+    periodEn: 'Meccan',
+    theme: 'Hz. Mûsâ Kıssası & Güce Karşı Hak',
     themeEn: 'Story of Moses & Truth vs. Power',
-    color: '#e74c3c',
-    glowColor: 'rgba(231,76,60,0.12)',
-    borderColor: 'rgba(231,76,60,0.35)',
+    color: '#e8b860',
+    glowColor: 'rgba(232,184,96,0.12)',
+    borderColor: 'rgba(232,184,96,0.35)',
     suras: [
       { num: 26, name: 'Şuarâ' },
       { num: 27, name: 'Neml' },
@@ -150,8 +158,8 @@ const GROUPS = [
     bullets: [
       'Üçünde de Hz. Mûsâ ve Firavun kıssası merkez — her biri farklı bir boyutu işler',
       'Şuarâ (26): ilk karşılaşma ve mucizelerin sergilenmesi',
-      'Neml (27): hikmet, güç ve Süleyman kıssasıyla tematik genişleme',
-      'Kasas (28): Mûsâ\'nın doğumundan çıkışına tam biyografi',
+      'Neml (27): hikmet, güç ve Hz. Süleyman kıssasıyla tematik genişleme',
+      'Kasas (28): Hz. Mûsâ\'nın doğumundan çıkışına tam biyografi',
       'Mushaf\'ın en sıkı tematik üçlüsü: iktidara karşı hakkın mücadelesi',
     ],
     bulletsEn: [
@@ -284,15 +292,26 @@ export default function LinguisticDNA() {
         <h3 className="font-display text-2xl md:text-3xl font-bold text-off-white mb-2">
           {language === 'tr' ? '4 Harf Grubu, 4 Tematik Evren' : '4 Letter Groups, 4 Thematic Universes'}
         </h3>
-        <p className="text-silver/65 text-base font-body">
+        <p className="text-silver/65 text-base font-body mb-4">
           {language === 'tr'
             ? 'Aynı harfle başlayan sûreler tesadüfen bir arada değil — her grup kendi içinde tutarlı bir tema taşıyor.'
             : 'Suras sharing the same opening letters are not grouped by coincidence — each carries its own consistent theme.'}
         </p>
+        {/* Color legend */}
+        <div className="flex flex-wrap gap-5 text-xs font-body">
+          <span className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: '#2ab5a0' }} />
+            <span className="text-silver/60">{language === 'tr' ? 'Mekkî-Medenî Karma' : 'Meccan-Medinan Mixed'}</span>
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: '#e8b860' }} />
+            <span className="text-silver/60">{language === 'tr' ? 'Mekkî' : 'Meccan'}</span>
+          </span>
+        </div>
       </motion.div>
 
       {/* ── Group Cards ── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {GROUPS.map((group, i) => {
           const isOpen = openGroup === i;
           return (
@@ -330,9 +349,9 @@ export default function LinguisticDNA() {
                 {group.arabic}
               </div>
 
-              <div className="relative z-10 p-5 md:p-6">
+              <div className="relative z-10 p-5 md:p-6 flex flex-col h-full" style={{ minHeight: '220px' }}>
                 {/* Header row */}
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start justify-between mb-3">
                   <div>
                     <span
                       style={{
@@ -348,15 +367,29 @@ export default function LinguisticDNA() {
                     </span>
                     <span className="text-silver/50 text-sm font-body tracking-wider">{group.latin}</span>
                   </div>
-                  <div className="text-right">
+                  <div className="text-right flex flex-col items-end gap-1">
+                    <div>
+                      <span
+                        className="font-body font-extrabold text-2xl leading-none block"
+                        style={{ color: group.color }}
+                      >
+                        {group.count}
+                      </span>
+                      <span className="text-silver/50 text-xs font-body">
+                        {language === 'tr' ? 'sûre' : 'suras'}
+                      </span>
+                    </div>
+                    {/* Period badge */}
                     <span
-                      className="font-body font-extrabold text-2xl leading-none block"
-                      style={{ color: group.color }}
+                      className="text-xs font-body px-2 py-0.5 rounded-full"
+                      style={{
+                        background: `${group.glowColor}`,
+                        color: group.color,
+                        border: `1px solid ${group.borderColor}`,
+                        opacity: 0.85,
+                      }}
                     >
-                      {group.count}
-                    </span>
-                    <span className="text-silver/50 text-xs font-body">
-                      {language === 'tr' ? 'sûre' : 'suras'}
+                      {language === 'tr' ? group.period : group.periodEn}
                     </span>
                   </div>
                 </div>
@@ -365,7 +398,7 @@ export default function LinguisticDNA() {
                 <p className="text-off-white font-body font-semibold text-sm mb-2">
                   {language === 'tr' ? group.theme : group.themeEn}
                 </p>
-                <p className="text-sm font-body leading-relaxed mb-4" style={{ color: '#b8a06e' }}>
+                <p className="text-sm font-body leading-relaxed mb-4" style={{ color: group.color }}>
                   {language === 'tr' ? group.pattern : group.patternEn}
                 </p>
 
@@ -445,7 +478,7 @@ export default function LinguisticDNA() {
                 )}
 
                 {/* Expand hint — proper touch target */}
-                <div className="flex justify-end mt-2">
+                <div className="flex justify-end mt-auto pt-2">
                   <button
                     className="font-body text-xs min-h-[44px] min-w-[44px] flex items-center justify-end px-1"
                     style={{ color: `${group.color}80`, background: 'transparent', border: 'none', cursor: 'pointer' }}
