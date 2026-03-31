@@ -9,6 +9,8 @@ const RevelationTimeline = lazy(() => import('./RevelationTimeline'));
 const DuaVerses = lazy(() => import('./DuaVerses'));
 const WowFacts      = lazy(() => import('./WowFacts'));
 const ProphetAtlas  = lazy(() => import('../sections/ProphetAtlas'));
+const ConceptGraph  = lazy(() => import('./ConceptGraph'));
+const KissaAtlas    = lazy(() => import('./KissaAtlas'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -40,6 +42,32 @@ const navSections = [
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12 Q5 6 8 12 Q11 18 14 12 Q17 6 20 12 Q22 15 24 12"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'rhetoric',
+    keyTr: 'Soru Retoriği',
+    keyEn: 'Question Rhetoric',
+    descTr: "~1.000 soruyla Kur'an'ın ikna stratejisi",
+    descEn: "~1,000 questions — the Quran's rhetoric strategy",
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'dua-language',
+    keyTr: 'Dua Dili',
+    keyEn: 'Language of Prayer',
+    descTr: '40+ Rabbena duasının yapısal haritası',
+    descEn: "Structural map of 40+ Rabbana prayers",
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
     ),
   },
@@ -118,6 +146,7 @@ export default function Navbar() {
     () => localStorage.getItem('qurancodex_graph_open') === 'true'
   );
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
+  const [graphReturnToWow, setGraphReturnToWow]   = useState(false);
   const graphBackRef = useRef(null); // set by VerseGraph when it has internal back state
   const [readingOpen, setReadingOpen]   = useState(
     () => localStorage.getItem('qurancodex_reading_open') === 'true'
@@ -127,6 +156,8 @@ export default function Navbar() {
   const [duaOpen, setDuaOpen]           = useState(false);
   const [wowOpen, setWowOpen]           = useState(false);
   const [prophetOpen, setProphetOpen]   = useState(false);
+  const [conceptOpen, setConceptOpen]   = useState(false);
+  const [kissaOpen,   setKissaOpen]     = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -153,10 +184,11 @@ export default function Navbar() {
     localStorage.setItem('qurancodex_graph_open', String(graphOpen));
   }, [graphOpen]);
 
-  // Listen for openVerseGraph events from other sections (e.g. MathMiracle)
+  // Listen for openVerseGraph events from other sections (e.g. MathMiracle, WowFacts)
   useEffect(() => {
     const handler = (e) => {
       setGraphInitialSearch(e.detail?.search || '');
+      setGraphReturnToWow(e.detail?.returnToWow || false);
       setGraphOpen(true);
     };
     window.addEventListener('openVerseGraph', handler);
@@ -170,6 +202,13 @@ export default function Navbar() {
     return () => window.removeEventListener('openReadingMode', handler);
   }, []);
 
+  // Listen for openDuaVerses events (e.g. QuranDua section CTA)
+  useEffect(() => {
+    const handler = () => setDuaOpen(true);
+    window.addEventListener('openDuaVerses', handler);
+    return () => window.removeEventListener('openDuaVerses', handler);
+  }, []);
+
   // Auto-open VerseGraph if ?verse= param in URL
   useEffect(() => {
     const urlVerse = new URLSearchParams(window.location.search).get('verse');
@@ -178,11 +217,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -193,6 +232,10 @@ export default function Navbar() {
           window.history.pushState({ overlay: true }, ''); // restore history entry for graph
         } else {
           setGraphOpen(false);
+          if (graphReturnToWow) {
+            setGraphReturnToWow(false);
+            setWowOpen(true);
+          }
         }
         return;
       }
@@ -201,10 +244,12 @@ export default function Navbar() {
       if (duaOpen)        { setDuaOpen(false);        return; }
       if (wowOpen)        { setWowOpen(false);         return; }
       if (prophetOpen)    { setProphetOpen(false);     return; }
+      if (conceptOpen)    { setConceptOpen(false);     return; }
+      if (kissaOpen)      { setKissaOpen(false);       return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -294,6 +339,37 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setProphetOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Kavram Ağı', labelEn: 'Concept Network',
+      descTr: 'İslami kavramlar nasıl birbirine bağlanır?', descEn: 'How Islamic concepts connect through verses',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>
+          <circle cx="4"  cy="5"  r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="20" cy="5"  r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="4"  cy="19" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="20" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+          <line x1="12" y1="12" x2="4"  y2="5"/>
+          <line x1="12" y1="12" x2="20" y2="5"/>
+          <line x1="12" y1="12" x2="4"  y2="19"/>
+          <line x1="12" y1="12" x2="20" y2="19"/>
+        </svg>
+      ),
+      action: () => { setConceptOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Kıssa Atlası', labelEn: 'Story Atlas',
+      descTr: '4 peygamber — hangi surede hangi sahne?', descEn: '4 prophets — which scene in which surah?',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="8" y1="13" x2="16" y2="13"/>
+          <line x1="8" y1="17" x2="13" y2="17"/>
+        </svg>
+      ),
+      action: () => { setKissaOpen(true); setToolsOpen(false); },
     },
     {
       labelTr: 'Dua Ayetleri', labelEn: 'Prayer Verses',
@@ -585,6 +661,10 @@ export default function Navbar() {
             graphBackRef.current = null;
             localStorage.removeItem('qurancodex_graph_view');
             localStorage.removeItem('qurancodex_graph_surah');
+            if (graphReturnToWow) {
+              setGraphReturnToWow(false);
+              setWowOpen(true);
+            }
           }}
           initialSearch={graphInitialSearch}
           onRegisterBackHandler={(fn) => { graphBackRef.current = fn; }}
@@ -641,6 +721,16 @@ export default function Navbar() {
           </button>
           <ProphetAtlas />
         </div>
+      </Suspense>
+    )}
+    {conceptOpen && (
+      <Suspense fallback={null}>
+        <ConceptGraph onClose={() => setConceptOpen(false)} />
+      </Suspense>
+    )}
+    {kissaOpen && (
+      <Suspense fallback={null}>
+        <KissaAtlas onClose={() => setKissaOpen(false)} />
       </Suspense>
     )}
     </>

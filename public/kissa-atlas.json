@@ -1,0 +1,598 @@
+{
+  "prophets": [
+    {
+      "id": "musa",
+      "nameTr": "Hz. Musa",
+      "nameEn": "Prophet Moses",
+      "nameAr": "سيدنا موسى",
+      "color": "#60a5fa",
+      "surahCount": 32,
+      "surahs": [2, 5, 7, 10, 11, 14, 17, 18, 20, 23, 25, 26, 27, 28, 29, 37, 40, 43, 44, 51, 54, 61, 66, 73, 79, 87],
+      "scenes": [
+        {
+          "id": "musa_01",
+          "order": 1,
+          "titleTr": "Doğumu ve Nil'e bırakılması",
+          "titleEn": "Birth and placing in the Nile",
+          "verseRef": "20:38–40",
+          "surahs": [20, 28],
+          "descTr": "Firavun'un erkek çocukları öldürmesi üzerine annesi, ilahi ilhamla onu bir sandığa koyup Nil'e bıraktı. Kız kardeşi gizlice takip etti.",
+          "descEn": "Fearing Pharaoh's decree to kill infant boys, his mother placed him in a basket on the Nile by divine inspiration. His sister secretly followed."
+        },
+        {
+          "id": "musa_02",
+          "order": 2,
+          "titleTr": "Firavun sarayında büyümesi",
+          "titleEn": "Raised in Pharaoh's palace",
+          "verseRef": "28:8–13",
+          "surahs": [20, 26, 28],
+          "descTr": "Sandık Firavun'un ailesine ulaştı. Annesi onu süt anne olarak emzirdi; böylece oğlunu geri aldı.",
+          "descEn": "The basket reached Pharaoh's family. His mother was brought as a wet nurse, returning him to her arms."
+        },
+        {
+          "id": "musa_03",
+          "order": 3,
+          "titleTr": "Bir adamı öldürmesi ve Medyen'e kaçışı",
+          "titleEn": "Kills a man and flees to Midian",
+          "verseRef": "28:15–22",
+          "surahs": [28],
+          "descTr": "Gençliğinde bir Mısırlı ile İsrailliyi kavga ederken müdahale etti; Mısırlı öldü. Firavun onu arattığında Medyen'e kaçtı.",
+          "descEn": "While young, he intervened in a fight; an Egyptian died. Fearing Pharaoh's wrath, he fled to Midian."
+        },
+        {
+          "id": "musa_04",
+          "order": 4,
+          "titleTr": "Şuayb'ın kızlarına yardım ve evlilik",
+          "titleEn": "Helps daughters of Shu'ayb and marries",
+          "verseRef": "28:23–28",
+          "surahs": [28],
+          "descTr": "Medyen'de kuyudan su çekemeyen iki kıza yardım etti. Hz. Şuayb onu yanına aldı, sekiz–on yıl çalıştı ve kızıyla evlendi.",
+          "descEn": "At Midian's well he helped two women draw water. Shu'ayb hired him for eight to ten years and gave him his daughter in marriage."
+        },
+        {
+          "id": "musa_05",
+          "order": 5,
+          "titleTr": "Yakıcı Çalı: İlahi Vahyin Başlangıcı",
+          "titleEn": "Burning Bush: The Call to Prophethood",
+          "verseRef": "20:9–16",
+          "surahs": [20, 27, 28, 79],
+          "descTr": "Tur Dağı'nda ışıldayan ateşe yaklaştığında Allah ona seslendi: 'Ben senin Rabbinim, ayakkabılarını çıkar!'",
+          "descEn": "At Mount Sinai he saw a gleaming fire. God called: 'I am your Lord — remove your sandals!'"
+        },
+        {
+          "id": "musa_06",
+          "order": 6,
+          "titleTr": "Asa ve Beyaz El Mucizeleri",
+          "titleEn": "The Staff and the White Hand",
+          "verseRef": "7:107–108",
+          "surahs": [7, 20, 26, 27, 28],
+          "descTr": "Allah ona iki mucize verdi: asası bir yılana dönüşüyor, eli koltuğunun altından çıkarınca bembeyaz parlıyordu.",
+          "descEn": "God granted two signs: his staff became a serpent; his hand drawn from his garment shone dazzlingly white."
+        },
+        {
+          "id": "musa_07",
+          "order": 7,
+          "titleTr": "Harun ile Firavun'a Gönderilmesi",
+          "titleEn": "Sent to Pharaoh with Aaron",
+          "verseRef": "20:42–47",
+          "surahs": [20, 23, 26, 43, 44, 51, 73, 79],
+          "descTr": "Kardeşi Harun ile birlikte Firavun'a gönderildi: 'Ona yumuşak söz söyleyin, belki düşünüp çeker.'",
+          "descEn": "Sent with his brother Aaron to Pharaoh with gentle words: 'Perhaps he will be reminded or fear.'"
+        },
+        {
+          "id": "musa_08",
+          "order": 8,
+          "titleTr": "Firavun'un Büyücüleriyle Karşılaşma",
+          "titleEn": "Contest with Pharaoh's Sorcerers",
+          "verseRef": "7:115–126",
+          "surahs": [7, 10, 20, 26],
+          "descTr": "Firavun büyücülerini topladı. Onların ipleri yılan gibi görününce Musa ürktü. Asasını atınca hepsini yuttu; büyücüler secdeye kapandı: 'Alemlerin Rabbine iman ettik!'",
+          "descEn": "Pharaoh's sorcerers cast ropes that appeared as serpents. Moses' staff swallowed them all; the sorcerers fell prostrate, declaring faith."
+        },
+        {
+          "id": "musa_09",
+          "order": 9,
+          "titleTr": "Mısır'a Gönderilen Dokuz Bela",
+          "titleEn": "Nine Plagues Upon Egypt",
+          "verseRef": "7:130–136",
+          "surahs": [7, 17, 27, 43, 44, 54],
+          "descTr": "Tufan, çekirge, haşere, kurbağalar ve kan; ardışık belalar birer uyarıydı. Firavun her seferinde söz verip caydı.",
+          "descEn": "Flood, locusts, lice, frogs and blood — each plague a warning. Pharaoh promised relief, then reneged each time."
+        },
+        {
+          "id": "musa_10",
+          "order": 10,
+          "titleTr": "Denizin Yarılması ve Firavun'un Boğulması",
+          "titleEn": "Parting of the Sea; Pharaoh Drowns",
+          "verseRef": "26:63–68",
+          "surahs": [2, 7, 10, 17, 20, 26, 28, 29, 37, 44, 51, 54, 79],
+          "descTr": "Asasıyla denize vurdu; on iki yol açıldı. İsrailoğulları geçti. Firavun ve ordusu dalgalara gömüldü.",
+          "descEn": "He struck the sea with his staff; twelve paths opened. The Israelites crossed. Pharaoh and his army were swallowed by the waves."
+        },
+        {
+          "id": "musa_11",
+          "order": 11,
+          "titleTr": "Çölde Kudret Helvası ve Bıldırcın",
+          "titleEn": "Manna and Quails in the Wilderness",
+          "verseRef": "2:57",
+          "surahs": [2, 7],
+          "descTr": "Allah bulutla gölgeledi, kudret helvası ve bıldırcın indirdi. İsrailoğulları buna karşın nankörce şikâyet etti.",
+          "descEn": "God shaded them with clouds and sent down manna and quails. Yet the Israelites complained ungratefully."
+        },
+        {
+          "id": "musa_12",
+          "order": 12,
+          "titleTr": "Tur'da 40 Gece ve Tevrat'ın Verilmesi",
+          "titleEn": "Forty Nights on Sinai; Receiving the Torah",
+          "verseRef": "7:142–145",
+          "surahs": [2, 7, 11, 17],
+          "descTr": "Kırk gece boyunca Tur'da kaldı ve levhalar (Tevrat) verildi. Kavmi gerisinde bekledi.",
+          "descEn": "Forty nights on Sinai; the Tablets of the Torah were given. His people waited behind."
+        },
+        {
+          "id": "musa_13",
+          "order": 13,
+          "titleTr": "Altın Buzağı Fitnesi",
+          "titleEn": "The Golden Calf",
+          "verseRef": "7:148–153",
+          "surahs": [2, 4, 7, 20],
+          "descTr": "Samiri kavmi altından bir buzağı heykeli yaptı. Musa döndüğünde levhaları fırlattı, kardeşi Harun'un saçını tuttu: 'Kavme ne oldu?'",
+          "descEn": "The Samaritan fashioned a golden calf. Moses returned, threw down the Tablets, and seized Aaron: 'What happened to the people?'"
+        },
+        {
+          "id": "musa_14",
+          "order": 14,
+          "titleTr": "Allah'ı Görme Talebi ve Dağın Paramparça Olması",
+          "titleEn": "Request to See God; the Mountain Crumbles",
+          "verseRef": "7:143",
+          "surahs": [7],
+          "descTr": "İsrailoğulları adına 'Allah'ı göster' dedi. Nur tecelli edince dağ paramparça oldu, Musa baygın düştü. Ayılınca şükretti.",
+          "descEn": "He asked God on behalf of the people: 'Show me!' The divine light made the mountain crumble; he fell unconscious, then gave thanks."
+        },
+        {
+          "id": "musa_15",
+          "order": 15,
+          "titleTr": "Hz. Hızır ile Yolculuk",
+          "titleEn": "The Journey with Khidr",
+          "verseRef": "18:60–82",
+          "surahs": [18],
+          "descTr": "İki denizin birleştiği yerde bir kula (Hızır) kavuştu. Üç gizemli eylem gördü — ona sabır gösteremedikten sonra ayrılık geldi.",
+          "descEn": "At the confluence of two seas he met a righteous servant (Khidr). He witnessed three mysterious acts he could not patiently endure; they parted."
+        },
+        {
+          "id": "musa_16",
+          "order": 16,
+          "titleTr": "Karun'un İsyanı ve Yere Batması",
+          "titleEn": "Qarun's Arrogance and Destruction",
+          "verseRef": "28:76–82",
+          "surahs": [28, 29, 40],
+          "descTr": "Karun zenginliğiyle böbürlenerek halka zulüm etti. Musa'nın uyarılarına kulak asmadı; Allah onu hazineleriyle birlikte yere geçirdi.",
+          "descEn": "Qarun boasted of his wealth and oppressed the people. He ignored Moses' warnings; God caused the earth to swallow him along with his treasures."
+        },
+        {
+          "id": "musa_17",
+          "order": 17,
+          "titleTr": "İsrailoğulları'nın Vadedilen Topraklara Girmeyi Reddetmesi",
+          "titleEn": "Israelites Refuse to Enter the Promised Land",
+          "verseRef": "5:20–26",
+          "surahs": [5],
+          "descTr": "'Orada zorba bir kavim var, onlar çıkmadan biz girmeyiz' dediler. Allah kırk yıl çölde dolaşmalarına hükmetti.",
+          "descEn": "'There are tyrants within; we will not enter until they leave.' God decreed forty years of wandering in the desert."
+        },
+        {
+          "id": "musa_18",
+          "order": 18,
+          "titleTr": "Firavun'un Bedeninin Korunması",
+          "titleEn": "Pharaoh's Body Preserved as a Sign",
+          "verseRef": "10:92",
+          "surahs": [10],
+          "descTr": "'Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.' 3.000 yıl sonra Mısır'da mumya olarak keşfedildi.",
+          "descEn": "'Today We will preserve your body as a sign for those who come after you.' Discovered as a mummy in Egypt millennia later."
+        }
+      ]
+    },
+    {
+      "id": "yusuf",
+      "nameTr": "Hz. Yusuf",
+      "nameEn": "Prophet Joseph",
+      "nameAr": "سيدنا يوسف",
+      "color": "#a78bfa",
+      "surahCount": 3,
+      "surahs": [6, 12, 40],
+      "scenes": [
+        {
+          "id": "yusuf_01",
+          "order": 1,
+          "titleTr": "Rüya: On Bir Yıldız, Güneş ve Ay",
+          "titleEn": "The Dream: Eleven Stars, the Sun and Moon",
+          "verseRef": "12:4–6",
+          "surahs": [12],
+          "descTr": "Küçük Yusuf babasına rüyasını anlattı: on bir yıldız, güneş ve ay önünde secde ediyor. Hz. Ya'kub: 'Bunu kardeşlerine anlatma.'",
+          "descEn": "Young Joseph told his father: eleven stars, the sun and moon bowed before him. Jacob: 'Do not tell your brothers.'"
+        },
+        {
+          "id": "yusuf_02",
+          "order": 2,
+          "titleTr": "Kardeşleri Tarafından Kuyuya Atılması",
+          "titleEn": "Thrown into the Well by His Brothers",
+          "verseRef": "12:9–18",
+          "surahs": [12],
+          "descTr": "Kardeşleri kıskançlıktan onu kör bir kuyuya attı, babasına kurda kaptırdıklarını söyledi; gömleğini sahte kanla boyadılar.",
+          "descEn": "His brothers, consumed by envy, threw him into an empty well and brought his shirt stained with false blood to their father."
+        },
+        {
+          "id": "yusuf_03",
+          "order": 3,
+          "titleTr": "Mısır'a Köle Olarak Satılması",
+          "titleEn": "Sold into Slavery in Egypt",
+          "verseRef": "12:19–21",
+          "surahs": [12],
+          "descTr": "Bir kervan kuyudan çıkardı, Mısır'da düşük fiyata sattı. Mısır azizi onu satın aldı: 'Belki bize yararı dokunur ya da onu evlat ediniriz.'",
+          "descEn": "A caravan found him and sold him in Egypt for a low price. The Egyptian official bought him: 'He may benefit us or we may adopt him.'"
+        },
+        {
+          "id": "yusuf_04",
+          "order": 4,
+          "titleTr": "Züleyha'nın İhaneti ve Hapse Atılması",
+          "titleEn": "Potiphar's Wife's Betrayal; Yusuf Jailed",
+          "verseRef": "12:23–35",
+          "surahs": [12],
+          "descTr": "Evin hanımı ona saldırdı; Yusuf kaçtı. Kapıdan gömleği arkadan yırtıldı. Suçlanan Yusuf masum olmasına rağmen hapse atıldı.",
+          "descEn": "The master's wife assaulted him; Joseph fled. His shirt was torn from behind. Falsely accused, he was jailed despite his innocence."
+        },
+        {
+          "id": "yusuf_05",
+          "order": 5,
+          "titleTr": "Şehir Kadınları ve İtirafları",
+          "titleEn": "The Women of the City and Their Confession",
+          "verseRef": "12:30–34",
+          "surahs": [12],
+          "descTr": "Hanımın Yusuf'a çektiğini duyan kadınlar davet edildi; ellerini kestiklerini fark etmeden bıçaklarını sıydılar: 'Bu bir beşer değil, şerefli bir melek!'",
+          "descEn": "Women invited to see Joseph cut their hands without noticing: 'This is no human — this is a noble angel!'"
+        },
+        {
+          "id": "yusuf_06",
+          "order": 6,
+          "titleTr": "Hapishanede Rüya Yorumları",
+          "titleEn": "Dream Interpretations in Prison",
+          "verseRef": "12:36–42",
+          "surahs": [12],
+          "descTr": "İki mahkumun rüyasını yorumladı: biri yeniden göreve dönecek, biri asılacak. Yıllarca unutuldu; Allah'ın planı sabır içinde işliyordu.",
+          "descEn": "He interpreted two inmates' dreams: one would be freed, one executed. He was forgotten for years; God's plan worked through patience."
+        },
+        {
+          "id": "yusuf_07",
+          "order": 7,
+          "titleTr": "Firavun'un Rüyasını Yorumlaması",
+          "titleEn": "Interprets Pharaoh's Dream",
+          "verseRef": "12:43–49",
+          "surahs": [12],
+          "descTr": "Yedi zayıf inek yedi semizderi yutuyor, yedi yeşil başak yedi kuruyu. Yusuf yorumladı: yedi bolluk, yedi kıtlık, sonra kurtuluş yılı.",
+          "descEn": "Seven lean cows eating seven fat ones, seven dry stalks consuming seven green. Joseph interpreted: seven plenty, seven famine, then relief."
+        },
+        {
+          "id": "yusuf_08",
+          "order": 8,
+          "titleTr": "Mısır Hazinelerine Nazır Tayin Edilmesi",
+          "titleEn": "Appointed Treasurer of Egypt",
+          "verseRef": "12:54–57",
+          "surahs": [12],
+          "descTr": "Firavun onu özgür bıraktı ve Mısır'ın hazinelerine yönetici yaptı: 'Sen bugün katımızda itibarlı ve güvenilirsin.'",
+          "descEn": "Pharaoh freed him and made him treasurer: 'Today you are with us, established and trusted.'"
+        },
+        {
+          "id": "yusuf_09",
+          "order": 9,
+          "titleTr": "Kardeşlerinin Mısır'a İlk Gelişi",
+          "titleEn": "Brothers Arrive in Egypt for Grain",
+          "verseRef": "12:58–62",
+          "surahs": [12],
+          "descTr": "Kıtlıkta kardeşleri Mısır'a geldi. Onları tanıdı ama kendini tanıtmadı. Gizlice ödedikleri parayı çantalarına koydu.",
+          "descEn": "In the famine his brothers came to Egypt. He recognized them but hid his identity, secretly returning their payment in their bags."
+        },
+        {
+          "id": "yusuf_10",
+          "order": 10,
+          "titleTr": "Bünyamin Meselesi ve Tuzak",
+          "titleEn": "Benjamin's Affair and the Planted Cup",
+          "verseRef": "12:68–79",
+          "surahs": [12],
+          "descTr": "Küçük kardeş Bünyamin'i yanına aldı. Çantasına kral kadehini koydurdu; 'Hırsız' ilan edildi. Yusuf onu yanında alıkoydu.",
+          "descEn": "He kept youngest brother Benjamin close and planted the king's cup in his bag. Declared a thief, Benjamin was detained."
+        },
+        {
+          "id": "yusuf_11",
+          "order": 11,
+          "titleTr": "Yusuf'un Kendini Kardeşlerine Açıklaması",
+          "titleEn": "Joseph Reveals Himself to His Brothers",
+          "verseRef": "12:89–93",
+          "surahs": [12],
+          "descTr": "'Ben Yusuf'um, bu da kardeşim Bünyamin.' Kardeşler şaşkına döndü. 'Bu gün size hiçbir kınama yok, Allah sizi bağışlasın.'",
+          "descEn": "'I am Joseph, and this is my brother.' The brothers were stunned. 'No blame on you today — may God forgive you.'"
+        },
+        {
+          "id": "yusuf_12",
+          "order": 12,
+          "titleTr": "Ya'kub'un Gözlerinin Açılması ve Kavuşma",
+          "titleEn": "Jacob's Sight Restored; Family Reunion",
+          "verseRef": "12:93–101",
+          "surahs": [12, 6, 40],
+          "descTr": "Gömleği babasının yüzüne koydular; gözleri açıldı. Mısır'a geldiler, Yusuf annesini kucakladı. Küçük Yusuf'un rüyası gerçek oldu.",
+          "descEn": "The shirt cast on Jacob's face restored his sight. They came to Egypt; Joseph embraced his parents. The childhood dream was fulfilled."
+        }
+      ]
+    },
+    {
+      "id": "ibrahim",
+      "nameTr": "Hz. İbrahim",
+      "nameEn": "Prophet Abraham",
+      "nameAr": "سيدنا إبراهيم",
+      "color": "#fb923c",
+      "surahCount": 15,
+      "surahs": [2, 3, 6, 9, 11, 14, 15, 16, 19, 21, 22, 26, 29, 37, 43, 51, 53, 60, 87],
+      "scenes": [
+        {
+          "id": "ibrahim_01",
+          "order": 1,
+          "titleTr": "Yıldız, Ay ve Güneşle Tevhidi Araması",
+          "titleEn": "Seeking the Truth Through Stars, Moon and Sun",
+          "verseRef": "6:75–79",
+          "surahs": [6],
+          "descTr": "Gökyüzüne baktı: yıldız battı, ay battı, güneş battı. 'Batanları sevmem. Ben yüzümü gökleri ve yeri yaratana çevirdim.'",
+          "descEn": "He observed the night sky: star set, moon set, sun set. 'I do not love things that set. I turn my face to the Creator of the heavens and earth.'"
+        },
+        {
+          "id": "ibrahim_02",
+          "order": 2,
+          "titleTr": "Babasını ve Kavmini Putperestlikten Uzaklaştırma Çabası",
+          "titleEn": "Challenging His Father and People Over Idols",
+          "verseRef": "6:74–83",
+          "surahs": [6, 19, 21, 26, 29, 37, 43, 60],
+          "descTr": "Babasına ve kavmine sorular sordu: 'Bu taşlara mı tapıyorsunuz?' Babası onu tehdit etti ama İbrahim yumuşak dille itirazını sürdürdü.",
+          "descEn": "He questioned his father and people: 'Do you worship what you carve?' His father threatened him, yet Abraham persisted gently."
+        },
+        {
+          "id": "ibrahim_03",
+          "order": 3,
+          "titleTr": "Putları Kırması",
+          "titleEn": "Smashing the Idols",
+          "verseRef": "21:51–63",
+          "surahs": [21, 37, 29],
+          "descTr": "Kavmi bayrama gittiğinde tapınak bıraktığı balta en büyük putun elindeydi: 'Buna sorun, konuşabiliyorsa.' Kavmi buna cevap veremedi.",
+          "descEn": "While people were at the festival, he smashed the idols and left an axe with the largest. 'Ask it, if it can speak.' They were silenced."
+        },
+        {
+          "id": "ibrahim_04",
+          "order": 4,
+          "titleTr": "Ateşe Atılması ve Mucizenin Gerçekleşmesi",
+          "titleEn": "Cast into Fire; the Miracle",
+          "verseRef": "21:68–70",
+          "surahs": [21, 29, 37],
+          "descTr": "Kavmi onu büyük bir ateşe attı. Allah emretti: 'Ey ateş, İbrahim'e serin ve selametli ol!' Ateş onu yakmadı.",
+          "descEn": "His people cast him into a great fire. God commanded: 'O fire, be cool and safe for Abraham!' The fire did not burn him."
+        },
+        {
+          "id": "ibrahim_05",
+          "order": 5,
+          "titleTr": "Hicret: Hz. Lut ile Birlikte Göç",
+          "titleEn": "Migration with Lot to the Holy Land",
+          "verseRef": "21:71",
+          "surahs": [21, 29],
+          "descTr": "Müşrik yurdundan Hz. Lut ile birlikte mukaddes kılınan topraklara hicret etti. Allah ona İshak ve Ya'kub'u bağışladı.",
+          "descEn": "He migrated from the land of idolaters with Lot to the blessed land. God gave him Isaac and Jacob as further blessings."
+        },
+        {
+          "id": "ibrahim_06",
+          "order": 6,
+          "titleTr": "Meleklerin Misafir Olarak Gelmesi",
+          "titleEn": "Angels Arrive as Guests",
+          "verseRef": "11:69–73",
+          "surahs": [11, 15, 51],
+          "descTr": "Güzel yüzlü gençler misafir geldi. Kızartılmış bir buzağı sundu ama ellerini uzatmadılar. Korku duydu, iyi haber verdiler.",
+          "descEn": "Youthful strangers arrived as guests. He offered a roasted calf; they did not eat. He was afraid, but they brought good tidings."
+        },
+        {
+          "id": "ibrahim_07",
+          "order": 7,
+          "titleTr": "İshak ve İsmail'in Müjdesi",
+          "titleEn": "Glad Tidings of Isaac and Ishmael",
+          "verseRef": "11:71",
+          "surahs": [11, 15, 19, 21, 37, 51],
+          "descTr": "Melekler yaşlı eşine İshak'ı, onun ardından Ya'kub'u müjdeledi. Eşi: 'Ben kocamış bir karı, bu kocam da yaşlı bir ihtiyar!'",
+          "descEn": "The angels announced Isaac to his elderly wife, and after him Jacob. She laughed: 'I am a barren old woman and my husband an old man!'"
+        },
+        {
+          "id": "ibrahim_08",
+          "order": 8,
+          "titleTr": "Hacer ve İsmail'i Mekke Vadisine Bırakması",
+          "titleEn": "Leaves Hagar and Ishmael in the Valley of Mecca",
+          "verseRef": "14:37",
+          "surahs": [14],
+          "descTr": "Ekin bitmez bir vadiye, Kabe'nin yanına bıraktı: 'Rabbimiz, namazı dosdoğru kılmaları için neslimden bir kısmını senin Beyt-i Haram'ının yanına iskân ettim.'",
+          "descEn": "'Our Lord, I have settled some of my offspring in an uncultivated valley near Your sacred House, so they may establish prayer.'"
+        },
+        {
+          "id": "ibrahim_09",
+          "order": 9,
+          "titleTr": "İsmail'i Kurban Etme Emri",
+          "titleEn": "Command to Sacrifice Ishmael",
+          "verseRef": "37:99–107",
+          "surahs": [37],
+          "descTr": "Rüyasında oğlunu kurban ettiğini gördü. İsmail: 'Babacığım, emredileni yap; beni sabredenlerden bulacaksın.' Allah fidye olarak büyük bir koç gönderdi.",
+          "descEn": "He saw in a dream that he was slaughtering his son. Ishmael: 'Father, do what you are commanded; you will find me patient.' God sent a great ram as ransom."
+        },
+        {
+          "id": "ibrahim_10",
+          "order": 10,
+          "titleTr": "İsmail ile Birlikte Kabe'yi İnşa Etmesi",
+          "titleEn": "Building the Ka'bah with Ishmael",
+          "verseRef": "2:127",
+          "surahs": [2, 14, 22],
+          "descTr": "'Rabbimiz, bizden kabul et; şüphesiz Sen her şeyi işitensin, bilensin.' İkisi omuz omuza Kabe'nin temellerini yükseltti.",
+          "descEn": "Father and son raised the foundations of the Ka'bah together: 'Our Lord, accept this from us; You are the Hearing, the Knowing.'"
+        },
+        {
+          "id": "ibrahim_11",
+          "order": 11,
+          "titleTr": "Dört Kuşun Dirilmesi Mucizesi",
+          "titleEn": "Miracle of Four Birds Brought Back to Life",
+          "verseRef": "2:260",
+          "surahs": [2],
+          "descTr": "'Rabbim, ölüleri nasıl dirilttiğini bana göster.' Dört kuş parçaladı, her dağa bir parça koydu; 'Ey kuşlar, gelin!' dedi ve hepsi koşarak geldi.",
+          "descEn": "'Lord, show me how You give life to the dead.' Four birds were cut and placed on hills; called back, they came running from every mountain."
+        },
+        {
+          "id": "ibrahim_12",
+          "order": 12,
+          "titleTr": "Haccı İnsanlığa İlan Etmesi",
+          "titleEn": "Proclaiming the Hajj to Mankind",
+          "verseRef": "22:27",
+          "surahs": [22],
+          "descTr": "'İnsanlar arasında haccı ilan et; uzak yollardan yaya ya da arık develer üzerinde sana gelsinler.'",
+          "descEn": "'Proclaim Hajj among mankind; they will come to you on foot and on lean camels from every distant mountain path.'"
+        },
+        {
+          "id": "ibrahim_13",
+          "order": 13,
+          "titleTr": "Mekke ve Nesli İçin Duası",
+          "titleEn": "Prayer for Mecca and His Descendants",
+          "verseRef": "14:35–41",
+          "surahs": [2, 14],
+          "descTr": "'Rabbim, bu şehri güvenli kıl, beni ve çocuklarımı putlara tapmaktan uzak tut.' İbrahim peygamberlerin atası ve hâlis bir mümin olarak anılır.",
+          "descEn": "'Lord, make this city secure, and keep me and my children from worshipping idols.' Abraham is remembered as the patriarch of prophets."
+        },
+        {
+          "id": "ibrahim_14",
+          "order": 14,
+          "titleTr": "Namrut ile Tartışma: Yaşatmak ve Öldürmek",
+          "titleEn": "Debate with Nimrod: Giving Life and Causing Death",
+          "verseRef": "2:258",
+          "surahs": [2],
+          "descTr": "Namrut: 'Ben de yaşatır, öldürürüm.' İbrahim: 'Allah güneşi doğudan getirir, sen batıdan getir.' Namrut bühtana uğradı.",
+          "descEn": "Nimrod: 'I too give life and death.' Abraham: 'God brings the sun from the East — bring it from the West.' Nimrod was confounded."
+        }
+      ]
+    },
+    {
+      "id": "isa",
+      "nameTr": "Hz. İsa",
+      "nameEn": "Prophet Jesus",
+      "nameAr": "سيدنا عيسى",
+      "color": "#34d399",
+      "surahCount": 9,
+      "surahs": [2, 3, 4, 5, 19, 23, 43, 57, 61],
+      "scenes": [
+        {
+          "id": "isa_01",
+          "order": 1,
+          "titleTr": "Meryem'e Müjde: Cibril'in Gelişi",
+          "titleEn": "The Annunciation to Mary",
+          "verseRef": "19:17–21",
+          "surahs": [3, 19],
+          "descTr": "Cibril insan kılığında geldi: 'Ben sana temiz bir oğul bağışlamak için Rabbinden gelen bir elçiyim.' Meryem: 'Bana hiçbir insan dokunmamışken?'",
+          "descEn": "Gabriel appeared in human form: 'I am a messenger from your Lord to give you a pure son.' Mary: 'How can I have a son when no man has touched me?'"
+        },
+        {
+          "id": "isa_02",
+          "order": 2,
+          "titleTr": "Babasız Doğum ve Hurma Ağacının Nimeti",
+          "titleEn": "The Virgin Birth and the Date Palm",
+          "verseRef": "19:23–26",
+          "surahs": [3, 19],
+          "descTr": "Meryem ıssız bir yerde doğurdu. Ağlayarak 'Keşke ölseydim' dedi. Bir ses: 'Üzülme! Altındaki hurma dalını silk, taze hurma düşer.'",
+          "descEn": "Mary gave birth alone, lamenting. A voice: 'Do not grieve! Shake the palm trunk; fresh dates will fall for you.'"
+        },
+        {
+          "id": "isa_03",
+          "order": 3,
+          "titleTr": "Beşikte Konuşması",
+          "titleEn": "Speaking from the Cradle",
+          "verseRef": "19:29–33",
+          "surahs": [3, 5, 19],
+          "descTr": "Kavmi bebek İsa'yı suçladı. Meryem beşiğe işaret etti. İsa bebekken konuştu: 'Ben Allah'ın kuluyum. Bana Kitap verdi ve beni peygamber kıldı.'",
+          "descEn": "People accused Mary; she pointed to the cradle. The infant Jesus spoke: 'I am God's servant. He gave me the Book and made me a prophet.'"
+        },
+        {
+          "id": "isa_04",
+          "order": 4,
+          "titleTr": "Çamurdan Kuş Yapıp Hayat Vermesi",
+          "titleEn": "Creates a Bird from Clay",
+          "verseRef": "3:49",
+          "surahs": [3, 5],
+          "descTr": "Balçıktan kuş şeklinde bir heykel yapıp üfledi; Allah'ın izniyle canlı bir kuş oldu uçtu. Bu mucize kendi iradesiyle değil, Allah'ın izniyle gerçekleşti.",
+          "descEn": "He fashioned a bird from clay and breathed into it; by God's permission it became a living bird and flew away."
+        },
+        {
+          "id": "isa_05",
+          "order": 5,
+          "titleTr": "Körleri, Alacalıları İyileştirmesi ve Ölüleri Diriltmesi",
+          "titleEn": "Healing the Blind, Lepers and Raising the Dead",
+          "verseRef": "3:49",
+          "surahs": [3, 5],
+          "descTr": "Allah'ın izniyle doğuştan kör görür oldu, alacalılar iyileşti, ölüler dirilerek kalktı. Her mucize 'bi-iznillah' kaydıyla aktarılır.",
+          "descEn": "By God's permission: the blind-born saw, lepers were cured, the dead rose and walked. Every miracle is prefaced with 'by God's leave.'"
+        },
+        {
+          "id": "isa_06",
+          "order": 6,
+          "titleTr": "Semadan Sofra Mucizesi (Mâide)",
+          "titleEn": "The Heavenly Table (Ma'idah)",
+          "verseRef": "5:112–115",
+          "surahs": [5],
+          "descTr": "Havariler 'Rabbinden bir sofra indir' dedi. İsa dua etti; Allah semadan bir sofra indirdi. Bu sure'ye adını veren mucize budur.",
+          "descEn": "The disciples asked: 'Ask your Lord to send down a table.' Jesus prayed; God sent down a table from heaven — the miracle that names the surah."
+        },
+        {
+          "id": "isa_07",
+          "order": 7,
+          "titleTr": "Havarileri Seçmesi",
+          "titleEn": "Calling His Disciples",
+          "verseRef": "3:52",
+          "surahs": [3, 5, 61],
+          "descTr": "İsrailoğulları'nın inkârını görünce sordu: 'Allah'a giden yolda benim yardımcılarım kimlerdir?' Havariler: 'Biz Allah'ın yardımcılarıyız!'",
+          "descEn": "Sensing the Israelites' disbelief he asked: 'Who will be my helpers toward God?' The disciples answered: 'We are God's helpers!'"
+        },
+        {
+          "id": "isa_08",
+          "order": 8,
+          "titleTr": "Hz. Muhammed'i Müjdelemesi (Ahmed)",
+          "titleEn": "Foretelling Prophet Muhammad (Ahmad)",
+          "verseRef": "61:6",
+          "surahs": [61],
+          "descTr": "'İsrailoğulları, ben size Allah'ın elçisiyim; benden önce gelen Tevrat'ı doğrulayıcı ve benden sonra gelecek Ahmed adında bir peygamberin müjdecisiyim.'",
+          "descEn": "'O Children of Israel, I am God's messenger, confirming the Torah before me and giving glad tidings of a messenger after me named Ahmad.'"
+        },
+        {
+          "id": "isa_09",
+          "order": 9,
+          "titleTr": "Yahudilerin Suikast Planı ve Ref'",
+          "titleEn": "The Jewish Plot and the Raising Up",
+          "verseRef": "4:157–158",
+          "surahs": [3, 4],
+          "descTr": "'Onu öldürmediler, asmadılar; ama onlara öyle göründü.' Allah onu kendi katına yükseltti. Bu mesele teolojik tartışmanın merkezindedir.",
+          "descEn": "'They did not kill him, nor crucify him, but it was made to appear so to them.' God raised him up to Himself. This remains a central theological discussion."
+        },
+        {
+          "id": "isa_10",
+          "order": 10,
+          "titleTr": "Kıyamette Allah'a Şahitlik",
+          "titleEn": "Bearing Witness Before God on Judgment Day",
+          "verseRef": "5:116–118",
+          "surahs": [5, 43],
+          "descTr": "Allah ona sorar: 'İnsanlara beni ve anneni ilah edinin dedin mi?' İsa: 'Ben onlara yalnızca senin emrettiğini söyledim; Şahidim: sen onların içindeydin.'",
+          "descEn": "God asks: 'Did you tell people to take you and your mother as gods?' Jesus: 'I only told them what You commanded. You were the witness over them.'"
+        },
+        {
+          "id": "isa_11",
+          "order": 11,
+          "titleTr": "Hz. İsa'nın Kimliği: İnsan mı, İlah mı?",
+          "titleEn": "Jesus' Identity: Human or Divine?",
+          "verseRef": "4:171",
+          "surahs": [2, 3, 4, 5, 23, 43, 57],
+          "descTr": "'Ey Kitap ehli, dininizde aşırılığa gitmeyin. İsa, Meryem'in oğlu Allah'ın elçisidir — kelimesi ve ruhudur. Üçlü tanrı inanışından vazgeçin.'",
+          "descEn": "'O People of the Book, do not go to extremes. Jesus is God's messenger, His word and a spirit from Him — cease saying Three. God is but One.'"
+        }
+      ]
+    }
+  ]
+}
