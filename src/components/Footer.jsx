@@ -38,6 +38,11 @@ export default function Footer() {
                       {section && (
                         <span className="text-silver/35 text-xs ml-1.5">· {section}</span>
                       )}
+                      {source.note && (
+                        <span className="block text-silver/40 text-xs italic mt-0.5 leading-relaxed">
+                          ⚠ {source.note}
+                        </span>
+                      )}
                     </span>
                   </li>
                 );
@@ -49,7 +54,8 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-silver/40 text-xs">
           <p>© 2026 — {t('footer.copyright')}</p>
           <p className="text-silver/30 text-xs">qurancodex.com</p>
-          <p className="font-arabic text-sm text-gold/30" dir="rtl" lang="ar">
+          <p className="font-arabic text-sm text-gold/30" dir="rtl" lang="ar"
+            style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif" }}>
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
           </p>
         </div>

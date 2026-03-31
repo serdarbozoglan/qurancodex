@@ -257,6 +257,18 @@ export default function RevelationTimeline({ onClose }) {
                 </div>
                 {/* Bottom axis line */}
                 <div style={{ height: '2px', background: 'rgba(255,255,255,0.06)', marginTop: '1px' }} />
+                {/* Chart legend */}
+                <div style={{ display: 'flex', gap: '16px', marginTop: '6px', flexWrap: 'wrap' }}>
+                  <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>
+                    ↕ {language === 'tr' ? 'Bar yüksekliği = ayet sayısı' : 'Bar height = verse count'}
+                  </span>
+                  <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>
+                    ← {language === 'tr' ? 'Sol = ilk nâzil olan' : 'Left = first revealed'}
+                  </span>
+                  <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>
+                    {language === 'tr' ? 'Renk yoğunluğu = nüzul sırası' : 'Color intensity = revelation rank'}
+                  </span>
+                </div>
               </div>
 
               {/* Info panel */}

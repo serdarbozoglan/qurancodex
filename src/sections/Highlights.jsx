@@ -3,13 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 
+// Semantik renk ataması:
+//   sky-blue  → bilimsel / nörobilim (01 Prefrontal, 02 Parmak İzleri)
+//   gold      → anlatı / belagat    (03 Modüler Anlatı, 06 İltifât)
+//   emerald   → dilbilim / istatistik (04 Kelime Haritası, 05 Zaman Esnekliği)
 const cardAccents = [
-  { border: 'border-gold', text: 'text-gold', dot: 'bg-gold', bg: 'bg-gold/5' },
-  { border: 'border-soft-emerald', text: 'text-soft-emerald', dot: 'bg-soft-emerald', bg: 'bg-soft-emerald/5' },
-  { border: 'border-sky-blue', text: 'text-sky-blue', dot: 'bg-sky-blue', bg: 'bg-sky-blue/5' },
-  { border: 'border-gold', text: 'text-gold', dot: 'bg-gold', bg: 'bg-gold/5' },
-  { border: 'border-soft-emerald', text: 'text-soft-emerald', dot: 'bg-soft-emerald', bg: 'bg-soft-emerald/5' },
-  { border: 'border-sky-blue', text: 'text-sky-blue', dot: 'bg-sky-blue', bg: 'bg-sky-blue/5' },
+  { border: 'border-sky-blue',      text: 'text-sky-blue',      dot: 'bg-sky-blue',      bg: 'bg-sky-blue/5',      color: '#3498db' }, // 01
+  { border: 'border-sky-blue',      text: 'text-sky-blue',      dot: 'bg-sky-blue',      bg: 'bg-sky-blue/5',      color: '#3498db' }, // 02
+  { border: 'border-gold',          text: 'text-gold',          dot: 'bg-gold',          bg: 'bg-gold/5',          color: '#d4a574' }, // 03
+  { border: 'border-soft-emerald',  text: 'text-soft-emerald',  dot: 'bg-soft-emerald',  bg: 'bg-soft-emerald/5',  color: '#2ecc71' }, // 04
+  { border: 'border-soft-emerald',  text: 'text-soft-emerald',  dot: 'bg-soft-emerald',  bg: 'bg-soft-emerald/5',  color: '#2ecc71' }, // 05
+  { border: 'border-gold',          text: 'text-gold',          dot: 'bg-gold',          bg: 'bg-gold/5',          color: '#d4a574' }, // 06
 ];
 
 export default function Highlights() {
@@ -90,9 +94,63 @@ export default function Highlights() {
                       transition={{ duration: 0.35, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <p className="text-silver text-sm leading-relaxed font-body px-5 md:px-6 pb-6">
-                        {card.content}
-                      </p>
+                      <div className="px-5 md:px-6 pb-6 flex flex-col gap-3">
+                        <p className="text-silver text-sm leading-relaxed font-body">
+                          {card.content}
+                        </p>
+
+                        {/* Mini istatistik grid (Kelime Haritası) */}
+                        {Array.isArray(card.stats) && (
+                          <div className="grid grid-cols-2 gap-2 mt-1">
+                            {card.stats.map((s, i) => (
+                              <div
+                                key={i}
+                                style={{
+                                  background: accent.color + '12',
+                                  border: `1px solid ${accent.color}30`,
+                                  borderRadius: '8px',
+                                  padding: '8px 12px',
+                                  textAlign: 'center',
+                                }}
+                              >
+                                <div style={{ fontSize: '1.2rem', fontWeight: 700, color: accent.color, fontFamily: "'Inter', sans-serif", lineHeight: 1.2 }}>
+                                  {s.value}
+                                </div>
+                                <div style={{ fontSize: '0.7rem', color: '#94a3b8', marginTop: '3px', fontFamily: "'Inter', sans-serif" }}>
+                                  {s.label}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Stats notu (Kelime Haritası) */}
+                        {card.statsNote && (
+                          <p className="text-silver/55 text-xs italic leading-relaxed font-body">
+                            {card.statsNote}
+                          </p>
+                        )}
+
+                        {/* Akademik kaynak notu (İltifât) */}
+                        {card.note && (
+                          <div
+                            style={{
+                              background: 'rgba(148,163,184,0.06)',
+                              border: '1px solid rgba(148,163,184,0.14)',
+                              borderRadius: '8px',
+                              padding: '10px 12px',
+                              display: 'flex',
+                              gap: '8px',
+                              alignItems: 'flex-start',
+                            }}
+                          >
+                            <span style={{ color: '#94a3b8', fontSize: '0.8rem', flexShrink: 0, marginTop: '1px' }}>ℹ</span>
+                            <p style={{ color: '#94a3b8', fontSize: '0.75rem', lineHeight: 1.6, fontFamily: "'Inter', sans-serif", margin: 0 }}>
+                              {card.note}
+                            </p>
+                          </div>
+                        )}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>

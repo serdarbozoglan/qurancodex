@@ -113,7 +113,6 @@ export default function Navbar() {
   const { language, toggleLanguage } = useLanguage();
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
-  const [exploreOpen, setExploreOpen]   = useState(false);
   const [toolsOpen, setToolsOpen]       = useState(false);
   const [graphOpen, setGraphOpen]       = useState(
     () => localStorage.getItem('qurancodex_graph_open') === 'true'
@@ -209,21 +208,19 @@ export default function Navbar() {
 
   // Close dropdowns on outside click
   useEffect(() => {
-    if (!exploreOpen && !toolsOpen) return;
+    if (!toolsOpen) return;
     const h = (e) => {
       if (!e.target.closest('[data-dropdown]')) {
-        setExploreOpen(false);
         setToolsOpen(false);
       }
     };
     document.addEventListener('mousedown', h);
     return () => document.removeEventListener('mousedown', h);
-  }, [exploreOpen, toolsOpen]);
+  }, [toolsOpen]);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMobileOpen(false);
-    setExploreOpen(false);
   };
 
   const tools = [
@@ -351,64 +348,22 @@ export default function Navbar() {
         {/* Nav links */}
         <div className="hidden lg:flex items-center gap-1">
 
-          {/* Keşfet dropdown */}
-          <div className="relative" data-dropdown>
-            <button
-              onClick={() => { setExploreOpen(p => !p); setToolsOpen(false); }}
-              style={{
-                display: 'flex', alignItems: 'center', gap: '5px',
-                padding: '8px 14px', borderRadius: '8px', border: 'none',
-                background: exploreOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
-                color: exploreOpen ? '#d4a574' : '#d4d8e0',
-                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
-                cursor: 'pointer', transition: 'all 0.15s', letterSpacing: '0.01em',
-              }}
-              onMouseEnter={e => { if (!exploreOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
-              onMouseLeave={e => { if (!exploreOpen) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
-            >
-              {language === 'tr' ? 'Keşfet' : 'Discover'}
-              <span style={{ transition: 'transform 0.2s', transform: exploreOpen ? 'rotate(180deg)' : 'rotate(0deg)', opacity: 0.6 }}>
-                <ChevronDown />
-              </span>
-            </button>
-
-            <AnimatePresence>
-              {exploreOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.15 }}
-                  style={{ ...dropdownStyle, left: 0, minWidth: '210px' }}
-                >
-                  {navSections.map(({ id, keyTr, keyEn, descTr, descEn, icon }) => (
-                    <button
-                      key={id}
-                      onClick={() => scrollTo(id)}
-                      style={{
-                        display: 'flex', alignItems: 'center', gap: '12px',
-                        width: '100%', textAlign: 'left',
-                        padding: '10px 12px', borderRadius: '10px', border: 'none',
-                        background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                      }}
-                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.ni').style.color = '#d4a574'; e.currentTarget.querySelector('.nd').style.color = '#d4a574'; }}
-                      onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.ni').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.nd').style.color = '#e8e6e3'; }}
-                    >
-                      <span className="ni" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>{icon}</span>
-                      <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                        <span className="nd" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                          {language === 'tr' ? keyTr : keyEn}
-                        </span>
-                        <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                          {language === 'tr' ? descTr : descEn}
-                        </span>
-                      </span>
-                    </button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          {/* Keşfet anchor */}
+          <button
+            onClick={() => scrollTo('linguistic')}
+            style={{
+              display: 'flex', alignItems: 'center',
+              padding: '8px 14px', borderRadius: '8px', border: 'none',
+              background: 'transparent',
+              color: '#d4d8e0',
+              fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
+              cursor: 'pointer', transition: 'all 0.15s', letterSpacing: '0.01em',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}
+          >
+            {language === 'tr' ? 'Keşfet' : 'Discover'}
+          </button>
 
           {/* Araçlar dropdown */}
           <div className="relative" data-dropdown>

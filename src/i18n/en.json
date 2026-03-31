@@ -13,6 +13,7 @@
     "subtitle": "Linguistic, Mathematical & Scientific Evidence",
     "description": "Beneath the surface of a 1,400-year-old text lies an order invisible to the naked eye. Every word measured, every sound calculated, every story part of a grand design. Modern science is only now beginning to decode it.",
     "cta": "Begin the Discovery",
+    "ctaRead": "Read Quran",
     "scroll": "Scroll down"
   },
   "mathMiracle": {
@@ -366,6 +367,7 @@
         "Salt crystals found in the body (possible seawater evidence)",
         "In the 7th century, the existence of these mummies was unknown"
       ],
+      "significance": "Why it matters: The Torah says he drowned — silent about the body. Only the Quran said 1,400 years ago 'We will preserve your body as a sign' — and the mummy was actually found. This information could not have been known from any 7th-century source.",
       "verse": {
         "arabic": "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ آيَةً",
         "translation": "Today We will preserve your body so that you may be a sign for those who come after you.",
@@ -382,7 +384,8 @@
         "Ranke's encyclopedia (1935): 'Hm-n-h' found in Egyptian records",
         "Role: overseer of stone workers, construction manager - New Kingdom period",
         "The Quran describes Haman as a construction official - historically verified"
-      ]
+      ],
+      "significance": "Why it matters: This alleged 'error' was used to attack the Quran for 1,200 years. After hieroglyphs were decoded, Egyptian records confirmed a construction official named Haman actually existed. The critique reversed into evidence."
     },
     "rome": {
       "title": "Rome's Impossible Victory",
@@ -395,6 +398,7 @@
         "The Dead Sea area: 430 meters below sea level - the lowest point on Earth",
         "This geographical fact was only discovered in the 19th century"
       ],
+      "significance": "Why it matters: Both the '3-9 years' timeframe and the Dead Sea being the lowest point on Earth were unknowable in the 7th century. Both confirmed independently — one by history, one by geography.",
       "verse": {
         "arabic": "غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
         "translation": "The Romans have been defeated in the nearest land. But after their defeat, they will triumph within a few years.",
@@ -417,12 +421,13 @@
       },
       "variation": {
         "label": "Textual Variation",
-        "description": "Zero differences across all copies worldwide"
+        "description": "Zero differences across all copies worldwide",
+        "note": "Variant readings (qira'at) belong to oral tradition; the written text is fixed."
       }
     },
     "written": {
       "title": "Written Preservation",
-      "description": "Over 40 scribes during the Prophet's lifetime, the first compilation under Abu Bakr, standardization and distribution to 7 cities under Uthman."
+      "description": "Over 40 scribes recorded revelations during the Prophet's lifetime. Under Abu Bakr, the first complete compilation was assembled. Under Uthman, a single standardized text was created and distributed to multiple cities."
     },
     "oral": {
       "title": "Living Preservation",
@@ -437,8 +442,8 @@
   "zeroRedundancy": {
     "badge": "Zero Redundancy",
     "title": "Every Word Carries a Purpose",
-    "intro": "At first glance, the Quran appears to repeat itself. The story of Moses is told in over 30 chapters. But each retelling emphasizes a DIFFERENT aspect. This is not redundancy - it is pedagogical design. Like a textbook: teaching the same subject from different angles.",
-    "mosesTitle": "The Story of Moses - Different Chapters, Different Lessons",
+    "intro": "At first glance, the Quran appears to repeat itself. The story of Moses (AS) is told in over 30 chapters. But each retelling emphasizes a DIFFERENT aspect. This is not redundancy - it is pedagogical design. Like a textbook: teaching the same subject from different angles.",
+    "mosesTitle": "The Story of Moses (AS) — Different Chapters, Different Lessons",
     "mosesExamples": [
       {
         "sura": "Al-Baqara",
@@ -450,7 +455,7 @@
       },
       {
         "sura": "Al-Qasas",
-        "theme": "Prophet Moses' birth, upbringing and flight"
+        "theme": "Moses (AS)'s birth, upbringing and flight"
       },
       {
         "sura": "Ash-Shu'ara",
@@ -484,7 +489,8 @@
         "label": "Shakespeare"
       },
       "bible": {
-        "label": "Bible (New Testament)"
+        "label": "Bible (New Testament)",
+        "note": "This comparison is linguistic, not theological. The repetitions in the Bible arise from compiling texts written by different authors over different periods — which makes the Quran's single-voice consistency all the more remarkable."
       }
     },
     "zemahseriQuote": "Every word of the Quran is a treasure. Remove one, and the entire edifice collapses.",
@@ -496,27 +502,35 @@
     "cards": [
       {
         "title": "The Prefrontal Cortex",
-        "content": "The Quran says the liar will be seized by his 'forelock' - the forehead (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (directly behind the forehead) is the center of lying, moral reasoning, and deception. Brain functions were unknown in the 7th century."
+        "content": "The Quran says the liar will be seized by his 'forelock' — the forehead (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (directly behind the forehead) is the center of lying, moral reasoning, and deception. Brain functions were unknown in the 7th century. The prefrontal cortex's role in moral reasoning was only mapped in the 20th century using fMRI technology. The Quran singled out this one point on the human body — out of all its parts — 1,400 years earlier."
       },
       {
         "title": "Fingerprints",
-        "content": "'We are able to restore even his fingertips' (Al-Qiyama 75:4) — God's answer to resurrection-deniers, demonstrating power to recreate in the finest detail. Some contemporary commentators have noted a connection to fingerprint uniqueness; classical exegesis, however, interprets this verse as being about the power of resurrection."
+        "content": "'We are able to restore even his fingertips' (Al-Qiyama 75:4) — God's answer to resurrection-deniers, demonstrating power to recreate in the finest detail. Some contemporary commentators have noted a connection to fingerprint uniqueness; classical exegesis, however, interprets this verse as being about the power of resurrection. No two of Earth's 8 billion people share the same fingerprint — a fact first scientifically documented by Francis Galton in 1880. The Quran had singled out this one detail, from among all body parts, 1,200 years earlier."
       },
       {
         "title": "Modular Narrative",
-        "content": "Moses' story is distributed across 30+ chapters in 10 distinct 'blocks.' Each block reads independently, yet together they form a unified whole. Modern cinema calls this 'non-linear narrative.' 1,400 years before Pulp Fiction."
+        "content": "Moses (AS)'s story is distributed across 30+ chapters in 10 distinct 'blocks.' Each block reads independently, yet together they form a unified whole. Modern cinema calls this 'non-linear narrative.' 1,400 years before Pulp Fiction. For example: Surah Ta-Ha covers only the moment of revelation and the dialogue with Pharaoh. Surah Al-Qasas gives a full biography from birth to exile. Surah Ash-Shu'ara focuses on the confrontation with the sorcerers. Same story — a different lesson each time."
       },
       {
         "title": "The Word Map",
-        "content": "The root for 'faith' (iman): 811 occurrences. The root for 'disbelief' (kufr): 525 occurrences. Ratio: 1.54 - a positive bias. Mercy: 294. Punishment: 343. The root for 'knowledge': 1.1% of all words. The Quran has a richer word distribution than Shakespeare (hapax legomena: 18-20% vs 15%)."
+        "content": "When the frequency of every root across the Quran's 77,800 words is counted, a systematic pattern emerges:",
+        "stats": [
+          { "label": "Faith root (iman)", "value": "811" },
+          { "label": "Disbelief root (kufr)", "value": "525" },
+          { "label": "Mercy (rahmet)", "value": "294" },
+          { "label": "Punishment (azap)", "value": "343" }
+        ],
+        "statsNote": "Punishment (343) appears to exceed mercy (294) — but most 'punishment' verses recount the historical fates of past peoples, not direct threats; mercy is predominantly direct promise. Ratio: 1.54 — the Quran carries a positive bias. Hapax legomena rate (~18-20% vs ~15%) is approximate."
       },
       {
         "title": "Time Flexibility",
-        "content": "In the Quran, future events are described in past tense (Prophetic Perfect) - as though they have already occurred. And past events are narrated in present tense (Historical Present) - as though happening now. The Sleepers of the Cave: 300 solar years = 309 lunar years. The difference is the exact solar-lunar calendar conversion."
+        "content": "In the Quran, future events are described in past tense (Prophetic Perfect) — as though they have already occurred. And past events are narrated in present tense (Historical Present) — as though happening now. The Sleepers of the Cave: 300 solar years = 309 lunar years. The difference is the exact solar-lunar calendar conversion. Surah Ar-Rum, written in 614 CE as Byzantium had just fallen, said 'the Romans have been defeated' — past tense for a victory that had not yet happened. Not a prediction, but a declaration of certainty. Byzantium won in 628 CE."
       },
       {
         "title": "Iltifat (Shifts in Perspective)",
-        "content": "Sura Al-Fatiha uses 3 different perspectives in just 7 verses: third person (He), second person (You), first person plural (We). In modern literature, this is known as 'polyphonic voice.' Achieving this in 7 verses is unprecedented in literary history."
+        "content": "Sura Al-Fatiha uses 3 different perspectives in just 7 verses: third person (He), second person (You), first person plural (We). In modern literature, this is known as 'polyphonic voice.' Verses 1–3 speak about God — third person ('He'). Then suddenly in verse 5: 'You alone we worship' — a shift to second person. Then: 'Guide us to the straight path' — first person plural. Seven verses, three voices.",
+        "note": "The iltifat technique is documented in classical Arabic rhetoric: Ibn Abi al-Isba' and Al-Zarkashi's al-Burhan give it extensive treatment. 'Unprecedented in literary history' is a strong claim that warrants a systematic comparative study for full academic support."
       }
     ]
   },
@@ -598,36 +612,46 @@
   },
   "footer": {
     "title": "Quran Codex",
-    "methodology": "A synthesis of linguistic, mathematical, and scientific research on the Holy Quran.",
+    "methodology": "The analyses on this site are drawn from academic sources, classical exegetical tradition, and Quranic corpus studies. Claims in each section are grounded in the sources relevant to that section; academic debates and nuances are noted within the relevant sections.",
     "sourcesTitle": "Sources",
     "sources": [
       {
         "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)",
-        "section": "Hidden Symmetry"
+        "section": "Hidden Symmetry · Ring Composition"
       },
       {
         "name": "Corpus Coranicum — Berlin-Brandenburg Academy of Sciences",
         "section": "Textual Analysis"
       },
       {
+        "name": "Quranic Arabic Corpus — University of Leeds",
+        "section": "Word Frequencies · Linguistic Analysis"
+      },
+      {
         "name": "Dr. Keith L. Moore — The Developing Human",
-        "section": "Scientific Signs · Embryology"
+        "section": "Scientific Signs · Embryology",
+        "note": "For the academic debate on Moore's Quranic interpretations, see the relevant section note."
       },
       {
         "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science",
-        "section": "Scientific Signs · Historical Proof"
+        "section": "Scientific Signs",
+        "note": "Some claims are contested in academic mainstream; in-section notes reflect this distinction."
       },
       {
         "name": "Zamakhshari — Al-Kashshaf (12th century)",
         "section": "Zero Redundancy"
       },
       {
+        "name": "Al-Zarkashi — Al-Burhan fi Ulum al-Quran",
+        "section": "Iltifat · Rhetoric"
+      },
+      {
         "name": "University of Birmingham Quran Manuscript (2015)",
         "section": "Living Preservation"
       },
       {
-        "name": "Quranic Arabic Corpus — University of Leeds",
-        "section": "Linguistic Analysis"
+        "name": "Sahih Muslim · Tirmidhi — Sunan",
+        "section": "Hadith references (definition of ihsan, istiqama hadith)"
       }
     ],
     "copyright": "Quran Codex. All rights reserved."

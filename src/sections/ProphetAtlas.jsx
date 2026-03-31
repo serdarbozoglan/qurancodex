@@ -375,7 +375,7 @@ const GIFT_VERSE_REFS = {
   '3:49': { ref: 'Âl-i İmrân 3:49', ar: 'أَنِّي أَخْلُقُ لَكُم مِّنَ الطِّينِ كَهَيْئَةِ الطَّيْرِ فَأَنفُخُ فِيهِ فَيَكُونُ طَيْرًا بِإِذْنِ اللَّهِ ۖ وَأُبْرِئُ الْأَكْمَهَ وَالْأَبْرَصَ وَأُحْيِي الْمَوْتَىٰ بِإِذْنِ اللَّهِ', tr: 'Çamurdan kuş şeklinde bir şey yapar, içine üflerim ve Allah\'ın izniyle kuş olur; körü ve alacalıyı iyileştirir, Allah\'ın izniyle ölüleri diriltirim.', en: 'I will make for you from clay the form of a bird and breathe into it, and it will be a bird by Allah\'s permission. I will cure the blind and the leper and bring the dead to life by Allah\'s permission.' },
   '4:171': { ref: 'Nisâ 4:171', ar: 'إِنَّمَا الْمَسِيحُ عِيسَى ابْنُ مَرْيَمَ رَسُولُ اللَّهِ وَكَلِمَتُهُ أَلْقَاهَا إِلَىٰ مَرْيَمَ وَرُوحٌ مِّنْهُ', tr: 'Mesih İsa b. Meryem; yalnızca Allah\'ın elçisi, Meryem\'e ilkâ ettiği kelimesi ve O\'ndan bir ruhtur.', en: 'The Messiah, Jesus son of Mary, was but a messenger of Allah and His word which He directed to Mary and a soul from Him.' },
   '5:114': { ref: 'Mâide 5:114', ar: 'اللَّهُمَّ رَبَّنَا أَنزِلْ عَلَيْنَا مَائِدَةً مِّنَ السَّمَاءِ تَكُونُ لَنَا عِيدًا لِّأَوَّلِنَا وَآخِرِنَا وَآيَةً مِّنكَ', tr: 'Allah\'ım, Rabbimiz! Bize gökten bir sofra indir; ilkimize ve sonuncumuza bayram, senden bir ayet olsun.', en: 'O Allah, our Lord, send down to us a table from heaven to be for us a festival and a sign from You.' },
-  // ── Hz. Muhammed ﷺ ─────────────────────────────────────────────────
+  // ── Hz. Muhammed (s.a.v.) ─────────────────────────────────────────────────
   '21:107': { ref: 'Enbiyâ 21:107', ar: 'وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ', tr: 'Seni âlemlere yalnızca rahmet olarak gönderdik.', en: 'And We have not sent you except as a mercy to the worlds.' },
   '33:21': { ref: 'Ahzâb 33:21', ar: 'لَّقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ', tr: 'Allah\'ın Resûlü\'nde sizin için güzel bir örnek vardır.', en: 'There has certainly been for you in the Messenger of Allah an excellent model of conduct.' },
   '33:40': { ref: 'Ahzâb 33:40', ar: 'مَّا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِّن رِّجَالِكُمْ وَلَٰكِن رَّسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ', tr: 'Muhammed, erkeklerinizden hiçbirinin babası değildir; fakat o Allah\'ın elçisi ve peygamberlerin sonuncusudur.', en: 'Muhammad is not the father of any one of your men, but he is the Messenger of Allah and the seal of the prophets.' },
@@ -1097,7 +1097,7 @@ const PROPHETS_REF = [
       "Among the righteous servants; by Allah's own testimony (37:132)(6:85)",
     ],
     giftsTooltipsTr:{
-      3: "Saffât 37:130 — 'İl-Yâsîn'e selam olsun' ifadesi klasik tefsirde tartışmalıdır. Büyük çoğunluk bunun Hz. İlyâs'ın başka bir adı veya kavminin adı olduğunu söyler. Bazı müfessirler Hz. İdrîs'i, bazıları Hz. Muhammed (a.s.) soyunu kasteder. Kur'an kesin bir açıklama yapmıyor; bu belirsizlik bilinçli olabilir.",
+      3: "Saffât 37:130 — 'İl-Yâsîn'e selam olsun' ifadesi klasik tefsirde tartışmalıdır. Büyük çoğunluk bunun Hz. İlyâs'ın başka bir adı veya kavminin adı olduğunu söyler. Bazı müfessirler Hz. İdrîs'i, bazıları Hz. Muhammed (s.a.v.) soyunu kasteder. Kur'an kesin bir açıklama yapmıyor; bu belirsizlik bilinçli olabilir.",
     },
     giftsTooltipsEn:{
       3: "As-Saffat 37:130 — The phrase 'Peace upon Il-Yasin' is debated in classical tafsir. Most commentators say it is another name for Elijah or refers to his community. Some cite Idris; others link it to the Prophet's lineage. The Quran does not clarify — this ambiguity may itself be intentional.",
@@ -1320,7 +1320,7 @@ const PROPHETS_REF = [
     duaRef:'5:114',
   },
   {
-    id:'muhammed', nameTr:'Hz. Muhammed ﷺ', nameEn:'Muhammad ﷺ', mentions:4,
+    id:'muhammed', nameTr:'Hz. Muhammed (s.a.v.)', nameEn:'Muhammad (s.a.v.)', mentions:4,
     surahs:[3,17,21,33,47,48,53,61,68],
     giftsTr:[
       "Âlemlere yalnızca rahmet olarak gönderildi (21:107)",
@@ -2253,7 +2253,7 @@ export default function ProphetAtlas() {
             }}>
               {tr(
                 'Kur\'an\'daki peygamber kıssaları rastlantısal değil; her biri Hz. Muhammed\'in (s.a.v.) o anda yaşadığı duruma birebir denk gelecek şekilde nazil olmuştur. Vahiy, 23 yıl boyunca hedeflenmiş bir destek ve eğitim programı gibi işlemiştir.',
-                "The prophet narratives in the Quran are not incidental — each was revealed to mirror precisely what Prophet Muhammad ﷺ was facing at that moment. Over 23 years, revelation functioned as a targeted program of guidance and support.",
+                "The prophet narratives in the Quran are not incidental — each was revealed to mirror precisely what Prophet Muhammad (s.a.v.) was facing at that moment. Over 23 years, revelation functioned as a targeted program of guidance and support.",
               )}
             </p>
           </div>
@@ -2274,7 +2274,7 @@ export default function ProphetAtlas() {
                 prophet: PROPHETS.find(p => p.id === 'nuh'),
                 narrativeTr: '950 yıl alay ve inkâr — hatta öz oğlu gemiyi reddetti. Yine de inşa etti, yine de davet etti. Kavmine de "mecnun" dediler (Kamer 54:9).',
                 narrativeEn: '950 years of mockery and denial — even his own son refused the ark. He built anyway, he called anyway. His people called him "majnun" too (Qamar 54:9).',
-                contextTr: 'Hz. Ebu Talib yıllarca Hz. Muhammed ﷺ\'i korudu — ama iman etmeden vefat etti. En sevilen insanın imansız ölümü, Hz. Nuh\'un oğlunun dalgalarda yok olmasıyla bire bir örtüşüyordu. "Mecnun" iftirası da ortaktı.',
+                contextTr: 'Hz. Ebu Talib yıllarca Hz. Muhammed (s.a.v.)\'i korudu — ama iman etmeden vefat etti. En sevilen insanın imansız ölümü, Hz. Nuh\'un oğlunun dalgalarda yok olmasıyla bire bir örtüşüyordu. "Mecnun" iftirası da ortaktı.',
                 contextEn: "Abu Talib protected the Prophet for years — yet died without accepting Islam. The death of the most beloved person without faith mirrored Noah's son vanishing beneath the waves. The 'madman' slander was shared too.",
                 periodTr: 'Mekke · Orta Dönem · Ebu Talib Yılları',
                 periodEn: 'Mecca · Middle Period · Abu Talib Years',
@@ -2299,9 +2299,9 @@ export default function ProphetAtlas() {
               },
               {
                 prophet: PROPHETS.find(p => p.id === 'isa'),
-                narrativeTr: 'Mucizeler de yetmedi, hüccet de — kavmi yine de böldü. Ama Allah onu ref\' ile yükseltip şereflendirdi; o da gidinceye dek Hz. Muhammed ﷺ\'i müjdeledi (Saf 61:6). Her zahiri son, ilahi bir yeniden başlangıçtı.',
+                narrativeTr: 'Mucizeler de yetmedi, hüccet de — kavmi yine de böldü. Ama Allah onu ref\' ile yükseltip şereflendirdi; o da gidinceye dek Hz. Muhammed (s.a.v.)\'i müjdeledi (Saf 61:6). Her zahiri son, ilahi bir yeniden başlangıçtı.',
                 narrativeEn: "Miracles weren't enough, argument wasn't enough — his people divided anyway. Yet God honored him with the rafa'; and before departing, he foretold Prophet Muhammad (As-Saff 61:6). Every apparent ending was a divine new beginning.",
-                contextTr: '631: Necran\'dan gelen Hristiyan heyeti Medine\'ye ulaştı; Âl-i İmrân\'ın büyük bölümü bu müzakereye cevap olarak indi. Mübahele ayeti (3:61) — hakikatin ilan edildiği o tarihi an. Hz. Muhammed ﷺ\'in zahiri "yalnızlığı" da Hz. İsa\'nın ref\'i gibi geçici bir görüntüydü.',
+                contextTr: '631: Necran\'dan gelen Hristiyan heyeti Medine\'ye ulaştı; Âl-i İmrân\'ın büyük bölümü bu müzakereye cevap olarak indi. Mübahele ayeti (3:61) — hakikatin ilan edildiği o tarihi an. Hz. Muhammed (s.a.v.)\'in zahiri "yalnızlığı" da Hz. İsa\'nın ref\'i gibi geçici bir görüntüydü.',
                 contextEn: "631: The Najran Christian delegation arrived in Medina; most of Âl-i Imrân was revealed in response. The Mubahala verse (3:61) — that historic moment of declaring truth. The Prophet's apparent 'isolation' was, like Jesus' ascension, only a surface appearance.",
                 periodTr: 'Medine · Necran Heyeti 631',
                 periodEn: 'Medina · Najran Delegation 631',
@@ -2371,7 +2371,7 @@ export default function ProphetAtlas() {
                       letterSpacing: '0.04em',
                       marginBottom: '8px', opacity: 0.7,
                     }}>
-                      {tr('Hz. Muhammed ﷺ\'in durumu', 'Prophet Muhammad\'s ﷺ situation')}
+                      {tr('Hz. Muhammed (s.a.v.)\'in durumu', 'Prophet Muhammad\'s (s.a.v.) situation')}
                     </div>
                     <p style={{
                       color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.65, margin: 0,

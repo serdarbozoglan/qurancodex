@@ -38,7 +38,7 @@ function BesmeleWidget({ language }) {
       <div className="text-center mb-8">
         <p
           className="font-display text-gold"
-          style={{ fontFamily: 'Amiri, serif', fontSize: '1.7rem', lineHeight: 1.8, direction: 'rtl' }}
+          style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.7rem', lineHeight: 1.8, direction: 'rtl' }}
         >
           بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
         </p>

@@ -2905,11 +2905,14 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                     <span style={{ color: '#d4a574', fontSize: '0.85rem', fontWeight: 600 }}>{surahNameTr(c.verse.surah)}</span>
                     <span style={{ color: '#94a3b8', fontSize: '0.78rem' }}>{c.id}</span>
                   </div>
-                  <span style={{ color: '#c9a227', fontSize: '0.8rem', fontWeight: 700, flexShrink: 0 }}>{Math.round(c.score * 100)}%</span>
+                  <span
+                    title="Kosinüs benzerlik skoru (0–1 arası, 1 = tam eşleşme)"
+                    style={{ color: '#c9a227', fontSize: '0.8rem', fontWeight: 700, flexShrink: 0, cursor: 'help' }}
+                  >{(c.score).toFixed(2)}</span>
                 </div>
-                {/* Progress bar */}
+                {/* Progress bar — normalized to displayed range [0.45, 1.0] */}
                 <div style={{ width: '100%', height: '2px', background: 'rgba(255,255,255,0.06)', borderRadius: '1px', marginBottom: '5px' }}>
-                  <div style={{ width: `${Math.round((c.score - 0.45) / 0.55 * 100)}%`, height: '100%', background: 'linear-gradient(to right, rgba(212,165,116,0.4), #d4a574)', borderRadius: '1px' }} />
+                  <div style={{ width: `${Math.max(0, Math.min(100, Math.round((c.score - 0.45) / 0.55 * 100)))}%`, height: '100%', background: 'linear-gradient(to right, rgba(212,165,116,0.4), #d4a574)', borderRadius: '1px' }} />
                 </div>
 
                 {/* Collapsed: truncated text */}

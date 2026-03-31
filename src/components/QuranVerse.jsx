@@ -32,6 +32,7 @@ export default function QuranVerse({
   ayah = null,
   verses = null,
   audioSrc = null,
+  compact = false,
 }) {
   const isSingle = surah !== null && ayah !== null;
   const isMulti  = Array.isArray(verses) && verses.length > 0;
@@ -198,9 +199,9 @@ export default function QuranVerse({
       )}
 
       <p
-        className="font-arabic text-2xl md:text-3xl leading-relaxed text-gold mb-6"
+        className={`font-arabic leading-relaxed text-gold mb-6 ${compact ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'}`}
         dir="rtl" lang="ar"
-        style={{ textAlign: 'right', lineHeight: 2.2 }}
+        style={{ textAlign: 'right', lineHeight: 2.2, fontFamily: "'KFGQPC', 'Amiri Quran', serif" }}
       >
         {arabic}
       </p>

@@ -66,8 +66,8 @@ const FASILA_SURAS = [
     labelEn: 'Ad-Duha (93)',
     sound: '-â',
     color: '#d4a574',
-    glow: 'rgba(212,165,116,0.15)',
-    border: 'rgba(212,165,116,0.3)',
+    glow: 'rgba(212,165,116,0.22)',
+    border: 'rgba(212,165,116,0.4)',
     examples: ['وَالضُّحَىٰ', 'سَجَىٰ', 'قَلَىٰ'],
   },
 ];
@@ -555,11 +555,11 @@ export default function ImpossibleRhythm() {
                 border: `1px solid ${sura.border}`,
               }}
             >
-              <p className="font-body font-semibold text-off-white text-sm mb-1">
+              <p className="font-body font-semibold text-off-white text-base mb-1">
                 {language === 'tr' ? sura.labelTr : sura.labelEn}
               </p>
-              <p className="text-xs font-body mb-3" style={{ color: sura.color }}>
-                {t('impossibleRhythm.fasila.soundLabel')}: <strong>{sura.sound}</strong>
+              <p className="text-sm font-body mb-3" style={{ color: sura.color }}>
+                {t('impossibleRhythm.fasila.soundLabel')}: <strong style={{ fontSize: '1rem' }}>{sura.sound}</strong>
               </p>
               <div className="flex flex-col gap-0" dir="rtl">
                 {sura.examples.map((ex, j) => (
@@ -600,22 +600,15 @@ export default function ImpossibleRhythm() {
           }}
         >
           {KAWTHAR_VERSES.map((verse, i) => (
-            <div key={i} className="flex items-center justify-between gap-4" dir="rtl">
-              <div className="flex items-center gap-4 flex-1">
+            <div key={i} className="flex items-center gap-4 py-1">
+              {/* Left: badge + verse number */}
+              <div className="flex items-center gap-2 flex-shrink-0" dir="ltr">
                 <span
-                  className="text-3xl md:text-4xl leading-loose"
-                  style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#e8e6e3' }}
-                >
-                  {verse.ar}
-                </span>
-              </div>
-              <div className="flex items-center gap-3 flex-shrink-0" dir="ltr">
-                <span
-                  className="text-xs font-body font-bold px-2 py-0.5 rounded-full"
+                  className="text-xs font-body font-bold px-2.5 py-0.5 rounded-full"
                   style={{
-                    background: 'rgba(212,165,116,0.15)',
-                    color: '#d4a574',
-                    border: '1px solid rgba(212,165,116,0.35)',
+                    background: 'rgba(212,165,116,0.28)',
+                    color: '#e8c87a',
+                    border: '1px solid rgba(212,165,116,0.6)',
                   }}
                 >
                   -ar
@@ -624,6 +617,15 @@ export default function ImpossibleRhythm() {
                   style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '2.2rem', color: 'rgba(212,165,116,0.75)' }}
                 >
                   {verse.num}
+                </span>
+              </div>
+              {/* Right: Arabic verse — always right-aligned */}
+              <div className="flex-1 text-right" dir="rtl">
+                <span
+                  className="text-3xl md:text-4xl leading-loose"
+                  style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#e8e6e3' }}
+                >
+                  {verse.ar}
                 </span>
               </div>
             </div>
@@ -660,43 +662,48 @@ export default function ImpossibleRhythm() {
             : 'Each square is one verse. Click to hear it and see the ending word.'}
         </p>
 
-        {/* Grid */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '16px' }}>
-          {NAJM_FASILA.map((type, i) => {
-            const isSelected = selectedNajm === i;
-            const isFailed = failedNajm.has(i);
-            const bg = type === 'aa' ? '#d4a574' : type === 'mq' ? '#7c3f58' : '#1e293b';
-            const border = isSelected
-              ? '2px solid #fff'
-              : type === 'aa'
-              ? '1px solid rgba(212,165,116,0.4)'
-              : type === 'mq'
-              ? '1px solid rgba(180,80,120,0.4)'
-              : '1px solid rgba(255,255,255,0.06)';
-            const color = type === 'aa' ? 'rgba(10,10,26,0.75)' : type === 'mq' ? 'rgba(255,220,230,0.7)' : '#475569';
-            return (
-              <div
-                key={i}
-                onClick={() => handleNajmClick(i)}
-                title={`${i + 1}. ayet`}
-                style={{
-                  width: '30px', height: '30px', borderRadius: '4px',
-                  background: bg, border,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '0.5rem', color, fontFamily: 'Inter, sans-serif', fontWeight: 600,
-                  cursor: 'pointer',
-                  transform: isSelected ? 'scale(1.2)' : 'scale(1)',
-                  transition: 'transform 0.12s, border 0.12s, opacity 0.2s',
-                  boxShadow: isSelected ? '0 0 8px rgba(255,255,255,0.3)' : 'none',
-                  opacity: isFailed ? 0.35 : 1,
-                }}
-                onMouseEnter={e => { if (!isSelected) e.currentTarget.style.transform = 'scale(1.12)'; }}
-                onMouseLeave={e => { if (!isSelected) e.currentTarget.style.transform = 'scale(1)'; }}
-              >
-                {i + 1}
-              </div>
-            );
-          })}
+        {/* Grid — two equal rows of 31 + 31, centered */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: '16px', alignItems: 'center' }}>
+          {[NAJM_FASILA.slice(0, 31), NAJM_FASILA.slice(31)].map((row, rowIdx) => (
+            <div key={rowIdx} style={{ display: 'flex', gap: '5px' }}>
+              {row.map((type, j) => {
+                const i = rowIdx * 31 + j;
+                const isSelected = selectedNajm === i;
+                const isFailed = failedNajm.has(i);
+                const bg = type === 'aa' ? '#d4a574' : type === 'mq' ? '#7c3f58' : 'rgba(148,163,184,0.12)';
+                const border = isSelected
+                  ? '2px solid #fff'
+                  : type === 'aa'
+                  ? '1px solid rgba(212,165,116,0.4)'
+                  : type === 'mq'
+                  ? '1px solid rgba(180,80,120,0.4)'
+                  : '1px solid rgba(148,163,184,0.25)';
+                const color = type === 'aa' ? 'rgba(10,10,26,0.75)' : type === 'mq' ? 'rgba(255,220,230,0.7)' : 'rgba(148,163,184,0.6)';
+                return (
+                  <div
+                    key={i}
+                    onClick={() => handleNajmClick(i)}
+                    title={`${i + 1}. ayet`}
+                    style={{
+                      width: '30px', height: '30px', borderRadius: '4px',
+                      background: bg, border,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: '0.5rem', color, fontFamily: 'Inter, sans-serif', fontWeight: 600,
+                      cursor: 'pointer',
+                      transform: isSelected ? 'scale(1.2)' : 'scale(1)',
+                      transition: 'transform 0.12s, border 0.12s, opacity 0.2s',
+                      boxShadow: isSelected ? '0 0 8px rgba(255,255,255,0.3)' : 'none',
+                      opacity: isFailed ? 0.35 : 1,
+                    }}
+                    onMouseEnter={e => { if (!isSelected) e.currentTarget.style.transform = 'scale(1.12)'; }}
+                    onMouseLeave={e => { if (!isSelected) e.currentTarget.style.transform = 'scale(1)'; }}
+                  >
+                    {i + 1}
+                  </div>
+                );
+              })}
+            </div>
+          ))}
         </div>
 
         {/* Popup card */}
@@ -766,7 +773,7 @@ export default function ImpossibleRhythm() {
             <span className="text-silver text-sm font-body">{language === 'tr' ? "maqta\u02BF — kapanış (6 ayet)" : "maqta\u02BF — closing (6 verses)"}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: '#1e293b', border: '1px solid rgba(255,255,255,0.1)' }} />
+            <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: 'rgba(148,163,184,0.12)', border: '1px solid rgba(148,163,184,0.25)' }} />
             <span className="text-silver text-sm font-body">{language === 'tr' ? 'Farklı ses (2 ayet)' : 'Other sound (2 verses)'}</span>
           </div>
         </div>
@@ -797,7 +804,7 @@ export default function ImpossibleRhythm() {
           </div>
         </div>
 
-        <p className="text-silver/60 text-xs font-body leading-relaxed mt-3">
+        <p className="text-silver/75 text-sm font-body leading-relaxed mt-3">
           {language === 'tr'
             ? "Son 6 ayet (57–62) birbirinden farklı seslerle biter — bu kasıtlı bir kapanış değişimidir. Klasik retorik bu bölüme maqta\u02BF (مقطع) adını verir."
             : "The final 6 verses (57–62) end with distinctly different sounds — a deliberate closing shift. Classical rhetoric calls this section the maqta\u02BF (مقطع)."}
@@ -807,7 +814,7 @@ export default function ImpossibleRhythm() {
       {/* ── Quote ── */}
       <motion.div
         variants={fadeUpItem}
-        className="glass-card-strong p-8 md:p-10 text-center"
+        className="glass-card-strong p-6 md:p-8 text-center max-w-2xl mx-auto"
       >
         <p className="text-gold/90 text-xl md:text-2xl italic font-display leading-relaxed">
           {t('impossibleRhythm.quote')}

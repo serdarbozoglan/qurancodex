@@ -255,24 +255,26 @@ export default function SoundArchitecture() {
         >
           <div className="flex flex-col md:flex-row md:items-center gap-6">
             {/* Verse display */}
-            <div className="flex-1">
-              <p
-                dir="rtl"
-                lang="ar"
-                style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                  fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
-                  color: activeSura.color,
-                  lineHeight: 1.6,
-                  marginBottom: '6px',
-                  textAlign: 'right',
-                }}
-              >
-                {activeSura.verse}
-              </p>
-              <p style={{ color: '#64748b', fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', textAlign: 'right' }}>
-                {language === 'tr' ? activeSura.numTr : activeSura.numEn} · {activeSura.verseRef}
-              </p>
+            <div className="flex-1" style={{ minWidth: 0, width: '100%' }}>
+              <div dir="rtl" style={{ width: '100%', textAlign: 'right' }}>
+                <p
+                  lang="ar"
+                  style={{
+                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+                    color: activeSura.color,
+                    lineHeight: 1.6,
+                    marginBottom: '6px',
+                    textAlign: 'right',
+                    direction: 'rtl',
+                  }}
+                >
+                  {activeSura.verse}
+                </p>
+                <p style={{ color: '#64748b', fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', textAlign: 'right', direction: 'ltr' }}>
+                  {language === 'tr' ? activeSura.numTr : activeSura.numEn} · {activeSura.verseRef}
+                </p>
+              </div>
             </div>
 
             {/* Consonant breakdown + bar */}
@@ -353,6 +355,14 @@ export default function SoundArchitecture() {
                     transition={{ duration: 0.6, ease: 'easeOut' }}
                   />
                 </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
+                  <span style={{ color: '#475569', fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
+                    {language === 'tr' ? 'Hafif' : 'Light'}
+                  </span>
+                  <span style={{ color: '#475569', fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
+                    {language === 'tr' ? 'Ağır' : 'Heavy'}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -405,12 +415,15 @@ export default function SoundArchitecture() {
       </motion.div>
 
       {/* Closing */}
-      <motion.p
+      <motion.div
         variants={fadeUpItem}
-        className="text-off-white text-xl md:text-2xl font-display font-bold text-center leading-relaxed"
+        className="glass-card p-8 md:p-10 text-center"
+        style={{ borderTop: '2px solid rgba(212,165,116,0.25)', borderBottom: '2px solid rgba(212,165,116,0.25)', borderLeft: 'none', borderRight: 'none', borderRadius: 0, background: 'rgba(212,165,116,0.04)' }}
       >
-        {t('soundArchitecture.closing')}
-      </motion.p>
+        <p className="text-2xl md:text-4xl font-display font-bold leading-snug" style={{ color: '#d4a574' }}>
+          {t('soundArchitecture.closing')}
+        </p>
+      </motion.div>
     </SectionWrapper>
   );
 }

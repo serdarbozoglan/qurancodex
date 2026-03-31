@@ -20,6 +20,8 @@ const HUMAN_TERMS = [
     meaningEn: 'The being with potential for both good and evil',
     contextTr: 'Zayıflık, unutma (nisyân), aceleye gelme — ikili doğa',
     contextEn: 'Weakness, forgetfulness (nisyān), haste — the dual nature',
+    rootNoteTr: 'Bazı dilbilimciler "üns" (yakınlık, alışkanlık) kökünden de türediğini savunur — "insana alışkın olan" boyutu. Tek kökten değil, iki ayrı semantik katmandan beslendiği görüşü de kabul görmektedir.',
+    rootNoteEn: 'Some linguists also derive it from "uns" (familiarity, intimacy) — the one accustomed to companionship. A second etymological layer alongside nisyān, both considered legitimate.',
     verse: {
       ar: 'وَخُلِقَ الْإِنسَانُ ضَعِيفًا',
       tr: '"İnsan zayıf yaratıldı."',
@@ -411,7 +413,7 @@ export default function HumanDefinition() {
           {tr('termsSubtitle')}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
           {HUMAN_TERMS.map((term, i) => (
             <motion.div
               key={i}
@@ -479,6 +481,12 @@ export default function HumanDefinition() {
                         <p className="text-silver text-sm font-body leading-relaxed">
                           {lang === 'tr' ? term.contextTr : term.contextEn}
                         </p>
+                        {term.rootNoteTr && (
+                          <p className="text-silver/40 text-xs font-body flex gap-1.5 mt-2 italic">
+                            <span className="flex-shrink-0">ℹ</span>
+                            <span>{lang === 'tr' ? term.rootNoteTr : term.rootNoteEn}</span>
+                          </p>
+                        )}
                       </div>
                       <div
                         className="rounded-lg p-4"
@@ -702,9 +710,14 @@ export default function HumanDefinition() {
                   </div>
                 </div>
 
+                {/* Connecting line — desktop only */}
+                <div className="hidden md:flex flex-1 items-center px-2">
+                  <div className="w-full border-t border-gold/15" />
+                </div>
+
                 {/* Right: Arabic text */}
                 <p
-                  className="flex-1 text-right leading-loose"
+                  className="text-right leading-loose flex-shrink-0 md:max-w-[46%]"
                   dir="rtl"
                   style={{
                     fontFamily: "'KFGQPC', 'Amiri Quran', serif",
@@ -804,8 +817,8 @@ export default function HumanDefinition() {
 
                 {/* Center ref */}
                 <div className="flex flex-col items-center justify-center px-3 py-2 text-center flex-shrink-0 w-28">
-                  <span className="text-silver/25 text-lg mb-1">↔</span>
-                  <span className="text-silver/30 text-xs font-body whitespace-nowrap">{pair.ref}</span>
+                  <span className="text-silver/55 text-lg mb-1">↔</span>
+                  <span className="text-silver/60 text-xs font-body whitespace-nowrap">{pair.ref}</span>
                 </div>
 
                 {/* Negative */}
@@ -945,7 +958,7 @@ export default function HumanDefinition() {
         </div>
 
         {/* Hadith note */}
-        <p className="text-silver/35 text-xs font-body flex gap-2">
+        <p className="text-silver/60 text-sm font-body flex gap-2">
           <span className="flex-shrink-0">ℹ</span>
           <span>
             <em>{tr('istikaametHadith')}</em>
@@ -969,7 +982,7 @@ export default function HumanDefinition() {
             <div key={i} className="flex md:flex-col items-center flex-1">
               {/* Card */}
               <div
-                className="flex-1 w-full rounded-xl p-5 md:p-6"
+                className="flex-1 w-full rounded-xl p-5 md:p-6 flex flex-col"
                 style={{
                   background: stage.glow,
                   border: `1px solid ${stage.border}`,
@@ -1008,14 +1021,14 @@ export default function HumanDefinition() {
                   </span>
                 </div>
 
-                {/* Desc */}
-                <p className="text-silver/60 text-xs font-body text-center leading-relaxed mb-4">
+                {/* Desc — flex-1 pushes verse to bottom */}
+                <p className="text-silver/60 text-xs font-body text-center leading-relaxed mb-4 flex-1">
                   {lang === 'tr' ? stage.descTr : stage.descEn}
                 </p>
 
                 {/* Verse */}
                 <div
-                  className="rounded-lg p-3"
+                  className="rounded-lg p-3 mt-auto"
                   style={{ background: 'rgba(0,0,0,0.15)', border: `1px solid ${stage.border}` }}
                 >
                   <p
@@ -1046,7 +1059,7 @@ export default function HumanDefinition() {
         </div>
 
         {/* Hadith note */}
-        <p className="text-silver/30 text-xs font-body flex gap-2">
+        <p className="text-silver/60 text-sm font-body flex gap-2">
           <span className="flex-shrink-0">ℹ</span>
           <span>{tr('transformationHadithNote')}</span>
         </p>

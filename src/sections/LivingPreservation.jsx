@@ -85,6 +85,9 @@ export default function LivingPreservation() {
           <p className="text-off-white/60 text-sm mt-3 font-body">
             {t('livingPreservation.counters.variation.description')}
           </p>
+          <p className="text-silver/50 text-xs mt-2 font-body italic leading-relaxed">
+            * {t('livingPreservation.counters.variation.note')}
+          </p>
         </motion.div>
       </div>
 
@@ -93,7 +96,7 @@ export default function LivingPreservation() {
         {/* Written Preservation */}
         <motion.div
           variants={fadeUpItem}
-          className="glass-card p-6 md:p-8 border-l-4 border-gold"
+          className="glass-card p-6 md:p-8 border-l-4 border-gold flex flex-col"
         >
           <h3 className="font-display text-xl font-bold text-gold mb-3">
             {t('livingPreservation.written.title')}
@@ -101,6 +104,23 @@ export default function LivingPreservation() {
           <p className="text-silver text-sm leading-relaxed font-body">
             {t('livingPreservation.written.description')}
           </p>
+          {/* Birmingham — yazılı korumanın somut kanıtı */}
+          <div className="mt-5 pt-4 border-t border-gold/20 flex items-start gap-3">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gold/10 border border-gold/25 flex items-center justify-center mt-0.5">
+              <svg className="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+              </svg>
+            </div>
+            <div>
+              <h4 className="font-display text-sm font-bold text-gold/80 mb-1">
+                {t('livingPreservation.birmingham.title')}
+              </h4>
+              <p className="text-silver/80 text-xs leading-relaxed font-body">
+                {t('livingPreservation.birmingham.description')}
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         {/* Oral Preservation */}
@@ -127,34 +147,6 @@ export default function LivingPreservation() {
         </p>
       </motion.div>
 
-      {/* Birmingham Manuscript Note */}
-      <motion.div
-        variants={fadeUpItem}
-        className="glass-card p-6 md:p-8"
-      >
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center">
-            <svg
-              className="w-6 h-6 text-gold"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-            </svg>
-          </div>
-          <div>
-            <h4 className="font-display text-lg font-bold text-gold mb-2">
-              {t('livingPreservation.birmingham.title')}
-            </h4>
-            <p className="text-silver text-sm leading-relaxed font-body">
-              {t('livingPreservation.birmingham.description')}
-            </p>
-          </div>
-        </div>
-      </motion.div>
     </SectionWrapper>
   );
 }

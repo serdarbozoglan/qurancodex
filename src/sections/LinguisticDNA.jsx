@@ -144,7 +144,7 @@ const GROUPS = [
     period: 'Mekkî',
     periodEn: 'Meccan',
     theme: 'Hz. Mûsâ Kıssası & Güce Karşı Hak',
-    themeEn: 'Story of Moses & Truth vs. Power',
+    themeEn: 'Story of Moses (AS) & Truth vs. Power',
     color: '#e8b860',
     glowColor: 'rgba(232,184,96,0.12)',
     borderColor: 'rgba(232,184,96,0.35)',
@@ -163,10 +163,10 @@ const GROUPS = [
       'Mushaf\'ın en sıkı tematik üçlüsü: iktidara karşı hakkın mücadelesi',
     ],
     bulletsEn: [
-      'All three center on Moses and Pharaoh — each covering a different dimension',
+      'All three center on Moses (AS) and Pharaoh — each covering a different dimension',
       'Ash-Shu\'ara (26): the first confrontation and display of miracles',
-      'An-Naml (27): wisdom and power, expanded with the story of Solomon',
-      'Al-Qasas (28): full biography from Moses\' birth to the Exodus',
+      'An-Naml (27): wisdom and power, expanded with the story of Solomon (AS)',
+      'Al-Qasas (28): full biography from Moses (AS)\'s birth to the Exodus',
       'The most thematically cohesive trilogy in the Quran: truth against tyranny',
     ],
   },
@@ -311,7 +311,7 @@ export default function LinguisticDNA() {
       </motion.div>
 
       {/* ── Group Cards ── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 items-start">
         {GROUPS.map((group, i) => {
           const isOpen = openGroup === i;
           return (
@@ -327,6 +327,7 @@ export default function LinguisticDNA() {
                 border: `1px solid ${isOpen ? group.borderColor : 'rgba(255,255,255,0.07)'}`,
                 boxShadow: isOpen ? `0 0 32px ${group.glowColor}` : 'none',
                 transition: 'all 0.35s ease',
+                alignSelf: 'start',
               }}
             >
               {/* Arabic watermark */}

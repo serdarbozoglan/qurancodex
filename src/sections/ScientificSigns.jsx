@@ -45,37 +45,52 @@ const TAB_META = {
 };
 
 const tabIcons = {
+  // Meteor/meteorite — iron came from space
   iron: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+      <path d="M15 4L5 14" strokeLinecap="round"/>
+      <circle cx="5" cy="14" r="3"/>
+      <path d="M19 2l-2 2" strokeLinecap="round" strokeOpacity="0.5"/>
+      <path d="M20 8l-2-2" strokeLinecap="round" strokeOpacity="0.5"/>
     </svg>
   ),
+  // Expanding arrows — expanding universe
   universe: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M2 12h20M12 2c-4 4-4 16 0 20M12 2c4 4 4 16 0 20" />
+      <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+      <path d="M12 12l4.5-4.5M12 12l-4.5 4.5M12 12l4.5 4.5M12 12l-4.5-4.5" strokeLinecap="round"/>
+      <path d="M18 6l1.5-1.5M6 18l-1.5 1.5M18 18l1.5 1.5M6 6l-1.5-1.5" strokeLinecap="round" strokeOpacity="0.45"/>
     </svg>
   ),
+  // Two waves separated — ocean barrier (berzah)
   ocean: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
-      <path d="M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
-      <path d="M2 7c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
+      <path d="M2 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0" strokeLinecap="round"/>
+      <line x1="12" y1="5" x2="12" y2="19" strokeWidth="1" strokeOpacity="0.35" strokeDasharray="2 2"/>
+      <path d="M2 16c2-2 4-2 6 0s4 2 6 0 4-2 6 0" strokeLinecap="round"/>
     </svg>
   ),
+  // C-shaped embryo / alaka
   embryo: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <ellipse cx="12" cy="13" rx="4" ry="5" />
-      <path d="M12 8V5" strokeLinecap="round" />
-      <path d="M9 6c-1-2-3-2-4-1" strokeLinecap="round" />
+      <path d="M17 6a7 7 0 1 0 0 12" strokeLinecap="round"/>
+      <circle cx="17" cy="8" r="1.5" fill="currentColor" stroke="none"/>
     </svg>
   ),
 };
 
+function getPreview(text, sentenceCount = 3) {
+  if (!text) return { preview: '', rest: '', hasMore: false };
+  const parts = text.match(/[^.!?]+[.!?]+[\s]*/g) || [text];
+  const preview = parts.slice(0, sentenceCount).join('').trimEnd();
+  const rest = parts.slice(sentenceCount).join('').trimStart();
+  return { preview, rest, hasMore: parts.length > sentenceCount };
+}
+
 export default function ScientificSigns() {
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState('iron');
+  const [expandedTabs, setExpandedTabs] = useState({});
   const tabs = t('scientificSigns.tabs') || {};
   const tabKeys = ['iron', 'universe', 'ocean', 'embryo'];
 
@@ -223,15 +238,42 @@ export default function ScientificSigns() {
                     {tabData.title}
                   </h3>
 
-                  {/* Main text */}
-                  <p style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '0.94rem', lineHeight: 1.88,
-                    color: 'rgba(232,230,227,0.72)',
-                    maxWidth: '700px', marginBottom: '28px',
-                  }}>
-                    {tabData.content}
-                  </p>
+                  {/* Main text — preview + expand */}
+                  {(() => {
+                    const isExpanded = expandedTabs[key];
+                    const { preview, rest, hasMore } = getPreview(tabData.content);
+                    return (
+                      <div style={{ maxWidth: '700px', marginBottom: '28px' }}>
+                        <p style={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: '0.94rem', lineHeight: 1.88,
+                          color: 'rgba(232,230,227,0.72)', margin: 0,
+                        }}>
+                          {isExpanded ? tabData.content : preview}
+                          {!isExpanded && hasMore && (
+                            <span style={{ color: 'rgba(148,163,184,0.4)' }}> …</span>
+                          )}
+                        </p>
+                        {hasMore && (
+                          <button
+                            onClick={() => setExpandedTabs(p => ({ ...p, [key]: !p[key] }))}
+                            style={{
+                              marginTop: '8px',
+                              background: 'none', border: 'none', padding: 0,
+                              color: meta.color, fontSize: '0.78rem',
+                              fontFamily: "'Inter', sans-serif", fontWeight: 600,
+                              cursor: 'pointer', opacity: 0.75,
+                              textDecoration: 'underline', textUnderlineOffset: '3px',
+                            }}
+                          >
+                            {isExpanded
+                              ? (language === 'tr' ? 'Daha az göster' : 'Show less')
+                              : (language === 'tr' ? 'Devamını oku' : 'Read more')}
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })()}
 
                   {/* Verse */}
                   {tabData.verse && (
@@ -242,6 +284,7 @@ export default function ScientificSigns() {
                         reference={tabData.verse.reference}
                         surah={TAB_VERSE[key].surah}
                         ayah={TAB_VERSE[key].ayah}
+                        compact={key === 'embryo'}
                       />
                     </div>
                   )}

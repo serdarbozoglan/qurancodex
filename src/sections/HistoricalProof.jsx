@@ -168,6 +168,15 @@ export default function HistoricalProof() {
                               </div>
                             )}
 
+                          {/* Why it matters */}
+                          {story.significance && (
+                            <div className={`rounded-lg p-4 border-l-4 ${accent.border} ${accent.bg}`}>
+                              <p className={`text-sm font-body font-semibold leading-relaxed ${accent.text}`}>
+                                {story.significance}
+                              </p>
+                            </div>
+                          )}
+
                           {/* Verse */}
                           {story.verse && (
                             <QuranVerse

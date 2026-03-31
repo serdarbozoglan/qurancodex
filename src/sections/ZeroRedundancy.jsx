@@ -103,9 +103,16 @@ export default function ZeroRedundancy() {
 
       {/* Moses Examples Grid */}
       <motion.div variants={fadeUpItem} className="mb-12">
-        <h3 className="font-display text-xl font-bold text-off-white mb-6">
-          {t('zeroRedundancy.mosesTitle')}
-        </h3>
+        <div className="flex items-start justify-between mb-6 flex-wrap gap-3">
+          <h3 className="font-display text-xl font-bold text-off-white">
+            {t('zeroRedundancy.mosesTitle')}
+          </h3>
+          {language === 'en' && (
+            <span className="text-xs font-body text-silver/50 italic">
+              ℹ (AS) = <em>Alayhis Salaam</em> — peace be upon him
+            </span>
+          )}
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {Array.isArray(mosesExamples) &&
             mosesExamples.map((example, index) => (
@@ -124,6 +131,9 @@ export default function ZeroRedundancy() {
             ))}
         </div>
       </motion.div>
+
+      {/* Visual separator between Moses grid and stats */}
+      <div className="border-t border-white/10 mb-12" />
 
       {/* Stats Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -155,11 +165,11 @@ export default function ZeroRedundancy() {
         <div className="space-y-5">
           {/* Quran */}
           <div>
-            <div className="flex justify-between text-sm font-body mb-2">
-              <span className="text-gold font-semibold">
+            <div className="flex justify-between items-baseline font-body mb-2">
+              <span className="text-gold font-semibold text-sm">
                 {t('zeroRedundancy.comparison.quran.label')}
               </span>
-              <span className="text-gold">~0%</span>
+              <span className="text-gold font-bold text-lg">~0%</span>
             </div>
             <div className="w-full bg-white/5 rounded-full h-4 overflow-hidden">
               <motion.div
@@ -209,6 +219,11 @@ export default function ZeroRedundancy() {
                 transition={{ duration: 1.5, ease: 'easeOut', delay: 0.6 }}
               />
             </div>
+            {t('zeroRedundancy.comparison.bible.note') && (
+              <p className="text-silver/50 text-xs font-body mt-2 leading-relaxed">
+                ℹ️ {t('zeroRedundancy.comparison.bible.note')}
+              </p>
+            )}
           </div>
         </div>
         {t('zeroRedundancy.comparisonNote') && (

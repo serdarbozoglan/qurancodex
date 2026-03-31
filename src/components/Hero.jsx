@@ -58,20 +58,41 @@ export default function Hero() {
           {t('hero.description')}
         </motion.p>
 
-        {/* CTA Button */}
-        <motion.button
-          onClick={() =>
-            document.getElementById('math')?.scrollIntoView({ behavior: 'smooth' })
-          }
-          className="glass-card px-10 py-4 text-gold font-body font-semibold text-sm uppercase tracking-[0.15em] hover:bg-white/10 transition-all duration-300 cursor-pointer"
+        {/* CTA Buttons */}
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212,165,116,0.2)' }}
-          whileTap={{ scale: 0.97 }}
         >
-          {t('hero.cta')}
-        </motion.button>
+          <motion.button
+            onClick={() =>
+              document.getElementById('linguistic')?.scrollIntoView({ behavior: 'smooth' })
+            }
+            className="glass-card px-10 py-4 text-gold font-body font-semibold text-sm uppercase tracking-[0.15em] hover:bg-white/10 transition-all duration-300 cursor-pointer"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212,165,116,0.2)' }}
+            whileTap={{ scale: 0.97 }}
+          >
+            {t('hero.cta')}
+          </motion.button>
+
+          <motion.button
+            onClick={() => window.dispatchEvent(new CustomEvent('openReadingMode'))}
+            className="font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
+            style={{
+              background: 'linear-gradient(135deg, #d4a574 0%, #c9a227 100%)',
+              border: 'none',
+              borderRadius: '6px',
+              color: '#1c0f00',
+              padding: '16px 40px',
+              boxShadow: '0 2px 20px rgba(212,165,116,0.25)',
+            }}
+            whileHover={{ scale: 1.05, boxShadow: '0 4px 32px rgba(212,165,116,0.45)' }}
+            whileTap={{ scale: 0.97 }}
+          >
+            {t('hero.ctaRead')} →
+          </motion.button>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}

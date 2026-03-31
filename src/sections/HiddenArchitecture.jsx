@@ -85,7 +85,7 @@ const SURAHS = {
 
 // ── Seven Layers prism data ──
 const RAY_Y     = [30, 82, 134, 185, 237, 289, 340];
-const RAY_COLORS = ['#E8A020','#1AAB80','#3B8FE0','#8B5CF6','#06B6D4','#F97316','#B8C8DC'];
+const RAY_COLORS = ['#E8A020','#1AAB80','#3B8FE0','#8B5CF6','#06B6D4','#F97316','#E8D070'];
 const LABEL_Y   = [12, 64, 116, 167, 219, 271, 322];
 
 const NUR_LAYERS = [
@@ -97,7 +97,7 @@ const NUR_LAYERS = [
     conceptsEn: ['Light (Nur)', 'Mishkat (Niche)', 'Zujaja (Glass)', 'Misbah (Lamp)', 'Olive Oil'],
     scholarTr: 'Fahreddin Razi', scholarEn: 'Fahreddin Razi',
     quoteTr: 'Bu misalde her unsurun ayrı bir hikmeti vardır: Mişkat nefsi, zücace kalbi, misbah imanı, zeytun ağacı ise Hz. İbrahim\'in soyunu temsil eder. Fiziksel unsurlar, ilahi gerçeklerin sembolleridir — dış katman, içtekini taşır.',
-    quoteEn: 'Each element in this parable carries a separate wisdom: the niche represents the soul, the glass the heart, the lamp faith, and the olive tree the lineage of Prophet Abraham. Physical elements carry divine truths — the outer layer holds what is within.',
+    quoteEn: 'Each element in this parable carries a separate wisdom: the niche represents the soul, the glass the heart, the lamp faith, and the olive tree the lineage of Abraham (AS). Physical elements carry divine truths — the outer layer holds what is within.',
     questionTr: 'Eğer bu fiziksel unsurların her biri daha derin bir gerçeğe işaret ediyorsa — asıl ışık hangisi?',
     questionEn: 'If each physical element points to a deeper truth — which is the real light?',
   },
@@ -120,8 +120,10 @@ const NUR_LAYERS = [
     conceptsTr: ['Elektromanyetik Spektrum', 'Foton', 'Işık Hızı (c)', 'E=mc²', 'Evrenin İlk Saniyesi'],
     conceptsEn: ['Electromagnetic Spectrum', 'Photon', 'Speed of Light (c)', 'E=mc²', 'First Second of the Universe'],
     scholarTr: 'Modern Fizik Perspektifi', scholarEn: 'Modern Physics Perspective',
-    quoteTr: 'Evrenin ilk saniyesinde saf enerji — ışık — maddeye dönüştü. En temel varlık ışıktır; madde bile donmuş ışık enerjisidir. Fotoelektrik etkiden kuantum dolanıklığına, her şey ışığın diliyle yazılmıştır.',
-    quoteEn: 'In the first second of the universe, pure energy — light — transformed into matter. The most fundamental existence is light; even matter is frozen light energy. From the photoelectric effect to quantum entanglement, everything is written in the language of light.',
+    quoteTr: 'En temel varlık ışıktır; madde bile donmuş ışık enerjisidir. Big Bang\'den bu yana evrenin dili fotonlarla yazılmıştır.',
+    quoteEn: 'The most fundamental existence is light; even matter is frozen light energy. Since the Big Bang, the language of the universe has been written in photons.',
+    noteTr: 'Bu katman modern fizik perspektifinden yapılmış çağdaş bir yorumdur; klasik tefsir geleneğinde yer almaz.',
+    noteEn: 'This layer represents a contemporary reading through the lens of modern physics; it does not appear in classical exegetical tradition.',
     questionTr: 'Eğer madde donmuş ışıksa, "Göklerin ve yerin Nuru" ifadesi fiziksel bir gerçeği mi anlatıyor?',
     questionEn: 'If matter is frozen light, does "Light of the heavens and earth" describe a physical reality?',
   },
@@ -132,8 +134,8 @@ const NUR_LAYERS = [
     conceptsTr: ['Nur = Bilgi', 'Zulmet = Cehalet', 'Akıl Nuru', 'Aydınlanma', 'Hakikat Arayışı'],
     conceptsEn: ['Light = Knowledge', 'Darkness = Ignorance', 'Light of Reason', 'Enlightenment', 'The Search for Truth'],
     scholarTr: 'İbn Sina', scholarEn: 'Ibn Sina',
-    quoteTr: 'Akıl, ruhun gözüdür; nur ise aklın görebileceği hakikattir. Bilgisiz bir akıl, ışıksız bir göz gibidir — var ama işlevsizdir. Felsefenin amacı bu nuru aramaktır, bilginin kaynağını bulmaktır.',
-    quoteEn: "Reason is the eye of the soul; light is the truth that reason can see. A mind without knowledge is like an eye without light — present but non-functional. Philosophy's purpose is to seek this light, to find the source of knowledge.",
+    quoteTr: 'Akıl, ruhun gözüdür; nur ise aklın görebileceği hakikattir. Bilgisiz bir akıl, ışıksız bir göz gibidir — var ama işlevsizdir.',
+    quoteEn: "Reason is the eye of the soul; light is the truth that reason can see. A mind without knowledge is like an eye without light — present but non-functional.",
     questionTr: 'Bilgi ışığı dışarıdan mı gelir — yoksa içimizde zaten var olan bir şeyi mi uyandırır?',
     questionEn: 'Does the light of knowledge come from outside — or does it awaken something already within us?',
   },
@@ -144,8 +146,8 @@ const NUR_LAYERS = [
     conceptsTr: ['Ruhun İç Işığı', 'Bilinç', 'Farkındalık', 'Nefs Tezkiyesi', 'Kalp Aynası'],
     conceptsEn: ['Inner Light of the Soul', 'Consciousness', 'Awareness', 'Purification of the Self', 'Mirror of the Heart'],
     scholarTr: 'İbn Kayyım el-Cevziyye', scholarEn: 'Ibn Qayyim Al-Jawziyyah',
-    quoteTr: 'Kalbin nurlanması, Allah\'a yönelmesi ve günahlardan arınmasıyla doğru orantılıdır. Kalp bir aynadır; günahlar onu karartır, ibadet ve tevbe ise cilalar. Arınan kalp nuru yansıtır.',
-    quoteEn: "The illumination of the heart is directly proportional to its turning toward Allah and purification from sin. The heart is a mirror; sins darken it, while worship and repentance polish it. A purified heart reflects light.",
+    quoteTr: 'Kalp bir aynadır; günahlar onu karartır, ibadet ve tevbe ise cilalar. Arınmış kalp nuru yansıtır — ve yansıyan nur, kaynağından daha az değildir.',
+    quoteEn: "The heart is a mirror; sins darken it, while worship and repentance polish it. A purified heart reflects light — and reflected light is no less than its source.",
     questionTr: 'İç sesin en yüksek olduğu anlarda — ya da en sustuğu anlarda — hangi ışık yanar içinde?',
     questionEn: 'In moments when your inner voice is loudest — or most silent — what light burns within you?',
   },
@@ -156,20 +158,22 @@ const NUR_LAYERS = [
     conceptsTr: ['Nur-u Muhammedi', 'Hakikat-i Muhammediyye', 'Tecelli', 'Zikir', 'Fena Fillah'],
     conceptsEn: ['Nur al-Muhammadi', 'Haqiqat al-Muhammadiyya', 'Divine Manifestation', 'Dhikr', 'Fana Fillah'],
     scholarTr: 'Muhyiddin İbn Arabi', scholarEn: 'Muhyiddin Ibn Arabi',
-    quoteTr: 'Nur-u Muhammedi, Allah\'ın ilk yarattığı varlıktır; tüm kainat bu nurdan zuhur etmiştir. Hz. Peygamber\'in "Adem su ile çamur arasındayken ben nebi idim" sözü bu kadim nura işaret eder.',
-    quoteEn: "Nur al-Muhammadi is the first thing Allah created; the entire universe emerged from this light. The Prophet's saying 'I was a prophet when Adam was between water and clay' points to this primordial light.",
-    questionTr: 'Eğer her şey onun nurundan yaratıldıysa — sen kim oluyorsun, o nur sende nasıl tecelli ediyor?',
+    quoteTr: 'Nur-u Muhammedi, Allah\'ın ilk yarattığı varlıktır; tüm kainat bu nurdan zuhur etmiştir.',
+    quoteEn: "Nur al-Muhammadi is the first thing Allah created; the entire universe emerged from this light.",
+    noteTr: 'Bu öğretiye dayandırılan bazı rivayetlerin sıhhati hadis âlimleri arasında tartışmalıdır; metin onları mümkün kaynak olarak değil, İbn Arabî\'nin yorumu bağlamında sunar.',
+    noteEn: "Some narrations cited in support of this doctrine are debated among hadith scholars; this text presents them within the context of Ibn Arabi's interpretation, not as established sources.",
+    questionTr: 'Eğer her şey O\'nun nurundan yaratıldıysa — sen kim oluyorsun, o nur sende nasıl tecelli ediyor?',
     questionEn: 'If everything was created from his light — who are you, and how does that light manifest in you?',
   },
   {
     numTr: '07', nameTr: 'İlahi',   subTr: 'Teolojik',
     numEn: '07', nameEn: 'Divine',  subEn: 'Theological',
-    color: '#B8C8DC',
+    color: '#E8D070',
     conceptsTr: ['Nurun Nuru', 'Mutlak Varlık', 'Tüm Benzetmelerin Ötesi', 'La İlahe İllallah', 'Cemâl Sıfatı'],
     conceptsEn: ['Light of Lights', 'Absolute Being', 'Beyond All Metaphors', 'La Ilaha Illallah', 'Attribute of Beauty'],
     scholarTr: 'İmam Gazali — Mişkâtü\'l-Envâr', scholarEn: "Imam Al-Ghazali — Mishkat al-Anwar",
-    quoteTr: 'Allah\'ın ismi "Nur" yalnızca mecaz olarak kullanılır; zira gerçek nur O\'ndan gelir. O nur değildir — O, nurun da nurudur. Tüm benzetmeler O\'na göredir, O ise hiçbir benzetmeye sığmaz.',
-    quoteEn: "Allah's name 'Light' is used only metaphorically; for the true light comes from Him. He is not light — He is the Light of lights. All metaphors are relative to Him, and He cannot be contained by any metaphor.",
+    quoteTr: 'Allah\'ın ismi "Nur" yalnızca mecaz olarak kullanılır; zira gerçek nur O\'ndan gelir. O nur değildir — O, nurun da nurudur.',
+    quoteEn: "Allah's name 'Light' is used only metaphorically; for the true light comes from Him. He is not light — He is the Light of lights.",
     questionTr: 'Nurun ötesindeki Nur\'a ulaşmak için — nurun kendisini nasıl aşarsın?',
     questionEn: 'To reach the Light beyond light — how do you transcend light itself?',
   },
@@ -180,7 +184,6 @@ export default function HiddenArchitecture() {
   const [activeLayer,   setActiveLayer]   = useState(0);
   const [activePair,    setActivePair]    = useState(null);
   const [activeSurah,   setActiveSurah]   = useState('fatiha');
-  const [showInfo,      setShowInfo]      = useState(false);
   const surah = SURAHS[activeSurah];
 
   return (
@@ -248,10 +251,13 @@ export default function HiddenArchitecture() {
 
         {/* ── Mirror diagram ── */}
         <div className="max-w-2xl mx-auto">
+          <p className="text-silver/70 text-sm text-center mb-4 font-body leading-relaxed max-w-lg mx-auto">
+            {language === 'tr' ? surah.introTr : surah.introEn}
+          </p>
           <p className="text-silver/40 text-xs text-center mb-5 font-body">
             {language === 'tr'
-              ? 'Bir çift seçin — ayna elemanlarını birlikte görün'
-              : 'Select a pair — see the mirror elements light up together'}
+              ? 'Bir çift veya merkeze tıkla — açıklamasını gör'
+              : 'Click a pair or the center — see its explanation'}
           </p>
 
           {/* Pair rows */}
@@ -349,15 +355,20 @@ export default function HiddenArchitecture() {
 
           {/* Center D */}
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '12px' }}>
-            <div style={{
-              padding: '14px 28px',
-              borderRadius: '12px',
-              border: '2px solid rgba(155,89,182,0.55)',
-              background: 'rgba(155,89,182,0.1)',
-              boxShadow: '0 0 32px rgba(155,89,182,0.25)',
-              textAlign: 'center',
-              maxWidth: '300px',
-            }}>
+            <button
+              onClick={() => setActivePair(activePair === 3 ? null : 3)}
+              style={{
+                padding: '14px 28px',
+                borderRadius: '12px',
+                border: `2px solid ${activePair === 3 ? 'rgba(155,89,182,0.85)' : 'rgba(155,89,182,0.55)'}`,
+                background: activePair === 3 ? 'rgba(155,89,182,0.18)' : 'rgba(155,89,182,0.1)',
+                boxShadow: activePair === 3 ? '0 0 40px rgba(155,89,182,0.4)' : '0 0 32px rgba(155,89,182,0.25)',
+                textAlign: 'center',
+                maxWidth: '300px',
+                cursor: 'pointer',
+                transition: 'all 0.25s',
+                width: '100%',
+              }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: surah.center.ar ? '6px' : 0 }}>
                 <span style={{
                   width: '30px', height: '30px', borderRadius: '50%',
@@ -384,76 +395,53 @@ export default function HiddenArchitecture() {
                   {surah.center.ar}
                 </p>
               )}
-            </div>
+            </button>
           </div>
 
-          {/* Info toggle */}
-          <div className="mt-6">
-            <button
-              onClick={() => setShowInfo(p => !p)}
-              style={{
-                display: 'flex', alignItems: 'center', gap: '6px',
-                background: 'transparent', border: 'none',
-                color: showInfo ? '#d4a574' : 'rgba(148,163,184,0.7)',
-                fontSize: '0.78rem', fontFamily: "'Inter', sans-serif",
-                fontWeight: 500, cursor: 'pointer',
-                transition: 'color 0.2s',
-                padding: '0',
-              }}
-            >
-              <span style={{
-                width: '18px', height: '18px', borderRadius: '50%',
-                border: `1px solid ${showInfo ? 'rgba(212,165,116,0.6)' : 'rgba(148,163,184,0.3)'}`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '0.65rem', fontWeight: 700, flexShrink: 0,
-                transition: 'border-color 0.2s',
-              }}>ℹ</span>
-              {language === 'tr' ? 'Nasıl okunur?' : 'How to read this?'}
-            </button>
-
-            <AnimatePresence initial={false}>
-              {showInfo && (
+          {/* Inline pair explanation — appears when a pair or D is selected */}
+          <AnimatePresence initial={false}>
+            {activePair !== null && (() => {
+              const pairs = language === 'tr' ? surah.pairsTr : surah.pairsEn;
+              const item = pairs[activePair];
+              if (!item) return null;
+              const color = activePair < 3 ? PAIR_COLORS[activePair].text : '#9b59b6';
+              const borderColor = activePair < 3 ? PAIR_COLORS[activePair].border : 'rgba(155,89,182,0.5)';
+              const bgColor = activePair < 3 ? PAIR_COLORS[activePair].bg : 'rgba(155,89,182,0.08)';
+              return (
                 <motion.div
+                  key={`explanation-${activePair}-${activeSurah}`}
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  transition={{ duration: 0.28, ease: 'easeInOut' }}
                   className="overflow-hidden"
                 >
                   <div style={{
-                    marginTop: '12px',
-                    padding: '16px 18px',
+                    marginTop: '14px',
+                    padding: '16px 20px',
                     borderRadius: '10px',
-                    background: 'rgba(255,255,255,0.03)',
-                    border: '1px solid rgba(255,255,255,0.07)',
+                    background: bgColor,
+                    border: `1px solid ${borderColor}`,
                   }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <p style={{ fontSize: '0.78rem', color: '#94a3b8', lineHeight: 1.7, fontFamily: "'Inter', sans-serif", margin: 0 }}>
-                        {language === 'tr' ? surah.introTr : surah.introEn}
-                      </p>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                        {(language === 'tr' ? surah.pairsTr : surah.pairsEn).map(({ label, desc }, i) => (
-                          <div key={label} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                            <span style={{
-                              color: i < 3 ? PAIR_COLORS[i].text : '#9b59b6',
-                              fontSize: '0.72rem', fontWeight: 700,
-                              fontFamily: "'Inter', sans-serif",
-                              flexShrink: 0, marginTop: '2px', minWidth: '62px',
-                            }}>
-                              {label}
-                            </span>
-                            <span style={{ fontSize: '0.75rem', color: 'rgba(148,163,184,0.8)', lineHeight: 1.65, fontFamily: "'Inter', sans-serif" }}>
-                              {desc}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    <p style={{
+                      color, fontSize: '0.78rem', fontWeight: 700,
+                      fontFamily: "'Inter', sans-serif",
+                      marginBottom: '6px',
+                    }}>
+                      {item.label}
+                    </p>
+                    <p style={{
+                      fontSize: '0.95rem', color: '#c8d4e0',
+                      lineHeight: 1.75, fontFamily: "'Inter', sans-serif",
+                      margin: 0,
+                    }}>
+                      {item.desc}
+                    </p>
                   </div>
                 </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+              );
+            })()}
+          </AnimatePresence>
 
           {/* Legend */}
           <div className="flex justify-center gap-4 mt-6 flex-wrap">
@@ -549,14 +537,14 @@ export default function HiddenArchitecture() {
       </motion.div>
 
       {/* ── Side-by-side: Prism + Detail ── */}
-      <motion.div variants={fadeUpItem} className="grid lg:grid-cols-[360px_1fr] gap-5 items-start mb-10">
+      <motion.div variants={fadeUpItem} className="grid lg:grid-cols-[400px_1fr] gap-5 items-start mb-10">
 
         {/* LEFT: Compact prism + layer list (sticky on desktop) */}
         <div className="lg:sticky lg:top-20 lg:self-start">
 
           {/* Prism SVG */}
           <div className="glass-card-strong p-4 mb-3">
-            <svg width="100%" viewBox="-80 -5 285 300" style={{ display: 'block' }}>
+            <svg width="100%" viewBox="-80 -5 330 300" style={{ display: 'block' }}>
               <defs>
                 {/* Ray glow */}
                 <filter id="ray-glow" x="-80%" y="-80%" width="260%" height="260%">
@@ -599,7 +587,7 @@ export default function HiddenArchitecture() {
                   </feMerge>
                 </filter>
                 {/* Incoming ray fade gradient — userSpaceOnUse so it maps to actual ray coords */}
-                <linearGradient id="in-ray-grad" gradientUnits="userSpaceOnUse" x1="-160" y1="141" x2="79" y2="141">
+                <linearGradient id="in-ray-grad" gradientUnits="userSpaceOnUse" x1="-160" y1="141" x2="54" y2="141">
                   <stop offset="0%"   stopColor="white" stopOpacity="0"/>
                   <stop offset="30%"  stopColor="white" stopOpacity="0.4"/>
                   <stop offset="75%"  stopColor="white" stopOpacity="0.85"/>
@@ -625,51 +613,51 @@ export default function HiddenArchitecture() {
               </defs>
 
               {/* Prism body — glass crystal fill */}
-              <polygon points="132,10 74,272 190,272"
+              <polygon points="107,10 49,272 165,272"
                 fill="url(#prism-fill-grad)"
                 stroke="none"/>
 
               {/* Prism glow border */}
-              <polygon points="132,10 74,272 190,272"
+              <polygon points="107,10 49,272 165,272"
                 fill="none"
                 stroke="rgba(160,210,255,0.55)" strokeWidth="1.8"
                 filter="url(#prism-glow)"/>
 
               {/* Hard border on top */}
-              <polygon points="132,10 74,272 190,272"
+              <polygon points="107,10 49,272 165,272"
                 fill="none"
                 stroke="rgba(200,230,255,0.35)" strokeWidth="1"/>
 
               {/* Left face shimmer (entry face — brightest) */}
-              <line x1="132" y1="10" x2="74" y2="272"
+              <line x1="107" y1="10" x2="49" y2="272"
                 stroke="url(#left-edge-grad)" strokeWidth="2.5" strokeLinecap="round"/>
 
               {/* Right face highlight */}
-              <line x1="132" y1="10" x2="190" y2="272"
+              <line x1="107" y1="10" x2="165" y2="272"
                 stroke="url(#right-edge-grad)" strokeWidth="1.5" strokeLinecap="round"/>
 
               {/* Internal facet — adds 3D depth */}
-              <line x1="116" y1="44" x2="88" y2="228"
+              <line x1="91" y1="44" x2="63" y2="228"
                 stroke="rgba(255,255,255,0.055)" strokeWidth="1"/>
-              <line x1="144" y1="22" x2="155" y2="240"
+              <line x1="119" y1="22" x2="130" y2="240"
                 stroke="rgba(255,255,255,0.035)" strokeWidth="0.8"/>
 
               {/* Top vertex sparkle */}
-              <circle cx="132" cy="10" r="3.5" fill="rgba(220,235,255,0.7)" filter="url(#dot-glow)"/>
+              <circle cx="107" cy="10" r="3.5" fill="rgba(220,235,255,0.7)" filter="url(#dot-glow)"/>
 
               {/* Incoming light ray — outer soft glow */}
-              <line x1="-76" y1="141" x2="79" y2="141"
+              <line x1="-76" y1="141" x2="54" y2="141"
                 stroke="white" strokeWidth="16" strokeLinecap="round"
                 opacity="0.08" filter="url(#in-ray-glow)"/>
               {/* Incoming light ray — inner glow */}
-              <line x1="-76" y1="141" x2="79" y2="141"
+              <line x1="-76" y1="141" x2="54" y2="141"
                 stroke="white" strokeWidth="7" strokeLinecap="round"
                 opacity="0.22" filter="url(#in-ray-glow)"/>
               {/* Incoming light ray — core beam with fade gradient */}
-              <line x1="-76" y1="141" x2="79" y2="141"
+              <line x1="-76" y1="141" x2="54" y2="141"
                 stroke="url(#in-ray-grad)" strokeWidth="3" strokeLinecap="round"/>
               {/* Entry point on prism face */}
-              <circle cx="79" cy="141" r="5" fill="white" fillOpacity="0.95"
+              <circle cx="54" cy="141" r="5" fill="white" fillOpacity="0.95"
                 filter="url(#dot-glow)"/>
 
               {/* "Nur" label — Latin, gold, near origin of ray */}
@@ -686,19 +674,19 @@ export default function HiddenArchitecture() {
               </text>
 
               {/* Internal beam to dispersion point */}
-              <line x1="79" y1="141" x2="141" y2="141"
+              <line x1="54" y1="141" x2="136" y2="141"
                 stroke="white" strokeOpacity="0.18" strokeWidth="1.8"/>
-              {/* Dispersion center dot */}
-              <circle cx="141" cy="141" r="3.5" fill="white" fillOpacity="0.45"
+              {/* Dispersion center dot — on the right face of the prism at y=141 */}
+              <circle cx="136" cy="141" r="3.5" fill="white" fillOpacity="0.45"
                 filter="url(#dot-glow)"/>
 
               {/* 7 colored rays */}
-              {[10, 54, 98, 141, 185, 229, 272].map((y, i) => {
+              {[10, 54, 98, 155, 185, 229, 272].map((y, i) => {
                 const isActive = activeLayer === i;
                 const isDimmed = activeLayer !== null && !isActive;
                 return (
                   <line key={`r${i}`}
-                    x1="141" y1="141" x2="258" y2={y}
+                    x1="136" y1="141" x2="233" y2={y}
                     stroke={RAY_COLORS[i]}
                     strokeWidth={isActive ? 3.5 : 1.8}
                     opacity={isDimmed ? 0.06 : isActive ? 1 : 0.45}
@@ -709,9 +697,9 @@ export default function HiddenArchitecture() {
               })}
 
               {/* Wide transparent hit areas */}
-              {[10, 54, 98, 141, 185, 229, 272].map((y, i) => (
+              {[10, 54, 98, 155, 185, 229, 272].map((y, i) => (
                 <line key={`h${i}`}
-                  x1="141" y1="141" x2="258" y2={y}
+                  x1="136" y1="141" x2="233" y2={y}
                   stroke="transparent" strokeWidth="22"
                   style={{ cursor: 'pointer' }}
                   onClick={() => setActiveLayer(activeLayer === i ? null : i)}
@@ -719,12 +707,12 @@ export default function HiddenArchitecture() {
               ))}
 
               {/* Endpoint dots */}
-              {[10, 54, 98, 141, 185, 229, 272].map((y, i) => {
+              {[10, 54, 98, 155, 185, 229, 272].map((y, i) => {
                 const isActive = activeLayer === i;
                 const isDimmed = activeLayer !== null && !isActive;
                 return (
                   <circle key={`d${i}`}
-                    cx="258" cy={y}
+                    cx="233" cy={y}
                     r={isActive ? 6 : 3.5}
                     fill={RAY_COLORS[i]}
                     fillOpacity={isDimmed ? 0.08 : 0.88}
@@ -889,6 +877,18 @@ export default function HiddenArchitecture() {
                       <p style={{ fontSize: '14px', color: '#e8e6e3', fontStyle: 'italic', lineHeight: 1.85, fontFamily: "'Inter', sans-serif" }}>
                         "{language === 'tr' ? layer.quoteTr : layer.quoteEn}"
                       </p>
+                      {(language === 'tr' ? layer.noteTr : layer.noteEn) && (
+                        <p style={{
+                          marginTop: '10px',
+                          fontSize: '11px', color: 'rgba(148,163,184,0.55)',
+                          fontStyle: 'italic', lineHeight: 1.6,
+                          fontFamily: "'Inter', sans-serif",
+                          borderTop: '1px solid rgba(255,255,255,0.05)',
+                          paddingTop: '8px',
+                        }}>
+                          ℹ {language === 'tr' ? layer.noteTr : layer.noteEn}
+                        </p>
+                      )}
                     </div>
 
                     {/* Thought question */}
@@ -911,17 +911,6 @@ export default function HiddenArchitecture() {
             })()}
           </AnimatePresence>
 
-          {/* Closing note — below the right card */}
-          <p style={{
-            marginTop: '22px',
-            fontSize: '0.82rem',
-            color: 'rgba(148,163,184,0.52)',
-            fontStyle: 'italic',
-            lineHeight: 1.75,
-            fontFamily: "'Inter', sans-serif",
-          }}>
-            {t('sevenLayers.closing')}
-          </p>
         </div>
       </motion.div>
 
