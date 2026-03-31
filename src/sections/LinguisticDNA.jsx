@@ -320,7 +320,7 @@ export default function LinguisticDNA() {
                   fontFamily: "'KFGQPC', 'Amiri Quran', serif",
                   fontSize: 'clamp(5rem, 12vw, 9rem)',
                   color: group.color,
-                  opacity: isOpen ? 0.1 : 0.06,
+                  opacity: isOpen ? 0.08 : 0.06,
                   lineHeight: 1,
                   userSelect: 'none',
                   pointerEvents: 'none',
@@ -369,9 +369,9 @@ export default function LinguisticDNA() {
                   {language === 'tr' ? group.pattern : group.patternEn}
                 </p>
 
-                {/* Sura tags */}
+                {/* Sura tags — max 4 visible, rest collapsed */}
                 <div className="flex flex-wrap gap-1.5 mb-2">
-                  {group.suras.map((s, j) => (
+                  {group.suras.slice(0, 4).map((s, j) => (
                     <span
                       key={j}
                       className="text-xs font-body px-2 py-0.5 rounded-full"
@@ -384,6 +384,18 @@ export default function LinguisticDNA() {
                       {s.num}. {s.name}
                     </span>
                   ))}
+                  {group.suras.length > 4 && (
+                    <span
+                      className="text-xs font-body px-2 py-0.5 rounded-full"
+                      style={{
+                        background: 'rgba(255,255,255,0.05)',
+                        color: 'rgba(148,163,184,0.7)',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                      }}
+                    >
+                      +{group.suras.length - 4} {language === 'tr' ? 'daha' : 'more'}
+                    </span>
+                  )}
                 </div>
 
                 {/* Expanded detail */}
@@ -416,13 +428,13 @@ export default function LinguisticDNA() {
                         if (bullet.startsWith('→ not:') || bullet.startsWith('→ note:')) {
                           const text = bullet.replace(/^→ not(?:e)?:/, '').trim();
                           return (
-                            <li key={bi} className="font-body text-xs leading-relaxed text-silver/55 pl-3">
+                            <li key={bi} className="font-body text-sm leading-relaxed text-silver/60 pl-3">
                               ✦ {text}
                             </li>
                           );
                         }
                         return (
-                          <li key={bi} className="flex gap-2 items-start font-body text-sm text-silver leading-relaxed">
+                          <li key={bi} className="flex gap-2 items-start font-body text-base text-silver leading-relaxed">
                             <span style={{ color: group.color, marginTop: '0.2em', flexShrink: 0 }}>·</span>
                             <span>{bullet}</span>
                           </li>
@@ -432,15 +444,18 @@ export default function LinguisticDNA() {
                   </motion.div>
                 )}
 
-                {/* Expand hint */}
-                <p
-                  className="text-xs font-body mt-3 text-right"
-                  style={{ color: `${group.color}60` }}
-                >
-                  {isOpen
-                    ? (language === 'tr' ? '▲ kapat' : '▲ close')
-                    : (language === 'tr' ? '▼ detay' : '▼ detail')}
-                </p>
+                {/* Expand hint — proper touch target */}
+                <div className="flex justify-end mt-2">
+                  <button
+                    className="font-body text-xs min-h-[44px] min-w-[44px] flex items-center justify-end px-1"
+                    style={{ color: `${group.color}80`, background: 'transparent', border: 'none', cursor: 'pointer' }}
+                    aria-label={isOpen ? 'Kapat' : 'Detayı göster'}
+                  >
+                    {isOpen
+                      ? (language === 'tr' ? '▲ kapat' : '▲ close')
+                      : (language === 'tr' ? '▼ detay' : '▼ detail')}
+                  </button>
+                </div>
               </div>
             </motion.div>
           );
@@ -512,7 +527,7 @@ export default function LinguisticDNA() {
                   {s.num}. {language === 'tr' ? s.name : s.nameEn}
                 </span>
                 {/* Desc — muted white, not gold */}
-                <span className="text-xs font-body leading-tight" style={{ color: 'rgba(232,230,227,0.55)' }}>{s.desc}</span>
+                <span className="text-sm font-body leading-tight" style={{ color: 'rgba(232,230,227,0.55)' }}>{s.desc}</span>
               </motion.div>
             );
           })}
@@ -525,7 +540,7 @@ export default function LinguisticDNA() {
         className="rounded-2xl p-8 md:p-12 mb-8 text-center"
         style={{
           background: 'linear-gradient(135deg, rgba(212,165,116,0.07), rgba(201,162,39,0.03))',
-          boxShadow: '0 0 0 1px rgba(212,165,116,0.1), 0 0 60px rgba(212,165,116,0.1), inset 0 1px 0 rgba(212,165,116,0.08)',
+          boxShadow: '0 0 60px rgba(212,165,116,0.1), inset 0 1px 0 rgba(212,165,116,0.08)',
         }}
       >
         <p className="text-silver/40 text-xs uppercase tracking-[0.3em] font-body mb-3">
@@ -596,7 +611,7 @@ export default function LinguisticDNA() {
             }}
           >
             <span
-              className="block font-body font-extrabold text-2xl mb-2"
+              className="block font-body font-extrabold text-xl mb-2"
               style={{ color: '#d4a574' }}
             >
               {d.num}
