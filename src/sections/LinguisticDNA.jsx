@@ -346,7 +346,7 @@ export default function LinguisticDNA() {
                     >
                       {group.arabic}
                     </span>
-                    <span className="text-silver/50 text-xs font-body tracking-wider">{group.latin}</span>
+                    <span className="text-silver/50 text-sm font-body tracking-wider">{group.latin}</span>
                   </div>
                   <div className="text-right">
                     <span
@@ -365,7 +365,7 @@ export default function LinguisticDNA() {
                 <p className="text-off-white font-body font-semibold text-sm mb-2">
                   {language === 'tr' ? group.theme : group.themeEn}
                 </p>
-                <p className="text-xs font-body leading-relaxed mb-4" style={{ color: '#b8a06e' }}>
+                <p className="text-sm font-body leading-relaxed mb-4" style={{ color: '#b8a06e' }}>
                   {language === 'tr' ? group.pattern : group.patternEn}
                 </p>
 
@@ -462,7 +462,7 @@ export default function LinguisticDNA() {
             { ar: 'المص', num: 7,  name: "A'râf",  nameEn: "Al-A'raf",  desc: language === 'tr' ? 'sadece bu surede görülen 4 harfli açılış' : 'unique 4-letter opening found only here' },
             { ar: 'المر', num: 13, name: "Ra'd",   nameEn: "Ar-Ra'd",   desc: language === 'tr' ? 'sadece bu surede görülen 4 harfli açılış' : 'unique 4-letter opening found only here' },
             { ar: 'كهيعص', num: 19, name: 'Meryem', nameEn: 'Maryam',   desc: language === 'tr' ? 'en uzun huruf (5)'   : 'longest letters (5)' },
-            { ar: 'طه',   num: 20, name: "Tâ-Hâ",  nameEn: "Ta-Ha",    desc: language === 'tr' ? 'Peygamber\'e sabır — Hz. Musa\'nın kıssası' : 'patience to the Prophet — story of Moses' },
+            { ar: 'طه',   num: 20, name: "Tâ-Hâ",  nameEn: "Ta-Ha",    desc: language === 'tr' ? 'Hz. Musa\'nın vahiy ve mucize kıssası' : 'Moses: revelation, miracles, Pharaoh' },
             { ar: 'يس',   num: 36, name: "Yâ-Sîn", nameEn: "Ya-Sin",   desc: language === 'tr' ? 'hikmetli Kur\'an'    : 'the wise Quran' },
             { ar: 'ص',    num: 38, name: "Sâd",     nameEn: "Sad",      desc: language === 'tr' ? 'tek harf, güçlü hitap' : 'single letter, powerful address' },
             { ar: 'ق',    num: 50, name: "Kâf",     nameEn: "Qaf",      desc: language === 'tr' ? '"Şanlı Kur\'an\'a andolsun" (50:1)' : '"By the glorious Quran" (50:1)' },
