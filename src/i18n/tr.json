@@ -553,7 +553,9 @@
     "stats": {
       "total": {
         "label": "Toplam Ayet",
-        "desc": "Kur'an'ın tamamı"
+        "desc": "Kur'an'ın tamamı",
+        "infoTitle": "6.666 rakamı nereden geliyor?",
+        "infoBody": "Kur'an'da fiziksel olarak sayılan ayet sayısı 6.236'dır. 6.666 rakamı ise eski dönem alimlerin ayetleri konularına göre grupladığı bir tematik sınıflandırmadır — gerçek ayet sayısı değildir.\n\nKlasik kaynaklarda bu sınıflandırma şöyledir:\n• 1.000 ayet — Emirler\n• 1.000 ayet — Yasaklar\n• 1.000 ayet — Va'd (Müjdeler)\n• 1.000 ayet — Va'îd (Uyarılar)\n• 1.000 ayet — Kıssalar ve Haberler\n• 1.000 ayet — Misaller\n• 500 ayet — Helal ve Haramlar\n• 100 ayet — Dualar ve Tesbihler\n• 66 ayet — Nâsih ve Mensûh\n= Toplam 6.666\n\nBu liste, akılda kalıcı olduğu için nesilden nesile aktarılmış; zamanla fiziksel ayet sayısı sanılmıştır."
       },
       "human": {
         "label": "İnsan & Toplum Ayeti",

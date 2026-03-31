@@ -553,7 +553,9 @@
     "stats": {
       "total": {
         "label": "Total Verses",
-        "desc": "The complete Quran"
+        "desc": "The complete Quran",
+        "infoTitle": "Where does 6,666 come from?",
+        "infoBody": "The physical verse count of the Quran is 6,236. The number 6,666 is a thematic classification by classical scholars who grouped verses by subject — it is not the actual verse count.\n\nThe classical breakdown:\n• 1,000 verses — Commands\n• 1,000 verses — Prohibitions\n• 1,000 verses — Promises (glad tidings)\n• 1,000 verses — Warnings\n• 1,000 verses — Stories and news\n• 1,000 verses — Parables\n• 500 verses — Lawful and unlawful\n• 100 verses — Prayers and glorifications\n• 66 verses — Abrogating and abrogated\n= Total 6,666\n\nThis memorable breakdown was passed down through generations as a teaching aid and gradually came to be mistaken for the physical verse count."
       },
       "human": {
         "label": "Human & Society Verses",

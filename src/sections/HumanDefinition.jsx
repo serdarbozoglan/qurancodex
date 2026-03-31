@@ -280,6 +280,7 @@ const TRANSFORMATION = [
 
 export default function HumanDefinition() {
   const { t, language } = useLanguage();
+  const [show6666, setShow6666] = useState(false);
   const [openTerm, setOpenTerm] = useState(null);
   const [openTrait, setOpenTrait] = useState(null);
   const [openPair, setOpenPair] = useState(null);
@@ -340,7 +341,7 @@ export default function HumanDefinition() {
           <div
             key={key}
             className="glass-card p-6 text-center"
-            style={{ border: '1px solid rgba(212,165,116,0.15)' }}
+            style={{ border: '1px solid rgba(212,165,116,0.15)', position: 'relative' }}
           >
             <p className="font-display text-4xl font-bold text-gold mb-2">{num}</p>
             <p className="text-off-white text-sm font-body font-semibold mb-1">
@@ -349,9 +350,57 @@ export default function HumanDefinition() {
             <p className="text-silver/50 text-xs font-body">
               {t(`humanDefinition.stats.${key}.desc`)}
             </p>
+            {key === 'total' && (
+              <button
+                onClick={() => setShow6666(true)}
+                title={language === 'tr' ? '6.666 rakamı hakkında' : 'About the number 6,666'}
+                style={{
+                  position: 'absolute', top: '10px', right: '10px',
+                  background: 'none', border: 'none', cursor: 'pointer',
+                  color: 'rgba(212,165,116,0.5)', fontSize: '0.85rem', lineHeight: 1,
+                  transition: 'color 0.15s',
+                }}
+                onMouseEnter={e => e.currentTarget.style.color = '#d4a574'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(212,165,116,0.5)'}
+              >ⓘ</button>
+            )}
           </div>
         ))}
       </motion.div>
+
+      {/* ── 6666 Info Modal ── */}
+      {show6666 && (
+        <div
+          onClick={() => setShow6666(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 200,
+            background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px',
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              background: '#0d1b2a', border: '1px solid rgba(212,165,116,0.25)',
+              borderRadius: '16px', padding: '28px', maxWidth: '480px', width: '100%',
+              maxHeight: '80vh', overflowY: 'auto',
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.1rem', color: '#d4a574', fontWeight: 700, lineHeight: 1.3, flex: 1, paddingRight: '12px' }}>
+                {t('humanDefinition.stats.total.infoTitle')}
+              </h3>
+              <button
+                onClick={() => setShow6666(false)}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#64748b', fontSize: '1.2rem', lineHeight: 1, flexShrink: 0 }}
+              >✕</button>
+            </div>
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.75, whiteSpace: 'pre-line' }}>
+              {t('humanDefinition.stats.total.infoBody')}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── B: 4 Human Terms ── */}
       <motion.div variants={fadeUpItem} className="mb-16">
