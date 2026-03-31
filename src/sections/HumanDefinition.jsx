@@ -708,7 +708,7 @@ export default function HumanDefinition() {
                   dir="rtl"
                   style={{
                     fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                    fontSize: '1.25rem',
+                    fontSize: '1.5rem',
                     color: '#d4a574',
                   }}
                 >{trait.arabic}</p>
