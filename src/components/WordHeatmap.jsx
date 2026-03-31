@@ -129,11 +129,24 @@ const PRESETS_EN = [
   { label: 'Jesus', term: 'jesus', group: 'concept' },
   { label: 'Noah', term: 'noah', group: 'concept' },
   // Recurring patterns
-  { label: 'Which of your Lord\'s favours will you deny?', term: 'favours of your lord', group: 'pattern' },
-  { label: 'Gardens with rivers flowing beneath', term: 'rivers flowing', group: 'pattern' },
-  { label: 'Allah is capable of all things', term: 'capable of all', group: 'pattern' },
-  { label: 'Wise', term: 'all-wise', group: 'pattern' },
-  { label: 'The Forgiving', term: 'forgiving', group: 'pattern' },
+  { label: 'رَبُّ الْعَالَمِينَ',                    desc: 'Lord of all worlds · ×42',                       term: 'رب العالمين',             group: 'pattern' },
+  { label: 'غَفُورٌ رَّحِيمٌ',                       desc: 'Most Forgiving, Most Merciful · ×49',            term: 'غفور رحيم',               group: 'pattern' },
+  { label: 'عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ',           desc: 'Has power over all things · ×35',                term: 'على كل شيء قدير',         group: 'pattern' },
+  { label: 'تَجْرِي مِن تَحْتِهَا الْأَنْهَارُ',    desc: 'Gardens beneath which rivers flow · ×34',        term: 'تجري من تحتها الانهار',   group: 'pattern' },
+  { label: 'فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ', desc: 'Which of your Lord\'s favours will you deny? · ×31', term: 'فبأي آلاء ربكما تكذبان', group: 'pattern' },
+  { label: 'أَهْلَكْنَا',                            desc: 'We destroyed · ×28',                             term: 'أهلكنا',                  group: 'pattern' },
+  { label: 'سَمِيعٌ عَلِيمٌ',                        desc: 'All-Hearing, All-Knowing · ×16',                 term: 'سميع عليم',               group: 'pattern' },
+  { label: 'شَدِيدُ الْعِقَابِ',                     desc: 'Severe in punishment · ×14',                     term: 'شديد العقاب',             group: 'pattern' },
+  { label: 'لَعَلَّكُمْ تَشْكُرُونَ',               desc: 'So that you may be grateful · ×14',              term: 'لعلكم تشكرون',            group: 'pattern' },
+  { label: 'عَلِيمٌ حَكِيمٌ',                        desc: 'All-Knowing, All-Wise · ×15',                    term: 'عليم حكيم',               group: 'pattern' },
+  { label: 'عَزِيزٌ حَكِيمٌ',                        desc: 'Almighty, All-Wise · ×13',                       term: 'عزيز حكيم',               group: 'pattern' },
+  { label: 'وَيْلٌ يَوْمَئِذٍ لِّلْمُكَذِّبِينَ',  desc: 'Woe that Day to the deniers! · ×12',             term: 'ويل يومئذ للمكذبين',      group: 'pattern' },
+  { label: 'أَفَلَا تَعْقِلُونَ',                    desc: 'Will you not reason? · ×12',                     term: 'أفلا تعقلون',             group: 'pattern' },
+  { label: 'لَعَلَّكُمْ تُفْلِحُونَ',               desc: 'So that you may succeed · ×11',                  term: 'لعلكم تفلحون',            group: 'pattern' },
+  { label: 'عَالِمُ الْغَيْبِ وَالشَّهَادَةِ',      desc: 'Knower of the seen and unseen · ×10',            term: 'عالم الغيب والشهادة',     group: 'pattern' },
+  { label: 'لَعَلَّكُمْ تَعْقِلُونَ',               desc: 'So that you may reason · ×8',                    term: 'لعلكم تعقلون',            group: 'pattern' },
+  { label: 'فَاطِرِ السَّمَاوَاتِ وَالْأَرْضِ',     desc: 'Creator of the heavens and earth · ×6',          term: 'فاطر السموات',            group: 'pattern' },
+  { label: 'فَكَيْفَ كَانَ عَذَابِي وَنُذُرِ',      desc: 'How severe was My punishment and warning! · ×4', term: 'كيف كان عذابي ونذر',      group: 'pattern' },
 ];
 
 // Proper name transliteration → Arabic. When a Latin input matches a key here,
@@ -309,7 +322,7 @@ export default function WordHeatmap({ onClose }) {
     setVersePage(0);
     if (presetLabel) {
       setActivePreset({ label: presetLabel, term });
-      setInputValue(term);
+      setInputValue(presetLabel);
     } else {
       setActivePreset(null);
       setInputValue(term);

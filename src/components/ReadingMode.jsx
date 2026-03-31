@@ -1391,7 +1391,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px',
+                  width: isMobile ? '36px' : '64px', height: isMobile ? '42px' : '44px',
                   borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${showSettingsPicker ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showSettingsPicker ? navC.btnBgActive : navC.btnBg,
