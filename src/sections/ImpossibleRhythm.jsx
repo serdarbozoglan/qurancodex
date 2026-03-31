@@ -322,7 +322,7 @@ export default function ImpossibleRhythm() {
                     onMouseEnter={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.12)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.05)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.3)'; }}
                   >
-                    {language === 'tr' ? '📜 Bu şiir mi?' : '📜 Is this poetry?'}
+                    {language === 'tr' ? 'Bu şiir mi?' : 'Is this poetry?'}
                   </button>
                   <button
                     onClick={() => setDiscoveryStep(2)}
@@ -331,7 +331,7 @@ export default function ImpossibleRhythm() {
                     onMouseEnter={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.12)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.05)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.3)'; }}
                   >
-                    {language === 'tr' ? '📄 Düzyazı mı?' : '📄 Is this prose?'}
+                    {language === 'tr' ? 'Düzyazı mı?' : 'Is this prose?'}
                   </button>
                 </div>
               </div>
@@ -364,7 +364,7 @@ export default function ImpossibleRhythm() {
                     onMouseEnter={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.12)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.05)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.3)'; }}
                   >
-                    {language === 'tr' ? '📄 Düzyazı mı?' : '📄 Is this prose?'}
+                    {language === 'tr' ? 'Düzyazı mı?' : 'Is this prose?'}
                   </button>
                 </div>
               </div>
@@ -397,7 +397,7 @@ export default function ImpossibleRhythm() {
                     onMouseEnter={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.12)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.05)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.3)'; }}
                   >
-                    {language === 'tr' ? '📜 Şiir mi?' : '📜 Is it poetry?'}
+                    {language === 'tr' ? 'Şiir mi?' : 'Is it poetry?'}
                   </button>
                 </div>
               </div>
@@ -421,9 +421,6 @@ export default function ImpossibleRhythm() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <p className="text-silver/60 text-sm font-body mb-4">
-                    {language === 'tr' ? 'O zaman nedir?' : 'What is it, then?'}
-                  </p>
                   <button
                     onClick={() => setDiscoveryStep(4)}
                     className="px-8 py-3 rounded-xl font-body text-sm font-semibold transition-all"
@@ -441,10 +438,10 @@ export default function ImpossibleRhythm() {
             {discoveryStep === 4 && (
               <div className="text-center">
                 <div className="mb-6 flex flex-col sm:flex-row gap-3 justify-center text-sm font-body">
-                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(231,76,60,0.1)', color: 'rgba(231,76,60,0.7)', border: '1px solid rgba(231,76,60,0.2)' }}>
+                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: 'rgba(148,163,184,0.6)', border: '1px solid rgba(148,163,184,0.2)' }}>
                     ✗ {language === 'tr' ? 'Şiir değil' : 'Not poetry'}
                   </span>
-                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(231,76,60,0.1)', color: 'rgba(231,76,60,0.7)', border: '1px solid rgba(231,76,60,0.2)' }}>
+                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: 'rgba(148,163,184,0.6)', border: '1px solid rgba(148,163,184,0.2)' }}>
                     ✗ {language === 'tr' ? 'Düzyazı değil' : 'Not prose'}
                   </span>
                 </div>
