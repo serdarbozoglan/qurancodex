@@ -356,7 +356,7 @@ export default function LinguisticDNA() {
                       {group.count}
                     </span>
                     <span className="text-silver/50 text-xs font-body">
-                      {language === 'tr' ? 'sure' : 'suras'}
+                      {language === 'tr' ? 'sûre' : 'suras'}
                     </span>
                   </div>
                 </div>
@@ -369,9 +369,9 @@ export default function LinguisticDNA() {
                   {language === 'tr' ? group.pattern : group.patternEn}
                 </p>
 
-                {/* Sura tags — max 4 visible, rest collapsed */}
+                {/* Sura tags — all visible when open, max 4 + overflow when closed */}
                 <div className="flex flex-wrap gap-1.5 mb-2">
-                  {group.suras.slice(0, 4).map((s, j) => (
+                  {(isOpen ? group.suras : group.suras.slice(0, 4)).map((s, j) => (
                     <span
                       key={j}
                       className="text-xs font-body px-2 py-0.5 rounded-full"
@@ -384,7 +384,7 @@ export default function LinguisticDNA() {
                       {s.num}. {s.name}
                     </span>
                   ))}
-                  {group.suras.length > 4 && (
+                  {!isOpen && group.suras.length > 4 && (
                     <span
                       className="text-xs font-body px-2 py-0.5 rounded-full"
                       style={{
