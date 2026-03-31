@@ -428,7 +428,7 @@ export default function LinguisticDNA() {
                         if (bullet.startsWith('→ not:') || bullet.startsWith('→ note:')) {
                           const text = bullet.replace(/^→ not(?:e)?:/, '').trim();
                           return (
-                            <li key={bi} className="font-body text-sm leading-relaxed text-silver/60 pl-3">
+                            <li key={bi} className="font-body text-base leading-relaxed text-silver/60 pl-3">
                               ✦ {text}
                             </li>
                           );
