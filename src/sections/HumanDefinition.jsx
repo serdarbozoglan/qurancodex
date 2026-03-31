@@ -611,7 +611,21 @@ export default function HumanDefinition() {
                 <p className="flex-1 text-off-white/85 text-sm font-body font-medium">
                   {lang === 'tr' ? trait.traitTr : trait.traitEn}
                 </p>
-                <span className="text-silver/30 text-xs flex-shrink-0">{trait.ref}</span>
+                <span
+                  className="flex-shrink-0 text-xs font-body"
+                  style={{
+                    color: openTrait === i ? '#d4a574' : 'rgba(148,163,184,0.55)',
+                    background: openTrait === i ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.04)',
+                    border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.25)' : 'rgba(255,255,255,0.08)'}`,
+                    borderRadius: '6px',
+                    padding: '2px 7px',
+                    letterSpacing: '0.02em',
+                    transition: 'all 0.2s',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {lang === 'tr' ? 'Mü\'minun ' : 'Al-Muʾminun '}{trait.ref}
+                </span>
                 <span className="text-silver/25 text-xs flex-shrink-0">
                   {openTrait === i ? '▲' : '▼'}
                 </span>
