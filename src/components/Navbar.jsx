@@ -16,6 +16,7 @@ const EsbabNuzul       = lazy(() => import('./EsbabNuzul'));
 const QuranCommands    = lazy(() => import('./QuranCommands'));
 const AddresseeSystem  = lazy(() => import('./AddresseeSystem'));
 const EsmaFrekans      = lazy(() => import('./EsmaFrekans'));
+const ZamanBoyutlari   = lazy(() => import('./ZamanBoyutlari'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -171,6 +172,7 @@ export default function Navbar() {
   const [commandsOpen,   setCommandsOpen]   = useState(false);
   const [addresseeOpen,  setAddresseeOpen]  = useState(false);
   const [esmaOpen,       setEsmaOpen]       = useState(false);
+  const [zamanOpen,      setZamanOpen]      = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -232,11 +234,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -269,10 +271,11 @@ export default function Navbar() {
       if (commandsOpen)   { setCommandsOpen(false);       return; }
       if (addresseeOpen)  { setAddresseeOpen(false);      return; }
       if (esmaOpen)       { setEsmaOpen(false);           return; }
+      if (zamanOpen)      { setZamanOpen(false);          return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -462,6 +465,17 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setEsmaOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Zamanın Boyutları', labelEn: 'Dimensions of Time',
+      descTr: "Kur'an'da zaman: kozmik ölçek, dil katmanı, felsefe", descEn: "Time in the Quran: cosmic scale, linguistic layer, philosophy",
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+      ),
+      action: () => { setZamanOpen(true); setToolsOpen(false); },
     },
   ];
 
@@ -661,9 +675,9 @@ export default function Navbar() {
                         </span>
                       </button>
                     );
-                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna
+                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları
                     const vizTools    = [tools[1], tools[2], tools[3], tools[6], tools[8]];
-                    const researchTools = [tools[0], tools[4], tools[5], tools[7], tools[11], tools[12]];
+                    const researchTools = [tools[0], tools[4], tools[5], tools[7], tools[11], tools[12], tools[13]];
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Left: Görselleştirme */}
@@ -952,6 +966,11 @@ export default function Navbar() {
     {esmaOpen && (
       <Suspense fallback={null}>
         <EsmaFrekans onClose={() => setEsmaOpen(false)} />
+      </Suspense>
+    )}
+    {zamanOpen && (
+      <Suspense fallback={null}>
+        <ZamanBoyutlari onClose={() => setZamanOpen(false)} />
       </Suspense>
     )}
     </>
