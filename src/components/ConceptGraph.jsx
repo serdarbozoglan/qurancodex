@@ -2,12 +2,13 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { surahNameTr } from '../utils/surahNames';
-import { COLORS, FONTS, OVERLAY_BASE } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN } from '../tokens';
 
 // ─── MODULE-LEVEL CACHE ───────────────────────────────────────────────────────
 let _versesCache = null;
 let _conceptsCache = null;
 let _groupsCache = null;
+let _conceptVerseMapCache = null; // precomputed concept→verseId sets
 
 // ─── ARABIC DISPLAY CLEANUP ──────────────────────────────────────────────────
 function cleanArabicForGraph(str) {
@@ -39,12 +40,15 @@ function verseMatchesConcept(verse, concept) {
 }
 
 // ─── GRAPH BUILDER — fixed radial layout, no simulation ──────────────────────
-function buildConceptGraph(verses, concepts, centralId, width, height) {
-  const conceptVerseMap = {};
-  concepts.forEach(c => {
-    const matched = verses.filter(v => verseMatchesConcept(v, c));
-    conceptVerseMap[c.id] = new Set(matched.map(v => v.id));
-  });
+function buildConceptGraph(verses, concepts, centralId, width, height, precomputedMap) {
+  const conceptVerseMap = precomputedMap || (() => {
+    const m = {};
+    concepts.forEach(c => {
+      const matched = verses.filter(v => verseMatchesConcept(v, c));
+      m[c.id] = new Set(matched.map(v => v.id));
+    });
+    return m;
+  })();
 
   const centralSet = conceptVerseMap[centralId] || new Set();
   const central = concepts.find(c => c.id === centralId);
@@ -127,15 +131,15 @@ function buildConceptGraph(verses, concepts, centralId, width, height) {
 }
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
-export default function ConceptGraph({ onClose }) {
+export default function ConceptGraph({ onClose, restore = null }) {
   const { language } = useLanguage();
-  const [view, setView] = useState('landing');
+  const [view, setView] = useState(restore?.centralConcept ? 'graph' : 'landing');
   const [loadingData, setLoadingData] = useState(true);
   const [buildingGraph, setBuildingGraph] = useState(false);
   const [searchInput, setSearchInput] = useState('');
-  const [centralConcept, setCentralConcept] = useState(null);
+  const [centralConcept, setCentralConcept] = useState(restore?.centralConcept ?? null);
   const [hoveredId, setHoveredId] = useState(null);
-  const [pinnedId, setPinnedId] = useState(null);
+  const [pinnedId, setPinnedId] = useState(restore?.pinnedId ?? null);
   const [versePageSize, setVersePageSize] = useState(15);
   const [verses, setVerses] = useState(_versesCache);
   const [concepts, setConcepts] = useState(_conceptsCache);
@@ -146,9 +150,9 @@ export default function ConceptGraph({ onClose }) {
   const svgRef = useRef(null);
   const searchRef = useRef(null);
 
-  // Load verse and concept data
+  // Load verse and concept data, then precompute concept-verse map in chunks
   useEffect(() => {
-    if (_versesCache && _conceptsCache) {
+    if (_versesCache && _conceptsCache && _conceptVerseMapCache) {
       setVerses(_versesCache); setConcepts(_conceptsCache); setGroups(_groupsCache); setLoadingData(false); return;
     }
     Promise.all([
@@ -156,9 +160,35 @@ export default function ConceptGraph({ onClose }) {
       fetch('/concept-graph.json').then(r => r.json()),
     ]).then(([versesData, cData]) => {
       _versesCache = versesData; _conceptsCache = cData.concepts; _groupsCache = cData.groups;
-      setVerses(versesData); setConcepts(cData.concepts); setGroups(cData.groups); setLoadingData(false);
+      setVerses(versesData); setConcepts(cData.concepts); setGroups(cData.groups);
+      // Precompute concept-verse map in chunks to avoid blocking the main thread
+      const concepts = cData.concepts;
+      const map = {};
+      let i = 0;
+      function processChunk() {
+        const end = Math.min(i + 8, concepts.length);
+        for (; i < end; i++) {
+          const c = concepts[i];
+          const matched = versesData.filter(v => verseMatchesConcept(v, c));
+          map[c.id] = new Set(matched.map(v => v.id));
+        }
+        if (i < concepts.length) {
+          setTimeout(processChunk, 0);
+        } else {
+          _conceptVerseMapCache = map;
+          setLoadingData(false);
+        }
+      }
+      setTimeout(processChunk, 0);
     }).catch(() => setLoadingData(false));
   }, []);
+
+  // Rebuild graph on mount when restoring a previous concept (e.g. returning from VerseGraph)
+  useEffect(() => {
+    if (!loadingData && restore?.centralConcept && !graphRef.current) {
+      openConcept(restore.centralConcept);
+    }
+  }, [loadingData]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Focus search on landing
   useEffect(() => {
@@ -192,7 +222,7 @@ export default function ConceptGraph({ onClose }) {
     setVersePageSize(15);
     const w = window.innerWidth - 420;
     const h = window.innerHeight - 60;
-    graphRef.current = buildConceptGraph(_versesCache, _conceptsCache, concept.id, w, h);
+    graphRef.current = buildConceptGraph(_versesCache, _conceptsCache, concept.id, w, h, _conceptVerseMapCache);
     setCentralConcept(concept); // always triggers re-render even if view is already 'graph'
     setView('graph');
   });
@@ -326,15 +356,9 @@ export default function ConceptGraph({ onClose }) {
         <div style={{ marginLeft: 'auto' }}>
           <button
             onClick={onClose}
-            style={{
-              width: '36px', height: '36px', borderRadius: '50%',
-              background: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: COLORS.silver, cursor: 'pointer', display: 'flex',
-              alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
-            }}
+            style={{ ...CLOSE_BTN }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.silver; }}
+            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M18 6L6 18M6 6l12 12" />
@@ -707,7 +731,11 @@ export default function ConceptGraph({ onClose }) {
                   onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent'; }}
                   onClick={() => {
                     window.dispatchEvent(new CustomEvent('openVerseGraph', {
-                      detail: { search: `${v.surah}:${v.ayah}`, returnToConcept: true },
+                      detail: {
+                        search: `${v.surah}:${v.ayah}`,
+                        returnToConcept: true,
+                        conceptRestore: { centralConcept, pinnedId },
+                      },
                     }));
                     onClose();
                   }}

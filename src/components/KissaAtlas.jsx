@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import { CLOSE_BTN } from '../tokens';
 
 // Surah names (Türkçe kısa)
 const SURAH_NAMES_TR = [
@@ -65,7 +66,15 @@ export default function KissaAtlas({ onClose }) {
   useEffect(() => {
     fetch('/kissa-atlas.json')
       .then(r => r.json())
-      .then(d => { setData(d); setLoading(false); })
+      .then(d => {
+        setData(d);
+        setLoading(false);
+        // Auto-select first scene of default prophet
+        const defaultProphet = d.prophets.find(p => p.id === 'musa');
+        if (defaultProphet?.scenes?.[0]) {
+          setSelectedSceneId(defaultProphet.scenes[0].id);
+        }
+      })
       .catch(() => setLoading(false));
   }, []);
 
@@ -75,10 +84,11 @@ export default function KissaAtlas({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Reset selections when switching prophet
+  // Reset selections when switching prophet, auto-select first scene
   const selectProphet = (id) => {
     setSelectedProphetId(id);
-    setSelectedSceneId(null);
+    const p = data?.prophets.find(x => x.id === id);
+    setSelectedSceneId(p?.scenes?.[0]?.id ?? null);
     setSelectedSurah(null);
   };
 
@@ -189,15 +199,9 @@ export default function KissaAtlas({ onClose }) {
 
         <button
           onClick={onClose}
-          style={{
-            width: '36px', height: '36px', borderRadius: '50%',
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.1)',
-            color: '#94a3b8', cursor: 'pointer',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
-          }}
+          style={{ ...CLOSE_BTN }}
           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#94a3b8'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M18 6L6 18M6 6l12 12" />
@@ -210,7 +214,7 @@ export default function KissaAtlas({ onClose }) {
 
         {/* ── LEFT: SCENE LIST ─────────────────────────────────────── */}
         <div style={{
-          width: '300px', flexShrink: 0,
+          width: '220px', flexShrink: 0,
           borderRight: '1px solid rgba(255,255,255,0.07)',
           display: 'flex', flexDirection: 'column',
           overflow: 'hidden',
@@ -275,11 +279,14 @@ export default function KissaAtlas({ onClose }) {
                   </span>
 
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <p style={{
-                      color: isActive ? prophet.color : '#cbd5e1',
-                      fontSize: '0.84rem', fontWeight: isActive ? 700 : 500,
-                      margin: '0 0 3px', lineHeight: 1.4,
-                    }}>
+                    <p
+                      title={language === 'tr' ? scene.titleTr : scene.titleEn}
+                      style={{
+                        color: isActive ? prophet.color : '#cbd5e1',
+                        fontSize: '0.84rem', fontWeight: isActive ? 700 : 500,
+                        margin: '0 0 3px', lineHeight: 1.4,
+                        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                      }}>
                       {language === 'tr' ? scene.titleTr : scene.titleEn}
                     </p>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
@@ -317,10 +324,10 @@ export default function KissaAtlas({ onClose }) {
                       : `Colored surahs contain ${prophet.nameEn}'s story. Select a scene or a surah tile.`)}
             </p>
 
-            {/* Grid: 10 columns */}
+            {/* Grid: 8 fixed columns, all equal size */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(52px, 1fr))',
+              gridTemplateColumns: 'repeat(8, 1fr)',
               gap: '5px',
             }}>
               {Array.from({ length: 114 }, (_, i) => {
@@ -329,16 +336,18 @@ export default function KissaAtlas({ onClose }) {
                 const isHighlighted = highlightedSurahs.has(num);
                 const isSelectedSurah = selectedSurah === num;
                 const scenesHere = isActive ? scenesForSurah(num) : [];
+                // Dim active-but-not-highlighted when a scene is selected
+                const isDimmed = selectedSceneId && isActive && !isHighlighted;
 
                 let bg, border, color, shadow;
                 if (isHighlighted) {
-                  bg = `${prophet.color}35`;
-                  border = `1.5px solid ${prophet.color}`;
-                  color = prophet.color;
-                  shadow = `0 0 10px ${prophet.color}40`;
+                  bg = 'rgba(201,169,110,0.15)';
+                  border = '2px solid #C9A96E';
+                  color = '#C9A96E';
+                  shadow = '0 0 10px rgba(201,169,110,0.25)';
                 } else if (isSelectedSurah) {
                   bg = `${prophet.color}20`;
-                  border = `1.5px solid ${prophet.color}60`;
+                  border = `2px solid ${prophet.color}80`;
                   color = prophet.color;
                   shadow = 'none';
                 } else if (isActive) {
@@ -361,47 +370,52 @@ export default function KissaAtlas({ onClose }) {
                       setSelectedSurah(isSelectedSurah ? null : num);
                       setSelectedSceneId(null);
                     }}
-                    animate={isHighlighted ? { scale: [1, 1.05, 1] } : { scale: 1 }}
-                    transition={{ duration: 0.4, repeat: isHighlighted ? Infinity : 0, repeatDelay: 1.5 }}
                     style={{
+                      position: 'relative',
                       padding: '6px 4px',
+                      minHeight: '44px',
                       background: bg,
                       border,
                       borderRadius: '7px',
                       cursor: isActive ? 'pointer' : 'default',
                       textAlign: 'center',
                       boxShadow: shadow,
-                      transition: 'background 0.2s, border-color 0.2s',
+                      opacity: isDimmed ? 0.35 : 1,
+                      transition: 'background 0.2s, border-color 0.2s, opacity 0.2s',
                       fontFamily: "'Inter', sans-serif",
                     }}
                     onMouseEnter={e => {
                       if (isActive && !isHighlighted) {
                         e.currentTarget.style.background = `${prophet.color}22`;
                         e.currentTarget.style.borderColor = `${prophet.color}55`;
+                        e.currentTarget.style.opacity = '1';
                       }
                     }}
                     onMouseLeave={e => {
                       if (isActive && !isHighlighted) {
                         e.currentTarget.style.background = isSelectedSurah ? `${prophet.color}20` : `${prophet.color}12`;
-                        e.currentTarget.style.borderColor = isSelectedSurah ? `${prophet.color}60` : `${prophet.color}30`;
+                        e.currentTarget.style.borderColor = isSelectedSurah ? `${prophet.color}80` : `${prophet.color}30`;
+                        e.currentTarget.style.opacity = isDimmed ? '0.35' : '1';
                       }
                     }}
                   >
+                    {/* Scene count badge — top-right corner */}
+                    {isActive && scenesHere.length > 0 && (
+                      <span style={{
+                        position: 'absolute', top: '2px', right: '3px',
+                        fontSize: '0.52rem',
+                        color: isHighlighted ? '#C9A96E' : `${prophet.color}70`,
+                        fontWeight: 700, lineHeight: 1,
+                      }}>
+                        {scenesHere.length}
+                      </span>
+                    )}
                     <span style={{ display: 'block', fontSize: '0.7rem', fontWeight: isHighlighted ? 700 : 500, color, lineHeight: 1.2 }}>
                       {num}
                     </span>
                     <span style={{ display: 'block', fontSize: '0.58rem', color: isActive ? `${prophet.color}80` : '#1e293b', lineHeight: 1.3, marginTop: '1px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {(language === 'tr' ? SURAH_NAMES_TR[num] : SURAH_NAMES_EN[num])?.slice(0, 6)}
                     </span>
-                    {isActive && scenesHere.length > 0 && (
-                      <span style={{
-                        display: 'block', fontSize: '0.55rem',
-                        color: isHighlighted ? prophet.color : `${prophet.color}60`,
-                        fontWeight: 700, marginTop: '2px',
-                      }}>
-                        {scenesHere.length}✦
-                      </span>
-                    )}
                   </motion.button>
                 );
               })}

@@ -775,7 +775,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
 }
 
 // ─── ClusterView — SVG bubble map ────────────────────────────────────────────
-function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, language, onClose, initialSearch = '' }) {
+function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, language, onClose, onOpenFullGraph, initialSearch = '', onSearchConsumed }) {
   const svgRef = useRef(null);
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 });
   const [hovered, setHovered] = useState(null);
@@ -785,6 +785,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
   const [viewMode, setViewMode] = useState('semantic'); // 'semantic' | 'classical'
   const [showClickHint, setShowClickHint] = useState(true);
   useEffect(() => { const t = setTimeout(() => setShowClickHint(false), 4000); return () => clearTimeout(t); }, []);
+
+  const autoSelectedRef = useRef(false);
 
   const clusterSearchResults = useMemo(() => {
     if (!verses || searchQuery.length < 2) return { direct: null, surahs: [], verses: [] };
@@ -813,6 +815,15 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
     }).slice(0, 6);
     return { direct, surahs, verses: verseList };
   }, [verses, searchQuery]);
+
+  // Auto-select direct verse when initialSearch is provided (e.g. from ConceptGraph)
+  useEffect(() => {
+    if (initialSearch && clusterSearchResults.direct && !autoSelectedRef.current) {
+      autoSelectedRef.current = true;
+      onSelectVerse(clusterSearchResults.direct);
+      onSearchConsumed?.();
+    }
+  }, [clusterSearchResults.direct, initialSearch, onSelectVerse, onSearchConsumed]);
 
   // Use pre-computed surah-level UMAP (from verse-graph connections) if available,
   // otherwise fall back to centroid of verse UMAP coordinates.
@@ -1073,11 +1084,24 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
 
         <SurahDropdown value={null} onChange={onSelectSurah} language={language} allowAll={false} />
 
+        {onOpenFullGraph && (
+          <button
+            onClick={onOpenFullGraph}
+            style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#d4a574', padding: '0 14px', fontSize: '0.78rem', cursor: 'pointer', height: '32px', boxSizing: 'border-box', whiteSpace: 'nowrap', flexShrink: 0 }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.18)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.2)'; }}
+          >
+            {language === 'tr' ? '🌐 Tüm Ayet Ağı' : '🌐 Full Verse Network'}
+          </button>
+        )}
+
         <button onClick={onClose}
-          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#64748b', padding: '0 14px', fontSize: '0.78rem', cursor: 'pointer', height: '32px', boxSizing: 'border-box' }}
+          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '50%', color: '#64748b', cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
           onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#64748b'; }}>
-          {language === 'tr' ? 'Kapat' : 'Close'}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
         </button>
       </div>
 
@@ -1645,7 +1669,7 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
             if (e.key === 'ArrowDown' && filteredAyahs.length > 0) { e.preventDefault(); go(filteredAyahs[0]); }
           }}
           style={{
-            width: '52px', background: 'none', border: 'none', outline: 'none',
+            width: '72px', background: 'none', border: 'none', outline: 'none',
             color: '#d4a574', fontSize: '0.82rem', padding: '0 8px 0 0',
             MozAppearance: 'textfield',
           }}
@@ -1680,7 +1704,7 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
   );
 }
 
-function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVerseId, onSurahChange }) {
+function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVerseId, onSurahChange, onClose }) {
   const graphRef = useRef(null);
   const initialFitDone = useRef(false);
   const [selected, setSelected] = useState(null);
@@ -1807,11 +1831,11 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
       {/* Header */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20,
-        display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 18px',
+        display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px',
         background: 'linear-gradient(to bottom, rgba(6,8,14,0.98) 60%, transparent)',
       }}>
         <button onClick={onBack}
-          style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.15)', borderRadius: '8px', color: '#94a3b8', padding: '6px 12px', fontSize: '0.8rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }}>
+          style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.15)', borderRadius: '8px', color: '#94a3b8', padding: '6px 10px', fontSize: '0.8rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px', flexShrink: 0 }}>
           ← {language === 'tr' ? 'Sûre Haritası' : 'Surahs'}
         </button>
 
@@ -1823,8 +1847,21 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
 
         <button onClick={onOpenFull3D}
           style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#d4a574', padding: '6px 12px', fontSize: '0.78rem', cursor: 'pointer' }}>
-          {language === 'tr' ? '🌐 Tam Harita' : '🌐 Full Map'}
+          {language === 'tr' ? '🌐 Tüm Ayet Ağı' : '🌐 Full Verse Network'}
         </button>
+
+        {onClose && (
+          <button
+            onClick={onClose}
+            style={{ background: 'none', border: 'none', color: '#94a3b8', padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
+            onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
+            onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        )}
       </div>
 
       {/* Auto-dismissing hint badge */}
@@ -1900,18 +1937,20 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
 }
 
 // ─── Full 3D view (all verses) ────────────────────────────────────────────────
-function FullGraph({ verses, onBack, language }) {
+function FullGraph({ verses, onBack, language, onClose }) {
   const graphRef = useRef(null);
   const initialFitDone = useRef(false);
   const controlsRef = useRef(null);
   const rotateTimerRef = useRef(null);
   const selectedRef = useRef(null);
+  const audioRef = useRef(null);
   const [selected, setSelected] = useState(null);
   const [hovered, setHovered] = useState(null);
   const [focusedNodeId, setFocusedNodeId] = useState(null);
   const [filterSurah, setFilterSurah] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [dim, setDim] = useState({ w: window.innerWidth, h: window.innerHeight });
+  const [muted, setMuted] = useState(false);
 
   const graphData = useMemo(() => {
     initialFitDone.current = false;
@@ -2025,6 +2064,29 @@ function FullGraph({ verses, onBack, language }) {
       graphRef.current?.renderer?.()?.domElement?._autoRotCleanup?.();
     };
   }, [verses]);
+
+  // Audio: auto-play tilawat when rotation starts, cleanup on unmount
+  useEffect(() => {
+    const audio = new Audio('/audio/alak-1-5.mp3');
+    audio.volume = 0.25;
+    audio.preload = 'auto';
+    audioRef.current = audio;
+
+    const playTimer = setTimeout(() => {
+      audio.play().catch(() => {}); // silently ignore browser autoplay block
+    }, 1500);
+
+    return () => {
+      clearTimeout(playTimer);
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
+  // Sync mute state to audio element
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.muted = muted;
+  }, [muted]);
 
   // filterSurah değişince selected/focused'ı temizle ve kamerayı node verilerinden hesapla
   useEffect(() => {
@@ -2245,6 +2307,19 @@ function FullGraph({ verses, onBack, language }) {
             </button>
           );
         })()}
+
+        {onClose && (
+          <button
+            onClick={onClose}
+            style={{ background: 'none', border: 'none', color: '#94a3b8', padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
+            onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
+            onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        )}
         </div>
       </div>
 
@@ -2312,26 +2387,58 @@ function FullGraph({ verses, onBack, language }) {
 
       <ZoomControls graphRef={graphRef} language={language} />
 
-      {/* Mekkî / Medenî legend */}
+      {/* Mekkî / Medenî legend + mute button */}
       <div style={{
         position: 'absolute', bottom: '24px', left: '20px', zIndex: 25,
-        display: 'flex', flexDirection: 'column', gap: '5px',
-        background: 'rgba(5,5,16,0.72)', backdropFilter: 'blur(8px)',
-        border: '1px solid rgba(255,255,255,0.07)', borderRadius: '8px',
-        padding: '8px 12px',
+        display: 'flex', alignItems: 'flex-end', gap: '8px',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#c9a227', flexShrink: 0 }} />
-          <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
-            {language === 'tr' ? 'Mekkî' : 'Meccan'}
-          </span>
+        <div style={{
+          display: 'flex', flexDirection: 'column', gap: '5px',
+          background: 'rgba(5,5,16,0.72)', backdropFilter: 'blur(8px)',
+          border: '1px solid rgba(255,255,255,0.07)', borderRadius: '8px',
+          padding: '8px 12px',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#c9a227', flexShrink: 0 }} />
+            <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
+              {language === 'tr' ? 'Mekkî' : 'Meccan'}
+            </span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2ecc71', flexShrink: 0 }} />
+            <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
+              {language === 'tr' ? 'Medenî' : 'Medinan'}
+            </span>
+          </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2ecc71', flexShrink: 0 }} />
-          <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
-            {language === 'tr' ? 'Medenî' : 'Medinan'}
-          </span>
-        </div>
+
+        {/* Mute / unmute tilawat */}
+        <button
+          onClick={() => setMuted(m => !m)}
+          title={muted ? (language === 'tr' ? 'Sesi aç' : 'Unmute') : (language === 'tr' ? 'Sesi kapat' : 'Mute')}
+          style={{
+            width: '34px', height: '34px',
+            background: 'rgba(5,5,16,0.72)', backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255,255,255,0.07)', borderRadius: '8px',
+            color: muted ? '#475569' : '#c9a227',
+            cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transition: 'all 0.15s', flexShrink: 0,
+          }}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(201,162,39,0.35)'; }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
+        >
+          {muted ? (
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" />
+            </svg>
+          ) : (
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+            </svg>
+          )}
+        </button>
       </div>
 
       {/* Focus mode badge */}
@@ -2366,6 +2473,7 @@ function FullGraph({ verses, onBack, language }) {
 export default function VerseGraph({ onClose, initialSearch = '', onRegisterBackHandler = null }) {
   const { language } = useLanguage();
   const [view, setView] = useState(() => localStorage.getItem('qurancodex_graph_view') || 'clusters');
+  const [pendingSearch, setPendingSearch] = useState(initialSearch);
   const [selectedSurah, setSelectedSurah] = useState(() => {
     const s = parseInt(localStorage.getItem('qurancodex_graph_surah'));
     return isNaN(s) ? null : s;
@@ -2419,11 +2527,12 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
     const h = (e) => {
       if (e.key !== 'Escape') return;
       if (view === 'clusters') onClose();
+      else if (initialSearch) onClose(); // came from external: skip ClusterView, go straight back
       else setView('clusters');
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, [onClose, view]);
+  }, [onClose, view, initialSearch]);
 
   // Register a back-button interceptor with Navbar when in surah detail view
   useEffect(() => {
@@ -2431,13 +2540,19 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
     if (view === 'verses') {
       onRegisterBackHandler(() => {
         setAutoFocusVerseId(null);
-        setView('clusters');
+        // If opened from external source (e.g. ConceptGraph via initialSearch),
+        // go directly back to caller instead of stopping at ClusterView
+        if (initialSearch) {
+          onClose();
+        } else {
+          setView('clusters');
+        }
       });
     } else {
       onRegisterBackHandler(null);
     }
     return () => { onRegisterBackHandler(null); };
-  }, [view, onRegisterBackHandler]);
+  }, [view, onRegisterBackHandler, initialSearch, onClose]);
 
   if (loading) return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
@@ -2460,7 +2575,9 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
       onSelectSurah={(surah) => { setSelectedSurah(surah); setAutoFocusVerseId(null); setView('verses'); }}
       onSelectVerse={(verse) => { setSelectedSurah(verse.surah); setAutoFocusVerseId(verse.id); setView('verses'); }}
       onClose={onClose}
-      initialSearch={initialSearch}
+      onOpenFullGraph={() => setView('3d')}
+      initialSearch={pendingSearch}
+      onSearchConsumed={() => setPendingSearch('')}
     />
   );
 
@@ -2472,6 +2589,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
       onBack={() => { setAutoFocusVerseId(null); setView('clusters'); }}
       onOpenFull3D={() => setView('3d')}
       onSurahChange={(n) => setSelectedSurah(n)}
+      onClose={onClose}
     />
   );
 
@@ -2479,6 +2597,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
     <FullGraph
       verses={verses} language={language}
       onBack={() => setView('clusters')}
+      onClose={onClose}
     />
   );
 }

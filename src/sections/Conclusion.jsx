@@ -56,26 +56,31 @@ export default function Conclusion() {
         surah={4} ayah={82}
       />
 
-      {/* CTA Buttons */}
+      {/* CTA Buttons — same visual system as Hero */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="flex flex-col sm:flex-row gap-3 mt-10"
+        className="flex flex-col sm:flex-row items-center gap-3 mt-10"
       >
-        <button
+        <motion.button
           onClick={handleScrollTop}
-          className="px-8 py-4 rounded-xl font-body font-semibold text-sm tracking-wide transition-all duration-300 border border-white/10 text-silver hover:text-off-white hover:border-white/25 hover:bg-white/5"
+          className="btn-ghost-dark px-10 py-3 text-gold font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
         >
           {t('conclusion.ctaExplore')}
-        </button>
-        <button
+        </motion.button>
+        <motion.button
           onClick={handleOpenReading}
-          className="px-8 py-4 rounded-xl font-body font-semibold text-sm tracking-wide transition-all duration-300 bg-gold/10 border border-gold/30 text-gold hover:bg-gold/20 hover:border-gold/50"
+          className="btn-primary-gold font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
+          style={{ padding: '12px 40px' }}
+          whileHover={{ scale: 1.05, boxShadow: '0 0 48px 12px rgba(180,130,40,0.5)' }}
+          whileTap={{ scale: 0.97 }}
         >
           {t('conclusion.ctaRead')}
-        </button>
+        </motion.button>
       </motion.div>
     </SectionWrapper>
   );

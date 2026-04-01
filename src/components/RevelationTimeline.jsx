@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { CLOSE_BTN } from '../tokens';
 
 const SURAH_NAMES_TR = [
   'El-Fatiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide',
@@ -111,12 +112,11 @@ export default function RevelationTimeline({ onClose }) {
           ))}
           <button
             onClick={onClose}
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '64px', height: '44px', borderRadius: '8px', cursor: 'pointer', border: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.05)', transition: 'all 0.15s', flexShrink: 0, gap: '2px' }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.querySelector('span:last-child').style.color = '#f87171'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)'; e.currentTarget.querySelector('span:last-child').style.color = 'rgba(255,255,255,0.90)'; }}
+            style={{ ...CLOSE_BTN }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
           >
-            <span style={{ fontSize: '0.55rem', color: 'rgba(200,185,165,0.72)', letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>{language === 'tr' ? 'Kapat' : 'Close'}</span>
-            <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.90)', fontWeight: 700, lineHeight: 1.2 }}>✕</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
           </button>
         </div>
       </div>

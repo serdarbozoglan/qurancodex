@@ -14,6 +14,7 @@ const KissaAtlas       = lazy(() => import('./KissaAtlas'));
 const SurahComparator  = lazy(() => import('./SurahComparator'));
 const EsbabNuzul       = lazy(() => import('./EsbabNuzul'));
 const QuranCommands    = lazy(() => import('./QuranCommands'));
+const AddresseeSystem  = lazy(() => import('./AddresseeSystem'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -150,8 +151,10 @@ export default function Navbar() {
     () => localStorage.getItem('qurancodex_graph_open') === 'true'
   );
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
-  const [graphReturnToWow, setGraphReturnToWow]   = useState(false);
+  const [graphReturnToWow, setGraphReturnToWow]         = useState(false);
+  const [graphReturnToConcept, setGraphReturnToConcept] = useState(false);
   const graphBackRef = useRef(null); // set by VerseGraph when it has internal back state
+  const conceptRestoreRef = useRef(null); // stores concept state to restore after VerseGraph closes
   const [readingOpen, setReadingOpen]   = useState(
     () => localStorage.getItem('qurancodex_reading_open') === 'true'
   );
@@ -165,6 +168,7 @@ export default function Navbar() {
   const [comparatorOpen, setComparatorOpen] = useState(false);
   const [esbabOpen,      setEsbabOpen]      = useState(false);
   const [commandsOpen,   setCommandsOpen]   = useState(false);
+  const [addresseeOpen,  setAddresseeOpen]  = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -196,6 +200,8 @@ export default function Navbar() {
     const handler = (e) => {
       setGraphInitialSearch(e.detail?.search || '');
       setGraphReturnToWow(e.detail?.returnToWow || false);
+      setGraphReturnToConcept(e.detail?.returnToConcept || false);
+      conceptRestoreRef.current = e.detail?.conceptRestore ?? null;
       setGraphOpen(true);
     };
     window.addEventListener('openVerseGraph', handler);
@@ -224,17 +230,17 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen]);
 
   useEffect(() => {
     const handlePop = () => {
       if (readingOpen)    { setReadingOpen(false);    return; }
       if (graphOpen) {
-        if (graphBackRef.current) {
+        if (graphBackRef.current && !graphReturnToConcept && !graphReturnToWow) {
           graphBackRef.current();                          // VerseGraph handles internally
           window.history.pushState({ overlay: true }, ''); // restore history entry for graph
         } else {
@@ -242,6 +248,9 @@ export default function Navbar() {
           if (graphReturnToWow) {
             setGraphReturnToWow(false);
             setWowOpen(true);
+          } else if (graphReturnToConcept) {
+            setGraphReturnToConcept(false);
+            setConceptOpen(true);
           }
         }
         return;
@@ -256,10 +265,11 @@ export default function Navbar() {
       if (comparatorOpen) { setComparatorOpen(false);    return; }
       if (esbabOpen)      { setEsbabOpen(false);          return; }
       if (commandsOpen)   { setCommandsOpen(false);       return; }
+      if (addresseeOpen)  { setAddresseeOpen(false);      return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -425,6 +435,19 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setDuaOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Muhatap Sistemi', labelEn: 'Addressee System',
+      descTr: '"Ey iman edenler", "Ey insanlar" — kim, ne zaman?', descEn: 'Who is addressed, when, and how?',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      ),
+      action: () => { setAddresseeOpen(true); setToolsOpen(false); },
     },
   ];
 
@@ -624,9 +647,9 @@ export default function Navbar() {
                         </span>
                       </button>
                     );
-                    // tools: [0]Kur'an'ı Tanı [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Dua
+                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap
                     const vizTools    = [tools[1], tools[2], tools[3], tools[6], tools[8]];
-                    const researchTools = [tools[0], tools[4], tools[5], tools[7]];
+                    const researchTools = [tools[0], tools[4], tools[5], tools[7], tools[11]];
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Left: Görselleştirme */}
@@ -655,31 +678,31 @@ export default function Navbar() {
         {/* Right: Oku + Language + Mobile */}
         <div className="flex items-center gap-3">
 
-          {/* Oku — ghost CTA */}
+          {/* Oku — CTA (filled tint, distinct from EN utility button) */}
           <button
             onClick={() => setReadingOpen(true)}
             className="hidden lg:flex items-center transition-all duration-200"
             style={{
-              background: 'transparent',
-              border: '1px solid rgba(201,162,39,0.55)',
+              background: 'rgba(201,169,110,0.1)',
+              border: '1px solid rgba(201,169,110,0.55)',
               borderRadius: '6px',
-              color: '#c9a227',
+              color: '#d4a96e',
               fontFamily: "'Inter', sans-serif",
               fontSize: '0.78rem',
-              fontWeight: 600,
+              fontWeight: 700,
               letterSpacing: '0.07em',
-              height: '30px',
-              padding: '0 16px',
+              padding: '7px 18px',
+              height: '32px',
               cursor: 'pointer',
               transition: 'all 0.15s',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.background = 'rgba(201,162,39,0.1)';
-              e.currentTarget.style.borderColor = 'rgba(201,162,39,0.85)';
+              e.currentTarget.style.background = 'rgba(201,169,110,0.2)';
+              e.currentTarget.style.borderColor = 'rgba(201,169,110,0.9)';
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.borderColor = 'rgba(201,162,39,0.55)';
+              e.currentTarget.style.background = 'rgba(201,169,110,0.1)';
+              e.currentTarget.style.borderColor = 'rgba(201,169,110,0.55)';
             }}
           >
             {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
@@ -690,21 +713,21 @@ export default function Navbar() {
             onClick={toggleLanguage}
             aria-label={`Switch to ${language === 'tr' ? 'English' : 'Turkish'}`}
             style={{
-              padding: '0 12px',
-              height: '36px',
+              padding: '8px 14px',
+              height: '32px',
               borderRadius: '6px',
-              border: '1px solid rgba(212,165,116,0.35)',
+              border: '1px solid rgba(201,169,110,0.5)',
               background: 'transparent',
-              color: '#d4a574',
+              color: '#c9a96e',
               fontFamily: "'Inter', sans-serif",
-              fontSize: '0.8rem',
+              fontSize: '0.78rem',
               fontWeight: 600,
               letterSpacing: '0.08em',
               cursor: 'pointer',
               transition: 'all 0.15s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(212,165,116,0.7)'; e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; e.currentTarget.style.background = 'transparent'; }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(201,169,110,0.85)'; e.currentTarget.style.background = 'rgba(201,169,110,0.1)'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,169,110,0.5)'; e.currentTarget.style.background = 'transparent'; }}
           >
             {language === 'tr' ? 'EN' : 'TR'}
           </button>
@@ -814,6 +837,9 @@ export default function Navbar() {
             if (graphReturnToWow) {
               setGraphReturnToWow(false);
               setWowOpen(true);
+            } else if (graphReturnToConcept) {
+              setGraphReturnToConcept(false);
+              setConceptOpen(true);
             }
           }}
           initialSearch={graphInitialSearch}
@@ -875,7 +901,10 @@ export default function Navbar() {
     )}
     {conceptOpen && (
       <Suspense fallback={null}>
-        <ConceptGraph onClose={() => setConceptOpen(false)} />
+        <ConceptGraph
+          onClose={() => { setConceptOpen(false); conceptRestoreRef.current = null; }}
+          restore={conceptRestoreRef.current}
+        />
       </Suspense>
     )}
     {kissaOpen && (
@@ -896,6 +925,11 @@ export default function Navbar() {
     {commandsOpen && (
       <Suspense fallback={null}>
         <QuranCommands onClose={() => setCommandsOpen(false)} />
+      </Suspense>
+    )}
+    {addresseeOpen && (
+      <Suspense fallback={null}>
+        <AddresseeSystem onClose={() => setAddresseeOpen(false)} />
       </Suspense>
     )}
     </>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import { CLOSE_BTN } from '../tokens';
 
 const CATEGORY_META = {
   vahiy:     { tr: 'Vahiy',     en: 'Revelation',  color: '#d4a574', bg: 'rgba(212,165,116,0.15)' },
@@ -170,12 +171,9 @@ export default function EsbabNuzul({ onClose }) {
           )}
           <button
             onClick={onClose}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              width: '36px', height: '36px', borderRadius: '50%',
-              background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
-              color: '#94a3b8', cursor: 'pointer',
-            }}
+            style={{ ...CLOSE_BTN }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
             aria-label="Close"
           >
             <CloseIcon />
