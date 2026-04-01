@@ -707,7 +707,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
         <span style={{ position: 'absolute', right: '8px', top: '50%', transform: `translateY(-50%) rotate(${open ? 180 : 0}deg)`, transition: 'transform 0.15s', color: '#64748b', fontSize: '0.62rem', pointerEvents: 'none' }}>▾</span>
       </button>
       {open && (
-        <div style={{ position: 'absolute', top: 'calc(100% + 4px)', left: 0, background: '#07091a', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px', zIndex: 200, boxShadow: '0 12px 40px rgba(0,0,0,0.95)', overflow: 'hidden', width: '260px', maxWidth: 'calc(100vw - 24px)', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ position: 'absolute', top: 'calc(100% + 4px)', right: 0, left: 'auto', background: '#07091a', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px', zIndex: 200, boxShadow: '0 12px 40px rgba(0,0,0,0.95)', overflow: 'hidden', width: '260px', maxWidth: 'calc(100vw - 24px)', display: 'flex', flexDirection: 'column' }}>
           {/* Search input */}
           <div style={{ padding: '8px 10px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
             <input
@@ -1009,8 +1009,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           </span>
         </div>
 
-        {/* Search — row 2 on mobile (order 3), inline on desktop */}
-        <div style={{ position: 'relative', flex: '1 1 160px', order: 3, minWidth: 0 }}>
+        {/* Search — spans full width on mobile below title/close row */}
+        <div style={{ position: 'relative', flex: '1 1 200px', order: 3, minWidth: 0 }}>
           <input
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
@@ -1033,7 +1033,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
               position: 'absolute', top: '100%', left: 0, right: 0, marginTop: '4px',
               background: '#0d1128', border: '1px solid rgba(212,165,116,0.15)',
               borderRadius: '8px', overflow: 'hidden', zIndex: 30,
-              boxShadow: '0 8px 32px rgba(0,0,0,0.6)', minWidth: '280px',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.6)', boxSizing: 'border-box',
             }}>
               {clusterSearchResults.direct && (() => {
                 const v = clusterSearchResults.direct;
