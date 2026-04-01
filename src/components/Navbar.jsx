@@ -20,6 +20,7 @@ const ZamanBoyutlari   = lazy(() => import('./ZamanBoyutlari'));
 const KuranYeminleri   = lazy(() => import('./KuranYeminleri'));
 const DogaAtlasi       = lazy(() => import('./DogaAtlasi'));
 const KavimlerAtlasi   = lazy(() => import('./KavimlerAtlasi'));
+const CennetCehennem   = lazy(() => import('./CennetCehennem'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -179,6 +180,7 @@ export default function Navbar() {
   const [yeminlerOpen,   setYeminlerOpen]   = useState(false);
   const [dogaOpen,       setDogaOpen]       = useState(false);
   const [kavimlerOpen,   setKavimlerOpen]   = useState(false);
+  const [cennetOpen,     setCennetOpen]     = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -240,11 +242,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -281,10 +283,11 @@ export default function Navbar() {
       if (yeminlerOpen)   { setYeminlerOpen(false);        return; }
       if (dogaOpen)       { setDogaOpen(false);            return; }
       if (kavimlerOpen)   { setKavimlerOpen(false);        return; }
+      if (cennetOpen)     { setCennetOpen(false);          return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -696,7 +699,38 @@ export default function Navbar() {
                       </button>
                     );
 
-                    // Doğa Atlası — new overlay button for Evreni col
+                    // Cennet & Cehennem — overlay button for Evreni col
+                    const cennetBtn = (
+                      <button
+                        key="cennet"
+                        onClick={() => { setCennetOpen(true); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                          </svg>
+                        </span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? 'Cennet & Cehennem' : 'Paradise & Hell'}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? "8 cennet ismi, 7 cehennem ismi, A'râf" : "8 names, 7 names, the A'râf boundary"}
+                          </span>
+                        </span>
+                      </button>
+                    );
+
+                    // Kevni Ayetler — new overlay button for Evreni col
                     const dogaBtn = (
                       <button
                         key="doga"
@@ -718,7 +752,7 @@ export default function Navbar() {
                         </span>
                         <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
                           <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? 'Doğa Atlası' : 'Nature Atlas'}
+                            {language === 'tr' ? 'Kevni Ayetler' : 'Cosmic Signs'}
                           </span>
                           <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                             {language === 'tr' ? "Kur'an'daki canlılar, bitkiler ve ekosistem" : "Creatures, plants & ecosystems in the Quran"}
@@ -758,6 +792,7 @@ export default function Navbar() {
                           {scienceSec && secBtn(scienceSec)}
                           {zamanBtn}
                           {dogaBtn}
+                          {cennetBtn}
                         </div>
                       </div>
                     );
@@ -1151,6 +1186,11 @@ export default function Navbar() {
     {kavimlerOpen && (
       <Suspense fallback={null}>
         <KavimlerAtlasi onClose={() => setKavimlerOpen(false)} />
+      </Suspense>
+    )}
+    {cennetOpen && (
+      <Suspense fallback={null}>
+        <CennetCehennem onClose={() => setCennetOpen(false)} />
       </Suspense>
     )}
     </>
