@@ -1,50 +1,28 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import { surahNameTr } from '../utils/surahNames';
+import { COLORS, FONTS, OVERLAY_BASE } from '../tokens';
 
 // ─── MODULE-LEVEL CACHE ───────────────────────────────────────────────────────
-let cachedVerses = null;
+let _versesCache = null;
+let _conceptsCache = null;
+let _groupsCache = null;
 
-// ─── CONCEPT DEFINITIONS ─────────────────────────────────────────────────────
-const CONCEPTS = [
-  { id: 'iman',     tr: 'İman',      en: 'Faith',          ar: 'إيمان', color: '#d4a574', group: 'core',   keywords: ['iman', 'inananlar', 'müminler', 'inanmak', 'inandı'] },
-  { id: 'takva',    tr: 'Takva',     en: 'God-Awareness',  ar: 'تقوى',  color: '#c9a227', group: 'core',   keywords: ['takva', 'müttaki', 'sakının', 'sakınmak', 'itteka'] },
-  { id: 'tevhid',   tr: 'Tevhid',    en: 'Monotheism',     ar: 'توحيد', color: '#fbbf24', group: 'core',   keywords: ['tek ilah', 'birdir', 'ortakları yok', 'ortak koşmayın', 'eşi yoktur'] },
-  { id: 'sabir',    tr: 'Sabır',     en: 'Patience',       ar: 'صبر',   color: '#a78bfa', group: 'virtue', keywords: ['sabret', 'sabreden', 'sabredin', 'sabredenler', 'sabır'] },
-  { id: 'sukur',    tr: 'Şükür',     en: 'Gratitude',      ar: 'شكر',   color: '#6366f1', group: 'virtue', keywords: ['şükredin', 'şükret', 'şükreden', 'nankörlük', 'şükür'] },
-  { id: 'ihsan',    tr: 'İhsan',     en: 'Excellence',     ar: 'إحسان', color: '#86efac', group: 'virtue', keywords: ['ihsan', 'iyilik edenler', 'güzel davranın', 'muhsinler'] },
-  { id: 'tevekkul', tr: 'Tevekkül',  en: 'Trust in God',   ar: 'توكل',  color: '#34d399', group: 'virtue', keywords: ['tevekkül', 'tevekkele', 'güvenen', 'dayanan'] },
-  { id: 'tevbe',    tr: 'Tevbe',     en: 'Repentance',     ar: 'توبة',  color: '#4ade80', group: 'virtue', keywords: ['tevbe', 'tövbe', 'tövbelerini', 'bağışla', 'günahları affet'] },
-  { id: 'adalet',   tr: 'Adalet',    en: 'Justice',        ar: 'عدل',   color: '#38bdf8', group: 'social', keywords: ['adalet', 'adaletle', 'adaletli', 'haksızlık etmeyiz'] },
-  { id: 'infak',    tr: 'İnfak',     en: 'Giving',         ar: 'إنفاق', color: '#7dd3fc', group: 'social', keywords: ['infak', 'sadaka', 'verin', 'harcayın', 'ihtiyaç sahipleri'] },
-  { id: 'dua',      tr: 'Dua',       en: 'Supplication',   ar: 'دعاء',  color: '#f472b6', group: 'worship', keywords: ['dua edin', 'dua etti', 'rabbimiz', 'ya rabbi', 'yalvar'] },
-  { id: 'zikir',    tr: 'Zikir',     en: 'Remembrance',    ar: 'ذكر',   color: '#ec4899', group: 'worship', keywords: ['zikredin', 'anın', 'zikret', 'hatırlayın', 'aklınızda'] },
-  { id: 'namaz',    tr: 'Namaz',     en: 'Prayer',         ar: 'صلاة',  color: '#fb923c', group: 'worship', keywords: ['namaz', 'salat', 'namaz kılın', 'secde edin', 'rükûa gidin'] },
-  { id: 'rahmet',   tr: 'Rahmet',    en: 'Mercy',          ar: 'رحمة',  color: '#60a5fa', group: 'divine',  keywords: ['rahmet', 'merhametli', 'rahman', 'merhamet', 'rahim'] },
-  { id: 'hidayet',  tr: 'Hidayet',   en: 'Guidance',       ar: 'هداية', color: '#818cf8', group: 'divine',  keywords: ['hidayet', 'doğru yola', 'yol göster', 'hidayete erdir', 'doğru yol'] },
-  { id: 'ilim',     tr: 'İlim',      en: 'Knowledge',      ar: 'علم',   color: '#c084fc', group: 'mind',   keywords: ['ilim', 'bilenler', 'bilmeyenler', 'bilgi', 'bilen'] },
-  { id: 'hikmet',   tr: 'Hikmet',    en: 'Wisdom',         ar: 'حكمة',  color: '#e879f9', group: 'mind',   keywords: ['hikmet', 'hikmetli', 'hâkim', 'akıllılar', 'düşünenler'] },
-  { id: 'nefis',    tr: 'Nefis',     en: 'The Self',       ar: 'نفس',   color: '#f87171', group: 'inner',  keywords: ['nefis', 'nefs', 'her nefis', 'can', 'ruhları'] },
-  { id: 'kalp',     tr: 'Kalp',      en: 'Heart',          ar: 'قلب',   color: '#fb7185', group: 'inner',  keywords: ['kalpler', 'kalp', 'gönüller', 'gönül', 'yürekler'] },
-  { id: 'ahiret',   tr: 'Âhiret',    en: 'Hereafter',      ar: 'آخرة',  color: '#94a3b8', group: 'eschato', keywords: ['âhiret', 'kıyamet', 'hesap günü', 'o gün', 'mahşer'] },
-  { id: 'cennet',   tr: 'Cennet',    en: 'Paradise',       ar: 'جنة',   color: '#bbf7d0', group: 'eschato', keywords: ['cennet', 'altından ırmaklar', 'bahçeler', 'cennete girecek'] },
-  { id: 'cehennem', tr: 'Cehennem',  en: 'Hell',           ar: 'جهنم',  color: '#fca5a5', group: 'eschato', keywords: ['cehennem', 'ateşe atılacak', 'cehenneme', 'azap görecekler'] },
-  { id: 'kibir',    tr: 'Kibir',     en: 'Arrogance',      ar: 'كبر',   color: '#fda4af', group: 'vice',   keywords: ['kibir', 'büyüklük taslayan', 'büyüklenenler', 'kibirlenenler'] },
-  { id: 'zulm',     tr: 'Zulüm',     en: 'Oppression',     ar: 'ظلم',   color: '#ef4444', group: 'vice',   keywords: ['zalimler', 'haksızlık', 'zulmetme', 'zulmeden'] },
-  { id: 'nifak',    tr: 'Nifak',     en: 'Hypocrisy',      ar: 'نفاق',  color: '#f97316', group: 'vice',   keywords: ['münafıklar', 'münafık', 'iki yüzlü'] },
-];
-
-const GROUP_LABELS = {
-  core:    { tr: 'Temel', en: 'Core' },
-  virtue:  { tr: 'Erdem', en: 'Virtue' },
-  worship: { tr: 'İbadet', en: 'Worship' },
-  divine:  { tr: 'İlahi', en: 'Divine' },
-  social:  { tr: 'Toplumsal', en: 'Social' },
-  mind:    { tr: 'Akıl', en: 'Mind' },
-  inner:   { tr: 'İç Dünya', en: 'Inner' },
-  eschato: { tr: 'Âhiret', en: 'Hereafter' },
-  vice:    { tr: 'Kötülük', en: 'Vice' },
-};
+// ─── ARABIC DISPLAY CLEANUP ──────────────────────────────────────────────────
+function cleanArabicForGraph(str) {
+  if (!str) return str;
+  return str
+    .replace(/\u06EA/g, '\u0650')
+    .replace(/\u0671/g, '\u0627')
+    .replace(/\u06CC/g, '\u064A')
+    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
+    .replace(/[\u0600-\u0605]/g, '')
+    .replace(/[\u06DD\u06DE\u06E9]/g, '')
+    .replace(/\u06E6/g, ' ')
+    .replace(/[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '')
+    .replace(/[\uFD3E\uFD3F]/g, '');
+}
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 function normalizeTr(str) {
@@ -60,19 +38,19 @@ function verseMatchesConcept(verse, concept) {
   return concept.keywords.some(kw => text.includes(normalizeTr(kw)));
 }
 
-// ─── GRAPH BUILDER ────────────────────────────────────────────────────────────
-function buildConceptGraph(verses, centralId, width, height) {
+// ─── GRAPH BUILDER — fixed radial layout, no simulation ──────────────────────
+function buildConceptGraph(verses, concepts, centralId, width, height) {
   const conceptVerseMap = {};
-  CONCEPTS.forEach(c => {
+  concepts.forEach(c => {
     const matched = verses.filter(v => verseMatchesConcept(v, c));
     conceptVerseMap[c.id] = new Set(matched.map(v => v.id));
   });
 
   const centralSet = conceptVerseMap[centralId] || new Set();
-  const central = CONCEPTS.find(c => c.id === centralId);
+  const central = concepts.find(c => c.id === centralId);
 
   const connections = [];
-  CONCEPTS.forEach(c => {
+  concepts.forEach(c => {
     if (c.id === centralId) return;
     const otherSet = conceptVerseMap[c.id];
     let shared = 0;
@@ -84,36 +62,38 @@ function buildConceptGraph(verses, centralId, width, height) {
   });
 
   connections.sort((a, b) => b.weight - a.weight);
-  const topConns = connections.slice(0, 13);
+  const topConns = connections.slice(0, 12);
 
   const cx = width / 2;
   const cy = height / 2;
-  const R = Math.min(width, height) * 0.28;
+  // Radius scales with available space — leave padding for node diameter + label
+  const R = Math.min(width * 0.42, height * 0.42, 260);
 
   const nodes = [
     {
       id: centralId,
       concept: central,
       isCentral: true,
-      x: cx, y: cy, vx: 0, vy: 0,
-      radius: 38,
+      x: cx, y: cy,
+      radius: 42,
       verseCount: centralSet.size,
-      verseIds: [...centralSet].slice(0, 12),
+      verseIds: [...centralSet],
       color: central.color,
     },
     ...topConns.map((conn, i) => {
+      // Evenly spaced around circle, starting from top (-π/2)
       const angle = (i / topConns.length) * 2 * Math.PI - Math.PI / 2;
-      const r = R + (Math.random() - 0.5) * 40;
+      // Node radius based on shared verse count with center (not total)
+      const r = Math.max(18, Math.min(34, 12 + Math.sqrt(conn.shared) * 2.4));
       return {
         id: conn.concept.id,
         concept: conn.concept,
         isCentral: false,
-        x: cx + Math.cos(angle) * r,
-        y: cy + Math.sin(angle) * r,
-        vx: 0, vy: 0,
-        radius: Math.max(16, Math.min(30, 10 + Math.sqrt(conn.totalCount) * 1.4)),
+        x: cx + Math.cos(angle) * R,
+        y: cy + Math.sin(angle) * R,
+        radius: r,
         verseCount: conn.totalCount,
-        verseIds: [...conceptVerseMap[conn.concept.id]].slice(0, 12),
+        verseIds: [...conceptVerseMap[conn.concept.id]],
         weight: conn.weight,
         shared: conn.shared,
         color: conn.concept.color,
@@ -128,7 +108,7 @@ function buildConceptGraph(verses, centralId, width, height) {
     shared: conn.shared,
   }));
 
-  // Secondary edges between related nodes
+  // Secondary edges between satellite nodes
   for (let i = 1; i < nodes.length; i++) {
     for (let j = i + 1; j < nodes.length; j++) {
       const setI = conceptVerseMap[nodes[i].id];
@@ -137,71 +117,13 @@ function buildConceptGraph(verses, centralId, width, height) {
       let shared = 0;
       setI.forEach(id => { if (setJ.has(id)) shared++; });
       const w = shared / (Math.min(setI.size, setJ.size) || 1);
-      if (w > 0.12 && shared >= 4) {
-        edges.push({ source: i, target: j, weight: w * 0.45, shared, isSecondary: true });
+      if (w > 0.15 && shared >= 5) {
+        edges.push({ source: i, target: j, weight: w * 0.4, shared, isSecondary: true });
       }
     }
   }
 
   return { nodes, edges };
-}
-
-// ─── FORCE SIMULATION ────────────────────────────────────────────────────────
-function simStep(nodes, edges, alpha, width, height) {
-  const cx = width / 2;
-  const cy = height / 2;
-
-  // Center gravity
-  const grav = 0.04 * alpha;
-  for (const n of nodes) {
-    if (n.isCentral) continue;
-    n.vx += (cx - n.x) * grav;
-    n.vy += (cy - n.y) * grav;
-  }
-
-  // Repulsion
-  const repK = 5500 * alpha;
-  for (let i = 0; i < nodes.length; i++) {
-    for (let j = i + 1; j < nodes.length; j++) {
-      const dx = nodes[j].x - nodes[i].x;
-      const dy = nodes[j].y - nodes[i].y;
-      const d = Math.sqrt(dx * dx + dy * dy) || 1;
-      const f = repK / (d * d);
-      const fx = (dx / d) * f;
-      const fy = (dy / d) * f;
-      if (!nodes[i].isCentral) { nodes[i].vx -= fx; nodes[i].vy -= fy; }
-      if (!nodes[j].isCentral) { nodes[j].vx += fx; nodes[j].vy += fy; }
-    }
-  }
-
-  // Springs
-  const springK = 0.35 * alpha;
-  const restLen = 210;
-  for (const e of edges) {
-    const src = nodes[e.source];
-    const tgt = nodes[e.target];
-    const dx = tgt.x - src.x;
-    const dy = tgt.y - src.y;
-    const d = Math.sqrt(dx * dx + dy * dy) || 1;
-    const target = restLen * (1 - e.weight * 0.35);
-    const stretch = ((d - target) / d) * springK;
-    const fx = dx * stretch;
-    const fy = dy * stretch;
-    if (!src.isCentral) { src.vx += fx; src.vy += fy; }
-    if (!tgt.isCentral) { tgt.vx -= fx; tgt.vy -= fy; }
-  }
-
-  // Update
-  const pad = 60;
-  for (const n of nodes) {
-    if (n.isCentral) continue;
-    n.vx *= 0.82;
-    n.vy *= 0.82;
-    n.x += n.vx;
-    n.y += n.vy;
-    n.x = Math.max(n.radius + pad, Math.min(width - n.radius - pad, n.x));
-    n.y = Math.max(n.radius + pad, Math.min(height - n.radius - pad, n.y));
-  }
 }
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
@@ -212,25 +134,30 @@ export default function ConceptGraph({ onClose }) {
   const [buildingGraph, setBuildingGraph] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [centralConcept, setCentralConcept] = useState(null);
-  const [tick, setTick] = useState(0);
   const [hoveredId, setHoveredId] = useState(null);
   const [pinnedId, setPinnedId] = useState(null);
+  const [versePageSize, setVersePageSize] = useState(15);
+  const [verses, setVerses] = useState(_versesCache);
+  const [concepts, setConcepts] = useState(_conceptsCache);
+  const [groups, setGroups] = useState(_groupsCache);
 
   const graphRef = useRef(null);
-  const alphaRef = useRef(1);
-  const rafRef = useRef(null);
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const searchRef = useRef(null);
-  const simActiveRef = useRef(false);
 
-  // Load verse data
+  // Load verse and concept data
   useEffect(() => {
-    if (cachedVerses) { setLoadingData(false); return; }
-    fetch('/verse-graph.json')
-      .then(r => r.json())
-      .then(data => { cachedVerses = data; setLoadingData(false); })
-      .catch(() => setLoadingData(false));
+    if (_versesCache && _conceptsCache) {
+      setVerses(_versesCache); setConcepts(_conceptsCache); setGroups(_groupsCache); setLoadingData(false); return;
+    }
+    Promise.all([
+      fetch('/verse-graph.json').then(r => r.json()),
+      fetch('/concept-graph.json').then(r => r.json()),
+    ]).then(([versesData, cData]) => {
+      _versesCache = versesData; _conceptsCache = cData.concepts; _groupsCache = cData.groups;
+      setVerses(versesData); setConcepts(cData.concepts); setGroups(cData.groups); setLoadingData(false);
+    }).catch(() => setLoadingData(false));
   }, []);
 
   // Focus search on landing
@@ -251,68 +178,55 @@ export default function ConceptGraph({ onClose }) {
   }, [view, onClose]);
 
   const backToLanding = useCallback(() => {
-    simActiveRef.current = false;
-    cancelAnimationFrame(rafRef.current);
     setView('landing');
     setCentralConcept(null);
     setHoveredId(null);
     setPinnedId(null);
     graphRef.current = null;
-    alphaRef.current = 1;
   }, []);
 
   const openConcept = useCallback((concept) => {
-    if (!cachedVerses) return;
-    setBuildingGraph(true);
+    if (!_versesCache || !_conceptsCache) return;
     setPinnedId(null);
     setHoveredId(null);
-    setTimeout(() => {
-      const container = containerRef.current;
-      const w = container?.clientWidth || 720;
-      const h = container?.clientHeight || 540;
-      graphRef.current = buildConceptGraph(cachedVerses, concept.id, w, h);
-      alphaRef.current = 1;
-      simActiveRef.current = true;
-      setCentralConcept(concept);
-      setView('graph');
-      setBuildingGraph(false);
-    }, 60);
-  }, []);
-
-  // Simulation loop
-  useEffect(() => {
-    if (view !== 'graph' || !graphRef.current) return;
-    const container = containerRef.current;
-    const w = container?.clientWidth || 720;
-    const h = container?.clientHeight || 540;
-
-    const loop = () => {
-      if (!simActiveRef.current || alphaRef.current < 0.003) return;
-      simStep(graphRef.current.nodes, graphRef.current.edges, alphaRef.current, w, h);
-      alphaRef.current *= 0.975;
-      setTick(t => t + 1);
-      rafRef.current = requestAnimationFrame(loop);
-    };
-    rafRef.current = requestAnimationFrame(loop);
-    return () => { simActiveRef.current = false; cancelAnimationFrame(rafRef.current); };
-  }, [view, centralConcept]);
+    setVersePageSize(15);
+    const w = window.innerWidth - 420;
+    const h = window.innerHeight - 60;
+    graphRef.current = buildConceptGraph(_versesCache, _conceptsCache, concept.id, w, h);
+    setCentralConcept(concept); // always triggers re-render even if view is already 'graph'
+    setView('graph');
+  });
 
   // Focused node (hovered or pinned)
   const focusedId = hoveredId || pinnedId;
+  const prevFocusedIdRef = useRef(null);
   const focusedNode = graphRef.current?.nodes.find(n => n.id === focusedId)
     || graphRef.current?.nodes[0]; // default: central
 
-  const focusedVerses = focusedNode && cachedVerses
-    ? focusedNode.verseIds.map(id => cachedVerses.find(v => v.id === id)).filter(Boolean)
-    : [];
+  // Reset pageSize when focused node changes
+  if (focusedNode?.id !== prevFocusedIdRef.current) {
+    prevFocusedIdRef.current = focusedNode?.id ?? null;
+    // Use a ref-based approach to avoid setState during render
+  }
+
+  const allFocusedVerses = useMemo(() => {
+    if (!verses || !graphRef.current) return [];
+    const node = graphRef.current.nodes.find(n => n.id === focusedId)
+      || graphRef.current.nodes[0];
+    if (!node) return [];
+    const map = new Map(verses.map(v => [v.id, v]));
+    return node.verseIds.map(id => map.get(id)).filter(Boolean);
+  }, [focusedId, centralConcept, verses]);
+  const focusedVerses = allFocusedVerses.slice(0, versePageSize);
+  const hasMore = allFocusedVerses.length > versePageSize;
 
   // Filtered concepts for landing
-  const filtered = searchInput.trim()
-    ? CONCEPTS.filter(c =>
+  const filtered = !concepts ? [] : searchInput.trim()
+    ? concepts.filter(c =>
         normalizeTr(c.tr).includes(normalizeTr(searchInput)) ||
         normalizeTr(c.en).includes(normalizeTr(searchInput))
       )
-    : CONCEPTS;
+    : concepts;
 
   const grouped = {};
   filtered.forEach(c => {
@@ -320,22 +234,24 @@ export default function ConceptGraph({ onClose }) {
     grouped[c.group].push(c);
   });
 
-  const groupOrder = ['core', 'virtue', 'worship', 'divine', 'social', 'mind', 'inner', 'eschato', 'vice'];
-
   return (
     <div style={{
       position: 'fixed', inset: 0, zIndex: 9999,
-      background: '#06080e',
+      background: COLORS.overlayBg,
       display: 'flex', flexDirection: 'column',
-      fontFamily: "'Inter', sans-serif",
+      fontFamily: FONTS.body,
     }}>
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes cgFadeIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+      `}</style>
 
       {/* ── HEADER ─────────────────────────────────────────────────── */}
       <div style={{
         display: 'flex', alignItems: 'center', gap: '12px',
         padding: '12px 20px',
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
-        background: 'rgba(6,8,14,0.96)',
+        borderBottom: `1px solid ${COLORS.glassBorder}`,
+        background: 'rgba(8,9,26,0.95)',
         backdropFilter: 'blur(16px)',
         flexShrink: 0, flexWrap: 'wrap', minHeight: '60px',
       }}>
@@ -346,11 +262,11 @@ export default function ConceptGraph({ onClose }) {
               display: 'flex', alignItems: 'center', gap: '6px',
               background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
               borderRadius: '8px', padding: '6px 12px', cursor: 'pointer',
-              color: '#94a3b8', fontSize: '0.82rem', fontWeight: 500,
+              color: COLORS.silver, fontSize: '0.82rem', fontWeight: 500,
               transition: 'all 0.15s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#e8e6e3'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
-            onMouseLeave={e => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
+            onMouseEnter={e => { e.currentTarget.style.color = COLORS.offWhite; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M19 12H5M12 5l-7 7 7 7" />
@@ -359,10 +275,7 @@ export default function ConceptGraph({ onClose }) {
           </button>
         ) : (
           <div>
-            <p style={{ color: '#d4a574', fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', margin: 0, opacity: 0.7 }}>
-              {language === 'tr' ? 'Araç' : 'Tool'}
-            </p>
-            <h2 style={{ color: '#e8e6e3', fontSize: '1.05rem', fontWeight: 700, margin: 0, letterSpacing: '0.02em' }}>
+            <h2 style={{ color: COLORS.gold, fontSize: '0.9rem', fontWeight: 700, margin: 0, letterSpacing: '0.02em' }}>
               {language === 'tr' ? 'Kavram Ağı' : 'Concept Network'}
             </h2>
           </div>
@@ -380,28 +293,31 @@ export default function ConceptGraph({ onClose }) {
           </div>
         )}
 
-        {/* Quick concept switcher in graph view */}
-        {view === 'graph' && (
+        {/* Connected concepts switcher — shows nodes currently in graph */}
+        {view === 'graph' && graphRef.current && (
           <div style={{
             display: 'flex', gap: '6px', overflowX: 'auto', flex: 1,
             scrollbarWidth: 'none', padding: '0 4px',
           }}>
-            {CONCEPTS.filter(c => c.id !== centralConcept?.id).slice(0, 12).map(c => (
+            <span style={{ color: '#334155', fontSize: '0.72rem', flexShrink: 0, alignSelf: 'center', paddingRight: '2px' }}>
+              {language === 'tr' ? 'bağlantılar:' : 'connected:'}
+            </span>
+            {graphRef.current.nodes.filter(n => !n.isCentral).map(n => (
               <button
-                key={c.id}
-                onClick={() => openConcept(c)}
+                key={n.id}
+                onClick={() => openConcept(n.concept)}
                 style={{
                   flexShrink: 0, padding: '4px 10px',
                   background: 'rgba(255,255,255,0.04)',
-                  border: `1px solid ${c.color}33`,
+                  border: `1px solid ${n.color}33`,
                   borderRadius: '20px', cursor: 'pointer',
-                  color: c.color, fontSize: '0.75rem', fontWeight: 500,
+                  color: n.color, fontSize: '0.75rem', fontWeight: 500,
                   transition: 'all 0.15s', whiteSpace: 'nowrap',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = `${c.color}18`; e.currentTarget.style.borderColor = `${c.color}66`; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = `${c.color}33`; }}
+                onMouseEnter={e => { e.currentTarget.style.background = `${n.color}18`; e.currentTarget.style.borderColor = `${n.color}66`; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = `${n.color}33`; }}
               >
-                {language === 'tr' ? c.tr : c.en}
+                {language === 'tr' ? n.concept.tr : n.concept.en}
               </button>
             ))}
           </div>
@@ -414,11 +330,11 @@ export default function ConceptGraph({ onClose }) {
               width: '36px', height: '36px', borderRadius: '50%',
               background: 'rgba(255,255,255,0.06)',
               border: '1px solid rgba(255,255,255,0.1)',
-              color: '#94a3b8', cursor: 'pointer', display: 'flex',
+              color: COLORS.silver, cursor: 'pointer', display: 'flex',
               alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#94a3b8'; }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.silver; }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M18 6L6 18M6 6l12 12" />
@@ -430,18 +346,18 @@ export default function ConceptGraph({ onClose }) {
       {/* ── LOADING DATA ──────────────────────────────────────────────── */}
       {loadingData && (
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: '#d4a574', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
           <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
             {language === 'tr' ? 'Ayet verileri yükleniyor…' : 'Loading verse data…'}
           </p>
-          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } } @keyframes cgFadeIn { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }`}</style>
         </div>
       )}
 
       {/* ── BUILDING GRAPH ────────────────────────────────────────────── */}
       {buildingGraph && !loadingData && (
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: '#d4a574', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
           <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
             {language === 'tr' ? 'Kavram ağı hesaplanıyor…' : 'Computing concept network…'}
           </p>
@@ -450,80 +366,97 @@ export default function ConceptGraph({ onClose }) {
 
       {/* ── LANDING ───────────────────────────────────────────────────── */}
       {view === 'landing' && !loadingData && (
-        <div style={{ flex: 1, overflowY: 'auto', padding: '32px 28px' }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
-          {/* Intro */}
-          <div style={{ maxWidth: '680px', marginBottom: '32px' }}>
-            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.8, margin: 0 }}>
-              {language === 'tr'
-                ? 'Bir kavram seçin — Kur\'an\'ın 6.236 ayetinde hangi kavramların birlikte geçtiğini görün. Anlamsal komşuluk, semantik benzerliğe değil paylaşılan ayetlere dayanır.'
-                : 'Select a concept to see which Islamic ideas appear together across the Quran\'s 6,236 verses. Connections are based on shared verses, not abstract similarity.'}
-            </p>
-          </div>
-
-          {/* Search */}
-          <div style={{ position: 'relative', maxWidth: '400px', marginBottom: '32px' }}>
-            <input
-              ref={searchRef}
-              value={searchInput}
-              onChange={e => setSearchInput(e.target.value)}
-              placeholder={language === 'tr' ? 'Kavram ara… (takva, sabır…)' : 'Search concept… (faith, mercy…)'}
-              style={{
-                width: '100%', padding: '10px 16px 10px 40px',
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                borderRadius: '10px', color: '#e8e6e3',
-                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif",
-                outline: 'none', boxSizing: 'border-box',
-                transition: 'border-color 0.15s',
-              }}
-              onFocus={e => { e.target.style.borderColor = 'rgba(212,165,116,0.4)'; }}
-              onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; }}
-            />
-            <svg style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }}
-              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e8e6e3" strokeWidth="2" strokeLinecap="round">
-              <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
-            </svg>
-          </div>
-
-          {/* Concept groups */}
-          {groupOrder.map(group => {
-            const list = grouped[group];
-            if (!list || list.length === 0) return null;
-            const label = GROUP_LABELS[group];
-            return (
-              <div key={group} style={{ marginBottom: '24px' }}>
-                <p style={{ color: '#475569', fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 600 }}>
-                  {language === 'tr' ? label.tr : label.en}
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                  {list.map(c => (
-                    <motion.button
-                      key={c.id}
-                      onClick={() => openConcept(c)}
-                      whileHover={{ scale: 1.04 }}
-                      whileTap={{ scale: 0.97 }}
-                      style={{
-                        display: 'flex', alignItems: 'center', gap: '8px',
-                        padding: '8px 16px',
-                        background: `${c.color}12`,
-                        border: `1px solid ${c.color}40`,
-                        borderRadius: '24px', cursor: 'pointer',
-                        transition: 'all 0.18s',
-                      }}
-                      onMouseEnter={e => { e.currentTarget.style.background = `${c.color}22`; e.currentTarget.style.borderColor = `${c.color}80`; }}
-                      onMouseLeave={e => { e.currentTarget.style.background = `${c.color}12`; e.currentTarget.style.borderColor = `${c.color}40`; }}
-                    >
-                      <span style={{ fontFamily: "'Amiri', serif", fontSize: '0.95rem', color: c.color, direction: 'rtl' }}>{c.ar}</span>
-                      <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontWeight: 600 }}>
-                        {language === 'tr' ? c.tr : c.en}
-                      </span>
-                    </motion.button>
-                  ))}
-                </div>
+          {/* Top bar: intro + search */}
+          <div style={{ padding: '20px 28px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', flexShrink: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
+              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: 1.6, margin: 0, flex: 1, minWidth: '200px' }}>
+                {language === 'tr'
+                  ? 'Bir kavram seçin — hangi kavramların aynı ayetlerde geçtiğini görün.'
+                  : 'Select a concept to see which ideas appear together across 6,236 verses.'}
+              </p>
+              <div style={{ position: 'relative', width: '260px', flexShrink: 0 }}>
+                <input
+                  ref={searchRef}
+                  value={searchInput}
+                  onChange={e => setSearchInput(e.target.value)}
+                  placeholder={language === 'tr' ? 'Kavram ara…' : 'Search…'}
+                  style={{
+                    width: '100%', padding: '8px 14px 8px 36px',
+                    background: 'rgba(255,255,255,0.05)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px', color: COLORS.offWhite,
+                    fontSize: '0.85rem', fontFamily: FONTS.body,
+                    outline: 'none', boxSizing: 'border-box',
+                  }}
+                  onFocus={e => { e.target.style.borderColor = 'rgba(212,165,116,0.4)'; }}
+                  onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; }}
+                />
+                <svg style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', opacity: 0.35 }}
+                  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e8e6e3" strokeWidth="2" strokeLinecap="round">
+                  <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
+                </svg>
               </div>
-            );
-          })}
+            </div>
+          </div>
+
+          {/* 2-column concept grid */}
+          <div style={{ flex: 1, overflowY: 'auto', padding: '20px 28px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 32px', alignContent: 'start' }}>
+            {(() => {
+              const leftGroups  = ['core', 'virtue', 'worship', 'divine', 'social'];
+              const rightGroups = ['mind', 'inner', 'eschato', 'vice', 'prophet'];
+
+              const renderCol = (groupKeys) => groupKeys.map(group => {
+                const list = grouped[group];
+                if (!list || list.length === 0) return null;
+                const label = groups?.[group];
+                const catColor = label.color;
+                return (
+                  <div key={group} style={{ marginBottom: '20px' }}>
+                    <p style={{
+                      color: catColor, fontSize: '0.65rem', letterSpacing: '0.18em',
+                      textTransform: 'uppercase', marginBottom: '8px', fontWeight: 700,
+                      opacity: 0.7,
+                    }}>
+                      {language === 'tr' ? label.tr : label.en}
+                    </p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                      {list.map(c => (
+                        <button
+                          key={c.id}
+                          onClick={() => openConcept(c)}
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: '6px',
+                            padding: '6px 12px',
+                            background: `${catColor}12`,
+                            border: `1px solid ${catColor}40`,
+                            borderRadius: '20px', cursor: 'pointer',
+                            transition: 'all 0.15s',
+                            whiteSpace: 'nowrap',
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.background = `${catColor}25`; e.currentTarget.style.borderColor = `${catColor}70`; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = `${catColor}12`; e.currentTarget.style.borderColor = `${catColor}40`; }}
+                        >
+                          <span style={{ fontFamily: "'Amiri', serif", fontSize: '1rem', color: catColor, direction: 'rtl' }}>{c.ar}</span>
+                          <span style={{ color: catColor, fontSize: '0.85rem', fontWeight: 600 }}>
+                            {language === 'tr' ? c.tr : c.en}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              });
+
+              return (
+                <>
+                  <div>{renderCol(leftGroups)}</div>
+                  <div>{renderCol(rightGroups)}</div>
+                </>
+              );
+            })()}
+          </div>
         </div>
       )}
 
@@ -567,7 +500,7 @@ export default function ConceptGraph({ onClose }) {
               })}
 
               {/* Nodes */}
-              {graphRef.current.nodes.map(n => {
+              {graphRef.current.nodes.map((n, ni) => {
                 const isHov = hoveredId === n.id;
                 const isPinned = pinnedId === n.id;
                 const isFocused = focusedId === n.id;
@@ -576,9 +509,9 @@ export default function ConceptGraph({ onClose }) {
                     key={n.id}
                     transform={`translate(${n.x},${n.y})`}
                     style={{ cursor: 'pointer' }}
-                    onMouseEnter={() => setHoveredId(n.id)}
+                    onMouseEnter={() => { setHoveredId(n.id); setVersePageSize(15); }}
                     onMouseLeave={() => setHoveredId(null)}
-                    onClick={() => setPinnedId(isPinned ? null : n.id)}
+                    onClick={() => { setPinnedId(isPinned ? null : n.id); setVersePageSize(15); }}
                   >
                     {/* Outer glow */}
                     {(isHov || isPinned || n.isCentral) && (
@@ -623,7 +556,7 @@ export default function ConceptGraph({ onClose }) {
                           textAnchor="middle"
                           fontSize="12"
                           fontWeight="700"
-                          fontFamily="'Inter', sans-serif"
+                          fontFamily={FONTS.body}
                           fill="#0a0a1a"
                           style={{ pointerEvents: 'none', userSelect: 'none' }}
                         >
@@ -633,7 +566,7 @@ export default function ConceptGraph({ onClose }) {
                           y="10"
                           textAnchor="middle"
                           fontSize="9"
-                          fontFamily="'Inter', sans-serif"
+                          fontFamily={FONTS.body}
                           fill="#0a0a1a"
                           fillOpacity={0.7}
                           style={{ pointerEvents: 'none', userSelect: 'none' }}
@@ -643,20 +576,38 @@ export default function ConceptGraph({ onClose }) {
                       </>
                     )}
 
-                    {/* Label below non-central nodes */}
-                    {!n.isCentral && (
-                      <text
-                        y={n.radius + 14}
-                        textAnchor="middle"
-                        fontSize={isHov ? 12 : 10}
-                        fontWeight={isHov ? 600 : 400}
-                        fontFamily="'Inter', sans-serif"
-                        fill={isHov ? n.color : '#94a3b8'}
-                        style={{ pointerEvents: 'none', userSelect: 'none', transition: 'font-size 0.15s' }}
-                      >
-                        {language === 'tr' ? n.concept.tr : n.concept.en}
-                      </text>
-                    )}
+                    {/* Label — positioned away from center */}
+                    {!n.isCentral && (() => {
+                      // Vector from center to this node
+                      const cx = graphRef.current.nodes[0].x;
+                      const cy = graphRef.current.nodes[0].y;
+                      const dx = n.x - cx;
+                      const dy = n.y - cy;
+                      // Angle determines which side the label goes
+                      const angle = Math.atan2(dy, dx); // -π to π
+                      const offset = n.radius + 14;
+                      const lx = Math.cos(angle) * offset;
+                      const ly = Math.sin(angle) * offset;
+                      // Text anchor based on horizontal direction
+                      const anchor = Math.abs(angle) > Math.PI * 0.75 ? 'end'
+                        : Math.abs(angle) < Math.PI * 0.25 ? 'start'
+                        : 'middle';
+                      return (
+                        <text
+                          x={lx}
+                          y={ly + (Math.sin(angle) >= 0 ? 4 : -4)}
+                          textAnchor={anchor}
+                          dominantBaseline={Math.abs(dy) > Math.abs(dx) ? (dy > 0 ? 'hanging' : 'auto') : 'middle'}
+                          fontSize={isHov ? 12 : 10}
+                          fontWeight={isHov ? 600 : 400}
+                          fontFamily={FONTS.body}
+                          fill={isHov ? n.color : COLORS.silver}
+                          style={{ pointerEvents: 'none', userSelect: 'none' }}
+                        >
+                          {language === 'tr' ? n.concept.tr : n.concept.en}
+                        </text>
+                      );
+                    })()}
                   </g>
                 );
               })}
@@ -700,11 +651,11 @@ export default function ConceptGraph({ onClose }) {
 
           {/* ── VERSE PANEL ─────────────────────────────────────────── */}
           <div style={{
-            width: '300px', flexShrink: 0,
+            width: '420px', flexShrink: 0,
             borderLeft: '1px solid rgba(255,255,255,0.07)',
             display: 'flex', flexDirection: 'column',
             background: 'rgba(255,255,255,0.02)',
-            overflowY: 'auto',
+            overflow: 'hidden',
           }}>
             {/* Panel header */}
             <div style={{
@@ -734,7 +685,7 @@ export default function ConceptGraph({ onClose }) {
             </div>
 
             {/* Verses */}
-            <div style={{ flex: 1, overflowY: 'auto', padding: '8px' }}>
+            <div style={{ flex: 1, overflowY: 'auto', minHeight: 0, padding: '8px' }}>
               {focusedVerses.length === 0 && (
                 <p style={{ color: '#334155', fontSize: '0.8rem', textAlign: 'center', marginTop: '32px' }}>
                   {language === 'tr' ? 'Bir kavram seçin' : 'Select a concept'}
@@ -756,23 +707,23 @@ export default function ConceptGraph({ onClose }) {
                   onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent'; }}
                   onClick={() => {
                     window.dispatchEvent(new CustomEvent('openVerseGraph', {
-                      detail: { search: `${v.surah}:${v.ayah}` },
+                      detail: { search: `${v.surah}:${v.ayah}`, returnToConcept: true },
                     }));
                     onClose();
                   }}
                 >
                   {/* Arabic */}
                   <p style={{
-                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                    fontSize: '1.15rem', lineHeight: 1.9,
+                    fontFamily: FONTS.quran,
+                    fontSize: '1.6rem', lineHeight: 2.2,
                     textAlign: 'right', direction: 'rtl',
-                    color: '#d4a574', margin: '0 0 8px',
+                    color: COLORS.gold, margin: '0 0 10px',
                   }}>
-                    {v.arabic}
+                    {cleanArabicForGraph(v.arabic)}
                   </p>
                   {/* Translation */}
                   <p style={{
-                    color: '#94a3b8', fontSize: '0.78rem',
+                    color: COLORS.silver, fontSize: '0.82rem',
                     lineHeight: 1.6, margin: '0 0 6px',
                     display: '-webkit-box', WebkitLineClamp: 3,
                     WebkitBoxOrient: 'vertical', overflow: 'hidden',
@@ -780,11 +731,35 @@ export default function ConceptGraph({ onClose }) {
                     {language === 'tr' ? v.turkish : v.english}
                   </p>
                   {/* Reference */}
-                  <p style={{ color: '#334155', fontSize: '0.7rem', margin: 0 }}>
-                    {v.surahName} · {v.surah}:{v.ayah}
+                  <p style={{ color: '#475569', fontSize: '0.72rem', margin: 0 }}>
+                    {surahNameTr(v.surah)} · {v.ayah}
                   </p>
                 </div>
               ))}
+              {hasMore && (
+                <button
+                  onClick={() => setVersePageSize(p => p + 15)}
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    borderRadius: '8px',
+                    color: '#64748b',
+                    fontSize: '0.78rem',
+                    cursor: 'pointer',
+                    fontFamily: FONTS.body,
+                    transition: 'all 0.15s',
+                    marginTop: '4px',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = COLORS.slate500; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+                >
+                  {language === 'tr'
+                    ? `${allFocusedVerses.length - versePageSize} ayet daha göster`
+                    : `Show ${allFocusedVerses.length - versePageSize} more verses`}
+                </button>
+              )}
             </div>
 
             {/* Hint */}
