@@ -471,30 +471,38 @@
       "uniqueRoots": {
         "label": "Unique Roots",
         "value": "~1,700",
-        "description": "Distinct word roots (approximate)"
+        "description": "Distinct Arabic word roots in the Quran (Corpus Quran: 1,685)"
       },
       "uniqueWords": {
-        "label": "Unique Words",
+        "label": "UNIQUE WORD FORMS",
         "value": "~14,870",
-        "description": "Non-repeating words (approximate)"
+        "description": "The Quran's vocabulary — each distinct surface form counted once",
+        "tooltip": "The vast majority of these 14,870 forms appear more than once in the Quran. Source: Dr. Tariq Al-Suwaidan statistical analysis."
+      },
+      "hapax": {
+        "label": "APPEARING ONLY ONCE",
+        "value": "~455",
+        "description": "Of the 14,870 unique forms, only this many appear in a single verse",
+        "tooltip": "Hapax legomena — from Greek 'said only once'. These 455 words are the subset of the 14,870 unique forms used exactly once. Source: Shawkat M. Toorawa, Hapaxes in the Qur'an (2011). Count may vary between 400–500 depending on methodology."
       }
     },
     "comparisonTitle": "Redundancy Comparison",
-    "comparisonNote": "Percentages are approximate; figures may vary depending on the corpus analysis method and the texts selected for comparison.",
+    "comparisonNote": "* Shakespeare and Bible percentages are estimations based on broad comparative corpus studies and do not derive from a single academic source.",
     "comparison": {
       "quran": {
-        "label": "Quran"
+        "label": "Quran — ~0% meaningless repetition",
+        "note": "'Redundancy' here excludes anaphora, refrain, and pedagogical repetition. This figure is not a calculated measurement — it is an estimate based on linguistic observation."
       },
       "shakespeare": {
-        "label": "Shakespeare"
+        "label": "Shakespeare *"
       },
       "bible": {
-        "label": "Bible (New Testament)",
+        "label": "Bible (New Testament) *",
         "note": "This comparison is linguistic, not theological. The repetitions in the Bible arise from compiling texts written by different authors over different periods — which makes the Quran's single-voice consistency all the more remarkable."
       }
     },
     "zemahseriQuote": "Every word of the Quran is a treasure. Remove one, and the entire edifice collapses.",
-    "zemahseriAttribution": "Zamakhshari (d. 1144)"
+    "zemahseriAttribution": "Zamakhshari, al-Kashshāf (d. 1144) — paraphrase"
   },
   "highlights": {
     "badge": "Go Deeper",

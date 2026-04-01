@@ -135,8 +135,8 @@ export default function ZeroRedundancy() {
       {/* Visual separator between Moses grid and stats */}
       <div className="border-t border-white/10 mb-12" />
 
-      {/* Stats Row */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      {/* Stats Row — 4 cards: first 2 solo, last 2 grouped with connector */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         <StatCard
           label={t('zeroRedundancy.stats.totalWords.label')}
           value={t('zeroRedundancy.stats.totalWords.value')}
@@ -149,12 +149,51 @@ export default function ZeroRedundancy() {
           description={t('zeroRedundancy.stats.uniqueRoots.description')}
           glowColor="emerald"
         />
-        <StatCard
-          label={t('zeroRedundancy.stats.uniqueWords.label')}
-          value={t('zeroRedundancy.stats.uniqueWords.value')}
-          description={t('zeroRedundancy.stats.uniqueWords.description')}
-          glowColor="blue"
-        />
+
+        {/*
+          Cards 3 & 4: wrapped in a container that spans 2 cols on tablet+desktop.
+          Internally: flex-row with a desktop-only connector arrow between them.
+          On mobile (< sm): container is 1 col wide, flex-col → cards stack vertically.
+        */}
+        <div className="sm:col-span-2 flex flex-col sm:flex-row items-stretch gap-6">
+          <StatCard
+            label={t('zeroRedundancy.stats.uniqueWords.label')}
+            value={t('zeroRedundancy.stats.uniqueWords.value')}
+            description={t('zeroRedundancy.stats.uniqueWords.description')}
+            glowColor="blue"
+            className="flex-1"
+          >
+            {t('zeroRedundancy.stats.uniqueWords.tooltip') && (
+              <p className="text-silver/40 text-xs font-body mt-3 leading-relaxed text-left">
+                ℹ️ {t('zeroRedundancy.stats.uniqueWords.tooltip')}
+              </p>
+            )}
+          </StatCard>
+
+          {/* Connector: visible only when cards are side by side (sm+) */}
+          <div className="hidden sm:flex flex-col items-center justify-center gap-1 flex-shrink-0 pointer-events-none">
+            <span className="text-gold/50 text-xs font-body whitespace-nowrap leading-tight text-center">
+              {language === 'tr' ? "bunların ~455'i" : "of those, ~455"}
+            </span>
+            <svg width="24" height="10" viewBox="0 0 24 10" fill="none" style={{ color: 'rgba(212,165,116,0.4)' }}>
+              <path d="M0 5 H18 M14 1 L22 5 L14 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+
+          <StatCard
+            label={t('zeroRedundancy.stats.hapax.label')}
+            value={t('zeroRedundancy.stats.hapax.value')}
+            description={t('zeroRedundancy.stats.hapax.description')}
+            glowColor="gold"
+            className="flex-1"
+          >
+            {t('zeroRedundancy.stats.hapax.tooltip') && (
+              <p className="text-silver/40 text-xs font-body mt-3 leading-relaxed text-left">
+                ℹ️ {t('zeroRedundancy.stats.hapax.tooltip')}
+              </p>
+            )}
+          </StatCard>
+        </div>
       </div>
 
       {/* Comparison Bars */}
@@ -169,7 +208,6 @@ export default function ZeroRedundancy() {
               <span className="text-gold font-semibold text-sm">
                 {t('zeroRedundancy.comparison.quran.label')}
               </span>
-              <span className="text-gold font-bold text-lg">~0%</span>
             </div>
             <div className="w-full bg-white/5 rounded-full h-4 overflow-hidden">
               <motion.div
@@ -181,6 +219,11 @@ export default function ZeroRedundancy() {
                 transition={{ duration: 1.5, ease: 'easeOut', delay: 0.2 }}
               />
             </div>
+            {t('zeroRedundancy.comparison.quran.note') && (
+              <p className="text-silver/40 text-xs font-body mt-2 leading-relaxed">
+                ℹ {t('zeroRedundancy.comparison.quran.note')}
+              </p>
+            )}
           </div>
 
           {/* Shakespeare */}

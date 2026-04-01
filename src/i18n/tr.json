@@ -471,30 +471,38 @@
       "uniqueRoots": {
         "label": "Benzersiz Kök",
         "value": "~1,700",
-        "description": "Farklı kelime kökleri (yaklaşık)"
+        "description": "Kur'an'daki farklı Arapça kelime kökleri (Corpus Quran: 1,685)"
       },
       "uniqueWords": {
-        "label": "Benzersiz Kelime",
+        "label": "UNIQUE KELİME FORMU",
         "value": "~14,870",
-        "description": "Tekrar etmeyen kelimeler (yaklaşık)"
+        "description": "Kur'an'ın kelime hazinesi — her farklı form bir kez sayılarak",
+        "tooltip": "Bu 14,870 formun büyük çoğunluğu Kur'an'da birden fazla kez geçer. Kaynak: Dr. Tariq Al-Suwaidan istatistik analizi."
+      },
+      "hapax": {
+        "label": "SADECE BİR KEZ GEÇEN",
+        "value": "~455",
+        "description": "14,870 unique formdan yalnızca bu kadarı Kur'an'da tek bir ayette geçer",
+        "tooltip": "Hapax legomenon — Yunanca 'bir kez söylenen' anlamında. Bu 455 kelime, 14,870 unique formun içinden sadece 1 kez kullanılanlardır. Kaynak: Shawkat M. Toorawa, Hapaxes in the Qur'an (2011). Sayım yöntemine göre 400–500 arasında değişebilir."
       }
     },
     "comparisonTitle": "Gereksiz Tekrar Karşılaştırması",
-    "comparisonNote": "Yüzdeler yaklaşık değerlerdir; korpus analizi yöntemine ve karşılaştırılan metin seçimine göre farklılık gösterebilir.",
+    "comparisonNote": "* Shakespeare ve İncil yüzdeleri, geniş kapsamlı karşılaştırmalı korpus çalışmalarına dayanan tahmini değerlerdir; tek bir akademik kaynaktan alınmamıştır.",
     "comparison": {
       "quran": {
-        "label": "Kur'an"
+        "label": "Kur'an — ~0% anlamsız tekrar",
+        "note": "'Gereksiz tekrar' burada anafora, refren ve pedagojik tekrar hariç tutularak değerlendirilmiştir. Bu oran hesaplanmış değil, dilbilimsel gözleme dayanan tahmini bir değerdir."
       },
       "shakespeare": {
-        "label": "Shakespeare"
+        "label": "Shakespeare *"
       },
       "bible": {
-        "label": "İncil (Yeni Ahit)",
+        "label": "İncil (Yeni Ahit) *",
         "note": "Bu karşılaştırma teolojik değil, dilbilimseldir. İncil'deki tekrarlar farklı yazarların farklı dönemlerde yazdığı metinlerin derlenmesinden kaynaklanır — bu da Kur'an'ın tek ses tutarlılığını daha dikkat çekici kılar."
       }
     },
     "zemahseriQuote": "Kur'an'ın her kelimesi bir hazinedir. Bir kelimeyi çıkarsan, bina çöker.",
-    "zemahseriAttribution": "Zemahşeri (ö. 1144)"
+    "zemahseriAttribution": "Zemahşeri, el-Keşşâf (ö. 1144) — parafraz"
   },
   "highlights": {
     "badge": "Daha Derin Git",
