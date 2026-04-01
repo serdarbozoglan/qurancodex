@@ -3,14 +3,15 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
+import { COLORS } from '../tokens';
 
 const GROUP_HIGHLIGHTS = [
-  { term: 'Elif-Lâm-Mîm', color: '#2ab5a0' },
-  { term: 'Hâ-Mîm',       color: '#e8b860' },
-  { term: 'Yâ-Sîn',       color: '#e8b860' },
-  { term: 'Alif-Lam-Mim', color: '#2ab5a0' },
-  { term: 'Ha-Mim',       color: '#e8b860' },
-  { term: 'Ya-Sin',       color: '#e8b860' },
+  { term: 'Elif-Lâm-Mîm', color: COLORS.tealDark },
+  { term: 'Hâ-Mîm',       color: COLORS.gold },
+  { term: 'Yâ-Sîn',       color: COLORS.gold },
+  { term: 'Alif-Lam-Mim', color: COLORS.tealDark },
+  { term: 'Ha-Mim',       color: COLORS.gold },
+  { term: 'Ya-Sin',       color: COLORS.gold },
 ];
 
 function highlightGroups(text) {

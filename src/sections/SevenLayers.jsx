@@ -8,30 +8,30 @@ const layerBorderColors = [
   'border-l-gold',
   'border-l-soft-emerald',
   'border-l-sky-blue',
-  'border-l-[#9b59b6]',
-  'border-l-[#e67e22]',
+  'border-l-violet',
+  'border-l-orange',
   'border-l-soft-red',
-  'border-l-[#1abc9c]',
+  'border-l-teal',
 ];
 
 const layerAccentColors = [
   'text-gold',
   'text-soft-emerald',
   'text-sky-blue',
-  'text-[#9b59b6]',
-  'text-[#e67e22]',
+  'text-violet',
+  'text-orange',
   'text-soft-red',
-  'text-[#1abc9c]',
+  'text-teal',
 ];
 
 const layerBgHoverColors = [
   'hover:bg-gold/5',
   'hover:bg-soft-emerald/5',
   'hover:bg-sky-blue/5',
-  'hover:bg-[#9b59b6]/5',
-  'hover:bg-[#e67e22]/5',
+  'hover:bg-violet/5',
+  'hover:bg-orange/5',
   'hover:bg-soft-red/5',
-  'hover:bg-[#1abc9c]/5',
+  'hover:bg-teal/5',
 ];
 
 export default function SevenLayers() {

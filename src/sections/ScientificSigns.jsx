@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
+import { COLORS, FONTS } from '../tokens';
 
 // Verse coordinates for each tab (surah:ayah) — audio handled with fallback by QuranVerse
 const TAB_VERSE = {
@@ -15,28 +16,28 @@ const TAB_VERSE = {
 // Per-tab accent colours + discovery badge text
 const TAB_META = {
   iron: {
-    color: '#F97316',
-    dim: 'rgba(249,115,22,0.10)',
-    border: 'rgba(249,115,22,0.32)',
+    color: COLORS.orange,
+    dim: 'rgba(230,126,34,0.10)',
+    border: 'rgba(230,126,34,0.32)',
     discoveryTr: 'Astrofizik · 1957',
     discoveryEn: 'Astrophysics · 1957',
   },
   universe: {
-    color: '#8B5CF6',
-    dim: 'rgba(139,92,246,0.10)',
-    border: 'rgba(139,92,246,0.32)',
+    color: COLORS.violet,
+    dim: 'rgba(155,89,182,0.10)',
+    border: 'rgba(155,89,182,0.32)',
     discoveryTr: 'Hubble · 1929',
     discoveryEn: 'Hubble · 1929',
   },
   ocean: {
-    color: '#06B6D4',
+    color: COLORS.cyan,
     dim: 'rgba(6,182,212,0.10)',
     border: 'rgba(6,182,212,0.32)',
     discoveryTr: "Oşinografi · 1960'lar",
     discoveryEn: 'Oceanography · 1960s',
   },
   embryo: {
-    color: '#2ecc71',
+    color: COLORS.softEmerald,
     dim: 'rgba(46,204,113,0.10)',
     border: 'rgba(46,204,113,0.32)',
     discoveryTr: 'Embriyoloji · 20. yy.',
@@ -134,8 +135,8 @@ export default function ScientificSigns() {
                 padding: '10px 22px', borderRadius: '10px',
                 border: `1px solid ${isActive ? meta.border : 'rgba(255,255,255,0.07)'}`,
                 background: isActive ? meta.dim : 'rgba(255,255,255,0.025)',
-                color: isActive ? meta.color : '#64748b',
-                fontFamily: "'Inter', sans-serif",
+                color: isActive ? meta.color : COLORS.slate500,
+                fontFamily: FONTS.body,
                 fontSize: '0.85rem', fontWeight: isActive ? 600 : 400,
                 cursor: 'pointer', transition: 'all 0.25s',
                 boxShadow: isActive ? `0 0 18px ${meta.dim}` : 'none',

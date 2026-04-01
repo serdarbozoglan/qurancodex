@@ -50,7 +50,7 @@ export default function Hero() {
 
         {/* Description */}
         <motion.p
-          className="text-silver text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-14 font-body tracking-[0.02em]"
+          className="text-silver text-base sm:text-lg max-w-3xl mx-auto leading-relaxed mb-14 font-body tracking-[0.02em]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.2 }}
@@ -78,8 +78,7 @@ export default function Hero() {
 
           <motion.button
             onClick={() => window.dispatchEvent(new CustomEvent('openReadingMode'))}
-            className="btn-primary-gold font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
-            style={{ padding: '12px 40px' }}
+            className="btn-primary-gold px-10 py-3 font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
             whileHover={{ scale: 1.05, boxShadow: '0 0 48px 12px rgba(180,130,40,0.5)' }}
             whileTap={{ scale: 0.97 }}
           >

@@ -10,10 +10,10 @@ export default function StatCard({
   children,
 }) {
   const glowStyles = {
-    gold: 'hover:shadow-[0_0_30px_rgba(212,165,116,0.2)]',
-    emerald: 'hover:shadow-[0_0_30px_rgba(46,204,113,0.2)]',
-    blue: 'hover:shadow-[0_0_30px_rgba(52,152,219,0.2)]',
-    red: 'hover:shadow-[0_0_30px_rgba(231,76,60,0.2)]',
+    gold:    'hover:shadow-[var(--shadow-glow-gold)]',
+    emerald: 'hover:shadow-[var(--shadow-glow-emerald)]',
+    blue:    'hover:shadow-[var(--shadow-glow-blue)]',
+    red:     'hover:shadow-[var(--shadow-glow-red)]',
   };
 
   return (

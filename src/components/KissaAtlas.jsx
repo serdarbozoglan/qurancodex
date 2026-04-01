@@ -55,6 +55,22 @@ const SURAH_NAMES_EN = [
   'Al-Masad', 'Al-Ikhlas', 'Al-Falaq', 'An-Nas',
 ];
 
+// Arabic display cleanup — same pipeline as ReadingMode.cleanArabic
+function cleanArabic(str) {
+  if (!str) return str;
+  return str
+    .replace(/\u06EA/g, '\u0650')
+    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653') // maddah fix (CLAUDE.md 13.14)
+    .replace(/\u0671/g, '\u0627')
+    .replace(/\u06CC/g, '\u064A')
+    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
+    .replace(/[\u0600-\u0605]/g, '')
+    .replace(/[\u06DD\u06DE\u06E9]/g, '')
+    .replace(/\u06E6/g, ' ')
+    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '')
+    .replace(/[\uFD3E\uFD3F]/g, '');
+}
+
 // Parse "20:38–40" → { surah: 20, start: 38, end: 40 }
 // Also handles "20:38" (single verse) and "20:38,40" (two separate)
 function parseVerseRef(ref) {
@@ -331,7 +347,7 @@ export default function KissaAtlas({ onClose }) {
 
         {/* ── LEFT: SCENE LIST ─────────────────────────────────────── */}
         <div style={{
-          width: isMobile ? '100%' : '220px', flexShrink: 0,
+          width: isMobile ? '100%' : '260px', flexShrink: 0,
           borderRight: isMobile ? 'none' : '1px solid rgba(255,255,255,0.07)',
           display: isMobile ? (mobileTab === 'scenes' ? 'flex' : 'none') : 'flex',
           flexDirection: 'column',
@@ -365,6 +381,7 @@ export default function KissaAtlas({ onClose }) {
               return (
                 <button
                   key={scene.id}
+                  title={language === 'tr' ? scene.titleTr : scene.titleEn}
                   onClick={() => {
                     setSelectedSceneId(isActive ? null : scene.id);
                     setSelectedSurah(null);
@@ -405,15 +422,12 @@ export default function KissaAtlas({ onClose }) {
                         color: isActive ? prophet.color : '#cbd5e1',
                         fontSize: '0.84rem', fontWeight: isActive ? 700 : 500,
                         margin: '0 0 3px', lineHeight: 1.4,
-                        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
                       }}>
                       {language === 'tr' ? scene.titleTr : scene.titleEn}
                     </p>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-                      <span style={{ color: '#334155', fontSize: '0.7rem' }}>{scene.verseRef}</span>
-                      <span style={{ color: '#1e293b', fontSize: '0.65rem' }}>·</span>
                       <span style={{ color: '#334155', fontSize: '0.7rem' }}>
-                        {scene.surahs.length} {language === 'tr' ? 'sure' : 'surahs'}
+                        {scene.verseRef.replace(/^(\d+):/, (_, n) => `${language === 'tr' ? SURAH_NAMES_TR[+n] : SURAH_NAMES_EN[+n]}:`)}
                       </span>
                     </div>
                   </div>
@@ -485,9 +499,14 @@ export default function KissaAtlas({ onClose }) {
                   shadow = 'none';
                 }
 
+                const tileName = language === 'tr' ? SURAH_NAMES_TR[num] : SURAH_NAMES_EN[num];
+                const tileTitle = isActive
+                  ? `${num}. ${tileName} — ${scenesHere.length} ${language === 'tr' ? 'sahne' : 'scene'}${scenesHere.length !== 1 ? (language === 'tr' ? '' : 's') : ''}`
+                  : `${num}. ${tileName}`;
                 return (
                   <motion.button
                     key={num}
+                    title={tileTitle}
                     onClick={() => {
                       if (!isActive) return;
                       setSelectedSurah(isSelectedSurah ? null : num);
@@ -570,15 +589,15 @@ export default function KissaAtlas({ onClose }) {
             )}
             {(selectedScene || selectedSurah) && (!isMobile || mobileTab === 'detail') && (
               <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: isMobile ? '100%' : 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 style={{
                   borderTop: isMobile ? 'none' : `1px solid ${prophet.color}30`,
                   background: `${prophet.color}08`,
-                  flexShrink: isMobile ? 1 : 0,
-                  overflow: isMobile ? 'auto' : 'hidden',
+                  flexShrink: 0,
+                  overflowY: isMobile ? 'auto' : 'visible',
                   flex: isMobile ? 1 : 'none',
                 }}
               >
@@ -632,20 +651,21 @@ export default function KissaAtlas({ onClose }) {
                             {language === 'tr' ? 'Sureler:' : 'Surahs:'}
                           </span>
                           {selectedScene.surahs.map(s => {
-                            const isPrimary = parsed && parsed.surah === s;
-                            const isActive = versePeek?.surah === s && versePeek?.start === (isPrimary ? parsed.start : null);
+                            const refStr = selectedScene.surahRefs?.[String(s)];
+                            const refParsed = refStr ? parseVerseRef(refStr.replace(/-/g, '–')) : null;
+                            const isActive = versePeek?.surah === s && refParsed && versePeek?.start === refParsed.start;
                             const surahName = language === 'tr' ? SURAH_NAMES_TR[s] : SURAH_NAMES_EN[s];
-                            const rangeLabel = isPrimary
-                              ? (parsed.start === parsed.end ? `${parsed.start}` : `${parsed.start}–${parsed.end}`)
+                            const rangeLabel = refParsed
+                              ? (refParsed.start === refParsed.end ? `${refParsed.start}` : `${refParsed.start}–${refParsed.end}`)
                               : null;
+                            const hasRef = !!refParsed;
                             return (
                               <button
                                 key={s}
                                 onClick={() => {
-                                  if (isPrimary && parsed) {
-                                    openVersePeek(parsed.surah, parsed.start, parsed.end);
+                                  if (hasRef && refParsed) {
+                                    openVersePeek(refParsed.surah, refParsed.start, refParsed.end);
                                   } else {
-                                    // For secondary surahs, just highlight in grid
                                     setSelectedSurah(s === selectedSurah ? null : s);
                                     setSelectedSceneId(null);
                                     setVersePeek(null);
@@ -668,7 +688,7 @@ export default function KissaAtlas({ onClose }) {
                                 {rangeLabel && (
                                   <span style={{ opacity: 0.7, fontSize: '0.7rem' }}>{rangeLabel}</span>
                                 )}
-                                {isPrimary && (
+                                {hasRef && (
                                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.6, transform: isActive ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
                                     <path d="M6 9l6 6 6-6" />
                                   </svg>
@@ -680,7 +700,7 @@ export default function KissaAtlas({ onClose }) {
 
                         {/* Verse peek panel */}
                         <AnimatePresence>
-                          {versePeek && versePeek.surah === (parsed?.surah) && (
+                          {versePeek && selectedScene.surahs.includes(versePeek.surah) && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
@@ -694,8 +714,6 @@ export default function KissaAtlas({ onClose }) {
                                 background: 'rgba(0,0,0,0.3)',
                                 border: `1px solid ${prophet.color}25`,
                                 borderRadius: '10px',
-                                maxHeight: '260px',
-                                overflowY: 'auto',
                               }}>
                                 {versePeek.loading ? (
                                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#475569', fontSize: '0.8rem' }}>
@@ -707,10 +725,13 @@ export default function KissaAtlas({ onClose }) {
                                     {language === 'tr' ? 'Ayet yüklenemedi.' : 'Could not load verses.'}
                                   </p>
                                 ) : (
-                                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                                    {versePeek.verses?.map(v => (
-                                      <div key={v.num} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '12px' }}>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+                                    {versePeek.verses?.map((v, idx) => (
+                                      <div key={v.num} style={{
+                                        padding: '16px 0',
+                                        borderBottom: idx < versePeek.verses.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none',
+                                      }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                                           <span style={{
                                             width: '22px', height: '22px', borderRadius: '50%', flexShrink: 0,
                                             background: `${prophet.color}20`, color: prophet.color,
@@ -723,10 +744,10 @@ export default function KissaAtlas({ onClose }) {
                                         </div>
                                         <p style={{
                                           fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                                          fontSize: '1.15rem', lineHeight: 2, direction: 'rtl',
-                                          color: '#e8e6e3', margin: '0 0 6px', textAlign: 'right',
-                                        }}>{v.arabic}</p>
-                                        <p style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: 1.6, margin: 0, fontStyle: 'italic' }}>
+                                          fontSize: '1.2rem', lineHeight: 2.1, direction: 'rtl',
+                                          color: '#d4a574', margin: '0 0 8px', textAlign: 'right',
+                                        }}>{cleanArabic(v.arabic)}</p>
+                                        <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.8rem', lineHeight: 1.6, margin: 0, fontStyle: 'italic' }}>
                                           {v.turkish}
                                         </p>
                                       </div>

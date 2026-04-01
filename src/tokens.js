@@ -24,8 +24,18 @@ export const COLORS = {
   // Semantic
   emerald:       '#1a7a4c',
   softEmerald:   '#2ecc71',
+  teal:          '#1abc9c',
+  tealDark:      '#2ab5a0',
   softRed:       '#e74c3c',
   skyBlue:       '#3498db',
+  cyan:          '#06b6d4',
+  orange:        '#e67e22',
+  violet:        '#9b59b6',
+  purple:        '#a78bfa',
+  amber:         '#f0b429',
+
+  // Gold alpha variants
+  goldAlpha20:   'rgba(212,165,116,0.20)',
 
   // Glass
   glassBg:       'rgba(255,255,255,0.05)',

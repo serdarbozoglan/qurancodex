@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUpItem } from './SectionWrapper';
 import { useAudioWithFallback, buildFallbackUrls } from '../hooks/useAudioWithFallback';
+import { FONTS, COLORS } from '../tokens';
 
 const PlayIcon = () => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -176,18 +177,18 @@ export default function QuranVerse({
             title={hasFailed ? 'Ses yüklenemedi' : isPlaying ? 'Durdur' : 'Dinle'}
             style={{
               position: 'absolute', bottom: '14px', right: '14px',
-              width: '36px', height: '36px', borderRadius: '50%',
+              width: '44px', height: '44px', borderRadius: '50%',
               background: isPlaying
-                ? 'rgba(212,165,116,0.18)'
-                : hasFailed ? 'rgba(100,116,139,0.08)' : 'rgba(255,255,255,0.06)',
+                ? COLORS.goldAlpha15
+                : hasFailed ? 'rgba(100,116,139,0.08)' : COLORS.glassBg,
               border: `1px solid ${isPlaying
-                ? 'rgba(212,165,116,0.55)'
-                : hasFailed ? 'rgba(100,116,139,0.2)' : 'rgba(255,255,255,0.12)'}`,
-              boxShadow: isPlaying ? '0 0 16px rgba(212,165,116,0.25)' : 'none',
+                ? COLORS.goldAlpha25
+                : hasFailed ? 'rgba(100,116,139,0.2)' : COLORS.glassBorder}`,
+              boxShadow: isPlaying ? `0 0 16px ${COLORS.goldAlpha20}` : 'none',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: hasFailed ? 'not-allowed' : 'pointer',
               transition: 'all 0.25s',
-              color: isPlaying ? '#d4a574' : hasFailed ? '#475569' : '#94a3b8',
+              color: isPlaying ? COLORS.gold : hasFailed ? COLORS.slate500 : COLORS.silver,
               opacity: hasFailed ? 0.5 : 1,
             }}
           >
@@ -201,7 +202,7 @@ export default function QuranVerse({
       <p
         className={`font-arabic leading-relaxed text-gold mb-6 ${compact ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'}`}
         dir="rtl" lang="ar"
-        style={{ textAlign: 'right', lineHeight: 2.2, fontFamily: "'KFGQPC', 'Amiri Quran', serif" }}
+        style={{ textAlign: 'right', lineHeight: 2.2, fontFamily: FONTS.quran }}
       >
         {arabic}
       </p>

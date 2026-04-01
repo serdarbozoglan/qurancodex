@@ -72,7 +72,7 @@ export default function ZeroRedundancy() {
         {/* Three examples */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
           {refrainExamples.map((ex, i) => (
-            <div key={i} className="bg-white/5 rounded-xl p-4">
+            <div key={i} className="glass-card p-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-gold text-sm font-semibold font-body">{ex.surah}</span>
                 <span className="text-gold/70 text-lg font-bold font-body">{ex.count}</span>

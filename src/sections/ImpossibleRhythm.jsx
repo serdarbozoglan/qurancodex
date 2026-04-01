@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
+import { FONTS } from '../tokens';
 
 const PlayIcon = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21" /></svg>
@@ -279,7 +280,7 @@ export default function ImpossibleRhythm() {
             <p className="text-gold/50 text-xs font-body uppercase tracking-[0.25em] mb-4">
               {language === 'tr' ? 'Aşağıdaki ayetleri inceleyin' : 'Examine the verses below'}
             </p>
-            <p dir="rtl" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.6rem', lineHeight: 2.2, color: '#e8e6e3' }}>
+            <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', lineHeight: 2.2, color: '#e8e6e3' }}>
               وَالضُّحَىٰ ﴿١﴾ وَاللَّيْلِ إِذَا سَجَىٰ ﴿٢﴾ مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ﴿٣﴾
             </p>
             {/* Play button centered, then reference below */}
@@ -566,7 +567,7 @@ export default function ImpossibleRhythm() {
                   <span
                     key={j}
                     style={{
-                      fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                      fontFamily: FONTS.quran,
                       fontSize: '2rem',
                       lineHeight: 1.5,
                       color: sura.color,
@@ -614,7 +615,7 @@ export default function ImpossibleRhythm() {
                   -ar
                 </span>
                 <span
-                  style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '2.2rem', color: 'rgba(212,165,116,0.75)' }}
+                  style={{ fontFamily: FONTS.quran, fontSize: '2.2rem', color: 'rgba(212,165,116,0.75)' }}
                 >
                   {verse.num}
                 </span>
@@ -623,7 +624,7 @@ export default function ImpossibleRhythm() {
               <div className="flex-1 text-right" dir="rtl">
                 <span
                   className="text-3xl md:text-4xl leading-loose"
-                  style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#e8e6e3' }}
+                  style={{ fontFamily: FONTS.quran, color: '#e8e6e3' }}
                 >
                   {verse.ar}
                 </span>
@@ -729,7 +730,7 @@ export default function ImpossibleRhythm() {
                 dir="rtl"
                 lang="ar"
                 style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   fontSize: '2rem',
                   color: NAJM_FASILA[selectedNajm] === 'aa' ? '#d4a574' : NAJM_FASILA[selectedNajm] === 'mq' ? '#e8a0b8' : '#94a3b8',
                   lineHeight: 1.4,

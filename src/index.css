@@ -15,7 +15,17 @@
   --color-silver: #94a3b8;
   --color-soft-red: #e74c3c;
   --color-sky-blue: #3498db;
+  --color-teal: #1abc9c;
+  --color-violet: #9b59b6;
+  --color-orange: #e67e22;
+  --color-amber: #f0b429;
+  --color-purple: #a78bfa;
+  --color-cyan: #06b6d4;
   --color-glass: rgba(255, 245, 220, 0.04);
+  --shadow-glow-gold: 0 0 30px rgba(212,165,116,0.20);
+  --shadow-glow-emerald: 0 0 30px rgba(46,204,113,0.20);
+  --shadow-glow-blue: 0 0 30px rgba(52,152,219,0.20);
+  --shadow-glow-red: 0 0 30px rgba(231,76,60,0.20);
   --color-glass-border: rgba(212, 165, 116, 0.12);
   --color-glass-strong: rgba(255, 245, 220, 0.07);
 

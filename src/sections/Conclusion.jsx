@@ -74,8 +74,7 @@ export default function Conclusion() {
         </motion.button>
         <motion.button
           onClick={handleOpenReading}
-          className="btn-primary-gold font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
-          style={{ padding: '12px 40px' }}
+          className="btn-primary-gold px-10 py-3 font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
           whileHover={{ scale: 1.05, boxShadow: '0 0 48px 12px rgba(180,130,40,0.5)' }}
           whileTap={{ scale: 0.97 }}
         >

@@ -1,12 +1,12 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
 
 const CATEGORY_CONFIG = {
-  sayisal:      { color: '#d4a574', labelTr: 'Sayısal',      labelEn: 'Numerical'   },
-  yapisal:      { color: '#3498db', labelTr: 'Yapısal',      labelEn: 'Structural'  },
-  peygamberler: { color: '#f0b429', labelTr: 'Peygamberler', labelEn: 'Prophets'    },
-  azBilinen:    { color: '#a78bfa', labelTr: 'Az Bilinen',   labelEn: 'Hidden Gems' },
+  sayisal:      { color: COLORS.gold,      labelTr: 'Sayısal',      labelEn: 'Numerical'   },
+  yapisal:      { color: COLORS.skyBlue,   labelTr: 'Yapısal',      labelEn: 'Structural'  },
+  peygamberler: { color: COLORS.amber,     labelTr: 'Peygamberler', labelEn: 'Prophets'    },
+  azBilinen:    { color: COLORS.purple,    labelTr: 'Az Bilinen',   labelEn: 'Hidden Gems' },
 };
 
 const CATEGORY_ORDER = ['sayisal', 'yapisal', 'peygamberler', 'azBilinen'];
@@ -572,7 +572,7 @@ function WowCard({ fact, language, onClose }) {
 
       {/* Title */}
       <div style={{
-        color: '#d4a574',
+        color: COLORS.gold,
         fontSize: '0.95rem',
         fontWeight: 600,
         fontFamily: "'Inter', sans-serif",
@@ -719,7 +719,7 @@ export default function WowFacts({ onClose }) {
       <div
         style={{
           position: 'fixed', inset: 0, zIndex: 9999,
-          background: '#080a1e',
+          background: COLORS.cosmicBlack,
           display: 'flex', flexDirection: 'column',
           animation: 'wowFadeIn 0.18s ease',
         }}
@@ -732,7 +732,7 @@ export default function WowFacts({ onClose }) {
           borderBottom: '1px solid rgba(212,165,116,0.1)',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ color: '#d4a574', fontSize: '1.1rem', lineHeight: 1 }}>✦</span>
+            <span style={{ color: COLORS.gold, fontSize: '1.1rem', lineHeight: 1 }}>✦</span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
               <span style={OVERLAY_TITLE}>
                 {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
@@ -792,7 +792,7 @@ export default function WowFacts({ onClose }) {
                 background: 'rgba(255,255,255,0.04)',
                 border: '1px solid rgba(255,255,255,0.08)',
                 borderRadius: '8px',
-                color: '#e8e6e3', fontFamily: "'Inter', sans-serif", fontSize: '0.85rem',
+                color: COLORS.offWhite, fontFamily: "'Inter', sans-serif", fontSize: '0.85rem',
                 padding: '8px 12px 8px 36px',
                 outline: 'none',
                 transition: 'border-color 0.15s',
@@ -809,7 +809,7 @@ export default function WowFacts({ onClose }) {
           }}>
             {allCategories.map(({ key, labelTr, labelEn, color }) => {
               const isActive = activeCategory === key;
-              const tabColor = key === 'all' ? '#d4a574' : color;
+              const tabColor = key === 'all' ? COLORS.gold : color;
               return (
                 <button
                   key={key}

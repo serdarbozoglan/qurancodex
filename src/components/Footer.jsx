@@ -1,4 +1,5 @@
 import { useLanguage } from '../i18n/LanguageContext';
+import { FONTS } from '../tokens';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -55,7 +56,7 @@ export default function Footer() {
           <p>© 2026 — {t('footer.copyright')}</p>
           <p className="text-silver/30 text-xs">qurancodex.com</p>
           <p className="font-arabic text-sm text-gold/30" dir="rtl" lang="ar"
-            style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif" }}>
+            style={{ fontFamily: FONTS.quran }}>
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
           </p>
         </div>

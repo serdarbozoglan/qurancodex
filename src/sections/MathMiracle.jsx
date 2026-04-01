@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import AnimatedCounter from '../components/AnimatedCounter';
+import { COLORS, FONTS } from '../tokens';
 
 function BesmeleWidget({ language }) {
   const [step, setStep] = useState(0);
@@ -38,7 +39,7 @@ function BesmeleWidget({ language }) {
       <div className="text-center mb-8">
         <p
           className="font-display text-gold"
-          style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.7rem', lineHeight: 1.8, direction: 'rtl' }}
+          style={{ fontFamily: FONTS.quran, fontSize: '1.7rem', lineHeight: 1.8, direction: 'rtl' }}
         >
           بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
         </p>
@@ -63,12 +64,12 @@ function BesmeleWidget({ language }) {
                 background: isTevbe
                   ? 'rgba(231,76,60,0.7)'
                   : isNeml
-                  ? 'rgba(212,165,116,0.9)'
-                  : 'rgba(212,165,116,0.18)',
+                  ? COLORS.goldAlpha45
+                  : COLORS.goldAlpha15,
                 border: isTevbe
                   ? '1px solid rgba(231,76,60,0.9)'
                   : isNeml
-                  ? '1px solid rgba(212,165,116,0.7)'
+                  ? `1px solid ${COLORS.goldAlpha25}`
                   : '1px solid rgba(212,165,116,0.06)',
                 transform: (isTevbe || isNeml) ? 'scale(1.2)' : 'scale(1)',
               }}
@@ -100,7 +101,7 @@ function BesmeleWidget({ language }) {
             opacity: step >= 2 ? 1 : 0,
             transform: step >= 2 ? 'translateY(0)' : 'translateY(12px)',
             background: 'rgba(231,76,60,0.08)',
-            border: '1px solid rgba(231,76,60,0.25)',
+            border: `1px solid rgba(231,76,60,0.25)`,
           }}
         >
           <div>
@@ -121,7 +122,7 @@ function BesmeleWidget({ language }) {
             opacity: step >= 3 ? 1 : 0,
             transform: step >= 3 ? 'translateY(0)' : 'translateY(12px)',
             background: 'rgba(212,165,116,0.08)',
-            border: '1px solid rgba(212,165,116,0.25)',
+            border: `1px solid ${COLORS.goldAlpha25}`,
           }}
         >
           <div>
@@ -142,7 +143,7 @@ function BesmeleWidget({ language }) {
             opacity: step >= 4 ? 1 : 0,
             transform: step >= 4 ? 'translateY(0)' : 'translateY(12px)',
             background: 'rgba(212,165,116,0.12)',
-            border: '1px solid rgba(212,165,116,0.4)',
+            border: `1px solid ${COLORS.goldAlpha45}`,
           }}
         >
           <span className="text-gold font-body text-sm font-semibold">

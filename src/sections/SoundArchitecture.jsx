@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
+import { FONTS } from '../tokens';
 
 // Splits text at Arabic character sequences and wraps them with styled spans.
 // Keeps spaces between Arabic letters/punctuation so "ق، ك، ط" stays one span.
@@ -12,7 +13,7 @@ function withArabic(text, { color = '#d4a574', size = '1.15em', weight = 700 } =
     /[\u0600-\u06FF]/.test(part)
       ? (
         <span key={i} dir="rtl" lang="ar" style={{
-          fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+          fontFamily: FONTS.quran,
           fontSize: size, color, fontWeight: weight,
           display: 'inline', lineHeight: 1.4,
         }}>{part.trim().replace(/[،؛]/g, ' ').trim()}</span>
@@ -260,7 +261,7 @@ export default function SoundArchitecture() {
                 <p
                   lang="ar"
                   style={{
-                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontFamily: FONTS.quran,
                     fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
                     color: activeSura.color,
                     lineHeight: 1.6,
@@ -291,7 +292,7 @@ export default function SoundArchitecture() {
                       border: '1px solid rgba(231,76,60,0.4)',
                       borderRadius: '6px',
                       padding: '2px 10px',
-                      fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                      fontFamily: FONTS.quran,
                       fontSize: '1.2rem',
                       color: '#e74c3c',
                       lineHeight: 1.8,
@@ -312,7 +313,7 @@ export default function SoundArchitecture() {
                       border: '1px solid rgba(46,204,113,0.35)',
                       borderRadius: '6px',
                       padding: '2px 10px',
-                      fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                      fontFamily: FONTS.quran,
                       fontSize: '1.2rem',
                       color: '#2ecc71',
                       lineHeight: 1.8,
