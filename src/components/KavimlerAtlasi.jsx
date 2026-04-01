@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN } from '../tokens';
 
-const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİK İZLER', 'KARŞILAŞTIRMA', 'KAYNAKLAR'];
-const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGICAL TRACES', 'COMPARISON', 'SOURCES'];
+const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'Arkeoloji', 'Karşılaştır', 'KAYNAKLAR'];
+const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'Archaeology', 'Compare', 'SOURCES'];
 
 const HELAK_COLORS = {
   ruzgar:   '#d4a574',
@@ -196,12 +196,15 @@ export default function KavimlerAtlasi({ onClose }) {
 // ── Hero Section ──────────────────────────────────────────────────────────────
 
 function HeroSection({ meta, language, isMobile }) {
+  // Colors chosen semantically:
+  // gold = genel/evrensel  |  teal = Firavun (deniz/su)  |  purple = çeşitlilik/soyut
+  // orange = arkeoloji (toprak)  |  emerald = tek, doğrulanmış şablon
   const stats = [
     { value: meta.totalMentioned, labelTr: 'Kavim anılır', labelEn: 'Nations mentioned', color: COLORS.gold },
-    { value: `~${meta.firavunVerses}`, labelTr: 'Ayet Firavun kavmine', labelEn: 'Verses on Pharaoh', color: '#e74c3c' },
+    { value: `~${meta.firavunVerses}`, labelTr: 'Ayet Firavun kavmine', labelEn: 'Verses on Pharaoh', color: '#1abc9c' },
     { value: meta.destructionTypes, labelTr: 'Farklı helak biçimi', labelEn: 'Destruction types', color: '#a78bfa' },
-    { value: meta.archaeologicalMatches, labelTr: 'Arkeolojik örtüşme', labelEn: 'Archaeological matches', color: '#1abc9c' },
-    { value: meta.structuralPattern, labelTr: 'Yapısal şablon', labelEn: 'Structural pattern', color: COLORS.gold },
+    { value: meta.archaeologicalMatches, labelTr: 'Arkeolojik örtüşme', labelEn: 'Archaeological matches', color: '#e67e22' },
+    { value: meta.structuralPattern, labelTr: 'Yapısal şablon', labelEn: 'Structural pattern', color: '#2ecc71' },
   ];
 
   return (
@@ -667,7 +670,8 @@ const ARCH_CARDS_TR = [
     location: 'Mısır, Nil Deltası',
     status: 'debated',
     statusLabel: 'TARTIŞMALI',
-    body: 'Ramses II (MÖ 1279-1213) en güçlü aday: dönem, kudret ve coğrafya uyuşuyor. Merneptah Stelinde "İsrail" adı geçer. Firavun\'un mumyasıyla Yunus 10:92 arasındaki bağlantı yorumcuların önerisidir — Kur\'an metninde doğrudan böyle bir iddia yoktur.',
+    body: 'Ramses II (MÖ 1279-1213) en güçlü aday: dönem, kudret ve coğrafya uyuşuyor. Merneptah Stelinde "İsrail" adı geçer.',
+    bodyNote: 'ℹ Firavun\'un mumyasıyla Yunus 10:92 arasındaki bağlantı yorumcuların önerisidir — Kur\'an metninde doğrudan böyle bir iddia yer almaz.',
     quranNote: '"Bugün seni bedeninle kurtaracağız ki senden sonrakilere ibret olasın." — Yunus 10:92',
     extra: null,
     info: 'Hangi Firavun\'un Hz. Musa\'nın çağdaşı olduğu tarihsel tartışmadır. Akademik konsensüs yoktur.',
@@ -680,7 +684,7 @@ const ARCH_CARDS_TR = [
     body: 'Tall el-Hammam kazılarında MÖ 1650\'ye tarihlenen ani yıkım tabakası bulundu. Bazı araştırmacılar kozmik etki (göktaşı patlaması) teorisi öne sürdü. Tuz ve kükürt kalıntıları gözlemlendi.',
     quranNote: '"Şehrin altını üstüne getirdik, üzerine taş yağdırdık." — Hud 11:82',
     extra: null,
-    info: 'Tall el-Hammam-Sodom özdeşleştirmesi tartışmalıdır. Kesin teyit için daha fazla arkeolojik çalışma gerekiyor.',
+    info: 'Sodom ve Gomorra isimleri Kur\'an\'da geçmez — İncil terminolojisidir. Kur\'an bu kavmi "Lût\'un kavmi" olarak anar. Tall el-Hammam özdeşleştirmesi tartışmalıdır.',
   },
   {
     title: "Âd / İrem — Ubar / Şişr",
@@ -719,7 +723,8 @@ const ARCH_CARDS_EN = [
     location: 'Egypt, Nile Delta',
     status: 'debated',
     statusLabel: 'DEBATED',
-    body: "Ramses II (1279-1213 BCE) is the strongest candidate: period, power, and geography align. The Merneptah Stele mentions 'Israel'. The connection between Pharaoh's mummy and Quran 10:92 is a scholarly interpretation — the Quranic text itself does not make this claim directly.",
+    body: "Ramses II (1279-1213 BCE) is the strongest candidate: period, power, and geography align. The Merneptah Stele mentions 'Israel'.",
+    bodyNote: "ℹ The connection between Pharaoh's mummy and Quran 10:92 is a scholarly interpretation — the Quranic text itself does not make this claim directly.",
     quranNote: '"Today We will preserve your body so you may be a sign for those who come after you." — Yunus 10:92',
     extra: null,
     info: 'Which Pharaoh was contemporary with Moses is a historical debate. No academic consensus exists.',
@@ -732,7 +737,7 @@ const ARCH_CARDS_EN = [
     body: "Tall el-Hammam excavations found a sudden destruction layer dated to ~1650 BCE. Some researchers proposed a cosmic impact (airburst) theory. Salt and sulphur residues were observed.",
     quranNote: '"We turned its uppermost part downward and rained upon it stones of baked clay." — Hud 11:82',
     extra: null,
-    info: 'The Tall el-Hammam-Sodom identification is disputed. More archaeological work is needed for definitive confirmation.',
+    info: 'The names Sodom and Gomorrah do not appear in the Quran — they are Biblical terms. The Quran calls this people "the people of Lot". The Tall el-Hammam identification is disputed.',
   },
   {
     title: "ʿAd / Iram — Ubar / Shisr",
@@ -838,9 +843,14 @@ function TabArkeoloji({ language, isMobile }) {
               </div>
             )}
 
-            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: '0 0 10px', lineHeight: 1.65 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.65 }}>
               {card.body}
             </p>
+            {card.bodyNote && (
+              <p style={{ color: COLORS.slate500, fontSize: '0.76rem', fontFamily: FONTS.body, margin: '0 0 10px', lineHeight: 1.6, fontStyle: 'italic' }}>
+                {card.bodyNote}
+              </p>
+            )}
 
             {/* Quran note */}
             <div style={{
@@ -1016,6 +1026,11 @@ function TabKarsilastirma({ nations, language, isMobile }) {
             })}
           </tbody>
         </table>
+        <p style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '10px 0 0', lineHeight: 1.5 }}>
+          {language === 'tr'
+            ? '* Hz. İbrahim sayısı peygamber adı geçiş sayısını yansıtır. Firavun sayısı (~70) kavme özel anlatı ayetlerini ifade eder — bu nedenle iki farklı ölçüm birbiriyle doğrudan karşılaştırılamaz.'
+            : '* The Abraham figure reflects name occurrences of the prophet. The Pharaoh figure (~70) refers to narrative verses specifically about his people — the two metrics are not directly comparable.'}
+        </p>
       </div>
 
       {/* Objection template */}
