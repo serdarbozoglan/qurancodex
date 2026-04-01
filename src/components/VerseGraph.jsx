@@ -2884,11 +2884,11 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
   return (
     <div style={{
       position: 'absolute', top: '54px', right: '0', left: 'auto', bottom: '0',
-      width: 'min(680px, 100vw)', zIndex: 20,
+      width: 'min(680px, 100%)', zIndex: 20,
       background: 'rgba(8,10,18,0.97)', backdropFilter: 'blur(28px)',
       borderLeft: '1px solid rgba(212,165,116,0.18)', borderTop: '1px solid rgba(212,165,116,0.12)',
       borderRadius: '14px 0 0 0',
-      overflowY: 'auto', padding: '18px 20px',
+      overflowY: 'auto', overflowX: 'hidden', padding: 'clamp(12px, 3vw, 20px) clamp(12px, 3vw, 20px)',
       display: 'flex', flexDirection: 'column', gap: '14px',
       boxShadow: '-8px 0 40px rgba(0,0,0,0.6), inset 1px 0 0 rgba(212,165,116,0.06)',
     }}>
@@ -2933,7 +2933,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
 
       {shareOpen && <ShareModal node={node} language={language} onClose={() => setShareOpen(false)} />}
 
-      <div style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.55rem', lineHeight: 1.9, color: '#d4b483', textAlign: 'right', direction: 'rtl', padding: '14px 18px', background: 'linear-gradient(135deg, rgba(212,165,116,0.08), rgba(180,130,70,0.03))', borderRadius: '10px', border: '1px solid rgba(212,165,116,0.15)' }}>
+      <div style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: 'clamp(1.1rem, 4vw, 1.55rem)', lineHeight: 1.9, color: '#d4b483', textAlign: 'right', direction: 'rtl', padding: 'clamp(10px, 2.5vw, 14px) clamp(10px, 2.5vw, 18px)', background: 'linear-gradient(135deg, rgba(212,165,116,0.08), rgba(180,130,70,0.03))', borderRadius: '10px', border: '1px solid rgba(212,165,116,0.15)' }}>
         {cleanArabicForGraph(node.arabic)}
       </div>
 
