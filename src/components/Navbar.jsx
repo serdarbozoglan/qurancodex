@@ -232,11 +232,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -268,10 +268,11 @@ export default function Navbar() {
       if (esbabOpen)      { setEsbabOpen(false);          return; }
       if (commandsOpen)   { setCommandsOpen(false);       return; }
       if (addresseeOpen)  { setAddresseeOpen(false);      return; }
+      if (esmaOpen)       { setEsmaOpen(false);           return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -450,6 +451,17 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setAddresseeOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Esmaül Hüsna', labelEn: 'Divine Names',
+      descTr: "99 ismin Kur'an'daki frekans analizi", descEn: "Frequency analysis of the 99 divine names in the Quran",
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+      ),
+      action: () => { setEsmaOpen(true); setToolsOpen(false); },
     },
   ];
 
@@ -649,9 +661,9 @@ export default function Navbar() {
                         </span>
                       </button>
                     );
-                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap
+                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna
                     const vizTools    = [tools[1], tools[2], tools[3], tools[6], tools[8]];
-                    const researchTools = [tools[0], tools[4], tools[5], tools[7], tools[11]];
+                    const researchTools = [tools[0], tools[4], tools[5], tools[7], tools[11], tools[12]];
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Left: Görselleştirme */}
@@ -935,6 +947,11 @@ export default function Navbar() {
     {addresseeOpen && (
       <Suspense fallback={null}>
         <AddresseeSystem onClose={() => setAddresseeOpen(false)} />
+      </Suspense>
+    )}
+    {esmaOpen && (
+      <Suspense fallback={null}>
+        <EsmaFrekans onClose={() => setEsmaOpen(false)} />
       </Suspense>
     )}
     </>
