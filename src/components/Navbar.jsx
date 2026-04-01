@@ -681,9 +681,9 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.15 }}
-                  style={{ ...dropdownStyle, left: 0, minWidth: '440px', padding: 0 }}
+                  style={{ ...dropdownStyle, left: 0, minWidth: '660px', padding: 0 }}
                 >
-                  {/* Mega-menu: two columns */}
+                  {/* Mega-menu: three columns */}
                   {(() => {
                     const colLabel = {
                       color: 'rgba(148,163,184,0.4)',
@@ -720,20 +720,28 @@ export default function Navbar() {
                     );
                     // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları
                     const vizTools      = [tools[1], tools[2], tools[3], tools[8], tools[6]];
-                    const analysisTools = [tools[12], tools[13], tools[7], tools[5], tools[11], tools[0], tools[4], tools[9], tools[10]];
+                    const analysisTools = [tools[12], tools[13], tools[7], tools[5], tools[11]];
+                    const researchTools = [tools[0], tools[4], tools[9], tools[10]];
                     return (
                       <div style={{ display: 'flex' }}>
-                        {/* Left: Görselleştirme */}
+                        {/* Col 1: Görselleştirme */}
                         <div style={{ flex: 1, padding: '8px' }}>
                           <div style={colLabel}>{language === 'tr' ? 'Görselleştirme' : 'Visualisation'}</div>
                           {vizTools.map(toolBtn)}
                         </div>
                         {/* Divider */}
                         <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                        {/* Right: Analiz & Keşif */}
+                        {/* Col 2: Analiz & Veri */}
                         <div style={{ flex: 1, padding: '8px' }}>
-                          <div style={colLabel}>{language === 'tr' ? 'Analiz & Keşif' : 'Analysis & Explore'}</div>
+                          <div style={colLabel}>{language === 'tr' ? 'Analiz & Veri' : 'Analysis & Data'}</div>
                           {analysisTools.map(toolBtn)}
+                        </div>
+                        {/* Divider */}
+                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                        {/* Col 3: Araştırma & Keşif */}
+                        <div style={{ flex: 1, padding: '8px' }}>
+                          <div style={colLabel}>{language === 'tr' ? 'Araştırma & Keşif' : 'Research & Explore'}</div>
+                          {researchTools.map(toolBtn)}
                         </div>
                       </div>
                     );
