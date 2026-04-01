@@ -13,6 +13,7 @@ const ConceptGraph     = lazy(() => import('./ConceptGraph'));
 const KissaAtlas       = lazy(() => import('./KissaAtlas'));
 const SurahComparator  = lazy(() => import('./SurahComparator'));
 const EsbabNuzul       = lazy(() => import('./EsbabNuzul'));
+const QuranCommands    = lazy(() => import('./QuranCommands'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -163,6 +164,7 @@ export default function Navbar() {
   const [kissaOpen,      setKissaOpen]      = useState(false);
   const [comparatorOpen, setComparatorOpen] = useState(false);
   const [esbabOpen,      setEsbabOpen]      = useState(false);
+  const [commandsOpen,   setCommandsOpen]   = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -222,7 +224,7 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
@@ -253,10 +255,11 @@ export default function Navbar() {
       if (kissaOpen)      { setKissaOpen(false);         return; }
       if (comparatorOpen) { setComparatorOpen(false);    return; }
       if (esbabOpen)      { setEsbabOpen(false);          return; }
+      if (commandsOpen)   { setCommandsOpen(false);       return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -400,6 +403,17 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setEsbabOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: "Kur'an'ın Emirleri", labelEn: "Quran's Commands",
+      descTr: '207 emir ve tavsiye', descEn: '207 commands and guidance',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="9 11 12 14 22 4" />
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+        </svg>
+      ),
+      action: () => { setCommandsOpen(true); setToolsOpen(false); },
     },
     {
       labelTr: 'Dua Ayetleri', labelEn: 'Prayer Verses',
@@ -877,6 +891,11 @@ export default function Navbar() {
     {esbabOpen && (
       <Suspense fallback={null}>
         <EsbabNuzul onClose={() => setEsbabOpen(false)} />
+      </Suspense>
+    )}
+    {commandsOpen && (
+      <Suspense fallback={null}>
+        <QuranCommands onClose={() => setCommandsOpen(false)} />
       </Suspense>
     )}
     </>

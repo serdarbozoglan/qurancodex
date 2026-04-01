@@ -1,0 +1,580 @@
+{
+  "categories": [
+    {
+      "id": "ibadet",
+      "titleTr": "İbadet ve Kulluk",
+      "titleEn": "Worship and Devotion",
+      "icon": "🕌",
+      "accent": "#C9A96E",
+      "commands": [
+        {
+          "id": "namaz-kil",
+          "type": "emir",
+          "summaryTr": "Namazı kılın",
+          "summaryEn": "Establish prayer",
+          "verseAr": "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ",
+          "verseTr": "Namazı kılın, zekâtı verin...",
+          "verseRef": "2:43",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "oruc-tut",
+          "type": "emir",
+          "summaryTr": "Oruç tutun",
+          "summaryEn": "Fast (observe the fast)",
+          "verseAr": "كُتِبَ عَلَيْكُمُ الصِّيَامُ",
+          "verseTr": "Oruç sizden öncekilere farz kılındığı gibi size de farz kılındı...",
+          "verseRef": "2:183",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "hac-tamamla",
+          "type": "emir",
+          "summaryTr": "Hac ve umreyi tamamlayın",
+          "summaryEn": "Complete the Hajj and Umrah",
+          "verseAr": "وَأَتِمُّوا الحَجَّ وَالعُمْرَةَ لِلَّهِ",
+          "verseTr": "Haccı ve umreyi Allah için tamamlayın...",
+          "verseRef": "2:196",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "ibadet-et",
+          "type": "emir",
+          "summaryTr": "Yalnızca Allah'a ibadet edin",
+          "summaryEn": "Worship Allah alone",
+          "verseAr": "وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا",
+          "verseTr": "Allah'a ibadet edin ve O'na hiçbir şeyi ortak koşmayın...",
+          "verseRef": "4:36",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "zekat-ver",
+          "type": "emir",
+          "summaryTr": "Zekât verin",
+          "summaryEn": "Give zakat (alms)",
+          "verseAr": "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ",
+          "verseTr": "Namazı kılın, zekâtı verin ve rükû edenlerle birlikte rükû edin.",
+          "verseRef": "2:43",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "dua-et",
+          "type": "emir",
+          "summaryTr": "Bana dua edin, kabul edeyim",
+          "summaryEn": "Call upon Me; I will respond",
+          "verseAr": "ادْعُونِي أَسْتَجِبْ لَكُمْ",
+          "verseTr": "Bana dua edin, duanıza cevap vereyim...",
+          "verseRef": "40:60",
+          "surahName": "Mü'min",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "zikret",
+          "type": "emir",
+          "summaryTr": "Allah'ı çokça zikredin",
+          "summaryEn": "Remember Allah often",
+          "verseAr": "يَا أَيُّهَا الَّذِينَ آمَنُوا اذْكُرُوا اللَّهَ ذِكْرًا كَثِيرًا",
+          "verseTr": "Ey iman edenler! Allah'ı çokça zikredin.",
+          "verseRef": "33:41",
+          "surahName": "Ahzâb",
+          "verified": true,
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "aile",
+      "titleTr": "Aile ve Toplum",
+      "titleEn": "Family and Society",
+      "icon": "🏠",
+      "accent": "#4CAF7D",
+      "commands": [
+        {
+          "id": "ebeveyne-iyi-davran",
+          "type": "emir",
+          "summaryTr": "Ebeveyne iyi davranın",
+          "summaryEn": "Treat parents with kindness",
+          "verseAr": "وَقَضَى رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا",
+          "verseTr": "Rabbin, yalnızca O'na ibadet etmenizi ve anne babanıza iyi davranmanızı kesinlikle emretti...",
+          "verseRef": "17:23",
+          "surahName": "İsrâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "yakina-ver",
+          "type": "emir",
+          "summaryTr": "Akrabaya, yoksullara, yolda kalana verin",
+          "summaryEn": "Give to relatives, the poor, and the wayfarer",
+          "verseAr": "وَآتِ ذَا الْقُرْبَى حَقَّهُ وَالْمِسْكِينَ وَابْنَ السَّبِيلِ",
+          "verseTr": "Akrabaya hakkını ver, yoksula ve yolda kalmışa da...",
+          "verseRef": "17:26",
+          "surahName": "İsrâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "adaleti-gozet",
+          "type": "emir",
+          "summaryTr": "Adaleti ayakta tutun",
+          "summaryEn": "Be upholders of justice",
+          "verseAr": "كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ",
+          "verseTr": "Allah için hakkı ayakta tutan, adaletle şahitlik eden kimseler olun...",
+          "verseRef": "4:135",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "sulh-yapın",
+          "type": "emir",
+          "summaryTr": "İnsanlar arasında barışı sağlayın",
+          "summaryEn": "Make peace between people",
+          "verseAr": "فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ",
+          "verseTr": "Aranızdaki iki kardeşin arasını bulun...",
+          "verseRef": "49:10",
+          "surahName": "Hucurât",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "istisare",
+          "type": "emir",
+          "summaryTr": "İşlerde birbirinizle istişare edin",
+          "summaryEn": "Consult one another in matters",
+          "verseAr": "وَشَاوِرْهُمْ فِي الْأَمْرِ",
+          "verseTr": "İş konusunda onlarla istişare et...",
+          "verseRef": "3:159",
+          "surahName": "Âl-i İmrân",
+          "verified": true,
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "ahlak",
+      "titleTr": "Ahlak ve Karakter",
+      "titleEn": "Ethics and Character",
+      "icon": "⚖️",
+      "accent": "#4A9EE8",
+      "commands": [
+        {
+          "id": "sabir",
+          "type": "emir",
+          "summaryTr": "Sabırlı olun",
+          "summaryEn": "Be patient",
+          "verseAr": "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
+          "verseTr": "Ey iman edenler! Sabır ve namazla yardım isteyin...",
+          "verseRef": "2:153",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "emanet",
+          "type": "emir",
+          "summaryTr": "Emanetleri sahiplerine verin",
+          "summaryEn": "Return trusts to their owners",
+          "verseAr": "إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا",
+          "verseTr": "Allah, emanetleri ehline vermenizi emrediyor...",
+          "verseRef": "4:58",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "tevazu",
+          "type": "emir",
+          "summaryTr": "Yerde mütevazıca yürüyün",
+          "summaryEn": "Walk humbly on the earth",
+          "verseAr": "وَعِبَادُ الرَّحْمَنِ الَّذِينَ يَمْشُونَ عَلَى الْأَرْضِ هَوْنًا",
+          "verseTr": "Rahman'ın kulları yeryüzünde mütevazıca yürürler...",
+          "verseRef": "25:63",
+          "surahName": "Furkân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "af",
+          "type": "emir",
+          "summaryTr": "Affedici olun",
+          "summaryEn": "Be forgiving",
+          "verseAr": "وَلْيَعْفُوا وَلْيَصْفَحُوا",
+          "verseTr": "Affetsinler ve hoş görüp geçsinler...",
+          "verseRef": "24:22",
+          "surahName": "Nûr",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "ihsan",
+          "type": "emir",
+          "summaryTr": "İyilikle karşılık verin",
+          "summaryEn": "Repel evil with what is better",
+          "verseAr": "ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ",
+          "verseTr": "Kötülüğü en güzel şekilde sav...",
+          "verseRef": "23:96",
+          "surahName": "Mü'minûn",
+          "verified": true,
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "mal",
+      "titleTr": "Mal ve Ekonomi",
+      "titleEn": "Wealth and Economy",
+      "icon": "💰",
+      "accent": "#E8A24A",
+      "commands": [
+        {
+          "id": "faiz-birak",
+          "type": "nehiy",
+          "summaryTr": "Faizden vazgeçin",
+          "summaryEn": "Give up what remains of usury",
+          "verseAr": "وَذَرُوا مَا بَقِيَ مِنَ الرِّبَا",
+          "verseTr": "Eğer gerçekten inanıyorsanız Allah'tan korkun ve faizden arta kalanı bırakın...",
+          "verseRef": "2:278",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "infak",
+          "type": "emir",
+          "summaryTr": "Allah yolunda harcayın",
+          "summaryEn": "Spend in the way of Allah",
+          "verseAr": "وَأَنفِقُوا فِي سَبِيلِ اللَّهِ",
+          "verseTr": "Allah yolunda harcayın ve kendi ellerinizle kendinizi tehlikeye atmayın...",
+          "verseRef": "2:195",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "olcuyu-tam-tut",
+          "type": "emir",
+          "summaryTr": "Ölçü ve tartıyı tam tutun",
+          "summaryEn": "Give full measure and weight",
+          "verseAr": "وَأَوْفُوا الْكَيْلَ وَالْمِيزَانَ بِالْقِسْطِ",
+          "verseTr": "Ölçü ve tartıyı adaletle tam tutun...",
+          "verseRef": "6:152",
+          "surahName": "En'âm",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "haksiz-mal-yeme",
+          "type": "nehiy",
+          "summaryTr": "Birbirinizin malını haksız yere yemeyin",
+          "summaryEn": "Do not consume each other's wealth unjustly",
+          "verseAr": "وَلَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ",
+          "verseTr": "Mallarınızı aranızda haksız yollarla yemeyin...",
+          "verseRef": "2:188",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "israf-etme",
+          "type": "nehiy",
+          "summaryTr": "İsraf etmeyin",
+          "summaryEn": "Do not be wasteful",
+          "verseAr": "وَلَا تُسْرِفُوا إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ",
+          "verseTr": "İsraf etmeyin; çünkü Allah israf edenleri sevmez.",
+          "verseRef": "6:141",
+          "surahName": "En'âm",
+          "verified": true,
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "bilgi",
+      "titleTr": "Bilgi ve Akıl",
+      "titleEn": "Knowledge and Reason",
+      "icon": "📖",
+      "accent": "#9B59B6",
+      "commands": [
+        {
+          "id": "oku",
+          "type": "emir",
+          "summaryTr": "Oku — Kur'an'ın ilk emri",
+          "summaryEn": "Read — The first command of the Quran",
+          "verseAr": "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+          "verseTr": "Yaratan Rabbinin adıyla oku!",
+          "verseRef": "96:1",
+          "surahName": "Alak",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "tefekkur",
+          "type": "emir",
+          "summaryTr": "Kur'an üzerinde düşünün",
+          "summaryEn": "Contemplate the Quran",
+          "verseAr": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ",
+          "verseTr": "Kur'an'ı hiç düşünmüyorlar mı?",
+          "verseRef": "4:82",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": "Bu ayet soru formunda olup dolaylı bir emirdir."
+        },
+        {
+          "id": "yeryuzunde-yuru",
+          "type": "emir",
+          "summaryTr": "Yeryüzünde gezip ibret alın",
+          "summaryEn": "Travel the earth and observe",
+          "verseAr": "قُلْ سِيرُوا فِي الْأَرْضِ فَانظُرُوا",
+          "verseTr": "De ki: Yeryüzünde dolaşın ve bakın...",
+          "verseRef": "6:11",
+          "surahName": "En'âm",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "teyit-et",
+          "type": "emir",
+          "summaryTr": "Haberi doğrulayın, teyit edin",
+          "summaryEn": "Verify news before acting on it",
+          "verseAr": "يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا",
+          "verseTr": "Ey iman edenler! Bir fasık size bir haber getirirse onu iyice araştırın...",
+          "verseRef": "49:6",
+          "surahName": "Hucurât",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "fikir-soyleme",
+          "type": "emir",
+          "summaryTr": "Bilmediğiniz şeyin ardına düşmeyin",
+          "summaryEn": "Do not pursue what you have no knowledge of",
+          "verseAr": "وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ",
+          "verseTr": "Hakkında bilgin olmayan şeyin peşine düşme...",
+          "verseRef": "17:36",
+          "surahName": "İsrâ",
+          "verified": true,
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "yasaklar",
+      "titleTr": "Temel Yasaklar",
+      "titleEn": "Core Prohibitions",
+      "icon": "🚫",
+      "accent": "#E84A4A",
+      "commands": [
+        {
+          "id": "sirk-yasak",
+          "type": "nehiy",
+          "summaryTr": "Allah'a ortak koşmayın",
+          "summaryEn": "Do not associate partners with Allah",
+          "verseAr": "وَلَا تُشْرِكْ بِاللَّهِ إِنَّ الشِّرْكَ لَظُلْمٌ عَظِيمٌ",
+          "verseTr": "Allah'a ortak koşma; şüphesiz şirk büyük bir zulümdür.",
+          "verseRef": "31:13",
+          "surahName": "Lokmân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "zina-yasak",
+          "type": "nehiy",
+          "summaryTr": "Zinaya yaklaşmayın",
+          "summaryEn": "Do not approach adultery",
+          "verseAr": "وَلَا تَقْرَبُوا الزِّنَا إِنَّهُ كَانَ فَاحِشَةً وَسَاءَ سَبِيلًا",
+          "verseTr": "Zinaya yaklaşmayın; çünkü o bir hayasızlık ve çok kötü bir yoldur.",
+          "verseRef": "17:32",
+          "surahName": "İsrâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "adam-oldurme-yasak",
+          "type": "nehiy",
+          "summaryTr": "Haksız yere can almayın",
+          "summaryEn": "Do not take a life unjustly",
+          "verseAr": "وَلَا تَقْتُلُوا النَّفْسَ الَّتِي حَرَّمَ اللَّهُ إِلَّا بِالْحَقِّ",
+          "verseTr": "Allah'ın haram kıldığı cana haksız yere kıymayın...",
+          "verseRef": "6:151",
+          "surahName": "En'âm",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "yalan-yasak",
+          "type": "nehiy",
+          "summaryTr": "Yalan söylemekten kaçının",
+          "summaryEn": "Avoid false speech",
+          "verseAr": "وَاجْتَنِبُوا قَوْلَ الزُّورِ",
+          "verseTr": "Yalan sözden kaçının.",
+          "verseRef": "22:30",
+          "surahName": "Hac",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "haksizlik-yasak",
+          "type": "nehiy",
+          "summaryTr": "Zulmetmeyin",
+          "summaryEn": "Do not oppress",
+          "verseAr": "وَلَا تَظْلِمُونَ وَلَا تُظْلَمُونَ",
+          "verseTr": "Ne zulmedin ne de zulme uğrayın.",
+          "verseRef": "2:279",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "sosyal-adalet",
+      "titleTr": "Sosyal Adalet",
+      "titleEn": "Social Justice",
+      "icon": "🤝",
+      "accent": "#26C6DA",
+      "commands": [
+        {
+          "id": "yetim-hakki",
+          "type": "emir",
+          "summaryTr": "Yetimin hakkını koruyun",
+          "summaryEn": "Protect the rights of the orphan",
+          "verseAr": "وَلَا تَقْرَبُوا مَالَ الْيَتِيمِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ",
+          "verseTr": "Yetimin malına, en iyi amaçla dışında yaklaşmayın...",
+          "verseRef": "6:152",
+          "surahName": "En'âm",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "mazlum-yaninda-ol",
+          "type": "emir",
+          "summaryTr": "Mazlumun yanında olun",
+          "summaryEn": "Stand with the oppressed",
+          "verseAr": "وَمَا لَكُمْ لَا تُقَاتِلُونَ فِي سَبِيلِ اللَّهِ وَالْمُسْتَضْعَفِينَ",
+          "verseTr": "Size ne oluyor ki Allah yolunda ve zayıf bırakılmış erkekler, kadınlar ve çocuklar için savaşmıyorsunuz?",
+          "verseRef": "4:75",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": "Ayet savaş bağlamında olup genel mazlumun yanında olma ilkesini içerir."
+        },
+        {
+          "id": "tanik-adaletli-ol",
+          "type": "emir",
+          "summaryTr": "Şahitliğinizde adil olun",
+          "summaryEn": "Be just witnesses even against yourselves",
+          "verseAr": "وَلَوْ عَلَى أَنفُسِكُمْ",
+          "verseTr": "Kendiniz aleyhine de olsa adaletle şahitlik edin...",
+          "verseRef": "4:135",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "gorev-ehline-ver",
+          "type": "emir",
+          "summaryTr": "Görevleri ehline verin",
+          "summaryEn": "Entrust affairs to those qualified",
+          "verseAr": "إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا",
+          "verseTr": "Allah, emanetleri ehline vermenizi ve insanlar arasında adaletle hükmetmenizi emrediyor.",
+          "verseRef": "4:58",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "fuhustan-uzak-dur",
+          "type": "nehiy",
+          "summaryTr": "Açık ve gizli her türlü çirkinlikten uzak durun",
+          "summaryEn": "Avoid all immorality, open and hidden",
+          "verseAr": "وَلَا تَقْرَبُوا الْفَوَاحِشَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ",
+          "verseTr": "Açık olan ya da gizli olan her türlü çirkinliğe yaklaşmayın...",
+          "verseRef": "6:151",
+          "surahName": "En'âm",
+          "verified": true,
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "iletisim",
+      "titleTr": "İletişim ve Dil",
+      "titleEn": "Communication and Speech",
+      "icon": "🗣️",
+      "accent": "#E84A7C",
+      "commands": [
+        {
+          "id": "giybet-yasak",
+          "type": "nehiy",
+          "summaryTr": "Birbirinizi gıybet etmeyin",
+          "summaryEn": "Do not backbite one another",
+          "verseAr": "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا",
+          "verseTr": "Birbirinizin gıybetini yapmayın...",
+          "verseRef": "49:12",
+          "surahName": "Hucurât",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "alay-etme-yasak",
+          "type": "nehiy",
+          "summaryTr": "Birbirinizle alay etmeyin",
+          "summaryEn": "Do not mock one another",
+          "verseAr": "لَا يَسْخَرْ قَوْمٌ مِّن قَوْمٍ",
+          "verseTr": "Bir topluluk diğer bir topluluğu alaya almasın...",
+          "verseRef": "49:11",
+          "surahName": "Hucurât",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "dogru-soz",
+          "type": "emir",
+          "summaryTr": "Doğru ve düzgün söz söyleyin",
+          "summaryEn": "Speak the truth, speak rightly",
+          "verseAr": "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا",
+          "verseTr": "Ey iman edenler! Allah'tan korkun ve doğru söz söyleyin.",
+          "verseRef": "33:70",
+          "surahName": "Ahzâb",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "iftira-yasak",
+          "type": "nehiy",
+          "summaryTr": "İftira atmayın",
+          "summaryEn": "Do not slander",
+          "verseAr": "وَالَّذِينَ يَرْمُونَ الْمُحْصَنَاتِ ثُمَّ لَمْ يَأْتُوا بِأَرْبَعَةِ شُهَدَاءَ",
+          "verseTr": "İffetli kadınlara zina isnat edip dört şahit getiremeyenlere seksen değnek vurun...",
+          "verseRef": "24:4",
+          "surahName": "Nûr",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "kin-gütme",
+          "type": "nehiy",
+          "summaryTr": "Birbirinize kin gütmeyin",
+          "summaryEn": "Do not bear hatred toward one another",
+          "verseAr": "وَلَا تَحَاسَدُوا وَلَا تَبَاغَضُوا",
+          "verseTr": "Birbirinize haset etmeyin, birbirinize kin gütmeyin...",
+          "verseRef": "49:12",
+          "surahName": "Hucurât",
+          "verified": true,
+          "note": "Bu ayet hadis kaynaklı bir ilkeyi de içermektedir; Kur'an'da benzer ifade 49:12'de geçer."
+        }
+      ]
+    }
+  ]
+}

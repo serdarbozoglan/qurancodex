@@ -69,6 +69,16 @@ const FACTS = [
     wowEn: '31 repetitions — each sealing a different blessing.',
     explore: 'rahman',
   },
+  {
+    category: 'sayisal',
+    surahRef: 'Çeşitli sureler',
+    titleTr: '14 Secde Ayeti — Okuyucuya Doğrudan Emir',
+    titleEn: '14 Prostration Verses — A Direct Command to the Reader',
+    bodyTr: 'Kur\'an\'da 14 ayet secde emri içerir; bu ayetleri okuyan ya da duyan kişinin secde etmesi sünnet ya da vacibtir. Bunların 4\'ü vacip, 10\'u sünnet secde olarak değerlendirilir. Sure Hac\'da iki adet secde ayeti bulunur — bu onu diğer tüm surelerden ayıran tek özelliktir.',
+    bodyEn: 'The Quran contains 14 prostration verses; whoever recites or hears them is expected to prostrate. 4 are considered obligatory (wajib) and 10 are recommended (sunnah). Surah Al-Hajj uniquely contains two — making it the only surah with a double prostration.',
+    wowTr: '14 noktada metin durur ve okuyucuya doğrudan seslenir: "Şimdi secde et."',
+    wowEn: '14 points where the text pauses and speaks directly to the reader: "Now prostrate."',
+  },
 
   // ── YAPISAL ──────────────────────────────────────────────────────────────────
   {
@@ -226,6 +236,16 @@ const FACTS = [
     wowTr: 'Hukuk %8 — geri kalan %92 ruh, anlam ve evren.',
     wowEn: 'Law is 8% — the remaining 92% is soul, meaning, and universe.',
     scrollTo: 'linguistic',
+  },
+  {
+    category: 'yapisal',
+    surahRef: 'Eş-Şems · 91',
+    titleTr: 'Kur\'an\'ın En Yoğun Yemin Dizisi — 11 Art Arda Yemin',
+    titleEn: 'The Quran\'s Most Intense Oath Sequence — 11 Consecutive Oaths',
+    bodyTr: 'Şems suresi 11 art arda yemin ile açılır: güneşe, aydınlığına, aya, gündüze, geceye, gökyüzüne, yere ve insanın ruhuna. Her yemin bir sonrakini inşa eder; kozmostan başlayıp insana iner. 8. yeminle ani bir kırılma: "Nefse ve onu şekillendirene yemin ederim." Kur\'an\'ın başka hiçbir suresinde bu yoğunlukta art arda yemin yoktur.',
+    bodyEn: 'Surah Ash-Shams opens with 11 consecutive oaths: by the sun, its radiance, the moon, the day, the night, the sky, the earth, and finally the human soul. Each oath builds on the previous, descending from the cosmos to the self. At oath 8, a sudden pivot: "By the soul and by He who shaped it." No other surah in the Quran contains such a dense unbroken oath sequence.',
+    wowTr: '11 yemin — kozmosu sahne yapar, sonra insan ruhunu merkeze alır.',
+    wowEn: '11 oaths — stages the entire cosmos, then places the human soul at center.',
   },
 
   // ── PEYGAMBERLER ─────────────────────────────────────────────────────────────

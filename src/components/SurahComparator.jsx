@@ -198,7 +198,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
           fontSize: '0.7rem', color: '#475569', padding: '2px 8px',
           background: 'rgba(255,255,255,0.05)', borderRadius: '20px', flexShrink: 0,
         }}>
-          {language === 'tr' ? surahInfo[value].period?.tr : surahInfo[value].period?.en}
+          {typeof surahInfo[value].period === 'string' ? surahInfo[value].period : (language === 'tr' ? surahInfo[value].period?.tr : surahInfo[value].period?.en)}
         </span>
       )}
     </div>
@@ -292,7 +292,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
                   </span>
                   {surahInfo?.[n] && (
                     <span style={{ color: '#334155', fontSize: '0.68rem', flexShrink: 0 }}>
-                      {language === 'tr' ? surahInfo[n].period?.tr?.slice(0, 3) : surahInfo[n].period?.en?.slice(0, 3)}
+                      {(typeof surahInfo[n].period === 'string' ? surahInfo[n].period : (language === 'tr' ? surahInfo[n].period?.tr : surahInfo[n].period?.en))?.slice(0, 3)}
                     </span>
                   )}
                 </button>
@@ -517,12 +517,23 @@ export default function SurahComparator({ onClose }) {
       const tN = normalizeTr(t);
       return themesB.some(tb => normalizeTr(tb).includes(tN) || tN.includes(normalizeTr(tb)));
     });
+    const sharedNorm = new Set(themesShared.map(t => normalizeTr(t)));
+    const themesOnlyA = themesA.filter(t => {
+      const tN = normalizeTr(t);
+      return !themesB.some(tb => normalizeTr(tb).includes(tN) || tN.includes(normalizeTr(tb)));
+    });
+    const themesOnlyB = themesB.filter(t => {
+      const tN = normalizeTr(t);
+      return !themesA.some(ta => normalizeTr(ta).includes(tN) || tN.includes(normalizeTr(ta)));
+    });
+    const unionSize = themesOnlyA.length + themesShared.length + themesOnlyB.length;
+    const themeJaccard = unionSize > 0 ? Math.round((themesShared.length / unionSize) * 100) : 0;
 
     return {
       vA, vB, finalScore, sim, simReverse,
       figA, figB, figShared, figOnlyA, figOnlyB,
       freqA, freqB,
-      infoA, infoB, themesA, themesB, themesShared,
+      infoA, infoB, themesA, themesB, themesShared, themesOnlyA, themesOnlyB, themeJaccard,
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view, surahA, surahB, language]);
@@ -760,7 +771,7 @@ export default function SurahComparator({ onClose }) {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   <StatRow label={language === 'tr' ? 'Ayet sayısı' : 'Verses'} value={analysis.vA.length} color={COLOR_A} />
-                  <StatRow label={language === 'tr' ? 'Dönem' : 'Period'} value={language === 'tr' ? analysis.infoA.period?.tr : analysis.infoA.period?.en} color={COLOR_A} />
+                  <StatRow label={language === 'tr' ? 'Dönem' : 'Period'} value={typeof analysis.infoA.period === 'string' ? analysis.infoA.period : (language === 'tr' ? analysis.infoA.period?.tr : analysis.infoA.period?.en)} color={COLOR_A} />
                   <StatRow label={language === 'tr' ? 'Nüzul sırası' : 'Rev. rank'} value={revRankMap[surahA] ? `#${revRankMap[surahA]}` : '—'} color={COLOR_A} />
                   {analysis.infoA.meaning && (
                     <StatRow label={language === 'tr' ? 'Anlam' : 'Meaning'} value={language === 'tr' ? analysis.infoA.meaning.tr : analysis.infoA.meaning.en} color={COLOR_A} />
@@ -802,7 +813,7 @@ export default function SurahComparator({ onClose }) {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   <StatRow label={language === 'tr' ? 'Ayet sayısı' : 'Verses'} value={analysis.vB.length} color={COLOR_B} />
-                  <StatRow label={language === 'tr' ? 'Dönem' : 'Period'} value={language === 'tr' ? analysis.infoB.period?.tr : analysis.infoB.period?.en} color={COLOR_B} />
+                  <StatRow label={language === 'tr' ? 'Dönem' : 'Period'} value={typeof analysis.infoB.period === 'string' ? analysis.infoB.period : (language === 'tr' ? analysis.infoB.period?.tr : analysis.infoB.period?.en)} color={COLOR_B} />
                   <StatRow label={language === 'tr' ? 'Nüzul sırası' : 'Rev. rank'} value={revRankMap[surahB] ? `#${revRankMap[surahB]}` : '—'} color={COLOR_B} />
                   {analysis.infoB.meaning && (
                     <StatRow label={language === 'tr' ? 'Anlam' : 'Meaning'} value={language === 'tr' ? analysis.infoB.meaning.tr : analysis.infoB.meaning.en} color={COLOR_B} />
@@ -883,20 +894,101 @@ export default function SurahComparator({ onClose }) {
               </div>
             )}
 
-            {/* ── ROW 5: Word Venn ── */}
+            {/* ── ROW 5: Thematic Comparison ── */}
             <div>
-              <p style={{ color: '#334155', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '12px' }}>
-                {language === 'tr' ? 'Kelime Dağılımı' : 'Vocabulary Distribution'}
+              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
+                <p style={{ color: '#334155', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', margin: 0 }}>
+                  {language === 'tr' ? 'Tematik Karşılaştırma' : 'Thematic Comparison'}
+                </p>
+                {analysis.themeJaccard > 0 && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{
+                      fontSize: '1.1rem', fontWeight: 800,
+                      color: analysis.themeJaccard >= 50 ? '#4caf7d' : analysis.themeJaccard >= 25 ? '#d4a574' : '#94a3b8',
+                    }}>
+                      %{analysis.themeJaccard}
+                    </span>
+                    <span style={{ fontSize: '0.72rem', color: '#334155' }}>
+                      {language === 'tr' ? 'tema örtüşmesi' : 'theme overlap'}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Jaccard explanation */}
+              <p style={{ fontSize: '0.72rem', color: '#475569', marginBottom: '14px', lineHeight: 1.5 }}>
+                {language === 'tr'
+                  ? `Benzerlik skoru: ${analysis.themesShared.length} ortak tema ÷ ${analysis.themesOnlyA.length + analysis.themesShared.length + analysis.themesOnlyB.length} toplam farklı tema (Jaccard katsayısı)`
+                  : `Similarity score: ${analysis.themesShared.length} shared themes ÷ ${analysis.themesOnlyA.length + analysis.themesShared.length + analysis.themesOnlyB.length} total unique themes (Jaccard coefficient)`}
               </p>
-              <WordVenn
-                wordsA={analysis.freqA}
-                wordsB={analysis.freqB}
-                colorA={COLOR_A}
-                colorB={COLOR_B}
-                nameA={SURAH_NAMES_TR[surahA]}
-                nameB={SURAH_NAMES_TR[surahB]}
-                language={language}
-              />
+
+              {/* Three-column theme Venn */}
+              <div style={{
+                display: 'grid', gridTemplateColumns: '1fr auto 1fr',
+                border: '1px solid rgba(255,255,255,0.07)', borderRadius: '14px', overflow: 'hidden',
+              }}>
+                {/* Only A */}
+                <div style={{ padding: '16px', background: `${COLOR_A}08` }}>
+                  <p style={{ color: COLOR_A, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px' }}>
+                    {SURAH_NAMES_TR[surahA]} {language === 'tr' ? 'özgü' : 'only'}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {analysis.themesOnlyA.length === 0 ? (
+                      <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
+                    ) : analysis.themesOnlyA.map((t, i) => (
+                      <span key={i} style={{
+                        padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
+                        background: `${COLOR_A}12`, border: `1px solid ${COLOR_A}30`, color: COLOR_A,
+                        display: 'inline-block',
+                      }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div style={{ width: '1px', background: 'rgba(255,255,255,0.07)' }} />
+
+                {/* Shared */}
+                <div style={{
+                  padding: '16px', background: 'rgba(76,175,125,0.05)',
+                  borderLeft: '1px solid rgba(255,255,255,0.07)',
+                  borderRight: '1px solid rgba(255,255,255,0.07)',
+                  minWidth: '140px',
+                }}>
+                  <p style={{ color: '#4caf7d', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px', textAlign: 'center' }}>
+                    {language === 'tr' ? '✓ Ortak' : '✓ Shared'}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'center' }}>
+                    {analysis.themesShared.length === 0 ? (
+                      <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
+                    ) : analysis.themesShared.map((t, i) => (
+                      <span key={i} style={{
+                        padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem', fontWeight: 600,
+                        background: 'rgba(76,175,125,0.12)', border: '1px solid rgba(76,175,125,0.3)', color: '#4caf7d',
+                        display: 'inline-block', textAlign: 'center',
+                      }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Only B */}
+                <div style={{ padding: '16px', background: `${COLOR_B}08` }}>
+                  <p style={{ color: COLOR_B, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px', textAlign: 'right' }}>
+                    {SURAH_NAMES_TR[surahB]} {language === 'tr' ? 'özgü' : 'only'}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-end' }}>
+                    {analysis.themesOnlyB.length === 0 ? (
+                      <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
+                    ) : analysis.themesOnlyB.map((t, i) => (
+                      <span key={i} style={{
+                        padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
+                        background: `${COLOR_B}12`, border: `1px solid ${COLOR_B}30`, color: COLOR_B,
+                        display: 'inline-block',
+                      }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* ── ROW 6: Fadail / Description ── */}
