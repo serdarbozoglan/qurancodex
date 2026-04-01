@@ -2884,7 +2884,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
   return (
     <div style={{
       position: 'absolute', top: '54px', right: '0', left: 'auto', bottom: '0',
-      width: 'min(680px, 100%)', zIndex: 20,
+      width: 'min(680px, 100%)', boxSizing: 'border-box', zIndex: 20,
       background: 'rgba(8,10,18,0.97)', backdropFilter: 'blur(28px)',
       borderLeft: '1px solid rgba(212,165,116,0.18)', borderTop: '1px solid rgba(212,165,116,0.12)',
       borderRadius: '14px 0 0 0',
