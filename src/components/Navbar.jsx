@@ -17,6 +17,7 @@ const QuranCommands    = lazy(() => import('./QuranCommands'));
 const AddresseeSystem  = lazy(() => import('./AddresseeSystem'));
 const EsmaFrekans      = lazy(() => import('./EsmaFrekans'));
 const ZamanBoyutlari   = lazy(() => import('./ZamanBoyutlari'));
+const KuranYeminleri   = lazy(() => import('./KuranYeminleri'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -173,6 +174,7 @@ export default function Navbar() {
   const [addresseeOpen,  setAddresseeOpen]  = useState(false);
   const [esmaOpen,       setEsmaOpen]       = useState(false);
   const [zamanOpen,      setZamanOpen]      = useState(false);
+  const [yeminlerOpen,   setYeminlerOpen]   = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -234,11 +236,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -272,10 +274,11 @@ export default function Navbar() {
       if (addresseeOpen)  { setAddresseeOpen(false);      return; }
       if (esmaOpen)       { setEsmaOpen(false);           return; }
       if (zamanOpen)      { setZamanOpen(false);          return; }
+      if (yeminlerOpen)   { setYeminlerOpen(false);        return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -546,7 +549,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.15 }}
-                  style={{ ...dropdownStyle, left: 0, minWidth: '520px', padding: 0 }}
+                  style={{ ...dropdownStyle, left: 0, minWidth: '680px', padding: 0 }}
                 >
                   {/* Mega-menu: two columns */}
                   {(() => {
@@ -583,23 +586,64 @@ export default function Navbar() {
                         </span>
                       </button>
                     );
-                    const leftIds  = ['linguistic','rhythm','rhetoric','dua-language','sounds','hidden-architecture'];
-                    const rightIds = ['science','history','human-definition','psychology'];
-                    const leftSecs  = navSections.filter(s => leftIds.includes(s.id));
-                    const rightSecs = navSections.filter(s => rightIds.includes(s.id));
+                    const dilYapiIds   = ['linguistic','rhythm','sounds','hidden-architecture'];
+                    const retorigiIds  = ['rhetoric','dua-language'];
+                    const tarihinInsan = ['science','history','human-definition','psychology'];
+                    const dilYapiSecs   = navSections.filter(s => dilYapiIds.includes(s.id));
+                    const retorigiSecs  = navSections.filter(s => retorigiIds.includes(s.id));
+                    const tarihSecs     = navSections.filter(s => tarihinInsan.includes(s.id));
+
+                    // Kur'an'ın Yeminleri — tool button (opens overlay, not scroll)
+                    const yeminlerBtn = (
+                      <button
+                        key="yeminler"
+                        onClick={() => { setYeminlerOpen(true); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/>
+                          </svg>
+                        </span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? "Kur'an'ın Yeminleri" : "Oaths of the Quran"}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? "45 yemin — Allah neye yemin eder?" : "45 oaths — what does God swear by?"}
+                          </span>
+                        </span>
+                      </button>
+                    );
+
                     return (
                       <div style={{ display: 'flex' }}>
-                        {/* Left: Dil & Yapı */}
+                        {/* Col 1: Dil & Yapı */}
                         <div style={{ flex: 1, padding: '8px' }}>
                           <div style={colLabel}>{language === 'tr' ? 'Dil & Yapı' : 'Language & Structure'}</div>
-                          {leftSecs.map(secBtn)}
+                          {dilYapiSecs.map(secBtn)}
                         </div>
                         {/* Divider */}
                         <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                        {/* Right: Tarih & İnsan */}
+                        {/* Col 2: Kur'an'ın Retoriği */}
+                        <div style={{ flex: 1, padding: '8px' }}>
+                          <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Retoriği" : "Quranic Rhetoric"}</div>
+                          {retorigiSecs.map(secBtn)}
+                          {yeminlerBtn}
+                        </div>
+                        {/* Divider */}
+                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                        {/* Col 3: Tarih & İnsan */}
                         <div style={{ flex: 1, padding: '8px' }}>
                           <div style={colLabel}>{language === 'tr' ? 'Tarih & İnsan' : 'History & Human'}</div>
-                          {rightSecs.map(secBtn)}
+                          {tarihSecs.map(secBtn)}
                         </div>
                       </div>
                     );
@@ -970,6 +1014,11 @@ export default function Navbar() {
     {zamanOpen && (
       <Suspense fallback={null}>
         <ZamanBoyutlari onClose={() => setZamanOpen(false)} />
+      </Suspense>
+    )}
+    {yeminlerOpen && (
+      <Suspense fallback={null}>
+        <KuranYeminleri onClose={() => setYeminlerOpen(false)} />
       </Suspense>
     )}
     </>
