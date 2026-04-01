@@ -18,6 +18,8 @@ const AddresseeSystem  = lazy(() => import('./AddresseeSystem'));
 const EsmaFrekans      = lazy(() => import('./EsmaFrekans'));
 const ZamanBoyutlari   = lazy(() => import('./ZamanBoyutlari'));
 const KuranYeminleri   = lazy(() => import('./KuranYeminleri'));
+const DogaAtlasi       = lazy(() => import('./DogaAtlasi'));
+const KavimlerAtlasi   = lazy(() => import('./KavimlerAtlasi'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -175,6 +177,8 @@ export default function Navbar() {
   const [esmaOpen,       setEsmaOpen]       = useState(false);
   const [zamanOpen,      setZamanOpen]      = useState(false);
   const [yeminlerOpen,   setYeminlerOpen]   = useState(false);
+  const [dogaOpen,       setDogaOpen]       = useState(false);
+  const [kavimlerOpen,   setKavimlerOpen]   = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -236,11 +240,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -275,10 +279,12 @@ export default function Navbar() {
       if (esmaOpen)       { setEsmaOpen(false);           return; }
       if (zamanOpen)      { setZamanOpen(false);          return; }
       if (yeminlerOpen)   { setYeminlerOpen(false);        return; }
+      if (dogaOpen)       { setDogaOpen(false);            return; }
+      if (kavimlerOpen)   { setKavimlerOpen(false);        return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -549,7 +555,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.15 }}
-                  style={{ ...dropdownStyle, left: 0, minWidth: '680px', padding: 0 }}
+                  style={{ ...dropdownStyle, left: 0, minWidth: '860px', padding: 0 }}
                 >
                   {/* Mega-menu: two columns */}
                   {(() => {
@@ -588,7 +594,8 @@ export default function Navbar() {
                     );
                     const dilYapiIds   = ['linguistic','rhythm','sounds','hidden-architecture'];
                     const retorigiIds  = ['rhetoric','dua-language'];
-                    const tarihinInsan = ['science','history','human-definition','psychology'];
+                    const tarihinInsan = ['history','human-definition','psychology'];
+                    const scienceSec   = navSections.find(s => s.id === 'science');
                     const dilYapiSecs   = navSections.filter(s => dilYapiIds.includes(s.id));
                     const retorigiSecs  = navSections.filter(s => retorigiIds.includes(s.id));
                     const tarihSecs     = navSections.filter(s => tarihinInsan.includes(s.id));
@@ -623,6 +630,103 @@ export default function Navbar() {
                       </button>
                     );
 
+                    // Zamanın Boyutları — overlay button for Evreni col
+                    const zamanBtn = (
+                      <button
+                        key="zaman"
+                        onClick={() => { setZamanOpen(true); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                          </svg>
+                        </span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? 'Zamanın Boyutları' : 'Dimensions of Time'}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? "Kur'an'da zaman: kozmik ölçek, dil katmanı" : "Time in the Quran: cosmic scale, linguistic layer"}
+                          </span>
+                        </span>
+                      </button>
+                    );
+
+                    // Kavimler Atlası — overlay button for Tarih & İnsan col
+                    const kavimlerBtn = (
+                      <button
+                        key="kavimler"
+                        onClick={() => { setKavimlerOpen(true); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                            <line x1="2" y1="20" x2="22" y2="20"/>
+                            <line x1="5" y1="20" x2="5" y2="8"/>
+                            <line x1="9" y1="20" x2="9" y2="8"/>
+                            <line x1="2" y1="8" x2="14" y2="8"/>
+                            <line x1="15" y1="20" x2="15" y2="12"/>
+                            <line x1="19" y1="20" x2="19" y2="10"/>
+                            <line x1="14" y1="8" x2="22" y2="8"/>
+                          </svg>
+                        </span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? 'Kavimler Atlası' : 'Nations Atlas'}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? 'Her kavmin bir peygamberi, her dersin bir sonu vardı' : 'Every nation had a prophet, every lesson an end'}
+                          </span>
+                        </span>
+                      </button>
+                    );
+
+                    // Doğa Atlası — new overlay button for Evreni col
+                    const dogaBtn = (
+                      <button
+                        key="doga"
+                        onClick={() => { setDogaOpen(true); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                          </svg>
+                        </span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? 'Doğa Atlası' : 'Nature Atlas'}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? "Kur'an'daki canlılar, bitkiler ve ekosistem" : "Creatures, plants & ecosystems in the Quran"}
+                          </span>
+                        </span>
+                      </button>
+                    );
+
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Col 1: Dil & Yapı */}
@@ -644,6 +748,16 @@ export default function Navbar() {
                         <div style={{ flex: 1, padding: '8px' }}>
                           <div style={colLabel}>{language === 'tr' ? 'Tarih & İnsan' : 'History & Human'}</div>
                           {tarihSecs.map(secBtn)}
+                          {kavimlerBtn}
+                        </div>
+                        {/* Divider */}
+                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                        {/* Col 4: Kur'an'ın Evreni */}
+                        <div style={{ flex: 1, padding: '8px' }}>
+                          <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Evreni" : "The Quran's Universe"}</div>
+                          {scienceSec && secBtn(scienceSec)}
+                          {zamanBtn}
+                          {dogaBtn}
                         </div>
                       </div>
                     );
@@ -720,7 +834,7 @@ export default function Navbar() {
                     );
                     // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları
                     const vizTools      = [tools[1], tools[2], tools[3], tools[8], tools[6]];
-                    const analysisTools = [tools[12], tools[13], tools[7], tools[5], tools[11]];
+                    const analysisTools = [tools[12], tools[7], tools[5], tools[11]];
                     const researchTools = [tools[0], tools[4], tools[9], tools[10]];
                     return (
                       <div style={{ display: 'flex' }}>
@@ -1027,6 +1141,16 @@ export default function Navbar() {
     {yeminlerOpen && (
       <Suspense fallback={null}>
         <KuranYeminleri onClose={() => setYeminlerOpen(false)} />
+      </Suspense>
+    )}
+    {dogaOpen && (
+      <Suspense fallback={null}>
+        <DogaAtlasi onClose={() => setDogaOpen(false)} />
+      </Suspense>
+    )}
+    {kavimlerOpen && (
+      <Suspense fallback={null}>
+        <KavimlerAtlasi onClose={() => setKavimlerOpen(false)} />
       </Suspense>
     )}
     </>
