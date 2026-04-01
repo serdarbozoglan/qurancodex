@@ -7,6 +7,7 @@ export default function QuranCommands({ onClose }) {
   const [activeId, setActiveId]   = useState('ibadet');
   const [filter, setFilter]       = useState('all'); // 'all' | 'emir' | 'nehiy'
   const [expanded, setExpanded]   = useState(false);
+  const [isMobile, setIsMobile]   = useState(() => window.innerWidth < 640);
 
   useEffect(() => {
     fetch('/quran-commands.json')
@@ -18,6 +19,12 @@ export default function QuranCommands({ onClose }) {
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
+
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
 
   // Reset expanded when category or filter changes
   useEffect(() => { setExpanded(false); }, [activeId, filter]);
@@ -108,13 +115,13 @@ export default function QuranCommands({ onClose }) {
       </button>
 
       {/* Header */}
-      <div style={{ padding: '40px 32px 28px', maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+      <div style={{ padding: isMobile ? '60px 16px 20px' : '40px 32px 28px', maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
         <div style={{ marginBottom: '6px' }}>
           <span style={{ fontSize: '11px', color: 'rgba(201,169,110,0.7)', letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 600 }}>
             {language === 'tr' ? "KUR'AN'IN EMİRLERİ" : "QURAN COMMANDS"}
           </span>
         </div>
-        <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#e8e6e3', fontFamily: "'Playfair Display', serif", marginBottom: '8px', lineHeight: 1.2 }}>
+        <h1 style={{ fontSize: isMobile ? '1.4rem' : '2rem', fontWeight: 800, color: '#e8e6e3', fontFamily: "'Playfair Display', serif", marginBottom: '8px', lineHeight: 1.2 }}>
           {L.title}
         </h1>
         <p style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '24px' }}>
@@ -146,16 +153,58 @@ export default function QuranCommands({ onClose }) {
         </p>
       </div>
 
+      {/* Mobile category chips */}
+      {isMobile && (
+        <div style={{
+          display: 'flex', gap: '6px', overflowX: 'auto',
+          padding: '10px 16px',
+          borderBottom: '1px solid rgba(255,255,255,0.07)',
+          scrollbarWidth: 'none',
+        }}>
+          {categories.map(cat => {
+            const isActive = cat.id === activeId;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => { setActiveId(cat.id); setFilter('all'); }}
+                style={{
+                  flexShrink: 0, padding: '5px 12px', borderRadius: '20px',
+                  border: `1px solid ${isActive ? cat.accent : 'rgba(255,255,255,0.1)'}`,
+                  background: isActive ? cat.accent + '22' : 'transparent',
+                  color: isActive ? cat.accent : '#94a3b8',
+                  fontSize: '0.78rem', fontWeight: isActive ? 600 : 400,
+                  cursor: 'pointer', transition: 'all 0.15s',
+                  fontFamily: "'Inter', sans-serif",
+                  display: 'flex', alignItems: 'center', gap: '5px',
+                }}
+              >
+                <span>{cat.icon}</span>
+                <span>{language === 'tr' ? cat.titleTr : cat.titleEn}</span>
+                <span style={{
+                  background: isActive ? cat.accent + '30' : 'rgba(255,255,255,0.08)',
+                  color: isActive ? cat.accent : '#64748b',
+                  borderRadius: '10px', padding: '0 5px',
+                  fontSize: '0.7rem', fontWeight: 700,
+                }}>
+                  {(cat.commands || []).length}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       {/* Body: sidebar + content */}
       <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', gap: '0', minHeight: 'calc(100vh - 260px)' }}>
 
-        {/* Sidebar */}
+        {/* Sidebar — hidden on mobile, chip row above handles navigation */}
         <nav style={{
           width: '220px', flexShrink: 0,
           borderRight: '1px solid rgba(255,255,255,0.07)',
           padding: '20px 0',
           position: 'sticky', top: 0, alignSelf: 'flex-start',
           maxHeight: 'calc(100vh - 260px)', overflowY: 'auto',
+          display: isMobile ? 'none' : 'block',
         }}>
           {categories.map(cat => {
             const isActive = cat.id === activeId;
@@ -200,7 +249,7 @@ export default function QuranCommands({ onClose }) {
         </nav>
 
         {/* Main content */}
-        <div style={{ flex: 1, padding: '24px 32px 48px', minWidth: 0 }}>
+        <div style={{ flex: 1, padding: isMobile ? '16px 16px 40px' : '24px 32px 48px', minWidth: 0 }}>
 
           {/* Category title + filter toggle */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
@@ -252,7 +301,7 @@ export default function QuranCommands({ onClose }) {
             <>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 340px), 1fr))',
                 gap: '12px',
               }}>
                 {visibleCommands.map(cmd => (

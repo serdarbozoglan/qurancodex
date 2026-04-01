@@ -1049,7 +1049,62 @@ Bu fix, tüm Arapça metin temizleme utility'lerinde mevcut olmalıdır (`src/ut
 
 ---
 
-## 14. KAYNAK DİZİN KURALI
+## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
+
+**Her yeni overlay ve tool bileşeni mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**
+
+### 14.1 isMobile Algılama Pattern
+
+Her overlay bileşenine şu pattern eklenir:
+
+```jsx
+const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+useEffect(() => {
+  const h = () => setIsMobile(window.innerWidth < 640);
+  window.addEventListener('resize', h);
+  return () => window.removeEventListener('resize', h);
+}, []);
+```
+
+### 14.2 Sabit Genişlik Kuralı
+
+- ❌ YASAK: `width: '220px'` gibi sabit sidebar genişlikleri (overflow yapar)
+- ❌ YASAK: `gridTemplateColumns: '1fr 1fr'` (mobilde çok dar)
+- ❌ YASAK: `gridTemplateColumns: '1fr auto 1fr'` (mobilde 3 sütun sığmaz)
+- ✅ DOĞRU: `gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr'`
+- ✅ DOĞRU: Sabit sidebar'ı mobilde `display: isMobile ? 'none' : 'flex'` ile gizle
+
+### 14.3 Sidebar Pattern (AddresseeSystem, QuranCommands vb.)
+
+Sidebar + detail layout olan bileşenlerde:
+
+- Mobilde sidebar gizlenir (`display: isMobile ? 'none' : 'flex'`)
+- Header'a horizontally scrollable chip row eklenir (`overflowX: 'auto', scrollbarWidth: 'none'`)
+- Detail panel mobilde tam genişliği alır
+
+### 14.4 Üçlü Panel Pattern (KissaAtlas vb.)
+
+Sol panel + orta grid + sağ detail olan bileşenlerde:
+
+- Mobilde tab bar eklenir: Sahneler / Sure Haritası / Detay
+- Her tab kendi içeriğini tam ekran gösterir
+- Seçim yapıldığında ilgili tab'a otomatik geçiş yapılır
+
+### 14.5 Header Pattern
+
+Mobilde header'da çok sayıda buton/tab varsa:
+
+- Row 1: Title + Close button
+- Row 2: Scrollable tab/category chips
+
+### 14.6 Padding Kuralı
+
+- Mobilde content padding: `isMobile ? '16px' : '24px 32px'`
+- Header padding: `isMobile ? '10px 16px' : '0 20px'`
+
+---
+
+## 15. KAYNAK DİZİN KURALI
 
 **Tüm kaynak dosyalar proje kökündeki `src/` dizininde bulunur.**
 

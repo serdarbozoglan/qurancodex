@@ -55,6 +55,17 @@ const SURAH_NAMES_EN = [
   'Al-Masad', 'Al-Ikhlas', 'Al-Falaq', 'An-Nas',
 ];
 
+// Parse "20:38–40" → { surah: 20, start: 38, end: 40 }
+// Also handles "20:38" (single verse) and "20:38,40" (two separate)
+function parseVerseRef(ref) {
+  if (!ref) return null;
+  const m = ref.match(/^(\d+):(\d+)[–\-](\d+)$/);
+  if (m) return { surah: +m[1], start: +m[2], end: +m[3] };
+  const m2 = ref.match(/^(\d+):(\d+)$/);
+  if (m2) return { surah: +m2[1], start: +m2[2], end: +m2[2] };
+  return null;
+}
+
 export default function KissaAtlas({ onClose }) {
   const { language } = useLanguage();
   const [data, setData] = useState(null);
@@ -62,6 +73,10 @@ export default function KissaAtlas({ onClose }) {
   const [selectedProphetId, setSelectedProphetId] = useState('musa');
   const [selectedSceneId, setSelectedSceneId] = useState(null);
   const [selectedSurah, setSelectedSurah] = useState(null);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  const [mobileTab, setMobileTab] = useState('scenes'); // 'scenes' | 'map' | 'detail'
+  // Verse peek: { surah, start, end, verses: null|[...], loading: bool }
+  const [versePeek, setVersePeek] = useState(null);
 
   useEffect(() => {
     fetch('/kissa-atlas.json')
@@ -84,12 +99,45 @@ export default function KissaAtlas({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
+
   // Reset selections when switching prophet, auto-select first scene
   const selectProphet = (id) => {
     setSelectedProphetId(id);
     const p = data?.prophets.find(x => x.id === id);
     setSelectedSceneId(p?.scenes?.[0]?.id ?? null);
     setSelectedSurah(null);
+    setMobileTab('scenes');
+    setVersePeek(null);
+  };
+
+  // Open verse peek for a given surah + range
+  const openVersePeek = (surah, start, end) => {
+    if (versePeek?.surah === surah && versePeek?.start === start) {
+      setVersePeek(null); // toggle off
+      return;
+    }
+    setVersePeek({ surah, start, end, verses: null, loading: true });
+    // Fetch Turkish translation (author 105 = Diyanet) + Arabic from acikkuran
+    fetch(`https://api.acikkuran.com/surah/${surah}?author=105`)
+      .then(r => r.json())
+      .then(d => {
+        const verses = (d.data?.verses || [])
+          .filter(v => v.verse_number >= start && v.verse_number <= end)
+          .map(v => ({
+            num: v.verse_number,
+            arabic: v.verse,
+            turkish: v.translation?.text || '',
+          }));
+        setVersePeek(prev => prev?.surah === surah ? { ...prev, verses, loading: false } : prev);
+      })
+      .catch(() => {
+        setVersePeek(prev => prev?.surah === surah ? { ...prev, verses: [], loading: false } : prev);
+      });
   };
 
   if (loading) return (
@@ -132,78 +180,150 @@ export default function KissaAtlas({ onClose }) {
 
       {/* ── HEADER ─────────────────────────────────────────────────── */}
       <div style={{
-        display: 'flex', alignItems: 'center',
-        padding: '0 20px',
-        height: '60px',
         borderBottom: '1px solid rgba(255,255,255,0.07)',
         background: 'rgba(6,8,14,0.96)',
         backdropFilter: 'blur(16px)',
-        flexShrink: 0, gap: '16px',
+        flexShrink: 0,
       }}>
-        {/* Title */}
-        <div style={{ marginRight: '8px' }}>
+        {/* Row 1: Title + Close */}
+        <div style={{
+          display: 'flex', alignItems: 'center',
+          padding: isMobile ? '10px 16px' : '0 20px',
+          height: isMobile ? 'auto' : '60px',
+          gap: '12px',
+        }}>
           <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Kıssa Atlası' : 'Story Atlas'}
           </span>
+
+          {/* Prophet tabs — inline on desktop */}
+          {!isMobile && (
+            <div style={{ display: 'flex', gap: '4px', marginLeft: '8px' }}>
+              {data.prophets.map(p => (
+                <button
+                  key={p.id}
+                  onClick={() => selectProphet(p.id)}
+                  style={{
+                    padding: '7px 14px', borderRadius: '8px',
+                    border: `1px solid ${selectedProphetId === p.id ? `${p.color}80` : 'rgba(255,255,255,0.08)'}`,
+                    background: selectedProphetId === p.id ? `${p.color}18` : 'transparent',
+                    color: selectedProphetId === p.id ? p.color : '#64748b',
+                    fontSize: '0.82rem', fontWeight: selectedProphetId === p.id ? 700 : 500,
+                    cursor: 'pointer', transition: 'all 0.18s',
+                    fontFamily: "'Inter', sans-serif",
+                  }}
+                  onMouseEnter={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; } }}
+                  onMouseLeave={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = '#64748b'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; } }}
+                >
+                  <span style={{ marginRight: '6px', opacity: 0.7 }}>
+                    {language === 'tr' ? p.nameTr.split(' ')[1] : p.nameEn.split(' ')[1]}
+                  </span>
+                  <span style={{
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    width: '18px', height: '18px', borderRadius: '50%',
+                    background: selectedProphetId === p.id ? `${p.color}30` : 'rgba(255,255,255,0.05)',
+                    fontSize: '0.65rem', color: selectedProphetId === p.id ? p.color : '#475569', fontWeight: 700,
+                  }}>
+                    {p.surahCount}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          <div style={{ flex: 1 }} />
+
+          <button
+            onClick={onClose}
+            style={{ ...CLOSE_BTN }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
         </div>
 
-        {/* Prophet tabs */}
-        <div style={{ display: 'flex', gap: '4px' }}>
-          {data.prophets.map(p => (
-            <button
-              key={p.id}
-              onClick={() => selectProphet(p.id)}
-              style={{
-                padding: '7px 14px',
-                borderRadius: '8px',
-                border: `1px solid ${selectedProphetId === p.id ? `${p.color}80` : 'rgba(255,255,255,0.08)'}`,
-                background: selectedProphetId === p.id ? `${p.color}18` : 'transparent',
-                color: selectedProphetId === p.id ? p.color : '#64748b',
-                fontSize: '0.82rem', fontWeight: selectedProphetId === p.id ? 700 : 500,
-                cursor: 'pointer', transition: 'all 0.18s',
-                fontFamily: "'Inter', sans-serif",
-              }}
-              onMouseEnter={e => {
-                if (selectedProphetId !== p.id) {
-                  e.currentTarget.style.color = '#94a3b8';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
-                }
-              }}
-              onMouseLeave={e => {
-                if (selectedProphetId !== p.id) {
-                  e.currentTarget.style.color = '#64748b';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
-                }
-              }}
-            >
-              <span style={{ marginRight: '6px', opacity: 0.7 }}>
+        {/* Row 2 (mobile only): Prophet tabs scrollable */}
+        {isMobile && (
+          <div style={{
+            display: 'flex', gap: '6px',
+            padding: '0 16px 10px',
+            overflowX: 'auto', WebkitOverflowScrolling: 'touch',
+          }}>
+            {data.prophets.map(p => (
+              <button
+                key={p.id}
+                onClick={() => selectProphet(p.id)}
+                style={{
+                  flexShrink: 0,
+                  padding: '6px 12px', borderRadius: '8px',
+                  border: `1px solid ${selectedProphetId === p.id ? `${p.color}80` : 'rgba(255,255,255,0.08)'}`,
+                  background: selectedProphetId === p.id ? `${p.color}18` : 'transparent',
+                  color: selectedProphetId === p.id ? p.color : '#64748b',
+                  fontSize: '0.8rem', fontWeight: selectedProphetId === p.id ? 700 : 500,
+                  cursor: 'pointer', transition: 'all 0.18s',
+                  fontFamily: "'Inter', sans-serif",
+                  display: 'flex', alignItems: 'center', gap: '6px',
+                }}
+              >
                 {language === 'tr' ? p.nameTr.split(' ')[1] : p.nameEn.split(' ')[1]}
-              </span>
-              <span style={{
-                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                width: '18px', height: '18px', borderRadius: '50%',
-                background: selectedProphetId === p.id ? `${p.color}30` : 'rgba(255,255,255,0.05)',
-                fontSize: '0.65rem', color: selectedProphetId === p.id ? p.color : '#475569',
-                fontWeight: 700,
-              }}>
-                {p.surahCount}
-              </span>
-            </button>
-          ))}
-        </div>
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  width: '16px', height: '16px', borderRadius: '50%',
+                  background: selectedProphetId === p.id ? `${p.color}30` : 'rgba(255,255,255,0.05)',
+                  fontSize: '0.6rem', color: selectedProphetId === p.id ? p.color : '#475569', fontWeight: 700,
+                }}>
+                  {p.surahCount}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
 
-        <div style={{ flex: 1 }} />
-
-        <button
-          onClick={onClose}
-          style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
+        {/* Mobile tab bar */}
+        {isMobile && (
+          <div style={{
+            display: 'flex',
+            borderTop: '1px solid rgba(255,255,255,0.06)',
+          }}>
+            {[
+              { id: 'scenes', labelTr: 'Sahneler', labelEn: 'Scenes' },
+              { id: 'map', labelTr: 'Sure Haritası', labelEn: 'Surah Map' },
+              { id: 'detail', labelTr: 'Detay', labelEn: 'Detail' },
+            ].map(tab => {
+              const isActive = mobileTab === tab.id;
+              const hasDetail = tab.id === 'detail' && (selectedScene || selectedSurah);
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setMobileTab(tab.id)}
+                  style={{
+                    flex: 1, padding: '10px 4px',
+                    background: 'transparent',
+                    border: 'none',
+                    borderBottom: isActive ? `2px solid ${prophet.color}` : '2px solid transparent',
+                    color: isActive ? prophet.color : '#475569',
+                    fontSize: '0.78rem', fontWeight: isActive ? 700 : 500,
+                    cursor: 'pointer', transition: 'all 0.15s',
+                    fontFamily: "'Inter', sans-serif",
+                    position: 'relative',
+                  }}
+                >
+                  {language === 'tr' ? tab.labelTr : tab.labelEn}
+                  {hasDetail && (
+                    <span style={{
+                      position: 'absolute', top: '8px', right: 'calc(50% - 16px)',
+                      width: '6px', height: '6px', borderRadius: '50%',
+                      background: prophet.color, display: 'inline-block', marginLeft: '4px',
+                    }} />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* ── MAIN CONTENT ─────────────────────────────────────────────── */}
@@ -211,9 +331,10 @@ export default function KissaAtlas({ onClose }) {
 
         {/* ── LEFT: SCENE LIST ─────────────────────────────────────── */}
         <div style={{
-          width: '220px', flexShrink: 0,
-          borderRight: '1px solid rgba(255,255,255,0.07)',
-          display: 'flex', flexDirection: 'column',
+          width: isMobile ? '100%' : '220px', flexShrink: 0,
+          borderRight: isMobile ? 'none' : '1px solid rgba(255,255,255,0.07)',
+          display: isMobile ? (mobileTab === 'scenes' ? 'flex' : 'none') : 'flex',
+          flexDirection: 'column',
           overflow: 'hidden',
         }}>
           {/* Prophet summary */}
@@ -247,6 +368,8 @@ export default function KissaAtlas({ onClose }) {
                   onClick={() => {
                     setSelectedSceneId(isActive ? null : scene.id);
                     setSelectedSurah(null);
+                    setVersePeek(null);
+                    if (isMobile && !isActive) setMobileTab('detail');
                   }}
                   style={{
                     width: '100%', textAlign: 'left', padding: '10px 12px',
@@ -301,10 +424,13 @@ export default function KissaAtlas({ onClose }) {
         </div>
 
         {/* ── CENTER + RIGHT ─────────────────────────────────────────── */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', minWidth: 0 }}>
+        <div style={{
+          flex: 1, display: isMobile ? (mobileTab === 'map' || mobileTab === 'detail' ? 'flex' : 'none') : 'flex',
+          flexDirection: 'column', overflow: 'hidden', minWidth: 0,
+        }}>
 
           {/* ── SURAH GRID ─────────────────────────────────────────── */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: '20px' }}>
+          <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px' : '20px', display: isMobile && mobileTab === 'detail' ? 'none' : 'block' }}>
 
             {/* Instructions */}
             <p style={{ color: '#334155', fontSize: '0.78rem', marginBottom: '16px', lineHeight: 1.6 }}>
@@ -324,8 +450,8 @@ export default function KissaAtlas({ onClose }) {
             {/* Grid: 8 fixed columns, all equal size */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(8, 1fr)',
-              gap: '5px',
+              gridTemplateColumns: isMobile ? 'repeat(7, 1fr)' : 'repeat(8, 1fr)',
+              gap: isMobile ? '4px' : '5px',
             }}>
               {Array.from({ length: 114 }, (_, i) => {
                 const num = i + 1;
@@ -366,6 +492,8 @@ export default function KissaAtlas({ onClose }) {
                       if (!isActive) return;
                       setSelectedSurah(isSelectedSurah ? null : num);
                       setSelectedSceneId(null);
+                      setVersePeek(null);
+                      if (isMobile && !isSelectedSurah) setMobileTab('detail');
                     }}
                     style={{
                       position: 'relative',
@@ -421,67 +549,197 @@ export default function KissaAtlas({ onClose }) {
 
           {/* ── DETAIL PANEL (bottom) ─────────────────────────────── */}
           <AnimatePresence>
-            {(selectedScene || selectedSurah) && (
+            {isMobile && mobileTab === 'detail' && !selectedScene && !selectedSurah && (
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px 20px' }}>
+                <p style={{ color: '#334155', fontSize: '0.85rem', textAlign: 'center' }}>
+                  {language === 'tr' ? 'Bir sahne veya sure seçin' : 'Select a scene or surah'}
+                </p>
+                <button
+                  onClick={() => setMobileTab('scenes')}
+                  style={{
+                    padding: '8px 18px', borderRadius: '8px',
+                    background: `${prophet.color}18`,
+                    border: `1px solid ${prophet.color}40`,
+                    color: prophet.color, fontSize: '0.8rem', cursor: 'pointer',
+                    fontFamily: "'Inter', sans-serif",
+                  }}
+                >
+                  {language === 'tr' ? 'Sahnelere git' : 'Go to scenes'}
+                </button>
+              </div>
+            )}
+            {(selectedScene || selectedSurah) && (!isMobile || mobileTab === 'detail') && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
+                animate={{ height: isMobile ? '100%' : 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 style={{
-                  borderTop: `1px solid ${prophet.color}30`,
+                  borderTop: isMobile ? 'none' : `1px solid ${prophet.color}30`,
                   background: `${prophet.color}08`,
-                  flexShrink: 0,
-                  overflow: 'hidden',
+                  flexShrink: isMobile ? 1 : 0,
+                  overflow: isMobile ? 'auto' : 'hidden',
+                  flex: isMobile ? 1 : 'none',
                 }}
               >
-                <div style={{ padding: '16px 20px' }}>
-                  {selectedScene && (
-                    <div>
-                      {/* Scene header */}
-                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '10px' }}>
-                        <span style={{
-                          flexShrink: 0, width: '28px', height: '28px',
-                          borderRadius: '50%', background: prophet.color,
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          color: '#0a0a1a', fontSize: '0.75rem', fontWeight: 700,
-                        }}>
-                          {selectedScene.order}
-                        </span>
-                        <div>
-                          <h4 style={{ color: prophet.color, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 2px' }}>
-                            {language === 'tr' ? selectedScene.titleTr : selectedScene.titleEn}
-                          </h4>
-                          <span style={{ color: '#475569', fontSize: '0.75rem' }}>{selectedScene.verseRef}</span>
-                        </div>
-                      </div>
-
-                      {/* Description */}
-                      <p style={{ color: '#94a3b8', fontSize: '0.84rem', lineHeight: 1.7, margin: '0 0 12px' }}>
-                        {language === 'tr' ? selectedScene.descTr : selectedScene.descEn}
-                      </p>
-
-                      {/* Surahs for this scene */}
-                      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                        <span style={{ color: '#334155', fontSize: '0.75rem', alignSelf: 'center' }}>
-                          {language === 'tr' ? 'Sureler:' : 'Surahs:'}
-                        </span>
-                        {selectedScene.surahs.map(s => (
-                          <span
-                            key={s}
-                            style={{
-                              padding: '3px 10px',
-                              background: `${prophet.color}20`,
-                              border: `1px solid ${prophet.color}40`,
-                              borderRadius: '20px',
-                              color: prophet.color, fontSize: '0.78rem', fontWeight: 600,
-                            }}
-                          >
-                            {s} · {language === 'tr' ? SURAH_NAMES_TR[s] : SURAH_NAMES_EN[s]}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                <div style={{ padding: isMobile ? '12px 16px' : '16px 20px' }}>
+                  {isMobile && (
+                    <button
+                      onClick={() => setMobileTab('scenes')}
+                      style={{
+                        display: 'flex', alignItems: 'center', gap: '6px',
+                        background: 'transparent', border: 'none',
+                        color: '#64748b', fontSize: '0.78rem', cursor: 'pointer',
+                        padding: '0 0 12px', fontFamily: "'Inter', sans-serif",
+                      }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                        <path d="M15 18l-6-6 6-6" />
+                      </svg>
+                      {language === 'tr' ? 'Sahnelere dön' : 'Back to scenes'}
+                    </button>
                   )}
+                  {selectedScene && (() => {
+                    const parsed = parseVerseRef(selectedScene.verseRef);
+                    return (
+                      <div>
+                        {/* Scene header */}
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '10px' }}>
+                          <span style={{
+                            flexShrink: 0, width: '28px', height: '28px',
+                            borderRadius: '50%', background: prophet.color,
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            color: '#0a0a1a', fontSize: '0.75rem', fontWeight: 700,
+                          }}>
+                            {selectedScene.order}
+                          </span>
+                          <div>
+                            <h4 style={{ color: prophet.color, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 2px' }}>
+                              {language === 'tr' ? selectedScene.titleTr : selectedScene.titleEn}
+                            </h4>
+                            <span style={{ color: '#475569', fontSize: '0.75rem' }}>{selectedScene.verseRef}</span>
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <p style={{ color: '#94a3b8', fontSize: '0.84rem', lineHeight: 1.7, margin: '0 0 12px' }}>
+                          {language === 'tr' ? selectedScene.descTr : selectedScene.descEn}
+                        </p>
+
+                        {/* Surah badges — clickable, show verse range for primary surah */}
+                        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '8px' }}>
+                          <span style={{ color: '#334155', fontSize: '0.72rem', alignSelf: 'center' }}>
+                            {language === 'tr' ? 'Sureler:' : 'Surahs:'}
+                          </span>
+                          {selectedScene.surahs.map(s => {
+                            const isPrimary = parsed && parsed.surah === s;
+                            const isActive = versePeek?.surah === s && versePeek?.start === (isPrimary ? parsed.start : null);
+                            const surahName = language === 'tr' ? SURAH_NAMES_TR[s] : SURAH_NAMES_EN[s];
+                            const rangeLabel = isPrimary
+                              ? (parsed.start === parsed.end ? `${parsed.start}` : `${parsed.start}–${parsed.end}`)
+                              : null;
+                            return (
+                              <button
+                                key={s}
+                                onClick={() => {
+                                  if (isPrimary && parsed) {
+                                    openVersePeek(parsed.surah, parsed.start, parsed.end);
+                                  } else {
+                                    // For secondary surahs, just highlight in grid
+                                    setSelectedSurah(s === selectedSurah ? null : s);
+                                    setSelectedSceneId(null);
+                                    setVersePeek(null);
+                                  }
+                                }}
+                                style={{
+                                  padding: '4px 10px',
+                                  background: isActive ? `${prophet.color}30` : `${prophet.color}18`,
+                                  border: `1px solid ${isActive ? prophet.color : prophet.color + '50'}`,
+                                  borderRadius: '20px',
+                                  color: prophet.color, fontSize: '0.78rem', fontWeight: 600,
+                                  cursor: 'pointer', transition: 'all 0.15s',
+                                  fontFamily: "'Inter', sans-serif",
+                                  display: 'flex', alignItems: 'center', gap: '5px',
+                                }}
+                                onMouseEnter={e => { e.currentTarget.style.background = `${prophet.color}28`; }}
+                                onMouseLeave={e => { e.currentTarget.style.background = isActive ? `${prophet.color}30` : `${prophet.color}18`; }}
+                              >
+                                <span>{surahName}</span>
+                                {rangeLabel && (
+                                  <span style={{ opacity: 0.7, fontSize: '0.7rem' }}>{rangeLabel}</span>
+                                )}
+                                {isPrimary && (
+                                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.6, transform: isActive ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                                    <path d="M6 9l6 6 6-6" />
+                                  </svg>
+                                )}
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        {/* Verse peek panel */}
+                        <AnimatePresence>
+                          {versePeek && versePeek.surah === (parsed?.surah) && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.25 }}
+                              style={{ overflow: 'hidden' }}
+                            >
+                              <div style={{
+                                marginTop: '8px',
+                                padding: '12px 14px',
+                                background: 'rgba(0,0,0,0.3)',
+                                border: `1px solid ${prophet.color}25`,
+                                borderRadius: '10px',
+                                maxHeight: '260px',
+                                overflowY: 'auto',
+                              }}>
+                                {versePeek.loading ? (
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#475569', fontSize: '0.8rem' }}>
+                                    <div style={{ width: '16px', height: '16px', border: '2px solid rgba(212,165,116,0.2)', borderTopColor: '#d4a574', borderRadius: '50%', animation: 'spin 0.8s linear infinite', flexShrink: 0 }} />
+                                    {language === 'tr' ? 'Ayetler yükleniyor…' : 'Loading verses…'}
+                                  </div>
+                                ) : versePeek.verses?.length === 0 ? (
+                                  <p style={{ color: '#475569', fontSize: '0.8rem', margin: 0 }}>
+                                    {language === 'tr' ? 'Ayet yüklenemedi.' : 'Could not load verses.'}
+                                  </p>
+                                ) : (
+                                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                                    {versePeek.verses?.map(v => (
+                                      <div key={v.num} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '12px' }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                                          <span style={{
+                                            width: '22px', height: '22px', borderRadius: '50%', flexShrink: 0,
+                                            background: `${prophet.color}20`, color: prophet.color,
+                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                            fontSize: '0.62rem', fontWeight: 700,
+                                          }}>{v.num}</span>
+                                          <span style={{ color: '#334155', fontSize: '0.68rem' }}>
+                                            {language === 'tr' ? SURAH_NAMES_TR[versePeek.surah] : SURAH_NAMES_EN[versePeek.surah]} {versePeek.surah}:{v.num}
+                                          </span>
+                                        </div>
+                                        <p style={{
+                                          fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                                          fontSize: '1.15rem', lineHeight: 2, direction: 'rtl',
+                                          color: '#e8e6e3', margin: '0 0 6px', textAlign: 'right',
+                                        }}>{v.arabic}</p>
+                                        <p style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: 1.6, margin: 0, fontStyle: 'italic' }}>
+                                          {v.turkish}
+                                        </p>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })()}
 
                   {selectedSurah && !selectedScene && (() => {
                     const scenes = scenesForSurah(selectedSurah);
@@ -502,7 +760,7 @@ export default function KissaAtlas({ onClose }) {
                             {scenes.map(s => (
                               <button
                                 key={s.id}
-                                onClick={() => setSelectedSceneId(s.id)}
+                                onClick={() => { setSelectedSceneId(s.id); setSelectedSurah(null); }}
                                 style={{
                                   textAlign: 'left', padding: '8px 12px',
                                   background: 'rgba(255,255,255,0.04)',
@@ -543,7 +801,7 @@ export default function KissaAtlas({ onClose }) {
       </div>
 
       {/* ── LEGEND ─────────────────────────────────────────────────── */}
-      <div style={{
+      {!isMobile && <div style={{
         display: 'flex', gap: '16px', alignItems: 'center',
         padding: '8px 20px',
         borderTop: '1px solid rgba(255,255,255,0.05)',
@@ -564,7 +822,7 @@ export default function KissaAtlas({ onClose }) {
         <span style={{ color: '#1e293b', fontSize: '0.72rem', marginLeft: 'auto' }}>
           {language === 'tr' ? 'Sayı = o suredeki sahne sayısı' : 'Number = scenes in that surah'}
         </span>
-      </div>
+      </div>}
     </div>
   );
 }

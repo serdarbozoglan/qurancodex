@@ -9,12 +9,19 @@ export default function AddresseeSystem({ onClose }) {
   const [data, setData]         = useState(null);
   const [activeId, setActiveId] = useState('iman');
   const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
 
   useEffect(() => {
     const h = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
+
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
 
   useEffect(() => {
     fetch('/addressees.json')
@@ -138,13 +145,13 @@ export default function AddresseeSystem({ onClose }) {
       {/* ── BODY (sidebar + detail) ───────────────────────────────────────────── */}
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
 
-        {/* Sidebar */}
+        {/* Sidebar — hidden on mobile, chip row handles navigation there */}
         <div style={{
           width: '200px', flexShrink: 0,
           borderRight: '1px solid rgba(255,255,255,0.06)',
           background: 'rgba(255,255,255,0.02)',
           overflowY: 'auto',
-          display: 'flex', flexDirection: 'column',
+          display: isMobile ? 'none' : 'flex', flexDirection: 'column',
           padding: '12px 0',
         }}>
           <div style={{
@@ -193,13 +200,13 @@ export default function AddresseeSystem({ onClose }) {
         </div>
 
         {/* Detail panel */}
-        <div style={{ flex: 1, overflowY: 'auto', padding: '28px 32px' }}>
+        <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '16px' : '28px 32px' }}>
           {active && (
             <>
               {/* Arabic hitap */}
               <div style={{
                 fontFamily: FONTS.quran,
-                fontSize: '2rem',
+                fontSize: isMobile ? '1.5rem' : '2rem',
                 color: accent,
                 direction: 'rtl',
                 textAlign: 'right',
