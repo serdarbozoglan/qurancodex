@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
 
 // Strip footnote refs and parenthetical translator additions
 function cleanTr(str) {
@@ -411,7 +411,7 @@ export default function WordHeatmap({ onClose }) {
         borderBottom: '1px solid rgba(212,165,116,0.1)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span style={{ color: gold, fontWeight: 700, fontSize: '0.9rem' }}>
+          <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Kelime Frekans Haritası' : 'Word Frequency Map'}
           </span>
           {totalOccurrences > 0 && searchTerm && (

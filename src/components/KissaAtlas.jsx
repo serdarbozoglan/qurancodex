@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
 
 // Surah names (Türkçe kısa)
 const SURAH_NAMES_TR = [
@@ -142,12 +142,9 @@ export default function KissaAtlas({ onClose }) {
       }}>
         {/* Title */}
         <div style={{ marginRight: '8px' }}>
-          <p style={{ color: '#d4a574', fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', margin: 0, opacity: 0.7 }}>
-            {language === 'tr' ? 'Araç' : 'Tool'}
-          </p>
-          <h2 style={{ color: '#e8e6e3', fontSize: '1.05rem', fontWeight: 700, margin: 0 }}>
+          <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Kıssa Atlası' : 'Story Atlas'}
-          </h2>
+          </span>
         </div>
 
         {/* Prophet tabs */}

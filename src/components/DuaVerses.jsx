@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
 
 const SURAH_NAMES = [
   'El-Fâtiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide','El-En\'âm','El-A\'râf','El-Enfâl','Et-Tevbe','Yûnus',
@@ -327,7 +327,7 @@ export default function DuaVerses({ onClose }) {
         borderBottom: '1px solid rgba(212,165,116,0.1)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span style={{ color: gold, fontWeight: 700, fontSize: '0.9rem' }}>
+          <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Dua Ayetleri' : 'Quranic Supplications'}
           </span>
           {!loading && (

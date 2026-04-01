@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { surahNameTr } from '../utils/surahNames';
-import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
 
 // ─── MODULE-LEVEL CACHE ───────────────────────────────────────────────────────
 let _versesCache = null;
@@ -305,9 +305,9 @@ export default function ConceptGraph({ onClose, restore = null }) {
           </button>
         ) : (
           <div>
-            <h2 style={{ color: COLORS.gold, fontSize: '0.9rem', fontWeight: 700, margin: 0, letterSpacing: '0.02em' }}>
+            <span style={OVERLAY_TITLE}>
               {language === 'tr' ? 'Kavram Ağı' : 'Concept Network'}
-            </h2>
+            </span>
           </div>
         )}
 

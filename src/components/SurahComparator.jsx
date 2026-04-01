@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
 
 // ── MODULE-LEVEL CACHES ───────────────────────────────────────────────────────
 let cachedVerses = null;
@@ -118,6 +118,25 @@ function normalizeTr(str) {
     .replace(/ü/g, 'u').replace(/ö/g, 'o').replace(/ç/g, 'c');
 }
 
+// Search-optimized normalization: also strip apostrophes, hyphens and combining marks
+function normalizeSearch(str) {
+  return normalizeTr(str)
+    .replace(/\u0307/g, '')          // remove combining dot above (from İ.toLowerCase())
+    .replace(/['''\u2018\u2019\u02bc-]/g, '');
+}
+
+// Extract meaningful keywords from a theme label for fuzzy matching
+function themeKeywords(theme) {
+  return normalizeSearch(theme).split(/[\s.]+/).filter(w => w.length >= 3);
+}
+
+// Two themes match if they share at least one keyword (prefix/substring match)
+function themesOverlap(a, b) {
+  const kA = themeKeywords(a);
+  const kB = themeKeywords(b);
+  return kA.some(wa => kB.some(wb => wa.includes(wb) || wb.includes(wa)));
+}
+
 function tokenize(text) {
   return (text || '')
     .toLowerCase()
@@ -168,11 +187,11 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
   const inputRef = useRef(null);
 
   const filtered = useMemo(() => {
-    const q = normalizeTr(query.trim());
+    const q = normalizeSearch(query.trim());
     return Array.from({ length: 114 }, (_, i) => i + 1).filter(n => {
       if (n === excludeNum) return false;
       if (!q) return true;
-      const nameN = normalizeTr(SURAH_NAMES_TR[n]);
+      const nameN = normalizeSearch(SURAH_NAMES_TR[n]);
       const numStr = String(n);
       return nameN.includes(q) || numStr.startsWith(q);
     });
@@ -495,52 +514,46 @@ export default function SurahComparator({ onClose }) {
   // Analysis result (computed when view === 'result')
   const analysis = useMemo(() => {
     if (view !== 'result' || !surahA || !surahB || !cachedVerses) return null;
+    try {
+      const vA = cachedVerses.filter(v => v.surah === surahA);
+      const vB = cachedVerses.filter(v => v.surah === surahB);
 
-    const vA = cachedVerses.filter(v => v.surah === surahA);
-    const vB = cachedVerses.filter(v => v.surah === surahB);
+      const sim = computeSimilarity(vA, vB);
+      const simReverse = computeSimilarity(vB, vA);
+      const finalScore = Math.round((sim.score + simReverse.score) / 2);
 
-    const sim = computeSimilarity(vA, vB);
-    const simReverse = computeSimilarity(vB, vA);
-    const finalScore = Math.round((sim.score + simReverse.score) / 2);
+      const figA = detectFigures(vA);
+      const figB = detectFigures(vB);
+      const figShared = figA.filter(f => figB.some(g => g.key === f.key));
+      const figOnlyA = figA.filter(f => !figB.some(g => g.key === f.key));
+      const figOnlyB = figB.filter(f => !figA.some(g => g.key === f.key));
 
-    const figA = detectFigures(vA);
-    const figB = detectFigures(vB);
-    const figShared = figA.filter(f => figB.some(g => g.key === f.key));
-    const figOnlyA = figA.filter(f => !figB.some(g => g.key === f.key));
-    const figOnlyB = figB.filter(f => !figA.some(g => g.key === f.key));
+      const freqA = wordFreq(vA);
+      const freqB = wordFreq(vB);
 
-    const freqA = wordFreq(vA);
-    const freqB = wordFreq(vB);
+      const infoA = cachedSurahInfo?.[surahA] || {};
+      const infoB = cachedSurahInfo?.[surahB] || {};
 
-    const infoA = cachedSurahInfo?.[surahA] || {};
-    const infoB = cachedSurahInfo?.[surahB] || {};
+      const themesA = (language === 'tr' ? infoA.themes?.tr : infoA.themes?.en) || [];
+      const themesB = (language === 'tr' ? infoB.themes?.tr : infoB.themes?.en) || [];
+      const themesShared = themesA.filter(t => themesB.some(tb => themesOverlap(t, tb)));
+      const themesOnlyA = themesA.filter(t => !themesB.some(tb => themesOverlap(t, tb)));
+      const themesOnlyB = themesB.filter(t => !themesA.some(ta => themesOverlap(t, ta)));
+      const unionSize = themesOnlyA.length + themesShared.length + themesOnlyB.length;
+      const themeJaccard = unionSize > 0 ? Math.round((themesShared.length / unionSize) * 100) : 0;
 
-    const themesA = (language === 'tr' ? infoA.themes?.tr : infoA.themes?.en) || [];
-    const themesB = (language === 'tr' ? infoB.themes?.tr : infoB.themes?.en) || [];
-    const themesShared = themesA.filter(t => {
-      const tN = normalizeTr(t);
-      return themesB.some(tb => normalizeTr(tb).includes(tN) || tN.includes(normalizeTr(tb)));
-    });
-    const sharedNorm = new Set(themesShared.map(t => normalizeTr(t)));
-    const themesOnlyA = themesA.filter(t => {
-      const tN = normalizeTr(t);
-      return !themesB.some(tb => normalizeTr(tb).includes(tN) || tN.includes(normalizeTr(tb)));
-    });
-    const themesOnlyB = themesB.filter(t => {
-      const tN = normalizeTr(t);
-      return !themesA.some(ta => normalizeTr(ta).includes(tN) || tN.includes(normalizeTr(ta)));
-    });
-    const unionSize = themesOnlyA.length + themesShared.length + themesOnlyB.length;
-    const themeJaccard = unionSize > 0 ? Math.round((themesShared.length / unionSize) * 100) : 0;
-
-    return {
-      vA, vB, finalScore, sim, simReverse,
-      figA, figB, figShared, figOnlyA, figOnlyB,
-      freqA, freqB,
-      infoA, infoB, themesA, themesB, themesShared, themesOnlyA, themesOnlyB, themeJaccard,
-    };
+      return {
+        vA, vB, finalScore, sim, simReverse,
+        figA, figB, figShared, figOnlyA, figOnlyB,
+        freqA, freqB,
+        infoA, infoB, themesA, themesB, themesShared, themesOnlyA, themesOnlyB, themeJaccard,
+      };
+    } catch (err) {
+      console.error('[SurahComparator] analysis error:', err);
+      return null;
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [view, surahA, surahB, language]);
+  }, [view, surahA, surahB, language, loading]);
 
   const canCompare = surahA && surahB;
 
@@ -584,12 +597,9 @@ export default function SurahComparator({ onClose }) {
           </button>
         ) : (
           <div>
-            <p style={{ color: '#d4a574', fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', margin: 0, opacity: 0.7 }}>
-              {language === 'tr' ? 'Araç' : 'Tool'}
-            </p>
-            <h2 style={{ color: '#e8e6e3', fontSize: '1.05rem', fontWeight: 700, margin: 0 }}>
-              {language === 'tr' ? 'Sure DNA Karşılaştırıcı' : 'Surah DNA Comparator'}
-            </h2>
+            <span style={OVERLAY_TITLE}>
+              {language === 'tr' ? 'Sûre DNA Karşılaştırıcı' : 'Surah DNA Comparator'}
+            </span>
           </div>
         )}
 
@@ -740,6 +750,26 @@ export default function SurahComparator({ onClose }) {
               ))}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* ── RESULT ERROR FALLBACK ─────────────────────────────────────── */}
+      {!loading && view === 'result' && !analysis && (
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
+          <p style={{ color: '#475569', fontSize: '0.9rem' }}>
+            {language === 'tr' ? 'Analiz hesaplanamadı. Veriler yüklenirken sorun oluştu.' : 'Analysis failed. Data could not be loaded.'}
+          </p>
+          <button
+            onClick={() => setView('landing')}
+            style={{
+              padding: '8px 20px', background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.12)', borderRadius: '8px',
+              color: '#94a3b8', fontSize: '0.85rem', cursor: 'pointer',
+              fontFamily: "'Inter', sans-serif",
+            }}
+          >
+            {language === 'tr' ? '← Geri' : '← Back'}
+          </button>
         </div>
       )}
 
@@ -921,72 +951,63 @@ export default function SurahComparator({ onClose }) {
                   : `Similarity score: ${analysis.themesShared.length} shared themes ÷ ${analysis.themesOnlyA.length + analysis.themesShared.length + analysis.themesOnlyB.length} total unique themes (Jaccard coefficient)`}
               </p>
 
-              {/* Three-column theme Venn */}
-              <div style={{
-                display: 'grid', gridTemplateColumns: '1fr auto 1fr',
-                border: '1px solid rgba(255,255,255,0.07)', borderRadius: '14px', overflow: 'hidden',
-              }}>
-                {/* Only A */}
-                <div style={{ padding: '16px', background: `${COLOR_A}08` }}>
-                  <p style={{ color: COLOR_A, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px' }}>
-                    {SURAH_NAMES_TR[surahA]} {language === 'tr' ? 'özgü' : 'only'}
-                  </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    {analysis.themesOnlyA.length === 0 ? (
-                      <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
-                    ) : analysis.themesOnlyA.map((t, i) => (
-                      <span key={i} style={{
-                        padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
-                        background: `${COLOR_A}12`, border: `1px solid ${COLOR_A}30`, color: COLOR_A,
-                        display: 'inline-block',
-                      }}>{t}</span>
-                    ))}
+              {/* Theme Venn: A (left) | B (right) top row; Shared (centered) bottom row */}
+              <div style={{ border: '1px solid rgba(255,255,255,0.07)', borderRadius: '14px', overflow: 'hidden' }}>
+                {/* Top row: Only A | Only B */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: analysis.themesShared.length > 0 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
+                  {/* Only A */}
+                  <div style={{ padding: '16px', background: `${COLOR_A}08`, borderRight: '1px solid rgba(255,255,255,0.07)' }}>
+                    <p style={{ color: COLOR_A, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px' }}>
+                      {SURAH_NAMES_TR[surahA]} {language === 'tr' ? 'özgü' : 'only'}
+                    </p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                      {analysis.themesOnlyA.length === 0 ? (
+                        <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
+                      ) : analysis.themesOnlyA.map((t, i) => (
+                        <span key={i} style={{
+                          padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
+                          background: `${COLOR_A}12`, border: `1px solid ${COLOR_A}30`, color: COLOR_A,
+                          display: 'inline-block',
+                        }}>{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Only B */}
+                  <div style={{ padding: '16px', background: `${COLOR_B}08` }}>
+                    <p style={{ color: COLOR_B, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px', textAlign: 'right' }}>
+                      {SURAH_NAMES_TR[surahB]} {language === 'tr' ? 'özgü' : 'only'}
+                    </p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'flex-end' }}>
+                      {analysis.themesOnlyB.length === 0 ? (
+                        <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
+                      ) : analysis.themesOnlyB.map((t, i) => (
+                        <span key={i} style={{
+                          padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
+                          background: `${COLOR_B}12`, border: `1px solid ${COLOR_B}30`, color: COLOR_B,
+                          display: 'inline-block',
+                        }}>{t}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Divider */}
-                <div style={{ width: '1px', background: 'rgba(255,255,255,0.07)' }} />
-
-                {/* Shared */}
-                <div style={{
-                  padding: '16px', background: 'rgba(76,175,125,0.05)',
-                  borderLeft: '1px solid rgba(255,255,255,0.07)',
-                  borderRight: '1px solid rgba(255,255,255,0.07)',
-                  minWidth: '140px',
-                }}>
-                  <p style={{ color: '#4caf7d', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px', textAlign: 'center' }}>
-                    {language === 'tr' ? '✓ Ortak' : '✓ Shared'}
-                  </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'center' }}>
-                    {analysis.themesShared.length === 0 ? (
-                      <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
-                    ) : analysis.themesShared.map((t, i) => (
-                      <span key={i} style={{
-                        padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem', fontWeight: 600,
-                        background: 'rgba(76,175,125,0.12)', border: '1px solid rgba(76,175,125,0.3)', color: '#4caf7d',
-                        display: 'inline-block', textAlign: 'center',
-                      }}>{t}</span>
-                    ))}
+                {/* Bottom row: Shared (centered, only if any) */}
+                {analysis.themesShared.length > 0 && (
+                  <div style={{ padding: '16px', background: 'rgba(76,175,125,0.05)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+                    <p style={{ color: '#4caf7d', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', margin: 0 }}>
+                      {language === 'tr' ? '✓ Ortak Temalar' : '✓ Shared Themes'}
+                    </p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'center' }}>
+                      {analysis.themesShared.map((t, i) => (
+                        <span key={i} style={{
+                          padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem', fontWeight: 600,
+                          background: 'rgba(76,175,125,0.12)', border: '1px solid rgba(76,175,125,0.3)', color: '#4caf7d',
+                          display: 'inline-block',
+                        }}>{t}</span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-
-                {/* Only B */}
-                <div style={{ padding: '16px', background: `${COLOR_B}08` }}>
-                  <p style={{ color: COLOR_B, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px', textAlign: 'right' }}>
-                    {SURAH_NAMES_TR[surahB]} {language === 'tr' ? 'özgü' : 'only'}
-                  </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-end' }}>
-                    {analysis.themesOnlyB.length === 0 ? (
-                      <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
-                    ) : analysis.themesOnlyB.map((t, i) => (
-                      <span key={i} style={{
-                        padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
-                        background: `${COLOR_B}12`, border: `1px solid ${COLOR_B}30`, color: COLOR_B,
-                        display: 'inline-block',
-                      }}>{t}</span>
-                    ))}
-                  </div>
-                </div>
+                )}
               </div>
             </div>
 

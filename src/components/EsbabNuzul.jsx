@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN } from '../tokens';
+import { CLOSE_BTN, FONTS, OVERLAY_TITLE } from '../tokens';
 
 const CATEGORY_META = {
   vahiy:     { tr: 'Vahiy',     en: 'Revelation',  color: '#d4a574', bg: 'rgba(212,165,116,0.15)' },
@@ -137,7 +137,7 @@ export default function EsbabNuzul({ onClose }) {
             </div>
             <h1 style={{
               margin: 0, fontSize: '1.1rem', fontWeight: 700,
-              color: '#e8e6e3', fontFamily: "'Playfair Display', serif",
+              color: '#e8e6e3', fontFamily: FONTS.body,
               whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
             }}>
               {selected

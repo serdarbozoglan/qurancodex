@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
 
 const SURAH_NAMES_TR = [
   'El-Fatiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide',
@@ -86,7 +86,7 @@ export default function RevelationTimeline({ onClose }) {
         borderBottom: '1px solid rgba(212,165,116,0.1)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span style={{ color: gold, fontWeight: 700, fontSize: '0.9rem' }}>
+          <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Nüzul Sırası Haritası' : 'Revelation Order Map'}
           </span>
           <div style={{ display: 'flex', gap: '4px' }}>

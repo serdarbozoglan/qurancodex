@@ -15,6 +15,7 @@ const SurahComparator  = lazy(() => import('./SurahComparator'));
 const EsbabNuzul       = lazy(() => import('./EsbabNuzul'));
 const QuranCommands    = lazy(() => import('./QuranCommands'));
 const AddresseeSystem  = lazy(() => import('./AddresseeSystem'));
+const EsmaFrekans      = lazy(() => import('./EsmaFrekans'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -169,6 +170,7 @@ export default function Navbar() {
   const [esbabOpen,      setEsbabOpen]      = useState(false);
   const [commandsOpen,   setCommandsOpen]   = useState(false);
   const [addresseeOpen,  setAddresseeOpen]  = useState(false);
+  const [esmaOpen,       setEsmaOpen]       = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -377,7 +379,7 @@ export default function Navbar() {
           <line x1="12" y1="12" x2="20" y2="19"/>
         </svg>
       ),
-      action: () => { setConceptOpen(true); setToolsOpen(false); },
+      action: () => { conceptRestoreRef.current = null; setConceptOpen(true); setToolsOpen(false); },
     },
     {
       labelTr: 'Kıssa Atlası', labelEn: 'Story Atlas',
@@ -713,7 +715,10 @@ export default function Navbar() {
             onClick={toggleLanguage}
             aria-label={`Switch to ${language === 'tr' ? 'English' : 'Turkish'}`}
             style={{
-              padding: '8px 14px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '0 14px',
               height: '32px',
               borderRadius: '6px',
               border: '1px solid rgba(201,169,110,0.5)',
@@ -902,7 +907,7 @@ export default function Navbar() {
     {conceptOpen && (
       <Suspense fallback={null}>
         <ConceptGraph
-          onClose={() => { setConceptOpen(false); conceptRestoreRef.current = null; }}
+          onClose={() => { setConceptOpen(false); }}
           restore={conceptRestoreRef.current}
         />
       </Suspense>

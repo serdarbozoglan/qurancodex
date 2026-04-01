@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
 
 const CATEGORY_CONFIG = {
   sayisal:      { color: '#d4a574', labelTr: 'Sayısal',      labelEn: 'Numerical'   },
@@ -734,10 +734,7 @@ export default function WowFacts({ onClose }) {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <span style={{ color: '#d4a574', fontSize: '1.1rem', lineHeight: 1 }}>✦</span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-              <span style={{
-                color: '#d4a574', fontWeight: 700, fontSize: '0.9rem',
-                fontFamily: "'Inter', sans-serif", letterSpacing: '0.01em',
-              }}>
+              <span style={OVERLAY_TITLE}>
                 {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
               </span>
               <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.68rem', fontFamily: "'Inter', sans-serif" }}>
