@@ -183,60 +183,56 @@ export default function ZeroRedundancy() {
       <div className="border-t border-white/10 mb-12" />
 
       {/* Stats Row — 4 equal-height cards */}
+      {/* InfoTooltip is a sibling to StatCard (not a child), so it never affects card height */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 items-stretch">
-        {/* Card 1 */}
-        <StatCard
-          label={t('zeroRedundancy.stats.totalWords.label')}
-          value={t('zeroRedundancy.stats.totalWords.value')}
-          description={t('zeroRedundancy.stats.totalWords.description')}
-          glowColor="gold"
-          className="relative"
-        />
+        {/* Card 1 — no tooltip */}
+        <div className="relative h-full">
+          <StatCard
+            label={t('zeroRedundancy.stats.totalWords.label')}
+            value={t('zeroRedundancy.stats.totalWords.value')}
+            description={t('zeroRedundancy.stats.totalWords.description')}
+            glowColor="gold"
+            className="h-full"
+          />
+        </div>
 
         {/* Card 2 */}
-        <StatCard
-          label={t('zeroRedundancy.stats.uniqueRoots.label')}
-          value={t('zeroRedundancy.stats.uniqueRoots.value')}
-          description={t('zeroRedundancy.stats.uniqueRoots.description')}
-          glowColor="emerald"
-          className="relative"
-        >
+        <div className="relative h-full">
+          <StatCard
+            label={t('zeroRedundancy.stats.uniqueRoots.label')}
+            value={t('zeroRedundancy.stats.uniqueRoots.value')}
+            description={t('zeroRedundancy.stats.uniqueRoots.description')}
+            glowColor="emerald"
+            className="h-full"
+          />
           <InfoTooltip text={t('zeroRedundancy.stats.uniqueRoots.tooltip')} />
-        </StatCard>
+        </div>
 
         {/* Card 3 */}
-        <StatCard
-          label={t('zeroRedundancy.stats.uniqueWords.label')}
-          value={t('zeroRedundancy.stats.uniqueWords.value')}
-          description={t('zeroRedundancy.stats.uniqueWords.description')}
-          glowColor="blue"
-          className="relative"
-        >
+        <div className="relative h-full">
+          <StatCard
+            label={t('zeroRedundancy.stats.uniqueWords.label')}
+            value={t('zeroRedundancy.stats.uniqueWords.value')}
+            description={t('zeroRedundancy.stats.uniqueWords.description')}
+            glowColor="blue"
+            className="h-full"
+          />
           <InfoTooltip text={t('zeroRedundancy.stats.uniqueWords.tooltip')} />
-        </StatCard>
+        </div>
 
-        {/* Card 4 — with connector label visible on desktop only */}
-        <div className="relative">
-          {/* Connector: appears at left edge on lg+, hidden below */}
-          <div className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 flex-col items-center gap-0.5 pointer-events-none z-10">
-            <span style={{ fontSize: '10px', color: 'rgba(184,134,11,0.7)', whiteSpace: 'nowrap', lineHeight: 1.4 }}>
-              {language === 'tr' ? "bunların ~455'i" : 'of those, ~455'}
-            </span>
-            <svg width="18" height="8" viewBox="0 0 18 8" fill="none" style={{ color: 'rgba(184,134,11,0.5)' }}>
-              <path d="M0 4 H13 M10 1 L17 4 L10 7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
+        {/* Card 4 */}
+        <div className="relative h-full">
           <StatCard
             label={t('zeroRedundancy.stats.hapax.label')}
             value={t('zeroRedundancy.stats.hapax.value')}
             description={t('zeroRedundancy.stats.hapax.description')}
             glowColor="gold"
-            className="relative h-full"
-          >
-            <InfoTooltip text={t('zeroRedundancy.stats.hapax.tooltip')} />
-          </StatCard>
+            className="h-full"
+          />
+          <InfoTooltip text={t('zeroRedundancy.stats.hapax.tooltip')} />
         </div>
       </div>
+
 
       {/* Comparison Bars */}
       <motion.div variants={fadeUpItem} className="glass-card-strong p-6 md:p-8 mb-10">
