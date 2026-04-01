@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN } from '../tokens';
 
-const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'Arkeoloji', 'Karşılaştır', 'KAYNAKLAR'];
-const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'Archaeology', 'Compare', 'SOURCES'];
+const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'KARŞILAŞTIR', 'KAYNAKLAR'];
+const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'COMPARE', 'SOURCES'];
 
 const HELAK_COLORS = {
   ruzgar:   '#d4a574',
