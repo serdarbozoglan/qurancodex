@@ -1723,6 +1723,18 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
 
   const graphData = useMemo(() => buildGraphData(verses, surah, 'surah'), [verses, surah]);
 
+  // Auto-select verse when opened from an external source (e.g. ConceptGraph).
+  // Run as soon as graphData is ready — no dependency on graphRef (3D init is async).
+  const autoSelectedRef = useRef(false);
+  useEffect(() => {
+    if (!autoFocusVerseId || autoSelectedRef.current) return;
+    const node = graphData.nodes.find(n => n.id === autoFocusVerseId);
+    if (!node) return;
+    autoSelectedRef.current = true;
+    setSelected(node);
+    setFocusedNodeId(node.id);
+  }, [autoFocusVerseId, graphData]);
+
   // Focus set: selected node + its direct neighbors
   const focusedSet = useMemo(() => {
     if (!focusedNodeId) return null;
@@ -1769,20 +1781,14 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
       controls.maxDistance = 1200;
     }
 
-    // Fit camera only on first load of this surah, then auto-focus verse if requested
+    // Fit camera on first load (unless we have a specific verse to focus, handled separately)
     if (!initialFitDone.current) {
       initialFitDone.current = true;
-      setTimeout(() => {
-        if (autoFocusVerseId) {
-          const node = graphData.nodes.find(n => n.id === autoFocusVerseId);
-          if (node && graphRef.current) {
-            setSelected(node);
-            setFocusedNodeId(node.id);
-            return;
-          }
-        }
-        graphRef.current?.zoomToFit(800, 80, node => !node.ghost);
-      }, 800);
+      if (!autoFocusVerseId) {
+        setTimeout(() => {
+          graphRef.current?.zoomToFit(800, 80, node => !node.ghost);
+        }, 800);
+      }
     }
   }, [graphData, autoFocusVerseId]);
 

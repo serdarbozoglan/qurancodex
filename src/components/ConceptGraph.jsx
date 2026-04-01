@@ -141,6 +141,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
   const [hoveredId, setHoveredId] = useState(null);
   const [pinnedId, setPinnedId] = useState(restore?.pinnedId ?? null);
   const [versePageSize, setVersePageSize] = useState(15);
+  const [graphVersion, setGraphVersion] = useState(0);
   const [verses, setVerses] = useState(_versesCache);
   const [concepts, setConcepts] = useState(_conceptsCache);
   const [groups, setGroups] = useState(_groupsCache);
@@ -183,12 +184,14 @@ export default function ConceptGraph({ onClose, restore = null }) {
     }).catch(() => setLoadingData(false));
   }, []);
 
-  // Rebuild graph on mount when restoring a previous concept (e.g. returning from VerseGraph)
+  // Rebuild graph on mount when restoring a previous concept (e.g. returning from VerseGraph).
+  // Use `verses` + `concepts` as trigger — they're set as soon as raw data is available,
+  // BEFORE background chunk processing finishes, so we don't stall waiting for the map cache.
   useEffect(() => {
-    if (!loadingData && restore?.centralConcept && !graphRef.current) {
+    if (verses && concepts && restore?.centralConcept && !graphRef.current) {
       openConcept(restore.centralConcept);
     }
-  }, [loadingData]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [verses, concepts]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Focus search on landing
   useEffect(() => {
@@ -223,7 +226,8 @@ export default function ConceptGraph({ onClose, restore = null }) {
     const w = window.innerWidth - 420;
     const h = window.innerHeight - 60;
     graphRef.current = buildConceptGraph(_versesCache, _conceptsCache, concept.id, w, h, _conceptVerseMapCache);
-    setCentralConcept(concept); // always triggers re-render even if view is already 'graph'
+    setGraphVersion(v => v + 1); // force re-render so useMemos that read graphRef pick up new value
+    setCentralConcept(concept);
     setView('graph');
   });
 
@@ -246,7 +250,8 @@ export default function ConceptGraph({ onClose, restore = null }) {
     if (!node) return [];
     const map = new Map(verses.map(v => [v.id, v]));
     return node.verseIds.map(id => map.get(id)).filter(Boolean);
-  }, [focusedId, centralConcept, verses]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusedId, centralConcept, verses, graphVersion]);
   const focusedVerses = allFocusedVerses.slice(0, versePageSize);
   const hasMore = allFocusedVerses.length > versePageSize;
 
@@ -317,9 +322,11 @@ export default function ConceptGraph({ onClose, restore = null }) {
             <span style={{ color: centralConcept.color, fontWeight: 700, fontSize: '1.05rem' }}>
               {language === 'tr' ? centralConcept.tr : centralConcept.en}
             </span>
-            <span style={{ color: '#64748b', fontSize: '0.8rem' }}>
-              {language === 'tr' ? `${graphRef.current?.nodes[0]?.verseCount} ayette` : `in ${graphRef.current?.nodes[0]?.verseCount} verses`}
-            </span>
+            {graphRef.current?.nodes[0]?.verseCount != null && (
+              <span style={{ color: '#64748b', fontSize: '0.8rem' }}>
+                {language === 'tr' ? `${graphRef.current.nodes[0].verseCount} ayette` : `in ${graphRef.current.nodes[0].verseCount} verses`}
+              </span>
+            )}
           </div>
         )}
 
@@ -368,7 +375,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
       </div>
 
       {/* ── LOADING DATA ──────────────────────────────────────────────── */}
-      {loadingData && (
+      {(!verses || !concepts || (view === 'graph' && !graphRef.current && !buildingGraph)) && (
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
           <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
           <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
