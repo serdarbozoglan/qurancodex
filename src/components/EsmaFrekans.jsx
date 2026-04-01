@@ -8,10 +8,10 @@ const MAX_BAR_COUNT = 157; // El-Alîm
 
 const top10 = [
   { name: 'El-Alîm',   arabic: 'الْعَلِيم',    count: 157 },
+  { name: 'Er-Rahîm',  arabic: 'الرَّحِيم',    count: 114, disputed: true },
   { name: 'El-Hakîm',  arabic: 'الْحَكِيم',    count: 97  },
   { name: 'El-Azîz',   arabic: 'الْعَزِيز',    count: 92  },
   { name: 'El-Gafûr',  arabic: 'الْغَفُور',    count: 91  },
-  { name: 'Er-Rahîm',  arabic: 'الرَّحِيم',    count: 114, disputed: true },
   { name: 'Er-Rahmân', arabic: 'الرَّحْمَٰن',  count: 57  },
   { name: 'Es-Semî',   arabic: 'السَّمِيع',    count: 45  },
   { name: 'El-Habîr',  arabic: 'الْخَبِير',    count: 45  },
@@ -40,7 +40,7 @@ const SORT_OPTIONS = [
   { value: 'count_asc',  labelTr: 'Frekans ↑', labelEn: 'Freq ↑'    },
 ];
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 100;
 
 // ── Styles ────────────────────────────────────────────────────────────────────
 
@@ -442,7 +442,7 @@ export default function EsmaFrekans({ onClose }) {
                       ) : (
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                           <div style={{
-                            width: `${Math.max(4, (row.count / MAX_BAR_COUNT) * 120)}px`,
+                            width: `${Math.min(120, Math.max(12, (row.count / MAX_BAR_COUNT) * 120))}px`,
                             height: '4px',
                             background: `${COLORS.gold}80`,
                             borderRadius: '2px',
@@ -522,6 +522,7 @@ export default function EsmaFrekans({ onClose }) {
                 {/* Turkish name */}
                 <div style={{ fontFamily: FONTS.body, color: COLORS.silver, width: '90px', fontSize: '0.8rem', flexShrink: 0, lineHeight: 1.3 }}>
                   {item.name}
+                  {item.disputed && <span style={{ marginLeft: '4px', fontSize: '0.75rem' }}>🔶</span>}
                 </div>
                 {/* Bar */}
                 <div
@@ -542,7 +543,6 @@ export default function EsmaFrekans({ onClose }) {
                 {/* Count */}
                 <div style={{ color: COLORS.offWhite, fontWeight: 700, fontSize: '0.9rem', fontFamily: FONTS.body, marginLeft: '8px', whiteSpace: 'nowrap' }}>
                   {item.count}
-                  {item.disputed && <span style={{ marginLeft: '4px' }}>🔶</span>}
                 </div>
               </div>
             ))}
