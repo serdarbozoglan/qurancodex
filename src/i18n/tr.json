@@ -464,26 +464,27 @@
     ],
     "stats": {
       "totalWords": {
-        "label": "Toplam Kelime",
+        "label": "TOPLAM KELİME",
         "value": "~77,800",
-        "description": "Kur'an'daki toplam kelime sayısı (yaklaşık)"
+        "description": "Kur'an'daki toplam kelime sayısı"
       },
       "uniqueRoots": {
-        "label": "Benzersiz Kök",
+        "label": "BENZERSİZ KÖK",
         "value": "~1,700",
-        "description": "Kur'an'daki farklı Arapça kelime kökleri (Corpus Quran: 1,685)"
+        "description": "Farklı Arapça kelime kökleri",
+        "tooltip": "Corpus Quran: 1,685 unique root."
       },
       "uniqueWords": {
         "label": "UNIQUE KELİME FORMU",
         "value": "~14,870",
-        "description": "Kur'an'ın kelime hazinesi — her farklı form bir kez sayılarak",
-        "tooltip": "Bu 14,870 formun büyük çoğunluğu Kur'an'da birden fazla kez geçer. Kaynak: Dr. Tariq Al-Suwaidan istatistik analizi."
+        "description": "Her farklı form bir kez sayılarak",
+        "tooltip": "Bu formların büyük çoğunluğu birden fazla kez geçer. Kaynak: Dr. Tariq Al-Suwaidan"
       },
       "hapax": {
         "label": "SADECE BİR KEZ GEÇEN",
         "value": "~455",
-        "description": "14,870 unique formdan yalnızca bu kadarı Kur'an'da tek bir ayette geçer",
-        "tooltip": "Hapax legomenon — Yunanca 'bir kez söylenen' anlamında. Bu 455 kelime, 14,870 unique formun içinden sadece 1 kez kullanılanlardır. Kaynak: Shawkat M. Toorawa, Hapaxes in the Qur'an (2011). Sayım yöntemine göre 400–500 arasında değişebilir."
+        "description": "14,870 formdan yalnızca tek bir ayette geçenler",
+        "tooltip": "Hapax legomenon. Kaynak: Shawkat M. Toorawa (2011). Sayım yöntemine göre 400–500 arası."
       }
     },
     "comparisonTitle": "Gereksiz Tekrar Karşılaştırması",

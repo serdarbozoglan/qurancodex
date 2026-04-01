@@ -1,7 +1,54 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
+
+// Hover/tap tooltip anchored to bottom-right of its container (card must be position:relative)
+function InfoTooltip({ text }) {
+  const [visible, setVisible] = useState(false);
+  if (!text) return null;
+  return (
+    <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+      <button
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+        onClick={() => setVisible(v => !v)}
+        aria-label="Info"
+        style={{
+          background: 'rgba(212,165,116,0.10)',
+          border: '1px solid rgba(212,165,116,0.25)',
+          borderRadius: '50%',
+          width: '22px', height: '22px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          cursor: 'pointer', color: 'rgba(212,165,116,0.7)',
+          fontSize: '0.65rem', fontWeight: 700, lineHeight: 1,
+          transition: 'all 0.15s',
+        }}
+        onFocus={() => setVisible(true)}
+        onBlur={() => setVisible(false)}
+      >
+        ℹ
+      </button>
+      {visible && (
+        <div style={{
+          position: 'absolute', bottom: '28px', right: 0,
+          width: '220px', padding: '10px 12px',
+          background: 'rgba(8,10,26,0.97)',
+          border: '1px solid rgba(212,165,116,0.2)',
+          borderRadius: '10px',
+          boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+          color: 'rgba(148,163,184,0.8)',
+          fontSize: '0.72rem', lineHeight: 1.6,
+          zIndex: 20,
+          pointerEvents: 'none',
+        }}>
+          {text}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ZeroRedundancy() {
   const { t, language } = useLanguage();
@@ -135,63 +182,58 @@ export default function ZeroRedundancy() {
       {/* Visual separator between Moses grid and stats */}
       <div className="border-t border-white/10 mb-12" />
 
-      {/* Stats Row — 4 cards: first 2 solo, last 2 grouped with connector */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      {/* Stats Row — 4 equal-height cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 items-stretch">
+        {/* Card 1 */}
         <StatCard
           label={t('zeroRedundancy.stats.totalWords.label')}
           value={t('zeroRedundancy.stats.totalWords.value')}
           description={t('zeroRedundancy.stats.totalWords.description')}
           glowColor="gold"
+          className="relative"
         />
+
+        {/* Card 2 */}
         <StatCard
           label={t('zeroRedundancy.stats.uniqueRoots.label')}
           value={t('zeroRedundancy.stats.uniqueRoots.value')}
           description={t('zeroRedundancy.stats.uniqueRoots.description')}
           glowColor="emerald"
-        />
+          className="relative"
+        >
+          <InfoTooltip text={t('zeroRedundancy.stats.uniqueRoots.tooltip')} />
+        </StatCard>
 
-        {/*
-          Cards 3 & 4: wrapped in a container that spans 2 cols on tablet+desktop.
-          Internally: flex-row with a desktop-only connector arrow between them.
-          On mobile (< sm): container is 1 col wide, flex-col → cards stack vertically.
-        */}
-        <div className="sm:col-span-2 flex flex-col sm:flex-row items-stretch gap-6">
-          <StatCard
-            label={t('zeroRedundancy.stats.uniqueWords.label')}
-            value={t('zeroRedundancy.stats.uniqueWords.value')}
-            description={t('zeroRedundancy.stats.uniqueWords.description')}
-            glowColor="blue"
-            className="flex-1"
-          >
-            {t('zeroRedundancy.stats.uniqueWords.tooltip') && (
-              <p className="text-silver/40 text-xs font-body mt-3 leading-relaxed text-left">
-                ℹ️ {t('zeroRedundancy.stats.uniqueWords.tooltip')}
-              </p>
-            )}
-          </StatCard>
+        {/* Card 3 */}
+        <StatCard
+          label={t('zeroRedundancy.stats.uniqueWords.label')}
+          value={t('zeroRedundancy.stats.uniqueWords.value')}
+          description={t('zeroRedundancy.stats.uniqueWords.description')}
+          glowColor="blue"
+          className="relative"
+        >
+          <InfoTooltip text={t('zeroRedundancy.stats.uniqueWords.tooltip')} />
+        </StatCard>
 
-          {/* Connector: visible only when cards are side by side (sm+) */}
-          <div className="hidden sm:flex flex-col items-center justify-center gap-1 flex-shrink-0 pointer-events-none">
-            <span className="text-gold/50 text-xs font-body whitespace-nowrap leading-tight text-center">
-              {language === 'tr' ? "bunların ~455'i" : "of those, ~455"}
+        {/* Card 4 — with connector label visible on desktop only */}
+        <div className="relative">
+          {/* Connector: appears at left edge on lg+, hidden below */}
+          <div className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 flex-col items-center gap-0.5 pointer-events-none z-10">
+            <span style={{ fontSize: '10px', color: 'rgba(184,134,11,0.7)', whiteSpace: 'nowrap', lineHeight: 1.4 }}>
+              {language === 'tr' ? "bunların ~455'i" : 'of those, ~455'}
             </span>
-            <svg width="24" height="10" viewBox="0 0 24 10" fill="none" style={{ color: 'rgba(212,165,116,0.4)' }}>
-              <path d="M0 5 H18 M14 1 L22 5 L14 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg width="18" height="8" viewBox="0 0 18 8" fill="none" style={{ color: 'rgba(184,134,11,0.5)' }}>
+              <path d="M0 4 H13 M10 1 L17 4 L10 7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-
           <StatCard
             label={t('zeroRedundancy.stats.hapax.label')}
             value={t('zeroRedundancy.stats.hapax.value')}
             description={t('zeroRedundancy.stats.hapax.description')}
             glowColor="gold"
-            className="flex-1"
+            className="relative h-full"
           >
-            {t('zeroRedundancy.stats.hapax.tooltip') && (
-              <p className="text-silver/40 text-xs font-body mt-3 leading-relaxed text-left">
-                ℹ️ {t('zeroRedundancy.stats.hapax.tooltip')}
-              </p>
-            )}
+            <InfoTooltip text={t('zeroRedundancy.stats.hapax.tooltip')} />
           </StatCard>
         </div>
       </div>

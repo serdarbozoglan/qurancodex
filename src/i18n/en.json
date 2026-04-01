@@ -464,26 +464,27 @@
     ],
     "stats": {
       "totalWords": {
-        "label": "Total Words",
+        "label": "TOTAL WORDS",
         "value": "~77,800",
-        "description": "Total word count in the Quran (approximate)"
+        "description": "Total word count in the Quran"
       },
       "uniqueRoots": {
-        "label": "Unique Roots",
+        "label": "UNIQUE ROOTS",
         "value": "~1,700",
-        "description": "Distinct Arabic word roots in the Quran (Corpus Quran: 1,685)"
+        "description": "Distinct Arabic word roots",
+        "tooltip": "Corpus Quran: 1,685 unique roots."
       },
       "uniqueWords": {
         "label": "UNIQUE WORD FORMS",
         "value": "~14,870",
-        "description": "The Quran's vocabulary — each distinct surface form counted once",
-        "tooltip": "The vast majority of these 14,870 forms appear more than once in the Quran. Source: Dr. Tariq Al-Suwaidan statistical analysis."
+        "description": "Each distinct surface form counted once",
+        "tooltip": "The vast majority of these forms appear more than once. Source: Dr. Tariq Al-Suwaidan."
       },
       "hapax": {
         "label": "APPEARING ONLY ONCE",
         "value": "~455",
-        "description": "Of the 14,870 unique forms, only this many appear in a single verse",
-        "tooltip": "Hapax legomena — from Greek 'said only once'. These 455 words are the subset of the 14,870 unique forms used exactly once. Source: Shawkat M. Toorawa, Hapaxes in the Qur'an (2011). Count may vary between 400–500 depending on methodology."
+        "description": "Of 14,870 forms, only these appear in a single verse",
+        "tooltip": "Hapax legomenon. Source: Shawkat M. Toorawa (2011). Count varies 400–500 by method."
       }
     },
     "comparisonTitle": "Redundancy Comparison",
