@@ -1,13 +1,87 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 
+// ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
+const CATEGORY_ICONS = {
+  ibadet: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3C10 7 6 8 6 12s6 6 6 6 6-2 6-6-4-5-6-9z"/>
+      <line x1="12" y1="18" x2="12" y2="21"/>
+    </svg>
+  ),
+  aile: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="9" cy="7" r="2.5"/>
+      <circle cx="16" cy="7" r="2"/>
+      <path d="M2 21c0-4 3-6 7-6h2c4 0 7 2 7 6"/>
+      <path d="M16 9c2.5 0 5 1.5 5 5"/>
+    </svg>
+  ),
+  ahlak: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="3" x2="12" y2="21"/>
+      <path d="M5 8h7m-7 0l-2 5c0 2 2 3 4 3s4-1 4-3L12 8"/>
+      <path d="M19 8h-7m7 0l2 5c0 2-2 3-4 3s-4-1-4-3l2-5"/>
+    </svg>
+  ),
+  mal: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 6v2m0 8v2"/>
+      <path d="M9.5 9.5A2.5 2.5 0 0 1 12 8c1.5 0 2.5 1 2.5 2.3 0 2.7-5 2.4-5 5.2 0 1.4 1 2.5 2.5 2.5s2.5-1 2.5-2.5"/>
+    </svg>
+  ),
+  bilgi: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/>
+      <path d="M4 19h16"/>
+      <line x1="8" y1="10" x2="16" y2="10"/>
+      <line x1="8" y1="14" x2="13" y2="14"/>
+    </svg>
+  ),
+  yasaklar: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3l8 4v5c0 5-4 9-8 10C8 21 4 17 4 12V7l8-4z"/>
+      <line x1="9" y1="12" x2="15" y2="12"/>
+    </svg>
+  ),
+  'sosyal-adalet': (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 11V9a4 4 0 0 0-8 0v2"/>
+      <path d="M6 11v2a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2"/>
+      <path d="M12 15v3m-3 2h6"/>
+    </svg>
+  ),
+  iletisim: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  ),
+};
+
+function CategoryIcon({ id, color }) {
+  const icon = CATEGORY_ICONS[id];
+  if (!icon) return null;
+  return (
+    <span style={{ color, display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}>
+      {icon}
+    </span>
+  );
+}
+
+// ── Badge colors ──────────────────────────────────────────────────────────────
+const BADGE = {
+  emir:  { bg: 'rgba(201,169,110,0.15)', border: 'rgba(201,169,110,0.35)', color: '#c9a96e' },
+  nehiy: { bg: 'rgba(232,90,74,0.15)',   border: 'rgba(232,90,74,0.35)',   color: '#e85a4a' },
+};
+
 export default function QuranCommands({ onClose }) {
   const { language } = useLanguage();
   const [data, setData]           = useState(null);
   const [activeId, setActiveId]   = useState('ibadet');
   const [filter, setFilter]       = useState('all'); // 'all' | 'emir' | 'nehiy'
   const [expanded, setExpanded]   = useState(false);
-  const [isMobile, setIsMobile]   = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile]   = useState(() => window.innerWidth < 768);
 
   useEffect(() => {
     fetch('/quran-commands.json')
@@ -21,7 +95,7 @@ export default function QuranCommands({ onClose }) {
   }, [onClose]);
 
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);
@@ -63,11 +137,12 @@ export default function QuranCommands({ onClose }) {
     nehiyStat: 'Yasak',
     kategoriler: 'Kategori',
     showMore: (n) => `+ ${n} daha göster`,
-    disclaimer: "Bu liste Kur'an ayetlerine dayalıdır. Her madde ilgili ayetle birlikte sunulmaktadır.",
+    curatedNote: 'Seçki — Bu liste temel emir ve yasakların derlenmiş bir özetidir, kapsamlı bir tefsir değildir.',
+    disclaimer: "Her madde ilgili Kur'an ayetiyle birlikte sunulmaktadır.",
     unverified: 'Doğrulanmamış',
     note: 'Not',
-    emirBadge: 'Emir',
-    nehiyBadge: 'Yasak',
+    emirBadge: 'EMİR',
+    nehiyBadge: 'YASAK',
   };
   const labelEn = {
     title: 'What Does the Quran Command?',
@@ -79,11 +154,12 @@ export default function QuranCommands({ onClose }) {
     nehiyStat: 'Prohibitions',
     kategoriler: 'Categories',
     showMore: (n) => `+ ${n} more`,
-    disclaimer: 'This list is based on Quranic verses. Each item is presented with its source verse.',
+    curatedNote: 'Curated selection — This list is a condensed overview of key commands and prohibitions, not a comprehensive commentary.',
+    disclaimer: 'Each item is presented with its source Quranic verse.',
     unverified: 'Unverified',
     note: 'Note',
-    emirBadge: 'Command',
-    nehiyBadge: 'Prohibition',
+    emirBadge: 'COMMAND',
+    nehiyBadge: 'PROHIBITION',
   };
   const L = language === 'tr' ? labelTr : labelEn;
 
@@ -115,7 +191,7 @@ export default function QuranCommands({ onClose }) {
       </button>
 
       {/* Header */}
-      <div style={{ padding: isMobile ? '60px 16px 20px' : '40px 32px 28px', maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+      <div style={{ padding: isMobile ? '56px 16px 20px' : '40px 32px 28px', maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
         <div style={{ marginBottom: '6px' }}>
           <span style={{ fontSize: '11px', color: 'rgba(201,169,110,0.7)', letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 600 }}>
             {language === 'tr' ? "KUR'AN'IN EMİRLERİ" : "QURAN COMMANDS"}
@@ -124,32 +200,41 @@ export default function QuranCommands({ onClose }) {
         <h1 style={{ fontSize: isMobile ? '1.4rem' : '2rem', fontWeight: 800, color: '#e8e6e3', fontFamily: "'Playfair Display', serif", marginBottom: '8px', lineHeight: 1.2 }}>
           {L.title}
         </h1>
-        <p style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '24px' }}>
+        <p style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '20px' }}>
           {L.subtitle}
         </p>
 
         {/* Stats row */}
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-          {[
-            { value: emirCount, label: L.emirStat, color: '#4A9EE8' },
-            { value: nehiyCount, label: L.nehiyStat, color: '#E84A4A' },
-            { value: categories.length, label: L.kategoriler, color: '#C9A96E' },
-          ].map((stat, i) => (
-            <div key={i} style={{
-              background: stat.color + '12',
-              border: `1px solid ${stat.color}30`,
-              borderRadius: '8px', padding: '8px 16px',
-              display: 'flex', alignItems: 'center', gap: '8px',
-            }}>
-              <span style={{ fontSize: '1.35rem', fontWeight: 800, color: stat.color, lineHeight: 1 }}>{stat.value}</span>
-              <span style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 500 }}>{stat.label}</span>
-            </div>
-          ))}
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '14px' }}>
+          <div style={{
+            background: 'rgba(201,169,110,0.1)', border: '1px solid rgba(201,169,110,0.28)',
+            borderRadius: '8px', padding: '7px 14px',
+            display: 'flex', alignItems: 'center', gap: '7px',
+          }}>
+            <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#c9a96e', lineHeight: 1 }}>{emirCount}</span>
+            <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 500 }}>{L.emirStat}</span>
+          </div>
+          <div style={{
+            background: 'rgba(232,90,74,0.1)', border: '1px solid rgba(232,90,74,0.28)',
+            borderRadius: '8px', padding: '7px 14px',
+            display: 'flex', alignItems: 'center', gap: '7px',
+          }}>
+            <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#e85a4a', lineHeight: 1 }}>{nehiyCount}</span>
+            <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 500 }}>{L.nehiyStat}</span>
+          </div>
+          <div style={{
+            background: 'rgba(74,158,232,0.08)', border: '1px solid rgba(74,158,232,0.22)',
+            borderRadius: '8px', padding: '7px 14px',
+            display: 'flex', alignItems: 'center', gap: '7px',
+          }}>
+            <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#4A9EE8', lineHeight: 1 }}>{categories.length}</span>
+            <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 500 }}>{L.kategoriler}</span>
+          </div>
         </div>
 
-        {/* Disclaimer */}
-        <p style={{ marginTop: '16px', fontSize: '0.78rem', color: 'rgba(148,163,184,0.65)', lineHeight: 1.5 }}>
-          ℹ {L.disclaimer}
+        {/* Curated note + disclaimer */}
+        <p style={{ fontSize: '0.75rem', color: 'rgba(148,163,184,0.55)', lineHeight: 1.5 }}>
+          ℹ {L.curatedNote} {L.disclaimer}
         </p>
       </div>
 
@@ -168,7 +253,7 @@ export default function QuranCommands({ onClose }) {
                 key={cat.id}
                 onClick={() => { setActiveId(cat.id); setFilter('all'); }}
                 style={{
-                  flexShrink: 0, padding: '5px 12px', borderRadius: '20px',
+                  flexShrink: 0, padding: '6px 12px', borderRadius: '20px',
                   border: `1px solid ${isActive ? cat.accent : 'rgba(255,255,255,0.1)'}`,
                   background: isActive ? cat.accent + '22' : 'transparent',
                   color: isActive ? cat.accent : '#94a3b8',
@@ -178,7 +263,7 @@ export default function QuranCommands({ onClose }) {
                   display: 'flex', alignItems: 'center', gap: '5px',
                 }}
               >
-                <span>{cat.icon}</span>
+                <CategoryIcon id={cat.id} color={isActive ? cat.accent : '#64748b'} />
                 <span>{language === 'tr' ? cat.titleTr : cat.titleEn}</span>
                 <span style={{
                   background: isActive ? cat.accent + '30' : 'rgba(255,255,255,0.08)',
@@ -195,15 +280,15 @@ export default function QuranCommands({ onClose }) {
       )}
 
       {/* Body: sidebar + content */}
-      <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', gap: '0', minHeight: 'calc(100vh - 260px)' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', gap: '0', minHeight: 'calc(100vh - 220px)' }}>
 
-        {/* Sidebar — hidden on mobile, chip row above handles navigation */}
+        {/* Sidebar — hidden on mobile */}
         <nav style={{
           width: '220px', flexShrink: 0,
           borderRight: '1px solid rgba(255,255,255,0.07)',
           padding: '20px 0',
           position: 'sticky', top: 0, alignSelf: 'flex-start',
-          maxHeight: 'calc(100vh - 260px)', overflowY: 'auto',
+          maxHeight: 'calc(100vh - 220px)', overflowY: 'auto',
           display: isMobile ? 'none' : 'block',
         }}>
           {categories.map(cat => {
@@ -227,18 +312,19 @@ export default function QuranCommands({ onClose }) {
                 onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
               >
                 <span style={{
+                  display: 'flex', alignItems: 'center', gap: '8px',
                   fontSize: '0.82rem', fontWeight: isActive ? 600 : 400,
                   color: isActive ? cat.accent : '#94a3b8',
                   lineHeight: 1.3,
                 }}>
-                  <span style={{ marginRight: '6px' }}>{cat.icon}</span>
+                  <CategoryIcon id={cat.id} color={isActive ? cat.accent : '#64748b'} />
                   {language === 'tr' ? cat.titleTr : cat.titleEn}
                 </span>
                 <span style={{
                   fontSize: '0.7rem', fontWeight: 600,
                   color: isActive ? cat.accent : 'rgba(148,163,184,0.5)',
                   background: isActive ? cat.accent + '20' : 'rgba(255,255,255,0.05)',
-                  borderRadius: '10px', padding: '1px 6px',
+                  borderRadius: '10px', padding: '1px 7px',
                   flexShrink: 0,
                 }}>
                   {catCommands.length}
@@ -253,13 +339,16 @@ export default function QuranCommands({ onClose }) {
 
           {/* Category title + filter toggle */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
-            <div>
-              <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: accent, marginBottom: '2px' }}>
-                {activeCategory?.icon} {language === 'tr' ? activeCategory?.titleTr : activeCategory?.titleEn}
-              </h2>
-              <p style={{ fontSize: '0.8rem', color: 'rgba(148,163,184,0.6)' }}>
-                {(activeCategory?.commands || []).length} {language === 'tr' ? 'madde' : 'items'}
-              </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <CategoryIcon id={activeCategory?.id} color={accent} />
+              <div>
+                <h2 style={{ fontSize: '1.15rem', fontWeight: 700, color: accent, margin: 0, lineHeight: 1.2 }}>
+                  {language === 'tr' ? activeCategory?.titleTr : activeCategory?.titleEn}
+                </h2>
+                <p style={{ fontSize: '0.78rem', color: 'rgba(148,163,184,0.55)', margin: '2px 0 0' }}>
+                  {(activeCategory?.commands || []).length} {language === 'tr' ? 'madde' : 'items'}
+                </p>
+              </div>
             </div>
 
             {/* Emir / Nehiy toggle */}
@@ -270,9 +359,9 @@ export default function QuranCommands({ onClose }) {
               borderRadius: '8px', padding: '3px',
             }}>
               {[
-                { key: 'all', labelTr: L.allCommands, labelEn: L.allCommands },
-                { key: 'emir', labelTr: L.emir, labelEn: L.emir },
-                { key: 'nehiy', labelTr: L.nehiy, labelEn: L.nehiy },
+                { key: 'all',   labelTr: L.allCommands, labelEn: L.allCommands },
+                { key: 'emir',  labelTr: L.emir,        labelEn: L.emir },
+                { key: 'nehiy', labelTr: L.nehiy,        labelEn: L.nehiy },
               ].map(f => (
                 <button
                   key={f.key}
@@ -284,6 +373,7 @@ export default function QuranCommands({ onClose }) {
                     background: filter === f.key ? accent : 'transparent',
                     color: filter === f.key ? '#0d1b2a' : '#94a3b8',
                     transition: 'all 0.15s',
+                    fontFamily: "'Inter', sans-serif",
                   }}
                 >
                   {language === 'tr' ? f.labelTr : f.labelEn}
@@ -309,7 +399,6 @@ export default function QuranCommands({ onClose }) {
                 ))}
               </div>
 
-              {/* Show more */}
               {!expanded && remaining > 0 && (
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
                   <button
@@ -323,6 +412,7 @@ export default function QuranCommands({ onClose }) {
                       fontSize: '0.85rem',
                       cursor: 'pointer',
                       transition: 'all 0.15s',
+                      fontFamily: "'Inter', sans-serif",
                     }}
                     onMouseEnter={e => { e.currentTarget.style.background = accent + '15'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
@@ -341,49 +431,55 @@ export default function QuranCommands({ onClose }) {
 
 function CommandCard({ cmd, accent, language, L }) {
   const isNehiy = cmd.type === 'nehiy';
-  const typeColor = isNehiy ? '#E84A4A' : '#4A9EE8';
+  const badge = isNehiy ? BADGE.nehiy : BADGE.emir;
 
   return (
-    <div style={{
-      background: 'rgba(255,255,255,0.03)',
-      border: '1px solid rgba(255,255,255,0.07)',
-      borderLeft: `3px solid ${accent}`,
-      borderRadius: '10px',
-      padding: '16px 18px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '10px',
-    }}>
+    <div
+      style={{
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.07)',
+        borderLeft: `2px solid ${accent}`,
+        borderRadius: '10px',
+        padding: '16px 18px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '10px',
+        transition: 'transform 0.15s, border-color 0.15s',
+      }}
+      onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.01)'; e.currentTarget.style.borderLeftColor = accent; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.13)'; }}
+      onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderLeftColor = accent; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
+    >
       {/* Type badge + unverified warning */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
         <span style={{
-          fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em',
-          color: typeColor,
-          background: typeColor + '18',
-          border: `1px solid ${typeColor}35`,
-          borderRadius: '4px', padding: '2px 7px',
+          fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em',
+          color: badge.color,
+          background: badge.bg,
+          border: `1px solid ${badge.border}`,
+          borderRadius: '20px', padding: '2px 9px',
           textTransform: 'uppercase',
         }}>
           {isNehiy ? L.nehiyBadge : L.emirBadge}
         </span>
         {!cmd.verified && (
           <span style={{
-            fontSize: '0.68rem', fontWeight: 600,
+            fontSize: '0.65rem', fontWeight: 600,
             color: '#E8A24A',
-            background: 'rgba(232,162,74,0.12)',
-            border: '1px solid rgba(232,162,74,0.3)',
-            borderRadius: '4px', padding: '2px 7px',
+            background: 'rgba(232,162,74,0.1)',
+            border: '1px solid rgba(232,162,74,0.28)',
+            borderRadius: '20px', padding: '2px 8px',
             display: 'flex', alignItems: 'center', gap: '3px',
           }}>
-            ⚠️ {L.unverified}
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            {L.unverified}
           </span>
         )}
       </div>
 
       {/* Arabic verse */}
       <div style={{
-        fontFamily: "'Amiri', serif",
-        fontSize: '18px', lineHeight: 1.9,
+        fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+        fontSize: '1.15rem', lineHeight: 2,
         color: accent,
         textAlign: 'right',
         direction: 'rtl',
@@ -397,9 +493,18 @@ function CommandCard({ cmd, accent, language, L }) {
         {language === 'tr' ? cmd.summaryTr : cmd.summaryEn}
       </div>
 
-      {/* Sure ref */}
-      <div style={{ fontSize: '0.75rem', color: 'rgba(148,163,184,0.65)', fontWeight: 500 }}>
-        {cmd.surahName} · {cmd.verseRef}
+      {/* Source ref */}
+      <div>
+        <span style={{
+          fontSize: '0.7rem', fontWeight: 600,
+          color: accent,
+          background: `${accent}20`,
+          border: `1px solid ${accent}55`,
+          borderRadius: '20px', padding: '2px 9px',
+          display: 'inline-block',
+        }}>
+          {cmd.surahName} · {cmd.verseRef}
+        </span>
       </div>
 
       {/* Meal */}
