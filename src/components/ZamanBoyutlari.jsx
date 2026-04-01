@@ -11,6 +11,8 @@ const TIMELINE_DATA = [
     valueTr: '1 gece = 1.000 aydan hayırlı (~83 yıl)',
     valueEn: '1 night > 1,000 months (~83 years)',
     arabic: 'لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ',
+    mealTr: 'Kadir gecesi, bin aydan daha hayırlıdır.',
+    mealEn: 'The Night of Power is better than a thousand months.',
     ref: 'Kadr 97:3',
     noteTr: 'Bir gecelik ibadet 83 yıllık ibadetten değerli — zamanın kalitesi miktarından üstün.',
     noteEn: 'One night of worship outweighs 83 years — quality of time exceeds quantity.',
@@ -19,16 +21,18 @@ const TIMELINE_DATA = [
   },
   {
     id: 'musa',
-    labelTr: '40 Gece (Hz. Musa)',
-    labelEn: '40 Nights (Moses)',
-    valueTr: "30 + 10 gece (Tur'da)",
-    valueEn: '30 + 10 nights (on Mount Tur)',
+    labelTr: '40 Gece',
+    labelEn: '40 Nights',
+    valueTr: "30 + 10 gece (Hz. Musa, Tur'da)",
+    valueEn: '30 + 10 nights (Moses on Mount Tur)',
     arabic: 'وَوَاعَدْنَا مُوسَىٰ ثَلَاثِينَ لَيْلَةً وَأَتْمَمْنَاهَا بِعَشْرٍ',
+    mealTr: "Musa'ya otuz gece vaat ettik ve onu on gece daha tamamladık.",
+    mealEn: 'We appointed for Moses thirty nights and completed them with ten more.',
     ref: "A'raf 7:142",
     noteTr: '30+10 gece ayrı ayrı zikredilir — sayının sembolik katmanları var.',
     noteEn: '30+10 nights mentioned separately — symbolic layers in the number.',
     logValue: 1.6,
-    color: '#4a9ee8',
+    color: '#d4a574',
   },
   {
     id: 'kehf',
@@ -37,6 +41,8 @@ const TIMELINE_DATA = [
     valueTr: '300 güneş = 309 kamer yılı',
     valueEn: '300 solar = 309 lunar years',
     arabic: 'وَلَبِثُوا فِي كَهْفِهِمْ ثَلَاثَ مِائَةٍ سِنِينَ وَازْدَادُوا تِسْعًا',
+    mealTr: 'Mağaralarında üç yüz yıl kaldılar; buna dokuz daha kattılar.',
+    mealEn: 'They stayed in their cave three hundred years, and added nine.',
     ref: 'Kehf 18:25',
     noteTr: "Modern astronomide 300 güneş yılı = 309.017 kamer yılı. Kur'an her ikisini de doğru verir.",
     noteEn: 'Modern astronomy: 300 solar years = 309.017 lunar years. The Quran gives both.',
@@ -44,15 +50,17 @@ const TIMELINE_DATA = [
     disclaimerTr: "Bu tespit gözlemsel bir örtüşmedir; Kur'an'ın bilimsel iddiası değildir.",
     disclaimerEn: 'This is an observational overlap; not a scientific claim of the Quran.',
     logValue: 2.48,
-    color: '#4caf7d',
+    color: '#d4a574',
   },
   {
     id: 'yaratilis',
     labelTr: '6 Kozmik Evre',
     labelEn: '6 Cosmic Phases',
-    valueTr: '2 + 4 + 2 dönem (Fussilet)',
-    valueEn: '2 + 4 + 2 phases (Fussilat)',
+    valueTr: '6 kozmik evre (Yaratılış, Fussilet)',
+    valueEn: '6 cosmic phases (Creation, Fussilat)',
     arabic: 'خَلَقَ الْأَرْضَ فِي يَوْمَيْنِ',
+    mealTr: 'Yeri iki günde yarattı.',
+    mealEn: 'He created the earth in two days.',
     ref: 'Fussilet 41:9-12',
     noteTr: '"Yevm" burada kozmolojik evre anlamında. 4 günlük süre ilk 2 günü kapsar, toplam 6 evre.',
     noteEn: '"Yevm" means cosmic phase, not day. The 4-day period includes the first 2, totaling 6 phases.',
@@ -60,12 +68,12 @@ const TIMELINE_DATA = [
     disclaimerTr: 'Tefsir notu — kesin yorum değil.',
     disclaimerEn: 'Exegetical note — not a definitive interpretation.',
     logValue: 3.5,
-    color: '#9b59b6',
+    color: '#d4a574',
   },
   {
     id: 'bin',
-    labelTr: "Allah'ın Günü = 1.000 Yıl",
-    labelEn: "God's Day = 1,000 Years",
+    labelTr: 'Allah Katında 1 Gün',
+    labelEn: "1 Divine Day",
     valueTr: 'Allah katında 1 gün = 1.000 insan yılı',
     valueEn: '1 divine day = 1,000 human years',
     arabic: 'وَإِنَّ يَوْمًا عِندَ رَبِّكَ كَأَلْفِ سَنَةٍ مِّمَّا تَعُدُّونَ',
@@ -77,8 +85,8 @@ const TIMELINE_DATA = [
   },
   {
     id: 'elli',
-    labelTr: 'Kıyamet Günü = 50.000 Yıl',
-    labelEn: 'Day of Judgment = 50,000 Years',
+    labelTr: 'Kıyamet Günü',
+    labelEn: 'Day of Judgment',
     valueTr: 'Meleklerin yükseliş günü = 50.000 insan yılı',
     valueEn: 'Day of angelic ascent = 50,000 human years',
     arabic: 'فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ',
@@ -89,7 +97,7 @@ const TIMELINE_DATA = [
     disclaimerTr: 'Modern fizikteki gravitational time dilation ile felsefi benzerlik kurulabilir — bu bir yorum katmanıdır.',
     disclaimerEn: 'Philosophical parallel to gravitational time dilation is possible — this is an interpretive layer.',
     logValue: 4.7,
-    color: '#e74c3c',
+    color: '#d4a574',
   },
 ];
 
@@ -112,6 +120,8 @@ const LANG_CARDS = [
     bodyEn:
       'Quranic stories are not historical documents — they are living lessons. The narratives of Noah, Abraham, Joseph are given in broad tense — as if still happening.',
     arabic: 'لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ',
+    mealTr: 'Onların kıssalarında akıl sahipleri için elbette bir ibret vardır.',
+    mealEn: 'There was certainly in their stories a lesson for those of understanding.',
     ref: 'Yusuf 12:111',
     footerTr: 'Kıssalarda geçmiş zaman kip olarak değil, öğüt olarak akar.',
     footerEn: 'In stories, past tense flows not as history, but as guidance.',
@@ -135,6 +145,8 @@ const LANG_CARDS = [
     bodyEn:
       "The 'you' and 'we' pronouns in the Quran are not addressed to the 7th century — they point to every reader in every age. Command-form verses are permanent present tense.",
     arabic: 'اقْرَأْ بِاسْمِ رَبِّكَ',
+    mealTr: 'Yaratan Rabbinin adıyla oku.',
+    mealEn: 'Read in the name of your Lord who created.',
     ref: 'Alak 96:1',
     footerTr: "'Oku!' emri geçmişte verildi, ama dilbilgisel zamanı hâlâ şimdiki.",
     footerEn: "The command 'Read!' was given in the past, but its grammatical tense is still present.",
@@ -156,6 +168,8 @@ const LANG_CARDS = [
     bodyEn:
       "Afterlife scenes in the Quran are often narrated in past tense: 'Hell was brought,' 'Paradise was drawn near.' This is Prophetic Perfect — the future so certain it reads as already done.",
     arabic: 'إِذَا الشَّمْسُ كُوِّرَتْ',
+    mealTr: 'Güneş dürüldüğünde.',
+    mealEn: 'When the sun is wrapped up.',
     ref: 'Tekvir 81:1',
     footerTr: "Dilbilimciler bu yapıyı İbranice'de de görür — Sami dillere özgü bir kesinlik ifadesi.",
     footerEn: 'Linguists find this structure in Hebrew too — a Semitic expression of absolute certainty.',
@@ -177,6 +191,10 @@ const ACCORDION_ITEMS = [
       "Meâric 70:4'teki 50.000 yıllık gün ve Einstein'ın görelilik teorisi arasında çarpıcı bir felsefi örtüşme var: gravitational time dilation, kütlenin zamanı büktüğünü söyler. Kur'an Allah katındaki zamanın insan zamanından farklı aktığını söyler. İkisi aynı şeyi mi söylüyor?",
     bodyEn:
       "There is a striking philosophical overlap between the 50,000-year day of Meâric 70:4 and Einstein's theory of relativity: gravitational time dilation says mass bends time. The Quran says time near God flows differently than human time. Do they say the same thing?",
+    arabic: 'فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ',
+    mealTr: 'Süresi elli bin yıl olan bir günde.',
+    mealEn: 'On a day whose measure is fifty thousand years.',
+    ref: 'Meâric 70:4',
     disclaimerTr: "Bu bir felsefi benzetmedir. Kur'an'ın bilimsel teori ileri sürdüğü iddiası değildir.",
     disclaimerEn: "This is a philosophical analogy. It is not a claim that the Quran proposes scientific theory.",
   },
@@ -188,6 +206,10 @@ const ACCORDION_ITEMS = [
       "Ashâb-ı Kehf'in mağarada kalış süresi 300 yıl olarak söylenir, hemen ardından 'bir de 9 eklediler' denir. Modern hesaplamayla 300 güneş yılı = 309.017 kamer yılıdır. Kur'an, Hristiyan ve Müslüman toplulukların tartışmasına iki rakamı birden sunarak cevap verir.",
     bodyEn:
       "The People of the Cave are said to have stayed 300 years, then 'they added nine.' Modern calculations: 300 solar years = 309.017 lunar years. The Quran answers both Christian and Muslim communities by giving both numbers.",
+    arabic: 'وَلَبِثُوا فِي كَهْفِهِمْ ثَلَاثَ مِائَةٍ سِنِينَ وَازْدَادُوا تِسْعًا',
+    mealTr: 'Mağaralarında üç yüz yıl kaldılar; buna dokuz daha kattılar.',
+    mealEn: 'They stayed in their cave three hundred years, and added nine.',
+    ref: 'Kehf 18:25',
     disclaimerTr: 'Tespit gözlemsel örtüşmedir. Kaynak: Julian takvimi farkı.',
     disclaimerEn: 'This is an observational overlap. Source: Julian calendar conversion.',
   },
@@ -199,6 +221,10 @@ const ACCORDION_ITEMS = [
       "1.000 aydan hayırlı bir gece — sayısal bir üstünlük mü, niteliksel mi? İmam Gazali: 'Hayır miktarla değil, derinlikle ölçülür.' Kur'an burada zamanın saat olarak değil, anlam yoğunluğu olarak akabileceğini ima eder.",
     bodyEn:
       "A night better than 1,000 months — numerical superiority or qualitative? Imam Al-Ghazali: 'Good is measured not by quantity, but by depth.' The Quran implies time can flow not as hours, but as density of meaning.",
+    arabic: 'لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ',
+    mealTr: 'Kadir gecesi, bin aydan daha hayırlıdır.',
+    mealEn: 'The Night of Power is better than a thousand months.',
+    ref: 'Kadr 97:3',
     disclaimerTr: null,
     disclaimerEn: null,
   },
@@ -218,12 +244,15 @@ const TABLE_ROWS = [
     noteTr: 'Nitelik > nicelik',
     noteEn: 'Quality > quantity',
     hasInfo: false,
+    arabic: 'لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ',
+    mealTr: 'Kadir gecesi, bin aydan daha hayırlıdır.',
+    mealEn: 'The Night of Power is better than a thousand months.',
   },
   {
     id: 'allah-gunu',
     expressionTr: "Allah'ın günü",
     expressionEn: "God's day",
-    ref: 'Hac 22:47, Secde 32:5',
+    ref: 'Hac 22:47',
     humanTr: '—',
     humanEn: '—',
     divineTr: '1.000 insan yılı',
@@ -231,6 +260,9 @@ const TABLE_ROWS = [
     noteTr: '2 ayette geçer',
     noteEn: 'appears in 2 verses',
     hasInfo: false,
+    arabic: 'وَإِنَّ يَوْمًا عِندَ رَبِّكَ كَأَلْفِ سَنَةٍ مِّمَّا تَعُدُّونَ',
+    mealTr: 'Rabbinin katında bir gün, sizin saydıklarınızdan bin yıl gibidir.',
+    mealEn: 'A day with your Lord is like a thousand years of what you count.',
   },
   {
     id: 'kiyamet-gunu',
@@ -244,6 +276,9 @@ const TABLE_ROWS = [
     noteTr: 'En uzun ifade',
     noteEn: 'longest expression',
     hasInfo: false,
+    arabic: 'فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ',
+    mealTr: 'Süresi elli bin yıl olan bir günde.',
+    mealEn: 'On a day whose measure is fifty thousand years.',
   },
   {
     id: 'ashab-i-kehf',
@@ -257,6 +292,9 @@ const TABLE_ROWS = [
     noteTr: 'Astronomik teyit',
     noteEn: 'astronomical',
     hasInfo: true,
+    arabic: 'وَلَبِثُوا فِي كَهْفِهِمْ ثَلَاثَ مِائَةٍ سِنِينَ وَازْدَادُوا تِسْعًا',
+    mealTr: 'Mağaralarında üç yüz yıl kaldılar; buna dokuz daha kattılar.',
+    mealEn: 'They stayed in their cave three hundred years, and added nine.',
   },
   {
     id: 'yaratilis-evreleri',
@@ -270,6 +308,9 @@ const TABLE_ROWS = [
     noteTr: '"Yevm" = evre',
     noteEn: '"Yevm" = phase',
     hasInfo: true,
+    arabic: 'خَلَقَ الْأَرْضَ فِي يَوْمَيْنِ',
+    mealTr: 'Yeri iki günde yarattı.',
+    mealEn: 'He created the earth in two days.',
   },
   {
     id: 'hz-musa',
@@ -283,6 +324,9 @@ const TABLE_ROWS = [
     noteTr: '30+10 ayrı zikir',
     noteEn: 'cited separately',
     hasInfo: false,
+    arabic: 'وَوَاعَدْنَا مُوسَىٰ ثَلَاثِينَ لَيْلَةً وَأَتْمَمْنَاهَا بِعَشْرٍ',
+    mealTr: "Musa'ya otuz gece vaat ettik ve onu on gece daha tamamladık.",
+    mealEn: 'We appointed for Moses thirty nights and completed them with ten more.',
   },
 ];
 
@@ -318,6 +362,7 @@ export default function ZamanBoyutlari({ onClose }) {
   const [activeTab, setActiveTab]         = useState('olcek');
   const [activeDot, setActiveDot]         = useState('kadr');
   const [openAccordion, setOpenAccordion] = useState(null);
+  const [expandedRow,   setExpandedRow]   = useState(null);
   const [sourcesOpen, setSourcesOpen]     = useState(true);
   const [isMobile, setIsMobile]           = useState(
     typeof window !== 'undefined' ? window.innerWidth < 768 : false
@@ -456,9 +501,6 @@ export default function ZamanBoyutlari({ onClose }) {
                     fontWeight: isActive ? 600 : 400,
                     transition: 'color 0.2s',
                     textAlign: 'center',
-                    maxWidth: '90px',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
                   }}>
                     {language === 'tr' ? item.labelTr : item.labelEn}
                   </div>
@@ -528,10 +570,22 @@ export default function ZamanBoyutlari({ onClose }) {
           }}>
             {language === 'tr' ? activeItem.valueTr : activeItem.valueEn}
           </p>
+          {activeItem.mealTr && (
+            <p style={{
+              fontFamily: FONTS.body,
+              fontSize: '0.85rem',
+              color: COLORS.silver,
+              fontStyle: 'italic',
+              margin: '0 0 8px',
+              lineHeight: 1.6,
+            }}>
+              "{language === 'tr' ? activeItem.mealTr : activeItem.mealEn}"
+            </p>
+          )}
           <p style={{
             fontFamily: FONTS.body,
             fontSize: '0.85rem',
-            color: COLORS.silver,
+            color: COLORS.slate500,
             margin: 0,
             lineHeight: 1.6,
           }}>
@@ -614,18 +668,30 @@ export default function ZamanBoyutlari({ onClose }) {
                 background: 'rgba(0,0,0,0.2)',
                 borderRadius: '8px',
                 padding: '10px 14px',
-                textAlign: 'right',
               }}>
                 <p style={{
                   fontFamily: FONTS.quran,
-                  fontSize: '1.2rem',
+                  fontSize: '1.35rem',
                   color: card.accentColor,
                   direction: 'rtl',
+                  textAlign: 'right',
                   margin: '0 0 6px',
-                  lineHeight: 1.7,
+                  lineHeight: 1.8,
                 }} dir="rtl" lang="ar">
                   {card.arabic}
                 </p>
+                {card.mealTr && (
+                  <p style={{
+                    fontFamily: FONTS.body,
+                    fontSize: '0.82rem',
+                    color: COLORS.silver,
+                    fontStyle: 'italic',
+                    margin: '0 0 8px',
+                    lineHeight: 1.5,
+                  }}>
+                    "{language === 'tr' ? card.mealTr : card.mealEn}"
+                  </p>
+                )}
                 {renderRefPill(card.ref)}
               </div>
 
@@ -657,74 +723,87 @@ export default function ZamanBoyutlari({ onClose }) {
           fontFamily: FONTS.display,
           fontSize: '1.3rem',
           color: COLORS.offWhite,
-          margin: '0 0 20px',
+          margin: '0 0 4px',
           fontWeight: 700,
         }}>
-          {language === 'tr' ? 'Tanrısal Zaman / İnsan Zamanı' : 'Divine Time / Human Time'}
+          {language === 'tr' ? 'İlahi Zaman / İnsan Zamanı' : 'Divine Time / Human Time'}
         </h3>
+        <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, margin: '0 0 24px' }}>
+          {language === 'tr'
+            ? "Kur'an'ın zaman anlayışı: felsefi ve dilbilimsel boyutlar"
+            : "The Quranic understanding of time: philosophical and linguistic dimensions"}
+        </p>
 
-        {ACCORDION_ITEMS.map(item => {
-          const isOpen = openAccordion === item.id;
-          return (
-            <div key={item.id} style={{ ...GLASS_CARD, marginBottom: '8px' }}>
-              {/* Title row */}
-              <button
-                onClick={() => setOpenAccordion(isOpen ? null : item.id)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  width: '100%',
-                  padding: '16px 20px',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  gap: '12px',
-                }}
-              >
-                <span style={{
-                  fontFamily: FONTS.body,
-                  fontSize: '0.95rem',
-                  fontWeight: 600,
-                  color: COLORS.offWhite,
-                  textAlign: 'left',
-                  flex: 1,
-                }}>
-                  {language === 'tr' ? item.titleTr : item.titleEn}
-                </span>
-                <svg
-                  width="16" height="16" viewBox="0 0 24 24"
-                  fill="none" stroke={COLORS.silver} strokeWidth="2" strokeLinecap="round"
-                  style={{
-                    flexShrink: 0,
-                    transition: 'transform 0.2s',
-                    transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                  }}
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {ACCORDION_ITEMS.map(item => (
+            <div key={item.id} style={{
+              ...GLASS_CARD,
+              padding: '22px 24px',
+              borderLeft: `3px solid ${COLORS.gold}`,
+            }}>
+              {/* Title */}
+              <h4 style={{
+                fontFamily: FONTS.body,
+                fontSize: '1rem',
+                fontWeight: 600,
+                color: COLORS.offWhite,
+                margin: '0 0 12px',
+              }}>
+                {language === 'tr' ? item.titleTr : item.titleEn}
+              </h4>
 
               {/* Body */}
-              {isOpen && (
-                <div style={{ padding: '0 20px 16px' }}>
+              <p style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.875rem',
+                color: COLORS.silver,
+                margin: '0 0 16px',
+                lineHeight: 1.75,
+              }}>
+                {language === 'tr' ? item.bodyTr : item.bodyEn}
+              </p>
+
+              {/* Verse block */}
+              {item.arabic && (
+                <div style={{
+                  background: 'rgba(0,0,0,0.25)',
+                  border: `1px solid ${COLORS.glassBorder}`,
+                  borderRadius: '8px',
+                  padding: '14px 16px',
+                  marginBottom: '12px',
+                }}>
+                  <p style={{
+                    fontFamily: FONTS.quran,
+                    fontSize: '1.35rem',
+                    color: COLORS.gold,
+                    direction: 'rtl',
+                    textAlign: 'right',
+                    margin: '0 0 8px',
+                    lineHeight: 1.9,
+                  }} dir="rtl" lang="ar">
+                    {item.arabic}
+                  </p>
                   <p style={{
                     fontFamily: FONTS.body,
-                    fontSize: '0.875rem',
+                    fontSize: '0.85rem',
                     color: COLORS.silver,
-                    margin: '0 0 10px',
-                    lineHeight: 1.7,
+                    fontStyle: 'italic',
+                    margin: '0 0 8px',
+                    lineHeight: 1.5,
                   }}>
-                    {language === 'tr' ? item.bodyTr : item.bodyEn}
+                    "{language === 'tr' ? item.mealTr : item.mealEn}"
                   </p>
-                  {(item.disclaimerTr || item.disclaimerEn) && renderDisclaimer(
-                    language === 'tr' ? item.disclaimerTr : item.disclaimerEn
-                  )}
+                  {renderRefPill(item.ref)}
                 </div>
               )}
+
+              {/* Disclaimer */}
+              {(item.disclaimerTr || item.disclaimerEn) && renderDisclaimer(
+                language === 'tr' ? item.disclaimerTr : item.disclaimerEn
+              )}
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     );
   }
@@ -744,26 +823,80 @@ export default function ZamanBoyutlari({ onClose }) {
           {colLabel ? 'Zaman İfadelerinin Karşılaştırması' : 'Comparison of Time Expressions'}
         </h3>
 
+        {/* Inline verse panel — shared between mobile and desktop */}
+        {expandedRow && (() => {
+          const row = TABLE_ROWS.find(r => r.id === expandedRow);
+          if (!row) return null;
+          return (
+            <div style={{
+              background: 'rgba(0,0,0,0.3)',
+              border: `1px solid ${COLORS.gold}44`,
+              borderLeft: `3px solid ${COLORS.gold}`,
+              borderRadius: '10px',
+              padding: '16px 20px',
+              marginBottom: '16px',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                <span style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.gold, fontWeight: 600 }}>
+                  {colLabel ? row.expressionTr : row.expressionEn} — {row.ref}
+                </span>
+                <button
+                  onClick={() => setExpandedRow(null)}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: COLORS.slate500, fontSize: '1rem', lineHeight: 1, padding: '2px 6px' }}
+                >✕</button>
+              </div>
+              <p style={{
+                fontFamily: FONTS.quran,
+                fontSize: '1.5rem',
+                color: COLORS.gold,
+                direction: 'rtl',
+                textAlign: 'right',
+                margin: '0 0 10px',
+                lineHeight: 1.9,
+              }} dir="rtl" lang="ar">
+                {row.arabic}
+              </p>
+              <p style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.9rem',
+                color: COLORS.offWhite,
+                fontStyle: 'italic',
+                margin: 0,
+                lineHeight: 1.6,
+              }}>
+                "{colLabel ? row.mealTr : row.mealEn}"
+              </p>
+            </div>
+          );
+        })()}
+
         {isMobile ? (
           // Mobile: cards
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {TABLE_ROWS.map(row => (
               <div key={row.id} style={{ ...GLASS_CARD, padding: '12px 16px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-                  <span style={{
-                    fontFamily: FONTS.body,
-                    fontSize: '0.9rem',
-                    fontWeight: 700,
-                    color: COLORS.offWhite,
-                  }}>
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite }}>
                     {colLabel ? row.expressionTr : row.expressionEn}
                   </span>
-                  {renderRefPill(row.ref)}
+                  <button
+                    onClick={() => setExpandedRow(expandedRow === row.id ? null : row.id)}
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '4px',
+                      padding: '2px 8px', borderRadius: '10px',
+                      border: `1px solid ${expandedRow === row.id ? COLORS.gold : COLORS.gold + '88'}`,
+                      background: expandedRow === row.id ? COLORS.gold + '22' : 'transparent',
+                      color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,
+                      fontWeight: 600, lineHeight: 1.4, cursor: 'pointer',
+                    }}
+                  >
+                    {row.ref} {expandedRow === row.id ? '▲' : '▼'}
+                  </button>
                 </div>
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '6px' }}>
                   {(colLabel ? row.humanTr : row.humanEn) !== '—' && (
                     <span style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body }}>
-                      {colLabel ? '🧍 ' : '🧍 '}{colLabel ? row.humanTr : row.humanEn}
+                      🧍 {colLabel ? row.humanTr : row.humanEn}
                     </span>
                   )}
                   {(colLabel ? row.divineTr : row.divineEn) !== '—' && (
@@ -772,13 +905,7 @@ export default function ZamanBoyutlari({ onClose }) {
                     </span>
                   )}
                 </div>
-                <p style={{
-                  margin: 0,
-                  fontSize: '0.78rem',
-                  color: row.hasInfo ? COLORS.gold : COLORS.slate500,
-                  fontStyle: 'italic',
-                  fontFamily: FONTS.body,
-                }}>
+                <p style={{ margin: 0, fontSize: '0.78rem', color: row.hasInfo ? COLORS.gold : COLORS.slate500, fontStyle: 'italic', fontFamily: FONTS.body }}>
                   {row.hasInfo ? 'ℹ ' : ''}{colLabel ? row.noteTr : row.noteEn}
                 </p>
               </div>
@@ -787,30 +914,21 @@ export default function ZamanBoyutlari({ onClose }) {
         ) : (
           // Desktop: table
           <div style={{ overflowX: 'auto' }}>
-            <table style={{
-              width: '100%',
-              borderCollapse: 'collapse',
-              fontFamily: FONTS.body,
-            }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body }}>
               <thead>
                 <tr style={{ background: 'rgba(0,0,0,0.3)' }}>
                   {[
                     colLabel ? 'İfade' : 'Expression',
-                    'Ref.',
+                    colLabel ? 'Ayet' : 'Verse',
                     colLabel ? 'İnsan Ölçeği' : 'Human Scale',
-                    colLabel ? 'İlahi Boyut' : 'Divine Dimension',
+                    colLabel ? 'Allah Katında' : 'Divine Dimension',
                     colLabel ? 'Not' : 'Note',
                   ].map(h => (
                     <th key={h} style={{
-                      padding: '10px 14px',
-                      textAlign: 'left',
-                      fontSize: '0.75rem',
-                      fontWeight: 600,
-                      color: COLORS.gold,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                      borderBottom: `1px solid ${COLORS.glassBorder}`,
-                      whiteSpace: 'nowrap',
+                      padding: '10px 14px', textAlign: 'left',
+                      fontSize: '0.75rem', fontWeight: 600, color: COLORS.gold,
+                      textTransform: 'uppercase', letterSpacing: '0.05em',
+                      borderBottom: `1px solid ${COLORS.glassBorder}`, whiteSpace: 'nowrap',
                     }}>
                       {h}
                     </th>
@@ -819,15 +937,24 @@ export default function ZamanBoyutlari({ onClose }) {
               </thead>
               <tbody>
                 {TABLE_ROWS.map((row, idx) => (
-                  <tr
-                    key={row.id}
-                    style={{ background: idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}
-                  >
+                  <tr key={row.id} style={{ background: idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
                     <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.offWhite, fontWeight: 600 }}>
                       {colLabel ? row.expressionTr : row.expressionEn}
                     </td>
                     <td style={{ padding: '10px 14px', whiteSpace: 'nowrap' }}>
-                      {renderRefPill(row.ref)}
+                      <button
+                        onClick={() => setExpandedRow(expandedRow === row.id ? null : row.id)}
+                        style={{
+                          display: 'inline-flex', alignItems: 'center', gap: '4px',
+                          padding: '2px 8px', borderRadius: '10px',
+                          border: `1px solid ${expandedRow === row.id ? COLORS.gold : COLORS.gold + '88'}`,
+                          background: expandedRow === row.id ? COLORS.gold + '22' : 'transparent',
+                          color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,
+                          fontWeight: 600, lineHeight: 1.4, cursor: 'pointer', transition: 'all 0.15s',
+                        }}
+                      >
+                        {row.ref} {expandedRow === row.id ? '▲' : '▼'}
+                      </button>
                     </td>
                     <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.silver }}>
                       {colLabel ? row.humanTr : row.humanEn}
@@ -835,12 +962,7 @@ export default function ZamanBoyutlari({ onClose }) {
                     <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.offWhite }}>
                       {colLabel ? row.divineTr : row.divineEn}
                     </td>
-                    <td style={{
-                      padding: '10px 14px',
-                      fontSize: '0.8rem',
-                      color: row.hasInfo ? COLORS.gold : COLORS.silver,
-                      fontStyle: 'italic',
-                    }}>
+                    <td style={{ padding: '10px 14px', fontSize: '0.8rem', color: row.hasInfo ? COLORS.gold : COLORS.silver, fontStyle: 'italic' }}>
                       {row.hasInfo ? 'ℹ ' : ''}{colLabel ? row.noteTr : row.noteEn}
                     </td>
                   </tr>
@@ -961,7 +1083,7 @@ export default function ZamanBoyutlari({ onClose }) {
                   lineHeight: 1.6,
                 }}>
                   ℹ {isTr
-                    ? "NOT: Bu sayfadaki bilimsel atıflar felsefi benzetme niteliğindedir. Kur'an'ın modern bilimi öngördüğü iddiası değildir."
+                    ? "NOT: Bu sayfadaki bilimsel atıflar felsefi benzetme niteliğindedir. Kur'an'ın herhangi bir bilimsel teoriyi öngördüğü veya doğruladığı iddiası taşımamaktadır."
                     : "NOTE: Scientific references on this page are philosophical analogies. This is not a claim that the Quran predicted modern science."}
                 </p>
               </div>
