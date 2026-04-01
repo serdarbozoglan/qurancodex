@@ -3,17 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 
-// Semantik renk ataması:
-//   sky-blue  → bilimsel / nörobilim (01 Prefrontal, 02 Parmak İzleri)
-//   gold      → anlatı / belagat    (03 Modüler Anlatı, 06 İltifât)
-//   emerald   → dilbilim / istatistik (04 Kelime Haritası, 05 Zaman Esnekliği)
 const cardAccents = [
-  { border: 'border-sky-blue',      text: 'text-sky-blue',      dot: 'bg-sky-blue',      bg: 'bg-sky-blue/5',      color: '#3498db' }, // 01
-  { border: 'border-sky-blue',      text: 'text-sky-blue',      dot: 'bg-sky-blue',      bg: 'bg-sky-blue/5',      color: '#3498db' }, // 02
-  { border: 'border-gold',          text: 'text-gold',          dot: 'bg-gold',          bg: 'bg-gold/5',          color: '#d4a574' }, // 03
-  { border: 'border-soft-emerald',  text: 'text-soft-emerald',  dot: 'bg-soft-emerald',  bg: 'bg-soft-emerald/5',  color: '#2ecc71' }, // 04
-  { border: 'border-soft-emerald',  text: 'text-soft-emerald',  dot: 'bg-soft-emerald',  bg: 'bg-soft-emerald/5',  color: '#2ecc71' }, // 05
-  { border: 'border-gold',          text: 'text-gold',          dot: 'bg-gold',          bg: 'bg-gold/5',          color: '#d4a574' }, // 06
+  { border: 'border-gold', text: 'text-gold', dot: 'bg-gold', bg: 'bg-gold/5', color: '#d4a574' }, // 01
+  { border: 'border-gold', text: 'text-gold', dot: 'bg-gold', bg: 'bg-gold/5', color: '#d4a574' }, // 02
+  { border: 'border-gold', text: 'text-gold', dot: 'bg-gold', bg: 'bg-gold/5', color: '#d4a574' }, // 03
+  { border: 'border-gold', text: 'text-gold', dot: 'bg-gold', bg: 'bg-gold/5', color: '#d4a574' }, // 04
+  { border: 'border-gold', text: 'text-gold', dot: 'bg-gold', bg: 'bg-gold/5', color: '#d4a574' }, // 05
+  { border: 'border-gold', text: 'text-gold', dot: 'bg-gold', bg: 'bg-gold/5', color: '#d4a574' }, // 06
 ];
 
 export default function Highlights() {
