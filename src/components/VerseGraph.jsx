@@ -2485,7 +2485,10 @@ function FullGraph({ verses, onBack, language, onClose }) {
 // ─── Root: view state machine ─────────────────────────────────────────────────
 export default function VerseGraph({ onClose, initialSearch = '', onRegisterBackHandler = null }) {
   const { language } = useLanguage();
-  const [view, setView] = useState(() => localStorage.getItem('qurancodex_graph_view') || 'clusters');
+  // If opened with a specific verse to find (e.g. from ConceptGraph), always start at clusters
+  // so ClusterView can parse initialSearch and call onSelectVerse → sets autoFocusVerseId.
+  // Otherwise restore last view from localStorage.
+  const [view, setView] = useState(() => initialSearch ? 'clusters' : (localStorage.getItem('qurancodex_graph_view') || 'clusters'));
   const [pendingSearch, setPendingSearch] = useState(initialSearch);
   const [selectedSurah, setSelectedSurah] = useState(() => {
     const s = parseInt(localStorage.getItem('qurancodex_graph_surah'));
