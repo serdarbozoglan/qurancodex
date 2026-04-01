@@ -888,10 +888,12 @@ export default function ZamanBoyutlari({ onClose }) {
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: '4px',
                       padding: '2px 8px', borderRadius: '10px',
-                      border: `1px solid ${expandedRow === row.id ? COLORS.gold : COLORS.gold + '88'}`,
-                      background: expandedRow === row.id ? COLORS.gold + '22' : 'transparent',
-                      color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,
+                      border: `1px solid ${COLORS.gold}`,
+                      background: expandedRow === row.id ? COLORS.gold : 'transparent',
+                      color: expandedRow === row.id ? '#0a0a1a' : COLORS.gold,
+                      fontSize: '0.72rem', fontFamily: FONTS.body,
                       fontWeight: 600, lineHeight: 1.4, cursor: 'pointer',
+                      transition: 'all 0.15s',
                     }}
                   >
                     {row.ref} {expandedRow === row.id ? '▲' : '▼'}
@@ -951,9 +953,10 @@ export default function ZamanBoyutlari({ onClose }) {
                         style={{
                           display: 'inline-flex', alignItems: 'center', gap: '4px',
                           padding: '2px 8px', borderRadius: '10px',
-                          border: `1px solid ${expandedRow === row.id ? COLORS.gold : COLORS.gold + '88'}`,
-                          background: expandedRow === row.id ? COLORS.gold + '22' : 'transparent',
-                          color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,
+                          border: `1px solid ${COLORS.gold}`,
+                          background: expandedRow === row.id ? COLORS.gold : 'transparent',
+                          color: expandedRow === row.id ? '#0a0a1a' : COLORS.gold,
+                          fontSize: '0.72rem', fontFamily: FONTS.body,
                           fontWeight: 600, lineHeight: 1.4, cursor: 'pointer', transition: 'all 0.15s',
                         }}
                       >
