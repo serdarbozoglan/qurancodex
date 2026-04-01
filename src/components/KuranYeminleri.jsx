@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN } from '../tokens';
 
-const TABS_TR = ['Kategoriler', 'Derinlik Analizi', 'Sure Dağılımı', 'İbn Kayyim', 'Kaynaklar'];
+const TABS_TR = ['Kategoriler', 'Derinlik Analizi', 'Sûre Dağılımı', 'İbn Kayyim', 'Kaynaklar'];
 const TABS_EN = ['Categories', 'Depth Analysis', 'Surah Distribution', 'Ibn Qayyim', 'Sources'];
 
 export default function KuranYeminleri({ onClose }) {
@@ -74,6 +74,40 @@ export default function KuranYeminleri({ onClose }) {
           </span>
         </div>
         <CloseBtn onClose={onClose} />
+      </div>
+
+      {/* ── TAB BAR — outside scroll area so it stays put ───────────────── */}
+      <div style={{
+        display: 'flex',
+        gap: '4px',
+        padding: '0 16px',
+        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+        background: 'rgba(0,0,0,0.3)',
+        overflowX: 'auto',
+        scrollbarWidth: 'none',
+        flexShrink: 0,
+      }}>
+        {TABS.map((tab, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveTab(i)}
+            style={{
+              flexShrink: 0,
+              padding: '10px 16px',
+              border: 'none',
+              background: 'transparent',
+              borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+              color: activeTab === i ? COLORS.gold : COLORS.silver,
+              fontSize: '0.82rem',
+              fontWeight: activeTab === i ? 600 : 400,
+              fontFamily: FONTS.body,
+              cursor: 'pointer',
+              transition: 'all 0.15s',
+            }}
+          >
+            {tab}
+          </button>
+        ))}
       </div>
 
       {/* ── SCROLLABLE BODY ─────────────────────────────────────────────── */}
@@ -169,41 +203,6 @@ export default function KuranYeminleri({ onClose }) {
             language={language}
           />
         )}
-
-        {/* ── TAB BAR ───────────────────────────────────────────────────── */}
-        <div style={{
-          display: 'flex',
-          gap: '4px',
-          padding: '12px 16px 0',
-          borderTop: `1px solid ${COLORS.glassBorderSoft}`,
-          background: 'rgba(0,0,0,0.2)',
-          overflowX: 'auto',
-          scrollbarWidth: 'none',
-          flexShrink: 0,
-        }}>
-          {TABS.map((tab, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveTab(i)}
-              style={{
-                flexShrink: 0,
-                padding: '8px 16px',
-                borderRadius: '8px 8px 0 0',
-                border: 'none',
-                background: activeTab === i ? 'rgba(212,165,116,0.12)' : 'transparent',
-                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                color: activeTab === i ? COLORS.gold : COLORS.silver,
-                fontSize: '0.82rem',
-                fontWeight: activeTab === i ? 600 : 400,
-                fontFamily: FONTS.body,
-                cursor: 'pointer',
-                transition: 'all 0.15s',
-              }}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
 
         {/* ── TAB CONTENT ───────────────────────────────────────────────── */}
         <div style={{ padding: isMobile ? '20px 16px 40px' : '28px 32px 60px' }}>
@@ -633,7 +632,7 @@ function TabSureDagilimi({ categories, language, isMobile }) {
 
       {/* Bar chart */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        {sorted.map(([surah, { count, accent }]) => (
+        {sorted.map(([surah, { count }]) => (
           <div key={surah} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <span style={{ width: isMobile ? '70px' : '100px', color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body, flexShrink: 0, textAlign: 'right' }}>
               {surah}
@@ -642,7 +641,7 @@ function TabSureDagilimi({ categories, language, isMobile }) {
               <div style={{
                 width: `${(count / maxCount) * 100}%`,
                 height: '100%',
-                background: `linear-gradient(90deg, ${accent}cc, ${accent}77)`,
+                background: 'linear-gradient(90deg, rgba(212,165,116,0.8), rgba(212,165,116,0.5))',
                 borderRadius: '4px',
                 transition: 'width 0.5s ease',
                 display: 'flex', alignItems: 'center', paddingLeft: '8px',
