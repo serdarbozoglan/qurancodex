@@ -466,19 +466,22 @@ const COLOR_B = '#a78bfa';
 export default function SurahComparator({ onClose }) {
   const { language } = useLanguage();
   const [loading, setLoading] = useState(true);
+  const [loadKey, setLoadKey] = useState(0); // increment to force data reload
   const [surahA, setSurahA] = useState(null);
   const [surahB, setSurahB] = useState(null);
   const [view, setView] = useState('landing'); // 'landing' | 'result'
 
-  // Load all data
+  // Load all data — re-runs when loadKey changes (manual retry)
   useEffect(() => {
     const promises = [];
     if (!cachedVerses) promises.push(fetch('/verse-graph.json').then(r => r.json()).then(d => { cachedVerses = d; }));
     if (!cachedSurahInfo) promises.push(fetch('/surah-info.json').then(r => r.json()).then(d => { cachedSurahInfo = d; }));
     if (!cachedRevOrder) promises.push(fetch('/revelation-order.json').then(r => r.json()).then(d => { cachedRevOrder = d; }));
     if (promises.length === 0) { setLoading(false); return; }
+    setLoading(true);
     Promise.all(promises).then(() => setLoading(false)).catch(() => setLoading(false));
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loadKey]);
 
   useEffect(() => {
     const h = (e) => {
@@ -499,16 +502,16 @@ export default function SurahComparator({ onClose }) {
     return m;
   }, [loading]);
 
-  // Quick preset pairs
+  // Quick preset pairs — ranked by actual cross-link count, diverse topics
   const PRESETS = [
-    { a: 2, b: 3,   labelTr: 'Bakara & Âl-i İmrân',    labelEn: 'Al-Baqara & Al-Imran' },
-    { a: 36, b: 67, labelTr: 'Yâsîn & Mülk',           labelEn: 'Ya-Sin & Al-Mulk' },
-    { a: 12, b: 28, labelTr: 'Yûsuf & Kasas',           labelEn: 'Yusuf & Al-Qasas' },
-    { a: 55, b: 56, labelTr: 'Rahmân & Vâkıa',          labelEn: 'Ar-Rahman & Al-Waqi\'a' },
-    { a: 1, b: 112, labelTr: 'Fâtiha & İhlâs',          labelEn: 'Al-Fatiha & Al-Ikhlas' },
-    { a: 7, b: 26,  labelTr: 'A\'râf & Şu\'arâ',        labelEn: 'Al-A\'raf & Ash-Shu\'ara' },
-    { a: 2, b: 4,   labelTr: 'Bakara & Nisâ',            labelEn: 'Al-Baqara & An-Nisa' },
-    { a: 18, b: 19, labelTr: 'Kehf & Meryem',            labelEn: 'Al-Kahf & Maryam' },
+    { a: 2,  b: 3,  labelTr: 'Bakara & Âl-i İmrân',  labelEn: 'Al-Baqara & Al-Imran',   reasonTr: '854 bağ · Ehl-i Kitap diyalogu, Medenî kardeş sureler',      reasonEn: '854 links · People of the Book, sister Medinan surahs' },
+    { a: 26, b: 37, labelTr: "Şu'arâ & Sâffât",       labelEn: 'Ash-Shuara & As-Saffat', reasonTr: '491 bağ · Aynı peygamber kıssaları iki farklı anlatıyla',    reasonEn: '491 links · Same prophet stories in two different styles' },
+    { a: 2,  b: 5,  labelTr: 'Bakara & Mâide',        labelEn: 'Al-Baqara & Al-Maida',   reasonTr: '462 bağ · Yahudi-Hristiyan diyalogu, helal-haram hükümleri', reasonEn: '462 links · Jewish-Christian dialogue, food laws' },
+    { a: 3,  b: 5,  labelTr: 'Âl-i İmrân & Mâide',   labelEn: 'Al-Imran & Al-Maida',    reasonTr: '368 bağ · Hz. İsa teması, Ehl-i Kitap ile ortak zemin',      reasonEn: '368 links · Jesus theme, common ground with Scripture' },
+    { a: 4,  b: 33, labelTr: 'Nisâ & Ahzâb',          labelEn: 'An-Nisa & Al-Ahzab',     reasonTr: '341 bağ · Aile hukuku, münafıklar, kadın hakları',           reasonEn: '341 links · Family law, hypocrites, women\'s rights' },
+    { a: 7,  b: 26, labelTr: "A'râf & Şu'arâ",        labelEn: "Al-A'raf & Ash-Shuara",  reasonTr: '333 bağ · Helak edilen kavimler paralel anlatıyla',          reasonEn: '333 links · Destroyed nations told in parallel' },
+    { a: 6,  b: 10, labelTr: "En'âm & Yûnus",         labelEn: 'Al-Anam & Yunus',        reasonTr: '308 bağ · Tevhid delilleri, tabiat ayetleri, Mekkî inanç',  reasonEn: '308 links · Proofs of monotheism, nature signs' },
+    { a: 2,  b: 24, labelTr: 'Bakara & Nûr',          labelEn: 'Al-Baqara & An-Nur',     reasonTr: '267 bağ · İslam hukuku: aile ve toplum iki farklı açıdan',  reasonEn: '267 links · Islamic law: family & social dimensions' },
   ];
 
   // Analysis result (computed when view === 'result')
@@ -553,7 +556,7 @@ export default function SurahComparator({ onClose }) {
       return null;
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [view, surahA, surahB, language, loading]);
+  }, [view, surahA, surahB, language, loading, loadKey]);
 
   const canCompare = surahA && surahB;
 
@@ -730,10 +733,10 @@ export default function SurahComparator({ onClose }) {
                   key={`${p.a}-${p.b}`}
                   onClick={() => { setSurahA(p.a); setSurahB(p.b); }}
                   style={{
-                    padding: '7px 14px',
+                    padding: '8px 14px', textAlign: 'left',
                     background: (surahA === p.a && surahB === p.b) ? 'rgba(150,170,255,0.12)' : 'rgba(255,255,255,0.04)',
                     border: `1px solid ${(surahA === p.a && surahB === p.b) ? 'rgba(150,170,255,0.35)' : 'rgba(255,255,255,0.08)'}`,
-                    borderRadius: '24px', cursor: 'pointer',
+                    borderRadius: '12px', cursor: 'pointer',
                     color: (surahA === p.a && surahB === p.b) ? '#a78bfa' : '#64748b',
                     fontSize: '0.82rem', fontWeight: 500, transition: 'all 0.15s',
                     fontFamily: "'Inter', sans-serif",
@@ -745,7 +748,12 @@ export default function SurahComparator({ onClose }) {
                     e.currentTarget.style.color = isSelected ? '#a78bfa' : '#64748b';
                   }}
                 >
-                  {language === 'tr' ? p.labelTr : p.labelEn}
+                  <span style={{ display: 'block' }}>{language === 'tr' ? p.labelTr : p.labelEn}</span>
+                  {(language === 'tr' ? p.reasonTr : p.reasonEn) && (
+                    <span style={{ display: 'block', fontSize: '0.68rem', opacity: 0.6, marginTop: '1px' }}>
+                      {language === 'tr' ? p.reasonTr : p.reasonEn}
+                    </span>
+                  )}
                 </button>
               ))}
             </div>
@@ -755,21 +763,39 @@ export default function SurahComparator({ onClose }) {
 
       {/* ── RESULT ERROR FALLBACK ─────────────────────────────────────── */}
       {!loading && view === 'result' && !analysis && (
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
-          <p style={{ color: '#475569', fontSize: '0.9rem' }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+          <p style={{ color: '#475569', fontSize: '0.9rem', margin: 0 }}>
             {language === 'tr' ? 'Analiz hesaplanamadı. Veriler yüklenirken sorun oluştu.' : 'Analysis failed. Data could not be loaded.'}
           </p>
-          <button
-            onClick={() => setView('landing')}
-            style={{
-              padding: '8px 20px', background: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.12)', borderRadius: '8px',
-              color: '#94a3b8', fontSize: '0.85rem', cursor: 'pointer',
-              fontFamily: "'Inter', sans-serif",
-            }}
-          >
-            {language === 'tr' ? '← Geri' : '← Back'}
-          </button>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button
+              onClick={() => {
+                cachedVerses = null;
+                cachedSurahInfo = null;
+                cachedRevOrder = null;
+                setLoadKey(k => k + 1);
+              }}
+              style={{
+                padding: '8px 20px', background: 'rgba(212,165,116,0.1)',
+                border: '1px solid rgba(212,165,116,0.3)', borderRadius: '8px',
+                color: '#d4a574', fontSize: '0.85rem', cursor: 'pointer',
+                fontFamily: "'Inter', sans-serif",
+              }}
+            >
+              {language === 'tr' ? 'Tekrar Dene' : 'Retry'}
+            </button>
+            <button
+              onClick={() => setView('landing')}
+              style={{
+                padding: '8px 20px', background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.12)', borderRadius: '8px',
+                color: '#94a3b8', fontSize: '0.85rem', cursor: 'pointer',
+                fontFamily: "'Inter', sans-serif",
+              }}
+            >
+              {language === 'tr' ? '← Geri' : '← Back'}
+            </button>
+          </div>
         </div>
       )}
 
@@ -817,9 +843,14 @@ export default function SurahComparator({ onClose }) {
                   {language === 'tr' ? 'Benzerlik' : 'Similarity'}
                 </p>
                 <SimilarityGauge score={analysis.finalScore} />
-                <p style={{ color: '#1e293b', fontSize: '0.7rem', marginTop: '6px', textAlign: 'center' }}>
+                <p style={{ color: '#334155', fontSize: '0.68rem', marginTop: '4px', textAlign: 'center' }}>
                   {analysis.sim.links + analysis.simReverse.links}{' '}
-                  {language === 'tr' ? 'çapraz bağlantı' : 'cross-links'}
+                  {language === 'tr' ? 'çapraz bağ' : 'cross-links'}
+                </p>
+                <p style={{ color: '#1e293b', fontSize: '0.62rem', marginTop: '6px', textAlign: 'center', lineHeight: 1.5, maxWidth: '120px' }}>
+                  {language === 'tr'
+                    ? 'Suredeki her ayet, tüm Kur\'an\'daki en yakın 20 ayete bağlı. Skor bu bağların yoğunluğunu ölçer.'
+                    : "Each verse links to its 20 closest verses in the Quran. Score measures link density."}
                 </p>
               </div>
 

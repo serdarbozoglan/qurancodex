@@ -123,16 +123,16 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
     gunne:     '#166534',  // koyu yeşil
     idgamBila: '#1e40af',  // koyu mavi
     iklab:     '#9d174d',  // koyu pembe
-    ihfa:      '#0e7490',  // koyu cyan  (ihfa-i aslî)
-    ihfaSef:   '#0f766e',  // koyu teal  (ihfa-i şefevî)
+    ihfa:      '#c2410c',  // koyu turuncu  (ihfa-i aslî)
+    ihfaSef:   '#0369a1',  // koyu sky mavi (ihfa-i şefevî)
     med:       '#6d28d9',  // koyu mor
   } : {
     qalqala:   '#f87171',  // coral kırmızı   — kalkale
     gunne:     '#4ade80',  // parlak yeşil    — gunne / idgam-ı misleyn / idgam meağunne
     idgamBila: '#60a5fa',  // açık mavi       — idgam bilağunne
     iklab:     '#f472b6',  // pembe           — iklab
-    ihfa:      '#22d3ee',  // cyan            — ihfa-i aslî  (altından çok farklı)
-    ihfaSef:   '#2dd4bf',  // teal/nane       — ihfa-i şefevî (dudak ihfası)
+    ihfa:      '#fb923c',  // turuncu         — ihfa-i aslî
+    ihfaSef:   '#38bdf8',  // sky mavi        — ihfa-i şefevî (dudak ihfası)
     med:       '#c084fc',  // leylak          — med
   };
   const sp = (c, m) => `<span style="color:${c}">${m}</span>`;
