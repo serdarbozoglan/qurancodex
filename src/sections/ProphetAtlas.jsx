@@ -1668,12 +1668,12 @@ export default function ProphetAtlas() {
         </div>
 
         {/* SVG Visualization */}
-        <div style={{ position: 'relative', width: '100%' }}>
+        <div style={{ position: 'relative', width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
           <svg
             ref={svgRef}
             viewBox={`0 0 ${TOTAL_W} ${H}`}
             width="100%"
-            style={{ display: 'block', overflow: 'visible' }}
+            style={{ display: 'block', overflow: 'visible', minWidth: '600px' }}
             aria-label={tr('Nüzul sırası haritası', 'Revelation order map')}
           >
             <defs>
@@ -1800,7 +1800,7 @@ export default function ProphetAtlas() {
                   <line x1={x} y1={NODE_Y - 5} x2={x} y2={NODE_Y + 5}
                     stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
                   <text x={x} y={NODE_Y + 20} fill="rgba(148,163,184,0.7)"
-                    fontSize="9.5" textAnchor="middle" fontFamily="Inter,sans-serif" fontWeight="500">
+                    fontSize="11" textAnchor="middle" fontFamily="Inter,sans-serif" fontWeight="500">
                     {language === 'tr' ? labels[rank].tr : labels[rank].en}
                   </text>
                 </g>
@@ -1823,7 +1823,7 @@ export default function ProphetAtlas() {
                           d={path}
                           fill="none"
                           stroke={`url(#arcGrad-${prophet.id})`}
-                          strokeWidth="2"
+                          strokeWidth="2.5"
                           strokeLinecap="round"
                           strokeDasharray="2000"
                           strokeDashoffset="2000"
@@ -1846,7 +1846,7 @@ export default function ProphetAtlas() {
               return (
                 <circle
                   key={s}
-                  cx={rankToX(r)} cy={NODE_Y} r={3}
+                  cx={rankToX(r)} cy={NODE_Y} r={4}
                   fill={isMekki ? 'rgba(212,165,116,0.35)' : 'rgba(52,211,153,0.35)'}
                 />
               );

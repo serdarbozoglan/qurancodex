@@ -781,7 +781,7 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             className="lg:hidden overflow-hidden"
           >
-            <div className="glass-card-strong mt-2 mx-4 rounded-xl py-4 px-6 flex flex-col gap-1">
+            <div className="glass-card-strong mt-2 mx-4 rounded-xl py-4 px-6 flex flex-col gap-1" style={{ maxHeight: 'calc(100dvh - 80px)', overflowY: 'auto' }}>
               {/* Oku — top of mobile */}
               <button
                 onClick={() => { setReadingOpen(true); setMobileOpen(false); }}

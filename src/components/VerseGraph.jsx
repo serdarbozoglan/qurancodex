@@ -999,23 +999,24 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
       {/* Header */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20,
-        display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 18px',
+        display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', padding: '10px 18px',
         background: 'linear-gradient(to bottom, rgba(6,8,14,0.98) 60%, transparent)',
       }}>
-        <div style={{ flex: 1 }}>
+        {/* Row 1: title + close */}
+        <div style={{ flex: '1 1 auto', minWidth: 0 }}>
           <span style={{ fontFamily: 'Playfair Display, serif', color: '#d4a574', fontSize: '1.05rem', fontWeight: 700 }}>
             {language === 'tr' ? 'Sûre Haritası' : 'Surah Map'}
           </span>
         </div>
 
-        {/* Search */}
-        <div style={{ position: 'relative' }}>
+        {/* Search — row 2 on mobile (order 3), inline on desktop */}
+        <div style={{ position: 'relative', flex: '1 1 160px', order: 3, minWidth: 0 }}>
           <input
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder={language === 'tr' ? 'Sûre, ayet veya kelime ara...' : 'Search surah, verse or keyword...'}
             dir="auto"
-            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#e8e6e3', padding: '6px 12px 6px 30px', fontSize: '0.82rem', width: '260px', outline: 'none', height: '32px', boxSizing: 'border-box' }}
+            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#e8e6e3', padding: '6px 12px 6px 30px', fontSize: '0.82rem', width: '100%', maxWidth: '260px', outline: 'none', height: '32px', boxSizing: 'border-box' }}
           />
           <svg style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }}
             width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5">
@@ -1082,12 +1083,17 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           )}
         </div>
 
-        <SurahDropdown value={null} onChange={onSelectSurah} language={language} allowAll={false} />
+        {/* Süreye git dropdown — row 2 on mobile */}
+        <div style={{ order: 4, flexShrink: 0 }}>
+          <SurahDropdown value={null} onChange={onSelectSurah} language={language} allowAll={false} />
+        </div>
 
+        {/* Full network button — hidden on mobile */}
         {onOpenFullGraph && (
           <button
             onClick={onOpenFullGraph}
-            style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#d4a574', padding: '0 14px', fontSize: '0.78rem', cursor: 'pointer', height: '32px', boxSizing: 'border-box', whiteSpace: 'nowrap', flexShrink: 0 }}
+            className="hidden sm:flex"
+            style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#d4a574', padding: '0 14px', fontSize: '0.78rem', cursor: 'pointer', height: '32px', boxSizing: 'border-box', whiteSpace: 'nowrap', flexShrink: 0, alignItems: 'center', order: 5 }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.18)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
             onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.2)'; }}
           >
@@ -1095,8 +1101,9 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           </button>
         )}
 
+        {/* Close — stays on row 1 (order 2) */}
         <button onClick={onClose}
-          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '50%', color: '#64748b', cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '50%', color: '#64748b', cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, order: 2 }}
           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
           onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#64748b'; }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
