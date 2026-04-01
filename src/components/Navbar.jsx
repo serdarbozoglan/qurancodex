@@ -460,8 +460,7 @@ export default function Navbar() {
       descTr: "99 ismin Kur'an'daki frekans analizi", descEn: "Frequency analysis of the 99 divine names in the Quran",
       icon: (
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M12 6v6l4 2"/>
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
         </svg>
       ),
       action: () => { setEsmaOpen(true); setToolsOpen(false); },
@@ -585,7 +584,7 @@ export default function Navbar() {
                       </button>
                     );
                     const leftIds  = ['linguistic','rhythm','rhetoric','dua-language','sounds','hidden-architecture'];
-                    const rightIds = ['science','history','human-definition','psychology','conclusion'];
+                    const rightIds = ['science','history','human-definition','psychology'];
                     const leftSecs  = navSections.filter(s => leftIds.includes(s.id));
                     const rightSecs = navSections.filter(s => rightIds.includes(s.id));
                     return (
@@ -676,8 +675,8 @@ export default function Navbar() {
                       </button>
                     );
                     // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları
-                    const vizTools    = [tools[1], tools[2], tools[3], tools[6], tools[8]];
-                    const researchTools = [tools[0], tools[4], tools[5], tools[7], tools[11], tools[12], tools[13]];
+                    const vizTools      = [tools[1], tools[2], tools[3], tools[8], tools[6]];
+                    const analysisTools = [tools[12], tools[13], tools[7], tools[5], tools[11], tools[0], tools[4], tools[9], tools[10]];
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Left: Görselleştirme */}
@@ -687,10 +686,10 @@ export default function Navbar() {
                         </div>
                         {/* Divider */}
                         <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                        {/* Right: Keşif & Araştırma */}
+                        {/* Right: Analiz & Keşif */}
                         <div style={{ flex: 1, padding: '8px' }}>
-                          <div style={colLabel}>{language === 'tr' ? 'Keşif & Araştırma' : 'Explore & Research'}</div>
-                          {researchTools.map(toolBtn)}
+                          <div style={colLabel}>{language === 'tr' ? 'Analiz & Keşif' : 'Analysis & Explore'}</div>
+                          {analysisTools.map(toolBtn)}
                         </div>
                       </div>
                     );
