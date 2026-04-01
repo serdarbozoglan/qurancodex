@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import LinguisticDNA from './sections/LinguisticDNA';
 import ImpossibleRhythm from './sections/ImpossibleRhythm';
+import QuranRhetoric from './sections/QuranRhetoric';
+import QuranDua from './sections/QuranDua';
 import SoundArchitecture from './sections/SoundArchitecture';
 import PsychologySection from './sections/PsychologySection';
 import HiddenArchitecture from './sections/HiddenArchitecture';
@@ -26,6 +28,10 @@ export default function App() {
         <div className="gradient-divider" />
         <LinguisticDNA />
         <ImpossibleRhythm />
+        <div className="gradient-divider" />
+        <QuranRhetoric />
+        <div className="gradient-divider-reverse" />
+        <QuranDua />
         <SoundArchitecture />
         <HiddenArchitecture />
         <ScientificSigns />
