@@ -891,12 +891,16 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   }, [surahVerses, activeVerse, handleSelectVerse]);
 
   // Refs for imperative audio (no DOM <audio> element needed)
-  const audioLiveRef = useRef(null); // currently active Audio instance
-  const autoNextRef = useRef(null);  // updated each render; called when a verse finishes
+  const audioLiveRef = useRef(null);    // currently active Audio instance
+  const audioPreloadRef = useRef(null); // preloaded next verse audio
+  const autoNextRef = useRef(null);     // updated each render; called when a verse finishes
+  const preloadNextRef = useRef(null);  // returns next verse URL for preloading
 
   const stopAudio = useCallback(() => {
     const a = audioLiveRef.current;
     if (a) { a.onerror = null; a.onended = null; a.pause(); audioLiveRef.current = null; }
+    const p = audioPreloadRef.current;
+    if (p) { p.src = ''; audioPreloadRef.current = null; }
     setPlayingVerseId(null);
     setFailedVerseId(null);
   }, []);
@@ -919,11 +923,24 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     audio.onended = () => {
       if (audioLiveRef.current !== audio) return;
       audioLiveRef.current = null;
+      audioPreloadRef.current = null;
       autoNextRef.current?.(verse.id);
     };
 
     audio.play()
-      .then(() => { if (audioLiveRef.current === audio) setPlayingVerseId(verse.id); })
+      .then(() => {
+        if (audioLiveRef.current !== audio) return;
+        setPlayingVerseId(verse.id);
+        // Preload next verse URL into browser cache while current plays
+        const preloadUrl = preloadNextRef.current?.(verse.id);
+        if (preloadUrl) {
+          const p = new Audio();
+          p.preload = 'auto';
+          p.src = preloadUrl;
+          p.load();
+          audioPreloadRef.current = p;
+        }
+      })
       .catch(err => {
         if (err?.name === 'AbortError') return;
         if (audioLiveRef.current !== audio) return;
@@ -1155,6 +1172,17 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     } else {
       setPlayingVerseId(null);
     }
+  };
+
+  // Returns the first URL of the next verse for preloading (called when current verse starts playing)
+  preloadNextRef.current = (currentVerseId) => {
+    const idx = surahVerses.findIndex(v => v.id === currentVerseId);
+    if (idx >= 0 && idx < surahVerses.length - 1) {
+      const next = surahVerses[idx + 1];
+      const urls = buildFallbackUrlsFromReciter(RECITERS[reciterIdx].id, next.surah, next.ayah);
+      return urls[0] ?? null;
+    }
+    return null;
   };
 
   // Compute current juz from mushaf page number
