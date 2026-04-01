@@ -1009,8 +1009,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           </span>
         </div>
 
-        {/* Search — spans full width on mobile below title/close row */}
-        <div style={{ position: 'relative', flex: '1 1 200px', order: 3, minWidth: 0 }}>
+        {/* Search — fixed width, stays right of title */}
+        <div style={{ position: 'relative', flex: '0 0 auto', order: 3, width: '260px', maxWidth: 'calc(100vw - 160px)' }}>
           <input
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
@@ -1101,9 +1101,9 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           </button>
         )}
 
-        {/* Close — stays on row 1 (order 2) */}
+        {/* Close — rightmost */}
         <button onClick={onClose}
-          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '50%', color: '#64748b', cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, order: 2 }}
+          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '50%', color: '#64748b', cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, order: 10 }}
           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
           onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#64748b'; }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
