@@ -99,7 +99,7 @@ export default function KuranRenkleri({ onClose }) {
       <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
 
         {/* ── Hero ── */}
-        <div style={{ padding: isMobile ? '20px 16px 16px' : '28px 32px 24px', background: 'linear-gradient(180deg,#0d1b2a 0%,#0a0a1a 100%)' }}>
+        <div style={{ padding: isMobile ? '20px 16px 16px' : '28px 32px 24px', background: 'linear-gradient(180deg,#0d1b2a 0%,#0a0a1a 100%)', borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
           {/* Page label */}
           <div style={{ fontSize: '0.62rem', letterSpacing: '0.15em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '8px' }}>
             {tr ? "KUR'AN'IN RENK PALETİ" : "THE QURAN'S COLOR PALETTE"}
@@ -111,7 +111,7 @@ export default function KuranRenkleri({ onClose }) {
           </h1>
 
           {/* Arabic verse */}
-          <div style={{ textAlign: 'center', padding: isMobile ? '12px' : '16px', background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.15)', borderRadius: '10px', marginBottom: '16px' }}>
+          <div style={{ textAlign: 'center', padding: isMobile ? '12px' : '16px', background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: '10px', marginBottom: '16px' }}>
             <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.1rem' : '1.25rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 1.9, margin: '0 0 8px' }} lang="ar" dir="rtl">
               أَلَمْ تَرَ أَنَّ اللَّهَ أَنزَلَ مِنَ السَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ ثَمَرَاتٍ مُّخْتَلِفًا أَلْوَانُهَا
             </p>
@@ -139,9 +139,9 @@ export default function KuranRenkleri({ onClose }) {
               { num: '~18',           labelTr: 'Ayette Beyaz',            labelEn: 'Verses with White' },
               { arabic: 'مُدْهَامَّتَانِ', labelTr: 'Hapax Renk',        labelEn: 'Hapax Color Word' },
             ].map((s, i) => (
-              <div key={i} style={{ background: s.arabic ? 'rgba(83,74,183,0.12)' : 'rgba(255,255,255,0.04)', border: `1px solid ${s.arabic ? 'rgba(83,74,183,0.25)' : 'rgba(255,255,255,0.08)'}`, borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
+              <div key={i} style={{ background: s.arabic ? 'rgba(83,74,183,0.12)' : 'rgba(255,255,255,0.04)', border: `1px solid ${s.arabic ? 'rgba(83,74,183,0.25)' : COLORS.glassBgStrong}`, borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
                 {s.arabic
-                  ? <div style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', color: '#a78bfa', direction: 'rtl' }} lang="ar">{s.arabic}</div>
+                  ? <div style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', color: COLORS.purple, direction: 'rtl' }} lang="ar">{s.arabic}</div>
                   : <div style={{ fontSize: '1.3rem', fontWeight: 800, color: COLORS.gold, fontFamily: FONTS.body }}>{s.num}</div>
                 }
                 <div style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body, marginTop: '3px', lineHeight: 1.3 }}>
@@ -169,7 +169,7 @@ export default function KuranRenkleri({ onClose }) {
             {[
               { ar: 'بِيضٌ', label: tr ? 'Beyaz' : 'White', bg: '#C8D6E5', fg: '#0a0a1a' },
               { ar: 'حُمْرٌ', label: tr ? 'Kırmızı' : 'Red',   bg: '#B91C1C', fg: '#fff' },
-              { ar: 'غَرَابِيبُ سُودٌ', label: tr ? 'Simsiyah' : 'Jet Black', bg: '#1E1B4B', fg: '#e8e6e3' },
+              { ar: 'غَرَابِيبُ سُودٌ', label: tr ? 'Simsiyah' : 'Jet Black', bg: '#1E1B4B', fg: COLORS.offWhite },
             ].map(p => (
               <div key={p.ar} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '5px 12px', background: p.bg, borderRadius: '20px' }}>
                 <span style={{ fontFamily: FONTS.quran, fontSize: '0.85rem', color: p.fg, direction: 'rtl' }} lang="ar">{p.ar}</span>
