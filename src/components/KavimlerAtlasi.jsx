@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
+import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN } from '../tokens';
 
-const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'KARŞILAŞTIR', 'KAYNAKLAR'];
-const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'COMPARE', 'SOURCES'];
+const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI', 'KARŞILAŞTIR', 'KAYNAKLAR'];
+const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'REGION MAP', 'COMPARE', 'SOURCES'];
 
 const HELAK_COLORS = {
   ruzgar:   '#94a3b8',
@@ -80,7 +82,13 @@ export default function KavimlerAtlasi({ onClose }) {
   const [activeTab, setActiveTab] = useState(0);
   const [filter, setFilter] = useState('tumu');
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  const [highlightArch, setHighlightArch] = useState(null);
   const bodyRef = useRef(null);
+
+  function goToArchCard(nationId) {
+    setActiveTab(2);
+    setHighlightArch(nationId);
+  }
 
   useEffect(() => {
     const h = (e) => { if (e.key === 'Escape') onClose(); };
@@ -104,6 +112,16 @@ export default function KavimlerAtlasi({ onClose }) {
   useEffect(() => {
     if (bodyRef.current) bodyRef.current.scrollTop = 0;
   }, [activeTab]);
+
+  useEffect(() => {
+    if (!highlightArch) return;
+    const el = document.getElementById(`arch-${highlightArch}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    const t = setTimeout(() => setHighlightArch(null), 2000);
+    return () => clearTimeout(t);
+  }, [highlightArch]);
 
   if (!data) {
     return (
@@ -184,12 +202,14 @@ export default function KavimlerAtlasi({ onClose }) {
               isMobile={isMobile}
               filter={filter}
               setFilter={setFilter}
+              onArchClick={goToArchCard}
             />
           )}
           {activeTab === 1 && <TabHelakDesen language={language} isMobile={isMobile} />}
-          {activeTab === 2 && <TabArkeoloji language={language} isMobile={isMobile} />}
-          {activeTab === 3 && <TabKarsilastirma nations={data.nations} language={language} isMobile={isMobile} />}
-          {activeTab === 4 && <TabKaynaklar language={language} />}
+          {activeTab === 2 && <TabArkeoloji language={language} isMobile={isMobile} highlightArch={highlightArch} />}
+          {activeTab === 3 && <TabHarita language={language} isMobile={isMobile} />}
+          {activeTab === 4 && <TabKarsilastirma nations={data.nations} language={language} isMobile={isMobile} />}
+          {activeTab === 5 && <TabKaynaklar language={language} />}
         </div>
       </div>
     </div>
@@ -284,7 +304,7 @@ function HeroSection({ meta, language, isMobile }) {
 
 // ── Tab 1: Nations ────────────────────────────────────────────────────────────
 
-function TabNations({ nations, language, isMobile, filter, setFilter }) {
+function TabNations({ nations, language, isMobile, filter, setFilter, onArchClick }) {
   const filtersTr = ['Tümü', 'Helak Olan', 'Kurtulan', 'Gizemli', 'Arkeolojik Kanıt'];
   const filtersEn = ['All', 'Destroyed', 'Survived', 'Mysterious', 'Archaeological Evidence'];
   const filterKeys = ['tumu', 'helak', 'kurtulan', 'gizemli', 'arkeoloji'];
@@ -336,16 +356,17 @@ function TabNations({ nations, language, isMobile, filter, setFilter }) {
         display: 'grid',
         gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '16px',
+        alignItems: 'start',
       }}>
         {filtered.map(n => (
-          <NationCard key={n.id} nation={n} language={language} isMobile={isMobile} />
+          <NationCard key={n.id} nation={n} language={language} isMobile={isMobile} onArchClick={onArchClick} />
         ))}
       </div>
     </div>
   );
 }
 
-function NationCard({ nation, language, isMobile }) {
+function NationCard({ nation, language, isMobile, onArchClick }) {
   const [expanded, setExpanded] = useState(false);
   const helakColor = HELAK_COLORS[nation.helakType] || COLORS.silver;
   const name = language === 'tr' ? nation.nameTr : nation.nameEn;
@@ -425,13 +446,20 @@ function NationCard({ nation, language, isMobile }) {
         </span>
         {/* Archaeology badge */}
         {nation.hasArchaeology && (
-          <span style={{
-            background: 'rgba(26,188,156,0.12)', border: '1px solid rgba(26,188,156,0.25)',
-            color: '#1abc9c', fontSize: '0.7rem', padding: '2px 8px',
-            borderRadius: '10px', fontFamily: FONTS.body,
-          }}>
-            {language === 'tr' ? '⚑ Arkeolojik iz' : '⚑ Archaeological trace'}
-          </span>
+          <button
+            onClick={e => { e.stopPropagation(); onArchClick && onArchClick(nation.id); }}
+            style={{
+              background: 'rgba(26,188,156,0.12)', border: '1px solid rgba(26,188,156,0.25)',
+              color: '#1abc9c', fontSize: '0.7rem', padding: '2px 8px',
+              borderRadius: '10px', fontFamily: FONTS.body,
+              cursor: 'pointer', transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(26,188,156,0.22)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(26,188,156,0.12)'; }}
+            title={language === 'tr' ? 'Arkeoloji sekmesine git' : 'Go to Archaeology tab'}
+          >
+            ⚑ {language === 'tr' ? 'Arkeolojik iz ↗' : 'Archaeological trace ↗'}
+          </button>
         )}
       </div>
 
@@ -548,8 +576,8 @@ const ANALYSIS_CARDS_TR = [
     info: 'Neuwirth, A., Studien zur Komposition der mekkanischen Suren (1981).',
   },
   {
-    title: 'Yunus Kavmi Neden Kurtulan Tek Kavim?',
-    body: 'Kur\'an 10:98\'de bunu açıkça söyler — iman edip de imanı fayda veren tek şehir Ninova\'dır. Bu istisna tesadüfi değil: Kur\'an helakın kader değil seçim olduğunu göstermek için bu örneği verir. Her zaman dönüş kapısı açıktı.',
+    title: 'Yunus Kavmi: Azap Kapıya Dayanmışken Geri Çevrilen Tek Kavim',
+    body: 'Kur\'an 10:98\'de bunu açıkça söyler — azabı fiilen yaklaşmışken iman edip de bu imanı kendilerine fayda veren tek şehir Ninova\'dır. İbrahim\'in kavmi helak edilmemişti, ama orada azap hiç başlamamıştı. Yunus kavminde ise süreç başlamış, geri çevrilmişti. Bu ayrım önemli: Kur\'an helakın kader değil seçim olduğunu, kapının son ana kadar açık kaldığını bu örnekle gösterir.',
     info: null,
   },
 ];
@@ -565,8 +593,8 @@ const ANALYSIS_CARDS_EN = [
     info: 'Neuwirth, A., Studien zur Komposition der mekkanischen Suren (1981).',
   },
   {
-    title: 'Why Is the People of Jonah the Only Saved Nation?',
-    body: "The Quran states this explicitly in 10:98 — the only city whose faith benefited it is Nineveh. This exception is not random: the Quran uses this example to show that destruction is a choice, not fate. The door of return was always open.",
+    title: "The People of Jonah: The Only Nation Whose Punishment Was Turned Back",
+    body: "The Quran states this explicitly in 10:98 — the only city whose faith benefited it while punishment had already approached is Nineveh. Abraham's people were also spared, but there the punishment had never been set in motion. With Jonah's people, the process had begun and was reversed. This distinction matters: the Quran uses this example to show that destruction is a choice, not fate — the door remains open until the very last moment.",
     info: null,
   },
 ];
@@ -659,6 +687,7 @@ function TabHelakDesen({ language, isMobile }) {
 
 const ARCH_CARDS_TR = [
   {
+    nationId: 'semud',
     title: 'Semûd — Medain Salih (Hegra)',
     location: 'Suudi Arabistan, Al-Ula bölgesi',
     status: 'confirmed',
@@ -669,6 +698,7 @@ const ARCH_CARDS_TR = [
     info: 'Arkeolojik kanıtlar Semûd\'un Hicr bölgesinde yaşadığını destekler. Nabatean yazıtları Semûd halkından söz eder.',
   },
   {
+    nationId: 'firavun',
     title: 'Firavun — Hangi Firavun?',
     location: 'Mısır, Nil Deltası',
     status: 'debated',
@@ -680,6 +710,7 @@ const ARCH_CARDS_TR = [
     info: 'Hangi Firavun\'un Hz. Musa\'nın çağdaşı olduğu tarihsel tartışmadır. Akademik konsensüs yoktur.',
   },
   {
+    nationId: 'lut',
     title: "Lût Kavmi — Ölü Deniz Bölgesi",
     location: 'Ürdün, Ölü Deniz çevresi',
     status: 'debated',
@@ -690,6 +721,7 @@ const ARCH_CARDS_TR = [
     info: 'Sodom ve Gomorra isimleri Kur\'an\'da geçmez — İncil terminolojisidir. Kur\'an bu kavmi "Lût\'un kavmi" olarak anar. Tall el-Hammam özdeşleştirmesi tartışmalıdır.',
   },
   {
+    nationId: 'ad',
     title: "Âd / İrem — Ubar / Şişr",
     location: "Umman / Yemen çölü",
     status: 'debated',
@@ -700,6 +732,7 @@ const ARCH_CARDS_TR = [
     info: 'Ubar-İrem özdeşleştirmesi tartışmalıdır. Akademik konsensüs oluşmamıştır.',
   },
   {
+    nationId: 'nuh',
     title: "Nuh Tufanı — Evrensel mi Bölgesel mi?",
     location: "Mezopotamya / Karadeniz (tartışmalı)",
     status: 'debated',
@@ -712,6 +745,7 @@ const ARCH_CARDS_TR = [
 ];
 const ARCH_CARDS_EN = [
   {
+    nationId: 'semud',
     title: 'Thamud — Madain Salih (Hegra)',
     location: 'Saudi Arabia, Al-Ula region',
     status: 'confirmed',
@@ -722,6 +756,7 @@ const ARCH_CARDS_EN = [
     info: 'Archaeological evidence supports Thamud living in the Hijr region. Nabataean inscriptions mention the Thamudic people.',
   },
   {
+    nationId: 'firavun',
     title: 'Pharaoh — Which Pharaoh?',
     location: 'Egypt, Nile Delta',
     status: 'debated',
@@ -733,6 +768,7 @@ const ARCH_CARDS_EN = [
     info: 'Which Pharaoh was contemporary with Moses is a historical debate. No academic consensus exists.',
   },
   {
+    nationId: 'lut',
     title: "People of Lot — Dead Sea Region",
     location: 'Jordan, around the Dead Sea',
     status: 'debated',
@@ -743,6 +779,7 @@ const ARCH_CARDS_EN = [
     info: 'The names Sodom and Gomorrah do not appear in the Quran — they are Biblical terms. The Quran calls this people "the people of Lot". The Tall el-Hammam identification is disputed.',
   },
   {
+    nationId: 'ad',
     title: "ʿAd / Iram — Ubar / Shisr",
     location: "Oman / Yemen desert",
     status: 'debated',
@@ -753,6 +790,7 @@ const ARCH_CARDS_EN = [
     info: 'The Ubar-Iram identification is disputed. No academic consensus has been reached.',
   },
   {
+    nationId: 'nuh',
     title: "Noah's Flood — Universal or Regional?",
     location: "Mesopotamia / Black Sea (debated)",
     status: 'debated',
@@ -782,7 +820,7 @@ function StatusBadge({ status, label }) {
   );
 }
 
-function TabArkeoloji({ language, isMobile }) {
+function TabArkeoloji({ language, isMobile, highlightArch }) {
   const cards = language === 'tr' ? ARCH_CARDS_TR : ARCH_CARDS_EN;
 
   return (
@@ -811,10 +849,15 @@ function TabArkeoloji({ language, isMobile }) {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {cards.map((card, i) => (
-          <div key={i} style={{
-            background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
+        {cards.map((card, i) => {
+          const isHighlighted = highlightArch === card.nationId;
+          return (
+          <div key={i} id={`arch-${card.nationId}`} style={{
+            background: COLORS.glassBg,
+            border: `1px solid ${isHighlighted ? 'rgba(26,188,156,0.6)' : COLORS.glassBorder}`,
             borderRadius: '12px', padding: '16px 18px',
+            transition: 'border-color 0.4s, box-shadow 0.4s',
+            boxShadow: isHighlighted ? '0 0 0 3px rgba(26,188,156,0.15)' : 'none',
           }}>
             {/* Card header */}
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px', marginBottom: '10px' }}>
@@ -862,6 +905,246 @@ function TabArkeoloji({ language, isMobile }) {
             }}>
               <p style={{ color: `${COLORS.gold}90`, fontSize: '0.78rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: 0, lineHeight: 1.5 }}>
                 {card.quranNote}
+              </p>
+            </div>
+          </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ── Tab 3b: Bölge Haritası ────────────────────────────────────────────────────
+
+// Her bölge için: merkez koordinat, yaklaşık yarıçap (km→metre), renk, kaynak notu
+const NATION_REGIONS = [
+  {
+    id: 'nuh',
+    nameTr: "Nuh Kavmi",
+    nameEn: "People of Noah",
+    lat: 33.5, lon: 44.5,
+    radiusKm: 600,
+    color: '#3498db',
+    status: 'debated',
+    sourceTr: "Kaynak: Mezopotamya sel tabakaları (Woolley, 1929); Ryan-Pitman Karadeniz teorisi (1997). Merkez koordinat Irak/Güneydoğu Türkiye sınırına alındı.",
+    sourceEn: "Source: Mesopotamian flood layers (Woolley, 1929); Ryan-Pitman Black Sea theory (1997). Center coordinate placed at Iraq/SE Turkey border.",
+  },
+  {
+    id: 'ad',
+    nameTr: "Âd Kavmi",
+    nameEn: "People of ʿAd",
+    lat: 17.5, lon: 52.0,
+    radiusKm: 450,
+    color: '#e67e22',
+    status: 'debated',
+    sourceTr: "Kaynak: Kur'an 'Âd'ı Ahkâf (kum tepeleri) bölgesiyle ilişkilendirir (Ahkâf 46:21). Güney Arabistan, Umman/Yemen çölüne karşılık gelir.",
+    sourceEn: "Source: The Quran associates ʿAd with the Ahqaf region (sand dunes) (Al-Ahqaf 46:21). Southern Arabia corresponds to the Oman/Yemen desert.",
+  },
+  {
+    id: 'semud',
+    nameTr: "Semûd Kavmi",
+    nameEn: "People of Thamud",
+    lat: 26.8, lon: 37.9,
+    radiusKm: 200,
+    color: '#2ecc71',
+    status: 'confirmed',
+    sourceTr: "Kaynak: Kur'an Semûd'un Hicr'de (bugünkü Medain Salih) yaşadığını açıkça belirtir (Hicr 15:80). UNESCO 2008 Dünya Mirası.",
+    sourceEn: "Source: The Quran explicitly states Thamud lived in al-Hijr (modern Madain Salih) (Al-Hijr 15:80). UNESCO World Heritage 2008.",
+  },
+  {
+    id: 'lut',
+    nameTr: "Lût Kavmi",
+    nameEn: "People of Lot",
+    lat: 31.5, lon: 35.5,
+    radiusKm: 150,
+    color: '#9b59b6',
+    status: 'debated',
+    sourceTr: "Kaynak: Kur'an Lût'un şehrine 'Mütefike' der ve Ölü Deniz'e işaret eder (Necm 53:53). Tall el-Hammam kazıları (2021) olası lokasyon olarak önerilmiştir.",
+    sourceEn: "Source: The Quran calls Lot's city 'Al-Mu'tafikah' and references the Dead Sea region (An-Najm 53:53). Tall el-Hammam excavations (2021) proposed as a possible location.",
+  },
+  {
+    id: 'firavun',
+    nameTr: "Firavun Kavmi",
+    nameEn: "People of Pharaoh",
+    lat: 30.2, lon: 31.2,
+    radiusKm: 250,
+    color: '#f1c40f',
+    status: 'confirmed',
+    sourceTr: "Kaynak: Kur'an Mısır'ı ve Nil'i açıkça anar. Ramses II veya Merneptah dönemi (MÖ 13. yy) en güçlü adaylar olarak kabul edilir.",
+    sourceEn: "Source: The Quran explicitly names Egypt and the Nile. Ramses II or Merneptah's reign (13th century BCE) is considered the strongest candidate.",
+  },
+  {
+    id: 'medyen',
+    nameTr: "Medyen (Şuayb Kavmi)",
+    nameEn: "Midian (People of Shu'ayb)",
+    lat: 28.5, lon: 35.5,
+    radiusKm: 180,
+    color: '#1abc9c',
+    status: 'debated',
+    sourceTr: "Kaynak: Kur'an Medyen'i coğrafi bir yer olarak anar. Modern arkeoloji Kuzeybatı Arabistan / Akabe Körfezi bölgesiyle ilişkilendirir.",
+    sourceEn: "Source: The Quran names Midian as a geographical location. Modern archaeology associates it with northwestern Arabia / Gulf of Aqaba region.",
+  },
+  {
+    id: 'irem',
+    nameTr: "İrem / Âd (Ubar)",
+    nameEn: "Iram / ʿAd (Ubar)",
+    lat: 19.0, lon: 55.5,
+    radiusKm: 300,
+    color: '#e74c3c',
+    status: 'debated',
+    sourceTr: "Kaynak: 1992'de NASA uydu görüntüleriyle Umman'da 'Ubar' kalıntıları keşfedildi (Clapp, 1998). Özdeşleştirme tartışmalıdır.",
+    sourceEn: "Source: In 1992, NASA satellite imagery led to the discovery of 'Ubar' ruins in Oman (Clapp, 1998). The identification remains disputed.",
+  },
+  {
+    id: 'sebe',
+    nameTr: "Sebe Kavmi",
+    nameEn: "People of Sheba",
+    lat: 15.4, lon: 45.3,
+    radiusKm: 200,
+    color: '#27ae60',
+    status: 'confirmed',
+    sourceTr: "Kaynak: Kur'an Me'rib'i ve barajın yıkılmasını açıkça anar (Sebe 34:15-16). Me'rib Barajı kalıntıları Yemen'de arkeolojik olarak teyitlenmiştir.",
+    sourceEn: "Source: The Quran explicitly names Ma'rib and the collapse of its dam (Saba' 34:15-16). Ma'rib Dam ruins are archaeologically confirmed in Yemen.",
+  },
+  {
+    id: 'yunus-kavmi',
+    nameTr: "Yunus'un Kavmi (Ninova)",
+    nameEn: "People of Jonah (Nineveh)",
+    lat: 36.36, lon: 43.15,
+    radiusKm: 100,
+    color: '#3498db',
+    status: 'confirmed',
+    sourceTr: "Kaynak: Kur'an Yunus'u 100.000 kişilik bir şehre gönderir (Saffat 37:147). Ninova, bugünkü Musul yakınında; Asur başkenti olarak tarihen teyitlenmiştir.",
+    sourceEn: "Source: The Quran sends Jonah to a city of 100,000 (As-Saffat 37:147). Nineveh, near modern Mosul, is historically confirmed as the Assyrian capital.",
+  },
+];
+
+const STATUS_COLOR = { confirmed: '#2ecc71', debated: '#d4a574' };
+
+function TabHarita({ language, isMobile }) {
+  const tr = language === 'tr';
+  const [activeRegion, setActiveRegion] = useState(null);
+
+  return (
+    <div>
+      {/* Başlık */}
+      <h3 style={{ color: COLORS.offWhite, fontSize: '1.1rem', fontFamily: FONTS.body, fontWeight: 700, margin: '0 0 4px' }}>
+        {tr ? 'Kavimler Bölge Haritası' : 'Nations Region Map'}
+      </h3>
+      <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, margin: '0 0 16px', lineHeight: 1.6 }}>
+        {tr
+          ? 'Her daire bir kavmin Kur\'an ve arkeolojik kaynaklar ışığında tespit edilen yaklaşık coğrafi bölgesini gösterir. Daire büyüklüğü kesinlik değil, belirsizlik alanını temsil eder.'
+          : 'Each circle represents the approximate geographical region of a people, based on Quranic references and archaeological research. Circle size represents the area of uncertainty, not precision.'}
+      </p>
+
+      {/* Lejant */}
+      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '14px' }}>
+        {[
+          { status: 'confirmed', labelTr: 'Arkeolojik teyit var', labelEn: 'Archaeologically confirmed' },
+          { status: 'debated',   labelTr: 'Tartışmalı / yaklaşık', labelEn: 'Debated / approximate' },
+        ].map(l => (
+          <div key={l.status} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: STATUS_COLOR[l.status], opacity: 0.7 }} />
+            <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body }}>
+              {tr ? l.labelTr : l.labelEn}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Harita */}
+      <div style={{ borderRadius: '12px', overflow: 'hidden', border: `1px solid ${COLORS.glassBorder}`, marginBottom: '20px', height: isMobile ? '340px' : '480px' }}>
+        <MapContainer
+          center={[28, 40]}
+          zoom={isMobile ? 3 : 4}
+          style={{ width: '100%', height: '100%' }}
+          scrollWheelZoom={false}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+          />
+          {NATION_REGIONS.map(region => (
+            <Circle
+              key={region.id}
+              center={[region.lat, region.lon]}
+              radius={region.radiusKm * 1000}
+              pathOptions={{
+                color: region.color,
+                fillColor: region.color,
+                fillOpacity: region.status === 'confirmed' ? 0.18 : 0.10,
+                weight: region.status === 'confirmed' ? 2 : 1.5,
+                dashArray: region.status === 'debated' ? '6 4' : null,
+              }}
+              eventHandlers={{ click: () => setActiveRegion(region.id === activeRegion ? null : region.id) }}
+            >
+              <Popup>
+                <div style={{ fontFamily: "'Inter', sans-serif", minWidth: '180px' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: '4px', color: region.color }}>
+                    {tr ? region.nameTr : region.nameEn}
+                  </div>
+                  <div style={{
+                    display: 'inline-block', fontSize: '0.65rem', fontWeight: 600,
+                    padding: '1px 7px', borderRadius: '10px', marginBottom: '6px',
+                    background: `${STATUS_COLOR[region.status]}20`,
+                    border: `1px solid ${STATUS_COLOR[region.status]}50`,
+                    color: STATUS_COLOR[region.status],
+                  }}>
+                    {region.status === 'confirmed'
+                      ? (tr ? 'Teyitli' : 'Confirmed')
+                      : (tr ? 'Tartışmalı' : 'Debated')}
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: '#64748b', lineHeight: 1.5 }}>
+                    {tr ? region.sourceTr : region.sourceEn}
+                  </div>
+                </div>
+              </Popup>
+            </Circle>
+          ))}
+        </MapContainer>
+      </div>
+
+      {/* Metodoloji notu */}
+      <div style={{
+        background: 'rgba(212,165,116,0.06)',
+        border: `1px solid ${COLORS.gold}25`,
+        borderRadius: '10px', padding: '14px 18px',
+        marginBottom: '16px',
+      }}>
+        <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: COLORS.gold, marginBottom: '8px' }}>
+          {tr ? 'Metodoloji & Uyarı' : 'Methodology & Disclaimer'}
+        </div>
+        <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0, lineHeight: 1.7 }}>
+          {tr
+            ? 'Bu haritadaki bölgeler üç kaynaktan elde edilmiştir: (1) Kur\'an\'ın kendi coğrafi referansları (örn. Hicr 15:80 Semûd için), (2) modern arkeolojik bulgular ve kazı raporları, (3) İslam coğrafyacılarının klasik eserleri (İbn Battuta, el-İdrisi). Daire yarıçapları lokasyonun ne kadar kesin bilindiğini yansıtır — küçük daire daha kesin, büyük daire daha geniş bir belirsizlik alanı demektir. "Tartışmalı" olarak işaretlenen bölgeler için akademik konsensüs henüz oluşmamıştır.'
+            : 'The regions on this map are derived from three sources: (1) the Quran\'s own geographical references (e.g., Al-Hijr 15:80 for Thamud), (2) modern archaeological findings and excavation reports, (3) classical works of Islamic geographers (Ibn Battuta, al-Idrisi). Circle radii reflect how precisely a location is known — smaller circles indicate greater certainty, larger circles represent wider areas of uncertainty. For regions marked "Debated," no academic consensus has been reached.'}
+        </p>
+      </div>
+
+      {/* Kaynak tablosu */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#64748b', marginBottom: '4px' }}>
+          {tr ? 'Bölge Kaynakları' : 'Region Sources'}
+        </div>
+        {NATION_REGIONS.map(r => (
+          <div key={r.id} style={{
+            display: 'flex', gap: '10px', alignItems: 'flex-start',
+            background: 'rgba(255,255,255,0.02)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderLeft: `3px solid ${r.color}60`,
+            borderRadius: '8px', padding: '8px 12px',
+          }}>
+            <div style={{ flexShrink: 0, width: '10px', height: '10px', borderRadius: '50%', background: r.color, marginTop: '3px', opacity: 0.8 }} />
+            <div>
+              <span style={{ fontSize: '0.8rem', fontWeight: 600, color: COLORS.offWhite, fontFamily: FONTS.body }}>
+                {tr ? r.nameTr : r.nameEn}
+              </span>
+              <span style={{ fontSize: '0.72rem', color: `${STATUS_COLOR[r.status]}`, fontFamily: FONTS.body, marginLeft: '6px' }}>
+                {r.status === 'confirmed' ? (tr ? '✓ Teyitli' : '✓ Confirmed') : (tr ? '~ Tartışmalı' : '~ Debated')}
+              </span>
+              <p style={{ fontSize: '0.73rem', color: '#64748b', margin: '2px 0 0', lineHeight: 1.55, fontFamily: FONTS.body }}>
+                {tr ? r.sourceTr : r.sourceEn}
               </p>
             </div>
           </div>
