@@ -269,7 +269,7 @@ export default function QuranDua() {
                 dir="rtl"
                 style={{
                   fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                  fontSize: '1.2rem',
+                  fontSize: '1.55rem',
                   lineHeight: 2,
                   textAlign: 'right',
                   color: '#e8e6e3',

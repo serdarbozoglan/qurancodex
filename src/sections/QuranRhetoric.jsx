@@ -7,7 +7,7 @@ import AnimatedCounter from '../components/AnimatedCounter';
 const QUESTION_TYPES = [
   {
     id: 'erotema', pct: 40, color: '#d4a574',
-    nameTr: 'Erotema / Retorik', nameEn: 'Erotema / Rhetorical',
+    nameTr: 'Retorik Soru', nameEn: 'Rhetorical Question',
     descTr: 'Cevabı zaten bilinen sorular. Okuyucu sonuca kendisi ulaşır.',
     descEn: 'Questions whose answers are already known. The reader reaches conclusions themselves.',
     exTr: '"Hiç aklınızı kullanmıyor musunuz?" — Afala taʿqilûn',
@@ -204,10 +204,10 @@ export default function QuranRhetoric() {
                       flexShrink: 0,
                     }}
                   />
-                  <span style={{ color: qt.color, fontWeight: 600, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif" }}>
+                  <span style={{ color: qt.color, fontWeight: 600, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", flex: 1 }}>
                     {tr ? qt.nameTr : qt.nameEn}
                   </span>
-                  <span style={{ color: '#94a3b8', fontSize: '0.8rem', marginLeft: 'auto', fontFamily: "'Inter', sans-serif" }}>
+                  <span style={{ color: '#94a3b8', fontSize: '0.8rem', fontFamily: "'Inter', sans-serif", flexShrink: 0, minWidth: 40, textAlign: 'right' }}>
                     ~{qt.pct}%
                   </span>
                 </div>

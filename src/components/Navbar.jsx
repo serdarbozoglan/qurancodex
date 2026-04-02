@@ -61,10 +61,10 @@ const navSections = [
   },
   {
     id: 'rhetoric',
-    keyTr: 'Soru Retoriği',
-    keyEn: 'Question Rhetoric',
-    descTr: "~1.000 soruyla Kur'an'ın ikna stratejisi",
-    descEn: "~1,000 questions — the Quran's rhetoric strategy",
+    keyTr: "Kur'an'ın Retoriği",
+    keyEn: "The Quran's Rhetoric",
+    descTr: "~1.000 soru · 4 tür · kalıplar · muhatap",
+    descEn: "~1,000 questions · 4 types · patterns · addressees",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <circle cx="12" cy="12" r="10"/>
@@ -933,7 +933,6 @@ export default function Navbar() {
                         <div style={{ flex: 1, padding: '8px' }}>
                           <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Retoriği" : "Quranic Rhetoric"}</div>
                           {retorigiSecs.map(secBtn)}
-                          {retorigiBtn}
                           {yeminlerBtn}
                         </div>
                         {/* Divider */}

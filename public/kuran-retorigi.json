@@ -9,10 +9,10 @@
       "id": "erotema",
       "color": "#d4a574",
       "pct": 40,
-      "nameTr": "Erotema / Retorik",
-      "nameEn": "Erotema / Rhetorical",
-      "descTr": "Erotema — Yunanca 'soru' kökünden. Retorik soruda cevap verilmez çünkü cevap sorunun içinde gizlidir. Muhatap cevabı söylememek için özel çaba harcamalıdır. Kur'an bu türü en sık kullanır: muhatabı suçlamaz, kendi sonucuna kendisi ulaştırır.",
-      "descEn": "Erotema — from the Greek root for 'question'. In rhetorical questioning, no answer is given because the answer is hidden within the question itself. The listener must make a special effort NOT to answer. The Quran uses this type most frequently: it doesn't accuse, it guides the listener to their own conclusion.",
+      "nameTr": "Retorik Soru",
+      "nameEn": "Rhetorical Question",
+      "descTr": "Cevabı sorunun içinde gizli olan soru. Muhatap cevabı söylemek zorunda değildir — ama vermemek için özel çaba harcamalıdır. Kur'an bu türü en sık kullanır: muhatabı suçlamaz, kendi sonucuna kendisi ulaştırır. (Klasik retorikte adı erotema — Yunanca 'soru' kökünden.)",
+      "descEn": "A question whose answer is hidden within itself. The listener does not need to answer — but must make a special effort not to. The Quran uses this type most frequently: it does not accuse, it guides the listener to their own conclusion. (Classical rhetoric term: erotema — from the Greek root for question.)",
       "subPatterns": [
         {
           "id": "efela-takılun",
@@ -23,7 +23,13 @@
           "countEn": "~50 verses",
           "noteTr": "Her seferinde farklı bir yeti çağrılır — akıl, tefekkür, tezekkür, basar. Kur'an insan bilişini sınıflandırıyor.",
           "noteEn": "Each instance calls a different faculty — reason, reflection, remembrance, sight. The Quran is classifying human cognition.",
-          "surahs": ["Bakara 2:44", "Yasin 36:68", "En'am 6:32"]
+          "surahs": [
+            "Bakara 2:44",
+            "Yasin 36:68",
+            "En'am 6:32"
+          ],
+          "meaningTr": "Akıl etmez misiniz?",
+          "meaningEn": "Will you not reason?"
         },
         {
           "id": "efela-yenzurun",
@@ -34,7 +40,13 @@
           "countEn": "~8 verses",
           "noteTr": "'Ta'kılûn' zihinsel, 'yenzurûn' gözlemsel. İkisi birlikte Kur'an'ın hem akıl hem gözlem çağrısını oluşturur.",
           "noteEn": "'Taʿqilun' is mental, 'yanzurun' is observational. Together they form the Quran's dual call to both reason and empirical observation.",
-          "surahs": ["Gaşiye 88:17", "Tarık 86:5", "Kaf 50:6"]
+          "surahs": [
+            "Gaşiye 88:17",
+            "Tarık 86:5",
+            "Kaf 50:6"
+          ],
+          "meaningTr": "Görmüyorlar mı?",
+          "meaningEn": "Do they not see?"
         },
         {
           "id": "men-ma",
@@ -45,7 +57,13 @@
           "countEn": "~12 verses",
           "noteTr": "Soruya muhatap kendi cevabını veriyor — Kur'an sessiz kalıyor. Lokman 31:25, Zümer 39:38, Ankebut 29:61'de kavim 'Allah' der; Kur'an kendi ağızlarından delil çıkarır.",
           "noteEn": "The listener answers themselves — the Quran stays silent. In Luqman 31:25, Zumar 39:38, and Ankabut 29:61, the people say 'Allah'; the Quran uses their own mouths as proof.",
-          "surahs": ["Lokman 31:25", "Zümer 39:38", "Ankebut 29:61"]
+          "surahs": [
+            "Lokman 31:25",
+            "Zümer 39:38",
+            "Ankebut 29:61"
+          ],
+          "meaningTr": "Gökleri ve yeri kim yarattı?",
+          "meaningEn": "Who created the heavens and earth?"
         }
       ],
       "exampleVerses": [
@@ -54,35 +72,40 @@
           "tr": "Hiç aklınızı kullanmıyor musunuz?",
           "en": "Will you not use your reason?",
           "ref": "Bakara 2:44",
-          "surah": 2, "ayah": 44
+          "surah": 2,
+          "ayah": 44
         },
         {
           "ar": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ",
           "tr": "Kur'an'ı düşünüp anlamaya çalışmıyorlar mı?",
           "en": "Do they not reflect upon the Quran?",
           "ref": "Nisa 4:82",
-          "surah": 4, "ayah": 82
+          "surah": 4,
+          "ayah": 82
         },
         {
           "ar": "أَفَلَا يَنظُرُونَ إِلَى الْإِبِلِ كَيْفَ خُلِقَتْ",
           "tr": "Deveye bakıp onun nasıl yaratıldığını düşünmüyorlar mı?",
           "en": "Do they not look at the camel — how it was created?",
           "ref": "Gaşiye 88:17",
-          "surah": 88, "ayah": 17
+          "surah": 88,
+          "ayah": 17
         },
         {
           "ar": "أَفَنَجْعَلُ الْمُسْلِمِينَ كَالْمُجْرِمِينَ",
           "tr": "Müslümanları suçlularla bir mi tutacağız?",
           "en": "Shall We treat those who submit as We treat the guilty?",
           "ref": "Kalem 68:35",
-          "surah": 68, "ayah": 35
+          "surah": 68,
+          "ayah": 35
         },
         {
           "ar": "هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ",
           "tr": "Bilenlerle bilmeyenler hiç eşit olur mu?",
           "en": "Are those who know equal to those who do not know?",
           "ref": "Zümer 39:9",
-          "surah": 39, "ayah": 9
+          "surah": 39,
+          "ayah": 9
         }
       ]
     },
@@ -104,7 +127,13 @@
           "countEn": "~12 verses",
           "noteTr": "Cevabı muhatap kendi ağzıyla veriyor. Lokman 31:25'te 'Allah der' — sonra Kur'an bunu delil olarak kullanır.",
           "noteEn": "The listener answers in their own words. In Luqman 31:25, they say 'Allah' — then the Quran uses this as evidence.",
-          "surahs": ["Lokman 31:25", "Zümer 39:38", "Ankebut 29:61"]
+          "surahs": [
+            "Lokman 31:25",
+            "Zümer 39:38",
+            "Ankebut 29:61"
+          ],
+          "meaningTr": "Gökleri ve yeri kim yarattı?",
+          "meaningEn": "Who created the heavens and earth?"
         },
         {
           "id": "tarih",
@@ -115,7 +144,13 @@
           "countEn": "~8 verses",
           "noteTr": "Arkeolojik gözlem emri. 'Yeryüzünde gezmediler mi?' — geçmiş kavimlerden ders çıkar.",
           "noteEn": "An archaeological observation command. 'Have they not traveled through the earth?' — draw lessons from past nations.",
-          "surahs": ["Yusuf 12:109", "Hac 22:46", "Fatır 35:44"]
+          "surahs": [
+            "Yusuf 12:109",
+            "Hac 22:46",
+            "Fatır 35:44"
+          ],
+          "meaningTr": "Yeryüzünde gezmediler mi?",
+          "meaningEn": "Have they not traveled the earth?"
         },
         {
           "id": "kisisel",
@@ -126,7 +161,13 @@
           "countEn": "~15 verses",
           "noteTr": "Varoluşsal yönlendirme — insanı kendi başlangıcına ve sonuna döndürür.",
           "noteEn": "Existential guidance — returns the person to their own beginning and end.",
-          "surahs": ["Kıyame 75:37", "İnsan 76:1", "İnşirah 94:1"]
+          "surahs": [
+            "Kıyame 75:37",
+            "İnsan 76:1",
+            "İnşirah 94:1"
+          ],
+          "meaningTr": "O bir damla meni değil miydi?",
+          "meaningEn": "Was he not a drop of sperm?"
         }
       ],
       "exampleVerses": [
@@ -135,35 +176,40 @@
           "tr": "Biz senin göğsünü açmadık mı?",
           "en": "Did We not expand your chest for you?",
           "ref": "İnşirah 94:1",
-          "surah": 94, "ayah": 1
+          "surah": 94,
+          "ayah": 1
         },
         {
           "ar": "مَنْ خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ",
           "tr": "Gökleri ve yeri kim yarattı?",
           "en": "Who created the heavens and earth?",
           "ref": "Lokman 31:25",
-          "surah": 31, "ayah": 25
+          "surah": 31,
+          "ayah": 25
         },
         {
           "ar": "أَوَلَمْ يَسِيرُوا فِي الْأَرْضِ",
           "tr": "Yeryüzünde gezmediler mi?",
           "en": "Have they not traveled through the earth?",
           "ref": "Yusuf 12:109",
-          "surah": 12, "ayah": 109
+          "surah": 12,
+          "ayah": 109
         },
         {
           "ar": "أَلَمْ يَكُ نُطْفَةً مِّن مَّنِيٍّ يُمْنَى",
           "tr": "O, dökülen bir meniden bir nutfe değil miydi?",
           "en": "Was he not a drop of sperm emitted?",
           "ref": "Kıyame 75:37",
-          "surah": 75, "ayah": 37
+          "surah": 75,
+          "ayah": 37
         },
         {
           "ar": "هَلْ أَتَى عَلَى الْإِنسَانِ حِينٌ مِّنَ الدَّهْرِ",
           "tr": "İnsan üzerinden, kendisinin anılmaya değer bir şey olmadığı zamanlar geçmedi mi?",
           "en": "Has there not come upon man a period of time when he was nothing worthy of mention?",
           "ref": "İnsan 76:1",
-          "surah": 76, "ayah": 1
+          "surah": 76,
+          "ayah": 1
         }
       ]
     },
@@ -185,7 +231,12 @@
           "countEn": "~3 verses",
           "noteTr": "Kur'an'ın en kısa ve en güçlü tevbih sorusu. 4 kelimede tam bir suçlama + isim: 'el-Kerîm' — bu kadar Kerim Rabbe karşı nasıl aldanılır?",
           "noteEn": "The Quran's shortest and most powerful reproach. Full accusation in 4 words + the name 'al-Karim' — how could anyone be deceived against such a Generous Lord?",
-          "surahs": ["İnfitar 82:6", "Hucurat 49:16"]
+          "surahs": [
+            "İnfitar 82:6",
+            "Hucurat 49:16"
+          ],
+          "meaningTr": "Seni Rabbine karşı ne aldattı?",
+          "meaningEn": "What has deceived you about your Lord?"
         },
         {
           "id": "eyne-tezhebun",
@@ -196,7 +247,12 @@
           "countEn": "~3 verses",
           "noteTr": "Yön kaybı metaforu — Kur'an orada, hakikat orada, nereye gidiyorsunuz?",
           "noteEn": "A metaphor of losing direction — the Quran is here, truth is here, so where are you going?",
-          "surahs": ["Tekvir 81:26", "Saffat 37:25"]
+          "surahs": [
+            "Tekvir 81:26",
+            "Saffat 37:25"
+          ],
+          "meaningTr": "Nereye gidiyorsunuz?",
+          "meaningEn": "Where then are you going?"
         },
         {
           "id": "munafik",
@@ -207,7 +263,13 @@
           "countEn": "~20+ verses",
           "noteTr": "Çifte standartı yüzlerine vuran sorular — Tevbe ve Münafıkun surelerinden.",
           "noteEn": "Questions that confront hypocrisy with its own double standard — from Surahs At-Tawba and Al-Munafiqun.",
-          "surahs": ["A'raf 7:99", "Tevbe 9:13", "Münafıkun 63:5"]
+          "surahs": [
+            "A'raf 7:99",
+            "Tevbe 9:13",
+            "Münafıkun 63:5"
+          ],
+          "meaningTr": "Allah'ın tuzağından emin mi oldular?",
+          "meaningEn": "Did they feel safe from Allah's plan?"
         }
       ],
       "exampleVerses": [
@@ -216,35 +278,40 @@
           "tr": "Seni o Kerim Rabbine karşı ne aldattı?",
           "en": "What has deceived you about your Most Generous Lord?",
           "ref": "İnfitar 82:6",
-          "surah": 82, "ayah": 6
+          "surah": 82,
+          "ayah": 6
         },
         {
           "ar": "فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ",
           "tr": "Artık seni dini yalanlamaya iten nedir?",
           "en": "So what yet causes you to deny the Judgment?",
           "ref": "Tin 95:7",
-          "surah": 95, "ayah": 7
+          "surah": 95,
+          "ayah": 7
         },
         {
           "ar": "أَفَأَمِنُوا مَكْرَ اللَّهِ",
           "tr": "Allah'ın tuzağından güvende mi oldular?",
           "en": "Did they then feel secure against the plan of Allah?",
           "ref": "A'raf 7:99",
-          "surah": 7, "ayah": 99
+          "surah": 7,
+          "ayah": 99
         },
         {
           "ar": "كَيْفَ تَكْفُرُونَ بِاللَّهِ",
           "tr": "Allah'ı nasıl inkâr ediyorsunuz?",
           "en": "How can you disbelieve in Allah?",
           "ref": "Bakara 2:28",
-          "surah": 2, "ayah": 28
+          "surah": 2,
+          "ayah": 28
         },
         {
           "ar": "أَفَحَسِبْتُمْ أَنَّمَا خَلَقْنَاكُمْ عَبَثًا",
           "tr": "Sizi boşuna yarattığımızı ve bize döndürülmeyeceğinizi mi sandınız?",
           "en": "Did you then think that We created you in jest and that you would not be returned to Us?",
           "ref": "Mü'minun 23:115",
-          "surah": 23, "ayah": 115
+          "surah": 23,
+          "ayah": 115
         }
       ]
     },
@@ -266,7 +333,13 @@
           "countEn": "~8 verses",
           "noteTr": "'İnsanı ne öldürüyor?' (Abese 80:17) — nankörlüğe hayret.",
           "noteEn": "'What has destroyed man?' (Abasa 80:17) — astonishment at ingratitude.",
-          "surahs": ["Abese 80:17", "Bakara 2:28", "Mearic 70:38"]
+          "surahs": [
+            "Abese 80:17",
+            "Bakara 2:28",
+            "Mearic 70:38"
+          ],
+          "meaningTr": "İnsanı ne mahvetti?",
+          "meaningEn": "What has destroyed man?"
         },
         {
           "id": "gaflet",
@@ -277,7 +350,13 @@
           "countEn": "~10 verses",
           "noteTr": "'Yoksa sizi boşuna yarattığımızı mı sandınız?' (Mü'minun 23:115) — anlamsızlık yanılgısına hayret.",
           "noteEn": "'Did you think We created you in jest?' (Al-Mu'minun 23:115) — astonishment at the delusion of meaninglessness.",
-          "surahs": ["Kıyame 75:36", "Beled 90:7", "Mü'minun 23:115"]
+          "surahs": [
+            "Kıyame 75:36",
+            "Beled 90:7",
+            "Mü'minun 23:115"
+          ],
+          "meaningTr": "İnsan başıboş bırakılacağını mı sanıyor?",
+          "meaningEn": "Does man think he will be left without purpose?"
         },
         {
           "id": "inat",
@@ -288,7 +367,13 @@
           "countEn": "31 verses (Rahman)",
           "noteTr": "Hakikate rağmen devam eden inkâra duyulan hayret. Rahman'da 31 kez tekrarlanan bu soru inkârcının suskunluğunu kırmak için değil, dinleyicinin vicdanını işaret etmek için.",
           "noteEn": "Astonishment at denial that continues despite evidence. In Ar-Rahman this question is repeated 31 times — not to break the denier's silence, but to point to the listener's conscience.",
-          "surahs": ["Rahman 55:13", "Rahman 55:16", "Rahman 55:21"]
+          "surahs": [
+            "Rahman 55:13",
+            "Rahman 55:16",
+            "Rahman 55:21"
+          ],
+          "meaningTr": "Rabbinizin hangi nimetini yalanlıyorsunuz?",
+          "meaningEn": "Which of your Lord's favors will you deny?"
         }
       ],
       "exampleVerses": [
@@ -297,35 +382,40 @@
           "tr": "Rabbinizin hangi nimetlerini yalanlıyorsunuz?",
           "en": "Which of your Lord's favors will you deny?",
           "ref": "Rahman 55:13",
-          "surah": 55, "ayah": 13
+          "surah": 55,
+          "ayah": 13
         },
         {
           "ar": "فَأَيْنَ تَذْهَبُونَ",
           "tr": "Nereye gidiyorsunuz?",
           "en": "Where then are you going?",
           "ref": "Tekvir 81:26",
-          "surah": 81, "ayah": 26
+          "surah": 81,
+          "ayah": 26
         },
         {
           "ar": "أَيَحْسَبُ الْإِنسَانُ أَن يُتْرَكَ سُدًى",
           "tr": "İnsan başıboş bırakılacağını mı sanıyor?",
           "en": "Does man think he will be left to no purpose?",
           "ref": "Kıyame 75:36",
-          "surah": 75, "ayah": 36
+          "surah": 75,
+          "ayah": 36
         },
         {
           "ar": "أَيَطْمَعُ كُلُّ امْرِئٍ مِّنْهُمْ أَن يُدْخَلَ جَنَّةَ نَعِيمٍ",
           "tr": "Onlardan her biri nimet cennetine sokulacağını mı umuyor?",
           "en": "Does every one of them aspire to enter the Garden of Bliss?",
           "ref": "Mearic 70:38",
-          "surah": 70, "ayah": 38
+          "surah": 70,
+          "ayah": 38
         },
         {
           "ar": "أَيَحْسَبُ أَن لَّمْ يَرَهُ أَحَدٌ",
           "tr": "Onu kimsenin görmediğini mi sanıyor?",
           "en": "Does he think that no one has seen him?",
           "ref": "Beled 90:7",
-          "surah": 90, "ayah": 7
+          "surah": 90,
+          "ayah": 7
         }
       ]
     }
@@ -460,15 +550,17 @@
           "answerTr": "Allah'ın tutuşturulmuş ateşi",
           "answerEn": "The fire of Allah, enkindled"
         }
-      ]
+      ],
+      "meaningTr": "O nedir, sen ne bileceksin?",
+      "meaningEn": "And what will make you know what it is?"
     },
     {
       "id": "efela-takılun-ozel",
       "color": "#14b8a6",
       "arabicForm": "أَفَلَا تَعْقِلُونَ / تَتَفَكَّرُونَ / تَذَكَّرُونَ / تُبْصِرُونَ / تَسْمَعُونَ",
-      "nameTr": "Efela Ta'kılûn Ailesi — 5 Yeti",
+      "nameTr": "Efela Ta'kılûn Ailesi — 5 Biliş Yetisi",
       "nameEn": "Afala Taʿqilun — 5 Cognitive Faculties",
-      "count": 50,
+      "count": 54,
       "descTr": "Bu beş yeti Kur'an'ın insan bilişini nasıl sınıflandırdığını gösterir. Ta'kıl = soyut akıl. Tefekkür = derin analiz. Tezekkür = bellek + öğüt. Basar = gözlem. Semi' = dinleme/itaat. Her biri farklı bir bilgi edinme yolu — Kur'an hepsini ayrı ayrı çağırır.",
       "descEn": "These five faculties show how the Quran classifies human cognition. Taʿqil = abstract reason. Tafakkur = deep analysis. Tadhakkur = memory + lesson-taking. Basar = observation. Samʿ = listening/obedience. Each is a distinct path to knowledge — the Quran calls on all of them separately.",
       "faculties": [
@@ -496,7 +588,9 @@
           "countEn": "~8 verses",
           "bestVerseAr": "أَفَلَا تَتَفَكَّرُونَ",
           "bestVerseTr": "Hiç düşünmüyor musunuz?",
-          "bestVerseRef": "En'am 6:50"
+          "bestVerseRef": "En'am 6:50",
+          "meaningTr": "Düşünmez misiniz?",
+          "meaningEn": "Will you not reflect?"
         },
         {
           "id": "tezekur",
@@ -509,7 +603,9 @@
           "countEn": "~12 verses",
           "bestVerseAr": "أَفَلَا تَذَكَّرُونَ",
           "bestVerseTr": "Hiç öğüt almıyor musunuz?",
-          "bestVerseRef": "En'am 6:80"
+          "bestVerseRef": "En'am 6:80",
+          "meaningTr": "Hatırlamaz mısınız?",
+          "meaningEn": "Will you not remember?"
         },
         {
           "id": "basar",
@@ -522,7 +618,9 @@
           "countEn": "~8 verses",
           "bestVerseAr": "أَفَلَا تُبْصِرُونَ",
           "bestVerseTr": "Görmüyor musunuz?",
-          "bestVerseRef": "Zariyat 51:21"
+          "bestVerseRef": "Zariyat 51:21",
+          "meaningTr": "Görmez misiniz?",
+          "meaningEn": "Will you not see?"
         },
         {
           "id": "semi",
@@ -535,7 +633,9 @@
           "countEn": "~6 verses",
           "bestVerseAr": "أَفَلَا تَسْمَعُونَ",
           "bestVerseTr": "İşitmiyor musunuz?",
-          "bestVerseRef": "Yasin 36:68"
+          "bestVerseRef": "Yasin 36:68",
+          "meaningTr": "Duymaz mısınız?",
+          "meaningEn": "Will you not hear?"
         }
       ]
     },
@@ -585,7 +685,9 @@
           "en": "Is Allah not the most just of judges?",
           "ref": "Tin 95:8"
         }
-      ]
+      ],
+      "meaningTr": "Allah kuluna kâfi değil mi?",
+      "meaningEn": "Is Allah not sufficient for His servant?"
     }
   ],
   "addresseeGroups": [
@@ -620,6 +722,14 @@
           "ref": "Bakara 2:28",
           "noteTr": "Ardından yaratılışın kendisi cevap oluyor.",
           "noteEn": "Creation itself becomes the answer that follows."
+        },
+        {
+          "ar": "فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ",
+          "tr": "Artık seni dini yalanlamaya iten nedir?",
+          "en": "So what yet causes you to deny the Judgment?",
+          "ref": "Tin 95:7",
+          "noteTr": "Surenin tüm delillerinin ardından insanlığa yönelen kapanış sorusu — muhatap Hz. Peygamber değil, inkâr eden insandır.",
+          "noteEn": "The closing question to humanity after the surah's full chain of evidence — the addressee is the denier, not the Prophet."
         }
       ]
     },
@@ -654,6 +764,14 @@
           "ref": "Saffat 37:154",
           "noteTr": "Putlara verilen sıfatların absürdlüğünü gösterir.",
           "noteEn": "Shows the absurdity of the attributes given to idols."
+        },
+        {
+          "ar": "هَلْ مِن خَالِقٍ غَيْرُ اللَّهِ يَرْزُقُكُم مِّنَ السَّمَاءِ وَالْأَرْضِ",
+          "tr": "Allah'tan başka, sizi gökten ve yerden rızıklandıracak bir yaratıcı var mı?",
+          "en": "Is there any creator other than Allah who provides for you from the heaven and earth?",
+          "ref": "Fatır 35:3",
+          "noteTr": "Cevap beklemiyor — sorunun kendisi cevaptır. İnsan yaratıcısını zaten biliyor.",
+          "noteEn": "No answer expected — the question itself is the answer. The human already knows their Creator."
         }
       ]
     },
@@ -688,6 +806,14 @@
           "ref": "İbrahim 14:9",
           "noteTr": "Bilinen tarihe atıf — cevabı biliyorsunuz, peki ders çıkardınız mı?",
           "noteEn": "Reference to known history — you know the answer, but did you take a lesson?"
+        },
+        {
+          "ar": "لِمَ تَلْبِسُونَ الْحَقَّ بِالْبَاطِلِ وَتَكْتُمُونَ الْحَقَّ وَأَنتُمْ تَعْلَمُونَ",
+          "tr": "Neden hakkı batılla örtüyor, bile bile gerçeği gizliyorsunuz?",
+          "en": "Why do you mix truth with falsehood and conceal the truth while you know?",
+          "ref": "Âl-i İmrân 3:71",
+          "noteTr": "Kasıtlı gizlemeyi yüzlerine vurur — cahil değil, bilen ama saklayan.",
+          "noteEn": "Confronts deliberate concealment — not ignorant, but knowing and hiding."
         }
       ]
     },
@@ -708,20 +834,28 @@
           "noteEn": "Hollows out superficial faith — who are they really deceiving?"
         },
         {
-          "ar": "أَتَخْشَوْنَهُمْ فَاللَّهُ أَحَقُّ أَن تَخْشَوْهُ",
-          "tr": "Onlardan mı korkuyorsunuz? Allah korkulmaya daha layıktır.",
-          "en": "Are you afraid of them? But Allah has more right that you should fear Him.",
-          "ref": "Tevbe 9:13",
-          "noteTr": "İki korku arasında seçim — hangisi daha gerçek, hangisi daha haklı?",
-          "noteEn": "A choice between two fears — which is more real, which more justified?"
+          "ar": "أَبِاللَّهِ وَآيَاتِهِ وَرَسُولِهِ كُنتُمْ تَسْتَهْزِئُونَ",
+          "tr": "Allah'la, O'nun ayetleriyle ve Peygamber'le mi alay ediyordunuz?",
+          "en": "Was it Allah, His signs, and His Messenger that you were mocking?",
+          "ref": "Tevbe 9:65",
+          "noteTr": "Münafıklar 'sadece şakayaptık' deyince yüzlerine vurulan soru — ikinci kişi çoğul, doğrudan hitap.",
+          "noteEn": "When hypocrites said 'we were only joking', this question confronted them directly — second person plural, direct address."
         },
         {
-          "ar": "مَا لَكُمْ لَا تَنَاصَرُونَ",
-          "tr": "Size ne oldu, birbirinize yardım etmiyorsunuz?",
-          "en": "What is the matter with you that you do not help each other?",
-          "ref": "Saffat 37:25",
-          "noteTr": "Kıyamette sorulacak soru — dünyada iddia edilen dayanışma nerede?",
-          "noteEn": "The question to be asked on Judgment Day — where is the solidarity claimed in this world?"
+          "ar": "أَلَمْ يَعْلَمُوا أَنَّ اللَّهَ يَعْلَمُ سِرَّهُمْ وَنَجْوَاهُمْ",
+          "tr": "Allah'ın sırlarını ve gizli fısıltılarını bildiğini bilmiyorlar mıydı?",
+          "en": "Did they not know that Allah knows their secret and their private counsel?",
+          "ref": "Tevbe 9:78",
+          "noteTr": "Tevbe suresi münafık pasajında — Allah'a verilen sözü bozanların gizlilik yanılsamasını çöker.",
+          "noteEn": "In the Tawbah hypocrite passage — collapses the illusion of secrecy for those who broke their covenant with Allah."
+        },
+        {
+          "ar": "أَمْ حَسِبَ الَّذِينَ فِي قُلُوبِهِم مَّرَضٌ أَن لَّن يُخْرِجَ اللَّهُ أَضْغَانَهُمْ",
+          "tr": "Kalplerinde hastalık bulunanlar, Allah'ın kinlerini açığa çıkarmayacağını mı sandılar?",
+          "en": "Or do those in whose hearts is disease think that Allah will never expose their hatred?",
+          "ref": "Muhammed 47:29",
+          "noteTr": "'Kalp hastalığı' münafıkların Kur'an'daki teknik terimi — gizli kinin yüzeye çıkacağı uyarısı.",
+          "noteEn": "'Disease of the heart' is the Quran's technical term for hypocrites — a warning that hidden hatred will be exposed."
         }
       ]
     },
@@ -742,69 +876,509 @@
           "noteEn": "Consolation in difficulty — yes, We did. The very act of asking this question is the answer."
         },
         {
-          "ar": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ",
-          "tr": "Rabbinin fil sahiplerine ne yaptığını görmedin mi?",
-          "en": "Have you not seen how your Lord dealt with the companions of the elephant?",
-          "ref": "Fil 105:1",
-          "noteTr": "Tarihsel hafızayı canlı tutar — gördün mü? Hatırla. Allah geçmişte nasıl koruduysa, şimdi de koruyacak.",
-          "noteEn": "Keeps historical memory alive — did you see? Remember. As Allah protected before, so He will now."
+          "ar": "لَعَلَّكَ بَاخِعٌ نَّفْسَكَ أَلَّا يَكُونُوا مُؤْمِنِينَ",
+          "tr": "Onlar iman etmeyecek diye neredeyse kendini mahvedeceksin!",
+          "en": "Perhaps you will destroy yourself with grief because they will not believe.",
+          "ref": "Şuarâ 26:3",
+          "noteTr": "Allah, üzüntüsünün farkında — sen kendini yok etme, hidayet senin elinde değil. Doğrudan ve kişisel hitap.",
+          "noteEn": "Allah acknowledges his grief — do not destroy yourself; guidance is not in your hands. A direct and personal address."
         },
         {
-          "ar": "فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ",
-          "tr": "Artık seni dini yalanlamaya iten nedir?",
-          "en": "So what yet causes you to deny the Judgment?",
-          "ref": "Tin 95:7",
-          "noteTr": "Delillerin ortaya konulmasının ardından gelen kapanış sorusu.",
-          "noteEn": "The closing question after all the evidence has been laid out."
+          "ar": "أَلَمْ يَجِدْكَ يَتِيمًا فَآوَىٰ",
+          "tr": "Seni yetim bulup barındırmadı mı?",
+          "en": "Did He not find you an orphan and give you refuge?",
+          "ref": "Duhâ 93:6",
+          "noteTr": "Tescil sorusu — 'evet' cevabını önceden biliyor. Soru, geçmişteki nimeti şimdiki zorluğun ışığında hatırlatır.",
+          "noteEn": "A confirmatory question — the answer 'yes' is already known. The question recalls past blessing in the light of present difficulty."
+        },
+        {
+          "ar": "أَفَأَنتَ تُكْرِهُ النَّاسَ حَتَّىٰ يَكُونُوا مُؤْمِنِينَ",
+          "tr": "İnsanları mümin olsunlar diye sen mi zorlayacaksın?",
+          "en": "Would you then compel the people until they become believers?",
+          "ref": "Yunus 10:99",
+          "noteTr": "Peygamberin üzüntüsüne cevap — sen tebliğ et, hidayet Allah'tandır. Zorla iman olmaz.",
+          "noteEn": "A response to the Prophet's grief — your duty is to convey; guidance belongs to Allah. Faith cannot be forced."
         }
       ]
     }
   ],
   "questions": [
-    { "id": "q1",  "ar": "أَفَلَا تَعْقِلُونَ",                                    "tr": "Hiç aklınızı kullanmıyor musunuz?",                                        "en": "Will you not use your reason?",                                           "ref": "Bakara 2:44",     "surah": 2,   "ayah": 44,  "type": "erotema", "pattern": "efela-takılun",    "addressee": "ehl-i-kitap" },
-    { "id": "q2",  "ar": "فَأَيْنَ تَذْهَبُونَ",                                   "tr": "Nereye gidiyorsunuz?",                                                   "en": "Where then are you going?",                                             "ref": "Tekvir 81:26",   "surah": 81,  "ayah": 26,  "type": "taaccub", "pattern": null,               "addressee": "humanity" },
-    { "id": "q3",  "ar": "مَا غَرَّكَ بِرَبِّكَ الْكَرِيمِ",                      "tr": "Seni o Kerim Rabbine karşı ne aldattı?",                                 "en": "What has deceived you about your Most Generous Lord?",                  "ref": "İnfitar 82:6",   "surah": 82,  "ayah": 6,   "type": "tevbih",  "pattern": null,               "addressee": "humanity" },
-    { "id": "q4",  "ar": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ",                     "tr": "Kur'an'ı düşünüp anlamaya çalışmıyorlar mı?",                            "en": "Do they not reflect upon the Quran?",                                   "ref": "Nisa 4:82",      "surah": 4,   "ayah": 82,  "type": "erotema", "pattern": null,               "addressee": "humanity" },
-    { "id": "q5",  "ar": "أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ",                        "tr": "Biz senin göğsünü açmadık mı?",                                         "en": "Did We not expand your chest for you?",                                 "ref": "İnşirah 94:1",   "surah": 94,  "ayah": 1,   "type": "irsad",   "pattern": null,               "addressee": "prophet" },
-    { "id": "q6",  "ar": "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",             "tr": "Rabbinizin hangi nimetlerini yalanlıyorsunuz?",                          "en": "Which of your Lord's favors will you deny?",                           "ref": "Rahman 55:13",   "surah": 55,  "ayah": 13,  "type": "taaccub", "pattern": null,               "addressee": "humanity" },
-    { "id": "q7",  "ar": "الْقَارِعَةُ مَا الْقَارِعَةُ",                         "tr": "Karia! Karia nedir?",                                                    "en": "The Striking Calamity. What is the Striking Calamity?",                "ref": "Karia 101:1-2",  "surah": 101, "ayah": 1,   "type": "taaccub", "pattern": "ve-ma-edrake",     "addressee": "humanity" },
-    { "id": "q8",  "ar": "وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ",              "tr": "Kadir Gecesi'nin ne olduğunu sana ne bildirdi?",                         "en": "And what can make you know what is the Night of Decree?",               "ref": "Kadr 97:2",      "surah": 97,  "ayah": 2,   "type": "irsad",   "pattern": "ve-ma-edrake",     "addressee": "prophet" },
-    { "id": "q9",  "ar": "أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَهُ",                    "tr": "Allah kuluna yetmez mi?",                                                "en": "Is Allah not sufficient for His servant?",                             "ref": "Zümer 39:36",    "surah": 39,  "ayah": 36,  "type": "erotema", "pattern": "eleyse",           "addressee": "humanity" },
-    { "id": "q10", "ar": "مَنْ خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ",                "tr": "Gökleri ve yeri kim yarattı?",                                           "en": "Who created the heavens and the earth?",                               "ref": "Lokman 31:25",   "surah": 31,  "ayah": 25,  "type": "irsad",   "pattern": null,               "addressee": "mushrikeen" },
-    { "id": "q11", "ar": "أَفَلَا يَنظُرُونَ إِلَى الْإِبِلِ كَيْفَ خُلِقَتْ", "tr": "Deveye bakıp onun nasıl yaratıldığını düşünmüyorlar mı?",                "en": "Do they not look at the camels — how they are created?",               "ref": "Gaşiye 88:17",   "surah": 88,  "ayah": 17,  "type": "erotema", "pattern": "efela-takılun",    "addressee": "humanity" },
-    { "id": "q12", "ar": "أَيَحْسَبُ الْإِنسَانُ أَن يُتْرَكَ سُدًى",            "tr": "İnsan başıboş bırakılacağını mı sanıyor?",                               "en": "Does man think he will be left to no purpose?",                        "ref": "Kıyame 75:36",   "surah": 75,  "ayah": 36,  "type": "taaccub", "pattern": null,               "addressee": "humanity" },
-    { "id": "q13", "ar": "أَلَمْ يَكُ نُطْفَةً مِّن مَّنِيٍّ يُمْنَى",          "tr": "O, dökülen bir meniden bir nutfe değil miydi?",                          "en": "Was he not a drop of sperm emitted?",                                  "ref": "Kıyame 75:37",   "surah": 75,  "ayah": 37,  "type": "irsad",   "pattern": null,               "addressee": "humanity" },
-    { "id": "q14", "ar": "هَلْ أَتَى عَلَى الْإِنسَانِ حِينٌ مِّنَ الدَّهْرِ",  "tr": "İnsan üzerinden anılmaya değer olmadığı bir zaman geçmedi mi?",          "en": "Has there not come upon man a period of time when he was not mentioned?","ref": "İnsan 76:1",     "surah": 76,  "ayah": 1,   "type": "irsad",   "pattern": null,               "addressee": "humanity" },
-    { "id": "q15", "ar": "فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ",                  "tr": "Artık seni dini yalanlamaya iten nedir?",                                "en": "So what yet causes you to deny the Judgment?",                         "ref": "Tin 95:7",       "surah": 95,  "ayah": 7,   "type": "tevbih",  "pattern": null,               "addressee": "humanity" },
-    { "id": "q16", "ar": "أَلَيْسَ ذَٰلِكَ بِقَادِرٍ عَلَىٰ أَن يُحْيِيَ الْمَوْتَى", "tr": "Bunların üzerine ölüleri diriltmeye kadir değil mi?", "en": "Is that [Creator] not able to give life to the dead?",                 "ref": "Kıyame 75:40",   "surah": 75,  "ayah": 40,  "type": "erotema", "pattern": "eleyse",           "addressee": "humanity" },
-    { "id": "q17", "ar": "أَوَلَمْ يَسِيرُوا فِي الْأَرْضِ",                     "tr": "Yeryüzünde gezmediler mi?",                                              "en": "Have they not traveled through the earth?",                            "ref": "Yusuf 12:109",   "surah": 12,  "ayah": 109, "type": "irsad",   "pattern": null,               "addressee": "humanity" },
-    { "id": "q18", "ar": "أَفَأَمِنُوا مَكْرَ اللَّهِ",                           "tr": "Allah'ın tuzağından güvende mi oldular?",                                "en": "Did they then feel secure against the plan of Allah?",                 "ref": "A'raf 7:99",     "surah": 7,   "ayah": 99,  "type": "tevbih",  "pattern": null,               "addressee": "mushrikeen" },
-    { "id": "q19", "ar": "وَمَا أَدْرَاكَ مَا الْعَقَبَةُ",                      "tr": "Sarp yokuşun ne olduğunu sana ne bildirdi?",                             "en": "And what can make you know what the steep ascent is?",                 "ref": "Beled 90:12",    "surah": 90,  "ayah": 12,  "type": "irsad",   "pattern": "ve-ma-edrake",     "addressee": "humanity" },
-    { "id": "q20", "ar": "أَيَحْسَبُ أَن لَّمْ يَرَهُ أَحَدٌ",                   "tr": "Onu kimsenin görmediğini mi sanıyor?",                                   "en": "Does he think that no one has seen him?",                              "ref": "Beled 90:7",     "surah": 90,  "ayah": 7,   "type": "tevbih",  "pattern": null,               "addressee": "humanity" },
-    { "id": "q21", "ar": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ","tr": "Rabbinin fil sahiplerine ne yaptığını görmedin mi?",                     "en": "Have you not seen how your Lord dealt with the companions of the elephant?","ref": "Fil 105:1",   "surah": 105, "ayah": 1,   "type": "irsad",   "pattern": null,               "addressee": "prophet" },
-    { "id": "q22", "ar": "كَيْفَ تَكْفُرُونَ بِاللَّهِ",                         "tr": "Allah'ı nasıl inkâr ediyorsunuz?",                                       "en": "How can you disbelieve in Allah?",                                      "ref": "Bakara 2:28",    "surah": 2,   "ayah": 28,  "type": "tevbih",  "pattern": null,               "addressee": "humanity" },
-    { "id": "q23", "ar": "أَيَطْمَعُ كُلُّ امْرِئٍ مِّنْهُمْ أَن يُدْخَلَ جَنَّةَ نَعِيمٍ","tr": "Onlardan her biri nimet cennetine sokulacağını mı umuyor?","en": "Does every one of them aspire to enter the Garden of Bliss?",           "ref": "Mearic 70:38",   "surah": 70,  "ayah": 38,  "type": "taaccub", "pattern": null,               "addressee": "mushrikeen" },
-    { "id": "q24", "ar": "أَفَنَجْعَلُ الْمُسْلِمِينَ كَالْمُجْرِمِينَ",         "tr": "Müslümanları suçlularla bir mi tutacağız?",                              "en": "Shall We treat those who submit as We treat the guilty?",              "ref": "Kalem 68:35",    "surah": 68,  "ayah": 35,  "type": "erotema", "pattern": null,               "addressee": "mushrikeen" },
-    { "id": "q25", "ar": "هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ",        "tr": "İyiliğin karşılığı iyilikten başka bir şey midir?",                      "en": "Is the reward for good [anything] but good?",                          "ref": "Rahman 55:60",   "surah": 55,  "ayah": 60,  "type": "erotema", "pattern": null,               "addressee": "humanity" },
-    { "id": "q26", "ar": "مَا لَكُمْ لَا تَنَاصَرُونَ",                           "tr": "Size ne oldu, birbirinize yardım etmiyorsunuz?",                         "en": "What is the matter with you? Why do you not help each other?",         "ref": "Saffat 37:25",   "surah": 37,  "ayah": 25,  "type": "tevbih",  "pattern": null,               "addressee": "munafikun" },
-    { "id": "q27", "ar": "أَلَا يَعْلَمُ مَنْ خَلَقَ",                            "tr": "Yaratan bilmez mi?",                                                     "en": "Does He who created not know?",                                        "ref": "Mülk 67:14",     "surah": 67,  "ayah": 14,  "type": "erotema", "pattern": null,               "addressee": "humanity" },
-    { "id": "q28", "ar": "أَفَحَسِبْتُمْ أَنَّمَا خَلَقْنَاكُمْ عَبَثًا",        "tr": "Sizi boşuna yarattığımızı mı sandınız?",                                "en": "Did you think that We created you in jest?",                           "ref": "Mü'minun 23:115","surah": 23,  "ayah": 115, "type": "tevbih",  "pattern": null,               "addressee": "humanity" },
-    { "id": "q29", "ar": "مَا لَكُمْ كَيْفَ تَحْكُمُونَ",                        "tr": "Size ne oluyor, nasıl hüküm veriyorsunuz?",                              "en": "What is wrong with you? How do you judge?",                            "ref": "Saffat 37:154",  "surah": 37,  "ayah": 154, "type": "tevbih",  "pattern": null,               "addressee": "mushrikeen" },
-    { "id": "q30", "ar": "هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ","tr": "Bilenlerle bilmeyenler hiç eşit olur mu?","en": "Are those who know equal to those who do not know?",                  "ref": "Zümer 39:9",     "surah": 39,  "ayah": 9,   "type": "erotema", "pattern": null,               "addressee": "humanity" }
+    {
+      "id": "q1",
+      "ar": "أَفَلَا تَعْقِلُونَ",
+      "tr": "Hiç aklınızı kullanmıyor musunuz?",
+      "en": "Will you not use your reason?",
+      "ref": "Bakara 2:44",
+      "surah": 2,
+      "ayah": 44,
+      "type": "erotema",
+      "pattern": "efela-takılun",
+      "addressee": "ehl-i-kitap"
+    },
+    {
+      "id": "q2",
+      "ar": "فَأَيْنَ تَذْهَبُونَ",
+      "tr": "Nereye gidiyorsunuz?",
+      "en": "Where then are you going?",
+      "ref": "Tekvir 81:26",
+      "surah": 81,
+      "ayah": 26,
+      "type": "taaccub",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q3",
+      "ar": "مَا غَرَّكَ بِرَبِّكَ الْكَرِيمِ",
+      "tr": "Seni o Kerim Rabbine karşı ne aldattı?",
+      "en": "What has deceived you about your Most Generous Lord?",
+      "ref": "İnfitar 82:6",
+      "surah": 82,
+      "ayah": 6,
+      "type": "tevbih",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q4",
+      "ar": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ",
+      "tr": "Kur'an'ı düşünüp anlamaya çalışmıyorlar mı?",
+      "en": "Do they not reflect upon the Quran?",
+      "ref": "Nisa 4:82",
+      "surah": 4,
+      "ayah": 82,
+      "type": "erotema",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q5",
+      "ar": "أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ",
+      "tr": "Biz senin göğsünü açmadık mı?",
+      "en": "Did We not expand your chest for you?",
+      "ref": "İnşirah 94:1",
+      "surah": 94,
+      "ayah": 1,
+      "type": "irsad",
+      "pattern": null,
+      "addressee": "prophet"
+    },
+    {
+      "id": "q6",
+      "ar": "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",
+      "tr": "Rabbinizin hangi nimetlerini yalanlıyorsunuz?",
+      "en": "Which of your Lord's favors will you deny?",
+      "ref": "Rahman 55:13",
+      "surah": 55,
+      "ayah": 13,
+      "type": "taaccub",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q7",
+      "ar": "الْقَارِعَةُ مَا الْقَارِعَةُ",
+      "tr": "Karia! Karia nedir?",
+      "en": "The Striking Calamity. What is the Striking Calamity?",
+      "ref": "Karia 101:1-2",
+      "surah": 101,
+      "ayah": 1,
+      "type": "taaccub",
+      "pattern": "ve-ma-edrake",
+      "addressee": "humanity"
+    },
+    {
+      "id": "q8",
+      "ar": "وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ",
+      "tr": "Kadir Gecesi'nin ne olduğunu sana ne bildirdi?",
+      "en": "And what can make you know what is the Night of Decree?",
+      "ref": "Kadr 97:2",
+      "surah": 97,
+      "ayah": 2,
+      "type": "irsad",
+      "pattern": "ve-ma-edrake",
+      "addressee": "prophet"
+    },
+    {
+      "id": "q9",
+      "ar": "أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَهُ",
+      "tr": "Allah kuluna yetmez mi?",
+      "en": "Is Allah not sufficient for His servant?",
+      "ref": "Zümer 39:36",
+      "surah": 39,
+      "ayah": 36,
+      "type": "erotema",
+      "pattern": "eleyse",
+      "addressee": "humanity"
+    },
+    {
+      "id": "q10",
+      "ar": "مَنْ خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ",
+      "tr": "Gökleri ve yeri kim yarattı?",
+      "en": "Who created the heavens and the earth?",
+      "ref": "Lokman 31:25",
+      "surah": 31,
+      "ayah": 25,
+      "type": "irsad",
+      "pattern": null,
+      "addressee": "mushrikeen"
+    },
+    {
+      "id": "q11",
+      "ar": "أَفَلَا يَنظُرُونَ إِلَى الْإِبِلِ كَيْفَ خُلِقَتْ",
+      "tr": "Deveye bakıp onun nasıl yaratıldığını düşünmüyorlar mı?",
+      "en": "Do they not look at the camels — how they are created?",
+      "ref": "Gaşiye 88:17",
+      "surah": 88,
+      "ayah": 17,
+      "type": "erotema",
+      "pattern": "efela-takılun",
+      "addressee": "humanity"
+    },
+    {
+      "id": "q12",
+      "ar": "أَيَحْسَبُ الْإِنسَانُ أَن يُتْرَكَ سُدًى",
+      "tr": "İnsan başıboş bırakılacağını mı sanıyor?",
+      "en": "Does man think he will be left to no purpose?",
+      "ref": "Kıyame 75:36",
+      "surah": 75,
+      "ayah": 36,
+      "type": "taaccub",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q13",
+      "ar": "أَلَمْ يَكُ نُطْفَةً مِّن مَّنِيٍّ يُمْنَى",
+      "tr": "O, dökülen bir meniden bir nutfe değil miydi?",
+      "en": "Was he not a drop of sperm emitted?",
+      "ref": "Kıyame 75:37",
+      "surah": 75,
+      "ayah": 37,
+      "type": "irsad",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q14",
+      "ar": "هَلْ أَتَى عَلَى الْإِنسَانِ حِينٌ مِّنَ الدَّهْرِ",
+      "tr": "İnsan üzerinden anılmaya değer olmadığı bir zaman geçmedi mi?",
+      "en": "Has there not come upon man a period of time when he was not mentioned?",
+      "ref": "İnsan 76:1",
+      "surah": 76,
+      "ayah": 1,
+      "type": "irsad",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q15",
+      "ar": "فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ",
+      "tr": "Artık seni dini yalanlamaya iten nedir?",
+      "en": "So what yet causes you to deny the Judgment?",
+      "ref": "Tin 95:7",
+      "surah": 95,
+      "ayah": 7,
+      "type": "tevbih",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q16",
+      "ar": "أَلَيْسَ ذَٰلِكَ بِقَادِرٍ عَلَىٰ أَن يُحْيِيَ الْمَوْتَى",
+      "tr": "Bunların üzerine ölüleri diriltmeye kadir değil mi?",
+      "en": "Is that [Creator] not able to give life to the dead?",
+      "ref": "Kıyame 75:40",
+      "surah": 75,
+      "ayah": 40,
+      "type": "erotema",
+      "pattern": "eleyse",
+      "addressee": "humanity"
+    },
+    {
+      "id": "q17",
+      "ar": "أَوَلَمْ يَسِيرُوا فِي الْأَرْضِ",
+      "tr": "Yeryüzünde gezmediler mi?",
+      "en": "Have they not traveled through the earth?",
+      "ref": "Yusuf 12:109",
+      "surah": 12,
+      "ayah": 109,
+      "type": "irsad",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q18",
+      "ar": "أَفَأَمِنُوا مَكْرَ اللَّهِ",
+      "tr": "Allah'ın tuzağından güvende mi oldular?",
+      "en": "Did they then feel secure against the plan of Allah?",
+      "ref": "A'raf 7:99",
+      "surah": 7,
+      "ayah": 99,
+      "type": "tevbih",
+      "pattern": null,
+      "addressee": "mushrikeen"
+    },
+    {
+      "id": "q19",
+      "ar": "وَمَا أَدْرَاكَ مَا الْعَقَبَةُ",
+      "tr": "Sarp yokuşun ne olduğunu sana ne bildirdi?",
+      "en": "And what can make you know what the steep ascent is?",
+      "ref": "Beled 90:12",
+      "surah": 90,
+      "ayah": 12,
+      "type": "irsad",
+      "pattern": "ve-ma-edrake",
+      "addressee": "humanity"
+    },
+    {
+      "id": "q20",
+      "ar": "أَيَحْسَبُ أَن لَّمْ يَرَهُ أَحَدٌ",
+      "tr": "Onu kimsenin görmediğini mi sanıyor?",
+      "en": "Does he think that no one has seen him?",
+      "ref": "Beled 90:7",
+      "surah": 90,
+      "ayah": 7,
+      "type": "tevbih",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q21",
+      "ar": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ",
+      "tr": "Rabbinin fil sahiplerine ne yaptığını görmedin mi?",
+      "en": "Have you not seen how your Lord dealt with the companions of the elephant?",
+      "ref": "Fil 105:1",
+      "surah": 105,
+      "ayah": 1,
+      "type": "irsad",
+      "pattern": null,
+      "addressee": "prophet"
+    },
+    {
+      "id": "q22",
+      "ar": "كَيْفَ تَكْفُرُونَ بِاللَّهِ",
+      "tr": "Allah'ı nasıl inkâr ediyorsunuz?",
+      "en": "How can you disbelieve in Allah?",
+      "ref": "Bakara 2:28",
+      "surah": 2,
+      "ayah": 28,
+      "type": "tevbih",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q23",
+      "ar": "أَيَطْمَعُ كُلُّ امْرِئٍ مِّنْهُمْ أَن يُدْخَلَ جَنَّةَ نَعِيمٍ",
+      "tr": "Onlardan her biri nimet cennetine sokulacağını mı umuyor?",
+      "en": "Does every one of them aspire to enter the Garden of Bliss?",
+      "ref": "Mearic 70:38",
+      "surah": 70,
+      "ayah": 38,
+      "type": "taaccub",
+      "pattern": null,
+      "addressee": "mushrikeen"
+    },
+    {
+      "id": "q24",
+      "ar": "أَفَنَجْعَلُ الْمُسْلِمِينَ كَالْمُجْرِمِينَ",
+      "tr": "Müslümanları suçlularla bir mi tutacağız?",
+      "en": "Shall We treat those who submit as We treat the guilty?",
+      "ref": "Kalem 68:35",
+      "surah": 68,
+      "ayah": 35,
+      "type": "erotema",
+      "pattern": null,
+      "addressee": "mushrikeen"
+    },
+    {
+      "id": "q25",
+      "ar": "هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ",
+      "tr": "İyiliğin karşılığı iyilikten başka bir şey midir?",
+      "en": "Is the reward for good [anything] but good?",
+      "ref": "Rahman 55:60",
+      "surah": 55,
+      "ayah": 60,
+      "type": "erotema",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q26",
+      "ar": "مَا لَكُمْ لَا تَنَاصَرُونَ",
+      "tr": "Size ne oldu, birbirinize yardım etmiyorsunuz?",
+      "en": "What is the matter with you? Why do you not help each other?",
+      "ref": "Saffat 37:25",
+      "surah": 37,
+      "ayah": 25,
+      "type": "tevbih",
+      "pattern": null,
+      "addressee": "munafikun"
+    },
+    {
+      "id": "q27",
+      "ar": "أَلَا يَعْلَمُ مَنْ خَلَقَ",
+      "tr": "Yaratan bilmez mi?",
+      "en": "Does He who created not know?",
+      "ref": "Mülk 67:14",
+      "surah": 67,
+      "ayah": 14,
+      "type": "erotema",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q28",
+      "ar": "أَفَحَسِبْتُمْ أَنَّمَا خَلَقْنَاكُمْ عَبَثًا",
+      "tr": "Sizi boşuna yarattığımızı mı sandınız?",
+      "en": "Did you think that We created you in jest?",
+      "ref": "Mü'minun 23:115",
+      "surah": 23,
+      "ayah": 115,
+      "type": "tevbih",
+      "pattern": null,
+      "addressee": "humanity"
+    },
+    {
+      "id": "q29",
+      "ar": "مَا لَكُمْ كَيْفَ تَحْكُمُونَ",
+      "tr": "Size ne oluyor, nasıl hüküm veriyorsunuz?",
+      "en": "What is wrong with you? How do you judge?",
+      "ref": "Saffat 37:154",
+      "surah": 37,
+      "ayah": 154,
+      "type": "tevbih",
+      "pattern": null,
+      "addressee": "mushrikeen"
+    },
+    {
+      "id": "q30",
+      "ar": "هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ",
+      "tr": "Bilenlerle bilmeyenler hiç eşit olur mu?",
+      "en": "Are those who know equal to those who do not know?",
+      "ref": "Zümer 39:9",
+      "surah": 39,
+      "ayah": 9,
+      "type": "erotema",
+      "pattern": null,
+      "addressee": "humanity"
+    }
   ],
   "surahDensity": [
-    1,3,3,2,2,4,3,2,2,3,
-    2,2,3,2,2,3,3,3,2,2,
-    4,2,4,2,4,3,4,3,3,3,
-    2,3,2,3,3,4,4,4,3,3,
-    3,3,4,4,3,3,2,1,2,4,
-    4,5,5,4,5,5,2,2,2,2,
-    2,2,2,2,1,1,4,3,3,3,
-    2,2,2,4,5,2,5,4,4,3,
-    5,3,4,3,3,3,2,5,4,4,
-    2,2,2,2,2,3,2,1,2,2,
-    4,3,1,2,2,1,2,1,1,1,
-    1,1,1,1
+    1,
+    3,
+    3,
+    2,
+    2,
+    4,
+    3,
+    2,
+    2,
+    3,
+    2,
+    2,
+    3,
+    2,
+    2,
+    3,
+    3,
+    3,
+    2,
+    2,
+    4,
+    2,
+    4,
+    2,
+    4,
+    3,
+    4,
+    3,
+    3,
+    3,
+    2,
+    3,
+    2,
+    3,
+    3,
+    4,
+    4,
+    4,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    3,
+    3,
+    2,
+    1,
+    2,
+    4,
+    4,
+    5,
+    5,
+    4,
+    5,
+    5,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    4,
+    3,
+    3,
+    3,
+    2,
+    2,
+    2,
+    4,
+    5,
+    2,
+    5,
+    4,
+    4,
+    3,
+    5,
+    3,
+    4,
+    3,
+    3,
+    3,
+    2,
+    5,
+    4,
+    4,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    2,
+    1,
+    2,
+    2,
+    4,
+    3,
+    1,
+    2,
+    2,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
   ],
   "topSurahs": [
     {
@@ -837,8 +1411,8 @@
       "dominantType": "erotema",
       "iconicQuestionAr": "أَفَلَا تَعْقِلُونَ",
       "iconicQuestionRef": "36:68",
-      "noteTr": "'Efela' ailesi yoğun — yaratılış üzerine zincirleme sorular.",
-      "noteEn": "Dense with 'Afala' family — chain questions on creation."
+      "noteTr": "'Efela' (أَفَلَا): 'Hâlâ... değil misiniz?' — olumsuz soru ön eki, muhatabı kendi mantığıyla yüzleştirir. Yasin'de yaratılış üzerine zincirleme biçimde kullanılır.",
+      "noteEn": "'Afala' (أَفَلَا): 'Will you still not...?' — negative question prefix that confronts the listener with their own logic. Used in Ya-Sin in a chain on creation."
     },
     {
       "number": 55,
@@ -871,8 +1445,8 @@
       {
         "type": "erotema",
         "color": "#d4a574",
-        "labelTr": "Erotema Olarak",
-        "labelEn": "As Erotema",
+        "labelTr": "Retorik Soru Olarak",
+        "labelEn": "As Rhetorical Question",
         "refTr": "Lokman 31:25",
         "refEn": "Luqman 31:25",
         "analysisTr": "Soru sorulur, kavim 'Allah' der — Kur'an bunu delil olarak kullanır. Cevabı zaten biliyorlar.",
@@ -895,8 +1469,8 @@
         "labelEn": "As Reproach",
         "refTr": "Mü'minun 23:84-89",
         "refEn": "Al-Mu'minun 23:84-89",
-        "analysisTr": "Peş peşe sorular, her cevap muhatabı daha çok sıkıştırıyor — 'Peki neden?' zincirine dönüşüyor.",
-        "analysisEn": "Questions in sequence, each answer tightens the noose further — turns into a 'then why?' chain."
+        "analysisTr": "Aynı temayı farklı sorularla işler: 'Yeryüzü kimindir? Yedi göğün rabbi kimdir? Mülk kimin elinde?' — her cevap muhatabı daha çok sıkıştırır. Buradaki soru bu tam cümle değil, aynı retorik zincirin parçasıdır.",
+        "analysisEn": "The same theme is pursued with different questions: 'To whom belongs the earth? Who is the Lord of the seven heavens? In whose hand is dominion?' — each answer tightens the noose. This exact verse does not appear here; it is part of the same rhetorical chain."
       }
     ],
     "taaccubNoteTr": "Bu soru taaccüb biçiminde kullanılmıyor çünkü yaratılış mucizesi hayret değil, bilinç gerektirir. Taaccüb soruları genellikle nankörlük veya mantıksız davranışa yönelir; bu soru ise köklü bir akıl yürütme zincirine başlangıç noktasıdır.",

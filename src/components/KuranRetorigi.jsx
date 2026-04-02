@@ -245,12 +245,21 @@ function TabKategoriler({ data, tr, isMobile }) {
         borderRadius: 8,
       }}
     >
-      <p
-        dir="rtl"
-        style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 1.9, margin: '0 0 6px' }}
-      >
-        {sp.arabicForm}
-      </p>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, marginBottom: 6 }}>
+        <div style={{ flex: 1 }}>
+          {(sp.meaningTr || sp.meaningEn) && (
+            <p style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 2px', lineHeight: 1.5 }}>
+              {tr ? sp.meaningTr : sp.meaningEn}
+            </p>
+          )}
+        </div>
+        <p
+          dir="rtl"
+          style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 1.9, margin: 0, flexShrink: 0 }}
+        >
+          {sp.arabicForm}
+        </p>
+      </div>
       <p style={{ color: catColor, fontSize: '0.82rem', fontWeight: 600, margin: '0 0 4px', fontFamily: FONTS.body }}>
         {tr ? sp.nameTr : sp.nameEn}
         <span style={{ color: COLORS.slate500, fontWeight: 400, marginLeft: 8 }}>{tr ? sp.countTr : sp.countEn}</span>
@@ -391,15 +400,22 @@ function TabKategoriler({ data, tr, isMobile }) {
                 {tr ? activeSpecial.nameTr : activeSpecial.nameEn}
               </h2>
               <span style={{ background: `${activeSpecial.color}25`, color: activeSpecial.color, fontSize: '0.78rem', padding: '3px 12px', borderRadius: 20, fontFamily: FONTS.body }}>
-                {activeSpecial.count} {tr ? 'kullanım' : 'uses'}
+                {activeSpecial.count} {tr ? 'kullanım' : 'occurrences'}
               </span>
             </div>
-            <p
-              dir="rtl"
-              style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, marginBottom: 8 }}
-            >
-              {activeSpecial.arabicForm}
-            </p>
+            <div style={{ marginBottom: 12 }}>
+              <p
+                dir="rtl"
+                style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, margin: '0 0 4px' }}
+              >
+                {activeSpecial.arabicForm}
+              </p>
+              {(activeSpecial.meaningTr || activeSpecial.meaningEn) && (
+                <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver, fontStyle: 'italic', margin: 0, textAlign: 'right' }}>
+                  {tr ? activeSpecial.meaningTr : activeSpecial.meaningEn}
+                </p>
+              )}
+            </div>
             <p style={{ color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 20 }}>
               {tr ? activeSpecial.descTr : activeSpecial.descEn}
             </p>
@@ -409,12 +425,11 @@ function TabKategoriler({ data, tr, isMobile }) {
             </div>
             {/* 13 kullanım listesi */}
             <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>
-              {tr ? 'Tüm Kullanımlar (13)' : 'All Uses (13)'}
+              {tr ? `Tüm Kullanımlar (${activeSpecial.count})` : `All Occurrences (${activeSpecial.count})`}
             </h3>
             {activeSpecial.usages.map((u, i) => (
-              <div key={i} style={{ display: 'flex', gap: 16, padding: '10px 14px', marginBottom: 8, background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8, alignItems: 'flex-start', flexWrap: 'wrap' }}>
-                <span style={{ color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body, minWidth: 24, paddingTop: 2 }}>{i + 1}.</span>
-                <div style={{ flex: 1 }}>
+              <div key={i} style={{ padding: '10px 14px', marginBottom: 8, background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
+                <div>
                   <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: '0 0 4px' }}>
                     {u.conceptAr}
                   </p>
@@ -438,15 +453,25 @@ function TabKategoriler({ data, tr, isMobile }) {
               <h2 style={{ color: activeSpecial.color, fontFamily: FONTS.display, fontSize: '1.4rem', fontWeight: 700, margin: 0 }}>
                 {tr ? activeSpecial.nameTr : activeSpecial.nameEn}
               </h2>
+              <span style={{ background: `${activeSpecial.color}25`, color: activeSpecial.color, fontSize: '0.78rem', padding: '3px 12px', borderRadius: 20, fontFamily: FONTS.body }}>
+                {tr ? `5 yetide toplam ~${activeSpecial.count} kullanım` : `~${activeSpecial.count} occurrences across 5 faculties`}
+              </span>
             </div>
             <p style={{ color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 24 }}>
               {tr ? activeSpecial.descTr : activeSpecial.descEn}
             </p>
             {activeSpecial.faculties.map((f, i) => (
               <div key={i} style={{ padding: '14px 16px', marginBottom: 12, background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${activeSpecial.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
-                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 1.9, margin: '0 0 6px' }}>
-                  {f.arabicForm}
-                </p>
+                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, marginBottom: 6 }}>
+                  {(f.meaningTr || f.meaningEn) && (
+                    <p style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', margin: 0, lineHeight: 1.5, alignSelf: 'center', flex: 1 }}>
+                      {tr ? f.meaningTr : f.meaningEn}
+                    </p>
+                  )}
+                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 1.9, margin: 0 }}>
+                    {f.arabicForm}
+                  </p>
+                </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 8 }}>
                   <div>
                     <p style={{ color: activeSpecial.color, fontSize: '0.85rem', fontWeight: 600, margin: '0 0 3px', fontFamily: FONTS.body }}>
@@ -477,7 +502,7 @@ function TabKategoriler({ data, tr, isMobile }) {
                 {tr ? activeSpecial.nameTr : activeSpecial.nameEn}
               </h2>
               <span style={{ background: `${activeSpecial.color}25`, color: activeSpecial.color, fontSize: '0.78rem', padding: '3px 12px', borderRadius: 20, fontFamily: FONTS.body }}>
-                {activeSpecial.count} {tr ? 'örnek' : 'examples'}
+                {activeSpecial.count} {tr ? 'kullanım' : 'occurrences'}
               </span>
             </div>
             <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, marginBottom: 8 }}>
@@ -632,8 +657,8 @@ function TabSorular({ data, tr, isMobile }) {
     tevbih:  '#2ecc71',
     taaccub: '#c084fc',
   };
-  const TYPE_LABELS_TR = { erotema: 'Erotema', irsad: 'İrşad', tevbih: 'Tevbih', taaccub: 'Taaccüb' };
-  const TYPE_LABELS_EN = { erotema: 'Erotema', irsad: 'Guidance', tevbih: 'Reproach', taaccub: 'Wonder' };
+  const TYPE_LABELS_TR = { erotema: 'Retorik Soru', irsad: 'İrşad', tevbih: 'Tevbih', taaccub: 'Taaccüb' };
+  const TYPE_LABELS_EN = { erotema: 'Rhetorical Q.', irsad: 'Guidance', tevbih: 'Reproach', taaccub: 'Wonder' };
 
   const PATTERN_COLORS = { 've-ma-edrake': '#D85A30', 'efela-takılun': '#14b8a6', eleyse: '#8b5cf6' };
   const PATTERN_LABELS_TR = { 've-ma-edrake': 'Ve Mâ Edrâke', 'efela-takılun': "Efela Ta'kılûn", eleyse: 'Eleyse' };
@@ -761,13 +786,9 @@ function TabSorular({ data, tr, isMobile }) {
                 <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
                   {q.ar}
                 </p>
-                {/* Türkçe */}
-                <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
-                  {q.tr}
-                </p>
-                {/* İngilizce */}
-                <p style={{ color: `${COLORS.silver}80`, fontSize: '0.8rem', margin: '0 0 6px', fontFamily: FONTS.body, lineHeight: 1.5 }}>
-                  {q.en}
+                {/* Çeviri */}
+                <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 6px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
+                  {tr ? q.tr : q.en}
                 </p>
                 {/* Ref */}
                 <p style={{ color: `${COLORS.gold}60`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0 }}>— {q.ref}</p>
@@ -776,6 +797,26 @@ function TabSorular({ data, tr, isMobile }) {
           })}
         </div>
       )}
+
+      {/* Seçim kriteri footnote */}
+      <div style={{
+        marginTop: 32,
+        padding: '14px 18px',
+        background: 'rgba(255,255,255,0.02)',
+        border: '1px solid rgba(255,255,255,0.07)',
+        borderLeft: `3px solid ${COLORS.gold}40`,
+        borderRadius: 8,
+      }}>
+        <p style={{ color: `${COLORS.silver}80`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.7 }}>
+          <span style={{ color: COLORS.gold, fontWeight: 600 }}>
+            {tr ? 'Seçim kriteri:' : 'Selection criteria:'}
+          </span>
+          {tr
+            ? ' Bu 30 soru; dört retorik işlevi (retorik soru, irşad, tevbih, taaccüb), beş muhatap grubunu (tüm insanlık, müşrikler, ehli kitap, münafıklar, Hz. Peygamber) ve üç tekrar kalıbını (Ve Mâ Edrâke, Efela Ta\'kılûn, Eleyse) temsil edecek biçimde seçilmiştir. Her kategoriden en az iki örnek alınmış; kısa, ezberlenebilir ve Türkçe tefsirlerde en sık alıntılanan ayetler tercih edilmiştir.'
+            : ' These 30 questions were selected to represent four rhetorical functions (rhetorical question, guidance, reproach, wonder), five addressee groups (all humanity, polytheists, People of the Book, hypocrites, the Prophet), and three recurring patterns (Wa Ma Adraka, Afala Taʿqilun, Alaysa). At least two examples were drawn from each category; preference was given to short, memorable verses most frequently cited in classical and modern Turkish tafsir.'}
+        </p>
+      </div>
+
     </div>
   );
 }
@@ -786,92 +827,121 @@ function TabSureHaritasi({ data, tr, isMobile }) {
   return (
     <div style={{ padding: isMobile ? '16px' : '28px 32px' }}>
 
-      {/* ── BÖLÜM 1: HEATMAP ────────────────────────────── */}
-      <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.2rem' : '1.5rem', fontWeight: 700, margin: '0 0 6px' }}>
-        {tr ? 'Sûre Başına Soru Yoğunluğu' : 'Question Density by Surah'}
-      </h2>
-      <p style={{ color: `${COLORS.silver}80`, fontSize: '0.82rem', fontFamily: FONTS.body, marginBottom: 16, lineHeight: 1.5 }}>
-        {tr ? '114 sûre — altın ton yoğunluğu gösterir. Üzerine gel veya dokun.' : '114 surahs — gold intensity indicates density. Hover or tap for details.'}
-      </p>
+      {/* ── BÖLÜM 1: MUHATAP × TİP MATRİSİ ─────────────── */}
+      {(() => {
+        const TYPE_COLORS = { erotema: '#d4a574', irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#c084fc' };
+        const TYPE_LABELS_TR = { erotema: 'Retorik Soru', irsad: 'İrşad', tevbih: 'Tevbih', taaccub: 'Taaccüb' };
+        const TYPE_LABELS_EN = { erotema: 'Rhetorical Q.', irsad: 'Guidance', tevbih: 'Reproach', taaccub: 'Wonder' };
+        const ADDR_COLORS = { humanity: '#d4a574', mushrikeen: '#e74c3c', 'ehl-i-kitap': '#14b8a6', munafikun: '#64748b', prophet: '#a78bfa' };
+        const ADDR_LABELS_TR = { humanity: 'Tüm İnsanlık', mushrikeen: 'Müşrikler', 'ehl-i-kitap': 'Ehli Kitap', munafikun: 'Münafıklar', prophet: 'Hz. Peygamber' };
+        const ADDR_LABELS_EN = { humanity: 'All Humanity', mushrikeen: 'Polytheists', 'ehl-i-kitap': 'People of Book', munafikun: 'Hypocrites', prophet: 'The Prophet' };
+        const types = ['erotema', 'irsad', 'tevbih', 'taaccub'];
+        const addrs = ['humanity', 'mushrikeen', 'ehl-i-kitap', 'munafikun', 'prophet'];
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: 10 }}>
-        {data.surahDensity.map((d, i) => (
-          <div
-            key={i}
-            onMouseEnter={() => setHoveredSurah(i)}
-            onMouseLeave={() => setHoveredSurah(null)}
-            style={{
-              position: 'relative',
-              width: 24, height: 24,
-              borderRadius: 4,
-              background: d === 0 ? 'rgba(255,255,255,0.03)' : `rgba(212,165,116,${d * 0.18})`,
-              border: hoveredSurah === i ? '1px solid rgba(212,165,116,0.6)' : '1px solid rgba(255,255,255,0.05)',
-              cursor: 'default',
-              flexShrink: 0,
-              transition: 'border-color 0.1s',
-            }}
-          >
-            {hoveredSurah === i && (
-              <div style={{
-                position: 'absolute',
-                bottom: 'calc(100% + 6px)',
-                ...(i < 6
-                  ? { left: 0, transform: 'none' }
-                  : i > 107
-                  ? { right: 0, left: 'auto', transform: 'none' }
-                  : { left: '50%', transform: 'translateX(-50%)' }),
-                background: 'rgba(6,8,20,0.97)',
-                border: `1px solid rgba(212,165,116,0.3)`,
-                borderRadius: 8,
-                padding: '8px 12px',
-                whiteSpace: 'nowrap',
-                zIndex: 50,
-                pointerEvents: 'none',
-                minWidth: 180,
-              }}>
-                {/* Sure adı + numara */}
-                <p style={{ color: COLORS.offWhite, fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 600, margin: '0 0 3px' }}>
-                  {i + 1}. {SURAH_NAMES_TR[i]}
-                </p>
-                {/* Yoğunluk — top 5 için ~N soru, diğerleri için etiket */}
-                {(() => {
-                  const topSurah = data.topSurahs.find(s => s.number === i + 1);
-                  if (topSurah) return (
-                    <>
-                      <p style={{ color: `${COLORS.gold}90`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '0 0 4px' }}>
-                        ~{topSurah.estimatedCount} {tr ? 'soru' : 'questions'}
-                      </p>
-                      <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '0.85rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.8, margin: '2px 0 0' }}>
-                        {topSurah.iconicQuestionAr}
-                      </p>
-                    </>
-                  );
-                  return (
-                    <p style={{ color: `${COLORS.gold}90`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '0 0 4px' }}>
-                      {tr ? (DENSITY_LABEL_TR[d] || '—') : (DENSITY_LABEL_EN[d] || '—')}
-                    </p>
-                  );
-                })()}
-                {/* Arrow */}
-                <div style={{ position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)', width: 0, height: 0, borderLeft: '5px solid transparent', borderRight: '5px solid transparent', borderTop: '5px solid rgba(212,165,116,0.3)' }} />
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+        // Build matrix from questions
+        const matrix = {};
+        addrs.forEach(a => { matrix[a] = {}; types.forEach(t => { matrix[a][t] = 0; }); });
+        data.questions.forEach(q => {
+          if (matrix[q.addressee]) matrix[q.addressee][q.type] = (matrix[q.addressee][q.type] || 0) + 1;
+        });
 
-      {/* Legend */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 40 }}>
-        <span style={{ color: `${COLORS.silver}70`, fontSize: '0.7rem', fontFamily: FONTS.body, marginRight: 2 }}>
-          {tr ? 'Az' : 'Few'}
-        </span>
-        {[1, 2, 3, 4, 5].map(v => (
-          <div key={v} style={{ width: 18, height: 18, borderRadius: 3, background: `rgba(212,165,116,${v * 0.18})`, border: '1px solid rgba(255,255,255,0.05)', flexShrink: 0 }} />
-        ))}
-        <span style={{ color: `${COLORS.silver}70`, fontSize: '0.7rem', fontFamily: FONTS.body, marginLeft: 2 }}>
-          {tr ? 'Çok' : 'Many'}
-        </span>
-      </div>
+        return (
+          <>
+            <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.2rem' : '1.5rem', fontWeight: 700, margin: '0 0 6px' }}>
+              {tr ? 'Muhataba Göre Retorik Dağılım' : 'Rhetorical Style by Addressee'}
+            </h2>
+            <p style={{ color: `${COLORS.silver}80`, fontSize: '0.82rem', fontFamily: FONTS.body, marginBottom: 20, lineHeight: 1.5 }}>
+              {tr
+                ? 'Seçilen 30 sorunun muhatap × tip dağılımı — her grupta hangi soru biçimi öne çıkıyor?'
+                : 'Distribution of the 30 selected questions by addressee × type — which form dominates each group?'}
+            </p>
+
+            {/* Tür legend */}
+            <div style={{ display: 'flex', gap: 14, marginBottom: 16, flexWrap: 'wrap' }}>
+              {types.map(t => (
+                <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                  <div style={{ width: 10, height: 10, borderRadius: 2, background: TYPE_COLORS[t], flexShrink: 0 }} />
+                  <span style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: FONTS.body }}>
+                    {tr ? TYPE_LABELS_TR[t] : TYPE_LABELS_EN[t]}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Matrix rows */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16 }}>
+              {addrs.map(addr => {
+                const row = matrix[addr];
+                const total = types.reduce((s, t) => s + row[t], 0);
+                if (total === 0) return null;
+                return (
+                  <div key={addr} style={{ display: 'flex', alignItems: 'center', gap: isMobile ? 8 : 14 }}>
+                    {/* Muhatap etiketi */}
+                    <div style={{
+                      width: isMobile ? 80 : 130, flexShrink: 0,
+                      display: 'flex', alignItems: 'center', gap: 6,
+                    }}>
+                      <div style={{ width: 8, height: 8, borderRadius: '50%', background: ADDR_COLORS[addr], flexShrink: 0 }} />
+                      <span style={{ color: COLORS.silver, fontSize: isMobile ? '0.68rem' : '0.75rem', fontFamily: FONTS.body, lineHeight: 1.3 }}>
+                        {tr ? ADDR_LABELS_TR[addr] : ADDR_LABELS_EN[addr]}
+                      </span>
+                    </div>
+                    {/* Stacked bar */}
+                    <div style={{ flex: 1, display: 'flex', height: 22, borderRadius: 4, overflow: 'hidden', gap: 2 }}>
+                      {types.map(t => {
+                        const count = row[t];
+                        if (count === 0) return null;
+                        const pct = (count / total) * 100;
+                        return (
+                          <div
+                            key={t}
+                            title={`${tr ? TYPE_LABELS_TR[t] : TYPE_LABELS_EN[t]}: ${count}`}
+                            style={{
+                              width: `${pct}%`,
+                              background: TYPE_COLORS[t],
+                              opacity: 0.8,
+                              borderRadius: 3,
+                              display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              minWidth: count > 0 ? 18 : 0,
+                            }}
+                          >
+                            <span style={{ color: 'rgba(0,0,0,0.7)', fontSize: '0.65rem', fontWeight: 700, fontFamily: FONTS.body }}>
+                              {count}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    {/* Toplam */}
+                    <span style={{ color: `${COLORS.silver}60`, fontSize: '0.7rem', fontFamily: FONTS.body, flexShrink: 0, width: 28, textAlign: 'right' }}>
+                      {total}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Hz. Peygamber notu */}
+            <div style={{
+              marginBottom: 40,
+              padding: '10px 14px',
+              background: 'rgba(167,139,250,0.06)',
+              borderLeft: '3px solid rgba(167,139,250,0.4)',
+              borderRadius: '0 6px 6px 0',
+            }}>
+              <p style={{ color: `${COLORS.silver}90`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.7 }}>
+                <span style={{ color: '#a78bfa', fontWeight: 600 }}>
+                  {tr ? 'Hz. Peygamber\'e yönelen sorular:' : 'Questions to the Prophet:'}
+                </span>
+                {tr
+                  ? ' Retorik soru formunu taşısalar da işlevleri farklıdır — inkârcıyı sorgulatmak için değil, Peygamber\'i teselli etmek ve aşırı üzüntüden alıkoymak için gelmiştir. Klasik tefsirde bunlara "istifhâm-ı takrirî" (tescil sorusu) denir: cevabı zaten bilinen, hatırlatmak için sorulan soru.'
+                  : ' Though they take a rhetorical question form, their function is distinct — not to challenge a denier, but to console the Prophet and restrain his excessive grief. Classical tafsir calls these "istifhām taqrīrī" (confirmatory questions): asked not for information but to remind of what is already known.'}
+              </p>
+            </div>
+
+          </>
+        );
+      })()}
 
       {/* ── BÖLÜM 2: EN YOĞUN 5 SURE ───────────────────── */}
       <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>
