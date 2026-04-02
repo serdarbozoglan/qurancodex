@@ -78,8 +78,7 @@ const FILTERS_CONFIG = [
   { id: 'hapax',   labelTr: 'Hapax',    labelEn: 'Hapax' },
 ];
 
-function ColorCard({ renk, language, isMobile }) {
-  const [expanded, setExpanded] = useState(false);
+function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
   const tr = language === 'tr';
   const hasHapax = renk.arabicTerms.some(t => t.isHapax);
   const primaryTerm = renk.arabicTerms[0];
@@ -89,8 +88,8 @@ function ColorCard({ renk, language, isMobile }) {
       role="button"
       tabIndex={0}
       aria-expanded={expanded}
-      onClick={() => setExpanded(v => !v)}
-      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpanded(v => !v); } }}
+      onClick={onToggle}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
       style={{ background: renk.tintBg, border: `1px solid ${renk.tintBorder}`, borderRadius: '10px', overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.15s', userSelect: 'none' }}
       onMouseEnter={e => { if (!isMobile) e.currentTarget.style.transform = 'translateY(-2px)'; }}
       onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
@@ -219,6 +218,7 @@ function ColorCard({ renk, language, isMobile }) {
 
 function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, expandedVerse, setExpandedVerse }) {
   const tr = language === 'tr';
+  const [expandedCard, setExpandedCard] = useState(null);
   if (!data) return <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>{tr ? 'Yükleniyor…' : 'Loading…'}</p>;
 
   const filtered = data.renkler.filter(r => {
@@ -245,7 +245,14 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
       {/* Card grid */}
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '12px', marginBottom: '32px' }}>
         {filtered.map(renk => (
-          <ColorCard key={renk.id} renk={renk} language={language} isMobile={isMobile} />
+          <ColorCard
+            key={renk.id}
+            renk={renk}
+            language={language}
+            isMobile={isMobile}
+            expanded={expandedCard === renk.id}
+            onToggle={() => setExpandedCard(expandedCard === renk.id ? null : renk.id)}
+          />
         ))}
       </div>
 
