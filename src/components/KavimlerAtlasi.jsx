@@ -6,13 +6,16 @@ const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'KARŞILAŞTIR', 'K
 const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'COMPARE', 'SOURCES'];
 
 const HELAK_COLORS = {
-  ruzgar:   '#d4a574',
+  ruzgar:   '#94a3b8',
   su:       '#3498db',
   ses:      '#a78bfa',
-  tas:      '#e74c3c',
+  sarsinti: '#f39c12',
+  tas:      '#a0785a',
   batirma:  '#c0392b',
-  deniz:    '#1abc9c',
+  deniz:    '#1a5276',
   golge:    '#b8860b',
+  ates:     '#ff6348',
+  mesh:     '#8e44ad',
   kurtulan: '#2ecc71',
   gizemli:  '#64748b',
 };
@@ -883,46 +886,54 @@ const OBJECTION_EN = [
   { text: '"You are a sorcerer / madman"', refs: 'Adh-Dhariyat 51:52, Al-Hijr 15:6' },
 ];
 
+// Sorted by mention count descending
 const TABLE_DATA = [
-  { nameTr: 'Hz. İbrahim kavmi', nameEn: "People of Abraham", prophetTr: 'Hz. İbrahim', prophetEn: 'Abraham', count: 69, helakTr: 'Ateş (peygamber kurtuldu)', helakEn: 'Fire (prophet saved)', type: 'kurtulan' },
-  { nameTr: 'Firavun kavmi', nameEn: "People of Pharaoh", prophetTr: 'Hz. Musa', prophetEn: 'Moses', count: 70, helakTr: 'Deniz', helakEn: 'Sea', type: 'deniz' },
-  { nameTr: 'Nuh Kavmi', nameEn: "People of Noah", prophetTr: 'Hz. Nuh', prophetEn: 'Noah', count: 43, helakTr: 'Tufan', helakEn: 'Flood', type: 'su' },
-  { nameTr: 'Lût Kavmi', nameEn: "People of Lot", prophetTr: 'Hz. Lût', prophetEn: 'Lot', count: 27, helakTr: 'Alt-üst + taş', helakEn: 'Overturned + stones', type: 'tas' },
-  { nameTr: 'Semûd', nameEn: 'Thamud', prophetTr: 'Hz. Salih', prophetEn: 'Salih', count: 26, helakTr: 'Ses', helakEn: 'Sound', type: 'ses' },
-  { nameTr: 'Âd', nameEn: "ʿAd", prophetTr: 'Hz. Hud', prophetEn: 'Hud', count: 24, helakTr: 'Rüzgar', helakEn: 'Wind', type: 'ruzgar' },
-  { nameTr: 'Medyen', nameEn: 'Midian', prophetTr: 'Hz. Şuayb', prophetEn: "Shu'ayb", count: 10, helakTr: 'Sarsıntı', helakEn: 'Earthquake', type: 'ses' },
-  { nameTr: 'Yunus Kavmi', nameEn: "People of Jonah", prophetTr: 'Hz. Yunus', prophetEn: 'Jonah', count: 6, helakTr: 'YOK (kurtuldu)', helakEn: 'NONE (saved)', type: 'kurtulan' },
-  { nameTr: 'Eyke Halkı', nameEn: 'Companions of the Grove', prophetTr: 'Hz. Şuayb', prophetEn: "Shu'ayb", count: 4, helakTr: 'Gölge azabı', helakEn: 'Shade punishment', type: 'golge' },
-  { nameTr: 'Karun', nameEn: 'Qarun', prophetTr: 'Hz. Musa dönemi', prophetEn: "Moses' era", count: 4, helakTr: 'Yere battı', helakEn: 'Swallowed by earth', type: 'batirma' },
-  { nameTr: 'Ashab-ı Ress', nameEn: 'Companions of the Well', prophetTr: '?', prophetEn: '?', count: 2, helakTr: 'Bilinmiyor', helakEn: 'Unknown', type: 'gizemli' },
-  { nameTr: 'Tübba Kavmi', nameEn: "People of Tubba'", prophetTr: '?', prophetEn: '?', count: 2, helakTr: 'İma edilir', helakEn: 'Implied', type: 'gizemli' },
+  { nameTr: 'Firavun kavmi',    nameEn: "People of Pharaoh",         prophetTr: 'Hz. Musa',       prophetEn: 'Moses',         count: 70, helakTr: 'Deniz',           helakEn: 'Sea',                  type: 'deniz' },
+  { nameTr: 'Hz. İbrahim kavmi',nameEn: "People of Abraham",         prophetTr: 'Hz. İbrahim',    prophetEn: 'Abraham',       count: 69, helakTr: 'Kurtuldu',        helakEn: 'Saved',                type: 'kurtulan' },
+  { nameTr: 'Nuh Kavmi',        nameEn: "People of Noah",            prophetTr: 'Hz. Nuh',        prophetEn: 'Noah',          count: 43, helakTr: 'Tufan',           helakEn: 'Flood',                type: 'su' },
+  { nameTr: 'Lût Kavmi',        nameEn: "People of Lot",             prophetTr: 'Hz. Lût',        prophetEn: 'Lot',           count: 27, helakTr: 'Alt-üst + taş',   helakEn: 'Overturned + stones',  type: 'tas' },
+  { nameTr: 'Semûd',            nameEn: 'Thamud',                    prophetTr: 'Hz. Salih',      prophetEn: 'Salih',         count: 26, helakTr: 'Ses (saika)',      helakEn: 'Sound (saika)',        type: 'ses' },
+  { nameTr: 'Âd',               nameEn: "ʿAd",                       prophetTr: 'Hz. Hud',        prophetEn: 'Hud',           count: 24, helakTr: 'Rüzgar',          helakEn: 'Wind',                 type: 'ruzgar' },
+  { nameTr: 'Sebe Kavmi',       nameEn: "People of Sheba",           prophetTr: '—',              prophetEn: '—',             count: 20, helakTr: 'Arim seli',       helakEn: 'Flood of Arim',        type: 'su' },
+  { nameTr: 'Medyen',           nameEn: 'Midian',                    prophetTr: 'Hz. Şuayb',     prophetEn: "Shu'ayb",       count: 10, helakTr: 'Sarsıntı (rajfa)',helakEn: 'Earthquake (rajfa)',   type: 'sarsinti' },
+  { nameTr: 'Yunus Kavmi',      nameEn: "People of Jonah",           prophetTr: 'Hz. Yunus',      prophetEn: 'Jonah',         count: 6,  helakTr: 'Kurtuldu',        helakEn: 'Saved',                type: 'kurtulan' },
+  { nameTr: 'Ashâb-ı Sebt',     nameEn: "People of the Sabbath",     prophetTr: 'Musa sonrası',   prophetEn: 'Post-Moses',    count: 5,  helakTr: 'Mesh',            helakEn: 'Metamorphosis',        type: 'mesh' },
+  { nameTr: 'Eyke Halkı',       nameEn: 'Companions of the Grove',   prophetTr: 'Hz. Şuayb',     prophetEn: "Shu'ayb",       count: 4,  helakTr: 'Gölge azabı',     helakEn: 'Shade punishment',     type: 'golge' },
+  { nameTr: 'Karun',            nameEn: 'Qarun',                     prophetTr: 'Hz. Musa dönemi',prophetEn: "Moses' era",    count: 4,  helakTr: 'Yere battı',      helakEn: 'Swallowed by earth',   type: 'batirma' },
+  { nameTr: 'Ashâb-ı Uhdud',    nameEn: 'Companions of the Pit',     prophetTr: '?',              prophetEn: '?',             count: 3,  helakTr: 'Ateş çukuru',     helakEn: 'Fire pit',             type: 'ates' },
+  { nameTr: 'Ashâb-ı Ress',     nameEn: 'Companions of the Well',    prophetTr: '?',              prophetEn: '?',             count: 2,  helakTr: 'Belirtilmemiş',   helakEn: 'Unknown',              type: 'gizemli' },
+  { nameTr: "Tübba Kavmi",      nameEn: "People of Tubba'",          prophetTr: '?',              prophetEn: '?',             count: 2,  helakTr: 'İma edilir',      helakEn: 'Implied',              type: 'gizemli' },
 ];
 
-const BAR_DATA_TR = [
-  { label: 'Su / Tufan', count: 2, type: 'su' },
-  { label: 'Ses / Sarsıntı', count: 2, type: 'ses' },
-  { label: 'Rüzgar', count: 1, type: 'ruzgar' },
-  { label: 'Taş / Fiziksel', count: 1, type: 'tas' },
-  { label: 'Deniz (Boğulma)', count: 1, type: 'deniz' },
-  { label: 'Gölge Azabı', count: 1, type: 'golge' },
-  { label: 'Yere Batırma', count: 1, type: 'batirma' },
-  { label: 'Kurtulan', count: 2, type: 'kurtulan' },
+// Bubble chart: one entry per helak type, nations listed as dots
+const HELAK_TYPES_TR = [
+  { type: 'su',       label: 'Su / Tufan',            color: '#3498db', nations: ['Nuh Kavmi', 'Sebe Kavmi'] },
+  { type: 'deniz',    label: 'Deniz (Boğulma)',        color: '#1a5276', nations: ['Firavun Kavmi'] },
+  { type: 'ses',      label: 'Ses — Saika/Sayha',      color: '#a78bfa', nations: ['Semûd'] },
+  { type: 'sarsinti', label: 'Sarsıntı — Rajfa',       color: '#f39c12', nations: ['Medyen'] },
+  { type: 'ruzgar',   label: 'Rüzgar',                 color: '#94a3b8', nations: ['Âd'] },
+  { type: 'tas',      label: 'Taş / Alt-Üst',          color: '#a0785a', nations: ['Lût Kavmi'] },
+  { type: 'golge',    label: 'Gölge Azabı',            color: '#b8860b', nations: ['Eyke Halkı'] },
+  { type: 'batirma',  label: 'Yere Batırma',           color: '#c0392b', nations: ['Karun'] },
+  { type: 'ates',     label: 'Ateş Çukuru',            color: '#ff6348', nations: ['Ashâb-ı Uhdud'] },
+  { type: 'mesh',     label: 'Mesh (Dönüşüm)',         color: '#8e44ad', nations: ['Ashâb-ı Sebt'] },
 ];
-const BAR_DATA_EN = [
-  { label: 'Water / Flood', count: 2, type: 'su' },
-  { label: 'Sound / Earthquake', count: 2, type: 'ses' },
-  { label: 'Wind', count: 1, type: 'ruzgar' },
-  { label: 'Stones / Physical', count: 1, type: 'tas' },
-  { label: 'Sea (Drowning)', count: 1, type: 'deniz' },
-  { label: 'Shade Punishment', count: 1, type: 'golge' },
-  { label: 'Swallowed by Earth', count: 1, type: 'batirma' },
-  { label: 'Saved', count: 2, type: 'kurtulan' },
+const HELAK_TYPES_EN = [
+  { type: 'su',       label: 'Water / Flood',          color: '#3498db', nations: ["People of Noah", "People of Sheba"] },
+  { type: 'deniz',    label: 'Sea (Drowning)',          color: '#1a5276', nations: ["People of Pharaoh"] },
+  { type: 'ses',      label: 'Sound — Saika/Sayha',     color: '#a78bfa', nations: ["Thamud"] },
+  { type: 'sarsinti', label: 'Earthquake — Rajfa',      color: '#f39c12', nations: ["Midian"] },
+  { type: 'ruzgar',   label: 'Wind',                    color: '#94a3b8', nations: ["ʿAd"] },
+  { type: 'tas',      label: 'Stones / Overturned',     color: '#a0785a', nations: ["People of Lot"] },
+  { type: 'golge',    label: 'Shade Punishment',        color: '#b8860b', nations: ["Companions of the Grove"] },
+  { type: 'batirma',  label: 'Swallowed by Earth',      color: '#c0392b', nations: ["Qarun"] },
+  { type: 'ates',     label: 'Fire Pit',                color: '#ff6348', nations: ["Companions of the Pit"] },
+  { type: 'mesh',     label: 'Metamorphosis',           color: '#8e44ad', nations: ["People of the Sabbath"] },
 ];
 
 function TabKarsilastirma({ nations, language, isMobile }) {
-  const barData = language === 'tr' ? BAR_DATA_TR : BAR_DATA_EN;
+  const helakTypes = language === 'tr' ? HELAK_TYPES_TR : HELAK_TYPES_EN;
   const objections = language === 'tr' ? OBJECTION_TR : OBJECTION_EN;
-  const maxBar = Math.max(...barData.map(b => b.count));
 
   return (
     <div>
@@ -930,70 +941,127 @@ function TabKarsilastirma({ nations, language, isMobile }) {
         {language === 'tr' ? 'Kavimler Karşılaştırması' : 'Nations Comparison'}
       </h3>
 
-      {/* Bar chart: Helak types */}
+      {/* Bubble chart: Helak types */}
       <div style={{
         background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-        borderRadius: '12px', padding: isMobile ? '16px' : '20px 24px', marginBottom: '28px',
+        borderRadius: '12px', padding: isMobile ? '16px' : '20px 24px', marginBottom: '20px',
       }}>
-        <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '16px' }}>
+        <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '4px' }}>
           {language === 'tr' ? 'Helak Biçimleri' : 'Types of Destruction'}
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          {barData.map((b, i) => {
-            const color = HELAK_COLORS[b.type] || COLORS.silver;
-            return (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ width: isMobile ? '110px' : '150px', color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, flexShrink: 0, textAlign: 'right' }}>
-                  {b.label}
-                </span>
-                <div style={{ flex: 1, height: '18px', background: COLORS.glassBg, borderRadius: '4px', overflow: 'hidden' }}>
-                  <div style={{
-                    width: `${(b.count / maxBar) * 100}%`,
-                    height: '100%',
-                    background: `linear-gradient(90deg, ${color}cc, ${color}66)`,
-                    borderRadius: '4px',
-                    display: 'flex', alignItems: 'center', paddingLeft: '6px',
-                    minWidth: b.count > 0 ? '24px' : 0,
-                  }}>
-                    <span style={{ color: 'rgba(10,10,26,0.9)', fontSize: '0.7rem', fontWeight: 700, fontFamily: FONTS.body }}>
-                      {b.count}
+        <p style={{ color: COLORS.slate500, fontSize: '0.73rem', fontFamily: FONTS.body, margin: '0 0 18px', lineHeight: 1.5 }}>
+          {language === 'tr'
+            ? 'Her daire bir kavmi temsil eder. Renk, helak biçimini gösterir.'
+            : 'Each circle represents one nation. Color indicates the type of destruction.'}
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          {helakTypes.map((ht, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              {/* Label */}
+              <span style={{
+                width: isMobile ? '108px' : '148px', flexShrink: 0,
+                color: COLORS.silver, fontSize: '0.77rem', fontFamily: FONTS.body,
+                textAlign: 'right', lineHeight: 1.3,
+              }}>
+                {ht.label}
+              </span>
+              {/* Dots */}
+              <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+                {ht.nations.map((nation, j) => (
+                  <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{
+                      width: '22px', height: '22px', borderRadius: '50%',
+                      background: `${ht.color}25`,
+                      border: `2px solid ${ht.color}`,
+                      flexShrink: 0,
+                    }} />
+                    <span style={{ color: ht.color, fontSize: '0.76rem', fontFamily: FONTS.body, fontWeight: 500 }}>
+                      {nation}
                     </span>
                   </div>
-                </div>
-                <span style={{ width: '20px', color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, textAlign: 'right' }}>
-                  {b.count}
-                </span>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Saved / Mystery nations callout */}
+      <div style={{
+        display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+        gap: '12px', marginBottom: '24px',
+      }}>
+        <div style={{
+          background: `${HELAK_COLORS.kurtulan}10`, border: `1px solid ${HELAK_COLORS.kurtulan}30`,
+          borderRadius: '10px', padding: '14px 16px',
+        }}>
+          <div style={{ color: HELAK_COLORS.kurtulan, fontSize: '0.78rem', fontWeight: 700, fontFamily: FONTS.body, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+            {language === 'tr' ? 'Kurtuldu' : 'Saved'}
+          </div>
+          {[
+            { tr: 'Hz. İbrahim kavmi', en: "People of Abraham", noteTr: 'Peygamber kurtuldu, azap başkalarına', noteEn: 'Prophet saved, punishment on others' },
+            { tr: 'Yunus Kavmi', en: "People of Jonah", noteTr: 'Tüm toplum tövbe edip kurtuldu', noteEn: 'Entire community repented and was saved' },
+          ].map((n, i) => (
+            <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', marginBottom: i === 0 ? '6px' : 0 }}>
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: HELAK_COLORS.kurtulan, flexShrink: 0, marginTop: '4px' }} />
+              <div>
+                <span style={{ color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body }}>{language === 'tr' ? n.tr : n.en}</span>
+                <span style={{ color: COLORS.slate500, fontSize: '0.71rem', fontFamily: FONTS.body, display: 'block', lineHeight: 1.4 }}>{language === 'tr' ? n.noteTr : n.noteEn}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{
+          background: `${HELAK_COLORS.gizemli}10`, border: `1px solid ${HELAK_COLORS.gizemli}30`,
+          borderRadius: '10px', padding: '14px 16px',
+        }}>
+          <div style={{ color: HELAK_COLORS.gizemli, fontSize: '0.78rem', fontWeight: 700, fontFamily: FONTS.body, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+            {language === 'tr' ? 'Gizemli / Bilgi Kısıtlı' : 'Mysterious / Limited Info'}
+          </div>
+          {[
+            { tr: 'Ashab-ı Ress', en: 'Companions of the Well', noteTr: 'Peygamberleri bilinmiyor', noteEn: 'Prophet unknown' },
+            { tr: "Tübba Kavmi", en: "People of Tubba'", noteTr: 'Helak ima edilir, detay yok', noteEn: 'Destruction implied, no detail' },
+          ].map((n, i) => (
+            <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', marginBottom: i === 0 ? '6px' : 0 }}>
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: HELAK_COLORS.gizemli, flexShrink: 0, marginTop: '4px' }} />
+              <div>
+                <span style={{ color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body }}>{language === 'tr' ? n.tr : n.en}</span>
+                <span style={{ color: COLORS.slate500, fontSize: '0.71rem', fontFamily: FONTS.body, display: 'block', lineHeight: 1.4 }}>{language === 'tr' ? n.noteTr : n.noteEn}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Frequency table */}
       <div style={{
         background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-        borderRadius: '12px', padding: isMobile ? '14px' : '20px 24px', marginBottom: '28px',
+        borderRadius: '12px', padding: isMobile ? '14px' : '20px 24px', marginBottom: '24px',
         overflowX: 'auto',
       }}>
-        <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '14px' }}>
+        <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '4px' }}>
           {language === 'tr' ? 'Kavim Frekans Tablosu' : 'Nation Frequency Table'}
         </div>
-        <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: isMobile ? '400px' : 'auto' }}>
+        <p style={{ color: COLORS.slate500, fontSize: '0.73rem', fontFamily: FONTS.body, margin: '0 0 14px', lineHeight: 1.5 }}>
+          {language === 'tr' ? 'Kur\'an\'daki anlatı yoğunluğuna göre azalan sırayla.' : 'Sorted descending by narrative frequency in the Quran.'}
+        </p>
+        <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: isMobile ? '360px' : 'auto' }}>
           <thead>
             <tr>
               {[
-                language === 'tr' ? 'Kavim' : 'Nation',
-                language === 'tr' ? 'Peygamber' : 'Prophet',
-                language === 'tr' ? 'Geçiş' : 'Refs',
-                language === 'tr' ? 'Helak' : 'Fate',
+                { label: language === 'tr' ? 'Kavim' : 'Nation', align: 'left' },
+                { label: language === 'tr' ? 'Peygamber' : 'Prophet', align: 'left' },
+                { label: language === 'tr' ? 'Geçiş ▼' : 'Refs ▼', align: 'center' },
+                { label: language === 'tr' ? 'Akıbet' : 'Fate', align: 'left' },
               ].map((h, i) => (
                 <th key={i} style={{
-                  color: COLORS.slate500, fontSize: '0.7rem', fontFamily: FONTS.body,
+                  color: COLORS.slate500, fontSize: '0.68rem', fontFamily: FONTS.body,
                   fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
-                  padding: '6px 8px', textAlign: i === 2 ? 'center' : 'left',
+                  padding: '6px 8px', textAlign: h.align,
                   borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
                 }}>
-                  {h}
+                  {h.label}
                 </th>
               ))}
             </tr>
@@ -1001,22 +1069,23 @@ function TabKarsilastirma({ nations, language, isMobile }) {
           <tbody>
             {TABLE_DATA.map((row, i) => {
               const color = HELAK_COLORS[row.type] || COLORS.silver;
+              const isTop = i < 3;
               return (
-                <tr key={i}>
-                  <td style={{ padding: '8px 8px', borderBottom: `1px solid ${COLORS.glassBorderSoft}`, color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body }}>
+                <tr key={i} style={{ background: isTop ? `${COLORS.gold}04` : 'transparent' }}>
+                  <td style={{ padding: '7px 8px', borderBottom: `1px solid ${COLORS.glassBorderSoft}`, color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body, fontWeight: isTop ? 600 : 400 }}>
                     {language === 'tr' ? row.nameTr : row.nameEn}
                   </td>
-                  <td style={{ padding: '8px 8px', borderBottom: `1px solid ${COLORS.glassBorderSoft}`, color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body }}>
+                  <td style={{ padding: '7px 8px', borderBottom: `1px solid ${COLORS.glassBorderSoft}`, color: COLORS.silver, fontSize: '0.76rem', fontFamily: FONTS.body }}>
                     {language === 'tr' ? row.prophetTr : row.prophetEn}
                   </td>
-                  <td style={{ padding: '8px 8px', borderBottom: `1px solid ${COLORS.glassBorderSoft}`, color: COLORS.gold, fontSize: '0.8rem', fontFamily: FONTS.body, textAlign: 'center', fontWeight: 600 }}>
+                  <td style={{ padding: '7px 8px', borderBottom: `1px solid ${COLORS.glassBorderSoft}`, color: COLORS.gold, fontSize: '0.82rem', fontFamily: FONTS.body, textAlign: 'center', fontWeight: 700 }}>
                     {row.count}
                   </td>
-                  <td style={{ padding: '8px 8px', borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
+                  <td style={{ padding: '7px 8px', borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
                     <span style={{
-                      background: `${color}15`, border: `1px solid ${color}30`,
-                      color: color, fontSize: '0.68rem', padding: '1px 7px',
-                      borderRadius: '8px', fontFamily: FONTS.body,
+                      background: `${color}15`, border: `1px solid ${color}35`,
+                      color: color, fontSize: '0.67rem', padding: '2px 8px',
+                      borderRadius: '8px', fontFamily: FONTS.body, whiteSpace: 'nowrap',
                     }}>
                       {language === 'tr' ? row.helakTr : row.helakEn}
                     </span>
@@ -1026,10 +1095,10 @@ function TabKarsilastirma({ nations, language, isMobile }) {
             })}
           </tbody>
         </table>
-        <p style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '10px 0 0', lineHeight: 1.5 }}>
+        <p style={{ color: COLORS.slate500, fontSize: '0.71rem', fontFamily: FONTS.body, margin: '10px 0 0', lineHeight: 1.5 }}>
           {language === 'tr'
-            ? '* Hz. İbrahim sayısı peygamber adı geçiş sayısını yansıtır. Firavun sayısı (~70) kavme özel anlatı ayetlerini ifade eder — bu nedenle iki farklı ölçüm birbiriyle doğrudan karşılaştırılamaz.'
-            : '* The Abraham figure reflects name occurrences of the prophet. The Pharaoh figure (~70) refers to narrative verses specifically about his people — the two metrics are not directly comparable.'}
+            ? '* Hz. İbrahim sayısı peygamber adı geçiş sayısını yansıtır. Firavun sayısı (~70) kavme özel anlatı ayetlerini ifade eder — iki farklı ölçüm, doğrudan karşılaştırılamaz.'
+            : '* The Abraham figure reflects name occurrences of the prophet. The Pharaoh figure (~70) refers to narrative verses specifically about his people — two different metrics, not directly comparable.'}
         </p>
       </div>
 

@@ -16,6 +16,8 @@ const TIMELINE_DATA = [
     ref: 'Kadr 97:3',
     noteTr: 'Bir gecelik ibadet 83 yıllık ibadetten değerli — zamanın kalitesi miktarından üstün.',
     noteEn: 'One night of worship outweighs 83 years — quality of time exceeds quantity.',
+    expandTr: "İmam Gazali: 'Hayır miktarla değil, derinlikle ölçülür.' Bu gece zamanın niceliksel değil niteliksel aktığını gösterir — anlam yoğunluğu, saat sayısından bağımsız. (ℹ️ Tefsir görüşü)",
+    expandEn: "Imam Al-Ghazali: 'Good is measured by depth, not quantity.' This night shows time can flow qualitatively — density of meaning, independent of clock hours. (ℹ️ Exegetical view)",
     logValue: 0,
     color: '#c9a227',
   },
@@ -31,6 +33,8 @@ const TIMELINE_DATA = [
     ref: "A'raf 7:142",
     noteTr: '30+10 gece ayrı ayrı zikredilir — sayının sembolik katmanları var.',
     noteEn: '30+10 nights mentioned separately — symbolic layers in the number.',
+    expandTr: "En yaygın yorum: 30 gece Zilkade ayına, 10 gece Zilhicce'nin ilk günlerine denk geliyor — İslam'da en faziletli dönem, Arefe günü de bu aralıkta. Ayrım takvimsel bir anlam taşıyor. (ℹ️ Tefsir görüşü, kesin değil)",
+    expandEn: "Most common view: 30 nights correspond to Dhul-Qa'dah, 10 nights to the first days of Dhul-Hijjah — the most sacred period in the Islamic calendar, including the Day of Arafah. The split carries a calendrical meaning. (ℹ️ Exegetical view, not definitive)",
     logValue: 1.6,
     color: '#d4a574',
   },
@@ -46,6 +50,8 @@ const TIMELINE_DATA = [
     ref: 'Kehf 18:25',
     noteTr: "Modern astronomide 300 güneş yılı = 309.017 kamer yılı. Kur'an her ikisini de doğru verir.",
     noteEn: 'Modern astronomy: 300 solar years = 309.017 lunar years. The Quran gives both.',
+    expandTr: "Kur'an iki rakamı ayrı ayrı vererek iki topluluğun iki farklı takvimle yaptığı hesabın ikisini de doğruluyor: Hristiyanlar Güneş takvimiyle 300, Müslümanlar Kamer takvimiyle 309 yıl hesaplıyor. Julian takvimine göre dönüşüm: 1 güneş yılı = 365.25 gün, 1 kamer yılı = 354.37 gün → 300 × 365.25 ÷ 354.37 = 309.017. (ℹ️ Gözlemsel örtüşme; yorumun bağlayıcılığı tartışmalıdır)",
+    expandEn: "By giving both numbers, the Quran validates calculations from two communities using different calendars: Christians count 300 solar years, Muslims count 309 lunar years. Julian conversion: 1 solar year = 365.25 days, 1 lunar year = 354.37 days → 300 × 365.25 ÷ 354.37 = 309.017. (ℹ️ Observational overlap; interpretive weight is debated)",
     disclaimer: true,
     disclaimerTr: "Bu tespit gözlemsel bir örtüşmedir; Kur'an'ın bilimsel iddiası değildir.",
     disclaimerEn: 'This is an observational overlap; not a scientific claim of the Quran.',
@@ -62,8 +68,10 @@ const TIMELINE_DATA = [
     mealTr: 'Yeri iki günde yarattı.',
     mealEn: 'He created the earth in two days.',
     ref: 'Fussilet 41:9-12',
-    noteTr: '"Yevm" burada kozmolojik evre anlamında. 4 günlük süre ilk 2 günü kapsar, toplam 6 evre.',
-    noteEn: '"Yevm" means cosmic phase, not day. The 4-day period includes the first 2, totaling 6 phases.',
+    noteTr: '"Yevm" burada kozmolojik evre anlamında. Toplam 6 evre: yer (2) + ek hazırlık (2) + gökler (2).',
+    noteEn: '"Yevm" means cosmic phase. Total 6 phases: earth (2) + provisions (2 more) + heavens (2).',
+    expandTr: "Fussilet 41:9-12 üç aşama sayar: yer 2 günde, dağlar ve rızık 4 günde, gökler 2 günde. Toplam 2+4+2=8 gibi görünür ama değil — 'dört günde' ifadesi kümülatif (yani ilk 2 günü de içine alıyor): yer için 2 gün + 2 gün daha = 4 gün toplamda. Ardından gökler için 2 gün. 4+2=6. Bu yorum müfessirlerin büyük çoğunluğuna aittir; metnin doğal okunuşuyla da örtüşür. (ℹ️ Tefsir notu — kesin değil)",
+    expandEn: "Fussilat 41:9-12 counts three stages: earth in 2 days, mountains and provisions in 4 days, heavens in 2 days. This seems like 2+4+2=8, but the '4 days' is cumulative — it includes the first 2 days: 2 days for earth + 2 more = 4 total. Then 2 more for the heavens: 4+2=6. This reading is held by the majority of classical commentators and fits the natural Arabic syntax. (ℹ️ Exegetical note — not definitive)",
     disclaimer: true,
     disclaimerTr: 'Tefsir notu — kesin yorum değil.',
     disclaimerEn: 'Exegetical note — not a definitive interpretation.',
@@ -82,21 +90,25 @@ const TIMELINE_DATA = [
     ref: 'Hac 22:47 / Secde 32:5',
     noteTr: 'İki ayrı ayette geçer. Meleklerin yükselişiyle ilgili — insan ölçeğinin ötesinde.',
     noteEn: 'Appears in two separate verses. Related to the ascent of angels — beyond human scale.',
+    expandTr: "Hac 22:47 ve Secde 32:5'te geçer. Secde'deki bağlam: Allah'ın emirleri gökten yere iner, melekler bir günde yükselir — bu süre 1.000 insan yılına eşdeğer. İbn Kesir: Allah zamanla bağlı değildir; bu ifade insanın zaman algısının sınırlılığını gösterir. Modern yorumcular Einstein'ın görelilik teorisiyle felsefi bağlantı kurar — ama bu yorum değil, analoji. (ℹ️ Tefsir görüşü)",
+    expandEn: "Appears in Hac 22:47 and Sajdah 32:5. In Sajdah's context: God's decrees descend from heaven to earth; angels ascend in a day equivalent to 1,000 human years. Ibn Kathir: God is not bound by time — this expression shows the limits of human temporal perception. Modern commentators draw philosophical parallels to Einstein's relativity — but this is analogy, not interpretation. (ℹ️ Exegetical view)",
     logValue: 3,
     color: '#d4a574',
   },
   {
     id: 'elli',
-    labelTr: 'Kıyamet Günü',
-    labelEn: 'Day of Judgment',
-    valueTr: 'Meleklerin yükseliş günü = 50.000 insan yılı',
-    valueEn: 'Day of angelic ascent = 50,000 human years',
+    labelTr: 'Meleklerin Yükseliş Günü',
+    labelEn: 'Day of Angelic Ascent',
+    valueTr: 'Melekler ve Ruh Allah\'a yükselir — bu günün ölçüsü 50.000 yıl',
+    valueEn: 'Angels and the Spirit ascend to God — this day measures 50,000 years',
     arabic: 'فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ',
     mealTr: 'Süresi elli bin yıl olan bir günde.',
     mealEn: 'On a day whose measure is fifty thousand years.',
     ref: 'Meâric 70:4',
-    noteTr: 'En uzun zaman ifadesi. İki farklı "gün" iki bağlamda — tutarsızlık değil, çokluk.',
-    noteEn: 'Longest time expression. Two different "days" in two contexts — not contradiction, but plurality.',
+    noteTr: 'Ayette "Kıyamet" geçmez. Konu: meleklerin ve Ruh\'un Allah\'a yükselişi. Kıyamet yorumu sure bağlamından geliyor.',
+    noteEn: 'The word "Judgment" is not in the verse. Subject: ascent of angels and the Spirit to God. The Judgment Day link comes from the sura\'s broader context.',
+    expandTr: "Meâric 70:4 şunu söylüyor: 'Melekler ve Ruh, süresi elli bin yıl olan bir günde O'na yükseliyor.' 'Kıyamet günü' ifadesi ayette yok. Bağlantı, surenin 70:1-7'deki azap ve hesap temasından geliyor — bazı müfessirler bu günü Kıyamet olarak yorumlar, diğerleri meleklerin her gün veya her dönem yaptığı yükselişi kastediyor. İki farklı 'gün' (1.000 yıl ve 50.000 yıl) da çelişki değil; farklı bağlamlarda farklı ölçekler. (ℹ️ 'Kıyamet günü' etiketi tefsir yorumudur, ayetin doğrudan ifadesi değildir)",
+    expandEn: "Meâric 70:4 says: 'The angels and the Spirit ascend to Him in a day whose measure is fifty thousand years.' The phrase 'Day of Judgment' does not appear in this verse. The connection comes from the sura's opening theme (70:1-7) about punishment and accountability — some commentators identify this 'day' as the Day of Resurrection, others as the regular or periodic ascent of angels. The two different 'day' scales (1,000 and 50,000 years) are not contradictory; they appear in different contexts. (ℹ️ 'Day of Judgment' label is interpretive, not the verse's literal meaning)",
     disclaimer: true,
     disclaimerTr: 'Modern fizikteki gravitational time dilation ile felsefi benzerlik kurulabilir — bu bir yorum katmanıdır.',
     disclaimerEn: 'Philosophical parallel to gravitational time dilation is possible — this is an interpretive layer.',
@@ -120,7 +132,7 @@ const LANG_CARDS = [
     titleTr: 'Geçmişin Dersi',
     titleEn: 'Lesson of the Past',
     bodyTr:
-      "Kur'an kıssaları tarihi belge değil, canlı derstir. Hz. Nuh, İbrahim, Yusuf anlatıları geniş zaman kipinde verilir — sanki hâlâ oluyormuş gibi.",
+      "Kur'an kıssaları tarihi belge değil, canlı derstir. Hz. Nuh, Hz. İbrahim, Hz. Yusuf anlatıları geniş zaman kipinde verilir — sanki hâlâ oluyormuş gibi.",
     bodyEn:
       'Quranic stories are not historical documents — they are living lessons. The narratives of Noah, Abraham, Joseph are given in broad tense — as if still happening.',
     arabic: 'لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ',
@@ -270,16 +282,16 @@ const TABLE_ROWS = [
   },
   {
     id: 'kiyamet-gunu',
-    expressionTr: 'Kıyamet günü',
-    expressionEn: 'Day of Judgment',
+    expressionTr: 'Meleklerin yükseliş günü',
+    expressionEn: 'Day of Angelic Ascent',
     ref: 'Meâric 70:4',
     humanTr: '—',
     humanEn: '—',
     divineTr: '50.000 insan yılı',
     divineEn: '50,000 human years',
-    noteTr: 'En uzun ifade',
-    noteEn: 'longest expression',
-    hasInfo: false,
+    noteTr: '"Kıyamet" ayette geçmez — bağlamdan yorum',
+    noteEn: '"Judgment" not in verse — inferred from context',
+    hasInfo: true,
     arabic: 'فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ',
     mealTr: 'Süresi elli bin yıl olan bir günde.',
     mealEn: 'On a day whose measure is fifty thousand years.',
@@ -367,6 +379,7 @@ export default function ZamanBoyutlari({ onClose }) {
   const [activeDot, setActiveDot]         = useState('kadr');
   const [openAccordion, setOpenAccordion] = useState(null);
   const [expandedRow,   setExpandedRow]   = useState(null);
+  const [expandedCard,  setExpandedCard]  = useState(null);
   const [sourcesOpen, setSourcesOpen]     = useState(true);
   const [isMobile, setIsMobile]           = useState(
     typeof window !== 'undefined' ? window.innerWidth < 768 : false
@@ -425,6 +438,30 @@ export default function ZamanBoyutlari({ onClose }) {
 
   // ── Tab 1: Zaman Ölçeği ───────────────────────────────────────────────────────
   function renderOlcek() {
+    const groups = [
+      {
+        id: 'kissalar',
+        titleTr: 'Kıssalardaki Zaman Dilimleri',
+        titleEn: 'Time Spans in Stories',
+        accentColor: '#d4a574',
+        ids: ['musa', 'kehf'],
+      },
+      {
+        id: 'ilahi',
+        titleTr: 'İlahi Zaman Ölçeği',
+        titleEn: 'Divine Time Scale',
+        accentColor: '#c9a227',
+        ids: ['bin', 'yaratilis'],
+      },
+      {
+        id: 'kutsal',
+        titleTr: 'Kutsal Anlar',
+        titleEn: 'Sacred Moments',
+        accentColor: '#e8c97a',
+        ids: ['kadr', 'elli'],
+      },
+    ];
+
     return (
       <div style={{ padding: isMobile ? '16px' : '24px' }}>
         {/* Hero verse card */}
@@ -462,144 +499,127 @@ export default function ZamanBoyutlari({ onClose }) {
           </span>
         </div>
 
-        {/* Timeline */}
-        <div style={{ position: 'relative', minHeight: '120px', marginBottom: '32px', overflowX: 'auto' }}>
-          <div style={{ minWidth: '500px', position: 'relative', paddingTop: '44px', paddingBottom: '36px' }}>
-            {/* Horizontal line */}
-            <div style={{
-              position: 'absolute',
-              top: '50%',
-              left: 0,
-              right: 0,
-              height: '1px',
-              background: `rgba(212,165,116,0.3)`,
-              transform: 'translateY(-50%)',
-            }} />
+        {/* Three grouped card sections */}
+        {groups.map(group => {
+          const items = group.ids.map(id => TIMELINE_DATA.find(d => d.id === id)).filter(Boolean);
+          return (
+            <div key={group.id} style={{ marginBottom: '32px' }}>
+              {/* Group header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+                <div style={{ width: '3px', height: '16px', background: group.accentColor, borderRadius: '2px', flexShrink: 0 }} />
+                <span style={{
+                  fontFamily: FONTS.body,
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  color: group.accentColor,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                }}>
+                  {language === 'tr' ? group.titleTr : group.titleEn}
+                </span>
+              </div>
 
-            {/* Dots */}
-            {TIMELINE_DATA.map(item => {
-              const leftPct = logToPercent(item.logValue);
-              const isActive = item.id === activeDot;
-              return (
-                <div
-                  key={item.id}
-                  style={{
-                    position: 'absolute',
-                    left: `${leftPct}%`,
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => setActiveDot(item.id)}
-                >
-                  {/* Label above */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 'calc(100% + 8px)',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    whiteSpace: 'nowrap',
-                    fontSize: '0.72rem',
-                    color: isActive ? item.color : COLORS.silver,
-                    fontFamily: FONTS.body,
-                    fontWeight: isActive ? 600 : 400,
-                    transition: 'color 0.2s',
-                    textAlign: 'center',
+              {/* Cards */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+                gap: '12px',
+              }}>
+                {items.map(item => (
+                  <div key={item.id} style={{
+                    ...GLASS_CARD,
+                    padding: '18px',
+                    borderLeft: `3px solid ${item.color}`,
                   }}>
-                    {language === 'tr' ? item.labelTr : item.labelEn}
+                    {/* Arabic */}
+                    <p style={{
+                      fontFamily: FONTS.quran,
+                      fontSize: '1.3rem',
+                      color: item.color,
+                      textAlign: 'right',
+                      direction: 'rtl',
+                      margin: '0 0 12px',
+                      lineHeight: 1.8,
+                    }} dir="rtl" lang="ar">
+                      {item.arabic}
+                    </p>
+
+                    {/* Label + ref */}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', flexWrap: 'wrap', gap: '6px' }}>
+                      <span style={{ fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite }}>
+                        {language === 'tr' ? item.labelTr : item.labelEn}
+                      </span>
+                      {renderRefPill(item.ref)}
+                    </div>
+
+                    {/* Meal */}
+                    {item.mealTr && (
+                      <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 8px', lineHeight: 1.5 }}>
+                        "{language === 'tr' ? item.mealTr : item.mealEn}"
+                      </p>
+                    )}
+
+                    {/* Note */}
+                    <p style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.slate500, margin: 0, lineHeight: 1.5 }}>
+                      {language === 'tr' ? item.noteTr : item.noteEn}
+                    </p>
+
+                    {/* Disclaimer */}
+                    {item.disclaimer && renderDisclaimer(
+                      language === 'tr' ? item.disclaimerTr : item.disclaimerEn
+                    )}
+
+                    {/* Expand toggle */}
+                    {item.expandTr && (
+                      <div style={{ marginTop: '12px', borderTop: `1px solid rgba(255,255,255,0.07)`, paddingTop: '10px' }}>
+                        <button
+                          onClick={() => setExpandedCard(expandedCard === item.id ? null : item.id)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            padding: 0,
+                            color: COLORS.gold,
+                            fontFamily: FONTS.body,
+                            fontSize: '0.78rem',
+                            fontWeight: 600,
+                          }}
+                        >
+                          <svg
+                            width="12" height="12" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
+                            style={{ transform: expandedCard === item.id ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}
+                          >
+                            <polyline points="6 9 12 15 18 9" />
+                          </svg>
+                          {expandedCard === item.id
+                            ? (language === 'tr' ? 'Kapat' : 'Close')
+                            : (language === 'tr' ? 'Neden?' : 'Why?')}
+                        </button>
+
+                        {expandedCard === item.id && (
+                          <p style={{
+                            marginTop: '10px',
+                            fontFamily: FONTS.body,
+                            fontSize: '0.82rem',
+                            color: COLORS.silver,
+                            lineHeight: 1.65,
+                            margin: '10px 0 0',
+                          }}>
+                            {language === 'tr' ? item.expandTr : item.expandEn}
+                          </p>
+                        )}
+                      </div>
+                    )}
                   </div>
-
-                  {/* Dot */}
-                  <div style={{
-                    width: isActive ? '18px' : '14px',
-                    height: isActive ? '18px' : '14px',
-                    borderRadius: '50%',
-                    background: item.color,
-                    border: isActive ? `2px solid ${COLORS.gold}` : '2px solid rgba(0,0,0,0.3)',
-                    boxShadow: isActive ? `0 0 12px ${item.color}80` : 'none',
-                    transition: 'all 0.2s',
-                    position: 'relative',
-                    zIndex: 1,
-                  }} />
-
-                  {/* Ref below */}
-                  <div style={{
-                    position: 'absolute',
-                    top: 'calc(100% + 8px)',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    whiteSpace: 'nowrap',
-                    fontSize: '0.65rem',
-                    color: COLORS.slate500,
-                    fontFamily: FONTS.body,
-                  }}>
-                    {item.ref.split('/')[0].trim()}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Active dot detail card */}
-        <div style={{
-          ...GLASS_CARD,
-          padding: '20px',
-          borderLeft: `3px solid ${activeItem.color}`,
-          transition: 'border-color 0.3s',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', marginBottom: '12px' }}>
-            <p style={{
-              fontFamily: FONTS.quran,
-              fontSize: '1.4rem',
-              color: activeItem.color,
-              textAlign: 'right',
-              direction: 'rtl',
-              margin: 0,
-              lineHeight: 1.8,
-              flex: 1,
-              minWidth: '200px',
-            }} dir="rtl" lang="ar">
-              {activeItem.arabic}
-            </p>
-            {renderRefPill(activeItem.ref)}
-          </div>
-
-          <p style={{
-            fontFamily: FONTS.body,
-            fontSize: '0.9rem',
-            color: COLORS.offWhite,
-            fontWeight: 600,
-            margin: '0 0 6px',
-          }}>
-            {language === 'tr' ? activeItem.valueTr : activeItem.valueEn}
-          </p>
-          {activeItem.mealTr && (
-            <p style={{
-              fontFamily: FONTS.body,
-              fontSize: '0.85rem',
-              color: COLORS.silver,
-              fontStyle: 'italic',
-              margin: '0 0 8px',
-              lineHeight: 1.6,
-            }}>
-              "{language === 'tr' ? activeItem.mealTr : activeItem.mealEn}"
-            </p>
-          )}
-          <p style={{
-            fontFamily: FONTS.body,
-            fontSize: '0.85rem',
-            color: COLORS.slate500,
-            margin: 0,
-            lineHeight: 1.6,
-          }}>
-            {language === 'tr' ? activeItem.noteTr : activeItem.noteEn}
-          </p>
-
-          {activeItem.disclaimer && renderDisclaimer(
-            language === 'tr' ? activeItem.disclaimerTr : activeItem.disclaimerEn
-          )}
-        </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }
@@ -814,125 +834,121 @@ export default function ZamanBoyutlari({ onClose }) {
 
   // ── Tab 4: Karşılaştırma ──────────────────────────────────────────────────────
   function renderKarsilastirma() {
-    const colLabel = language === 'tr';
-    return (
-      <div style={{ padding: isMobile ? '16px' : '24px' }}>
-        <h3 style={{
-          fontFamily: FONTS.display,
-          fontSize: '1.3rem',
-          color: COLORS.offWhite,
-          margin: '0 0 20px',
-          fontWeight: 700,
-        }}>
-          {colLabel ? 'Zaman İfadelerinin Karşılaştırması' : 'Comparison of Time Expressions'}
-        </h3>
+    const tr = language === 'tr';
 
-        {/* Inline verse panel — shared between mobile and desktop */}
-        {expandedRow && (() => {
-          const row = TABLE_ROWS.find(r => r.id === expandedRow);
-          if (!row) return null;
-          return (
+    const ilahiRows  = TABLE_ROWS.filter(r => ['leyletu-kadr', 'allah-gunu', 'kiyamet-gunu'].includes(r.id));
+    const kissaRows  = TABLE_ROWS.filter(r => ['ashab-i-kehf', 'hz-musa'].includes(r.id));
+    const yarRow     = TABLE_ROWS.find(r => r.id === 'yaratilis-evreleri');
+
+    function VersePanel({ rowId }) {
+      const row = TABLE_ROWS.find(r => r.id === rowId);
+      if (!row) return null;
+      return (
+        <tr>
+          <td colSpan={5} style={{ padding: '0 14px 12px' }}>
             <div style={{
               background: 'rgba(0,0,0,0.3)',
               border: `1px solid ${COLORS.gold}44`,
               borderLeft: `3px solid ${COLORS.gold}`,
-              borderRadius: '10px',
-              padding: '16px 20px',
-              marginBottom: '16px',
+              borderRadius: '8px',
+              padding: '14px 18px',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                <span style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.gold, fontWeight: 600 }}>
-                  {colLabel ? row.expressionTr : row.expressionEn} — {row.ref}
-                </span>
-                <button
-                  onClick={() => setExpandedRow(null)}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: COLORS.slate500, fontSize: '1rem', lineHeight: 1, padding: '2px 6px' }}
-                >✕</button>
-              </div>
-              <p style={{
-                fontFamily: FONTS.quran,
-                fontSize: '1.5rem',
-                color: COLORS.gold,
-                direction: 'rtl',
-                textAlign: 'right',
-                margin: '0 0 10px',
-                lineHeight: 1.9,
-              }} dir="rtl" lang="ar">
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', margin: '0 0 8px', lineHeight: 1.9 }} dir="rtl" lang="ar">
                 {row.arabic}
               </p>
-              <p style={{
-                fontFamily: FONTS.body,
-                fontSize: '0.9rem',
-                color: COLORS.offWhite,
-                fontStyle: 'italic',
-                margin: 0,
-                lineHeight: 1.6,
-              }}>
-                "{colLabel ? row.mealTr : row.mealEn}"
+              <p style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: COLORS.offWhite, fontStyle: 'italic', margin: 0, lineHeight: 1.6 }}>
+                "{tr ? row.mealTr : row.mealEn}"
               </p>
             </div>
-          );
-        })()}
+          </td>
+        </tr>
+      );
+    }
 
-        {isMobile ? (
-          // Mobile: cards
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {TABLE_ROWS.map(row => (
-              <div key={row.id} style={{ ...GLASS_CARD, padding: '12px 16px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-                  <span style={{ fontFamily: FONTS.body, fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite }}>
-                    {colLabel ? row.expressionTr : row.expressionEn}
-                  </span>
-                  <button
-                    onClick={() => setExpandedRow(expandedRow === row.id ? null : row.id)}
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '4px',
-                      padding: '2px 8px', borderRadius: '10px',
-                      border: `1px solid ${COLORS.gold}`,
-                      background: expandedRow === row.id ? COLORS.gold : 'transparent',
-                      color: expandedRow === row.id ? '#0a0a1a' : COLORS.gold,
-                      fontSize: '0.72rem', fontFamily: FONTS.body,
-                      fontWeight: 600, lineHeight: 1.4, cursor: 'pointer',
-                      transition: 'all 0.15s',
-                    }}
-                  >
-                    {row.ref} {expandedRow === row.id ? '▲' : '▼'}
-                  </button>
-                </div>
-                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '6px' }}>
-                  {(colLabel ? row.humanTr : row.humanEn) !== '—' && (
-                    <span style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body }}>
-                      🧍 {colLabel ? row.humanTr : row.humanEn}
+    function SectionTable({ sectionTitleTr, sectionTitleEn, rows, showDivineCol }) {
+      const headers = [
+        tr ? 'İfade' : 'Expression',
+        tr ? 'Ayet' : 'Verse',
+        tr ? 'Kur\'an\'da Geçen' : 'In the Quran',
+        ...(showDivineCol ? [tr ? 'İlahi Boyut' : 'Divine Dimension'] : []),
+        tr ? 'Not' : 'Note',
+      ];
+
+      if (isMobile) {
+        return (
+          <div style={{ marginBottom: '28px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+              <div style={{ width: '3px', height: '16px', background: COLORS.gold, borderRadius: '2px', flexShrink: 0 }} />
+              <span style={{ fontFamily: FONTS.body, fontSize: '0.75rem', fontWeight: 700, color: COLORS.gold, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                {tr ? sectionTitleTr : sectionTitleEn}
+              </span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {rows.map(row => (
+                <div key={row.id} style={{ ...GLASS_CARD, padding: '12px 16px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+                    <span style={{ fontFamily: FONTS.body, fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite }}>
+                      {tr ? row.expressionTr : row.expressionEn}
                     </span>
+                    <button
+                      onClick={() => setExpandedRow(expandedRow === row.id ? null : row.id)}
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '4px',
+                        padding: '2px 8px', borderRadius: '10px',
+                        border: `1px solid ${COLORS.gold}`,
+                        background: expandedRow === row.id ? COLORS.gold : 'transparent',
+                        color: expandedRow === row.id ? '#0a0a1a' : COLORS.gold,
+                        fontSize: '0.72rem', fontFamily: FONTS.body,
+                        fontWeight: 600, lineHeight: 1.4, cursor: 'pointer', transition: 'all 0.15s',
+                      }}
+                    >
+                      {row.ref} {expandedRow === row.id ? '▲' : '▼'}
+                    </button>
+                  </div>
+                  {expandedRow === row.id && (
+                    <div style={{ background: 'rgba(0,0,0,0.25)', borderLeft: `2px solid ${COLORS.gold}`, borderRadius: '6px', padding: '10px 12px', marginBottom: '8px' }}>
+                      <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', margin: '0 0 6px', lineHeight: 1.9 }} dir="rtl" lang="ar">
+                        {row.arabic}
+                      </p>
+                      <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite, fontStyle: 'italic', margin: 0, lineHeight: 1.5 }}>
+                        "{tr ? row.mealTr : row.mealEn}"
+                      </p>
+                    </div>
                   )}
-                  {(colLabel ? row.divineTr : row.divineEn) !== '—' && (
-                    <span style={{ fontSize: '0.82rem', color: COLORS.gold, fontFamily: FONTS.body }}>
-                      ✦ {colLabel ? row.divineTr : row.divineEn}
-                    </span>
-                  )}
+                  <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                    {(tr ? row.humanTr : row.humanEn) !== '—' && (
+                      <span style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? row.humanTr : row.humanEn}</span>
+                    )}
+                    {showDivineCol && (tr ? row.divineTr : row.divineEn) !== '—' && (
+                      <span style={{ fontSize: '0.82rem', color: COLORS.gold, fontFamily: FONTS.body }}>→ {tr ? row.divineTr : row.divineEn}</span>
+                    )}
+                  </div>
+                  <p style={{ margin: 0, fontSize: '0.78rem', color: row.hasInfo ? COLORS.gold : COLORS.slate500, fontStyle: 'italic', fontFamily: FONTS.body }}>
+                    {row.hasInfo ? 'ℹ ' : ''}{tr ? row.noteTr : row.noteEn}
+                  </p>
                 </div>
-                <p style={{ margin: 0, fontSize: '0.78rem', color: row.hasInfo ? COLORS.gold : COLORS.slate500, fontStyle: 'italic', fontFamily: FONTS.body }}>
-                  {row.hasInfo ? 'ℹ ' : ''}{colLabel ? row.noteTr : row.noteEn}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        ) : (
-          // Desktop: table
+        );
+      }
+
+      return (
+        <div style={{ marginBottom: '32px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+            <div style={{ width: '3px', height: '16px', background: COLORS.gold, borderRadius: '2px', flexShrink: 0 }} />
+            <span style={{ fontFamily: FONTS.body, fontSize: '0.75rem', fontWeight: 700, color: COLORS.gold, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              {tr ? sectionTitleTr : sectionTitleEn}
+            </span>
+          </div>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body }}>
               <thead>
                 <tr style={{ background: 'rgba(0,0,0,0.3)' }}>
-                  {[
-                    colLabel ? 'İfade' : 'Expression',
-                    colLabel ? 'Ayet' : 'Verse',
-                    colLabel ? 'İnsan Ölçeği' : 'Human Scale',
-                    colLabel ? 'Allah Katında' : 'Divine Dimension',
-                    colLabel ? 'Not' : 'Note',
-                  ].map(h => (
+                  {headers.map(h => (
                     <th key={h} style={{
                       padding: '10px 14px', textAlign: 'left',
-                      fontSize: '0.75rem', fontWeight: 600, color: COLORS.gold,
+                      fontSize: '0.72rem', fontWeight: 600, color: COLORS.gold,
                       textTransform: 'uppercase', letterSpacing: '0.05em',
                       borderBottom: `1px solid ${COLORS.glassBorder}`, whiteSpace: 'nowrap',
                     }}>
@@ -942,40 +958,89 @@ export default function ZamanBoyutlari({ onClose }) {
                 </tr>
               </thead>
               <tbody>
-                {TABLE_ROWS.map((row, idx) => (
-                  <tr key={row.id} style={{ background: idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
-                    <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.offWhite, fontWeight: 600 }}>
-                      {colLabel ? row.expressionTr : row.expressionEn}
-                    </td>
-                    <td style={{ padding: '10px 14px', whiteSpace: 'nowrap' }}>
-                      <button
-                        onClick={() => setExpandedRow(expandedRow === row.id ? null : row.id)}
-                        style={{
-                          display: 'inline-flex', alignItems: 'center', gap: '4px',
-                          padding: '2px 8px', borderRadius: '10px',
-                          border: `1px solid ${COLORS.gold}`,
-                          background: expandedRow === row.id ? COLORS.gold : 'transparent',
-                          color: expandedRow === row.id ? '#0a0a1a' : COLORS.gold,
-                          fontSize: '0.72rem', fontFamily: FONTS.body,
-                          fontWeight: 600, lineHeight: 1.4, cursor: 'pointer', transition: 'all 0.15s',
-                        }}
-                      >
-                        {row.ref} {expandedRow === row.id ? '▲' : '▼'}
-                      </button>
-                    </td>
-                    <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.silver }}>
-                      {colLabel ? row.humanTr : row.humanEn}
-                    </td>
-                    <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.offWhite }}>
-                      {colLabel ? row.divineTr : row.divineEn}
-                    </td>
-                    <td style={{ padding: '10px 14px', fontSize: '0.8rem', color: row.hasInfo ? COLORS.gold : COLORS.silver, fontStyle: 'italic' }}>
-                      {row.hasInfo ? 'ℹ ' : ''}{colLabel ? row.noteTr : row.noteEn}
-                    </td>
-                  </tr>
+                {rows.map((row, idx) => (
+                  <>
+                    <tr key={row.id} style={{ background: idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
+                      <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.offWhite, fontWeight: 600 }}>
+                        {tr ? row.expressionTr : row.expressionEn}
+                      </td>
+                      <td style={{ padding: '10px 14px', whiteSpace: 'nowrap' }}>
+                        <button
+                          onClick={() => setExpandedRow(expandedRow === row.id ? null : row.id)}
+                          style={{
+                            display: 'inline-flex', alignItems: 'center', gap: '4px',
+                            padding: '2px 8px', borderRadius: '10px',
+                            border: `1px solid ${COLORS.gold}`,
+                            background: expandedRow === row.id ? COLORS.gold : 'transparent',
+                            color: expandedRow === row.id ? '#0a0a1a' : COLORS.gold,
+                            fontSize: '0.72rem', fontFamily: FONTS.body,
+                            fontWeight: 600, lineHeight: 1.4, cursor: 'pointer', transition: 'all 0.15s',
+                          }}
+                        >
+                          {row.ref} {expandedRow === row.id ? '▲' : '▼'}
+                        </button>
+                      </td>
+                      <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.silver }}>
+                        {tr ? row.humanTr : row.humanEn}
+                      </td>
+                      {showDivineCol && (
+                        <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.offWhite }}>
+                          {tr ? row.divineTr : row.divineEn}
+                        </td>
+                      )}
+                      <td style={{ padding: '10px 14px', fontSize: '0.8rem', color: row.hasInfo ? COLORS.gold : COLORS.silver, fontStyle: 'italic' }}>
+                        {row.hasInfo ? 'ℹ ' : ''}{tr ? row.noteTr : row.noteEn}
+                      </td>
+                    </tr>
+                    {expandedRow === row.id && <VersePanel key={`${row.id}-panel`} rowId={row.id} />}
+                  </>
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div style={{ padding: isMobile ? '16px' : '24px' }}>
+        <SectionTable
+          sectionTitleTr="İlahi Zaman Ölçeği"
+          sectionTitleEn="Divine Time Scale"
+          rows={ilahiRows}
+          showDivineCol={true}
+        />
+
+        <SectionTable
+          sectionTitleTr="Kıssalardaki Zaman Dilimleri"
+          sectionTitleEn="Time Spans in Stories"
+          rows={kissaRows}
+          showDivineCol={false}
+        />
+
+        {/* Yaratılış Evreleri — ayrı kart */}
+        {yarRow && (
+          <div style={{ ...GLASS_CARD, padding: '18px 20px', borderLeft: `3px solid ${COLORS.gold}` }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+              <div style={{ width: '3px', height: '16px', background: COLORS.gold, borderRadius: '2px', flexShrink: 0 }} />
+              <span style={{ fontFamily: FONTS.body, fontSize: '0.75rem', fontWeight: 700, color: COLORS.gold, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                {tr ? 'Ayrı Kategori' : 'Separate Category'}
+              </span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '8px' }}>
+              <span style={{ fontFamily: FONTS.body, fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite }}>
+                {tr ? yarRow.expressionTr : yarRow.expressionEn}
+              </span>
+              {renderRefPill(yarRow.ref)}
+            </div>
+            <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, margin: '0 0 6px', lineHeight: 1.5 }}>
+              {tr
+                ? '6 kozmik evre bir zaman ölçeği değil, süreç sayısıdır. "Allah Katında" sütununa girmez — farklı bir mantıkla çalışır.'
+                : '6 cosmic phases is a process count, not a time scale. It does not fit the "divine dimension" column — it operates on different logic.'}
+            </p>
+            <p style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.gold, fontStyle: 'italic', margin: 0 }}>
+              ℹ {tr ? yarRow.noteTr : yarRow.noteEn}
+            </p>
           </div>
         )}
       </div>
@@ -1106,9 +1171,17 @@ export default function ZamanBoyutlari({ onClose }) {
     <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       {/* Header */}
       <div style={{ ...OVERLAY_HEADER }}>
-        <span style={{ ...OVERLAY_TITLE }}>
-          {language === 'tr' ? 'Zamanın Boyutları' : 'Dimensions of Time'}
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
+            <circle cx="12" cy="12" r="2" fill={COLORS.gold} stroke="none"/>
+            <circle cx="12" cy="12" r="5.5"/>
+            <path d="M12 3a9 9 0 0 1 9 9"/>
+            <path d="M12 21a9 9 0 0 1-9-9"/>
+          </svg>
+          <span style={{ ...OVERLAY_TITLE }}>
+            {language === 'tr' ? 'Zamanın Boyutları' : 'Dimensions of Time'}
+          </span>
+        </div>
         <button
           onClick={onClose}
           style={{ ...CLOSE_BTN }}

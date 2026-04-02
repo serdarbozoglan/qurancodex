@@ -76,40 +76,6 @@ export default function KuranYeminleri({ onClose }) {
         <CloseBtn onClose={onClose} />
       </div>
 
-      {/* ── TAB BAR — outside scroll area so it stays put ───────────────── */}
-      <div style={{
-        display: 'flex',
-        gap: '4px',
-        padding: '0 16px',
-        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-        background: 'rgba(0,0,0,0.3)',
-        overflowX: 'auto',
-        scrollbarWidth: 'none',
-        flexShrink: 0,
-      }}>
-        {TABS.map((tab, i) => (
-          <button
-            key={i}
-            onClick={() => setActiveTab(i)}
-            style={{
-              flexShrink: 0,
-              padding: '10px 16px',
-              border: 'none',
-              background: 'transparent',
-              borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-              color: activeTab === i ? COLORS.gold : COLORS.silver,
-              fontSize: '0.82rem',
-              fontWeight: activeTab === i ? 600 : 400,
-              fontFamily: FONTS.body,
-              cursor: 'pointer',
-              transition: 'all 0.15s',
-            }}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-
       {/* ── SCROLLABLE BODY ─────────────────────────────────────────────── */}
       <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
 
@@ -166,7 +132,7 @@ export default function KuranYeminleri({ onClose }) {
             {[
               { value: meta.totalOaths, labelTr: 'Yemin İfadesi', labelEn: 'Oath Expressions', color: COLORS.gold },
               { value: meta.categoriesCount, labelTr: 'Kategori', labelEn: 'Categories', color: '#3498db' },
-              { value: meta.surahsWithOaths, labelTr: 'Yemin İçeren Sure', labelEn: 'Surahs with Oaths', color: '#2ecc71' },
+              { value: meta.surahsWithOaths, labelTr: 'Yemin İçeren Sûre', labelEn: 'Surahs with Oaths', color: '#2ecc71' },
               { value: meta.maxOathsInSurah, labelTr: `${meta.maxOathsSurahName} Suresi`, labelEn: `Surah ${meta.maxOathsSurahName}`, color: '#e74c3c' },
             ].map((s, i) => (
               <div key={i} style={{
@@ -187,35 +153,71 @@ export default function KuranYeminleri({ onClose }) {
           </div>
         </div>
 
-        {/* ── RADIAL VIZ ────────────────────────────────────────────────── */}
-        {!isMobile ? (
-          <RadialViz
-            categories={categories}
-            activeCategoryId={activeCategoryId}
-            onSelect={(id) => { setActiveCategoryId(id); setActiveTab(0); }}
-            language={language}
-          />
-        ) : (
-          <MobileAccordion
-            categories={categories}
-            expanded={expandedAccordion}
-            onToggle={(id) => setExpandedAccordion(expandedAccordion === id ? null : id)}
-            language={language}
-          />
-        )}
+        {/* ── TAB BAR — directly above tab content ────────────────────── */}
+        <div style={{
+          display: 'flex',
+          gap: '4px',
+          padding: '0 16px',
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          background: 'rgba(0,0,0,0.3)',
+          overflowX: 'auto',
+          scrollbarWidth: 'none',
+          flexShrink: 0,
+        }}>
+          {TABS.map((tab, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveTab(i)}
+              style={{
+                flexShrink: 0,
+                padding: '10px 16px',
+                border: 'none',
+                background: 'transparent',
+                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                color: activeTab === i ? COLORS.gold : COLORS.silver,
+                fontSize: '0.82rem',
+                fontWeight: activeTab === i ? 600 : 400,
+                fontFamily: FONTS.body,
+                cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
 
         {/* ── TAB CONTENT ───────────────────────────────────────────────── */}
         <div style={{ padding: isMobile ? '20px 16px 40px' : '28px 32px 60px' }}>
 
-          {/* Tab 0: Kategoriler */}
+          {/* Tab 0: Kategoriler — includes RadialViz/Accordion */}
           {activeTab === 0 && (
-            <TabKategoriler
-              categories={categories}
-              activeCategoryId={activeCategoryId}
-              onSelect={setActiveCategoryId}
-              language={language}
-              isMobile={isMobile}
-            />
+            <>
+              {!isMobile ? (
+                <RadialViz
+                  categories={categories}
+                  activeCategoryId={activeCategoryId}
+                  onSelect={(id) => { setActiveCategoryId(id); }}
+                  language={language}
+                />
+              ) : (
+                <MobileAccordion
+                  categories={categories}
+                  expanded={expandedAccordion}
+                  onToggle={(id) => setExpandedAccordion(expandedAccordion === id ? null : id)}
+                  language={language}
+                />
+              )}
+              <div style={{ marginTop: '24px' }}>
+                <TabKategoriler
+                  categories={categories}
+                  activeCategoryId={activeCategoryId}
+                  onSelect={setActiveCategoryId}
+                  language={language}
+                  isMobile={isMobile}
+                />
+              </div>
+            </>
           )}
 
           {/* Tab 1: Derinlik Analizi */}
@@ -647,7 +649,7 @@ function TabSureDagilimi({ categories, language, isMobile }) {
                 display: 'flex', alignItems: 'center', paddingLeft: '8px',
               }}>
                 <span style={{ color: '#0a0a1a', fontSize: '0.72rem', fontWeight: 700, fontFamily: FONTS.body }}>
-                  {count > 1 ? count : ''}
+                  {count}
                 </span>
               </div>
             </div>

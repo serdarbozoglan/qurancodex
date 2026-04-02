@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+website/node_modules/
+
+# Build output
+website/dist/
+website/dist-ssr/
+
+# Lock files (noise, not useful for understanding)
+package-lock.json
+website/package-lock.json
+
+# Environment variables (secrets)
+website/.env
+website/.env.*
+
+# Large binary / media files
+*.pdf
+Kuran-iKerimAnaliz.pdf
+
+# Binary font files
+*.ttf
+*.woff
+*.woff2
+*.otf
+website/public/fonts/
+
+# Binary image assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+website/public/icons/
+
+# Large static data files (geo/graph data, not app logic)
+website/public/world-atlas.json
+website/public/verse-graph.json
+website/public/verse-graph.backup.json
+
+# Data generation / migration scripts (not core app)
+website/scripts/
+
+# Design specs and planning docs
+website/docs/
+
+# Claude config, skills, commands (not project code)
+.claude/
+
+# OS / editor noise
+.DS_Store
+**/.DS_Store
+*.suo
+*.sw?
+
+# Logs
+*.log
+logs/
