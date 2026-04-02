@@ -454,6 +454,47 @@ export default function QuranRhetoric() {
         </div>
       </motion.div>
 
+      {/* Detaylı İncele CTA */}
+      <motion.div variants={fadeUpItem} className="mb-6">
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('openKuranRetorigi'))}
+          style={{
+            width: '100%',
+            padding: '14px 24px',
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.3)',
+            borderRadius: '10px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.06)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)';
+          }}
+        >
+          <div style={{ textAlign: 'left' }}>
+            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+              {tr ? '↗ RETORİK ANALİZİ — DETAYLI İNCELE' : '↗ RHETORIC ANALYSIS — EXPLORE IN DETAIL'}
+            </p>
+            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+              {tr
+                ? '30 soru · alt kalıplar · muhatap analizi · sure haritası'
+                : '30 questions · sub-patterns · addressee analysis · surah map'}
+            </p>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </motion.div>
+
       {/* Bağlantı kartları */}
       <motion.div variants={fadeUpItem} className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         <button
