@@ -23,6 +23,7 @@ const KavimlerAtlasi   = lazy(() => import('./KavimlerAtlasi'));
 const CennetCehennem   = lazy(() => import('./CennetCehennem'));
 const Melekler         = lazy(() => import('./Melekler'));
 const KuranRenkleri    = lazy(() => import('./KuranRenkleri'));
+const KiyametSahneleri = lazy(() => import('./KiyametSahneleri'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -185,6 +186,7 @@ export default function Navbar() {
   const [cennetOpen,     setCennetOpen]     = useState(false);
   const [meleklerOpen,   setMeleklerOpen]   = useState(false);
   const [renkleriOpen,   setRenkleriOpen]   = useState(false);
+  const [kiyametOpen,    setKiyametOpen]    = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -246,11 +248,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -290,10 +292,11 @@ export default function Navbar() {
       if (cennetOpen)     { setCennetOpen(false);          return; }
       if (meleklerOpen)   { setMeleklerOpen(false);        return; }
       if (renkleriOpen)   { setRenkleriOpen(false);        return; }
+      if (kiyametOpen)    { setKiyametOpen(false);          return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -768,6 +771,38 @@ export default function Navbar() {
                       </button>
                     );
 
+                    // Kıyamet Sahneleri — overlay button for Evreni col
+                    const kiyametBtn = (
+                      <button
+                        key="kiyamet"
+                        onClick={() => { setKiyametOpen(true); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="12" y1="4" x2="12" y2="20"/>
+                            <path d="M8 6 C5 8 5 16 8 18"/>
+                            <path d="M16 6 C19 8 19 16 16 18"/>
+                          </svg>
+                        </span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? 'Kıyamet Sahneleri' : 'Scenes of Judgment'}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? "Sur'dan kararın açıklanmasına — Kur'an'ın kıyamet kronolojisi" : "From the Trumpet to the Final Decree — the Quran's judgment chronology"}
+                          </span>
+                        </span>
+                      </button>
+                    );
+
                     // Kur'an'ın Renkleri — overlay button for Dil & Yapı col
                     const renkleriBtn = (
                       <button
@@ -863,6 +898,7 @@ export default function Navbar() {
                           {zamanBtn}
                           {dogaBtn}
                           {cennetBtn}
+                          {kiyametBtn}
                           {meleklerBtn}
                         </div>
                       </div>
@@ -1262,6 +1298,11 @@ export default function Navbar() {
     {cennetOpen && (
       <Suspense fallback={null}>
         <CennetCehennem onClose={() => setCennetOpen(false)} />
+      </Suspense>
+    )}
+    {kiyametOpen && (
+      <Suspense fallback={null}>
+        <KiyametSahneleri onClose={() => setKiyametOpen(false)} />
       </Suspense>
     )}
     {meleklerOpen && (
