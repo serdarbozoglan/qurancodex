@@ -240,6 +240,19 @@ export default function Navbar() {
     return () => window.removeEventListener('openDuaVerses', handler);
   }, []);
 
+  // Listen for cross-tool navigation events from KiyametSahneleri footer links
+  useEffect(() => {
+    const h = () => setCennetOpen(true);
+    window.addEventListener('openCennetCehennem', h);
+    return () => window.removeEventListener('openCennetCehennem', h);
+  }, []);
+
+  useEffect(() => {
+    const h = () => setKavimlerOpen(true);
+    window.addEventListener('openKavimlerAtlasi', h);
+    return () => window.removeEventListener('openKavimlerAtlasi', h);
+  }, []);
+
   // Auto-open VerseGraph if ?verse= param in URL
   useEffect(() => {
     const urlVerse = new URLSearchParams(window.location.search).get('verse');
