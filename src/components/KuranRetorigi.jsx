@@ -619,7 +619,162 @@ function TabMuhatap({ data, tr, isMobile }) {
   );
 }
 function TabSorular({ data, tr, isMobile }) {
-  return <div style={{ padding: 32, color: COLORS.silver, fontFamily: FONTS.body }}>Tab 3 — 30 Soru (Task 6)</div>;
+  const [typeFilter,    setTypeFilter]    = useState('all');
+  const [patternFilter, setPatternFilter] = useState('all');
+  const [addressFilter, setAddressFilter] = useState('all');
+
+  const TYPE_COLORS = {
+    erotema: '#d4a574',
+    irsad:   '#3498db',
+    tevbih:  '#2ecc71',
+    taaccub: '#a78bfa',
+  };
+  const TYPE_LABELS_TR = { erotema: 'Erotema', irsad: 'İrşad', tevbih: 'Tevbih', taaccub: 'Taaccüb' };
+  const TYPE_LABELS_EN = { erotema: 'Erotema', irsad: 'Guidance', tevbih: 'Reproach', taaccub: 'Wonder' };
+
+  const PATTERN_COLORS = { 've-ma-edrake': '#D85A30', 'efela-takılun': '#14b8a6', eleyse: '#8b5cf6' };
+  const PATTERN_LABELS_TR = { 've-ma-edrake': 'Ve Mâ Edrâke', 'efela-takılun': "Efela Ta'kılûn", eleyse: 'Eleyse' };
+  const PATTERN_LABELS_EN = { 've-ma-edrake': 'Wa Ma Adraka', 'efela-takılun': 'Afala Taʿqilun', eleyse: 'Alaysa' };
+
+  const ADDRESS_COLORS = { humanity: '#d4a574', mushrikeen: '#e74c3c', prophet: '#a78bfa', 'ehl-i-kitap': '#14b8a6', munafikun: '#64748b' };
+  const ADDRESS_LABELS_TR = { humanity: 'İnsanlık', mushrikeen: 'Müşrik', prophet: 'Peygamber', 'ehl-i-kitap': 'Ehli Kitap', munafikun: 'Münafık' };
+  const ADDRESS_LABELS_EN = { humanity: 'Humanity', mushrikeen: 'Polytheist', prophet: 'Prophet', 'ehl-i-kitap': 'People of Book', munafikun: 'Hypocrite' };
+
+  const filtered = data.questions.filter(q => {
+    if (typeFilter    !== 'all' && q.type      !== typeFilter)    return false;
+    if (patternFilter !== 'all' && q.pattern   !== patternFilter) return false;
+    if (addressFilter !== 'all' && q.addressee !== addressFilter) return false;
+    return true;
+  });
+
+  const pill = (label, value, activeValue, setFn, color) => {
+    const isActive = activeValue === value;
+    return (
+      <button
+        key={value}
+        onClick={() => setFn(value)}
+        style={{
+          padding: '4px 12px',
+          borderRadius: 20,
+          border: `1px solid ${isActive ? color : 'rgba(255,255,255,0.1)'}`,
+          background: isActive ? `${color}22` : 'transparent',
+          color: isActive ? color : COLORS.silver,
+          fontSize: '0.75rem',
+          fontFamily: FONTS.body,
+          cursor: 'pointer',
+          transition: 'all 0.15s',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        {label}
+      </button>
+    );
+  };
+
+  return (
+    <div style={{ padding: isMobile ? '16px' : '24px 32px' }}>
+
+      {/* Başlık */}
+      <div style={{ marginBottom: 20 }}>
+        <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.2rem' : '1.5rem', fontWeight: 700, margin: '0 0 4px' }}>
+          {tr ? '30 Seçilmiş Soru' : '30 Selected Questions'}
+        </h2>
+        <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: 0 }}>
+          {tr ? `${filtered.length} soru gösteriliyor` : `Showing ${filtered.length} questions`}
+        </p>
+      </div>
+
+      {/* Filter satırları */}
+      <div style={{ marginBottom: 20 }}>
+        {/* Tür filtresi */}
+        <div style={{ display: 'flex', gap: 6, marginBottom: 8, overflowX: 'auto', scrollbarWidth: 'none', flexWrap: 'nowrap' }}>
+          {pill(tr ? 'Tümü' : 'All', 'all', typeFilter, setTypeFilter, COLORS.gold)}
+          {Object.entries(TYPE_LABELS_TR).map(([id, labelTr]) =>
+            pill(tr ? labelTr : TYPE_LABELS_EN[id], id, typeFilter, setTypeFilter, TYPE_COLORS[id])
+          )}
+        </div>
+        {/* Kalıp + Muhatap filtresi */}
+        <div style={{ display: 'flex', gap: 6, overflowX: 'auto', scrollbarWidth: 'none', flexWrap: 'nowrap' }}>
+          {pill(tr ? 'Tüm Kalıplar' : 'All Patterns', 'all', patternFilter, setPatternFilter, COLORS.silver)}
+          {Object.entries(PATTERN_LABELS_TR).map(([id, labelTr]) =>
+            pill(tr ? labelTr : PATTERN_LABELS_EN[id], id, patternFilter, setPatternFilter, PATTERN_COLORS[id])
+          )}
+          <span style={{ color: COLORS.slate500, padding: '4px 4px', fontSize: '0.75rem', alignSelf: 'center' }}>|</span>
+          {pill(tr ? 'Tüm Muhatap' : 'All Addressees', 'all', addressFilter, setAddressFilter, COLORS.silver)}
+          {['humanity', 'mushrikeen', 'prophet'].map(id =>
+            pill(tr ? ADDRESS_LABELS_TR[id] : ADDRESS_LABELS_EN[id], id, addressFilter, setAddressFilter, ADDRESS_COLORS[id])
+          )}
+        </div>
+      </div>
+
+      {/* Soru kartları grid */}
+      {filtered.length === 0 ? (
+        <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem' }}>
+          {tr ? 'Filtre sonucu bulunamadı.' : 'No results for this filter.'}
+        </p>
+      ) : (
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: 14,
+        }}>
+          {filtered.map(q => {
+            const typeColor   = TYPE_COLORS[q.type]   || COLORS.silver;
+            const typeLabelTr = TYPE_LABELS_TR[q.type] || q.type;
+            const typeLabelEn = TYPE_LABELS_EN[q.type] || q.type;
+            const patColor = q.pattern ? (PATTERN_COLORS[q.pattern] || COLORS.silver) : null;
+            const patLabelTr = q.pattern ? (PATTERN_LABELS_TR[q.pattern] || q.pattern) : null;
+            const patLabelEn = q.pattern ? (PATTERN_LABELS_EN[q.pattern] || q.pattern) : null;
+            const addrColor  = ADDRESS_COLORS[q.addressee]  || COLORS.silver;
+            const addrLabelTr = ADDRESS_LABELS_TR[q.addressee] || q.addressee;
+            const addrLabelEn = ADDRESS_LABELS_EN[q.addressee] || q.addressee;
+            return (
+              <div
+                key={q.id}
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  borderRadius: 10,
+                  padding: '14px 16px',
+                  border: `1px solid ${COLORS.glassBorderSoft}`,
+                  borderLeftColor: typeColor,
+                  borderLeftWidth: 3,
+                }}
+              >
+                {/* Badges */}
+                <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginBottom: 8 }}>
+                  <span style={{ background: `${typeColor}22`, color: typeColor, fontSize: '0.67rem', fontWeight: 600, padding: '2px 7px', borderRadius: 4, fontFamily: FONTS.body, letterSpacing: '0.04em' }}>
+                    {tr ? typeLabelTr : typeLabelEn}
+                  </span>
+                  {patColor && (
+                    <span style={{ background: `${patColor}22`, color: patColor, fontSize: '0.67rem', fontWeight: 600, padding: '2px 7px', borderRadius: 4, fontFamily: FONTS.body }}>
+                      {tr ? patLabelTr : patLabelEn}
+                    </span>
+                  )}
+                  <span style={{ background: `${addrColor}15`, color: `${addrColor}cc`, fontSize: '0.67rem', padding: '2px 7px', borderRadius: 4, fontFamily: FONTS.body }}>
+                    {tr ? addrLabelTr : addrLabelEn}
+                  </span>
+                </div>
+                {/* Arapça */}
+                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                  {q.ar}
+                </p>
+                {/* Türkçe */}
+                <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
+                  {q.tr}
+                </p>
+                {/* İngilizce */}
+                <p style={{ color: `${COLORS.silver}80`, fontSize: '0.8rem', margin: '0 0 6px', fontFamily: FONTS.body, lineHeight: 1.5 }}>
+                  {q.en}
+                </p>
+                {/* Ref */}
+                <p style={{ color: `${COLORS.gold}60`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0 }}>— {q.ref}</p>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
 }
 function TabSureHaritasi({ data, tr, isMobile }) {
   return <div style={{ padding: 32, color: COLORS.silver, fontFamily: FONTS.body }}>Tab 4 — Sure Haritası (Task 7)</div>;
