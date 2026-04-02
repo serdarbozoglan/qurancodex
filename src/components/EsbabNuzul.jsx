@@ -184,30 +184,97 @@ export default function EsbabNuzul({ onClose }) {
       {/* ── Filter bar ─────────────────────────────────────────── */}
       {!selected && (
         <div style={{
-          display: 'flex', gap: '6px', padding: '12px 24px',
+          display: 'flex', alignItems: 'center', gap: '0', padding: '0 24px',
           overflowX: 'auto', flexShrink: 0,
-          borderBottom: '1px solid rgba(255,255,255,0.04)',
-          scrollbarWidth: 'none',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          scrollbarWidth: 'none', minHeight: '52px',
+          background: 'rgba(8,9,26,0.6)',
         }}>
-          {FILTERS.map(f => {
-            const active = filter === f.key;
-            return (
-              <button
-                key={f.key}
-                onClick={() => setFilter(f.key)}
-                style={{
-                  padding: '5px 12px', borderRadius: '20px', whiteSpace: 'nowrap',
-                  fontSize: '0.75rem', fontWeight: active ? 600 : 400, cursor: 'pointer',
-                  border: active ? `1px solid ${f.color || '#d4a574'}` : '1px solid rgba(255,255,255,0.1)',
-                  background: active ? (f.color ? `${f.color}22` : 'rgba(212,165,116,0.15)') : 'transparent',
-                  color: active ? (f.color || '#d4a574') : '#94a3b8',
-                  transition: 'all 0.15s',
-                }}
-              >
-                {language === 'tr' ? f.tr : f.en}
-              </button>
-            );
-          })}
+          {/* Group label */}
+          <span style={{
+            fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em',
+            textTransform: 'uppercase', color: 'rgba(148,163,184,0.35)',
+            whiteSpace: 'nowrap', marginRight: '10px', flexShrink: 0,
+          }}>
+            {language === 'tr' ? 'Dönem' : 'Period'}
+          </span>
+
+          {/* Period pills — segmented style */}
+          <div style={{
+            display: 'flex', gap: '2px',
+            background: 'rgba(255,255,255,0.04)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '10px', padding: '3px', flexShrink: 0,
+          }}>
+            {[{ key: 'all', tr: 'Tümü', en: 'All', color: '#d4a574' },
+              ...PERIOD_ORDER.map(p => ({ key: p, tr: PERIOD_META[p].tr, en: PERIOD_META[p].en, color: PERIOD_META[p].color }))
+            ].map(f => {
+              const active = filter === f.key;
+              return (
+                <button
+                  key={f.key}
+                  onClick={() => setFilter(f.key)}
+                  style={{
+                    padding: '5px 14px', borderRadius: '7px', whiteSpace: 'nowrap',
+                    fontSize: '0.8rem', fontWeight: active ? 600 : 400, cursor: 'pointer',
+                    border: 'none',
+                    background: active ? `${f.color}28` : 'transparent',
+                    color: active ? f.color : 'rgba(148,163,184,0.7)',
+                    boxShadow: active ? `0 0 12px ${f.color}22` : 'none',
+                    transition: 'all 0.15s', fontFamily: "'Inter', sans-serif",
+                  }}
+                  onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#e8e6e3'; }}}
+                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(148,163,184,0.7)'; }}}
+                >
+                  {language === 'tr' ? f.tr : f.en}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Divider */}
+          <div style={{ width: '1px', height: '20px', background: 'rgba(255,255,255,0.08)', margin: '0 16px', flexShrink: 0 }} />
+
+          {/* Group label */}
+          <span style={{
+            fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em',
+            textTransform: 'uppercase', color: 'rgba(148,163,184,0.35)',
+            whiteSpace: 'nowrap', marginRight: '10px', flexShrink: 0,
+          }}>
+            {language === 'tr' ? 'Konu' : 'Topic'}
+          </span>
+
+          {/* Category pills — colored dots */}
+          <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
+            {Object.entries(CATEGORY_META).map(([k, v]) => {
+              const active = filter === k;
+              return (
+                <button
+                  key={k}
+                  onClick={() => setFilter(active ? 'all' : k)}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '6px',
+                    padding: '5px 12px', borderRadius: '8px', whiteSpace: 'nowrap',
+                    fontSize: '0.8rem', fontWeight: active ? 600 : 400, cursor: 'pointer',
+                    border: active ? `1px solid ${v.color}55` : '1px solid rgba(255,255,255,0.08)',
+                    background: active ? `${v.color}18` : 'rgba(255,255,255,0.03)',
+                    color: active ? v.color : 'rgba(148,163,184,0.7)',
+                    boxShadow: active ? `0 0 10px ${v.color}20` : 'none',
+                    transition: 'all 0.15s', fontFamily: "'Inter', sans-serif",
+                  }}
+                  onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#e8e6e3'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}}
+                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = 'rgba(148,163,184,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}}
+                >
+                  <span style={{
+                    width: '7px', height: '7px', borderRadius: '50%',
+                    background: active ? v.color : `${v.color}80`,
+                    flexShrink: 0, transition: 'background 0.15s',
+                  }} />
+                  {language === 'tr' ? v.tr : v.en}
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
 

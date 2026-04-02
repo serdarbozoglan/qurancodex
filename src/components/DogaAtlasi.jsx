@@ -30,7 +30,7 @@ const PLANT_FILTERS  = ['Tümü', 'cennet', 'cehennem', 'dunya', 'yemin', 'hapax
 const ANIMAL_FILTER_LABELS_TR = {
   'Tümü': 'Tümü', 'delil': 'Delil', 'kissa': 'Kıssa',
   'haram-helal': 'Haram-Helal', 'cennet-cehennem': 'Cennet-Cehennem',
-  'sure-adi': 'Sure Adı', 'hapax': 'Hapax',
+  'sure-adi': 'Sûre Adı', 'hapax': 'Hapax',
 };
 const ANIMAL_FILTER_LABELS_EN = {
   'Tümü': 'All', 'delil': 'Evidence', 'kissa': 'Narrative',
@@ -85,22 +85,78 @@ function StatCard({ label, isMobile }) {
   );
 }
 
+const CTX_LABELS = {
+  'delil':           'Delil',
+  'kissa':           'Kıssa',
+  'haram-helal':     'Haram-Helal',
+  'cennet-cehennem': 'Cennet-Cehennem',
+  'sure-adi':        'Sûre Adı',
+  'mecaz':           'Mecaz',
+  'hapax':           'Hapax',
+  'cennet':          'Cennet',
+  'cehennem':        'Cehennem',
+  'dunya':           'Dünya',
+  'yemin':           'Yemin',
+};
+
 // ── Context Badge ─────────────────────────────────────────────────────────────
-function ContextBadge({ ctx, colorMap }) {
+function ContextBadge({ ctx, colorMap, language }) {
+  const [tip, setTip] = useState(false);
   const color = colorMap[ctx] ?? COLORS.silver;
+  const isHapax = ctx === 'hapax';
+  const hapaxTip = language === 'tr'
+    ? "Hapax legomenon — Kur'an'da yalnızca 1 kez geçen kelime"
+    : "Hapax legomenon — a word that appears only once in the Quran";
+
   return (
-    <span style={{
-      display: 'inline-block',
-      padding: '2px 8px',
-      borderRadius: '99px',
-      fontSize: '0.72rem',
-      fontWeight: 600,
-      fontFamily: FONTS.body,
-      background: color + '22',
-      color,
-      border: `1px solid ${color}55`,
-    }}>
-      {ctx}
+    <span style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
+      <span style={{
+        display: 'inline-block',
+        padding: '2px 8px',
+        borderRadius: '99px',
+        fontSize: '0.72rem',
+        fontWeight: 600,
+        fontFamily: FONTS.body,
+        background: color + '22',
+        color,
+        border: `1px solid ${color}55`,
+      }}>
+        {CTX_LABELS[ctx] ?? ctx}
+      </span>
+      {isHapax && (
+        <span
+          onMouseEnter={() => setTip(true)}
+          onMouseLeave={() => setTip(false)}
+          style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: '14px', height: '14px', borderRadius: '50%',
+            background: color + '30', border: `1px solid ${color}60`,
+            color, fontSize: '0.6rem', fontWeight: 700, fontFamily: FONTS.body,
+            cursor: 'default', flexShrink: 0,
+          }}
+        >
+          ?
+        </span>
+      )}
+      {isHapax && tip && (
+        <span style={{
+          position: 'absolute', bottom: '22px', left: 0,
+          background: 'rgba(8,10,26,0.97)',
+          border: `1px solid ${color}40`,
+          borderRadius: '8px',
+          padding: '7px 10px',
+          color: COLORS.silver,
+          fontSize: '0.72rem',
+          fontFamily: FONTS.body,
+          lineHeight: 1.5,
+          whiteSpace: 'nowrap',
+          zIndex: 50,
+          pointerEvents: 'none',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+        }}>
+          {hapaxTip}
+        </span>
+      )}
     </span>
   );
 }
@@ -184,9 +240,9 @@ function AnimalCard({ item, language }) {
       </p>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
         {item.contexts.map(ctx => (
-          <ContextBadge key={ctx} ctx={ctx} colorMap={ANIMAL_CONTEXT_COLORS} />
+          <ContextBadge key={ctx} ctx={ctx} colorMap={ANIMAL_CONTEXT_COLORS} language={language} />
         ))}
-        {isHapax && <ContextBadge ctx="hapax" colorMap={ANIMAL_CONTEXT_COLORS} />}
+        {isHapax && <ContextBadge ctx="hapax" colorMap={ANIMAL_CONTEXT_COLORS} language={language} />}
       </div>
       {item.sureRef && (
         <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body }}>
@@ -242,9 +298,9 @@ function PlantCard({ item, language }) {
       </p>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
         {item.contexts.map(ctx => (
-          <ContextBadge key={ctx} ctx={ctx} colorMap={PLANT_CONTEXT_COLORS} />
+          <ContextBadge key={ctx} ctx={ctx} colorMap={PLANT_CONTEXT_COLORS} language={language} />
         ))}
-        {isHapax && <ContextBadge ctx="hapax" colorMap={PLANT_CONTEXT_COLORS} />}
+        {isHapax && <ContextBadge ctx="hapax" colorMap={PLANT_CONTEXT_COLORS} language={language} />}
       </div>
       {item.sureRef && (
         <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body }}>

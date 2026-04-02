@@ -26,17 +26,53 @@ function HadisBadge({ language }) {
 }
 
 function HapaxBadge({ language }) {
+  const [show, setShow] = useState(false);
+  const tip = language === 'tr'
+    ? 'Hapax legomenon: Kur\'an\'da yalnızca bir kez geçen kelime. Anlam ve kök tartışmalıdır.'
+    : 'Hapax legomenon: A word that appears only once in the Quran. Its meaning and root are debated.';
   return (
-    <span style={{
-      display: 'inline-flex', alignItems: 'center', gap: '3px',
-      fontSize: '0.65rem', fontWeight: 700,
-      color: HAPAX,
-      background: 'rgba(139,92,246,0.1)',
-      border: '1px solid rgba(139,92,246,0.3)',
-      borderRadius: '20px', padding: '1px 7px',
-      textTransform: 'uppercase', letterSpacing: '0.05em',
-    }}>
-      Hapax
+    <span
+      style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+    >
+      <span style={{
+        display: 'inline-flex', alignItems: 'center', gap: '4px',
+        fontSize: '0.65rem', fontWeight: 700,
+        color: HAPAX,
+        background: 'rgba(139,92,246,0.1)',
+        border: '1px solid rgba(139,92,246,0.3)',
+        borderRadius: '20px', padding: '1px 7px',
+        textTransform: 'uppercase', letterSpacing: '0.05em',
+        cursor: 'default',
+      }}>
+        Hapax
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.75, flexShrink: 0 }}>
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </span>
+      {show && (
+        <span style={{
+          position: 'absolute', bottom: 'calc(100% + 6px)', left: '50%',
+          transform: 'translateX(-50%)',
+          background: '#1e1b2e',
+          border: '1px solid rgba(139,92,246,0.4)',
+          borderRadius: '8px',
+          padding: '8px 12px',
+          fontSize: '0.75rem',
+          color: '#c4b5fd',
+          lineHeight: 1.5,
+          whiteSpace: 'normal',
+          width: '220px',
+          zIndex: 100,
+          boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+          pointerEvents: 'none',
+        }}>
+          {tip}
+        </span>
+      )}
     </span>
   );
 }
@@ -386,39 +422,69 @@ function HeroBanner({ data, language, isMobile }) {
 
   return (
     <div style={{
-      display: 'grid',
-      gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr',
+      display: isMobile ? 'flex' : 'grid',
+      flexDirection: isMobile ? 'column' : undefined,
+      gridTemplateColumns: isMobile ? undefined : '1fr 260px 1fr',
       marginBottom: '28px',
       borderRadius: '14px',
       overflow: 'hidden',
       border: '1px solid rgba(255,255,255,0.08)',
     }}>
       {/* Left: Cennet */}
-      <div style={{ background: CENNET.bg, padding: isMobile ? '16px' : '20px 24px' }}>
-        <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: CENNET.accent, marginBottom: '10px' }}>
+      <div style={{ background: CENNET.bg, padding: isMobile ? '16px' : '24px 28px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '14px' }}>
+        <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: CENNET.accent }}>
           {tr ? 'Cennet' : 'Paradise'}
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
           <StatPill value={cennetCount}  label={tr ? 'İsim' : 'Names'}   color={CENNET.accent} />
           <StatPill value="~147"         label={tr ? 'Ayet' : 'Verses'}  color={CENNET.accent} />
           <StatPill value={4}            label={tr ? 'Nehir' : 'Rivers'} color={CENNET.accent} />
         </div>
       </div>
 
-      {/* Center divider (desktop only) */}
-      {!isMobile && (
+      {/* Center: verse + meal */}
+      {!isMobile ? (
         <div style={{
-          background: 'rgba(201,169,110,0.05)',
-          borderLeft: '1px solid rgba(255,255,255,0.06)',
-          borderRight: '1px solid rgba(255,255,255,0.06)',
+          background: 'rgba(201,169,110,0.04)',
+          borderLeft: '1px solid rgba(255,255,255,0.07)',
+          borderRight: '1px solid rgba(255,255,255,0.07)',
           display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
-          padding: '16px 14px', gap: '6px',
+          padding: '20px 24px', gap: '10px',
         }}>
-          <div style={{ fontFamily: FONTS.quran, fontSize: '0.95rem', color: GOLD, direction: 'rtl', textAlign: 'center', lineHeight: 2 }}>
+          <div style={{
+            fontFamily: FONTS.quran, fontSize: '1.55rem', color: GOLD,
+            direction: 'rtl', textAlign: 'center', lineHeight: 1.9, lang: 'ar',
+          }}>
             وَبَيْنَهُمَا حِجَابٌ
           </div>
-          <div style={{ fontSize: '0.58rem', color: '#475569', textAlign: 'center', fontStyle: 'italic', letterSpacing: '0.03em' }}>
+          <div style={{
+            fontSize: '0.78rem', color: '#94a3b8', textAlign: 'center',
+            fontStyle: 'italic', lineHeight: 1.5, maxWidth: '220px',
+          }}>
+            {tr
+              ? '"İkisi arasında bir perde vardır."'
+              : '"Between them is a barrier."'}
+          </div>
+          <div style={{ fontSize: '0.68rem', color: `${GOLD}70`, fontWeight: 600, letterSpacing: '0.04em' }}>
+            {tr ? "A'râf 7:46" : "Al-A'raf 7:46"}
+          </div>
+        </div>
+      ) : (
+        <div style={{
+          background: 'rgba(201,169,110,0.04)',
+          borderTop: '1px solid rgba(255,255,255,0.07)',
+          borderBottom: '1px solid rgba(255,255,255,0.07)',
+          display: 'flex', flexDirection: 'column',
+          alignItems: 'center', padding: '16px 24px', gap: '8px',
+        }}>
+          <div style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', textAlign: 'center', lineHeight: 1.9, lang: 'ar' }}>
+            وَبَيْنَهُمَا حِجَابٌ
+          </div>
+          <div style={{ fontSize: '0.75rem', color: '#94a3b8', fontStyle: 'italic', textAlign: 'center' }}>
+            {tr ? '"İkisi arasında bir perde vardır."' : '"Between them is a barrier."'}
+          </div>
+          <div style={{ fontSize: '0.65rem', color: `${GOLD}70`, fontWeight: 600 }}>
             {tr ? "A'râf 7:46" : "Al-A'raf 7:46"}
           </div>
         </div>
@@ -427,13 +493,13 @@ function HeroBanner({ data, language, isMobile }) {
       {/* Right: Cehennem */}
       <div style={{
         background: CEHENNEM.bg,
-        padding: isMobile ? '16px' : '20px 24px',
-        borderTop: isMobile ? '1px solid rgba(255,255,255,0.06)' : 'none',
+        padding: isMobile ? '16px' : '24px 28px',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '14px',
       }}>
-        <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: CEHENNEM.accent, marginBottom: '10px' }}>
+        <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: CEHENNEM.accent }}>
           {tr ? 'Cehennem' : 'Hell'}
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
           <StatPill value={cehennemCount} label={tr ? 'İsim' : 'Names'}   color={CEHENNEM.accent} />
           <StatPill value="~77"           label={tr ? 'Ayet' : 'Verses'}  color={CEHENNEM.accent} />
           <StatPill value={19}            label={tr ? 'Melek' : 'Angels'} color={CEHENNEM.accent} />
@@ -618,18 +684,59 @@ function TabCehennem({ data, language, isMobile }) {
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '10px', marginBottom: '8px' }}>
         {(d.duyusal || []).map(item => (
           <div key={item.id} style={{
-            background: item.isSessizlik ? 'rgba(255,255,255,0.02)' : CEHENNEM.bg,
-            border: `1px solid ${item.isSessizlik ? 'rgba(255,255,255,0.06)' : CEHENNEM.border}`,
-            borderLeft: `2px solid ${item.isSessizlik ? '#334155' : CEHENNEM.accent}`,
-            borderRadius: '10px', padding: '12px 14px',
+            background: item.isSessizlik ? 'rgba(255,255,255,0.03)' : CEHENNEM.bg,
+            border: `1px solid ${item.isSessizlik ? 'rgba(255,255,255,0.10)' : CEHENNEM.border}`,
+            borderLeft: `2px solid ${item.isSessizlik ? '#475569' : CEHENNEM.accent}`,
+            borderRadius: '10px', padding: '14px 16px',
           }}>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: item.isSessizlik ? '#334155' : CEHENNEM.accent, margin: '0 0 6px' }}>
+            {/* Sense label */}
+            <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', color: item.isSessizlik ? '#64748b' : CEHENNEM.accent, margin: '0 0 10px' }}>
               {tr ? item.duyuTr : item.duyuEn}
             </p>
-            <p style={{ fontSize: '0.85rem', color: item.isSessizlik ? '#334155' : '#94a3b8', margin: '0 0 8px', lineHeight: 1.55, fontStyle: item.isSessizlik ? 'italic' : 'normal' }}>
-              {tr ? item.descTr : item.descEn}
-            </p>
-            {item.kaynak !== '—' && <p style={{ fontSize: '0.7rem', color: `${CEHENNEM.accent}80`, fontWeight: 500, margin: 0 }}>{item.kaynak}</p>}
+            {/* Arabic verse */}
+            {item.verseAr ? (
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: '#e8e6e3', textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 8px' }} lang="ar">
+                {item.verseAr}
+              </p>
+            ) : (
+              /* Sessizlik placeholder */
+              <p style={{ fontSize: '1.1rem', color: '#475569', textAlign: 'center', letterSpacing: '0.3em', margin: '4px 0 12px', fontStyle: 'italic' }}>— — —</p>
+            )}
+            {/* Translation */}
+            {(tr ? item.verseTr : item.verseEn) ? (
+              <p style={{ fontSize: '0.82rem', color: item.isSessizlik ? '#64748b' : '#94a3b8', margin: '0 0 8px', lineHeight: 1.6, fontStyle: 'italic' }}>
+                {tr ? item.verseTr : item.verseEn}
+              </p>
+            ) : null}
+            {/* Analytical note */}
+            {(tr ? item.notTr : item.notEn) && (
+              <div style={{ marginBottom: '8px' }}>
+                {item.isSessizlik && (
+                  <span style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '4px',
+                    fontSize: '0.62rem', fontWeight: 600,
+                    color: 'rgba(148,163,184,0.6)',
+                    background: 'rgba(148,163,184,0.07)',
+                    border: '1px solid rgba(148,163,184,0.18)',
+                    borderRadius: '20px', padding: '1px 8px',
+                    marginBottom: '6px',
+                    letterSpacing: '0.04em',
+                  }}>
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    {tr ? 'Tefsir Görüşü' : 'Scholarly Interpretation'}
+                  </span>
+                )}
+                <p style={{ fontSize: '0.75rem', color: item.isSessizlik ? '#64748b' : `${CEHENNEM.accent}90`, margin: 0, lineHeight: 1.55, fontStyle: 'italic' }}>
+                  {tr ? item.notTr : item.notEn}
+                </p>
+              </div>
+            )}
+            {/* Source */}
+            {item.kaynak !== '—' && (
+              <p style={{ fontSize: '0.68rem', color: `${CEHENNEM.accent}70`, fontWeight: 600, margin: 0 }}>{item.kaynak}</p>
+            )}
           </div>
         ))}
       </div>
