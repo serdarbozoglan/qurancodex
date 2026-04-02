@@ -420,7 +420,7 @@ export default function KiyametSahneleri({ onClose }) {
         background: 'rgba(8,9,26,0.95)', flexShrink: 0,
       }}>
         <span style={OVERLAY_TITLE}>
-          {language === 'tr' ? 'Kıyamet Sahneleri' : 'Judgment Day Scenes'}
+          {language === 'tr' ? 'Kıyamet Sahneleri' : 'Scenes of Judgment'}
         </span>
         <CloseBtn onClose={onClose} />
       </div>
@@ -699,6 +699,7 @@ function TabKozmikSahneler({ language, isMobile }) {
     { ar: 'وَإِذَا السَّمَاءُ كُشِطَتْ', tr: 'Gök soyulup kaldırıldığında', en: 'When the sky is stripped away', ref: '81:11', isHapax: true },
     { ar: 'وَإِذَا الْجَحِيمُ سُعِّرَتْ', tr: 'Cehennem alevlendirildiğinde', en: 'When Hellfire is set ablaze', ref: '81:12' },
     { ar: 'وَإِذَا الْجَنَّةُ أُزْلِفَتْ', tr: 'Cennet yaklaştırıldığında', en: 'When Paradise is brought near', ref: '81:13' },
+    { ar: 'عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ', tr: 'Her can, ne hazırladığını öğrenmiş olur', en: 'Every soul will know what it has brought forth', ref: '81:14' },
   ];
 
   const DAG_TABLOSI = [
