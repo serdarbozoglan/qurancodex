@@ -114,13 +114,11 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
           </span>
         </div>
 
-        {/* Mention count */}
-        <p style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 10px' }}>
-          ~{renk.totalMentions} {tr ? 'ayette' : 'verses'}
-        </p>
-
-        {/* Badges row */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+        {/* Badges + mention count row */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '5px' }}>
+          <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, marginRight: '2px' }}>
+            ~{renk.totalMentions}{tr ? ' ayet' : ' v.'}
+          </span>
           {renk.contexts.map(ctx => {
             const b = CONTEXT_BADGES[ctx];
             if (!b) return null;
