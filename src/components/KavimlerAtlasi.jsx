@@ -305,7 +305,7 @@ function HeroSection({ meta, language, isMobile }) {
 // ── Tab 1: Nations ────────────────────────────────────────────────────────────
 
 function TabNations({ nations, language, isMobile, filter, setFilter, onArchClick }) {
-  const filtersTr = ['Tümü', 'Helak Olan', 'Kurtulan', 'Gizemli', 'Arkeolojik Kanıt'];
+  const filtersTr = ['Tümü', 'Helak Olan', 'Kurtulan', 'Bilgi Kısıtlı', 'Arkeolojik Kanıt'];
   const filtersEn = ['All', 'Destroyed', 'Survived', 'Mysterious', 'Archaeological Evidence'];
   const filterKeys = ['tumu', 'helak', 'kurtulan', 'gizemli', 'arkeoloji'];
   const labels = language === 'tr' ? filtersTr : filtersEn;
@@ -429,13 +429,15 @@ function NationCard({ nation, language, isMobile, onArchClick }) {
       {/* Badges row */}
       <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '10px' }}>
         {/* Prophet badge */}
-        <span style={{
-          background: `${COLORS.gold}15`, border: `1px solid ${COLORS.gold}30`,
-          color: COLORS.gold, fontSize: '0.7rem', padding: '2px 8px',
-          borderRadius: '10px', fontFamily: FONTS.body,
-        }}>
-          {prophet}
-        </span>
+        {prophet && (
+          <span style={{
+            background: `${COLORS.gold}15`, border: `1px solid ${COLORS.gold}30`,
+            color: COLORS.gold, fontSize: '0.7rem', padding: '2px 8px',
+            borderRadius: '10px', fontFamily: FONTS.body,
+          }}>
+            {prophet}
+          </span>
+        )}
         {/* Helak badge */}
         <span style={{
           background: `${helakColor}15`, border: `1px solid ${helakColor}30`,
@@ -1172,17 +1174,17 @@ const OBJECTION_EN = [
 // Sorted by mention count descending
 const TABLE_DATA = [
   { nameTr: 'Firavun kavmi',    nameEn: "People of Pharaoh",         prophetTr: 'Hz. Musa',       prophetEn: 'Moses',         count: 70, helakTr: 'Deniz',           helakEn: 'Sea',                  type: 'deniz' },
-  { nameTr: 'Hz. İbrahim kavmi',nameEn: "People of Abraham",         prophetTr: 'Hz. İbrahim',    prophetEn: 'Abraham',       count: 69, helakTr: 'Kurtuldu',        helakEn: 'Saved',                type: 'kurtulan' },
+  { nameTr: 'İbrahim Kavmi',    nameEn: "People of Abraham",         prophetTr: 'Hz. İbrahim',    prophetEn: 'Abraham',       count: 69, helakTr: 'Kurtuldu',        helakEn: 'Saved',                type: 'kurtulan' },
   { nameTr: 'Nuh Kavmi',        nameEn: "People of Noah",            prophetTr: 'Hz. Nuh',        prophetEn: 'Noah',          count: 43, helakTr: 'Tufan',           helakEn: 'Flood',                type: 'su' },
   { nameTr: 'Lût Kavmi',        nameEn: "People of Lot",             prophetTr: 'Hz. Lût',        prophetEn: 'Lot',           count: 27, helakTr: 'Alt-üst + taş',   helakEn: 'Overturned + stones',  type: 'tas' },
   { nameTr: 'Semûd',            nameEn: 'Thamud',                    prophetTr: 'Hz. Salih',      prophetEn: 'Salih',         count: 26, helakTr: 'Ses (saika)',      helakEn: 'Sound (saika)',        type: 'ses' },
   { nameTr: 'Âd',               nameEn: "ʿAd",                       prophetTr: 'Hz. Hud',        prophetEn: 'Hud',           count: 24, helakTr: 'Rüzgar',          helakEn: 'Wind',                 type: 'ruzgar' },
-  { nameTr: 'Sebe Kavmi',       nameEn: "People of Sheba",           prophetTr: '—',              prophetEn: '—',             count: 20, helakTr: 'Arim seli',       helakEn: 'Flood of Arim',        type: 'su' },
+  { nameTr: 'Sebe Kavmi',       nameEn: "People of Sheba",           prophetTr: 'Belirtilmemiş',  prophetEn: 'Not specified', count: 20, helakTr: 'Arim seli',       helakEn: 'Flood of Arim',        type: 'su' },
   { nameTr: 'Medyen',           nameEn: 'Midian',                    prophetTr: 'Hz. Şuayb',     prophetEn: "Shu'ayb",       count: 10, helakTr: 'Sarsıntı (rajfa)',helakEn: 'Earthquake (rajfa)',   type: 'sarsinti' },
   { nameTr: 'Yunus Kavmi',      nameEn: "People of Jonah",           prophetTr: 'Hz. Yunus',      prophetEn: 'Jonah',         count: 6,  helakTr: 'Kurtuldu',        helakEn: 'Saved',                type: 'kurtulan' },
-  { nameTr: 'Ashâb-ı Sebt',     nameEn: "People of the Sabbath",     prophetTr: 'Musa sonrası',   prophetEn: 'Post-Moses',    count: 5,  helakTr: 'Mesh',            helakEn: 'Metamorphosis',        type: 'mesh' },
+  { nameTr: 'Ashâb-ı Sebt',     nameEn: "People of the Sabbath",     prophetTr: 'Hz. Musa sonrası', prophetEn: 'Post-Moses',  count: 5,  helakTr: 'Mesh',            helakEn: 'Metamorphosis',        type: 'mesh' },
   { nameTr: 'Eyke Halkı',       nameEn: 'Companions of the Grove',   prophetTr: 'Hz. Şuayb',     prophetEn: "Shu'ayb",       count: 4,  helakTr: 'Gölge azabı',     helakEn: 'Shade punishment',     type: 'golge' },
-  { nameTr: 'Karun',            nameEn: 'Qarun',                     prophetTr: 'Hz. Musa dönemi',prophetEn: "Moses' era",    count: 4,  helakTr: 'Yere battı',      helakEn: 'Swallowed by earth',   type: 'batirma' },
+  { nameTr: 'Karun (bireysel)', nameEn: 'Qarun (individual)',        prophetTr: 'Hz. Musa dönemi',prophetEn: "Moses' era",    count: 4,  helakTr: 'Yere battı',      helakEn: 'Swallowed by earth',   type: 'batirma' },
   { nameTr: 'Ashâb-ı Uhdud',    nameEn: 'Companions of the Pit',     prophetTr: '?',              prophetEn: '?',             count: 3,  helakTr: 'Ateş çukuru',     helakEn: 'Fire pit',             type: 'ates' },
   { nameTr: 'Ashâb-ı Ress',     nameEn: 'Companions of the Well',    prophetTr: '?',              prophetEn: '?',             count: 2,  helakTr: 'Belirtilmemiş',   helakEn: 'Unknown',              type: 'gizemli' },
   { nameTr: "Tübba Kavmi",      nameEn: "People of Tubba'",          prophetTr: '?',              prophetEn: '?',             count: 2,  helakTr: 'İma edilir',      helakEn: 'Implied',              type: 'gizemli' },
@@ -1197,7 +1199,7 @@ const HELAK_TYPES_TR = [
   { type: 'ruzgar',   label: 'Rüzgar',                 color: '#94a3b8', nations: ['Âd'] },
   { type: 'tas',      label: 'Taş / Alt-Üst',          color: '#a0785a', nations: ['Lût Kavmi'] },
   { type: 'golge',    label: 'Gölge Azabı',            color: '#b8860b', nations: ['Eyke Halkı'] },
-  { type: 'batirma',  label: 'Yere Batırma',           color: '#c0392b', nations: ['Karun'] },
+  { type: 'batirma',  label: 'Yere Batırma',           color: '#c0392b', nations: ['Karun (bireysel)'] },
   { type: 'ates',     label: 'Ateş Çukuru',            color: '#ff6348', nations: ['Ashâb-ı Uhdud'] },
   { type: 'mesh',     label: 'Mesh (Dönüşüm)',         color: '#8e44ad', nations: ['Ashâb-ı Sebt'] },
 ];
@@ -1209,7 +1211,7 @@ const HELAK_TYPES_EN = [
   { type: 'ruzgar',   label: 'Wind',                    color: '#94a3b8', nations: ["ʿAd"] },
   { type: 'tas',      label: 'Stones / Overturned',     color: '#a0785a', nations: ["People of Lot"] },
   { type: 'golge',    label: 'Shade Punishment',        color: '#b8860b', nations: ["Companions of the Grove"] },
-  { type: 'batirma',  label: 'Swallowed by Earth',      color: '#c0392b', nations: ["Qarun"] },
+  { type: 'batirma',  label: 'Swallowed by Earth',      color: '#c0392b', nations: ["Qarun (individual)"] },
   { type: 'ates',     label: 'Fire Pit',                color: '#ff6348', nations: ["Companions of the Pit"] },
   { type: 'mesh',     label: 'Metamorphosis',           color: '#8e44ad', nations: ["People of the Sabbath"] },
 ];
@@ -1282,7 +1284,7 @@ function TabKarsilastirma({ nations, language, isMobile }) {
             {language === 'tr' ? 'Kurtuldu' : 'Saved'}
           </div>
           {[
-            { tr: 'Hz. İbrahim kavmi', en: "People of Abraham", noteTr: 'Peygamber kurtuldu, azap başkalarına', noteEn: 'Prophet saved, punishment on others' },
+            { tr: 'İbrahim Kavmi', en: "People of Abraham", noteTr: 'Kavim helak edilmedi — Kur\'an sebebini açıklamaz', noteEn: 'People were not destroyed — Quran gives no reason' },
             { tr: 'Yunus Kavmi', en: "People of Jonah", noteTr: 'Tüm toplum tövbe edip kurtuldu', noteEn: 'Entire community repented and was saved' },
           ].map((n, i) => (
             <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', marginBottom: i === 0 ? '6px' : 0 }}>
@@ -1300,7 +1302,7 @@ function TabKarsilastirma({ nations, language, isMobile }) {
           borderRadius: '10px', padding: '14px 16px',
         }}>
           <div style={{ color: HELAK_COLORS.gizemli, fontSize: '0.78rem', fontWeight: 700, fontFamily: FONTS.body, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
-            {language === 'tr' ? 'Gizemli / Bilgi Kısıtlı' : 'Mysterious / Limited Info'}
+            {language === 'tr' ? 'Bilgi Kısıtlı' : 'Limited Information'}
           </div>
           {[
             { tr: 'Ashab-ı Ress', en: 'Companions of the Well', noteTr: 'Peygamberleri bilinmiyor', noteEn: 'Prophet unknown' },
