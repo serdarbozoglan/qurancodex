@@ -250,7 +250,7 @@ export default function Navbar() {
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -487,9 +487,11 @@ export default function Navbar() {
       labelTr: 'Zamanın Boyutları', labelEn: 'Dimensions of Time',
       descTr: "Kur'an'da zaman: kozmik ölçek, dil katmanı, felsefe", descEn: "Time in the Quran: cosmic scale, linguistic layer, philosophy",
       icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12 6 12 12 16 14"/>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+          <circle cx="12" cy="12" r="5.5"/>
+          <path d="M12 3a9 9 0 0 1 9 9"/>
+          <path d="M12 21a9 9 0 0 1-9-9"/>
         </svg>
       ),
       action: () => { setZamanOpen(true); setToolsOpen(false); },

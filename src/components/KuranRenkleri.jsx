@@ -70,7 +70,7 @@ export default function KuranRenkleri({ onClose }) {
   });
 
   return (
-    <div style={OVERLAY_BASE} role="dialog" aria-modal="true">
+    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-modal="true">
       {/* ── Header ── */}
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -99,7 +99,7 @@ export default function KuranRenkleri({ onClose }) {
       <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
 
         {/* Hero placeholder — filled in Task 3 */}
-        <div style={{ padding: isMobile ? '20px 16px' : '28px 32px 24px', background: 'linear-gradient(180deg,#0d1b2a 0%,#0a0a1a 100%)' }}>
+        <div style={{ padding: isMobile ? '20px 16px' : '28px 32px 24px', background: 'linear-gradient(180deg,#0d1b2a 0%,#0a0a1a 100%)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
           <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem', margin: 0 }}>
             {tr ? 'Yükleniyor…' : 'Loading…'}
           </p>
