@@ -21,6 +21,8 @@ const KuranYeminleri   = lazy(() => import('./KuranYeminleri'));
 const DogaAtlasi       = lazy(() => import('./DogaAtlasi'));
 const KavimlerAtlasi   = lazy(() => import('./KavimlerAtlasi'));
 const CennetCehennem   = lazy(() => import('./CennetCehennem'));
+const Melekler         = lazy(() => import('./Melekler'));
+const KuranRenkleri    = lazy(() => import('./KuranRenkleri'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -181,6 +183,8 @@ export default function Navbar() {
   const [dogaOpen,       setDogaOpen]       = useState(false);
   const [kavimlerOpen,   setKavimlerOpen]   = useState(false);
   const [cennetOpen,     setCennetOpen]     = useState(false);
+  const [meleklerOpen,   setMeleklerOpen]   = useState(false);
+  const [renkleriOpen,   setRenkleriOpen]   = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -242,11 +246,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -284,10 +288,12 @@ export default function Navbar() {
       if (dogaOpen)       { setDogaOpen(false);            return; }
       if (kavimlerOpen)   { setKavimlerOpen(false);        return; }
       if (cennetOpen)     { setCennetOpen(false);          return; }
+      if (meleklerOpen)   { setMeleklerOpen(false);        return; }
+      if (renkleriOpen)   { setRenkleriOpen(false);        return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -699,6 +705,36 @@ export default function Navbar() {
                       </button>
                     );
 
+                    // Kur'an'da Melekler — overlay button for Evreni col
+                    const meleklerBtn = (
+                      <button
+                        key="melekler"
+                        onClick={() => { setMeleklerOpen(true); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                          </svg>
+                        </span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? "Kur'an'da Melekler" : 'Angels in the Quran'}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? "İsimli, görevli, kıssada yer alan — tüm melekler" : "Named, described, narrative — all angels"}
+                          </span>
+                        </span>
+                      </button>
+                    );
+
                     // Cennet & Cehennem — overlay button for Evreni col
                     const cennetBtn = (
                       <button
@@ -725,6 +761,37 @@ export default function Navbar() {
                           </span>
                           <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                             {language === 'tr' ? "8 cennet ismi, 7 cehennem ismi, A'râf" : "8 names, 7 names, the A'râf boundary"}
+                          </span>
+                        </span>
+                      </button>
+                    );
+
+                    // Kur'an'ın Renkleri — overlay button for Dil & Yapı col
+                    const renkleriBtn = (
+                      <button
+                        key="renkleri"
+                        onClick={() => { setRenkleriOpen(true); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                          </svg>
+                        </span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? "Kur'an'ın Renkleri" : 'Colors of the Quran'}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? "Yeşilden kırmızıya — her rengin Kur'an'daki anlamı" : "From green to red — every color's meaning in the Quran"}
                           </span>
                         </span>
                       </button>
@@ -767,6 +834,7 @@ export default function Navbar() {
                         <div style={{ flex: 1, padding: '8px' }}>
                           <div style={colLabel}>{language === 'tr' ? 'Dil & Yapı' : 'Language & Structure'}</div>
                           {dilYapiSecs.map(secBtn)}
+                          {renkleriBtn}
                         </div>
                         {/* Divider */}
                         <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
@@ -793,6 +861,7 @@ export default function Navbar() {
                           {zamanBtn}
                           {dogaBtn}
                           {cennetBtn}
+                          {meleklerBtn}
                         </div>
                       </div>
                     );
@@ -1191,6 +1260,16 @@ export default function Navbar() {
     {cennetOpen && (
       <Suspense fallback={null}>
         <CennetCehennem onClose={() => setCennetOpen(false)} />
+      </Suspense>
+    )}
+    {meleklerOpen && (
+      <Suspense fallback={null}>
+        <Melekler onClose={() => setMeleklerOpen(false)} />
+      </Suspense>
+    )}
+    {renkleriOpen && (
+      <Suspense fallback={null}>
+        <KuranRenkleri onClose={() => setRenkleriOpen(false)} />
       </Suspense>
     )}
     </>
