@@ -591,7 +591,7 @@ function TabBaglam({ language, isMobile }) {
                 {tr ? section.titleTr : section.titleEn}
               </span>
             </div>
-            <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+            <p style={{ fontSize: '0.95rem', color: COLORS.silver, lineHeight: 1.7, fontFamily: FONTS.body, margin: 0 }}>
               {tr ? section.descTr : section.descEn}
             </p>
           </div>
@@ -630,18 +630,18 @@ function TabBaglam({ language, isMobile }) {
                   {/* Expanded verse */}
                   {isOpen && (
                     <div style={{ padding: isMobile ? '12px 14px 14px' : '14px 20px 16px', background: 'rgba(0,0,0,0.2)', borderTop: `1px solid rgba(255,255,255,0.05)` }}>
-                      <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 10px' }} lang="ar" dir="rtl">
+                      <p style={{ fontFamily: FONTS.quran, fontSize: '1.8rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 12px' }} lang="ar" dir="rtl">
                         {c.verseAr}
                       </p>
-                      <p style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: COLORS.offWhite, fontStyle: 'italic', margin: '0 0 8px', lineHeight: 1.6 }}>
+                      <p style={{ fontFamily: FONTS.body, fontSize: '0.95rem', color: COLORS.offWhite, fontStyle: 'italic', margin: '0 0 10px', lineHeight: 1.7 }}>
                         "{tr ? c.verseTr : c.verseEn}"
                       </p>
-                      <p style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 6px', lineHeight: 1.55 }}>
+                      <p style={{ fontFamily: FONTS.body, fontSize: '0.9rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.65 }}>
                         {tr ? c.noteTr : c.noteEn}
                       </p>
-                      <span style={{ fontSize: '0.7rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600 }}>— {c.ref}</span>
+                      <span style={{ fontSize: '0.85rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600 }}>— {c.ref}</span>
                       {c.isHapax && (
-                        <span style={{ marginLeft: '10px', fontSize: '0.65rem', color: COLORS.purple, fontFamily: FONTS.body, fontWeight: 600, background: 'rgba(83,74,183,0.15)', padding: '2px 8px', borderRadius: '10px', border: '1px solid rgba(83,74,183,0.3)' }}>
+                        <span style={{ marginLeft: '10px', fontSize: '0.72rem', color: COLORS.purple, fontFamily: FONTS.body, fontWeight: 600, background: 'rgba(83,74,183,0.15)', padding: '2px 8px', borderRadius: '10px', border: '1px solid rgba(83,74,183,0.3)' }}>
                           Hapax
                         </span>
                       )}
@@ -730,7 +730,7 @@ function TabCennet({ language, isMobile }) {
             <span style={{ fontSize: '0.75rem', fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body }}>{a.ref}</span>
             {a.isHapax && <HapaxBadge />}
           </div>
-          <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
+          <p style={{ fontFamily: FONTS.quran, fontSize: '1.8rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 6px' }} lang="ar" dir="rtl">
             {a.verseAr}
           </p>
           <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
@@ -834,7 +834,7 @@ function TabKiyamet({ language, isMobile }) {
             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? s.titleTr : s.titleEn}</span>
             {(s.infoTr || s.infoEn) && <InfoPopover text={tr ? s.infoTr : s.infoEn} />}
           </div>
-          <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
+          <p style={{ fontFamily: FONTS.quran, fontSize: '1.8rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 6px' }} lang="ar" dir="rtl">
             {s.verseAr}
           </p>
           <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
@@ -1220,10 +1220,10 @@ export default function KuranRenkleri({ onClose }) {
 
           {/* Arabic verse */}
           <div style={{ textAlign: 'center', padding: isMobile ? '12px' : '16px', background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: '10px', marginBottom: '16px' }}>
-            <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.25rem' : '1.45rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 1.9, margin: '0 0 8px' }} lang="ar" dir="rtl">
+            <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.6rem' : '2rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 2, margin: '0 0 12px' }} lang="ar" dir="rtl">
               أَلَمْ تَرَ أَنَّ اللَّهَ أَنزَلَ مِنَ السَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ ثَمَرَاتٍ مُّخْتَلِفًا أَلْوَانُهَا
             </p>
-            <p style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic', margin: 0 }}>
+            <p style={{ fontSize: isMobile ? '0.85rem' : '0.95rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic', margin: 0, lineHeight: 1.7 }}>
               {tr
                 ? '"Allah\'ın gökten su indirdiğini ve onunla renkleri birbirinden farklı meyveler çıkardığımızı görmüyor musun?" — Fâtır 35:27'
                 : '"Do you not see that Allah sends down rain from the sky, and We produce thereby fruits of varying colors?" — Fatir 35:27'}
@@ -1231,7 +1231,7 @@ export default function KuranRenkleri({ onClose }) {
           </div>
 
           {/* Intro paragraph */}
-          <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, fontFamily: FONTS.body, margin: '0 0 20px' }}>
+          <p style={{ fontSize: isMobile ? '0.9rem' : '1rem', color: COLORS.silver, lineHeight: 1.75, fontFamily: FONTS.body, margin: '0 0 20px' }}>
             {tr
               ? "Kur'an renkleri tesadüfen kullanmaz. Yeşil cenneti çağrıştırır, beyaz saflığı ve mucizeyi, siyah karanlığı ve cezayı, sarı hem canlılığı hem çürümeyi, kırmızı kozmik dönüşümü, mavi belirsizlik ve donukluğu anlatır. Fâtır 35:27 tek bir ayette dağları üç renkle tasvir eder: kırmızı, beyaz, siyah."
               : "The Quran does not use colors accidentally. Green evokes paradise, white purity and miracle, black darkness and punishment, yellow both vitality and decay, red cosmic transformation, blue ambiguity and blankness. Fatir 35:27 describes mountains in a single verse with three colors: red, white, and black."}
@@ -1276,30 +1276,30 @@ export default function KuranRenkleri({ onClose }) {
 
         {/* ── Fâtır 35:27 Feature Card ── */}
         <div style={{ margin: isMobile ? '0 16px 16px' : '0 32px 20px', padding: isMobile ? '16px' : '20px', background: 'linear-gradient(135deg,rgba(29,158,117,0.08),rgba(200,50,50,0.08),rgba(30,30,50,0.15))', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px' }}>
-          <div style={{ fontSize: '0.6rem', letterSpacing: '0.12em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px' }}>
+          <div style={{ fontSize: '0.75rem', letterSpacing: '0.12em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '12px' }}>
             {tr ? 'Tek Ayette 3 Renk — Fâtır 35:27' : 'Three Colors in One Verse — Fatir 35:27'}
           </div>
-          <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.35rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 1.9, margin: '0 0 12px' }} lang="ar" dir="rtl">
+          <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.7rem' : '2.1rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 2, margin: '0 0 14px' }} lang="ar" dir="rtl">
             وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ
           </p>
-          <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body, textAlign: 'center', fontStyle: 'italic', margin: '0 0 14px' }}>
+          <p style={{ fontSize: isMobile ? '0.9rem' : '1rem', color: COLORS.silver, fontFamily: FONTS.body, textAlign: 'center', fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.7 }}>
             {tr
               ? '"Dağlarda da beyaz, kırmızı — renkleri birbirinden farklı — ve simsiyah yollar/şeritler vardır."'
               : '"And among the mountains are streaks of white and red of varying shades, and some intensely black."'}
           </p>
-          <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
             {[
               { ar: 'بِيضٌ', label: tr ? 'Beyaz' : 'White', bg: '#C8D6E5', fg: '#0a0a1a' },
               { ar: 'حُمْرٌ', label: tr ? 'Kırmızı' : 'Red',   bg: '#B91C1C', fg: '#fff' },
               { ar: 'غَرَابِيبُ سُودٌ', label: tr ? 'Simsiyah' : 'Jet Black', bg: '#1E1B4B', fg: COLORS.offWhite },
             ].map(p => (
-              <div key={p.ar} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '5px 12px', background: p.bg, borderRadius: '20px' }}>
-                <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: p.fg, direction: 'rtl' }} lang="ar">{p.ar}</span>
-                <span style={{ fontSize: '0.7rem', color: p.fg, fontFamily: FONTS.body, fontWeight: 600 }}>{p.label}</span>
+              <div key={p.ar} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '7px 16px', background: p.bg, borderRadius: '24px' }}>
+                <span style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: p.fg, direction: 'rtl' }} lang="ar">{p.ar}</span>
+                <span style={{ fontSize: '0.88rem', color: p.fg, fontFamily: FONTS.body, fontWeight: 700 }}>{p.label}</span>
               </div>
             ))}
           </div>
-          <p style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '12px 0 0', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '0.92rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '14px 0 0', lineHeight: 1.7 }}>
             {tr
               ? "'Garâbîb' kuzgun/karga (ghurab) kökünden — siyahın en yoğun tonu için özel kelime. 'Mudhammatân' (koyu yeşil) ile paralel: Kur'an renk yoğunluğunu ifade etmek için kök değiştirerek yeni kelime üretir."
               : "'Gharabib' derives from ghurab (raven/crow) — a special word for the most intense shade of black. Parallel to 'mudhammatân' (intense green): the Quran creates new words by changing roots to express color intensity."}
