@@ -144,6 +144,9 @@ export default function KuranRetorigi({ onClose }) {
 }
 
 // ── MODULE-LEVEL CONSTANTS ──────────────────────────────────────
+const DENSITY_LABEL_TR = ['', 'Az', 'Orta', 'Yüksek', 'Çok yüksek', 'En yoğun'];
+const DENSITY_LABEL_EN = ['', 'Low', 'Medium', 'High', 'Very high', 'Highest'];
+
 const SURAH_NAMES_TR = [
   'Fatiha','Bakara','Âl-i İmrân','Nisâ','Mâide','En\'âm','A\'râf','Enfâl','Tevbe','Yûnus',
   'Hûd','Yûsuf','Ra\'d','İbrâhim','Hicr','Nahl','İsrâ','Kehf','Meryem','Tâ-Hâ',
@@ -777,5 +780,180 @@ function TabSorular({ data, tr, isMobile }) {
   );
 }
 function TabSureHaritasi({ data, tr, isMobile }) {
-  return <div style={{ padding: 32, color: COLORS.silver, fontFamily: FONTS.body }}>Tab 4 — Sure Haritası (Task 7)</div>;
+  const [hoveredSurah, setHoveredSurah] = useState(null);
+  const TYPE_COLORS = { erotema: '#d4a574', irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#a78bfa' };
+
+  return (
+    <div style={{ padding: isMobile ? '16px' : '28px 32px' }}>
+
+      {/* ── BÖLÜM 1: HEATMAP ────────────────────────────── */}
+      <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.2rem' : '1.5rem', fontWeight: 700, margin: '0 0 6px' }}>
+        {tr ? 'Sure Başına Soru Yoğunluğu' : 'Question Density by Surah'}
+      </h2>
+      <p style={{ color: `${COLORS.silver}80`, fontSize: '0.82rem', fontFamily: FONTS.body, marginBottom: 16, lineHeight: 1.5 }}>
+        {tr ? '114 sure — altın ton yoğunluğu gösterir. Üzerine gel veya dokun.' : '114 surahs — gold intensity indicates density. Hover or tap for details.'}
+      </p>
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: 10 }}>
+        {data.surahDensity.map((d, i) => (
+          <div
+            key={i}
+            onMouseEnter={() => setHoveredSurah(i)}
+            onMouseLeave={() => setHoveredSurah(null)}
+            style={{
+              position: 'relative',
+              width: 24, height: 24,
+              borderRadius: 4,
+              background: d === 0 ? 'rgba(255,255,255,0.03)' : `rgba(212,165,116,${d * 0.18})`,
+              border: hoveredSurah === i ? '1px solid rgba(212,165,116,0.6)' : '1px solid rgba(255,255,255,0.05)',
+              cursor: 'default',
+              flexShrink: 0,
+              transition: 'border-color 0.1s',
+            }}
+          >
+            {hoveredSurah === i && (
+              <div style={{
+                position: 'absolute',
+                bottom: 'calc(100% + 6px)',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                background: 'rgba(6,8,20,0.97)',
+                border: `1px solid rgba(212,165,116,0.3)`,
+                borderRadius: 8,
+                padding: '8px 12px',
+                whiteSpace: 'nowrap',
+                zIndex: 50,
+                pointerEvents: 'none',
+                minWidth: 180,
+              }}>
+                {/* Sure adı + numara */}
+                <p style={{ color: COLORS.offWhite, fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 600, margin: '0 0 3px' }}>
+                  {i + 1}. {SURAH_NAMES_TR[i]}
+                </p>
+                {/* Yoğunluk */}
+                <p style={{ color: `${COLORS.gold}90`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '0 0 4px' }}>
+                  {tr ? (DENSITY_LABEL_TR[d] || '—') : (DENSITY_LABEL_EN[d] || '—')}
+                </p>
+                {/* Top 5 sure için ek detay */}
+                {(() => {
+                  const topSurah = data.topSurahs.find(s => s.number === i + 1);
+                  if (!topSurah) return null;
+                  return (
+                    <>
+                      <p style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '0 0 4px' }}>
+                        ~{topSurah.estimatedCount} {tr ? 'soru' : 'questions'}
+                      </p>
+                      <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '0.85rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.8, margin: '2px 0 0' }}>
+                        {topSurah.iconicQuestionAr}
+                      </p>
+                    </>
+                  );
+                })()}
+                {/* Arrow */}
+                <div style={{ position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)', width: 0, height: 0, borderLeft: '5px solid transparent', borderRight: '5px solid transparent', borderTop: '5px solid rgba(212,165,116,0.3)' }} />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Legend */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 40 }}>
+        {[1, 2, 3, 4, 5].map(v => (
+          <div key={v} style={{ width: 18, height: 18, borderRadius: 3, background: `rgba(212,165,116,${v * 0.18})`, border: '1px solid rgba(255,255,255,0.05)', flexShrink: 0 }} />
+        ))}
+        <span style={{ color: COLORS.silver, fontSize: '0.72rem', marginLeft: 4, fontFamily: FONTS.body }}>
+          {tr ? 'Az → Çok' : 'Few → Many'}
+        </span>
+      </div>
+
+      {/* ── BÖLÜM 2: EN YOĞUN 5 SURE ───────────────────── */}
+      <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>
+        {tr ? 'En Yoğun 5 Sure' : 'Top 5 Most Dense Surahs'}
+      </h3>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(240px, 1fr))',
+        gap: 12,
+        marginBottom: 48,
+      }}>
+        {data.topSurahs.map((s, i) => {
+          const domColor = TYPE_COLORS[s.dominantType] || COLORS.silver;
+          return (
+            <div
+              key={i}
+              style={{
+                padding: '14px 16px',
+                background: 'rgba(255,255,255,0.03)',
+                border: `1px solid ${COLORS.glassBorderSoft}`,
+                borderRadius: 10,
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                <div>
+                  <span style={{ color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body }}>{s.number}. </span>
+                  <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                    {tr ? s.nameTr : s.nameEn}
+                  </span>
+                </div>
+                <span style={{ background: `${domColor}20`, color: domColor, fontSize: '0.68rem', padding: '2px 7px', borderRadius: 4, fontFamily: FONTS.body }}>
+                  ~{s.estimatedCount}
+                </span>
+              </div>
+              <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.8, margin: '0 0 6px' }}>
+                {s.iconicQuestionAr}
+              </p>
+              <p style={{ color: `${COLORS.silver}80`, fontSize: '0.78rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.5 }}>
+                {tr ? s.noteTr : s.noteEn}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* ── BÖLÜM 3: KARŞILAŞTIRMALI ANALİZ ────────────── */}
+      <div style={{ borderTop: `1px solid ${COLORS.glassBorderSoft}`, paddingTop: 36 }}>
+        <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.1rem' : '1.3rem', fontWeight: 700, margin: '0 0 6px' }}>
+          {tr ? 'Bir Soru — Dört Farklı Kullanım' : 'One Question — Four Different Uses'}
+        </h3>
+        <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, marginBottom: 20, lineHeight: 1.6 }}>
+          {tr ? 'Aynı soru farklı bağlamlarda farklı bir retorik işlev üstlenebilir.' : 'The same question can serve a different rhetorical function in different contexts.'}
+        </p>
+        {/* Merkez soru */}
+        <div style={{ textAlign: 'center', marginBottom: 24 }}>
+          <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.4rem' : '1.8rem', color: COLORS.gold, lineHeight: 2, margin: '0 0 4px', textAlign: 'center' }}>
+            {data.comparativeAnalysis.questionAr}
+          </p>
+          <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', fontFamily: FONTS.body, margin: 0 }}>
+            {tr ? data.comparativeAnalysis.questionTr : data.comparativeAnalysis.questionEn}
+          </p>
+        </div>
+        {/* 3 analiz kartı */}
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: 14, marginBottom: 20 }}>
+          {data.comparativeAnalysis.cards.map((card, ci) => {
+            const color = TYPE_COLORS[card.type] || COLORS.silver;
+            return (
+              <div key={ci} style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
+                <p style={{ color, fontSize: '0.78rem', fontWeight: 600, fontFamily: FONTS.body, letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 6px' }}>
+                  {tr ? card.labelTr : card.labelEn}
+                </p>
+                <p style={{ color: `${COLORS.gold}70`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: '0 0 8px' }}>
+                  {tr ? card.refTr : card.refEn}
+                </p>
+                <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
+                  {tr ? card.analysisTr : card.analysisEn}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+        {/* Taaccüb analiz notu */}
+        <div style={{ background: 'rgba(167,139,250,0.08)', borderLeft: `3px solid #a78bfa`, padding: '10px 14px', borderRadius: 6, fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.65 }}>
+          <span style={{ color: '#a78bfa', fontWeight: 600, marginRight: 6 }}>Taaccüb:</span>
+          {tr ? data.comparativeAnalysis.taaccubNoteTr : data.comparativeAnalysis.taaccubNoteEn}
+        </div>
+      </div>
+
+    </div>
+  );
 }
