@@ -27,6 +27,7 @@ export const COLORS = {
   teal:          '#1abc9c',
   tealDark:      '#2ab5a0',
   softRed:       '#e74c3c',
+  coral:         '#D85A30',   // Ve Mâ Edrâke kalıp rengi
   skyBlue:       '#3498db',
   cyan:          '#06b6d4',
   orange:        '#e67e22',
