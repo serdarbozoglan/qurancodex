@@ -822,7 +822,7 @@ function TabKiyamet({ language, isMobile }) {
         </div>
         <div style={{ background: 'rgba(30,27,75,0.4)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
           <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '8px' }}>
-            {tr ? 'Kayıp Olanlar' : 'The Lost'}
+            {tr ? 'Kaybedenler' : 'The Lost'}
           </div>
           <div style={{ fontSize: '1rem', fontWeight: 700, color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '4px' }}>
             {tr ? 'Yüzleri Kararır' : 'Faces Turn Black'}
