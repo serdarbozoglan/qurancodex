@@ -504,7 +504,119 @@ function TabKategoriler({ data, tr, isMobile }) {
 
 // ── PLACEHOLDER TABS (Task 5-7'de doldurulacak) ────────────────
 function TabMuhatap({ data, tr, isMobile }) {
-  return <div style={{ padding: 32, color: COLORS.silver, fontFamily: FONTS.body }}>Tab 2 — Muhatap Analizi (Task 5)</div>;
+  const [activeGroup, setActiveGroup] = useState('all');
+
+  const groups = data.addresseeGroups;
+  const filtered = activeGroup === 'all'
+    ? groups
+    : groups.filter(g => g.id === activeGroup);
+
+  const pillStyle = (id, color) => {
+    const isActive = activeGroup === id;
+    return {
+      padding: '5px 14px',
+      borderRadius: 20,
+      border: `1px solid ${isActive ? color : 'rgba(255,255,255,0.1)'}`,
+      background: isActive ? `${color}22` : 'transparent',
+      color: isActive ? color : COLORS.silver,
+      fontSize: '0.78rem',
+      fontFamily: FONTS.body,
+      cursor: 'pointer',
+      transition: 'all 0.15s',
+      whiteSpace: 'nowrap',
+    };
+  };
+
+  return (
+    <div style={{ padding: isMobile ? '16px' : '28px 32px' }}>
+
+      {/* Başlık */}
+      <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.3rem' : '1.6rem', fontWeight: 700, margin: '0 0 6px' }}>
+        {tr ? 'Sorular Kime Soruluyor?' : 'Who Is Being Asked?'}
+      </h2>
+      <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontFamily: FONTS.body, marginBottom: 20, lineHeight: 1.6 }}>
+        {tr
+          ? "Kur'an soruları herkese aynı şekilde sormaz. 5 farklı muhatap grubuna farklı işlevlerle yönlendirilir."
+          : "The Quran does not ask everyone the same way. Questions are directed to 5 different addressee groups with distinct functions."}
+      </p>
+
+      {/* Filter pills */}
+      <div style={{ display: 'flex', gap: 8, marginBottom: 24, overflowX: 'auto', scrollbarWidth: 'none', flexWrap: isMobile ? 'nowrap' : 'wrap' }}>
+        <button style={pillStyle('all', COLORS.gold)} onClick={() => setActiveGroup('all')}>
+          {tr ? 'Tümü' : 'All'} ({groups.length})
+        </button>
+        {groups.map(g => (
+          <button key={g.id} style={pillStyle(g.id, g.color)} onClick={() => setActiveGroup(g.id)}>
+            {tr ? g.nameTr : g.nameEn}
+          </button>
+        ))}
+      </div>
+
+      {/* Group cards */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+        {filtered.map(group => (
+          <div key={group.id}>
+            {/* Group header */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+              <span style={{ width: 12, height: 12, borderRadius: 3, background: group.color, flexShrink: 0, display: 'inline-block' }} />
+              <h3 style={{ color: group.color, fontFamily: FONTS.body, fontSize: '0.95rem', fontWeight: 700, margin: 0 }}>
+                {tr ? group.nameTr : group.nameEn}
+              </h3>
+            </div>
+            <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.65, marginBottom: 14, maxWidth: 600 }}>
+              {tr ? group.descTr : group.descEn}
+            </p>
+
+            {/* Verse cards */}
+            <div style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : undefined, gridTemplateColumns: isMobile ? undefined : 'repeat(auto-fill, minmax(300px, 1fr))', gap: 12 }}>
+              {group.verses.map((v, vi) => (
+                <div
+                  key={vi}
+                  style={{
+                    padding: '14px 16px',
+                    background: 'rgba(255,255,255,0.03)',
+                    border: `1px solid ${COLORS.glassBorderSoft}`,
+                    borderLeft: `3px solid ${group.color}`,
+                    borderRadius: 8,
+                  }}
+                >
+                  {/* Grup badge */}
+                  <span style={{
+                    display: 'inline-block',
+                    background: `${group.color}20`,
+                    color: group.color,
+                    fontSize: '0.68rem',
+                    fontWeight: 600,
+                    padding: '2px 8px',
+                    borderRadius: 4,
+                    marginBottom: 8,
+                    fontFamily: FONTS.body,
+                    letterSpacing: '0.05em',
+                  }}>
+                    {tr ? group.nameTr : group.nameEn}
+                  </span>
+                  {/* Arapça */}
+                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                    {v.ar}
+                  </p>
+                  {/* Çeviri */}
+                  <p style={{ color: COLORS.silver, fontSize: '0.87rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
+                    {tr ? v.tr : v.en}
+                  </p>
+                  {/* Ref */}
+                  <p style={{ color: `${COLORS.gold}60`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: '0 0 8px' }}>— {v.ref}</p>
+                  {/* Not */}
+                  <p style={{ color: `${COLORS.silver}80`, fontSize: '0.78rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.5, fontStyle: 'italic' }}>
+                    {tr ? v.noteTr : v.noteEn}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 function TabSorular({ data, tr, isMobile }) {
   return <div style={{ padding: 32, color: COLORS.silver, fontFamily: FONTS.body }}>Tab 3 — 30 Soru (Task 6)</div>;
