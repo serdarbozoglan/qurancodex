@@ -96,37 +96,37 @@ function ColorCard({ renk, language, isMobile }) {
       onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
     >
       {/* Color swatch */}
-      <div style={{ height: '52px', background: renk.hexColor }} />
+      <div style={{ height: '60px', background: renk.hexColor }} />
 
       {/* Card body */}
-      <div style={{ padding: '12px' }}>
+      <div style={{ padding: '14px' }}>
         {/* Primary Arabic term */}
-        <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', margin: '0 0 4px', lineHeight: 1.6 }} lang="ar" dir="rtl">
+        <p style={{ fontFamily: FONTS.quran, fontSize: '1.7rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', margin: '0 0 6px', lineHeight: 1.6 }} lang="ar" dir="rtl">
           {primaryTerm.arabic}
         </p>
 
         {/* Name + transliteration */}
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '6px' }}>
-          <span style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>
+          <span style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>
             {tr ? renk.colorNameTr : renk.colorNameEn}
           </span>
-          <span style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>
+          <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>
             {primaryTerm.transliteration}
           </span>
         </div>
 
         {/* Mention count */}
-        <p style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 8px' }}>
+        <p style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 10px' }}>
           ~{renk.totalMentions} {tr ? 'ayette' : 'verses'}
         </p>
 
         {/* Badges row */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
           {renk.contexts.map(ctx => {
             const b = CONTEXT_BADGES[ctx];
             if (!b) return null;
             return (
-              <span key={ctx} style={{ fontSize: '0.6rem', padding: '2px 7px', background: b.bg, color: b.color, borderRadius: '10px', fontFamily: FONTS.body, fontWeight: 600 }}>
+              <span key={ctx} style={{ fontSize: '0.68rem', padding: '3px 9px', background: b.bg, color: b.color, borderRadius: '10px', fontFamily: FONTS.body, fontWeight: 600 }}>
                 {tr ? b.labelTr : b.labelEn}
               </span>
             );
@@ -137,49 +137,68 @@ function ColorCard({ renk, language, isMobile }) {
           )}
         </div>
 
-        {/* Expand: all arabicTerms + keyVerse + summary */}
+        {/* Expand: all arabicTerms + keyVerse + allRefs + summary */}
         {expanded && (
-          <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: `1px solid ${renk.tintBorder}` }}>
+          <div style={{ marginTop: '14px', paddingTop: '14px', borderTop: `1px solid ${renk.tintBorder}` }}>
             {/* All Arabic terms */}
             {renk.arabicTerms.length > 1 && (
-              <div style={{ marginBottom: '10px' }}>
-                <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 6px' }}>
+              <div style={{ marginBottom: '12px' }}>
+                <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 8px' }}>
                   {tr ? 'Kelime Formları' : 'Word Forms'}
                 </p>
                 {renk.arabicTerms.map(t => (
-                  <div key={t.arabic} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{t.arabic}</span>
-                      <span style={{ fontSize: '0.62rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{t.transliteration}</span>
+                  <div key={t.arabic} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{t.arabic}</span>
+                      <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{t.transliteration}</span>
                       {t.isHapax && <HapaxBadge />}
                     </div>
-                    <span style={{ fontSize: '0.6rem', color: COLORS.silver, fontFamily: FONTS.body }}>{t.mentionCount}×</span>
+                    <span style={{ fontSize: '0.7rem', color: COLORS.silver, fontFamily: FONTS.body }}>{t.mentionCount}×</span>
                   </div>
                 ))}
               </div>
             )}
 
             {/* Key verse */}
-            <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${renk.tintBorder}`, borderLeft: `2px solid ${renk.hexColor}`, borderRadius: '8px', padding: '10px 12px', marginBottom: '10px' }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
+            <div style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${renk.tintBorder}`, borderLeft: `3px solid ${renk.hexColor}`, borderRadius: '8px', padding: '12px 14px', marginBottom: '12px' }}>
+              <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 8px', opacity: 0.7 }}>
+                {tr ? 'Örnek Ayet' : 'Key Verse'}
+              </p>
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 8px' }} lang="ar" dir="rtl">
                 {renk.keyVerseAr}
               </p>
-              <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body, lineHeight: 1.5 }}>
-                {tr ? renk.keyVerseTr : renk.keyVerseEn}
+              <p style={{ fontSize: '0.85rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
+                "{tr ? renk.keyVerseTr : renk.keyVerseEn}"
               </p>
-              <p style={{ fontSize: '0.65rem', color: `${renk.hexColor}99`, fontWeight: 600, margin: 0, fontFamily: FONTS.body }}>
+              <span style={{ fontSize: '0.72rem', color: `${renk.hexColor}bb`, fontWeight: 600, fontFamily: FONTS.body }}>
                 — {renk.keyVerseRef}
-              </p>
+              </span>
             </div>
 
             {/* Summary */}
-            <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 8px' }}>
+            <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, fontFamily: FONTS.body, margin: '0 0 12px' }}>
               {tr ? renk.summaryTr : renk.summaryEn}
             </p>
 
+            {/* All refs */}
+            {renk.allRefs && renk.allRefs.length > 1 && (
+              <div style={{ marginBottom: '10px' }}>
+                <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 8px', opacity: 0.7 }}>
+                  {tr ? 'Diğer Ayetler' : 'Other Verses'}
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                  {renk.allRefs.filter(r => r !== renk.keyVerseRef).map(ref => (
+                    <span key={ref} style={{ fontSize: '0.72rem', padding: '3px 10px', background: `${renk.hexColor}18`, border: `1px solid ${renk.hexColor}40`, color: renk.hexColor, borderRadius: '20px', fontFamily: FONTS.body, fontWeight: 600 }}>
+                      {ref}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Linguistic note */}
             {(renk.linguisticNoteTr || renk.linguisticNoteEn) && (
-              <p style={{ fontSize: '0.72rem', color: `${COLORS.silver}99`, lineHeight: 1.6, fontFamily: FONTS.body, fontStyle: 'italic', margin: 0, paddingTop: '8px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+              <p style={{ fontSize: '0.78rem', color: `${COLORS.silver}99`, lineHeight: 1.6, fontFamily: FONTS.body, fontStyle: 'italic', margin: 0, paddingTop: '10px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                 {tr ? renk.linguisticNoteTr : renk.linguisticNoteEn}
               </p>
             )}
@@ -187,17 +206,18 @@ function ColorCard({ renk, language, isMobile }) {
         )}
 
         {/* Expand indicator */}
-        <div style={{ textAlign: 'center', marginTop: '8px' }}>
-          <span style={{ fontSize: '0.6rem', color: `${COLORS.gold}70`, fontFamily: FONTS.body }}>
-            {expanded ? '▲' : '▼'}
-          </span>
+        <div style={{ textAlign: 'center', marginTop: '10px' }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={`${COLORS.gold}80`} strokeWidth="2.5" strokeLinecap="round"
+            style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
         </div>
       </div>
     </div>
   );
 }
 
-function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile }) {
+function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, expandedVerse, setExpandedVerse }) {
   const tr = language === 'tr';
   if (!data) return <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>{tr ? 'Yükleniyor…' : 'Loading…'}</p>;
 
@@ -232,40 +252,112 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile })
       {/* Renk Sekans feature */}
       {data.renkSekans && (
         <div style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', padding: isMobile ? '16px' : '20px' }}>
-          <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px' }}>
+          {/* Header */}
+          <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 8px' }}>
             {tr ? "Kur'an'ın Renk Sekansı" : "The Quran's Color Sequence"}
           </p>
-          <p style={{ fontFamily: FONTS.body, fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 12px' }}>
+          <p style={{ fontFamily: FONTS.body, fontSize: '1rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 10px' }}>
             {tr ? data.renkSekans.titleTr : data.renkSekans.titleEn}
           </p>
-          {/* 3-stage color strip */}
-          <div style={{ display: 'flex', gap: '4px', marginBottom: '12px', height: '36px', borderRadius: '8px', overflow: 'hidden' }}>
-            {data.renkSekans.stages.map((s, i) => (
-              <div key={i} style={{ flex: 1, background: s.hexColor, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '0.6rem', fontWeight: 700, color: i < 2 ? COLORS.cosmicBlack : COLORS.offWhite, fontFamily: FONTS.body, textAlign: 'center', padding: '0 4px' }}>
-                  {tr ? s.labelTr : s.labelEn}
-                </span>
-              </div>
+          <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.65, margin: '0 0 16px' }}>
+            {tr ? data.renkSekans.descTr : data.renkSekans.descEn}
+          </p>
+
+          {/* 3-stage color strip with notes */}
+          <div style={{ display: 'flex', gap: '4px', marginBottom: '20px', borderRadius: '8px', overflow: 'hidden' }}>
+            {data.renkSekans.stages.map((s, i) => {
+              const isLight = i < 2;
+              return (
+                <div key={i} style={{ flex: 1, background: s.hexColor, padding: '10px 6px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px', border: i === 2 ? '1px dashed rgba(255,255,255,0.2)' : 'none' }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: 700, color: isLight ? '#0a0a1a' : COLORS.offWhite, fontFamily: FONTS.body, textAlign: 'center' }}>
+                    {tr ? s.labelTr : s.labelEn}
+                  </span>
+                  <span style={{ fontSize: '0.6rem', color: isLight ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.55)', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.3 }}>
+                    {tr ? s.noteTr : s.noteEn}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Verse buttons */}
+          <p style={{ fontSize: '0.72rem', fontWeight: 600, color: COLORS.gold, fontFamily: FONTS.body, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px' }}>
+            {tr ? '4 Surede Tekrar — Ayetleri Gör' : 'Repeated in 4 Suras — View Verses'}
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
+            {data.renkSekans.verses.map(v => (
+              <button
+                key={v.ref}
+                onClick={() => setExpandedVerse(expandedVerse === v.ref ? null : v.ref)}
+                style={{
+                  padding: '4px 12px', borderRadius: '20px', cursor: 'pointer',
+                  border: `1px solid ${expandedVerse === v.ref ? COLORS.gold : 'rgba(212,165,116,0.35)'}`,
+                  background: expandedVerse === v.ref ? 'rgba(212,165,116,0.15)' : 'transparent',
+                  color: expandedVerse === v.ref ? COLORS.gold : COLORS.silver,
+                  fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,
+                  transition: 'all 0.15s',
+                }}
+              >
+                {v.ref} {expandedVerse === v.ref ? '▲' : '▼'}
+              </button>
             ))}
           </div>
-          {/* Verse */}
-          <div style={{ background: 'rgba(255,255,255,0.03)', borderLeft: '2px solid rgba(212,165,116,0.4)', borderRadius: '0 6px 6px 0', padding: '10px 12px', marginBottom: '10px' }}>
-            <p style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
-              {data.renkSekans.verseAr}
-            </p>
-            <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 4px' }}>
-              {tr ? data.renkSekans.verseTr : data.renkSekans.verseEn}
-            </p>
-            <p style={{ fontSize: '0.65rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600, margin: 0 }}>
-              — {data.renkSekans.verseRef}
-            </p>
-          </div>
-          <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 8px' }}>
-            {tr ? data.renkSekans.summaryTr : data.renkSekans.summaryEn}
-          </p>
-          <p style={{ fontSize: '0.65rem', color: `${COLORS.silver}80`, fontFamily: FONTS.body, margin: 0 }}>
-            {data.renkSekans.refs.join(' · ')}
-          </p>
+
+          {/* Expanded verse panel */}
+          {expandedVerse && (() => {
+            const v = data.renkSekans.verses.find(x => x.ref === expandedVerse);
+            if (!v) return null;
+            const stageColors = { green: '#1D9E75', yellow: '#CA8A04', dry: '#78624A' };
+            const stageLabels = {
+              green:  { tr: 'Yeşil aşama',  en: 'Green stage' },
+              yellow: { tr: 'Sarı aşama',   en: 'Yellow stage' },
+              dry:    { tr: 'Kuru aşama',   en: 'Dry stage' },
+            };
+            return (
+              <div style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid rgba(212,165,116,0.2)`, borderRadius: '10px', overflow: 'hidden', marginBottom: '12px' }}>
+                {/* Full Arabic */}
+                <div style={{ padding: '16px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                  <p style={{ fontFamily: FONTS.quran, fontSize: '1.35rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 10px' }} lang="ar" dir="rtl">
+                    {v.arFull}
+                  </p>
+                  <p style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.65 }}>
+                    "{tr ? v.trFull : v.enFull}"
+                  </p>
+                  <span style={{ fontSize: '0.72rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600 }}>— {v.ref}</span>
+                </div>
+
+                {/* Stage keyword breakdown */}
+                <div style={{ padding: '14px 18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>
+                    {tr ? 'Hangi kelime hangi aşama?' : 'Which word maps to which stage?'}
+                  </p>
+                  {v.stages.map((s, i) => (
+                    <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                      {/* Color dot + label */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0, minWidth: isMobile ? '70px' : '90px' }}>
+                        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: stageColors[s.stage], flexShrink: 0 }} />
+                        <span style={{ fontSize: '0.68rem', fontWeight: 700, color: stageColors[s.stage], fontFamily: FONTS.body }}>
+                          {tr ? stageLabels[s.stage].tr : stageLabels[s.stage].en}
+                        </span>
+                      </div>
+                      {/* Keyword + note */}
+                      <div style={{ flex: 1 }}>
+                        <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: stageColors[s.stage], direction: 'rtl', marginRight: '8px' }} lang="ar">
+                          {s.keywordAr}
+                        </span>
+                        <span style={{ fontSize: '0.75rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600 }}>
+                          ({tr ? s.keywordTr : s.keywordEn})
+                        </span>
+                        <p style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '3px 0 0', lineHeight: 1.4 }}>
+                          {tr ? s.noteTr : s.noteEn}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
         </div>
       )}
     </div>
@@ -274,86 +366,291 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile })
 
 function TabBaglam({ language, isMobile }) {
   const tr = language === 'tr';
+  const [expandedItem, setExpandedItem] = useState(null); // "sectionIdx-colorIdx"
 
   const sections = [
     {
       titleTr: 'Cennet Paleti',
       titleEn: 'Paradise Palette',
+      accentColor: '#1D9E75',
+      descTr: "Kur'an cennetin renklerini doğrudan adlandırmaz — nesneler aracılığıyla verir. Dikkat çekici olan: cennet tasvirinde kırmızı, turuncu ve sarı yoktur. Serin, sakin tonlar hâkim.",
+      descEn: "The Quran names paradise colors through objects, not directly. Notably: no red, orange or yellow in paradise imagery. Cool, serene tones dominate.",
       colors: [
-        { hex: '#1D9E75', nameTr: 'Yeşil — Elbiseler',      nameEn: 'Green — Garments' },
-        { hex: '#B8860B', nameTr: 'Altın — Bilezikler',      nameEn: 'Gold — Bracelets' },
-        { hex: '#64748B', nameTr: 'Gümüş — Kaplar',          nameEn: 'Silver — Vessels' },
-        { hex: '#0F4C35', nameTr: 'Koyu Yeşil — Bahçeler',   nameEn: 'Dark Green — Gardens' },
+        {
+          hex: '#1D9E75', nameTr: 'Yeşil — Elbiseler', nameEn: 'Green — Garments',
+          verseAr: 'يَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ',
+          verseTr: 'İnce ipek ve kalın ipekten yeşil elbiseler giyerler.',
+          verseEn: 'They wear green garments of fine silk and brocade.',
+          ref: 'Kehf 18:31',
+          noteTr: "Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — Kehf, İnsan ve Dehr surelerinde tekrar eder.",
+          noteEn: "Green + gold is the Quran's paradise color pairing — repeating in Al-Kahf, Al-Insan and Ad-Dahr.",
+        },
+        {
+          hex: '#B8860B', nameTr: 'Altın — Bilezikler', nameEn: 'Gold — Bracelets',
+          verseAr: 'يُحَلَّوْنَ فِيهَا مِنْ أَسَاوِرَ مِن ذَهَبٍ وَلُؤْلُؤًا',
+          verseTr: 'Orada altın bilezikler ve incilerle süslenirler.',
+          verseEn: 'They are adorned therein with bracelets of gold and pearl.',
+          ref: 'Hac 22:23',
+          noteTr: "Altın bilezik motifi 3 surede tekrarlanır: Hac, Kehf, Fatır. Altın cennetin metalik rengidir — dünyada yasak olan erkeklere cennetin hediyesi.",
+          noteEn: "Gold bracelet motif repeats in 3 suras: Al-Hajj, Al-Kahf, Fatir. Gold is paradise's metallic color — the gift of paradise to men forbidden it in the world.",
+        },
+        {
+          hex: '#64748B', nameTr: 'Gümüş — Kaplar', nameEn: 'Silver — Vessels',
+          verseAr: 'وَيُطَافُ عَلَيْهِم بِآنِيَةٍ مِّن فِضَّةٍ وَأَكْوَابٍ كَانَتْ قَوَارِيرَا ۝ قَوَارِيرَ مِن فِضَّةٍ',
+          verseTr: 'Gümüşten kaplar ve billur kadehlerle dolaşılır — gümüşten billur.',
+          verseEn: 'Silver vessels and crystal cups circulate — crystal of silver.',
+          ref: 'İnsan 76:15-16',
+          noteTr: "'Gümüşten billur' — billurın şeffaflığında gümüş parlaklığı. İki malzemenin özelliği tek nesnede. Kur'an'ın en özgün malzeme tasviri.",
+          noteEn: "'Crystal of silver' — silver's sheen with crystal's transparency. Two material properties in one object.",
+        },
+        {
+          hex: '#0F4C35', nameTr: 'Koyu Yeşil — Bahçeler', nameEn: 'Dark Green — Gardens',
+          verseAr: 'مُدْهَامَّتَانِ',
+          verseTr: 'İkisi de koyu yemyeşil.',
+          verseEn: 'Both of them are intensely dark green.',
+          ref: 'Rahman 55:64',
+          noteTr: "Hapax legomenon — tüm Kur'an'da yalnızca bir kez geçer. Yeşilin o kadar yoğun olduğu ton ki neredeyse siyaha döner. İki cennet bahçesini tanımlar.",
+          noteEn: "Hapax legomenon — appears only once in the entire Quran. Green so intense it borders on black. Describes the two paradise gardens.",
+          isHapax: true,
+        },
       ],
-      descTr: "Kur'an cennetin renklerini doğrudan adlandırmaz — ama nesneler aracılığıyla renk verir: yeşil elbise üç surede, altın bilezik üç surede, gümüş kap İnsan'da. Cennet tasvirinde kırmızı, siyah ve sarı yoktur.",
-      descEn: "The Quran names paradise colors through objects: green garments in three suras, gold bracelets in three suras, silver cups in Al-Insan. No red, no black, no yellow in paradise imagery.",
     },
     {
       titleTr: 'Cehennem Paleti',
       titleEn: 'Hell Palette',
+      accentColor: '#B91C1C',
+      descTr: "Cehennem renkleri cennetin tam zıttı: yeşil ve altın yok. Siyah, sarı ve kırmızı — ısı, yanma ve ceza tonları. Zıtlık kasıtlı ve sistematik.",
+      descEn: "Hell's colors are the exact opposite of paradise: no green, no gold. Black, yellow and red — heat, burning and punishment tones. The contrast is deliberate and systematic.",
       colors: [
-        { hex: '#1E1B4B', nameTr: 'Siyah — Duman/Ceza',   nameEn: 'Black — Smoke/Punishment' },
-        { hex: '#CA8A04', nameTr: 'Sarı — Kıvılcımlar',   nameEn: 'Yellow — Sparks' },
-        { hex: '#B91C1C', nameTr: 'Kırmızı — Alevler',    nameEn: 'Red — Flames' },
+        {
+          hex: '#1E1B4B', nameTr: 'Siyah — Duman', nameEn: 'Black — Smoke',
+          verseAr: 'وَظِلٍّ مِّن يَحْمُومٍ ۝ لَّا بَارِدٍ وَلَا كَرِيمٍ',
+          verseTr: 'Simsiyah bir duman gölgesinde — ne serin ne de hoş.',
+          verseEn: 'In the shade of black smoke — neither cool nor pleasant.',
+          ref: 'Vâkıa 56:43-44',
+          noteTr: "يَحْمُوم (yahmûm) — kuzgun/kömür siyahı. Cennetin 'serinliğine' karşı bu gölge ne serindir ne de güzel. Her şey cennetle tezat.",
+          noteEn: "يَحْمُوم (yahmûm) — raven/coal black. Contrasting paradise's 'coolness,' this shade is neither cool nor good. Everything is opposite to paradise.",
+        },
+        {
+          hex: '#CA8A04', nameTr: 'Sarı — Kıvılcımlar', nameEn: 'Yellow — Sparks',
+          verseAr: 'إِنَّهَا تَرْمِي بِشَرَرٍ كَالْقَصْرِ ۝ كَأَنَّهُ جِمَالَتٌ صُفْرٌ',
+          verseTr: 'Saraylar büyüklüğünde kıvılcımlar fırlatıyor — sanki sarı develer gibi.',
+          verseEn: 'It throws sparks as large as a palace — as if they were yellow camels.',
+          ref: 'Mürselat 77:32-33',
+          noteTr: "Sarının tek olumlu kullanımı Bakara'daki inek. Burada sarı: cehennem kıvılcımı, sarı deve — büyük, ürkütücü, yakıcı.",
+          noteEn: "Yellow's only positive use is Al-Baqarah's cow. Here yellow: hellfire spark, yellow camel — large, terrifying, burning.",
+        },
+        {
+          hex: '#B91C1C', nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',
+          verseAr: 'فَإِذَا انشَقَّتِ السَّمَاءُ فَكَانَتْ وَرْدَةً كَالدِّهَانِ',
+          verseTr: 'Gökyüzü yarılıp kırmızı yağ gibi olduğunda.',
+          verseEn: 'When the sky is split open and turns red like oil.',
+          ref: 'Rahman 55:37',
+          noteTr: "وَرْدَة (verdeh) — gül/kırmızı. كَالدِّهَان (kad-dihan) — eritilmiş yağ kıvamında. Gökyüzünün kıyamette tamamen dönüşümü. Cennetin sakin mavisine karşı kırmızı kaos.",
+          noteEn: "وَرْدَة (wardah) — rose/red. كَالدِّهَان (kad-dihan) — like molten oil in consistency. The complete transformation of the sky on the Day. Red chaos against paradise's serene blue.",
+        },
       ],
-      descTr: "Cehennem renkleri yeşil ve altından uzak: siyah dumanlar, sarı kıvılcımlar (Mürselat 77:33 — sarı hörgüç benzetmesi), kızıl alevler. Cennet/cehennem renk karşıtlığı Kur'an'da sistematik.",
-      descEn: "Hell's colors are far from green and gold: black smoke, yellow sparks (Al-Mursalat 77:33 — yellow camel comparison), red flames. The paradise/hell color contrast in the Quran is systematic.",
     },
     {
       titleTr: 'Kıyamet Paleti',
       titleEn: 'Judgment Day Palette',
+      accentColor: '#C8D6E5',
+      descTr: "Kıyamet sahnesi Kur'an'da en yoğun renk bağlamıdır. Renk burada sembolik sınıflandırıcıdır: beyaz yüz = kurtuluş, siyah yüz = azap. Tek ayette iki kutup.",
+      descEn: "The judgment scene is the most color-dense context in the Quran. Color here is a symbolic classifier: white face = salvation, black face = punishment. Two poles in one verse.",
       colors: [
-        { hex: '#C8D6E5', nameTr: 'Beyaz — Kurtulanların Yüzü', nameEn: "White — The Saved's Faces" },
-        { hex: '#1E1B4B', nameTr: 'Siyah — Ceza Görenler',    nameEn: 'Black — The Punished' },
-        { hex: '#2563EB', nameTr: 'Mavi/Donuk — Gözler',      nameEn: 'Blue/Glazed — Eyes' },
-        { hex: '#B91C1C', nameTr: 'Kırmızı — Gökyüzü',        nameEn: 'Red — The Sky' },
+        {
+          hex: '#C8D6E5', nameTr: 'Beyaz — Kurtulanların Yüzü', nameEn: "White — The Saved's Faces",
+          verseAr: 'يَوْمَ تَبْيَضُّ وُجُوهٌ وَتَسْوَدُّ وُجُوهٌ',
+          verseTr: 'Yüzlerin beyazlayacağı ve yüzlerin kararacağı gün.',
+          verseEn: 'The day when faces will turn white and faces will turn black.',
+          ref: 'Âl-i İmrân 3:106',
+          noteTr: "Tek ayette iki zıt renk. تَبْيَضُّ (beyazlaşmak) ve تَسْوَدُّ (kararışmak) fiilleri birlikte — renk burada ahlaki durumu gösterir.",
+          noteEn: "Two opposing colors in one verse. تَبْيَضُّ (to whiten) and تَسْوَدُّ (to blacken) together — color here indicates moral state.",
+        },
+        {
+          hex: '#2563EB', nameTr: 'Mavi/Donuk — Gözler', nameEn: 'Blue/Glazed — Eyes',
+          verseAr: 'وَنَحْشُرُ الْمُجْرِمِينَ يَوْمَئِذٍ زُرْقًا',
+          verseTr: 'O gün suçluları gözleri donuk/mavimsi olarak haşredeceğiz.',
+          verseEn: 'That day We will gather the criminals with blue/glazed eyes.',
+          ref: 'Tâhâ 20:102',
+          noteTr: "زُرْق (zurk) — Arapça'da hem 'mavi' hem 'donuk, kör gibi' anlamına gelir. Korku ve dehşetten donup kalan göz. Müfessirler ikisi üzerinde ayrılır.",
+          noteEn: "زُرْق (zurq) — means both 'blue' and 'glazed, blind-like' in Arabic. Eyes frozen in terror and horror. Commentators are divided between both meanings.",
+        },
+        {
+          hex: '#B91C1C', nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',
+          verseAr: 'فَإِذَا انشَقَّتِ السَّمَاءُ فَكَانَتْ وَرْدَةً كَالدِّهَانِ',
+          verseTr: 'Gökyüzü yarılıp kırmızı yağ gibi olduğunda.',
+          verseEn: 'When the sky is split open and turns red like oil.',
+          ref: 'Rahman 55:37',
+          noteTr: "Kıyametin kozmik işareti: gökyüzünün rengi kırmızıya dönüşüyor. Gündelik mavi gökyüzünün tam zıttı.",
+          noteEn: "The cosmic sign of judgment: the sky's color transforms to red. The exact opposite of the everyday blue sky.",
+        },
+        {
+          hex: '#1E1B4B', nameTr: 'Siyah — Azap Görenler', nameEn: 'Black — The Punished',
+          verseAr: 'وَأَمَّا الَّذِينَ اسْوَدَّتْ وُجُوهُهُمْ أَكَفَرْتُم بَعْدَ إِيمَانِكُمْ',
+          verseTr: 'Yüzleri kararan kimseler ise: "İman ettikten sonra mı inkâr ettiniz?"',
+          verseEn: 'As for those whose faces turn black: "Did you disbelieve after your faith?"',
+          ref: 'Âl-i İmrân 3:106',
+          noteTr: "Aynı ayette beyazla zıtlık. Kararma burada inanç dönüşümünün simgesi — sadece fiziksel değil, manevi durum.",
+          noteEn: "Contrast with white in the same verse. Blackening here symbolizes a reversal of faith — not just physical but moral state.",
+        },
       ],
-      descTr: "Kıyamet sahnesi en fazla renk içeren bağlam. Beyaz/siyah yüz zıtlığı Al-i İmran 3:106-107'de tek ayette. Rahman 55:37'de gökyüzü kırmızı erimiş yağa döner. Taha 20:102'de suçluların gözleri donuk/mavimsi.",
-      descEn: "The judgment scene has the most color density. White/black face contrast in Al Imran 3:106-107 in a single verse. In Ar-Rahman 55:37 the sky turns to red molten oil. In Ta-Ha 20:102 criminals' eyes are glazed/bluish.",
     },
     {
       titleTr: 'Doğa Paleti',
       titleEn: 'Nature Palette',
+      accentColor: '#d4a574',
+      descTr: "Doğa tasvirinde renk hem gerçekçi hem sembolik. Fâtır 35:27 jeolojik bir gözlem — dağlardaki mineral şeritleri. Bakara 2:187 rengi pratik bir zaman ölçütü olarak kullanır.",
+      descEn: "In nature descriptions, color is both realistic and symbolic. Fatir 35:27 is a geological observation — mineral streaks in mountains. Al-Baqarah 2:187 uses color as a practical time measure.",
       colors: [
-        { hex: '#C8D6E5', nameTr: 'Beyaz — Dağ Şeritleri',  nameEn: 'White — Mountain Streaks' },
-        { hex: '#B91C1C', nameTr: 'Kırmızı — Dağ Şeritleri', nameEn: 'Red — Mountain Streaks' },
-        { hex: '#1E1B4B', nameTr: 'Siyah — Dağ Şeritleri',  nameEn: 'Black — Mountain Streaks' },
-        { hex: '#1D9E75', nameTr: 'Yeşil → Sarı → Kuru',    nameEn: 'Green → Yellow → Dry' },
+        {
+          hex: '#C8D6E5', nameTr: 'Beyaz — Dağ Şeritleri', nameEn: 'White — Mountain Streaks',
+          verseAr: 'وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ',
+          verseTr: 'Dağlarda beyaz, kırmızı — renkleri birbirinden farklı — ve simsiyah şeritler vardır.',
+          verseEn: 'And among the mountains are streaks of white and red of varying shades, and some intensely black.',
+          ref: 'Fâtır 35:27',
+          noteTr: "جُدَد (cüded) — mineral şeritler. Tek ayette 3 renk: beyaz (kalsit/kireçtaşı), kırmızı (demir oksit), siyah (bazalt/mika). Modern jeoloji bu şeritleri tanır.",
+          noteEn: "جُدَد (judad) — mineral streaks. Three colors in one verse: white (calcite/limestone), red (iron oxide), black (basalt/mica). Modern geology recognizes these streaks.",
+        },
+        {
+          hex: '#B91C1C', nameTr: 'Kırmızı — Dağ Şeritleri', nameEn: 'Red — Mountain Streaks',
+          verseAr: 'وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ',
+          verseTr: 'Dağlarda beyaz, kırmızı — renkleri birbirinden farklı — ve simsiyah şeritler vardır.',
+          verseEn: 'And among the mountains are streaks of white and red of varying shades, and some intensely black.',
+          ref: 'Fâtır 35:27',
+          noteTr: "مُّخْتَلِفٌ أَلْوَانُهَا (muhteli­fun elvânuhâ) — renkleri birbirinden farklı. Kırmızı için özellikle bu çokluk nitelemesi var — demir oksitin farklı yoğunluklarına işaret.",
+          noteEn: "مُّخْتَلِفٌ أَلْوَانُهَا — 'of varying shades' applies specifically to red — pointing to the different concentrations of iron oxide.",
+        },
+        {
+          hex: '#1E1B4B', nameTr: 'Siyah — Dağ Şeritleri', nameEn: 'Black — Mountain Streaks',
+          verseAr: 'وَغَرَابِيبُ سُودٌ',
+          verseTr: 'Ve simsiyah.',
+          verseEn: 'And intensely black.',
+          ref: 'Fâtır 35:27',
+          noteTr: "غَرَابِيب (garâbîb) — kuzgun/karga kökünden. Siyahın en yoğun tonu için özel kelime. 'Siyah siyah' anlamında pekiştirme — Türkçe'deki 'simsiyah' gibi.",
+          noteEn: "غَرَابِيب (gharabib) — from ghurab (raven/crow). A special word for the most intense shade of black. Intensifying 'black black' — like English 'pitch black.'",
+        },
+        {
+          hex: '#F0F0F0', nameTr: 'Beyaz — Şafak Çizgisi', nameEn: 'White — Dawn Line',
+          verseAr: 'حَتَّىٰ يَتَبَيَّنَ لَكُمُ الْخَيْطُ الْأَبْيَضُ مِنَ الْخَيْطِ الْأَسْوَدِ مِنَ الْفَجْرِ',
+          verseTr: 'Şafağın beyaz ipliği siyah iplikten sizin için ayrılıncaya kadar.',
+          verseEn: 'Until the white thread of dawn becomes distinct to you from the black thread.',
+          ref: 'Bakara 2:187',
+          noteTr: "Renk burada pratik bir zaman ölçütü: oruç ve sabah namazı için şafağın tanımı. الْخَيْطُ الْأَبْيَضُ (beyaz iplik) = ufukta beliren ilk ışık şeridi.",
+          noteEn: "Color here is a practical time measure: the definition of dawn for fasting and morning prayer. الْخَيْطُ الْأَبْيَضُ (white thread) = first light streak on the horizon.",
+        },
       ],
-      descTr: "Fâtır 35:27 tek ayette üç renkli dağlar — hem coğrafya hem ilahi yaratılış rehberi. Bakara 2:187 şafağı 'beyaz iplik siyah iplikten ayrılana kadar' diye tanımlar — renk pratik zaman ölçütü olarak.",
-      descEn: "Fatir 35:27 describes three-colored mountains in one verse — both geography and divine creation guide. Al-Baqarah 2:187 defines dawn as 'until the white thread becomes distinct from the black thread' — color as a practical time measure.",
     },
     {
       titleTr: 'Kıssa ve Mucize Paleti',
       titleEn: 'Narrative & Miracle Palette',
+      accentColor: '#C8D6E5',
+      descTr: "Mucizelerin rengi Kur'an'da tutarlı biçimde beyazdır. Sarı yalnızca bir kez olumlu bağlamda — Bakara'nın ineği. Bu tutarlılık tesadüf değil.",
+      descEn: "The color of miracles in the Quran is consistently white. Yellow appears positively only once — Al-Baqarah's cow. This consistency is not coincidental.",
       colors: [
-        { hex: '#C8D6E5', nameTr: "Beyaz — Hz. Musa'nın Eli (5 surede)", nameEn: "White — Moses' Hand (5 suras)" },
-        { hex: '#CA8A04', nameTr: "Sarı — Bakara'nın İneği",            nameEn: "Yellow — Al-Baqarah's Cow" },
+        {
+          hex: '#C8D6E5', nameTr: "Beyaz — Hz. Musa'nın Eli", nameEn: "White — Moses' Hand",
+          verseAr: 'وَأَدْخِلْ يَدَكَ فِي جَيْبِكَ تَخْرُجْ بَيْضَاءَ مِنْ غَيْرِ سُوءٍ',
+          verseTr: 'Elini koynuna sok; hastalıksız beyaz olarak çıksın.',
+          verseEn: 'Put your hand into your garment; it will come out white without disease.',
+          ref: 'Neml 27:12',
+          noteTr: "Hz. Musa'nın eli 5 surede beyaz mucize olarak geçer: Bakara, Araf, Taha, Neml, Kasas. 'Hastalıksız beyaz' — hastalık (alacalık/lepra) beyazından ayrımak için özel vurgu.",
+          noteEn: "Moses' hand appears as a white miracle in 5 suras: Al-Baqarah, Al-A'raf, Ta-Ha, An-Naml, Al-Qasas. 'White without disease' — special emphasis to distinguish from disease (vitiligo/leprosy).",
+        },
+        {
+          hex: '#CA8A04', nameTr: "Sarı — Bakara'nın İneği", nameEn: "Yellow — Al-Baqarah's Cow",
+          verseAr: 'إِنَّهَا بَقَرَةٌ صَفْرَاءُ فَاقِعٌ لَّوْنُهَا تَسُرُّ النَّاظِرِينَ',
+          verseTr: 'O, rengi pırıl pırıl olan sarı bir inektir; bakanlara sevinç veriyor.',
+          verseEn: 'It is a yellow cow, bright in color, pleasing to those who see it.',
+          ref: 'Bakara 2:69',
+          noteTr: "صَفْرَاءُ فَاقِعٌ (safrâ fâkı') — fâkı' sarının en parlak, en saf tonudur. Kur'an'da sarının tek mutlu bağlamı. Tüm diğer sarı kullanımları olumsuz veya nötr.",
+          noteEn: "صَفْرَاءُ فَاقِعٌ (safrâ fâqi') — fâqi' is the brightest, purest shade of yellow. The only joyful use of yellow in the Quran. All other yellow uses are negative or neutral.",
+        },
+        {
+          hex: '#C8D6E5', nameTr: "Beyaz — Hz. İsa'nın Mucizesi", nameEn: "White — Jesus' Miracle",
+          verseAr: 'وَتُبْرِئُ الْأَكْمَهَ وَالْأَبْرَصَ بِإِذْنِي',
+          verseTr: 'Doğuştan körü ve alacalıyı iznimle iyileştiriyordun.',
+          verseEn: 'You healed the blind and the leper by My permission.',
+          ref: 'Mâide 5:110',
+          noteTr: "الْأَبْرَص (ebrâs) — alacalı, vitiligo. Hz. İsa'nın mucizesi rengi iyileştirmek — beyazı geri getirmek veya normalleştirmek. Renk burada sağlığın simgesi.",
+          noteEn: "الْأَبْرَص (abras) — vitiligo, leukoderma. Jesus' miracle is restoring color — bringing back or normalizing white. Color here symbolizes health.",
+        },
       ],
-      descTr: "Mucizelerin rengi Kur'an'da hep beyaz: Hz. Musa'nın eli 5 surede parlak beyaz. Sarı yalnızca Bakara kıssasındaki inekte olumlu bağlamda — 'rengi pırıl pırıl, bakanlara sevinç veriyor.'",
-      descEn: "The color of miracles in the Quran is always white: Moses' hand appears white and radiant in 5 suras. Yellow appears positively only for the cow in Al-Baqarah — 'bright in color, pleasing to those who see it.'",
     },
   ];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      {sections.map((s, i) => (
-        <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', padding: isMobile ? '14px' : '18px' }}>
-          <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 10px' }}>
-            {tr ? s.titleTr : s.titleEn}
-          </p>
-          {/* Color swatches */}
-          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '10px' }}>
-            {s.colors.map((c, j) => (
-              <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '4px 10px', background: 'rgba(255,255,255,0.04)', borderRadius: '20px', border: `1px solid ${COLORS.glassBgStrong}` }}>
-                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: c.hex, flexShrink: 0 }} />
-                <span style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? c.nameTr : c.nameEn}</span>
-              </div>
-            ))}
+      {sections.map((section, si) => (
+        <div key={si} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', overflow: 'hidden' }}>
+          {/* Section header */}
+          <div style={{ padding: isMobile ? '14px' : '16px 20px', borderBottom: `1px solid rgba(255,255,255,0.05)`, background: `linear-gradient(135deg, rgba(0,0,0,0.2), transparent)` }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+              <div style={{ width: '3px', height: '14px', background: section.accentColor, borderRadius: '2px', flexShrink: 0 }} />
+              <span style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: section.accentColor, fontFamily: FONTS.body }}>
+                {tr ? section.titleTr : section.titleEn}
+              </span>
+            </div>
+            <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+              {tr ? section.descTr : section.descEn}
+            </p>
           </div>
-          <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
-            {tr ? s.descTr : s.descEn}
-          </p>
+
+          {/* Color items */}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {section.colors.map((c, ci) => {
+              const key = `${si}-${ci}`;
+              const isOpen = expandedItem === key;
+              return (
+                <div key={ci} style={{ borderBottom: ci < section.colors.length - 1 ? `1px solid rgba(255,255,255,0.04)` : 'none' }}>
+                  {/* Row */}
+                  <button
+                    onClick={() => setExpandedItem(isOpen ? null : key)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '12px',
+                      width: '100%', padding: isMobile ? '10px 14px' : '12px 20px',
+                      background: isOpen ? 'rgba(255,255,255,0.04)' : 'transparent',
+                      border: 'none', cursor: 'pointer', textAlign: 'left',
+                      transition: 'background 0.15s',
+                    }}
+                  >
+                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: c.hex, flexShrink: 0, boxShadow: `0 0 6px ${c.hex}60` }} />
+                    <span style={{ flex: 1, fontSize: '0.85rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600 }}>
+                      {tr ? c.nameTr : c.nameEn}
+                    </span>
+                    <span style={{ fontSize: '0.7rem', color: COLORS.gold, fontFamily: FONTS.body, opacity: 0.8, flexShrink: 0 }}>
+                      {c.ref}
+                    </span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2.5" strokeLinecap="round"
+                      style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s', flexShrink: 0 }}>
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+
+                  {/* Expanded verse */}
+                  {isOpen && (
+                    <div style={{ padding: isMobile ? '12px 14px 14px' : '14px 20px 16px', background: 'rgba(0,0,0,0.2)', borderTop: `1px solid rgba(255,255,255,0.05)` }}>
+                      <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 10px' }} lang="ar" dir="rtl">
+                        {c.verseAr}
+                      </p>
+                      <p style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: COLORS.offWhite, fontStyle: 'italic', margin: '0 0 8px', lineHeight: 1.6 }}>
+                        "{tr ? c.verseTr : c.verseEn}"
+                      </p>
+                      <p style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 6px', lineHeight: 1.55 }}>
+                        {tr ? c.noteTr : c.noteEn}
+                      </p>
+                      <span style={{ fontSize: '0.7rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600 }}>— {c.ref}</span>
+                      {c.isHapax && (
+                        <span style={{ marginLeft: '10px', fontSize: '0.65rem', color: COLORS.purple, fontFamily: FONTS.body, fontWeight: 600, background: 'rgba(83,74,183,0.15)', padding: '2px 8px', borderRadius: '10px', border: '1px solid rgba(83,74,183,0.3)' }}>
+                          Hapax
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       ))}
     </div>
@@ -414,11 +711,11 @@ function TabCennet({ language, isMobile }) {
           <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: '8px', overflow: 'hidden' }}>
             <div style={{ height: '36px', background: s.hex, opacity: s.implied ? 0.5 : 1 }} />
             <div style={{ padding: '8px' }}>
-              <p style={{ fontSize: '0.75rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, margin: '0 0 2px' }}>
+              <p style={{ fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, margin: '0 0 2px' }}>
                 {tr ? s.labelTr : s.labelEn}
-                {s.implied && <span style={{ fontSize: '0.6rem', color: COLORS.silver, marginLeft: '4px' }}>(ima)</span>}
+                {s.implied && <span style={{ fontSize: '0.7rem', color: COLORS.silver, marginLeft: '4px' }}>(ima)</span>}
               </p>
-              <p style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>
+              <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>
                 {tr ? s.noteTr : s.noteEn}
               </p>
             </div>
@@ -430,16 +727,16 @@ function TabCennet({ language, isMobile }) {
       {analyses.map((a, i) => (
         <div key={i} style={{ background: 'rgba(29,158,117,0.05)', border: '1px solid rgba(29,158,117,0.15)', borderRadius: '10px', padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-            <span style={{ fontSize: '0.65rem', fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body }}>{a.ref}</span>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body }}>{a.ref}</span>
             {a.isHapax && <HapaxBadge />}
           </div>
-          <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
+          <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
             {a.verseAr}
           </p>
-          <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
+          <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
             {tr ? a.verseTr : a.verseEn}
           </p>
-          <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+          <p style={{ fontSize: '0.88rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
             {tr ? a.noteTr : a.noteEn}
           </p>
         </div>
@@ -510,22 +807,22 @@ function TabKiyamet({ language, isMobile }) {
       {/* White/Black contrast header */}
       <div style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : undefined, gridTemplateColumns: isMobile ? undefined : '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
         <div style={{ background: 'rgba(200,214,229,0.08)', border: '1px solid rgba(200,214,229,0.2)', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
-          <div style={{ fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '8px' }}>
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '8px' }}>
             {tr ? 'Kurtulanlar' : 'The Saved'}
           </div>
-          <div style={{ fontSize: '0.9rem', fontWeight: 700, color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '4px' }}>
+          <div style={{ fontSize: '1rem', fontWeight: 700, color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '4px' }}>
             {tr ? 'Yüzleri Ağarır' : 'Faces Turn White'}
           </div>
-          <p style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Al-i İmran 3:107</p>
+          <p style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Al-i İmran 3:107</p>
         </div>
         <div style={{ background: 'rgba(30,27,75,0.4)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
-          <div style={{ fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '8px' }}>
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '8px' }}>
             {tr ? 'Kayıp Olanlar' : 'The Lost'}
           </div>
-          <div style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '4px' }}>
+          <div style={{ fontSize: '1rem', fontWeight: 700, color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '4px' }}>
             {tr ? 'Yüzleri Kararır' : 'Faces Turn Black'}
           </div>
-          <p style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Zümer 39:60</p>
+          <p style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Zümer 39:60</p>
         </div>
       </div>
 
@@ -534,16 +831,16 @@ function TabKiyamet({ language, isMobile }) {
         <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${s.hex}`, borderRadius: '10px', padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
             <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: s.hex, flexShrink: 0 }} />
-            <span style={{ fontSize: '0.72rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? s.titleTr : s.titleEn}</span>
+            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? s.titleTr : s.titleEn}</span>
             {(s.infoTr || s.infoEn) && <InfoPopover text={tr ? s.infoTr : s.infoEn} />}
           </div>
-          <p style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
+          <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
             {s.verseAr}
           </p>
-          <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
+          <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
             {tr ? s.verseTr : s.verseEn} — <span style={{ fontWeight: 600 }}>{s.ref}</span>
           </p>
-          <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+          <p style={{ fontSize: '0.88rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
             {tr ? s.noteTr : s.noteEn}
           </p>
         </div>
@@ -797,6 +1094,7 @@ export default function KuranRenkleri({ onClose }) {
   const [activeTab, setActiveTab]     = useState(TABS.RENKLER);
   const [activeFilter, setActiveFilter] = useState('tumu');
   const [isMobile, setIsMobile]       = useState(() => window.innerWidth < 640);
+  const [expandedVerse, setExpandedVerse] = useState(null);
 
   // Fetch data
   useEffect(() => {
@@ -878,7 +1176,7 @@ export default function KuranRenkleri({ onClose }) {
 
           {/* Arabic verse */}
           <div style={{ textAlign: 'center', padding: isMobile ? '12px' : '16px', background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: '10px', marginBottom: '16px' }}>
-            <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.1rem' : '1.25rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 1.9, margin: '0 0 8px' }} lang="ar" dir="rtl">
+            <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.25rem' : '1.45rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 1.9, margin: '0 0 8px' }} lang="ar" dir="rtl">
               أَلَمْ تَرَ أَنَّ اللَّهَ أَنزَلَ مِنَ السَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ ثَمَرَاتٍ مُّخْتَلِفًا أَلْوَانُهَا
             </p>
             <p style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic', margin: 0 }}>
@@ -898,21 +1196,35 @@ export default function KuranRenkleri({ onClose }) {
           {/* 6 stat cards */}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(3,1fr)', gap: '8px' }}>
             {[
-              { num: '8',             labelTr: 'Temel Renk',              labelEn: 'Core Colors' },
-              { num: '14',            labelTr: 'Farklı Renk Kelimesi',    labelEn: 'Distinct Color Words' },
-              { num: '3',             labelTr: "Fâtır 35:27'de",          labelEn: 'Colors in Fatir 35:27' },
-              { num: tr ? 'Yeşil' : 'Green',   labelTr: 'Cennetle En Sık', labelEn: 'Most Linked to Paradise' },
-              { num: '~18',           labelTr: 'Ayette Beyaz',            labelEn: 'Verses with White' },
-              { arabic: 'مُدْهَامَّتَانِ', labelTr: 'Hapax Renk',        labelEn: 'Hapax Color Word' },
+              { num: '8',   labelTr: 'Temel Renk',           labelEn: 'Core Colors',              subTr: 'Kur\'an genelinde',      subEn: 'across the Quran' },
+              { num: '14',  labelTr: 'Farklı Renk Kelimesi', labelEn: 'Distinct Color Words',     subTr: 'ayrı renk sözcüğü',      subEn: 'unique color terms' },
+              { num: '3',   labelTr: "Fâtır 35:27'de Renk",  labelEn: 'Colors in Fatir 35:27',   subTr: 'beyaz · kırmızı · siyah', subEn: 'white · red · black' },
+              { num: tr ? 'Yeşil' : 'Green', labelTr: 'Cennetle En Sık', labelEn: 'Most Linked to Paradise', subTr: 'cennet rengi', subEn: 'color of paradise' },
+              { num: '~18', labelTr: 'Ayette Beyaz',          labelEn: 'Verses with White',        subTr: 'beyaz geçen ayet',       subEn: 'verses mentioning white' },
+              { arabic: 'مُدْهَامَّتَانِ', latin: 'Müdhâmmetân', labelTr: 'Hapax Renk', labelEn: 'Hapax Color Word', subTr: 'yoğun koyu yeşil', subEn: 'intense dark green',
+                hapaxInfoTr: 'Hapax legomenon: tüm Kur\'an\'da yalnızca bir kez geçen kelime. Müdhâmmetân, sadece Rahman 55:64\'te bulunur — klasik Arapça\'da da başka örnekte rastlanmaz. İki cennet bahçesinin "simsiyah yeşil" yoğunluğunu anlatır.',
+                hapaxInfoEn: 'Hapax legomenon: a word that appears only once in the entire Quran. Müdhâmmetân is found only in Ar-Rahman 55:64 — with no parallel in classical Arabic literature. It describes the intense dark-green density of two paradise gardens.' },
             ].map((s, i) => (
-              <div key={i} style={{ background: s.arabic ? 'rgba(83,74,183,0.12)' : 'rgba(255,255,255,0.04)', border: `1px solid ${s.arabic ? 'rgba(83,74,183,0.25)' : COLORS.glassBgStrong}`, borderRadius: '8px', padding: '10px', textAlign: 'center' }}>
-                {s.arabic
-                  ? <div style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', color: COLORS.purple, direction: 'rtl' }} lang="ar">{s.arabic}</div>
-                  : <div style={{ fontSize: '1.3rem', fontWeight: 800, color: COLORS.gold, fontFamily: FONTS.body }}>{s.num}</div>
-                }
-                <div style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body, marginTop: '3px', lineHeight: 1.3 }}>
+              <div key={i} style={{ background: s.arabic ? 'rgba(83,74,183,0.12)' : 'rgba(255,255,255,0.04)', border: `1px solid ${s.arabic ? 'rgba(83,74,183,0.25)' : COLORS.glassBgStrong}`, borderRadius: '8px', padding: '12px 10px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '4px', position: 'relative' }}>
+                {s.arabic ? (
+                  <>
+                    <div style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: COLORS.purple, direction: 'rtl' }} lang="ar">{s.arabic}</div>
+                    <div style={{ fontSize: '0.72rem', color: COLORS.purple, fontFamily: FONTS.body, fontStyle: 'italic', opacity: 0.85 }}>{s.latin}</div>
+                  </>
+                ) : (
+                  <div style={{ fontSize: '1.4rem', fontWeight: 800, color: COLORS.gold, fontFamily: FONTS.body, lineHeight: 1 }}>{s.num}</div>
+                )}
+                <div style={{ fontSize: '0.72rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600, lineHeight: 1.3 }}>
                   {tr ? s.labelTr : s.labelEn}
                 </div>
+                <div style={{ fontSize: '0.67rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.3 }}>
+                  {tr ? s.subTr : s.subEn}
+                </div>
+                {s.hapaxInfoTr && (
+                  <div style={{ position: 'absolute', top: '6px', right: '6px' }}>
+                    <InfoPopover text={tr ? s.hapaxInfoTr : s.hapaxInfoEn} />
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -923,7 +1235,7 @@ export default function KuranRenkleri({ onClose }) {
           <div style={{ fontSize: '0.6rem', letterSpacing: '0.12em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px' }}>
             {tr ? 'Tek Ayette 3 Renk — Fâtır 35:27' : 'Three Colors in One Verse — Fatir 35:27'}
           </div>
-          <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.0rem' : '1.15rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 1.9, margin: '0 0 12px' }} lang="ar" dir="rtl">
+          <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.35rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 1.9, margin: '0 0 12px' }} lang="ar" dir="rtl">
             وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ
           </p>
           <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body, textAlign: 'center', fontStyle: 'italic', margin: '0 0 14px' }}>
@@ -938,7 +1250,7 @@ export default function KuranRenkleri({ onClose }) {
               { ar: 'غَرَابِيبُ سُودٌ', label: tr ? 'Simsiyah' : 'Jet Black', bg: '#1E1B4B', fg: COLORS.offWhite },
             ].map(p => (
               <div key={p.ar} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '5px 12px', background: p.bg, borderRadius: '20px' }}>
-                <span style={{ fontFamily: FONTS.quran, fontSize: '0.85rem', color: p.fg, direction: 'rtl' }} lang="ar">{p.ar}</span>
+                <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: p.fg, direction: 'rtl' }} lang="ar">{p.ar}</span>
                 <span style={{ fontSize: '0.7rem', color: p.fg, fontFamily: FONTS.body, fontWeight: 600 }}>{p.label}</span>
               </div>
             ))}
@@ -971,7 +1283,7 @@ export default function KuranRenkleri({ onClose }) {
         {/* ── Tab content ── */}
         <div style={{ padding: isMobile ? '16px' : '24px 32px', minHeight: '400px' }}>
           {activeTab === TABS.RENKLER && (
-            <TabRenkler data={data} language={language} activeFilter={activeFilter} setActiveFilter={setActiveFilter} isMobile={isMobile} />
+            <TabRenkler data={data} language={language} activeFilter={activeFilter} setActiveFilter={setActiveFilter} isMobile={isMobile} expandedVerse={expandedVerse} setExpandedVerse={setExpandedVerse} />
           )}
           {activeTab === TABS.BAGLAM && (
             <TabBaglam language={language} isMobile={isMobile} />
