@@ -545,6 +545,242 @@ function TabKiyamet({ language, isMobile }) {
   );
 }
 
+function TabDilbilim({ language, isMobile }) {
+  const tr = language === 'tr';
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+
+      {/* Section A: Renk yoğunluğu */}
+      <div>
+        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+          {tr ? 'A — Renk Yoğunluğu Kelimeleri' : 'A — Color Intensity Words'}
+        </p>
+        <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 12px' }}>
+          {tr
+            ? "Kur'an normal renk + yoğun renk için farklı kelimeler kullanır. Bu dilbilimsel incelik başka Sami dillerinde karşılaştırıldığında Kur'an Arapçasının özgünlüğünü gösterir."
+            : "The Quran uses distinct words for normal vs. intense color. This linguistic precision demonstrates the uniqueness of Quranic Arabic compared to other Semitic languages."}
+        </p>
+        <div style={{ overflowX: 'auto', borderRadius: '8px', border: `1px solid ${COLORS.glassBorder}` }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, fontSize: '0.78rem' }}>
+            <thead>
+              <tr style={{ background: 'rgba(255,255,255,0.04)' }}>
+                <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Normal' : 'Normal'}</th>
+                <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Yoğun (Özel Kelime)' : 'Intense (Special Word)'}</th>
+                <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Anlam' : 'Meaning'}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { normal: 'أَخْضَر (ahdar)', intense: 'مُدْهَامَّتَانِ (mudhammatân)', meaningTr: 'Yeşil / Koyu Yoğun Yeşil', meaningEn: 'Green / Intensely Dark Green' },
+                { normal: 'أَسْوَد (esvad)', intense: 'غَرَابِيبُ سُودٌ (garâbîb sûd)', meaningTr: 'Siyah / Kuzgun Siyahı', meaningEn: 'Black / Raven Black' },
+              ].map((row, i) => (
+                <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                  <td style={{ padding: '10px 14px', color: COLORS.offWhite }}>{row.normal}</td>
+                  <td style={{ padding: '10px 14px', color: COLORS.purple, fontWeight: 600 }}>{row.intense} <HapaxBadge /></td>
+                  <td style={{ padding: '10px 14px', color: COLORS.silver }}>{tr ? row.meaningTr : row.meaningEn}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Section B: Hapax renk kelimeleri */}
+      <div>
+        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+          {tr ? 'B — Hapax Renk Kelimeleri' : 'B — Hapax Color Words'}
+        </p>
+        {[
+          {
+            arabic: 'مُدْهَامَّتَانِ',
+            ref: 'Rahman 55:64',
+            formTr: 'İkili, sıfat', formEn: 'Dual adjective',
+            noteTr: "Bu formda Kur'an'da yalnızca bir kez — gerçek bir hapax legomenon. İki cennet bahçesini tanımlar, kökü 'd-h-m' (siyaha çalan koyu ton).",
+            noteEn: "Appears only once in the Quran in this form — a true hapax legomenon. Describes two paradise gardens, root 'd-h-m' (dark shade tending to black).",
+          },
+          {
+            arabic: 'كَالدِّهَانِ',
+            ref: 'Rahman 55:37',
+            formTr: 'Teşbih (benzetme)', formEn: 'Simile',
+            noteTr: "Kıyamette gökyüzünün rengi — erimiş kırmızı yağa benzetme. Bu formda nadir.",
+            noteEn: "The color of the sky at judgment — compared to melted red oil. Rare in this form.",
+          },
+        ].map((h, i) => (
+          <div key={i} style={{ background: 'rgba(83,74,183,0.08)', border: '1px solid rgba(83,74,183,0.2)', borderRadius: '10px', padding: '14px', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+              <span style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{h.arabic}</span>
+              <HapaxBadge />
+              <span style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body }}>{h.ref}</span>
+            </div>
+            <p style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 6px' }}>
+              <em>{tr ? h.formTr : h.formEn}</em>
+            </p>
+            <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+              {tr ? h.noteTr : h.noteEn}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Section C: Zurk tartışması */}
+      <div>
+        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+          {tr ? "C — 'Zurk' Tartışması (Taha 20:102)" : "C — The 'Zurq' Debate (Ta-Ha 20:102)"}
+        </p>
+        <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 14px' }}>
+          {tr
+            ? "'Zurk' kelimesi Arapça'da hem mavi hem donuk/bulanık anlamına gelir. Taha 20:102 bağlamında üç farklı yorum:"
+            : "'Zurq' in Arabic means both blue and glazed/cloudy. Three interpretations in the context of Ta-Ha 20:102:"}
+        </p>
+        <div style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : undefined, gridTemplateColumns: isMobile ? undefined : 'repeat(3,1fr)', gap: '10px' }}>
+          {[
+            {
+              numTr: '1', titleTr: 'Mavi Gözlü', titleEn: 'Blue-eyed',
+              descTr: 'Gerçek mavi göz. Arap kültüründe yabancı veya hastalık çağrışımı taşıyabilir.',
+              descEn: 'Literally blue eyes. May carry connotations of foreignness or illness in Arab culture.',
+              color: '#2563EB',
+            },
+            {
+              numTr: '2', titleTr: 'Donuk / Bulanık Gözlü', titleEn: 'Glazed / Dull-eyed',
+              descTr: 'Korkudan veya ölüm korkusundan gözler donup kalır — görme engeli.',
+              descEn: "Eyes frozen from terror or fear of death — impairment of sight.",
+              color: '#6B7280',
+            },
+            {
+              numTr: '3', titleTr: 'Körlük — Perde', titleEn: 'Blindness — Veil',
+              descTr: "Göz üzerinde perde — kıyamette inkârcıların dünyada kör olduğunun somutlaşması.",
+              descEn: "A veil over the eyes — the disbelievers' spiritual blindness made physical at judgment.",
+              color: '#374151',
+            },
+          ].map((v, i) => (
+            <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderTop: `3px solid ${v.color}`, borderRadius: '8px', padding: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
+                <span style={{ width: '18px', height: '18px', borderRadius: '50%', background: v.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', color: COLORS.offWhite, fontWeight: 700, flexShrink: 0 }}>{v.numTr}</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? v.titleTr : v.titleEn}</span>
+                <InfoPopover text={tr ? "Tefsir geleneğinde bu yorum için farklı alimler farklı gerekçeler sunar." : "Different scholars in the tafsir tradition offer different justifications for this interpretation."} />
+              </div>
+              <p style={{ fontSize: '0.72rem', color: COLORS.silver, lineHeight: 1.5, fontFamily: FONTS.body, margin: 0 }}>
+                {tr ? v.descTr : v.descEn}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Section D: İmplied colors */}
+      <div>
+        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+          {tr ? 'D — Nesne Üzerinden İma Edilen Renkler' : 'D — Colors Implied Through Objects'}
+        </p>
+        <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 12px' }}>
+          {tr
+            ? "Kur'an bazen rengi doğrudan söylemez — nesneyi vererek rengi ima eder. Bu 'söylemeden anlatmak' Kur'an'ın dil ekonomisinin özelliği:"
+            : "The Quran sometimes doesn't state the color directly — it implies the color by naming the object. This 'showing without telling' is characteristic of Quranic language economy:"}
+        </p>
+        {[
+          { objectTr: 'Süt (Muhammed 47:15)', objectEn: 'Milk (Muhammad 47:15)', colorTr: '→ Beyaz (söylenmez)', colorEn: '→ White (unstated)' },
+          { objectTr: 'Bal (Muhammed 47:15)', objectEn: 'Honey (Muhammad 47:15)', colorTr: '→ Amber/Sarı (söylenmez)', colorEn: '→ Amber/Yellow (unstated)' },
+          { objectTr: 'Ateş/Alev', objectEn: 'Fire/Flame', colorTr: '→ Kırmızı/Turuncu (söylenmez)', colorEn: '→ Red/Orange (unstated)' },
+        ].map((row, i) => (
+          <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'rgba(255,255,255,0.03)', borderRadius: '6px', marginBottom: '4px' }}>
+            <span style={{ fontSize: '0.78rem', color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? row.objectTr : row.objectEn}</span>
+            <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{tr ? row.colorTr : row.colorEn}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Section E: Beyazın çoğul/cinsiyet yapısı */}
+      <div>
+        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+          {tr ? "E — Beyazın Kök Genişlemesi: بيض → Yumurta" : "E — White's Root Expansion: بيض → Egg"}
+        </p>
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '10px' }}>
+          {[
+            { ar: 'أَبْيَض', note: tr ? 'tekil, eril' : 'singular masc.' },
+            { ar: 'بَيْضَاء', note: tr ? 'tekil, dişil / parlak' : 'singular fem. / radiant' },
+            { ar: 'بِيضٌ', note: tr ? 'çoğul' : 'plural' },
+            { ar: 'بَيْضَة', note: tr ? 'yumurta — aynı kök!' : 'egg — same root!' },
+          ].map((w, i) => (
+            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', padding: '8px 12px', background: 'rgba(255,255,255,0.04)', borderRadius: '8px', border: `1px solid ${COLORS.glassBgStrong}` }}>
+              <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{w.ar}</span>
+              <span style={{ fontSize: '0.6rem', color: COLORS.silver, fontFamily: FONTS.body }}>{w.note}</span>
+            </div>
+          ))}
+        </div>
+        <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+          {tr
+            ? "'Beyza' yumurta anlamına da gelir — beyazlık ve yumurta aynı kökten. Vakıa 56:23'te cennet sakinleri 'saklı yumurta gibi' (beyaz). Renk kelimesi anlam genişlemesiyle imge üretiyor."
+            : "'Bayda' also means egg — whiteness and egg share the same root. In Al-Waqi'a 56:23, paradise companions are 'like hidden eggs' (white). The color word generates imagery through semantic extension."}
+        </p>
+      </div>
+
+    </div>
+  );
+}
+
+function TabKaynaklar({ language }) {
+  const tr = language === 'tr';
+
+  const sections = [
+    {
+      titleTr: 'Klasik Tefsir',
+      titleEn: 'Classical Tafsir',
+      items: [
+        { name: 'İbn Kesir', detail: "Tefsîru'l-Kur'âni'l-Azîm" },
+        { name: 'Taberî', detail: "Câmiu'l-Beyân" },
+        { name: 'Zemahşerî', detail: "el-Keşşâf — dilbilim ve renk kelimeleri analizi" },
+        { name: 'Râzî', detail: "Mefâtîhu'l-Gayb — Fâtır 35:27 analizi" },
+      ],
+    },
+    {
+      titleTr: 'Akademik Kaynaklar',
+      titleEn: 'Academic Sources',
+      items: [
+        { name: 'TDV İslam Ansiklopedisi', detail: tr ? '"Renk" maddesi' : '"Color" entry' },
+        { name: 'Corpus Quran', detail: 'corpus.quran.com — kelime frekansları' },
+        { name: "Lane's Arabic-English Lexicon", detail: tr ? 'Renk köklerinin etimolojik analizi' : 'Etymological analysis of color roots' },
+      ],
+    },
+    {
+      titleTr: 'Dijital Doğrulama',
+      titleEn: 'Digital Verification',
+      items: [
+        { name: 'tanzil.net', detail: tr ? 'Ayet araması ve referans doğrulama' : 'Verse search and reference verification' },
+        { name: 'kuranvemeali.com', detail: tr ? 'Karşılaştırmalı meal' : 'Comparative translations' },
+      ],
+    },
+  ];
+
+  return (
+    <div>
+      {/* Global info note */}
+      <div style={{ background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: '10px', padding: '14px 16px', marginBottom: '20px', display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+        <span style={{ color: 'rgba(59,130,246,0.7)', fontSize: '0.9rem', flexShrink: 0, marginTop: '1px' }}>ℹ</span>
+        <p style={{ fontSize: '0.75rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+          {tr
+            ? "Bu sayfada Kur'an'ın renk kelimelerinin taşıdığı sembolik anlamlar tefsir geleneğine dayanmaktadır. Kur'an renk sembolizmini açıkça tanımlamaz — bu yorumlar ℹ️ ile işaretlenmiştir. Renk kelimelerinin dilbilimsel analizleri Arapça sözlük ve tefsir kaynaklarına dayanmaktadır."
+            : "The symbolic meanings attributed to the Quran's color words on this page are based on the classical tafsir tradition. The Quran does not explicitly define color symbolism — such interpretations are marked with ℹ️. Linguistic analyses of color words are based on Arabic lexicography and tafsir sources."}
+        </p>
+      </div>
+
+      {sections.map((sec, i) => (
+        <div key={i} style={{ marginBottom: '20px' }}>
+          <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 10px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+            {tr ? sec.titleTr : sec.titleEn}
+          </p>
+          {sec.items.map((item, j) => (
+            <div key={j} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', display: 'flex', alignItems: 'baseline', gap: '10px' }}>
+              <span style={{ fontSize: '0.8rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, minWidth: '140px', flexShrink: 0 }}>{item.name}</span>
+              <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{item.detail}</span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function KuranRenkleri({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
@@ -738,10 +974,11 @@ export default function KuranRenkleri({ onClose }) {
           {activeTab === TABS.KIYAMET && (
             <TabKiyamet language={language} isMobile={isMobile} />
           )}
-          {(activeTab === TABS.DILBILIM || activeTab === TABS.KAYNAKLAR) && (
-            <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>
-              {TAB_LABELS[activeTab][language]} — {tr ? 'yakında' : 'coming soon'}
-            </p>
+          {activeTab === TABS.DILBILIM && (
+            <TabDilbilim language={language} isMobile={isMobile} />
+          )}
+          {activeTab === TABS.KAYNAKLAR && (
+            <TabKaynaklar language={language} />
           )}
         </div>
 
