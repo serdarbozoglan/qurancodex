@@ -354,6 +354,197 @@ function TabBaglam({ language, isMobile }) {
   );
 }
 
+function TabCennet({ language, isMobile }) {
+  const tr = language === 'tr';
+
+  const swatches = [
+    { hex: '#1D9E75', labelTr: 'Yeşil',      labelEn: 'Green',      noteTr: 'Elbiseler',   noteEn: 'Garments' },
+    { hex: '#B8860B', labelTr: 'Altın',       labelEn: 'Gold',       noteTr: 'Bilezikler',  noteEn: 'Bracelets' },
+    { hex: '#64748B', labelTr: 'Gümüş',       labelEn: 'Silver',     noteTr: 'Kaplar',      noteEn: 'Vessels' },
+    { hex: '#0F4C35', labelTr: 'Koyu Yeşil',  labelEn: 'Dark Green', noteTr: 'Bahçeler',    noteEn: 'Gardens' },
+    { hex: '#F0F0F0', labelTr: 'Beyaz',       labelEn: 'White',      noteTr: 'Süt nehri',   noteEn: 'Milk river', implied: true },
+    { hex: '#C8A832', labelTr: 'Bal/Krem',    labelEn: 'Honey/Cream',noteTr: 'Bal nehri',   noteEn: 'Honey river', implied: true },
+  ];
+
+  const analyses = [
+    {
+      ref: 'Kehf 18:31',
+      verseAr: 'يَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ',
+      verseTr: 'İnce ipekten yeşil elbiseler giyerler.',
+      verseEn: 'They wear green garments of fine silk and brocade.',
+      noteTr: "Cennetin 3 unsuru bir ayette: yeşil elbise + altın bilezik + taht. Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — üç surede tekrar eder.",
+      noteEn: "Three elements of paradise in one verse: green garment + gold bracelet + throne. Green + gold is the Quran's paradise color pairing — repeating across three suras.",
+    },
+    {
+      ref: 'Rahman 55:64',
+      verseAr: 'مُدْهَامَّتَانِ',
+      verseTr: 'İkisi de koyu yemyeşil.',
+      verseEn: 'Both of them are intensely dark green.',
+      noteTr: "'Mudhammatân' — bu formda Kur'an'da yalnızca bu ayette. İkili form, iki cennet bahçesini tanımlar. Yeşilin o kadar yoğun olduğu ki neredeyse siyaha döndüğü ton — cennette 'extra yeşil.'",
+      noteEn: "'Mudhammatân' — appears only in this verse in this form. Dual, describing the two paradise gardens. Green so intense it borders on black — paradise's 'extra green.'",
+      isHapax: true,
+    },
+    {
+      ref: 'İnsan 76:15-16',
+      verseAr: 'وَيُطَافُ عَلَيْهِم بِآنِيَةٍ مِّن فِضَّةٍ وَأَكْوَابٍ كَانَتْ قَوَارِيرَا ۝ قَوَارِيرَ مِن فِضَّةٍ',
+      verseTr: 'Gümüşten kaplar ve billur kadehlerle dolaşılır — gümüşten billur.',
+      verseEn: 'Silver vessels and crystal cups circulate among them — crystal of silver.',
+      noteTr: "'Gümüşten billur' — billurın şeffaflığında gümüş. İki malzemenin özelliği tek nesnede. Kur'an'ın cennet dilinin en özgün malzeme tasviri.",
+      noteEn: "'Crystal of silver' — silver's sheen with crystal's transparency. Two material properties in one object. The Quran's most distinctive material description in paradise language.",
+    },
+  ];
+
+  return (
+    <div>
+      <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, fontFamily: FONTS.body, marginBottom: '20px' }}>
+        {tr
+          ? "Kur'an cennetin renklerini doğrudan adlandırmaz — nesneler aracılığıyla renk verir. Cennet tasvirinde ısınma tonları (kırmızı, turuncu) yok; serin ve sakin tonlar (yeşil, gümüş) ağırlıkta."
+          : "The Quran doesn't name paradise colors directly — it gives color through objects. Warm tones (red, orange) are absent; cool, calm tones (green, silver) dominate."}
+      </p>
+
+      {/* Swatch grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(3,1fr)', gap: '8px', marginBottom: '24px' }}>
+        {swatches.map((s, i) => (
+          <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: '8px', overflow: 'hidden' }}>
+            <div style={{ height: '36px', background: s.hex, opacity: s.implied ? 0.5 : 1 }} />
+            <div style={{ padding: '8px' }}>
+              <p style={{ fontSize: '0.75rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, margin: '0 0 2px' }}>
+                {tr ? s.labelTr : s.labelEn}
+                {s.implied && <span style={{ fontSize: '0.6rem', color: COLORS.silver, marginLeft: '4px' }}>(ima)</span>}
+              </p>
+              <p style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>
+                {tr ? s.noteTr : s.noteEn}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Verse analyses */}
+      {analyses.map((a, i) => (
+        <div key={i} style={{ background: 'rgba(29,158,117,0.05)', border: '1px solid rgba(29,158,117,0.15)', borderRadius: '10px', padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+            <span style={{ fontSize: '0.65rem', fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body }}>{a.ref}</span>
+            {a.isHapax && <HapaxBadge />}
+          </div>
+          <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
+            {a.verseAr}
+          </p>
+          <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
+            {tr ? a.verseTr : a.verseEn}
+          </p>
+          <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+            {tr ? a.noteTr : a.noteEn}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function TabKiyamet({ language, isMobile }) {
+  const tr = language === 'tr';
+
+  const scenes = [
+    {
+      titleTr: 'Gökyüzünün Kırmızıya Dönmesi',
+      titleEn: "The Sky's Transformation to Red",
+      verseAr: 'فَإِذَا انشَقَّتِ السَّمَاءُ فَكَانَتْ وَرْدَةً كَالدِّهَانِ',
+      verseTr: 'Gök yarıldığında kırmızı deri gibi, erimiş yağ gibi olacak.',
+      verseEn: 'And when the sky breaks apart and becomes rose-red like oil.',
+      ref: 'Rahman 55:37',
+      hex: '#B91C1C',
+      noteTr: "Kıyametin sinematik açılış sahnesi. 'Dihân' — erimiş yağ veya kırmızı deri. Gökyüzünün hem eriyip hem kızarması: iki algı bir imgede.",
+      noteEn: "The cinematic opening of judgment. 'Dihan' — molten oil or red leather. The sky simultaneously melting and reddening: two perceptions in one image.",
+      infoTr: "'Dihân' kelimesinin tam anlamı tartışmalı: kırmızı yağ mı, kırmızı deri mi, kırmızı boya mı?",
+      infoEn: "The exact meaning of 'dihan' is debated: red oil? Red leather? Red dye?",
+    },
+    {
+      titleTr: 'Yüzlerin Ağarması ve Kararmasi',
+      titleEn: 'Faces Whitening and Blackening',
+      verseAr: 'يَوْمَ تَبْيَضُّ وُجُوهٌ وَتَسْوَدُّ وُجُوهٌ',
+      verseTr: 'Yüzlerin ağardığı ve yüzlerin karardığı gün…',
+      verseEn: 'The Day when faces will turn white and faces will turn black…',
+      ref: 'Al-i İmran 3:106',
+      hex: '#C8D6E5',
+      noteTr: "Beyaz-siyah yüz zıtlığı tek ayette (3:106-107). İç halin dışa renk olarak yansıması. Müfessirlerin büyük çoğunluğu fiziksel değil, metaforik okur.",
+      noteEn: "White-black face contrast in one verse (3:106-107). The inner state manifested outwardly as color. Most commentators read it metaphorically, not literally.",
+      infoTr: "Yüzlerin 'ağarması' ve 'kararması' fiziksel mi, ruhsal hal mi? Müfessirler arasında görüş ayrılığı.",
+      infoEn: "Are the whitening/blackening of faces physical or a manifestation of spiritual state? Commentators disagree.",
+    },
+    {
+      titleTr: "Gözlerin Donuklaşması / Mavileşmesi",
+      titleEn: 'Eyes Glazing / Turning Blue',
+      verseAr: 'وَنَحْشُرُ الْمُجْرِمِينَ يَوْمَئِذٍ زُرْقًا',
+      verseTr: 'O gün suçluları gözleri donuk/mavimsi olarak haşrederiz.',
+      verseEn: 'We will gather the criminals that Day, blue-eyed / glazed.',
+      ref: 'Taha 20:102',
+      hex: '#2563EB',
+      noteTr: "'Zurk' — hem mavi hem donuk/bulanık anlamına gelir. Kıyamette suçluların gözleri mi mavileşiyor, yoksa korkudan donup mu kalıyor? İki yorum da dilbilimsel olarak mümkün.",
+      noteEn: "'Zurq' — means both blue and glazed/dull. Are criminals' eyes turning blue, or freezing with terror? Both interpretations are linguistically valid.",
+      infoTr: "'Zurk' kelimesinin anlamı tartışmalı: mavi gözlü mü, donuk gözlü mü, körlük mu? Müfessirler arasında görüş ayrılığı mevcuttur.",
+      infoEn: "'Zurq' meaning disputed: blue-eyed? Glazed? Blind? There is scholarly disagreement.",
+    },
+    {
+      titleTr: 'Toz ve Karanlık',
+      titleEn: 'Dust and Darkness',
+      verseAr: 'وَوُجُوهٌ يَوْمَئِذٍ عَلَيْهَا غَبَرَةٌ ۝ تَرْهَقُهَا قَتَرَةٌ',
+      verseTr: "O gün kimi yüzler tozlanmış, kararma bürümüş.",
+      verseEn: 'And some faces that Day will be covered with dust — darkness overwhelming them.',
+      ref: 'Abese 80:40-41',
+      hex: '#374151',
+      noteTr: "Abese 80:38-41 dört sıfatla iki grubu karşılaştırır: parlak + gülen (kurtulanlar) vs tozlanmış + karartan (kayıp). Renk ve ışık Kur'an'ın kıyamet dilinde simetrik kullanılır.",
+      noteEn: "Al-Abasa 80:38-41 contrasts two groups with four attributes: bright + laughing (saved) vs dusty + darkened (lost). Color and light are used symmetrically in the Quran's judgment language.",
+    },
+  ];
+
+  return (
+    <div>
+      {/* White/Black contrast header */}
+      <div style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : undefined, gridTemplateColumns: isMobile ? undefined : '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+        <div style={{ background: 'rgba(200,214,229,0.08)', border: '1px solid rgba(200,214,229,0.2)', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+          <div style={{ fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#C8D6E5', fontFamily: FONTS.body, marginBottom: '8px' }}>
+            {tr ? 'Kurtulanlar' : 'The Saved'}
+          </div>
+          <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#C8D6E5', fontFamily: FONTS.body, marginBottom: '4px' }}>
+            {tr ? 'Yüzleri Ağarır' : 'Faces Turn White'}
+          </div>
+          <p style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Al-i İmran 3:107</p>
+        </div>
+        <div style={{ background: 'rgba(30,27,75,0.4)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+          <div style={{ fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '8px' }}>
+            {tr ? 'Kayıp Olanlar' : 'The Lost'}
+          </div>
+          <div style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '4px' }}>
+            {tr ? 'Yüzleri Kararır' : 'Faces Turn Black'}
+          </div>
+          <p style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Zümer 39:60</p>
+        </div>
+      </div>
+
+      {/* 4 scene cards */}
+      {scenes.map((s, i) => (
+        <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${s.hex}`, borderRadius: '10px', padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+            <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: s.hex, flexShrink: 0 }} />
+            <span style={{ fontSize: '0.72rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? s.titleTr : s.titleEn}</span>
+            {(s.infoTr || s.infoEn) && <InfoPopover text={tr ? s.infoTr : s.infoEn} />}
+          </div>
+          <p style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
+            {s.verseAr}
+          </p>
+          <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
+            {tr ? s.verseTr : s.verseEn} — <span style={{ fontWeight: 600 }}>{s.ref}</span>
+          </p>
+          <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+            {tr ? s.noteTr : s.noteEn}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function KuranRenkleri({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
@@ -541,7 +732,13 @@ export default function KuranRenkleri({ onClose }) {
           {activeTab === TABS.BAGLAM && (
             <TabBaglam language={language} isMobile={isMobile} />
           )}
-          {(activeTab === TABS.CENNET || activeTab === TABS.KIYAMET || activeTab === TABS.DILBILIM || activeTab === TABS.KAYNAKLAR) && (
+          {activeTab === TABS.CENNET && (
+            <TabCennet language={language} isMobile={isMobile} />
+          )}
+          {activeTab === TABS.KIYAMET && (
+            <TabKiyamet language={language} isMobile={isMobile} />
+          )}
+          {(activeTab === TABS.DILBILIM || activeTab === TABS.KAYNAKLAR) && (
             <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>
               {TAB_LABELS[activeTab][language]} — {tr ? 'yakında' : 'coming soon'}
             </p>
