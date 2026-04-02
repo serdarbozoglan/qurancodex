@@ -5,7 +5,7 @@ import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
 } from '../tokens';
 
-const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', '30 Soru', 'Sure Haritası'];
+const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', '30 Soru', 'Sûre Haritası'];
 const TABS_EN = ['Categories & Patterns', 'Addressee Analysis', '30 Questions', 'Surah Map'];
 
 const CloseBtn = ({ onClose }) => (
@@ -630,7 +630,7 @@ function TabSorular({ data, tr, isMobile }) {
     erotema: '#d4a574',
     irsad:   '#3498db',
     tevbih:  '#2ecc71',
-    taaccub: '#a78bfa',
+    taaccub: '#c084fc',
   };
   const TYPE_LABELS_TR = { erotema: 'Erotema', irsad: 'İrşad', tevbih: 'Tevbih', taaccub: 'Taaccüb' };
   const TYPE_LABELS_EN = { erotema: 'Erotema', irsad: 'Guidance', tevbih: 'Reproach', taaccub: 'Wonder' };
@@ -639,7 +639,7 @@ function TabSorular({ data, tr, isMobile }) {
   const PATTERN_LABELS_TR = { 've-ma-edrake': 'Ve Mâ Edrâke', 'efela-takılun': "Efela Ta'kılûn", eleyse: 'Eleyse' };
   const PATTERN_LABELS_EN = { 've-ma-edrake': 'Wa Ma Adraka', 'efela-takılun': 'Afala Taʿqilun', eleyse: 'Alaysa' };
 
-  const ADDRESS_COLORS = { humanity: '#d4a574', mushrikeen: '#e74c3c', prophet: '#a78bfa', 'ehl-i-kitap': '#14b8a6', munafikun: '#64748b' };
+  const ADDRESS_COLORS = { humanity: '#d4a574', mushrikeen: '#e74c3c', prophet: '#c084fc', 'ehl-i-kitap': '#14b8a6', munafikun: '#64748b' };
   const ADDRESS_LABELS_TR = { humanity: 'İnsanlık', mushrikeen: 'Müşrik', prophet: 'Peygamber', 'ehl-i-kitap': 'Ehli Kitap', munafikun: 'Münafık' };
   const ADDRESS_LABELS_EN = { humanity: 'Humanity', mushrikeen: 'Polytheist', prophet: 'Prophet', 'ehl-i-kitap': 'People of Book', munafikun: 'Hypocrite' };
 
@@ -781,17 +781,17 @@ function TabSorular({ data, tr, isMobile }) {
 }
 function TabSureHaritasi({ data, tr, isMobile }) {
   const [hoveredSurah, setHoveredSurah] = useState(null);
-  const TYPE_COLORS = { erotema: '#d4a574', irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#a78bfa' };
+  const TYPE_COLORS = { erotema: '#d4a574', irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#c084fc' };
 
   return (
     <div style={{ padding: isMobile ? '16px' : '28px 32px' }}>
 
       {/* ── BÖLÜM 1: HEATMAP ────────────────────────────── */}
       <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.2rem' : '1.5rem', fontWeight: 700, margin: '0 0 6px' }}>
-        {tr ? 'Sure Başına Soru Yoğunluğu' : 'Question Density by Surah'}
+        {tr ? 'Sûre Başına Soru Yoğunluğu' : 'Question Density by Surah'}
       </h2>
       <p style={{ color: `${COLORS.silver}80`, fontSize: '0.82rem', fontFamily: FONTS.body, marginBottom: 16, lineHeight: 1.5 }}>
-        {tr ? '114 sure — altın ton yoğunluğu gösterir. Üzerine gel veya dokun.' : '114 surahs — gold intensity indicates density. Hover or tap for details.'}
+        {tr ? '114 sûre — altın ton yoğunluğu gösterir. Üzerine gel veya dokun.' : '114 surahs — gold intensity indicates density. Hover or tap for details.'}
       </p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: 10 }}>
@@ -815,8 +815,11 @@ function TabSureHaritasi({ data, tr, isMobile }) {
               <div style={{
                 position: 'absolute',
                 bottom: 'calc(100% + 6px)',
-                left: '50%',
-                transform: 'translateX(-50%)',
+                ...(i < 6
+                  ? { left: 0, transform: 'none' }
+                  : i > 107
+                  ? { right: 0, left: 'auto', transform: 'none' }
+                  : { left: '50%', transform: 'translateX(-50%)' }),
                 background: 'rgba(6,8,20,0.97)',
                 border: `1px solid rgba(212,165,116,0.3)`,
                 borderRadius: 8,
@@ -830,23 +833,23 @@ function TabSureHaritasi({ data, tr, isMobile }) {
                 <p style={{ color: COLORS.offWhite, fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 600, margin: '0 0 3px' }}>
                   {i + 1}. {SURAH_NAMES_TR[i]}
                 </p>
-                {/* Yoğunluk */}
-                <p style={{ color: `${COLORS.gold}90`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '0 0 4px' }}>
-                  {tr ? (DENSITY_LABEL_TR[d] || '—') : (DENSITY_LABEL_EN[d] || '—')}
-                </p>
-                {/* Top 5 sure için ek detay */}
+                {/* Yoğunluk — top 5 için ~N soru, diğerleri için etiket */}
                 {(() => {
                   const topSurah = data.topSurahs.find(s => s.number === i + 1);
-                  if (!topSurah) return null;
-                  return (
+                  if (topSurah) return (
                     <>
-                      <p style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '0 0 4px' }}>
+                      <p style={{ color: `${COLORS.gold}90`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '0 0 4px' }}>
                         ~{topSurah.estimatedCount} {tr ? 'soru' : 'questions'}
                       </p>
                       <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '0.85rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.8, margin: '2px 0 0' }}>
                         {topSurah.iconicQuestionAr}
                       </p>
                     </>
+                  );
+                  return (
+                    <p style={{ color: `${COLORS.gold}90`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: '0 0 4px' }}>
+                      {tr ? (DENSITY_LABEL_TR[d] || '—') : (DENSITY_LABEL_EN[d] || '—')}
+                    </p>
                   );
                 })()}
                 {/* Arrow */}
@@ -859,11 +862,14 @@ function TabSureHaritasi({ data, tr, isMobile }) {
 
       {/* Legend */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 40 }}>
+        <span style={{ color: `${COLORS.silver}70`, fontSize: '0.7rem', fontFamily: FONTS.body, marginRight: 2 }}>
+          {tr ? 'Az' : 'Few'}
+        </span>
         {[1, 2, 3, 4, 5].map(v => (
           <div key={v} style={{ width: 18, height: 18, borderRadius: 3, background: `rgba(212,165,116,${v * 0.18})`, border: '1px solid rgba(255,255,255,0.05)', flexShrink: 0 }} />
         ))}
-        <span style={{ color: COLORS.silver, fontSize: '0.72rem', marginLeft: 4, fontFamily: FONTS.body }}>
-          {tr ? 'Az → Çok' : 'Few → Many'}
+        <span style={{ color: `${COLORS.silver}70`, fontSize: '0.7rem', fontFamily: FONTS.body, marginLeft: 2 }}>
+          {tr ? 'Çok' : 'Many'}
         </span>
       </div>
 
@@ -873,7 +879,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
       </h3>
       <div style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(240px, 1fr))',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(5, 1fr)',
         gap: 12,
         marginBottom: 48,
       }}>
@@ -883,27 +889,27 @@ function TabSureHaritasi({ data, tr, isMobile }) {
             <div
               key={i}
               style={{
-                padding: '14px 16px',
+                padding: '18px 20px',
                 background: 'rgba(255,255,255,0.03)',
                 border: `1px solid ${COLORS.glassBorderSoft}`,
                 borderRadius: 10,
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
                 <div>
-                  <span style={{ color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body }}>{s.number}. </span>
-                  <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                  <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>{s.number}. </span>
+                  <span style={{ color: COLORS.offWhite, fontSize: '0.95rem', fontFamily: FONTS.body, fontWeight: 600 }}>
                     {tr ? s.nameTr : s.nameEn}
                   </span>
                 </div>
-                <span style={{ background: `${domColor}20`, color: domColor, fontSize: '0.68rem', padding: '2px 7px', borderRadius: 4, fontFamily: FONTS.body }}>
+                <span style={{ background: `${domColor}20`, color: domColor, fontSize: '0.7rem', padding: '2px 8px', borderRadius: 4, fontFamily: FONTS.body }}>
                   ~{s.estimatedCount}
                 </span>
               </div>
-              <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.8, margin: '0 0 6px' }}>
+              <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.35rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2.0, margin: '0 0 10px' }}>
                 {s.iconicQuestionAr}
               </p>
-              <p style={{ color: `${COLORS.silver}80`, fontSize: '0.78rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.5 }}>
+              <p style={{ color: `${COLORS.silver}80`, fontSize: '0.82rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.6 }}>
                 {tr ? s.noteTr : s.noteEn}
               </p>
             </div>
@@ -948,8 +954,8 @@ function TabSureHaritasi({ data, tr, isMobile }) {
           })}
         </div>
         {/* Taaccüb analiz notu */}
-        <div style={{ background: 'rgba(167,139,250,0.08)', borderLeft: `3px solid #a78bfa`, padding: '10px 14px', borderRadius: 6, fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.65 }}>
-          <span style={{ color: '#a78bfa', fontWeight: 600, marginRight: 6 }}>Taaccüb:</span>
+        <div style={{ background: 'rgba(167,139,250,0.08)', borderLeft: `3px solid #c084fc`, padding: '10px 14px', borderRadius: 6, fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.65 }}>
+          <span style={{ color: '#c084fc', fontWeight: 600, marginRight: 6 }}>Taaccüb:</span>
           {tr ? data.comparativeAnalysis.taaccubNoteTr : data.comparativeAnalysis.taaccubNoteEn}
         </div>
       </div>

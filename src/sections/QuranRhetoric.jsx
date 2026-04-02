@@ -368,11 +368,11 @@ export default function QuranRhetoric() {
       {/* Heatmap */}
       <motion.div variants={fadeUpItem} className="mb-14">
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
-          {tr ? 'Sure Başına Soru Yoğunluğu' : 'Question Density by Surah'}
+          {tr ? 'Sûre Başına Soru Yoğunluğu' : 'Question Density by Surah'}
         </h3>
         <p className="text-silver/60 text-sm mb-4">
           {tr
-            ? '114 surenin tamamı — altın renk yoğunluğu soru sıklığını gösterir'
+            ? '114 sûrenin tamamı — altın renk yoğunluğu soru sıklığını gösterir'
             : 'All 114 surahs — gold intensity indicates question frequency'}
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
@@ -437,6 +437,9 @@ export default function QuranRhetoric() {
         </div>
         {/* Legend */}
         <div className="flex items-center gap-2 mt-3">
+          <span style={{ color: '#94a3b8', fontSize: '0.72rem', marginRight: '2px', fontFamily: "'Inter', sans-serif" }}>
+            {tr ? 'Az' : 'Few'}
+          </span>
           {[1, 2, 3, 4, 5].map(v => (
             <div
               key={v}
@@ -448,8 +451,8 @@ export default function QuranRhetoric() {
               }}
             />
           ))}
-          <span style={{ color: '#94a3b8', fontSize: '0.72rem', marginLeft: '4px', fontFamily: "'Inter', sans-serif" }}>
-            {tr ? 'Az → Çok' : 'Few → Many'}
+          <span style={{ color: '#94a3b8', fontSize: '0.72rem', marginLeft: '2px', fontFamily: "'Inter', sans-serif" }}>
+            {tr ? 'Çok' : 'Many'}
           </span>
         </div>
       </motion.div>
