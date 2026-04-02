@@ -861,13 +861,13 @@ function TabDilbilim({ language, isMobile }) {
         <p style={sectionHdrStyle}>
           {tr ? 'A — Renk Yoğunluğu Kelimeleri' : 'A — Color Intensity Words'}
         </p>
-        <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 12px' }}>
+        <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 12px' }}>
           {tr
             ? "Kur'an normal renk + yoğun renk için farklı kelimeler kullanır. Bu dilbilimsel incelik başka Sami dillerinde karşılaştırıldığında Kur'an Arapçasının özgünlüğünü gösterir."
             : "The Quran uses distinct words for normal vs. intense color. This linguistic precision demonstrates the uniqueness of Quranic Arabic compared to other Semitic languages."}
         </p>
         <div style={{ overflowX: 'auto', borderRadius: '8px', border: `1px solid ${COLORS.glassBorder}` }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, fontSize: '0.78rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, fontSize: '0.85rem' }}>
             <thead>
               <tr style={{ background: 'rgba(255,255,255,0.04)' }}>
                 <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Normal' : 'Normal'}</th>
@@ -916,12 +916,12 @@ function TabDilbilim({ language, isMobile }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
               <span style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{h.arabic}</span>
               <HapaxBadge />
-              <span style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body }}>{h.ref}</span>
+              <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body }}>{h.ref}</span>
             </div>
-            <p style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 6px' }}>
+            <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 6px' }}>
               <em>{tr ? h.formTr : h.formEn}</em>
             </p>
-            <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+            <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
               {tr ? h.noteTr : h.noteEn}
             </p>
           </div>
@@ -933,7 +933,7 @@ function TabDilbilim({ language, isMobile }) {
         <p style={sectionHdrStyle}>
           {tr ? "C — 'Zurk' Tartışması (Taha 20:102)" : "C — The 'Zurq' Debate (Ta-Ha 20:102)"}
         </p>
-        <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 14px' }}>
+        <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 14px' }}>
           {tr
             ? "'Zurk' kelimesi Arapça'da hem mavi hem donuk/bulanık anlamına gelir. Taha 20:102 bağlamında üç farklı yorum:"
             : "'Zurq' in Arabic means both blue and glazed/cloudy. Three interpretations in the context of Ta-Ha 20:102:"}
@@ -962,10 +962,10 @@ function TabDilbilim({ language, isMobile }) {
             <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderTop: `3px solid ${v.color}`, borderRadius: '8px', padding: '12px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
                 <span style={{ width: '18px', height: '18px', borderRadius: '50%', background: v.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', color: COLORS.offWhite, fontWeight: 700, flexShrink: 0 }}>{v.numTr}</span>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? v.titleTr : v.titleEn}</span>
+                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? v.titleTr : v.titleEn}</span>
                 <InfoPopover text={tr ? "Tefsir geleneğinde bu yorum için farklı alimler farklı gerekçeler sunar." : "Different scholars in the tafsir tradition offer different justifications for this interpretation."} />
               </div>
-              <p style={{ fontSize: '0.72rem', color: COLORS.silver, lineHeight: 1.5, fontFamily: FONTS.body, margin: 0 }}>
+              <p style={{ fontSize: '0.8rem', color: COLORS.silver, lineHeight: 1.5, fontFamily: FONTS.body, margin: 0 }}>
                 {tr ? v.descTr : v.descEn}
               </p>
             </div>
@@ -978,19 +978,63 @@ function TabDilbilim({ language, isMobile }) {
         <p style={sectionHdrStyle}>
           {tr ? 'D — Nesne Üzerinden İma Edilen Renkler' : 'D — Colors Implied Through Objects'}
         </p>
-        <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 12px' }}>
+        <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 14px' }}>
           {tr
-            ? "Kur'an bazen rengi doğrudan söylemez — nesneyi vererek rengi ima eder. Bu 'söylemeden anlatmak' Kur'an'ın dil ekonomisinin özelliği:"
+            ? "Kur'an bazen rengi doğrudan söylemez — nesneyi vererek rengi ima eder. Bu 'söylemeden anlatmak' Kur'an'ın dil ekonomisinin özelliğidir:"
             : "The Quran sometimes doesn't state the color directly — it implies the color by naming the object. This 'showing without telling' is characteristic of Quranic language economy:"}
         </p>
         {[
-          { objectTr: 'Süt (Muhammed 47:15)', objectEn: 'Milk (Muhammad 47:15)', colorTr: '→ Beyaz (söylenmez)', colorEn: '→ White (unstated)' },
-          { objectTr: 'Bal (Muhammed 47:15)', objectEn: 'Honey (Muhammad 47:15)', colorTr: '→ Amber/Sarı (söylenmez)', colorEn: '→ Amber/Yellow (unstated)' },
-          { objectTr: 'Ateş/Alev', objectEn: 'Fire/Flame', colorTr: '→ Kırmızı/Turuncu (söylenmez)', colorEn: '→ Red/Orange (unstated)' },
+          {
+            hex: '#F1F5F9',
+            objectTr: 'Süt', objectEn: 'Milk',
+            colorTr: '→ Beyaz', colorEn: '→ White',
+            verseAr: 'أَنْهَارٌ مِّن لَّبَنٍ لَّمْ يَتَغَيَّرْ طَعْمُهُ',
+            verseTr: '…tadı değişmeyen süt nehirleri…',
+            verseEn: '…rivers of milk whose taste does not change…',
+            ref: 'Muhammed 47:15',
+            noteTr: "Süt beyazdır — ama Kur'an rengi söylemez. Renk, nesnenin zihinde çağrışımıyla gelir.",
+            noteEn: "Milk is white — but the Quran doesn't say so. The color arrives through the object's mental association.",
+          },
+          {
+            hex: '#CA8A04',
+            objectTr: 'Bal', objectEn: 'Honey',
+            colorTr: '→ Amber / Sarı', colorEn: '→ Amber / Yellow',
+            verseAr: 'وَأَنْهَارٌ مِّنْ عَسَلٍ مُّصَفًّى',
+            verseTr: '…ve saf baldan nehirler…',
+            verseEn: '…and rivers of purified honey…',
+            ref: 'Muhammed 47:15',
+            noteTr: "'Musaffâ' — arındırılmış, süzülmüş. Renk adı yok; amber ton nesnenin kendisinde gizli.",
+            noteEn: "'Musaffâ' — purified, filtered. No color named; the amber hue is concealed in the object itself.",
+          },
+          {
+            hex: '#B91C1C',
+            objectTr: 'Ateş / Alev', objectEn: 'Fire / Flame',
+            colorTr: '→ Kırmızı / Turuncu', colorEn: '→ Red / Orange',
+            verseAr: 'لَوَّاحَةٌ لِّلْبَشَرِ',
+            verseTr: 'İnsanı kavuran (rengi değiştiren).',
+            verseEn: 'Scorching to the skin (altering its color).',
+            ref: 'Müddessir 74:29',
+            noteTr: "'Levvâha' kökü renk değişikliği anlamını içerir — ateş insanın tenini kızartır ve karartur. Kırmızı/siyah ama söylenmez.",
+            noteEn: "The root 'lavvâha' implies color change — fire reddens and blackens the skin. Red/black, but left unstated.",
+          },
         ].map((row, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'rgba(255,255,255,0.03)', borderRadius: '6px', marginBottom: '4px' }}>
-            <span style={{ fontSize: '0.78rem', color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? row.objectTr : row.objectEn}</span>
-            <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{tr ? row.colorTr : row.colorEn}</span>
+          <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${row.hex}`, borderRadius: '10px', padding: isMobile ? '12px' : '16px', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: row.hex, flexShrink: 0 }} />
+                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? row.objectTr : row.objectEn}</span>
+              </div>
+              <span style={{ fontSize: '0.78rem', color: COLORS.gold, fontFamily: FONTS.body, fontStyle: 'italic' }}>{tr ? row.colorTr : row.colorEn}</span>
+            </div>
+            <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 4px' }} lang="ar" dir="rtl">
+              {row.verseAr}
+            </p>
+            <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
+              {tr ? row.verseTr : row.verseEn} — <span style={{ fontWeight: 600, color: COLORS.offWhite }}>{row.ref}</span>
+            </p>
+            <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+              {tr ? row.noteTr : row.noteEn}
+            </p>
           </div>
         ))}
       </div>
@@ -1008,12 +1052,12 @@ function TabDilbilim({ language, isMobile }) {
             { ar: 'بَيْضَة', note: tr ? 'yumurta — aynı kök!' : 'egg — same root!' },
           ].map((w, i) => (
             <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', padding: '8px 12px', background: 'rgba(255,255,255,0.04)', borderRadius: '8px', border: `1px solid ${COLORS.glassBgStrong}` }}>
-              <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{w.ar}</span>
-              <span style={{ fontSize: '0.6rem', color: COLORS.silver, fontFamily: FONTS.body }}>{w.note}</span>
+              <span style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{w.ar}</span>
+              <span style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body }}>{w.note}</span>
             </div>
           ))}
         </div>
-        <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+        <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
           {tr
             ? "'Beyza' yumurta anlamına da gelir — beyazlık ve yumurta aynı kökten. Vakıa 56:23'te cennet sakinleri 'saklı yumurta gibi' (beyaz). Renk kelimesi anlam genişlemesiyle imge üretiyor."
             : "'Bayda' also means egg — whiteness and egg share the same root. In Al-Waqi'a 56:23, paradise companions are 'like hidden eggs' (white). The color word generates imagery through semantic extension."}
