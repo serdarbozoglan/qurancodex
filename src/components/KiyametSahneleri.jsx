@@ -30,6 +30,61 @@ const PHASE_COLORS = {
 const HAPAX_COLOR = '#8b5cf6';
 const GOLD = COLORS.gold;
 
+// Local style constants for patterns not yet in tokens.js
+const NOTE_BOX = {
+  background: 'rgba(201,169,110,0.06)',
+  border: '1px solid rgba(201,169,110,0.18)',
+  borderRadius: '10px',
+  padding: '8px 12px',
+};
+
+const NOTE_BOX_INLINE = {
+  fontSize: '0.78rem',
+  color: 'rgba(201,169,110,0.7)',
+  lineHeight: 1.6,
+  background: 'rgba(201,169,110,0.06)',
+  border: '1px solid rgba(201,169,110,0.15)',
+  borderRadius: '6px',
+  padding: '6px 10px',
+};
+
+const PHASE_LABELS = {
+  tr: {
+    1: { title: 'Kozmik Yıkım', sub: "Sur'un ilk üflenmesiyle başlayan, göklerin ve yerin dağıldığı evre" },
+    2: { title: 'Ölülerin Dirilişi', sub: "Sur'un ikinci üflenmesiyle başlayan diriliş evresi" },
+    3: { title: 'Haşr / Toplanma', sub: 'Mahşer — tüm insanlığın bir araya gelmesi' },
+    4: { title: 'Hesap — Büyük Sorgu', sub: 'Amellerin sorgulanması, organların şahitliği, yüzlerin değişimi' },
+    5: { title: 'Mizan — Amellerin Tartılması', sub: 'Kozmik adalet terazisi' },
+    6: { title: 'Kitapların Dağıtılması', sub: 'Amel defterlerinin sağdan ve soldan verilmesi' },
+    7: { title: 'Son/Karar — Cennet ve Cehennem', sub: 'Nihai ayrılış' },
+  },
+  en: {
+    1: { title: 'Cosmic Destruction', sub: 'The phase beginning with the first blow of the Trumpet' },
+    2: { title: 'Resurrection', sub: 'The phase of resurrection beginning with the second blow' },
+    3: { title: 'The Great Gathering', sub: 'Mahshar — the gathering of all humanity' },
+    4: { title: 'The Day of Reckoning', sub: 'The questioning of deeds, testimony of organs, changing of faces' },
+    5: { title: 'The Scales of Justice', sub: 'The cosmic scale of justice' },
+    6: { title: 'Distribution of Records', sub: 'Books of deeds given in right and left hands' },
+    7: { title: 'The Final Decree', sub: 'Paradise and Hell — the ultimate separation' },
+  },
+};
+
+const TEKVER_IDHA = [
+  { ar: 'إِذَا الشَّمْسُ كُوِّرَتْ', tr: 'Güneş dürüldüğünde', en: 'When the sun is wrapped up', ref: '81:1' },
+  { ar: 'وَإِذَا النُّجُومُ انكَدَرَتْ', tr: 'Yıldızlar döküldüğünde', en: 'When the stars fall', ref: '81:2' },
+  { ar: 'وَإِذَا الْجِبَالُ سُيِّرَتْ', tr: 'Dağlar yürütüldüğünde', en: 'When the mountains are set in motion', ref: '81:3' },
+  { ar: 'وَإِذَا الْعِشَارُ عُطِّلَتْ', tr: 'Yüklü develer terk edildiğinde', en: 'When full-term she-camels are abandoned', ref: '81:4', noteTr: "Kozmik felaketin insani boyutu: en değerli varlık, panik içinde bırakılıyor.", noteEn: "The human dimension of cosmic catastrophe: the most prized possession abandoned in panic." },
+  { ar: 'وَإِذَا الْوُحُوشُ حُشِرَتْ', tr: 'Vahşi hayvanlar toplandığında', en: 'When wild beasts are gathered', ref: '81:5', noteTr: "Hayvanlar da toplanıyor. Müfessirler: tüm canlıların hesabı görülür, sonra toprak olurlar.", noteEn: "Animals too are gathered. Commentators: all creatures are accounted for, then become dust.", isInfo: true },
+  { ar: 'وَإِذَا الْبِحَارُ سُجِّرَتْ', tr: 'Denizler ateş aldığında', en: 'When the seas are set ablaze', ref: '81:6' },
+  { ar: 'وَإِذَا النُّفُوسُ زُوِّجَتْ', tr: 'Ruhlar eşleştirildiğinde', en: 'When souls are paired', ref: '81:7', noteTr: "En tartışmalı \"izâ\" ayeti: kim kiminle eşleştiriliyor? Aynı gruptakiler mi, bedenleriyle mi, amelleriyle mi?", noteEn: "The most debated 'idha' verse: paired with whom? Fellow group members? Their bodies? Their deeds?" },
+  { ar: 'وَإِذَا الْمَوْءُودَةُ سُئِلَتْ', tr: 'Diri gömülen kız çocuğuna sorulduğunda', en: 'When the girl buried alive is asked', ref: '81:8-9', noteTr: "Kıyamet sahnesi içinde tarihsel hesap: cahiliye Arabistanı'nın bu pratiği doğrudan sorguya çekiliyor.", noteEn: "Historical accountability within judgment: the pre-Islamic Arabian practice of female infanticide directly questioned." },
+  { ar: 'وَإِذَا الصُّحُفُ نُشِرَتْ', tr: 'Sayfalar açıldığında', en: 'When the pages are spread open', ref: '81:10' },
+  { ar: 'وَإِذَا السَّمَاءُ كُشِطَتْ', tr: 'Gök soyulup kaldırıldığında', en: 'When the sky is stripped away', ref: '81:11', isHapax: true },
+  { ar: 'وَإِذَا الْجَحِيمُ سُعِّرَتْ', tr: 'Cehennem alevlendirildiğinde', en: 'When Hellfire is set ablaze', ref: '81:12' },
+  { ar: 'وَإِذَا الْجَنَّةُ أُزْلِفَتْ', tr: 'Cennet yaklaştırıldığında', en: 'When Paradise is brought near', ref: '81:13' },
+  { ar: 'عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ', tr: 'Her can, ne hazırladığını öğrenmiş olur', en: 'Every soul will know what it has brought forth', ref: '81:14' },
+];
+
 // ── Sub-components ─────────────────────────────────────────────────────────────
 
 function CloseBtn({ onClose }) {
@@ -201,6 +256,7 @@ function PhaseScene({ scene, language, defaultOpen }) {
     }}>
       <button
         onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
         style={{
           width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: '10px 14px', background: 'none', border: 'none', cursor: 'pointer',
@@ -238,11 +294,7 @@ function PhaseScene({ scene, language, defaultOpen }) {
             </p>
           )}
           {(language === 'tr' ? scene.infoTr : scene.infoEn) && (
-            <p style={{
-              fontSize: '0.78rem', color: 'rgba(201,169,110,0.7)', lineHeight: 1.6, margin: '8px 0 0',
-              background: 'rgba(201,169,110,0.06)', border: '1px solid rgba(201,169,110,0.15)',
-              borderRadius: '6px', padding: '6px 10px', fontFamily: FONTS.body,
-            }}>
+            <p style={{ ...NOTE_BOX_INLINE, margin: '8px 0 0', fontFamily: FONTS.body }}>
               ℹ {language === 'tr' ? scene.infoTr : scene.infoEn}
             </p>
           )}
@@ -312,10 +364,11 @@ function SurahCard({ surah, language }) {
 
       <button
         onClick={() => setExpanded(e => !e)}
+        aria-expanded={expanded}
         style={{
           background: 'none', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '6px',
           padding: '4px 10px', cursor: 'pointer', fontSize: '0.72rem', color: COLORS.silver,
-          alignSelf: 'flex-start', fontFamily: FONTS.body, minHeight: '32px',
+          alignSelf: 'flex-start', fontFamily: FONTS.body, minHeight: '44px',
         }}
       >
         {expanded
@@ -598,34 +651,10 @@ export default function KiyametSahneleri({ onClose }) {
 
 function TabKronoloji({ data, language, isMobile }) {
   const phases = [1, 2, 3, 4, 5, 6, 7];
-  const phaseLabels = {
-    tr: {
-      1: { title: 'Kozmik Yıkım', sub: "Sur'un ilk üflenmesiyle başlayan, göklerin ve yerin dağıldığı evre" },
-      2: { title: 'Ölülerin Dirilişi', sub: "Sur'un ikinci üflenmesiyle başlayan diriliş evresi" },
-      3: { title: 'Haşr / Toplanma', sub: 'Mahşer — tüm insanlığın bir araya gelmesi' },
-      4: { title: 'Hesap — Büyük Sorgu', sub: 'Amellerin sorgulanması, organların şahitliği, yüzlerin değişimi' },
-      5: { title: 'Mizan — Amellerin Tartılması', sub: 'Kozmik adalet terazisi' },
-      6: { title: 'Kitapların Dağıtılması', sub: 'Amel defterlerinin sağdan ve soldan verilmesi' },
-      7: { title: 'Son/Karar — Cennet ve Cehennem', sub: 'Nihai ayrılış' },
-    },
-    en: {
-      1: { title: 'Cosmic Destruction', sub: 'The phase beginning with the first blow of the Trumpet' },
-      2: { title: 'Resurrection', sub: 'The phase of resurrection beginning with the second blow' },
-      3: { title: 'The Great Gathering', sub: 'Mahshar — the gathering of all humanity' },
-      4: { title: 'The Day of Reckoning', sub: 'The questioning of deeds, testimony of organs, changing of faces' },
-      5: { title: 'The Scales of Justice', sub: 'The cosmic scale of justice' },
-      6: { title: 'Distribution of Records', sub: 'Books of deeds given in right and left hands' },
-      7: { title: 'The Final Decree', sub: 'Paradise and Hell — the ultimate separation' },
-    },
-  };
 
   return (
     <div>
-      <div style={{
-        background: 'rgba(201,169,110,0.06)', border: '1px solid rgba(201,169,110,0.18)',
-        borderRadius: '10px', padding: '12px 16px', marginBottom: '24px',
-        display: 'flex', gap: '10px', alignItems: 'flex-start',
-      }}>
+      <div style={{ ...NOTE_BOX, marginBottom: '24px', display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
         <span style={{ color: GOLD, fontSize: '1rem', flexShrink: 0 }}>ℹ</span>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: 0, lineHeight: 1.7, fontFamily: FONTS.body }}>
           {language === 'tr'
@@ -637,7 +666,7 @@ function TabKronoloji({ data, language, isMobile }) {
       {phases.map(phaseNum => {
         const scenes = data.scenes.filter(s => s.phase === phaseNum);
         const pc = PHASE_COLORS[phaseNum];
-        const labels = phaseLabels[language][phaseNum];
+        const labels = PHASE_LABELS[language][phaseNum];
         return (
           <div key={phaseNum} style={{ marginBottom: '24px' }}>
             <div style={{ borderLeft: `4px solid ${pc.accent}`, paddingLeft: '14px', marginBottom: '12px' }}>
@@ -686,22 +715,6 @@ function TabSureler({ data, language, isMobile }) {
 }
 
 function TabKozmikSahneler({ language, isMobile }) {
-  const TEKVER_IDHA = [
-    { ar: 'إِذَا الشَّمْسُ كُوِّرَتْ', tr: 'Güneş dürüldüğünde', en: 'When the sun is wrapped up', ref: '81:1' },
-    { ar: 'وَإِذَا النُّجُومُ انكَدَرَتْ', tr: 'Yıldızlar döküldüğünde', en: 'When the stars fall', ref: '81:2' },
-    { ar: 'وَإِذَا الْجِبَالُ سُيِّرَتْ', tr: 'Dağlar yürütüldüğünde', en: 'When the mountains are set in motion', ref: '81:3' },
-    { ar: 'وَإِذَا الْعِشَارُ عُطِّلَتْ', tr: 'Yüklü develer terk edildiğinde', en: 'When full-term she-camels are abandoned', ref: '81:4', noteTr: "Kozmik felaketin insani boyutu: en değerli varlık, panik içinde bırakılıyor.", noteEn: "The human dimension of cosmic catastrophe: the most prized possession abandoned in panic." },
-    { ar: 'وَإِذَا الْوُحُوشُ حُشِرَتْ', tr: 'Vahşi hayvanlar toplandığında', en: 'When wild beasts are gathered', ref: '81:5', noteTr: "Hayvanlar da toplanıyor. Müfessirler: tüm canlıların hesabı görülür, sonra toprak olurlar.", noteEn: "Animals too are gathered. Commentators: all creatures are accounted for, then become dust.", isInfo: true },
-    { ar: 'وَإِذَا الْبِحَارُ سُجِّرَتْ', tr: 'Denizler ateş aldığında', en: 'When the seas are set ablaze', ref: '81:6' },
-    { ar: 'وَإِذَا النُّفُوسُ زُوِّجَتْ', tr: 'Ruhlar eşleştirildiğinde', en: 'When souls are paired', ref: '81:7', noteTr: "En tartışmalı \"izâ\" ayeti: kim kiminle eşleştiriliyor? Aynı gruptakiler mi, bedenleriyle mi, amelleriyle mi?", noteEn: "The most debated 'idha' verse: paired with whom? Fellow group members? Their bodies? Their deeds?" },
-    { ar: 'وَإِذَا الْمَوْءُودَةُ سُئِلَتْ', tr: 'Diri gömülen kız çocuğuna sorulduğunda', en: 'When the girl buried alive is asked', ref: '81:8-9', noteTr: "Kıyamet sahnesi içinde tarihsel hesap: cahiliye Arabistanı'nın bu pratiği doğrudan sorguya çekiliyor.", noteEn: "Historical accountability within judgment: the pre-Islamic Arabian practice of female infanticide directly questioned." },
-    { ar: 'وَإِذَا الصُّحُفُ نُشِرَتْ', tr: 'Sayfalar açıldığında', en: 'When the pages are spread open', ref: '81:10' },
-    { ar: 'وَإِذَا السَّمَاءُ كُشِطَتْ', tr: 'Gök soyulup kaldırıldığında', en: 'When the sky is stripped away', ref: '81:11', isHapax: true },
-    { ar: 'وَإِذَا الْجَحِيمُ سُعِّرَتْ', tr: 'Cehennem alevlendirildiğinde', en: 'When Hellfire is set ablaze', ref: '81:12' },
-    { ar: 'وَإِذَا الْجَنَّةُ أُزْلِفَتْ', tr: 'Cennet yaklaştırıldığında', en: 'When Paradise is brought near', ref: '81:13' },
-    { ar: 'عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ', tr: 'Her can, ne hazırladığını öğrenmiş olur', en: 'Every soul will know what it has brought forth', ref: '81:14' },
-  ];
-
   const DAG_TABLOSI = [
     { ayet: 'Tekvir 81:3', imge: language === 'tr' ? 'Yürütüldü' : 'Set in motion', kelime: 'سُيِّرَتْ (suyyirat)' },
     { ayet: 'Vakıa 56:5', imge: language === 'tr' ? 'Ufalandı' : 'Crumbled', kelime: 'فُدَّتْ (fuddat)' },
@@ -887,11 +900,7 @@ function TabHesapMizan({ language, isMobile }) {
             {sec.content}
           </p>
           {sec.isInfo && sec.infoText && (
-            <p style={{
-              fontSize: '0.78rem', color: 'rgba(201,169,110,0.7)', lineHeight: 1.6, margin: '10px 0 0',
-              background: 'rgba(201,169,110,0.06)', border: '1px solid rgba(201,169,110,0.15)',
-              borderRadius: '6px', padding: '8px 12px', fontFamily: FONTS.body,
-            }}>
+            <p style={{ ...NOTE_BOX_INLINE, margin: '10px 0 0', padding: '8px 12px', fontFamily: FONTS.body }}>
               ℹ {sec.infoText}
             </p>
           )}
@@ -1061,11 +1070,7 @@ function TabKaynaklar({ language }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-      <div style={{
-        background: 'rgba(201,169,110,0.06)', border: '1px solid rgba(201,169,110,0.18)',
-        borderRadius: '10px', padding: '14px 16px',
-        display: 'flex', gap: '10px', alignItems: 'flex-start',
-      }}>
+      <div style={{ ...NOTE_BOX, padding: '14px 16px', display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
         <span style={{ color: GOLD, fontSize: '1rem', flexShrink: 0 }}>ℹ</span>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: 0, lineHeight: 1.7, fontFamily: FONTS.body }}>{methodNote}</p>
       </div>
