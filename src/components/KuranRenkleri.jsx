@@ -241,7 +241,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
       </div>
 
       {/* Card grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '12px', marginBottom: '32px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '12px', marginBottom: '32px', alignItems: 'start' }}>
         {filtered.map(renk => (
           <ColorCard
             key={renk.id}
