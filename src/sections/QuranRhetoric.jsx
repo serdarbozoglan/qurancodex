@@ -386,10 +386,14 @@ export default function QuranRhetoric() {
                 width: '24px',
                 height: '24px',
                 borderRadius: '4px',
-                background:
-                  d === 0
-                    ? 'rgba(255,255,255,0.03)'
-                    : `rgba(212,165,116,${d * 0.18})`,
+                background: [
+                  'rgba(255,255,255,0.04)',
+                  'rgba(212,165,116,0.22)',
+                  'rgba(212,165,116,0.42)',
+                  'rgba(212,165,116,0.62)',
+                  'rgba(212,165,116,0.80)',
+                  'rgba(212,165,116,0.97)',
+                ][d],
                 border: hoveredSurah === i
                   ? '1px solid rgba(212,165,116,0.6)'
                   : '1px solid rgba(255,255,255,0.05)',
@@ -436,22 +440,16 @@ export default function QuranRhetoric() {
           ))}
         </div>
         {/* Legend */}
-        <div className="flex items-center gap-2 mt-3">
-          <span style={{ color: '#94a3b8', fontSize: '0.72rem', marginRight: '2px', fontFamily: "'Inter', sans-serif" }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '12px' }}>
+          <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap' }}>
             {tr ? 'Az' : 'Few'}
           </span>
-          {[1, 2, 3, 4, 5].map(v => (
-            <div
-              key={v}
-              style={{
-                width: '20px', height: '20px',
-                borderRadius: '3px',
-                background: `rgba(212,165,116,${v * 0.18})`,
-                border: '1px solid rgba(255,255,255,0.05)',
-              }}
-            />
-          ))}
-          <span style={{ color: '#94a3b8', fontSize: '0.72rem', marginLeft: '2px', fontFamily: "'Inter', sans-serif" }}>
+          <div style={{
+            width: '120px', height: '14px', borderRadius: '4px',
+            background: 'linear-gradient(to right, rgba(212,165,116,0.22), rgba(212,165,116,0.42), rgba(212,165,116,0.62), rgba(212,165,116,0.80), rgba(212,165,116,0.97))',
+            border: '1px solid rgba(255,255,255,0.06)',
+          }} />
+          <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap' }}>
             {tr ? 'Çok' : 'Many'}
           </span>
         </div>
