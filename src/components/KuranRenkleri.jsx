@@ -23,6 +23,245 @@ const TAB_LABELS = {
   kaynaklar: { tr: 'KAYNAKLAR',       en: 'SOURCES' },
 };
 
+// ── Shared micro-components ──────────────────────────────────────────────────
+
+function HapaxBadge() {
+  return (
+    <span style={{ display:'inline-flex', alignItems:'center', gap:'3px', fontSize:'0.6rem', fontWeight:700, color:'#a78bfa', background:'rgba(83,74,183,0.12)', border:'1px solid rgba(83,74,183,0.28)', borderRadius:'20px', padding:'1px 7px', whiteSpace:'nowrap' }}>
+      ✦ Hapax
+    </span>
+  );
+}
+
+function InfoPopover({ text }) {
+  const [open, setOpen] = useState(false);
+  if (!text) return null;
+  return (
+    <span style={{ position:'relative', display:'inline-flex' }}>
+      <button
+        onClick={e => { e.stopPropagation(); setOpen(v => !v); }}
+        onBlur={() => setOpen(false)}
+        style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', width:'18px', height:'18px', borderRadius:'50%', background:'rgba(59,130,246,0.08)', border:'1px solid rgba(59,130,246,0.2)', color:'rgba(59,130,246,0.7)', fontSize:'0.6rem', fontWeight:700, cursor:'pointer', flexShrink:0 }}
+        aria-label="Bilgi"
+      >ℹ</button>
+      {open && (
+        <div style={{ position:'absolute', bottom:'22px', left:'50%', transform:'translateX(-50%)', width:'240px', padding:'10px 12px', background:'rgba(8,10,26,0.97)', border:'1px solid rgba(59,130,246,0.2)', borderRadius:'10px', boxShadow:'0 8px 24px rgba(0,0,0,0.5)', color:'rgba(148,163,184,0.9)', fontSize:'0.71rem', lineHeight:1.6, zIndex:30 }}>
+          {text}
+        </div>
+      )}
+    </span>
+  );
+}
+
+const CONTEXT_BADGES = {
+  cennet:   { labelTr: 'Cennet',   labelEn: 'Paradise',  bg: 'rgba(29,158,117,0.15)',  color: '#1D9E75' },
+  kiyamet:  { labelTr: 'Kıyamet',  labelEn: 'Judgment',  bg: 'rgba(200,50,50,0.12)',   color: '#e74c3c' },
+  doga:     { labelTr: 'Doğa',     labelEn: 'Nature',    bg: 'rgba(59,130,246,0.10)',  color: '#60a5fa' },
+  kissa:    { labelTr: 'Kıssa',    labelEn: 'Narrative', bg: 'rgba(212,165,116,0.12)', color: '#d4a574' },
+  mucize:   { labelTr: 'Mucize',   labelEn: 'Miracle',   bg: 'rgba(201,169,110,0.12)', color: '#c9a96e' },
+  kozmik:   { labelTr: 'Kozmik',   labelEn: 'Cosmic',    bg: 'rgba(139,92,246,0.12)',  color: '#a78bfa' },
+  cehennem: { labelTr: 'Cehennem', labelEn: 'Hell',      bg: 'rgba(239,68,68,0.12)',   color: '#f87171' },
+};
+
+const FILTERS_CONFIG = [
+  { id: 'tumu',    labelTr: 'Tümü',     labelEn: 'All' },
+  { id: 'cennet',  labelTr: 'Cennet',   labelEn: 'Paradise' },
+  { id: 'kiyamet', labelTr: 'Kıyamet',  labelEn: 'Judgment' },
+  { id: 'doga',    labelTr: 'Doğa',     labelEn: 'Nature' },
+  { id: 'kissa',   labelTr: 'Kıssa',    labelEn: 'Narrative' },
+  { id: 'hapax',   labelTr: 'Hapax',    labelEn: 'Hapax' },
+];
+
+function ColorCard({ renk, language, isMobile }) {
+  const [expanded, setExpanded] = useState(false);
+  const tr = language === 'tr';
+  const hasHapax = renk.arabicTerms.some(t => t.isHapax);
+  const primaryTerm = renk.arabicTerms[0];
+
+  return (
+    <div
+      onClick={() => setExpanded(v => !v)}
+      style={{ background: renk.tintBg, border: `1px solid ${renk.tintBorder}`, borderRadius: '10px', overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.15s', userSelect: 'none' }}
+      onMouseEnter={e => { if (!isMobile) e.currentTarget.style.transform = 'translateY(-2px)'; }}
+      onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
+    >
+      {/* Color swatch */}
+      <div style={{ height: '52px', background: renk.hexColor }} />
+
+      {/* Card body */}
+      <div style={{ padding: '12px' }}>
+        {/* Primary Arabic term */}
+        <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', margin: '0 0 4px', lineHeight: 1.6 }} lang="ar" dir="rtl">
+          {primaryTerm.arabic}
+        </p>
+
+        {/* Name + transliteration */}
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '6px' }}>
+          <span style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>
+            {tr ? renk.colorNameTr : renk.colorNameEn}
+          </span>
+          <span style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>
+            {primaryTerm.transliteration}
+          </span>
+        </div>
+
+        {/* Mention count */}
+        <p style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 8px' }}>
+          ~{renk.totalMentions} {tr ? 'ayette' : 'verses'}
+        </p>
+
+        {/* Badges row */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+          {renk.contexts.map(ctx => {
+            const b = CONTEXT_BADGES[ctx];
+            if (!b) return null;
+            return (
+              <span key={ctx} style={{ fontSize: '0.6rem', padding: '2px 7px', background: b.bg, color: b.color, borderRadius: '10px', fontFamily: FONTS.body, fontWeight: 600 }}>
+                {tr ? b.labelTr : b.labelEn}
+              </span>
+            );
+          })}
+          {hasHapax && <HapaxBadge />}
+          {(renk.infoTr || renk.infoEn) && (
+            <InfoPopover text={tr ? renk.infoTr : renk.infoEn} />
+          )}
+        </div>
+
+        {/* Expand: all arabicTerms + keyVerse + summary */}
+        {expanded && (
+          <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: `1px solid ${renk.tintBorder}` }}>
+            {/* All Arabic terms */}
+            {renk.arabicTerms.length > 1 && (
+              <div style={{ marginBottom: '10px' }}>
+                <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 6px' }}>
+                  {tr ? 'Kelime Formları' : 'Word Forms'}
+                </p>
+                {renk.arabicTerms.map(t => (
+                  <div key={t.arabic} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{t.arabic}</span>
+                      <span style={{ fontSize: '0.62rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{t.transliteration}</span>
+                      {t.isHapax && <HapaxBadge />}
+                    </div>
+                    <span style={{ fontSize: '0.6rem', color: COLORS.silver, fontFamily: FONTS.body }}>{t.mentionCount}×</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Key verse */}
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${renk.tintBorder}`, borderLeft: `2px solid ${renk.hexColor}`, borderRadius: '8px', padding: '10px 12px', marginBottom: '10px' }}>
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
+                {renk.keyVerseAr}
+              </p>
+              <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body, lineHeight: 1.5 }}>
+                {tr ? renk.keyVerseTr : renk.keyVerseEn}
+              </p>
+              <p style={{ fontSize: '0.65rem', color: `${renk.hexColor}99`, fontWeight: 600, margin: 0, fontFamily: FONTS.body }}>
+                — {renk.keyVerseRef}
+              </p>
+            </div>
+
+            {/* Summary */}
+            <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 8px' }}>
+              {tr ? renk.summaryTr : renk.summaryEn}
+            </p>
+
+            {/* Linguistic note */}
+            {(renk.linguisticNoteTr || renk.linguisticNoteEn) && (
+              <p style={{ fontSize: '0.72rem', color: `${COLORS.silver}99`, lineHeight: 1.6, fontFamily: FONTS.body, fontStyle: 'italic', margin: 0, paddingTop: '8px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                {tr ? renk.linguisticNoteTr : renk.linguisticNoteEn}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Expand indicator */}
+        <div style={{ textAlign: 'center', marginTop: '8px' }}>
+          <span style={{ fontSize: '0.6rem', color: `${COLORS.gold}70`, fontFamily: FONTS.body }}>
+            {expanded ? '▲' : '▼'}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile }) {
+  const tr = language === 'tr';
+  if (!data) return <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>{tr ? 'Yükleniyor…' : 'Loading…'}</p>;
+
+  const filtered = data.renkler.filter(r => {
+    if (activeFilter === 'tumu') return true;
+    if (activeFilter === 'hapax') return r.arabicTerms.some(t => t.isHapax);
+    return r.contexts.includes(activeFilter);
+  });
+
+  return (
+    <div>
+      {/* Filter pills */}
+      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '20px' }}>
+        {FILTERS_CONFIG.map(f => (
+          <button
+            key={f.id}
+            onClick={() => setActiveFilter(f.id)}
+            style={{ padding: '5px 14px', borderRadius: '20px', border: 'none', cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, transition: 'all 0.15s', background: activeFilter === f.id ? COLORS.gold : 'rgba(255,255,255,0.06)', color: activeFilter === f.id ? '#0a0a1a' : COLORS.silver }}
+          >
+            {tr ? f.labelTr : f.labelEn}
+          </button>
+        ))}
+      </div>
+
+      {/* Card grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '12px', marginBottom: '32px' }}>
+        {filtered.map(renk => (
+          <ColorCard key={renk.id} renk={renk} language={language} isMobile={isMobile} />
+        ))}
+      </div>
+
+      {/* Renk Sekans feature */}
+      {data.renkSekans && (
+        <div style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', padding: isMobile ? '16px' : '20px' }}>
+          <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px' }}>
+            {tr ? "Kur'an'ın Renk Sekansı" : "The Quran's Color Sequence"}
+          </p>
+          <p style={{ fontFamily: FONTS.body, fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 12px' }}>
+            {tr ? data.renkSekans.titleTr : data.renkSekans.titleEn}
+          </p>
+          {/* 3-stage color strip */}
+          <div style={{ display: 'flex', gap: '4px', marginBottom: '12px', height: '36px', borderRadius: '8px', overflow: 'hidden' }}>
+            {data.renkSekans.stages.map((s, i) => (
+              <div key={i} style={{ flex: 1, background: s.hexColor, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: 700, color: i === 1 ? '#0a0a1a' : '#fff', fontFamily: FONTS.body, textAlign: 'center', padding: '0 4px' }}>
+                  {tr ? s.labelTr : s.labelEn}
+                </span>
+              </div>
+            ))}
+          </div>
+          {/* Verse */}
+          <div style={{ background: 'rgba(255,255,255,0.03)', borderLeft: '2px solid rgba(212,165,116,0.4)', borderRadius: '0 6px 6px 0', padding: '10px 12px', marginBottom: '10px' }}>
+            <p style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 6px' }} lang="ar" dir="rtl">
+              {data.renkSekans.verseAr}
+            </p>
+            <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 4px' }}>
+              {tr ? data.renkSekans.verseTr : data.renkSekans.verseEn}
+            </p>
+            <p style={{ fontSize: '0.65rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600, margin: 0 }}>
+              — {data.renkSekans.verseRef}
+            </p>
+          </div>
+          <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 8px' }}>
+            {tr ? data.renkSekans.summaryTr : data.renkSekans.summaryEn}
+          </p>
+          <p style={{ fontSize: '0.65rem', color: `${COLORS.silver}80`, fontFamily: FONTS.body, margin: 0 }}>
+            {data.renkSekans.refs.join(' · ')}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function KuranRenkleri({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
@@ -202,11 +441,16 @@ export default function KuranRenkleri({ onClose }) {
           ))}
         </div>
 
-        {/* ── Tab content placeholder ── */}
+        {/* ── Tab content ── */}
         <div style={{ padding: isMobile ? '16px' : '24px 32px', minHeight: '400px' }}>
-          <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>
-            {activeTab} — {tr ? 'içerik yakında' : 'content coming soon'}
-          </p>
+          {activeTab === TABS.RENKLER && (
+            <TabRenkler data={data} language={language} activeFilter={activeFilter} setActiveFilter={setActiveFilter} isMobile={isMobile} />
+          )}
+          {activeTab !== TABS.RENKLER && (
+            <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>
+              {TAB_LABELS[activeTab][language]} — {tr ? 'yakında' : 'coming soon'}
+            </p>
+          )}
         </div>
 
       </div>
