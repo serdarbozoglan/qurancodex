@@ -266,6 +266,94 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile })
   );
 }
 
+function TabBaglam({ language, isMobile }) {
+  const tr = language === 'tr';
+
+  const sections = [
+    {
+      titleTr: 'Cennet Paleti',
+      titleEn: 'Paradise Palette',
+      colors: [
+        { hex: '#1D9E75', nameTr: 'Yeşil — Elbiseler',      nameEn: 'Green — Garments' },
+        { hex: '#B8860B', nameTr: 'Altın — Bilezikler',      nameEn: 'Gold — Bracelets' },
+        { hex: '#64748B', nameTr: 'Gümüş — Kaplar',          nameEn: 'Silver — Vessels' },
+        { hex: '#0F4C35', nameTr: 'Koyu Yeşil — Bahçeler',   nameEn: 'Dark Green — Gardens' },
+      ],
+      descTr: "Kur'an cennetin renklerini doğrudan adlandırmaz — ama nesneler aracılığıyla renk verir: yeşil elbise üç surede, altın bilezik üç surede, gümüş kap İnsan'da. Cennet tasvirinde kırmızı, siyah ve sarı yoktur.",
+      descEn: "The Quran names paradise colors through objects: green garments in three suras, gold bracelets in three suras, silver cups in Al-Insan. No red, no black, no yellow in paradise imagery.",
+    },
+    {
+      titleTr: 'Cehennem Paleti',
+      titleEn: 'Hell Palette',
+      colors: [
+        { hex: '#1E1B4B', nameTr: 'Siyah — Duman/Ceza',   nameEn: 'Black — Smoke/Punishment' },
+        { hex: '#CA8A04', nameTr: 'Sarı — Kıvılcımlar',   nameEn: 'Yellow — Sparks' },
+        { hex: '#B91C1C', nameTr: 'Kırmızı — Alevler',    nameEn: 'Red — Flames' },
+      ],
+      descTr: "Cehennem renkleri yeşil ve altından uzak: siyah dumanlar, sarı kıvılcımlar (Mürselat 77:33 — sarı hörgüç benzetmesi), kızıl alevler. Cennet/cehennem renk karşıtlığı Kur'an'da sistematik.",
+      descEn: "Hell's colors are far from green and gold: black smoke, yellow sparks (Al-Mursalat 77:33 — yellow camel comparison), red flames. The paradise/hell color contrast in the Quran is systematic.",
+    },
+    {
+      titleTr: 'Kıyamet Paleti',
+      titleEn: 'Judgment Day Palette',
+      colors: [
+        { hex: '#C8D6E5', nameTr: 'Beyaz — Kurtulanların Yüzü', nameEn: "White — The Saved's Faces" },
+        { hex: '#1E1B4B', nameTr: 'Siyah — Ceza Görenler',    nameEn: 'Black — The Punished' },
+        { hex: '#2563EB', nameTr: 'Mavi/Donuk — Gözler',      nameEn: 'Blue/Glazed — Eyes' },
+        { hex: '#B91C1C', nameTr: 'Kırmızı — Gökyüzü',        nameEn: 'Red — The Sky' },
+      ],
+      descTr: "Kıyamet sahnesi en fazla renk içeren bağlam. Beyaz/siyah yüz zıtlığı Al-i İmran 3:106-107'de tek ayette. Rahman 55:37'de gökyüzü kırmızı erimiş yağa döner. Taha 20:102'de suçluların gözleri donuk/mavimsi.",
+      descEn: "The judgment scene has the most color density. White/black face contrast in Al Imran 3:106-107 in a single verse. In Ar-Rahman 55:37 the sky turns to red molten oil. In Ta-Ha 20:102 criminals' eyes are glazed/bluish.",
+    },
+    {
+      titleTr: 'Doğa Paleti',
+      titleEn: 'Nature Palette',
+      colors: [
+        { hex: '#C8D6E5', nameTr: 'Beyaz — Dağ Şeritleri',  nameEn: 'White — Mountain Streaks' },
+        { hex: '#B91C1C', nameTr: 'Kırmızı — Dağ Şeritleri', nameEn: 'Red — Mountain Streaks' },
+        { hex: '#1E1B4B', nameTr: 'Siyah — Dağ Şeritleri',  nameEn: 'Black — Mountain Streaks' },
+        { hex: '#1D9E75', nameTr: 'Yeşil → Sarı → Kuru',    nameEn: 'Green → Yellow → Dry' },
+      ],
+      descTr: "Fâtır 35:27 tek ayette üç renkli dağlar — hem coğrafya hem ilahi yaratılış rehberi. Bakara 2:187 şafağı 'beyaz iplik siyah iplikten ayrılana kadar' diye tanımlar — renk pratik zaman ölçütü olarak.",
+      descEn: "Fatir 35:27 describes three-colored mountains in one verse — both geography and divine creation guide. Al-Baqarah 2:187 defines dawn as 'until the white thread becomes distinct from the black thread' — color as a practical time measure.",
+    },
+    {
+      titleTr: 'Kıssa ve Mucize Paleti',
+      titleEn: 'Narrative & Miracle Palette',
+      colors: [
+        { hex: '#C8D6E5', nameTr: "Beyaz — Hz. Musa'nın Eli (5 surede)", nameEn: "White — Moses' Hand (5 suras)" },
+        { hex: '#CA8A04', nameTr: "Sarı — Bakara'nın İneği",            nameEn: "Yellow — Al-Baqarah's Cow" },
+      ],
+      descTr: "Mucizelerin rengi Kur'an'da hep beyaz: Hz. Musa'nın eli 5 surede parlak beyaz. Sarı yalnızca Bakara kıssasındaki inekte olumlu bağlamda — 'rengi pırıl pırıl, bakanlara sevinç veriyor.'",
+      descEn: "The color of miracles in the Quran is always white: Moses' hand appears white and radiant in 5 suras. Yellow appears positively only for the cow in Al-Baqarah — 'bright in color, pleasing to those who see it.'",
+    },
+  ];
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      {sections.map((s, i) => (
+        <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', padding: isMobile ? '14px' : '18px' }}>
+          <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 10px' }}>
+            {tr ? s.titleTr : s.titleEn}
+          </p>
+          {/* Color swatches */}
+          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '10px' }}>
+            {s.colors.map((c, j) => (
+              <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '4px 10px', background: 'rgba(255,255,255,0.04)', borderRadius: '20px', border: `1px solid ${COLORS.glassBgStrong}` }}>
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: c.hex, flexShrink: 0 }} />
+                <span style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? c.nameTr : c.nameEn}</span>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+            {tr ? s.descTr : s.descEn}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function KuranRenkleri({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
@@ -450,7 +538,10 @@ export default function KuranRenkleri({ onClose }) {
           {activeTab === TABS.RENKLER && (
             <TabRenkler data={data} language={language} activeFilter={activeFilter} setActiveFilter={setActiveFilter} isMobile={isMobile} />
           )}
-          {activeTab !== TABS.RENKLER && (
+          {activeTab === TABS.BAGLAM && (
+            <TabBaglam language={language} isMobile={isMobile} />
+          )}
+          {(activeTab === TABS.CENNET || activeTab === TABS.KIYAMET || activeTab === TABS.DILBILIM || activeTab === TABS.KAYNAKLAR) && (
             <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>
               {TAB_LABELS[activeTab][language]} — {tr ? 'yakında' : 'coming soon'}
             </p>
