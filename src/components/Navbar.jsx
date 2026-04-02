@@ -21,6 +21,7 @@ const KuranYeminleri   = lazy(() => import('./KuranYeminleri'));
 const DogaAtlasi       = lazy(() => import('./DogaAtlasi'));
 const KavimlerAtlasi   = lazy(() => import('./KavimlerAtlasi'));
 const CennetCehennem   = lazy(() => import('./CennetCehennem'));
+const KuranRetorigi    = lazy(() => import('./KuranRetorigi'));
 const Melekler         = lazy(() => import('./Melekler'));
 const KuranRenkleri    = lazy(() => import('./KuranRenkleri'));
 const KiyametSahneleri = lazy(() => import('./KiyametSahneleri'));
@@ -184,6 +185,7 @@ export default function Navbar() {
   const [dogaOpen,       setDogaOpen]       = useState(false);
   const [kavimlerOpen,   setKavimlerOpen]   = useState(false);
   const [cennetOpen,     setCennetOpen]     = useState(false);
+  const [retorigiOpen,   setRetorigiOpen]   = useState(false);
   const [meleklerOpen,   setMeleklerOpen]   = useState(false);
   const [renkleriOpen,   setRenkleriOpen]   = useState(false);
   const [kiyametOpen,    setKiyametOpen]    = useState(false);
@@ -253,6 +255,12 @@ export default function Navbar() {
     return () => window.removeEventListener('openKavimlerAtlasi', h);
   }, []);
 
+  useEffect(() => {
+    const h = () => setRetorigiOpen(true);
+    window.addEventListener('openKuranRetorigi', h);
+    return () => window.removeEventListener('openKuranRetorigi', h);
+  }, []);
+
   // Auto-open VerseGraph if ?verse= param in URL
   useEffect(() => {
     const urlVerse = new URLSearchParams(window.location.search).get('verse');
@@ -261,11 +269,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -306,10 +314,11 @@ export default function Navbar() {
       if (meleklerOpen)   { setMeleklerOpen(false);        return; }
       if (renkleriOpen)   { setRenkleriOpen(false);        return; }
       if (kiyametOpen)    { setKiyametOpen(false);          return; }
+      if (retorigiOpen)   { setRetorigiOpen(false);        return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -627,6 +636,38 @@ export default function Navbar() {
                     const retorigiSecs  = navSections.filter(s => retorigiIds.includes(s.id));
                     const tarihSecs     = navSections.filter(s => tarihinInsan.includes(s.id));
 
+                    // Kur'an'ın Retoriği — overlay button for Retorigi col
+                    const retorigiBtn = (
+                      <button
+                        key="retorigi"
+                        onClick={() => { setRetorigiOpen(true); setExploreOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                          </svg>
+                        </span>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            {language === 'tr' ? "Kur'an'ın Retoriği" : "The Quran's Rhetoric"}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? '~1.000 soru · 4 tür · kalıplar · muhatap' : '~1,000 questions · 4 types · patterns · addressees'}
+                          </span>
+                        </span>
+                      </button>
+                    );
+
                     // Kur'an'ın Yeminleri — tool button (opens overlay, not scroll)
                     const yeminlerBtn = (
                       <button
@@ -892,6 +933,7 @@ export default function Navbar() {
                         <div style={{ flex: 1, padding: '8px' }}>
                           <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Retoriği" : "Quranic Rhetoric"}</div>
                           {retorigiSecs.map(secBtn)}
+                          {retorigiBtn}
                           {yeminlerBtn}
                         </div>
                         {/* Divider */}
@@ -1326,6 +1368,11 @@ export default function Navbar() {
     {renkleriOpen && (
       <Suspense fallback={null}>
         <KuranRenkleri onClose={() => setRenkleriOpen(false)} />
+      </Suspense>
+    )}
+    {retorigiOpen && (
+      <Suspense fallback={null}>
+        <KuranRetorigi onClose={() => setRetorigiOpen(false)} />
       </Suspense>
     )}
     </>
