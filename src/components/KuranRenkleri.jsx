@@ -27,7 +27,7 @@ const TAB_LABELS = {
 
 function HapaxBadge() {
   return (
-    <span style={{ display:'inline-flex', alignItems:'center', gap:'3px', fontSize:'0.6rem', fontWeight:700, color:'#a78bfa', background:'rgba(83,74,183,0.12)', border:'1px solid rgba(83,74,183,0.28)', borderRadius:'20px', padding:'1px 7px', whiteSpace:'nowrap' }}>
+    <span style={{ display:'inline-flex', alignItems:'center', gap:'3px', fontSize:'0.6rem', fontWeight:700, color:COLORS.purple, background:'rgba(83,74,183,0.12)', border:'1px solid rgba(83,74,183,0.28)', borderRadius:'20px', padding:'1px 7px', whiteSpace:'nowrap' }}>
       ✦ Hapax
     </span>
   );
@@ -55,11 +55,11 @@ function InfoPopover({ text }) {
 
 const CONTEXT_BADGES = {
   cennet:   { labelTr: 'Cennet',   labelEn: 'Paradise',  bg: 'rgba(29,158,117,0.15)',  color: '#1D9E75' },
-  kiyamet:  { labelTr: 'Kıyamet',  labelEn: 'Judgment',  bg: 'rgba(200,50,50,0.12)',   color: '#e74c3c' },
+  kiyamet:  { labelTr: 'Kıyamet',  labelEn: 'Judgment',  bg: 'rgba(200,50,50,0.12)',   color: COLORS.softRed },
   doga:     { labelTr: 'Doğa',     labelEn: 'Nature',    bg: 'rgba(59,130,246,0.10)',  color: '#60a5fa' },
-  kissa:    { labelTr: 'Kıssa',    labelEn: 'Narrative', bg: 'rgba(212,165,116,0.12)', color: '#d4a574' },
+  kissa:    { labelTr: 'Kıssa',    labelEn: 'Narrative', bg: 'rgba(212,165,116,0.12)', color: COLORS.gold },
   mucize:   { labelTr: 'Mucize',   labelEn: 'Miracle',   bg: 'rgba(201,169,110,0.12)', color: '#c9a96e' },
-  kozmik:   { labelTr: 'Kozmik',   labelEn: 'Cosmic',    bg: 'rgba(139,92,246,0.12)',  color: '#a78bfa' },
+  kozmik:   { labelTr: 'Kozmik',   labelEn: 'Cosmic',    bg: 'rgba(139,92,246,0.12)',  color: COLORS.purple },
   cehennem: { labelTr: 'Cehennem', labelEn: 'Hell',      bg: 'rgba(239,68,68,0.12)',   color: '#f87171' },
 };
 
@@ -80,7 +80,11 @@ function ColorCard({ renk, language, isMobile }) {
 
   return (
     <div
+      role="button"
+      tabIndex={0}
+      aria-expanded={expanded}
       onClick={() => setExpanded(v => !v)}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpanded(v => !v); } }}
       style={{ background: renk.tintBg, border: `1px solid ${renk.tintBorder}`, borderRadius: '10px', overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.15s', userSelect: 'none' }}
       onMouseEnter={e => { if (!isMobile) e.currentTarget.style.transform = 'translateY(-2px)'; }}
       onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
@@ -205,7 +209,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile })
           <button
             key={f.id}
             onClick={() => setActiveFilter(f.id)}
-            style={{ padding: '5px 14px', borderRadius: '20px', border: 'none', cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, transition: 'all 0.15s', background: activeFilter === f.id ? COLORS.gold : 'rgba(255,255,255,0.06)', color: activeFilter === f.id ? '#0a0a1a' : COLORS.silver }}
+            style={{ padding: '5px 14px', borderRadius: '20px', border: 'none', cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, transition: 'all 0.15s', background: activeFilter === f.id ? COLORS.gold : 'rgba(255,255,255,0.06)', color: activeFilter === f.id ? COLORS.cosmicBlack : COLORS.silver }}
           >
             {tr ? f.labelTr : f.labelEn}
           </button>
@@ -232,7 +236,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile })
           <div style={{ display: 'flex', gap: '4px', marginBottom: '12px', height: '36px', borderRadius: '8px', overflow: 'hidden' }}>
             {data.renkSekans.stages.map((s, i) => (
               <div key={i} style={{ flex: 1, background: s.hexColor, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '0.6rem', fontWeight: 700, color: i === 1 ? '#0a0a1a' : '#fff', fontFamily: FONTS.body, textAlign: 'center', padding: '0 4px' }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: 700, color: i < 2 ? COLORS.cosmicBlack : COLORS.offWhite, fontFamily: FONTS.body, textAlign: 'center', padding: '0 4px' }}>
                   {tr ? s.labelTr : s.labelEn}
                 </span>
               </div>
