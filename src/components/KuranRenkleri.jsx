@@ -1026,7 +1026,7 @@ function TabDilbilim({ language, isMobile }) {
               </div>
               <span style={{ fontSize: '0.78rem', color: COLORS.gold, fontFamily: FONTS.body, fontStyle: 'italic' }}>{tr ? row.colorTr : row.colorEn}</span>
             </div>
-            <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 4px' }} lang="ar" dir="rtl">
+            <p style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 4px' }} lang="ar" dir="rtl">
               {row.verseAr}
             </p>
             <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
