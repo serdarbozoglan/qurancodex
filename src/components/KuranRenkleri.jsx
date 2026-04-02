@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useId } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
@@ -35,17 +35,23 @@ function HapaxBadge() {
 
 function InfoPopover({ text }) {
   const [open, setOpen] = useState(false);
+  const tooltipId = useId();
   if (!text) return null;
   return (
     <span style={{ position:'relative', display:'inline-flex' }}>
       <button
         onClick={e => { e.stopPropagation(); setOpen(v => !v); }}
         onBlur={() => setOpen(false)}
-        style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', width:'18px', height:'18px', borderRadius:'50%', background:'rgba(59,130,246,0.08)', border:'1px solid rgba(59,130,246,0.2)', color:'rgba(59,130,246,0.7)', fontSize:'0.6rem', fontWeight:700, cursor:'pointer', flexShrink:0 }}
         aria-label="Bilgi"
+        aria-describedby={open ? tooltipId : undefined}
+        style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', width:'18px', height:'18px', borderRadius:'50%', background:'rgba(59,130,246,0.08)', border:'1px solid rgba(59,130,246,0.2)', color:'rgba(59,130,246,0.7)', fontSize:'0.6rem', fontWeight:700, cursor:'pointer', flexShrink:0 }}
       >ℹ</button>
       {open && (
-        <div style={{ position:'absolute', bottom:'22px', left:'50%', transform:'translateX(-50%)', width:'240px', padding:'10px 12px', background:'rgba(8,10,26,0.97)', border:'1px solid rgba(59,130,246,0.2)', borderRadius:'10px', boxShadow:'0 8px 24px rgba(0,0,0,0.5)', color:'rgba(148,163,184,0.9)', fontSize:'0.71rem', lineHeight:1.6, zIndex:30 }}>
+        <div
+          id={tooltipId}
+          role="tooltip"
+          style={{ position:'absolute', bottom:'22px', left:'50%', transform:'translateX(-50%)', width:'240px', padding:'10px 12px', background:'rgba(8,10,26,0.97)', border:'1px solid rgba(59,130,246,0.2)', borderRadius:'10px', boxShadow:'0 8px 24px rgba(0,0,0,0.5)', color:'rgba(148,163,184,0.9)', fontSize:'0.71rem', lineHeight:1.6, zIndex:30 }}
+        >
           {text}
         </div>
       )}
@@ -444,6 +450,7 @@ function TabCennet({ language, isMobile }) {
 
 function TabKiyamet({ language, isMobile }) {
   const tr = language === 'tr';
+  const WHITE_FACE = '#C8D6E5';
 
   const scenes = [
     {
@@ -503,10 +510,10 @@ function TabKiyamet({ language, isMobile }) {
       {/* White/Black contrast header */}
       <div style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : undefined, gridTemplateColumns: isMobile ? undefined : '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
         <div style={{ background: 'rgba(200,214,229,0.08)', border: '1px solid rgba(200,214,229,0.2)', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
-          <div style={{ fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#C8D6E5', fontFamily: FONTS.body, marginBottom: '8px' }}>
+          <div style={{ fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '8px' }}>
             {tr ? 'Kurtulanlar' : 'The Saved'}
           </div>
-          <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#C8D6E5', fontFamily: FONTS.body, marginBottom: '4px' }}>
+          <div style={{ fontSize: '0.9rem', fontWeight: 700, color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '4px' }}>
             {tr ? 'Yüzleri Ağarır' : 'Faces Turn White'}
           </div>
           <p style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Al-i İmran 3:107</p>
@@ -547,13 +554,14 @@ function TabKiyamet({ language, isMobile }) {
 
 function TabDilbilim({ language, isMobile }) {
   const tr = language === 'tr';
+  const sectionHdrStyle = { fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
       {/* Section A: Renk yoğunluğu */}
       <div>
-        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+        <p style={sectionHdrStyle}>
           {tr ? 'A — Renk Yoğunluğu Kelimeleri' : 'A — Color Intensity Words'}
         </p>
         <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 12px' }}>
@@ -588,7 +596,7 @@ function TabDilbilim({ language, isMobile }) {
 
       {/* Section B: Hapax renk kelimeleri */}
       <div>
-        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+        <p style={sectionHdrStyle}>
           {tr ? 'B — Hapax Renk Kelimeleri' : 'B — Hapax Color Words'}
         </p>
         {[
@@ -625,7 +633,7 @@ function TabDilbilim({ language, isMobile }) {
 
       {/* Section C: Zurk tartışması */}
       <div>
-        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+        <p style={sectionHdrStyle}>
           {tr ? "C — 'Zurk' Tartışması (Taha 20:102)" : "C — The 'Zurq' Debate (Ta-Ha 20:102)"}
         </p>
         <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 14px' }}>
@@ -670,7 +678,7 @@ function TabDilbilim({ language, isMobile }) {
 
       {/* Section D: İmplied colors */}
       <div>
-        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+        <p style={sectionHdrStyle}>
           {tr ? 'D — Nesne Üzerinden İma Edilen Renkler' : 'D — Colors Implied Through Objects'}
         </p>
         <p style={{ fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 12px' }}>
@@ -692,7 +700,7 @@ function TabDilbilim({ language, isMobile }) {
 
       {/* Section E: Beyazın çoğul/cinsiyet yapısı */}
       <div>
-        <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
+        <p style={sectionHdrStyle}>
           {tr ? "E — Beyazın Kök Genişlemesi: بيض → Yumurta" : "E — White's Root Expansion: بيض → Egg"}
         </p>
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '10px' }}>
@@ -817,7 +825,7 @@ export default function KuranRenkleri({ onClose }) {
     borderRadius: '6px',
     border: 'none',
     background: activeTab === id ? COLORS.gold : 'rgba(255,255,255,0.05)',
-    color: activeTab === id ? '#0a0a1a' : COLORS.silver,
+    color: activeTab === id ? COLORS.cosmicBlack : COLORS.silver,
     fontSize: '0.72rem',
     fontWeight: activeTab === id ? 700 : 500,
     fontFamily: FONTS.body,
