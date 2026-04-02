@@ -10,6 +10,7 @@
       "contexts": ["cennet", "doga"],
       "primaryContext": "cennet",
       "totalMentions": 8,
+      "mentionNote": "Toplam 8 ayette; diğer formlar (mudhâm vb.) listeye dahil değil.",
       "arabicTerms": [
         {
           "arabic": "أَخْضَر",
@@ -62,6 +63,7 @@
       "contexts": ["mucize", "kiyamet", "doga"],
       "primaryContext": "mucize",
       "totalMentions": 18,
+      "mentionNote": "Toplam 18 ayette; tüm beyaz formları dahil.",
       "arabicTerms": [
         {
           "arabic": "أَبْيَض",
@@ -114,6 +116,7 @@
       "contexts": ["kiyamet", "doga"],
       "primaryContext": "kiyamet",
       "totalMentions": 10,
+      "mentionNote": "Toplam 10 ayette; tüm siyah formları dahil.",
       "arabicTerms": [
         {
           "arabic": "أَسْوَد",
@@ -131,7 +134,7 @@
           "formEn": "plural",
           "isHapax": false,
           "mentionCount": 3,
-          "primaryRef": "Züver 39:60"
+          "primaryRef": "Zümer 39:60"
         },
         {
           "arabic": "غَرَابِيبُ",
@@ -146,9 +149,9 @@
       "keyVerseAr": "وَيَوْمَ الْقِيَامَةِ تَرَى الَّذِينَ كَذَبُوا عَلَى اللَّهِ وُجُوهُهُم مُّسْوَدَّةٌ",
       "keyVerseTr": "Kıyamet günü Allah'a yalan söyleyenlerin yüzlerinin kararmış olduğunu görürsün.",
       "keyVerseEn": "And on the Day of Resurrection you will see those who lied about Allah — their faces will be blackened.",
-      "keyVerseRef": "Züver 39:60",
-      "allRefs": ["Al-i İmran 3:106", "Züver 39:60", "Fatir 35:27", "Bakara 2:187", "Abese 80:40-41"],
-      "summaryTr": "Siyah Kur'an'da ağırlıklı olarak kıyamet cezasıyla ilişkili: kötülerin yüzleri kararır (Züver 39:60, Al-i İmran 3:106). Fatir 35:27'de ise doğal bağlam — dağlarda 'kuzgun siyahı' (garâbîb) şeritler. Bakara 2:187'de gece (şafak öncesi siyah iplik) anlamında nötr kullanım.",
+      "keyVerseRef": "Zümer 39:60",
+      "allRefs": ["Al-i İmran 3:106", "Zümer 39:60", "Fatir 35:27", "Bakara 2:187", "Abese 80:40-41"],
+      "summaryTr": "Siyah Kur'an'da ağırlıklı olarak kıyamet cezasıyla ilişkili: kötülerin yüzleri kararır (Zümer 39:60, Al-i İmran 3:106). Fatir 35:27'de ise doğal bağlam — dağlarda 'kuzgun siyahı' (garâbîb) şeritler. Bakara 2:187'de gece (şafak öncesi siyah iplik) anlamında nötr kullanım.",
       "summaryEn": "Black in the Quran is primarily associated with judgment punishment: the faces of wrongdoers darken (Az-Zumar 39:60, Al Imran 3:106). In Fatir 35:27 it has a natural context — 'raven black' mountain streaks. In Al-Baqarah 2:187 it's neutral — the black thread of night before dawn.",
       "infoTr": null,
       "infoEn": null,
@@ -199,7 +202,7 @@
       "tintBorder": "rgba(200, 50, 50, 0.28)",
       "contexts": ["doga", "kozmik"],
       "primaryContext": "doga",
-      "totalMentions": 3,
+      "totalMentions": 2,
       "arabicTerms": [
         {
           "arabic": "أَحْمَر",
@@ -249,7 +252,7 @@
           "transliteration": "zurkan",
           "formTr": "mavi / donuk / bulanık göz",
           "formEn": "blue / glazed / dull-eyed",
-          "isHapax": false,
+          "isHapax": true,
           "mentionCount": 1,
           "primaryRef": "Taha 20:102"
         }
@@ -347,7 +350,7 @@
     ],
     "refs": ["Züver 39:21", "Hadid 57:20", "Kehf 18:45", "Yunus 10:24"],
     "verseAr": "ثُمَّ يَهِيجُ فَتَرَاهُ مُصْفَرًّا ثُمَّ يَجْعَلُهُ حُطَامًا",
-    "verseTr": "Sonra onuolar görürsün; ardından onu paramparça eder.",
+    "verseTr": "Sonra onu solar görürsün; ardından onu paramparça eder.",
     "verseEn": "Then you see it turn yellow; then He makes it debris.",
     "verseRef": "Züver 39:21",
     "summaryTr": "Bu üç aşamalı renk sekansı Kur'an'da 4 surede tekrarlanır. Her seferinde aynı anlam: dünya hayatının geçiciliği. Yeşil = gençlik ve güç. Sarı = zirvenin geçtiği an. Kuru/toz = son.",
