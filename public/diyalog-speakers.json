@@ -232,6 +232,94 @@
       "dialoguePartners": ["sulayman", "yusuf", "other-prophets"],
       "noteTr": "Belkıs, Hâmân, Kārûn, Lokman, Zülkarneyn, Ashab-ı Kehf.",
       "noteEn": "Bilqis, Haman, Qarun, Luqman, Dhul-Qarnayn, Companions of the Cave."
+    },
+    {
+      "id": "azar",
+      "nameAr": "آزر",
+      "nameTr": "Âzer",
+      "nameEn": "Azar (Abraham's Father)",
+      "type": "antagonist",
+      "color": "#8e44ad",
+      "dialoguePartners": ["ibrahim"],
+      "noteTr": "Hz. İbrâhîm'in put yapan babası. İbrâhîm'in davetini reddeder.",
+      "noteEn": "Abraham's idol-making father. Rejects Abraham's invitation to monotheism."
+    },
+    {
+      "id": "nimrod",
+      "nameAr": "نمرود",
+      "nameTr": "Nemrut",
+      "nameEn": "Nimrod",
+      "type": "antagonist",
+      "color": "#c0392b",
+      "dialoguePartners": ["ibrahim"],
+      "noteTr": "İbrâhîm ile meşhur akıl tartışmasını yapan hükümdar.",
+      "noteEn": "The ruler who engaged Abraham in the famous rational debate about life and death."
+    },
+    {
+      "id": "people-isa",
+      "nameAr": "قوم عيسى",
+      "nameTr": "Hz. Îsâ'nın Kavmi",
+      "nameEn": "People of Jesus",
+      "type": "group",
+      "color": "#0891b2",
+      "dialoguePartners": ["isa"],
+      "noteTr": "İsa'nın mucizelere şahit olan kavmi.",
+      "noteEn": "The people who witnessed Jesus's miracles."
+    },
+    {
+      "id": "brothers",
+      "nameAr": "إخوة يوسف",
+      "nameTr": "Yûsuf'un Kardeşleri",
+      "nameEn": "Joseph's Brothers",
+      "type": "group",
+      "color": "#d97706",
+      "dialoguePartners": ["yusuf"],
+      "noteTr": "Yûsuf'u kuyuya atan, sonra affedilen kardeşler.",
+      "noteEn": "The brothers who threw Joseph in the well, later forgiven."
+    },
+    {
+      "id": "arrogant-leaders",
+      "nameAr": "المستكبرون",
+      "nameTr": "Kibirlenen Önderler",
+      "nameEn": "Arrogant Leaders",
+      "type": "group",
+      "color": "#475569",
+      "dialoguePartners": ["munafiqun"],
+      "noteTr": "Kavimlerini saptıran önderler — kıyamette takipçilerince suçlanırlar.",
+      "noteEn": "Leaders who misled their peoples — blamed by their followers on Judgment Day."
+    },
+    {
+      "id": "all-humanity",
+      "nameAr": "بنو آدم",
+      "nameTr": "Tüm İnsanlık",
+      "nameEn": "All Humanity",
+      "type": "group",
+      "color": "#94a3b8",
+      "dialoguePartners": ["allah"],
+      "noteTr": "Kıyamet günü Allah'ın sorgusuna muhatap olan tüm insanlar.",
+      "noteEn": "All people who will be questioned by God on Judgment Day."
+    },
+    {
+      "id": "son-nuh",
+      "nameAr": "ابن نوح",
+      "nameTr": "Nûh'un Oğlu",
+      "nameEn": "Noah's Son",
+      "type": "group",
+      "color": "#64748b",
+      "dialoguePartners": ["nuh"],
+      "noteTr": "Gemiye binmeyi reddeden ve suda boğulan Nûh'un oğlu.",
+      "noteEn": "Noah's son who refused to board the ark and drowned."
+    },
+    {
+      "id": "bilqis",
+      "nameAr": "بلقيس",
+      "nameTr": "Belkıs (Sebe Melikesi)",
+      "nameEn": "Bilqis (Queen of Sheba)",
+      "type": "other-characters",
+      "color": "#7c3aed",
+      "dialoguePartners": ["sulayman"],
+      "noteTr": "Sebe'nin kraliçesi. Süleyman'ın mektubu üzerine İslam'a girdi.",
+      "noteEn": "Queen of Sheba who converted upon receiving Solomon's letter."
     }
   ]
 }

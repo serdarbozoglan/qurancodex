@@ -2,7 +2,7 @@
   "axes": [
     {
       "id": "allah-angels",
-      "speakerTr": "Allah", "speakerId": "allah",
+      "speakerTr": "Allah", "speakerEn": "Allah", "speakerId": "allah",
       "addresseeTr": "Melekler", "addresseeEn": "Angels", "addresseeId": "angels",
       "color": "#c9a227", "temporalLayer": "ezel", "dialogueCount": 8,
       "keyThemesTr": ["Halife atanması", "Secde emri", "İlim sınavı"],
@@ -11,7 +11,7 @@
     },
     {
       "id": "allah-iblis",
-      "speakerTr": "Allah", "speakerId": "allah",
+      "speakerTr": "Allah", "speakerEn": "Allah", "speakerId": "allah",
       "addresseeTr": "İblis", "addresseeEn": "Iblis", "addresseeId": "iblis",
       "color": "#c9a227", "temporalLayer": "ezel", "dialogueCount": 7,
       "keyThemesTr": ["Secde reddi", "Mühlet talebi", "Saptırma yemini"],
@@ -20,7 +20,7 @@
     },
     {
       "id": "iblis-allah",
-      "speakerTr": "İblis", "speakerId": "iblis",
+      "speakerTr": "İblis", "speakerEn": "Iblis", "speakerId": "iblis",
       "addresseeTr": "Allah", "addresseeEn": "Allah", "addresseeId": "allah",
       "color": "#e74c3c", "temporalLayer": "ezel", "dialogueCount": 6,
       "keyThemesTr": ["Kibir", "Mühlet", "İtiraz"],
@@ -29,7 +29,7 @@
     },
     {
       "id": "allah-adam",
-      "speakerTr": "Allah", "speakerId": "allah",
+      "speakerTr": "Allah", "speakerEn": "Allah", "speakerId": "allah",
       "addresseeTr": "Hz. Âdem", "addresseeEn": "Adam", "addresseeId": "adam",
       "color": "#c9a227", "temporalLayer": "ezel", "dialogueCount": 4,
       "keyThemesTr": ["İsim öğretimi", "Yasak ağaç", "Tövbenin kabulü"],
@@ -38,7 +38,7 @@
     },
     {
       "id": "allah-musa",
-      "speakerTr": "Allah", "speakerId": "allah",
+      "speakerTr": "Allah", "speakerEn": "Allah", "speakerId": "allah",
       "addresseeTr": "Hz. Mûsâ", "addresseeEn": "Moses", "addresseeId": "musa",
       "color": "#c9a227", "temporalLayer": "dunya", "dialogueCount": 18,
       "keyThemesTr": ["Tûr'da vahiy", "Risalet görevi", "Denizin yarılması"],
@@ -47,7 +47,7 @@
     },
     {
       "id": "musa-pharaoh",
-      "speakerTr": "Hz. Mûsâ", "speakerId": "musa",
+      "speakerTr": "Hz. Mûsâ", "speakerEn": "Moses", "speakerId": "musa",
       "addresseeTr": "Firavun", "addresseeEn": "Pharaoh", "addresseeId": "pharaoh",
       "color": "#1abc9c", "temporalLayer": "dunya", "dialogueCount": 22,
       "keyThemesTr": ["Tebliğ", "Âyetler", "Son diyalog"],
@@ -56,7 +56,7 @@
     },
     {
       "id": "pharaoh-musa",
-      "speakerTr": "Firavun", "speakerId": "pharaoh",
+      "speakerTr": "Firavun", "speakerEn": "Pharaoh", "speakerId": "pharaoh",
       "addresseeTr": "Hz. Mûsâ", "addresseeEn": "Moses", "addresseeId": "musa",
       "color": "#8e44ad", "temporalLayer": "dunya", "dialogueCount": 15,
       "keyThemesTr": ["Kibir", "Tehdit", "Sihirbazlara emir"],
@@ -65,7 +65,7 @@
     },
     {
       "id": "ibrahim-azar",
-      "speakerTr": "Hz. İbrâhîm", "speakerId": "ibrahim",
+      "speakerTr": "Hz. İbrâhîm", "speakerEn": "Abraham", "speakerId": "ibrahim",
       "addresseeTr": "Âzer (Babası)", "addresseeEn": "Azar (Father)", "addresseeId": "azar",
       "color": "#f0b429", "temporalLayer": "dunya", "dialogueCount": 3,
       "keyThemesTr": ["Put tapıcılığına itiraz", "Hidayet daveti", "Ayrılık"],
@@ -74,7 +74,7 @@
     },
     {
       "id": "ibrahim-nimrod",
-      "speakerTr": "Hz. İbrâhîm", "speakerId": "ibrahim",
+      "speakerTr": "Hz. İbrâhîm", "speakerEn": "Abraham", "speakerId": "ibrahim",
       "addresseeTr": "Nemrut", "addresseeEn": "Nimrod", "addresseeId": "nimrod",
       "color": "#f0b429", "temporalLayer": "dunya", "dialogueCount": 1,
       "keyThemesTr": ["Akli delil", "Güneşin doğusu"],
@@ -83,7 +83,7 @@
     },
     {
       "id": "allah-ibrahim",
-      "speakerTr": "Allah", "speakerId": "allah",
+      "speakerTr": "Allah", "speakerEn": "Allah", "speakerId": "allah",
       "addresseeTr": "Hz. İbrâhîm", "addresseeEn": "Abraham", "addresseeId": "ibrahim",
       "color": "#c9a227", "temporalLayer": "dunya", "dialogueCount": 6,
       "keyThemesTr": ["Diriltme", "İmtihanlar", "Nimet"],
@@ -92,7 +92,7 @@
     },
     {
       "id": "isa-people",
-      "speakerTr": "Hz. Îsâ", "speakerId": "isa",
+      "speakerTr": "Hz. Îsâ", "speakerEn": "Jesus", "speakerId": "isa",
       "addresseeTr": "Kavmi", "addresseeEn": "His People", "addresseeId": "people-isa",
       "color": "#06b6d4", "temporalLayer": "dunya", "dialogueCount": 5,
       "keyThemesTr": ["Mucizeler", "Tevhid daveti", "Havariler"],
@@ -101,7 +101,7 @@
     },
     {
       "id": "allah-isa",
-      "speakerTr": "Allah", "speakerId": "allah",
+      "speakerTr": "Allah", "speakerEn": "Allah", "speakerId": "allah",
       "addresseeTr": "Hz. Îsâ", "addresseeEn": "Jesus", "addresseeId": "isa",
       "color": "#c9a227", "temporalLayer": "ahiret", "dialogueCount": 2,
       "keyThemesTr": ["Kıyamet sorgusu", "İlahlaştırılma meselesi"],
@@ -110,7 +110,7 @@
     },
     {
       "id": "yusuf-brothers",
-      "speakerTr": "Hz. Yûsuf", "speakerId": "yusuf",
+      "speakerTr": "Hz. Yûsuf", "speakerEn": "Joseph", "speakerId": "yusuf",
       "addresseeTr": "Kardeşleri", "addresseeEn": "His Brothers", "addresseeId": "brothers",
       "color": "#e67e22", "temporalLayer": "dunya", "dialogueCount": 8,
       "keyThemesTr": ["Rüya anlatımı", "Hapis yılları", "Yeniden kavuşma"],
@@ -119,7 +119,7 @@
     },
     {
       "id": "angels-paradise",
-      "speakerTr": "Melekler", "speakerId": "angels",
+      "speakerTr": "Melekler", "speakerEn": "Angels", "speakerId": "angels",
       "addresseeTr": "Cennet Ehli", "addresseeEn": "People of Paradise", "addresseeId": "paradise-dwellers",
       "color": "#a78bfa", "temporalLayer": "ahiret", "dialogueCount": 5,
       "keyThemesTr": ["Selamlama", "Cennet kapısı", "Karşılama"],
@@ -128,7 +128,7 @@
     },
     {
       "id": "paradise-hell",
-      "speakerTr": "Cennet Ehli", "speakerId": "paradise-dwellers",
+      "speakerTr": "Cennet Ehli", "speakerEn": "People of Paradise", "speakerId": "paradise-dwellers",
       "addresseeTr": "Cehennem Ehli", "addresseeEn": "People of Hell", "addresseeId": "hell-dwellers",
       "color": "#2ecc71", "temporalLayer": "ahiret", "dialogueCount": 4,
       "keyThemesTr": ["Sorgulama", "Su talebi reddi", "İbret"],
@@ -137,7 +137,7 @@
     },
     {
       "id": "hell-angels",
-      "speakerTr": "Cehennem Ehli", "speakerId": "hell-dwellers",
+      "speakerTr": "Cehennem Ehli", "speakerEn": "People of Hell", "speakerId": "hell-dwellers",
       "addresseeTr": "Zebânîler", "addresseeEn": "Angels of Hell", "addresseeId": "angels",
       "color": "#e74c3c", "temporalLayer": "ahiret", "dialogueCount": 3,
       "keyThemesTr": ["Yalvarış", "Azap hafifletme talebi"],
@@ -146,7 +146,7 @@
     },
     {
       "id": "followers-leaders",
-      "speakerTr": "Takipçiler", "speakerId": "munafiqun",
+      "speakerTr": "Takipçiler", "speakerEn": "Hypocrites", "speakerId": "munafiqun",
       "addresseeTr": "Önderler", "addresseeEn": "Leaders", "addresseeId": "arrogant-leaders",
       "color": "#64748b", "temporalLayer": "ahiret", "dialogueCount": 3,
       "keyThemesTr": ["Suçlama", "Sorumluluk", "Pişmanlık"],
@@ -155,7 +155,7 @@
     },
     {
       "id": "iblis-hell-dwellers",
-      "speakerTr": "İblis", "speakerId": "iblis",
+      "speakerTr": "İblis", "speakerEn": "Iblis", "speakerId": "iblis",
       "addresseeTr": "Cehennem Ehli", "addresseeEn": "People of Hell", "addresseeId": "hell-dwellers",
       "color": "#e74c3c", "temporalLayer": "ahiret", "dialogueCount": 1,
       "keyThemesTr": ["Son itiraf", "Sorumluluk reddi"],
@@ -164,7 +164,7 @@
     },
     {
       "id": "allah-all-humanity",
-      "speakerTr": "Allah", "speakerId": "allah",
+      "speakerTr": "Allah", "speakerEn": "Allah", "speakerId": "allah",
       "addresseeTr": "Tüm İnsanlık", "addresseeEn": "All Humanity", "addresseeId": "all-humanity",
       "color": "#c9a227", "temporalLayer": "ahiret", "dialogueCount": 5,
       "keyThemesTr": ["Kıyamet sorgusu", "Ahd hatırlatma"],
@@ -173,7 +173,7 @@
     },
     {
       "id": "araf-both",
-      "speakerTr": "A'râf Ehli", "speakerId": "araf-dwellers",
+      "speakerTr": "A'râf Ehli", "speakerEn": "People of A'raf", "speakerId": "araf-dwellers",
       "addresseeTr": "Her İki Taraf", "addresseeEn": "Both Sides", "addresseeId": "paradise-dwellers",
       "color": "#f39c12", "temporalLayer": "ahiret", "dialogueCount": 2,
       "keyThemesTr": ["İki tarafa hitap", "Dua"],
@@ -182,7 +182,7 @@
     },
     {
       "id": "nuh-son",
-      "speakerTr": "Hz. Nûh", "speakerId": "nuh",
+      "speakerTr": "Hz. Nûh", "speakerEn": "Noah", "speakerId": "nuh",
       "addresseeTr": "Oğlu", "addresseeEn": "His Son", "addresseeId": "son-nuh",
       "color": "#3498db", "temporalLayer": "dunya", "dialogueCount": 2,
       "keyThemesTr": ["Gemiye çağrı", "Ret"],
@@ -191,7 +191,7 @@
     },
     {
       "id": "sulayman-bilqis",
-      "speakerTr": "Hz. Süleymân", "speakerId": "sulayman",
+      "speakerTr": "Hz. Süleymân", "speakerEn": "Solomon", "speakerId": "sulayman",
       "addresseeTr": "Belkıs", "addresseeEn": "Queen of Sheba", "addresseeId": "bilqis",
       "color": "#9b59b6", "temporalLayer": "dunya", "dialogueCount": 3,
       "keyThemesTr": ["Mektup", "Hediye reddi", "Ziyaret"],
@@ -200,7 +200,7 @@
     },
     {
       "id": "munafiqun-believers",
-      "speakerTr": "Münafıklar", "speakerId": "munafiqun",
+      "speakerTr": "Münafıklar", "speakerEn": "Hypocrites", "speakerId": "munafiqun",
       "addresseeTr": "Mü'minler", "addresseeEn": "Believers", "addresseeId": "muminun",
       "color": "#64748b", "temporalLayer": "dunya", "dialogueCount": 4,
       "keyThemesTr": ["İkiyüzlülük", "Dış konuşma vs. iç konuşma"],
@@ -209,12 +209,21 @@
     },
     {
       "id": "muminun-allah",
-      "speakerTr": "Mü'minler", "speakerId": "muminun",
+      "speakerTr": "Mü'minler", "speakerEn": "Believers", "speakerId": "muminun",
       "addresseeTr": "Allah", "addresseeEn": "Allah", "addresseeId": "allah",
       "color": "#1a7a4c", "temporalLayer": "dunya", "dialogueCount": 12,
       "keyThemesTr": ["Dua", "İstiaze", "Tevbe"],
       "keyThemesEn": ["Prayer", "Seeking refuge", "Repentance"],
       "keyRefs": ["2:201", "3:8", "7:23"]
+    },
+    {
+      "id": "pharaoh-allah",
+      "speakerTr": "Firavun", "speakerEn": "Pharaoh", "speakerId": "pharaoh",
+      "addresseeTr": "Allah", "addresseeEn": "Allah", "addresseeId": "allah",
+      "color": "#8e44ad", "temporalLayer": "dunya", "dialogueCount": 1,
+      "keyThemesTr": ["Son tövbe", "Kabul edilmeyen iman"],
+      "keyThemesEn": ["Deathbed repentance", "Faith not accepted"],
+      "keyRefs": ["10:90-92"]
     }
   ]
 }
