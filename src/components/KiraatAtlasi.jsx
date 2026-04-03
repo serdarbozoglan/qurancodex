@@ -594,7 +594,100 @@ function TabFarkAnalizi({ data, isMobile, language }) {
   );
 }
 function TabHarita({ data, isMobile, language }) {
-  return <div style={{ padding: 24, color: COLORS.silver, fontFamily: FONTS.body }}>Harita tab — coming in Task 5</div>;
+  const [mode, setMode] = useState('modern'); // 'modern' | 'historical'
+  const geoData = data.geography[mode];
+
+  const riwayaLegend = geoData.map(r => ({
+    riwaya: r.riwaya, color: r.color, share: r.approxShare,
+  }));
+
+  return (
+    <div>
+      <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
+        {language === 'tr' ? 'Coğrafi Dağılım' : 'Geographic Distribution'}
+      </h2>
+      <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 16px', maxWidth: 680 }}>
+        {language === 'tr'
+          ? 'Günümüzde hangi kıraat nerede okunuyor? Her daire bir bölgede dominant olan rivayeti temsil eder. Daire boyutu coğrafi yayılımı, keskinlik değil tahmini gösterir.'
+          : 'Which reading is recited where today? Each circle represents the dominant riwaya in a region. Circle size shows approximate geographic spread, not precision.'}
+      </p>
+
+      {/* Toggle */}
+      <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
+        {[
+          { key: 'modern',     labelTr: 'Günümüz',   labelEn: 'Today'       },
+          { key: 'historical', labelTr: '~200 Hicrî', labelEn: '~200H (816M)' },
+        ].map(opt => (
+          <button key={opt.key} onClick={() => setMode(opt.key)} style={{
+            padding: '6px 16px', borderRadius: 8, cursor: 'pointer',
+            fontFamily: FONTS.body, fontSize: '0.82rem', fontWeight: mode === opt.key ? 600 : 400,
+            background: mode === opt.key ? COLORS.goldAlpha15 : COLORS.glassBg,
+            border: `1px solid ${mode === opt.key ? COLORS.goldAlpha25 : COLORS.glassBorder}`,
+            color: mode === opt.key ? COLORS.gold : COLORS.silver,
+            transition: 'all 0.15s',
+          }}>
+            {language === 'tr' ? opt.labelTr : opt.labelEn}
+          </button>
+        ))}
+      </div>
+
+      {/* Map */}
+      <div style={{ height: isMobile ? 280 : 420, borderRadius: 12, overflow: 'hidden', marginBottom: 16, border: `1px solid ${COLORS.glassBorder}` }}>
+        <MapContainer
+          center={[20, 20]}
+          zoom={isMobile ? 1 : 2}
+          style={{ height: '100%', width: '100%', background: '#0d1b2a' }}
+          scrollWheelZoom={true}
+          zoomControl={true}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+          />
+          {geoData.map(riwaya =>
+            riwaya.regions.map(region => (
+              <Circle
+                key={`${riwaya.id}-${region.name}`}
+                center={[region.lat, region.lon]}
+                radius={region.radiusKm * 1000}
+                pathOptions={{
+                  color: riwaya.color,
+                  fillColor: riwaya.color,
+                  fillOpacity: 0.25,
+                  weight: 1.5,
+                }}
+              >
+                <Popup>
+                  <div style={{ fontFamily: FONTS.body, color: '#111', minWidth: 120 }}>
+                    <strong>{region.name}</strong><br />
+                    <span style={{ color: riwaya.color }}>{riwaya.riwaya}</span>
+                    {riwaya.approxShare && (
+                      <><br /><span style={{ fontSize: '0.8em' }}>{riwaya.approxShare}</span></>
+                    )}
+                  </div>
+                </Popup>
+              </Circle>
+            ))
+          )}
+        </MapContainer>
+      </div>
+
+      {/* Legend */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+        {riwayaLegend.map(r => (
+          <span key={r.riwaya} style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            padding: '4px 12px', borderRadius: 99,
+            background: r.color + '18', border: `1px solid ${r.color}44`,
+            color: r.color, fontSize: '0.78rem', fontFamily: FONTS.body,
+          }}>
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: r.color, flexShrink: 0 }} />
+            {r.riwaya} {r.approxShare && <span style={{ opacity: 0.8 }}>— {r.approxShare}</span>}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 }
 function TabKanonizasyon({ data, isMobile, language }) {
   return <div style={{ padding: 24, color: COLORS.silver, fontFamily: FONTS.body }}>Kanonizasyon tab — coming in Task 6</div>;
