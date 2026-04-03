@@ -690,7 +690,130 @@ function TabHarita({ data, isMobile, language }) {
   );
 }
 function TabKanonizasyon({ data, isMobile, language }) {
-  return <div style={{ padding: 24, color: COLORS.silver, fontFamily: FONTS.body }}>Kanonizasyon tab — coming in Task 6</div>;
+  const [expanded, setExpanded] = useState(null);
+
+  const toggle = (id) => setExpanded(p => p === id ? null : id);
+
+  return (
+    <div>
+      <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
+        {language === 'tr' ? 'Kanonizasyon Tarihi' : 'History of Canonisation'}
+      </h2>
+      <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 32px', maxWidth: 680 }}>
+        {language === 'tr'
+          ? "Kıraatlerin bugünkü standart formuna ulaşması 5 kritik aşamadan geçti. Hz. Osman'ın tek bir mushaf metnine geçişinden 1924 Kahire baskısına — yaklaşık 1.300 yıllık bir süreç."
+          : "The readings reached their current canonical form through 5 critical stages — from Uthman's standardisation to the 1924 Cairo edition: roughly 1,300 years."}
+      </p>
+
+      {/* Timeline */}
+      <div style={{ position: 'relative', paddingLeft: isMobile ? 40 : 0 }}>
+        {/* Vertical axis */}
+        <div style={{
+          position: 'absolute',
+          left: isMobile ? 19 : '50%',
+          top: 0, bottom: 0,
+          width: 1, background: `linear-gradient(to bottom, ${COLORS.gold}88, ${COLORS.gold}22)`,
+          transform: isMobile ? 'none' : 'translateX(-50%)',
+        }} />
+
+        {data.timeline.map((stage, idx) => {
+          const isLeft = !isMobile && idx % 2 === 0;
+          const isOpen = expanded === stage.id;
+
+          return (
+            <div
+              key={stage.id}
+              style={{
+                position: 'relative',
+                display: 'flex',
+                justifyContent: isMobile ? 'flex-start' : (isLeft ? 'flex-end' : 'flex-start'),
+                marginBottom: 32,
+                paddingLeft: isMobile ? 24 : 0,
+              }}
+            >
+              {/* Connector dot on axis */}
+              <div style={{
+                position: 'absolute',
+                left: isMobile ? 12 : 'calc(50% - 8px)',
+                top: 12, width: 16, height: 16, borderRadius: '50%',
+                background: COLORS.goldAlpha15,
+                border: `2px solid ${COLORS.gold}`,
+                animation: 'kiraat-pulse 2.5s ease-in-out infinite',
+                animationDelay: `${idx * 0.4}s`,
+                zIndex: 2,
+              }} />
+
+              {/* Content card */}
+              <div
+                style={{
+                  width: isMobile ? '100%' : 'calc(50% - 28px)',
+                  marginRight: isMobile ? 0 : (isLeft ? 0 : undefined),
+                  marginLeft: isMobile ? 0 : (!isLeft ? 0 : undefined),
+                }}
+              >
+                <div
+                  onClick={() => toggle(stage.id)}
+                  style={{
+                    ...GLASS_CARD,
+                    padding: '14px 16px',
+                    cursor: 'pointer',
+                    border: `1px solid ${isOpen ? COLORS.goldAlpha25 : COLORS.glassBorder}`,
+                    transition: 'border-color 0.2s',
+                  }}
+                >
+                  {/* Date chip */}
+                  <span style={{
+                    display: 'inline-block', padding: '2px 8px', borderRadius: 99,
+                    background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
+                    color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,
+                    marginBottom: 6,
+                  }}>
+                    {stage.dateH}H / {stage.dateM}M
+                  </span>
+                  {/* Person */}
+                  <p style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.gold, fontWeight: 600, margin: '0 0 3px' }}>
+                    {stage.person}
+                  </p>
+                  {/* Title */}
+                  <p style={{ fontFamily: FONTS.display, fontSize: '1rem', color: COLORS.offWhite, fontWeight: 700, margin: '0 0 6px' }}>
+                    {language === 'tr' ? stage.titleTr : stage.titleEn}
+                  </p>
+                  {/* Description */}
+                  <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.6, margin: 0 }}>
+                    {stage.descTr}
+                  </p>
+
+                  {/* Expand toggle */}
+                  <p style={{ fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.gold, margin: '8px 0 0', opacity: 0.8 }}>
+                    {isOpen
+                      ? (language === 'tr' ? '▲ Kapat' : '▲ Close')
+                      : (language === 'tr' ? '▼ Detay' : '▼ Details')}
+                  </p>
+
+                  {/* Expanded detail */}
+                  <AnimatePresence>
+                    {isOpen && stage.detailTr && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <p style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.silver, lineHeight: 1.65, margin: '10px 0 0', borderTop: `1px solid ${COLORS.glassBorderSoft}`, paddingTop: 10 }}>
+                          {stage.detailTr}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 function TabTecvid({ isMobile, language }) {
   return <div style={{ padding: 24, color: COLORS.silver, fontFamily: FONTS.body }}>Tecvid tab — coming in Task 7</div>;
