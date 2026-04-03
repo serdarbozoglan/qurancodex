@@ -1,0 +1,76 @@
+{
+  "megaDialogues": [
+    {
+      "id": "iblis-saga",
+      "titleTr": "İblis Serüveni — Secde'den Kıyamet'e",
+      "titleEn": "The Iblis Saga — From Prostration to Judgment Day",
+      "totalSurahs": 7,
+      "refs": ["2:30-38", "7:11-25", "15:28-44", "17:61-65", "18:50", "20:116-123", "38:71-85"],
+      "phases": [
+        { "phase": "Secde Emri",       "phaseEn": "Command to Prostrate", "context": "ezel", "ref": "2:30" },
+        { "phase": "Red ve Kibir",     "phaseEn": "Refusal and Arrogance", "context": "ezel", "ref": "7:12" },
+        { "phase": "Mühlet Talebi",    "phaseEn": "Request for Respite",   "context": "ezel", "ref": "7:14" },
+        { "phase": "Saptırma Yemini",  "phaseEn": "Oath to Mislead",       "context": "ezel", "ref": "7:16-17" },
+        { "phase": "Âdem'i Kandırma",  "phaseEn": "Deceiving Adam",        "context": "ezel", "ref": "7:20-22" },
+        { "phase": "Kıyamet İtirafı",  "phaseEn": "Judgment Day Confession","context": "ahiret","ref": "14:22" }
+      ],
+      "uniqueFeatureTr": "Aynı diyaloğun 7 surede farklı detaylarla tekrarlanması — Kur'an'ın 'çok açılı anlatım' tekniği.",
+      "uniqueFeatureEn": "The same dialogue repeated in 7 surahs with different details — the Quran's 'multi-angle narration' technique.",
+      "relatedDialogueIds": ["iblis-refusal", "iblis-final-confession"]
+    },
+    {
+      "id": "musa-pharaoh",
+      "titleTr": "Mûsâ-Firavun Karşılaşması",
+      "titleEn": "Moses and Pharaoh: The Epic Confrontation",
+      "totalSurahs": 10,
+      "refs": ["7:103-137", "10:75-92", "17:101-103", "20:42-79", "23:45-48", "26:10-68", "28:36-42", "40:23-46", "44:17-33", "79:15-26"],
+      "phases": [
+        { "phase": "Risalet Tebliği",         "phaseEn": "Proclamation of Prophethood", "context": "dunya", "ref": "26:16" },
+        { "phase": "Sihirbazlarla Karşılaşma","phaseEn": "Encounter with Magicians",    "context": "dunya", "ref": "26:34-51" },
+        { "phase": "Kibrin Artması",          "phaseEn": "Escalating Arrogance",         "context": "dunya", "ref": "7:127" },
+        { "phase": "Âyetler ve Belalar",      "phaseEn": "Signs and Plagues",            "context": "dunya", "ref": "7:130-136" },
+        { "phase": "Denizin Yarılması",       "phaseEn": "Parting of the Sea",           "context": "dunya", "ref": "26:60-68" },
+        { "phase": "Firavun'un Son Sözü",     "phaseEn": "Pharaoh's Final Words",        "context": "dunya", "ref": "10:90" }
+      ],
+      "uniqueFeatureTr": "Kur'an'ın en uzun ve en çok tekrarlanan diyalog serisi. Her suredeki tekrar yeni bir boyut katar.",
+      "uniqueFeatureEn": "The Quran's longest and most repeated dialogue series. Each surah's retelling adds a new dimension.",
+      "relatedDialogueIds": ["musa-pharaoh-first", "pharaoh-drowning"]
+    },
+    {
+      "id": "ibrahim-debates",
+      "titleTr": "İbrâhîm'in Tartışmaları",
+      "titleEn": "Abraham's Debates",
+      "totalSurahs": 6,
+      "refs": ["2:258", "6:74-83", "19:41-48", "21:51-70", "26:69-89", "37:83-113"],
+      "phases": [
+        { "phase": "Babası Âzer ile",          "phaseEn": "With Father Azar",             "context": "dunya", "ref": "19:41-46" },
+        { "phase": "Yıldız-Ay-Güneş Akıl Yürütmesi","phaseEn": "Star-Moon-Sun Reasoning","context": "dunya", "ref": "6:76-78" },
+        { "phase": "Putları Kırma",            "phaseEn": "Breaking the Idols",           "context": "dunya", "ref": "21:57-70" },
+        { "phase": "Nemrut ile Tartışma",      "phaseEn": "Debate with Nimrod",           "context": "dunya", "ref": "2:258" },
+        { "phase": "Diriltme Talebi",          "phaseEn": "Request to Witness Resurrection","context": "dunya","ref": "2:260" }
+      ],
+      "uniqueFeatureTr": "Akli istidlâl (rational argumentation) yöntemiyle tevhid tebliği.",
+      "uniqueFeatureEn": "Proclaiming monotheism through rational argumentation (istidlal).",
+      "relatedDialogueIds": ["ibrahim-azar-dialogue", "ibrahim-nimrod-debate"]
+    },
+    {
+      "id": "yusuf-saga",
+      "titleTr": "Yûsuf Kıssasının Diyalogları",
+      "titleEn": "The Dialogues of Joseph's Story",
+      "totalSurahs": 1,
+      "refs": ["12:4-101"],
+      "phases": [
+        { "phase": "Yûsuf → Yakup (Rüya)",    "phaseEn": "Joseph tells Jacob his dream","context": "dunya", "ref": "12:4-6" },
+        { "phase": "Kardeşler Kendi Aralarında","phaseEn": "Brothers among themselves",  "context": "dunya", "ref": "12:8-10" },
+        { "phase": "Aziz'in Karısı",          "phaseEn": "Aziz's wife",                 "context": "dunya", "ref": "12:23-32" },
+        { "phase": "Zindan Arkadaşları",       "phaseEn": "Prison companions",           "context": "dunya", "ref": "12:36-41" },
+        { "phase": "Kral ile Rüya Yorumu",     "phaseEn": "Dream interpretation with King","context": "dunya","ref": "12:43-49" },
+        { "phase": "Kardeşlerle Yeniden Karşılaşma","phaseEn": "Reunion with brothers", "context": "dunya", "ref": "12:58-93" },
+        { "phase": "Yakup ile Kavuşma",        "phaseEn": "Reunion with Jacob",          "context": "dunya", "ref": "12:96-101" }
+      ],
+      "uniqueFeatureTr": "Kur'an'ın tek surede en çok diyalog barındıran kıssası — ahsenü'l-kasas.",
+      "uniqueFeatureEn": "The Quran's story with the most dialogues in a single surah — 'the best of stories'.",
+      "relatedDialogueIds": ["yusuf-brothers-reunion"]
+    }
+  ]
+}
