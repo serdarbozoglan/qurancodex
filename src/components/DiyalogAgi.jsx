@@ -411,11 +411,11 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
                   style={{ cursor: 'pointer', transition: 'stroke-opacity 0.15s' }}
                   onMouseEnter={(e) => {
                     setHoveredArc(axis.id);
-                    const svgRect = e.currentTarget.closest('svg').getBoundingClientRect();
+                    const containerRect = e.currentTarget.closest('svg').parentElement.getBoundingClientRect();
                     const themes = (language === 'tr' ? axis.keyThemesTr : axis.keyThemesEn) || [];
                     setTooltip({
-                      x: e.clientX - svgRect.left,
-                      y: e.clientY - svgRect.top - 10,
+                      x: e.clientX - containerRect.left,
+                      y: e.clientY - containerRect.top - 10,
                       content: `${axis.speakerTr} → ${axis.addresseeTr}\n${axis.dialogueCount} diyalog\n${themes.join(' · ')}`,
                     });
                   }}
