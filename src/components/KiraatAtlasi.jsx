@@ -402,8 +402,196 @@ function TabImamlar({ data, isMobile, language }) {
     </div>
   );
 }
+function DonutChart({ language }) {
+  // Segments: Lehçe-dışı ünlü 31%, Lehçesel ünlü 24%, Ünsüz 16%, Diğer 29%
+  // conic-gradient: each stop is cumulative
+  const segments = [
+    { pct: 31, color: COLORS.gold,     labelTr: 'Lehçe-dışı ünlü', labelEn: 'Non-dialectal vowel' },
+    { pct: 24, color: COLORS.skyBlue,  labelTr: 'Lehçesel ünlü',   labelEn: 'Dialectal vowel'     },
+    { pct: 16, color: COLORS.softRed,  labelTr: 'Ünsüz farkı',     labelEn: 'Consonant diff.'     },
+    { pct: 29, color: COLORS.silver,   labelTr: 'Diğer',           labelEn: 'Other'               },
+  ];
+
+  let cumulative = 0;
+  const stops = segments.map(s => {
+    const start = cumulative;
+    cumulative += s.pct;
+    return `${s.color} ${start}% ${cumulative}%`;
+  }).join(', ');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, marginBottom: 28 }}>
+      {/* Donut */}
+      <div style={{ position: 'relative', width: 160, height: 160, flexShrink: 0 }}>
+        <div style={{
+          width: 160, height: 160, borderRadius: '50%',
+          background: `conic-gradient(${stops})`,
+        }} />
+        {/* Hole */}
+        <div style={{
+          position: 'absolute', top: '50%', left: '50%',
+          transform: 'translate(-50%,-50%)',
+          width: 90, height: 90, borderRadius: '50%',
+          background: COLORS.overlayBg,
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.85rem', lineHeight: 1.2 }}>51</span>
+          <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.65rem', textAlign: 'center', lineHeight: 1.2 }}>
+            {language === 'tr' ? 'fark' : 'variants'}
+          </span>
+        </div>
+      </div>
+      {/* Legend */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
+        {segments.map(s => (
+          <span key={s.labelTr} style={{
+            display: 'inline-flex', alignItems: 'center', gap: 5,
+            padding: '3px 10px', borderRadius: 99,
+            background: s.color + '18', border: `1px solid ${s.color}44`,
+            color: s.color, fontSize: '0.75rem', fontFamily: FONTS.body,
+          }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: s.color, display: 'inline-block' }} />
+            {language === 'tr' ? s.labelTr : s.labelEn} — {s.pct}%
+          </span>
+        ))}
+      </div>
+      <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.8rem', margin: 0, textAlign: 'center' }}>
+        {language === 'tr'
+          ? 'Kaynak: Christopher Melchert, Oxford — 10 kıraat örneklemi analizi'
+          : 'Source: Christopher Melchert, Oxford — sample analysis of 10 readings'}
+      </p>
+    </div>
+  );
+}
+
+function BesmeleCard({ language }) {
+  return (
+    <div style={{ ...GLASS_CARD, padding: '14px 18px', marginBottom: 20, border: `1px solid ${COLORS.goldAlpha25}` }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'flex-start', justifyContent: 'space-between' }}>
+        <div>
+          <p style={{ fontFamily: FONTS.body, color: COLORS.gold, fontSize: '0.8rem', fontWeight: 700, margin: '0 0 6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            {language === 'tr' ? 'Besmele Farkı' : 'Basmala Difference'}
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            <div>
+              <p style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 2px' }}>Hafs, İbn Kesîr, el-Kisâî:</p>
+              <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite, margin: 0 }}>
+                {language === 'tr' ? 'Besmele = ilk ayet' : 'Basmala = first verse'}
+              </p>
+            </div>
+            <div>
+              <p style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 2px' }}>Verş, Nâfiʿ ve diğerleri:</p>
+              <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite, margin: 0 }}>
+                {language === 'tr' ? 'Besmele = sure başlığı' : 'Basmala = chapter heading'}
+              </p>
+            </div>
+          </div>
+          <p style={{ fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.silver, margin: '8px 0 0', fontStyle: 'italic' }}>
+            {language === 'tr' ? '⚠ Tevbe Suresi\'nde hiçbir kıraatte besmele yoktur.' : '⚠ Surah At-Tawba has no Basmala in any reading.'}
+          </p>
+        </div>
+        <div style={{ textAlign: 'center', flexShrink: 0 }}>
+          <p style={{ fontFamily: FONTS.body, fontSize: '1.6rem', fontWeight: 800, color: COLORS.gold, margin: 0, lineHeight: 1 }}>452</p>
+          <p style={{ fontFamily: FONTS.body, fontSize: '0.7rem', color: COLORS.silver, margin: '2px 0 0' }}>
+            {language === 'tr' ? 'kelime farkı' : 'word difference'}
+          </p>
+          <p style={{ fontFamily: FONTS.body, fontSize: '0.65rem', color: COLORS.silver, margin: '1px 0 0' }}>
+            (113 × 4 kelime)
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function TabFarkAnalizi({ data, isMobile, language }) {
-  return <div style={{ padding: 24, color: COLORS.silver, fontFamily: FONTS.body }}>Fark Analizi tab — coming in Task 4</div>;
+  const filters = ['all', 'vowel', 'consonant', 'pronoun', 'active-passive', 'word'];
+  const filterLabelsTr = { all: 'Tümü', vowel: 'Ünlü', consonant: 'Ünsüz', pronoun: 'Zamir', 'active-passive': 'Etken/Edilgen', word: 'Kelime' };
+  const filterLabelsEn = { all: 'All', vowel: 'Vowel', consonant: 'Consonant', pronoun: 'Pronoun', 'active-passive': 'Active/Passive', word: 'Word' };
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const filtered = data.variants.filter(v =>
+    activeFilter === 'all' || v.diffType === activeFilter
+  );
+
+  return (
+    <div>
+      <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
+        {language === 'tr' ? 'Fark Analizi: Hafs & Verş' : 'Variant Analysis: Ḥafs & Warsh'}
+      </h2>
+      <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: 680 }}>
+        {language === 'tr'
+          ? "77.439 kelime içinde 51 kelimelik fark — binde 0.66. Bu farklar metnin farklı versiyonları değil; aynı Arapça iskeletin farklı okunuş biçimleridir."
+          : "51 word variants in 77,439 words — 0.66 per thousand. These are not different versions of the text; they are different vocalisations of the same Arabic skeleton."}
+      </p>
+
+      <DonutChart language={language} />
+      <BesmeleCard language={language} />
+
+      {/* Filter chips */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16 }}>
+        {filters.map(f => (
+          <button key={f} onClick={() => setActiveFilter(f)} style={{
+            padding: '4px 12px', borderRadius: 99, cursor: 'pointer',
+            fontFamily: FONTS.body, fontSize: '0.8rem', fontWeight: activeFilter === f ? 600 : 400,
+            background: activeFilter === f ? COLORS.goldAlpha15 : COLORS.glassBg,
+            border: `1px solid ${activeFilter === f ? COLORS.goldAlpha25 : COLORS.glassBorder}`,
+            color: activeFilter === f ? COLORS.gold : COLORS.silver,
+            transition: 'all 0.15s',
+          }}>
+            {language === 'tr' ? filterLabelsTr[f] : filterLabelsEn[f]}
+          </button>
+        ))}
+      </div>
+
+      {/* Table */}
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body }}>
+          <thead>
+            <tr style={{ borderBottom: `1px solid ${COLORS.glassBorder}` }}>
+              {['Sure:Ayet', 'Hafs', 'Verş', language === 'tr' ? 'Fark' : 'Type', language === 'tr' ? 'Anlam Etkisi' : 'Meaning Impact'].map(h => (
+                <th key={h} style={{ padding: '8px 10px', textAlign: 'left', color: COLORS.silver, fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.map((v, i) => (
+              <tr key={v.id} style={{ borderBottom: `1px solid ${COLORS.glassBorderSoft}`, background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
+                <td style={{ padding: '8px 10px', color: COLORS.gold, fontSize: '0.8rem', whiteSpace: 'nowrap' }}>
+                  {v.surahName} {v.surah}:{v.ayah}
+                </td>
+                <td style={{ padding: '8px 10px', textAlign: 'right', direction: 'rtl', fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite }} dir="rtl" lang="ar">
+                  {cleanArabic(v.hafs)}
+                  <br />
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.7rem', color: COLORS.silver, direction: 'ltr', display: 'inline-block' }}>{v.hafsNote}</span>
+                </td>
+                <td style={{ padding: '8px 10px', textAlign: 'right', direction: 'rtl', fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite }} dir="rtl" lang="ar">
+                  {cleanArabic(v.vers)}
+                  <br />
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.7rem', color: COLORS.silver, direction: 'ltr', display: 'inline-block' }}>{v.versNote}</span>
+                </td>
+                <td style={{ padding: '8px 10px', whiteSpace: 'nowrap' }}>
+                  <span style={{
+                    padding: '2px 8px', borderRadius: 99, fontSize: '0.72rem', fontWeight: 600,
+                    background: (DIFF_COLORS[v.diffType] || COLORS.silver) + '18',
+                    color: DIFF_COLORS[v.diffType] || COLORS.silver,
+                    fontFamily: FONTS.body,
+                  }}>
+                    {language === 'tr' ? DIFF_LABELS_TR[v.diffType] : DIFF_LABELS_EN[v.diffType]}
+                  </span>
+                </td>
+                <td style={{ padding: '8px 10px', color: COLORS.silver, fontSize: '0.8rem', lineHeight: 1.5, minWidth: 180 }}>
+                  {v.meaningImpact}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 }
 function TabHarita({ data, isMobile, language }) {
   return <div style={{ padding: 24, color: COLORS.silver, fontFamily: FONTS.body }}>Harita tab — coming in Task 5</div>;
