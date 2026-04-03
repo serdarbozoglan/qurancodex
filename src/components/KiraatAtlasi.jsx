@@ -816,7 +816,208 @@ function TabKanonizasyon({ data, isMobile, language }) {
   );
 }
 function TabTecvid({ isMobile, language }) {
-  return <div style={{ padding: 24, color: COLORS.silver, fontFamily: FONTS.body }}>Tecvid tab — coming in Task 7</div>;
+  // Section A: Üç Kabul Şartı
+  const acceptanceCriteria = [
+    {
+      titleTr: 'Senet', titleEn: 'Chain of Transmission',
+      descTr: "Hz. Peygamber'e ulaşan güvenilir ve kesintisiz bir isnad zinciri olmalıdır. Bir kıraat ne kadar yaygın olursa olsun, senedi yoksa kabul edilmez.",
+      descEn: 'A reliable and unbroken chain of transmission reaching back to the Prophet ﷺ. No matter how widespread a reading is, without isnad it is rejected.',
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
+          <circle cx="5" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="19" r="2"/>
+          <line x1="6.5" y1="6.5" x2="10.5" y2="10.5"/><line x1="13.5" y1="13.5" x2="17.5" y2="17.5"/>
+        </svg>
+      ),
+    },
+    {
+      titleTr: 'Rasm', titleEn: 'Uthmanic Script',
+      descTr: "Hz. Osman'ın mushaflarından en az biriyle uyumlu olmalıdır. Bu kural, kıraatin metnin muhkem iskeletiyle bağını korur.",
+      descEn: "Must conform to at least one of the Uthmanic codices. This rule preserves the reading's link to the solid skeleton of the text.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/>
+        </svg>
+      ),
+    },
+    {
+      titleTr: 'Arapça Dil Kuralları', titleEn: 'Arabic Grammar',
+      descTr: 'Klasik Arap dil bilgisiyle uyumlu olmalıdır. Bu şart, tamamen özgün ve uydurma okuyuşları dışarıda bırakır.',
+      descEn: 'Must conform to classical Arabic grammar rules. This condition excludes entirely invented or idiosyncratic readings.',
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
+          <path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>
+        </svg>
+      ),
+    },
+  ];
+
+  // Section B: Tecvid farkları
+  const tajweedDiffs = [
+    {
+      ruleTr: 'Med el-Munfasıl', ruleEn: 'Disconnected Madd',
+      hafs: language === 'tr' ? '4-5 hareke (kısa)' : '4-5 harakāt (short)',
+      vers: language === 'tr' ? '4-6 hareke (uzun)' : '4-6 harakāt (long)',
+    },
+    {
+      ruleTr: 'İmâle', ruleEn: 'Imāla (Vowel tilt)',
+      hafs: language === 'tr' ? 'Uygulanmaz' : 'Not applied',
+      vers: language === 'tr' ? 'Bazı kelimelerde a→e tilti' : 'a→e tilt in certain words',
+    },
+    {
+      ruleTr: 'Naql', ruleEn: 'Naql (Hamza transfer)',
+      hafs: language === 'tr' ? 'Uygulanmaz' : 'Not applied',
+      vers: language === 'tr' ? 'Hemze önceki harfe aktarılır' : 'Hamza transferred to preceding letter',
+    },
+    {
+      ruleTr: 'Tashîl', ruleEn: 'Tashīl (Hamza softening)',
+      hafs: language === 'tr' ? 'Uygulanmaz' : 'Not applied',
+      vers: language === 'tr' ? 'Bazı hemzelerde yumuşatma' : 'Softening of certain hamzas',
+    },
+    {
+      ruleTr: 'İdgam', ruleEn: 'Idghām (Assimilation)',
+      hafs: language === 'tr' ? 'Standart kurallar' : 'Standard rules',
+      vers: language === 'tr' ? 'Ek idgam durumları' : 'Additional assimilation cases',
+    },
+    {
+      ruleTr: 'Râ (ر) Harfi', ruleEn: 'Letter Rāʾ',
+      hafs: language === 'tr' ? 'Standart tafkhîm/tarkîk' : 'Standard thick/thin',
+      vers: language === 'tr' ? 'Bazı yerlerde farklı kalınlık' : 'Different thickness in certain positions',
+    },
+  ];
+
+  // Section C: Hafs'ın yayılması milestones
+  const milestones = [
+    { labelTr: 'Kûfe Kökeni', labelEn: 'Kufa Origin' },
+    { labelTr: 'Osmanlı Benimsemesi', labelEn: 'Ottoman Adoption' },
+    { labelTr: 'Osmanlı Yayılması', labelEn: 'Ottoman Expansion' },
+    { labelTr: '1924 el-Ezher', labelEn: '1924 Al-Azhar' },
+    { labelTr: 'Küresel Standart', labelEn: 'Global Standard' },
+  ];
+
+  const sectionTitle = (title) => (
+    <div style={{
+      display: 'inline-block',
+      color: COLORS.silver, fontSize: '0.7rem', fontFamily: FONTS.body,
+      fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
+      marginBottom: 16,
+    }}>
+      {title}
+    </div>
+  );
+
+  return (
+    <div>
+      <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
+        {language === 'tr' ? 'Tecvid & Kıraat Kaideleri' : 'Tajweed & Qirāʾāt Rules'}
+      </h2>
+      <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 32px', maxWidth: 680 }}>
+        {language === 'tr'
+          ? "Bir kıraatin sahih sayılabilmesi için üç şartın birlikte sağlanması gerekir. Hafs ile Verş arasındaki farklar yalnızca kelime düzeyinde değil, tecvid uygulamalarında da kendini gösterir."
+          : "For a reading to be considered authentic, three conditions must be met simultaneously. Differences between Ḥafs and Warsh manifest not only at word level but also in tajweed application."}
+      </p>
+
+      {/* Section A: Üç Şart */}
+      {sectionTitle(language === 'tr' ? 'Üç Kabul Şartı' : 'Three Acceptance Criteria')}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr',
+        gap: 12,
+        marginBottom: 36,
+      }}>
+        {acceptanceCriteria.map(c => (
+          <div key={c.titleTr} style={{ ...GLASS_CARD, padding: '18px 16px', border: `1px solid ${COLORS.goldAlpha25}` }}>
+            <div style={{ marginBottom: 10 }}>{c.icon}</div>
+            <p style={{ fontFamily: FONTS.display, fontSize: '1rem', color: COLORS.offWhite, fontWeight: 700, margin: '0 0 8px' }}>
+              {language === 'tr' ? c.titleTr : c.titleEn}
+            </p>
+            <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.6, margin: 0 }}>
+              {language === 'tr' ? c.descTr : c.descEn}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Section B: Tecvid tablosu */}
+      {sectionTitle(language === 'tr' ? 'Hafs & Verş — Tecvid Farkları' : 'Ḥafs & Warsh — Tajweed Differences')}
+      <div style={{ overflowX: 'auto', marginBottom: 36 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, minWidth: 400 }}>
+          <thead>
+            <tr style={{ borderBottom: `1px solid ${COLORS.glassBorder}` }}>
+              {[language === 'tr' ? 'Kural' : 'Rule', 'Hafs', 'Verş'].map(h => (
+                <th key={h} style={{ padding: '8px 12px', textAlign: 'left', color: COLORS.silver, fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {tajweedDiffs.map((row, i) => (
+              <tr key={row.ruleTr} style={{ borderBottom: `1px solid ${COLORS.glassBorderSoft}`, background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
+                <td style={{ padding: '9px 12px', color: COLORS.offWhite, fontSize: '0.85rem', fontWeight: 500 }}>
+                  {language === 'tr' ? row.ruleTr : row.ruleEn}
+                </td>
+                <td style={{ padding: '9px 12px', fontSize: '0.82rem', color: (row.hafs === 'Uygulanmaz' || row.hafs === 'Not applied') ? COLORS.silver : COLORS.offWhite, fontStyle: (row.hafs === 'Uygulanmaz' || row.hafs === 'Not applied') ? 'italic' : 'normal', background: 'rgba(52,152,219,0.05)' }}>
+                  {row.hafs}
+                </td>
+                <td style={{ padding: '9px 12px', fontSize: '0.82rem', color: COLORS.offWhite, background: 'rgba(46,204,113,0.05)' }}>
+                  {row.vers}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Section C: Hafs'ın yayılması */}
+      {sectionTitle(language === 'tr' ? "Hafs'ın Küresel Yayılma Hikayesi" : "How Ḥafs Became the Global Standard")}
+      <div style={{ ...GLASS_CARD, padding: isMobile ? '16px' : '20px 24px', border: `1px solid ${COLORS.glassBorder}`, marginBottom: 20 }}>
+        {/* Milestone chips */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 6, marginBottom: 16 }}>
+          {milestones.map((m, i) => (
+            <span key={m.labelTr} style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              <span style={{
+                padding: '3px 10px', borderRadius: 99, fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 500,
+                background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`, color: COLORS.gold,
+              }}>
+                {language === 'tr' ? m.labelTr : m.labelEn}
+              </span>
+              {i < milestones.length - 1 && (
+                <span style={{ color: COLORS.silver, fontSize: '0.7rem' }}>→</span>
+              )}
+            </span>
+          ))}
+        </div>
+
+        <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, margin: '0 0 10px' }}>
+          {language === 'tr'
+            ? "Hafs ʿan ʿÂsım kıraati, 8. yüzyılda Kûfe'de doğdu. ʿÂsım'ın öğrencisi Hafs (ö. 180H/796M) aracılığıyla yayılmaya başladı. Teknik açıdan Hafs kıraati görece erişilebilirdir: Verş'teki imâle, naql ve tashîl gibi ileri tecvid kurallarına sahip değildir."
+            : "The Ḥafs ʿan ʿĀṣim reading originated in 8th-century Kufa. It began spreading through ʿĀṣim's student Ḥafs (d. 180H/796M). Technically, the Ḥafs reading is relatively accessible: it lacks the advanced tajweed rules found in Warsh, such as imāla, naql, and tashīl."}
+        </p>
+        <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, margin: '0 0 10px' }}>
+          {language === 'tr'
+            ? "Osmanlı İmparatorluğu'nun Hafs kıraatini benimsemesi dönüm noktasıydı. Osmanlı medreseleri, kâtipler ve matbaalar bu kıraati Arabistan'dan Balkanlara, Kuzey Afrika'dan Güney Asya'ya yaydı. 19. yüzyılda İslam dünyasının büyük çoğunluğu zaten Hafs okuyordu."
+            : "The Ottoman Empire's adoption of the Ḥafs reading was the turning point. Ottoman madrasas, scribes, and printing presses spread it from Arabia to the Balkans, from North Africa to South Asia. By the 19th century most of the Muslim world was already reciting Ḥafs."}
+        </p>
+        <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, margin: '0 0 16px' }}>
+          {language === 'tr'
+            ? "1924'te Kral I. Fuad'ın emriyle el-Ezher uleması tarafından hazırlanan baskı, bu süreci resmîleştirdi. Modern baskı teknolojisi ve küresel Müslüman nüfusunun büyümesiyle Hafs bugün fiili dünya standardı haline geldi."
+            : "The 1924 edition prepared by Al-Azhar scholars under King Fuad I formalised this process. With modern printing technology and the growth of the global Muslim population, Ḥafs has today become the de facto world standard."}
+        </p>
+
+        {/* Closing stat */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 16px', borderRadius: 8, background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}` }}>
+          <span style={{ fontFamily: FONTS.body, fontSize: '2rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1 }}>~%95</span>
+          <span style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.offWhite, lineHeight: 1.5 }}>
+            {language === 'tr'
+              ? "Bugün dünya Müslümanlarının yaklaşık %95'i Hafs ʿan ʿÂsım rivayetini kullanmaktadır."
+              : "Today approximately 95% of the world's Muslims use the Ḥafs ʿan ʿĀṣim transmission."}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 // ── Main Component ────────────────────────────────────────────────────────────
