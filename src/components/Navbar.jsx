@@ -26,6 +26,7 @@ const Melekler         = lazy(() => import('./Melekler'));
 const KuranRenkleri    = lazy(() => import('./KuranRenkleri'));
 const KiyametSahneleri = lazy(() => import('./KiyametSahneleri'));
 const KiraatAtlasi  = lazy(() => import('./KiraatAtlasi'));
+const DiyalogAgi    = lazy(() => import('./DiyalogAgi'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -192,6 +193,7 @@ export default function Navbar() {
   const [renkleriOpen,   setRenkleriOpen]   = useState(false);
   const [kiyametOpen,    setKiyametOpen]    = useState(false);
   const [kiraatOpen,   setKiraatOpen]   = useState(false);
+  const [diyalogOpen,  setDiyalogOpen]  = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -272,11 +274,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -327,10 +329,11 @@ export default function Navbar() {
       if (kiyametOpen)    { setKiyametOpen(false);          return; }
       if (retorigiOpen)   { setRetorigiOpen(false);        return; }
       if (kiraatOpen)     { setKiraatOpen(false);          return; }
+      if (diyalogOpen)    { setDiyalogOpen(false);         return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -546,6 +549,18 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setKiraatOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Diyalog Ağı',
+      labelEn: 'Dialogue Network',
+      descTr: 'Kim kiminle konuşuyor? ~300 diyalog · 25 eksen · ahiret sahneleri',
+      descEn: 'Who speaks to whom? ~300 dialogues · 25 axes · afterlife scenes',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      ),
+      action: () => { setDiyalogOpen(true); setToolsOpen(false); },
     },
   ];
 
@@ -1054,10 +1069,10 @@ export default function Navbar() {
                         </span>
                       </button>
                     );
-                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları [14]Kıraat Atlası
+                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları [14]Kıraat Atlası [15]Diyalog Ağı
                     const vizTools      = [tools[1], tools[2], tools[3], tools[8], tools[6]];
                     const analysisTools = [tools[12], tools[7], tools[5], tools[11]];
-                    const researchTools = [tools[0], tools[4], tools[9], tools[10], tools[14]];
+                    const researchTools = [tools[0], tools[4], tools[9], tools[10], tools[14], tools[15]];
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Col 1: Görselleştirme */}
@@ -1403,6 +1418,11 @@ export default function Navbar() {
     {kiraatOpen && (
       <Suspense fallback={null}>
         <KiraatAtlasi onClose={() => setKiraatOpen(false)} />
+      </Suspense>
+    )}
+    {diyalogOpen && (
+      <Suspense fallback={null}>
+        <DiyalogAgi onClose={() => setDiyalogOpen(false)} />
       </Suspense>
     )}
     </>
