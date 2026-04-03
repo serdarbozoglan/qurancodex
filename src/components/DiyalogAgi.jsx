@@ -92,6 +92,7 @@ export default function DiyalogAgi({ onClose }) {
   const [afterlife, setAfterlife] = useState([]);
   const [mega, setMega]           = useState([]);
   const [loading, setLoading]     = useState(true);
+  const [loadError, setLoadError] = useState(false);
 
   // isMobile detector
   useEffect(() => {
@@ -122,7 +123,11 @@ export default function DiyalogAgi({ onClose }) {
       setAfterlife(af.scenes || []);
       setMega(m.megaDialogues || []);
       setLoading(false);
-    }).catch(() => setLoading(false));
+    }).catch((err) => {
+      console.error('[DiyalogAgi] data load failed:', err);
+      setLoadError(true);
+      setLoading(false);
+    });
   }, []);
 
   // Navigate to Dialogues tab with axis pre-filtered (called by network diagram)
@@ -162,7 +167,7 @@ export default function DiyalogAgi({ onClose }) {
   });
 
   return (
-    <div style={OVERLAY_BASE} role="dialog" aria-label={language === 'tr' ? 'Diyalog Ağı' : 'Dialogue Network'}>
+    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-label={language === 'tr' ? 'Diyalog Ağı' : 'Dialogue Network'}>
       {/* Header */}
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -204,9 +209,13 @@ export default function DiyalogAgi({ onClose }) {
 
       {/* Tab Content */}
       <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
-        {loading ? (
+        {loadError ? (
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, color: COLORS.softRed, fontFamily: FONTS.body, fontSize: '0.9rem' }}>
+            {language === 'tr' ? 'Veriler yüklenemedi.' : 'Failed to load data.'}
+          </div>
+        ) : loading ? (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem' }}>
-            Yükleniyor...
+            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
           </div>
         ) : (
           <>
