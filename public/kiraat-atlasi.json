@@ -1,0 +1,559 @@
+{
+  "readers": [
+    {
+      "id": "nafic",
+      "nameAr": "نَافِعٌ الْمَدَنِيُّ",
+      "nameTr": "Nâfiʿ el-Medenî",
+      "city": "medina",
+      "deathH": 169,
+      "deathM": 785,
+      "rawis": ["Kālûn", "Verş"],
+      "sahabi": "Übeyy b. Kaʿb",
+      "madhab": "Mâlikî",
+      "note": "Medine ekolünün kurucusu. Öğrencisi Verş aracılığıyla Kuzey Afrika'da yaşamaya devam ediyor.",
+      "usedIn": "Cezayir, Fas, Batı Afrika"
+    },
+    {
+      "id": "ibn-kesir",
+      "nameAr": "ابْنُ كَثِيرٍ الْمَكِّيُّ",
+      "nameTr": "İbn Kesîr el-Mekkî",
+      "city": "mecca",
+      "deathH": 120,
+      "deathM": 737,
+      "rawis": ["el-Bezzî", "Kunbul"],
+      "sahabi": "Übeyy b. Kaʿb",
+      "madhab": "Şâfiî",
+      "note": "Mekke ekolünün imamı. Besmeleyi her surenin ilk ayeti sayar.",
+      "usedIn": "Tarihî kullanım, akademik çalışmalar"
+    },
+    {
+      "id": "ebu-amr",
+      "nameAr": "أَبُو عَمْرٍو الْبَصْرِيُّ",
+      "nameTr": "Ebû ʿAmr el-Basrî",
+      "city": "basra",
+      "deathH": 154,
+      "deathM": 770,
+      "rawis": ["ed-Dûrî", "es-Sûsî"],
+      "sahabi": "Übeyy b. Kaʿb",
+      "madhab": null,
+      "note": "Basra ekolünün en güçlü temsilcisi. İdgam uygulamalarıyla tanınır.",
+      "usedIn": "Sudan, Somali, Doğu Afrika (ed-Dûrî rivayeti)"
+    },
+    {
+      "id": "ibn-amir",
+      "nameAr": "ابْنُ عَامِرٍ الشَّامِيُّ",
+      "nameTr": "İbn ʿÂmir eş-Şâmî",
+      "city": "damascus",
+      "deathH": 118,
+      "deathM": 736,
+      "rawis": ["Hişâm", "İbn Zekvân"],
+      "sahabi": "Ebû'd-Derdâ",
+      "madhab": null,
+      "note": "Şam (Dımaşk) ekolünün imamı. Hz. Osman'ın bölgeye gönderdiği mushafın koruyucusu.",
+      "usedIn": "Yemen (kısmen, Hişâm rivayeti)"
+    },
+    {
+      "id": "asim",
+      "nameAr": "عَاصِمٌ الْكُوفِيُّ",
+      "nameTr": "ʿÂsım el-Kûfî",
+      "city": "kufa",
+      "deathH": 127,
+      "deathM": 745,
+      "rawis": ["Şuʿbe", "Hafs"],
+      "sahabi": "Übeyy b. Kaʿb",
+      "madhab": "Hanefî",
+      "note": "Öğrencisi Hafs aracılığıyla dünya genelinde en yaygın kıraat imamı haline geldi.",
+      "usedIn": "Türkiye, Mısır, Körfez, Güney Asya, Güneydoğu Asya (~%95 dünya)"
+    },
+    {
+      "id": "hamza",
+      "nameAr": "حَمْزَةُ الْكُوفِيُّ",
+      "nameTr": "Hamza el-Kûfî",
+      "city": "kufa",
+      "deathH": 156,
+      "deathM": 773,
+      "rawis": ["Halef", "Hallâd"],
+      "sahabi": "İbn Mesʿûd",
+      "madhab": "Hanefî",
+      "note": "Kûfe ekolünün en zahid imamı. Med ve hemze kurallarında en uzun uygulamalarıyla tanınır.",
+      "usedIn": "Akademik çalışmalar, bazı İran bölgeleri"
+    },
+    {
+      "id": "kisai",
+      "nameAr": "الْكِسَائِيُّ الْكُوفِيُّ",
+      "nameTr": "el-Kisâî el-Kûfî",
+      "city": "kufa",
+      "deathH": 189,
+      "deathM": 804,
+      "rawis": ["el-Leys", "ed-Dûrî"],
+      "sahabi": "Übeyy b. Kaʿb",
+      "madhab": "Hanefî",
+      "note": "Arap dili ve nahvinde de otorite. Abbasi sarayında Hârunürreşîd'in oğullarına hoca.",
+      "usedIn": "Tarihî kullanım, bazı akademik çalışmalar"
+    },
+    {
+      "id": "ebu-cafer",
+      "nameAr": "أَبُو جَعْفَرٍ الْمَدَنِيُّ",
+      "nameTr": "Ebû Caʿfer el-Medenî",
+      "city": "medina",
+      "deathH": 130,
+      "deathM": 747,
+      "rawis": ["İbn Verdân", "İbn Cemmâz"],
+      "sahabi": "Übeyy b. Kaʿb",
+      "madhab": null,
+      "note": "İbn Cezerî'nin 10 kıraate eklediği üç imamdan biri. Medine'nin ikinci büyük kıraat imamı.",
+      "usedIn": "Tarihî/akademik kullanım"
+    },
+    {
+      "id": "yakub",
+      "nameAr": "يَعْقُوبُ الْبَصْرِيُّ",
+      "nameTr": "Yaʿkūb el-Basrî",
+      "city": "basra",
+      "deathH": 205,
+      "deathM": 821,
+      "rawis": ["Ruveysî", "Ravh"],
+      "sahabi": "Übeyy b. Kaʿb",
+      "madhab": null,
+      "note": "İbn Cezerî'nin eklediği üç imamdan ikincisi. Basra'nın son büyük kıraat imamı.",
+      "usedIn": "Tarihî/akademik kullanım"
+    },
+    {
+      "id": "halef",
+      "nameAr": "خَلَفٌ الْبَزَّارُ",
+      "nameTr": "Halef el-Bezzâr",
+      "city": "kufa",
+      "deathH": 229,
+      "deathM": 844,
+      "rawis": ["İshâk", "İdrîs"],
+      "sahabi": "İbn Mesʿûd",
+      "madhab": null,
+      "note": "İbn Cezerî'nin eklediği üçüncü imam. Aynı zamanda Hamza'nın râvîsidir.",
+      "usedIn": "Tarihî/akademik kullanım"
+    }
+  ],
+
+  "variants": [
+    {
+      "id": "fatiha-1-4",
+      "surah": 1,
+      "ayah": 4,
+      "surahName": "Fâtiha",
+      "hafs": "مَالِكِ",
+      "hafsNote": "Mâlik = Sahip/Malik",
+      "vers": "مَلِكِ",
+      "versNote": "Melik = Kral/Hükümdar",
+      "diffType": "vowel",
+      "meaningImpact": "İki farklı ilahi sıfat: mutlak sahiplik (Mâlik) vs. hükümranlık (Melik)"
+    },
+    {
+      "id": "bakara-2-9",
+      "surah": 2,
+      "ayah": 9,
+      "surahName": "Bakara",
+      "hafs": "يُخَادِعُونَ",
+      "hafsNote": "Mufâale kalıbı: karşılıklı aldatma",
+      "vers": "يَخْدَعُونَ",
+      "versNote": "Basit fiil: aldatmaya çalışırlar",
+      "diffType": "active-passive",
+      "meaningImpact": "Hafs: karşılıklı aldatma çabası. Verş: tek taraflı aldatma girişimi."
+    },
+    {
+      "id": "bakara-2-58",
+      "surah": 2,
+      "ayah": 58,
+      "surahName": "Bakara",
+      "hafs": "نَغْفِرْ",
+      "hafsNote": "Etken 1. çoğul: 'biz affederiz'",
+      "vers": "يُغْفَرْ",
+      "versNote": "Edilgen 3. tekil: 'affedilir'",
+      "diffType": "active-passive",
+      "meaningImpact": "Hafs: Allah'ın doğrudan affı. Verş: edilgen yapı, fail belirsiz."
+    },
+    {
+      "id": "bakara-2-85",
+      "surah": 2,
+      "ayah": 85,
+      "surahName": "Bakara",
+      "hafs": "تَعْمَلُونَ",
+      "hafsNote": "2. çoğul: 'siz yaparsınız'",
+      "vers": "يَعْمَلُونَ",
+      "versNote": "3. çoğul: 'onlar yaparlar'",
+      "diffType": "pronoun",
+      "meaningImpact": "Hafs: muhatap değişimi (siz). Verş: anlatı tutarlılığı (onlar)."
+    },
+    {
+      "id": "bakara-2-140",
+      "surah": 2,
+      "ayah": 140,
+      "surahName": "Bakara",
+      "hafs": "تَقُولُونَ",
+      "hafsNote": "2. çoğul: 'siz dersiniz'",
+      "vers": "يَقُولُونَ",
+      "versNote": "3. çoğul: 'onlar derler'",
+      "diffType": "pronoun",
+      "meaningImpact": "Hafs: Müslümanlara doğrudan hitap. Verş: Ehl-i kitap hakkında anlatı."
+    },
+    {
+      "id": "bakara-2-184",
+      "surah": 2,
+      "ayah": 184,
+      "surahName": "Bakara",
+      "hafs": "فِدْيَةٌ طَعَامُ مِسْكِينٍ",
+      "hafsNote": "Tekil: bir yoksulu doyurma",
+      "vers": "فِدْيَةٌ طَعَامُ مَسَاكِينَ",
+      "versNote": "Çoğul: birden fazla yoksulu doyurma",
+      "diffType": "consonant",
+      "meaningImpact": "Oruç fidyesinin miktarına dair fıkhî görüş ayrılığının dilbilimsel kaynağı."
+    },
+    {
+      "id": "bakara-2-259",
+      "surah": 2,
+      "ayah": 259,
+      "surahName": "Bakara",
+      "hafs": "نُنشِزُهَا",
+      "hafsNote": "z harfi: bir araya getiririz/yükseltiriz",
+      "vers": "نُنشِرُهَا",
+      "versNote": "r harfi: diriltir/yayarız",
+      "diffType": "consonant",
+      "meaningImpact": "Kemiklerin bir araya getirilmesi (z) vs. diriltilip yayılması (r). Anlam yakın ama vurgu farklı."
+    },
+    {
+      "id": "al-imran-3-133",
+      "surah": 3,
+      "ayah": 133,
+      "surahName": "Âl-i İmrân",
+      "hafs": "وَسَارِعُوا",
+      "hafsNote": "Vav harfi var: 've koşun'",
+      "vers": "سَارِعُوا",
+      "versNote": "Vav harfi yok: 'koşun'",
+      "diffType": "word",
+      "meaningImpact": "Hafs: bir önceki cümleyle bağlantı kuran 'vav'. Verş: bağımsız, keskin emir."
+    },
+    {
+      "id": "al-imran-3-146",
+      "surah": 3,
+      "ayah": 146,
+      "surahName": "Âl-i İmrân",
+      "hafs": "قَاتَلَ",
+      "hafsNote": "Etken: 'savaştı'",
+      "vers": "قُتِلَ",
+      "versNote": "Edilgen: 'öldürüldü'",
+      "diffType": "active-passive",
+      "meaningImpact": "Hafs: peygamberin yanında savaşan birler. Verş: peygamberin yanında öldürülenler."
+    },
+    {
+      "id": "maide-5-54",
+      "surah": 5,
+      "ayah": 54,
+      "surahName": "Mâide",
+      "hafs": "يَرْتَدَّ",
+      "hafsNote": "İdgamlı kalıp",
+      "vers": "يَرْتَدِدْ",
+      "versNote": "İdgamsız kalıp",
+      "diffType": "vowel",
+      "meaningImpact": "Anlam aynı ('döner/irtidat eder'), fakat tecvid uygulaması farklı."
+    },
+    {
+      "id": "meryem-19-19",
+      "surah": 19,
+      "ayah": 19,
+      "surahName": "Meryem",
+      "hafs": "لِأَهَبَ لَكِ",
+      "hafsNote": "1. tekil: 'sana vermem için' (Cebrail konuşuyor)",
+      "vers": "لِيَهَبَ لَكِ",
+      "versNote": "3. tekil: 'O'nun sana vermesi için' (Allah'ı kastederek)",
+      "diffType": "pronoun",
+      "meaningImpact": "Cebrail'in kendi ağzından mı, yoksa Allah'a atıfla mı söylediği konusunda fark."
+    },
+    {
+      "id": "enbiya-21-4",
+      "surah": 21,
+      "ayah": 4,
+      "surahName": "Enbiyâ",
+      "hafs": "قَالَ",
+      "hafsNote": "Geçmiş zaman: 'dedi'",
+      "vers": "قُل",
+      "versNote": "Emir: 'de!'",
+      "diffType": "vowel",
+      "meaningImpact": "Hafs: peygamberin geçmişte söylediği. Verş: Allah'ın peygambere emri."
+    },
+    {
+      "id": "enbiya-21-104",
+      "surah": 21,
+      "ayah": 104,
+      "surahName": "Enbiyâ",
+      "hafs": "نَطْوِي",
+      "hafsNote": "Etken 1. çoğul: 'biz dürüyoruz'",
+      "vers": "تُطْوَى",
+      "versNote": "Edilgen 3. dişil: 'dürülür'",
+      "diffType": "active-passive",
+      "meaningImpact": "Hafs: Allah'ın doğrudan fiili. Verş: edilgen yapı, kıyamet tablonun vurgusu."
+    },
+    {
+      "id": "kasas-28-48",
+      "surah": 28,
+      "ayah": 48,
+      "surahName": "Kasas",
+      "hafs": "سِحْرَانِ",
+      "hafsNote": "İki sihir/büyü (masdar ikil)",
+      "vers": "سَاحِرَانِ",
+      "versNote": "İki sihirbaz (fail ikil)",
+      "diffType": "consonant",
+      "meaningImpact": "Hafs: Tevrat ve Kur'an 'iki büyü' deniyor. Verş: Hz. Musa ve Hz. İsa 'iki sihirbaz' deniyor."
+    },
+    {
+      "id": "ahzab-33-68",
+      "surah": 33,
+      "ayah": 68,
+      "surahName": "Ahzâb",
+      "hafs": "كَبِيرًا",
+      "hafsNote": "Büyük (azap)",
+      "vers": "كَثِيرًا",
+      "versNote": "Çok (azap)",
+      "diffType": "word",
+      "meaningImpact": "Azabın niteliği (büyük/şiddetli) vs. miktarı (çok/fazla). Anlam yakın, vurgu farklı."
+    },
+    {
+      "id": "sura-42-30",
+      "surah": 42,
+      "ayah": 30,
+      "surahName": "Şûrâ",
+      "hafs": "بِمَا",
+      "hafsNote": "Ba harfiyle başlar",
+      "vers": "فَبِمَا",
+      "versNote": "Fe harfi eklenmiş (rasm farkı!)",
+      "diffType": "consonant",
+      "meaningImpact": "Bu, Osman mushaflarının yazı iskeletinin (rasm) farklı olduğu ender örneklerden biridir."
+    },
+    {
+      "id": "sems-91-15",
+      "surah": 91,
+      "ayah": 15,
+      "surahName": "Şems",
+      "hafs": "وَلَا يَخَافُ",
+      "hafsNote": "Vav: 've korkmaz'",
+      "vers": "فَلَا يَخَافُ",
+      "versNote": "Fe: 'artık korkmaz'",
+      "diffType": "consonant",
+      "meaningImpact": "Hafs: ek bir eylem. Verş: önceki cümlenin sonucu olan durum."
+    },
+    {
+      "id": "hicr-15-8",
+      "surah": 15,
+      "ayah": 8,
+      "surahName": "Hicr",
+      "hafs": "مَا نُنَزِّلُ",
+      "hafsNote": "1. çoğul etken: 'biz indirmeyiz'",
+      "vers": "مَا تَنَزَّلُ",
+      "versNote": "3. dişil: 'inmez/inmiyor'",
+      "diffType": "pronoun",
+      "meaningImpact": "Meleklerin inmeyişi: Hafs Allah'ın iradesiyle (biz), Verş meleklerin fiiliyle ifade eder."
+    },
+    {
+      "id": "enbiya-21-96",
+      "surah": 21,
+      "ayah": 96,
+      "surahName": "Enbiyâ",
+      "hafs": "فُتِحَتْ",
+      "hafsNote": "Hafif: 'açıldı'",
+      "vers": "فُتِّحَتْ",
+      "versNote": "Şeddeli (Tef'il): 'art arda açıldı / tamamen açıldı'",
+      "diffType": "vowel",
+      "meaningImpact": "Verş'in şeddeli kalıbı Ye'cüc Me'cüc sedlerinin tamamen yıkılışını daha güçlü vurgular."
+    },
+    {
+      "id": "al-imran-3-81",
+      "surah": 3,
+      "ayah": 81,
+      "surahName": "Âl-i İmrân",
+      "hafs": "آتَيْتُكُم",
+      "hafsNote": "1. tekil: 'size verdim'",
+      "vers": "آتَيْنَاكُم",
+      "versNote": "1. çoğul: 'size verdik'",
+      "diffType": "pronoun",
+      "meaningImpact": "İlahi hitabın tekil (Allah'ın özel vurgusu) vs. cemaat (azamet çoğulu) ifadesi."
+    },
+    {
+      "id": "bakara-2-10",
+      "surah": 2,
+      "ayah": 10,
+      "surahName": "Bakara",
+      "hafs": "يَكْذِبُونَ",
+      "hafsNote": "Basit fiil etken: 'yalanlarlar'",
+      "vers": "يُكَذِّبُونَ",
+      "versNote": "Tef'il kalıbı: 'şiddetle yalanlarlar / yalanlanırlardı'",
+      "diffType": "active-passive",
+      "meaningImpact": "Verş'in şeddeli kalıbı, yalanlamanın kasıtlı ve ısrarlı olduğunu vurgular."
+    }
+  ],
+
+  "geography": {
+    "modern": [
+      {
+        "id": "hafs",
+        "riwaya": "Hafs ʿan ʿÂsım",
+        "color": "#c9a227",
+        "approxShare": "~%95",
+        "regions": [
+          { "name": "Türkiye", "lat": 39.0, "lon": 35.0, "radiusKm": 500 },
+          { "name": "Mısır", "lat": 26.0, "lon": 30.0, "radiusKm": 400 },
+          { "name": "Suudi Arabistan", "lat": 24.0, "lon": 45.0, "radiusKm": 450 },
+          { "name": "İran", "lat": 32.0, "lon": 53.0, "radiusKm": 450 },
+          { "name": "Pakistan", "lat": 30.0, "lon": 69.0, "radiusKm": 500 },
+          { "name": "Hindistan", "lat": 20.0, "lon": 77.0, "radiusKm": 600 },
+          { "name": "Endonezya", "lat": -2.0, "lon": 118.0, "radiusKm": 600 },
+          { "name": "Malezya", "lat": 4.0, "lon": 109.0, "radiusKm": 350 }
+        ]
+      },
+      {
+        "id": "vers",
+        "riwaya": "Verş ʿan Nâfiʿ",
+        "color": "#2ecc71",
+        "approxShare": "~%3",
+        "regions": [
+          { "name": "Cezayir", "lat": 28.0, "lon": 2.6, "radiusKm": 500 },
+          { "name": "Fas", "lat": 31.0, "lon": -7.0, "radiusKm": 350 },
+          { "name": "Batı Afrika", "lat": 12.0, "lon": -8.0, "radiusKm": 600 }
+        ]
+      },
+      {
+        "id": "kalun",
+        "riwaya": "Kālûn ʿan Nâfiʿ",
+        "color": "#3498db",
+        "approxShare": "~%0.7",
+        "regions": [
+          { "name": "Libya", "lat": 26.3, "lon": 17.2, "radiusKm": 400 },
+          { "name": "Tunus (kısmen)", "lat": 33.8, "lon": 9.5, "radiusKm": 200 }
+        ]
+      },
+      {
+        "id": "duri",
+        "riwaya": "ed-Dûrî ʿan Ebû ʿAmr",
+        "color": "#9b59b6",
+        "approxShare": "~%0.3",
+        "regions": [
+          { "name": "Sudan", "lat": 15.0, "lon": 30.0, "radiusKm": 400 },
+          { "name": "Somali", "lat": 5.0, "lon": 46.0, "radiusKm": 300 }
+        ]
+      },
+      {
+        "id": "hisam",
+        "riwaya": "Hişâm ʿan İbn ʿÂmir",
+        "color": "#e67e22",
+        "approxShare": "~%1",
+        "regions": [
+          { "name": "Yemen", "lat": 15.5, "lon": 48.5, "radiusKm": 300 }
+        ]
+      }
+    ],
+    "historical": [
+      {
+        "id": "hafs-h",
+        "riwaya": "ʿÂsım (Kûfe)",
+        "color": "#c9a227",
+        "approxShare": "Kûfe bölgesi",
+        "regions": [
+          { "name": "Kûfe", "lat": 32.0, "lon": 44.4, "radiusKm": 200 }
+        ]
+      },
+      {
+        "id": "nafic-h",
+        "riwaya": "Nâfiʿ (Medine)",
+        "color": "#2ecc71",
+        "approxShare": "Hicaz bölgesi",
+        "regions": [
+          { "name": "Medine", "lat": 24.5, "lon": 39.6, "radiusKm": 200 }
+        ]
+      },
+      {
+        "id": "ibnkesir-h",
+        "riwaya": "İbn Kesîr (Mekke)",
+        "color": "#f39c12",
+        "approxShare": "Mekke bölgesi",
+        "regions": [
+          { "name": "Mekke", "lat": 21.4, "lon": 39.8, "radiusKm": 150 }
+        ]
+      },
+      {
+        "id": "ebuamr-h",
+        "riwaya": "Ebû ʿAmr (Basra)",
+        "color": "#3498db",
+        "approxShare": "Basra bölgesi",
+        "regions": [
+          { "name": "Basra", "lat": 30.5, "lon": 47.8, "radiusKm": 200 }
+        ]
+      },
+      {
+        "id": "ibnamir-h",
+        "riwaya": "İbn ʿÂmir (Şam)",
+        "color": "#9b59b6",
+        "approxShare": "Şam bölgesi",
+        "regions": [
+          { "name": "Şam (Dımaşk)", "lat": 33.5, "lon": 36.3, "radiusKm": 200 }
+        ]
+      },
+      {
+        "id": "hamza-h",
+        "riwaya": "Hamza (Kûfe)",
+        "color": "#e67e22",
+        "approxShare": "Kûfe bölgesi",
+        "regions": [
+          { "name": "Kûfe (Hamza)", "lat": 31.8, "lon": 44.2, "radiusKm": 180 }
+        ]
+      }
+    ]
+  },
+
+  "timeline": [
+    {
+      "id": "osman",
+      "titleTr": "Resm-i Osmânî",
+      "titleEn": "Uthmanic Rasm",
+      "dateH": "~30",
+      "dateM": "~650",
+      "person": "Hz. Osman (r.a.)",
+      "descTr": "Hz. Osman, farklı sahabîlerin elindeki kıraat çeşitliliğini gören Hz. Huzeyfe'nin uyarısı üzerine harekete geçti. Zeyd b. Sâbit liderliğinde bir komisyon kurularak tek bir mushaf metni oluşturuldu ve 7 şehre gönderildi.",
+      "detailTr": "Mekke, Medine, Kûfe, Basra, Şam, Yemen ve Bahreyn'e birer nüsha gönderildi. Diğer mushaflar imha edildi. Rasm (harekesiz iskelet yazı), birden fazla kıraati barındıracak şekilde bırakıldı — bu bilinçli bir tercihti."
+    },
+    {
+      "id": "ibn-mucahid",
+      "titleTr": "7 Kıraat Kanonu",
+      "titleEn": "Canon of 7 Readings",
+      "dateH": "324",
+      "dateM": "936",
+      "person": "İbn Mücâhid (ö. 324H)",
+      "descTr": "Bağdat kadısı İbn Mücâhid, 'Kitâbu's-Seb'a' adlı eserinde dolaşımdaki onlarca kıraattan yalnızca 7 tanesini 'kanonik' olarak belirledi. Her şehirden bir imam: Medine, Mekke, Basra, Şam ve Kûfe'den üç imam.",
+      "detailTr": "Bu seçim tartışmalıydı. İbn Mücâhid'in çağdaşı İbn Şenebûz farklı kıraatler okuttuğu için mahkemeye çıkarıldı. Yedi sayısının kutsallığına dair yanlış bir çağrışım yaratmakla da eleştirildi."
+    },
+    {
+      "id": "dani-satıbi",
+      "titleTr": "Sistematik Kodifikasyon",
+      "titleEn": "Systematic Codification",
+      "dateH": "444 / 590",
+      "dateM": "1053 / 1194",
+      "person": "ed-Dânî (ö. 444H) & eş-Şâtıbî (ö. 590H)",
+      "descTr": "ed-Dânî'nin 'et-Teysîr' ve eş-Şâtıbî'nin manzum 'eş-Şâtıbiyye' eserleri, her kıraat için iki-râvî sistemini standartlaştırdı. Çelişkili aktarımlar elendi, her okuyucunun iki ana râvîsi belirlendi.",
+      "detailTr": "eş-Şâtıbiyye, 1173 beyitlik bir kasidedir ve kıraat ilmini öğretmek için yüzyıllar boyunca temel metin olarak kullanıldı. Bu dönemde kıraat ilmi tam anlamıyla bir akademik disiplin haline geldi."
+    },
+    {
+      "id": "ibn-cezeri",
+      "titleTr": "10 Kıraat Modeli",
+      "titleEn": "Model of 10 Readings",
+      "dateH": "833",
+      "dateM": "1429",
+      "person": "İbn el-Cezerî (ö. 833H)",
+      "descTr": "Kıraat ilminin son büyük otoritesi İbn el-Cezerî, 7 kıraate 3 kıraat daha ekledi: Ebû Caʿfer, Yaʿkūb ve Halef. 'en-Neşr fi'l-Kırâati'l-ʿAşr' adlı eseriyle 10 kıraat modeli standart haline geldi.",
+      "detailTr": "İbn el-Cezerî, 5.000'den fazla öğrenciye kıraat dersi verdiği söylenen bir âlimdir. 10 kıraat dışında da sahih aktarımların mevcut olduğunu kabul etti, ancak en yaygın ve güvenilir olanları bu 10 kıraattir."
+    },
+    {
+      "id": "misir-1924",
+      "titleTr": "1924 Mısır Baskısı",
+      "titleEn": "1924 Egyptian Edition",
+      "dateH": "1342",
+      "dateM": "1924",
+      "person": "el-Ezher, Kral I. Fuad",
+      "descTr": "Kral I. Fuad'ın direktifi ve el-Ezher ulemasının denetimi altında hazırlanan Hafs ʿan ʿÂsım baskısı, modern dünya için fiili standart haline geldi. Matbaanın yaygınlaşması ve Osmanlı geleneğinin etkisiyle bu baskı tüm dünyaya yayıldı.",
+      "detailTr": "Bu baskının seçilmesinde Osmanlı İmparatorluğu'nun Hafs kıraatini benimsemiş olması belirleyiciydi. Osmanlı medreseleri ve matbaaları aracılığıyla Hafs, 18-19. yüzyıllarda zaten dünya genelinde hâkim kıraat haline gelmişti."
+    }
+  ]
+}
