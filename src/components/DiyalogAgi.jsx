@@ -282,9 +282,229 @@ export default function DiyalogAgi({ onClose }) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAxisClick, isMobile, language }) {
+  const [hoveredArc, setHoveredArc] = useState(null);
+  const [hoveredNode, setHoveredNode] = useState(null);
+  const [tooltip, setTooltip] = useState(null);
+
+  const HEMISPHERE_ORDER = [
+    'allah', 'angels', 'iblis',
+    'musa', 'ibrahim', 'nuh', 'isa', 'muhammad', 'yusuf', 'sulayman', 'adam', 'other-prophets',
+    'pharaoh', 'people-prophets', 'munafiqun', 'muminun', 'other-characters',
+    'paradise-dwellers', 'araf-dwellers', 'hell-dwellers', 'angels-hell',
+  ];
+
+  const CX = 400, CY = 400, ORBIT = 270;
+
+  const nodePositions = {};
+  const orderedSpeakers = HEMISPHERE_ORDER
+    .map(id => speakers.find(s => s.id === id))
+    .filter(Boolean);
+  speakers.forEach(s => {
+    if (!orderedSpeakers.find(o => o.id === s.id)) orderedSpeakers.push(s);
+  });
+
+  orderedSpeakers.forEach((speaker, i) => {
+    const total = orderedSpeakers.length;
+    const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
+    nodePositions[speaker.id] = {
+      x: CX + ORBIT * Math.cos(angle),
+      y: CY + ORBIT * Math.sin(angle),
+    };
+  });
+
+  const visibleAxes = temporalFilter === 'all'
+    ? axes
+    : axes.filter(a => a.temporalLayer === temporalFilter);
+
+  const arcPath = (fromId, toId) => {
+    const from = nodePositions[fromId];
+    const to   = nodePositions[toId];
+    if (!from || !to) return '';
+    const cpX = (from.x + to.x) / 2 * 0.35 + CX * 0.65;
+    const cpY = (from.y + to.y) / 2 * 0.35 + CY * 0.65;
+    return `M ${from.x} ${from.y} Q ${cpX} ${cpY} ${to.x} ${to.y}`;
+  };
+
+  const nodeRadius = (speaker) => {
+    const totalDialogues = axes
+      .filter(a => a.speakerId === speaker.id || a.addresseeId === speaker.id)
+      .reduce((sum, a) => sum + (a.dialogueCount || 1), 0);
+    return Math.max(8, Math.min(20, 8 + totalDialogues * 0.4));
+  };
+
+  const arcWidth = (axis) => Math.max(1, Math.min(6, 1 + (axis.dialogueCount || 1) * 0.2));
+
+  const TEMPORAL_LABELS = {
+    all:    { tr: 'Tümü',  en: 'All'      },
+    ezel:   { tr: 'Ezel',  en: 'Pre-Time' },
+    dunya:  { tr: 'Dünya', en: 'Earthly'  },
+    ahiret: { tr: 'Ahiret',en: 'Hereafter'},
+  };
+
+  const svgSize = isMobile ? Math.min(window.innerWidth - 32, 400) : 560;
+  const scale   = svgSize / 800;
+
   return (
-    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.silver, fontFamily: FONTS.body }}>
-      Network diagram — Task 7
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: isMobile ? '12px 16px' : '16px 24px', gap: '12px' }}>
+      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+        {[
+          { val: '~300+', label: language === 'tr' ? 'diyalog' : 'dialogues' },
+          { val: '20+',   label: language === 'tr' ? 'konuşan' : 'speakers'  },
+          { val: '~25',   label: language === 'tr' ? 'eksen'   : 'axes'      },
+          { val: '3',     label: language === 'tr' ? 'zaman katmanı' : 'temporal layers' },
+        ].map(s => (
+          <div key={s.label} style={{ ...GLASS_CARD, padding: '6px 14px', display: 'flex', gap: '6px', alignItems: 'center' }}>
+            <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.95rem' }}>{s.val}</span>
+            <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.78rem' }}>{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '16px', flex: 1, alignItems: 'flex-start' }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: isMobile ? 'row' : 'column',
+          gap: '6px',
+          flexShrink: 0,
+          overflowX: isMobile ? 'auto' : 'visible',
+          scrollbarWidth: 'none',
+        }}>
+          {['all', 'ezel', 'dunya', 'ahiret'].map(layer => (
+            <button
+              key={layer}
+              onClick={() => setTemporalFilter(layer)}
+              style={{
+                padding: '6px 14px',
+                borderRadius: '20px',
+                border: `1px solid ${temporalFilter === layer ? COLORS.gold : COLORS.glassBorder}`,
+                background: temporalFilter === layer ? COLORS.goldAlpha15 : 'transparent',
+                color: temporalFilter === layer ? COLORS.gold : COLORS.silver,
+                fontSize: '0.78rem',
+                fontFamily: FONTS.body,
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                transition: 'all 0.15s',
+              }}
+            >
+              {language === 'tr' ? TEMPORAL_LABELS[layer].tr : TEMPORAL_LABELS[layer].en}
+            </button>
+          ))}
+        </div>
+
+        <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
+          <svg
+            width={svgSize}
+            height={svgSize}
+            viewBox="0 0 800 800"
+            style={{ maxWidth: '100%' }}
+          >
+            {visibleAxes.map(axis => {
+              const isHovered = hoveredArc === axis.id || hoveredNode === axis.speakerId || hoveredNode === axis.addresseeId;
+              return (
+                <path
+                  key={axis.id}
+                  d={arcPath(axis.speakerId, axis.addresseeId)}
+                  fill="none"
+                  stroke={axis.color || COLORS.gold}
+                  strokeWidth={arcWidth(axis) / scale}
+                  strokeOpacity={isHovered ? 0.85 : 0.25}
+                  style={{ cursor: 'pointer', transition: 'stroke-opacity 0.15s' }}
+                  onMouseEnter={(e) => {
+                    setHoveredArc(axis.id);
+                    const svgRect = e.currentTarget.closest('svg').getBoundingClientRect();
+                    const themes = (language === 'tr' ? axis.keyThemesTr : axis.keyThemesEn) || [];
+                    setTooltip({
+                      x: e.clientX - svgRect.left,
+                      y: e.clientY - svgRect.top - 10,
+                      content: `${axis.speakerTr} → ${axis.addresseeTr}\n${axis.dialogueCount} diyalog\n${themes.join(' · ')}`,
+                    });
+                  }}
+                  onMouseLeave={() => { setHoveredArc(null); setTooltip(null); }}
+                  onClick={() => onAxisClick(axis.speakerId, axis.addresseeId)}
+                />
+              );
+            })}
+
+            {orderedSpeakers.map(speaker => {
+              const pos = nodePositions[speaker.id];
+              if (!pos) return null;
+              const r = nodeRadius(speaker) / scale;
+              const isHovered = hoveredNode === speaker.id;
+              return (
+                <g key={speaker.id}
+                  style={{ cursor: 'pointer' }}
+                  onMouseEnter={() => { setHoveredNode(speaker.id); }}
+                  onMouseLeave={() => setHoveredNode(null)}
+                  onClick={() => onAxisClick(speaker.id, null)}
+                >
+                  <circle
+                    cx={pos.x} cy={pos.y} r={r + (isHovered ? 3 : 0) / scale}
+                    fill={speaker.color || COLORS.gold}
+                    fillOpacity={isHovered ? 0.95 : 0.8}
+                    stroke={COLORS.cosmicBlack}
+                    strokeWidth={2 / scale}
+                  />
+                  <text
+                    x={pos.x}
+                    y={pos.y + r + 14 / scale}
+                    textAnchor="middle"
+                    fill={isHovered ? COLORS.gold : COLORS.silver}
+                    fontSize={isMobile ? 9 / scale : 11 / scale}
+                    fontFamily={FONTS.body}
+                    style={{ pointerEvents: 'none', transition: 'fill 0.15s' }}
+                  >
+                    {isMobile
+                      ? (language === 'tr' ? speaker.nameTr : speaker.nameEn).slice(0, 6)
+                      : (language === 'tr' ? speaker.nameTr : speaker.nameEn).split(' ').slice(-1)[0]
+                    }
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+
+          {tooltip && (
+            <div style={{
+              position: 'absolute',
+              left: tooltip.x + 12,
+              top: tooltip.y,
+              background: 'rgba(8,9,26,0.95)',
+              border: `1px solid ${COLORS.glassBorder}`,
+              borderRadius: '8px',
+              padding: '8px 12px',
+              pointerEvents: 'none',
+              zIndex: 10,
+              maxWidth: '200px',
+            }}>
+              {tooltip.content.split('\n').map((line, i) => (
+                <div key={i} style={{
+                  color: i === 0 ? COLORS.gold : COLORS.silver,
+                  fontSize: i === 0 ? '0.82rem' : '0.74rem',
+                  fontFamily: FONTS.body,
+                  fontWeight: i === 0 ? 600 : 400,
+                  lineHeight: 1.5,
+                }}>{line}</div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', paddingTop: '8px', borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>
+        <span style={{ color: COLORS.silver, fontSize: '0.74rem', fontFamily: FONTS.body, alignSelf: 'center', marginRight: '4px' }}>
+          {language === 'tr' ? 'Oku tıkla → diyalogları gör' : 'Click arc → view dialogues'}
+        </span>
+        {[
+          { color: TEMPORAL.ezel,   label: language === 'tr' ? 'Ezel'  : 'Pre-Time'  },
+          { color: TEMPORAL.dunya,  label: language === 'tr' ? 'Dünya' : 'Earthly'   },
+          { color: TEMPORAL.ahiret, label: language === 'tr' ? 'Ahiret': 'Hereafter' },
+        ].map(l => (
+          <div key={l.label} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <div style={{ width: 10, height: 10, borderRadius: '50%', background: l.color }} />
+            <span style={{ color: COLORS.silver, fontSize: '0.74rem', fontFamily: FONTS.body }}>{l.label}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
