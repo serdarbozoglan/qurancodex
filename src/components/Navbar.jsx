@@ -25,6 +25,7 @@ const KuranRetorigi    = lazy(() => import('./KuranRetorigi'));
 const Melekler         = lazy(() => import('./Melekler'));
 const KuranRenkleri    = lazy(() => import('./KuranRenkleri'));
 const KiyametSahneleri = lazy(() => import('./KiyametSahneleri'));
+const KiraatAtlasi  = lazy(() => import('./KiraatAtlasi'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -164,6 +165,7 @@ export default function Navbar() {
   const [graphReturnToWow, setGraphReturnToWow]         = useState(false);
   const [graphReturnToConcept, setGraphReturnToConcept] = useState(false);
   const graphBackRef = useRef(null); // set by VerseGraph when it has internal back state
+  const esbabBackRef = useRef(null); // set by EsbabNuzul when detail is open
   const conceptRestoreRef = useRef(null); // stores concept state to restore after VerseGraph closes
   const [readingOpen, setReadingOpen]   = useState(
     () => localStorage.getItem('qurancodex_reading_open') === 'true'
@@ -189,6 +191,7 @@ export default function Navbar() {
   const [meleklerOpen,   setMeleklerOpen]   = useState(false);
   const [renkleriOpen,   setRenkleriOpen]   = useState(false);
   const [kiyametOpen,    setKiyametOpen]    = useState(false);
+  const [kiraatOpen,   setKiraatOpen]   = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -269,11 +272,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -302,7 +305,15 @@ export default function Navbar() {
       if (conceptOpen)    { setConceptOpen(false);       return; }
       if (kissaOpen)      { setKissaOpen(false);         return; }
       if (comparatorOpen) { setComparatorOpen(false);    return; }
-      if (esbabOpen)      { setEsbabOpen(false);          return; }
+      if (esbabOpen) {
+        if (esbabBackRef.current) {
+          esbabBackRef.current();
+          window.history.pushState({ overlay: true }, '');
+        } else {
+          setEsbabOpen(false);
+        }
+        return;
+      }
       if (commandsOpen)   { setCommandsOpen(false);       return; }
       if (addresseeOpen)  { setAddresseeOpen(false);      return; }
       if (esmaOpen)       { setEsmaOpen(false);           return; }
@@ -315,10 +326,11 @@ export default function Navbar() {
       if (renkleriOpen)   { setRenkleriOpen(false);        return; }
       if (kiyametOpen)    { setKiyametOpen(false);          return; }
       if (retorigiOpen)   { setRetorigiOpen(false);        return; }
+      if (kiraatOpen)     { setKiraatOpen(false);          return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -520,6 +532,20 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setZamanOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Kıraat Atlası',
+      labelEn: 'Qirāʾāt Atlas',
+      descTr: '10 imam · 20 râvî · coğrafi dağılım · fark analizi',
+      descEn: '10 readers · 20 transmitters · geographic spread · variant analysis',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/>
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      ),
+      action: () => { setKiraatOpen(true); setToolsOpen(false); },
     },
   ];
 
@@ -1028,10 +1054,10 @@ export default function Navbar() {
                         </span>
                       </button>
                     );
-                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları
+                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları [14]Kıraat Atlası
                     const vizTools      = [tools[1], tools[2], tools[3], tools[8], tools[6]];
                     const analysisTools = [tools[12], tools[7], tools[5], tools[11]];
-                    const researchTools = [tools[0], tools[4], tools[9], tools[10]];
+                    const researchTools = [tools[0], tools[4], tools[9], tools[10], tools[14]];
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Col 1: Görselleştirme */}
@@ -1311,7 +1337,7 @@ export default function Navbar() {
     )}
     {esbabOpen && (
       <Suspense fallback={null}>
-        <EsbabNuzul onClose={() => setEsbabOpen(false)} />
+        <EsbabNuzul onClose={() => setEsbabOpen(false)} backRef={esbabBackRef} />
       </Suspense>
     )}
     {commandsOpen && (
@@ -1372,6 +1398,11 @@ export default function Navbar() {
     {retorigiOpen && (
       <Suspense fallback={null}>
         <KuranRetorigi onClose={() => setRetorigiOpen(false)} />
+      </Suspense>
+    )}
+    {kiraatOpen && (
+      <Suspense fallback={null}>
+        <KiraatAtlasi onClose={() => setKiraatOpen(false)} />
       </Suspense>
     )}
     </>
