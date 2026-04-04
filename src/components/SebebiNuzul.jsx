@@ -494,8 +494,8 @@ function TabArama({ data, language, isMobile }) {
       {/* Period filter */}
       <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '10px' }}>
         {chipBtn(periodFilter === 'all', () => setPeriodFilter('all'), language === 'tr' ? 'Tüm Dönemler' : 'All Periods')}
-        {chipBtn(periodFilter === 'makki', () => setPeriodFilter('makki'), language === 'tr' ? 'Mekkî' : 'Meccan', '#f39c12')}
-        {chipBtn(periodFilter === 'madani', () => setPeriodFilter('madani'), language === 'tr' ? 'Medenî' : 'Medinan', '#3498db')}
+        {chipBtn(periodFilter === 'makki', () => setPeriodFilter('makki'), language === 'tr' ? 'Mekkî' : 'Meccan', PERIOD_META['makki'].color)}
+        {chipBtn(periodFilter === 'madani', () => setPeriodFilter('madani'), language === 'tr' ? 'Medenî' : 'Medinan', PERIOD_META['madani'].color)}
       </div>
 
       {/* Reliability filter */}
@@ -651,7 +651,7 @@ function TabIstatistik({ data, language, isMobile }) {
                 width: '108px',
                 height: '108px',
                 borderRadius: '50%',
-                background: '#0a0a1a',
+                background: COLORS.cosmicBlack,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -709,24 +709,24 @@ function TabIstatistik({ data, language, isMobile }) {
         }}>
           <div style={{
             width: `${makki.percent}%`,
-            background: '#f39c12',
+            background: PERIOD_META['makki'].color,
             transition: 'width 0.8s ease',
           }} />
           <div style={{
             width: `${madani.percent}%`,
-            background: '#3498db',
+            background: PERIOD_META['madani'].color,
             transition: 'width 0.8s ease',
           }} />
         </div>
         <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#f39c12' }} />
+            <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: PERIOD_META['makki'].color }} />
             <span style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body }}>
               {language === 'tr' ? 'Mekkî' : 'Meccan'}: {makki.percent}% (~{makki.approxCount})
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#3498db' }} />
+            <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: PERIOD_META['madani'].color }} />
             <span style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body }}>
               {language === 'tr' ? 'Medenî' : 'Medinan'}: {madani.percent}% (~{madani.approxCount})
             </span>
@@ -957,7 +957,7 @@ function TabKaynaklar({ data, language, isMobile }) {
 
   const statusMeta = {
     founder:   { tr: 'Kurucu', en: 'Founder',   color: COLORS.gold },
-    expander:  { tr: 'Genişletici', en: 'Expander', color: COLORS.skyBlue },
+    expander:  { tr: 'Geliştirici', en: 'Expander', color: COLORS.skyBlue },
     precursor: { tr: 'Öncü', en: 'Precursor',  color: COLORS.softEmerald },
   };
 
