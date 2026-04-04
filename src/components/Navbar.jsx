@@ -12,7 +12,6 @@ const ProphetAtlas  = lazy(() => import('../sections/ProphetAtlas'));
 const ConceptGraph     = lazy(() => import('./ConceptGraph'));
 const KissaAtlas       = lazy(() => import('./KissaAtlas'));
 const SurahComparator  = lazy(() => import('./SurahComparator'));
-const EsbabNuzul       = lazy(() => import('./EsbabNuzul'));
 const QuranCommands    = lazy(() => import('./QuranCommands'));
 const AddresseeSystem  = lazy(() => import('./AddresseeSystem'));
 const EsmaFrekans      = lazy(() => import('./EsmaFrekans'));
@@ -168,7 +167,6 @@ export default function Navbar() {
   const [graphReturnToWow, setGraphReturnToWow]         = useState(false);
   const [graphReturnToConcept, setGraphReturnToConcept] = useState(false);
   const graphBackRef   = useRef(null); // set by VerseGraph when it has internal back state
-  const esbabBackRef   = useRef(null); // set by EsbabNuzul when detail is open
   const meselBackRef   = useRef(null); // set by MeselAtlasi when card is expanded
   const diyalogBackRef = useRef(null); // set by DiyalogAgi when navigated internally
   const kiraatBackRef  = useRef(null); // set by KiraatAtlasi when navigated internally
@@ -184,7 +182,6 @@ export default function Navbar() {
   const [conceptOpen,    setConceptOpen]    = useState(false);
   const [kissaOpen,      setKissaOpen]      = useState(false);
   const [comparatorOpen, setComparatorOpen] = useState(false);
-  const [esbabOpen,      setEsbabOpen]      = useState(false);
   const [commandsOpen,   setCommandsOpen]   = useState(false);
   const [addresseeOpen,  setAddresseeOpen]  = useState(false);
   const [esmaOpen,       setEsmaOpen]       = useState(false);
@@ -281,11 +278,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -314,15 +311,6 @@ export default function Navbar() {
       if (conceptOpen)    { setConceptOpen(false);       return; }
       if (kissaOpen)      { setKissaOpen(false);         return; }
       if (comparatorOpen) { setComparatorOpen(false);    return; }
-      if (esbabOpen) {
-        if (esbabBackRef.current) {
-          esbabBackRef.current();
-          window.history.pushState({ overlay: true }, '');
-        } else {
-          setEsbabOpen(false);
-        }
-        return;
-      }
       if (commandsOpen)   { setCommandsOpen(false);       return; }
       if (addresseeOpen)  { setAddresseeOpen(false);      return; }
       if (esmaOpen)       { setEsmaOpen(false);           return; }
@@ -368,7 +356,7 @@ export default function Navbar() {
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -502,20 +490,8 @@ export default function Navbar() {
       action: () => { setComparatorOpen(true); setToolsOpen(false); },
     },
     {
-      labelTr: 'Nüzul Haritası', labelEn: 'Revelation Map',
-      descTr: 'Hangi ayet, hangi olay üzerine indi?', descEn: 'Which verse was revealed on which occasion?',
-      icon: (
-        // Map pin + scroll/book — revelation occasion marker
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-          <circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/>
-        </svg>
-      ),
-      action: () => { setEsbabOpen(true); setToolsOpen(false); },
-    },
-    {
       labelTr: "Kur'an'ın Emirleri", labelEn: "Quran's Commands",
-      descTr: '8 kategori · seçki', descEn: '8 categories · curated',
+      descTr: '88 emir ve yasak · 8 kategori', descEn: '88 commands & prohibitions · 8 categories',
       icon: (
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 11 12 14 22 4" />
@@ -1131,10 +1107,10 @@ export default function Navbar() {
                         </span>
                       </button>
                     );
-                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları [14]Kıraat Atlası [15]Diyalog Ağı [16]Mesel Atlası [17]Sebeb-i Nüzul
-                    const vizTools      = [tools[1], tools[2], tools[3], tools[8], tools[6], tools[16]];
-                    const analysisTools = [tools[12], tools[7], tools[5], tools[11], tools[15], tools[14]];
-                    const researchTools = [tools[0], tools[4], tools[9], tools[10], tools[17]];
+                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Emirler [9]Dua [10]Muhatap [11]Esmaül Hüsna [12]Zamanın Boyutları [13]Kıraat Atlası [14]Diyalog Ağı [15]Mesel Atlası [16]Sebeb-i Nüzul
+                    const vizTools      = [tools[1], tools[2], tools[3], tools[6], tools[15]];
+                    const analysisTools = [tools[11], tools[7], tools[5], tools[10], tools[14], tools[13]];
+                    const researchTools = [tools[0], tools[4], tools[8], tools[9], tools[16]];
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Col 1: Görselleştirme */}
@@ -1410,11 +1386,6 @@ export default function Navbar() {
     {comparatorOpen && (
       <Suspense fallback={null}>
         <SurahComparator onClose={() => setComparatorOpen(false)} />
-      </Suspense>
-    )}
-    {esbabOpen && (
-      <Suspense fallback={null}>
-        <EsbabNuzul onClose={() => setEsbabOpen(false)} backRef={esbabBackRef} />
       </Suspense>
     )}
     {commandsOpen && (
