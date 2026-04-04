@@ -1,0 +1,36 @@
+{
+  "scholars": [
+    {
+      "id": "ibn-qayyim",
+      "nameTr": "İbn Kayyım el-Cevziyye",
+      "deathH": 751,
+      "deathM": 1350,
+      "workTr": "el-Emsâl fi'l-Kur'âni'l-Kerîm",
+      "viewTr": "Meseller salt benzetme değil, gerçeğin insan zihninin kavrayabileceği formdaki tezahürüdür — ilahi bir delil (burhan)."
+    },
+    {
+      "id": "ghazali",
+      "nameTr": "İmam Gazzâlî",
+      "deathH": 505,
+      "deathM": 1111,
+      "workTr": "Mişkâtü'l-Envâr",
+      "viewTr": "Nûr 24:40'taki derin deniz meselini çok katmanlı okur: Derin okyanus = dünya, birinci dalga = nefsin arzuları, ikinci dalga = öfke ve kibir, bulut = inatçı cehalet."
+    },
+    {
+      "id": "suyuti",
+      "nameTr": "es-Süyûtî",
+      "deathH": 911,
+      "deathM": 1505,
+      "workTr": "el-İtkân fî Ulûmi'l-Kur'ân",
+      "viewTr": "Meselleri Kur'an ilimlerinin müstakil bir dalı olarak üç türe ayırır: Sarîh (açık), Kâmin (gizli), Mürsel (atasözü tarzı)."
+    },
+    {
+      "id": "shinqiti",
+      "nameTr": "eş-Şinkîtî",
+      "deathH": 1393,
+      "deathM": 1973,
+      "workTr": "Edvâu'l-Beyân",
+      "viewTr": "Mesellerin amacını 'soyut olanı somutlaştırma' ve 'gayb'ı şehâdet'le köprüleme' olarak tanımlar."
+    }
+  ]
+}

@@ -27,6 +27,7 @@ const KuranRenkleri    = lazy(() => import('./KuranRenkleri'));
 const KiyametSahneleri = lazy(() => import('./KiyametSahneleri'));
 const KiraatAtlasi  = lazy(() => import('./KiraatAtlasi'));
 const DiyalogAgi    = lazy(() => import('./DiyalogAgi'));
+const MeselAtlasi   = lazy(() => import('./MeselAtlasi'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -194,6 +195,7 @@ export default function Navbar() {
   const [kiyametOpen,    setKiyametOpen]    = useState(false);
   const [kiraatOpen,   setKiraatOpen]   = useState(false);
   const [diyalogOpen,  setDiyalogOpen]  = useState(false);
+  const [meselOpen,    setMeselOpen]    = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -274,11 +276,11 @@ export default function Navbar() {
 
   // Browser back button closes the active overlay
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || esbabOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen]);
 
   useEffect(() => {
     const handlePop = () => {
@@ -330,10 +332,11 @@ export default function Navbar() {
       if (retorigiOpen)   { setRetorigiOpen(false);        return; }
       if (kiraatOpen)     { setKiraatOpen(false);          return; }
       if (diyalogOpen)    { setDiyalogOpen(false);         return; }
+      if (meselOpen)      { setMeselOpen(false);           return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, esbabOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -561,6 +564,19 @@ export default function Navbar() {
         </svg>
       ),
       action: () => { setDiyalogOpen(true); setToolsOpen(false); },
+    },
+    {
+      labelTr: 'Mesel & Temsil Atlası',
+      labelEn: 'Parables & Metaphors Atlas',
+      descTr: '~50 mesel · 7 imge evreni · çift meseller · nûr-zulumât',
+      descEn: '~50 parables · 7 imagery domains · paired parables · light-darkness',
+      icon: (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <circle cx="9" cy="12" r="6"/>
+          <circle cx="15" cy="12" r="6"/>
+        </svg>
+      ),
+      action: () => { setMeselOpen(true); setToolsOpen(false); },
     },
   ];
 
@@ -1072,7 +1088,7 @@ export default function Navbar() {
                     // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları [14]Kıraat Atlası [15]Diyalog Ağı
                     const vizTools      = [tools[1], tools[2], tools[3], tools[8], tools[6]];
                     const analysisTools = [tools[12], tools[7], tools[5], tools[11]];
-                    const researchTools = [tools[0], tools[4], tools[9], tools[10], tools[14], tools[15]];
+                    const researchTools = [tools[0], tools[4], tools[9], tools[10], tools[14], tools[15], tools[16]];
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Col 1: Görselleştirme */}
@@ -1423,6 +1439,11 @@ export default function Navbar() {
     {diyalogOpen && (
       <Suspense fallback={null}>
         <DiyalogAgi onClose={() => setDiyalogOpen(false)} />
+      </Suspense>
+    )}
+    {meselOpen && (
+      <Suspense fallback={null}>
+        <MeselAtlasi onClose={() => setMeselOpen(false)} />
       </Suspense>
     )}
     </>

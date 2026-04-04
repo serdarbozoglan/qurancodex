@@ -1,0 +1,46 @@
+{
+  "metaVerses": [
+    {
+      "ref": "2:26",
+      "keyPhrase": "لَا يَسْتَحْيِي أَن يَضْرِبَ مَثَلًا مَّا بَعُوضَةً",
+      "messageTr": "Allah sivrisineği bile mesel vermekten çekinmez",
+      "principleKey": "scale-free",
+      "principleLabel": "Boyut Tanımaz"
+    },
+    {
+      "ref": "29:43",
+      "keyPhrase": "وَمَا يَعْقِلُهَا إِلَّا الْعَالِمُونَ",
+      "messageTr": "Bu meselleri ancak bilgi sahipleri anlar",
+      "principleKey": "depth",
+      "principleLabel": "Derinlik"
+    },
+    {
+      "ref": "59:21",
+      "keyPhrase": "لَعَلَّهُمْ يَتَفَكَّرُونَ",
+      "messageTr": "Düşünsünler diye meseller veriyoruz",
+      "principleKey": "purpose",
+      "principleLabel": "Amaç: Tefekkür"
+    },
+    {
+      "ref": "39:27",
+      "keyPhrase": "وَلَقَدْ ضَرَبْنَا لِلنَّاسِ فِي هَٰذَا الْقُرْآنِ مِن كُلِّ مَثَلٍ",
+      "messageTr": "Bu Kur'an'da insanlar için her türden mesel verdik",
+      "principleKey": "comprehensiveness",
+      "principleLabel": "Kapsamlılık"
+    },
+    {
+      "ref": "30:58",
+      "keyPhrase": "وَلَقَدْ ضَرَبْنَا لِلنَّاسِ فِي هَٰذَا الْقُرْآنِ مِن كُلِّ مَثَلٍ",
+      "messageTr": "İnsanlar için her türlü meseli verdik",
+      "principleKey": "variety",
+      "principleLabel": "Çeşitlilik"
+    },
+    {
+      "ref": "17:89",
+      "keyPhrase": "وَلَقَدْ صَرَّفْنَا لِلنَّاسِ فِي هَٰذَا الْقُرْآنِ مِن كُلِّ مَثَلٍ",
+      "messageTr": "Her türlü meseli döndürüp anlattık",
+      "principleKey": "multi-angle",
+      "principleLabel": "Çok Yönlü Anlatım"
+    }
+  ]
+}

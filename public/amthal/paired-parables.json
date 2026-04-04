@@ -1,0 +1,104 @@
+{
+  "pairs": [
+    {
+      "id": "hypocrites-fire-rain",
+      "themeTr": "Münafıkların İki Hali",
+      "themeEn": "Two States of Hypocrites",
+      "sharedThemeTr": "İkisi de münafığı tasvir eder — biri aktif arayışla, diğeri pasif maruz kalmayla. İki halde de sonuç karanlıktır.",
+      "sideA": {
+        "parableId": "fire-kindler",
+        "ref": "2:17",
+        "domainColor": "#c9a227",
+        "keyPhrase": "اسْتَوْقَدَ نَارًا",
+        "angleTr": "Aktif arayış — ateş yakar, ışık bulur, sonra söner"
+      },
+      "sideB": {
+        "parableId": "rainstorm",
+        "ref": "2:19-20",
+        "domainColor": "#3498db",
+        "keyPhrase": "صَيِّبٍ مِّنَ السَّمَاءِ",
+        "angleTr": "Pasif maruz kalış — gökten inen fırtınaya yakalanır"
+      }
+    },
+    {
+      "id": "light-darkness-pair",
+      "themeTr": "İman vs. Küfür: Işık ve Karanlık",
+      "themeEn": "Faith vs. Disbelief: Light and Darkness",
+      "sharedThemeTr": "Aynı bölümde (Nûr Suresi) art arda gelen iki mesel: biri imanın nurunu, diğeri küfrün karanlığını tasvir eder.",
+      "sideA": {
+        "parableId": "desert-mirage",
+        "ref": "24:39",
+        "domainColor": "#3498db",
+        "keyPhrase": "أَعْمَالُهُمْ كَسَرَابٍ",
+        "angleTr": "Serap — gözle görünür ama yaklaşınca yok olur"
+      },
+      "sideB": {
+        "parableId": "deep-sea-darkness",
+        "ref": "24:40",
+        "domainColor": "#3498db",
+        "keyPhrase": "كَظُلُمَاتٍ فِي بَحْرٍ لُّجِّيٍّ",
+        "angleTr": "Derin deniz — kat kat karanlık, el bile görünmez"
+      }
+    },
+    {
+      "id": "good-evil-tree",
+      "themeTr": "Güzel Söz vs. Kötü Söz",
+      "themeEn": "Good Word vs. Evil Word",
+      "sharedThemeTr": "Kelime-i Tevhid ile küfrün karşılaştırması — ağaç metaforu üzerinden.",
+      "sideA": {
+        "parableId": "good-tree",
+        "ref": "14:24-25",
+        "domainColor": "#2ecc71",
+        "keyPhrase": "كَشَجَرَةٍ طَيِّبَةٍ أَصْلُهَا ثَابِتٌ",
+        "angleTr": "Güzel ağaç — kökü yerde, dalları gökte, sürekli meyve"
+      },
+      "sideB": {
+        "parableId": "evil-tree",
+        "ref": "14:26",
+        "domainColor": "#2ecc71",
+        "keyPhrase": "كَشَجَرَةٍ خَبِيثَةٍ اجْتُثَّتْ",
+        "angleTr": "Kötü ağaç — kökü kopmuş, yeryüzünde tutunamamış"
+      }
+    },
+    {
+      "id": "slave-free-pair",
+      "themeTr": "Şirk vs. Tevhid: Kölelik Meseli",
+      "themeEn": "Idolatry vs. Monotheism: The Slave Parable",
+      "sharedThemeTr": "Art arda gelen iki mesel aynı soruyla sona erer: 'Eşit olurlar mı?' — tevhidin üstünlüğünü ispatlayan ikili.",
+      "sideA": {
+        "parableId": "free-slave",
+        "ref": "16:75",
+        "domainColor": "#9b59b6",
+        "keyPhrase": "عَبْدًا مَّمْلُوكًا لَّا يَقْدِرُ عَلَى شَيْءٍ",
+        "angleTr": "Hiçbir şey yapamayan köle vs. nimet sahibi özgür — eşit olurlar mı?"
+      },
+      "sideB": {
+        "parableId": "deaf-dumb-man",
+        "ref": "16:76",
+        "domainColor": "#9b59b6",
+        "keyPhrase": "أَبْكَمُ لَا يَقْدِرُ عَلَى شَيْءٍ",
+        "angleTr": "Dilsiz, beceriksiz adam vs. adalet emreden — eşit olurlar mı?"
+      }
+    },
+    {
+      "id": "riya-ihlas-pair",
+      "themeTr": "Riyâ vs. İhlas: İnfakın İki Hali",
+      "themeEn": "Ostentation vs. Sincerity: Two States of Giving",
+      "sharedThemeTr": "Art arda gelen bu iki mesel, toprağa düşen yağmur imgesini ortak kullanır — ama farklı niyetle verilen sadakanın farklı sonuçlarını gösterir.",
+      "sideA": {
+        "parableId": "rock-soil",
+        "ref": "2:264",
+        "domainColor": "#8B7355",
+        "keyPhrase": "كَمَثَلِ صَفْوَانٍ عَلَيْهِ تُرَابٌ",
+        "angleTr": "Riyâ — yağmurdan sonra çıplak kalan kaya"
+      },
+      "sideB": {
+        "parableId": "fertile-hill",
+        "ref": "2:265",
+        "domainColor": "#8B7355",
+        "keyPhrase": "وَمَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمُ ابْتِغَاءَ مَرْضَاتِ اللَّهِ",
+        "angleTr": "İhlas — yağmur alınca iki kat ürün veren tepe"
+      }
+    }
+  ]
+}
