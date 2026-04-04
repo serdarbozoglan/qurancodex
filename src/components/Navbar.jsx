@@ -244,6 +244,18 @@ export default function Navbar() {
     return () => window.removeEventListener('openReadingMode', handler);
   }, []);
 
+  // Listen for openExploreMenu / openToolsMenu events (e.g. Conclusion discovery section)
+  useEffect(() => {
+    const h1 = () => { setExploreOpen(true); setToolsOpen(false); };
+    const h2 = () => { setToolsOpen(true); setExploreOpen(false); };
+    window.addEventListener('openExploreMenu', h1);
+    window.addEventListener('openToolsMenu', h2);
+    return () => {
+      window.removeEventListener('openExploreMenu', h1);
+      window.removeEventListener('openToolsMenu', h2);
+    };
+  }, []);
+
   // Listen for openDuaVerses events (e.g. QuranDua section CTA)
   useEffect(() => {
     const handler = () => setDuaOpen(true);

@@ -561,6 +561,16 @@
     "verseIntro": "The Quran asks this very question:",
     "ctaExplore": "Back to top",
     "ctaRead": "Read the Quran",
+    "discovery": {
+      "title": "You've only seen the surface",
+      "desc": "Quran Codex contains 25+ interactive tools and 8 in-depth discovery sections. From variant readings to dialogue networks, parables to occasions of revelation — each a distinct journey.",
+      "stat1": "tools",
+      "stat2": "discovery sections",
+      "stat3": "verses",
+      "stat4": "surahs",
+      "btnExplore": "Discover",
+      "btnTools": "Tools"
+    },
     "verse": {
       "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ ۚ وَلَوْ كَانَ مِنْ عِندِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
       "translation": "Will they not reflect upon the Quran? If it had been from anyone other than Allah, they would have found within it much contradiction.",

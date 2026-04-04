@@ -561,6 +561,16 @@
     "verseIntro": "Kur'an bunu kendisi sorar:",
     "ctaExplore": "Başa dön",
     "ctaRead": "Kur'an'ı Oku",
+    "discovery": {
+      "title": "Henüz yüzeyi gördünüz",
+      "desc": "Kur'an Codex, 25+ interaktif araç ve 8 derinlemesine keşif bölümü barındırır. Kıraat farklarından diyalog ağlarına, mesellerden nüzul sebeplerine — her biri ayrı bir keşif yolculuğu.",
+      "stat1": "araç",
+      "stat2": "keşif bölümü",
+      "stat3": "ayet",
+      "stat4": "sure",
+      "btnExplore": "Keşfet",
+      "btnTools": "Araçlar"
+    },
     "verse": {
       "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ ۚ وَلَوْ كَانَ مِنْ عِندِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
       "translation": "Kur'an'ı düşünüp incelemezler mi? Eğer Allah'tan başkasından olsaydı, onda birçok çelişki bulurlardı.",
