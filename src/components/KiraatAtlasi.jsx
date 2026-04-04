@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -56,10 +56,19 @@ const TABS = [
     labelTr: 'İmamlar', labelEn: 'Readers',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="7" r="4"/>
-        <path d="M5.5 20a7 7 0 0 1 13 0"/>
-        <circle cx="5" cy="17" r="2.5"/>
-        <circle cx="19" cy="17" r="2.5"/>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    ),
+  },
+  {
+    labelTr: 'Kanonizasyon', labelEn: 'Canonisation',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+        <line x1="12" y1="2" x2="12" y2="22"/>
+        <path d="M6 7l6-3 6 3M6 12l6-3 6 3M6 17l6-3 6 3"/>
       </svg>
     ),
   },
@@ -82,20 +91,13 @@ const TABS = [
     ),
   },
   {
-    labelTr: 'Kanonizasyon', labelEn: 'Canonisation',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-        <line x1="12" y1="2" x2="12" y2="22"/>
-        <path d="M6 7l6-3 6 3M6 12l6-3 6 3M6 17l6-3 6 3"/>
-      </svg>
-    ),
-  },
-  {
     labelTr: 'Tecvid', labelEn: 'Tajweed',
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/>
-        <path d="M12 6v6l4 2"/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="22"/>
+        <line x1="8" y1="22" x2="16" y2="22"/>
       </svg>
     ),
   },
@@ -163,12 +165,12 @@ const SAHABI_IMAM_EDGES = [
   ['ebu-derda', 'ibn-amir'],
 ];
 
-function IsnadTree({ onImamClick, highlightedImam }) {
+function IsnadTree({ onImamClick, highlightedImam, onRawiClick }) {
   const W = 900, H = 340;
   const lineColor = 'rgba(255,255,255,0.12)';
 
   return (
-    <div style={{ overflowX: 'auto', scrollbarWidth: 'none', marginBottom: 24 }}>
+    <div style={{ overflowX: 'auto', scrollbarWidth: 'none', marginBottom: 24, display: 'flex', justifyContent: 'center' }}>
       <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ minWidth: W, display: 'block' }}>
         {/* Prophet → all Sahabî */}
         {TREE_NODES.sahabi.map(s => (
@@ -206,14 +208,20 @@ function IsnadTree({ onImamClick, highlightedImam }) {
         </text>
 
         {/* Sahabî nodes */}
-        {TREE_NODES.sahabi.map(s => (
-          <g key={s.id}>
-            <circle cx={s.x} cy={s.y} r={10} fill="rgba(148,163,184,0.1)" stroke={COLORS.silver} strokeWidth="1.5" />
-            <text x={s.x} y={s.y + 22} textAnchor="middle" fill={COLORS.silver} fontSize="9" fontFamily={FONTS.body}>
-              {s.label.split(' ').slice(0, 2).join(' ')}
-            </text>
-          </g>
-        ))}
+        {TREE_NODES.sahabi.map(s => {
+          const words = s.label.replace('(r.a.)', '').trim().split(' ');
+          const line1 = words.slice(0, 2).join(' ');
+          const line2 = words.slice(2).join(' ');
+          return (
+            <g key={s.id}>
+              <circle cx={s.x} cy={s.y} r={10} fill="rgba(148,163,184,0.1)" stroke={COLORS.silver} strokeWidth="1.5" />
+              <text textAnchor="middle" fill={COLORS.silver} fontSize="9" fontFamily={FONTS.body}>
+                <tspan x={s.x} dy={s.y + 22}>{line1}</tspan>
+                {line2 && <tspan x={s.x} dy="11">{line2}</tspan>}
+              </text>
+            </g>
+          );
+        })}
 
         {/* İmam nodes */}
         {TREE_NODES.imam.map(im => {
@@ -236,10 +244,32 @@ function IsnadTree({ onImamClick, highlightedImam }) {
         {TREE_NODES.rawi.map(r => {
           const im = TREE_NODES.imam.find(x => x.id === r.imam);
           const color = im ? (CITY_COLORS[im.city] || COLORS.silver) : COLORS.silver;
+          const isFeatured = r.id === 'hafs' || r.id === 'vers';
           return (
-            <g key={r.id}>
-              <circle cx={r.x} cy={r.y} r={7} fill={color + '18'} stroke={color} strokeWidth="1" />
-              <text x={r.x} y={r.y + 18} textAnchor="middle" fill={color} fontSize="8.5" fontFamily={FONTS.body}>
+            <g key={r.id}
+              onClick={isFeatured && onRawiClick ? () => onRawiClick(r.id) : undefined}
+              style={isFeatured ? { cursor: 'pointer' } : undefined}
+            >
+              {isFeatured && (
+                <circle
+                  cx={r.x} cy={r.y} r={13}
+                  fill="none"
+                  stroke={color}
+                  strokeWidth="1"
+                  strokeOpacity="0.5"
+                  style={{ animation: 'kiraat-pulse 2.5s ease-in-out infinite' }}
+                />
+              )}
+              <circle
+                cx={r.x} cy={r.y}
+                r={isFeatured ? 9 : 7}
+                fill={isFeatured ? color + '66' : color + '18'}
+                stroke={color}
+                strokeWidth={isFeatured ? 2 : 1}
+              />
+              <text x={r.x} y={r.y + (isFeatured ? 22 : 18)} textAnchor="middle" fill={color}
+                fontSize={isFeatured ? '9.5' : '8.5'} fontFamily={FONTS.body}
+                fontWeight={isFeatured ? '700' : '400'}>
                 {r.label}
               </text>
             </g>
@@ -358,7 +388,7 @@ function ReaderCard({ reader, isMobile, language, isHighlighted }) {
 }
 
 // ── Placeholder tab components (replaced in later tasks) ─────────────────────
-function TabImamlar({ data, isMobile, language }) {
+function TabImamlar({ data, isMobile, language, setActiveTab }) {
   const [highlighted, setHighlighted] = useState(null);
   const cardRefs = useRef({});
 
@@ -380,8 +410,24 @@ function TabImamlar({ data, isMobile, language }) {
           : "10 canonical readings transmitted without interruption from the Prophet ﷺ. Each imam carried a recitation from a Companion to his own city. Click an imam node to highlight their card."}
       </p>
 
+      {setActiveTab && (
+        <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver, margin: '-12px 0 20px', lineHeight: 1.5 }}>
+          {language === 'tr' ? 'Bu sistemin tarihî arka planı için → ' : 'For the historical background of this system → '}
+          <button
+            onClick={() => setActiveTab(1)}
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.gold, textDecoration: 'underline', textUnderlineOffset: 3 }}
+          >
+            {language === 'tr' ? 'Kanonizasyon →' : 'Canonisation →'}
+          </button>
+        </p>
+      )}
+
       <CityLegend language={language} />
-      <IsnadTree onImamClick={handleImamClick} highlightedImam={highlighted} />
+      <IsnadTree
+        onImamClick={handleImamClick}
+        highlightedImam={highlighted}
+        onRawiClick={setActiveTab ? () => setActiveTab(2) : undefined}
+      />
 
       <div style={{
         display: 'grid',
@@ -403,13 +449,11 @@ function TabImamlar({ data, isMobile, language }) {
   );
 }
 function DonutChart({ language }) {
-  // Segments: Lehçe-dışı ünlü 31%, Lehçesel ünlü 24%, Ünsüz 16%, Diğer 29%
-  // conic-gradient: each stop is cumulative
   const segments = [
-    { pct: 31, color: COLORS.gold,     labelTr: 'Lehçe-dışı ünlü', labelEn: 'Non-dialectal vowel' },
-    { pct: 24, color: COLORS.skyBlue,  labelTr: 'Lehçesel ünlü',   labelEn: 'Dialectal vowel'     },
-    { pct: 16, color: COLORS.softRed,  labelTr: 'Ünsüz farkı',     labelEn: 'Consonant diff.'     },
-    { pct: 29, color: COLORS.silver,   labelTr: 'Diğer',           labelEn: 'Other'               },
+    { pct: 31, color: COLORS.gold,    labelTr: 'Lehçe-dışı ünlü', labelEn: 'Non-dialectal vowel', descTr: 'Standart Arapça telaffuz farkı', descEn: 'Standard Arabic pronunciation diff.' },
+    { pct: 24, color: COLORS.skyBlue, labelTr: 'Lehçesel ünlü',   labelEn: 'Dialectal vowel',     descTr: 'Bölgesel lehçe kaynaklı ünlü',  descEn: 'Regional dialect vowel'             },
+    { pct: 16, color: COLORS.softRed, labelTr: 'Ünsüz farkı',     labelEn: 'Consonant diff.',     descTr: 'Ünsüz harf değişimi',           descEn: 'Consonant letter change'            },
+    { pct: 29, color: COLORS.silver,  labelTr: 'Diğer',           labelEn: 'Other',               descTr: 'Zamir, kelime, etken/edilgen',  descEn: 'Pronoun, word, voice changes'       },
   ];
 
   let cumulative = 0;
@@ -420,42 +464,48 @@ function DonutChart({ language }) {
   }).join(', ');
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, marginBottom: 28 }}>
-      {/* Donut */}
-      <div style={{ position: 'relative', width: 160, height: 160, flexShrink: 0 }}>
-        <div style={{
-          width: 160, height: 160, borderRadius: '50%',
-          background: `conic-gradient(${stops})`,
-        }} />
-        {/* Hole */}
-        <div style={{
-          position: 'absolute', top: '50%', left: '50%',
-          transform: 'translate(-50%,-50%)',
-          width: 90, height: 90, borderRadius: '50%',
-          background: COLORS.overlayBg,
-          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.85rem', lineHeight: 1.2 }}>51</span>
-          <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.65rem', textAlign: 'center', lineHeight: 1.2 }}>
-            {language === 'tr' ? 'fark' : 'variants'}
-          </span>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 16 }}>
+        {language === 'tr' ? 'Fark Türleri Dağılımı' : 'Distribution by Type'}
+      </div>
+      <div style={{ display: 'flex', gap: 24, alignItems: 'center', flex: 1 }}>
+        {/* Donut */}
+        <div style={{ position: 'relative', width: 130, height: 130, flexShrink: 0 }}>
+          <div style={{ width: 130, height: 130, borderRadius: '50%', background: `conic-gradient(${stops})` }} />
+          <div style={{
+            position: 'absolute', top: '50%', left: '50%',
+            transform: 'translate(-50%,-50%)',
+            width: 74, height: 74, borderRadius: '50%',
+            background: 'rgba(8,9,26,0.95)',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 800, fontSize: '1.1rem', lineHeight: 1 }}>51</span>
+            <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.6rem', marginTop: 2 }}>
+              {language === 'tr' ? 'varyant' : 'variants'}
+            </span>
+          </div>
+        </div>
+        {/* Legend rows */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {segments.map(s => (
+            <div key={s.labelTr} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ flexShrink: 0, width: 3, height: 28, borderRadius: 2, background: s.color }} />
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.offWhite, fontWeight: 600 }}>
+                    {language === 'tr' ? s.labelTr : s.labelEn}
+                  </span>
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: s.color, fontWeight: 700 }}>{s.pct}%</span>
+                </div>
+                <div style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, marginTop: 1 }}>
+                  {language === 'tr' ? s.descTr : s.descEn}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      {/* Legend */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
-        {segments.map(s => (
-          <span key={s.labelTr} style={{
-            display: 'inline-flex', alignItems: 'center', gap: 5,
-            padding: '3px 10px', borderRadius: 99,
-            background: s.color + '18', border: `1px solid ${s.color}44`,
-            color: s.color, fontSize: '0.75rem', fontFamily: FONTS.body,
-          }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: s.color, display: 'inline-block' }} />
-            {language === 'tr' ? s.labelTr : s.labelEn} — {s.pct}%
-          </span>
-        ))}
-      </div>
-      <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.8rem', margin: 0, textAlign: 'center' }}>
+      <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', margin: '14px 0 0', borderTop: `1px solid ${COLORS.glassBorder}`, paddingTop: 10 }}>
         {language === 'tr'
           ? 'Kaynak: Christopher Melchert, Oxford — 10 kıraat örneklemi analizi'
           : 'Source: Christopher Melchert, Oxford — sample analysis of 10 readings'}
@@ -466,38 +516,54 @@ function DonutChart({ language }) {
 
 function BesmeleCard({ language }) {
   return (
-    <div style={{ ...GLASS_CARD, padding: '14px 18px', marginBottom: 20, border: `1px solid ${COLORS.goldAlpha25}` }}>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'flex-start', justifyContent: 'space-between' }}>
-        <div>
-          <p style={{ fontFamily: FONTS.body, color: COLORS.gold, fontSize: '0.8rem', fontWeight: 700, margin: '0 0 6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            {language === 'tr' ? 'Besmele Farkı' : 'Basmala Difference'}
-          </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <div>
-              <p style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 2px' }}>Hafs, İbn Kesîr, el-Kisâî:</p>
-              <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite, margin: 0 }}>
-                {language === 'tr' ? 'Besmele = ilk ayet' : 'Basmala = first verse'}
-              </p>
-            </div>
-            <div>
-              <p style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 2px' }}>Verş, Nâfiʿ ve diğerleri:</p>
-              <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite, margin: 0 }}>
-                {language === 'tr' ? 'Besmele = sure başlığı' : 'Basmala = chapter heading'}
-              </p>
-            </div>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 16 }}>
+        {language === 'tr' ? 'Besmele: Gizli Varyant' : 'Basmala: The Hidden Variant'}
+      </div>
+      {/* Two reading panels */}
+      <div style={{ display: 'flex', gap: 10, marginBottom: 12, flex: 1 }}>
+        <div style={{ flex: 1, background: 'rgba(212,165,116,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.gold}` }}>
+          <div style={{ fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.gold, fontWeight: 700, marginBottom: 6 }}>
+            Hafs · İbn Kesîr · el-Kisâî
           </div>
-          <p style={{ fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.silver, margin: '8px 0 0', fontStyle: 'italic' }}>
-            {language === 'tr' ? '⚠ Tevbe Suresi\'nde hiçbir kıraatte besmele yoktur.' : '⚠ Surah At-Tawba has no Basmala in any reading.'}
-          </p>
+          <div style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite, direction: 'rtl', marginBottom: 6 }} dir="rtl" lang="ar">
+            بِسۡمِ ٱللَّهِ
+          </div>
+          <div style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.offWhite, fontWeight: 600, marginBottom: 2 }}>
+            {language === 'tr' ? 'Besmele = İlk Ayet' : 'Basmala = First Verse'}
+          </div>
+          <div style={{ fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.silver }}>
+            {language === 'tr' ? 'Fâtiha\'nın 1. ayeti sayılır' : 'Counted as verse 1 of al-Fātiḥa'}
+          </div>
         </div>
-        <div style={{ textAlign: 'center', flexShrink: 0 }}>
-          <p style={{ fontFamily: FONTS.body, fontSize: '1.6rem', fontWeight: 800, color: COLORS.gold, margin: 0, lineHeight: 1 }}>452</p>
-          <p style={{ fontFamily: FONTS.body, fontSize: '0.7rem', color: COLORS.silver, margin: '2px 0 0' }}>
-            {language === 'tr' ? 'kelime farkı' : 'word difference'}
-          </p>
-          <p style={{ fontFamily: FONTS.body, fontSize: '0.65rem', color: COLORS.silver, margin: '1px 0 0' }}>
-            (113 × 4 kelime)
-          </p>
+        <div style={{ flex: 1, background: 'rgba(52,152,219,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.skyBlue}` }}>
+          <div style={{ fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.skyBlue, fontWeight: 700, marginBottom: 6 }}>
+            Verş · Nâfiʿ · diğerleri
+          </div>
+          <div style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite, direction: 'rtl', marginBottom: 6 }} dir="rtl" lang="ar">
+            بِسۡمِ ٱللَّهِ
+          </div>
+          <div style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.offWhite, fontWeight: 600, marginBottom: 2 }}>
+            {language === 'tr' ? 'Besmele = Sure Başlığı' : 'Basmala = Chapter Heading'}
+          </div>
+          <div style={{ fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.silver }}>
+            {language === 'tr' ? 'Ayet sayılmaz, başlık olarak okunur' : 'Not a verse, recited as a header'}
+          </div>
+        </div>
+      </div>
+      {/* 452 stat + Tevbe note */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 14px', background: 'rgba(0,0,0,0.2)', borderRadius: 8 }}>
+        <div style={{ flexShrink: 0, textAlign: 'center' }}>
+          <div style={{ fontFamily: FONTS.body, fontSize: '1.5rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1 }}>452</div>
+          <div style={{ fontFamily: FONTS.body, fontSize: '0.65rem', color: COLORS.silver, marginTop: 2 }}>
+            {language === 'tr' ? 'kelime etkisi' : 'words affected'}
+          </div>
+        </div>
+        <div style={{ width: 1, height: 36, background: COLORS.glassBorder, flexShrink: 0 }} />
+        <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.5 }}>
+          {language === 'tr'
+            ? '113 surede besmele statüsü × 4 kelime = 452 konumda farklı okuma. Tevbe Suresi\'nde hiçbir kıraatte besmele yoktur.'
+            : '113 suras × basmala status × 4 words = 452 positions. Surah At-Tawba has no Basmala in any reading.'}
         </div>
       </div>
     </div>
@@ -519,14 +585,41 @@ function TabFarkAnalizi({ data, isMobile, language }) {
       <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
         {language === 'tr' ? 'Fark Analizi: Hafs & Verş' : 'Variant Analysis: Ḥafs & Warsh'}
       </h2>
+      <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 8px', maxWidth: 680 }}>
+        {language === 'tr'
+          ? <><strong style={{ color: COLORS.offWhite }}>Hafs</strong> (Âsım rivayeti), Türkiye başta olmak üzere Ortadoğu, Güney ve Güneydoğu Asya'da okunur. <strong style={{ color: COLORS.offWhite }}>Verş</strong> (Nâfiʿ rivayeti) ise Kuzey ve Batı Afrika'nın — Fas, Cezayir, Tunus, Libya — standart kıraatidir. İkisi birlikte dünya Müslümanlarının yaklaşık <strong style={{ color: COLORS.offWhite }}>%95'ini</strong> kapsar.</>
+          : <><strong style={{ color: COLORS.offWhite }}>Ḥafs</strong> (riwāya of ʿĀṣim) is the standard reading in Turkey, the Middle East, South and Southeast Asia. <strong style={{ color: COLORS.offWhite }}>Warsh</strong> (riwāya of Nāfiʿ) is the standard in North and West Africa — Morocco, Algeria, Tunisia, Libya. Together they cover approximately <strong style={{ color: COLORS.offWhite }}>95%</strong> of the world's Muslims.</>}
+      </p>
       <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: 680 }}>
         {language === 'tr'
-          ? "77.439 kelime içinde 51 kelimelik fark — binde 0.66. Bu farklar metnin farklı versiyonları değil; aynı Arapça iskeletin farklı okunuş biçimleridir."
-          : "51 word variants in 77,439 words — 0.66 per thousand. These are not different versions of the text; they are different vocalisations of the same Arabic skeleton."}
+          ? "Peki bu iki kıraat birbirinden ne kadar farklı? ~77.400+ kelime içinde yalnızca 51 kelimelik fark — bu farklar ayrı metinler değil, aynı Arapça iskeletin farklı okunuş biçimleridir."
+          : "So how different are these two readings? Only 51 word variants across ~77,400+ words — not separate texts, but different vocalisations of the same Arabic skeleton."}
       </p>
 
-      <DonutChart language={language} />
-      <BesmeleCard language={language} />
+      {/* ── Stat cards ── */}
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : '1fr 1fr 1fr', gap: 10, marginBottom: 20 }}>
+        {[
+          { value: '51',     labelTr: 'kelime varyantı',     labelEn: 'word variants',       sub: 'Hafs ↔ Verş' },
+          { value: '77.400+', labelTr: 'toplam kelime',      labelEn: 'total words',         sub: language === 'tr' ? 'Kur\'an geneli' : "Quran total" },
+          { value: '%0.07',  labelTr: 'farklılık oranı',     labelEn: 'difference rate',     sub: language === 'tr' ? 'Esasen aynı metin' : 'Essentially identical' },
+        ].map((s, i) => (
+          <div key={i} style={{ ...GLASS_CARD, padding: '14px 16px', textAlign: 'center' }}>
+            <div style={{ fontFamily: FONTS.body, fontSize: isMobile ? '1.3rem' : '1.6rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1, marginBottom: 4 }}>{s.value}</div>
+            <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.offWhite, fontWeight: 600, marginBottom: 2 }}>{s.labelTr && language === 'tr' ? s.labelTr : s.labelEn}</div>
+            <div style={{ fontFamily: FONTS.body, fontSize: '0.7rem', color: COLORS.silver }}>{s.sub}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Donut + Besmele two-col ── */}
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 12, marginBottom: 24 }}>
+        <div style={{ ...GLASS_CARD, padding: '18px 20px' }}>
+          <DonutChart language={language} />
+        </div>
+        <div style={{ ...GLASS_CARD, padding: '18px 20px' }}>
+          <BesmeleCard language={language} />
+        </div>
+      </div>
 
       {/* Filter chips */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16 }}>
@@ -544,51 +637,107 @@ function TabFarkAnalizi({ data, isMobile, language }) {
         ))}
       </div>
 
-      {/* Table */}
-      <div style={{ overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body }}>
-          <thead>
-            <tr style={{ borderBottom: `1px solid ${COLORS.glassBorder}` }}>
-              {['Sure:Ayet', 'Hafs', 'Verş', language === 'tr' ? 'Fark' : 'Type', language === 'tr' ? 'Anlam Etkisi' : 'Meaning Impact'].map(h => (
-                <th key={h} style={{ padding: '8px 10px', textAlign: 'left', color: COLORS.silver, fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
-                  {h}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((v, i) => (
-              <tr key={v.id} style={{ borderBottom: `1px solid ${COLORS.glassBorderSoft}`, background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
-                <td style={{ padding: '8px 10px', color: COLORS.gold, fontSize: '0.8rem', whiteSpace: 'nowrap' }}>
-                  {v.surahName} {v.surah}:{v.ayah}
-                </td>
-                <td style={{ padding: '8px 10px', textAlign: 'right', direction: 'rtl', fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite }} dir="rtl" lang="ar">
+      {/* Variant rows */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {/* Header */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '90px 1fr' : '110px 1fr 120px 1fr',
+          gap: '0 12px',
+          padding: '6px 14px',
+          borderBottom: `1px solid ${COLORS.glassBorder}`,
+        }}>
+          {(isMobile
+            ? [language === 'tr' ? 'Sure:Ayet' : 'Surah:Verse', language === 'tr' ? 'Karşılaştırma' : 'Comparison']
+            : [language === 'tr' ? 'Sure:Ayet' : 'Surah:Verse', language === 'tr' ? 'Karşılaştırma' : 'Comparison', language === 'tr' ? 'Fark Türü' : 'Type', language === 'tr' ? 'Anlam Etkisi' : 'Meaning Impact']
+          ).map(h => (
+            <div key={h} style={{ fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, color: COLORS.silver, textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+              {h}
+            </div>
+          ))}
+        </div>
+
+        {filtered.map((v) => (
+          <div
+            key={v.id}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '90px 1fr' : '110px 1fr 120px 1fr',
+              gap: '0 12px',
+              alignItems: 'center',
+              padding: '12px 14px',
+              borderRadius: 8,
+              background: COLORS.glassBg,
+              border: `1px solid ${COLORS.glassBorder}`,
+              transition: 'border-color 0.15s, background 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha25; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.glassBorder; e.currentTarget.style.background = COLORS.glassBg; }}
+          >
+            {/* Sure:Ayet */}
+            <div>
+              <div style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.gold, fontWeight: 600, whiteSpace: 'nowrap' }}>
+                {v.surah}:{v.ayah}
+              </div>
+              <div style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, marginTop: 2 }}>
+                {v.surahName}
+              </div>
+            </div>
+
+            {/* Comparison: Hafs vs Verş */}
+            <div style={{ display: 'flex', gap: 8, alignItems: 'stretch' }}>
+              <div style={{ flex: 1, background: 'rgba(212,165,116,0.06)', borderRadius: 6, padding: '8px 10px', borderLeft: `2px solid ${COLORS.gold}55` }}>
+                <div style={{ fontFamily: FONTS.body, fontSize: '0.65rem', color: COLORS.gold, fontWeight: 700, marginBottom: 4, letterSpacing: '0.05em' }}>HAFS</div>
+                <div style={{ fontFamily: FONTS.quran, fontSize: '1.35rem', color: COLORS.offWhite, direction: 'rtl', textAlign: 'right' }} dir="rtl" lang="ar">
                   {cleanArabic(v.hafs)}
-                  <br />
-                  <span style={{ fontFamily: FONTS.body, fontSize: '0.7rem', color: COLORS.silver, direction: 'ltr', display: 'inline-block' }}>{v.hafsNote}</span>
-                </td>
-                <td style={{ padding: '8px 10px', textAlign: 'right', direction: 'rtl', fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite }} dir="rtl" lang="ar">
+                </div>
+                {v.hafsNote && <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, marginTop: 4 }}>{v.hafsNote}</div>}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', color: COLORS.silver, fontSize: '0.8rem', flexShrink: 0 }}>↔</div>
+              <div style={{ flex: 1, background: 'rgba(52,152,219,0.06)', borderRadius: 6, padding: '8px 10px', borderLeft: `2px solid ${COLORS.skyBlue}55` }}>
+                <div style={{ fontFamily: FONTS.body, fontSize: '0.65rem', color: COLORS.skyBlue, fontWeight: 700, marginBottom: 4, letterSpacing: '0.05em' }}>VERŞ</div>
+                <div style={{ fontFamily: FONTS.quran, fontSize: '1.35rem', color: COLORS.offWhite, direction: 'rtl', textAlign: 'right' }} dir="rtl" lang="ar">
                   {cleanArabic(v.vers)}
-                  <br />
-                  <span style={{ fontFamily: FONTS.body, fontSize: '0.7rem', color: COLORS.silver, direction: 'ltr', display: 'inline-block' }}>{v.versNote}</span>
-                </td>
-                <td style={{ padding: '8px 10px', whiteSpace: 'nowrap' }}>
+                </div>
+                {v.versNote && <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, marginTop: 4 }}>{v.versNote}</div>}
+              </div>
+            </div>
+
+            {/* Fark türü */}
+            {!isMobile && (
+              <div>
+                <span style={{
+                  display: 'inline-block',
+                  padding: '3px 10px', borderRadius: 99, fontSize: '0.73rem', fontWeight: 600,
+                  background: (DIFF_COLORS[v.diffType] || COLORS.silver) + '1a',
+                  color: DIFF_COLORS[v.diffType] || COLORS.silver,
+                  border: `1px solid ${(DIFF_COLORS[v.diffType] || COLORS.silver)}33`,
+                  fontFamily: FONTS.body,
+                }}>
+                  {language === 'tr' ? DIFF_LABELS_TR[v.diffType] : DIFF_LABELS_EN[v.diffType]}
+                </span>
+              </div>
+            )}
+
+            {/* Anlam etkisi */}
+            {!isMobile && (
+              <div style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.silver, lineHeight: 1.55 }}>
+                {isMobile && (
                   <span style={{
-                    padding: '2px 8px', borderRadius: 99, fontSize: '0.72rem', fontWeight: 600,
-                    background: (DIFF_COLORS[v.diffType] || COLORS.silver) + '18',
+                    display: 'inline-block', marginBottom: 4,
+                    padding: '2px 8px', borderRadius: 99, fontSize: '0.7rem', fontWeight: 600,
+                    background: (DIFF_COLORS[v.diffType] || COLORS.silver) + '1a',
                     color: DIFF_COLORS[v.diffType] || COLORS.silver,
                     fontFamily: FONTS.body,
                   }}>
                     {language === 'tr' ? DIFF_LABELS_TR[v.diffType] : DIFF_LABELS_EN[v.diffType]}
                   </span>
-                </td>
-                <td style={{ padding: '8px 10px', color: COLORS.silver, fontSize: '0.8rem', lineHeight: 1.5, minWidth: 180 }}>
-                  {v.meaningImpact}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                )}
+                {v.meaningImpact}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -691,6 +840,7 @@ function TabHarita({ data, isMobile, language }) {
 }
 function TabKanonizasyon({ data, isMobile, language }) {
   const [expanded, setExpanded] = useState(null);
+  const [bigPictureOpen, setBigPictureOpen] = useState(false);
 
   const toggle = (id) => setExpanded(p => p === id ? null : id);
 
@@ -699,11 +849,267 @@ function TabKanonizasyon({ data, isMobile, language }) {
       <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
         {language === 'tr' ? 'Kanonizasyon Tarihi' : 'History of Canonisation'}
       </h2>
-      <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 32px', maxWidth: 680 }}>
+      <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 20px', maxWidth: 680 }}>
         {language === 'tr'
           ? "Kıraatlerin bugünkü standart formuna ulaşması 5 kritik aşamadan geçti. Hz. Osman'ın tek bir mushaf metnine geçişinden 1924 Kahire baskısına — yaklaşık 1.300 yıllık bir süreç."
           : "The readings reached their current canonical form through 5 critical stages — from Uthman's standardisation to the 1924 Cairo edition: roughly 1,300 years."}
       </p>
+
+      {/* Büyük Resim collapsed card */}
+      <div style={{ ...GLASS_CARD, marginBottom: 32, border: `1px solid ${bigPictureOpen ? COLORS.goldAlpha25 : COLORS.glassBorder}`, transition: 'border-color 0.2s' }}>
+        <button
+          onClick={() => setBigPictureOpen(p => !p)}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            width: '100%', background: 'none', border: 'none', cursor: 'pointer',
+            padding: '14px 16px', fontFamily: FONTS.body, color: COLORS.gold,
+            fontSize: '0.9rem', fontWeight: 700,
+          }}
+        >
+          <span>
+            <span style={{ marginRight: 8, fontSize: '1rem' }}>📜</span>
+            {language === 'tr' ? "Büyük Resim: 7'den 10 Kıraate" : 'Big Picture: From 7 to 10 Readings'}
+          </span>
+          <span style={{ fontSize: '1rem', color: COLORS.silver, transition: 'transform 0.2s', display: 'inline-block', transform: bigPictureOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>▾</span>
+        </button>
+        <AnimatePresence initial={false}>
+          {bigPictureOpen && (
+            <motion.div
+              key="big-picture"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              style={{ overflow: 'hidden' }}
+            >
+              <div style={{ padding: '0 16px 20px', fontFamily: FONTS.body, fontSize: '0.88rem', lineHeight: 1.75, color: COLORS.offWhite }}>
+                {language === 'tr' ? (
+                  <>
+                    {/* ── 1. Sorun: Rasm ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>① Sorun: Noktasız ve Harekesiz Yazı</div>
+                      <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
+                        Hz. Osman'ın mushafları (651 M) yalnızca ünsüz iskeletle — <strong style={{ color: COLORS.offWhite }}>rasm</strong> — yazıldı. Bugünkü hareke (ü/i/a sesleri) ve nokta (ب/ت/ث ayrımı) sistemi henüz mevcut değildi. Bu yüzden aynı harf dizisi birden fazla okuyuşu barındırabiliyordu:
+                      </p>
+                      {/* Example box */}
+                      <div style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
+                        <div style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: COLORS.offWhite, direction: 'rtl', minWidth: isMobile ? 'auto' : 80, textAlign: 'center' }}>م ل ك</div>
+                        <div style={{ flex: 1, paddingLeft: isMobile ? 0 : 16 }}>
+                          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+                            <div>
+                              <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, direction: 'rtl' }}>مَالِكِ</span>
+                              <span style={{ color: COLORS.silver, marginLeft: 6 }}>Mâlik (sahip) — Hafs okuyuşu</span>
+                            </div>
+                            <div>
+                              <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.skyBlue, direction: 'rtl' }}>مَلِكِ</span>
+                              <span style={{ color: COLORS.silver, marginLeft: 6 }}>Melik (kral) — Verş okuyuşu</span>
+                            </div>
+                          </div>
+                          <div style={{ color: COLORS.silver, fontSize: '0.8rem', marginTop: 4 }}>Fâtiha 1:4 — aynı ünsüz iskelet, iki kanonik okuyuş</div>
+                        </div>
+                      </div>
+                      <p style={{ margin: '10px 0 0', color: COLORS.silver }}>
+                        Hangisinin okunacağı yazıda değil, <strong style={{ color: COLORS.offWhite }}>ezberden aktarımda</strong> saklıydı.
+                      </p>
+                    </div>
+
+                    {/* ── 2. Canlı Hafıza ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>② Canlı Hafıza: Ağızdan Ağıza Zincir</div>
+                      <p style={{ margin: 0, color: COLORS.silver }}>
+                        Hz. Peygamber Kur'an'ı sahabîlere okudu; her sahabî kendi öğrencilerine aktardı, o öğrenciler de kendi öğrencilerine. Tamamen sözlü bir zincir. Yüzyıllar içinde yüzlerce farklı aktarım birikti; kimisi sağlam senetlerle, kimisi zayıf.
+                      </p>
+                    </div>
+
+                    {/* ── 3. Kanonizasyon ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>③ Kanonizasyon: Kalite Kontrol</div>
+                      <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
+                        Kanonizasyon bir "yazıya dökme" değil, hadis ilmindeki <em>sahih/hasen/zayıf</em> ayrımına benzer bir <strong style={{ color: COLORS.offWhite }}>standardizasyon</strong>. Kanonik sayılmak için üç şart:
+                      </p>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                        {[
+                          ['Güvenilir senet', 'Hz. Peygamber\'e kesintisiz ulaşan aktarım zinciri'],
+                          ['Rasm uyumu', 'Osman mushaflarındaki ünsüz iskeletle çelişmemek'],
+                          ['Arap dili', 'Klasik Arapça gramer kurallarına uygunluk'],
+                        ].map(([title, desc], i) => (
+                          <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                            <div style={{ flexShrink: 0, width: 22, height: 22, borderRadius: '50%', background: COLORS.goldAlpha15, border: `1px solid ${COLORS.gold}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: COLORS.gold, fontWeight: 700, marginTop: 1 }}>{i + 1}</div>
+                            <div><strong style={{ color: COLORS.offWhite }}>{title}</strong> <span style={{ color: COLORS.silver }}>— {desc}</span></div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* ── 4. İbn Mücâhid + İbn el-Cezerî ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>④ İki Dönüm Noktası</div>
+                      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 12 }}>
+                        <div style={{ flex: 1, background: 'rgba(212,165,116,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.gold}` }}>
+                          <div style={{ color: COLORS.gold, fontWeight: 700, marginBottom: 4 }}>İbn Mücâhid — 936 M</div>
+                          <div style={{ color: COLORS.silver }}>Bağdat'ta <em>Kitâbü's-Seb'a</em>'yı kaleme aldı. Yüzlerce aktarımı üç kritere göre eledi ve <strong style={{ color: COLORS.offWhite }}>7 kıraati</strong> kanonik ilan etti. Kanonik olmayan okuyuşları okuyan iki âlim yargılandı ve geri adım atmaya zorlandı.</div>
+                        </div>
+                        <div style={{ flex: 1, background: 'rgba(52,152,219,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.skyBlue}` }}>
+                          <div style={{ color: COLORS.skyBlue, fontWeight: 700, marginBottom: 4 }}>İbn el-Cezerî — 1429 M</div>
+                          <div style={{ color: COLORS.silver }}>Şam'da <em>en-Neşr fi'l-Kıraâti'l-Aşr</em>'ı yazdı. "7 yeterli değil" dedi; aynı üç şartı karşılayan 3 okuyuş daha buldu ve standardı <strong style={{ color: COLORS.offWhite }}>10 kıraate</strong> genişletti.</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* ── 5. Yazının Evrimi ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>⑤ Yazının Evrimi: Hareke ve Noktalar Ne Zaman Eklendi?</div>
+                      <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
+                        Osman mushafı teslim edildiğinde (~651 M) yazı yalnızca ünsüz iskeletten ibaretti. Sesli işaretler ve ayırt edici noktalar yaklaşık <strong style={{ color: COLORS.offWhite }}>135 yıl</strong> içinde üç aşamada eklendi:
+                      </p>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        {[
+                          ['~680 M', 'Ebü\'l-Esved ed-Düelî', 'İlk sesli işaret sistemi: ünlüleri göstermek için harfin üstüne/altına/yanına renkli nokta konuldu. Bugünkü hareke şekillerinden farklıydı.'],
+                          ['~700 M', 'Nasr ibn Âsım & Yahyâ ibn Ya\'mer', 'Harfleri birbirinden ayıran noktalar (i\'câm): ب ت ث gibi aynı şekle sahip harfler bu noktalar sayesinde ayrıştırıldı.'],
+                          ['~786 M', 'Halil ibn Ahmed el-Ferâhîdî', 'Bugün kullandığımız modern hareke şekilleri (ـَ ـِ ـُ ـّ) yerleşti. Arap gramerinin de kurucusu olan Halil, sistemi geometrik küçük şekillerle yeniden tasarladı.'],
+                        ].map(([date, name, desc], i) => (
+                          <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                            <div style={{ flexShrink: 0, minWidth: 52, color: COLORS.gold, fontSize: '0.78rem', fontWeight: 700, paddingTop: 2 }}>{date}</div>
+                            <div>
+                              <strong style={{ color: COLORS.offWhite }}>{name}</strong>
+                              <span style={{ color: COLORS.silver }}> — {desc}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <p style={{ margin: '10px 0 0', color: COLORS.silver, fontSize: '0.83rem' }}>
+                        Hareke sistemi standart mı? Büyük ölçüde evet — ancak bazı ince işaretler (vakıf sembolleri, secâvend işaretleri) farklı mushaf baskılarında hâlâ farklılık gösterebilir. Hafs ve Verş mushaflarındaki hareke farkları ise kasıtlıdır: her mushaf kendi kıraatinin aktarımını yansıtır.
+                      </p>
+                    </div>
+
+                    {/* ── 6. Hafs vs Verş ── */}
+                    <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: '12px 14px', borderTop: `2px solid ${COLORS.goldAlpha25}` }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 6 }}>Sonuç: Aynı İskelet, Farklı Hareke</div>
+                      <p style={{ margin: 0, color: COLORS.silver }}>
+                        Bugün bir Hafs mushafı açarsan Fâtiha'da <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, direction: 'rtl' }}>مَالِكِ</span> (Mâlik) görürsün; bir Verş mushafında ise <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.skyBlue, direction: 'rtl' }}>مَلِكِ</span> (Melik) yazar. İkisi de aynı ünsüz iskeleti paylaşır, ikisi de kanoniктir — çünkü ikisinin de senedi Hz. Peygamber'e kesintisiz ulaşır.
+                      </p>
+                    </div>
+
+                    <p style={{ margin: '14px 0 0', color: COLORS.silver, fontSize: '0.83rem' }}>
+                      Aşağıdaki 5 aşama, bu dönüşümün hikâyesini Hz. Peygamber döneminden 1924 Kahire baskısına kadar kronolojik olarak anlatır.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    {/* ── 1. The Problem: Rasm ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>① The Problem: Writing Without Vowels or Dots</div>
+                      <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
+                        Uthman's manuscripts (651 CE) were written with only a consonantal skeleton — the <strong style={{ color: COLORS.offWhite }}>rasm</strong>. The vowel marks (ḥarakāt) and distinguishing dots we see today did not yet exist. The same letter sequence could therefore represent multiple valid readings:
+                      </p>
+                      <div style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
+                        <div style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: COLORS.offWhite, direction: 'rtl', minWidth: isMobile ? 'auto' : 80, textAlign: 'center' }}>م ل ك</div>
+                        <div style={{ flex: 1, paddingLeft: isMobile ? 0 : 16 }}>
+                          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+                            <div>
+                              <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, direction: 'rtl' }}>مَالِكِ</span>
+                              <span style={{ color: COLORS.silver, marginLeft: 6 }}>Mālik (Master/Owner) — Ḥafs reading</span>
+                            </div>
+                            <div>
+                              <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.skyBlue, direction: 'rtl' }}>مَلِكِ</span>
+                              <span style={{ color: COLORS.silver, marginLeft: 6 }}>Malik (King) — Warsh reading</span>
+                            </div>
+                          </div>
+                          <div style={{ color: COLORS.silver, fontSize: '0.8rem', marginTop: 4 }}>Al-Fātiha 1:4 — same consonantal skeleton, two canonical readings</div>
+                        </div>
+                      </div>
+                      <p style={{ margin: '10px 0 0', color: COLORS.silver }}>
+                        Which to read was preserved not in writing but in <strong style={{ color: COLORS.offWhite }}>oral transmission from memory</strong>.
+                      </p>
+                    </div>
+
+                    {/* ── 2. Living Memory ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>② Living Memory: The Oral Chain</div>
+                      <p style={{ margin: 0, color: COLORS.silver }}>
+                        The Prophet recited the Quran to his Companions; each Companion passed it on to their students, who passed it to theirs. An entirely oral chain. Over the centuries hundreds of distinct transmissions accumulated — some with strong isnāds, some weak.
+                      </p>
+                    </div>
+
+                    {/* ── 3. Canonisation ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>③ Canonisation: Quality Control</div>
+                      <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
+                        Canonisation is not a transcription process — it is a <strong style={{ color: COLORS.offWhite }}>standardisation</strong>, analogous to hadith classification (ṣaḥīḥ / ḥasan / ḍaʿīf). Three conditions for canonical status:
+                      </p>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                        {[
+                          ['Reliable isnād', 'Unbroken chain of transmission back to the Prophet'],
+                          ['Rasm conformity', 'Must not contradict the consonantal skeleton of the Uthmanic codices'],
+                          ['Arabic grammar', 'Must conform to classical Arabic linguistic rules'],
+                        ].map(([title, desc], i) => (
+                          <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                            <div style={{ flexShrink: 0, width: 22, height: 22, borderRadius: '50%', background: COLORS.goldAlpha15, border: `1px solid ${COLORS.gold}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: COLORS.gold, fontWeight: 700, marginTop: 1 }}>{i + 1}</div>
+                            <div><strong style={{ color: COLORS.offWhite }}>{title}</strong> <span style={{ color: COLORS.silver }}>— {desc}</span></div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* ── 4. Two Turning Points ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>④ Two Turning Points</div>
+                      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 12 }}>
+                        <div style={{ flex: 1, background: 'rgba(212,165,116,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.gold}` }}>
+                          <div style={{ color: COLORS.gold, fontWeight: 700, marginBottom: 4 }}>Ibn Mujāhid — 936 CE</div>
+                          <div style={{ color: COLORS.silver }}>In Baghdad he wrote <em>Kitāb al-Sab'a</em>, filtering hundreds of transmissions by the three criteria and canonising <strong style={{ color: COLORS.offWhite }}>7 readings</strong>. Two scholars who continued to recite non-canonical readings were put on trial and compelled to recant.</div>
+                        </div>
+                        <div style={{ flex: 1, background: 'rgba(52,152,219,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.skyBlue}` }}>
+                          <div style={{ color: COLORS.skyBlue, fontWeight: 700, marginBottom: 4 }}>Ibn al-Jazarī — 1429 CE</div>
+                          <div style={{ color: COLORS.silver }}>In Damascus he wrote <em>al-Nashr</em>, arguing "7 is not enough." He identified 3 more readings meeting the same criteria and expanded the standard to <strong style={{ color: COLORS.offWhite }}>10 readings</strong>.</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* ── 5. Evolution of the Script ── */}
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>⑤ Evolution of the Script: When Were Vowels and Dots Added?</div>
+                      <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
+                        When Uthman's codex was distributed (~651 CE) the writing was pure consonantal skeleton. Vowel signs and distinguishing dots were added in three stages over roughly <strong style={{ color: COLORS.offWhite }}>135 years</strong>:
+                      </p>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        {[
+                          ['~680 CE', 'Abū al-Aswad al-Duʾalī', 'First vowel system: coloured dots placed above/below/beside letters to indicate short vowels. Different in shape from modern ḥarakāt.'],
+                          ['~700 CE', 'Naṣr ibn ʿĀṣim & Yaḥyā ibn Yaʿmar', 'Letter-distinguishing dots (iʿjām): letters sharing the same shape — ب ت ث — were finally differentiated by dot patterns.'],
+                          ['~786 CE', 'al-Khalīl ibn Aḥmad al-Farāhīdī', 'The modern ḥarakāt shapes (ـَ ـِ ـُ ـّ) we use today. Al-Khalīl, also the founder of Arabic prosody, redesigned the system using small geometric forms.'],
+                        ].map(([date, name, desc], i) => (
+                          <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                            <div style={{ flexShrink: 0, minWidth: 52, color: COLORS.gold, fontSize: '0.78rem', fontWeight: 700, paddingTop: 2 }}>{date}</div>
+                            <div>
+                              <strong style={{ color: COLORS.offWhite }}>{name}</strong>
+                              <span style={{ color: COLORS.silver }}> — {desc}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <p style={{ margin: '10px 0 0', color: COLORS.silver, fontSize: '0.83rem' }}>
+                        Is the vowelling system standard today? Largely yes — though minor marks (pause symbols, sajʿ markers) still vary between editions. The vowel differences between Ḥafs and Warsh muṣḥafs are intentional: each reflects its own oral transmission.
+                      </p>
+                    </div>
+
+                    {/* ── 6. Hafs vs Warsh ── */}
+                    <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: '12px 14px', borderTop: `2px solid ${COLORS.goldAlpha25}` }}>
+                      <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 6 }}>Result: Same Skeleton, Different Vowels</div>
+                      <p style={{ margin: 0, color: COLORS.silver }}>
+                        Open a Ḥafs muṣḥaf and you see <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, direction: 'rtl' }}>مَالِكِ</span> (Mālik) in al-Fātiha; a Warsh muṣḥaf writes <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.skyBlue, direction: 'rtl' }}>مَلِكِ</span> (Malik). They share the same consonantal skeleton and both are canonical — because both chains of transmission reach unbroken back to the Prophet ﷺ.
+                      </p>
+                    </div>
+
+                    <p style={{ margin: '14px 0 0', color: COLORS.silver, fontSize: '0.83rem' }}>
+                      The 5 stages below narrate this transformation chronologically — from the Prophet's era to the 1924 Cairo edition.
+                    </p>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Timeline */}
       <div style={{ position: 'relative', paddingLeft: isMobile ? 40 : 0 }}>
@@ -816,6 +1222,8 @@ function TabKanonizasyon({ data, isMobile, language }) {
   );
 }
 function TabTecvid({ isMobile, language }) {
+  const [rasmNoteOpen, setRasmNoteOpen] = useState(false);
+
   // Section A: Üç Kabul Şartı
   const acceptanceCriteria = [
     {
@@ -907,6 +1315,39 @@ function TabTecvid({ isMobile, language }) {
     </div>
   );
 
+  const timelineStages = [
+    {
+      dateTr: '8. yy — Kûfe',      dateEn: '8th c. — Kufa',
+      labelTr: 'Kûfe Kökeni',      labelEn: 'Kufa Origin',
+      descTr:  "ʿÂsım'ın öğrencisi Hafs (ö. 796 M) kıraati Kûfe'de öğretti. Teknik erişilebilirliği — imâle, naql, tashîl gibi ileri kuralların yokluğu — yayılımını kolaylaştırdı.",
+      descEn:  "ʿĀṣim's student Ḥafs (d. 796 CE) taught the reading in Kufa. Its technical accessibility — no advanced rules like imāla, naql, or tashīl — facilitated its spread.",
+    },
+    {
+      dateTr: '15. yy',             dateEn: '15th c.',
+      labelTr: 'Osmanlı Benimsedi', labelEn: 'Ottoman Adoption',
+      descTr:  'Osmanlı medreseleri ve saray kâtipleri Hafs kıraatini resmî standart olarak benimsedi. İmparatorluk genelindeki mushaf üretimine yön verdi.',
+      descEn:  'Ottoman madrasas and court scribes adopted the Ḥafs reading as the official standard, directing muṣḥaf production across the empire.',
+    },
+    {
+      dateTr: '16–19. yy',          dateEn: '16th–19th c.',
+      labelTr: 'Küresel Yayılım',   labelEn: 'Global Spread',
+      descTr:  "Osmanlı matbaaları ve ticaret yolları Hafs'ı Arabistan'dan Balkanlara, Kuzey Afrika'dan Güney Asya'ya taşıdı.",
+      descEn:  "Ottoman printing presses and trade routes carried Ḥafs from Arabia to the Balkans, from North Africa to South Asia.",
+    },
+    {
+      dateTr: '1924',               dateEn: '1924',
+      labelTr: 'el-Ezher Baskısı',  labelEn: 'Al-Azhar Edition',
+      descTr:  "Kral I. Fuad'ın emriyle el-Ezher uleması Hafs kıraatini esas alan standart baskıyı hazırladı. Modern baskı teknolojisi bu metni dünyaya yaydı.",
+      descEn:  "Al-Azhar scholars prepared the standard edition based on Ḥafs under King Fuad I. Modern printing technology spread this text worldwide.",
+    },
+    {
+      dateTr: 'Günümüz',            dateEn: 'Today',
+      labelTr: 'Küresel Standart',  labelEn: 'Global Standard',
+      descTr:  "~1,8 milyar Müslüman'ın yaklaşık %95'i Hafs ʿan ʿÂsım rivayetini kullanmaktadır. Dünyanın en yaygın okunan dini metni.",
+      descEn:  "~95% of 1.8 billion Muslims use the Ḥafs ʿan ʿĀṣim transmission — the most widely recited religious text in the world.",
+    },
+  ];
+
   return (
     <div>
       <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
@@ -918,115 +1359,203 @@ function TabTecvid({ isMobile, language }) {
           : "For a reading to be considered authentic, three conditions must be met simultaneously. Differences between Ḥafs and Warsh manifest not only at word level but also in tajweed application."}
       </p>
 
-      {/* Section A: Üç Şart */}
+      {/* ── Section A: Üç Şart ── */}
       {sectionTitle(language === 'tr' ? 'Üç Kabul Şartı' : 'Three Acceptance Criteria')}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr',
-        gap: 12,
-        marginBottom: 36,
-      }}>
-        {acceptanceCriteria.map(c => (
-          <div key={c.titleTr} style={{ ...GLASS_CARD, padding: '18px 16px', border: `1px solid ${COLORS.goldAlpha25}` }}>
-            <div style={{ marginBottom: 10 }}>{c.icon}</div>
-            <p style={{ fontFamily: FONTS.display, fontSize: '1rem', color: COLORS.offWhite, fontWeight: 700, margin: '0 0 8px' }}>
-              {language === 'tr' ? c.titleTr : c.titleEn}
-            </p>
-            <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.6, margin: 0 }}>
-              {language === 'tr' ? c.descTr : c.descEn}
-            </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 36 }}>
+        {acceptanceCriteria.map((c, i) => (
+          <div key={c.titleTr} style={{
+            ...GLASS_CARD, padding: '16px 20px',
+            borderLeft: `3px solid ${COLORS.gold}`,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
+              <div style={{
+                flexShrink: 0, width: 36, height: 36, borderRadius: '50%',
+                background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: FONTS.body, fontSize: '1rem', fontWeight: 800, color: COLORS.gold,
+              }}>
+                {i + 1}
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontFamily: FONTS.body, fontSize: '0.9rem', color: COLORS.offWhite, fontWeight: 700, marginBottom: 4 }}>
+                  {language === 'tr' ? c.titleTr : c.titleEn}
+                </div>
+                <div style={{ fontFamily: FONTS.body, fontSize: '0.83rem', color: COLORS.silver, lineHeight: 1.65 }}>
+                  {language === 'tr' ? c.descTr : c.descEn}
+                </div>
+              </div>
+            </div>
+
+            {/* Rasm'a özel açıklama notu */}
+            {i === 1 && (
+              <div style={{ marginTop: 10, marginLeft: 52 }}>
+                <button
+                  onClick={() => setRasmNoteOpen(p => !p)}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 5,
+                    background: 'none', border: `1px solid ${COLORS.glassBorder}`,
+                    borderRadius: 99, padding: '3px 10px', cursor: 'pointer',
+                    fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.silver,
+                    transition: 'color 0.15s, border-color 0.15s',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = COLORS.goldAlpha25; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = COLORS.glassBorder; }}
+                >
+                  <span style={{ fontSize: '0.8rem' }}>ℹ</span>
+                  {language === 'tr'
+                    ? '"En az biriyle" — standartlaşmayla çelişmiyor mu?'
+                    : '"At least one" — doesn\'t this contradict standardisation?'}
+                  <span style={{ display: 'inline-block', transition: 'transform 0.2s', transform: rasmNoteOpen ? 'rotate(180deg)' : 'none' }}>▾</span>
+                </button>
+                <AnimatePresence initial={false}>
+                  {rasmNoteOpen && (
+                    <motion.div
+                      key="rasm-note"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.22 }}
+                      style={{ overflow: 'hidden' }}
+                    >
+                      <div style={{
+                        marginTop: 10, padding: '12px 14px', borderRadius: 8,
+                        background: 'rgba(212,165,116,0.06)',
+                        border: `1px solid ${COLORS.goldAlpha25}`,
+                        fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.7,
+                      }}>
+                        {language === 'tr' ? (
+                          <>
+                            Hz. Osman tek bir mushaf değil, farklı şehirlere gönderilmek üzere <strong style={{ color: COLORS.offWhite }}>birden fazla kopya</strong> hazırlattı — Mekke, Medine, Kûfe, Basra, Şam ve diğerleri. Standartlaştırma gerçekleşti, ancak bu kopyalar arasında bazı kelimelerin imlasında küçük farklılıklar mevcuttu: aynı ünsüz iskelet ama kimi zaman bir elif fazla ya da eksik yazılmış.
+                            <br /><br />
+                            Örneğin bir kelime Kûfe mushafında <strong style={{ color: COLORS.offWhite }}>بِسْمِ</strong> şeklinde yazılırken Medine mushafında <strong style={{ color: COLORS.offWhite }}>بِاسْمِ</strong> olarak geçebilir. İkisi de Hz. Osman'ın onayladığı resmî kopyalar.
+                            <br /><br />
+                            Bu yüzden kriter "tüm mushaflarla" değil, <strong style={{ color: COLORS.offWhite }}>"en az biriyle"</strong> uyum şeklinde formüle edildi. Bir kıraat herhangi bir şehre gönderilen kopyayla örtüşüyorsa rasm şartını karşılar.
+                          </>
+                        ) : (
+                          <>
+                            Uthman commissioned not one mushaf but <strong style={{ color: COLORS.offWhite }}>multiple copies</strong> sent to different cities — Mecca, Medina, Kufa, Basra, Damascus and others. Standardisation did occur, but these copies had minor orthographic differences in certain words: the same consonantal skeleton, yet sometimes an alif present in one copy and absent in another.
+                            <br /><br />
+                            For example, a word might appear as <strong style={{ color: COLORS.offWhite }}>بِسْمِ</strong> in the Kufan codex and as <strong style={{ color: COLORS.offWhite }}>بِاسْمِ</strong> in the Medinan codex — both officially approved by Uthman.
+                            <br /><br />
+                            The criterion was therefore formulated as conformity with <strong style={{ color: COLORS.offWhite }}>"at least one"</strong> codex. If a reading matches any of the city copies, it satisfies the rasm condition.
+                          </>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
-      {/* Section B: Tecvid tablosu */}
+      {/* ── Section B: Tecvid farkları ── */}
       {sectionTitle(language === 'tr' ? 'Hafs & Verş — Tecvid Farkları' : 'Ḥafs & Warsh — Tajweed Differences')}
-      <div style={{ overflowX: 'auto', marginBottom: 36 }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, minWidth: 400 }}>
-          <thead>
-            <tr style={{ borderBottom: `1px solid ${COLORS.glassBorder}` }}>
-              {[language === 'tr' ? 'Kural' : 'Rule', 'Hafs', 'Verş'].map(h => (
-                <th key={h} style={{ padding: '8px 12px', textAlign: 'left', color: COLORS.silver, fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  {h}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {tajweedDiffs.map((row, i) => (
-              <tr key={row.ruleTr} style={{ borderBottom: `1px solid ${COLORS.glassBorderSoft}`, background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
-                <td style={{ padding: '9px 12px', color: COLORS.offWhite, fontSize: '0.85rem', fontWeight: 500 }}>
-                  {language === 'tr' ? row.ruleTr : row.ruleEn}
-                </td>
-                <td style={{ padding: '9px 12px', fontSize: '0.82rem', color: (row.hafs === 'Uygulanmaz' || row.hafs === 'Not applied') ? COLORS.silver : COLORS.offWhite, fontStyle: (row.hafs === 'Uygulanmaz' || row.hafs === 'Not applied') ? 'italic' : 'normal', background: 'rgba(52,152,219,0.05)' }}>
-                  {row.hafs}
-                </td>
-                <td style={{ padding: '9px 12px', fontSize: '0.82rem', color: COLORS.offWhite, background: 'rgba(46,204,113,0.05)' }}>
-                  {row.vers}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Section C: Hafs'ın yayılması */}
-      {sectionTitle(language === 'tr' ? "Hafs'ın Küresel Yayılma Hikayesi" : "How Ḥafs Became the Global Standard")}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '16px' : '20px 24px', border: `1px solid ${COLORS.glassBorder}`, marginBottom: 20 }}>
-        {/* Milestone chips */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 6, marginBottom: 16 }}>
-          {milestones.map((m, i) => (
-            <span key={m.labelTr} style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-              <span style={{
-                padding: '3px 10px', borderRadius: 99, fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 500,
-                background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`, color: COLORS.gold,
-              }}>
-                {language === 'tr' ? m.labelTr : m.labelEn}
-              </span>
-              {i < milestones.length - 1 && (
-                <span style={{ color: COLORS.silver, fontSize: '0.7rem' }}>→</span>
-              )}
-            </span>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 36 }}>
+        {/* Header */}
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '160px 1fr 1fr', gap: '0 12px', padding: '6px 14px', borderBottom: `1px solid ${COLORS.glassBorder}` }}>
+          {!isMobile && [language === 'tr' ? 'Kural' : 'Rule', 'Hafs', 'Verş'].map(h => (
+            <div key={h} style={{ fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 700, color: COLORS.silver, textTransform: 'uppercase', letterSpacing: '0.07em' }}>{h}</div>
           ))}
         </div>
+        {tajweedDiffs.map((row) => {
+          const hafsNA = row.hafs === 'Uygulanmaz' || row.hafs === 'Not applied';
+          return (
+            <div key={row.ruleTr} style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : '160px 1fr 1fr',
+              gap: isMobile ? 8 : '0 12px',
+              alignItems: 'center',
+              padding: '12px 14px',
+              borderRadius: 8,
+              background: COLORS.glassBg,
+              border: `1px solid ${COLORS.glassBorder}`,
+            }}>
+              <div style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.offWhite, fontWeight: 600 }}>
+                {language === 'tr' ? row.ruleTr : row.ruleEn}
+              </div>
+              <div style={{ background: 'rgba(212,165,116,0.06)', borderRadius: 6, padding: '8px 12px', borderLeft: `2px solid ${COLORS.gold}55` }}>
+                {isMobile && <div style={{ fontFamily: FONTS.body, fontSize: '0.65rem', color: COLORS.gold, fontWeight: 700, marginBottom: 3 }}>HAFS</div>}
+                {hafsNA
+                  ? <span style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.silver, fontStyle: 'italic' }}>{row.hafs}</span>
+                  : <span style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite }}>{row.hafs}</span>
+                }
+              </div>
+              <div style={{ background: 'rgba(52,152,219,0.06)', borderRadius: 6, padding: '8px 12px', borderLeft: `2px solid ${COLORS.skyBlue}55` }}>
+                {isMobile && <div style={{ fontFamily: FONTS.body, fontSize: '0.65rem', color: COLORS.skyBlue, fontWeight: 700, marginBottom: 3 }}>VERŞ</div>}
+                <span style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite }}>{row.vers}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
 
-        <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, margin: '0 0 10px' }}>
-          {language === 'tr'
-            ? "Hafs ʿan ʿÂsım kıraati, 8. yüzyılda Kûfe'de doğdu. ʿÂsım'ın öğrencisi Hafs (ö. 180H/796M) aracılığıyla yayılmaya başladı. Teknik açıdan Hafs kıraati görece erişilebilirdir: Verş'teki imâle, naql ve tashîl gibi ileri tecvid kurallarına sahip değildir."
-            : "The Ḥafs ʿan ʿĀṣim reading originated in 8th-century Kufa. It began spreading through ʿĀṣim's student Ḥafs (d. 180H/796M). Technically, the Ḥafs reading is relatively accessible: it lacks the advanced tajweed rules found in Warsh, such as imāla, naql, and tashīl."}
-        </p>
-        <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, margin: '0 0 10px' }}>
-          {language === 'tr'
-            ? "Osmanlı İmparatorluğu'nun Hafs kıraatini benimsemesi dönüm noktasıydı. Osmanlı medreseleri, kâtipler ve matbaalar bu kıraati Arabistan'dan Balkanlara, Kuzey Afrika'dan Güney Asya'ya yaydı. 19. yüzyılda İslam dünyasının büyük çoğunluğu zaten Hafs okuyordu."
-            : "The Ottoman Empire's adoption of the Ḥafs reading was the turning point. Ottoman madrasas, scribes, and printing presses spread it from Arabia to the Balkans, from North Africa to South Asia. By the 19th century most of the Muslim world was already reciting Ḥafs."}
-        </p>
-        <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, margin: '0 0 16px' }}>
-          {language === 'tr'
-            ? "1924'te Kral I. Fuad'ın emriyle el-Ezher uleması tarafından hazırlanan baskı, bu süreci resmîleştirdi. Modern baskı teknolojisi ve küresel Müslüman nüfusunun büyümesiyle Hafs bugün fiili dünya standardı haline geldi."
-            : "The 1924 edition prepared by Al-Azhar scholars under King Fuad I formalised this process. With modern printing technology and the growth of the global Muslim population, Ḥafs has today become the de facto world standard."}
-        </p>
-
-        {/* Closing stat */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 16px', borderRadius: 8, background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}` }}>
-          <span style={{ fontFamily: FONTS.body, fontSize: '2rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1 }}>~%95</span>
-          <span style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.offWhite, lineHeight: 1.5 }}>
-            {language === 'tr'
-              ? "Bugün dünya Müslümanlarının yaklaşık %95'i Hafs ʿan ʿÂsım rivayetini kullanmaktadır."
-              : "Today approximately 95% of the world's Muslims use the Ḥafs ʿan ʿĀṣim transmission."}
-          </span>
-        </div>
+      {/* ── Section C: Hafs'ın yayılması — vertical timeline ── */}
+      {sectionTitle(language === 'tr' ? "Hafs'ın Küresel Yayılma Hikayesi" : "How Ḥafs Became the Global Standard")}
+      <div style={{ position: 'relative', paddingLeft: 28 }}>
+        {/* Vertical line */}
+        <div style={{
+          position: 'absolute', left: 7, top: 8, bottom: 8, width: 1,
+          background: `linear-gradient(to bottom, ${COLORS.gold}88, ${COLORS.gold}22)`,
+        }} />
+        {timelineStages.map((stage, i) => (
+          <div key={i} style={{ position: 'relative', marginBottom: i < timelineStages.length - 1 ? 20 : 0 }}>
+            {/* Dot */}
+            <div style={{
+              position: 'absolute', left: -21, top: 4,
+              width: 14, height: 14, borderRadius: '50%',
+              background: i === timelineStages.length - 1 ? COLORS.gold : COLORS.goldAlpha15,
+              border: `2px solid ${COLORS.gold}`,
+            }} />
+            <div style={{ ...GLASS_CARD, padding: '14px 16px' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 6, flexWrap: 'wrap' }}>
+                <span style={{ fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.gold, fontWeight: 700 }}>
+                  {language === 'tr' ? stage.dateTr : stage.dateEn}
+                </span>
+                <span style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: COLORS.offWhite, fontWeight: 600 }}>
+                  {language === 'tr' ? stage.labelTr : stage.labelEn}
+                </span>
+              </div>
+              <div style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.65 }}>
+                {language === 'tr' ? stage.descTr : stage.descEn}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
 // ── Main Component ────────────────────────────────────────────────────────────
-export default function KiraatAtlasi({ onClose }) {
+export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   const { language } = useLanguage();
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
+  const tabHistoryRef = useRef([]);
+  const onRegisterBackHandlerRef = useRef(onRegisterBackHandler);
+  onRegisterBackHandlerRef.current = onRegisterBackHandler;
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
   const bodyRef = useRef(null);
+
+  const registerBackIfNeeded = useCallback(() => {
+    if (!onRegisterBackHandlerRef.current) return;
+    if (tabHistoryRef.current.length === 0) return;
+    onRegisterBackHandlerRef.current(() => {
+      const prev = tabHistoryRef.current[tabHistoryRef.current.length - 1];
+      tabHistoryRef.current = tabHistoryRef.current.slice(0, -1);
+      setActiveTab(prev);
+      // Re-register for the next level if history remains
+      registerBackIfNeeded();
+    });
+  }, []);
+
+  const navigateToTab = useCallback((idx) => {
+    tabHistoryRef.current = [...tabHistoryRef.current, activeTab];
+    setActiveTab(idx);
+    registerBackIfNeeded();
+  }, [activeTab, registerBackIfNeeded]);
 
   // Escape key
   useEffect(() => {
@@ -1123,7 +1652,7 @@ export default function KiraatAtlasi({ onClose }) {
           {TABS.map((tab, i) => (
             <button
               key={i}
-              onClick={() => setActiveTab(i)}
+              onClick={() => navigateToTab(i)}
               style={{
                 flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px',
                 padding: isMobile ? '12px 14px' : '13px 22px',
@@ -1148,10 +1677,10 @@ export default function KiraatAtlasi({ onClose }) {
 
         {/* Tab content */}
         <div style={{ padding: isMobile ? '16px' : '24px 32px', flex: 1 }}>
-          {activeTab === 0 && <TabImamlar data={data} isMobile={isMobile} language={language} />}
-          {activeTab === 1 && <TabFarkAnalizi data={data} isMobile={isMobile} language={language} />}
-          {activeTab === 2 && <TabHarita data={data} isMobile={isMobile} language={language} />}
-          {activeTab === 3 && <TabKanonizasyon data={data} isMobile={isMobile} language={language} />}
+          {activeTab === 0 && <TabImamlar data={data} isMobile={isMobile} language={language} setActiveTab={navigateToTab} />}
+          {activeTab === 1 && <TabKanonizasyon data={data} isMobile={isMobile} language={language} />}
+          {activeTab === 2 && <TabFarkAnalizi data={data} isMobile={isMobile} language={language} />}
+          {activeTab === 3 && <TabHarita data={data} isMobile={isMobile} language={language} />}
           {activeTab === 4 && <TabTecvid isMobile={isMobile} language={language} />}
         </div>
       </div>

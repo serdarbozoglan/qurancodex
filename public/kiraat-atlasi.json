@@ -24,7 +24,7 @@
       "sahabi": "Übeyy b. Kaʿb",
       "madhab": "Şâfiî",
       "note": "Mekke ekolünün imamı. Besmeleyi her surenin ilk ayeti sayar.",
-      "usedIn": "Tarihî kullanım, akademik çalışmalar"
+      "usedIn": "Kıraat ilmi ve icâzet zincirinde yaşatılır"
     },
     {
       "id": "ebu-amr",
@@ -76,7 +76,7 @@
       "sahabi": "İbn Mesʿûd",
       "madhab": "Hanefî",
       "note": "Kûfe ekolünün en zahid imamı. Med ve hemze kurallarında en uzun uygulamalarıyla tanınır.",
-      "usedIn": "Akademik çalışmalar, bazı İran bölgeleri"
+      "usedIn": "Kıraat ilmi ve icâzet zincirinde yaşatılır"
     },
     {
       "id": "kisai",
@@ -89,7 +89,7 @@
       "sahabi": "Übeyy b. Kaʿb",
       "madhab": "Hanefî",
       "note": "Arap dili ve nahvinde de otorite. Abbasi sarayında Hârunürreşîd'in oğullarına hoca.",
-      "usedIn": "Tarihî kullanım, bazı akademik çalışmalar"
+      "usedIn": "Kıraat ilmi ve icâzet zincirinde yaşatılır"
     },
     {
       "id": "ebu-cafer",
@@ -102,7 +102,7 @@
       "sahabi": "Übeyy b. Kaʿb",
       "madhab": null,
       "note": "İbn Cezerî'nin 10 kıraate eklediği üç imamdan biri. Medine'nin ikinci büyük kıraat imamı.",
-      "usedIn": "Tarihî/akademik kullanım"
+      "usedIn": "Kıraat ilmi ve icâzet zincirinde yaşatılır"
     },
     {
       "id": "yakub",
@@ -115,7 +115,7 @@
       "sahabi": "Übeyy b. Kaʿb",
       "madhab": null,
       "note": "İbn Cezerî'nin eklediği üç imamdan ikincisi. Basra'nın son büyük kıraat imamı.",
-      "usedIn": "Tarihî/akademik kullanım"
+      "usedIn": "Kıraat ilmi ve icâzet zincirinde yaşatılır"
     },
     {
       "id": "halef",
@@ -128,7 +128,7 @@
       "sahabi": "İbn Mesʿûd",
       "madhab": null,
       "note": "İbn Cezerî'nin eklediği üçüncü imam. Aynı zamanda Hamza'nın râvîsidir.",
-      "usedIn": "Tarihî/akademik kullanım"
+      "usedIn": "Kıraat ilmi ve icâzet zincirinde yaşatılır"
     }
   ],
 
@@ -523,7 +523,7 @@
       "dateM": "936",
       "person": "İbn Mücâhid (ö. 324H)",
       "descTr": "Bağdat kadısı İbn Mücâhid, 'Kitâbu's-Seb'a' adlı eserinde dolaşımdaki onlarca kıraattan yalnızca 7 tanesini 'kanonik' olarak belirledi. Her şehirden bir imam: Medine, Mekke, Basra, Şam ve Kûfe'den üç imam.",
-      "detailTr": "Bu seçim tartışmalıydı. İbn Mücâhid'in çağdaşı İbn Şenebûz farklı kıraatler okuttuğu için mahkemeye çıkarıldı. Yedi sayısının kutsallığına dair yanlış bir çağrışım yaratmakla da eleştirildi."
+      "detailTr": "Bu seçim tartışmalıydı. İbn Mücâhid'in çağdaşı İbn Şenebûz farklı kıraatler okuttuğu için mahkemeye çıkarıldı. Yedi sayısının kutsallığına dair yanlış bir çağrışım uyandırmakla da eleştirildi."
     },
     {
       "id": "dani-satıbi",

@@ -15,10 +15,22 @@ function cleanArabic(str) {
     .replace(/\u06CC/g, '\u064A')
     .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
     .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
+    .replace(/[\u06DD\u06DE\u06E9\u06E0]/g, '')
+    .replace(/\s*[۞۝۩]\s*/g, ' ')
+    // Remove ayah end marker followed by Arabic-Indic digits (e.g. ۝١٧١)
+    .replace(/[\u06DD][\u0660-\u0669]*/g, '')
+    // Remove standalone Arabic-Indic digit sequences at end of verse
+    .replace(/\s*[\u0660-\u0669]+\s*$/g, '')
     .replace(/\u06E6/g, ' ')
     .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
+    .replace(/[\uFD3E\uFD3F]/g, '')
+    .trim();
+}
+
+// ── Translation cleanup (strips footnote markers like [1], [2] etc.) ─────────
+function cleanTranslation(str) {
+  if (!str) return str;
+  return str.replace(/\[\d+\]/g, '').replace(/\s+/g, ' ').trim();
 }
 
 // ── Shared Quran API verse cache ─────────────────────────────────────────────
@@ -31,10 +43,29 @@ async function loadAyah(surah, ayah) {
   const data = await res.json();
   const verse = (data.data?.verses ?? []).find(v => v.verse_number === ayah);
   const arabic = cleanArabic(verse?.verse ?? '');
-  const turkish = verse?.translation?.text ?? '';
+  const turkish = cleanTranslation(verse?.translation?.text ?? '');
   const result = { arabic, turkish };
   ayahCache.set(key, result);
   return result;
+}
+
+// ── Surah name lookup (covers all surahs referenced in parables.json) ────────
+const SURAH_NAMES_TR = {
+  2: 'Bakara', 3: 'Âl-i İmrân', 5: 'Mâide', 6: "En'âm", 7: "A'râf",
+  9: 'Tevbe', 10: 'Yûnus', 11: 'Hûd', 12: 'Yûsuf', 13: "Ra'd", 14: 'İbrâhim',
+  16: 'Nahl', 17: 'İsrâ', 18: 'Kehf', 22: 'Hac', 24: 'Nûr', 25: 'Furkân',
+  27: 'Neml', 29: 'Ankebût', 30: 'Rûm', 33: 'Ahzâb', 36: 'Yâsîn', 39: 'Zümer',
+  47: 'Muhammed', 48: 'Fetih', 57: 'Hadîd', 59: 'Haşr', 62: "Cum'a",
+};
+// ref can be "2:17" or "2:19-20" — always prepends surah name
+function surahRef(ref) {
+  const surahNum = parseInt(ref.split(':')[0]);
+  const name = SURAH_NAMES_TR[surahNum];
+  return name ? `${name} ${ref}` : ref;
+}
+// Extract first ayah number from ref string (handles ranges like "2:19-20")
+function firstAyah(ref) {
+  return parseInt(ref.split(':')[1]);
 }
 
 // ── Domain colour / label maps ───────────────────────────────────────────────
@@ -335,7 +366,7 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
 // ────────────────────────────────────────────────────────────────────────────
 // TAB 1 — Mesel Kataloğu
 // ────────────────────────────────────────────────────────────────────────────
-function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter, onPairLink, isMobile }) {
+function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter, onPairLink, isMobile, backRef }) {
   const [catFilter,    setCatFilter]    = useState('all');
   const [domFilter,    setDomFilter]    = useState(domainFilter ?? 'all');
   const [typeFilter,   setTypeFilter]   = useState('all');
@@ -355,8 +386,16 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter, on
   });
 
   const handleExpand = (p) => {
-    if (expandedId === p.id) { setExpandedId(null); return; }
+    if (expandedId === p.id) {
+      setExpandedId(null);
+      if (backRef) backRef.current = null;
+      return;
+    }
     setExpandedId(p.id);
+    if (backRef) {
+      backRef.current = () => { setExpandedId(null); backRef.current = null; };
+      window.history.pushState({ overlay: true }, '');
+    }
     if (!loadedVerses[p.id]) {
       setLoadedVerses(prev => ({ ...prev, [p.id]: { loading: true } }));
       loadAyah(p.surah, p.ayah).then(result => {
@@ -446,15 +485,30 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter, on
               <div style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>
                 {p.nameTr}
               </div>
-              <span style={{
-                display: 'inline-block', padding: '2px 8px', borderRadius: '99px',
-                background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
-                color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body, marginBottom: '8px',
-              }}>
-                {p.surah}:{p.ayah}
-              </span>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '5px',
+                  padding: '3px 10px', borderRadius: '99px',
+                  background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
+                  color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,
+                }}>
+                  {surahRef(`${p.surah}:${p.ayah}`)}
+                </span>
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '4px',
+                  fontSize: '0.68rem', color: COLORS.silver, fontFamily: FONTS.body,
+                }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
+                    style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s', color: isExpanded ? COLORS.gold : COLORS.silver }}>
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                  <span style={{ color: isExpanded ? COLORS.gold : COLORS.silver }}>
+                    {isExpanded ? (language === 'tr' ? 'Kapat' : 'Close') : (language === 'tr' ? 'Ayeti Gör' : 'See Verse')}
+                  </span>
+                </span>
+              </div>
               <div style={{
-                fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.1rem',
+                fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.45rem',
                 direction: 'rtl', textAlign: 'right', lineHeight: 2, marginBottom: '6px',
               }} dir="rtl" lang="ar">
                 {cleanArabic(p.keyPhrase)}
@@ -500,7 +554,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter, on
                   )}
                   {verseData && !verseData.loading && verseData.arabic && (
                     <div>
-                      <p style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.2rem', direction: 'rtl', textAlign: 'right', lineHeight: 2.2, margin: '0 0 8px' }} dir="rtl" lang="ar">
+                      <p style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.55rem', direction: 'rtl', textAlign: 'right', lineHeight: 2.2, margin: '0 0 8px' }} dir="rtl" lang="ar">
                         {verseData.arabic}
                       </p>
                       {verseData.turkish && (
@@ -541,7 +595,8 @@ function TabCiftMeseller({ pairs, parables, scrollToPairId, language, isMobile }
       setExpandedSide(prev => { const n = { ...prev }; delete n[key]; return n; });
       return;
     }
-    const [surah, ayah] = ref.split(':').map(Number);
+    const surah = parseInt(ref.split(':')[0]);
+    const ayah  = firstAyah(ref);
     setExpandedSide(prev => ({ ...prev, [key]: { loading: true } }));
     loadAyah(surah, ayah).then(result => {
       setExpandedSide(prev => ({ ...prev, [key]: { ...result, loading: false } }));
@@ -553,27 +608,43 @@ function TabCiftMeseller({ pairs, parables, scrollToPairId, language, isMobile }
   const SideCard = ({ pairId, side, sideData, label }) => {
     const key      = `${pairId}-${side}`;
     const verse    = expandedSide[key];
+    const isOpen   = !!verse;
     const domColor = sideData.domainColor ?? COLORS.silver;
+    const refLabel = surahRef(sideData.ref);
     return (
       <div
-        onClick={() => handleSideExpand(pairId, side, sideData.ref)}
         style={{
           flex: 1, padding: '16px',
           borderLeft: `3px solid ${domColor}`,
           background: domColor + '0a',
-          cursor: 'pointer', borderRadius: '0 8px 8px 0',
+          borderRadius: '0 8px 8px 0',
         }}>
         <div style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: FONTS.body, marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
           {label}
         </div>
-        <span style={{
-          display: 'inline-block', padding: '2px 8px', borderRadius: '99px',
-          background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
-          color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body, marginBottom: '8px',
-        }}>
-          {sideData.ref}
-        </span>
-        <div style={{ fontFamily: FONTS.quran, color: domColor, fontSize: '1.05rem', direction: 'rtl', textAlign: 'right', lineHeight: 2, marginBottom: '8px' }} dir="rtl" lang="ar">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+          <span style={{
+            display: 'inline-block', padding: '3px 10px', borderRadius: '99px',
+            background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
+            color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,
+          }}>
+            {refLabel}
+          </span>
+          <button
+            onClick={() => handleSideExpand(pairId, side, sideData.ref)}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '4px',
+              background: 'none', border: 'none', cursor: 'pointer', padding: '2px 4px',
+              fontSize: '0.68rem', color: isOpen ? COLORS.gold : COLORS.silver, fontFamily: FONTS.body,
+            }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
+              style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+            {isOpen ? (language === 'tr' ? 'Kapat' : 'Close') : (language === 'tr' ? 'Ayeti Gör' : 'See Verse')}
+          </button>
+        </div>
+        <div style={{ fontFamily: FONTS.quran, color: domColor, fontSize: '1.45rem', direction: 'rtl', textAlign: 'right', lineHeight: 2, marginBottom: '8px' }} dir="rtl" lang="ar">
           {cleanArabic(sideData.keyPhrase)}
         </div>
         <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.5, margin: 0 }}>
@@ -587,7 +658,7 @@ function TabCiftMeseller({ pairs, parables, scrollToPairId, language, isMobile }
         )}
         {verse && !verse.loading && verse.arabic && (
           <div style={{ marginTop: '10px', paddingTop: '10px', borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>
-            <p style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.1rem', direction: 'rtl', textAlign: 'right', lineHeight: 2.2, margin: '0 0 6px' }} dir="rtl" lang="ar">
+            <p style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.55rem', direction: 'rtl', textAlign: 'right', lineHeight: 2.2, margin: '0 0 6px' }} dir="rtl" lang="ar">
               {verse.arabic}
             </p>
             {verse.turkish && <p style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: 0 }}>{verse.turkish}</p>}
@@ -642,7 +713,12 @@ function TabNurZulumat({ data, language, isMobile }) {
   const { stats, ayatAnNur, keyVerses } = data;
 
   const handleVerseLoad = (ref) => {
-    if (loadedVerses[ref]) return;
+    // Toggle: if already loaded, close it
+    if (loadedVerses[ref] && !loadedVerses[ref].loading) {
+      setLoadedVerses(prev => { const n = { ...prev }; delete n[ref]; return n; });
+      return;
+    }
+    if (loadedVerses[ref]) return; // still loading, ignore
     const [surah, ayah] = ref.split(':').map(Number);
     setLoadedVerses(prev => ({ ...prev, [ref]: { loading: true } }));
     loadAyah(surah, ayah).then(result => {
@@ -663,7 +739,7 @@ function TabNurZulumat({ data, language, isMobile }) {
   (ayatAnNur.layers ?? []).forEach(l => { layerMap[l.id] = l; });
 
   return (
-    <div style={{ padding: isMobile ? '12px' : '20px 24px', display: 'flex', flexDirection: 'column', gap: '28px' }}>
+    <div style={{ padding: isMobile ? '12px' : '20px 24px', display: 'flex', flexDirection: 'column', gap: '28px', maxWidth: '960px', margin: '0 auto', width: '100%' }}>
 
       {/* Split stat */}
       <div style={{
@@ -713,69 +789,67 @@ function TabNurZulumat({ data, language, isMobile }) {
       </div>
 
       {/* Âyet en-Nûr anatomy */}
-      <div>
-        <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.9rem', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+        <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.06em', textAlign: 'center' }}>
           {language === 'tr' ? "Âyet en-Nûr'un Anatomisi (24:35)" : 'Anatomy of Āyat al-Nūr (24:35)'}
         </div>
-        <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '20px', alignItems: 'flex-start' }}>
-          <div style={{ flexShrink: 0, width: isMobile ? '100%' : '340px' }}>
-            <svg viewBox="0 0 320 320" style={{ width: '100%', display: 'block' }}>
-              <defs>
-                <radialGradient id="glow-centre" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#c9a227" stopOpacity="0.6"/>
-                  <stop offset="100%" stopColor="#c9a227" stopOpacity="0"/>
-                </radialGradient>
-              </defs>
-              {rings.map((ring, i) => {
-                const isActive   = activeLayer === ring.id;
-                const opacity    = 0.15 + (i * 0.12);
-                const strokeColor = `hsl(${40 + i * 10}, ${60 + i * 8}%, ${35 + i * 8}%)`;
-                return (
-                  <g key={ring.id} onClick={() => setActiveLayer(isActive ? null : ring.id)} style={{ cursor: 'pointer' }}>
-                    <circle cx="160" cy="160" r={ring.r}
-                      fill={isActive ? COLORS.gold + '18' : 'transparent'}
-                      stroke={isActive ? COLORS.gold : strokeColor}
-                      strokeWidth={isActive ? 2 : 1.5}
-                      strokeOpacity={isActive ? 1 : opacity + 0.3}
-                    />
-                    <text x="160" y={160 - ring.r + 14}
-                      textAnchor="middle" fill={isActive ? COLORS.gold : strokeColor}
-                      fontSize="9" fontFamily="Inter, sans-serif"
-                      fillOpacity={isActive ? 1 : 0.7}>
-                      {ring.label}
-                    </text>
-                  </g>
-                );
-              })}
-              <circle cx="160" cy="160" r="14" fill="url(#glow-centre)" />
-              <text x="160" y="157" textAnchor="middle" fill={COLORS.gold} fontSize="7.5" fontFamily={FONTS.quran}>نُّورٌ</text>
-              <text x="160" y="168" textAnchor="middle" fill={COLORS.gold} fontSize="7.5" fontFamily={FONTS.quran}>عَلَىٰ</text>
-              <text x="160" y="179" textAnchor="middle" fill={COLORS.gold} fontSize="7.5" fontFamily={FONTS.quran}>نُورٍ</text>
-              <style>{`@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }`}</style>
-              <circle cx="160" cy="160" r="14" fill="none" stroke={COLORS.gold} strokeWidth="1" style={{ animation: 'pulse 2s ease-in-out infinite' }} />
-            </svg>
-          </div>
-          <div style={{ flex: 1 }}>
-            {activeLayer ? (
-              <div style={{ ...GLASS_CARD, padding: '16px', border: `1px solid ${COLORS.goldAlpha25}` }}>
-                <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, marginBottom: '6px' }}>
-                  {layerMap[activeLayer]?.labelTr}
-                </div>
-                <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.3rem', direction: 'rtl', textAlign: 'right', lineHeight: 2, marginBottom: '8px' }} dir="rtl" lang="ar">
-                  {cleanArabic(layerMap[activeLayer]?.labelAr)}
-                </div>
-                <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
-                  {layerMap[activeLayer]?.symbolises}
-                </p>
+        <div style={{ width: isMobile ? '100%' : '400px', flexShrink: 0 }}>
+          <svg viewBox="0 0 320 320" style={{ width: '100%', display: 'block' }}>
+            <defs>
+              <radialGradient id="glow-centre" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#c9a227" stopOpacity="0.6"/>
+                <stop offset="100%" stopColor="#c9a227" stopOpacity="0"/>
+              </radialGradient>
+            </defs>
+            {rings.map((ring, i) => {
+              const isActive    = activeLayer === ring.id;
+              const opacity     = 0.15 + (i * 0.12);
+              const strokeColor = `hsl(${40 + i * 10}, ${60 + i * 8}%, ${35 + i * 8}%)`;
+              return (
+                <g key={ring.id} onClick={() => setActiveLayer(isActive ? null : ring.id)} style={{ cursor: 'pointer' }}>
+                  <circle cx="160" cy="160" r={ring.r}
+                    fill={isActive ? COLORS.gold + '18' : 'transparent'}
+                    stroke={isActive ? COLORS.gold : strokeColor}
+                    strokeWidth={isActive ? 2 : 1.5}
+                    strokeOpacity={isActive ? 1 : opacity + 0.3}
+                  />
+                  <text x="160" y={160 - ring.r + 14}
+                    textAnchor="middle" fill={isActive ? COLORS.gold : strokeColor}
+                    fontSize="9" fontFamily="Inter, sans-serif"
+                    fillOpacity={isActive ? 1 : 0.7}>
+                    {ring.label}
+                  </text>
+                </g>
+              );
+            })}
+            <circle cx="160" cy="160" r="14" fill="url(#glow-centre)" />
+            <text x="160" y="157" textAnchor="middle" fill={COLORS.gold} fontSize="7.5" fontFamily={FONTS.quran}>نُّورٌ</text>
+            <text x="160" y="168" textAnchor="middle" fill={COLORS.gold} fontSize="7.5" fontFamily={FONTS.quran}>عَلَىٰ</text>
+            <text x="160" y="179" textAnchor="middle" fill={COLORS.gold} fontSize="7.5" fontFamily={FONTS.quran}>نُورٍ</text>
+            <style>{`@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }`}</style>
+            <circle cx="160" cy="160" r="14" fill="none" stroke={COLORS.gold} strokeWidth="1" style={{ animation: 'pulse 2s ease-in-out infinite' }} />
+          </svg>
+        </div>
+        <div style={{ width: isMobile ? '100%' : '480px', textAlign: 'center' }}>
+          {activeLayer ? (
+            <div style={{ ...GLASS_CARD, padding: '16px', border: `1px solid ${COLORS.goldAlpha25}`, textAlign: 'left' }}>
+              <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, marginBottom: '6px' }}>
+                {layerMap[activeLayer]?.labelTr}
               </div>
-            ) : (
-              <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem', fontStyle: 'italic', lineHeight: 1.6 }}>
-                {language === 'tr'
-                  ? "Âyet en-Nûr, Kur'an'ın en derin meseli. Her halka bir sembol katmanını temsil eder — tıkla ve keşfet."
-                  : "Āyat al-Nūr is the Quran's deepest parable. Each ring represents a layer of symbolism — click to explore."}
+              <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.3rem', direction: 'rtl', textAlign: 'right', lineHeight: 2, marginBottom: '8px' }} dir="rtl" lang="ar">
+                {cleanArabic(layerMap[activeLayer]?.labelAr)}
+              </div>
+              <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
+                {layerMap[activeLayer]?.symbolises}
               </p>
-            )}
-          </div>
+            </div>
+          ) : (
+            <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.88rem', fontStyle: 'italic', lineHeight: 1.7, margin: 0 }}>
+              {language === 'tr'
+                ? "Âyet en-Nûr, Kur'an'ın en derin meseli. Her halka bir sembol katmanını temsil eder — tıkla ve keşfet."
+                : "Āyat al-Nūr is the Quran's deepest parable. Each ring represents a layer of symbolism — click to explore."}
+            </p>
+          )}
         </div>
       </div>
 
@@ -796,17 +870,32 @@ function TabNurZulumat({ data, language, isMobile }) {
                   borderLeft: `3px solid ${COLORS.goldAlpha45}`,
                   borderRadius: '0 8px 8px 0',
                 }}>
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center', minWidth: 0 }}>
+                    <span style={{
+                      padding: '2px 8px', borderRadius: '99px',
+                      background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
+                      color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body, flexShrink: 0,
+                    }}>{surahRef(v.ref)}</span>
+                    <span style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body }}>{v.descTr}</span>
+                  </div>
                   <span style={{
-                    padding: '2px 8px', borderRadius: '99px',
-                    background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
-                    color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body, flexShrink: 0,
-                  }}>{v.ref}</span>
-                  <span style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body }}>{v.descTr}</span>
+                    display: 'inline-flex', alignItems: 'center', gap: '4px', flexShrink: 0,
+                    fontSize: '0.68rem', color: loaded && !loaded.loading ? COLORS.gold : COLORS.silver,
+                    fontFamily: FONTS.body,
+                  }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
+                      style={{ transform: (loaded && !loaded.loading) ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                    {loaded && !loaded.loading
+                      ? (language === 'tr' ? 'Kapat' : 'Close')
+                      : (language === 'tr' ? 'Ayeti Gör' : 'See Verse')}
+                  </span>
                 </div>
                 {loaded && !loaded.loading && loaded.arabic && (
                   <div style={{ marginTop: '8px' }}>
-                    <p style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.1rem', direction: 'rtl', textAlign: 'right', lineHeight: 2.2, margin: '0 0 4px' }} dir="rtl" lang="ar">{loaded.arabic}</p>
+                    <p style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.55rem', direction: 'rtl', textAlign: 'right', lineHeight: 2.2, margin: '0 0 4px' }} dir="rtl" lang="ar">{loaded.arabic}</p>
                     {loaded.turkish && <p style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: 0 }}>{loaded.turkish}</p>}
                   </div>
                 )}
@@ -834,22 +923,6 @@ const ANIMAL_CTX_LABELS = {
   parable: 'Mesel', story: 'Kıssa', sign: 'Delil', punishment: 'İlahi Ceza',
 };
 
-const ANIMAL_ICONS = {
-  spider:   <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><circle cx="20" cy="18" r="6"/><line x1="20" y1="12" x2="20" y2="5"/><line x1="14" y1="15" x2="7" y2="10"/><line x1="14" y1="21" x2="7" y2="26"/><line x1="26" y1="15" x2="33" y2="10"/><line x1="26" y1="21" x2="33" y2="26"/><line x1="17" y1="23" x2="14" y2="32"/><line x1="23" y1="23" x2="26" y2="32"/></svg>,
-  ant:      <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="20" cy="10" rx="3.5" ry="3"/><ellipse cx="20" cy="18" rx="4" ry="4"/><ellipse cx="20" cy="27" rx="5" ry="5"/><line x1="14" y1="17" x2="8" y2="13"/><line x1="14" y1="19" x2="8" y2="19"/><line x1="14" y1="21" x2="8" y2="25"/><line x1="26" y1="17" x2="32" y2="13"/><line x1="26" y1="19" x2="32" y2="19"/><line x1="26" y1="21" x2="32" y2="25"/></svg>,
-  bee:      <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="20" cy="22" rx="7" ry="10"/><ellipse cx="13" cy="16" rx="5" ry="3"/><ellipse cx="27" cy="16" rx="5" ry="3"/><line x1="14" y1="19" x2="26" y2="19"/><line x1="13" y1="23" x2="27" y2="23"/></svg>,
-  cow:      <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="20" cy="22" rx="12" ry="8"/><circle cx="20" cy="12" r="5"/><line x1="10" y1="30" x2="10" y2="38"/><line x1="15" y1="30" x2="15" y2="38"/><line x1="25" y1="30" x2="25" y2="38"/><line x1="30" y1="30" x2="30" y2="38"/><line x1="16" y1="8" x2="13" y2="4"/><line x1="24" y1="8" x2="27" y2="4"/></svg>,
-  elephant: <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="22" cy="20" rx="13" ry="10"/><circle cx="12" cy="16" r="5"/><path d="M12 21 Q8 26 10 34"/><line x1="14" y1="30" x2="14" y2="38"/><line x1="20" y1="30" x2="20" y2="38"/><line x1="26" y1="30" x2="26" y2="38"/><line x1="30" y1="25" x2="36" y2="20"/></svg>,
-  cattle:   <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="20" cy="22" rx="12" ry="8"/><circle cx="20" cy="13" r="4.5"/><line x1="10" y1="30" x2="10" y2="38"/><line x1="15" y1="30" x2="15" y2="38"/><line x1="25" y1="30" x2="25" y2="38"/><line x1="30" y1="30" x2="30" y2="38"/></svg>,
-  dog:      <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="24" cy="20" rx="11" ry="8"/><circle cx="12" cy="18" r="5"/><path d="M8 14 Q4 10 6 8"/><path d="M10 14 Q8 10 12 8"/><line x1="14" y1="28" x2="14" y2="38"/><line x1="20" y1="28" x2="20" y2="38"/><line x1="28" y1="28" x2="28" y2="38"/><line x1="34" y1="28" x2="34" y2="38"/><path d="M34 22 Q38 24 36 28"/></svg>,
-  donkey:   <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="22" cy="22" rx="13" ry="9"/><circle cx="10" cy="18" r="5"/><line x1="7" y1="14" x2="5" y2="8"/><line x1="11" y1="14" x2="11" y2="8"/><line x1="12" y1="30" x2="12" y2="38"/><line x1="18" y1="30" x2="18" y2="38"/><line x1="26" y1="30" x2="26" y2="38"/><line x1="32" y1="30" x2="32" y2="38"/></svg>,
-  fly:      <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="20" cy="22" rx="5" ry="7"/><circle cx="20" cy="13" r="4"/><ellipse cx="10" cy="18" rx="7" ry="4"/><ellipse cx="30" cy="18" rx="7" ry="4"/><line x1="16" y1="22" x2="12" y2="30"/><line x1="24" y1="22" x2="28" y2="30"/></svg>,
-  mosquito: <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="20" cy="24" rx="4" ry="8"/><circle cx="20" cy="13" r="3.5"/><line x1="20" y1="9" x2="20" y2="5"/><ellipse cx="11" cy="20" rx="6" ry="3"/><ellipse cx="29" cy="20" rx="6" ry="3"/><line x1="14" y1="27" x2="10" y2="35"/><line x1="26" y1="27" x2="30" y2="35"/></svg>,
-  camel:    <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><path d="M8 28 Q8 16 16 14 Q18 8 22 10 Q26 8 28 14 Q36 16 36 28"/><line x1="12" y1="28" x2="12" y2="38"/><line x1="18" y1="28" x2="18" y2="38"/><line x1="26" y1="28" x2="26" y2="38"/><line x1="32" y1="28" x2="32" y2="38"/></svg>,
-  hoopoe:   <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="20" cy="24" rx="10" ry="8"/><circle cx="12" cy="18" r="4"/><path d="M12 14 Q10 8 14 6 Q16 4 14 8"/><path d="M14 14 Q14 6 18 5 Q20 4 17 8"/><path d="M16 14 Q18 6 22 6 Q24 5 20 9"/><path d="M28 24 Q36 20 38 24"/></svg>,
-  wolf:     <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="22" cy="22" rx="13" ry="9"/><circle cx="10" cy="18" r="5"/><path d="M7 13 L4 8 L9 11"/><path d="M13 13 L13 8 L16 12"/><line x1="12" y1="30" x2="12" y2="38"/><line x1="18" y1="30" x2="18" y2="38"/><line x1="26" y1="30" x2="26" y2="38"/><line x1="32" y1="30" x2="32" y2="38"/><path d="M34 22 Q38 22 36 28"/></svg>,
-  crow:     <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round"><ellipse cx="20" cy="20" rx="10" ry="8"/><circle cx="10" cy="16" r="4"/><path d="M8 14 Q4 10 6 8"/><path d="M20 12 Q18 4 24 4 Q22 8 20 12"/><path d="M28 14 Q36 12 36 16"/><line x1="16" y1="28" x2="14" y2="36"/><line x1="24" y1="28" x2="26" y2="36"/></svg>,
-};
 
 const FUN_FACTS_TR = [
   "Kur'an'da mesel olarak geçen hayvanlar çoğunlukla küçük veya alçak görülen türlerdir — sivrisinek, sinek, örümcek. Bu, meselin boyut tanımaz mantığını pekiştirir.",
@@ -904,25 +977,24 @@ function TabHayvanlar({ animals, language, isMobile }) {
           const a = item.data;
           const ctxColor = ANIMAL_CTX_COLORS[a.context] ?? COLORS.silver;
           return (
-            <div key={a.id} style={{ ...GLASS_CARD, padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <div style={{ width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                {ANIMAL_ICONS[a.id] ?? (
-                  <svg viewBox="0 0 40 40" fill="none" stroke={COLORS.gold} strokeWidth="1.5"><circle cx="20" cy="20" r="14"/></svg>
-                )}
+            <div key={a.id} style={{ ...GLASS_CARD, padding: '20px', display: 'flex', flexDirection: 'column', gap: '0' }}>
+              {/* Header: TR name + AR name */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                <div style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '1.05rem', lineHeight: 1.3 }}>
+                  {a.nameTr}
+                </div>
+                <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.6rem', direction: 'rtl', lineHeight: 1, marginLeft: '8px' }} dir="rtl" lang="ar">
+                  {cleanArabic(a.nameAr)}
+                </div>
               </div>
-              <div>
-                <div style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.95rem' }}>{a.nameTr}</div>
-                <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1rem', direction: 'rtl' }} dir="rtl" lang="ar">{cleanArabic(a.nameAr)}</div>
-              </div>
-              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+              {/* Badges */}
+              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '12px' }}>
                 {a.surahNamed && (
                   <span style={{
                     padding: '2px 8px', borderRadius: '99px',
                     background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
                     color: COLORS.gold, fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 600,
-                  }}>
-                    ✦ Sure İsmi
-                  </span>
+                  }}>✦ Sure İsmi</span>
                 )}
                 <span style={{
                   padding: '2px 8px', borderRadius: '99px',
@@ -936,14 +1008,25 @@ function TabHayvanlar({ animals, language, isMobile }) {
                   background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
                   color: COLORS.silver, fontSize: '0.7rem', fontFamily: FONTS.body,
                 }}>
-                  {a.ref}
+                  {surahRef(a.ref)}
                 </span>
               </div>
-              <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.5, margin: 0 }}>
+              {/* Divider */}
+              <div style={{ height: '1px', background: COLORS.glassBorder, marginBottom: '12px' }} />
+              {/* Symbolism */}
+              <p style={{ color: COLORS.silver, fontSize: '0.83rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: '0 0 14px' }}>
                 {a.symbolism}
               </p>
-              <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '0.9rem', direction: 'rtl', textAlign: 'right', lineHeight: 1.8, opacity: 0.8 }} dir="rtl" lang="ar">
-                {cleanArabic(a.keyPhrase)}
+              {/* Verse block */}
+              <div style={{ borderLeft: `2px solid ${COLORS.goldAlpha45}`, paddingLeft: '12px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.35rem', direction: 'rtl', textAlign: 'right', lineHeight: 1.8 }} dir="rtl" lang="ar">
+                  {cleanArabic(a.keyPhrase)}
+                </div>
+                {a.phraseTr && (
+                  <div style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.5 }}>
+                    {a.phraseTr}
+                  </div>
+                )}
               </div>
             </div>
           );
@@ -983,31 +1066,50 @@ const PARABLE_TYPES_DATA = [
   },
 ];
 
+const ROMAN = ['I', 'II', 'III'];
+
 function TabBilgi({ metaVerses, scholars, language, isMobile }) {
   return (
-    <div style={{ padding: isMobile ? '12px' : '20px 24px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+    <div style={{ padding: isMobile ? '12px' : '24px 28px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
 
+      {/* ── Mesel Türleri ─────────────────────────────────────────────────── */}
       <div>
-        <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.9rem', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-          {language === 'tr' ? 'Mesel Türleri' : 'Types of Parable'}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
+          <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>
+            {language === 'tr' ? 'Mesel Türleri' : 'Types of Parable'}
+          </span>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: '12px' }}>
-          {PARABLE_TYPES_DATA.map(t => (
-            <div key={t.key} style={{ ...GLASS_CARD, padding: '16px' }}>
-              <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.95rem', marginBottom: '4px' }}>
-                {t.labelTr}
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: '14px' }}>
+          {PARABLE_TYPES_DATA.map((t, i) => (
+            <div key={t.key} style={{ ...GLASS_CARD, padding: '20px', display: 'flex', flexDirection: 'column', gap: '0' }}>
+              {/* Numbered header */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                <div>
+                  <div style={{ color: COLORS.goldAlpha45, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.1em', marginBottom: '2px' }}>
+                    {ROMAN[i]}
+                  </div>
+                  <div style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '1rem' }}>
+                    {t.labelTr}
+                  </div>
+                </div>
+                <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.2rem', direction: 'rtl', lineHeight: 1.3, opacity: 0.7 }} dir="rtl" lang="ar">
+                  {cleanArabic(t.labelAr)}
+                </div>
               </div>
-              <div style={{ fontFamily: FONTS.quran, color: COLORS.silver, fontSize: '0.9rem', direction: 'rtl', textAlign: 'right', marginBottom: '10px', lineHeight: 1.8 }} dir="rtl" lang="ar">
-                {cleanArabic(t.labelAr)}
-              </div>
-              <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: '0 0 10px' }}>
+              {/* Divider */}
+              <div style={{ height: '1px', background: COLORS.glassBorder, marginBottom: '12px' }} />
+              {/* Definition */}
+              <p style={{ color: COLORS.silver, fontSize: '0.83rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: '0 0 14px', flex: 1 }}>
                 {t.defTr}
               </p>
-              <div style={{ ...GLASS_CARD, padding: '8px 10px', background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}` }}>
-                <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 600, marginBottom: '3px' }}>
-                  Örnek · {t.exampleRef}
+              {/* Example */}
+              <div style={{ background: COLORS.goldAlpha15, borderRadius: '6px', padding: '10px 12px', borderLeft: `2px solid ${COLORS.goldAlpha45}` }}>
+                <div style={{ color: COLORS.gold, fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '4px' }}>
+                  {language === 'tr' ? 'Örnek' : 'Example'} · {surahRef(t.exampleRef)}
                 </div>
-                <div style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, fontStyle: 'italic' }}>
+                <div style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.5 }}>
                   {t.exampleTr}
                 </div>
               </div>
@@ -1016,57 +1118,76 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
         </div>
       </div>
 
+      {/* ── Kur'an'ın Kendi Mesel Felsefesi ──────────────────────────────── */}
       <div>
-        <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.9rem', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-          {language === 'tr' ? "Kur'an'ın Kendi Mesel Felsefesi" : "The Quran's Own Parable Philosophy"}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
+          <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>
+            {language === 'tr' ? "Kur'an'ın Kendi Mesel Felsefesi" : "The Quran's Own Philosophy of Parables"}
+          </span>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '10px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: '14px' }}>
           {metaVerses.map(mv => (
-            <div key={mv.ref} style={{ ...GLASS_CARD, padding: '14px 16px' }}>
-              <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.85rem', marginBottom: '6px' }}>
-                {mv.principleLabel}
-              </div>
-              <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.5, margin: '0 0 8px' }}>
-                {mv.messageTr}
-              </p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <div key={mv.ref} style={{ ...GLASS_CARD, padding: '20px', display: 'flex', flexDirection: 'column', gap: '0' }}>
+              {/* Principle label + ref */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.88rem' }}>
+                  {mv.principleLabel}
+                </div>
                 <span style={{
                   padding: '2px 8px', borderRadius: '99px',
-                  background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
-                  color: COLORS.gold, fontSize: '0.7rem', fontFamily: FONTS.body,
+                  background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
+                  color: COLORS.silver, fontSize: '0.68rem', fontFamily: FONTS.body, whiteSpace: 'nowrap',
                 }}>
-                  {mv.ref}
-                </span>
-                <span style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '0.9rem', direction: 'rtl', lineHeight: 1.8 }} dir="rtl" lang="ar">
-                  {cleanArabic(mv.keyPhrase)}
+                  {surahRef(mv.ref)}
                 </span>
               </div>
+              {/* Arabic phrase */}
+              <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.25rem', direction: 'rtl', textAlign: 'right', lineHeight: 1.9, marginBottom: '10px', opacity: 0.9 }} dir="rtl" lang="ar">
+                {cleanArabic(mv.keyPhrase)}
+              </div>
+              {/* Divider */}
+              <div style={{ height: '1px', background: COLORS.glassBorder, marginBottom: '10px' }} />
+              {/* Message */}
+              <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
+                {mv.messageTr}
+              </p>
             </div>
           ))}
         </div>
       </div>
 
+      {/* ── Âlim Görüşleri ────────────────────────────────────────────────── */}
       <div>
-        <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.9rem', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-          {language === 'tr' ? 'Âlim Görüşleri' : 'Scholar Perspectives'}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
+          <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>
+            {language === 'tr' ? 'Âlim Görüşleri' : 'Scholar Perspectives'}
+          </span>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '14px' }}>
           {scholars.map(s => (
-            <div key={s.id} style={{
-              ...GLASS_CARD, padding: '16px',
-              borderLeft: `3px solid ${COLORS.goldAlpha45}`,
-              borderRadius: '0 8px 8px 0',
-            }}>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'baseline', marginBottom: '6px' }}>
-                <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.9rem' }}>{s.nameTr}</span>
-                <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem' }}>ö. {s.deathH}H / {s.deathM}M</span>
+            <div key={s.id} style={{ ...GLASS_CARD, padding: '20px', display: 'flex', flexDirection: 'column', gap: '0' }}>
+              {/* Quote mark */}
+              <div style={{ color: COLORS.goldAlpha45, fontFamily: FONTS.display, fontSize: '2.5rem', lineHeight: 0.8, marginBottom: '8px', userSelect: 'none' }}>"</div>
+              {/* Quote text */}
+              <p style={{ color: COLORS.offWhite, fontSize: '0.88rem', fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 14px', fontStyle: 'italic' }}>
+                {s.viewTr}
+              </p>
+              {/* Divider */}
+              <div style={{ height: '1px', background: COLORS.glassBorder, marginBottom: '12px', marginTop: 'auto' }} />
+              {/* Attribution */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '4px' }}>
+                <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.88rem' }}>{s.nameTr}</span>
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                  <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.73rem' }}>ö. {s.deathH}H / {s.deathM}M</span>
+                </div>
               </div>
-              <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.8rem', fontStyle: 'italic', marginBottom: '8px' }}>
+              <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.75rem', fontStyle: 'italic', marginTop: '2px' }}>
                 {s.workTr}
               </div>
-              <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
-                "{s.viewTr}"
-              </p>
             </div>
           ))}
         </div>
@@ -1079,7 +1200,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
 // ────────────────────────────────────────────────────────────────────────────
 // MAIN EXPORT
 // ────────────────────────────────────────────────────────────────────────────
-export default function MeselAtlasi({ onClose }) {
+export default function MeselAtlasi({ onClose, backRef }) {
   const { language } = useLanguage();
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
   const [activeTab, setActiveTab]       = useState(0);
@@ -1096,10 +1217,18 @@ export default function MeselAtlasi({ onClose }) {
   const [loading,    setLoading]    = useState(true);
 
   useEffect(() => {
-    const h = (e) => { if (e.key === 'Escape') onClose(); };
+    const h = (e) => {
+      if (e.key !== 'Escape') return;
+      if (backRef?.current) {
+        backRef.current();
+        backRef.current = null;
+        window.history.pushState({ overlay: true }, '');
+      }
+      // ESC with no sub-navigation open: do nothing — close button or browser back handles exit
+    };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, [onClose]);
+  }, [backRef]);
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < 640);
@@ -1203,7 +1332,7 @@ export default function MeselAtlasi({ onClose }) {
       <div style={{ flex: 1, overflowY: 'auto' }}>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
         {activeTab === 0 && <TabImgeEvreni data={networks} onDomainFilter={handleDomainFilter} language={language} isMobile={isMobile} />}
-        {activeTab === 1 && <TabMeselKatalogu parables={parables} domainFilter={domainFilter} language={language} onDomainFilter={handleDomainFilter} onPairLink={handlePairLink} isMobile={isMobile} />}
+        {activeTab === 1 && <TabMeselKatalogu parables={parables} domainFilter={domainFilter} language={language} onDomainFilter={handleDomainFilter} onPairLink={handlePairLink} isMobile={isMobile} backRef={backRef} />}
         {activeTab === 2 && <TabCiftMeseller pairs={pairs} parables={parables} scrollToPairId={scrollToPairId} language={language} isMobile={isMobile} />}
         {activeTab === 3 && <TabNurZulumat data={nurData} language={language} isMobile={isMobile} />}
         {activeTab === 4 && <TabHayvanlar animals={animals} language={language} isMobile={isMobile} />}

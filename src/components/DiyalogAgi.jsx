@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { surahNameTr } from '../utils/surahNames';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   COLORS, FONTS, GLASS_CARD,
@@ -14,12 +15,15 @@ const TABS = [
     labelTr: 'Ağ Haritası', labelEn: 'Network Map',
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="5"  r="2.5" fill="currentColor" stroke="none"/>
-        <circle cx="4"  cy="18" r="2"   fill="currentColor" stroke="none"/>
-        <circle cx="20" cy="18" r="2"   fill="currentColor" stroke="none"/>
-        <line x1="12" y1="7.5" x2="4"  y2="16"/>
-        <line x1="12" y1="7.5" x2="20" y2="16"/>
-        <line x1="4"  y1="18"  x2="20" y2="18"/>
+        <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>
+        <circle cx="12" cy="3"  r="1.8" fill="currentColor" stroke="none"/>
+        <circle cx="3"  cy="18" r="1.8" fill="currentColor" stroke="none"/>
+        <circle cx="21" cy="18" r="1.8" fill="currentColor" stroke="none"/>
+        <circle cx="21" cy="6"  r="1.8" fill="currentColor" stroke="none"/>
+        <line x1="12" y1="9.5"  x2="12" y2="4.8"/>
+        <line x1="10.1" y1="13.8" x2="4.4"  y2="16.4"/>
+        <line x1="13.9" y1="13.8" x2="19.6" y2="16.4"/>
+        <line x1="13.9" y1="10.2" x2="19.2" y2="7.4"/>
       </svg>
     ),
   },
@@ -35,8 +39,7 @@ const TABS = [
     labelTr: 'Ahiret Sahneleri', labelEn: 'Afterlife Scenes',
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23"/>
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
       </svg>
     ),
   },
@@ -78,12 +81,54 @@ function cleanArabic(str) {
     .replace(/[\uFD3E\uFD3F]/g, '');
 }
 
-export default function DiyalogAgi({ onClose }) {
+// ── Ref formatter — prepends surah name to verse ref (e.g. "Bakara 2:30-34") ─
+function formatRef(ref) {
+  const m = ref.match(/^(\d+):/);
+  if (!m) return ref;
+  return `${surahNameTr(parseInt(m[1], 10))} ${ref}`;
+}
+
+// ── Node label map for graph — short 1-or-2-line labels per speaker id ────────
+const NODE_LABELS = {
+  'allah':             ['Allah', '(c.c.)'],
+  'muhammad':          ['Hz. Muhammed', ''],
+  'adam':              ['Hz. Âdem', ''],
+  'nuh':               ['Hz. Nûh', ''],
+  'ibrahim':           ['Hz. İbrâhîm', ''],
+  'musa':              ['Hz. Mûsâ', ''],
+  'isa':               ['Hz. Îsâ', ''],
+  'yusuf':             ['Hz. Yûsuf', ''],
+  'sulayman':          ['Hz. Süleymân', ''],
+  'paradise-dwellers': ['Cennet', 'Ehli'],
+  'hell-dwellers':     ['Cehennem', 'Ehli'],
+  'araf-dwellers':     ["A'râf", 'Ehli'],
+  'other-prophets':    ['Diğer', 'Peygamberler'],
+  'other-characters':  ['Diğer', 'Kişiler'],
+  'people-prophets':   ['Kavimler', ''],
+  'munafiqun':         ['Münafıklar', ''],
+  'muminun':           ["Mü'minler", ''],
+  'people-isa':        ["Hz. Îsâ", 'Kavmi'],
+  'brothers':          ["Yûsuf'un", 'Kardeşleri'],
+  'arrogant-leaders':  ['Kibirli', 'Önderler'],
+  'all-humanity':      ['Tüm', 'İnsanlık'],
+  'son-nuh':           ["Nûh'un", 'Oğlu'],
+};
+
+function getNodeLabel(speaker) {
+  const mapped = NODE_LABELS[speaker.id];
+  if (mapped) return mapped;
+  const clean = speaker.nameTr.replace(/\s*\(.*?\)\s*$/, '').trim();
+  const parts = clean.split(' ');
+  return parts.length <= 2 ? [clean, ''] : [parts.slice(0, 2).join(' '), parts.slice(2).join(' ')];
+}
+
+export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   const { language } = useLanguage();
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
   const [activeTab, setActiveTab] = useState(0);
   const [axisFilter, setAxisFilter] = useState(null);       // { speakerId, addresseeId }
   const [temporalFilter, setTemporalFilter] = useState('all'); // 'ezel'|'dunya'|'ahiret'|'all'
+  const localBackRef = useRef(null); // mirrors onRegisterBackHandler for ESC key use
 
   // Data states
   const [speakers, setSpeakers]   = useState([]);
@@ -134,7 +179,13 @@ export default function DiyalogAgi({ onClose }) {
   const openAxisInDialogues = useCallback((speakerId, addresseeId) => {
     setAxisFilter({ speakerId, addresseeId });
     setActiveTab(1);
-  }, []);
+    if (onRegisterBackHandler) {
+      onRegisterBackHandler(() => {
+        setAxisFilter(null);
+        setActiveTab(0);
+      });
+    }
+  }, [onRegisterBackHandler]);
 
   const tabBarStyle = {
     display: 'flex',
@@ -197,7 +248,7 @@ export default function DiyalogAgi({ onClose }) {
           <button
             key={i}
             style={tabBtnStyle(activeTab === i)}
-            onClick={() => setActiveTab(i)}
+            onClick={() => { setActiveTab(i); if (onRegisterBackHandler) onRegisterBackHandler(null); }}
             onMouseEnter={e => { if (activeTab !== i) e.currentTarget.style.color = COLORS.offWhite; }}
             onMouseLeave={e => { if (activeTab !== i) e.currentTarget.style.color = COLORS.silver; }}
           >
@@ -293,7 +344,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
     'paradise-dwellers', 'araf-dwellers', 'hell-dwellers', 'angels-hell',
   ];
 
-  const CX = 400, CY = 400, ORBIT = 270;
+  const CX = 400, CY = 400, ORBIT = 330;
 
   const nodePositions = {};
   const orderedSpeakers = HEMISPHERE_ORDER
@@ -341,7 +392,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
     ahiret: { tr: 'Ahiret',en: 'Hereafter'},
   };
 
-  const svgSize = isMobile ? Math.min(window.innerWidth - 32, 400) : 560;
+  const svgSize = isMobile ? Math.min(window.innerWidth - 32, 400) : 680;
   const scale   = svgSize / 800;
 
   return (
@@ -425,11 +476,25 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
               );
             })}
 
-            {orderedSpeakers.map(speaker => {
+            {orderedSpeakers.map((speaker, i) => {
               const pos = nodePositions[speaker.id];
               if (!pos) return null;
               const r = nodeRadius(speaker) / scale;
               const isHovered = hoveredNode === speaker.id;
+
+              const total = orderedSpeakers.length;
+              const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
+              const cosA = Math.cos(angle);
+              const sinA = Math.sin(angle);
+              const labelDist = r + 18 / scale;
+              const labelX = pos.x + cosA * labelDist;
+              const labelY = pos.y + sinA * labelDist;
+              const textAnchor = cosA > 0.2 ? 'start' : cosA < -0.2 ? 'end' : 'middle';
+              const fontSize = isMobile ? 9 / scale : 11 / scale;
+              const [line1, line2] = isMobile
+                ? [(language === 'tr' ? speaker.nameTr : speaker.nameEn).slice(0, 7), '']
+                : getNodeLabel(speaker);
+
               return (
                 <g key={speaker.id}
                   style={{ cursor: 'pointer' }}
@@ -445,18 +510,20 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
                     strokeWidth={2 / scale}
                   />
                   <text
-                    x={pos.x}
-                    y={pos.y + r + 14 / scale}
-                    textAnchor="middle"
+                    textAnchor={textAnchor}
                     fill={isHovered ? COLORS.gold : COLORS.silver}
-                    fontSize={isMobile ? 9 / scale : 11 / scale}
+                    fontSize={fontSize}
                     fontFamily={FONTS.body}
                     style={{ pointerEvents: 'none', transition: 'fill 0.15s' }}
                   >
-                    {isMobile
-                      ? (language === 'tr' ? speaker.nameTr : speaker.nameEn).slice(0, 6)
-                      : (language === 'tr' ? speaker.nameTr : speaker.nameEn).split(' ').slice(-1)[0]
-                    }
+                    {line2 ? (
+                      <>
+                        <tspan x={labelX} y={labelY - fontSize * 0.65}>{line1}</tspan>
+                        <tspan x={labelX} y={labelY + fontSize * 0.65}>{line2}</tspan>
+                      </>
+                    ) : (
+                      <tspan x={labelX} y={labelY}>{line1}</tspan>
+                    )}
                   </text>
                 </g>
               );
@@ -646,7 +713,7 @@ function TabDiyaloglar({ dialogues, axes, speakers, axisFilter, setAxisFilter, t
 
                   {dialogue.refs?.map(ref => (
                     <span key={ref} style={{ padding: '2px 8px', borderRadius: '10px', background: COLORS.goldAlpha15, color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body }}>
-                      {ref}
+                      {formatRef(ref)}
                     </span>
                   ))}
                 </div>
@@ -678,7 +745,7 @@ function TabDiyaloglar({ dialogues, axes, speakers, axisFilter, setAxisFilter, t
                       {turn.keyPhrase && (
                         <div style={{
                           fontFamily: FONTS.quran,
-                          fontSize: '1.1rem',
+                          fontSize: '1.5rem',
                           color: COLORS.gold,
                           direction: 'rtl',
                           textAlign: 'right',
@@ -814,7 +881,7 @@ function TabAhiretSahneleri({ scenes, isMobile, language, cleanArabic }) {
                             background: COLORS.goldAlpha15, color: COLORS.gold,
                             fontSize: '0.72rem', fontFamily: FONTS.body,
                           }}>
-                            {ref}
+                            {formatRef(ref)}
                           </span>
                         ))}
                       </div>
@@ -943,7 +1010,7 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
                         background: COLORS.goldAlpha15, color: COLORS.gold,
                         fontSize: '0.75rem', fontFamily: FONTS.body,
                       }}>
-                        {ref}
+                        {formatRef(ref)}
                       </span>
                     ))}
                   </div>

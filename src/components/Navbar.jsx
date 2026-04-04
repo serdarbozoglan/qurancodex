@@ -167,8 +167,11 @@ export default function Navbar() {
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
   const [graphReturnToWow, setGraphReturnToWow]         = useState(false);
   const [graphReturnToConcept, setGraphReturnToConcept] = useState(false);
-  const graphBackRef = useRef(null); // set by VerseGraph when it has internal back state
-  const esbabBackRef = useRef(null); // set by EsbabNuzul when detail is open
+  const graphBackRef   = useRef(null); // set by VerseGraph when it has internal back state
+  const esbabBackRef   = useRef(null); // set by EsbabNuzul when detail is open
+  const meselBackRef   = useRef(null); // set by MeselAtlasi when card is expanded
+  const diyalogBackRef = useRef(null); // set by DiyalogAgi when navigated internally
+  const kiraatBackRef  = useRef(null); // set by KiraatAtlasi when navigated internally
   const conceptRestoreRef = useRef(null); // stores concept state to restore after VerseGraph closes
   const [readingOpen, setReadingOpen]   = useState(
     () => localStorage.getItem('qurancodex_reading_open') === 'true'
@@ -332,9 +335,35 @@ export default function Navbar() {
       if (renkleriOpen)   { setRenkleriOpen(false);        return; }
       if (kiyametOpen)    { setKiyametOpen(false);          return; }
       if (retorigiOpen)   { setRetorigiOpen(false);        return; }
-      if (kiraatOpen)     { setKiraatOpen(false);          return; }
-      if (diyalogOpen)    { setDiyalogOpen(false);         return; }
-      if (meselOpen)      { setMeselOpen(false);           return; }
+      if (kiraatOpen) {
+        if (kiraatBackRef.current) {
+          kiraatBackRef.current();
+          kiraatBackRef.current = null;
+          window.history.pushState({ overlay: true }, '');
+        } else {
+          setKiraatOpen(false);
+        }
+        return;
+      }
+      if (diyalogOpen) {
+        if (diyalogBackRef.current) {
+          diyalogBackRef.current();
+          diyalogBackRef.current = null;
+          window.history.pushState({ overlay: true }, '');
+        } else {
+          setDiyalogOpen(false);
+        }
+        return;
+      }
+      if (meselOpen) {
+        if (meselBackRef.current) {
+          meselBackRef.current();
+          window.history.pushState({ overlay: true }, '');
+        } else {
+          setMeselOpen(false);
+        }
+        return;
+      }
       if (sebebOpen)      { setSebebOpen(false);            return; }
     };
     window.addEventListener('popstate', handlePop);
@@ -1103,9 +1132,9 @@ export default function Navbar() {
                       </button>
                     );
                     // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Nüzul Haritası [9]Emirler [10]Dua [11]Muhatap [12]Esmaül Hüsna [13]Zamanın Boyutları [14]Kıraat Atlası [15]Diyalog Ağı [16]Mesel Atlası [17]Sebeb-i Nüzul
-                    const vizTools      = [tools[1], tools[2], tools[3], tools[8], tools[6]];
-                    const analysisTools = [tools[12], tools[7], tools[5], tools[11]];
-                    const researchTools = [tools[0], tools[4], tools[9], tools[10], tools[14], tools[15], tools[16], tools[17]];
+                    const vizTools      = [tools[1], tools[2], tools[3], tools[8], tools[6], tools[16]];
+                    const analysisTools = [tools[12], tools[7], tools[5], tools[11], tools[15], tools[14]];
+                    const researchTools = [tools[0], tools[4], tools[9], tools[10], tools[17]];
                     return (
                       <div style={{ display: 'flex' }}>
                         {/* Col 1: Görselleştirme */}
@@ -1450,17 +1479,23 @@ export default function Navbar() {
     )}
     {kiraatOpen && (
       <Suspense fallback={null}>
-        <KiraatAtlasi onClose={() => setKiraatOpen(false)} />
+        <KiraatAtlasi
+          onClose={() => { setKiraatOpen(false); kiraatBackRef.current = null; }}
+          onRegisterBackHandler={(fn) => { kiraatBackRef.current = fn; }}
+        />
       </Suspense>
     )}
     {diyalogOpen && (
       <Suspense fallback={null}>
-        <DiyalogAgi onClose={() => setDiyalogOpen(false)} />
+        <DiyalogAgi
+          onClose={() => { setDiyalogOpen(false); diyalogBackRef.current = null; }}
+          onRegisterBackHandler={(fn) => { diyalogBackRef.current = fn; }}
+        />
       </Suspense>
     )}
     {meselOpen && (
       <Suspense fallback={null}>
-        <MeselAtlasi onClose={() => setMeselOpen(false)} />
+        <MeselAtlasi onClose={() => setMeselOpen(false)} backRef={meselBackRef} />
       </Suspense>
     )}
     {sebebOpen && (

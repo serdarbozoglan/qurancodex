@@ -755,7 +755,7 @@ function TabIstatistik({ data, language, isMobile }) {
         </div>
         <p style={{ margin: 0, fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.6 }}>
           {language === 'tr'
-            ? 'Medenî dönemin %72 oranıyla öne çıkması, Medine'de toplum inşasına yönelik sosyal, hukuki ve siyasi meselelerin ön plana çıktığının göstergesidir.'
+            ? "Medenî dönemin %72 oranıyla öne çıkması, Medine'de toplum inşasına yönelik sosyal, hukuki ve siyasi meselelerin ön plana çıktığının göstergesidir."
             : 'The Medinan period dominating at 72% reflects how social, legal, and political issues related to community-building came to the foreground in Medina.'}
         </p>
       </div>
@@ -988,10 +988,10 @@ function TabKaynaklar({ data, language, isMobile }) {
   };
 
   const historyNarrative = language === 'tr' ? [
-    'Sebeb-i nüzul bilgisi, İslam'ın ilk dönemlerinden itibaren hadis ve tefsir külliyatı içinde dağınık biçimde mevcut olmuştur. Sahabe ve tabiîn nesli, Hz. Peygamber'in (s.a.v.) vahyin iniş sürecini bizzat yaşadıkları için bu bilgileri titizlikle aktarmıştır.',
-    'Hicri 5. asırda Alî b. Ahmed el-Vâhidî en-Nîşâbûrî (ö. 468/1075), "Kitâbu Esbâbi'n-Nüzûl" adlı eseriyle bu alanda kaleme alınan ilk müstakil çalışmayı ortaya koymuştur. Vâhidî, Kur'an'ın 83 suresine dair rivayetleri derlemiş ve bu ilmin metodolojik temellerini atmıştır.',
-    'Hicri 9. asırda Celâlüddîn es-Süyûtî (ö. 911/1505) "Lübâbu'n-Nukûl fî Esbâbi'n-Nüzûl" adlı eseriyle kapsamı 102 sureye genişletmiş, rivayetleri tenkit süzgecinden geçirmiş ve ilmin metodolojisini daha da olgunlaştırmıştır.',
-    'Modern dönemde sebeb-i nüzul ilmi, Kur'an'ın siyak-sibak dışında yorumlanmasını önleyen kritik bir referans alanı olarak önemini korumaktadır. Metin tenkidi, tarihî bağlam araştırmaları ve karşılaştırmalı tefsir çalışmaları, bu ilmin verilerinden beslenmeye devam etmektedir.',
+    "Sebeb-i nüzul bilgisi, İslam'ın ilk dönemlerinden itibaren hadis ve tefsir külliyatı içinde dağınık biçimde mevcut olmuştur. Sahabe ve tabiîn nesli, Hz. Peygamber'in (s.a.v.) vahyin iniş sürecini bizzat yaşadıkları için bu bilgileri titizlikle aktarmıştır.",
+    "Hicri 5. asırda Alî b. Ahmed el-Vâhidî en-Nîşâbûrî (ö. 468/1075), \"Kitâbu Esbâbi'n-Nüzûl\" adlı eseriyle bu alanda kaleme alınan ilk müstakil çalışmayı ortaya koymuştur. Vâhidî, Kur'an'ın 83 suresine dair rivayetleri derlemiş ve bu ilmin metodolojik temellerini atmıştır.",
+    "Hicri 9. asırda Celâlüddîn es-Süyûtî (ö. 911/1505) \"Lübâbu'n-Nukûl fî Esbâbi'n-Nüzûl\" adlı eseriyle kapsamı 102 sureye genişletmiş, rivayetleri tenkit süzgecinden geçirmiş ve ilmin metodolojisini daha da olgunlaştırmıştır.",
+    "Modern dönemde sebeb-i nüzul ilmi, Kur'an'ın siyak-sibak dışında yorumlanmasını önleyen kritik bir referans alanı olarak önemini korumaktadır. Metin tenkidi, tarihî bağlam araştırmaları ve karşılaştırmalı tefsir çalışmaları, bu ilmin verilerinden beslenmeye devam etmektedir.",
   ] : [
     'Knowledge of the occasions of revelation has existed since the earliest days of Islam, scattered throughout hadith and tafsir collections. The Companions and Successors who lived through the revelation process transmitted this knowledge with great care.',
     'In the 5th century AH, Ali ibn Ahmad al-Wahidi al-Naysaburi (d. 468/1075) produced the first independent work in this field with his "Kitab Asbab al-Nuzul," compiling narrations for 83 surahs and laying the methodological foundations of the discipline.',

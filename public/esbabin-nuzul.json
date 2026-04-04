@@ -145,7 +145,7 @@
       "category": "savas",
       "titleTr": "Bedir Savaşı: 313'e Karşı 1000",
       "titleEn": "Battle of Badr: 313 Against 1,000",
-      "occasionTr": "İslam'ın ilk büyük savaşı. 313 Müslüman, bin kişilik Kureyş ordusuna karşı çıktı. Zafer beklenmedik biçimde Müslümanlarla oldu. Kureyş'in 70 ileri geleni öldürüldü, 70'i esir alındı. Bu zafer, Müslümanların ilk gerçek siyasi ve askeri gücü oldu.",
+      "occasionTr": "İslam'ın ilk büyük savaşı. 313 Müslüman, bin kişilik Kureyş ordusuna karşı çıktı. Beklenmedik olan oldu; zafer Müslümanların oldu. Kureyş'in 70 ileri geleni öldürüldü, 70'i esir alındı. Bu zafer, Müslümanların ilk gerçek siyasi ve askeri gücü oldu.",
       "occasionEn": "The first major battle of Islam. 313 Muslims faced an army of 1,000 from Quraysh. Victory unexpectedly went to the Muslims. 70 Quraysh leaders were killed, 70 taken prisoner. This victory became Muslims' first real political and military power.",
       "descTr": "Enfal suresi bu savaşı belgeler ve savaş ganimetlerinin (enfal) dağıtımını düzenler. 'Siz onları öldürmediniz; Allah öldürdü' — Kur'an, stratejik sonuçları ilahi kudrete bağlar.",
       "descEn": "Surah Al-Anfal documents this battle and regulates the distribution of war gains (anfal). 'You did not kill them; Allah killed them' — the Quran attributes strategic outcomes to divine power.",
@@ -183,7 +183,7 @@
       "hijriLabel": "625 M (3 H)",
       "period": "medeni",
       "category": "savas",
-      "titleTr": "Uhud Savaşı: İtaatin Bedeli",
+      "titleTr": "Uhud Savaşı: Sınavın Bedeli",
       "titleEn": "Battle of Uhud: The Cost of Disobedience",
       "occasionTr": "Müslümanlar Uhud Dağı'nda Kureyş'e karşı savaştı. Hz. Peygamber'in emrine rağmen okçular mevzilerini terk edince denge bozuldu; 70 sahabi şehit düştü. Hz. Peygamber ağır yaralandı: dişi kırıldı, yüzü yaralandı, miğferin halkası yanağına saplandı. Müşrikler 'Muhammed öldü' diye bağırdı.",
       "occasionEn": "Muslims fought Quraysh at Mount Uhud. Despite the Prophet's orders, archers abandoned their positions and the balance shifted; 70 companions were martyred. The Prophet himself was seriously wounded: a tooth was broken, his face cut, chainmail rings embedded in his cheek. The polytheists shouted 'Muhammad is dead!'",
@@ -282,7 +282,7 @@
       "titleEn": "Treaty of Hudaybiyyah: The Invisible Victory",
       "occasionTr": "1.400 Müslüman umre için Mekke'ye gitti ama Kureyş kabul etmedi. Hüdeybiye'de görünürde dezavantajlı bir anlaşma imzalandı: Bu yıl geri dön, bir dahaki yıl gel. Sahabeler üzüldü; ama iki yıl içinde Müslümanlar 1.400'den on binlere ulaştı. Anlaşma barış ortamı yarattı.",
       "occasionEn": "1,400 Muslims went to Mecca for Umra but Quraysh refused entry. An apparently disadvantageous treaty was signed at Hudaybiyya: return this year, come next year. Companions were distressed; but within two years Muslims grew from 1,400 to tens of thousands. The treaty created a peace environment.",
-      "descTr": "'Biz sana apaçık bir fetih verdik' — Allah, anlaşmayı 'fetih' (Fetih suresi) olarak adlandırdı. Müslümanlar anlamadı ama tarih doğruladı: Kılıçsız zafer, savaşla kazanılandan büyük olabilir.",
+      "descTr": "Allah bu anlaşmayı 'fetih' ilan etti. Sahabe şaşkındı. İki yıl sonra Mekke fethedildi — kılıç çekilmeden.",
       "descEn": "'We have given you a clear victory' — Allah named the treaty a 'conquest' (Surah Al-Fath). Muslims didn't understand, but history confirmed: a victory without swords can be greater than one won by war.",
       "verseAr": "إِنَّا فَتَحْنَا لَكَ فَتْحًا مُّبِينًا",
       "verseTr": "Şüphesiz biz sana apaçık bir fetih verdik.",
@@ -299,7 +299,7 @@
       "category": "savas",
       "titleTr": "Mekke'nin Fethi: Kansız Zafer",
       "titleEn": "Conquest of Mecca: Bloodless Victory",
-      "occasionTr": "10.000 kişilik İslam ordusu Mekke'ye girdi. Hz. Peygamber şehre girerken 'Bu gün yargılama günü değil, merhamet günüdür' dedi. Yıllarca eziyet ettirenleri affetti. Kabe putlardan arındırıldı. Sadece birkaç kişi cezalandırıldı.",
+      "occasionTr": "10.000 kişilik İslam ordusu Mekke'ye girdi. Hz. Peygamber şehre girerken 'Bu gün yargılama günü değil, merhamet günüdür' dedi. Yıllarca eziyet ettirenleri affetti. Kâbe putlardan arındırıldı. Sadece birkaç kişi cezalandırıldı.",
       "occasionEn": "An Islamic army of 10,000 entered Mecca. As the Prophet entered, he said 'This is not a day of vengeance but a day of mercy.' He pardoned those who had persecuted him for years. The Kaaba was cleansed of idols. Only a handful were punished.",
       "descTr": "Nasr suresi bu zaferi öngörür ve en kısa surelerden biri olmasına rağmen tüm bir devrin kapandığını haber verir: 'Allah'ın yardımı geldiğinde... O'nu tesbih et ve bağışlanma dile.' Zafer coşkusu değil, tevazu zamanı.",
       "descEn": "Surah An-Nasr foresees this victory and, though one of the shortest surahs, announces the closing of an entire era: 'When comes the help of Allah... glorify Him and seek His forgiveness.' Not a time for celebration, but for humility.",
@@ -375,13 +375,22 @@
       "category": "vahiy",
       "titleTr": "Son Vahiy: Dini Tamamladım",
       "titleEn": "The Final Revelation: I Have Completed the Religion",
-      "occasionTr": "Veda Haccı'nda Arefe günü, Hz. Peygamber yaklaşık 100.000 kişiye hitaben Veda Hutbesi'ni irat etti. Öğle namazının ardından Kur'an'ın son kapsamlı vahyi indi: 'Bugün dininizi kemale erdirdim.' Bir süre sonra Kur'an'ın son inen ayeti Bakara 2:281 oldu.",
+      "occasionTr": "Veda Haccı'nda Arefe günü, Hz. Peygamber yaklaşık 100.000 kişiye hitaben Veda Hutbesi'ni irat etti. Öğle namazının ardından Kur'an'ın son kapsamlı vahyi indi: 'Bugün dininizi kemale erdirdim.' Pek çok rivayete göre son inen ayetlerden biri Bakara 2:281'dir.",
       "occasionEn": "On the Day of Arafat at the Farewell Pilgrimage, the Prophet addressed approximately 100,000 people with the Farewell Sermon. After Dhuhr prayer the last comprehensive revelation descended: 'Today I have completed your religion.' Some time later the final verse of the Quran to be revealed was Baqarah 2:281.",
       "descTr": "Bu ayet, İslam'ın bir 'proje' değil bir 'tamamlanmış bütün' olduğunu ilan eder. 23 yıl süren vahiy, bu an itibariyle Kur'an olarak mühürlendi. Hz. Peygamber bu vahy sonrası 80 gün daha yaşadı. (Not: 'Son inen ayet' konusu alimlerce tartışılır; Maide 5:3, Bakara 2:281 ve Bakara 2:278 en sık zikredilen adaylardır.)",
       "descEn": "This verse declares that Islam is not a 'work in progress' but a 'completed whole.' The 23-year revelation was sealed as the Quran at this moment. The Prophet lived 80 more days after this revelation. (Note: Scholars debate which verse was 'the last revealed'; Al-Maida 5:3, Al-Baqarah 2:281, and Al-Baqarah 2:278 are the most frequently cited candidates.)",
       "verseAr": "الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي وَرَضِيتُ لَكُمُ الْإِسْلَامَ دِينًا",
       "verseTr": "Bugün dininizi kemale erdirdim, üzerinizdeki nimetimi tamamladım ve size din olarak İslam'ı seçip beğendim.",
       "verseRef": "Maide 5:3",
+      "secondaryVerses": [
+        {
+          "verseAr": "وَاتَّقُوا يَوْمًا تُرْجَعُونَ فِيهِ إِلَى اللَّهِ ثُمَّ تُوَفَّىٰ كُلُّ نَفْسٍ مَّا كَسَبَتْ وَهُمْ لَا يُظْلَمُونَ",
+          "verseTr": "Allah'a döndürüleceğiniz günden korkun. Sonra herkese kazandığının karşılığı eksiksiz verilecek ve onlara zulmedilmeyecektir.",
+          "verseRef": "Bakara 2:281",
+          "labelTr": "Pek çok rivayete göre son inen ayetlerden biri",
+          "labelEn": "Among the last verses revealed according to many narrations"
+        }
+      ],
       "surahs": [
         { "num": 5, "nameTr": "Maide", "verses": "3" }
       ]

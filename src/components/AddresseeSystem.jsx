@@ -12,12 +12,6 @@ export default function AddresseeSystem({ onClose }) {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
 
   useEffect(() => {
-    const h = (e) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', h);
-    return () => window.removeEventListener('keydown', h);
-  }, [onClose]);
-
-  useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < 640);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
@@ -30,7 +24,7 @@ export default function AddresseeSystem({ onClose }) {
       .catch(() => {});
   }, []);
 
-  const categories = data?.categories ?? [];
+  const categories = (data?.categories ?? []).slice().sort((a, b) => (b.stats?.count ?? 0) - (a.stats?.count ?? 0));
   const active     = categories.find(c => c.id === activeId) ?? null;
   const accent     = active?.accent ?? COLORS.gold;
 

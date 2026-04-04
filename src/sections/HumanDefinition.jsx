@@ -428,15 +428,19 @@ export default function HumanDefinition() {
             >
               {/* Card header */}
               <div className="p-5 flex items-center gap-5">
-                <div className="flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center"
+                <div className="flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center overflow-hidden"
                   style={{ background: term.glow, border: `1px solid ${term.border}` }}
                 >
                   <span
                     style={{
                       fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                      fontSize: '1.8rem',
+                      fontSize: term.arabic.length > 8 ? '1.4rem' : '1.8rem',
                       color: term.color,
-                      lineHeight: 1,
+                      lineHeight: 1.3,
+                      textAlign: 'center',
+                      direction: 'rtl',
+                      padding: '4px',
+                      wordBreak: 'break-word',
                     }}
                   >
                     {term.arabic}

@@ -43,13 +43,14 @@ const BackIcon = () => (
   </svg>
 );
 
-export default function EsbabNuzul({ onClose }) {
+export default function EsbabNuzul({ onClose, backRef }) {
   const { language } = useLanguage();
   const [events, setEvents] = useState([]);
   const [selected, setSelected] = useState(null);
   const [filter, setFilter] = useState('all'); // 'all' | period key | category key
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
+  const [expandedSecondary, setExpandedSecondary] = useState(null); // verseRef of expanded secondary verse
   const detailRef = useRef(null);
 
   useEffect(() => {
@@ -66,9 +67,21 @@ export default function EsbabNuzul({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [selected, onClose]);
 
-  // Scroll detail panel to top on selection
+  // Keep backRef in sync with selected state so Navbar's popstate handler can close detail
+  useEffect(() => {
+    if (backRef) {
+      backRef.current = selected ? () => setSelected(null) : null;
+    }
+    if (selected) {
+      window.history.pushState({ overlay: true }, '');
+    }
+    return () => { if (backRef) backRef.current = null; };
+  }, [selected, backRef]);
+
+  // Scroll detail panel to top on selection, reset expanded secondary
   useEffect(() => {
     if (selected && detailRef.current) detailRef.current.scrollTop = 0;
+    setExpandedSecondary(null);
   }, [selected]);
 
   const filtered = events.filter(ev => {
@@ -502,6 +515,74 @@ export default function EsbabNuzul({ onClose }) {
                 <p style={{ margin: 0, fontSize: '0.72rem', color: '#94a3b8' }}>
                   — {selected.verseRef}
                 </p>
+              </div>
+            )}
+
+            {/* Secondary verses (expandable) */}
+            {selected.secondaryVerses && selected.secondaryVerses.length > 0 && (
+              <div style={{ marginBottom: '28px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {selected.secondaryVerses.map(sv => {
+                  const isOpen = expandedSecondary === sv.verseRef;
+                  return (
+                    <div key={sv.verseRef}>
+                      <button
+                        onClick={() => setExpandedSecondary(isOpen ? null : sv.verseRef)}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '10px',
+                          width: '100%', textAlign: 'left', cursor: 'pointer',
+                          padding: '10px 14px', borderRadius: '10px',
+                          background: isOpen ? 'rgba(212,165,116,0.1)' : 'rgba(255,255,255,0.03)',
+                          border: `1px solid ${isOpen ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.08)'}`,
+                          transition: 'all 0.2s',
+                        }}
+                        onMouseEnter={e => { if (!isOpen) { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.2)'; } }}
+                        onMouseLeave={e => { if (!isOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; } }}
+                      >
+                        <svg
+                          width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="#d4a574" strokeWidth="2.5" strokeLinecap="round"
+                          style={{ flexShrink: 0, transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}
+                        >
+                          <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontSize: '0.7rem', color: '#d4a574', fontWeight: 700, marginBottom: '2px' }}>
+                            {sv.verseRef}
+                          </div>
+                          <div style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
+                            {language === 'tr' ? sv.labelTr : sv.labelEn}
+                          </div>
+                        </div>
+                      </button>
+                      {isOpen && (
+                        <div style={{
+                          marginTop: '6px', padding: '18px 20px',
+                          background: 'rgba(212,165,116,0.05)',
+                          border: '1px solid rgba(212,165,116,0.18)',
+                          borderRadius: '10px', borderLeft: '3px solid rgba(212,165,116,0.5)',
+                        }}>
+                          <p style={{
+                            fontFamily: ARABIC_FONT,
+                            fontSize: '1.55rem', lineHeight: 2,
+                            color: '#d4a574', textAlign: 'right',
+                            direction: 'rtl', margin: '0 0 10px',
+                          }}>
+                            {sv.verseAr}
+                          </p>
+                          <p style={{
+                            fontSize: '0.85rem', color: '#e8e6e3', lineHeight: 1.7,
+                            margin: '0 0 6px', fontStyle: 'italic',
+                          }}>
+                            {sv.verseTr}
+                          </p>
+                          <p style={{ margin: 0, fontSize: '0.72rem', color: '#94a3b8' }}>
+                            — {sv.verseRef}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             )}
 
