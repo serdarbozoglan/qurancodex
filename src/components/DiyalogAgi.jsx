@@ -529,8 +529,9 @@ function TabDiyaloglar({ dialogues, axes, speakers, axisFilter, setAxisFilter, t
   const filtered = dialogues.filter(d => {
     if (localTemporalFilter !== 'all' && d.temporalLayer !== localTemporalFilter) return false;
     if (axisFilter) {
-      if (axisFilter.speakerId && d.turns[0]?.speaker !== axisFilter.speakerId &&
-          !d.turns.some(t => t.speaker === axisFilter.speakerId)) return false;
+      const speakerMatch = !axisFilter.speakerId || d.turns.some(t => t.speaker === axisFilter.speakerId);
+      const addresseeMatch = !axisFilter.addresseeId || d.turns.some(t => t.addressee === axisFilter.addresseeId);
+      if (!speakerMatch || !addresseeMatch) return false;
     }
     return true;
   });
@@ -818,24 +819,31 @@ function TabAhiretSahneleri({ scenes, isMobile, language, cleanArabic }) {
                         ))}
                       </div>
 
-                      {scene.keyPhrase && (
-                        <div style={{
-                          fontFamily: FONTS.quran,
-                          fontSize: isSatanConfession ? '1.3rem' : '1.15rem',
-                          color: config.color,
-                          direction: 'rtl',
-                          textAlign: 'center',
-                          lineHeight: 1.9,
-                          padding: '6px 0',
-                        }} dir="rtl" lang="ar">
-                          {cleanArabic(scene.keyPhrase)}
-                        </div>
-                      )}
-
-                      <div style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7 }}>
-                        {language === 'tr' ? scene.summaryTr : scene.summaryEn}
-                      </div>
                     </div>
+
+                    {isExpanded && (
+                      <div style={{ padding: isMobile ? '0 14px 14px' : '0 20px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <div style={{ height: 1, background: COLORS.glassBorderSoft }} />
+
+                        {scene.keyPhrase && (
+                          <div style={{
+                            fontFamily: FONTS.quran,
+                            fontSize: isSatanConfession ? '1.3rem' : '1.15rem',
+                            color: config.color,
+                            direction: 'rtl',
+                            textAlign: 'center',
+                            lineHeight: 1.9,
+                            padding: '6px 0',
+                          }} dir="rtl" lang="ar">
+                            {cleanArabic(scene.keyPhrase)}
+                          </div>
+                        )}
+
+                        <div style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7 }}>
+                          {language === 'tr' ? scene.summaryTr : scene.summaryEn}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -1146,7 +1154,7 @@ function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
                   borderRadius: '8px',
                   border: '1px solid rgba(26,122,76,0.3)',
                 }}>
-                  <span style={{ color: '#2ecc71', fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                  <span style={{ color: TYPE_CONFIG.prophet.color, fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 600 }}>
                     {language === 'tr'
                       ? "Kelîmullâh — Allah'ın doğrudan konuştuğu peygamber"
                       : 'Kalimullah — the prophet to whom God spoke directly'
