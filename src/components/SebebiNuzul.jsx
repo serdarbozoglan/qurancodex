@@ -1771,13 +1771,18 @@ export default function SebebiNuzul({ onClose }) {
       </div>
 
       {/* Tab content */}
-      <div ref={contentRef} style={{ flex: 1, overflow: 'hidden' }}>
-        {activeTab === 0 && <TabArama data={data} language={language} isMobile={isMobile} />}
-        {activeTab === 1 && <TabIstatistik data={data} language={language} isMobile={isMobile} />}
-        {activeTab === 2 && <TabIlkeler data={data} language={language} isMobile={isMobile} />}
-        {activeTab === 3 && <TabKaynaklar data={data} language={language} isMobile={isMobile} />}
-        {activeTab === 4 && <TabZaman language={language} isMobile={isMobile} />}
-      </div>
+      {activeTab === 4 ? (
+        <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+          <TabZaman language={language} isMobile={isMobile} />
+        </div>
+      ) : (
+        <div ref={contentRef} style={{ flex: 1, overflowY: 'auto' }}>
+          {activeTab === 0 && <TabArama data={data} language={language} isMobile={isMobile} />}
+          {activeTab === 1 && <TabIstatistik data={data} language={language} isMobile={isMobile} />}
+          {activeTab === 2 && <TabIlkeler data={data} language={language} isMobile={isMobile} />}
+          {activeTab === 3 && <TabKaynaklar data={data} language={language} isMobile={isMobile} />}
+        </div>
+      )}
     </div>
   );
 }
