@@ -1269,6 +1269,7 @@ function TabZaman({ language, isMobile }) {
 
   const groups = groupByPeriod(filtered);
   const selCat = timeSelected ? TCAT_META[timeSelected.category] : null;
+  const selPeriod = timeSelected ? (TPERIOD_META[timeSelected.period] || TPERIOD_META['mekki']) : null;
 
   if (timeLoading) {
     return (
@@ -1510,9 +1511,11 @@ function TabZaman({ language, isMobile }) {
             </button>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
-              <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '3px 10px', borderRadius: '12px', background: `${TPERIOD_META[timeSelected.period].color}22`, border: `1px solid ${TPERIOD_META[timeSelected.period].color}44`, color: TPERIOD_META[timeSelected.period].color, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
-                {language === 'tr' ? TPERIOD_META[timeSelected.period].tr : TPERIOD_META[timeSelected.period].en}
-              </span>
+              {selPeriod && (
+                <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '3px 10px', borderRadius: '12px', background: `${selPeriod.color}22`, border: `1px solid ${selPeriod.color}44`, color: selPeriod.color, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
+                  {language === 'tr' ? selPeriod.tr : selPeriod.en}
+                </span>
+              )}
               {selCat && (
                 <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '3px 10px', borderRadius: '12px', background: selCat.bg, border: `1px solid ${selCat.color}44`, color: selCat.color, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
                   {language === 'tr' ? selCat.tr : selCat.en}
@@ -1768,7 +1771,7 @@ export default function SebebiNuzul({ onClose }) {
       </div>
 
       {/* Tab content */}
-      <div ref={contentRef} style={{ flex: 1, overflowY: 'auto' }}>
+      <div ref={contentRef} style={{ flex: 1, overflow: 'hidden' }}>
         {activeTab === 0 && <TabArama data={data} language={language} isMobile={isMobile} />}
         {activeTab === 1 && <TabIstatistik data={data} language={language} isMobile={isMobile} />}
         {activeTab === 2 && <TabIlkeler data={data} language={language} isMobile={isMobile} />}
