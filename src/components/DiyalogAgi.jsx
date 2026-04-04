@@ -510,33 +510,654 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
 }
 
 function TabDiyaloglar({ dialogues, axes, speakers, axisFilter, setAxisFilter, temporalFilter, setTemporalFilter, isMobile, language, cleanArabic }) {
+  const [expandedId, setExpandedId] = useState(null);
+  const [localTemporalFilter, setLocalTemporalFilter] = useState(temporalFilter);
+
+  useEffect(() => { setLocalTemporalFilter(temporalFilter); }, [temporalFilter]);
+
+  const getSpeakerName = (id) => {
+    const s = speakers.find(sp => sp.id === id);
+    if (!s) return id;
+    return language === 'tr' ? s.nameTr : s.nameEn;
+  };
+
+  const getSpeakerColor = (id) => {
+    const s = speakers.find(sp => sp.id === id);
+    return s?.color || COLORS.silver;
+  };
+
+  const filtered = dialogues.filter(d => {
+    if (localTemporalFilter !== 'all' && d.temporalLayer !== localTemporalFilter) return false;
+    if (axisFilter) {
+      if (axisFilter.speakerId && d.turns[0]?.speaker !== axisFilter.speakerId &&
+          !d.turns.some(t => t.speaker === axisFilter.speakerId)) return false;
+    }
+    return true;
+  });
+
+  const TEMPORAL_CHIP_COLORS = { ezel: TEMPORAL.ezel, dunya: TEMPORAL.dunya, ahiret: TEMPORAL.ahiret };
+  const TEMPORAL_LABEL = { ezel: { tr: 'Ezel', en: 'Pre-Time' }, dunya: { tr: 'Dünya', en: 'Earthly' }, ahiret: { tr: 'Ahiret', en: 'Hereafter' } };
+
+  const chipStyle = (active, color) => ({
+    padding: '4px 12px',
+    borderRadius: '20px',
+    border: `1px solid ${active ? color : COLORS.glassBorder}`,
+    background: active ? `${color}22` : 'transparent',
+    color: active ? color : COLORS.silver,
+    fontSize: '0.78rem',
+    fontFamily: FONTS.body,
+    cursor: 'pointer',
+    whiteSpace: 'nowrap',
+    transition: 'all 0.15s',
+  });
+
   return (
-    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.silver, fontFamily: FONTS.body }}>
-      Dialogues — Task 8
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+      <div style={{
+        padding: isMobile ? '10px 16px' : '12px 24px',
+        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        flexShrink: 0,
+      }}>
+        <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', scrollbarWidth: 'none' }}>
+          {['all', 'ezel', 'dunya', 'ahiret'].map(layer => (
+            <button
+              key={layer}
+              style={chipStyle(localTemporalFilter === layer, TEMPORAL_CHIP_COLORS[layer] || COLORS.gold)}
+              onClick={() => { setLocalTemporalFilter(layer); setTemporalFilter(layer); }}
+            >
+              {layer === 'all'
+                ? (language === 'tr' ? 'Tümü' : 'All')
+                : (language === 'tr' ? TEMPORAL_LABEL[layer].tr : TEMPORAL_LABEL[layer].en)
+              }
+            </button>
+          ))}
+          {axisFilter && (
+            <button
+              style={{ ...chipStyle(true, COLORS.gold), marginLeft: 'auto' }}
+              onClick={() => setAxisFilter(null)}
+            >
+              ✕ {language === 'tr' ? 'Filtreyi temizle' : 'Clear filter'}
+            </button>
+          )}
+        </div>
+        <div style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body }}>
+          {filtered.length} {language === 'tr' ? 'diyalog' : 'dialogues'}
+          {axisFilter?.speakerId && ` — ${getSpeakerName(axisFilter.speakerId)}`}
+        </div>
+      </div>
+
+      <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 16px' : '16px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {filtered.map(dialogue => {
+          const isExpanded = expandedId === dialogue.id;
+          const temporalColor = TEMPORAL_CHIP_COLORS[dialogue.temporalLayer] || COLORS.silver;
+
+          return (
+            <div
+              key={dialogue.id}
+              style={{
+                ...GLASS_CARD,
+                border: `1px solid ${isExpanded ? COLORS.goldAlpha25 : COLORS.glassBorder}`,
+                overflow: 'hidden',
+                transition: 'border-color 0.15s',
+              }}
+            >
+              <div
+                style={{ padding: isMobile ? '12px 14px' : '14px 20px', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '8px' }}
+                onClick={() => setExpandedId(isExpanded ? null : dialogue.id)}
+              >
+                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
+                  <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600, fontSize: '0.9rem' }}>
+                    {language === 'tr' ? dialogue.titleTr : dialogue.titleEn}
+                  </span>
+                  <svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver}
+                    strokeWidth="2" style={{ flexShrink: 0, transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}
+                  >
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </div>
+
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>
+                  {dialogue.turns[0] && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ width: 8, height: 8, borderRadius: '50%', background: getSpeakerColor(dialogue.turns[0].speaker), display: 'inline-block', flexShrink: 0 }} />
+                      <span style={{ color: getSpeakerColor(dialogue.turns[0].speaker), fontSize: '0.78rem', fontFamily: FONTS.body }}>
+                        {getSpeakerName(dialogue.turns[0].speaker)}
+                      </span>
+                      <span style={{ color: COLORS.silver, fontSize: '0.78rem' }}>→</span>
+                      <span style={{ width: 8, height: 8, borderRadius: '50%', background: getSpeakerColor(dialogue.turns[0].addressee), display: 'inline-block', flexShrink: 0 }} />
+                      <span style={{ color: getSpeakerColor(dialogue.turns[0].addressee), fontSize: '0.78rem', fontFamily: FONTS.body }}>
+                        {getSpeakerName(dialogue.turns[0].addressee)}
+                      </span>
+                    </div>
+                  )}
+
+                  <span style={{
+                    padding: '2px 8px', borderRadius: '10px',
+                    background: `${temporalColor}22`, color: temporalColor,
+                    fontSize: '0.72rem', fontFamily: FONTS.body, border: `1px solid ${temporalColor}44`
+                  }}>
+                    {language === 'tr' ? TEMPORAL_LABEL[dialogue.temporalLayer]?.tr : TEMPORAL_LABEL[dialogue.temporalLayer]?.en}
+                  </span>
+
+                  {dialogue.refs?.map(ref => (
+                    <span key={ref} style={{ padding: '2px 8px', borderRadius: '10px', background: COLORS.goldAlpha15, color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body }}>
+                      {ref}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {isExpanded && (
+                <div style={{ padding: isMobile ? '0 14px 14px' : '0 20px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <div style={{ height: 1, background: COLORS.glassBorderSoft }} />
+
+                  {dialogue.turns.map((turn, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '4px',
+                        paddingLeft: i % 2 === 0 ? 0 : 20,
+                        borderLeft: i % 2 !== 0 ? `2px solid ${getSpeakerColor(turn.speaker)}44` : 'none',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: getSpeakerColor(turn.speaker), display: 'inline-block', flexShrink: 0 }} />
+                        <span style={{ color: getSpeakerColor(turn.speaker), fontSize: '0.74rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                          {getSpeakerName(turn.speaker)}
+                        </span>
+                        <span style={{ color: COLORS.silver, fontSize: '0.7rem' }}>→ {getSpeakerName(turn.addressee)}</span>
+                      </div>
+
+                      {turn.keyPhrase && (
+                        <div style={{
+                          fontFamily: FONTS.quran,
+                          fontSize: '1.1rem',
+                          color: COLORS.gold,
+                          direction: 'rtl',
+                          textAlign: 'right',
+                          lineHeight: 1.8,
+                        }} dir="rtl" lang="ar">
+                          {cleanArabic(turn.keyPhrase)}
+                        </div>
+                      )}
+
+                      <div style={{ color: COLORS.silver, fontSize: '0.83rem', fontFamily: FONTS.body, lineHeight: 1.6 }}>
+                        {language === 'tr' ? turn.summaryTr : turn.summaryEn}
+                      </div>
+                    </div>
+                  ))}
+
+                  {(language === 'tr' ? dialogue.lessonTr : dialogue.lessonEn) && (
+                    <div style={{
+                      marginTop: '6px',
+                      padding: '10px 14px',
+                      borderLeft: `3px solid ${COLORS.goldAlpha45}`,
+                      background: COLORS.goldAlpha15,
+                      borderRadius: '0 8px 8px 0',
+                    }}>
+                      <span style={{ color: COLORS.gold, fontSize: '0.78rem', fontFamily: FONTS.body, fontStyle: 'italic' }}>
+                        {language === 'tr' ? dialogue.lessonTr : dialogue.lessonEn}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+
+        {filtered.length === 0 && (
+          <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem', textAlign: 'center', padding: '40px 0' }}>
+            {language === 'tr' ? 'Bu filtreye uyan diyalog bulunamadı.' : 'No dialogues match this filter.'}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 function TabAhiretSahneleri({ scenes, isMobile, language, cleanArabic }) {
+  const [expandedId, setExpandedId] = useState(null);
+
+  const CATEGORY_CONFIG = {
+    cennet:  { color: '#2ecc71', labelTr: 'CENNET DİYALOGLARI',  labelEn: 'PARADISE DIALOGUES' },
+    cehennem:{ color: '#e74c3c', labelTr: 'CEHENNEM DİYALOGLARI', labelEn: 'HELL DIALOGUES'     },
+    araf:    { color: '#f39c12', labelTr: "A'RÂF",                labelEn: "A'RAF"               },
+    hesap:   { color: '#c9a227', labelTr: 'HESAP GÜNÜ',           labelEn: 'JUDGMENT DAY'        },
+  };
+
+  const grouped = {};
+  scenes.forEach(scene => {
+    if (!grouped[scene.category]) grouped[scene.category] = [];
+    grouped[scene.category].push(scene);
+  });
+
+  const categoryOrder = ['cennet', 'cehennem', 'araf', 'hesap'];
+
   return (
-    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.silver, fontFamily: FONTS.body }}>
-      Afterlife — Task 9
+    <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 16px' : '20px 28px' }}>
+      {categoryOrder.map(cat => {
+        const catScenes = grouped[cat];
+        if (!catScenes?.length) return null;
+        const config = CATEGORY_CONFIG[cat];
+
+        return (
+          <div key={cat} style={{ marginBottom: '28px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+              <div style={{ flex: 1, height: 1, background: `${config.color}44` }} />
+              <span style={{
+                color: config.color, fontSize: '0.72rem', fontFamily: FONTS.body,
+                fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
+              }}>
+                {language === 'tr' ? config.labelTr : config.labelEn}
+              </span>
+              <div style={{ flex: 1, height: 1, background: `${config.color}44` }} />
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {catScenes.map(scene => {
+                const isExpanded = expandedId === scene.id;
+                const isSatanConfession = scene.id === 'satan-final-confession';
+
+                return (
+                  <div
+                    key={scene.id}
+                    style={{
+                      ...GLASS_CARD,
+                      borderLeft: `4px solid ${config.color}`,
+                      borderRadius: '0 12px 12px 0',
+                      overflow: 'hidden',
+                      ...(isSatanConfession ? {
+                        background: 'rgba(231,76,60,0.06)',
+                        borderLeft: '4px solid #e74c3c',
+                      } : {}),
+                    }}
+                  >
+                    <div
+                      style={{ padding: isMobile ? '12px 14px' : '16px 20px', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '10px' }}
+                      onClick={() => setExpandedId(isExpanded ? null : scene.id)}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
+                        <span style={{
+                          color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600,
+                          fontSize: isSatanConfession ? '1rem' : '0.92rem',
+                        }}>
+                          {language === 'tr' ? scene.titleTr : scene.titleEn}
+                        </span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
+                          style={{ flexShrink: 0, transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                          <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                      </div>
+
+                      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                        {scene.participants?.map(p => (
+                          <span key={p} style={{
+                            padding: '2px 8px', borderRadius: '10px',
+                            background: COLORS.glassBg, color: COLORS.silver,
+                            fontSize: '0.72rem', fontFamily: FONTS.body,
+                            border: `1px solid ${COLORS.glassBorder}`,
+                          }}>
+                            {p}
+                          </span>
+                        ))}
+                        {scene.refs?.map(ref => (
+                          <span key={ref} style={{
+                            padding: '2px 8px', borderRadius: '10px',
+                            background: COLORS.goldAlpha15, color: COLORS.gold,
+                            fontSize: '0.72rem', fontFamily: FONTS.body,
+                          }}>
+                            {ref}
+                          </span>
+                        ))}
+                      </div>
+
+                      {scene.keyPhrase && (
+                        <div style={{
+                          fontFamily: FONTS.quran,
+                          fontSize: isSatanConfession ? '1.3rem' : '1.15rem',
+                          color: config.color,
+                          direction: 'rtl',
+                          textAlign: 'center',
+                          lineHeight: 1.9,
+                          padding: '6px 0',
+                        }} dir="rtl" lang="ar">
+                          {cleanArabic(scene.keyPhrase)}
+                        </div>
+                      )}
+
+                      <div style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7 }}>
+                        {language === 'tr' ? scene.summaryTr : scene.summaryEn}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
 
 function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
+  const [expandedId, setExpandedId] = useState(null);
+  const [expandedPhaseId, setExpandedPhaseId] = useState(null);
+
+  const TEMPORAL_COLORS = { ezel: TEMPORAL.ezel, dunya: TEMPORAL.dunya, ahiret: TEMPORAL.ahiret };
+
   return (
-    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.silver, fontFamily: FONTS.body }}>
-      Mega dialogues — Task 10
+    <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 16px' : '20px 28px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      {mega.map(m => {
+        const isExpanded = expandedId === m.id;
+
+        return (
+          <div key={m.id} style={{ ...GLASS_CARD, overflow: 'hidden', border: `1px solid ${COLORS.goldAlpha25}` }}>
+            <div
+              style={{ padding: isMobile ? '14px 16px' : '18px 24px', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '10px' }}
+              onClick={() => setExpandedId(isExpanded ? null : m.id)}
+            >
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
+                <span style={{ color: COLORS.gold, fontFamily: FONTS.display, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700, lineHeight: 1.3 }}>
+                  {language === 'tr' ? m.titleTr : m.titleEn}
+                </span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                  <span style={{
+                    padding: '3px 10px', borderRadius: '10px',
+                    background: COLORS.goldAlpha15, color: COLORS.gold,
+                    fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,
+                  }}>
+                    {m.totalSurahs} {language === 'tr' ? 'sure' : 'surahs'}
+                  </span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
+                    style={{ transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div style={{
+                display: 'flex',
+                flexDirection: isMobile ? 'column' : 'row',
+                gap: isMobile ? '6px' : '4px',
+                overflowX: isMobile ? 'visible' : 'auto',
+                scrollbarWidth: 'none',
+                paddingBottom: isMobile ? 0 : '4px',
+              }}>
+                {m.phases?.map((phase, pi) => (
+                  <div key={pi} style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div style={{
+                        width: 20, height: 20, borderRadius: '50%',
+                        background: TEMPORAL_COLORS[phase.context] || COLORS.silver,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: '0.65rem', color: '#fff', fontFamily: FONTS.body, fontWeight: 700, flexShrink: 0,
+                      }}>
+                        {pi + 1}
+                      </div>
+                      <span style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.3 }}>
+                        {language === 'tr' ? phase.phase : phase.phaseEn}
+                      </span>
+                    </div>
+                    {!isMobile && pi < m.phases.length - 1 && (
+                      <div style={{ width: 16, height: 1, background: COLORS.glassBorder, flexShrink: 0, margin: '0 2px' }} />
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ borderLeft: `3px solid ${COLORS.goldAlpha45}`, paddingLeft: '12px', marginTop: '4px' }}>
+                <span style={{ color: COLORS.gold, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.6 }}>
+                  {language === 'tr' ? m.uniqueFeatureTr : m.uniqueFeatureEn}
+                </span>
+              </div>
+            </div>
+
+            {isExpanded && (
+              <div style={{ padding: isMobile ? '0 16px 16px' : '0 24px 20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ height: 1, background: COLORS.glassBorderSoft }} />
+
+                <div>
+                  <div style={{ color: COLORS.silver, fontSize: '0.74rem', fontFamily: FONTS.body, marginBottom: '6px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                    {language === 'tr' ? 'İlgili Sureler' : 'Related Surahs'}
+                  </div>
+                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                    {m.refs?.map(ref => (
+                      <span key={ref} style={{
+                        padding: '3px 10px', borderRadius: '10px',
+                        background: COLORS.goldAlpha15, color: COLORS.gold,
+                        fontSize: '0.75rem', fontFamily: FONTS.body,
+                      }}>
+                        {ref}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {m.relatedDialogueIds?.length > 0 && (
+                  <div>
+                    <div style={{ color: COLORS.silver, fontSize: '0.74rem', fontFamily: FONTS.body, marginBottom: '8px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                      {language === 'tr' ? 'Diyalog Örnekleri' : 'Dialogue Samples'}
+                    </div>
+                    {m.relatedDialogueIds.map(did => {
+                      const d = dialogues.find(dl => dl.id === did);
+                      if (!d) return null;
+                      const isPhaseExpanded = expandedPhaseId === did;
+                      return (
+                        <div key={did} style={{
+                          ...GLASS_CARD,
+                          marginBottom: '8px',
+                          border: `1px solid ${isPhaseExpanded ? COLORS.goldAlpha25 : COLORS.glassBorder}`,
+                          overflow: 'hidden',
+                        }}>
+                          <div
+                            style={{ padding: '10px 14px', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                            onClick={() => setExpandedPhaseId(isPhaseExpanded ? null : did)}
+                          >
+                            <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body }}>
+                              {language === 'tr' ? d.titleTr : d.titleEn}
+                            </span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
+                              style={{ flexShrink: 0, transform: isPhaseExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                              <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                          </div>
+                          {isPhaseExpanded && (
+                            <div style={{ padding: '0 14px 12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                              {d.turns?.slice(0, 2).map((turn, i) => (
+                                <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                                  {turn.keyPhrase && (
+                                    <div style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', lineHeight: 1.8 }} dir="rtl" lang="ar">
+                                      {cleanArabic(turn.keyPhrase)}
+                                    </div>
+                                  )}
+                                  <div style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body }}>
+                                    {language === 'tr' ? turn.summaryTr : turn.summaryEn}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
 
 function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
+  const TYPE_CONFIG = {
+    divine:    { labelTr: 'İlahi',      labelEn: 'Divine',    color: '#c9a227' },
+    celestial: { labelTr: 'Semavi',     labelEn: 'Celestial', color: '#a78bfa' },
+    prophet:   { labelTr: 'Peygamber',  labelEn: 'Prophet',   color: '#2ecc71' },
+    adversary: { labelTr: 'Düşman',     labelEn: 'Adversary', color: '#e74c3c' },
+    antagonist:{ labelTr: 'Antagonist', labelEn: 'Antagonist',color: '#8e44ad' },
+    afterlife: { labelTr: 'Ahiret',     labelEn: 'Afterlife', color: '#f39c12' },
+    group:     { labelTr: 'Topluluk',   labelEn: 'Group',     color: '#3498db' },
+  };
+
+  const dialogueAxesCount = (speakerId) =>
+    axes.filter(a => a.speakerId === speakerId || a.addresseeId === speakerId).length;
+
+  const highlightId = 'musa';
+
   return (
-    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.silver, fontFamily: FONTS.body }}>
-      Speakers — Task 11
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+      <div style={{
+        padding: isMobile ? '10px 16px' : '12px 24px',
+        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+        display: 'flex', gap: '8px', flexWrap: 'wrap', flexShrink: 0,
+      }}>
+        {[
+          { val: `${speakers.length}+`, label: language === 'tr' ? 'konuşan varlık' : 'speaking entities' },
+          { val: '~300',                label: language === 'tr' ? 'diyalog'         : 'dialogues'         },
+          { val: '332+',                label: language === 'tr' ? '"Qul" emri'      : '"Say" commands'     },
+        ].map(s => (
+          <div key={s.label} style={{ ...GLASS_CARD, padding: '6px 14px', display: 'flex', gap: '6px', alignItems: 'center' }}>
+            <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.95rem' }}>{s.val}</span>
+            <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.78rem' }}>{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div style={{
+        flex: 1,
+        overflowY: 'auto',
+        padding: isMobile ? '12px 16px' : '16px 24px',
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+        gap: '12px',
+        alignContent: 'start',
+      }}>
+        {speakers.map(speaker => {
+          const typeConf = TYPE_CONFIG[speaker.type] || TYPE_CONFIG.group;
+          const isHighlight = speaker.id === highlightId;
+          const axesCount = dialogueAxesCount(speaker.id);
+
+          return (
+            <div
+              key={speaker.id}
+              style={{
+                ...GLASS_CARD,
+                borderTop: `3px solid ${speaker.color || COLORS.gold}`,
+                padding: isMobile ? '12px 14px' : '16px 18px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px',
+                ...(isHighlight ? {
+                  background: 'rgba(26,122,76,0.08)',
+                  border: `1px solid rgba(26,122,76,0.3)`,
+                  borderTop: `3px solid ${speaker.color}`,
+                } : {}),
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                  <span style={{
+                    fontFamily: FONTS.quran,
+                    fontSize: '1.3rem',
+                    color: speaker.color || COLORS.gold,
+                    direction: 'rtl',
+                    lineHeight: 1.6,
+                  }} dir="rtl" lang="ar">
+                    {speaker.nameAr}
+                  </span>
+                  <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600, fontSize: '0.88rem' }}>
+                    {language === 'tr' ? speaker.nameTr : speaker.nameEn}
+                  </span>
+                </div>
+                <span style={{
+                  padding: '3px 9px', borderRadius: '10px', flexShrink: 0,
+                  background: `${typeConf.color}22`, color: typeConf.color,
+                  fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 600,
+                  border: `1px solid ${typeConf.color}44`,
+                }}>
+                  {language === 'tr' ? typeConf.labelTr : typeConf.labelEn}
+                </span>
+              </div>
+
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                {speaker.mentionCount && (
+                  <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+                    <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.85rem' }}>{speaker.mentionCount}</span>
+                    <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.74rem' }}>{language === 'tr' ? 'anılma' : 'mentions'}</span>
+                  </div>
+                )}
+                {speaker.qulCount && (
+                  <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+                    <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.85rem' }}>{speaker.qulCount}+</span>
+                    <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.74rem' }}>Qul</span>
+                  </div>
+                )}
+                {axesCount > 0 && (
+                  <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+                    <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.85rem' }}>{axesCount}</span>
+                    <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.74rem' }}>{language === 'tr' ? 'eksen' : 'axes'}</span>
+                  </div>
+                )}
+              </div>
+
+              {speaker.dialoguePartners?.length > 0 && (
+                <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <span style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: FONTS.body, marginRight: '2px' }}>
+                    {language === 'tr' ? 'Muhatapları:' : 'Partners:'}
+                  </span>
+                  {speaker.dialoguePartners.slice(0, 5).map(partnerId => {
+                    const partner = speakers.find(s => s.id === partnerId);
+                    return (
+                      <div
+                        key={partnerId}
+                        title={partner ? (language === 'tr' ? partner.nameTr : partner.nameEn) : partnerId}
+                        onClick={() => onSpeakerClick(speaker.id, partnerId)}
+                        style={{
+                          width: 8, height: 8, borderRadius: '50%',
+                          background: partner?.color || COLORS.silver,
+                          cursor: 'pointer',
+                          flexShrink: 0,
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+
+              <div style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, lineHeight: 1.6 }}>
+                {language === 'tr' ? speaker.noteTr : speaker.noteEn}
+              </div>
+
+              {isHighlight && (
+                <div style={{
+                  padding: '8px 12px',
+                  background: 'rgba(26,122,76,0.15)',
+                  borderRadius: '8px',
+                  border: '1px solid rgba(26,122,76,0.3)',
+                }}>
+                  <span style={{ color: '#2ecc71', fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                    {language === 'tr'
+                      ? "Kelîmullâh — Allah'ın doğrudan konuştuğu peygamber"
+                      : 'Kalimullah — the prophet to whom God spoke directly'
+                    }
+                  </span>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
