@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
@@ -94,6 +94,10 @@ const TABS = [
 function OccasionCard({ occ, language, isMobile }) {
   const [expanded, setExpanded] = useState(false);
   const [verseData, setVerseData] = useState(null);
+  const acRef = useRef(null);
+
+  // Abort any in-flight fetch on unmount
+  useEffect(() => () => { acRef.current?.abort(); }, []);
 
   const catMeta = CATEGORY_META[occ.category] || { tr: occ.category, en: occ.category, color: COLORS.silver };
   const relMeta = RELIABILITY_META[occ.reliability] || { tr: occ.reliability, en: occ.reliability, color: COLORS.silver };
@@ -106,22 +110,39 @@ function OccasionCard({ occ, language, isMobile }) {
     const next = !expanded;
     setExpanded(next);
     if (next && verseData === null && occ.verses && occ.verses.length > 0) {
-      const v = occ.verses[0];
+      // Abort any previous fetch
+      acRef.current?.abort();
+      const ac = new AbortController();
+      acRef.current = ac;
+
       setVerseData({ loading: true, verses: [] });
-      fetch(`https://api.acikkuran.com/surah/${v.surah}?author=105`)
-        .then(r => r.json())
-        .then(d => {
-          const allVerses = d.data?.verses || [];
-          const filtered = allVerses
-            .filter(ve => ve.verse_number >= v.ayahStart && ve.verse_number <= v.ayahEnd)
-            .map(ve => ({
-              num: ve.verse_number,
-              arabic: cleanArabic(ve.verse),
-              turkish: ve.translation?.text || '',
-            }));
-          setVerseData({ loading: false, verses: filtered });
+
+      // Fetch all surahs referenced by this occasion in parallel
+      Promise.all(
+        occ.verses.map(v =>
+          fetch(`https://api.acikkuran.com/surah/${v.surah}?author=105`, { signal: ac.signal })
+            .then(r => r.json())
+            .then(d => {
+              const allVerses = d.data?.verses || [];
+              return allVerses
+                .filter(ve => ve.verse_number >= v.ayahStart && ve.verse_number <= v.ayahEnd)
+                .map(ve => ({
+                  surah: v.surah,
+                  num: ve.verse_number,
+                  arabic: cleanArabic(ve.verse),
+                  turkish: ve.translation?.text || '',
+                }));
+            })
+        )
+      )
+        .then(results => {
+          const merged = results.flat();
+          setVerseData({ loading: false, verses: merged });
         })
-        .catch(() => setVerseData({ loading: false, verses: [] }));
+        .catch(err => {
+          if (err.name === 'AbortError') return;
+          setVerseData({ loading: false, verses: [] });
+        });
     }
   }
 
@@ -309,7 +330,7 @@ function OccasionCard({ occ, language, isMobile }) {
                   </p>
                 )}
                 <p style={{ fontSize: '0.75rem', color: COLORS.slate500, fontFamily: FONTS.body, margin: 0 }}>
-                  {occ.verses[0].surah}:{ve.num}
+                  {ve.surah}:{ve.num}
                 </p>
               </div>
             ))
@@ -352,7 +373,7 @@ function TabArama({ data, language, isMobile }) {
     // Reliability filter
     if (reliabilityFilter === 'sahih' && occ.reliability !== 'sahih') return false;
     if (reliabilityFilter === 'hasan' && occ.reliability !== 'hasan') return false;
-    if (reliabilityFilter === 'no-daif' && occ.reliability === 'daif') return false;
+    if (reliabilityFilter === 'no-daif' && (occ.reliability === 'daif' || occ.reliability === 'disputed')) return false;
 
     // Text/verse search
     if (!debouncedQuery) return true;
@@ -537,35 +558,35 @@ function TabIstatistik({ data, language, isMobile }) {
 
   const pad = isMobile ? '16px' : '24px 32px';
 
-  // Build conic gradient for donut
-  let gradientParts = [];
-  let cumulative = 0;
-  byCategory.forEach(item => {
-    const meta = CATEGORY_META[item.category];
-    if (!meta) return;
-    const start = cumulative;
-    const end = cumulative + item.percent;
-    gradientParts.push(`${meta.color} ${start.toFixed(1)}% ${end.toFixed(1)}%`);
-    cumulative = end;
-  });
-  const donutGradient = `conic-gradient(${gradientParts.join(', ')})`;
+  // Build conic gradient for donut (memoized to avoid recompute on every render)
+  const donutGradient = useMemo(() => {
+    let cumulative = 0;
+    const stops = byCategory.map(item => {
+      const meta = CATEGORY_META[item.category];
+      if (!meta) return null;
+      const start = cumulative;
+      cumulative += item.percent;
+      return `${meta.color} ${start.toFixed(1)}% ${cumulative.toFixed(1)}%`;
+    }).filter(Boolean);
+    return `conic-gradient(${stops.join(', ')})`;
+  }, [byCategory]);
 
   const makki = byPeriod.find(p => p.period === 'makki') || { approxCount: 0, percent: 0 };
   const madani = byPeriod.find(p => p.period === 'madani') || { approxCount: 0, percent: 0 };
 
   const heroStats = [
     {
-      value: '570',
+      value: String(overview.versesWithSabab ?? 570),
       labelTr: 'Sebeb-i nüzulü bilinen ayet',
       labelEn: 'Verses with known occasion',
     },
     {
-      value: '%9.1',
+      value: `%${overview.percentWithSabab ?? 9.1}`,
       labelTr: 'Toplam ayetlerin oranı',
       labelEn: 'Of all Quranic verses',
     },
     {
-      value: '83→102',
+      value: `${overview.wahidiSurahs ?? 83}→${overview.suyutiSurahs ?? 102}`,
       labelTr: 'Kapsanan sure (Vâhidî→Süyûtî)',
       labelEn: 'Surahs covered (Wahidi→Suyuti)',
     },
@@ -817,6 +838,71 @@ function TabIstatistik({ data, language, isMobile }) {
   );
 }
 
+// ── PrincipleCard ─────────────────────────────────────────────────────────────
+function PrincipleCard({ principle, badge, badgeColor, language, isMobile }) {
+  return (
+    <div style={{ ...GLASS_CARD, padding: isMobile ? '16px' : '20px 24px' }}>
+      {badge && (
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          padding: '2px 10px',
+          borderRadius: '99px',
+          border: `1px solid ${badgeColor}55`,
+          background: `${badgeColor}22`,
+          color: badgeColor,
+          fontSize: '0.7rem',
+          fontWeight: 700,
+          fontFamily: FONTS.body,
+          letterSpacing: '0.05em',
+          marginBottom: '12px',
+        }}>
+          {badge}
+        </div>
+      )}
+      <p style={{
+        fontFamily: FONTS.quran,
+        fontSize: isMobile ? '1.3rem' : '1.6rem',
+        lineHeight: 1.8,
+        color: COLORS.gold,
+        textAlign: 'center',
+        direction: 'rtl',
+        margin: '0 0 6px',
+      }} dir="rtl" lang="ar">
+        {cleanArabic(principle.arabicPhrase)}
+      </p>
+      <p style={{
+        textAlign: 'center',
+        fontStyle: 'italic',
+        color: COLORS.slate500,
+        fontSize: '0.8rem',
+        fontFamily: FONTS.body,
+        margin: '0 0 12px',
+      }}>
+        {principle.transliteration}
+      </p>
+      <p style={{
+        fontWeight: 700,
+        color: COLORS.offWhite,
+        fontFamily: FONTS.body,
+        fontSize: '0.9rem',
+        margin: '0 0 8px',
+      }}>
+        {language === 'tr' ? principle.titleTr : principle.titleEn}
+      </p>
+      <p style={{
+        color: COLORS.silver,
+        fontSize: '0.85rem',
+        lineHeight: 1.75,
+        fontFamily: FONTS.body,
+        margin: 0,
+      }}>
+        {language === 'tr' ? principle.descriptionTr : principle.descriptionEn}
+      </p>
+    </div>
+  );
+}
+
 // ── TabIlkeler ────────────────────────────────────────────────────────────────
 function TabIlkeler({ data, language, isMobile }) {
   const principles = data.principles || [];
@@ -826,70 +912,6 @@ function TabIlkeler({ data, language, isMobile }) {
   const rest = principles.filter(p => p.camp !== 'majority' && p.camp !== 'minority');
 
   const pad = isMobile ? '16px' : '24px 32px';
-
-  function PrincipleCard({ principle, badge, badgeColor }) {
-    return (
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '16px' : '20px 24px' }}>
-        {badge && (
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            padding: '2px 10px',
-            borderRadius: '99px',
-            border: `1px solid ${badgeColor}55`,
-            background: `${badgeColor}22`,
-            color: badgeColor,
-            fontSize: '0.7rem',
-            fontWeight: 700,
-            fontFamily: FONTS.body,
-            letterSpacing: '0.05em',
-            marginBottom: '12px',
-          }}>
-            {badge}
-          </div>
-        )}
-        <p style={{
-          fontFamily: FONTS.quran,
-          fontSize: isMobile ? '1.3rem' : '1.6rem',
-          lineHeight: 1.8,
-          color: COLORS.gold,
-          textAlign: 'center',
-          direction: 'rtl',
-          margin: '0 0 6px',
-        }} dir="rtl" lang="ar">
-          {cleanArabic(principle.arabicPhrase)}
-        </p>
-        <p style={{
-          textAlign: 'center',
-          fontStyle: 'italic',
-          color: COLORS.slate500,
-          fontSize: '0.8rem',
-          fontFamily: FONTS.body,
-          margin: '0 0 12px',
-        }}>
-          {principle.transliteration}
-        </p>
-        <p style={{
-          fontWeight: 700,
-          color: COLORS.offWhite,
-          fontFamily: FONTS.body,
-          fontSize: '0.9rem',
-          margin: '0 0 8px',
-        }}>
-          {language === 'tr' ? principle.titleTr : principle.titleEn}
-        </p>
-        <p style={{
-          color: COLORS.silver,
-          fontSize: '0.85rem',
-          lineHeight: 1.75,
-          fontFamily: FONTS.body,
-          margin: 0,
-        }}>
-          {language === 'tr' ? principle.descriptionTr : principle.descriptionEn}
-        </p>
-      </div>
-    );
-  }
 
   return (
     <div style={{ padding: pad }}>
@@ -907,6 +929,8 @@ function TabIlkeler({ data, language, isMobile }) {
               principle={p}
               badge={language === 'tr' ? 'CUMHUR GÖRÜŞÜ' : 'MAJORITY VIEW'}
               badgeColor={COLORS.softEmerald}
+              language={language}
+              isMobile={isMobile}
             />
           ))}
           {minority.map(p => (
@@ -915,6 +939,8 @@ function TabIlkeler({ data, language, isMobile }) {
               principle={p}
               badge={language === 'tr' ? 'AZINLIK GÖRÜŞÜ' : 'MINORITY VIEW'}
               badgeColor={COLORS.amber}
+              language={language}
+              isMobile={isMobile}
             />
           ))}
         </div>
@@ -924,7 +950,7 @@ function TabIlkeler({ data, language, isMobile }) {
       {rest.length > 0 && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
           {rest.map(p => (
-            <PrincipleCard key={p.id} principle={p} />
+            <PrincipleCard key={p.id} principle={p} language={language} isMobile={isMobile} />
           ))}
         </div>
       )}
@@ -1172,8 +1198,6 @@ export default function SebebiNuzul({ onClose }) {
       role="dialog"
       aria-modal="true"
     >
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-
       {/* Header */}
       <div style={{ ...OVERLAY_HEADER }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
