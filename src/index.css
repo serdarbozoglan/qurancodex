@@ -48,6 +48,7 @@ html {
   overflow-x: hidden;
 }
 
+
 body {
   font-family: var(--font-body);
   background-color: var(--color-cosmic-black);

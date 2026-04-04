@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx vite build:*)",
+      "Bash(npx eslint:*)",
+      "Bash(curl:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npx tsc:*)",
+      "Bash(python3:*)",
+      "Bash(netlify status:*)",
+      "Bash(vercel whoami:*)",
+      "WebSearch",
+      "WebFetch(domain:cdn.jsdelivr.net)",
+      "WebFetch(domain:fonts.google.com)",
+      "WebFetch(domain:fonts.googleapis.com)",
+      "WebFetch(domain:www.googleapis.com)",
+      "Bash(node -e \"const d=require\\(''''fs''''\\).readFileSync\\(''''/dev/stdin'''',''''utf8''''\\); const j=JSON.parse\\(d\\); console.log\\(JSON.stringify\\(j.data.verses[0], null, 2\\)\\)\")",
+      "Bash(node:*)",
+      "WebFetch(domain:tanzil.net)",
+      "WebFetch(domain:thequran.love)",
+      "WebFetch(domain:corpus.quran.com)",
+      "Bash(npm list:*)",
+      "WebFetch(domain:www.kurankelimemeali.com)",
+      "WebFetch(domain:www.kuran.com)",
+      "WebFetch(domain:api.acikkuran.com)"
+    ]
+  }
+}

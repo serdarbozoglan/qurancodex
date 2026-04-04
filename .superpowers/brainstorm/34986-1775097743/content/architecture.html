@@ -1,0 +1,63 @@
+<h2>QuranRhetoric — Mimari Seçim</h2>
+<p class="subtitle">İçerik çok büyüdü. Bu iki yaklaşımdan hangisi daha doğru?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Overlay Tool (Navbar'dan açılan tam ekran)</h3>
+      <p>Mevcut QuranRhetoric bölümü ana sayfada kalır — ama basitleştirilmiş "teaser" olarak. Navbar'a yeni bir araç eklenir. Tıklanınca KuranYeminleri gibi tam ekran açılır.</p>
+      <div class="mockup" style="margin-top:12px">
+        <div class="mockup-header">Ana Sayfa — QuranRhetoric (teaser)</div>
+        <div class="mockup-body" style="padding:16px; background:#0d1b2a; border-radius:6px; font-size:0.85rem; color:#94a3b8">
+          <div style="color:#d4a574; font-weight:700; margin-bottom:8px">Kur'an Kendini Savunmaz, Soru Sorar</div>
+          <div style="margin-bottom:8px">~1.000 soru · 4 tür · donut chart</div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px">
+            <span style="background:rgba(212,165,116,0.15); color:#d4a574; padding:3px 10px; border-radius:20px; font-size:0.78rem">Erotema ~40%</span>
+            <span style="background:rgba(52,152,219,0.15); color:#3498db; padding:3px 10px; border-radius:20px; font-size:0.78rem">İrşad ~28%</span>
+            <span style="background:rgba(46,204,113,0.15); color:#2ecc71; padding:3px 10px; border-radius:20px; font-size:0.78rem">Tevbih ~20%</span>
+            <span style="background:rgba(167,139,250,0.15); color:#a78bfa; padding:3px 10px; border-radius:20px; font-size:0.78rem">Taaccüb ~12%</span>
+          </div>
+          <div style="border:1px solid rgba(212,165,116,0.3); color:#d4a574; padding:8px 16px; border-radius:6px; text-align:center; font-size:0.8rem; cursor:pointer">
+            ↗ Detaylı İncele — Retorik Analizi Aç
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px; font-size:0.82rem; color:#94a3b8">
+        <strong style="color:#e8e6e3">Avantajlar:</strong> Ana sayfa performansı korunur · Tüm zengin içerik ayrı modülde · KuranYeminleri gibi pattern tutarlı<br>
+        <strong style="color:#e8e6e3">Dezavantaj:</strong> Kullanıcı ek tıklama yapmalı
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>In-Place Zenginleştirme (section genişler)</h3>
+      <p>QuranRhetoric.jsx section'ı tab sistemiyle genişler. Tüm içerik tek sayfada, scroll ile erişilir. JSON'a veri taşınır.</p>
+      <div class="mockup" style="margin-top:12px">
+        <div class="mockup-header">Ana Sayfa — QuranRhetoric (genişletilmiş)</div>
+        <div class="mockup-body" style="padding:16px; background:#0d1b2a; border-radius:6px; font-size:0.82rem; color:#94a3b8">
+          <div style="display:flex; gap:6px; margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px">
+            <span style="background:#d4a574; color:#0a0a1a; padding:4px 12px; border-radius:4px; font-size:0.75rem">Kategoriler</span>
+            <span style="padding:4px 12px; font-size:0.75rem">Kalıplar</span>
+            <span style="padding:4px 12px; font-size:0.75rem">Muhatap</span>
+            <span style="padding:4px 12px; font-size:0.75rem">30 Soru</span>
+            <span style="padding:4px 12px; font-size:0.75rem">Sure Haritası</span>
+          </div>
+          <div style="margin-bottom:6px; color:#e8e6e3">4 kategori kartı + alt kalıplar (accordion)</div>
+          <div style="margin-bottom:6px">30 filtrelenebilir soru</div>
+          <div>Heatmap + karşılaştırmalı analiz</div>
+        </div>
+      </div>
+      <div style="margin-top:10px; font-size:0.82rem; color:#94a3b8">
+        <strong style="color:#e8e6e3">Avantajlar:</strong> Tüm içerik tek sayfada · Scroll ile keşfedilebilir<br>
+        <strong style="color:#e8e6e3">Dezavantajlar:</strong> Ana sayfa çok ağır olur · Mevcut section ile uyumsuz büyür · Yüklenme yavaşlar
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:20px; padding:12px 16px; background:rgba(212,165,116,0.08); border-left:3px solid #d4a574; border-radius:4px; font-size:0.82rem; color:#94a3b8">
+  <strong style="color:#d4a574">Bağlam:</strong> Proje genelinde KuranYeminleri, KavimlerAtlasi, CennetCehennem, Melekler — hepsi overlay pattern kullanıyor. Bu içerik (~6 zenginleştirme, 30 soru, kalıplar, muhatap analizi) KuranYeminleri ile aynı ölçekte.
+</div>

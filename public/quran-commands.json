@@ -90,6 +90,78 @@
           "surahName": "Ahzâb",
           "verified": true,
           "note": null
+        },
+        {
+          "id": "sukret",
+          "type": "emir",
+          "summaryTr": "Şükredin, nankörlük etmeyin",
+          "summaryEn": "Be grateful; do not be ungrateful",
+          "verseAr": "فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ",
+          "verseTr": "Beni zikredin ki ben de sizi zikredeyim. Bana şükredin, nankörlük etmeyin.",
+          "verseRef": "2:152",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "tovbe-nasuh",
+          "type": "emir",
+          "summaryTr": "Samimi bir tövbeyle Allah'a dönün",
+          "summaryEn": "Repent to Allah with sincere repentance",
+          "verseAr": "تُوبُوا إِلَى اللَّهِ تَوْبَةً نَّصُوحًا",
+          "verseTr": "Allah'a samimi bir tövbeyle dönün.",
+          "verseRef": "66:8",
+          "surahName": "Tahrîm",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "cuma-namazi",
+          "type": "emir",
+          "summaryTr": "Cuma namazına koşun, alışverişi bırakın",
+          "summaryEn": "Hasten to Friday prayer, leave all trade",
+          "verseAr": "فَاسْعَوْا إِلَى ذِكْرِ اللَّهِ وَذَرُوا الْبَيْعَ",
+          "verseTr": "Cuma günü namaza çağrıldığınızda Allah'ın zikrine koşun, alışverişi bırakın.",
+          "verseRef": "62:9",
+          "surahName": "Cum'a",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "tevekkul",
+          "type": "emir",
+          "summaryTr": "Allah'a tevekkül edin",
+          "summaryEn": "Put your trust in Allah",
+          "verseAr": "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
+          "verseTr": "Kim Allah'a tevekkül ederse O ona yeter.",
+          "verseRef": "65:3",
+          "surahName": "Talâk",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "gece-namazi",
+          "type": "emir",
+          "summaryTr": "Gecenin bir bölümünde nafile namaz kılın",
+          "summaryEn": "Observe voluntary night prayer",
+          "verseAr": "وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ",
+          "verseTr": "Gecenin bir bölümünde uyanıp sana özel nafile olmak üzere namaz kıl.",
+          "verseRef": "17:79",
+          "surahName": "İsrâ",
+          "verified": true,
+          "note": "Bu emir doğrudan Hz. Peygamber'e yöneliktir; genel Müslümanlar için teheccüd namazı tavsiye olarak yorumlanır."
+        },
+        {
+          "id": "kurban-kes",
+          "type": "emir",
+          "summaryTr": "Rabbin için namaz kıl ve kurban kes",
+          "summaryEn": "Pray to your Lord and sacrifice",
+          "verseAr": "فَصَلِّ لِرَبِّكَ وَانْحَرْ",
+          "verseTr": "Rabbin için namaz kıl ve kurban kes.",
+          "verseRef": "108:2",
+          "surahName": "Kevser",
+          "verified": true,
+          "note": null
         }
       ]
     },
@@ -137,7 +209,7 @@
           "note": null
         },
         {
-          "id": "sulh-yapın",
+          "id": "sulh-yapin",
           "type": "emir",
           "summaryTr": "İnsanlar arasında barışı sağlayın",
           "summaryEn": "Make peace between people",
@@ -157,6 +229,90 @@
           "verseTr": "İş konusunda onlarla istişare et...",
           "verseRef": "3:159",
           "surahName": "Âl-i İmrân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "kadinlarla-iyi-gec",
+          "type": "emir",
+          "summaryTr": "Kadınlarla iyi geçinin",
+          "summaryEn": "Treat women with kindness",
+          "verseAr": "وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ",
+          "verseTr": "Onlarla iyi geçinin.",
+          "verseRef": "4:19",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "cocuk-oldurme-yasak",
+          "type": "nehiy",
+          "summaryTr": "Yoksulluk korkusuyla çocuklarınızı öldürmeyin",
+          "summaryEn": "Do not kill your children fearing poverty",
+          "verseAr": "وَلَا تَقْتُلُوا أَوْلَادَكُمْ خَشْيَةَ إِمْلَاقٍ",
+          "verseTr": "Yoksulluk korkusuyla çocuklarınızı öldürmeyin; onları da sizi de biz rızıklandırırız.",
+          "verseRef": "17:31",
+          "surahName": "İsrâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "akraba-bagi-kor",
+          "type": "emir",
+          "summaryTr": "Akrabalık bağlarını koruyun",
+          "summaryEn": "Maintain ties of kinship",
+          "verseAr": "وَاتَّقُوا اللَّهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْأَرْحَامَ",
+          "verseTr": "Adına birbirinizden dilekte bulunduğunuz Allah'tan ve akrabalık bağlarını kesmekten sakının.",
+          "verseRef": "4:1",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "yetimi-ezme",
+          "type": "nehiy",
+          "summaryTr": "Yetimi ezme, hor görme",
+          "summaryEn": "Do not oppress the orphan",
+          "verseAr": "فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ",
+          "verseTr": "Yetimi sakın ezme.",
+          "verseRef": "93:9",
+          "surahName": "Duhâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "dilenciyi-azarlama",
+          "type": "nehiy",
+          "summaryTr": "Dilenciyi azarlama",
+          "summaryEn": "Do not rebuke the one who asks",
+          "verseAr": "وَأَمَّا السَّائِلَ فَلَا تَنْهَرْ",
+          "verseTr": "Dilenciye gelince, onu azarlama.",
+          "verseRef": "93:10",
+          "surahName": "Duhâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "miras-adaleti",
+          "type": "emir",
+          "summaryTr": "Mirası Allah'ın emrettiği şekilde paylaştırın",
+          "summaryEn": "Distribute inheritance as Allah commands",
+          "verseAr": "يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ",
+          "verseTr": "Allah, çocuklarınız hakkında şunu emreder...",
+          "verseRef": "4:11",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "evlilikte-adil-ol",
+          "type": "emir",
+          "summaryTr": "Eşler arasında adil davranın",
+          "summaryEn": "Be just between your wives",
+          "verseAr": "فَإِنْ خِفْتُمْ أَلَّا تَعْدِلُوا فَوَاحِدَةً",
+          "verseTr": "Eğer adaleti gözetemeyeceğinizden korkarsanız bir tane ile yetinin.",
+          "verseRef": "4:3",
+          "surahName": "Nisâ",
           "verified": true,
           "note": null
         }
@@ -228,6 +384,90 @@
           "surahName": "Mü'minûn",
           "verified": true,
           "note": null
+        },
+        {
+          "id": "emr-bil-maruf",
+          "type": "emir",
+          "summaryTr": "İyiliği emredin, kötülüğü yasaklayın",
+          "summaryEn": "Enjoin good, forbid evil",
+          "verseAr": "تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنكَرِ",
+          "verseTr": "İyiliği emredersiniz, kötülükten alıkoyarsınız.",
+          "verseRef": "3:110",
+          "surahName": "Âl-i İmrân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "ofke-yut",
+          "type": "emir",
+          "summaryTr": "Öfkeni yut, insanları affet",
+          "summaryEn": "Restrain your anger and pardon people",
+          "verseAr": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ",
+          "verseTr": "Öfkelerini yutanlar ve insanları affedenler...",
+          "verseRef": "3:134",
+          "surahName": "Âl-i İmrân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "kibir-yasak",
+          "type": "nehiy",
+          "summaryTr": "İnsanlara kibirle yüzünü çevirme",
+          "summaryEn": "Do not turn your cheek in arrogance",
+          "verseAr": "وَلَا تُصَعِّرْ خَدَّكَ لِلنَّاسِ",
+          "verseTr": "İnsanlara kibirle yüzünü çevirme.",
+          "verseRef": "31:18",
+          "surahName": "Lokmân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "adil-ihsan",
+          "type": "emir",
+          "summaryTr": "Adaleti ve iyiliği gözetin",
+          "summaryEn": "Uphold justice and excellence",
+          "verseAr": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ",
+          "verseTr": "Allah, adaleti, iyiliği ve akrabaya yardım etmeyi emreder.",
+          "verseRef": "16:90",
+          "surahName": "Nahl",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "hased-etme",
+          "type": "nehiy",
+          "summaryTr": "Başkalarına verilen nimetlere göz dikmeyin",
+          "summaryEn": "Do not covet what Allah has given others",
+          "verseAr": "وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللَّهُ بِهِ بَعْضَكُمْ عَلَى بَعْضٍ",
+          "verseTr": "Allah'ın bir kısmınıza diğerlerine fazla verdiği şeylere göz dikmeyin.",
+          "verseRef": "4:32",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "sukre-devam",
+          "type": "emir",
+          "summaryTr": "Şükrederseniz Allah artırır",
+          "summaryEn": "Be grateful — Allah will increase you",
+          "verseAr": "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+          "verseTr": "Şükrederseniz sizi artırırım; nankörlük ederseniz azabım çok şiddetlidir.",
+          "verseRef": "14:7",
+          "surahName": "İbrâhîm",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "sozunu-tut",
+          "type": "emir",
+          "summaryTr": "Allah'a verdiğiniz sözü yerine getirin",
+          "summaryEn": "Fulfill your covenant with Allah",
+          "verseAr": "وَأَوْفُوا بِعَهْدِ اللَّهِ إِذَا عَاهَدْتُمْ",
+          "verseTr": "Allah'a verdiğiniz sözü yerine getirin.",
+          "verseRef": "16:91",
+          "surahName": "Nahl",
+          "verified": true,
+          "note": null
         }
       ]
     },
@@ -295,6 +535,78 @@
           "verseTr": "İsraf etmeyin; çünkü Allah israf edenleri sevmez.",
           "verseRef": "6:141",
           "surahName": "En'âm",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "borcu-yaz",
+          "type": "emir",
+          "summaryTr": "Borçları yazıya dökün ve şahit tutun",
+          "summaryEn": "Write down debts and have them witnessed",
+          "verseAr": "إِذَا تَدَايَنتُم بِدَيْنٍ إِلَى أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ",
+          "verseTr": "Belirli bir vadeye kadar birbirinize borçlandığınızda onu yazın.",
+          "verseRef": "2:282",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "sevdiginden-harca",
+          "type": "emir",
+          "summaryTr": "Sevdiğiniz şeylerden harcayın",
+          "summaryEn": "Spend from what you love",
+          "verseAr": "لَن تَنَالُوا الْبِرَّ حَتَّى تُنفِقُوا مِمَّا تُحِبُّونَ",
+          "verseTr": "Sevdiğiniz şeylerden harcamadıkça gerçek iyiliğe eremezsiniz.",
+          "verseRef": "3:92",
+          "surahName": "Âl-i İmrân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "akitleri-yerine-getir",
+          "type": "emir",
+          "summaryTr": "Sözleşmeleri ve akitleri yerine getirin",
+          "summaryEn": "Fulfill your contracts",
+          "verseAr": "يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ",
+          "verseTr": "Ey iman edenler! Akitleri yerine getirin.",
+          "verseRef": "5:1",
+          "surahName": "Mâide",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "yetim-mali-yasak",
+          "type": "nehiy",
+          "summaryTr": "Yetimin malını haksız yere yemeyin",
+          "summaryEn": "Do not consume the orphan's wealth unjustly",
+          "verseAr": "إِنَّ الَّذِينَ يَأْكُلُونَ أَمْوَالَ الْيَتَامَى ظُلْمًا",
+          "verseTr": "Yetim mallarını haksız yere yiyenler ateşi yemiş olurlar.",
+          "verseRef": "4:10",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "cimrilik-yasak",
+          "type": "nehiy",
+          "summaryTr": "Cimrilik etmeyin, başkalarına da cimriliği emretmeyin",
+          "summaryEn": "Do not be miserly or command others to miserliness",
+          "verseAr": "الَّذِينَ يَبْخَلُونَ وَيَأْمُرُونَ النَّاسَ بِالْبُخْلِ",
+          "verseTr": "Cimrilik edenler ve insanlara cimriliği emredenler...",
+          "verseRef": "4:37",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "minnet-etme",
+          "type": "nehiy",
+          "summaryTr": "Verdiğinizi başa kakmayın",
+          "summaryEn": "Do not nullify charity with reminders of it",
+          "verseAr": "لَا تُبْطِلُوا صَدَقَاتِكُم بِالْمَنِّ وَالْأَذَى",
+          "verseTr": "Sadakalarınızı başa kakarak ve eziyet ederek boşa çıkarmayın.",
+          "verseRef": "2:264",
+          "surahName": "Bakara",
           "verified": true,
           "note": null
         }
@@ -366,6 +678,54 @@
           "surahName": "İsrâ",
           "verified": true,
           "note": null
+        },
+        {
+          "id": "uzman-sor",
+          "type": "emir",
+          "summaryTr": "Bilmiyorsanız uzman kişilere sorun",
+          "summaryEn": "Ask the people of knowledge if you do not know",
+          "verseAr": "فَاسْأَلُوا أَهْلَ الذِّكْرِ إِن كُنتُمْ لَا تَعْلَمُونَ",
+          "verseTr": "Bilmiyorsanız zikir ehline sorun.",
+          "verseRef": "16:43",
+          "surahName": "Nahl",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "zanna-uyma",
+          "type": "nehiy",
+          "summaryTr": "Sadece zanna uymayın",
+          "summaryEn": "Do not follow mere conjecture",
+          "verseAr": "إِنَّ الظَّنَّ لَا يُغْنِي مِنَ الْحَقِّ شَيْئًا",
+          "verseTr": "Zan, hakikatten hiçbir şeyin yerini tutmaz.",
+          "verseRef": "10:36",
+          "surahName": "Yûnus",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "yaratilisi-duşun",
+          "type": "emir",
+          "summaryTr": "Göklerin ve yerin yaratılışını tefekkür edin",
+          "summaryEn": "Reflect on the creation of the heavens and earth",
+          "verseAr": "وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ",
+          "verseTr": "Göklerin ve yerin yaratılışını düşünürler.",
+          "verseRef": "3:191",
+          "surahName": "Âl-i İmrân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "kuran-dinle",
+          "type": "emir",
+          "summaryTr": "Kur'an okunduğunda dinleyin ve susun",
+          "summaryEn": "When the Quran is recited, listen and be silent",
+          "verseAr": "وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُوا لَهُ وَأَنصِتُوا",
+          "verseTr": "Kur'an okunduğunda onu dinleyin ve susun.",
+          "verseRef": "7:204",
+          "surahName": "A'râf",
+          "verified": true,
+          "note": null
         }
       ]
     },
@@ -433,6 +793,90 @@
           "verseTr": "Ne zulmedin ne de zulme uğrayın.",
           "verseRef": "2:279",
           "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "icki-kumar-yasak",
+          "type": "nehiy",
+          "summaryTr": "İçki, kumar ve fal oklarından kaçının",
+          "summaryEn": "Avoid intoxicants, gambling, and divination",
+          "verseAr": "إِنَّمَا الْخَمْرُ وَالْمَيْسِرُ وَالْأَنصَابُ وَالْأَزْلَامُ رِجْسٌ",
+          "verseTr": "Şarap, kumar, dikili taşlar ve fal okları ancak şeytan işi pisliklerdir; bunlardan kaçının.",
+          "verseRef": "5:90",
+          "surahName": "Mâide",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "haram-yiyecek-yasak",
+          "type": "nehiy",
+          "summaryTr": "Leş, kan ve domuz etini yemeyin",
+          "summaryEn": "Do not eat carrion, blood, or pork",
+          "verseAr": "إِنَّمَا حَرَّمَ عَلَيْكُمُ الْمَيْتَةَ وَالدَّمَ وَلَحْمَ الْخِنزِيرِ",
+          "verseTr": "O size yalnızca leşi, kanı, domuz etini ve Allah'tan başkası adına kesilenini haram kıldı.",
+          "verseRef": "2:173",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "sihir-yasak",
+          "type": "nehiy",
+          "summaryTr": "Sihir öğrenmeyin ve uygulamayın",
+          "summaryEn": "Do not learn or practice sorcery",
+          "verseAr": "وَمَا كَفَرَ سُلَيْمَانُ وَلَكِنَّ الشَّيَاطِينَ كَفَرُوا يُعَلِّمُونَ النَّاسَ السِّحْرَ",
+          "verseTr": "Süleyman küfretmedi; fakat şeytanlar küfre düştüler; insanlara sihri öğrettiler.",
+          "verseRef": "2:102",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": "Ayet sihrin şeytanî bir eylem olduğunu belirterek bunu öğrenmek ve uygulamaktan kaçınılması gerektiğini ima eder."
+        },
+        {
+          "id": "mumini-oldurme-yasak",
+          "type": "nehiy",
+          "summaryTr": "Bir mümini kasıtlı olarak öldürmeyin",
+          "summaryEn": "Do not intentionally kill a believer",
+          "verseAr": "وَمَن يَقْتُلْ مُؤْمِنًا مُّتَعَمِّدًا فَجَزَاؤُهُ جَهَنَّمُ",
+          "verseTr": "Kim bir mümini kasıtlı olarak öldürürse cezası cehennemdir.",
+          "verseRef": "4:93",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "allah-disina-yalvarma-yasak",
+          "type": "nehiy",
+          "summaryTr": "Allah'tan başkasına yalvarmayın",
+          "summaryEn": "Do not invoke any deity besides Allah",
+          "verseAr": "وَلَا تَدْعُ مِن دُونِ اللَّهِ مَا لَا يَنفَعُكَ وَلَا يَضُرُّكَ",
+          "verseTr": "Allah'tan başka sana ne fayda ne de zarar verebilecek şeylere yalvarma.",
+          "verseRef": "10:106",
+          "surahName": "Yûnus",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "allah-iftira-yasak",
+          "type": "nehiy",
+          "summaryTr": "Allah'a iftira atmayın",
+          "summaryEn": "Do not fabricate lies against Allah",
+          "verseAr": "فَمَنْ أَظْلَمُ مِمَّن كَذَبَ عَلَى اللَّهِ",
+          "verseTr": "Allah'a karşı yalan uyduran kimseden daha zalim kim olabilir?",
+          "verseRef": "39:32",
+          "surahName": "Zümer",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "acik-gizli-gunah-yasak",
+          "type": "nehiy",
+          "summaryTr": "Açık ve gizli her türlü günahı bırakın",
+          "summaryEn": "Abandon all sin, open and hidden",
+          "verseAr": "وَذَرُوا ظَاهِرَ الْإِثْمِ وَبَاطِنَهُ",
+          "verseTr": "Açık ya da gizli her türlü günahı bırakın.",
+          "verseRef": "6:120",
+          "surahName": "En'âm",
           "verified": true,
           "note": null
         }
@@ -504,6 +948,66 @@
           "surahName": "En'âm",
           "verified": true,
           "note": null
+        },
+        {
+          "id": "ac-doyur",
+          "type": "emir",
+          "summaryTr": "Yoksulu, yetimi ve esiri doyurun",
+          "summaryEn": "Feed the poor, the orphan, and the captive",
+          "verseAr": "وَيُطْعِمُونَ الطَّعَامَ عَلَى حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا",
+          "verseTr": "Sevdikleri halde yemeği yoksuluna, yetimine ve esire yedirirler.",
+          "verseRef": "76:8",
+          "surahName": "İnsân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "esir-azat",
+          "type": "emir",
+          "summaryTr": "Köleyi özgür bırakmak erdemli bir iştir",
+          "summaryEn": "Freeing a captive is a righteous act",
+          "verseAr": "فَكُّ رَقَبَةٍ",
+          "verseTr": "Bir köleyi özgür bırakmak...",
+          "verseRef": "90:13",
+          "surahName": "Beled",
+          "verified": true,
+          "note": "Köleliğin çözümü olarak zikredilir; özgürleştirmeyi erdemli iş sayan ayet."
+        },
+        {
+          "id": "sahitligi-gizleme-yasak",
+          "type": "nehiy",
+          "summaryTr": "Şahitliği gizlemeyin",
+          "summaryEn": "Do not conceal testimony",
+          "verseAr": "وَمَن يَكْتُمْهَا فَإِنَّهُ آثِمٌ قَلْبُهُ",
+          "verseTr": "Kim onu gizlerse kalbi günahkârdır.",
+          "verseRef": "2:283",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "kisas-hakki",
+          "type": "emir",
+          "summaryTr": "Kısasta hayat vardır",
+          "summaryEn": "In retaliation there is life",
+          "verseAr": "وَلَكُمْ فِي الْقِصَاصِ حَيَاةٌ",
+          "verseTr": "Kısasta sizin için hayat vardır.",
+          "verseRef": "2:179",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": "Kısas ilkesinin toplumsal caydırıcılık işlevini vurgular."
+        },
+        {
+          "id": "arabuluculuk",
+          "type": "emir",
+          "summaryTr": "İnsanlar arasında iyilik ve ıslahla arabuluculuk yapın",
+          "summaryEn": "Mediate with goodness and reconciliation",
+          "verseAr": "لَا خَيْرَ فِي كَثِيرٍ مِّن نَّجْوَاهُمْ إِلَّا مَنْ أَمَرَ بِصَدَقَةٍ أَوْ مَعْرُوفٍ أَوْ إِصْلَاحٍ بَيْنَ النَّاسِ",
+          "verseTr": "İnsanlar arasında ıslah sağlayanlar, iyiliği ve infakı emredenler dışında gizli konuşmaların çoğunda hayır yoktur.",
+          "verseRef": "4:114",
+          "surahName": "Nisâ",
+          "verified": true,
+          "note": null
         }
       ]
     },
@@ -563,7 +1067,7 @@
           "note": null
         },
         {
-          "id": "kin-gütme",
+          "id": "kin-gutme",
           "type": "nehiy",
           "summaryTr": "Birbirinize kin gütmeyin",
           "summaryEn": "Do not bear hatred toward one another",
@@ -573,6 +1077,54 @@
           "surahName": "Hucurât",
           "verified": true,
           "note": "Bu ayet hadis kaynaklı bir ilkeyi de içermektedir; Kur'an'da benzer ifade 49:12'de geçer."
+        },
+        {
+          "id": "ses-alcalt",
+          "type": "emir",
+          "summaryTr": "Sesini alçalt",
+          "summaryEn": "Lower your voice",
+          "verseAr": "وَاغْضُضْ مِن صَوْتِكَ",
+          "verseTr": "Sesini alçalt; sesler içinde en çirkini eşeklerin sesidir.",
+          "verseRef": "31:19",
+          "surahName": "Lokmân",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "bos-sozden-kacin",
+          "type": "emir",
+          "summaryTr": "Boş ve faydasız sözlerden yüz çevirin",
+          "summaryEn": "Turn away from vain and idle talk",
+          "verseAr": "وَالَّذِينَ هُمْ عَنِ اللَّغْوِ مُعْرِضُونَ",
+          "verseTr": "Onlar boş, faydasız şeylerden yüz çevirirler.",
+          "verseRef": "23:3",
+          "surahName": "Mü'minûn",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "gizli-kotukonusma-yasak",
+          "type": "nehiy",
+          "summaryTr": "Şeytanın kışkırtmasıyla gizli kötü konuşmalar yapmayın",
+          "summaryEn": "Avoid secret harmful conversations incited by Satan",
+          "verseAr": "إِنَّمَا النَّجْوَى مِنَ الشَّيْطَانِ",
+          "verseTr": "Gizli konuşmalar ancak şeytandan kaynaklanır.",
+          "verseRef": "58:10",
+          "surahName": "Mücâdele",
+          "verified": true,
+          "note": null
+        },
+        {
+          "id": "guzel-soz-soyle",
+          "type": "emir",
+          "summaryTr": "İnsanlara güzel söz söyleyin",
+          "summaryEn": "Speak kindly to people",
+          "verseAr": "وَقُولُوا لِلنَّاسِ حُسْنًا",
+          "verseTr": "İnsanlara güzel söz söyleyin.",
+          "verseRef": "2:83",
+          "surahName": "Bakara",
+          "verified": true,
+          "note": null
         }
       ]
     }

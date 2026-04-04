@@ -1,0 +1,37 @@
+<h2>Mimari Seçim: Overlay mi, Sayfa mı?</h2>
+<p class="subtitle">Mevcut proje mimarisi ile uyum ve kullanıcı deneyimi açısından en kritik karar</p>
+
+<div class="options">
+  <div class="option" data-choice="overlay" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Fullscreen Overlay (Mevcut Pattern)</h3>
+      <p>Tüm mevcut araçlar (Melekler, KavimlerAtlası, CennetCehennem) bu pattern'i kullanıyor.
+      Navbar'daki "Keşfet" menüsünden açılıyor. URL değişmez. Browser back ile kapanıyor.
+      React Router gerektirmiyor. Lazy-loaded Suspense ile code-split.</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>✓ Avantajlar</h4><ul><li>Mevcut tüm kodla %100 uyumlu</li><li>Hızlı uygulama</li><li>Navbar entegrasyonu hazır</li><li>Back button desteği var</li></ul></div>
+        <div class="cons"><h4>✗ Dezavantajlar</h4><ul><li>URL paylaşılamıyor</li><li>Tarayıcı geçmişinde değil</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="page" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Ayrı Sayfa + React Router</h3>
+      <p><code>/kuranin-renkleri</code> gerçek bir URL olur. React Router DOM eklenir.
+      App.jsx yeniden yapılandırılır. Tüm mevcut overlay'ler route-based sisteme taşınır
+      (veya ikili bir mimari kurulur).</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>✓ Avantajlar</h4><ul><li>Gerçek URL — paylaşılabilir</li><li>SEO potansiyeli</li><li>Derin link desteği</li></ul></div>
+        <div class="cons"><h4>✗ Dezavantajlar</h4><ul><li>React Router kurulumu gerekir</li><li>App.jsx büyük refactor</li><li>Mevcut 30+ overlay ile uyumsuzluk riski</li><li>Çok daha uzun süre</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px; padding:16px; background:rgba(212,165,116,0.08); border-radius:8px; border:1px solid rgba(212,165,116,0.2)">
+  <p class="label">Öneri</p>
+  <p style="margin:4px 0 0"><strong>A — Overlay</strong> öneriyorum. Mevcut mimariyle tam uyumlu, uygulama süresi çok kısa, kullanıcı deneyimi zaten kanıtlanmış. Spec'teki <code>/kuranin-renkleri</code> URL referansı muhtemelen kavramsal — gerçek route değil. Navbar'ın "Keşfet" menüsünden açılması spec'te açıkça belirtilmiş.</p>
+</div>

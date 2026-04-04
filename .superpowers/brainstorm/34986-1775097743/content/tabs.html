@@ -1,0 +1,105 @@
+<h2>Overlay Tab Yapısı</h2>
+<p class="subtitle">İçerik 6 kategoriye ayrılıyor. Bunları nasıl gruplayalım?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>6 Ayrı Tab</h3>
+      <p>Her zenginleştirme kendi tab'ında. KuranYeminleri'nin 5-tab yapısına benzer.</p>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-header">Retorik Analizi — Overlay</div>
+        <div class="mockup-body" style="padding:0; overflow:hidden; border-radius:6px;">
+          <div style="background:#0a0a1a; padding:10px 16px; display:flex; gap:4px; flex-wrap:wrap; border-bottom:1px solid rgba(255,255,255,0.08)">
+            <span style="background:#d4a574; color:#0a0a1a; padding:4px 12px; border-radius:4px; font-size:0.72rem; font-weight:700">Kategoriler</span>
+            <span style="color:#94a3b8; padding:4px 12px; font-size:0.72rem">Kalıplar</span>
+            <span style="color:#94a3b8; padding:4px 12px; font-size:0.72rem">Muhatap</span>
+            <span style="color:#94a3b8; padding:4px 12px; font-size:0.72rem">30 Soru</span>
+            <span style="color:#94a3b8; padding:4px 12px; font-size:0.72rem">Sure Haritası</span>
+            <span style="color:#94a3b8; padding:4px 12px; font-size:0.72rem">Karşılaştırma</span>
+          </div>
+          <div style="background:#0d1b2a; padding:16px; font-size:0.8rem; color:#94a3b8">
+            <div style="color:#e8e6e3; margin-bottom:8px; font-weight:600">Kategoriler tab aktif</div>
+            <div style="display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap">
+              <div style="border-left:3px solid #d4a574; padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:4px; font-size:0.75rem; flex:1; min-width:120px">
+                <div style="color:#d4a574; font-weight:600">Erotema ~40%</div>
+                <div style="margin-top:4px; color:#94a3b8">Tanım + 3 alt kalıp + 5 örnek ayet</div>
+              </div>
+              <div style="border-left:3px solid #3498db; padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:4px; font-size:0.75rem; flex:1; min-width:120px">
+                <div style="color:#3498db; font-weight:600">İrşad ~28%</div>
+                <div style="margin-top:4px; color:#94a3b8">Tanım + 3 alt kalıp + 5 örnek ayet</div>
+              </div>
+              <div style="border-left:3px solid #2ecc71; padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:4px; font-size:0.75rem; flex:1; min-width:120px">
+                <div style="color:#2ecc71; font-weight:600">Tevbih ~20%</div>
+                <div style="margin-top:4px; color:#94a3b8">Tanım + 3 alt kalıp + 5 örnek ayet</div>
+              </div>
+              <div style="border-left:3px solid #a78bfa; padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:4px; font-size:0.75rem; flex:1; min-width:120px">
+                <div style="color:#a78bfa; font-weight:600">Taaccüb ~12%</div>
+                <div style="margin-top:4px; color:#94a3b8">Tanım + 3 alt kalıp + 5 örnek ayet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>4 Tab — Kategoriler + Kalıplar birleşik</h3>
+      <p>Kategoriler tab'ı hem 4 tür hem de kalıpları içerir. Daha az tab, daha derin içerik.</p>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-header">Retorik Analizi — Overlay</div>
+        <div class="mockup-body" style="padding:0; overflow:hidden; border-radius:6px;">
+          <div style="background:#0a0a1a; padding:10px 16px; display:flex; gap:4px; border-bottom:1px solid rgba(255,255,255,0.08)">
+            <span style="background:#d4a574; color:#0a0a1a; padding:4px 14px; border-radius:4px; font-size:0.72rem; font-weight:700">Kategoriler & Kalıplar</span>
+            <span style="color:#94a3b8; padding:4px 14px; font-size:0.72rem">Muhatap Analizi</span>
+            <span style="color:#94a3b8; padding:4px 14px; font-size:0.72rem">30 Soru</span>
+            <span style="color:#94a3b8; padding:4px 14px; font-size:0.72rem">Sure Haritası</span>
+          </div>
+          <div style="background:#0d1b2a; padding:16px; font-size:0.8rem; color:#94a3b8">
+            <div style="color:#e8e6e3; margin-bottom:8px; font-weight:600">Kategoriler & Kalıplar tab</div>
+            <div style="margin-bottom:6px">▸ 4 tür kartı (Erotema / İrşad / Tevbih / Taaccüb)</div>
+            <div style="margin-bottom:6px; padding-left:16px; color:#d4a574">  ↳ Her kart açılınca: tanım + alt kalıplar + örnek ayetler</div>
+            <div style="margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06)">
+              <div style="color:#e8e6e3; margin-bottom:6px">Özel Kalıplar</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap">
+                <span style="background:rgba(216,90,48,0.15); color:#D85A30; padding:3px 10px; border-radius:12px; font-size:0.72rem">Ve Mâ Edrâke (13 kullanım)</span>
+                <span style="background:rgba(20,184,166,0.15); color:#14b8a6; padding:3px 10px; border-radius:12px; font-size:0.72rem">Efela Ta'kılûn ailesi</span>
+                <span style="background:rgba(139,92,246,0.15); color:#8b5cf6; padding:3px 10px; border-radius:12px; font-size:0.72rem">Eleyse kalıbı</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>3 Tab — Maksimum sadeleştirme</h3>
+      <p>"Soru Türleri" + "Kalıplar & Muhatap" + "Ayet Veritabanı". Karşılaştırmalı analiz en altta yerleşik.</p>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-header">Retorik Analizi — Overlay</div>
+        <div class="mockup-body" style="padding:0; overflow:hidden; border-radius:6px;">
+          <div style="background:#0a0a1a; padding:10px 16px; display:flex; gap:4px; border-bottom:1px solid rgba(255,255,255,0.08)">
+            <span style="background:#d4a574; color:#0a0a1a; padding:4px 18px; border-radius:4px; font-size:0.72rem; font-weight:700">Soru Türleri</span>
+            <span style="color:#94a3b8; padding:4px 18px; font-size:0.72rem">Kalıplar & Muhatap</span>
+            <span style="color:#94a3b8; padding:4px 18px; font-size:0.72rem">Ayet Veritabanı</span>
+          </div>
+          <div style="background:#0d1b2a; padding:16px; font-size:0.8rem; color:#94a3b8">
+            <div style="margin-bottom:4px"><span style="color:#d4a574">Tab 1:</span> 4 tür (genişletilmiş) + Sure haritası (tıklanabilir)</div>
+            <div style="margin-bottom:4px"><span style="color:#d4a574">Tab 2:</span> 3 kalıp analizi + 5 muhatap grubu</div>
+            <div style="margin-bottom:4px"><span style="color:#d4a574">Tab 3:</span> 30 filtrelenebilir soru + karşılaştırmalı analiz</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:16px; padding:10px 14px; background:rgba(52,152,219,0.08); border-left:3px solid #3498db; border-radius:4px; font-size:0.8rem; color:#94a3b8">
+  <strong style="color:#3498db">Not:</strong> Karşılaştırmalı analiz (Zenginleştirme 6) ve Sure Haritası (Zenginleştirme 5) hangi yaklaşımda da yeri var — sadece nereye yerleşeceği farklı.
+</div>
