@@ -233,13 +233,6 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
                     stroke={domain.color} strokeOpacity={isHov ? 1 : 0.5} strokeWidth="1"
                     style={{ transition: 'all 0.2s ease' }}
                   />
-                  {!isMobile && (
-                    <text x={sn.x} y={sn.y + NODE_R + 12}
-                      textAnchor="middle" fill={domain.color} fillOpacity={0.7}
-                      fontSize="9" fontFamily="Inter, sans-serif">
-                      {sn.labelTr.length > 14 ? sn.labelTr.slice(0, 13) + '…' : sn.labelTr}
-                    </text>
-                  )}
                 </g>
               );
             });
@@ -859,8 +852,7 @@ const ANIMAL_ICONS = {
 };
 
 const FUN_FACTS_TR = [
-  "Kur'an'da geçen arı, örümcek ve sivrisinek — üçü de dişi formda anılır.",
-  "6 sure hayvan ismi taşır: Bakara (İnek), En'âm (Davar), Nahl (Arı), Neml (Karınca), Ankebût (Örümcek), Fîl (Fil).",
+  "Kur'an'da mesel olarak geçen hayvanlar çoğunlukla küçük veya alçak görülen türlerdir — sivrisinek, sinek, örümcek. Bu, meselin boyut tanımaz mantığını pekiştirir.",
   "Kur'an'daki ilk öğretici bir hayvandır — Karga, Kabil'e cesedi nasıl gömeceğini öğretir (5:31).",
 ];
 
@@ -880,11 +872,14 @@ function TabHayvanlar({ animals, language, isMobile }) {
 
   return (
     <div style={{ padding: isMobile ? '12px' : '20px 24px' }}>
-      <div style={{ ...GLASS_CARD, padding: '12px 16px', marginBottom: '20px', textAlign: 'center' }}>
-        <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>
+      <div style={{ ...GLASS_CARD, padding: '12px 16px', marginBottom: '12px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', gap: '10px', justifyContent: 'space-between' }}>
+        <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.82rem' }}>
           {language === 'tr'
-            ? "Kur'an'da 200+ ayette hayvan geçer · 6 sure hayvan ismi taşır"
-            : "Animals appear in 200+ Quranic verses · 6 surahs are named after animals"}
+            ? "Bu tabloda yalnızca mesel ve kıssa bağlamındaki hayvanlar yer alır."
+            : "This tab shows only animals in parable and narrative contexts."}
+        </span>
+        <span style={{ color: COLORS.teal, fontFamily: FONTS.body, fontSize: '0.78rem', whiteSpace: 'nowrap', flexShrink: 0 }}>
+          {language === 'tr' ? "Arı · Deve · Sığır → Doğa Atlası'nda" : "Bee · Camel · Cattle → see Doğa Atlası"}
         </span>
       </div>
 
