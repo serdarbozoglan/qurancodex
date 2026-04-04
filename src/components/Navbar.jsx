@@ -515,7 +515,7 @@ export default function Navbar() {
     },
     {
       labelTr: "Kur'an'ın Emirleri", labelEn: "Quran's Commands",
-      descTr: '207 emir ve tavsiye', descEn: '207 commands and guidance',
+      descTr: '8 kategori · seçki', descEn: '8 categories · curated',
       icon: (
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 11 12 14 22 4" />
