@@ -628,7 +628,7 @@ export default function Navbar() {
   return (
     <>
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${
         scrolled
           ? 'bg-cosmic-black/85 backdrop-blur-xl border-b border-white/5 py-3'
           : 'py-5 bg-transparent'
@@ -1237,17 +1237,50 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — full-screen overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="lg:hidden overflow-hidden"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="lg:hidden"
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 9998,
+              background: '#080a1e',
+              overflowY: 'auto',
+            }}
           >
-            <div className="glass-card-strong mt-2 mx-4 rounded-xl py-4 px-6 flex flex-col gap-1" style={{ maxHeight: 'calc(100dvh - 80px)', overflowY: 'auto' }}>
+            {/* Close button inside overlay */}
+            <button
+              onClick={() => setMobileOpen(false)}
+              style={{
+                position: 'fixed',
+                top: '14px',
+                right: '16px',
+                zIndex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                background: 'rgba(255,255,255,0.08)',
+                border: '1px solid rgba(255,255,255,0.12)',
+                color: '#e8e6e3',
+                cursor: 'pointer',
+              }}
+              aria-label="Menüyü kapat"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="flex flex-col gap-1" style={{ padding: '80px 24px 40px' }}>
               {/* Oku — top of mobile */}
               <button
                 onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
