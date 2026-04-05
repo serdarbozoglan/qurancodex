@@ -90,13 +90,6 @@
         "description": "Kur'an'daki tüm harflerin yaklaşık %70'i bu 14 harften oluşur"
       }
     },
-    "kaf": {
-      "title": "Kâf Suresi Matematiği",
-      "description": "Kâf (ق) harfi, Kâf Suresi'nde tam 57 kez geçer. 57 × 2 = 114, yani Kur'an'daki toplam sure sayısı.",
-      "firstHalf": "İlk Yarı",
-      "secondHalf": "İkinci Yarı",
-      "total": "Toplam Sure"
-    },
     "checksum": {
       "title": "Dijital Checksum Benzetmesi ⓘ",
       "description": "Bazı araştırmacılar, tıpkı modern dijital sistemlerin veri bütünlüğünü korumak için checksum kullanması gibi, bu harflerin de Kur'an metninin bütünlüğünü koruyan bir doğrulama mekanizması işlevi görmüş olabileceğini ileri sürmüştür. Bu yorum akademik bir hipotezdir; harflerin kesin işlevi Kur'an tarafından açıklanmamıştır."

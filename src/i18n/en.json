@@ -90,13 +90,6 @@
         "description": "Approximately 70% of all Quranic letters consist of these 14 letters"
       }
     },
-    "kaf": {
-      "title": "The Mathematics of Sura Qaf",
-      "description": "The letter Qaf (ق) appears exactly 57 times in Sura Qaf. 57 x 2 = 114 - the total number of chapters in the Quran.",
-      "firstHalf": "First Half",
-      "secondHalf": "Second Half",
-      "total": "Total Chapters"
-    },
     "checksum": {
       "title": "The Digital Checksum Analogy ⓘ",
       "description": "Some researchers have proposed that, just as modern digital systems use checksums to protect data integrity, these letters may have served a similar built-in verification function for the Quranic text. This remains an academic hypothesis — the Quran itself does not explain the purpose of these letters."
