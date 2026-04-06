@@ -22,7 +22,7 @@ const FACTS = [
     bodyEn: 'The Quran has 114 surahs. Bismillah opens 113 of them, and appears once more in An-Naml 27:30 inside a verse. Total: exactly 114.',
     wowTr: 'Besmele sayısı, sûre sayısını yansıtır.',
     wowEn: 'The count of "Bismillah" mirrors the number of surahs.',
-    scrollTo: 'linguistic',
+    explore: '27:30',
   },
   {
     category: 'sayisal',
@@ -91,7 +91,7 @@ const FACTS = [
     bodyEn: 'At-Tawbah is the only surah without an opening Bismillah. In its place, An-Naml has two Bismillahs (27:30). The total remains exactly 114.',
     wowTr: 'Eksiklik fazlalıkla dengelendi. Hiçbir şey bozulmadı.',
     wowEn: 'The deficit was offset by surplus. Nothing was broken.',
-    scrollTo: 'linguistic',
+    explore: '27:30',
   },
   {
     category: 'yapisal',
@@ -113,7 +113,7 @@ const FACTS = [
     bodyEn: 'Al-Fatiha has 7 verses. The exact middle (4th) verse: "You alone we worship, You alone we ask for help." The essence of the human-God relationship — at the geometric center.',
     wowTr: 'Anlam, sûrenin tam kalbinde durur.',
     wowEn: 'Meaning stands at the exact heart of the surah.',
-    scrollTo: 'hidden-architecture',
+    explore: '1:4',
   },
   {
     category: 'yapisal',
@@ -146,7 +146,7 @@ const FACTS = [
     bodyEn: '29 surahs open with mysterious letters: Alif-Lam-Mim, Ha-Mim, Ya-Sin... No one knows with certainty what they mean. A cipher unsolved for 1,400 years.',
     wowTr: 'Allah\'ın kitabının başında, insanın anlayamadığı harfler durur.',
     wowEn: 'At the start of God\'s book stand letters that humanity cannot decode.',
-    scrollTo: 'linguistic',
+    explore: '2:1',
   },
   {
     category: 'yapisal',
@@ -157,7 +157,7 @@ const FACTS = [
     bodyEn: 'Raymond Farrin\'s research shows that many surahs follow a ring composition structure: A-B-C-Center-C\'-B\'-A\'. Al-Fatiha is its simplest example. While this structure exists in ancient literature, its density and consistency in the Quran is remarkable.',
     wowTr: 'Yapı tesadüf değil, tasarım.',
     wowEn: 'Structure, not coincidence — design.',
-    scrollTo: 'hidden-architecture',
+    explore: '1:1',
   },
 
   {
@@ -421,12 +421,12 @@ const FACTS = [
   {
     category: 'azBilinen',
     surahRef: 'Er-Rahmân · 55',
-    titleTr: '"Rahman" — Kur\'an\'ın Yeniden Tanımladığı İsim',
-    titleEn: '"Rahman" — A Name the Quran Redefined',
-    bodyTr: '"Rahman" ismi Kur\'an öncesi Arap şiirinde son derece nadir kullanılıyordu; Allah için neredeyse hiç kullanılmıyordu. Kur\'an bu ismi merkeze alarak hem dile hem teolojiye kalıcı biçimde yerleştirdi.',
-    bodyEn: 'The name "Rahman" was extremely rare in pre-Quranic Arabic poetry, and virtually never used for God. The Quran placed it at the center, embedding it permanently in both language and theology.',
-    wowTr: 'Kur\'an kelimeleri yeniden tanımladı — ve onlar 1.400 yıl yaşadı.',
-    wowEn: 'The Quran redefined words — and they have lived for 1,400 years.',
+    titleTr: '"Rahman" — Kur\'an\'ın Merkeze Aldığı İsim',
+    titleEn: '"Rahman" — A Name the Quran Placed at the Center',
+    bodyTr: 'Kur\'an, "Rahman" ismini öyle bir merkeze aldı ki bu isim hem dile hem teolojiye kalıcı biçimde yerleşti. Her sûrenin başında, Fatiha\'da, Rahman sûresinin tamamında — bu isim Kur\'an\'ın dokusuna işlendi.',
+    bodyEn: 'The Quran placed "Rahman" so centrally that it became permanently embedded in both language and theology. At the start of every surah, in Al-Fatiha, throughout Surah Ar-Rahman — this name was woven into the very fabric of the Quran.',
+    wowTr: 'Kur\'an\'ın en çok tekrar eden isimlerinden biri — her sûrenin açılışında.',
+    wowEn: 'One of the most repeated names in the Quran — at the opening of every surah.',
     explore: 'rahman',
   },
   {
