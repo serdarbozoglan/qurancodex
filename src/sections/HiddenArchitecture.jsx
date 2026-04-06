@@ -458,7 +458,7 @@ export default function HiddenArchitecture() {
 
       {/* ── "Neden Şaşırtıcı?" callout ── */}
       <motion.div variants={fadeUpItem} className="glass-card border-l-4 border-gold p-6 mb-10">
-        <p className="text-gold text-xs uppercase tracking-[0.25em] font-body mb-2">
+        <p className="text-gold text-xs uppercase tracking-[0.25em] font-body mb-2" lang={language === 'tr' ? 'tr' : 'en'}>
           {language === 'tr' ? 'Neden şaşırtıcı?' : 'Why is this surprising?'}
         </p>
         <p className="text-off-white/80 text-sm leading-relaxed font-body italic">

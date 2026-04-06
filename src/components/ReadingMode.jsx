@@ -738,7 +738,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   }, [verses, searchQuery, language]);
 
   useEffect(() => {
-    fetch('/verse-graph.json')
+    fetch('/verse-graph-bgem3.json')
       .then(r => r.json())
       .then(data => { setVerses(data); setLoading(false); })
       .catch(() => setLoading(false));

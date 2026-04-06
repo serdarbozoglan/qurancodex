@@ -283,7 +283,7 @@ export default function WordHeatmap({ onClose }) {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    fetch('/verse-graph.json').then(r => r.json()).then(d => { setVerses(d); setLoading(false); }).catch(() => setLoading(false));
+    fetch('/verse-graph-bgem3.json').then(r => r.json()).then(d => { setVerses(d); setLoading(false); }).catch(() => setLoading(false));
   }, []);
 
   useEffect(() => {

@@ -2502,7 +2502,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
 
   useEffect(() => {
     Promise.all([
-      fetch('/verse-graph.json').then(r => { if (!r.ok) throw new Error('verse-graph.json not found.'); return r.json(); }),
+      fetch('/verse-graph-bgem3.json').then(r => { if (!r.ok) throw new Error('verse-graph.json not found.'); return r.json(); }),
       fetch('/surah-clusters.json').then(r => r.ok ? r.json() : null).catch(() => null),
     ])
       .then(([verseData, clusterData]) => {

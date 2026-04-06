@@ -475,7 +475,7 @@ export default function SurahComparator({ onClose }) {
   // Load all data — re-runs when loadKey changes (manual retry)
   useEffect(() => {
     const promises = [];
-    if (!cachedVerses) promises.push(fetch('/verse-graph.json').then(r => r.json()).then(d => { cachedVerses = d; }));
+    if (!cachedVerses) promises.push(fetch('/verse-graph-bgem3.json').then(r => r.json()).then(d => { cachedVerses = d; }));
     if (!cachedSurahInfo) promises.push(fetch('/surah-info.json').then(r => r.json()).then(d => { cachedSurahInfo = d; }));
     if (!cachedRevOrder) promises.push(fetch('/revelation-order.json').then(r => r.json()).then(d => { cachedRevOrder = d; }));
     if (promises.length === 0) { setLoading(false); return; }

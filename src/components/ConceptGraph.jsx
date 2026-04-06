@@ -157,7 +157,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
       setVerses(_versesCache); setConcepts(_conceptsCache); setGroups(_groupsCache); setLoadingData(false); return;
     }
     Promise.all([
-      fetch('/verse-graph.json').then(r => r.json()),
+      fetch('/verse-graph-bgem3.json').then(r => r.json()),
       fetch('/concept-graph.json').then(r => r.json()),
     ]).then(([versesData, cData]) => {
       _versesCache = versesData; _conceptsCache = cData.concepts; _groupsCache = cData.groups;
