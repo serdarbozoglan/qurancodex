@@ -119,25 +119,25 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
   // Renk paleti: altın metin renginden (#d4a574) maksimum kontrast sağlanır.
   // Amber/turuncu tonlar altın renge yakın olduğu için ihfa → cyan, ihfa-şefevî → teal.
   const K = dayMode ? {
-    qalqala:   '#b91c1c',  // koyu kırmızı
-    gunne:     '#166534',  // koyu yeşil
-    idgamBila: '#1e40af',  // koyu mavi
-    iklab:     '#9d174d',  // koyu pembe
-    ihfa:      '#c2410c',  // koyu turuncu  (ihfa-i aslî)
-    ihfaSef:   '#0369a1',  // koyu sky mavi (ihfa-i şefevî)
-    med:       '#6d28d9',  // koyu mor
+    qalqala:   '#dc2626',  // kırmızı — kalkale
+    gunne:     '#16a34a',  // yeşil — gunne
+    idgamBila: '#2563eb',  // mavi — idgam bilağunne
+    iklab:     '#db2777',  // pembe — iklab
+    ihfa:      '#ea580c',  // turuncu — ihfa-i aslî
+    ihfaSef:   '#0284c7',  // sky mavi — ihfa-i şefevî
+    med:       '#d946ef',  // magenta — med
   } : {
     qalqala:   '#f87171',  // coral kırmızı   — kalkale
     gunne:     '#4ade80',  // parlak yeşil    — gunne / idgam-ı misleyn / idgam meağunne
     idgamBila: '#60a5fa',  // açık mavi       — idgam bilağunne
     iklab:     '#f472b6',  // pembe           — iklab
-    ihfa:      '#fb923c',  // turuncu         — ihfa-i aslî
+    ihfa:      '#22d3ee',  // cyan             — ihfa-i aslî
     ihfaSef:   '#38bdf8',  // sky mavi        — ihfa-i şefevî (dudak ihfası)
     med:       '#c084fc',  // leylak          — med
   };
   const sp = (c, m) => `<span style="color:${c}">${m}</span>`;
 
-  const CMID = '[\\u064B-\\u065F\\u06E1]*'; // combining marklar (U+0670 hariç)
+  const CMID = '[\\u064B-\\u065F\\u06E1\\u0640]*'; // combining marklar + tatweel (U+0670 hariç)
   const NEG  = '(?![\\u064E\\u064F\\u0650\\u0651\\u0652])';
 
   // ── 1. Gunne: ن/م + şedde — HER ZAMAN İLK çalışır ──────────────────────────
@@ -163,9 +163,18 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
   // ── 4. Med (genel) ───────────────────────────────────────────────────────────
   // U+0670 (dagger alef): Uthmani encoding'de süperskript elif — daima med
   html = html.replace(/\u0670/gu, m => sp(K.med, m));
-  // Fatha + elif / elif-maksura
+  // Fatha + elif / elif-maksura — yalnızca elif boyanır
   html = html.replace(new RegExp(`(\\u064E)(${CMID})([\\u0627\\u0649])${NEG}`, 'gu'),
     (_, f, mid, a) => f + mid + sp(K.med, a));
+  // Özel durum: لَا ligature — genel kural لَ + <span>ا</span> üretiyor.
+  // Lam+fatha'yı span içine çek: لَ<span>ا</span> → <span>لَا</span>
+  // Sadece fatha (U+064E) ve opsiyonel şedde (U+0651) — kasra/damma dahil edilmez
+  {
+    const medTag = `<span style="color:${K.med}">`;
+    const esc = medTag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    html = html.replace(new RegExp(`(\\u0644\\u0651?\\u064E)(${esc})`, 'gu'),
+      (_, lam, tag) => tag + lam);
+  }
   // Damme + vav
   html = html.replace(new RegExp(`(\\u064F)(${CMID})(\\u0648)${NEG}`, 'gu'),
     (_, d, mid, w) => d + mid + sp(K.med, w));
@@ -174,16 +183,19 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
     (_, k, mid, y) => k + mid + sp(K.med, y));
 
   // ── 5. Mim Sakin ─────────────────────────────────────────────────────────────
+  // Yalnızca kaynak (مْ) renklendirilir — hedef harf doğal renkte kalır
   html = html.replace(new RegExp(`${MIM_SAK}(?=\\s*م)`, 'gu'), m => sp(K.gunne,   m)); // İdgam-ı misleyn
   html = html.replace(new RegExp(`${MIM_SAK}(?=\\s*ب)`, 'gu'), m => sp(K.ihfaSef, m)); // İhfa-i şefevî
 
   // ── 6. Nûn Sakin ─────────────────────────────────────────────────────────────
+  // Yalnızca kaynak (نْ) renklendirilir
   html = html.replace(new RegExp(`${NUN_SAK}(?=\\s*[لر])`,         'gu'), m => sp(K.idgamBila, m));
   html = html.replace(new RegExp(`${NUN_SAK}(?=\\s*ب)`,            'gu'), m => sp(K.iklab,     m));
   html = html.replace(new RegExp(`${NUN_SAK}(?=\\s*[${IKHFA_L}])`, 'gu'), m => sp(K.ihfa,      m));
   html = html.replace(new RegExp(`${NUN_SAK}(?=\\s*[وينم])`,       'gu'), m => sp(K.gunne,     m));
 
   // ── 7. Tenvîn (base harf + tenvîn birlikte — combining char sorunu) ──────────
+  // Yalnızca kaynak (harf+tenvîn) renklendirilir
   html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*[لر])`,         'gu'), m => sp(K.idgamBila, m));
   html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*ب)`,            'gu'), m => sp(K.iklab,     m));
   html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*[${IKHFA_L}])`, 'gu'), m => sp(K.ihfa,      m));
