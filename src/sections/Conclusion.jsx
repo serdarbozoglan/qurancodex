@@ -14,16 +14,6 @@ export default function Conclusion() {
     window.dispatchEvent(new CustomEvent('openReadingMode'));
   };
 
-  const handleOpenExplore = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => window.dispatchEvent(new CustomEvent('openExploreMenu')), 600);
-  };
-
-  const handleOpenTools = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => window.dispatchEvent(new CustomEvent('openToolsMenu')), 600);
-  };
-
   return (
     <SectionWrapper id="conclusion" dark={false}>
       {/* Section badge */}
@@ -65,85 +55,6 @@ export default function Conclusion() {
         className="gold-glow"
         surah={4} ayah={82}
       />
-
-      {/* Discovery section */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-40px' }}
-        transition={{ duration: 0.5, delay: 0.15 }}
-        className="w-full mt-16 pt-12 sm:pt-14"
-        style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
-      >
-        {/* Title */}
-        <h3 className="font-display font-bold text-gold text-center mb-4"
-          style={{ fontSize: 'clamp(20px, 4vw, 28px)' }}>
-          {t('conclusion.discovery.title')}
-        </h3>
-
-        {/* Description */}
-        <p className="text-silver text-center mx-auto mb-8 leading-relaxed"
-          style={{ fontSize: 'clamp(13px, 1.8vw, 15px)', maxWidth: '600px' }}>
-          {t('conclusion.discovery.desc')}
-        </p>
-
-        {/* Stat chips */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-          {[
-            { num: '25+', label: t('conclusion.discovery.stat1') },
-            { num: '8',   label: t('conclusion.discovery.stat2') },
-            { num: '6.236', label: t('conclusion.discovery.stat3') },
-            { num: '114', label: t('conclusion.discovery.stat4') },
-          ].map((s, i) => (
-            <div key={i}
-              className="flex items-center gap-1.5 px-4 py-1.5 rounded-full"
-              style={{
-                background: 'rgba(212,165,116,0.07)',
-                border: '1px solid rgba(212,165,116,0.2)',
-                fontSize: '13px',
-              }}>
-              <span className="font-body font-bold text-gold">{s.num}</span>
-              <span className="text-silver">{s.label}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <motion.button
-            onClick={handleOpenExplore}
-            className="font-body font-semibold text-sm uppercase tracking-[0.12em] cursor-pointer transition-all duration-200"
-            style={{
-              minWidth: 'clamp(140px, 20vw, 180px)',
-              padding: '10px 24px',
-              borderRadius: '8px',
-              border: '1px solid rgba(212,165,116,0.55)',
-              background: 'transparent',
-              color: '#d4a574',
-            }}
-            whileHover={{ background: 'rgba(212,165,116,0.1)', scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            {t('conclusion.discovery.btnExplore')}
-          </motion.button>
-          <motion.button
-            onClick={handleOpenTools}
-            className="font-body font-semibold text-sm uppercase tracking-[0.12em] cursor-pointer transition-all duration-200"
-            style={{
-              minWidth: 'clamp(140px, 20vw, 180px)',
-              padding: '10px 24px',
-              borderRadius: '8px',
-              border: '1px solid #d4a574',
-              background: '#d4a574',
-              color: '#08091a',
-            }}
-            whileHover={{ boxShadow: '0 0 28px rgba(212,165,116,0.35)', scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            {t('conclusion.discovery.btnTools')}
-          </motion.button>
-        </div>
-      </motion.div>
 
       {/* CTA Buttons — same visual system as Hero */}
       <motion.div

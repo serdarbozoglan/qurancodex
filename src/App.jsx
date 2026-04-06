@@ -14,6 +14,7 @@ import LivingPreservation from './sections/LivingPreservation';
 import ZeroRedundancy from './sections/ZeroRedundancy';
 import Highlights from './sections/Highlights';
 import HumanDefinition from './sections/HumanDefinition';
+import ToolsShowcase from './sections/ToolsShowcase';
 import Conclusion from './sections/Conclusion';
 import ChapterProgress from './components/ChapterProgress';
 import Footer from './components/Footer';
@@ -45,9 +46,8 @@ export default function App() {
         <Highlights />
         <div className="gradient-divider" />
         <HumanDefinition />
-        <div className="gradient-divider" />
         <PsychologySection />
-        <div className="gradient-divider-reverse" />
+        <ToolsShowcase />
         <Conclusion />
       </main>
       <Footer />

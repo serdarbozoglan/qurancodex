@@ -149,13 +149,13 @@ body {
 
 /* ---- Section Gradients ---- */
 .gradient-divider {
-  height: 150px;
+  height: 30px;
   background: linear-gradient(180deg, var(--color-cosmic-black), var(--color-deep-navy));
   pointer-events: none;
 }
 
 .gradient-divider-reverse {
-  height: 150px;
+  height: 30px;
   background: linear-gradient(180deg, var(--color-deep-navy), var(--color-cosmic-black));
   pointer-events: none;
 }

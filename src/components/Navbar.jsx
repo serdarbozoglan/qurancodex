@@ -282,6 +282,24 @@ export default function Navbar() {
     return () => window.removeEventListener('openKuranRetorigi', h);
   }, []);
 
+  // Listen for ToolsShowcase events
+  useEffect(() => {
+    const hKissa  = () => setKissaOpen(true);
+    const hKiraat = () => setKiraatOpen(true);
+    const hSebeb  = () => setSebebOpen(true);
+    const hMesel  = () => setMeselOpen(true);
+    window.addEventListener('openKissaAtlas', hKissa);
+    window.addEventListener('openKiraatAtlas', hKiraat);
+    window.addEventListener('openSebebNuzul', hSebeb);
+    window.addEventListener('openMeselAtlas', hMesel);
+    return () => {
+      window.removeEventListener('openKissaAtlas', hKissa);
+      window.removeEventListener('openKiraatAtlas', hKiraat);
+      window.removeEventListener('openSebebNuzul', hSebeb);
+      window.removeEventListener('openMeselAtlas', hMesel);
+    };
+  }, []);
+
   // Auto-open VerseGraph if ?verse= param in URL
   useEffect(() => {
     const urlVerse = new URLSearchParams(window.location.search).get('verse');
