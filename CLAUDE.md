@@ -1049,6 +1049,66 @@ Bu fix, tüm Arapça metin temizleme utility'lerinde mevcut olmalıdır (`src/ut
 
 ---
 
+### 13.15 Arapça Metin Encoding & Font Kuralı — KRİTİK
+
+**Kur'an metni ekranda gösterilirken MUTLAKA aşağıdaki kurallara uyulmalıdır.**
+
+#### Font Zinciri
+
+Kur'an okuma modu (`ReadingMode`, `InterlinearView`):
+```js
+const currentFont = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
+```
+
+Diğer tüm bileşenler (overlay'ler, section'lar, kartlar):
+```js
+fontFamily: FONTS.quran  // "'KFGQPC', 'Amiri Quran', serif"
+```
+
+#### Arapça Metin Encoding Standardı
+
+ShaykhHamdullah ve KFGQPC fontları **yalnızca standart Arabic Unicode** ile düzgün çalışır. Aşağıdaki Uthmani-özel karakterler **kullanılamaz** — ekranda bozuk render üretir:
+
+| Karakter | Unicode | Sorun | Çözüm |
+|----------|---------|-------|-------|
+| ۡ (Uthmani sükun) | `U+06E1` | Cezm dairesi yarım görünür | `U+0652` (ْ standart sükun) ile değiştir |
+| ٱ (Alef wasla) | `U+0671` | ص işareti render eder | `U+0627` (ا düz alef) ile değiştir |
+| ۪ (Uthmani kasra) | `U+06EA` | Yanlış pozisyonda render | `U+0650` (ِ standart kasra) ile değiştir |
+| ی (Farsi Yeh) | `U+06CC` | Siyah tofu üretir | `U+064A` (ي standart Yeh) ile değiştir |
+
+#### Veri Kaynakları
+
+- **`public/verse-graph-bgem3.json`**: Ana ayet verisi. Arapça metin **standart encoding** kullanır. Bu dosyadaki Arapça metne DOKUNMA.
+- **`public/*.json`** (tüm JSON dosyaları): Standart encoding. Font-uyumlu.
+- **`api.acikkuran.com`**: Uthmani encoding döndürür (`U+06E1`, `U+0671`, `U+06EA`). **Mutlaka `cleanArabic()` ile normalize edilmeli.**
+
+#### cleanArabic() Zorunluluğu
+
+API'den gelen veya Uthmani kaynaklı her Arapça metin, ekrana yazdırılmadan önce `cleanArabic()` fonksiyonundan geçirilmelidir. Bu fonksiyon:
+
+```js
+function cleanArabic(str) {
+  if (!str) return str;
+  return str
+    .replace(/\u06EA/g, '\u0650')   // Uthmani kasra → standart kasra
+    .replace(/\u0671/g, '\u0627')   // Alef Wasla → düz Alef
+    .replace(/\u06CC/g, '\u064A')   // Farsi Yeh → Arabic Yeh
+    // ... diğer normalizasyonlar
+}
+```
+
+**Yeni bir JSON veri dosyası oluşturulurken veya mevcut veri güncellenirken**, Arapça metin standart encoding kullanmalıdır. Uthmani encoding'li veri asla doğrudan JSON'a yazılmamalı — önce normalize edilmeli.
+
+#### Test Yöntemi
+
+Bir font/encoding değişikliğinden sonra **Fatiha Suresi'ni (1:1-7) Kitap modunda açıp kontrol et:**
+- Cezimlerin tam daire olduğunu doğrula (yarım daire = encoding hatası)
+- Harekelerin dikey (harfin üstünde/altında) olduğunu doğrula (yatay = font hatası)
+- Temmim (ـ uzatma) işaretlerinin düzgün göründüğünü doğrula
+- Bismillah ile ayet metninin aynı stilde olduğunu doğrula
+
+---
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni overlay ve tool bileşeni mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**

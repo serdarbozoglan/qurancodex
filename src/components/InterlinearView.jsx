@@ -27,6 +27,7 @@ function cleanWord(str) {
   if (!str) return str;
   return str
     .replace(/\u06EA/g, '\u0650')      // Uthmani subscript kasra → standard kasra
+    .replace(/\u06E1/g, '\u0652')      // Uthmani dotless head of khah → standard sukun
     .replace(/\u0671/g, '\u0627')      // Alef Wasla → plain Alef
     .replace(/\u06CC/g, '\u064A')      // Farsi Yeh → Arabic Yeh
     .replace(/\u0670/g, '')            // dagger alef — renders as stray vertical stroke at chip size

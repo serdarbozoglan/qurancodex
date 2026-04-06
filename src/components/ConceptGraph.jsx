@@ -15,6 +15,7 @@ function cleanArabicForGraph(str) {
   if (!str) return str;
   return str
     .replace(/\u06EA/g, '\u0650')
+    .replace(/\u06E1/g, '\u0652')
     .replace(/\u0671/g, '\u0627')
     .replace(/\u06CC/g, '\u064A')
     .replace(/[\u0610-\u0614\u0616\u0617]/g, '')

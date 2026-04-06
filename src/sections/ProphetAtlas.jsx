@@ -44,6 +44,7 @@ function cleanDuaAr(str) {
   if (!str) return str;
   return str
     .replace(/\u06EA/g, '\u0650')                                   // Uthmani subscript kasra → standart kasra
+    .replace(/\u06E1/g, '\u0652')                                   // Uthmani dotless head of khah → standart sukun
     .replace(/\u0671/g, '\u0627')                                   // alef wasla → düz alef (KFGQPC'de ص gösterir)
     .replace(/\u06CC/g, '\u064A')                                   // Farsça ye → Arapça ye
     .replace(/[\u0610-\u0614\u0616\u0617]/g, '')                    // İslami kısaltma işaretleri

@@ -11,6 +11,7 @@ function cleanArabic(str) {
   if (!str) return str;
   return str
     .replace(/\u06EA/g, '\u0650')
+    .replace(/\u06E1/g, '\u0652')
     .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
     .replace(/\u0671/g, '\u0627')
     .replace(/\u06CC/g, '\u064A')
