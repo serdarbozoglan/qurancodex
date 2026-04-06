@@ -1120,29 +1120,68 @@ export default function Navbar() {
                       </button>
                     );
                     // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Emirler [9]Dua [10]Muhatap [11]Esmaül Hüsna [12]Zamanın Boyutları [13]Kıraat Atlası [14]Diyalog Ağı [15]Mesel Atlası [16]Sebeb-i Nüzul
+                    const featuredTool  = tools[0]; // Kur'an'ı Tanı
                     const vizTools      = [tools[1], tools[2], tools[3], tools[6], tools[15]];
                     const analysisTools = [tools[11], tools[7], tools[5], tools[10], tools[14], tools[13]];
-                    const researchTools = [tools[0], tools[4], tools[8], tools[9], tools[16]];
+                    const researchTools = [tools[4], tools[8], tools[9], tools[16]];
                     return (
-                      <div style={{ display: 'flex' }}>
-                        {/* Col 1: Görselleştirme */}
-                        <div style={{ flex: 1, padding: '8px' }}>
-                          <div style={colLabel}>{language === 'tr' ? 'Görselleştirme' : 'Visualisation'}</div>
-                          {vizTools.map(toolBtn)}
-                        </div>
-                        {/* Divider */}
-                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                        {/* Col 2: Analiz & Veri */}
-                        <div style={{ flex: 1, padding: '8px' }}>
-                          <div style={colLabel}>{language === 'tr' ? 'Analiz & Veri' : 'Analysis & Data'}</div>
-                          {analysisTools.map(toolBtn)}
-                        </div>
-                        {/* Divider */}
-                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                        {/* Col 3: Araştırma & Keşif */}
-                        <div style={{ flex: 1, padding: '8px' }}>
-                          <div style={colLabel}>{language === 'tr' ? 'Araştırma & Keşif' : 'Research & Explore'}</div>
-                          {researchTools.map(toolBtn)}
+                      <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        {/* Featured banner — Kur'an'ı Tanı */}
+                        <button
+                          onClick={featuredTool.action}
+                          style={{
+                            width: '100%',
+                            padding: '12px 20px',
+                            background: 'rgba(201, 162, 39, 0.06)',
+                            borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
+                            borderTop: 'none', borderLeft: 'none', borderRight: 'none',
+                            borderRadius: '8px 8px 0 0',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            cursor: 'pointer',
+                            transition: 'background 0.2s ease',
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.10)'; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.06)'; }}
+                        >
+                          <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <span style={{ color: '#c9a227', flexShrink: 0 }}>{featuredTool.icon}</span>
+                            <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
+                              <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                                {language === 'tr' ? featuredTool.labelTr : featuredTool.labelEn}
+                              </span>
+                              <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                                {language === 'tr' ? featuredTool.descTr : featuredTool.descEn}
+                              </span>
+                            </span>
+                          </span>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                            <path d="M9 18l6-6-6-6" />
+                          </svg>
+                        </button>
+
+                        {/* 3-column tools grid */}
+                        <div style={{ display: 'flex', marginTop: '-2px' }}>
+                          {/* Col 1: Görselleştirme */}
+                          <div style={{ flex: 1, padding: '8px' }}>
+                            <div style={colLabel}>{language === 'tr' ? 'Görselleştirme' : 'Visualisation'}</div>
+                            {vizTools.map(toolBtn)}
+                          </div>
+                          {/* Divider */}
+                          <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                          {/* Col 2: Analiz & Veri */}
+                          <div style={{ flex: 1, padding: '8px' }}>
+                            <div style={colLabel}>{language === 'tr' ? 'Analiz & Veri' : 'Analysis & Data'}</div>
+                            {analysisTools.map(toolBtn)}
+                          </div>
+                          {/* Divider */}
+                          <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                          {/* Col 3: Araştırma & Keşif */}
+                          <div style={{ flex: 1, padding: '8px' }}>
+                            <div style={colLabel}>{language === 'tr' ? 'Araştırma & Keşif' : 'Research & Explore'}</div>
+                            {researchTools.map(toolBtn)}
+                          </div>
                         </div>
                       </div>
                     );
@@ -1323,7 +1362,37 @@ export default function Navbar() {
                 <p className="text-[0.62rem] text-silver/40 uppercase tracking-[0.15em] mb-1">
                   {language === 'tr' ? 'Araçlar' : 'Tools'}
                 </p>
-                {tools.map(tool => (
+                {/* Featured: Kur'an'ı Tanı */}
+                <button
+                  onClick={() => { tools[0].action(); setMobileOpen(false); }}
+                  style={{
+                    width: '100%',
+                    padding: '10px 14px',
+                    marginBottom: '4px',
+                    background: 'rgba(201, 162, 39, 0.06)',
+                    border: '1px solid rgba(201, 162, 39, 0.15)',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ color: '#c9a227' }}>{tools[0].icon}</span>
+                    <span style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                      <span style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
+                        {language === 'tr' ? tools[0].labelTr : tools[0].labelEn}
+                      </span>
+                      <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif" }}>
+                        {language === 'tr' ? tools[0].descTr : tools[0].descEn}
+                      </span>
+                    </span>
+                  </span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round"><path d="M9 18l6-6-6-6" /></svg>
+                </button>
+                {/* Remaining tools */}
+                {tools.slice(1).map(tool => (
                   <button
                     key={tool.labelTr}
                     onClick={() => { tool.action(); setMobileOpen(false); }}

@@ -33,7 +33,7 @@ const FACTS = [
     bodyEn: 'The name "Allah" appears in all 22 of Al-Mujadila\'s verses. A distinction belonging to only one of the Quran\'s 114 surahs.',
     wowTr: '114 sûreden sadece birinin taşıdığı imza.',
     wowEn: 'A signature carried by only one of 114 surahs.',
-    explore: 'allah',
+    explore: 'mucadele',
   },
 
   {
@@ -45,7 +45,7 @@ const FACTS = [
     bodyEn: 'The most frequent word in the Quran is the name Allah itself: approximately 2,699 times. Across 114 surahs and 6,236 verses — no page is silent.\n\nℹ️ The exact count varies slightly by source depending on which forms are included (range: 2,698–2,700).',
     wowTr: 'Her 2,3 ayette bir — hiçbir sayfa susmuyor.',
     wowEn: 'Once every 2.3 verses — no page is silent.',
-    explore: 'allah',
+    explore: 'Allah',
   },
   {
     category: 'sayisal',
@@ -56,7 +56,7 @@ const FACTS = [
     bodyEn: 'The Quran names 25 prophets according to general scholarly consensus. Islamic tradition holds that 124,000 prophets were sent. Each of these 25 carries a distinct lesson: patience, justice, repentance, trust... ℹ The prophethood of some figures, notably Dhul-Kifl, is debated in classical exegesis.',
     wowTr: '124.000\'den 25 — her biri bir ders, hepsi bir sistem.',
     wowEn: '25 out of 124,000 — each a lesson, together a system.',
-    explore: 'musa',
+    explore: 'resul',
   },
 
   {
@@ -68,7 +68,7 @@ const FACTS = [
     bodyEn: 'In Surah Ar-Rahman, the verse "Febieyyi ala\'i Rabbikuma tukadhdhibhan" (Which of your Lord\'s favors will you deny?) repeats exactly 31 times. It is the most repeated verse in the Quran. Each repetition follows the mention of a different blessing — like a rhetorical seal.',
     wowTr: '31 kez soru — her biri farklı bir nimeti mühürler.',
     wowEn: '31 repetitions — each sealing a different blessing.',
-    explore: 'rahman',
+    explore: 'Rabbinizin hangi nimetlerini',
   },
   {
     category: 'sayisal',
@@ -102,7 +102,7 @@ const FACTS = [
     bodyEn: 'The opening surah of the Quran never uses the name "Allah". Allah is mentioned through four of His beautiful names: Rabb (the Sustainer and Provider), Rahman (the All-Merciful), Rahim (the Ever-Merciful), Malik (the Master of all sovereignty).\n\nℹ️ The Hafs recitation reads "Mālik"; some other qira\'at traditions read "Malik" as "Melik" (King).',
     wowTr: 'Fatiha\'da "Allah" lafzı geçmez — Allah, güzel isimleriyle konuşur.',
     wowEn: 'Al-Fatiha never says "Allah" — He speaks through His beautiful names.',
-    explore: 'allah',
+    explore: 'fatiha',
   },
   {
     category: 'yapisal',
@@ -113,7 +113,7 @@ const FACTS = [
     bodyEn: 'Al-Fatiha has 7 verses. The exact middle (4th) verse: "You alone we worship, You alone we ask for help." The essence of the human-God relationship — at the geometric center.',
     wowTr: 'Anlam, sûrenin tam kalbinde durur.',
     wowEn: 'Meaning stands at the exact heart of the surah.',
-    explore: '1:4',
+    explore: 'Ancak sana kulluk',
   },
   {
     category: 'yapisal',
@@ -135,7 +135,7 @@ const FACTS = [
     bodyEn: 'The Quran\'s longest verse governs a debt contract: written documentation, two male or one male two female witnesses, an impartial scribe. The foundational principles of modern law — revealed as a verse in the 7th century.',
     wowTr: 'Kur\'an\'ın en uzun ayeti ibadet değil, sözleşme hukuku düzenler.',
     wowEn: 'The Quran\'s longest verse regulates contracts, not worship.',
-    explore: 'bakara',
+    explore: '2:282',
   },
   {
     category: 'yapisal',
@@ -169,7 +169,7 @@ const FACTS = [
     bodyEn: 'Five daily prayers, Al-Fatiha recited in every rakat. The only text read billions of times every single day. Because of time zones, prayer time is always entering somewhere in the world — there is no moment when Al-Fatiha is not being recited.',
     wowTr: 'En çok okunan metin — tartışmasız, her gün, her kıtada.',
     wowEn: 'The most recited text — undisputed, every day, on every continent.',
-    scrollTo: 'linguistic',
+    explore: '1:1',
   },
   {
     category: 'yapisal',
@@ -180,7 +180,7 @@ const FACTS = [
     bodyEn: 'Al-Muzzammil (73:4): "Recite the Quran with measured recitation." The Quran is the only scripture that commands how it must be read. This verse is the Quranic foundation of the science of tajweed.',
     wowTr: 'Okunuş kuralları sonradan icat edilmedi — metnin içinde emredildi.',
     wowEn: 'Recitation rules were not invented later — they were commanded within the text itself.',
-    scrollTo: 'linguistic',
+    explore: '73:4',
   },
   {
     category: 'yapisal',
@@ -191,7 +191,7 @@ const FACTS = [
     bodyEn: 'At-Tawbah is the only one of the Quran\'s 114 surahs that begins without Bismillah. Classical scholars have proposed three explanations: it addresses hypocrites, contains punishment rulings, or should be counted as one surah with Al-Anfal. No definitive answer in 1,400 years.',
     wowTr: '1.400 yıllık soru, 3 cevap, kesin bilgi yalnızca Allah\'ta.',
     wowEn: 'A 1,400-year question, 3 answers, certain knowledge with God alone.',
-    scrollTo: 'linguistic',
+    explore: '9:1',
   },
   {
     category: 'yapisal',
@@ -202,7 +202,7 @@ const FACTS = [
     bodyEn: 'Surahs are not ordered by length (general trend, many exceptions), chronology (Al-Alaq — first revealed — is 96th in the mushaf), or alphabet. Islamic scholars hold that the order was divinely determined (tawqifi). Modern researchers continue to uncover thematic groupings and inter-surah connections.',
     wowTr: 'Sıralama insan mantığına uymayan bir düzene sahip — ama her inceleme yeni bir bağlantı ortaya çıkarıyor.',
     wowEn: 'The ordering defies human logic — yet every closer look reveals a new connection.',
-    scrollTo: 'hidden-architecture',
+    explore: '96:1',
   },
   {
     category: 'yapisal',
@@ -213,7 +213,7 @@ const FACTS = [
     bodyEn: 'Al-Baqara has 286 verses; Al-Kawthar has 3. Ratio: 95 to 1. Neither feels lacking, neither feels excessive. Both are complete.',
     wowTr: '3 ayetle teselli, 286 ayetle şeriat — ikisi de eksiksiz.',
     wowEn: '3 verses of consolation, 286 verses of law — both complete.',
-    scrollTo: 'linguistic',
+    explore: '108:1',
   },
   {
     category: 'yapisal',
@@ -224,7 +224,7 @@ const FACTS = [
     bodyEn: 'The first verse revealed is known: Al-Alaq 96:1. But the last verse is disputed. Some companion narrations point to Al-Baqara 2:281, others to Al-Ma\'idah 5:3, others to Al-Baqara 2:278. No definitive consensus in 1,400 years.',
     wowTr: 'İlk ayet belli, son ayet tartışmalı — bu da bir dürüstlük.',
     wowEn: 'The first is certain, the last is debated — that too is a form of honesty.',
-    scrollTo: 'history',
+    explore: '2:281',
   },
 
   {
@@ -236,7 +236,7 @@ const FACTS = [
     bodyEn: 'A common misconception is that the Quran is a "book of law." The vast majority of its 6,236 verses are not about worship rules, civil transactions, or criminal law — they cover ethics, narrative, contemplation, prayer, and the universe.',
     wowTr: 'Hukuk Kur\'an\'ın bir bölümü — ruh, anlam ve evren geri kalanı.',
     wowEn: 'Law is one part of the Quran — soul, meaning, and universe are the rest.',
-    scrollTo: 'linguistic',
+    explore: '2:282',
   },
   {
     category: 'yapisal',
@@ -383,7 +383,7 @@ const FACTS = [
     bodyEn: 'The first verse ever revealed begins with "Iqra" (Read). Literacy rates in 7th-century Arabia were extremely low — and the very first command of revelation was to read.',
     wowTr: 'Bir ümmi topluma gelen ilk emir: Oku.',
     wowEn: 'The first command to an illiterate society: Read.',
-    scrollTo: 'science',
+    explore: '96:1',
   },
   {
     category: 'azBilinen',
@@ -405,7 +405,7 @@ const FACTS = [
     bodyEn: 'The Quran says the liar will be seized by the "forelock" (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (just behind the forehead) is the center for lying and moral reasoning. Supported by fMRI studies.\n\nℹ️ In classical commentary, "nāsiyah" is a metaphor for disgrace and humiliation — classical scholars did not connect it to brain anatomy. The neuroscience parallel is a contemporary reading.',
     wowTr: '7. yüzyılda alın, beyin nörobilimi bilmeden gösterildi.',
     wowEn: 'In the 7th century, the forehead was pointed to without knowing neuroscience.',
-    scrollTo: 'science',
+    explore: '96:15',
   },
   {
     category: 'azBilinen',
@@ -416,7 +416,7 @@ const FACTS = [
     bodyEn: '"We are able to restore even his fingertips" (Al-Qiyama 75:4). Of all body parts, why specifically fingertips? Documented in the 1880s: every person\'s fingerprint is unique. Even in identical twins.\n\nℹ️ In classical commentary, this verse describes God\'s power to resurrect — fingertips are used as a symbol of intricacy and smallness. The fingerprint uniqueness connection is a contemporary reading.',
     wowTr: '1880\'lerde belgelenen, 7. yüzyılda işaret edildi.',
     wowEn: 'Documented in the 1880s. Pointed to in the 7th century.',
-    scrollTo: 'science',
+    explore: '75:4',
   },
   {
     category: 'azBilinen',
@@ -438,7 +438,7 @@ const FACTS = [
     bodyEn: 'Al-Fatiha is the opening surah of the Quran and the pillar of every prayer. A person recites it in every unit of prayer — yet the words they speak are God\'s own revelation. The servant calls upon his Lord using the words his Lord taught him. In a hadith qudsi, God says: "I have divided the prayer between Myself and My servant into two halves..." (Muslim).',
     wowTr: 'Allah, kuluna O\'na nasıl döneceğini bizzat öğretti.',
     wowEn: 'God taught His servant how to turn back to Him — in His own words.',
-    scrollTo: 'linguistic',
+    explore: '1:5',
   },
   {
     category: 'azBilinen',
@@ -460,7 +460,7 @@ const FACTS = [
     bodyEn: '"Dukhan" (smoke/gaseous matter, Fussilet 41:11) overlaps with modern cosmology\'s nebular concept. "Dharra" (atom-scale unit) anticipates modern physics terminology. "Ufuq" (horizon) aligns with relativity\'s boundary concepts.',
     wowTr: '7. yüzyıl metni, 21. yüzyıl terimleriyle konuşuyor.',
     wowEn: 'A 7th-century text speaking in 21st-century terms.',
-    scrollTo: 'science',
+    explore: '41:11',
   },
   {
     category: 'azBilinen',
@@ -471,7 +471,7 @@ const FACTS = [
     bodyEn: 'Despite being revealed in Arabia, the Quran does not dwell on geographical detail. "Camel" can be expressed in 6 Arabic words — the Quran uses them sparingly. Sand, oasis, and other Arabian staples fade into the background; universal concepts take center stage.',
     wowTr: 'Evrensel bir kitap, yerel bir coğrafyada indi — ve coğrafyayı aşmayı seçti.',
     wowEn: 'A universal book descended in a local geography — and chose to transcend it.',
-    scrollTo: 'linguistic',
+    explore: '21:107',
   },
   {
     category: 'azBilinen',
@@ -482,7 +482,7 @@ const FACTS = [
     bodyEn: '"Rahman" has no exact English equivalent. "Taqwa" cannot be captured in one word. "Sabr" is not simply patience. Linguists note that hundreds of Quranic Arabic concepts have no full equivalent in other languages. This is why the Quran has "translations of meaning," not translations.',
     wowTr: 'Her dile tercüme edildi, hiçbirine tam sığmadı.',
     wowEn: 'Translated into every language. Fully contained by none.',
-    scrollTo: 'linguistic',
+    explore: 'rahman',
   },
   {
     category: 'azBilinen',
@@ -504,7 +504,7 @@ const FACTS = [
     bodyEn: 'The Quran uses dozens of different names for itself: Furqan (the criterion), Dhikr (the reminder), Huda (the guide), Shifa (the healer), Nur (the light), Karim (the generous), Mubin (the clarifier)... Each name is a different function, a different perspective.',
     wowTr: 'Allah\'ın kitabı kendini onlarca farklı isimle tanımlıyor.',
     wowEn: 'God\'s book defines itself — in dozens of different names.',
-    scrollTo: 'linguistic',
+    explore: 'furkan',
   },
 ];
 
