@@ -216,8 +216,9 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
   //   هُوَ (hüve) ve هِيَ (hiye) müstakil zamir — sıla yapılmaz.
   {
     const HAREKE_SET = '\u064B\u064C\u064D\u064E\u064F\u0650\u0651';
+    // Lookahead: opsiyonel diacritik (maddah, waqf vb.) + boşluk + harekeli harf
     const silaRe = new RegExp(
-      `(?<=[${HAREKE_SET}])(\\u0647[\\u064F\\u0650])(?![\\u0648\\u064A]\\u064E)(?=\\s*${BASE}[${DIAC}]*[${HAREKE_SET}])`,
+      `(?<=[${HAREKE_SET}])(\\u0647[\\u064F\\u0650])(?![\\u0648\\u064A]\\u064E)(?=[${DIAC}\\u0653\\u06D6-\\u06DC]*\\s*${BASE}[${DIAC}]*[${HAREKE_SET}])`,
       'gu'
     );
     html = html.replace(silaRe, m => sp(K.sila, m));
