@@ -205,10 +205,10 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
   // ── لا ligature fix (genel) ─────────────────────────────────────────────────
   // ل[hareke]<span...>ا → <span...>ل[hareke]ا  (lam'ı span içine çek)
   // Sadece alef (U+0627) — elif-maksura (U+0649) dahil değil çünkü لى ligature oluşturmaz.
-  // İstisna: alef'ten sonra dagger alef (U+0670) geliyorsa elif medd — lam çekilmez.
+  // İstisna: elif medd (لَاٰ) — alef span'ından hemen sonra dagger alef (span) geliyorsa lam çekilmez.
   html = html.replace(
-    /(\u0644[\u064B-\u065F\u06E1]*)(<span style="color:#[0-9a-f]{6}">)(\u0627)(?!\u0670)/gu,
-    (_, lam, tag, alef) => tag + lam + alef
+    /(\u0644[\u064B-\u065F\u06E1]*)(<span style="color:#[0-9a-f]{6}">)(\u0627)(<\/span>)(?!<span[^>]*>\u0670)/gu,
+    (_, lam, tag, alef, close) => tag + lam + alef + close
   );
 
   // ── 8. Sıla (هاء الكناية) ──────────────────────────────────────────────────
