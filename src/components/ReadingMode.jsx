@@ -26,6 +26,8 @@ function cleanArabic(str) {
     // U+06CC (Arabic Letter Farsi Yeh / ی) — KFGQPC desteklemiyor, siyah tofu üretiyor
     // Standart Arabic Yeh (U+064A) ile normalize et
     .replace(/\u06CC/g, '\u064A')
+    // Decomposed hamza: ي+ٔ → ئ (precomposed ya-hamza) — KFGQPC decomposed formda ya gövdesini kaybediyor
+    .replace(/\u064A\u0654/g, '\u0626')
     // Islamic phrase abbreviations (U+0610–U+0614, U+0616–U+0617)
     // U+0615 (ARABIC SMALL HIGH TAH = ط waqf işareti) hariç tutuldu — wrapWaqfOnly'de render edilecek
     .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
@@ -54,6 +56,7 @@ function cleanArabic(str) {
 //   İhfa-i aslî      (إخفاء أصلي)   ← نْ/tenv + 15 harf
 //   İhfa-i şefevî    (إخفاء شفوي)   ← مْ + ب
 //   Med              (مد)            ← فتحة+ألف | ضمة+واو | كسرة+ياء
+//   Sıla             (صلة)          ← هُ/هِ (zamir) iki harekeli harf arasında → kısa uzatma
 //
 // NUN_SAK / MIM_SAK: sükun harfin hemen ardından gelir — ara diacritic olamaz
 // (aynı harfte hem sükun hem başka hareke olması fonetik olarak imkânsız).
@@ -126,6 +129,7 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
     ihfa:      '#ea580c',  // turuncu — ihfa-i aslî
     ihfaSef:   '#0284c7',  // sky mavi — ihfa-i şefevî
     med:       '#d946ef',  // magenta — med
+    sila:      '#0d9488',  // teal — sıla (hâ-ül kinâye)
   } : {
     qalqala:   '#f87171',  // coral kırmızı   — kalkale
     gunne:     '#4ade80',  // parlak yeşil    — gunne / idgam-ı misleyn / idgam meağunne
@@ -134,6 +138,7 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
     ihfa:      '#22d3ee',  // cyan             — ihfa-i aslî
     ihfaSef:   '#38bdf8',  // sky mavi        — ihfa-i şefevî (dudak ihfası)
     med:       '#c084fc',  // leylak          — med
+    sila:      '#2dd4bf',  // parlak teal    — sıla (hâ-ül kinâye)
   };
   const sp = (c, m) => `<span style="color:${c}">${m}</span>`;
 
@@ -166,15 +171,6 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
   // Fatha + elif / elif-maksura — yalnızca elif boyanır
   html = html.replace(new RegExp(`(\\u064E)(${CMID})([\\u0627\\u0649])${NEG}`, 'gu'),
     (_, f, mid, a) => f + mid + sp(K.med, a));
-  // Özel durum: لَا ligature — genel kural لَ + <span>ا</span> üretiyor.
-  // Lam+fatha'yı span içine çek: لَ<span>ا</span> → <span>لَا</span>
-  // Sadece fatha (U+064E) ve opsiyonel şedde (U+0651) — kasra/damma dahil edilmez
-  {
-    const medTag = `<span style="color:${K.med}">`;
-    const esc = medTag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    html = html.replace(new RegExp(`(\\u0644\\u0651?\\u064E)(${esc})`, 'gu'),
-      (_, lam, tag) => tag + lam);
-  }
   // Damme + vav
   html = html.replace(new RegExp(`(\\u064F)(${CMID})(\\u0648)${NEG}`, 'gu'),
     (_, d, mid, w) => d + mid + sp(K.med, w));
@@ -196,10 +192,34 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
 
   // ── 7. Tenvîn (base harf + tenvîn birlikte — combining char sorunu) ──────────
   // Yalnızca kaynak (harf+tenvîn) renklendirilir
-  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*[لر])`,         'gu'), m => sp(K.idgamBila, m));
-  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*ب)`,            'gu'), m => sp(K.iklab,     m));
-  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*[${IKHFA_L}])`, 'gu'), m => sp(K.ihfa,      m));
-  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*)(?=\\s*[وينم])`,       'gu'), m => sp(K.gunne,     m));
+  // [\u0627\u0649]? → tanvin sonrası elif/elif-maksura gelebilir (هُدًى gibi)
+  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*[\\u0627\\u0649]?)(?=\\s*[لر])`,         'gu'), m => sp(K.idgamBila, m));
+  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*[\\u0627\\u0649]?)(?=\\s*ب)`,            'gu'), m => sp(K.iklab,     m));
+  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*[\\u0627\\u0649]?)(?=\\s*[${IKHFA_L}])`, 'gu'), m => sp(K.ihfa,      m));
+  html = html.replace(new RegExp(`(${BASE}[${DIAC}]*${TANWIN}[${DIAC}]*[\\u0627\\u0649]?)(?=\\s*[وينم])`,       'gu'), m => sp(K.gunne,     m));
+
+  // ── لا ligature fix (genel) ─────────────────────────────────────────────────
+  // ل[hareke]<span...>ا → <span...>ل[hareke]ا  (lam'ı span içine çek)
+  // Sadece span'ın ilk karakteri alef (U+0627/U+0649) ise — لي, لو etkilenmez.
+  // İstisna: alef'ten sonra dagger alef (U+0670) geliyorsa elif medd — lam çekilmez.
+  html = html.replace(
+    /(\u0644[\u064B-\u065F\u06E1]*)(<span style="color:#[0-9a-f]{6}">)([\u0627\u0649])(?!\u0670)/gu,
+    (_, lam, tag, alef) => tag + lam + alef
+  );
+
+  // ── 8. Sıla (هاء الكناية) ──────────────────────────────────────────────────
+  // Zamir هُ / هِ iki harekeli harf arasında → kısa uzatma ile okunur.
+  // Koşul: önceki karakter hareke (fatha/damma/kasra/shadda/tanvin), sonraki base harf + hareke.
+  // İstisnalar: önceki sakin ise sıla yok; kelime sonu ise sıla yok;
+  //   هُوَ (hüve) ve هِيَ (hiye) müstakil zamir — sıla yapılmaz.
+  {
+    const HAREKE_SET = '\u064B\u064C\u064D\u064E\u064F\u0650\u0651';
+    const silaRe = new RegExp(
+      `(?<=[${HAREKE_SET}])(\\u0647[\\u064F\\u0650])(?![\\u0648\\u064A]\\u064E)(?=\\s*${BASE}[${DIAC}]*[${HAREKE_SET}])`,
+      'gu'
+    );
+    html = html.replace(silaRe, m => sp(K.sila, m));
+  }
 
   if (!skipAllahColor) html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
   return html;
