@@ -176,6 +176,8 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
   // Damme + vav
   html = html.replace(new RegExp(`(\\u064F)(${CMID})(\\u0648)${NEG}`, 'gu'),
     (_, d, mid, w) => d + mid + sp(K.med, w));
+  // رُؤُس (ruʾūs) — ؤ precomposed vav-hemze, damma sonrası med (hardcoded)
+  html = html.replace(/\u0631\u064F(\u0624)/gu, (_, hamza) => '\u0631\u064F' + sp(K.med, hamza));
   // Kasra + ye
   html = html.replace(new RegExp(`(\\u0650)(${CMID})(\\u064A)${NEG}`, 'gu'),
     (_, k, mid, y) => k + mid + sp(K.med, y));
