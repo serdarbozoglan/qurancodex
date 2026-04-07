@@ -169,7 +169,7 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
   // U+0670 (dagger alef): Uthmani encoding'de süperskript elif — daima med
   // Ardından elif-maksura/ya geliyorsa ve o harf harekesiz ise birlikte boyanır
   // (مَتٰى, الْاَدْنٰى, افْتَرٰيهُ gibi — ama اٰيَاتِ'deki ي hariç çünkü harekeli)
-  html = html.replace(new RegExp(`\\u0670(?:[\\u0649\\u064A]${NEG})?`, 'gu'), m => sp(K.med, m));
+  html = html.replace(new RegExp(`\\u0670\\u0653?(?:[\\u0649\\u064A]${NEG})?`, 'gu'), m => sp(K.med, m));
   // Fatha + elif / elif-maksura — yalnızca elif boyanır
   html = html.replace(new RegExp(`(\\u064E)(${CMID})([\\u0627\\u0649])${NEG}`, 'gu'),
     (_, f, mid, a) => f + mid + sp(K.med, a));
