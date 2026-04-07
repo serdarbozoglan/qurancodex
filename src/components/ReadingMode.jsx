@@ -15,6 +15,10 @@ import InterlinearView from './InterlinearView';
 function cleanArabic(str) {
   if (!str) return str;
   return str
+    // Decomposed hamza + asar kasra: ي+ٔ+۪ → ئ+۪ (asar korunur, U+06EA global dönüşümden önce)
+    .replace(/\u064A\u0654\u06EA/g, '\u0626\u06EA')
+    // Decomposed hamza (asar'sız): ي+ٔ → ئ
+    .replace(/\u064A\u0654/g, '\u0626')
     // Normalize Uthmani subscript kasra (U+06EA) → standard kasra (U+0650)
     .replace(/\u06EA/g, '\u0650')
     // U+0653 (maddah above): tüm durumlar wrapWaqfOnly/applyTajweed pipeline'ında CSS overlay ile
@@ -26,10 +30,6 @@ function cleanArabic(str) {
     // U+06CC (Arabic Letter Farsi Yeh / ی) — KFGQPC desteklemiyor, siyah tofu üretiyor
     // Standart Arabic Yeh (U+064A) ile normalize et
     .replace(/\u06CC/g, '\u064A')
-    // Decomposed hamza: ي+ٔ → ئ (precomposed ya-hamza)
-    // KFGQPC decomposed formda ya gövdesini kaybediyor
-    // Not: Mushaf'ta ya hem taşıyıcı hem med harfi ama encoding bunu ayrıştırmıyor
-    .replace(/\u064A\u0654/g, '\u0626')
     // Islamic phrase abbreviations (U+0610–U+0614, U+0616–U+0617)
     // U+0615 (ARABIC SMALL HIGH TAH = ط waqf işareti) hariç tutuldu — wrapWaqfOnly'de render edilecek
     .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
