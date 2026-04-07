@@ -15,12 +15,9 @@ import InterlinearView from './InterlinearView';
 function cleanArabic(str) {
   if (!str) return str;
   return str
-    // Decomposed hamza + asar kasra: ي+ٔ+۪ → ئ+۪ (asar korunur, U+06EA global dönüşümden önce)
-    .replace(/\u064A\u0654\u06EA/g, '\u0626\u06EA')
-    // Decomposed hamza (asar'sız): ي+ٔ → ئ
+    // Decomposed hamza: ي+ٔ → ئ (precomposed ya-hamza)
     .replace(/\u064A\u0654/g, '\u0626')
-    // Normalize Uthmani subscript kasra (U+06EA) → standard kasra (U+0650)
-    .replace(/\u06EA/g, '\u0650')
+    // U+06EA (Uthmani subscript kasra / asar) — olduğu gibi korunur, font asar şeklinde render eder
     // U+0653 (maddah above): tüm durumlar wrapWaqfOnly/applyTajweed pipeline'ında CSS overlay ile
     // işlenir (makeShaddaMaddaWrap / makeHarakaMaddaWrap / makeBareHarakaMaddaWrap).
     // cleanArabic'te herhangi bir stripping yapılmıyor — hareke+maddah kombinasyonu korunur.
@@ -64,7 +61,7 @@ function cleanArabic(str) {
 // (aynı harfte hem sükun hem başka hareke olması fonetik olarak imkânsız).
 // DIAC grubunun sükunu içermesi nedeniyle `[DIAC]*[sukun]` regex'te backtracking
 // sorunu çıkabilir; doğrudan `harf+sükun` eşlemesi daha güvenilirdir.
-const DIAC    = '\u064B-\u065F\u06E1\u0670'; // hareke + Osmanlı küçük sükun + dagger alef
+const DIAC    = '\u064B-\u065F\u06E1\u0670\u06EA'; // hareke + Osmanlı küçük sükun + dagger alef + asar kasra
 const NUN_SAK = 'ن[\u0652\u06E1]';    // نْ — sükun doğrudan
 const MIM_SAK = 'م[\u0652\u06E1]';    // مْ — sükun doğrudan
 const TANWIN  = '[\u064B-\u064D]';    // tenvîn (ً ٌ ٍ)
@@ -144,8 +141,8 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
   };
   const sp = (c, m) => `<span style="color:${c}">${m}</span>`;
 
-  const CMID = '[\\u064B-\\u065F\\u06E1\\u0640]*'; // combining marklar + tatweel (U+0670 hariç)
-  const NEG  = '(?![\\u064E\\u064F\\u0650\\u0651\\u0652])';
+  const CMID = '[\\u064B-\\u065F\\u06E1\\u0640\\u06EA]*'; // combining marklar + tatweel + asar (U+0670 hariç)
+  const NEG  = '(?![\\u064E\\u064F\\u0650\\u0651\\u0652\\u06EA])';
 
   // ── 1. Gunne: ن/م + şedde — HER ZAMAN İLK çalışır ──────────────────────────
   // Şeddeli tüm nun ve mimleri önce renklendiriyoruz; diğer kurallar bu spanı bozmaz.
@@ -180,8 +177,8 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
     (_, d, mid, w) => d + mid + sp(K.med, w));
   // رُؤُس (ruʾūs) — ؤ precomposed vav-hemze, damma sonrası med (hardcoded)
   html = html.replace(/\u0631\u064F(\u0624)/gu, (_, hamza) => '\u0631\u064F' + sp(K.med, hamza));
-  // Kasra + ye
-  html = html.replace(new RegExp(`(\\u0650)(${CMID})(\\u064A)${NEG}`, 'gu'),
+  // Kasra + ye (U+0650 standart kasra veya U+06EA asar kasra)
+  html = html.replace(new RegExp(`([\\u0650\\u06EA])(${CMID})(\\u064A)${NEG}`, 'gu'),
     (_, k, mid, y) => k + mid + sp(K.med, y));
 
   // ── 5. Mim Sakin ─────────────────────────────────────────────────────────────
@@ -218,10 +215,10 @@ function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
   // İstisnalar: önceki sakin ise sıla yok; kelime sonu ise sıla yok;
   //   هُوَ (hüve) ve هِيَ (hiye) müstakil zamir — sıla yapılmaz.
   {
-    const HAREKE_SET = '\u064B\u064C\u064D\u064E\u064F\u0650\u0651';
+    const HAREKE_SET = '\u064B\u064C\u064D\u064E\u064F\u0650\u0651\u06EA';
     // Lookahead: opsiyonel diacritik (maddah, waqf vb.) + boşluk + harekeli harf
     const silaRe = new RegExp(
-      `(?<=[${HAREKE_SET}])(\\u0647[\\u064F\\u0650])(?![\\u0648\\u064A]\\u064E)(?=[${DIAC}\\u0653\\u06D6-\\u06DC]*\\s*${BASE}[${DIAC}]*[${HAREKE_SET}])`,
+      `(?<=[${HAREKE_SET}])(\\u0647[\\u064F\\u0650\\u06EA])(?![\\u0648\\u064A]\\u064E)(?=[${DIAC}\\u0653\\u06D6-\\u06DC]*\\s*${BASE}[${DIAC}]*[${HAREKE_SET}])`,
       'gu'
     );
     html = html.replace(silaRe, m => sp(K.sila, m));

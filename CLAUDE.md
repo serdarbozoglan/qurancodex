@@ -1073,7 +1073,7 @@ ShaykhHamdullah ve KFGQPC fontları **yalnızca standart Arabic Unicode** ile d�
 |----------|---------|-------|-------|
 | ۡ (Uthmani sükun) | `U+06E1` | Cezm dairesi yarım görünür | `U+0652` (ْ standart sükun) ile değiştir |
 | ٱ (Alef wasla) | `U+0671` | ص işareti render eder | `U+0627` (ا düz alef) ile değiştir |
-| ۪ (Uthmani kasra) | `U+06EA` | Yanlış pozisyonda render | `U+0650` (ِ standart kasra) ile değiştir |
+| ۪ (Uthmani kasra/asar) | `U+06EA` | Asar (küçük çizgi) kasra formu | **Korunur** — font asar şeklinde render eder. Dönüştürülmez. Tecvid DIAC/HAREKE aralıklarına dahil edilmiştir. |
 | ی (Farsi Yeh) | `U+06CC` | Siyah tofu üretir | `U+064A` (ي standart Yeh) ile değiştir |
 
 #### Veri Kaynakları
