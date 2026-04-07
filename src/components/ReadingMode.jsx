@@ -1167,7 +1167,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       : Math.max(surahStartPage, Math.min(surahLastPage, page));
     setBookPage(clamped);
     setShowHatimDua(false);
-    if (!preserveActive) setActiveVerse(null);
+    if (!preserveActive) { setActiveVerse(null); stopAudio(); }
     if (containerRef.current) containerRef.current.scrollTop = 0;
     // Save last read position
     const lr = { surah: selectedSurah, page: clamped };
