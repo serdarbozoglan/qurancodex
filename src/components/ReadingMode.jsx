@@ -592,6 +592,12 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
   }, []);
+  // Body scroll'u kilitle — overlay açıkken arka plan scroll olmasın
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, []);
   const [bookMode, setBookMode] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_book_mode') ?? 'true'); }
     catch { return true; }
@@ -1210,7 +1216,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
   return (
     <div
-      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: C.bg, display: 'flex', flexDirection: 'column' }}
+      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: C.bg, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
     >
       {/* Click-outside backdrop — closes any open menu/picker on tap (especially useful on mobile).
           zIndex: 50 = above main content, below dropdowns (zIndex: 100). */}
@@ -2511,7 +2517,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
       {/* Verse list */}
       <div
         ref={containerRef}
-        style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar, position: 'relative' }}
+        style={{ flex: 1, minHeight: 0, overflowY: 'auto', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar, position: 'relative' }}
         onClick={() => { setShowSurahPicker(false); setShowMealPicker(false); setShowFontPicker(false); setShowSettingsPicker(false); }}
         onTouchStart={isMobile && bookMode ? (e) => { swipeTouchX.current = e.touches[0].clientX; swipeTouchY.current = e.touches[0].clientY; } : undefined}
         onTouchEnd={isMobile && bookMode ? (e) => {
