@@ -26,8 +26,9 @@ function cleanArabic(str) {
     // U+06CC (Arabic Letter Farsi Yeh / ی) — KFGQPC desteklemiyor, siyah tofu üretiyor
     // Standart Arabic Yeh (U+064A) ile normalize et
     .replace(/\u06CC/g, '\u064A')
-    // Decomposed hamza: ي+ٔ → ئ (precomposed ya-hamza) — KFGQPC decomposed formda ya gövdesini kaybediyor
-    .replace(/\u064A\u0654/g, '\u0626')
+    // Decomposed hamza: ي+ٔ → ئي (ya-hamza + ya) — ya hem hemze taşıyıcı hem med harfi
+    // KFGQPC decomposed formda ya gövdesini kaybediyor; ئ+ي ile hem hemze hem ya görünür
+    .replace(/\u064A\u0654/g, '\u0626\u064A')
     // Islamic phrase abbreviations (U+0610–U+0614, U+0616–U+0617)
     // U+0615 (ARABIC SMALL HIGH TAH = ط waqf işareti) hariç tutuldu — wrapWaqfOnly'de render edilecek
     .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
