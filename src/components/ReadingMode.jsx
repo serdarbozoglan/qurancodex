@@ -41,7 +41,8 @@ function cleanArabic(str) {
     // Kaldırılırsa veya ZWNJ konulursa harfler görsel olarak birleşiyor; boşluk gerekli.
     .replace(/\u06E6/g, ' ')
     // U+06DF (صفر مستدير/Ayn) + U+06EC (kasr) applyTajweed'e bırakılıyor — diğerleri siliniyor
-    .replace(/[\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '')
+    // U+06EB (EMPTY CENTRE HIGH STOP) = med işareti (örn. Secde 32:18 "يَسْتَوُ۫نَ") — korunur
+    .replace(/[\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
     // Ornate parentheses
     .replace(/[\uFD3E\uFD3F]/g, '');
 }
@@ -80,6 +81,10 @@ const makeWaqfSpan = (dayMode) => (m) =>
 //   U+06D6–06DC: King Fahd/acikkuran.com Uthmani vakıf işaretleri
 //   U+06DF:      صفر مستدير / Ayn
 //   U+0615:      ARABIC SMALL HIGH TAH (ط) — Diyanet baskısı waqf mutlak işareti
+// NOT: U+06EB (EMPTY CENTRE HIGH STOP — med işareti, örn. Secde 32:18 "يَسْتَوُ۫نَ")
+// strip listesinden çıkarıldı ama kırmızı renklendirme denenmedi — combining mark olduğu
+// için span sarma konumunu bozuyor, text-shadow da çalışmıyor. Doğal konumunda, metnin
+// varsayılan renginde gösteriliyor.
 const UTHMANI_MARKS_RE = /[\u06D6-\u06DA\u06DC\u06DF\u0615]\u06DB?/gu;
 
 // Allah lafzı renklendirme: tilde kırmızısıyla aynı renk (gündüz/gece uyumlu).
