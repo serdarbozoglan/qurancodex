@@ -107,7 +107,7 @@ const makeKasrWrap = (dayMode) => (_, letter) =>
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
 
-function wrapWaqfOnly(text, dayMode = false, compact = false, skipAllahColor = false) {
+function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
@@ -116,7 +116,7 @@ function wrapWaqfOnly(text, dayMode = false, compact = false, skipAllahColor = f
   return html;
 }
 
-function applyTajweed(text, dayMode, compact = false, skipAllahColor = false) {
+function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -489,14 +489,8 @@ const MEAL_AUTHORS = [
   { id: 'en_haleem',   label: 'Abdul Haleem',             shortLabel: 'Haleem',   lang: 'en', apiId: 113  },
 ];
 
-function audioUrl(reciterId, surah, ayah) {
-  const s = String(surah).padStart(3, '0');
-  const a = String(ayah).padStart(3, '0');
-  return `https://everyayah.com/data/${reciterId}/${s}${a}.mp3`;
-}
-
 // ─── Inline audio bar ────────────────────────────────────────────────────────
-function AudioBar({ surah, ayah, playing, failed, onToggle, language, reciterIdx }) {
+function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, language, reciterIdx }) {
   const reciter = RECITERS[reciterIdx];
   const gold = '#d4a574';
   return (
@@ -729,7 +723,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const [showViewPicker, setShowViewPicker] = useState(false);
 
   const currentFont = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
-  const audioRef = useRef(null);
+  const _audioRef = useRef(null);
   const containerRef = useRef(null);
   // Refs for Escape handler — always reflect current state without closure staleness
   const overlayStateRef = useRef({});
@@ -808,7 +802,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         mealCacheRef.current.set(cacheKey, map);
         return;
       }
-    } catch (_) { /* ignore parse/quota errors */ }
+    } catch { /* ignore parse/quota errors */ }
 
     setMealLoading(true);
     fetch(`https://api.acikkuran.com/surah/${selectedSurah}?author=${author.apiId}`)
@@ -821,7 +815,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         mealCacheRef.current.set(cacheKey, map);
         try {
           localStorage.setItem(lsKey, JSON.stringify([...map]));
-        } catch (_) { /* ignore quota errors */ }
+        } catch { /* ignore quota errors */ }
         setMealLoading(false);
       })
       .catch(() => setMealLoading(false));
@@ -864,13 +858,6 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     if (!verses) return [];
     return verses.filter(v => v.surah === selectedSurah).sort((a, b) => a.ayah - b.ayah);
   }, [verses, selectedSurah]);
-
-  const surahGroups = useMemo(() => {
-    if (!verses) return [];
-    const counts = {};
-    verses.forEach(v => { counts[v.surah] = (counts[v.surah] || 0) + 1; });
-    return Object.entries(counts).map(([s, c]) => ({ surah: +s, count: c, name: SURAH_NAMES_TR[+s - 1] || s }));
-  }, [verses]);
 
   const shareVerse = useCallback((verse) => {
     const arabic = cleanArabic(verse.arabic);

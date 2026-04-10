@@ -117,13 +117,6 @@ const TIMELINE_DATA = [
   },
 ];
 
-const LOG_MIN = 0;
-const LOG_MAX = 4.7;
-
-function logToPercent(v) {
-  return 5 + ((v - LOG_MIN) / (LOG_MAX - LOG_MIN)) * 90;
-}
-
 // ── Language card data ────────────────────────────────────────────────────────
 const LANG_CARDS = [
   {
@@ -376,8 +369,8 @@ const TABS = [
 export default function ZamanBoyutlari({ onClose }) {
   const { language } = useLanguage();
   const [activeTab, setActiveTab]         = useState('olcek');
-  const [activeDot, setActiveDot]         = useState('kadr');
-  const [openAccordion, setOpenAccordion] = useState(null);
+  const [activeDot, _setActiveDot]         = useState('kadr');
+  const [_openAccordion, _setOpenAccordion] = useState(null);
   const [expandedRow,   setExpandedRow]   = useState(null);
   const [expandedCard,  setExpandedCard]  = useState(null);
   const [sourcesOpen, setSourcesOpen]     = useState(true);
@@ -399,7 +392,7 @@ export default function ZamanBoyutlari({ onClose }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const activeItem = TIMELINE_DATA.find(d => d.id === activeDot) ?? TIMELINE_DATA[0];
+  const _activeItem = TIMELINE_DATA.find(d => d.id === activeDot) ?? TIMELINE_DATA[0];
 
   // ── Render helpers ────────────────────────────────────────────────────────────
   function renderRefPill(ref) {

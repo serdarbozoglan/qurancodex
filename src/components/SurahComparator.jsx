@@ -181,7 +181,7 @@ function computeSimilarity(versesA, versesB) {
 }
 
 // ── SURAH SELECTOR ─────────────────────────────────────────────────────────────
-function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrderMap, language, excludeNum }) {
+function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrderMap: _revOrderMap, language, excludeNum }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const inputRef = useRef(null);

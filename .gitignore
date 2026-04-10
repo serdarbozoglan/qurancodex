@@ -35,3 +35,6 @@ cache/
 
 # Local working documents
 todo_v*.md
+
+# Legacy data backups (kept locally, excluded from git + deploy)
+.local-data/

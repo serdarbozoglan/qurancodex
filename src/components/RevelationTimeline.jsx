@@ -71,7 +71,7 @@ export default function RevelationTimeline({ onClose }) {
   const periodColor = (p) => p === 'mekki' ? mekiColor : medeniColor;
 
   // Mushaf position (surah number) vs revelation rank — shows the "reordering"
-  const mushafVsRevelation = useMemo(() => {
+  const _mushafVsRevelation = useMemo(() => {
     if (!orderData) return [];
     return orderData.map(s => ({ ...s, mushaf: s.surah, delta: s.surah - s.rank }));
   }, [orderData]);

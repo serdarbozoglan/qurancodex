@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback, useMemo, useReducer } from 'react';
+import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import ForceGraph3D from 'react-force-graph-3d';
 import * as THREE from 'three';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -801,7 +801,6 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
     const latinArWords = latinToArabicWords(searchQuery);
     const strippedQuery = stripHarakat(searchQuery);
     const isArabicInput = /[\u0600-\u06FF]/.test(searchQuery);
-    const hasArabicRef = !!arabicMatch || !!latinArWords;
     const verseList = direct ? [] : verses.filter(v => {
       const strippedArabic = stripHarakat(v.arabic);
       return v.arabic.includes(searchQuery) || strippedArabic.includes(stripHarakat(searchQuery)) ||
@@ -1453,7 +1452,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
   const isMedeni = info?.period?.tr === 'Medenî' || info?.period?.en === 'Medinan';
 
   const primaryCount = graphData.nodes.filter(n => !n.ghost).length;
-  const ghostCount = graphData.nodes.filter(n => n.ghost).length;
+  const _ghostCount = graphData.nodes.filter(n => n.ghost).length;
   const linkCount = graphData.links.length;
 
   return (
@@ -2130,7 +2129,6 @@ function FullGraph({ verses, onBack, language, onClose }) {
     const latinArWords = latinToArabicWords(searchQuery);
     const strippedQuery = stripHarakat(searchQuery);
     const isArabicInput = /[\u0600-\u06FF]/.test(searchQuery);
-    const hasArabicRef = !!arabicMatch || !!latinArWords;
     const verseList = direct ? [] : verses.filter(v => {
       const strippedArabic = stripHarakat(v.arabic);
       return v.arabic.includes(searchQuery) || strippedArabic.includes(stripHarakat(searchQuery)) ||
@@ -2514,7 +2512,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
         // Handle ?verse=2:255 URL parameter — auto-navigate to that verse
         const urlVerse = new URLSearchParams(window.location.search).get('verse');
         if (urlVerse) {
-          const [surahStr, ayahStr] = urlVerse.split(':');
+          const [surahStr] = urlVerse.split(':');
           const surah = parseInt(surahStr);
           if (!isNaN(surah)) {
             setSelectedSurah(surah);

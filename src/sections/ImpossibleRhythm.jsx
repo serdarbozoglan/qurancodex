@@ -75,12 +75,12 @@ const FASILA_SURAS = [
 
 export default function ImpossibleRhythm() {
   const { t, language } = useLanguage();
-  const examples = t('impossibleRhythm.examples') || [];
-  const [openTooltip, setOpenTooltip] = useState(null);
+  const _examples = t('impossibleRhythm.examples') || [];
+  const [_openTooltip, _setOpenTooltip] = useState(null);
   const [discoveryStep, setDiscoveryStep] = useState(0);
   const [suiGenerisOpen, setSuiGenerisOpen] = useState(false);
   const [playingVerse, setPlayingVerse] = useState(null);
-  const [failedVerses, setFailedVerses] = useState(new Set());
+  const [_failedVerses, setFailedVerses] = useState(new Set());
   const [duhaPlaying, setDuhaPlaying] = useState(false);
   const [duhaFailed, setDuhaFailed] = useState(false);
   const [kawtharPlaying, setKawtharPlaying] = useState(false);
@@ -93,7 +93,7 @@ export default function ImpossibleRhythm() {
 
   // Play a single ayah with full CDN fallback chain
   const playAyah = (surah, ayah, ref, urlIdx, onEnded, onFailed) => {
-    const urls = urlIdx === 0 ? buildFallbackUrls(surah, ayah) : null;
+    const _urls = urlIdx === 0 ? buildFallbackUrls(surah, ayah) : null;
     // urls passed via closure from outer call; we re-build only at urlIdx=0
     // Use a simpler inline approach:
     const allUrls = buildFallbackUrls(surah, ayah);
@@ -133,7 +133,7 @@ export default function ImpossibleRhythm() {
   const duhaLiveRef = useRef(false);
   const kawtharLiveRef = useRef(false);
 
-  const toggleAudio = (verseIndex) => {
+  const _toggleAudio = (verseIndex) => {
     if (playingVerse === verseIndex) {
       if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); audioRef.current = null; }
       setPlayingVerse(null);

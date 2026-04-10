@@ -367,7 +367,7 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
 // ────────────────────────────────────────────────────────────────────────────
 // TAB 1 — Mesel Kataloğu
 // ────────────────────────────────────────────────────────────────────────────
-function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter, onPairLink, isMobile, backRef }) {
+function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _onDomainFilter, onPairLink, isMobile, backRef }) {
   const [catFilter,    setCatFilter]    = useState('all');
   const [domFilter,    setDomFilter]    = useState(domainFilter ?? 'all');
   const [typeFilter,   setTypeFilter]   = useState('all');
@@ -578,7 +578,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter, on
 // ────────────────────────────────────────────────────────────────────────────
 // TAB 2 — Çift Meseller
 // ────────────────────────────────────────────────────────────────────────────
-function TabCiftMeseller({ pairs, parables, scrollToPairId, language, isMobile }) {
+function TabCiftMeseller({ pairs, parables: _parables, scrollToPairId, language, isMobile }) {
   const pairRefs    = useRef({});
   const [expandedSide, setExpandedSide] = useState({});
 
@@ -958,7 +958,7 @@ function TabHayvanlar({ animals, language, isMobile }) {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: cols, gap: '12px' }}>
-        {allItems.map((item, idx) => {
+        {allItems.map((item) => {
           if (item.type === 'fact') {
             return (
               <div key={`fact-${item.index}`} style={{

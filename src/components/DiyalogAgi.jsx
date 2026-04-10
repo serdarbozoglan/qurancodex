@@ -129,7 +129,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   const [activeTab, setActiveTab] = useState(0);
   const [axisFilter, setAxisFilter] = useState(null);       // { speakerId, addresseeId }
   const [temporalFilter, setTemporalFilter] = useState('all'); // 'ezel'|'dunya'|'ahiret'|'all'
-  const localBackRef = useRef(null); // mirrors onRegisterBackHandler for ESC key use
+  const _localBackRef = useRef(null); // mirrors onRegisterBackHandler for ESC key use
 
   // Data states
   const [speakers, setSpeakers]   = useState([]);
@@ -577,7 +577,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
   );
 }
 
-function TabDiyaloglar({ dialogues, axes, speakers, axisFilter, setAxisFilter, temporalFilter, setTemporalFilter, isMobile, language, cleanArabic }) {
+function TabDiyaloglar({ dialogues, axes: _axes, speakers, axisFilter, setAxisFilter, temporalFilter, setTemporalFilter, isMobile, language, cleanArabic }) {
   const [expandedId, setExpandedId] = useState(null);
   const [localTemporalFilter, setLocalTemporalFilter] = useState(temporalFilter);
 

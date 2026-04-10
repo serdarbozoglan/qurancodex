@@ -136,7 +136,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
   const { language } = useLanguage();
   const [view, setView] = useState(restore?.centralConcept ? 'graph' : 'landing');
   const [loadingData, setLoadingData] = useState(true);
-  const [buildingGraph, setBuildingGraph] = useState(false);
+  const [buildingGraph, _setBuildingGraph] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [centralConcept, setCentralConcept] = useState(restore?.centralConcept ?? null);
   const [hoveredId, setHoveredId] = useState(null);
@@ -532,10 +532,10 @@ export default function ConceptGraph({ onClose, restore = null }) {
               })}
 
               {/* Nodes */}
-              {graphRef.current.nodes.map((n, ni) => {
+              {graphRef.current.nodes.map((n) => {
                 const isHov = hoveredId === n.id;
                 const isPinned = pinnedId === n.id;
-                const isFocused = focusedId === n.id;
+                const _isFocused = focusedId === n.id;
                 return (
                   <g
                     key={n.id}

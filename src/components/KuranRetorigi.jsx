@@ -821,7 +821,7 @@ function TabSorular({ data, tr, isMobile }) {
   );
 }
 function TabSureHaritasi({ data, tr, isMobile }) {
-  const [hoveredSurah, setHoveredSurah] = useState(null);
+  const [_hoveredSurah, _setHoveredSurah] = useState(null);
   const TYPE_COLORS = { erotema: '#d4a574', irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#c084fc' };
 
   return (

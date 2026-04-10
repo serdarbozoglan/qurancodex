@@ -112,7 +112,7 @@ function HadithOnlyBadge({ language }) {
   );
 }
 
-function InfoPopover({ text, language }) {
+function InfoPopover({ text, language: _language }) {
   const [open, setOpen] = useState(false);
   if (!text) return null;
   return (
@@ -198,7 +198,7 @@ const FILTERS = [
 
 const KISSA_IDS = new Set(['cebrail', 'harut-marut', 'melek-ul-mevt', 'muakkibat', 'on-dokuz-bekci']);
 
-function AngelCard({ angel, language, isMobile }) {
+function AngelCard({ angel, language, isMobile: _isMobile }) {
   const tr = language === 'tr';
   const cat = CAT[angel.category] || CAT.gizemlI;
   const isHadithOnly = angel.quranicStatus === 'hadith-only';
@@ -361,7 +361,7 @@ const GOREV_COLORS = {
   'tesbih-ibadet':   '#c9a96e',
 };
 
-function TabGorevler({ data, language, isMobile }) {
+function TabGorevler({ data, language, isMobile: _isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
@@ -515,7 +515,7 @@ const ANALYSIS_CARDS = [
   },
 ];
 
-function TabSinir({ language, isMobile }) {
+function TabSinir({ language, isMobile: _isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
@@ -809,7 +809,6 @@ function StatCard({ value, color, labelTr, labelEn, refTr, refEn, tooltipAr, too
 }
 
 function HeroStats({ language }) {
-  const tr = language === 'tr';
   const stats = [
     {
       value: '2',

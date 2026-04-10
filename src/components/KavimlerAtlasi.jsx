@@ -366,7 +366,7 @@ function TabNations({ nations, language, isMobile, filter, setFilter, onArchClic
   );
 }
 
-function NationCard({ nation, language, isMobile, onArchClick }) {
+function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
   const [expanded, setExpanded] = useState(false);
   const helakColor = HELAK_COLORS[nation.helakType] || COLORS.silver;
   const name = language === 'tr' ? nation.nameTr : nation.nameEn;
@@ -822,7 +822,7 @@ function StatusBadge({ status, label }) {
   );
 }
 
-function TabArkeoloji({ language, isMobile, highlightArch }) {
+function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
   const cards = language === 'tr' ? ARCH_CARDS_TR : ARCH_CARDS_EN;
 
   return (
@@ -1216,7 +1216,7 @@ const HELAK_TYPES_EN = [
   { type: 'mesh',     label: 'Metamorphosis',           color: '#8e44ad', nations: ["People of the Sabbath"] },
 ];
 
-function TabKarsilastirma({ nations, language, isMobile }) {
+function TabKarsilastirma({ nations: _nations, language, isMobile }) {
   const helakTypes = language === 'tr' ? HELAK_TYPES_TR : HELAK_TYPES_EN;
   const objections = language === 'tr' ? OBJECTION_TR : OBJECTION_EN;
 

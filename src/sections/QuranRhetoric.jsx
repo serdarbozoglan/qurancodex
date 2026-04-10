@@ -130,13 +130,17 @@ export default function QuranRhetoric() {
   const [activeType, setActiveType] = useState(null);
   const [hoveredSurah, setHoveredSurah] = useState(null); // index
 
-  // Build conic-gradient stops from QUESTION_TYPES
-  let cumulative = 0;
-  const gradientStops = QUESTION_TYPES.map(qt => {
-    const start = cumulative;
-    cumulative += qt.pct;
-    return `${qt.color} ${start}% ${cumulative}%`;
-  }).join(', ');
+  // Build conic-gradient stops from QUESTION_TYPES (reduce → no variable reassignment)
+  const gradientStops = QUESTION_TYPES.reduce(
+    (acc, qt) => {
+      const start = acc.cursor;
+      const end = start + qt.pct;
+      acc.stops.push(`${qt.color} ${start}% ${end}%`);
+      acc.cursor = end;
+      return acc;
+    },
+    { stops: [], cursor: 0 }
+  ).stops.join(', ');
 
   return (
     <SectionWrapper id="rhetoric" dark={false}>

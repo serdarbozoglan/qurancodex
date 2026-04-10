@@ -649,7 +649,7 @@ export default function KiyametSahneleri({ onClose }) {
 
 // ── Tab panel functions ────────────────────────────────────────────────────────
 
-function TabKronoloji({ data, language, isMobile }) {
+function TabKronoloji({ data, language, isMobile: _isMobile }) {
   const phases = [1, 2, 3, 4, 5, 6, 7];
 
   return (
@@ -843,7 +843,7 @@ function TabKozmikSahneler({ language, isMobile }) {
   );
 }
 
-function TabHesapMizan({ language, isMobile }) {
+function TabHesapMizan({ language, isMobile: _isMobile }) {
   const sections = language === 'tr' ? [
     {
       title: 'Kim Hesap Verir?',
@@ -926,7 +926,7 @@ function TabHesapMizan({ language, isMobile }) {
   );
 }
 
-function TabKuranHadis({ language, isMobile }) {
+function TabKuranHadis({ language, isMobile: _isMobile }) {
   const rows = language === 'tr' ? [
     { konu: 'Sur üflenmesi', quran: '✓ 2 kez (Zümer 39:68)', hadis: 'İsrafil ismi hadiste' },
     { konu: 'Güneşin dürülmesi', quran: '✓ Tekvir 81:1', hadis: 'Güneşin yaklaşması hadiste' },

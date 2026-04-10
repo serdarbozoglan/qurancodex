@@ -35,11 +35,7 @@ const gold = '#d4a574';
 const silver = '#94a3b8';
 const bg = '#080a1e';
 
-function pad(n, width) {
-  return String(n).padStart(width, '0');
-}
-
-function getSurahRef(dua, language) {
+function getSurahRef(dua, _language) {
   const name = SURAH_NAMES[dua.surah - 1] || `${dua.surah}`;
   const ayahRange = dua.ayah_end ? `${dua.ayah}-${dua.ayah_end}` : `${dua.ayah}`;
   return `${name} ${dua.surah}:${ayahRange}`;

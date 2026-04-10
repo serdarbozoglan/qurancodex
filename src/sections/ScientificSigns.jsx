@@ -242,7 +242,7 @@ export default function ScientificSigns() {
                   {/* Main text — preview + expand */}
                   {(() => {
                     const isExpanded = expandedTabs[key];
-                    const { preview, rest, hasMore } = getPreview(tabData.content);
+                    const { preview, hasMore } = getPreview(tabData.content);
                     return (
                       <div style={{ maxWidth: '700px', marginBottom: '28px' }}>
                         <p style={{

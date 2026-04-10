@@ -309,7 +309,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
   );
 }
 
-function LoadingSkeleton({ C }) {
+function LoadingSkeleton({ C: _C }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '16px 0' }}>
       {[1, 2, 3].map((i) => (

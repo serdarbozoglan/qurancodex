@@ -620,7 +620,6 @@ export default function KissaAtlas({ onClose }) {
                     </button>
                   )}
                   {selectedScene && (() => {
-                    const parsed = parseVerseRef(selectedScene.verseRef);
                     return (
                       <div>
                         {/* Scene header */}

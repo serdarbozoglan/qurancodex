@@ -29,14 +29,6 @@ function fmtDuaRef(ref, lang = 'tr') {
   return `${label} ${versePart}`;
 }
 
-// "(2:31)" → "(Bakara 31)" dönüşümü
-function fmtRef(text, lang = 'tr') {
-  return text.replace(/\((\d+):(\d+)\)/g, (_, s, v) => {
-    const name = SURAH_NAMES[+s];
-    const label = name ? (lang === 'tr' ? name.tr : name.en) : `Sure ${s}`;
-    return `(${label} ${v})`;
-  });
-}
 
 // Dua Arapçası normalizasyonu — ReadingMode'daki cleanArabic ile birebir aynı pipeline.
 // KFGQPC, api.acikkuran.com encoding'i için tasarlanmıştır; bu fonksiyon o metni hazırlar.

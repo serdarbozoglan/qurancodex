@@ -57,8 +57,6 @@ export default function KuranYeminleri({ onClose }) {
   const { meta, categories, depthAnalysis, ibnQayyim, sources } = data;
   const TABS = language === 'tr' ? TABS_TR : TABS_EN;
 
-  const activeCategory = categories.find(c => c.id === activeCategoryId) ?? categories[0];
-
   return (
     <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
 

@@ -1297,7 +1297,7 @@ function TabTecvid({ isMobile, language }) {
   ];
 
   // Section C: Hafs'ın yayılması milestones
-  const milestones = [
+  const _milestones = [
     { labelTr: 'Kûfe Kökeni', labelEn: 'Kufa Origin' },
     { labelTr: 'Osmanlı Benimsemesi', labelEn: 'Ottoman Adoption' },
     { labelTr: 'Osmanlı Yayılması', labelEn: 'Ottoman Expansion' },
