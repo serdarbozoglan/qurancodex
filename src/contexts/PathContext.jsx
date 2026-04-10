@@ -14,9 +14,16 @@
 //   - goToStep(index)    → jump directly to a step (used by breadcrumb dots)
 //   - exit()             → leave path mode, breadcrumb hides
 //
-// Persistence:
-//   The active path id + step index are written to localStorage so a refresh
-//   keeps the user on the same step. Cleared on exit().
+// Persistence (two stores, intentionally different):
+//   - Active path (id + step index) → sessionStorage. Survives F5 refresh
+//     so the user doesn't lose their place by accident, but ends when the
+//     tab closes. New tab = clean slate. This matches user expectations
+//     for guided tours (Shepherd.js, Driver.js, Intro.js all use this
+//     pattern). A returning visitor next week shouldn't be dropped back
+//     into a half-finished tour from days ago.
+//   - Completed paths → localStorage. Long-lived achievement marker:
+//     "I have walked this path before". PathCards reads this and shows
+//     a check badge on completed cards.
 //
 // Navigation:
 //   - 'section' steps → smooth scroll using a navbar offset (matches useQuranNav)
@@ -45,12 +52,16 @@ import { PATH_OVERLAY_EVENTS, getPathById } from '../data/paths';
 const PathContext = createContext(null);
 
 const STORAGE_KEY = 'qurancodex_active_path';
+// Separate key from active-path state so completing a path and then starting
+// a new one don't interfere with each other. Stored as a JSON array of ids.
+const COMPLETED_KEY = 'qurancodex_completed_paths';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
+// Active path lives in sessionStorage — see header doc for rationale.
 function loadFromStorage() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed.pathId !== 'string') return null;
@@ -66,12 +77,30 @@ function loadFromStorage() {
 
 function saveToStorage(pathId, stepIndex) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ pathId, stepIndex }));
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ pathId, stepIndex }));
   } catch { /* ignore quota errors */ }
 }
 
 function clearStorage() {
-  try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+  try { sessionStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+}
+
+function loadCompletedFromStorage() {
+  try {
+    const raw = localStorage.getItem(COMPLETED_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((id) => typeof id === 'string');
+  } catch {
+    return [];
+  }
+}
+
+function saveCompletedToStorage(ids) {
+  try {
+    localStorage.setItem(COMPLETED_KEY, JSON.stringify(ids));
+  } catch { /* ignore quota errors */ }
 }
 
 function scrollToSection(id) {
@@ -105,6 +134,16 @@ export function PathProvider({ children }) {
   // can decide what to do (Önceki / Sonraki / ✕).
   const [activePathId, setActivePathId] = useState(() => loadFromStorage()?.pathId ?? null);
   const [stepIndex,    setStepIndex]    = useState(() => loadFromStorage()?.stepIndex ?? 0);
+
+  // Completed paths are persisted across sessions so the PathCards section
+  // can show a checkmark badge on previously-finished paths. A small array —
+  // 4 paths today, unlikely to grow dramatically — kept as JSON.
+  const [completedPathIds, setCompletedPathIds] = useState(() => loadCompletedFromStorage());
+
+  // Transient flag: true for the ~1.5s between clicking "Yolu Tamamla" and
+  // the breadcrumb fading out. Lets the breadcrumb render the success state
+  // without needing its own timer to coordinate with the unmount animation.
+  const [isCompleting, setIsCompleting] = useState(false);
 
   // Derived state
   const activePath = activePathId ? getPathById(activePathId) : null;
@@ -189,6 +228,36 @@ export function PathProvider({ children }) {
     goToStep(prevIdx);
   }, [activePath, stepIndex, goToStep]);
 
+  // completePath — called when the user clicks "Yolu Tamamla" on the last
+  // step. Marks the path as completed in localStorage, shows a brief success
+  // state in the breadcrumb, then exits path mode. The user stays where they
+  // are: no scroll, no redirect. If the last step is an overlay, we leave
+  // the overlay open — the user is in the middle of content and we don't
+  // want to yank them out.
+  const completePath = useCallback(() => {
+    if (!activePath) return;
+
+    // Record completion (dedupe — a user can re-run a path)
+    setCompletedPathIds((prev) => {
+      if (prev.includes(activePath.id)) return prev;
+      const next = [...prev, activePath.id];
+      saveCompletedToStorage(next);
+      return next;
+    });
+
+    // Enter the "✓ tamamlandı" micro-moment; breadcrumb reads this flag
+    setIsCompleting(true);
+
+    // After 1.5s, clear active path state. AnimatePresence on the breadcrumb
+    // handles the fade-out animation when activePath becomes null.
+    setTimeout(() => {
+      setIsCompleting(false);
+      setActivePathId(null);
+      setStepIndex(0);
+      clearStorage();
+    }, 1500);
+  }, [activePath]);
+
   // exit handles the same overlay-close-first concern as goToStep.
   // If we exit while on an overlay step, close the overlay first so the
   // page is in a clean state for the user.
@@ -258,11 +327,14 @@ export function PathProvider({ children }) {
       // If any overlay is open the existing handlers swallow the ESC; we
       // only want path-mode-exit when the user is on a section step.
       if (currentStep?.kind === 'overlay') return;
+      // Don't cut short the "Yolu Tamamla" success moment — the auto-timer
+      // will close the breadcrumb in ~1.5s anyway.
+      if (isCompleting) return;
       exit();
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [activePath, currentStep, exit]);
+  }, [activePath, currentStep, exit, isCompleting]);
 
   const value = useMemo(() => ({
     activePath,
@@ -274,7 +346,12 @@ export function PathProvider({ children }) {
     prev,
     goToStep,
     exit,
-  }), [activePath, currentStep, stepIndex, startPath, next, prev, goToStep, exit]);
+    // Completion surface
+    completePath,
+    isCompleting,
+    completedPathIds,
+    isPathCompleted: (id) => completedPathIds.includes(id),
+  }), [activePath, currentStep, stepIndex, startPath, next, prev, goToStep, exit, completePath, isCompleting, completedPathIds]);
 
   return (
     <PathContext.Provider value={value}>

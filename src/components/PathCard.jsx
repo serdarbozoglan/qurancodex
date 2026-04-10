@@ -21,11 +21,18 @@ export default function PathCard({
   ctaTr = 'Bu Yola Başla',
   ctaEn = 'Start This Path',
   onClick,
+  completed = false,
 }) {
   const { language } = useLanguage();
   const title = language === 'tr' ? titleTr : titleEn;
   const desc  = language === 'tr' ? descTr  : descEn;
-  const cta   = language === 'tr' ? ctaTr   : ctaEn;
+  // Once a user has finished a path, the CTA shifts from "start" to
+  // "revisit" — the badge does most of the signaling, but the button
+  // label matters for screen readers and quick glance.
+  const cta = completed
+    ? (language === 'tr' ? 'Tekrar İncele' : 'Revisit Path')
+    : (language === 'tr' ? ctaTr : ctaEn);
+  const completedLabel = language === 'tr' ? 'Tamamlandı' : 'Completed';
 
   return (
     <motion.button
@@ -77,19 +84,52 @@ export default function PathCard({
       </div>
 
       {/* Title + description */}
-      <div>
-        <h3
-          style={{
-            fontFamily: FONTS.display,
-            fontSize: '1.4rem',
-            fontWeight: 700,
-            color: COLORS.offWhite,
-            margin: 0,
-            lineHeight: 1.2,
-          }}
-        >
-          {title}
-        </h3>
+      <div style={{ width: '100%' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px' }}>
+          <h3
+            style={{
+              fontFamily: FONTS.display,
+              fontSize: '1.4rem',
+              fontWeight: 700,
+              color: COLORS.offWhite,
+              margin: 0,
+              lineHeight: 1.2,
+            }}
+          >
+            {title}
+          </h3>
+          {completed && (
+            // Small amber check badge — persistent marker that the user
+            // has walked this path before. Sits top-right of the title
+            // so it doesn't compete with the icon on the left.
+            <span
+              title={completedLabel}
+              aria-label={completedLabel}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                padding: '3px 8px',
+                borderRadius: '999px',
+                background: COLORS.goldAlpha15,
+                border: `1px solid ${COLORS.goldAlpha45}`,
+                color: COLORS.gold,
+                fontFamily: FONTS.body,
+                fontSize: '0.64rem',
+                fontWeight: 700,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                flexShrink: 0,
+                marginTop: '3px',
+              }}
+            >
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12l5 5L20 7" />
+              </svg>
+              {completedLabel}
+            </span>
+          )}
+        </div>
         <p
           style={{
             fontFamily: FONTS.body,

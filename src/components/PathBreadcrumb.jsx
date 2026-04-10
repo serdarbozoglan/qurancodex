@@ -26,6 +26,8 @@ export default function PathBreadcrumb() {
     prev,
     goToStep,
     exit,
+    completePath,
+    isCompleting,
   } = usePath();
 
   const visible = !!activePath && !!currentStep;
@@ -34,10 +36,14 @@ export default function PathBreadcrumb() {
 
   const pathTitle  = activePath ? (language === 'tr' ? activePath.titleTr : activePath.titleEn) : '';
   const stepLabel  = currentStep ? (language === 'tr' ? currentStep.labelTr : currentStep.labelEn) : '';
-  const stepLabelTr = language === 'tr' ? 'Adım' : 'Step';
-  const prevLabel  = language === 'tr' ? 'Önceki' : 'Previous';
-  const nextLabel  = language === 'tr' ? 'Sonraki' : 'Next';
-  const closeLabel = language === 'tr' ? 'Yoldan çık' : 'Exit path';
+  const stepLabelTr  = language === 'tr' ? 'Adım' : 'Step';
+  const prevLabel    = language === 'tr' ? 'Önceki' : 'Previous';
+  const nextLabel    = language === 'tr' ? 'Sonraki' : 'Next';
+  const finishLabel  = language === 'tr' ? 'Yolu Tamamla' : 'Complete Path';
+  const closeLabel   = language === 'tr' ? 'Yoldan çık' : 'Exit path';
+  const completedMsg = language === 'tr'
+    ? `${pathTitle} tamamlandı`
+    : `${pathTitle} complete`;
 
   return (
     <AnimatePresence>
@@ -72,6 +78,56 @@ export default function PathBreadcrumb() {
             gap: '8px',
           }}
         >
+          {isCompleting ? (
+            /* Completion micro-moment — a single centered row with a check
+               glyph + "<path> tamamlandı". Replaces the normal two-row UI
+               for ~1.5s before the breadcrumb unmounts. No Next/Prev/Close
+               controls: the user is done, any action would steal focus
+               from the success cue. */
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px',
+                padding: '6px 4px',
+              }}
+              role="status"
+              aria-live="polite"
+            >
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '24px',
+                  height: '24px',
+                  borderRadius: '50%',
+                  background: COLORS.goldAlpha15,
+                  border: `1px solid ${COLORS.goldAlpha45}`,
+                  color: COLORS.gold,
+                  flexShrink: 0,
+                }}
+                aria-hidden="true"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+              </span>
+              <span
+                style={{
+                  fontFamily: FONTS.body,
+                  fontSize: '0.92rem',
+                  fontWeight: 700,
+                  color: COLORS.offWhite,
+                  letterSpacing: '0.01em',
+                }}
+              >
+                {completedMsg}
+              </span>
+            </div>
+          ) : (
+          <>
           {/* Top row: counter chip + path title · current step label + close.
               All-in-one row keeps the panel compact (~80px tall vs ~140px). */}
           <div
@@ -240,41 +296,46 @@ export default function PathBreadcrumb() {
 
             <button
               type="button"
-              onClick={next}
-              disabled={isLast}
+              onClick={isLast ? completePath : next}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
                 padding: '7px 16px',
                 borderRadius: '8px',
-                background: isLast ? 'transparent' : COLORS.gold,
-                border: `1px solid ${isLast ? COLORS.glassBorderSoft : COLORS.gold}`,
-                color: isLast ? COLORS.silver : COLORS.inkBlack,
-                opacity: isLast ? 0.4 : 1,
+                background: COLORS.gold,
+                border: `1px solid ${COLORS.gold}`,
+                color: COLORS.inkBlack,
                 fontFamily: FONTS.body,
                 fontSize: '0.78rem',
                 fontWeight: 700,
                 letterSpacing: '0.04em',
-                cursor: isLast ? 'not-allowed' : 'pointer',
-                boxShadow: isLast ? 'none' : `0 0 14px ${COLORS.goldAlpha25}`,
+                cursor: 'pointer',
+                boxShadow: `0 0 14px ${COLORS.goldAlpha25}`,
                 transition: 'all 0.15s',
               }}
               onMouseEnter={(e) => {
-                if (isLast) return;
                 e.currentTarget.style.boxShadow = `0 0 22px ${COLORS.goldAlpha45}`;
               }}
               onMouseLeave={(e) => {
-                if (isLast) return;
                 e.currentTarget.style.boxShadow = `0 0 14px ${COLORS.goldAlpha25}`;
               }}
             >
-              {nextLabel}
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 18l6-6-6-6" />
-              </svg>
+              {isLast ? finishLabel : nextLabel}
+              {isLast ? (
+                // Check glyph — signals "finish" rather than "continue"
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+              ) : (
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              )}
             </button>
           </div>
+          </>
+          )}
         </motion.div>
       )}
     </AnimatePresence>

@@ -114,7 +114,7 @@ const PATHS = [
 
 export default function PathCards() {
   const { language } = useLanguage();
-  const { startPath } = usePath();
+  const { startPath, isPathCompleted } = usePath();
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
 
   useEffect(() => {
@@ -189,6 +189,7 @@ export default function PathCards() {
             descTr={path.descTr}
             descEn={path.descEn}
             steps={path.steps}
+            completed={isPathCompleted(path.id)}
             // v1.2 — activate path mode (PathContext handles scroll/overlay)
             onClick={() => startPath(path.id)}
           />
