@@ -181,8 +181,11 @@ export const FEATURED_TOOL = {
   icon:        StarIcon,
 };
 
-// ── Görselleştirme (5) ───────────────────────────────────────────────────────
-// Order: Ayet → Nüzul → Kelime → Kıssa → Mesel
+// ── Görselleştirme (6) ───────────────────────────────────────────────────────
+// Order: Ayet → Nüzul → Kelime → Kıssa → Mesel → Kıraat
+// Kıraat lives here (not in Analyze) because its primary surface is a
+// geographic-distribution map of the 10 readers and 20 transmitters — it's
+// a visualization tool, not a data table.
 export const VIZ_TOOLS = [
   {
     id:          'verse-graph',
@@ -239,10 +242,24 @@ export const VIZ_TOOLS = [
     descLongEn:  "The Quran uses ~50 parables — fly, spider, tree, light, fire, water. Each parable makes a truth tangible. Organized into 7 imagery domains, including paired parables and the light-darkness axis. Discover which parable appears in which surah and in what context.",
     icon:        MeselIcon,
   },
+  {
+    id:          'kiraat-atlas',
+    event:       'openKiraatAtlas',
+    titleTr:     'Kıraat Atlası',
+    titleEn:     'Qirāʾāt Atlas',
+    descTr:      '10 imam · 20 râvî · coğrafi dağılım',
+    descEn:      '10 readers · 20 transmitters',
+    descLongTr:  "Kur'an'ın 10 farklı okunuş şekli — 10 imam, 20 râvî. Her okumanın kökeni, coğrafi yayılımı ve farklılıkları, yan yana karşılaştırmalı.",
+    descLongEn:  "The 10 canonical recitations of the Quran — 10 readers, 20 transmitters. Each recitation's origin, geographic spread, and variants, compared side-by-side.",
+    icon:        KiraatIcon,
+  },
 ];
 
-// ── Analiz & Veri (6) ────────────────────────────────────────────────────────
-// Order: Esma → Kavram → Sure DNA → Muhatap → Diyalog → Kıraat
+// ── Analiz & Veri (5) ────────────────────────────────────────────────────────
+// Order: Esma → Kavram → Sure DNA → Muhatap → Diyalog
+// Kıraat used to live here but was moved to Görselleştirme — see that section.
+// Diyalog Ağı is the orphan card now (5th of 5), so its descLong is intentionally
+// the longest in this category to fill the spanned full-width row.
 export const ANALYSIS_TOOLS = [
   {
     id:          'esma-frekans',
@@ -295,20 +312,9 @@ export const ANALYSIS_TOOLS = [
     titleEn:     'Dialogue Network',
     descTr:      'Kim kiminle konuşuyor?',
     descEn:      'Who speaks to whom?',
-    descLongTr:  "Kur'an'da ~300 diyalog: Allah-Musa, İbrahim-babası, Yusuf-kardeşleri, ahiret sahneleri. 25 eksende kim kiminle, hangi sahnede konuştu.",
-    descLongEn:  "~300 dialogues in the Quran: God-Moses, Abraham-father, Joseph-brothers, afterlife scenes. Who speaks to whom and in which scene, organized along 25 axes.",
+    descLongTr:  "Kur'an'da ~300 diyalog: Allah-Musa, İbrahim-babası, Yusuf-kardeşleri, ahiret sahneleri. 25 eksende kim kiminle, hangi sahnede konuştu, hangi sözle yanıt verdi. Her diyalog tarafları, bağlamı ve geçtiği ayetlerle birlikte ağ olarak gezilebilir.",
+    descLongEn:  "~300 dialogues in the Quran: God-Moses, Abraham-father, Joseph-brothers, afterlife scenes. Who speaks to whom, in which scene, with what reply — across 25 axes. Each dialogue is browsable as a network, with parties, context, and source verses linked.",
     icon:        DiyalogIcon,
-  },
-  {
-    id:          'kiraat-atlas',
-    event:       'openKiraatAtlas',
-    titleTr:     'Kıraat Atlası',
-    titleEn:     'Qirāʾāt Atlas',
-    descTr:      '10 imam · 20 râvî · coğrafi dağılım',
-    descEn:      '10 readers · 20 transmitters',
-    descLongTr:  "Kur'an'ın 10 farklı okunuş şekli — 10 imam, 20 râvî. Her okumanın kökeni, coğrafi yayılımı ve farklılıkları, yan yana karşılaştırmalı.",
-    descLongEn:  "The 10 canonical recitations of the Quran — 10 readers, 20 transmitters. Each recitation's origin, geographic spread, and variants, compared side-by-side.",
-    icon:        KiraatIcon,
   },
 ];
 
