@@ -345,11 +345,32 @@ export default function Navbar() {
     if (urlVerse) setGraphOpen(true);
   }, []);
 
-  // Browser back button closes the active overlay
+  // Browser back button closes the active overlay.
+  //
+  // Two-phase history management — both phases needed for popstate-based
+  // listeners (PathContext auto-advance, PathContext completion scroll) to
+  // ever fire when the user closes a modal via its own ✕ button:
+  //
+  //   1. Open: when an overlay's state flips to true, push a sentinel
+  //      history entry. Browser back later → popstate fires → handler
+  //      reads which overlay is open and closes it.
+  //
+  //   2. Close (NEW): when overlay state flips to false but the sentinel
+  //      history entry is still on the stack (because the user clicked
+  //      the modal's own ✕ which calls onClose() directly without ever
+  //      touching history), pop the sentinel ourselves so popstate fires
+  //      and downstream listeners can react.
+  //      The popstate handler below sees no overlay is open and no-ops,
+  //      so this doesn't double-close anything. Loop-safe: setState isn't
+  //      called from this branch, so the effect doesn't re-run.
   useEffect(() => {
     const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen;
     if (anyOpen) {
       window.history.pushState({ overlay: true }, '');
+    } else if (window.history.state?.overlay) {
+      // Sentinel left on the stack from a prior open, but no overlay is
+      // active anymore — pop it so listeners get notified.
+      window.history.back();
     }
   }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen]);
 
