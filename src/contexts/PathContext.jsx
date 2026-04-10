@@ -121,6 +121,16 @@ export function PathProvider({ children }) {
     }
   }, []);
 
+  // ── Refs for overlay coordination ────────────────────────────────────────
+  // waitingForOverlayCloseRef: when on an overlay step, this is true and the
+  // popstate handler will auto-advance to the next step on close.
+  // skipAutoAdvanceRef: when the user explicitly navigates (next/prev/dot/
+  // exit) while on an overlay step, we manually trigger history.back() to
+  // close the overlay, then run our own navigation. This flag suppresses
+  // the popstate auto-advance during that window so we don't double-fire.
+  const waitingForOverlayCloseRef = useRef(false);
+  const skipAutoAdvanceRef = useRef(false);
+
   // ── Actions ──────────────────────────────────────────────────────────────
 
   const startPath = useCallback((pathId) => {
@@ -137,13 +147,33 @@ export function PathProvider({ children }) {
     setTimeout(() => navigateToStep(path.steps[0]), 0);
   }, [navigateToStep]);
 
+  // Smart goToStep: if we're currently on an overlay step, close the overlay
+  // FIRST (history.back), then navigate. Without this, clicking next/prev/dot
+  // while an overlay is open would stack a new overlay on top of the old one.
   const goToStep = useCallback((index) => {
     if (!activePath) return;
     if (index < 0 || index >= activePath.steps.length) return;
-    setStepIndex(index);
-    saveToStorage(activePath.id, index);
-    navigateToStep(activePath.steps[index]);
-  }, [activePath, navigateToStep]);
+
+    const currentIsOverlay = activePath.steps[stepIndex]?.kind === 'overlay';
+
+    if (currentIsOverlay) {
+      // Tell the popstate handler not to auto-advance during this manual
+      // navigation — we're handling everything ourselves.
+      skipAutoAdvanceRef.current = true;
+      window.history.back();
+      // Wait for the overlay close animation, then navigate to the target.
+      setTimeout(() => {
+        skipAutoAdvanceRef.current = false;
+        setStepIndex(index);
+        saveToStorage(activePath.id, index);
+        navigateToStep(activePath.steps[index]);
+      }, 350);
+    } else {
+      setStepIndex(index);
+      saveToStorage(activePath.id, index);
+      navigateToStep(activePath.steps[index]);
+    }
+  }, [activePath, stepIndex, navigateToStep]);
 
   const next = useCallback(() => {
     if (!activePath) return;
@@ -159,24 +189,36 @@ export function PathProvider({ children }) {
     goToStep(prevIdx);
   }, [activePath, stepIndex, goToStep]);
 
+  // exit handles the same overlay-close-first concern as goToStep.
+  // If we exit while on an overlay step, close the overlay first so the
+  // page is in a clean state for the user.
   const exit = useCallback(() => {
-    setActivePathId(null);
-    setStepIndex(0);
-    clearStorage();
-  }, []);
+    const currentIsOverlay = activePath?.steps[stepIndex]?.kind === 'overlay';
+    if (currentIsOverlay) {
+      skipAutoAdvanceRef.current = true;
+      window.history.back();
+      setTimeout(() => {
+        skipAutoAdvanceRef.current = false;
+        setActivePathId(null);
+        setStepIndex(0);
+        clearStorage();
+      }, 100);
+    } else {
+      setActivePathId(null);
+      setStepIndex(0);
+      clearStorage();
+    }
+  }, [activePath, stepIndex]);
 
   // ── Auto-advance on overlay close ────────────────────────────────────────
-  // Listen for the bespoke event Navbar / overlays could fire when an
-  // overlay closes. For now we use the Navbar's existing popstate-based
-  // close pattern: every overlay open pushes history state, every close
-  // pops it. We track whether we're currently waiting for an overlay
-  // step to close, and auto-advance after the pop.
-  const waitingForOverlayCloseRef = useRef(false);
+  // When an overlay step is active and the user closes it (via overlay's ✕,
+  // ESC, or backdrop), the browser pops the history entry Navbar pushed on
+  // open. We listen for that pop and advance to the next step automatically
+  // — unless we're in the middle of a manual navigation (skipAutoAdvanceRef).
 
   useEffect(() => {
-    // When the active step changes to an overlay step, mark that we're
-    // waiting for it to close. Navigation already opened the overlay
-    // via dispatchOverlayEvent.
+    // Track whether the active step is an overlay step. The popstate handler
+    // only auto-advances when this is true.
     if (currentStep && currentStep.kind === 'overlay') {
       waitingForOverlayCloseRef.current = true;
     } else {
@@ -186,12 +228,14 @@ export function PathProvider({ children }) {
 
   useEffect(() => {
     function handlePop() {
+      if (skipAutoAdvanceRef.current) return;       // manual nav in progress
       if (!waitingForOverlayCloseRef.current) return;
       if (!activePath) return;
-      // Brief delay so the close animation runs and user sees the result
+      // Brief delay so the close animation runs and the user sees the result
       setTimeout(() => {
         // Only auto-advance if we're still on the same overlay step
         // (user might have manually navigated meanwhile)
+        if (skipAutoAdvanceRef.current) return;
         if (waitingForOverlayCloseRef.current) {
           waitingForOverlayCloseRef.current = false;
           const nextIdx = stepIndex + 1;

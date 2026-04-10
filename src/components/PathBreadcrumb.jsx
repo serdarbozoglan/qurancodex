@@ -56,55 +56,77 @@ export default function PathBreadcrumb() {
             left: '50%',
             transform: 'translateX(-50%)',
             width: 'min(720px, calc(100vw - 32px))',
-            zIndex: 50,
+            // zIndex above OVERLAY_BASE (9999) so the breadcrumb stays
+            // visible when an overlay step is active. Without this the
+            // user loses path-mode navigation the moment they enter an
+            // overlay like KissaAtlas / ProphetAtlas.
+            zIndex: 10000,
             background: COLORS.panelBg,
             backdropFilter: 'blur(20px)',
             border: `1px solid ${COLORS.goldAlpha25}`,
             borderRadius: '14px',
             boxShadow: `0 12px 40px ${COLORS.panelShadow}`,
-            padding: '14px 18px',
+            padding: '10px 14px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '10px',
+            gap: '8px',
           }}
         >
-          {/* Top row: path title + step counter + close */}
+          {/* Top row: counter chip + path title · current step label + close.
+              All-in-one row keeps the panel compact (~80px tall vs ~140px). */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              gap: '12px',
+              gap: '10px',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flex: 1 }}>
+              {/* Counter chip — gold pill, the most distinctive marker */}
               <span
                 style={{
                   fontFamily: FONTS.body,
-                  fontSize: '0.62rem',
+                  fontSize: '0.65rem',
                   fontWeight: 700,
                   color: COLORS.gold,
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
+                  background: COLORS.goldAlpha15,
+                  border: `1px solid ${COLORS.goldAlpha25}`,
+                  borderRadius: '999px',
+                  padding: '2px 9px',
                   whiteSpace: 'nowrap',
                   flexShrink: 0,
+                  letterSpacing: '0.04em',
                 }}
               >
-                {stepLabelTr} {currentStepIndex + 1}/{totalSteps}
+                {currentStepIndex + 1}/{totalSteps}
               </span>
-              <span style={{ color: COLORS.glassBorder, flexShrink: 0 }}>•</span>
+              {/* Path title (muted) · current step label (bright, focal) */}
               <span
                 style={{
                   fontFamily: FONTS.body,
                   fontSize: '0.78rem',
                   color: COLORS.silverAlpha70,
                   whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                }}
+              >
+                {pathTitle}
+              </span>
+              <span style={{ color: COLORS.glassBorder, flexShrink: 0, fontSize: '0.7rem' }}>·</span>
+              <span
+                style={{
+                  fontFamily: FONTS.body,
+                  fontSize: '0.92rem',
+                  fontWeight: 700,
+                  color: COLORS.offWhite,
+                  whiteSpace: 'nowrap',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   minWidth: 0,
                 }}
               >
-                {pathTitle}
+                {stepLabel}
               </span>
             </div>
 
@@ -117,8 +139,8 @@ export default function PathBreadcrumb() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '28px',
-                height: '28px',
+                width: '26px',
+                height: '26px',
                 borderRadius: '50%',
                 background: 'transparent',
                 border: `1px solid ${COLORS.glassBorderSoft}`,
@@ -136,23 +158,10 @@ export default function PathBreadcrumb() {
                 e.currentTarget.style.color = COLORS.silver;
               }}
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
-          </div>
-
-          {/* Current step label — bigger, the focal point */}
-          <div
-            style={{
-              fontFamily: FONTS.display,
-              fontSize: '1.15rem',
-              fontWeight: 700,
-              color: COLORS.offWhite,
-              lineHeight: 1.25,
-            }}
-          >
-            {stepLabel}
           </div>
 
           {/* Bottom row: prev / dots / next */}
