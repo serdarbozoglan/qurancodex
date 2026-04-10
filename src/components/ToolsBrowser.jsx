@@ -222,23 +222,45 @@ export default function ToolsBrowser() {
                 />
               )}
 
-              {/* Card grid */}
+              {/* Card grid
+                - Filtered view: a single flat grid of that category's cards
+                - "Tümü" view: each category gets its own header row spanning
+                  all columns, then its cards. Headers use grid-column: 1/-1
+                  so they stretch across the full grid width even on desktop.
+              */}
               <div
                 style={{
                   display: 'grid',
                   gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                  alignItems: 'stretch',
                   gap: '14px',
                   padding: '20px 24px 24px',
                 }}
               >
-                {visibleTools.map((tool) => (
-                  <BigToolCard
-                    key={tool.id}
-                    tool={tool}
-                    onClick={() => triggerTool(tool.event)}
-                    language={language}
-                  />
-                ))}
+                {activeFilter === 'all'
+                  ? FILTERS.filter((f) => f.id !== 'all').flatMap((cat, catIndex) => [
+                      <CategoryHeader
+                        key={`hdr-${cat.id}`}
+                        label={language === 'tr' ? cat.labelTr : cat.labelEn}
+                        first={catIndex === 0}
+                      />,
+                      ...cat.tools.map((tool) => (
+                        <BigToolCard
+                          key={tool.id}
+                          tool={tool}
+                          onClick={() => triggerTool(tool.event)}
+                          language={language}
+                        />
+                      )),
+                    ])
+                  : visibleTools.map((tool) => (
+                      <BigToolCard
+                        key={tool.id}
+                        tool={tool}
+                        onClick={() => triggerTool(tool.event)}
+                        language={language}
+                      />
+                    ))}
               </div>
             </div>
           </motion.div>
@@ -249,6 +271,45 @@ export default function ToolsBrowser() {
 }
 
 // ── Sub-components ───────────────────────────────────────────────────────────
+
+// Category header rendered between groups in the "Tümü" view. Spans the
+// full grid width via grid-column: 1 / -1 so it sits cleanly between rows
+// of cards. The first header has no top divider; later ones get one.
+function CategoryHeader({ label, first }) {
+  return (
+    <div
+      style={{
+        gridColumn: '1 / -1',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+        marginTop: first ? '0' : '14px',
+        paddingTop: first ? '0' : '14px',
+        borderTop: first ? 'none' : `1px solid ${COLORS.glassBorderSoft}`,
+      }}
+    >
+      <span
+        style={{
+          color: COLORS.gold,
+          fontFamily: FONTS.body,
+          fontSize: '0.7rem',
+          fontWeight: 700,
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+        }}
+      >
+        {label}
+      </span>
+      <span
+        style={{
+          flex: 1,
+          height: '1px',
+          background: `linear-gradient(to right, ${COLORS.goldAlpha25}, transparent)`,
+        }}
+      />
+    </div>
+  );
+}
 
 function FilterButton({ active, label, onClick }) {
   return (
@@ -366,6 +427,7 @@ function BigToolCard({ tool, onClick, language }) {
         cursor: 'pointer',
         textAlign: 'left',
         width: '100%',
+        height: '100%', // fill the grid cell so siblings in the same row match heights
         minHeight: '170px',
         transition: 'all 0.2s',
       }}
