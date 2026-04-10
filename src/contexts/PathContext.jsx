@@ -110,10 +110,18 @@ function scrollToSection(id) {
     console.warn(`PathContext: no element with id="${id}"`);
     return;
   }
-  const navEl = document.querySelector('nav');
-  const navHeight = navEl?.offsetHeight ?? 64;
-  const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
-  window.scrollTo({ top, behavior: 'smooth' });
+  // Defer one animation frame so any pending React render commits first.
+  // Without this, prev/next on a section step computed `top` against the
+  // PRE-render layout, then the new step's render sometimes settled
+  // slightly differently and the scroll missed.
+  requestAnimationFrame(() => {
+    const navEl = document.querySelector('nav');
+    const navHeight = navEl?.offsetHeight ?? 64;
+    const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+    // eslint-disable-next-line no-console
+    console.log('[PathMode] scrollToSection', { id, elTop: el.getBoundingClientRect().top, scrollY: window.scrollY, navHeight, finalTop: top });
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
 }
 
 function dispatchOverlayEvent(target) {
@@ -155,6 +163,8 @@ export function PathProvider({ children }) {
   // Used by startPath / next / prev / goToStep after they update state.
   const navigateToStep = useCallback((step) => {
     if (!step) return;
+    // eslint-disable-next-line no-console
+    console.log('[PathMode] navigateToStep', { kind: step.kind, target: step.target, label: step.labelTr });
     if (step.kind === 'section') {
       scrollToSection(step.target);
     } else if (step.kind === 'overlay') {
@@ -208,10 +218,26 @@ export function PathProvider({ children }) {
     setTimeout(() => navigateToStep(path.steps[0]), 0);
   }, [navigateToStep, clearCompletionScrollListener]);
 
-  // Smart goToStep: if we're currently on an overlay step, close the overlay
-  // FIRST (history.back), then navigate. Without this, clicking next/prev/dot
-  // while an overlay is open would stack a new overlay on top of the old one.
+  // Smart goToStep: if we're currently on an overlay step, close the
+  // current overlay first (history.back), wait briefly for unmount,
+  // then open the new step.
+  //
+  // Why sequential rather than parallel: Navbar's popstate handler closes
+  // overlays via a state-based if-else chain whose order doesn't match
+  // path-mode step order. If both the old and new overlay state were
+  // true at the same time, popstate would close whichever the chain
+  // matched first — possibly the new one we just opened. Sequential
+  // close-then-open avoids that race entirely.
+  //
+  // Why 60ms (was 350ms): the previous 350ms timer left a visible flash
+  // of the homepage between the two modals. The actual close work is
+  // synchronous — by the time the next animation frame runs the old
+  // modal is unmounted. 60ms gives one frame of headroom for the
+  // popstate handler + Navbar state batch to settle, then the new modal
+  // mounts. Empirically near-imperceptible swap, no homepage flash.
   const goToStep = useCallback((index) => {
+    // eslint-disable-next-line no-console
+    console.log('[PathMode] goToStep', { requestedIndex: index, currentStepIndex: stepIndex, currentTarget: activePath?.steps[stepIndex]?.target, nextTarget: activePath?.steps[index]?.target });
     if (!activePath) return;
     if (index < 0 || index >= activePath.steps.length) return;
 
@@ -222,13 +248,13 @@ export function PathProvider({ children }) {
       // navigation — we're handling everything ourselves.
       skipAutoAdvanceRef.current = true;
       window.history.back();
-      // Wait for the overlay close animation, then navigate to the target.
+      // Wait one render frame's worth, then navigate to the target.
       setTimeout(() => {
         skipAutoAdvanceRef.current = false;
         setStepIndex(index);
         saveToStorage(activePath.id, index);
         navigateToStep(activePath.steps[index]);
-      }, 350);
+      }, 60);
     } else {
       setStepIndex(index);
       saveToStorage(activePath.id, index);
@@ -244,9 +270,21 @@ export function PathProvider({ children }) {
   }, [activePath, stepIndex, goToStep]);
 
   const prev = useCallback(() => {
-    if (!activePath) return;
+    // eslint-disable-next-line no-console
+    console.log('[PathMode] prev() called', { activePath: activePath?.id, stepIndex });
+    if (!activePath) {
+      // eslint-disable-next-line no-console
+      console.log('[PathMode] prev: no activePath, bailing');
+      return;
+    }
     const prevIdx = stepIndex - 1;
-    if (prevIdx < 0) return;
+    if (prevIdx < 0) {
+      // eslint-disable-next-line no-console
+      console.log('[PathMode] prev: already at first step, bailing');
+      return;
+    }
+    // eslint-disable-next-line no-console
+    console.log('[PathMode] prev: calling goToStep', prevIdx);
     goToStep(prevIdx);
   }, [activePath, stepIndex, goToStep]);
 
