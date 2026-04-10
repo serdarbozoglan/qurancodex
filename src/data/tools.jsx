@@ -235,8 +235,8 @@ export const VIZ_TOOLS = [
     titleEn:     'Parables & Metaphors Atlas',
     descTr:      '~50 mesel · 7 imge evreni',
     descEn:      '~50 parables · 7 imagery domains',
-    descLongTr:  "Kur'an ~50 mesel kullanır — sinek, örümcek, ağaç, ışık. 7 imge evrenine ayrılmış, çift meseller ve nûr-zulumât ekseni dahil.",
-    descLongEn:  "The Quran uses ~50 parables — fly, spider, tree, light. Organized into 7 imagery domains, including paired parables and the light-darkness axis.",
+    descLongTr:  "Kur'an ~50 mesel kullanır — sinek, örümcek, ağaç, ışık, ateş, su. Her mesel bir gerçeği somutlaştırır. 7 imge evrenine ayrılmış, çift meseller ve nûr-zulumât ekseni dahil. Hangi meselin hangi surede, hangi bağlamda geçtiğini keşfet.",
+    descLongEn:  "The Quran uses ~50 parables — fly, spider, tree, light, fire, water. Each parable makes a truth tangible. Organized into 7 imagery domains, including paired parables and the light-darkness axis. Discover which parable appears in which surah and in what context.",
     icon:        MeselIcon,
   },
 ];
