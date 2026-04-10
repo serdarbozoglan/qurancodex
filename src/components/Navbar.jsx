@@ -1204,15 +1204,30 @@ export default function Navbar() {
             borderBottom: '1px solid rgba(255,255,255,0.06)',
             boxSizing: 'border-box',
           }}>
-            <span style={{
-              color: '#d4a574',
-              fontSize: '0.9rem',
-              fontWeight: 700,
-              fontFamily: "'Inter', sans-serif",
-              margin: 0,
-            }}>
-              {language === 'tr' ? 'Peygamberler Atlası' : 'Prophets Atlas'}
-            </span>
+            {/* Gold title + interpunct + muted subtitle — same pattern
+                KavimlerAtlasi etc. use via OVERLAY_HEADER + OVERLAY_TITLE */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+              <span style={{
+                color: '#d4a574',
+                fontSize: '0.9rem',
+                fontWeight: 700,
+                fontFamily: "'Inter', sans-serif",
+                margin: 0,
+              }}>
+                {language === 'tr' ? 'Peygamberler Atlası' : 'Prophets Atlas'}
+              </span>
+              <span style={{ color: '#64748b', fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+              <span style={{
+                color: '#64748b',
+                fontSize: '0.78rem',
+                fontFamily: "'Inter', sans-serif",
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}>
+                {language === 'tr' ? 'Anlatıların Gizli Haritası' : 'The Hidden Narrative Map'}
+              </span>
+            </div>
             <button
               onClick={() => setProphetOpen(false)}
               style={{
