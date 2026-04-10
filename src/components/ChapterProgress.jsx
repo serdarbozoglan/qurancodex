@@ -20,33 +20,53 @@ export default function ChapterProgress() {
   const { language } = useLanguage();
   const [activeId, setActiveId] = useState(null);
   const [hoveredId, setHoveredId] = useState(null);
+  // Visibility: hidden while the user is in the discovery zone
+  // (hero / path-cards / all-topics / tools-highlight). Becomes visible
+  // only after the user scrolls into the long-form content layer, i.e.
+  // once the first CHAPTERS entry's top crosses the trigger line.
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const TRIGGER = window.innerHeight * 0.35; // 35% from top of viewport
-
     function update() {
-      let bestId = null;
-      let bestDist = Infinity;
+      const TRIGGER = window.innerHeight * 0.35; // 35% from top of viewport
 
-      CHAPTERS.forEach(({ id }) => {
+      // ── Visibility check ──────────────────────────────────────────────
+      // Use the first long-form section's top as the gate. Once it has
+      // scrolled past the trigger line, the user is officially in the
+      // long-form zone and the progress dots should appear.
+      const firstChapterEl = document.getElementById(CHAPTERS[0].id);
+      const inLongForm = firstChapterEl
+        ? firstChapterEl.getBoundingClientRect().top <= TRIGGER
+        : false;
+      setVisible(inLongForm);
+
+      if (!inLongForm) return; // no need to compute active section
+
+      // ── Active section: the one that contains the trigger line ────────
+      // For each chapter, check if rect.top <= TRIGGER < rect.bottom.
+      // The first match wins (sections don't overlap). This is more
+      // accurate than the previous "closest top to trigger" heuristic,
+      // which would mis-highlight when sections had very different heights.
+      let activeIdNew = null;
+      for (const { id } of CHAPTERS) {
         const el = document.getElementById(id);
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        // Distance of section top from the trigger line (positive = below trigger, negative = above)
-        const dist = Math.abs(rect.top - TRIGGER);
-        // Only consider sections that have their top in the upper 2/3 of viewport
-        if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0 && dist < bestDist) {
-          bestDist = dist;
-          bestId = id;
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+        if (r.top <= TRIGGER && r.bottom > TRIGGER) {
+          activeIdNew = id;
+          break;
         }
-      });
-
-      if (bestId) setActiveId(bestId);
+      }
+      if (activeIdNew) setActiveId(activeIdNew);
     }
 
     update(); // run on mount
     window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
   function scrollTo(id) {
@@ -66,8 +86,16 @@ export default function ChapterProgress() {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '10px',
+        // Hidden while in the discovery zone (hero / path-cards / all-topics
+        // / tools-highlight). Fade in once the user reaches the long-form
+        // content layer. opacity + pointer-events keeps it in the DOM so
+        // scroll listeners stay attached without remounting.
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? 'auto' : 'none',
+        transition: 'opacity 0.3s ease',
       }}
       className="hidden lg:flex"
+      aria-hidden={!visible}
     >
       {CHAPTERS.map((chapter, i) => {
         const isActive = activeId === chapter.id;
