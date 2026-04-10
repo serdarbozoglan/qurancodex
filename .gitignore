@@ -32,3 +32,6 @@ omer.html
 # Cache / embeddings (large binary data)
 cache/
 *.npy
+
+# Local working documents
+todo_v*.md
