@@ -26,3 +26,9 @@ dist-ssr
 # Environment variables (API keys)
 .env
 .env.*
+
+omer.html
+
+# Cache / embeddings (large binary data)
+cache/
+*.npy
