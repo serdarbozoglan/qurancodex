@@ -58,9 +58,10 @@ export default function Hero() {
           {t('hero.description')}
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* Single CTA — "Kur'an'ı Oku" lives in the Navbar, so the Hero
+            keeps only the primary discovery action. */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+          className="flex items-center justify-center"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
@@ -69,20 +70,11 @@ export default function Hero() {
             onClick={() =>
               document.getElementById('path-cards')?.scrollIntoView({ behavior: 'smooth' })
             }
-            className="btn-ghost-dark px-10 py-3 text-gold font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            {t('hero.cta')}
-          </motion.button>
-
-          <motion.button
-            onClick={() => window.dispatchEvent(new CustomEvent('openReadingMode'))}
-            className="btn-primary-gold px-10 py-3 font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
+            className="btn-primary-gold px-12 py-3.5 font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
             whileHover={{ scale: 1.05, boxShadow: '0 0 48px 12px rgba(180,130,40,0.5)' }}
             whileTap={{ scale: 0.97 }}
           >
-            {t('hero.ctaRead')}
+            {t('hero.cta')}
           </motion.button>
         </motion.div>
       </div>
