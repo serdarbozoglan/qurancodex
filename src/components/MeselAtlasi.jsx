@@ -23,7 +23,7 @@ function cleanArabic(str) {
     // Remove standalone Arabic-Indic digit sequences at end of verse
     .replace(/\s*[\u0660-\u0669]+\s*$/g, '')
     .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '')
+    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
     .replace(/[\uFD3E\uFD3F]/g, '')
     .trim();
 }

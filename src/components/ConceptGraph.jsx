@@ -22,7 +22,7 @@ function cleanArabicForGraph(str) {
     .replace(/[\u0600-\u0605]/g, '')
     .replace(/[\u06DD\u06DE\u06E9]/g, '')
     .replace(/\u06E6/g, ' ')
-    .replace(/[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '')
+    .replace(/[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06ED]/g, '')
     .replace(/[\uFD3E\uFD3F]/g, '');
 }
 
