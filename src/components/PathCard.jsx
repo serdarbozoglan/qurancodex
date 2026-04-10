@@ -103,7 +103,12 @@ export default function PathCard({
         </p>
       </div>
 
-      {/* Path steps */}
+      {/* Path steps — separators are interpuncts (·), not arrows.
+          The pills are a topic preview ("this path covers these subjects"),
+          not a sequenced promise. Changing the separator from → to ·
+          avoids implying a strict ordering that the long-form layout
+          can't currently guarantee. Path-aware sequenced navigation is
+          tracked separately for a future branch. */}
       {steps.length > 0 && (
         <div
           style={{
@@ -132,7 +137,7 @@ export default function PathCard({
                 {language === 'tr' ? step.tr : step.en}
               </span>
               {i < steps.length - 1 && (
-                <span style={{ color: COLORS.silver, opacity: 0.5, fontSize: '0.7rem' }}>→</span>
+                <span style={{ color: COLORS.silver, opacity: 0.5, fontSize: '0.75rem' }}>·</span>
               )}
             </span>
           ))}
