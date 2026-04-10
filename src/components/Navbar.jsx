@@ -1058,41 +1058,133 @@ export default function Navbar() {
                       </button>
                     );
 
+                    // ── v1.1 redesign — Önerilen Yollar (curated paths) ────────────
+                    // Mirrors PathCards.jsx targets. Compact 4-button banner at the top
+                    // of the Explore dropdown for visitors who want a guided entry.
+                    const PATHS = [
+                      {
+                        id: 'dil', target: 'linguistic',
+                        labelTr: "Kur'an'ın Dili", labelEn: "Quranic Language",
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M2 12h2M6 7v10M10 4v16M14 7v10M18 10v4M22 12h-2"/>
+                          </svg>
+                        ),
+                      },
+                      {
+                        id: 'peygamberler', target: 'history',
+                        labelTr: 'Peygamberler', labelEn: 'Prophets',
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="5"  r="1.6" fill="currentColor"/>
+                            <circle cx="7"  cy="11" r="1.4" fill="currentColor"/>
+                            <circle cx="16" cy="13" r="1.4" fill="currentColor"/>
+                            <circle cx="9"  cy="18" r="1.2" fill="currentColor"/>
+                            <circle cx="14" cy="20" r="1.2" fill="currentColor"/>
+                          </svg>
+                        ),
+                      },
+                      {
+                        id: 'insan', target: 'human-definition',
+                        labelTr: 'İnsan & Ruh', labelEn: 'Human & Soul',
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M12 16s-4-2.5-4-5.5A2.5 2.5 0 0 1 12 8a2.5 2.5 0 0 1 4 2.5C16 13.5 12 16 12 16z"/>
+                          </svg>
+                        ),
+                      },
+                      {
+                        id: 'evren', target: 'science',
+                        labelTr: 'Evren & Bilim', labelEn: 'Cosmos & Science',
+                        icon: (
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polygon points="12 2 15 8.5 22 9.3 17 14 18 21 12 17.7 6 21 7 14 2 9.3 9 8.5 12 2"/>
+                          </svg>
+                        ),
+                      },
+                    ];
+
+                    const pathBtn = (path) => (
+                      <button
+                        key={path.id}
+                        onClick={() => { scrollTo(path.target); setExploreOpen(false); }}
+                        style={{
+                          flex: 1, minWidth: 0,
+                          display: 'flex', alignItems: 'center', gap: '8px',
+                          padding: '10px 12px',
+                          background: 'transparent',
+                          border: 'none',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          textAlign: 'left',
+                          transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; e.currentTarget.querySelector('.pi').style.color = '#d4a574'; e.currentTarget.querySelector('.pl').style.color = '#d4a574'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.pi').style.color = 'rgba(212,165,116,0.6)'; e.currentTarget.querySelector('.pl').style.color = '#e8e6e3'; }}
+                      >
+                        <span className="pi" style={{ color: 'rgba(212,165,116,0.6)', flexShrink: 0, transition: 'color 0.15s' }}>{path.icon}</span>
+                        <span className="pl" style={{ color: '#e8e6e3', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.2, transition: 'color 0.15s', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {language === 'tr' ? path.labelTr : path.labelEn}
+                        </span>
+                      </button>
+                    );
+
                     return (
-                      <div style={{ display: 'flex' }}>
-                        {/* Col 1: Dil & Yapı */}
-                        <div style={{ flex: 1, padding: '8px' }}>
-                          <div style={colLabel}>{language === 'tr' ? 'Dil & Yapı' : 'Language & Structure'}</div>
-                          {dilYapiSecs.map(secBtn)}
-                          {renkleriBtn}
+                      <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        {/* Önerilen Yollar banner */}
+                        <div
+                          style={{
+                            padding: '10px 12px',
+                            background: 'rgba(201, 162, 39, 0.05)',
+                            borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
+                            borderRadius: '8px 8px 0 0',
+                          }}
+                        >
+                          <div style={{ ...colLabel, padding: '0 4px 6px' }}>
+                            {language === 'tr' ? 'Önerilen Yollar' : 'Curated Paths'}
+                          </div>
+                          <div style={{ display: 'flex', gap: '4px' }}>
+                            {PATHS.map(pathBtn)}
+                          </div>
                         </div>
-                        {/* Divider */}
-                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                        {/* Col 2: Kur'an'ın Retoriği */}
-                        <div style={{ flex: 1, padding: '8px' }}>
-                          <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Retoriği" : "Quranic Rhetoric"}</div>
-                          {retorigiSecs.map(secBtn)}
-                          {yeminlerBtn}
-                        </div>
-                        {/* Divider */}
-                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                        {/* Col 3: Tarih & İnsan */}
-                        <div style={{ flex: 1, padding: '8px' }}>
-                          <div style={colLabel}>{language === 'tr' ? 'Tarih & İnsan' : 'History & Human'}</div>
-                          {tarihSecs.map(secBtn)}
-                          {kavimlerBtn}
-                        </div>
-                        {/* Divider */}
-                        <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                        {/* Col 4: Kur'an'ın Evreni */}
-                        <div style={{ flex: 1, padding: '8px' }}>
-                          <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Evreni" : "The Quran's Universe"}</div>
-                          {scienceSec && secBtn(scienceSec)}
-                          {zamanBtn}
-                          {dogaBtn}
-                          {cennetBtn}
-                          {kiyametBtn}
-                          {meleklerBtn}
+
+                        {/* Existing 4-column mega-menu */}
+                        <div style={{ display: 'flex' }}>
+                          {/* Col 1: Dil & Yapı */}
+                          <div style={{ flex: 1, padding: '8px' }}>
+                            <div style={colLabel}>{language === 'tr' ? 'Dil & Yapı' : 'Language & Structure'}</div>
+                            {dilYapiSecs.map(secBtn)}
+                            {renkleriBtn}
+                          </div>
+                          {/* Divider */}
+                          <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                          {/* Col 2: Kur'an'ın Retoriği */}
+                          <div style={{ flex: 1, padding: '8px' }}>
+                            <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Retoriği" : "Quranic Rhetoric"}</div>
+                            {retorigiSecs.map(secBtn)}
+                            {yeminlerBtn}
+                          </div>
+                          {/* Divider */}
+                          <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                          {/* Col 3: Tarih & İnsan */}
+                          <div style={{ flex: 1, padding: '8px' }}>
+                            <div style={colLabel}>{language === 'tr' ? 'Tarih & İnsan' : 'History & Human'}</div>
+                            {tarihSecs.map(secBtn)}
+                            {kavimlerBtn}
+                          </div>
+                          {/* Divider */}
+                          <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                          {/* Col 4: Kur'an'ın Evreni */}
+                          <div style={{ flex: 1, padding: '8px' }}>
+                            <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Evreni" : "The Quran's Universe"}</div>
+                            {scienceSec && secBtn(scienceSec)}
+                            {zamanBtn}
+                            {dogaBtn}
+                            {cennetBtn}
+                            {kiyametBtn}
+                            {meleklerBtn}
+                          </div>
                         </div>
                       </div>
                     );
