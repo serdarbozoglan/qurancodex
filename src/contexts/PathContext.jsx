@@ -128,10 +128,12 @@ function dispatchOverlayEvent(target) {
 // ── Provider ─────────────────────────────────────────────────────────────────
 
 export function PathProvider({ children }) {
-  // Restore from localStorage via lazy initializers — no setState-in-effect.
-  // Don't auto-navigate on restore: the user might have refreshed mid-overlay
-  // or mid-scroll. Just show the breadcrumb at the saved position so they
-  // can decide what to do (Önceki / Sonraki / ✕).
+  // Restore from sessionStorage via lazy initializers — no setState-in-effect.
+  // The breadcrumb shows up automatically at the saved position. For the
+  // re-navigation behavior on restore (overlay re-open), see the dedicated
+  // useEffect below — section steps stay quiet (the user might be reading
+  // section content already), but overlay steps re-open the modal so the
+  // app's "current step" state matches the visible DOM.
   const [activePathId, setActivePathId] = useState(() => loadFromStorage()?.pathId ?? null);
   const [stepIndex,    setStepIndex]    = useState(() => loadFromStorage()?.stepIndex ?? 0);
 
@@ -167,8 +169,23 @@ export function PathProvider({ children }) {
   // exit) while on an overlay step, we manually trigger history.back() to
   // close the overlay, then run our own navigation. This flag suppresses
   // the popstate auto-advance during that window so we don't double-fire.
+  // completionScrollListenerRef: holds the one-time popstate handler that
+  // completePath registers for overlay-step finishes. Stored in a ref so
+  // startPath() and exit() can manually remove it if the user moves on
+  // without ever closing the still-open completion modal — preventing a
+  // dangling listener from firing on an unrelated future overlay close.
   const waitingForOverlayCloseRef = useRef(false);
   const skipAutoAdvanceRef = useRef(false);
+  const completionScrollListenerRef = useRef(null);
+
+  // Helper: tear down a leftover completionScroll listener if one is active.
+  // Called by startPath, exit, and completePath itself before re-arming.
+  const clearCompletionScrollListener = useCallback(() => {
+    if (completionScrollListenerRef.current) {
+      window.removeEventListener('popstate', completionScrollListenerRef.current);
+      completionScrollListenerRef.current = null;
+    }
+  }, []);
 
   // ── Actions ──────────────────────────────────────────────────────────────
 
@@ -178,13 +195,18 @@ export function PathProvider({ children }) {
       console.warn(`PathContext.startPath: unknown path "${pathId}"`);
       return;
     }
+    // If a previous completion left a one-time scroll listener registered
+    // (user finished a path with an overlay last step but never closed
+    // that overlay), tear it down — otherwise it would fire later when
+    // an unrelated overlay closes and yank them to PathCards.
+    clearCompletionScrollListener();
     setActivePathId(pathId);
     setStepIndex(0);
     saveToStorage(pathId, 0);
     // Defer navigation a tick so React commits the state change first
     // (prevents race where breadcrumb mounts after the scroll finishes)
     setTimeout(() => navigateToStep(path.steps[0]), 0);
-  }, [navigateToStep]);
+  }, [navigateToStep, clearCompletionScrollListener]);
 
   // Smart goToStep: if we're currently on an overlay step, close the overlay
   // FIRST (history.back), then navigate. Without this, clicking next/prev/dot
@@ -276,8 +298,17 @@ export function PathProvider({ children }) {
       // that when the user eventually closes the still-open modal, we soft
       // scroll to PathCards. Section-step completion does nothing here —
       // the user is already on the page and stays put.
+      //
+      // The listener is stored in completionScrollListenerRef so startPath
+      // and exit can tear it down if the user never actually closes the
+      // completion modal. Without that escape hatch, a stale listener
+      // could fire on a future unrelated overlay close.
       if (lastIsOverlay) {
+        // Clear any prior listener (defensive — shouldn't happen, but
+        // keeps the ref invariant: at most one listener at a time)
+        clearCompletionScrollListener();
         const handleClose = () => {
+          completionScrollListenerRef.current = null;
           window.removeEventListener('popstate', handleClose);
           // Soft scroll to PathCards. Same offset math as scrollToSection
           // helper above so the section sits below the fixed navbar.
@@ -288,15 +319,20 @@ export function PathProvider({ children }) {
           const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
           window.scrollTo({ top, behavior: 'smooth' });
         };
+        completionScrollListenerRef.current = handleClose;
         window.addEventListener('popstate', handleClose);
       }
     }, 1500);
-  }, [activePath]);
+  }, [activePath, clearCompletionScrollListener]);
 
   // exit handles the same overlay-close-first concern as goToStep.
   // If we exit while on an overlay step, close the overlay first so the
   // page is in a clean state for the user.
   const exit = useCallback(() => {
+    // Tear down any leftover completion scroll listener — see startPath
+    // for the same defensive cleanup.
+    clearCompletionScrollListener();
+
     const currentIsOverlay = activePath?.steps[stepIndex]?.kind === 'overlay';
     if (currentIsOverlay) {
       skipAutoAdvanceRef.current = true;
@@ -312,7 +348,36 @@ export function PathProvider({ children }) {
       setStepIndex(0);
       clearStorage();
     }
-  }, [activePath, stepIndex]);
+  }, [activePath, stepIndex, clearCompletionScrollListener]);
+
+  // ── Restore re-open ──────────────────────────────────────────────────────
+  // F5/refresh case: sessionStorage holds the active path id + step index,
+  // and the lazy initializers above pulled it back into state. But if the
+  // restored step is an overlay step, the modal is NOT actually open yet —
+  // the page just mounted. State and DOM are out of sync.
+  //
+  // Without this effect, clicking "Sonraki" after a refresh on an overlay
+  // step would call goToStep, which sees currentIsOverlay === true and
+  // calls window.history.back() against an empty history entry, sending
+  // the user out of the page entirely.
+  //
+  // Fix: on first mount only, if the restored step is an overlay step,
+  // dispatch its open event so the modal mounts. Section steps need no
+  // re-open because the section is already in the DOM as part of normal
+  // page render.
+  const restoreHandledRef = useRef(false);
+  useEffect(() => {
+    if (restoreHandledRef.current) return;
+    restoreHandledRef.current = true;
+    if (currentStep && currentStep.kind === 'overlay') {
+      // Defer one tick so any other mount-time effects (Navbar's overlay
+      // event listeners) are wired up before we dispatch.
+      setTimeout(() => dispatchOverlayEvent(currentStep.target), 0);
+    }
+    // Intentionally only checks the FIRST mount-time value of currentStep.
+    // Subsequent currentStep changes are handled by goToStep / next / prev.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // ── Auto-advance on overlay close ────────────────────────────────────────
   // When an overlay step is active and the user closes it (via overlay's ✕,
