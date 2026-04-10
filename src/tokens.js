@@ -8,6 +8,8 @@ export const COLORS = {
   cosmicBlack:   '#0a0a1a',
   deepNavy:      '#0d1b2a',
   overlayBg:     '#0a0a1a',
+  inkBlack:      '#08091a',                  // Used as text color on amber buttons
+  panelBg:       'rgba(8,9,26,0.92)',        // Sticky panels (PathBreadcrumb, navbar scrolled)
 
   // Accent
   gold:          '#d4a574',
@@ -51,6 +53,8 @@ export const COLORS = {
 
   // Modal backdrop dim (50% — keeps content visibly behind, not pitch-black)
   backdropDim:   'rgba(0,0,0,0.50)',
+  // Heavier shadow for floating panels (PathBreadcrumb, modals)
+  panelShadow:   'rgba(0,0,0,0.50)',
 };
 
 // ── Fonts ─────────────────────────────────────────────────────────────────────

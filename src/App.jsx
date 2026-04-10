@@ -1,4 +1,8 @@
 import { LanguageProvider } from './i18n/LanguageContext';
+// v1.2 — path-aware navigation (sticky breadcrumb walks the user through
+// a curated sequence of sections / overlays)
+import { PathProvider } from './contexts/PathContext';
+import PathBreadcrumb from './components/PathBreadcrumb';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 // v1.1 redesign — discovery layer (mounted right after Hero)
@@ -29,46 +33,50 @@ import ToolsBrowser from './components/ToolsBrowser';
 export default function App() {
   return (
     <LanguageProvider>
-      <Navbar />
-      <ChapterProgress />
-      <main>
-        {/* Hero */}
-        <Hero />
+      <PathProvider>
+        <Navbar />
+        <ChapterProgress />
+        <main>
+          {/* Hero */}
+          <Hero />
 
-        {/* ── v1.1 discovery layer ─────────────────────────────────────── */}
-        <div className="gradient-divider" />
-        <PathCards />
-        <AllTopics />
-        <ToolsHighlight />
+          {/* ── v1.1 discovery layer ─────────────────────────────────────── */}
+          <div className="gradient-divider" />
+          <PathCards />
+          <AllTopics />
+          <ToolsHighlight />
 
-        {/* ── Existing long-form content (unchanged order) ─────────────── */}
-        <div className="gradient-divider-reverse" />
-        <LinguisticDNA />
-        <ImpossibleRhythm />
-        <div className="gradient-divider" />
-        <QuranRhetoric />
-        <div className="gradient-divider-reverse" />
-        <QuranDua />
-        <SoundArchitecture />
-        <HiddenArchitecture />
-        <ScientificSigns />
-        <div className="gradient-divider-reverse" />
-        <HistoricalProof />
-        <div className="gradient-divider" />
-        <LivingPreservation />
-        <div className="gradient-divider-reverse" />
-        <ZeroRedundancy />
-        <div className="gradient-divider" />
-        <Highlights />
-        <div className="gradient-divider" />
-        <HumanDefinition />
-        <PsychologySection />
-        <ToolsShowcase />
-        <Conclusion />
-      </main>
-      <Footer />
-      {/* Tools browser modal — opens via openOverlay('allTools') from anywhere */}
-      <ToolsBrowser />
+          {/* ── Existing long-form content (unchanged order) ─────────────── */}
+          <div className="gradient-divider-reverse" />
+          <LinguisticDNA />
+          <ImpossibleRhythm />
+          <div className="gradient-divider" />
+          <QuranRhetoric />
+          <div className="gradient-divider-reverse" />
+          <QuranDua />
+          <SoundArchitecture />
+          <HiddenArchitecture />
+          <ScientificSigns />
+          <div className="gradient-divider-reverse" />
+          <HistoricalProof />
+          <div className="gradient-divider" />
+          <LivingPreservation />
+          <div className="gradient-divider-reverse" />
+          <ZeroRedundancy />
+          <div className="gradient-divider" />
+          <Highlights />
+          <div className="gradient-divider" />
+          <HumanDefinition />
+          <PsychologySection />
+          <ToolsShowcase />
+          <Conclusion />
+        </main>
+        <Footer />
+        {/* Tools browser modal — opens via openOverlay('allTools') from anywhere */}
+        <ToolsBrowser />
+        {/* v1.2 — sticky bottom path-mode breadcrumb (renders nothing when inactive) */}
+        <PathBreadcrumb />
+      </PathProvider>
     </LanguageProvider>
   );
 }

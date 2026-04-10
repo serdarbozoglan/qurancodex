@@ -10,7 +10,11 @@ import { motion } from 'framer-motion';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import PathCard from '../components/PathCard';
 import { useLanguage } from '../i18n/LanguageContext';
-import { useQuranNav } from '../hooks/useQuranNav';
+// v1.2 — clicking a card activates path mode (PathContext) instead of a
+// one-shot scroll. Path step lists live in src/data/paths.jsx; the visual
+// metadata (icon / title / desc / pill preview) stays here in PathCards
+// because it only matters for the card UI itself.
+import { usePath } from '../contexts/PathContext';
 import { COLORS, FONTS } from '../tokens';
 
 // ── Path definitions ────────────────────────────────────────────────────────
@@ -105,7 +109,7 @@ const PATHS = [
 
 export default function PathCards() {
   const { language } = useLanguage();
-  const { scrollToSection } = useQuranNav();
+  const { startPath } = usePath();
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
 
   useEffect(() => {
@@ -180,7 +184,8 @@ export default function PathCards() {
             descTr={path.descTr}
             descEn={path.descEn}
             steps={path.steps}
-            onClick={() => scrollToSection(path.target)}
+            // v1.2 — activate path mode (PathContext handles scroll/overlay)
+            onClick={() => startPath(path.id)}
           />
         ))}
       </motion.div>
