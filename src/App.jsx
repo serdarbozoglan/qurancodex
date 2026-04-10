@@ -46,15 +46,31 @@ export default function App() {
           <AllTopics />
           <ToolsHighlight />
 
-          {/* ── Existing long-form content (unchanged order) ─────────────── */}
+          {/* ── Long-form content ─────────────────────────────────────────
+              Order is now path-aware: every discovery path defined in
+              src/data/paths.jsx walks its sections strictly downward.
+              Two moves vs the original v1.1 order:
+                - SoundArchitecture moved up to sit between ImpossibleRhythm
+                  and QuranRhetoric, so the Dil path goes
+                  linguistic → rhythm → sounds → rhetoric in actual page
+                  scroll order (was: linguistic → rhythm → rhetoric →
+                  jump-down to sounds).
+                - QuranDua moved down to sit between PsychologySection and
+                  ToolsShowcase, so the İnsan path goes
+                  human-definition → psychology → dua-language → dua(overlay)
+                  in actual page scroll order (was: human-definition was
+                  9th but its 3rd step dua-language was 4th, forcing a
+                  jump up).
+              The 3 language sections now form a tight cluster, and the
+              3 human/prayer sections form another tight cluster — a small
+              narrative win on top of the path-mode fix. */}
           <div className="gradient-divider-reverse" />
           <LinguisticDNA />
           <ImpossibleRhythm />
+          <SoundArchitecture />
           <div className="gradient-divider" />
           <QuranRhetoric />
           <div className="gradient-divider-reverse" />
-          <QuranDua />
-          <SoundArchitecture />
           <HiddenArchitecture />
           <ScientificSigns />
           <div className="gradient-divider-reverse" />
@@ -68,6 +84,7 @@ export default function App() {
           <div className="gradient-divider" />
           <HumanDefinition />
           <PsychologySection />
+          <QuranDua />
           <ToolsShowcase />
           <Conclusion />
         </main>
