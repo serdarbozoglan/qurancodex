@@ -290,44 +290,47 @@ export default function ToolsBrowser() {
   return (
     <AnimatePresence>
       {open && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.18 }}
-            onClick={close}
-            style={{
-              position: 'fixed',
-              inset: 0,
-              background: COLORS.backdropDim,
-              backdropFilter: 'blur(4px)',
-              zIndex: 9998,
-            }}
-          />
-
-          {/* Modal */}
+        // Backdrop is also a flex centering container for the modal.
+        // This avoids the framer-motion gotcha where animate={{ scale, y }}
+        // overwrites a CSS `transform: translate(-50%, -50%)` and the modal
+        // ends up positioned at its natural origin instead of centered.
+        <motion.div
+          key="tools-browser-backdrop"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.18 }}
+          onClick={close}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: COLORS.backdropDim,
+            backdropFilter: 'blur(2px)',
+            zIndex: 9998,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px',
+            boxSizing: 'border-box',
+          }}
+        >
+          {/* Modal — flex-centered by the parent backdrop, no fixed positioning */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 12 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
+            onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
             aria-labelledby="tools-browser-title"
             style={{
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: 'min(880px, 92vw)',
+              width: 'min(960px, 90vw)',
               maxHeight: '85vh',
               background: COLORS.cosmicBlack,
               border: `1px solid ${COLORS.goldAlpha25}`,
               borderRadius: '16px',
               boxShadow: `0 20px 60px ${COLORS.backdropDim}`,
-              zIndex: 9999,
               display: 'flex',
               flexDirection: 'column',
               overflow: 'hidden',
@@ -386,7 +389,7 @@ export default function ToolsBrowser() {
               </div>
             </div>
           </motion.div>
-        </>
+        </motion.div>
       )}
     </AnimatePresence>
   );
@@ -510,10 +513,10 @@ function ToolItem({ tool, onClick, language }) {
             fontSize: '0.7rem',
             fontFamily: FONTS.body,
             fontWeight: 400,
-            lineHeight: 1.3,
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
+            lineHeight: 1.35,
+            // No truncation — let descriptions wrap to 2 lines if needed.
+            // Modal is wide enough that most one-liners fit; the few longer
+            // ones get a second line instead of an ellipsis.
           }}
         >
           {language === 'tr' ? tool.descTr : tool.descEn}
