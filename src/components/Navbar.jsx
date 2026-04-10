@@ -1,6 +1,13 @@
 import { useState, useEffect, lazy, Suspense, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+// v1.1 — single source of truth for tools data, shared with the modal
+import {
+  FEATURED_TOOL  as IMPORTED_FEATURED,
+  VIZ_TOOLS      as IMPORTED_VIZ,
+  ANALYSIS_TOOLS as IMPORTED_ANALYSIS,
+  RESEARCH_TOOLS as IMPORTED_RESEARCH,
+} from '../data/tools';
 
 const VerseGraph = lazy(() => import('./VerseGraph'));
 const ReadingMode = lazy(() => import('./ReadingMode'));
@@ -436,231 +443,57 @@ export default function Navbar() {
     setMobileOpen(false);
   };
 
-  const tools = [
-    {
-      labelTr: "Kur'an'ı Tanı", labelEn: 'Meet the Quran',
-      descTr: 'Az bilinen, şaşırtan gerçekler', descEn: 'Hidden gems & surprising facts',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-          <path d="M12 2l1.5 6.5L20 12l-6.5 1.5L12 22l-1.5-6.5L4 12l6.5-1.5z" />
-        </svg>
-      ),
-      action: () => { setWowOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Ayet Haritası', labelEn: 'Verse Map',
-      descTr: '6.236 ayeti uzayda gör', descEn: 'See 6,236 verses in 3D space',
-      icon: (
-        // Scattered dots of different sizes — no lines, no X
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-          <circle cx="5"  cy="6"  r="2.5" />
-          <circle cx="14" cy="4"  r="1.5" />
-          <circle cx="20" cy="10" r="3"   />
-          <circle cx="8"  cy="16" r="2"   />
-          <circle cx="18" cy="19" r="1.5" />
-          <circle cx="3"  cy="19" r="1"   />
-          <circle cx="12" cy="12" r="1"   />
-        </svg>
-      ),
-      action: () => { setGraphOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Kelime Haritası', labelEn: 'Word Map',
-      descTr: 'Hangi kelime nerede yoğunlaşıyor?', descEn: 'Where does each word concentrate?',
-      icon: (
-        // Frequency bars — 4 bars of different heights like a bar chart
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-          <rect x="2"  y="14" width="4" height="8"  rx="1" />
-          <rect x="7"  y="8"  width="4" height="14" rx="1" />
-          <rect x="13" y="4"  width="4" height="18" rx="1" />
-          <rect x="18" y="10" width="4" height="12" rx="1" />
-        </svg>
-      ),
-      action: () => { setHeatmapOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Nüzul Sırası', labelEn: 'Revelation Order',
-      descTr: '23 yıllık vahyin kronolojisi', descEn: 'The chronology of 23 years of revelation',
-      icon: (
-        // Timeline: horizontal axis with milestone dots and vertical tick marks at different heights
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-          <line x1="2" y1="18" x2="22" y2="18" />
-          <line x1="5" y1="18" x2="5" y2="8" />
-          <circle cx="5" cy="7" r="1.8" fill="currentColor" stroke="none" />
-          <line x1="10" y1="18" x2="10" y2="13" />
-          <circle cx="10" cy="12" r="1.5" fill="currentColor" stroke="none" />
-          <line x1="15" y1="18" x2="15" y2="7" />
-          <circle cx="15" cy="6" r="1.8" fill="currentColor" stroke="none" />
-          <line x1="20" y1="18" x2="20" y2="11" />
-          <circle cx="20" cy="10" r="1.5" fill="currentColor" stroke="none" />
-        </svg>
-      ),
-      action: () => { setRevelationOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Peygamberler Atlası', labelEn: 'Prophets Atlas',
-      descTr: '23 yıla yayılan anlatıların gizli haritası', descEn: 'The hidden map of narratives across 23 years',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/>
-          <path d="M7 12h3M14 12h3M12 7v3M12 14v3"/>
-        </svg>
-      ),
-      action: () => { setProphetOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Kavram Ağı', labelEn: 'Concept Network',
-      descTr: 'İslami kavramlar nasıl birbirine bağlanır?', descEn: 'How Islamic concepts connect through verses',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>
-          <circle cx="4"  cy="5"  r="1.5" fill="currentColor" stroke="none"/>
-          <circle cx="20" cy="5"  r="1.5" fill="currentColor" stroke="none"/>
-          <circle cx="4"  cy="19" r="1.5" fill="currentColor" stroke="none"/>
-          <circle cx="20" cy="19" r="1.5" fill="currentColor" stroke="none"/>
-          <line x1="12" y1="12" x2="4"  y2="5"/>
-          <line x1="12" y1="12" x2="20" y2="5"/>
-          <line x1="12" y1="12" x2="4"  y2="19"/>
-          <line x1="12" y1="12" x2="20" y2="19"/>
-        </svg>
-      ),
-      action: () => { conceptRestoreRef.current = null; setConceptOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Kıssa Atlası', labelEn: 'Story Atlas',
-      descTr: '4 peygamber — hangi surede hangi sahne?', descEn: '4 prophets — which scene in which surah?',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="8" y1="13" x2="16" y2="13"/>
-          <line x1="8" y1="17" x2="13" y2="17"/>
-        </svg>
-      ),
-      action: () => { setKissaOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Sure DNA', labelEn: 'Surah DNA',
-      descTr: 'İki sureyi karşılaştır — ortak temalar ve kelimeler', descEn: 'Compare two surahs — shared themes and words',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
-        </svg>
-      ),
-      action: () => { setComparatorOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: "Kur'an'ın Emirleri", labelEn: "Quran's Commands",
-      descTr: '88 emir ve yasak · 8 kategori', descEn: '88 commands & prohibitions · 8 categories',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="9 11 12 14 22 4" />
-          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-        </svg>
-      ),
-      action: () => { setCommandsOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Dua Ayetleri', labelEn: 'Prayer Verses',
-      descTr: `Kur'an'dan ${duaCount ?? '...'} seçilmiş dua`, descEn: `${duaCount ?? '...'} selected supplications from the Quran`,
-      icon: (
-        // Crescent moon — universal Islamic prayer/supplication symbol
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      ),
-      action: () => { setDuaOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Muhatap Sistemi', labelEn: 'Addressee System',
-      descTr: '"Ey iman edenler", "Ey insanlar" — kim, ne zaman?', descEn: 'Who is addressed, when, and how?',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-      ),
-      action: () => { setAddresseeOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Esmaül Hüsna', labelEn: 'Divine Names',
-      descTr: "99 ismin Kur'an'daki frekans analizi", descEn: "Frequency analysis of the 99 divine names in the Quran",
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
-      ),
-      action: () => { setEsmaOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Zamanın Boyutları', labelEn: 'Dimensions of Time',
-      descTr: "Kur'an'da zaman: kozmik ölçek, dil katmanı, felsefe", descEn: "Time in the Quran: cosmic scale, linguistic layer, philosophy",
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
-          <circle cx="12" cy="12" r="5.5"/>
-          <path d="M12 3a9 9 0 0 1 9 9"/>
-          <path d="M12 21a9 9 0 0 1-9-9"/>
-        </svg>
-      ),
-      action: () => { setZamanOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Kıraat Atlası',
-      labelEn: 'Qirāʾāt Atlas',
-      descTr: '10 imam · 20 râvî · coğrafi dağılım · fark analizi',
-      descEn: '10 readers · 20 transmitters · geographic spread · variant analysis',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/>
-          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/>
-          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-      ),
-      action: () => { setKiraatOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Diyalog Ağı',
-      labelEn: 'Dialogue Network',
-      descTr: 'Kim kiminle konuşuyor? ~300 diyalog · 25 eksen · ahiret sahneleri',
-      descEn: 'Who speaks to whom? ~300 dialogues · 25 axes · afterlife scenes',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-      ),
-      action: () => { setDiyalogOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Mesel & Temsil Atlası',
-      labelEn: 'Parables & Metaphors Atlas',
-      descTr: '~50 mesel · 7 imge evreni · çift meseller · nûr-zulumât',
-      descEn: '~50 parables · 7 imagery domains · paired parables · light-darkness',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <circle cx="9" cy="12" r="6"/>
-          <circle cx="15" cy="12" r="6"/>
-        </svg>
-      ),
-      action: () => { setMeselOpen(true); setToolsOpen(false); },
-    },
-    {
-      labelTr: 'Sebeb-i Nüzul',
-      labelEn: 'Occasions of Revelation',
-      descTr: '~570 ayet · olay→ayet & ayet→olay · çift yönlü arama',
-      descEn: '~570 verses · event→verse & verse→event · bidirectional',
-      icon: (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-          <path d="M3 3v5h5"/>
-          <path d="M12 7v5l4 2"/>
-        </svg>
-      ),
-      action: () => { setSebebOpen(true); setToolsOpen(false); },
-    },
-  ];
+  // ── v1.1 redesign — tools data is now imported from src/data/tools.jsx
+  // (single source of truth, shared with the ToolsBrowser modal). Each setter
+  // is bound to its corresponding event name via TOOL_TRIGGERS so the imported
+  // data — which has no knowledge of Navbar's local state — can still drive
+  // the dropdown clicks. ZamanBoyutlari is intentionally kept in the local
+  // tools.zaman entry (Keşfet dropdown only — see "Zaman" in the Evren column).
+  const TOOL_TRIGGERS = {
+    openWowFacts:        () => setWowOpen(true),
+    openVerseGraph:      () => setGraphOpen(true),
+    openHeatmap:         () => setHeatmapOpen(true),
+    openRevelationOrder: () => setRevelationOpen(true),
+    openProphetAtlas:    () => setProphetOpen(true),
+    openConceptGraph:    () => { conceptRestoreRef.current = null; setConceptOpen(true); },
+    openKissaAtlas:      () => setKissaOpen(true),
+    openSurahComparator: () => setComparatorOpen(true),
+    openSurahCommands:   () => setCommandsOpen(true),
+    openDuaVerses:       () => setDuaOpen(true),
+    openAddresseeSystem: () => setAddresseeOpen(true),
+    openEsmaFrekans:     () => setEsmaOpen(true),
+    openKiraatAtlas:     () => setKiraatOpen(true),
+    openDiyalogAgi:      () => setDiyalogOpen(true),
+    openMeselAtlas:      () => setMeselOpen(true),
+    openSebebNuzul:      () => setSebebOpen(true),
+  };
+
+  // Adapt an imported tool entry to the shape Navbar's existing toolBtn renderer
+  // expects (labelTr/En, descTr/En, icon as JSX, action). Done at render time so
+  // any data update flows through automatically.
+  const adapt = (t) => {
+    const Icon = t.icon;
+    return {
+      id:      t.id,
+      labelTr: t.titleTr,
+      labelEn: t.titleEn,
+      // Dua tool's desc is dynamic (depends on duaCount fetched at runtime).
+      // Override that one entry; everything else uses its descTr/En from data.
+      descTr:  t.id === 'dua-verses' ? `Kur'an'dan ${duaCount ?? '...'} seçilmiş dua` : t.descTr,
+      descEn:  t.id === 'dua-verses' ? `${duaCount ?? '...'} selected supplications from the Quran` : t.descEn,
+      icon:    <Icon size={14} />,
+      action:  () => {
+        const trigger = TOOL_TRIGGERS[t.event];
+        if (trigger) trigger();
+        setToolsOpen(false);
+      },
+    };
+  };
+
+  const featuredTool = adapt(IMPORTED_FEATURED);
+  const vizTools     = IMPORTED_VIZ.map(adapt);
+  const analysisTools = IMPORTED_ANALYSIS.map(adapt);
+  const researchTools = IMPORTED_RESEARCH.map(adapt);
 
   const dropdownStyle = {
     position: 'absolute', top: 'calc(100% + 12px)',
@@ -774,38 +607,6 @@ export default function Navbar() {
                     const dilYapiSecs   = navSections.filter(s => dilYapiIds.includes(s.id));
                     const retorigiSecs  = navSections.filter(s => retorigiIds.includes(s.id));
                     const tarihSecs     = navSections.filter(s => tarihinInsan.includes(s.id));
-
-                    // Kur'an'ın Retoriği — overlay button for Retorigi col
-                    const retorigiBtn = (
-                      <button
-                        key="retorigi"
-                        onClick={() => { setRetorigiOpen(true); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                          </svg>
-                        </span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? "Kur'an'ın Retoriği" : "The Quran's Rhetoric"}
-                          </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? '~1.000 soru · 4 tür · kalıplar · muhatap' : '~1,000 questions · 4 types · patterns · addressees'}
-                          </span>
-                        </span>
-                      </button>
-                    );
 
                     // Kur'an'ın Yeminleri — tool button (opens overlay, not scroll)
                     const yeminlerBtn = (
@@ -1259,11 +1060,9 @@ export default function Navbar() {
                         </span>
                       </button>
                     );
-                    // tools: [0]Wow [1]Ayet [2]Kelime [3]Nüzul Sırası [4]Peygamberler [5]Kavram [6]Kıssa [7]Sure DNA [8]Emirler [9]Dua [10]Muhatap [11]Esmaül Hüsna [12]Zamanın Boyutları [13]Kıraat Atlası [14]Diyalog Ağı [15]Mesel Atlası [16]Sebeb-i Nüzul
-                    const featuredTool  = tools[0]; // Kur'an'ı Tanı
-                    const vizTools      = [tools[1], tools[2], tools[3], tools[6], tools[15]];
-                    const analysisTools = [tools[11], tools[7], tools[5], tools[10], tools[14], tools[13]];
-                    const researchTools = [tools[4], tools[8], tools[9], tools[16]];
+                    // featuredTool, vizTools, analysisTools, researchTools are
+                    // now defined at the component-top from src/data/tools.jsx
+                    // (single source of truth — see line ~493)
                     return (
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
                         {/* Featured banner — Kur'an'ı Tanı */}
@@ -1504,7 +1303,7 @@ export default function Navbar() {
                 </p>
                 {/* Featured: Kur'an'ı Tanı */}
                 <button
-                  onClick={() => { tools[0].action(); setMobileOpen(false); }}
+                  onClick={() => { featuredTool.action(); setMobileOpen(false); }}
                   style={{
                     width: '100%',
                     padding: '10px 14px',
@@ -1519,22 +1318,22 @@ export default function Navbar() {
                   }}
                 >
                   <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{ color: '#c9a227' }}>{tools[0].icon}</span>
+                    <span style={{ color: '#c9a227' }}>{featuredTool.icon}</span>
                     <span style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
                       <span style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
-                        {language === 'tr' ? tools[0].labelTr : tools[0].labelEn}
+                        {language === 'tr' ? featuredTool.labelTr : featuredTool.labelEn}
                       </span>
                       <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif" }}>
-                        {language === 'tr' ? tools[0].descTr : tools[0].descEn}
+                        {language === 'tr' ? featuredTool.descTr : featuredTool.descEn}
                       </span>
                     </span>
                   </span>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round"><path d="M9 18l6-6-6-6" /></svg>
                 </button>
-                {/* Remaining tools */}
-                {tools.slice(1).map(tool => (
+                {/* Remaining tools — flat list of all 15 categorized tools */}
+                {[...vizTools, ...analysisTools, ...researchTools].map(tool => (
                   <button
-                    key={tool.labelTr}
+                    key={tool.id}
                     onClick={() => { tool.action(); setMobileOpen(false); }}
                     className="text-silver hover:text-gold transition-colors text-left py-2.5 text-sm font-body w-full flex items-center gap-2"
                   >
