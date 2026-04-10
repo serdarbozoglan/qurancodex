@@ -238,29 +238,40 @@ export default function ToolsBrowser() {
                 }}
               >
                 {activeFilter === 'all'
-                  ? FILTERS.filter((f) => f.id !== 'all').flatMap((cat, catIndex) => [
-                      <CategoryHeader
-                        key={`hdr-${cat.id}`}
-                        label={language === 'tr' ? cat.labelTr : cat.labelEn}
-                        first={catIndex === 0}
-                      />,
-                      ...cat.tools.map((tool) => (
+                  ? FILTERS.filter((f) => f.id !== 'all').flatMap((cat, catIndex) => {
+                      const odd = !isMobile && cat.tools.length % 2 === 1;
+                      return [
+                        <CategoryHeader
+                          key={`hdr-${cat.id}`}
+                          label={language === 'tr' ? cat.labelTr : cat.labelEn}
+                          first={catIndex === 0}
+                        />,
+                        ...cat.tools.map((tool, i) => (
+                          <BigToolCard
+                            key={tool.id}
+                            tool={tool}
+                            onClick={() => triggerTool(tool.event)}
+                            language={language}
+                            // Last card in an odd-sized category spans both
+                            // columns so it doesn't sit alone in a half-row.
+                            fullWidth={odd && i === cat.tools.length - 1}
+                          />
+                        )),
+                      ];
+                    })
+                  : (() => {
+                      // Filtered view: same orphan handling for the last card
+                      const odd = !isMobile && visibleTools.length % 2 === 1;
+                      return visibleTools.map((tool, i) => (
                         <BigToolCard
                           key={tool.id}
                           tool={tool}
                           onClick={() => triggerTool(tool.event)}
                           language={language}
+                          fullWidth={odd && i === visibleTools.length - 1}
                         />
-                      )),
-                    ])
-                  : visibleTools.map((tool) => (
-                      <BigToolCard
-                        key={tool.id}
-                        tool={tool}
-                        onClick={() => triggerTool(tool.event)}
-                        language={language}
-                      />
-                    ))}
+                      ));
+                    })()}
               </div>
             </div>
           </motion.div>
@@ -408,7 +419,7 @@ function FeaturedBanner({ tool, onClick, language }) {
   );
 }
 
-function BigToolCard({ tool, onClick, language }) {
+function BigToolCard({ tool, onClick, language, fullWidth = false }) {
   // tools.jsx exposes icon as a React component
   const Icon = tool.icon;
   return (
@@ -416,6 +427,9 @@ function BigToolCard({ tool, onClick, language }) {
       type="button"
       onClick={onClick}
       style={{
+        // When this card is the orphan last item of an odd-sized category,
+        // span both grid columns so it doesn't sit alone in a half-row.
+        gridColumn: fullWidth ? '1 / -1' : 'auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
