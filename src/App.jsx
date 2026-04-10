@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 // v1.1 redesign — discovery layer (mounted right after Hero)
 import PathCards from './sections/PathCards';
 import AllTopics from './sections/AllTopics';
+import ToolsHighlight from './sections/ToolsHighlight';
 // Existing long-form content sections
 import LinguisticDNA from './sections/LinguisticDNA';
 import ImpossibleRhythm from './sections/ImpossibleRhythm';
@@ -36,6 +37,7 @@ export default function App() {
         <div className="gradient-divider" />
         <PathCards />
         <AllTopics />
+        <ToolsHighlight />
 
         {/* ── Existing long-form content (unchanged order) ─────────────── */}
         <div className="gradient-divider-reverse" />
