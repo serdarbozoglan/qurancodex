@@ -167,7 +167,7 @@ const CATEGORIES = [
     titleEn: "THE QURAN'S COSMOS",
     items: [
       { kind: 'section', target: 'science',  icon: Icons.star,    titleTr: 'Bilimsel İşaretler',   titleEn: 'Scientific Signs',     descTr: 'Demir, embriyo, denizler',       descEn: 'Iron, embryo, oceans' },
-      { kind: 'overlay', target: 'kevni',    icon: Icons.leaf,    titleTr: 'Kevni Ayetler',         titleEn: 'Cosmic Signs',         descTr: 'Doğa atlası · ~200 ayet',         descEn: 'Nature atlas · ~200 verses' },
+      { kind: 'overlay', target: 'kevni',    icon: Icons.leaf,    titleTr: 'Kevni Ayetler',         titleEn: 'Cosmic Signs',         descTr: 'Tabiat atlası · ~200 ayet',       descEn: 'Nature atlas · ~200 verses' },
       { kind: 'overlay', target: 'zaman',    icon: Icons.clock,   titleTr: 'Zaman Boyutları',       titleEn: 'Dimensions of Time',   descTr: 'Yevm, dehir, hîn, asr',           descEn: 'Yawm, dahr, ḥīn, ʿaṣr' },
       { kind: 'overlay', target: 'cennet',   icon: Icons.flame,   titleTr: 'Cennet & Cehennem',     titleEn: 'Heaven & Hell',        descTr: 'İki nihai mekânın haritası',      descEn: 'Map of the two ultimate realms' },
       { kind: 'overlay', target: 'kiyamet',  icon: Icons.trumpet, titleTr: 'Kıyamet Sahneleri',     titleEn: 'Scenes of Resurrection', descTr: 'Sûr · diriliş · hesap',         descEn: 'Trumpet · resurrection · reckoning' },
@@ -240,32 +240,85 @@ export default function AllTopics() {
           : 'Every topic in one place. Pick a heading from any category.'}
       </motion.p>
 
-      {/* Legend */}
+      {/* Legend — pill container, more prominent than original 0.78rem text */}
       <motion.div
         variants={fadeUpItem}
         style={{
-          display: 'flex',
+          display: 'inline-flex',
           alignItems: 'center',
-          gap: '16px',
+          gap: '14px',
           flexWrap: 'wrap',
-          marginBottom: '24px',
-          fontSize: '0.78rem',
-          color: COLORS.silver,
+          marginBottom: '28px',
+          padding: '10px 18px',
+          background: COLORS.glassBgFaint,
+          border: `1px solid ${COLORS.glassBorderSoft}`,
+          borderRadius: '999px',
           fontFamily: FONTS.body,
         }}
       >
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M9 6l6 6-6 6" />
-          </svg>
+        {/* Section legend item */}
+        <span
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            fontSize: '0.82rem',
+            color: COLORS.offWhite,
+            fontWeight: 500,
+          }}
+        >
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '22px',
+              height: '22px',
+              borderRadius: '50%',
+              background: COLORS.silverAlpha12,
+              color: COLORS.silver,
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </span>
           {language === 'tr' ? 'Sayfaya gider' : 'Jumps to section'}
         </span>
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: COLORS.gold }}>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M14 4h6v6" />
-            <path d="M20 4L10 14" />
-            <path d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6" />
-          </svg>
+
+        {/* Vertical divider */}
+        <span style={{ width: '1px', height: '20px', background: COLORS.glassBorder }} />
+
+        {/* Overlay legend item */}
+        <span
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            fontSize: '0.82rem',
+            color: COLORS.gold,
+            fontWeight: 600,
+          }}
+        >
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '22px',
+              height: '22px',
+              borderRadius: '50%',
+              background: COLORS.goldAlpha15,
+              border: `1px solid ${COLORS.goldAlpha25}`,
+              color: COLORS.gold,
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 4h6v6" />
+              <path d="M20 4L10 14" />
+              <path d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6" />
+            </svg>
+          </span>
           {language === 'tr' ? 'İnteraktif modülde açar' : 'Opens interactive module'}
         </span>
       </motion.div>

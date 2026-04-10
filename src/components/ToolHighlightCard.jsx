@@ -24,11 +24,20 @@ export default function ToolHighlightCard({
     <motion.button
       type="button"
       onClick={onClick}
-      whileHover={{ y: -3, borderColor: COLORS.goldAlpha45 }}
+      whileHover={{
+        y: -3,
+        borderColor: COLORS.goldAlpha45,
+        boxShadow: `0 0 24px ${COLORS.goldAlpha15}`,
+      }}
       whileTap={{ scale: 0.99 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
       style={{
+        // Override shorthand border with longhand so framer can animate borderColor
         ...GLASS_CARD,
+        border: undefined,
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: COLORS.glassBorder,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',

@@ -20,6 +20,7 @@ export const COLORS = {
   // Text
   offWhite:      '#e8e6e3',
   silver:        '#94a3b8',
+  silverAlpha12: 'rgba(148,163,184,0.12)',
   slate500:      '#64748b',
 
   // Semantic

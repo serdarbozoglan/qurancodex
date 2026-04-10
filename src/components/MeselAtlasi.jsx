@@ -953,7 +953,7 @@ function TabHayvanlar({ animals, language, isMobile }) {
             : "This tab shows only animals in parable and narrative contexts."}
         </span>
         <span style={{ color: COLORS.teal, fontFamily: FONTS.body, fontSize: '0.78rem', whiteSpace: 'nowrap', flexShrink: 0 }}>
-          {language === 'tr' ? "Arı · Deve · Sığır → Doğa Atlası'nda" : "Bee · Camel · Cattle → see Doğa Atlası"}
+          {language === 'tr' ? "Arı · Deve · Sığır → Tabiat Atlası'nda" : "Bee · Camel · Cattle → see Nature Atlas"}
         </span>
       </div>
 

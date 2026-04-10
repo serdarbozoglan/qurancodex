@@ -31,11 +31,21 @@ export default function PathCard({
     <motion.button
       type="button"
       onClick={onClick}
-      whileHover={{ y: -4, borderColor: COLORS.goldAlpha45 }}
+      whileHover={{
+        y: -4,
+        borderColor: COLORS.goldAlpha45,
+        boxShadow: `0 0 32px ${COLORS.goldAlpha15}`,
+      }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: 'spring', stiffness: 320, damping: 24 }}
       style={{
+        // Spread first, then override border with longhand so framer-motion
+        // can animate borderColor cleanly (shorthand `border` blocks animation)
         ...GLASS_CARD,
+        border: undefined,
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: COLORS.glassBorder,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',

@@ -1072,7 +1072,7 @@ const SOURCE_URLS = {
 };
 
 const CROSS_LINKS = [
-  { labelTr: 'Doğa Atlası',         labelEn: 'Nature Atlas',         event: 'openNatureAtlas' },
+  { labelTr: 'Tabiat Atlası',       labelEn: 'Nature Atlas',         event: 'openNatureAtlas' },
   { labelTr: 'Muhatap Sistemi',      labelEn: 'Addressee System',     event: 'openAddresseeSystem' },
   { labelTr: 'İmkânsız Ritim',       labelEn: 'Impossible Rhythm',    section: '#impossible-rhythm' },
   { labelTr: 'Kavram Ağı',           labelEn: 'Concept Graph',        event: 'openConceptGraph' },
