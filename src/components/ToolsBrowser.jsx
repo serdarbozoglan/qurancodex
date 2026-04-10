@@ -3,21 +3,24 @@
 // layout. Triggered by the "Tüm Araçları Gör" CTA on ToolsHighlight and the
 // "Araçlar" CTA in the closing layer (ToolsShowcase).
 //
-// Why a modal and not the Navbar dropdown:
-//   - The dropdown is a navigation tool ("go somewhere"); browsing all tools
-//     is a discovery action ("scan, compare, decide"). Different intents.
-//   - Dropdowns vanish on outside click and overlap underlying content.
-//   - A centered modal is intentional, persistent, and doesn't fight the page.
+// What makes this different from the Navbar Tools dropdown:
+//   - The dropdown is a navigation tool ("go somewhere") — compact, fast.
+//   - This modal is a discovery experience ("scan, compare, decide") —
+//     bigger cards, multi-line descriptions, category filters.
+//
+// Layout:
+//   - Header with title + close button
+//   - Filter bar: Tümü / Görselleştirme / Analiz & Veri / Araştırma & Keşif
+//   - "Tümü" view: featured "Kur'an'ı Tanı" banner on top + 2-col grid of all 15
+//   - Category view: just the cards from that category, no featured banner
+//   - Each card: icon + title + 2-3 sentence descLong from src/data/tools.jsx
 //
 // Architecture:
-//   - Self-managed open state via custom event (`openToolsBrowser`).
-//     Anywhere in the app can call useQuranNav.openOverlay('allTools').
-//   - ESC key and backdrop click both close.
-//   - Body scroll is locked while open.
-//   - Clicking a tool dispatches its own overlay event AND closes this modal.
-//
-// Tool data is imported from src/data/tools.jsx (single source of truth shared
-// with Navbar). Order changes propagate automatically to both consumers.
+//   - Self-managed open state via custom event ('openToolsBrowser')
+//   - ESC + backdrop click both close
+//   - Body scroll locked while open (with scrollbar-width compensation
+//     so the centered modal doesn't visually shift left)
+//   - Clicking a card dispatches its overlay event AND closes the modal
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from 'react';
@@ -31,20 +34,31 @@ import {
   RESEARCH_TOOLS,
 } from '../data/tools';
 
-// Tool data is imported from src/data/tools.jsx (see imports above).
-// Each entry shape: { id, event, titleTr/En, descTr/En, descLongTr/En, icon }
-// `icon` is a React component that takes a `size` prop.
+// ── Filter definitions ──────────────────────────────────────────────────────
+// Each filter knows which tools to show. 'all' renders the featured banner
+// + every category combined; the others render only their own category.
+const FILTERS = [
+  { id: 'all',      labelTr: 'Tümü',                labelEn: 'All',                 tools: null },
+  { id: 'viz',      labelTr: 'Görselleştirme',      labelEn: 'Visualization',       tools: VIZ_TOOLS },
+  { id: 'analysis', labelTr: 'Analiz & Veri',       labelEn: 'Analysis & Data',     tools: ANALYSIS_TOOLS },
+  { id: 'research', labelTr: 'Araştırma & Keşif',   labelEn: 'Research & Explore',  tools: RESEARCH_TOOLS },
+];
 
+const ALL_TOOLS = [...VIZ_TOOLS, ...ANALYSIS_TOOLS, ...RESEARCH_TOOLS];
 
 // ── Component ────────────────────────────────────────────────────────────────
 export default function ToolsBrowser() {
   const { language } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('all');
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
 
   // Listen for the open event (dispatched by useQuranNav.openOverlay('allTools'))
   useEffect(() => {
-    const handler = () => setOpen(true);
+    const handler = () => {
+      setActiveFilter('all'); // reset filter on every open
+      setOpen(true);
+    };
     window.addEventListener('openToolsBrowser', handler);
     return () => window.removeEventListener('openToolsBrowser', handler);
   }, []);
@@ -58,8 +72,8 @@ export default function ToolsBrowser() {
   }, [open]);
 
   // Lock body scroll while open. Compensate for the disappearing scrollbar
-  // by adding paddingRight equal to scrollbar width — otherwise the page
-  // content shifts right (~15px), making the centered modal look off-center.
+  // (~15px) by adding equal paddingRight on body so page content doesn't
+  // shift right and make the centered modal look off-center.
   useEffect(() => {
     if (!open) return;
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -90,13 +104,16 @@ export default function ToolsBrowser() {
     setOpen(false);
   };
 
+  // Active tool list driven by filter
+  const visibleTools = activeFilter === 'all'
+    ? ALL_TOOLS
+    : FILTERS.find((f) => f.id === activeFilter)?.tools ?? [];
+
   return (
     <AnimatePresence>
       {open && (
-        // Backdrop is also a flex centering container for the modal.
-        // This avoids the framer-motion gotcha where animate={{ scale, y }}
-        // overwrites a CSS `transform: translate(-50%, -50%)` and the modal
-        // ends up positioned at its natural origin instead of centered.
+        // Backdrop is a flex centering container — avoids the framer-motion
+        // gotcha where animate={{ scale, y }} overwrites a CSS translate.
         <motion.div
           key="tools-browser-backdrop"
           initial={{ opacity: 0 }}
@@ -117,7 +134,7 @@ export default function ToolsBrowser() {
             boxSizing: 'border-box',
           }}
         >
-          {/* Modal — flex-centered by the parent backdrop, no fixed positioning */}
+          {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -128,8 +145,8 @@ export default function ToolsBrowser() {
             aria-modal="true"
             aria-labelledby="tools-browser-title"
             style={{
-              width: 'min(960px, 90vw)',
-              maxHeight: '85vh',
+              width: 'min(1080px, 92vw)',
+              maxHeight: '88vh',
               background: COLORS.cosmicBlack,
               border: `1px solid ${COLORS.goldAlpha25}`,
               borderRadius: '16px',
@@ -172,23 +189,56 @@ export default function ToolsBrowser() {
               </button>
             </div>
 
+            {/* Filter bar */}
+            <div
+              style={{
+                display: 'flex',
+                gap: '8px',
+                padding: '14px 24px',
+                borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+                flexShrink: 0,
+                overflowX: 'auto',
+                scrollbarWidth: 'none',
+              }}
+            >
+              {FILTERS.map((f) => (
+                <FilterButton
+                  key={f.id}
+                  active={activeFilter === f.id}
+                  label={language === 'tr' ? f.labelTr : f.labelEn}
+                  onClick={() => setActiveFilter(f.id)}
+                />
+              ))}
+            </div>
+
             {/* Body — scrollable */}
             <div style={{ overflow: 'auto', flex: 1 }}>
-              {/* Featured tool banner */}
-              <FeaturedBanner tool={FEATURED_TOOL} onClick={() => triggerTool(FEATURED_TOOL.event)} language={language} />
+              {/* Featured banner — only on "Tümü" view */}
+              {activeFilter === 'all' && (
+                <FeaturedBanner
+                  tool={FEATURED_TOOL}
+                  onClick={() => triggerTool(FEATURED_TOOL.event)}
+                  language={language}
+                />
+              )}
 
-              {/* 3-column tools grid (or 1-column on mobile) */}
+              {/* Card grid */}
               <div
                 style={{
-                  display: isMobile ? 'block' : 'flex',
-                  alignItems: 'flex-start',
+                  display: 'grid',
+                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                  gap: '14px',
+                  padding: '20px 24px 24px',
                 }}
               >
-                <ToolColumn titleTr="Görselleştirme" titleEn="Visualization" tools={VIZ_TOOLS} onTrigger={triggerTool} language={language} />
-                {!isMobile && <Divider />}
-                <ToolColumn titleTr="Analiz & Veri" titleEn="Analysis & Data" tools={ANALYSIS_TOOLS} onTrigger={triggerTool} language={language} />
-                {!isMobile && <Divider />}
-                <ToolColumn titleTr="Araştırma & Keşif" titleEn="Research & Explore" tools={RESEARCH_TOOLS} onTrigger={triggerTool} language={language} />
+                {visibleTools.map((tool) => (
+                  <BigToolCard
+                    key={tool.id}
+                    tool={tool}
+                    onClick={() => triggerTool(tool.event)}
+                    language={language}
+                  />
+                ))}
               </div>
             </div>
           </motion.div>
@@ -200,117 +250,171 @@ export default function ToolsBrowser() {
 
 // ── Sub-components ───────────────────────────────────────────────────────────
 
+function FilterButton({ active, label, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      style={{
+        padding: '8px 16px',
+        borderRadius: '999px',
+        border: `1px solid ${active ? COLORS.goldAlpha45 : COLORS.glassBorderSoft}`,
+        background: active ? COLORS.goldAlpha15 : 'transparent',
+        color: active ? COLORS.gold : COLORS.silver,
+        fontFamily: FONTS.body,
+        fontSize: '0.78rem',
+        fontWeight: active ? 700 : 500,
+        cursor: 'pointer',
+        whiteSpace: 'nowrap',
+        transition: 'all 0.15s',
+        flexShrink: 0,
+      }}
+      onMouseEnter={(e) => {
+        if (active) return;
+        e.currentTarget.style.background = COLORS.goldAlpha04;
+        e.currentTarget.style.color = COLORS.offWhite;
+      }}
+      onMouseLeave={(e) => {
+        if (active) return;
+        e.currentTarget.style.background = 'transparent';
+        e.currentTarget.style.color = COLORS.silver;
+      }}
+    >
+      {label}
+    </button>
+  );
+}
+
 function FeaturedBanner({ tool, onClick, language }) {
-  // Imported tools.jsx exposes icon as a React component (takes `size` prop),
-  // so we need to instantiate it here rather than render the field directly.
+  // tools.jsx exposes icon as a React component (takes `size` prop)
   const Icon = tool.icon;
   return (
     <button
       onClick={onClick}
       style={{
-        width: '100%',
-        padding: '14px 24px',
+        width: 'calc(100% - 48px)',
+        margin: '20px 24px 4px',
+        padding: '18px 22px',
         background: COLORS.goldAlpha04,
-        border: 'none',
-        borderBottom: `1px solid ${COLORS.goldAlpha25}`,
+        border: `1px solid ${COLORS.goldAlpha25}`,
+        borderRadius: '12px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         cursor: 'pointer',
-        transition: 'background 0.2s',
+        transition: 'all 0.2s',
         textAlign: 'left',
       }}
-      onMouseEnter={(e) => { e.currentTarget.style.background = COLORS.goldAlpha15; }}
-      onMouseLeave={(e) => { e.currentTarget.style.background = COLORS.goldAlpha04; }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = COLORS.goldAlpha15;
+        e.currentTarget.style.borderColor = COLORS.goldAlpha45;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = COLORS.goldAlpha04;
+        e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+      }}
     >
-      <span style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-        <span style={{ color: COLORS.gold, flexShrink: 0 }}><Icon size={22} /></span>
-        <span style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <span style={{ color: COLORS.offWhite, fontSize: '0.92rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+      <span style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <span
+          style={{
+            color: COLORS.gold,
+            flexShrink: 0,
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '44px',
+            height: '44px',
+            borderRadius: '10px',
+            background: COLORS.goldAlpha15,
+            border: `1px solid ${COLORS.goldAlpha25}`,
+          }}
+        >
+          <Icon size={22} />
+        </span>
+        <span style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <span style={{ color: COLORS.offWhite, fontSize: '1rem', fontFamily: FONTS.body, fontWeight: 700 }}>
             {language === 'tr' ? tool.titleTr : tool.titleEn}
           </span>
-          <span style={{ color: COLORS.silver, fontSize: '0.74rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? tool.descTr : tool.descEn}
+          <span style={{ color: COLORS.silverAlpha70, fontSize: '0.8rem', fontFamily: FONTS.body, lineHeight: 1.4 }}>
+            {language === 'tr' ? tool.descLongTr : tool.descLongEn}
           </span>
         </span>
       </span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginLeft: '12px' }}>
         <path d="M9 18l6-6-6-6" />
       </svg>
     </button>
   );
 }
 
-function ToolColumn({ titleTr, titleEn, tools, onTrigger, language }) {
-  return (
-    <div style={{ flex: 1, padding: '8px', minWidth: 0 }}>
-      <div
-        style={{
-          color: COLORS.silverAlpha40,
-          fontSize: '0.62rem',
-          fontFamily: FONTS.body,
-          fontWeight: 700,
-          letterSpacing: '0.13em',
-          textTransform: 'uppercase',
-          padding: '10px 12px 6px',
-        }}
-      >
-        {language === 'tr' ? titleTr : titleEn}
-      </div>
-      {tools.map((t) => (
-        <ToolItem key={t.event} tool={t} onClick={() => onTrigger(t.event)} language={language} />
-      ))}
-    </div>
-  );
-}
-
-function Divider() {
-  return <div style={{ width: '1px', alignSelf: 'stretch', background: COLORS.glassBorderSoft, margin: '12px 0' }} />;
-}
-
-function ToolItem({ tool, onClick, language }) {
-  // Imported tools.jsx exposes icon as a React component
+function BigToolCard({ tool, onClick, language }) {
+  // tools.jsx exposes icon as a React component
   const Icon = tool.icon;
   return (
     <button
+      type="button"
       onClick={onClick}
       style={{
         display: 'flex',
-        alignItems: 'center',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
         gap: '12px',
-        width: '100%',
-        textAlign: 'left',
-        padding: '9px 12px',
-        background: 'transparent',
-        border: 'none',
-        borderRadius: '10px',
+        padding: '20px 20px',
+        background: COLORS.glassBgFaint,
+        border: `1px solid ${COLORS.glassBorderSoft}`,
+        borderRadius: '12px',
         cursor: 'pointer',
-        transition: 'background 0.15s',
+        textAlign: 'left',
+        width: '100%',
+        minHeight: '170px',
+        transition: 'all 0.2s',
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.background = COLORS.goldAlpha04;
-        e.currentTarget.querySelector('.ti').style.color = COLORS.gold;
-        e.currentTarget.querySelector('.tl').style.color = COLORS.gold;
+        e.currentTarget.style.borderColor = COLORS.goldAlpha45;
+        e.currentTarget.style.transform = 'translateY(-2px)';
+        e.currentTarget.querySelector('.bti').style.color = COLORS.gold;
+        e.currentTarget.querySelector('.btl').style.color = COLORS.gold;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.background = 'transparent';
-        e.currentTarget.querySelector('.ti').style.color = COLORS.goldAlpha45;
-        e.currentTarget.querySelector('.tl').style.color = COLORS.offWhite;
+        e.currentTarget.style.background = COLORS.glassBgFaint;
+        e.currentTarget.style.borderColor = COLORS.glassBorderSoft;
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.querySelector('.bti').style.color = COLORS.gold;
+        e.currentTarget.querySelector('.btl').style.color = COLORS.offWhite;
       }}
     >
-      <span className="ti" style={{ color: COLORS.goldAlpha45, flexShrink: 0, transition: 'color 0.15s' }}>
-        <Icon size={16} />
+      {/* Icon badge */}
+      <span
+        className="bti"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '40px',
+          height: '40px',
+          borderRadius: '10px',
+          background: COLORS.goldAlpha15,
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          color: COLORS.gold,
+          flexShrink: 0,
+          transition: 'color 0.2s',
+        }}
+      >
+        <Icon size={20} />
       </span>
-      <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', minWidth: 0 }}>
+
+      {/* Title + long description */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
         <span
-          className="tl"
+          className="btl"
           style={{
             color: COLORS.offWhite,
-            fontSize: '0.85rem',
+            fontSize: '0.98rem',
             fontFamily: FONTS.body,
-            fontWeight: 500,
-            lineHeight: 1.3,
-            transition: 'color 0.15s',
+            fontWeight: 700,
+            lineHeight: 1.25,
+            transition: 'color 0.2s',
           }}
         >
           {language === 'tr' ? tool.titleTr : tool.titleEn}
@@ -318,18 +422,15 @@ function ToolItem({ tool, onClick, language }) {
         <span
           style={{
             color: COLORS.silverAlpha70,
-            fontSize: '0.7rem',
+            fontSize: '0.78rem',
             fontFamily: FONTS.body,
             fontWeight: 400,
-            lineHeight: 1.35,
-            // No truncation — let descriptions wrap to 2 lines if needed.
-            // Modal is wide enough that most one-liners fit; the few longer
-            // ones get a second line instead of an ellipsis.
+            lineHeight: 1.5,
           }}
         >
-          {language === 'tr' ? tool.descTr : tool.descEn}
+          {language === 'tr' ? tool.descLongTr : tool.descLongEn}
         </span>
-      </span>
+      </div>
     </button>
   );
 }
