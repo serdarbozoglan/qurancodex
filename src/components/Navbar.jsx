@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense, useRef } from 'react';
+import { useState, useEffect, lazy, Suspense, useRef, Fragment } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 // v1.1 — single source of truth for tools data, shared with the modal
@@ -8,6 +8,8 @@ import {
   ANALYSIS_TOOLS as IMPORTED_ANALYSIS,
   RESEARCH_TOOLS as IMPORTED_RESEARCH,
 } from '../data/tools';
+// v1.1 — single source of truth for explore categories, shared with AllTopics
+import { EXPLORE_CATEGORIES } from '../data/exploreCategories';
 
 const VerseGraph = lazy(() => import('./VerseGraph'));
 const ReadingMode = lazy(() => import('./ReadingMode'));
@@ -576,288 +578,59 @@ export default function Navbar() {
                       textTransform: 'uppercase',
                       padding: '10px 12px 6px',
                     };
-                    const secBtn = (sec) => (
-                      <button
-                        key={sec.id}
-                        onClick={() => { scrollTo(sec.id); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>{sec.icon}</span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? sec.keyTr : sec.keyEn}
+                    // v1.1 — Generic item renderer driven by exploreCategories.jsx.
+                    // One helper handles both section items (scroll) and overlay items
+                    // (dispatch a window event). Old per-category factories (yeminlerBtn,
+                    // renkleriBtn, kavimlerBtn, dogaBtn, meleklerBtn, cennetBtn,
+                    // kiyametBtn, zamanBtn) are replaced by this single function.
+                    const OVERLAY_EVENT_BY_TARGET = {
+                      renkler:  'openRenkler',
+                      yeminler: 'openYeminler',
+                      kavimler: 'openKavimlerAtlasi',
+                      kevni:    'openDogaAtlasi',
+                      zaman:    'openZamanBoyutlari',
+                      melekler: 'openMelekler',
+                      kiyamet:  'openKiyametSahneleri',
+                      cennet:   'openCennetCehennem',
+                    };
+                    const itemBtn = (item) => {
+                      const Icon = item.icon;
+                      const handleClick = () => {
+                        if (item.kind === 'section') {
+                          scrollTo(item.target);
+                        } else {
+                          const ev = OVERLAY_EVENT_BY_TARGET[item.target];
+                          if (ev) window.dispatchEvent(new CustomEvent(ev));
+                        }
+                        setExploreOpen(false);
+                      };
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={handleClick}
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: '12px',
+                            width: '100%', textAlign: 'left',
+                            padding: '9px 12px', borderRadius: '10px', border: 'none',
+                            background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                        >
+                          <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
+                            <Icon size={16} />
                           </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? sec.descTr : sec.descEn}
+                          <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                            <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                              {language === 'tr' ? item.titleTr : item.titleEn}
+                            </span>
+                            <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                              {language === 'tr' ? item.descTr : item.descEn}
+                            </span>
                           </span>
-                        </span>
-                      </button>
-                    );
-                    const dilYapiIds   = ['linguistic','rhythm','sounds','hidden-architecture'];
-                    const retorigiIds  = ['rhetoric','dua-language'];
-                    const tarihinInsan = ['history','human-definition','psychology'];
-                    const scienceSec   = navSections.find(s => s.id === 'science');
-                    const dilYapiSecs   = navSections.filter(s => dilYapiIds.includes(s.id));
-                    const retorigiSecs  = navSections.filter(s => retorigiIds.includes(s.id));
-                    const tarihSecs     = navSections.filter(s => tarihinInsan.includes(s.id));
-
-                    // Kur'an'ın Yeminleri — tool button (opens overlay, not scroll)
-                    const yeminlerBtn = (
-                      <button
-                        key="yeminler"
-                        onClick={() => { setYeminlerOpen(true); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/>
-                          </svg>
-                        </span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? "Kur'an'ın Yeminleri" : "Oaths of the Quran"}
-                          </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? "45 yemin — Allah neye yemin eder?" : "45 oaths — what does God swear by?"}
-                          </span>
-                        </span>
-                      </button>
-                    );
-
-                    // Zamanın Boyutları — overlay button for Evreni col
-                    const zamanBtn = (
-                      <button
-                        key="zaman"
-                        onClick={() => { setZamanOpen(true); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                          </svg>
-                        </span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? 'Zamanın Boyutları' : 'Dimensions of Time'}
-                          </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? "Kur'an'da zaman: kozmik ölçek, dil katmanı" : "Time in the Quran: cosmic scale, linguistic layer"}
-                          </span>
-                        </span>
-                      </button>
-                    );
-
-                    // Kavimler Atlası — overlay button for Tarih & İnsan col
-                    const kavimlerBtn = (
-                      <button
-                        key="kavimler"
-                        onClick={() => { setKavimlerOpen(true); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                            <line x1="2" y1="20" x2="22" y2="20"/>
-                            <line x1="5" y1="20" x2="5" y2="8"/>
-                            <line x1="9" y1="20" x2="9" y2="8"/>
-                            <line x1="2" y1="8" x2="14" y2="8"/>
-                            <line x1="15" y1="20" x2="15" y2="12"/>
-                            <line x1="19" y1="20" x2="19" y2="10"/>
-                            <line x1="14" y1="8" x2="22" y2="8"/>
-                          </svg>
-                        </span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? 'Kavimler Atlası' : 'Nations Atlas'}
-                          </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? 'Her kavmin bir peygamberi, her dersin bir sonu vardı' : 'Every nation had a prophet, every lesson an end'}
-                          </span>
-                        </span>
-                      </button>
-                    );
-
-                    // Kur'an'da Melekler — overlay button for Evreni col
-                    const meleklerBtn = (
-                      <button
-                        key="melekler"
-                        onClick={() => { setMeleklerOpen(true); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-                          </svg>
-                        </span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? "Kur'an'da Melekler" : 'Angels in the Quran'}
-                          </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? "İsimli, görevli, kıssada yer alan — tüm melekler" : "Named, described, narrative — all angels"}
-                          </span>
-                        </span>
-                      </button>
-                    );
-
-                    // Cennet & Cehennem — overlay button for Evreni col
-                    const cennetBtn = (
-                      <button
-                        key="cennet"
-                        onClick={() => { setCennetOpen(true); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                          </svg>
-                        </span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? 'Cennet & Cehennem' : 'Paradise & Hell'}
-                          </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? "8 cennet ismi, 7 cehennem ismi, A'râf" : "8 names, 7 names, the A'râf boundary"}
-                          </span>
-                        </span>
-                      </button>
-                    );
-
-                    // Kıyamet Sahneleri — overlay button for Evreni col
-                    const kiyametBtn = (
-                      <button
-                        key="kiyamet"
-                        onClick={() => { setKiyametOpen(true); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="12" y1="4" x2="12" y2="20"/>
-                            <path d="M8 6 C5 8 5 16 8 18"/>
-                            <path d="M16 6 C19 8 19 16 16 18"/>
-                          </svg>
-                        </span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? 'Kıyamet Sahneleri' : 'Scenes of Judgment'}
-                          </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? "Sur'dan kararın açıklanmasına — Kur'an'ın kıyamet kronolojisi" : "From the Trumpet to the Final Decree — the Quran's judgment chronology"}
-                          </span>
-                        </span>
-                      </button>
-                    );
-
-                    // Kur'an'ın Renkleri — overlay button for Dil & Yapı col
-                    const renkleriBtn = (
-                      <button
-                        key="renkleri"
-                        onClick={() => { setRenkleriOpen(true); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                            <circle cx="12" cy="12" r="4"/>
-                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-                          </svg>
-                        </span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? "Kur'an'ın Renkleri" : 'Colors of the Quran'}
-                          </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? "Yeşilden kırmızıya — her rengin Kur'an'daki anlamı" : "From green to red — every color's meaning in the Quran"}
-                          </span>
-                        </span>
-                      </button>
-                    );
-
-                    // Kevni Ayetler — new overlay button for Evreni col
-                    const dogaBtn = (
-                      <button
-                        key="doga"
-                        onClick={() => { setDogaOpen(true); setExploreOpen(false); }}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
-                      >
-                        <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                          </svg>
-                        </span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
-                            {language === 'tr' ? 'Kevni Ayetler' : 'Cosmic Signs'}
-                          </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                            {language === 'tr' ? "Kur'an'daki canlılar, bitkiler ve ekosistem" : "Creatures, plants & ecosystems in the Quran"}
-                          </span>
-                        </span>
-                      </button>
-                    );
+                        </button>
+                      );
+                    };
 
                     // ── v1.1 redesign — Önerilen Yollar (curated paths) ────────────
                     // Mirrors PathCards.jsx targets. Compact 4-button banner at the top
@@ -950,42 +723,21 @@ export default function Navbar() {
                           </div>
                         </div>
 
-                        {/* Existing 4-column mega-menu */}
+                        {/* 4-column mega-menu driven by EXPLORE_CATEGORIES */}
                         <div style={{ display: 'flex' }}>
-                          {/* Col 1: Dil & Yapı */}
-                          <div style={{ flex: 1, padding: '8px' }}>
-                            <div style={colLabel}>{language === 'tr' ? 'Dil & Yapı' : 'Language & Structure'}</div>
-                            {dilYapiSecs.map(secBtn)}
-                            {renkleriBtn}
-                          </div>
-                          {/* Divider */}
-                          <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                          {/* Col 2: Kur'an'ın Retoriği */}
-                          <div style={{ flex: 1, padding: '8px' }}>
-                            <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Retoriği" : "Quranic Rhetoric"}</div>
-                            {retorigiSecs.map(secBtn)}
-                            {yeminlerBtn}
-                          </div>
-                          {/* Divider */}
-                          <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                          {/* Col 3: Tarih & İnsan */}
-                          <div style={{ flex: 1, padding: '8px' }}>
-                            <div style={colLabel}>{language === 'tr' ? 'Tarih & İnsan' : 'History & Human'}</div>
-                            {tarihSecs.map(secBtn)}
-                            {kavimlerBtn}
-                          </div>
-                          {/* Divider */}
-                          <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
-                          {/* Col 4: Kur'an'ın Evreni */}
-                          <div style={{ flex: 1, padding: '8px' }}>
-                            <div style={colLabel}>{language === 'tr' ? "Kur'an'ın Evreni" : "The Quran's Universe"}</div>
-                            {scienceSec && secBtn(scienceSec)}
-                            {zamanBtn}
-                            {dogaBtn}
-                            {cennetBtn}
-                            {kiyametBtn}
-                            {meleklerBtn}
-                          </div>
+                          {EXPLORE_CATEGORIES.map((cat, catIdx) => (
+                            <Fragment key={cat.id}>
+                              {catIdx > 0 && (
+                                <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                              )}
+                              <div style={{ flex: 1, padding: '8px' }}>
+                                <div style={colLabel}>
+                                  {language === 'tr' ? cat.titleTr : cat.titleEn}
+                                </div>
+                                {cat.items.map(itemBtn)}
+                              </div>
+                            </Fragment>
+                          ))}
                         </div>
                       </div>
                     );
