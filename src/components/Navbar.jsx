@@ -1180,14 +1180,20 @@ export default function Navbar() {
     {prophetOpen && (
       <Suspense fallback={null}>
         <div style={{
-          position: 'fixed', inset: 0, zIndex: 200,
+          // zIndex 9999 matches OVERLAY_BASE used by every other overlay
+          // (KavimlerAtlasi, KissaAtlas, etc.). Navbar itself is also 9999;
+          // because this wrapper renders later in the DOM tree, it stacks
+          // above the navbar. Previous value (200) put the wrapper *under*
+          // the navbar, leaving "Kur'an'ı Oku" + EN buttons floating over
+          // the open modal — confusing layout when the user is reading.
+          position: 'fixed', inset: 0, zIndex: 9999,
           background: '#0a0a1a',
           overflowY: 'auto',
         }}>
           <button
             onClick={() => setProphetOpen(false)}
             style={{
-              position: 'fixed', top: '16px', right: '20px', zIndex: 201,
+              position: 'fixed', top: '16px', right: '20px', zIndex: 10000,
               background: 'rgba(255,255,255,0.08)',
               border: '1px solid rgba(255,255,255,0.15)',
               borderRadius: '50%', width: '36px', height: '36px',
