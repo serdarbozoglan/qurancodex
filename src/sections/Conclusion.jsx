@@ -6,8 +6,15 @@ import QuranVerse from '../components/QuranVerse';
 export default function Conclusion() {
   const { t } = useLanguage();
 
-  const handleScrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // v1.1 redesign: jump to discovery layer (PathCards), not the very top
+  const handleScrollToPaths = () => {
+    const el = document.getElementById('path-cards');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback for pages where PathCards isn't mounted
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleOpenReading = () => {
@@ -65,7 +72,7 @@ export default function Conclusion() {
         className="flex flex-col sm:flex-row items-center gap-3 mt-10"
       >
         <motion.button
-          onClick={handleScrollTop}
+          onClick={handleScrollToPaths}
           className="btn-ghost-dark px-10 py-3 text-gold font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}

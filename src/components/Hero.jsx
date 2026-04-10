@@ -67,7 +67,7 @@ export default function Hero() {
         >
           <motion.button
             onClick={() =>
-              document.getElementById('linguistic')?.scrollIntoView({ behavior: 'smooth' })
+              document.getElementById('path-cards')?.scrollIntoView({ behavior: 'smooth' })
             }
             className="btn-ghost-dark px-10 py-3 text-gold font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
             whileHover={{ scale: 1.05 }}
