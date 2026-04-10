@@ -189,6 +189,24 @@ export default function HistoricalProof() {
                               )}
                             />
                           )}
+
+                          {/* Critical note — academic caveat */}
+                          {story.criticalNote && (
+                            <div className="mt-4 rounded-lg px-5 py-4 border border-white/5 border-l-2 border-l-silver/25 bg-white/[0.02]">
+                              <div className="flex items-center gap-2 mb-2">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-silver/40">
+                                  <path d="M12 3v18M3 9l9-6 9 6M5 21h14"/>
+                                  <path d="M3 9c0 3 2 5 4 6M21 9c0 3-2 5-4 6"/>
+                                </svg>
+                                <span className="text-[0.62rem] font-body font-semibold uppercase tracking-[0.16em] text-silver/40">
+                                  {t('historicalProof.criticalNoteLabel') || 'Eleştirel Not'}
+                                </span>
+                              </div>
+                              <p className="text-[0.82rem] font-body italic leading-[1.78] text-silver/60 m-0">
+                                {story.criticalNote}
+                              </p>
+                            </div>
+                          )}
                         </div>
                       </motion.div>
                     )}

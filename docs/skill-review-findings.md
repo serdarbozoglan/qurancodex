@@ -53,6 +53,35 @@
 
 ---
 
+## ✅ Faz 2 — Content Accuracy (Tamamlandı 2026-04-10)
+
+### 2.1 — ScientificSigns criticalNote kontrolü
+- [src/sections/ScientificSigns.jsx](src/sections/ScientificSigns.jsx) zaten `criticalNote` alanını render ediyor (4 tab)
+- tr.json ve en.json'da `iron`, `universe`, `ocean`, `embryo` tab'larının tümünde `criticalNote` mevcut ✅
+- Moore (embryo) ve Zaghloul el-Naggar/Mevdudi (universe) kritik notları mevcut
+- **Değişiklik gerekmedi**
+
+### 2.2 — HistoricalProof criticalNote eklendi
+**Kod değişikliği:** [src/sections/HistoricalProof.jsx](src/sections/HistoricalProof.jsx)
+- `story.verse`'den sonra, `story.criticalNote` varsa render eden yeni blok eklendi
+- ScientificSigns'la aynı görsel stil: sol-border + terazi ikonu + "Eleştirel Not" başlığı + italic metin
+
+**i18n değişikliği:** tr.json + en.json
+- `historicalProof.criticalNoteLabel` eklendi (TR: "Eleştirel Not", EN: "Critical Note")
+- 3 kart için akademik uyarı notları eklendi:
+  - **Pharaoh:** Ramses II özdeşleştirmesinin varsayımsal olduğu, Bucaille tuz kristalleri yorumunun tartışmalı kabul edildiği, ayetin vurgusunun mumyaya değil "ibret"e olduğu
+  - **Haman:** Ranke'nin 'Ḥmn' kökünün Kur'an'daki Haman ile özdeşliğinin bazı akademisyenler tarafından kabul edildiği, Ranke'nin kendisinin bu bağı kurmadığı
+  - **Rome:** "Edna el-ard" → "en alçak yer" okumasının modern bir yorum olduğu, klasik tefsir geleneğinde bu bağın kurulmadığı
+
+### 2.3 — WowFacts mutlak iddiaları yumuşatıldı
+- [src/components/WowFacts.jsx:246](src/components/WowFacts.jsx#L246) — Şems 11 yemin kartı: `"Kur'an'ın başka hiçbir sûresinde bu yoğunlukta art arda yemin yoktur"` → `"Kur'an'ın yemin içeren sûreleri arasında bu art arda yoğunluk nadirdir"`
+- [src/components/WowFacts.jsx:302](src/components/WowFacts.jsx#L302) — Hz. Nuh 950 yıl kartı: `"Başka hiçbir kutsal metin bu süreyi bu kadar net vermez"` → `"Bu süreyi bu kadar net bir rakamla veren az sayıda kaynaktan biridir"`
+
+### Test sonucu
+46/46 passing — i18n key parity testleri yeni eklenen 4 anahtarı (criticalNoteLabel + 3 criticalNote) doğruladı.
+
+---
+
 ---
 
 ## Özet

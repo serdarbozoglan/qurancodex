@@ -349,6 +349,7 @@
     "badge": "Historical Evidence",
     "title": "Three Stories Confirmed by History",
     "intro": "For centuries, details in the Quran were dismissed as 'errors.' Modern archaeology and linguistics proved them right. Here are three striking examples.",
+    "criticalNoteLabel": "Critical Note",
     "pharaoh": {
       "title": "The Pharaoh's Body",
       "subtitle": "~1200 BCE — Confirmed in 1881",
@@ -361,6 +362,7 @@
         "In the 7th century, the existence of these mummies was unknown"
       ],
       "significance": "Why it matters: The Torah says he drowned — silent about the body. Only the Quran said 1,400 years ago 'We will preserve your body as a sign' — and the mummy was actually found. This information could not have been known from any 7th-century source.",
+      "criticalNote": "The identification of the Pharaoh of the Exodus is not certain; the association with Ramesses II is a common assumption, not an established finding. Bucaille's 1975 interpretation of 'salt crystals' is considered debatable in scholarly circles and cannot be presented as direct evidence. The verse primarily emphasizes the preservation of the Pharaoh's body as a 'sign,' not the discovery of a specific mummy.",
       "verse": {
         "arabic": "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ آيَةً",
         "translation": "Today We will preserve your body so that you may be a sign for those who come after you.",
@@ -378,7 +380,8 @@
         "Role: overseer of stone workers, construction manager - New Kingdom period",
         "The Quran describes Haman as a construction official - historically verified"
       ],
-      "significance": "Why it matters: This alleged 'error' was used to attack the Quran for 1,200 years. After hieroglyphs were decoded, Egyptian records confirmed a construction official named Haman actually existed. The critique reversed into evidence."
+      "significance": "Why it matters: This alleged 'error' was used to attack the Quran for 1,200 years. After hieroglyphs were decoded, Egyptian records confirmed a construction official named Haman actually existed. The critique reversed into evidence.",
+      "criticalNote": "Ranke's 1935 'Die Ägyptischen Personennamen' records names from the 'Ḥmn' root; however, the identification of these names with the Haman of the Quran is accepted by some scholars as a linguistic convergence, while others consider them unrelated. Ranke himself did not interpret this correspondence in a Quranic context."
     },
     "rome": {
       "title": "Rome's Impossible Victory",
@@ -392,6 +395,7 @@
         "This geographical fact was only discovered in the 19th century"
       ],
       "significance": "Why it matters: Both the '3-9 years' timeframe and the Dead Sea being the lowest point on Earth were unknowable in the 7th century. Both confirmed independently — one by history, one by geography.",
+      "criticalNote": "The geological reading of 'Adna al-ard' as 'the lowest land' is a modern interpretation; classical commentaries mostly explain this phrase geographically as 'the region nearest to the Arabs.' The discovery that the Dead Sea region is the lowest point on Earth is a relatively recent scientific measurement, and this connection was not drawn in the classical tafsir tradition.",
       "verse": {
         "arabic": "غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
         "translation": "The Romans have been defeated in the nearest land. But after their defeat, they will triumph within a few years.",

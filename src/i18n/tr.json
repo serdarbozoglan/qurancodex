@@ -349,6 +349,7 @@
     "badge": "Tarihsel Kanıtlar",
     "title": "Tarihin Doğruladığı Üç Hikaye",
     "intro": "Yüzyıllar boyunca 'hata' denilen detaylar, modern arkeoloji ve dilbilim tarafından doğrulandı. İşte üç çarpıcı örnek.",
+    "criticalNoteLabel": "Eleştirel Not",
     "pharaoh": {
       "title": "Firavun'un Bedeni",
       "subtitle": "MÖ ~1200 — 1881'de doğrulandı",
@@ -361,6 +362,7 @@
         "7. yüzyılda bu mumyaların varlığı bilinmiyordu"
       ],
       "significance": "Neden önemli: Tevrat boğuldu der, bedenden bahsetmez. Yalnızca Kur'an 1.400 yıl önce 'bedenini koruyacağız' dedi — ve mumya gerçekten bulundu. Bu bilgi 7. yüzyılda hiçbir kaynaktan öğrenilemezdi.",
+      "criticalNote": "Hz. Musa döneminin Firavun'unun hangi mumya olduğu kesin değildir; Ramses II ile özdeşleştirme yaygın bir varsayım, kesin bir bulgu değildir. Bucaille'in 1975'teki 'tuz kristalleri' yorumu bilim çevrelerinde tartışmalı kabul edilir ve doğrudan kanıt olarak sunulamaz. Ayetin vurgusu ise asıl olarak bir mumyaya değil, Firavun'un bedeninin 'ibret' olarak kalmasına atıftır.",
       "verse": {
         "arabic": "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ آيَةً",
         "translation": "Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.",
@@ -378,7 +380,8 @@
         "Görevi: taş işçileri gözetmeni, inşaat sorumlusu - Yeni Krallık dönemi",
         "Kur'an Haman'ı inşaat sorumlusu olarak tanımlıyor - tarihsel olarak doğrulandı"
       ],
-      "significance": "Neden önemli: Bu 'hata' Kur'an'ı çürütmek için 1.200 yıl boyunca kullanıldı. Hiyerogliflerin çözülmesiyle anlaşıldı: Mısır kayıtlarında gerçekten 'Haman' isimli bir inşaat yöneticisi vardı. Eleştirinin kendisi arkeolojik kanıtla tersine döndü."
+      "significance": "Neden önemli: Bu 'hata' Kur'an'ı çürütmek için 1.200 yıl boyunca kullanıldı. Hiyerogliflerin çözülmesiyle anlaşıldı: Mısır kayıtlarında gerçekten 'Haman' isimli bir inşaat yöneticisi vardı. Eleştirinin kendisi arkeolojik kanıtla tersine döndü.",
+      "criticalNote": "Ranke'nin 1935 tarihli 'Die Ägyptischen Personennamen' eserinde 'Ḥmn' kökünden isimler geçmektedir; ancak bu isimlerin Kur'an'daki Haman ile özdeşliği bazı akademisyenler tarafından dilbilimsel bir yakınlaşma olarak kabul edilirken, diğerleri farklı kökenli isimler olarak değerlendirir. Ranke'nin kendisi bu özdeşliği Kur'ansal bir bağlamda yorumlamamıştır."
     },
     "rome": {
       "title": "Roma'nın İmkansız Zaferi",
@@ -392,6 +395,7 @@
         "Bu coğrafi gerçek 19. yüzyılda keşfedildi"
       ],
       "significance": "Neden önemli: Hem '3-9 yıl içinde' zaman tahmini hem de Ölü Deniz'in dünyanın en alçak noktası olduğu 7. yüzyılda bilinmesi imkânsız detaylardı. İkisi de bağımsız olarak doğrulandı — biri tarihe, diğeri coğrafyaya kazındı.",
+      "criticalNote": "'Edna el-ard' ifadesinin 'en alçak yer' şeklindeki jeolojik yorumu modern bir okumadır; klasik tefsirlerin çoğu bu ifadeyi coğrafi olarak 'Araplara en yakın bölge' şeklinde açıklar. Ölü Deniz çevresinin dünyanın en alçak kara noktası olduğu bulgusu ise bu okumayı tartışmalı kılacak kadar yeni bir bilimsel ölçümdür ve klasik tefsir geleneğinde bu bağ kurulmamıştır.",
       "verse": {
         "arabic": "غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
         "translation": "Rumlar en yakın yerde yenildi. Ama onlar, yenilgilerinden sonra birkaç yıl içinde galip gelecekler.",
