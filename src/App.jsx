@@ -1,6 +1,10 @@
 import { LanguageProvider } from './i18n/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+// v1.1 redesign — discovery layer (mounted right after Hero)
+import PathCards from './sections/PathCards';
+import AllTopics from './sections/AllTopics';
+// Existing long-form content sections
 import LinguisticDNA from './sections/LinguisticDNA';
 import ImpossibleRhythm from './sections/ImpossibleRhythm';
 import QuranRhetoric from './sections/QuranRhetoric';
@@ -25,8 +29,16 @@ export default function App() {
       <Navbar />
       <ChapterProgress />
       <main>
+        {/* Hero */}
         <Hero />
+
+        {/* ── v1.1 discovery layer ─────────────────────────────────────── */}
         <div className="gradient-divider" />
+        <PathCards />
+        <AllTopics />
+
+        {/* ── Existing long-form content (unchanged order) ─────────────── */}
+        <div className="gradient-divider-reverse" />
         <LinguisticDNA />
         <ImpossibleRhythm />
         <div className="gradient-divider" />
