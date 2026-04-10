@@ -12,6 +12,7 @@ export const COLORS = {
   // Accent
   gold:          '#d4a574',
   royalGold:     '#c9a227',
+  goldAlpha04:   'rgba(212,165,116,0.04)',
   goldAlpha15:   'rgba(212,165,116,0.15)',
   goldAlpha25:   'rgba(212,165,116,0.25)',
   goldAlpha45:   'rgba(212,165,116,0.45)',
@@ -39,6 +40,7 @@ export const COLORS = {
   goldAlpha20:   'rgba(212,165,116,0.20)',
 
   // Glass
+  glassBgFaint:  'rgba(255,255,255,0.025)',
   glassBg:       'rgba(255,255,255,0.05)',
   glassBgStrong: 'rgba(255,255,255,0.08)',
   glassBorder:   'rgba(255,255,255,0.1)',

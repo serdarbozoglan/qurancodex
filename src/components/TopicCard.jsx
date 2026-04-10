@@ -45,7 +45,7 @@ export default function TopicCard({
         alignItems: 'center',
         gap: '12px',
         padding: '11px 14px',
-        background: 'rgba(255,255,255,0.025)',
+        background: COLORS.glassBgFaint,
         border: `1px solid ${COLORS.glassBorderSoft}`,
         borderRadius: '10px',
         cursor: 'pointer',
@@ -55,11 +55,11 @@ export default function TopicCard({
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.borderColor = COLORS.goldAlpha25;
-        e.currentTarget.style.background = 'rgba(212,165,116,0.04)';
+        e.currentTarget.style.background = COLORS.goldAlpha04;
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.borderColor = COLORS.glassBorderSoft;
-        e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
+        e.currentTarget.style.background = COLORS.glassBgFaint;
       }}
     >
       {/* Topic icon */}
