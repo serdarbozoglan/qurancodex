@@ -122,7 +122,7 @@ const FEATURED_TOOLS = [
 
 export default function ToolsHighlight() {
   const { language } = useLanguage();
-  const { openOverlay, scrollToSection } = useQuranNav();
+  const { openOverlay } = useQuranNav();
   const [columns, setColumns] = useState(() => getColumnCount(window.innerWidth));
 
   useEffect(() => {
@@ -131,11 +131,12 @@ export default function ToolsHighlight() {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  // "Tüm Araçları Gör" → scroll to the existing ToolsShowcase section near the
-  // bottom of the page. Single intent, predictable destination, persistent
-  // (no dropdown that vanishes on outside click). Long-term: dedicated /araclar
-  // page; for now, an anchor scroll is the right call.
-  const handleViewAll = () => scrollToSection('tools-showcase');
+  // "Tüm Araçları Gör" → open the Tools mega-menu in Navbar without scrolling.
+  // Navbar is fixed-top so the dropdown emerges from the top of the viewport
+  // while the user keeps their current scroll position. Single, consistent
+  // mechanism for all "view tools" actions across the page.
+  // Long-term: dedicated /araclar page with all 17 tools and category filters.
+  const handleViewAll = () => openOverlay('toolsMenu');
 
   return (
     <SectionWrapper id="tools-highlight" dark={false}>
