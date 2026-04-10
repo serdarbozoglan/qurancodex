@@ -21,6 +21,8 @@ export const COLORS = {
   offWhite:      '#e8e6e3',
   silver:        '#94a3b8',
   silverAlpha12: 'rgba(148,163,184,0.12)',
+  silverAlpha40: 'rgba(148,163,184,0.40)',
+  silverAlpha70: 'rgba(148,163,184,0.70)',
   slate500:      '#64748b',
 
   // Semantic
@@ -46,6 +48,9 @@ export const COLORS = {
   glassBgStrong: 'rgba(255,255,255,0.08)',
   glassBorder:   'rgba(255,255,255,0.1)',
   glassBorderSoft: 'rgba(255,255,255,0.06)',
+
+  // Modal backdrop dim
+  backdropDim:   'rgba(0,0,0,0.65)',
 };
 
 // ── Fonts ─────────────────────────────────────────────────────────────────────

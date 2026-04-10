@@ -131,12 +131,11 @@ export default function ToolsHighlight() {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  // "Tüm Araçları Gör" → open the Tools mega-menu in Navbar without scrolling.
-  // Navbar is fixed-top so the dropdown emerges from the top of the viewport
-  // while the user keeps their current scroll position. Single, consistent
-  // mechanism for all "view tools" actions across the page.
-  // Long-term: dedicated /araclar page with all 17 tools and category filters.
-  const handleViewAll = () => openOverlay('toolsMenu');
+  // "Tüm Araçları Gör" → open the centered ToolsBrowser modal.
+  // The modal is intentional, persistent, doesn't conflict with underlying
+  // content, and matches the user intent ("browse all tools") rather than
+  // navigation ("go somewhere"). Long-term: dedicated /araclar page.
+  const handleViewAll = () => openOverlay('allTools');
 
   return (
     <SectionWrapper id="tools-highlight" dark={false}>

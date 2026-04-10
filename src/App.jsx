@@ -23,6 +23,8 @@ import ToolsShowcase from './sections/ToolsShowcase';
 import Conclusion from './sections/Conclusion';
 import ChapterProgress from './components/ChapterProgress';
 import Footer from './components/Footer';
+// v1.1 — centered modal listing all 17 interactive tools
+import ToolsBrowser from './components/ToolsBrowser';
 
 export default function App() {
   return (
@@ -65,6 +67,8 @@ export default function App() {
         <Conclusion />
       </main>
       <Footer />
+      {/* Tools browser modal — opens via openOverlay('allTools') from anywhere */}
+      <ToolsBrowser />
     </LanguageProvider>
   );
 }

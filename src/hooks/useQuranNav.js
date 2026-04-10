@@ -18,6 +18,9 @@ const OVERLAY_EVENTS = {
   reading:    'openReadingMode',
   graph:      'openVerseGraph',
 
+  // v1.1 — full tools browser modal (centered modal, NOT navbar dropdown)
+  allTools:   'openToolsBrowser',
+
   // Existing Navbar listeners
   cennet:     'openCennetCehennem',
   kavimler:   'openKavimlerAtlasi',
