@@ -888,31 +888,36 @@ export default function Navbar() {
         {/* Right: Oku + Language + Mobile */}
         <div className="flex items-center gap-3">
 
-          {/* Oku — CTA (filled tint, distinct from EN utility button) */}
+          {/* Oku — primary CTA (v1.1: upgraded from tinted outline to solid
+              amber fill with glow, since Hero no longer has its own
+              Read Quran button and this is the sole always-visible entry). */}
           <button
             onClick={() => setReadingOpen(true)}
             className="hidden lg:flex items-center transition-all duration-200"
             style={{
-              background: 'rgba(201,169,110,0.1)',
-              border: '1px solid rgba(201,169,110,0.55)',
+              background: '#d4a96e',
+              border: '1px solid #d4a96e',
               borderRadius: '6px',
-              color: '#d4a96e',
+              color: '#08091a',
               fontFamily: "'Inter', sans-serif",
-              fontSize: '0.78rem',
+              fontSize: '0.82rem',
               fontWeight: 700,
               letterSpacing: '0.07em',
-              padding: '7px 18px',
-              height: '32px',
+              padding: '7px 20px',
+              height: '34px',
               cursor: 'pointer',
+              boxShadow: '0 0 12px rgba(212,169,78,0.4)',
               transition: 'all 0.15s',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.background = 'rgba(201,169,110,0.2)';
-              e.currentTarget.style.borderColor = 'rgba(201,169,110,0.9)';
+              e.currentTarget.style.background = '#e0b87d';
+              e.currentTarget.style.borderColor = '#e0b87d';
+              e.currentTarget.style.boxShadow = '0 0 20px rgba(212,169,78,0.6)';
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.background = 'rgba(201,169,110,0.1)';
-              e.currentTarget.style.borderColor = 'rgba(201,169,110,0.55)';
+              e.currentTarget.style.background = '#d4a96e';
+              e.currentTarget.style.borderColor = '#d4a96e';
+              e.currentTarget.style.boxShadow = '0 0 12px rgba(212,169,78,0.4)';
             }}
           >
             {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
@@ -1011,27 +1016,30 @@ export default function Navbar() {
             </button>
 
             <div className="flex flex-col gap-1" style={{ padding: '80px 24px 40px' }}>
-              {/* Oku — top of mobile */}
+              {/* Oku — full-width primary at the top of the mobile menu.
+                  Matches the desktop button's visual weight with an amber
+                  glow, and uses the same label as desktop ("Kur'an'ı Oku"). */}
               <button
                 onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
-                className="flex items-center gap-2 py-3 border-b border-white/5"
+                className="flex items-center gap-2"
                 style={{
                   color: '#1a0e00',
                   background: 'linear-gradient(135deg, #d4a574 0%, #c9a227 100%)',
                   borderRadius: '8px',
-                  padding: '10px 16px',
+                  padding: '12px 16px',
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: '0.85rem',
+                  fontSize: '0.9rem',
                   fontWeight: 700,
                   letterSpacing: '0.05em',
                   border: 'none',
                   width: '100%',
                   justifyContent: 'center',
-                  marginBottom: '4px',
+                  marginBottom: '12px',
+                  boxShadow: '0 0 16px rgba(212,169,78,0.4)',
                 }}
               >
-                <span style={{ fontSize: '0.6rem', opacity: 0.5 }}>✦</span>
-                {language === 'tr' ? 'Kur\'an Oku' : 'Read Quran'}
+                <span style={{ fontSize: '0.65rem', opacity: 0.55 }}>✦</span>
+                {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
               </button>
 
               {/* Section anchors */}
