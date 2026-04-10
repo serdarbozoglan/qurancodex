@@ -300,6 +300,36 @@ export default function Navbar() {
     };
   }, []);
 
+  // ── v1.1 redesign — discovery layer events ────────────────────────────────
+  // Listeners for the new homepage (PathCards / AllTopics / ToolsHighlight)
+  // dispatched via the useQuranNav hook. Each entry maps a CustomEvent name
+  // to its overlay state setter. Keeping these grouped makes the discovery
+  // layer's surface explicit.
+  useEffect(() => {
+    const handlers = [
+      ['openYeminler',         () => setYeminlerOpen(true)],
+      ['openMelekler',         () => setMeleklerOpen(true)],
+      ['openRenkler',          () => setRenkleriOpen(true)],
+      ['openZamanBoyutlari',   () => setZamanOpen(true)],
+      ['openDogaAtlasi',       () => setDogaOpen(true)],
+      ['openKiyametSahneleri', () => setKiyametOpen(true)],
+      ['openWowFacts',         () => setWowOpen(true)],
+      ['openConceptGraph',     () => { conceptRestoreRef.current = null; setConceptOpen(true); }],
+      ['openProphetAtlas',     () => setProphetOpen(true)],
+      ['openHeatmap',          () => setHeatmapOpen(true)],
+      ['openRevelationOrder',  () => setRevelationOpen(true)],
+      ['openEsmaFrekans',      () => setEsmaOpen(true)],
+      ['openAddresseeSystem',  () => setAddresseeOpen(true)],
+      ['openSurahCommands',    () => setCommandsOpen(true)],
+      ['openSurahComparator',  () => setComparatorOpen(true)],
+      ['openDiyalogAgi',       () => setDiyalogOpen(true)],
+    ];
+    handlers.forEach(([name, fn]) => window.addEventListener(name, fn));
+    return () => {
+      handlers.forEach(([name, fn]) => window.removeEventListener(name, fn));
+    };
+  }, []);
+
   // Auto-open VerseGraph if ?verse= param in URL
   useEffect(() => {
     const urlVerse = new URLSearchParams(window.location.search).get('verse');
