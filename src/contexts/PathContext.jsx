@@ -230,12 +230,28 @@ export function PathProvider({ children }) {
 
   // completePath — called when the user clicks "Yolu Tamamla" on the last
   // step. Marks the path as completed in localStorage, shows a brief success
-  // state in the breadcrumb, then exits path mode. The user stays where they
-  // are: no scroll, no redirect. If the last step is an overlay, we leave
-  // the overlay open — the user is in the middle of content and we don't
-  // want to yank them out.
+  // state in the breadcrumb, then exits path mode.
+  //
+  // Stay-in-place rule:
+  //   - Section step: user stays where they are. The Conclusion is right
+  //     below them, the page has its own narrative arc. No scroll.
+  //   - Overlay step: the modal stays OPEN — the user might still be
+  //     reading. We don't yank them out. But once they close the modal
+  //     themselves (their decision, their timing), we softly scroll the
+  //     page to #path-cards so they land on the entry point they came
+  //     from, see the new ✓ badge on the completed card, and have a
+  //     natural prompt to start another path.
+  //
+  // The "modal closed" signal comes from popstate — Navbar's existing
+  // pushState({overlay:true}) pattern. This is the same channel the
+  // auto-advance handler already uses. We register a one-time listener
+  // 1.5s after completion (after the success cue clears) so it doesn't
+  // accidentally fire on the close that completing itself might trigger.
   const completePath = useCallback(() => {
     if (!activePath) return;
+
+    const lastStep = activePath.steps[activePath.steps.length - 1];
+    const lastIsOverlay = lastStep?.kind === 'overlay';
 
     // Record completion (dedupe — a user can re-run a path)
     setCompletedPathIds((prev) => {
@@ -255,6 +271,25 @@ export function PathProvider({ children }) {
       setActivePathId(null);
       setStepIndex(0);
       clearStorage();
+
+      // Overlay-step completion: register a one-time popstate listener so
+      // that when the user eventually closes the still-open modal, we soft
+      // scroll to PathCards. Section-step completion does nothing here —
+      // the user is already on the page and stays put.
+      if (lastIsOverlay) {
+        const handleClose = () => {
+          window.removeEventListener('popstate', handleClose);
+          // Soft scroll to PathCards. Same offset math as scrollToSection
+          // helper above so the section sits below the fixed navbar.
+          const el = document.getElementById('path-cards');
+          if (!el) return;
+          const navEl = document.querySelector('nav');
+          const navHeight = navEl?.offsetHeight ?? 64;
+          const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+          window.scrollTo({ top, behavior: 'smooth' });
+        };
+        window.addEventListener('popstate', handleClose);
+      }
     }, 1500);
   }, [activePath]);
 
