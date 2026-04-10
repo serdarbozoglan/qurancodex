@@ -132,16 +132,18 @@ export default function PathCards() {
         </span>
       </motion.div>
 
-      {/* Heading */}
+      {/* Heading — slightly tighter than other sections so the 2x2 grid
+          plus heading + subtitle fit cleanly inside one viewport when the
+          user clicks "Keşfe Başla" from Hero. */}
       <motion.h2
         variants={fadeUpItem}
         style={{
           fontFamily: FONTS.display,
-          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontSize: 'clamp(1.7rem, 3.6vw, 2.4rem)',
           fontWeight: 700,
           color: COLORS.offWhite,
-          marginTop: '12px',
-          marginBottom: '12px',
+          marginTop: '8px',
+          marginBottom: '8px',
           maxWidth: '60ch',
           lineHeight: 1.15,
         }}
@@ -152,7 +154,8 @@ export default function PathCards() {
       {/* Subtitle */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-10"
+        className="text-silver leading-relaxed max-w-3xl mb-6"
+        style={{ fontSize: '0.95rem' }}
       >
         {language === 'tr'
           ? 'Konuya göre bir yol seç. Her yol seni bir keşif zincirinden geçirir.'
@@ -165,7 +168,7 @@ export default function PathCards() {
         style={{
           display: 'grid',
           gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
-          gap: isMobile ? '14px' : '20px',
+          gap: isMobile ? '12px' : '16px',
         }}
       >
         {PATHS.map((path) => (

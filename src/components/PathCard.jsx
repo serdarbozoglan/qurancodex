@@ -49,19 +49,19 @@ export default function PathCard({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        gap: '18px',
-        padding: '28px 26px',
+        gap: '14px',
+        padding: '22px 24px',
         textAlign: 'left',
         cursor: 'pointer',
         width: '100%',
-        minHeight: '260px',
+        minHeight: '215px',
       }}
     >
       {/* Icon */}
       <div
         style={{
-          width: '52px',
-          height: '52px',
+          width: '46px',
+          height: '46px',
           borderRadius: '12px',
           background: COLORS.goldAlpha15,
           border: `1px solid ${COLORS.goldAlpha25}`,
@@ -81,7 +81,7 @@ export default function PathCard({
         <h3
           style={{
             fontFamily: FONTS.display,
-            fontSize: '1.5rem',
+            fontSize: '1.4rem',
             fontWeight: 700,
             color: COLORS.offWhite,
             margin: 0,
@@ -93,10 +93,10 @@ export default function PathCard({
         <p
           style={{
             fontFamily: FONTS.body,
-            fontSize: '0.92rem',
+            fontSize: '0.88rem',
             color: COLORS.silver,
-            margin: '8px 0 0',
-            lineHeight: 1.6,
+            margin: '6px 0 0',
+            lineHeight: 1.5,
           }}
         >
           {desc}
