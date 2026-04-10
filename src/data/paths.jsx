@@ -24,11 +24,25 @@ export const PATH_OVERLAY_EVENTS = {
   dua:      'openDuaVerses',
   kevni:    'openDogaAtlasi',
   zaman:    'openZamanBoyutlari',
-  cennet:   'openCennetCehennem',
 };
 
 // Each path: { id, titleTr/En, accentColor (optional), steps: [{ id, kind, target, labelTr/En }] }
 // `id` on a step is stable + unique within the path (used as React key).
+
+// Path step lists revised after content-accuracy review (2026-04-10):
+//
+// - "Tarihsel Kanıtlar" moved from the Prophets path to the Universe path.
+//   Its content (Pharaoh's mummy, Haman's name, Rome's prophecy) is about
+//   archaeological/historical *verification*, not prophet narratives —
+//   same epistemic category as Scientific Signs ("1400 years later,
+//   modern evidence confirms the text").
+//
+// - Prophets path is now 3 steps (all overlays). Asymmetry with the other
+//   4-step paths is intentional and small; forcing a 4th step would dilute
+//   the theme.
+//
+// - "Cennet & Cehennem" removed from the Universe path. It's eschatology,
+//   not physical cosmos / science. Still accessible via AllTopics grid.
 
 export const PATHS = [
   {
@@ -47,10 +61,9 @@ export const PATHS = [
     titleTr: 'Peygamberleri ve Kıssaları Tanı',
     titleEn: 'Meet the Prophets and Their Stories',
     steps: [
-      { id: 'history',  kind: 'section', target: 'history',  labelTr: 'Tarihsel Kanıtlar',  labelEn: 'Historical Proof'  },
-      { id: 'kissa',    kind: 'overlay', target: 'kissa',    labelTr: 'Kıssa Atlası',       labelEn: 'Story Atlas'       },
-      { id: 'prophet',  kind: 'overlay', target: 'prophet',  labelTr: 'Peygamberler Atlası',labelEn: 'Prophets Atlas'    },
-      { id: 'kavimler', kind: 'overlay', target: 'kavimler', labelTr: 'Kavimler Atlası',    labelEn: 'Nations Atlas'     },
+      { id: 'kissa',    kind: 'overlay', target: 'kissa',    labelTr: 'Kıssa Atlası',        labelEn: 'Story Atlas'    },
+      { id: 'prophet',  kind: 'overlay', target: 'prophet',  labelTr: 'Peygamberler Atlası', labelEn: 'Prophets Atlas' },
+      { id: 'kavimler', kind: 'overlay', target: 'kavimler', labelTr: 'Kavimler Atlası',     labelEn: 'Nations Atlas'  },
     ],
   },
   {
@@ -70,9 +83,9 @@ export const PATHS = [
     titleEn: 'Universe and Science',
     steps: [
       { id: 'science', kind: 'section', target: 'science', labelTr: 'Bilimsel İşaretler', labelEn: 'Scientific Signs'   },
+      { id: 'history', kind: 'section', target: 'history', labelTr: 'Tarihsel Kanıtlar',  labelEn: 'Historical Proof'   },
       { id: 'kevni',   kind: 'overlay', target: 'kevni',   labelTr: 'Kevni Ayetler',      labelEn: 'Cosmic Signs'       },
       { id: 'zaman',   kind: 'overlay', target: 'zaman',   labelTr: 'Zaman Boyutları',    labelEn: 'Dimensions of Time' },
-      { id: 'cennet',  kind: 'overlay', target: 'cennet',  labelTr: 'Cennet & Cehennem',  labelEn: 'Heaven & Hell'      },
     ],
   },
 ];

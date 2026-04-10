@@ -42,16 +42,17 @@ const PATHS = [
   },
   {
     id: 'peygamberler',
-    target: 'history',
+    target: 'history', // legacy field, unused now that the card triggers path mode
     titleTr: 'Peygamberleri ve Kıssaları Tanı',
     titleEn: 'Meet the Prophets and Their Stories',
     descTr: '23 yıla yayılan vahyin içindeki insan hikayeleri',
     descEn: 'The human stories woven through 23 years of revelation',
+    // Pill preview must match paths.jsx step order — prophets path is
+    // 3 overlay steps after the content-accuracy revision (2026-04-10).
     steps: [
-      { tr: 'Tarihsel Kanıtlar', en: 'Historical Proof' },
-      { tr: 'Kıssa Atlası',      en: 'Story Atlas' },
-      { tr: 'Peygamberler',      en: 'Prophets' },
-      { tr: 'Kavimler',          en: 'Nations' },
+      { tr: 'Kıssa Atlası',       en: 'Story Atlas' },
+      { tr: 'Peygamberler Atlası',en: 'Prophets Atlas' },
+      { tr: 'Kavimler Atlası',    en: 'Nations Atlas' },
     ],
     icon: (
       // Path / footprints
@@ -87,16 +88,20 @@ const PATHS = [
   },
   {
     id: 'evren',
-    target: 'science',
+    target: 'science', // legacy field, unused now that the card triggers path mode
     titleTr: 'Evren ve Bilim',
     titleEn: 'Universe and Science',
     descTr: 'Modern bilimin 1.400 yıl sonra keşfettikleri',
     descEn: 'What modern science only discovered 1,400 years later',
+    // Pill preview must match paths.jsx step order. Tarihsel Kanıtlar moved
+    // here from the Prophets path because its content is archaeological
+    // verification (same epistemic category as Scientific Signs). Cennet &
+    // Cehennem removed — eschatology, not physical cosmos.
     steps: [
       { tr: 'Bilimsel İşaretler', en: 'Scientific Signs' },
+      { tr: 'Tarihsel Kanıtlar',  en: 'Historical Proof' },
       { tr: 'Kevni Ayetler',      en: 'Cosmic Signs' },
       { tr: 'Zaman Boyutları',    en: 'Dimensions of Time' },
-      { tr: 'Cennet & Cehennem',  en: 'Heaven & Hell' },
     ],
     icon: (
       // Star / cosmos
