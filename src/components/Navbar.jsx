@@ -1190,22 +1190,57 @@ export default function Navbar() {
           background: '#0a0a1a',
           overflowY: 'auto',
         }}>
-          <button
-            onClick={() => setProphetOpen(false)}
-            style={{
-              position: 'fixed', top: '16px', right: '20px', zIndex: 10000,
-              background: 'rgba(255,255,255,0.08)',
-              border: '1px solid rgba(255,255,255,0.15)',
-              borderRadius: '50%', width: '36px', height: '36px',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer', color: '#e8e6e3',
-            }}
-            aria-label="Close"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-          </button>
+          {/* Header — matches the OVERLAY_HEADER + OVERLAY_TITLE pattern
+              every other overlay uses (gold title, top-left, with the close
+              button top-right). ProphetAtlas itself doesn't use OVERLAY_BASE
+              so we put the chrome here in the wrapper. Inline values rather
+              than tokens to avoid an extra import in this already-large file. */}
+          <div style={{
+            position: 'fixed', top: 0, left: 0, right: 0, zIndex: 10000,
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '12px 20px', height: '54px',
+            background: 'rgba(8,9,26,0.95)',
+            backdropFilter: 'blur(20px)',
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
+            boxSizing: 'border-box',
+          }}>
+            <span style={{
+              color: '#d4a574',
+              fontSize: '0.9rem',
+              fontWeight: 700,
+              fontFamily: "'Inter', sans-serif",
+              margin: 0,
+            }}>
+              {language === 'tr' ? 'Peygamberler Atlası' : 'Prophets Atlas'}
+            </span>
+            <button
+              onClick={() => setProphetOpen(false)}
+              style={{
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '50%', width: '36px', height: '36px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer', color: '#94a3b8',
+                flexShrink: 0,
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                e.currentTarget.style.color = '#e8e6e3';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                e.currentTarget.style.color = '#94a3b8';
+              }}
+              aria-label={language === 'tr' ? 'Kapat' : 'Close'}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+          {/* Spacer to push ProphetAtlas content below the fixed header */}
+          <div style={{ height: '54px' }} />
           <ProphetAtlas />
         </div>
       </Suspense>
