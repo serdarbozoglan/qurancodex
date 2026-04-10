@@ -379,4 +379,109 @@ Hangisini tercih edersin?
 - `npm run lint` — 128 error, 46 warning
 - `npm run build` — başarılı, dist/ 38MB
 - Grep tabanlı sayımlar: ham hex/rgba, console.log, Tanrı, sure, aria-label
+
+---
+
+## v1.2 Path Mode — Tamamlanan + Pending (2026-04-10)
+
+Bu bölüm v1.2 path mode geliştirme döngüsünün takip listesi. Hızlı merge
+yapıldı (v1.2 → main), kalan işler aşağıda.
+
+### ✅ Tamamlandı (v1.1 + v1.2 birleşimi)
+
+#### v1.1 Redesign Layer
+
+- **Discovery layer**: PathCards, AllTopics, ToolsHighlight section'ları
+  homepage'e eklendi
+- **Tek kaynak prensibi**: `src/data/tools.jsx` ve `src/data/exploreCategories.jsx`
+  oluşturuldu — Navbar dropdown ve homepage grid'leri aynı kaynaktan okur
+- **ToolsBrowser modal**: filter bar + 2-col grid + completion-aware
+- **Hero**: tek CTA, 3 cümle description restore
+- **Navbar**: "Kur'an'ı Oku" amber CTA güçlendirildi, Önerilen Yollar banner
+- **ChapterProgress**: discovery zone'da gizleniyor, accurate active section
+- **PathCard**: pill ayracı `→` → `·` (vaat değil önizleme)
+- **App.jsx reorder**: long-form sections path order'a uyumlu
+
+#### v1.2 Path-Aware Navigation
+
+- **PathContext**: startPath/next/prev/goToStep/exit/completePath API
+- **PathBreadcrumb**: sticky bottom, compact 2-row, completion micro-moment
+- **paths.jsx**: 4 path × 3-4 step (Dil/Peygamberler/İnsan/Evren)
+- **sessionStorage**: aktif path tab yaşam döngüsünde, completed paths
+  localStorage'da kalıcı
+- **Auto-advance**: overlay close popstate ile next step
+- **Completion scroll**: overlay-step bitince modal kapanışında PathCards'a soft scroll
+- **Navbar history sentinel fix**: modal ✕ basınca popstate fire eder
+- **ProphetAtlas wrapper**: zIndex 200 → 9999, OVERLAY_HEADER pattern
+  (gold title + interpunct + subtitle)
+
+### 🔴 Kritik — v1.2'den main'e taşınan teknik borç
+
+#### TD-1. Önceki butonu yanlış section'a scroll ediyor
+
+- **Branch:** main (commit `1744ebb wip(pathmode)`)
+- **Senaryo:** Dil yolu, Step 4'ten Önceki tıkla → state stepIndex doğru
+  güncelleniyor, breadcrumb 3/4 gösteriyor, ama sayfa yanlış section'da
+  kalıyor (bir önceki section'a scroll etmiyor)
+- **Diagnose halinde**: rAF defer hipotezi denendi ama henüz doğrulanmadı
+- **Şüpheli:** `scrollToSection` smooth-scroll bir başka render race ile
+  ezilebiliyor olabilir, veya `prev → goToStep` çağrı zincirinde stale
+  closure
+- **Etki:** Path mode user-facing bug — path mode'da Önceki kullanılamıyor
+- **Öncelik:** Yüksek (path mode UX'ini bozuyor)
+
+#### TD-2. PathContext.jsx'te aktif `console.log` debug satırları
+
+- **Branch:** main (commit `1744ebb wip(pathmode)`)
+- **Etki:** Production console'da `[PathMode]` log'ları görünür
+- **Lokasyon:** `prev()`, `goToStep()`, `navigateToStep()`, `scrollToSection()`
+  fonksiyonları
+- **TODO:** TD-1 çözüldükten sonra hepsini sil
+- **Öncelik:** Yüksek (production cleanup)
+
+### 🟡 Pending — v1.2 sonrası test borcu
+
+#### TD-3. Path mode senaryo testleri tamamlanmadı
+
+- Senaryo 1 (Dil yolu, all sections) — kısmen test edildi, Önceki bug var (TD-1)
+- Senaryo 2 (Peygamberler, all overlays + completion scroll) — ✅ tamam
+- Senaryo 3 (Auto-advance overlay close ile) — kısmen, modal ✕ flicker incelendi
+- Senaryo 4 (F5 restore overlay step) — ✅ tamam
+- Senaryo 5 (Listener leak — completion sonrası başka overlay) — test edilmedi
+- Senaryo 6 (Mid-path navigation, dot click) — test edilmedi
+- Senaryo 7 (ESC ile exit) — test edilmedi
+
+#### TD-4. ProphetAtlas refactor (cosmetic borç)
+
+- **Mevcut durum:** Navbar'daki inline wrapper içinde OVERLAY_HEADER pattern
+  manuel inline values ile yazıldı (commits `c3b20de`, `bb4e2b6`)
+- **Hedef:** ProphetAtlas component'in kendisi `OVERLAY_BASE` + `OVERLAY_HEADER`
+  - `onClose` prop kullanır (tıpkı KavimlerAtlasi gibi)
+- **Etki:** Navbar.jsx temizlenir, diğer overlay'lerle birebir tutarlılık
+- **Öncelik:** Düşük (görünür davranış doğru, sadece kod kalitesi)
+
+#### TD-5. Mobile responsive test (PathBreadcrumb + new sections)
+
+- PathBreadcrumb sticky bottom 720px max-width — gerçek mobile cihazda test gerek
+- PathCards 2x2 grid mobil 1-col mode'da kontrol
+- AllTopics 4-col → 1-col responsive geçiş
+- ToolsBrowser modal mobile'da nasıl görünür
+
+#### TD-6. Lighthouse skoru
+
+- v1.1 + v1.2 sonrası Lighthouse Performance/Accessibility skorları ölçülmedi
+- Discovery layer + path mode bundle'a ne ekledi (~kaç KB)?
+
+### 🟢 Önceden işaretlenmiş kalan kalemler (v1.0 review'dan)
+
+(Yukarıdaki "Öncelikli Düzeltme Sırası" bölümündeki tüm orijinal kalemler
+hala geçerli — özellikle ham hex/rgba refactoring, VerseGraph bundle
+optimization, applyTajweed test coverage.)
+
+### 📌 Hızlı Merge Notları
+
+- v1.1 (25 commit) + v1.2 (17 commit) = 42 commit hep linear chain
+- Conflict yok, fast-forward merge
+- WIP commit (`1744ebb`) main'e taşındı — TD-1 ve TD-2 production'da görünür
+- Push için ayrı onay alındı (kullanıcı kararı)
 - Python JSON parsing: tr/en key parity, Arabic encoding check
