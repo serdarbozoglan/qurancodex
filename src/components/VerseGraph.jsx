@@ -29,7 +29,7 @@ function cleanArabicForGraph(str) {
     .replace(/[\u0600-\u0605]/g, '')                       // Quranic number/footnote marks
     .replace(/[\u06DD\u06DE\u06E9]/g, '')                  // End-of-ayah, rub el hizb, sajda sign
     .replace(/\u06E6/g, ' ')                               // Arabic small yeh → space (word separator)
-    .replace(/[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EB\u06ED]/g, '') // waqf markers + tajweed signs
+    .replace(/[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06ED]/g, '') // waqf markers + tajweed signs
     .replace(/[\uFD3E\uFD3F]/g, '');                       // Ornate parentheses
 }
 
