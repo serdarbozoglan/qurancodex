@@ -391,29 +391,33 @@ describe('PathContext — all-section paths walk forward synchronously', () => {
 });
 
 describe('PathContext — overlay-step transitions (fake timers)', () => {
-  // goToStep on an overlay step calls history.back() + setTimeout(60, ...).
-  // We must advance fake timers for the deferred setStepIndex to take effect.
+  // goToStep on an overlay step now wraps history.back() in two rAFs
+  // (so the isTransitioning cover commits before the swap). Tests must
+  // fake requestAnimationFrame so vi.advanceTimersByTime drives those
+  // frames forward.
+  const fakeOpts = { toFake: ['setTimeout', 'clearTimeout', 'requestAnimationFrame', 'cancelAnimationFrame'] };
+
   it('peygamberler (3 overlays) walks end-to-end with fake timers', () => {
-    vi.useFakeTimers();
+    vi.useFakeTimers(fakeOpts);
     const { result } = renderPath();
     act(() => result.current.startPath('peygamberler'));
     expect(result.current.currentStepIndex).toBe(0);
 
-    // Overlay → overlay via setTimeout(60)
-    act(() => { result.current.next(); vi.advanceTimersByTime(100); });
+    // Overlay → overlay via two rAFs + setTimeout(60)
+    act(() => { result.current.next(); vi.advanceTimersByTime(200); });
     expect(result.current.currentStepIndex).toBe(1);
 
-    act(() => { result.current.next(); vi.advanceTimersByTime(100); });
+    act(() => { result.current.next(); vi.advanceTimersByTime(200); });
     expect(result.current.currentStepIndex).toBe(2);
 
     // Last step — noop
-    act(() => { result.current.next(); vi.advanceTimersByTime(100); });
+    act(() => { result.current.next(); vi.advanceTimersByTime(200); });
     expect(result.current.currentStepIndex).toBe(2);
     vi.useRealTimers();
   });
 
   it('evren (2 section + 2 overlay) walks end-to-end with fake timers', () => {
-    vi.useFakeTimers();
+    vi.useFakeTimers(fakeOpts);
     const { result } = renderPath();
     act(() => result.current.startPath('evren'));
 
@@ -425,8 +429,8 @@ describe('PathContext — overlay-step transitions (fake timers)', () => {
     act(() => result.current.next());
     expect(result.current.currentStepIndex).toBe(2);
 
-    // overlay → overlay (needs timer advance)
-    act(() => { result.current.next(); vi.advanceTimersByTime(100); });
+    // overlay → overlay (needs rAF + timer advance)
+    act(() => { result.current.next(); vi.advanceTimersByTime(200); });
     expect(result.current.currentStepIndex).toBe(3);
     vi.useRealTimers();
   });

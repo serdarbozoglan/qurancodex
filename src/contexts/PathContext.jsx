@@ -502,7 +502,26 @@ export function PathProvider({ children }) {
           waitingForOverlayCloseRef.current = false;
           const nextIdx = stepIndex + 1;
           if (nextIdx < activePath.steps.length) {
-            goToStep(nextIdx);
+            // CRITICAL: do NOT route this through goToStep. When the user
+            // triggered the pop (browser back / ESC / ✕ / backdrop), the
+            // overlay's history entry is already gone from the stack —
+            // goToStep's overlay branch would call history.back() AGAIN
+            // and pop the page itself, kicking the user off the site
+            // entirely (seen in incognito: back from ProphetAtlas landed
+            // on about:blank).
+            //
+            // Instead, we update state and dispatch the next overlay's
+            // open event directly. Navbar's open handler will push a
+            // fresh history entry for the new overlay, keeping the stack
+            // correct: [about:blank, site, newOverlay].
+            const nextStep = activePath.steps[nextIdx];
+            setStepIndex(nextIdx);
+            saveToStorage(activePath.id, nextIdx);
+            if (nextStep.kind === 'overlay') {
+              dispatchOverlayEvent(nextStep.target);
+            } else if (nextStep.kind === 'section') {
+              scrollToSection(nextStep.target);
+            }
           }
         }
       }, 300);
