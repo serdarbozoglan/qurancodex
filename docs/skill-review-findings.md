@@ -442,17 +442,30 @@ yapıldı (v1.2 → main), kalan işler aşağıda.
 - **Lint satırı:** `// eslint-disable-next-line no-console` yorumları
   da temizlendi
 
-### 🟡 Pending — v1.2 sonrası test borcu
+### ✅ TD-3 — Path mode test coverage (2026-04-10)
 
-#### TD-3. Path mode senaryo testleri tamamlanmadı
+**Automated (Vitest + React Testing Library):**
+- [src/__tests__/path-context.test.jsx](src/__tests__/path-context.test.jsx) — 23 test
+- Kapsam: state machine (startPath, next, prev, goToStep, exit,
+  completePath), sessionStorage restore, localStorage persistence,
+  ESC handler, listener leak prevention, tüm 4 path için walk testleri
+- Fake timers: overlay → overlay geçişlerinde `setTimeout(60)` için
 
-- Senaryo 1 (Dil yolu, all sections) — kısmen test edildi, Önceki bug var (TD-1)
-- Senaryo 2 (Peygamberler, all overlays + completion scroll) — ✅ tamam
-- Senaryo 3 (Auto-advance overlay close ile) — kısmen, modal ✕ flicker incelendi
-- Senaryo 4 (F5 restore overlay step) — ✅ tamam
-- Senaryo 5 (Listener leak — completion sonrası başka overlay) — test edilmedi
-- Senaryo 6 (Mid-path navigation, dot click) — test edilmedi
-- Senaryo 7 (ESC ile exit) — test edilmedi
+**Manuel test checklist:**
+- [docs/path-mode-test-scenarios.md](docs/path-mode-test-scenarios.md) — 8 senaryo
+- Smooth scroll, gerçek overlay mount/unmount, popstate timing,
+  F5 restore, tarayıcı geri/ileri butonları (jsdom'da test edilemez)
+- Her senaryo için PASS kriterleri + beklenen davranış
+
+**Test durumu:**
+- Senaryo 1 (Dil yolu full walk) — automated ✅ + manuel checklist
+- Senaryo 2 (Peygamberler overlay walk) — automated ✅ + manuel
+- Senaryo 3 (Auto-advance on overlay close) — sadece manuel (popstate timing)
+- Senaryo 4 (F5 restore) — automated (sessionStorage) + manuel (event dispatch)
+- Senaryo 5 (Listener leak) — automated (removeEventListener spy) + manuel
+- Senaryo 6 (Dot click mid-path) — automated (goToStep) + manuel
+- Senaryo 7 (ESC exit) — automated ✅ + manuel
+- Senaryo 8 (Tarayıcı geri/ileri) — bilinen test açığı, sadece manuel
 
 #### TD-4. ProphetAtlas refactor (cosmetic borç)
 
@@ -480,6 +493,55 @@ yapıldı (v1.2 → main), kalan işler aşağıda.
 (Yukarıdaki "Öncelikli Düzeltme Sırası" bölümündeki tüm orijinal kalemler
 hala geçerli — özellikle ham hex/rgba refactoring, VerseGraph bundle
 optimization, applyTajweed test coverage.)
+
+### ⏸️ Faz 3 — Token Migration (ERTELENDI, 2026-04-10)
+
+**Durum:** Bilinçli olarak atlandı. Kalıcı teknik borç olarak kaydedildi.
+
+**Kapsam (atlanan iş):**
+- 685 ham hex değer (30+ dosyada)
+- 1645 ham rgba değer (30+ dosyada)
+- Toplam **2330 ihlal** → hepsi `COLORS.*` token'ına çevrilecek
+
+**En kirli 10 dosya:**
+
+| Dosya | Toplam ihlal |
+|---|---|
+| VerseGraph.jsx | 268 (104 hex + 164 rgba) |
+| ReadingMode.jsx | 179 rgba |
+| ProphetAtlas.jsx | 176 rgba |
+| Melekler.jsx | 108 |
+| CennetCehennem.jsx | 106 |
+| EsbabNuzul.jsx | 99 |
+| HumanDefinition.jsx | 65 |
+| ImpossibleRhythm.jsx | 61 |
+| KavimlerAtlasi.jsx | 39 |
+| SurahComparator.jsx | 37 |
+
+Bu 10 dosya toplam ihlalin %49'unu (~1138) barındırıyor.
+
+**İstisna:** ReadingMode.jsx içindeki tecvid renk paleti (kalkale=kırmızı,
+gunne=yeşil, idgam=mavi vb. 8 özel renk). Bunlar **anlam taşır** — token
+sistemine taşınmaz, dosya içinde `const K = {...}` olarak kalır.
+CLAUDE.md'ye belgeli istisna olarak eklenecek.
+
+**Neden ertelendi:**
+- Visible kullanıcı faydası yok (görsel tutarlılık şu an iyi)
+- Kritik UX bugları yok
+- Daha öncelikli işler var (TD-3 test senaryoları, TD-5 mobile, TD-6 Lighthouse)
+
+**Ne zaman yapılmalı:**
+- Dark mode / tema değiştirme feature'ı planlanırsa → zorunlu olur
+- Major refactor öncesi → tutarlılık önemli
+- "Technical debt week" → toplu temizlik
+
+**Tahmini süre:** 6-10 saat (incremental, dosya başına commit)
+
+**Uygulama stratejisi (ileride için):**
+1. Subagent'a mekanik çeviri (`'#d4a574'` → `COLORS.gold`) — ~60% otomatik
+2. Manuel review + custom tonlar için yeni token'lar — ~40%
+3. Her dosya ayrı commit — rollback kolay
+4. Görsel doğrulama dev server'da
 
 ### 📌 Hızlı Merge Notları
 
