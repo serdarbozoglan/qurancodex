@@ -461,6 +461,28 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', h);
   }, [toolsOpen, exploreOpen]);
 
+  // ESC handler for overlays rendered by the Navbar wrapper (not the
+  // overlay components themselves). ProphetAtlas is the notable case:
+  // the component doesn't own its own wrapper, so it has no useEffect to
+  // hook a keydown listener into — the wrapper lives here instead, and
+  // without this handler ESC does nothing while Peygamberler Atlası is
+  // open.
+  //
+  // Why history.back() instead of setProphetOpen(false) directly: the
+  // popstate handler above already handles close + PathMode auto-advance
+  // coordination. Going through history.back() means path mode sees the
+  // same close signal whether the user hit ESC, ✕, or backdrop click.
+  useEffect(() => {
+    if (!prophetOpen) return;
+    const h = (e) => {
+      if (e.key === 'Escape') {
+        window.history.back();
+      }
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, [prophetOpen]);
+
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMobileOpen(false);
