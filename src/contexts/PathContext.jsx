@@ -253,11 +253,18 @@ export function PathProvider({ children }) {
       window.history.back();
       // Wait one render frame's worth, then navigate to the target.
       setTimeout(() => {
-        skipAutoAdvanceRef.current = false;
         setStepIndex(index);
         saveToStorage(activePath.id, index);
         navigateToStep(activePath.steps[index]);
       }, 60);
+      // The auto-advance handler waits 300ms after popstate before firing;
+      // we must hold skipAutoAdvanceRef true PAST that window so it sees
+      // our in-progress navigation and bails out. Released at 400ms to
+      // outlast the 300ms timer with a safety margin. Without this, the
+      // sequence was: back() → 60ms setTimeout opens new overlay → 300ms
+      // auto-advance timer fires → advances ONE STEP FURTHER, skipping
+      // the step the user actually asked for.
+      setTimeout(() => { skipAutoAdvanceRef.current = false; }, 400);
     } else {
       setStepIndex(index);
       saveToStorage(activePath.id, index);
@@ -380,11 +387,13 @@ export function PathProvider({ children }) {
       skipAutoAdvanceRef.current = true;
       window.history.back();
       setTimeout(() => {
-        skipAutoAdvanceRef.current = false;
         setActivePathId(null);
         setStepIndex(0);
         clearStorage();
       }, 100);
+      // Hold skip flag past the auto-advance 300ms window (same reasoning
+      // as goToStep — see comment there).
+      setTimeout(() => { skipAutoAdvanceRef.current = false; }, 400);
     } else {
       setActivePathId(null);
       setStepIndex(0);
@@ -426,9 +435,19 @@ export function PathProvider({ children }) {
     restoreHandledRef.current = true;
     if (!currentStep) return;
     if (currentStep.kind === 'overlay') {
-      // Defer one tick so any other mount-time effects (Navbar's overlay
-      // event listeners) are wired up before we dispatch.
+      // CRITICAL: on F5 restore, browsers sometimes fire a popstate event
+      // as part of restoring the page's history state. Without shielding,
+      // our auto-advance handler sees waitingForOverlayCloseRef===true
+      // (because the restored step IS an overlay) and, 300ms later,
+      // advances to the next step — skipping past the one the user
+      // actually wants to see. Symptom: refresh on ProphetAtlas, land on
+      // KavimlerAtlasi with breadcrumb saying Step 3/3.
+      //
+      // Fix: mark the next 600ms as "manual nav in progress" so handlePop
+      // bails out. 600 > 300 (handlePop inner timer) + a safety margin.
+      skipAutoAdvanceRef.current = true;
       setTimeout(() => dispatchOverlayEvent(currentStep.target), 0);
+      setTimeout(() => { skipAutoAdvanceRef.current = false; }, 600);
     } else if (currentStep.kind === 'section') {
       // Wait for main.jsx's scrollTo(0,0) + React commits before scrolling.
       setTimeout(() => scrollToSection(currentStep.target), 100);
