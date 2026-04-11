@@ -29,6 +29,10 @@ import ChapterProgress from './components/ChapterProgress';
 import Footer from './components/Footer';
 // v1.1 — centered modal listing all 17 interactive tools
 import ToolsBrowser from './components/ToolsBrowser';
+// DEMO — Mihver Analizi visual prototype (Neml). Not wired into menu.
+// Floating bottom-left pill opens it. Remove this import and the mount
+// below when the prototype review is complete.
+import MihverDemoLauncher from './components/MihverDemoLauncher';
 
 export default function App() {
   return (
@@ -93,6 +97,8 @@ export default function App() {
         <ToolsBrowser />
         {/* v1.2 — sticky bottom path-mode breadcrumb (renders nothing when inactive) */}
         <PathBreadcrumb />
+        {/* DEMO — delete with its import when prototype review is done */}
+        <MihverDemoLauncher />
       </PathProvider>
     </LanguageProvider>
   );
