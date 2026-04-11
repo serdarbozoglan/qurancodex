@@ -10,6 +10,7 @@
 // Doesn't lock body scroll — sits at the bottom and lets the page breathe.
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { usePath } from '../contexts/PathContext';
@@ -29,6 +30,17 @@ export default function PathBreadcrumb() {
     completePath,
     isCompleting,
   } = usePath();
+
+  // Mobile detection — below 640px we collapse the breadcrumb:
+  //   - path title hidden (only step label + counter)
+  //   - prev/next buttons become icon-only (no text)
+  //   - smaller gaps and padding
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
 
   const visible = !!activePath && !!currentStep;
   const isFirst = currentStepIndex === 0;
@@ -58,10 +70,18 @@ export default function PathBreadcrumb() {
           aria-label={language === 'tr' ? 'Keşif yolu navigasyonu' : 'Discovery path navigation'}
           style={{
             position: 'fixed',
-            bottom: '16px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 'min(720px, calc(100vw - 32px))',
+            bottom: isMobile ? '12px' : '16px',
+            // On mobile: pin to edges with 12px margin (avoids the
+            // translateX(-50%) + viewport-width interaction that was
+            // pushing the panel half off-screen on narrow viewports).
+            // On desktop: centered with 720px max width.
+            ...(isMobile
+              ? { left: '12px', right: '12px' }
+              : {
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: 'min(720px, calc(100vw - 32px))',
+                }),
             // zIndex above OVERLAY_BASE (9999) so the breadcrumb stays
             // visible when an overlay step is active. Without this the
             // user loses path-mode navigation the moment they enter an
@@ -72,10 +92,12 @@ export default function PathBreadcrumb() {
             border: `1px solid ${COLORS.goldAlpha25}`,
             borderRadius: '14px',
             boxShadow: `0 12px 40px ${COLORS.panelShadow}`,
-            padding: '10px 14px',
+            padding: isMobile ? '9px 12px' : '10px 14px',
             display: 'flex',
             flexDirection: 'column',
             gap: '8px',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
           }}
         >
           {isCompleting ? (
@@ -157,19 +179,25 @@ export default function PathBreadcrumb() {
               >
                 {currentStepIndex + 1}/{totalSteps}
               </span>
-              {/* Path title (muted) · current step label (bright, focal) */}
-              <span
-                style={{
-                  fontFamily: FONTS.body,
-                  fontSize: '0.78rem',
-                  color: COLORS.silverAlpha70,
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0,
-                }}
-              >
-                {pathTitle}
-              </span>
-              <span style={{ color: COLORS.glassBorder, flexShrink: 0, fontSize: '0.7rem' }}>·</span>
+              {/* Path title (muted) · current step label (bright, focal).
+                  Path title is hidden on mobile (<640px) to save space —
+                  the counter chip already conveys which path you're on. */}
+              {!isMobile && (
+                <>
+                  <span
+                    style={{
+                      fontFamily: FONTS.body,
+                      fontSize: '0.78rem',
+                      color: COLORS.silverAlpha70,
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {pathTitle}
+                  </span>
+                  <span style={{ color: COLORS.glassBorder, flexShrink: 0, fontSize: '0.7rem' }}>·</span>
+                </>
+              )}
               <span
                 style={{
                   fontFamily: FONTS.body,
@@ -233,11 +261,13 @@ export default function PathBreadcrumb() {
               type="button"
               onClick={prev}
               disabled={isFirst}
+              aria-label={prevLabel}
+              title={prevLabel}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '7px 14px',
+                padding: isMobile ? '7px 10px' : '7px 14px',
                 borderRadius: '8px',
                 background: 'transparent',
                 border: `1px solid ${isFirst ? COLORS.glassBorderSoft : COLORS.goldAlpha25}`,
@@ -249,6 +279,7 @@ export default function PathBreadcrumb() {
                 letterSpacing: '0.04em',
                 cursor: isFirst ? 'not-allowed' : 'pointer',
                 transition: 'all 0.15s',
+                flexShrink: 0,
               }}
               onMouseEnter={(e) => {
                 if (isFirst) return;
@@ -264,7 +295,7 @@ export default function PathBreadcrumb() {
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M15 18l-6-6 6-6" />
               </svg>
-              {prevLabel}
+              {!isMobile && prevLabel}
             </button>
 
             {/* Dot row */}
@@ -297,11 +328,13 @@ export default function PathBreadcrumb() {
             <button
               type="button"
               onClick={isLast ? completePath : next}
+              aria-label={isLast ? finishLabel : nextLabel}
+              title={isLast ? finishLabel : nextLabel}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '7px 16px',
+                padding: isMobile ? '7px 12px' : '7px 16px',
                 borderRadius: '8px',
                 background: COLORS.gold,
                 border: `1px solid ${COLORS.gold}`,
@@ -313,6 +346,7 @@ export default function PathBreadcrumb() {
                 cursor: 'pointer',
                 boxShadow: `0 0 14px ${COLORS.goldAlpha25}`,
                 transition: 'all 0.15s',
+                flexShrink: 0,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.boxShadow = `0 0 22px ${COLORS.goldAlpha45}`;
@@ -321,7 +355,8 @@ export default function PathBreadcrumb() {
                 e.currentTarget.style.boxShadow = `0 0 14px ${COLORS.goldAlpha25}`;
               }}
             >
-              {isLast ? finishLabel : nextLabel}
+              {/* Hide text label on mobile — keeps the button to an icon+chevron */}
+              {!isMobile && (isLast ? finishLabel : nextLabel)}
               {isLast ? (
                 // Check glyph — signals "finish" rather than "continue"
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">

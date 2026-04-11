@@ -162,6 +162,11 @@ export function PathProvider({ children }) {
   // without needing its own timer to coordinate with the unmount animation.
   const [isCompleting, setIsCompleting] = useState(false);
 
+  // Transient flag: true for ~100ms during overlay→overlay path transitions.
+  // Renders a full-screen cosmic black cover in App so the homepage doesn't
+  // flicker between the old overlay unmounting and the new one mounting.
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
   // Derived state
   const activePath = activePathId ? getPathById(activePathId) : null;
   const currentStep = activePath ? activePath.steps[stepIndex] ?? null : null;
@@ -250,6 +255,10 @@ export function PathProvider({ children }) {
       // Tell the popstate handler not to auto-advance during this manual
       // navigation — we're handling everything ourselves.
       skipAutoAdvanceRef.current = true;
+      // Cover the homepage during the ~60ms gap between old overlay
+      // unmount and new overlay mount, so the user never sees the hero
+      // flicker through mid-transition.
+      setIsTransitioning(true);
       window.history.back();
       // Wait one render frame's worth, then navigate to the target.
       setTimeout(() => {
@@ -257,6 +266,8 @@ export function PathProvider({ children }) {
         saveToStorage(activePath.id, index);
         navigateToStep(activePath.steps[index]);
       }, 60);
+      // Remove the cover a bit after the new overlay mounts.
+      setTimeout(() => setIsTransitioning(false), 150);
       // The auto-advance handler waits 300ms after popstate before firing;
       // we must hold skipAutoAdvanceRef true PAST that window so it sees
       // our in-progress navigation and bails out. Released at 400ms to
@@ -529,11 +540,25 @@ export function PathProvider({ children }) {
     isCompleting,
     completedPathIds,
     isPathCompleted: (id) => completedPathIds.includes(id),
-  }), [activePath, currentStep, stepIndex, startPath, next, prev, goToStep, exit, completePath, isCompleting, completedPathIds]);
+    // Transition cover flag — App renders an overlay when true
+    isTransitioning,
+  }), [activePath, currentStep, stepIndex, startPath, next, prev, goToStep, exit, completePath, isCompleting, completedPathIds, isTransitioning]);
 
   return (
     <PathContext.Provider value={value}>
       {children}
+      {isTransitioning && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9998,
+            background: '#0a0a1a',
+            pointerEvents: 'none',
+          }}
+        />
+      )}
     </PathContext.Provider>
   );
 }
