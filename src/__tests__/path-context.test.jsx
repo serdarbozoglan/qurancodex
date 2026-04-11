@@ -292,6 +292,41 @@ describe('PathContext — sessionStorage restore', () => {
     const { result } = renderPath();
     expect(result.current.activePath).toBe(null);
   });
+
+  // Regression test for the F5 scroll bug discovered 2026-04-10:
+  // After main.jsx added `window.scrollTo(0, 0)` as the default scroll
+  // behavior on initial load, refreshing mid-path left the user on the
+  // hero while the breadcrumb claimed they were on e.g. "Dilsel DNA".
+  // The restore effect must now trigger scrollToSection for section
+  // steps (overlay steps already had dispatchOverlayEvent restore).
+  it('restores scroll to section step on mount', async () => {
+    // Fake both setTimeout AND requestAnimationFrame — scrollToSection
+    // uses double rAF after the setTimeout(100) restore delay.
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'requestAnimationFrame', 'cancelAnimationFrame'] });
+    sessionStorage.setItem(
+      'qurancodex_active_path',
+      JSON.stringify({ pathId: 'dil', stepIndex: 1 }) // 'rhythm' section
+    );
+    const scrollSpy = vi.spyOn(window, 'scrollTo');
+
+    const { result } = renderPath();
+    expect(result.current.currentStep?.id).toBe('rhythm');
+
+    // Advance restore setTimeout(100) + two rAF frames
+    await act(async () => {
+      vi.advanceTimersByTime(200);
+    });
+
+    // scrollToSection was called with behavior: 'smooth'
+    const scrollCalls = scrollSpy.mock.calls;
+    const smoothScrollCall = scrollCalls.find(
+      (args) => args[0] && typeof args[0] === 'object' && args[0].behavior === 'smooth'
+    );
+    expect(smoothScrollCall).toBeTruthy();
+
+    scrollSpy.mockRestore();
+    vi.useRealTimers();
+  });
 });
 
 describe('PathContext — Scenario 5: listener leak prevention', () => {

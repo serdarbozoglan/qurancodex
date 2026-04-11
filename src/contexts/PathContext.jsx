@@ -390,18 +390,35 @@ export function PathProvider({ children }) {
   // calls window.history.back() against an empty history entry, sending
   // the user out of the page entirely.
   //
-  // Fix: on first mount only, if the restored step is an overlay step,
-  // dispatch its open event so the modal mounts. Section steps need no
-  // re-open because the section is already in the DOM as part of normal
-  // page render.
+  // Fix: on first mount only, re-navigate to the restored step so the DOM
+  // matches the "current step" state:
+  //   - overlay step → dispatch its open event so the modal mounts
+  //   - section step → scroll to the section
+  //
+  // The section branch is necessary because main.jsx now forces
+  // `window.scrollTo(0, 0)` on every initial load (defending against
+  // browser's automatic scrollRestoration putting the user half-covered
+  // by the sticky navbar). That's the correct default for ordinary
+  // visitors, but breaks path mode restore: the user was on step 2
+  // "İmkansız Ritim" when they refreshed, and without a re-scroll they
+  // land in the hero while the breadcrumb claims they're mid-path. Now
+  // we honor the path state and scroll them back to where they were.
+  //
+  // The 100ms delay is enough to let main.jsx's scrollTo(0,0) settle and
+  // React to finish its mount-time commits before we measure layout in
+  // scrollToSection().
   const restoreHandledRef = useRef(false);
   useEffect(() => {
     if (restoreHandledRef.current) return;
     restoreHandledRef.current = true;
-    if (currentStep && currentStep.kind === 'overlay') {
+    if (!currentStep) return;
+    if (currentStep.kind === 'overlay') {
       // Defer one tick so any other mount-time effects (Navbar's overlay
       // event listeners) are wired up before we dispatch.
       setTimeout(() => dispatchOverlayEvent(currentStep.target), 0);
+    } else if (currentStep.kind === 'section') {
+      // Wait for main.jsx's scrollTo(0,0) + React commits before scrolling.
+      setTimeout(() => scrollToSection(currentStep.target), 100);
     }
     // Intentionally only checks the FIRST mount-time value of currentStep.
     // Subsequent currentStep changes are handled by goToStep / next / prev.
