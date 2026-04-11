@@ -255,27 +255,31 @@ export function PathProvider({ children }) {
       // Tell the popstate handler not to auto-advance during this manual
       // navigation — we're handling everything ourselves.
       skipAutoAdvanceRef.current = true;
-      // Cover the homepage during the ~60ms gap between old overlay
-      // unmount and new overlay mount, so the user never sees the hero
-      // flicker through mid-transition.
+      // Cover the homepage during the gap between old overlay unmount
+      // and new overlay mount. We must wait until React has actually
+      // committed the cover element to the DOM BEFORE calling
+      // history.back(), otherwise the old overlay tears down while the
+      // cover is still mid-render and the hero flashes through for one
+      // or two frames.
       setIsTransitioning(true);
-      window.history.back();
-      // Wait one render frame's worth, then navigate to the target.
-      setTimeout(() => {
-        setStepIndex(index);
-        saveToStorage(activePath.id, index);
-        navigateToStep(activePath.steps[index]);
-      }, 60);
-      // Remove the cover a bit after the new overlay mounts.
-      setTimeout(() => setIsTransitioning(false), 150);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          window.history.back();
+          // Wait one render frame's worth, then navigate to the target.
+          setTimeout(() => {
+            setStepIndex(index);
+            saveToStorage(activePath.id, index);
+            navigateToStep(activePath.steps[index]);
+          }, 60);
+          // Remove the cover after the new overlay has mounted on top.
+          setTimeout(() => setIsTransitioning(false), 180);
+        });
+      });
       // The auto-advance handler waits 300ms after popstate before firing;
       // we must hold skipAutoAdvanceRef true PAST that window so it sees
-      // our in-progress navigation and bails out. Released at 400ms to
-      // outlast the 300ms timer with a safety margin. Without this, the
-      // sequence was: back() → 60ms setTimeout opens new overlay → 300ms
-      // auto-advance timer fires → advances ONE STEP FURTHER, skipping
-      // the step the user actually asked for.
-      setTimeout(() => { skipAutoAdvanceRef.current = false; }, 400);
+      // our in-progress navigation and bails out. Released at 450ms to
+      // outlast the 300ms timer plus the two-frame rAF delay above.
+      setTimeout(() => { skipAutoAdvanceRef.current = false; }, 450);
     } else {
       setStepIndex(index);
       saveToStorage(activePath.id, index);
@@ -553,7 +557,13 @@ export function PathProvider({ children }) {
           style={{
             position: 'fixed',
             inset: 0,
-            zIndex: 9998,
+            // zIndex above OVERLAY_BASE (9999) and breadcrumb (10000) so
+            // the cover is painted on top of EVERYTHING during the ~180ms
+            // overlay→overlay swap. Otherwise a sub-9999 cover flickers
+            // between unmount and mount. Breadcrumb disappearing briefly
+            // is imperceptible; a hero flash through mid-transition is
+            // jarring.
+            zIndex: 10001,
             background: '#0a0a1a',
             pointerEvents: 'none',
           }}
