@@ -365,9 +365,21 @@ export default function Navbar() {
   //      called from this branch, so the effect doesn't re-run.
   useEffect(() => {
     const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen;
+    const alreadyOnOverlayEntry = window.history.state?.overlay === true;
     if (anyOpen) {
-      window.history.pushState({ overlay: true }, '');
-    } else if (window.history.state?.overlay) {
+      // Only push a fresh overlay sentinel when we're NOT already sitting
+      // on one. Path mode's overlay→overlay auto-advance batches
+      // setXOpen(false) + setYOpen(true) into the same React render,
+      // so this effect fires exactly once with anyOpen === true. Without
+      // the alreadyOnOverlayEntry guard we'd push a SECOND sentinel on
+      // top of the first, leaving [site, sentinelA, sentinelB] in the
+      // history stack. When the user closes the second overlay, two
+      // back()s are needed to actually leave the site — which is the
+      // "✕ sends me back to incognito new tab" bug reported 2026-04-11.
+      if (!alreadyOnOverlayEntry) {
+        window.history.pushState({ overlay: true }, '');
+      }
+    } else if (alreadyOnOverlayEntry) {
       // Sentinel left on the stack from a prior open, but no overlay is
       // active anymore — pop it so listeners get notified.
       window.history.back();
