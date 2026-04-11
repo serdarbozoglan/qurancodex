@@ -110,17 +110,24 @@ function scrollToSection(id) {
     console.warn(`PathContext: no element with id="${id}"`);
     return;
   }
-  // Defer one animation frame so any pending React render commits first.
-  // Without this, prev/next on a section step computed `top` against the
-  // PRE-render layout, then the new step's render sometimes settled
-  // slightly differently and the scroll missed.
+  // Defer TWO animation frames so any pending React render commits, the
+  // PathBreadcrumb re-renders with the new step label (changing its own
+  // height slightly), and the layout settles before we measure.
+  //
+  // Single rAF was sometimes racing PathBreadcrumb's render on prev/next:
+  // we'd measure getBoundingClientRect() while the breadcrumb was still in
+  // its previous state, compute a slightly-off target, then the next
+  // render settled with a different layout and the scroll missed the
+  // mark — leaving the user on the wrong section. Two frames is the
+  // standard "wait for layout after state change" pattern and costs
+  // ~16ms, imperceptible to the user.
   requestAnimationFrame(() => {
-    const navEl = document.querySelector('nav');
-    const navHeight = navEl?.offsetHeight ?? 64;
-    const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] scrollToSection', { id, elTop: el.getBoundingClientRect().top, scrollY: window.scrollY, navHeight, finalTop: top });
-    window.scrollTo({ top, behavior: 'smooth' });
+    requestAnimationFrame(() => {
+      const navEl = document.querySelector('nav');
+      const navHeight = navEl?.offsetHeight ?? 64;
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
   });
 }
 
@@ -163,8 +170,6 @@ export function PathProvider({ children }) {
   // Used by startPath / next / prev / goToStep after they update state.
   const navigateToStep = useCallback((step) => {
     if (!step) return;
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] navigateToStep', { kind: step.kind, target: step.target, label: step.labelTr });
     if (step.kind === 'section') {
       scrollToSection(step.target);
     } else if (step.kind === 'overlay') {
@@ -236,8 +241,6 @@ export function PathProvider({ children }) {
   // popstate handler + Navbar state batch to settle, then the new modal
   // mounts. Empirically near-imperceptible swap, no homepage flash.
   const goToStep = useCallback((index) => {
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] goToStep', { requestedIndex: index, currentStepIndex: stepIndex, currentTarget: activePath?.steps[stepIndex]?.target, nextTarget: activePath?.steps[index]?.target });
     if (!activePath) return;
     if (index < 0 || index >= activePath.steps.length) return;
 
@@ -270,21 +273,9 @@ export function PathProvider({ children }) {
   }, [activePath, stepIndex, goToStep]);
 
   const prev = useCallback(() => {
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] prev() called', { activePath: activePath?.id, stepIndex });
-    if (!activePath) {
-      // eslint-disable-next-line no-console
-      console.log('[PathMode] prev: no activePath, bailing');
-      return;
-    }
+    if (!activePath) return;
     const prevIdx = stepIndex - 1;
-    if (prevIdx < 0) {
-      // eslint-disable-next-line no-console
-      console.log('[PathMode] prev: already at first step, bailing');
-      return;
-    }
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] prev: calling goToStep', prevIdx);
+    if (prevIdx < 0) return;
     goToStep(prevIdx);
   }, [activePath, stepIndex, goToStep]);
 

@@ -415,29 +415,32 @@ yapıldı (v1.2 → main), kalan işler aşağıda.
 - **ProphetAtlas wrapper**: zIndex 200 → 9999, OVERLAY_HEADER pattern
   (gold title + interpunct + subtitle)
 
-### 🔴 Kritik — v1.2'den main'e taşınan teknik borç
+### ✅ v1.2 Teknik Borç — Çözüldü (qc_v1.2_pathmode, 2026-04-10)
 
-#### TD-1. Önceki butonu yanlış section'a scroll ediyor
+#### ✅ TD-1. Önceki butonu scroll fix
 
-- **Branch:** main (commit `1744ebb wip(pathmode)`)
-- **Senaryo:** Dil yolu, Step 4'ten Önceki tıkla → state stepIndex doğru
-  güncelleniyor, breadcrumb 3/4 gösteriyor, ama sayfa yanlış section'da
-  kalıyor (bir önceki section'a scroll etmiyor)
-- **Diagnose halinde**: rAF defer hipotezi denendi ama henüz doğrulanmadı
-- **Şüpheli:** `scrollToSection` smooth-scroll bir başka render race ile
-  ezilebiliyor olabilir, veya `prev → goToStep` çağrı zincirinde stale
-  closure
-- **Etki:** Path mode user-facing bug — path mode'da Önceki kullanılamıyor
-- **Öncelik:** Yüksek (path mode UX'ini bozuyor)
+- **Branch:** qc_v1.2_pathmode (commit pending)
+- **Çözüm:** `scrollToSection` içinde tek `requestAnimationFrame` → çift rAF
+- **Neden:** Tek rAF, PathBreadcrumb'un yeniden render'ını + layout
+  settle'ı yakalayamıyordu. Prev/next sırasında `getBoundingClientRect`
+  eski layout üzerinden hesaplanıyor, yeni state commit edildiğinde
+  scroll hedefi kayıyordu. Çift rAF = "state commit + layout settle"
+  için standart pattern (~16ms gecikme, imperceptible).
+- **Dosya:** [src/contexts/PathContext.jsx:106-128](src/contexts/PathContext.jsx#L106)
+- **Etki:** Path mode Önceki tuşu artık doğru section'a scroll ediyor
 
-#### TD-2. PathContext.jsx'te aktif `console.log` debug satırları
+#### ✅ TD-2. PathContext.jsx console.log temizliği
 
-- **Branch:** main (commit `1744ebb wip(pathmode)`)
-- **Etki:** Production console'da `[PathMode]` log'ları görünür
-- **Lokasyon:** `prev()`, `goToStep()`, `navigateToStep()`, `scrollToSection()`
-  fonksiyonları
-- **TODO:** TD-1 çözüldükten sonra hepsini sil
-- **Öncelik:** Yüksek (production cleanup)
+- **Branch:** qc_v1.2_pathmode (commit pending)
+- **Çözüm:** 7 `console.log` debug satırı silindi:
+  - `scrollToSection` (navHeight/finalTop dump)
+  - `navigateToStep` (kind/target/label dump)
+  - `goToStep` (requestedIndex/currentStepIndex dump)
+  - `prev()` (4 satır: called, no activePath, first step, calling goToStep)
+- **Korunan:** 3 `console.warn` (unknown id, unknown overlay target,
+  unknown path) — legitimate error handlers, production'da da kalmalı
+- **Lint satırı:** `// eslint-disable-next-line no-console` yorumları
+  da temizlendi
 
 ### 🟡 Pending — v1.2 sonrası test borcu
 
