@@ -110,17 +110,24 @@ function scrollToSection(id) {
     console.warn(`PathContext: no element with id="${id}"`);
     return;
   }
-  // Defer one animation frame so any pending React render commits first.
-  // Without this, prev/next on a section step computed `top` against the
-  // PRE-render layout, then the new step's render sometimes settled
-  // slightly differently and the scroll missed.
+  // Defer TWO animation frames so any pending React render commits, the
+  // PathBreadcrumb re-renders with the new step label (changing its own
+  // height slightly), and the layout settles before we measure.
+  //
+  // Single rAF was sometimes racing PathBreadcrumb's render on prev/next:
+  // we'd measure getBoundingClientRect() while the breadcrumb was still in
+  // its previous state, compute a slightly-off target, then the next
+  // render settled with a different layout and the scroll missed the
+  // mark — leaving the user on the wrong section. Two frames is the
+  // standard "wait for layout after state change" pattern and costs
+  // ~16ms, imperceptible to the user.
   requestAnimationFrame(() => {
-    const navEl = document.querySelector('nav');
-    const navHeight = navEl?.offsetHeight ?? 64;
-    const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] scrollToSection', { id, elTop: el.getBoundingClientRect().top, scrollY: window.scrollY, navHeight, finalTop: top });
-    window.scrollTo({ top, behavior: 'smooth' });
+    requestAnimationFrame(() => {
+      const navEl = document.querySelector('nav');
+      const navHeight = navEl?.offsetHeight ?? 64;
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
   });
 }
 
@@ -155,6 +162,11 @@ export function PathProvider({ children }) {
   // without needing its own timer to coordinate with the unmount animation.
   const [isCompleting, setIsCompleting] = useState(false);
 
+  // Transient flag: true for ~100ms during overlay→overlay path transitions.
+  // Renders a full-screen cosmic black cover in App so the homepage doesn't
+  // flicker between the old overlay unmounting and the new one mounting.
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
   // Derived state
   const activePath = activePathId ? getPathById(activePathId) : null;
   const currentStep = activePath ? activePath.steps[stepIndex] ?? null : null;
@@ -163,8 +175,6 @@ export function PathProvider({ children }) {
   // Used by startPath / next / prev / goToStep after they update state.
   const navigateToStep = useCallback((step) => {
     if (!step) return;
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] navigateToStep', { kind: step.kind, target: step.target, label: step.labelTr });
     if (step.kind === 'section') {
       scrollToSection(step.target);
     } else if (step.kind === 'overlay') {
@@ -236,8 +246,6 @@ export function PathProvider({ children }) {
   // popstate handler + Navbar state batch to settle, then the new modal
   // mounts. Empirically near-imperceptible swap, no homepage flash.
   const goToStep = useCallback((index) => {
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] goToStep', { requestedIndex: index, currentStepIndex: stepIndex, currentTarget: activePath?.steps[stepIndex]?.target, nextTarget: activePath?.steps[index]?.target });
     if (!activePath) return;
     if (index < 0 || index >= activePath.steps.length) return;
 
@@ -247,14 +255,31 @@ export function PathProvider({ children }) {
       // Tell the popstate handler not to auto-advance during this manual
       // navigation — we're handling everything ourselves.
       skipAutoAdvanceRef.current = true;
-      window.history.back();
-      // Wait one render frame's worth, then navigate to the target.
-      setTimeout(() => {
-        skipAutoAdvanceRef.current = false;
-        setStepIndex(index);
-        saveToStorage(activePath.id, index);
-        navigateToStep(activePath.steps[index]);
-      }, 60);
+      // Cover the homepage during the gap between old overlay unmount
+      // and new overlay mount. We must wait until React has actually
+      // committed the cover element to the DOM BEFORE calling
+      // history.back(), otherwise the old overlay tears down while the
+      // cover is still mid-render and the hero flashes through for one
+      // or two frames.
+      setIsTransitioning(true);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          window.history.back();
+          // Wait one render frame's worth, then navigate to the target.
+          setTimeout(() => {
+            setStepIndex(index);
+            saveToStorage(activePath.id, index);
+            navigateToStep(activePath.steps[index]);
+          }, 60);
+          // Remove the cover after the new overlay has mounted on top.
+          setTimeout(() => setIsTransitioning(false), 180);
+        });
+      });
+      // The auto-advance handler waits 300ms after popstate before firing;
+      // we must hold skipAutoAdvanceRef true PAST that window so it sees
+      // our in-progress navigation and bails out. Released at 450ms to
+      // outlast the 300ms timer plus the two-frame rAF delay above.
+      setTimeout(() => { skipAutoAdvanceRef.current = false; }, 450);
     } else {
       setStepIndex(index);
       saveToStorage(activePath.id, index);
@@ -270,21 +295,9 @@ export function PathProvider({ children }) {
   }, [activePath, stepIndex, goToStep]);
 
   const prev = useCallback(() => {
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] prev() called', { activePath: activePath?.id, stepIndex });
-    if (!activePath) {
-      // eslint-disable-next-line no-console
-      console.log('[PathMode] prev: no activePath, bailing');
-      return;
-    }
+    if (!activePath) return;
     const prevIdx = stepIndex - 1;
-    if (prevIdx < 0) {
-      // eslint-disable-next-line no-console
-      console.log('[PathMode] prev: already at first step, bailing');
-      return;
-    }
-    // eslint-disable-next-line no-console
-    console.log('[PathMode] prev: calling goToStep', prevIdx);
+    if (prevIdx < 0) return;
     goToStep(prevIdx);
   }, [activePath, stepIndex, goToStep]);
 
@@ -348,14 +361,27 @@ export function PathProvider({ children }) {
         const handleClose = () => {
           completionScrollListenerRef.current = null;
           window.removeEventListener('popstate', handleClose);
-          // Soft scroll to PathCards. Same offset math as scrollToSection
-          // helper above so the section sits below the fixed navbar.
-          const el = document.getElementById('path-cards');
-          if (!el) return;
-          const navEl = document.querySelector('nav');
-          const navHeight = navEl?.offsetHeight ?? 64;
-          const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
-          window.scrollTo({ top, behavior: 'smooth' });
+          // Wait for the overlay's unmount + any body-scroll-lock reset to
+          // finish before we measure. Without this delay the overlay close
+          // sequence hasn't yet restored the page's natural scrollY, and
+          // getBoundingClientRect().top reports stale values that can send
+          // the soft scroll to the wrong position (e.g. the top of the page
+          // if window.scrollY was reset to 0 mid-close).
+          //
+          // Two rAFs let React commit the overlay unmount, the body scroll
+          // lock restore, and the layout settle. After that we use
+          // scrollIntoView with the 'start' block alignment + CSS
+          // scroll-margin-top on the section (already set via Tailwind's
+          // scroll-mt-* or our section wrapper) so the sticky navbar
+          // doesn't cover the heading — scrollIntoView handles the offset
+          // automatically, no manual math that can go stale.
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              const el = document.getElementById('path-cards');
+              if (!el) return;
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          });
         };
         completionScrollListenerRef.current = handleClose;
         window.addEventListener('popstate', handleClose);
@@ -376,11 +402,13 @@ export function PathProvider({ children }) {
       skipAutoAdvanceRef.current = true;
       window.history.back();
       setTimeout(() => {
-        skipAutoAdvanceRef.current = false;
         setActivePathId(null);
         setStepIndex(0);
         clearStorage();
       }, 100);
+      // Hold skip flag past the auto-advance 300ms window (same reasoning
+      // as goToStep — see comment there).
+      setTimeout(() => { skipAutoAdvanceRef.current = false; }, 400);
     } else {
       setActivePathId(null);
       setStepIndex(0);
@@ -399,18 +427,45 @@ export function PathProvider({ children }) {
   // calls window.history.back() against an empty history entry, sending
   // the user out of the page entirely.
   //
-  // Fix: on first mount only, if the restored step is an overlay step,
-  // dispatch its open event so the modal mounts. Section steps need no
-  // re-open because the section is already in the DOM as part of normal
-  // page render.
+  // Fix: on first mount only, re-navigate to the restored step so the DOM
+  // matches the "current step" state:
+  //   - overlay step → dispatch its open event so the modal mounts
+  //   - section step → scroll to the section
+  //
+  // The section branch is necessary because main.jsx now forces
+  // `window.scrollTo(0, 0)` on every initial load (defending against
+  // browser's automatic scrollRestoration putting the user half-covered
+  // by the sticky navbar). That's the correct default for ordinary
+  // visitors, but breaks path mode restore: the user was on step 2
+  // "İmkansız Ritim" when they refreshed, and without a re-scroll they
+  // land in the hero while the breadcrumb claims they're mid-path. Now
+  // we honor the path state and scroll them back to where they were.
+  //
+  // The 100ms delay is enough to let main.jsx's scrollTo(0,0) settle and
+  // React to finish its mount-time commits before we measure layout in
+  // scrollToSection().
   const restoreHandledRef = useRef(false);
   useEffect(() => {
     if (restoreHandledRef.current) return;
     restoreHandledRef.current = true;
-    if (currentStep && currentStep.kind === 'overlay') {
-      // Defer one tick so any other mount-time effects (Navbar's overlay
-      // event listeners) are wired up before we dispatch.
+    if (!currentStep) return;
+    if (currentStep.kind === 'overlay') {
+      // CRITICAL: on F5 restore, browsers sometimes fire a popstate event
+      // as part of restoring the page's history state. Without shielding,
+      // our auto-advance handler sees waitingForOverlayCloseRef===true
+      // (because the restored step IS an overlay) and, 300ms later,
+      // advances to the next step — skipping past the one the user
+      // actually wants to see. Symptom: refresh on ProphetAtlas, land on
+      // KavimlerAtlasi with breadcrumb saying Step 3/3.
+      //
+      // Fix: mark the next 600ms as "manual nav in progress" so handlePop
+      // bails out. 600 > 300 (handlePop inner timer) + a safety margin.
+      skipAutoAdvanceRef.current = true;
       setTimeout(() => dispatchOverlayEvent(currentStep.target), 0);
+      setTimeout(() => { skipAutoAdvanceRef.current = false; }, 600);
+    } else if (currentStep.kind === 'section') {
+      // Wait for main.jsx's scrollTo(0,0) + React commits before scrolling.
+      setTimeout(() => scrollToSection(currentStep.target), 100);
     }
     // Intentionally only checks the FIRST mount-time value of currentStep.
     // Subsequent currentStep changes are handled by goToStep / next / prev.
@@ -447,7 +502,26 @@ export function PathProvider({ children }) {
           waitingForOverlayCloseRef.current = false;
           const nextIdx = stepIndex + 1;
           if (nextIdx < activePath.steps.length) {
-            goToStep(nextIdx);
+            // CRITICAL: do NOT route this through goToStep. When the user
+            // triggered the pop (browser back / ESC / ✕ / backdrop), the
+            // overlay's history entry is already gone from the stack —
+            // goToStep's overlay branch would call history.back() AGAIN
+            // and pop the page itself, kicking the user off the site
+            // entirely (seen in incognito: back from ProphetAtlas landed
+            // on about:blank).
+            //
+            // Instead, we update state and dispatch the next overlay's
+            // open event directly. Navbar's open handler will push a
+            // fresh history entry for the new overlay, keeping the stack
+            // correct: [about:blank, site, newOverlay].
+            const nextStep = activePath.steps[nextIdx];
+            setStepIndex(nextIdx);
+            saveToStorage(activePath.id, nextIdx);
+            if (nextStep.kind === 'overlay') {
+              dispatchOverlayEvent(nextStep.target);
+            } else if (nextStep.kind === 'section') {
+              scrollToSection(nextStep.target);
+            }
           }
         }
       }, 300);
@@ -489,11 +563,31 @@ export function PathProvider({ children }) {
     isCompleting,
     completedPathIds,
     isPathCompleted: (id) => completedPathIds.includes(id),
-  }), [activePath, currentStep, stepIndex, startPath, next, prev, goToStep, exit, completePath, isCompleting, completedPathIds]);
+    // Transition cover flag — App renders an overlay when true
+    isTransitioning,
+  }), [activePath, currentStep, stepIndex, startPath, next, prev, goToStep, exit, completePath, isCompleting, completedPathIds, isTransitioning]);
 
   return (
     <PathContext.Provider value={value}>
       {children}
+      {isTransitioning && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            // zIndex above OVERLAY_BASE (9999) and breadcrumb (10000) so
+            // the cover is painted on top of EVERYTHING during the ~180ms
+            // overlay→overlay swap. Otherwise a sub-9999 cover flickers
+            // between unmount and mount. Breadcrumb disappearing briefly
+            // is imperceptible; a hero flash through mid-transition is
+            // jarring.
+            zIndex: 10001,
+            background: '#0a0a1a',
+            pointerEvents: 'none',
+          }}
+        />
+      )}
     </PathContext.Provider>
   );
 }
