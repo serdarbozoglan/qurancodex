@@ -339,14 +339,27 @@ export function PathProvider({ children }) {
         const handleClose = () => {
           completionScrollListenerRef.current = null;
           window.removeEventListener('popstate', handleClose);
-          // Soft scroll to PathCards. Same offset math as scrollToSection
-          // helper above so the section sits below the fixed navbar.
-          const el = document.getElementById('path-cards');
-          if (!el) return;
-          const navEl = document.querySelector('nav');
-          const navHeight = navEl?.offsetHeight ?? 64;
-          const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;
-          window.scrollTo({ top, behavior: 'smooth' });
+          // Wait for the overlay's unmount + any body-scroll-lock reset to
+          // finish before we measure. Without this delay the overlay close
+          // sequence hasn't yet restored the page's natural scrollY, and
+          // getBoundingClientRect().top reports stale values that can send
+          // the soft scroll to the wrong position (e.g. the top of the page
+          // if window.scrollY was reset to 0 mid-close).
+          //
+          // Two rAFs let React commit the overlay unmount, the body scroll
+          // lock restore, and the layout settle. After that we use
+          // scrollIntoView with the 'start' block alignment + CSS
+          // scroll-margin-top on the section (already set via Tailwind's
+          // scroll-mt-* or our section wrapper) so the sticky navbar
+          // doesn't cover the heading — scrollIntoView handles the offset
+          // automatically, no manual math that can go stale.
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              const el = document.getElementById('path-cards');
+              if (!el) return;
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          });
         };
         completionScrollListenerRef.current = handleClose;
         window.addEventListener('popstate', handleClose);
