@@ -984,6 +984,7 @@ export default function Navbar() {
               e.currentTarget.style.boxShadow = '0 0 12px rgba(212,169,78,0.4)';
             }}
           >
+            <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '0.85rem', opacity: 0.4, lineHeight: 1 }}>اقْرَأْ</span>
             {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
           </button>
 
@@ -1090,25 +1091,26 @@ export default function Navbar() {
             {/* Oku */}
             <button
               onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
-              className="flex items-center gap-2"
               style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '4px',
                 color: '#1a0e00',
                 background: 'linear-gradient(135deg, #d4a574 0%, #c9a227 100%)',
-                borderRadius: '8px',
-                padding: '12px 16px',
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '0.9rem',
-                fontWeight: 700,
-                letterSpacing: '0.05em',
+                borderRadius: '10px',
+                padding: '14px 16px',
                 border: 'none',
                 width: '100%',
-                justifyContent: 'center',
+                minHeight: '56px',
                 marginBottom: '12px',
                 boxShadow: '0 0 16px rgba(212,169,78,0.4)',
+                cursor: 'pointer',
               }}
             >
-              <span style={{ fontSize: '0.65rem', opacity: 0.55 }}>✦</span>
-              {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
+              <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.75rem', color: '#FFF8E7', lineHeight: 1.1 }}>اقْرَأْ</span>
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.75rem', fontWeight: 600, color: '#FFF8E7', opacity: 0.75, letterSpacing: '0.06em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
             </button>
 
             {/* Section anchors */}
