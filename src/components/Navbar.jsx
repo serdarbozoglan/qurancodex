@@ -227,6 +227,7 @@ export default function Navbar() {
 
   useEffect(() => {
     localStorage.setItem('qurancodex_reading_open', String(readingOpen));
+    window.dispatchEvent(new Event(readingOpen ? 'readingModeOpened' : 'readingModeClosed'));
   }, [readingOpen]);
 
   useEffect(() => {
