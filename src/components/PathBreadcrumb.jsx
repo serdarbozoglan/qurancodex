@@ -42,7 +42,20 @@ export default function PathBreadcrumb() {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  const visible = !!activePath && !!currentStep;
+  // Hide breadcrumb when ReadingMode is open (full-screen overlay, z-index clash)
+  const [readingOpen, setReadingOpen] = useState(false);
+  useEffect(() => {
+    const onOpen  = () => setReadingOpen(true);
+    const onClose = () => setReadingOpen(false);
+    window.addEventListener('readingModeOpened', onOpen);
+    window.addEventListener('readingModeClosed', onClose);
+    return () => {
+      window.removeEventListener('readingModeOpened', onOpen);
+      window.removeEventListener('readingModeClosed', onClose);
+    };
+  }, []);
+
+  const visible = !!activePath && !!currentStep && !readingOpen;
   const isFirst = currentStepIndex === 0;
   const isLast  = currentStepIndex === totalSteps - 1;
 
