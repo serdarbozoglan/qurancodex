@@ -1,6 +1,7 @@
 # QuranCodex — Yol Haritası
 
 **Son güncelleme:** 2026-04-12
+**Kaynaklar:** `docs/skill-review-findings.md`, `todo.md`, `todo_v1.1.md` birleştirildi
 
 > Sadece bekleyen işler. Tamamlananlar git history'de (v1.0, v1.1, v1.2, v1.3, Faz 1-2).
 
@@ -8,14 +9,9 @@
 
 ## 🔴 P0 — Kritik
 
-- [x] **K-1. Lint errors (62→0)** ✅ 2026-04-12
-  - 17 dosyada düzeltme: static-components, refs-in-render, set-state-in-effect, no-undef, no-useless-escape, no-misleading-character-class
-
-- [ ] **K-2. VerseGraph bundle optimizasyonu**
-  - Hâlâ 1,420KB (gzip: 382KB). Three.js + react-force-graph-3d dahil.
-  - Çözüm: `manualChunks` ile Three.js ayrı chunk'a çek (~900KB ayrılır)
-
-- [x] **K-3. EsbabNuzul.jsx dead file** ✅ 2026-04-12 — 738 satır dead code silindi
+- [ ] **K-4. FCP/LCP iyileştirme** — PROD: FCP 4.7s / LCP 7.6s, hedef <2.5s
+  - Unused JS temizliği: index bundle 235KB, %26 unused → daha agresif code splitting
+  - Render blocking kaynakları azaltma
 
 ---
 
@@ -28,28 +24,16 @@
   - Tetikleyici: dark mode veya major refactor
   - 6-10 saat incremental
 
-- [ ] **M-3. Mobile responsive test**
-  - PathBreadcrumb, PathCards, AllTopics, ToolsBrowser — gerçek cihazda
-  - 1-2 saat
+- [x] **M-3. Mobile responsive test** ✅ 2026-04-12
+  - Kod analizi: 6 bileşen tarandı (PathBreadcrumb, PathCards, AllTopics, ToolsBrowser, PathCard, Navbar)
+  - 4/6 PASS, 2 fix yapıldı:
+  - ToolsBrowser: filter bar `overflowX:auto` → `flexWrap:wrap` (390px'de scroll kalkti)
+  - Navbar: mobil menü touch target `py-2.5` → `py-3.5` (~40px, WCAG uyumlu)
 
-- [x] **M-4. Lighthouse skoru** ✅ 2026-04-12 (ölçüm yapıldı, action item'lar çıkarıldı)
-  - PROD: Perf 61, A11y 90, Best Practices 100, SEO 91
-  - **FCP 4.7s / LCP 7.6s** — kritik, hedef <2.5s
-  - CLS 0, TBT 130ms — iyi
-
-- [ ] **M-5. FCP/LCP iyileştirme** (Lighthouse'tan çıkan)
-  - Font preload (Playfair Display, Inter) — FCP'yi düşürür
-  - ParticleBackground defer/lazy — LCP'yi düşürür
-  - Critical CSS inline
-  - ~1-2 saat
-
-- [ ] **M-6. Unused JS temizliği** (750ms tasarruf)
-  - Google Analytics tag: 156KB, %41 unused → defer/async
-  - index bundle: 235KB, %26 unused → daha agresif code splitting
-
-- [ ] **M-7. A11y 90→100**
-  - 2 buton accessible name eksik
-  - 13 element kontrast yetersiz
+- [ ] **M-4. A11y 94→100**
+  - ~~13 kontrast~~ ✅ düzeltildi (Footer `/35`→`/75`, `/40`→`/75`, `/30`→`/80`)
+  - ~~2 buton aria-label~~ ✅ 1 düzeltildi, 1 kaldı (HumanDefinition audio btn — Lighthouse scroll-dependent edge case)
+  - Kalan: 1 buton (Lighthouse headless scroll sınırında)
 
 ---
 
@@ -61,8 +45,10 @@
 - [ ] **D-4. Transliterasyon tutarlılığı** — alim isimleri sistemik kontrol
 - [ ] **D-5. Scientific Signs / HistoricalProof content review** — detaylı doğrulama
 - [ ] **D-6. WowFacts kalan mutlak iddialar** — "hiçbir" ifadeleri yumuşatma
-- [ ] **D-7. Tecvid genişletme** — izhar, mad-lâzım tipleri
+- [ ] **D-7. Tecvid genişletme** — izhar (حلق harfleri), mad-lâzım tipleri
 - [ ] **D-8. Mobil 3D crash** — Three.js OOM → 2D fallback
+- [ ] **D-9. Vakıf margin fine-tuning** — `left: -0.08em` doğrulaması
+- [ ] **D-10. Section geçişleri** — gradient overlap yerine sinematik transition
 
 ---
 
@@ -89,6 +75,8 @@
 - [ ] **F-11. İlk ve Son Kelimeler** — her sûrenin ilk/son kelime deseni
 - [ ] **F-12. Kur'an'da Doğa** — teolojik/estetik, bilimsel değil
 - [ ] **F-13. Hafıza Modu** — yüksek etkileşim, düşük efor
+- [ ] **F-14. Route yapısı** — React Router (`/oku`, `/ayet-haritasi`, `/araclar/*`)
+- [ ] **F-15. Navbar yeniden yapılandırma** — `Logo | Keşfet | Araçlar ▾ | [Oku] | TR/EN`
 
 ---
 
@@ -101,6 +89,6 @@
 
 ## Referans
 
-**Lint snapshot (2026-04-12):** 0 error, 46 warning, 2330 token ihlali, 70/70 test PASS, VerseGraph 1.4MB chunk
+**Lint snapshot (2026-04-12):** 0 error, 46 warning, 2330 token ihlali, 70/70 test PASS, VerseGraph 873KB + three 550KB
 
 **Manuel test senaryoları:** `docs/path-mode-test-scenarios.md` (8 senaryo, 7 PASS, 1 test açığı)

@@ -1106,7 +1106,7 @@ export default function Navbar() {
                 <button
                   key={id}
                   onClick={() => scrollTo(id)}
-                  className="text-silver hover:text-gold transition-colors text-left py-2.5 text-sm font-body"
+                  className="text-silver hover:text-gold transition-colors text-left py-3.5 text-sm font-body"
                 >
                   {language === 'tr' ? keyTr : keyEn}
                 </button>
@@ -1122,7 +1122,7 @@ export default function Navbar() {
                   onClick={() => { featuredTool.action(); setMobileOpen(false); }}
                   style={{
                     width: '100%',
-                    padding: '10px 14px',
+                    padding: '12px 14px',
                     marginBottom: '4px',
                     background: 'rgba(201, 162, 39, 0.06)',
                     border: '1px solid rgba(201, 162, 39, 0.15)',
@@ -1151,7 +1151,7 @@ export default function Navbar() {
                   <button
                     key={tool.id}
                     onClick={() => { tool.action(); setMobileOpen(false); }}
-                    className="text-silver hover:text-gold transition-colors text-left py-2.5 text-sm font-body w-full flex items-center gap-2"
+                    className="text-silver hover:text-gold transition-colors text-left py-3.5 text-sm font-body w-full flex items-center gap-2"
                   >
                     <span style={{ opacity: 0.6 }}>{tool.icon}</span>
                     {language === 'tr' ? tool.labelTr : tool.labelEn}

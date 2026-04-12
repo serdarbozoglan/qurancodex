@@ -635,6 +635,7 @@ export default function ImpossibleRhythm() {
             <button
               onClick={!kawtharFailed ? toggleKawthar : undefined}
               disabled={kawtharFailed}
+              aria-label={kawtharPlaying ? 'Pause' : 'Play Kevser'}
               style={{
                 width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
                 background: kawtharFailed ? 'rgba(100,116,139,0.08)' : kawtharPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',

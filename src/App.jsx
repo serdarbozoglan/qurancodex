@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { LanguageProvider } from './i18n/LanguageContext';
 // v1.2 — path-aware navigation (sticky breadcrumb walks the user through
 // a curated sequence of sections / overlays)
@@ -5,30 +6,32 @@ import { PathProvider } from './contexts/PathContext';
 import PathBreadcrumb from './components/PathBreadcrumb';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-// v1.1 redesign — discovery layer (mounted right after Hero)
-import PathCards from './sections/PathCards';
-import AllTopics from './sections/AllTopics';
-import ToolsHighlight from './sections/ToolsHighlight';
-// Existing long-form content sections
-import LinguisticDNA from './sections/LinguisticDNA';
-import ImpossibleRhythm from './sections/ImpossibleRhythm';
-import QuranRhetoric from './sections/QuranRhetoric';
-import QuranDua from './sections/QuranDua';
-import SoundArchitecture from './sections/SoundArchitecture';
-import PsychologySection from './sections/PsychologySection';
-import HiddenArchitecture from './sections/HiddenArchitecture';
-import ScientificSigns from './sections/ScientificSigns';
-import HistoricalProof from './sections/HistoricalProof';
-import LivingPreservation from './sections/LivingPreservation';
-import ZeroRedundancy from './sections/ZeroRedundancy';
-import Highlights from './sections/Highlights';
-import HumanDefinition from './sections/HumanDefinition';
-import ToolsShowcase from './sections/ToolsShowcase';
-import Conclusion from './sections/Conclusion';
 import ChapterProgress from './components/ChapterProgress';
 import Footer from './components/Footer';
-// v1.1 — centered modal listing all 17 interactive tools
-import ToolsBrowser from './components/ToolsBrowser';
+
+// Below-fold discovery layer — deferred to shrink the initial bundle.
+const PathCards = lazy(() => import('./sections/PathCards'));
+const AllTopics = lazy(() => import('./sections/AllTopics'));
+const ToolsHighlight = lazy(() => import('./sections/ToolsHighlight'));
+const ToolsBrowser = lazy(() => import('./components/ToolsBrowser'));
+
+// Lazy-loaded long-form content sections — not needed for initial paint.
+// Each section is ~5-30KB; deferring them cuts the main bundle significantly.
+const LinguisticDNA = lazy(() => import('./sections/LinguisticDNA'));
+const ImpossibleRhythm = lazy(() => import('./sections/ImpossibleRhythm'));
+const QuranRhetoric = lazy(() => import('./sections/QuranRhetoric'));
+const QuranDua = lazy(() => import('./sections/QuranDua'));
+const SoundArchitecture = lazy(() => import('./sections/SoundArchitecture'));
+const PsychologySection = lazy(() => import('./sections/PsychologySection'));
+const HiddenArchitecture = lazy(() => import('./sections/HiddenArchitecture'));
+const ScientificSigns = lazy(() => import('./sections/ScientificSigns'));
+const HistoricalProof = lazy(() => import('./sections/HistoricalProof'));
+const LivingPreservation = lazy(() => import('./sections/LivingPreservation'));
+const ZeroRedundancy = lazy(() => import('./sections/ZeroRedundancy'));
+const Highlights = lazy(() => import('./sections/Highlights'));
+const HumanDefinition = lazy(() => import('./sections/HumanDefinition'));
+const ToolsShowcase = lazy(() => import('./sections/ToolsShowcase'));
+const Conclusion = lazy(() => import('./sections/Conclusion'));
 
 export default function App() {
   return (
@@ -41,10 +44,12 @@ export default function App() {
           <Hero />
 
           {/* ── v1.1 discovery layer ─────────────────────────────────────── */}
-          <div className="gradient-divider" />
-          <PathCards />
-          <AllTopics />
-          <ToolsHighlight />
+          <Suspense fallback={null}>
+            <div className="gradient-divider" />
+            <PathCards />
+            <AllTopics />
+            <ToolsHighlight />
+          </Suspense>
 
           {/* ── Long-form content ─────────────────────────────────────────
               Order is now path-aware: every discovery path defined in
@@ -64,33 +69,35 @@ export default function App() {
               The 3 language sections now form a tight cluster, and the
               3 human/prayer sections form another tight cluster — a small
               narrative win on top of the path-mode fix. */}
-          <div className="gradient-divider-reverse" />
-          <LinguisticDNA />
-          <ImpossibleRhythm />
-          <SoundArchitecture />
-          <div className="gradient-divider" />
-          <QuranRhetoric />
-          <div className="gradient-divider-reverse" />
-          <HiddenArchitecture />
-          <ScientificSigns />
-          <div className="gradient-divider-reverse" />
-          <HistoricalProof />
-          <div className="gradient-divider" />
-          <LivingPreservation />
-          <div className="gradient-divider-reverse" />
-          <ZeroRedundancy />
-          <div className="gradient-divider" />
-          <Highlights />
-          <div className="gradient-divider" />
-          <HumanDefinition />
-          <PsychologySection />
-          <QuranDua />
-          <ToolsShowcase />
-          <Conclusion />
+          <Suspense fallback={null}>
+            <div className="gradient-divider-reverse" />
+            <LinguisticDNA />
+            <ImpossibleRhythm />
+            <SoundArchitecture />
+            <div className="gradient-divider" />
+            <QuranRhetoric />
+            <div className="gradient-divider-reverse" />
+            <HiddenArchitecture />
+            <ScientificSigns />
+            <div className="gradient-divider-reverse" />
+            <HistoricalProof />
+            <div className="gradient-divider" />
+            <LivingPreservation />
+            <div className="gradient-divider-reverse" />
+            <ZeroRedundancy />
+            <div className="gradient-divider" />
+            <Highlights />
+            <div className="gradient-divider" />
+            <HumanDefinition />
+            <PsychologySection />
+            <QuranDua />
+            <ToolsShowcase />
+            <Conclusion />
+          </Suspense>
         </main>
         <Footer />
         {/* Tools browser modal — opens via openOverlay('allTools') from anywhere */}
-        <ToolsBrowser />
+        <Suspense fallback={null}><ToolsBrowser /></Suspense>
         {/* v1.2 — sticky bottom path-mode breadcrumb (renders nothing when inactive) */}
         <PathBreadcrumb />
       </PathProvider>

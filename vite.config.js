@@ -10,6 +10,7 @@ export default defineConfig({
         manualChunks: {
           three: ['three'],
           'force-graph': ['react-force-graph-3d', '3d-force-graph'],
+          'framer-motion': ['framer-motion'],
         },
       },
     },
