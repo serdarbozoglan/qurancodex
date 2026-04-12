@@ -388,8 +388,20 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
 
   const handleExpand = (p) => {
     if (expandedId === p.id) {
-      setExpandedId(null);
-      if (backRef) backRef.current = null;
+      // Collapse via history.back() so the sentinel pushed on expand
+      // gets consumed by the popstate handler. Just calling
+      // setExpandedId(null) here leaked a history entry: the card
+      // collapsed locally, but the extra sentinel stayed on the stack.
+      // When the user later closed MeselAtlasi with ✕, Navbar's
+      // sentinel effect only popped ONE entry, leaving the other stuck.
+      // A subsequent browser-back then popped the site's own entry,
+      // kicking the user off the tab entirely (seen as "back from
+      // Kur'an'ın Retoriği lands on incognito new-tab").
+      //
+      // history.back() fires popstate → Navbar's handler sees
+      // meselOpen=true + backRef.current exists → calls backRef()
+      // which runs setExpandedId(null) + clears the ref.
+      window.history.back();
       return;
     }
     setExpandedId(p.id);
@@ -1221,9 +1233,13 @@ export default function MeselAtlasi({ onClose, backRef }) {
     const h = (e) => {
       if (e.key !== 'Escape') return;
       if (backRef?.current) {
-        backRef.current();
-        backRef.current = null;
-        window.history.pushState({ overlay: true }, '');
+        // Consume the expand-sentinel by going back — popstate will
+        // fire, Navbar will see meselOpen=true + backRef.current set,
+        // and route to the collapse handler. Previously we called
+        // backRef() directly AND pushed a new entry, which leaked a
+        // sentinel every ESC-while-expanded: the expand entry was
+        // never popped, and a fresh duplicate was pushed on top.
+        window.history.back();
       }
       // ESC with no sub-navigation open: do nothing — close button or browser back handles exit
     };
