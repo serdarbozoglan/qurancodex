@@ -4,6 +4,16 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three'],
+          'force-graph': ['react-force-graph-3d', '3d-force-graph'],
+        },
+      },
+    },
+  },
   server: {
     watch: {
       ignored: ['**/website/**', '**/node_modules/**'],
