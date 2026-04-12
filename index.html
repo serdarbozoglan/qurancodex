@@ -11,8 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/kfgqpc-uthmanic-script-hafs-regular@1.0.0/arabic.otf" as="font" type="font/otf" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Amiri+Quran&family=Scheherazade+New:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Lateef:wght@400&family=Reem+Kufi:wght@400&family=Reem+Kufi+Ink&family=Aref+Ruqaa:wght@400&family=Markazi+Text:wght@400&family=Harmattan:wght@400&family=Alkalami&family=Katibeh&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <!-- Scheherazade New & Lateef also available via SIL for better Quranic diacritics -->
+    <!-- Hero fonts first (render-blocking): Inter body + Playfair Display headings.
+         Only the weights actually used in tokens.js / CSS are requested.
+         Amiri + Amiri Quran loaded separately (Arabic fallback, not on critical path). -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;800;900&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Amiri+Quran&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <style>
       @font-face {
         font-family: 'KFGQPC';
@@ -29,7 +33,11 @@
         font-display: swap;
       }
     </style>
-    <!-- Google Analytics -->
+  </head>
+  <body class="bg-[#080a1e] text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- Google Analytics — deferred below app entry to keep it off the critical path -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G2J0VSCV0S"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -37,9 +45,5 @@
       gtag('js', new Date());
       gtag('config', 'G-G2J0VSCV0S');
     </script>
-  </head>
-  <body class="bg-[#080a1e] text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
