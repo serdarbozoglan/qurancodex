@@ -1014,10 +1014,12 @@ export default function Navbar() {
             {language === 'tr' ? 'EN' : 'TR'}
           </button>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile menu toggle — z-index above tool overlays (9999) so the
+              hamburger is always tappable even when a full-screen overlay is open */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="lg:hidden text-off-white p-2 hover:text-gold transition-colors"
+            style={{ position: 'relative', zIndex: 10002 }}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
@@ -1036,144 +1038,141 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu — full-screen overlay */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="lg:hidden"
+    </nav>
+
+    {/* Mobile menu — rendered OUTSIDE <nav> so it escapes nav's stacking
+        context (z-[9999]) and can layer above tool overlays (also z-9999).
+        Without this, position:fixed + z-index:10001 inside <nav> is capped
+        by nav's own z-index and the menu hides behind any open overlay. */}
+    <AnimatePresence>
+      {mobileOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: '100%' }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: '100%' }}
+          transition={{ duration: 0.25, ease: 'easeInOut' }}
+          className="lg:hidden"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 10001,
+            background: '#080a1e',
+            overflowY: 'auto',
+          }}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setMobileOpen(false)}
             style={{
               position: 'fixed',
-              inset: 0,
-              // Above all tool overlays (9999) and PathBreadcrumb (10000)
-              // so the hamburger menu is always reachable, even when a
-              // tool overlay is open behind it.
-              zIndex: 10001,
-              background: '#080a1e',
-              overflowY: 'auto',
+              top: '14px',
+              right: '16px',
+              zIndex: 10002,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              background: 'rgba(255,255,255,0.08)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              color: '#e8e6e3',
+              cursor: 'pointer',
             }}
+            aria-label="Menüyü kapat"
           >
-            {/* Close button inside overlay */}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+
+          <div className="flex flex-col gap-1" style={{ padding: '80px 24px 40px' }}>
+            {/* Oku */}
             <button
-              onClick={() => setMobileOpen(false)}
+              onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
+              className="flex items-center gap-2"
               style={{
-                position: 'fixed',
-                top: '14px',
-                right: '16px',
-                zIndex: 1,
-                display: 'flex',
-                alignItems: 'center',
+                color: '#1a0e00',
+                background: 'linear-gradient(135deg, #d4a574 0%, #c9a227 100%)',
+                borderRadius: '8px',
+                padding: '12px 16px',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.9rem',
+                fontWeight: 700,
+                letterSpacing: '0.05em',
+                border: 'none',
+                width: '100%',
                 justifyContent: 'center',
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.08)',
-                border: '1px solid rgba(255,255,255,0.12)',
-                color: '#e8e6e3',
-                cursor: 'pointer',
+                marginBottom: '12px',
+                boxShadow: '0 0 16px rgba(212,169,78,0.4)',
               }}
-              aria-label="Menüyü kapat"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
+              <span style={{ fontSize: '0.65rem', opacity: 0.55 }}>✦</span>
+              {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
             </button>
 
-            <div className="flex flex-col gap-1" style={{ padding: '80px 24px 40px' }}>
-              {/* Oku — full-width primary at the top of the mobile menu.
-                  Matches the desktop button's visual weight with an amber
-                  glow, and uses the same label as desktop ("Kur'an'ı Oku"). */}
+            {/* Section anchors */}
+            <p className="text-[0.62rem] text-silver/40 uppercase tracking-[0.15em] mt-2 mb-0.5">
+              {language === 'tr' ? 'Keşfet' : 'Discover'}
+            </p>
+            {navSections.map(({ id, keyTr, keyEn }) => (
               <button
-                onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
-                className="flex items-center gap-2"
+                key={id}
+                onClick={() => scrollTo(id)}
+                className="text-silver hover:text-gold transition-colors text-left py-3.5 text-sm font-body"
+              >
+                {language === 'tr' ? keyTr : keyEn}
+              </button>
+            ))}
+
+            {/* Tools */}
+            <div className="border-t border-white/5 pt-2 mt-1">
+              <p className="text-[0.62rem] text-silver/40 uppercase tracking-[0.15em] mb-1">
+                {language === 'tr' ? 'Araçlar' : 'Tools'}
+              </p>
+              <button
+                onClick={() => { featuredTool.action(); setMobileOpen(false); }}
                 style={{
-                  color: '#1a0e00',
-                  background: 'linear-gradient(135deg, #d4a574 0%, #c9a227 100%)',
-                  borderRadius: '8px',
-                  padding: '12px 16px',
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: '0.9rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.05em',
-                  border: 'none',
                   width: '100%',
-                  justifyContent: 'center',
-                  marginBottom: '12px',
-                  boxShadow: '0 0 16px rgba(212,169,78,0.4)',
+                  padding: '12px 14px',
+                  marginBottom: '4px',
+                  background: 'rgba(201, 162, 39, 0.06)',
+                  border: '1px solid rgba(201, 162, 39, 0.15)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  cursor: 'pointer',
                 }}
               >
-                <span style={{ fontSize: '0.65rem', opacity: 0.55 }}>✦</span>
-                {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
-              </button>
-
-              {/* Section anchors */}
-              <p className="text-[0.62rem] text-silver/40 uppercase tracking-[0.15em] mt-2 mb-0.5">
-                {language === 'tr' ? 'Keşfet' : 'Discover'}
-              </p>
-              {navSections.map(({ id, keyTr, keyEn }) => (
-                <button
-                  key={id}
-                  onClick={() => scrollTo(id)}
-                  className="text-silver hover:text-gold transition-colors text-left py-3.5 text-sm font-body"
-                >
-                  {language === 'tr' ? keyTr : keyEn}
-                </button>
-              ))}
-
-              {/* Tools */}
-              <div className="border-t border-white/5 pt-2 mt-1">
-                <p className="text-[0.62rem] text-silver/40 uppercase tracking-[0.15em] mb-1">
-                  {language === 'tr' ? 'Araçlar' : 'Tools'}
-                </p>
-                {/* Featured: Kur'an'ı Tanı */}
-                <button
-                  onClick={() => { featuredTool.action(); setMobileOpen(false); }}
-                  style={{
-                    width: '100%',
-                    padding: '12px 14px',
-                    marginBottom: '4px',
-                    background: 'rgba(201, 162, 39, 0.06)',
-                    border: '1px solid rgba(201, 162, 39, 0.15)',
-                    borderRadius: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    cursor: 'pointer',
-                  }}
-                >
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{ color: '#c9a227' }}>{featuredTool.icon}</span>
-                    <span style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                      <span style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
-                        {language === 'tr' ? featuredTool.labelTr : featuredTool.labelEn}
-                      </span>
-                      <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif" }}>
-                        {language === 'tr' ? featuredTool.descTr : featuredTool.descEn}
-                      </span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ color: '#c9a227' }}>{featuredTool.icon}</span>
+                  <span style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                    <span style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
+                      {language === 'tr' ? featuredTool.labelTr : featuredTool.labelEn}
+                    </span>
+                    <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif" }}>
+                      {language === 'tr' ? featuredTool.descTr : featuredTool.descEn}
                     </span>
                   </span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round"><path d="M9 18l6-6-6-6" /></svg>
+                </span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round"><path d="M9 18l6-6-6-6" /></svg>
+              </button>
+              {[...vizTools, ...analysisTools, ...researchTools].map(tool => (
+                <button
+                  key={tool.id}
+                  onClick={() => { tool.action(); setMobileOpen(false); }}
+                  className="text-silver hover:text-gold transition-colors text-left py-3.5 text-sm font-body w-full flex items-center gap-2"
+                >
+                  <span style={{ opacity: 0.6 }}>{tool.icon}</span>
+                  {language === 'tr' ? tool.labelTr : tool.labelEn}
                 </button>
-                {/* Remaining tools — flat list of all 15 categorized tools */}
-                {[...vizTools, ...analysisTools, ...researchTools].map(tool => (
-                  <button
-                    key={tool.id}
-                    onClick={() => { tool.action(); setMobileOpen(false); }}
-                    className="text-silver hover:text-gold transition-colors text-left py-3.5 text-sm font-body w-full flex items-center gap-2"
-                  >
-                    <span style={{ opacity: 0.6 }}>{tool.icon}</span>
-                    {language === 'tr' ? tool.labelTr : tool.labelEn}
-                  </button>
-                ))}
-              </div>
+              ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
 
     {/* Overlays */}
     {graphOpen && (
