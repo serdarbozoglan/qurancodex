@@ -64,6 +64,11 @@ export function useQuranNav() {
       console.warn(`useQuranNav.scrollToSection: no element with id="${id}"`);
       return;
     }
+    // Save current scroll position in history so back returns here
+    const prevScroll = window.scrollY;
+    window.history.replaceState({ ...window.history.state, scrollY: prevScroll }, '');
+    window.history.pushState({ section: id }, '');
+
     const navEl = document.querySelector('nav');
     const navHeight = navEl?.offsetHeight ?? 64;
     const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 16;

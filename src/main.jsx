@@ -15,6 +15,16 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 
+// Restore scroll position when user navigates back from a section scroll.
+// useQuranNav.scrollToSection pushes { section: id } entries; when the user
+// presses back, the browser pops that entry and we restore the previous
+// scroll position (saved via replaceState before the push).
+window.addEventListener('popstate', (e) => {
+  if (e.state?.scrollY != null) {
+    window.scrollTo({ top: e.state.scrollY, behavior: 'smooth' });
+  }
+});
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
