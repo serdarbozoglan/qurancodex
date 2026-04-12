@@ -207,9 +207,11 @@ export default function EsmaFrekans({ onClose }) {
   const hasMore = visibleCount < filtered.length;
 
   // Reset visible count when filter/search changes
+  /* eslint-disable react-hooks/set-state-in-effect -- resetting derived state on dep change is intentional */
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
   }, [filter, search, sort]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   return (
     <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-label={tr ? 'Esmaül Hüsna Frekansları' : 'Divine Names Frequencies'}>

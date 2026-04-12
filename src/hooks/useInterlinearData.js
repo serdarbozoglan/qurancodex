@@ -100,6 +100,7 @@ export function useInterlinearData(surahNumber, lang = 'en') {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  /* eslint-disable react-hooks/set-state-in-effect -- synchronous cache read to avoid unnecessary fetch */
   useEffect(() => {
     if (!surahNumber) return;
 
@@ -114,6 +115,7 @@ export function useInterlinearData(surahNumber, lang = 'en') {
     } catch {
       // Cache read failed — proceed to fetch
     }
+    /* eslint-enable react-hooks/set-state-in-effect */
 
     let cancelled = false;
     setLoading(true);

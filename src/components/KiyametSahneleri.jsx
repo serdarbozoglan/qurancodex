@@ -203,7 +203,7 @@ function StatusBadge({ status }) {
   return null;
 }
 
-function VerseBlock({ ar, tr, en, ref: verseRef, language, color }) {
+function VerseBlock({ ar, tr, en, verseRef, language, color }) {
   const accent = color || COLORS.gold;
   return (
     <div style={{
@@ -242,6 +242,7 @@ function VerseBlock({ ar, tr, en, ref: verseRef, language, color }) {
   );
 }
 
+/* eslint-disable react-hooks/refs -- scene.additionalRefs/primaryRef are data props, not React refs */
 function PhaseScene({ scene, language, defaultOpen }) {
   const [open, setOpen] = useState(defaultOpen);
   const pc = PHASE_COLORS[scene.phase] || PHASE_COLORS[1];
@@ -284,7 +285,7 @@ function PhaseScene({ scene, language, defaultOpen }) {
             ar={scene.arabic}
             tr={scene.translationTr}
             en={scene.translationEn}
-            ref={scene.primaryRef}
+            verseRef={scene.primaryRef}
             language={language}
             color={pc.accent}
           />
@@ -313,6 +314,7 @@ function PhaseScene({ scene, language, defaultOpen }) {
     </div>
   );
 }
+/* eslint-enable react-hooks/refs */
 
 function SurahCard({ surah, language }) {
   const [expanded, setExpanded] = useState(false);
@@ -894,7 +896,7 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
         <div key={i} style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', padding: '16px' }}>
           <h3 style={{ fontSize: '1rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 10px', fontFamily: FONTS.body }}>{sec.title}</h3>
           {sec.ar && (
-            <VerseBlock ar={sec.ar} tr={sec.tr} en={sec.en} ref={sec.ref} language={language} color={GOLD} />
+            <VerseBlock ar={sec.ar} tr={sec.tr} en={sec.en} verseRef={sec.ref} language={language} color={GOLD} />
           )}
           <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.75, margin: sec.ar ? '10px 0 0' : 0, fontFamily: FONTS.body }}>
             {sec.content}

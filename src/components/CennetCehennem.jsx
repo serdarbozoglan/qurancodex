@@ -401,13 +401,9 @@ function IsimCard({ item, language, color, bg, border }) {
   );
 }
 
-// ── HERO BANNER ───────────────────────────────────────────────────────────────
-function HeroBanner({ data, language, isMobile }) {
-  const tr = language === 'tr';
-  const cennetCount  = data.cennetIsimleri?.length  ?? 9;
-  const cehennemCount = data.cehennemIsimleri?.length ?? 7;
-
-  const StatPill = ({ value, label, color }) => (
+// ── STAT PILL ────────────────────────────────────────────────────────────────
+function StatPill({ value, label, color, isMobile }) {
+  return (
     <div style={{
       background: 'rgba(0,0,0,0.25)',
       borderRadius: '8px',
@@ -419,6 +415,13 @@ function HeroBanner({ data, language, isMobile }) {
       <div style={{ fontSize: '0.62rem', color: '#475569', marginTop: '2px', letterSpacing: '0.04em' }}>{label}</div>
     </div>
   );
+}
+
+// ── HERO BANNER ───────────────────────────────────────────────────────────────
+function HeroBanner({ data, language, isMobile }) {
+  const tr = language === 'tr';
+  const cennetCount  = data.cennetIsimleri?.length  ?? 9;
+  const cehennemCount = data.cehennemIsimleri?.length ?? 7;
 
   return (
     <div style={{
@@ -436,9 +439,9 @@ function HeroBanner({ data, language, isMobile }) {
           {tr ? 'Cennet' : 'Paradise'}
         </div>
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-          <StatPill value={cennetCount}  label={tr ? 'İsim' : 'Names'}   color={CENNET.accent} />
-          <StatPill value="~147"         label={tr ? 'Ayet' : 'Verses'}  color={CENNET.accent} />
-          <StatPill value={4}            label={tr ? 'Nehir' : 'Rivers'} color={CENNET.accent} />
+          <StatPill value={cennetCount}  label={tr ? 'İsim' : 'Names'}   color={CENNET.accent} isMobile={isMobile} />
+          <StatPill value="~147"         label={tr ? 'Ayet' : 'Verses'}  color={CENNET.accent} isMobile={isMobile} />
+          <StatPill value={4}            label={tr ? 'Nehir' : 'Rivers'} color={CENNET.accent} isMobile={isMobile} />
         </div>
       </div>
 
@@ -500,9 +503,9 @@ function HeroBanner({ data, language, isMobile }) {
           {tr ? 'Cehennem' : 'Hell'}
         </div>
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-          <StatPill value={cehennemCount} label={tr ? 'İsim' : 'Names'}   color={CEHENNEM.accent} />
-          <StatPill value="~77"           label={tr ? 'Ayet' : 'Verses'}  color={CEHENNEM.accent} />
-          <StatPill value={19}            label={tr ? 'Melek' : 'Angels'} color={CEHENNEM.accent} />
+          <StatPill value={cehennemCount} label={tr ? 'İsim' : 'Names'}   color={CEHENNEM.accent} isMobile={isMobile} />
+          <StatPill value="~77"           label={tr ? 'Ayet' : 'Verses'}  color={CEHENNEM.accent} isMobile={isMobile} />
+          <StatPill value={19}            label={tr ? 'Melek' : 'Angels'} color={CEHENNEM.accent} isMobile={isMobile} />
         </div>
       </div>
     </div>
@@ -1079,11 +1082,8 @@ const CROSS_LINKS = [
   { labelTr: 'Kur\'an\'ın Emirleri', labelEn: 'Quran Commands',       event: 'openQuranCommands' },
 ];
 
-function TabKaynaklar({ data, language }) {
-  const tr = language === 'tr';
-  const k = data.kaynaklar || {};
-
-  const SourceSection = ({ titleTr, titleEn, items }) => (
+function SourceSection({ titleTr, titleEn, items, tr }) {
+  return (
     <div style={{ marginBottom: '20px' }}>
       <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#64748b', margin: '0 0 10px' }}>
         {tr ? titleTr : titleEn}
@@ -1131,6 +1131,11 @@ function TabKaynaklar({ data, language }) {
       </div>
     </div>
   );
+}
+
+function TabKaynaklar({ data, language }) {
+  const tr = language === 'tr';
+  const k = data.kaynaklar || {};
 
   return (
     <div style={{ maxWidth: '680px' }}>
@@ -1148,9 +1153,9 @@ function TabKaynaklar({ data, language }) {
         </p>
       </div>
 
-      <SourceSection titleTr="Klasik Tefsir" titleEn="Classical Commentary" items={k.klasikTefsir || []} />
-      <SourceSection titleTr="Akademik Kaynaklar" titleEn="Academic Sources" items={k.akademik || []} />
-      <SourceSection titleTr="Dijital Doğrulama" titleEn="Digital Verification" items={k.dijital || []} />
+      <SourceSection titleTr="Klasik Tefsir" titleEn="Classical Commentary" items={k.klasikTefsir || []} tr={tr} />
+      <SourceSection titleTr="Akademik Kaynaklar" titleEn="Academic Sources" items={k.akademik || []} tr={tr} />
+      <SourceSection titleTr="Dijital Doğrulama" titleEn="Digital Verification" items={k.dijital || []} tr={tr} />
 
       {/* Cross-tool links */}
       <div style={{ marginTop: '28px' }}>

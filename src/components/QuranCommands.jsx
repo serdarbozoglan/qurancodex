@@ -101,7 +101,9 @@ export default function QuranCommands({ onClose }) {
   }, []);
 
   // Reset expanded when category or filter changes
+  /* eslint-disable react-hooks/set-state-in-effect -- resetting derived state on dep change */
   useEffect(() => { setExpanded(false); }, [activeId, filter]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   if (!data) return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 200, background: '#0d1b2a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

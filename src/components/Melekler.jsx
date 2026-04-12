@@ -147,7 +147,7 @@ function InfoPopover({ text, language: _language }) {
   );
 }
 
-function VerseBlock({ arabic, translation, ref: verseRef, accent }) {
+function VerseBlock({ arabic, translation, verseRef, accent }) {
   return (
     <div style={{
       background: 'rgba(255,255,255,0.03)',
@@ -198,6 +198,7 @@ const FILTERS = [
 
 const KISSA_IDS = new Set(['cebrail', 'harut-marut', 'melek-ul-mevt', 'muakkibat', 'on-dokuz-bekci']);
 
+/* eslint-disable react-hooks/refs -- angel.keyVerse.ref, angel.alternateNames[].ref, angel.infoTr are data props, not React refs */
 function AngelCard({ angel, language, isMobile: _isMobile }) {
   const tr = language === 'tr';
   const cat = CAT[angel.category] || CAT.gizemlI;
@@ -268,7 +269,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
         <VerseBlock
           arabic={angel.keyVerse.arabic}
           translation={tr ? angel.keyVerse.turkish : angel.keyVerse.english}
-          ref={angel.keyVerse.ref}
+          verseRef={angel.keyVerse.ref}
           accent={cat.accent}
         />
       )}
@@ -304,6 +305,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
     </div>
   );
 }
+/* eslint-enable react-hooks/refs */
 
 function TabMelekler({ data, language, isMobile }) {
   const tr = language === 'tr';

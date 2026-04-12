@@ -16,6 +16,7 @@ function cleanArabic(str) {
     .replace(/\u06CC/g, '\u064A')
     .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
     .replace(/[\u0600-\u0605]/g, '')
+    // eslint-disable-next-line no-misleading-character-class -- intentional: removing individual Arabic formatting chars
     .replace(/[\u06DD\u06DE\u06E9\u06E0]/g, '')
     .replace(/\s*[۞۝۩]\s*/g, ' ')
     // Remove ayah end marker followed by Arabic-Indic digits (e.g. ۝١٧١)
@@ -375,9 +376,11 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
   const [expandedId,   setExpandedId]   = useState(null);
   const [loadedVerses, setLoadedVerses] = useState({});
 
+  /* eslint-disable react-hooks/set-state-in-effect -- syncing external prop to local filter state */
   useEffect(() => {
     if (domainFilter) setDomFilter(domainFilter);
   }, [domainFilter]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   const filtered = parables.filter(p => {
     if (catFilter !== 'all' && p.category !== catFilter) return false;

@@ -1299,6 +1299,7 @@ export default function Navbar() {
       <Suspense fallback={null}>
         <ConceptGraph
           onClose={() => { setConceptOpen(false); }}
+          // eslint-disable-next-line react-hooks/refs
           restore={conceptRestoreRef.current}
         />
       </Suspense>

@@ -657,14 +657,15 @@ function TabIstatistik({ data, language, isMobile }) {
 
   // Build conic gradient for donut (memoized to avoid recompute on every render)
   const donutGradient = useMemo(() => {
-    let cumulative = 0;
-    const stops = byCategory.map(item => {
+    const { stops } = byCategory.reduce((acc, item) => {
       const meta = CATEGORY_META[item.category];
-      if (!meta) return null;
-      const start = cumulative;
-      cumulative += item.percent;
-      return `${meta.color} ${start.toFixed(1)}% ${cumulative.toFixed(1)}%`;
-    }).filter(Boolean);
+      if (!meta) return acc;
+      const start = acc.cum;
+      const end = acc.cum + item.percent;
+      acc.stops.push(`${meta.color} ${start.toFixed(1)}% ${end.toFixed(1)}%`);
+      acc.cum = end;
+      return acc;
+    }, { stops: [], cum: 0 });
     return `conic-gradient(${stops.join(', ')})`;
   }, [byCategory]);
 
@@ -1251,10 +1252,12 @@ function TabZaman({ language, isMobile }) {
       .catch(() => setTimeLoading(false));
   }, []);
 
+  /* eslint-disable react-hooks/set-state-in-effect -- resetting derived state when selection changes */
   useEffect(() => {
     if (timeSelected && detailRef.current) detailRef.current.scrollTop = 0;
     setExpandedSecondary(null);
   }, [timeSelected]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   const filtered = timeEvents.filter(ev => {
     if (timeFilter !== 'all' && ev.period !== timeFilter && ev.category !== timeFilter) return false;

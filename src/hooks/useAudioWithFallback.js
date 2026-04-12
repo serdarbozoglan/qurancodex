@@ -76,8 +76,10 @@ export function useAudioWithFallback(surah, ayah) {
 
   // Single ref object avoids stale closures in nested callbacks
   const ctx = useRef({ surah, ayah, audio: null, active: false });
+  /* eslint-disable react-hooks/refs -- syncing ref with latest prop values to avoid stale closures */
   ctx.current.surah = surah;
   ctx.current.ayah = ayah;
+  /* eslint-enable react-hooks/refs */
 
   const stop = useCallback(() => {
     ctx.current.active = false;
@@ -101,6 +103,7 @@ export function useAudioWithFallback(surah, ayah) {
   // Cleanup on unmount
   useEffect(() => () => stop(), [stop]);
 
+  const tryUrlRef = useRef(null);
   const tryUrl = useCallback((urlIdx) => {
     const { surah, ayah } = ctx.current;
     const urls = buildFallbackUrls(surah, ayah);
@@ -128,7 +131,7 @@ export function useAudioWithFallback(surah, ayah) {
       if (ctx.current.audio !== audio) return;
       audio.onerror = null;
       audio.onended = null;
-      tryUrl(urlIdx + 1);
+      tryUrlRef.current(urlIdx + 1);
     };
 
     audio.play()
@@ -141,9 +144,10 @@ export function useAudioWithFallback(surah, ayah) {
         if (err?.name === 'AbortError') return;
         if (ctx.current.audio !== audio) return;
         audio.onerror = null;
-        tryUrl(urlIdx + 1);
+        tryUrlRef.current(urlIdx + 1);
       });
   }, []);
+  tryUrlRef.current = tryUrl; // eslint-disable-line react-hooks/refs -- syncing ref with self-referencing callback
 
   const toggle = useCallback(() => {
     if (ctx.current.active) { stop(); return; }

@@ -159,6 +159,7 @@ function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
   // ── 2. Gunne sonrası med: نَّا / مَّا gibi kelimelerde span hemen ardından ──────
   // Gunne spanı fathayı içine alınca, genel med kuralı span sınırını geçemez.
   // Çözüm: </span>'in hemen ardındaki bare elif/vav/ya → med.
+  // eslint-disable-next-line no-misleading-character-class -- intentional: matching individual Arabic codepoints
   html = html.replace(/(<\/span>)([\u0627\u0649\u0670])(?![\u064E\u064F\u0650\u0651\u0652])/gu,
     (_, c, a) => c + sp(K.med, a));
   html = html.replace(/(<\/span>)(\u0648)(?![\u064E\u064F\u0650\u0651\u0652])/gu,
@@ -175,14 +176,17 @@ function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
   // (مَتٰى, الْاَدْنٰى, افْتَرٰيهُ gibi — ama اٰيَاتِ'deki ي hariç çünkü harekeli)
   html = html.replace(new RegExp(`\\u0670\\u0653?(?:[\\u0649\\u064A]${NEG})?`, 'gu'), m => sp(K.med, m));
   // Fatha + elif / elif-maksura — yalnızca elif boyanır
+  // eslint-disable-next-line no-misleading-character-class -- intentional: matching individual Arabic codepoints
   html = html.replace(new RegExp(`(\\u064E)(${CMID})([\\u0627\\u0649])${NEG}`, 'gu'),
     (_, f, mid, a) => f + mid + sp(K.med, a));
   // Damme + vav
+  // eslint-disable-next-line no-misleading-character-class -- intentional: matching individual Arabic codepoints
   html = html.replace(new RegExp(`(\\u064F)(${CMID})(\\u0648)${NEG}`, 'gu'),
     (_, d, mid, w) => d + mid + sp(K.med, w));
   // رُؤُس (ruʾūs) — ؤ precomposed vav-hemze, damma sonrası med (hardcoded)
   html = html.replace(/\u0631\u064F(\u0624)/gu, (_, hamza) => '\u0631\u064F' + sp(K.med, hamza));
   // Kasra + ye (U+0650 standart kasra veya U+06EA asar kasra)
+  // eslint-disable-next-line no-misleading-character-class -- intentional: matching individual Arabic codepoints
   html = html.replace(new RegExp(`([\\u0650\\u06EA])(${CMID})(\\u064A)${NEG}`, 'gu'),
     (_, k, mid, y) => k + mid + sp(K.med, y));
 
@@ -520,7 +524,7 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
 }
 
 // ─── Single verse row ─────────────────────────────────────────────────────────
-function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audioFailed, language, showTranslation, reciterIdx }) {
+function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audioFailed, language, showTranslation, reciterIdx, currentFont, dayMode }) {
   const vt = language === 'tr' ? (cleanTr(verse.turkish) || verse.english) : (verse.english || cleanTr(verse.turkish));
   const gold = '#d4a574';
   const isSajda = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
@@ -1656,13 +1660,13 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             const num = parseInt(q, 10);
             const isNum = q !== '' && !isNaN(num) && String(num) === q.replace(/^0+/, '');
             // Normalize query for name matching (strip apostrophes, hyphens, diacritics)
-            const qNorm = normalizeText(q).replace(/['\u2019\u02bc`\-]/g, '');
+            const qNorm = normalizeText(q).replace(/['\u2019\u02bc`-]/g, '');
 
             // Collect surah name/number matches
             const surahMatches = [];
             SURAH_NAMES_TR.forEach((name, i) => {
               const surah = i + 1;
-              const nameNorm = normalizeText(name).replace(/['\u2019\u02bc`\-]/g, '');
+              const nameNorm = normalizeText(name).replace(/['\u2019\u02bc`-]/g, '');
               if ((isNum && surah === num) || (qNorm.length >= 1 && nameNorm.includes(qNorm))) {
                 surahMatches.push(surah);
               }
