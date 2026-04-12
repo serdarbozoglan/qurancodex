@@ -387,6 +387,14 @@ export default function Navbar() {
     }
   }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, [mobileOpen]);
+
   useEffect(() => {
     const handlePop = () => {
       if (readingOpen)    { setReadingOpen(false);    return; }
@@ -1040,7 +1048,10 @@ export default function Navbar() {
             style={{
               position: 'fixed',
               inset: 0,
-              zIndex: 9998,
+              // Above all tool overlays (9999) and PathBreadcrumb (10000)
+              // so the hamburger menu is always reachable, even when a
+              // tool overlay is open behind it.
+              zIndex: 10001,
               background: '#080a1e',
               overflowY: 'auto',
             }}
