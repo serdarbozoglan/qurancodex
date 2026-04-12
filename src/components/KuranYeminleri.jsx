@@ -267,15 +267,14 @@ export default function KuranYeminleri({ onClose }) {
 function RadialViz({ categories, activeCategoryId, onSelect, language }) {
   const cx = 220, cy = 220, r = 160, innerR = 70;
   const total = categories.reduce((s, c) => s + c.items.length, 0);
-  let startAngle = -Math.PI / 2;
 
-  const segments = categories.map((cat) => {
+  const segments = categories.reduce((acc, cat) => {
+    const prevEnd = acc.length > 0 ? acc[acc.length - 1].endAngle : -Math.PI / 2;
     const angle = (cat.items.length / total) * 2 * Math.PI;
-    const endAngle = startAngle + angle;
-    const seg = { cat, startAngle, endAngle, midAngle: startAngle + angle / 2 };
-    startAngle = endAngle;
-    return seg;
-  });
+    const endAngle = prevEnd + angle;
+    acc.push({ cat, startAngle: prevEnd, endAngle, midAngle: prevEnd + angle / 2 });
+    return acc;
+  }, []);
 
   function arcPath(sa, ea, rOuter, rInner, cx, cy, gap = 0.025) {
     const sa2 = sa + gap, ea2 = ea - gap;

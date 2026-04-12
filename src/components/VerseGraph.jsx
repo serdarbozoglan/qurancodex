@@ -1,6 +1,11 @@
 import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import ForceGraph3D from 'react-force-graph-3d';
-import * as THREE from 'three';
+import {
+  Color, Group, Mesh,
+  SphereGeometry, TorusGeometry, MeshLambertMaterial,
+  AmbientLight, DirectionalLight,
+  MOUSE, TOUCH,
+} from 'three';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 
@@ -451,17 +456,17 @@ const MEDANI_SURAHS = new Set([
 function surahColor(n) { return MEDANI_SURAHS.has(n) ? MEDENI_COLOR : MEKKI_COLOR; }
 function isMedeni(n)   { return MEDANI_SURAHS.has(n); }
 
-function hex(s) { return new THREE.Color(s); }
+function hex(s) { return new Color(s); }
 
 // ─── Glowing node object (Three.js) ──────────────────────────────────────────
 function makeNodeObject(node, isSelected, isHovered, isDimmed) {
-  const group = new THREE.Group();
+  const group = new Group();
 
   // Dimmed: warm amber micro-dot, barely visible
   if (isDimmed) {
-    group.add(new THREE.Mesh(
-      new THREE.SphereGeometry(0.8, 6, 6),
-      new THREE.MeshLambertMaterial({ color: hex('#d4a574'), transparent: true, opacity: 0.11 })
+    group.add(new Mesh(
+      new SphereGeometry(0.8, 6, 6),
+      new MeshLambertMaterial({ color: hex('#d4a574'), transparent: true, opacity: 0.11 })
     ));
     return group;
   }
@@ -471,9 +476,9 @@ function makeNodeObject(node, isSelected, isHovered, isDimmed) {
   const size = isSelected ? base * 2.0 : (isHovered ? base * 1.5 : base);
 
   // Core sphere
-  group.add(new THREE.Mesh(
-    new THREE.SphereGeometry(size, 16, 16),
-    new THREE.MeshLambertMaterial({
+  group.add(new Mesh(
+    new SphereGeometry(size, 16, 16),
+    new MeshLambertMaterial({
       color: hex(color), emissive: hex(color),
       emissiveIntensity: isSelected ? 1.0 : (isHovered ? 0.6 : (node.ghost ? 0.12 : 0.4)),
       transparent: node.ghost, opacity: node.ghost ? 0.3 : 1,
@@ -481,23 +486,23 @@ function makeNodeObject(node, isSelected, isHovered, isDimmed) {
   ));
   // Outer glow halo
   if (!node.ghost) {
-    group.add(new THREE.Mesh(
-      new THREE.SphereGeometry(size * (isSelected ? 2.8 : 2.0), 12, 12),
-      new THREE.MeshLambertMaterial({ color: hex(color), transparent: true, opacity: isSelected ? 0.14 : (isHovered ? 0.1 : 0.05), depthWrite: false })
+    group.add(new Mesh(
+      new SphereGeometry(size * (isSelected ? 2.8 : 2.0), 12, 12),
+      new MeshLambertMaterial({ color: hex(color), transparent: true, opacity: isSelected ? 0.14 : (isHovered ? 0.1 : 0.05), depthWrite: false })
     ));
   }
   // Selected: golden ring
   if (isSelected) {
-    const ring = new THREE.Mesh(
-      new THREE.TorusGeometry(size * 3.2, 0.35, 8, 48),
-      new THREE.MeshLambertMaterial({ color: hex('#f0c860'), emissive: hex('#d4a574'), emissiveIntensity: 1.0, transparent: true, opacity: 0.75 })
+    const ring = new Mesh(
+      new TorusGeometry(size * 3.2, 0.35, 8, 48),
+      new MeshLambertMaterial({ color: hex('#f0c860'), emissive: hex('#d4a574'), emissiveIntensity: 1.0, transparent: true, opacity: 0.75 })
     );
     ring.rotation.x = Math.PI / 2;
     group.add(ring);
     // Second ring at 45°
-    const ring2 = new THREE.Mesh(
-      new THREE.TorusGeometry(size * 3.2, 0.2, 6, 48),
-      new THREE.MeshLambertMaterial({ color: hex('#d4a574'), transparent: true, opacity: 0.35, depthWrite: false })
+    const ring2 = new Mesh(
+      new TorusGeometry(size * 3.2, 0.2, 6, 48),
+      new MeshLambertMaterial({ color: hex('#d4a574'), transparent: true, opacity: 0.35, depthWrite: false })
     );
     ring2.rotation.x = Math.PI / 4;
     group.add(ring2);
@@ -659,12 +664,15 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
   })();
 
   // Reset highlight when filtered list changes
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- resetting derived state on dep change
   useEffect(() => { setHighlightIdx(0); }, [search]);
 
   // Auto-focus search when opening
+  /* eslint-disable react-hooks/set-state-in-effect -- resetting state when dropdown opens */
   useEffect(() => {
     if (open) { setSearch(''); setHighlightIdx(0); setTimeout(() => inputRef.current?.focus(), 0); }
   }, [open]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Close on outside click
   useEffect(() => {
@@ -1113,11 +1121,13 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
       </div>
 
       {/* SVG canvas */}
+      {/* eslint-disable react-hooks/refs -- drag.current is read for cursor style, intentional */}
       <svg ref={svgRef} width={W} height={H}
         style={{ cursor: drag.current ? 'grabbing' : 'grab', display: 'block' }}
         onMouseDown={onMouseDown} onMouseMove={onMouseMove}
         onMouseUp={onMouseUp} onMouseLeave={onMouseUp}
       >
+      {/* eslint-enable react-hooks/refs */}
         <defs>
           {[MEKKI_COLOR, MEDENI_COLOR].map((color, i) => (
             <radialGradient key={i} id={`glow-${i}`} cx="50%" cy="50%" r="50%">
@@ -1726,6 +1736,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   // Auto-select verse when opened from an external source (e.g. ConceptGraph).
   // Run as soon as graphData is ready — no dependency on graphRef (3D init is async).
   const autoSelectedRef = useRef(false);
+  /* eslint-disable react-hooks/set-state-in-effect -- one-time auto-focus from external navigation */
   useEffect(() => {
     if (!autoFocusVerseId || autoSelectedRef.current) return;
     const node = graphData.nodes.find(n => n.id === autoFocusVerseId);
@@ -1734,6 +1745,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
     setSelected(node);
     setFocusedNodeId(node.id);
   }, [autoFocusVerseId, graphData]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Focus set: selected node + its direct neighbors
   const focusedSet = useMemo(() => {
@@ -1762,8 +1774,8 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
     if (scene) {
       const existing = scene.children.find(c => c.isAmbientLight);
       if (!existing) {
-        scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-        const dir = new THREE.DirectionalLight(0xffd4a0, 1.0);
+        scene.add(new AmbientLight(0xffffff, 0.7));
+        const dir = new DirectionalLight(0xffd4a0, 1.0);
         dir.position.set(0, 200, 0);
         scene.add(dir);
       }
@@ -1933,8 +1945,8 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
           if (controls) {
             controls.screenSpacePanning = true;
             controls.zoomToCursor = true;
-            controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN };
-            controls.mouseButtons = { LEFT: THREE.MOUSE.ROTATE, MIDDLE: THREE.MOUSE.PAN, RIGHT: THREE.MOUSE.PAN };
+            controls.touches = { ONE: TOUCH.ROTATE, TWO: TOUCH.DOLLY_PAN };
+            controls.mouseButtons = { LEFT: MOUSE.ROTATE, MIDDLE: MOUSE.PAN, RIGHT: MOUSE.PAN };
           }
         }}
       />
@@ -1965,10 +1977,12 @@ function FullGraph({ verses, onBack, language, onClose }) {
   const [dim, setDim] = useState({ w: window.innerWidth, h: window.innerHeight });
   const [muted, setMuted] = useState(false);
 
+  /* eslint-disable react-hooks/refs -- resetting fit flag when graph data recomputes is intentional */
   const graphData = useMemo(() => {
     initialFitDone.current = false;
     return buildGraphData(verses, filterSurah, filterSurah ? 'surah' : 'all');
   }, [verses, filterSurah]);
+  /* eslint-enable react-hooks/refs */
 
   // Focus set: selected node + its direct neighbors
   const focusedSet = useMemo(() => {
@@ -1993,8 +2007,8 @@ function FullGraph({ verses, onBack, language, onClose }) {
     if (!graphRef.current) return;
     const scene = graphRef.current.scene?.();
     if (scene) {
-      scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-      const dir = new THREE.DirectionalLight(0xffd4a0, 1.2);
+      scene.add(new AmbientLight(0xffffff, 0.6));
+      const dir = new DirectionalLight(0xffd4a0, 1.2);
       dir.position.set(100, 200, 100);
       scene.add(dir);
     }
@@ -2391,8 +2405,8 @@ function FullGraph({ verses, onBack, language, onClose }) {
           if (controls) {
             controls.screenSpacePanning = true;
             controls.zoomToCursor = true;
-            controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN };
-            controls.mouseButtons = { LEFT: THREE.MOUSE.ROTATE, MIDDLE: THREE.MOUSE.PAN, RIGHT: THREE.MOUSE.PAN };
+            controls.touches = { ONE: TOUCH.ROTATE, TWO: TOUCH.DOLLY_PAN };
+            controls.mouseButtons = { LEFT: MOUSE.ROTATE, MIDDLE: MOUSE.PAN, RIGHT: MOUSE.PAN };
           }
         }}
       />
@@ -2648,6 +2662,7 @@ function VerseAudioPlayer({ surah, ayah, language }) {
   // Cleanup on unmount
   useEffect(() => () => stopAudio(), [stopAudio]);
 
+  /* eslint-disable react-hooks/immutability -- recursive callback; tryUrl is defined by the time the inner callbacks execute */
   const tryUrl = useCallback((urls, urlIdx) => {
     if (!liveRef.current) return;
     if (urlIdx >= urls.length) {
@@ -2671,6 +2686,7 @@ function VerseAudioPlayer({ surah, ayah, language }) {
         tryUrl(urls, urlIdx + 1);
       });
   }, []);
+  /* eslint-enable react-hooks/immutability */
 
   const togglePlay = () => {
     if (playing || loading) {

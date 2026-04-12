@@ -76,7 +76,7 @@ function cleanArabic(str) {
 // Also handles "20:38" (single verse) and "20:38,40" (two separate)
 function parseVerseRef(ref) {
   if (!ref) return null;
-  const m = ref.match(/^(\d+):(\d+)[–\-](\d+)$/);
+  const m = ref.match(/^(\d+):(\d+)[–-](\d+)$/);
   if (m) return { surah: +m[1], start: +m[2], end: +m[3] };
   const m2 = ref.match(/^(\d+):(\d+)$/);
   if (m2) return { surah: +m2[1], start: +m2[2], end: +m2[2] };

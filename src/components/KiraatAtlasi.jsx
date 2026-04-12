@@ -1540,6 +1540,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
   const bodyRef = useRef(null);
 
+  /* eslint-disable react-hooks/immutability -- recursive callback; registerBackIfNeeded is defined by the time the inner function executes */
   const registerBackIfNeeded = useCallback(() => {
     if (!onRegisterBackHandlerRef.current) return;
     if (tabHistoryRef.current.length === 0) return;
@@ -1547,10 +1548,10 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
       const prev = tabHistoryRef.current[tabHistoryRef.current.length - 1];
       tabHistoryRef.current = tabHistoryRef.current.slice(0, -1);
       setActiveTab(prev);
-      // Re-register for the next level if history remains
       registerBackIfNeeded();
     });
   }, []);
+  /* eslint-enable react-hooks/immutability */
 
   const navigateToTab = useCallback((idx) => {
     tabHistoryRef.current = [...tabHistoryRef.current, activeTab];

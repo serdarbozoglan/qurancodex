@@ -62,6 +62,7 @@ export default function QuranVerse({
 
   // Defined outside useCallback so it can reference itself
   const playMvRef = useRef(null);
+  /* eslint-disable react-hooks/refs -- intentional: storing self-referencing callback in ref */
   playMvRef.current = (verseIdx, urlIdx, list) => {
     if (!mvLive.current) return;
     if (verseIdx >= list.length) { mvStop(); return; }
@@ -92,6 +93,7 @@ export default function QuranVerse({
         playMvRef.current(verseIdx, urlIdx + 1, list);
       });
   };
+  /* eslint-enable react-hooks/refs */
 
   const mvToggle = useCallback(() => {
     if (mvLive.current || mvPlaying) { mvStop(); return; }
@@ -106,7 +108,7 @@ export default function QuranVerse({
   const legAudioRef   = useRef(null);
   const legIdxRef     = useRef(0);
   const legSrcsRef    = useRef(legacySrcs);
-  legSrcsRef.current  = legacySrcs;
+  legSrcsRef.current  = legacySrcs; // eslint-disable-line react-hooks/refs -- syncing ref with latest prop value
 
   useEffect(() => {
     const audio = legAudioRef.current;
