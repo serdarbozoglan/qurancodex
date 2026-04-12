@@ -541,6 +541,7 @@ export default function HumanDefinition() {
           <audio
             ref={muminAudioRef}
             src="https://everyayah.com/data/Alafasy_128kbps/023001.mp3"
+            preload="none"
             onEnded={() => setMuminPlaying(false)}
           />
           <button
@@ -557,6 +558,7 @@ export default function HumanDefinition() {
               }
             }}
             title={muminPlaying ? 'Durdur' : 'Dinle'}
+            aria-label={muminPlaying ? 'Durdur' : 'Dinle'}
             style={{
               position: 'absolute', bottom: '14px', right: '14px',
               width: '36px', height: '36px', borderRadius: '50%',

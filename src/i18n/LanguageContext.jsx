@@ -41,7 +41,14 @@ export function LanguageProvider({ children }) {
 
   return (
     <LanguageContext.Provider value={value}>
-      {children}
+      {/* Wrapper div with lang attribute ensures CSS text-transform: uppercase
+          uses the correct locale rules for ALL descendant elements — sections,
+          overlays, navbar, footer, modals. Without this, some browsers ignore
+          <html lang="..."> for text-transform and fall back to the OS locale,
+          converting English "i" → Turkish "İ" on Turkish-locale systems. */}
+      <div lang={language}>
+        {children}
+      </div>
     </LanguageContext.Provider>
   );
 }

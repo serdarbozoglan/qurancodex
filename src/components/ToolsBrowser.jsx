@@ -193,12 +193,11 @@ export default function ToolsBrowser() {
             <div
               style={{
                 display: 'flex',
+                flexWrap: 'wrap',
                 gap: '8px',
-                padding: '14px 24px',
+                padding: isMobile ? '12px 16px' : '14px 24px',
                 borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
                 flexShrink: 0,
-                overflowX: 'auto',
-                scrollbarWidth: 'none',
               }}
             >
               {FILTERS.map((f) => (

@@ -37,10 +37,10 @@ export default function Footer() {
                     <span>
                       {name}
                       {section && (
-                        <span className="text-silver/35 text-xs ml-1.5">· {section}</span>
+                        <span className="text-silver/75 text-xs ml-1.5">· {section}</span>
                       )}
                       {source.note && (
-                        <span className="block text-silver/40 text-xs italic mt-0.5 leading-relaxed">
+                        <span className="block text-silver/75 text-xs italic mt-0.5 leading-relaxed">
                           ⚠ {source.note}
                         </span>
                       )}
@@ -52,9 +52,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-silver/40 text-xs">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-silver/75 text-xs">
           <p>© 2026 — {t('footer.copyright')}</p>
-          <p className="text-silver/30 text-xs">qurancodex.com</p>
+          <p className="text-silver/80 text-xs">qurancodex.com</p>
           <p className="font-arabic text-sm text-gold/30" dir="rtl" lang="ar"
             style={{ fontFamily: FONTS.quran }}>
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
