@@ -3220,8 +3220,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           </div>
         )}
 
-        {/* Bottom padding */}
-        <div style={{ height: '40px' }} />
+        {/* Bottom padding — extra when verse footer is visible to prevent overlap */}
+        <div style={{ height: activeVerse ? (isMobile ? '80px' : '90px') : '40px' }} />
       </div>
 
 
@@ -3232,9 +3232,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         const handlePrev = () => { if (currentPage > 0) navigateToPage(currentPage - 1); };
         const handleNext = () => { if (currentPage < 604) navigateToPage(currentPage + 1); };
         const arrowBtn = (enabled, onClick, side, title) => {
-          const defaultBg = enabled ? (dayMode ? 'rgba(100,60,10,0.03)' : 'rgba(212,165,116,0.02)') : 'transparent';
-          const defaultColor = enabled ? (dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(212,165,116,0.18)') : 'transparent';
-          const defaultBorder = enabled ? (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.06)') : 'transparent';
+          const defaultBg = enabled ? (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.08)') : 'transparent';
+          const defaultColor = enabled ? (dayMode ? 'rgba(100,60,10,0.45)' : 'rgba(212,165,116,0.45)') : 'transparent';
+          const defaultBorder = enabled ? (dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(212,165,116,0.15)') : 'transparent';
           return (
             <button
               onClick={onClick} disabled={!enabled} title={title}
@@ -3253,9 +3253,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 borderRadius: side === 'left' ? '0 10px 10px 0' : '10px 0 0 10px',
               }}
               onMouseEnter={e => { if (enabled) {
-                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.10)' : 'rgba(212,165,116,0.12)';
+                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.15)' : 'rgba(212,165,116,0.18)';
                 e.currentTarget.style.color = gold;
-                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.35)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.35)' : 'rgba(212,165,116,0.45)';
               }}}
               onMouseLeave={e => { if (enabled) {
                 e.currentTarget.style.background = defaultBg;
@@ -3285,7 +3285,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         const nextVerse = activeIdx < surahVerses.length - 1 ? surahVerses[activeIdx + 1] : null;
         return (
           <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0,
+            position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 30,
             background: C.footerBg, backdropFilter: 'blur(24px)',
             borderTop: `1px solid ${C.footerBorder}`,
             padding: isMobile ? '8px 12px' : '14px 32px',
