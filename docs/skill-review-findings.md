@@ -550,3 +550,52 @@ CLAUDE.md'ye belgeli istisna olarak eklenecek.
 - WIP commit (`1744ebb`) main'e taşındı — TD-1 ve TD-2 production'da görünür
 - Push için ayrı onay alındı (kullanıcı kararı)
 - Python JSON parsing: tr/en key parity, Arabic encoding check
+
+
+---
+
+## v1.3 Fix Branch — Tamamlanan İşler (qc_v1.3_fix, 2026-04-11/12)
+
+### ✅ History Stack Fix (d85067b)
+- MeselAtlasi handleExpand collapse → `history.back()` (sentinel consume)
+- MeselAtlasi ESC handler → `history.back()` (sentinel consume)
+- Navbar sentinel effect → `alreadyOnOverlayEntry` guard
+- 22 tool temiz, 2 confirmed bug (MeselAtlasi) fix'lendi
+
+### ✅ ReadingMode — Sayfa Ok Kontrastı + Verse Footer Overlap (2c9782c)
+- Yan sayfa okları kontrastı artırıldı (0.18→0.45 color, 0.03→0.08 bg)
+- Verse footer'a zIndex:30 eklendi (page arrows z:20 üstüne)
+- Dinamik bottom padding (activeVerse varken 80-90px) ile sayfa navigatörü overlap engellendi
+
+### ✅ PathBreadcrumb — ReadingMode Sırasında Gizleme (c730c45)
+- Navbar `readingModeOpened/readingModeClosed` event dispatch
+- PathBreadcrumb bu event'leri dinleyerek ReadingMode açıkken gizleniyor
+
+### ✅ Section Scroll — Back Navigation Desteği
+- `useQuranNav.scrollToSection` artık `pushState({section: id})` yapıyor
+- Önceki scroll pozisyonu `replaceState({scrollY})` ile kaydediliyor
+- `main.jsx`'te popstate listener: back basınca önceki pozisyona smooth scroll
+- AllTopics → section tıkla → back = AllTopics'e dönüş
+
+---
+
+## Kalan İşler — Öncelik Sırası
+
+### 🔴 Kritik
+1. **Lint errors (71 kalan)** — 38× react-hooks/immutability, 11× no-undef, 9× set-state-in-effect, 5× no-misleading-character-class
+2. **VerseGraph bundle optimization** — 1.4MB chunk (Three.js tree-shake, JSON chunking)
+3. **EsbabNuzul.jsx dead file** — hiçbir yerde import edilmiyor (SebebiNuzul.jsx ile değiştirilmiş). Silinebilir.
+
+### 🟡 Orta
+4. **Ham hex/rgba token migration** — 2330 ihlal (Faz 3, ertelenmiş)
+5. **TD-4: ProphetAtlas refactor** — OVERLAY_BASE + OVERLAY_HEADER pattern'a geçiş
+6. **TD-5: Mobile responsive test** — gerçek cihazda PathBreadcrumb, PathCards, AllTopics
+7. **TD-6: Lighthouse skoru** — v1.1+v1.2 sonrası ölçüm
+
+### 🟢 Düşük
+8. **aria-label Arabic elements** — 116 accessibility gap
+9. **applyTajweed test coverage** — tecvid kuralları için unit test
+10. **Transliterasyon tutarlılığı** — alim isimleri sistemik kontrol
+
+### 📌 Feature TODO
+- [ ] Sure ismine tıklanıldığında ReadingMode'daki ilgili sayfaya gidilmesi (Huruf-u Mukatta altındaki sureler vb.)
