@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
+
+// Mirror pairs: hovering index 0 highlights 6, etc.
+const MIRROR_MAP = { 0: 6, 1: 5, 2: 4, 6: 0, 5: 1, 4: 2 };
 
 const layerColors = [
   'text-gold border-gold',           // A
@@ -27,6 +31,8 @@ const layerLabels = ['A', 'B', 'C', 'D', "C'", "B'", "A'"];
 export default function HiddenSymmetry() {
   const { t } = useLanguage();
   const layers = t('hiddenSymmetry.fatiha.layers') || [];
+  const [hoveredLayer, setHoveredLayer] = useState(null);
+  const mirrorOf = hoveredLayer != null ? MIRROR_MAP[hoveredLayer] : null;
 
   return (
     <SectionWrapper id="symmetry" dark={true}>
@@ -70,47 +76,59 @@ export default function HiddenSymmetry() {
           <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px hidden md:block">
             {/* A-A' connection */}
             <svg
-              className="absolute left-0 w-8 opacity-20"
-              style={{ top: '7%', height: '86%' }}
+              className="absolute left-0 w-8"
+              style={{ top: '7%', height: '86%', opacity: hoveredLayer === 0 || hoveredLayer === 6 ? 0.6 : 0.2, transition: 'opacity 0.3s' }}
               viewBox="0 0 32 100"
               preserveAspectRatio="none"
             >
-              <path
+              <motion.path
                 d="M16,0 C32,25 32,75 16,100"
                 fill="none"
                 stroke="#d4a574"
                 strokeWidth="1"
                 strokeDasharray="4,4"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                transition={{ duration: 1.5, ease: 'easeInOut' }}
+                viewport={{ once: true }}
               />
             </svg>
             {/* B-B' connection */}
             <svg
-              className="absolute left-0 w-6 opacity-20"
-              style={{ top: '21%', height: '58%' }}
+              className="absolute left-0 w-6"
+              style={{ top: '21%', height: '58%', opacity: hoveredLayer === 1 || hoveredLayer === 5 ? 0.6 : 0.2, transition: 'opacity 0.3s' }}
               viewBox="0 0 24 100"
               preserveAspectRatio="none"
             >
-              <path
+              <motion.path
                 d="M12,0 C24,25 24,75 12,100"
                 fill="none"
                 stroke="#2ecc71"
                 strokeWidth="1"
                 strokeDasharray="4,4"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.3 }}
+                viewport={{ once: true }}
               />
             </svg>
             {/* C-C' connection */}
             <svg
-              className="absolute left-0 w-4 opacity-20"
-              style={{ top: '35%', height: '30%' }}
+              className="absolute left-0 w-4"
+              style={{ top: '35%', height: '30%', opacity: hoveredLayer === 2 || hoveredLayer === 4 ? 0.6 : 0.2, transition: 'opacity 0.3s' }}
               viewBox="0 0 16 100"
               preserveAspectRatio="none"
             >
-              <path
+              <motion.path
                 d="M8,0 C16,25 16,75 8,100"
                 fill="none"
                 stroke="#3498db"
                 strokeWidth="1"
                 strokeDasharray="4,4"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.6 }}
+                viewport={{ once: true }}
               />
             </svg>
           </div>
@@ -120,23 +138,26 @@ export default function HiddenSymmetry() {
             {Array.isArray(layers) &&
               layers.map((layer, index) => {
                 const isCenter = index === 3;
+                const isHovered = hoveredLayer === index;
+                const isMirrorGlow = mirrorOf === index;
+                const isHighlighted = isHovered || isMirrorGlow;
                 return (
                   <motion.div
                     key={index}
                     variants={fadeUpItem}
+                    onMouseEnter={() => setHoveredLayer(index)}
+                    onMouseLeave={() => setHoveredLayer(null)}
                     className={`flex items-start gap-4 p-4 rounded-lg transition-all duration-300 ${
                       layerBgColors[index] || ''
                     } ${isCenter ? 'glass-card-strong scale-[1.02]' : 'glass-card'}`}
-                    style={
-                      isCenter
-                        ? {
-                            marginLeft: '0px',
-                            marginRight: '0px',
-                          }
-                        : {
-                            marginLeft: `${Math.abs(index - 3) * 0}px`,
-                          }
-                    }
+                    style={{
+                      ...(isCenter ? {} : {}),
+                      boxShadow: isHighlighted && !isCenter
+                        ? `0 0 16px ${layerLabels[index] === 'A' || layerLabels[index] === "A'" ? 'rgba(212,165,116,0.25)' : layerLabels[index] === 'B' || layerLabels[index] === "B'" ? 'rgba(46,204,113,0.25)' : 'rgba(52,152,219,0.25)'}`
+                        : 'none',
+                      borderWidth: isHighlighted && !isCenter ? '2px' : undefined,
+                      cursor: isCenter ? 'default' : 'pointer',
+                    }}
                   >
                     {/* Label badge */}
                     <div
