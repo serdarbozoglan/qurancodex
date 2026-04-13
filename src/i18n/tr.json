@@ -481,11 +481,11 @@
         "label": "SADECE BİR KEZ GEÇEN",
         "value": "~455",
         "description": "14,870 formdan yalnızca tek bir ayette geçenler",
-        "tooltip": "Hapax legomenon. Kaynak: Shawkat M. Toorawa (2011). Sayım yöntemine göre 400–500 arası."
+        "tooltip": "Hapax legomenon — tüm Kur'an'da yalnızca bir kez geçen kelime formu. Örnekler: 'أَبًّا' (abben, otlak — Abese 80:31), 'غِسْلِينٍ' (gıslîn, irin — Hâkka 69:36), 'صَلْدًا' (salden, kaygan taş — Bakara 2:264). Kaynak: Shawkat M. Toorawa (2011). Sayım yöntemine göre 400–500 arası."
       }
     },
     "comparisonTitle": "Gereksiz Tekrar Karşılaştırması",
-    "comparisonNote": "* Shakespeare ve İncil yüzdeleri, geniş kapsamlı karşılaştırmalı korpus çalışmalarına dayanan tahmini değerlerdir; tek bir akademik kaynaktan alınmamıştır.",
+    "comparisonNote": "Bu oranlar \"anlamsal tekrar\" değil, aynı bağlamda hiçbir ek bilgi veya duygu katmayan literal (birebir) tekrar oranlarına dayanan projeksiyonlardır. Shakespeare ve İncil yüzdeleri geniş kapsamlı karşılaştırmalı korpus çalışmalarına dayanan tahmini değerlerdir; tek bir akademik kaynaktan alınmamıştır. Bu grafik teolojik bir karşılaştırma değil, dilsel bir gözlemdir.",
     "comparison": {
       "quran": {
         "label": "Kur'an — ~0% anlamsız tekrar",
