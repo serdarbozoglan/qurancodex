@@ -1,20 +1,42 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import AnimatedCounter from '../components/AnimatedCounter';
 
+/* ── Icons ── */
+const IconThink = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+    <circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 115 2c0 1.5-2 2-2 3.5"/><circle cx="12" cy="17.5" r=".5" fill="currentColor"/>
+  </svg>
+);
+const IconCompass = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+    <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88" fill="currentColor" opacity="0.3" stroke="none"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88"/>
+  </svg>
+);
+const IconWarn = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><circle cx="12" cy="16.5" r=".5" fill="currentColor"/>
+  </svg>
+);
+const IconStar = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+    <path d="M12 2l2.09 6.26L20.18 9l-4.64 4.14L16.82 20 12 16.77 7.18 20l1.28-6.86L3.82 9l6.09-.74L12 2z"/>
+  </svg>
+);
+
 const QUESTION_TYPES = [
   {
-    id: 'erotema', pct: 40, color: '#d4a574',
+    id: 'erotema', pct: 40, color: '#d4a574', Icon: IconThink,
     nameTr: 'Retorik Soru', nameEn: 'Rhetorical Question',
-    descTr: 'Cevabı metnin içinde gizli olan, muhatabın vicdanına bırakılan sorular. Okuyucu sonuca kendisi ulaşır.',
-    descEn: 'Questions whose answers lie hidden in the text, left to the reader\'s conscience. The reader arrives at the conclusion themselves.',
+    descTr: 'Cevabı zaten bilinen sorular. Okuyucu sonuca kendisi ulaşır.',
+    descEn: 'Questions whose answers are already known. The reader reaches conclusions themselves.',
     exTr: '"Hiç aklınızı kullanmıyor musunuz?" — Afala taʿqilûn',
     exEn: '"Will you not use your reason?" — Afala taʿqilûn',
   },
   {
-    id: 'irshad', pct: 28, color: '#3498db',
+    id: 'irshad', pct: 28, color: '#3498db', Icon: IconCompass,
     nameTr: 'İrşad / Yönlendirme', nameEn: 'Guidance',
     descTr: 'Yaratılış, evren ve tarih üzerine — okuyucuyu gerçeğe yönlendiren.',
     descEn: 'On creation, cosmos and history — guiding the reader toward truth.',
@@ -22,7 +44,7 @@ const QUESTION_TYPES = [
     exEn: '"Who created the heavens and earth?" — Luqman 31:25',
   },
   {
-    id: 'tevbih', pct: 20, color: '#2ecc71',
+    id: 'tevbih', pct: 20, color: '#2ecc71', Icon: IconWarn,
     nameTr: 'Tevbih / Kınama', nameEn: 'Reproach',
     descTr: 'İnkarcılara yönelik — hesap sorar, uyarır, sorumlu tutar.',
     descEn: 'Directed at deniers — demands accountability, warns, holds responsible.',
@@ -30,7 +52,7 @@ const QUESTION_TYPES = [
     exEn: '"What deceived you about your Generous Lord?" — Al-Infitar 82:6',
   },
   {
-    id: 'taaccub', pct: 12, color: '#a78bfa',
+    id: 'taaccub', pct: 12, color: '#a78bfa', Icon: IconStar,
     nameTr: 'Taaccüb / Hayret', nameEn: 'Wonder',
     descTr: 'Minnetsizliğe ve gaflete karşı duyulan ilahi hayret.',
     descEn: 'Divine astonishment at ingratitude and heedlessness.',
@@ -38,6 +60,128 @@ const QUESTION_TYPES = [
     exEn: '"Where then are you going?" — At-Takwir 81:26',
   },
 ];
+
+/* ── SVG Donut ── */
+const DONUT_SIZE = 300;
+const DONUT_STROKE = 38;
+const DONUT_R = (DONUT_SIZE - DONUT_STROKE) / 2;
+const DONUT_C = 2 * Math.PI * DONUT_R; // circumference
+const GAP_DEG = 2; // gap between segments in degrees
+const TOTAL_GAP = GAP_DEG * QUESTION_TYPES.length;
+
+function DonutChart({ activeType, onHover }) {
+  const [animated, setAnimated] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setAnimated(true); obs.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const segments = [];
+  let cursor = 0;
+  QUESTION_TYPES.forEach((qt) => {
+    const pctAdj = qt.pct * (360 - TOTAL_GAP) / 360; // adjusted for gaps
+    const startAngle = cursor;
+    const sweepAngle = (pctAdj / 100) * 360;
+    segments.push({ ...qt, startAngle, sweepAngle });
+    cursor += sweepAngle + GAP_DEG;
+  });
+
+  return (
+    <div ref={ref} style={{ position: 'relative', width: DONUT_SIZE, height: DONUT_SIZE }}>
+      <svg
+        width={DONUT_SIZE}
+        height={DONUT_SIZE}
+        viewBox={`0 0 ${DONUT_SIZE} ${DONUT_SIZE}`}
+        style={{ transform: 'rotate(-90deg)' }}
+      >
+        {/* Background ring */}
+        <circle
+          cx={DONUT_SIZE / 2}
+          cy={DONUT_SIZE / 2}
+          r={DONUT_R}
+          fill="none"
+          stroke="rgba(255,255,255,0.04)"
+          strokeWidth={DONUT_STROKE}
+        />
+        {segments.map((seg) => {
+          const isActive = activeType === seg.id;
+          const offset = (seg.startAngle / 360) * DONUT_C;
+          const length = (seg.sweepAngle / 360) * DONUT_C;
+          return (
+            <circle
+              key={seg.id}
+              cx={DONUT_SIZE / 2}
+              cy={DONUT_SIZE / 2}
+              r={DONUT_R}
+              fill="none"
+              stroke={seg.color}
+              strokeWidth={isActive ? DONUT_STROKE + 6 : DONUT_STROKE}
+              strokeDasharray={`${length} ${DONUT_C - length}`}
+              strokeDashoffset={-offset}
+              strokeLinecap="round"
+              opacity={activeType && !isActive ? 0.3 : 1}
+              style={{
+                transition: 'all 0.35s cubic-bezier(.4,0,.2,1)',
+                filter: isActive ? `drop-shadow(0 0 12px ${seg.color}88)` : 'none',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={() => onHover(seg.id)}
+              onMouseLeave={() => onHover(null)}
+            >
+              {animated && (
+                <animate
+                  attributeName="stroke-dasharray"
+                  from={`0 ${DONUT_C}`}
+                  to={`${length} ${DONUT_C - length}`}
+                  dur="1.2s"
+                  fill="freeze"
+                  calcMode="spline"
+                  keySplines="0.4 0 0.2 1"
+                />
+              )}
+            </circle>
+          );
+        })}
+      </svg>
+
+      {/* Center content */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: `${DONUT_STROKE + 16}px`,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(15,15,35,0.95) 0%, rgba(10,10,26,0.98) 100%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          border: '1px solid rgba(255,255,255,0.06)',
+        }}
+      >
+        <AnimatedCounter target={1000} prefix="~" className="text-4xl md:text-5xl text-gold" />
+        <span style={{
+          color: 'rgba(148,163,184,0.55)',
+          fontSize: '0.75rem',
+          fontWeight: 600,
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          fontFamily: "'Inter', sans-serif",
+          marginTop: 4,
+        }}>
+          {/* filled by parent */}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 const FAMOUS_QUESTIONS = [
   {
@@ -90,14 +234,14 @@ const FAMOUS_QUESTIONS = [
   },
 ];
 
-// Sûre soru yoğunluğu 0-5 skalasında (1=Fatiha ... 114=Nas)
+// Sure soru yoğunluğu 0-5 skalasında (1=Fatiha ... 114=Nas)
 const SURAH_DENSITY = [
   1,3,3,2,2,4,3,2,2,3, // 1-10
   2,2,3,2,2,3,3,3,2,2, // 11-20
   4,2,4,2,4,3,4,3,3,3, // 21-30
   2,3,2,3,3,4,4,4,3,3, // 31-40
   3,3,4,4,3,3,2,1,2,4, // 41-50
-  4,4,5,4,5,5,2,2,2,2, // 51-60  (54=Kamer 5→4: 4 kez tekrar, Rahman'a göre düşürüldü)
+  4,5,5,4,5,5,2,2,2,2, // 51-60
   2,2,2,2,1,1,4,3,3,3, // 61-70
   2,2,2,4,5,2,5,4,4,3, // 71-80
   5,3,4,3,3,3,2,5,4,4, // 81-90
@@ -130,18 +274,6 @@ export default function QuranRhetoric() {
   const [activeType, setActiveType] = useState(null);
   const [hoveredSurah, setHoveredSurah] = useState(null); // index
 
-  // Build conic-gradient stops from QUESTION_TYPES (reduce → no variable reassignment)
-  const gradientStops = QUESTION_TYPES.reduce(
-    (acc, qt) => {
-      const start = acc.cursor;
-      const end = start + qt.pct;
-      acc.stops.push(`${qt.color} ${start}% ${end}%`);
-      acc.cursor = end;
-      return acc;
-    },
-    { stops: [], cursor: 0 }
-  ).stops.join(', ');
-
   return (
     <SectionWrapper id="rhetoric" dark={false}>
       {/* Badge */}
@@ -165,125 +297,176 @@ export default function QuranRhetoric() {
         {tr ? 'Soru Sorar.' : 'It Asks Questions.'}
       </motion.p>
 
-      {/* Ana blok: sol=metin+kategoriler, sağ=sayaç+donut */}
-      <motion.div variants={fadeUpItem} className="flex flex-col md:flex-row items-start gap-10 mb-16">
+      {/* Intro text */}
+      <motion.p variants={fadeUpItem} className="text-silver text-lg leading-relaxed max-w-3xl mb-3">
+        {tr
+          ? "Kur'an'da yaklaşık 1.000 soru yer alıyor. Bu sorular birer retorik araç — muhatabı suçlamaz, sonuca kendisi ulaştırır. Savunmaz; düşündürür. Cevaplamaz; sorar. Dört farklı işlev üstlenen bu sorular, metnin en güçlü ikna katmanını oluşturuyor."
+          : "The Quran contains approximately 1,000 questions. These are rhetorical instruments — they don't accuse, they guide the reader to conclusions themselves. They don't defend; they provoke thought. They don't answer; they ask. Serving four distinct functions, these questions form the text's most powerful layer of persuasion."}
+      </motion.p>
+      <motion.p variants={fadeUpItem} className="text-silver/50 text-sm italic mb-10">
+        ℹ{' '}
+        {tr
+          ? 'Akademisyenler arasında farklı sayım metodolojileri bulunmakta; toplam soru sayısına dair tahminler ~800 ile ~1.200 arasında değişmektedir.'
+          : 'Scholarly estimates vary; total question counts range from ~800 to ~1,200 depending on methodology.'}
+      </motion.p>
 
-        {/* Sol: intro metni + kategoriler */}
-        <div className="flex-1 min-w-0">
-          <p className="text-silver text-lg leading-relaxed max-w-3xl mb-3">
-            {tr
-              ? "Kur'an'da yaklaşık 1.000 soru yer alıyor. Bu sorular birer retorik araç — muhatabı suçlamaz, sonuca kendisi ulaştırır. Savunmaz; düşündürür. Cevaplamaz; sorar. Dört farklı işlev üstlenen bu sorular, metnin en güçlü ikna katmanını oluşturuyor."
-              : "The Quran contains approximately 1,000 questions. These are rhetorical instruments — they don't accuse, they guide the reader to conclusions themselves. They don't defend; they provoke thought. They don't answer; they ask. Serving four distinct functions, these questions form the text's most powerful layer of persuasion."}
-          </p>
-          <p className="text-silver/50 text-sm italic mb-8">
-            ℹ{' '}
-            {tr
-              ? 'Akademisyenler arasında farklı sayım metodolojileri bulunmakta; toplam soru sayısına dair tahminler ~800 ile ~1.200 arasında değişmektedir.'
-              : 'Scholarly estimates vary; total question counts range from ~800 to ~1,200 depending on methodology.'}
-          </p>
+      {/* ── Main block: Categories + Donut ── */}
+      <motion.div variants={fadeUpItem} className="flex flex-col lg:flex-row items-start gap-8 lg:gap-14 mb-16">
 
-          {/* Kategori satırları */}
-          <div className="space-y-3">
-            {QUESTION_TYPES.map(qt => (
+        {/* Left: Category cards */}
+        <div className="flex-1 min-w-0 space-y-3 w-full">
+          {QUESTION_TYPES.map((qt) => {
+            const isActive = activeType === qt.id;
+            const CardIcon = qt.Icon;
+            return (
               <div
                 key={qt.id}
+                onClick={() => setActiveType(isActive ? null : qt.id)}
                 onMouseEnter={() => setActiveType(qt.id)}
                 onMouseLeave={() => setActiveType(null)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setActiveType(isActive ? null : qt.id); }}
                 style={{
-                  cursor: 'default',
-                  padding: '12px 16px',
-                  borderRadius: '10px',
-                  background: activeType === qt.id ? qt.color + '12' : 'rgba(255,255,255,0.03)',
-                  border: `1px solid ${activeType === qt.id ? qt.color + '40' : 'rgba(255,255,255,0.06)'}`,
-                  transition: 'all 0.2s',
+                  cursor: 'pointer',
+                  padding: '16px 20px',
+                  borderRadius: '14px',
+                  background: isActive
+                    ? `linear-gradient(135deg, ${qt.color}14 0%, rgba(0,0,0,0.05) 100%)`
+                    : 'rgba(255,255,255,0.025)',
+                  border: `1px solid ${isActive ? qt.color + '50' : 'rgba(255,255,255,0.06)'}`,
+                  borderLeft: `3px solid ${isActive ? qt.color : qt.color + '40'}`,
+                  transition: 'all 0.3s cubic-bezier(.4,0,.2,1)',
+                  transform: isActive ? 'translateX(4px)' : 'none',
+                  outline: 'none',
                 }}
               >
-                <div className="flex items-center gap-3 mb-1">
-                  <span
-                    style={{
-                      display: 'inline-block',
-                      width: 10, height: 10,
-                      borderRadius: 2,
-                      background: qt.color,
-                      flexShrink: 0,
-                    }}
-                  />
-                  <span style={{ color: qt.color, fontWeight: 600, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", flex: 1 }}>
+                {/* Header row: icon + name + percentage pill + chevron */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  {/* Icon badge */}
+                  <div style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    width: 36, height: 36, borderRadius: 10,
+                    background: `${qt.color}18`,
+                    border: `1px solid ${qt.color}30`,
+                    color: qt.color, flexShrink: 0,
+                    transition: 'all 0.3s',
+                    boxShadow: isActive ? `0 0 16px ${qt.color}30` : 'none',
+                  }}>
+                    <CardIcon />
+                  </div>
+
+                  {/* Name */}
+                  <span style={{
+                    color: isActive ? qt.color : 'rgba(232,230,227,0.85)',
+                    fontWeight: 600, fontSize: '0.92rem',
+                    fontFamily: "'Inter', sans-serif", flex: 1,
+                    transition: 'color 0.2s',
+                  }}>
                     {tr ? qt.nameTr : qt.nameEn}
                   </span>
-                  <span style={{ color: '#94a3b8', fontSize: '0.8rem', fontFamily: "'Inter', sans-serif", flexShrink: 0, minWidth: 40, textAlign: 'right' }}>
+
+                  {/* Percentage pill */}
+                  <span style={{
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    background: isActive ? `${qt.color}25` : 'rgba(255,255,255,0.06)',
+                    color: isActive ? qt.color : '#94a3b8',
+                    fontSize: '0.78rem', fontWeight: 700,
+                    fontFamily: "'Inter', sans-serif",
+                    padding: '3px 10px', borderRadius: '20px',
+                    minWidth: 48, textAlign: 'center',
+                    border: `1px solid ${isActive ? qt.color + '30' : 'transparent'}`,
+                    transition: 'all 0.3s',
+                  }}>
                     ~{qt.pct}%
                   </span>
+
+                  {/* Chevron indicator */}
+                  <svg
+                    width="16" height="16" viewBox="0 0 24 24"
+                    fill="none" stroke={isActive ? qt.color : '#94a3b8'}
+                    strokeWidth="2" strokeLinecap="round"
+                    style={{
+                      flexShrink: 0,
+                      transition: 'transform 0.3s cubic-bezier(.4,0,.2,1), stroke 0.2s',
+                      transform: isActive ? 'rotate(180deg)' : 'rotate(0deg)',
+                      opacity: isActive ? 1 : 0.5,
+                    }}
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </div>
+
+                {/* Progress bar */}
+                <div style={{
+                  height: 3, borderRadius: 2,
+                  background: 'rgba(255,255,255,0.06)',
+                  marginTop: 12, overflow: 'hidden',
+                }}>
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${qt.pct}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                    style={{
+                      height: '100%', borderRadius: 2,
+                      background: `linear-gradient(90deg, ${qt.color} 0%, ${qt.color}80 100%)`,
+                      boxShadow: isActive ? `0 0 10px ${qt.color}60` : 'none',
+                      transition: 'box-shadow 0.3s',
+                    }}
+                  />
+                </div>
+
+                {/* Expandable description */}
                 <AnimatePresence>
-                  {activeType === qt.id && (
+                  {isActive && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
                       style={{ overflow: 'hidden' }}
                     >
-                      <p style={{ color: '#94a3b8', fontSize: '0.82rem', lineHeight: 1.6, marginTop: 4, fontFamily: "'Inter', sans-serif" }}>
+                      <p style={{
+                        color: 'rgba(148,163,184,0.8)', fontSize: '0.84rem',
+                        lineHeight: 1.65, marginTop: 10, fontFamily: "'Inter', sans-serif",
+                      }}>
                         {tr ? qt.descTr : qt.descEn}
                       </p>
-                      <p style={{ color: '#d4a574', fontSize: '0.78rem', fontStyle: 'italic', marginTop: 4, fontFamily: "'Inter', sans-serif" }}>
+                      <p style={{
+                        color: `${qt.color}cc`, fontSize: '0.8rem', fontStyle: 'italic',
+                        marginTop: 6, fontFamily: "'Inter', sans-serif",
+                        paddingLeft: 12,
+                        borderLeft: `2px solid ${qt.color}40`,
+                      }}>
                         {tr ? qt.exTr : qt.exEn}
                       </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
-        {/* Sağ: ~1000 sayaç + donut (aynı sütun, görsel blok) */}
-        <div className="flex flex-col items-center gap-6 flex-shrink-0">
-          {/* Sayaç */}
-          <div className="glass-card flex flex-col items-center" style={{ padding: '20px 32px', minWidth: 160 }}>
-            <AnimatedCounter target={1000} prefix="~" className="text-5xl text-gold" />
-            <span style={{ color: 'rgba(148,163,184,0.6)', fontSize: '0.85rem', marginTop: 6, fontFamily: "'Inter', sans-serif" }}>
-              {tr ? 'Soru' : 'Questions'}
-            </span>
-          </div>
-
-          {/* Donut chart — 270px (1.5× of 180) */}
-          <div style={{ position: 'relative', width: 270, height: 270 }}>
-            <div
-              style={{
-                width: 270, height: 270,
-                borderRadius: '50%',
-                background: `conic-gradient(${gradientStops})`,
-                position: 'relative',
-              }}
-            >
-              {/* merkez delik */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: '45px',
-                  borderRadius: '50%',
-                  background: '#0a0a1a',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <span
-                  style={{
-                    color: '#d4a574',
-                    fontSize: '0.85rem',
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 600,
-                    textAlign: 'center',
-                  }}
-                >
-                  {tr ? '4 Tür' : '4 Types'}
-                </span>
-              </div>
-            </div>
-          </div>
+        {/* Right: SVG Donut with counter in center */}
+        <div className="flex-shrink-0 self-center lg:self-start" style={{ position: 'relative' }}>
+          {/* Soft outer glow */}
+          <div style={{
+            position: 'absolute', inset: '-20px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(212,165,116,0.06) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }} />
+          <DonutChart activeType={activeType} onHover={setActiveType} />
+          {/* Label below donut */}
+          <p style={{
+            textAlign: 'center', marginTop: 12,
+            color: 'rgba(148,163,184,0.5)', fontSize: '0.75rem',
+            fontFamily: "'Inter', sans-serif", fontWeight: 600,
+            letterSpacing: '0.12em', textTransform: 'uppercase',
+          }}>
+            {tr ? 'Soru Dağılımı' : 'Question Distribution'}
+          </p>
         </div>
       </motion.div>
 
@@ -379,7 +562,7 @@ export default function QuranRhetoric() {
             ? '114 sûrenin tamamı — altın renk yoğunluğu soru sıklığını gösterir'
             : 'All 114 surahs — gold intensity indicates question frequency'}
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(24px, 1fr))', gap: '4px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
           {SURAH_DENSITY.map((d, i) => (
             <div
               key={i}
@@ -490,7 +673,7 @@ export default function QuranRhetoric() {
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
-                ? '30 soru · alt kalıplar · muhatap analizi · sûre haritası'
+                ? '30 soru · alt kalıplar · muhatap analizi · sure haritası'
                 : '30 questions · sub-patterns · addressee analysis · surah map'}
             </p>
           </div>

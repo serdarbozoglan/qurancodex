@@ -158,27 +158,37 @@ const OPPOSITION_PAIRS = [
   {
     pos: { tr: 'Mü\'min', en: 'Muʾmin', ar: 'مُؤْمِن', noteTr: 'Kalbinde tasdik eden', noteEn: 'One who affirms in the heart' },
     neg: { tr: 'Kâfir', en: 'Kāfir', ar: 'كَافِر', noteTr: 'Örten, inkâr eden', noteEn: 'One who covers / denies' },
-    ref: 'Bakara 2:6–7',
+    ref: 'Bakara 2:2–7',
+    contextTr: 'Mü\'min portresi (2-5) ve kâfir portresi (6-7) ardışık sunulur',
+    contextEn: 'Portrait of the believer (2-5) and disbeliever (6-7) presented in sequence',
   },
   {
     pos: { tr: 'Muhsin', en: 'Muḥsin', ar: 'مُحْسِن', noteTr: 'İhsanla, güzellikle davranan', noteEn: 'One who acts with excellence' },
     neg: { tr: 'Müfsid', en: 'Mufsid', ar: 'مُفْسِد', noteTr: 'Fesat çıkaran, bozan', noteEn: 'One who spreads corruption' },
     ref: "A'râf 7:56",
+    contextTr: 'Islah (iyileştirme) ve ifsad (bozma) aynı ayette karşılaştırılır',
+    contextEn: 'Reform (iṣlāḥ) and corruption (ifsād) contrasted in the same verse',
   },
   {
-    pos: { tr: 'Muttakî', en: 'Muttaqī', ar: 'مُتَّقٍ', noteTr: 'Allah\'tan hakkıyla korkan', noteEn: 'God-conscious, righteous' },
-    neg: { tr: 'Fâcir', en: 'Fājir', ar: 'فَاجِر', noteTr: 'Sınırları çiğneyen', noteEn: 'One who transgresses limits' },
-    ref: 'İnfitâr 82:13–14',
+    pos: { tr: 'Ebrâr', en: 'Abrār', ar: 'أَبْرَار', noteTr: 'İyiler, hayır sahipleri', noteEn: 'The righteous, people of goodness' },
+    neg: { tr: 'Füccâr', en: 'Fujjār', ar: 'فُجَّار', noteTr: 'Sınırları çiğneyenler', noteEn: 'The wicked transgressors' },
+    ref: 'Mutaffifîn 83:7,18',
+    contextTr: 'Aynı sûrede: füccâr\'ın kitabı Siccîn\'de (7), ebrâr\'ın kitabı İlliyyîn\'de (18)',
+    contextEn: 'Same sura: the record of the wicked in Sijjīn (7), the righteous in ʿIlliyyīn (18)',
   },
   {
     pos: { tr: 'Şâkir', en: 'Shākir', ar: 'شَاكِر', noteTr: 'Şükreden', noteEn: 'The grateful one' },
     neg: { tr: 'Kefûr', en: 'Kafūr', ar: 'كَفُور', noteTr: 'Çok nankör (mübalağa)', noteEn: 'Intensely ungrateful (emphatic form)' },
     ref: 'İnsân 76:3',
+    contextTr: '"Ya şâkir ya kefûr" — iki seçenek aynı ayette, yan yana',
+    contextEn: '"Either grateful or ungrateful" — two choices side by side in one verse',
   },
   {
     pos: { tr: 'Sâdık', en: 'Ṣādiq', ar: 'صَادِق', noteTr: 'Doğru, dürüst', noteEn: 'Truthful, sincere' },
     neg: { tr: 'Kâzib', en: 'Kādhib', ar: 'كَاذِب', noteTr: 'Yalancı', noteEn: 'The liar' },
-    ref: 'Tevbe 9:119',
+    ref: 'Zümer 39:32–33',
+    contextTr: '"Allah\'a yalan isnad eden (kezzebe) vs sıdkı (doğruyu) getiren ve tasdik eden"',
+    contextEn: '"He who lies against Allah (kadhdhaba) vs he who brings the truth (ṣidq) and confirms it"',
   },
 ];
 
@@ -792,87 +802,106 @@ export default function HumanDefinition() {
         </p>
 
         <div className="space-y-3">
-          {OPPOSITION_PAIRS.map((pair, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUpItem}
-              className="rounded-xl cursor-pointer overflow-hidden"
-              style={{
-                border: openPair === i ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.06)',
-                background: openPair === i ? 'rgba(255,255,255,0.03)' : 'transparent',
-                transition: 'all 0.2s',
-              }}
-              onClick={() => setOpenPair(openPair === i ? null : i)}
-            >
-              <div className="flex items-stretch">
-                {/* Positive */}
-                <div className="flex-1 p-4 flex flex-col items-center justify-center text-center gap-1"
-                  style={{ borderRight: '1px solid rgba(255,255,255,0.06)' }}
-                >
-                  <span
-                    className="text-lg md:text-xl"
-                    style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#0D9E73' }}
-                    dir="rtl"
+          {OPPOSITION_PAIRS.map((pair, i) => {
+            const isOpen = openPair === i;
+            return (
+              <motion.div
+                key={i}
+                variants={fadeUpItem}
+                className="rounded-xl cursor-pointer overflow-hidden"
+                style={{
+                  border: isOpen ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.06)',
+                  background: isOpen ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.01)',
+                  transition: 'all 0.25s',
+                }}
+                onClick={() => setOpenPair(isOpen ? null : i)}
+              >
+                <div className="flex items-stretch" style={{ minHeight: '80px' }}>
+                  {/* Positive side — gradient background */}
+                  <div className="flex-1 p-4 md:p-5 flex items-center gap-4"
+                    style={{
+                      background: isOpen ? 'rgba(13,158,115,0.06)' : 'rgba(13,158,115,0.02)',
+                      transition: 'background 0.25s',
+                    }}
                   >
-                    {pair.pos.ar}
-                  </span>
-                  <span className="text-sm font-body font-semibold" style={{ color: '#0D9E73' }}>
-                    {lang === 'tr' ? pair.pos.tr : pair.pos.en}
-                  </span>
-                </div>
-
-                {/* Center ref */}
-                <div className="flex flex-col items-center justify-center px-3 py-2 text-center flex-shrink-0 w-28">
-                  <span className="text-silver/55 text-lg mb-1">↔</span>
-                  <span className="text-silver/60 text-xs font-body whitespace-nowrap">{pair.ref}</span>
-                </div>
-
-                {/* Negative */}
-                <div className="flex-1 p-4 flex flex-col items-center justify-center text-center gap-1"
-                  style={{ borderLeft: '1px solid rgba(255,255,255,0.06)' }}
-                >
-                  <span
-                    className="text-lg md:text-xl"
-                    style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#D4523E' }}
-                    dir="rtl"
-                  >
-                    {pair.neg.ar}
-                  </span>
-                  <span className="font-body text-sm font-semibold" style={{ color: '#D4523E' }}>
-                    {lang === 'tr' ? pair.neg.tr : pair.neg.en}
-                  </span>
-                </div>
-              </div>
-
-              <AnimatePresence>
-                {openPair === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="overflow-hidden"
-                  >
-                    <div
-                      className="grid grid-cols-2 gap-0"
-                      style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+                    <span
+                      className="text-2xl md:text-3xl flex-shrink-0"
+                      style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#0D9E73', textShadow: isOpen ? '0 0 16px rgba(13,158,115,0.3)' : 'none' }}
+                      dir="rtl"
                     >
-                      <div className="p-4 text-center" style={{ borderRight: '1px solid rgba(255,255,255,0.06)' }}>
-                        <p className="text-xs font-body italic" style={{ color: 'rgba(13,158,115,0.7)' }}>
+                      {pair.pos.ar}
+                    </span>
+                    <div>
+                      <span className="text-sm font-body font-bold block" style={{ color: '#0D9E73' }}>
+                        {lang === 'tr' ? pair.pos.tr : pair.pos.en}
+                      </span>
+                      {isOpen && (
+                        <span className="text-xs font-body italic block mt-1" style={{ color: 'rgba(13,158,115,0.6)' }}>
                           {lang === 'tr' ? pair.pos.noteTr : pair.pos.noteEn}
-                        </p>
-                      </div>
-                      <div className="p-4 text-center">
-                        <p className="text-xs font-body italic" style={{ color: 'rgba(212,82,62,0.65)' }}>
-                          {lang === 'tr' ? pair.neg.noteTr : pair.neg.noteEn}
-                        </p>
-                      </div>
+                        </span>
+                      )}
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                  </div>
+
+                  {/* Center divider — VS badge + reference + context */}
+                  <div className="flex flex-col items-center justify-center flex-shrink-0" style={{
+                    width: '140px',
+                    background: 'rgba(0,0,0,0.2)',
+                    borderLeft: '1px solid rgba(255,255,255,0.04)',
+                    borderRight: '1px solid rgba(255,255,255,0.04)',
+                    padding: '12px 8px',
+                    gap: '6px',
+                  }}>
+                    <span style={{
+                      width: '28px', height: '28px', borderRadius: '50%',
+                      background: 'rgba(255,255,255,0.06)',
+                      border: '1px solid rgba(255,255,255,0.12)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: '0.6rem', fontWeight: 800, color: 'rgba(148,163,184,0.5)',
+                      fontFamily: "'Inter', sans-serif", letterSpacing: '0.05em',
+                      flexShrink: 0,
+                    }}>
+                      VS
+                    </span>
+                    <span style={{ color: '#d4a574', fontSize: '0.7rem', fontWeight: 600, fontFamily: "'Inter', sans-serif", textAlign: 'center' }}>
+                      {pair.ref}
+                    </span>
+                    {isOpen && pair.contextTr && (
+                      <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.58rem', fontFamily: "'Inter', sans-serif", textAlign: 'center', lineHeight: 1.4 }}>
+                        {lang === 'tr' ? pair.contextTr : pair.contextEn}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Negative side — gradient background */}
+                  <div className="flex-1 p-4 md:p-5 flex items-center justify-end gap-4"
+                    style={{
+                      background: isOpen ? 'rgba(224,122,95,0.06)' : 'rgba(224,122,95,0.02)',
+                      transition: 'background 0.25s',
+                    }}
+                  >
+                    <div className="text-right">
+                      <span className="text-sm font-body font-bold block" style={{ color: '#E07A5F' }}>
+                        {lang === 'tr' ? pair.neg.tr : pair.neg.en}
+                      </span>
+                      {isOpen && (
+                        <span className="text-xs font-body italic block mt-1" style={{ color: 'rgba(224,122,95,0.6)' }}>
+                          {lang === 'tr' ? pair.neg.noteTr : pair.neg.noteEn}
+                        </span>
+                      )}
+                    </div>
+                    <span
+                      className="text-2xl md:text-3xl flex-shrink-0"
+                      style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#E07A5F', textShadow: isOpen ? '0 0 16px rgba(212,82,62,0.3)' : 'none' }}
+                      dir="rtl"
+                    >
+                      {pair.neg.ar}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
 

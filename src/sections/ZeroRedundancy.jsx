@@ -57,24 +57,42 @@ export default function ZeroRedundancy() {
   const refrainExamples = [
     {
       surah: language === 'tr' ? 'Rahman (55)' : 'Ar-Rahman (55)',
-      count: '31×',
+      count: '31',
       context: language === 'tr'
         ? 'Her seferinde farklı bir nimetin ardından geliyor'
         : 'Follows a different blessing each time',
+      color: '#2ecc71',
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      ),
     },
     {
       surah: language === 'tr' ? 'Mürselat (77)' : 'Al-Mursalat (77)',
-      count: '10×',
+      count: '10',
       context: language === 'tr'
         ? 'Her yeni azap sahnesinin ardından yineleniyor'
         : 'Repeated after each new scene of judgment',
+      color: '#e74c3c',
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+        </svg>
+      ),
     },
     {
       surah: language === 'tr' ? 'Kamer (54)' : 'Al-Qamar (54)',
-      count: '4×',
+      count: '4',
       context: language === 'tr'
         ? 'Her helak edilen kavmin hikayesinin ardından'
         : 'After each destroyed nation\'s story',
+      color: '#3498db',
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      ),
     },
   ];
 
@@ -116,15 +134,60 @@ export default function ZeroRedundancy() {
             : 'In Surah Rahman, the same verse appears 31 times. In Al-Mursalat 10 times, in Al-Qamar 4 times. These are real, literal repetitions — undeniable.'}
         </p>
 
-        {/* Three examples */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+        {/* Three examples — each card gets its own accent color + icon */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           {refrainExamples.map((ex, i) => (
-            <div key={i} className="glass-card p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-gold text-sm font-semibold font-body">{ex.surah}</span>
-                <span className="text-gold/70 text-lg font-bold font-body">{ex.count}</span>
+            <div
+              key={i}
+              style={{
+                background: `${ex.color}08`,
+                border: `1px solid ${ex.color}25`,
+                borderTop: `3px solid ${ex.color}60`,
+                borderRadius: '12px',
+                padding: '18px 16px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px',
+              }}
+            >
+              {/* Top row: icon + surah name + count badge */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+                  <span style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    width: '32px', height: '32px', borderRadius: '8px',
+                    background: `${ex.color}15`, border: `1px solid ${ex.color}30`,
+                    color: ex.color, flexShrink: 0,
+                  }}>
+                    {ex.icon}
+                  </span>
+                  <span style={{
+                    fontFamily: "'Inter', sans-serif", fontSize: '0.88rem',
+                    fontWeight: 600, color: ex.color, lineHeight: 1.2,
+                  }}>
+                    {ex.surah}
+                  </span>
+                </div>
+                {/* Count badge */}
+                <span style={{
+                  display: 'inline-flex', alignItems: 'baseline', gap: '2px',
+                  padding: '4px 12px', borderRadius: '999px',
+                  background: `${ex.color}18`, border: `1px solid ${ex.color}35`,
+                  fontFamily: "'Inter', sans-serif", fontWeight: 800,
+                  fontSize: '1.1rem', color: ex.color, flexShrink: 0,
+                  lineHeight: 1,
+                }}>
+                  {ex.count}
+                  <span style={{ fontSize: '0.65rem', fontWeight: 600, opacity: 0.7 }}>×</span>
+                </span>
               </div>
-              <p className="text-silver/70 text-xs font-body leading-relaxed">{ex.context}</p>
+              {/* Context description */}
+              <p style={{
+                fontFamily: "'Inter', sans-serif", fontSize: '0.76rem',
+                color: '#94a3b8', lineHeight: 1.55, margin: 0,
+              }}>
+                {ex.context}
+              </p>
             </div>
           ))}
         </div>
@@ -234,81 +297,214 @@ export default function ZeroRedundancy() {
       </div>
 
 
-      {/* Comparison Bars */}
-      <motion.div variants={fadeUpItem} className="glass-card-strong p-6 md:p-8 mb-10">
-        <h3 className="font-display text-lg font-bold text-off-white mb-6">
+      {/* ── Comparison Section ── */}
+      <motion.div variants={fadeUpItem} className="mb-10">
+        <h3 className="font-display text-lg font-bold text-off-white mb-2">
           {t('zeroRedundancy.comparisonTitle')}
         </h3>
-        <div className="space-y-5">
-          {/* Quran */}
-          <div>
-            <div className="flex justify-between items-baseline font-body mb-2">
-              <span className="text-gold font-semibold text-sm">
-                {t('zeroRedundancy.comparison.quran.label')}
-              </span>
+        <p style={{
+          color: 'rgba(148,163,184,0.5)', fontSize: '0.78rem',
+          fontFamily: "'Inter', sans-serif", marginBottom: 20,
+        }}>
+          {language === 'tr'
+            ? 'Karşılaştırılabilir uzunlukta metinlerde gereksiz tekrar oranı'
+            : 'Unnecessary repetition rate in texts of comparable length'}
+        </p>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {/* Quran Card — hero treatment */}
+          <div style={{
+            padding: '20px 24px',
+            borderRadius: 14,
+            background: 'linear-gradient(135deg, rgba(212,165,116,0.08) 0%, rgba(0,0,0,0.1) 100%)',
+            border: '1px solid rgba(212,165,116,0.25)',
+            position: 'relative',
+            overflow: 'hidden',
+          }}>
+            {/* Background glow */}
+            <div style={{
+              position: 'absolute', top: '-20px', right: '-20px',
+              width: 100, height: 100, borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(212,165,116,0.12) 0%, transparent 70%)',
+              pointerEvents: 'none',
+            }} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 12, position: 'relative' }}>
+              {/* Icon */}
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: 40, height: 40, borderRadius: 10,
+                background: 'rgba(212,165,116,0.12)', border: '1px solid rgba(212,165,116,0.25)',
+                color: '#d4a574', flexShrink: 0,
+              }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+                </svg>
+              </div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <span style={{
+                  color: '#d4a574', fontWeight: 700, fontSize: '0.95rem',
+                  fontFamily: "'Inter', sans-serif",
+                }}>
+                  {t('zeroRedundancy.comparison.quran.label')}
+                </span>
+              </div>
+              {/* Percentage badge */}
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 6,
+                background: 'rgba(212,165,116,0.15)',
+                border: '1px solid rgba(212,165,116,0.3)',
+                borderRadius: 20, padding: '4px 14px',
+                flexShrink: 0,
+              }}>
+                <span style={{
+                  color: '#d4a574', fontSize: '1.1rem', fontWeight: 800,
+                  fontFamily: "'Inter', sans-serif",
+                }}>~0%</span>
+              </div>
             </div>
-            <div className="w-full bg-white/5 rounded-full h-4 overflow-hidden">
+            {/* Bar */}
+            <div style={{
+              height: 6, borderRadius: 3,
+              background: 'rgba(255,255,255,0.06)',
+              overflow: 'hidden', position: 'relative',
+            }}>
               <motion.div
-                className="bg-gold/60 h-full rounded-full"
-                style={{ minWidth: '8px' }}
                 initial={{ width: 0 }}
                 whileInView={{ width: '2%' }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: 'easeOut', delay: 0.2 }}
+                style={{
+                  height: '100%', borderRadius: 3, minWidth: 8,
+                  background: 'linear-gradient(90deg, #d4a574 0%, #d4a574aa 100%)',
+                  boxShadow: '0 0 12px rgba(212,165,116,0.4)',
+                }}
               />
             </div>
             {t('zeroRedundancy.comparison.quran.note') && (
-              <p className="text-silver/40 text-xs font-body mt-2 leading-relaxed">
+              <p style={{
+                color: 'rgba(148,163,184,0.45)', fontSize: '0.72rem',
+                fontFamily: "'Inter', sans-serif", marginTop: 10, lineHeight: 1.5,
+              }}>
                 ℹ {t('zeroRedundancy.comparison.quran.note')}
               </p>
             )}
           </div>
 
-          {/* Shakespeare */}
-          <div>
-            <div className="flex justify-between text-sm font-body mb-2">
-              <span className="text-silver">
+          {/* Shakespeare Card */}
+          <div style={{
+            padding: '16px 24px',
+            borderRadius: 14,
+            background: 'rgba(255,255,255,0.025)',
+            border: '1px solid rgba(255,255,255,0.06)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 10 }}>
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: 40, height: 40, borderRadius: 10,
+                background: 'rgba(148,163,184,0.08)', border: '1px solid rgba(148,163,184,0.15)',
+                color: '#94a3b8', flexShrink: 0,
+              }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+              </div>
+              <span style={{
+                color: 'rgba(232,230,227,0.7)', fontWeight: 600, fontSize: '0.92rem',
+                fontFamily: "'Inter', sans-serif", flex: 1,
+              }}>
                 {t('zeroRedundancy.comparison.shakespeare.label')}
               </span>
-              <span className="text-silver">5-10%</span>
+              <span style={{
+                color: '#94a3b8', fontSize: '0.95rem', fontWeight: 700,
+                fontFamily: "'Inter', sans-serif",
+                background: 'rgba(255,255,255,0.06)',
+                borderRadius: 20, padding: '4px 14px',
+                flexShrink: 0,
+              }}>5-10%</span>
             </div>
-            <div className="w-full bg-white/5 rounded-full h-4 overflow-hidden">
+            <div style={{
+              height: 6, borderRadius: 3,
+              background: 'rgba(255,255,255,0.06)',
+              overflow: 'hidden',
+            }}>
               <motion.div
-                className="bg-silver/40 h-full rounded-full"
                 initial={{ width: 0 }}
                 whileInView={{ width: '10%' }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: 'easeOut', delay: 0.4 }}
+                style={{
+                  height: '100%', borderRadius: 3,
+                  background: 'linear-gradient(90deg, #94a3b8 0%, #94a3b880 100%)',
+                }}
               />
             </div>
           </div>
 
-          {/* Bible */}
-          <div>
-            <div className="flex justify-between text-sm font-body mb-2">
-              <span className="text-silver">
+          {/* Bible Card */}
+          <div style={{
+            padding: '16px 24px',
+            borderRadius: 14,
+            background: 'rgba(255,255,255,0.025)',
+            border: '1px solid rgba(255,255,255,0.06)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 10 }}>
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: 40, height: 40, borderRadius: 10,
+                background: 'rgba(148,163,184,0.08)', border: '1px solid rgba(148,163,184,0.15)',
+                color: '#94a3b8', flexShrink: 0,
+              }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                </svg>
+              </div>
+              <span style={{
+                color: 'rgba(232,230,227,0.7)', fontWeight: 600, fontSize: '0.92rem',
+                fontFamily: "'Inter', sans-serif", flex: 1,
+              }}>
                 {t('zeroRedundancy.comparison.bible.label')}
               </span>
-              <span className="text-silver">15-20%</span>
+              <span style={{
+                color: '#94a3b8', fontSize: '0.95rem', fontWeight: 700,
+                fontFamily: "'Inter', sans-serif",
+                background: 'rgba(255,255,255,0.06)',
+                borderRadius: 20, padding: '4px 14px',
+                flexShrink: 0,
+              }}>15-20%</span>
             </div>
-            <div className="w-full bg-white/5 rounded-full h-4 overflow-hidden">
+            <div style={{
+              height: 6, borderRadius: 3,
+              background: 'rgba(255,255,255,0.06)',
+              overflow: 'hidden',
+            }}>
               <motion.div
-                className="bg-silver/30 h-full rounded-full"
                 initial={{ width: 0 }}
                 whileInView={{ width: '20%' }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: 'easeOut', delay: 0.6 }}
+                style={{
+                  height: '100%', borderRadius: 3,
+                  background: 'linear-gradient(90deg, #94a3b8 0%, #94a3b860 100%)',
+                }}
               />
             </div>
             {t('zeroRedundancy.comparison.bible.note') && (
-              <p className="text-silver/50 text-xs font-body mt-2 leading-relaxed">
-                ℹ️ {t('zeroRedundancy.comparison.bible.note')}
+              <p style={{
+                color: 'rgba(148,163,184,0.45)', fontSize: '0.72rem',
+                fontFamily: "'Inter', sans-serif", marginTop: 10, lineHeight: 1.5,
+              }}>
+                ℹ {t('zeroRedundancy.comparison.bible.note')}
               </p>
             )}
           </div>
         </div>
+
         {t('zeroRedundancy.comparisonNote') && (
-          <p className="text-silver/40 text-xs font-body mt-5 leading-relaxed italic">
+          <p style={{
+            color: 'rgba(148,163,184,0.35)', fontSize: '0.7rem',
+            fontFamily: "'Inter', sans-serif", marginTop: 14,
+            lineHeight: 1.6, fontStyle: 'italic',
+          }}>
             * {t('zeroRedundancy.comparisonNote')}
           </p>
         )}

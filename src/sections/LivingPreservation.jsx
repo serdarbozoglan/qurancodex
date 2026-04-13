@@ -2,13 +2,36 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import AnimatedCounter from '../components/AnimatedCounter';
+// Icons for the three counter cards
+const ShieldIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    <path d="M9 12l2 2 4-4" strokeWidth="2"/>
+  </svg>
+);
+const ClockIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+  </svg>
+);
+const ZeroIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+    <circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/>
+  </svg>
+);
+
+const COUNTERS = [
+  { key: 'huffaz', target: 10000000, suffix: '+', locale: true, color: '#d4a574', glow: 'rgba(212,165,116,0.15)', border: 'rgba(212,165,116,0.3)', Icon: ShieldIcon },
+  { key: 'years', target: 1400, suffix: '+', locale: false, color: '#2ecc71', glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', Icon: ClockIcon },
+  { key: 'variation', target: 0, suffix: '', locale: false, color: '#3498db', glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.3)', Icon: ZeroIcon },
+];
 
 export default function LivingPreservation() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <SectionWrapper id="preservation" dark={true}>
-      {/* Section badge */}
+      {/* Badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
           {t('livingPreservation.badge')}
@@ -31,118 +54,223 @@ export default function LivingPreservation() {
         {t('livingPreservation.intro')}
       </motion.p>
 
-      {/* Counter Cards Row */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        {/* Huffaz */}
-        <motion.div
-          variants={fadeUpItem}
-          className="glass-card-strong p-6 md:p-8 text-center"
-        >
-          <p className="text-silver text-xs uppercase tracking-[0.2em] mb-3 font-body">
-            {t('livingPreservation.counters.huffaz.label')}
-          </p>
-          <AnimatedCounter
-            target={10000000}
-            suffix="+"
-            localeFormat={true}
-            className="text-3xl md:text-4xl text-gold"
-          />
-          <p className="text-off-white/60 text-sm mt-3 font-body">
-            {t('livingPreservation.counters.huffaz.description')}
-          </p>
-        </motion.div>
+      {/* ── Counter Cards ── */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+        {COUNTERS.map((counter) => {
+          const { key, target, suffix, locale, color, glow, border, Icon } = counter;
+          return (
+          <motion.div
+            key={key}
+            variants={fadeUpItem}
+            className="rounded-2xl p-6 md:p-7 text-center"
+            style={{
+              background: `linear-gradient(135deg, ${glow} 0%, rgba(0,0,0,0.1) 100%)`,
+              border: `1px solid ${border}`,
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            {/* Background glow circle */}
+            <div style={{
+              position: 'absolute', top: '-30px', right: '-30px',
+              width: '120px', height: '120px', borderRadius: '50%',
+              background: `radial-gradient(circle, ${glow} 0%, transparent 70%)`,
+              pointerEvents: 'none',
+            }} />
 
-        {/* Years */}
-        <motion.div
-          variants={fadeUpItem}
-          className="glass-card-strong p-6 md:p-8 text-center"
-        >
-          <p className="text-silver text-xs uppercase tracking-[0.2em] mb-3 font-body">
-            {t('livingPreservation.counters.years.label')}
-          </p>
-          <AnimatedCounter
-            target={1400}
-            suffix="+"
-            className="text-3xl md:text-4xl text-soft-emerald"
-          />
-          <p className="text-off-white/60 text-sm mt-3 font-body">
-            {t('livingPreservation.counters.years.description')}
-          </p>
-        </motion.div>
+            {/* Icon */}
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              width: '48px', height: '48px', borderRadius: '12px',
+              background: `${color}12`, border: `1px solid ${color}30`,
+              color, marginBottom: '14px',
+            }}>
+              <Icon />
+            </div>
 
-        {/* Variation */}
-        <motion.div
-          variants={fadeUpItem}
-          className="glass-card-strong p-6 md:p-8 text-center"
-        >
-          <p className="text-silver text-xs uppercase tracking-[0.2em] mb-3 font-body">
-            {t('livingPreservation.counters.variation.label')}
-          </p>
-          <AnimatedCounter
-            target={0}
-            className="text-3xl md:text-4xl text-sky-blue"
-          />
-          <p className="text-off-white/60 text-sm mt-3 font-body">
-            {t('livingPreservation.counters.variation.description')}
-          </p>
-          <p className="text-silver/50 text-xs mt-2 font-body italic leading-relaxed">
-            * {t('livingPreservation.counters.variation.note')}
-          </p>
-        </motion.div>
+            <p style={{
+              color: 'rgba(148,163,184,0.55)', fontSize: '0.6rem',
+              fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase',
+              fontFamily: "'Inter', sans-serif", marginBottom: '8px',
+            }}>
+              {t(`livingPreservation.counters.${key}.label`)}
+            </p>
+
+            <AnimatedCounter
+              target={target}
+              suffix={suffix}
+              localeFormat={locale}
+              className="text-4xl md:text-5xl"
+              style={{ color, textShadow: `0 0 20px ${glow}` }}
+            />
+
+            <p style={{
+              color: 'rgba(232,230,227,0.55)', fontSize: '0.82rem',
+              fontFamily: "'Inter', sans-serif", marginTop: '10px', lineHeight: 1.5,
+            }}>
+              {t(`livingPreservation.counters.${key}.description`)}
+            </p>
+
+            {key === 'variation' && (
+              <p style={{
+                color: 'rgba(148,163,184,0.4)', fontSize: '0.68rem',
+                fontFamily: "'Inter', sans-serif", fontStyle: 'italic',
+                marginTop: '8px', lineHeight: 1.5,
+              }}>
+                * {t('livingPreservation.counters.variation.note')}
+              </p>
+            )}
+          </motion.div>
+          );
+        })}
       </div>
 
-      {/* Written + Oral Preservation Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-        {/* Written Preservation */}
+      {/* ── Written + Oral Cards ── */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+
+        {/* Yazılı Koruma */}
         <motion.div
           variants={fadeUpItem}
-          className="glass-card p-6 md:p-8 border-l-4 border-gold flex flex-col"
+          className="rounded-2xl overflow-hidden"
+          style={{
+            background: 'rgba(255,255,255,0.02)',
+            border: '1px solid rgba(212,165,116,0.2)',
+            borderTop: '3px solid #d4a574',
+          }}
         >
-          <h3 className="font-display text-xl font-bold text-gold mb-3">
-            {t('livingPreservation.written.title')}
-          </h3>
-          <p className="text-silver text-sm leading-relaxed font-body">
-            {t('livingPreservation.written.description')}
-          </p>
-          {/* Birmingham — yazılı korumanın somut kanıtı */}
-          <div className="mt-5 pt-4 border-t border-gold/20 flex items-start gap-3">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gold/10 border border-gold/25 flex items-center justify-center mt-0.5">
-              <svg className="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-              </svg>
+          <div style={{ padding: '24px 28px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+              <div style={{
+                width: '36px', height: '36px', borderRadius: '8px',
+                background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.25)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: '#d4a574', flexShrink: 0,
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: '1.15rem', color: '#d4a574', margin: 0 }}>
+                {t('livingPreservation.written.title')}
+              </h3>
             </div>
-            <div>
-              <h4 className="font-display text-sm font-bold text-gold/80 mb-1">
-                {t('livingPreservation.birmingham.title')}
-              </h4>
-              <p className="text-silver/80 text-xs leading-relaxed font-body">
-                {t('livingPreservation.birmingham.description')}
-              </p>
+            <p style={{
+              color: 'rgba(232,230,227,0.6)', fontSize: '0.88rem',
+              fontFamily: "'Inter', sans-serif", lineHeight: 1.75, marginBottom: '18px',
+            }}>
+              {t('livingPreservation.written.description')}
+            </p>
+
+            {/* Birmingham */}
+            <div style={{
+              background: 'rgba(212,165,116,0.05)',
+              border: '1px solid rgba(212,165,116,0.15)',
+              borderRadius: '10px', padding: '14px 16px',
+              display: 'flex', gap: '12px', alignItems: 'flex-start',
+            }}>
+              <div style={{
+                width: '32px', height: '32px', borderRadius: '50%',
+                background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.25)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                flexShrink: 0, marginTop: '2px',
+              }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2">
+                  <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: '0.82rem', color: '#d4a574', margin: '0 0 4px' }}>
+                  {t('livingPreservation.birmingham.title')}
+                </h4>
+                <p style={{ color: 'rgba(148,163,184,0.65)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", lineHeight: 1.6, margin: 0 }}>
+                  {t('livingPreservation.birmingham.description')}
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Oral Preservation */}
+        {/* Canlı Koruma */}
         <motion.div
           variants={fadeUpItem}
-          className="glass-card p-6 md:p-8 border-l-4 border-soft-emerald"
+          className="rounded-2xl overflow-hidden"
+          style={{
+            background: 'rgba(255,255,255,0.02)',
+            border: '1px solid rgba(46,204,113,0.2)',
+            borderTop: '3px solid #2ecc71',
+          }}
         >
-          <h3 className="font-display text-xl font-bold text-soft-emerald mb-3">
-            {t('livingPreservation.oral.title')}
-          </h3>
-          <p className="text-silver text-sm leading-relaxed font-body">
-            {t('livingPreservation.oral.description')}
-          </p>
+          <div style={{ padding: '24px 28px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+              <div style={{
+                width: '36px', height: '36px', borderRadius: '8px',
+                background: 'rgba(46,204,113,0.1)', border: '1px solid rgba(46,204,113,0.25)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: '#2ecc71', flexShrink: 0,
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                </svg>
+              </div>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: '1.15rem', color: '#2ecc71', margin: 0 }}>
+                {t('livingPreservation.oral.title')}
+              </h3>
+            </div>
+            <p style={{
+              color: 'rgba(232,230,227,0.6)', fontSize: '0.88rem',
+              fontFamily: "'Inter', sans-serif", lineHeight: 1.75, marginBottom: '18px',
+            }}>
+              {t('livingPreservation.oral.description')}
+            </p>
+
+            {/* İsnad zincir görseli */}
+            <div style={{
+              background: 'rgba(46,204,113,0.05)',
+              border: '1px solid rgba(46,204,113,0.15)',
+              borderRadius: '10px', padding: '14px 16px',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+            }}>
+              {[
+                language === 'tr' ? 'Hz. Muhammed ﷺ' : 'Prophet ﷺ',
+                language === 'tr' ? 'Sahabe' : 'Companions',
+                language === 'tr' ? 'Tâbiîn' : "Tabi'in",
+                '...',
+                language === 'tr' ? 'Bugün' : 'Today',
+              ].map((label, i, arr) => (
+                <span key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{
+                    fontSize: '0.68rem', fontWeight: 600, color: i === 0 ? '#2ecc71' : i === arr.length - 1 ? '#d4a574' : 'rgba(148,163,184,0.6)',
+                    fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap',
+                  }}>
+                    {label}
+                  </span>
+                  {i < arr.length - 1 && (
+                    <span style={{ color: 'rgba(46,204,113,0.3)', fontSize: '0.7rem' }}>→</span>
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Experiment Paragraph */}
+      {/* ── Experiment — the ultimate proof ── */}
       <motion.div
         variants={fadeUpItem}
-        className="glass-card-strong p-6 md:p-8 mb-10 border-l-4 border-sky-blue"
+        className="rounded-2xl p-6 md:p-8 mb-10"
+        style={{
+          background: 'linear-gradient(135deg, rgba(52,152,219,0.08) 0%, rgba(0,0,0,0.1) 100%)',
+          border: '1px solid rgba(52,152,219,0.2)',
+          borderLeft: '3px solid #3498db',
+        }}
       >
-        <p className="text-off-white/90 text-base leading-relaxed font-body italic">
+        <p style={{
+          color: 'rgba(232,230,227,0.85)', fontSize: '1rem',
+          fontFamily: "'Inter', sans-serif", lineHeight: 1.8,
+          fontStyle: 'italic', margin: 0,
+        }}>
           {t('livingPreservation.experiment')}
         </p>
       </motion.div>

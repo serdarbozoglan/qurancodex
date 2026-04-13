@@ -126,6 +126,23 @@ export default function QuranDua() {
           : 'The Quran contains over 40 prayers beginning with "Rabbana" (Our Lord!). These are not merely words — they are a map of the human soul, voiced by different prophets at different moments with different needs.'}
       </motion.p>
 
+      {/* Linguistik not: "Nâ" (Biz) vurgusu */}
+      <motion.div variants={fadeUpItem} className="mb-10 rounded-xl p-5" style={{
+        background: 'rgba(212,165,116,0.05)',
+        border: '1px solid rgba(212,165,116,0.2)',
+        borderLeft: '3px solid rgba(212,165,116,0.5)',
+        maxWidth: '700px',
+      }}>
+        <p className="text-sm font-body leading-relaxed" style={{ color: 'rgba(232,230,227,0.7)' }}>
+          <span style={{ color: '#d4a574', fontWeight: 600 }}>
+            {tr ? 'Linguistik gözlem: ' : 'Linguistic observation: '}
+          </span>
+          {tr
+            ? '"Rabbena" (رَبَّنَا) kelimesindeki "-nâ" eki "biz" anlamına gelir. Kur\'an\'daki duaların büyük çoğunluğu tekil değil çoğul formda — "Rabbim" değil "Rabbimiz." Dua bireysel bir eylem gibi görünse de, Kur\'an onu kolektif bir bilinç olarak sunar.'
+            : 'The suffix "-nā" in "Rabbanā" (رَبَّنَا) means "our." The vast majority of Quranic prayers use the plural form — not "my Lord" but "our Lord." Though prayer appears individual, the Quran presents it as an act of collective consciousness.'}
+        </p>
+      </motion.div>
+
       {/* Sayı kartı */}
       <motion.div variants={fadeUpItem} className="flex justify-start mb-10">
         <div className="glass-card p-6 flex flex-col items-center min-w-[140px]">
@@ -169,54 +186,95 @@ export default function QuranDua() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="glass-card p-6 md:p-8 mb-12"
-            style={{ borderLeft: `4px solid ${p.emojiColor}` }}
+            className="mb-12 rounded-2xl overflow-hidden"
+            style={{
+              background: 'rgba(255,255,255,0.02)',
+              border: `1px solid ${p.emojiColor}25`,
+              borderTop: `3px solid ${p.emojiColor}`,
+            }}
           >
-            <div className="flex flex-col md:flex-row gap-8">
-              {/* Sol: profil */}
-              <div className="flex-1">
-                <div style={{ color: p.emojiColor }} className="font-display text-xl font-bold mb-1">
+            {/* Header — name + archetype + count */}
+            <div style={{
+              padding: '20px 28px',
+              background: `${p.emojiColor}08`,
+              borderBottom: `1px solid ${p.emojiColor}15`,
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              flexWrap: 'wrap', gap: '12px',
+            }}>
+              <div>
+                <h4 style={{ color: p.emojiColor, fontFamily: "'Playfair Display', serif", fontSize: '1.3rem', fontWeight: 700, margin: '0 0 4px' }}>
                   {tr ? p.nameTr : p.nameEn}
-                </div>
-                <div className="text-silver/60 text-sm italic mb-4">
+                </h4>
+                <p style={{ color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', margin: 0 }}>
                   {tr ? p.profileTr : p.profileEn}
-                </div>
-                <div className="space-y-2">
-                  {(tr ? p.themesTr : p.themesEn).map((t, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <span style={{ color: p.emojiColor, opacity: 0.6 }}>·</span>
-                      <span className="text-silver text-sm">{t}</span>
-                    </div>
-                  ))}
-                </div>
+                </p>
+              </div>
+              <span style={{
+                color: p.emojiColor, fontSize: '0.72rem', fontWeight: 700,
+                fontFamily: "'Inter', sans-serif",
+                background: `${p.emojiColor}15`,
+                border: `1px solid ${p.emojiColor}35`,
+                padding: '4px 12px', borderRadius: '20px',
+              }}>
+                {tr ? p.countTr : p.countEn}
+              </span>
+            </div>
+
+            <div style={{ padding: '24px 28px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {/* Arabic verse — full width, centered */}
+              <div style={{
+                background: 'rgba(0,0,0,0.15)',
+                border: `1px solid ${p.emojiColor}20`,
+                borderRadius: '12px',
+                padding: '20px 24px',
+                textAlign: 'center',
+              }}>
+                <p dir="rtl" lang="ar" style={{
+                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontSize: '1.8rem', lineHeight: 2,
+                  color: p.emojiColor,
+                  margin: '0 0 12px',
+                  textShadow: `0 0 20px ${p.emojiColor}20`,
+                }}>
+                  {p.ar}
+                </p>
+                <p style={{ color: 'rgba(232,230,227,0.7)', fontSize: '0.88rem', fontStyle: 'italic', fontFamily: "'Inter', sans-serif", lineHeight: 1.6, margin: '0 0 6px' }}>
+                  {tr ? p.famousTr : p.famousEn}
+                </p>
               </div>
 
-              {/* Sağ: meşhur dua */}
-              <div className="flex-1 flex flex-col gap-3">
+              {/* Two columns: themes + insight */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                {/* Temalar */}
                 <div>
-                  <p
-                    dir="rtl"
-                    style={{
-                      fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                      fontSize: '1.4rem',
-                      lineHeight: 2.2,
-                      color: '#e8e6e3',
-                      textAlign: 'right',
-                      marginBottom: '8px',
-                    }}
-                  >
-                    {p.ar}
+                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(148,163,184,0.4)', marginBottom: '10px', fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
+                    {tr ? 'Dua Temaları' : 'Prayer Themes'}
                   </p>
-                  <p className="text-silver text-sm italic leading-relaxed">
-                    {tr ? p.famousTr : p.famousEn}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {(tr ? p.themesTr : p.themesEn).map((theme, i) => (
+                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: p.emojiColor, opacity: 0.5, flexShrink: 0 }} />
+                        <span style={{ color: 'rgba(232,230,227,0.65)', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif" }}>{theme}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* İçgörü */}
+                <div style={{
+                  background: `${p.emojiColor}08`,
+                  border: `1px solid ${p.emojiColor}18`,
+                  borderRadius: '10px',
+                  padding: '16px',
+                  display: 'flex', flexDirection: 'column', justifyContent: 'center',
+                }}>
+                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: p.emojiColor, marginBottom: '8px', fontFamily: "'Inter', sans-serif", fontWeight: 700, opacity: 0.7 }}>
+                    {tr ? 'İçgörü' : 'Insight'}
+                  </p>
+                  <p style={{ color: 'rgba(232,230,227,0.6)', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", lineHeight: 1.65, fontStyle: 'italic', margin: 0 }}>
+                    {tr ? p.insightTr : p.insightEn}
                   </p>
                 </div>
-                <p className="text-silver/50 text-xs italic">
-                  {tr ? p.insightTr : p.insightEn}
-                </p>
-                <span style={{ color: p.emojiColor, fontSize: '0.75rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
-                  {tr ? p.countTr : p.countEn}
-                </span>
               </div>
             </div>
           </motion.div>

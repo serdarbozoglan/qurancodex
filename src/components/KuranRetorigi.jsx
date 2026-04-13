@@ -943,9 +943,9 @@ function TabSureHaritasi({ data, tr, isMobile }) {
         );
       })()}
 
-      {/* ── BÖLÜM 2: EN YOĞUN 5 SÛRE ───────────────────── */}
+      {/* ── BÖLÜM 2: EN YOĞUN 5 SURE ───────────────────── */}
       <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>
-        {tr ? 'En Yoğun 5 Sûre' : 'Top 5 Most Dense Surahs'}
+        {tr ? 'En Yoğun 5 Sure' : 'Top 5 Most Dense Surahs'}
       </h3>
       <div style={{
         display: 'grid',
