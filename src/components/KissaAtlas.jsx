@@ -307,7 +307,7 @@ export default function KissaAtlas({ onClose }) {
           }}>
             {[
               { id: 'scenes', labelTr: 'Sahneler', labelEn: 'Scenes' },
-              { id: 'map', labelTr: 'Sure Haritası', labelEn: 'Surah Map' },
+              { id: 'map', labelTr: 'Sûre Haritası', labelEn: 'Surah Map' },
               { id: 'detail', labelTr: 'Detay', labelEn: 'Detail' },
             ].map(tab => {
               const isActive = mobileTab === tab.id;
@@ -370,7 +370,7 @@ export default function KissaAtlas({ onClose }) {
             </div>
             <p style={{ color: '#475569', fontSize: '0.78rem', margin: '4px 0 0' }}>
               {language === 'tr'
-                ? `${prophet.scenes.length} ana sahne · ${prophet.surahCount} surede`
+                ? `${prophet.scenes.length} ana sahne · ${prophet.surahCount} sûrede`
                 : `${prophet.scenes.length} key scenes · across ${prophet.surahCount} surahs`}
             </p>
           </div>
@@ -451,14 +451,14 @@ export default function KissaAtlas({ onClose }) {
             <p style={{ color: '#334155', fontSize: '0.78rem', marginBottom: '16px', lineHeight: 1.6 }}>
               {selectedScene
                 ? (language === 'tr'
-                    ? `"${selectedScene.titleTr}" sahnesi şu surelerde anlatılıyor:`
+                    ? `"${selectedScene.titleTr}" sahnesi şu sûrelerde anlatılıyor:`
                     : `"${selectedScene.titleEn}" is narrated in:`)
                 : selectedSurah
                   ? (language === 'tr'
-                      ? `Sure ${selectedSurah} — ${SURAH_NAMES_TR[selectedSurah]} — ${language === 'tr' ? prophet.nameTr : prophet.nameEn} sahneleri:`
+                      ? `Sûre ${selectedSurah} — ${SURAH_NAMES_TR[selectedSurah]} — ${language === 'tr' ? prophet.nameTr : prophet.nameEn} sahneleri:`
                       : `Surah ${selectedSurah} — ${SURAH_NAMES_EN[selectedSurah]} — scenes of ${prophet.nameEn}:`)
                   : (language === 'tr'
-                      ? `Renkli sureler ${prophet.nameTr}'nın kıssasını içeriyor. Bir sahne veya sure seçin.`
+                      ? `Renkli sûreler ${prophet.nameTr}'nın kıssasını içeriyor. Bir sahne veya sûre seçin.`
                       : `Colored surahs contain ${prophet.nameEn}'s story. Select a scene or a surah tile.`)}
             </p>
 
@@ -572,7 +572,7 @@ export default function KissaAtlas({ onClose }) {
             {isMobile && mobileTab === 'detail' && !selectedScene && !selectedSurah && (
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px 20px' }}>
                 <p style={{ color: '#334155', fontSize: '0.85rem', textAlign: 'center' }}>
-                  {language === 'tr' ? 'Bir sahne veya sure seçin' : 'Select a scene or surah'}
+                  {language === 'tr' ? 'Bir sahne veya sûre seçin' : 'Select a scene or surah'}
                 </p>
                 <button
                   onClick={() => setMobileTab('scenes')}
@@ -648,7 +648,7 @@ export default function KissaAtlas({ onClose }) {
                         {/* Surah badges — clickable, show verse range for primary surah */}
                         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '8px' }}>
                           <span style={{ color: '#334155', fontSize: '0.72rem', alignSelf: 'center' }}>
-                            {language === 'tr' ? 'Sureler:' : 'Surahs:'}
+                            {language === 'tr' ? 'Sûreler:' : 'Surahs:'}
                           </span>
                           {selectedScene.surahs.map(s => {
                             const refStr = selectedScene.surahRefs?.[String(s)];
@@ -769,12 +769,12 @@ export default function KissaAtlas({ onClose }) {
                         <h4 style={{ color: prophet.color, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 10px' }}>
                           {language === 'tr' ? SURAH_NAMES_TR[selectedSurah] : SURAH_NAMES_EN[selectedSurah]}
                           <span style={{ color: '#475569', fontWeight: 400, fontSize: '0.82rem', marginLeft: '8px' }}>
-                            ({selectedSurah}. Sure)
+                            ({selectedSurah}. Sûre)
                           </span>
                         </h4>
                         {scenes.length === 0 ? (
                           <p style={{ color: '#334155', fontSize: '0.82rem', margin: 0 }}>
-                            {language === 'tr' ? 'Bu surede bu peygambere ait sahne yok.' : 'No scenes of this prophet in this surah.'}
+                            {language === 'tr' ? 'Bu sûrede bu peygambere ait sahne yok.' : 'No scenes of this prophet in this surah.'}
                           </p>
                         ) : (
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -841,7 +841,7 @@ export default function KissaAtlas({ onClose }) {
           <span style={{ color: '#475569', fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssa yok' : 'No narrative'}</span>
         </div>
         <span style={{ color: '#1e293b', fontSize: '0.72rem', marginLeft: 'auto' }}>
-          {language === 'tr' ? 'Sayı = o suredeki sahne sayısı' : 'Number = scenes in that surah'}
+          {language === 'tr' ? 'Sayı = o sûredeki sahne sayısı' : 'Number = scenes in that surah'}
         </span>
       </div>}
     </div>

@@ -198,7 +198,7 @@ export default function RevelationTimeline({ onClose }) {
                           {isFatiha && (
                             <span
                               title={language === 'tr'
-                                ? 'Fâtiha\'nın nüzul sırası tartışmalıdır. İlk inen sure (1. sıra) olduğunu söyleyenler olduğu gibi, 5. sırada indiğini aktaran rivayetler de mevcuttur.'
+                                ? 'Fâtiha\'nın nüzul sırası tartışmalıdır. İlk inen sûre (1. sıra) olduğunu söyleyenler olduğu gibi, 5. sırada indiğini aktaran rivayetler de mevcuttur.'
                                 : "Al-Fatiha's revelation order is debated. Some accounts say it was the very first surah revealed; others place it 5th in the revelation sequence."}
                               style={{ color: '#64748b', fontSize: '0.65rem', cursor: 'help', lineHeight: 1 }}
                             >ⓘ</span>

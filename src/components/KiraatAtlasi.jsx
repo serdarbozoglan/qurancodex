@@ -545,7 +545,7 @@ function BesmeleCard({ language }) {
             بِسۡمِ ٱللَّهِ
           </div>
           <div style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.offWhite, fontWeight: 600, marginBottom: 2 }}>
-            {language === 'tr' ? 'Besmele = Sure Başlığı' : 'Basmala = Chapter Heading'}
+            {language === 'tr' ? 'Besmele = Sûre Başlığı' : 'Basmala = Chapter Heading'}
           </div>
           <div style={{ fontFamily: FONTS.body, fontSize: '0.75rem', color: COLORS.silver }}>
             {language === 'tr' ? 'Ayet sayılmaz, başlık olarak okunur' : 'Not a verse, recited as a header'}
@@ -563,7 +563,7 @@ function BesmeleCard({ language }) {
         <div style={{ width: 1, height: 36, background: COLORS.glassBorder, flexShrink: 0 }} />
         <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.5 }}>
           {language === 'tr'
-            ? '113 surede besmele statüsü × 4 kelime = 452 konumda farklı okuma. Tevbe Suresi\'nde hiçbir kıraatte besmele yoktur.'
+            ? '113 sûrede besmele statüsü × 4 kelime = 452 konumda farklı okuma. Tevbe Sûresi\'nde hiçbir kıraatte besmele yoktur.'
             : '113 suras × basmala status × 4 words = 452 positions. Surah At-Tawba has no Basmala in any reading.'}
         </div>
       </div>
@@ -649,8 +649,8 @@ function TabFarkAnalizi({ data, isMobile, language }) {
           borderBottom: `1px solid ${COLORS.glassBorder}`,
         }}>
           {(isMobile
-            ? [language === 'tr' ? 'Sure:Ayet' : 'Surah:Verse', language === 'tr' ? 'Karşılaştırma' : 'Comparison']
-            : [language === 'tr' ? 'Sure:Ayet' : 'Surah:Verse', language === 'tr' ? 'Karşılaştırma' : 'Comparison', language === 'tr' ? 'Fark Türü' : 'Type', language === 'tr' ? 'Anlam Etkisi' : 'Meaning Impact']
+            ? [language === 'tr' ? 'Sûre:Ayet' : 'Surah:Verse', language === 'tr' ? 'Karşılaştırma' : 'Comparison']
+            : [language === 'tr' ? 'Sûre:Ayet' : 'Surah:Verse', language === 'tr' ? 'Karşılaştırma' : 'Comparison', language === 'tr' ? 'Fark Türü' : 'Type', language === 'tr' ? 'Anlam Etkisi' : 'Meaning Impact']
           ).map(h => (
             <div key={h} style={{ fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, color: COLORS.silver, textTransform: 'uppercase', letterSpacing: '0.07em' }}>
               {h}
@@ -675,7 +675,7 @@ function TabFarkAnalizi({ data, isMobile, language }) {
             onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha25; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.glassBorder; e.currentTarget.style.background = COLORS.glassBg; }}
           >
-            {/* Sure:Ayet */}
+            {/* Sûre:Ayet */}
             <div>
               <div style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.gold, fontWeight: 600, whiteSpace: 'nowrap' }}>
                 {v.surah}:{v.ayah}

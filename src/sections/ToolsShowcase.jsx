@@ -41,7 +41,7 @@ export default function ToolsShowcase() {
             { num: '25+', label: language === 'tr' ? 'araç' : 'tools' },
             { num: '8',   label: language === 'tr' ? 'keşif bölümü' : 'discovery sections' },
             { num: '6.236', label: language === 'tr' ? 'ayet' : 'verses' },
-            { num: '114', label: language === 'tr' ? 'sure' : 'surahs' },
+            { num: '114', label: language === 'tr' ? 'sûre' : 'surahs' },
           ].map((s, i) => (
             <div key={i}
               className="flex items-center gap-1.5 px-4 py-1.5 rounded-full"

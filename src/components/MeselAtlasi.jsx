@@ -347,7 +347,7 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
       )}
 
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '16px' }}>
-        {['~50 Mesel', '7 İmge Alanı', '200+ Ayet', '6 Hayvan Suresi'].map(s => (
+        {['~50 Mesel', '7 İmge Alanı', '200+ Ayet', '6 Hayvan Sûresi'].map(s => (
           <span key={s} style={{
             ...GLASS_CARD, padding: '5px 14px',
             color: COLORS.gold, fontSize: '0.8rem', fontFamily: FONTS.body, fontWeight: 600,
@@ -1010,7 +1010,7 @@ function TabHayvanlar({ animals, language, isMobile }) {
                     padding: '2px 8px', borderRadius: '99px',
                     background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
                     color: COLORS.gold, fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 600,
-                  }}>✦ Sure İsmi</span>
+                  }}>✦ Sûre İsmi</span>
                 )}
                 <span style={{
                   padding: '2px 8px', borderRadius: '99px',

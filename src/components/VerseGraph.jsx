@@ -431,7 +431,7 @@ function findArabicMatch(query) {
   return null;
 }
 
-// Standart Medine mushafı sayfa aralıkları [başlangıç, bitiş] — 114 sure
+// Standart Medine mushafı sayfa aralıkları [başlangıç, bitiş] — 114 sûre
 const SURAH_PAGES = [
   [1,1],[2,49],[50,76],[77,105],[106,127],[128,150],[151,176],[177,186],[187,207],[208,220],
   [221,234],[235,248],[249,254],[255,261],[262,266],[267,281],[282,292],[293,304],[305,311],[312,321],
@@ -512,7 +512,7 @@ function makeNodeObject(node, isSelected, isHovered, isDimmed) {
 
 // ─── Build graph data ─────────────────────────────────────────────────────────
 // mode='all': tüm ayetler, score >= 0.55
-// mode='surah': odak sure + bağlı dış ayetler (ghost), score >= 0.45
+// mode='surah': odak sûre + bağlı dış ayetler (ghost), score >= 0.45
 function buildGraphData(verses, filterSurah, mode = 'all') {
   const verseMap = Object.fromEntries(verses.map(v => [v.id, v]));
   const THRESHOLD = mode === 'surah' ? 0.50 : 0.58;
@@ -725,7 +725,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
               value={search}
               onChange={e => setSearch(e.target.value)}
               onKeyDown={handleInputKey}
-              placeholder={language === 'tr' ? 'Sure adı veya numarası…' : 'Surah name or number…'}
+              placeholder={language === 'tr' ? 'Sûre adı veya numarası…' : 'Surah name or number…'}
               style={{ width: '100%', padding: '5px 9px', borderRadius: '6px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', fontSize: '0.78rem', outline: 'none', boxSizing: 'border-box' }}
             />
           </div>
@@ -1252,7 +1252,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
         opacity: showClickHint ? 1 : 0, transition: 'opacity 1s ease',
       }}>
-        {language === 'tr' ? 'Daireye tıkla: sureye git  ·  Sürükle: kaydır  ·  Tekerlek: yakınlaştır' : 'Click a circle: go to surah  ·  Drag: pan  ·  Scroll: zoom'}
+        {language === 'tr' ? 'Daireye tıkla: sûreye git  ·  Sürükle: kaydır  ·  Tekerlek: yakınlaştır' : 'Click a circle: go to surah  ·  Drag: pan  ·  Scroll: zoom'}
       </div>
 
       {/* Legend */}
@@ -1474,11 +1474,11 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
       scrollbarWidth: 'none', msOverflowStyle: 'none',
     }}>
 
-      {/* ── Sure ismi + nav ── */}
+      {/* ── Sûre ismi + nav ── */}
       {showName && (
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
           {onNavigate && (
-            <button onClick={() => onNavigate(-1)} disabled={surah <= 1} title={language === 'tr' ? 'Önceki sure' : 'Previous surah'}
+            <button onClick={() => onNavigate(-1)} disabled={surah <= 1} title={language === 'tr' ? 'Önceki sûre' : 'Previous surah'}
               style={navBtn(surah <= 1)}
               onMouseEnter={e => { if (surah > 1) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; }}
@@ -1488,7 +1488,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
             {surah}. {SURAH_NAMES_TR[surah - 1]}
           </div>
           {onNavigate && (
-            <button onClick={() => onNavigate(1)} disabled={surah >= 114} title={language === 'tr' ? 'Sonraki sure' : 'Next surah'}
+            <button onClick={() => onNavigate(1)} disabled={surah >= 114} title={language === 'tr' ? 'Sonraki sûre' : 'Next surah'}
               style={navBtn(surah >= 114)}
               onMouseEnter={e => { if (surah < 114) { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; }}
@@ -1847,7 +1847,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
 
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e' }}>
-      {/* Sure info panel — left side; follows selected verse's surah when cross-surah */}
+      {/* Sûre info panel — left side; follows selected verse's surah when cross-surah */}
       <SurahInfoPanel
         surah={selected?.surah ?? surah} language={language} graphData={graphData} showName={true}
         onNavigate={onSurahChange ? (dir) => onSurahChange(Math.max(1, Math.min(114, (selected?.surah ?? surah) + dir))) : null}
@@ -2221,7 +2221,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
 
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e' }}>
-      {/* Sure bilgi paneli — sure filtresi aktifken veya ayet seçilince */}
+      {/* Sûre bilgi paneli — sûre filtresi aktifken veya ayet seçilince */}
       {(filterSurah || selected) && (
         <SurahInfoPanel
           surah={filterSurah ?? selected?.surah} language={language} graphData={graphData} showName={true}
@@ -2299,7 +2299,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
                   style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%', textAlign: 'left', padding: '8px 12px', background: 'rgba(212,165,116,0.06)', border: 'none', borderBottom: '1px solid rgba(212,165,116,0.1)', color: '#e8e6e3', cursor: 'pointer', fontSize: '0.76rem' }}
                   onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.12)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,165,116,0.06)'}>
-                  <span style={{ color: '#d4a574', fontSize: '0.7rem' }}>◈ Sure</span>
+                  <span style={{ color: '#d4a574', fontSize: '0.7rem' }}>◈ Sûre</span>
                   <span style={{ color: '#d4a574', fontWeight: 700 }}>{s.surah}. {s.name}</span>
                 </button>
               ))}

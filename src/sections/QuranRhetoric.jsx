@@ -90,7 +90,7 @@ const FAMOUS_QUESTIONS = [
   },
 ];
 
-// Sure soru yoğunluğu 0-5 skalasında (1=Fatiha ... 114=Nas)
+// Sûre soru yoğunluğu 0-5 skalasında (1=Fatiha ... 114=Nas)
 const SURAH_DENSITY = [
   1,3,3,2,2,4,3,2,2,3, // 1-10
   2,2,3,2,2,3,3,3,2,2, // 11-20
@@ -490,7 +490,7 @@ export default function QuranRhetoric() {
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
-                ? '30 soru · alt kalıplar · muhatap analizi · sure haritası'
+                ? '30 soru · alt kalıplar · muhatap analizi · sûre haritası'
                 : '30 questions · sub-patterns · addressee analysis · surah map'}
             </p>
           </div>

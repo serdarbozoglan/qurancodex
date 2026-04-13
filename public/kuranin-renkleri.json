@@ -98,7 +98,7 @@
       "keyVerseEn": "And he drew out his hand; thereupon it was white for the observers.",
       "keyVerseRef": "A'raf 7:108",
       "allRefs": ["A'raf 7:108", "Taha 20:22", "Şuara 26:33", "Neml 27:12", "Kasas 28:32", "Al-i İmran 3:106-107", "Fatir 35:27", "Bakara 2:187"],
-      "summaryTr": "Beyaz Kur'an'da en çok geçen renk (~18 ayette). İki ana bağlamı var: (1) Hz. Musa'nın eli — 5 farklı surede mucize sahnesi, beyaz ilahi onayı temsil eder; (2) Kıyamet sahnesi — Al-i İmran 3:106-107'de kurtulacakların yüzü ağarır, kaybedeceklerinki kararır.",
+      "summaryTr": "Beyaz Kur'an'da en çok geçen renk (~18 ayette). İki ana bağlamı var: (1) Hz. Musa'nın eli — 5 farklı sûrede mucize sahnesi, beyaz ilahi onayı temsil eder; (2) Kıyamet sahnesi — Al-i İmran 3:106-107'de kurtulacakların yüzü ağarır, kaybedeceklerinki kararır.",
       "summaryEn": "White is the most frequently occurring color in the Quran (~18 verses). Two main contexts: (1) Moses' hand — the miracle scene in 5 different suras, white representing divine approval; (2) The judgment scene — in Al Imran 3:106-107 the saved have white faces, the lost have blackened faces.",
       "infoTr": null,
       "infoEn": null,
@@ -300,7 +300,7 @@
       "summaryEn": "Gold in the Quran appears almost exclusively in paradise contexts and consistently pairs with green garments — the Quran's paradise color duo. In Az-Zukhruf 43:53, Pharaoh dismisses Moses: 'Why does he have no gold bracelets?' The Quran uses gold as both heavenly blessing and worldly false standard.",
       "infoTr": null,
       "infoEn": null,
-      "linguisticNoteTr": "Cennet tasvirinde altın (zeheb) + yeşil (hudr) ikilisi üç surede tekrarlanır. Bu renk tutarlılığı Kur'an'da nadir — genellikle aynı renk kombinasyonu bu kadar sistematik kullanılmaz.",
+      "linguisticNoteTr": "Cennet tasvirinde altın (zeheb) + yeşil (hudr) ikilisi üç sûrede tekrarlanır. Bu renk tutarlılığı Kur'an'da nadir — genellikle aynı renk kombinasyonu bu kadar sistematik kullanılmaz.",
       "linguisticNoteEn": "The gold (zeheb) + green (hudr) pairing repeats across three suras in paradise imagery. This color consistency is rare in the Quran — the same color combination is seldom used this systematically.",
       "crossLinks": ["/cennet-cehennem"]
     },
@@ -343,7 +343,7 @@
     "id": "renk-sekans",
     "titleTr": "Yeşil → Sarı → Renksiz",
     "titleEn": "Green → Yellow → Colorless",
-    "descTr": "Kur'an bu renk sekansını 4 farklı surede tekrar eder. Gerçek renk iki tanedir: yeşil ve sarı. Üçüncü aşama rengin yok olmasıdır — حُطَامًا (hutamen: ufalanmış çöp) ya da هَشِيمًا (heşimen: kuru saman). Renksizleşme = son. Her seferinde aynı mesaj: dünya hayatının geçiciliği.",
+    "descTr": "Kur'an bu renk sekansını 4 farklı sûrede tekrar eder. Gerçek renk iki tanedir: yeşil ve sarı. Üçüncü aşama rengin yok olmasıdır — حُطَامًا (hutamen: ufalanmış çöp) ya da هَشِيمًا (heşimen: kuru saman). Renksizleşme = son. Her seferinde aynı mesaj: dünya hayatının geçiciliği.",
     "descEn": "The Quran repeats this color sequence across 4 suras. There are only two actual colors: green and yellow. The third stage is the disappearance of color — حُطَامًا (debris) or هَشِيمًا (dry stubble). Loss of color = the end. Always the same message: the transience of worldly life.",
     "stages": [
       { "hexColor": "#1D9E75", "labelTr": "Yeşil — Çıktı",    "labelEn": "Green — Sprouted",   "noteTr": "Gençlik, güç, büyüme",        "noteEn": "Youth, strength, growth" },

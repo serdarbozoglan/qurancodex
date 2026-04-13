@@ -343,7 +343,7 @@ function SurahCard({ surah, language }) {
           border: `1px solid ${COLORS.glassBorder}`, borderRadius: '6px',
           padding: '2px 8px', flexShrink: 0, fontFamily: FONTS.body,
         }}>
-          {language === 'tr' ? 'Sure' : 'Surah'} {surah.surahNumber}
+          {language === 'tr' ? 'Sûre' : 'Surah'} {surah.surahNumber}
         </span>
       </div>
 
@@ -392,7 +392,7 @@ function SurahCard({ surah, language }) {
 // ── Hero + İsimleri data constants ────────────────────────────────────────────
 
 const HERO_STATS_TR = [
-  { value: '30+', label: 'Sure kıyametten bahseder' },
+  { value: '30+', label: 'Sûre kıyametten bahseder' },
   { value: '7', label: "Ayrı Faz (Kur'an sahneleri)" },
   { value: '2', label: 'Sur Üfleme (Zümer 39:68)' },
   { value: '1', label: 'Mizan (Enbiya 21:47)' },
@@ -702,7 +702,7 @@ function TabSureler({ data, language, isMobile }) {
   return (
     <div>
       <h2 style={{ fontFamily: FONTS.display, fontSize: '1.2rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>
-        {language === 'tr' ? 'Kıyameti En Yoğun Anlatan Sureler' : 'Suras with the Highest Density of Judgment Scenes'}
+        {language === 'tr' ? 'Kıyameti En Yoğun Anlatan Sûreler' : 'Suras with the Highest Density of Judgment Scenes'}
       </h2>
       <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: '0 0 20px', fontFamily: FONTS.body }}>
         {language === 'tr' ? '★★★★★ = kıyamet sahnesi yoğunluğu en yüksek' : '★★★★★ = highest density of judgment scenes'}
@@ -738,7 +738,7 @@ function TabKozmikSahneler({ language, isMobile }) {
       {/* Section A: 13 idha scenes */}
       <div>
         <h2 style={{ fontFamily: FONTS.display, fontSize: '1.2rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>
-          {language === 'tr' ? "Tekvir Suresi'nin 13 \"İzâ\" Sahnesi" : 'The 13 "Idha" Scenes of At-Takwir'}
+          {language === 'tr' ? "Tekvir Sûresi'nin 13 \"İzâ\" Sahnesi" : 'The 13 "Idha" Scenes of At-Takwir'}
         </h2>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: '0 0 16px', lineHeight: 1.6, fontFamily: FONTS.body }}>
           {language === 'tr'

@@ -215,10 +215,14 @@ export default function CennetCehennem({ onClose }) {
 
         {/* Tab bar */}
         <div style={{
-          display: 'flex', gap: '4px',
-          padding: isMobile ? '0 10px 10px' : '0 20px 10px',
+          display: 'flex', gap: '2px',
+          padding: isMobile ? '0 8px' : '0 16px',
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          background: 'rgba(10,10,26,0.97)',
+          backdropFilter: 'blur(20px)',
           overflowX: 'auto',
           scrollbarWidth: 'none',
+          flexShrink: 0,
         }}>
           {TABS.map(tab => {
             const isActive = activeTab === tab.id;
@@ -227,20 +231,23 @@ export default function CennetCehennem({ onClose }) {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 style={{
-                  display: 'flex', alignItems: 'center', gap: '5px',
-                  padding: isMobile ? '6px 10px' : '7px 14px',
-                  borderRadius: '8px', flexShrink: 0,
-                  border: `1px solid ${isActive ? 'rgba(201,169,110,0.45)' : 'rgba(255,255,255,0.08)'}`,
-                  background: isActive ? 'rgba(201,169,110,0.12)' : 'transparent',
-                  color: isActive ? GOLD : '#64748b',
-                  fontSize: isMobile ? '0.75rem' : '0.82rem',
-                  fontWeight: isActive ? 700 : 500,
+                  display: 'flex', alignItems: 'center', gap: '8px',
+                  padding: isMobile ? '12px 14px' : '13px 22px',
+                  border: 'none', borderRadius: '0', flexShrink: 0,
+                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
+                  color: isActive ? COLORS.gold : COLORS.silver,
+                  fontSize: isMobile ? '0.85rem' : '0.9rem',
+                  fontWeight: isActive ? 600 : 400,
                   cursor: 'pointer', transition: 'all 0.15s',
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: FONTS.body,
+                  whiteSpace: 'nowrap',
                 }}
+                onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+                onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
               >
-                {isMobile && <span>{tab.icon}</span>}
-                <span>{language === 'tr' ? tab.labelTr : tab.labelEn}</span>
+                <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
+                {!isMobile && <span>{language === 'tr' ? tab.labelTr : tab.labelEn}</span>}
               </button>
             );
           })}
@@ -624,7 +631,7 @@ function TabCennet({ data, language, isMobile }) {
 
       {/* Section E — Vakıa Sınıflandırması */}
       <SectionTitle color={CENNET.accent}>
-        {tr ? "E. Vâkıa Suresi'nin Üçlü Sınıflandırması" : 'E. The Tripartite Classification of Al-Waqi\'a'}
+        {tr ? "E. Vâkıa Sûresi'nin Üçlü Sınıflandırması" : 'E. The Tripartite Classification of Al-Waqi\'a'}
       </SectionTitle>
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '10px' }}>
         {[
@@ -666,7 +673,7 @@ function TabCennet({ data, language, isMobile }) {
       </div>
       <p style={{ fontSize: '0.78rem', color: '#475569', marginTop: '10px', lineHeight: 1.6, fontStyle: 'italic' }}>
         {language === 'tr'
-          ? "Vâkıa suresi insanlığı bu üç gruba ayırır. İlk iki grup detaylı cennet tasvirleriyle ödüllendirilir — her biri farklı nimetlerle."
+          ? "Vâkıa sûresi insanlığı bu üç gruba ayırır. İlk iki grup detaylı cennet tasvirleriyle ödüllendirilir — her biri farklı nimetlerle."
           : "Surah Al-Waqi'a divides humanity into these three groups. The first two groups are rewarded with detailed descriptions of Paradise — each with distinct blessings."}
       </p>
     </div>

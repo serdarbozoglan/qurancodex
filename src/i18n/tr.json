@@ -75,14 +75,14 @@
   "linguisticDNA": {
     "badge": "Dilsel DNA",
     "title": "1.400 Yıllık Şifre",
-    "intro": "Kur'an'ın 29 suresi gizemli harflerle başlar: Elif-Lâm-Mîm. Hâ-Mîm. Yâ-Sîn. Bu harflerin ne anlama geldiğini kesin olarak kimse bilmiyor. 1.400 yıldır çözülemeyen bir şifre. Ama bildiğimiz şey şu: Bu 14 harf, Arap alfabesinin yarısı... ve Kur'an'daki tüm harflerin %70'ini oluşturuyor. Bu harflerin neden tam olarak bu 14 tanesi seçildiği, neden alfabenin yarısı olduğu — 1.400 yıldır cevapsız kalan sorular. Bir şifre mi? Bir denge sistemi mi? Yalnızca Allah bilir.",
+    "intro": "Kur'an'ın 29 sûresi gizemli harflerle başlar: Elif-Lâm-Mîm. Hâ-Mîm. Yâ-Sîn. Bu harflerin ne anlama geldiğini kesin olarak kimse bilmiyor. 1.400 yıldır çözülemeyen bir şifre. Ama bildiğimiz şey şu: Bu 14 harf, Arap alfabesinin yarısı... ve Kur'an'daki tüm harflerin %70'ini oluşturuyor. Bu harflerin neden tam olarak bu 14 tanesi seçildiği, neden alfabenin yarısı olduğu — 1.400 yıldır cevapsız kalan sorular. Bir şifre mi? Bir denge sistemi mi? Yalnızca Allah bilir.",
     "stats": {
       "letters": {
         "label": "Benzersiz Harf",
         "description": "Arap alfabesinin yarısı (28 harfin 14'ü)"
       },
       "suras": {
-        "label": "Sure",
+        "label": "Sûre",
         "description": "114 surenin 29'u bu harflerle başlar"
       },
       "coverage": {
@@ -162,7 +162,7 @@
     "title": "Ayna İçinde Ayna",
     "intro": "Fatiha suresini düşünün. 7 ayet. Basit görünür. Ama yapısına bakın: mükemmel bir ayna simetrisi. A-B-C-MERKEZ-C'-B'-A'. Halka kompozisyon, ancak 20. yüzyılda Mary Douglas gibi akademisyenlerin geliştirdiği modern edebi analiz yöntemleriyle sistematik olarak tanımlanabilen bir yapıdır. 1.400 yıl boyunca hiçbir müfessir bu çerçeveyi kullanmadan tefsir yazdı — yapı vardı, ama adı yoktu. Peki 23 yıl boyunca parça parça inen bir metnin bu denli tutarlı bir mimariyi nasıl taşıdığı sorusu hâlâ yanıtsızdır.",
     "fatiha": {
-      "title": "Fatiha Suresi",
+      "title": "Fatiha Sûresi",
       "subtitle": "A-B-C-D-C'-B'-A' Halka Kompozisyon",
       "layers": [
         {
@@ -207,7 +207,7 @@
   "sevenLayers": {
     "badge": "Yedi Katman",
     "title": "Tek Ayet, Yedi Evren",
-    "intro": "Nur Suresi'nin 35. ayeti, Kur'an'ın en çok tefsir edilen ayetlerinden biridir. İbn Arabi, Gazali, Razi - büyük alimler bu tek ayet üzerine ciltler yazmıştır. Neden? Çünkü bu ayet, bir prizmadan geçen ışık gibi, her bakış açısından farklı bir gerçeklik gösterir.",
+    "intro": "Nur Sûresi'nin 35. ayeti, Kur'an'ın en çok tefsir edilen ayetlerinden biridir. İbn Arabi, Gazali, Razi - büyük alimler bu tek ayet üzerine ciltler yazmıştır. Neden? Çünkü bu ayet, bir prizmadan geçen ışık gibi, her bakış açısından farklı bir gerçeklik gösterir.",
     "verse": {
       "arabic": "اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ",
       "translation": "Allah, göklerin ve yerin nurudur...",
@@ -275,13 +275,13 @@
         "Demir, Güneş gibi yıldızlarda oluşamaz: füzyon için yeterli sıcaklık ve basınç yoktur",
         "Demir yalnızca süpernovalarda üretilir ve uzaya saçılır",
         "Dünya'daki tüm demir milyarlarca yıl önce meteorlarla gelmiştir",
-        "Hadid Suresi Kur'an'ın 57. suresidir; Fe-57 demirin stabil izotoplarından biridir — ilgi çekici bir örtüşme. Ancak demirin en bol izotopu Fe-56'dır (%91.75); bu örtüşme bilimsel doğrulama olarak sunulamaz"
+        "Hadid Sûresi Kur'an'ın 57. sûresidir; Fe-57 demirin stabil izotoplarından biridir — ilgi çekici bir örtüşme. Ancak demirin en bol izotopu Fe-56'dır (%91.75); bu örtüşme bilimsel doğrulama olarak sunulamaz"
       ],
       "criticalNote": "'Enzelnâ' kelimesinin bu bağlamda kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin büyük çoğunluğu bu fiili 'lütfettik, ihsan ettik' anlamında yorumlamıştır. Modern astrofizik yorumu, 20. yüzyıldan itibaren öne çıkan bir okumadır."
     },
     "universe": {
       "title": "Genişleyen Evren",
-      "content": "1929'da Edwin Hubble, galaksilerin bizden uzaklaştığını ölçtü. Evren statik değil, her yönde genişliyordu — bu, bilim tarihinin en büyük keşiflerinden biriydi. Zariyat Suresi 47. ayette şu ifade geçer: 'Göğü kudretimizle bina ettik; ve şüphesiz onu genişletmekteyiz.' Arapçadaki mûsi'ûn kelimesi dilbilgisi açısından dikkat çekicidir: ism-i fail kalıbında, şimdiki zaman ve süreklilik bildirir. Tamamlanmış geçmiş bir eylem değil — devam eden, aktif bir süreç. Enbiya 21:30'da ratk (birleşik) ve fetk (ayrılmış) kelimeleri, gökler ve yerin bir bütünden ayrıldığına işaret eder. Bu dil yapısının modern kozmoloji bulgularıyla örtüşmesi, akademisyenlerin ilgisini çeken bir alandır.",
+      "content": "1929'da Edwin Hubble, galaksilerin bizden uzaklaştığını ölçtü. Evren statik değil, her yönde genişliyordu — bu, bilim tarihinin en büyük keşiflerinden biriydi. Zariyat Sûresi 47. ayette şu ifade geçer: 'Göğü kudretimizle bina ettik; ve şüphesiz onu genişletmekteyiz.' Arapçadaki mûsi'ûn kelimesi dilbilgisi açısından dikkat çekicidir: ism-i fail kalıbında, şimdiki zaman ve süreklilik bildirir. Tamamlanmış geçmiş bir eylem değil — devam eden, aktif bir süreç. Enbiya 21:30'da ratk (birleşik) ve fetk (ayrılmış) kelimeleri, gökler ve yerin bir bütünden ayrıldığına işaret eder. Bu dil yapısının modern kozmoloji bulgularıyla örtüşmesi, akademisyenlerin ilgisini çeken bir alandır.",
       "verse": {
         "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
         "translation": "Göğü kudretimizle bina ettik ve şüphesiz onu genişletmekteyiz.",
@@ -353,7 +353,7 @@
     "pharaoh": {
       "title": "Firavun'un Bedeni",
       "subtitle": "MÖ ~1200 — 1881'de doğrulandı",
-      "content": "Yunus Suresi 10:92 - Allah, Firavun'a boğulurken der ki: 'Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.' Garip bir vaat. Tevrat'ta Firavun'un bedeninden tek kelime bahsedilmez. Sadece 'boğuldu' der, hikayeyi kapatır.",
+      "content": "Yunus Sûresi 10:92 - Allah, Firavun'a boğulurken der ki: 'Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.' Garip bir vaat. Tevrat'ta Firavun'un bedeninden tek kelime bahsedilmez. Sadece 'boğuldu' der, hikayeyi kapatır.",
       "points": [
         "Tevrat Firavun'un bedeni hakkında sessiz kalır (Çıkış 14:28 - sadece 'boğuldu')",
         "1881: Deir el-Bahari'de 3.000 yıllık mumyalar keşfedildi",
@@ -439,8 +439,8 @@
   "zeroRedundancy": {
     "badge": "Sıfır Gereksizlik",
     "title": "Her Kelime Bir Görev Taşır",
-    "intro": "İlk bakışta Kur'an tekrar ediyor gibi görünür. Hz. Musa'nın hikayesi 30'dan fazla surede anlatılır. Ama her anlatımda FARKLI bir yön vurgulanır. Bu redundancy (gereksiz tekrar) değil, pedagojik tasarım. Bir ders kitabı gibi: aynı konuyu farklı açılardan öğretmek.",
-    "mosesTitle": "Hz. Musa'nın Hikayesi - Farklı Sureler, Farklı Dersler",
+    "intro": "İlk bakışta Kur'an tekrar ediyor gibi görünür. Hz. Musa'nın hikayesi 30'dan fazla sûrede anlatılır. Ama her anlatımda FARKLI bir yön vurgulanır. Bu redundancy (gereksiz tekrar) değil, pedagojik tasarım. Bir ders kitabı gibi: aynı konuyu farklı açılardan öğretmek.",
+    "mosesTitle": "Hz. Musa'nın Hikayesi - Farklı Sûreler, Farklı Dersler",
     "mosesExamples": [
       {
         "sura": "Bakara",
@@ -516,7 +516,7 @@
       },
       {
         "title": "Modüler Anlatı",
-        "content": "Hz. Musa'nın hikayesi 10 farklı 'blok' halinde 30+ sureye dağıtılmış. Her blok bağımsız okunabilir, ama birlikte bir bütün oluşturur. Modern sinema buna 'non-linear narrative' diyor. Pulp Fiction'dan 1.400 yıl önce. Örneğin: Tâ-Hâ suresi yalnızca vahiy anını ve Firavun'la diyaloğu anlatır. Kasas doğumdan kaçışa tam bir biyografi verir. Şuara büyücülerle karşılaşmaya odaklanır. Aynı hikaye — her seferinde farklı bir ders."
+        "content": "Hz. Musa'nın hikayesi 10 farklı 'blok' halinde 30+ sûreye dağıtılmış. Her blok bağımsız okunabilir, ama birlikte bir bütün oluşturur. Modern sinema buna 'non-linear narrative' diyor. Pulp Fiction'dan 1.400 yıl önce. Örneğin: Tâ-Hâ sûresi yalnızca vahiy anını ve Firavun'la diyaloğu anlatır. Kasas doğumdan kaçışa tam bir biyografi verir. Şuara büyücülerle karşılaşmaya odaklanır. Aynı hikaye — her seferinde farklı bir ders."
       },
       {
         "title": "Kelime Haritası",
@@ -531,11 +531,11 @@
       },
       {
         "title": "Zaman Esnekliği",
-        "content": "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (Prophetic Perfect) — sanki zaten olmuş gibi. Ve geçmiş, şimdiki zamanla anlatılır (Historical Present) — sanki şu an yaşanıyor. Ashab-ı Kehf: 300 güneş yılı = 309 ay yılı. Fark tam olarak güneş-ay takvimi dönüşümü. Rum suresi, 614'te Bizans yeni yenilmişken 'Rumlar galip geldiler' dedi — henüz yaşanmamış bir zafer için geçmiş zaman. Bu tahmin değil, kesinlik bildirimi. Bizans 628'de gerçekten galip geldi."
+        "content": "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (Prophetic Perfect) — sanki zaten olmuş gibi. Ve geçmiş, şimdiki zamanla anlatılır (Historical Present) — sanki şu an yaşanıyor. Ashab-ı Kehf: 300 güneş yılı = 309 ay yılı. Fark tam olarak güneş-ay takvimi dönüşümü. Rum sûresi, 614'te Bizans yeni yenilmişken 'Rumlar galip geldiler' dedi — henüz yaşanmamış bir zafer için geçmiş zaman. Bu tahmin değil, kesinlik bildirimi. Bizans 628'de gerçekten galip geldi."
       },
       {
         "title": "İltifât",
-        "content": "Fatiha suresi, sadece 7 ayette 3 farklı bakış açısı kullanır: 3. kişi (O), 2. kişi (Sen), 1. kişi çoğul (Biz). Bu, modern edebiyatta 'polyphonic voice' (çok sesli anlatı) olarak bilinir. 1-3. ayetler Allah'tan söz eder — 'O' kipi. 5. ayette birdenbire 'Yalnız Sana ibadet ederiz' — 'Sen' kipine ani geçiş. Sonra 'Bizi doğru yola ilet' — 'Biz' kipi. Yedi ayette üç farklı ses.",
+        "content": "Fatiha sûresi, sadece 7 ayette 3 farklı bakış açısı kullanır: 3. kişi (O), 2. kişi (Sen), 1. kişi çoğul (Biz). Bu, modern edebiyatta 'polyphonic voice' (çok sesli anlatı) olarak bilinir. 1-3. ayetler Allah'tan söz eder — 'O' kipi. 5. ayette birdenbire 'Yalnız Sana ibadet ederiz' — 'Sen' kipine ani geçiş. Sonra 'Bizi doğru yola ilet' — 'Biz' kipi. Yedi ayette üç farklı ses.",
         "note": "İltifât sanatı klasik Arap belağatında tanımlanmıştır: İbn Ebu'l-İsba' ve Zerkeşî'nin el-Burhân'ı bu sanata kapsamlı yer verir. '7 ayette edebiyat tarihinde benzersizdir' ifadesi güçlü bir iddiadır; bu kapsamı destekleyecek sistematik bir karşılaştırmalı çalışma referans alınmalıdır."
       }
     ]

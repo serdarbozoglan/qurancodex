@@ -205,7 +205,7 @@ export const VIZ_TOOLS = [
     titleEn:     'Revelation Order',
     descTr:      '23 yıllık vahyin kronolojisi',
     descEn:      'The chronology of 23 years of revelation',
-    descLongTr:  "114 sure indirildiği kronolojik sırayla. Mekke ve Medine dönemleri, surelerin geliş bağlamı ve ana teması — vahyin akışını zamanda izle.",
+    descLongTr:  "114 sûre indirildiği kronolojik sırayla. Mekke ve Medine dönemleri, sûrelerin geliş bağlamı ve ana teması — vahyin akışını zamanda izle.",
     descLongEn:  "All 114 surahs in the chronological order they were revealed. Meccan and Medinan periods, the historical context and main theme of each — follow revelation through time.",
     icon:        RevelationIcon,
   },
@@ -225,9 +225,9 @@ export const VIZ_TOOLS = [
     event:       'openKissaAtlas',
     titleTr:     'Kıssa Atlası',
     titleEn:     'Story Atlas',
-    descTr:      '4 peygamber — hangi surede hangi sahne?',
+    descTr:      '4 peygamber — hangi sûrede hangi sahne?',
     descEn:      '4 prophets — which scene in which surah?',
-    descLongTr:  "4 peygamberin (Musa, İbrahim, Yusuf, Nuh) hayat hikayesi parçalı sahneler halinde Kur'an'a dağılmış. Hangi sahne hangi surede, hangi sırada — atlas formatında haritalı.",
+    descLongTr:  "4 peygamberin (Musa, İbrahim, Yusuf, Nuh) hayat hikayesi parçalı sahneler halinde Kur'an'a dağılmış. Hangi sahne hangi sûrede, hangi sırada — atlas formatında haritalı.",
     descLongEn:  "The lives of 4 prophets (Moses, Abraham, Joseph, Noah) scattered as fragmented scenes across the Quran. Which scene appears in which surah, in what order — mapped as an atlas.",
     icon:        KissaIcon,
   },
@@ -238,7 +238,7 @@ export const VIZ_TOOLS = [
     titleEn:     'Parables & Metaphors Atlas',
     descTr:      '~50 mesel · 7 imge evreni',
     descEn:      '~50 parables · 7 imagery domains',
-    descLongTr:  "Kur'an ~50 mesel kullanır — sinek, örümcek, ağaç, ışık, ateş, su. Her mesel bir gerçeği somutlaştırır. 7 imge evrenine ayrılmış, çift meseller ve nûr-zulumât ekseni dahil. Hangi meselin hangi surede, hangi bağlamda geçtiğini keşfet.",
+    descLongTr:  "Kur'an ~50 mesel kullanır — sinek, örümcek, ağaç, ışık, ateş, su. Her mesel bir gerçeği somutlaştırır. 7 imge evrenine ayrılmış, çift meseller ve nûr-zulumât ekseni dahil. Hangi meselin hangi sûrede, hangi bağlamda geçtiğini keşfet.",
     descLongEn:  "The Quran uses ~50 parables — fly, spider, tree, light, fire, water. Each parable makes a truth tangible. Organized into 7 imagery domains, including paired parables and the light-darkness axis. Discover which parable appears in which surah and in what context.",
     icon:        MeselIcon,
   },
@@ -256,7 +256,7 @@ export const VIZ_TOOLS = [
 ];
 
 // ── Analiz & Veri (5) ────────────────────────────────────────────────────────
-// Order: Esma → Kavram → Sure DNA → Muhatap → Diyalog
+// Order: Esma → Kavram → Sûre DNA → Muhatap → Diyalog
 // Kıraat used to live here but was moved to Görselleştirme — see that section.
 // Diyalog Ağı is the orphan card now (5th of 5), so its descLong is intentionally
 // the longest in this category to fill the spanned full-width row.
@@ -286,11 +286,11 @@ export const ANALYSIS_TOOLS = [
   {
     id:          'surah-dna',
     event:       'openSurahComparator',
-    titleTr:     'Sure DNA',
+    titleTr:     'Sûre DNA',
     titleEn:     'Surah DNA',
-    descTr:      'İki sureyi karşılaştır',
+    descTr:      'İki sûreyi karşılaştır',
     descEn:      'Compare two surahs',
-    descLongTr:  "İki sureyi yan yana koy: ortak kelimeler, ortak temalar, ritmik benzerlik. Hangi sureler birbirinin DNA'sını paylaşıyor, hangileri farklı evrenlerden?",
+    descLongTr:  "İki sûreyi yan yana koy: ortak kelimeler, ortak temalar, ritmik benzerlik. Hangi sûreler birbirinin DNA'sını paylaşıyor, hangileri farklı evrenlerden?",
     descLongEn:  "Place two surahs side by side: shared vocabulary, shared themes, rhythmic similarity. Which surahs share DNA, which come from different worlds?",
     icon:        SureDnaIcon,
   },
@@ -339,7 +339,7 @@ export const RESEARCH_TOOLS = [
     titleEn:     'Prophets Atlas',
     descTr:      '23 yıla yayılan anlatıların gizli haritası',
     descEn:      'The hidden narrative map across 23 years',
-    descLongTr:  "25 peygamberin Kur'an'daki tüm anlatıları. Her peygamber için: hangi sureler, hangi olaylar, ortak mesajlar ve aralarındaki kronolojik bağlar.",
+    descLongTr:  "25 peygamberin Kur'an'daki tüm anlatıları. Her peygamber için: hangi sûreler, hangi olaylar, ortak mesajlar ve aralarındaki kronolojik bağlar.",
     descLongEn:  "Every Quranic narrative of all 25 prophets. For each prophet: which surahs, which events, the shared messages, and the chronological links between them.",
     icon:        ProphetIcon,
   },

@@ -121,8 +121,16 @@ export default function ScientificSigns() {
         {t('scientificSigns.intro')}
       </motion.p>
 
-      {/* Tab buttons — colour-coded */}
-      <motion.div variants={fadeUpItem} className="flex flex-wrap gap-3 mb-8">
+      {/* Tab buttons — per-tab accent colors preserved, DogaAtlasi underline pattern */}
+      <motion.div
+        variants={fadeUpItem}
+        style={{
+          display: 'flex', gap: '2px',
+          overflowX: 'auto', scrollbarWidth: 'none',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          marginBottom: '24px',
+        }}
+      >
         {tabKeys.map((key) => {
           const isActive = activeTab === key;
           const meta = TAB_META[key];
@@ -131,18 +139,22 @@ export default function ScientificSigns() {
               key={key}
               onClick={() => setActiveTab(key)}
               style={{
+                flexShrink: 0,
                 display: 'flex', alignItems: 'center', gap: '8px',
-                padding: '10px 22px', borderRadius: '10px',
-                border: `1px solid ${isActive ? meta.border : 'rgba(255,255,255,0.07)'}`,
-                background: isActive ? meta.dim : 'rgba(255,255,255,0.025)',
+                padding: '12px 20px',
+                border: 'none', borderRadius: '0',
+                borderBottom: isActive ? `2px solid ${meta.color}` : '2px solid transparent',
+                background: isActive ? meta.dim : 'transparent',
                 color: isActive ? meta.color : COLORS.slate500,
                 fontFamily: FONTS.body,
-                fontSize: '0.85rem', fontWeight: isActive ? 600 : 400,
-                cursor: 'pointer', transition: 'all 0.25s',
-                boxShadow: isActive ? `0 0 18px ${meta.dim}` : 'none',
+                fontSize: '0.88rem', fontWeight: isActive ? 600 : 400,
+                cursor: 'pointer', transition: 'all 0.2s',
+                whiteSpace: 'nowrap',
               }}
+              onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+              onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.slate500; } }}
             >
-              {tabIcons[key]}
+              <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tabIcons[key]}</span>
               {tabs[key] || key}
             </button>
           );

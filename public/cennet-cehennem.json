@@ -181,7 +181,7 @@
       "frequencyEn": "1 time",
       "kaynak": "Kâria 101:9-11",
       "kaynakEn": "Al-Qari'a 101:9-11",
-      "notTr": "Kâria suresi bu ismi bizzat tanımlar: 'Hâviye nedir bilir misin? O, kızgın bir ateştir.' Kur'an'da kendini açıklayan iki cehennem isminden biridir.",
+      "notTr": "Kâria sûresi bu ismi bizzat tanımlar: 'Hâviye nedir bilir misin? O, kızgın bir ateştir.' Kur'an'da kendini açıklayan iki cehennem isminden biridir.",
       "notEn": "Surah Al-Qari'a defines this name itself: 'And what will make you know what the Hawiya is? It is a blazing fire.' One of two self-defining names for Hell in the Quran.",
       "isHadis": false
     },
@@ -587,7 +587,7 @@
         "nameAr": "سِجِّينٌ",
         "nameTr": "Siccîn",
         "nameEn": "Sijjin",
-        "descTr": "Kötülerin kitabı siccîndedir. İlliyyûn ile aynı surede art arda gelir — öteki alemin kayıt sistemi.",
+        "descTr": "Kötülerin kitabı siccîndedir. İlliyyûn ile aynı sûrede art arda gelir — öteki alemin kayıt sistemi.",
         "descEn": "The record of the wicked is in Sijjin. Appears consecutively with Illiyyun in the same surah — the record-keeping system of the hereafter.",
         "kaynak": "Mutaffifîn 83:7-9",
         "taraf": "cehennem"
@@ -596,7 +596,7 @@
   },
 
   "rahmanSimetrisi": {
-    "aciklamaTr": "Rahman suresi cennet ve cehennem tasvirini art arda sunar. İkisi arasında her seferinde aynı nakarat tekrarlanır. Bu nakarat 31 kez geçer. Cennet ayetlerinin ardından da cehennem ayetlerinin ardından da sorulan bu soru şunu söyler: nimetin farkında olmak, azabı hatırlamakla da başlar.",
+    "aciklamaTr": "Rahman sûresi cennet ve cehennem tasvirini art arda sunar. İkisi arasında her seferinde aynı nakarat tekrarlanır. Bu nakarat 31 kez geçer. Cennet ayetlerinin ardından da cehennem ayetlerinin ardından da sorulan bu soru şunu söyler: nimetin farkında olmak, azabı hatırlamakla da başlar.",
     "aciklamaEn": "Surah Rahman presents descriptions of Paradise and Hell in succession. Between each description, the same refrain is repeated 31 times. Asked after both Paradise and Hell verses, this question conveys: awareness of blessing also begins with remembering punishment.",
     "nakaratAr": "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",
     "nakaratTr": "Rabbinizin hangi nimetlerini yalanlıyorsunuz?",
@@ -616,7 +616,7 @@
         "id": "31-sayi",
         "titleTr": "31 sayısının anlamı var mı?",
         "titleEn": "Does the number 31 carry significance?",
-        "bodyTr": "Rahman suresi 78 ayettir. 31 kez tekrarlanan nakarat, sure boyunca bölümler oluşturur ve anlatıyı ritimli biçimde böler. Bu yapı, Kur'an'ın retorik mimarisinin en güçlü örneklerinden biridir. Nakaratın cennet ayetleriyle olan ilişkisi 19, cehennem ayetleriyle olan ilişkisi ise 12'dir — eşit dağılım değildir, bilerek biçimlendirilmiş bir orandır.",
+        "bodyTr": "Rahman sûresi 78 ayettir. 31 kez tekrarlanan nakarat, sûre boyunca bölümler oluşturur ve anlatıyı ritimli biçimde böler. Bu yapı, Kur'an'ın retorik mimarisinin en güçlü örneklerinden biridir. Nakaratın cennet ayetleriyle olan ilişkisi 19, cehennem ayetleriyle olan ilişkisi ise 12'dir — eşit dağılım değildir, bilerek biçimlendirilmiş bir orandır.",
         "bodyEn": "Surah Rahman has 78 verses. The 31-fold refrain divides the surah into sections and rhythmically segments the narrative. This structure is among the most powerful examples of the Quran's rhetorical architecture. The refrain appears 19 times in relation to Paradise verses and 12 times in relation to Hell verses — not an equal distribution, but a deliberately shaped ratio."
       }
     ]

@@ -41,7 +41,7 @@
       "frequency": "1 kez",
       "contexts": ["kissa", "sure-adi"],
       "sureRef": "Fîl 105:1",
-      "noteTr": "Fil Suresi Hz. Peygamber'in doğum yılına yakın bir olayı anlatır. Modern tarihçiler bu olayı Habeş ordusunun yenilgisiyle ilişkilendirir.",
+      "noteTr": "Fil Sûresi Hz. Peygamber'in doğum yılına yakın bir olayı anlatır. Modern tarihçiler bu olayı Habeş ordusunun yenilgisiyle ilişkilendirir.",
       "noteEn": "Surah Al-Fil describes an event near the birth year of the Prophet. Modern historians associate it with the defeat of the Abyssinian army.",
       "hasTefsirNote": true
     },
@@ -52,7 +52,7 @@
       "frequency": "8 kez",
       "contexts": ["kissa", "sure-adi"],
       "sureRef": "Bakara 2:67-71",
-      "noteTr": "Bakara suresi Kur'an'ın en uzun suresi. İsrailoğulları'nın ineği bulma süreci uzun diyaloglarla anlatılır — itaatsizlik ve sorgulama teması.",
+      "noteTr": "Bakara sûresi Kur'an'ın en uzun sûresi. İsrailoğulları'nın ineği bulma süreci uzun diyaloglarla anlatılır — itaatsizlik ve sorgulama teması.",
       "noteEn": "Surah Baqarah is the longest surah in the Quran. The process of the Israelites finding the cow is told through long dialogues — a theme of disobedience and questioning.",
       "hasTefsirNote": false
     },
@@ -140,7 +140,7 @@
       "frequency": "4 kez",
       "contexts": ["kissa"],
       "sureRef": "Enbiya 21:87, Saffat 37:142, Kalem 68:48",
-      "noteTr": "'Nûn' — Kalem suresi 68:1'de geçen harf Hz. Yunus'a işaret olarak yorumlanır. Balık içinde tesbih duası Kur'an'ın en bilinen dualarından.",
+      "noteTr": "'Nûn' — Kalem sûresi 68:1'de geçen harf Hz. Yunus'a işaret olarak yorumlanır. Balık içinde tesbih duası Kur'an'ın en bilinen dualarından.",
       "noteEn": "'Nun' — the letter in Surah Qalam 68:1 is interpreted as a reference to Prophet Yunus. The glorification prayer inside the fish is one of the most well-known supplications in the Quran.",
       "hasTefsirNote": false
     },
@@ -195,7 +195,7 @@
       "frequency": "5 kez",
       "contexts": ["delil", "mecaz"],
       "sureRef": "Âdiyât 100:1, Enfal 8:60, Nahl 16:8",
-      "noteTr": "Âdiyât suresi koşan atların sesini 'vef vef' diye anlatır — seslerin Kur'an'da bu kadar tasvir edildiği nadir örneklerden.",
+      "noteTr": "Âdiyât sûresi koşan atların sesini 'vef vef' diye anlatır — seslerin Kur'an'da bu kadar tasvir edildiği nadir örneklerden.",
       "noteEn": "Surah Adiyat describes the sound of racing horses as 'wef wef' — one of the rare instances where sounds are described so vividly in the Quran.",
       "hasTefsirNote": false
     },
@@ -358,10 +358,10 @@
       "id": "incir",
       "arabic": "التِّين",
       "nameTr": "İncir",
-      "frequency": "1 kez (sure adı olarak)",
+      "frequency": "1 kez (sûre adı olarak)",
       "contexts": ["yemin"],
       "sureRef": "Tîn 95:1",
-      "noteTr": "Sadece bir kez geçer ama zeytin ile birlikte — ve bu sure onun adını taşır. Müfessirlere göre Hz. İsa'nın peygamberlik bölgesine işaret.",
+      "noteTr": "Sadece bir kez geçer ama zeytin ile birlikte — ve bu sûre onun adını taşır. Müfessirlere göre Hz. İsa'nın peygamberlik bölgesine işaret.",
       "noteEn": "Appears only once, but alongside the olive — and this surah bears its name. According to scholars, it points to the prophetic region of Jesus.",
       "hasTefsirNote": true,
       "isHapax": false
@@ -557,7 +557,7 @@
       "ayahCount": 11,
       "frequency": "1 kez",
       "keyRef": "Âdiyât 100:1-3",
-      "storyTr": "'Nefes nefese koşanlara yemin olsun, tırnakla kıvılcım çıkaranlara...' Atlar sure adı almaz ama sure tamamıyla at tasvirini anlatır — Kur'an'ın en sinematik açılışlarından.",
+      "storyTr": "'Nefes nefese koşanlara yemin olsun, tırnakla kıvılcım çıkaranlara...' Atlar sûre adı almaz ama sûre tamamıyla at tasvirini anlatır — Kur'an'ın en sinematik açılışlarından.",
       "storyEn": "'By the racers, panting; and the producers of sparks striking...' The horses don't give the surah its name, but the entire surah describes their charge — one of the most cinematic openings in the Quran.",
       "accent": "#e67e22"
     }
@@ -657,9 +657,9 @@
     },
     {
       "id": "en-am-ismi",
-      "titleTr": "En'am Suresi neden bu ismi taşır?",
+      "titleTr": "En'am Sûresi neden bu ismi taşır?",
       "titleEn": "Why is Surah An'am named this way?",
-      "bodyTr": "'En'am' davar/hayvanlar demek. Sure boyunca helal-haram hayvanlar detaylı anlatılır. İsim içerikle örtüşür — Kur'an'daki sure isimlendirme geleneğine güzel örnek. Surenin 143-144. ayetleri sekiz çift hayvanı (koyun, keçi, deve, inek) listeleme yönüyle ilmi ekoloji çalışmalarında da ilgi görmüştür.",
+      "bodyTr": "'En'am' davar/hayvanlar demek. Sûre boyunca helal-haram hayvanlar detaylı anlatılır. İsim içerikle örtüşür — Kur'an'daki sûre isimlendirme geleneğine güzel örnek. Sûrenin 143-144. ayetleri sekiz çift hayvanı (koyun, keçi, deve, inek) listeleme yönüyle ilmi ekoloji çalışmalarında da ilgi görmüştür.",
       "bodyEn": "'An'am' means livestock/animals. Throughout the surah, permitted and forbidden animals are detailed. The name matches the content — a fine example of the Quran's surah-naming tradition. Verses 143-144, which list eight pairs of animals (sheep, goat, camel, cow), have also attracted interest in scholarly ecology studies."
     }
   ],

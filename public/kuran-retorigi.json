@@ -261,7 +261,7 @@
           "nameEn": "Hypocrite & Polytheist Questions",
           "countTr": "~20+ ayette",
           "countEn": "~20+ verses",
-          "noteTr": "Çifte standartı yüzlerine vuran sorular — Tevbe ve Münafıkun surelerinden.",
+          "noteTr": "Çifte standartı yüzlerine vuran sorular — Tevbe ve Münafıkun sûrelerinden.",
           "noteEn": "Questions that confront hypocrisy with its own double standard — from Surahs At-Tawba and Al-Munafiqun.",
           "surahs": [
             "A'raf 7:99",
@@ -728,7 +728,7 @@
           "tr": "Artık seni dini yalanlamaya iten nedir?",
           "en": "So what yet causes you to deny the Judgment?",
           "ref": "Tin 95:7",
-          "noteTr": "Surenin tüm delillerinin ardından insanlığa yönelen kapanış sorusu — muhatap Hz. Peygamber değil, inkâr eden insandır.",
+          "noteTr": "Sûrenin tüm delillerinin ardından insanlığa yönelen kapanış sorusu — muhatap Hz. Peygamber değil, inkâr eden insandır.",
           "noteEn": "The closing question to humanity after the surah's full chain of evidence — the addressee is the denier, not the Prophet."
         }
       ]
@@ -846,7 +846,7 @@
           "tr": "Allah'ın sırlarını ve gizli fısıltılarını bildiğini bilmiyorlar mıydı?",
           "en": "Did they not know that Allah knows their secret and their private counsel?",
           "ref": "Tevbe 9:78",
-          "noteTr": "Tevbe suresi münafık pasajında — Allah'a verilen sözü bozanların gizlilik yanılsamasını çöker.",
+          "noteTr": "Tevbe sûresi münafık pasajında — Allah'a verilen sözü bozanların gizlilik yanılsamasını çöker.",
           "noteEn": "In the Tawbah hypocrite passage — collapses the illusion of secrecy for those who broke their covenant with Allah."
         },
         {
@@ -1389,7 +1389,7 @@
       "dominantType": "irsad",
       "iconicQuestionAr": "أَفَلَا تَعْقِلُونَ",
       "iconicQuestionRef": "2:44",
-      "noteTr": "En uzun sure, en fazla soru. Her türden örnek içerir.",
+      "noteTr": "En uzun sûre, en fazla soru. Her türden örnek içerir.",
       "noteEn": "Longest surah, most questions. Contains examples of every type."
     },
     {
@@ -1433,7 +1433,7 @@
       "dominantType": "tevbih",
       "iconicQuestionAr": "أَيَحْسَبُ الْإِنسَانُ أَن يُتْرَكَ سُدًى",
       "iconicQuestionRef": "75:36",
-      "noteTr": "Kısa sure, yoğun soru ritmi — her ayet bir sonrakini sorgular.",
+      "noteTr": "Kısa sûre, yoğun soru ritmi — her ayet bir sonrakini sorgular.",
       "noteEn": "Short surah, dense question rhythm — each verse questions the next."
     }
   ],

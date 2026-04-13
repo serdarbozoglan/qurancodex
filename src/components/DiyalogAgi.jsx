@@ -950,7 +950,7 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
                     background: COLORS.goldAlpha15, color: COLORS.gold,
                     fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,
                   }}>
-                    {m.totalSurahs} {language === 'tr' ? 'sure' : 'surahs'}
+                    {m.totalSurahs} {language === 'tr' ? 'sûre' : 'surahs'}
                   </span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
                     style={{ transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
@@ -1002,7 +1002,7 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
 
                 <div>
                   <div style={{ color: COLORS.silver, fontSize: '0.74rem', fontFamily: FONTS.body, marginBottom: '6px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                    {language === 'tr' ? 'İlgili Sureler' : 'Related Surahs'}
+                    {language === 'tr' ? 'İlgili Sûreler' : 'Related Surahs'}
                   </div>
                   <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                     {m.refs?.map(ref => (
