@@ -481,11 +481,11 @@
         "label": "APPEARING ONLY ONCE",
         "value": "~455",
         "description": "Of 14,870 forms, only these appear in a single verse",
-        "tooltip": "Hapax legomenon. Source: Shawkat M. Toorawa (2011). Count varies 400–500 by method."
+        "tooltip": "Hapax legomenon — a word form appearing only once in the entire Quran. Examples: 'أَبًّا' (abban, herbage — Abasa 80:31), 'غِسْلِينٍ' (ghislīn, pus — Al-Haqqa 69:36), 'صَلْدًا' (ṣaldan, smooth rock — Al-Baqarah 2:264). Source: Shawkat M. Toorawa (2011). Count varies 400–500 by method."
       }
     },
     "comparisonTitle": "Redundancy Comparison",
-    "comparisonNote": "* Shakespeare and Bible percentages are estimations based on broad comparative corpus studies and do not derive from a single academic source.",
+    "comparisonNote": "These rates are projections based on literal (verbatim) repetition that adds no new information or nuance in the same context — not semantic repetition. Shakespeare and Bible percentages are estimations from broad comparative corpus studies and do not derive from a single academic source. This chart is a linguistic observation, not a theological comparison.",
     "comparison": {
       "quran": {
         "label": "Quran — ~0% meaningless repetition",
