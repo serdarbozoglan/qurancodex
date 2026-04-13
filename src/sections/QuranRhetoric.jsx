@@ -8,8 +8,8 @@ const QUESTION_TYPES = [
   {
     id: 'erotema', pct: 40, color: '#d4a574',
     nameTr: 'Retorik Soru', nameEn: 'Rhetorical Question',
-    descTr: 'Cevabı zaten bilinen sorular. Okuyucu sonuca kendisi ulaşır.',
-    descEn: 'Questions whose answers are already known. The reader reaches conclusions themselves.',
+    descTr: 'Cevabı metnin içinde gizli olan, muhatabın vicdanına bırakılan sorular. Okuyucu sonuca kendisi ulaşır.',
+    descEn: 'Questions whose answers lie hidden in the text, left to the reader\'s conscience. The reader arrives at the conclusion themselves.',
     exTr: '"Hiç aklınızı kullanmıyor musunuz?" — Afala taʿqilûn',
     exEn: '"Will you not use your reason?" — Afala taʿqilûn',
   },
@@ -97,7 +97,7 @@ const SURAH_DENSITY = [
   4,2,4,2,4,3,4,3,3,3, // 21-30
   2,3,2,3,3,4,4,4,3,3, // 31-40
   3,3,4,4,3,3,2,1,2,4, // 41-50
-  4,5,5,4,5,5,2,2,2,2, // 51-60
+  4,4,5,4,5,5,2,2,2,2, // 51-60  (54=Kamer 5→4: 4 kez tekrar, Rahman'a göre düşürüldü)
   2,2,2,2,1,1,4,3,3,3, // 61-70
   2,2,2,4,5,2,5,4,4,3, // 71-80
   5,3,4,3,3,3,2,5,4,4, // 81-90
@@ -379,7 +379,7 @@ export default function QuranRhetoric() {
             ? '114 sûrenin tamamı — altın renk yoğunluğu soru sıklığını gösterir'
             : 'All 114 surahs — gold intensity indicates question frequency'}
         </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(24px, 1fr))', gap: '4px' }}>
           {SURAH_DENSITY.map((d, i) => (
             <div
               key={i}

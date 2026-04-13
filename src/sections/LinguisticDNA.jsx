@@ -179,17 +179,28 @@ const DISCOVERIES = [
   {
     num: '25/29',
     label: 'Hemen Ardından Vahye Atıf',
+    labelEn: 'Immediate Reference to Revelation',
     desc: '"Kitap", "Kur\'an", "vahiy" veya "tenzîl" — harflerin hemen ardından gelir. Elif-Lâm-Râ grubunda %100 (5/5), Havâmîm\'de %100 (7/7). Bu tutarlılık tesadüf sınırını çok aşıyor.',
+    descEn: '"Book", "Quran", "revelation" or "descent" — immediately follows the letters. 100% in the Alif-Lām-Rā group (5/5), 100% in the Ḥawāmīm (7/7). This consistency far exceeds the bounds of coincidence.',
+    footnote: 'İstisnalar: Meryem (19), Ankebût (29), Rûm (30), Kalem (68) — bu 4 sûrede doğrudan "Kitap" kelimesi yerine farklı bir giriş gelir.',
+    footnoteEn: 'Exceptions: Maryam (19), Al-Ankabut (29), Ar-Rum (30), Al-Qalam (68) — these 4 suras open with a different entry rather than a direct "Book" reference.',
   },
   {
     num: '7/7',
     label: 'Havâmîm — Kesintisiz Sıra',
-    desc: 'Hâ-Mîm\'in 7 sûresi mushafta 40-46 arasında hiç bölünmeden arka arkaya geliyor. Bir aile gibi, bir blok gibi.',
+    labelEn: 'Ḥawāmīm — Unbroken Sequence',
+    desc: '114 sûrelik dizilimde, 7 sûre hiç bölünmeden aynı kodla (حم) art arda sıralanıyor. Bir "aile", bir yazılım modülü gibi.',
+    descEn: 'In a sequence of 114 suras, 7 run consecutively with the same code (حم) — like a family, like a software module.',
+    sequence: [40, 41, 42, 43, 44, 45, 46],
+    footnote: 'Rastgele 114 birimlik bir kümede, aynı işaretli 7 birimin kesintisiz dizilme olasılığı istatistiksel olarak bir anomalidir.',
+    footnoteEn: 'In a random set of 114 units, the probability of 7 identically-marked units lining up without interruption is a statistical anomaly.',
   },
   {
     num: '1.400+',
     label: 'Yıldır Çözülemeyen Şifre',
-    desc: 'Tefsir alimleri bu harflerin anlamı üzerine yüzyıllar boyunca yazdı. Kesin anlam hâlâ yalnızca Allah katında.',
+    labelEn: 'An Unsolved Code for 1,400+ Years',
+    desc: 'Klasik tefsir literatüründe "müteşâbih" (anlamı kapalı) olarak kodlanan bu yapı, modern veri analizinde "yüksek korelasyonlu semantik girişler" olarak karşımıza çıkıyor. Kesin anlam hâlâ yalnızca Allah katında.',
+    descEn: 'Classified as "mutashābih" (unclear in meaning) in classical exegesis, these structures appear in modern data analysis as "high-correlation semantic headers." Their definitive meaning remains with Allah alone.',
   },
 ];
 
@@ -653,8 +664,27 @@ export default function LinguisticDNA() {
             >
               {d.num}
             </span>
-            <p className="text-off-white text-sm font-body font-semibold mb-2">{d.label}</p>
-            <p className="text-silver/65 text-sm font-body leading-relaxed">{d.desc}</p>
+            <p className="text-off-white text-sm font-body font-semibold mb-2">{language === 'en' && d.labelEn ? d.labelEn : d.label}</p>
+            {d.sequence && (
+              <div className="flex items-center gap-1 mb-3">
+                {d.sequence.map((n, j) => (
+                  <span key={j} className="font-body text-xs font-bold px-2 py-1 rounded" style={{
+                    background: 'rgba(212,165,116,0.12)',
+                    border: '1px solid rgba(212,165,116,0.3)',
+                    color: '#d4a574',
+                    minWidth: '28px',
+                    textAlign: 'center',
+                  }}>{n}</span>
+                ))}
+              </div>
+            )}
+            <p className="text-silver/65 text-sm font-body leading-relaxed">{language === 'en' && d.descEn ? d.descEn : d.desc}</p>
+            {d.footnote && (
+              <p className="text-silver/40 text-xs font-body mt-3 pt-3 leading-relaxed" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                <span className="text-gold/50 mr-1">ℹ</span>
+                {language === 'en' && d.footnoteEn ? d.footnoteEn : d.footnote}
+              </p>
+            )}
           </motion.div>
         ))}
       </div>
