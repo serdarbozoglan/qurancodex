@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -92,6 +92,12 @@ export default function ScientificSigns() {
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState('iron');
   const [expandedTabs, setExpandedTabs] = useState({});
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
   const tabs = t('scientificSigns.tabs') || {};
   const tabKeys = ['iron', 'universe', 'ocean', 'embryo'];
 
@@ -190,9 +196,9 @@ export default function ScientificSigns() {
 
                 {/* ── Discovery timeline banner ── */}
                 <div style={{
-                  padding: '20px 36px',
+                  padding: isMobile ? '14px 16px' : '20px 36px',
                   borderBottom: '1px solid rgba(255,255,255,0.05)',
-                  display: 'flex', alignItems: 'center', gap: '14px',
+                  display: 'flex', alignItems: 'center', gap: isMobile ? '8px' : '14px',
                 }}>
                   {/* Century badge */}
                   <span style={{
@@ -206,8 +212,8 @@ export default function ScientificSigns() {
                     {language === 'tr' ? '7. Yüzyıl' : '7th Century'}
                   </span>
 
-                  {/* Timeline line */}
-                  <div style={{ flex: 1, position: 'relative', height: '2px' }}>
+                  {/* Timeline line — hidden on mobile, badges sufficient */}
+                  <div style={{ flex: 1, position: 'relative', height: '2px', display: isMobile ? 'none' : 'block' }}>
                     <div style={{
                       position: 'absolute', inset: 0,
                       background: `linear-gradient(to right, rgba(255,255,255,0.06), ${meta.color}80, rgba(255,255,255,0.06))`,
@@ -240,7 +246,7 @@ export default function ScientificSigns() {
                 </div>
 
                 {/* ── Main content area ── */}
-                <div style={{ padding: '36px' }}>
+                <div style={{ padding: isMobile ? '20px 16px' : '36px' }}>
 
                   {/* Title */}
                   <h3 style={{
