@@ -20,8 +20,20 @@ const KAWTHAR_VERSES = [
 
 // Necm (53) — 62 ayet, fasıla ses haritası
 // 'aa' = '-â' sesiyle biten (alif maqsura / alif)
-// 'ot' = ara farklı ses
+// 'ot' = ara farklı ses (deviation — konu değişimi sinyali)
 // 'mq' = maqta' kapanış bölümü (ayet 57-62)
+
+// Deviation notları: 28 ve 30. ayetlerdeki ses sapması konu değişimiyle örtüşür
+const NAJM_DEVIATION_NOTES = {
+  27: {
+    tr: 'Sapma noktası: 28. ayette konu "putların isimleri"nden "bilgisiz zanlar"a geçer — ses değişimi bu tematik kırılmayı işaret eder.',
+    en: 'Deviation point: Verse 28 shifts from "naming the idols" to "baseless conjecture" — the sound break signals this thematic turn.',
+  },
+  29: {
+    tr: 'Sapma noktası: 30. ayette "dünya hayatına razı olanlar" ile "Allah\'ın ilmi" karşılaştırması başlar — ses kırılması bu zıtlığı vurgular.',
+    en: 'Deviation point: Verse 30 introduces the contrast between "those content with worldly life" and "Allah\'s knowledge" — the sound break underscores this opposition.',
+  },
+};
 const NAJM_FASILA = [
   'aa','aa','aa','aa','aa','aa','aa','aa','aa','aa', // 1-10
   'aa','aa','aa','aa','aa','aa','aa','aa','aa','aa', // 11-20
@@ -664,24 +676,40 @@ export default function ImpossibleRhythm() {
             : 'Each square is one verse. Click to hear it and see the ending word.'}
         </p>
 
-        {/* Grid — two equal rows of 31 + 31, centered */}
+        {/* Grid — Row 1: ayets 1-31, Row 2: ayets 32-56 + [gap] + maqta' 57-62 */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: '16px', alignItems: 'center' }}>
-          {[NAJM_FASILA.slice(0, 31), NAJM_FASILA.slice(31)].map((row, rowIdx) => (
+          {[
+            { data: NAJM_FASILA.slice(0, 31), offset: 0 },
+            { data: NAJM_FASILA.slice(31), offset: 31, maqtaStart: 25 },
+          ].map(({ data: row, offset, maqtaStart }, rowIdx) => (
             <div key={rowIdx} style={{ display: 'flex', gap: '5px' }}>
               {row.map((type, j) => {
-                const i = rowIdx * 31 + j;
+                const i = offset + j;
                 const isSelected = selectedNajm === i;
                 const isFailed = failedNajm.has(i);
-                const bg = type === 'aa' ? '#d4a574' : type === 'mq' ? '#7c3f58' : 'rgba(148,163,184,0.12)';
+                const isMaqta = type === 'mq';
+                const bg = type === 'aa' ? '#d4a574' : isMaqta ? '#7c3f58' : 'rgba(148,163,184,0.12)';
                 const border = isSelected
                   ? '2px solid #fff'
                   : type === 'aa'
                   ? '1px solid rgba(212,165,116,0.4)'
-                  : type === 'mq'
+                  : isMaqta
                   ? '1px solid rgba(180,80,120,0.4)'
                   : '1px solid rgba(148,163,184,0.25)';
-                const color = type === 'aa' ? 'rgba(10,10,26,0.75)' : type === 'mq' ? 'rgba(255,220,230,0.7)' : 'rgba(148,163,184,0.6)';
+                const color = type === 'aa' ? 'rgba(10,10,26,0.75)' : isMaqta ? 'rgba(255,220,230,0.7)' : 'rgba(148,163,184,0.6)';
+                // Visual separator before maqta' section (verse 57 = index 56, j=25 in row 2)
+                const isMaqtaBoundary = maqtaStart && j === maqtaStart;
                 return (
+                  <>
+                    {isMaqtaBoundary && (
+                      <div key={`sep-${i}`} style={{
+                        width: '2px', height: '30px',
+                        background: 'linear-gradient(to bottom, rgba(180,80,120,0.2), rgba(180,80,120,0.9), rgba(180,80,120,0.2))',
+                        margin: '0 6px',
+                        flexShrink: 0,
+                        boxShadow: '0 0 6px rgba(180,80,120,0.4)',
+                      }} />
+                    )}
                   <div
                     key={i}
                     onClick={() => handleNajmClick(i)}
@@ -702,6 +730,7 @@ export default function ImpossibleRhythm() {
                   >
                     {i + 1}
                   </div>
+                  </>
                 );
               })}
             </div>
@@ -718,6 +747,7 @@ export default function ImpossibleRhythm() {
               padding: '16px 20px',
               marginBottom: '16px',
               display: 'flex',
+              flexWrap: 'wrap',
               alignItems: 'center',
               justifyContent: 'space-between',
               gap: '16px',
@@ -761,6 +791,25 @@ export default function ImpossibleRhythm() {
                   : (language === 'tr' ? 'farklı ses' : 'other sound')}
               </span>
             </div>
+            {/* Deviation note for the 2 anomaly verses */}
+            {NAJM_DEVIATION_NOTES[selectedNajm] && (
+              <div style={{
+                width: '100%',
+                marginTop: '4px',
+                padding: '10px 14px',
+                borderRadius: '8px',
+                background: 'rgba(148,163,184,0.06)',
+                border: '1px solid rgba(148,163,184,0.15)',
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '8px',
+              }}>
+                <span style={{ color: '#d4a574', fontSize: '0.85rem', lineHeight: 1, flexShrink: 0, marginTop: '1px' }}>⚡</span>
+                <p style={{ color: 'rgba(232,230,227,0.7)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", lineHeight: 1.5, margin: 0 }}>
+                  {language === 'en' ? NAJM_DEVIATION_NOTES[selectedNajm].en : NAJM_DEVIATION_NOTES[selectedNajm].tr}
+                </p>
+              </div>
+            )}
           </div>
         )}
 

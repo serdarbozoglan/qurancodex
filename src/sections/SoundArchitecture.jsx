@@ -16,10 +16,21 @@ function withArabic(text, { color = '#d4a574', size = '1.15em', weight = 700 } =
           fontFamily: FONTS.quran,
           fontSize: size, color, fontWeight: weight,
           display: 'inline', lineHeight: 1.4,
-        }}>{part.trim().replace(/[،؛]/g, ' ').trim()}</span>
+        }}>{part.trim().replace(/[،؛]/g, m => ` ${m} `).replace(/\s+/g, ' ').trim()}</span>
       )
       : part
   );
+}
+
+// Sert ünsüzler — patlayıcı, vurgulu, boğumlu sesler
+const HARD_CONSONANTS = new Set('قكطتدضصبخغجظ'.split(''));
+
+// Ayetteki sert harf oranını hesapla (0-100)
+function calcHardnessScore(verse) {
+  const letters = [...verse].filter(c => /[\u0621-\u064A]/.test(c)); // sadece Arapça harfler (harekesiz)
+  if (letters.length === 0) return 50;
+  const hardCount = letters.filter(c => HARD_CONSONANTS.has(c)).length;
+  return Math.round((hardCount / letters.length) * 100);
 }
 
 const PlayIcon = () => (
@@ -40,9 +51,8 @@ const SURAS = [
     verseRef: '74:26',
     harshLetters: ['ص', 'ق'],
     softLetters: ['ل', 'ي', 'ه', 'ر'],
-    descTr: 'Tek cümlede iki kez ق: azabın darbesi sesin içinde yankılanır.',
-    descEn: 'ق strikes twice in a single breath — the punishment is in the phonetics.',
-    barValue: 62,
+    descTr: 'Kısa bir cümlede iki patlayıcı ünsüz (ص، ق) — azabın sertliği sese yansır.',
+    descEn: 'Two explosive consonants (ص، ق) in a single short phrase — the harshness of punishment echoes in the sound.',
     audioKey: '074026',
   },
   {
@@ -57,7 +67,6 @@ const SURAS = [
     softLetters: ['و', 'ح', 'ن', 'م', 'ل'],
     descTr: 'ح، ن، م — nazal ve sürtünmeli sesler rahmetin yumuşaklığını taşır.',
     descEn: 'ح، ن، م — nasal and fricative consonants carry the tenderness of mercy.',
-    barValue: 26,
     audioKey: '019013',
   },
   {
@@ -72,7 +81,6 @@ const SURAS = [
     softLetters: ['ع'],
     descTr: 'Sûre adı tek başına: patlayıcı ق ve tınlayan ر kıyametin sesini taşır.',
     descEn: 'The name alone: explosive ق and rolling ر enact the cosmic strike.',
-    barValue: 60,
     audioKey: '101001',
   },
   {
@@ -87,7 +95,6 @@ const SURAS = [
     softLetters: ['ر', 'ح', 'م', 'ن', 'ل'],
     descTr: 'ر، ح، م، ن — dört yumuşak ses, dört nimetin müziği.',
     descEn: 'ر، ح، م، ن — four flowing sounds for four opening blessings.',
-    barValue: 20,
     audioKey: '055001',
   },
 ];
@@ -103,6 +110,7 @@ export default function SoundArchitecture() {
   const [playing, setPlaying] = useState(null);
   const [failedSura, setFailedSura] = useState(null);
   const [infoOpen, setInfoOpen] = useState(false);
+  const [hoveredLetter, setHoveredLetter] = useState(null);
   const audioRef = useRef(null);
   const liveIdRef = useRef(null); // tracks which sura's playback is active
 
@@ -263,14 +271,30 @@ export default function SoundArchitecture() {
                   style={{
                     fontFamily: FONTS.quran,
                     fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
-                    color: activeSura.color,
                     lineHeight: 1.6,
                     marginBottom: '6px',
                     textAlign: 'right',
                     direction: 'rtl',
+                    wordBreak: 'keep-all',
                   }}
                 >
-                  {activeSura.verse}
+                  {/* Render each character — highlight matching harsh/soft letters on hover */}
+                  {[...activeSura.verse].map((ch, ci) => {
+                    const baseChar = ch.replace(/[\u064B-\u065F\u0670]/g, '');
+                    const isHarsh = activeSura.harshLetters.includes(baseChar);
+                    const isSoft = activeSura.softLetters.includes(baseChar);
+                    const isHighlighted = hoveredLetter && baseChar === hoveredLetter;
+                    const color = isHighlighted
+                      ? (isHarsh ? '#ff6b6b' : isSoft ? '#69db7c' : activeSura.color)
+                      : activeSura.color;
+                    return (
+                      <span key={ci} style={{
+                        color,
+                        textShadow: isHighlighted ? `0 0 12px ${color}` : 'none',
+                        transition: 'color 0.15s, text-shadow 0.15s',
+                      }}>{ch}</span>
+                    );
+                  })}
                 </p>
                 <p style={{ color: '#64748b', fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', textAlign: 'right', direction: 'ltr' }}>
                   {language === 'tr' ? activeSura.numTr : activeSura.numEn} · {activeSura.verseRef}
@@ -287,16 +311,22 @@ export default function SoundArchitecture() {
                 </p>
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                   {activeSura.harshLetters.map(l => (
-                    <span key={l} style={{
-                      background: 'rgba(231,76,60,0.15)',
-                      border: '1px solid rgba(231,76,60,0.4)',
-                      borderRadius: '6px',
-                      padding: '2px 10px',
-                      fontFamily: FONTS.quran,
-                      fontSize: '1.2rem',
-                      color: '#e74c3c',
-                      lineHeight: 1.8,
-                    }}>{l}</span>
+                    <span key={l}
+                      onMouseEnter={() => setHoveredLetter(l)}
+                      onMouseLeave={() => setHoveredLetter(null)}
+                      style={{
+                        background: hoveredLetter === l ? 'rgba(231,76,60,0.3)' : 'rgba(231,76,60,0.15)',
+                        border: `1px solid ${hoveredLetter === l ? 'rgba(255,107,107,0.7)' : 'rgba(231,76,60,0.4)'}`,
+                        borderRadius: '6px',
+                        padding: '2px 10px',
+                        fontFamily: FONTS.quran,
+                        fontSize: '1.2rem',
+                        color: hoveredLetter === l ? '#ff6b6b' : '#e74c3c',
+                        lineHeight: 1.8,
+                        cursor: 'pointer',
+                        transition: 'all 0.15s',
+                        boxShadow: hoveredLetter === l ? '0 0 10px rgba(231,76,60,0.3)' : 'none',
+                      }}>{l}</span>
                   ))}
                 </div>
               </div>
@@ -308,16 +338,22 @@ export default function SoundArchitecture() {
                 </p>
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                   {activeSura.softLetters.map(l => (
-                    <span key={l} style={{
-                      background: 'rgba(46,204,113,0.12)',
-                      border: '1px solid rgba(46,204,113,0.35)',
-                      borderRadius: '6px',
-                      padding: '2px 10px',
-                      fontFamily: FONTS.quran,
-                      fontSize: '1.2rem',
-                      color: '#2ecc71',
-                      lineHeight: 1.8,
-                    }}>{l}</span>
+                    <span key={l}
+                      onMouseEnter={() => setHoveredLetter(l)}
+                      onMouseLeave={() => setHoveredLetter(null)}
+                      style={{
+                        background: hoveredLetter === l ? 'rgba(46,204,113,0.25)' : 'rgba(46,204,113,0.12)',
+                        border: `1px solid ${hoveredLetter === l ? 'rgba(105,219,124,0.7)' : 'rgba(46,204,113,0.35)'}`,
+                        borderRadius: '6px',
+                        padding: '2px 10px',
+                        fontFamily: FONTS.quran,
+                        fontSize: '1.2rem',
+                        color: hoveredLetter === l ? '#69db7c' : '#2ecc71',
+                        lineHeight: 1.8,
+                        cursor: 'pointer',
+                        transition: 'all 0.15s',
+                        boxShadow: hoveredLetter === l ? '0 0 10px rgba(46,204,113,0.3)' : 'none',
+                      }}>{l}</span>
                   ))}
                 </div>
               </div>
@@ -352,7 +388,7 @@ export default function SoundArchitecture() {
                   <motion.div
                     style={{ height: '100%', background: activeSura.color, borderRadius: '3px' }}
                     initial={{ width: 0 }}
-                    animate={{ width: `${activeSura.barValue}%` }}
+                    animate={{ width: `${calcHardnessScore(activeSura.verse)}%` }}
                     transition={{ duration: 0.6, ease: 'easeOut' }}
                   />
                 </div>
