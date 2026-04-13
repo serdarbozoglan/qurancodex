@@ -131,12 +131,12 @@ function AccordionItem({ item, accentColor }) {
                   borderRadius: '10px',
                   padding: '14px 18px',
                   marginBottom: '14px',
-                  textAlign: 'center',
                 }}>
                   <p style={{
                     fontFamily: "'KFGQPC', 'Amiri Quran', serif",
                     fontSize: '1.5rem', color: '#d4a574',
                     lineHeight: 1.8, direction: 'rtl',
+                    textAlign: 'right',
                     margin: '0 0 8px',
                   }}>
                     {item.arabic}
@@ -234,6 +234,7 @@ function AppendixPanel() {
   const tabs = t('psychology.appendix.tabs') || {};
 
   const EK_COLORS = { a: '#F97316', b: '#0EA5E9', c: '#10B981' };
+  const EK_LETTERS = { a: 'أ', b: 'ب', c: 'ج' };
 
   return (
     <div>
@@ -256,6 +257,7 @@ function AppendixPanel() {
                 transition: 'all 0.2s',
               }}
             >
+              <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '0.9rem', opacity: 0.7 }}>{EK_LETTERS[ek]}</span>
               {tabs[ek] || ek.toUpperCase()}
             </button>
           );

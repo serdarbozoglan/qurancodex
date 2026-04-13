@@ -623,8 +623,8 @@
     "istikaametHadithNote": "Bu rivayet hadis kaynaklarından gelmektedir (Tirmizî), Kur'an'dan değil.",
     "istikaametClickHint": "Her kelimeye tıklayarak dilbilimsel analizi görün",
     "transformationTitle": "Dönüşüm Süreci",
-    "transformationIntro": "Kur'an üç aşamalı bir insan dönüşümü tanımlar. Bu aşamalar hem birbirini takip eder hem de iç içe geçer.",
-    "transformationHadithNote": "İhsan tanımı (\"Allah'ı görüyormuşsun gibi ibadet et\") Cebrail hadisinden alınmıştır — hadis kaynağı (Müslim), Kur'an'dan değil."
+    "transformationIntro": "Kur'an üç aşamalı bir insan dönüşümü tanımlar. Bu aşamalar birbirini takip eder ve iç içe geçer.",
+    "transformationHadithNote": "İhsan tanımı (\"Allah'ı görüyormuşçasına ibadet et\") Cebrail hadisinden alınmıştır — hadis kaynağı (Müslim), Kur'an'dan değil."
   },
   "footer": {
     "title": "Quran Codex",

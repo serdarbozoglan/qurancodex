@@ -222,7 +222,7 @@ const TRANSFORMATION = [
     conceptEn: 'Submission',
     levelTr: 'Dış eylem',
     levelEn: 'External action',
-    descTr: 'Şehâdet, ritüeller, İslâm\'ın şartlarını yerine getirmek.',
+    descTr: 'Şehâdet, namaz, oruç — İslâm\'ın şartlarını yerine getirmek.',
     descEn: 'The shahada, rituals, fulfilling the pillars of Islam.',
     verse: {
       ar: 'قُل لَّمْ تُؤْمِنُوا وَلَٰكِن قُولُوا أَسْلَمْنَا',
@@ -979,16 +979,16 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('transformationTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-2xl mb-10">
+        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-10">
           {tr('transformationIntro')}
         </p>
 
-        <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-stretch mb-6">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch mb-10">
           {TRANSFORMATION.map((stage, i) => (
-            <div key={i} className="flex md:flex-col items-center flex-1">
+            <div key={i} className="flex-1">
               {/* Card */}
               <div
-                className="flex-1 w-full rounded-xl p-5 md:p-6 flex flex-col"
+                className="h-full w-full rounded-xl p-5 md:p-6 flex flex-col"
                 style={{
                   background: stage.glow,
                   border: `1px solid ${stage.border}`,
@@ -1051,15 +1051,17 @@ export default function HumanDefinition() {
                 </div>
               </div>
 
-              {/* Arrow between stages — placeholder keeps all cards equal height */}
-              <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 md:w-full md:h-10 text-silver/25 text-xl">
-                {i < TRANSFORMATION.length - 1 ? (
-                  <>
-                    <span className="hidden md:block">→</span>
-                    <span className="md:hidden">↓</span>
-                  </>
-                ) : null}
-              </div>
+              {/* Transition trigger below card (except last) */}
+              {i < TRANSFORMATION.length - 1 && (
+                <div className="flex items-center justify-center gap-2 mt-3" style={{
+                  color: TRANSFORMATION[i + 1].color + '80',
+                  fontSize: '0.65rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
+                }}>
+                  <span>{i === 0 ? (lang === 'tr' ? 'Kalbin tasdiki' : "Heart's affirmation") : (lang === 'tr' ? 'İhlas & murâkabe' : 'Sincerity & vigilance')}</span>
+                  <span className="hidden md:inline" style={{ fontSize: '0.9rem' }}>→</span>
+                  <span className="md:hidden" style={{ fontSize: '0.9rem' }}>↓</span>
+                </div>
+              )}
             </div>
           ))}
         </div>
