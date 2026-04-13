@@ -1,4 +1,5 @@
 import { useState, useEffect, useId } from 'react';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
@@ -28,7 +29,7 @@ const TAB_LABELS = {
 function HapaxBadge() {
   return (
     <span style={{ display:'inline-flex', alignItems:'center', gap:'3px', fontSize:'0.6rem', fontWeight:700, color:COLORS.purple, background:'rgba(83,74,183,0.12)', border:'1px solid rgba(83,74,183,0.28)', borderRadius:'20px', padding:'1px 7px', whiteSpace:'nowrap' }}>
-      ✦ Hapax
+      ✦ Hapax · 1×
     </span>
   );
 }
@@ -268,19 +269,51 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
             {tr ? data.renkSekans.descTr : data.renkSekans.descEn}
           </p>
 
-          {/* 3-stage color strip with notes */}
-          <div style={{ display: 'flex', gap: '4px', marginBottom: '20px', borderRadius: '8px', overflow: 'hidden' }}>
+          {/* 3-stage timeline with animated progression */}
+          <div style={{ display: 'flex', alignItems: 'stretch', gap: 0, marginBottom: '20px', borderRadius: '10px', overflow: 'hidden', position: 'relative' }}>
             {data.renkSekans.stages.map((s, i) => {
               const isLight = i < 2;
               return (
-                <div key={i} style={{ flex: 1, background: s.hexColor, padding: '10px 6px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px', border: i === 2 ? '1px dashed rgba(255,255,255,0.2)' : 'none' }}>
-                  <span style={{ fontSize: '0.7rem', fontWeight: 700, color: isLight ? '#0a0a1a' : COLORS.offWhite, fontFamily: FONTS.body, textAlign: 'center' }}>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  whileInView={{ opacity: 1, scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.3, ease: [0.4, 0, 0.2, 1] }}
+                  style={{
+                    flex: 1, background: s.hexColor, padding: '14px 8px',
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px',
+                    borderRight: i < 2 ? '2px solid rgba(255,255,255,0.15)' : 'none',
+                    transformOrigin: 'left center',
+                    position: 'relative',
+                  }}
+                >
+                  {/* Stage number */}
+                  <span style={{
+                    width: '20px', height: '20px', borderRadius: '50%',
+                    background: isLight ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.12)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: '0.6rem', fontWeight: 800, color: isLight ? '#0a0a1a' : COLORS.offWhite,
+                    fontFamily: FONTS.body,
+                  }}>
+                    {i + 1}
+                  </span>
+                  <span style={{ fontSize: '0.72rem', fontWeight: 700, color: isLight ? '#0a0a1a' : COLORS.offWhite, fontFamily: FONTS.body, textAlign: 'center' }}>
                     {tr ? s.labelTr : s.labelEn}
                   </span>
-                  <span style={{ fontSize: '0.6rem', color: isLight ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.55)', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.3 }}>
+                  <span style={{ fontSize: '0.6rem', color: isLight ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.5)', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.3 }}>
                     {tr ? s.noteTr : s.noteEn}
                   </span>
-                </div>
+                  {/* Arrow connector between stages */}
+                  {i < 2 && (
+                    <div style={{
+                      position: 'absolute', right: '-7px', top: '50%', transform: 'translateY(-50%)',
+                      width: 0, height: 0, zIndex: 2,
+                      borderTop: '7px solid transparent', borderBottom: '7px solid transparent',
+                      borderLeft: `7px solid ${s.hexColor}`,
+                    }} />
+                  )}
+                </motion.div>
               );
             })}
           </div>
@@ -714,11 +747,11 @@ function TabCennet({ language, isMobile }) {
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(3,1fr)', gap: '8px', marginBottom: '24px' }}>
         {swatches.map((s, i) => (
           <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: '8px', overflow: 'hidden' }}>
-            <div style={{ height: '36px', background: s.hex, opacity: s.implied ? 0.5 : 1 }} />
+            <div style={{ height: '36px', background: s.hex, opacity: s.implied ? 0.7 : 1, borderBottom: s.implied ? '2px dashed rgba(255,255,255,0.25)' : 'none' }} />
             <div style={{ padding: '8px' }}>
               <p style={{ fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, margin: '0 0 2px' }}>
                 {tr ? s.labelTr : s.labelEn}
-                {s.implied && <span style={{ fontSize: '0.7rem', color: COLORS.silver, marginLeft: '4px' }}>(ima)</span>}
+                {s.implied && <span style={{ fontSize: '0.62rem', color: COLORS.silver, marginLeft: '4px', fontWeight: 400, fontStyle: 'italic' }}>{tr ? '(ima edilen)' : '(implied)'}</span>}
               </p>
               <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>
                 {tr ? s.noteTr : s.noteEn}
@@ -871,29 +904,55 @@ function TabDilbilim({ language, isMobile }) {
             ? "Kur'an normal renk + yoğun renk için farklı kelimeler kullanır. Bu dilbilimsel incelik başka Sami dillerinde karşılaştırıldığında Kur'an Arapçasının özgünlüğünü gösterir."
             : "The Quran uses distinct words for normal vs. intense color. This linguistic precision demonstrates the uniqueness of Quranic Arabic compared to other Semitic languages."}
         </p>
-        <div style={{ overflowX: 'auto', borderRadius: '8px', border: `1px solid ${COLORS.glassBorder}` }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, fontSize: '0.85rem' }}>
-            <thead>
-              <tr style={{ background: 'rgba(255,255,255,0.04)' }}>
-                <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Normal' : 'Normal'}</th>
-                <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Yoğun (Özel Kelime)' : 'Intense (Special Word)'}</th>
-                <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Anlam' : 'Meaning'}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                { normal: 'أَخْضَر (ahdar)', intense: 'مُدْهَامَّتَانِ (mudhammatân)', meaningTr: 'Yeşil / Koyu Yoğun Yeşil', meaningEn: 'Green / Intensely Dark Green' },
-                { normal: 'أَسْوَد (esvad)', intense: 'غَرَابِيبُ سُودٌ (garâbîb sûd)', meaningTr: 'Siyah / Kuzgun Siyahı', meaningEn: 'Black / Raven Black' },
-              ].map((row, i) => (
-                <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                  <td style={{ padding: '10px 14px', color: COLORS.offWhite }}>{row.normal}</td>
-                  <td style={{ padding: '10px 14px', color: COLORS.purple, fontWeight: 600 }}>{row.intense} <HapaxBadge /></td>
-                  <td style={{ padding: '10px 14px', color: COLORS.silver }}>{tr ? row.meaningTr : row.meaningEn}</td>
+        {isMobile ? (
+          /* Mobile: card layout */
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {[
+              { normal: 'أَخْضَر (ahdar)', intense: 'مُدْهَامَّتَانِ (mudhammatân)', meaningTr: 'Yeşil / Koyu Yoğun Yeşil', meaningEn: 'Green / Intensely Dark Green' },
+              { normal: 'أَسْوَد (esvad)', intense: 'غَرَابِيبُ سُودٌ (garâbîb sûd)', meaningTr: 'Siyah / Kuzgun Siyahı', meaningEn: 'Black / Raven Black' },
+            ].map((row, i) => (
+              <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '10px', padding: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Normal' : 'Normal'}</span>
+                  <span style={{ fontSize: '0.85rem', color: COLORS.offWhite, fontFamily: FONTS.body }}>{row.normal}</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Yoğun' : 'Intense'}</span>
+                  <span style={{ fontSize: '0.85rem', color: COLORS.purple, fontWeight: 600, fontFamily: FONTS.body }}>{row.intense} <HapaxBadge /></span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Anlam' : 'Meaning'}</span>
+                  <span style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? row.meaningTr : row.meaningEn}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          /* Desktop: table */
+          <div style={{ overflowX: 'auto', borderRadius: '8px', border: `1px solid ${COLORS.glassBorder}` }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, fontSize: '0.85rem' }}>
+              <thead>
+                <tr style={{ background: 'rgba(255,255,255,0.04)' }}>
+                  <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Normal' : 'Normal'}</th>
+                  <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Yoğun (Özel Kelime)' : 'Intense (Special Word)'}</th>
+                  <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Anlam' : 'Meaning'}</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {[
+                  { normal: 'أَخْضَر (ahdar)', intense: 'مُدْهَامَّتَانِ (mudhammatân)', meaningTr: 'Yeşil / Koyu Yoğun Yeşil', meaningEn: 'Green / Intensely Dark Green' },
+                  { normal: 'أَسْوَد (esvad)', intense: 'غَرَابِيبُ سُودٌ (garâbîb sûd)', meaningTr: 'Siyah / Kuzgun Siyahı', meaningEn: 'Black / Raven Black' },
+                ].map((row, i) => (
+                  <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                    <td style={{ padding: '10px 14px', color: COLORS.offWhite }}>{row.normal}</td>
+                    <td style={{ padding: '10px 14px', color: COLORS.purple, fontWeight: 600 }}>{row.intense} <HapaxBadge /></td>
+                    <td style={{ padding: '10px 14px', color: COLORS.silver }}>{tr ? row.meaningTr : row.meaningEn}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
 
       {/* Section B: Hapax renk kelimeleri */}
@@ -1187,13 +1246,20 @@ export default function KuranRenkleri({ onClose }) {
     <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-modal="true">
       {/* ── Header ── */}
       <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="13.5" cy="6.5" r=".5" fill={COLORS.gold} />
+            <circle cx="17.5" cy="10.5" r=".5" fill={COLORS.gold} />
+            <circle cx="8.5" cy="7.5" r=".5" fill={COLORS.gold} />
+            <circle cx="6.5" cy="12.5" r=".5" fill={COLORS.gold} />
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.992 6.012 17.477 2 12 2z" />
           </svg>
           <span style={OVERLAY_TITLE}>
             {tr ? "Kur'an'ın Renkleri" : 'Colors of the Quran'}
+          </span>
+          <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+          <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.78rem', fontFamily: FONTS.body }}>
+            {tr ? 'Elvânü\'l-Kur\'ân' : 'Alwān al-Quran'}
           </span>
         </div>
         <button
@@ -1236,45 +1302,29 @@ export default function KuranRenkleri({ onClose }) {
             </p>
           </div>
 
-          {/* Intro paragraph */}
-          <p style={{ fontSize: isMobile ? '0.9rem' : '1rem', color: COLORS.silver, lineHeight: 1.75, fontFamily: FONTS.body, margin: '0 0 20px' }}>
-            {tr
-              ? "Kur'an renkleri tesadüfen kullanmaz. Yeşil cenneti çağrıştırır, beyaz saflığı ve mucizeyi, siyah karanlığı ve cezayı, sarı hem canlılığı hem çürümeyi, kırmızı kozmik dönüşümü, mavi belirsizlik ve donukluğu anlatır. Fâtır 35:27 tek bir ayette dağları üç renkle tasvir eder: kırmızı, beyaz, siyah."
-              : "The Quran does not use colors accidentally. Green evokes paradise, white purity and miracle, black darkness and punishment, yellow both vitality and decay, red cosmic transformation, blue ambiguity and blankness. Fatir 35:27 describes mountains in a single verse with three colors: red, white, and black."}
-          </p>
-
-          {/* 6 stat cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(3,1fr)', gap: '8px' }}>
+          {/* Stat strip — horizontal scroll on mobile, single row on desktop */}
+          <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: '4px', WebkitOverflowScrolling: 'touch' }}>
             {[
-              { num: '8',   labelTr: 'Temel Renk',           labelEn: 'Core Colors',              subTr: 'Kur\'an genelinde',      subEn: 'across the Quran' },
-              { num: '14',  labelTr: 'Farklı Renk Kelimesi', labelEn: 'Distinct Color Words',     subTr: 'ayrı renk sözcüğü',      subEn: 'unique color terms' },
-              { num: '3',   labelTr: "Fâtır 35:27'de Renk",  labelEn: 'Colors in Fatir 35:27',   subTr: 'beyaz · kırmızı · siyah', subEn: 'white · red · black' },
-              { num: tr ? 'Yeşil' : 'Green', labelTr: 'Cennetle En Sık', labelEn: 'Most Linked to Paradise', subTr: 'cennet rengi', subEn: 'color of paradise' },
-              { num: '~18', labelTr: 'Ayette Beyaz',          labelEn: 'Verses with White',        subTr: 'beyaz geçen ayet',       subEn: 'verses mentioning white' },
-              { arabic: 'مُدْهَامَّتَانِ', latin: 'Müdhâmmetân', labelTr: 'Hapax Renk', labelEn: 'Hapax Color Word', subTr: 'yoğun koyu yeşil', subEn: 'intense dark green',
-                hapaxInfoTr: 'Hapax legomenon: tüm Kur\'an\'da yalnızca bir kez geçen kelime. Müdhâmmetân, sadece Rahman 55:64\'te bulunur — klasik Arapça\'da da başka örnekte rastlanmaz. İki cennet bahçesinin "simsiyah yeşil" yoğunluğunu anlatır.',
-                hapaxInfoEn: 'Hapax legomenon: a word that appears only once in the entire Quran. Müdhâmmetân is found only in Ar-Rahman 55:64 — with no parallel in classical Arabic literature. It describes the intense dark-green density of two paradise gardens.' },
+              { num: '8',   labelTr: 'Temel Renk',   labelEn: 'Core Colors' },
+              { num: '14',  labelTr: 'Renk Kelimesi', labelEn: 'Color Words' },
+              { num: '~18', labelTr: 'Beyaz Ayet',    labelEn: 'White Verses' },
+              { num: tr ? 'Yeşil' : 'Green', labelTr: 'Cennet Rengi', labelEn: 'Paradise Color' },
+              { arabic: 'مُدْهَامَّتَانِ', labelTr: 'Hapax', labelEn: 'Hapax' },
             ].map((s, i) => (
-              <div key={i} style={{ background: s.arabic ? 'rgba(83,74,183,0.12)' : 'rgba(255,255,255,0.04)', border: `1px solid ${s.arabic ? 'rgba(83,74,183,0.25)' : COLORS.glassBgStrong}`, borderRadius: '8px', padding: '12px 10px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '4px', position: 'relative' }}>
+              <div key={i} style={{
+                display: 'flex', alignItems: 'center', gap: '8px',
+                padding: '8px 14px', borderRadius: '20px', flexShrink: 0,
+                background: s.arabic ? 'rgba(83,74,183,0.12)' : 'rgba(255,255,255,0.04)',
+                border: `1px solid ${s.arabic ? 'rgba(83,74,183,0.25)' : 'rgba(255,255,255,0.08)'}`,
+              }}>
                 {s.arabic ? (
-                  <>
-                    <div style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: COLORS.purple, direction: 'rtl' }} lang="ar">{s.arabic}</div>
-                    <div style={{ fontSize: '0.72rem', color: COLORS.purple, fontFamily: FONTS.body, fontStyle: 'italic', opacity: 0.85 }}>{s.latin}</div>
-                  </>
+                  <span style={{ fontFamily: FONTS.quran, fontSize: '0.95rem', color: COLORS.purple, direction: 'rtl' }} lang="ar">{s.arabic}</span>
                 ) : (
-                  <div style={{ fontSize: '1.4rem', fontWeight: 800, color: COLORS.gold, fontFamily: FONTS.body, lineHeight: 1 }}>{s.num}</div>
+                  <span style={{ fontSize: '1.1rem', fontWeight: 800, color: COLORS.gold, fontFamily: FONTS.body, lineHeight: 1 }}>{s.num}</span>
                 )}
-                <div style={{ fontSize: '0.72rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600, lineHeight: 1.3 }}>
+                <span style={{ fontSize: '0.72rem', color: s.arabic ? COLORS.purple : COLORS.silver, fontFamily: FONTS.body, fontWeight: 600, whiteSpace: 'nowrap' }}>
                   {tr ? s.labelTr : s.labelEn}
-                </div>
-                <div style={{ fontSize: '0.67rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.3 }}>
-                  {tr ? s.subTr : s.subEn}
-                </div>
-                {s.hapaxInfoTr && (
-                  <div style={{ position: 'absolute', top: '6px', right: '6px' }}>
-                    <InfoPopover text={tr ? s.hapaxInfoTr : s.hapaxInfoEn} />
-                  </div>
-                )}
+                </span>
               </div>
             ))}
           </div>
@@ -1313,28 +1363,34 @@ export default function KuranRenkleri({ onClose }) {
         </div>
 
         {/* ── Tab bar ── */}
-        <div style={{
-          display: 'flex', gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
-          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          overflowX: 'auto', scrollbarWidth: 'none',
-          position: 'sticky', top: 0,
-          background: 'rgba(10,10,26,0.97)',
-          backdropFilter: 'blur(20px)',
-          zIndex: 10,
-          flexShrink: 0,
-        }}>
-          {Object.values(TABS).map(id => (
-            <button
-              key={id}
-              style={tabStyle(id)}
-              onClick={() => setActiveTab(id)}
-              onMouseEnter={e => { if (activeTab !== id) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
-              onMouseLeave={e => { if (activeTab !== id) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
-            >
-              {TAB_LABELS[id][language] ?? TAB_LABELS[id].tr}
-            </button>
-          ))}
+        <div style={{ position: 'sticky', top: 0, zIndex: 10, background: 'rgba(10,10,26,0.97)', backdropFilter: 'blur(20px)' }}>
+          <div style={{
+            display: 'flex', gap: '2px',
+            padding: isMobile ? '0 8px' : '0 16px',
+            borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+            overflowX: 'auto', scrollbarWidth: 'none',
+            flexShrink: 0,
+          }}>
+            {Object.values(TABS).map(id => (
+              <button
+                key={id}
+                style={tabStyle(id)}
+                onClick={() => { setActiveTab(id); setExpandedVerse(null); }}
+                onMouseEnter={e => { if (activeTab !== id) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+                onMouseLeave={e => { if (activeTab !== id) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
+              >
+                {TAB_LABELS[id][language] ?? TAB_LABELS[id].tr}
+              </button>
+            ))}
+          </div>
+          {/* Fade indicator — right edge hint for scrollable tabs on mobile */}
+          {isMobile && (
+            <div style={{
+              position: 'absolute', top: 0, right: 0, bottom: 1,
+              width: '40px', pointerEvents: 'none',
+              background: 'linear-gradient(to right, transparent, rgba(10,10,26,0.95))',
+            }} />
+          )}
         </div>
 
         {/* ── Tab content ── */}
