@@ -25,7 +25,7 @@ function fmtDuaRef(ref, lang = 'tr') {
   if (!ref) return ref;
   const [surahPart, versePart] = ref.split(':');
   const name = SURAH_NAMES[+surahPart];
-  const label = name ? (lang === 'tr' ? name.tr : name.en) : `Sure ${surahPart}`;
+  const label = name ? (lang === 'tr' ? name.tr : name.en) : `Sûre ${surahPart}`;
   return `${label} ${versePart}`;
 }
 
@@ -49,7 +49,7 @@ function cleanDuaAr(str) {
 }
 
 // Vasıf listesindeki (NN:NN) referanslar için tooltip verisi.
-// Key: "sure:ayet" (ör. "38:75"). Popup bu objeden okur.
+// Key: "sûre:ayet" (ör. "38:75"). Popup bu objeden okur.
 const GIFT_VERSE_REFS = {
   '2:30': {
     ref: 'Bakara 2:30',
@@ -416,7 +416,7 @@ const GIFT_VERSE_REFS = {
 };
 
 // Vasıf metinlerindeki (NN:NN) referansları tıklanabilir span'lara dönüştürür.
-// GIFT_VERSE_REFS'te biliniyorsa altın + dotted underline; bilinmiyorsa sade sure adı.
+// GIFT_VERSE_REFS'te biliniyorsa altın + dotted underline; bilinmiyorsa sade sûre adı.
 function renderGiftText(text, lang, onRefClick) {
   const parts = text.split(/(\(\d+:\d+(?:[–\u2013-]\d+)?\))/g);
   return parts.map((part, i) => {
@@ -426,7 +426,7 @@ function renderGiftText(text, lang, onRefClick) {
     const verseNum = m[2];
     const key = `${surahNum}:${verseNum}`;
     const name = SURAH_NAMES[surahNum];
-    const label = name ? (lang === 'tr' ? name.tr : name.en) : `Sure ${surahNum}`;
+    const label = name ? (lang === 'tr' ? name.tr : name.en) : `Sûre ${surahNum}`;
     // Aralık varsa (ör. 2:31–33) verse bölümünü koruyalım
     const verseDisplay = part.replace(/^\(\d+:/, '').replace(/\)$/, '');
     const isKnown = !!GIFT_VERSE_REFS[key];
@@ -1135,7 +1135,7 @@ const PROPHETS_REF = [
       "Hz. İsmâil ve Hz. İdrîs ile birlikte sabredenlerden; üç isim aynı ayette sabırla öne çıkarıldı (21:85)",
       "Rahmet-i ilahiye dahil edildi; salihlerden olduğu tescillendi (21:86)",
       "Hz. İsmâil ve Hz. Elyesâ ile aynı ayette hayırlılar arasında zikredildi (38:48)",
-      "İki ayrı surede, iki ayrı seçkin liste içinde anılması — Kur'an'ın ona verdiği çifte tescil (21:85)(38:48)",
+      "İki ayrı sûrede, iki ayrı seçkin liste içinde anılması — Kur'an'ın ona verdiği çifte tescil (21:85)(38:48)",
       "'Zülkifl' ismi 'kefalet üstlenen' anlamı taşır; Kur'an'ın ona verdiği bu vasıf başlı başına bir nitelendirmedir (21:85)",
     ],
     giftsEn:[
@@ -1184,7 +1184,7 @@ const PROPHETS_REF = [
       "Directly named 'Our servant David' by Allah — the 'awwab' attribute praised alongside strength and kingship (38:17)",
     ],
     giftsTooltipsTr:{
-      6: "Sâd 38:17 — Allah'ın 'عَبْدَنَا دَاوُودَ' (kulumuz Dâvûd) ifadesi, doğrudan ilahî nitelendirmedir. 'نِعْمَ الْعَبْدُ' (ne güzel kul) formülasyonu ise aynı surede Hz. Süleymân (38:30) ve Hz. Eyyûb (38:44) için kullanılır. İkisi de yüksek övgü, ancak farklı Arapça formülleridir.",
+      6: "Sâd 38:17 — Allah'ın 'عَبْدَنَا دَاوُودَ' (kulumuz Dâvûd) ifadesi, doğrudan ilahî nitelendirmedir. 'نِعْمَ الْعَبْدُ' (ne güzel kul) formülasyonu ise aynı sûrede Hz. Süleymân (38:30) ve Hz. Eyyûb (38:44) için kullanılır. İkisi de yüksek övgü, ancak farklı Arapça formülleridir.",
     },
     giftsTooltipsEn:{
       6: "Sad 38:17 — Allah's phrase 'Our servant David' (عَبْدَنَا دَاوُودَ) is a direct divine attribution. The formula 'ni'ma'l-abd' (what an excellent servant) is used in the same sura for Solomon (38:30) and Job (38:44) — both are high praise, but distinct Arabic formulations.",
@@ -1926,7 +1926,7 @@ export default function ProphetAtlas() {
                     fill="#e8e6e3" fontSize="10.5" fontWeight="700"
                     textAnchor="middle" fontFamily="Inter, sans-serif"
                   >
-                    {surahName ? (language === 'tr' ? surahName.tr : surahName.en) : `Sure ${hoveredNode.surah}`}
+                    {surahName ? (language === 'tr' ? surahName.tr : surahName.en) : `Sûre ${hoveredNode.surah}`}
                     {' '}
                     <tspan fill="rgba(148,163,184,0.5)" fontSize="9" fontWeight="400">
                       {tr(`(${hoveredNode.surah}. sûre · nüzulde ${RANK_BY_SURAH[hoveredNode.surah]}.)`,
@@ -2052,7 +2052,7 @@ export default function ProphetAtlas() {
                       return (
                         <div
                           key={item.s}
-                          title={`${language === 'tr' ? item.phaseTr : item.phaseEn} · ${language === 'tr' ? `Sure no: ${item.s}` : `Surah no: ${item.s}`}`}
+                          title={`${language === 'tr' ? item.phaseTr : item.phaseEn} · ${language === 'tr' ? `Sûre no: ${item.s}` : `Surah no: ${item.s}`}`}
                           style={{
                             display: 'flex', alignItems: 'center', gap: '5px',
                             padding: '4px 10px 4px 7px',
@@ -2947,11 +2947,11 @@ export default function ProphetAtlas() {
                     <div style={{ display: 'flex', gap: '14px' }}>
                       <span style={{ fontSize: '0.6rem', fontFamily: 'Inter, sans-serif', color: 'rgba(212,165,116,0.45)', display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <span style={{ display: 'inline-block', width: '7px', height: '7px', borderRadius: '50%', background: 'rgba(212,165,116,0.45)' }} />
-                        {tr('Mekkî sure', 'Meccan surah')}
+                        {tr('Mekkî sûre', 'Meccan surah')}
                       </span>
                       <span style={{ fontSize: '0.6rem', fontFamily: 'Inter, sans-serif', color: 'rgba(52,211,153,0.45)', display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <span style={{ display: 'inline-block', width: '7px', height: '7px', borderRadius: '50%', background: 'rgba(52,211,153,0.45)' }} />
-                        {tr('Medenî sure', 'Medinan surah')}
+                        {tr('Medenî sûre', 'Medinan surah')}
                       </span>
                     </div>
                   </div>

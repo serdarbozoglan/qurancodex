@@ -94,7 +94,7 @@ const FEATURED_TOOLS = [
     overlay: 'kissa',
     titleTr: 'Kıssa Atlası',
     titleEn: 'Story Atlas',
-    descTr: '4 peygamber — hangi surede hangi sahne?',
+    descTr: '4 peygamber — hangi sûrede hangi sahne?',
     descEn: '4 prophets — which scene in which surah?',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">

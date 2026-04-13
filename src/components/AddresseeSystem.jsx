@@ -247,12 +247,12 @@ export default function AddresseeSystem({ onClose }) {
                   valueColor="#4caf7d"
                 />
                 <StatBox
-                  label={language === 'tr' ? 'Sure' : 'Surahs'}
+                  label={language === 'tr' ? 'Sûre' : 'Surahs'}
                   value={active.stats.sure_count}
                   valueColor="#4a9ee8"
                 />
                 <StatBox
-                  label={language === 'tr' ? 'Yoğun Sureler' : 'Top Surahs'}
+                  label={language === 'tr' ? 'Yoğun Sûreler' : 'Top Surahs'}
                   value={active.stats.yogun_sureler.slice(0, 2).join(', ')}
                   valueColor={COLORS.gold}
                   small

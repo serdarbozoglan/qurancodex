@@ -287,7 +287,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
 
           {/* Verse buttons */}
           <p style={{ fontSize: '0.72rem', fontWeight: 600, color: COLORS.gold, fontFamily: FONTS.body, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px' }}>
-            {tr ? '4 Surede Tekrar — Ayetleri Gör' : 'Repeated in 4 Suras — View Verses'}
+            {tr ? '4 Sûrede Tekrar — Ayetleri Gör' : 'Repeated in 4 Suras — View Verses'}
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
             {data.renkSekans.verses.map(v => (
@@ -387,7 +387,7 @@ function TabBaglam({ language, isMobile }) {
           verseTr: 'İnce ipek ve kalın ipekten yeşil elbiseler giyerler.',
           verseEn: 'They wear green garments of fine silk and brocade.',
           ref: 'Kehf 18:31',
-          noteTr: "Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — Kehf, İnsan ve Dehr surelerinde tekrar eder.",
+          noteTr: "Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — Kehf, İnsan ve Dehr sûrelerinde tekrar eder.",
           noteEn: "Green + gold is the Quran's paradise color pairing — repeating in Al-Kahf, Al-Insan and Ad-Dahr.",
         },
         {
@@ -396,7 +396,7 @@ function TabBaglam({ language, isMobile }) {
           verseTr: 'Orada altın bilezikler ve incilerle süslenirler.',
           verseEn: 'They are adorned therein with bracelets of gold and pearl.',
           ref: 'Hac 22:23',
-          noteTr: "Altın bilezik motifi 3 surede tekrarlanır: Hac, Kehf, Fatır. Altın cennetin metalik rengidir — dünyada yasak olan erkeklere cennetin hediyesi.",
+          noteTr: "Altın bilezik motifi 3 sûrede tekrarlanır: Hac, Kehf, Fatır. Altın cennetin metalik rengidir — dünyada yasak olan erkeklere cennetin hediyesi.",
           noteEn: "Gold bracelet motif repeats in 3 suras: Al-Hajj, Al-Kahf, Fatir. Gold is paradise's metallic color — the gift of paradise to men forbidden it in the world.",
         },
         {
@@ -559,7 +559,7 @@ function TabBaglam({ language, isMobile }) {
           verseTr: 'Elini koynuna sok; hastalıksız beyaz olarak çıksın.',
           verseEn: 'Put your hand into your garment; it will come out white without disease.',
           ref: 'Neml 27:12',
-          noteTr: "Hz. Musa'nın eli 5 surede beyaz mucize olarak geçer: Bakara, Araf, Taha, Neml, Kasas. 'Hastalıksız beyaz' — hastalık (alacalık/lepra) beyazından ayrımak için özel vurgu.",
+          noteTr: "Hz. Musa'nın eli 5 sûrede beyaz mucize olarak geçer: Bakara, Araf, Taha, Neml, Kasas. 'Hastalıksız beyaz' — hastalık (alacalık/lepra) beyazından ayrımak için özel vurgu.",
           noteEn: "Moses' hand appears as a white miracle in 5 suras: Al-Baqarah, Al-A'raf, Ta-Ha, An-Naml, Al-Qasas. 'White without disease' — special emphasis to distinguish from disease (vitiligo/leprosy).",
         },
         {
@@ -680,7 +680,7 @@ function TabCennet({ language, isMobile }) {
       verseAr: 'يَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ',
       verseTr: 'İnce ipekten yeşil elbiseler giyerler.',
       verseEn: 'They wear green garments of fine silk and brocade.',
-      noteTr: "Cennetin 3 unsuru bir ayette: yeşil elbise + altın bilezik + taht. Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — üç surede tekrar eder.",
+      noteTr: "Cennetin 3 unsuru bir ayette: yeşil elbise + altın bilezik + taht. Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — üç sûrede tekrar eder.",
       noteEn: "Three elements of paradise in one verse: green garment + gold bracelet + throne. Green + gold is the Quran's paradise color pairing — repeating across three suras.",
     },
     {
@@ -1168,13 +1168,14 @@ export default function KuranRenkleri({ onClose }) {
   }, [onClose]);
 
   const tabStyle = (id) => ({
-    padding: isMobile ? '7px 12px' : '8px 16px',
-    borderRadius: '6px',
+    padding: isMobile ? '12px 14px' : '13px 22px',
+    borderRadius: '0',
     border: 'none',
-    background: activeTab === id ? COLORS.gold : 'rgba(255,255,255,0.05)',
-    color: activeTab === id ? COLORS.cosmicBlack : COLORS.silver,
-    fontSize: '0.72rem',
-    fontWeight: activeTab === id ? 700 : 500,
+    background: activeTab === id ? COLORS.goldAlpha15 : 'transparent',
+    borderBottom: activeTab === id ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+    color: activeTab === id ? COLORS.gold : COLORS.silver,
+    fontSize: isMobile ? '0.85rem' : '0.9rem',
+    fontWeight: activeTab === id ? 600 : 400,
     fontFamily: FONTS.body,
     cursor: 'pointer',
     whiteSpace: 'nowrap',
@@ -1313,17 +1314,24 @@ export default function KuranRenkleri({ onClose }) {
 
         {/* ── Tab bar ── */}
         <div style={{
-          display: 'flex', gap: '6px',
-          padding: isMobile ? '10px 16px' : '12px 32px',
-          borderBottom: `1px solid ${COLORS.glassBorder}`,
+          display: 'flex', gap: '2px',
+          padding: isMobile ? '0 8px' : '0 16px',
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           overflowX: 'auto', scrollbarWidth: 'none',
           position: 'sticky', top: 0,
           background: 'rgba(10,10,26,0.97)',
-          backdropFilter: 'blur(12px)',
+          backdropFilter: 'blur(20px)',
           zIndex: 10,
+          flexShrink: 0,
         }}>
           {Object.values(TABS).map(id => (
-            <button key={id} style={tabStyle(id)} onClick={() => setActiveTab(id)}>
+            <button
+              key={id}
+              style={tabStyle(id)}
+              onClick={() => setActiveTab(id)}
+              onMouseEnter={e => { if (activeTab !== id) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+              onMouseLeave={e => { if (activeTab !== id) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
+            >
               {TAB_LABELS[id][language] ?? TAB_LABELS[id].tr}
             </button>
           ))}

@@ -38,8 +38,8 @@ const GROUPS = [
     count: 6,
     period: 'Karma',
     periodEn: 'Mixed',
-    theme: 'Kitap & İman İmtihanı',
-    themeEn: 'Scripture & Trial of Faith',
+    theme: 'Vahyin Hakikati & Sadakat Sınavı',
+    themeEn: 'Truth of Revelation & Trial of Faith',
     color: '#2ab5a0',
     glowColor: 'rgba(42,181,160,0.12)',
     borderColor: 'rgba(42,181,160,0.35)',
@@ -51,21 +51,21 @@ const GROUPS = [
       { num: 31, name: 'Lokmân' },
       { num: 32, name: 'Secde' },
     ],
-    pattern: 'Altısında da hemen ardından Kitab\'a atıf — "imanın sınanması" teması hepsinde güçlü',
-    patternEn: 'All six immediately followed by a reference to the Book — the theme of testing faith runs through all',
+    pattern: '4 sûrede (2, 3, 31, 32) doğrudan Kitab\'a atıf; 2 sûrede (29, 30) vahyin pratik ispatı — imtihan ve tarihsel zafer',
+    patternEn: 'Four suras (2, 3, 31, 32) open with a direct reference to the Book; two (29, 30) demonstrate its truth through trial and historical victory',
     bullets: [
-      'Medenî ve Mekkî-Medenî geçiş döneminin sûreleri',
-      '→ quote: "Sınanmayacaklarını mı sandılar?" — Ankebût 29:2',
-      'Bakara: müttakilerin özellikleri ve İsrâîloğulları kıssaları',
-      'Rûm: Bizans-İran savaşı üzerinden gaybî bir sınav',
-      'Lokmân & Secde: hikmete davet, secde ve yaratılış delilleri',
+      '🔹 Bakara & Âl-i İmrân (Medenî): Kitap ile toplumsal ve hukuki inşa',
+      '🔹 Lokmân & Secde (Mekkî): Kozmik deliller, hikmet ve yaratılışa secde',
+      '🔸 Ankebût (Mekkî): İmanın sarsıcı sınavı — "Sınanmayacaklarını mı sandılar?" (29:2)',
+      '🔸 Rûm (Mekkî): Vahyin tarihsel zaferle (Rûm-İran) kanıtlanması',
+      '→ not: 4+2 yapısı — vahyin hem metin (Kitap) hem hayat (İmtihan & Tarih) olarak ispatı',
     ],
     bulletsEn: [
-      'Medinan and transitional-period suras',
-      '→ quote: "Do people think they will be left alone saying \'we believe\' without being tested?" — Al-Ankabut 29:2',
-      'Al-Baqarah: traits of the righteous and stories of the Children of Israel',
-      'Ar-Rum: a prophecy and unseen test framed by the Byzantine-Persian war',
-      'Luqman & As-Sajdah: wisdom, prostration, and signs of creation',
+      '🔹 Al-Baqarah & Al-Imran (Medinan): Building society and law through the Book',
+      '🔹 Luqman & As-Sajdah (Meccan): Cosmic signs, wisdom, and prostration before creation',
+      '🔸 Al-Ankabut (Meccan): The shattering trial of faith — "Do people think they will not be tested?" (29:2)',
+      '🔸 Ar-Rum (Meccan): Revelation proven through historical victory (Byzantine-Persian war)',
+      '→ note: A 4+2 structure — revelation proven both as text (Book) and lived reality (Trial & History)',
     ],
   },
   {
@@ -74,8 +74,8 @@ const GROUPS = [
     count: 5,
     period: 'Mekkî',
     periodEn: 'Meccan',
-    theme: 'Peygamber Kıssaları & Teselli',
-    themeEn: 'Prophetic Narratives & Consolation',
+    theme: 'Kitab\'ın Ayetleri & Peygamber Tesellisi',
+    themeEn: 'Verses of the Book & Prophetic Consolation',
     color: '#e8b860',
     glowColor: 'rgba(232,184,96,0.12)',
     borderColor: 'rgba(232,184,96,0.35)',
@@ -86,21 +86,21 @@ const GROUPS = [
       { num: 14, name: 'İbrâhîm' },
       { num: 15, name: 'Hicr' },
     ],
-    pattern: 'Beşinde de peygamber kıssaları ve Hz. Muhammed\'e (s.a.v.) teselli vurgusu',
-    patternEn: 'All five center on prophetic narratives and offer consolation to the Prophet',
+    pattern: '5/5 sûrede istisnasız "Kitab\'ın ayetleri" ile başlar — en katı linguistik parmak izi',
+    patternEn: 'All 5 suras open without exception with "verses of the Book" — the strictest linguistic fingerprint',
     bullets: [
-      'Hepsi Mekkî — baskı, sürgün ve zulüm döneminin sûreleri',
-      '→ quote: "Göğsünde sıkıntı olmasın" · "Sabret" · "Sana en güzel kıssayı anlatıyoruz"',
+      '→ not: 5\'inin 5\'inde de Elif-Lâm-Râ\'den hemen sonra "tilke âyâtu\'l-kitâb" (Kitab\'ın ayetleri) gelir — %100 oran',
+      'Hepsi Mekkî — baskı ve zulüm döneminin sûreleri',
       'Yûsuf: baştan sona tek ve bütünlüklü bir kıssa — Kur\'an\'da eşsiz',
-      'Yûnus & Hûd: birden fazla peygamberin kıssası art arda',
-      'İbrâhîm & Hicr: tevhide davet ve geçmiş kavimlerin ibret haberleri',
+      'Yûnus & Hûd: birden fazla peygamber kıssası ve Hz. Muhammed\'e teselli',
+      '→ not: Ra\'d sûresi (13) dört harfli Elif-Lâm-Mîm-Râ (الـمر) ile açılır; saf Elif-Lâm-Râ grubuna dahil değildir',
     ],
     bulletsEn: [
-      'All Meccan — suras of persecution, exile, and pressure',
-      '→ quote: "Be not distressed" · "Be patient" · "We tell you the best of stories"',
+      '→ note: In all 5 suras, Elif-Lâm-Râ is immediately followed by "tilka āyātu\'l-kitāb" (verses of the Book) — a 100% rate',
+      'All Meccan — suras from the period of persecution and pressure',
       'Yusuf: a single, continuous narrative from beginning to end — unique in the Quran',
-      'Yunus & Hud: multiple prophetic stories in succession',
-      'Ibrahim & Al-Hijr: the call to monotheism and lessons from past nations',
+      'Yunus & Hud: multiple prophetic stories with consolation to the Prophet',
+      '→ note: Sura Ar-Ra\'d (13) opens with four letters Elif-Lâm-Mîm-Râ (الـمر); it is not part of the pure Elif-Lâm-Râ group',
     ],
   },
   {
@@ -109,8 +109,8 @@ const GROUPS = [
     count: 7,
     period: 'Mekkî',
     periodEn: 'Meccan',
-    theme: 'İlahi Azamet & Kâinat Delilleri',
-    themeEn: 'Divine Majesty & Signs in Creation',
+    theme: 'Vahyin Nüzulü & Kozmik Kanıtlar',
+    themeEn: 'Revelation\'s Descent & Cosmic Evidence',
     color: '#e8b860',
     glowColor: 'rgba(232,184,96,0.12)',
     borderColor: 'rgba(232,184,96,0.35)',
@@ -123,19 +123,19 @@ const GROUPS = [
       { num: 45, name: 'Câsiye' },
       { num: 46, name: 'Ahkâf' },
     ],
-    pattern: 'Mushaf\'ta 40-46 arası kesintisiz — İslam alimleri bunları bir "aile" olarak görür',
-    patternEn: 'Suras 40-46 in sequence — Islamic scholars have always treated these seven as a single family',
+    pattern: 'Mushaf\'ta 40-46 arası kesintisiz — İslam alimleri bunları bir "aile" (Kur\'an\'ın Dibaceleri) olarak görür',
+    patternEn: 'Suras 40-46 in sequence — Islamic scholars treat these seven as a single family (the "Preludes of the Quran")',
     bullets: [
-      'Hepsi Mekkî ve hepsinde "tenzîl" (indirilme) vurgusu',
-      'Ortak ilahi sıfatlar: Azîz · Hakîm · Alîm · Rahmân · Rahîm',
-      'Yedisinde de gökler, yer ve yaratılış delillerine dikkat çekilir',
-      '→ not: Şûrâ (42) özel — "حم" ile açılır, ardından "عسق" gelir; Kur\'an\'da iki ayrı huruf-i mukattaa satırı olan tek sure',
+      '7\'sinde de açılış, doğrudan vahyin kaynağına ve nüzulüne (indirilme/vahiy) odaklanır',
+      'İmza sıfatları: Azîz · Hakîm ikilisi grubun adeta damgası (öz. 42, 45, 46)',
+      'Makro-kozmik gözlem: yedisinde de göklerin ve yerin yaratılış kodları işlenir',
+      '→ not: Şûrâ (42) özel — "حم" ile açılır, ardından "عسق" gelir; Kur\'an\'da iki ayrı huruf-i mukattaa ayeti olan tek sûre',
     ],
     bulletsEn: [
-      'All Meccan, all opening with emphasis on "revelation" (tanzīl)',
-      'Shared divine attributes: Al-Aziz · Al-Hakim · Al-Alim · Ar-Rahman · Ar-Rahim',
-      'All seven reference the heavens, earth, and signs of creation',
-      '→ note: Ash-Shura (42) is unique — opens with "Ha Mim" then "Ayn Sin Qaf"; the only sura with two separate lines of opening letters',
+      'All 7 openings focus directly on the source and process of revelation (tanzīl and wahy)',
+      'Signature attributes: Al-Aziz · Al-Hakim pairing is the hallmark of this group (esp. 42, 45, 46)',
+      'Macro-cosmic observation: all seven address the creation codes of heavens and earth',
+      '→ note: Ash-Shura (42) is unique — opens with "Ha Mim" then "Ayn Sin Qaf"; the only sura with two separate opening-letter verses',
     ],
   },
   {
@@ -154,21 +154,23 @@ const GROUPS = [
       { num: 27, name: 'Neml' },
       { num: 28, name: 'Kasas' },
     ],
-    pattern: 'Mushaf\'ta 26-28 ardışık — tematik olarak en sıkı bağlı grup',
-    patternEn: 'Suras 26-28 in direct sequence — the most thematically cohesive group',
+    pattern: 'Mushaf\'ta 26-28 ardışık — linguistik ve tematik sürekliliğin en yüksek olduğu blok',
+    patternEn: 'Suras 26-28 in direct sequence — the highest linguistic and thematic continuity in the Quran',
     bullets: [
-      'Üçünde de Hz. Mûsâ ve Firavun kıssası merkez — her biri farklı bir boyutu işler',
+      'Üçü de "Kitâb-ı Mübîn" mührüyle açılır; Neml\'de ek olarak "Kur\'ân" vurgusu eklenir — ince bir hikmet farkı',
+      'Hz. Mûsâ kıssasının farklı evreleri: Mücadele (26), Haber (27), Biyografi (28)',
       'Şuarâ (26): ilk karşılaşma ve mucizelerin sergilenmesi',
-      'Neml (27): hikmet, güç ve Hz. Süleyman kıssasıyla tematik genişleme',
+      'Neml (27): Hz. Mûsâ ile başlar (ilk 14 ayet) ancak Hz. Süleyman üzerinden güç ve hikmetin zirvesini işler',
       'Kasas (28): Hz. Mûsâ\'nın doğumundan çıkışına tam biyografi',
-      'Mushaf\'ın en sıkı tematik üçlüsü: iktidara karşı hakkın mücadelesi',
+      '→ not: طسم (26) → طس (27) → طسم (28) — ortadaki sûrenin harf kodu kısalırken Hz. Mûsâ kıssası da kısalır',
     ],
     bulletsEn: [
-      'All three center on Moses (AS) and Pharaoh — each covering a different dimension',
+      'All three open with the "Kitāb al-Mubīn" (Clear Book) seal; An-Naml uniquely adds "Qur\'ān" — a subtle but purposeful distinction',
+      'Phases of the Moses narrative: Confrontation (26), Report (27), Biography (28)',
       'Ash-Shu\'ara (26): the first confrontation and display of miracles',
-      'An-Naml (27): wisdom and power, expanded with the story of Solomon (AS)',
+      'An-Naml (27): opens with Moses (AS) (first 14 verses) but peaks with Solomon (AS)\'s power and wisdom',
       'Al-Qasas (28): full biography from Moses (AS)\'s birth to the Exodus',
-      'The most thematically cohesive trilogy in the Quran: truth against tyranny',
+      '→ note: ṬSM (26) → ṬS (27) → ṬSM (28) — the middle sura\'s letter code shortens as its Moses (AS) narrative does',
     ],
   },
 ];
@@ -176,8 +178,8 @@ const GROUPS = [
 const DISCOVERIES = [
   {
     num: '25/29',
-    label: 'Hemen Ardından Kitab\'a Atıf',
-    desc: '"Kur\'an", "Kitap", "vahiy" veya "tenzîl" — harflerin hemen ardından gelir. Bu tutarlılık tesadüf sınırını çok aşıyor.',
+    label: 'Hemen Ardından Vahye Atıf',
+    desc: '"Kitap", "Kur\'an", "vahiy" veya "tenzîl" — harflerin hemen ardından gelir. Elif-Lâm-Râ grubunda %100 (5/5), Havâmîm\'de %100 (7/7). Bu tutarlılık tesadüf sınırını çok aşıyor.',
   },
   {
     num: '7/7',
@@ -504,19 +506,19 @@ export default function LinguisticDNA() {
         </h3>
         <p className="text-silver/65 text-base font-body mb-6">
           {language === 'tr'
-            ? <>Tek veya çift harfli, doğrudan ve vurucu mesajlarla başlar. Hepsinde ortak: <span className="text-gold font-semibold">Kitab'a atıf.</span></>
-            : <>One or two letters each, direct and striking openings. Common to all: <span className="text-gold font-semibold">a reference to the Scripture.</span></>}
+            ? <>Standart grupların dışında kalan özel yapılar — hibrit kodlar, tek harfli açılışlar ve benzersiz istisnalar. Ezici çoğunluğunda <span className="text-gold font-semibold">vahyin araçlarına (Kitap, Kalem, Zikir)</span> atıf gelir.</>
+            : <>Unique structures outside the standard groups — hybrid codes, single-letter openings, and singular exceptions. The vast majority reference <span className="text-gold font-semibold">the instruments of revelation (Book, Pen, Remembrance).</span></>}
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-14">
           {[
-            { ar: 'المص', num: 7,  name: "A'râf",  nameEn: "Al-A'raf",  desc: language === 'tr' ? 'sadece bu surede görülen 4 harfli açılış' : 'unique 4-letter opening found only here' },
-            { ar: 'المر', num: 13, name: "Ra'd",   nameEn: "Ar-Ra'd",   desc: language === 'tr' ? 'sadece bu surede görülen 4 harfli açılış' : 'unique 4-letter opening found only here' },
-            { ar: 'كهيعص', num: 19, name: 'Meryem', nameEn: 'Maryam',   desc: language === 'tr' ? 'en uzun huruf (5)'   : 'longest letters (5)' },
-            { ar: 'طه',   num: 20, name: "Tâ-Hâ",  nameEn: "Ta-Ha",    desc: language === 'tr' ? 'Hz. Musa\'nın vahiy ve mucize kıssası' : 'Moses: revelation, miracles, Pharaoh' },
-            { ar: 'يس',   num: 36, name: "Yâ-Sîn", nameEn: "Ya-Sin",   desc: language === 'tr' ? 'hikmetli Kur\'an'    : 'the wise Quran' },
-            { ar: 'ص',    num: 38, name: "Sâd",     nameEn: "Sad",      desc: language === 'tr' ? 'tek harf, güçlü hitap' : 'single letter, powerful address' },
+            { ar: 'المص', num: 7,  name: "A'râf",  nameEn: "Al-A'raf",  desc: language === 'tr' ? 'Elif-Lâm-Mîm + Sâd — ALM ailesini genişleten hibrit köprü' : 'ALM + Ṣād — a hybrid bridge extending the ALM family' },
+            { ar: 'المر', num: 13, name: "Ra'd",   nameEn: "Ar-Ra'd",   desc: language === 'tr' ? 'Elif-Lâm-Mîm + Râ — ALM ve ALR ailelerini birleştiren köprü' : 'ALM + Rā — a bridge connecting ALM and ALR families' },
+            { ar: 'كهيعص', num: 19, name: 'Meryem', nameEn: 'Maryam',   desc: language === 'tr' ? '5 harfli en kompleks açılış; mucizevi doğum kıssalarının habercisi' : '5-letter, most complex opening; heralds the miraculous birth narratives' },
+            { ar: 'طه',   num: 20, name: "Tâ-Hâ",  nameEn: "Ta-Ha",    desc: language === 'tr' ? 'doğrudan hitap — huruf-i mukattaanın seslenme olarak kullanıldığı nadir örneklerden' : 'direct address — a rare use of opening letters as a call' },
+            { ar: 'يس',   num: 36, name: "Yâ-Sîn", nameEn: "Ya-Sin",   desc: language === 'tr' ? '"Hikmetli Kur\'an\'a andolsun" — hemen ardından Kur\'an yemini' : '"By the wise Quran" — immediately followed by an oath on the Quran' },
+            { ar: 'ص',    num: 38, name: "Sâd",     nameEn: "Sad",      desc: language === 'tr' ? 'tek harf, ardından "Zikir dolu Kur\'an" vurgusu' : 'single letter, followed by "the Quran full of Remembrance"' },
             { ar: 'ق',    num: 50, name: "Kâf",     nameEn: "Qaf",      desc: language === 'tr' ? '"Şanlı Kur\'an\'a andolsun" (50:1)' : '"By the glorious Quran" (50:1)' },
-            { ar: 'ن',    num: 68, name: "Kalem",   nameEn: "Al-Qalam", desc: language === 'tr' ? 'ن = "hokka" — kalemle birlikte yemin (68:1)' : 'ن = "inkwell" — sworn alongside the pen (68:1)' },
+            { ar: 'ن',    num: 68, name: "Kalem",   nameEn: "Al-Qalam", desc: language === 'tr' ? 'Yazı ve Kayıt: Kaleme ve satırlara yeminle başlar (68:1)' : 'Writing & Record: Opens with an oath by the Pen and what they inscribe (68:1)' },
           ].map((s, i) => {
             const letterCount = s.ar.length;
             const fontSize = letterCount === 1 ? '3rem' : letterCount === 2 ? '2.5rem' : letterCount <= 3 ? '2rem' : letterCount === 4 ? '1.7rem' : '1.4rem';
@@ -550,7 +552,7 @@ export default function LinguisticDNA() {
                 >
                   {s.ar}
                 </span>
-                {/* Sure number badge — more prominent */}
+                {/* Sûre number badge — more prominent */}
                 <span
                   className="font-body text-xs px-2.5 py-0.5 rounded-full mb-2"
                   style={{

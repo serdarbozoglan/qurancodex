@@ -540,7 +540,7 @@ function TabArama({ data, language, isMobile }) {
           onChange={e => setQuery(e.target.value)}
           placeholder={
             mode === 'verse'
-              ? (language === 'tr' ? 'Sure:Ayet girin (örn. 24:11)…' : 'Enter Surah:Ayah (e.g. 24:11)…')
+              ? (language === 'tr' ? 'Sûre:Ayet girin (örn. 24:11)…' : 'Enter Surah:Ayah (e.g. 24:11)…')
               : (language === 'tr' ? 'Olay, kişi veya konu ara…' : 'Search event, person or topic…')
           }
           style={{
@@ -685,7 +685,7 @@ function TabIstatistik({ data, language, isMobile }) {
     },
     {
       value: `${overview.wahidiSurahs ?? 83}→${overview.suyutiSurahs ?? 102}`,
-      labelTr: 'Kapsanan sure (Vâhidî→Süyûtî)',
+      labelTr: 'Kapsanan sûre (Vâhidî→Süyûtî)',
       labelEn: 'Surahs covered (Wahidi→Suyuti)',
     },
     {
@@ -890,7 +890,7 @@ function TabIstatistik({ data, language, isMobile }) {
             <div style={{ display: 'flex', gap: '12px' }}>
               <div>
                 <div style={{ fontWeight: 800, color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '1.4rem' }}>83</div>
-                <div style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body }}>{language === 'tr' ? 'Sure' : 'Surahs'}</div>
+                <div style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body }}>{language === 'tr' ? 'Sûre' : 'Surahs'}</div>
               </div>
               <div>
                 <div style={{ fontWeight: 800, color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '1.4rem' }}>570</div>
@@ -922,7 +922,7 @@ function TabIstatistik({ data, language, isMobile }) {
             <div style={{ display: 'flex', gap: '12px' }}>
               <div>
                 <div style={{ fontWeight: 800, color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '1.4rem' }}>102</div>
-                <div style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body }}>{language === 'tr' ? 'Sure' : 'Surahs'}</div>
+                <div style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body }}>{language === 'tr' ? 'Sûre' : 'Surahs'}</div>
               </div>
               <div>
                 <div style={{ fontWeight: 800, color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '1.4rem' }}>570+</div>
@@ -1087,8 +1087,8 @@ function TabKaynaklar({ data, language, isMobile }) {
 
   const historyNarrative = language === 'tr' ? [
     "Sebeb-i nüzul bilgisi, İslam'ın ilk dönemlerinden itibaren hadis ve tefsir külliyatı içinde dağınık biçimde mevcut olmuştur. Sahabe ve tabiîn nesli, Hz. Peygamber'in (s.a.v.) vahyin iniş sürecini bizzat yaşadıkları için bu bilgileri titizlikle aktarmıştır.",
-    "Hicri 5. asırda Alî b. Ahmed el-Vâhidî en-Nîşâbûrî (ö. 468/1075), \"Kitâbu Esbâbi'n-Nüzûl\" adlı eseriyle bu alanda kaleme alınan ilk müstakil çalışmayı ortaya koymuştur. Vâhidî, Kur'an'ın 83 suresine dair rivayetleri derlemiş ve bu ilmin metodolojik temellerini atmıştır.",
-    "Hicri 9. asırda Celâlüddîn es-Süyûtî (ö. 911/1505) \"Lübâbu'n-Nukûl fî Esbâbi'n-Nüzûl\" adlı eseriyle kapsamı 102 sureye genişletmiş, rivayetleri tenkit süzgecinden geçirmiş ve ilmin metodolojisini daha da olgunlaştırmıştır.",
+    "Hicri 5. asırda Alî b. Ahmed el-Vâhidî en-Nîşâbûrî (ö. 468/1075), \"Kitâbu Esbâbi'n-Nüzûl\" adlı eseriyle bu alanda kaleme alınan ilk müstakil çalışmayı ortaya koymuştur. Vâhidî, Kur'an'ın 83 sûresine dair rivayetleri derlemiş ve bu ilmin metodolojik temellerini atmıştır.",
+    "Hicri 9. asırda Celâlüddîn es-Süyûtî (ö. 911/1505) \"Lübâbu'n-Nukûl fî Esbâbi'n-Nüzûl\" adlı eseriyle kapsamı 102 sûreye genişletmiş, rivayetleri tenkit süzgecinden geçirmiş ve ilmin metodolojisini daha da olgunlaştırmıştır.",
     "Modern dönemde sebeb-i nüzul ilmi, Kur'an'ın siyak-sibak dışında yorumlanmasını önleyen kritik bir referans alanı olarak önemini korumaktadır. Metin tenkidi, tarihî bağlam araştırmaları ve karşılaştırmalı tefsir çalışmaları, bu ilmin verilerinden beslenmeye devam etmektedir.",
   ] : [
     'Knowledge of the occasions of revelation has existed since the earliest days of Islam, scattered throughout hadith and tafsir collections. The Companions and Successors who lived through the revelation process transmitted this knowledge with great care.',
@@ -1170,7 +1170,7 @@ function TabKaynaklar({ data, language, isMobile }) {
                         {scholar.surahsCovered}
                       </div>
                       <div style={{ fontSize: '0.68rem', color: COLORS.silver, fontFamily: FONTS.body, marginTop: '2px' }}>
-                        {language === 'tr' ? 'Sure' : 'Surahs'}
+                        {language === 'tr' ? 'Sûre' : 'Surahs'}
                       </div>
                     </div>
                   )}
@@ -1389,7 +1389,7 @@ function TabZaman({ language, isMobile }) {
               type="text"
               value={timeSearch}
               onChange={e => setTimeSearch(e.target.value)}
-              placeholder={language === 'tr' ? 'Olay veya sure ara...' : 'Search event or surah...'}
+              placeholder={language === 'tr' ? 'Olay veya sûre ara...' : 'Search event or surah...'}
               style={{
                 paddingLeft: '30px', paddingRight: '10px', height: '32px',
                 background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorder}`,
@@ -1609,12 +1609,12 @@ function TabZaman({ language, isMobile }) {
 
             <div style={{ marginBottom: '16px' }}>
               <div style={{ fontSize: '0.65rem', color: COLORS.silver, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px', fontFamily: FONTS.body }}>
-                {language === 'tr' ? "İlgili Sureler" : 'Related Surahs'}
+                {language === 'tr' ? "İlgili Sûreler" : 'Related Surahs'}
               </div>
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 {timeSelected.surahs.map(s => (
                   <div key={s.num} style={{ padding: '10px 16px', borderRadius: '10px', background: `${COLORS.gold}14`, border: `1px solid ${COLORS.gold}40` }}>
-                    <div style={{ fontSize: '0.7rem', color: COLORS.gold, fontWeight: 700, marginBottom: '2px', fontFamily: FONTS.body }}>{s.num}. Sure</div>
+                    <div style={{ fontSize: '0.7rem', color: COLORS.gold, fontWeight: 700, marginBottom: '2px', fontFamily: FONTS.body }}>{s.num}. Sûre</div>
                     <div style={{ fontSize: '0.95rem', color: COLORS.offWhite, fontWeight: 600, fontFamily: FONTS.body }}>{s.nameTr}</div>
                     {s.verses && <div style={{ fontSize: '0.72rem', color: COLORS.silver, marginTop: '3px', fontFamily: FONTS.body }}>{language === 'tr' ? 'Ayet' : 'Verse'} {s.verses}</div>}
                   </div>
@@ -1637,7 +1637,7 @@ function TabZaman({ language, isMobile }) {
             { val: timeEvents.length, tr: 'Olay', en: 'Events' },
             { val: timeEvents.filter(e => e.period !== 'medeni').length, tr: "Mekkî", en: 'Meccan' },
             { val: timeEvents.filter(e => e.period === 'medeni').length, tr: "Medenî", en: 'Medinan' },
-            { val: [...new Set(timeEvents.flatMap(e => e.surahs.map(s => s.num)))].length, tr: 'Sure', en: 'Surahs' },
+            { val: [...new Set(timeEvents.flatMap(e => e.surahs.map(s => s.num)))].length, tr: 'Sûre', en: 'Surahs' },
           ].map(s => (
             <div key={s.tr} style={{ display: 'flex', alignItems: 'baseline', gap: '5px' }}>
               <span style={{ fontSize: '1rem', fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body }}>{s.val}</span>

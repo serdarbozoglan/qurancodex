@@ -7,7 +7,7 @@
       "tr": "Ey İman Edenler",
       "en": "O You Who Believe",
       "desc": {
-        "tr": "Kur'an'ın en sık kullandığı doğrudan hitap biçimi. Medenî surelerin omurgası — fıkhi, ahlaki ve toplumsal tüm emirlerin çerçevesidir.",
+        "tr": "Kur'an'ın en sık kullandığı doğrudan hitap biçimi. Medenî sûrelerin omurgası — fıkhi, ahlaki ve toplumsal tüm emirlerin çerçevesidir.",
         "en": "The most frequent direct address in the Quran. The backbone of Medinan surahs — the framework for all legal, moral and social commands."
       },
       "stats": {
@@ -110,7 +110,7 @@
       "tr": "Ey İnsanlar",
       "en": "O Humanity",
       "desc": {
-        "tr": "Tüm insanlığa yönelik evrensel hitap. Hem Mekkî hem Medenî surelerde geçer; tevhid, yaratılış ve varoluşun anlamına dair mesajları taşır.",
+        "tr": "Tüm insanlığa yönelik evrensel hitap. Hem Mekkî hem Medenî sûrelerde geçer; tevhid, yaratılış ve varoluşun anlamına dair mesajları taşır.",
         "en": "Universal address to all of humanity. Appears in both Meccan and Medinan surahs, conveying messages on monotheism, creation, and the meaning of existence."
       },
       "stats": {
@@ -405,7 +405,7 @@
       "tr": "Ey Kafirler",
       "en": "O Disbelievers",
       "desc": {
-        "tr": "Küfrü bir kimlik olarak benimseyenlere doğrudan hitap. Kur'an'da yalnızca 2 ayette geçer; biri tam bir sure (Kâfirûn), biri cehennem tasvirinde. Net bir inanç sınırı çizer.",
+        "tr": "Küfrü bir kimlik olarak benimseyenlere doğrudan hitap. Kur'an'da yalnızca 2 ayette geçer; biri tam bir sûre (Kâfirûn), biri cehennem tasvirinde. Net bir inanç sınırı çizer.",
         "en": "Direct address to those who adopted disbelief as an identity. Appears in only 2 verses in the Quran — one a complete surah (Al-Kafirun), one in a description of Hell. Draws a clear line of belief."
       },
       "stats": {
@@ -667,7 +667,7 @@
       "tr": "Ey Ademoğulları",
       "en": "O Children of Adam",
       "desc": {
-        "tr": "İnsanlığın ortak kökünü ve şeytanın tuzaklarına karşı uyanıklığı vurgulayan hitap. Cennet'ten çıkışı, örtünmeyi ve şeytanın azılı düşmanlığını hatırlatan ayetlerde geçer. Mekkî surelerde yoğunlaşır.",
+        "tr": "İnsanlığın ortak kökünü ve şeytanın tuzaklarına karşı uyanıklığı vurgulayan hitap. Cennet'ten çıkışı, örtünmeyi ve şeytanın azılı düşmanlığını hatırlatan ayetlerde geçer. Mekkî sûrelerde yoğunlaşır.",
         "en": "An address emphasizing the common origin of humanity and vigilance against Satan's traps. Appears in verses recalling the exit from Paradise, clothing, and Satan's sworn enmity. Concentrated in Meccan suras."
       },
       "stats": {
@@ -738,7 +738,7 @@
       "tr": "Ey Resul",
       "en": "O Messenger",
       "desc": {
-        "tr": "Yalnızca 2 ayette geçen bu hitap, Nebi hitabından ayrı ve özel bir misyon vurgusudur. 'Resul' sıfatı Allah'tan aldığı mesajı iletme görevini ön plana çıkarır. Her iki ayet de Mâide suresindedir.",
+        "tr": "Yalnızca 2 ayette geçen bu hitap, Nebi hitabından ayrı ve özel bir misyon vurgusudur. 'Resul' sıfatı Allah'tan aldığı mesajı iletme görevini ön plana çıkarır. Her iki ayet de Mâide sûresindedir.",
         "en": "Appearing in only 2 verses, this address is a distinct emphasis on mission, separate from the Prophet address. The title 'Messenger' foregrounds the duty of conveying God's message. Both verses are in Surah Al-Ma'idah."
       },
       "stats": {

@@ -478,7 +478,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
 
       {/* Main surah */}
       <div style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, marginBottom: '10px' }}>
-        {language === 'tr' ? 'Ana sure: ' : 'Main surah: '}
+        {language === 'tr' ? 'Ana sûre: ' : 'Main surah: '}
         <span style={{ color: COLORS.silver }}>{nation.mainSurah}</span>
       </div>
 

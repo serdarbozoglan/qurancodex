@@ -1289,7 +1289,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       <>
                         <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1, display: 'flex', alignItems: 'center', gap: '3px' }}>
                           {dir === 'prev' && <ChevronLeft size={9} />}
-                          {language === 'tr' ? 'Sure' : 'Surah'} {surahNum}
+                          {language === 'tr' ? 'Sûre' : 'Surah'} {surahNum}
                           {dir === 'next' && <ChevronRight size={9} />}
                         </span>
                         <span style={{ fontSize: '0.78rem', color: navC.text, fontWeight: 700, lineHeight: 1.2, maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -1319,7 +1319,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               >
                 {!isMobile && (
                   <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
-                    {language === 'tr' ? 'Sure' : 'Surah'} {selectedSurah}
+                    {language === 'tr' ? 'Sûre' : 'Surah'} {selectedSurah}
                     {surahVerses.length > 0 && <span style={{ color: '#7a8a9a', marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
                   </span>
                 )}
@@ -1519,7 +1519,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               type="text"
               value={surahSearch}
               onChange={e => setSurahSearch(e.target.value)}
-              placeholder={language === 'tr' ? 'Sure · Sayfa · Cüz' : 'Surah · Page · Juz'}
+              placeholder={language === 'tr' ? 'Sûre · Sayfa · Cüz' : 'Surah · Page · Juz'}
               spellCheck={false}
               style={{
                 flex: 1, padding: '6px 10px', borderRadius: '6px',
@@ -2436,7 +2436,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               spellCheck={false}
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              placeholder={language === 'tr' ? 'Meal veya sure adında ara...' : 'Search in translation or surah name...'}
+              placeholder={language === 'tr' ? 'Meal veya sûre adında ara...' : 'Search in translation or surah name...'}
               style={{
                 flex: 1, background: 'none', border: 'none', outline: 'none',
                 color: dayMode ? 'rgba(30,15,5,0.88)' : '#e8e6e3',

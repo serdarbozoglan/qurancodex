@@ -62,6 +62,10 @@ body {
   color: var(--color-off-white);
 }
 
+/* Utility: hide scrollbar while keeping scroll functional */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { scrollbar-width: none; }
+
 /* ---- Scrollbar ---- */
 ::-webkit-scrollbar {
   width: 6px;

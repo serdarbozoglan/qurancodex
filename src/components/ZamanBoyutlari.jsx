@@ -105,9 +105,9 @@ const TIMELINE_DATA = [
     mealTr: 'Süresi elli bin yıl olan bir günde.',
     mealEn: 'On a day whose measure is fifty thousand years.',
     ref: 'Meâric 70:4',
-    noteTr: 'Ayette "Kıyamet" geçmez. Konu: meleklerin ve Ruh\'un Allah\'a yükselişi. Kıyamet yorumu sure bağlamından geliyor.',
+    noteTr: 'Ayette "Kıyamet" geçmez. Konu: meleklerin ve Ruh\'un Allah\'a yükselişi. Kıyamet yorumu sûre bağlamından geliyor.',
     noteEn: 'The word "Judgment" is not in the verse. Subject: ascent of angels and the Spirit to God. The Judgment Day link comes from the sura\'s broader context.',
-    expandTr: "Meâric 70:4 şunu söylüyor: 'Melekler ve Ruh, süresi elli bin yıl olan bir günde O'na yükseliyor.' 'Kıyamet günü' ifadesi ayette yok. Bağlantı, surenin 70:1-7'deki azap ve hesap temasından geliyor — bazı müfessirler bu günü Kıyamet olarak yorumlar, diğerleri meleklerin her gün veya her dönem yaptığı yükselişi kastediyor. İki farklı 'gün' (1.000 yıl ve 50.000 yıl) da çelişki değil; farklı bağlamlarda farklı ölçekler. (ℹ️ 'Kıyamet günü' etiketi tefsir yorumudur, ayetin doğrudan ifadesi değildir)",
+    expandTr: "Meâric 70:4 şunu söylüyor: 'Melekler ve Ruh, süresi elli bin yıl olan bir günde O'na yükseliyor.' 'Kıyamet günü' ifadesi ayette yok. Bağlantı, sûrenin 70:1-7'deki azap ve hesap temasından geliyor — bazı müfessirler bu günü Kıyamet olarak yorumlar, diğerleri meleklerin her gün veya her dönem yaptığı yükselişi kastediyor. İki farklı 'gün' (1.000 yıl ve 50.000 yıl) da çelişki değil; farklı bağlamlarda farklı ölçekler. (ℹ️ 'Kıyamet günü' etiketi tefsir yorumudur, ayetin doğrudan ifadesi değildir)",
     expandEn: "Meâric 70:4 says: 'The angels and the Spirit ascend to Him in a day whose measure is fifty thousand years.' The phrase 'Day of Judgment' does not appear in this verse. The connection comes from the sura's opening theme (70:1-7) about punishment and accountability — some commentators identify this 'day' as the Day of Resurrection, others as the regular or periodic ascent of angels. The two different 'day' scales (1,000 and 50,000 years) are not contradictory; they appear in different contexts. (ℹ️ 'Day of Judgment' label is interpretive, not the verse's literal meaning)",
     disclaimer: true,
     disclaimerTr: 'Modern fizikteki gravitational time dilation ile felsefi benzerlik kurulabilir — bu bir yorum katmanıdır.',
@@ -358,11 +358,16 @@ const SOURCES = {
 
 // ── Tab definitions ───────────────────────────────────────────────────────────
 const TABS = [
-  { id: 'olcek',         labelTr: 'Zaman Ölçeği',   labelEn: 'Time Scale'   },
-  { id: 'dil',           labelTr: 'Dil Katmanı',     labelEn: 'Language Layer' },
-  { id: 'felsefe',       labelTr: 'Felsefe',         labelEn: 'Philosophy'   },
-  { id: 'karsilastirma', labelTr: 'Karşılaştırma',   labelEn: 'Comparison'   },
-  { id: 'kaynaklar',     labelTr: 'Kaynaklar',       labelEn: 'Sources'      },
+  { id: 'olcek',         labelTr: 'Zaman Ölçeği',   labelEn: 'Time Scale',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> },
+  { id: 'dil',           labelTr: 'Dil Katmanı',     labelEn: 'Language Layer',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 7h7M9 3v4M4 14c2.4 4 7 5 11 1"/><path d="M12.5 11l3 4.5M16 11l-3.5 5"/></svg> },
+  { id: 'felsefe',       labelTr: 'Felsefe',         labelEn: 'Philosophy',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> },
+  { id: 'karsilastirma', labelTr: 'Karşılaştırma',   labelEn: 'Comparison',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg> },
+  { id: 'kaynaklar',     labelTr: 'Kaynaklar',       labelEn: 'Sources',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> },
 ];
 
 // ── Main component ─────────────────────────────────────────────────────────────
@@ -1197,11 +1202,12 @@ export default function ZamanBoyutlari({ onClose }) {
       <div style={{
         flexShrink: 0,
         display: 'flex',
-        gap: '6px',
+        gap: '2px',
         overflowX: 'auto',
-        padding: '10px 20px',
-        borderBottom: '1px solid rgba(255,255,255,0.05)',
-        background: 'rgba(0,0,0,0.2)',
+        padding: isMobile ? '0 8px' : '0 16px',
+        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+        background: 'rgba(10,10,26,0.97)',
+        backdropFilter: 'blur(20px)',
         scrollbarWidth: 'none',
       }}>
         {TABS.map(tab => {
@@ -1212,19 +1218,27 @@ export default function ZamanBoyutlari({ onClose }) {
               onClick={() => setActiveTab(tab.id)}
               style={{
                 flexShrink: 0,
-                padding: '5px 14px',
-                borderRadius: '20px',
-                border: `1px solid ${isActive ? COLORS.gold : COLORS.glassBorder}`,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: isMobile ? '12px 14px' : '13px 22px',
+                border: 'none',
+                borderRadius: '0',
+                borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 background: isActive ? COLORS.goldAlpha15 : 'transparent',
                 color: isActive ? COLORS.gold : COLORS.silver,
-                fontSize: '0.8rem',
+                fontSize: isMobile ? '0.85rem' : '0.9rem',
                 fontWeight: isActive ? 600 : 400,
                 fontFamily: FONTS.body,
                 cursor: 'pointer',
                 transition: 'all 0.15s',
+                whiteSpace: 'nowrap',
               }}
+              onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+              onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
             >
-              {language === 'tr' ? tab.labelTr : tab.labelEn}
+              <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
+              {!isMobile && <span>{language === 'tr' ? tab.labelTr : tab.labelEn}</span>}
             </button>
           );
         })}

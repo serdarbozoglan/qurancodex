@@ -57,7 +57,7 @@ function BesmeleWidget({ language }) {
           return (
             <div
               key={n}
-              title={`Sure ${n}`}
+              title={`Sûre ${n}`}
               style={{
                 width: '14px', height: '14px', borderRadius: '3px',
                 transition: 'all 0.4s ease',
@@ -78,7 +78,7 @@ function BesmeleWidget({ language }) {
         })}
       </div>
       <p className="text-center text-silver/40 text-xs font-body mb-8">
-        {tr ? '114 sure — her kare bir sure' : '114 surahs — each square is one surah'}
+        {tr ? '114 sûre — her kare bir sûre' : '114 surahs — each square is one surah'}
       </p>
 
       {/* Equation steps */}
@@ -89,7 +89,7 @@ function BesmeleWidget({ language }) {
           style={{ opacity: step >= 1 ? 1 : 0, transform: step >= 1 ? 'translateY(0)' : 'translateY(12px)' }}
         >
           <span className="text-silver text-sm font-body">
-            {tr ? 'Toplam sure sayısı' : 'Total surahs'}
+            {tr ? 'Toplam sûre sayısı' : 'Total surahs'}
           </span>
           <span className="text-off-white font-extrabold text-xl font-body">114</span>
         </div>
@@ -106,7 +106,7 @@ function BesmeleWidget({ language }) {
         >
           <div>
             <p className="text-[#e74c3c] text-xs font-body uppercase tracking-wider mb-0.5">
-              {tr ? 'Sure 9 · Tevbe · Besmele yok' : 'Surah 9 · At-Tawbah · No Bismillah'}
+              {tr ? 'Sûre 9 · Tevbe · Besmele yok' : 'Surah 9 · At-Tawbah · No Bismillah'}
             </p>
             <p className="text-silver/60 text-xs font-body">
               {tr ? '→ 113 başlangıç besmelesi' : '→ 113 opening Bismillahs'}
@@ -127,7 +127,7 @@ function BesmeleWidget({ language }) {
         >
           <div>
             <p className="text-gold text-xs font-body uppercase tracking-wider mb-0.5">
-              {tr ? 'Sure 27 · Neml · 27:30 · Sure içinde' : 'Surah 27 · An-Naml · 27:30 · Within verse'}
+              {tr ? 'Sûre 27 · Neml · 27:30 · Sûre içinde' : 'Surah 27 · An-Naml · 27:30 · Within verse'}
             </p>
             <p className="text-silver/60 text-xs font-body">
               {tr ? '→ Hz. Süleyman\'ın mektubu' : '→ Prophet Solomon\'s letter'}

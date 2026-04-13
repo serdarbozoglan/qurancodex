@@ -334,15 +334,16 @@ export default function PsychologySection() {
         {t('psychology.intro')}
       </motion.p>
 
-      {/* Tab bar — horizontally scrollable */}
+      {/* Tab bar — horizontally scrollable, per-tab accent colors preserved */}
       <motion.div
         variants={fadeUpItem}
         style={{
-          display: 'flex', gap: '8px',
-          overflowX: 'auto', paddingBottom: '4px',
+          display: 'flex', gap: '2px',
+          overflowX: 'auto',
           marginBottom: '24px',
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
         }}
       >
         {allTabKeys.map((key) => {
@@ -354,19 +355,21 @@ export default function PsychologySection() {
               onClick={() => setActiveTab(key)}
               style={{
                 flexShrink: 0,
-                display: 'flex', alignItems: 'center', gap: '6px',
-                padding: '8px 16px', borderRadius: '10px',
-                border: `1px solid ${isActive ? meta.border : 'rgba(255,255,255,0.07)'}`,
-                background: isActive ? meta.dim : 'rgba(255,255,255,0.025)',
+                display: 'flex', alignItems: 'center', gap: '8px',
+                padding: '12px 18px',
+                border: 'none', borderRadius: '0',
+                borderBottom: isActive ? `2px solid ${meta.color}` : '2px solid transparent',
+                background: isActive ? meta.dim : 'transparent',
                 color: isActive ? meta.color : '#64748b',
                 fontFamily: "'Inter', sans-serif",
-                fontSize: '0.8rem', fontWeight: isActive ? 600 : 400,
+                fontSize: '0.85rem', fontWeight: isActive ? 600 : 400,
                 cursor: 'pointer', transition: 'all 0.2s',
                 whiteSpace: 'nowrap',
-                boxShadow: isActive ? `0 0 14px ${meta.dim}` : 'none',
               }}
+              onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#e8e6e3'; } }}
+              onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#64748b'; } }}
             >
-              {TAB_ICONS[key]}
+              <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{TAB_ICONS[key]}</span>
               {tabs[key] || key}
             </button>
           );

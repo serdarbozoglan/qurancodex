@@ -33,7 +33,7 @@ const SURAS = [
   {
     id: 'muddaththir',
     labelTr: 'Müddessir', labelEn: 'Al-Muddaththir',
-    numTr: '74. Sure', numEn: 'Surah 74',
+    numTr: '74. Sûre', numEn: 'Surah 74',
     themeTr: 'Azap · Uyarı', themeEn: 'Punishment · Warning',
     color: '#e74c3c', glow: 'rgba(231,76,60,0.12)', border: 'rgba(231,76,60,0.35)',
     verse: 'سَأُصْلِيهِ سَقَرَ',
@@ -48,7 +48,7 @@ const SURAS = [
   {
     id: 'maryam',
     labelTr: 'Meryem', labelEn: 'Maryam',
-    numTr: '19. Sure', numEn: 'Surah 19',
+    numTr: '19. Sûre', numEn: 'Surah 19',
     themeTr: 'Rahmet · Huzur', themeEn: 'Mercy · Peace',
     color: '#3498db', glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.35)',
     verse: 'وَحَنَانًا مِّن لَّدُنَّا',
@@ -63,14 +63,14 @@ const SURAS = [
   {
     id: 'qaria',
     labelTr: 'Kâria', labelEn: "Al-Qari'a",
-    numTr: '101. Sure', numEn: 'Surah 101',
+    numTr: '101. Sûre', numEn: 'Surah 101',
     themeTr: 'Kıyamet · Çarpış', themeEn: 'Apocalypse · Strike',
     color: '#e67e22', glow: 'rgba(230,126,34,0.12)', border: 'rgba(230,126,34,0.35)',
     verse: 'الْقَارِعَةُ',
     verseRef: '101:1',
     harshLetters: ['ق', 'ر'],
     softLetters: ['ع'],
-    descTr: 'Sure adı tek başına: patlayıcı ق ve tınlayan ر kıyametin sesini taşır.',
+    descTr: 'Sûre adı tek başına: patlayıcı ق ve tınlayan ر kıyametin sesini taşır.',
     descEn: 'The name alone: explosive ق and rolling ر enact the cosmic strike.',
     barValue: 60,
     audioKey: '101001',
@@ -78,7 +78,7 @@ const SURAS = [
   {
     id: 'rahman',
     labelTr: 'Rahmân', labelEn: 'Ar-Rahman',
-    numTr: '55. Sure', numEn: 'Surah 55',
+    numTr: '55. Sûre', numEn: 'Surah 55',
     themeTr: 'Nimet · Güzellik', themeEn: 'Blessing · Beauty',
     color: '#2ecc71', glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.35)',
     verse: 'الرَّحْمَٰنُ عَلَّمَ الْقُرْآنَ',
@@ -202,7 +202,7 @@ export default function SoundArchitecture() {
       {/* ── Four Sura Tabs ── */}
       <motion.div variants={fadeUpItem} className="mb-4">
         <p className="text-silver/60 text-xs font-body mb-4 uppercase tracking-widest">
-          {language === 'tr' ? 'Bir sure seçin — ayeti duyun' : 'Select a surah — hear the verse'}
+          {language === 'tr' ? 'Bir sûre seçin — ayeti duyun' : 'Select a surah — hear the verse'}
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {SURAS.map(sura => {
@@ -342,7 +342,7 @@ export default function SoundArchitecture() {
                         fontSize: '0.7rem', color: '#94a3b8', fontFamily: 'Inter, sans-serif', lineHeight: 1.6,
                       }}>
                         {language === 'tr'
-                          ? 'Bu gösterim surenin fonetik dokusunu sezgisel olarak temsil eder; kesin bir dilbilimsel ölçüm değil, işitsel bir rehberdir. Sert: ق ك ط ت د ض ص ب خ غ — Yumuşak: م ن ل ر و ي ه ح ف'
+                          ? 'Bu gösterim sûrenin fonetik dokusunu sezgisel olarak temsil eder; kesin bir dilbilimsel ölçüm değil, işitsel bir rehberdir. Sert: ق ك ط ت د ض ص ب خ غ — Yumuşak: م ن ل ر و ي ه ح ف'
                           : 'This bar illustrates the phonetic texture intuitively — not a precise linguistic measurement, but an auditory guide. Hard: ق ك ط ت د ض ص ب خ غ — Soft: م ن ل ر و ي ه ح ف'}
                       </div>
                     )}

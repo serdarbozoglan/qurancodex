@@ -16,7 +16,7 @@ const SURAHS = {
   fatiha: {
     nameTr: 'Fatiha', nameEn: 'Al-Fatiha',
     refTr: '7 ayet', refEn: '7 verses',
-    titleTr: 'Fatiha Suresi\'nde Halka Kompozisyon',
+    titleTr: 'Fatiha Sûresi\'nde Halka Kompozisyon',
     titleEn: 'Ring Composition in Al-Fatiha',
     subtitleTr: 'A-B-C-D-C\'-B\'-A\' — Yedi ayetin ayna simetrisi',
     subtitleEn: 'A-B-C-D-C\'-B\'-A\' — Mirror symmetry across seven verses',
@@ -35,7 +35,7 @@ const SURAHS = {
     introTr: "Fatiha'nın 7 ayeti bir ayna gibi yapılanmış: ilk ayet son ayetle, ikincisi sondan ikinciyle eşleşiyor. Ortadaki 4. ayet ise döngünün eksenini oluşturuyor.",
     introEn: "Al-Fatiha's 7 verses are structured like a mirror: the first corresponds to the last, the second to the second-to-last. The 4th verse in the middle is the pivot of the ring.",
     pairsTr: [
-      { label: "A ↔ A'", desc: "Her ikisi de Allah'ın ismi ve nimetiyle ilgilidir. Sure 'Bismillah' ile açılır, 'nimetlendirdiklerin' ile kapanır — ilahî isimden ilahî nimet doğar." },
+      { label: "A ↔ A'", desc: "Her ikisi de Allah'ın ismi ve nimetiyle ilgilidir. Sûre 'Bismillah' ile açılır, 'nimetlendirdiklerin' ile kapanır — ilahî isimden ilahî nimet doğar." },
       { label: "B ↔ B'", desc: "B, Allah'ı Rab olarak tanımlar. B' ise o Rab'den bir şey ister: 'Bizi doğru yola ilet.' Önce kim olduğu söylenir, sonra Ona yönelilir." },
       { label: "C ↔ C'", desc: "C, Allah'ın Rahman ve Rahim olduğunu bildirir. C' buna cevap verir: 'Yalnız Sana ibadet ederiz.' Merhamet beyanı ibadeti doğurur." },
       { label: "D — Merkez", desc: "'Din Gününün Sahibi.' D'den önce Allah tanımlanır, D'den sonra biz konuşmaya başlarız. Hesap günü bilinci tüm duanın dönüm noktasıdır." },

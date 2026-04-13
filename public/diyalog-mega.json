@@ -14,7 +14,7 @@
         { "phase": "Âdem'i Kandırma",  "phaseEn": "Deceiving Adam",        "context": "ezel", "ref": "7:20-22" },
         { "phase": "Kıyamet İtirafı",  "phaseEn": "Judgment Day Confession","context": "ahiret","ref": "14:22" }
       ],
-      "uniqueFeatureTr": "Aynı diyaloğun 7 surede farklı detaylarla tekrarlanması — Kur'an'ın 'çok açılı anlatım' tekniği.",
+      "uniqueFeatureTr": "Aynı diyaloğun 7 sûrede farklı detaylarla tekrarlanması — Kur'an'ın 'çok açılı anlatım' tekniği.",
       "uniqueFeatureEn": "The same dialogue repeated in 7 surahs with different details — the Quran's 'multi-angle narration' technique.",
       "relatedDialogueIds": ["iblis-refusal", "iblis-final-confession"]
     },
@@ -32,7 +32,7 @@
         { "phase": "Denizin Yarılması",       "phaseEn": "Parting of the Sea",           "context": "dunya", "ref": "26:60-68" },
         { "phase": "Firavun'un Son Sözü",     "phaseEn": "Pharaoh's Final Words",        "context": "dunya", "ref": "10:90" }
       ],
-      "uniqueFeatureTr": "Kur'an'ın en uzun ve en çok tekrarlanan diyalog serisi. Her suredeki tekrar yeni bir boyut katar.",
+      "uniqueFeatureTr": "Kur'an'ın en uzun ve en çok tekrarlanan diyalog serisi. Her sûredeki tekrar yeni bir boyut katar.",
       "uniqueFeatureEn": "The Quran's longest and most repeated dialogue series. Each surah's retelling adds a new dimension.",
       "relatedDialogueIds": ["musa-pharaoh-first", "pharaoh-drowning"]
     },
@@ -68,7 +68,7 @@
         { "phase": "Kardeşlerle Yeniden Karşılaşma","phaseEn": "Reunion with brothers", "context": "dunya", "ref": "12:58-93" },
         { "phase": "Yakup ile Kavuşma",        "phaseEn": "Reunion with Jacob",          "context": "dunya", "ref": "12:96-101" }
       ],
-      "uniqueFeatureTr": "Kur'an'ın tek surede en çok diyalog barındıran kıssası — ahsenü'l-kasas.",
+      "uniqueFeatureTr": "Kur'an'ın tek sûrede en çok diyalog barındıran kıssası — ahsenü'l-kasas.",
       "uniqueFeatureEn": "The Quran's story with the most dialogues in a single surah — 'the best of stories'.",
       "relatedDialogueIds": ["yusuf-brothers-reunion"]
     }

@@ -6,6 +6,59 @@
 > Sadece bekleyen işler. Tamamlananlar git history'de (v1.0, v1.1, v1.2, v1.3, Faz 1-2).
 
 ---
+DILSE DNA
+Kur'an'ın 29 suresi gizemli harflerle başlar. sure --> sure sapkali u
+114 surenin 29'u bu harflerle başlar --> sapkali u
+SURE ayni kart iicnde -> sapkali u
+Kur'an'daki tum harflerin frenkas analizi yapilsa ve son kart ona referans ile acilsa
+
+Elif-Lam-Mim: Ankebut Suresinde kitaba atif var mi yok giib?
+Rum suresinde'de kitaba atif yok
+
+Görüntüdeki kartı ve belirttiğin "yanıltıcı ifade" sorununu inceledim. Haklısın; Ankebût ve Rûm surelerinde Elif-Lâm-Mîm'den hemen sonra doğrudan "Kitap" kelimesi gelmez (Ankebût'ta imtihan, Rûm'da ise Rumların yenilgisi gelir). 
+
+Bir veri bilimci titizliğiyle, bu kartı hem **doğru** hem de **"forensik"** derinliğe uygun şekilde nasıl güncelleyebileceğine dair önerim aşağıdadır:
+
+### 1. Başlık ve Alt Başlık (Hata Giderme)
+"Altısında da hemen ardından Kitab'a atıf" ifadesini, veriyi daha doğru yansıtan bir **dualite (ikililik)** vurgusuyla değiştirmelisin.
+
+* **Yeni Başlık:** Vahyin Hakikati ve Sadakat Sınavı
+* **Yeni Alt Metin:** Bu 6 sure; vahyin kaynağını (Kitap) ve bu vahye inananların karşılaşacağı pratik sonuçları (İmtihan) iki ana blokta birleştirir.
+
+---
+
+### 2. Kart İçeriği İçin "Blok" Yaklaşımı
+Kartın orta kısmındaki metni, 4-2 ayrımını netleştirecek şekilde şu şekilde güncelleyebilirsin:
+
+* **Bakara, Âl-i İmrân, Lokmân, Secde (4 Sure):** Vahyin kaynağına ve "Kitab"ın otoritesine doğrudan vurgu.
+* **Ankebût & Rûm (2 Sure):** Vahyin doğruluğunun hayattaki karşılığı; "İmtihan" süreci ve "Tarihsel" ispat (Rumların zaferi).
+
+---
+
+### 3. Kompozisyon ve Maddeleme Güncellemesi
+Kartın dikey yapısını bozmadan, bilgiyi daha "scannable" (taranabilir) hale getirelim:
+
+* **Vahyin İnşası (2, 3):** Toplumsal ve hukuki düzenin temeli olarak "Kitap".
+* **Bireysel Sınav (29):** İmanın sözde kalmayıp fiili bir testten (fitne/imtihan) geçeceği uyarısı.
+* **Gaybi/Tarihi İspat (30):** Vahyin geleceğe dair verdiği haberin (Rum zaferi) gerçekleşmesiyle gelen ispat.
+* **Hikmet ve Secde (31, 32):** Yaratılış delilleri üzerinden teslimiyet (hikmet ve huşu).
+
+---
+
+### 4. Tasarım Önerisi (UI/UX)
+Kartın sağ üstündeki "6 sûre" ve "Karma" (Mekkî/Medenî karışık anlamında sanırım) ibareleri kalsın, ancak içeriği şu şekilde görselleştirebilirsin:
+
+> **[İkon: Kitap]** 4 Sure: Doğrudan Kitap vurgusu (Bakara, Âl-i İmrân, Lokmân, Secde)
+> **[İkon: Terazi/Kılıç]** 2 Sure: Pratik ispat ve sarsıcı imtihan (Ankebût, Rûm)
+
+---
+
+
+-----
+
+-------
+
+-------
 
 ## 🔴 P0 — Kritik
 

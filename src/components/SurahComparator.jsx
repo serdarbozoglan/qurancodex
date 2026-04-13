@@ -273,7 +273,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
                 ref={inputRef}
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder={language === 'tr' ? 'Sure ara… (Bakara, 2…)' : 'Search surah…'}
+                placeholder={language === 'tr' ? 'Sûre ara… (Bakara, 2…)' : 'Search surah…'}
                 style={{
                   width: '100%', padding: '7px 12px',
                   background: 'rgba(255,255,255,0.06)',
@@ -511,7 +511,7 @@ export default function SurahComparator({ onClose }) {
 
   // Quick preset pairs — ranked by actual cross-link count, diverse topics
   const PRESETS = [
-    { a: 2,  b: 3,  labelTr: 'Bakara & Âl-i İmrân',  labelEn: 'Al-Baqara & Al-Imran',   reasonTr: '854 bağ · Ehl-i Kitap diyalogu, Medenî kardeş sureler',      reasonEn: '854 links · People of the Book, sister Medinan surahs' },
+    { a: 2,  b: 3,  labelTr: 'Bakara & Âl-i İmrân',  labelEn: 'Al-Baqara & Al-Imran',   reasonTr: '854 bağ · Ehl-i Kitap diyalogu, Medenî kardeş sûreler',      reasonEn: '854 links · People of the Book, sister Medinan surahs' },
     { a: 26, b: 37, labelTr: "Şu'arâ & Sâffât",       labelEn: 'Ash-Shuara & As-Saffat', reasonTr: '491 bağ · Aynı peygamber kıssaları iki farklı anlatıyla',    reasonEn: '491 links · Same prophet stories in two different styles' },
     { a: 2,  b: 5,  labelTr: 'Bakara & Mâide',        labelEn: 'Al-Baqara & Al-Maida',   reasonTr: '462 bağ · Yahudi-Hristiyan diyalogu, helal-haram hükümleri', reasonEn: '462 links · Jewish-Christian dialogue, food laws' },
     { a: 3,  b: 5,  labelTr: 'Âl-i İmrân & Mâide',   labelEn: 'Al-Imran & Al-Maida',    reasonTr: '368 bağ · Hz. İsa teması, Ehl-i Kitap ile ortak zemin',      reasonEn: '368 links · Jesus theme, common ground with Scripture' },
@@ -654,7 +654,7 @@ export default function SurahComparator({ onClose }) {
 
           <p style={{ color: '#94a3b8', fontSize: '0.98rem', lineHeight: 1.8, marginBottom: '36px', maxWidth: '620px' }}>
             {language === 'tr'
-              ? 'İki sure seç. Ortak kelimeler, temalar, peygamberler ve anlamsal benzerlik görsel olarak karşılaştırılır.'
+              ? 'İki sûre seç. Ortak kelimeler, temalar, peygamberler ve anlamsal benzerlik görsel olarak karşılaştırılır.'
               : 'Select two surahs. Shared words, themes, figures, and semantic similarity are compared visually.'}
           </p>
 
@@ -662,12 +662,12 @@ export default function SurahComparator({ onClose }) {
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr', gap: isMobile ? '12px' : '0', alignItems: 'center', marginBottom: '32px' }}>
             <div>
               <p style={{ color: COLOR_A, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '8px' }}>
-                {language === 'tr' ? 'Birinci Sure' : 'First Surah'}
+                {language === 'tr' ? 'Birinci Sûre' : 'First Surah'}
               </p>
               <SurahSelector
                 value={surahA}
                 onChange={setSurahA}
-                placeholder={language === 'tr' ? 'Bir sure seç…' : 'Select a surah…'}
+                placeholder={language === 'tr' ? 'Bir sûre seç…' : 'Select a surah…'}
                 color={COLOR_A}
                 surahInfo={cachedSurahInfo}
                 revOrderMap={revRankMap}
@@ -689,12 +689,12 @@ export default function SurahComparator({ onClose }) {
 
             <div>
               <p style={{ color: COLOR_B, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '8px' }}>
-                {language === 'tr' ? 'İkinci Sure' : 'Second Surah'}
+                {language === 'tr' ? 'İkinci Sûre' : 'Second Surah'}
               </p>
               <SurahSelector
                 value={surahB}
                 onChange={setSurahB}
-                placeholder={language === 'tr' ? 'Bir sure seç…' : 'Select a surah…'}
+                placeholder={language === 'tr' ? 'Bir sûre seç…' : 'Select a surah…'}
                 color={COLOR_B}
                 surahInfo={cachedSurahInfo}
                 revOrderMap={revRankMap}
@@ -726,7 +726,7 @@ export default function SurahComparator({ onClose }) {
             >
               {canCompare
                 ? (language === 'tr' ? `${SURAH_NAMES_TR[surahA]} ile ${SURAH_NAMES_TR[surahB]}'ı Karşılaştır →` : `Compare ${SURAH_NAMES_TR[surahA]} and ${SURAH_NAMES_TR[surahB]} →`)
-                : (language === 'tr' ? 'İki sure seçin' : 'Select two surahs')}
+                : (language === 'tr' ? 'İki sûre seçin' : 'Select two surahs')}
             </button>
           </div>
 
@@ -857,7 +857,7 @@ export default function SurahComparator({ onClose }) {
                 </p>
                 <p style={{ color: '#1e293b', fontSize: '0.62rem', marginTop: '6px', textAlign: 'center', lineHeight: 1.5, maxWidth: '120px' }}>
                   {language === 'tr'
-                    ? 'Suredeki her ayet, tüm Kur\'an\'daki en yakın 20 ayete bağlı. Skor bu bağların yoğunluğunu ölçer.'
+                    ? 'Sûredeki her ayet, tüm Kur\'an\'daki en yakın 20 ayete bağlı. Skor bu bağların yoğunluğunu ölçer.'
                     : "Each verse links to its 20 closest verses in the Quran. Score measures link density."}
                 </p>
               </div>

@@ -957,12 +957,12 @@ export default function Navbar() {
               Read Quran button and this is the sole always-visible entry). */}
           <button
             onClick={() => setReadingOpen(true)}
-            className="hidden lg:flex items-center transition-all duration-200"
+            className="hidden lg:flex items-center gap-2 transition-all duration-200"
             style={{
-              background: '#d4a96e',
-              border: '1px solid #d4a96e',
+              background: 'linear-gradient(135deg, #c9973a 0%, #b8860b 60%, #9a6f0a 100%)',
+              border: 'none',
               borderRadius: '6px',
-              color: '#08091a',
+              color: '#1c0f00',
               fontFamily: "'Inter', sans-serif",
               fontSize: '0.82rem',
               fontWeight: 700,
@@ -970,21 +970,17 @@ export default function Navbar() {
               padding: '7px 20px',
               height: '34px',
               cursor: 'pointer',
-              boxShadow: '0 0 12px rgba(212,169,78,0.4)',
+              boxShadow: '0 0 20px 4px rgba(180,130,40,0.3)',
               transition: 'all 0.15s',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.background = '#e0b87d';
-              e.currentTarget.style.borderColor = '#e0b87d';
-              e.currentTarget.style.boxShadow = '0 0 20px rgba(212,169,78,0.6)';
+              e.currentTarget.style.boxShadow = '0 0 32px 6px rgba(180,130,40,0.5)';
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.background = '#d4a96e';
-              e.currentTarget.style.borderColor = '#d4a96e';
-              e.currentTarget.style.boxShadow = '0 0 12px rgba(212,169,78,0.4)';
+              e.currentTarget.style.boxShadow = '0 0 20px 4px rgba(180,130,40,0.3)';
             }}
           >
-            <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '0.85rem', opacity: 0.4, lineHeight: 1 }}>اقْرَأْ</span>
+            <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.05rem', color: '#1c0f00', opacity: 0.7, lineHeight: 1 }}>اقرأ</span>
             {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
           </button>
 
@@ -1052,13 +1048,15 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: '100%' }}
           transition={{ duration: 0.25, ease: 'easeInOut' }}
-          className="lg:hidden"
+          className="lg:hidden hide-scrollbar [&::-webkit-scrollbar]:hidden"
           style={{
             position: 'fixed',
             inset: 0,
             zIndex: 10001,
             background: '#080a1e',
             overflowY: 'auto',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
           }}
         >
           {/* Close button */}
@@ -1087,86 +1085,72 @@ export default function Navbar() {
             </svg>
           </button>
 
-          <div className="flex flex-col gap-1" style={{ padding: '80px 24px 40px' }}>
-            {/* Oku */}
+          <div
+            className="flex flex-col"
+            style={{
+              padding: '80px 24px 40px',
+            }}
+          >
+            {/* Oku — matches Hero btn-primary-gold style */}
             <button
               onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
               style={{
                 display: 'flex',
-                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '4px',
-                color: '#1a0e00',
-                background: 'linear-gradient(135deg, #d4a574 0%, #c9a227 100%)',
-                borderRadius: '10px',
-                padding: '14px 16px',
-                border: 'none',
+                gap: '10px',
+                height: '44px',
                 width: '100%',
-                minHeight: '56px',
-                marginBottom: '12px',
-                boxShadow: '0 0 16px rgba(212,169,78,0.4)',
+                padding: '0 16px',
+                background: 'linear-gradient(135deg, #c9973a 0%, #b8860b 60%, #9a6f0a 100%)',
+                border: 'none',
+                borderRadius: '6px',
+                marginBottom: '14px',
+                boxShadow: '0 0 24px 4px rgba(180,130,40,0.3)',
                 cursor: 'pointer',
               }}
             >
-              <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.75rem', color: '#FFF8E7', lineHeight: 1.1 }}>اقْرَأْ</span>
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.75rem', fontWeight: 600, color: '#FFF8E7', opacity: 0.75, letterSpacing: '0.06em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
+              <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.35rem', fontWeight: 700, color: '#1c0f00' }}>اقرأ</span>
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.81rem', fontWeight: 700, color: '#1c0f00', letterSpacing: '0.04em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
             </button>
 
             {/* Section anchors */}
-            <p className="text-[0.62rem] text-silver/40 uppercase tracking-[0.15em] mt-2 mb-0.5">
+            <p style={{ fontSize: '0.68rem', fontWeight: 600, color: '#d4a574', textTransform: 'uppercase', letterSpacing: '0.18em', margin: '8px 0 4px', fontFamily: "'Inter', sans-serif" }}>
               {language === 'tr' ? 'Keşfet' : 'Discover'}
             </p>
             {navSections.map(({ id, keyTr, keyEn }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className="text-silver hover:text-gold transition-colors text-left py-3.5 text-sm font-body"
+                className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body"
+                style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
               >
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.5, flexShrink: 0 }}><path d="M9 18l6-6-6-6" /></svg>
                 {language === 'tr' ? keyTr : keyEn}
               </button>
             ))}
 
             {/* Tools */}
-            <div className="border-t border-white/5 pt-2 mt-1">
-              <p className="text-[0.62rem] text-silver/40 uppercase tracking-[0.15em] mb-1">
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px', marginTop: '6px' }}>
+              <p style={{ fontSize: '0.68rem', fontWeight: 600, color: '#d4a574', textTransform: 'uppercase', letterSpacing: '0.18em', margin: '0 0 6px', fontFamily: "'Inter', sans-serif" }}>
                 {language === 'tr' ? 'Araçlar' : 'Tools'}
               </p>
               <button
                 onClick={() => { featuredTool.action(); setMobileOpen(false); }}
-                style={{
-                  width: '100%',
-                  padding: '12px 14px',
-                  marginBottom: '4px',
-                  background: 'rgba(201, 162, 39, 0.06)',
-                  border: '1px solid rgba(201, 162, 39, 0.15)',
-                  borderRadius: '8px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  cursor: 'pointer',
-                }}
+                className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
               >
-                <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ color: '#c9a227' }}>{featuredTool.icon}</span>
-                  <span style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                    <span style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
-                      {language === 'tr' ? featuredTool.labelTr : featuredTool.labelEn}
-                    </span>
-                    <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif" }}>
-                      {language === 'tr' ? featuredTool.descTr : featuredTool.descEn}
-                    </span>
-                  </span>
+                <span style={{ color: '#c9a227', flexShrink: 0 }}>{featuredTool.icon}</span>
+                <span style={{ color: '#d4a574', fontWeight: 600 }}>
+                  {language === 'tr' ? featuredTool.labelTr : featuredTool.labelEn}
                 </span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round"><path d="M9 18l6-6-6-6" /></svg>
               </button>
               {[...vizTools, ...analysisTools, ...researchTools].map(tool => (
                 <button
                   key={tool.id}
                   onClick={() => { tool.action(); setMobileOpen(false); }}
-                  className="text-silver hover:text-gold transition-colors text-left py-3.5 text-sm font-body w-full flex items-center gap-2"
+                  className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
                 >
-                  <span style={{ opacity: 0.6 }}>{tool.icon}</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.4, flexShrink: 0 }}><path d="M9 18l6-6-6-6" /></svg>
                   {language === 'tr' ? tool.labelTr : tool.labelEn}
                 </button>
               ))}

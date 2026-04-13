@@ -53,7 +53,7 @@ const TAB_ICONS = [
   <svg key="t0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="7" cy="8" r="2"/><circle cx="17" cy="8" r="2"/><circle cx="4.5" cy="13.5" r="1.5"/><circle cx="19.5" cy="13.5" r="1.5"/><path d="M8.5 14s1.5-1 3.5-1 3.5 1 3.5 1l1 3.5a2 2 0 0 1-2 2.5h-5a2 2 0 0 1-2-2.5z"/></svg>,
   // Bitkiler — leaf
   <svg key="t1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22V12"/><path d="M5 3c0 0 1 11 7 9s7 9 7 9"/><path d="M5 3s4 4 7 9"/></svg>,
-  // Sure İsimleri — book
+  // Sûre İsimleri — book
   <svg key="t2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>,
   // Bağlam — layers
   <svg key="t3" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>,
@@ -63,7 +63,7 @@ const TAB_ICONS = [
 const TABS = [
   { icon: TAB_ICONS[0], labelTr: 'Hayvanlar',    labelEn: 'Animals'    },
   { icon: TAB_ICONS[1], labelTr: 'Bitkiler',      labelEn: 'Plants'     },
-  { icon: TAB_ICONS[2], labelTr: 'Sure İsimleri', labelEn: 'Surah Names'},
+  { icon: TAB_ICONS[2], labelTr: 'Sûre İsimleri', labelEn: 'Surah Names'},
   { icon: TAB_ICONS[3], labelTr: 'Bağlam',        labelEn: 'Context'    },
   { icon: TAB_ICONS[4], labelTr: 'Tefsir',        labelEn: 'Tafsir'     },
 ];
@@ -378,7 +378,7 @@ function TabBitkiler({ plants, isMobile, language }) {
   );
 }
 
-// ── Tab 2: Sure İsimleri ──────────────────────────────────────────────────────
+// ── Tab 2: Sûre İsimleri ──────────────────────────────────────────────────────
 function TabSureIsimleri({ sureNames, isMobile, language }) {
   return (
     <div style={{
@@ -408,7 +408,7 @@ function TabSureIsimleri({ sureNames, isMobile, language }) {
             </p>
             <div style={{ textAlign: 'right', flexShrink: 0 }}>
               <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body }}>
-                {language === 'tr' ? `Sure ${s.sureNo}` : `Surah ${s.sureNo}`}
+                {language === 'tr' ? `Sûre ${s.sureNo}` : `Surah ${s.sureNo}`}
               </p>
               <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body }}>
                 {language === 'tr' ? `${s.ayahCount} ayet` : `${s.ayahCount} verses`}
@@ -563,7 +563,7 @@ function TabTefsirNotlari({ tefsirNotes, sources, language }) {
 // ── Hero Section ──────────────────────────────────────────────────────────────
 function HeroSection({ isMobile, language }) {
   const stats = language === 'tr'
-    ? ['30+ Hayvan Türü', '20+ Bitki Türü', '6 Sure Adı', '5 Bağlam Fonksiyonu', '14 Cennet Bitkisi']
+    ? ['30+ Hayvan Türü', '20+ Bitki Türü', '6 Sûre Adı', '5 Bağlam Fonksiyonu', '14 Cennet Bitkisi']
     : ['30+ Animal Species', '20+ Plant Species', '6 Surah Names', '5 Context Functions', '14 Paradise Plants'];
 
   return (
