@@ -419,12 +419,12 @@
       "variation": {
         "label": "Metin Varyasyonu",
         "description": "Dünya çapındaki tüm nüshalar arasında sıfır fark",
-        "note": "Kıraat farklılıkları okuyuş geleneğine aittir; yazılı metin sabittir."
+        "note": "Kıraat farklılıkları okuyuş geleneğine aittir; konsonant iskelet (rasm) tüm mushaflarda sabittir."
       }
     },
     "written": {
       "title": "Yazılı Koruma",
-      "description": "Hz. Muhammed (s.a.v.) döneminde 40'tan fazla katip vahiyleri anlık olarak kaydetti. Ebu Bekir döneminde ilk kapsamlı derleme bir araya getirildi. Osman döneminde tek bir standart metin oluşturularak birden fazla şehre dağıtıldı."
+      "description": "Hz. Muhammed (s.a.v.) döneminde 40'tan fazla katip vahiyleri anlık olarak kaydetti. Hz. Ebu Bekir döneminde ilk kapsamlı derleme bir araya getirildi. Hz. Osman döneminde tek bir standart metin oluşturularak birden fazla şehre dağıtıldı."
     },
     "oral": {
       "title": "Canlı Koruma",

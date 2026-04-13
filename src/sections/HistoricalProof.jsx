@@ -70,7 +70,7 @@ export default function HistoricalProof() {
       {/* Timeline Stories */}
       <div className="relative">
         {/* Timeline connecting line */}
-        <div className="absolute left-[19px] md:left-[23px] top-0 bottom-0 w-px bg-gradient-to-b from-gold/40 via-soft-emerald/40 to-sky-blue/40" />
+        <div className="absolute left-[19px] md:left-[23px] top-0 bottom-0 w-px bg-gradient-to-b from-gold/20 via-soft-emerald/20 to-sky-blue/20" />
 
         <div className="space-y-6">
           {storyKeys.map((key, index) => {
@@ -88,7 +88,13 @@ export default function HistoricalProof() {
                 <div
                   className={`absolute left-2 md:left-3 top-6 w-5 h-5 md:w-4 md:h-4 rounded-full border-2 ${accent.border} ${
                     isExpanded ? accent.dot : 'bg-cosmic-black'
-                  } transition-colors duration-300 z-10`}
+                  } transition-all duration-300 z-10`}
+                  style={{
+                    boxShadow: isExpanded
+                      ? `0 0 12px ${key === 'pharaoh' ? 'rgba(212,165,116,0.5)' : key === 'haman' ? 'rgba(46,204,113,0.5)' : 'rgba(52,152,219,0.5)'}`
+                      : 'none',
+                    transform: isExpanded ? 'scale(1.3)' : 'scale(1)',
+                  }}
                 />
 
                 {/* Story card */}
