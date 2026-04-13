@@ -120,10 +120,10 @@ const NUR_LAYERS = [
     conceptsTr: ['Elektromanyetik Spektrum', 'Foton', 'Işık Hızı (c)', 'E=mc²', 'Evrenin İlk Saniyesi'],
     conceptsEn: ['Electromagnetic Spectrum', 'Photon', 'Speed of Light (c)', 'E=mc²', 'First Second of the Universe'],
     scholarTr: 'Modern Fizik Perspektifi', scholarEn: 'Modern Physics Perspective',
-    quoteTr: 'En temel varlık ışıktır; madde bile donmuş ışık enerjisidir. Big Bang\'den bu yana evrenin dili fotonlarla yazılmıştır.',
-    quoteEn: 'The most fundamental existence is light; even matter is frozen light energy. Since the Big Bang, the language of the universe has been written in photons.',
-    noteTr: 'Bu katman modern fizik perspektifinden yapılmış çağdaş bir yorumdur; klasik tefsir geleneğinde yer almaz.',
-    noteEn: 'This layer represents a contemporary reading through the lens of modern physics; it does not appear in classical exegetical tradition.',
+    quoteTr: 'En temel varlık ışıktır; madde bile donmuş ışık enerjisidir. Gökleri ve yeri bu temel enerji formlarıyla ayakta tutan Allah, yaratılanın (fiziksel ışığın) ötesindeki mutlak Nur\'dur.',
+    quoteEn: 'The most fundamental existence is light; even matter is frozen light energy. Allah, who sustains the heavens and earth through these fundamental energy forms, is the absolute Light beyond the created (physical) light.',
+    noteTr: 'Bu katman modern fizik perspektifinden yapılmış çağdaş bir yorumdur; klasik tefsir geleneğinde yer almaz. "Yaratılan nur" (fiziksel ışık) ile "Yaratıcı Nur" (Allah\'ın sıfatı) arasındaki fark korunmalıdır.',
+    noteEn: 'This layer represents a contemporary reading through the lens of modern physics; it does not appear in classical exegetical tradition. The distinction between "created light" (physical) and "Creator Light" (divine attribute) must be maintained.',
     questionTr: 'Eğer madde donmuş ışıksa, "Göklerin ve yerin Nuru" ifadesi fiziksel bir gerçeği mi anlatıyor?',
     questionEn: 'If matter is frozen light, does "Light of the heavens and earth" describe a physical reality?',
   },
@@ -184,6 +184,7 @@ export default function HiddenArchitecture() {
   const [activeLayer,   setActiveLayer]   = useState(0);
   const [activePair,    setActivePair]    = useState(null);
   const [activeSurah,   setActiveSurah]   = useState('fatiha');
+  const [hoveredConcept, setHoveredConcept] = useState(null); // index of hovered concept chip → pulses matching ray
   const surah = SURAHS[activeSurah];
 
   return (
@@ -691,7 +692,10 @@ export default function HiddenArchitecture() {
                     strokeWidth={isActive ? 3.5 : 1.8}
                     opacity={isDimmed ? 0.06 : isActive ? 1 : 0.45}
                     filter={isActive ? 'url(#ray-glow)' : 'none'}
-                    style={{ transition: 'opacity 0.3s, stroke-width 0.3s' }}
+                    style={{
+                      transition: 'opacity 0.3s, stroke-width 0.3s',
+                      animation: isActive && hoveredConcept !== null ? 'rayPulse 0.8s ease-in-out infinite' : 'none',
+                    }}
                   />
                 );
               })}
@@ -854,13 +858,20 @@ export default function HiddenArchitecture() {
                         {language === 'tr' ? 'Anahtar Kavramlar' : 'Key Concepts'}
                       </p>
                       {(language === 'tr' ? layer.conceptsTr : layer.conceptsEn).map((c, ci) => (
-                        <span key={ci} style={{
-                          display: 'inline-block', padding: '5px 13px', borderRadius: '100px',
-                          fontSize: '12px', margin: '3px 4px 3px 0', fontWeight: 500,
-                          border: `1px solid ${layer.color}30`,
-                          color: layer.color, background: `${layer.color}0d`,
-                          fontFamily: "'Inter', sans-serif",
-                        }}>{c}</span>
+                        <span key={ci}
+                          onMouseEnter={() => setHoveredConcept(ci)}
+                          onMouseLeave={() => setHoveredConcept(null)}
+                          style={{
+                            display: 'inline-block', padding: '5px 13px', borderRadius: '100px',
+                            fontSize: '12px', margin: '3px 4px 3px 0', fontWeight: 500,
+                            border: `1px solid ${hoveredConcept === ci ? layer.color + '70' : layer.color + '30'}`,
+                            color: layer.color,
+                            background: hoveredConcept === ci ? `${layer.color}1a` : `${layer.color}0d`,
+                            boxShadow: hoveredConcept === ci ? `0 0 12px ${layer.color}30` : 'none',
+                            fontFamily: "'Inter', sans-serif",
+                            cursor: 'default',
+                            transition: 'all 0.2s',
+                          }}>{c}</span>
                       ))}
                     </div>
 
