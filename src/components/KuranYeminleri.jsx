@@ -2,8 +2,29 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN } from '../tokens';
 
-const TABS_TR = ['Kategoriler', 'Derinlik Analizi', 'Sûre Dağılımı', 'İbn Kayyim', 'Kaynaklar'];
-const TABS_EN = ['Categories', 'Depth Analysis', 'Surah Distribution', 'Ibn Qayyim', 'Sources'];
+// Tab definitions with mini SVG icons for visual affordance
+const TABS = [
+  {
+    tr: 'Kategoriler', en: 'Categories',
+    icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>,
+  },
+  {
+    tr: 'Derinlik Analizi', en: 'Depth Analysis',
+    icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>,
+  },
+  {
+    tr: 'Sûre Dağılımı', en: 'Surah Distribution',
+    icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>,
+  },
+  {
+    tr: 'İbn Kayyim', en: 'Ibn Qayyim',
+    icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>,
+  },
+  {
+    tr: 'Kaynaklar', en: 'Sources',
+    icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>,
+  },
+];
 
 export default function KuranYeminleri({ onClose }) {
   const { language } = useLanguage();
@@ -55,8 +76,6 @@ export default function KuranYeminleri({ onClose }) {
   }
 
   const { meta, categories, depthAnalysis, ibnQayyim, sources } = data;
-  const TABS = language === 'tr' ? TABS_TR : TABS_EN;
-
   return (
     <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
 
@@ -131,7 +150,7 @@ export default function KuranYeminleri({ onClose }) {
               { value: meta.totalOaths, labelTr: 'Yemin İfadesi', labelEn: 'Oath Expressions', color: COLORS.gold },
               { value: meta.categoriesCount, labelTr: 'Kategori', labelEn: 'Categories', color: '#3498db' },
               { value: meta.surahsWithOaths, labelTr: 'Yemin İçeren Sûre', labelEn: 'Surahs with Oaths', color: '#2ecc71' },
-              { value: meta.maxOathsInSurah, labelTr: `${meta.maxOathsSurahName} Suresi`, labelEn: `Surah ${meta.maxOathsSurahName}`, color: '#e74c3c' },
+              { value: meta.maxOathsInSurah, labelTr: `${meta.maxOathsSurahName} Sûresi`, labelEn: `Surah ${meta.maxOathsSurahName}`, color: '#e74c3c' },
             ].map((s, i) => (
               <div key={i} style={{
                 background: `${s.color}10`,
@@ -154,35 +173,47 @@ export default function KuranYeminleri({ onClose }) {
         {/* ── TAB BAR — directly above tab content ────────────────────── */}
         <div style={{
           display: 'flex',
-          gap: '4px',
-          padding: '0 16px',
+          gap: '2px',
+          padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          background: 'rgba(0,0,0,0.3)',
+          background: 'rgba(10,10,26,0.97)',
+          backdropFilter: 'blur(20px)',
           overflowX: 'auto',
           scrollbarWidth: 'none',
           flexShrink: 0,
         }}>
-          {TABS.map((tab, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveTab(i)}
-              style={{
-                flexShrink: 0,
-                padding: '10px 16px',
-                border: 'none',
-                background: 'transparent',
-                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                color: activeTab === i ? COLORS.gold : COLORS.silver,
-                fontSize: '0.82rem',
-                fontWeight: activeTab === i ? 600 : 400,
-                fontFamily: FONTS.body,
-                cursor: 'pointer',
-                transition: 'all 0.15s',
-              }}
-            >
-              {tab}
-            </button>
-          ))}
+          {TABS.map((tab, i) => {
+            const isActive = activeTab === i;
+            return (
+              <button
+                key={i}
+                onClick={() => setActiveTab(i)}
+                style={{
+                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: isMobile ? '12px 14px' : '13px 22px',
+                  border: 'none',
+                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
+                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                  borderRadius: '0',
+                  color: isActive ? COLORS.gold : COLORS.silver,
+                  fontSize: isMobile ? '0.85rem' : '0.9rem',
+                  fontFamily: FONTS.body,
+                  fontWeight: isActive ? 600 : 400,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s',
+                  whiteSpace: 'nowrap',
+                }}
+                onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+                onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
+              >
+                <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
+                {!isMobile && <span>{language === 'tr' ? tab.tr : tab.en}</span>}
+              </button>
+            );
+          })}
         </div>
 
         {/* ── TAB CONTENT ───────────────────────────────────────────────── */}
@@ -223,7 +254,7 @@ export default function KuranYeminleri({ onClose }) {
             <TabDerinlik depthAnalysis={depthAnalysis} language={language} isMobile={isMobile} />
           )}
 
-          {/* Tab 2: Sure Dağılımı */}
+          {/* Tab 2: Sûre Dağılımı */}
           {activeTab === 2 && (
             <TabSureDagilimi categories={categories} language={language} isMobile={isMobile} />
           )}
@@ -265,7 +296,8 @@ export default function KuranYeminleri({ onClose }) {
 // ── Radial Visualization ───────────────────────────────────────────────────────
 
 function RadialViz({ categories, activeCategoryId, onSelect, language }) {
-  const cx = 220, cy = 220, r = 160, innerR = 70;
+  const [hovered, setHovered] = useState(null);
+  const cx = 200, cy = 200, r = 150, innerR = 80;
   const total = categories.reduce((s, c) => s + c.items.length, 0);
 
   const segments = categories.reduce((acc, cat) => {
@@ -276,12 +308,12 @@ function RadialViz({ categories, activeCategoryId, onSelect, language }) {
     return acc;
   }, []);
 
-  function arcPath(sa, ea, rOuter, rInner, cx, cy, gap = 0.025) {
+  function arcPath(sa, ea, rOuter, rInner, cxp, cyp, gap = 0.02) {
     const sa2 = sa + gap, ea2 = ea - gap;
-    const x1 = cx + rOuter * Math.cos(sa2), y1 = cy + rOuter * Math.sin(sa2);
-    const x2 = cx + rOuter * Math.cos(ea2), y2 = cy + rOuter * Math.sin(ea2);
-    const x3 = cx + rInner * Math.cos(ea2), y3 = cy + rInner * Math.sin(ea2);
-    const x4 = cx + rInner * Math.cos(sa2), y4 = cy + rInner * Math.sin(sa2);
+    const x1 = cxp + rOuter * Math.cos(sa2), y1 = cyp + rOuter * Math.sin(sa2);
+    const x2 = cxp + rOuter * Math.cos(ea2), y2 = cyp + rOuter * Math.sin(ea2);
+    const x3 = cxp + rInner * Math.cos(ea2), y3 = cyp + rInner * Math.sin(ea2);
+    const x4 = cxp + rInner * Math.cos(sa2), y4 = cyp + rInner * Math.sin(sa2);
     const lg = ea2 - sa2 > Math.PI ? 1 : 0;
     return `M ${x1} ${y1} A ${rOuter} ${rOuter} 0 ${lg} 1 ${x2} ${y2} L ${x3} ${y3} A ${rInner} ${rInner} 0 ${lg} 0 ${x4} ${y4} Z`;
   }
@@ -290,89 +322,159 @@ function RadialViz({ categories, activeCategoryId, onSelect, language }) {
     return { x: cx + rLabel * Math.cos(midAngle), y: cy + rLabel * Math.sin(midAngle) };
   }
 
+  const highlighted = hovered || activeCategoryId;
+
   return (
     <div style={{
       display: 'flex',
       alignItems: 'center',
-      gap: '32px',
-      padding: '24px 32px',
-      background: 'rgba(0,0,0,0.15)',
+      gap: '48px',
+      padding: '32px 40px',
+      background: 'linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.08) 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+      borderRadius: '16px',
+      margin: '0 0 2px',
     }}>
       {/* SVG donut */}
-      <div style={{ flexShrink: 0 }}>
-        <svg width="440" height="440" viewBox="0 0 440 440">
+      <div style={{ flexShrink: 0, position: 'relative' }}>
+        <svg width="400" height="400" viewBox="0 0 400 400">
+          <defs>
+            {categories.map(cat => (
+              <filter key={`glow-${cat.id}`} id={`glow-${cat.id}`}>
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            ))}
+            <filter id="innerShadow">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+              <feOffset dx="0" dy="2" />
+              <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" />
+              <feFlood floodColor="rgba(0,0,0,0.4)" />
+              <feComposite in2="SourceGraphic" operator="in" />
+              <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+            </filter>
+          </defs>
+
           {segments.map(({ cat, startAngle: sa, endAngle: ea, midAngle }) => {
-            const isActive = cat.id === activeCategoryId;
-            const ro = isActive ? r + 12 : r;
-            const path = arcPath(sa, ea, ro, innerR, cx, cy);
-            const lp = labelPos(midAngle, (ro + innerR) / 2 + 4);
+            const isActive = cat.id === highlighted;
+            const isHov = cat.id === hovered;
+            const ro = isActive ? r + 8 : r;
+            const ri = isActive ? innerR - 4 : innerR;
+            const path = arcPath(sa, ea, ro, ri, cx, cy);
+            const lp = labelPos(midAngle, (ro + ri) / 2 + 2);
+            const opacity = highlighted && !isActive ? 0.35 : isActive ? 1 : 0.65;
             return (
-              <g key={cat.id} onClick={() => onSelect(cat.id)} style={{ cursor: 'pointer' }}>
+              <g key={cat.id}
+                onClick={() => onSelect(cat.id)}
+                onMouseEnter={() => setHovered(cat.id)}
+                onMouseLeave={() => setHovered(null)}
+                style={{ cursor: 'pointer' }}
+              >
                 <path
                   d={path}
-                  fill={isActive ? cat.accent : `${cat.accent}55`}
-                  stroke={isActive ? cat.accent : 'transparent'}
-                  strokeWidth={isActive ? 1.5 : 0}
-                  style={{ transition: 'all 0.25s' }}
+                  fill={cat.accent}
+                  opacity={opacity}
+                  filter={isActive ? `url(#glow-${cat.id})` : undefined}
+                  style={{ transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)' }}
                 />
+                {isActive && (
+                  <path
+                    d={path}
+                    fill="none"
+                    stroke={cat.accent}
+                    strokeWidth="1.5"
+                    opacity="0.6"
+                    style={{ transition: 'all 0.3s' }}
+                  />
+                )}
                 <text
                   x={lp.x} y={lp.y}
                   textAnchor="middle" dominantBaseline="middle"
-                  fill={isActive ? '#0a0a1a' : COLORS.offWhite}
-                  fontSize={isActive ? '11' : '10'}
-                  fontWeight={isActive ? '700' : '500'}
+                  fill={isActive ? '#fff' : 'rgba(255,255,255,0.85)'}
+                  fontSize={isActive ? '13' : '11'}
+                  fontWeight="700"
                   fontFamily={FONTS.body}
-                  style={{ pointerEvents: 'none', transition: 'all 0.25s' }}
+                  opacity={opacity}
+                  style={{ pointerEvents: 'none', transition: 'all 0.3s', textShadow: isActive ? '0 1px 4px rgba(0,0,0,0.5)' : 'none' }}
                 >
                   {cat.items.length}
                 </text>
+                {isHov && !activeCategoryId && (
+                  <text
+                    x={cx} y={cy + 28}
+                    textAnchor="middle" dominantBaseline="middle"
+                    fill={cat.accent}
+                    fontSize="10"
+                    fontWeight="600"
+                    fontFamily={FONTS.body}
+                    style={{ pointerEvents: 'none' }}
+                  >
+                    {language === 'tr' ? cat.tr : cat.en}
+                  </text>
+                )}
               </g>
             );
           })}
-          {/* Center */}
-          <circle cx={cx} cy={cy} r={innerR - 6} fill="rgba(10,10,26,0.9)" />
-          <text x={cx} y={cy - 10} textAnchor="middle" fill={COLORS.gold} fontSize="28" fontWeight="700" fontFamily={FONTS.body}>
-            {categories.reduce((s, c) => s + c.items.length, 0)}
+
+          {/* Center circle with subtle depth */}
+          <circle cx={cx} cy={cy} r={innerR - 8} fill="#0a0a1a" />
+          <circle cx={cx} cy={cy} r={innerR - 8} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
+          <text x={cx} y={cy - 8} textAnchor="middle" fill={COLORS.gold} fontSize="32" fontWeight="800" fontFamily={FONTS.body}
+            style={{ textShadow: '0 0 20px rgba(212,165,116,0.3)' }}>
+            {total}
           </text>
-          <text x={cx} y={cy + 14} textAnchor="middle" fill={COLORS.slate500} fontSize="10" fontFamily={FONTS.body}>
-            {language === 'tr' ? 'yemin' : 'oaths'}
+          <text x={cx} y={cy + 16} textAnchor="middle" fill="rgba(148,163,184,0.6)" fontSize="11" fontWeight="500" fontFamily={FONTS.body} letterSpacing="0.1em">
+            {language === 'tr' ? 'YEMİN' : 'OATHS'}
           </text>
         </svg>
       </div>
 
       {/* Legend */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', minWidth: '200px' }}>
-        <div style={{ color: COLORS.slate500, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '4px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '220px' }}>
+        <div style={{
+          color: 'rgba(148,163,184,0.5)', fontSize: '0.6rem', fontWeight: 700,
+          letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: FONTS.body,
+          marginBottom: '8px', paddingLeft: '12px',
+        }}>
           {language === 'tr' ? 'Kategoriler' : 'Categories'}
         </div>
         {categories.map(cat => {
-          const isActive = cat.id === activeCategoryId;
+          const isActive = cat.id === highlighted;
           return (
             <button
               key={cat.id}
               onClick={() => onSelect(cat.id)}
+              onMouseEnter={() => setHovered(cat.id)}
+              onMouseLeave={() => setHovered(null)}
               style={{
-                display: 'flex', alignItems: 'center', gap: '10px',
-                padding: '8px 12px', borderRadius: '8px', border: 'none',
-                background: isActive ? `${cat.accent}18` : 'transparent',
-                cursor: 'pointer', transition: 'all 0.15s', textAlign: 'left',
-                borderLeft: `3px solid ${isActive ? cat.accent : 'transparent'}`,
+                display: 'flex', alignItems: 'center', gap: '12px',
+                padding: '10px 14px', borderRadius: '10px', border: 'none',
+                background: isActive ? `${cat.accent}14` : 'transparent',
+                cursor: 'pointer', transition: 'all 0.2s ease', textAlign: 'left',
+                outline: isActive ? `1px solid ${cat.accent}30` : '1px solid transparent',
               }}
             >
               <span style={{
-                width: '8px', height: '8px', borderRadius: '50%',
+                width: '10px', height: '10px', borderRadius: '50%',
                 background: cat.accent, flexShrink: 0,
+                boxShadow: isActive ? `0 0 8px ${cat.accent}60` : 'none',
+                transition: 'box-shadow 0.2s',
               }} />
               <span style={{
-                color: isActive ? cat.accent : COLORS.offWhite,
-                fontSize: '0.83rem', fontFamily: FONTS.body,
+                color: isActive ? COLORS.offWhite : 'rgba(232,230,227,0.65)',
+                fontSize: '0.85rem', fontFamily: FONTS.body,
                 fontWeight: isActive ? 600 : 400,
                 flex: 1,
+                transition: 'color 0.2s',
               }}>
                 {language === 'tr' ? cat.tr : cat.en}
               </span>
-              <span style={{ color: isActive ? cat.accent : COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+              <span style={{
+                color: isActive ? cat.accent : 'rgba(148,163,184,0.5)',
+                fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 700,
+                minWidth: '24px', textAlign: 'right',
+                transition: 'color 0.2s',
+              }}>
                 {cat.items.length}
               </span>
             </button>
@@ -581,7 +683,7 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
   );
 }
 
-// ── Tab: Sure Dağılımı ────────────────────────────────────────────────────────
+// ── Tab: Sûre Dağılımı ────────────────────────────────────────────────────────
 
 function TabSureDagilimi({ categories, language, isMobile }) {
   // Build surah distribution from all items
@@ -602,7 +704,7 @@ function TabSureDagilimi({ categories, language, isMobile }) {
     <div>
       <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: '0 0 24px' }}>
         {language === 'tr'
-          ? `${sorted.length} farklı surede toplam ${total} yemin ifadesi bulunuyor. ${sorted[0]?.[0]} en fazla yemin içeren suredir.`
+          ? `${sorted.length} farklı sûrede toplam ${total} yemin ifadesi bulunuyor. ${sorted[0]?.[0]} en fazla yemin içeren sûredir.`
           : `${total} oath expressions are found across ${sorted.length} different surahs. ${sorted[0]?.[0]} contains the most oaths.`
         }
       </p>
@@ -610,7 +712,7 @@ function TabSureDagilimi({ categories, language, isMobile }) {
       {/* Stat callouts */}
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)', gap: '12px', marginBottom: '28px' }}>
         {[
-          { value: sorted.length, labelTr: 'Sure', labelEn: 'Surahs', color: COLORS.gold },
+          { value: sorted.length, labelTr: 'Sûre', labelEn: 'Surahs', color: COLORS.gold },
           { value: total, labelTr: 'Toplam Yemin', labelEn: 'Total Oaths', color: '#3498db' },
           { value: sorted[0]?.[0], labelTr: 'En Çok Yemin', labelEn: 'Most Oaths', color: '#2ecc71', small: true },
           { value: sorted[0]?.[1].count, labelTr: `${sorted[0]?.[0]} Yemini`, labelEn: `${sorted[0]?.[0]} Oaths`, color: '#e74c3c' },
@@ -618,6 +720,7 @@ function TabSureDagilimi({ categories, language, isMobile }) {
           <div key={i} style={{
             background: `${s.color}10`, border: `1px solid ${s.color}25`,
             borderRadius: '10px', padding: '14px', textAlign: 'center',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
           }}>
             <div style={{ color: s.color, fontSize: s.small ? '1rem' : '1.6rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1 }}>
               {s.value}
