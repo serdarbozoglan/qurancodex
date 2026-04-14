@@ -58,6 +58,14 @@ const PaletteIcon = ({ size = 18 }) => (
   </svg>
 );
 
+const PrismIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="12 2 22 20 2 20" />
+    <line x1="12" y1="2" x2="12" y2="20" />
+    <line x1="7" y1="11" x2="17" y2="11" opacity="0.5" />
+  </svg>
+);
+
 const ScrollIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M8 3H6a2 2 0 0 0-2 2v3a2 2 0 0 1-2 2H1m6 0h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H7M14 21h6a2 2 0 0 0 2-2v-3a2 2 0 0 1 2-2h1m-6 0h-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2" />
@@ -202,6 +210,15 @@ export const EXPLORE_CATEGORIES = [
         titleTr: "Kur'an'ın Renkleri",    titleEn: 'Colors of the Quran',
         descTr: '~80 ayet · 11 renk evreni',
         descEn: '~80 verses · 11 color domains',
+      },
+      {
+        id:     'furuk',
+        kind:   'overlay',
+        target: 'furuk',
+        icon:   PrismIcon,
+        titleTr: 'Furûk — Kelime Farkları', titleEn: 'Word Distinctions',
+        descTr: 'Aynı çeviri · farklı anlam',
+        descEn: 'Same translation · different meaning',
       },
     ],
   },
