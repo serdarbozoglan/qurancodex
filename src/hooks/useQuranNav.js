@@ -50,6 +50,8 @@ const OVERLAY_EVENTS = {
   commands:   'openSurahCommands',
   comparator: 'openSurahComparator',
   diyalog:    'openDiyalogAgi',
+  furuk:      'openFurukAtlasi',
+  munasebat:  'openMunasebatAtlasi',
 };
 
 export function useQuranNav() {

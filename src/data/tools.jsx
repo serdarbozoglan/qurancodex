@@ -4,7 +4,7 @@
 //
 //   FEATURED_TOOL  → "Kur'an'ı Tanı" (WowFacts), promoted at the top
 //   VIZ_TOOLS      → "Görselleştirme"     (5 tools)
-//   ANALYSIS_TOOLS → "Analiz & Veri"      (6 tools)
+//   ANALYSIS_TOOLS → "Analiz & Veri"      (7 tools)
 //   RESEARCH_TOOLS → "Araştırma & Keşif"  (4 tools)
 //
 // Order is intentional and shared across navbar and modal — change it once
@@ -114,6 +114,14 @@ const SureDnaIcon = ({ size = 14 }) => (
   </svg>
 );
 
+const MunasebatIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="7"  cy="12" r="4" />
+    <circle cx="17" cy="12" r="4" />
+    <path d="M11 12h2" />
+  </svg>
+);
+
 const AddresseeIcon = ({ size = 14 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -165,6 +173,14 @@ const CommandsIcon = ({ size = 14 }) => (
 const DuaIcon = ({ size = 14 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+);
+
+const FurukIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="12 2 22 20 2 20" />
+    <line x1="12" y1="2" x2="12" y2="20" />
+    <line x1="7" y1="11" x2="17" y2="11" opacity="0.5" />
   </svg>
 );
 
@@ -255,11 +271,11 @@ export const VIZ_TOOLS = [
   },
 ];
 
-// ── Analiz & Veri (5) ────────────────────────────────────────────────────────
-// Order: Esma → Kavram → Sûre DNA → Muhatap → Diyalog
+// ── Analiz & Veri (7) ────────────────────────────────────────────────────────
+// Order: Esma → Furûk → Kavram → Sûre DNA → Münâsebât → Muhatap → Diyalog
 // Kıraat used to live here but was moved to Görselleştirme — see that section.
-// Diyalog Ağı is the orphan card now (5th of 5), so its descLong is intentionally
-// the longest in this category to fill the spanned full-width row.
+// Münâsebât sits right below Sûre DNA by design: DNA compares any two surahs,
+// Münâsebât reveals the discipline-backed connections between specific pairs.
 export const ANALYSIS_TOOLS = [
   {
     id:          'esma-frekans',
@@ -271,6 +287,17 @@ export const ANALYSIS_TOOLS = [
     descLongTr:  "Allah'ın 99 ismi Kur'an'da kaç kez geçer ve hangi bağlamda? Frekans grafiği ve bağlamsal analiz: Rahman ile Kahhar'ın geçtiği ayetler nasıl farklılaşıyor?",
     descLongEn:  "How often does each of God's 99 names appear in the Quran, and in what context? Frequency chart plus contextual analysis: how do verses with Ar-Rahman differ from those with Al-Qahhar?",
     icon:        EsmaIcon,
+  },
+  {
+    id:          'furuk-atlasi',
+    event:       'openFurukAtlasi',
+    titleTr:     'Furûk — Kelime Farkları',
+    titleEn:     'Word Distinctions Atlas',
+    descTr:      'Aynı çeviri, farklı anlam · kelime aileleri',
+    descEn:      'Same translation, different meaning · word families',
+    descLongTr:  "Matar ve ğays ikisi de 'yağmur', ama biri azap, diğeri rahmet. Havf ve haşye ikisi de 'korku', ama birincisi hareket, ikincisi sakinlik. Türkçe çevirisi aynı — Arapça'da farklı anlam taşıyan kelimeler. Her kelimenin tüm ayet geçişlerini göster — örüntüyü kendin gör.",
+    descLongEn:  "Matar and ghayth are both 'rain', but one is punishment, the other mercy. Khawf and khashya are both 'fear', but one produces movement, the other stillness. Same translation — different meanings in Arabic. Explore every verse occurrence and see the pattern yourself.",
+    icon:        FurukIcon,
   },
   {
     id:          'concept-graph',
@@ -293,6 +320,17 @@ export const ANALYSIS_TOOLS = [
     descLongTr:  "İki sûreyi yan yana koy: ortak kelimeler, ortak temalar, ritmik benzerlik. Hangi sûreler birbirinin DNA'sını paylaşıyor, hangileri farklı evrenlerden?",
     descLongEn:  "Place two surahs side by side: shared vocabulary, shared themes, rhythmic similarity. Which surahs share DNA, which come from different worlds?",
     icon:        SureDnaIcon,
+  },
+  {
+    id:          'munasebat',
+    event:       'openMunasebatAtlasi',
+    titleTr:     'Münâsebât — Sure Bağlantıları',
+    titleEn:     'Munāsabāt — Surah Connections',
+    descTr:      '114 sure · tematik/dilsel bağlar · ikiz sureler',
+    descEn:      '114 surahs · thematic & linguistic ties · paired surahs',
+    descLongTr:  "114 sure rastgele dizilmiş değil. Zehrâvân (Bakara-Âl-i İmrân), Muavvizeteyn (Felak-Nâs), Teselli İkizleri (Duhâ-İnşirâh), Fîl-Kureyş tek soluğu — klasik âlimlerin ilmü'l-münâsebât'ı. Râzî, Bikā'î, Süyûtî kaynaklarına dayalı bağlantı atlası.",
+    descLongEn:  "The 114 surahs are not randomly ordered. Az-Zahrāwān (Baqara-Āl ʿImrān), al-Muʿawwidhatān (Falaq-Nās), the Comfort Twins (Ḍuḥā-Sharḥ), Fīl-Quraysh as one breath — the classical discipline of ʿilm al-munāsabāt. An atlas of connections drawn from al-Rāzī, al-Biqāʿī, al-Suyūṭī.",
+    icon:        MunasebatIcon,
   },
   {
     id:          'addressee-system',

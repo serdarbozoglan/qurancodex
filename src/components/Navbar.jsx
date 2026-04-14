@@ -37,6 +37,8 @@ const KiraatAtlasi  = lazy(() => import('./KiraatAtlasi'));
 const DiyalogAgi    = lazy(() => import('./DiyalogAgi'));
 const MeselAtlasi   = lazy(() => import('./MeselAtlasi'));
 const SebebiNuzul   = lazy(() => import('./SebebiNuzul'));
+const FurukAtlasi   = lazy(() => import('./FurukAtlasi'));
+const MunasebatAtlasi = lazy(() => import('./MunasebatAtlasi'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -207,6 +209,8 @@ export default function Navbar() {
   const [diyalogOpen,  setDiyalogOpen]  = useState(false);
   const [meselOpen,    setMeselOpen]    = useState(false);
   const [sebebOpen,    setSebebOpen]    = useState(false);
+  const [furukOpen,    setFurukOpen]    = useState(false);
+  const [munasebatOpen, setMunasebatOpen] = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -320,6 +324,8 @@ export default function Navbar() {
       ['openYeminler',         () => setYeminlerOpen(true)],
       ['openMelekler',         () => setMeleklerOpen(true)],
       ['openRenkler',          () => setRenkleriOpen(true)],
+      ['openFurukAtlasi',      () => setFurukOpen(true)],
+      ['openMunasebatAtlasi',  () => setMunasebatOpen(true)],
       ['openZamanBoyutlari',   () => setZamanOpen(true)],
       ['openDogaAtlasi',       () => setDogaOpen(true)],
       ['openKiyametSahneleri', () => setKiyametOpen(true)],
@@ -365,7 +371,7 @@ export default function Navbar() {
   //      so this doesn't double-close anything. Loop-safe: setState isn't
   //      called from this branch, so the effect doesn't re-run.
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen || furukOpen || munasebatOpen;
     const alreadyOnOverlayEntry = window.history.state?.overlay === true;
     if (anyOpen) {
       // Only push a fresh overlay sentinel when we're NOT already sitting
@@ -385,7 +391,7 @@ export default function Navbar() {
       // active anymore — pop it so listeners get notified.
       window.history.back();
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -432,6 +438,8 @@ export default function Navbar() {
       if (cennetOpen)     { setCennetOpen(false);          return; }
       if (meleklerOpen)   { setMeleklerOpen(false);        return; }
       if (renkleriOpen)   { setRenkleriOpen(false);        return; }
+      if (furukOpen)      { setFurukOpen(false);            return; }
+      if (munasebatOpen)  { setMunasebatOpen(false);        return; }
       if (kiyametOpen)    { setKiyametOpen(false);          return; }
       if (retorigiOpen)   { setRetorigiOpen(false);        return; }
       if (kiraatOpen) {
@@ -467,7 +475,7 @@ export default function Navbar() {
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -532,6 +540,8 @@ export default function Navbar() {
     openDiyalogAgi:      () => setDiyalogOpen(true),
     openMeselAtlas:      () => setMeselOpen(true),
     openSebebNuzul:      () => setSebebOpen(true),
+    openFurukAtlasi:     () => setFurukOpen(true),
+    openMunasebatAtlasi: () => setMunasebatOpen(true),
   };
 
   // Adapt an imported tool entry to the shape Navbar's existing toolBtn renderer
@@ -656,6 +666,7 @@ export default function Navbar() {
                       melekler: 'openMelekler',
                       kiyamet:  'openKiyametSahneleri',
                       cennet:   'openCennetCehennem',
+                      furuk:    'openFurukAtlasi',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;
@@ -1363,6 +1374,16 @@ export default function Navbar() {
     {renkleriOpen && (
       <Suspense fallback={null}>
         <KuranRenkleri onClose={() => setRenkleriOpen(false)} />
+      </Suspense>
+    )}
+    {furukOpen && (
+      <Suspense fallback={null}>
+        <FurukAtlasi onClose={() => setFurukOpen(false)} />
+      </Suspense>
+    )}
+    {munasebatOpen && (
+      <Suspense fallback={null}>
+        <MunasebatAtlasi onClose={() => setMunasebatOpen(false)} />
       </Suspense>
     )}
     {retorigiOpen && (
