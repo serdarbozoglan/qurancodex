@@ -666,7 +666,6 @@ export default function Navbar() {
                       melekler: 'openMelekler',
                       kiyamet:  'openKiyametSahneleri',
                       cennet:   'openCennetCehennem',
-                      furuk:    'openFurukAtlasi',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;
