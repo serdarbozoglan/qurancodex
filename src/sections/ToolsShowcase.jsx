@@ -21,9 +21,10 @@ export default function ToolsShowcase() {
   const { openOverlay } = useQuranNav();
 
   const openExplore = () => openOverlay('exploreMenu');
-  // Closing-layer "Araçlar" button → centered ToolsBrowser modal
-  // (same single mechanism as ToolsHighlight's "Tüm Araçları Gör")
-  const openTools   = () => openOverlay('allTools');
+  // Closing-layer "Araçlar" button → top navbar Araçlar dropdown (mirrors
+  // the "Keşfet" button above). Both buttons now open the navbar's own
+  // mega-menu so the bottom surface stays consistent with the top one.
+  const openTools   = () => openOverlay('toolsMenu');
 
   return (
     <SectionWrapper id="tools-showcase" noPadding className="py-[30px] px-6 md:px-12 lg:px-16">
