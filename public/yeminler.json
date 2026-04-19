@@ -959,16 +959,16 @@
     "bookEn": "Al-Tibyan fi Aqsam al-Quran",
     "cards": [
       {
-        "titleTr": "Delil Olarak Yemin",
-        "titleEn": "Oath as Evidence",
-        "bodyTr": "İbn Kayyim'e göre yeminler sadece bir yemin değil, aynı zamanda kanıttır. Güneşe yemin → güneşin varlığı, aydınlatması ve arındırıcılığı, ruhun arınabileceğinin delilidir. Allah hem şahit getirir hem de şahit olanı kendisi belirler.",
-        "bodyEn": "According to Ibn Qayyim, oaths are not just oaths but also evidence. Swearing by the sun → the sun's existence, its illumination and purifying power is evidence that the soul can be purified. God both brings forth the witness and determines who witnesses."
+        "titleTr": "İbn Kayyim'in Metodolojisi",
+        "titleEn": "Ibn Qayyim's Methodology",
+        "bodyTr": "İbn Kayyim her yemine üç soruyla yaklaşır: (1) Muqsam bihi'nin dilsel kökü ve anlamı nedir? (2) Muqsam aleyhi ile semantik bağı nasıl kuruluyor? (3) Bağlamda hangi retorik işlevi üstleniyor? Dilbilim (lugat), retorik (belâğa) ve akıl yürütmeyi birleştiren bu sistematik yaklaşım, modern metin analizinin öncüsü sayılır.",
+        "bodyEn": "Ibn Qayyim approaches every oath with three questions: (1) What is the linguistic root and meaning of the muqsam bihi? (2) How is its semantic connection to the muqsam alayhi formed? (3) What rhetorical function does it serve in context? This systematic approach — combining linguistics (lugha), rhetoric (balagha), and reasoning — is regarded as a precursor to modern textual analysis."
       },
       {
-        "titleTr": "Muqsam Bihi ve Muqsam Aleyhi",
-        "titleEn": "Subject and Purpose of Oath",
-        "bodyTr": "Her yeminin iki bileşeni vardır: muqsam bihi (yemin edilen şey) ve muqsam aleyhi (yemin edilen konu/sonuç). İkisi arasındaki anlam bağı keyfi değildir. Zaman'a yemin → insanın hüsranda olması. Ruh'a yemin → ruhun arınması. Bu eşleşmeler bilinçli ve derin bir anlam örgüsüdür.",
-        "bodyEn": "Each oath has two components: muqsam bihi (what is sworn by) and muqsam alayhi (what is asserted/the conclusion). The semantic link between the two is not arbitrary. Swearing by time → humanity's state of loss. By the soul → purification of the soul. These pairings are a conscious and deep web of meaning."
+        "titleTr": "Eserin Tarihsel Bağlamı",
+        "titleEn": "Historical Context of the Work",
+        "bodyTr": "\"et-Tibyân fî Aksâmi'l-Kur'an\" 14. yüzyılda Memlük Şam'ında yazıldı. Amacı: Kur'an'daki yeminlerin \"tesadüfi dolgu\" olduğunu iddia eden yorumlara karşı, her yemin seçiminin kasıtlı ve anlamlı olduğunu göstermek. O tarihten bu yana Kur'an yeminleri üzerine yazılan hemen her eserin başvurduğu temel kaynak kitaptır.",
+        "bodyEn": "\"Al-Tibyan fi Aqsam al-Quran\" was written in the 14th century in Mamluk Damascus. Its aim: to counter interpretations that dismissed Quranic oaths as \"incidental filler,\" showing instead that every oath choice is deliberate and meaningful. Since then, it has served as the foundational reference for virtually every work written on Quranic oaths."
       },
       {
         "titleTr": "Allah'ın Yemini vs İnsan Yemini",
