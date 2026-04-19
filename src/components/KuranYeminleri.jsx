@@ -1029,39 +1029,110 @@ function TabIbnKayyim({ ibnQayyim, language, isMobile }) {
         </div>
       </div>
 
-      {/* Pull quote */}
-      <div style={{
-        textAlign: 'center',
-        padding: isMobile ? '20px 12px' : '28px 48px',
-        marginBottom: '24px',
-      }}>
-        <p style={{
-          color: COLORS.offWhite,
-          fontSize: isMobile ? '1rem' : '1.2rem',
-          fontFamily: FONTS.display,
-          fontStyle: 'italic',
-          lineHeight: 1.8,
-          margin: 0,
-        }}>
-          {language === 'tr' ? ibnQayyim.pullQuoteTr : ibnQayyim.pullQuoteEn}
-        </p>
-      </div>
+      {/* Pull quote — a 3-clause logical chain */}
+      {(() => {
+        const raw = language === 'tr' ? ibnQayyim.pullQuoteTr : ibnQayyim.pullQuoteEn;
+        const clauses = (raw || '').replace(/^["""]/u, '').replace(/["""]$/u, '')
+          .split(/\.\s+/).map(s => s.trim()).filter(Boolean);
+        return (
+          <div style={{
+            position: 'relative',
+            padding: isMobile ? '28px 20px 24px' : '36px 48px 32px',
+            marginBottom: '28px',
+            borderTop: `1px solid ${COLORS.goldAlpha15}`,
+            borderBottom: `1px solid ${COLORS.goldAlpha15}`,
+            background: 'linear-gradient(180deg, rgba(212,165,116,0.02) 0%, transparent 60%, rgba(212,165,116,0.02) 100%)',
+          }}>
+            {/* Clause chain */}
+            <div style={{
+              display: 'flex', flexDirection: 'column',
+              alignItems: 'center', gap: '10px',
+              textAlign: 'center',
+            }}>
+              {clauses.map((clause, i) => (
+                <div key={i} style={{ display: 'contents' }}>
+                  <p style={{
+                    color: COLORS.offWhite,
+                    fontSize: isMobile ? '0.95rem' : '1.15rem',
+                    fontFamily: FONTS.display, fontStyle: 'italic',
+                    lineHeight: 1.55, margin: 0, maxWidth: '640px',
+                  }}>
+                    {clause}.
+                  </p>
+                  {i < clauses.length - 1 && (
+                    <div style={{
+                      color: COLORS.gold, fontSize: '0.9rem',
+                      opacity: 0.55, lineHeight: 1,
+                    }}>
+                      ↓
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
 
-      {/* Explanation cards */}
+            {/* Attribution */}
+            <div style={{
+              textAlign: 'center', marginTop: '20px',
+              fontSize: '0.72rem', fontWeight: 600,
+              color: COLORS.silver, fontFamily: FONTS.body,
+              letterSpacing: '0.06em',
+            }}>
+              — {language === 'tr' ? 'İbn Kayyim el-Cevziyye' : 'Ibn Qayyim al-Jawziyya'}
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* Explanation cards — match Derinlik Analizi card style */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
         {ibnQayyim.cards.map((card, i) => (
           <div key={i} style={{
-            background: COLORS.glassBg,
+            background: 'rgba(255,255,255,0.025)',
             border: `1px solid ${COLORS.glassBorder}`,
-            borderRadius: '10px',
-            padding: isMobile ? '16px' : '20px 24px',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            position: 'relative',
           }}>
-            <h4 style={{ color: COLORS.gold, fontSize: '0.9rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 10px' }}>
-              {language === 'tr' ? card.titleTr : card.titleEn}
-            </h4>
-            <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
-              {language === 'tr' ? card.bodyTr : card.bodyEn}
-            </p>
+            {/* Top accent line */}
+            <div style={{
+              height: '2px',
+              background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)`,
+            }} />
+
+            {/* Header with number badge + title */}
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: isMobile ? '12px' : '14px',
+              padding: isMobile ? '16px 16px 10px' : '20px 24px 12px',
+            }}>
+              <div style={{
+                width: '30px', height: '30px', borderRadius: '50%',
+                background: 'rgba(212,165,116,0.08)',
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '0.72rem', fontWeight: 800, color: COLORS.gold,
+                fontFamily: FONTS.body, flexShrink: 0, letterSpacing: '0.02em',
+              }}>
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <h4 style={{
+                color: COLORS.gold, fontSize: '0.95rem',
+                fontWeight: 700, fontFamily: FONTS.body,
+                margin: 0, lineHeight: 1.35,
+              }}>
+                {language === 'tr' ? card.titleTr : card.titleEn}
+              </h4>
+            </div>
+
+            {/* Body */}
+            <div style={{ padding: isMobile ? '0 16px 16px' : '0 24px 20px' }}>
+              <p style={{
+                color: COLORS.silver, fontSize: '0.88rem',
+                fontFamily: FONTS.body, lineHeight: 1.75, margin: 0,
+              }}>
+                {language === 'tr' ? card.bodyTr : card.bodyEn}
+              </p>
+            </div>
           </div>
         ))}
       </div>
