@@ -845,6 +845,39 @@
   ],
   "depthAnalysis": [
     {
+      "id": "qasamul-quran",
+      "titleTr": "Aksâmü'l-Kur'an Geleneği",
+      "titleEn": "The Tradition of Quranic Oaths",
+      "arabic": "ق ۚ وَالْقُرْآنِ الْمَجِيدِ",
+      "mealTr": "Kaf. Yüce Kur'an'a yemin olsun ki... — Kaf 50:1",
+      "mealEn": "Qaf. By the glorious Quran... — Qaf 50:1",
+      "ref": "Kaf 50:1",
+      "bodyTr": "İbn Kayyim el-Cevziyye bu konuya özel 'et-Tibyân fî Aksâmi'l-Kur'an' adlı eserini yazmıştır. Zemahşerî, Râzî ve İbn Âşûr da yeminlerin retorik yapısını derinlemesine incelemiştir. Bu geleneğe göre Kur'ânî yemin üç temel işlev görür:",
+      "bodyEn": "Ibn Qayyim al-Jawziyya wrote a dedicated work on this topic: 'Al-Tibyan fi Aqsam al-Quran.' Zamakhshari, Razi, and Ibn Ashur also deeply analyzed the rhetorical structure of oaths. According to this tradition, the Quranic oath serves three core functions:",
+      "functions": [
+        {
+          "titleTr": "Dikkat Çekmek",
+          "titleEn": "Drawing Attention",
+          "descTr": "Yemin açılışı, dinleyicinin dikkatini anında gelen mesaja yöneltir. Sıradan bir ifadeye göre çok daha etkili bir retorik giriş sağlar.",
+          "descEn": "An oath opening instantly directs the listener's attention to the message that follows. It provides a far more powerful rhetorical entry than ordinary speech."
+        },
+        {
+          "titleTr": "Konunun Değerini Tescil Etmek",
+          "titleEn": "Certifying the Subject's Value",
+          "descTr": "Allah'ın üzerine yemin ettiği şey (güneş, yıldız, zaman…) o şeyin yüceliğini ve dikkatle düşünülmeye değer olduğunu tescil eder.",
+          "descEn": "Whatever Allah swears by (sun, stars, time…) is thereby certified as majestic and worthy of careful reflection."
+        },
+        {
+          "titleTr": "Mesajı Pekiştirmek",
+          "titleEn": "Reinforcing the Message",
+          "descTr": "Yemin cevabı (muqsam aleyhi), yeminle bir kanıt-mesaj bütünü oluşturur. Bu birleşme, mesajı tartışılmaz bir kesinliğe taşır.",
+          "descEn": "The oath's answer (muqsam alayhi) forms an evidence-and-message unity with the oath. This combination elevates the message to indisputable certainty."
+        }
+      ],
+      "closingTr": "Kur'an, beşerî yemin geleneğini aşan eşsiz bir form geliştirmiştir.",
+      "closingEn": "The Quran has developed a unique form that transcends the human oath tradition."
+    },
+    {
       "id": "muqsam-bihi",
       "titleTr": "Muqsam Bihi — Neye Yemin Edilir?",
       "titleEn": "Muqsam Bihi — What Is Sworn By?",
@@ -852,8 +885,58 @@
       "mealTr": "Eğer bilseydiniz bu gerçekten büyük bir yemindir. — Vâkıa 56:76",
       "mealEn": "And indeed, it is an oath, if you only knew, most great. — Al-Waqi'ah 56:76",
       "ref": "Vâkıa 56:76",
-      "bodyTr": "Kur'an'da yemin edilen şey (muqsam bihi) hiçbir zaman tesadüfi değildir. İbn Kayyim el-Cevziyye'nin tespitine göre yemin konusu ile yemin amacı (muqsam aleyhi) arasında derin bir anlam bağı vardır. Güneşe yemin → insan ruhunun arınması. Yıldızlara yemin → Kur'an'ın büyüklüğü. Zaman'a yemin → insanın hüsranı. Yemin edilen şey, sonucun en güçlü delili seçilmiştir.",
-      "bodyEn": "What is sworn by in the Quran (muqsam bihi) is never coincidental. According to Ibn Qayyim al-Jawziyya, there is a deep semantic connection between the subject of the oath and the purpose of the oath (muqsam alayhi). Swearing by the sun → purification of the human soul. By stars → greatness of the Quran. By time → humanity's loss. The sworn subject is chosen as the strongest evidence for the conclusion."
+      "bodyTr": "Kur'an'da yemin edilen şey (muqsam bihi) hiçbir zaman tesadüfi değildir. İbn Kayyim el-Cevziyye'nin tespitine göre yemin konusu ile yemin amacı (muqsam aleyhi) arasında derin bir anlam bağı vardır. Yemin edilen şey, sonucun en güçlü delili olarak seçilmiştir:",
+      "bodyEn": "What is sworn by in the Quran (muqsam bihi) is never coincidental. According to Ibn Qayyim al-Jawziyya, there is a deep semantic connection between the subject of the oath and the purpose of the oath (muqsam alayhi). The sworn subject is chosen as the strongest evidence for the conclusion:",
+      "examples": [
+        {
+          "subjectAr": "الشَّمْس",
+          "subjectTr": "Güneş",
+          "subjectEn": "Sun",
+          "purposeTr": "İnsan ruhunun arınması",
+          "purposeEn": "Purification of the human soul",
+          "contextTr": "Güneşin ışığı karanlığı giderir — arınmış nefis de iç karanlığı giderir. Güneş, arınmanın görünür delilidir.",
+          "contextEn": "Sunlight dispels darkness — a purified soul dispels inner darkness. The sun is the visible evidence of purification.",
+          "linkAr": "قَدْ أَفْلَحَ مَن زَكَّىٰهَا",
+          "linkTr": "Onu (nefsi) arındıran kurtulmuştur.",
+          "linkEn": "He who purifies it (the soul) has succeeded.",
+          "linkVerse": "91:9",
+          "linkIntroTr": "Sûre 7 kozmik yeminden sonra doğrudan nefis arınmasına bağlanır:",
+          "linkIntroEn": "After 7 cosmic oaths, the sura links directly to soul purification:",
+          "refShort": "Şems 91:1-10"
+        },
+        {
+          "subjectAr": "النَّجْم",
+          "subjectTr": "Yıldızlar",
+          "subjectEn": "Stars",
+          "purposeTr": "Kur'an'ın büyüklüğü",
+          "purposeEn": "Greatness of the Quran",
+          "contextTr": "Her yıldızın kozmik düzen içinde kesin bir yeri (mevkii) vardır — Kur'an'ın her ayeti gibi. Hassas diziliş hassas dizilişi kanıtlar.",
+          "contextEn": "Every star has an exact position (mawqi') in the cosmic order — like every verse of the Quran. Precise arrangement proves precise arrangement.",
+          "linkAr": "إِنَّهُ لَقُرْآنٌ كَرِيمٌ",
+          "linkTr": "Şüphesiz o, değerli bir Kur'an'dır.",
+          "linkEn": "Indeed, it is a noble Quran.",
+          "linkVerse": "56:77",
+          "linkIntroTr": "Yemin iki ayet sonra doğrudan Kur'an'ın değerine bağlanır:",
+          "linkIntroEn": "Two verses later, the oath links directly to the Quran's nobility:",
+          "refShort": "Vâkıa 56:75-77"
+        },
+        {
+          "subjectAr": "الْعَصْر",
+          "subjectTr": "Zaman",
+          "subjectEn": "Time",
+          "purposeTr": "İnsanın hüsranı",
+          "purposeEn": "Humanity's loss",
+          "contextTr": "Zaman, hüsranın hem şahidi hem mekanizmasıdır. Her geçen saniye kaybın delilidir — yemin edilen şey kaybın kendisidir.",
+          "contextEn": "Time is both the witness and the mechanism of loss. Every passing second is evidence of loss — the subject sworn by is loss itself.",
+          "linkAr": "إِنَّ الْإِنسَانَ لَفِي خُسْرٍ",
+          "linkTr": "Muhakkak ki insan hüsrandadır.",
+          "linkEn": "Indeed, mankind is in loss.",
+          "linkVerse": "103:2",
+          "linkIntroTr": "Yemin hemen bir sonraki ayette hüsrana bağlanır:",
+          "linkIntroEn": "The oath links to loss in the very next verse:",
+          "refShort": "Asr 103:1-3"
+        }
+      ]
     },
     {
       "id": "laa-uqsimu",
@@ -865,24 +948,13 @@
       "ref": "Vâkıa 56:75",
       "bodyTr": "Kur'an'da bazı yeminler 'لَا أُقْسِمُ' ya da 'فَلَا أُقْسِمُ' formunda başlar. Görünürde olumsuz gibi görünen bu form (Yemin etmiyorum) aslında güçlendirilmiş bir yemin formudur; Arap belağatinde 'yemin etmeye bile gerek olmaksızın öyle açık bir gerçektir ki' anlamını taşır. Kıyame sûresi (75:1-2) bu formun en güçlü örneğidir.",
       "bodyEn": "Some oaths in the Quran begin with 'la uqsimu' or 'fa-la uqsimu.' This seemingly negative form (I do not swear) is actually an intensified oath form; in Arabic rhetoric it means 'this truth is so clear it doesn't even need an oath.' Surah Qiyamah (75:1-2) is the strongest example of this form."
-    },
-    {
-      "id": "qasamul-quran",
-      "titleTr": "Aksâmü'l-Kur'an Geleneği",
-      "titleEn": "The Tradition of Quranic Oaths",
-      "arabic": "ق ۚ وَالْقُرْآنِ الْمَجِيدِ",
-      "mealTr": "Kaf. Yüce Kur'an'a yemin olsun ki... — Kaf 50:1",
-      "mealEn": "Qaf. By the glorious Quran... — Qaf 50:1",
-      "ref": "Kaf 50:1",
-      "bodyTr": "İbn Kayyim el-Cevziyye bu konuya özel 'et-Tibyân fî Aksâmi'l-Kur'an' adlı eserini yazmıştır. Zemahşerî, Râzî ve İbn Âşûr da yeminlerin retorik yapısını derinlemesine incelemiştir. Yeminler üç işlev görür: (1) dikkat çekmek, (2) yemin konusunun değerini tescil etmek, (3) verilen mesajı pekiştirmek. Kur'an, beşerî yemin geleneğini aşan eşsiz bir form geliştirmiştir.",
-      "bodyEn": "Ibn Qayyim al-Jawziyya wrote a dedicated work on this topic: 'Al-Tibyan fi Aqsam al-Quran.' Zamakhshari, Razi, and Ibn Ashur also deeply analyzed the rhetorical structure of oaths. Oaths serve three functions: (1) drawing attention, (2) certifying the value of the subject sworn by, (3) reinforcing the message given. The Quran has developed a unique form that transcends the human oath tradition."
     }
   ],
   "ibnQayyim": {
     "thesisTr": "Allah yalnızca büyük şeylere yemin eder. Yemin edilen şeyde, mutlaka yemin amacının en güçlü delili vardır.",
     "thesisEn": "God swears only by great things. Within the thing sworn by, there is always the strongest evidence for the purpose of the oath.",
-    "pullQuoteTr": "\"Her yemin ettiği şey, bir delildir. Her delil, bir gerçeği işaret eder. Her gerçek, bir yaşam tarzını gerektirir.\"",
-    "pullQuoteEn": "\"Every thing sworn by is an evidence. Every evidence points to a truth. Every truth necessitates a way of life.\"",
+    "pullQuoteTr": "\"Her yemin ettiği şey, bir delildir. Her delil, bir gerçeği işaret eder. Her gerçek, iman ve amel ister.\"",
+    "pullQuoteEn": "\"Every thing sworn by is an evidence. Every evidence points to a truth. Every truth demands faith and action.\"",
     "bookTr": "et-Tibyân fî Aksâmi'l-Kur'an",
     "bookEn": "Al-Tibyan fi Aqsam al-Quran",
     "cards": [
