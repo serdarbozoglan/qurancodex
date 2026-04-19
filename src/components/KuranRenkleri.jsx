@@ -277,8 +277,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, scaleX: 0 }}
-                  whileInView={{ opacity: 1, scaleX: 1 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, scaleX: 1 }}
                   transition={{ duration: 0.6, delay: i * 0.3, ease: [0.4, 0, 0.2, 1] }}
                   style={{
                     flex: 1, background: s.hexColor, padding: '14px 8px',
