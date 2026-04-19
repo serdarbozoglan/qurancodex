@@ -130,3 +130,15 @@ export const GLASS_CARD_STRONG = {
   border:         `1px solid ${COLORS.glassBorder}`,
   borderRadius:   '12px',
 };
+
+// ── Verse display card ────────────────────────────────────────────────────────
+// Standard look for any card/box that presents a Quranic verse (Arabic + meal).
+// Transparent background keeps the cosmic-dark page color pure under Quran text
+// (matches Reading Mode aesthetic). A 3px gold left accent marks it as a verse
+// anchor visually. Use this everywhere a verse is shown.
+export const VERSE_DISPLAY_CARD = {
+  background:   'transparent',
+  border:       `1px solid ${COLORS.glassBorder}`,
+  borderLeft:   `3px solid ${COLORS.gold}`,
+  borderRadius: '8px',
+};

@@ -205,8 +205,9 @@ function TabKategoriler({ data, tr, isMobile }) {
       style={{
         padding: '14px 16px',
         marginBottom: 10,
-        background: 'rgba(255,255,255,0.03)',
-        border: `1px solid ${COLORS.glassBorderSoft}`,
+        background: 'transparent',
+        border: `1px solid ${COLORS.glassBorder}`,
+        borderLeft: `3px solid ${COLORS.gold}`,
         borderRadius: 8,
       }}
     >
@@ -215,7 +216,7 @@ function TabKategoriler({ data, tr, isMobile }) {
         style={{
           fontFamily: FONTS.quran,
           fontSize: isMobile ? '1.3rem' : '1.6rem',
-          color: COLORS.offWhite,
+          color: COLORS.gold,
           textAlign: 'right',
           lineHeight: 2,
           margin: '0 0 8px',
@@ -239,8 +240,8 @@ function TabKategoriler({ data, tr, isMobile }) {
       style={{
         padding: '12px 16px',
         marginBottom: 10,
-        background: 'rgba(255,255,255,0.03)',
-        border: `1px solid rgba(255,255,255,0.06)`,
+        background: 'transparent',
+        border: `1px solid ${COLORS.glassBorder}`,
         borderLeft: `3px solid ${catColor}`,
         borderRadius: 8,
       }}
@@ -255,7 +256,7 @@ function TabKategoriler({ data, tr, isMobile }) {
         </div>
         <p
           dir="rtl"
-          style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 1.9, margin: 0, flexShrink: 0 }}
+          style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: 0, flexShrink: 0 }}
         >
           {sp.arabicForm}
         </p>
@@ -406,7 +407,7 @@ function TabKategoriler({ data, tr, isMobile }) {
             <div style={{ marginBottom: 12 }}>
               <p
                 dir="rtl"
-                style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, margin: '0 0 4px' }}
+                style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 4px' }}
               >
                 {activeSpecial.arabicForm}
               </p>
@@ -430,7 +431,7 @@ function TabKategoriler({ data, tr, isMobile }) {
             {activeSpecial.usages.map((u, i) => (
               <div key={i} style={{ padding: '10px 14px', marginBottom: 8, background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
                 <div>
-                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: '0 0 4px' }}>
+                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: '0 0 4px' }}>
                     {u.conceptAr}
                   </p>
                   <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, margin: '0 0 2px', fontWeight: 600 }}>
@@ -457,9 +458,41 @@ function TabKategoriler({ data, tr, isMobile }) {
                 {tr ? `5 yetide toplam ~${activeSpecial.count} kullanım` : `~${activeSpecial.count} occurrences across 5 faculties`}
               </span>
             </div>
-            <p style={{ color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 24 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 16 }}>
               {tr ? activeSpecial.descTr : activeSpecial.descEn}
             </p>
+            {/* Compact 5-faculty summary grid */}
+            {activeSpecial.summaryGrid && (
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(5, 1fr)',
+                gap: 8,
+                marginBottom: 24,
+              }}>
+                {activeSpecial.summaryGrid.map((s, i) => (
+                  <div key={i} style={{
+                    padding: '10px 12px',
+                    borderRadius: 8,
+                    background: `${activeSpecial.color}10`,
+                    border: `1px solid ${activeSpecial.color}35`,
+                    display: 'flex', flexDirection: 'column', gap: 4,
+                  }}>
+                    <span style={{
+                      fontSize: '0.78rem', fontWeight: 700, color: activeSpecial.color,
+                      fontFamily: FONTS.body, letterSpacing: '0.02em',
+                    }}>
+                      {tr ? s.labelTr : s.labelEn}
+                    </span>
+                    <span style={{
+                      fontSize: '0.72rem', color: COLORS.silver,
+                      fontFamily: FONTS.body, lineHeight: 1.4,
+                    }}>
+                      {tr ? s.shortTr : s.shortEn}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
             {activeSpecial.faculties.map((f, i) => (
               <div key={i} style={{ padding: '14px 16px', marginBottom: 12, background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${activeSpecial.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, marginBottom: 6 }}>
@@ -468,7 +501,7 @@ function TabKategoriler({ data, tr, isMobile }) {
                       {tr ? f.meaningTr : f.meaningEn}
                     </p>
                   )}
-                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 1.9, margin: 0 }}>
+                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: 0, marginLeft: 'auto' }}>
                     {f.arabicForm}
                   </p>
                 </div>
@@ -483,10 +516,17 @@ function TabKategoriler({ data, tr, isMobile }) {
                     </p>
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '0.95rem', color: COLORS.gold, margin: '0 0 2px', lineHeight: 1.8 }}>
-                      {f.bestVerseAr}
-                    </p>
-                    <p style={{ color: `${COLORS.gold}70`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0 }}>— {f.bestVerseRef}</p>
+                    <span style={{
+                      display: 'inline-block',
+                      fontSize: '0.7rem', fontWeight: 600,
+                      color: activeSpecial.color,
+                      background: `${activeSpecial.color}18`,
+                      border: `1px solid ${activeSpecial.color}40`,
+                      padding: '3px 10px', borderRadius: 20,
+                      fontFamily: FONTS.body, letterSpacing: '0.02em',
+                    }}>
+                      {tr ? 'En iyi örnek' : 'Best example'}: {f.bestVerseRef}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -505,7 +545,7 @@ function TabKategoriler({ data, tr, isMobile }) {
                 {activeSpecial.count} {tr ? 'kullanım' : 'occurrences'}
               </span>
             </div>
-            <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, marginBottom: 8 }}>
+            <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, marginBottom: 8 }}>
               {activeSpecial.arabicForm}
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 24 }}>
@@ -513,7 +553,7 @@ function TabKategoriler({ data, tr, isMobile }) {
             </p>
             {activeSpecial.examples.map((ex, i) => (
               <div key={i} style={{ padding: '14px 16px', marginBottom: 10, background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${activeSpecial.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
-                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
                   {ex.ar}
                 </p>
                 <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
@@ -624,7 +664,7 @@ function TabMuhatap({ data, tr, isMobile }) {
                     {tr ? group.nameTr : group.nameEn}
                   </span>
                   {/* Arapça */}
-                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
                     {v.ar}
                   </p>
                   {/* Çeviri */}
@@ -783,7 +823,7 @@ function TabSorular({ data, tr, isMobile }) {
                   </span>
                 </div>
                 {/* Arapça */}
-                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
                   {q.ar}
                 </p>
                 {/* Çeviri */}

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, VERSE_DISPLAY_CARD } from '../tokens';
 
 // Tab definitions with mini SVG icons for visual affordance
 const TABS = [
@@ -691,12 +691,10 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
 
           {/* Body */}
           <div style={{ padding: isMobile ? '0 16px 20px' : '0 28px 26px' }}>
-            {/* Verse with gold left accent */}
+            {/* Verse with gold left accent — pure dark bg for Quran readability */}
             <div style={{
-              background: 'rgba(212,165,116,0.05)',
-              border: `1px solid ${COLORS.goldAlpha15}`,
-              borderLeft: `3px solid ${COLORS.gold}`,
-              borderRadius: '8px', padding: '14px 18px', marginBottom: '18px',
+              ...VERSE_DISPLAY_CARD,
+              padding: '14px 18px', marginBottom: '18px',
             }}>
               <div style={{
                 fontFamily: FONTS.quran, fontSize: isMobile ? '1.4rem' : '1.55rem',
@@ -794,8 +792,9 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
                     {ex.linkAr && (
                       <div style={{
                         marginTop: '6px', padding: '10px 12px',
-                        background: 'rgba(212,165,116,0.04)',
-                        border: `1px solid ${COLORS.goldAlpha15}`,
+                        background: 'transparent',
+                        border: `1px solid ${COLORS.glassBorder}`,
+                        borderLeft: `2px solid ${COLORS.gold}`,
                         borderRadius: '8px',
                         display: 'flex', flexDirection: 'column', gap: '6px',
                       }}>

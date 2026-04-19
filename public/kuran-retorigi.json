@@ -47,23 +47,6 @@
           ],
           "meaningTr": "Görmüyorlar mı?",
           "meaningEn": "Do they not see?"
-        },
-        {
-          "id": "men-ma",
-          "arabicForm": "مَنْ خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ",
-          "nameTr": "Men / Mâ Ailesi",
-          "nameEn": "Man / Ma Family",
-          "countTr": "~12 ayette",
-          "countEn": "~12 verses",
-          "noteTr": "Soruya muhatap kendi cevabını veriyor — Kur'an sessiz kalıyor. Lokman 31:25, Zümer 39:38, Ankebut 29:61'de kavim 'Allah' der; Kur'an kendi ağızlarından delil çıkarır.",
-          "noteEn": "The listener answers themselves — the Quran stays silent. In Luqman 31:25, Zumar 39:38, and Ankabut 29:61, the people say 'Allah'; the Quran uses their own mouths as proof.",
-          "surahs": [
-            "Lokman 31:25",
-            "Zümer 39:38",
-            "Ankebut 29:61"
-          ],
-          "meaningTr": "Gökleri ve yeri kim yarattı?",
-          "meaningEn": "Who created the heavens and earth?"
         }
       ],
       "exampleVerses": [
@@ -219,21 +202,20 @@
       "pct": 20,
       "nameTr": "Tevbih / Kınama",
       "nameEn": "Reproach / Tawbikh",
-      "descTr": "Tevbih sorusu kınamak için değil — susturmak için. Muhatabın itirazını kendi mantığıyla çürütür. 'Seni o Kerim Rabbine karşı ne aldattı?' sorusu cevap beklemez — cevap yok ki. İnkarcılara yönelik — hesap sorar, uyarır, sorumlu tutar.",
-      "descEn": "A reproach question is not designed to shame — but to silence. It refutes the listener's objection with their own logic. 'What deceived you about your Most Generous Lord?' expects no answer — because there is none. Directed at deniers — it demands accountability, warns, and holds responsible.",
+      "descTr": "Tevbih yalnızca kınama değil — susturmadır. Muhatabın itirazını kendi mantığıyla çürütür. 'Seni o Kerim Rabbine karşı ne aldattı?' sorusu cevap beklemez — cevap yok ki. İnkarcılara yönelik — hesap sorar, uyarır, sorumlu tutar.",
+      "descEn": "Tawbikh is not merely reproach — it is silencing. It refutes the listener's objection with their own logic. 'What deceived you about your Most Generous Lord?' expects no answer — because there is none. Directed at deniers — it demands accountability, warns, and holds responsible.",
       "subPatterns": [
         {
           "id": "ma-garrak",
           "arabicForm": "مَا غَرَّكَ بِرَبِّكَ الْكَرِيمِ",
           "nameTr": "Mâ Ğarrake Ailesi",
           "nameEn": "Ma Gharraka Family",
-          "countTr": "~3 ayette",
-          "countEn": "~3 verses",
-          "noteTr": "Kur'an'ın en kısa ve en güçlü tevbih sorusu. 4 kelimede tam bir suçlama + isim: 'el-Kerîm' — bu kadar Kerim Rabbe karşı nasıl aldanılır?",
-          "noteEn": "The Quran's shortest and most powerful reproach. Full accusation in 4 words + the name 'al-Karim' — how could anyone be deceived against such a Generous Lord?",
+          "countTr": "1 ayette (hapax)",
+          "countEn": "1 verse (hapax)",
+          "noteTr": "Kur'an'ın en kısa ve en güçlü tevbih sorusu. 4 kelimede tam bir suçlama + isim: 'el-Kerîm' — bu kadar Kerim Rabbe karşı nasıl aldanılır? Bu tam kalıp Kur'an'da yalnızca bir kez geçer.",
+          "noteEn": "The Quran's shortest and most powerful reproach. Full accusation in 4 words + the name 'al-Karim' — how could anyone be deceived against such a Generous Lord? This exact phrase appears only once in the Quran.",
           "surahs": [
-            "İnfitar 82:6",
-            "Hucurat 49:16"
+            "İnfitar 82:6"
           ],
           "meaningTr": "Seni Rabbine karşı ne aldattı?",
           "meaningEn": "What has deceived you about your Lord?"
@@ -241,15 +223,14 @@
         {
           "id": "eyne-tezhebun",
           "arabicForm": "فَأَيْنَ تَذْهَبُونَ",
-          "nameTr": "Eyney Tezhebûn Ailesi",
+          "nameTr": "Eyne Tezhebûn Ailesi",
           "nameEn": "Fa-ayna Tadhabun Family",
-          "countTr": "~3 ayette",
-          "countEn": "~3 verses",
-          "noteTr": "Yön kaybı metaforu — Kur'an orada, hakikat orada, nereye gidiyorsunuz?",
-          "noteEn": "A metaphor of losing direction — the Quran is here, truth is here, so where are you going?",
+          "countTr": "1 ayette (hapax)",
+          "countEn": "1 verse (hapax)",
+          "noteTr": "Yön kaybı metaforu — Kur'an orada, hakikat orada, nereye gidiyorsunuz? Bu tam kalıp Kur'an'da yalnızca bir kez geçer, Tekvir sûresinin kapanışında.",
+          "noteEn": "A metaphor of losing direction — the Quran is here, truth is here, so where are you going? This exact phrase appears only once in the Quran, at the close of Surah Al-Takwir.",
           "surahs": [
-            "Tekvir 81:26",
-            "Saffat 37:25"
+            "Tekvir 81:26"
           ],
           "meaningTr": "Nereye gidiyorsunuz?",
           "meaningEn": "Where then are you going?"
@@ -348,12 +329,12 @@
           "nameEn": "Heedlessness Wonder",
           "countTr": "~10 ayette",
           "countEn": "~10 verses",
-          "noteTr": "'Yoksa sizi boşuna yarattığımızı mı sandınız?' (Mü'minun 23:115) — anlamsızlık yanılgısına hayret.",
-          "noteEn": "'Did you think We created you in jest?' (Al-Mu'minun 23:115) — astonishment at the delusion of meaninglessness.",
+          "noteTr": "'İnsan başıboş bırakılacağını mı sanıyor?' (Kıyâme 75:36) — kendi amaçsızlığı yanılgısına hayret.",
+          "noteEn": "'Does man think he will be left without purpose?' (Al-Qiyamah 75:36) — astonishment at the delusion of one's own purposelessness.",
           "surahs": [
             "Kıyame 75:36",
             "Beled 90:7",
-            "Mü'minun 23:115"
+            "Mearic 70:38"
           ],
           "meaningTr": "İnsan başıboş bırakılacağını mı sanıyor?",
           "meaningEn": "Does man think he will be left without purpose?"
@@ -384,14 +365,6 @@
           "ref": "Rahman 55:13",
           "surah": 55,
           "ayah": 13
-        },
-        {
-          "ar": "فَأَيْنَ تَذْهَبُونَ",
-          "tr": "Nereye gidiyorsunuz?",
-          "en": "Where then are you going?",
-          "ref": "Tekvir 81:26",
-          "surah": 81,
-          "ayah": 26
         },
         {
           "ar": "أَيَحْسَبُ الْإِنسَانُ أَن يُتْرَكَ سُدًى",
@@ -561,8 +534,15 @@
       "nameTr": "Efela Ta'kılûn Ailesi — 5 Biliş Yetisi",
       "nameEn": "Afala Taʿqilun — 5 Cognitive Faculties",
       "count": 54,
-      "descTr": "Bu beş yeti Kur'an'ın insan bilişini nasıl sınıflandırdığını gösterir. Ta'kıl = soyut akıl. Tefekkür = derin analiz. Tezekkür = bellek + öğüt. Basar = gözlem. Semi' = dinleme/itaat. Her biri farklı bir bilgi edinme yolu — Kur'an hepsini ayrı ayrı çağırır.",
-      "descEn": "These five faculties show how the Quran classifies human cognition. Taʿqil = abstract reason. Tafakkur = deep analysis. Tadhakkur = memory + lesson-taking. Basar = observation. Samʿ = listening/obedience. Each is a distinct path to knowledge — the Quran calls on all of them separately.",
+      "descTr": "Bu beş yeti Kur'an'ın insan bilişini nasıl sınıflandırdığını gösterir. Her biri farklı bir bilgi edinme yolu — Kur'an hepsini ayrı ayrı çağırır.",
+      "descEn": "These five faculties show how the Quran classifies human cognition. Each is a distinct path to knowledge — the Quran calls on all of them separately.",
+      "summaryGrid": [
+        { "labelTr": "Ta'kıl",   "labelEn": "Taʿqil",    "shortTr": "Soyut akıl",       "shortEn": "Abstract reason" },
+        { "labelTr": "Tefekkür", "labelEn": "Tafakkur",  "shortTr": "Derin analiz",     "shortEn": "Deep analysis" },
+        { "labelTr": "Tezekkür", "labelEn": "Tadhakkur", "shortTr": "Bellek + öğüt",    "shortEn": "Memory + lesson" },
+        { "labelTr": "Basar",    "labelEn": "Basar",     "shortTr": "Gözlem",           "shortEn": "Observation" },
+        { "labelTr": "Semi'",    "labelEn": "Samʿ",      "shortTr": "Dinleme/itaat",    "shortEn": "Listening/obedience" }
+      ],
       "faculties": [
         {
           "id": "takil",
@@ -575,7 +555,9 @@
           "countEn": "~20 verses",
           "bestVerseAr": "أَفَلَا تَعْقِلُونَ",
           "bestVerseTr": "Hiç aklınızı kullanmıyor musunuz?",
-          "bestVerseRef": "Bakara 2:44"
+          "bestVerseRef": "Bakara 2:44",
+          "meaningTr": "Akıl etmez misiniz?",
+          "meaningEn": "Will you not reason?"
         },
         {
           "id": "tefekkur",
@@ -633,7 +615,7 @@
           "countEn": "~6 verses",
           "bestVerseAr": "أَفَلَا تَسْمَعُونَ",
           "bestVerseTr": "İşitmiyor musunuz?",
-          "bestVerseRef": "Yasin 36:68",
+          "bestVerseRef": "Kasas 28:71",
           "meaningTr": "Duymaz mısınız?",
           "meaningEn": "Will you not hear?"
         }
@@ -923,8 +905,8 @@
       "ref": "Tekvir 81:26",
       "surah": 81,
       "ayah": 26,
-      "type": "taaccub",
-      "pattern": null,
+      "type": "tevbih",
+      "pattern": "eyne-tezhebun",
       "addressee": "humanity"
     },
     {
@@ -1213,7 +1195,7 @@
       "ayah": 25,
       "type": "tevbih",
       "pattern": null,
-      "addressee": "munafikun"
+      "addressee": "mushrikeen"
     },
     {
       "id": "q27",
