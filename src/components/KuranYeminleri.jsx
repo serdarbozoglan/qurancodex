@@ -657,29 +657,261 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
       </p>
       {depthAnalysis.map((item, i) => (
         <div key={i} style={{
-          background: COLORS.glassBg,
+          background: 'rgba(255,255,255,0.025)',
           border: `1px solid ${COLORS.glassBorder}`,
-          borderRadius: '12px',
-          padding: isMobile ? '18px 16px' : '24px 28px',
+          borderRadius: '14px',
+          overflow: 'hidden',
+          position: 'relative',
         }}>
-          <h3 style={{ color: COLORS.gold, fontSize: '1rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 14px' }}>
-            {language === 'tr' ? item.titleTr : item.titleEn}
-          </h3>
-          {/* Verse */}
+          {/* Top accent line */}
+          <div style={{ height: '2px', background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)` }} />
+
+          {/* Header: numbered badge + title */}
           <div style={{
-            background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`,
-            borderRadius: '8px', padding: '12px 16px', marginBottom: '14px',
+            display: 'flex', alignItems: 'center', gap: isMobile ? '12px' : '16px',
+            padding: isMobile ? '18px 16px 14px' : '22px 28px 16px',
           }}>
-            <div style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', lineHeight: 1.9, marginBottom: '6px' }} dir="rtl" lang="ar">
-              {item.arabic}
+            <div style={{
+              width: '34px', height: '34px', borderRadius: '50%',
+              background: 'rgba(212,165,116,0.08)',
+              border: `1px solid ${COLORS.goldAlpha25}`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '0.78rem', fontWeight: 800, color: COLORS.gold,
+              fontFamily: FONTS.body, flexShrink: 0, letterSpacing: '0.02em',
+            }}>
+              {String(i + 1).padStart(2, '0')}
             </div>
-            <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: 0, lineHeight: 1.6 }}>
-              {language === 'tr' ? item.mealTr : item.mealEn}
-            </p>
+            <h3 style={{
+              color: COLORS.gold, fontSize: isMobile ? '1rem' : '1.08rem',
+              fontWeight: 700, fontFamily: FONTS.body, margin: 0, lineHeight: 1.35,
+            }}>
+              {language === 'tr' ? item.titleTr : item.titleEn}
+            </h3>
           </div>
-          <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.75, margin: 0 }}>
-            {language === 'tr' ? item.bodyTr : item.bodyEn}
-          </p>
+
+          {/* Body */}
+          <div style={{ padding: isMobile ? '0 16px 20px' : '0 28px 26px' }}>
+            {/* Verse with gold left accent */}
+            <div style={{
+              background: 'rgba(212,165,116,0.05)',
+              border: `1px solid ${COLORS.goldAlpha15}`,
+              borderLeft: `3px solid ${COLORS.gold}`,
+              borderRadius: '8px', padding: '14px 18px', marginBottom: '18px',
+            }}>
+              <div style={{
+                fontFamily: FONTS.quran, fontSize: isMobile ? '1.4rem' : '1.55rem',
+                color: COLORS.gold, direction: 'rtl', textAlign: 'right',
+                lineHeight: 1.9, marginBottom: '10px',
+              }} dir="rtl" lang="ar">
+                {item.arabic}
+              </div>
+              <p style={{
+                color: COLORS.offWhite, fontSize: '0.85rem',
+                fontFamily: FONTS.body, fontStyle: 'italic',
+                margin: 0, lineHeight: 1.6,
+              }}>
+                {language === 'tr' ? item.mealTr : item.mealEn}
+              </p>
+            </div>
+
+            {/* Explanation label */}
+            <div style={{
+              fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase',
+              letterSpacing: '0.14em', color: COLORS.gold,
+              fontFamily: FONTS.body, marginBottom: '10px', opacity: 0.75,
+            }}>
+              {language === 'tr' ? 'Açıklama' : 'Explanation'}
+            </div>
+            <p style={{
+              color: COLORS.silver, fontSize: '0.9rem',
+              fontFamily: FONTS.body, lineHeight: 1.8, margin: 0,
+            }}>
+              {language === 'tr' ? item.bodyTr : item.bodyEn}
+            </p>
+
+            {/* Structured examples: subject → purpose */}
+            {item.examples && item.examples.length > 0 && (
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : `repeat(${item.examples.length}, 1fr)`,
+                gap: '10px', marginTop: '16px',
+              }}>
+                {item.examples.map((ex, j) => (
+                  <div key={j} style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: `1px solid ${COLORS.glassBorder}`,
+                    borderRadius: '10px',
+                    padding: '14px 14px 12px',
+                    display: 'flex', flexDirection: 'column', gap: '8px',
+                    position: 'relative', overflow: 'hidden',
+                  }}>
+                    {/* Arabic word — large, gold */}
+                    <div style={{
+                      fontFamily: FONTS.quran, fontSize: '1.4rem',
+                      color: COLORS.gold, direction: 'rtl', textAlign: 'right',
+                      lineHeight: 1.4, margin: 0,
+                    }} dir="rtl" lang="ar">
+                      {ex.subjectAr}
+                    </div>
+                    {/* Subject label */}
+                    <div style={{
+                      fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase',
+                      letterSpacing: '0.1em', color: COLORS.silver,
+                      fontFamily: FONTS.body,
+                    }}>
+                      {language === 'tr' ? ex.subjectTr : ex.subjectEn}
+                    </div>
+                    {/* Arrow */}
+                    <div style={{
+                      display: 'flex', alignItems: 'center', gap: '6px',
+                      paddingTop: '4px', borderTop: `1px dashed ${COLORS.goldAlpha15}`,
+                      marginTop: '2px',
+                    }}>
+                      <span style={{
+                        color: COLORS.gold, fontSize: '0.95rem',
+                        fontFamily: FONTS.body, flexShrink: 0,
+                      }}>→</span>
+                      <span style={{
+                        color: COLORS.offWhite, fontSize: '0.82rem',
+                        fontFamily: FONTS.body, lineHeight: 1.45, fontWeight: 500,
+                      }}>
+                        {language === 'tr' ? ex.purposeTr : ex.purposeEn}
+                      </span>
+                    </div>
+                    {/* Why this link? context (semantic bond) */}
+                    {(ex.contextTr || ex.contextEn) && (
+                      <div style={{
+                        fontSize: '0.75rem', color: COLORS.silver,
+                        fontFamily: FONTS.body, lineHeight: 1.55,
+                        fontStyle: 'italic', marginTop: '2px',
+                        paddingTop: '8px', borderTop: `1px solid ${COLORS.glassBorder}`,
+                      }}>
+                        {language === 'tr' ? ex.contextTr : ex.contextEn}
+                      </div>
+                    )}
+
+                    {/* Textual link: jawāb al-qasam (how the sura makes it explicit) */}
+                    {ex.linkAr && (
+                      <div style={{
+                        marginTop: '6px', padding: '10px 12px',
+                        background: 'rgba(212,165,116,0.04)',
+                        border: `1px solid ${COLORS.goldAlpha15}`,
+                        borderRadius: '8px',
+                        display: 'flex', flexDirection: 'column', gap: '6px',
+                      }}>
+                        {(ex.linkIntroTr || ex.linkIntroEn) && (
+                          <div style={{
+                            fontSize: '0.68rem', color: COLORS.silver,
+                            fontFamily: FONTS.body, lineHeight: 1.5,
+                          }}>
+                            {language === 'tr' ? ex.linkIntroTr : ex.linkIntroEn}
+                          </div>
+                        )}
+                        <div style={{
+                          fontFamily: FONTS.quran, fontSize: '1.15rem',
+                          color: COLORS.gold, direction: 'rtl', textAlign: 'right',
+                          lineHeight: 1.7,
+                        }} dir="rtl" lang="ar">
+                          {ex.linkAr}
+                        </div>
+                        <div style={{
+                          display: 'flex', justifyContent: 'space-between',
+                          alignItems: 'baseline', gap: '8px', flexWrap: 'wrap',
+                        }}>
+                          <span style={{
+                            fontSize: '0.72rem', color: COLORS.offWhite,
+                            fontFamily: FONTS.body, fontStyle: 'italic',
+                            lineHeight: 1.45, flex: 1,
+                          }}>
+                            {language === 'tr' ? ex.linkTr : ex.linkEn}
+                          </span>
+                          {ex.linkVerse && (
+                            <span style={{
+                              fontSize: '0.65rem', color: COLORS.goldAlpha45,
+                              fontFamily: FONTS.body, fontWeight: 700,
+                              flexShrink: 0,
+                            }}>
+                              {ex.linkVerse}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Reference (full pericope) */}
+                    {ex.refShort && (
+                      <div style={{
+                        fontSize: '0.65rem', color: COLORS.silver,
+                        fontFamily: FONTS.body, fontWeight: 600,
+                        marginTop: '2px', opacity: 0.7,
+                      }}>
+                        {ex.refShort}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Structured functions: 3 distinct roles of the oath */}
+            {item.functions && item.functions.length > 0 && (
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : `repeat(${item.functions.length}, 1fr)`,
+                gap: '10px', marginTop: '16px',
+              }}>
+                {item.functions.map((fn, j) => (
+                  <div key={j} style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: `1px solid ${COLORS.glassBorder}`,
+                    borderRadius: '10px',
+                    padding: '16px 16px 14px',
+                    display: 'flex', flexDirection: 'column', gap: '10px',
+                    position: 'relative',
+                  }}>
+                    {/* Number + title row */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <div style={{
+                        width: '26px', height: '26px', borderRadius: '50%',
+                        background: 'rgba(212,165,116,0.08)',
+                        border: `1px solid ${COLORS.goldAlpha25}`,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: '0.68rem', fontWeight: 800, color: COLORS.gold,
+                        fontFamily: FONTS.body, flexShrink: 0, letterSpacing: '0.02em',
+                      }}>
+                        {String(j + 1).padStart(2, '0')}
+                      </div>
+                      <div style={{
+                        fontSize: '0.88rem', fontWeight: 700, color: COLORS.gold,
+                        fontFamily: FONTS.body, lineHeight: 1.3,
+                      }}>
+                        {language === 'tr' ? fn.titleTr : fn.titleEn}
+                      </div>
+                    </div>
+                    {/* Description */}
+                    <div style={{
+                      fontSize: '0.8rem', color: COLORS.silver,
+                      fontFamily: FONTS.body, lineHeight: 1.6,
+                      paddingTop: '2px', borderTop: `1px dashed ${COLORS.goldAlpha15}`,
+                    }}>
+                      {language === 'tr' ? fn.descTr : fn.descEn}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Closing line after functions */}
+            {(item.closingTr || item.closingEn) && (
+              <p style={{
+                color: COLORS.silver, fontSize: '0.88rem',
+                fontFamily: FONTS.body, lineHeight: 1.75,
+                margin: '16px 0 0', fontStyle: 'italic',
+              }}>
+                {language === 'tr' ? item.closingTr : item.closingEn}
+              </p>
+            )}
+          </div>
         </div>
       ))}
     </div>
