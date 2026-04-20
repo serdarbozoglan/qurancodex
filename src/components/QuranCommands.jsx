@@ -106,7 +106,7 @@ export default function QuranCommands({ onClose }) {
   /* eslint-enable react-hooks/set-state-in-effect */
 
   if (!data) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 200, background: '#0d1b2a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#0d1b2a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ color: '#94a3b8', fontFamily: "'Inter', sans-serif" }}>Yükleniyor...</div>
     </div>
   );
@@ -167,7 +167,7 @@ export default function QuranCommands({ onClose }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, zIndex: 200,
+      position: 'fixed', inset: 0, zIndex: 9999,
       background: '#0d1b2a',
       overflowY: 'auto',
       fontFamily: "'Inter', sans-serif",
@@ -177,7 +177,7 @@ export default function QuranCommands({ onClose }) {
         onClick={onClose}
         aria-label="Kapat"
         style={{
-          position: 'fixed', top: '16px', right: '20px', zIndex: 201,
+          position: 'fixed', top: '16px', right: '20px', zIndex: 10000,
           background: 'rgba(255,255,255,0.08)',
           border: '1px solid rgba(255,255,255,0.15)',
           borderRadius: '50%', width: '36px', height: '36px',
