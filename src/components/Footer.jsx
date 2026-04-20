@@ -31,11 +31,23 @@ export default function Footer() {
               sources.map((source, i) => {
                 const name = typeof source === 'object' ? source.name : source;
                 const section = typeof source === 'object' ? source.section : null;
+                const link = typeof source === 'object' ? source.link : null;
                 return (
                   <li key={i} className="flex items-start gap-2 break-inside-avoid mb-2">
                     <span className="text-gold/60 mt-0.5 shrink-0">•</span>
                     <span>
-                      {name}
+                      {link ? (
+                        <a
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-gold transition-colors"
+                        >
+                          {name}
+                        </a>
+                      ) : (
+                        name
+                      )}
                       {section && (
                         <span className="text-silver/75 text-xs ml-1.5">· {section}</span>
                       )}

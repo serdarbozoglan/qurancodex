@@ -353,6 +353,11 @@
         "label": "Years Preserved",
         "description": "Continuous preservation period"
       },
+      "sanaa": {
+        "label": "EARLIEST CARBON DATE",
+        "description": "Sana'a parchment: 578–669 CE (95% confidence). The Prophet's own era.",
+        "note": "Carbon dating applies to the parchment; ink is typically written later. Sadeghi & Bergmann (2010), University of Arizona AMS lab."
+      },
       "variation": {
         "label": "Rasm (Consonant) Variation",
         "description": "The consonantal skeleton is fixed across all copies",
@@ -570,41 +575,69 @@
     "sources": [
       {
         "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)",
-        "section": "Hidden Symmetry · Ring Composition"
+        "section": "Hidden Symmetry · Ring Composition",
+        "link": "https://newbooksnetwork.com/raymond-farrin-structure-and-quranic-interpretation-white-cloud-press-2014"
       },
       {
         "name": "Corpus Coranicum — Berlin-Brandenburg Academy of Sciences",
-        "section": "Textual Analysis"
+        "section": "Textual Analysis",
+        "link": "https://corpuscoranicum.de"
       },
       {
         "name": "Quranic Arabic Corpus — University of Leeds",
-        "section": "Word Frequencies · Linguistic Analysis"
+        "section": "Word Frequencies · Linguistic Analysis",
+        "link": "https://corpus.quran.com"
       },
       {
         "name": "Dr. Keith L. Moore — The Developing Human",
         "section": "Scientific Signs · Embryology",
-        "note": "For the academic debate on Moore's Quranic interpretations, see the relevant section note."
+        "note": "For the academic debate on Moore's Quranic interpretations, see the relevant section note.",
+        "link": "https://en.wikipedia.org/wiki/Keith_L._Moore"
       },
       {
         "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science",
         "section": "Scientific Signs",
-        "note": "Some claims are contested in academic mainstream; in-section notes reflect this distinction."
+        "note": "Some claims are contested in academic mainstream; in-section notes reflect this distinction.",
+        "link": "https://en.wikipedia.org/wiki/Maurice_Bucaille"
       },
       {
         "name": "Zamakhshari — Al-Kashshaf (12th century)",
-        "section": "Zero Redundancy"
+        "section": "Zero Redundancy",
+        "link": "https://shamela.org/pdf/607e16b8847c5_2cdd8b237444d35d77f45a8620c8c0bd"
       },
       {
         "name": "Al-Zarkashi — Al-Burhan fi Ulum al-Quran",
-        "section": "Iltifat · Rhetoric"
+        "section": "Iltifat · Rhetoric",
+        "link": "https://archive.org/details/BurhanQuran"
       },
       {
         "name": "University of Birmingham Quran Manuscript (2015)",
-        "section": "Living Preservation"
+        "section": "Living Preservation",
+        "link": "https://en.wikipedia.org/wiki/Birmingham_Quran_manuscript"
       },
       {
         "name": "Sahih Muslim · Tirmidhi — Sunan",
-        "section": "Hadith references (definition of ihsan, istiqama hadith)"
+        "section": "Hadith references (definition of ihsan, istiqama hadith)",
+        "link": "https://sunnah.com"
+      },
+      {
+        "name": "Ibn al-Qayyim al-Jawziyya — al-Tibyan fi Aqsam al-Qur'an + Zad al-Ma'ad",
+        "section": "Oaths · Narrative Analysis · Destruction-Sin Nexus",
+        "link": "https://kalamullah.com/ibn-qayyim.html"
+      },
+      {
+        "name": "Jalal al-Din al-Suyuti — al-Itqan fi Ulum al-Qur'an + Lubab al-Nuqul",
+        "section": "Order of Revelation · Occasions of Revelation",
+        "link": "https://tanzil.net/docs/revelation_order"
+      },
+      {
+        "name": "Fakhr al-Din al-Razi — Mafatih al-Ghayb",
+        "section": "Tafsir · Seven Layers · Munasabat"
+      },
+      {
+        "name": "Tanzil Quran Text + Internet Archive Quran Manuscripts",
+        "section": "Text Verification · Living Preservation",
+        "link": "https://tanzil.net"
       }
     ],
     "copyright": "Quran Codex. All rights reserved."
@@ -679,7 +712,7 @@
       },
       "kalp": {
         "title": "Heart Psychology",
-        "intro": "In the Quran, the heart (qalb) is not a physical organ — it is the center of consciousness, will, and morality. The Quran defines this center in five distinct states. When modern neuroscience discovered the heart's connection to the nervous system, it understood how deep this metaphor truly is.",
+        "intro": "In the Quran, the heart (qalb) is understood not merely as a physical organ but as the seat of consciousness, will, and morality. The Quran describes this center in five distinct states. Modern neuroscience has shown that the heart possesses its own intrinsic nervous system — this discovery does not prove the heart is a 'center of consciousness,' but offers an intriguing backdrop for how the Quranic metaphor might interact with physical structure.",
         "items": [
           {
             "id": "selim",
@@ -1038,8 +1071,8 @@
           {
             "id": "maslow",
             "title": "Maslow's Hierarchy ↔ The Quran's Order of Priority",
-            "description": "Maslow: physiological → safety → belonging → esteem → self-actualization. Peak point: realization of individual potential. The Quran: self-actualization is not enough — transcendence is required. Maslow added 'self-transcendence' to his theory at the end of his life. The Quran was always there.",
-            "modernNote": "Maslow (1969), one year before his death, added a sixth level to his hierarchy: self-transcendence. Islam had defined this 1,400 years ago."
+            "description": "Maslow: physiological → safety → belonging → esteem → self-actualization. Peak point: realization of individual potential. The Quran presents going beyond the self — the soul's orientation toward God — as a higher stage. Maslow, late in life, added a similar concept ('self-transcendence') to his theory.",
+            "modernNote": "Maslow (1969), one year before his death, added a sixth level to his hierarchy: self-transcendence. The Sufi concept of fanā (annihilation of the self in God) carries a meaningful parallel to this idea — developed on different metaphysical grounds but meeting at the point of 'movement beyond the individual self.'"
           }
         ]
       }

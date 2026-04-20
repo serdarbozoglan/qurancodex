@@ -19,10 +19,18 @@ const ZeroIcon = () => (
     <circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/>
   </svg>
 );
+const ParchmentIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 4h11a3 3 0 013 3v13H7a3 3 0 01-3-3V4z"/>
+    <path d="M15 4a3 3 0 013 3h2v10a3 3 0 01-3 3"/>
+    <path d="M8 9h6"/><path d="M8 13h6"/><path d="M8 17h4"/>
+  </svg>
+);
 
 const COUNTERS = [
-  { key: 'years', target: 1400, suffix: '+', locale: false, color: '#2ecc71', glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', Icon: ClockIcon },
-  { key: 'variation', target: 0, suffix: '', locale: false, color: '#3498db', glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.3)', Icon: ZeroIcon },
+  { key: 'years', target: 1400, prefix: '', suffix: '+', locale: false, color: '#2ecc71', glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', Icon: ClockIcon },
+  { key: 'sanaa', target: 578, prefix: 'MS ', suffix: '', locale: false, color: '#d4a574', glow: 'rgba(212,165,116,0.12)', border: 'rgba(212,165,116,0.3)', Icon: ParchmentIcon },
+  { key: 'variation', target: 0, prefix: '', suffix: '', locale: false, color: '#3498db', glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.3)', Icon: ZeroIcon },
 ];
 
 export default function LivingPreservation() {
@@ -56,7 +64,7 @@ export default function LivingPreservation() {
       {/* ── Counter Cards ── */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
         {COUNTERS.map((counter) => {
-          const { key, target, suffix, locale, color, glow, border, Icon } = counter;
+          const { key, target, prefix, suffix, locale, color, glow, border, Icon } = counter;
           return (
           <motion.div
             key={key}
@@ -97,7 +105,8 @@ export default function LivingPreservation() {
 
             <AnimatedCounter
               target={target}
-              suffix={suffix}
+              prefix={key === 'sanaa' && language === 'en' ? '' : prefix}
+              suffix={key === 'sanaa' && language === 'en' ? ' CE' : suffix}
               localeFormat={locale}
               className="text-4xl md:text-5xl"
               style={{ color, textShadow: `0 0 20px ${glow}` }}
@@ -110,13 +119,13 @@ export default function LivingPreservation() {
               {t(`livingPreservation.counters.${key}.description`)}
             </p>
 
-            {key === 'variation' && (
+            {(key === 'variation' || key === 'sanaa') && (
               <p style={{
                 color: 'rgba(148,163,184,0.4)', fontSize: '0.68rem',
                 fontFamily: "'Inter', sans-serif", fontStyle: 'italic',
                 marginTop: '8px', lineHeight: 1.5,
               }}>
-                * {t('livingPreservation.counters.variation.note')}
+                * {t(`livingPreservation.counters.${key}.note`)}
               </p>
             )}
           </motion.div>
