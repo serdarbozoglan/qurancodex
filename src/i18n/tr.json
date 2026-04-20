@@ -65,14 +65,14 @@
     },
     "duha": {
       "title": "Duhâ Sûresi — '-â' Fasılası",
-      "note": "İlk 8 ayet aynı uzun '-â' sesiyle biter. Kafiye kuralı yok; ama ses örüntüsü anlamın doğal bir parçası gibi akar.",
+      "note": "11 ayetin ilk 8'i aynı uzun '-â' sesiyle biter (ḍuḥā, sajā, qalā, ūlā, tarḍā, āwā, hadā, aġnā). Son 3 ayette ses değişir ve anlam düzleminden eylem emrine geçiş yapılır — ses ve mânâ birlikte kırılır.",
       "badge": "-â"
     },
     "examplesTitle": "Ses Tutarlılığı: Örnekler",
     "examples": [
       {
         "sura": "Necm Sûresi (53)",
-        "detail": "62 ayet boyunca baskın bitiş sesi sabit kalır — hiçbir Arap şiirinin bu uzunlukta koruyamadığı bir ses tutarlılığı.",
+        "detail": "62 ayet boyunca baskın bitiş sesi sabit kalır. Arap kaside geleneği de aynı kafiyeyi uzun mesafeler koruyabilir; ama Kur'ân katı bir vezin gerektirmeksizin bu ses tutarlılığını sağlar — bu kendine özgü bir biçimdir.",
         "info": false
       },
       {
@@ -370,7 +370,7 @@
     "experiment": "Teorik bir deney: Dünyadaki tüm mushaflar bir anda yok olsa, hafızlar Kur'an'ı harf harf yeniden yazabilir. Bu, başka hiçbir kitap için geçerli değildir.",
     "birmingham": {
       "title": "Birmingham El Yazması",
-      "description": "2015: Birmingham Üniversitesi'nde bulunan el yazması, karbon-14 testiyle MS 568-645 arasına tarihlendi - Hz. Muhammed (s.a.v.)'in yaşadığı dönemle örtüşüyor!"
+      "description": "2015: Birmingham Üniversitesi'nde bulunan el yazmasının parşömeni karbon-14 testiyle MS 568-645 aralığına tarihlendi — Hz. Muhammed (s.a.v.)'in yaşadığı dönemle örtüşüyor. (Not: Tarih parşömene aittir; mürekkebin yazım tarihi bundan genellikle sonradır ve ayrıca analiz edilmemiştir.)"
     }
   },
   "zeroRedundancy": {
