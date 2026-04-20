@@ -177,13 +177,13 @@ const GROUPS = [
 
 const DISCOVERIES = [
   {
-    num: '25/29',
-    label: 'Hemen Ardından Vahye Atıf',
-    labelEn: 'Immediate Reference to Revelation',
-    desc: '"Kitap", "Kur\'an", "vahiy" veya "tenzîl" — harflerin hemen ardından gelir. Elif-Lâm-Râ grubunda %100 (5/5), Havâmîm\'de %100 (7/7). Bu tutarlılık tesadüf sınırını çok aşıyor.',
-    descEn: '"Book", "Quran", "revelation" or "descent" — immediately follows the letters. 100% in the Alif-Lām-Rā group (5/5), 100% in the Ḥawāmīm (7/7). This consistency far exceeds the bounds of coincidence.',
-    footnote: 'İstisnalar: Meryem (19), Ankebût (29), Rûm (30), Kalem (68) — bu 4 sûrede doğrudan "Kitap" kelimesi yerine farklı bir giriş gelir.',
-    footnoteEn: 'Exceptions: Maryam (19), Al-Ankabut (29), Ar-Rum (30), Al-Qalam (68) — these 4 suras open with a different entry rather than a direct "Book" reference.',
+    num: '12/12',
+    label: 'İki Grupta Sıfır İstisna',
+    labelEn: 'Two Groups, Zero Exceptions',
+    desc: 'Elif-Lâm-Râ (5/5) ve Havâmîm (7/7) ailelerinde — toplam 12 sûrede — vahiy atfı tek bir istisna bile vermeden gerçekleşiyor. Genel %86\'lık örüntü bu iki aileye indiğinde %100\'e sıkışıyor.',
+    descEn: 'In the Alif-Lām-Rā (5/5) and Ḥawāmīm (7/7) families — 12 suras total — revelation reference occurs without a single exception. The general 86% pattern tightens to 100% in these two families.',
+    footnote: 'Genel orandaki 4 istisna — Meryem (19), Ankebût (29), Rûm (30), Kalem (68) — yukarıdaki iki ailenin dışındadır.',
+    footnoteEn: 'The 4 exceptions in the general rate — Maryam (19), Al-Ankabut (29), Ar-Rum (30), Al-Qalam (68) — all lie outside these two families.',
   },
   {
     num: '7/7',
