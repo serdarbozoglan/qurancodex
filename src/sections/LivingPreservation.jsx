@@ -21,7 +21,6 @@ const ZeroIcon = () => (
 );
 
 const COUNTERS = [
-  { key: 'huffaz', target: 10000000, suffix: '+', locale: true, color: '#d4a574', glow: 'rgba(212,165,116,0.15)', border: 'rgba(212,165,116,0.3)', Icon: ShieldIcon },
   { key: 'years', target: 1400, suffix: '+', locale: false, color: '#2ecc71', glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', Icon: ClockIcon },
   { key: 'variation', target: 0, suffix: '', locale: false, color: '#3498db', glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.3)', Icon: ZeroIcon },
 ];

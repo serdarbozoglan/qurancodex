@@ -300,8 +300,8 @@ export default function QuranRhetoric() {
       {/* Intro text */}
       <motion.p variants={fadeUpItem} className="text-silver text-lg leading-relaxed max-w-3xl mb-3">
         {tr
-          ? "Kur'an'da yaklaşık 1.000 soru yer alıyor. Bu sorular birer retorik araç — muhatabı suçlamaz, sonuca kendisi ulaştırır. Savunmaz; düşündürür. Cevaplamaz; sorar. Dört farklı işlev üstlenen bu sorular, metnin en güçlü ikna katmanını oluşturuyor."
-          : "The Quran contains approximately 1,000 questions. These are rhetorical instruments — they don't accuse, they guide the reader to conclusions themselves. They don't defend; they provoke thought. They don't answer; they ask. Serving four distinct functions, these questions form the text's most powerful layer of persuasion."}
+          ? "Kur'an'da 1.200'ü aşkın soru yer alıyor. Bu sorular birer retorik araç — muhatabı suçlamaz, sonuca kendisi ulaştırır. Savunmaz; düşündürür. Cevaplamaz; sorar. Dört farklı işlev üstlenen bu sorular, metnin en güçlü ikna katmanını oluşturuyor."
+          : "The Quran contains over 1,200 questions. These are rhetorical instruments — they don't accuse, they guide the reader to conclusions themselves. They don't defend; they provoke thought. They don't answer; they ask. Serving four distinct functions, these questions form the text's most powerful layer of persuasion."}
       </motion.p>
       <motion.p variants={fadeUpItem} className="text-silver/50 text-sm italic mb-10">
         ℹ{' '}

@@ -93,7 +93,7 @@ export default function KuranRetorigi({ onClose }) {
           </span>
           <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
           <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>
-            {tr ? '~1.000 soru · 4 tür · 3 kalıp' : '~1,000 questions · 4 types · 3 patterns'}
+            {tr ? '1.200+ soru · 4 tür · 3 kalıp' : '1,200+ questions · 4 types · 3 patterns'}
           </span>
         </div>
         <CloseBtn onClose={onClose} />

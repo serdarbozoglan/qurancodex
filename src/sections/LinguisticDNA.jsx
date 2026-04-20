@@ -249,7 +249,7 @@ export default function LinguisticDNA() {
         />
         <StatCard
           label={t('linguisticDNA.stats.coverage.label')}
-          value="~70%"
+          value="25%"
           description={t('linguisticDNA.stats.coverage.description')}
           glowColor="blue"
         />
@@ -296,8 +296,8 @@ export default function LinguisticDNA() {
         </div>
         <p className="text-center text-silver/60 text-sm font-body">
           {language === 'tr'
-            ? 'Arap alfabesinin yarısı · Kur\'an harflerinin ~%70\'ini oluşturur · 14 farklı kombinasyon'
-            : 'Half the Arabic alphabet · Make up ~70% of all Quranic letters · 14 unique combinations'}
+            ? 'Arap alfabesinin tam yarısı · 29 sûrenin açılışında · 14 farklı kombinasyon'
+            : 'Exactly half the Arabic alphabet · Open 29 chapters · 14 unique combinations'}
         </p>
       </motion.div>
 
