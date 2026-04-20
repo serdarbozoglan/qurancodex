@@ -639,10 +639,10 @@ export default function LinguisticDNA() {
             <span>100%</span>
           </div>
         </div>
-        <p className="text-silver/55 text-sm font-body italic">
+        <p className="text-silver/55 text-sm font-body italic max-w-2xl mx-auto">
           {language === 'tr'
-            ? '"Bu kadar tutarlı bir örüntü tesadüf olamaz."'
-            : '"A pattern this consistent cannot be coincidental."'}
+            ? 'Huruf-i mukattaa ile açılan 29 sûrenin 25\'inde — tutarlı bir vahiy atfı örüntüsü. Kur\'ân\'ın genelinde sûre açılışlarında vahiy atfı daha nadirdir; bu yoğunluk dikkat çekicidir.'
+            : 'In 25 of the 29 muqaṭṭaʿāt-opening suras — a consistent pattern of revelation reference. Such references are less frequent in sura openings overall; this density is notable.'}
         </p>
       </motion.div>
 

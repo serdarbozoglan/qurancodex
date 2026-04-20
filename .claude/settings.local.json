@@ -33,7 +33,8 @@
       "WebFetch(domain:www.birmingham.ac.uk)",
       "WebFetch(domain:whitecloudpress.com)",
       "WebFetch(domain:en.wikipedia.org)",
-      "WebFetch(domain:www.whitecloudpress.com)"
+      "WebFetch(domain:www.whitecloudpress.com)",
+      "WebFetch(domain:www.google.com)"
     ]
   }
 }

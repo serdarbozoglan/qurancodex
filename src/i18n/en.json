@@ -65,14 +65,14 @@
     },
     "duha": {
       "title": "Sura Ad-Duha — The '-â' Fasila",
-      "note": "The first 8 verses end with the same long '-â' sound. No rhyme scheme is imposed; yet the sound pattern flows as a natural extension of the meaning.",
+      "note": "The first 8 of the sura's 11 verses end with the same long '-ā' sound (ḍuḥā, sajā, qalā, ūlā, tarḍā, āwā, hadā, aghnā). In the final 3 verses the sound shifts as the sura moves from describing divine grace to issuing moral commands — sound and meaning break together.",
       "badge": "-â"
     },
     "examplesTitle": "Sound Consistency: Examples",
     "examples": [
       {
         "sura": "Sura An-Najm (53)",
-        "detail": "The dominant closing sound remains consistent across 62 verses — a sonic coherence no Arabic poem of this length has achieved.",
+        "detail": "The dominant closing sound remains consistent across 62 verses. The Arabic qaṣīda tradition can also sustain the same rhyme over long stretches; yet the Quran achieves this sonic coherence without requiring strict meter — a distinctive form.",
         "info": false
       },
       {
@@ -370,7 +370,7 @@
     "experiment": "A thought experiment: if every written copy of the Quran vanished overnight, huffaz could reconstruct it letter by letter. This is true of no other book in existence.",
     "birmingham": {
       "title": "Birmingham Manuscript",
-      "description": "2015: A manuscript at the University of Birmingham was carbon-dated to 568-645 CE - overlapping with the Prophet Muhammad's (pbuh) own lifetime!"
+      "description": "2015: The parchment of a manuscript at the University of Birmingham was carbon-dated to 568-645 CE — overlapping with the Prophet Muhammad's (pbuh) lifetime. (Note: the date is of the parchment; the ink was typically applied later and has not been separately analyzed.)"
     }
   },
   "zeroRedundancy": {
