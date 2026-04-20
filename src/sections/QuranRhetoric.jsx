@@ -288,13 +288,13 @@ export default function QuranRhetoric() {
         variants={fadeUpItem}
         className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-4"
       >
-        {tr ? "Kur'an Kendini Savunmaz" : "The Quran Doesn't Defend Itself"}
+        {tr ? "Kur'an Cevaplamaz" : "The Quran Doesn't Answer"}
       </motion.h2>
       <motion.p
         variants={fadeUpItem}
         className="font-display text-xl md:text-2xl text-gold italic mb-10"
       >
-        {tr ? 'Soru Sorar.' : 'It Asks Questions.'}
+        {tr ? 'Sorar.' : 'It Asks.'}
       </motion.p>
 
       {/* Intro text */}

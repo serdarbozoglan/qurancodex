@@ -217,8 +217,7 @@
         "Hadid 57:25 — demir için özellikle 'enzelnâ' (indirdik) fiili kullanılır",
         "Demir, Güneş gibi yıldızlarda oluşamaz: füzyon için yeterli sıcaklık ve basınç yoktur",
         "Demir yalnızca süpernovalarda üretilir ve uzaya saçılır",
-        "Dünya'daki tüm demir milyarlarca yıl önce meteorlarla gelmiştir",
-        "Hadid Sûresi Kur'an'ın 57. sûresidir; Fe-57 demirin stabil izotoplarından biridir — ilgi çekici bir örtüşme. Ancak demirin en bol izotopu Fe-56'dır (%91.75); bu örtüşme bilimsel doğrulama olarak sunulamaz"
+        "Dünya'daki tüm demir milyarlarca yıl önce meteorlarla gelmiştir"
       ],
       "criticalNote": "'Enzelnâ' kelimesinin bu bağlamda kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin büyük çoğunluğu bu fiili 'lütfettik, ihsan ettik' anlamında yorumlamıştır. Modern astrofizik yorumu, 20. yüzyıldan itibaren öne çıkan bir okumadır."
     },
@@ -301,7 +300,6 @@
         "Tevrat Firavun'un bedeni hakkında sessiz kalır (Çıkış 14:28 - sadece 'boğuldu')",
         "1881: Deir el-Bahari'de 3.000 yıllık mumyalar keşfedildi",
         "Ramses II mumyası bugün Kahire Mısır Müzesi'nde sergileniyor",
-        "Mumyada tuz kristalleri bulundu (deniz suyu kanıtı olabilir)",
         "7. yüzyılda bu mumyaların varlığı bilinmiyordu"
       ],
       "significance": "Neden önemli: Tevrat boğuldu der, bedenden bahsetmez. Yalnızca Kur'an 1.400 yıl önce 'bedenini koruyacağız' dedi — ve mumya gerçekten bulundu. Bu bilgi 7. yüzyılda hiçbir kaynaktan öğrenilemezdi.",
@@ -314,16 +312,16 @@
     },
     "haman": {
       "title": "Haman Şifresi",
-      "subtitle": "MÖ ~1300 — 1935'te doğrulandı",
+      "subtitle": "MÖ ~1300 — tartışmalı bir dilbilimsel paralellik",
       "content": "Yüzyıllarca eleştirmenler Kur'an'da bir 'hata' olduğunu iddia etti: Haman ismi. Tevrat'ta Haman, Pers İmparatorluğu'nda (MÖ ~480) yaşar. Kur'an'da ise Haman, Firavun'un yanında (MÖ ~1300). 800 yıllık fark!",
       "points": [
         "Tevrat'taki Haman ile 800 yıllık tarih farkı",
         "Rosetta Taşı (1799) → Champollion (1822) → Hiyeroglifler çözüldü",
-        "Ranke'nin ansiklopedisi (1935): Mısır kayıtlarında 'Ḥm-n-ḥ' ismi bulundu",
-        "Görevi: taş işçileri gözetmeni, inşaat sorumlusu - Yeni Krallık dönemi",
-        "Kur'an Haman'ı inşaat sorumlusu olarak tanımlıyor - tarihsel olarak doğrulandı"
+        "Ranke'nin ansiklopedisi (1935): Mısır kayıtlarında 'Ḥmn' kökünden isimler kayıtlıdır",
+        "Bu isimlerden bazıları inşaat / taş işçiliği görevinde geçer - Yeni Krallık dönemi",
+        "Kur'an'daki Hâmân ile Mısır kayıtlarındaki 'Ḥmn' isimleri arasında bir dilbilimsel yakınlaşma önerilmiştir; Egyptology mainstream'i bunu kesin bir özdeşlik olarak kabul etmez"
       ],
-      "significance": "Neden önemli: Bu 'hata' Kur'an'ı çürütmek için 1.200 yıl boyunca kullanıldı. Hiyerogliflerin çözülmesiyle anlaşıldı: Mısır kayıtlarında gerçekten 'Haman' isimli bir inşaat yöneticisi vardı. Eleştirinin kendisi arkeolojik kanıtla tersine döndü.",
+      "significance": "Neden dikkat çekici: Bu 'hata' Kur'an'ı çürütmek için 1.200 yıl boyunca kullanıldı. Hiyerogliflerin çözülmesinden sonra Mısır kayıtlarında 'Ḥmn' kökünden isimler keşfedildi; bazı akademisyenler bunu Kur'ân'daki Hâmân ile dilbilimsel bir yakınlaşma olarak görürken, diğerleri farklı kökenli isimler olarak değerlendirir. Tartışma hâlâ açık.",
       "criticalNote": "Ranke'nin 1935 tarihli 'Die Ägyptischen Personennamen' eserinde 'Ḥmn' kökünden isimler geçmektedir; ancak bu isimlerin Kur'an'daki Haman ile özdeşliği bazı akademisyenler tarafından dilbilimsel bir yakınlaşma olarak kabul edilirken, diğerleri farklı kökenli isimler olarak değerlendirir. Ranke'nin kendisi bu özdeşliği Kur'ansal bir bağlamda yorumlamamıştır."
     },
     "rome": {
@@ -349,16 +347,16 @@
   "livingPreservation": {
     "badge": "Yaşayan Koruma",
     "title": "Dünya Çapında Tek Metin",
-    "intro": "Mekke'deki Kur'an = Medine'deki = İstanbul'daki = Kahire'deki = Jakarta'daki. Harf harf aynı. 1.8 milyar müslüman, farklı mezhep, farklı ülke, farklı dil. Ama hepsi AYNI metni okuyor. Varyasyon: sıfır.",
+    "intro": "Mekke'deki Kur'an = Medine'deki = İstanbul'daki = Kahire'deki = Jakarta'daki. Konsonant iskelet (rasm) harf harf aynı. 1.8 milyar müslüman, farklı mezhep, farklı ülke, farklı dil. Hepsi aynı metni okuyor — on kanonik kıraat (qirâʾât) farklılıkları okuyuş geleneğine özgüdür.",
     "counters": {
       "years": {
         "label": "Yıldır Korunuyor",
         "description": "Kesintisiz koruma süresi"
       },
       "variation": {
-        "label": "Metin Varyasyonu",
-        "description": "Dünya çapındaki tüm nüshalar arasında sıfır fark",
-        "note": "Kıraat farklılıkları okuyuş geleneğine aittir; konsonant iskelet (rasm) tüm mushaflarda sabittir."
+        "label": "Rasm (Konsonant) Varyasyonu",
+        "description": "Konsonant iskelet tüm mushaflarda sabittir",
+        "note": "On kanonik kıraat arasında vokalizasyon/okuyuş farkları mevcuttur; bunlar sözlü geleneğin bir parçasıdır, metin bozulması değildir."
       }
     },
     "written": {

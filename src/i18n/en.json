@@ -217,8 +217,7 @@
         "Hadid 57:25 — the verb 'anzalnā' (We sent down) is used specifically for iron",
         "Iron cannot form in stars like our Sun: insufficient temperature and pressure for fusion",
         "Iron is only produced in supernovae and scattered into space",
-        "All iron on Earth arrived via meteorites billions of years ago",
-        "Sura Al-Hadid is the 57th chapter; Fe-57 is one of iron's stable isotopes — a noted coincidence. However, iron's most abundant isotope is Fe-56 (~91.75%); this numerical overlap cannot be presented as scientific verification"
+        "All iron on Earth arrived via meteorites billions of years ago"
       ],
       "criticalNote": "Whether 'anzalnā' in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean 'We bestowed' or 'We provided.' The astrophysical interpretation is a reading that became prominent in the 20th century."
     },
@@ -301,7 +300,6 @@
         "The Torah is silent about the Pharaoh's body (Exodus 14:28 - just 'drowned')",
         "1881: 3,000-year-old mummies discovered at Deir el-Bahari",
         "Ramesses II's mummy is now displayed at the Cairo Egyptian Museum",
-        "Salt crystals found in the body (possible seawater evidence)",
         "In the 7th century, the existence of these mummies was unknown"
       ],
       "significance": "Why it matters: The Torah says he drowned — silent about the body. Only the Quran said 1,400 years ago 'We will preserve your body as a sign' — and the mummy was actually found. This information could not have been known from any 7th-century source.",
@@ -314,16 +312,16 @@
     },
     "haman": {
       "title": "The Haman Code",
-      "subtitle": "~1300 BCE — Confirmed in 1935",
+      "subtitle": "~1300 BCE — a disputed linguistic parallel",
       "content": "For centuries, critics claimed the Quran contained an 'error': the name Haman. In the Torah, Haman lives in the Persian Empire (~480 BCE). In the Quran, Haman appears alongside the Pharaoh (~1300 BCE). An 800-year discrepancy!",
       "points": [
         "800-year discrepancy between the Torah's Haman and the Quran's Haman",
         "Rosetta Stone (1799) → Champollion (1822) → Hieroglyphs decoded",
-        "Ranke's encyclopedia (1935): 'Hm-n-h' found in Egyptian records",
-        "Role: overseer of stone workers, construction manager - New Kingdom period",
-        "The Quran describes Haman as a construction official - historically verified"
+        "Ranke's encyclopedia (1935): names from the 'Ḥmn' root are recorded in Egyptian sources",
+        "Some of these names appear in stone-working / construction roles — New Kingdom period",
+        "A linguistic convergence has been proposed between the Quran's Hāmān and the Egyptian 'Ḥmn' names; mainstream Egyptology does not accept this as a definitive identification"
       ],
-      "significance": "Why it matters: This alleged 'error' was used to attack the Quran for 1,200 years. After hieroglyphs were decoded, Egyptian records confirmed a construction official named Haman actually existed. The critique reversed into evidence.",
+      "significance": "Why it's notable: This alleged 'error' was used to attack the Quran for 1,200 years. After hieroglyphs were decoded, names from the 'Ḥmn' root were found in Egyptian records; some scholars see this as a linguistic convergence with the Quran's Hāmān, while others consider them unrelated. The question remains open.",
       "criticalNote": "Ranke's 1935 'Die Ägyptischen Personennamen' records names from the 'Ḥmn' root; however, the identification of these names with the Haman of the Quran is accepted by some scholars as a linguistic convergence, while others consider them unrelated. Ranke himself did not interpret this correspondence in a Quranic context."
     },
     "rome": {
@@ -349,16 +347,16 @@
   "livingPreservation": {
     "badge": "Living Preservation",
     "title": "The Only Unchanged Text on Earth",
-    "intro": "The Quran in Mecca = the Quran in Medina = Istanbul = Cairo = Jakarta. Letter for letter, identical. 1.8 billion Muslims, different denominations, different countries, different languages. Yet they all read the SAME text. Variation: zero.",
+    "intro": "The Quran in Mecca = the Quran in Medina = Istanbul = Cairo = Jakarta. The consonantal skeleton (rasm) is identical, letter for letter. 1.8 billion Muslims, different denominations, different countries, different languages. All read the same text — variations among the ten canonical readings (qirāʾāt) belong to oral recitation tradition.",
     "counters": {
       "years": {
         "label": "Years Preserved",
         "description": "Continuous preservation period"
       },
       "variation": {
-        "label": "Textual Variation",
-        "description": "Zero differences across all copies worldwide",
-        "note": "Variant readings (qira'at) belong to oral tradition; the written text is fixed."
+        "label": "Rasm (Consonant) Variation",
+        "description": "The consonantal skeleton is fixed across all copies",
+        "note": "Vocalization/reading differences exist among the ten canonical qirāʾāt; these are part of oral tradition, not textual corruption."
       }
     },
     "written": {
