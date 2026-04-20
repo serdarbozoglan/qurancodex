@@ -353,6 +353,11 @@
         "label": "Yıldır Korunuyor",
         "description": "Kesintisiz koruma süresi"
       },
+      "sanaa": {
+        "label": "EN ERKEN KARBON TARİHİ",
+        "description": "Sana'a parşömeni: MS 578–669 (%95 güven). Hz. Peygamber'in yaşadığı dönem.",
+        "note": "Karbon tarihleme parşömene aittir; mürekkebin yazım tarihi genellikle daha sonradır. Sadeghi & Bergmann (2010), Arizona Üniversitesi AMS lab."
+      },
       "variation": {
         "label": "Rasm (Konsonant) Varyasyonu",
         "description": "Konsonant iskelet tüm mushaflarda sabittir",
@@ -570,41 +575,69 @@
     "sources": [
       {
         "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)",
-        "section": "Gizli Simetri · Halka Kompozisyon"
+        "section": "Gizli Simetri · Halka Kompozisyon",
+        "link": "https://newbooksnetwork.com/raymond-farrin-structure-and-quranic-interpretation-white-cloud-press-2014"
       },
       {
         "name": "Corpus Coranicum — Berlin-Brandenburg Bilimler Akademisi",
-        "section": "Metin Analizi"
+        "section": "Metin Analizi",
+        "link": "https://corpuscoranicum.de"
       },
       {
         "name": "Quranic Arabic Corpus — Leeds Üniversitesi",
-        "section": "Kelime Frekansları · Dilsel Analiz"
+        "section": "Kelime Frekansları · Dilsel Analiz",
+        "link": "https://corpus.quran.com"
       },
       {
         "name": "Dr. Keith L. Moore — The Developing Human",
         "section": "Bilimsel İşaretler · Embriyoloji",
-        "note": "Moore'un Kur'an yorumlarına ilişkin akademik tartışma için bkz. ilgili bölüm notu."
+        "note": "Moore'un Kur'an yorumlarına ilişkin akademik tartışma için bkz. ilgili bölüm notu.",
+        "link": "https://en.wikipedia.org/wiki/Keith_L._Moore"
       },
       {
         "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science",
         "section": "Bilimsel İşaretler",
-        "note": "Bazı iddiaları akademik mainstream'de tartışmalıdır; bölüm içi notlar bu ayrımı yansıtmaktadır."
+        "note": "Bazı iddiaları akademik mainstream'de tartışmalıdır; bölüm içi notlar bu ayrımı yansıtmaktadır.",
+        "link": "https://en.wikipedia.org/wiki/Maurice_Bucaille"
       },
       {
         "name": "Zemahşeri — el-Keşşâf (12. yüzyıl)",
-        "section": "Sıfır Gereksizlik"
+        "section": "Sıfır Gereksizlik",
+        "link": "https://shamela.org/pdf/607e16b8847c5_2cdd8b237444d35d77f45a8620c8c0bd"
       },
       {
         "name": "Zerkeşî — el-Burhân fî Ulûmi'l-Kur'ân",
-        "section": "İltifât · Belağat"
+        "section": "İltifât · Belağat",
+        "link": "https://archive.org/details/BurhanQuran"
       },
       {
         "name": "Birmingham Üniversitesi Kur'an El Yazması (2015)",
-        "section": "Yaşayan Koruma"
+        "section": "Yaşayan Koruma",
+        "link": "https://en.wikipedia.org/wiki/Birmingham_Quran_manuscript"
       },
       {
         "name": "Sahîh-i Müslim · Tirmizî — Sünen",
-        "section": "Hadis referansları (İhsan tanımı, İstikâmet hadisi)"
+        "section": "Hadis referansları (İhsan tanımı, İstikâmet hadisi)",
+        "link": "https://sunnah.com"
+      },
+      {
+        "name": "İbn Kayyim el-Cevziyye — et-Tibyân fî Aksâmi'l-Kur'ân + Zâdü'l-Meâd",
+        "section": "Yeminler · Kıssa Analizi · Helak-Suç Bağı",
+        "link": "https://kalamullah.com/ibn-qayyim.html"
+      },
+      {
+        "name": "Celâluddin es-Süyûtî — el-İtkân fî Ulûmi'l-Kur'ân + Lübâbu'n-Nukūl",
+        "section": "Nüzûl Sırası · Sebeb-i Nüzûl",
+        "link": "https://tanzil.net/docs/revelation_order"
+      },
+      {
+        "name": "Fahreddin er-Râzî — Mefâtîhu'l-Gayb",
+        "section": "Tefsir · Yedi Katman · Münâsebât"
+      },
+      {
+        "name": "Tanzil Quran Text + Internet Archive Kur'an El Yazmaları",
+        "section": "Metin Doğrulama · Yaşayan Koruma",
+        "link": "https://tanzil.net"
       }
     ],
     "copyright": "Quran Codex. Tüm hakları saklıdır."
@@ -679,7 +712,7 @@
       },
       "kalp": {
         "title": "Kalp Psikolojisi",
-        "intro": "Kur'an'da kalp (qalb), fiziksel bir organ değil — bilinç, irade ve ahlakın merkezi. Kur'an bu merkezi beş farklı hâlde tanımlar. Modern nörobilim, kalbin sinir sistemiyle olan bağını keşfedince bu metaforun ne kadar derin olduğunu anladı.",
+        "intro": "Kur'an'da kalp (qalb) sadece fiziksel bir organ değil, aynı zamanda bilinç, irade ve ahlakın merkezi olarak ele alınır. Kur'an bu merkezi beş farklı hâlde tanımlar. Modern nörobilim kalbin karmaşık bir sinir ağına (intrinsic cardiac nervous system) sahip olduğunu göstermiştir — bu bulgu kalbin 'bilinç merkezi' olduğunu ispatlamaz, ancak Kur'ânî metaforun fiziksel dokuyla nasıl etkileşebileceğine dair ilgi çekici bir zemin sunar.",
         "items": [
           {
             "id": "selim",
@@ -1038,8 +1071,8 @@
           {
             "id": "maslow",
             "title": "Maslow Hiyerarşisi ↔ Kur'an'ın Öncelik Sırası",
-            "description": "Maslow: fizyolojik → güvenlik → ait olma → saygınlık → öz-gerçekleştirme. Tepe noktası: bireysel potansiyelin gerçekleşmesi. Kur'an: öz-gerçekleştirme yeterli değil — transandans gerekir. Maslow hayatının sonunda 'self-transcendence'ı (benliği aşma) teorisine ekledi. Kur'an baştan beri oradaydı.",
-            "modernNote": "Maslow (1969), ölmeden bir yıl önce hiyerarşisine altıncı seviye ekledi: self-transcendence. İslam bunu 1.400 yıl önce tanımlamıştı."
+            "description": "Maslow: fizyolojik → güvenlik → ait olma → saygınlık → öz-gerçekleştirme. Tepe noktası: bireysel potansiyelin gerçekleşmesi. Kur'an ise bireyin ötesine geçişi — nefsin Allah'a yöneliminin — yüksek bir aşama olarak sunar. Maslow hayatının sonunda benzer bir kavramı ('self-transcendence') teorisine eklemiştir.",
+            "modernNote": "Maslow (1969), ölmeden bir yıl önce hiyerarşisine altıncı seviye ekledi: self-transcendence. Tasavvuf geleneğindeki 'fenâ' (nefsin Hakk'ta yok olması) kavramı bu fikirle anlamlı bir paralellik taşır; ikisi farklı metafizik zeminlerde gelişmiş olsa da hem 'bireyin ötesine geçiş' noktasında örtüşür."
           }
         ]
       }
