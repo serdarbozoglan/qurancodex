@@ -19,6 +19,18 @@ export const COLORS = {
   goldAlpha25:   'rgba(212,165,116,0.25)',
   goldAlpha45:   'rgba(212,165,116,0.45)',
 
+  // Soft gold — semantic role for "glorification / middle-ground / wisdom"
+  // categories (Araf, Yüceltme meleği, Emir, Mucize). Distinct from primary
+  // gold so categorical color identity remains, but centralized in tokens.
+  softGold:         '#c9a96e',
+  softGoldAlpha08:  'rgba(201,169,110,0.08)',
+  softGoldAlpha10:  'rgba(201,169,110,0.10)',
+  softGoldAlpha12:  'rgba(201,169,110,0.12)',
+  softGoldAlpha15:  'rgba(201,169,110,0.15)',
+  softGoldAlpha20:  'rgba(201,169,110,0.20)',
+  softGoldAlpha28:  'rgba(201,169,110,0.28)',
+  softGoldAlpha35:  'rgba(201,169,110,0.35)',
+
   // Text
   offWhite:      '#e8e6e3',
   silver:        '#94a3b8',

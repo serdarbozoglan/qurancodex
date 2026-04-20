@@ -77,8 +77,8 @@ const navSections = [
     id: 'rhetoric',
     keyTr: "Kur'an'ın Retoriği",
     keyEn: "The Quran's Rhetoric",
-    descTr: "~1.000 soru · 4 tür · kalıplar · muhatap",
-    descEn: "~1,000 questions · 4 types · patterns · addressees",
+    descTr: "1.200+ soru · 4 tür · kalıplar · muhatap",
+    descEn: "1,200+ questions · 4 types · patterns · addressees",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <circle cx="12" cy="12" r="10"/>

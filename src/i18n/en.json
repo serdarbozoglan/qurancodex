@@ -1,7 +1,6 @@
 {
   "nav": {
     "logo": "QURAN CODEX",
-    "math": "Mathematical Miracle",
     "linguistic": "Linguistic DNA",
     "sounds": "Sound Architecture",
     "science": "Scientific Signs",
@@ -16,57 +15,10 @@
     "ctaRead": "Read Quran",
     "scroll": "Scroll down"
   },
-  "mathMiracle": {
-    "badge": "Mathematical Miracle",
-    "title": "The Impossible Balance of Numbers",
-    "intro": "The Quran was revealed over 23 years, piece by piece, in response to different events and circumstances. If a book's chapters were written at different times, in different contexts, could the word counts within it be perfectly balanced by coincidence? Statisticians estimate the probability at less than 1 in 10,000.",
-    "pairs": [
-      {
-        "conceptA": "Life",
-        "searchA": "hayat",
-        "countA": 145,
-        "conceptB": "Death",
-        "searchB": "ölüm",
-        "countB": 145,
-        "note": "Perfect balance"
-      },
-      {
-        "conceptA": "Angel",
-        "searchA": "melek",
-        "countA": 88,
-        "conceptB": "Satan",
-        "searchB": "şeytan",
-        "countB": 88,
-        "note": "Perfect balance"
-      },
-      {
-        "conceptA": "Day (yawm)",
-        "searchA": "gün",
-        "countA": 365,
-        "note": "Days in a year"
-      },
-      {
-        "conceptA": "Month (shahr)",
-        "searchA": "ay",
-        "countA": 12,
-        "note": "Months in a year"
-      }
-    ],
-    "seaLand": {
-      "title": "Sea and Land Ratio",
-      "seaLabel": "Sea",
-      "seaCount": 32,
-      "landLabel": "Land",
-      "landCount": 13,
-      "totalLabel": "Total",
-      "ratioNote": "This matches Earth's actual sea-to-land ratio exactly!"
-    },
-    "closing": "These numbers emerge from thousands of verses (āyah) spread across different chapters, revealed over 23 years. No human could plan this - because no one could know which verse would be revealed when."
-  },
   "linguisticDNA": {
     "badge": "Linguistic DNA",
     "title": "A 1,400-Year-Old Code",
-    "intro": "Twenty-nine chapters of the Quran open with mysterious letters: Alif-Lam-Mim. Ha-Mim. Ya-Sin. No one knows for certain what they mean. A code that has remained unsolved for 1,400 years. But here is what we do know: these 14 letters make up exactly half of the 28-letter Arabic alphabet... and account for 70% of all letters used in the Quran. Why exactly these 14 letters were chosen, why precisely half the alphabet — questions that have gone unanswered for 1,400 years. A cipher? A system of balance? Only Allah knows.",
+    "intro": "Twenty-nine chapters of the Quran open with mysterious letters: Alif-Lam-Mim. Ha-Mim. Ya-Sin. No one knows for certain what they mean. A code that has remained unsolved for 1,400 years. But here is what we do know: these 14 letters make up exactly half of the 28-letter Arabic alphabet. Why exactly these 14 letters were chosen, why precisely half the alphabet — questions that have gone unanswered for 1,400 years. A cipher? A system of balance? Only Allah knows.",
     "stats": {
       "letters": {
         "label": "Unique Letters",
@@ -77,8 +29,8 @@
         "description": "29 out of 114 chapters begin with these letters"
       },
       "coverage": {
-        "label": "Letter Coverage",
-        "description": "Approximately 70% of all Quranic letters consist of these 14 letters"
+        "label": "Chapter Ratio",
+        "description": "29 of the Quran's 114 chapters (25%) open with disconnected letters"
       }
     },
     "checksum": {
@@ -399,10 +351,6 @@
     "title": "The Only Unchanged Text on Earth",
     "intro": "The Quran in Mecca = the Quran in Medina = Istanbul = Cairo = Jakarta. Letter for letter, identical. 1.8 billion Muslims, different denominations, different countries, different languages. Yet they all read the SAME text. Variation: zero.",
     "counters": {
-      "huffaz": {
-        "label": "Huffaz (Worldwide)",
-        "description": "People who have memorized the entire Quran"
-      },
       "years": {
         "label": "Years Preserved",
         "description": "Continuous preservation period"
@@ -419,7 +367,7 @@
     },
     "oral": {
       "title": "Living Preservation",
-      "description": "Over 10 million huffaz (people who have memorized the entire Quran) worldwide. Each hafiz learned from their teacher, who learned from theirs - an unbroken chain reaching back to the Prophet Muhammad (pbuh)."
+      "description": "Millions of huffaz (people who have memorized the entire Quran) worldwide — estimates range between 3-10 million; no precise demographic data exists. Each hafiz learns from their teacher, who learned from theirs — an unbroken chain reaching back to the Prophet Muhammad (pbuh)."
     },
     "experiment": "A thought experiment: if every written copy of the Quran vanished overnight, huffaz could reconstruct it letter by letter. This is true of no other book in existence.",
     "birmingham": {

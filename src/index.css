@@ -6,8 +6,9 @@
    ============================================ */
 
 @theme {
-  --color-cosmic-black: #080a1e;
-  --color-deep-navy: #0c0e28;
+  /* Palette — single source of truth, mirrors src/tokens.js (CLAUDE.md §4). */
+  --color-cosmic-black: #0a0a1a;
+  --color-deep-navy: #0d1b2a;
   --color-gold: #d4a574;
   --color-royal-gold: #c9a227;
   --color-emerald: #1a7a4c;
