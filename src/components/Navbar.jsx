@@ -465,6 +465,7 @@ export default function Navbar() {
       if (meselOpen) {
         if (meselBackRef.current) {
           meselBackRef.current();
+          meselBackRef.current = null;
           window.history.pushState({ overlay: true }, '');
         } else {
           setMeselOpen(false);
@@ -930,7 +931,7 @@ export default function Navbar() {
                         <div style={{ display: 'flex', marginTop: '-2px' }}>
                           {/* Col 1: Görselleştirme */}
                           <div style={{ flex: 1, padding: '8px' }}>
-                            <div style={colLabel}>{language === 'tr' ? 'Görselleştirme' : 'Visualisation'}</div>
+                            <div style={colLabel}>{language === 'tr' ? 'Görselleştirme' : 'Visualization'}</div>
                             {vizTools.map(toolBtn)}
                           </div>
                           {/* Divider */}
@@ -977,8 +978,8 @@ export default function Navbar() {
               fontSize: '0.82rem',
               fontWeight: 700,
               letterSpacing: '0.07em',
-              padding: '7px 20px',
-              height: '34px',
+              padding: '6px 20px',
+              height: '32px',
               cursor: 'pointer',
               boxShadow: '0 0 20px 4px rgba(180,130,40,0.3)',
               transition: 'all 0.15s',

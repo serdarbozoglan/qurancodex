@@ -21,8 +21,15 @@ export default function AddresseeSystem({ onClose }) {
     fetch('/addressees.json')
       .then(r => r.json())
       .then(setData)
-      .catch(() => {});
+      .catch(err => console.error('[AddresseeSystem] fetch failed:', err));
   }, []);
+
+  // Escape to close (§13.3)
+  useEffect(() => {
+    const h = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, [onClose]);
 
   const categories = (data?.categories ?? []).slice().sort((a, b) => (b.stats?.count ?? 0) - (a.stats?.count ?? 0));
   const active     = categories.find(c => c.id === activeId) ?? null;
