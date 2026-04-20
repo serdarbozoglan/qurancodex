@@ -166,7 +166,7 @@ function DonutChart({ activeType, onHover }) {
           border: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <AnimatedCounter target={1000} prefix="~" className="text-4xl md:text-5xl text-gold" />
+        <AnimatedCounter target={1200} suffix="+" className="text-4xl md:text-5xl text-gold" />
         <span style={{
           color: 'rgba(148,163,184,0.55)',
           fontSize: '0.75rem',
