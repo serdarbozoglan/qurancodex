@@ -29,7 +29,11 @@
       "Bash(npm list:*)",
       "WebFetch(domain:www.kurankelimemeali.com)",
       "WebFetch(domain:www.kuran.com)",
-      "WebFetch(domain:api.acikkuran.com)"
+      "WebFetch(domain:api.acikkuran.com)",
+      "WebFetch(domain:www.birmingham.ac.uk)",
+      "WebFetch(domain:whitecloudpress.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.whitecloudpress.com)"
     ]
   }
 }

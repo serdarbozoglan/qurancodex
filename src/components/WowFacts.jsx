@@ -297,12 +297,12 @@ const FACTS = [
   {
     category: 'peygamberler',
     surahRef: 'El-Ankebût · 29:14',
-    titleTr: 'Hz. Nuh\'un 950 Yılı — Kur\'an\'da Açıkça',
-    titleEn: 'Noah\'s 950 Years — Stated Explicitly',
-    bodyTr: 'Kur\'an, Hz. Nuh\'un kavmine 950 yıl tebliğ ettiğini açıkça belirtir (29:14). Bu süreyi bu kadar net bir rakamla veren az sayıda kaynaktan biridir.',
-    bodyEn: 'The Quran explicitly states that Noah preached to his people for 950 years (29:14). It is one of the few sources to give this duration as such a precise figure.',
-    wowTr: '950 yıl. Rakam bulanık değil, kesin.',
-    wowEn: '950 years. The number is not vague — it is exact.',
+    titleTr: 'Hz. Nuh\'un 950 Yılı — Ankebût 29:14',
+    titleEn: 'Noah\'s 950 Years — Al-Ankabut 29:14',
+    bodyTr: 'Ankebût 29:14 şöyle der: "Nûh\'u kavmine gönderdik; aralarında bin yıldan elli yıl eksik kaldı." Ayet lafzen kavmi arasında kalma süresini verir; klasik tefsirin çoğunluğu bunu tebliğ süresi olarak yorumlar.',
+    bodyEn: 'Al-Ankabut 29:14 states: "We sent Noah to his people, and he remained among them a thousand years less fifty." The verse literally gives the duration he remained with his people; most classical commentators interpret this as his preaching duration.',
+    wowTr: '950 yıl — tarihin hiçbir sözlü geleneğinde görülmeyen kesin bir sayı.',
+    wowEn: '950 years — a precise figure unmatched in any oral tradition of history.',
     explore: 'nuh',
   },
   {
