@@ -2780,13 +2780,21 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       fontSize: isMobile ? '2.4rem' : '3.2rem',
                       color: C.gold,
                       lineHeight: 1.2,
-                      marginBottom: '12px',
+                      marginBottom: '14px',
                       letterSpacing: '0.02em',
                     }}>
                       الفاتحة
                     </div>
+                    {/* Thin gold divider — classical mushaf ornament feel */}
                     <div style={{
-                      fontSize: '0.7rem',
+                      width: '48px',
+                      height: '1px',
+                      background: C.gold,
+                      opacity: 0.35,
+                      margin: '0 auto 14px',
+                    }} />
+                    <div style={{
+                      fontSize: '0.75rem',
                       color: C.muted,
                       letterSpacing: '0.3em',
                       textTransform: 'uppercase',
