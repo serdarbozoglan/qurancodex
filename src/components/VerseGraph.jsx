@@ -8,6 +8,7 @@ import {
 } from 'three';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
+import { COLORS } from '../tokens';
 
 // ─── Strip footnotes from Suat Yıldırım translation ──────────────────────────
 // Removes {KM, Tesniye 4,35; İşaya 43,10-11} style cross-reference notes.
@@ -1003,7 +1004,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
   }, [onWheel]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e', overflow: 'hidden' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, overflow: 'hidden' }}>
       {/* Header */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20,
@@ -1846,7 +1847,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   }, [focusedSet]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack }}>
       {/* Sûre info panel — left side; follows selected verse's surah when cross-surah */}
       <SurahInfoPanel
         surah={selected?.surah ?? surah} language={language} graphData={graphData} showName={true}
@@ -1923,7 +1924,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
         ref={graphRef}
         graphData={graphData}
         width={selected ? Math.max(380, dim.w - 680) : dim.w} height={dim.h}
-        backgroundColor="#080a1e"
+        backgroundColor={COLORS.cosmicBlack}
         d3AlphaDecay={1} d3VelocityDecay={1}
         nodeThreeObject={nodeThreeObject}
         nodeThreeObjectExtend={false}
@@ -2220,7 +2221,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
   }, [focusedSet]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack }}>
       {/* Sûre bilgi paneli — sûre filtresi aktifken veya ayet seçilince */}
       {(filterSurah || selected) && (
         <SurahInfoPanel
@@ -2378,7 +2379,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
         ref={graphRef}
         graphData={graphData}
         width={selected ? dim.w - 680 : dim.w} height={dim.h}
-        backgroundColor="#080a1e"
+        backgroundColor={COLORS.cosmicBlack}
         d3AlphaDecay={1} d3VelocityDecay={1}
         warmupTicks={0} cooldownTicks={10}
         nodeThreeObject={nodeThreeObject}
@@ -2584,7 +2585,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   }, [view, onRegisterBackHandler, initialSearch, onClose]);
 
   if (loading) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
       <div style={{ width: '44px', height: '44px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: '#d4a574', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
       <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>{language === 'tr' ? 'Harita yükleniyor...' : 'Loading map...'}</span>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
@@ -2592,7 +2593,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   );
 
   if (error) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
       <span style={{ color: '#e74c3c', fontSize: '1rem', fontWeight: 600 }}>Veri Bulunamadı</span>
       <span style={{ color: '#64748b', fontSize: '0.82rem', textAlign: 'center', maxWidth: '480px' }}>{error}</span>
     </div>

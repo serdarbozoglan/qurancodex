@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
 
 const SURAH_NAMES_TR = [
   'El-Fatiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide',
@@ -77,7 +77,7 @@ export default function RevelationTimeline({ onClose }) {
   }, [orderData]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       {/* Header */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
