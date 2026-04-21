@@ -1071,13 +1071,13 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     arabic: '#1a0e00', arabicActive: '#4a2800',
     translation: '#2e1a08', translationActive: '#5c3418',
     bismillah: '#c0392b',
-    activeHighlight: 'rgba(110,72,10,0.07)', activeBorder: 'rgba(110,72,10,0.38)',
+    activeHighlight: 'rgba(110,72,10,0.12)', activeBorder: 'rgba(110,72,10,0.52)',
     muted: '#7a6040', scrollbar: 'rgba(110,72,10,0.22) transparent',
     footerBg: 'rgba(244,241,234,0.98)', footerBorder: 'rgba(154,111,16,0.18)',
   } : {
     bg: COLORS.cosmicBlack, gold: COLORS.gold,
     arabic: '#cca96a', arabicActive: '#f0d898',
-    translation: '#cdc6bb', translationActive: '#e8c98a',
+    translation: '#b8a888', translationActive: '#e8c98a',
     bismillah: '#e05a48',
     activeHighlight: 'rgba(212,165,116,0.14)', activeBorder: 'rgba(200,185,165,0.72)',
     muted: '#64748b', scrollbar: 'rgba(212,165,116,0.2) transparent',
@@ -2768,7 +2768,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         {bookMode ? (
           /* ── Book format — all surahs ── */
           <>
-          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '12px 16px 40px 12px' : '28px 56px 60px 24px' }}>
+          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '10px 12px 32px 12px' : '20px 24px 36px 12px' }}>
             {/* Book mode: surah banner + bismillah when primary surah's first verse is on this page */}
             {versesOnPage.some(v => v.surah === selectedSurah && v.ayah === 1) && (
               <>
@@ -2780,7 +2780,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               </>
             )}
 
-            <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '45fr 55fr') : '1fr', gap: '0' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr', gap: '0' }}>
               {/* Left: Translation — hidden when Meal is off */}
               {showTranslation && (
                 <div style={{
@@ -2826,7 +2826,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                           onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
                           style={{
                             cursor: 'pointer', borderRadius: isMobile ? '0' : '6px',
-                            padding: isMobile ? '8px 8px' : '14px 12px',
+                            padding: isMobile ? '8px 8px' : '12px 12px',
                             background: isActive ? C.activeHighlight : 'transparent',
                             borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                             transition: 'all 0.18s',
