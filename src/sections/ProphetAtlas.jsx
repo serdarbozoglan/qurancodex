@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { COLORS, FONTS } from '../tokens';
 import ProphetMap from './ProphetMap';
 
 // Revelation order — rank 1-86 Mekki, 87-114 Medeni
@@ -431,7 +432,7 @@ function renderGiftText(text, lang, onRefClick) {
     const verseDisplay = part.replace(/^\(\d+:/, '').replace(/\)$/, '');
     const isKnown = !!GIFT_VERSE_REFS[key];
     const isMekki = (RANK_BY_SURAH[surahNum] ?? 0) <= 86;
-    const refColor = isMekki ? '#d4a574' : 'rgba(52,211,153,0.9)';
+    const refColor = isMekki ? COLORS.gold : 'rgba(52,211,153,0.9)';
     const borderColor = isMekki ? 'rgba(212,165,116,0.55)' : 'rgba(52,211,153,0.5)';
     return (
       <span
@@ -1356,7 +1357,7 @@ const PROPHETS = [
     subtitleTr: '950 yıllık davet — bir gemi, bir tufan, yeniden başlangıç',
     subtitleEn: '950 years of calling — one ark, one flood, a new beginning',
     mentions: 43,
-    color: '#f472b6', glow: 'rgba(244,114,182,0.65)',
+    color: '#f472b6', glow: 'rgba(244,114,182,0.65)', // TODO: tokenize — prophet-chart pink
     surahs: [
       { s:54, phaseTr:'Nuh\'un kavminin inkârı', phaseEn:"Noah's People Deny" },
       { s:7,  phaseTr:'Kavmiyle tartışma', phaseEn:'Debate with His People' },
@@ -1374,7 +1375,7 @@ const PROPHETS = [
     subtitleTr: 'Tevhidin atası — Kâbe\'nin mimarı',
     subtitleEn: 'Father of monotheism — Architect of the Kaaba',
     mentions: 69,
-    color: '#fbbf24', glow: 'rgba(251,191,36,0.65)',
+    color: '#fbbf24', glow: 'rgba(251,191,36,0.65)', // TODO: tokenize — prophet-chart amber
     surahs: [
       { s:87, phaseTr:'İbrahim\'in sahifeleri', phaseEn:"Scrolls of Abraham" },
       { s:19, phaseTr:'Babası Azar ile tartışma', phaseEn:'Debate with Father Azar' },
@@ -1395,7 +1396,7 @@ const PROPHETS = [
     subtitleTr: 'Kur\'an\'ın en güzel kıssası — başından sonuna tek sûreli eksiksiz anlatı',
     subtitleEn: "The Quran's most beautiful story — a complete narrative from beginning to end in one surah",
     mentions: 27,
-    color: '#34d399', glow: 'rgba(52,211,153,0.65)',
+    color: '#34d399', glow: 'rgba(52,211,153,0.65)', // TODO: tokenize — prophet-chart green
     surahs: [
       { s:6,  phaseTr:'İshak soyundan', phaseEn:'Of the Lineage of Isaac' },
       { s:12, phaseTr:'Rüya → Kuyu → Saray → Hapishane → Mısır Veziri', phaseEn:'Dream → Well → Palace → Prison → Viceroy of Egypt' },
@@ -1408,7 +1409,7 @@ const PROPHETS = [
     subtitleTr: '30\'dan fazla sûrede — Kur\'an\'ın en geniş kapsamlı peygamber kıssası',
     subtitleEn: 'Across 30+ surahs — the most expansive prophet narrative in the Quran',
     mentions: 136,
-    color: '#60a5fa', glow: 'rgba(96,165,250,0.65)',
+    color: '#60a5fa', glow: 'rgba(96,165,250,0.65)', // TODO: tokenize — prophet-chart blue
     surahs: [
       { s:54, phaseTr:'İlk uyarı', phaseEn:'First Warning' },
       { s:7,  phaseTr:'9 mucize — Mısır\'da', phaseEn:'9 Miracles in Egypt' },
@@ -1430,7 +1431,7 @@ const PROPHETS = [
     subtitleTr: 'Babasız doğum, mucizeler ve iki dinin kesişimi',
     subtitleEn: 'Virgin birth, miracles, and the intersection of two faiths',
     mentions: 25,
-    color: '#a78bfa', glow: 'rgba(167,139,250,0.65)',
+    color: COLORS.purple, glow: 'rgba(167,139,250,0.65)', // TODO: tokenize glow
     surahs: [
       { s:19, phaseTr:'Doğum: Meryem\'e vahiy & beşikte konuşma', phaseEn:"Birth: Mary's Revelation & Speech in Cradle" },
       { s:43, phaseTr:'İsa\'ya karşı argümanlar & dönüşü', phaseEn:"Arguments Against Jesus & His Return" },
@@ -1570,7 +1571,7 @@ export default function ProphetAtlas() {
 
   return (
     <section id="math" style={{
-      background: 'linear-gradient(180deg, #0a0a1a 0%, #0d1b2a 50%, #0a0a1a 100%)',
+      background: `linear-gradient(180deg, ${COLORS.cosmicBlack} 0%, ${COLORS.deepNavy} 50%, ${COLORS.cosmicBlack} 100%)`,
       padding: '100px 0 24px',
       position: 'relative',
       overflow: 'hidden',
@@ -1578,7 +1579,7 @@ export default function ProphetAtlas() {
       {/* Background pattern */}
       <div style={{
         position: 'absolute', inset: 0, opacity: 0.03,
-        backgroundImage: 'radial-gradient(circle, #d4a574 1px, transparent 1px)',
+        backgroundImage: `radial-gradient(circle, ${COLORS.gold} 1px, transparent 1px)`,
         backgroundSize: '40px 40px',
         pointerEvents: 'none',
       }} />
@@ -1588,22 +1589,22 @@ export default function ProphetAtlas() {
         {/* Header */}
         <div style={{ marginBottom: '48px' }}>
           <div style={{
-            color: '#d4a574', fontSize: '0.72rem',
+            color: COLORS.gold, fontSize: '0.72rem',
             fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase',
             marginBottom: '16px', opacity: 0.7,
           }}>
             {tr('Anlatı Haritası', 'Narrative Map')}
           </div>
           <h2 style={{
-            fontFamily: '"Playfair Display", serif',
+            fontFamily: FONTS.display,
             fontSize: 'clamp(1.9rem, 4vw, 3rem)',
-            fontWeight: 700, color: '#e8e6e3',
+            fontWeight: 700, color: COLORS.offWhite,
             margin: '0 0 16px', lineHeight: 1.2,
           }}>
             {tr('Peygamberler Atlası', 'Prophets Atlas')}
           </h2>
           <p style={{
-            color: '#94a3b8', fontSize: '1.05rem', lineHeight: 1.75,
+            color: COLORS.silver, fontSize: '1.05rem', lineHeight: 1.75,
             maxWidth: '640px',
           }}>
             {tr(
@@ -1628,14 +1629,14 @@ export default function ProphetAtlas() {
                 style={{
                   padding: '10px 22px',
                   background: isSelected ? `${p.color}22` : 'rgba(255,255,255,0.04)',
-                  border: `1.5px solid ${isSelected ? p.color : 'rgba(255,255,255,0.1)'}`,
+                  border: `1.5px solid ${isSelected ? p.color : COLORS.glassBorder}`,
                   borderRadius: '999px',
-                  color: isSelected ? p.color : '#94a3b8',
+                  color: isSelected ? p.color : COLORS.silver,
                   fontSize: '0.88rem', fontWeight: isSelected ? 700 : 500,
                   cursor: 'pointer',
                   transition: 'all 0.25s ease',
                   boxShadow: isFocused ? `0 0 18px ${p.glow}` : 'none',
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: FONTS.body,
                 }}
               >
                 {tr(p.nameTr, p.nameEn)}
@@ -1711,6 +1712,7 @@ export default function ProphetAtlas() {
               return (
                 <>
                   {/* Meccan band */}
+                  {/* TODO: tokenize — gold@4.5% / green@4% band tints */}
                   <rect
                     x={PAD} y={bandTop} width={sepX - PAD} height={bandH}
                     fill="rgba(212,165,116,0.045)" rx="6"
@@ -1729,7 +1731,7 @@ export default function ProphetAtlas() {
                   <text
                     x={(PAD + sepX) / 2} y={bandTop + 14}
                     fill="rgba(212,165,116,0.5)"
-                    fontSize="8" textAnchor="middle" fontFamily="Inter,sans-serif"
+                    fontSize="8" textAnchor="middle" fontFamily={FONTS.body}
                     letterSpacing="0.12em" fontWeight="700"
                   >
                     {tr('MEKKİ DÖNEM', 'MECCAN PERIOD')}
@@ -1737,7 +1739,7 @@ export default function ProphetAtlas() {
                   <text
                     x={(sepX + TOTAL_W - PAD) / 2} y={bandTop + 14}
                     fill="rgba(52,211,153,0.5)"
-                    fontSize="8" textAnchor="middle" fontFamily="Inter,sans-serif"
+                    fontSize="8" textAnchor="middle" fontFamily={FONTS.body}
                     letterSpacing="0.12em" fontWeight="700"
                   >
                     {tr('MEDENİ DÖNEM', 'MEDINAN PERIOD')}
@@ -1758,7 +1760,7 @@ export default function ProphetAtlas() {
                       <circle cx={lx + 8} cy={46} r={3.5} fill={p.color} />
                       <text x={lx + 22} y={49.5}
                         fill={p.color} fontSize="8.5"
-                        fontFamily="Inter,sans-serif" fontWeight="600"
+                        fontFamily={FONTS.body} fontWeight="600"
                       >
                         {tr(p.nameTr, p.nameEn)}
                       </text>
@@ -1771,7 +1773,7 @@ export default function ProphetAtlas() {
             {/* Timeline baseline */}
             <line
               x1={PAD} y1={NODE_Y} x2={TOTAL_W - PAD} y2={NODE_Y}
-              stroke="rgba(255,255,255,0.08)" strokeWidth="1"
+              stroke={COLORS.glassBgStrong} strokeWidth="1"
             />
 
             {/* Year markers */}
@@ -1792,8 +1794,8 @@ export default function ProphetAtlas() {
                 <g key={rank}>
                   <line x1={x} y1={NODE_Y - 5} x2={x} y2={NODE_Y + 5}
                     stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
-                  <text x={x} y={NODE_Y + 20} fill="rgba(148,163,184,0.7)"
-                    fontSize="11" textAnchor="middle" fontFamily="Inter,sans-serif" fontWeight="500">
+                  <text x={x} y={NODE_Y + 20} fill={COLORS.silverAlpha70}
+                    fontSize="11" textAnchor="middle" fontFamily={FONTS.body} fontWeight="500">
                     {language === 'tr' ? labels[rank].tr : labels[rank].en}
                   </text>
                 </g>
@@ -1888,7 +1890,7 @@ export default function ProphetAtlas() {
                           x={x} y={NODE_Y - 18}
                           fill={prophet.color}
                           fontSize="8" textAnchor="middle"
-                          fontFamily="Inter, sans-serif" fontWeight="700"
+                          fontFamily={FONTS.body} fontWeight="700"
                           opacity="0.9"
                           style={{ pointerEvents: 'none' }}
                         >
@@ -1916,15 +1918,15 @@ export default function ProphetAtlas() {
                     x={tooltipX - tooltipW / 2} y={tooltipY}
                     width={tooltipW} height={tooltipH}
                     rx="8" ry="8"
-                    fill="#0d1b2a" stroke="rgba(255,255,255,0.15)"
+                    fill={COLORS.deepNavy} stroke="rgba(255,255,255,0.15)"
                     strokeWidth="1"
                     opacity="0.97"
                   />
                   {/* Surah name header */}
                   <text
                     x={tooltipX} y={tooltipY + 17}
-                    fill="#e8e6e3" fontSize="10.5" fontWeight="700"
-                    textAnchor="middle" fontFamily="Inter, sans-serif"
+                    fill={COLORS.offWhite} fontSize="10.5" fontWeight="700"
+                    textAnchor="middle" fontFamily={FONTS.body}
                   >
                     {surahName ? (language === 'tr' ? surahName.tr : surahName.en) : `Sûre ${hoveredNode.surah}`}
                     {' '}
@@ -1945,15 +1947,15 @@ export default function ProphetAtlas() {
                         x={tooltipX - tooltipW / 2 + 24}
                         y={tooltipY + 30 + idx * 28}
                         fill={prophet.color} fontSize="8.5" fontWeight="700"
-                        textAnchor="start" fontFamily="Inter, sans-serif"
+                        textAnchor="start" fontFamily={FONTS.body}
                       >
                         {tr(prophet.nameTr, prophet.nameEn)}
                       </text>
                       <text
                         x={tooltipX - tooltipW / 2 + 24}
                         y={tooltipY + 43 + idx * 28}
-                        fill="#94a3b8" fontSize="8.5"
-                        textAnchor="start" fontFamily="Inter, sans-serif"
+                        fill={COLORS.silver} fontSize="8.5"
+                        textAnchor="start" fontFamily={FONTS.body}
                       >
                         {language === 'tr' ? phaseTr : phaseEn}
                       </text>
@@ -2004,11 +2006,11 @@ export default function ProphetAtlas() {
                     }}>
                       <div style={{
                         color: p.color, fontSize: '1.6rem', fontWeight: 800,
-                        fontFamily: 'Inter, sans-serif', lineHeight: 1.1,
+                        fontFamily: FONTS.body, lineHeight: 1.1,
                       }}>{value}</div>
                       <div style={{
                         color: 'rgba(148,163,184,0.65)', fontSize: '0.75rem',
-                        marginTop: '5px', fontFamily: 'Inter, sans-serif',
+                        marginTop: '5px', fontFamily: FONTS.body,
                       }}>{tr(labelTr, labelEn)}</div>
                     </div>
                   ))}
@@ -2019,7 +2021,7 @@ export default function ProphetAtlas() {
                   <div style={{
                     display: 'flex', justifyContent: 'space-between',
                     fontSize: '0.72rem', color: 'rgba(148,163,184,0.55)',
-                    marginBottom: '6px', fontFamily: 'Inter, sans-serif',
+                    marginBottom: '6px', fontFamily: FONTS.body,
                   }}>
                     <span style={{ color: 'rgba(212,165,116,0.8)' }}>
                       {tr(`Mekkî: ${mekkiSurahs.length} sûre`, `Meccan: ${mekkiSurahs.length} surahs`)}
@@ -2067,15 +2069,15 @@ export default function ProphetAtlas() {
                             background: isMekki ? 'rgba(212,165,116,0.9)' : 'rgba(52,211,153,0.9)',
                           }} />
                           <span style={{
-                            fontSize: '0.75rem', fontFamily: 'Inter, sans-serif',
+                            fontSize: '0.75rem', fontFamily: FONTS.body,
                             color: isMekki ? 'rgba(212,165,116,0.85)' : 'rgba(52,211,153,0.85)',
                             fontWeight: 500,
                           }}>
                             {label}
                           </span>
                           <span style={{
-                            fontSize: '0.68rem', fontFamily: 'Inter, sans-serif',
-                            color: 'rgba(148,163,184,0.4)', fontWeight: 400,
+                            fontSize: '0.68rem', fontFamily: FONTS.body,
+                            color: COLORS.silverAlpha40, fontWeight: 400,
                           }}>
                             {item.s}
                           </span>
@@ -2086,7 +2088,7 @@ export default function ProphetAtlas() {
                 <div style={{
                   textAlign: 'center', marginTop: '10px',
                   fontSize: '0.82rem', color: 'rgba(148,163,184,0.75)',
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: FONTS.body,
                 }}>
                   {tr(
                     '● Altın = Mekkî sûre  ● Yeşil = Medenî sûre  · Yanındaki rakam sûre numarasıdır  · Arc boyutu iki sûre arası nüzul mesafesini yansıtır',
@@ -2127,24 +2129,24 @@ export default function ProphetAtlas() {
                   >
                     <div style={{
                       color: p.color, fontWeight: 700, fontSize: '0.9rem',
-                      fontFamily: 'Inter, sans-serif', marginBottom: '12px',
+                      fontFamily: FONTS.body, marginBottom: '12px',
                     }}>
                       {tr(p.nameTr, p.nameEn)}
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
+                        <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.72rem', fontFamily: FONTS.body }}>
                           {tr('Zikir sayısı', 'Mentions')}
                         </span>
-                        <span style={{ color: p.color, fontWeight: 700, fontSize: '0.85rem', fontFamily: 'Inter, sans-serif' }}>
+                        <span style={{ color: p.color, fontWeight: 700, fontSize: '0.85rem', fontFamily: FONTS.body }}>
                           {p.mentions}×
                         </span>
                       </div>
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
+                        <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.72rem', fontFamily: FONTS.body }}>
                           {tr('Sûre sayısı', 'Surahs')}
                         </span>
-                        <span style={{ color: '#e8e6e3', fontWeight: 600, fontSize: '0.85rem', fontFamily: 'Inter, sans-serif' }}>
+                        <span style={{ color: COLORS.offWhite, fontWeight: 600, fontSize: '0.85rem', fontFamily: FONTS.body }}>
                           {total}
                         </span>
                       </div>
@@ -2153,7 +2155,7 @@ export default function ProphetAtlas() {
                         <div style={{
                           display: 'flex', justifyContent: 'space-between',
                           fontSize: '0.68rem', color: 'rgba(148,163,184,0.45)',
-                          marginBottom: '4px', fontFamily: 'Inter, sans-serif',
+                          marginBottom: '4px', fontFamily: FONTS.body,
                         }}>
                           <span style={{ color: 'rgba(212,165,116,0.75)' }}>
                             {tr(`Mek. ${mekkiCount}`, `Mec. ${mekkiCount}`)}
@@ -2186,7 +2188,7 @@ export default function ProphetAtlas() {
             style={{
               background: 'none', border: 'none', cursor: 'pointer',
               color: 'rgba(148,163,184,0.75)', fontSize: '0.85rem',
-              fontFamily: 'Inter, sans-serif',
+              fontFamily: FONTS.body,
               display: 'inline-flex', alignItems: 'center', gap: '5px',
               padding: '4px 0',
               transition: 'color 0.2s',
@@ -2207,9 +2209,9 @@ export default function ProphetAtlas() {
             <div style={{
               maxWidth: '680px', margin: '10px auto 0',
               padding: '14px 20px',
-              background: 'rgba(255,255,255,0.02)',
+              background: 'rgba(255,255,255,0.02)', // TODO: tokenize
               borderRadius: '8px',
-              border: '1px solid rgba(255,255,255,0.06)',
+              border: `1px solid ${COLORS.glassBorderSoft}`,
               textAlign: 'left',
             }}>
               <p style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.82rem', lineHeight: 1.65, margin: 0 }}>
@@ -2228,20 +2230,20 @@ export default function ProphetAtlas() {
           {/* Header */}
           <div style={{ marginBottom: '36px' }}>
             <div style={{
-              color: '#d4a574', fontSize: '0.72rem', fontWeight: 700,
+              color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
               letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.7,
             }}>
               {tr('Vahyin Pedagojik Tasarımı', 'The Pedagogical Design of Revelation')}
             </div>
             <h3 style={{
-              fontFamily: '"Playfair Display", serif',
+              fontFamily: FONTS.display,
               fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              fontWeight: 700, color: '#e8e6e3', margin: '0 0 14px',
+              fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px',
             }}>
               {tr('Her Kıssa Bir Ayna', 'Every Story Was a Mirror')}
             </h3>
             <p style={{
-              color: '#94a3b8', fontSize: '1rem', lineHeight: 1.75,
+              color: COLORS.silver, fontSize: '1rem', lineHeight: 1.75,
               maxWidth: '680px',
             }}>
               {tr(
@@ -2307,7 +2309,7 @@ export default function ProphetAtlas() {
                   display: 'grid',
                   gridTemplateColumns: '1fr auto 1fr',
                   gap: '0',
-                  background: i % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent',
+                  background: i % 2 === 0 ? COLORS.glassBgFaint : 'transparent',
                   borderRadius: '12px',
                   overflow: 'hidden',
                 }}>
@@ -2324,20 +2326,20 @@ export default function ProphetAtlas() {
                       }} />
                       <span style={{
                         color: p.color, fontSize: '0.82rem', fontWeight: 700,
-                        fontFamily: 'Inter, sans-serif',
+                        fontFamily: FONTS.body,
                       }}>
                         {tr(p.nameTr, p.nameEn)}
                       </span>
                       <span style={{
-                        color: 'rgba(148,163,184,0.4)', fontSize: '0.72rem',
-                        fontFamily: 'Inter, sans-serif',
+                        color: COLORS.silverAlpha40, fontSize: '0.72rem',
+                        fontFamily: FONTS.body,
                         marginLeft: 'auto',
                       }}>
                         {tr(row.periodTr, row.periodEn)}
                       </span>
                     </div>
                     <p style={{
-                      color: '#e8e6e3', fontSize: '0.88rem', lineHeight: 1.65,
+                      color: COLORS.offWhite, fontSize: '0.88rem', lineHeight: 1.65,
                       margin: 0, opacity: 0.85,
                     }}>
                       {tr(row.narrativeTr, row.narrativeEn)}
@@ -2357,17 +2359,17 @@ export default function ProphetAtlas() {
                   {/* Right: Hz. Muhammad's context */}
                   <div style={{
                     padding: '20px 24px',
-                    borderLeft: '1px solid rgba(255,255,255,0.05)',
+                    borderLeft: `1px solid ${COLORS.glassBg}`,
                   }}>
                     <div style={{
-                      color: '#d4a574', fontSize: '0.72rem', fontWeight: 700,
+                      color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
                       letterSpacing: '0.04em',
                       marginBottom: '8px', opacity: 0.7,
                     }}>
                       {tr('Hz. Muhammed (s.a.v.)\'in durumu', 'Prophet Muhammad\'s (s.a.v.) situation')}
                     </div>
                     <p style={{
-                      color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.65, margin: 0,
+                      color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.65, margin: 0,
                     }}>
                       {tr(row.contextTr, row.contextEn)}
                     </p>
@@ -2393,8 +2395,8 @@ export default function ProphetAtlas() {
           <div style={{
             marginTop: '24px',
             padding: '14px 18px',
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.06)',
+            background: 'rgba(255,255,255,0.02)', // TODO: tokenize
+            border: `1px solid ${COLORS.glassBorderSoft}`,
             borderRadius: '8px',
           }}>
             <p style={{ color: 'rgba(148,163,184,0.75)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
@@ -2438,13 +2440,13 @@ export default function ProphetAtlas() {
                 style={{
                   padding: '6px 16px',
                   background: isActive ? `${p.color}22` : 'rgba(255,255,255,0.04)',
-                  border: `1.5px solid ${isActive ? p.color : 'rgba(255,255,255,0.1)'}`,
+                  border: `1.5px solid ${isActive ? p.color : COLORS.glassBorder}`,
                   borderRadius: '999px',
-                  color: isActive ? p.color : '#64748b',
+                  color: isActive ? p.color : COLORS.slate500,
                   fontSize: '0.8rem', fontWeight: isActive ? 700 : 400,
                   cursor: 'pointer', transition: 'all 0.2s',
                   boxShadow: isActive ? `0 0 12px ${p.glow}` : 'none',
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: FONTS.body,
                 }}
               >
                 {tr(p.nameTr, p.nameEn)}
@@ -2461,20 +2463,20 @@ export default function ProphetAtlas() {
           {/* Section header */}
           <div style={{ marginBottom: '28px' }}>
             <div style={{
-              color: '#d4a574', fontSize: '0.72rem', fontWeight: 700,
+              color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
               letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.7,
             }}>
               {tr("Kur'an'da İsmi Geçen 25 Peygamber", '25 Prophets Named in the Quran')}
             </div>
             <h3 style={{
-              fontFamily: '"Playfair Display", serif',
+              fontFamily: FONTS.display,
               fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)',
-              fontWeight: 700, color: '#e8e6e3', margin: '0 0 10px',
+              fontWeight: 700, color: COLORS.offWhite, margin: '0 0 10px',
             }}>
               {tr('Vasıflar ve Dualar', 'Attributes and Prayers')}
             </h3>
             <p style={{
-              color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.7,
+              color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7,
               maxWidth: '600px',
             }}>
               {tr(
@@ -2498,9 +2500,9 @@ export default function ProphetAtlas() {
                   key={p.id}
                   style={{
                     background: isOpen
-                      ? 'rgba(212,165,116,0.10)'
-                      : p.detailed ? 'rgba(212,165,116,0.06)' : 'rgba(255,255,255,0.03)',
-                    border: `1px solid ${isOpen ? 'rgba(212,165,116,0.55)' : p.detailed ? 'rgba(212,165,116,0.25)' : 'rgba(255,255,255,0.08)'}`,
+                      ? 'rgba(212,165,116,0.10)' // TODO: tokenize
+                      : p.detailed ? 'rgba(212,165,116,0.06)' : 'rgba(255,255,255,0.03)', // TODO: tokenize
+                    border: `1px solid ${isOpen ? 'rgba(212,165,116,0.55)' : p.detailed ? COLORS.goldAlpha25 : COLORS.glassBgStrong}`,
                     borderRadius: '12px',
                     overflow: 'hidden',
                     transition: 'border-color 0.2s, background 0.2s',
@@ -2522,9 +2524,9 @@ export default function ProphetAtlas() {
                       {/* Name row */}
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
                         <span style={{
-                          color: p.detailed ? '#d4a574' : '#e8e6e3',
+                          color: p.detailed ? COLORS.gold : COLORS.offWhite,
                           fontSize: '0.88rem', fontWeight: 700,
-                          fontFamily: 'Inter, sans-serif',
+                          fontFamily: FONTS.body,
                         }}>
                           {tr(p.nameTr, p.nameEn)}
                         </span>
@@ -2533,10 +2535,10 @@ export default function ProphetAtlas() {
                             fontSize: '0.6rem', fontWeight: 700,
                             color: 'rgba(212,165,116,0.7)',
                             background: 'rgba(212,165,116,0.12)',
-                            border: '1px solid rgba(212,165,116,0.25)',
+                            border: `1px solid ${COLORS.goldAlpha25}`,
                             borderRadius: '4px', padding: '1px 5px',
                             letterSpacing: '0.08em', textTransform: 'uppercase',
-                            fontFamily: 'Inter, sans-serif',
+                            fontFamily: FONTS.body,
                           }}>
                             {tr('Atlas', 'Atlas')}
                           </span>
@@ -2546,7 +2548,7 @@ export default function ProphetAtlas() {
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', alignItems: 'center' }}>
                         <span style={{
                           fontSize: '0.7rem', color: 'rgba(212,165,116,0.8)',
-                          fontWeight: 700, fontFamily: 'Inter, sans-serif',
+                          fontWeight: 700, fontFamily: FONTS.body,
                           marginRight: '2px',
                         }}>
                           {p.mentions}×
@@ -2556,10 +2558,10 @@ export default function ProphetAtlas() {
                           const name = SURAH_NAMES[s];
                           return (
                             <span key={s} style={{
-                              fontSize: '0.62rem', fontFamily: 'Inter, sans-serif',
+                              fontSize: '0.62rem', fontFamily: FONTS.body,
                               color: isMekki ? 'rgba(212,165,116,0.8)' : 'rgba(52,211,153,0.8)',
                               background: isMekki ? 'rgba(212,165,116,0.1)' : 'rgba(52,211,153,0.1)',
-                              border: `1px solid ${isMekki ? 'rgba(212,165,116,0.2)' : 'rgba(52,211,153,0.2)'}`,
+                              border: `1px solid ${isMekki ? COLORS.goldAlpha20 : 'rgba(52,211,153,0.2)'}`,
                               borderRadius: '4px', padding: '1px 5px', fontWeight: 500,
                             }}>
                               {name ? (language === 'tr' ? name.tr : name.en) : s}
@@ -2569,7 +2571,7 @@ export default function ProphetAtlas() {
                         {p.surahs.length > 6 && (
                           <span style={{
                             fontSize: '0.62rem', color: 'rgba(148,163,184,0.45)',
-                            fontFamily: 'Inter, sans-serif',
+                            fontFamily: FONTS.body,
                           }}>
                             +{p.surahs.length - 6}
                           </span>
@@ -2578,7 +2580,7 @@ export default function ProphetAtlas() {
                     </div>
                     {/* Chevron */}
                     <span style={{
-                      color: 'rgba(148,163,184,0.4)', fontSize: '0.7rem',
+                      color: COLORS.silverAlpha40, fontSize: '0.7rem',
                       transition: 'transform 0.2s',
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                       flexShrink: 0, marginTop: '2px',
@@ -2596,7 +2598,7 @@ export default function ProphetAtlas() {
             marginTop: '16px',
             display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
             gap: '6px 20px',
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: FONTS.body,
             fontSize: '0.78rem',
           }}>
             <span style={{ color: 'rgba(212,165,116,0.75)' }}>
@@ -2615,20 +2617,20 @@ export default function ProphetAtlas() {
         <div style={{ marginTop: '64px' }}>
           <div style={{ marginBottom: '28px' }}>
             <div style={{
-              color: '#d4a574', fontSize: '0.72rem', fontWeight: 700,
+              color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
               letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.7,
             }}>
               {tr("Kur'an'da Geçen Soy Bağları", 'Lineage Confirmed by the Quran')}
             </div>
             <h3 style={{
-              fontFamily: '"Playfair Display", serif',
+              fontFamily: FONTS.display,
               fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)',
-              fontWeight: 700, color: '#e8e6e3', margin: '0 0 10px',
+              fontWeight: 700, color: COLORS.offWhite, margin: '0 0 10px',
             }}>
               {tr('Peygamberler Silsilesi', 'The Chain of Prophets')}
             </h3>
             <p style={{
-              color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.7,
+              color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7,
               maxWidth: '600px',
             }}>
               {tr(
@@ -2650,7 +2652,7 @@ export default function ProphetAtlas() {
           <div style={{ position: 'relative' }}>
           <div style={{
             overflowX: 'auto',
-            background: 'linear-gradient(135deg, rgba(212,165,116,0.04) 0%, rgba(10,10,30,0.6) 50%, rgba(52,211,153,0.03) 100%)',
+            background: `linear-gradient(135deg, ${COLORS.goldAlpha04} 0%, rgba(10,10,30,0.6) 50%, rgba(52,211,153,0.03) 100%)`, // TODO: tokenize mid+end stops
             border: '1px solid rgba(212,165,116,0.14)',
             borderRadius: '20px',
             padding: '28px 20px 20px',
@@ -2695,10 +2697,10 @@ export default function ProphetAtlas() {
               <line x1="945" y1="0" x2="945" y2="450" stroke="rgba(255,255,255,0.07)" strokeWidth="1" strokeDasharray="4,6"/>
 
               {/* Era labels — y=28, visible above R1 */}
-              <text x="208" y="28" textAnchor="middle" fill="rgba(251,191,36,0.72)"  fontSize="11" fontFamily="Inter,sans-serif" letterSpacing="0.05em">{tr('~MÖ 2000–1700','~2000–1700 BCE')}</text>
-              <text x="577" y="28" textAnchor="middle" fill="rgba(96,165,250,0.68)"  fontSize="11" fontFamily="Inter,sans-serif" letterSpacing="0.05em">{tr('~MÖ 1300','~1300 BCE')}</text>
-              <text x="842" y="28" textAnchor="middle" fill="rgba(244,114,182,0.75)"  fontSize="11" fontFamily="Inter,sans-serif" letterSpacing="0.05em">{tr('~MÖ 1000','~1000 BCE')}</text>
-              <text x="1072" y="28" textAnchor="middle" fill="rgba(192,132,252,0.72)" fontSize="11" fontFamily="Inter,sans-serif" letterSpacing="0.05em">{tr('~MÖ 1. yy','~1st c. BCE')}</text>
+              <text x="208" y="28" textAnchor="middle" fill="rgba(251,191,36,0.72)"  fontSize="11" fontFamily={FONTS.body} letterSpacing="0.05em">{tr('~MÖ 2000–1700','~2000–1700 BCE')}</text>
+              <text x="577" y="28" textAnchor="middle" fill="rgba(96,165,250,0.68)"  fontSize="11" fontFamily={FONTS.body} letterSpacing="0.05em">{tr('~MÖ 1300','~1300 BCE')}</text>
+              <text x="842" y="28" textAnchor="middle" fill="rgba(244,114,182,0.75)"  fontSize="11" fontFamily={FONTS.body} letterSpacing="0.05em">{tr('~MÖ 1000','~1000 BCE')}</text>
+              <text x="1072" y="28" textAnchor="middle" fill="rgba(192,132,252,0.72)" fontSize="11" fontFamily={FONTS.body} letterSpacing="0.05em">{tr('~MÖ 1. yy','~1st c. BCE')}</text>
 
               {/* ══════ ARROWS — drawn first, nodes on top ══════ */}
 
@@ -2722,47 +2724,48 @@ export default function ProphetAtlas() {
               {/* Chip: Sâffât 102  LEFT of İbrahim→İsmâil diagonal — center x=84, 116px left of İbrahim(200) */}
               <g style={{ cursor: 'pointer' }} onClick={e => handleTreeRef(e, 'Sâffât 102')}>
                 <rect x="43" y="112" width="82" height="18" rx="6" fill="rgba(251,191,36,0.13)" stroke="rgba(251,191,36,0.42)" strokeWidth="0.9"/>
-                <text x="84" y="125" textAnchor="middle" fontSize="9.5" fill="rgba(251,191,36,0.92)" fontFamily="Inter,sans-serif" fontWeight="500">{tr('Sâffât 102','As-Saffat 102')}</text>
+                <text x="84" y="125" textAnchor="middle" fontSize="9.5" fill="rgba(251,191,36,0.92)" fontFamily={FONTS.body} fontWeight="500">{tr('Sâffât 102','As-Saffat 102')}</text>
               </g>
 
               {/* Chip: Sâffât 112  RIGHT of İbrahim→İshak diagonal — center x=316, 116px right of İbrahim(200) */}
               <g style={{ cursor: 'pointer' }} onClick={e => handleTreeRef(e, 'Sâffât 112')}>
                 <rect x="275" y="112" width="82" height="18" rx="6" fill="rgba(251,191,36,0.13)" stroke="rgba(251,191,36,0.42)" strokeWidth="0.9"/>
-                <text x="316" y="125" textAnchor="middle" fontSize="9.5" fill="rgba(251,191,36,0.92)" fontFamily="Inter,sans-serif" fontWeight="500">{tr('Sâffât 112','As-Saffat 112')}</text>
+                <text x="316" y="125" textAnchor="middle" fontSize="9.5" fill="rgba(251,191,36,0.92)" fontFamily={FONTS.body} fontWeight="500">{tr('Sâffât 112','As-Saffat 112')}</text>
               </g>
 
               {/* Chip: Hûd 71  left of İshak→Yakûb vertical at x=310, midY=242 */}
               <g style={{ cursor: 'pointer' }} onClick={e => handleTreeRef(e, 'Hûd 71')}>
                 <rect x="248" y="233" width="60" height="18" rx="6" fill="rgba(251,191,36,0.13)" stroke="rgba(251,191,36,0.42)" strokeWidth="0.9"/>
-                <text x="278" y="246" textAnchor="middle" fontSize="9.5" fill="rgba(251,191,36,0.92)" fontFamily="Inter,sans-serif" fontWeight="500">{tr('Hûd 71','Hud 71')}</text>
+                <text x="278" y="246" textAnchor="middle" fontSize="9.5" fill="rgba(251,191,36,0.92)" fontFamily={FONTS.body} fontWeight="500">{tr('Hûd 71','Hud 71')}</text>
               </g>
 
               {/* Chip: Yûsuf 5  left of Yakûb→Yûsuf vertical at x=310, midY=355 */}
               <g style={{ cursor: 'pointer' }} onClick={e => handleTreeRef(e, 'Yûsuf 5')}>
                 <rect x="248" y="346" width="60" height="18" rx="6" fill="rgba(251,191,36,0.13)" stroke="rgba(251,191,36,0.42)" strokeWidth="0.9"/>
-                <text x="278" y="359" textAnchor="middle" fontSize="9.5" fill="rgba(251,191,36,0.92)" fontFamily="Inter,sans-serif" fontWeight="500">{tr('Yûsuf 5','Yusuf 5')}</text>
+                <text x="278" y="359" textAnchor="middle" fontSize="9.5" fill="rgba(251,191,36,0.92)" fontFamily={FONTS.body} fontWeight="500">{tr('Yûsuf 5','Yusuf 5')}</text>
               </g>
 
               {/* Chip: Tâhâ 30  below Mûsâ↔Hârûn dashed, centered at x=575 */}
               <g style={{ cursor: 'pointer' }} onClick={e => handleTreeRef(e, 'Tâhâ 30')}>
                 <rect x="541" y="112" width="68" height="18" rx="6" fill="rgba(96,165,250,0.13)" stroke="rgba(96,165,250,0.42)" strokeWidth="0.9"/>
-                <text x="575" y="125" textAnchor="middle" fontSize="9.5" fill="rgba(96,165,250,0.90)" fontFamily="Inter,sans-serif" fontWeight="500">{tr('Tâhâ 30','Ta-Ha 30')}</text>
+                <text x="575" y="125" textAnchor="middle" fontSize="9.5" fill="rgba(96,165,250,0.90)" fontFamily={FONTS.body} fontWeight="500">{tr('Tâhâ 30','Ta-Ha 30')}</text>
               </g>
-              <text x="575" y="146" textAnchor="middle" fontSize="12" fill="rgba(96,165,250,0.72)" fontFamily="Inter,sans-serif" fontStyle="italic">{tr('kardeşler','brothers')}</text>
+              <text x="575" y="146" textAnchor="middle" fontSize="12" fill="rgba(96,165,250,0.72)" fontFamily={FONTS.body} fontStyle="italic">{tr('kardeşler','brothers')}</text>
 
               {/* Chip: Sâd 30  left of Dâvûd→Süleymân vertical at x=840, midY=129 */}
               <g style={{ cursor: 'pointer' }} onClick={e => handleTreeRef(e, 'Sâd 30')}>
                 <rect x="778" y="120" width="60" height="18" rx="6" fill="rgba(244,114,182,0.13)" stroke="rgba(244,114,182,0.42)" strokeWidth="0.9"/>
-                <text x="808" y="133" textAnchor="middle" fontSize="9.5" fill="rgba(244,114,182,0.92)" fontFamily="Inter,sans-serif" fontWeight="500">{tr('Sâd 30','Sad 30')}</text>
+                <text x="808" y="133" textAnchor="middle" fontSize="9.5" fill="rgba(244,114,182,0.92)" fontFamily={FONTS.body} fontWeight="500">{tr('Sâd 30','Sad 30')}</text>
               </g>
 
               {/* Chip: Meryem 7  left of Zekeriyyâ→Yahyâ vertical at x=1075, midY=129 */}
               <g style={{ cursor: 'pointer' }} onClick={e => handleTreeRef(e, 'Meryem 7')}>
                 <rect x="1007" y="120" width="68" height="18" rx="6" fill="rgba(192,132,252,0.13)" stroke="rgba(192,132,252,0.42)" strokeWidth="0.9"/>
-                <text x="1041" y="133" textAnchor="middle" fontSize="9.5" fill="rgba(192,132,252,0.90)" fontFamily="Inter,sans-serif" fontWeight="500">{tr('Meryem 7','Maryam 7')}</text>
+                <text x="1041" y="133" textAnchor="middle" fontSize="9.5" fill="rgba(192,132,252,0.90)" fontFamily={FONTS.body} fontWeight="500">{tr('Meryem 7','Maryam 7')}</text>
               </g>
 
               {/* ══════ NODES — all equal glow, same stroke weight per era ══════ */}
+              {/* TODO: tokenize — prophet-chart era palette (#FBBF24, #60A5FA, #F472B6, #C084FC) */}
 
               {/* ── Era 1: İbrahim silsilesi (gold) ──
                   Ibrahim: R1 cx=200 x=118..282
@@ -2772,23 +2775,23 @@ export default function ProphetAtlas() {
                   Yusuf:   R4 cx=310 x=230..390  (emerald)                    */}
               <g filter="url(#glow)">
                 <rect x="118" y="52" width="164" height="44" rx="10" fill="url(#gAm)" stroke="rgba(251,191,36,0.85)" strokeWidth="1.7"/>
-                <text x="200" y="79" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="700" fontFamily="Inter,sans-serif">{tr('Hz. İbrahim','Abraham')}</text>
+                <text x="200" y="79" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="700" fontFamily={FONTS.body}>{tr('Hz. İbrahim','Abraham')}</text>
               </g>
               <g filter="url(#glow)">
                 <rect x="20" y="162" width="160" height="44" rx="10" fill="url(#gAm)" stroke="rgba(251,191,36,0.80)" strokeWidth="1.7"/>
-                <text x="100" y="189" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="600" fontFamily="Inter,sans-serif">{tr('Hz. İsmâil','Ishmael')}</text>
+                <text x="100" y="189" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="600" fontFamily={FONTS.body}>{tr('Hz. İsmâil','Ishmael')}</text>
               </g>
               <g filter="url(#glow)">
                 <rect x="230" y="162" width="160" height="44" rx="10" fill="url(#gAm)" stroke="rgba(251,191,36,0.80)" strokeWidth="1.7"/>
-                <text x="310" y="189" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="600" fontFamily="Inter,sans-serif">{tr('Hz. İshâk','Isaac')}</text>
+                <text x="310" y="189" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="600" fontFamily={FONTS.body}>{tr('Hz. İshâk','Isaac')}</text>
               </g>
               <g filter="url(#glow)">
                 <rect x="230" y="278" width="160" height="44" rx="10" fill="url(#gAm)" stroke="rgba(251,191,36,0.78)" strokeWidth="1.7"/>
-                <text x="310" y="305" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="600" fontFamily="Inter,sans-serif">{tr('Hz. Yakûb','Jacob')}</text>
+                <text x="310" y="305" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="600" fontFamily={FONTS.body}>{tr('Hz. Yakûb','Jacob')}</text>
               </g>
               <g filter="url(#glow)">
                 <rect x="230" y="388" width="160" height="44" rx="10" fill="url(#gAm)" stroke="rgba(251,191,36,0.78)" strokeWidth="1.7"/>
-                <text x="310" y="415" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="700" fontFamily="Inter,sans-serif">{tr('Hz. Yûsuf','Joseph')}</text>
+                <text x="310" y="415" textAnchor="middle" fill="#FBBF24" fontSize="13" fontWeight="700" fontFamily={FONTS.body}>{tr('Hz. Yûsuf','Joseph')}</text>
               </g>
 
               {/* ── Era 2: Mûsâ + Hârûn (blue) — brothers, same row R1
@@ -2796,22 +2799,22 @@ export default function ProphetAtlas() {
                   Era sep x=740  →  716 < 740  gap 24px ✓                    */}
               <g filter="url(#glow)">
                 <rect x="434" y="52" width="132" height="44" rx="10" fill="url(#gBl)" stroke="rgba(96,165,250,0.85)" strokeWidth="1.7"/>
-                <text x="500" y="79" textAnchor="middle" fill="#60A5FA" fontSize="13" fontWeight="700" fontFamily="Inter,sans-serif">{tr('Hz. Mûsâ','Moses')}</text>
+                <text x="500" y="79" textAnchor="middle" fill="#60A5FA" fontSize="13" fontWeight="700" fontFamily={FONTS.body}>{tr('Hz. Mûsâ','Moses')}</text>
               </g>
               <g filter="url(#glow)">
                 <rect x="584" y="52" width="132" height="44" rx="10" fill="url(#gBl)" stroke="rgba(96,165,250,0.80)" strokeWidth="1.7"/>
-                <text x="650" y="79" textAnchor="middle" fill="#60A5FA" fontSize="13" fontWeight="600" fontFamily="Inter,sans-serif">{tr('Hz. Hârûn','Aaron')}</text>
+                <text x="650" y="79" textAnchor="middle" fill="#60A5FA" fontSize="13" fontWeight="600" fontFamily={FONTS.body}>{tr('Hz. Hârûn','Aaron')}</text>
               </g>
 
               {/* ── Era 3: Dâvûd → Süleymân (rose)
                   cx=840  x=760..920   Era sep x=740  →  760 > 740  gap 20px ✓ */}
               <g filter="url(#glow)">
                 <rect x="760" y="52" width="160" height="44" rx="10" fill="url(#gOr)" stroke="rgba(244,114,182,0.85)" strokeWidth="1.7"/>
-                <text x="840" y="79" textAnchor="middle" fill="#F472B6" fontSize="13" fontWeight="700" fontFamily="Inter,sans-serif">{tr('Hz. Dâvûd','David')}</text>
+                <text x="840" y="79" textAnchor="middle" fill="#F472B6" fontSize="13" fontWeight="700" fontFamily={FONTS.body}>{tr('Hz. Dâvûd','David')}</text>
               </g>
               <g filter="url(#glow)">
                 <rect x="760" y="162" width="160" height="44" rx="10" fill="url(#gOr)" stroke="rgba(244,114,182,0.80)" strokeWidth="1.7"/>
-                <text x="840" y="189" textAnchor="middle" fill="#F472B6" fontSize="13" fontWeight="600" fontFamily="Inter,sans-serif">{tr('Hz. Süleymân','Solomon')}</text>
+                <text x="840" y="189" textAnchor="middle" fill="#F472B6" fontSize="13" fontWeight="600" fontFamily={FONTS.body}>{tr('Hz. Süleymân','Solomon')}</text>
               </g>
 
               {/* ── Era 4: Zekeriyyâ → Yahyâ (lavender)
@@ -2819,11 +2822,11 @@ export default function ProphetAtlas() {
                   Yahya: cx=1075 x=1008..1142                                  */}
               <g filter="url(#glow)">
                 <rect x="989" y="52" width="172" height="44" rx="10" fill="url(#gLa)" stroke="rgba(192,132,252,0.85)" strokeWidth="1.7"/>
-                <text x="1075" y="79" textAnchor="middle" fill="#C084FC" fontSize="13" fontWeight="700" fontFamily="Inter,sans-serif">{tr('Hz. Zekeriyyâ','Zechariah')}</text>
+                <text x="1075" y="79" textAnchor="middle" fill="#C084FC" fontSize="13" fontWeight="700" fontFamily={FONTS.body}>{tr('Hz. Zekeriyyâ','Zechariah')}</text>
               </g>
               <g filter="url(#glow)">
                 <rect x="1008" y="162" width="134" height="44" rx="10" fill="url(#gLa)" stroke="rgba(192,132,252,0.80)" strokeWidth="1.7"/>
-                <text x="1075" y="189" textAnchor="middle" fill="#C084FC" fontSize="13" fontWeight="600" fontFamily="Inter,sans-serif">{tr('Hz. Yahyâ','John')}</text>
+                <text x="1075" y="189" textAnchor="middle" fill="#C084FC" fontSize="13" fontWeight="600" fontFamily={FONTS.body}>{tr('Hz. Yahyâ','John')}</text>
               </g>
             </svg>
           </div>
@@ -2843,15 +2846,15 @@ export default function ProphetAtlas() {
                     stroke={color} strokeWidth="1.5"
                     strokeDasharray={dashed ? '4,3' : undefined}/>
                 </svg>
-                <span style={{ fontSize: '0.72rem', color: 'rgba(148,163,184,0.7)', fontFamily: 'Inter, sans-serif' }}>
+                <span style={{ fontSize: '0.72rem', color: COLORS.silverAlpha70, fontFamily: FONTS.body }}>
                   {label}
                 </span>
               </div>
             ))}
-            <span style={{ fontSize: '0.72rem', color: 'rgba(148,163,184,0.45)', fontFamily: 'Inter, sans-serif', fontStyle: 'italic' }}>
+            <span style={{ fontSize: '0.72rem', color: 'rgba(148,163,184,0.45)', fontFamily: FONTS.body, fontStyle: 'italic' }}>
               {tr("Yalnızca Kur'an'da açıkça geçen bağlar", "Only Quranically confirmed connections")}
             </span>
-            <span style={{ fontSize: '0.72rem', color: 'rgba(148,163,184,0.45)', fontFamily: 'Inter, sans-serif', fontStyle: 'italic' }}>
+            <span style={{ fontSize: '0.72rem', color: 'rgba(148,163,184,0.45)', fontFamily: FONTS.body, fontStyle: 'italic' }}>
               {tr('· Ayet referanslarına dokunun', '· Tap verse references')}
             </span>
           </div>
@@ -2892,13 +2895,13 @@ export default function ProphetAtlas() {
                     <div>
                       <div style={{
                         fontSize: '1.5rem', fontWeight: 700,
-                        color: '#d4a574', fontFamily: 'Inter, sans-serif', marginBottom: '4px',
+                        color: COLORS.gold, fontFamily: FONTS.body, marginBottom: '4px',
                       }}>
                         {tr(p.nameTr, p.nameEn)}
                       </div>
                       <div style={{
                         fontSize: '0.75rem', color: 'rgba(148,163,184,0.50)',
-                        fontFamily: 'Inter, sans-serif',
+                        fontFamily: FONTS.body,
                       }}>
                         {tr(`Kur'an'da ismi ${p.mentions} kez geçiyor`, `Named ${p.mentions} times in the Quran`)}
                       </div>
@@ -2907,7 +2910,7 @@ export default function ProphetAtlas() {
                           marginTop: '8px',
                           fontSize: '0.78rem', fontStyle: 'italic',
                           color: 'rgba(212,165,116,0.6)',
-                          fontFamily: 'Inter, sans-serif',
+                          fontFamily: FONTS.body,
                         }}>
                           {tr(p.noteTr, p.noteEn)}
                         </div>
@@ -2916,10 +2919,10 @@ export default function ProphetAtlas() {
                     <button
                       onClick={() => setExpandedRef(null)}
                       style={{
-                        background: 'none', border: '1px solid rgba(255,255,255,0.1)',
+                        background: 'none', border: `1px solid ${COLORS.glassBorder}`,
                         borderRadius: '8px', cursor: 'pointer',
                         color: 'rgba(148,163,184,0.55)', fontSize: '0.85rem',
-                        padding: '5px 10px', fontFamily: 'Inter, sans-serif',
+                        padding: '5px 10px', fontFamily: FONTS.body,
                         flexShrink: 0, marginLeft: '16px',
                       }}
                     >✕</button>
@@ -2933,10 +2936,10 @@ export default function ProphetAtlas() {
                         const name = SURAH_NAMES[s];
                         return (
                           <span key={s} style={{
-                            fontSize: '0.67rem', fontFamily: 'Inter, sans-serif',
+                            fontSize: '0.67rem', fontFamily: FONTS.body,
                             color: isMekki ? 'rgba(212,165,116,0.88)' : 'rgba(52,211,153,0.88)',
-                            background: isMekki ? 'rgba(212,165,116,0.10)' : 'rgba(52,211,153,0.10)',
-                            border: `1px solid ${isMekki ? 'rgba(212,165,116,0.25)' : 'rgba(52,211,153,0.25)'}`,
+                            background: isMekki ? 'rgba(212,165,116,0.10)' : 'rgba(52,211,153,0.10)', // TODO: tokenize
+                            border: `1px solid ${isMekki ? COLORS.goldAlpha25 : 'rgba(52,211,153,0.25)'}`,
                             borderRadius: '5px', padding: '2px 8px', fontWeight: 500,
                           }}>
                             {name ? (language === 'tr' ? name.tr : name.en) : s}
@@ -2945,11 +2948,11 @@ export default function ProphetAtlas() {
                       })}
                     </div>
                     <div style={{ display: 'flex', gap: '14px' }}>
-                      <span style={{ fontSize: '0.6rem', fontFamily: 'Inter, sans-serif', color: 'rgba(212,165,116,0.45)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        <span style={{ display: 'inline-block', width: '7px', height: '7px', borderRadius: '50%', background: 'rgba(212,165,116,0.45)' }} />
+                      <span style={{ fontSize: '0.6rem', fontFamily: FONTS.body, color: COLORS.goldAlpha45, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <span style={{ display: 'inline-block', width: '7px', height: '7px', borderRadius: '50%', background: COLORS.goldAlpha45 }} />
                         {tr('Mekkî sûre', 'Meccan surah')}
                       </span>
-                      <span style={{ fontSize: '0.6rem', fontFamily: 'Inter, sans-serif', color: 'rgba(52,211,153,0.45)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ fontSize: '0.6rem', fontFamily: FONTS.body, color: 'rgba(52,211,153,0.45)', display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <span style={{ display: 'inline-block', width: '7px', height: '7px', borderRadius: '50%', background: 'rgba(52,211,153,0.45)' }} />
                         {tr('Medenî sûre', 'Medinan surah')}
                       </span>
@@ -2957,7 +2960,7 @@ export default function ProphetAtlas() {
                   </div>
 
                   {/* Divider */}
-                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '24px' }} />
+                  <div style={{ height: '1px', background: COLORS.glassBorderSoft, marginBottom: '24px' }} />
 
                   {/* Two-column: attributes + dua */}
                   <div style={{
@@ -2972,7 +2975,7 @@ export default function ProphetAtlas() {
                         fontSize: '0.65rem', fontWeight: 700,
                         color: 'rgba(212,165,116,0.55)',
                         letterSpacing: '0.12em', textTransform: 'uppercase',
-                        fontFamily: 'Inter, sans-serif', marginBottom: '12px',
+                        fontFamily: FONTS.body, marginBottom: '12px',
                       }}>
                         {tr("Kur'an'dan Vasıflar", 'Attributes from Quran')}
                       </div>
@@ -2981,7 +2984,7 @@ export default function ProphetAtlas() {
                         maxHeight: '320px', overflowY: 'auto',
                         paddingRight: '4px',
                         scrollbarWidth: 'thin',
-                        scrollbarColor: 'rgba(212,165,116,0.25) transparent',
+                        scrollbarColor: `${COLORS.goldAlpha25} transparent`,
                       }}>
                         {(language === 'tr' ? p.giftsTr : p.giftsEn).map((g, i) => {
                           const tooltips = language === 'tr' ? p.giftsTooltipsTr : p.giftsTooltipsEn;
@@ -2989,11 +2992,11 @@ export default function ProphetAtlas() {
                           return (
                             <div key={i} style={{
                               fontSize: '0.85rem', color: 'rgba(232,230,227,0.85)',
-                              lineHeight: 1.75, fontFamily: 'Inter, sans-serif',
+                              lineHeight: 1.75, fontFamily: FONTS.body,
                               padding: '7px 12px 7px 14px',
                               borderLeft: '2px solid rgba(212,165,116,0.35)',
                               background: i % 2 === 0
-                                ? 'rgba(212,165,116,0.04)'
+                                ? COLORS.goldAlpha04
                                 : 'transparent',
                               borderRadius: '0 6px 6px 0',
                             }}>
@@ -3001,7 +3004,7 @@ export default function ProphetAtlas() {
                               {note && (
                                 <span title={note} style={{
                                   marginLeft: '5px', cursor: 'help',
-                                  fontSize: '0.72rem', color: 'rgba(212,165,116,0.45)',
+                                  fontSize: '0.72rem', color: COLORS.goldAlpha45,
                                   borderBottom: '1px dotted rgba(212,165,116,0.3)',
                                   verticalAlign: 'middle',
                                 }}>ⓘ</span>
@@ -3024,7 +3027,7 @@ export default function ProphetAtlas() {
                           fontSize: '0.65rem', fontWeight: 700,
                           color: 'rgba(212,165,116,0.55)',
                           letterSpacing: '0.12em', textTransform: 'uppercase',
-                          fontFamily: 'Inter, sans-serif', marginBottom: '10px',
+                          fontFamily: FONTS.body, marginBottom: '10px',
                         }}>
                           {language === 'tr' ? (p.duaLabelTr || 'Duası') : (p.duaLabelEn || 'Prayer')}
                         </div>
@@ -3035,15 +3038,15 @@ export default function ProphetAtlas() {
                           }}
                           style={{
                             direction: 'rtl', textAlign: 'right',
-                            fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                            fontFamily: FONTS.quran,
                             fontFeatureSettings: '"calt" 1, "liga" 1',
                             fontSize: '1.5rem', lineHeight: 2.0,
-                            color: '#d4a574', marginBottom: '10px',
+                            color: COLORS.gold, marginBottom: '10px',
                           }}
                         />
                         <div style={{
                           fontSize: '0.83rem', color: 'rgba(148,163,184,0.75)',
-                          lineHeight: 1.7, fontFamily: 'Inter, sans-serif',
+                          lineHeight: 1.7, fontFamily: FONTS.body,
                           fontStyle: 'italic', marginBottom: '8px',
                           borderTop: '1px solid rgba(212,165,116,0.10)',
                           paddingTop: '10px',
@@ -3051,8 +3054,8 @@ export default function ProphetAtlas() {
                           {language === 'tr' ? p.duaTr : p.duaEn}
                         </div>
                         <div style={{
-                          fontSize: '0.72rem', color: 'rgba(212,165,116,0.45)',
-                          fontFamily: 'Inter, sans-serif', textAlign: 'right',
+                          fontSize: '0.72rem', color: COLORS.goldAlpha45,
+                          fontFamily: FONTS.body, textAlign: 'right',
                         }}>
                           {fmtDuaRef(p.duaRef, language)}
                           {(language === 'tr' ? p.duaNoteTr : p.duaNoteEn) && (
@@ -3089,23 +3092,23 @@ export default function ProphetAtlas() {
                 }}
               >
                 <div style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   fontFeatureSettings: '"calt" 1, "liga" 1',
                   direction: 'rtl', textAlign: 'right',
                   fontSize: '1.05rem', lineHeight: 1.95,
-                  color: '#d4a574', marginBottom: '10px',
+                  color: COLORS.gold, marginBottom: '10px',
                 }}>
                   {d.ar}
                 </div>
                 <div style={{
-                  fontFamily: 'Inter, sans-serif', fontSize: '0.76rem', lineHeight: 1.65,
+                  fontFamily: FONTS.body, fontSize: '0.76rem', lineHeight: 1.65,
                   color: 'rgba(232,230,227,0.82)',
                   borderTop: '1px solid rgba(212,165,116,0.12)', paddingTop: '8px',
                 }}>
                   {language === 'tr' ? d.tr : d.en}
                 </div>
                 <div style={{
-                  fontFamily: 'Inter, sans-serif', fontSize: '0.68rem',
+                  fontFamily: FONTS.body, fontSize: '0.68rem',
                   color: 'rgba(212,165,116,0.55)', marginTop: '7px', textAlign: 'right',
                 }}>
                   {fmtPopupRef(d.ref)}
@@ -3137,17 +3140,17 @@ export default function ProphetAtlas() {
               >
                 {/* Arapça metin */}
                 <div style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   fontFeatureSettings: '"calt" 1, "liga" 1',
                   direction: 'rtl', textAlign: 'right',
                   fontSize: '1.05rem', lineHeight: 1.95,
-                  color: '#d4a574', marginBottom: '10px',
+                  color: COLORS.gold, marginBottom: '10px',
                 }}>
                   {d.ar}
                 </div>
                 {/* Meal */}
                 <div style={{
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: FONTS.body,
                   fontSize: '0.76rem', lineHeight: 1.65,
                   color: 'rgba(232,230,227,0.82)',
                   borderTop: '1px solid rgba(212,165,116,0.12)',
@@ -3157,7 +3160,7 @@ export default function ProphetAtlas() {
                 </div>
                 {/* Referans etiketi */}
                 <div style={{
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: FONTS.body,
                   fontSize: '0.68rem', color: 'rgba(212,165,116,0.55)',
                   marginTop: '7px', textAlign: 'right',
                 }}>

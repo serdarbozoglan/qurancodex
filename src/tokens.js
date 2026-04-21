@@ -37,6 +37,8 @@ export const COLORS = {
   softGoldAlpha30:  'rgba(201,169,110,0.30)',
   softGoldAlpha35:  'rgba(201,169,110,0.35)',
   softGoldAlpha40:  'rgba(201,169,110,0.40)',
+  softGoldAlpha45:  'rgba(201,169,110,0.45)',
+  softGoldAlpha55:  'rgba(201,169,110,0.55)',
   softGoldAlpha60:  'rgba(201,169,110,0.60)',
   softGoldAlpha65:  'rgba(201,169,110,0.65)',
   softGoldAlpha70:  'rgba(201,169,110,0.70)',

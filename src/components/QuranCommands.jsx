@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS } from '../tokens';
+import { COLORS, FONTS, CLOSE_BTN, BREAKPOINT_MOBILE } from '../tokens';
 
 // ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
 const CATEGORY_ICONS = {
@@ -82,7 +82,7 @@ export default function QuranCommands({ onClose }) {
   const [activeId, setActiveId]   = useState('ibadet');
   const [filter, setFilter]       = useState('all'); // 'all' | 'emir' | 'nehiy'
   const [expanded, setExpanded]   = useState(false);
-  const [isMobile, setIsMobile]   = useState(() => window.innerWidth < 768);
+  const [isMobile, setIsMobile]   = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
 
   useEffect(() => {
     fetch('/quran-commands.json')
@@ -96,7 +96,7 @@ export default function QuranCommands({ onClose }) {
   }, [onClose]);
 
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);
@@ -107,8 +107,8 @@ export default function QuranCommands({ onClose }) {
   /* eslint-enable react-hooks/set-state-in-effect */
 
   if (!data) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#0d1b2a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ color: '#94a3b8', fontFamily: "'Inter', sans-serif" }}>Yükleniyor...</div>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.deepNavy, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>Yükleniyor...</div>
     </div>
   );
 
@@ -169,7 +169,7 @@ export default function QuranCommands({ onClose }) {
   return (
     <div style={{
       position: 'fixed', inset: 0, zIndex: 9999,
-      background: '#0d1b2a',
+      background: COLORS.deepNavy,
       overflowY: 'auto',
       fontFamily: "'Inter', sans-serif",
     }}>
@@ -183,7 +183,7 @@ export default function QuranCommands({ onClose }) {
           border: '1px solid rgba(255,255,255,0.15)',
           borderRadius: '50%', width: '36px', height: '36px',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer', color: '#94a3b8', transition: 'all 0.15s',
+          cursor: 'pointer', color: COLORS.silver, transition: 'all 0.15s',
         }}
         onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = '#fff'; }}
         onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#94a3b8'; }}
@@ -200,10 +200,10 @@ export default function QuranCommands({ onClose }) {
             {language === 'tr' ? "KUR'AN'IN EMİRLERİ" : "QURAN COMMANDS"}
           </span>
         </div>
-        <h1 style={{ fontSize: isMobile ? '1.4rem' : '2rem', fontWeight: 800, color: '#e8e6e3', fontFamily: "'Playfair Display', serif", marginBottom: '8px', lineHeight: 1.2 }}>
+        <h1 style={{ fontSize: isMobile ? '1.4rem' : '2rem', fontWeight: 800, color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", marginBottom: '8px', lineHeight: 1.2 }}>
           {L.title}
         </h1>
-        <p style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '20px' }}>
+        <p style={{ color: COLORS.silver, fontSize: '0.95rem', marginBottom: '20px' }}>
           {L.subtitle}
         </p>
 
@@ -215,7 +215,7 @@ export default function QuranCommands({ onClose }) {
             display: 'flex', alignItems: 'center', gap: '7px',
           }}>
             <span style={{ fontSize: '1.3rem', fontWeight: 800, color: COLORS.softGold, lineHeight: 1 }}>{emirCount}</span>
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 500 }}>{L.emirStat}</span>
+            <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontWeight: 500 }}>{L.emirStat}</span>
           </div>
           <div style={{
             background: 'rgba(232,90,74,0.1)', border: '1px solid rgba(232,90,74,0.28)',
@@ -223,7 +223,7 @@ export default function QuranCommands({ onClose }) {
             display: 'flex', alignItems: 'center', gap: '7px',
           }}>
             <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#e85a4a', lineHeight: 1 }}>{nehiyCount}</span>
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 500 }}>{L.nehiyStat}</span>
+            <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontWeight: 500 }}>{L.nehiyStat}</span>
           </div>
           <div style={{
             background: 'rgba(74,158,232,0.08)', border: '1px solid rgba(74,158,232,0.22)',
@@ -231,7 +231,7 @@ export default function QuranCommands({ onClose }) {
             display: 'flex', alignItems: 'center', gap: '7px',
           }}>
             <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#4A9EE8', lineHeight: 1 }}>{categories.length}</span>
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 500 }}>{L.kategoriler}</span>
+            <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontWeight: 500 }}>{L.kategoriler}</span>
           </div>
         </div>
 
@@ -387,7 +387,7 @@ export default function QuranCommands({ onClose }) {
 
           {/* Cards grid */}
           {commands.length === 0 ? (
-            <p style={{ color: '#94a3b8', fontSize: '0.9rem', textAlign: 'center', padding: '40px 0' }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.9rem', textAlign: 'center', padding: '40px 0' }}>
               {language === 'tr' ? 'Bu kategoride seçili filtreyle eşleşen madde yok.' : 'No items match the selected filter in this category.'}
             </p>
           ) : (
@@ -492,7 +492,7 @@ function CommandCard({ cmd, accent, language, L }) {
       </div>
 
       {/* Summary */}
-      <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#e8e6e3', lineHeight: 1.4 }}>
+      <div style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, lineHeight: 1.4 }}>
         {language === 'tr' ? cmd.summaryTr : cmd.summaryEn}
       </div>
 
@@ -513,7 +513,7 @@ function CommandCard({ cmd, accent, language, L }) {
       {/* Meal */}
       {cmd.verseTr && (
         <div style={{
-          fontSize: '0.82rem', color: '#94a3b8',
+          fontSize: '0.82rem', color: COLORS.silver,
           fontStyle: 'italic', lineHeight: 1.55,
           borderTop: '1px solid rgba(255,255,255,0.06)',
           paddingTop: '8px',
