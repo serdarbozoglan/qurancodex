@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, FONTS } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS } from '../tokens';
 
 // ── Color system ──────────────────────────────────────────────────────────────
 const CENNET   = { accent: '#1D9E75', bg: 'rgba(27,110,86,0.12)',   border: 'rgba(29,158,117,0.28)' };
 const CEHENNEM = { accent: '#D85A30', bg: 'rgba(153,60,29,0.12)',   border: 'rgba(216,90,48,0.28)' };
-const ARAF     = { accent: '#c9a96e', bg: 'rgba(201,169,110,0.10)', border: 'rgba(201,169,110,0.28)' };
+const ARAF     = { accent: COLORS.softGold, bg: COLORS.softGoldAlpha10, border: COLORS.softGoldAlpha28 };
 const HAPAX    = '#8b5cf6';
-const GOLD     = '#c9a96e';
+const GOLD     = COLORS.softGold;
 
 // ── Reusable components ───────────────────────────────────────────────────────
 function HadisBadge({ language }) {
@@ -15,9 +15,9 @@ function HadisBadge({ language }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: '3px',
       fontSize: '0.65rem', fontWeight: 600,
-      color: 'rgba(201,169,110,0.75)',
-      background: 'rgba(201,169,110,0.08)',
-      border: '1px solid rgba(201,169,110,0.2)',
+      color: COLORS.softGoldAlpha75,
+      background: COLORS.softGoldAlpha08,
+      border: `1px solid ${COLORS.softGoldAlpha20}`,
       borderRadius: '20px', padding: '1px 7px',
     }}>
       ℹ {language === 'tr' ? 'Hadis' : 'Hadith'}
@@ -455,7 +455,7 @@ function HeroBanner({ data, language, isMobile }) {
       {/* Center: verse + meal */}
       {!isMobile ? (
         <div style={{
-          background: 'rgba(201,169,110,0.04)',
+          background: COLORS.softGoldAlpha04,
           borderLeft: '1px solid rgba(255,255,255,0.07)',
           borderRight: '1px solid rgba(255,255,255,0.07)',
           display: 'flex', flexDirection: 'column',
@@ -482,7 +482,7 @@ function HeroBanner({ data, language, isMobile }) {
         </div>
       ) : (
         <div style={{
-          background: 'rgba(201,169,110,0.04)',
+          background: COLORS.softGoldAlpha04,
           borderTop: '1px solid rgba(255,255,255,0.07)',
           borderBottom: '1px solid rgba(255,255,255,0.07)',
           display: 'flex', flexDirection: 'column',
@@ -1055,7 +1055,7 @@ function TabRahman({ data, language, isMobile }) {
         {(rs.kartlar || []).map(k => (
           <div key={k.id} style={{
             background: 'rgba(255,255,255,0.03)',
-            border: `1px solid rgba(201,169,110,0.2)`,
+            border: `1px solid ${COLORS.softGoldAlpha20}`,
             borderLeft: `3px solid ${GOLD}`,
             borderRadius: '10px', padding: '16px 18px',
           }}>
@@ -1148,8 +1148,8 @@ function TabKaynaklar({ data, language }) {
     <div style={{ maxWidth: '680px' }}>
       {/* Global note */}
       <div style={{
-        background: 'rgba(201,169,110,0.08)',
-        border: '1px solid rgba(201,169,110,0.2)',
+        background: COLORS.softGoldAlpha08,
+        border: `1px solid ${COLORS.softGoldAlpha20}`,
         borderRadius: '10px', padding: '16px 18px',
         marginBottom: '24px',
         display: 'flex', gap: '10px', alignItems: 'flex-start',

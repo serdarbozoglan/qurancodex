@@ -2,7 +2,7 @@
   "meta": {
     "totalQuestions": 1290,
     "totalQuestionsNote": "Na'im el-Himsi ve İbn Âşûr gibi klasik kaynaklara göre tahminen 1200-1300 arası. Kesin sayı morfolojik seçime bağlı.",
-    "categoryCount": 4,
+    "categoryCount": 5,
     "specialPatterns": 3
   },
   "categories": [
@@ -392,6 +392,189 @@
           "ayah": 7
         }
       ]
+    },
+    {
+      "id": "tekid",
+      "color": "#c9a227",
+      "pct": null,
+      "pctNote": "Yaklaşık sayılar ekollere göre çok değişir; kesin oran methodolojik olarak savunulamaz.",
+      "pctNoteEn": "Approximate counts vary greatly by methodology; a precise percentage cannot be methodologically defended.",
+      "nameTr": "Te'kîd — Vurgu ve Pekiştirme",
+      "nameEn": "Taʾkīd — Emphasis and Assertion",
+      "descTr": "Kur'ân'ın tereddütsüz ses rengini oluşturan dil mekanizması. Arap belâgatı te'kîdi müstakil bir kategori sayar: bir ifadenin gücünü, kesinliğini ve muhataba karşı iddia düzeyini katmanlı olarak artırır. Bu, şüpheyi askıya alan değil, şüpheyi önceden kapatan bir retorik stratejidir.",
+      "descEn": "The linguistic mechanism that produces the Qur'an's unhesitating tonal color. Arabic balāgha treats taʾkīd as a distinct category: it layers the force, certainty, and claim-intensity of an utterance. This is not a rhetoric that suspends doubt — it is one that forecloses doubt in advance.",
+      "subPatterns": [
+        {
+          "id": "inne-basit",
+          "arabicForm": "إِنَّ",
+          "nameTr": "İnne — Tek Pekiştirme",
+          "nameEn": "Inna — Single Emphasis",
+          "countTr": "Kur'ân'da binlerce yerde",
+          "countEn": "Thousands of occurrences",
+          "noteTr": "'İnne' başta geldiğinde haberi pekiştirir. Türkçeye genellikle 'muhakkak', 'şüphesiz', 'kesinlikle' diye çevrilir. Aslında 'en'nin şeddeli hali olup mastarı 'tekîd' kelimesiyle aynı köktendir.",
+          "noteEn": "When inna opens the sentence, it emphasizes the predicate. Often rendered 'indeed' or 'verily.' It derives from a doubled an, sharing the root with the word taʾkīd itself.",
+          "surahs": [
+            "Fecr 89:14",
+            "Zâriyât 51:58",
+            "Mü'minûn 23:51"
+          ],
+          "meaningTr": "Muhakkak / Şüphesiz",
+          "meaningEn": "Indeed / Verily"
+        },
+        {
+          "id": "inne-lam-tekid",
+          "arabicForm": "إِنَّ ... لَـ",
+          "nameTr": "İnne + Lâm-u Tekîd — Çifte Pekiştirme",
+          "nameEn": "Inna + Lām of Emphasis — Double Emphasis",
+          "countTr": "Kur'ân'da yüzlerce yerde",
+          "countEn": "Hundreds of occurrences",
+          "noteTr": "'İnne' başta, 'lâm' da haberin başında — iki ayrı te'kîd edatı aynı anda. Zemahşerî Keşşâf'ta bu yapıyı 'en güçlü Arapça pekiştirme kalıbı' olarak tanımlar.",
+          "noteEn": "Inna at the start + lām before the predicate — two separate emphatic particles at once. Al-Zamakhsharī in al-Kashshāf calls this the strongest Arabic emphatic construction.",
+          "surahs": [
+            "Zâriyât 51:23",
+            "Fecr 89:14",
+            "Nisâ 4:122"
+          ],
+          "meaningTr": "Muhakkak (ki)... kesinlikle...",
+          "meaningEn": "Indeed ... certainly ..."
+        },
+        {
+          "id": "nun-tekid-sedide",
+          "arabicForm": "ـَنَّ (şeddeli)",
+          "nameTr": "Nûn-u Tekîd-i Şedîde",
+          "nameEn": "Nūn of Heavy Emphasis",
+          "countTr": "Kur'ân'da yaklaşık 50-60 fiilde",
+          "countEn": "Approximately 50-60 verbs in the Qur'an",
+          "noteTr": "Muzari fiillerin sonuna eklenen şeddeli 'nûn' — o fiili 'mutlaka olacak' anlamına çevirir. 'tübla-' (sınanırsınız) → 'le-tübellevünne' (andolsun mutlaka sınanacaksınız). Sîbeveyh Kitâb'ta 'en güçlü gelecek zaman te'kîdi' olarak sınıflar.",
+          "noteEn": "A doubled nūn appended to imperfect verbs — shifts the verb into 'certainly will happen.' tublā (you will be tested) → la-tublawunna (by My oath, you will certainly be tested). Sībawayh in al-Kitāb classifies this as the strongest future emphasis.",
+          "surahs": [
+            "Âl-i İmrân 3:186",
+            "Ankebût 29:3",
+            "Mülk 67:8"
+          ],
+          "meaningTr": "Andolsun mutlaka (+ fiil)",
+          "meaningEn": "Most certainly (+ verb)"
+        },
+        {
+          "id": "harfu-tahkik-kad",
+          "arabicForm": "قَدْ",
+          "nameTr": "Kad — Harfu't-Tahkîk",
+          "nameEn": "Qad — Particle of Verification",
+          "countTr": "Kur'ân'da 400'den fazla",
+          "countEn": "Over 400 occurrences",
+          "noteTr": "Mazi fiilin başında 'kesin olarak olmuş'; muzari fiilin başında bağlama göre 'bazen olur' ya da 'mutlaka olacak'. 'kad efleha' (muhakkak kurtuldu) kalıbı Mü'minûn 23:1'de surenin açılış kelimesi olarak gelir — bir duruşun 'tamamlanmış gerçek' beyanı.",
+          "noteEn": "Before past-tense: 'certainly happened.' Before imperfect: 'sometimes' or 'certainly will.' The qad aflaḥa pattern opens Sūrat al-Muʾminūn (23:1) — a declaration that a position is completed reality.",
+          "surahs": [
+            "Mü'minûn 23:1",
+            "A'lâ 87:14",
+            "Nûr 24:46"
+          ],
+          "meaningTr": "Muhakkak olmuştur / gerçekleşmiştir",
+          "meaningEn": "Indeed has happened"
+        },
+        {
+          "id": "kasem-cevap",
+          "arabicForm": "وَ + جَوَابُ الْقَسَم",
+          "nameTr": "Kasem (Yemin) + Cevab-ı Kasem",
+          "nameEn": "Oath + Response-to-Oath",
+          "countTr": "Kur'ân'da 51 farklı yemin",
+          "countEn": "51 distinct oaths in the Qur'an",
+          "noteTr": "Bir şeye yemin edilir ('ve+isim'), sonra cevab-ı kasem gelir (genellikle 'inne... le-' ile). İbn Kayyim et-Tibyân'da: yemin edilen şey 'delil', yeminin cevabı 'tez' olur. Site'deki 'Yeminler' aracıyla bağlantılıdır.",
+          "noteEn": "An oath is sworn ('wa + noun'), then the response-to-oath follows (usually with inna ... la-). Ibn Qayyim in al-Tibyān: the sworn-by is 'evidence,' the response 'thesis.' Linked to the 'Oaths' tool on the site.",
+          "surahs": [
+            "Sâffât 37:1-4",
+            "Zâriyât 51:22-23",
+            "Fecr 89:1-5"
+          ],
+          "meaningTr": "... yemin ederim ki (kesin olarak)...",
+          "meaningEn": "By ... (I swear) that certainly ..."
+        },
+        {
+          "id": "la-i-nefy-cinsi",
+          "arabicForm": "لَا ... (nefy-i cins)",
+          "nameTr": "Lâ-i Nefy-i Cinsi — Cinsinin Tümünü Reddetme",
+          "nameEn": "Lā of Absolute Negation — Category-Wide Denial",
+          "countTr": "Kur'ân'da onlarca meşhur örnek",
+          "countEn": "Dozens of notable instances",
+          "noteTr": "'Lâ' edatının ismi mensub okunduğunda ('lâ rayb', 'lâ ilâhe'), o kelimenin cinsinden olan her şeyi reddeder. 'Lâ rayb' sadece 'şüphe yok' değil, 'hiçbir türde şüphe' yok. Bakara 2:2'nin açılışı budur. İbn Âşûr Tahrîr'de bunu 'istikrâ-yı ma'nevî' (mânevî tümel reddetme) olarak adlandırır.",
+          "noteEn": "When the noun following lā is read in the accusative, it denies the entire category. lā rayba means not 'no doubt' but 'no doubt of any kind.' The opening of Q 2:2 is such a case. Ibn ʿĀshūr names this istiqrāʾ maʿnawī (categorical negation of meaning).",
+          "surahs": [
+            "Bakara 2:2",
+            "Âl-i İmrân 3:18",
+            "Fussilet 41:30"
+          ],
+          "meaningTr": "Hiçbir (+ kelime) yoktur",
+          "meaningEn": "No (+ noun) of any kind exists"
+        }
+      ],
+      "exampleVerses": [
+        {
+          "ar": "فَوَرَبِّ السَّمَٓاءِ وَالْاَرْضِ اِنَّهُ لَحَقٌّ مِثْلَ مَٓا اَنَّكُمْ تَنْطِقُونَ۟",
+          "tr": "Göğün ve yerin Rabbine andolsun ki bu vaad, sizin konuşmanız gibi kesin ve gerçektir.",
+          "en": "Then by the Lord of the heaven and earth, indeed, it is truth — just as [sure as] it is that you are speaking.",
+          "ref": "Zâriyât 51:23",
+          "surah": 51,
+          "ayah": 23,
+          "pattern": "inne-lam-tekid",
+          "patternNoteTr": "'innehu le-hakkun' — 'İnne' + 'Lâm-u Tekîd' yan yana. En güçlü çifte pekiştirme.",
+          "patternNoteEn": "'innahu la-ḥaqq' — inna + lām together. The strongest double emphasis."
+        },
+        {
+          "ar": "اِنَّ رَبَّكَ لَبِالْمِرْصَادِۜ",
+          "tr": "Çünkü Rabbin (her an) gözetlemededir.",
+          "en": "Indeed, your Lord is in observation.",
+          "ref": "Fecr 89:14",
+          "surah": 89,
+          "ayah": 14,
+          "pattern": "inne-lam-tekid",
+          "patternNoteTr": "'inne rabbeke le-bi'l-mirsâd' — 'İnne' + 'Lâm' + mekân zarfı. Kısa ama en yoğun ayetlerden biri.",
+          "patternNoteEn": "'inna rabbaka la-bi'l-mirṣād' — inna + lām + locative phrase. Short but among the densest verses."
+        },
+        {
+          "ar": "لَتُبْلَوُنَّ ف۪ٓي اَمْوَالِكُمْ وَاَنْفُسِكُمْ",
+          "tr": "Andolsun ki, mallarınız ve canlarınız konusunda imtihana çekileceksiniz...",
+          "en": "You will certainly be tested in your possessions and in yourselves...",
+          "ref": "Âl-i İmrân 3:186",
+          "surah": 3,
+          "ayah": 186,
+          "pattern": "nun-tekid-sedide",
+          "patternNoteTr": "'le-tübellevünne' — 'lâm' + fiilin sonunda 'nûn-u tekîd-i şedîde'. Vaad 'yazılmış kader' düzeyinde.",
+          "patternNoteEn": "'la-tublawunna' — lām + heavy nūn of emphasis. The promise rises to the level of 'written destiny.'"
+        },
+        {
+          "ar": "قَدْ اَفْلَحَ الْمُؤْمِنُونَۙ",
+          "tr": "Gerçekten müminler kurtuluşa ermiştir.",
+          "en": "Certainly will the believers have succeeded.",
+          "ref": "Mü'minûn 23:1",
+          "surah": 23,
+          "ayah": 1,
+          "pattern": "harfu-tahkik-kad",
+          "patternNoteTr": "'kad efleha'l-mü'minûn' — 'Kad' + mazi fiil. Bir surenin açılışı olarak 'kesin tamamlanmış gerçek' iddiası.",
+          "patternNoteEn": "'qad aflaḥa al-muʾminūn' — qad + past-tense verb. Opening a surah with a claim of completed reality."
+        },
+        {
+          "ar": "اِنَّ اِلٰهَكُمْ لَوَاحِدٌۜ",
+          "tr": "Yemin ederim ki, ilahınız birdir.",
+          "en": "Indeed, your God is One.",
+          "ref": "Sâffât 37:4",
+          "surah": 37,
+          "ayah": 4,
+          "pattern": "kasem-cevap",
+          "patternNoteTr": "37:1-3'teki üç yeminin cevabı: 'inne ilâheküm le-vâhid' — Yemin + 'İnne' + 'Lâm' üç katmanlı te'kîd.",
+          "patternNoteEn": "The response to three oaths in 37:1-3: 'inna ilāhakum la-wāḥid' — oath + inna + lām, triple emphasis."
+        },
+        {
+          "ar": "ذٰلِكَ الْكِتَابُ لَا رَيْبَۚۛ ف۪يهِۚۛ هُدًى لِلْمُتَّق۪ينَۙ",
+          "tr": "O kitap (Kur'an); onda asla şüphe yoktur. O, müttakiler için bir yol göstericidir.",
+          "en": "This is the Book — no doubt in it; a guidance for those conscious [of Allah].",
+          "ref": "Bakara 2:2",
+          "surah": 2,
+          "ayah": 2,
+          "pattern": "la-i-nefy-cinsi",
+          "patternNoteTr": "'lâ rayba fîh' — 'lâ-i nefy-i cinsi' kalıbı. 'Hiçbir türde şüphe yok' — cinsinin tamamını reddetme.",
+          "patternNoteEn": "'lā rayba fīh' — the lā of absolute negation. 'No doubt of any kind' — denial of the entire category."
+        }
+      ]
     }
   ],
   "specialPatterns": [
@@ -538,11 +721,36 @@
       "descTr": "Bu beş yeti Kur'an'ın insan bilişini nasıl sınıflandırdığını gösterir. Her biri farklı bir bilgi edinme yolu — Kur'an hepsini ayrı ayrı çağırır.",
       "descEn": "These five faculties show how the Quran classifies human cognition. Each is a distinct path to knowledge — the Quran calls on all of them separately.",
       "summaryGrid": [
-        { "labelTr": "Ta'kıl",   "labelEn": "Taʿqil",    "shortTr": "Soyut akıl",       "shortEn": "Abstract reason" },
-        { "labelTr": "Tefekkür", "labelEn": "Tafakkur",  "shortTr": "Derin analiz",     "shortEn": "Deep analysis" },
-        { "labelTr": "Tezekkür", "labelEn": "Tadhakkur", "shortTr": "Bellek + öğüt",    "shortEn": "Memory + lesson" },
-        { "labelTr": "Basar",    "labelEn": "Basar",     "shortTr": "Gözlem",           "shortEn": "Observation" },
-        { "labelTr": "Semi'",    "labelEn": "Samʿ",      "shortTr": "Dinleme/itaat",    "shortEn": "Listening/obedience" }
+        {
+          "labelTr": "Ta'kıl",
+          "labelEn": "Taʿqil",
+          "shortTr": "Soyut akıl",
+          "shortEn": "Abstract reason"
+        },
+        {
+          "labelTr": "Tefekkür",
+          "labelEn": "Tafakkur",
+          "shortTr": "Derin analiz",
+          "shortEn": "Deep analysis"
+        },
+        {
+          "labelTr": "Tezekkür",
+          "labelEn": "Tadhakkur",
+          "shortTr": "Bellek + öğüt",
+          "shortEn": "Memory + lesson"
+        },
+        {
+          "labelTr": "Basar",
+          "labelEn": "Basar",
+          "shortTr": "Gözlem",
+          "shortEn": "Observation"
+        },
+        {
+          "labelTr": "Semi'",
+          "labelEn": "Samʿ",
+          "shortTr": "Dinleme/itaat",
+          "shortEn": "Listening/obedience"
+        }
       ],
       "faculties": [
         {

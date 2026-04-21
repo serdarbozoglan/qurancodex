@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
+import { COLORS } from '../tokens';
 import InterlinearView from './InterlinearView';
 
 // Clean Arabic text: remove decorative/annotation markers with no phonetic value.
@@ -1074,7 +1075,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     muted: '#7a6040', scrollbar: 'rgba(110,72,10,0.22) transparent',
     footerBg: 'rgba(244,241,234,0.98)', footerBorder: 'rgba(154,111,16,0.18)',
   } : {
-    bg: '#080a1e', gold: '#d4a574',
+    bg: COLORS.cosmicBlack, gold: COLORS.gold,
     arabic: '#cca96a', arabicActive: '#f0d898',
     translation: '#cdc6bb', translationActive: '#e8c98a',
     bismillah: '#e05a48',
@@ -1770,7 +1771,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     <svg width="15" height="17" viewBox="0 0 16 18" fill="none">
                       <rect x="1" y="1" width="14" height="16" rx="2" fill={gold} fillOpacity="0.1" stroke={gold} strokeWidth="1.2"/>
                       <path d="M4 5.5h8M4 8.5h8M4 11.5h6" stroke={gold} strokeWidth="1" strokeLinecap="round"/>
-                      <circle cx="13" cy="3" r="3.2" fill={dayMode ? '#f5efe2' : '#080a1e'} stroke={gold} strokeWidth="1"/>
+                      <circle cx="13" cy="3" r="3.2" fill={dayMode ? '#f5efe2' : COLORS.cosmicBlack} stroke={gold} strokeWidth="1"/>
                       <path d="M11.5 3l1 1 2-2" stroke={gold} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
@@ -2869,7 +2870,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 direction: 'rtl',
                 fontFamily: currentFont,
                 fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
-                lineHeight: isMobile ? 2.3 : 2.9,
+                lineHeight: isMobile ? 2.0 : 2.3,
                 color: C.arabic,
                 textAlign: 'justify',
               }}>

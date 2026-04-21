@@ -65,7 +65,7 @@ const CONTEXT_BADGES = {
   kiyamet:  { labelTr: 'Kıyamet',  labelEn: 'Judgment',  bg: 'rgba(200,50,50,0.12)',   color: COLORS.softRed },
   doga:     { labelTr: 'Doğa',     labelEn: 'Nature',    bg: 'rgba(59,130,246,0.10)',  color: '#60a5fa' },
   kissa:    { labelTr: 'Kıssa',    labelEn: 'Narrative', bg: 'rgba(212,165,116,0.12)', color: COLORS.gold },
-  mucize:   { labelTr: 'Mucize',   labelEn: 'Miracle',   bg: 'rgba(201,169,110,0.12)', color: '#c9a96e' },
+  mucize:   { labelTr: 'Mucize',   labelEn: 'Miracle',   bg: COLORS.softGoldAlpha12,   color: COLORS.softGold },
   kozmik:   { labelTr: 'Kozmik',   labelEn: 'Cosmic',    bg: 'rgba(139,92,246,0.12)',  color: COLORS.purple },
   cehennem: { labelTr: 'Cehennem', labelEn: 'Hell',      bg: 'rgba(239,68,68,0.12)',   color: '#f87171' },
 };

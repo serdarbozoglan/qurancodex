@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { COLORS } from '../tokens';
 
 // ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
 const CATEGORY_ICONS = {
@@ -71,8 +72,8 @@ function CategoryIcon({ id, color }) {
 
 // ── Badge colors ──────────────────────────────────────────────────────────────
 const BADGE = {
-  emir:  { bg: 'rgba(201,169,110,0.15)', border: 'rgba(201,169,110,0.35)', color: '#c9a96e' },
-  nehiy: { bg: 'rgba(232,90,74,0.15)',   border: 'rgba(232,90,74,0.35)',   color: '#e85a4a' },
+  emir:  { bg: COLORS.softGoldAlpha15, border: COLORS.softGoldAlpha35, color: COLORS.softGold },
+  nehiy: { bg: 'rgba(232,90,74,0.15)', border: 'rgba(232,90,74,0.35)', color: '#e85a4a' },
 };
 
 export default function QuranCommands({ onClose }) {
@@ -113,7 +114,7 @@ export default function QuranCommands({ onClose }) {
 
   const categories = data.categories || [];
   const activeCategory = categories.find(c => c.id === activeId) || categories[0];
-  const accent = activeCategory?.accent || '#c9a96e';
+  const accent = activeCategory?.accent || COLORS.softGold;
 
   // Total stats
   const allCommands = categories.flatMap(c => c.commands);
@@ -195,7 +196,7 @@ export default function QuranCommands({ onClose }) {
       {/* Header */}
       <div style={{ padding: isMobile ? '56px 16px 20px' : '40px 32px 28px', maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
         <div style={{ marginBottom: '6px' }}>
-          <span style={{ fontSize: '11px', color: 'rgba(201,169,110,0.7)', letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 600 }}>
+          <span style={{ fontSize: '11px', color: COLORS.softGoldAlpha70, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 600 }}>
             {language === 'tr' ? "KUR'AN'IN EMİRLERİ" : "QURAN COMMANDS"}
           </span>
         </div>
@@ -209,11 +210,11 @@ export default function QuranCommands({ onClose }) {
         {/* Stats row */}
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '14px' }}>
           <div style={{
-            background: 'rgba(201,169,110,0.1)', border: '1px solid rgba(201,169,110,0.28)',
+            background: COLORS.softGoldAlpha10, border: `1px solid ${COLORS.softGoldAlpha28}`,
             borderRadius: '8px', padding: '7px 14px',
             display: 'flex', alignItems: 'center', gap: '7px',
           }}>
-            <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#c9a96e', lineHeight: 1 }}>{emirCount}</span>
+            <span style={{ fontSize: '1.3rem', fontWeight: 800, color: COLORS.softGold, lineHeight: 1 }}>{emirCount}</span>
             <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 500 }}>{L.emirStat}</span>
           </div>
           <div style={{

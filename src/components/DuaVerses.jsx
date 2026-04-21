@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
 
 const SURAH_NAMES = [
   'El-Fâtiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide','El-En\'âm','El-A\'râf','El-Enfâl','Et-Tevbe','Yûnus',
@@ -31,9 +31,9 @@ const CATEGORY_CONFIG = {
 
 const CATEGORY_ORDER = ['af', 'hidayet', 'sabir', 'sikinit', 'aile', 'sukur', 'rizik', 'genel'];
 
-const gold = '#d4a574';
-const silver = '#94a3b8';
-const bg = '#080a1e';
+const gold = COLORS.gold;
+const silver = COLORS.silver;
+const bg = COLORS.cosmicBlack;
 
 function getSurahRef(dua, _language) {
   const name = SURAH_NAMES[dua.surah - 1] || `${dua.surah}`;

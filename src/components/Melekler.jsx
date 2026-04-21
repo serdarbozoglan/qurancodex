@@ -9,13 +9,13 @@ const CAT = {
   azap:     { accent: '#D85A30', bg: 'rgba(216,90,48,0.10)',  border: 'rgba(216,90,48,0.28)',   labelTr: 'Azap Meleği',     labelEn: 'Punishment' },
   koruyucu: { accent: '#1D9E75', bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)',  labelTr: 'Koruyucu Melek',  labelEn: 'Guardian' },
   kayit:    { accent: '#534AB7', bg: 'rgba(83,74,183,0.10)',  border: 'rgba(83,74,183,0.28)',   labelTr: 'Kayıt Meleği',    labelEn: 'Recorder' },
-  yuceltme: { accent: '#c9a96e', bg: 'rgba(201,169,110,0.10)',border: 'rgba(201,169,110,0.28)', labelTr: 'Yüceltme Meleği', labelEn: 'Glorification' },
+  yuceltme: { accent: COLORS.softGold, bg: COLORS.softGoldAlpha10, border: COLORS.softGoldAlpha28, labelTr: 'Yüceltme Meleği', labelEn: 'Glorification' },
   gizemlI:  { accent: '#6B7280', bg: 'rgba(107,114,128,0.08)',border: 'rgba(107,114,128,0.22)', labelTr: 'Gizemli',         labelEn: 'Mysterious' },
   hadis:    { accent: '#6B7280', bg: 'rgba(107,114,128,0.06)',border: 'rgba(107,114,128,0.15)', labelTr: 'Hadis Kaynağı',   labelEn: 'Hadith Source' },
 };
 
 const HAPAX_COLOR = '#534AB7';
-const GOLD = '#c9a96e';
+const GOLD = COLORS.softGold;
 
 // ── Reusable micro-components ────────────────────────────────────────────────
 function HadisBadge({ language }) {
@@ -360,7 +360,7 @@ const GOREV_COLORS = {
   'kayit-tutmak':    '#534AB7',
   'azap-uygulamak':  '#D85A30',
   'savasta-yardim':  '#3B82F6',
-  'tesbih-ibadet':   '#c9a96e',
+  'tesbih-ibadet':   COLORS.softGold,
 };
 
 function TabGorevler({ data, language, isMobile: _isMobile }) {

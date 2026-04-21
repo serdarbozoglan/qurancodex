@@ -1007,5 +1007,92 @@
         "İbn Hişam — Muğni'l-Lebîb — Arapçada lâ'nın işlevleri"
       ]
     }
-  ]
+  ],
+  "ibnKayyimPatterns": {
+    "titleTr": "İbn Kayyim'in Üç Büyük Tasnifi",
+    "titleEn": "Ibn Qayyim's Three Major Classifications",
+    "descTr": "İbn Kayyim el-Cevziyye, et-Tibyân fî Aksâmi'l-Kur'ân eserinde Kur'ân yeminlerini üç temel yapıya göre tasnif eder. Bu sayfa, mevcut yemin item'larını bu tasniflere bağlar — tekrar eden item eklemeden, retorik görünürlüğü sağlar.",
+    "descEn": "Ibn Qayyim al-Jawziyya, in al-Tibyān fī Aqsām al-Qurʾān, classifies Qur'anic oaths into three fundamental structures. This section maps existing oath items to these classifications — without duplicating items, revealing the rhetorical structure.",
+    "patterns": [
+      {
+        "id": "opposing-pairs",
+        "arabicName": "الأقسام بالمتقابلات",
+        "transliteration": "al-aqsām bi'l-mutaqābilāt",
+        "nameTr": "Zıt Çiftler ile Yeminler",
+        "nameEn": "Oaths by Opposing Pairs",
+        "descTr": "İki zıt unsura birlikte yemin — her çift, varlığın iki kutbunu temsil eder ve ikinci öğe birincinin anlamını tamamlar. İbn Kayyim bunu 'delilin iki kanadı' olarak adlandırır: Allah bir hakikate yemin ederken onun tezahür ettiği iki zıt uçtan birlikte söz eder.",
+        "descEn": "Oaths sworn jointly by two opposing elements — each pair represents two poles of existence, the second completing the first. Ibn Qayyim calls this 'the two wings of proof': Allah bears witness to a truth through both of its opposing manifestations.",
+        "pairs": [
+          {
+            "id": "pair-leyl-nehar",
+            "firstRefs": [
+              "leyl-92-1"
+            ],
+            "firstLabelTr": "Kaplayan Gece",
+            "firstLabelEn": "The Covering Night",
+            "firstVerseRef": "Leyl 92:1",
+            "secondRefs": [
+              "leyl-92-2"
+            ],
+            "secondLabelTr": "Aydınlanan Gündüz",
+            "secondLabelEn": "The Shining Day",
+            "secondVerseRef": "Leyl 92:2",
+            "thematicTr": "Örtme / Açma — Gizleme / Açığa Çıkarma",
+            "thematicEn": "Covering / Uncovering — Concealing / Revealing",
+            "depthTr": "Gece 'gaşâ' (örter) fiiliyle, gündüz 'tecellâ' (açığa çıkar) fiiliyle tanımlanır. Bu iki fiil Kur'ân'da tezâdî yapının zirvelerindendir. Zemahşerî Keşşâf'ta: 'Gece örtmeseydi, gündüz açmazdı — ikisi birbirinin sınırıdır.' İbn Kayyim bu çifti, cevab-ı kasemdeki 'inne sa'yeküm le-şettâ' ifadesine delil olarak görür: insan çabasının iki zıt yönü (hayır-şer), gece-gündüzün iki zıt doğasına benzer.",
+            "depthEn": "Night is defined by the verb ghashā (to cover), day by tajallā (to manifest). These verbs are among the peaks of antithetical construction in the Qur'an. Al-Zamakhsharī in al-Kashshāf: 'If night did not cover, day would not unveil — each is the limit of the other.' Ibn Qayyim sees this pair as evidence for the oath's response inna saʿyakum la-shattā (your efforts are surely varied): the two opposed directions of human effort (good/evil) parallel the two opposing natures of night/day."
+          },
+          {
+            "id": "pair-dhakar-untha",
+            "firstRefs": [
+              "leyl-92-3"
+            ],
+            "firstLabelTr": "Erkek",
+            "firstLabelEn": "Male",
+            "firstVerseRef": "Leyl 92:3",
+            "secondRefs": [
+              "leyl-92-3"
+            ],
+            "secondLabelTr": "Dişi",
+            "secondLabelEn": "Female",
+            "secondVerseRef": "Leyl 92:3",
+            "sameVerseNote": "Bu iki öğe tek ayet içinde 'mâ halaka'dhakera ve'l-ünsâ' ifadesiyle birleşir — tek yeminin iki kolu.",
+            "sameVerseNoteEn": "Both elements are joined in a single verse: mā khalaqa al-dhakara wa'l-unthā — a single oath with two arms.",
+            "thematicTr": "İki Cinsiyet — Beşerî Tamamlanmanın İki Kutbu",
+            "thematicEn": "Two Sexes — The Two Poles of Human Completion",
+            "depthTr": "İbn Kayyim bu çifti 'beşerî fıtratın iki ucu' olarak adlandırır. Tek başına erkek veya dişi varoluşun tamamlanmış formu değildir — ikisi birlikte insanı temsil eder. Ayet, yaratma fiilinin (halak) hem erkeği hem dişiyi eşit bir aktif-yaratma olarak almasına dikkat çeker (kadın 'türevsel' değil, doğrudan 'halk edilmiş'). Râzî Mefâtîh'te bu ayetin yaratılış kozmolojisindeki önemini vurgular.",
+            "depthEn": "Ibn Qayyim calls this pair 'the two ends of human nature (fiṭra).' Neither male nor female alone is the completed form of existence — together they represent the human. The verse emphasizes that the act of creation (khalaqa) takes both male and female as equally active creations (the female is not 'derivative' but directly 'created'). Al-Rāzī in Mafātīḥ underscores this verse's significance in creation cosmology."
+          },
+          {
+            "id": "pair-shafa-vitr",
+            "firstRefs": [
+              "fecr-89-3"
+            ],
+            "firstLabelTr": "Çift",
+            "firstLabelEn": "Even",
+            "firstVerseRef": "Fecr 89:3",
+            "secondRefs": [
+              "fecr-89-3"
+            ],
+            "secondLabelTr": "Tek",
+            "secondLabelEn": "Odd",
+            "secondVerseRef": "Fecr 89:3",
+            "sameVerseNote": "Bu iki öğe de tek ayet içinde — 've'ş-şef'i ve'l-vetr' (çifte ve teke yemin olsun).",
+            "sameVerseNoteEn": "Both elements in a single verse: wa'l-shafʿi wa'l-watr (by the even and the odd).",
+            "thematicTr": "Sayısal İkilik — Varlığın Matematiksel Deseni",
+            "thematicEn": "Numerical Duality — The Mathematical Pattern of Existence",
+            "depthTr": "İbn Kayyim, bu yeminin Kur'ân yeminleri arasında en açık olanlarından biri olduğunu söyler — çünkü her sayı ya çifttir ya tek, başka seçenek yoktur. 'Çift ve Tek' ifadesi, varlığın tüm matematik kompozisyonunu kapsayan bir tasarım yeminidir. Müfessirler çeşitli yorumlar getirmiştir: (1) çift = yaratılmışlar / tek = Allah (Kurtubî), (2) çift = kul ile Rab / tek = Allah'ın Zâtı (Râzî), (3) matematiğin iki temel sınıfı (Elmalılı). Her yorum ortak bir temel kabul eder: bu yemin, bir düzen iddiasıdır, sayısal ve metafiziksel.",
+            "depthEn": "Ibn Qayyim calls this one of the most explicit oaths — because every number is either even or odd, with no other option. 'Even and Odd' is an oath encompassing the entire mathematical composition of existence. Exegetes offer several readings: (1) even = created things / odd = Allah (al-Qurṭubī), (2) even = servant and Lord / odd = the divine Essence (al-Rāzī), (3) the two basic classes of mathematics (Elmalılı). All share a foundation: this oath is a claim about order — numerical and metaphysical."
+          }
+        ],
+        "scholarNote": {
+          "sourceTr": "İbn Kayyim el-Cevziyye, et-Tibyân fî Aksâmi'l-Kur'ân (14. yüzyıl) — 'el-Aksâm bi'l-Mütekâbilât' bölümü",
+          "sourceEn": "Ibn Qayyim al-Jawziyya, al-Tibyān fī Aqsām al-Qurʾān (14th century) — section on al-Aqsām bi'l-Mutaqābilāt",
+          "commentaryTr": "İbn Kayyim bu tasnifi şöyle tanımlar: 'Zıt çiftlerle yemin, yemin edilenin bütünlüğüne yapılan bir vurgudur — çünkü bir hakikat ancak kendi zıddı ile tanınır. Allah gece ile gündüze, erkek ile dişiye, çift ile teke birlikte yemin ederek, bu zıtlıkların hepsine birden şahitlik yapar.'",
+          "commentaryEn": "Ibn Qayyim defines this classification thus: 'An oath by opposing pairs is an emphasis on the wholeness of what is sworn by — because a truth is recognized only through its opposite. By swearing jointly by night and day, male and female, even and odd, Allah bears witness to all of these oppositions at once.'"
+        },
+        "ekolEtiketi": "klasik tefsir (İbn Kayyim Hanbelî geleneği)"
+      }
+    ]
+  }
 }

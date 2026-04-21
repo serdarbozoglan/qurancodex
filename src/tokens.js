@@ -23,13 +23,24 @@ export const COLORS = {
   // categories (Araf, Yüceltme meleği, Emir, Mucize). Distinct from primary
   // gold so categorical color identity remains, but centralized in tokens.
   softGold:         '#c9a96e',
+  softGoldAlpha04:  'rgba(201,169,110,0.04)',
+  softGoldAlpha05:  'rgba(201,169,110,0.05)',
+  softGoldAlpha06:  'rgba(201,169,110,0.06)',
   softGoldAlpha08:  'rgba(201,169,110,0.08)',
   softGoldAlpha10:  'rgba(201,169,110,0.10)',
   softGoldAlpha12:  'rgba(201,169,110,0.12)',
   softGoldAlpha15:  'rgba(201,169,110,0.15)',
+  softGoldAlpha18:  'rgba(201,169,110,0.18)',
   softGoldAlpha20:  'rgba(201,169,110,0.20)',
+  softGoldAlpha25:  'rgba(201,169,110,0.25)',
   softGoldAlpha28:  'rgba(201,169,110,0.28)',
+  softGoldAlpha30:  'rgba(201,169,110,0.30)',
   softGoldAlpha35:  'rgba(201,169,110,0.35)',
+  softGoldAlpha40:  'rgba(201,169,110,0.40)',
+  softGoldAlpha60:  'rgba(201,169,110,0.60)',
+  softGoldAlpha65:  'rgba(201,169,110,0.65)',
+  softGoldAlpha70:  'rgba(201,169,110,0.70)',
+  softGoldAlpha75:  'rgba(201,169,110,0.75)',
 
   // Text
   offWhite:      '#e8e6e3',
@@ -154,3 +165,53 @@ export const VERSE_DISPLAY_CARD = {
   borderLeft:   `3px solid ${COLORS.gold}`,
   borderRadius: '8px',
 };
+
+// ── Radius scale ──────────────────────────────────────────────────────────────
+// Normalizes 14+ inline borderRadius values to a 6-step scale.
+// Guidance:
+//   xs: tight chips, inline badges (4px)
+//   sm: small pills, compact cards (6px)
+//   md: standard cards, verse boxes (8px) ← default
+//   lg: glass cards, content panels (12px)
+//   xl: overlay shells, hero surfaces (14px)
+//   pill: fully rounded chips/buttons (999px)
+// Do NOT introduce new intermediate values (2/3/5/7/99) — promote to one of these.
+export const RADIUS = {
+  xs:   '4px',
+  sm:   '6px',
+  md:   '8px',
+  lg:   '12px',
+  xl:   '14px',
+  pill: '999px',
+};
+
+// ── Z-index scale ─────────────────────────────────────────────────────────────
+// Layering order for overlays, popups, tooltips, navbar.
+// Do NOT use ad-hoc zIndex values (200, 201, 100000) — use these tokens.
+export const Z_INDEX = {
+  overlayBase: 9999,   // Standard fullscreen overlay (OVERLAY_BASE uses this)
+  overlayNav:  10000,  // Overlay's own close button / header sticky
+  popup:       10001,  // Dropdowns, menus OPEN over navbar inside overlay
+  tooltip:     10002,  // Floating tooltips, the top of the stack
+};
+
+// ── Blur scale ────────────────────────────────────────────────────────────────
+// Unifies backdrop-filter blur values. Default 'md' matches glass-card CSS.
+export const BLUR = {
+  sm: 'blur(8px)',
+  md: 'blur(20px)',
+  lg: 'blur(24px)',
+};
+
+// ── Transition scale ──────────────────────────────────────────────────────────
+// Normalizes transition durations across hover/focus/active states.
+export const TRANSITION = {
+  fast: '0.15s',  // Quick visual feedback (hover, focus)
+  base: '0.2s',   // Default interactions
+  slow: '0.3s',   // Larger state transitions (panels, drawers)
+};
+
+// ── Breakpoint ────────────────────────────────────────────────────────────────
+// Single mobile breakpoint per CLAUDE.md §14.1. Use in window.innerWidth checks.
+// Prevents 640 vs 768 drift between overlays.
+export const BREAKPOINT_MOBILE = 640;

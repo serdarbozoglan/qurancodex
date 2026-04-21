@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
 
 // Strip footnote refs and parenthetical translator additions
 function cleanTr(str) {
@@ -382,7 +382,7 @@ export default function WordHeatmap({ onClose }) {
       </div>
     )}
 
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#080a1e', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
       {/* Floating tooltip */}
       {tooltip && (
