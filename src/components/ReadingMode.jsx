@@ -3008,7 +3008,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     flexDirection: isMobile && showTranslation ? 'column' : undefined,
                     gridTemplateColumns: isMobile ? (showTranslation ? undefined : 'auto 1fr') : '1fr 1fr',
                     gap: isMobile ? (showTranslation ? '4px' : '8px') : '16px',
-                    alignItems: isMobile ? 'flex-start' : 'center',
+                    alignItems: 'flex-start',
                     padding: isMobile ? '10px 12px' : '0 20px',
                     borderRadius: isMobile ? '0' : '6px',
                     borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.05)'}` : 'none',
@@ -3081,12 +3081,13 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
                   {/* Right: Arabic — only in desktop or mobile without translation */}
                   {(!isMobile || !showTranslation) && (
-                  <div style={{ display: 'flex', direction: 'rtl', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ display: 'flex', direction: 'rtl', alignItems: 'flex-start', gap: '8px' }}>
                     {/* Verse number badge — same style as left column badge */}
                     <span style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
                       borderRadius: '50%', flexShrink: 0,
+                      marginTop: isMobile ? '4px' : '8px',
                       border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
                       background: dayMode
                         ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
@@ -3098,7 +3099,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     }}>{toArabicNumerals(verse.ayah)}</span>
 
                     <div spellCheck={false} style={{
-                      fontFamily: currentFont, fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`, lineHeight: isMobile ? 1.8 : 2.2,
+                      fontFamily: currentFont, fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`, lineHeight: isMobile ? 1.7 : 2.0,
                       color: (verse.surah === 1 && verse.ayah === 1) ? C.bismillah : (isActive ? C.arabicActive : C.arabic),
                       textAlign: 'right', direction: 'rtl', flex: 1,
                     }}>
