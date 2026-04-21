@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION } from '../tokens';
 
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
@@ -331,7 +331,7 @@ function TabMelekler({ data, language, isMobile }) {
             style={{
               flexShrink: 0, padding: '5px 12px', borderRadius: '20px',
               fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 500,
-              cursor: 'pointer', transition: 'all 0.15s',
+              cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
               background: filter === f.id ? COLORS.softGoldAlpha15 : 'rgba(255,255,255,0.04)',
               border: `1px solid ${filter === f.id ? COLORS.softGoldAlpha40 : 'rgba(255,255,255,0.08)'}`,
               color: filter === f.id ? GOLD : '#94a3b8',
@@ -759,7 +759,7 @@ function StatCard({ value, color, labelTr, labelEn, refTr, refEn, tooltipAr, too
         border: `1px solid ${hovered ? `${color}35` : 'rgba(255,255,255,0.07)'}`,
         borderTop: `2px solid ${hovered ? color : 'transparent'}`,
         borderRadius: '10px', padding: '14px 16px',
-        cursor: 'default', transition: 'all 0.18s',
+        cursor: 'default', transition: `all ${TRANSITION.fast}`,
       }}
     >
       {/* Value */}
@@ -1054,7 +1054,7 @@ export default function Melekler({ onClose }) {
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
                 fontSize: isMobile ? '0.85rem' : '0.9rem',
                 fontFamily: FONTS.body, fontWeight: activeTab === i ? 600 : 400,
-                cursor: 'pointer', transition: 'all 0.15s', whiteSpace: 'nowrap',
+                cursor: 'pointer', transition: `all ${TRANSITION.fast}`, whiteSpace: 'nowrap',
               }}
               onMouseEnter={e => { if (activeTab !== i) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
               onMouseLeave={e => { if (activeTab !== i) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}

@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense, useRef, Fragment } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS } from '../tokens';
+import { COLORS, TRANSITION } from '../tokens';
 // v1.1 — single source of truth for tools data, shared with the modal
 import {
   FEATURED_TOOL  as IMPORTED_FEATURED,
@@ -635,7 +635,7 @@ export default function Navbar() {
                 background: exploreOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: exploreOpen ? '#d4a574' : '#d4d8e0',
                 fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
-                cursor: 'pointer', transition: 'all 0.15s', letterSpacing: '0.01em',
+                cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.01em',
               }}
               onMouseEnter={e => { if (!exploreOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
               onMouseLeave={e => { if (!exploreOpen) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
@@ -848,7 +848,7 @@ export default function Navbar() {
                 background: toolsOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: toolsOpen ? '#d4a574' : '#d4d8e0',
                 fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
-                cursor: 'pointer', transition: 'all 0.15s', letterSpacing: '0.01em',
+                cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.01em',
               }}
               onMouseEnter={e => { if (!toolsOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
               onMouseLeave={e => { if (!toolsOpen) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
@@ -998,7 +998,7 @@ export default function Navbar() {
               height: '32px',
               cursor: 'pointer',
               boxShadow: '0 0 20px 4px rgba(180,130,40,0.3)',
-              transition: 'all 0.15s',
+              transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => {
               e.currentTarget.style.boxShadow = '0 0 32px 6px rgba(180,130,40,0.5)';
@@ -1030,7 +1030,7 @@ export default function Navbar() {
               fontWeight: 600,
               letterSpacing: '0.08em',
               cursor: 'pointer',
-              transition: 'all 0.15s',
+              transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.gold; e.currentTarget.style.background = COLORS.goldAlpha15; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.background = 'transparent'; }}
@@ -1295,7 +1295,7 @@ export default function Navbar() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 cursor: 'pointer', color: '#94a3b8',
                 flexShrink: 0,
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
