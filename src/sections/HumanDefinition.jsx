@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import { COLORS, FONTS } from '../tokens';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 
 // ─────────────────────────────────────────────
@@ -13,7 +14,7 @@ const HUMAN_TERMS = [
     term: 'İnsân',
     termEn: 'Insān',
     count: '~65',
-    color: '#d4a574',
+    color: COLORS.gold,
     glow: 'rgba(212,165,116,0.10)',
     border: 'rgba(212,165,116,0.35)',
     meaningTr: 'Hem iyi hem kötü potansiyel taşıyan varlık',
@@ -34,7 +35,7 @@ const HUMAN_TERMS = [
     term: 'Beşer',
     termEn: 'Bashar',
     count: '~36',
-    color: '#3498db',
+    color: COLORS.skyBlue,
     glow: 'rgba(52,152,219,0.10)',
     border: 'rgba(52,152,219,0.35)',
     meaningTr: 'Biyolojik ve fiziksel boyutuyla insan',
@@ -53,7 +54,7 @@ const HUMAN_TERMS = [
     term: 'Nâs',
     termEn: 'Nās',
     count: '~241',
-    color: '#2ecc71',
+    color: COLORS.softEmerald,
     glow: 'rgba(46,204,113,0.10)',
     border: 'rgba(46,204,113,0.35)',
     meaningTr: 'Topluluk olarak insanlık, kolektif hitap',
@@ -240,7 +241,7 @@ const TRANSFORMATION = [
       en: '"You have not yet believed; but say: we have submitted."',
       ref: 'Hucurât 49:14',
     },
-    color: '#94a3b8',
+    color: COLORS.silver,
     glow: 'rgba(148,163,184,0.10)',
     border: 'rgba(148,163,184,0.25)',
   },
@@ -260,7 +261,7 @@ const TRANSFORMATION = [
       en: '"The true believers are only those who believe in Allah and His Messenger."',
       ref: 'Hucurât 49:15',
     },
-    color: '#d4a574',
+    color: COLORS.gold,
     glow: 'rgba(212,165,116,0.12)',
     border: 'rgba(212,165,116,0.35)',
   },
@@ -393,21 +394,21 @@ export default function HumanDefinition() {
           <div
             onClick={e => e.stopPropagation()}
             style={{
-              background: '#0d1b2a', border: '1px solid rgba(212,165,116,0.25)',
+              background: COLORS.deepNavy, border: `1px solid ${COLORS.goldAlpha25}`,
               borderRadius: '16px', padding: '28px', maxWidth: '480px', width: '100%',
               maxHeight: '80vh', overflowY: 'auto',
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.1rem', color: '#d4a574', fontWeight: 700, lineHeight: 1.3, flex: 1, paddingRight: '12px' }}>
+              <h3 style={{ fontFamily: FONTS.display, fontSize: '1.1rem', color: COLORS.gold, fontWeight: 700, lineHeight: 1.3, flex: 1, paddingRight: '12px' }}>
                 {t('humanDefinition.stats.total.infoTitle')}
               </h3>
               <button
                 onClick={() => setShow6666(false)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#64748b', fontSize: '1.2rem', lineHeight: 1, flexShrink: 0 }}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: COLORS.slate500, fontSize: '1.2rem', lineHeight: 1, flexShrink: 0 }}
               >✕</button>
             </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.75, whiteSpace: 'pre-line' }}>
+            <div style={{ fontFamily: FONTS.body, fontSize: '0.875rem', color: COLORS.silver, lineHeight: 1.75, whiteSpace: 'pre-line' }}>
               {t('humanDefinition.stats.total.infoBody')}
             </div>
           </div>
@@ -443,7 +444,7 @@ export default function HumanDefinition() {
                 >
                   <span
                     style={{
-                      fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                      fontFamily: FONTS.quran,
                       fontSize: term.arabic.length > 8 ? '1.4rem' : '1.8rem',
                       color: term.color,
                       lineHeight: 1.3,
@@ -511,7 +512,7 @@ export default function HumanDefinition() {
                         </p>
                         <p
                           className="text-xl leading-loose mb-2 text-right"
-                          style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: term.color }}
+                          style={{ fontFamily: FONTS.quran, color: term.color }}
                           dir="rtl"
                         >
                           {term.verse.ar}
@@ -593,7 +594,7 @@ export default function HumanDefinition() {
           </button>
           <p
             className="text-2xl md:text-3xl leading-loose mb-2"
-            style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#d4a574' }}
+            style={{ fontFamily: FONTS.quran, color: COLORS.gold }}
             dir="rtl"
           >
             {tr('muminHeaderVerse')}
@@ -630,7 +631,7 @@ export default function HumanDefinition() {
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold font-body flex-shrink-0"
                     style={{
                       background: openTrait === i ? 'rgba(212,165,116,0.2)' : 'rgba(255,255,255,0.06)',
-                      color: openTrait === i ? '#d4a574' : '#64748b',
+                      color: openTrait === i ? '#d4a574' : COLORS.slate500,
                       border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.4)' : 'rgba(255,255,255,0.1)'}`,
                     }}
                   >{trait.num}</span>
@@ -649,7 +650,7 @@ export default function HumanDefinition() {
                   className="text-right leading-loose mb-4 flex-1"
                   dir="rtl"
                   style={{
-                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontFamily: FONTS.quran,
                     fontSize: '1.5rem',
                     color: openTrait === i ? '#d4a574' : 'rgba(212,165,116,0.65)',
                     transition: 'color 0.25s',
@@ -712,7 +713,7 @@ export default function HumanDefinition() {
                     className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold font-body flex-shrink-0"
                     style={{
                       background: 'rgba(212,165,116,0.2)',
-                      color: '#d4a574',
+                      color: COLORS.gold,
                       border: '1px solid rgba(212,165,116,0.4)',
                     }}
                   >{trait.num}</span>
@@ -736,9 +737,9 @@ export default function HumanDefinition() {
                   className="text-right leading-loose flex-shrink-0 md:max-w-[46%]"
                   dir="rtl"
                   style={{
-                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontFamily: FONTS.quran,
                     fontSize: '1.5rem',
-                    color: '#d4a574',
+                    color: COLORS.gold,
                   }}
                 >{trait.arabic}</p>
 
@@ -826,7 +827,7 @@ export default function HumanDefinition() {
                   >
                     <span
                       className="text-2xl md:text-3xl flex-shrink-0"
-                      style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#0D9E73', textShadow: isOpen ? '0 0 16px rgba(13,158,115,0.3)' : 'none' }}
+                      style={{ fontFamily: FONTS.quran, color: '#0D9E73', textShadow: isOpen ? '0 0 16px rgba(13,158,115,0.3)' : 'none' }}
                       dir="rtl"
                     >
                       {pair.pos.ar}
@@ -858,16 +859,16 @@ export default function HumanDefinition() {
                       border: '1px solid rgba(255,255,255,0.12)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontSize: '0.6rem', fontWeight: 800, color: 'rgba(148,163,184,0.5)',
-                      fontFamily: "'Inter', sans-serif", letterSpacing: '0.05em',
+                      fontFamily: FONTS.body, letterSpacing: '0.05em',
                       flexShrink: 0,
                     }}>
                       VS
                     </span>
-                    <span style={{ color: '#d4a574', fontSize: '0.7rem', fontWeight: 600, fontFamily: "'Inter', sans-serif", textAlign: 'center' }}>
+                    <span style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 600, fontFamily: FONTS.body, textAlign: 'center' }}>
                       {pair.ref}
                     </span>
                     {isOpen && pair.contextTr && (
-                      <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.58rem', fontFamily: "'Inter', sans-serif", textAlign: 'center', lineHeight: 1.4 }}>
+                      <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.58rem', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.4 }}>
                         {lang === 'tr' ? pair.contextTr : pair.contextEn}
                       </span>
                     )}
@@ -892,7 +893,7 @@ export default function HumanDefinition() {
                     </div>
                     <span
                       className="text-2xl md:text-3xl flex-shrink-0"
-                      style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#E07A5F', textShadow: isOpen ? '0 0 16px rgba(212,82,62,0.3)' : 'none' }}
+                      style={{ fontFamily: FONTS.quran, color: '#E07A5F', textShadow: isOpen ? '0 0 16px rgba(212,82,62,0.3)' : 'none' }}
                       dir="rtl"
                     >
                       {pair.neg.ar}
@@ -924,7 +925,7 @@ export default function HumanDefinition() {
           {/* Full Arabic verse */}
           <p
             className="text-xl md:text-2xl leading-loose text-center mb-4"
-            style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: '#e8e6e3' }}
+            style={{ fontFamily: FONTS.quran, color: COLORS.offWhite }}
             dir="rtl"
           >
             {tr('istikaametVerse')}
@@ -945,7 +946,7 @@ export default function HumanDefinition() {
                   onClick={() => setActiveWord(activeWord === i ? null : i)}
                   className="rounded-lg px-4 py-2 transition-all duration-200"
                   style={{
-                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontFamily: FONTS.quran,
                     fontSize: '1.4rem',
                     lineHeight: 1.8,
                     background: activeWord === i ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.06)',
@@ -1026,7 +1027,7 @@ export default function HumanDefinition() {
                 {/* Arabic */}
                 <p
                   className="text-3xl md:text-4xl mb-3 text-center"
-                  style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: stage.color }}
+                  style={{ fontFamily: FONTS.quran, color: stage.color }}
                   dir="rtl"
                 >
                   {stage.arabic}
@@ -1068,7 +1069,7 @@ export default function HumanDefinition() {
                 >
                   <p
                     className="text-sm leading-loose text-right mb-2"
-                    style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: stage.color }}
+                    style={{ fontFamily: FONTS.quran, color: stage.color }}
                     dir="rtl"
                   >
                     {stage.verse.ar}
@@ -1084,7 +1085,7 @@ export default function HumanDefinition() {
               {i < TRANSFORMATION.length - 1 && (
                 <div className="flex items-center justify-center gap-2 mt-3" style={{
                   color: TRANSFORMATION[i + 1].color + '80',
-                  fontSize: '0.65rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
+                  fontSize: '0.65rem', fontFamily: FONTS.body, fontWeight: 600,
                 }}>
                   <span>{i === 0 ? (lang === 'tr' ? 'Kalbin tasdiki' : "Heart's affirmation") : (lang === 'tr' ? 'İhlas & murâkabe' : 'Sincerity & vigilance')}</span>
                   <span className="hidden md:inline" style={{ fontSize: '0.9rem' }}>→</span>
