@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
-import { COLORS } from '../tokens';
+import { COLORS, BREAKPOINT_MOBILE } from '../tokens';
 import InterlinearView from './InterlinearView';
 
 // Clean Arabic text: remove decorative/annotation markers with no phonetic value.
@@ -614,9 +614,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   });
   const [playingVerseId, setPlayingVerseId] = useState(null);
   const [failedVerseId, setFailedVerseId] = useState(null);
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   useEffect(() => {
-    const handler = () => setIsMobile(window.innerWidth < 640);
+    const handler = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
   }, []);
@@ -1067,20 +1067,20 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
   // ── Theme colors (day / night) ────────────────────────────────────────────
   const C = dayMode ? {
-    bg: '#f9f7f2', gold: '#9a6f10',
-    arabic: '#1a0e00', arabicActive: '#4a2800',
-    translation: '#2e1a08', translationActive: '#5c3418',
-    bismillah: '#c0392b',
-    activeHighlight: 'rgba(110,72,10,0.07)', activeBorder: 'rgba(110,72,10,0.38)',
-    muted: '#7a6040', scrollbar: 'rgba(110,72,10,0.22) transparent',
-    footerBg: 'rgba(244,241,234,0.98)', footerBorder: 'rgba(154,111,16,0.18)',
+    bg: COLORS.paperCream, gold: COLORS.paperGold,
+    arabic: COLORS.paperInk, arabicActive: COLORS.paperInkLight,
+    translation: COLORS.paperSepia, translationActive: COLORS.paperSepiaLight,
+    bismillah: COLORS.paperRed,
+    activeHighlight: COLORS.paperInkBrownAlpha12, activeBorder: COLORS.paperInkBrownAlpha52,
+    muted: COLORS.paperMuted, scrollbar: `${COLORS.paperInkBrownAlpha22} transparent`,
+    footerBg: COLORS.paperCreamDim, footerBorder: COLORS.paperGoldAlpha18,
   } : {
     bg: COLORS.cosmicBlack, gold: COLORS.gold,
-    arabic: '#cca96a', arabicActive: '#f0d898',
-    translation: '#cdc6bb', translationActive: '#e8c98a',
-    bismillah: '#e05a48',
+    arabic: COLORS.arabicQuiet, arabicActive: COLORS.arabicBright,
+    translation: COLORS.creamQuiet, translationActive: COLORS.creamBright,
+    bismillah: COLORS.besmele,
     activeHighlight: 'rgba(212,165,116,0.14)', activeBorder: 'rgba(200,185,165,0.72)',
-    muted: '#64748b', scrollbar: 'rgba(212,165,116,0.2) transparent',
+    muted: COLORS.slate500, scrollbar: 'rgba(212,165,116,0.2) transparent',
     footerBg: 'rgba(6,8,16,0.98)', footerBorder: 'rgba(212,165,116,0.12)',
   };
   const gold = C.gold;
@@ -2768,11 +2768,42 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         {bookMode ? (
           /* ── Book format — all surahs ── */
           <>
-          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '12px 16px 40px 12px' : '28px 56px 60px 24px' }}>
+          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '10px 12px 32px 12px' : '20px 12px 36px 12px' }}>
             {/* Book mode: surah banner + bismillah when primary surah's first verse is on this page */}
             {versesOnPage.some(v => v.surah === selectedSurah && v.ayah === 1) && (
               <>
-                {selectedSurah !== 1 && selectedSurah !== 9 && (
+                {selectedSurah === 1 ? (
+                  /* Fatiha — ceremonial opening header (bismillah is ayah 1, so shown inline) */
+                  <div style={{ textAlign: 'center', marginTop: '8px', marginBottom: '32px' }}>
+                    <div style={{
+                      fontFamily: currentFont,
+                      fontSize: isMobile ? '2.4rem' : '3.2rem',
+                      color: C.gold,
+                      lineHeight: 1.2,
+                      marginBottom: '14px',
+                      letterSpacing: '0.02em',
+                    }}>
+                      الفاتحة
+                    </div>
+                    {/* Thin gold divider — classical mushaf ornament feel */}
+                    <div style={{
+                      width: '64px',
+                      height: '1px',
+                      background: C.gold,
+                      opacity: 0.55,
+                      margin: '0 auto 14px',
+                    }} />
+                    <div style={{
+                      fontSize: '0.75rem',
+                      color: C.muted,
+                      letterSpacing: '0.3em',
+                      textTransform: 'uppercase',
+                      fontFamily: "'Inter', sans-serif",
+                    }}>
+                      {language === 'tr' ? 'Açılış · 7 Ayet' : 'The Opening · 7 Verses'}
+                    </div>
+                  </div>
+                ) : selectedSurah !== 9 && (
                   <div style={{ textAlign: 'center', fontFamily: currentFont, fontSize: isMobile ? '1.6rem' : '2.4rem', color: C.bismillah, lineHeight: 2.2, marginBottom: '20px' }}>
                     {BISMILLAH_AR}
                   </div>
@@ -2780,7 +2811,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
               </>
             )}
 
-            <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '45fr 55fr') : '1fr', gap: '0' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr', gap: '0' }}>
               {/* Left: Translation — hidden when Meal is off */}
               {showTranslation && (
                 <div style={{
@@ -2792,8 +2823,15 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                   marginTop: isMobile ? '12px' : '0',
                   display: 'flex', flexDirection: 'column', gap: '0',
                 }}>
-                  {/* Attribution */}
-                  <div style={{ padding: '0 12px 8px', fontSize: '0.78rem', color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
+                  {/* Attribution — subtle header for translation column */}
+                  <div style={{
+                    padding: '0 12px 10px',
+                    marginBottom: '6px',
+                    fontSize: '0.82rem',
+                    color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.45)',
+                    letterSpacing: '0.04em',
+                    borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
+                  }}>
                     {selectedMealAuthor.label}
                   </div>
                   {/* Bismillah translation — shown when first verse of surah is on this page */}
@@ -2820,13 +2858,14 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       const { verse } = item;
                       const vt = getTranslation(verse);
                       const isActive = activeVerse?.id === verse.id;
+                      const isSajdaTr = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
                       return (
                         <div
                           key={verse.id}
                           onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
                           style={{
                             cursor: 'pointer', borderRadius: isMobile ? '0' : '6px',
-                            padding: isMobile ? '8px 8px' : '14px 12px',
+                            padding: isMobile ? '8px 8px' : '12px 12px',
                             background: isActive ? C.activeHighlight : 'transparent',
                             borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                             transition: 'all 0.18s',
@@ -2854,7 +2893,22 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                               lineHeight: isMobile ? 1.55 : 1.85,
                               fontStyle: 'italic',
                               flex: 1,
-                            }}>{vt}</p>
+                            }}>
+                              {vt}
+                              {isSajdaTr && (
+                                <span style={{
+                                  display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle',
+                                  fontSize: '0.72rem', padding: '2px 8px', borderRadius: '4px',
+                                  background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
+                                  border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
+                                  color: dayMode ? COLORS.emerald : COLORS.softEmerald,
+                                  fontFamily: "'Amiri', serif",
+                                  fontStyle: 'normal',
+                                }}>
+                                  {language === 'tr' ? 'Secde' : 'Sajda'} ۩
+                                </span>
+                              )}
+                            </p>
                           </div>
                         </div>
                       );
@@ -3009,7 +3063,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     gridTemplateColumns: isMobile ? (showTranslation ? undefined : 'auto 1fr') : '1fr 1fr',
                     gap: isMobile ? (showTranslation ? '4px' : '8px') : '16px',
                     alignItems: 'flex-start',
-                    padding: isMobile ? '10px 12px' : '0 20px',
+                    padding: isMobile ? '10px 12px' : '12px 20px',
                     borderRadius: isMobile ? '0' : '6px',
                     borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.05)'}` : 'none',
                     background: isActive ? C.activeHighlight : 'transparent',
@@ -3037,13 +3091,25 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     </div>
                   )}
 
-                  {/* Left: badge + translation — badge hidden when meal is off */}
+                  {/* Left: badge + translation — badge hidden when meal is off.
+                      Both badge wrapper and TR text padding computed from AR first-line
+                      height so TR content visually centers with AR's first line. */}
+                  {(() => {
+                    const arLineHeightRem = (isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0);
+                    const trLineHeightRem = (isMobile ? 0.82 : 1) * (isMobile ? 1.55 : 1.8);
+                    const trPaddingTopRem = Math.max(0, (arLineHeightRem - trLineHeightRem) / 2);
+                    return (
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
                     {showTranslation && (
+                    <div style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      height: `${arLineHeightRem}rem`,
+                      flexShrink: 0,
+                    }}>
                     <span style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                      borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
+                      borderRadius: '50%', flexShrink: 0,
                       border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
                       background: dayMode
                         ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
@@ -3053,8 +3119,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       fontFamily: "'Amiri', serif",
                       fontWeight: dayMode ? 600 : 400,
                     }}>{verse.ayah}</span>
+                    </div>
                     )}
-                    <div style={{ flex: 1 }}>
+                    <div style={{ flex: 1, paddingTop: showTranslation ? `${trPaddingTopRem}rem` : 0 }}>
                       {showTranslation && (
                         <p style={{
                           margin: 0, color: isActive ? C.translationActive : C.translation,
@@ -3078,16 +3145,23 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       )}
                     </div>
                   </div>
+                    );
+                  })()}
 
                   {/* Right: Arabic — only in desktop or mobile without translation */}
                   {(!isMobile || !showTranslation) && (
                   <div style={{ display: 'flex', direction: 'rtl', alignItems: 'flex-start', gap: '8px' }}>
-                    {/* Verse number badge — same style as left column badge */}
+                    {/* Verse number badge — wrapped to first-line-height for vertical centering.
+                        Prevents badge from sitting visually between lines on multi-line verses. */}
+                    <div style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      height: `${(isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0)}rem`,
+                      flexShrink: 0,
+                    }}>
                     <span style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
                       borderRadius: '50%', flexShrink: 0,
-                      marginTop: isMobile ? '4px' : '8px',
                       border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
                       background: dayMode
                         ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
@@ -3097,6 +3171,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       fontFamily: "'Amiri', serif",
                       fontWeight: dayMode ? 600 : 400,
                     }}>{toArabicNumerals(verse.ayah)}</span>
+                    </div>
 
                     <div spellCheck={false} style={{
                       fontFamily: currentFont, fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`, lineHeight: isMobile ? 1.7 : 2.0,

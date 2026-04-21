@@ -77,6 +77,42 @@ export const COLORS = {
   // Gold alpha variants
   goldAlpha20:   'rgba(212,165,116,0.20)',
 
+  // ── Reading mode — warm palette for Arabic + meal text (night mode) ──────
+  // Semantic naming: Quiet = inactive/rest state, Bright = active/spotlight state.
+  // arabicQuiet is visually near-identical to softGold (#c9a96e); kept as a
+  // distinct token so reading-mode intent is self-documenting at call sites.
+  // Used exclusively by ReadingMode.jsx night theme. See §13.1.
+  arabicQuiet:   '#cca96a',
+  arabicBright:  '#f0d898',
+  creamQuiet:    '#b8a888',
+  creamBright:   '#e8c98a',
+  besmele:       '#e05a48',
+
+  // ── Reading mode — paper palette for day mode ────────────────────────────
+  // Warm cream + dark ink tones mimicking a printed mushaf page.
+  // Used exclusively by ReadingMode.jsx day theme. See §13.1.
+  paperCream:        '#f9f7f2',                // main bg
+  paperCreamDim:     'rgba(244,241,234,0.98)', // footerBg (slightly warmer for visual layering)
+  paperGold:         '#9a6f10',                // primary gold (badges, attribution)
+  paperGoldAlpha18:  'rgba(154,111,16,0.18)',  // footerBorder
+  paperInk:          '#1a0e00',                // Arabic text — near-black with brown warmth
+  paperInkLight:     '#4a2800',                // Arabic active/spotlight
+  paperSepia:        '#2e1a08',                // translation — dark sepia
+  paperSepiaLight:   '#5c3418',                // translation active/spotlight
+  paperRed:          '#c0392b',                // Bismillah coral (day variant)
+  paperMuted:        '#7a6040',                // muted labels
+
+  // Paper ink-brown alpha family (base #6e480a, warmer/lighter brown)
+  // Used for active highlight, active border, scrollbar in day mode.
+  paperInkBrownAlpha12: 'rgba(110,72,10,0.12)',  // activeHighlight
+  paperInkBrownAlpha22: 'rgba(110,72,10,0.22)',  // scrollbar
+  paperInkBrownAlpha52: 'rgba(110,72,10,0.52)',  // activeBorder
+
+  // Paper deep-brown alpha family (base #643c0a, cooler/darker brown)
+  // Used for attribution text + subtle structural lines.
+  paperDeepBrownAlpha08: 'rgba(100,60,10,0.08)', // attribution border
+  paperDeepBrownAlpha60: 'rgba(100,60,10,0.60)', // attribution text
+
   // Glass
   glassBgFaint:  'rgba(255,255,255,0.025)',
   glassBg:       'rgba(255,255,255,0.05)',
