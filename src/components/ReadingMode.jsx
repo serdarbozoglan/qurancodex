@@ -2858,7 +2858,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                             }}>{verse.ayah}</span>
                             <p style={{
                               margin: 0, color: isActive ? C.translationActive : C.translation,
-                              fontSize: isMobile ? '0.82rem' : '1.1rem',
+                              fontSize: isMobile ? '0.82rem' : '1rem',
                               lineHeight: isMobile ? 1.55 : 1.85,
                               fontStyle: 'italic',
                               flex: 1,
@@ -3065,7 +3065,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       height so TR content visually centers with AR's first line. */}
                   {(() => {
                     const arLineHeightRem = (isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0);
-                    const trLineHeightRem = (isMobile ? 0.82 : 1.1) * (isMobile ? 1.55 : 1.8);
+                    const trLineHeightRem = (isMobile ? 0.82 : 1) * (isMobile ? 1.55 : 1.8);
                     const trPaddingTopRem = Math.max(0, (arLineHeightRem - trLineHeightRem) / 2);
                     return (
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
