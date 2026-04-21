@@ -1076,11 +1076,11 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     footerBg: 'rgba(244,241,234,0.98)', footerBorder: 'rgba(154,111,16,0.18)',
   } : {
     bg: COLORS.cosmicBlack, gold: COLORS.gold,
-    arabic: '#cca96a', arabicActive: '#f0d898',
-    translation: '#b8a888', translationActive: '#e8c98a',
-    bismillah: '#e05a48',
+    arabic: COLORS.arabicQuiet, arabicActive: COLORS.arabicBright,
+    translation: COLORS.creamQuiet, translationActive: COLORS.creamBright,
+    bismillah: COLORS.besmele,
     activeHighlight: 'rgba(212,165,116,0.14)', activeBorder: 'rgba(200,185,165,0.72)',
-    muted: '#64748b', scrollbar: 'rgba(212,165,116,0.2) transparent',
+    muted: COLORS.slate500, scrollbar: 'rgba(212,165,116,0.2) transparent',
     footerBg: 'rgba(6,8,16,0.98)', footerBorder: 'rgba(212,165,116,0.12)',
   };
   const gold = C.gold;

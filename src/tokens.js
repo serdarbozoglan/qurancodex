@@ -77,6 +77,17 @@ export const COLORS = {
   // Gold alpha variants
   goldAlpha20:   'rgba(212,165,116,0.20)',
 
+  // ── Reading mode — warm palette for Arabic + meal text (night mode) ──────
+  // Semantic naming: Quiet = inactive/rest state, Bright = active/spotlight state.
+  // arabicQuiet is visually near-identical to softGold (#c9a96e); kept as a
+  // distinct token so reading-mode intent is self-documenting at call sites.
+  // Used exclusively by ReadingMode.jsx night theme. See §13.1.
+  arabicQuiet:   '#cca96a',
+  arabicBright:  '#f0d898',
+  creamQuiet:    '#b8a888',
+  creamBright:   '#e8c98a',
+  besmele:       '#e05a48',
+
   // Glass
   glassBgFaint:  'rgba(255,255,255,0.025)',
   glassBg:       'rgba(255,255,255,0.05)',
