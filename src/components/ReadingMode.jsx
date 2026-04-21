@@ -2772,7 +2772,30 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             {/* Book mode: surah banner + bismillah when primary surah's first verse is on this page */}
             {versesOnPage.some(v => v.surah === selectedSurah && v.ayah === 1) && (
               <>
-                {selectedSurah !== 1 && selectedSurah !== 9 && (
+                {selectedSurah === 1 ? (
+                  /* Fatiha — ceremonial opening header (bismillah is ayah 1, so shown inline) */
+                  <div style={{ textAlign: 'center', marginTop: '8px', marginBottom: '32px' }}>
+                    <div style={{
+                      fontFamily: currentFont,
+                      fontSize: isMobile ? '2.4rem' : '3.2rem',
+                      color: C.gold,
+                      lineHeight: 1.2,
+                      marginBottom: '12px',
+                      letterSpacing: '0.02em',
+                    }}>
+                      الفاتحة
+                    </div>
+                    <div style={{
+                      fontSize: '0.7rem',
+                      color: C.muted,
+                      letterSpacing: '0.3em',
+                      textTransform: 'uppercase',
+                      fontFamily: "'Inter', sans-serif",
+                    }}>
+                      {language === 'tr' ? 'Açılış · 7 Ayet' : 'The Opening · 7 Verses'}
+                    </div>
+                  </div>
+                ) : selectedSurah !== 9 && (
                   <div style={{ textAlign: 'center', fontFamily: currentFont, fontSize: isMobile ? '1.6rem' : '2.4rem', color: C.bismillah, lineHeight: 2.2, marginBottom: '20px' }}>
                     {BISMILLAH_AR}
                   </div>
