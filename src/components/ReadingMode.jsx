@@ -2870,7 +2870,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 direction: 'rtl',
                 fontFamily: currentFont,
                 fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
-                lineHeight: isMobile ? 2.3 : 2.9,
+                lineHeight: isMobile ? 2.0 : 2.3,
                 color: C.arabic,
                 textAlign: 'justify',
               }}>
