@@ -3060,13 +3060,25 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     </div>
                   )}
 
-                  {/* Left: badge + translation — badge hidden when meal is off */}
+                  {/* Left: badge + translation — badge hidden when meal is off.
+                      Both badge wrapper and TR text padding computed from AR first-line
+                      height so TR content visually centers with AR's first line. */}
+                  {(() => {
+                    const arLineHeightRem = (isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0);
+                    const trLineHeightRem = (isMobile ? 0.82 : 1) * (isMobile ? 1.55 : 1.8);
+                    const trPaddingTopRem = Math.max(0, (arLineHeightRem - trLineHeightRem) / 2);
+                    return (
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
                     {showTranslation && (
+                    <div style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      height: `${arLineHeightRem}rem`,
+                      flexShrink: 0,
+                    }}>
                     <span style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                      borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
+                      borderRadius: '50%', flexShrink: 0,
                       border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
                       background: dayMode
                         ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
@@ -3076,8 +3088,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       fontFamily: "'Amiri', serif",
                       fontWeight: dayMode ? 600 : 400,
                     }}>{verse.ayah}</span>
+                    </div>
                     )}
-                    <div style={{ flex: 1 }}>
+                    <div style={{ flex: 1, paddingTop: showTranslation ? `${trPaddingTopRem}rem` : 0 }}>
                       {showTranslation && (
                         <p style={{
                           margin: 0, color: isActive ? C.translationActive : C.translation,
@@ -3101,16 +3114,23 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       )}
                     </div>
                   </div>
+                    );
+                  })()}
 
                   {/* Right: Arabic — only in desktop or mobile without translation */}
                   {(!isMobile || !showTranslation) && (
                   <div style={{ display: 'flex', direction: 'rtl', alignItems: 'flex-start', gap: '8px' }}>
-                    {/* Verse number badge — same style as left column badge */}
+                    {/* Verse number badge — wrapped to first-line-height for vertical centering.
+                        Prevents badge from sitting visually between lines on multi-line verses. */}
+                    <div style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      height: `${(isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0)}rem`,
+                      flexShrink: 0,
+                    }}>
                     <span style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
                       borderRadius: '50%', flexShrink: 0,
-                      marginTop: isMobile ? '4px' : '8px',
                       border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
                       background: dayMode
                         ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
@@ -3120,6 +3140,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       fontFamily: "'Amiri', serif",
                       fontWeight: dayMode ? 600 : 400,
                     }}>{toArabicNumerals(verse.ayah)}</span>
+                    </div>
 
                     <div spellCheck={false} style={{
                       fontFamily: currentFont, fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`, lineHeight: isMobile ? 1.7 : 2.0,
