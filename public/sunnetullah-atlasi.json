@@ -1,0 +1,419 @@
+{
+  "meta": {
+    "totalLiteralOccurrences": 6,
+    "totalThematicCategories": 4,
+    "totalThematicVerses": 20,
+    "generatedBy": "qc-content-producer",
+    "generatedDate": "2026-04-20",
+    "sourceDraft": "docs/content-drafts/2026-04-19-sunnetullah-atlasi.md"
+  },
+  "intro": {
+    "titleTr": "Sünnetullah — Allah'ın Değişmez Kanunları",
+    "titleEn": "Sunnatullāh — The Unchanging Laws of God",
+    "subtitleTr": "Kur'ân'ın tarih felsefesinin 6 lafzî ayeti ve 4 tematik kanunu",
+    "subtitleEn": "The 6 literal verses and 4 thematic laws of the Qur'an's philosophy of history",
+    "descTr": "Kur'ân'ın tarih anlayışının en merkezî kavramı: Allah'ın kâinata, topluma ve peygamberlik misyonuna yerleştirdiği değişmez kanunlar. Bu atlas, Kur'ân'da doğrudan 'sünnetullah' lafzıyla geçen 6 ayeti + 4 tematik kanunu (helâk, yardım, imtihan, yaratma) bir yerde toplar.",
+    "descEn": "The most central concept of the Qur'an's understanding of history: the unchanging laws that God has placed in creation, societies and the prophetic mission. This atlas gathers together the 6 verses that explicitly use the term *sunnatullāh* + 4 thematic laws (destruction, aid, trial, creation)."
+  },
+  "literalOccurrences": [
+    {
+      "id": "sunnet-ahzab-33-38",
+      "verseRef": "Ahzâb 33:38",
+      "surah": 33,
+      "ayah": 38,
+      "verseAr": "مَا كَانَ عَلَى النَّبِيِّ مِنْ حَرَجٍ ف۪يمَا فَرَضَ اللّٰهُ لَهُۜ سُنَّةَ اللّٰهِ فِي الَّذ۪ينَ خَلَوْا مِنْ قَبْلُۜ وَكَانَ اَمْرُ اللّٰهِ قَدَراً مَقْدُوراًۙ",
+      "verseTr": "Allah'ın, kendisine helal kıldığı şeyde Peygamber'e herhangi bir vebal yoktur. Önce gelip geçenler arasında da Allah'ın adeti böyle idi. Allah'ın emri mutlaka yerine gelecek, yazılmış bir kaderdir.",
+      "verseEn": "There is not to be upon the Prophet any discomfort concerning that which Allah has imposed upon him. [This is] the established way of Allah with those [prophets] who have passed on before. And ever is the command of Allah a destiny decreed.",
+      "highlightPhraseAr": "سُنَّةَ اللّٰهِ فِي الَّذ۪ينَ خَلَوْا مِنْ قَبْلُ",
+      "highlightPhraseTr": "Önce gelip geçenler arasında da Allah'ın adeti böyle idi",
+      "highlightPhraseEn": "The established way of Allah with those who passed on before",
+      "contextTr": "Hz. Peygamber'in Zeyneb bnt. Cahş ile evlenmesi bağlamında gelmiştir. Sünnetullah burada peygamberlere has ruhsatların tarihte süregelen daimi bir ilke olduğunu bildirir — yeni değil, eski kanundur.",
+      "contextEn": "Revealed in the context of the Prophet's marriage to Zaynab bint Jahsh. The term *sunnatullāh* here asserts that prophetic dispensations are not novel — they follow an established pattern from earlier prophets.",
+      "sourceTr": "İbn Kesîr, Tefsîru'l-Kur'âni'l-Azîm, Ahzâb 33:38; İbn Âşûr, et-Tahrîr ve't-Tenvîr, Ahzâb 38.",
+      "sourceEn": "Ibn Kathīr, *Tafsīr al-Qurʾān al-ʿAẓīm*, on Q 33:38; Ibn ʿĀshūr, *al-Taḥrīr wa'l-Tanwīr*, on Q 33:38.",
+      "infoTr": "Bu ayetteki 'sünnet' ifadesi hakkında ulema 'âdet' (süregelen uygulama) ve 'şerîat' (dinî hüküm) anlamlarını birlikte kullanmıştır — iki yorum birbirini dışlamaz.",
+      "infoEn": "Scholars have used 'ʿāda' (established practice) and 'sharīʿa' (religious injunction) for the term 'sunna' in this verse in combination — the two readings are not exclusive.",
+      "ekolEtiketi": "klasik tefsir"
+    },
+    {
+      "id": "sunnet-ahzab-33-62",
+      "verseRef": "Ahzâb 33:62",
+      "surah": 33,
+      "ayah": 62,
+      "verseAr": "سُنَّةَ اللّٰهِ فِي الَّذ۪ينَ خَلَوْا مِنْ قَبْلُۚ وَلَنْ تَجِدَ لِسُنَّةِ اللّٰهِ تَبْد۪يلاً",
+      "verseTr": "Allah'ın önceden geçenler hakkındaki kanunu budur. Allah'ın kanununda asla bir değişiklik bulamazsın.",
+      "verseEn": "[This is] the established way of Allah with those who passed on before; and you will not find in the way of Allah any change.",
+      "highlightPhraseAr": "وَلَنْ تَجِدَ لِسُنَّةِ اللّٰهِ تَبْد۪يلاً",
+      "highlightPhraseTr": "Allah'ın kanununda asla bir değişiklik bulamazsın",
+      "highlightPhraseEn": "Never will you find in the way of Allah any change",
+      "contextTr": "Bir önceki ayet (33:61) şehirlerde fitne çıkaran münâfıklardan bahseder. 62. ayet bunu bir evrensel hüküm haline getirir: fitne ve fesat, tarihte her zaman aynı son ile karşılaşmıştır.",
+      "contextEn": "The preceding verse (33:61) speaks of hypocrites spreading sedition in cities. Verse 62 universalizes the principle: corruption has always faced the same end.",
+      "sourceTr": "Elmalılı Hamdi Yazır, Hak Dini Kur'an Dili, Ahzâb 33:62; İbn Kesîr, Ahzâb 62.",
+      "sourceEn": "Elmalılı Hamdi Yazır, *Hak Dini Kur'an Dili*, on Q 33:62; Ibn Kathīr on Q 33:62.",
+      "infoTr": "'Len tecide' (asla bulamazsın) Arapça'da en güçlü olumsuzluk kalıbıdır — 'lâ' değil 'len' + gelecek zamanlı fiil. Zemahşerî bu dilbilim inceliğini el-Keşşâf'ta detaylı ele alır.",
+      "infoEn": "*Lan tajida* ('never will you find') is the strongest form of negation in Arabic — not *lā* but *lan* + future-tense verb. Al-Zamakhsharī details this linguistic nuance in *al-Kashshāf*.",
+      "ekolEtiketi": "klasik tefsir + dilbilim"
+    },
+    {
+      "id": "sunnet-fetih-48-23",
+      "verseRef": "Fetih 48:23",
+      "surah": 48,
+      "ayah": 23,
+      "verseAr": "سُنَّةَ اللّٰهِ الَّت۪ي قَدْ خَلَتْ مِنْ قَبْلُۚ وَلَنْ تَجِدَ لِسُنَّةِ اللّٰهِ تَبْد۪يلاً",
+      "verseTr": "Allah'ın, ötedenberi süregelen kanunu budur. Allah'ın kanununda asla bir değişiklik bulamazsın.",
+      "verseEn": "[This is] the established way of Allah which has occurred before. And never will you find in the way of Allah any change.",
+      "highlightPhraseAr": "سُنَّةَ اللّٰهِ الَّت۪ي قَدْ خَلَتْ مِنْ قَبْلُ",
+      "highlightPhraseTr": "Allah'ın, ötedenberi süregelen kanunu budur",
+      "highlightPhraseEn": "The established way of Allah which has occurred before",
+      "contextTr": "Hudeybiye sürecinin ardından, müşriklerin mü'minlerle savaşsalar ne olacağına dair retorik bir cevap: kaybederlerdi — çünkü Allah'ın mü'minlere yardım kanunu değişmez.",
+      "contextEn": "Following the Hudaybiyyah episode, a rhetorical answer about what would have happened had the polytheists fought the believers — they would have lost, because Allah's law of aiding believers is unchanging.",
+      "sourceTr": "İbn Âşûr, Tahrîr, Fetih 23; Taberî, Câmiu'l-Beyân, Fetih 23.",
+      "sourceEn": "Ibn ʿĀshūr on Q 48:23; al-Ṭabarī, *Jāmiʿ al-Bayān*, on Q 48:23.",
+      "infoTr": "33:62 ve 48:23 neredeyse aynı ifadeyle biter — 'len tecide li-sünnetillâhi tebdîlâ'. Bu tekrar, Kur'ân içi iç tutarlılığın bir örneği olarak Râzî tarafından incelenmiştir.",
+      "infoEn": "Q 33:62 and Q 48:23 end with nearly identical phrasing. Al-Rāzī examines this repetition as an example of the Qur'an's internal consistency.",
+      "ekolEtiketi": "klasik tefsir"
+    },
+    {
+      "id": "sunnet-fatir-35-43",
+      "verseRef": "Fâtır 35:43",
+      "surah": 35,
+      "ayah": 43,
+      "verseAr": "اِسْتِكْبَاراً فِي الْاَرْضِ وَمَكْرَ السَّيِّئِۜ وَلَا يَح۪يقُ الْمَكْرُ السَّيِّئُ اِلَّا بِاَهْلِه۪ۜ فَهَلْ يَنْظُرُونَ اِلَّا سُنَّتَ الْاَوَّل۪ينَۚ فَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَبْد۪يلاًۚ وَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَحْو۪يلاً",
+      "verseTr": "Çünkü onlar yeryüzünde büyüklük taslıyor ve kötü tuzaklar kuruyorlardı. Halbuki kişi kazdığı kuyuya kendi düşer. Onlar öncekilerin kanunundan (onlara uygulanandan) başkasını mı bekliyorlar? Allah'ın kanununda asla bir değişme bulamazsın, Allah'ın kanununda kesinlikle bir sapma da bulamazsın.",
+      "verseEn": "[Due to] arrogance in the land and plotting of evil; but the evil plot does not encompass except its own people. Then do they await except the way of the former peoples? But you will never find in the way of Allah any change, and you will never find in the way of Allah any alteration.",
+      "highlightPhraseAr": "فَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَبْد۪يلاًۚ وَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَحْو۪يلاً",
+      "highlightPhraseTr": "Ne değişiklik, ne sapma bulamazsın",
+      "highlightPhraseEn": "Neither change nor alteration will you find",
+      "contextTr": "Sünnetullah hakkında Kur'ân'daki en yoğun ifade: 'tebdîl' (değişiklik) + 'tahvîl' (dönüştürme/sapma) iki kez olumsuzlanır. Yani kanun ne nitelik olarak değişir, ne de yön değiştirir.",
+      "contextEn": "The densest verse on *sunnatullāh*: both *tabdīl* (change) and *taḥwīl* (diversion) are negated — the law neither changes in nature nor shifts in direction.",
+      "sourceTr": "Râzî, Mefâtîhu'l-Gayb, Fâtır 43 — 'el-farq beyne't-tebdîl ve't-tahvîl'; Elmalılı, Fâtır 43.",
+      "sourceEn": "Al-Rāzī, *Mafātīḥ al-Ghayb*, on Q 35:43 — 'the distinction between *tabdīl* and *taḥwīl*'; Elmalılı on Q 35:43.",
+      "infoTr": "Ulema bu ayetteki 'tebdîl' (nev'iyyet değişikliği) ve 'tahvîl' (cihet değişikliği) ayrımını belâgatın zirve örneklerinden sayar. Râzî'ye göre bu, Kur'ân'da Allah'ın kanununun en keskin teyidi olan ayettir.",
+      "infoEn": "Scholars regard the distinction between *tabdīl* (change of nature) and *taḥwīl* (change of direction) as a peak of *balāgha*. Al-Rāzī considers this the Qur'an's sharpest affirmation of the divine law.",
+      "ekolEtiketi": "klasik tefsir + belâgat"
+    },
+    {
+      "id": "sunnet-isra-17-77",
+      "verseRef": "İsrâ 17:77",
+      "surah": 17,
+      "ayah": 77,
+      "verseAr": "سُنَّةَ مَنْ قَدْ اَرْسَلْنَا قَبْلَكَ مِنْ رُسُلِنَا وَلَا تَجِدُ لِسُنَّتِنَا تَحْو۪يلاً۟",
+      "verseTr": "Senden önce gönderdiğimiz peygamberler hakkındaki kanun (da budur). Bizim kanunumuzda hiçbir değişiklik bulamazsın.",
+      "verseEn": "[That is Our] established way for those We had sent before you of Our messengers; and you will not find in Our way any alteration.",
+      "highlightPhraseAr": "وَلَا تَجِدُ لِسُنَّتِنَا تَحْو۪يلاً",
+      "highlightPhraseTr": "Bizim kanunumuzda hiçbir değişiklik bulamazsın",
+      "highlightPhraseEn": "You will not find in Our way any alteration",
+      "contextTr": "Ayet, Mekke'de Hz. Peygamber'in karşılaştığı hicretten önceki baskıya gönderme yapar: seleflerinin karşılaştığı aynı düzenin parçasıdır — peygamber çıkarılır, ardından o beldenin üzerine Allah'ın kanunu iner.",
+      "contextEn": "The verse refers to the persecution Muhammad faced in Mecca before the Hijra — he is part of the same pattern as previous prophets: the messenger is expelled, then divine law descends upon that town.",
+      "sourceTr": "İbn Kesîr, İsrâ 77; İbn Âşûr, Tahrîr, İsrâ 77.",
+      "sourceEn": "Ibn Kathīr on Q 17:77; Ibn ʿĀshūr on Q 17:77.",
+      "infoTr": "Bu ayetteki 'lâ tecidu' ifadesi — 33:62 ve 48:23'teki 'len tecide'den farklı olarak — gelecek zamanlı pekiştirme değil, şimdiki zaman negatifidir. Bazı müfessirler bu değişimi belâgî bir inceliğe bağlar.",
+      "infoEn": "The form *lā tajidu* in this verse differs from the *lan tajida* of Q 33:62 and Q 48:23 — it is present-tense negation rather than future-emphatic. Some exegetes attribute this shift to a rhetorical subtlety.",
+      "ekolEtiketi": "klasik tefsir + dilbilim"
+    },
+    {
+      "id": "sunnet-mumin-40-85",
+      "verseRef": "Mü'min (Ğâfir) 40:85",
+      "surah": 40,
+      "ayah": 85,
+      "verseAr": "فَلَمْ يَكُ يَنْفَعُهُمْ ا۪يمَانُهُمْ لَمَّا رَاَوْا بَأْسَنَاۜ سُنَّتَ اللّٰهِ الَّت۪ي قَدْ خَلَتْ ف۪ي عِبَادِه۪ۚ وَخَسِرَ هُنَالِكَ الْكَافِرُونَ",
+      "verseTr": "Fakat azabımızı gördükleri zaman imanları kendilerine bir fayda vermeyecektir. Allah'ın kulları hakkında süregelen adeti budur. İşte o zaman kâfirler hüsrana uğrayacaklardır.",
+      "verseEn": "But never did their faith benefit them once they saw Our punishment. [It is] the established way of Allah which has preceded among His servants. And the disbelievers thereupon lost [all].",
+      "highlightPhraseAr": "سُنَّتَ اللّٰهِ الَّت۪ي قَدْ خَلَتْ ف۪ي عِبَادِه۪",
+      "highlightPhraseTr": "Allah'ın kulları hakkında süregelen adeti",
+      "highlightPhraseEn": "The established way of Allah which has preceded among His servants",
+      "contextTr": "Azap geldikten sonra iman etmenin fayda vermemesi — Firavun'un denizde gördükten sonra iman edişi (Yûnus 10:90-91) ile aynı örüntüdür. Sünnetullah burada imtihanın zamansallığı ile ilgilidir: belirli bir vakit geçince kapı kapanır.",
+      "contextEn": "Faith becomes useless once punishment begins — parallel to Pharaoh's last-moment faith in the sea (Q 10:90-91). *Sunnatullāh* here concerns the temporality of tests: after a certain point, the door closes.",
+      "sourceTr": "Kurtubî, el-Câmi' li-Ahkâmi'l-Kur'ân, Mü'min 85; Beydâvî, Envârü't-Tenzîl, Mü'min 85.",
+      "sourceEn": "Al-Qurṭubī, *al-Jāmiʿ li-Aḥkām al-Qurʾān*, on Q 40:85; al-Bayḍāwī, *Anwār al-Tanzīl*, on Q 40:85.",
+      "infoTr": "Bu ayet Firavun'un iman olayıyla (Yûnus 90-91) birlikte okunursa kanunun sınırları netleşir. Kurtubî bu bağlantıyı özellikle vurgular.",
+      "infoEn": "Read together with the Pharaoh episode (Q 10:90-91), the boundaries of this law become clear. Al-Qurṭubī particularly emphasizes this connection.",
+      "ekolEtiketi": "klasik tefsir"
+    }
+  ],
+  "thematicCategories": [
+    {
+      "id": "helak-kanunu",
+      "titleTr": "Helâk Kanunu",
+      "titleEn": "The Law of Destruction",
+      "color": "#e74c3c",
+      "descTr": "İnkâr, baskı ve fesat üzerine bina edilmiş toplumların tarihte istisnasız aynı akıbete uğradığını anlatan Kur'ânî ilke.",
+      "descEn": "The Qur'anic principle that societies built on denial, oppression and corruption, without exception, face the same historical fate.",
+      "items": [
+        {
+          "id": "helak-rad-13-11",
+          "verseRef": "Ra'd 13:11",
+          "surah": 13,
+          "ayah": 11,
+          "verseAr": "لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِه۪ يَحْفَظُونَهُ مِنْ اَمْرِ اللّٰهِۜ اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْۜ وَاِذَٓا اَرَادَ اللّٰهُ بِقَوْمٍ سُٓوءاً فَلَا مَرَدَّ لَهُۚ وَمَا لَهُمْ مِنْ دُونِه۪ مِنْ وَالٍ",
+          "verseTr": "Onun önünde ve arkasında Allah'ın emriyle onu koruyan takipçiler (melekler) vardır. Bir toplum kendilerindeki özellikleri değiştirinceye kadar Allah, onlarda bulunanı değiştirmez. Allah bir topluma kötülük diledi mi, artık onun için geri çevrilme diye bir şey yoktur. Onların Allah'tan başka yardımcıları da yoktur.",
+          "verseEn": "For each one are successive [angels] before and behind him who protect him by the decree of Allah. Indeed, Allah will not change the condition of a people until they change what is in themselves. And when Allah intends for a people ill, there is no repelling it. And there is not for them besides Him any patron."
+        },
+        {
+          "id": "helak-araf-7-96",
+          "verseRef": "A'râf 7:96",
+          "surah": 7,
+          "ayah": 96,
+          "verseAr": "وَلَوْ اَنَّ اَهْلَ الْقُرٰٓى اٰمَنُوا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِمْ بَرَكَاتٍ مِنَ السَّمَٓاءِ وَالْاَرْضِ وَلٰكِنْ كَذَّبُوا فَاَخَذْنَاهُمْ بِمَا كَانُوا يَكْسِبُونَ",
+          "verseTr": "O (peygamberlerin gönderildiği) ülkelerin halkı inansalar ve (günahtan) sakınsalardı, elbette onların üstüne gökten ve yerden nice bereket kapıları açardık, fakat yalanladılar, biz de ettikleri yüzünden onları yakalayıverdik.",
+          "verseEn": "And if only the people of the cities had believed and feared Allah, We would have opened upon them blessings from the heaven and the earth; but they denied [the messengers], so We seized them for what they were earning."
+        },
+        {
+          "id": "helak-hicr-15-4",
+          "verseRef": "Hicr 15:4",
+          "surah": 15,
+          "ayah": 4,
+          "verseAr": "وَمَٓا اَهْلَكْنَا مِنْ قَرْيَةٍ اِلَّا وَلَهَا كِتَابٌ مَعْلُومٌ",
+          "verseTr": "Helak ettiğimiz hiçbir ülke yoktur ki hakkında (bizce) bilinen bir yazgı olmasın.",
+          "verseEn": "And We did not destroy any city but that for it was a known decree."
+        },
+        {
+          "id": "helak-enfal-8-38",
+          "verseRef": "Enfâl 8:38",
+          "surah": 8,
+          "ayah": 38,
+          "verseAr": "قُلْ لِلَّذ۪ينَ كَفَرُٓوا اِنْ يَنْتَهُوا يُغْفَرْ لَهُمْ مَا قَدْ سَلَفَۚ وَاِنْ يَعُودُوا فَقَدْ مَضَتْ سُنَّتُ الْاَوَّل۪ينَ",
+          "verseTr": "İnkar edenlere, (sana düşmanlıktan) vazgeçerlerse, geçmiş günahlarının bağışlanacağını söyle. Yok geri dönerlerse kendilerinden öncekilerin hali gözlerinin önündedir!",
+          "verseEn": "Say to those who have disbelieved [that] if they cease, what has previously occurred will be forgiven for them. But if they return [to hostility] - then the precedent of the former [rebellious] peoples has already taken place."
+        },
+        {
+          "id": "helak-enam-6-34",
+          "verseRef": "En'âm 6:34",
+          "surah": 6,
+          "ayah": 34,
+          "verseAr": "وَلَقَدْ كُذِّبَتْ رُسُلٌ مِنْ قَبْلِكَ فَصَبَرُوا عَلٰى مَا كُذِّبُوا وَاُو۫ذُوا حَتّٰٓى اَتٰيهُمْ نَصْرُنَاۚ وَلَا مُبَدِّلَ لِكَلِمَاتِ اللّٰهِۚ وَلَقَدْ جَٓاءَكَ مِنْ نَبَا۬ئِ الْمُرْسَل۪ينَ",
+          "verseTr": "Andolsun ki senden önceki peygamberler de yalanlanmıştı. Onlar, yalanlanmalarına ve eziyet edilmelerine rağmen sabrettiler, sonunda yardımımız onlara yetişti. Allah'ın kelimelerini (kanunlarını) değiştirebilecek hiçbir kimse yoktur.",
+          "verseEn": "And certainly were messengers denied before you, but they were patient over [the effects of] denial, and they were harmed until Our victory came to them. And none can alter the words of Allah."
+        }
+      ],
+      "scholarNoteTr": "İbn Kesîr, Mâide 5:66 tefsirinde helâk kanununu 'Allah'ın beldeler hakkındaki âdeti' olarak tanımlar. İbn Âşûr bunu 'sünnet-i külliyye' kategorisine dahil eder.",
+      "scholarNoteEn": "Ibn Kathīr, in his commentary on Q 5:66, describes the law of destruction as 'Allah's established practice with cities.' Ibn ʿĀshūr includes this in the category of 'sunna kulliyya' (universal law).",
+      "modernNoteTr": "Toshihiko Izutsu, God and Man in the Qur'an (1964) eserinde bu kanunu Kur'ân'ın 'tarihsel mantığı' olarak inceler: her kavim aynı üç-aşamalı örüntüyü takip eder — peygamber → yalanlama → helâk.",
+      "modernNoteEn": "Toshihiko Izutsu, in *God and Man in the Qur'an* (1964), examines this law as the Qur'an's 'historical logic': every community follows the same three-stage pattern — prophet → denial → destruction.",
+      "ekolEtiketi": "klasik tefsir + modern akademi"
+    },
+    {
+      "id": "yardim-kanunu",
+      "titleTr": "Yardım Kanunu",
+      "titleEn": "The Law of Divine Aid",
+      "color": "#1a7a4c",
+      "descTr": "Peygamberlerin ve onlara tâbi olanların zâhiren zayıf olsalar bile nihai zafere ulaşacaklarını bildiren Kur'ânî ilke.",
+      "descEn": "The Qur'anic principle that prophets and their followers, however outwardly weak, will attain ultimate victory.",
+      "items": [
+        {
+          "id": "yardim-mucadele-58-21",
+          "verseRef": "Mücâdele 58:21",
+          "surah": 58,
+          "ayah": 21,
+          "verseAr": "كَتَبَ اللّٰهُ لَاَغْلِبَنَّ اَنَا۬ وَرُسُل۪يۜ اِنَّ اللّٰهَ قَوِيٌّ عَز۪يزٌ",
+          "verseTr": "Allah: Elbette ben ve elçilerim galip geleceğiz, diye yazmıştır. Şüphesiz Allah güçlüdür, galiptir.",
+          "verseEn": "Allah has written, 'I will surely overcome, I and My messengers.' Indeed, Allah is Powerful and Exalted in Might."
+        },
+        {
+          "id": "yardim-saffat-37-171",
+          "verseRef": "Sâffât 37:171-173",
+          "surah": 37,
+          "ayah": 171,
+          "verseAr": "وَلَقَدْ سَبَقَتْ كَلِمَتُنَا لِعِبَادِنَا الْمُرْسَل۪ينَۚ اِنَّهُمْ لَهُمُ الْمَنْصُورُونَۖ وَاِنَّ جُنْدَنَا لَهُمُ الْغَالِبُونَ",
+          "verseTr": "Andolsun ki, peygamber kullarımıza söz vermişizdir: Onlar mutlaka zafere ulaşacaklardır. Bizim ordumuz şüphesiz üstün gelecektir.",
+          "verseEn": "And Our word has already preceded for Our servants, the messengers — [that] indeed, they would be those given victory. And [that] indeed, Our soldiers will be those who overcome."
+        },
+        {
+          "id": "yardim-hac-22-40",
+          "verseRef": "Hac 22:40",
+          "surah": 22,
+          "ayah": 40,
+          "verseAr": "وَلَيَنْصُرَنَّ اللّٰهُ مَنْ يَنْصُرُهُۜ اِنَّ اللّٰهَ لَقَوِيٌّ عَز۪يزٌ",
+          "verseTr": "Allah, kendisine (kendi dinine) yardım edenlere muhakkak surette yardım eder. Hiç şüphesiz Allah, güçlüdür, galiptir.",
+          "verseEn": "And Allah will surely support those who support Him. Indeed, Allah is Powerful and Exalted in Might."
+        },
+        {
+          "id": "yardim-rum-30-47",
+          "verseRef": "Rûm 30:47",
+          "surah": 30,
+          "ayah": 47,
+          "verseAr": "وَلَقَدْ اَرْسَلْنَا مِنْ قَبْلِكَ رُسُلاً اِلٰى قَوْمِهِمْ فَجَٓاؤُ۫هُمْ بِالْبَيِّنَاتِ فَانْتَقَمْنَا مِنَ الَّذ۪ينَ اَجْرَمُواۜ وَكَانَ حَقاًّ عَلَيْنَا نَصْرُ الْمُؤْمِن۪ينَ",
+          "verseTr": "Andolsun ki, biz senden önce kendi kavimlerine nice peygamberler gönderdik de onlara açık deliller getirdiler. (Onları dinlemeyip) günaha dalanların ise cezalarını hakkıyla vermişizdir. Müminlere yardım etmek de bize düşer.",
+          "verseEn": "And We have already sent messengers before you to their peoples, and they came to them with clear evidences; then We took retribution from those who committed crimes, and incumbent upon Us was support of the believers."
+        }
+      ],
+      "scholarNoteTr": "Râzî, Mefâtîh'te Mücâdele 21'i 'kat'î kaderî hüküm' olarak tanımlar — gelişigüzel bir vaat değil, yazılmış bir sünnet.",
+      "scholarNoteEn": "Al-Rāzī, in *Mafātīḥ*, defines Q 58:21 as 'a definite decree' — not an arbitrary promise but an inscribed law.",
+      "ekolEtiketi": "klasik tefsir"
+    },
+    {
+      "id": "imtihan-kanunu",
+      "titleTr": "İmtihan Kanunu",
+      "titleEn": "The Law of Trial",
+      "color": "#3498db",
+      "descTr": "İmanın ve dindarlığın sadece sözle değil, deneyimlenmiş zorlukla tescil edildiğini bildiren Kur'ânî ilke.",
+      "descEn": "The Qur'anic principle that faith and piety are not certified by words but by experienced hardship.",
+      "items": [
+        {
+          "id": "imtihan-ankebut-29-2",
+          "verseRef": "Ankebût 29:2-3",
+          "surah": 29,
+          "ayah": 2,
+          "verseAr": "اَحَسِبَ النَّاسُ اَنْ يُتْرَكُٓوا اَنْ يَقُولُٓوا اٰمَنَّا وَهُمْ لَا يُفْتَنُونَ وَلَقَدْ فَتَنَّا الَّذ۪ينَ مِنْ قَبْلِهِمْ فَلَيَعْلَمَنَّ اللّٰهُ الَّذ۪ينَ صَدَقُوا وَلَيَعْلَمَنَّ الْكَاذِب۪ينَ",
+          "verseTr": "İnsanlar, imtihandan geçirilmeden, sadece 'İman ettik' demeleriyle bırakılıvereceklerini mi sandılar? Andolsun ki, biz onlardan öncekileri de imtihandan geçirmişizdir. Elbette Allah, doğruları ortaya çıkaracak, yalancıları da mutlaka ortaya koyacaktır.",
+          "verseEn": "Do the people think that they will be left to say, 'We believe' and they will not be tried? But We have certainly tried those before them, and Allah will surely make evident those who are truthful, and He will surely make evident the liars."
+        },
+        {
+          "id": "imtihan-bakara-2-155",
+          "verseRef": "Bakara 2:155",
+          "surah": 2,
+          "ayah": 155,
+          "verseAr": "وَلَنَبْلُوَنَّكُمْ بِشَيْءٍ مِنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِنَ الْاَمْوَالِ وَالْاَنْفُسِ وَالثَّمَرَاتِۜ وَبَشِّرِ الصَّابِر۪ينَۙ",
+          "verseTr": "Andolsun ki sizi biraz korku ve açlık; mallardan, canlardan ve ürünlerden biraz azaltma (fakirlik) ile deneriz. (Ey Peygamber!) Sabredenleri müjdele!",
+          "verseEn": "And We will surely test you with something of fear and hunger and a loss of wealth and lives and fruits, but give good tidings to the patient."
+        },
+        {
+          "id": "imtihan-ali-imran-3-142",
+          "verseRef": "Âl-i İmrân 3:142",
+          "surah": 3,
+          "ayah": 142,
+          "verseAr": "اَمْ حَسِبْتُمْ اَنْ تَدْخُلُوا الْجَنَّةَ وَلَمَّا يَعْلَمِ اللّٰهُ الَّذ۪ينَ جَاهَدُوا مِنْكُمْ وَيَعْلَمَ الصَّابِر۪ينَ",
+          "verseTr": "Yoksa Allah içinizden cihad edenleri belli etmeden, sabredenleri ortaya çıkarmadan cennete gireceğinizi mi sandınız?",
+          "verseEn": "Or do you think that you will enter Paradise while Allah has not yet made evident those of you who fight in His cause and made evident those who are steadfast?"
+        },
+        {
+          "id": "imtihan-enbiya-21-35",
+          "verseRef": "Enbiyâ 21:35",
+          "surah": 21,
+          "ayah": 35,
+          "verseAr": "كُلُّ نَفْسٍ ذَٓائِقَةُ الْمَوْتِۜ وَنَبْلُوكُمْ بِالشَّرِّ وَالْخَيْرِ فِتْنَةًۜ وَاِلَيْنَا تُرْجَعُونَ",
+          "verseTr": "Her canlı, ölümü tadar. Bir deneme olarak sizi hayırla da, şerle de imtihan ederiz. Ve siz, ancak bize döndürüleceksiniz.",
+          "verseEn": "Every soul will taste death. And We test you with evil and with good as trial; and to Us you will be returned."
+        },
+        {
+          "id": "imtihan-mulk-67-2",
+          "verseRef": "Mülk 67:2",
+          "surah": 67,
+          "ayah": 2,
+          "verseAr": "اَلَّذ۪ي خَلَقَ الْمَوْتَ وَالْحَيٰوةَ لِيَبْلُوَكُمْ اَيُّكُمْ اَحْسَنُ عَمَلاًۜ وَهُوَ الْعَز۪يزُ الْغَفُورُۙ",
+          "verseTr": "O ki, hanginizin daha güzel davranacağını sınamak için ölümü ve hayatı yaratmıştır. O, mutlak galiptir, çok bağışlayıcıdır.",
+          "verseEn": "[He] who created death and life to test you [as to] which of you is best in deed - and He is the Exalted in Might, the Forgiving."
+        }
+      ],
+      "scholarNoteTr": "Gazâlî, İhyâ'da imtihan kanununu 'el-belâ vâcibu'l-vukû' fî hakkı'l-mü'min' (belâ mü'min hakkında vâki olmak zorundadır) diye formüle eder. Bu, tasavvufî-kelâmî bir pozisyondur; ilahî imtihan ile insanî acı arasındaki ilişkiye dair teolojik değerlendirmedir.",
+      "scholarNoteEn": "Al-Ghazālī, in *Iḥyāʾ*, formulates the law of trial as 'al-balāʾ wājib al-wuqūʿ fī ḥaqq al-muʾmin' (affliction is a necessary occurrence for the believer). This is a *kalām*-Sufi position — a theological assessment of the relationship between divine testing and human suffering.",
+      "ekolEtiketi": "klasik tefsir + tasavvufî-kelâmî"
+    },
+    {
+      "id": "yaratma-kanunu",
+      "titleTr": "Yaratma Kanunu",
+      "titleEn": "The Law of Creation / Cosmic Order",
+      "color": "#c9a227",
+      "descTr": "Kâinatın rastgele değil, ölçülü ve yasalı olduğunu bildiren Kur'ânî ilke. 'Kadr' (ölçü), 'mîzân' (denge), 'bi-hakkin' (hak ile) kavramları bu kanunun farklı vurgularıdır.",
+      "descEn": "The Qur'anic principle that the cosmos is not random but measured and lawful. The concepts of *qadar* (measure), *mīzān* (balance), and *bi'l-ḥaqq* (with truth) are different emphases of this law.",
+      "items": [
+        {
+          "id": "yaratma-kamer-54-49",
+          "verseRef": "Kamer 54:49",
+          "surah": 54,
+          "ayah": 49,
+          "verseAr": "اِنَّا  كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَرٍ",
+          "verseTr": "Biz, her şeyi bir ölçüye göre yarattık.",
+          "verseEn": "Indeed, all things We created with predestination."
+        },
+        {
+          "id": "yaratma-furkan-25-2",
+          "verseRef": "Furkân 25:2",
+          "surah": 25,
+          "ayah": 2,
+          "verseAr": "اَلَّذ۪ي لَهُ مُلْكُ السَّمٰوَاتِ وَالْاَرْضِ وَلَمْ يَتَّخِذْ وَلَداً وَلَمْ يَكُنْ لَهُ شَر۪يكٌ فِي الْمُلْكِ وَخَلَقَ كُلَّ شَيْءٍ فَقَدَّرَهُ تَقْد۪يراً",
+          "verseTr": "Göklerin ve yerin mülkü O'nundur. O bir çocuk edinmemiştir, mülkünde ortağı yoktur. Her şeyi yaratmış, ona ölçü, biçim ve düzen vermiştir.",
+          "verseEn": "He to whom belongs the dominion of the heavens and the earth and who has not taken a son and has not had a partner in dominion and has created each thing and determined it with [precise] determination."
+        },
+        {
+          "id": "yaratma-rahman-55-7",
+          "verseRef": "Rahmân 55:7-9",
+          "surah": 55,
+          "ayah": 7,
+          "verseAr": "وَالسَّمَٓاءَ رَفَعَهَا وَوَضَعَ الْم۪يزَانَۙ اَلَّا تَطْغَوْا فِي الْم۪يزَانِ وَاَق۪يمُوا الْوَزْنَ بِالْقِسْطِ وَلَا تُخْسِرُوا الْم۪يزَانَ",
+          "verseTr": "Göğü Allah yükseltti ve mizanı (dengeyi) O koydu. Sakın dengeyi bozmayın. Ölçüyü adaletle tutun ve eksik tartmayın.",
+          "verseEn": "And the heaven He raised and imposed the balance. That you not transgress within the balance. And establish weight in justice and do not make deficient the balance."
+        },
+        {
+          "id": "yaratma-mulk-67-3",
+          "verseRef": "Mülk 67:3",
+          "surah": 67,
+          "ayah": 3,
+          "verseAr": "اَلَّذ۪ي خَلَقَ سَبْعَ سَمٰوَاتٍ طِبَاقاًۜ مَا تَرٰى ف۪ي خَلْقِ الرَّحْمٰنِ مِنْ تَفَاوُتٍۜ فَارْجِعِ الْبَصَرَۙ هَلْ تَرٰى مِنْ فُطُورٍ",
+          "verseTr": "O ki, birbiri ile ahenktar yedi göğü yaratmıştır. Rahmân olan Allah'ın yaratışında hiçbir uygunsuzluk göremezsin. Gözünü çevir de bir bak, bir bozukluk görebiliyor musun?",
+          "verseEn": "[And] who created seven heavens in layers. You do not see in the creation of the Most Merciful any inconsistency. So return [your] vision [to the sky]; do you see any breaks?"
+        },
+        {
+          "id": "yaratma-hicr-15-19",
+          "verseRef": "Hicr 15:19",
+          "surah": 15,
+          "ayah": 19,
+          "verseAr": "وَالْاَرْضَ مَدَدْنَاهَا وَاَلْقَيْنَا ف۪يهَا رَوَاسِيَ وَاَنْبَتْنَا ف۪يهَا مِنْ كُلِّ شَيْءٍ مَوْزُونٍ",
+          "verseTr": "Yeri uzatıp yaydık, orada sabit dağlar yerleştirdik, yine orada miktarı ve ölçüsü belirli olan şeyler bitirdik.",
+          "verseEn": "And the earth - We have spread it and cast therein firmly set mountains and caused to grow therein [something] of every well-balanced thing."
+        }
+      ],
+      "scholarNoteTr": "İbn Âşûr, Mülk 67:3'ü 'kevniyyâtın ilâhî kanunla bütünlüğünün delili' olarak yorumlar. Elmalılı aynı ayeti 'Rahmân'ın yaratısında eksiklik yoktur' diye genişletir.",
+      "scholarNoteEn": "Ibn ʿĀshūr reads Q 67:3 as 'evidence of the coherence of cosmic realities with divine law.' Elmalılı expands the same verse as 'in the Most Merciful's creation, there is no deficiency.'",
+      "scienceNoteTr": "Bu ayetler modern fizik yasalarıyla analojik okunur; ancak Kur'ân metni belirli bir fiziksel yasayı tanımlamaz. 'Kadr' ve 'mîzân' kavramları ontolojik düzen iddialarıdır; fiziksel sabitlere doğrudan referans yapılmamıştır. Bu ayrım klasik ulema tarafından titizlikle korunmuştur.",
+      "scienceNoteEn": "These verses admit analogical reading with modern physics; however, the Qur'anic text does not define specific physical laws. The concepts of *qadar* and *mīzān* are ontological claims about order, not direct references to physical constants. Classical scholars have carefully preserved this distinction.",
+      "ekolEtiketi": "klasik tefsir + modern bilim paralelliği (dikkatli)"
+    }
+  ],
+  "scholarViews": [
+    {
+      "id": "ibn-asur",
+      "scholar": "İbn Âşûr",
+      "scholarEn": "Ibn ʿĀshūr",
+      "work": "et-Tahrîr ve't-Tenvîr",
+      "workEn": "al-Taḥrīr wa'l-Tanwīr",
+      "century": "20. yüzyıl",
+      "insightTr": "İbn Âşûr, sünnetullah'ı üç düzeyde tasnif eder: (1) sünenü'l-hilkıyye — yaratılışın kozmik kanunları, (2) sünenü't-tedbîriyye — toplumların yükseliş-çöküş kanunları, (3) sünenü'ş-şer'iyye — şeriatın sabit hükümleri. Bu üç düzey birbirinden bağımsız değil, aynı ilâhî düzenin farklı kesitleridir.",
+      "insightEn": "Ibn ʿĀshūr classifies *sunnatullāh* at three levels: (1) *sunan al-khilqiyya* — cosmic creative laws, (2) *sunan al-tadbīriyya* — socio-historical governing laws, (3) *sunan al-sharʿiyya* — legal-normative laws. These are not independent but facets of a single divine order.",
+      "sourceTr": "İbn Âşûr, et-Tahrîr ve't-Tenvîr, Ahzâb sûresi mukaddimesi ve Fâtır 43 tefsiri.",
+      "sourceEn": "Ibn ʿĀshūr, *al-Taḥrīr wa'l-Tanwīr*, introduction to Sūrat al-Aḥzāb and commentary on Q 35:43.",
+      "ekolEtiketi": "klasik tefsir (20. yy)"
+    },
+    {
+      "id": "elmalili",
+      "scholar": "Elmalılı Hamdi Yazır",
+      "scholarEn": "Elmalılı Hamdi Yazır",
+      "work": "Hak Dini Kur'an Dili",
+      "workEn": "Hak Dini Kur'an Dili",
+      "century": "20. yüzyıl (1935-1938)",
+      "insightTr": "Elmalılı, sünnetullah için 'hilâf-ı âdet' (âdetin değişmesi) imkânının teorik olarak var olabileceğini ama Kur'ân'ın bunu kesin şekilde reddettiğini söyler. Fâtır 43'teki 'lâ tebdîl ve lâ tahvîl' çift menfisi, ona göre hem olasılık hem yönü birlikte iptal eder — 'kanun hem değişmez hem saptırılamaz.'",
+      "insightEn": "Elmalılı notes that theoretically *khilāf al-ʿādah* (deviation from custom) might be possible, but the Qur'an decisively negates it. The double negation in Q 35:43 (neither *tabdīl* nor *taḥwīl*) negates both possibility and direction: the law neither changes nor is diverted.",
+      "sourceTr": "Elmalılı Hamdi Yazır, Hak Dini Kur'an Dili, Fâtır 43 tefsiri.",
+      "sourceEn": "Elmalılı Hamdi Yazır, *Hak Dini Kur'an Dili*, on Q 35:43.",
+      "ekolEtiketi": "klasik tefsir (20. yy, Türkçe)"
+    },
+    {
+      "id": "razi",
+      "scholar": "Fahreddin er-Râzî",
+      "scholarEn": "Fakhr al-Dīn al-Rāzī",
+      "work": "Mefâtîhu'l-Gayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "century": "12.-13. yüzyıl",
+      "insightTr": "Râzî, sünnetullah'ı kelâmî çerçevede 'ef'âlullâh' (Allah'ın fiilleri) bahsine bağlar: Allah'ın fiillerinin hikmet üzere kurulu olduğunu, rastgele olmadığını bildirir. Kaderî arka planla birleşince sünnetullah, ilâhî hikmetin görünür yüzüdür. Bu analiz klasik eş'arî-kelâmın sünnetullah'a bakışını temsil eder.",
+      "insightEn": "Al-Rāzī connects *sunnatullāh* to the *afʿāl Allāh* (divine acts) discussion in *kalām*: God's acts are grounded in wisdom, not arbitrary. Coupled with the concept of *qadar*, *sunnatullāh* becomes the visible face of divine wisdom.",
+      "sourceTr": "Râzî, Mefâtîhu'l-Gayb, Fâtır sûresi 43. ayet tefsiri ve ef'âl-i ilâhî bahsi.",
+      "sourceEn": "Al-Rāzī, *Mafātīḥ al-Ghayb*, commentary on Q 35:43 and the *afʿāl ilāhī* section.",
+      "ekolEtiketi": "klasik tefsir + eş'arî kelâm"
+    },
+    {
+      "id": "fazlur-rahman",
+      "scholar": "Fazlur Rahman",
+      "scholarEn": "Fazlur Rahman",
+      "work": "Major Themes of the Qur'an",
+      "workEn": "Major Themes of the Qur'an",
+      "century": "20. yüzyıl (1980)",
+      "insightTr": "Fazlur Rahman, Major Themes of the Qur'an (University of Chicago Press, 1980) eserinde sünnetullah'ı 'Kur'ân'ın tarih anlayışının merkezi kavramı' olarak sunar. Tarihi, bireysel ahlâk ve toplumsal kanun döngüsünün sonucu olarak yorumlar.",
+      "insightEn": "Fazlur Rahman, in *Major Themes of the Qur'an* (University of Chicago Press, 1980), presents *sunnatullāh* as the central concept of the Qur'anic understanding of history: history as the outcome of individual-ethical and socio-legal law cycles.",
+      "sourceTr": "Fazlur Rahman, Major Themes of the Qur'an, University of Chicago Press, 1980.",
+      "sourceEn": "Fazlur Rahman, *Major Themes of the Qur'an*, University of Chicago Press, 1980.",
+      "infoTr": "Tartışmalı kaynak uyarısı: Fazlur Rahman'ın genel Kur'ân yaklaşımı ('double movement hermeneutics') klasik ulema tarafından eleştirilmiştir — özellikle lafzî mânâya bağlı kalmadığı, tarihsel-sosyolojik indirgeme yaptığı ileri sürülmüştür. Bu sünnetullah analizi kendi başına değerli olmakla birlikte, onun metodolojik çerçevesinin bütünü kabul edilmek zorunda değildir. Klasik perspektif (İbn Âşûr, Elmalılı, Râzî) daha güvenli referanslardır.",
+      "infoEn": "Contested source warning: Fazlur Rahman's general Qur'anic approach ('double movement hermeneutics') has drawn critique from classical scholars — particularly for not adhering to the literal meaning and for historical-sociological reductionism. This *sunnatullāh* analysis is valuable in itself, but his overall methodological framework need not be accepted wholesale. The classical perspective (Ibn ʿĀshūr, Elmalılı, al-Rāzī) is a safer reference.",
+      "ekolEtiketi": "çağdaş reformist (tartışmalı — uyarı notuyla)"
+    }
+  ]
+}
