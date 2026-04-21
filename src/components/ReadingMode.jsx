@@ -1067,13 +1067,13 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
   // ── Theme colors (day / night) ────────────────────────────────────────────
   const C = dayMode ? {
-    bg: '#f9f7f2', gold: '#9a6f10',
-    arabic: '#1a0e00', arabicActive: '#4a2800',
-    translation: '#2e1a08', translationActive: '#5c3418',
-    bismillah: '#c0392b',
-    activeHighlight: 'rgba(110,72,10,0.12)', activeBorder: 'rgba(110,72,10,0.52)',
-    muted: '#7a6040', scrollbar: 'rgba(110,72,10,0.22) transparent',
-    footerBg: 'rgba(244,241,234,0.98)', footerBorder: 'rgba(154,111,16,0.18)',
+    bg: COLORS.paperCream, gold: COLORS.paperGold,
+    arabic: COLORS.paperInk, arabicActive: COLORS.paperInkLight,
+    translation: COLORS.paperSepia, translationActive: COLORS.paperSepiaLight,
+    bismillah: COLORS.paperRed,
+    activeHighlight: COLORS.paperInkBrownAlpha12, activeBorder: COLORS.paperInkBrownAlpha52,
+    muted: COLORS.paperMuted, scrollbar: `${COLORS.paperInkBrownAlpha22} transparent`,
+    footerBg: COLORS.paperCreamDim, footerBorder: COLORS.paperGoldAlpha18,
   } : {
     bg: COLORS.cosmicBlack, gold: COLORS.gold,
     arabic: COLORS.arabicQuiet, arabicActive: COLORS.arabicBright,
@@ -2797,9 +2797,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     padding: '0 12px 10px',
                     marginBottom: '6px',
                     fontSize: '0.82rem',
-                    color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)',
+                    color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.45)',
                     letterSpacing: '0.04em',
-                    borderBottom: `1px solid ${dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.08)'}`,
+                    borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
                   }}>
                     {selectedMealAuthor.label}
                   </div>
@@ -3032,7 +3032,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     gridTemplateColumns: isMobile ? (showTranslation ? undefined : 'auto 1fr') : '1fr 1fr',
                     gap: isMobile ? (showTranslation ? '4px' : '8px') : '16px',
                     alignItems: 'flex-start',
-                    padding: isMobile ? '10px 12px' : '0 20px',
+                    padding: isMobile ? '10px 12px' : '12px 20px',
                     borderRadius: isMobile ? '0' : '6px',
                     borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.05)'}` : 'none',
                     background: isActive ? C.activeHighlight : 'transparent',
