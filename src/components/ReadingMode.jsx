@@ -2827,6 +2827,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       const { verse } = item;
                       const vt = getTranslation(verse);
                       const isActive = activeVerse?.id === verse.id;
+                      const isSajdaTr = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
                       return (
                         <div
                           key={verse.id}
@@ -2861,7 +2862,22 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                               lineHeight: isMobile ? 1.55 : 1.85,
                               fontStyle: 'italic',
                               flex: 1,
-                            }}>{vt}</p>
+                            }}>
+                              {vt}
+                              {isSajdaTr && (
+                                <span style={{
+                                  display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle',
+                                  fontSize: '0.72rem', padding: '2px 8px', borderRadius: '4px',
+                                  background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
+                                  border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
+                                  color: dayMode ? COLORS.emerald : COLORS.softEmerald,
+                                  fontFamily: "'Amiri', serif",
+                                  fontStyle: 'normal',
+                                }}>
+                                  {language === 'tr' ? 'Secde' : 'Sajda'} ۩
+                                </span>
+                              )}
+                            </p>
                           </div>
                         </div>
                       );
