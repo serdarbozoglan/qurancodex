@@ -1,0 +1,1012 @@
+import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
+import {
+  COLORS,
+  FONTS,
+  OVERLAY_BASE,
+  OVERLAY_HEADER,
+  OVERLAY_TITLE,
+  CLOSE_BTN,
+  VERSE_DISPLAY_CARD,
+  GLASS_CARD,
+} from '../tokens';
+
+// ─── Tabs ────────────────────────────────────────────────────────────────────
+const TABS = [
+  {
+    tr: '7 Profil', en: '7 Profiles',
+    icon: (
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="8" r="3" />
+        <circle cx="17" cy="8" r="3" />
+        <path d="M3 20c0-3 3-5 6-5s6 2 6 5" />
+        <path d="M13 20c0-3 3-5 6-5" />
+      </svg>
+    ),
+  },
+  {
+    tr: 'İbn Kayyim Tipolojisi', en: 'Ibn Qayyim Typology',
+    icon: (
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+      </svg>
+    ),
+  },
+  {
+    tr: 'Sahih Hadis', en: 'Authentic Hadith',
+    icon: (
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+        <path d="M14 2v6h6" />
+        <path d="M9 13h6M9 17h4" />
+      </svg>
+    ),
+  },
+];
+
+// ─── Main overlay ────────────────────────────────────────────────────────────
+export default function MunafikProfili({ onClose }) {
+  const { language } = useLanguage();
+  const [data, setData] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
+  const [expandedProfileId, setExpandedProfileId] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const bodyRef = useRef(null);
+
+  // Escape to close
+  useEffect(() => {
+    const h = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, [onClose]);
+
+  // Mobile resize
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
+
+  // Data load
+  useEffect(() => {
+    fetch('/munafik-profili.json')
+      .then(r => r.json())
+      .then(setData)
+      .catch(() => {});
+  }, []);
+
+  // Reset body scroll on tab change
+  useEffect(() => {
+    if (bodyRef.current) bodyRef.current.scrollTop = 0;
+  }, [activeTab]);
+
+  if (!data) {
+    return (
+      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+        <div style={OVERLAY_HEADER}>
+          <span style={OVERLAY_TITLE}>
+            {language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}
+          </span>
+          <CloseBtn onClose={onClose} />
+        </div>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
+            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  const { intro, profiles, typologies, authenticHadith } = data;
+  const typology = typologies?.[0];
+
+  return (
+    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+
+      {/* ── HEADER ─────────────────────────────────────────────────────── */}
+      <div style={OVERLAY_HEADER}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+          {/* Double-face icon: two overlapping profile silhouettes */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.softRed} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="9" cy="8" r="3.2" />
+            <circle cx="15" cy="8" r="3.2" />
+            <path d="M3.5 20c0-3 2.6-5.2 5.5-5.2s5.5 2.2 5.5 5.2" />
+            <path d="M9.5 20c0-3 2.6-5.2 5.5-5.2s5.5 2.2 5.5 5.2" opacity="0.55" />
+          </svg>
+          <span style={OVERLAY_TITLE}>
+            {language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}
+          </span>
+          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>
+            {language === 'tr' ? 'Psikolojik Anatomi' : 'Psychological Anatomy'}
+          </span>
+        </div>
+        <CloseBtn onClose={onClose} />
+      </div>
+
+      {/* ── SCROLLABLE BODY ─────────────────────────────────────────────── */}
+      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+
+        {/* ── HERO ──────────────────────────────────────────────────────── */}
+        <div style={{
+          padding: isMobile ? '28px 20px 24px' : '40px 40px 32px',
+          background: 'linear-gradient(180deg, rgba(231,76,60,0.06) 0%, transparent 100%)',
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+        }}>
+          {/* Big pull quote */}
+          <h1 style={{
+            fontFamily: FONTS.display,
+            fontSize: isMobile ? '1.55rem' : '2.35rem',
+            fontWeight: 700,
+            color: COLORS.gold,
+            lineHeight: 1.25,
+            margin: '0 0 14px 0',
+            letterSpacing: '-0.01em',
+            maxWidth: '780px',
+          }}>
+            {language === 'tr'
+              ? '300+ ayet tek bir karakter tipine ayrıldı.'
+              : '300+ verses are devoted to a single character type.'}
+          </h1>
+
+          {/* Subtitle */}
+          <p style={{
+            color: COLORS.silver,
+            fontSize: isMobile ? '0.9rem' : '0.95rem',
+            fontFamily: FONTS.body,
+            fontStyle: 'italic',
+            margin: '0 0 18px 0',
+            lineHeight: 1.6,
+          }}>
+            {language === 'tr' ? intro.subtitleTr : intro.subtitleEn}
+          </p>
+
+          {/* Description */}
+          <p style={{
+            color: COLORS.offWhite,
+            fontSize: isMobile ? '0.92rem' : '0.98rem',
+            fontFamily: FONTS.body,
+            margin: '0 0 24px 0',
+            lineHeight: 1.75,
+            maxWidth: '720px',
+          }}>
+            {language === 'tr' ? intro.descTr : intro.descEn}
+          </p>
+
+          {/* Mini stat chips */}
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '8px',
+          }}>
+            {[
+              { tr: `${profiles.length} psikolojik profil`, en: `${profiles.length} psychological profiles` },
+              { tr: 'İbn Kayyim tipolojisi', en: "Ibn Qayyim's typology" },
+              { tr: '1 sahih hadis', en: '1 authentic hadith' },
+            ].map((chip, i) => (
+              <span key={i} style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '6px 12px',
+                background: 'rgba(231,76,60,0.08)',
+                border: '1px solid rgba(231,76,60,0.25)',
+                borderRadius: '999px',
+                color: COLORS.offWhite,
+                fontSize: '0.76rem',
+                fontFamily: FONTS.body,
+                fontWeight: 500,
+              }}>
+                {language === 'tr' ? chip.tr : chip.en}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* ── TAB BAR ───────────────────────────────────────────────────── */}
+        <div style={{
+          display: 'flex',
+          gap: '2px',
+          padding: isMobile ? '0 8px' : '0 16px',
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          background: 'rgba(10,10,26,0.97)',
+          backdropFilter: 'blur(20px)',
+          overflowX: 'auto',
+          scrollbarWidth: 'none',
+          flexShrink: 0,
+          position: 'sticky',
+          top: 0,
+          zIndex: 2,
+        }}>
+          {TABS.map((tab, i) => {
+            const isActive = activeTab === i;
+            return (
+              <button
+                key={i}
+                onClick={() => setActiveTab(i)}
+                style={{
+                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: isMobile ? '12px 14px' : '13px 22px',
+                  border: 'none',
+                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
+                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                  borderRadius: 0,
+                  color: isActive ? COLORS.gold : COLORS.silver,
+                  fontSize: isMobile ? '0.82rem' : '0.9rem',
+                  fontFamily: FONTS.body,
+                  fontWeight: isActive ? 600 : 400,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s',
+                  whiteSpace: 'nowrap',
+                }}
+                onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+                onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
+              >
+                <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
+                <span>{language === 'tr' ? tab.tr : tab.en}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* ── TAB CONTENT ───────────────────────────────────────────────── */}
+        <div style={{ padding: isMobile ? '20px 16px 48px' : '28px 32px 64px' }}>
+
+          {activeTab === 0 && (
+            <ProfilesTab
+              profiles={profiles}
+              expandedId={expandedProfileId}
+              onToggle={(id) => setExpandedProfileId(expandedProfileId === id ? null : id)}
+              language={language}
+              isMobile={isMobile}
+            />
+          )}
+
+          {activeTab === 1 && typology && (
+            <TypologyTab typology={typology} language={language} isMobile={isMobile} />
+          )}
+
+          {activeTab === 2 && authenticHadith && (
+            <HadithTab hadith={authenticHadith} language={language} isMobile={isMobile} />
+          )}
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Tab 1: Profiles accordion ───────────────────────────────────────────────
+function ProfilesTab({ profiles, expandedId, onToggle, language, isMobile }) {
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+      gap: '16px',
+      alignItems: 'start',
+    }}>
+      {profiles.map((profile) => (
+        <ProfileCard
+          key={profile.id}
+          profile={profile}
+          isOpen={expandedId === profile.id}
+          onToggle={() => onToggle(profile.id)}
+          language={language}
+          isMobile={isMobile}
+        />
+      ))}
+    </div>
+  );
+}
+
+// ─── Single profile accordion card ──────────────────────────────────────────
+function ProfileCard({ profile, isOpen, onToggle, language, isMobile }) {
+  const title = language === 'tr' ? profile.titleTr : profile.titleEn;
+  const pattern = language === 'tr' ? profile.behaviorPatternTr : profile.behaviorPatternEn;
+  const classical = language === 'tr' ? profile.classicalAnalysisTr : profile.classicalAnalysisEn;
+  const modern = language === 'tr' ? profile.modernParallelTr : profile.modernParallelEn;
+  const source = language === 'tr' ? profile.sourceTr : profile.sourceEn;
+  const info = language === 'tr' ? profile.infoTr : profile.infoEn;
+  const accent = profile.color || COLORS.softRed;
+
+  // First 110 characters of pattern for preview
+  const preview = pattern.length > 110 ? pattern.slice(0, 110).trim() + '…' : pattern;
+
+  return (
+    <div style={{
+      ...GLASS_CARD,
+      borderLeft: `3px solid ${accent}`,
+      overflow: 'hidden',
+      transition: 'all 0.2s',
+    }}>
+      {/* Header — always visible, clickable toggle */}
+      <button
+        onClick={onToggle}
+        style={{
+          width: '100%',
+          background: 'transparent',
+          border: 'none',
+          padding: isMobile ? '16px 16px 14px' : '20px 22px 16px',
+          cursor: 'pointer',
+          textAlign: 'left',
+          color: 'inherit',
+          display: 'block',
+        }}
+      >
+        {/* Key verse ref chip */}
+        <div style={{
+          display: 'inline-block',
+          padding: '3px 9px',
+          background: `${accent}14`,
+          border: `1px solid ${accent}40`,
+          borderRadius: '999px',
+          color: accent,
+          fontSize: '0.7rem',
+          fontFamily: FONTS.body,
+          fontWeight: 600,
+          letterSpacing: '0.02em',
+          marginBottom: '10px',
+        }}>
+          {profile.keyVerseRef}
+        </div>
+
+        {/* Profile title */}
+        <h3 style={{
+          fontFamily: FONTS.display,
+          fontSize: isMobile ? '1.15rem' : '1.35rem',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          margin: '0 0 10px 0',
+          lineHeight: 1.3,
+        }}>
+          {title}
+        </h3>
+
+        {/* Preview (only when closed) */}
+        {!isOpen && (
+          <p style={{
+            color: COLORS.silver,
+            fontSize: '0.85rem',
+            fontFamily: FONTS.body,
+            lineHeight: 1.6,
+            margin: '0 0 12px 0',
+          }}>
+            {preview}
+          </p>
+        )}
+
+        {/* Toggle affordance */}
+        <span style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '5px',
+          color: accent,
+          fontSize: '0.78rem',
+          fontFamily: FONTS.body,
+          fontWeight: 600,
+        }}>
+          {isOpen
+            ? (language === 'tr' ? 'Kapat' : 'Close')
+            : (language === 'tr' ? 'Detayı aç' : 'Open details')}
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+            style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </span>
+      </button>
+
+      {/* Expanded content */}
+      {isOpen && (
+        <div style={{
+          padding: isMobile ? '0 16px 18px' : '0 22px 22px',
+          borderTop: `1px solid ${COLORS.glassBorderSoft}`,
+          paddingTop: '18px',
+        }}>
+          {/* Verses */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '18px' }}>
+            {profile.verses.map((verse, vi) => (
+              <VerseCard key={vi} verse={verse} language={language} />
+            ))}
+          </div>
+
+          {/* Behavior pattern */}
+          <SectionBlock
+            label={language === 'tr' ? 'Davranış Deseni' : 'Behavioral Pattern'}
+            color={accent}
+          >
+            <p style={{
+              color: COLORS.silver,
+              fontSize: '0.88rem',
+              fontFamily: FONTS.body,
+              fontStyle: 'italic',
+              lineHeight: 1.75,
+              margin: 0,
+            }}>
+              {pattern}
+            </p>
+          </SectionBlock>
+
+          {/* Classical analysis */}
+          <SectionBlock
+            label={language === 'tr' ? 'Klasik Analiz' : 'Classical Analysis'}
+            color={COLORS.gold}
+          >
+            <p style={{
+              color: COLORS.offWhite,
+              fontSize: '0.88rem',
+              fontFamily: FONTS.body,
+              lineHeight: 1.75,
+              margin: '0 0 10px 0',
+            }}>
+              {classical}
+            </p>
+            {/* Source names as chips */}
+            <ScholarChips sourceText={source} />
+          </SectionBlock>
+
+          {/* Modern parallel — dashed warning box */}
+          <div style={{
+            margin: '16px 0 12px',
+            padding: isMobile ? '12px 14px' : '14px 16px',
+            border: `1px dashed ${COLORS.softRed}55`,
+            borderRadius: '8px',
+            background: 'rgba(231,76,60,0.04)',
+          }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              marginBottom: '8px',
+            }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.softRed} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+              <span style={{
+                color: COLORS.softRed,
+                fontSize: '0.72rem',
+                fontFamily: FONTS.body,
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+              }}>
+                {language === 'tr' ? 'Modern Paralellik' : 'Modern Parallel'}
+              </span>
+            </div>
+            <p style={{
+              color: COLORS.offWhite,
+              fontSize: '0.85rem',
+              fontFamily: FONTS.body,
+              lineHeight: 1.7,
+              margin: 0,
+            }}>
+              {modern}
+            </p>
+          </div>
+
+          {/* Info note */}
+          {info && (
+            <p style={{
+              color: COLORS.silver,
+              fontSize: '0.78rem',
+              fontFamily: FONTS.body,
+              fontStyle: 'italic',
+              lineHeight: 1.65,
+              margin: '12px 0 14px 0',
+            }}>
+              {info}
+            </p>
+          )}
+
+          {/* Ekol etiketi chip */}
+          {profile.ekolEtiketi && (
+            <div style={{ marginTop: '8px' }}>
+              <EkolChip label={profile.ekolEtiketi} />
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Labeled section block ───────────────────────────────────────────────────
+function SectionBlock({ label, color, children }) {
+  return (
+    <div style={{ marginBottom: '14px' }}>
+      <div style={{
+        color: color || COLORS.gold,
+        fontSize: '0.7rem',
+        fontFamily: FONTS.body,
+        fontWeight: 700,
+        letterSpacing: '0.1em',
+        textTransform: 'uppercase',
+        marginBottom: '8px',
+      }}>
+        {label}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+// ─── Verse card ──────────────────────────────────────────────────────────────
+function VerseCard({ verse, language }) {
+  return (
+    <div style={{
+      ...VERSE_DISPLAY_CARD,
+      padding: '14px 16px',
+    }}>
+      {/* Arabic */}
+      <p
+        dir="rtl"
+        lang="ar"
+        style={{
+          fontFamily: FONTS.quran,
+          fontSize: '1.5rem',
+          color: COLORS.offWhite,
+          lineHeight: 2,
+          textAlign: 'right',
+          margin: '0 0 10px 0',
+          direction: 'rtl',
+        }}
+      >
+        {verse.verseAr}
+      </p>
+      {/* Translation */}
+      <p style={{
+        color: COLORS.silver,
+        fontSize: '0.85rem',
+        fontFamily: FONTS.body,
+        fontStyle: 'italic',
+        lineHeight: 1.7,
+        margin: '0 0 8px 0',
+      }}>
+        {language === 'tr' ? verse.verseTr : verse.verseEn}
+      </p>
+      {/* Reference */}
+      <p style={{
+        color: COLORS.gold,
+        fontSize: '0.75rem',
+        fontFamily: FONTS.body,
+        fontWeight: 600,
+        margin: 0,
+      }}>
+        — {verse.verseRef}
+      </p>
+    </div>
+  );
+}
+
+// ─── Scholar chips (parsed from source string) ───────────────────────────────
+function ScholarChips({ sourceText }) {
+  if (!sourceText) return null;
+  // Split on semicolons — each entry is one source reference
+  const entries = sourceText.split(/;\s*/).filter(Boolean).slice(0, 4);
+
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '6px' }}>
+      {entries.map((entry, i) => {
+        // Take first 40 characters as the chip label — keeps it compact
+        const label = entry.length > 44 ? entry.slice(0, 44).trim() + '…' : entry.trim();
+        return (
+          <span key={i} style={{
+            display: 'inline-block',
+            padding: '4px 10px',
+            background: 'rgba(212,165,116,0.06)',
+            border: `1px solid ${COLORS.goldAlpha25}`,
+            borderRadius: '999px',
+            color: COLORS.offWhite,
+            fontSize: '0.72rem',
+            fontFamily: FONTS.body,
+          }}>
+            {label}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── Ekol chip (small silver, italic) ────────────────────────────────────────
+function EkolChip({ label }) {
+  return (
+    <span style={{
+      display: 'inline-block',
+      padding: '3px 10px',
+      background: 'transparent',
+      border: `1px solid ${COLORS.silverAlpha40}`,
+      borderRadius: '999px',
+      color: COLORS.silver,
+      fontSize: '0.7rem',
+      fontFamily: FONTS.body,
+      fontStyle: 'italic',
+    }}>
+      {label}
+    </span>
+  );
+}
+
+// ─── Tab 2: Ibn Qayyim typology ──────────────────────────────────────────────
+function TypologyTab({ typology, language, isMobile }) {
+  const title = language === 'tr' ? typology.titleTr : typology.titleEn;
+  const scholarName = language === 'tr' ? typology.scholar : typology.scholarEn;
+  const workName = language === 'tr' ? typology.work : typology.workEn;
+  const source = language === 'tr' ? typology.sourceTr : typology.sourceEn;
+
+  return (
+    <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+      {/* Section heading */}
+      <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+        <div style={{
+          color: COLORS.softRed,
+          fontSize: '0.72rem',
+          fontFamily: FONTS.body,
+          fontWeight: 700,
+          letterSpacing: '0.14em',
+          textTransform: 'uppercase',
+          marginBottom: '10px',
+        }}>
+          {language === 'tr' ? 'Klasik Tipoloji' : 'Classical Typology'}
+        </div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: isMobile ? '1.5rem' : '2rem',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          margin: '0 0 8px 0',
+          lineHeight: 1.25,
+        }}>
+          {title}
+        </h2>
+        <p style={{
+          color: COLORS.silver,
+          fontSize: '0.88rem',
+          fontFamily: FONTS.body,
+          fontStyle: 'italic',
+          margin: 0,
+        }}>
+          {scholarName} · <span style={{ color: COLORS.gold }}>{workName}</span>
+        </p>
+      </div>
+
+      {/* Categories — 2 columns desktop, 1 column mobile */}
+      <div style={{
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        alignItems: 'stretch',
+        gap: isMobile ? '14px' : '0',
+        position: 'relative',
+      }}>
+        {typology.categories.map((cat, idx) => {
+          const isFirst = idx === 0;
+          const catLabel = language === 'tr' ? cat.labelTr : cat.labelEn;
+          const catDesc = language === 'tr' ? cat.descTr : cat.descEn;
+          // First category (itikadi) = harder red, second (ameli) = silver
+          const catColor = isFirst ? COLORS.softRed : COLORS.silver;
+
+          return (
+            <div
+              key={cat.id}
+              style={{
+                ...GLASS_CARD,
+                flex: 1,
+                padding: isMobile ? '20px 18px' : '28px 26px',
+                borderLeft: `3px solid ${catColor}`,
+                margin: !isMobile ? (isFirst ? '0 10px 0 0' : '0 0 0 10px') : 0,
+              }}
+            >
+              {/* Category number */}
+              <div style={{
+                color: catColor,
+                fontFamily: FONTS.display,
+                fontSize: '2.2rem',
+                fontWeight: 700,
+                lineHeight: 1,
+                marginBottom: '10px',
+              }}>
+                {idx + 1}
+              </div>
+
+              {/* Label */}
+              <h3 style={{
+                fontFamily: FONTS.display,
+                fontSize: isMobile ? '1.15rem' : '1.3rem',
+                fontWeight: 700,
+                color: COLORS.offWhite,
+                margin: '0 0 14px 0',
+                lineHeight: 1.3,
+              }}>
+                {catLabel}
+              </h3>
+
+              {/* Description */}
+              <p style={{
+                color: COLORS.silver,
+                fontSize: '0.9rem',
+                fontFamily: FONTS.body,
+                lineHeight: 1.8,
+                margin: 0,
+              }}>
+                {catDesc}
+              </p>
+            </div>
+          );
+        })}
+
+        {/* Separator for desktop — vertical line between cards */}
+        {!isMobile && (
+          <div style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '32px',
+            height: '32px',
+            background: COLORS.cosmicBlack,
+            border: `1px solid ${COLORS.glassBorder}`,
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontSize: '1rem',
+            pointerEvents: 'none',
+            zIndex: 1,
+          }}>
+            ×
+          </div>
+        )}
+      </div>
+
+      {/* Source note */}
+      <div style={{
+        marginTop: '28px',
+        padding: isMobile ? '14px 16px' : '16px 20px',
+        background: COLORS.glassBgFaint,
+        border: `1px solid ${COLORS.glassBorderSoft}`,
+        borderRadius: '10px',
+      }}>
+        <div style={{
+          color: COLORS.gold,
+          fontSize: '0.7rem',
+          fontFamily: FONTS.body,
+          fontWeight: 700,
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          marginBottom: '8px',
+        }}>
+          {language === 'tr' ? 'Kaynak' : 'Source'}
+        </div>
+        <p style={{
+          color: COLORS.silver,
+          fontSize: '0.82rem',
+          fontFamily: FONTS.body,
+          lineHeight: 1.7,
+          margin: '0 0 10px 0',
+        }}>
+          {source}
+        </p>
+        {typology.ekolEtiketi && <EkolChip label={typology.ekolEtiketi} />}
+      </div>
+    </div>
+  );
+}
+
+// ─── Tab 3: Authentic hadith ─────────────────────────────────────────────────
+function HadithTab({ hadith, language, isMobile }) {
+  const title = language === 'tr' ? hadith.titleTr : hadith.titleEn;
+  const text = language === 'tr' ? hadith.textTr : hadith.textEn;
+  const source = language === 'tr' ? hadith.source : hadith.sourceEn;
+  const status = language === 'tr' ? hadith.statusTr : hadith.statusEn;
+  const note = language === 'tr' ? hadith.noteTr : hadith.noteEn;
+
+  return (
+    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      {/* Sahih hadis badge */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: '18px',
+      }}>
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '8px 18px',
+          background: 'rgba(212,165,116,0.08)',
+          border: `1.5px solid ${COLORS.gold}`,
+          borderRadius: '999px',
+          color: COLORS.gold,
+          fontSize: '0.78rem',
+          fontFamily: FONTS.body,
+          fontWeight: 700,
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+        }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2L4 6v6c0 5 3.4 9.3 8 10 4.6-.7 8-5 8-10V6l-8-4z" />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
+          {language === 'tr' ? 'Sahih Hadis · Mütefekkun Aleyh' : 'Authentic Hadith · Muttafaqun ʿAlayh'}
+        </div>
+      </div>
+
+      {/* Title */}
+      <h2 style={{
+        fontFamily: FONTS.display,
+        fontSize: isMobile ? '1.5rem' : '1.95rem',
+        fontWeight: 700,
+        color: COLORS.offWhite,
+        textAlign: 'center',
+        margin: '0 0 28px 0',
+        lineHeight: 1.3,
+      }}>
+        {title}
+      </h2>
+
+      {/* Main hadith card */}
+      <div style={{
+        ...GLASS_CARD,
+        border: `1px solid ${COLORS.goldAlpha25}`,
+        padding: isMobile ? '24px 20px' : '40px 48px',
+        textAlign: 'center',
+        position: 'relative',
+      }}>
+        {/* Opening quote mark */}
+        <div style={{
+          fontFamily: FONTS.display,
+          fontSize: isMobile ? '3rem' : '4rem',
+          color: COLORS.goldAlpha25,
+          lineHeight: 0.5,
+          margin: '0 0 10px 0',
+          userSelect: 'none',
+        }}>
+          “
+        </div>
+
+        {/* Hadith text */}
+        <p style={{
+          fontFamily: FONTS.display,
+          fontSize: isMobile ? '1.1rem' : '1.35rem',
+          fontWeight: 400,
+          fontStyle: 'italic',
+          color: COLORS.offWhite,
+          lineHeight: 1.75,
+          margin: '0 0 22px 0',
+        }}>
+          {text}
+        </p>
+
+        {/* Metadata row */}
+        <div style={{
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: isMobile ? '10px' : '16px',
+          paddingTop: '18px',
+          borderTop: `1px solid ${COLORS.glassBorderSoft}`,
+        }}>
+          <div style={{ textAlign: isMobile ? 'center' : 'left' }}>
+            <div style={{
+              color: COLORS.slate500,
+              fontSize: '0.66rem',
+              fontFamily: FONTS.body,
+              fontWeight: 700,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              marginBottom: '3px',
+            }}>
+              {language === 'tr' ? 'Ravi' : 'Narrator'}
+            </div>
+            <div style={{
+              color: COLORS.offWhite,
+              fontSize: '0.86rem',
+              fontFamily: FONTS.body,
+              fontWeight: 600,
+            }}>
+              {hadith.narrator}
+            </div>
+          </div>
+
+          {!isMobile && (
+            <div style={{
+              width: '1px',
+              height: '28px',
+              background: COLORS.glassBorder,
+            }} />
+          )}
+
+          <div style={{ textAlign: isMobile ? 'center' : 'left' }}>
+            <div style={{
+              color: COLORS.slate500,
+              fontSize: '0.66rem',
+              fontFamily: FONTS.body,
+              fontWeight: 700,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              marginBottom: '3px',
+            }}>
+              {language === 'tr' ? 'Kaynak' : 'Source'}
+            </div>
+            <div style={{
+              color: COLORS.offWhite,
+              fontSize: '0.86rem',
+              fontFamily: FONTS.body,
+              fontWeight: 500,
+            }}>
+              {source}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Status chip */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '18px',
+      }}>
+        <span style={{
+          display: 'inline-block',
+          padding: '7px 16px',
+          background: 'rgba(46,204,113,0.08)',
+          border: '1px solid rgba(46,204,113,0.35)',
+          borderRadius: '999px',
+          color: COLORS.softEmerald,
+          fontSize: '0.78rem',
+          fontFamily: FONTS.body,
+          fontWeight: 500,
+        }}>
+          {language === 'tr' ? 'Statü: ' : 'Status: '}{status}
+        </span>
+      </div>
+
+      {/* Note */}
+      {note && (
+        <p style={{
+          color: COLORS.silver,
+          fontSize: '0.8rem',
+          fontFamily: FONTS.body,
+          fontStyle: 'italic',
+          lineHeight: 1.7,
+          textAlign: 'center',
+          margin: '20px auto 0',
+          maxWidth: '620px',
+        }}>
+          {note}
+        </p>
+      )}
+
+      {/* Ekol chip */}
+      {hadith.ekolEtiketi && (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
+          <EkolChip label={hadith.ekolEtiketi} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Close Button ────────────────────────────────────────────────────────────
+function CloseBtn({ onClose }) {
+  return (
+    <button
+      onClick={onClose}
+      style={{ ...CLOSE_BTN }}
+      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+      onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+        <path d="M18 6L6 18M6 6l12 12" />
+      </svg>
+    </button>
+  );
+}
