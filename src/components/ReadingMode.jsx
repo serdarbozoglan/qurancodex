@@ -2792,8 +2792,15 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                   marginTop: isMobile ? '12px' : '0',
                   display: 'flex', flexDirection: 'column', gap: '0',
                 }}>
-                  {/* Attribution */}
-                  <div style={{ padding: '0 12px 8px', fontSize: '0.78rem', color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
+                  {/* Attribution — subtle header for translation column */}
+                  <div style={{
+                    padding: '0 12px 10px',
+                    marginBottom: '6px',
+                    fontSize: '0.82rem',
+                    color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)',
+                    letterSpacing: '0.04em',
+                    borderBottom: `1px solid ${dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.08)'}`,
+                  }}>
                     {selectedMealAuthor.label}
                   </div>
                   {/* Bismillah translation — shown when first verse of surah is on this page */}
