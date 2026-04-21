@@ -1,6 +1,7 @@
 import { useState, useEffect, lazy, Suspense, useRef, Fragment } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import { COLORS } from '../tokens';
 // v1.1 — single source of truth for tools data, shared with the modal
 import {
   FEATURED_TOOL  as IMPORTED_FEATURED,
@@ -995,7 +996,7 @@ export default function Navbar() {
             {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
           </button>
 
-          {/* Language toggle */}
+          {/* Language toggle — primary gold (matches CTA, single-gold rule) */}
           <button
             onClick={toggleLanguage}
             aria-label={`Switch to ${language === 'tr' ? 'English' : 'Turkish'}`}
@@ -1006,9 +1007,9 @@ export default function Navbar() {
               padding: '0 14px',
               height: '32px',
               borderRadius: '6px',
-              border: '1px solid rgba(201,169,110,0.5)',
+              border: `1px solid ${COLORS.goldAlpha45}`,
               background: 'transparent',
-              color: '#c9a96e',
+              color: COLORS.gold,
               fontFamily: "'Inter', sans-serif",
               fontSize: '0.78rem',
               fontWeight: 600,
@@ -1016,8 +1017,8 @@ export default function Navbar() {
               cursor: 'pointer',
               transition: 'all 0.15s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(201,169,110,0.85)'; e.currentTarget.style.background = 'rgba(201,169,110,0.1)'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,169,110,0.5)'; e.currentTarget.style.background = 'transparent'; }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.gold; e.currentTarget.style.background = COLORS.goldAlpha15; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.background = 'transparent'; }}
           >
             {language === 'tr' ? 'EN' : 'TR'}
           </button>
@@ -1064,7 +1065,7 @@ export default function Navbar() {
             position: 'fixed',
             inset: 0,
             zIndex: 10001,
-            background: '#080a1e',
+            background: COLORS.cosmicBlack,
             overflowY: 'auto',
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',

@@ -23,13 +23,24 @@ export const COLORS = {
   // categories (Araf, Yüceltme meleği, Emir, Mucize). Distinct from primary
   // gold so categorical color identity remains, but centralized in tokens.
   softGold:         '#c9a96e',
+  softGoldAlpha04:  'rgba(201,169,110,0.04)',
+  softGoldAlpha05:  'rgba(201,169,110,0.05)',
+  softGoldAlpha06:  'rgba(201,169,110,0.06)',
   softGoldAlpha08:  'rgba(201,169,110,0.08)',
   softGoldAlpha10:  'rgba(201,169,110,0.10)',
   softGoldAlpha12:  'rgba(201,169,110,0.12)',
   softGoldAlpha15:  'rgba(201,169,110,0.15)',
+  softGoldAlpha18:  'rgba(201,169,110,0.18)',
   softGoldAlpha20:  'rgba(201,169,110,0.20)',
+  softGoldAlpha25:  'rgba(201,169,110,0.25)',
   softGoldAlpha28:  'rgba(201,169,110,0.28)',
+  softGoldAlpha30:  'rgba(201,169,110,0.30)',
   softGoldAlpha35:  'rgba(201,169,110,0.35)',
+  softGoldAlpha40:  'rgba(201,169,110,0.40)',
+  softGoldAlpha60:  'rgba(201,169,110,0.60)',
+  softGoldAlpha65:  'rgba(201,169,110,0.65)',
+  softGoldAlpha70:  'rgba(201,169,110,0.70)',
+  softGoldAlpha75:  'rgba(201,169,110,0.75)',
 
   // Text
   offWhite:      '#e8e6e3',
