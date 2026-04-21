@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS } from '../tokens';
 
 // ── MODULE-LEVEL CACHES ───────────────────────────────────────────────────────
 let cachedVerses = null;
@@ -215,7 +215,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
       </div>
       {surahInfo?.[value] && (
         <span style={{
-          fontSize: '0.7rem', color: '#475569', padding: '2px 8px',
+          fontSize: '0.7rem', color: COLORS.slate600, padding: '2px 8px',
           background: 'rgba(255,255,255,0.05)', borderRadius: '20px', flexShrink: 0,
         }}>
           {typeof surahInfo[value].period === 'string' ? surahInfo[value].period : (language === 'tr' ? surahInfo[value].period?.tr : surahInfo[value].period?.en)}
@@ -244,7 +244,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
         onMouseLeave={e => { if (!value) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
       >
         {selected || (
-          <span style={{ color: '#334155', fontSize: '0.88rem', fontStyle: 'italic' }}>{placeholder}</span>
+          <span style={{ color: COLORS.slate700, fontSize: '0.88rem', fontStyle: 'italic' }}>{placeholder}</span>
         )}
         <svg style={{ marginLeft: 'auto', flexShrink: 0, opacity: 0.4, transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}
           width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round">
@@ -303,18 +303,18 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
                   <span style={{
                     width: '26px', height: '26px', borderRadius: '50%', flexShrink: 0,
                     background: value === n ? color + '30' : 'rgba(255,255,255,0.06)',
-                    color: value === n ? color : '#475569',
+                    color: value === n ? color : COLORS.slate600,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '0.7rem', fontWeight: 700,
                   }}>{n}</span>
-                  <span style={{ color: value === n ? color : '#cbd5e1', fontSize: '0.84rem', fontWeight: value === n ? 700 : 400, flex: 1 }}>
+                  <span style={{ color: value === n ? color : COLORS.slate300, fontSize: '0.84rem', fontWeight: value === n ? 700 : 400, flex: 1 }}>
                     {SURAH_NAMES_TR[n]}
                   </span>
-                  <span style={{ color: '#334155', fontSize: '0.65rem', fontFamily: "'Amiri', serif", direction: 'rtl' }}>
+                  <span style={{ color: COLORS.slate700, fontSize: '0.65rem', fontFamily: "'Amiri', serif", direction: 'rtl' }}>
                     {SURAH_NAMES_AR[n]}
                   </span>
                   {surahInfo?.[n] && (
-                    <span style={{ color: '#334155', fontSize: '0.68rem', flexShrink: 0 }}>
+                    <span style={{ color: COLORS.slate700, fontSize: '0.68rem', flexShrink: 0 }}>
                       {(typeof surahInfo[n].period === 'string' ? surahInfo[n].period : (language === 'tr' ? surahInfo[n].period?.tr : surahInfo[n].period?.en))?.slice(0, 3)}
                     </span>
                   )}
@@ -371,7 +371,7 @@ function SimilarityGauge({ score }) {
           fontFamily="'Inter', sans-serif" fill={color}
         >{score}%</text>
       </svg>
-      <p style={{ color: '#475569', fontSize: '0.7rem', textAlign: 'center', margin: 0 }}>
+      <p style={{ color: COLORS.slate600, fontSize: '0.7rem', textAlign: 'center', margin: 0 }}>
         {score >= 65 ? 'Yüksek benzerlik' : score >= 35 ? 'Orta benzerlik' : score >= 15 ? 'Düşük benzerlik' : 'Minimal benzerlik'}
       </p>
     </div>
@@ -408,7 +408,7 @@ function WordVenn({ wordsA, wordsB, colorA, colorB, nameA, nameB, language }) {
         </div>
       ))}
       {items.length === 0 && (
-        <p style={{ color: '#1e293b', fontSize: '0.78rem', margin: 0 }}>—</p>
+        <p style={{ color: COLORS.slate800, fontSize: '0.78rem', margin: 0 }}>—</p>
       )}
     </div>
   );
@@ -445,7 +445,7 @@ function WordVenn({ wordsA, wordsB, colorA, colorB, nameA, nameB, language }) {
           </div>
         ))}
         {shared.length === 0 && (
-          <p style={{ color: '#1e293b', fontSize: '0.78rem', margin: 0, textAlign: 'center' }}>—</p>
+          <p style={{ color: COLORS.slate800, fontSize: '0.78rem', margin: 0, textAlign: 'center' }}>—</p>
         )}
       </div>
       {/* Only B */}
@@ -618,7 +618,7 @@ export default function SurahComparator({ onClose }) {
             <span style={{ color: COLOR_A, fontWeight: 700, fontSize: '0.95rem', flexShrink: 0 }}>
               {SURAH_NAMES_TR[surahA]}
             </span>
-            <span style={{ color: '#334155', fontSize: '0.8rem' }}>vs</span>
+            <span style={{ color: COLORS.slate700, fontSize: '0.8rem' }}>vs</span>
             <span style={{ color: COLOR_B, fontWeight: 700, fontSize: '0.95rem', flexShrink: 0 }}>
               {SURAH_NAMES_TR[surahB]}
             </span>
@@ -683,7 +683,7 @@ export default function SurahComparator({ onClose }) {
                 width: '36px', height: '36px', borderRadius: '50%',
                 background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#334155', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.05em',
+                color: COLORS.slate700, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.05em',
               }}>vs</div>
             </div>
 
@@ -716,7 +716,7 @@ export default function SurahComparator({ onClose }) {
                   : 'rgba(255,255,255,0.04)',
                 border: `1.5px solid ${canCompare ? 'rgba(150,170,255,0.3)' : 'rgba(255,255,255,0.08)'}`,
                 borderRadius: '12px', cursor: canCompare ? 'pointer' : 'not-allowed',
-                color: canCompare ? '#e8e6e3' : '#334155',
+                color: canCompare ? '#e8e6e3' : COLORS.slate700,
                 fontSize: '0.92rem', fontWeight: canCompare ? 700 : 400,
                 transition: 'all 0.2s', letterSpacing: '0.04em',
                 fontFamily: "'Inter', sans-serif",
@@ -732,7 +732,7 @@ export default function SurahComparator({ onClose }) {
 
           {/* Presets */}
           <div>
-            <p style={{ color: '#334155', fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px' }}>
+            <p style={{ color: COLORS.slate700, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px' }}>
               {language === 'tr' ? 'Önerilen Karşılaştırmalar' : 'Suggested Pairs'}
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -772,7 +772,7 @@ export default function SurahComparator({ onClose }) {
       {/* ── RESULT ERROR FALLBACK ─────────────────────────────────────── */}
       {!loading && view === 'result' && !analysis && (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-          <p style={{ color: '#475569', fontSize: '0.9rem', margin: 0 }}>
+          <p style={{ color: COLORS.slate600, fontSize: '0.9rem', margin: 0 }}>
             {language === 'tr' ? 'Analiz hesaplanamadı. Veriler yüklenirken sorun oluştu.' : 'Analysis failed. Data could not be loaded.'}
           </p>
           <div style={{ display: 'flex', gap: '10px' }}>
@@ -847,15 +847,15 @@ export default function SurahComparator({ onClose }) {
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                 padding: '16px 10px', minWidth: '130px',
               }}>
-                <p style={{ color: '#334155', fontSize: '0.68rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '8px', textAlign: 'center' }}>
+                <p style={{ color: COLORS.slate700, fontSize: '0.68rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '8px', textAlign: 'center' }}>
                   {language === 'tr' ? 'Benzerlik' : 'Similarity'}
                 </p>
                 <SimilarityGauge score={analysis.finalScore} />
-                <p style={{ color: '#334155', fontSize: '0.68rem', marginTop: '4px', textAlign: 'center' }}>
+                <p style={{ color: COLORS.slate700, fontSize: '0.68rem', marginTop: '4px', textAlign: 'center' }}>
                   {analysis.sim.links + analysis.simReverse.links}{' '}
                   {language === 'tr' ? 'çapraz bağ' : 'cross-links'}
                 </p>
-                <p style={{ color: '#1e293b', fontSize: '0.62rem', marginTop: '6px', textAlign: 'center', lineHeight: 1.5, maxWidth: '120px' }}>
+                <p style={{ color: COLORS.slate800, fontSize: '0.62rem', marginTop: '6px', textAlign: 'center', lineHeight: 1.5, maxWidth: '120px' }}>
                   {language === 'tr'
                     ? 'Sûredeki her ayet, tüm Kur\'an\'daki en yakın 20 ayete bağlı. Skor bu bağların yoğunluğunu ölçer.'
                     : "Each verse links to its 20 closest verses in the Quran. Score measures link density."}
@@ -924,7 +924,7 @@ export default function SurahComparator({ onClose }) {
             {/* ── ROW 4: Figures ── */}
             {(analysis.figShared.length > 0 || analysis.figOnlyA.length > 0 || analysis.figOnlyB.length > 0) && (
               <div style={{ padding: '18px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.02)' }}>
-                <p style={{ color: '#475569', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '14px' }}>
+                <p style={{ color: COLORS.slate600, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '14px' }}>
                   {language === 'tr' ? 'Şahsiyetler ve Figürler' : 'Figures & Prophets'}
                 </p>
                 <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
@@ -965,7 +965,7 @@ export default function SurahComparator({ onClose }) {
             {/* ── ROW 5: Thematic Comparison ── */}
             <div>
               <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
-                <p style={{ color: '#334155', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', margin: 0 }}>
+                <p style={{ color: COLORS.slate700, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', margin: 0 }}>
                   {language === 'tr' ? 'Tematik Karşılaştırma' : 'Thematic Comparison'}
                 </p>
                 {analysis.themeJaccard > 0 && (
@@ -976,7 +976,7 @@ export default function SurahComparator({ onClose }) {
                     }}>
                       %{analysis.themeJaccard}
                     </span>
-                    <span style={{ fontSize: '0.72rem', color: '#334155' }}>
+                    <span style={{ fontSize: '0.72rem', color: COLORS.slate700 }}>
                       {language === 'tr' ? 'tema örtüşmesi' : 'theme overlap'}
                     </span>
                   </div>
@@ -984,7 +984,7 @@ export default function SurahComparator({ onClose }) {
               </div>
 
               {/* Jaccard explanation */}
-              <p style={{ fontSize: '0.72rem', color: '#475569', marginBottom: '14px', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.72rem', color: COLORS.slate600, marginBottom: '14px', lineHeight: 1.5 }}>
                 {language === 'tr'
                   ? `Benzerlik skoru: ${analysis.themesShared.length} ortak tema ÷ ${analysis.themesOnlyA.length + analysis.themesShared.length + analysis.themesOnlyB.length} toplam farklı tema (Jaccard katsayısı)`
                   : `Similarity score: ${analysis.themesShared.length} shared themes ÷ ${analysis.themesOnlyA.length + analysis.themesShared.length + analysis.themesOnlyB.length} total unique themes (Jaccard coefficient)`}
@@ -1001,7 +1001,7 @@ export default function SurahComparator({ onClose }) {
                     </p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                       {analysis.themesOnlyA.length === 0 ? (
-                        <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
+                        <span style={{ color: COLORS.slate800, fontSize: '0.78rem' }}>—</span>
                       ) : analysis.themesOnlyA.map((t, i) => (
                         <span key={i} style={{
                           padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
@@ -1018,7 +1018,7 @@ export default function SurahComparator({ onClose }) {
                     </p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'flex-end' }}>
                       {analysis.themesOnlyB.length === 0 ? (
-                        <span style={{ color: '#1e293b', fontSize: '0.78rem' }}>—</span>
+                        <span style={{ color: COLORS.slate800, fontSize: '0.78rem' }}>—</span>
                       ) : analysis.themesOnlyB.map((t, i) => (
                         <span key={i} style={{
                           padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
@@ -1077,7 +1077,7 @@ export default function SurahComparator({ onClose }) {
 function StatRow({ label, value, color }) {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '8px' }}>
-      <span style={{ color: '#334155', fontSize: '0.75rem' }}>{label}</span>
+      <span style={{ color: COLORS.slate700, fontSize: '0.75rem' }}>{label}</span>
       <span style={{ color: color || '#94a3b8', fontSize: '0.82rem', fontWeight: 600, textAlign: 'right' }}>{value || '—'}</span>
     </div>
   );

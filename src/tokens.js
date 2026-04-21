@@ -50,7 +50,15 @@ export const COLORS = {
   silverAlpha12: 'rgba(148,163,184,0.12)',
   silverAlpha40: 'rgba(148,163,184,0.40)',
   silverAlpha70: 'rgba(148,163,184,0.70)',
+
+  // Slate scale — muted gray progression for neutral text and disabled states.
+  // Aligned with Tailwind slate palette.
+  slate200:      '#e2e8f0',
+  slate300:      '#cbd5e1',
   slate500:      '#64748b',
+  slate600:      '#475569',
+  slate700:      '#334155',
+  slate800:      '#1e293b',
 
   // Semantic
   emerald:       '#1a7a4c',

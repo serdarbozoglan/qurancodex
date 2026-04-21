@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 export default function AnimatedCounter({
   target,
@@ -14,9 +14,17 @@ export default function AnimatedCounter({
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-50px' });
   const hasAnimated = useRef(false);
+  const reduced = useReducedMotion();
 
   useEffect(() => {
-    if (!inView || hasAnimated.current) return;
+    if (hasAnimated.current) return;
+    // Reduced motion: show the final value immediately, skip the count-up.
+    if (reduced) {
+      setCount(target);
+      hasAnimated.current = true;
+      return;
+    }
+    if (!inView) return;
     hasAnimated.current = true;
 
     const start = performance.now();
@@ -31,15 +39,15 @@ export default function AnimatedCounter({
       }
     };
     requestAnimationFrame(step);
-  }, [inView, target, duration, decimals]);
+  }, [inView, target, duration, decimals, reduced]);
 
   return (
     <motion.span
       ref={ref}
       className={`font-body font-extrabold tabular-nums ${className}`}
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      initial={reduced ? false : { opacity: 0, scale: 0.5 }}
+      animate={reduced ? undefined : (inView ? { opacity: 1, scale: 1 } : {})}
+      transition={reduced ? { duration: 0 } : { duration: 0.5, ease: 'easeOut' }}
     >
       {prefix}{localeFormat ? Math.floor(count).toLocaleString('tr-TR') : decimals > 0 ? count.toFixed(decimals) : count}{suffix}
     </motion.span>
