@@ -145,6 +145,32 @@ const FeatherIcon = ({ size = 18 }) => (
   </svg>
 );
 
+const CompassIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+  </svg>
+);
+
+const MaskIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z" />
+    <circle cx="8.5" cy="12" r="1.5" fill="currentColor" />
+    <circle cx="15.5" cy="12" r="1.5" fill="currentColor" />
+  </svg>
+);
+
+const LadderIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="6" y1="2" x2="6" y2="22" />
+    <line x1="18" y1="2" x2="18" y2="22" />
+    <line x1="6" y1="6" x2="18" y2="6" />
+    <line x1="6" y1="10" x2="18" y2="10" />
+    <line x1="6" y1="14" x2="18" y2="14" />
+    <line x1="6" y1="18" x2="18" y2="18" />
+  </svg>
+);
+
 // ── Categories ──────────────────────────────────────────────────────────────
 // User-approved order (2026-04-10):
 //   DİL & YAPI          — unchanged
@@ -279,6 +305,33 @@ export const EXPLORE_CATEGORIES = [
         titleTr: 'İnsan Psikolojisi',     titleEn: 'Human Psychology',
         descTr: "Kur'an'ın iç dünya haritası",
         descEn: 'The Quran on the inner world',
+      },
+      {
+        id:     'sunnetullah',
+        kind:   'overlay',
+        target: 'sunnetullah',
+        icon:   CompassIcon,
+        titleTr: 'Sünnetullah',           titleEn: 'Sunnatullāh',
+        descTr: "Allah'ın değişmez kanunları · 6 ayet",
+        descEn: "God's unchanging laws · 6 verses",
+      },
+      {
+        id:     'munafik',
+        kind:   'overlay',
+        target: 'munafik',
+        icon:   MaskIcon,
+        titleTr: 'Münâfık Profili',       titleEn: 'The Hypocrite Profile',
+        descTr: '7 psikolojik davranış deseni',
+        descEn: '7 psychological behavioral patterns',
+      },
+      {
+        id:     'nefis',
+        kind:   'overlay',
+        target: 'nefis',
+        icon:   LadderIcon,
+        titleTr: 'Nefis Mertebeleri',     titleEn: 'Stations of the Self',
+        descTr: '3 Kur\'ânî + 4 tasavvufî basamak',
+        descEn: '3 Qur\'anic + 4 Sufi stations',
       },
     ],
   },

@@ -23,9 +23,9 @@ function HadisBadge({ language }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: '3px',
       fontSize: '0.62rem', fontWeight: 600,
-      color: 'rgba(201,169,110,0.75)',
-      background: 'rgba(201,169,110,0.08)',
-      border: '1px solid rgba(201,169,110,0.2)',
+      color: COLORS.softGoldAlpha75,
+      background: COLORS.softGoldAlpha08,
+      border: `1px solid ${COLORS.softGoldAlpha20}`,
       borderRadius: '20px', padding: '1px 7px', whiteSpace: 'nowrap',
     }}>
       ℹ {language === 'tr' ? 'Hadis' : 'Hadith'}
@@ -123,8 +123,8 @@ function InfoPopover({ text, language: _language }) {
         style={{
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
           width: '18px', height: '18px', borderRadius: '50%',
-          background: 'rgba(201,169,110,0.08)', border: '1px solid rgba(201,169,110,0.2)',
-          color: 'rgba(201,169,110,0.6)', fontSize: '0.6rem', fontWeight: 700,
+          background: COLORS.softGoldAlpha08, border: `1px solid ${COLORS.softGoldAlpha20}`,
+          color: COLORS.softGoldAlpha60, fontSize: '0.6rem', fontWeight: 700,
           cursor: 'pointer', flexShrink: 0,
         }}
         aria-label="Info"
@@ -135,7 +135,7 @@ function InfoPopover({ text, language: _language }) {
         <div style={{
           position: 'absolute', bottom: '22px', left: '50%', transform: 'translateX(-50%)',
           width: '240px', padding: '10px 12px',
-          background: 'rgba(8,10,26,0.97)', border: '1px solid rgba(201,169,110,0.2)',
+          background: 'rgba(8,10,26,0.97)', border: `1px solid ${COLORS.softGoldAlpha20}`,
           borderRadius: '10px', boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
           color: 'rgba(148,163,184,0.85)', fontSize: '0.71rem', lineHeight: 1.6,
           zIndex: 30,
@@ -180,7 +180,7 @@ function SectionTitle({ children, color }) {
       fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase',
       letterSpacing: '0.15em', color: color || GOLD,
       margin: '0 0 12px', paddingBottom: '6px',
-      borderBottom: `1px solid ${color ? `${color}25` : 'rgba(201,169,110,0.15)'}`,
+      borderBottom: `1px solid ${color ? `${color}25` : COLORS.softGoldAlpha15}`,
     }}>
       {children}
     </p>
@@ -277,8 +277,8 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
       {/* ℹ️ Note */}
       {(tr ? angel.infoTr : angel.infoEn) && (
         <div style={{
-          fontSize: '0.75rem', color: 'rgba(201,169,110,0.65)',
-          background: 'rgba(201,169,110,0.05)', border: '1px solid rgba(201,169,110,0.12)',
+          fontSize: '0.75rem', color: COLORS.softGoldAlpha65,
+          background: COLORS.softGoldAlpha05, border: `1px solid ${COLORS.softGoldAlpha12}`,
           borderRadius: '8px', padding: '8px 12px', lineHeight: 1.6,
         }}>
           <span style={{ fontWeight: 700 }}>ℹ️ </span>
@@ -332,8 +332,8 @@ function TabMelekler({ data, language, isMobile }) {
               flexShrink: 0, padding: '5px 12px', borderRadius: '20px',
               fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 500,
               cursor: 'pointer', transition: 'all 0.15s',
-              background: filter === f.id ? 'rgba(201,169,110,0.15)' : 'rgba(255,255,255,0.04)',
-              border: `1px solid ${filter === f.id ? 'rgba(201,169,110,0.4)' : 'rgba(255,255,255,0.08)'}`,
+              background: filter === f.id ? COLORS.softGoldAlpha15 : 'rgba(255,255,255,0.04)',
+              border: `1px solid ${filter === f.id ? COLORS.softGoldAlpha40 : 'rgba(255,255,255,0.08)'}`,
               color: filter === f.id ? GOLD : '#94a3b8',
             }}
           >
@@ -418,8 +418,8 @@ function TabKissalar({ data, language, isMobile }) {
           const isOpen = expanded === k.id;
           return (
             <div key={k.id} style={{
-              background: isOpen ? 'rgba(201,169,110,0.06)' : 'rgba(255,255,255,0.03)',
-              border: `1px solid ${isOpen ? 'rgba(201,169,110,0.25)' : 'rgba(255,255,255,0.08)'}`,
+              background: isOpen ? COLORS.softGoldAlpha06 : 'rgba(255,255,255,0.03)',
+              border: `1px solid ${isOpen ? COLORS.softGoldAlpha25 : 'rgba(255,255,255,0.08)'}`,
               borderRadius: '12px', overflow: 'hidden',
             }}>
               {/* Header row — always visible */}
@@ -432,7 +432,7 @@ function TabKissalar({ data, language, isMobile }) {
                 }}
               >
                 <div style={{ display: 'flex', gap: '10px', flex: 1, minWidth: 0 }}>
-                  <span style={{ fontSize: '0.62rem', fontWeight: 700, color: GOLD, background: 'rgba(201,169,110,0.10)', borderRadius: '4px', padding: '2px 7px', flexShrink: 0, marginTop: '2px' }}>
+                  <span style={{ fontSize: '0.62rem', fontWeight: 700, color: GOLD, background: COLORS.softGoldAlpha10, borderRadius: '4px', padding: '2px 7px', flexShrink: 0, marginTop: '2px' }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div style={{ minWidth: 0 }}>
@@ -463,8 +463,8 @@ function TabKissalar({ data, language, isMobile }) {
                   </p>
                   {(tr ? k.infoTr : k.infoEn) && (
                     <div style={{
-                      fontSize: '0.75rem', color: 'rgba(201,169,110,0.65)',
-                      background: 'rgba(201,169,110,0.05)', border: '1px solid rgba(201,169,110,0.12)',
+                      fontSize: '0.75rem', color: COLORS.softGoldAlpha65,
+                      background: COLORS.softGoldAlpha05, border: `1px solid ${COLORS.softGoldAlpha12}`,
                       borderRadius: '8px', padding: '8px 12px', lineHeight: 1.6, marginTop: '8px',
                     }}>
                       <span style={{ fontWeight: 700 }}>ℹ️ </span>
@@ -563,7 +563,7 @@ function TabSinir({ language, isMobile: _isMobile }) {
           <div key={i} style={{
             background: 'rgba(255,255,255,0.03)',
             border: '1px solid rgba(255,255,255,0.08)',
-            borderLeft: '3px solid rgba(201,169,110,0.4)',
+            borderLeft: `3px solid ${COLORS.softGoldAlpha40}`,
             borderRadius: '10px', padding: '14px 16px',
           }}>
             <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 8px' }}>{tr ? card.titleTr : card.titleEn}</p>
@@ -623,7 +623,7 @@ function TabDilbilim({ data, language, isMobile }) {
             <div key={i} style={{
               background: 'rgba(255,255,255,0.03)',
               border: '1px solid rgba(255,255,255,0.08)',
-              borderLeft: '2px solid rgba(201,169,110,0.3)',
+              borderLeft: `2px solid ${COLORS.softGoldAlpha30}`,
               borderRadius: '10px', padding: '12px 14px',
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, direction: 'rtl', margin: '0 0 6px', lineHeight: 1.7 }} lang="ar">{s.arabic}</p>
@@ -693,9 +693,9 @@ function TabKaynaklar({ data, language }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* Global note */}
       <div style={{
-        background: 'rgba(201,169,110,0.05)', border: '1px solid rgba(201,169,110,0.15)',
+        background: COLORS.softGoldAlpha05, border: `1px solid ${COLORS.softGoldAlpha15}`,
         borderRadius: '10px', padding: '14px 16px',
-        fontSize: '0.80rem', color: 'rgba(201,169,110,0.7)', lineHeight: 1.7,
+        fontSize: '0.80rem', color: COLORS.softGoldAlpha70, lineHeight: 1.7,
       }}>
         ℹ️ {tr ? k.globalNotTr : k.globalNotEn}
       </div>
@@ -721,7 +721,7 @@ function TabKaynaklar({ data, language }) {
                       <a href={url} target="_blank" rel="noopener noreferrer" style={{
                         fontSize: '0.75rem', color: GOLD, textDecoration: 'none',
                         display: 'inline-flex', alignItems: 'center', gap: '3px',
-                        borderBottom: '1px dashed rgba(201,169,110,0.35)',
+                        borderBottom: `1px dashed ${COLORS.softGoldAlpha35}`,
                       }}>
                         {item.eser}
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -983,7 +983,7 @@ export default function Melekler({ onClose }) {
         borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ color: 'rgba(201,169,110,0.55)', flexShrink: 0, display: 'flex' }}>
+          <span style={{ color: COLORS.softGoldAlpha55, flexShrink: 0, display: 'flex' }}>
             <PageIcon />
           </span>
           <span style={OVERLAY_TITLE}>{tr ? "Kur'an'da Melekler" : 'Angels in the Quran'}</span>
@@ -1009,7 +1009,7 @@ export default function Melekler({ onClose }) {
 
         {/* Hero — scrolls away */}
         <div style={{ padding: isMobile ? '20px 16px 16px' : '28px 32px 20px' }}>
-          <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.28em', color: 'rgba(201,169,110,0.45)', margin: '0 0 8px' }}>
+          <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.28em', color: COLORS.softGoldAlpha45, margin: '0 0 8px' }}>
             {tr ? "KUR'AN'DA MELEKLER" : 'ANGELS IN THE QURAN'}
           </p>
           <h1 style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1.5rem' : '2rem', fontWeight: 700, color: '#e8e6e3', margin: '0 0 14px', lineHeight: 1.25 }}>

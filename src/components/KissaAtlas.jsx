@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
 
 // Surah names (Türkçe kısa)
 const SURAH_NAMES_TR = [
@@ -479,10 +479,10 @@ export default function KissaAtlas({ onClose }) {
 
                 let bg, border, color, shadow;
                 if (isHighlighted) {
-                  bg = 'rgba(201,169,110,0.15)';
-                  border = '2px solid #C9A96E';
-                  color = '#C9A96E';
-                  shadow = '0 0 10px rgba(201,169,110,0.25)';
+                  bg = COLORS.softGoldAlpha15;
+                  border = `2px solid ${COLORS.softGold}`;
+                  color = COLORS.softGold;
+                  shadow = `0 0 10px ${COLORS.softGoldAlpha25}`;
                 } else if (isSelectedSurah) {
                   bg = `${prophet.color}20`;
                   border = `2px solid ${prophet.color}80`;
@@ -549,7 +549,7 @@ export default function KissaAtlas({ onClose }) {
                       <span style={{
                         position: 'absolute', top: '2px', right: '3px',
                         fontSize: '0.52rem',
-                        color: isHighlighted ? '#C9A96E' : `${prophet.color}70`,
+                        color: isHighlighted ? COLORS.softGold : `${prophet.color}70`,
                         fontWeight: 700, lineHeight: 1,
                       }}>
                         {scenesHere.length}

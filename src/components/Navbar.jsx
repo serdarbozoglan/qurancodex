@@ -40,6 +40,9 @@ const MeselAtlasi   = lazy(() => import('./MeselAtlasi'));
 const SebebiNuzul   = lazy(() => import('./SebebiNuzul'));
 const FurukAtlasi   = lazy(() => import('./FurukAtlasi'));
 const MunasebatAtlasi = lazy(() => import('./MunasebatAtlasi'));
+const SunnetullahAtlasi = lazy(() => import('./SunnetullahAtlasi'));
+const MunafikProfili    = lazy(() => import('./MunafikProfili'));
+const NefisMertebeleri  = lazy(() => import('./NefisMertebeleri'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -212,6 +215,9 @@ export default function Navbar() {
   const [sebebOpen,    setSebebOpen]    = useState(false);
   const [furukOpen,    setFurukOpen]    = useState(false);
   const [munasebatOpen, setMunasebatOpen] = useState(false);
+  const [sunnetullahOpen, setSunnetullahOpen] = useState(false);
+  const [munafikOpen,     setMunafikOpen]     = useState(false);
+  const [nefisOpen,       setNefisOpen]       = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -340,6 +346,9 @@ export default function Navbar() {
       ['openSurahCommands',    () => setCommandsOpen(true)],
       ['openSurahComparator',  () => setComparatorOpen(true)],
       ['openDiyalogAgi',       () => setDiyalogOpen(true)],
+      ['openSunnetullah',      () => setSunnetullahOpen(true)],
+      ['openMunafikProfili',   () => setMunafikOpen(true)],
+      ['openNefisMertebeleri', () => setNefisOpen(true)],
     ];
     handlers.forEach(([name, fn]) => window.addEventListener(name, fn));
     return () => {
@@ -372,7 +381,7 @@ export default function Navbar() {
   //      so this doesn't double-close anything. Loop-safe: setState isn't
   //      called from this branch, so the effect doesn't re-run.
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen || furukOpen || munasebatOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen || furukOpen || munasebatOpen || sunnetullahOpen || munafikOpen || nefisOpen;
     const alreadyOnOverlayEntry = window.history.state?.overlay === true;
     if (anyOpen) {
       // Only push a fresh overlay sentinel when we're NOT already sitting
@@ -392,7 +401,7 @@ export default function Navbar() {
       // active anymore — pop it so listeners get notified.
       window.history.back();
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -474,10 +483,13 @@ export default function Navbar() {
         return;
       }
       if (sebebOpen)      { setSebebOpen(false);            return; }
+      if (sunnetullahOpen){ setSunnetullahOpen(false);      return; }
+      if (munafikOpen)    { setMunafikOpen(false);          return; }
+      if (nefisOpen)      { setNefisOpen(false);            return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -660,14 +672,17 @@ export default function Navbar() {
                     // renkleriBtn, kavimlerBtn, dogaBtn, meleklerBtn, cennetBtn,
                     // kiyametBtn, zamanBtn) are replaced by this single function.
                     const OVERLAY_EVENT_BY_TARGET = {
-                      renkler:  'openRenkler',
-                      yeminler: 'openYeminler',
-                      kavimler: 'openKavimlerAtlasi',
-                      kevni:    'openDogaAtlasi',
-                      zaman:    'openZamanBoyutlari',
-                      melekler: 'openMelekler',
-                      kiyamet:  'openKiyametSahneleri',
-                      cennet:   'openCennetCehennem',
+                      renkler:     'openRenkler',
+                      yeminler:    'openYeminler',
+                      kavimler:    'openKavimlerAtlasi',
+                      kevni:       'openDogaAtlasi',
+                      zaman:       'openZamanBoyutlari',
+                      melekler:    'openMelekler',
+                      kiyamet:     'openKiyametSahneleri',
+                      cennet:      'openCennetCehennem',
+                      sunnetullah: 'openSunnetullah',
+                      munafik:     'openMunafikProfili',
+                      nefis:       'openNefisMertebeleri',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;
@@ -1385,6 +1400,21 @@ export default function Navbar() {
     {munasebatOpen && (
       <Suspense fallback={null}>
         <MunasebatAtlasi onClose={() => setMunasebatOpen(false)} />
+      </Suspense>
+    )}
+    {sunnetullahOpen && (
+      <Suspense fallback={null}>
+        <SunnetullahAtlasi onClose={() => setSunnetullahOpen(false)} />
+      </Suspense>
+    )}
+    {munafikOpen && (
+      <Suspense fallback={null}>
+        <MunafikProfili onClose={() => setMunafikOpen(false)} />
+      </Suspense>
+    )}
+    {nefisOpen && (
+      <Suspense fallback={null}>
+        <NefisMertebeleri onClose={() => setNefisOpen(false)} />
       </Suspense>
     )}
     {retorigiOpen && (

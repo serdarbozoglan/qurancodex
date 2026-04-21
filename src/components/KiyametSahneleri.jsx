@@ -30,20 +30,20 @@ const PHASE_COLORS = {
 const HAPAX_COLOR = '#8b5cf6';
 const GOLD = COLORS.gold;
 
-// Local style constants for patterns not yet in tokens.js
+// Soft-gold note boxes (semantic "annotation" role).
 const NOTE_BOX = {
-  background: 'rgba(201,169,110,0.06)',
-  border: '1px solid rgba(201,169,110,0.18)',
+  background: COLORS.softGoldAlpha06,
+  border: `1px solid ${COLORS.softGoldAlpha18}`,
   borderRadius: '10px',
   padding: '8px 12px',
 };
 
 const NOTE_BOX_INLINE = {
   fontSize: '0.78rem',
-  color: 'rgba(201,169,110,0.7)',
+  color: COLORS.softGoldAlpha70,
   lineHeight: 1.6,
-  background: 'rgba(201,169,110,0.06)',
-  border: '1px solid rgba(201,169,110,0.15)',
+  background: COLORS.softGoldAlpha06,
+  border: `1px solid ${COLORS.softGoldAlpha15}`,
   borderRadius: '6px',
   padding: '6px 10px',
 };
@@ -138,9 +138,9 @@ function HadisBadge({ language }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: '3px',
       fontSize: '0.65rem', fontWeight: 600,
-      color: 'rgba(201,169,110,0.75)',
-      background: 'rgba(201,169,110,0.08)',
-      border: '1px solid rgba(201,169,110,0.2)',
+      color: COLORS.softGoldAlpha75,
+      background: COLORS.softGoldAlpha08,
+      border: `1px solid ${COLORS.softGoldAlpha20}`,
       borderRadius: '20px', padding: '1px 7px',
     }}>
       ℹ {language === 'tr' ? 'Hadis' : 'Hadith'}
@@ -770,7 +770,7 @@ function TabKozmikSahneler({ language, isMobile }) {
                 </p>
                 {(item.noteTr || item.noteEn) && (
                   <p style={{
-                    fontSize: '0.75rem', color: item.isInfo ? 'rgba(201,169,110,0.7)' : COLORS.silver,
+                    fontSize: '0.75rem', color: item.isInfo ? COLORS.softGoldAlpha70 : COLORS.silver,
                     margin: '4px 0 0', lineHeight: 1.5, fontFamily: FONTS.body,
                   }}>
                     {item.isInfo ? 'ℹ ' : ''}{language === 'tr' ? item.noteTr : item.noteEn}

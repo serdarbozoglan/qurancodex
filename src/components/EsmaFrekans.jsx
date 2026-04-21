@@ -101,9 +101,9 @@ const verifiedBadge = {
 
 const disputedBadge = {
   ...badgeBase,
-  background: 'rgba(201,169,110,0.15)',
+  background: COLORS.softGoldAlpha15,
   color: COLORS.gold,
-  border: `1px solid rgba(201,169,110,0.3)`,
+  border: `1px solid ${COLORS.softGoldAlpha30}`,
 };
 
 const hadithBadge = {
@@ -476,7 +476,7 @@ export default function EsmaFrekans({ onClose }) {
                 onClick={() => setVisibleCount((v) => v + PAGE_SIZE)}
                 style={{
                   background: 'transparent',
-                  border: `1px solid rgba(201,169,110,0.4)`,
+                  border: `1px solid ${COLORS.softGoldAlpha40}`,
                   borderRadius: '8px',
                   color: COLORS.gold,
                   padding: '7px 20px',
@@ -594,8 +594,8 @@ export default function EsmaFrekans({ onClose }) {
                 {/* Count badge */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '6px' }}>
                   <span style={{
-                    background: 'rgba(201,169,110,0.12)',
-                    border: '1px solid rgba(201,169,110,0.25)',
+                    background: COLORS.softGoldAlpha12,
+                    border: `1px solid ${COLORS.softGoldAlpha25}`,
                     borderRadius: '20px',
                     padding: '2px 10px',
                     color: COLORS.gold,
@@ -630,7 +630,7 @@ export default function EsmaFrekans({ onClose }) {
               rel="noopener noreferrer"
               style={{
                 background: 'transparent',
-                border: '1px solid rgba(201,169,110,0.4)',
+                border: `1px solid ${COLORS.softGoldAlpha40}`,
                 borderRadius: '8px',
                 color: COLORS.gold,
                 padding: '6px 14px',
@@ -649,7 +649,7 @@ export default function EsmaFrekans({ onClose }) {
               rel="noopener noreferrer"
               style={{
                 background: 'transparent',
-                border: '1px solid rgba(201,169,110,0.4)',
+                border: `1px solid ${COLORS.softGoldAlpha40}`,
                 borderRadius: '8px',
                 color: COLORS.gold,
                 padding: '6px 14px',
