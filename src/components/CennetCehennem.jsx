@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION } from '../tokens';
 
 // ── Color system ──────────────────────────────────────────────────────────────
 const CENNET   = { accent: '#1D9E75', bg: 'rgba(27,110,86,0.12)',   border: 'rgba(29,158,117,0.28)' };
@@ -239,7 +239,7 @@ export default function CennetCehennem({ onClose }) {
                   color: isActive ? COLORS.gold : COLORS.silver,
                   fontSize: isMobile ? '0.85rem' : '0.9rem',
                   fontWeight: isActive ? 600 : 400,
-                  cursor: 'pointer', transition: 'all 0.15s',
+                  cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                   fontFamily: FONTS.body,
                   whiteSpace: 'nowrap',
                 }}
@@ -1184,7 +1184,7 @@ function TabKaynaklar({ data, language }) {
                 fontSize: '0.8rem',
                 cursor: 'pointer',
                 fontFamily: "'Inter', sans-serif",
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#e8e6e3'; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#94a3b8'; }}

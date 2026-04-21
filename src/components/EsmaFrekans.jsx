@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, TRANSITION } from '../tokens';
 
 const VERIFIED_COUNT = 81;
 const HADITH_COUNT = 19;
@@ -133,7 +133,7 @@ function FilterChip({ active, onClick, children }) {
         fontSize: '0.78rem',
         fontFamily: FONTS.body,
         cursor: 'pointer',
-        transition: 'all 0.15s',
+        transition: `all ${TRANSITION.fast}`,
         whiteSpace: 'nowrap',
       }}
     >

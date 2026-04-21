@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, CLOSE_BTN, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, CLOSE_BTN, BREAKPOINT_MOBILE, TRANSITION } from '../tokens';
 
 // ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
 const CATEGORY_ICONS = {
@@ -183,7 +183,7 @@ export default function QuranCommands({ onClose }) {
           border: '1px solid rgba(255,255,255,0.15)',
           borderRadius: '50%', width: '36px', height: '36px',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer', color: COLORS.silver, transition: 'all 0.15s',
+          cursor: 'pointer', color: COLORS.silver, transition: `all ${TRANSITION.fast}`,
         }}
         onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = '#fff'; }}
         onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#94a3b8'; }}
@@ -261,7 +261,7 @@ export default function QuranCommands({ onClose }) {
                   background: isActive ? cat.accent + '22' : 'transparent',
                   color: isActive ? cat.accent : '#94a3b8',
                   fontSize: '0.78rem', fontWeight: isActive ? 600 : 400,
-                  cursor: 'pointer', transition: 'all 0.15s',
+                  cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                   fontFamily: "'Inter', sans-serif",
                   display: 'flex', alignItems: 'center', gap: '5px',
                 }}
@@ -309,7 +309,7 @@ export default function QuranCommands({ onClose }) {
                   background: isActive ? cat.accent + '14' : 'transparent',
                   borderLeft: isActive ? `3px solid ${cat.accent}` : '3px solid transparent',
                   border: 'none', cursor: 'pointer',
-                  transition: 'all 0.15s', textAlign: 'left',
+                  transition: `all ${TRANSITION.fast}`, textAlign: 'left',
                 }}
                 onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
                 onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
@@ -375,7 +375,7 @@ export default function QuranCommands({ onClose }) {
                     fontSize: '0.78rem', fontWeight: 500,
                     background: filter === f.key ? accent : 'transparent',
                     color: filter === f.key ? '#0d1b2a' : '#94a3b8',
-                    transition: 'all 0.15s',
+                    transition: `all ${TRANSITION.fast}`,
                     fontFamily: "'Inter', sans-serif",
                   }}
                 >
@@ -414,7 +414,7 @@ export default function QuranCommands({ onClose }) {
                       color: accent,
                       fontSize: '0.85rem',
                       cursor: 'pointer',
-                      transition: 'all 0.15s',
+                      transition: `all ${TRANSITION.fast}`,
                       fontFamily: "'Inter', sans-serif",
                     }}
                     onMouseEnter={e => { e.currentTarget.style.background = accent + '15'; }}

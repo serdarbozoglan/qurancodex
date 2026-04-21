@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  FONTS, COLORS,
+  FONTS, COLORS, TRANSITION,
 } from '../tokens';
 
 const TABS = {
@@ -234,7 +234,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
           <button
             key={f.id}
             onClick={() => setActiveFilter(f.id)}
-            style={{ padding: '5px 14px', borderRadius: '20px', border: 'none', cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, transition: 'all 0.15s', background: activeFilter === f.id ? COLORS.gold : 'rgba(255,255,255,0.06)', color: activeFilter === f.id ? COLORS.cosmicBlack : COLORS.silver }}
+            style={{ padding: '5px 14px', borderRadius: '20px', border: 'none', cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, transition: `all ${TRANSITION.fast}`, background: activeFilter === f.id ? COLORS.gold : 'rgba(255,255,255,0.06)', color: activeFilter === f.id ? COLORS.cosmicBlack : COLORS.silver }}
           >
             {tr ? f.labelTr : f.labelEn}
           </button>
@@ -332,7 +332,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                   background: expandedVerse === v.ref ? 'rgba(212,165,116,0.15)' : 'transparent',
                   color: expandedVerse === v.ref ? COLORS.gold : COLORS.silver,
                   fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,
-                  transition: 'all 0.15s',
+                  transition: `all ${TRANSITION.fast}`,
                 }}
               >
                 {v.ref} {expandedVerse === v.ref ? '▲' : '▼'}
@@ -1237,7 +1237,7 @@ export default function KuranRenkleri({ onClose }) {
     fontFamily: FONTS.body,
     cursor: 'pointer',
     whiteSpace: 'nowrap',
-    transition: 'all 0.15s',
+    transition: `all ${TRANSITION.fast}`,
     flexShrink: 0,
   });
 
