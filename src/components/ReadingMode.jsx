@@ -2787,10 +2787,10 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     </div>
                     {/* Thin gold divider — classical mushaf ornament feel */}
                     <div style={{
-                      width: '48px',
+                      width: '64px',
                       height: '1px',
                       background: C.gold,
-                      opacity: 0.35,
+                      opacity: 0.55,
                       margin: '0 auto 14px',
                     }} />
                     <div style={{
