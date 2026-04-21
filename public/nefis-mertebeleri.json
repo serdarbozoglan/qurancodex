@@ -1,0 +1,267 @@
+{
+  "meta": {
+    "quranicCoreStages": 3,
+    "suficExtensionStages": 4,
+    "totalStages": 7,
+    "quranicStagesExplicit": ["emmare", "levvame", "mutmainne"],
+    "suficStagesDerived": ["mulhime", "radiye", "mardiyye", "kamile"],
+    "generatedBy": "qc-content-producer",
+    "generatedDate": "2026-04-21",
+    "sourceDraft": "docs/content-drafts/2026-04-20-nefis-mertebeleri.md"
+  },
+  "intro": {
+    "titleTr": "Nefis Mertebeleri — İç Yolculuk Haritası",
+    "titleEn": "The Stations of the Self — The Inner Journey Map",
+    "subtitleTr": "Kur'ân'ın 3 mertebesi + tasavvufun 4 eki = 7 basamak",
+    "subtitleEn": "The Qur'an's 3 stages + Sufism's 4 additions = 7 steps",
+    "descTr": "İnsan nefsi sabit bir şey değildir. Kur'ân, nefsi üç net mertebe ile adlandırır: emmâre, levvâme, mutmainne. Tasavvuf bu üçe dört ek mertebe (mülhime, râdıye, mardıyye, kâmile) ekleyerek 'yedi mertebe' sistemini oluşturmuştur. Bu atlas, Kur'ânî çekirdek ile tasavvufî genişlemeyi birbirinden açıkça ayırır — ikisine de eşit mesafede yer verir.",
+    "descEn": "The human self is not static. The Qur'an names three explicit stages: *ammāra*, *lawwāma*, *muṭmaʾinna*. Sufism adds four (*mulhima*, *rāḍiya*, *marḍiyya*, *kāmila*) to form a seven-stage system. This atlas distinguishes clearly between the Qur'anic core and the Sufi extension — giving equal distance to both."
+  },
+  "quranicCore": [
+    {
+      "id": "emmare",
+      "order": 1,
+      "arabicNoun": "النَّفْسُ الأَمَّارَةُ",
+      "transliteration": "al-nafs al-ammāra",
+      "nameTr": "Nefs-i Emmâre",
+      "nameEn": "The Commanding Self",
+      "meaningTr": "Kötülüğü ısrarla emreden nefis",
+      "meaningEn": "The self that persistently commands evil",
+      "keyVerseRef": "Yusuf 12:53",
+      "verses": [
+        {
+          "verseRef": "Yusuf 12:53",
+          "surah": 12,
+          "ayah": 53,
+          "verseAr": "وَمَٓا اُبَرِّئُ نَفْس۪يۚ اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُّٓوءِ اِلَّا مَا رَحِمَ رَبّ۪يۜ اِنَّ رَبّ۪ي غَفُورٌ رَح۪يمٌ",
+          "verseTr": "(Bununla beraber) nefsimi temize çıkarmıyorum. Çünkü nefis aşırı şekilde kötülüğü emreder; Rabbim acıyıp korumuş başka. Şüphesiz Rabbim çok bağışlayan, pek esirgeyendir.",
+          "verseEn": "And I do not acquit myself. Indeed, the soul is a persistent enjoiner of evil, except those upon which my Lord has mercy. Indeed, my Lord is Forgiving and Merciful."
+        }
+      ],
+      "descriptionTr": "İç dünyanın 'kötülüğü emreden' aşaması. 'Emmâre' (ammâra'nın mübalağa sigası) kelimesi önemlidir: yalnız kötülük yapmaz — ısrarla, sürekli, yoğun şekilde emrettirir. Hz. Yusuf'un ifadesinde bu mertebe bir insan genel hâli olarak tanımlanır, 'kötü insan' değil: 'Rabbim acıyıp korumuş başka' — istisna Allah'ın rahmetidir, kaide değil.",
+      "descriptionEn": "The inner 'commanding evil' stage. The word *ammāra* (the intensive form of *ʿāmira*) matters: not just commanding evil but doing so persistently, continuously, intensely. In Joseph's statement this stage is described as a general human condition, not that of a 'bad person': 'except those upon which my Lord has mercy' — mercy is the exception, not the rule.",
+      "classicalViewTr": "İbn Kesîr, Yusuf 12:53'te bu ayetin Hz. Yusuf'a ait olduğu görüşünü tercih eder: Hz. Yusuf, en masumiyetinin zirvesinde bile 'ben kendimi tezkiye etmiyorum' diyerek hiçbir insanın kendi nefsinden emin olamayacağını öğretir. Elmalılı: 'Nefs-i emmâre, aklın ve iradenin koruması olmadığında doğal yörüngesine döner: şehvet ve gazap.' Râzî 'el-ammâra siygatü mübâlağa'dır der — dilbilim açısından mübalağa kalıbıdır.",
+      "classicalViewEn": "Ibn Kathīr on Q 12:53 prefers the reading that the statement is Joseph's: at the peak of his demonstrated purity, Joseph says 'I do not acquit myself,' teaching that no human can be secure from his own self. Elmalılı: 'The commanding self returns to its natural orbit — desire and anger — the moment reason and will cease to guard it.' Al-Rāzī notes that *ammāra* is a hyperbolic form.",
+      "sourceTr": "İbn Kesîr, Yusuf 12:53; Elmalılı Hamdi Yazır, Hak Dini Kur'an Dili, Yusuf 53; Râzî, Mefâtîhu'l-Gayb, Yusuf 53.",
+      "sourceEn": "Ibn Kathīr on Q 12:53; Elmalılı Hamdi Yazır, *Hak Dini Kur'an Dili*, on Q 12:53; Al-Rāzī on Q 12:53.",
+      "infoTr": "Klasik tefsirde ayetin söyleyeni üzerinde tartışma vardır: bir görüş Hz. Yusuf'un kendisi, diğer görüş Aziz'in hanımı. İbn Kesîr, Râzî ve Elmalılı Hz. Yusuf lehine tercih yapar. Kurtubî her iki görüşü de nakleder.",
+      "infoEn": "Classical exegesis debates the speaker: one view holds it is Joseph himself, the other the Aziz's wife. Ibn Kathīr, al-Rāzī, and Elmalılı prefer the Joseph reading. Al-Qurṭubī reports both.",
+      "color": "#8B0000",
+      "ekolEtiketi": "klasik tefsir (Sünnî icmâya yakın)"
+    },
+    {
+      "id": "levvame",
+      "order": 2,
+      "arabicNoun": "النَّفْسُ اللَّوَّامَةُ",
+      "transliteration": "al-nafs al-lawwāma",
+      "nameTr": "Nefs-i Levvâme",
+      "nameEn": "The Self-Reproaching Self",
+      "meaningTr": "Kendini kınayan, pişmanlık duyan nefis",
+      "meaningEn": "The self that reproaches itself",
+      "keyVerseRef": "Kıyâme 75:2",
+      "verses": [
+        {
+          "verseRef": "Kıyâme 75:2",
+          "surah": 75,
+          "ayah": 2,
+          "verseAr": "وَلَٓا اُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ",
+          "verseTr": "Kendini kınayan (pişmanlık duyan) nefse yemin ederim (diriltilip hesaba çekileceksiniz).",
+          "verseEn": "And I swear by the reproaching soul [to the certainty of resurrection]."
+        }
+      ],
+      "descriptionTr": "'Kendini kınayan' aşama. Burada nefis bir iç ses kazanır — yaptığı kötülükten ötürü kendini yargılar. Ancak yargılamak yalnız geçmiş günaha dair değildir; bazı müfessirler levvâmenin iyi bir işi yeterince iyi yapamadığı için de kendini kınayabileceğini söyler. Yani levvâme yalnız günahkarlık değil, yüksek bir ahlâkî hassasiyet alâmetidir. Bir mü'minin iç sesi levvâmedir.",
+      "descriptionEn": "The 'self-reproaching' stage. Here the self gains an inner voice — it judges itself for the evil it commits. But the reproach is not only for past sins; some exegetes note that *lawwāma* also reproaches itself for failing to do a good deed well enough. Thus *lawwāma* is not just sinfulness but a high ethical sensitivity — the inner voice of the believer.",
+      "classicalViewTr": "Hasan-ı Basrî'nin (ö. 728) meşhur yorumu: 'Mü'min kendini her gün kınayarak geçirir — sözümü niye böyle söyledim, kalkmak varken niye oturdum, niye gülümsedim — bu kınamalar bizzat onun imanının delilleridir.' Zemahşerî Keşşâf'ta ve Râzî Mefâtîh'te bu nakli detaylandırır. Elmalılı: 'Nefs-i levvâme mü'minin kalbidir.'",
+      "classicalViewEn": "Al-Ḥasan al-Baṣrī (d. 728) famously comments: 'The believer spends every day reproaching himself — why did I speak this way, why did I sit when I should have risen, why did I smile — these very reproaches are proofs of his faith.' Al-Zamakhsharī and al-Rāzī elaborate this tradition. Elmalılı: '*Lawwāma* is the believer's heart.'",
+      "sourceTr": "Hasan-ı Basrî rivayeti (Zemahşerî, Keşşâf, Kıyâme 75:2); Râzî, Mefâtîh, Kıyâme 2; Elmalılı, Hak Dini, Kıyâme 2; İbn Kesîr, Kıyâme 2.",
+      "sourceEn": "Al-Ḥasan al-Baṣrī (cited in al-Zamakhsharī on Q 75:2); Al-Rāzī on Q 75:2; Elmalılı on Q 75:2; Ibn Kathīr on Q 75:2.",
+      "infoTr": "Kimi tefsirler levvâmeyi kıyamet günündeki pişmanlık olarak yorumlar; diğerleri dünyevî iç sesi kasteder. Klasik icmâ dünyevî yorum tarafındadır ama iki görüş birbiriyle çelişmez — ikisini birleştirmek de mümkündür.",
+      "infoEn": "Some exegetes read *lawwāma* as regret on the Day of Resurrection; others as the worldly inner voice. Classical consensus leans toward the worldly reading, but the two views are compatible.",
+      "color": "#94a3b8",
+      "ekolEtiketi": "klasik tefsir"
+    },
+    {
+      "id": "mutmainne",
+      "order": 3,
+      "arabicNoun": "النَّفْسُ الْمُطْمَئِنَّةُ",
+      "transliteration": "al-nafs al-muṭmaʾinna",
+      "nameTr": "Nefs-i Mutmainne",
+      "nameEn": "The Reassured Self",
+      "meaningTr": "Huzura kavuşmuş, sükunete yerleşmiş nefis",
+      "meaningEn": "The self that has attained reassurance and settled calm",
+      "keyVerseRef": "Fecr 89:27-30",
+      "verses": [
+        {
+          "verseRef": "Fecr 89:27",
+          "surah": 89,
+          "ayah": 27,
+          "verseAr": "يَٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُۗ",
+          "verseTr": "Ey huzura kavuşmuş insan!",
+          "verseEn": "[To the righteous it will be said], \"O reassured soul,"
+        },
+        {
+          "verseRef": "Fecr 89:28",
+          "surah": 89,
+          "ayah": 28,
+          "verseAr": "اِرْجِع۪ٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةًۚ",
+          "verseTr": "Sen O'ndan hoşnut, O da senden hoşnut olarak Rabbine dön.",
+          "verseEn": "Return to your Lord, well-pleased and pleasing [to Him]."
+        },
+        {
+          "verseRef": "Fecr 89:29",
+          "surah": 89,
+          "ayah": 29,
+          "verseAr": "فَادْخُل۪ي ف۪ي عِبَاد۪يۙ",
+          "verseTr": "(Seçkin) kullarım arasına katıl,",
+          "verseEn": "And enter among My [righteous] servants,"
+        },
+        {
+          "verseRef": "Fecr 89:30",
+          "surah": 89,
+          "ayah": 30,
+          "verseAr": "وَادْخُل۪ي جَنَّت۪ي",
+          "verseTr": "Ve cennetim gir.",
+          "verseEn": "And enter My Paradise.\""
+        }
+      ],
+      "descriptionTr": "'Huzura kavuşmuş' aşama. İç çatışma sona erer — nefis artık Rabbinin iradesi ile uyumludur. 'İtmi'nân' kelimesinin kök anlamı yerleşiklik, sükunet, sabit olmak. Duranan, titremeyen, salınmayan nefis — dolayısıyla münâfıktaki 'müzebzeb' (bocalayan) hâlinin tam zıddı. Bu mertebede nefis iç sesin kınaması ihtiyacını da geride bırakır: kınayacak bir şey kalmamıştır — yalnızca hoşnutluk vardır.",
+      "descriptionEn": "The 'reassured' stage. Inner conflict ends — the self is now in harmony with its Lord's will. The root of *iṭmiʾnān* means settled, calm, stable. A self that has come to rest, no longer trembling or oscillating — the exact opposite of the hypocrite's *mudhabdhabīn* (wavering) state. At this stage the self also leaves behind the need for inner reproach: there is nothing to reproach, only contentment.",
+      "classicalViewTr": "İbn Kayyim, Medâricü's-Sâlikîn'de mutmainneyi 'meaningful arrival point' olarak nitelendirir: 'Allah kuluna hitap eder, kulu O'na döner — iki yönlü bir hareket vardır.' Ayetteki 'irci'î' (dön) emrinin iki boyutu var: hem dünyada hem ahirette. Elmalılı bu emri 'ölüm anında ve ba'sda' olmak üzere iki defa verildiğini nakleder.",
+      "classicalViewEn": "Ibn Qayyim, in *Madārij al-Sālikīn*, describes *muṭmaʾinna* as a 'meaningful arrival': 'Allah addresses His servant, and the servant returns to Him — there is a bidirectional motion.' The command *irjiʿī* ('return') in the verse has two dimensions: both worldly and in the hereafter. Elmalılı notes it is given twice — at the moment of death and at resurrection.",
+      "sourceTr": "İbn Kayyim, Medâricü's-Sâlikîn (mutmainne bahsi); Elmalılı, Hak Dini, Fecr 89:27-30; Taberî, Câmiu'l-Beyân, Fecr 27; İbn Kesîr, Fecr 27-30.",
+      "sourceEn": "Ibn Qayyim, *Madārij al-Sālikīn* (section on *muṭmaʾinna*); Elmalılı on Q 89:27-30; Al-Ṭabarī on Q 89:27; Ibn Kathīr on Q 89:27-30.",
+      "infoTr": "Klasik tefsir (İbn Kayyim dahil) 'râdıye' ve 'mardıyye' kelimelerini mutmainne nefsin sıfatları olarak yorumlar. Tasavvuf ekolü bunları ayrı mertebe kategorisine yükseltir. İki yorum metne farklı açılardan bakar; biri zâhirî, diğeri bâtınî.",
+      "infoEn": "Classical exegesis (including Ibn Qayyim) reads *rāḍiya* and *marḍiyya* as attributes of the *muṭmaʾinna* self. The Sufi school elevates them to separate stages. The two readings are *ẓāhirī* (exoteric) and *bāṭinī* (esoteric) perspectives on the same text.",
+      "color": "#1a7a4c",
+      "ekolEtiketi": "klasik tefsir"
+    }
+  ],
+  "transitionNote": {
+    "titleTr": "Kur'ânî Çekirdek ↑ | Tasavvufî Genişleme ↓",
+    "titleEn": "Qur'anic Core ↑ | Sufi Extension ↓",
+    "bodyTr": "Buradan sonraki 4 mertebe tasavvufî okumanın yapılandırmasıdır — Kur'ân'da doğrudan isim olarak geçmezler. Zâhirî tefsir bu mertebeleri ayrı kategori olarak kabul etmez; klasik ulemanın büyük çoğunluğu için Kur'ân yalnızca 3 mertebe (emmâre, levvâme, mutmainne) tanır. Tasavvuf ekolü (İbn Arabî, Abdülkerim Cîlî, daha sonra Ni'metullah Velî ekolü) bu 3 mertebeye 4 ilave ekleyerek 'yedi mertebe' sistemi kurmuştur. Dayanakları genellikle Kur'ân'daki başka kelimelerin (ilhâm, râzı, mardî, kâmil) nefsin evrelerine aktarılmasıdır. Bu bâtınî bir okumadır — metnin dışındaki bir anlam katmanını keşfetme girişimi. Klasik ulema (İbn Teymiyye, İbn Kayyim'in kısmen) bu genişlemeye mesafeli durur. Aşağıdaki 4 mertebe bu çerçevede okunmalıdır.",
+    "bodyEn": "The four stages that follow are Sufi constructions — they do not appear in the Qur'an by name. Exoteric exegesis does not accept them as separate categories; for the majority of classical scholars the Qur'an recognizes only three stages (*ammāra*, *lawwāma*, *muṭmaʾinna*). The Sufi school (Ibn ʿArabī, ʿAbd al-Karīm al-Jīlī, later the Niʿmatullāhī tradition) added four to form the seven-stage system, usually by transferring other Qur'anic words (*ilhām*, *rāḍin*, *marḍī*, *kāmil*) onto the stages of the self. This is an esoteric (*bāṭinī*) reading — an attempt to discover a layer of meaning beyond the text. Classical scholars (Ibn Taymiyya, and partly Ibn Qayyim) have kept their distance from this extension. The following four stages should be read within this frame."
+  },
+  "suficExtension": [
+    {
+      "id": "mulhime",
+      "order": 3,
+      "orderInSufiSystem": 3,
+      "arabicNoun": "النَّفْسُ الْمُلْهَمَةُ",
+      "transliteration": "al-nafs al-mulhima",
+      "nameTr": "Nefs-i Mülhime",
+      "nameEn": "The Inspired Self",
+      "meaningTr": "İlhâm yoluyla iyiyi kötüyü ayırt eden nefis (tasavvufî)",
+      "meaningEn": "The self that distinguishes good from evil through inspiration (Sufi)",
+      "linguisticBasis": "Şems 91:8 — 'elhemehâ' fiili",
+      "verses": [
+        {
+          "verseRef": "Şems 91:7-8",
+          "surah": 91,
+          "ayah": 7,
+          "verseAr": "وَنَفْسٍ وَمَا سَوّٰيهَاۙۖ فَاَلْهَمَهَا فُجُورَهَا وَتَقْوٰيهَا",
+          "verseTr": "Nefse ve ona birtakım kabiliyetler verene; sonra da ona iyilik ve kötülükleri ilham edene yemin ederim ki,",
+          "verseEn": "And [by] the soul and He who proportioned it, and inspired it [with discernment of] its wickedness and its righteousness."
+        }
+      ],
+      "descriptionTr": "Tasavvufa göre, levvâme'nin iç kınamasını aşan, artık doğruyu kendi iç ilhamıyla ayırt edebilen nefis mertebesi. Şems sûresindeki 'elhemehâ' (ilham etti) fiili, bu mertebenin dilsel dayanağı sayılır — ancak dikkat: ayet 'Allah her nefse ilhâm etmiştir' der; 'nefs-i mülhime' adlandırması ayete sonradan yapılmış bir isimlendirmedir.",
+      "descriptionEn": "According to Sufi thought, the stage where the self surpasses *lawwāma*'s inner reproach and comes to distinguish right from wrong through its own inner inspiration. The verb *alhamahā* ('inspired it') in Q 91:8 is taken as the linguistic basis — but note: the verse says 'Allah inspired every self'; the name *nafs al-mulhima* is a later naming applied to the verse, not one drawn from it.",
+      "sufiViewTr": "İbn Arabî, Fütûhât-ı Mekkiyye'de nefsin mertebelerinin her birini 'bir varlık derecesi' (bir menzil) olarak görür. Mülhime, sâlikin (yol yolcusunun) kalb ile bağlantı kurduğu mertebedir — artık iyiliği sezgisel olarak bilir, iç rehberliği aktiftir.",
+      "sufiViewEn": "Ibn ʿArabī, in *al-Futūḥāt al-Makkiyya*, treats each stage of the self as a 'level of being' (*manzil*). *Mulhima* is the stage where the traveler (*sālik*) establishes contact with the 'heart' — knowing good intuitively, with inner guidance active.",
+      "sourceTr": "İbn Arabî, Fütûhât-ı Mekkiyye (menzil sistemi); Annemarie Schimmel, Mystical Dimensions of Islam, UNC Press, 1975.",
+      "sourceEn": "Ibn ʿArabī, *al-Futūḥāt al-Makkiyya* (section on the *manāzil*); Annemarie Schimmel, *Mystical Dimensions of Islam*, University of North Carolina Press, 1975.",
+      "warningTr": "Bu mertebe zâhirî tefsirde yoktur. Tasavvufî-bâtınî bir okumadır. Zâhirî tefsirle tamamlayıcı olarak okunabilir ama onun yerine geçmez. Ayrıca İbn Arabî'nin vahdet-i vücûd çerçevesi klasik ulemanın (İbn Teymiyye, İbn Kayyim, İbn Haldûn vb.) eleştirisine konu olmuştur.",
+      "warningEn": "This stage is not found in exoteric exegesis. It is an esoteric (*bāṭinī*) reading. It may be read as complementary to exoteric exegesis but does not substitute for it. Furthermore, Ibn ʿArabī's *waḥdat al-wujūd* framework has been the subject of critique from classical scholars (Ibn Taymiyya, Ibn Qayyim, Ibn Khaldūn, etc.).",
+      "color": "#c9a227",
+      "ekolEtiketi": "tasavvufî-bâtınî okuma (İbn Arabî ekolü — klasik ulemanın eleştirisi ile)"
+    },
+    {
+      "id": "radiye",
+      "order": 4,
+      "orderInSufiSystem": 5,
+      "arabicNoun": "النَّفْسُ الرَّاضِيَةُ",
+      "transliteration": "al-nafs al-rāḍiya",
+      "nameTr": "Nefs-i Râdıye",
+      "nameEn": "The Pleased Self",
+      "meaningTr": "Kaderin her gidişatına rıza gösteren nefis (tasavvufî)",
+      "meaningEn": "The self pleased with every turn of fate (Sufi)",
+      "linguisticBasis": "Fecr 89:28 — 'râdıyeten' kelimesi (sıfat olarak)",
+      "descriptionTr": "Tasavvufa göre, mutmainne mertebesinden sonra, artık kaderin her türlü gidişatına 'râzı olan' (hoşnut olan) nefis mertebesi. Acı ve sevinç birleşir, ikisinden de aynı sükunetle geçer. Bu mertebenin kilit metinsel dayanağı ancak Fecr 89:28'in başındaki 'râdıyeten' kelimesidir — klasik tefsir bu kelimeyi nefsin sıfatı olarak görür, ayrı bir mertebe değil.",
+      "descriptionEn": "In Sufi thought, the stage beyond *muṭmaʾinna* where the self is 'pleased' (*rāḍiya*) with every turn of fate — joy and pain merge, both passed through with the same serenity. The only textual hook is the word *rāḍiyatan* at the start of Q 89:28 — which classical exegesis reads as an attribute, not a separate stage.",
+      "sufiViewTr": "Tasavvuf ekolünde bu mertebede sâlikin iradesi Allah'ın iradesine tam teslim olmuştur. Gazâlî, İhyâ'da rızâ kavramını ayrı bir bölüm olarak işler; ama onu bir nefs mertebesi değil, bir makam (durak) olarak ele alır. İki tasnif arasındaki fark önemlidir: Gazâlî makamât (davranış durakları) sistemini kullanır, nefsin mertebeleri değil.",
+      "sufiViewEn": "In the Sufi tradition at this stage the traveler's will is fully surrendered to God's will. Al-Ghazālī, in *Iḥyāʾ*, treats *riḍāʾ* in a separate section — but as a *maqām* (station), not as a stage of the self. The difference between these classifications matters: al-Ghazālī uses the *maqāmāt* (stations-of-conduct) system, not stages of the self.",
+      "sourceTr": "Gazâlî, İhyâu Ulûmi'd-Dîn (rızâ bahsi — makam olarak); Annemarie Schimmel, Mystical Dimensions, bölüm 3.",
+      "sourceEn": "Al-Ghazālī, *Iḥyāʾ ʿUlūm al-Dīn* (section on *riḍāʾ* — treated as a *maqām*); Schimmel, *Mystical Dimensions*, chapter 3.",
+      "warningTr": "'Râdıye' mertebesinin kendi başına var olduğu görüşü tasavvuf ekolüne aittir. Klasik tefsir (Taberî, Râzî, Elmalılı, İbn Kesîr) Fecr 89:28'deki kelimeyi nefsin sıfatı olarak kabul eder — ayrı mertebe olarak değil. Gazâlî bile rızâyı 'makam' olarak işler, 'nefs mertebesi' olarak değil.",
+      "warningEn": "The view that *rāḍiya* is a separate stage belongs to the Sufi tradition. Classical exegesis (al-Ṭabarī, al-Rāzī, Elmalılı, Ibn Kathīr) reads the word in Q 89:28 as an attribute, not a separate stage. Even al-Ghazālī treats *riḍāʾ* as a *maqām*, not a stage of the self.",
+      "color": "#d4a574",
+      "ekolEtiketi": "tasavvufî-bâtınî okuma"
+    },
+    {
+      "id": "mardiyye",
+      "order": 5,
+      "orderInSufiSystem": 6,
+      "arabicNoun": "النَّفْسُ الْمَرْضِيَّةُ",
+      "transliteration": "al-nafs al-marḍiyya",
+      "nameTr": "Nefs-i Mardıyye",
+      "nameEn": "The Pleasing Self",
+      "meaningTr": "Allah'ın kendisinden razı olduğu nefis (tasavvufî)",
+      "meaningEn": "The self with which Allah is pleased (Sufi)",
+      "linguisticBasis": "Fecr 89:28 — 'mardıyye' kelimesi (sıfat olarak)",
+      "descriptionTr": "Tasavvufa göre, râzı olmayı aşan nefis: artık Allah kulundan razı olur — tek yönlü değil, çift yönlü bir rıza. Bu mertebe nadir bir zirve olarak tarif edilir.",
+      "descriptionEn": "In Sufi thought, the stage beyond being *pleased*: now Allah is pleased with the servant — a mutual, bidirectional pleasure. Described as a rare summit.",
+      "sufiViewTr": "İbn Arabî ekolünde bu mertebe, 'kul-Rab' ilişkisinde en yüksek denkliğin yaşandığı menzildir. Klasik tefsirde bu mertebe ismi yoktur — Fecr 28'deki 'mardıyye' kelimesi aynı nefsin (mutmainne'nin) ikinci sıfatı olarak okunur.",
+      "sufiViewEn": "In the Ibn ʿArabī tradition this is the station of highest mutuality in the servant-Lord relationship. Classical exegesis has no such separate stage — the word *marḍiyya* in Q 89:28 is read as the second attribute of the same (*muṭmaʾinna*) self.",
+      "sourceTr": "İbn Arabî, Fütûhât; Annemarie Schimmel, Mystical Dimensions; Elmalılı, Fecr 28 (zâhirî karşı görüş için).",
+      "sourceEn": "Ibn ʿArabī, *al-Futūḥāt*; Schimmel, *Mystical Dimensions*; Elmalılı on Q 89:28 (for the contrasting classical view).",
+      "warningTr": "Aynı uyarı: zâhirî tefsirde bu ayrı mertebe yoktur.",
+      "warningEn": "Same caution: this separate stage is not found in exoteric exegesis.",
+      "color": "#d4a574",
+      "ekolEtiketi": "tasavvufî-bâtınî okuma"
+    },
+    {
+      "id": "kamile",
+      "order": 6,
+      "orderInSufiSystem": 7,
+      "arabicNoun": "النَّفْسُ الْكَامِلَةُ",
+      "transliteration": "al-nafs al-kāmila",
+      "nameTr": "Nefs-i Kâmile",
+      "nameEn": "The Perfect Self",
+      "meaningTr": "Tasavvufî 'insân-ı kâmil' doktrininin zirvesi",
+      "meaningEn": "The summit of the Sufi doctrine of 'the Perfect Human'",
+      "linguisticBasis": "Kur'ân'ın lafzında değil — tasavvufî 'insân-ı kâmil' doktrininde",
+      "descriptionTr": "Tasavvufa göre sâlikin ulaşabileceği en üst mertebe — 'kâmil insan' olmuş nefis. Abdülkerim Cîlî'nin el-İnsânü'l-Kâmil (ö. 1424) eserinde sistematik olarak açıklanır. Bu mertebede nefis artık peygamberlerin ve velîlerin yansıma aynası olur.",
+      "descriptionEn": "In Sufi thought, the highest stage the traveler may reach — the 'perfect human' (*al-insān al-kāmil*). Systematically expounded in ʿAbd al-Karīm al-Jīlī's *al-Insān al-Kāmil* (d. 1424). At this stage the self becomes the mirror reflecting prophets and saints.",
+      "sufiViewTr": "Abdülkerim Cîlî el-İnsânü'l-Kâmil fî Ma'rifeti'l-Evâhir ve'l-Evâil eserinde bu mertebeyi tasavvufî kozmolojinin zirvesi olarak işler. William Chittick'in akademik çalışmaları bu sistemin tarihsel-fenomenolojik analizini sunar.",
+      "sufiViewEn": "ʿAbd al-Karīm al-Jīlī, in *al-Insān al-Kāmil fī Maʿrifat al-Awākhir wa'l-Awāʾil*, treats this stage as the summit of Sufi cosmology. William Chittick's academic studies provide a historical-phenomenological analysis of the system.",
+      "sourceTr": "Abdülkerim Cîlî, el-İnsânü'l-Kâmil (14.-15. yy); William Chittick, The Sufi Doctrine of Rumi, World Wisdom, 2005.",
+      "sourceEn": "ʿAbd al-Karīm al-Jīlī, *al-Insān al-Kāmil* (d. 1424); William Chittick, *The Sufi Doctrine of Rumi*, World Wisdom, 2005.",
+      "warningTr": "'Nefs-i kâmile' kavramı Kur'ân'da isim olarak hiç yer almaz. Bu mertebe tamamen tasavvufî bir yapılandırmadır. Klasik Sünnî ulema bu kavramın — 'insân-ı kâmil' doktrininin bir parçası olarak — Kur'ânî zeminden saptığını ileri sürmüştür. Özellikle İbn Teymiyye ve İbn Kayyim'in eleştirileri bu yönde serttir.",
+      "warningEn": "The concept of *nafs al-kāmila* never appears by name in the Qur'an. This stage is a fully Sufi construction. Classical Sunnī scholars have argued that this concept — as part of the *al-insān al-kāmil* doctrine — departs from Qur'anic grounds. The critiques of Ibn Taymiyya and Ibn Qayyim in particular are sharp.",
+      "color": "#e8e6e3",
+      "ekolEtiketi": "tasavvufî-bâtınî doktrin (insân-ı kâmil)"
+    }
+  ],
+  "classicalFrameworks": [
+    {
+      "id": "ibn-kayyim-three-stage",
+      "titleTr": "İbn Kayyim'in 3-Mertebe Sistemi",
+      "titleEn": "Ibn Qayyim's Three-Stage System",
+      "descTr": "İbn Kayyim, Medâricü's-Sâlikîn'de nefsin yalnızca 3 Kur'ânî mertebesini kabul eder: emmâre, levvâme, mutmainne. Tasavvufî genişlemelere karşı mesafeli bir tutum alır; özellikle İbn Arabî'nin sistemini reddeder. Ancak bu üç mertebenin iç dinamiğini çok detaylı çözümler: (a) Dikey ilerleme: emmâre → levvâme → mutmainne; (b) Dalgalanma: her mü'min bu üç mertebe arasında gün içinde bile geçiş yapabilir; (c) Son: asıl hedef mutmainne mertebesine istikrarla yerleşmek.",
+      "descEn": "Ibn Qayyim, in *Madārij al-Sālikīn*, accepts only the three Qur'anic stages: *ammāra*, *lawwāma*, *muṭmaʾinna*. He keeps distance from Sufi extensions and specifically rejects Ibn ʿArabī's system. However, he analyzes the inner dynamics of the three stages in great detail: (a) Vertical progression: *ammāra* → *lawwāma* → *muṭmaʾinna*; (b) Oscillation: any believer can shift between these three stages even within a single day; (c) Telos: the real goal is settled stability in *muṭmaʾinna*.",
+      "sourceTr": "İbn Kayyim, Medâricü's-Sâlikîn beyne Menâzili İyyâke Na'budü ve İyyâke Neste'în (nefs bahsi).",
+      "sourceEn": "Ibn Qayyim, *Madārij al-Sālikīn* (section on *al-nafs*).",
+      "ekolEtiketi": "klasik kelâm/tasavvuf (Hanbelî geleneği — tasavvufî genişlemelere eleştirel)"
+    },
+    {
+      "id": "ghazali-qalb-ruh-nafs",
+      "titleTr": "Gazâlî'nin Kalb-Rûh-Nefs Üçlemesi",
+      "titleEn": "Al-Ghazālī's Heart-Spirit-Self Triad",
+      "descTr": "Gazâlî, İhyâu Ulûmi'd-Dîn'de 'nefs' kavramını tek başına değil, kalb-rûh-nefs üçlüsü içinde ele alır. Ona göre: Kalb — insanın mânevî merkez organı, iman ve inkârın yurdu; Rûh — Allah'ın kuluna üflediği ilâhî boyut (Hicr 15:29); Nefs — şehvet ve öfkeyi barındıran, ahlâkî dönüşüme açık olan boyut. Üçü birbirini etkiler; nefsin 'mertebe'leri aslında bu üçlünün dengelenme biçimleridir. Gazâlî'nin sistemi tasavvufî geleneğin zeminini hazırlar ama nefs mertebelerini ayrı bir liste olarak vermez. Onun ana çerçevesi makamlar (riyâ, tevâzu, rızâ, tevekkül vb.) üzerinden gider.",
+      "descEn": "Al-Ghazālī, in *Iḥyāʾ ʿUlūm al-Dīn*, treats *nafs* not alone but within the heart-spirit-soul (*qalb*–*rūḥ*–*nafs*) triad: *Qalb* (heart) — the inner spiritual organ, the dwelling of faith and disbelief; *Rūḥ* (spirit) — the divine dimension breathed by Allah into the servant (Q 15:29); *Nafs* (self) — the dimension housing desire and anger, open to ethical transformation. The three affect each other; the 'stages' of *nafs* are actually balance-configurations of the triad. Al-Ghazālī's system lays the groundwork for the Sufi tradition but does not present the *nafs* stages as a separate list. His main framework moves through *maqāmāt* (stations: *riyāʾ*, humility, *riḍāʾ*, *tawakkul*, etc.).",
+      "sourceTr": "Gazâlî, İhyâu Ulûmi'd-Dîn, 'Acâibü'l-Kalb' kitabı (Rub'u'l-Mühlikât içinde).",
+      "sourceEn": "Al-Ghazālī, *Iḥyāʾ ʿUlūm al-Dīn*, *Kitāb ʿAjāʾib al-Qalb* (within *Rubʿ al-Muhlikāt*).",
+      "ekolEtiketi": "klasik kelâm/tasavvuf (Şâfi'î-Eş'arî)"
+    }
+  ]
+}
