@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const staggerContainer = {
@@ -37,6 +37,11 @@ export default function SectionWrapper({
   // on the section root fixes every uppercase usage inside it at once.
   const { language } = useLanguage();
 
+  // Respect prefers-reduced-motion: skip stagger/fade-up, render at final state.
+  // This disables reveal animations for ALL child motion elements that use
+  // fadeUpItem or inherit from staggerContainer — single-point accessibility.
+  const reduced = useReducedMotion();
+
   return (
     <motion.section
       id={id}
@@ -44,9 +49,9 @@ export default function SectionWrapper({
       className={`relative overflow-hidden ${
         noPadding ? '' : 'py-10 px-6 md:px-12 lg:px-16'
       } ${dark ? 'bg-deep-navy' : 'bg-cosmic-black'} ${className}`}
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="visible"
+      variants={reduced ? undefined : staggerContainer}
+      initial={reduced ? false : 'hidden'}
+      whileInView={reduced ? undefined : 'visible'}
       viewport={{ once: true, margin: '-80px' }}
     >
       <div className="relative z-10 max-w-6xl mx-auto">
