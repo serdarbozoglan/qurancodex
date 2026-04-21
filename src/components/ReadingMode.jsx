@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
-import { COLORS } from '../tokens';
+import { COLORS, BREAKPOINT_MOBILE } from '../tokens';
 import InterlinearView from './InterlinearView';
 
 // Clean Arabic text: remove decorative/annotation markers with no phonetic value.
@@ -614,9 +614,9 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   });
   const [playingVerseId, setPlayingVerseId] = useState(null);
   const [failedVerseId, setFailedVerseId] = useState(null);
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   useEffect(() => {
-    const handler = () => setIsMobile(window.innerWidth < 640);
+    const handler = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
   }, []);
@@ -2768,7 +2768,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
         {bookMode ? (
           /* ── Book format — all surahs ── */
           <>
-          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '10px 12px 32px 12px' : '20px 24px 36px 12px' }}>
+          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '10px 12px 32px 12px' : '20px 12px 36px 12px' }}>
             {/* Book mode: surah banner + bismillah when primary surah's first verse is on this page */}
             {versesOnPage.some(v => v.surah === selectedSurah && v.ayah === 1) && (
               <>
@@ -2858,7 +2858,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                             }}>{verse.ayah}</span>
                             <p style={{
                               margin: 0, color: isActive ? C.translationActive : C.translation,
-                              fontSize: isMobile ? '0.82rem' : '1rem',
+                              fontSize: isMobile ? '0.82rem' : '1.1rem',
                               lineHeight: isMobile ? 1.55 : 1.85,
                               fontStyle: 'italic',
                               flex: 1,
@@ -3065,7 +3065,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                       height so TR content visually centers with AR's first line. */}
                   {(() => {
                     const arLineHeightRem = (isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0);
-                    const trLineHeightRem = (isMobile ? 0.82 : 1) * (isMobile ? 1.55 : 1.8);
+                    const trLineHeightRem = (isMobile ? 0.82 : 1.1) * (isMobile ? 1.55 : 1.8);
                     const trPaddingTopRem = Math.max(0, (arLineHeightRem - trLineHeightRem) / 2);
                     return (
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
