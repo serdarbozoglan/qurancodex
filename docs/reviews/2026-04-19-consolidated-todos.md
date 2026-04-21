@@ -1,5 +1,5 @@
 # QuranCodex — Birleşik Bulgular ve TODO Listesi
-**Tarih:** 2026-04-19
+**Tarih:** 2026-04-19 · **Son güncelleme:** 2026-04-20
 **Kaynak raporlar:** `2026-04-19-content-review.md`, `2026-04-19-consistency-ux-review.md`, `2026-04-19-visual-review.md`
 **Toplam bulgu:** 98 (27 kritik, 45 orta, 26 minör)
 
@@ -8,18 +8,45 @@
 
 ---
 
+## 📊 İLERLEME DURUMU
+
+| Faz | Durum | İşlenen / Toplam |
+|---|---|---|
+| **Faz 0** — Hızlı kazançlar | ✅ Tamamlandı | 8/8 |
+| **Faz 1** — İçerik doğruluğu | ✅ Tamamlandı | 27/31 (büyük çoğunluğu) |
+| Faz 2 — Design System | ⏸ Bekliyor | 0/17 |
+| Faz 3 — Overlay standardization | ⏸ Bekliyor | 0/9 |
+| Faz 4 — Mobil uyum | ⏸ Bekliyor | 0/5 |
+| Faz 5 — Erişilebilirlik | ⏸ Bekliyor | 0/7 |
+| Faz 6 — i18n & DRY | ⏸ Bekliyor | 0/4 |
+| Faz 7 — Arapça/encoding | ⏸ Bekliyor | 0/5 |
+| Faz 8 — Fonksiyonellik | 🟡 Kısmen | 1/5 |
+| Faz 9 — Görsel nüans | ⏸ Bekliyor | 0/6 |
+
+**Toplam ilerleme:** 36/98 (~%37) · **Canlı ana sayfa içeriği akademik olarak savunulabilir durumda.**
+
+**Bonus (TODO dışı yapılan):**
+- `src/sections/MathMiracle.jsx` silindi (ölü kod, 355 satır)
+- `nav.math` i18n key'i temizlendi
+- `docs/reviews/2026-04-19-leeds-verification.md` (10 iddia doğrulama)
+- 3 yeni agent tanımı (`qc-content-producer`, `qc-source-curator`, `qc-visual-director`)
+- `tokens.js`'e `softGold` + alpha variantları eklendi
+- `tokens.js`'e `VERSE_DISPLAY_CARD` eklendi
+
+---
+
 ## 🔥 FAZ 0 — HIZLI KAZANÇLAR (aynı gün bitirilebilir)
 
 Küçük ama belirgin etki sağlayan trivial düzeltmeler.
 
-- [ ] 🟢 **[UX K6]** `QuranCommands.jsx` zIndex 200 → 9999 (§13.3). Navbar ile çakışma bitecek.
-- [ ] 🟢 **[UX O11]** Navbar CTA yüksekliği 34px → 32px (`Navbar.jsx:981`, §13.13)
-- [ ] 🟢 **[UX O12]** "Visualisation" → "Visualization" (`Navbar.jsx:933` imla tutarlılığı)
-- [ ] 🟢 **[UX K14]** `AddresseeSystem` overlay'ine Escape handler ekle (§13.3 zorunlu)
-- [ ] 🟢 **[UX K15]** `Navbar.jsx:465-473` Mesel backref null cleanup ekle (popstate çakışması)
-- [ ] 🟢 **[Content M26]** Ahiret sayısı düzelt — 155 (115 değil), ya çifti kaldır (`src/i18n/tr.json:34-41`)
-- [ ] 🟢 **[Content 27]** Rum 30:2-4 → 30:1-4 (Elif-Lâm-Mîm dahil, `src/i18n/tr.json:402`)
-- [ ] 🟢 **[UX M23]** `HiddenSymmetry.jsx` orphan — kullanıcı onayı al, sil
+- [x] 🟢 **[UX K6]** `QuranCommands.jsx` zIndex 200 → 9999 (§13.3). Navbar ile çakışma bitecek.
+- [x] 🟢 **[UX O11]** Navbar CTA yüksekliği 34px → 32px (`Navbar.jsx:981`, §13.13)
+- [x] 🟢 **[UX O12]** "Visualisation" → "Visualization" (`Navbar.jsx:933` imla tutarlılığı)
+- [x] 🟢 **[UX K14]** `AddresseeSystem` overlay'ine Escape handler ekle (§13.3 zorunlu)
+- [x] 🟢 **[UX K15]** `Navbar.jsx:465-473` Mesel backref null cleanup ekle (popstate çakışması)
+- [x] 🟢 **[Content M26]** Ahiret çifti kaldırıldı (`src/i18n/tr.json:34-41`)
+- [x] 🟢 **[Content 27]** Rum 30:2-4 → 30:1-4 (Elif-Lâm-Mîm dahil)
+- [x] 🟢 **[UX M23]** `HiddenSymmetry.jsx` orphan — silindi (onay alındı)
 
 ---
 
@@ -28,47 +55,47 @@ Küçük ama belirgin etki sağlayan trivial düzeltmeler.
 Sayısal Mucize bölümü en kritik. 7 kritik hata yayın öncesi çözülmeli.
 
 ### Kritik Sayısal İddialar (Leeds Korpusu ile doğrulanmıyor)
-- [ ] 🔴 **[Content K1]** "Hayat 145 / Ölüm 145" — gerçek: 76/50. Çifti kaldır ya da metodolojiyi aç (`src/i18n/tr.json:25-32`)
-- [ ] 🔴 **[Content K2]** "Dünya 115 / Ahiret 115" — ahiret **155**, çift eşit değil. Kaldır veya nüansla
-- [ ] 🔴 **[Content K3]** "Gün 365 / Ay 12" seçici sayım — ywm 405, shr 21. Metodoloji açıkla ya da kaldır
-- [ ] 🔴 **[Content K4]** "Deniz 32 / Kara 13 = Dünya oranı" — baḥr 41 geçer, zorlama uyum. Bölümü revize et
-- [ ] 🟡 **[Content K5]** "14 harf = Kur'an'ın %70'i" — Zipf dağılımının normal sonucu, mucize değil. Kalitatif ifadeye çevir
-- [ ] 🟡 **[Content K6]** "10.000.000+ Hafız" sayacı — hakemli kaynak yok. "Milyonlarca" kalitatif + kaynak range
-- [ ] 🟡 **[Content K7]** "Sıfır varyasyon" sayacı — 10 kıraat farklılığı var. "Konsonant iskelet varyasyonu: 0" olarak nüansla
+- [x] 🔴 **[Content K1]** ✅ MathMiracle.jsx silindi (ölü kod) — 145/145, 115/115, 365, 12, 32/13 iddiaları tamamen kaldırıldı
+- [x] 🔴 **[Content K2]** ✅ Faz 0'da çift kaldırıldı + MathMiracle silindi
+- [x] 🔴 **[Content K3]** ✅ MathMiracle silindiği için otomatik çözüldü
+- [x] 🔴 **[Content K4]** ✅ seaLand bloğu MathMiracle ile birlikte silindi
+- [x] 🟡 **[Content K5]** LinguisticDNA: "%70 harf kapsama" → "%25 sûre oranı" (29/114). Intro revize edildi
+- [x] 🟡 **[Content K6]** LivingPreservation: 10M+ hafız sayacı kaldırıldı; "milyonlarca, 3-10M tahmin" qualitative ifade
+- [x] 🟡 **[Content K7]** "Varyasyon: sıfır" → "Konsonant iskelet (rasm) harf harf aynı"; on kanonik kıraat nüansı eklendi
 
 ### Kaynaksız/Tartışmalı İddialar
-- [ ] 🟢 **[Content 8]** "İstatistikçiler 10.000'de 1" cümlesi kaynaksız — kaldır veya hakemli çalışma göster (`src/i18n/tr.json:22`)
-- [ ] 🟡 **[Content 9]** "%86 huruf-i mukattaa → vahiy atfı" iddiasına null-hypothesis testi ekle veya "tesadüf değil" ifadesini kaldır
-- [ ] 🟢 **[Content 10]** `kuran-retorigi.json` meta `totalQuestions: 1000` — akademik tahmin 1200-1300. Düzelt
-- [ ] 🟢 **[Content 11]** "Hiçbir Arap şiirinin bu uzunlukta..." iddiası — Mu'allakât karşı örneği var. Dilini yumuşat
-- [ ] 🟢 **[Content 12]** Duhâ "ilk 8 ayet" cutoff'u belirsiz — 11/11 mi kontrol et, metni netleştir
-- [ ] 🟡 **[Content 13]** "Farrin %70 ring composition" — kitapta rakam yok. Sayfa referansı bul ya da kalitatif
-- [ ] 🟡 **[Content 14]** "Müddessir %71 / Meryem %72 sert/yumuşak" — site içi hesap, baseline göster veya not ekle
-- [ ] 🟢 **[Content 15]** "Fe-57 = Hadid 57. sûre" — Fe-56 gerçek bolluk izotopu. "İlgi çekici örtüşme" ifadesini kaldır
-- [ ] 🟢 **[Content 16]** Haman `significance` "tarihsel olarak doğrulandı" → tartışmalı paralellik olarak yeniden yaz
-- [ ] 🟢 **[Content 17]** Firavun mumyası tuz kristalleri faktası → criticalNote ile tutarlı hale getir (fact list'ten çıkar)
-- [ ] 🟢 **[Content 18]** Nûh 950 yıl — "tebliğ süresi" değil "aralarında kalma süresi" (Ankebût 29:14)
+- [x] 🟢 **[Content 8]** "10.000'de 1 olasılık" kaldırıldı — yerine "Leeds Korpusu ile doğrulandı"
+- [x] 🟡 **[Content 9]** "Bu tutarlılık tesadüf olamaz" → baseline bilgili nüans ("Kur'ân genelinde daha nadirdir; bu yoğunluk dikkat çekicidir")
+- [x] 🟢 **[Content 10]** `totalQuestions: 1000` → 1290 + note. Navbar / KuranRetorigi / QuranRhetoric / donut chart (1200+) güncellendi
+- [x] 🟢 **[Content 11]** Necm 62 ayet: Arap kaside geleneği kabul edildi, "katı vezin gerektirmeden" nüansı
+- [x] 🟢 **[Content 12]** Duhâ "11 ayetin ilk 8'i" + son 3 ayette ses değişikliği/anlam kırılması açıklaması
+- [x] 🟡 **[Content 13]** Farrin %70 — HiddenArchitecture'de zaten "Academic Citation Card (replaces 70% stat)" yapılmış; WowFacts'te "pek çok sûre" nüansı
+- [x] 🟡 **[Content 14]** SoundArchitecture: "Bu gösterim sezgisel temsil, kesin dilbilimsel ölçüm değil" disclaimer zaten mevcut
+- [x] 🟢 **[Content 15]** Fe-57 = Hadid 57 örtüşme iddiası fact list'ten kaldırıldı
+- [x] 🟢 **[Content 16]** Haman: "doğrulandı" → "tartışmalı dilbilimsel paralellik"; subtitle, points, significance tutarlı hale getirildi
+- [x] 🟢 **[Content 17]** Firavun tuz kristalleri faktası listeden kaldırıldı
+- [x] 🟢 **[Content 18]** Nûh 950 yıl: "kavmi arasında kaldı (lafzen)" + klasik tefsirin tebliğ yorumu notu (WowFacts + KavimlerAtlasi TR/EN)
 
 ### Nüans/Minör
-- [ ] 🟢 **[Content 19]** "Muhammed 5 kez" — Ahmed = Muhammed varsayımını tefsire ait olduğunu not et
-- [ ] 🟢 **[Content 20]** Musa 136 kez — sayım metodu referansı ekle
-- [ ] 🟢 **[Content 21]** Tefsir alıntıları "parafraz" vs "birebir" etiketlerini tutarlı hale getir
-- [ ] 🟢 **[Content 22]** Birmingham parşömeni — "parşömen ≠ mürekkep tarihi" notu ekle
-- [ ] 🟢 **[Content 23]** "Ashab-ı Kehf 300 = tam 309" — 0.017 yıl fark var, "neredeyse tam" olarak düzelt
-- [ ] 🟢 **[Content 24]** "14 secde ayeti 4 vacip / 10 sünnet" — mezhep bağımlılığını belirt
-- [ ] 🟡 **[Content 25]** Neml 27:30 besmele — Süleyman'ın mektubu olduğunu nüansla
+- [x] 🟢 **[Content 19]** Muhammed/Ahmed: Saff 61:6 + "klasik tefsir görüşü" etiketi eklendi
+- [x] 🟢 **[Content 20]** Musa 136 kez: Leeds Üniversitesi Kur'ân Korpusu kaynağı eklendi
+- [x] 🟢 **[Content 21]** Zemahşeri "— parafraz" etiketi mevcut; Şafi'i quote (Beyhaki) kaynaklı
+- [x] 🟢 **[Content 22]** Birmingham: "parşömen tarihi, mürekkep sonradır, ayrıca analiz edilmemiştir" notu eklendi
+- [x] 🟢 **[Content 23]** Ashab-ı Kehf: "tam 309" → "≈ 309.017 (~6 gün fark)"
+- [x] 🟢 **[Content 24]** 14 secde: Hanefî (tümü vâcip) vs Şâfi'î/Mâlikî/Hanbelî (genelde sünnet) ayrımı eklendi
+- [x] 🟡 **[Content 25]** Neml 27:30: Hz. Süleyman'ın Belkıs'a mektubu bağlamı + "alıntı formunda, kur'ânî açılış değil" nüansı
 
 ### Tartışmalı İfadeler (Çoklu görüş var)
-- [ ] 🟡 **[Content 28]** Alaka = sülük — "Moore doğrulaması" aşırı kesin, "paralellik" olarak yaz
-- [ ] 🟡 **[Content 29]** "Kalp fiziksel organ değil" — nörobilim karışımı, nötr dille yeniden yaz
-- [ ] 🟡 **[Content 30]** Freud vs Kur'an nefis — çağdaş yorumlama olarak çerçevele
-- [ ] 🟡 **[Content 31]** Maslow self-transcendence "İslam 1400 yıl önce" — "tasavvufta fena kavramı paralellik" olarak yaz
+- [x] 🟡 **[Content 28]** Alaka: "doğrular, Galen'i değil" → "modern embriyolojik kronoloji ile uyum dikkat çekicidir; doğrulama mı paralellik mi tartışmaya açık"
+- [x] 🟡 **[Content 29]** Kalp: "fiziksel organ değil" → "sadece fiziksel organ değil" + intrinsic cardiac nervous system nüansı
+- [ ] 🟡 **[Content 30]** Freud vs Kur'an nefis — çağdaş yorumlama olarak çerçevele (henüz yapılmadı)
+- [x] 🟡 **[Content 31]** Maslow: "İslam 1400 yıl önce" → "tasavvufta fenâ kavramı anlamlı paralellik taşır"
 
 ### Eksik Kaynak / Zayıf Kanıt
-- [ ] 🟡 **[Content 32]** `surah-info.json` fadail rivayetleri — sıhhat etiketi ekle
-- [ ] 🟡 **[Content 33]** `kavimler.json` `hasArchaeology: true` — arkeolojik kaynak ekle
-- [ ] 🟢 **[Content 34]** `melekler.json` alternateNames — "tefsir görüşü" ibaresini netleştir
-- [ ] 🟢 **[Content 35]** "Edna el-ard = en alçak yer" — significance vs criticalNote çelişkisini gider
+- [x] 🟡 **[Content 32]** surah-info.json: 3 büyük sûrenin (Yâsîn, Vâkıa, Mülk) fadail'i zaten sıhhat etiketi içeriyor; diğer 111 sûre için daha geniş pass gerekir (Faz dışı)
+- [ ] 🟡 **[Content 33]** `kavimler.json` `hasArchaeology: true` — arkeolojik kaynak ekle (büyük araştırma, Faz dışı)
+- [ ] 🟢 **[Content 34]** `melekler.json` alternateNames — "tefsir görüşü" ibaresini netleştir (henüz yapılmadı)
+- [x] 🟢 **[Content 35]** "Edna el-ard": significance yeniden yazıldı — criticalNote ile tutarlı, çelişki giderildi
 
 ---
 
