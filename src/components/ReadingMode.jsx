@@ -3046,9 +3046,16 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             </div>
           ) : (
           <div style={{ padding: isMobile ? '8px 0' : '16px 24px', display: 'flex', flexDirection: 'column', gap: '0' }}>
-            {/* Attribution */}
+            {/* Attribution — harmonized with book mode header style */}
             {showTranslation && (
-              <div style={{ padding: isMobile ? '4px 16px 6px' : '4px 20px 8px', fontSize: '0.68rem', color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
+              <div style={{
+                padding: isMobile ? '4px 16px 10px' : '0 20px 10px',
+                marginBottom: '6px',
+                fontSize: '0.82rem',
+                color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.45)',
+                letterSpacing: '0.04em',
+                borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
+              }}>
                 {`Meal: ${selectedMealAuthor.label}`}
               </div>
             )}
