@@ -101,9 +101,13 @@ const makeAllahWrap = (dayMode) => (m) =>
 // sonrasına yerleştirilir. Vav'ın hemen altına, kasra hizasında küçük "قصر" etiketi
 // gösterilir. position:absolute kullanımı sayesinde satır yüksekliğini etkilemez.
 const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06EB\u06ED])*)\u06EC/gu;
+// "قصر" label: positioned just below the kasra diacritic but still within
+// the letter's line-box bottom (minimal overflow into the inter-line gap).
+// bottom:-0.2em gives a small overflow so label visually belongs to THIS
+// letter, not to the line below.
 const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;">${letter}` +
-  `<span style="position:absolute;bottom:0.9em;left:50%;transform:translateX(-50%);` +
+  `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
   `font-size:0.4em;font-weight:700;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
@@ -3042,9 +3046,16 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
             </div>
           ) : (
           <div style={{ padding: isMobile ? '8px 0' : '16px 24px', display: 'flex', flexDirection: 'column', gap: '0' }}>
-            {/* Attribution */}
+            {/* Attribution — harmonized with book mode header style */}
             {showTranslation && (
-              <div style={{ padding: isMobile ? '4px 16px 6px' : '4px 20px 8px', fontSize: '0.68rem', color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)', letterSpacing: '0.03em' }}>
+              <div style={{
+                padding: isMobile ? '4px 16px 10px' : '0 20px 10px',
+                marginBottom: '6px',
+                fontSize: '0.82rem',
+                color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.45)',
+                letterSpacing: '0.04em',
+                borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
+              }}>
                 {`Meal: ${selectedMealAuthor.label}`}
               </div>
             )}
