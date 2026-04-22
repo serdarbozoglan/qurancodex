@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import AnimatedCounter from '../components/AnimatedCounter';
+import { COLORS, FONTS } from '../tokens';
 // Icons for the three counter cards
 const ShieldIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -28,9 +29,9 @@ const ParchmentIcon = () => (
 );
 
 const COUNTERS = [
-  { key: 'years', target: 1400, prefix: '', suffix: '+', locale: false, color: '#2ecc71', glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', Icon: ClockIcon },
-  { key: 'sanaa', target: 578, prefix: 'MS ', suffix: '', locale: false, color: '#d4a574', glow: 'rgba(212,165,116,0.12)', border: 'rgba(212,165,116,0.3)', Icon: ParchmentIcon },
-  { key: 'variation', target: 0, prefix: '', suffix: '', locale: false, color: '#3498db', glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.3)', Icon: ZeroIcon },
+  { key: 'years', target: 1400, prefix: '', suffix: '+', locale: false, color: COLORS.softEmerald, glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', Icon: ClockIcon },
+  { key: 'sanaa', target: 578, prefix: 'MS ', suffix: '', locale: false, color: COLORS.gold, glow: 'rgba(212,165,116,0.12)', border: 'rgba(212,165,116,0.3)', Icon: ParchmentIcon },
+  { key: 'variation', target: 0, prefix: '', suffix: '', locale: false, color: COLORS.skyBlue, glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.3)', Icon: ZeroIcon },
 ];
 
 export default function LivingPreservation() {
@@ -98,7 +99,7 @@ export default function LivingPreservation() {
             <p style={{
               color: 'rgba(148,163,184,0.55)', fontSize: '0.6rem',
               fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase',
-              fontFamily: "'Inter', sans-serif", marginBottom: '8px',
+              fontFamily: FONTS.body, marginBottom: '8px',
             }}>
               {t(`livingPreservation.counters.${key}.label`)}
             </p>
@@ -114,7 +115,7 @@ export default function LivingPreservation() {
 
             <p style={{
               color: 'rgba(232,230,227,0.55)', fontSize: '0.82rem',
-              fontFamily: "'Inter', sans-serif", marginTop: '10px', lineHeight: 1.5,
+              fontFamily: FONTS.body, marginTop: '10px', lineHeight: 1.5,
             }}>
               {t(`livingPreservation.counters.${key}.description`)}
             </p>
@@ -122,7 +123,7 @@ export default function LivingPreservation() {
             {(key === 'variation' || key === 'sanaa') && (
               <p style={{
                 color: 'rgba(148,163,184,0.4)', fontSize: '0.68rem',
-                fontFamily: "'Inter', sans-serif", fontStyle: 'italic',
+                fontFamily: FONTS.body, fontStyle: 'italic',
                 marginTop: '8px', lineHeight: 1.5,
               }}>
                 * {t(`livingPreservation.counters.${key}.note`)}
@@ -143,7 +144,7 @@ export default function LivingPreservation() {
           style={{
             background: 'rgba(255,255,255,0.02)',
             border: '1px solid rgba(212,165,116,0.2)',
-            borderTop: '3px solid #d4a574',
+            borderTop: `3px solid ${COLORS.gold}`,
           }}
         >
           <div style={{ padding: '24px 28px' }}>
@@ -152,19 +153,19 @@ export default function LivingPreservation() {
                 width: '36px', height: '36px', borderRadius: '8px',
                 background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#d4a574', flexShrink: 0,
+                color: COLORS.gold, flexShrink: 0,
               }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
                 </svg>
               </div>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: '1.15rem', color: '#d4a574', margin: 0 }}>
+              <h3 style={{ fontFamily: FONTS.display, fontWeight: 700, fontSize: '1.15rem', color: COLORS.gold, margin: 0 }}>
                 {t('livingPreservation.written.title')}
               </h3>
             </div>
             <p style={{
               color: 'rgba(232,230,227,0.6)', fontSize: '0.88rem',
-              fontFamily: "'Inter', sans-serif", lineHeight: 1.75, marginBottom: '18px',
+              fontFamily: FONTS.body, lineHeight: 1.75, marginBottom: '18px',
             }}>
               {t('livingPreservation.written.description')}
             </p>
@@ -182,16 +183,16 @@ export default function LivingPreservation() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0, marginTop: '2px',
               }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2">
                   <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
                   <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
                 </svg>
               </div>
               <div>
-                <h4 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: '0.82rem', color: '#d4a574', margin: '0 0 4px' }}>
+                <h4 style={{ fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.82rem', color: COLORS.gold, margin: '0 0 4px' }}>
                   {t('livingPreservation.birmingham.title')}
                 </h4>
-                <p style={{ color: 'rgba(148,163,184,0.65)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", lineHeight: 1.6, margin: 0 }}>
+                <p style={{ color: 'rgba(148,163,184,0.65)', fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
                   {t('livingPreservation.birmingham.description')}
                 </p>
               </div>
@@ -206,7 +207,7 @@ export default function LivingPreservation() {
           style={{
             background: 'rgba(255,255,255,0.02)',
             border: '1px solid rgba(46,204,113,0.2)',
-            borderTop: '3px solid #2ecc71',
+            borderTop: `3px solid ${COLORS.softEmerald}`,
           }}
         >
           <div style={{ padding: '24px 28px' }}>
@@ -215,20 +216,20 @@ export default function LivingPreservation() {
                 width: '36px', height: '36px', borderRadius: '8px',
                 background: 'rgba(46,204,113,0.1)', border: '1px solid rgba(46,204,113,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#2ecc71', flexShrink: 0,
+                color: COLORS.softEmerald, flexShrink: 0,
               }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
                   <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
                 </svg>
               </div>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: '1.15rem', color: '#2ecc71', margin: 0 }}>
+              <h3 style={{ fontFamily: FONTS.display, fontWeight: 700, fontSize: '1.15rem', color: COLORS.softEmerald, margin: 0 }}>
                 {t('livingPreservation.oral.title')}
               </h3>
             </div>
             <p style={{
               color: 'rgba(232,230,227,0.6)', fontSize: '0.88rem',
-              fontFamily: "'Inter', sans-serif", lineHeight: 1.75, marginBottom: '18px',
+              fontFamily: FONTS.body, lineHeight: 1.75, marginBottom: '18px',
             }}>
               {t('livingPreservation.oral.description')}
             </p>
@@ -249,8 +250,8 @@ export default function LivingPreservation() {
               ].map((label, i, arr) => (
                 <span key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <span style={{
-                    fontSize: '0.68rem', fontWeight: 600, color: i === 0 ? '#2ecc71' : i === arr.length - 1 ? '#d4a574' : 'rgba(148,163,184,0.6)',
-                    fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap',
+                    fontSize: '0.68rem', fontWeight: 600, color: i === 0 ? COLORS.softEmerald : i === arr.length - 1 ? COLORS.gold : 'rgba(148,163,184,0.6)',
+                    fontFamily: FONTS.body, whiteSpace: 'nowrap',
                   }}>
                     {label}
                   </span>
@@ -271,12 +272,12 @@ export default function LivingPreservation() {
         style={{
           background: 'linear-gradient(135deg, rgba(52,152,219,0.08) 0%, rgba(0,0,0,0.1) 100%)',
           border: '1px solid rgba(52,152,219,0.2)',
-          borderLeft: '3px solid #3498db',
+          borderLeft: `3px solid ${COLORS.skyBlue}`,
         }}
       >
         <p style={{
           color: 'rgba(232,230,227,0.85)', fontSize: '1rem',
-          fontFamily: "'Inter', sans-serif", lineHeight: 1.8,
+          fontFamily: FONTS.body, lineHeight: 1.8,
           fontStyle: 'italic', margin: 0,
         }}>
           {t('livingPreservation.experiment')}

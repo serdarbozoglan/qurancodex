@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
+import { COLORS, FONTS } from '../tokens';
 
 export default function Conclusion() {
   const { t, language } = useLanguage();
@@ -82,16 +83,16 @@ export default function Conclusion() {
         className="flex flex-col items-center mt-14 mb-6 gap-3"
       >
         <p dir="rtl" lang="ar" style={{
-          fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-          fontSize: '1.6rem', color: '#d4a574',
-          textShadow: '0 0 20px rgba(212,165,116,0.25)',
+          fontFamily: FONTS.quran,
+          fontSize: '1.6rem', color: COLORS.gold,
+          textShadow: `0 0 20px ${COLORS.goldAlpha25}`,
           margin: 0,
         }}>
           فَاتَّبِعُوهُ
         </p>
         <p style={{
           color: 'rgba(148,163,184,0.5)', fontSize: '0.78rem',
-          fontFamily: "'Inter', sans-serif", fontStyle: 'italic',
+          fontFamily: FONTS.body, fontStyle: 'italic',
           margin: 0, textAlign: 'center',
         }}>
           {language === 'tr'
@@ -114,9 +115,9 @@ export default function Conclusion() {
             padding: '14px 36px',
             borderRadius: '10px',
             border: '1px solid rgba(212,165,116,0.35)',
-            background: 'rgba(212,165,116,0.15)',
-            color: '#d4a574',
-            fontFamily: "'Inter', sans-serif",
+            background: COLORS.goldAlpha15,
+            color: COLORS.gold,
+            fontFamily: FONTS.body,
             fontSize: '0.9rem', fontWeight: 600,
             letterSpacing: '0.08em',
             cursor: 'pointer',
@@ -135,7 +136,7 @@ export default function Conclusion() {
             border: 'none',
             background: 'linear-gradient(135deg, #c9973a 0%, #b8860b 60%, #9a6f0a 100%)',
             color: '#1c0f00',
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: FONTS.body,
             fontSize: '0.9rem', fontWeight: 700,
             letterSpacing: '0.08em',
             cursor: 'pointer',
@@ -145,7 +146,7 @@ export default function Conclusion() {
           whileTap={{ scale: 0.97 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.2rem', color: '#1c0f00', opacity: 0.5, lineHeight: 1 }}>اقرأ</span>
+          <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: '#1c0f00', opacity: 0.5, lineHeight: 1 }}>اقرأ</span>
           {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
         </motion.button>
       </motion.div>

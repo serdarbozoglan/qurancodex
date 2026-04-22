@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
+import { COLORS, FONTS } from '../tokens';
 
 // Hover/tap tooltip anchored to bottom-right of its container (card must be position:relative)
 function InfoTooltip({ text }) {
@@ -61,7 +62,7 @@ export default function ZeroRedundancy() {
       context: language === 'tr'
         ? 'Her seferinde farklı bir nimetin ardından geliyor'
         : 'Follows a different blessing each time',
-      color: '#2ecc71',
+      color: COLORS.softEmerald,
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -74,7 +75,7 @@ export default function ZeroRedundancy() {
       context: language === 'tr'
         ? 'Her yeni azap sahnesinin ardından yineleniyor'
         : 'Repeated after each new scene of judgment',
-      color: '#e74c3c',
+      color: COLORS.softRed,
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
@@ -87,7 +88,7 @@ export default function ZeroRedundancy() {
       context: language === 'tr'
         ? 'Her helak edilen kavmin hikayesinin ardından'
         : 'After each destroyed nation\'s story',
-      color: '#3498db',
+      color: COLORS.skyBlue,
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -162,7 +163,7 @@ export default function ZeroRedundancy() {
                     {ex.icon}
                   </span>
                   <span style={{
-                    fontFamily: "'Inter', sans-serif", fontSize: '0.88rem',
+                    fontFamily: FONTS.body, fontSize: '0.88rem',
                     fontWeight: 600, color: ex.color, lineHeight: 1.2,
                   }}>
                     {ex.surah}
@@ -173,7 +174,7 @@ export default function ZeroRedundancy() {
                   display: 'inline-flex', alignItems: 'baseline', gap: '2px',
                   padding: '4px 12px', borderRadius: '999px',
                   background: `${ex.color}18`, border: `1px solid ${ex.color}35`,
-                  fontFamily: "'Inter', sans-serif", fontWeight: 800,
+                  fontFamily: FONTS.body, fontWeight: 800,
                   fontSize: '1.1rem', color: ex.color, flexShrink: 0,
                   lineHeight: 1,
                 }}>
@@ -183,8 +184,8 @@ export default function ZeroRedundancy() {
               </div>
               {/* Context description */}
               <p style={{
-                fontFamily: "'Inter', sans-serif", fontSize: '0.76rem',
-                color: '#94a3b8', lineHeight: 1.55, margin: 0,
+                fontFamily: FONTS.body, fontSize: '0.76rem',
+                color: COLORS.silver, lineHeight: 1.55, margin: 0,
               }}>
                 {ex.context}
               </p>
@@ -304,7 +305,7 @@ export default function ZeroRedundancy() {
         </h3>
         <p style={{
           color: 'rgba(148,163,184,0.5)', fontSize: '0.78rem',
-          fontFamily: "'Inter', sans-serif", marginBottom: 20,
+          fontFamily: FONTS.body, marginBottom: 20,
         }}>
           {language === 'tr'
             ? 'Karşılaştırılabilir uzunlukta metinlerde gereksiz tekrar oranı'
@@ -334,7 +335,7 @@ export default function ZeroRedundancy() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 width: 40, height: 40, borderRadius: 10,
                 background: 'rgba(212,165,116,0.12)', border: '1px solid rgba(212,165,116,0.25)',
-                color: '#d4a574', flexShrink: 0,
+                color: COLORS.gold, flexShrink: 0,
               }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                   <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
@@ -342,8 +343,8 @@ export default function ZeroRedundancy() {
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <span style={{
-                  color: '#d4a574', fontWeight: 700, fontSize: '0.95rem',
-                  fontFamily: "'Inter', sans-serif",
+                  color: COLORS.gold, fontWeight: 700, fontSize: '0.95rem',
+                  fontFamily: FONTS.body,
                 }}>
                   {t('zeroRedundancy.comparison.quran.label')}
                 </span>
@@ -357,8 +358,8 @@ export default function ZeroRedundancy() {
                 flexShrink: 0,
               }}>
                 <span style={{
-                  color: '#d4a574', fontSize: '1.1rem', fontWeight: 800,
-                  fontFamily: "'Inter', sans-serif",
+                  color: COLORS.gold, fontSize: '1.1rem', fontWeight: 800,
+                  fontFamily: FONTS.body,
                 }}>~0%</span>
               </div>
             </div>
@@ -375,7 +376,7 @@ export default function ZeroRedundancy() {
                 transition={{ duration: 1.5, ease: 'easeOut', delay: 0.2 }}
                 style={{
                   height: '100%', borderRadius: 3, minWidth: 8,
-                  background: 'linear-gradient(90deg, #d4a574 0%, #d4a574aa 100%)',
+                  background: `linear-gradient(90deg, ${COLORS.gold} 0%, ${COLORS.gold}aa 100%)`,
                   boxShadow: '0 0 12px rgba(212,165,116,0.4)',
                 }}
               />
@@ -383,7 +384,7 @@ export default function ZeroRedundancy() {
             {t('zeroRedundancy.comparison.quran.note') && (
               <p style={{
                 color: 'rgba(148,163,184,0.45)', fontSize: '0.72rem',
-                fontFamily: "'Inter', sans-serif", marginTop: 10, lineHeight: 1.5,
+                fontFamily: FONTS.body, marginTop: 10, lineHeight: 1.5,
               }}>
                 ℹ {t('zeroRedundancy.comparison.quran.note')}
               </p>
@@ -402,7 +403,7 @@ export default function ZeroRedundancy() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 width: 40, height: 40, borderRadius: 10,
                 background: 'rgba(148,163,184,0.08)', border: '1px solid rgba(148,163,184,0.15)',
-                color: '#94a3b8', flexShrink: 0,
+                color: COLORS.silver, flexShrink: 0,
               }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                   <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
@@ -410,13 +411,13 @@ export default function ZeroRedundancy() {
               </div>
               <span style={{
                 color: 'rgba(232,230,227,0.7)', fontWeight: 600, fontSize: '0.92rem',
-                fontFamily: "'Inter', sans-serif", flex: 1,
+                fontFamily: FONTS.body, flex: 1,
               }}>
                 {t('zeroRedundancy.comparison.shakespeare.label')}
               </span>
               <span style={{
-                color: '#94a3b8', fontSize: '0.95rem', fontWeight: 700,
-                fontFamily: "'Inter', sans-serif",
+                color: COLORS.silver, fontSize: '0.95rem', fontWeight: 700,
+                fontFamily: FONTS.body,
                 background: 'rgba(255,255,255,0.06)',
                 borderRadius: 20, padding: '4px 14px',
                 flexShrink: 0,
@@ -434,7 +435,7 @@ export default function ZeroRedundancy() {
                 transition={{ duration: 1.5, ease: 'easeOut', delay: 0.4 }}
                 style={{
                   height: '100%', borderRadius: 3,
-                  background: 'linear-gradient(90deg, #94a3b8 0%, #94a3b880 100%)',
+                  background: `linear-gradient(90deg, ${COLORS.silver} 0%, ${COLORS.silver}80 100%)`,
                 }}
               />
             </div>
@@ -452,7 +453,7 @@ export default function ZeroRedundancy() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 width: 40, height: 40, borderRadius: 10,
                 background: 'rgba(148,163,184,0.08)', border: '1px solid rgba(148,163,184,0.15)',
-                color: '#94a3b8', flexShrink: 0,
+                color: COLORS.silver, flexShrink: 0,
               }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                   <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
@@ -460,13 +461,13 @@ export default function ZeroRedundancy() {
               </div>
               <span style={{
                 color: 'rgba(232,230,227,0.7)', fontWeight: 600, fontSize: '0.92rem',
-                fontFamily: "'Inter', sans-serif", flex: 1,
+                fontFamily: FONTS.body, flex: 1,
               }}>
                 {t('zeroRedundancy.comparison.bible.label')}
               </span>
               <span style={{
-                color: '#94a3b8', fontSize: '0.95rem', fontWeight: 700,
-                fontFamily: "'Inter', sans-serif",
+                color: COLORS.silver, fontSize: '0.95rem', fontWeight: 700,
+                fontFamily: FONTS.body,
                 background: 'rgba(255,255,255,0.06)',
                 borderRadius: 20, padding: '4px 14px',
                 flexShrink: 0,
@@ -484,14 +485,14 @@ export default function ZeroRedundancy() {
                 transition={{ duration: 1.5, ease: 'easeOut', delay: 0.6 }}
                 style={{
                   height: '100%', borderRadius: 3,
-                  background: 'linear-gradient(90deg, #94a3b8 0%, #94a3b860 100%)',
+                  background: `linear-gradient(90deg, ${COLORS.silver} 0%, ${COLORS.silver}60 100%)`,
                 }}
               />
             </div>
             {t('zeroRedundancy.comparison.bible.note') && (
               <p style={{
                 color: 'rgba(148,163,184,0.45)', fontSize: '0.72rem',
-                fontFamily: "'Inter', sans-serif", marginTop: 10, lineHeight: 1.5,
+                fontFamily: FONTS.body, marginTop: 10, lineHeight: 1.5,
               }}>
                 ℹ {t('zeroRedundancy.comparison.bible.note')}
               </p>
@@ -502,7 +503,7 @@ export default function ZeroRedundancy() {
         {t('zeroRedundancy.comparisonNote') && (
           <p style={{
             color: 'rgba(148,163,184,0.35)', fontSize: '0.7rem',
-            fontFamily: "'Inter', sans-serif", marginTop: 14,
+            fontFamily: FONTS.body, marginTop: 14,
             lineHeight: 1.6, fontStyle: 'italic',
           }}>
             * {t('zeroRedundancy.comparisonNote')}
