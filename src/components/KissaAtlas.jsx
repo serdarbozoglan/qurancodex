@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, BREAKPOINT_MOBILE } from '../tokens';
 
 // Surah names (Türkçe kısa)
 const SURAH_NAMES_TR = [
@@ -90,7 +90,7 @@ export default function KissaAtlas({ onClose }) {
   const [selectedProphetId, setSelectedProphetId] = useState('musa');
   const [selectedSceneId, setSelectedSceneId] = useState(null);
   const [selectedSurah, setSelectedSurah] = useState(null);
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
   const [mobileTab, setMobileTab] = useState('scenes'); // 'scenes' | 'map' | 'detail'
   // Verse peek: { surah, start, end, verses: null|[...], loading: bool }
   const [versePeek, setVersePeek] = useState(null);
@@ -117,7 +117,7 @@ export default function KissaAtlas({ onClose }) {
   }, [onClose]);
 
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

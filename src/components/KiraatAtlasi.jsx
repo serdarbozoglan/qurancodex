@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  COLORS, FONTS, GLASS_CARD,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
 } from '../tokens';
 
 // ── Arabic text cleanup (same pipeline as ReadingMode) ────────────────────────
@@ -1537,7 +1537,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   const tabHistoryRef = useRef([]);
   const onRegisterBackHandlerRef = useRef(onRegisterBackHandler);
   onRegisterBackHandlerRef.current = onRegisterBackHandler;
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
   const bodyRef = useRef(null);
 
   /* eslint-disable react-hooks/immutability -- recursive callback; registerBackIfNeeded is defined by the time the inner function executes */
@@ -1568,7 +1568,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
 
   // Resize
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

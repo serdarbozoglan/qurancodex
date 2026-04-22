@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, GLASS_CARD } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, GLASS_CARD, BREAKPOINT_TABLET } from '../tokens';
 
 // ── Timeline data ─────────────────────────────────────────────────────────────
 const TIMELINE_DATA = [
@@ -380,7 +380,7 @@ export default function ZamanBoyutlari({ onClose }) {
   const [expandedCard,  setExpandedCard]  = useState(null);
   const [sourcesOpen, setSourcesOpen]     = useState(true);
   const [isMobile, setIsMobile]           = useState(
-    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+    typeof window !== 'undefined' ? window.innerWidth < BREAKPOINT_TABLET : false
   );
 
   // Escape key
@@ -392,7 +392,7 @@ export default function ZamanBoyutlari({ onClose }) {
 
   // Resize listener
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);

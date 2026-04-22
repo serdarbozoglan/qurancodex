@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
-  OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD,
+  OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
 } from '../tokens';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
@@ -1218,7 +1218,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
 // ────────────────────────────────────────────────────────────────────────────
 export default function MeselAtlasi({ onClose, backRef }) {
   const { language } = useLanguage();
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
   const [activeTab, setActiveTab]       = useState(0);
   const [domainFilter, setDomainFilter] = useState(null);
   const [scrollToPairId, setScrollToPairId] = useState(null);
@@ -1251,7 +1251,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
   }, [backRef]);
 
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

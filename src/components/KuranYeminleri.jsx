@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, VERSE_DISPLAY_CARD } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET } from '../tokens';
 
 // Tab definitions with mini SVG icons for visual affordance
 const TABS = [
@@ -31,7 +31,7 @@ export default function KuranYeminleri({ onClose }) {
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [activeCategoryId, setActiveCategoryId] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < BREAKPOINT_TABLET);
   const [expandedAccordion, setExpandedAccordion] = useState(null);
   const bodyRef = useRef(null);
 
@@ -42,7 +42,7 @@ export default function KuranYeminleri({ onClose }) {
   }, [onClose]);
 
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, BREAKPOINT_MOBILE } from '../tokens';
 
 // Strip footnote refs and parenthetical translator additions
 function cleanTr(str) {
@@ -281,7 +281,14 @@ export default function WordHeatmap({ onClose }) {
   const [tooltip, setTooltip] = useState(null); // { surah, count, x, y }
   const [showAllKalip, setShowAllKalip] = useState(false);
   const [hoverKalip, setHoverKalip] = useState(null); // { desc, x, y }
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
 
   useEffect(() => {
     fetch('/verse-graph-bgem3.json').then(r => r.json()).then(d => { setVerses(d); setLoading(false); }).catch(() => setLoading(false));
@@ -427,10 +434,10 @@ export default function WordHeatmap({ onClose }) {
       </div>
 
       {/* Main layout: sidebar for verses + full-height grid area */}
-      <div style={{ flex: 1, display: 'flex', overflow: 'hidden', minHeight: 0 }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: isMobile ? 'column' : 'row', overflow: 'hidden', minHeight: 0 }}>
 
         {/* Left: controls + grid */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '14px 16px', gap: '10px', overflow: 'hidden', minHeight: 0 }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: isMobile ? '10px 12px' : '14px 16px', gap: '10px', overflow: 'hidden', minHeight: 0 }}>
 
           {/* Search input — max-width to avoid spanning full ultra-wide panel */}
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0, maxWidth: '680px' }}>
@@ -661,7 +668,11 @@ export default function WordHeatmap({ onClose }) {
 
           return (
             <div style={{
-              width: '400px', flexShrink: 0, borderLeft: '1px solid rgba(212,165,116,0.12)',
+              width: isMobile ? '100%' : '400px',
+              flexShrink: 0,
+              flexBasis: isMobile ? '50%' : 'auto',
+              borderLeft: isMobile ? 'none' : '1px solid rgba(212,165,116,0.12)',
+              borderTop: isMobile ? '1px solid rgba(212,165,116,0.12)' : 'none',
               background: 'rgba(6,8,18,0.98)', display: 'flex', flexDirection: 'column', overflow: 'hidden',
             }}>
               {/* Panel header */}

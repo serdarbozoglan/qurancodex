@@ -15,7 +15,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 // metadata (icon / title / desc / pill preview) stays here in PathCards
 // because it only matters for the card UI itself.
 import { usePath } from '../contexts/PathContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_TABLET } from '../tokens';
 
 // ── Path definitions ────────────────────────────────────────────────────────
 // Each path corresponds to one PathCard. The first step is the scroll target.
@@ -115,10 +115,10 @@ const PATHS = [
 export default function PathCards() {
   const { language } = useLanguage();
   const { startPath, isPathCompleted } = usePath();
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_TABLET);
 
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

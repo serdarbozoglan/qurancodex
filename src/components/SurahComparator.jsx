@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, BREAKPOINT_MOBILE } from '../tokens';
 
 // ── MODULE-LEVEL CACHES ───────────────────────────────────────────────────────
 let cachedVerses = null;
@@ -470,7 +470,7 @@ export default function SurahComparator({ onClose }) {
   const [surahA, setSurahA] = useState(null);
   const [surahB, setSurahB] = useState(null);
   const [view, setView] = useState('landing'); // 'landing' | 'result'
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
 
   // Load all data — re-runs when loadKey changes (manual retry)
   useEffect(() => {
@@ -496,7 +496,7 @@ export default function SurahComparator({ onClose }) {
   }, [view, onClose]);
 
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

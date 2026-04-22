@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  COLORS, FONTS, GLASS_CARD,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
 } from '../tokens';
 import { SURAH_NAMES_TR } from '../utils/surahNames';
 
@@ -536,7 +536,7 @@ function ScholarList({ scholars, language, isMobile }) {
 // ── Main component ───────────────────────────────────────────────────────────
 export default function MunasebatAtlasi({ onClose }) {
   const { language } = useLanguage();
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   const [activeTab, setActiveTab] = useState(0);
   const [data, setData] = useState(null);
   const [typeFilter, setTypeFilter] = useState(null);
@@ -544,7 +544,7 @@ export default function MunasebatAtlasi({ onClose }) {
 
   // Responsive
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

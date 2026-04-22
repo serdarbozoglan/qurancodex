@@ -257,7 +257,11 @@ export const TRANSITION = {
   slow: '0.3s',   // Larger state transitions (panels, drawers)
 };
 
-// ── Breakpoint ────────────────────────────────────────────────────────────────
-// Single mobile breakpoint per CLAUDE.md §14.1. Use in window.innerWidth checks.
-// Prevents 640 vs 768 drift between overlays.
+// ── Breakpoints ───────────────────────────────────────────────────────────────
+// Two breakpoints per CLAUDE.md §14.1 + legacy tablet support. Use these in
+// window.innerWidth checks — prevents 640/768 drift across overlays.
+//   MOBILE (640):  strict phone/mobile — CLAUDE.md preferred threshold.
+//   TABLET (768):  phone + small tablet — where some overlays still toggle
+//                  simplified layouts. New overlays should prefer MOBILE.
 export const BREAKPOINT_MOBILE = 640;
+export const BREAKPOINT_TABLET = 768;

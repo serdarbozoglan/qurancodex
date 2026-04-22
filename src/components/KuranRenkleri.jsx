@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  FONTS, COLORS, TRANSITION,
+  FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE,
 } from '../tokens';
 
 const TABS = {
@@ -1200,7 +1200,7 @@ export default function KuranRenkleri({ onClose }) {
   const [data, setData]               = useState(null);
   const [activeTab, setActiveTab]     = useState(TABS.RENKLER);
   const [activeFilter, setActiveFilter] = useState('tumu');
-  const [isMobile, setIsMobile]       = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile]       = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
   const [expandedVerse, setExpandedVerse] = useState(null);
 
   // Fetch data
@@ -1213,7 +1213,7 @@ export default function KuranRenkleri({ onClose }) {
 
   // isMobile listener
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

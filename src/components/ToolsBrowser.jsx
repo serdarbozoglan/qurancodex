@@ -26,7 +26,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
+import { COLORS, FONTS, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_TABLET } from '../tokens';
 import {
   FEATURED_TOOL,
   VIZ_TOOLS,
@@ -51,7 +51,7 @@ export default function ToolsBrowser() {
   const { language } = useLanguage();
   const [open, setOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_TABLET);
 
   // Listen for the open event (dispatched by useQuranNav.openOverlay('allTools'))
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function ToolsBrowser() {
 
   // Responsive: 1 column on mobile
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

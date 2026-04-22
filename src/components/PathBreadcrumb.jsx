@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { usePath } from '../contexts/PathContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE } from '../tokens';
 
 export default function PathBreadcrumb() {
   const { language } = useLanguage();
@@ -35,9 +35,9 @@ export default function PathBreadcrumb() {
   //   - path title hidden (only step label + counter)
   //   - prev/next buttons become icon-only (no text)
   //   - smaller gaps and padding
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

@@ -9,6 +9,7 @@ import {
   CLOSE_BTN,
   VERSE_DISPLAY_CARD,
   GLASS_CARD,
+  BREAKPOINT_TABLET,
 } from '../tokens';
 
 // ─── Tab definitions ──────────────────────────────────────────────────────────
@@ -49,7 +50,7 @@ export default function SunnetullahAtlasi({ onClose }) {
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [activeCategoryId, setActiveCategoryId] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < BREAKPOINT_TABLET);
   const bodyRef = useRef(null);
 
   // Escape key closes overlay
@@ -61,7 +62,7 @@ export default function SunnetullahAtlasi({ onClose }) {
 
   // Mobile detection
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

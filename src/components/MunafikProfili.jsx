@@ -9,6 +9,7 @@ import {
   CLOSE_BTN,
   VERSE_DISPLAY_CARD,
   GLASS_CARD,
+  BREAKPOINT_TABLET,
 } from '../tokens';
 
 // ─── Tabs ────────────────────────────────────────────────────────────────────
@@ -51,7 +52,7 @@ export default function MunafikProfili({ onClose }) {
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [expandedProfileId, setExpandedProfileId] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < BREAKPOINT_TABLET);
   const bodyRef = useRef(null);
 
   // Escape to close
@@ -63,7 +64,7 @@ export default function MunafikProfili({ onClose }) {
 
   // Mobile resize
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);
