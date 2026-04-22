@@ -101,9 +101,13 @@ const makeAllahWrap = (dayMode) => (m) =>
 // sonrasına yerleştirilir. Vav'ın hemen altına, kasra hizasında küçük "قصر" etiketi
 // gösterilir. position:absolute kullanımı sayesinde satır yüksekliğini etkilemez.
 const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06EB\u06ED])*)\u06EC/gu;
+// "قصر" label: positioned just below the kasra diacritic but still within
+// the letter's line-box bottom (minimal overflow into the inter-line gap).
+// bottom:-0.2em gives a small overflow so label visually belongs to THIS
+// letter, not to the line below.
 const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;">${letter}` +
-  `<span style="position:absolute;bottom:0.9em;left:50%;transform:translateX(-50%);` +
+  `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
   `font-size:0.4em;font-weight:700;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
