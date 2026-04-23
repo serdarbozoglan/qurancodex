@@ -618,7 +618,7 @@ export default function WordHeatmap({ onClose }) {
                   <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
                     <div style={{ textAlign: 'center', background: 'rgba(10,10,26,0.6)', backdropFilter: 'blur(6px)', borderRadius: '12px', padding: '16px 24px', border: '1px solid rgba(52,152,219,0.2)' }}>
                       <div style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '1.6rem', color: 'rgba(212,165,116,0.45)', direction: 'rtl', marginBottom: '8px', lineHeight: 1.5 }}>
-                        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                        بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
                       </div>
                       <div style={{ color: 'rgba(52,152,219,0.7)', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>
                         {language === 'tr' ? '114 sûre · 6.236 âyet · her hücre = 1 sûre' : '114 surahs · 6,236 verses · each cell = 1 surah'}
