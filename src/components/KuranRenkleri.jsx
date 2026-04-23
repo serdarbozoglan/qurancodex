@@ -419,8 +419,8 @@ function TabBaglam({ language, isMobile }) {
           verseTr: 'İnce ipek ve kalın ipekten yeşil elbiseler giyerler.',
           verseEn: 'They wear green garments of fine silk and brocade.',
           ref: 'Kehf 18:31',
-          noteTr: "Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — Kehf, İnsan ve Dehr sûrelerinde tekrar eder.",
-          noteEn: "Green + gold is the Quran's paradise color pairing — repeating in Al-Kahf, Al-Insan and Ad-Dahr.",
+          noteTr: "Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — Kehf ve İnsan (Dehr) sûrelerinde tekrar eder.",
+          noteEn: "Green + gold is the Quran's paradise color pairing — repeating in Al-Kahf and Al-Insan (Ad-Dahr).",
         },
         {
           hex: '#B8860B', nameTr: 'Altın — Bilezikler', nameEn: 'Gold — Bracelets',

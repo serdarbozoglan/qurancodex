@@ -424,7 +424,7 @@ const SURAH_NAMES_TR = [
   "El-İnsân",'El-Mürselât',"El-Nebe'",'El-Nâziât','Abese','El-Tekvîr',
   'El-İnfitâr','El-Mutaffifîn','El-İnşikâk','El-Burûc','El-Târık',
   "El-A'lâ",'El-Ğâşiye','El-Fecr','El-Beled','El-Şems','El-Leyl',
-  'El-Duhâ','El-Şerh','El-Tîn','El-Alak','El-Kadr','El-Beyyine',
+  'El-Duhâ','El-İnşirah','El-Tîn','El-Alak','El-Kadr','El-Beyyine',
   'El-Zelzele',"El-Âdiyât","El-Kâri'a",'El-Tekâsür','El-Asr',
   'El-Hümeze','El-Fîl','Kureyş','El-Mâûn','El-Kevser','El-Kâfirûn',
   'El-Nasr','Tebbet','El-İhlâs','El-Felak','El-Nâs',
