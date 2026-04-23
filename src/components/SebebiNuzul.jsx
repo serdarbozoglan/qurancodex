@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  COLORS, FONTS, GLASS_CARD,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
 } from '../tokens';
 
 // ── Arabic text cleanup ───────────────────────────────────────────────────────
@@ -1653,7 +1653,7 @@ function TabZaman({ language, isMobile }) {
 // ── Main component ────────────────────────────────────────────────────────────
 export default function SebebiNuzul({ onClose }) {
   const { language } = useLanguage();
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
   const [activeTab, setActiveTab] = useState(0);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -1661,7 +1661,7 @@ export default function SebebiNuzul({ onClose }) {
 
   // Mobile detection
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

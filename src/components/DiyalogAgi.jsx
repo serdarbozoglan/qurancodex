@@ -3,7 +3,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { surahNameTr } from '../utils/surahNames';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  COLORS, FONTS, GLASS_CARD,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
 } from '../tokens';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
@@ -125,7 +125,7 @@ function getNodeLabel(speaker) {
 
 export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   const { language } = useLanguage();
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
   const [activeTab, setActiveTab] = useState(0);
   const [axisFilter, setAxisFilter] = useState(null);       // { speakerId, addresseeId }
   const [temporalFilter, setTemporalFilter] = useState('all'); // 'ezel'|'dunya'|'ahiret'|'all'
@@ -142,7 +142,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
 
   // isMobile detector
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

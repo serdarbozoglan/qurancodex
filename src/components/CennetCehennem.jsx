@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET } from '../tokens';
 
 // ── Color system ──────────────────────────────────────────────────────────────
 const CENNET   = { accent: '#1D9E75', bg: 'rgba(27,110,86,0.12)',   border: 'rgba(29,158,117,0.28)' };
@@ -144,7 +144,7 @@ export default function CennetCehennem({ onClose }) {
   const { language } = useLanguage();
   const [data, setData]           = useState(null);
   const [activeTab, setActiveTab] = useState('isimler');
-  const [isMobile, setIsMobile]   = useState(() => window.innerWidth < 768);
+  const [isMobile, setIsMobile]   = useState(() => window.innerWidth < BREAKPOINT_TABLET);
   const bodyRef = useRef(null);
 
   useEffect(() => {
@@ -159,7 +159,7 @@ export default function CennetCehennem({ onClose }) {
   }, [onClose]);
 
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE } from '../tokens';
 
 // Verse coordinates for each tab (surah:ayah) — audio handled with fallback by QuranVerse
 const TAB_VERSE = {
@@ -92,9 +92,9 @@ export default function ScientificSigns() {
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState('iron');
   const [expandedTabs, setExpandedTabs] = useState({});
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

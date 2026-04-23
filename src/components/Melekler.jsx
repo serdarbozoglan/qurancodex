@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET } from '../tokens';
 
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
@@ -948,11 +948,11 @@ export default function Melekler({ onClose }) {
   const tr = language === 'tr';
   const [activeTab, setActiveTab] = useState(0);
   const [data, setData] = useState(null);
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_TABLET);
   const bodyRef = useRef(null);
 
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

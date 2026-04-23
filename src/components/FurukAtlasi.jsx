@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  COLORS, FONTS,
+  COLORS, FONTS, BREAKPOINT_TABLET,
 } from '../tokens';
 import { SURAH_NAMES_TR } from '../utils/surahNames';
 
@@ -97,7 +97,7 @@ export default function FurukAtlasi({ onClose }) {
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [selectedGroupId, setSelectedGroupId] = useState(null);
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_TABLET);
   const bodyRef = useRef(null);
 
   // Escape
@@ -109,7 +109,7 @@ export default function FurukAtlasi({ onClose }) {
 
   // Resize
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

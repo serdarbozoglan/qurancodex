@@ -73,8 +73,11 @@ const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; /
 // Vakıf işaretlerini tecvid renkleri olmadan wrap eder (tecvid kapalıyken kullanılır)
 // Vakıf + med/kasr + sekte + küçük mim/nun işaretleri — kırmızı, metnin üstünde
 // Gündüz: koyu kırmızı (#c0392b) — Gece: yumuşak terrakota (#c87a72, göz yormaz)
+// NOT: `vertical-align:super` kullanmıyoruz — lineHeight 2.2 ile birleşince işaret
+// satır-boşluğuna taşıyor. Küçük `top:-0.2em` offset harflerin hemen üstüne oturtur.
 const makeWaqfSpan = (dayMode) => (m) =>
-  `<span style="display:inline-block;font-size:0.72em;font-weight:700;line-height:1;vertical-align:super;` +
+  `<span style="display:inline-block;font-size:0.72em;font-weight:700;line-height:1;` +
+  `position:relative;top:-0.2em;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;">${m}</span>`;
 
@@ -105,9 +108,12 @@ const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06
 // the letter's line-box bottom (minimal overflow into the inter-line gap).
 // bottom:-0.2em gives a small overflow so label visually belongs to THIS
 // letter, not to the line below.
+// NOT: Parent inline-block'a `line-height:1` veriyoruz — böylece kutu paragraphın
+// lineHeight:2.2'sini miras almaz, sadece harfi sarar. Aksi halde bottom:-0.2em
+// uzun kutunun dibine göre hesaplanır ve etiket satır-boşluğuna iner.
 const makeKasrWrap = (dayMode) => (_, letter) =>
-  `<span style="display:inline-block;position:relative;">${letter}` +
-  `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
+  `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
+  `<span style="position:absolute;bottom:-0.8em;left:50%;transform:translateX(-50%);` +
   `font-size:0.4em;font-weight:700;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
@@ -424,8 +430,8 @@ const SURAH_NAMES_TR = [
   "El-İnsân",'El-Mürselât',"El-Nebe'",'El-Nâziât','Abese','El-Tekvîr',
   'El-İnfitâr','El-Mutaffifîn','El-İnşikâk','El-Burûc','El-Târık',
   "El-A'lâ",'El-Ğâşiye','El-Fecr','El-Beled','El-Şems','El-Leyl',
-  'El-Duhâ','El-Şerh','El-Tîn','El-Alak','El-Kadr','El-Beyyine',
-  'El-Zelzele',"El-Âdiyât","El-Kâri'a",'El-Tekâsür','El-Asr',
+  'El-Duhâ','El-İnşirah','El-Tîn','El-Alak','El-Kadr','El-Beyyine',
+  'El-Zilzal',"El-Âdiyât","El-Kâri'a",'El-Tekâsür','El-Asr',
   'El-Hümeze','El-Fîl','Kureyş','El-Mâûn','El-Kevser','El-Kâfirûn',
   'El-Nasr','Tebbet','El-İhlâs','El-Felak','El-Nâs',
 ];
@@ -1159,11 +1165,16 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const isCurrentPageBookmarked = bookmarks.some(b => b.surah === selectedSurah && b.page === currentPage);
 
   // Verses that belong to the current mushaf page (book mode only)
+  // Page-centric: includes ALL surahs on the page, not just selectedSurah.
+  // A single mushaf page can contain verses from 2-3 surahs at short-surah
+  // boundaries (e.g., page 596 = Duhâ 4-11 + İnşirah 1-8 + Tîn 1-5).
   const versesOnPage = useMemo(() => {
-    if (!bookMode || surahVerses.length === 0) return surahVerses;
-    const pageVerses = surahVerses.filter(v => v.page === currentPage);
+    if (!bookMode || !verses || verses.length === 0) return surahVerses;
+    const pageVerses = verses
+      .filter(v => v.page === currentPage)
+      .sort((a, b) => (a.surah - b.surah) || (a.ayah - b.ayah));
     return pageVerses.length > 0 ? pageVerses : surahVerses;
-  }, [bookMode, surahVerses, currentPage]);
+  }, [bookMode, verses, surahVerses, currentPage]);
 
   // Scroll to active verse — if on a different page navigate there first, then scroll
   useEffect(() => {
@@ -2773,46 +2784,39 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           /* ── Book format — all surahs ── */
           <>
           <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '10px 12px 32px 12px' : '20px 12px 36px 12px' }}>
-            {/* Book mode: surah banner + bismillah when primary surah's first verse is on this page */}
-            {versesOnPage.some(v => v.surah === selectedSurah && v.ayah === 1) && (
-              <>
-                {selectedSurah === 1 ? (
-                  /* Fatiha — ceremonial opening header (bismillah is ayah 1, so shown inline) */
-                  <div style={{ textAlign: 'center', marginTop: '8px', marginBottom: '32px' }}>
-                    <div style={{
-                      fontFamily: currentFont,
-                      fontSize: isMobile ? '2.4rem' : '3.2rem',
-                      color: C.gold,
-                      lineHeight: 1.2,
-                      marginBottom: '14px',
-                      letterSpacing: '0.02em',
-                    }}>
-                      الفاتحة
-                    </div>
-                    {/* Thin gold divider — classical mushaf ornament feel */}
-                    <div style={{
-                      width: '64px',
-                      height: '1px',
-                      background: C.gold,
-                      opacity: 0.55,
-                      margin: '0 auto 14px',
-                    }} />
-                    <div style={{
-                      fontSize: '0.75rem',
-                      color: C.muted,
-                      letterSpacing: '0.3em',
-                      textTransform: 'uppercase',
-                      fontFamily: "'Inter', sans-serif",
-                    }}>
-                      {language === 'tr' ? 'Açılış · 7 Ayet' : 'The Opening · 7 Verses'}
-                    </div>
-                  </div>
-                ) : selectedSurah !== 9 && (
-                  <div style={{ textAlign: 'center', fontFamily: currentFont, fontSize: isMobile ? '1.6rem' : '2.4rem', color: C.bismillah, lineHeight: 2.2, marginBottom: '20px' }}>
-                    {BISMILLAH_AR}
-                  </div>
-                )}
-              </>
+            {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
+                Non-Fatiha surah openers (bismillah banner) are rendered inline in
+                the items loop below, so multi-surah pages show bismillah at the
+                correct position (between surahs, not at page top). */}
+            {versesOnPage[0]?.surah === 1 && versesOnPage[0]?.ayah === 1 && (
+              <div style={{ textAlign: 'center', marginTop: '8px', marginBottom: '32px' }}>
+                <div style={{
+                  fontFamily: currentFont,
+                  fontSize: isMobile ? '2.4rem' : '3.2rem',
+                  color: C.gold,
+                  lineHeight: 1.2,
+                  marginBottom: '14px',
+                  letterSpacing: '0.02em',
+                }}>
+                  الفاتحة
+                </div>
+                <div style={{
+                  width: '64px',
+                  height: '1px',
+                  background: C.gold,
+                  opacity: 0.55,
+                  margin: '0 auto 14px',
+                }} />
+                <div style={{
+                  fontSize: '0.75rem',
+                  color: C.muted,
+                  letterSpacing: '0.3em',
+                  textTransform: 'uppercase',
+                  fontFamily: "'Inter', sans-serif",
+                }}>
+                  {language === 'tr' ? 'Açılış · 7 Ayet' : 'The Opening · 7 Verses'}
+                </div>
+              </div>
             )}
 
             <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr', gap: '0' }}>
@@ -2838,18 +2842,13 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                   }}>
                     {selectedMealAuthor.label}
                   </div>
-                  {/* Bismillah translation — shown when first verse of surah is on this page */}
-                  {versesOnPage.some(v => v.surah === selectedSurah && v.ayah === 1) &&
-                    selectedSurah !== 1 && selectedSurah !== 9 && (
-                    <div style={{ padding: '0 12px 12px', textAlign: 'center', color: dayMode ? 'rgba(90,50,5,0.55)' : 'rgba(200,185,165,0.5)', fontSize: '0.82rem', fontStyle: 'italic', borderBottom: `1px solid ${dayMode ? 'rgba(90,50,5,0.08)' : 'rgba(212,165,116,0.08)'}`, marginBottom: '8px' }}>
-                      {language === 'tr' ? 'Rahman ve Rahim olan Allah\'ın adıyla.' : 'In the name of Allah, the Most Gracious, the Most Merciful.'}
-                    </div>
-                  )}
                   {(() => {
                     const items = [];
                     let prevSurah = null;
-                    for (const verse of versesOnPage) {
-                      if (prevSurah !== null && verse.surah !== prevSurah) {
+                    for (const [idx, verse] of versesOnPage.entries()) {
+                      const isTransition = prevSurah !== null && verse.surah !== prevSurah;
+                      const isFirstSurahStart = idx === 0 && verse.ayah === 1 && verse.surah !== 1;
+                      if (isTransition || isFirstSurahStart) {
                         items.push({ type: 'surahHeader', surah: verse.surah });
                       }
                       items.push({ type: 'verse', verse });
@@ -2857,7 +2856,36 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     }
                     return items.map(item => {
                       if (item.type === 'surahHeader') {
-                        return null;
+                        const surahLabel = SURAH_NAMES_TR[item.surah - 1];
+                        const showBismillah = item.surah !== 9;
+                        return (
+                          <div key={`tr-sh-${item.surah}`} style={{
+                            padding: '8px 12px 6px',
+                            textAlign: 'center',
+                            borderTop: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.12)'}`,
+                            marginTop: '4px',
+                          }}>
+                            <div style={{
+                              fontSize: '0.7rem',
+                              color: C.muted,
+                              letterSpacing: '0.25em',
+                              textTransform: 'uppercase',
+                              fontFamily: "'Inter', sans-serif",
+                              marginBottom: showBismillah ? '8px' : 0,
+                            }}>
+                              {language === 'tr' ? `Sûre ${item.surah} · ${surahLabel}` : `Surah ${item.surah} · ${surahLabel}`}
+                            </div>
+                            {showBismillah && (
+                              <div style={{
+                                color: dayMode ? 'rgba(90,50,5,0.6)' : 'rgba(200,185,165,0.55)',
+                                fontSize: '0.78rem',
+                                fontStyle: 'italic',
+                              }}>
+                                {language === 'tr' ? 'Rahman ve Rahim olan Allah\'ın adıyla.' : 'In the name of Allah, the Most Gracious, the Most Merciful.'}
+                              </div>
+                            )}
+                          </div>
+                        );
                       }
                       const { verse } = item;
                       const vt = getTranslation(verse);
@@ -2869,7 +2897,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                           onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
                           style={{
                             cursor: 'pointer', borderRadius: isMobile ? '0' : '6px',
-                            padding: isMobile ? '8px 8px' : '12px 12px',
+                            padding: isMobile ? '8px 8px' : '4px 12px',
                             background: isActive ? C.activeHighlight : 'transparent',
                             borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                             transition: 'all 0.18s',
@@ -2894,7 +2922,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                             <p style={{
                               margin: 0, color: isActive ? C.translationActive : C.translation,
                               fontSize: isMobile ? '0.82rem' : '1rem',
-                              lineHeight: isMobile ? 1.55 : 1.85,
+                              lineHeight: isMobile ? 1.5 : 1.6,
                               fontStyle: 'italic',
                               flex: 1,
                             }}>
@@ -2935,8 +2963,10 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                 {(() => {
                   const items = [];
                   let prevSurah = null;
-                  for (const verse of versesOnPage) {
-                    if (prevSurah !== null && verse.surah !== prevSurah) {
+                  for (const [idx, verse] of versesOnPage.entries()) {
+                    const isTransition = prevSurah !== null && verse.surah !== prevSurah;
+                    const isFirstSurahStart = idx === 0 && verse.ayah === 1 && verse.surah !== 1;
+                    if (isTransition || isFirstSurahStart) {
                       items.push({ type: 'surahHeader', surah: verse.surah });
                     }
                     items.push({ type: 'verse', verse });
@@ -2946,10 +2976,18 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                     if (item.type === 'surahHeader') {
                       return (
                         <span key={`ar-sh-${item.surah}`} style={{ display: 'block' }}>
+                          {/* Minimal gold ornament — traditional rub-el-hizb between thin gradient lines */}
+                          {item.surah !== 9 && (
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', marginTop: '22px', marginBottom: '4px', direction: 'ltr' }}>
+                              <span style={{ flex: '0 0 70px', height: '1px', background: `linear-gradient(to right, transparent, ${C.gold}55, transparent)` }} />
+                              <span style={{ color: C.gold, fontSize: '1.1rem', fontFamily: currentFont, opacity: 0.78, lineHeight: 1 }}>۞</span>
+                              <span style={{ flex: '0 0 70px', height: '1px', background: `linear-gradient(to left, transparent, ${C.gold}55, transparent)` }} />
+                            </div>
+                          )}
                           {/* Bismillah — not for At-Tawbah (9) or Al-Fatiha (already verse 1) */}
                           {item.surah !== 9 && (
-                            <div style={{ textAlign: 'center', direction: 'rtl', fontFamily: currentFont, fontSize: `${arabicFontSize * 0.82}rem`, color: C.arabic, marginBottom: '8px', lineHeight: 2 }}>
-                              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                            <div style={{ textAlign: 'center', direction: 'rtl', fontFamily: currentFont, fontSize: `${arabicFontSize}rem`, color: C.bismillah, marginTop: '6px', marginBottom: '10px', lineHeight: 2 }}>
+                              {BISMILLAH_AR}
                             </div>
                           )}
                         </span>

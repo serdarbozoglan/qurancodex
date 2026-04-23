@@ -9,6 +9,7 @@ import {
   CLOSE_BTN,
   VERSE_DISPLAY_CARD,
   GLASS_CARD,
+  BREAKPOINT_TABLET,
 } from '../tokens';
 
 // ─── Small helpers ────────────────────────────────────────────────────────────
@@ -40,7 +41,7 @@ const chipStyle = (color = COLORS.gold) => ({
 export default function NefisMertebeleri({ onClose }) {
   const { language } = useLanguage();
   const [data, setData] = useState(null);
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_TABLET);
   const bodyRef = useRef(null);
 
   // Escape key
@@ -52,7 +53,7 @@ export default function NefisMertebeleri({ onClose }) {
 
   // Resize listener
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 768);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { surahNameTr } from '../utils/surahNames';
-import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE } from '../tokens';
 
 // ─── MODULE-LEVEL CACHE ───────────────────────────────────────────────────────
 let _versesCache = null;
@@ -146,6 +146,13 @@ export default function ConceptGraph({ onClose, restore = null }) {
   const [verses, setVerses] = useState(_versesCache);
   const [concepts, setConcepts] = useState(_conceptsCache);
   const [groups, setGroups] = useState(_groupsCache);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
+
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
 
   const graphRef = useRef(null);
   const containerRef = useRef(null);
@@ -401,14 +408,14 @@ export default function ConceptGraph({ onClose, restore = null }) {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
           {/* Top bar: intro + search */}
-          <div style={{ padding: '20px 28px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', flexShrink: 0 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
-              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: 1.6, margin: 0, flex: 1, minWidth: '200px' }}>
+          <div style={{ padding: isMobile ? '16px 16px 12px' : '20px 28px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', flexShrink: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '12px' : '24px', flexWrap: 'wrap' }}>
+              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: 1.6, margin: 0, flex: 1, minWidth: isMobile ? '100%' : '200px' }}>
                 {language === 'tr'
                   ? 'Bir kavram seçin — hangi kavramların aynı ayetlerde geçtiğini görün.'
                   : 'Select a concept to see which ideas appear together across 6,236 verses.'}
               </p>
-              <div style={{ position: 'relative', width: '260px', flexShrink: 0 }}>
+              <div style={{ position: 'relative', width: isMobile ? '100%' : '260px', flexShrink: 0 }}>
                 <input
                   ref={searchRef}
                   value={searchInput}
@@ -433,8 +440,8 @@ export default function ConceptGraph({ onClose, restore = null }) {
             </div>
           </div>
 
-          {/* 2-column concept grid */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: '20px 28px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 32px', alignContent: 'start' }}>
+          {/* 2-column concept grid — collapses to single column on mobile */}
+          <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '16px' : '20px 28px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '0' : '0 32px', alignContent: 'start' }}>
             {(() => {
               const leftGroups  = ['core', 'virtue', 'worship', 'divine', 'social'];
               const rightGroups = ['mind', 'inner', 'eschato', 'vice', 'prophet'];
@@ -494,7 +501,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
 
       {/* ── GRAPH VIEW ────────────────────────────────────────────────── */}
       {view === 'graph' && !buildingGraph && !loadingData && graphRef.current && (
-        <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: isMobile ? 'column' : 'row', overflow: 'hidden' }}>
 
           {/* SVG Graph */}
           <div
@@ -683,8 +690,11 @@ export default function ConceptGraph({ onClose, restore = null }) {
 
           {/* ── VERSE PANEL ─────────────────────────────────────────── */}
           <div style={{
-            width: '420px', flexShrink: 0,
-            borderLeft: '1px solid rgba(255,255,255,0.07)',
+            width: isMobile ? '100%' : '420px',
+            flexShrink: 0,
+            flexBasis: isMobile ? '50%' : 'auto',
+            borderLeft: isMobile ? 'none' : '1px solid rgba(255,255,255,0.07)',
+            borderTop: isMobile ? '1px solid rgba(255,255,255,0.07)' : 'none',
             display: 'flex', flexDirection: 'column',
             background: 'rgba(255,255,255,0.02)',
             overflow: 'hidden',

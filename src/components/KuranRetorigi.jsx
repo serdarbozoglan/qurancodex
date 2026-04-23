@@ -3,6 +3,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import {
   COLORS, FONTS,
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
+  BREAKPOINT_MOBILE,
 } from '../tokens';
 
 const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', '30 Soru', 'Sûre Haritası'];
@@ -32,7 +33,7 @@ export default function KuranRetorigi({ onClose }) {
   const tr = language === 'tr';
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
   const bodyRef = useRef(null);
 
   // Escape key
@@ -44,7 +45,7 @@ export default function KuranRetorigi({ onClose }) {
 
   // isMobile resize
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

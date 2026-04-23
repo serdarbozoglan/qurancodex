@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD } from '../tokens';
+import { OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE } from '../tokens';
 
 // ── Context badge color map ───────────────────────────────────────────────────
 const ANIMAL_CONTEXT_COLORS = {
@@ -638,7 +638,7 @@ export default function DogaAtlasi({ onClose }) {
   const { language } = useLanguage();
   const [data, setData]       = useState(null);
   const [activeTab, setActiveTab] = useState(0);
-  const [isMobile, setIsMobile]   = useState(() => window.innerWidth < 640);
+  const [isMobile, setIsMobile]   = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
   const bodyRef = useRef(null);
 
   // Escape key handler
@@ -650,7 +650,7 @@ export default function DogaAtlasi({ onClose }) {
 
   // Resize listener
   useEffect(() => {
-    const h = () => setIsMobile(window.innerWidth < 640);
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);
