@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
@@ -26,7 +26,7 @@ function HadisBadge({ language }) {
       color: COLORS.softGoldAlpha75,
       background: COLORS.softGoldAlpha08,
       border: `1px solid ${COLORS.softGoldAlpha20}`,
-      borderRadius: '20px', padding: '1px 7px', whiteSpace: 'nowrap',
+      borderRadius: RADIUS.pillSm, padding: '1px 7px', whiteSpace: 'nowrap',
     }}>
       ℹ {language === 'tr' ? 'Hadis' : 'Hadith'}
     </span>
@@ -47,7 +47,7 @@ function HapaxBadge({ language }) {
         color: HAPAX_COLOR,
         background: 'rgba(83,74,183,0.10)',
         border: '1px solid rgba(83,74,183,0.25)',
-        borderRadius: '20px', padding: '1px 7px', whiteSpace: 'nowrap',
+        borderRadius: RADIUS.pillSm, padding: '1px 7px', whiteSpace: 'nowrap',
       }}>
         Hapax
       </span>
@@ -69,7 +69,7 @@ function HapaxBadge({ language }) {
           position: 'absolute', bottom: '22px', left: 0,
           background: 'rgba(8,10,26,0.97)',
           border: '1px solid rgba(83,74,183,0.4)',
-          borderRadius: '8px', padding: '6px 10px',
+          borderRadius: RADIUS.md, padding: '6px 10px',
           fontSize: '0.72rem', color: '#c8cdd8',
           whiteSpace: 'nowrap', zIndex: 50,
           pointerEvents: 'none',
@@ -90,7 +90,7 @@ function QuranicBadge({ language }) {
       color: '#1D9E75',
       background: 'rgba(29,158,117,0.10)',
       border: '1px solid rgba(29,158,117,0.25)',
-      borderRadius: '20px', padding: '1px 8px', whiteSpace: 'nowrap',
+      borderRadius: RADIUS.pillSm, padding: '1px 8px', whiteSpace: 'nowrap',
     }}>
       ✓ {language === 'tr' ? "Kur'an'da Geçiyor" : 'In the Quran'}
     </span>
@@ -105,7 +105,7 @@ function HadithOnlyBadge({ language }) {
       color: '#6B7280',
       background: 'rgba(107,114,128,0.08)',
       border: '1px solid rgba(107,114,128,0.2)',
-      borderRadius: '20px', padding: '1px 8px', whiteSpace: 'nowrap',
+      borderRadius: RADIUS.pillSm, padding: '1px 8px', whiteSpace: 'nowrap',
     }}>
       ⚠ {language === 'tr' ? 'Hadis Kaynağı' : 'Hadith Only'}
     </span>
@@ -136,7 +136,7 @@ function InfoPopover({ text, language: _language }) {
           position: 'absolute', bottom: '22px', left: '50%', transform: 'translateX(-50%)',
           width: '240px', padding: '10px 12px',
           background: 'rgba(8,10,26,0.97)', border: `1px solid ${COLORS.softGoldAlpha20}`,
-          borderRadius: '10px', boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+          borderRadius: RADIUS.chip, boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
           color: 'rgba(148,163,184,0.85)', fontSize: '0.71rem', lineHeight: 1.6,
           zIndex: 30,
         }}>
@@ -153,7 +153,7 @@ function VerseBlock({ arabic, translation, verseRef, accent }) {
       background: 'rgba(255,255,255,0.03)',
       border: `1px solid ${accent ? `${accent}30` : 'rgba(255,255,255,0.08)'}`,
       borderLeft: `2px solid ${accent || GOLD}`,
-      borderRadius: '8px', padding: '12px 14px', margin: '8px 0',
+      borderRadius: RADIUS.md, padding: '12px 14px', margin: '8px 0',
     }}>
       {arabic && (
         <p style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: GOLD, textAlign: 'right', direction: 'rtl', lineHeight: 2.0, margin: '0 0 10px' }} lang="ar">
@@ -209,7 +209,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
       background: isHadithOnly ? 'rgba(216,90,48,0.04)' : cat.bg,
       border: `1px solid ${isHadithOnly ? 'rgba(216,90,48,0.15)' : cat.border}`,
       borderLeft: `3px solid ${isHadithOnly ? '#D85A30' : cat.accent}`,
-      borderRadius: '12px', padding: '16px',
+      borderRadius: RADIUS.lg, padding: '16px',
       display: 'flex', flexDirection: 'column', gap: '10px',
       opacity: isHadithOnly ? 0.75 : 1,
     }}>
@@ -226,7 +226,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
           <span style={{
             fontSize: '0.68rem', fontWeight: 700, flexShrink: 0,
             color: cat.accent, background: `${cat.accent}15`,
-            border: `1px solid ${cat.accent}30`, borderRadius: '20px',
+            border: `1px solid ${cat.accent}30`, borderRadius: RADIUS.pillSm,
             padding: '2px 8px', marginTop: '4px',
           }}>
             {angel.mentionCount}×
@@ -243,7 +243,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
           {isHadithOnly ? <HadithOnlyBadge language={language} /> : <QuranicBadge language={language} />}
           <span style={{
             fontSize: '0.62rem', fontWeight: 600, padding: '1px 8px',
-            borderRadius: '20px', border: `1px solid ${cat.accent}30`,
+            borderRadius: RADIUS.pillSm, border: `1px solid ${cat.accent}30`,
             color: cat.accent, background: `${cat.accent}10`, whiteSpace: 'nowrap',
           }}>
             {tr ? cat.labelTr : cat.labelEn}
@@ -279,7 +279,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
         <div style={{
           fontSize: '0.75rem', color: COLORS.softGoldAlpha65,
           background: COLORS.softGoldAlpha05, border: `1px solid ${COLORS.softGoldAlpha12}`,
-          borderRadius: '8px', padding: '8px 12px', lineHeight: 1.6,
+          borderRadius: RADIUS.md, padding: '8px 12px', lineHeight: 1.6,
         }}>
           <span style={{ fontWeight: 700 }}>ℹ️ </span>
           {tr ? angel.infoTr : angel.infoEn}
@@ -293,7 +293,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
             <span key={i} style={{
               display: 'inline-flex', alignItems: 'center', gap: '5px',
               background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '8px', padding: '4px 10px',
+              borderRadius: RADIUS.md, padding: '4px 10px',
             }}>
               <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', color: GOLD }} lang="ar">{n.arabic}</span>
               <span style={{ fontSize: '0.65rem', color: '#64748b' }}>{n.ref}</span>
@@ -329,7 +329,7 @@ function TabMelekler({ data, language, isMobile }) {
             key={f.id}
             onClick={() => setFilter(f.id)}
             style={{
-              flexShrink: 0, padding: '5px 12px', borderRadius: '20px',
+              flexShrink: 0, padding: '5px 12px', borderRadius: RADIUS.pillSm,
               fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 500,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
               background: filter === f.id ? COLORS.softGoldAlpha15 : 'rgba(255,255,255,0.04)',
@@ -378,10 +378,10 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
             background: `${accent}08`,
             border: `1px solid ${accent}22`,
             borderLeft: `3px solid ${accent}`,
-            borderRadius: '12px', padding: '18px 20px',
+            borderRadius: RADIUS.lg, padding: '18px 20px',
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-              <span style={{ fontSize: '0.62rem', fontWeight: 700, color: accent, background: `${accent}15`, border: `1px solid ${accent}35`, borderRadius: '4px', padding: '2px 7px', flexShrink: 0 }}>
+              <span style={{ fontSize: '0.62rem', fontWeight: 700, color: accent, background: `${accent}15`, border: `1px solid ${accent}35`, borderRadius: RADIUS.xs, padding: '2px 7px', flexShrink: 0 }}>
                 {String(i + 1).padStart(2, '0')}
               </span>
               <p style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e8e6e3', margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
@@ -420,7 +420,7 @@ function TabKissalar({ data, language, isMobile }) {
             <div key={k.id} style={{
               background: isOpen ? COLORS.softGoldAlpha06 : 'rgba(255,255,255,0.03)',
               border: `1px solid ${isOpen ? COLORS.softGoldAlpha25 : 'rgba(255,255,255,0.08)'}`,
-              borderRadius: '12px', overflow: 'hidden',
+              borderRadius: RADIUS.lg, overflow: 'hidden',
             }}>
               {/* Header row — always visible */}
               <button
@@ -432,7 +432,7 @@ function TabKissalar({ data, language, isMobile }) {
                 }}
               >
                 <div style={{ display: 'flex', gap: '10px', flex: 1, minWidth: 0 }}>
-                  <span style={{ fontSize: '0.62rem', fontWeight: 700, color: GOLD, background: COLORS.softGoldAlpha10, borderRadius: '4px', padding: '2px 7px', flexShrink: 0, marginTop: '2px' }}>
+                  <span style={{ fontSize: '0.62rem', fontWeight: 700, color: GOLD, background: COLORS.softGoldAlpha10, borderRadius: RADIUS.xs, padding: '2px 7px', flexShrink: 0, marginTop: '2px' }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div style={{ minWidth: 0 }}>
@@ -465,7 +465,7 @@ function TabKissalar({ data, language, isMobile }) {
                     <div style={{
                       fontSize: '0.75rem', color: COLORS.softGoldAlpha65,
                       background: COLORS.softGoldAlpha05, border: `1px solid ${COLORS.softGoldAlpha12}`,
-                      borderRadius: '8px', padding: '8px 12px', lineHeight: 1.6, marginTop: '8px',
+                      borderRadius: RADIUS.md, padding: '8px 12px', lineHeight: 1.6, marginTop: '8px',
                     }}>
                       <span style={{ fontWeight: 700 }}>ℹ️ </span>
                       {tr ? k.infoTr : k.infoEn}
@@ -564,7 +564,7 @@ function TabSinir({ language, isMobile: _isMobile }) {
             background: 'rgba(255,255,255,0.03)',
             border: '1px solid rgba(255,255,255,0.08)',
             borderLeft: `3px solid ${COLORS.softGoldAlpha40}`,
-            borderRadius: '10px', padding: '14px 16px',
+            borderRadius: RADIUS.chip, padding: '14px 16px',
           }}>
             <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 8px' }}>{tr ? card.titleTr : card.titleEn}</p>
             <p style={{ fontSize: '0.80rem', color: '#94a3b8', margin: 0, lineHeight: 1.65 }}>{tr ? card.bodyTr : card.bodyEn}</p>
@@ -587,7 +587,7 @@ function TabDilbilim({ data, language, isMobile }) {
         <SectionTitle>{tr ? 'A. Kök Analizi' : 'A. Root Analysis'}</SectionTitle>
         <div style={{
           background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
-          borderRadius: '12px', padding: '18px 20px',
+          borderRadius: RADIUS.lg, padding: '18px 20px',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '14px', flexWrap: 'wrap' }}>
             <p style={{ fontFamily: FONTS.quran, fontSize: '2rem', color: GOLD, direction: 'rtl', margin: 0, lineHeight: 1 }} lang="ar">
@@ -624,7 +624,7 @@ function TabDilbilim({ data, language, isMobile }) {
               background: 'rgba(255,255,255,0.03)',
               border: '1px solid rgba(255,255,255,0.08)',
               borderLeft: `2px solid ${COLORS.softGoldAlpha30}`,
-              borderRadius: '10px', padding: '12px 14px',
+              borderRadius: RADIUS.chip, padding: '12px 14px',
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, direction: 'rtl', margin: '0 0 6px', lineHeight: 1.7 }} lang="ar">{s.arabic}</p>
               <p style={{ fontSize: '0.78rem', color: '#e8e6e3', margin: '0 0 4px', fontWeight: 600 }}>{tr ? s.meaningTr : s.meaningEn}</p>
@@ -642,7 +642,7 @@ function TabDilbilim({ data, language, isMobile }) {
           {(d.nadirKullanim || []).map((n, i) => (
             <div key={i} style={{
               background: 'rgba(83,74,183,0.08)', border: '1px solid rgba(83,74,183,0.2)',
-              borderRadius: '10px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px',
+              borderRadius: RADIUS.chip, padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px',
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: GOLD, direction: 'rtl', margin: 0 }} lang="ar">{n.arabic}</p>
               <div>
@@ -666,14 +666,14 @@ function TabDilbilim({ data, language, isMobile }) {
             <div key={i} style={{
               background: n.isHadisConnection ? 'rgba(255,255,255,0.02)' : 'rgba(184,134,11,0.08)',
               border: `1px solid ${n.isHadisConnection ? 'rgba(255,255,255,0.07)' : 'rgba(184,134,11,0.2)'}`,
-              borderRadius: '10px', padding: '14px',
+              borderRadius: RADIUS.chip, padding: '14px',
               display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'center', textAlign: 'center',
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: n.isHadisConnection ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.5 }} lang="ar">{n.arabic}</p>
               <p style={{ fontSize: '0.78rem', fontWeight: 600, color: n.isHadisConnection ? '#6B7280' : '#e8e6e3', margin: 0 }}>{n.nameTr}</p>
               <p style={{ fontSize: '0.65rem', color: `${GOLD}50`, margin: 0 }}>{n.ref}</p>
               {n.isHadisConnection && (
-                <span style={{ fontSize: '0.6rem', color: '#6B7280', background: 'rgba(107,114,128,0.08)', border: '1px solid rgba(107,114,128,0.15)', borderRadius: '20px', padding: '1px 7px' }}>
+                <span style={{ fontSize: '0.6rem', color: '#6B7280', background: 'rgba(107,114,128,0.08)', border: '1px solid rgba(107,114,128,0.15)', borderRadius: RADIUS.pillSm, padding: '1px 7px' }}>
                   {tr ? 'tefsir' : 'tafsir'}
                 </span>
               )}
@@ -694,7 +694,7 @@ function TabKaynaklar({ data, language }) {
       {/* Global note */}
       <div style={{
         background: COLORS.softGoldAlpha05, border: `1px solid ${COLORS.softGoldAlpha15}`,
-        borderRadius: '10px', padding: '14px 16px',
+        borderRadius: RADIUS.chip, padding: '14px 16px',
         fontSize: '0.80rem', color: COLORS.softGoldAlpha70, lineHeight: 1.7,
       }}>
         ℹ️ {tr ? k.globalNotTr : k.globalNotEn}
@@ -712,7 +712,7 @@ function TabKaynaklar({ data, language }) {
               return (
               <div key={i} style={{
                 background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)',
-                borderRadius: '8px', padding: '10px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px',
+                borderRadius: RADIUS.md, padding: '10px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px',
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ fontSize: '0.82rem', fontWeight: 600, color: '#e8e6e3' }}>{item.isim}</span>
@@ -758,7 +758,7 @@ function StatCard({ value, color, labelTr, labelEn, refTr, refEn, tooltipAr, too
         background: hovered ? `${color}10` : 'rgba(255,255,255,0.03)',
         border: `1px solid ${hovered ? `${color}35` : 'rgba(255,255,255,0.07)'}`,
         borderTop: `2px solid ${hovered ? color : 'transparent'}`,
-        borderRadius: '10px', padding: '14px 16px',
+        borderRadius: RADIUS.chip, padding: '14px 16px',
         cursor: 'default', transition: `all ${TRANSITION.fast}`,
       }}
     >
@@ -785,7 +785,7 @@ function StatCard({ value, color, labelTr, labelEn, refTr, refEn, tooltipAr, too
           width: '280px', padding: '14px 16px',
           background: 'rgba(8,10,26,0.98)',
           border: `1px solid ${color}30`,
-          borderRadius: '12px',
+          borderRadius: RADIUS.lg,
           boxShadow: `0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px ${color}15`,
           zIndex: 50, pointerEvents: 'none',
         }}>

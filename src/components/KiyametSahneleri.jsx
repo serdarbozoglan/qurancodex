@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
 
 // Local base style for verse blocks (VERSE_BLOCK not exported from tokens)
 const VERSE_BLOCK_BASE = {
   margin: '12px 0',
   padding: '12px 16px',
   background: 'rgba(255,255,255,0.03)',
-  borderRadius: '8px',
+  borderRadius: RADIUS.md,
 };
 
 // Tab index mapping (0-indexed in code)
@@ -34,7 +34,7 @@ const GOLD = COLORS.gold;
 const NOTE_BOX = {
   background: COLORS.softGoldAlpha06,
   border: `1px solid ${COLORS.softGoldAlpha18}`,
-  borderRadius: '10px',
+  borderRadius: RADIUS.chip,
   padding: '8px 12px',
 };
 
@@ -44,7 +44,7 @@ const NOTE_BOX_INLINE = {
   lineHeight: 1.6,
   background: COLORS.softGoldAlpha06,
   border: `1px solid ${COLORS.softGoldAlpha15}`,
-  borderRadius: '6px',
+  borderRadius: RADIUS.sm,
   padding: '6px 10px',
 };
 
@@ -120,7 +120,7 @@ function InfoTip({ textTr, textEn, language }) {
           width: '240px', padding: '8px 10px',
           background: 'rgba(8,10,26,0.97)',
           border: `1px solid ${COLORS.glassBorder}`,
-          borderRadius: '8px',
+          borderRadius: RADIUS.md,
           color: COLORS.silver,
           fontSize: '0.71rem', lineHeight: 1.6,
           zIndex: 30, pointerEvents: 'none',
@@ -141,7 +141,7 @@ function HadisBadge({ language }) {
       color: COLORS.softGoldAlpha75,
       background: COLORS.softGoldAlpha08,
       border: `1px solid ${COLORS.softGoldAlpha20}`,
-      borderRadius: '20px', padding: '1px 7px',
+      borderRadius: RADIUS.pillSm, padding: '1px 7px',
     }}>
       ℹ {language === 'tr' ? 'Hadis' : 'Hadith'}
     </span>
@@ -165,7 +165,7 @@ function HapaxBadge({ language }) {
         color: HAPAX_COLOR,
         background: 'rgba(139,92,246,0.1)',
         border: '1px solid rgba(139,92,246,0.3)',
-        borderRadius: '20px', padding: '1px 7px',
+        borderRadius: RADIUS.pillSm, padding: '1px 7px',
         textTransform: 'uppercase', letterSpacing: '0.05em',
         cursor: 'default',
       }}>
@@ -177,7 +177,7 @@ function HapaxBadge({ language }) {
           transform: 'translateX(-50%)',
           background: '#1e1b2e',
           border: '1px solid rgba(139,92,246,0.4)',
-          borderRadius: '8px', padding: '8px 12px',
+          borderRadius: RADIUS.md, padding: '8px 12px',
           fontSize: '0.75rem', color: '#c4b5fd', lineHeight: 1.5,
           whiteSpace: 'normal', width: '200px',
           zIndex: 100, boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
@@ -322,7 +322,7 @@ function SurahCard({ surah, language }) {
     <div style={{
       background: COLORS.glassBg,
       border: `1px solid ${COLORS.glassBorder}`,
-      borderRadius: '12px',
+      borderRadius: RADIUS.lg,
       padding: '16px',
       display: 'flex', flexDirection: 'column', gap: '8px',
     }}>
@@ -340,7 +340,7 @@ function SurahCard({ surah, language }) {
         </div>
         <span style={{
           fontSize: '0.7rem', color: COLORS.slate500, background: COLORS.glassBg,
-          border: `1px solid ${COLORS.glassBorder}`, borderRadius: '6px',
+          border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.sm,
           padding: '2px 8px', flexShrink: 0, fontFamily: FONTS.body,
         }}>
           {language === 'tr' ? 'Sûre' : 'Surah'} {surah.surahNumber}
@@ -368,7 +368,7 @@ function SurahCard({ surah, language }) {
         onClick={() => setExpanded(e => !e)}
         aria-expanded={expanded}
         style={{
-          background: 'none', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '6px',
+          background: 'none', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.sm,
           padding: '4px 10px', cursor: 'pointer', fontSize: '0.72rem', color: COLORS.silver,
           alignSelf: 'flex-start', fontFamily: FONTS.body, minHeight: '44px',
         }}
@@ -528,7 +528,7 @@ export default function KiyametSahneleri({ onClose }) {
             {heroStats.map((s, i) => (
               <div key={i} style={{
                 background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-                borderRadius: '10px', padding: '12px 14px',
+                borderRadius: RADIUS.chip, padding: '12px 14px',
                 flexShrink: 0, minWidth: isMobile ? '120px' : 'auto',
               }}>
                 <p style={{ fontSize: '1.1rem', fontWeight: 800, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>{s.value}</p>
@@ -557,7 +557,7 @@ export default function KiyametSahneleri({ onClose }) {
             {KIYAMET_ISIMLERI.map((isim) => (
               <div key={isim.tr} style={{
                 flexShrink: 0, background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-                borderRadius: '10px', padding: '12px 14px',
+                borderRadius: RADIUS.chip, padding: '12px 14px',
                 minWidth: isMobile ? '150px' : '170px', maxWidth: '200px',
               }}>
                 <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: GOLD, margin: '0 0 4px', direction: 'rtl', textAlign: 'right' }} dir="rtl" lang="ar">
@@ -634,7 +634,7 @@ export default function KiyametSahneleri({ onClose }) {
                 onClick={() => { window.dispatchEvent(new CustomEvent(link.event)); onClose(); }}
                 style={{
                   background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-                  borderRadius: '8px', padding: '6px 14px', cursor: 'pointer',
+                  borderRadius: RADIUS.md, padding: '6px 14px', cursor: 'pointer',
                   color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, minHeight: '36px',
                 }}
               >
@@ -676,7 +676,7 @@ function TabKronoloji({ data, language, isMobile: _isMobile }) {
                 <span style={{
                   background: pc.accent, color: '#fff',
                   fontSize: '0.65rem', fontWeight: 700,
-                  borderRadius: '4px', padding: '1px 7px', fontFamily: FONTS.body,
+                  borderRadius: RADIUS.xs, padding: '1px 7px', fontFamily: FONTS.body,
                 }}>
                   {language === 'tr' ? `FAZ ${phaseNum}` : `PHASE ${phaseNum}`}
                 </span>
@@ -750,7 +750,7 @@ function TabKozmikSahneler({ language, isMobile }) {
             <div key={i} style={{
               display: 'flex', gap: '12px', alignItems: 'flex-start',
               padding: '10px 12px',
-              background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: '8px',
+              background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.md,
             }}>
               <span style={{ color: COLORS.slate500, fontSize: '0.7rem', fontWeight: 700, fontFamily: FONTS.body, minWidth: '28px', paddingTop: '2px' }}>
                 {i + 1}.
@@ -823,7 +823,7 @@ function TabKozmikSahneler({ language, isMobile }) {
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '10px' }}>
           {HAPAX_WORDS.map(w => (
-            <div key={w.tr} style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: '10px', padding: '14px' }}>
+            <div key={w.tr} style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.chip, padding: '14px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
                 <span style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, direction: 'rtl' }} dir="rtl" lang="ar">{w.ar}</span>
                 {w.isHapax && <HapaxBadge language={language} />}
@@ -893,7 +893,7 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {sections.map((sec, i) => (
-        <div key={i} style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', padding: '16px' }}>
+        <div key={i} style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg, padding: '16px' }}>
           <h3 style={{ fontSize: '1rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 10px', fontFamily: FONTS.body }}>{sec.title}</h3>
           {sec.ar && (
             <VerseBlock ar={sec.ar} tr={sec.tr} en={sec.en} verseRef={sec.ref} language={language} color={GOLD} />
@@ -909,7 +909,7 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
         </div>
       ))}
 
-      <div style={{ background: 'rgba(192,57,43,0.06)', border: '1px solid rgba(192,57,43,0.25)', borderRadius: '12px', padding: '16px' }}>
+      <div style={{ background: 'rgba(192,57,43,0.06)', border: '1px solid rgba(192,57,43,0.25)', borderRadius: RADIUS.lg, padding: '16px' }}>
         <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
           <span style={{ color: '#C0392B', fontSize: '1.2rem', flexShrink: 0 }}>ℹ</span>
           <div>
@@ -992,7 +992,7 @@ function TabKuranHadis({ language, isMobile: _isMobile }) {
         </div>
       </div>
 
-      <div style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', padding: '16px' }}>
+      <div style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg, padding: '16px' }}>
         <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 8px', fontFamily: FONTS.body }}>
           {language === 'tr' ? 'Neden bu ayrım önemli?' : 'Why does this distinction matter?'}
         </h3>
@@ -1078,7 +1078,7 @@ function TabKaynaklar({ language }) {
       </div>
 
       {sections[language].map((sec, i) => (
-        <div key={i} style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', padding: '16px' }}>
+        <div key={i} style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg, padding: '16px' }}>
           <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: GOLD, margin: '0 0 10px', fontFamily: FONTS.body, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{sec.title}</h3>
           <ul style={{ margin: 0, padding: '0 0 0 16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
             {sec.items.map((item, j) => (

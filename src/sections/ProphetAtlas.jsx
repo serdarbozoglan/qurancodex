@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 import ProphetMap from './ProphetMap';
 
 // Revelation order — rank 1-86 Mekki, 87-114 Medeni
@@ -1630,7 +1630,7 @@ export default function ProphetAtlas() {
                   padding: '10px 22px',
                   background: isSelected ? `${p.color}22` : 'rgba(255,255,255,0.04)',
                   border: `1.5px solid ${isSelected ? p.color : COLORS.glassBorder}`,
-                  borderRadius: '999px',
+                  borderRadius: RADIUS.pill,
                   color: isSelected ? p.color : COLORS.silver,
                   fontSize: '0.88rem', fontWeight: isSelected ? 700 : 500,
                   cursor: 'pointer',
@@ -1999,7 +1999,7 @@ export default function ProphetAtlas() {
                     <div key={labelTr} style={{
                       background: `${p.color}0d`,
                       border: `1px solid ${p.color}2a`,
-                      borderRadius: '12px',
+                      borderRadius: RADIUS.lg,
                       padding: '14px 22px',
                       textAlign: 'center',
                       minWidth: '140px',
@@ -2058,7 +2058,7 @@ export default function ProphetAtlas() {
                           style={{
                             display: 'flex', alignItems: 'center', gap: '5px',
                             padding: '4px 10px 4px 7px',
-                            borderRadius: '999px',
+                            borderRadius: RADIUS.pill,
                             background: isMekki ? 'rgba(212,165,116,0.1)' : 'rgba(52,211,153,0.1)',
                             border: `1px solid ${isMekki ? 'rgba(212,165,116,0.3)' : 'rgba(52,211,153,0.3)'}`,
                             cursor: 'default',
@@ -2120,7 +2120,7 @@ export default function ProphetAtlas() {
                     style={{
                       background: `${p.color}0d`,
                       border: `1px solid ${isFocused ? p.color + '55' : p.color + '22'}`,
-                      borderRadius: '12px',
+                      borderRadius: RADIUS.lg,
                       padding: '16px',
                       cursor: 'pointer',
                       transition: 'border-color 0.2s',
@@ -2210,7 +2210,7 @@ export default function ProphetAtlas() {
               maxWidth: '680px', margin: '10px auto 0',
               padding: '14px 20px',
               background: 'rgba(255,255,255,0.02)', // TODO: tokenize
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
               border: `1px solid ${COLORS.glassBorderSoft}`,
               textAlign: 'left',
             }}>
@@ -2310,7 +2310,7 @@ export default function ProphetAtlas() {
                   gridTemplateColumns: '1fr auto 1fr',
                   gap: '0',
                   background: i % 2 === 0 ? COLORS.glassBgFaint : 'transparent',
-                  borderRadius: '12px',
+                  borderRadius: RADIUS.lg,
                   overflow: 'hidden',
                 }}>
                   {/* Left: Prophet narrative */}
@@ -2397,7 +2397,7 @@ export default function ProphetAtlas() {
             padding: '14px 18px',
             background: 'rgba(255,255,255,0.02)', // TODO: tokenize
             border: `1px solid ${COLORS.glassBorderSoft}`,
-            borderRadius: '8px',
+            borderRadius: RADIUS.md,
           }}>
             <p style={{ color: 'rgba(148,163,184,0.75)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
               <span style={{ color: 'rgba(212,165,116,0.85)', fontWeight: 700, marginRight: '6px' }}>Not:</span>
@@ -2441,7 +2441,7 @@ export default function ProphetAtlas() {
                   padding: '6px 16px',
                   background: isActive ? `${p.color}22` : 'rgba(255,255,255,0.04)',
                   border: `1.5px solid ${isActive ? p.color : COLORS.glassBorder}`,
-                  borderRadius: '999px',
+                  borderRadius: RADIUS.pill,
                   color: isActive ? p.color : COLORS.slate500,
                   fontSize: '0.8rem', fontWeight: isActive ? 700 : 400,
                   cursor: 'pointer', transition: 'all 0.2s',
@@ -2503,7 +2503,7 @@ export default function ProphetAtlas() {
                       ? 'rgba(212,165,116,0.10)' // TODO: tokenize
                       : p.detailed ? 'rgba(212,165,116,0.06)' : 'rgba(255,255,255,0.03)', // TODO: tokenize
                     border: `1px solid ${isOpen ? 'rgba(212,165,116,0.55)' : p.detailed ? COLORS.goldAlpha25 : COLORS.glassBgStrong}`,
-                    borderRadius: '12px',
+                    borderRadius: RADIUS.lg,
                     overflow: 'hidden',
                     transition: 'border-color 0.2s, background 0.2s',
                     boxShadow: isOpen ? '0 0 18px rgba(212,165,116,0.12)' : 'none',
@@ -2536,7 +2536,7 @@ export default function ProphetAtlas() {
                             color: 'rgba(212,165,116,0.7)',
                             background: 'rgba(212,165,116,0.12)',
                             border: `1px solid ${COLORS.goldAlpha25}`,
-                            borderRadius: '4px', padding: '1px 5px',
+                            borderRadius: RADIUS.xs, padding: '1px 5px',
                             letterSpacing: '0.08em', textTransform: 'uppercase',
                             fontFamily: FONTS.body,
                           }}>
@@ -2562,7 +2562,7 @@ export default function ProphetAtlas() {
                               color: isMekki ? 'rgba(212,165,116,0.8)' : 'rgba(52,211,153,0.8)',
                               background: isMekki ? 'rgba(212,165,116,0.1)' : 'rgba(52,211,153,0.1)',
                               border: `1px solid ${isMekki ? COLORS.goldAlpha20 : 'rgba(52,211,153,0.2)'}`,
-                              borderRadius: '4px', padding: '1px 5px', fontWeight: 500,
+                              borderRadius: RADIUS.xs, padding: '1px 5px', fontWeight: 500,
                             }}>
                               {name ? (language === 'tr' ? name.tr : name.en) : s}
                             </span>
@@ -2654,7 +2654,7 @@ export default function ProphetAtlas() {
             overflowX: 'auto',
             background: `linear-gradient(135deg, ${COLORS.goldAlpha04} 0%, rgba(10,10,30,0.6) 50%, rgba(52,211,153,0.03) 100%)`, // TODO: tokenize mid+end stops
             border: '1px solid rgba(212,165,116,0.14)',
-            borderRadius: '20px',
+            borderRadius: RADIUS.pillSm,
             padding: '28px 20px 20px',
           }}>
             <svg
@@ -2920,7 +2920,7 @@ export default function ProphetAtlas() {
                       onClick={() => setExpandedRef(null)}
                       style={{
                         background: 'none', border: `1px solid ${COLORS.glassBorder}`,
-                        borderRadius: '8px', cursor: 'pointer',
+                        borderRadius: RADIUS.md, cursor: 'pointer',
                         color: 'rgba(148,163,184,0.55)', fontSize: '0.85rem',
                         padding: '5px 10px', fontFamily: FONTS.body,
                         flexShrink: 0, marginLeft: '16px',
@@ -3020,7 +3020,7 @@ export default function ProphetAtlas() {
                       <div style={{
                         background: 'rgba(212,165,116,0.05)',
                         border: '1px solid rgba(212,165,116,0.14)',
-                        borderRadius: '12px',
+                        borderRadius: RADIUS.lg,
                         padding: '14px 18px 16px',
                       }}>
                         <div style={{
@@ -3086,7 +3086,7 @@ export default function ProphetAtlas() {
                   background: 'rgba(6,8,24,0.97)',
                   backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
                   border: '1px solid rgba(212,165,116,0.28)',
-                  borderRadius: '14px', padding: '14px 16px 12px',
+                  borderRadius: RADIUS.xl, padding: '14px 16px 12px',
                   boxShadow: '0 12px 40px rgba(0,0,0,0.7), 0 0 24px rgba(212,165,116,0.07)',
                   pointerEvents: 'auto',
                 }}
@@ -3131,7 +3131,7 @@ export default function ProphetAtlas() {
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
                   border: '1px solid rgba(212,165,116,0.28)',
-                  borderRadius: '14px',
+                  borderRadius: RADIUS.xl,
                   padding: '14px 16px 12px',
                   boxShadow: '0 12px 40px rgba(0,0,0,0.7), 0 0 24px rgba(212,165,116,0.07)',
                   pointerEvents: 'auto',
