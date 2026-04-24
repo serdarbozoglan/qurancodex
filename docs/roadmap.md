@@ -1,64 +1,30 @@
 # QuranCodex — Yol Haritası
 
-**Son güncelleme:** 2026-04-12
+**Son güncelleme:** 2026-04-23
 **Kaynaklar:** `docs/skill-review-findings.md`, `todo.md`, `todo_v1.1.md` birleştirildi
 
 > Sadece bekleyen işler. Tamamlananlar git history'de (v1.0, v1.1, v1.2, v1.3, Faz 1-2).
 
 ---
-DILSE DNA
-Kur'an'ın 29 suresi gizemli harflerle başlar. sure --> sure sapkali u
-114 surenin 29'u bu harflerle başlar --> sapkali u
-SURE ayni kart iicnde -> sapkali u
-Kur'an'daki tum harflerin frenkas analizi yapilsa ve son kart ona referans ile acilsa
 
-Elif-Lam-Mim: Ankebut Suresinde kitaba atif var mi yok giib?
-Rum suresinde'de kitaba atif yok
+## ✅ Son Tamamlananlar (v1.5)
 
-Görüntüdeki kartı ve belirttiğin "yanıltıcı ifade" sorununu inceledim. Haklısın; Ankebût ve Rûm surelerinde Elif-Lâm-Mîm'den hemen sonra doğrudan "Kitap" kelimesi gelmez (Ankebût'ta imtihan, Rûm'da ise Rumların yenilgisi gelir). 
-
-Bir veri bilimci titizliğiyle, bu kartı hem **doğru** hem de **"forensik"** derinliğe uygun şekilde nasıl güncelleyebileceğine dair önerim aşağıdadır:
-
-### 1. Başlık ve Alt Başlık (Hata Giderme)
-"Altısında da hemen ardından Kitab'a atıf" ifadesini, veriyi daha doğru yansıtan bir **dualite (ikililik)** vurgusuyla değiştirmelisin.
-
-* **Yeni Başlık:** Vahyin Hakikati ve Sadakat Sınavı
-* **Yeni Alt Metin:** Bu 6 sure; vahyin kaynağını (Kitap) ve bu vahye inananların karşılaşacağı pratik sonuçları (İmtihan) iki ana blokta birleştirir.
-
----
-
-### 2. Kart İçeriği İçin "Blok" Yaklaşımı
-Kartın orta kısmındaki metni, 4-2 ayrımını netleştirecek şekilde şu şekilde güncelleyebilirsin:
-
-* **Bakara, Âl-i İmrân, Lokmân, Secde (4 Sure):** Vahyin kaynağına ve "Kitab"ın otoritesine doğrudan vurgu.
-* **Ankebût & Rûm (2 Sure):** Vahyin doğruluğunun hayattaki karşılığı; "İmtihan" süreci ve "Tarihsel" ispat (Rumların zaferi).
+- **F-5. Sure ismine tıklama → ReadingMode** (2026-04-23 · commit `5bfcd5c`)
+  - Foundation katmanı eklendi
+- **B-1 ToolsBrowser orphan** (2026-04-23) — Kıraat Atlası VIZ'e taşınınca (commit `b4af82c`) VIZ 5→6 oldu, Mesel artık orphan değil. ANALYSIS 7 araç → son kart (Diyalog) intentional fullWidth.
+- **B-2 ZoomToFit cluster clipping** (2026-04-23) — `VerseGraph.jsx:2119` — zoomToFit sonrası cameraPosition ile target +Y offset (camera distance × 0.07). Fixed header'ın örttüğü ~56px'i telafi eder, tüm filter'larda tutarlı framing.
+- **LinguisticDNA Elif-Lâm-Mîm kartı — dualite fix** (2026-04-23 doğrulandı)
+  - Eski: "6 sûrenin hepsinde ardından Kitab'a atıf" (yanlış — Ankebût/Rûm'da yok)
+  - Yeni: "Vahyin Hakikati & Sadakat Sınavı" — 4+2 yapı (Bakara/Âl-i İmrân/Lokmân/Secde Kitab'a atıf; Ankebût imtihan, Rûm tarihsel zafer)
+  - Footnote: 4 genel istisna (Meryem, Ankebût, Rûm, Kalem) açıkça belirtildi
+- **Token migration — 7 overlay RADIUS scale** (commit `083eff6`) — M-1 kısmî ilerleme
+- **3 resilience katmanı** (2026-04-22/23)
+  - KFGQPC self-host (`public/fonts/`), Fontsource bundle (Inter/Playfair/Amiri), Meal cache (author 105 · 114 sure)
+- **qc-content-producer agent + 6 içerik birimi**
+  - 3 makro tool: Sünnetullah Atlası · Münâfık Profili · Nefis Mertebeleri
+  - 3 mikro patch: Retorigi Te'kîd · Yeminler Zıt Çiftler · WowFacts Kur'an İsimleri
 
 ---
-
-### 3. Kompozisyon ve Maddeleme Güncellemesi
-Kartın dikey yapısını bozmadan, bilgiyi daha "scannable" (taranabilir) hale getirelim:
-
-* **Vahyin İnşası (2, 3):** Toplumsal ve hukuki düzenin temeli olarak "Kitap".
-* **Bireysel Sınav (29):** İmanın sözde kalmayıp fiili bir testten (fitne/imtihan) geçeceği uyarısı.
-* **Gaybi/Tarihi İspat (30):** Vahyin geleceğe dair verdiği haberin (Rum zaferi) gerçekleşmesiyle gelen ispat.
-* **Hikmet ve Secde (31, 32):** Yaratılış delilleri üzerinden teslimiyet (hikmet ve huşu).
-
----
-
-### 4. Tasarım Önerisi (UI/UX)
-Kartın sağ üstündeki "6 sûre" ve "Karma" (Mekkî/Medenî karışık anlamında sanırım) ibareleri kalsın, ancak içeriği şu şekilde görselleştirebilirsin:
-
-> **[İkon: Kitap]** 4 Sure: Doğrudan Kitap vurgusu (Bakara, Âl-i İmrân, Lokmân, Secde)
-> **[İkon: Terazi/Kılıç]** 2 Sure: Pratik ispat ve sarsıcı imtihan (Ankebût, Rûm)
-
----
-
-
------
-
--------
-
--------
 
 ## 🔴 P0 — Kritik
 
@@ -113,7 +79,7 @@ Kartın sağ üstündeki "6 sûre" ve "Karma" (Mekkî/Medenî karışık anlamı
 - [ ] **F-2. Kavram Ağı / Semantic Map** — embedding altyapısı var, force-directed graph
 - [ ] **F-3. Kur'an'da Kadınlar** — Hz. Meryem tek isim, wow potansiyeli yüksek
 - [ ] **F-4. Kur'an'ın Coğrafyası** — interaktif harita (Leaflet mevcut)
-- [ ] **F-5. Sure ismine tıklama → ReadingMode**
+- [x] **F-5. Sure ismine tıklama → ReadingMode** ✅ 2026-04-23 (commit `5bfcd5c`)
 - [ ] **F-6. PWA + Audio cache** — Service Worker, çevrimdışı
 
 ### İkinci Öncelik
@@ -135,8 +101,7 @@ Kartın sağ üstündeki "6 sûre" ve "Karma" (Mekkî/Medenî karışık anlamı
 
 ## 🐛 Bilinen UI Bugları
 
-- [ ] **B-1. ToolsBrowser "Tümü"** — Mesel kartı tek satır kaplıyor (5 araç + 2-col)
-- [ ] **B-2. ZoomToFit** — Surah 31-32 cluster ekranın üstünde kalıyor
+> Tümü çözüldü — yeni bir şey ortaya çıkarsa buraya eklenir.
 
 ---
 
@@ -145,3 +110,6 @@ Kartın sağ üstündeki "6 sûre" ve "Karma" (Mekkî/Medenî karışık anlamı
 **Lint snapshot (2026-04-12):** 0 error, 46 warning, 2330 token ihlali, 70/70 test PASS, VerseGraph 873KB + three 550KB
 
 **Manuel test senaryoları:** `docs/path-mode-test-scenarios.md` (8 senaryo, 7 PASS, 1 test açığı)
+
+1. #1 Tefsir paneli (en yüksek değer/çaba oranı — Quran sitesi için "must")
+2. #2 Kelime-kelime overlay (öğrenci/hafızlık için devrim)
