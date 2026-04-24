@@ -4,6 +4,23 @@ import { COLORS, FONTS } from '../tokens';
 // Simple per-component cache: { [surahNumber]: data }
 const _cache = new Map();
 
+// Elmalılı scrape'i PDF/HTML görsel satır sonlarını `\n` olarak koruyor.
+// Bu yüzden cümle ortasında "enter" varmış gibi görünüyor. Tek `\n`'i
+// cümle devamı kabul edip boşluğa çevir; paragraf sınırı olan `\n\n`
+// (veya daha fazlası)'nı tek `\n\n` olarak koru. Ayrıca düz metnin
+// başında/sonunda kalan fazlalık boşlukları ve satır-içi çift
+// boşlukları tek boşluğa indir.
+function normalizeTafsirText(str) {
+  if (!str) return '';
+  return str
+    .replace(/\r\n/g, '\n')
+    .replace(/\n{2,}/g, '\u0001')  // paragraf işaretini yer tutucuya kaydet
+    .replace(/\n/g, ' ')            // kalan tek satır sonları = cümle içi kırılma
+    .replace(/\u0001/g, '\n\n')     // paragrafları geri getir
+    .replace(/[ \t]{2,}/g, ' ')     // fazla iç boşluk
+    .replace(/ *\n */g, '\n');      // satır başı/sonu boşlukları
+}
+
 export default function TafsirPanel({ open, onClose, surah, ayah, language, dayMode, isMobile }) {
   const [data,    setData]    = useState(_cache.get(surah) || null);
   const [loading, setLoading] = useState(false);
@@ -81,12 +98,12 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
   return (
     <div
       style={{
-        position: 'fixed', top: 0, right: 0, bottom: 0,
+        position: 'fixed', top: 0, left: 0, bottom: 0,
         width: isMobile ? '100vw' : '460px',
         maxWidth: '100vw',
         background: C.bg,
-        borderLeft: isMobile ? 'none' : `1px solid ${C.border}`,
-        boxShadow: isMobile ? 'none' : '-12px 0 40px rgba(0,0,0,0.35)',
+        borderRight: isMobile ? 'none' : `1px solid ${C.border}`,
+        boxShadow: isMobile ? 'none' : '12px 0 40px rgba(0,0,0,0.35)',
         zIndex: 180,
         display: 'flex', flexDirection: 'column',
       }}
@@ -198,7 +215,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
                   {language === 'tr' ? 'Âyet' : 'Verse'} {chunk.ayah}
                 </div>
               )}
-              {chunk.text.trim()}
+              {normalizeTafsirText(chunk.text).trim()}
             </div>
           );
         })}
