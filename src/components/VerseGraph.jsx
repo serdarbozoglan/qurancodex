@@ -787,6 +787,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
 // ─── ClusterView — SVG bubble map ────────────────────────────────────────────
 function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, language, onClose, onOpenFullGraph, initialSearch = '', onSearchConsumed }) {
   const svgRef = useRef(null);
+  const headerRef = useRef(null);
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 });
   const [hovered, setHovered] = useState(null);
   const [searchQuery, setSearchQuery] = useState(initialSearch);
@@ -794,7 +795,18 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
   const hasInitFit = useRef(false);
   const [viewMode, setViewMode] = useState('semantic'); // 'semantic' | 'classical'
   const [showClickHint, setShowClickHint] = useState(true);
+  const [headerHeight, setHeaderHeight] = useState(0);
   useEffect(() => { const t = setTimeout(() => setShowClickHint(false), 4000); return () => clearTimeout(t); }, []);
+
+  // Header overlay yüksekliği — fit hesabında üstteki gizli alanı dışlamak için
+  useEffect(() => {
+    if (!headerRef.current) return;
+    const ro = new ResizeObserver(entries => {
+      setHeaderHeight(Math.ceil(entries[0].contentRect.height));
+    });
+    ro.observe(headerRef.current);
+    return () => ro.disconnect();
+  }, []);
 
   const autoSelectedRef = useRef(false);
 
@@ -931,6 +943,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
   const activePositions = viewMode === 'classical' ? classicalSeparatedPositions : separatedPositions;
 
   // Compute a transform that fits all bubbles into the viewport (works for both modes)
+  // Header overlay (top-bar) yüksekliğini dışlayarak görünür alana fit yapar —
+  // aksi takdirde üst sıradaki cluster'lar (örn. Sûre 31, 41, 33) header arkasında kalır.
   const fitTransform = useMemo(() => {
     const positions = viewMode === 'classical' ? classicalSeparatedPositions : separatedPositions;
     if (!clusters.length || !Object.keys(positions).length) return { x: 0, y: 0, scale: 1 };
@@ -947,19 +961,22 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
     const bboxW = maxBX - minBX;
     const bboxH = maxBY - minBY;
     const MARGIN = 48;
-    const scale = Math.min((W - 2 * MARGIN) / bboxW, (H - 2 * MARGIN) / bboxH, 1.0);
+    const availableH = Math.max(200, H - headerHeight);
+    const scale = Math.min((W - 2 * MARGIN) / bboxW, (availableH - 2 * MARGIN) / bboxH, 1.0);
     const x = W / 2 - scale * (minBX + bboxW / 2);
-    const y = H / 2 - scale * (minBY + bboxH / 2);
+    const y = headerHeight + availableH / 2 - scale * (minBY + bboxH / 2);
     return { x, y, scale };
-  }, [viewMode, classicalSeparatedPositions, separatedPositions, clusters, radius, W, H]);
+  }, [viewMode, classicalSeparatedPositions, separatedPositions, clusters, radius, W, H, headerHeight]);
 
   // Fit on initial mount; re-fit when mode changes
+  // headerHeight > 0 koşulu: ResizeObserver async tetiklendiği için ilk render'da
+  // headerHeight=0 ile yanlış fit yapılmasını engeller.
   useEffect(() => {
-    if (!hasInitFit.current && Object.keys(activePositions).length > 0) {
+    if (!hasInitFit.current && Object.keys(activePositions).length > 0 && headerHeight > 0) {
       hasInitFit.current = true;
       setTransform(fitTransform);
     }
-  }, [fitTransform, activePositions]);
+  }, [fitTransform, activePositions, headerHeight]);
 
   useEffect(() => {
     setTransform(fitTransform);
@@ -1006,7 +1023,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, overflow: 'hidden' }}>
       {/* Header */}
-      <div style={{
+      <div ref={headerRef} style={{
         position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20,
         display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', padding: '10px 18px',
         background: 'linear-gradient(to bottom, rgba(6,8,14,0.98) 60%, transparent)',
@@ -2124,9 +2141,36 @@ function FullGraph({ verses, onBack, language, onClose }) {
 
     // Use zoomToFit with node filter (primary only) after nodes are definitely rendered
     // padding=30 → tighter zoom so embedding clusters are more visible
-    setTimeout(() => {
+    const fitTimer = setTimeout(() => {
       graphRef.current?.zoomToFit(900, 30, node => !node.ghost);
     }, 1200);
+
+    // After zoomToFit settles, nudge the lookAt target upward so the cluster
+    // drops into the visible viewport. The canvas reports full height, but
+    // the fixed header overlays the top ~56px — zoomToFit centers on the raw
+    // canvas so clusters with high-Y positions (e.g. Surah 31-32) end up
+    // visually clipped behind the header. Offsetting the target +Y tilts the
+    // camera up, which pushes content down into the usable area.
+    const offsetTimer = setTimeout(() => {
+      const g = graphRef.current;
+      if (!g) return;
+      const cam = g.camera?.();
+      const ctrl = g.controls?.();
+      if (!cam || !ctrl) return;
+      const target = ctrl.target;
+      const dist = cam.position.distanceTo(target);
+      const yOffset = dist * 0.07; // ~56px at typical camera distances
+      g.cameraPosition(
+        { x: cam.position.x, y: cam.position.y, z: cam.position.z },
+        { x: target.x, y: target.y + yOffset, z: target.z },
+        400,
+      );
+    }, 2150); // 1200 (pre-fit) + 900 (fit duration) + 50 (settle margin)
+
+    return () => {
+      clearTimeout(fitTimer);
+      clearTimeout(offsetTimer);
+    };
   }, [filterSurah, graphData]);
 
   const searchResults = useMemo(() => {
