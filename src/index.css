@@ -153,16 +153,43 @@ body {
 }
 
 /* ---- Section Gradients ---- */
+/* Cinematic section bridge — a soft fade between section background tones
+   with a delicate gold horizon line at its midpoint, so the transition
+   reads as a chapter break rather than a technical stitch.
+   CLAUDE.md §4: "Section Transitions: 200px gradient overlap between sections". */
 .gradient-divider {
-  height: 30px;
-  background: linear-gradient(180deg, var(--color-cosmic-black), var(--color-deep-navy));
+  height: 96px;
+  background:
+    /* Mid-line hairline: ultra-subtle gold horizon (10% gold alpha) */
+    linear-gradient(180deg, transparent 48%, rgba(212, 165, 116, 0.10) 50%, transparent 52%),
+    /* Main soft fade between cosmic-black and deep-navy; wider plateaus
+       at both ends prevent the seam from feeling mid-section. */
+    linear-gradient(180deg,
+      var(--color-cosmic-black) 0%,
+      var(--color-cosmic-black) 18%,
+      var(--color-deep-navy) 82%,
+      var(--color-deep-navy) 100%);
   pointer-events: none;
 }
 
 .gradient-divider-reverse {
-  height: 30px;
-  background: linear-gradient(180deg, var(--color-deep-navy), var(--color-cosmic-black));
+  height: 96px;
+  background:
+    linear-gradient(180deg, transparent 48%, rgba(212, 165, 116, 0.10) 50%, transparent 52%),
+    linear-gradient(180deg,
+      var(--color-deep-navy) 0%,
+      var(--color-deep-navy) 18%,
+      var(--color-cosmic-black) 82%,
+      var(--color-cosmic-black) 100%);
   pointer-events: none;
+}
+
+/* Mobile: tighter bridge (64px) — scroll economy matters on small screens. */
+@media (max-width: 640px) {
+  .gradient-divider,
+  .gradient-divider-reverse {
+    height: 64px;
+  }
 }
 
 /* ---- Animations ---- */
