@@ -74,10 +74,10 @@ const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; /
 // Vakıf + med/kasr + sekte + küçük mim/nun işaretleri — kırmızı, metnin üstünde
 // Gündüz: koyu kırmızı (#c0392b) — Gece: yumuşak terrakota (#c87a72, göz yormaz)
 // NOT: `vertical-align:super` kullanmıyoruz — lineHeight 2.2 ile birleşince işaret
-// satır-boşluğuna taşıyor. Küçük `top:-0.2em` offset harflerin hemen üstüne oturtur.
+// satır-boşluğuna taşıyor. Küçük `top:-0.4em` offset harflerin biraz üstüne oturtur.
 const makeWaqfSpan = (dayMode) => (m) =>
   `<span style="display:inline-block;font-size:0.72em;font-weight:700;line-height:1;` +
-  `position:relative;top:-0.2em;` +
+  `position:relative;top:-0.4em;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;">${m}</span>`;
 
@@ -3084,57 +3084,79 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
                         spellCheck={false}
                         style={{ cursor: 'pointer' }}
                       >
-                        <span style={{
-                          background: isActive ? C.activeHighlight : 'transparent',
-                          WebkitBoxDecorationBreak: 'clone',
-                          boxDecorationBreak: 'clone',
-                          transition: 'background 0.2s',
-                          color: (verse.surah === 1 && verse.ayah === 1) ? C.bismillah : (isActive ? C.arabicActive : 'inherit'),
-                        }}>
-                          {(() => {
-                            const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
-                            const ar = isFatiha1 ? cleanArabic(verse.arabic).replace(/\u064E\u0670/g, '\u0670').replace(/\u0670\u064E/g, '\u0670') : cleanArabic(verse.arabic);
-                            return showTajweed
-                              ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(ar, dayMode, true, isFatiha1) }} />
-                              : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(ar, dayMode, true, isFatiha1) }} />;
-                          })()}
-                        </span>
-                        {/* Verse end marker — double-ring badge */}
-                        <span style={{
-                          display: 'inline-flex', flexDirection: 'column', alignItems: 'center',
-                          verticalAlign: 'middle',
-                          margin: '0 18px',
-                          gap: '2px',
-                        }}>
-                          {isSajdaBook && (
+                        {(() => {
+                          const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
+                          const ar = (isFatiha1
+                            ? cleanArabic(verse.arabic).replace(/\u064E\u0670/g, '\u0670').replace(/\u0670\u064E/g, '\u0670')
+                            : cleanArabic(verse.arabic)).trimEnd();
+                          // Split into [leading text] + [last word] so we can wrap the
+                          // LAST WORD + verse badge inside white-space:nowrap. This
+                          // prevents the badge from getting orphaned on a new line
+                          // when the verse ends near a justified line boundary.
+                          const lastSpaceIdx = ar.lastIndexOf(' ');
+                          const hasSplit = lastSpaceIdx > 0;
+                          const leading  = hasSplit ? ar.slice(0, lastSpaceIdx + 1) : '';
+                          const lastWord = hasSplit ? ar.slice(lastSpaceIdx + 1) : ar;
+                          const renderHtml = (t) => showTajweed
+                            ? applyTajweed(t, dayMode, true, isFatiha1)
+                            : wrapWaqfOnly(t, dayMode, true, isFatiha1);
+                          const highlightStyle = {
+                            background: isActive ? C.activeHighlight : 'transparent',
+                            WebkitBoxDecorationBreak: 'clone',
+                            boxDecorationBreak: 'clone',
+                            transition: 'background 0.2s',
+                            color: isFatiha1 ? C.bismillah : (isActive ? C.arabicActive : 'inherit'),
+                          };
+                          const badge = (
                             <span style={{
-                              fontSize: '0.48em', lineHeight: 1,
-                              color: dayMode ? '#1a7a4c' : '#2ecc71',
-                              fontFamily: currentFont,
-                              letterSpacing: '0.02em',
-                            }}>سجدة</span>
-                          )}
-                          <span style={{
-                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                            width: '1.72em', height: '1.72em',
-                            textAlign: 'center', borderRadius: '50%',
-                            border: `1.5px solid ${isSajdaBook ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : C.gold + 'aa'}`,
-                            boxShadow: isSajdaBook
-                              ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`
-                              : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                            color: isSajdaBook ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.gold,
-                            fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
-                            fontFamily: currentFont,
-                            background: isSajdaBook
-                              ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.18) 0%, rgba(26,122,76,0.05) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
-                              : dayMode
-                                ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
-                                : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                            boxSizing: 'border-box', flexShrink: 0,
-                          }}>
-                            {toArabicNumerals(verse.ayah)}
-                          </span>
-                        </span>
+                              display: 'inline-flex', flexDirection: 'column', alignItems: 'center',
+                              verticalAlign: 'middle',
+                              margin: '0 18px',
+                              gap: '2px',
+                            }}>
+                              {isSajdaBook && (
+                                <span style={{
+                                  fontSize: '0.48em', lineHeight: 1,
+                                  color: dayMode ? '#1a7a4c' : '#2ecc71',
+                                  fontFamily: currentFont,
+                                  letterSpacing: '0.02em',
+                                }}>سجدة</span>
+                              )}
+                              <span style={{
+                                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                                width: '1.72em', height: '1.72em',
+                                textAlign: 'center', borderRadius: '50%',
+                                border: `1.5px solid ${isSajdaBook ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : C.gold + 'aa'}`,
+                                boxShadow: isSajdaBook
+                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`
+                                  : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
+                                color: isSajdaBook ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.gold,
+                                fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
+                                fontFamily: currentFont,
+                                background: isSajdaBook
+                                  ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.18) 0%, rgba(26,122,76,0.05) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
+                                  : dayMode
+                                    ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
+                                    : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                                boxSizing: 'border-box', flexShrink: 0,
+                              }}>
+                                {toArabicNumerals(verse.ayah)}
+                              </span>
+                            </span>
+                          );
+                          return (
+                            <>
+                              {leading && (
+                                <span style={highlightStyle} dangerouslySetInnerHTML={{ __html: renderHtml(leading) }} />
+                              )}
+                              {/* Last word + badge bound together — prevents orphan badge on next line */}
+                              <span style={{ whiteSpace: 'nowrap' }}>
+                                <span style={highlightStyle} dangerouslySetInnerHTML={{ __html: renderHtml(lastWord) }} />
+                                {badge}
+                              </span>
+                            </>
+                          );
+                        })()}
                       </span>
                     );
                   });
