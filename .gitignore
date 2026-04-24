@@ -45,3 +45,6 @@ todo_v*.md
 # Python bytecode (scripts/ helpers)
 __pycache__/
 *.pyc
+
+# Work-in-progress experimental components — not in repo until ready
+src/components/MihverDemo*.jsx
