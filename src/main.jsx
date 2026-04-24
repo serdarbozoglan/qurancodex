@@ -1,5 +1,18 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+
+// Self-hosted fonts (bundled via Fontsource — no runtime fonts.googleapis.com dependency).
+// Inter variable includes all weights 300-900; Playfair Display ships per-weight.
+import '@fontsource-variable/inter';
+import '@fontsource/playfair-display/400.css';
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/playfair-display/800.css';
+import '@fontsource/playfair-display/900.css';
+import '@fontsource/amiri/400.css';
+import '@fontsource/amiri/700.css';
+import '@fontsource/amiri/400-italic.css';
+import '@fontsource/amiri-quran/400.css';
+
 import './index.css'
 import App from './App.jsx'
 
