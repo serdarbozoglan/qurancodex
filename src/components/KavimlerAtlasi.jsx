@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
 
 const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI', 'KARŞILAŞTIR', 'KAYNAKLAR'];
 const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'REGION MAP', 'COMPARE', 'SOURCES'];
@@ -61,7 +61,7 @@ function InfoTip({ textTr, textEn, language }) {
           width: '220px', padding: '8px 10px',
           background: 'rgba(8,10,26,0.97)',
           border: `1px solid ${COLORS.glassBorder}`,
-          borderRadius: '8px',
+          borderRadius: RADIUS.md,
           color: COLORS.silver,
           fontSize: '0.71rem', lineHeight: 1.6,
           zIndex: 30, pointerEvents: 'none',
@@ -287,7 +287,7 @@ function HeroSection({ meta, language, isMobile }) {
         {stats.map((s, i) => (
           <div key={i} style={{
             background: `${s.color}10`, border: `1px solid ${s.color}25`,
-            borderRadius: '10px', padding: '14px', textAlign: 'center',
+            borderRadius: RADIUS.chip, padding: '14px', textAlign: 'center',
           }}>
             <div style={{ color: s.color, fontSize: '1.7rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1 }}>
               {s.value}
@@ -332,7 +332,7 @@ function TabNations({ nations, language, isMobile, filter, setFilter, onArchClic
             onClick={() => setFilter(key)}
             style={{
               flexShrink: 0,
-              padding: '5px 14px', borderRadius: '20px', border: 'none',
+              padding: '5px 14px', borderRadius: RADIUS.pillSm, border: 'none',
               background: filter === key ? `${COLORS.gold}20` : COLORS.glassBg,
               borderColor: filter === key ? `${COLORS.gold}40` : COLORS.glassBorder,
               borderWidth: '1px', borderStyle: 'solid',
@@ -382,7 +382,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
       background: COLORS.glassBg,
       border: `1px solid ${COLORS.glassBorder}`,
       borderTop: `2px solid ${helakColor}40`,
-      borderRadius: '12px', padding: '16px',
+      borderRadius: RADIUS.lg, padding: '16px',
       cursor: 'pointer', transition: 'border-color 0.2s',
     }}
       onClick={() => setExpanded(e => !e)}
@@ -407,7 +407,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
               <span style={{
                 background: 'rgba(167,139,250,0.15)', border: '1px solid rgba(167,139,250,0.3)',
                 color: '#a78bfa', fontSize: '0.62rem', padding: '1px 7px',
-                borderRadius: '10px', fontFamily: FONTS.body, fontWeight: 600,
+                borderRadius: RADIUS.chip, fontFamily: FONTS.body, fontWeight: 600,
                 letterSpacing: '0.05em',
               }}>
                 {language === 'tr' ? 'NADİR' : 'RARE'}
@@ -433,7 +433,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
           <span style={{
             background: `${COLORS.gold}15`, border: `1px solid ${COLORS.gold}30`,
             color: COLORS.gold, fontSize: '0.7rem', padding: '2px 8px',
-            borderRadius: '10px', fontFamily: FONTS.body,
+            borderRadius: RADIUS.chip, fontFamily: FONTS.body,
           }}>
             {prophet}
           </span>
@@ -442,7 +442,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
         <span style={{
           background: `${helakColor}15`, border: `1px solid ${helakColor}30`,
           color: helakColor, fontSize: '0.7rem', padding: '2px 8px',
-          borderRadius: '10px', fontFamily: FONTS.body,
+          borderRadius: RADIUS.chip, fontFamily: FONTS.body,
         }}>
           {helakLabel}
         </span>
@@ -453,7 +453,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
             style={{
               background: 'rgba(26,188,156,0.12)', border: '1px solid rgba(26,188,156,0.25)',
               color: '#1abc9c', fontSize: '0.7rem', padding: '2px 8px',
-              borderRadius: '10px', fontFamily: FONTS.body,
+              borderRadius: RADIUS.chip, fontFamily: FONTS.body,
               cursor: 'pointer', transition: 'all 0.15s',
             }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(26,188,156,0.22)'; }}
@@ -494,7 +494,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
           {nation.verseAr && (
             <div style={{
               background: `${COLORS.gold}08`, border: `1px solid ${COLORS.gold}20`,
-              borderRadius: '8px', padding: '12px 14px', marginBottom: '10px',
+              borderRadius: RADIUS.md, padding: '12px 14px', marginBottom: '10px',
             }}>
               <div style={{
                 fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold,
@@ -518,7 +518,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
           {info && (
             <div style={{
               display: 'flex', gap: '6px', alignItems: 'flex-start',
-              background: 'rgba(100,116,139,0.08)', borderRadius: '8px', padding: '8px 10px',
+              background: 'rgba(100,116,139,0.08)', borderRadius: RADIUS.md, padding: '8px 10px',
             }}>
               <span style={{ color: COLORS.slate500, fontSize: '0.75rem', flexShrink: 0, marginTop: '1px' }}>ℹ</span>
               <p style={{ color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.6 }}>
@@ -642,7 +642,7 @@ function TabHelakDesen({ language, isMobile }) {
             {/* Content */}
             <div style={{
               background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-              borderRadius: '10px', padding: '12px 16px',
+              borderRadius: RADIUS.chip, padding: '12px 16px',
               flex: 1, marginBottom: i < steps.length - 1 ? '4px' : 0,
             }}>
               <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '5px' }}>
@@ -665,7 +665,7 @@ function TabHelakDesen({ language, isMobile }) {
           <div key={i} style={{
             background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
             borderLeft: `3px solid ${COLORS.gold}50`,
-            borderRadius: '10px', padding: '16px 18px',
+            borderRadius: RADIUS.chip, padding: '16px 18px',
           }}>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', marginBottom: '8px' }}>
               <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body }}>
@@ -814,7 +814,7 @@ function StatusBadge({ status, label }) {
   return (
     <span style={{
       background: c.bg, border: `1px solid ${c.border}`, color: c.text,
-      fontSize: '0.68rem', padding: '2px 8px', borderRadius: '10px',
+      fontSize: '0.68rem', padding: '2px 8px', borderRadius: RADIUS.chip,
       fontFamily: FONTS.body, fontWeight: 600, letterSpacing: '0.05em', flexShrink: 0,
     }}>
       {label}
@@ -830,7 +830,7 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
       {/* Global disclaimer */}
       <div style={{
         background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.gold}25`,
-        borderRadius: '10px', padding: '12px 16px', marginBottom: '24px',
+        borderRadius: RADIUS.chip, padding: '12px 16px', marginBottom: '24px',
         display: 'flex', gap: '10px', alignItems: 'flex-start',
       }}>
         <span style={{ color: COLORS.gold, fontSize: '1rem', flexShrink: 0 }}>ℹ</span>
@@ -857,7 +857,7 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
           <div key={i} id={`arch-${card.nationId}`} style={{
             background: COLORS.glassBg,
             border: `1px solid ${isHighlighted ? 'rgba(26,188,156,0.6)' : COLORS.glassBorder}`,
-            borderRadius: '12px', padding: '16px 18px',
+            borderRadius: RADIUS.lg, padding: '16px 18px',
             transition: 'border-color 0.4s, box-shadow 0.4s',
             boxShadow: isHighlighted ? '0 0 0 3px rgba(26,188,156,0.15)' : 'none',
           }}>
@@ -885,7 +885,7 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
               <div style={{
                 display: 'inline-block', background: 'rgba(26,188,156,0.1)', border: '1px solid rgba(26,188,156,0.25)',
                 color: '#1abc9c', fontSize: '0.7rem', padding: '2px 8px',
-                borderRadius: '10px', fontFamily: FONTS.body, marginBottom: '10px',
+                borderRadius: RADIUS.chip, fontFamily: FONTS.body, marginBottom: '10px',
               }}>
                 {card.extra}
               </div>
@@ -903,7 +903,7 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
             {/* Quran note */}
             <div style={{
               background: `${COLORS.gold}08`, border: `1px solid ${COLORS.gold}20`,
-              borderRadius: '8px', padding: '8px 12px',
+              borderRadius: RADIUS.md, padding: '8px 12px',
             }}>
               <p style={{ color: `${COLORS.gold}90`, fontSize: '0.78rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: 0, lineHeight: 1.5 }}>
                 {card.quranNote}
@@ -1056,7 +1056,7 @@ function TabHarita({ language, isMobile }) {
       </div>
 
       {/* Harita */}
-      <div style={{ borderRadius: '12px', overflow: 'hidden', border: `1px solid ${COLORS.glassBorder}`, marginBottom: '20px', height: isMobile ? '340px' : '480px' }}>
+      <div style={{ borderRadius: RADIUS.lg, overflow: 'hidden', border: `1px solid ${COLORS.glassBorder}`, marginBottom: '20px', height: isMobile ? '340px' : '480px' }}>
         <MapContainer
           center={[28, 40]}
           zoom={isMobile ? 3 : 4}
@@ -1088,7 +1088,7 @@ function TabHarita({ language, isMobile }) {
                   </div>
                   <div style={{
                     display: 'inline-block', fontSize: '0.65rem', fontWeight: 600,
-                    padding: '1px 7px', borderRadius: '10px', marginBottom: '6px',
+                    padding: '1px 7px', borderRadius: RADIUS.chip, marginBottom: '6px',
                     background: `${STATUS_COLOR[region.status]}20`,
                     border: `1px solid ${STATUS_COLOR[region.status]}50`,
                     color: STATUS_COLOR[region.status],
@@ -1111,7 +1111,7 @@ function TabHarita({ language, isMobile }) {
       <div style={{
         background: 'rgba(212,165,116,0.06)',
         border: `1px solid ${COLORS.gold}25`,
-        borderRadius: '10px', padding: '14px 18px',
+        borderRadius: RADIUS.chip, padding: '14px 18px',
         marginBottom: '16px',
       }}>
         <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: COLORS.gold, marginBottom: '8px' }}>
@@ -1135,7 +1135,7 @@ function TabHarita({ language, isMobile }) {
             background: 'rgba(255,255,255,0.02)',
             border: '1px solid rgba(255,255,255,0.06)',
             borderLeft: `3px solid ${r.color}60`,
-            borderRadius: '8px', padding: '8px 12px',
+            borderRadius: RADIUS.md, padding: '8px 12px',
           }}>
             <div style={{ flexShrink: 0, width: '10px', height: '10px', borderRadius: '50%', background: r.color, marginTop: '3px', opacity: 0.8 }} />
             <div>
@@ -1229,7 +1229,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
       {/* Bubble chart: Helak types */}
       <div style={{
         background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-        borderRadius: '12px', padding: isMobile ? '16px' : '20px 24px', marginBottom: '20px',
+        borderRadius: RADIUS.lg, padding: isMobile ? '16px' : '20px 24px', marginBottom: '20px',
       }}>
         <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '4px' }}>
           {language === 'tr' ? 'Helak Biçimleri' : 'Types of Destruction'}
@@ -1278,7 +1278,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
       }}>
         <div style={{
           background: `${HELAK_COLORS.kurtulan}10`, border: `1px solid ${HELAK_COLORS.kurtulan}30`,
-          borderRadius: '10px', padding: '14px 16px',
+          borderRadius: RADIUS.chip, padding: '14px 16px',
         }}>
           <div style={{ color: HELAK_COLORS.kurtulan, fontSize: '0.78rem', fontWeight: 700, fontFamily: FONTS.body, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
             {language === 'tr' ? 'Kurtuldu' : 'Saved'}
@@ -1299,7 +1299,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
 
         <div style={{
           background: `${HELAK_COLORS.gizemli}10`, border: `1px solid ${HELAK_COLORS.gizemli}30`,
-          borderRadius: '10px', padding: '14px 16px',
+          borderRadius: RADIUS.chip, padding: '14px 16px',
         }}>
           <div style={{ color: HELAK_COLORS.gizemli, fontSize: '0.78rem', fontWeight: 700, fontFamily: FONTS.body, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
             {language === 'tr' ? 'Bilgi Kısıtlı' : 'Limited Information'}
@@ -1322,7 +1322,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
       {/* Frequency table */}
       <div style={{
         background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-        borderRadius: '12px', padding: isMobile ? '14px' : '20px 24px', marginBottom: '24px',
+        borderRadius: RADIUS.lg, padding: isMobile ? '14px' : '20px 24px', marginBottom: '24px',
         overflowX: 'auto',
       }}>
         <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '4px' }}>
@@ -1370,7 +1370,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
                     <span style={{
                       background: `${color}15`, border: `1px solid ${color}35`,
                       color: color, fontSize: '0.67rem', padding: '2px 8px',
-                      borderRadius: '8px', fontFamily: FONTS.body, whiteSpace: 'nowrap',
+                      borderRadius: RADIUS.md, fontFamily: FONTS.body, whiteSpace: 'nowrap',
                     }}>
                       {language === 'tr' ? row.helakTr : row.helakEn}
                     </span>
@@ -1390,7 +1390,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
       {/* Objection template */}
       <div style={{
         background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-        borderRadius: '12px', padding: isMobile ? '16px' : '20px 24px',
+        borderRadius: RADIUS.lg, padding: isMobile ? '16px' : '20px 24px',
       }}>
         <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '8px' }}>
           {language === 'tr' ? 'İtiraz Şablonu' : 'Objection Template'}
@@ -1405,7 +1405,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
             <div key={i} style={{
               display: 'flex', gap: '12px', alignItems: 'flex-start',
               background: `${COLORS.gold}08`, border: `1px solid ${COLORS.gold}18`,
-              borderRadius: '8px', padding: '10px 14px',
+              borderRadius: RADIUS.md, padding: '10px 14px',
             }}>
               <span style={{ color: COLORS.gold, fontSize: '0.8rem', fontWeight: 700, fontFamily: FONTS.body, flexShrink: 0, marginTop: '1px' }}>
                 {i + 1}.
@@ -1465,7 +1465,7 @@ function TabKaynaklar({ language }) {
       {/* Global note */}
       <div style={{
         background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.gold}25`,
-        borderRadius: '10px', padding: '12px 16px', marginBottom: '28px',
+        borderRadius: RADIUS.chip, padding: '12px 16px', marginBottom: '28px',
         display: 'flex', gap: '10px', alignItems: 'flex-start',
       }}>
         <span style={{ color: COLORS.gold, fontSize: '1rem', flexShrink: 0 }}>ℹ</span>
@@ -1480,7 +1480,7 @@ function TabKaynaklar({ language }) {
         {sections.map((sec, si) => (
           <div key={si} style={{
             background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-            borderRadius: '12px', padding: '18px 20px',
+            borderRadius: RADIUS.lg, padding: '18px 20px',
           }}>
             <div style={{
               color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,

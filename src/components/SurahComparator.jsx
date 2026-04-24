@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, BREAKPOINT_MOBILE } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
 
 // ── MODULE-LEVEL CACHES ───────────────────────────────────────────────────────
 let cachedVerses = null;
@@ -216,7 +216,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
       {surahInfo?.[value] && (
         <span style={{
           fontSize: '0.7rem', color: COLORS.slate600, padding: '2px 8px',
-          background: 'rgba(255,255,255,0.05)', borderRadius: '20px', flexShrink: 0,
+          background: 'rgba(255,255,255,0.05)', borderRadius: RADIUS.pillSm, flexShrink: 0,
         }}>
           {typeof surahInfo[value].period === 'string' ? surahInfo[value].period : (language === 'tr' ? surahInfo[value].period?.tr : surahInfo[value].period?.en)}
         </span>
@@ -235,7 +235,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
           width: '100%', padding: '12px 16px',
           background: value ? `${color}0e` : 'rgba(255,255,255,0.04)',
           border: `1.5px solid ${value ? color + '40' : 'rgba(255,255,255,0.1)'}`,
-          borderRadius: '12px', cursor: 'pointer', textAlign: 'left',
+          borderRadius: RADIUS.lg, cursor: 'pointer', textAlign: 'left',
           display: 'flex', alignItems: 'center', gap: '10px',
           transition: 'all 0.18s', minHeight: '62px',
           fontFamily: "'Inter', sans-serif",
@@ -263,7 +263,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
               position: 'absolute', top: 'calc(100% + 6px)', left: 0, right: 0,
               background: 'rgba(6,8,20,0.97)', backdropFilter: 'blur(24px)',
               border: `1px solid ${color}30`,
-              borderRadius: '12px', zIndex: 200, overflow: 'hidden',
+              borderRadius: RADIUS.lg, zIndex: 200, overflow: 'hidden',
               boxShadow: `0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04)`,
             }}
           >
@@ -278,7 +278,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
                   width: '100%', padding: '7px 12px',
                   background: 'rgba(255,255,255,0.06)',
                   border: '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '8px', color: '#e8e6e3',
+                  borderRadius: RADIUS.md, color: '#e8e6e3',
                   fontSize: '0.85rem', fontFamily: "'Inter', sans-serif",
                   outline: 'none', boxSizing: 'border-box',
                 }}
@@ -403,7 +403,7 @@ function WordVenn({ wordsA, wordsB, colorA, colorB, nameA, nameB, language }) {
           }}>{w}</span>
           <span style={{
             flexShrink: 0, fontSize: '0.68rem', color: color, fontWeight: 600,
-            background: color + '18', padding: '1px 6px', borderRadius: '10px',
+            background: color + '18', padding: '1px 6px', borderRadius: RADIUS.chip,
           }}>{freqMap[w]}</span>
         </div>
       ))}
@@ -416,7 +416,7 @@ function WordVenn({ wordsA, wordsB, colorA, colorB, nameA, nameB, language }) {
   return (
     <div style={{
       display: 'grid', gridTemplateColumns: '1fr auto 1fr',
-      gap: '0', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '14px', overflow: 'hidden',
+      gap: '0', border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.xl, overflow: 'hidden',
     }}>
       {/* Only A */}
       <div style={{ padding: '16px', background: `${colorA}08` }}>
@@ -593,7 +593,7 @@ export default function SurahComparator({ onClose }) {
             style={{
               display: 'flex', alignItems: 'center', gap: '6px',
               background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '8px', padding: '6px 12px', cursor: 'pointer',
+              borderRadius: RADIUS.md, padding: '6px 12px', cursor: 'pointer',
               color: '#94a3b8', fontSize: '0.82rem', fontWeight: 500,
               transition: 'all 0.15s', fontFamily: "'Inter', sans-serif",
             }}
@@ -715,7 +715,7 @@ export default function SurahComparator({ onClose }) {
                   ? 'linear-gradient(135deg, #60a5fa22 0%, #a78bfa22 100%)'
                   : 'rgba(255,255,255,0.04)',
                 border: `1.5px solid ${canCompare ? 'rgba(150,170,255,0.3)' : 'rgba(255,255,255,0.08)'}`,
-                borderRadius: '12px', cursor: canCompare ? 'pointer' : 'not-allowed',
+                borderRadius: RADIUS.lg, cursor: canCompare ? 'pointer' : 'not-allowed',
                 color: canCompare ? '#e8e6e3' : COLORS.slate700,
                 fontSize: '0.92rem', fontWeight: canCompare ? 700 : 400,
                 transition: 'all 0.2s', letterSpacing: '0.04em',
@@ -744,7 +744,7 @@ export default function SurahComparator({ onClose }) {
                     padding: '8px 14px', textAlign: 'left',
                     background: (surahA === p.a && surahB === p.b) ? 'rgba(150,170,255,0.12)' : 'rgba(255,255,255,0.04)',
                     border: `1px solid ${(surahA === p.a && surahB === p.b) ? 'rgba(150,170,255,0.35)' : 'rgba(255,255,255,0.08)'}`,
-                    borderRadius: '12px', cursor: 'pointer',
+                    borderRadius: RADIUS.lg, cursor: 'pointer',
                     color: (surahA === p.a && surahB === p.b) ? '#a78bfa' : '#64748b',
                     fontSize: '0.82rem', fontWeight: 500, transition: 'all 0.15s',
                     fontFamily: "'Inter', sans-serif",
@@ -785,7 +785,7 @@ export default function SurahComparator({ onClose }) {
               }}
               style={{
                 padding: '8px 20px', background: 'rgba(212,165,116,0.1)',
-                border: '1px solid rgba(212,165,116,0.3)', borderRadius: '8px',
+                border: '1px solid rgba(212,165,116,0.3)', borderRadius: RADIUS.md,
                 color: '#d4a574', fontSize: '0.85rem', cursor: 'pointer',
                 fontFamily: "'Inter', sans-serif",
               }}
@@ -796,7 +796,7 @@ export default function SurahComparator({ onClose }) {
               onClick={() => setView('landing')}
               style={{
                 padding: '8px 20px', background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.12)', borderRadius: '8px',
+                border: '1px solid rgba(255,255,255,0.12)', borderRadius: RADIUS.md,
                 color: '#94a3b8', fontSize: '0.85rem', cursor: 'pointer',
                 fontFamily: "'Inter', sans-serif",
               }}
@@ -817,7 +817,7 @@ export default function SurahComparator({ onClose }) {
 
               {/* Surah A card */}
               <div style={{
-                padding: '20px', borderRadius: '14px',
+                padding: '20px', borderRadius: RADIUS.xl,
                 background: `${COLOR_A}0c`, border: `1px solid ${COLOR_A}25`,
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
@@ -864,7 +864,7 @@ export default function SurahComparator({ onClose }) {
 
               {/* Surah B card */}
               <div style={{
-                padding: '20px', borderRadius: '14px',
+                padding: '20px', borderRadius: RADIUS.xl,
                 background: `${COLOR_B}0c`, border: `1px solid ${COLOR_B}25`,
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
@@ -901,7 +901,7 @@ export default function SurahComparator({ onClose }) {
             {/* ── ROW 3: Shared themes callout ── */}
             {analysis.themesShared.length > 0 && (
               <div style={{
-                padding: '14px 18px', borderRadius: '12px',
+                padding: '14px 18px', borderRadius: RADIUS.lg,
                 background: 'rgba(212,165,116,0.07)', border: '1px solid rgba(212,165,116,0.2)',
               }}>
                 <p style={{ color: '#d4a574', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '10px' }}>
@@ -913,7 +913,7 @@ export default function SurahComparator({ onClose }) {
                       padding: '5px 12px',
                       background: 'rgba(212,165,116,0.12)',
                       border: '1px solid rgba(212,165,116,0.3)',
-                      borderRadius: '20px', color: '#d4a574',
+                      borderRadius: RADIUS.pillSm, color: '#d4a574',
                       fontSize: '0.82rem', fontWeight: 600,
                     }}>{t}</span>
                   ))}
@@ -923,7 +923,7 @@ export default function SurahComparator({ onClose }) {
 
             {/* ── ROW 4: Figures ── */}
             {(analysis.figShared.length > 0 || analysis.figOnlyA.length > 0 || analysis.figOnlyB.length > 0) && (
-              <div style={{ padding: '18px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.02)' }}>
+              <div style={{ padding: '18px', borderRadius: RADIUS.xl, border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.02)' }}>
                 <p style={{ color: COLORS.slate600, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '14px' }}>
                   {language === 'tr' ? 'Şahsiyetler ve Figürler' : 'Figures & Prophets'}
                 </p>
@@ -991,7 +991,7 @@ export default function SurahComparator({ onClose }) {
               </p>
 
               {/* Theme Venn: A (left) | B (right) top row; Shared (centered) bottom row */}
-              <div style={{ border: '1px solid rgba(255,255,255,0.07)', borderRadius: '14px', overflow: 'hidden' }}>
+              <div style={{ border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.xl, overflow: 'hidden' }}>
                 {/* Top row: Only A | Only B */}
                 <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', borderBottom: analysis.themesShared.length > 0 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
                   {/* Only A */}
@@ -1004,7 +1004,7 @@ export default function SurahComparator({ onClose }) {
                         <span style={{ color: COLORS.slate800, fontSize: '0.78rem' }}>—</span>
                       ) : analysis.themesOnlyA.map((t, i) => (
                         <span key={i} style={{
-                          padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
+                          padding: '4px 10px', borderRadius: RADIUS.pillSm, fontSize: '0.78rem',
                           background: `${COLOR_A}12`, border: `1px solid ${COLOR_A}30`, color: COLOR_A,
                           display: 'inline-block',
                         }}>{t}</span>
@@ -1021,7 +1021,7 @@ export default function SurahComparator({ onClose }) {
                         <span style={{ color: COLORS.slate800, fontSize: '0.78rem' }}>—</span>
                       ) : analysis.themesOnlyB.map((t, i) => (
                         <span key={i} style={{
-                          padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
+                          padding: '4px 10px', borderRadius: RADIUS.pillSm, fontSize: '0.78rem',
                           background: `${COLOR_B}12`, border: `1px solid ${COLOR_B}30`, color: COLOR_B,
                           display: 'inline-block',
                         }}>{t}</span>
@@ -1039,7 +1039,7 @@ export default function SurahComparator({ onClose }) {
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'center' }}>
                       {analysis.themesShared.map((t, i) => (
                         <span key={i} style={{
-                          padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem', fontWeight: 600,
+                          padding: '4px 10px', borderRadius: RADIUS.pillSm, fontSize: '0.78rem', fontWeight: 600,
                           background: 'rgba(76,175,125,0.12)', border: '1px solid rgba(76,175,125,0.3)', color: '#4caf7d',
                           display: 'inline-block',
                         }}>{t}</span>
@@ -1055,7 +1055,7 @@ export default function SurahComparator({ onClose }) {
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '16px' }}>
                 {[{ info: analysis.infoA, num: surahA, color: COLOR_A }, { info: analysis.infoB, num: surahB, color: COLOR_B }].map(({ info, num, color }) =>
                   info.fadail ? (
-                    <div key={num} style={{ padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                    <div key={num} style={{ padding: '16px', borderRadius: RADIUS.lg, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}>
                       <p style={{ color, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>
                         {SURAH_NAMES_TR[num]} — {language === 'tr' ? 'Fazileti' : 'Virtue'}
                       </p>
@@ -1086,7 +1086,7 @@ function StatRow({ label, value, color }) {
 function ThemeBlock({ themes, sharedThemes, color, title, language }) {
   const sharedSet = new Set(sharedThemes.map(t => normalizeTr(t)));
   return (
-    <div style={{ padding: '16px', borderRadius: '12px', background: `${color}07`, border: `1px solid ${color}20` }}>
+    <div style={{ padding: '16px', borderRadius: RADIUS.lg, background: `${color}07`, border: `1px solid ${color}20` }}>
       <p style={{ color, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px' }}>
         {title} — {language === 'tr' ? 'Temalar' : 'Themes'}
       </p>
@@ -1095,7 +1095,7 @@ function ThemeBlock({ themes, sharedThemes, color, title, language }) {
           const isShared = sharedSet.has(normalizeTr(t));
           return (
             <span key={i} style={{
-              padding: '4px 10px', borderRadius: '20px', fontSize: '0.78rem',
+              padding: '4px 10px', borderRadius: RADIUS.pillSm, fontSize: '0.78rem',
               background: isShared ? 'rgba(212,165,116,0.12)' : `${color}12`,
               border: `1px solid ${isShared ? 'rgba(212,165,116,0.3)' : color + '30'}`,
               color: isShared ? '#d4a574' : color,
@@ -1111,7 +1111,7 @@ function ThemeBlock({ themes, sharedThemes, color, title, language }) {
 function FigurePill({ label, color }) {
   return (
     <span style={{
-      padding: '4px 10px', borderRadius: '20px',
+      padding: '4px 10px', borderRadius: RADIUS.pillSm,
       background: color + '15', border: `1px solid ${color}35`,
       color, fontSize: '0.78rem', fontWeight: 600,
     }}>{label}</span>

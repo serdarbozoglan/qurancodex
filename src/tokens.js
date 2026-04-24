@@ -213,22 +213,26 @@ export const VERSE_DISPLAY_CARD = {
 };
 
 // ── Radius scale ──────────────────────────────────────────────────────────────
-// Normalizes 14+ inline borderRadius values to a 6-step scale.
+// Normalizes 14+ inline borderRadius values to a canonical scale.
 // Guidance:
-//   xs: tight chips, inline badges (4px)
-//   sm: small pills, compact cards (6px)
-//   md: standard cards, verse boxes (8px) ← default
-//   lg: glass cards, content panels (12px)
-//   xl: overlay shells, hero surfaces (14px)
-//   pill: fully rounded chips/buttons (999px)
-// Do NOT introduce new intermediate values (2/3/5/7/99) — promote to one of these.
+//   xs:     tight chips, inline badges (4px)
+//   sm:     small pills, compact cards (6px)
+//   md:     standard cards, verse boxes (8px) ← default
+//   chip:   mid-weight cards, popovers, panels (10px) — the most common value
+//   lg:     glass cards, content panels (12px)
+//   xl:     overlay shells, hero surfaces (14px)
+//   pillSm: short rounded chips/badges (20px) — not fully circular
+//   pill:   fully rounded chips/buttons (999px)
+// Do NOT introduce new intermediate values (2/3/5/7/11/99) — promote to one of these.
 export const RADIUS = {
-  xs:   '4px',
-  sm:   '6px',
-  md:   '8px',
-  lg:   '12px',
-  xl:   '14px',
-  pill: '999px',
+  xs:     '4px',
+  sm:     '6px',
+  md:     '8px',
+  chip:   '10px',
+  lg:     '12px',
+  xl:     '14px',
+  pillSm: '20px',
+  pill:   '999px',
 };
 
 // ── Z-index scale ─────────────────────────────────────────────────────────────

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE,
+  FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 
 const TABS = {
@@ -28,7 +28,7 @@ const TAB_LABELS = {
 
 function HapaxBadge() {
   return (
-    <span style={{ display:'inline-flex', alignItems:'center', gap:'3px', fontSize:'0.6rem', fontWeight:700, color:COLORS.purple, background:'rgba(83,74,183,0.12)', border:'1px solid rgba(83,74,183,0.28)', borderRadius:'20px', padding:'1px 7px', whiteSpace:'nowrap' }}>
+    <span style={{ display:'inline-flex', alignItems:'center', gap:'3px', fontSize:'0.6rem', fontWeight:700, color:COLORS.purple, background:'rgba(83,74,183,0.12)', border:'1px solid rgba(83,74,183,0.28)', borderRadius: RADIUS.pillSm, padding:'1px 7px', whiteSpace:'nowrap' }}>
       ✦ Hapax · 1×
     </span>
   );
@@ -51,7 +51,7 @@ function InfoPopover({ text }) {
         <div
           id={tooltipId}
           role="tooltip"
-          style={{ position:'absolute', bottom:'22px', left:'50%', transform:'translateX(-50%)', width:'240px', padding:'10px 12px', background:'rgba(8,10,26,0.97)', border:'1px solid rgba(59,130,246,0.2)', borderRadius:'10px', boxShadow:'0 8px 24px rgba(0,0,0,0.5)', color:'rgba(148,163,184,0.9)', fontSize:'0.71rem', lineHeight:1.6, zIndex:30 }}
+          style={{ position:'absolute', bottom:'22px', left:'50%', transform:'translateX(-50%)', width:'240px', padding:'10px 12px', background:'rgba(8,10,26,0.97)', border:'1px solid rgba(59,130,246,0.2)', borderRadius: RADIUS.chip, boxShadow:'0 8px 24px rgba(0,0,0,0.5)', color:'rgba(148,163,184,0.9)', fontSize:'0.71rem', lineHeight:1.6, zIndex:30 }}
         >
           {text}
         </div>
@@ -91,7 +91,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
       aria-expanded={expanded}
       onClick={onToggle}
       onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
-      style={{ background: renk.tintBg, border: `1px solid ${renk.tintBorder}`, borderRadius: '10px', overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.15s', userSelect: 'none' }}
+      style={{ background: renk.tintBg, border: `1px solid ${renk.tintBorder}`, borderRadius: RADIUS.chip, overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.15s', userSelect: 'none' }}
       onMouseEnter={e => { if (!isMobile) e.currentTarget.style.transform = 'translateY(-2px)'; }}
       onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
     >
@@ -124,7 +124,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
             const b = CONTEXT_BADGES[ctx];
             if (!b) return null;
             return (
-              <span key={ctx} style={{ fontSize: '0.68rem', padding: '3px 9px', background: b.bg, color: b.color, borderRadius: '10px', fontFamily: FONTS.body, fontWeight: 600 }}>
+              <span key={ctx} style={{ fontSize: '0.68rem', padding: '3px 9px', background: b.bg, color: b.color, borderRadius: RADIUS.chip, fontFamily: FONTS.body, fontWeight: 600 }}>
                 {tr ? b.labelTr : b.labelEn}
               </span>
             );
@@ -158,7 +158,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
             )}
 
             {/* Key verse */}
-            <div style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${renk.tintBorder}`, borderLeft: `3px solid ${renk.hexColor}`, borderRadius: '8px', padding: '12px 14px', marginBottom: '12px' }}>
+            <div style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${renk.tintBorder}`, borderLeft: `3px solid ${renk.hexColor}`, borderRadius: RADIUS.md, padding: '12px 14px', marginBottom: '12px' }}>
               <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 8px', opacity: 0.7 }}>
                 {tr ? 'Örnek Ayet' : 'Key Verse'}
               </p>
@@ -186,7 +186,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                   {renk.allRefs.filter(r => r !== renk.keyVerseRef).map(ref => (
-                    <span key={ref} style={{ fontSize: '0.72rem', padding: '3px 10px', background: `${renk.hexColor}18`, border: `1px solid ${renk.hexColor}40`, color: renk.hexColor, borderRadius: '20px', fontFamily: FONTS.body, fontWeight: 600 }}>
+                    <span key={ref} style={{ fontSize: '0.72rem', padding: '3px 10px', background: `${renk.hexColor}18`, border: `1px solid ${renk.hexColor}40`, color: renk.hexColor, borderRadius: RADIUS.pillSm, fontFamily: FONTS.body, fontWeight: 600 }}>
                       {ref}
                     </span>
                   ))}
@@ -234,7 +234,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
           <button
             key={f.id}
             onClick={() => setActiveFilter(f.id)}
-            style={{ padding: '5px 14px', borderRadius: '20px', border: 'none', cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, transition: `all ${TRANSITION.fast}`, background: activeFilter === f.id ? COLORS.gold : 'rgba(255,255,255,0.06)', color: activeFilter === f.id ? COLORS.cosmicBlack : COLORS.silver }}
+            style={{ padding: '5px 14px', borderRadius: RADIUS.pillSm, border: 'none', cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, transition: `all ${TRANSITION.fast}`, background: activeFilter === f.id ? COLORS.gold : 'rgba(255,255,255,0.06)', color: activeFilter === f.id ? COLORS.cosmicBlack : COLORS.silver }}
           >
             {tr ? f.labelTr : f.labelEn}
           </button>
@@ -257,7 +257,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
 
       {/* Renk Sekans feature */}
       {data.renkSekans && (
-        <div style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', padding: isMobile ? '16px' : '20px' }}>
+        <div style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg, padding: isMobile ? '16px' : '20px' }}>
           {/* Header */}
           <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 8px' }}>
             {tr ? "Kur'an'ın Renk Sekansı" : "The Quran's Color Sequence"}
@@ -270,7 +270,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
           </p>
 
           {/* 3-stage timeline with animated progression */}
-          <div style={{ display: 'flex', alignItems: 'stretch', gap: 0, marginBottom: '20px', borderRadius: '10px', overflow: 'hidden', position: 'relative' }}>
+          <div style={{ display: 'flex', alignItems: 'stretch', gap: 0, marginBottom: '20px', borderRadius: RADIUS.chip, overflow: 'hidden', position: 'relative' }}>
             {data.renkSekans.stages.map((s, i) => {
               const isLight = i < 2;
               return (
@@ -327,7 +327,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                 key={v.ref}
                 onClick={() => setExpandedVerse(expandedVerse === v.ref ? null : v.ref)}
                 style={{
-                  padding: '4px 12px', borderRadius: '20px', cursor: 'pointer',
+                  padding: '4px 12px', borderRadius: RADIUS.pillSm, cursor: 'pointer',
                   border: `1px solid ${expandedVerse === v.ref ? COLORS.gold : 'rgba(212,165,116,0.35)'}`,
                   background: expandedVerse === v.ref ? 'rgba(212,165,116,0.15)' : 'transparent',
                   color: expandedVerse === v.ref ? COLORS.gold : COLORS.silver,
@@ -351,7 +351,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
               dry:    { tr: 'Kuru aşama',   en: 'Dry stage' },
             };
             return (
-              <div style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid rgba(212,165,116,0.2)`, borderRadius: '10px', overflow: 'hidden', marginBottom: '12px' }}>
+              <div style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid rgba(212,165,116,0.2)`, borderRadius: RADIUS.chip, overflow: 'hidden', marginBottom: '12px' }}>
                 {/* Full Arabic */}
                 <div style={{ padding: '16px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                   <p style={{ fontFamily: FONTS.quran, fontSize: '1.35rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 10px' }} lang="ar" dir="rtl">
@@ -619,7 +619,7 @@ function TabBaglam({ language, isMobile }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       {sections.map((section, si) => (
-        <div key={si} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px', overflow: 'hidden' }}>
+        <div key={si} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg, overflow: 'hidden' }}>
           {/* Section header */}
           <div style={{ padding: isMobile ? '14px' : '16px 20px', borderBottom: `1px solid rgba(255,255,255,0.05)`, background: `linear-gradient(135deg, rgba(0,0,0,0.2), transparent)` }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
@@ -678,7 +678,7 @@ function TabBaglam({ language, isMobile }) {
                       </p>
                       <span style={{ fontSize: '0.85rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600 }}>— {c.ref}</span>
                       {c.isHapax && (
-                        <span style={{ marginLeft: '10px', fontSize: '0.72rem', color: COLORS.purple, fontFamily: FONTS.body, fontWeight: 600, background: 'rgba(83,74,183,0.15)', padding: '2px 8px', borderRadius: '10px', border: '1px solid rgba(83,74,183,0.3)' }}>
+                        <span style={{ marginLeft: '10px', fontSize: '0.72rem', color: COLORS.purple, fontFamily: FONTS.body, fontWeight: 600, background: 'rgba(83,74,183,0.15)', padding: '2px 8px', borderRadius: RADIUS.chip, border: '1px solid rgba(83,74,183,0.3)' }}>
                           Hapax
                         </span>
                       )}
@@ -745,7 +745,7 @@ function TabCennet({ language, isMobile }) {
       {/* Swatch grid */}
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(3,1fr)', gap: '8px', marginBottom: '24px' }}>
         {swatches.map((s, i) => (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: '8px', overflow: 'hidden' }}>
+          <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.md, overflow: 'hidden' }}>
             <div style={{ height: '36px', background: s.hex, opacity: s.implied ? 0.7 : 1, borderBottom: s.implied ? '2px dashed rgba(255,255,255,0.25)' : 'none' }} />
             <div style={{ padding: '8px' }}>
               <p style={{ fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, margin: '0 0 2px' }}>
@@ -762,7 +762,7 @@ function TabCennet({ language, isMobile }) {
 
       {/* Verse analyses */}
       {analyses.map((a, i) => (
-        <div key={i} style={{ background: 'rgba(29,158,117,0.05)', border: '1px solid rgba(29,158,117,0.15)', borderRadius: '10px', padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
+        <div key={i} style={{ background: 'rgba(29,158,117,0.05)', border: '1px solid rgba(29,158,117,0.15)', borderRadius: RADIUS.chip, padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body }}>{a.ref}</span>
             {a.isHapax && <HapaxBadge />}
@@ -843,7 +843,7 @@ function TabKiyamet({ language, isMobile }) {
     <div>
       {/* White/Black contrast header */}
       <div style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : undefined, gridTemplateColumns: isMobile ? undefined : '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
-        <div style={{ background: 'rgba(200,214,229,0.08)', border: '1px solid rgba(200,214,229,0.2)', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+        <div style={{ background: 'rgba(200,214,229,0.08)', border: '1px solid rgba(200,214,229,0.2)', borderRadius: RADIUS.chip, padding: '16px', textAlign: 'center' }}>
           <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '8px' }}>
             {tr ? 'Kurtulanlar' : 'The Saved'}
           </div>
@@ -852,7 +852,7 @@ function TabKiyamet({ language, isMobile }) {
           </div>
           <p style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Al-i İmran 3:107</p>
         </div>
-        <div style={{ background: 'rgba(30,27,75,0.4)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+        <div style={{ background: 'rgba(30,27,75,0.4)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.chip, padding: '16px', textAlign: 'center' }}>
           <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '8px' }}>
             {tr ? 'Kaybedenler' : 'The Lost'}
           </div>
@@ -865,7 +865,7 @@ function TabKiyamet({ language, isMobile }) {
 
       {/* 4 scene cards */}
       {scenes.map((s, i) => (
-        <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${s.hex}`, borderRadius: '10px', padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
+        <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${s.hex}`, borderRadius: RADIUS.chip, padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
             <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: s.hex, flexShrink: 0 }} />
             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? s.titleTr : s.titleEn}</span>
@@ -910,7 +910,7 @@ function TabDilbilim({ language, isMobile }) {
               { normal: 'أَخْضَر (ahdar)', intense: 'مُدْهَامَّتَانِ (mudhammatân)', meaningTr: 'Yeşil / Koyu Yoğun Yeşil', meaningEn: 'Green / Intensely Dark Green' },
               { normal: 'أَسْوَد (esvad)', intense: 'غَرَابِيبُ سُودٌ (garâbîb sûd)', meaningTr: 'Siyah / Kuzgun Siyahı', meaningEn: 'Black / Raven Black' },
             ].map((row, i) => (
-              <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '10px', padding: '14px' }}>
+              <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.chip, padding: '14px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <span style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Normal' : 'Normal'}</span>
                   <span style={{ fontSize: '0.85rem', color: COLORS.offWhite, fontFamily: FONTS.body }}>{row.normal}</span>
@@ -928,7 +928,7 @@ function TabDilbilim({ language, isMobile }) {
           </div>
         ) : (
           /* Desktop: table */
-          <div style={{ overflowX: 'auto', borderRadius: '8px', border: `1px solid ${COLORS.glassBorder}` }}>
+          <div style={{ overflowX: 'auto', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorder}` }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, fontSize: '0.85rem' }}>
               <thead>
                 <tr style={{ background: 'rgba(255,255,255,0.04)' }}>
@@ -975,7 +975,7 @@ function TabDilbilim({ language, isMobile }) {
             noteEn: "The color of the sky at judgment — compared to melted red oil. Rare in this form.",
           },
         ].map((h, i) => (
-          <div key={i} style={{ background: 'rgba(83,74,183,0.08)', border: '1px solid rgba(83,74,183,0.2)', borderRadius: '10px', padding: '14px', marginBottom: '10px' }}>
+          <div key={i} style={{ background: 'rgba(83,74,183,0.08)', border: '1px solid rgba(83,74,183,0.2)', borderRadius: RADIUS.chip, padding: '14px', marginBottom: '10px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
               <span style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{h.arabic}</span>
               <HapaxBadge />
@@ -1022,7 +1022,7 @@ function TabDilbilim({ language, isMobile }) {
               color: '#374151',
             },
           ].map((v, i) => (
-            <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderTop: `3px solid ${v.color}`, borderRadius: '8px', padding: '12px' }}>
+            <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderTop: `3px solid ${v.color}`, borderRadius: RADIUS.md, padding: '12px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
                 <span style={{ width: '18px', height: '18px', borderRadius: '50%', background: v.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', color: COLORS.offWhite, fontWeight: 700, flexShrink: 0 }}>{v.numTr}</span>
                 <span style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? v.titleTr : v.titleEn}</span>
@@ -1081,7 +1081,7 @@ function TabDilbilim({ language, isMobile }) {
             noteEn: "The root 'lavvâha' implies color change — fire reddens and blackens the skin. Red/black, but left unstated.",
           },
         ].map((row, i) => (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${row.hex}`, borderRadius: '10px', padding: isMobile ? '12px' : '16px', marginBottom: '10px' }}>
+          <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${row.hex}`, borderRadius: RADIUS.chip, padding: isMobile ? '12px' : '16px', marginBottom: '10px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: row.hex, flexShrink: 0 }} />
@@ -1114,7 +1114,7 @@ function TabDilbilim({ language, isMobile }) {
             { ar: 'بِيضٌ', note: tr ? 'çoğul' : 'plural' },
             { ar: 'بَيْضَة', note: tr ? 'yumurta — aynı kök!' : 'egg — same root!' },
           ].map((w, i) => (
-            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', padding: '8px 12px', background: 'rgba(255,255,255,0.04)', borderRadius: '8px', border: `1px solid ${COLORS.glassBgStrong}` }}>
+            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', padding: '8px 12px', background: 'rgba(255,255,255,0.04)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBgStrong}` }}>
               <span style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{w.ar}</span>
               <span style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body }}>{w.note}</span>
             </div>
@@ -1167,7 +1167,7 @@ function TabKaynaklar({ language }) {
   return (
     <div>
       {/* Global info note */}
-      <div style={{ background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: '10px', padding: '14px 16px', marginBottom: '20px', display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+      <div style={{ background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: RADIUS.chip, padding: '14px 16px', marginBottom: '20px', display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
         <span style={{ color: 'rgba(59,130,246,0.7)', fontSize: '0.9rem', flexShrink: 0, marginTop: '1px' }}>ℹ</span>
         <p style={{ fontSize: '0.75rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
           {tr
@@ -1290,7 +1290,7 @@ export default function KuranRenkleri({ onClose }) {
           </h1>
 
           {/* Arabic verse */}
-          <div style={{ textAlign: 'center', padding: isMobile ? '12px' : '16px', background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: '10px', marginBottom: '16px' }}>
+          <div style={{ textAlign: 'center', padding: isMobile ? '12px' : '16px', background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: RADIUS.chip, marginBottom: '16px' }}>
             <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.6rem' : '2rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 2, margin: '0 0 12px' }} lang="ar" dir="rtl">
               أَلَمْ تَرَ أَنَّ اللَّهَ أَنزَلَ مِنَ السَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ ثَمَرَاتٍ مُّخْتَلِفًا أَلْوَانُهَا
             </p>
@@ -1312,7 +1312,7 @@ export default function KuranRenkleri({ onClose }) {
             ].map((s, i) => (
               <div key={i} style={{
                 display: 'flex', alignItems: 'center', gap: '8px',
-                padding: '8px 14px', borderRadius: '20px', flexShrink: 0,
+                padding: '8px 14px', borderRadius: RADIUS.pillSm, flexShrink: 0,
                 background: s.arabic ? 'rgba(83,74,183,0.12)' : 'rgba(255,255,255,0.04)',
                 border: `1px solid ${s.arabic ? 'rgba(83,74,183,0.25)' : 'rgba(255,255,255,0.08)'}`,
               }}>
@@ -1330,7 +1330,7 @@ export default function KuranRenkleri({ onClose }) {
         </div>
 
         {/* ── Fâtır 35:27 Feature Card ── */}
-        <div style={{ margin: isMobile ? '0 16px 16px' : '0 32px 20px', padding: isMobile ? '16px' : '20px', background: 'linear-gradient(135deg,rgba(29,158,117,0.08),rgba(200,50,50,0.08),rgba(30,30,50,0.15))', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '12px' }}>
+        <div style={{ margin: isMobile ? '0 16px 16px' : '0 32px 20px', padding: isMobile ? '16px' : '20px', background: 'linear-gradient(135deg,rgba(29,158,117,0.08),rgba(200,50,50,0.08),rgba(30,30,50,0.15))', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg }}>
           <div style={{ fontSize: '0.75rem', letterSpacing: '0.12em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '12px' }}>
             {tr ? 'Tek Ayette 3 Renk — Fâtır 35:27' : 'Three Colors in One Verse — Fatir 35:27'}
           </div>
