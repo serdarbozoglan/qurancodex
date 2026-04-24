@@ -9,6 +9,11 @@
 
 ## ✅ Son Tamamlananlar (v1.5)
 
+- **🚀 Main deploy** (2026-04-23 · `2a32886..6558a89`) — 5 commit production'a çıktı: token migration (RADIUS), F-5 SurahLink, B-2 FullGraph + ClusterView fix, D-10 sinematic bridges. Vercel rebuild tetiklendi.
+- **D-6. WowFacts mutlak iddialar yumuşatma** (2026-04-23)
+  - 7 kart güncellendi (TR+EN parity): 2 faktüel düzeltme + 5 yumuşatma
+  - Faktüel: (a) "Allah lafzı hiçbir sayfa susmuyor" → son cüz kısa sûreleri (Asr/Kevser/Felak/Nâs) Allah lafzı taşımaz, "hemen her sayfada yankılanır"; (b) Nûh 950 yıl → Tekvin 9:29'da aynı sayı ömür olarak geçer, wow yeniden çerçevelendi
+  - Yumuşatma: Fatiha Allah lafzı (Besmele kaydı, Şâfi'î vs Hanefî), 14 Secde (Hac 2 vs 1 madhhab farkı), Fatiha milyarlarca okunma ("tek"/"tartışmasız" kaldırıldı), Kur'an okunuşunu emreder ("tek kutsal kitap" → "nadir metinlerden biri" + Vedalar karşılaştırması), İbrahim duaları ("hiçbir" → "öne çıkan peygamberlerden biri", Musa karşılaştırması)
 - **F-5. Sure ismine tıklama → ReadingMode** (2026-04-23 · commit `5bfcd5c`)
   - Foundation katmanı eklendi
 - **B-1 ToolsBrowser orphan** (2026-04-23) — Kıraat Atlası VIZ'e taşınınca (commit `b4af82c`) VIZ 5→6 oldu, Mesel artık orphan değil. ANALYSIS 7 araç → son kart (Diyalog) intentional fullWidth.
@@ -20,6 +25,10 @@
   - Yeni: "Vahyin Hakikati & Sadakat Sınavı" — 4+2 yapı (Bakara/Âl-i İmrân/Lokmân/Secde Kitab'a atıf; Ankebût imtihan, Rûm tarihsel zafer)
   - Footnote: 4 genel istisna (Meryem, Ankebût, Rûm, Kalem) açıkça belirtildi
 - **Token migration — 7 overlay RADIUS scale** (commit `083eff6`) — M-1 kısmî ilerleme
+- **D-10. Sinematik section transitions** (2026-04-23 · commit `80be2fe`)
+  - `.gradient-divider` / `-reverse`: 30px sert linear → 96px (desktop) / 64px (mobile) yumuşak plateau
+  - 3-stop gradient (cosmicBlack ↔ deepNavy), %10 altın mid-line hairline → "chapter break" hissi
+  - 9 section transition (App.jsx) otomatik inherit — HTML/component değişikliği yok
 - **3 resilience katmanı** (2026-04-22/23)
   - KFGQPC self-host (`public/fonts/`), Fontsource bundle (Inter/Playfair/Amiri), Meal cache (author 105 · 114 sure)
 - **qc-content-producer agent + 6 içerik birimi**
@@ -65,7 +74,6 @@
 - [ ] **D-3. PathContext overlay interaction tests** — Senaryo 8 (geri/ileri) test açığı
 - [ ] **D-4. Transliterasyon tutarlılığı** — alim isimleri sistemik kontrol
 - [ ] **D-5. Scientific Signs / HistoricalProof content review** — detaylı doğrulama
-- [ ] **D-6. WowFacts kalan mutlak iddialar** — "hiçbir" ifadeleri yumuşatma
 - [ ] **D-7. Tecvid genişletme** — izhar (حلق harfleri), mad-lâzım tipleri
 - [ ] **D-8. Mobil 3D crash** — Three.js OOM → 2D fallback
 - [ ] **D-9. Vakıf margin fine-tuning** — `left: -0.08em` doğrulaması

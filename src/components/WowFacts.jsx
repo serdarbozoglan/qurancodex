@@ -364,12 +364,12 @@ const FACTS = [
   {
     category: 'peygamberler',
     surahRef: 'Çeşitli sûreler',
-    titleTr: 'Hz. İbrahim — Duaları En Çok Aktarılan Peygamber',
-    titleEn: 'Abraham — The Prophet Whose Prayers Are Most Recorded',
-    bodyTr: 'Kur\'an\'da Hz. İbrahim\'in ağzından 10\'dan fazla farklı dua aktarılır. Başka hiçbir peygamberin bu kadar çeşitli ve ayrıntılı duaları yer almaz. Her biri farklı bir insani ihtiyacı seslendiriyor: çocuk, barış, hidayet, rızık, af...',
-    bodyEn: 'More than 10 distinct supplications of Prophet Abraham are recorded in the Quran. No other prophet has as many diverse and detailed prayers preserved. Each voices a different human need: offspring, peace, guidance, provision, forgiveness...',
-    wowTr: 'Kur\'an\'ın en çok dua aktardığı peygamber.',
-    wowEn: 'The prophet whose prayers the Quran records most.',
+    titleTr: 'Hz. İbrahim — Duaları Öne Çıkan Peygamberlerden',
+    titleEn: 'Abraham — Among the Prophets Whose Prayers Stand Out',
+    bodyTr: 'Kur\'an\'da Hz. İbrahim\'in ağzından 10\'dan fazla farklı dua aktarılır. Duaları sayı ve çeşitlilik bakımından Kur\'an\'da en belirgin biçimde aktarılan peygamberler arasındadır (Hz. Musa\'nın da birçok farklı duası zikredilir). Her biri farklı bir insani ihtiyacı seslendiriyor: çocuk, barış, hidayet, rızık, af...',
+    bodyEn: 'More than 10 distinct supplications of Prophet Abraham are recorded in the Quran. His prayers stand out in number and variety — he is among the prophets whose supplications the Quran preserves most prominently (alongside Moses, who is also given multiple distinct prayers). Each voices a different human need: offspring, peace, guidance, provision, forgiveness...',
+    wowTr: 'Kur\'an\'da duaları en belirgin biçimde aktarılan peygamberlerden biri.',
+    wowEn: 'Among the prophets whose prayers the Quran records most prominently.',
     explore: 'ibrahim',
   },
 
