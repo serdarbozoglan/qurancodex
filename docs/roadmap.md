@@ -10,6 +10,7 @@
 ## ✅ Son Tamamlananlar (v1.5)
 
 ### 2026-04-24
+- **F-3. Kur'an'da Kadınlar — MVP** — `KadinlarAtlasi.jsx` (overlay, kart grid, kategori filter chips) + `public/kadinlar.json` (7 figür: Meryem · Asiye · Havva · Saba Melikesi · Sara · Musa'nın annesi · İmran'ın eşi). İçerik qc-content-producer ile üretildi: tüm Arapça anchor ayetler verse-graph'tan birebir kopya (halüsinasyon yok), 7/7 figürde criticalNote (peygamberlik tartışması, Kur'an dışı isim, mezhep farkları). RESEARCH_TOOLS dropdown entry, Navbar 6 entegrasyon noktası (lazy import, state, event listener, anyOpen, popstate, render). Lazy chunk: 7.5KB / 2.66 gzip.
 - **D-8. Mobil 3D crash → ReadingMode redirect** — VerseGraph root'unda `IS_MOBILE_3D_BLOCKED` guard'ı (`window.innerWidth < 640`). Mobile'da 'verses' ve '3d' view'lara geçişi engelle, surah/verse seçimi `openReadingMode` event dispatch eder (F-5 entegrasyonu). URL `?verse=` parametresi + persist edilmiş localStorage view state de mobile'da clusters'a düşürülür. Desktop akışı dokunulmadı. `react-force-graph-2d` dep eklemeden zarif çözüm.
 - **K-4.a (partial) — i18n EN lazy load** — `LanguageContext.jsx`: `import en from './en.json'` → dynamic `import('./en.json')`. Initial bundle: 437.10 → 363.07 KB raw (gzip 144.67 → 116.30, **-28KB / -19%**). EN ayrı chunk: 78.84 KB / 30.17 gzip (sadece EN kullanıcısı için). TR (default) hala eager — flicker yok. EN'e geçişte ~50-100ms TR fallback gösterilir, sonra EN populate. K-4 tam değil; FCP/LCP <2.5s hedefi için ek code-split adımları gerekebilir.
 - **Tefsir Paneli (Elmalılı) main'e çıktı** (commit `ebec941` · merge'li) — 114 sûre Elmalılı Hamdi Yazır tam tefsiri (`public/tafsir/elmalili/*.json`), ReadingMode TEFSIR toggle, sol-yaslı drawer (mobil full · desktop 460px), verse-anchor smooth scroll, lazy-fetch + session cache, gündüz/gece modu uyumlu. `scripts/scrape-elmalili.py` (enfal.de Windows-1254 → UTF-8, 1.5s throttle).
@@ -111,7 +112,7 @@
 
 - [ ] **F-1. Mihver Analizi modülü** — demo hazır (MihverDemo.jsx), ekip feedback bekleniyor
 - [ ] **F-2. Kavram Ağı / Semantic Map** — embedding altyapısı var, force-directed graph
-- [ ] **F-3. Kur'an'da Kadınlar** — Hz. Meryem tek isim, wow potansiyeli yüksek
+- [x] **F-3. Kur'an'da Kadınlar — MVP** ✅ 2026-04-24 — `KadinlarAtlasi.jsx` overlay + `public/kadinlar.json` (7 figür: Meryem, Asiye, Havva, Saba Melikesi/Bilkıs, Sara, Musa'nın annesi, İmran'ın eşi). qc-content-producer ile hallucination-free içerik (Arapça verse-graph'tan kopyalanmış, halüsinasyon riski sıfır), 7/7 criticalNote (peygamberlik tartışması, Kur'an dışı isim notları, mezhep farkları). RESEARCH_TOOLS dropdown entry, Navbar 6 entegrasyon noktası, lazy chunk 7.5KB/2.66 gzip. **Sonraki:** qc-content-auditor ile post-merge doğrulama, ek figür önerileri (Lût/Nuh eşleri ayrı atlas).
 - [ ] **F-4. Kur'an'ın Coğrafyası** — interaktif harita (Leaflet mevcut)
 - [x] **F-5. Sure ismine tıklama → ReadingMode** ✅ 2026-04-23 (commit `5bfcd5c`)
 - [ ] **F-6. PWA + Audio cache** — Service Worker, çevrimdışı
