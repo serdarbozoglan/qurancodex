@@ -66,7 +66,15 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-silver/75 text-xs">
           <p>© 2026 — {t('footer.copyright')}</p>
-          <p className="text-silver/80 text-xs">qurancodex.com</p>
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-silver/80 text-xs">qurancodex.com</span>
+            <a
+              href="mailto:info@qurancodex.com"
+              className="text-silver/60 hover:text-gold transition-colors text-xs"
+            >
+              info@qurancodex.com
+            </a>
+          </div>
           <p className="font-arabic text-sm text-gold/30" dir="rtl" lang="ar"
             style={{ fontFamily: FONTS.quran }}>
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
