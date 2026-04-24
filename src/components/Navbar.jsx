@@ -566,6 +566,7 @@ export default function Navbar() {
     openSebebNuzul:      () => setSebebOpen(true),
     openFurukAtlasi:     () => setFurukOpen(true),
     openMunasebatAtlasi: () => setMunasebatOpen(true),
+    openKadinlarAtlasi:  () => setKadinlarOpen(true),
   };
 
   // Adapt an imported tool entry to the shape Navbar's existing toolBtn renderer
