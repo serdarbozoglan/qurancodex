@@ -299,6 +299,27 @@ const MoonIcon = ({ size = 14 }) => (
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
   </svg>
 );
+const PenIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+    <path d="M2 2l7.586 7.586"/>
+    <circle cx="11" cy="11" r="2"/>
+  </svg>
+);
+const EraserIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 20H7L3 16c-1-1-1-3 0-4l9-9c1-1 3-1 4 0l5 5c1 1 1 3 0 4L11 20"/>
+    <path d="M6 11l8 8"/>
+  </svg>
+);
+const TrashIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="3 6 5 6 21 6"/>
+    <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+    <path d="M10 11v6M14 11v6"/>
+  </svg>
+);
 const ShareIcon = ({ size = 14 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
@@ -737,12 +758,49 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const [showSettingsPicker, setShowSettingsPicker] = useState(false);
   const [showViewPicker, setShowViewPicker] = useState(false);
 
+  // ── Tahta (drawing overlay) ──────────────────────────────────────────────
+  // Lightweight teaching tool: transparent canvas above content; refresh,
+  // ✕ close, or 🗑️ clear all wipe the strokes. No persistence.
+  const [drawMode, setDrawMode]   = useState(false);
+  const [drawColor, setDrawColor] = useState('#dc2626'); // default: red
+  const drawCanvasRef = useRef(null);
+  const drawingActiveRef = useRef(false);
+  const drawLastPointRef = useRef(null);
+
   const currentFont = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
   const _audioRef = useRef(null);
   const containerRef = useRef(null);
   // Refs for Escape handler — always reflect current state without closure staleness
   const overlayStateRef = useRef({});
   overlayStateRef.current = { showSearch, showMealPicker, showReciterPicker, showSurahPicker, showBookmarks, showFontPicker, showSettingsPicker, showViewPicker };
+
+  // Tahta canvas — initialize size on open, refit on window resize.
+  // Existing strokes are intentionally cleared on resize (acceptable for a
+  // teaching tool; keeps math simple). Refresh / ✕ / 🗑️ also clear.
+  useEffect(() => {
+    if (!drawMode) return;
+    const fit = () => {
+      const c = drawCanvasRef.current;
+      if (!c) return;
+      const dpr = window.devicePixelRatio || 1;
+      const rect = c.getBoundingClientRect();
+      c.width  = rect.width  * dpr;
+      c.height = rect.height * dpr;
+      const ctx = c.getContext('2d');
+      ctx.scale(dpr, dpr);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, [drawMode]);
+
+  const clearTahta = () => {
+    const c = drawCanvasRef.current;
+    if (!c) return;
+    c.getContext('2d').clearRect(0, 0, c.width, c.height);
+  };
 
   const anyMenuOpen = showSearch || showMealPicker || showReciterPicker || showSurahPicker || showBookmarks || showFontPicker || showSettingsPicker || showViewPicker;
 
@@ -1422,6 +1480,28 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
 
           return (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: isMobile ? '4px' : '8px', gridColumn: isMobile ? '2' : undefined, gridRow: isMobile ? '1' : undefined }}>
+
+              {/* Tahta (drawing overlay) toggle — opens floating mini-toolbar */}
+              <button
+                onClick={() => setDrawMode(v => !v)}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  border: `1px solid ${drawMode ? navC.btnBorderActive : navC.btnBorder}`,
+                  background: drawMode ? navC.btnBgActive : navC.btnBg,
+                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                onMouseLeave={e => { e.currentTarget.style.background = drawMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = drawMode ? navC.btnBorderActive : navC.btnBorder; }}
+                title={drawMode ? (language === 'tr' ? 'Tahtayı kapat' : 'Close board') : (language === 'tr' ? 'Tahta — ders için kalemle çiz' : 'Board — draw with pen for teaching')}
+              >
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <PenIcon size={isMobile ? 15 : 18} />
+                </span>
+                <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: isMobile ? '0.05em' : '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  {language === 'tr' ? 'Tahta' : 'Board'}
+                </span>
+              </button>
 
               {/* Day/Night toggle — always visible for quick access */}
               <button
@@ -3538,6 +3618,165 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
           </div>
         );
       })()}
+
+      {/* ── TAHTA — drawing overlay + floating mini-toolbar ──────────────── */}
+      {drawMode && (
+        <>
+          <canvas
+            ref={drawCanvasRef}
+            style={{
+              position: 'fixed',
+              top: 0, left: 0, right: 0, bottom: 0,
+              width: '100%', height: '100%',
+              zIndex: 200,
+              cursor: 'crosshair',
+              touchAction: 'none',
+              background: 'transparent',
+            }}
+            onPointerDown={(e) => {
+              e.currentTarget.setPointerCapture(e.pointerId);
+              const rect = e.currentTarget.getBoundingClientRect();
+              drawingActiveRef.current = true;
+              drawLastPointRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            }}
+            onPointerMove={(e) => {
+              if (!drawingActiveRef.current) return;
+              const c = drawCanvasRef.current;
+              if (!c) return;
+              const rect = c.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              const last = drawLastPointRef.current;
+              const ctx = c.getContext('2d');
+              if (drawColor === 'eraser') {
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.lineWidth = 22;
+                ctx.strokeStyle = 'rgba(0,0,0,1)';
+              } else {
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = drawColor;
+              }
+              ctx.beginPath();
+              ctx.moveTo(last.x, last.y);
+              ctx.lineTo(x, y);
+              ctx.stroke();
+              drawLastPointRef.current = { x, y };
+            }}
+            onPointerUp={() => { drawingActiveRef.current = false; drawLastPointRef.current = null; }}
+            onPointerCancel={() => { drawingActiveRef.current = false; drawLastPointRef.current = null; }}
+            onPointerLeave={() => { drawingActiveRef.current = false; drawLastPointRef.current = null; }}
+          />
+
+          {/* Floating mini-toolbar — bottom-center, above canvas */}
+          <div
+            style={{
+              position: 'fixed',
+              bottom: '24px', left: '50%', transform: 'translateX(-50%)',
+              zIndex: 201,
+              display: 'flex', alignItems: 'center', gap: '6px',
+              padding: '8px 12px',
+              background: 'rgba(13,27,42,0.96)',
+              border: `1px solid ${COLORS.goldAlpha25}`,
+              borderRadius: '999px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.4)',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            {/* Color dots */}
+            {[
+              { c: '#dc2626', name: 'Kırmızı' },
+              { c: '#eab308', name: 'Sarı' },
+              { c: '#3b82f6', name: 'Mavi' },
+              { c: '#22c55e', name: 'Yeşil' },
+            ].map(({ c, name }) => {
+              const active = drawColor === c;
+              return (
+                <button
+                  key={c}
+                  onClick={() => setDrawColor(c)}
+                  title={name}
+                  style={{
+                    width: '28px', height: '28px',
+                    borderRadius: '50%',
+                    background: c,
+                    border: `2px solid ${active ? '#fff' : 'rgba(255,255,255,0.25)'}`,
+                    boxShadow: active ? `0 0 0 2px ${c}88` : 'none',
+                    cursor: 'pointer',
+                    padding: 0,
+                    transition: 'all 0.15s',
+                  }}
+                />
+              );
+            })}
+
+            {/* Divider */}
+            <div style={{ width: '1px', height: '24px', background: 'rgba(255,255,255,0.15)', margin: '0 4px' }} />
+
+            {/* Eraser */}
+            <button
+              onClick={() => setDrawColor('eraser')}
+              title={language === 'tr' ? 'Silgi' : 'Eraser'}
+              style={{
+                width: '36px', height: '32px',
+                borderRadius: '8px',
+                background: drawColor === 'eraser' ? 'rgba(212,165,116,0.22)' : 'rgba(255,255,255,0.05)',
+                border: `1px solid ${drawColor === 'eraser' ? COLORS.gold : 'rgba(255,255,255,0.15)'}`,
+                color: drawColor === 'eraser' ? COLORS.gold : COLORS.silver,
+                cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'all 0.15s',
+              }}
+            >
+              <EraserIcon size={16} />
+            </button>
+
+            {/* Clear all */}
+            <button
+              onClick={clearTahta}
+              title={language === 'tr' ? 'Tümünü temizle' : 'Clear all'}
+              style={{
+                width: '36px', height: '32px',
+                borderRadius: '8px',
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                color: COLORS.silver,
+                cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.18)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.45)'; e.currentTarget.style.color = '#f87171'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = COLORS.silver; }}
+            >
+              <TrashIcon size={14} />
+            </button>
+
+            {/* Divider */}
+            <div style={{ width: '1px', height: '24px', background: 'rgba(255,255,255,0.15)', margin: '0 4px' }} />
+
+            {/* Close — exits drawing mode */}
+            <button
+              onClick={() => { clearTahta(); setDrawMode(false); }}
+              title={language === 'tr' ? 'Tahtayı kapat' : 'Close board'}
+              style={{
+                width: '36px', height: '32px',
+                borderRadius: '8px',
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                color: COLORS.silver,
+                cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '1rem', fontWeight: 700,
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = COLORS.offWhite; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.silver; }}
+            >
+              ✕
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
