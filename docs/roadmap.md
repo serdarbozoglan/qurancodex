@@ -25,6 +25,9 @@
   - Yeni: "Vahyin Hakikati & Sadakat Sınavı" — 4+2 yapı (Bakara/Âl-i İmrân/Lokmân/Secde Kitab'a atıf; Ankebût imtihan, Rûm tarihsel zafer)
   - Footnote: 4 genel istisna (Meryem, Ankebût, Rûm, Kalem) açıkça belirtildi
 - **Token migration — 7 overlay RADIUS scale** (commit `083eff6`) — M-1 kısmî ilerleme
+- **Token migration ek ilerleme — mobile breakpoints + 3 section** (2026-04-23) — `5aab1e9` `window.innerWidth` → `BREAKPOINT_MOBILE/TABLET`; `9d3091c` Conclusion/LivingPreservation/ZeroRedundancy tokenize. M-1 incremental.
+- **ReadingMode v2 polish batch — TAHTA + book view + waqf** (2026-04-23) — `b9390ff` TAHTA drawing overlay (öğretmen/hafız için ayet üzeri çizim katmanı); `f59f4c5` book mode polish (secâvend, bismillah, tezhip, sıkıştırma); `a43949d` waqf offset + orphan ayet badge fix; `49a1878` qasr-kasra çakışma fix; `b0c4d87` ayet modu attribution book mode ile harmonize.
+- **Content fix — Şerh → İnşirah + İnsan/Dehr birleştirme** (2026-04-23 · commit `14390d7`) — surah 94 isim normalizasyonu; surah 76 dual-name birleştirme.
 - **D-10. Sinematik section transitions** (2026-04-23 · commit `80be2fe`)
   - `.gradient-divider` / `-reverse`: 30px sert linear → 96px (desktop) / 64px (mobile) yumuşak plateau
   - 3-stop gradient (cosmicBlack ↔ deepNavy), %10 altın mid-line hairline → "chapter break" hissi
@@ -78,6 +81,15 @@
 - [ ] **D-8. Mobil 3D crash** — Three.js OOM → 2D fallback
 - [ ] **D-9. Vakıf margin fine-tuning** — `left: -0.08em` doğrulaması
 - [x] **D-10. Section geçişleri** ✅ 2026-04-23 — 30px hard linear gradient → 96px (desktop) / 64px (mobile) cinematic bridge: 3-stop plateau gradient + %10 gold mid-line hairline. `src/index.css` `.gradient-divider` / `-reverse` yeniden tanımlandı, 9 section transition (App.jsx) otomatik inherit eder.
+
+---
+
+## 🛠️ WIP — Aktif Geliştirme
+
+- **Tefsir Paneli (Elmalılı)** — `src/components/TafsirPanel.jsx` + `public/tafsir/elmalili/*.json` + `scripts/scrape-elmalili.py`
+  - Sağ kenar drawer (460px desktop · full-width mobile), verse-anchor'lı scroll
+  - Scrape fixed: kaynak HTML'in görsel satır kırılmalarını `\n` olarak koruyordu → cümle ortası kırılma. `normalizeTafsirText()` tek `\n` → space, `\n\n` → paragraf.
+  - **Açık soru:** sağ drawer vs. ayet altı inline expansion. Ayet tıklaması audio play'e bağlı (Karin tilavet); trigger için ayrı ikon/buton gerekecek.
 
 ---
 
