@@ -5,6 +5,7 @@ import {
   COLORS, FONTS, BREAKPOINT_TABLET,
 } from '../tokens';
 import { SURAH_NAMES_TR } from '../utils/surahNames';
+import { fetchMealVerse } from '../utils/mealCache';
 
 // Strip meal footnote markers like [1], [12] from Turkish translation text
 function stripFootnotes(str) {
@@ -80,8 +81,8 @@ async function loadVerse(surah, ayah) {
   const key = `${surah}:${ayah}`;
   if (verseCache.has(key)) return verseCache.get(key);
   try {
-    const res = await fetch(`https://api.acikkuran.com/surah/${surah}/verse/${ayah}`);
-    const data = await res.json();
+    // Local-first meal cache (author 105); single-verse API fallback inside.
+    const data = await fetchMealVerse(surah, ayah, 105);
     const result = { arabic: data.data?.verse || '', turkish: data.data?.translation?.text || '' };
     verseCache.set(key, result);
     return result;

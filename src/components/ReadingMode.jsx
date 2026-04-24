@@ -3,6 +3,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import { COLORS, BREAKPOINT_MOBILE } from '../tokens';
 import InterlinearView from './InterlinearView';
+import { fetchMealSurah } from '../utils/mealCache';
 
 // Clean Arabic text: remove decorative/annotation markers with no phonetic value.
 // Keep: core letters (U+0621–U+063A, U+0641–U+064A), standard harakat (U+064B–U+0655),
@@ -878,8 +879,8 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     } catch { /* ignore parse/quota errors */ }
 
     setMealLoading(true);
-    fetch(`https://api.acikkuran.com/surah/${selectedSurah}?author=${author.apiId}`)
-      .then(r => r.json())
+    // Local-first for author 105 (pre-cached); API fallback for other authors.
+    fetchMealSurah(selectedSurah, author.apiId)
       .then(json => {
         const map = new Map();
         for (const v of (json.data?.verses || [])) {

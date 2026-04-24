@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, BREAKPOINT_MOBILE } from '../tokens';
+import { fetchMealSurah } from '../utils/mealCache';
 
 // Surah names (Türkçe kısa)
 const SURAH_NAMES_TR = [
@@ -139,9 +140,8 @@ export default function KissaAtlas({ onClose }) {
       return;
     }
     setVersePeek({ surah, start, end, verses: null, loading: true });
-    // Fetch Turkish translation (author 105 = Diyanet) + Arabic from acikkuran
-    fetch(`https://api.acikkuran.com/surah/${surah}?author=105`)
-      .then(r => r.json())
+    // Local-first meal cache (author 105 = Erhan Aktaş); API fallback.
+    fetchMealSurah(surah, 105)
       .then(d => {
         const verses = (d.data?.verses || [])
           .filter(v => v.verse_number >= start && v.verse_number <= end)
