@@ -12,7 +12,9 @@
 - **F-5. Sure ismine tıklama → ReadingMode** (2026-04-23 · commit `5bfcd5c`)
   - Foundation katmanı eklendi
 - **B-1 ToolsBrowser orphan** (2026-04-23) — Kıraat Atlası VIZ'e taşınınca (commit `b4af82c`) VIZ 5→6 oldu, Mesel artık orphan değil. ANALYSIS 7 araç → son kart (Diyalog) intentional fullWidth.
-- **B-2 ZoomToFit cluster clipping** (2026-04-23) — `VerseGraph.jsx:2119` — zoomToFit sonrası cameraPosition ile target +Y offset (camera distance × 0.07). Fixed header'ın örttüğü ~56px'i telafi eder, tüm filter'larda tutarlı framing.
+- **B-2 ZoomToFit cluster clipping** (2026-04-23) — iki view, aynı root cause (header overlay ekranın üstünde):
+  - **FullGraph (3D canvas)** `VerseGraph.jsx:2119` — zoomToFit sonrası `cameraPosition` ile target +Y offset (camera distance × 0.07). Fixed header'ın örttüğü ~56px'i telafi eder.
+  - **ClusterView (SVG bubble map)** `VerseGraph.jsx:789-810, 945-980` — `headerRef` + `headerHeight` (ResizeObserver) + `availableH = H - headerHeight` üzerinden scale ve y hesabı. En üst sıradaki cluster'ları (Sûre 31, 41, 33…) header arkasından görünür alana taşır.
 - **LinguisticDNA Elif-Lâm-Mîm kartı — dualite fix** (2026-04-23 doğrulandı)
   - Eski: "6 sûrenin hepsinde ardından Kitab'a atıf" (yanlış — Ankebût/Rûm'da yok)
   - Yeni: "Vahyin Hakikati & Sadakat Sınavı" — 4+2 yapı (Bakara/Âl-i İmrân/Lokmân/Secde Kitab'a atıf; Ankebût imtihan, Rûm tarihsel zafer)
@@ -67,7 +69,7 @@
 - [ ] **D-7. Tecvid genişletme** — izhar (حلق harfleri), mad-lâzım tipleri
 - [ ] **D-8. Mobil 3D crash** — Three.js OOM → 2D fallback
 - [ ] **D-9. Vakıf margin fine-tuning** — `left: -0.08em` doğrulaması
-- [ ] **D-10. Section geçişleri** — gradient overlap yerine sinematik transition
+- [x] **D-10. Section geçişleri** ✅ 2026-04-23 — 30px hard linear gradient → 96px (desktop) / 64px (mobile) cinematic bridge: 3-stop plateau gradient + %10 gold mid-line hairline. `src/index.css` `.gradient-divider` / `-reverse` yeniden tanımlandı, 9 section transition (App.jsx) otomatik inherit eder.
 
 ---
 
