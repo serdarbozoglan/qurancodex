@@ -74,9 +74,8 @@ export default function App() {
             <LinguisticDNA />
             <ImpossibleRhythm />
             <SoundArchitecture />
-            <div className="gradient-divider" />
             <QuranRhetoric />
-            <div className="gradient-divider-reverse" />
+            <div className="gradient-divider" />
             <HiddenArchitecture />
             <ScientificSigns />
             <div className="gradient-divider-reverse" />

@@ -1,6 +1,6 @@
 # QuranCodex — Yol Haritası
 
-**Son güncelleme:** 2026-04-23
+**Son güncelleme:** 2026-04-24
 **Kaynaklar:** `docs/skill-review-findings.md`, `todo.md`, `todo_v1.1.md` birleştirildi
 
 > Sadece bekleyen işler. Tamamlananlar git history'de (v1.0, v1.1, v1.2, v1.3, Faz 1-2).
@@ -9,7 +9,17 @@
 
 ## ✅ Son Tamamlananlar (v1.5)
 
-- **🚀 Main deploy** (2026-04-23 · `2a32886..6558a89`) — 5 commit production'a çıktı: token migration (RADIUS), F-5 SurahLink, B-2 FullGraph + ClusterView fix, D-10 sinematic bridges. Vercel rebuild tetiklendi.
+### 2026-04-24
+- **F-3. Kur'an'da Kadınlar — MVP + audit revisions** — `KadinlarAtlasi.jsx` (overlay, kart grid, kategori filter chips) + `public/kadinlar.json` (7 figür: Meryem · Asiye · Havva · Saba Melikesi · Sara · Musa'nın annesi · İmran'ın eşi). İçerik qc-content-producer ile üretildi: tüm Arapça anchor ayetler verse-graph'tan birebir kopya (halüsinasyon yok), 7/7 figürde criticalNote. RESEARCH_TOOLS dropdown entry, Navbar 6 entegrasyon noktası, lazy chunk 7.5KB / 2.66 gzip. **Post-merge audit (qc-content-auditor):** 0 kritik, 5 orta, 6 minör; rapor `docs/reviews/2026-04-24-f3-kadinlar-content-audit.md`. Uygulanan patch'ler: P-1 (Sara/Mücâhid 'hayız' yorumu eklendi + dahiket→dahikat), P-3 (Havva/Ebû Müslim el-İsfahânî teşbîhî yorum kaynağı), P-4 (Saba/Sabaic kraliçe yokluğu + 200-300 yıl kronoloji farkı), P-5 (Asiye EN: 'staked'→'impaled with stakes'), meta.desc'e 'yedi merkezî figür / MVP' dürüstlük notu (Lût/Nuh eşleri ileride).
+- **D-8. Mobil 3D crash → ReadingMode redirect** — VerseGraph root'unda `IS_MOBILE_3D_BLOCKED` guard'ı (`window.innerWidth < 640`). Mobile'da 'verses' ve '3d' view'lara geçişi engelle, surah/verse seçimi `openReadingMode` event dispatch eder (F-5 entegrasyonu). URL `?verse=` parametresi + persist edilmiş localStorage view state de mobile'da clusters'a düşürülür. Desktop akışı dokunulmadı. `react-force-graph-2d` dep eklemeden zarif çözüm.
+- **K-4.a (partial) — i18n EN lazy load** — `LanguageContext.jsx`: `import en from './en.json'` → dynamic `import('./en.json')`. Initial bundle: 437.10 → 363.07 KB raw (gzip 144.67 → 116.30, **-28KB / -19%**). EN ayrı chunk: 78.84 KB / 30.17 gzip (sadece EN kullanıcısı için). TR (default) hala eager — flicker yok. EN'e geçişte ~50-100ms TR fallback gösterilir, sonra EN populate. K-4 tam değil; FCP/LCP <2.5s hedefi için ek code-split adımları gerekebilir.
+- **Tefsir Paneli (Elmalılı) main'e çıktı** (commit `ebec941` · merge'li) — 114 sûre Elmalılı Hamdi Yazır tam tefsiri (`public/tafsir/elmalili/*.json`), ReadingMode TEFSIR toggle, sol-yaslı drawer (mobil full · desktop 460px), verse-anchor smooth scroll, lazy-fetch + session cache, gündüz/gece modu uyumlu. `scripts/scrape-elmalili.py` (enfal.de Windows-1254 → UTF-8, 1.5s throttle).
+- **Footer iletişim emaili** (commit `9495d9f`) — bottom bar orta sütununa `info@qurancodex.com` mailto link eklendi (hover gold), branding metni korundu.
+- **Roadmap design-system özet** (commit `3c62987`) — 3 milestone (ConceptGraph/WordHeatmap mobile layout, motion accessibility, palette harmony + softGold) geriye dönük "Son Tamamlananlar"a kaydedildi.
+- **.gitignore temizliği** (commit `f47122b`) — `.claude/*.lock` (agent scheduling) + `__pycache__/` + `*.pyc` eklendi; repo runtime/bytecode kirliliğinden korundu.
+
+### 2026-04-23
+- **🚀 Main deploy** (`2a32886..6558a89`) — 5 commit production'a çıktı: token migration (RADIUS), F-5 SurahLink, B-2 FullGraph + ClusterView fix, D-10 sinematic bridges. Vercel rebuild tetiklendi.
 - **D-6. WowFacts mutlak iddialar yumuşatma** (2026-04-23)
   - 7 kart güncellendi (TR+EN parity): 2 faktüel düzeltme + 5 yumuşatma
   - Faktüel: (a) "Allah lafzı hiçbir sayfa susmuyor" → son cüz kısa sûreleri (Asr/Kevser/Felak/Nâs) Allah lafzı taşımaz, "hemen her sayfada yankılanır"; (b) Nûh 950 yıl → Tekvin 9:29'da aynı sayı ömür olarak geçer, wow yeniden çerçevelendi
@@ -43,8 +53,8 @@
 ## 🔴 P0 — Kritik
 
 - [ ] **K-4. FCP/LCP iyileştirme** — PROD: FCP 4.7s / LCP 7.6s, hedef <2.5s
-  - Unused JS temizliği: index bundle 235KB, %26 unused → daha agresif code splitting
-  - Render blocking kaynakları azaltma
+  - **Yapıldı:** K-4.a i18n EN lazy load → -28KB gzip initial (2026-04-24, bkz. Tamamlananlar)
+  - **Kalan:** unused JS temizliği (index bundle hala 363KB raw / 116KB gzip), agresif code splitting (Navbar 1463 satır + tools.jsx + framer-motion eager), render blocking kaynaklar (font preload?), real PROD lighthouse ölçümü (deploy sonrası)
 
 ---
 
@@ -68,6 +78,12 @@
   - ~~2 buton aria-label~~ ✅ 1 düzeltildi, 1 kaldı (HumanDefinition audio btn — Lighthouse scroll-dependent edge case)
   - Kalan: 1 buton (Lighthouse headless scroll sınırında)
 
+- [ ] **M-5. İçerik iki dilliliği — TafsirPanel + Kelime Kartları EN desteği**
+  - **Mevcut durum:** Tefsir Paneli (Elmalılı) ve kelime kartları sadece Türkçe. EN modunda kullanıcı Türkçe içerik görüyor. `TafsirPanel.jsx`'te `language === 'en'` / `labelEn` hiç geçmiyor (0 occurrence).
+  - **L1 — Placeholder uyarı (hızlı, ~15 dk):** EN modunda her iki overlay'de banner: *"Tafsir/word meanings currently only available in Turkish. Switch language to TR to read Elmalılı Hamdi Yazır commentary / Turkish word cards."* Risk sıfır, UX'te "bilinçli eksiklik" iletir.
+  - **L2 — İngilizce tefsir kaynağı entegre (1-3 gün):** Public domain adaylar: Tafsir Ibn Kathir (abridged EN) · Maududi Tafhim-ul-Quran EN · Yusuf Ali commentary notes. Scrape pipeline Elmalılı'ya benzer; `public/tafsir/ibn-kathir-en/*.json` gibi paralel klasör; `TafsirPanel`'e `source` prop eklenir, EN'de otomatik switch. **Karar:** kullanıcı kaynak seçsin.
+  - **L3 — Kelime kartları EN çeviri (saatler, kalite riski):** Türkçe kelime meaning'i LLM batch ile EN'e çevir (~40K string, ~$20-50 API maliyeti). **İnsan kontrolü** olmadan prod'a atılamaz.
+
 ---
 
 ## 🟢 P2 — Düşük Öncelik
@@ -78,7 +94,7 @@
 - [ ] **D-4. Transliterasyon tutarlılığı** — alim isimleri sistemik kontrol
 - [ ] **D-5. Scientific Signs / HistoricalProof content review** — detaylı doğrulama
 - [ ] **D-7. Tecvid genişletme** — izhar (حلق harfleri), mad-lâzım tipleri
-- [ ] **D-8. Mobil 3D crash** — Three.js OOM → 2D fallback
+- [x] **D-8. Mobil 3D crash → ReadingMode redirect** ✅ 2026-04-24 — `react-force-graph-2d` paketi yok; yeni dep eklemek yerine zarif çözüm: `IS_MOBILE_3D_BLOCKED = window.innerWidth < 640` guard'ı ile mobile'da 'verses' ve '3d' view'lara geçişi engelle. Surah/verse seçimi mobile'da `openReadingMode` event dispatch eder (F-5 entegrasyonu — Tefsir paneli + tilavet zaten mobile-friendly). URL `?verse=` parametresi de redirect'e dahil. Persist edilmiş state mobile'da clusters'a düşürülür. Desktop akışı dokunulmadı.
 - [ ] **D-9. Vakıf margin fine-tuning** — `left: -0.08em` doğrulaması
 - [x] **D-10. Section geçişleri** ✅ 2026-04-23 — 30px hard linear gradient → 96px (desktop) / 64px (mobile) cinematic bridge: 3-stop plateau gradient + %10 gold mid-line hairline. `src/index.css` `.gradient-divider` / `-reverse` yeniden tanımlandı, 9 section transition (App.jsx) otomatik inherit eder.
 
@@ -86,10 +102,7 @@
 
 ## 🛠️ WIP — Aktif Geliştirme
 
-- **Tefsir Paneli (Elmalılı)** — `src/components/TafsirPanel.jsx` + `public/tafsir/elmalili/*.json` + `scripts/scrape-elmalili.py`
-  - Sağ kenar drawer (460px desktop · full-width mobile), verse-anchor'lı scroll
-  - Scrape fixed: kaynak HTML'in görsel satır kırılmalarını `\n` olarak koruyordu → cümle ortası kırılma. `normalizeTafsirText()` tek `\n` → space, `\n\n` → paragraf.
-  - **Açık soru:** sağ drawer vs. ayet altı inline expansion. Ayet tıklaması audio play'e bağlı (Karin tilavet); trigger için ayrı ikon/buton gerekecek.
+> Şu an aktif WIP yok. Yeni bir uzun-soluklu iş başlayınca buraya taşınır.
 
 ---
 
@@ -99,7 +112,7 @@
 
 - [ ] **F-1. Mihver Analizi modülü** — demo hazır (MihverDemo.jsx), ekip feedback bekleniyor
 - [ ] **F-2. Kavram Ağı / Semantic Map** — embedding altyapısı var, force-directed graph
-- [ ] **F-3. Kur'an'da Kadınlar** — Hz. Meryem tek isim, wow potansiyeli yüksek
+- [x] **F-3. Kur'an'da Kadınlar — MVP** ✅ 2026-04-24 — `KadinlarAtlasi.jsx` overlay + `public/kadinlar.json` (7 figür: Meryem, Asiye, Havva, Saba Melikesi/Bilkıs, Sara, Musa'nın annesi, İmran'ın eşi). qc-content-producer ile hallucination-free içerik (Arapça verse-graph'tan kopyalanmış, halüsinasyon riski sıfır), 7/7 criticalNote (peygamberlik tartışması, Kur'an dışı isim notları, mezhep farkları). RESEARCH_TOOLS dropdown entry, Navbar 6 entegrasyon noktası, lazy chunk 7.5KB/2.66 gzip. **Sonraki:** qc-content-auditor ile post-merge doğrulama, ek figür önerileri (Lût/Nuh eşleri ayrı atlas).
 - [ ] **F-4. Kur'an'ın Coğrafyası** — interaktif harita (Leaflet mevcut)
 - [x] **F-5. Sure ismine tıklama → ReadingMode** ✅ 2026-04-23 (commit `5bfcd5c`)
 - [ ] **F-6. PWA + Audio cache** — Service Worker, çevrimdışı
@@ -133,5 +146,8 @@
 
 **Manuel test senaryoları:** `docs/path-mode-test-scenarios.md` (8 senaryo, 7 PASS, 1 test açığı)
 
-1. #1 Tefsir paneli (en yüksek değer/çaba oranı — Quran sitesi için "must")
 2. #2 Kelime-kelime overlay (öğrenci/hafızlık için devrim)
+
+Kelime-kelime overlay icin kuranseferberligi.com scrape'i — bu süreçte Fatma Serap Hanım'a email atılabilir (öğretmen/öğrenci amaçlı kullanım izni). 
+
+

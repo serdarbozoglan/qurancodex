@@ -176,6 +176,16 @@ const DuaIcon = ({ size = 14 }) => (
   </svg>
 );
 
+const KadinlarIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {/* Stylized: yıldız (seçilmişlik) + altında kalp (anne/şefkat) */}
+    <circle cx="12" cy="8" r="4" />
+    <path d="M12 12v5" />
+    <path d="M9 17h6" />
+    <path d="M10 21l2-2 2 2" />
+  </svg>
+);
+
 const FurukIcon = ({ size = 14 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <polygon points="12 2 22 20 2 20" />
@@ -402,6 +412,17 @@ export const RESEARCH_TOOLS = [
     descLongTr:  "Kur'an'daki dualar: peygamberlerin yakarışları, müminlerin niyazları. Her dua bağlamıyla, ne için ve ne zaman edileceğine dair pratik bir rehber.",
     descLongEn:  "The prayers of the Quran: the supplications of prophets and the appeals of believers. Each prayer with its context — a practical guide to what to ask for and when.",
     icon:        DuaIcon,
+  },
+  {
+    id:          'kadinlar',
+    event:       'openKadinlarAtlasi',
+    titleTr:     "Kur'an'da Kadınlar",
+    titleEn:     'Women in the Quran',
+    descTr:      'Anılan, seçilen, ders olarak öne çıkan kadınlar',
+    descEn:      'Named, chosen, set forth as lessons',
+    descLongTr:  "Kur'an'da yalnızca BİR kadın özel adıyla anılır: Hz. Meryem. Diğerleri sıfatları, akrabalıkları veya konumlarıyla işaret edilir. 7 figür: Meryem, Asiye, Havva, Saba Melikesi (Bilkıs), Sara, Musa'nın annesi, İmran'ın eşi — her biri ayet referanslarıyla.",
+    descLongEn:  "Only ONE woman is named in the Quran: Maryam. Others are referenced by their attributes, kinship, or station. 7 figures: Maryam, Asiya, Hawwa (Eve), Queen of Sheba (Bilqis), Sarah, the mother of Musa, and Imran's wife — each with verse references.",
+    icon:        KadinlarIcon,
   },
 ];
 

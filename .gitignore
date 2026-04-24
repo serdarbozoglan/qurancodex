@@ -38,3 +38,10 @@ todo_v*.md
 
 # Legacy data backups (kept locally, excluded from git + deploy)
 .local-data/
+
+# Claude Code runtime (agent scheduling locks, transient state)
+.claude/*.lock
+
+# Python bytecode (scripts/ helpers)
+__pycache__/
+*.pyc

@@ -683,43 +683,6 @@ export default function QuranRhetoric() {
         </button>
       </motion.div>
 
-      {/* Bağlantı kartları */}
-      <motion.div variants={fadeUpItem} className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <button
-          onClick={() => document.getElementById('rhythm')?.scrollIntoView({ behavior: 'smooth' })}
-          className="glass-card p-5 text-left hover:bg-white/5 transition-colors"
-          style={{ cursor: 'pointer' }}
-        >
-          <p style={{ color: '#d4a574', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', marginBottom: 4, fontFamily: "'Inter', sans-serif" }}>
-            {tr ? '← İLİŞKİLİ' : '← RELATED'}
-          </p>
-          <p style={{ color: '#e8e6e3', fontWeight: 600, fontFamily: "'Inter', sans-serif", marginBottom: 2 }}>
-            {tr ? 'İmkansız Ritim' : 'Impossible Rhythm'}
-          </p>
-          <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif" }}>
-            {tr
-              ? "Sorular, kendine özgü bir ritim içinde akar — ne şiir ne düzyazı."
-              : "These questions flow within a unique rhythm — neither poetry nor prose."}
-          </p>
-        </button>
-        <button
-          onClick={() => document.getElementById('highlights')?.scrollIntoView({ behavior: 'smooth' })}
-          className="glass-card p-5 text-left hover:bg-white/5 transition-colors"
-          style={{ cursor: 'pointer' }}
-        >
-          <p style={{ color: '#d4a574', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', marginBottom: 4, fontFamily: "'Inter', sans-serif" }}>
-            {tr ? '→ SONRAKI' : '→ NEXT'}
-          </p>
-          <p style={{ color: '#e8e6e3', fontWeight: 600, fontFamily: "'Inter', sans-serif", marginBottom: 2 }}>
-            {tr ? "İltifât — Bakış Açısı Değişimleri" : "Iltifat — Perspective Shifts"}
-          </p>
-          <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif" }}>
-            {tr
-              ? "7 ayette 3 farklı bakış açısı: Kur'an'ın çok sesli anlatı tekniği."
-              : "3 perspectives in 7 verses: the Quran's polyphonic narrative technique."}
-          </p>
-        </button>
-      </motion.div>
     </SectionWrapper>
   );
 }

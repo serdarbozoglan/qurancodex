@@ -2541,12 +2541,21 @@ function FullGraph({ verses, onBack, language, onClose }) {
 }
 
 // ─── Root: view state machine ─────────────────────────────────────────────────
+// D-8: Mobil cihazlarda Three.js (FullGraph + VerseView) OOM crash veriyor.
+// Mobile detect → 'verses' ve '3d' view'larına geçişi engelle, ReadingMode'a
+// yönlendir (F-5 entegrasyonu, Tefsir paneli + tilavet zaten mobile-friendly).
+const IS_MOBILE_3D_BLOCKED = typeof window !== 'undefined' && window.innerWidth < 640;
+
 export default function VerseGraph({ onClose, initialSearch = '', onRegisterBackHandler = null }) {
   const { language } = useLanguage();
   // If opened with a specific verse to find (e.g. from ConceptGraph), always start at clusters
   // so ClusterView can parse initialSearch and call onSelectVerse → sets autoFocusVerseId.
   // Otherwise restore last view from localStorage.
-  const [view, setView] = useState(() => initialSearch ? 'clusters' : (localStorage.getItem('qurancodex_graph_view') || 'clusters'));
+  // Mobile guard: persist edilmiş 'verses'/'3d' state'i mobile'da clusters'a düşürülür
+  const [view, setView] = useState(() => {
+    if (IS_MOBILE_3D_BLOCKED) return 'clusters';
+    return initialSearch ? 'clusters' : (localStorage.getItem('qurancodex_graph_view') || 'clusters');
+  });
   const [pendingSearch, setPendingSearch] = useState(initialSearch);
   const [selectedSurah, setSelectedSurah] = useState(() => {
     const s = parseInt(localStorage.getItem('qurancodex_graph_surah'));
@@ -2571,9 +2580,20 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
         // Handle ?verse=2:255 URL parameter — auto-navigate to that verse
         const urlVerse = new URLSearchParams(window.location.search).get('verse');
         if (urlVerse) {
-          const [surahStr] = urlVerse.split(':');
+          const [surahStr, ayahStr] = urlVerse.split(':');
           const surah = parseInt(surahStr);
           if (!isNaN(surah)) {
+            // D-8: Mobil 3D crash guard — verses view yerine ReadingMode aç
+            if (IS_MOBILE_3D_BLOCKED) {
+              window.dispatchEvent(new CustomEvent('openReadingMode', {
+                detail: { surah, ayah: ayahStr ? parseInt(ayahStr) : null },
+              }));
+              const url = new URL(window.location.href);
+              url.searchParams.delete('verse');
+              window.history.replaceState({}, '', url.toString());
+              onClose();
+              return;
+            }
             setSelectedSurah(surah);
             setAutoFocusVerseId(urlVerse);
             setView('verses');
@@ -2643,13 +2663,48 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
     </div>
   );
 
+  // D-8: Mobil 3D crash guard — surah/verse seçimi mobile'da ReadingMode açar
+  // (F-5 entegrasyonu, Tefsir paneli + tilavet zaten mobile-friendly).
+  // Desktop: 3D view'ları normal çalışır.
+  const handleSelectSurah = (surah) => {
+    if (IS_MOBILE_3D_BLOCKED) {
+      window.dispatchEvent(new CustomEvent('openReadingMode', { detail: { surah } }));
+      onClose();
+      return;
+    }
+    setSelectedSurah(surah);
+    setAutoFocusVerseId(null);
+    setView('verses');
+  };
+  const handleSelectVerse = (verse) => {
+    if (IS_MOBILE_3D_BLOCKED) {
+      const ayah = parseInt(String(verse.id).split(':')[1]);
+      window.dispatchEvent(new CustomEvent('openReadingMode', { detail: { surah: verse.surah, ayah } }));
+      onClose();
+      return;
+    }
+    setSelectedSurah(verse.surah);
+    setAutoFocusVerseId(verse.id);
+    setView('verses');
+  };
+  const handleOpenFullGraph = () => {
+    if (IS_MOBILE_3D_BLOCKED) {
+      // ClusterView buton zaten `hidden sm:flex` ile gizli; bu silent guard
+      // edge case için (örn. event dispatch dışarıdan).
+      // eslint-disable-next-line no-console
+      console.warn('[VerseGraph] FullGraph (3D) mobile cihazlarda devre dışı (Three.js OOM).');
+      return;
+    }
+    setView('3d');
+  };
+
   if (view === 'clusters') return (
     <ClusterView
       verses={verses} surahClusters={surahClusters} language={language}
-      onSelectSurah={(surah) => { setSelectedSurah(surah); setAutoFocusVerseId(null); setView('verses'); }}
-      onSelectVerse={(verse) => { setSelectedSurah(verse.surah); setAutoFocusVerseId(verse.id); setView('verses'); }}
+      onSelectSurah={handleSelectSurah}
+      onSelectVerse={handleSelectVerse}
       onClose={onClose}
-      onOpenFullGraph={() => setView('3d')}
+      onOpenFullGraph={handleOpenFullGraph}
       initialSearch={pendingSearch}
       onSearchConsumed={() => setPendingSearch('')}
     />
