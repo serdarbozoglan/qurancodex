@@ -1,6 +1,6 @@
 # QuranCodex — Yol Haritası
 
-**Son güncelleme:** 2026-04-23
+**Son güncelleme:** 2026-04-24
 **Kaynaklar:** `docs/skill-review-findings.md`, `todo.md`, `todo_v1.1.md` birleştirildi
 
 > Sadece bekleyen işler. Tamamlananlar git history'de (v1.0, v1.1, v1.2, v1.3, Faz 1-2).
@@ -9,7 +9,15 @@
 
 ## ✅ Son Tamamlananlar (v1.5)
 
-- **🚀 Main deploy** (2026-04-23 · `2a32886..6558a89`) — 5 commit production'a çıktı: token migration (RADIUS), F-5 SurahLink, B-2 FullGraph + ClusterView fix, D-10 sinematic bridges. Vercel rebuild tetiklendi.
+### 2026-04-24
+- **K-4.a (partial) — i18n EN lazy load** — `LanguageContext.jsx`: `import en from './en.json'` → dynamic `import('./en.json')`. Initial bundle: 437.10 → 363.07 KB raw (gzip 144.67 → 116.30, **-28KB / -19%**). EN ayrı chunk: 78.84 KB / 30.17 gzip (sadece EN kullanıcısı için). TR (default) hala eager — flicker yok. EN'e geçişte ~50-100ms TR fallback gösterilir, sonra EN populate. K-4 tam değil; FCP/LCP <2.5s hedefi için ek code-split adımları gerekebilir.
+- **Tefsir Paneli (Elmalılı) main'e çıktı** (commit `ebec941` · merge'li) — 114 sûre Elmalılı Hamdi Yazır tam tefsiri (`public/tafsir/elmalili/*.json`), ReadingMode TEFSIR toggle, sol-yaslı drawer (mobil full · desktop 460px), verse-anchor smooth scroll, lazy-fetch + session cache, gündüz/gece modu uyumlu. `scripts/scrape-elmalili.py` (enfal.de Windows-1254 → UTF-8, 1.5s throttle).
+- **Footer iletişim emaili** (commit `9495d9f`) — bottom bar orta sütununa `info@qurancodex.com` mailto link eklendi (hover gold), branding metni korundu.
+- **Roadmap design-system özet** (commit `3c62987`) — 3 milestone (ConceptGraph/WordHeatmap mobile layout, motion accessibility, palette harmony + softGold) geriye dönük "Son Tamamlananlar"a kaydedildi.
+- **.gitignore temizliği** (commit `f47122b`) — `.claude/*.lock` (agent scheduling) + `__pycache__/` + `*.pyc` eklendi; repo runtime/bytecode kirliliğinden korundu.
+
+### 2026-04-23
+- **🚀 Main deploy** (`2a32886..6558a89`) — 5 commit production'a çıktı: token migration (RADIUS), F-5 SurahLink, B-2 FullGraph + ClusterView fix, D-10 sinematic bridges. Vercel rebuild tetiklendi.
 - **D-6. WowFacts mutlak iddialar yumuşatma** (2026-04-23)
   - 7 kart güncellendi (TR+EN parity): 2 faktüel düzeltme + 5 yumuşatma
   - Faktüel: (a) "Allah lafzı hiçbir sayfa susmuyor" → son cüz kısa sûreleri (Asr/Kevser/Felak/Nâs) Allah lafzı taşımaz, "hemen her sayfada yankılanır"; (b) Nûh 950 yıl → Tekvin 9:29'da aynı sayı ömür olarak geçer, wow yeniden çerçevelendi
@@ -43,8 +51,8 @@
 ## 🔴 P0 — Kritik
 
 - [ ] **K-4. FCP/LCP iyileştirme** — PROD: FCP 4.7s / LCP 7.6s, hedef <2.5s
-  - Unused JS temizliği: index bundle 235KB, %26 unused → daha agresif code splitting
-  - Render blocking kaynakları azaltma
+  - **Yapıldı:** K-4.a i18n EN lazy load → -28KB gzip initial (2026-04-24, bkz. Tamamlananlar)
+  - **Kalan:** unused JS temizliği (index bundle hala 363KB raw / 116KB gzip), agresif code splitting (Navbar 1463 satır + tools.jsx + framer-motion eager), render blocking kaynaklar (font preload?), real PROD lighthouse ölçümü (deploy sonrası)
 
 ---
 
@@ -68,6 +76,12 @@
   - ~~2 buton aria-label~~ ✅ 1 düzeltildi, 1 kaldı (HumanDefinition audio btn — Lighthouse scroll-dependent edge case)
   - Kalan: 1 buton (Lighthouse headless scroll sınırında)
 
+- [ ] **M-5. İçerik iki dilliliği — TafsirPanel + Kelime Kartları EN desteği**
+  - **Mevcut durum:** Tefsir Paneli (Elmalılı) ve kelime kartları sadece Türkçe. EN modunda kullanıcı Türkçe içerik görüyor. `TafsirPanel.jsx`'te `language === 'en'` / `labelEn` hiç geçmiyor (0 occurrence).
+  - **L1 — Placeholder uyarı (hızlı, ~15 dk):** EN modunda her iki overlay'de banner: *"Tafsir/word meanings currently only available in Turkish. Switch language to TR to read Elmalılı Hamdi Yazır commentary / Turkish word cards."* Risk sıfır, UX'te "bilinçli eksiklik" iletir.
+  - **L2 — İngilizce tefsir kaynağı entegre (1-3 gün):** Public domain adaylar: Tafsir Ibn Kathir (abridged EN) · Maududi Tafhim-ul-Quran EN · Yusuf Ali commentary notes. Scrape pipeline Elmalılı'ya benzer; `public/tafsir/ibn-kathir-en/*.json` gibi paralel klasör; `TafsirPanel`'e `source` prop eklenir, EN'de otomatik switch. **Karar:** kullanıcı kaynak seçsin.
+  - **L3 — Kelime kartları EN çeviri (saatler, kalite riski):** Türkçe kelime meaning'i LLM batch ile EN'e çevir (~40K string, ~$20-50 API maliyeti). **İnsan kontrolü** olmadan prod'a atılamaz.
+
 ---
 
 ## 🟢 P2 — Düşük Öncelik
@@ -86,12 +100,7 @@
 
 ## 🛠️ WIP — Aktif Geliştirme
 
-- **Tefsir Paneli — Elmalılı Hamdi Yazır** (2026-04-24 · commit `9ade8d1` · qc_v1.5_fix'e commit'li, henüz push edilmedi, main'de yok)
-  - **Veri:** `scripts/scrape-elmalili.py` (enfal.de'den Windows-1254 → UTF-8, 1.5s throttle, verse-anchor regex) → `public/tafsir/elmalili/{1..114}.json` (~10 MB, 114 sûre tam tefsir, verseAnchors ile). Bakara 3 alt-sayfa birleştirme, Abese (80) genişletilmiş sürüm (35K char, 42 anchor).
-  - **Panel:** `src/components/TafsirPanel.jsx` — **sol-yaslı** drawer (mobilde tam ekran, desktop 460px). Lazy-fetch + session cache. Aktif ayet değişince nearest-anchor'a smooth scroll; anchor altın sol-border + subtle bg ile vurgulu. Gündüz/gece modu uyumlu.
-  - **Trigger:** ReadingMode toolbar'da TEFSIR toggle (BookOpenIcon, TAHTA'dan önce). Ayet tıklaması audio play (Karin tilavet) — çakışma yok.
-  - **Metin normalize fix:** `normalizeTafsirText()` — tek `\n` → space (scrape kaynağı PDF/HTML görsel satır kırılmalarını `\n` olarak koruyordu → cümle ortası bozulma), `\n\n` → paragraf, iç boşluklar temizleniyor.
-  - **Açık soru:** sol drawer vs. ayet altı inline expansion — şu an sol drawer, main'e çıkmadan önce UX kararı netleşsin.
+> Şu an aktif WIP yok. Yeni bir uzun-soluklu iş başlayınca buraya taşınır.
 
 ---
 
