@@ -10,6 +10,7 @@
 ## ✅ Son Tamamlananlar (v1.5)
 
 ### 2026-04-24
+- **D-8. Mobil 3D crash → ReadingMode redirect** — VerseGraph root'unda `IS_MOBILE_3D_BLOCKED` guard'ı (`window.innerWidth < 640`). Mobile'da 'verses' ve '3d' view'lara geçişi engelle, surah/verse seçimi `openReadingMode` event dispatch eder (F-5 entegrasyonu). URL `?verse=` parametresi + persist edilmiş localStorage view state de mobile'da clusters'a düşürülür. Desktop akışı dokunulmadı. `react-force-graph-2d` dep eklemeden zarif çözüm.
 - **K-4.a (partial) — i18n EN lazy load** — `LanguageContext.jsx`: `import en from './en.json'` → dynamic `import('./en.json')`. Initial bundle: 437.10 → 363.07 KB raw (gzip 144.67 → 116.30, **-28KB / -19%**). EN ayrı chunk: 78.84 KB / 30.17 gzip (sadece EN kullanıcısı için). TR (default) hala eager — flicker yok. EN'e geçişte ~50-100ms TR fallback gösterilir, sonra EN populate. K-4 tam değil; FCP/LCP <2.5s hedefi için ek code-split adımları gerekebilir.
 - **Tefsir Paneli (Elmalılı) main'e çıktı** (commit `ebec941` · merge'li) — 114 sûre Elmalılı Hamdi Yazır tam tefsiri (`public/tafsir/elmalili/*.json`), ReadingMode TEFSIR toggle, sol-yaslı drawer (mobil full · desktop 460px), verse-anchor smooth scroll, lazy-fetch + session cache, gündüz/gece modu uyumlu. `scripts/scrape-elmalili.py` (enfal.de Windows-1254 → UTF-8, 1.5s throttle).
 - **Footer iletişim emaili** (commit `9495d9f`) — bottom bar orta sütununa `info@qurancodex.com` mailto link eklendi (hover gold), branding metni korundu.
@@ -92,7 +93,7 @@
 - [ ] **D-4. Transliterasyon tutarlılığı** — alim isimleri sistemik kontrol
 - [ ] **D-5. Scientific Signs / HistoricalProof content review** — detaylı doğrulama
 - [ ] **D-7. Tecvid genişletme** — izhar (حلق harfleri), mad-lâzım tipleri
-- [ ] **D-8. Mobil 3D crash** — Three.js OOM → 2D fallback
+- [x] **D-8. Mobil 3D crash → ReadingMode redirect** ✅ 2026-04-24 — `react-force-graph-2d` paketi yok; yeni dep eklemek yerine zarif çözüm: `IS_MOBILE_3D_BLOCKED = window.innerWidth < 640` guard'ı ile mobile'da 'verses' ve '3d' view'lara geçişi engelle. Surah/verse seçimi mobile'da `openReadingMode` event dispatch eder (F-5 entegrasyonu — Tefsir paneli + tilavet zaten mobile-friendly). URL `?verse=` parametresi de redirect'e dahil. Persist edilmiş state mobile'da clusters'a düşürülür. Desktop akışı dokunulmadı.
 - [ ] **D-9. Vakıf margin fine-tuning** — `left: -0.08em` doğrulaması
 - [x] **D-10. Section geçişleri** ✅ 2026-04-23 — 30px hard linear gradient → 96px (desktop) / 64px (mobile) cinematic bridge: 3-stop plateau gradient + %10 gold mid-line hairline. `src/index.css` `.gradient-divider` / `-reverse` yeniden tanımlandı, 9 section transition (App.jsx) otomatik inherit eder.
 
