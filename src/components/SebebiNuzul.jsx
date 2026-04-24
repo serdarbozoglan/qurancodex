@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
+import { fetchMealSurah } from '../utils/mealCache';
 
 // ── Arabic text cleanup ───────────────────────────────────────────────────────
 function cleanArabic(str) {
@@ -147,7 +148,7 @@ function TimelinePrevNext({ events, current, onSelect, language }) {
         <button
           onClick={() => onSelect(prev)}
           style={{
-            flex: 1, padding: '12px 14px', borderRadius: '10px', cursor: 'pointer',
+            flex: 1, padding: '12px 14px', borderRadius: RADIUS.chip, cursor: 'pointer',
             background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
             textAlign: 'left', color: COLORS.silver, transition: 'all 0.15s',
             fontFamily: FONTS.body,
@@ -167,7 +168,7 @@ function TimelinePrevNext({ events, current, onSelect, language }) {
         <button
           onClick={() => onSelect(next)}
           style={{
-            flex: 1, padding: '12px 14px', borderRadius: '10px', cursor: 'pointer',
+            flex: 1, padding: '12px 14px', borderRadius: RADIUS.chip, cursor: 'pointer',
             background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
             textAlign: 'right', color: COLORS.silver, transition: 'all 0.15s',
             fontFamily: FONTS.body,
@@ -214,11 +215,11 @@ function OccasionCard({ occ, language, isMobile }) {
 
       setVerseData({ loading: true, verses: [] });
 
-      // Fetch all surahs referenced by this occasion in parallel
+      // Fetch all surahs referenced by this occasion in parallel.
+      // Local-first via meal cache (author 105); API fallback on cache miss.
       Promise.all(
         occ.verses.map(v =>
-          fetch(`https://api.acikkuran.com/surah/${v.surah}?author=105`, { signal: ac.signal })
-            .then(r => r.json())
+          fetchMealSurah(v.surah, 105, ac.signal)
             .then(d => {
               const allVerses = d.data?.verses || [];
               return allVerses
@@ -247,7 +248,7 @@ function OccasionCard({ occ, language, isMobile }) {
     display: 'inline-flex',
     alignItems: 'center',
     padding: '2px 8px',
-    borderRadius: '99px',
+    borderRadius: RADIUS.pill,
     fontSize: '0.72rem',
     fontWeight: 600,
     color,
@@ -260,7 +261,7 @@ function OccasionCard({ occ, language, isMobile }) {
     display: 'inline-flex',
     alignItems: 'center',
     padding: '2px 8px',
-    borderRadius: '99px',
+    borderRadius: RADIUS.pill,
     fontSize: '0.72rem',
     fontWeight: 600,
     color: COLORS.gold,
@@ -306,7 +307,7 @@ function OccasionCard({ occ, language, isMobile }) {
             {occ.keyPersons.map((p, i) => (
               <span key={i} style={{
                 display: 'inline-flex', alignItems: 'center',
-                padding: '1px 7px', borderRadius: '99px',
+                padding: '1px 7px', borderRadius: RADIUS.pill,
                 fontSize: '0.7rem', color: COLORS.silver,
                 background: 'rgba(148,163,184,0.1)',
                 border: '1px solid rgba(148,163,184,0.2)',
@@ -359,7 +360,7 @@ function OccasionCard({ occ, language, isMobile }) {
             alignItems: 'center',
             gap: '6px',
             padding: '5px 12px',
-            borderRadius: '6px',
+            borderRadius: RADIUS.sm,
             border: `1px solid ${COLORS.gold}55`,
             background: COLORS.goldAlpha15,
             color: COLORS.gold,
@@ -505,7 +506,7 @@ function TabArama({ data, language, isMobile }) {
       onClick={onClick}
       style={{
         padding: '4px 12px',
-        borderRadius: '99px',
+        borderRadius: RADIUS.pill,
         border: `1px solid ${active ? (color || COLORS.gold) : COLORS.glassBorder}`,
         background: active ? (color ? `${color}22` : COLORS.goldAlpha15) : 'transparent',
         color: active ? (color || COLORS.gold) : COLORS.silver,
@@ -546,7 +547,7 @@ function TabArama({ data, language, isMobile }) {
           style={{
             width: '100%',
             padding: '10px 12px 10px 38px',
-            borderRadius: '8px',
+            borderRadius: RADIUS.md,
             border: `1px solid ${COLORS.glassBorder}`,
             background: COLORS.glassBg,
             color: COLORS.offWhite,
@@ -567,7 +568,7 @@ function TabArama({ data, language, isMobile }) {
           onClick={() => setMode('event')}
           style={{
             padding: '6px 14px',
-            borderRadius: '99px',
+            borderRadius: RADIUS.pill,
             border: `1px solid ${mode === 'event' ? COLORS.gold : COLORS.glassBorder}`,
             background: mode === 'event' ? COLORS.goldAlpha15 : 'transparent',
             color: mode === 'event' ? COLORS.gold : COLORS.silver,
@@ -584,7 +585,7 @@ function TabArama({ data, language, isMobile }) {
           onClick={() => setMode('verse')}
           style={{
             padding: '6px 14px',
-            borderRadius: '99px',
+            borderRadius: RADIUS.pill,
             border: `1px solid ${mode === 'verse' ? COLORS.gold : COLORS.glassBorder}`,
             background: mode === 'verse' ? COLORS.goldAlpha15 : 'transparent',
             color: mode === 'verse' ? COLORS.gold : COLORS.silver,
@@ -821,7 +822,7 @@ function TabIstatistik({ data, language, isMobile }) {
         </h3>
         <div style={{
           height: '24px',
-          borderRadius: '99px',
+          borderRadius: RADIUS.pill,
           overflow: 'hidden',
           display: 'flex',
           marginBottom: '12px',
@@ -945,7 +946,7 @@ function PrincipleCard({ principle, badge, badgeColor, language, isMobile }) {
           display: 'inline-flex',
           alignItems: 'center',
           padding: '2px 10px',
-          borderRadius: '99px',
+          borderRadius: RADIUS.pill,
           border: `1px solid ${badgeColor}55`,
           background: `${badgeColor}22`,
           color: badgeColor,
@@ -1123,7 +1124,7 @@ function TabKaynaklar({ data, language, isMobile }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   padding: '2px 10px',
-                  borderRadius: '99px',
+                  borderRadius: RADIUS.pill,
                   border: `1px solid ${sm.color}55`,
                   background: `${sm.color}22`,
                   color: sm.color,
@@ -1161,7 +1162,7 @@ function TabKaynaklar({ data, language, isMobile }) {
                   {scholar.surahsCovered != null && (
                     <div style={{
                       padding: '6px 12px',
-                      borderRadius: '8px',
+                      borderRadius: RADIUS.md,
                       background: 'rgba(255,255,255,0.04)',
                       border: `1px solid ${COLORS.glassBorderSoft}`,
                       textAlign: 'center',
@@ -1177,7 +1178,7 @@ function TabKaynaklar({ data, language, isMobile }) {
                   {scholar.versesCovered != null && (
                     <div style={{
                       padding: '6px 12px',
-                      borderRadius: '8px',
+                      borderRadius: RADIUS.md,
                       background: 'rgba(255,255,255,0.04)',
                       border: `1px solid ${COLORS.glassBorderSoft}`,
                       textAlign: 'center',
@@ -1311,7 +1312,7 @@ function TabZaman({ language, isMobile }) {
             display: 'flex', gap: '2px',
             background: 'rgba(255,255,255,0.04)',
             border: '1px solid rgba(255,255,255,0.08)',
-            borderRadius: '10px', padding: '3px', flexShrink: 0,
+            borderRadius: RADIUS.chip, padding: '3px', flexShrink: 0,
           }}>
             {[
               { key: 'all', tr: 'Tümü', en: 'All', color: COLORS.gold },
@@ -1359,7 +1360,7 @@ function TabZaman({ language, isMobile }) {
                   onClick={() => setTimeFilter(active ? 'all' : k)}
                   style={{
                     display: 'flex', alignItems: 'center', gap: '6px',
-                    padding: '5px 12px', borderRadius: '8px', whiteSpace: 'nowrap',
+                    padding: '5px 12px', borderRadius: RADIUS.md, whiteSpace: 'nowrap',
                     fontSize: '0.8rem', fontWeight: active ? 600 : 400, cursor: 'pointer',
                     border: active ? `1px solid ${v.color}55` : '1px solid rgba(255,255,255,0.08)',
                     background: active ? `${v.color}18` : 'rgba(255,255,255,0.03)',
@@ -1393,7 +1394,7 @@ function TabZaman({ language, isMobile }) {
               style={{
                 paddingLeft: '30px', paddingRight: '10px', height: '32px',
                 background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorder}`,
-                borderRadius: '8px', color: COLORS.offWhite, fontSize: '0.8rem',
+                borderRadius: RADIUS.md, color: COLORS.offWhite, fontSize: '0.8rem',
                 outline: 'none', width: '170px', fontFamily: FONTS.body,
               }}
               onFocus={e => { e.target.style.borderColor = COLORS.gold; }}
@@ -1439,7 +1440,7 @@ function TabZaman({ language, isMobile }) {
                           onClick={() => setTimeSelected(ev)}
                           style={{
                             display: 'flex', gap: '14px', alignItems: 'flex-start',
-                            padding: '14px 16px', borderRadius: '12px', cursor: 'pointer',
+                            padding: '14px 16px', borderRadius: RADIUS.lg, cursor: 'pointer',
                             background: 'rgba(255,255,255,0.03)',
                             border: '1px solid rgba(255,255,255,0.07)',
                             textAlign: 'left', width: '100%',
@@ -1457,7 +1458,7 @@ function TabZaman({ language, isMobile }) {
                               <span style={{ fontSize: '0.94rem', fontWeight: 600, color: COLORS.offWhite, fontFamily: FONTS.body }}>
                                 {language === 'tr' ? ev.titleTr : ev.titleEn}
                               </span>
-                              <span style={{ fontSize: '0.65rem', fontWeight: 600, padding: '2px 8px', borderRadius: '10px', background: cm.bg, color: cm.color, flexShrink: 0 }}>
+                              <span style={{ fontSize: '0.65rem', fontWeight: 600, padding: '2px 8px', borderRadius: RADIUS.chip, background: cm.bg, color: cm.color, flexShrink: 0 }}>
                                 {language === 'tr' ? cm.tr : cm.en}
                               </span>
                             </div>
@@ -1466,7 +1467,7 @@ function TabZaman({ language, isMobile }) {
                             </div>
                             <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '8px' }}>
                               {ev.surahs.map(s => (
-                                <span key={s.num} style={{ fontSize: '0.68rem', padding: '2px 7px', borderRadius: '8px', background: COLORS.goldAlpha15, border: `1px solid ${COLORS.gold}40`, color: COLORS.gold, fontFamily: FONTS.body }}>
+                                <span key={s.num} style={{ fontSize: '0.68rem', padding: '2px 7px', borderRadius: RADIUS.md, background: COLORS.goldAlpha15, border: `1px solid ${COLORS.gold}40`, color: COLORS.gold, fontFamily: FONTS.body }}>
                                   {s.num}. {s.nameTr}{s.verses && <span style={{ opacity: 0.6 }}> {s.verses}</span>}
                                 </span>
                               ))}
@@ -1500,7 +1501,7 @@ function TabZaman({ language, isMobile }) {
               onClick={() => setTimeSelected(null)}
               style={{
                 display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px',
-                padding: '6px 12px', borderRadius: '8px',
+                padding: '6px 12px', borderRadius: RADIUS.md,
                 background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorder}`,
                 color: COLORS.silver, cursor: 'pointer', fontSize: '0.8rem',
                 fontFamily: FONTS.body, transition: 'all 0.15s',
@@ -1516,12 +1517,12 @@ function TabZaman({ language, isMobile }) {
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
               {selPeriod && (
-                <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '3px 10px', borderRadius: '12px', background: `${selPeriod.color}22`, border: `1px solid ${selPeriod.color}44`, color: selPeriod.color, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '3px 10px', borderRadius: RADIUS.lg, background: `${selPeriod.color}22`, border: `1px solid ${selPeriod.color}44`, color: selPeriod.color, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
                   {language === 'tr' ? selPeriod.tr : selPeriod.en}
                 </span>
               )}
               {selCat && (
-                <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '3px 10px', borderRadius: '12px', background: selCat.bg, border: `1px solid ${selCat.color}44`, color: selCat.color, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '3px 10px', borderRadius: RADIUS.lg, background: selCat.bg, border: `1px solid ${selCat.color}44`, color: selCat.color, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
                   {language === 'tr' ? selCat.tr : selCat.en}
                 </span>
               )}
@@ -1535,7 +1536,7 @@ function TabZaman({ language, isMobile }) {
             </h2>
 
             {timeSelected.verseAr && (
-              <div style={{ margin: '0 0 28px', padding: '20px 24px', background: `${COLORS.gold}11`, border: `1px solid ${COLORS.gold}33`, borderRadius: '12px', borderLeft: `3px solid ${COLORS.gold}` }}>
+              <div style={{ margin: '0 0 28px', padding: '20px 24px', background: `${COLORS.gold}11`, border: `1px solid ${COLORS.gold}33`, borderRadius: RADIUS.lg, borderLeft: `3px solid ${COLORS.gold}` }}>
                 <p style={{ fontFamily: FONTS.quran, fontSize: '1.7rem', lineHeight: 2, color: COLORS.gold, textAlign: 'right', direction: 'rtl', margin: '0 0 10px' }} dir="rtl" lang="ar">
                   {timeSelected.verseAr}
                 </p>
@@ -1559,7 +1560,7 @@ function TabZaman({ language, isMobile }) {
                         style={{
                           display: 'flex', alignItems: 'center', gap: '10px',
                           width: '100%', textAlign: 'left', cursor: 'pointer',
-                          padding: '10px 14px', borderRadius: '10px',
+                          padding: '10px 14px', borderRadius: RADIUS.chip,
                           background: isOpen ? `${COLORS.gold}1a` : 'rgba(255,255,255,0.03)',
                           border: `1px solid ${isOpen ? `${COLORS.gold}55` : 'rgba(255,255,255,0.08)'}`,
                           transition: 'all 0.2s', fontFamily: FONTS.body,
@@ -1577,7 +1578,7 @@ function TabZaman({ language, isMobile }) {
                         </div>
                       </button>
                       {isOpen && (
-                        <div style={{ marginTop: '6px', padding: '18px 20px', background: `${COLORS.gold}0d`, border: `1px solid ${COLORS.gold}2e`, borderRadius: '10px', borderLeft: `3px solid ${COLORS.gold}80` }}>
+                        <div style={{ marginTop: '6px', padding: '18px 20px', background: `${COLORS.gold}0d`, border: `1px solid ${COLORS.gold}2e`, borderRadius: RADIUS.chip, borderLeft: `3px solid ${COLORS.gold}80` }}>
                           <p style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', lineHeight: 2, color: COLORS.gold, textAlign: 'right', direction: 'rtl', margin: '0 0 10px' }} dir="rtl" lang="ar">{sv.verseAr}</p>
                           <p style={{ fontSize: '0.85rem', color: COLORS.offWhite, lineHeight: 1.7, margin: '0 0 6px', fontStyle: 'italic', fontFamily: FONTS.body }}>{sv.verseTr}</p>
                           <p style={{ margin: 0, fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body }}>— {sv.verseRef}</p>
@@ -1613,7 +1614,7 @@ function TabZaman({ language, isMobile }) {
               </div>
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 {timeSelected.surahs.map(s => (
-                  <div key={s.num} style={{ padding: '10px 16px', borderRadius: '10px', background: `${COLORS.gold}14`, border: `1px solid ${COLORS.gold}40` }}>
+                  <div key={s.num} style={{ padding: '10px 16px', borderRadius: RADIUS.chip, background: `${COLORS.gold}14`, border: `1px solid ${COLORS.gold}40` }}>
                     <div style={{ fontSize: '0.7rem', color: COLORS.gold, fontWeight: 700, marginBottom: '2px', fontFamily: FONTS.body }}>{s.num}. Sûre</div>
                     <div style={{ fontSize: '0.95rem', color: COLORS.offWhite, fontWeight: 600, fontFamily: FONTS.body }}>{s.nameTr}</div>
                     {s.verses && <div style={{ fontSize: '0.72rem', color: COLORS.silver, marginTop: '3px', fontFamily: FONTS.body }}>{language === 'tr' ? 'Ayet' : 'Verse'} {s.verses}</div>}

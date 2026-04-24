@@ -4,6 +4,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
 } from '../tokens';
+import { fetchMealSurah } from '../utils/mealCache';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
 function cleanArabic(str) {
@@ -41,8 +42,8 @@ const ayahCache = new Map();
 async function loadAyah(surah, ayah) {
   const key = `${surah}:${ayah}`;
   if (ayahCache.has(key)) return ayahCache.get(key);
-  const res  = await fetch(`https://api.acikkuran.com/surah/${surah}?author=105`);
-  const data = await res.json();
+  // Local-first meal cache (author 105 = Erhan Aktaş); API fallback.
+  const data = await fetchMealSurah(surah, 105);
   const verse = (data.data?.verses ?? []).find(v => v.verse_number === ayah);
   const arabic = cleanArabic(verse?.verse ?? '');
   const turkish = cleanTranslation(verse?.translation?.text ?? '');
