@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
+import SurahLink from './SurahLink';
 
 const SURAH_NAMES = [
   'El-Fâtiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide','El-En\'âm','El-A\'râf','El-Enfâl','Et-Tevbe','Yûnus',
@@ -108,10 +109,17 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
             </span>
           )}
         </div>
-        {/* Reference */}
-        <span style={{ color: '#4a5568', fontSize: '0.68rem', fontFamily: 'Inter, sans-serif', whiteSpace: 'nowrap' }}>
+        {/* Reference — clickable, opens ReadingMode at surah+ayah */}
+        <SurahLink
+          surah={dua.surah}
+          ayah={dua.ayah}
+          style={{ color: '#4a5568', fontSize: '0.68rem', fontFamily: 'Inter, sans-serif', whiteSpace: 'nowrap' }}
+          ariaLabel={language === 'tr'
+            ? `${ref} — oku`
+            : `${ref} — read`}
+        >
           {ref}
-        </span>
+        </SurahLink>
       </div>
 
       {/* Arabic text — minHeight = 2 lines so shorter duas don't shift content below */}

@@ -189,6 +189,7 @@ export default function Navbar() {
   const [readingOpen, setReadingOpen]   = useState(
     () => localStorage.getItem('qurancodex_reading_open') === 'true'
   );
+  const [pendingReadingNav, setPendingReadingNav] = useState(null); // { surah, ayah } from SurahLink clicks
   const [heatmapOpen, setHeatmapOpen]   = useState(false);
   const [revelationOpen, setRevelationOpen] = useState(false);
   const [duaOpen, setDuaOpen]           = useState(false);
@@ -258,9 +259,14 @@ export default function Navbar() {
     return () => window.removeEventListener('openVerseGraph', handler);
   }, []);
 
-  // Listen for openReadingMode events (e.g. Conclusion CTA)
+  // Listen for openReadingMode events — optional detail: { surah, ayah }
+  // SurahLink components dispatch with surah/ayah; Conclusion CTA dispatches without detail.
   useEffect(() => {
-    const handler = () => setReadingOpen(true);
+    const handler = (e) => {
+      const d = e.detail;
+      if (d?.surah) setPendingReadingNav({ surah: d.surah, ayah: d.ayah ?? null });
+      setReadingOpen(true);
+    };
     window.addEventListener('openReadingMode', handler);
     return () => window.removeEventListener('openReadingMode', handler);
   }, []);
@@ -413,7 +419,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handlePop = () => {
-      if (readingOpen)    { setReadingOpen(false);    return; }
+      if (readingOpen)    { setReadingOpen(false); setPendingReadingNav(null); return; }
       if (graphOpen) {
         if (graphBackRef.current && !graphReturnToConcept && !graphReturnToWow) {
           graphBackRef.current();                          // VerseGraph handles internally
@@ -1212,7 +1218,11 @@ export default function Navbar() {
     )}
     {readingOpen && (
       <Suspense fallback={null}>
-        <ReadingMode onClose={() => setReadingOpen(false)} />
+        <ReadingMode
+          onClose={() => { setReadingOpen(false); setPendingReadingNav(null); }}
+          initialSurah={pendingReadingNav?.surah}
+          initialAyah={pendingReadingNav?.ayah}
+        />
       </Suspense>
     )}
     {heatmapOpen && (
