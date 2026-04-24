@@ -86,10 +86,12 @@
 
 ## 🛠️ WIP — Aktif Geliştirme
 
-- **Tefsir Paneli (Elmalılı)** — `src/components/TafsirPanel.jsx` + `public/tafsir/elmalili/*.json` + `scripts/scrape-elmalili.py`
-  - Sağ kenar drawer (460px desktop · full-width mobile), verse-anchor'lı scroll
-  - Scrape fixed: kaynak HTML'in görsel satır kırılmalarını `\n` olarak koruyordu → cümle ortası kırılma. `normalizeTafsirText()` tek `\n` → space, `\n\n` → paragraf.
-  - **Açık soru:** sağ drawer vs. ayet altı inline expansion. Ayet tıklaması audio play'e bağlı (Karin tilavet); trigger için ayrı ikon/buton gerekecek.
+- **Tefsir Paneli — Elmalılı Hamdi Yazır** (2026-04-24 · commit `9ade8d1` · qc_v1.5_fix'e commit'li, henüz push edilmedi, main'de yok)
+  - **Veri:** `scripts/scrape-elmalili.py` (enfal.de'den Windows-1254 → UTF-8, 1.5s throttle, verse-anchor regex) → `public/tafsir/elmalili/{1..114}.json` (~10 MB, 114 sûre tam tefsir, verseAnchors ile). Bakara 3 alt-sayfa birleştirme, Abese (80) genişletilmiş sürüm (35K char, 42 anchor).
+  - **Panel:** `src/components/TafsirPanel.jsx` — **sol-yaslı** drawer (mobilde tam ekran, desktop 460px). Lazy-fetch + session cache. Aktif ayet değişince nearest-anchor'a smooth scroll; anchor altın sol-border + subtle bg ile vurgulu. Gündüz/gece modu uyumlu.
+  - **Trigger:** ReadingMode toolbar'da TEFSIR toggle (BookOpenIcon, TAHTA'dan önce). Ayet tıklaması audio play (Karin tilavet) — çakışma yok.
+  - **Metin normalize fix:** `normalizeTafsirText()` — tek `\n` → space (scrape kaynağı PDF/HTML görsel satır kırılmalarını `\n` olarak koruyordu → cümle ortası bozulma), `\n\n` → paragraf, iç boşluklar temizleniyor.
+  - **Açık soru:** sol drawer vs. ayet altı inline expansion — şu an sol drawer, main'e çıkmadan önce UX kararı netleşsin.
 
 ---
 
@@ -133,5 +135,8 @@
 
 **Manuel test senaryoları:** `docs/path-mode-test-scenarios.md` (8 senaryo, 7 PASS, 1 test açığı)
 
-1. #1 Tefsir paneli (en yüksek değer/çaba oranı — Quran sitesi için "must")
 2. #2 Kelime-kelime overlay (öğrenci/hafızlık için devrim)
+
+Kelime-kelime overlay icin kuranseferberligi.com scrape'i — bu süreçte Fatma Serap Hanım'a email atılabilir (öğretmen/öğrenci amaçlı kullanım izni). 
+
+
