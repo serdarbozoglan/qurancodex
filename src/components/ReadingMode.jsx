@@ -626,13 +626,16 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
 }
 
 // ─── Main ReadingMode component ───────────────────────────────────────────────
-export default function ReadingMode({ onClose, initialSurah = 1 }) {
+export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const { language } = useLanguage();
   const [verses, setVerses] = useState(null);
   const [loading, setLoading] = useState(true);
+  // initialSurah (from SurahLink click) overrides the last-read position.
+  // When undefined, fall back to saved localStorage position, then to Fatiha (1).
   const [selectedSurah, setSelectedSurah] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('qurancodex_last_position') || 'null')?.surah || initialSurah; }
-    catch { return initialSurah; }
+    if (initialSurah) return initialSurah;
+    try { return JSON.parse(localStorage.getItem('qurancodex_last_position') || 'null')?.surah || 1; }
+    catch { return 1; }
   });
   const [activeVerse, setActiveVerse] = useState(null);
   const [showTranslation, setShowTranslation] = useState(() => {
@@ -677,7 +680,7 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
   const [showHatimDua, setShowHatimDua] = useState(false);
   const [pickerSelectedSurah, setPickerSelectedSurah] = useState(null); // surah selected in picker, awaiting verse input
   const [pickerVerseInput, setPickerVerseInput] = useState('');
-  const [pendingScrollAyah, setPendingScrollAyah] = useState(null);
+  const [pendingScrollAyah, setPendingScrollAyah] = useState(initialAyah ?? null);
   const [pendingJuzPage, setPendingJuzPage] = useState(null); // exact JUZ_PAGES target for toolbar sync
   const swipeTouchX = useRef(null);
   const swipeTouchY = useRef(null);
@@ -1081,6 +1084,26 @@ export default function ReadingMode({ onClose, initialSurah = 1 }) {
     setLastRead(lr);
     localStorage.setItem('qurancodex_last_read', JSON.stringify(lr));
   };
+
+  // Listen for openReadingMode events while already mounted — handles SurahLink
+  // clicks made after ReadingMode is already open. Navbar also listens but only
+  // calls setReadingOpen(true) which is a no-op; this handler does the navigation.
+  const navHandlerRef = useRef(null);
+  navHandlerRef.current = (detail) => {
+    if (!detail) return;
+    const { surah, ayah } = detail;
+    if (surah && surah !== selectedSurah) {
+      changeSurah(surah);
+      if (ayah) setPendingScrollAyah(ayah);
+    } else if (ayah) {
+      setPendingScrollAyah(ayah);
+    }
+  };
+  useEffect(() => {
+    const h = (e) => navHandlerRef.current?.(e.detail);
+    window.addEventListener('openReadingMode', h);
+    return () => window.removeEventListener('openReadingMode', h);
+  }, []);
 
   const jumpToJuz = (juz) => {
     const [surah, ayah] = JUZ_START[juz];
