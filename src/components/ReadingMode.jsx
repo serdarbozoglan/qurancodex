@@ -4,6 +4,8 @@ import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import { COLORS, BREAKPOINT_MOBILE } from '../tokens';
 import InterlinearView from './InterlinearView';
 import TafsirPanel from './TafsirPanel';
+import WordTooltip from './WordTooltip';
+import { useInterlinearData } from '../hooks/useInterlinearData';
 import { fetchMealSurah } from '../utils/mealCache';
 
 // Clean Arabic text: remove decorative/annotation markers with no phonetic value.
@@ -78,8 +80,8 @@ const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; /
 // NOT: `vertical-align:super` kullanmıyoruz — lineHeight 2.2 ile birleşince işaret
 // satır-boşluğuna taşıyor. Küçük `top:-0.4em` offset harflerin biraz üstüne oturtur.
 const makeWaqfSpan = (dayMode) => (m) =>
-  `<span style="display:inline-block;font-size:0.72em;font-weight:700;line-height:1;` +
-  `position:relative;top:-0.4em;` +
+  `<span style="display:inline-block;font-size:0.85em;font-weight:400;line-height:1;` +
+  `position:relative;top:0;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;">${m}</span>`;
 
@@ -116,7 +118,7 @@ const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06
 const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-0.8em;left:50%;transform:translateX(-50%);` +
-  `font-size:0.4em;font-weight:700;line-height:1;` +
+  `font-size:0.5em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
 
@@ -780,6 +782,29 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   // ── Tefsir paneli (Elmalılı Hamdi Yazır) ────────────────────────────────
   const [tafsirOpen, setTafsirOpen] = useState(false);
+
+  // ── Kelime modu (word-by-word overlay) ──────────────────────────────────
+  // When ON: book-mode Arabic is rendered word-by-word; hover/tap shows
+  // tooltip with transliteration + Turkish meaning + per-word audio.
+  // Tajweed/waqf markers are suppressed in word mode for clean boundaries.
+  const [wordMode, setWordMode] = useState(false);
+  const [hoveredWord, setHoveredWord] = useState(null); // { word, anchorRect } or null
+
+  // Fetch word-by-word data (kuran.com via /kuran-proxy) only when wordMode is on.
+  // Primary surah = active or selected. Multi-surah pages fall back to tajweed
+  // rendering for verses outside the loaded surah (acceptable MVP trade-off).
+  const _wordSurah = wordMode ? (activeVerse?.surah || selectedSurah) : null;
+  const { data: _wordSurahData } = useInterlinearData(_wordSurah, 'tr');
+  const wordByAyah = useMemo(() => {
+    if (!wordMode || !_wordSurahData) return null;
+    const out = {};
+    for (const row of _wordSurahData) {
+      if (row && typeof row.ayah === 'number' && Array.isArray(row.words)) {
+        out[row.ayah] = row.words;
+      }
+    }
+    return out;
+  }, [wordMode, _wordSurahData]);
 
   const currentFont = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
   const _audioRef = useRef(null);
@@ -1514,6 +1539,30 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           return (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: isMobile ? '4px' : '8px', gridColumn: isMobile ? '2' : undefined, gridRow: isMobile ? '1' : undefined }}>
+
+              {/* Kelime (word-by-word) mode toggle — book mode only */}
+              {bookMode && (
+                <button
+                  onClick={() => setWordMode(v => !v)}
+                  style={{
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                    width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                    border: `1px solid ${wordMode ? navC.btnBorderActive : navC.btnBorder}`,
+                    background: wordMode ? navC.btnBgActive : navC.btnBg,
+                    transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = wordMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = wordMode ? navC.btnBorderActive : navC.btnBorder; }}
+                  title={language === 'tr' ? 'Kelime modu — her kelimenin anlamı' : 'Word mode — per-word meaning'}
+                >
+                  <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700 }}>
+                    ك
+                  </span>
+                  <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: isMobile ? '0.05em' : '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                    {language === 'tr' ? 'Kelime' : 'Word'}
+                  </span>
+                </button>
+              )}
 
               {/* Tefsir (Elmalılı Hamdi Yazır) panel toggle */}
               <button
@@ -3200,6 +3249,64 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               </span>
                             </span>
                           );
+                          // ── Kelime modu: word-by-word hover tooltip ──────────────────
+                          // Our Arabic (verse.arabic) is already in clean standard encoding;
+                          // we keep it for display (same font/rendering as tajweed mode) and
+                          // use kuran.com data ONLY for tooltip content (meaning/translit/audio).
+                          // Positional pairing by word index — if counts differ, extra words
+                          // are still rendered but without tooltip data.
+                          const wordList = wordMode && wordByAyah ? wordByAyah[verse.ayah] : null;
+                          if (wordList && wordList.length > 0) {
+                            const ourWords = ar.split(/\s+/).filter(Boolean);
+                            if (ourWords.length > 0) {
+                              const lastIdx = ourWords.length - 1;
+                              return (
+                                <>
+                                  {ourWords.map((arabicWord, i) => {
+                                    const wordMeta = wordList[i] || null;
+                                    const hoverable = !!wordMeta;
+                                    const isLast = i === lastIdx;
+                                    const wordSpan = (
+                                      <span
+                                        key={i}
+                                        onMouseEnter={hoverable ? (e) => {
+                                          const rect = e.currentTarget.getBoundingClientRect();
+                                          setHoveredWord({ word: wordMeta, anchorRect: rect });
+                                        } : undefined}
+                                        onMouseLeave={hoverable ? () => setHoveredWord(null) : undefined}
+                                        onClick={hoverable ? (e) => {
+                                          e.stopPropagation();
+                                          const rect = e.currentTarget.getBoundingClientRect();
+                                          setHoveredWord({ word: wordMeta, anchorRect: rect });
+                                        } : undefined}
+                                        style={{
+                                          ...highlightStyle,
+                                          cursor: hoverable ? 'pointer' : 'inherit',
+                                          borderRadius: '4px',
+                                          padding: '0 1px',
+                                          transition: 'background 0.15s',
+                                        }}
+                                        onMouseOver={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
+                                        onMouseOut={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; } : undefined}
+                                      >
+                                        {arabicWord}
+                                      </span>
+                                    );
+                                    if (isLast) {
+                                      return (
+                                        <span key="tail" style={{ whiteSpace: 'nowrap' }}>
+                                          {wordSpan}
+                                          {badge}
+                                        </span>
+                                      );
+                                    }
+                                    return <span key={i}>{wordSpan}{' '}</span>;
+                                  })}
+                                </>
+                              );
+                            }
+                          }
+                          // ── Default (tajweed) rendering ───────────────────────────
                           return (
                             <>
                               {leading && (
@@ -3696,6 +3803,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           </div>
         );
       })()}
+
+      {/* ── Kelime tooltip (word-by-word overlay) ─────────────────────── */}
+      {hoveredWord && (
+        <WordTooltip
+          word={hoveredWord.word}
+          anchorRect={hoveredWord.anchorRect}
+          onClose={() => setHoveredWord(null)}
+          language={language}
+          dayMode={dayMode}
+        />
+      )}
 
       {/* ── Elmalılı Tefsir Paneli ──────────────────────────────────────── */}
       <TafsirPanel
