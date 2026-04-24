@@ -3,6 +3,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import { COLORS, BREAKPOINT_MOBILE } from '../tokens';
 import InterlinearView from './InterlinearView';
+import TafsirPanel from './TafsirPanel';
 import { fetchMealSurah } from '../utils/mealCache';
 
 // Clean Arabic text: remove decorative/annotation markers with no phonetic value.
@@ -319,6 +320,12 @@ const TrashIcon = ({ size = 14 }) => (
     <polyline points="3 6 5 6 21 6"/>
     <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
     <path d="M10 11v6M14 11v6"/>
+  </svg>
+);
+const BookOpenIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
   </svg>
 );
 const ShareIcon = ({ size = 14 }) => (
@@ -770,6 +777,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const drawCanvasRef = useRef(null);
   const drawingActiveRef = useRef(false);
   const drawLastPointRef = useRef(null);
+
+  // ── Tefsir paneli (Elmalılı Hamdi Yazır) ────────────────────────────────
+  const [tafsirOpen, setTafsirOpen] = useState(false);
 
   const currentFont = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
   const _audioRef = useRef(null);
@@ -1504,6 +1514,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           return (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: isMobile ? '4px' : '8px', gridColumn: isMobile ? '2' : undefined, gridRow: isMobile ? '1' : undefined }}>
+
+              {/* Tefsir (Elmalılı Hamdi Yazır) panel toggle */}
+              <button
+                onClick={() => setTafsirOpen(v => !v)}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  border: `1px solid ${tafsirOpen ? navC.btnBorderActive : navC.btnBorder}`,
+                  background: tafsirOpen ? navC.btnBgActive : navC.btnBg,
+                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                onMouseLeave={e => { e.currentTarget.style.background = tafsirOpen ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = tafsirOpen ? navC.btnBorderActive : navC.btnBorder; }}
+                title={language === 'tr' ? 'Tefsir — Elmalılı Hamdi Yazır' : 'Tafsir — Elmalılı Hamdi Yazır'}
+              >
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <BookOpenIcon size={isMobile ? 15 : 18} />
+                </span>
+                <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: isMobile ? '0.05em' : '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  {language === 'tr' ? 'Tefsir' : 'Tafsir'}
+                </span>
+              </button>
 
               {/* Tahta (drawing overlay) toggle — opens floating mini-toolbar */}
               <button
@@ -3664,6 +3696,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           </div>
         );
       })()}
+
+      {/* ── Elmalılı Tefsir Paneli ──────────────────────────────────────── */}
+      <TafsirPanel
+        open={tafsirOpen}
+        onClose={() => setTafsirOpen(false)}
+        surah={activeVerse?.surah || selectedSurah}
+        ayah={activeVerse?.ayah}
+        language={language}
+        dayMode={dayMode}
+        isMobile={isMobile}
+      />
 
       {/* ── TAHTA — drawing overlay + floating mini-toolbar ──────────────── */}
       {drawMode && (
