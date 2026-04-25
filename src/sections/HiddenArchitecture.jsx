@@ -507,7 +507,7 @@ export default function HiddenArchitecture() {
       </motion.p>
 
       {/* CTA — IlkSonKelimeler atlas link (halka kompozisyon ↔ münâsebât) */}
-      <motion.div variants={fadeUpItem} className="mb-16" style={{ maxWidth: '760px' }}>
+      <motion.div variants={fadeUpItem} className="mb-16">
         <button
           onClick={() => window.dispatchEvent(new CustomEvent('openIlkSonKelimeler'))}
           style={{
@@ -542,7 +542,7 @@ export default function HiddenArchitecture() {
               marginBottom: '6px',
               fontFamily: "'Inter', sans-serif",
             }}>
-              {language === 'tr' ? 'Devam Et — Tüm Sûrelerde' : 'Continue — Across All Surahs'}
+              {language === 'tr' ? 'İlgili Atlas' : 'Related Atlas'}
             </div>
             <div style={{
               fontSize: '0.95rem',
@@ -551,8 +551,8 @@ export default function HiddenArchitecture() {
               fontFamily: "'Inter', sans-serif",
             }}>
               {language === 'tr'
-                ? <><span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#d4a574' }}>İlk ve Son Kelimeler</span> — 114 sûrede halka kompozisyonu, sûreler arası münâsebât ve açılış-kapanış imzaları.</>
-                : <><span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#d4a574' }}>First and Last Words</span> — ring composition, inter-surah munāsabah, and opening-closing signatures across all 114 surahs.</>}
+                ? <><span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#d4a574' }}>İlk ve Son Kelimeler</span> — 114 sûrenin açılış ve kapanış kelimeleri, 8 münâsebât spotlight'ı (Fâtiha→Bakara köprüsü, Mushaf'ın halkası, Havâmîm ailesi vb.) ve açılış kalıbı kategorileri.</>
+                : <><span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#d4a574' }}>First and Last Words</span> — opening and closing words of all 114 surahs, 8 munāsabah spotlights (the Al-Fātiḥa→Al-Baqara bridge, the cycle of the Mushaf, the Ḥawāmīm family, etc.), and opening-pattern categories.</>}
             </div>
           </div>
           <span style={{
