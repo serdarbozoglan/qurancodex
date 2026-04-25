@@ -199,6 +199,7 @@ export default function Navbar() {
   const diyalogBackRef = useRef(null); // set by DiyalogAgi when navigated internally
   const kiraatBackRef  = useRef(null); // set by KiraatAtlasi when navigated internally
   const kadinlarBackRef = useRef(null); // set by KadinlarAtlasi when theme filter is active
+  const ilkSonBackRef   = useRef(null); // set by IlkSonKelimeler when category filter is active
   const conceptRestoreRef = useRef(null); // stores concept state to restore after VerseGraph closes
   const [readingOpen, setReadingOpen]   = useState(
     () => localStorage.getItem('qurancodex_reading_open') === 'true'
@@ -523,7 +524,16 @@ export default function Navbar() {
         }
         return;
       }
-      if (ilkSonOpen)     { setIlkSonOpen(false);            return; }
+      if (ilkSonOpen) {
+        if (ilkSonBackRef.current) {
+          ilkSonBackRef.current();
+          ilkSonBackRef.current = null;
+          window.history.pushState({ overlay: true }, '');
+        } else {
+          setIlkSonOpen(false);
+        }
+        return;
+      }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
@@ -1477,7 +1487,7 @@ export default function Navbar() {
     )}
     {ilkSonOpen && (
       <Suspense fallback={null}>
-        <IlkSonKelimeler onClose={() => setIlkSonOpen(false)} />
+        <IlkSonKelimeler onClose={() => { setIlkSonOpen(false); ilkSonBackRef.current = null; }} backRef={ilkSonBackRef} />
       </Suspense>
     )}
     {retorigiOpen && (

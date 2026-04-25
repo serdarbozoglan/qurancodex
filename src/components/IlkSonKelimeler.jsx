@@ -38,7 +38,7 @@ const cleanArabic = (str) => {
     .replace(/[\u064B-\u0652]\u0653/gu, '\u0653');
 };
 
-export default function IlkSonKelimeler({ onClose }) {
+export default function IlkSonKelimeler({ onClose, backRef }) {
   const { language } = useLanguage();
   const [data, setData]           = useState(null);
   const [spotlights, setSpotlights] = useState([]);
@@ -46,6 +46,17 @@ export default function IlkSonKelimeler({ onClose }) {
   const [searchValue, setSearch]  = useState('');
   const [selected, setSelected]   = useState(null);
   const [isMobile, setIsMobile]   = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
+
+  // Back-nav: when a category filter is active, browser-back resets it (Navbar pattern).
+  useEffect(() => {
+    if (!backRef) return;
+    if (activeFilter !== 'all') {
+      backRef.current = () => setFilter('all');
+    } else {
+      backRef.current = null;
+    }
+    return () => { if (backRef) backRef.current = null; };
+  }, [activeFilter, backRef]);
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
@@ -833,103 +844,173 @@ function CrossReadingSection({ surahs, language, isMobile, onFilterClick }) {
 }
 
 // ─── Bilmediğin 5 Şey — teaser hooks ─────────────────────────────────────────
-// Hero altı, Spotlights üstü; aşağıda gelen kartların ana iddialarını
-// punchy tek cümlelerle önden duyurur.
+// Hero altı, Spotlights üstü; numbered card layout (01-05) + 2-col grid.
+// Her kart aşağıdaki ilgili spotlight veya kategoriye işaret eden bir tag taşır.
 function KnowYouDidNotKnow({ language, isMobile }) {
   const tr = language === 'tr';
   const items = [
     {
       headlineTr: 'Mushaf, kendi sonundan başına dönen bir halkadır.',
       headlineEn: 'The Mushaf is a loop that returns from its own end to its beginning.',
-      bodyTr: 'Nâs sûresi insanın şerlerden sığınmasıyla biter — Fâtiha hemen ardından Allah\'a hamd ile başlar. Hâfız Mushaf\'ı bitirmez, çevirir.',
-      bodyEn: 'Surah Al-Nās ends with refuge from evil — Al-Fātiḥa immediately begins with praise. The ḥāfiẓ does not finish the Mushaf; he turns it over.',
+      bodyTr: 'Nâs sûresi insanın şerlerden sığınmasıyla biter — Fâtiha hemen ardından Allah\'a hamd ile başlar. Mushaf\'ı bitiren kişi onu kapatmaz, çevirir.',
+      bodyEn: 'Surah Al-Nās ends with refuge from evil — Al-Fātiḥa immediately begins with praise. Whoever finishes the Mushaf does not close it; they turn it over.',
+      tagTr: 'Mushaf Halkası',
+      tagEn: 'Mushaf Cycle',
     },
     {
       headlineTr: 'Yedi sûre tek bir harf ile başlar — حم — ve hepsi ardışık.',
       headlineEn: 'Seven surahs begin with the same two letters — ḥā-mīm — and all are consecutive.',
       bodyTr: '40-46 arası kesintisiz bir blok. Aralarında mushaf akışı kırılmaz; her biri imanın farklı bir yüzünü gösterir.',
       bodyEn: 'Surahs 40–46 form an unbroken block. The Mushaf flow is never interrupted; each shows a different face of faith.',
+      tagTr: 'Aile İmzası',
+      tagEn: 'Family Signature',
     },
     {
       headlineTr: '"Sapanların yolu" Fâtiha\'da bitince, Bakara hemen "işte doğru yol" der.',
       headlineEn: '"The path of those who went astray" ends Al-Fātiḥa — Al-Baqara opens with "this is the guidance."',
       bodyTr: 'Sûrelerin biri diğerine cevap verir. Râzî der ki: kul Fâtiha\'da hidayet ister, Allah Bakara\'nın açılışında onu sunar.',
       bodyEn: 'One surah answers the other. Al-Rāzī says: the servant asks for guidance in Al-Fātiḥa, and God offers it at the start of Al-Baqara.',
+      tagTr: 'Klasik Münâsebe',
+      tagEn: 'Classical Munāsabah',
     },
     {
-      headlineTr: 'İsrâ tesbihle açılır, tekbirle biter — günde 33+33 zikrettiğin iki kelime.',
-      headlineEn: 'Al-Isrāʾ opens with tasbīḥ and closes with takbīr — two words recited 33+33 times daily.',
-      bodyTr: 'Sûre, mü\'minin günlük dilinde olan iki zikrin arasında nefes alır. Subḥān ile başlar, kebbir ile mühürlenir.',
-      bodyEn: 'The surah breathes between two daily remembrances. It begins with subḥān and is sealed with kabbir.',
+      headlineTr: 'İsrâ tesbih ile açılır, tekbir ile mühürlenir — namaz sonrası tesbihâtın iki ucu.',
+      headlineEn: 'Al-Isrāʾ opens with tasbīḥ and is sealed with takbīr — the two ends of post-prayer remembrance.',
+      bodyTr: 'Subḥān ile başlar (subḥāne\'llezî asrā), kebbir ile biter (ve kebbirhu tekbîrâ). Mü\'minin her namaz sonrası söylediği Subḥānallāh ve Allāhu Akbar zikrinin iki kelimesi, sûrenin iki ucudur.',
+      bodyEn: 'It opens with subḥān (subḥāna alladhī asrā) and ends with kabbir (wa-kabbirhu takbīrā). The two words at the heart of the believer\'s post-prayer remembrance — Subḥānallāh and Allāhu Akbar — frame the surah.',
+      tagTr: 'Sûre İçi Halka',
+      tagEn: 'Intra-Surah Ring',
     },
     {
-      headlineTr: 'Mukattaa harfleriyle açılan sûrelerin sonu neredeyse hep bir vahiy/Kitap atfıdır.',
-      headlineEn: 'Surahs that open with muqaṭṭaʿāt almost always close with a reference to revelation or the Book.',
-      bodyTr: '29 sûre 14 farklı harf kombinasyonuyla başlar. Şifre çözülmez, ama her biri bir vaadle, bir mü\'jdeyle ya da bir uyarıyla biter.',
-      bodyEn: '29 surahs open with 14 different letter combinations. The cipher is never decoded, but each closes with a promise, a reward, or a warning.',
+      headlineTr: 'Mukattaa harfleriyle açılan sûreler hemen ardından neredeyse hep Kitap/vahiy atfıyla devam eder.',
+      headlineEn: 'Surahs that open with muqaṭṭaʿāt almost always follow them with a reference to the Book or revelation.',
+      bodyTr: '29 sûre 14 farklı harf kombinasyonuyla açılır; çoğunda hemen ardından "ذَٰلِكَ الْكِتَابُ" / "تِلْكَ آيَاتُ الْكِتَابِ" / "تَنْزِيلُ الْكِتَابِ" gelir. Şifre çözülmez ama hemen yanı başında neye işaret ettiği söylenir: Bu Kitap.',
+      bodyEn: '29 surahs open with 14 letter combinations; most are immediately followed by "this is the Book" / "these are verses of the Book" / "the revelation of the Book." The cipher is never decoded, but right beside it the referent is named: This Book.',
+      tagTr: 'Açılış Kalıbı',
+      tagEn: 'Opening Pattern',
     },
   ];
 
   return (
-    <div style={{
-      marginBottom: '32px',
-      padding: isMobile ? '20px 18px' : '26px 28px',
-      background: 'rgba(255,255,255,0.025)',
-      border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
-      borderRadius: RADIUS.lg,
-    }}>
-      <div style={{
-        fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
-        letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.7, marginBottom: '8px',
-      }}>
-        {tr ? 'Bu Sayfaya Geldiğinde Bilmiyordun ki' : 'Before You Came to This Page You Did Not Know'}
+    <div style={{ marginBottom: '40px' }}>
+      {/* Section header */}
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
+          letterSpacing: '0.3em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.7, marginBottom: '8px',
+        }}>
+          {tr ? 'Bu Sayfaya Geldiğinde Bilmiyordun ki' : 'Before You Came to This Page You Did Not Know'}
+        </div>
+        <h3 style={{
+          fontFamily: FONTS.display, fontWeight: 700,
+          fontSize: isMobile ? '1.4rem' : '1.7rem',
+          color: COLORS.offWhite, margin: '0 0 8px',
+          lineHeight: 1.2,
+          letterSpacing: '-0.01em',
+        }}>
+          {tr ? 'Beş Keşif' : 'Five Discoveries'}
+        </h3>
+        <p style={{
+          fontSize: isMobile ? '0.86rem' : '0.92rem',
+          fontFamily: FONTS.body,
+          color: COLORS.gold, opacity: 0.75,
+          margin: 0, lineHeight: 1.5,
+          fontStyle: 'italic',
+          maxWidth: '640px',
+        }}>
+          {tr
+            ? '1400 yıllık akademik mirasın özetlediği beş örüntü — sayfanın geri kalanı bunların her birini ayrı ayrı açar.'
+            : 'Five patterns summarized by a 1400-year scholarly tradition — the rest of the page opens each one in turn.'}
+        </p>
       </div>
-      <h3 style={{
-        fontFamily: FONTS.display, fontWeight: 700,
-        fontSize: isMobile ? '1.2rem' : '1.4rem',
-        color: COLORS.offWhite, margin: '0 0 18px',
-        lineHeight: 1.25,
+
+      {/* Discovery cards grid */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+        gap: '12px',
       }}>
-        {tr ? 'Beş Keşif' : 'Five Discoveries'}
-      </h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-        {items.map((it, i) => (
-          <div key={i} style={{
-            display: 'grid',
-            gridTemplateColumns: '24px 1fr',
-            gap: '12px',
-            alignItems: 'baseline',
-          }}>
-            <div style={{
-              fontFamily: FONTS.display, fontWeight: 800,
-              fontSize: '1.1rem',
-              color: COLORS.gold, opacity: 0.7,
-              textAlign: 'center',
-              lineHeight: 1,
-            }}>
-              ✦
-            </div>
-            <div>
+        {items.map((it, i) => {
+          const isLast = i === items.length - 1;
+          const num = String(i + 1).padStart(2, '0');
+          return (
+            <div
+              key={i}
+              style={{
+                position: 'relative',
+                gridColumn: !isMobile && isLast ? '1 / -1' : 'auto',
+                padding: isMobile ? '20px 18px' : '24px 26px',
+                background: 'rgba(255,255,255,0.025)',
+                border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
+                borderRadius: RADIUS.lg,
+                transition: 'all 0.2s ease',
+                overflow: 'hidden',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = COLORS.goldAlpha04;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
+                e.currentTarget.style.borderColor = COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)';
+              }}
+            >
+              {/* Big number — decorative, top-right */}
               <div style={{
-                fontFamily: FONTS.body, fontWeight: 600,
-                fontSize: isMobile ? '0.92rem' : '0.97rem',
-                color: COLORS.offWhite, lineHeight: 1.45,
-                marginBottom: '4px',
+                position: 'absolute',
+                top: isMobile ? '12px' : '16px',
+                right: isMobile ? '14px' : '20px',
+                fontFamily: FONTS.display, fontWeight: 800,
+                fontSize: isMobile ? '2.2rem' : '2.8rem',
+                color: COLORS.gold, opacity: 0.18,
+                lineHeight: 1,
+                letterSpacing: '-0.02em',
+                pointerEvents: 'none',
+                userSelect: 'none',
               }}>
-                {tr ? it.headlineTr : it.headlineEn}
+                {num}
               </div>
-              <div style={{
-                fontFamily: FONTS.body,
-                fontSize: isMobile ? '0.82rem' : '0.86rem',
-                color: COLORS.silver, lineHeight: 1.65,
-                opacity: 0.85,
-              }}>
-                {tr ? it.bodyTr : it.bodyEn}
+
+              {/* Content */}
+              <div style={{ position: 'relative', zIndex: 1, paddingRight: isMobile ? '50px' : '70px' }}>
+                <div style={{
+                  fontFamily: FONTS.display, fontWeight: 700,
+                  fontSize: isMobile ? '1.02rem' : '1.1rem',
+                  color: COLORS.offWhite, lineHeight: 1.35,
+                  marginBottom: '10px',
+                  letterSpacing: '-0.005em',
+                }}>
+                  {tr ? it.headlineTr : it.headlineEn}
+                </div>
+                <p style={{
+                  fontFamily: FONTS.body,
+                  fontSize: isMobile ? '0.84rem' : '0.88rem',
+                  color: COLORS.silver, lineHeight: 1.7,
+                  margin: '0 0 16px', opacity: 0.9,
+                }}>
+                  {tr ? it.bodyTr : it.bodyEn}
+                </p>
+                {/* Tag badge */}
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
+                  letterSpacing: '0.18em', textTransform: 'uppercase',
+                  color: COLORS.gold, opacity: 0.75,
+                  padding: '4px 10px',
+                  borderRadius: '999px',
+                  background: COLORS.goldAlpha04,
+                  border: `1px solid ${COLORS.goldAlpha25}`,
+                }}>
+                  <span style={{ fontSize: '0.78rem', lineHeight: 1 }}>↳</span>
+                  <span>{tr ? it.tagTr : it.tagEn}</span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
