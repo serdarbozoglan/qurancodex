@@ -339,25 +339,30 @@ function Header({ language, onClose }) {
 }
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
+// Standart proje renkleri (VerseGraph + tokens.js):
+//   Mekkî  → COLORS.royalGold   (#c9a227 — çöl, kökler)
+//   Medenî → COLORS.emerald     (#1a7a4c — medeniyet, büyüme)
 function Card({ surah, onClick, selected, language }) {
   const name = language === 'tr' ? surah.nameTr : (surah.nameEn || surah.nameTr);
+  const isMedeni = surah.revelation === 'medeni';
+  const revColor = isMedeni ? '#2ecc71' : COLORS.royalGold; // soft emerald for readability on dark bg
   return (
     <button
       onClick={onClick}
       style={{
         textAlign: 'left',
         background: selected ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.035)',
-        border: `1px solid ${selected ? COLORS.goldAlpha40 : 'rgba(255,255,255,0.08)'}`,
+        border: `1px solid ${selected ? COLORS.goldAlpha40 : 'rgba(255,255,255,0.12)'}`,
         borderRadius: '8px',
-        padding: '11px 13px',
+        padding: '11px 13px 12px',
         cursor: 'pointer',
         transition: 'all 0.15s',
         display: 'flex', flexDirection: 'column', gap: '8px',
         fontFamily: FONTS.body,
         minHeight: '92px',
       }}
-      onMouseEnter={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
-      onMouseLeave={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+      onMouseEnter={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)'; }}
+      onMouseLeave={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; }}
     >
       {/* Top: surah no + name + revelation badge */}
       <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexWrap: 'wrap' }}>
@@ -368,10 +373,11 @@ function Card({ surah, onClick, selected, language }) {
         <span style={{
           marginLeft: 'auto',
           fontSize: '0.56rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-          color: surah.revelation === 'medeni' ? '#8ec5a5' : COLORS.silver,
-          opacity: 0.7,
+          color: revColor,
+          opacity: 0.85,
+          fontWeight: 700,
         }}>
-          {surah.revelation === 'medeni'
+          {isMedeni
             ? (language === 'tr' ? 'Medenî' : 'Medinan')
             : (language === 'tr' ? 'Mekkî'  : 'Meccan')}
         </span>
@@ -400,7 +406,7 @@ function Card({ surah, onClick, selected, language }) {
         </div>
       </div>
 
-      {/* Tags */}
+      {/* Tags — flat, borderless, integrated */}
       {(surah.openerTags?.length > 0 || surah.hasMukattaa || surah.hasOath) && (
         <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
           {surah.hasMukattaa && <Tag label="mukattaa" />}
@@ -417,11 +423,11 @@ function Card({ surah, onClick, selected, language }) {
 function Tag({ label }) {
   return (
     <span style={{
-      padding: '2px 7px', borderRadius: '4px',
-      background: 'rgba(212,165,116,0.08)',
-      color: COLORS.gold, fontSize: '0.63rem',
-      letterSpacing: '0.06em', fontWeight: 500,
-      border: '1px solid rgba(212,165,116,0.12)',
+      padding: '1px 6px', borderRadius: '3px',
+      background: 'rgba(212,165,116,0.10)',
+      color: COLORS.gold, fontSize: '0.6rem',
+      letterSpacing: '0.04em', fontWeight: 500,
+      lineHeight: 1.4,
     }}>
       {label}
     </span>
