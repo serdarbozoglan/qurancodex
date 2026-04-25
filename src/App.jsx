@@ -43,9 +43,11 @@ export default function App() {
           {/* Hero */}
           <Hero />
 
-          {/* ── v1.1 discovery layer ─────────────────────────────────────── */}
+          {/* ── v1.1 discovery layer ───────────────────────────────────────
+              Hero ve PathCards her ikisi de cosmic-black zeminli — D-10
+              gradient bridge'i (cosmic→navy) burada zemin farkı olmadığı
+              için fantom lacivert bant üretiyordu. Kaldırıldı. */}
           <Suspense fallback={null}>
-            <div className="gradient-divider" />
             <PathCards />
             <AllTopics />
             <ToolsHighlight />
@@ -70,9 +72,11 @@ export default function App() {
               3 human/prayer sections form another tight cluster — a small
               narrative win on top of the path-mode fix. */}
           <Suspense fallback={null}>
-            <div className="gradient-divider-reverse" />
+            {/* ToolsHighlight (cosmic) → LinguisticDNA (cosmic): aynı zemin, bridge phantom — kaldırıldı */}
             <LinguisticDNA />
+            <div className="gradient-divider" />
             <ImpossibleRhythm />
+            <div className="gradient-divider-reverse" />
             <SoundArchitecture />
             <QuranRhetoric />
             <div className="gradient-divider" />
@@ -86,12 +90,15 @@ export default function App() {
             <ZeroRedundancy />
             <div className="gradient-divider" />
             <Highlights />
-            <div className="gradient-divider" />
+            {/* Highlights (navy) → HumanDefinition (navy): aynı zemin, bridge phantom — kaldırıldı */}
             <HumanDefinition />
-            <PsychologySection />
-            <QuranDua />
-            <ToolsShowcase />
             <div className="gradient-divider-reverse" />
+            <PsychologySection />
+            <div className="gradient-divider" />
+            <QuranDua />
+            <div className="gradient-divider-reverse" />
+            <ToolsShowcase />
+            {/* ToolsShowcase (cosmic) → Conclusion (cosmic): aynı zemin, bridge phantom — kaldırıldı */}
             <Conclusion />
           </Suspense>
         </main>
