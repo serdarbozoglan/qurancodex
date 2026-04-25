@@ -1,10 +1,16 @@
 {
   "meta": {
-    "totalOaths": 51,
+    "totalOaths": 47,
     "categoriesCount": 7,
-    "surahsWithOaths": 14,
-    "maxOathsInSurah": 11,
-    "maxOathsSurahName": "Şems"
+    "surahsWithOaths": 21,
+    "maxOathsInSurah": 7,
+    "maxOathsSurahName": "Şems",
+    "meccanCount": 21,
+    "medinanCount": 0,
+    "methodologyTr": "Bu sayfa İbn Kayyim el-Cevziyye'nin et-Tibyân fî Aksâmi'l-Kur'an eserindeki klasik sayımı esas alır. Buna göre zamir veya 'mâ' edatıyla bağlı atıf cümleleri (örn. وَمَا بَنَاهَا) ana yeminin tamamlayıcı kolu sayılır, ayrı bir yemin olarak listelenmez. Bu nedenle Şems sûresinde 7 bileşik yemin görürsünüz; atıfları ayrı sayan geniş tasniflerde aynı dizilim 11 ifadeye genişler.",
+    "methodologyEn": "This page follows the classical count from Ibn Qayyim al-Jawziyya's al-Tibyān fī Aqsām al-Qurʾān. Conjunction clauses bound by a pronoun or by 'mā' (e.g., wa-mā banāhā) count as the complementary arm of the principal oath, not as separate oaths. Hence Surah al-Shams shows 7 compound oaths in total; broader classifications that count conjunctions separately extend the same series to 11 expressions.",
+    "meccanNoteTr": "Yemin içeren 21 sûrenin tamamı Mekkî dönem ağırlıklıdır (Tîn ve Âdiyât için azınlık görüş Medenî der; cumhûr Mekkî kabul eder). Yemin formu, vahyin erken Mekkî evresine özgü bir retorik kalıptır.",
+    "meccanNoteEn": "All 21 surahs containing oaths are predominantly Meccan (a minority view classifies Tīn and ʿĀdiyāt as Medinan; the majority view holds them Meccan). The oath form is a rhetorical pattern distinctive of the early Meccan phase of revelation."
   },
   "categories": [
     {
@@ -16,34 +22,36 @@
       "descEn": "Sun, moon, stars and sky — the most visible signs of God's power",
       "items": [
         {
-          "id": "sems-91-1a",
-          "arabic": "وَالشَّمْسِ",
-          "tr": "Güneşe yemin olsun",
-          "en": "By the sun",
+          "id": "sems-91-1",
+          "arabic": "وَالشَّمْسِ وَضُحَاهَا",
+          "tr": "Güneşe ve onun kuşluk aydınlığına yemin olsun",
+          "en": "By the sun and its morning brightness",
           "ref": "Şems 91:1",
           "surah": 91,
           "ayah": 1,
-          "subjectTr": "Güneş",
-          "subjectEn": "The Sun",
-          "purposeTr": "Ruhun arındırılması ve bozulması arasındaki seçim",
-          "purposeEn": "Choice between purification and corruption of the soul",
-          "depthTr": "Şems sûresinin ilk kelimesi. Güneş hem ışık hem enerji hem hayatın kaynağıdır — Allah'ın yaratma kudretinin en görünür delili. Ardından gelen 10 yemin bu ilkinin üzerine inşa edilir.",
-          "depthEn": "The first word of Surah Shams. The sun is light, energy, and source of life — the most visible sign of divine creative power. The 10 oaths that follow build upon this first one."
-        },
-        {
-          "id": "sems-91-1b",
-          "arabic": "وَضُحَاهَا",
-          "tr": "Onun kuşluk aydınlığına yemin olsun",
-          "en": "By its morning brightness",
-          "ref": "Şems 91:1",
-          "surah": 91,
-          "ayah": 1,
-          "subjectTr": "Kuşluk (Duhâ)",
-          "subjectEn": "Morning Brightness (Duha)",
-          "purposeTr": "Ruhun parlaklığı ve tamlığı",
-          "purposeEn": "Radiance and fullness of the soul",
-          "depthTr": "Duhâ, güneşin yükseliş anıdır — ne çok erken ne çok geç. Tamlık ve netlik demektir. Arınmış ruhun parlaklığının metaforudur. Duha sûresi de bu ismi taşır.",
-          "depthEn": "Duha is the moment of the sun's ascent — neither too early nor too late. It signifies fullness and clarity. A metaphor for the radiance of the purified soul. Surah Ad-Duha also bears this name."
+          "subjectTr": "Güneş ve Aydınlığı",
+          "subjectEn": "Sun and Its Brightness",
+          "purposeTr": "Ruhun arındırılması ve bozulması arasındaki seçim — kozmosun zirvesinden insan ahlakına",
+          "purposeEn": "Choice between purification and corruption of the soul — from cosmos to human moral life",
+          "isCompound": true,
+          "compoundParts": [
+            {
+              "arabic": "وَالشَّمْسِ",
+              "labelTr": "Güneş",
+              "labelEn": "The Sun",
+              "noteTr": "Şems sûresinin ilk kelimesi. Güneş hem ışık hem enerji hem hayatın kaynağıdır — Allah'ın yaratma kudretinin en görünür delili.",
+              "noteEn": "The first word of Surah Shams. The sun is light, energy, and source of life — the most visible sign of divine creative power."
+            },
+            {
+              "arabic": "وَضُحَاهَا",
+              "labelTr": "ve onun kuşluk aydınlığı",
+              "labelEn": "and its morning brightness",
+              "noteTr": "Atıf cümlesi: 'هَا' zamiri güneşe işaret eder. Klasik İbn Kayyim sayımında ayrı bir yemin değil, ana yeminin tamamlayıcı koludur. Duhâ, güneşin yükseliş anıdır — tamlık ve netliği temsil eder, arınmış ruhun parlaklığının metaforudur.",
+              "noteEn": "Conjunction clause: the pronoun 'hā' refers to the sun. In Ibn Qayyim's classical count this is not a separate oath but the complementary arm of the principal oath. Duhā is the moment of the sun's ascent — symbolizing fullness and clarity, a metaphor for the radiance of the purified soul."
+            }
+          ],
+          "depthTr": "Şems sûresinin açılışı tek bir bileşik yemindir: güneş ve onun aydınlığı bir arada. Eser ile niteliği aynı yeminin iki kanadıdır. Ardından gelen 6 yemin (ay, gündüz, gece, gök, yer, nefs) bu ilkin üzerine inşa edilir; sûre 7 kozmik yemini insan ruhunun arınması temasına bağlar.",
+          "depthEn": "The opening of Surah Shams is a single compound oath: the sun and its brightness together. The artifact and its quality are two wings of the same oath. The 6 oaths that follow (moon, day, night, sky, earth, soul) build upon this first; the surah connects 7 cosmic oaths to the theme of soul purification."
         },
         {
           "id": "sems-91-2",
@@ -136,19 +144,36 @@
           "depthEn": "The sky returning rain; life cycle, resurrection, and nature's perpetual renewal. Modern science: the atmosphere's water cycle."
         },
         {
-          "id": "sems-91-5a",
-          "arabic": "وَالسَّمَاءِ",
-          "tr": "Gökyüzüne yemin olsun",
-          "en": "By the sky",
+          "id": "sems-91-5",
+          "arabic": "وَالسَّمَاءِ وَمَا بَنَاهَا",
+          "tr": "Gökyüzüne ve onu inşa edene yemin olsun",
+          "en": "By the sky and Him who built it",
           "ref": "Şems 91:5",
           "surah": 91,
           "ayah": 5,
-          "subjectTr": "Gökyüzü",
-          "subjectEn": "The Sky",
-          "purposeTr": "Yaratılışın büyüklüğü",
-          "purposeEn": "Greatness of creation",
-          "depthTr": "Gökyüzü, sınırsız derinliği ve düzeniyle Allah'ın kudretinin simgesidir. Bu yemin makrokozmik boyutu —evrenin büyüklüğünü— temsil eder.",
-          "depthEn": "The sky, with its boundless depth and order, is a symbol of divine power. This oath represents the macrocosmic dimension — the vastness of the universe."
+          "subjectTr": "Gökyüzü ve İnşa Eden",
+          "subjectEn": "Sky and Its Builder",
+          "purposeTr": "Eser ile Usta'yı tek yeminde birleştirme — kozmik düzenin ilahi kaynağı",
+          "purposeEn": "Uniting artifact with Artisan in one oath — the divine source of cosmic order",
+          "isCompound": true,
+          "compoundParts": [
+            {
+              "arabic": "وَالسَّمَاءِ",
+              "labelTr": "Gökyüzü",
+              "labelEn": "The Sky",
+              "noteTr": "Eser. Sınırsız derinliği ve düzeniyle Allah'ın kudretinin makrokozmik simgesi.",
+              "noteEn": "The artifact. With its boundless depth and order, the macrocosmic symbol of divine power."
+            },
+            {
+              "arabic": "وَمَا بَنَاهَا",
+              "labelTr": "ve onu inşa edene",
+              "labelEn": "and Him who built it",
+              "noteTr": "Atıf cümlesi: 'مَا' burada 'kim' anlamında — Allah'ın kudretine işaret eder. İbn Kayyim bu yapıyı 'eser ile Usta'yı tek yeminde birleştirme' olarak okur: gökyüzü tek başına yeterliydi, ama Kur'an inşa edeni de yeminin kapsamına alır.",
+              "noteEn": "Conjunction clause: 'mā' here means 'who' — pointing to divine power. Ibn Qayyim reads this structure as 'uniting the artifact with the Artisan in one oath': the sky alone would have sufficed, yet the Qur'an also includes the Builder within the oath's scope."
+            }
+          ],
+          "depthTr": "Klasik tefsire göre Şems 91:5 tek bir bileşik yemindir; 'وَالسَّمَاءِ' ile 'وَمَا بَنَاهَا' arasındaki vâv kasem değil ma'tûf vâvıdır. Bu yapı 91:6 ve 91:7'de de tekrarlanır — yer/yeri yayan, nefs/nefsi şekillendiren. Üçü birlikte bir kalıp oluşturur: yaratılan + Yaratıcı.",
+          "depthEn": "According to classical exegesis, Shams 91:5 is a single compound oath; the wāw between 'wa'l-samā'i' and 'wa-mā banāhā' is not a wāw of oath but a wāw of conjunction. The same structure repeats in 91:6 and 91:7 — earth/He who spread it, soul/He who shaped it. Together they form a pattern: the created + the Creator."
         }
       ]
     },
@@ -381,19 +406,36 @@
           "depthEn": "The 'safe city' established by Abraham's prayer is Mecca. The oath completes the transition from the Mosaic tradition to the Abrahamic-Muhammadan tradition."
         },
         {
-          "id": "sems-91-6a",
-          "arabic": "وَالْأَرْضِ",
-          "tr": "Yere yemin olsun",
-          "en": "By the earth",
+          "id": "sems-91-6",
+          "arabic": "وَالْأَرْضِ وَمَا طَحَاهَا",
+          "tr": "Yere ve onu yayıp serene yemin olsun",
+          "en": "By the earth and Him who spread it",
           "ref": "Şems 91:6",
           "surah": 91,
           "ayah": 6,
-          "subjectTr": "Yer (Arz)",
-          "subjectEn": "The Earth",
-          "purposeTr": "İnsanın üzerinde yürüdüğü, sorumlu tutulduğu zemin",
-          "purposeEn": "The ground upon which humanity walks and is held accountable",
-          "depthTr": "Yer, insanın üzerinde imtihan olduğu sahadır. Gök ile yer arasına sıkışmış insan, her iki tanığın önünde seçimini yapar. Yer insanı taşır; ahirette ise insan amellerini taşıyacaktır.",
-          "depthEn": "The earth is the arena of human trial. Caught between sky and earth, humanity makes its choices before both witnesses. The earth carries humanity; in the hereafter, humanity will carry its deeds."
+          "subjectTr": "Yer ve Yayan",
+          "subjectEn": "Earth and Its Spreader",
+          "purposeTr": "İnsanın imtihan zemini ve onun yaratıcı tasarımı",
+          "purposeEn": "The arena of human trial and its Designer",
+          "isCompound": true,
+          "compoundParts": [
+            {
+              "arabic": "وَالْأَرْضِ",
+              "labelTr": "Yer",
+              "labelEn": "The Earth",
+              "noteTr": "Eser. İnsanın üzerinde yürüdüğü, sorumlu tutulduğu zemin — gök ile arasında imtihan sahnesi. Yer insanı taşır; ahirette ise insan amellerini taşıyacaktır.",
+              "noteEn": "The artifact. The ground upon which humanity walks and is held accountable — the arena of trial between sky and earth. The earth carries humanity; in the hereafter, humanity will carry its deeds."
+            },
+            {
+              "arabic": "وَمَا طَحَاهَا",
+              "labelTr": "ve onu yayana",
+              "labelEn": "and Him who spread it",
+              "noteTr": "Atıf cümlesi: 'tahā' yaymak/sermek demektir — yer üzerinde yaşanabilir olması için düzleştirilmiştir. Bu atıf, yeryüzünün düzeninin tesadüfi değil ilahi tasarım olduğunu vurgular.",
+              "noteEn": "Conjunction clause: 'taḥā' means to spread/lay out — the earth has been laid out to be habitable. This conjunction emphasizes that the earth's order is not coincidental but divine design."
+            }
+          ],
+          "depthTr": "Yer/Yayan çifti, gök/inşa eden çiftiyle simetrik bir yapı kurar. Modern bilim 'gezegen oluşumu' der; Kur'an bunu ilahi bir fiil ('طَحَا') olarak sunar. İbn Kayyim sayımında 91:6 tek bir bileşik yemindir.",
+          "depthEn": "The earth/Spreader pair forms a symmetric structure with the sky/Builder pair. Modern science calls this 'planetary formation'; the Qur'an presents it as a divine act ('ṭaḥā'). In Ibn Qayyim's count, 91:6 is a single compound oath."
         }
       ]
     },
@@ -524,51 +566,6 @@
           "purposeEn": "Human ruthlessness and ungrateful nature",
           "depthTr": "Şafak baskını yapan süvari birliklerinin imgesi, insanın vahşet kapasitesini gözler önüne serer. Allah bu güce yemin ederek insanın ne denli nankörlük ettiğini vurgular.",
           "depthEn": "The image of cavalry raiding at dawn reveals humanity's capacity for violence. By swearing by this power, God emphasizes how profoundly ungrateful humans are."
-        },
-        {
-          "id": "sems-91-5b",
-          "arabic": "وَمَا بَنَاهَا",
-          "tr": "Onu bina edene yemin olsun",
-          "en": "By He who built it",
-          "ref": "Şems 91:5",
-          "surah": 91,
-          "ayah": 5,
-          "subjectTr": "Gökyüzünü İnşa Eden",
-          "subjectEn": "He Who Built the Sky",
-          "purposeTr": "İlahi kudretin sonsuzluğu",
-          "purposeEn": "The infinity of divine power",
-          "depthTr": "'Mâ' burada 'kim' veya 'ne' anlamındadır — Allah'ın kudretine işaret eder. Gökyüzü tek başına yemek için yeterli olurdu; ama Kur'an gökyüzünü inşa edeni de yeminine dahil eder. Eser ile Usta'ya birlikte yemin.",
-          "depthEn": "'Ma' here means 'who' or 'what' — pointing to divine power. The sky alone would suffice as an oath; but the Quran includes He who built it. An oath to both the artifact and the Artisan."
-        },
-        {
-          "id": "sems-91-6b",
-          "arabic": "وَمَا طَحَاهَا",
-          "tr": "Onu yayıp serene yemin olsun",
-          "en": "By He who spread it",
-          "ref": "Şems 91:6",
-          "surah": 91,
-          "ayah": 6,
-          "subjectTr": "Yeri Yayan",
-          "subjectEn": "He Who Spread the Earth",
-          "purposeTr": "Yaratılışın kasıtlı düzeni",
-          "purposeEn": "The intentional order of creation",
-          "depthTr": "'Tahâ' — yaymak, sermek. Yeryüzü üzerinde yaşanabilir olması için düzleştirilmiş, serilmiştir. Modern bilim bunu 'gezegen oluşumu' olarak tanımlar. Kur'an bunu ilahi bir fiil olarak sunar.",
-          "depthEn": "'Taha' — to spread, to flatten. The earth has been laid out to be habitable. Modern science calls this 'planetary formation.' The Quran presents it as a divine act."
-        },
-        {
-          "id": "sems-91-7b",
-          "arabic": "وَمَا سَوَّاهَا",
-          "tr": "Onu düzgün yaratana yemin olsun",
-          "en": "By He who formed it",
-          "ref": "Şems 91:7",
-          "surah": 91,
-          "ayah": 7,
-          "subjectTr": "Nefsi Şekillendiren",
-          "subjectEn": "He Who Formed the Soul",
-          "purposeTr": "İlahi yaratılışın mükemmelliği ve insanın sorumluluğu",
-          "purposeEn": "Perfection of divine creation and human accountability",
-          "depthTr": "'Sevvâ' — dengelemek, orantılandırmak. Ruh sadece yaratılmadı, denge ile yaratıldı. Ardından gelecek olan (91:8) bu dengeyi bozabilecek veya koruyabilecek kapasiteyi anlatır: fucar ve takva.",
-          "depthEn": "'Sawwa' — to balance, to proportion. The soul was not merely created but created in balance. What follows (91:8) describes the capacity to break or preserve this balance: wickedness and righteousness."
         }
       ]
     },
@@ -656,19 +653,36 @@
           "depthEn": "Hubuk means star paths, web/pattern, or rippled water surface. Modern astronomy: galactic filaments, large-scale structure of the universe. The sky's orderly pattern points to revelation's orderly truth."
         },
         {
-          "id": "sems-91-7a",
-          "arabic": "وَنَفْسٍ",
-          "tr": "Nefse yemin olsun",
-          "en": "By the soul",
+          "id": "sems-91-7",
+          "arabic": "وَنَفْسٍ وَمَا سَوَّاهَا",
+          "tr": "Nefse ve onu düzgün şekillendirene yemin olsun",
+          "en": "By the soul and Him who shaped it",
           "ref": "Şems 91:7",
           "surah": 91,
           "ayah": 7,
-          "subjectTr": "Nefs (Ruh)",
-          "subjectEn": "The Soul",
-          "purposeTr": "İnsanın kozmik konumu ve ahlaki seçimi",
-          "purposeEn": "Humanity's cosmic position and moral choice",
-          "depthTr": "Şems sûresinin 11 yemininin zirvesi. Allah, güneşten başlayarak tüm evreni (ay, gündüz, gece, gök, yer) saydıktan sonra en son insan ruhuna ulaşır. Bu yapı bir piramit gibidir: tüm evren ruhun çerçevesidir.",
-          "depthEn": "The apex of Surah Shams's 11 oaths. After enumerating the entire universe (sun, moon, day, night, sky, earth), God arrives at last at the human soul. This structure is like a pyramid: all the universe is the soul's frame."
+          "subjectTr": "Nefs ve Şekillendiren",
+          "subjectEn": "Soul and Its Shaper",
+          "purposeTr": "İnsanın kozmik konumu ve ahlaki seçimi — kozmosun zirvesi",
+          "purposeEn": "Humanity's cosmic position and moral choice — apex of the cosmos",
+          "isCompound": true,
+          "compoundParts": [
+            {
+              "arabic": "وَنَفْسٍ",
+              "labelTr": "Nefs",
+              "labelEn": "The Soul",
+              "noteTr": "Eser. Şems sûresinin 7 yemininin zirvesi: Allah önce kozmik unsurları (güneş, ay, gündüz, gece, gök, yer) sayar, sonra en son insan ruhuna ulaşır. Tüm evren ruhun çerçevesidir.",
+              "noteEn": "The artifact. The apex of Surah Shams's 7 oaths: God first enumerates cosmic elements (sun, moon, day, night, sky, earth), then arrives at last at the human soul. All the universe is the soul's frame."
+            },
+            {
+              "arabic": "وَمَا سَوَّاهَا",
+              "labelTr": "ve onu şekillendirene",
+              "labelEn": "and Him who shaped it",
+              "noteTr": "Atıf cümlesi: 'sevvâ' dengeleme/orantılandırma demektir. Ruh sadece yaratılmadı, denge ile yaratıldı. Hemen ardından gelen 91:8 bu dengeyi bozabilecek veya koruyabilecek kapasiteyi anlatır: 'fucûr' ve 'takvâ'.",
+              "noteEn": "Conjunction clause: 'sawwā' means to balance/proportion. The soul was not merely created but created in balance. The very next verse (91:8) describes the capacity to break or preserve this balance: 'fujūr' (wickedness) and 'taqwā' (righteousness)."
+            }
+          ],
+          "depthTr": "Şems sûresinin yeminler dizisi 91:7'de tepe noktasına ulaşır. Üç bileşik yemin (gök, yer, nefs — her biri 'eser + Şekillendiren' yapısında) kozmosu mikrokozmosa, mikrokozmosu da ahlaki sorumluluğa bağlar. Cevab-ı kasem 91:9-10: 'Onu arındıran kurtuldu, kirleten ise kaybetti.'",
+          "depthEn": "The oath series in Surah Shams reaches its peak at 91:7. Three compound oaths (sky, earth, soul — each in 'artifact + Shaper' form) link the cosmos to the microcosm, and the microcosm to moral accountability. The oath's answer (91:9-10): 'He who purifies it succeeds; he who corrupts it fails.'"
         }
       ]
     },

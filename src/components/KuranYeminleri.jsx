@@ -105,7 +105,7 @@ export default function KuranYeminleri({ onClose }) {
           background: 'linear-gradient(180deg, rgba(212,162,36,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         }}>
-          {/* Arabic subtitle */}
+          {/* Arabic subtitle — Şems 91:1-2, mushaf-style verse separator */}
           <div style={{
             fontFamily: FONTS.quran,
             fontSize: isMobile ? '1.6rem' : '2rem',
@@ -115,7 +115,7 @@ export default function KuranYeminleri({ onClose }) {
             lineHeight: 1.8,
             marginBottom: '16px',
           }} dir="rtl" lang="ar">
-            وَالشَّمْسِ وَضُحَاهَا ۝ وَالْقَمَرِ إِذَا تَلَاهَا
+            وَالشَّمْسِ وَضُحَاهَا ﴿١﴾ وَالْقَمَرِ إِذَا تَلَاهَا ﴿٢﴾
           </div>
 
           {/* Title */}
@@ -150,10 +150,10 @@ export default function KuranYeminleri({ onClose }) {
             gap: '12px',
           }}>
             {[
-              { value: meta.totalOaths, labelTr: 'Yemin İfadesi', labelEn: 'Oath Expressions', color: COLORS.gold },
-              { value: meta.categoriesCount, labelTr: 'Kategori', labelEn: 'Categories', color: '#3498db' },
+              { value: meta.totalOaths, labelTr: 'Bileşik Yemin', labelEn: 'Compound Oaths', color: COLORS.gold },
               { value: meta.surahsWithOaths, labelTr: 'Yemin İçeren Sûre', labelEn: 'Surahs with Oaths', color: '#2ecc71' },
               { value: meta.maxOathsInSurah, labelTr: `${meta.maxOathsSurahName} Sûresi`, labelEn: `Surah ${meta.maxOathsSurahName}`, color: '#e74c3c' },
+              { value: `${meta.meccanCount}/${meta.surahsWithOaths}`, labelTr: 'Mekkî Sûre', labelEn: 'Meccan Surahs', color: '#3498db' },
             ].map((s, i) => (
               <div key={i} style={{
                 background: `${s.color}10`,
@@ -171,6 +171,28 @@ export default function KuranYeminleri({ onClose }) {
               </div>
             ))}
           </div>
+
+          {/* Methodology note — clarifies classical İbn Kayyim count */}
+          {meta.methodologyTr && (
+            <div style={{
+              marginTop: '18px',
+              padding: '12px 14px',
+              background: 'rgba(212,165,116,0.04)',
+              border: `1px solid ${COLORS.goldAlpha15}`,
+              borderLeft: `2px solid ${COLORS.goldAlpha45}`,
+              borderRadius: '8px',
+              display: 'flex',
+              gap: '10px',
+              alignItems: 'flex-start',
+            }}>
+              <span style={{ color: COLORS.gold, fontSize: '0.78rem', flexShrink: 0, lineHeight: 1.5, fontWeight: 700, letterSpacing: '0.04em' }}>
+                {language === 'tr' ? 'METOD' : 'METHOD'}
+              </span>
+              <p style={{ color: COLORS.silver, fontSize: '0.76rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: 0 }}>
+                {language === 'tr' ? meta.methodologyTr : meta.methodologyEn}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* ── TAB BAR — directly above tab content ────────────────────── */}
@@ -259,12 +281,12 @@ export default function KuranYeminleri({ onClose }) {
 
           {/* Tab 2: Sûre Dağılımı */}
           {activeTab === 2 && (
-            <TabSureDagilimi categories={categories} language={language} isMobile={isMobile} />
+            <TabSureDagilimi categories={categories} meta={meta} language={language} isMobile={isMobile} />
           )}
 
           {/* Tab 3: İbn Kayyim */}
           {activeTab === 3 && (
-            <TabIbnKayyim ibnQayyim={ibnQayyim} language={language} isMobile={isMobile} />
+            <TabIbnKayyim ibnQayyim={ibnQayyim} ibnKayyimPatterns={data.ibnKayyimPatterns} language={language} isMobile={isMobile} />
           )}
 
           {/* Tab 4: Kaynaklar */}
@@ -591,23 +613,24 @@ function TabKategoriler({ categories, activeCategoryId, onSelect, language, isMo
 
 function OathCard({ item, accent, language, compact = false }) {
   const [open, setOpen] = useState(false);
+  const isCompound = item.isCompound && Array.isArray(item.compoundParts) && item.compoundParts.length > 0;
+  const depth = language === 'tr' ? item.depthTr : item.depthEn;
   return (
     <div style={{
       background: COLORS.glassBg,
       border: `1px solid ${COLORS.glassBorder}`,
-      borderLeft: `3px solid ${accent}`,
       borderRadius: '10px',
       overflow: 'hidden',
     }}>
-      <button
-        onClick={() => setOpen(o => !o)}
-        style={{ width: '100%', padding: compact ? '10px 14px' : '14px 18px', border: 'none', background: 'transparent', cursor: 'pointer', textAlign: 'left' }}
-      >
+      {/* Top accent band — category-colored */}
+      <div style={{ height: '3px', background: `linear-gradient(90deg, ${accent} 0%, ${accent}55 80%, transparent 100%)` }} />
+
+      <div style={{ padding: compact ? '12px 14px 14px' : '16px 18px 16px' }}>
         {/* Arabic */}
         <div style={{
           fontFamily: FONTS.quran, fontSize: compact ? '1.1rem' : '1.4rem',
           color: accent, direction: 'rtl', textAlign: 'right',
-          lineHeight: 1.9, marginBottom: '6px',
+          lineHeight: 1.9, marginBottom: '8px',
         }} dir="rtl" lang="ar">
           {item.arabic}
         </div>
@@ -620,24 +643,115 @@ function OathCard({ item, accent, language, compact = false }) {
             {item.ref}
           </span>
         </div>
+
         {!compact && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '6px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', marginTop: '8px' }}>
             <span style={{ padding: '2px 8px', background: `${accent}18`, border: `1px solid ${accent}30`, borderRadius: '12px', color: accent, fontSize: '0.72rem', fontFamily: FONTS.body }}>
               {language === 'tr' ? item.subjectTr : item.subjectEn}
             </span>
-            <span style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, flex: 1 }}>
+            {isCompound && (
+              <span style={{ padding: '2px 8px', background: 'rgba(167,139,250,0.12)', border: `1px solid rgba(167,139,250,0.35)`, borderRadius: '12px', color: '#a78bfa', fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                {language === 'tr' ? `🔗 Bileşik · ${item.compoundParts.length} öğe` : `🔗 Compound · ${item.compoundParts.length} parts`}
+              </span>
+            )}
+            <span style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, flex: 1, minWidth: 0 }}>
               {language === 'tr' ? item.purposeTr : item.purposeEn}
             </span>
-            <span style={{ color: COLORS.slate500, fontSize: '0.75rem', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▾</span>
           </div>
         )}
-      </button>
+
+        {/* Default-visible depth preview (2 lines) — only on non-compact */}
+        {!compact && depth && !open && (
+          <p style={{
+            color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body,
+            lineHeight: 1.65, margin: '12px 0 0',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}>
+            {depth}
+          </p>
+        )}
+
+        {/* Expand toggle button */}
+        {!compact && (depth || isCompound) && (
+          <button
+            onClick={() => setOpen(o => !o)}
+            style={{
+              marginTop: '10px',
+              padding: '4px 10px',
+              background: 'transparent',
+              border: `1px solid ${COLORS.glassBorder}`,
+              borderRadius: '6px',
+              color: accent,
+              fontSize: '0.7rem',
+              fontFamily: FONTS.body,
+              fontWeight: 600,
+              letterSpacing: '0.04em',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = `${accent}10`; e.currentTarget.style.borderColor = `${accent}45`; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = COLORS.glassBorder; }}
+          >
+            <span>{open
+              ? (language === 'tr' ? 'Daralt' : 'Collapse')
+              : (language === 'tr' ? (isCompound ? 'Bileşik parçalar + Detay' : 'Detayı göster') : (isCompound ? 'Compound parts + Detail' : 'Show detail'))
+            }</span>
+            <span style={{ fontSize: '0.7rem', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▾</span>
+          </button>
+        )}
+      </div>
 
       {!compact && open && (
         <div style={{ padding: '0 18px 16px', borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>
-          <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: '12px 0 0' }}>
-            {language === 'tr' ? item.depthTr : item.depthEn}
-          </p>
+          {/* Compound parts breakdown */}
+          {isCompound && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', margin: '14px 0 0' }}>
+              <div style={{
+                fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase',
+                letterSpacing: '0.14em', color: accent, fontFamily: FONTS.body, opacity: 0.85,
+              }}>
+                {language === 'tr' ? 'Bileşik Parçalar' : 'Compound Parts'}
+              </div>
+              {item.compoundParts.map((part, i) => (
+                <div key={i} style={{
+                  background: 'rgba(255,255,255,0.025)',
+                  border: `1px solid ${COLORS.glassBorder}`,
+                  borderLeft: `2px solid ${accent}`,
+                  borderRadius: '8px',
+                  padding: '10px 12px',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '8px', marginBottom: '6px' }}>
+                    <span style={{
+                      fontFamily: FONTS.quran, fontSize: '1.1rem',
+                      color: accent, direction: 'rtl',
+                      lineHeight: 1.6,
+                    }} dir="rtl" lang="ar">
+                      {part.arabic}
+                    </span>
+                    <span style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: FONTS.body, fontStyle: 'italic', textAlign: 'right' }}>
+                      {language === 'tr' ? part.labelTr : part.labelEn}
+                    </span>
+                  </div>
+                  <p style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: 0 }}>
+                    {language === 'tr' ? part.noteTr : part.noteEn}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Full depth */}
+          {depth && (
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: isCompound ? '14px 0 0' : '12px 0 0' }}>
+              {depth}
+            </p>
+          )}
         </div>
       )}
     </div>
@@ -919,7 +1033,7 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
 
 // ── Tab: Sûre Dağılımı ────────────────────────────────────────────────────────
 
-function TabSureDagilimi({ categories, language, isMobile }) {
+function TabSureDagilimi({ categories, meta, language, isMobile }) {
   // Build surah distribution from all items
   const surahMap = {};
   categories.forEach(cat => {
@@ -944,10 +1058,10 @@ function TabSureDagilimi({ categories, language, isMobile }) {
       </p>
 
       {/* Stat callouts */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)', gap: '12px', marginBottom: '28px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)', gap: '12px', marginBottom: '20px' }}>
         {[
           { value: sorted.length, labelTr: 'Sûre', labelEn: 'Surahs', color: COLORS.gold },
-          { value: total, labelTr: 'Toplam Yemin', labelEn: 'Total Oaths', color: '#3498db' },
+          { value: total, labelTr: 'Bileşik Yemin', labelEn: 'Compound Oaths', color: '#3498db' },
           { value: sorted[0]?.[0], labelTr: 'En Çok Yemin', labelEn: 'Most Oaths', color: '#2ecc71', small: true },
           { value: sorted[0]?.[1].count, labelTr: `${sorted[0]?.[0]} Yemini`, labelEn: `${sorted[0]?.[0]} Oaths`, color: '#e74c3c' },
         ].map((s, i) => (
@@ -965,6 +1079,61 @@ function TabSureDagilimi({ categories, language, isMobile }) {
           </div>
         ))}
       </div>
+
+      {/* Meccan/Medinan finding — strongest single insight */}
+      {meta && typeof meta.meccanCount === 'number' && (
+        <div style={{
+          padding: isMobile ? '14px 16px' : '18px 22px',
+          background: 'linear-gradient(90deg, rgba(212,165,116,0.08) 0%, rgba(212,165,116,0.02) 100%)',
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          borderRadius: '12px',
+          marginBottom: '28px',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '14px', flexWrap: 'wrap' }}>
+            <div style={{ flex: 1, minWidth: '220px' }}>
+              <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '4px' }}>
+                {language === 'tr' ? 'Mekkî / Medenî Dağılımı' : 'Meccan / Medinan Distribution'}
+              </div>
+              <div style={{ color: COLORS.offWhite, fontSize: isMobile ? '1rem' : '1.1rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1.4 }}>
+                {language === 'tr'
+                  ? `Yemin içeren ${meta.surahsWithOaths} sûrenin tamamı Mekkî dönem ağırlıklı`
+                  : `All ${meta.surahsWithOaths} oath-containing surahs are predominantly Meccan`
+                }
+              </div>
+            </div>
+            {/* Visual ratio bar */}
+            <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ width: isMobile ? '100px' : '160px', height: '24px', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', overflow: 'hidden', display: 'flex' }}>
+                <div style={{
+                  width: `${(meta.meccanCount / meta.surahsWithOaths) * 100}%`,
+                  background: 'linear-gradient(90deg, #c9a227, #d4a574)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: '#0a0a1a', fontSize: '0.72rem', fontWeight: 800, fontFamily: FONTS.body,
+                }}>
+                  {meta.meccanCount}
+                </div>
+                {meta.medinanCount > 0 && (
+                  <div style={{
+                    flex: 1, background: '#2ecc71',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#0a0a1a', fontSize: '0.72rem', fontWeight: 800, fontFamily: FONTS.body,
+                  }}>
+                    {meta.medinanCount}
+                  </div>
+                )}
+              </div>
+              <span style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                {meta.meccanCount}/{meta.surahsWithOaths}
+              </span>
+            </div>
+          </div>
+          {meta.meccanNoteTr && (
+            <p style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: '10px 0 0', fontStyle: 'italic' }}>
+              {language === 'tr' ? meta.meccanNoteTr : meta.meccanNoteEn}
+            </p>
+          )}
+        </div>
+      )}
 
       {/* Bar chart */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -999,7 +1168,7 @@ function TabSureDagilimi({ categories, language, isMobile }) {
 
 // ── Tab: İbn Kayyim ───────────────────────────────────────────────────────────
 
-function TabIbnKayyim({ ibnQayyim, language, isMobile }) {
+function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
   return (
     <div>
       {/* Thesis intro */}
@@ -1135,6 +1304,154 @@ function TabIbnKayyim({ ibnQayyim, language, isMobile }) {
           </div>
         ))}
       </div>
+
+      {/* ── İbn Kayyim'in Tasnifleri — Zıt Çiftler ─────────────────────────── */}
+      {ibnKayyimPatterns && Array.isArray(ibnKayyimPatterns.patterns) && ibnKayyimPatterns.patterns.length > 0 && (
+        <div style={{ marginTop: '32px' }}>
+          {/* Section heading */}
+          <div style={{
+            paddingBottom: '12px',
+            borderBottom: `1px solid ${COLORS.goldAlpha25}`,
+            marginBottom: '20px',
+          }}>
+            <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '6px' }}>
+              {language === 'tr' ? "İbn Kayyim'in Tasnifleri" : "Ibn Qayyim's Classifications"}
+            </div>
+            <h3 style={{ color: COLORS.gold, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.35 }}>
+              {language === 'tr' ? ibnKayyimPatterns.titleTr : ibnKayyimPatterns.titleEn}
+            </h3>
+            <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
+              {language === 'tr' ? ibnKayyimPatterns.descTr : ibnKayyimPatterns.descEn}
+            </p>
+          </div>
+
+          {/* Pattern blocks */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            {ibnKayyimPatterns.patterns.map((pattern, pi) => (
+              <div key={pattern.id || pi} style={{
+                background: 'rgba(255,255,255,0.025)',
+                border: `1px solid ${COLORS.glassBorder}`,
+                borderRadius: '12px',
+                overflow: 'hidden',
+              }}>
+                <div style={{ height: '2px', background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)` }} />
+
+                <div style={{ padding: isMobile ? '16px 16px 10px' : '22px 26px 14px' }}>
+                  <div style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', lineHeight: 1.6, marginBottom: '8px' }} dir="rtl" lang="ar">
+                    {pattern.arabicName}
+                  </div>
+                  <div style={{ fontSize: '0.7rem', color: COLORS.slate500, fontFamily: FONTS.body, fontStyle: 'italic', marginBottom: '10px', letterSpacing: '0.04em' }}>
+                    {pattern.transliteration}
+                  </div>
+                  <h4 style={{ color: COLORS.gold, fontSize: '1rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 10px' }}>
+                    {language === 'tr' ? pattern.nameTr : pattern.nameEn}
+                  </h4>
+                  <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
+                    {language === 'tr' ? pattern.descTr : pattern.descEn}
+                  </p>
+                </div>
+
+                {/* Pairs */}
+                {Array.isArray(pattern.pairs) && pattern.pairs.length > 0 && (
+                  <div style={{ padding: isMobile ? '0 16px 16px' : '0 26px 22px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    {pattern.pairs.map((pair, pj) => (
+                      <div key={pair.id || pj} style={{
+                        background: 'rgba(0,0,0,0.18)',
+                        border: `1px solid ${COLORS.glassBorder}`,
+                        borderRadius: '10px',
+                        padding: '14px 16px',
+                      }}>
+                        {/* Pair header — two opposing items */}
+                        <div style={{
+                          display: 'grid',
+                          gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr',
+                          gap: isMobile ? '10px' : '14px',
+                          alignItems: 'center',
+                          marginBottom: '12px',
+                        }}>
+                          <div style={{ textAlign: isMobile ? 'left' : 'right' }}>
+                            <div style={{ color: COLORS.gold, fontSize: '0.88rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1.3 }}>
+                              {language === 'tr' ? pair.firstLabelTr : pair.firstLabelEn}
+                            </div>
+                            <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '2px' }}>
+                              {pair.firstVerseRef}
+                            </div>
+                          </div>
+                          <div style={{
+                            color: COLORS.gold, fontSize: '0.95rem', opacity: 0.6,
+                            fontFamily: FONTS.body, textAlign: 'center',
+                            transform: isMobile ? 'rotate(90deg)' : 'none',
+                          }}>
+                            ⇋
+                          </div>
+                          <div style={{ textAlign: 'left' }}>
+                            <div style={{ color: COLORS.gold, fontSize: '0.88rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1.3 }}>
+                              {language === 'tr' ? pair.secondLabelTr : pair.secondLabelEn}
+                            </div>
+                            <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '2px' }}>
+                              {pair.secondVerseRef}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Thematic */}
+                        <div style={{
+                          fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase',
+                          letterSpacing: '0.14em', color: COLORS.gold, fontFamily: FONTS.body,
+                          opacity: 0.75, marginBottom: '6px',
+                        }}>
+                          {language === 'tr' ? 'Tema' : 'Theme'}
+                        </div>
+                        <div style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', marginBottom: '10px' }}>
+                          {language === 'tr' ? pair.thematicTr : pair.thematicEn}
+                        </div>
+
+                        {pair.sameVerseNote && (
+                          <div style={{
+                            fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body,
+                            fontStyle: 'italic', lineHeight: 1.55,
+                            background: 'rgba(212,165,116,0.04)',
+                            border: `1px dashed ${COLORS.goldAlpha25}`,
+                            borderRadius: '6px', padding: '8px 10px', marginBottom: '10px',
+                          }}>
+                            {language === 'tr' ? pair.sameVerseNote : pair.sameVerseNoteEn}
+                          </div>
+                        )}
+
+                        <p style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
+                          {language === 'tr' ? pair.depthTr : pair.depthEn}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Scholar note */}
+                {pattern.scholarNote && (
+                  <div style={{
+                    margin: isMobile ? '0 16px 16px' : '0 26px 22px',
+                    padding: '12px 14px',
+                    background: 'rgba(212,165,116,0.05)',
+                    border: `1px solid ${COLORS.goldAlpha25}`,
+                    borderLeft: `2px solid ${COLORS.gold}`,
+                    borderRadius: '8px',
+                  }}>
+                    <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '6px', fontFamily: FONTS.body }}>
+                      {language === 'tr' ? 'Klasik Kaynak' : 'Classical Source'}
+                    </div>
+                    <div style={{ color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body, fontStyle: 'italic', marginBottom: '8px' }}>
+                      {language === 'tr' ? pattern.scholarNote.sourceTr : pattern.scholarNote.sourceEn}
+                    </div>
+                    <p style={{ color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: 0 }}>
+                      {language === 'tr' ? pattern.scholarNote.commentaryTr : pattern.scholarNote.commentaryEn}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
