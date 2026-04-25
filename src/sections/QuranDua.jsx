@@ -13,12 +13,12 @@ const PROPHET_PROFILES = [
     profileEn: 'Founder · Architect · Father',
     themesTr: ['Nesil ve süreklilik', 'Halk için şefaat', 'Hidayet ve zikir', 'Rızık ve minnet'],
     themesEn: ['Lineage and continuity', 'Intercession for people', 'Guidance and gratitude', 'Provision and thanks'],
-    famousTr: '"Rabbena tekabbel minnâ" — Rabbimiz, bunu bizden kabul et. (Bakara 2:127)',
-    famousEn: '"Rabbana taqabbal minna" — Our Lord, accept this from us. (Al-Baqara 2:127)',
-    ar: 'رَبَّنَا تَقَبَّلْ مِنَّا',
+    famousTr: '"Rabbenâ tekabbel minnâ, inneke ente\'s-semîʿu\'l-ʿalîm" — Rabbimiz, bunu bizden kabul et; şüphesiz Sen hakkıyla işiten, hakkıyla bilensin. (Bakara 2:127)',
+    famousEn: '"Rabbanā taqabbal minnā, innaka anta al-samīʿu al-ʿalīm" — Our Lord, accept this from us; indeed You are the All-Hearing, the All-Knowing. (Al-Baqara 2:127)',
+    ar: 'رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ',
     countTr: '15+ dua',
     countEn: '15+ supplications',
-    insightTr: 'İbrahim duaları görev bilinci taşır — her dua bir nesil, bir ümmet, bir şehir için.',
+    insightTr: "Hz. İbrahim'in duaları görev bilinci taşır — her dua bir nesil, bir ümmet, bir şehir için.",
     insightEn: "Abraham's prayers carry a sense of mission — each prayer is for a generation, a nation, a city.",
     responseTr: 'Cevap: Mekke kuruldu, Beytullah inşa edildi (2:127); ileri yaşta İsmail ve İshak verildi (14:39).',
     responseEn: 'Response: Mecca was established, the Sacred House was built (2:127); in old age he was granted Ishmael and Isaac (14:39).',
@@ -32,12 +32,12 @@ const PROPHET_PROFILES = [
     profileEn: 'Patience · Suffering · Surrender',
     themesTr: ['Hastalık ve çaresizlik', 'Şikâyet değil, dua', 'Teslimiyetle istek', 'Acının dile gelişi'],
     themesEn: ['Illness and helplessness', 'Prayer not complaint', 'Requesting with surrender', 'Pain finding voice'],
-    famousTr: '"Rabbî innî messeniye\'d-durru ve ente erhamü\'r-râhimîn" — Rabbim, bana zarar dokundu. Sen merhametlilerin en merhametlisisin. (Enbiyâ 21:83)',
-    famousEn: '"Rabbi inni massaniya al-durru wa anta arham al-rahimin" — My Lord, adversity has touched me, and You are the Most Merciful. (Al-Anbiya 21:83)',
-    ar: 'رَبِّ إِنِّي مَسَّنِيَ الضُّرُّ',
+    famousTr: '"Ennî messeniye\'d-durru ve ente erhamü\'r-râhimîn" — Bana zarar dokundu; Sen merhametlilerin en merhametlisisin. (Enbiyâ 21:83)',
+    famousEn: '"Annī massaniya al-ḍurru wa anta arḥam al-rāḥimīn" — Adversity has touched me, and You are the Most Merciful of the merciful. (Al-Anbiya 21:83)',
+    ar: 'أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ',
     countTr: '2 dua',
     countEn: '2 supplications',
-    insightTr: "Eyyub'un duası şikâyet değil, arz'tır — durumunu Allah'a sunar ama isyan etmez. 'Bana zarar dokundu' der, hemen 'Sen merhametlilerin en merhametlisisin' diye Allah'ın sıfatını hatırlatır. Klasik tefsir (Râzî, Kurtubî, İbn Kesîr): edebî sınırlar içinde halini arz, sabrın peygamberinin yöntemi.",
+    insightTr: "Hz. Eyyub'un duası şikâyet değil, arz'tır — durumunu Allah'a sunar ama isyan etmez. 'Bana zarar dokundu' der, hemen 'Sen merhametlilerin en merhametlisisin' diye Allah'ın sıfatını hatırlatır. Klasik tefsir (Râzî, Kurtubî, İbn Kesîr): edebî sınırlar içinde halini arz, sabrın peygamberinin yöntemi.",
     insightEn: "Job's prayer is not complaint but presentation — he lays his condition before God without rebellion. 'Adversity has touched me,' he says, then immediately invokes 'You are the Most Merciful.' Classical exegesis (Rāzī, Qurṭubī, Ibn Kathīr): a respectful arrangement of one's state, the method of the prophet of patience.",
     responseTr: 'Cevap: Şifa, ailesi geri döndü, malı bir misli artırıldı (Enbiyâ 21:84, Sâd 38:42-43); "Şüphesiz biz onu sabreden bulduk; ne güzel kuldur o!" (38:44).',
     responseEn: 'Response: Healing, his family was restored, his wealth doubled (Al-Anbiya 21:84, Sad 38:42-43); "Indeed We found him patient — an excellent servant!" (38:44).',
@@ -52,11 +52,11 @@ const PROPHET_PROFILES = [
     themesTr: ['Hata kabulü', 'Tenzih ve öz kınama', 'Üç katmanlı karanlık', 'Anlık ve mutlak'],
     themesEn: ['Acknowledgment of error', 'Exaltation and self-reproach', 'Three layers of darkness', 'Instant and absolute'],
     famousTr: '"Lâ ilâhe illâ ente sübhâneke innî küntü mine\'z-zâlimîn" — Senden başka ilah yoktur, Seni tenzih ederim; ben zalimlerden oldum. (Enbiyâ 21:87)',
-    famousEn: '"La ilaha illa anta subhanaka inni kuntu min al-zalimin" — There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers. (Al-Anbiya 21:87)',
-    ar: 'لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ',
+    famousEn: '"Lā ilāha illā anta subḥānaka innī kuntu min al-ẓālimīn" — There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers. (Al-Anbiya 21:87)',
+    ar: 'لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ',
     countTr: "1 ana dua (Enbiyâ 21:87) — teolojik olarak en yoğun",
     countEn: "1 main prayer (Al-Anbiya 21:87) — theologically most dense",
-    insightTr: "Yunus'un duası teolojik olarak Kur'an'ın en yoğun dualarından biri — tek cümlede üç katman: tevhid (lâ ilâhe illâ ente), tenzih (sübhâneke) ve itiraf (innî küntü mine'z-zâlimîn). Daha kısa dualar vardır (Zekeriyyâ 19:4, Mûsâ Kasas 28:24); Yunus'un farkı uzunluk değil, içerik yoğunluğudur.",
+    insightTr: "Hz. Yunus'un duası teolojik olarak Kur'an'ın en yoğun dualarından biri — tek cümlede üç katman: tevhid (lâ ilâhe illâ ente), tenzih (sübhâneke) ve itiraf (innî küntü mine'z-zâlimîn). Daha kısa dualar vardır (Hz. Zekeriyyâ 19:4, Hz. Mûsâ Kasas 28:24); Hz. Yunus'un farkı uzunluk değil, içerik yoğunluğudur.",
     insightEn: "Jonah's prayer is among the most theologically dense in the Qur'an — three layers in one sentence: divine unity (lā ilāha illā anta), exaltation (subḥānaka), and confession (innī kuntu mina'z-zālimīn). Shorter prayers exist (Zechariah 19:4, Moses Qaṣaṣ 28:24); Jonah's distinction is not length but density of content.",
     responseTr: 'Cevap: Karanlığın içinde kurtarıldı (21:88). Kur\'an "Allah onu tasadan kurtardı" diye nitelendirir.',
     responseEn: 'Response: Delivered from the darkness (21:88). The Qur\'an states "We saved him from the distress."',
@@ -70,12 +70,12 @@ const PROPHET_PROFILES = [
     profileEn: 'Old Age · Intimacy · Unexpected Miracle',
     themesTr: ['İleri yaşta evlat talebi', 'Gizli/yumuşak ses ile dua', 'Allah\'tan utanma', 'Mucizevi cevap'],
     themesEn: ['Petition for offspring in old age', 'Praying with a hushed voice', 'Modesty before God', 'Miraculous response'],
-    famousTr: '"Rabbi innî vehene\'l-azmu minnî ve\'ş-teale\'r-re\'sü şeybâ" — Rabbim, kemiklerim zayıfladı, saçım ağardı. (Meryem 19:4)',
-    famousEn: '"Rabbi inni wahana al-azmu minni wa\'shta\'ala al-ra\'su shayba" — My Lord, my bones have weakened and my head has flared with white. (Maryam 19:4)',
-    ar: 'رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي',
+    famousTr: '"Rabbi innî vehene\'l-azmu minnî ve\'ş-teʿale\'r-re\'sü şeybâ ve lem ekun bi-duʿâike Rabbi şakıyyâ" — Rabbim, kemiklerim zayıfladı, saçım ağardı; sana dua ederken hiçbir zaman bedbaht olmadım Rabbim. (Meryem 19:4)',
+    famousEn: '"Rabbi innī wahana al-ʿaẓmu minnī wa\'shtaʿala al-ra\'su shaybā wa lam akun bi-duʿā\'ika Rabbi shaqiyyā" — My Lord, my bones have weakened and my head has flared with white; and I have never been unblessed in calling upon You, my Lord. (Maryam 19:4)',
+    ar: 'رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا',
     countTr: '4 ana dua',
     countEn: '4 main supplications',
-    insightTr: "Zekeriyyâ duası 'gizli ses' (nidâen hafiyyâ — Meryem 19:3) ile yapılır; ne dilediği başkalarının duymasından utanç duyar. Kemiklerinin zayıfladığını söyler ama 'biliyorsun' demez — Allah'a tanıklık değil, kendi acziyetini sunar. İleri yaşın çaresizliği umut talebine dönüşür: 'sana dua ederken hiçbir zaman bedbaht olmadım.'",
+    insightTr: "Hz. Zekeriyyâ'nın duası 'gizli ses' (nidâen hafiyyâ — Meryem 19:3) ile yapılır; ne dilediği başkalarının duymasından utanç duyar. Kemiklerinin zayıfladığını söyler ama 'biliyorsun' demez — Allah'a tanıklık değil, kendi acziyetini sunar. İleri yaşın çaresizliği umut talebine dönüşür: 'sana dua ederken hiçbir zaman bedbaht olmadım.'",
     insightEn: "Zechariah's prayer is offered 'in a hushed voice' (nidā'an khafiyyan — Maryam 19:3); he is too modest for others to overhear what he asks. He notes that his bones have weakened, yet does not say 'You know'; he places his own helplessness before God rather than testifying to it. The despair of old age transforms into a petition of hope: 'I have never been unblessed in calling upon You.'",
     responseTr: 'Cevap: İleri yaşta Yahyâ (Yûhanna) verildi (19:7). Aynı isim daha önce kimseye verilmemişti.',
     responseEn: 'Response: In advanced age he was granted Yaḥyā (John) (19:7). A name not given to anyone before.',
@@ -91,10 +91,10 @@ const PROPHET_PROFILES = [
     themesEn: ['Sharḥ al-ṣadr (expansion of the chest)', 'Removal of speech impediment', 'Petition for support', "Refuge from one's own weakness"],
     famousTr: '"Rabbi\'şrah lî sadrî · ve yessir lî emrî · vahlul ʿuqdetan min lisânî · yefkahû kavlî" — Rabbim, göğsümü aç, işimi kolaylaştır, dilimden düğümü çöz ki sözümü anlasınlar. (Tâhâ 20:25-28)',
     famousEn: '"Rabbi shraḥ lī ṣadrī · wa yassir lī amrī · waḥlul ʿuqdatan min lisānī · yafqahū qawlī" — My Lord, expand my chest, ease my task, untie the knot from my tongue, that they may understand my speech. (Ta-Ha 20:25-28)',
-    ar: 'رَبِّ اشْرَحْ لِي صَدْرِي',
+    ar: 'رَبِّ اشْرَحْ لِي صَدْرِي ﴿٢٥﴾ وَيَسِّرْ لِي أَمْرِي ﴿٢٦﴾ وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي ﴿٢٧﴾ يَفْقَهُوا قَوْلِي ﴿٢٨﴾',
     countTr: '15+ dua — Kur\'an\'ın en uzun dua zinciri',
     countEn: "15+ supplications — the Qur'an's longest prayer chain",
-    insightTr: "Mûsâ duası psikolojinin haritasıdır: önce iç durum (göğüs açılsın, dar olmasın), sonra dış görev (iş kolaylaşsın), ardından iletişim (dil çözülsün), nihayet sosyal destek (kardeş Hârûn). Modern psikolojinin 'iç düzenleme → dış eylem → diyalog → ekosistem' sıralamasını 14 asır önce verir. Firavun karşısında bir peygamber kendi zaafını şikâyet değil talep diliyle sunar — 'şerh-i sadr' iç dünyada yer açma demektir.",
+    insightTr: "Hz. Mûsâ'nın duası psikolojinin haritasıdır: önce iç durum (göğüs açılsın, dar olmasın), sonra dış görev (iş kolaylaşsın), ardından iletişim (dil çözülsün), nihayet sosyal destek (kardeş Hz. Hârûn). Modern psikolojinin 'iç düzenleme → dış eylem → diyalog → ekosistem' sıralamasını 14 asır önce verir. Firavun karşısında bir peygamber kendi zaafını şikâyet değil talep diliyle sunar — 'şerh-i sadr' iç dünyada yer açma demektir.",
     insightEn: "Moses' prayer is a map of psychology: first inner state (let the chest expand, not constrict), then outer task (ease the work), then communication (untie my tongue), finally social support (my brother Aaron). Fourteen centuries before modern psychology, this sequence — inner regulation → outer action → dialogue → ecosystem — is laid out. Before Pharaoh, a prophet voices his own weakness not as complaint but as petition — 'sharḥ al-ṣadr' means making inner space.",
     responseTr: 'Cevap: "Talebin verildi" (Tâhâ 20:36). Hârûn yardımcı kılındı, korku açıklığa dönüştürüldü.',
     responseEn: 'Response: "Your request is granted" (Ta-Ha 20:36). Aaron was made his helper; fear was transformed into clarity.',
@@ -217,7 +217,7 @@ export default function QuranDua() {
               lineHeight: 1.65, fontFamily: "'Inter', sans-serif",
             }}>
               {tr
-                ? 'Peygamberin kişisel başvurusu — Zekeriyyâ, Eyyub, Mûsâ, Yusuf, Süleyman. Yalnız kalan ruhun Rabbiyle teması.'
+                ? 'Peygamberin kişisel başvurusu — Hz. Zekeriyyâ, Hz. Eyyub, Hz. Mûsâ, Hz. Yusuf, Hz. Süleyman. Yalnız kalan ruhun Rabbiyle teması.'
                 : "Prophet's personal petition — Zechariah, Job, Moses, Joseph, Solomon. The solitary soul's contact with its Lord."}
             </div>
           </div>
@@ -299,8 +299,8 @@ export default function QuranDua() {
         {[
           { value: '40+',  labelTr: 'Rabbenâ Duası',         labelEn: 'Rabbanā Prayers',     color: '#d4a574', subTr: 'çoğul · ümmet adına',  subEn: 'plural · for community' },
           { value: '40+',  labelTr: 'Rabbî Duası',           labelEn: 'Rabbī Prayers',       color: '#3498db', subTr: 'tekil · kişisel başvuru', subEn: 'singular · personal' },
-          { value: '5',    labelTr: 'Peygamber Profili',      labelEn: 'Prophet Profiles',    color: '#a78bfa', subTr: 'İbrahim · Eyyub · Yunus · Zekeriyyâ · Mûsâ', subEn: 'Abraham · Job · Jonah · Zechariah · Moses' },
-          { value: '~30',  labelTr: 'Yemin İçeren Sûre',      labelEn: 'Surahs with Prayers', color: '#2ecc71', subTr: 'Mekkî · Medenî dengeli',   subEn: 'Meccan · Medinan balanced' },
+          { value: '5',    labelTr: 'Peygamber Profili',      labelEn: 'Prophet Profiles',    color: '#a78bfa', subTr: 'Hz. İbrahim · Hz. Eyyub · Hz. Yunus · Hz. Zekeriyyâ · Hz. Mûsâ', subEn: 'Abraham · Job · Jonah · Zechariah · Moses' },
+          { value: '27',   labelTr: 'Dua İçeren Sûre',        labelEn: 'Surahs with Prayers', color: '#2ecc71', subTr: 'Mekkî · Medenî dengeli',   subEn: 'Meccan · Medinan balanced' },
         ].map((s, i) => (
           <div key={i} style={{
             background: `${s.color}10`,
@@ -521,7 +521,7 @@ export default function QuranDua() {
               implicit: true,
               translitTr: 'İki diyarda yaşıyoruz',
               translitEn: 'We live across two realms',
-              descTr: '2:201\'de zımni: insanın iki diyarda (dünya/ahiret) varoluşu. Eyyub\'da açık: "bana zarar dokundu" — durumun arzı.',
+              descTr: '2:201\'de zımni: insanın iki diyarda (dünya/ahiret) varoluşu. Hz. Eyyub\'da açık: "bana zarar dokundu" — durumun arzı.',
               descEn: 'Implicit in 2:201: humanity\'s existence across two realms (world/hereafter). Explicit in Job: "adversity has touched me" — the presentation of state.',
               color: '#3498db',
             },
@@ -763,7 +763,7 @@ export default function QuranDua() {
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
-                ? "Nefis · kalp · korku · savunma · Yusuf travma-iyileşme — Kur'an'ın psikoloji haritası"
+                ? "Nefis · kalp · korku · savunma · Hz. Yusuf travma-iyileşme — Kur'an'ın psikoloji haritası"
                 : "Nafs · heart · fear · defenses · Joseph trauma-healing — the Qur'an's map of the mind"}
             </p>
           </div>
