@@ -420,7 +420,7 @@ export const RESEARCH_TOOLS = [
     titleEn:     'Women in the Quran',
     descTr:      'Anılan, seçilen, ders olarak öne çıkan kadınlar',
     descEn:      'Named, chosen, set forth as lessons',
-    descLongTr:  "Kur'an'da yalnızca BİR kadın özel adıyla anılır: Hz. Meryem. Diğerleri sıfatları, akrabalıkları veya konumlarıyla işaret edilir. 7 figür: Meryem, Asiye, Havva, Saba Melikesi (Bilkıs), Sara, Musa'nın annesi, İmran'ın eşi — her biri ayet referanslarıyla.",
+    descLongTr:  "Kur'an'da yalnızca BİR kadın özel adıyla anılır: Hz. Meryem. Diğerleri sıfatları, akrabalıkları veya konumlarıyla işaret edilir. 7 figür: Meryem, Asiye, Havva, Saba Melikesi (Belkıs), Sara, Musa'nın annesi, İmran'ın eşi — her biri ayet referanslarıyla.",
     descLongEn:  "Only ONE woman is named in the Quran: Maryam. Others are referenced by their attributes, kinship, or station. 7 figures: Maryam, Asiya, Hawwa (Eve), Queen of Sheba (Bilqis), Sarah, the mother of Musa, and Imran's wife — each with verse references.",
     icon:        KadinlarIcon,
   },
