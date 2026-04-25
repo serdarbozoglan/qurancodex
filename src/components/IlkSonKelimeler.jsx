@@ -218,7 +218,13 @@ export default function IlkSonKelimeler({ onClose }) {
         }}>
           {activeFilter === 'all' && searchValue.trim().length < 2 && spotlights.length > 0 && (
             <div style={{ gridColumn: '1 / -1' }}>
-              <SpotlightSection spotlights={spotlights} language={language} isMobile={isMobile} />
+              <SpotlightSection
+                spotlights={spotlights}
+                surahs={data.surahs}
+                language={language}
+                isMobile={isMobile}
+                onFilterClick={(id) => setFilter(id)}
+              />
             </div>
           )}
           {filtered.map(s => (
@@ -549,7 +555,7 @@ function AyahBlock({ label, verseRef, word, ayahAr, ayahTr, language }) {
 // ─── Spotlight Section ────────────────────────────────────────────────────────
 // Münâsebât-ı Süver çerçevesinde 7 öne çıkan kelime bağı kartı.
 // Bridge / ring / family / cluster / intra-bridge / intra-ring tipleri.
-function SpotlightSection({ spotlights, language, isMobile }) {
+function SpotlightSection({ spotlights, surahs, language, isMobile, onFilterClick }) {
   if (!spotlights || spotlights.length === 0) return null;
   const tr = language === 'tr';
   return (
@@ -558,39 +564,265 @@ function SpotlightSection({ spotlights, language, isMobile }) {
       margin: '0 auto 32px',
       padding: isMobile ? '0 4px' : 0,
     }}>
-      {/* Section header */}
-      <div style={{ marginBottom: '24px' }}>
+      {/* Hero — manifesto + thesis */}
+      <div style={{ marginBottom: '32px' }}>
         <div style={{
           fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.65, marginBottom: '8px',
+          color: COLORS.gold, opacity: 0.65, marginBottom: '10px',
         }}>
           {tr ? 'Münâsebât-ı Süver' : 'Munāsabāt al-Suwar'}
         </div>
         <h2 style={{
           fontFamily: FONTS.display, fontWeight: 700,
-          fontSize: isMobile ? '1.4rem' : '1.7rem',
-          color: COLORS.offWhite, margin: '0 0 12px',
-          lineHeight: 1.2,
+          fontSize: isMobile ? '1.5rem' : '1.85rem',
+          color: COLORS.offWhite, margin: '0 0 8px',
+          lineHeight: 1.15,
+          letterSpacing: '-0.01em',
         }}>
-          {tr ? 'Sûreler Arasındaki Gizli Bağ' : 'The Hidden Bond Between Surahs'}
+          {tr ? 'Sûrelerin Damgaları' : 'The Seals of the Surahs'}
         </h2>
         <p style={{
           fontFamily: FONTS.body,
+          fontSize: isMobile ? '0.92rem' : '1rem',
+          color: COLORS.gold, opacity: 0.8,
+          margin: '0 0 18px', lineHeight: 1.5,
+          fontStyle: 'italic',
+          maxWidth: '720px',
+        }}>
+          {tr
+            ? 'Açılış ve kapanış arasındaki gizli bağ — 1400 yıllık bir akademik geleneğin DNA\'sı.'
+            : 'The hidden bond between opening and closing — the DNA of a 1400-year scholarly tradition.'}
+        </p>
+        <p style={{
+          fontFamily: FONTS.body,
           fontSize: isMobile ? '0.9rem' : '0.95rem',
-          color: COLORS.silver, margin: 0, lineHeight: 1.7,
+          color: COLORS.silver, margin: '0 0 14px', lineHeight: 1.75,
           maxWidth: '760px',
         }}>
           {tr
-            ? 'Her sûrenin ilk ve son kelimesi tesadüf değildir. Klasik İslâm âlimliğinde bunun adı vardır: Münâsebât-ı Süver — sûreler arası ve sûre içi bağıntılar bilimi. Suyûtî, Bikâî, Râzî bu konuya ciltler ayırdı. Aşağıdaki yedi örnek, verideki saklı örüntüleri açar.'
-            : 'The first and last words of every surah are no accident. Classical Islamic scholarship has a name for this: Munāsabāt al-Suwar — the science of inter- and intra-surah connections. Al-Suyūṭī, al-Biqāʿī, and al-Rāzī devoted volumes to it. The seven examples below open the patterns hidden in the data.'}
+            ? 'Her sûrenin ilk ve son kelimesi tesadüf değildir. Klasik İslâm âlimliğinde bunun bir adı vardır: Münâsebât-ı Süver — sûreler arası ve sûre içi bağıntılar bilimi. Süyûtî el-İtkân\'da, Bikâî Nazmü\'d-Dürer\'de, Râzî Mefâtîhu\'l-Gayb\'da bu örüntüleri ciltler dolusu çalıştı. Modern Batı akademisinde Mustansir Mir ve Raymond Farrin bu konuyu yeniden gündeme getirdi.'
+            : 'The first and last words of every surah are no accident. Classical Islamic scholarship has a name for this: Munāsabāt al-Suwar — the science of inter- and intra-surah connections. Al-Suyūṭī in al-Itqān, al-Biqāʿī in Naẓm al-Durar, and al-Rāzī in Mafātīḥ al-Ghayb devoted volumes to these patterns. In modern Western scholarship, Mustansir Mir and Raymond Farrin have revived the field.'}
         </p>
+        <p style={{
+          fontFamily: FONTS.body,
+          fontSize: isMobile ? '0.9rem' : '0.95rem',
+          color: COLORS.silver, margin: 0, lineHeight: 1.75,
+          maxWidth: '760px',
+        }}>
+          {tr
+            ? 'Aşağıdaki yedi örnek, 114 sûrenin damgalarında saklı duran bağıntıları açar — bir sûre bittiği yerden bir sonrakine köprü kurar; bazen kendi başlangıcına döner; bazen yedi sûre tek imzayla aynı kapanışı paylaşır.'
+            : 'The seven examples below open the connections hidden in the seals of the 114 surahs — one surah bridges from where it ends to where the next begins; sometimes it returns to its own beginning; sometimes seven surahs share one signature with parallel endings.'}
+        </p>
+
+        {/* Çekirdek örnek pointer */}
+        <div style={{
+          marginTop: '20px',
+          padding: '10px 14px',
+          background: COLORS.goldAlpha04,
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          borderRadius: RADIUS.sm,
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '10px',
+          maxWidth: '100%',
+        }}>
+          <span style={{
+            fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
+            letterSpacing: '0.22em', textTransform: 'uppercase',
+            color: COLORS.gold, opacity: 0.8,
+            flexShrink: 0,
+          }}>
+            {tr ? 'Çekirdek Örnek' : 'Canonical Example'}
+          </span>
+          <span style={{
+            fontSize: '0.82rem', fontFamily: FONTS.body,
+            color: COLORS.offWhite, opacity: 0.85,
+          }}>
+            {tr ? 'Fâtiha 7 → Bakara 2 — duâ ve cevap köprüsü' : 'Al-Fātiḥa 7 → Al-Baqara 2 — the prayer-and-answer bridge'}
+          </span>
+        </div>
       </div>
 
       {/* Spotlight cards */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         {spotlights.map(sp => (
           <SpotlightCard key={sp.id} spotlight={sp} language={language} isMobile={isMobile} />
+        ))}
+      </div>
+
+      {/* Çapraz Okuma — Pattern category insights */}
+      <CrossReadingSection
+        surahs={surahs}
+        language={language}
+        isMobile={isMobile}
+        onFilterClick={onFilterClick}
+      />
+    </div>
+  );
+}
+
+// ─── Çapraz Okuma — Örüntü Kategorileri ──────────────────────────────────────
+// Açılış/kapanış kalıplarının istatistiği + her örüntünün ne anlama geldiğine
+// dair bir-iki cümle insight. Tıklanınca filtre uygulanır.
+function CrossReadingSection({ surahs, language, isMobile, onFilterClick }) {
+  if (!surahs || surahs.length === 0) return null;
+  const tr = language === 'tr';
+  const insights = [
+    {
+      filterId: 'mukattaaOpener',
+      count: surahs.filter(s => s.hasMukattaa).length,
+      labelTr: 'Mukattaa ile açılan', labelEn: 'Muqaṭṭaʿāt opener',
+      insightTr: '14 farklı harf kombinasyonu, 29 sûreyi şifre ile açar — anlamı sadece Allah\'ın bildiği. Hepsi vahiy/Kitap atfıyla devam eder; şifreden vaade yolculuk.',
+      insightEn: '14 different letter combinations open 29 surahs with a cipher — meaning known only to God. All continue with reference to revelation/the Book; a journey from cipher to promise.',
+    },
+    {
+      filterId: 'oathOpener',
+      count: surahs.filter(s => s.hasOath).length,
+      labelTr: 'Yemin ile açılan', labelEn: 'Oath opener',
+      insightTr: 'Allah\'ın yarattığı varlıklar üzerine yemin ederek açan 17 sûre — gece, gündüz, asır, kalem, melekler. Şahit gösterilerek başlayan retorik.',
+      insightEn: 'Seventeen surahs open with God swearing by something He created — night, day, the age, the pen, the angels. A rhetoric that opens by calling forth a witness.',
+    },
+    {
+      filterId: 'divineNameCloser',
+      count: surahs.filter(s => (s.closerTags || []).includes('divine-name-closer')).length,
+      labelTr: 'İlâhî sıfatla biten', labelEn: 'Divine attribute closer',
+      insightTr: 'Esmâ-i Hüsnâ\'dan biriyle mühürlenen 9 sûre — Hakîm, Habîr, Muhît, Tevvâb… Sûrenin son nefesi Allah\'ın bir sıfatına teslim olur.',
+      insightEn: 'Nine surahs sealed with one of God\'s Beautiful Names — al-Ḥakīm, al-Khabīr, al-Muḥīṭ, al-Tawwāb… The surah\'s last breath surrenders to one of God\'s attributes.',
+    },
+    {
+      filterId: 'kulOpener',
+      count: surahs.filter(s => (s.openerTags || []).includes('kul-opener')).length,
+      labelTr: '"Kul" ile açılan', labelEn: '"Qul" opener',
+      insightTr: '"Söyle!" emrinin saf hâli — Hz. Peygamber\'e doğrudan iletilen 5 sûre. Beş ufuk: ilim, akide, tevhid, dış korunma, iç korunma.',
+      insightEn: 'The pure form of the command "Say!" — five surahs delivered directly to the Prophet. Five horizons: knowledge, creed, unity, external refuge, internal refuge.',
+    },
+    {
+      filterId: 'innaOpener',
+      count: surahs.filter(s => (s.openerTags || []).includes('inna')).length,
+      labelTr: '"İnnâ" ile açılan', labelEn: '"Innā" opener',
+      insightTr: '"Şüphesiz biz…" vurgulu ilanıyla açan 4 sûre: Feth, Nûh, Kadr, Kevser. Hepsinde ilahi bir bildirinin ağırlığı vardır.',
+      insightEn: 'Four surahs that open with the emphatic declaration "Indeed, We…": al-Fatḥ, Nūḥ, al-Qadr, al-Kawthar. Each carries the weight of a divine announcement.',
+    },
+    {
+      filterId: 'vocativeOpener',
+      count: surahs.filter(s => (s.openerTags || []).includes('vocative')).length,
+      labelTr: '"Yâ eyyuhâ" ile açılan', labelEn: '"Yā ayyuhā" opener',
+      insightTr: 'Yalnız 2 sûre "Yâ eyyuhâ" çağrısıyla açar — Müzzemmil ve Müddessir. Her ikisi de erken Mekkî dönemde Hz. Peygamber\'e doğrudan hitap.',
+      insightEn: 'Only two surahs open with "Yā ayyuhā" — al-Muzzammil and al-Muddaththir. Both are early Meccan, addressing the Prophet directly.',
+    },
+    {
+      filterId: 'imperativeOpener',
+      count: surahs.filter(s => (s.openerTags || []).includes('imperative') && !(s.openerTags || []).includes('kul-opener')).length,
+      labelTr: 'Emir fiili ile açılan', labelEn: 'Imperative opener',
+      insightTr: '"Kul" dışı emir fiilleriyle açan sûreler — "İqra\'" (Alak), "Kum" (Müddessir). Mutlak emir kipinde başlayan tebliğ.',
+      insightEn: 'Surahs that open with imperatives other than "Qul" — "Iqraʾ" (al-ʿAlaq), "Qum" (al-Muddaththir). Proclamation that begins in pure command form.',
+    },
+  ].filter(ins => ins.count > 0);
+
+  return (
+    <div style={{ marginTop: '48px' }}>
+      {/* Section header */}
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
+          letterSpacing: '0.3em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.65, marginBottom: '8px',
+        }}>
+          {tr ? 'Çapraz Okuma' : 'Cross Reading'}
+        </div>
+        <h3 style={{
+          fontFamily: FONTS.display, fontWeight: 700,
+          fontSize: isMobile ? '1.25rem' : '1.45rem',
+          color: COLORS.offWhite, margin: '0 0 10px',
+          lineHeight: 1.25,
+        }}>
+          {tr ? 'Örüntü Kategorileri' : 'Pattern Categories'}
+        </h3>
+        <p style={{
+          fontFamily: FONTS.body, fontSize: '0.88rem',
+          color: COLORS.silver, margin: 0, lineHeight: 1.65,
+          maxWidth: '760px',
+        }}>
+          {tr
+            ? '114 sûrenin damgaları rastgele dağılmaz — kalıplara göre kümelenir. Aşağıdaki istatistikler her örüntünün arkasındaki klasik mantığı gösterir; karta tıklayarak ilgili sûreleri ızgarada filtreleyebilirsin.'
+            : 'The seals of the 114 surahs do not scatter at random — they cluster by pattern. The statistics below show the classical logic behind each pattern; click a card to filter the grid by that category.'}
+        </p>
+      </div>
+
+      {/* Insights grid */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
+        gap: '12px',
+      }}>
+        {insights.map(ins => (
+          <button
+            key={ins.filterId}
+            onClick={() => onFilterClick && onFilterClick(ins.filterId)}
+            style={{
+              textAlign: 'left',
+              padding: '16px 18px',
+              background: 'rgba(255,255,255,0.025)',
+              border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
+              borderRadius: RADIUS.md,
+              cursor: 'pointer',
+              fontFamily: 'inherit',
+              transition: 'all 0.15s',
+              display: 'flex', flexDirection: 'column',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = COLORS.goldAlpha04;
+              e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
+              e.currentTarget.style.borderColor = COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)';
+            }}
+          >
+            <div style={{
+              display: 'flex', alignItems: 'baseline', gap: '10px',
+              marginBottom: '8px',
+            }}>
+              <span style={{
+                fontFamily: FONTS.display, fontWeight: 800,
+                fontSize: '1.7rem',
+                color: COLORS.gold,
+                lineHeight: 1,
+              }}>
+                {ins.count}
+              </span>
+              <span style={{
+                fontSize: '0.78rem', fontFamily: FONTS.body,
+                color: COLORS.silver, opacity: 0.7,
+              }}>
+                {tr ? 'sûre' : 'surahs'}
+              </span>
+            </div>
+            <div style={{
+              fontSize: '0.82rem', fontFamily: FONTS.body, fontWeight: 700,
+              color: COLORS.offWhite, marginBottom: '8px',
+              letterSpacing: '0.01em',
+            }}>
+              {tr ? ins.labelTr : ins.labelEn}
+            </div>
+            <p style={{
+              fontSize: '0.8rem', fontFamily: FONTS.body,
+              color: COLORS.silver, margin: 0, lineHeight: 1.6,
+              opacity: 0.85,
+            }}>
+              {tr ? ins.insightTr : ins.insightEn}
+            </p>
+            <div style={{
+              marginTop: '10px',
+              fontSize: '0.72rem',
+              color: COLORS.gold, opacity: 0.7,
+              fontFamily: FONTS.body, fontWeight: 600,
+              letterSpacing: '0.02em',
+            }}>
+              {tr ? 'Detayını Gör →' : 'See Details →'}
+            </div>
+          </button>
         ))}
       </div>
     </div>
