@@ -1332,6 +1332,7 @@ function SpotlightSurahPanel({ surah, language }) {
 }
 
 function SpotlightList({ spotlight, language, isMobile }) {
+  const tr = language === 'tr';
   return (
     <div style={{
       padding: isMobile ? '10px 12px' : '14px 18px',
@@ -1344,7 +1345,7 @@ function SpotlightList({ spotlight, language, isMobile }) {
           key={i}
           style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '36px 1fr 16px 1.4fr' : '40px 1fr 24px 1.4fr',
+            gridTemplateColumns: isMobile ? '92px 1fr 16px 1.4fr' : '110px 1fr 24px 1.4fr',
             gap: isMobile ? '6px' : '10px',
             alignItems: 'center',
             padding: '8px 0',
@@ -1353,14 +1354,30 @@ function SpotlightList({ spotlight, language, isMobile }) {
               : 'none',
           }}
         >
-          {/* Surah number */}
+          {/* Surah number + name */}
           <div style={{
-            fontSize: '0.78rem',
-            color: COLORS.silver, opacity: 0.7,
-            fontWeight: 600,
+            display: 'flex', alignItems: 'baseline', gap: '6px',
             fontFamily: FONTS.body,
+            overflow: 'hidden',
           }}>
-            {item.num}.
+            <span style={{
+              fontSize: '0.72rem',
+              color: COLORS.silver, opacity: 0.6,
+              fontWeight: 600,
+              flexShrink: 0,
+            }}>
+              {item.num}.
+            </span>
+            <span style={{
+              fontSize: isMobile ? '0.78rem' : '0.84rem',
+              color: COLORS.offWhite,
+              fontWeight: 600,
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+            }}>
+              {tr ? item.nameTr : (item.nameEn || item.nameTr)}
+            </span>
           </div>
           {/* First word (Arabic) */}
           <div dir="rtl" lang="ar" style={{
