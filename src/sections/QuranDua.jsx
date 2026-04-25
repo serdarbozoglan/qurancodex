@@ -20,7 +20,7 @@ const PROPHET_PROFILES = [
     countEn: '15+ supplications',
     insightTr: "Hz. İbrahim'in duaları görev bilinci taşır — her dua bir nesil, bir ümmet, bir şehir için.",
     insightEn: "Abraham's prayers carry a sense of mission — each prayer is for a generation, a nation, a city.",
-    responseTr: 'Cevap: Mekke kuruldu, Beytullah inşa edildi (Bakara 2:127); ileri yaşta İsmail ve İshak verildi (İbrâhim 14:39).',
+    responseTr: 'Cevap: Mekke kuruldu, Beytullah inşa edildi (Bakara 2:127); ileri yaşta Hz. İsmail ve Hz. İshak verildi (İbrâhim 14:39).',
     responseEn: 'Response: Mecca was established, the Sacred House was built (Al-Baqara 2:127); in old age he was granted Ishmael and Isaac (Ibrāhīm 14:39).',
   },
   {
