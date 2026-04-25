@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
-import AnimatedCounter from '../components/AnimatedCounter';
 
 const PROPHET_PROFILES = [
   {
@@ -21,6 +20,8 @@ const PROPHET_PROFILES = [
     countEn: '15+ supplications',
     insightTr: 'İbrahim duaları görev bilinci taşır — her dua bir nesil, bir ümmet, bir şehir için.',
     insightEn: "Abraham's prayers carry a sense of mission — each prayer is for a generation, a nation, a city.",
+    responseTr: 'Cevap: Mekke kuruldu, Beytullah inşa edildi (2:127); ileri yaşta İsmail ve İshak verildi (14:39).',
+    responseEn: 'Response: Mecca was established, the Sacred House was built (2:127); in old age he was granted Ishmael and Isaac (14:39).',
   },
   {
     id: 'eyyub',
@@ -38,6 +39,8 @@ const PROPHET_PROFILES = [
     countEn: '2 supplications',
     insightTr: "Eyyub'un duası şikâyet değil, arz'tır — durumunu Allah'a sunar ama isyan etmez. 'Bana zarar dokundu' der, hemen 'Sen merhametlilerin en merhametlisisin' diye Allah'ın sıfatını hatırlatır. Klasik tefsir (Râzî, Kurtubî, İbn Kesîr): edebî sınırlar içinde halini arz, sabrın peygamberinin yöntemi.",
     insightEn: "Job's prayer is not complaint but presentation — he lays his condition before God without rebellion. 'Adversity has touched me,' he says, then immediately invokes 'You are the Most Merciful.' Classical exegesis (Rāzī, Qurṭubī, Ibn Kathīr): a respectful arrangement of one's state, the method of the prophet of patience.",
+    responseTr: 'Cevap: Şifa, ailesi geri döndü, malı bir misli artırıldı (Enbiyâ 21:84, Sâd 38:42-43); "Şüphesiz biz onu sabreden bulduk; ne güzel kuldur o!" (38:44).',
+    responseEn: 'Response: Healing, his family was restored, his wealth doubled (Al-Anbiya 21:84, Sad 38:42-43); "Indeed We found him patient — an excellent servant!" (38:44).',
   },
   {
     id: 'yunus',
@@ -55,6 +58,46 @@ const PROPHET_PROFILES = [
     countEn: "1 main prayer (Al-Anbiya 21:87) — theologically most dense",
     insightTr: "Yunus'un duası teolojik olarak Kur'an'ın en yoğun dualarından biri — tek cümlede üç katman: tevhid (lâ ilâhe illâ ente), tenzih (sübhâneke) ve itiraf (innî küntü mine'z-zâlimîn). Daha kısa dualar vardır (Zekeriyyâ 19:4, Mûsâ Kasas 28:24); Yunus'un farkı uzunluk değil, içerik yoğunluğudur.",
     insightEn: "Jonah's prayer is among the most theologically dense in the Qur'an — three layers in one sentence: divine unity (lā ilāha illā anta), exaltation (subḥānaka), and confession (innī kuntu mina'z-zālimīn). Shorter prayers exist (Zechariah 19:4, Moses Qaṣaṣ 28:24); Jonah's distinction is not length but density of content.",
+    responseTr: 'Cevap: Karanlığın içinde kurtarıldı (21:88). Kur\'an "Allah onu tasadan kurtardı" diye nitelendirir.',
+    responseEn: 'Response: Delivered from the darkness (21:88). The Qur\'an states "We saved him from the distress."',
+  },
+  {
+    id: 'zekeriyya',
+    nameTr: 'Hz. Zekeriyyâ',
+    nameEn: 'Prophet Zechariah',
+    emojiColor: '#a78bfa',
+    profileTr: 'Yaşlılık · Mahremiyet · Beklenmeyen Mucize',
+    profileEn: 'Old Age · Intimacy · Unexpected Miracle',
+    themesTr: ['İleri yaşta evlat talebi', 'Gizli/yumuşak ses ile dua', 'Allah\'tan utanma', 'Mucizevi cevap'],
+    themesEn: ['Petition for offspring in old age', 'Praying with a hushed voice', 'Modesty before God', 'Miraculous response'],
+    famousTr: '"Rabbi innî vehene\'l-azmu minnî ve\'ş-teale\'r-re\'sü şeybâ" — Rabbim, kemiklerim zayıfladı, saçım ağardı. (Meryem 19:4)',
+    famousEn: '"Rabbi inni wahana al-azmu minni wa\'shta\'ala al-ra\'su shayba" — My Lord, my bones have weakened and my head has flared with white. (Maryam 19:4)',
+    ar: 'رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي',
+    countTr: '4 ana dua',
+    countEn: '4 main supplications',
+    insightTr: "Zekeriyyâ duası 'gizli ses' (nidâen hafiyyâ — Meryem 19:3) ile yapılır; ne dilediği başkalarının duymasından utanç duyar. Kemiklerinin zayıfladığını söyler ama 'biliyorsun' demez — Allah'a tanıklık değil, kendi acziyetini sunar. İleri yaşın çaresizliği umut talebine dönüşür: 'sana dua ederken hiçbir zaman bedbaht olmadım.'",
+    insightEn: "Zechariah's prayer is offered 'in a hushed voice' (nidā'an khafiyyan — Maryam 19:3); he is too modest for others to overhear what he asks. He notes that his bones have weakened, yet does not say 'You know'; he places his own helplessness before God rather than testifying to it. The despair of old age transforms into a petition of hope: 'I have never been unblessed in calling upon You.'",
+    responseTr: 'Cevap: İleri yaşta Yahyâ (Yûhanna) verildi (19:7). Aynı isim daha önce kimseye verilmemişti.',
+    responseEn: 'Response: In advanced age he was granted Yaḥyā (John) (19:7). A name not given to anyone before.',
+  },
+  {
+    id: 'musa',
+    nameTr: 'Hz. Mûsâ',
+    nameEn: 'Prophet Moses',
+    emojiColor: '#e67e22',
+    profileTr: 'Mücadele · Açıklık · Korku Karşısında Sığınma',
+    profileEn: 'Struggle · Clarity · Refuge in Fear',
+    themesTr: ['Şerh-i sadr (göğüs açılması)', 'İletişim güçlüğünün kaldırılması', 'Yardımcı talebi', 'Kendi zaafından sığınma'],
+    themesEn: ['Sharḥ al-ṣadr (expansion of the chest)', 'Removal of speech impediment', 'Petition for support', "Refuge from one's own weakness"],
+    famousTr: '"Rabbi\'şrah lî sadrî · ve yessir lî emrî · vahlul ʿuqdetan min lisânî · yefkahû kavlî" — Rabbim, göğsümü aç, işimi kolaylaştır, dilimden düğümü çöz ki sözümü anlasınlar. (Tâhâ 20:25-28)',
+    famousEn: '"Rabbi shraḥ lī ṣadrī · wa yassir lī amrī · waḥlul ʿuqdatan min lisānī · yafqahū qawlī" — My Lord, expand my chest, ease my task, untie the knot from my tongue, that they may understand my speech. (Ta-Ha 20:25-28)',
+    ar: 'رَبِّ اشْرَحْ لِي صَدْرِي',
+    countTr: '15+ dua — Kur\'an\'ın en uzun dua zinciri',
+    countEn: "15+ supplications — the Qur'an's longest prayer chain",
+    insightTr: "Mûsâ duası psikolojinin haritasıdır: önce iç durum (göğüs açılsın, dar olmasın), sonra dış görev (iş kolaylaşsın), ardından iletişim (dil çözülsün), nihayet sosyal destek (kardeş Hârûn). Modern psikolojinin 'iç düzenleme → dış eylem → diyalog → ekosistem' sıralamasını 14 asır önce verir. Firavun karşısında bir peygamber kendi zaafını şikâyet değil talep diliyle sunar — 'şerh-i sadr' iç dünyada yer açma demektir.",
+    insightEn: "Moses' prayer is a map of psychology: first inner state (let the chest expand, not constrict), then outer task (ease the work), then communication (untie my tongue), finally social support (my brother Aaron). Fourteen centuries before modern psychology, this sequence — inner regulation → outer action → dialogue → ecosystem — is laid out. Before Pharaoh, a prophet voices his own weakness not as complaint but as petition — 'sharḥ al-ṣadr' means making inner space.",
+    responseTr: 'Cevap: "Talebin verildi" (Tâhâ 20:36). Hârûn yardımcı kılındı, korku açıklığa dönüştürüldü.',
+    responseEn: 'Response: "Your request is granted" (Ta-Ha 20:36). Aaron was made his helper; fear was transformed into clarity.',
   },
 ];
 
@@ -130,29 +173,154 @@ export default function QuranDua() {
           : 'The Quran contains over 40 prayers beginning with "Rabbana" (Our Lord!). These are not merely words — they are a map of the human soul, voiced by different prophets at different moments with different needs.'}
       </motion.p>
 
-      {/* Linguistik not: "Nâ" (Biz) vurgusu */}
-      <motion.div variants={fadeUpItem} className="mb-10 rounded-xl p-5" style={{
-        background: 'rgba(212,165,116,0.05)',
-        border: '1px solid rgba(212,165,116,0.2)',
-        borderLeft: '3px solid rgba(212,165,116,0.5)',
-        maxWidth: '700px',
-      }}>
-        <p className="text-sm font-body leading-relaxed" style={{ color: 'rgba(232,230,227,0.7)' }}>
-          <span style={{ color: '#d4a574', fontWeight: 600 }}>
-            {tr ? 'Linguistik gözlem: ' : 'Linguistic observation: '}
-          </span>
+      {/* Linguistik gözlem — Rabbî ⇋ Rabbenâ karşılaştırma paneli */}
+      <motion.div variants={fadeUpItem} className="mb-10" style={{ maxWidth: '900px' }}>
+        <p style={{
+          fontSize: '0.65rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+          color: '#d4a574', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+          marginBottom: '12px', opacity: 0.85,
+        }}>
+          {tr ? 'Linguistik Gözlem — Tekil ⇋ Çoğul Dengesi' : 'Linguistic Observation — Singular ⇋ Plural Balance'}
+        </p>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0,1fr) auto minmax(0,1fr)',
+          gap: '14px',
+          alignItems: 'stretch',
+        }}>
+          {/* Rabbî — tekil */}
+          <div style={{
+            background: 'rgba(52,152,219,0.06)',
+            border: '1px solid rgba(52,152,219,0.25)',
+            borderTop: '2px solid #3498db',
+            borderRadius: '10px',
+            padding: '16px 18px',
+          }}>
+            <div dir="rtl" lang="ar" style={{
+              fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+              fontSize: '2.2rem', color: '#3498db', textAlign: 'center',
+              lineHeight: 1.2, marginBottom: '6px',
+              textShadow: '0 0 14px rgba(52,152,219,0.18)',
+            }}>
+              رَبِّ
+            </div>
+            <div style={{ textAlign: 'center', color: '#3498db', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
+              {tr ? 'Rabbî · Rabbim' : 'Rabbī · my Lord'}
+            </div>
+            <div style={{ textAlign: 'center', color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
+              {tr ? 'tekil · ~40 yer' : 'singular · ~40 occurrences'}
+            </div>
+            <div style={{
+              borderTop: '1px dashed rgba(52,152,219,0.25)',
+              paddingTop: '10px',
+              color: 'rgba(232,230,227,0.65)', fontSize: '0.78rem',
+              lineHeight: 1.65, fontFamily: "'Inter', sans-serif",
+            }}>
+              {tr
+                ? 'Peygamberin kişisel başvurusu — Zekeriyyâ, Eyyub, Mûsâ, Yusuf, Süleyman. Yalnız kalan ruhun Rabbiyle teması.'
+                : "Prophet's personal petition — Zechariah, Job, Moses, Joseph, Solomon. The solitary soul's contact with its Lord."}
+            </div>
+          </div>
+
+          {/* Center: bağlaç sembolü */}
+          <div style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center',
+            justifyContent: 'center', minWidth: '36px',
+          }}>
+            <span style={{
+              color: '#d4a574', fontSize: '1.6rem', opacity: 0.55,
+              fontFamily: "'Inter', sans-serif", lineHeight: 1,
+            }}>⇋</span>
+            <span style={{
+              writingMode: 'vertical-rl', textOrientation: 'mixed',
+              color: 'rgba(212,165,116,0.5)', fontSize: '0.62rem',
+              letterSpacing: '0.16em', textTransform: 'uppercase',
+              fontFamily: "'Inter', sans-serif", fontWeight: 700,
+              marginTop: '8px',
+            }}>
+              {tr ? 'denge' : 'balance'}
+            </span>
+          </div>
+
+          {/* Rabbenâ — çoğul */}
+          <div style={{
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.25)',
+            borderTop: '2px solid #d4a574',
+            borderRadius: '10px',
+            padding: '16px 18px',
+          }}>
+            <div dir="rtl" lang="ar" style={{
+              fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+              fontSize: '2.2rem', color: '#d4a574', textAlign: 'center',
+              lineHeight: 1.2, marginBottom: '6px',
+              textShadow: '0 0 14px rgba(212,165,116,0.18)',
+            }}>
+              رَبَّنَا
+            </div>
+            <div style={{ textAlign: 'center', color: '#d4a574', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
+              {tr ? 'Rabbenâ · Rabbimiz' : 'Rabbanā · our Lord'}
+            </div>
+            <div style={{ textAlign: 'center', color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
+              {tr ? 'çoğul · ~38 yer' : 'plural · ~38 occurrences'}
+            </div>
+            <div style={{
+              borderTop: '1px dashed rgba(212,165,116,0.25)',
+              paddingTop: '10px',
+              color: 'rgba(232,230,227,0.65)', fontSize: '0.78rem',
+              lineHeight: 1.65, fontFamily: "'Inter', sans-serif",
+            }}>
+              {tr
+                ? 'Topluluk/ümmet adına başvuru — Bedir öncesi, Âdem-Havvâ, Hac duası, müminler topluluğu. Bireysel iman dahi kolektif bir omurga taşır.'
+                : 'Petition on behalf of community/ummah — before Badr, Adam-Eve, the Hajj prayer, congregation of believers. Even individual faith carries a collective spine.'}
+            </div>
+          </div>
+        </div>
+
+        {/* Synthesis line */}
+        <p style={{
+          marginTop: '14px', textAlign: 'center',
+          color: 'rgba(232,230,227,0.55)', fontSize: '0.78rem',
+          fontFamily: "'Inter', sans-serif", fontStyle: 'italic',
+          lineHeight: 1.6,
+        }}>
           {tr
-            ? 'Kur\'an\'da dua açılışları "Rabbî" (رَبِّ — Rabbim) ve "Rabbenâ" (رَبَّنَا — Rabbimiz) arasında dengeli dağılır (her biri yaklaşık 38-40 yer). Fark anlamsaldır: tekil form genellikle peygamberin kişisel başvurusunu (Zekeriyyâ, Eyyub, Mûsâ, Süleyman, Yusuf), çoğul form ise topluluk/ümmet adına başvuruyu (Bedir öncesi, Âdem-Havvâ, hac duası) işaret eder. "-nâ" eki dua eden kişiyi cemaate bağlar — bireysel iman dahi kolektif bir omurga taşır.'
-            : 'In the Qur\'an, prayer openings are evenly distributed between "Rabbī" (رَبِّ — my Lord) and "Rabbanā" (رَبَّنَا — our Lord), each appearing in roughly 38-40 places. The difference is semantic: the singular generally marks a prophet\'s personal petition (Zechariah, Job, Moses, Solomon, Joseph), while the plural marks a petition on behalf of community/ummah (before Badr, Adam-Eve, the Hajj prayer). The suffix "-nā" binds the supplicant to the congregation — even individual faith carries a collective spine.'}
+            ? 'İki form yarışmaz — birbirini tamamlar. Yalnız okurken "Rabbî", cemaatte okurken "Rabbenâ" — ama her duada öteki gizlidir.'
+            : 'The two forms do not compete — they complete each other. "Rabbī" when read alone, "Rabbanā" when in congregation — yet in every prayer, the other is implicit.'}
         </p>
       </motion.div>
 
-      {/* Sayı kartı */}
-      <motion.div variants={fadeUpItem} className="flex justify-start mb-10">
-        <div className="glass-card p-6 flex flex-col items-center min-w-[140px]">
-          <AnimatedCounter target={40} suffix="+" className="text-4xl text-gold" />
-          <span className="text-silver/60 text-sm mt-1">{tr ? 'Rabbena Duası' : 'Rabbana Prayers'}</span>
-        </div>
+      {/* Hero stat şeridi — 4 paralel istatistik */}
+      <motion.div variants={fadeUpItem} className="mb-10" style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+        gap: '12px',
+      }}>
+        {[
+          { value: '40+',  labelTr: 'Rabbenâ Duası',         labelEn: 'Rabbanā Prayers',     color: '#d4a574', subTr: 'çoğul · ümmet adına',  subEn: 'plural · for community' },
+          { value: '40+',  labelTr: 'Rabbî Duası',           labelEn: 'Rabbī Prayers',       color: '#3498db', subTr: 'tekil · kişisel başvuru', subEn: 'singular · personal' },
+          { value: '5',    labelTr: 'Peygamber Profili',      labelEn: 'Prophet Profiles',    color: '#a78bfa', subTr: 'İbrahim · Eyyub · Yunus · Zekeriyyâ · Mûsâ', subEn: 'Abraham · Job · Jonah · Zechariah · Moses' },
+          { value: '~30',  labelTr: 'Yemin İçeren Sûre',      labelEn: 'Surahs with Prayers', color: '#2ecc71', subTr: 'Mekkî · Medenî dengeli',   subEn: 'Meccan · Medinan balanced' },
+        ].map((s, i) => (
+          <div key={i} style={{
+            background: `${s.color}10`,
+            border: `1px solid ${s.color}25`,
+            borderTop: `2px solid ${s.color}`,
+            borderRadius: '10px',
+            padding: '14px 16px',
+            display: 'flex', flexDirection: 'column', gap: '4px',
+          }}>
+            <div style={{ color: s.color, fontSize: '1.6rem', fontWeight: 800, fontFamily: "'Inter', sans-serif", lineHeight: 1 }}>
+              {s.value}
+            </div>
+            <div style={{ color: '#e8e6e3', fontSize: '0.82rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
+              {tr ? s.labelTr : s.labelEn}
+            </div>
+            <div style={{ color: 'rgba(148,163,184,0.6)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', lineHeight: 1.4 }}>
+              {tr ? s.subTr : s.subEn}
+            </div>
+          </div>
+        ))}
       </motion.div>
 
       {/* Peygamber profil tabları */}
@@ -264,26 +432,207 @@ export default function QuranDua() {
                   </div>
                 </div>
 
-                {/* İçgörü */}
+                {/* İçgörü — pull quote formatı */}
                 <div style={{
                   background: `${p.emojiColor}08`,
                   border: `1px solid ${p.emojiColor}18`,
                   borderRadius: '10px',
-                  padding: '16px',
+                  padding: '16px 18px',
                   display: 'flex', flexDirection: 'column', justifyContent: 'center',
+                  position: 'relative',
                 }}>
-                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: p.emojiColor, marginBottom: '8px', fontFamily: "'Inter', sans-serif", fontWeight: 700, opacity: 0.7 }}>
+                  <span style={{
+                    position: 'absolute', top: '6px', left: '12px',
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: '2.2rem', lineHeight: 1, color: p.emojiColor,
+                    opacity: 0.25, fontWeight: 800, pointerEvents: 'none',
+                  }}>"</span>
+                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: p.emojiColor, marginBottom: '8px', fontFamily: "'Inter', sans-serif", fontWeight: 700, opacity: 0.7, marginLeft: '20px' }}>
                     {tr ? 'İçgörü' : 'Insight'}
                   </p>
-                  <p style={{ color: 'rgba(232,230,227,0.6)', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", lineHeight: 1.65, fontStyle: 'italic', margin: 0 }}>
+                  <p style={{ color: 'rgba(232,230,227,0.72)', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", lineHeight: 1.65, fontStyle: 'italic', margin: 0 }}>
                     {tr ? p.insightTr : p.insightEn}
                   </p>
                 </div>
               </div>
+
+              {/* Cevab-ı Dua — duanın akıbeti */}
+              {(tr ? p.responseTr : p.responseEn) && (
+                <div style={{
+                  padding: '14px 18px',
+                  background: 'rgba(255,255,255,0.02)',
+                  border: `1px dashed ${p.emojiColor}33`,
+                  borderLeft: `2px solid ${p.emojiColor}`,
+                  borderRadius: '8px',
+                  display: 'flex', alignItems: 'flex-start', gap: '12px',
+                }}>
+                  {/* Arrow icon */}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={p.emojiColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: '2px', opacity: 0.7 }}>
+                    <path d="M7 17l10-10M17 7H7M17 7v10"/>
+                  </svg>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <p style={{
+                      fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase',
+                      color: p.emojiColor, marginBottom: '4px',
+                      fontFamily: "'Inter', sans-serif", fontWeight: 700, opacity: 0.75,
+                    }}>
+                      {tr ? 'Cevab-ı Dua' : 'Response'}
+                    </p>
+                    <p style={{ color: 'rgba(232,230,227,0.72)', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", lineHeight: 1.65, margin: 0 }}>
+                      {tr ? p.responseTr : p.responseEn}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         ))}
       </AnimatePresence>
+
+      {/* Dua'nın Anatomisi — 4-parçalı klasik retorik yapı */}
+      <motion.div variants={fadeUpItem} className="mb-12">
+        <h3 className="font-display text-xl font-bold text-off-white mb-2">
+          {tr ? "Dua'nın Anatomisi — Dört Aşama" : "Anatomy of a Prayer — Four Stages"}
+        </h3>
+        <p style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', lineHeight: 1.65, fontFamily: "'Inter', sans-serif", marginBottom: '20px', maxWidth: '780px' }}>
+          {tr
+            ? "Kur'ânî dua geleneğinde her dua dört temel aşamadan oluşur — bu sıra rastgele değil, içsel bir mimari. Bakara 2:201'in dört parçaya bölünüşü:"
+            : "In the Qur'anic prayer tradition, every prayer comprises four core stages — not random but an inner architecture. Al-Baqara 2:201 broken into its four parts:"
+          }
+        </p>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+          gap: '12px',
+        }}>
+          {[
+            {
+              labelTr: 'Çağrı', labelEn: 'Invocation',
+              ar: 'رَبَّنَا',
+              translitTr: 'Rabbenâ — Rabbimiz',
+              translitEn: 'Rabbanā — Our Lord',
+              descTr: "Hitabın yakınlığı: 'yâ' edatı kullanılmaz. Allah ile dua eden arasındaki mesafe sıfırlanır.",
+              descEn: "Intimacy of address: no 'yā' particle. The distance between God and the supplicant collapses.",
+              color: '#d4a574',
+            },
+            {
+              labelTr: 'Hâl Arzı', labelEn: 'Presentation',
+              implicit: true,
+              translitTr: 'İki diyarda yaşıyoruz',
+              translitEn: 'We live across two realms',
+              descTr: '2:201\'de zımni: insanın iki diyarda (dünya/ahiret) varoluşu. Eyyub\'da açık: "bana zarar dokundu" — durumun arzı.',
+              descEn: 'Implicit in 2:201: humanity\'s existence across two realms (world/hereafter). Explicit in Job: "adversity has touched me" — the presentation of state.',
+              color: '#3498db',
+            },
+            {
+              labelTr: 'Talep', labelEn: 'Petition',
+              ar: 'آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً',
+              translitTr: 'Bize dünyada da iyilik ver, ahirette de iyilik ver',
+              translitEn: 'Grant us good in this world and good in the Hereafter',
+              descTr: '"Hasene" (iyilik) tanımlanmamış — kişiye, duruma göre değişir. Açık uçlu talep, ilahî hikmete emanet.',
+              descEn: '"Ḥasana" (good) is undefined — varies by person and situation. An open-ended request, entrusted to divine wisdom.',
+              color: '#2ecc71',
+            },
+            {
+              labelTr: 'Teveccüh', labelEn: 'Surrender',
+              ar: 'وَقِنَا عَذَابَ النَّارِ',
+              translitTr: 've bizi ateş azabından koru',
+              translitEn: 'and protect us from the punishment of the Fire',
+              descTr: '"Kınâ" — koru demek. Talep biter, Allah\'ın koruyucu sıfatına teslim ile mühürlenir. Her duanın son nefesi.',
+              descEn: '"Qinā" means "protect us." The petition ends, sealed by surrender to the protective attribute of God. The final breath of every prayer.',
+              color: '#a78bfa',
+            },
+          ].map((stage, i) => (
+            <div key={i} style={{
+              background: `${stage.color}08`,
+              border: `1px solid ${stage.color}25`,
+              borderTop: `2px solid ${stage.color}`,
+              borderRadius: '10px',
+              padding: '14px 14px 12px',
+              display: 'flex', flexDirection: 'column', gap: '8px',
+            }}>
+              {/* Stage label */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  width: '20px', height: '20px', borderRadius: '50%',
+                  background: `${stage.color}25`,
+                  color: stage.color, fontSize: '0.7rem', fontWeight: 800,
+                  fontFamily: "'Inter', sans-serif",
+                }}>{i + 1}</span>
+                <span style={{
+                  color: stage.color, fontSize: '0.7rem', fontWeight: 700,
+                  letterSpacing: '0.1em', textTransform: 'uppercase',
+                  fontFamily: "'Inter', sans-serif",
+                }}>{tr ? stage.labelTr : stage.labelEn}</span>
+              </div>
+
+              {/* Arabic / implicit marker */}
+              {stage.implicit ? (
+                <div style={{
+                  fontFamily: "'Inter', sans-serif", fontSize: '0.78rem',
+                  color: 'rgba(148,163,184,0.5)', fontStyle: 'italic',
+                  textAlign: 'center', padding: '14px 0',
+                  border: `1px dashed ${stage.color}25`,
+                  borderRadius: '6px',
+                }}>
+                  {tr ? '(zımni · ima yoluyla)' : '(implicit · by implication)'}
+                </div>
+              ) : (
+                <div dir="rtl" lang="ar" style={{
+                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontSize: '1.1rem', color: stage.color,
+                  textAlign: 'right', lineHeight: 1.7,
+                }}>
+                  {stage.ar}
+                </div>
+              )}
+
+              {/* Translation */}
+              <div style={{
+                color: 'rgba(232,230,227,0.7)',
+                fontSize: '0.78rem', fontStyle: 'italic',
+                lineHeight: 1.55, fontFamily: "'Inter', sans-serif",
+              }}>
+                {tr ? stage.translitTr : stage.translitEn}
+              </div>
+
+              {/* Description */}
+              <div style={{
+                marginTop: 'auto',
+                paddingTop: '8px',
+                borderTop: `1px dashed ${stage.color}25`,
+                color: 'rgba(148,163,184,0.7)',
+                fontSize: '0.72rem',
+                lineHeight: 1.55,
+                fontFamily: "'Inter', sans-serif",
+              }}>
+                {tr ? stage.descTr : stage.descEn}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer source */}
+        <div style={{
+          marginTop: '14px',
+          padding: '10px 16px',
+          background: 'rgba(0,0,0,0.18)',
+          border: '1px solid rgba(255,255,255,0.05)',
+          borderLeft: '2px solid rgba(212,165,116,0.4)',
+          borderRadius: '8px',
+          color: 'rgba(148,163,184,0.65)',
+          fontSize: '0.78rem',
+          fontFamily: "'Inter', sans-serif",
+          fontStyle: 'italic',
+          lineHeight: 1.6,
+        }}>
+          {tr
+            ? "Kaynak ayet: Bakara 2:201 — Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26)."
+            : "Source verse: Al-Baqara 2:201 — the Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26)."}
+        </div>
+      </motion.div>
 
       {/* Rabbena dua kartları */}
       <motion.div variants={fadeUpItem}>
