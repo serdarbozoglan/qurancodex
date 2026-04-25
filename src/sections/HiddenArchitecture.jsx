@@ -512,56 +512,38 @@ export default function HiddenArchitecture() {
           onClick={() => window.dispatchEvent(new CustomEvent('openIlkSonKelimeler'))}
           style={{
             width: '100%',
-            display: 'grid',
-            gridTemplateColumns: '1fr auto',
-            gap: '20px',
-            alignItems: 'center',
-            padding: '18px 24px',
-            background: 'rgba(212,165,116,0.035)',
-            border: '1px solid rgba(212,165,116,0.18)',
+            padding: '14px 24px',
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.3)',
             borderRadius: '10px',
             cursor: 'pointer',
-            textAlign: 'left',
-            fontFamily: 'inherit',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
             transition: 'all 0.2s',
           }}
           onMouseEnter={e => {
-            e.currentTarget.style.background = 'rgba(212,165,116,0.07)';
-            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)';
+            e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)';
           }}
           onMouseLeave={e => {
-            e.currentTarget.style.background = 'rgba(212,165,116,0.035)';
-            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.18)';
+            e.currentTarget.style.background = 'rgba(212,165,116,0.06)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)';
           }}
         >
-          <div style={{ minWidth: 0 }}>
-            <div style={{
-              fontSize: '0.6rem', fontWeight: 700,
-              letterSpacing: '0.32em', textTransform: 'uppercase',
-              color: '#d4a574', opacity: 0.6,
-              marginBottom: '6px',
-              fontFamily: "'Inter', sans-serif",
-            }}>
-              {language === 'tr' ? 'İlgili Atlas' : 'Related Atlas'}
-            </div>
-            <div style={{
-              fontSize: '0.95rem',
-              color: '#e8e6e3',
-              lineHeight: 1.55,
-              fontFamily: "'Inter', sans-serif",
-            }}>
+          <div style={{ textAlign: 'left' }}>
+            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+              {language === 'tr' ? '↗ İLK VE SON KELİMELER — ATLASI AÇ' : '↗ FIRST AND LAST WORDS — OPEN THE ATLAS'}
+            </p>
+            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
-                ? <><span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#d4a574' }}>İlk ve Son Kelimeler</span> — 114 sûrenin açılış ve kapanış kelimeleri, 8 münâsebât spotlight'ı (Fâtiha→Bakara köprüsü, Mushaf'ın halkası, Havâmîm ailesi vb.) ve açılış kalıbı kategorileri.</>
-                : <><span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#d4a574' }}>First and Last Words</span> — opening and closing words of all 114 surahs, 8 munāsabah spotlights (the Al-Fātiḥa→Al-Baqara bridge, the cycle of the Mushaf, the Ḥawāmīm family, etc.), and opening-pattern categories.</>}
-            </div>
+                ? '8 münâsebât spotlight · açılış kalıbı kategorileri · 114 sûre kelime kataloğu'
+                : '8 munāsabah spotlights · opening-pattern categories · 114-surah word catalog'}
+            </p>
           </div>
-          <span style={{
-            fontSize: '1.4rem',
-            color: '#d4a574',
-            opacity: 0.75,
-            lineHeight: 1,
-            flexShrink: 0,
-          }}>→</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
         </button>
       </motion.div>
 
