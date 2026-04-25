@@ -568,6 +568,29 @@
     "transformationIntro": "The Quran defines a three-stage human transformation. These stages follow one another in sequence, yet are also deeply interwoven.",
     "transformationHadithNote": "The definition of iḥsān ('worship Allah as though you see Him') is from the Hadith of Gabriel — a hadith source (Muslim), not the Quran."
   },
+  "iblisSatan": {
+    "badge": "Iblis / Satan in the Quran",
+    "title": "Same Scene, Seven Surahs",
+    "subtitle": "The command for Adam's prostration and Iblis's refusal appears in seven surahs — no two are identical.",
+    "intro": "Baqarah, A'raf, Hijr, Isra, Kahf, Ta-Ha, and Sād. Seven surahs, one event: the angels' prostration to Adam and Iblis's refusal. In one (Ta-Ha 20:116) Iblis offers no reasoning, says nothing at all; the entire scene collapses into a single verb — abā (he refused). In another, the fire-versus-clay comparison surfaces. Another states Iblis was of the jinn; yet another contains Allah's phrase \"whom I created with My two hands.\" Placed side by side, the seven tellings reveal that each retelling foregrounds a different dimension of the same event.",
+    "subBlockLabel": "The Great Refusal",
+    "anchorVerseTitle": "The Core Telling",
+    "anchorVerseAr": "وَاِذْ قُلْنَا لِلْمَلٰٓئِكَةِ اسْجُدُوا لِاٰدَمَ فَسَجَدُوا اِلَّا اِبْل۪يسَ اَبٰى وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِر۪ينَ",
+    "anchorVerseTr": "\"And [mention] when We said to the angels, 'Prostrate before Adam'; so they prostrated, except for Iblis. He refused and was arrogant and became of the disbelievers.\"",
+    "anchorVerseRef": "Baqarah 2:34",
+    "statsTitle": "The Seven Tellings — In Numbers",
+    "stats": {
+      "surahs": { "value": "7", "label": "Surahs", "desc": "Different surahs containing the same event" },
+      "longest": { "value": "16", "label": "Verses, Longest", "desc": "Hijr 15:28-43" },
+      "shortest": { "value": "1", "label": "Verse, Shortest", "desc": "Ta-Ha 20:116 and Kahf 18:50" },
+      "fireClay": { "value": "2", "label": "Surahs, Fire-Clay", "desc": "Only in A'raf and Sād" }
+    },
+    "passagesTitle": "Seven Surahs, Seven Tellings",
+    "passagesIntro": "In Mushaf order, what each surah foregrounds:",
+    "observationsTitle": "Cross-Reading",
+    "observationsIntro": "Patterns visible only when the seven are read together, not separately:",
+    "closing": "Seven surahs, one event, distinct windows. How a single narrative expands and contracts by context — the Quran uses narrative economy as a rhetorical device. Each retelling foregrounds a different word, a different reasoning, a different identity element; the common core remains. This is the seven-fold registration of pride's origin."
+  },
   "footer": {
     "title": "Quran Codex",
     "methodology": "The analyses on this site are drawn from academic sources, classical exegetical tradition, and Quranic corpus studies. Claims in each section are grounded in the sources relevant to that section; academic debates and nuances are noted within the relevant sections.",

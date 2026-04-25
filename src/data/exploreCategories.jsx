@@ -333,6 +333,15 @@ export const EXPLORE_CATEGORIES = [
         descTr: '3 Kur\'ânî + 4 tasavvufî basamak',
         descEn: '3 Qur\'anic + 4 Sufi stations',
       },
+      {
+        id:     'iblisSatan',
+        kind:   'overlay',
+        target: 'iblisSatan',
+        icon:   MaskIcon,
+        titleTr: "Kur'an'da İblis / Şeytan", titleEn: 'Iblis / Satan in the Quran',
+        descTr: 'Yedi sûrede aynı sahne · kibrin başlangıcı',
+        descEn: 'Same scene in seven surahs · the origin of pride',
+      },
     ],
   },
   {
