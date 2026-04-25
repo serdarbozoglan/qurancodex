@@ -197,6 +197,7 @@ export default function Navbar() {
   const meselBackRef   = useRef(null); // set by MeselAtlasi when card is expanded
   const diyalogBackRef = useRef(null); // set by DiyalogAgi when navigated internally
   const kiraatBackRef  = useRef(null); // set by KiraatAtlasi when navigated internally
+  const kadinlarBackRef = useRef(null); // set by KadinlarAtlasi when theme filter is active
   const conceptRestoreRef = useRef(null); // stores concept state to restore after VerseGraph closes
   const [readingOpen, setReadingOpen]   = useState(
     () => localStorage.getItem('qurancodex_reading_open') === 'true'
@@ -509,7 +510,16 @@ export default function Navbar() {
       if (munafikOpen)    { setMunafikOpen(false);          return; }
       if (nefisOpen)      { setNefisOpen(false);            return; }
       if (iblisSatanOpen) { setIblisSatanOpen(false);       return; }
-      if (kadinlarOpen)   { setKadinlarOpen(false);         return; }
+      if (kadinlarOpen) {
+        if (kadinlarBackRef.current) {
+          kadinlarBackRef.current();
+          kadinlarBackRef.current = null;
+          window.history.pushState({ overlay: true }, '');
+        } else {
+          setKadinlarOpen(false);
+        }
+        return;
+      }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
@@ -1456,7 +1466,7 @@ export default function Navbar() {
     )}
     {kadinlarOpen && (
       <Suspense fallback={null}>
-        <KadinlarAtlasi onClose={() => setKadinlarOpen(false)} />
+        <KadinlarAtlasi onClose={() => { setKadinlarOpen(false); kadinlarBackRef.current = null; }} backRef={kadinlarBackRef} />
       </Suspense>
     )}
     {retorigiOpen && (
