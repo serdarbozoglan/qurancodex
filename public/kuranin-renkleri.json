@@ -9,8 +9,8 @@
       "tintBorder": "rgba(29, 158, 117, 0.25)",
       "contexts": ["cennet", "doga"],
       "primaryContext": "cennet",
-      "totalMentions": 8,
-      "mentionNote": "Toplam 8 ayette; diğer formlar (mudhâm vb.) listeye dahil değil.",
+      "totalMentions": 7,
+      "mentionNote": "Yedi ayette; mudhâm türevi ve dolaylı yeşil çağrışımlar listede.",
       "arabicTerms": [
         {
           "arabic": "أَخْضَر",
@@ -44,7 +44,7 @@
       "keyVerseTr": "İnce ipek ve kalın ipekten yeşil elbiseler giyerler; orada tahtlara yaslanırlar.",
       "keyVerseEn": "They will wear green garments of fine silk and brocade, reclining therein on adorned couches.",
       "keyVerseRef": "Kehf 18:31",
-      "allRefs": ["En'am 6:99", "Yasin 36:80", "Kehf 18:31", "Rahman 55:76", "İnsan 76:21", "Rahman 55:64"],
+      "allRefs": ["En'am 6:99", "Hac 22:63", "Yasin 36:80", "Kehf 18:31", "Rahman 55:64", "Rahman 55:76", "İnsan 76:21"],
       "summaryTr": "Kur'an'da yeşil öncelikle cennet elbiselerinin rengidir — Kehf 18:31, Rahman 55:76 ve İnsan 76:21'de cennet sakinleri yeşil ipek giyer. Yasin 36:80 ise en güçlü zıtlığı sunar: yeşil ağaçtan ateş çıkar, canlılıktan yıkım doğar, diriliş delili olarak kullanılır.",
       "summaryEn": "In the Quran, green primarily describes paradise garments — Kahf 18:31, Rahman 55:76, and Al-Insan 76:21 all dress paradise dwellers in green silk. Ya-Sin 36:80 presents the most powerful contrast: fire from the green tree, destruction from life, used as an argument for resurrection.",
       "infoTr": "Yeşilin cennet rengi olduğu yorumu tefsir geleneğine dayanmaktadır. Kur'an yeşili cennet bağlamında kullanır ama 'cennet rengidir' demez.",
@@ -62,8 +62,8 @@
       "tintBorder": "rgba(255, 255, 255, 0.18)",
       "contexts": ["mucize", "kiyamet", "doga"],
       "primaryContext": "mucize",
-      "totalMentions": 18,
-      "mentionNote": "Toplam 18 ayette; tüm beyaz formları dahil.",
+      "totalMentions": 12,
+      "mentionNote": "12 ayette; ebyaḍ/beyḍâ/biḍ/mubyaḍḍa/ibyaḍḍa türevlerinin tamamı dahil.",
       "arabicTerms": [
         {
           "arabic": "أَبْيَض",
@@ -97,7 +97,7 @@
       "keyVerseTr": "Elini çıkardı; bir de baktılar ki bakanlara göre bembeyaz (parlıyordu).",
       "keyVerseEn": "And he drew out his hand; thereupon it was white for the observers.",
       "keyVerseRef": "A'raf 7:108",
-      "allRefs": ["A'raf 7:108", "Taha 20:22", "Şuara 26:33", "Neml 27:12", "Kasas 28:32", "Al-i İmran 3:106-107", "Fatir 35:27", "Bakara 2:187"],
+      "allRefs": ["A'raf 7:108", "Taha 20:22", "Şuara 26:33", "Neml 27:12", "Kasas 28:32", "Al-i İmran 3:106-107", "Yusuf 12:84", "Saffat 37:46", "Saffat 37:49", "Vakıa 56:23", "Fatir 35:27", "Bakara 2:187"],
       "summaryTr": "Beyaz Kur'an'da en çok geçen renk (~18 ayette). İki ana bağlamı var: (1) Hz. Musa'nın eli — 5 farklı sûrede mucize sahnesi, beyaz ilahi onayı temsil eder; (2) Kıyamet sahnesi — Al-i İmran 3:106-107'de kurtulacakların yüzü ağarır, kaybedeceklerinki kararır.",
       "summaryEn": "White is the most frequently occurring color in the Quran (~18 verses). Two main contexts: (1) Moses' hand — the miracle scene in 5 different suras, white representing divine approval; (2) The judgment scene — in Al Imran 3:106-107 the saved have white faces, the lost have blackened faces.",
       "infoTr": null,
@@ -115,8 +115,8 @@
       "tintBorder": "rgba(255, 255, 255, 0.10)",
       "contexts": ["kiyamet", "doga"],
       "primaryContext": "kiyamet",
-      "totalMentions": 10,
-      "mentionNote": "Toplam 10 ayette; tüm siyah formları dahil.",
+      "totalMentions": 5,
+      "mentionNote": "Listede 5 ana referans; eswed/ısvedde/garâbîb/muswedde türevlerinin başlıca geçişleri.",
       "arabicTerms": [
         {
           "arabic": "أَسْوَد",
@@ -141,7 +141,7 @@
           "transliteration": "garâbîb",
           "formTr": "kuzgun siyahı — en koyu ton",
           "formEn": "raven black — most intense shade",
-          "isHapax": false,
+          "isHapax": true,
           "mentionCount": 1,
           "primaryRef": "Fatir 35:27"
         }
@@ -224,7 +224,7 @@
         }
       ],
       "keyVerseAr": "فَإِذَا انشَقَّتِ السَّمَاءُ فَكَانَتْ وَرْدَةً كَالدِّهَانِ",
-      "keyVerseTr": "Gök yarıldığında kırmızı deri gibi, erimiş yağ gibi (kızarıp eriyecek).",
+      "keyVerseTr": "Gök yarılıp gül (rengi) gibi, erimiş yağ gibi olduğunda...",
       "keyVerseEn": "And when the sky breaks apart and becomes rose-red like oil.",
       "keyVerseRef": "Rahman 55:37",
       "allRefs": ["Fatir 35:27", "Rahman 55:37"],
@@ -279,7 +279,7 @@
       "tintBorder": "rgba(146, 104, 10, 0.30)",
       "contexts": ["cennet"],
       "primaryContext": "cennet",
-      "totalMentions": 6,
+      "totalMentions": 7,
       "arabicTerms": [
         {
           "arabic": "ذَهَب",
@@ -295,9 +295,9 @@
       "keyVerseTr": "Orada altın bilezikler takınırlar ve ince ipekten yeşil elbiseler giyerler.",
       "keyVerseEn": "They will be adorned therein with bracelets of gold and will wear green garments of fine silk and brocade.",
       "keyVerseRef": "Kehf 18:31",
-      "allRefs": ["Kehf 18:31", "Hac 22:23", "Fatir 35:33", "Zühruf 43:53", "İnsan 76:21"],
-      "summaryTr": "Altın Kur'an'da neredeyse yalnızca cennet bağlamında geçer ve yeşil elbiselerle birlikte gelir — Kur'an'ın cennet renk ikilisi. Zühruf 43:53'te ise Firavun Hz. Musa'yı 'neden altın bilezikleri yok?' diye küçümser. Kur'an altını hem cennet nimeti hem dünyanın yanıltıcı ölçütü olarak kullanır.",
-      "summaryEn": "Gold in the Quran appears almost exclusively in paradise contexts and consistently pairs with green garments — the Quran's paradise color duo. In Az-Zukhruf 43:53, Pharaoh dismisses Moses: 'Why does he have no gold bracelets?' The Quran uses gold as both heavenly blessing and worldly false standard.",
+      "allRefs": ["Al-i İmran 3:14", "Al-i İmran 3:91", "Kehf 18:31", "Hac 22:23", "Fatir 35:33", "Zühruf 43:53", "İnsan 76:21"],
+      "summaryTr": "Altın Kur'an'da iki kutupta geçer: cennet süsü olarak (Kehf 18:31, Hac 22:23, Fatir 35:33, İnsan 76:21 — yeşil elbiselerle birlikte, Kur'an'ın cennet renk ikilisi) ve dünyevî yanıltıcı süs olarak (Âl-i İmrân 3:14 — kantarlarca altın yığını; Zühruf 43:53 — Firavun'un Hz. Musa'yı 'neden altın bilezikleri yok?' diye küçümsemesi). İlki kalıcı ödül, ikincisi imtihan — aynı maden, iki ayrı sınav.",
+      "summaryEn": "Gold in the Quran appears at two opposite poles: as a paradise adornment (Al-Kahf 18:31, Al-Ḥajj 22:23, Fāṭir 35:33, Al-Insān 76:21 — paired with green garments, the Quran's paradise color duo) and as a worldly deceptive ornament (Āl ʿImrān 3:14 — heaps of gold accumulated; Az-Zukhruf 43:53 — Pharaoh dismissing Moses: 'why does he have no gold bracelets?'). The first is lasting reward, the second is a test — the same metal, two different trials.",
       "infoTr": null,
       "infoEn": null,
       "linguisticNoteTr": "Cennet tasvirinde altın (zeheb) + yeşil (hudr) ikilisi üç sûrede tekrarlanır. Bu renk tutarlılığı Kur'an'da nadir — genellikle aynı renk kombinasyonu bu kadar sistematik kullanılmaz.",
@@ -313,7 +313,7 @@
       "tintBorder": "rgba(148, 163, 184, 0.28)",
       "contexts": ["cennet"],
       "primaryContext": "cennet",
-      "totalMentions": 3,
+      "totalMentions": 2,
       "arabicTerms": [
         {
           "arabic": "فِضَّة",
@@ -343,8 +343,8 @@
     "id": "renk-sekans",
     "titleTr": "Yeşil → Sarı → Renksiz",
     "titleEn": "Green → Yellow → Colorless",
-    "descTr": "Kur'an bu renk sekansını 4 farklı sûrede tekrar eder. Gerçek renk iki tanedir: yeşil ve sarı. Üçüncü aşama rengin yok olmasıdır — حُطَامًا (hutamen: ufalanmış çöp) ya da هَشِيمًا (heşimen: kuru saman). Renksizleşme = son. Her seferinde aynı mesaj: dünya hayatının geçiciliği.",
-    "descEn": "The Quran repeats this color sequence across 4 suras. There are only two actual colors: green and yellow. The third stage is the disappearance of color — حُطَامًا (debris) or هَشِيمًا (dry stubble). Loss of color = the end. Always the same message: the transience of worldly life.",
+    "descTr": "Kur'an dünya hayatının geçiciliğini iki örüntüde anlatır: tam üç aşamalı sekans (yeşil → sarı → kuru) Zümer 39:21 ve Hadîd 57:20'de geçer; iki aşamalı sekans (yeşil → kuru, sarı atlanır) Kehf 18:45 ve Yûnus 10:24'te geçer. Birinci grupta sarı (مُصْفَرًّا) açıkça geçer; ikinci grupta solma süreci atlanıp doğrudan yıkıma gidilir — حُطَامًا (hutâmen: ufalanmış çöp) ya da هَشِيمًا (heşîmen: kuru saman). Her iki kalıp da aynı tezi işler: dünya hayatının geçiciliği.",
+    "descEn": "The Quran narrates worldly transience in two patterns: the full three-stage sequence (green → yellow → dry) appears in Az-Zumar 39:21 and Al-Ḥadīd 57:20; the two-stage sequence (green → dry, yellow skipped) appears in Al-Kahf 18:45 and Yūnus 10:24. The first group has yellow (مُصْفَرًّا) explicitly; the second skips the withering and goes straight to ruin — حُطَامًا (debris) or هَشِيمًا (dry stubble). Both patterns work the same thesis: the transience of worldly life.",
     "stages": [
       { "hexColor": "#1D9E75", "labelTr": "Yeşil — Çıktı",    "labelEn": "Green — Sprouted",   "noteTr": "Gençlik, güç, büyüme",        "noteEn": "Youth, strength, growth" },
       { "hexColor": "#CA8A04", "labelTr": "Sarı — Soldu",     "labelEn": "Yellow — Withered",  "noteTr": "Zirve geçti, çöküş başlıyor", "noteEn": "Peak passed, decline begins" },

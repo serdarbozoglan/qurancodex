@@ -29,7 +29,7 @@ const TAB_LABELS = {
 function HapaxBadge() {
   return (
     <span style={{ display:'inline-flex', alignItems:'center', gap:'3px', fontSize:'0.6rem', fontWeight:700, color:COLORS.purple, background:'rgba(83,74,183,0.12)', border:'1px solid rgba(83,74,183,0.28)', borderRadius: RADIUS.pillSm, padding:'1px 7px', whiteSpace:'nowrap' }}>
-      ✦ Hapax · 1×
+      ✦ Hapax: 1
     </span>
   );
 }
@@ -63,7 +63,7 @@ function InfoPopover({ text }) {
 const CONTEXT_BADGES = {
   cennet:   { labelTr: 'Cennet',   labelEn: 'Paradise',  bg: 'rgba(29,158,117,0.15)',  color: '#1D9E75' },
   kiyamet:  { labelTr: 'Kıyamet',  labelEn: 'Judgment',  bg: 'rgba(200,50,50,0.12)',   color: COLORS.softRed },
-  doga:     { labelTr: 'Doğa',     labelEn: 'Nature',    bg: 'rgba(59,130,246,0.10)',  color: '#60a5fa' },
+  doga:     { labelTr: 'Tabiat',     labelEn: 'Nature',    bg: 'rgba(59,130,246,0.10)',  color: '#60a5fa' },
   kissa:    { labelTr: 'Kıssa',    labelEn: 'Narrative', bg: 'rgba(212,165,116,0.12)', color: COLORS.gold },
   mucize:   { labelTr: 'Mucize',   labelEn: 'Miracle',   bg: COLORS.softGoldAlpha12,   color: COLORS.softGold },
   kozmik:   { labelTr: 'Kozmik',   labelEn: 'Cosmic',    bg: 'rgba(139,92,246,0.12)',  color: COLORS.purple },
@@ -74,7 +74,7 @@ const FILTERS_CONFIG = [
   { id: 'tumu',    labelTr: 'Tümü',     labelEn: 'All' },
   { id: 'cennet',  labelTr: 'Cennet',   labelEn: 'Paradise' },
   { id: 'kiyamet', labelTr: 'Kıyamet',  labelEn: 'Judgment' },
-  { id: 'doga',    labelTr: 'Doğa',     labelEn: 'Nature' },
+  { id: 'doga',    labelTr: 'Tabiat',     labelEn: 'Nature' },
   { id: 'kissa',   labelTr: 'Kıssa',    labelEn: 'Narrative' },
   { id: 'hapax',   labelTr: 'Hapax',    labelEn: 'Hapax' },
 ];
@@ -91,17 +91,17 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
       aria-expanded={expanded}
       onClick={onToggle}
       onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
-      style={{ background: renk.tintBg, border: `1px solid ${renk.tintBorder}`, borderRadius: RADIUS.chip, overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.15s', userSelect: 'none' }}
+      style={{ background: renk.tintBg, border: `1px solid ${renk.tintBorder}`, borderRadius: RADIUS.chip, overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.15s', userSelect: 'none', height: '100%', display: 'flex', flexDirection: 'column' }}
       onMouseEnter={e => { if (!isMobile) e.currentTarget.style.transform = 'translateY(-2px)'; }}
       onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
     >
       {/* Color swatch */}
-      <div style={{ height: '60px', background: renk.hexColor }} />
+      <div style={{ height: '60px', background: renk.hexColor, flexShrink: 0 }} />
 
       {/* Card body */}
-      <div style={{ padding: '14px' }}>
-        {/* Primary Arabic term */}
-        <p style={{ fontFamily: FONTS.quran, fontSize: '1.7rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', margin: '0 0 6px', lineHeight: 1.6 }} lang="ar" dir="rtl">
+      <div style={{ padding: '14px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+        {/* Primary Arabic term — offWhite for contrast across all tinted bgs */}
+        <p style={{ fontFamily: FONTS.quran, fontSize: '1.7rem', color: COLORS.offWhite, textAlign: 'right', direction: 'rtl', margin: '0 0 6px', lineHeight: 1.6 }} lang="ar" dir="rtl">
           {primaryTerm.arabic}
         </p>
 
@@ -242,7 +242,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
       </div>
 
       {/* Card grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '12px', marginBottom: '32px', alignItems: 'start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '12px', marginBottom: '32px', alignItems: 'stretch' }}>
         {filtered.map(renk => (
           <ColorCard
             key={renk.id}
@@ -287,13 +287,15 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                     position: 'relative',
                   }}
                 >
-                  {/* Stage number */}
+                  {/* Stage number — büyütülmüş ve daha belirgin */}
                   <span style={{
-                    width: '20px', height: '20px', borderRadius: '50%',
-                    background: isLight ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.12)',
+                    width: '32px', height: '32px', borderRadius: '50%',
+                    background: isLight ? 'rgba(0,0,0,0.22)' : 'rgba(255,255,255,0.18)',
+                    border: isLight ? '1.5px solid rgba(0,0,0,0.35)' : '1.5px solid rgba(255,255,255,0.3)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: '0.6rem', fontWeight: 800, color: isLight ? '#0a0a1a' : COLORS.offWhite,
-                    fontFamily: FONTS.body,
+                    fontSize: '0.95rem', fontWeight: 800, color: isLight ? '#0a0a1a' : COLORS.offWhite,
+                    fontFamily: FONTS.display,
+                    boxShadow: isLight ? '0 1px 4px rgba(0,0,0,0.18)' : '0 1px 4px rgba(0,0,0,0.4)',
                   }}>
                     {i + 1}
                   </span>
@@ -534,10 +536,10 @@ function TabBaglam({ language, isMobile }) {
       ],
     },
     {
-      titleTr: 'Doğa Paleti',
+      titleTr: 'Tabiat Paleti',
       titleEn: 'Nature Palette',
       accentColor: '#d4a574',
-      descTr: "Doğa tasvirinde renk hem gerçekçi hem sembolik. Fâtır 35:27 jeolojik bir gözlem — dağlardaki mineral şeritleri. Bakara 2:187 rengi pratik bir zaman ölçütü olarak kullanır.",
+      descTr: "Tabiat tasvirinde renk hem gerçekçi hem sembolik. Fâtır 35:27 jeolojik bir gözlem — dağlardaki mineral şeritleri. Bakara 2:187 rengi pratik bir zaman ölçütü olarak kullanır.",
       descEn: "In nature descriptions, color is both realistic and symbolic. Fatir 35:27 is a geological observation — mineral streaks in mountains. Al-Baqarah 2:187 uses color as a practical time measure.",
       colors: [
         {
@@ -1256,8 +1258,8 @@ export default function KuranRenkleri({ onClose }) {
           <span style={OVERLAY_TITLE}>
             {tr ? "Kur'an'ın Renkleri" : 'Colors of the Quran'}
           </span>
-          <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.78rem', fontFamily: FONTS.body }}>
+          <span style={{ color: 'rgba(148,163,184,0.4)', fontSize: '0.85rem', flexShrink: 0 }}>·</span>
+          <span style={{ color: 'rgba(232,230,227,0.7)', fontSize: '0.88rem', fontFamily: FONTS.body, fontWeight: 600, fontStyle: 'italic', letterSpacing: '0.02em' }}>
             {tr ? 'Elvânü\'l-Kur\'ân' : 'Alwān al-Quran'}
           </span>
         </div>
