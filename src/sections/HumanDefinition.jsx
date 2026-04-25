@@ -1103,6 +1103,47 @@ export default function HumanDefinition() {
         </p>
       </motion.div>
 
+      {/* CTA — Nefis Mertebeleri Atlas link (insan tanımı ↔ nefsin makamları) */}
+      <motion.div variants={fadeUpItem} className="mt-10">
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('openNefisMertebeleri'))}
+          style={{
+            width: '100%',
+            padding: '14px 24px',
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.3)',
+            borderRadius: '10px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.06)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)';
+          }}
+        >
+          <div style={{ textAlign: 'left' }}>
+            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+              {language === 'tr' ? '↗ NEFSİN MERTEBELERİ — ATLASI AÇ' : '↗ STAGES OF THE SOUL — OPEN THE ATLAS'}
+            </p>
+            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+              {language === 'tr'
+                ? 'emmâre · levvâme · mülhime · mutmainne · râziye · marzıyye · sâfiye — nefsin yedi makamı'
+                : 'ammāra · lawwāma · mulhima · muṭmaʾinna · rāḍiya · marḍiyya · ṣāfiya — the seven stations of the soul'}
+            </p>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </motion.div>
+
     </SectionWrapper>
   );
 }

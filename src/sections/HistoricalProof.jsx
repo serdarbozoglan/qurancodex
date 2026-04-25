@@ -35,7 +35,7 @@ const storyAccents = {
 };
 
 export default function HistoricalProof() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [expandedStory, setExpandedStory] = useState('pharaoh');
 
   const toggleStory = (key) => {
@@ -223,6 +223,47 @@ export default function HistoricalProof() {
           })}
         </div>
       </div>
+
+      {/* CTA — Kavimler Atlas link (tarihsel doğrulama ↔ tüm Kur'ânî kavimler) */}
+      <motion.div variants={fadeUpItem} className="mt-10">
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('openKavimlerAtlasi'))}
+          style={{
+            width: '100%',
+            padding: '14px 24px',
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.3)',
+            borderRadius: '10px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.06)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)';
+          }}
+        >
+          <div style={{ textAlign: 'left' }}>
+            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+              {language === 'tr' ? '↗ KUR\'AN\'DA KAVİMLER — ATLASI AÇ' : '↗ PEOPLES IN THE QUR\'AN — OPEN THE ATLAS'}
+            </p>
+            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+              {language === 'tr'
+                ? 'Âd · Semûd · Lût kavmi · Medyen · Sebeʾ · Firavun — kavimlerin akıbeti, helak ve kurtuluş kalıpları'
+                : 'ʿĀd · Thamūd · the people of Lot · Madyan · Sabaʾ · Pharaoh — the fate of nations, patterns of destruction and salvation'}
+            </p>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </motion.div>
     </SectionWrapper>
   );
 }
