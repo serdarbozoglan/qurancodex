@@ -647,7 +647,7 @@ export default function QuranDua() {
         {/* Legend */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
           {[
-            { color: '#d4a574', labelTr: 'Evrensel', labelEn: 'Universal' },
+            { color: '#d4a574', labelTr: 'Câmi', labelEn: 'Comprehensive' },
             { color: '#2ecc71', labelTr: 'Sabır', labelEn: 'Patience' },
             { color: '#a78bfa', labelTr: 'Bağışlanma', labelEn: 'Forgiveness' },
             { color: '#3498db', labelTr: 'İman', labelEn: 'Faith' },
