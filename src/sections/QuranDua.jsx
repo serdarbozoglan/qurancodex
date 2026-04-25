@@ -496,8 +496,8 @@ export default function QuranDua() {
         </h3>
         <p style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', lineHeight: 1.65, fontFamily: "'Inter', sans-serif", marginBottom: '20px', maxWidth: '780px' }}>
           {tr
-            ? "Kur'ânî dua geleneğinde her dua dört temel aşamadan oluşur — bu sıra rastgele değil, içsel bir mimari. Bakara 2:201'in dört parçaya bölünüşü:"
-            : "In the Qur'anic prayer tradition, every prayer comprises four core stages — not random but an inner architecture. Al-Baqara 2:201 broken into its four parts:"
+            ? "Kur'ânî dua geleneğinde her dua dört temel aşamadan oluşur — bu sıra rastgele değil, içsel bir mimari. Tek bir kısa dua dördünü birden açıkça taşımaz; aşağıda Bakara 2:201 ile Hz. Eyyub'un duası (Enbiyâ 21:83) bileşik bir örnek olarak kullanılmıştır:"
+            : "In the Qur'anic prayer tradition, every prayer comprises four core stages — not random but an inner architecture. No single short prayer makes all four explicit; below, Al-Baqara 2:201 and Hz. Job's prayer (Al-Anbiya 21:83) are used as a composite example:"
           }
         </p>
 
@@ -510,6 +510,8 @@ export default function QuranDua() {
             {
               labelTr: 'Çağrı', labelEn: 'Invocation',
               ar: 'رَبَّنَا',
+              source: 'Bakara 2:201',
+              sourceEn: 'Al-Baqara 2:201',
               translitTr: 'Rabbenâ — Rabbimiz',
               translitEn: 'Rabbanā — Our Lord',
               descTr: "Hitabın yakınlığı: 'yâ' edatı kullanılmaz. Allah ile dua eden arasındaki mesafe sıfırlanır.",
@@ -518,16 +520,20 @@ export default function QuranDua() {
             },
             {
               labelTr: 'Hâl Arzı', labelEn: 'Presentation',
-              implicit: true,
-              translitTr: 'İki diyarda yaşıyoruz',
-              translitEn: 'We live across two realms',
-              descTr: 'Bakara 2:201\'de zımni: insanın iki diyarda (dünya/ahiret) varoluşu. Hz. Eyyub\'da açık: "bana zarar dokundu" — durumun arzı.',
-              descEn: 'Implicit in Al-Baqara 2:201: humanity\'s existence across two realms (world/hereafter). Explicit in Job: "adversity has touched me" — the presentation of state.',
+              ar: 'أَنِّي مَسَّنِيَ الضُّرُّ',
+              source: 'Hz. Eyyub · Enbiyâ 21:83',
+              sourceEn: 'Hz. Job · Al-Anbiya 21:83',
+              translitTr: 'Bana zarar dokundu',
+              translitEn: 'Adversity has touched me',
+              descTr: 'Bakara 2:201\'de hâl zımnidir (insanın iki diyarda varoluşu). Hz. Eyyub\'un duasında ise açıktır: durumunu Allah\'a sunar — şikâyet etmeden, edebî sınırlar içinde.',
+              descEn: 'In Al-Baqara 2:201 the state is implicit (humanity\'s existence across two realms). In Hz. Job\'s prayer it is explicit: he presents his condition to God — without complaint, within respectful bounds.',
               color: '#3498db',
             },
             {
               labelTr: 'Talep', labelEn: 'Petition',
               ar: 'آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً',
+              source: 'Bakara 2:201',
+              sourceEn: 'Al-Baqara 2:201',
               translitTr: 'Bize dünyada da iyilik ver, ahirette de iyilik ver',
               translitEn: 'Grant us good in this world and good in the Hereafter',
               descTr: '"Hasene" (iyilik) tanımlanmamış — kişiye, duruma göre değişir. Açık uçlu talep, ilahî hikmete emanet.',
@@ -537,6 +543,8 @@ export default function QuranDua() {
             {
               labelTr: 'Teveccüh', labelEn: 'Surrender',
               ar: 'وَقِنَا عَذَابَ النَّارِ',
+              source: 'Bakara 2:201',
+              sourceEn: 'Al-Baqara 2:201',
               translitTr: 've bizi ateş azabından koru',
               translitEn: 'and protect us from the punishment of the Fire',
               descTr: '"Kınâ" — koru demek. Talep biter, Allah\'ın koruyucu sıfatına teslim ile mühürlenir. Her duanın son nefesi.',
@@ -568,24 +576,26 @@ export default function QuranDua() {
                 }}>{tr ? stage.labelTr : stage.labelEn}</span>
               </div>
 
-              {/* Arabic / implicit marker */}
-              {stage.implicit ? (
+              {/* Arabic */}
+              <div dir="rtl" lang="ar" style={{
+                fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                fontSize: '1.5rem', color: stage.color,
+                textAlign: 'right', lineHeight: 1.85,
+                margin: '4px 0 2px',
+                textShadow: `0 0 14px ${stage.color}18`,
+              }}>
+                {stage.ar}
+              </div>
+
+              {/* Source pill */}
+              {stage.source && (
                 <div style={{
-                  fontFamily: "'Inter', sans-serif", fontSize: '0.78rem',
-                  color: 'rgba(148,163,184,0.5)', fontStyle: 'italic',
-                  textAlign: 'center', padding: '14px 0',
-                  border: `1px dashed ${stage.color}25`,
-                  borderRadius: '6px',
+                  fontSize: '0.62rem', letterSpacing: '0.06em',
+                  color: stage.color, opacity: 0.7, fontWeight: 600,
+                  fontFamily: "'Inter', sans-serif",
+                  textAlign: 'right',
                 }}>
-                  {tr ? '(zımni · ima yoluyla)' : '(implicit · by implication)'}
-                </div>
-              ) : (
-                <div dir="rtl" lang="ar" style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                  fontSize: '1.1rem', color: stage.color,
-                  textAlign: 'right', lineHeight: 1.7,
-                }}>
-                  {stage.ar}
+                  ↳ {tr ? stage.source : stage.sourceEn}
                 </div>
               )}
 
@@ -629,8 +639,8 @@ export default function QuranDua() {
           lineHeight: 1.6,
         }}>
           {tr
-            ? "Kaynak ayet: Bakara 2:201 — Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26)."
-            : "Source verse: Al-Baqara 2:201 — the Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26)."}
+            ? "Kaynak: Bakara 2:201 — Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26). Hâl Arzı için ek örnek: Hz. Eyyub Enbiyâ 21:83."
+            : "Source: Al-Baqara 2:201 — the Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26). Additional example for Presentation: Hz. Job Al-Anbiya 21:83."}
         </div>
       </motion.div>
 
