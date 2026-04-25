@@ -925,6 +925,85 @@ export default function HiddenArchitecture() {
         </div>
       </motion.div>
 
+      {/* CTA — IlkSonKelimeler atlas link */}
+      <motion.div
+        variants={fadeUpItem}
+        style={{
+          maxWidth: '720px',
+          margin: '64px auto 0',
+          padding: '24px 28px',
+          borderRadius: '14px',
+          background: 'rgba(212,165,116,0.04)',
+          border: '1px solid rgba(212,165,116,0.25)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '24px',
+          flexWrap: 'wrap',
+        }}
+      >
+        <div style={{ flex: 1, minWidth: '240px' }}>
+          <div style={{
+            fontSize: '0.66rem', fontWeight: 700,
+            letterSpacing: '0.3em', textTransform: 'uppercase',
+            color: '#d4a574', opacity: 0.7,
+            marginBottom: '8px',
+            fontFamily: "'Inter', sans-serif",
+          }}>
+            {language === 'tr' ? 'Bu Konunun Atlası' : 'The Atlas of This Topic'}
+          </div>
+          <div style={{
+            fontSize: '1.15rem', fontWeight: 700,
+            color: '#e8e6e3', marginBottom: '6px',
+            fontFamily: "'Playfair Display', serif",
+            lineHeight: 1.25,
+          }}>
+            {language === 'tr' ? 'İlk ve Son Kelimeler' : 'First and Last Words'}
+          </div>
+          <p style={{
+            fontSize: '0.86rem',
+            color: 'rgba(232,230,227,0.7)',
+            lineHeight: 1.6,
+            margin: 0,
+            fontFamily: "'Inter', sans-serif",
+          }}>
+            {language === 'tr'
+              ? '114 sûrede halka kompozisyonu, münâsebât ve açılış-kapanış imzalarının tüm tezahürleri — Suyûtî, Bikâî ve Râzî\'nin geleneğinden modern atlas.'
+              : 'Every manifestation of ring composition, munāsabah, and opening-closing signatures across the 114 surahs — a modern atlas in the tradition of al-Suyūṭī, al-Biqāʿī, and al-Rāzī.'}
+          </p>
+        </div>
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('openIlkSonKelimeler'))}
+          style={{
+            padding: '10px 20px',
+            borderRadius: '999px',
+            background: 'rgba(212,165,116,0.15)',
+            border: '1px solid rgba(212,165,116,0.45)',
+            color: '#d4a574',
+            fontSize: '0.86rem',
+            fontWeight: 600,
+            fontFamily: "'Inter', sans-serif",
+            cursor: 'pointer',
+            transition: 'all 0.15s',
+            whiteSpace: 'nowrap',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            flexShrink: 0,
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.25)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.7)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.15)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.45)';
+          }}
+        >
+          <span>{language === 'tr' ? 'Atlası Aç' : 'Open the Atlas'}</span>
+          <span style={{ fontSize: '1rem', lineHeight: 1 }}>→</span>
+        </button>
+      </motion.div>
+
     </SectionWrapper>
   );
 }
