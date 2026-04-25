@@ -45,6 +45,7 @@ const MunafikProfili    = lazy(() => import('./MunafikProfili'));
 const NefisMertebeleri  = lazy(() => import('./NefisMertebeleri'));
 const IblisSatan        = lazy(() => import('./IblisSatan'));
 const KadinlarAtlasi    = lazy(() => import('./KadinlarAtlasi'));
+const IlkSonKelimeler   = lazy(() => import('./IlkSonKelimeler'));
 
 const ChevronDown = () => (
   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -234,6 +235,7 @@ export default function Navbar() {
   const [nefisOpen,       setNefisOpen]       = useState(false);
   const [iblisSatanOpen,  setIblisSatanOpen]  = useState(false);
   const [kadinlarOpen,    setKadinlarOpen]    = useState(false);
+  const [ilkSonOpen,      setIlkSonOpen]      = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
   useEffect(() => {
@@ -372,6 +374,7 @@ export default function Navbar() {
       ['openNefisMertebeleri', () => setNefisOpen(true)],
       ['openIblisSatan',       () => setIblisSatanOpen(true)],
       ['openKadinlarAtlasi',   () => setKadinlarOpen(true)],
+      ['openIlkSonKelimeler',  () => setIlkSonOpen(true)],
     ];
     handlers.forEach(([name, fn]) => window.addEventListener(name, fn));
     return () => {
@@ -404,7 +407,7 @@ export default function Navbar() {
   //      so this doesn't double-close anything. Loop-safe: setState isn't
   //      called from this branch, so the effect doesn't re-run.
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen || furukOpen || munasebatOpen || sunnetullahOpen || munafikOpen || nefisOpen || iblisSatanOpen || kadinlarOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen || furukOpen || munasebatOpen || sunnetullahOpen || munafikOpen || nefisOpen || iblisSatanOpen || kadinlarOpen || ilkSonOpen;
     const alreadyOnOverlayEntry = window.history.state?.overlay === true;
     if (anyOpen) {
       // Only push a fresh overlay sentinel when we're NOT already sitting
@@ -424,7 +427,7 @@ export default function Navbar() {
       // active anymore — pop it so listeners get notified.
       window.history.back();
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen, iblisSatanOpen, kadinlarOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen, iblisSatanOpen, kadinlarOpen, ilkSonOpen]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -520,10 +523,11 @@ export default function Navbar() {
         }
         return;
       }
+      if (ilkSonOpen)     { setIlkSonOpen(false);            return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen, iblisSatanOpen, kadinlarOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen, iblisSatanOpen, kadinlarOpen, ilkSonOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -592,6 +596,7 @@ export default function Navbar() {
     openMunasebatAtlasi: () => setMunasebatOpen(true),
     openIblisSatan:      () => setIblisSatanOpen(true),
     openKadinlarAtlasi:  () => setKadinlarOpen(true),
+    openIlkSonKelimeler: () => setIlkSonOpen(true),
   };
 
   // Adapt an imported tool entry to the shape Navbar's existing toolBtn renderer
@@ -721,6 +726,7 @@ export default function Navbar() {
                       nefis:       'openNefisMertebeleri',
                       iblisSatan:  'openIblisSatan',
                       kadinlar:    'openKadinlarAtlasi',
+                      ilkSon:      'openIlkSonKelimeler',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;
@@ -1467,6 +1473,11 @@ export default function Navbar() {
     {kadinlarOpen && (
       <Suspense fallback={null}>
         <KadinlarAtlasi onClose={() => { setKadinlarOpen(false); kadinlarBackRef.current = null; }} backRef={kadinlarBackRef} />
+      </Suspense>
+    )}
+    {ilkSonOpen && (
+      <Suspense fallback={null}>
+        <IlkSonKelimeler onClose={() => setIlkSonOpen(false)} />
       </Suspense>
     )}
     {retorigiOpen && (

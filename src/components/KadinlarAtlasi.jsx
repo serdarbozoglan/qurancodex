@@ -371,11 +371,20 @@ function Hero({ meta, figureCount, language, isMobile }) {
   const intro = meta.intro?.[language] || '';
   const tr = language === 'tr';
 
-  // Anchor verse: Tahrîm 66:11 — Allah'ın bizzat "inananlara örnek" olarak Asiye'yi sunduğu ayet
+  // Anchor verses: Tahrîm 66:10-12 — Kur'an'ın kendi diptik/triptik mantığı
+  // 66:10 karşıt örnek (Nuh + Lût eşleri), 66:11 örnek (Asiye), 66:12 taşıyıcı (Meryem)
+  const v10Tr = "Allah, inkâr edenlere de Nûh'un karısı ile Lût'un karısını örnek gösterdi: iki sâlih kulun nikâhı altındayken hainlik ettiler...";
+  const v10En = "Allah sets forth an example for those who disbelieved: the wife of Noah and the wife of Lot. They were under two of Our righteous servants but betrayed them...";
+  const v10Ref = "Tahrîm 66:10";
+
   const anchorAr = "وَضَرَبَ اللّٰهُ مَثَلاً لِلَّذ۪ينَ اٰمَنُوا امْرَاَتَ فِرْعَوْنَۢ اِذْ قَالَتْ رَبِّ ابْنِ ل۪ي عِنْدَكَ بَيْتاً فِي الْجَنَّةِ";
   const anchorTr = "Allah, inananlara da Firavun'un karısını örnek gösterdi: \"Rabbim! Bana katında, cennette bir ev yap...\"";
   const anchorEn = "And Allah presents an example of those who believed: the wife of Pharaoh, when she said, \"My Lord, build for me near You a house in Paradise...\"";
   const anchorRef = "Tahrîm 66:11";
+
+  const v12Tr = "İmrân kızı Meryem'i de (örnek gösterdi): iffetini korumuş, ruhumuzdan üflemiştik; o, Rabbinin sözlerini ve kitaplarını doğruladı, gönülden itaat edenlerdendi.";
+  const v12En = "And Mary, daughter of Imran, who guarded her chastity. So We breathed into her of Our spirit, and she believed in the words of her Lord and His scriptures, and was of the devoutly obedient.";
+  const v12Ref = "Tahrîm 66:12";
 
   return (
     <div style={{
@@ -441,6 +450,41 @@ function Hero({ meta, figureCount, language, isMobile }) {
         maxWidth: '880px',
         margin: '0 auto 40px',
       }}>
+        <div style={{
+          fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
+          letterSpacing: '0.32em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.6,
+          marginBottom: '24px',
+        }}>
+          {tr ? 'Dört Kadın · Üç Ayet · Tek Çerçeve' : 'Four Women · Three Verses · One Frame'}
+        </div>
+
+        {/* 66:10 — karşıt örnek (Nuh + Lût eşleri) */}
+        <div style={{ opacity: 0.7, marginBottom: '20px' }}>
+          <p style={{
+            color: COLORS.offWhite, fontSize: isMobile ? '0.82rem' : '0.88rem',
+            fontStyle: 'italic', fontFamily: FONTS.body,
+            lineHeight: 1.65, margin: '0 0 8px',
+            maxWidth: '720px', marginInline: 'auto',
+          }}>
+            {tr ? v10Tr : v10En}
+          </p>
+          <p style={{
+            color: COLORS.gold, fontSize: '0.7rem',
+            fontFamily: FONTS.body, fontWeight: 600,
+            letterSpacing: '0.08em', margin: 0, opacity: 0.85,
+          }}>
+            — {v10Ref}
+          </p>
+        </div>
+
+        <div style={{
+          height: '1px', maxWidth: '120px',
+          margin: '0 auto 24px',
+          background: `linear-gradient(to right, transparent, ${COLORS.goldAlpha25}, transparent)`,
+        }} />
+
+        {/* 66:11 — örnek (Asiye), ana ayet */}
         <p
           dir="rtl" lang="ar"
           style={{
@@ -464,10 +508,35 @@ function Hero({ meta, figureCount, language, isMobile }) {
         <p style={{
           color: COLORS.gold, fontSize: '0.8rem',
           fontFamily: FONTS.body, fontWeight: 600,
-          letterSpacing: '0.08em', margin: 0,
+          letterSpacing: '0.08em', margin: '0 0 24px',
         }}>
           — {anchorRef}
         </p>
+
+        <div style={{
+          height: '1px', maxWidth: '120px',
+          margin: '0 auto 24px',
+          background: `linear-gradient(to right, transparent, ${COLORS.goldAlpha25}, transparent)`,
+        }} />
+
+        {/* 66:12 — taşıyıcı (Hz. Meryem) */}
+        <div style={{ opacity: 0.7 }}>
+          <p style={{
+            color: COLORS.offWhite, fontSize: isMobile ? '0.82rem' : '0.88rem',
+            fontStyle: 'italic', fontFamily: FONTS.body,
+            lineHeight: 1.65, margin: '0 0 8px',
+            maxWidth: '720px', marginInline: 'auto',
+          }}>
+            {tr ? v12Tr : v12En}
+          </p>
+          <p style={{
+            color: COLORS.gold, fontSize: '0.7rem',
+            fontFamily: FONTS.body, fontWeight: 600,
+            letterSpacing: '0.08em', margin: 0, opacity: 0.85,
+          }}>
+            — {v12Ref}
+          </p>
+        </div>
       </div>
 
       {/* Manifesto opener — narrative replacement for stats banner */}
@@ -746,14 +815,16 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
 }
 
 // ── Çapraz Okuma — observation cards ─────────────────────────────────────────
+// 14 figür üzerinden örüntüler. `cluster` alanı tematik gruplama için.
 const OBSERVATIONS = [
+  // ─── KÜME 1: SÖZ VE HİTAP ─────────────────────────────────────────────
   {
-    id: 'naming',
-    statValue: '1 / 7',
+    id: 'naming', cluster: 'soz-hitap', isLead: true,
+    statValue: '1 / 14',
     labelTr: 'Adıyla anılan',
     labelEn: 'Named',
-    bodyTr: 'Yalnız Hz. Meryem Kur\'an\'da özel adıyla anılır; bir sûre (Meryem 19) onun ismini taşır. Diğer altı kadın ya akrabalıkla (\"İmran\'ın eşi\", \"Mûsâ\'nın annesi\"), ya konumla (\"Firavun\'un karısı\"), ya da unvanla (\"Saba Melikesi\") anılır.',
-    bodyEn: 'Only Maryam is named in the Quran; one chapter (Maryam 19) bears her name. The other six women are referenced through kinship ("Imran\'s wife", "Mother of Moses"), station ("Pharaoh\'s wife"), or title ("Queen of Sheba").',
+    bodyTr: 'On dört figürden yalnız Hz. Meryem Kur\'an\'da özel adıyla anılır; bir sûre (Meryem 19) onun ismini taşır. Geriye kalan on üç kadın ya akrabalıkla ("İmran\'ın eşi", "Hz. Mûsâ\'nın annesi"), ya konumla ("Firavun\'un karısı"), ya da unvanla ("Saba Melikesi") anılır. Bu nüans atlasın merkezi akademik bulgusudur — kadın figürlerin "anonim" değil, **sıfaten tanımlı** olduğunu gösterir.',
+    bodyEn: 'Of fourteen figures, only Maryam is named in the Quran; one chapter (Maryam 19) bears her name. The remaining thirteen women are referenced by kinship ("Imran\'s wife", "Mother of Moses"), station ("Pharaoh\'s wife"), or title ("Queen of Sheba"). This nuance is the atlas\'s central academic finding — female figures are not "anonymous" but **identified by attribute**.',
     groups: [
       {
         labelTr: 'ADIYLA', labelEn: 'BY NAME',
@@ -763,28 +834,33 @@ const OBSERVATIONS = [
         labelTr: 'SIFATLA', labelEn: 'BY ATTRIBUTE',
         chips: [
           { name: 'Asiye', ref: 'Tahrîm 66:11', muted: true },
-          { name: 'Hz. Havva', ref: 'A\'râf 7:19', muted: true },
+          { name: 'Hz. Havva', ref: "A'râf 7:19", muted: true },
           { name: 'Saba Melikesi', ref: 'Neml 27:23', muted: true },
-          { name: 'Sara', ref: 'Zâriyât 51:29', muted: true },
-          { name: "Hz. Mûsâ'nın annesi", ref: 'Kasas 28:7', muted: true },
+          { name: 'Hz. Sara', ref: 'Zâriyât 51:29', muted: true },
+          { name: "Mûsâ'nın annesi", ref: 'Kasas 28:7', muted: true },
           { name: "İmran'ın eşi", ref: 'Âl-i İmrân 3:35', muted: true },
+          { name: "Aziz'in karısı", ref: 'Yûsuf 12:23', muted: true },
+          { name: "Lût'un eşi", ref: 'Tahrîm 66:10', muted: true },
+          { name: "Nuh'un eşi", ref: 'Tahrîm 66:10', muted: true },
+          { name: "Yahya'nın annesi", ref: 'Meryem 19:5', muted: true },
+          { name: "Şuayb'ın kızı", ref: 'Kasas 28:25', muted: true },
+          { name: 'Havle', ref: 'Mücâdele 58:1', muted: true },
+          { name: "Mûsâ'nın ablası", ref: 'Kasas 28:11', muted: true },
         ],
       },
     ],
   },
   {
-    id: 'wahy',
+    id: 'wahy', cluster: 'soz-hitap',
     statValue: '1 + 1',
-    labelTr: 'Meleklerle konuşan / vahiy alan',
-    labelEn: 'Spoken to by angels / received waḥy',
-    bodyTr: 'Kur\'an\'da kendisine doğrudan وحي (vahiy) lafzıyla bildirimde bulunulan **tek kadın** Hz. Mûsâ\'nın annesidir (Kasas 28:7: وَأَوْحَيْنَا إِلَىٰ أُمِّ مُوسَىٰ). Hz. Meryem ise farklı bir teolojik kategoride — meleklerin doğrudan ona hitap ettiği belirtilir (Âl-i İmrân 3:42 قَالَتِ الْمَلَائِكَةُ; Meryem 19:17 Ruh\'un kendisine "temessül" etmesi). Klasik tefsir bu ayrımı dikkatle korur (Râzî, Mefâtîh; Kurtubî). Bu vahyin/hitabın "nübüvvet" mi yoksa "ilham" mı olduğu tartışmalıdır — Cumhûr ilham görüşündedir.',
-    bodyEn: 'Only **one woman** is addressed with the direct term وحي (waḥy) in the Quran: the Mother of Moses (Q 28:7: "We inspired the mother of Moses"). Maryam falls in a distinct theological category — angels speak directly to her (Q 3:42 "the angels said"; Q 19:17 the Spirit assumes form for her). Classical tafsir carefully preserves this distinction (Razi, Mafatih; Qurtubi). Whether this constitutes prophetic revelation or ilham (inspiration) is debated — the majority hold the ilham view.',
+    labelTr: 'Vahy lafzı vs melek hitabı',
+    labelEn: 'Waḥy term vs angelic address',
+    bodyTr: 'Kur\'an\'da kendisine doğrudan وحي (vahy) lafzıyla bildirimde bulunulan tek kadın Hz. Mûsâ\'nın annesidir (Kasas 28:7). Hz. Meryem farklı bir teolojik kategoride — meleklerin doğrudan ona hitap ettiği belirtilir. Klasik tefsir (Râzî, Kurtubî) bu ayrımı dikkatle korur. Bu hitabın "nübüvvet" mi "ilham" mı olduğu tartışmalı; Cumhûr ilham görüşündedir.',
+    bodyEn: 'Only one woman in the Quran is addressed with the direct term وحي (waḥy): the Mother of Moses (Q 28:7). Maryam belongs to a distinct theological category — angels speak directly to her. Classical tafsir (Razi, Qurtubi) carefully preserves this distinction. Whether this constitutes prophetic revelation or ilham is debated; the majority hold the ilham view.',
     groups: [
       {
-        labelTr: 'VAHİY (وحي) LAFZIYLA', labelEn: 'WITH THE TERM WAḤY',
-        chips: [
-          { name: "Hz. Mûsâ'nın annesi", ref: 'Kasas 28:7' },
-        ],
+        labelTr: 'VAHY (وحي) LAFZIYLA', labelEn: 'WITH THE TERM WAḤY',
+        chips: [{ name: "Mûsâ'nın annesi", ref: 'Kasas 28:7' }],
       },
       {
         labelTr: 'MELEKLERLE KONUŞAN', labelEn: 'ADDRESSED BY ANGELS',
@@ -796,89 +872,158 @@ const OBSERVATIONS = [
     ],
   },
   {
-    id: 'speech',
-    statValue: '6 / 7',
+    id: 'speech', cluster: 'soz-hitap',
+    statValue: '10 / 14',
     labelTr: 'Doğrudan konuşan',
     labelEn: 'Direct speech recorded',
-    bodyTr: 'Yedi figürden altısının doğrudan sözü Kur\'an\'da nakledilir; yalnız Hz. Havvâ\'nın bağımsız sözü yoktur — cennetten çıkarılma anlatımları onu Hz. Âdem ile çift fail olarak gösterir.',
-    bodyEn: 'Six of the seven figures speak directly in the Quran; only Hawwa has no independent speech — narratives of the descent from Paradise treat her as joint agent with Adam.',
+    bodyTr: 'On dört figürden onunun doğrudan sözü Kur\'an\'da nakledilir. Sessiz dört kadın: Hz. Havva (cennetten çıkış anlatımlarında çift fail olarak Hz. Âdem ile birlikte gösterilir), Hz. Lût ve Hz. Nuh\'un eşleri (karşıt örnek olarak yalnız zikredilir), Hz. Yahya\'nın annesi (Hz. Zekeriyya\'nın duası ön planda).',
+    bodyEn: 'Ten of fourteen figures speak directly in the Quran. The four silent ones: Hawwa (joint agent with Adam in the Fall narratives), the wives of Lot and Noah (mentioned only as counter-examples), and the mother of Yahya (Zechariah\'s prayer takes the foreground).',
     groups: [
       {
         labelTr: 'KONUŞAN', labelEn: 'SPEAKING',
         chips: [
-          { name: 'Hz. Meryem', ref: '19:18' },
-          { name: 'Asiye', ref: '66:11' },
-          { name: 'Saba Melikesi', ref: '27:32' },
-          { name: 'Sara', ref: '51:29' },
-          { name: "Mûsâ'nın annesi", ref: '28:13' },
-          { name: "İmran'ın eşi", ref: '3:35' },
+          { name: 'Hz. Meryem', ref: 'Meryem 19:18' },
+          { name: 'Asiye', ref: 'Tahrîm 66:11' },
+          { name: 'Saba Melikesi', ref: 'Neml 27:32' },
+          { name: 'Hz. Sara', ref: 'Zâriyât 51:29' },
+          { name: "Mûsâ'nın annesi", ref: 'Kasas 28:11' },
+          { name: "İmran'ın eşi", ref: 'Âl-i İmrân 3:35' },
+          { name: "Aziz'in karısı", ref: 'Yûsuf 12:51' },
+          { name: "Şuayb'ın kızı", ref: 'Kasas 28:26' },
+          { name: 'Havle', ref: 'Mücâdele 58:1' },
+          { name: "Mûsâ'nın ablası", ref: 'Kasas 28:12' },
         ],
       },
       {
         labelTr: 'SESSİZ', labelEn: 'SILENT',
-        chips: [{ name: 'Hz. Havva', ref: '2:35 / 7:19', muted: true }],
+        chips: [
+          { name: 'Hz. Havva', ref: 'Bakara 2:35', muted: true },
+          { name: "Lût'un eşi", ref: 'Tahrîm 66:10', muted: true },
+          { name: "Nuh'un eşi", ref: 'Tahrîm 66:10', muted: true },
+          { name: "Yahya'nın annesi", ref: 'Meryem 19:5', muted: true },
+        ],
       },
     ],
   },
+
+  // ─── KÜME 2: SARAY VE İKTİDAR ─────────────────────────────────────────
   {
-    id: 'palace',
-    statValue: 'Sarayda iman',
-    labelTr: "Asiye paradoksu",
-    labelEn: 'The Asiya paradox',
-    bodyTr: 'Asiye, tarihin en zalim hükümdarlarından birinin sarayında iman eder ve "müminlere örnek" olarak takdim edilir (66:11). Aynı Kur\'an, başka bir sarayda (Yûsuf 12) Aziz\'in karısının ihanetini anlatır — iki saray, iki kadın, iki tepki.',
-    bodyEn: 'Asiya believes within the palace of one of history\'s most tyrannical rulers and is set forth as "an example for believers" (66:11). The same Quran narrates the betrayal of the Aziz\'s wife in another palace (Surah Yusuf 12) — two palaces, two women, two responses.',
+    id: 'palace', cluster: 'saray-iktidar',
+    statValue: '3 saray',
+    labelTr: 'Üç saray, üç tepki',
+    labelEn: 'Three palaces, three responses',
+    bodyTr: 'Saray motifi üç farklı kadında üç farklı tepkiyi karşılaştırır: Asiye (Firavun\'un sarayında iman → "müminlere örnek"), Aziz\'in karısı (Mısır sarayında tutku → ihanet → itiraf), Saba Melikesi (kendi sarayında istişâre → hidayet). Aynı mekânsal arketip, üç ayrı dramatik yay.',
+    bodyEn: 'The palace motif sets three women\'s contrasting responses side by side: Asiya (faith inside Pharaoh\'s palace → "example for believers"), the Aziz\'s wife (passion → betrayal → confession in the Egyptian palace), the Queen of Sheba (consultation → conversion in her own palace). One spatial archetype, three distinct dramatic arcs.',
     groups: [
       {
-        labelTr: 'KARŞIT TABLO', labelEn: 'CONTRASTING IMAGES',
+        labelTr: 'ÜÇ TEPKİ', labelEn: 'THREE RESPONSES',
         chips: [
-          { name: 'Asiye (iman)', ref: 'Tahrîm 66:11' },
-          { name: "Aziz'in karısı (ihanet)", ref: 'Yûsuf 12:23-32', muted: true },
+          { name: 'Asiye — iman', ref: 'Tahrîm 66:11' },
+          { name: "Aziz'in karısı — tutku → tövbe", ref: 'Yûsuf 12:51' },
+          { name: 'Bilkıs — hidayet', ref: 'Neml 27:44' },
         ],
       },
     ],
   },
   {
-    id: 'miracle-birth',
-    statValue: '2 / 7',
+    id: 'ruler', cluster: 'saray-iktidar',
+    statValue: '1 / 14',
+    labelTr: 'Bir krallığı yöneten',
+    labelEn: 'A ruling queen',
+    bodyTr: 'Kur\'an yalnız bir kadın hükümdarın anlatısını ayrıntılı verir: Saba Melikesi. Onun siyasi bilgeliği (savaş yerine elçi gönderme, 27:35), entelektüel cesareti (sarayı görünce hatasını kabul, 27:44) ve teolojik dönüşümü (27:44) Neml 22 ayet boyunca işlenir.',
+    bodyEn: 'The Quran narrates only one female ruler in detail: the Queen of Sheba. Her political wisdom (sending envoys instead of going to war, 27:35), intellectual courage (acknowledging her error upon seeing the palace, 27:44), and theological transformation (27:44) unfold across 22 verses in Surah an-Naml.',
+    groups: [
+      {
+        labelTr: 'HÜKÜMDAR', labelEn: 'RULER',
+        chips: [{ name: 'Saba Melikesi', ref: 'Neml 27:23-44' }],
+      },
+    ],
+  },
+
+  // ─── KÜME 3: DOĞUM VE SOY ─────────────────────────────────────────────
+  {
+    id: 'miracle-birth', cluster: 'dogum-soy',
+    statValue: '3 / 14',
     labelTr: 'Mucize doğum',
     labelEn: 'Miraculous birth',
-    bodyTr: 'İki kadın olağanüstü doğum mucizesinin merkezindedir: Sara (kısırlık + ileri yaş → İshak\'ın müjdesi, 51:29) ve Hz. Meryem (babasız doğum, 19:20). Her iki anlatıda da kadının şaşkınlığı/gülmesi açıkça kayıtlıdır.',
-    bodyEn: 'Two women stand at the center of extraordinary birth miracles: Sarah (barrenness + advanced age → tidings of Isaac, 51:29) and Maryam (fatherless birth, 19:20). In both narratives the woman\'s astonishment/laughter is explicitly recorded.',
+    bodyTr: 'Üç kadın olağanüstü doğum mucizesinin merkezindedir: Hz. Sara (kısırlık + ileri yaş → Hz. İshak\'ın müjdesi), Hz. Yahya\'nın annesi (kısırlık → Hz. Yahya, 19:7) ve Hz. Meryem (babasız doğum, 19:20). Her üç anlatı yapısal olarak benzer: "imkânsız" doğumun ilahi bildirimle gerçekleşmesi.',
+    bodyEn: 'Three women stand at the center of extraordinary birth miracles: Sarah (barrenness + advanced age → Isaac\'s birth tidings), the mother of Yahya (barrenness → Yahya, 19:7), and Maryam (fatherless birth, 19:20). The three accounts share a structural template: the "impossible" birth realized through divine annunciation.',
     groups: [
       {
-        labelTr: 'MUCİZE', labelEn: 'MIRACLE',
+        labelTr: 'MUCİZE DOĞUM', labelEn: 'MIRACULOUS BIRTH',
         chips: [
-          { name: 'Sara (yaşlılıkta)', ref: 'Hûd 11:71-73' },
-          { name: 'Hz. Meryem (babasız)', ref: 'Meryem 19:16-22' },
+          { name: 'Hz. Sara', ref: 'Hûd 11:71-73' },
+          { name: "Yahya'nın annesi", ref: 'Meryem 19:7' },
+          { name: 'Hz. Meryem', ref: 'Meryem 19:16-22' },
         ],
       },
     ],
   },
   {
-    id: 'lineage',
+    id: 'lineage', cluster: 'dogum-soy',
     statValue: '3 nesil',
-    labelTr: 'Soy zinciri',
-    labelEn: 'A lineage chain',
-    bodyTr: 'İmran\'ın eşi karnındaki çocuğu mâbede adar (3:35) → Hz. Meryem mâbedde Zekeriyya\'nın himayesinde yetişir (3:37) → Hz. İsa, babasız mucize doğumla dünyaya gelir (3:45). Üç nesilde örülen, tek bir adak ile başlayan bir kıssa.',
-    bodyEn: 'Imran\'s wife pledges her unborn child to the temple (3:35) → Maryam is raised in the temple under Zechariah\'s care (3:37) → Jesus is born by fatherless miracle (3:45). A three-generation thread woven from a single vow.',
+    labelTr: 'Üç nesil soy zinciri',
+    labelEn: 'A three-generation thread',
+    bodyTr: 'İmran\'ın eşi karnındaki çocuğu mâbede adar (3:35) → Hz. Meryem mâbedde Hz. Zekeriyya\'nın himayesinde yetişir (3:37) → Hz. İsa, babasız mucize doğumla dünyaya gelir (3:45). Tek bir adakla başlayan üç nesillik zincir, atlasta birden fazla figürün ortak çerçevede buluştuğu nadir örüntüdür.',
+    bodyEn: 'Imran\'s wife pledges her unborn child to the temple (3:35) → Maryam is raised in the temple under Zechariah\'s care (3:37) → Jesus is born by fatherless miracle (3:45). A three-generation chain springing from a single vow — a rare pattern where multiple atlas figures meet within one unified frame.',
     groups: [
       {
         labelTr: 'ÜÇ NESİL', labelEn: 'THREE GENERATIONS',
         chips: [
-          { name: "İmran'ın eşi (adak)", ref: '3:35' },
-          { name: 'Hz. Meryem (mâbedde)', ref: '3:37' },
-          { name: 'Hz. İsa (doğum)', ref: '3:45' },
+          { name: "İmran'ın eşi (adak)", ref: 'Âl-i İmrân 3:35' },
+          { name: 'Hz. Meryem (mâbedde)', ref: 'Âl-i İmrân 3:37' },
+          { name: 'Hz. İsa (doğum)', ref: 'Âl-i İmrân 3:45' },
+        ],
+      },
+    ],
+  },
+
+  // ─── KÜME 4: ÖRNEK / KARŞIT ÖRNEK / TARİHSEL TANIKLIK ─────────────────
+  {
+    id: 'counter-example', cluster: 'ornek-tarih',
+    statValue: '2 / 14',
+    labelTr: 'Karşıt örnek olarak takdim',
+    labelEn: 'Presented as counter-example',
+    bodyTr: 'Tahrîm 66:10\'da Allah, "inkar edenlere örnek" (mathalan li\'l-ladhīna kafarū) olarak iki figürü zikreder: Hz. Lût ve Hz. Nuh\'un eşleri. Bu ifade, sonraki ayetlerdeki "müminlere örnek" çerçevesine (Asiye 66:11, Hz. Meryem 66:12) tam paralel ama zıt bir teolojik kategoridir. Aynı sûrede, aynı yapı — biri olumlu, diğeri olumsuz arketip.',
+    bodyEn: 'In Q 66:10 Allah cites two figures as "an example for those who disbelieved" (mathalan li\'l-ladhīna kafarū): the wives of Lot and Noah. This stands in exact parallel — but opposite — to the subsequent "example for believers" frame (Asiya 66:11, Maryam 66:12). The same surah, the same structure — one a positive, the other a negative archetype.',
+    groups: [
+      {
+        labelTr: 'KARŞIT ÖRNEK', labelEn: 'COUNTER-EXAMPLE',
+        chips: [
+          { name: "Hz. Lût'un eşi", ref: 'Tahrîm 66:10' },
+          { name: "Hz. Nuh'un eşi", ref: 'Tahrîm 66:10' },
+        ],
+      },
+      {
+        labelTr: 'PARALEL: MÜMİNLERE ÖRNEK', labelEn: 'PARALLEL: EXAMPLE FOR BELIEVERS',
+        chips: [
+          { name: 'Asiye', ref: 'Tahrîm 66:11', muted: true },
+          { name: 'Hz. Meryem', ref: 'Tahrîm 66:12', muted: true },
         ],
       },
     ],
   },
   {
-    id: 'kemal',
+    id: 'namesake', cluster: 'ornek-tarih',
+    statValue: '1',
+    labelTr: 'Bir sûreye ad veren kadın',
+    labelEn: 'A woman who names a surah',
+    bodyTr: 'Mücâdele (58.) sûresi adını, kocasının zıharına itiraz eden Havle bint Sa\'lebe\'den alır — "el-Mücâdile" (tartışan/ısrarcı kadın) ondaki sûre başlığıdır. Bir kadının sosyal-hukuki şikâyetinin doğrudan sûre adına dönüştüğü tek olaydır. Esbâbu\'n-nüzûl literatüründe (Vâhidî, Buhârî) zıhar hükmünün bu olay üzerine indiği belgelenir.',
+    bodyEn: 'Surah al-Mujadila (58) takes its name from Khawla bint Tha\'laba, who disputed her husband\'s zihar — "al-Mujadila" (the woman who pleads/disputes). It is the only instance where a woman\'s social-legal complaint becomes the very title of a surah. The asbāb an-nuzūl literature (Wahidi, Bukhari) documents that the ruling on zihar was revealed in response to this incident.',
+    groups: [
+      {
+        labelTr: 'SÛREYE AD VEREN', labelEn: 'NAMING THE SURAH',
+        chips: [{ name: 'Havle bint Sa\'lebe', ref: 'Mücâdele 58:1-4' }],
+      },
+    ],
+  },
+  {
+    id: 'kemal', cluster: 'ornek-tarih',
     statValue: '4',
     labelTr: 'Hadiste "kemâle eren" dört kadın',
     labelEn: 'Four "perfected" women in hadith',
-    bodyTr: 'Hadis literatüründe (Buhârî, Enbiyâ 32; Müslim, Fedâilü\'s-Sahâbe 70) Hz. Peygamber\'in "kemâl mertebesine ulaşmış" olarak isimlendirdiği dört kadın: Hz. Meryem ve Asiye (Kur\'an\'da) + Hz. Hatice ve Hz. Fâtıma (hadis-tarih kaynaklarında). İlk ikisi bu atlasta, son ikisi Kur\'an dışındadır.',
-    bodyEn: 'In the hadith literature (Bukhari, Anbiya 32; Muslim, Fada\'il as-Sahaba 70) the Prophet names four women as having reached the rank of perfection: Maryam and Asiya (in the Quran) + Khadija and Fatima (in hadith-historical sources). The first two are in this atlas; the latter two are outside the Quran.',
+    bodyTr: 'Hadis literatüründe (Buhârî, Enbiyâ 32; Müslim, Fedâilü\'s-Sahâbe 70) Hz. Peygamber\'in "kemâl mertebesine ulaşmış" olarak isimlendirdiği dört kadın: Hz. Meryem ve Asiye (Kur\'an\'da yer alan iki figür) + Hz. Hatice ve Hz. Fâtıma (yalnızca hadis-tarih kaynaklarında). Atlasın ilk ikisi içerdiği, son ikisinin Kur\'an dışında kaldığı dikkatli bir ayrımdır.',
+    bodyEn: 'In hadith literature (Bukhari, Anbiya 32; Muslim, Fada\'il as-Sahaba 70) the Prophet names four women as having reached the rank of perfection: Maryam and Asiya (two atlas figures) + Khadija and Fatima (only in hadith-historical sources). The careful distinction: the atlas includes the first two; the latter two fall outside the Quran.',
     groups: [
       {
         labelTr: "KUR'AN'DA", labelEn: 'IN THE QURAN',
@@ -896,6 +1041,14 @@ const OBSERVATIONS = [
       },
     ],
   },
+];
+
+// Tematik küme tanımları
+const CLUSTERS = [
+  { id: 'soz-hitap',     labelTr: 'Söz ve Hitap',                 labelEn: 'Speech and Address' },
+  { id: 'saray-iktidar', labelTr: 'Saray ve İktidar',             labelEn: 'Palace and Power' },
+  { id: 'dogum-soy',     labelTr: 'Doğum ve Soy',                 labelEn: 'Birth and Lineage' },
+  { id: 'ornek-tarih',   labelTr: 'Örnek, Karşıt Örnek, Tarih',   labelEn: 'Exemplar, Counter-Example, History' },
 ];
 
 // ── Hz. Meryem Spotlight (full-width) ─────────────────────────────────────────
@@ -1296,10 +1449,29 @@ function CaprazOkumaSection({ language, isMobile }) {
 }
 
 // ── Diğer Atıflar (Atlasta kart açılmayan figürlerin notu) ────────────────────
+// Tier sistemi: items üç farklı varlık seviyesine göre gruplanır.
+//   1 = Kur'an'da geçer ama bireysel kart yok (gold)
+//   2 = Klasik tefsirde imâ edilen (silver)
+//   3 = Kur'an'da yok, hadis ve sîret kaynaklarında (emerald)
+const TIER_PALETTE = {
+  1: { accent: COLORS.gold,    chipBg: COLORS.goldAlpha15,           chipBorder: COLORS.goldAlpha45 },
+  2: { accent: COLORS.silver,  chipBg: COLORS.silverAlpha12,         chipBorder: COLORS.silverAlpha40 },
+  3: { accent: COLORS.emerald, chipBg: 'rgba(26,122,76,0.18)',       chipBorder: 'rgba(26,122,76,0.55)' },
+};
+
 function AdditionalReferencesSection({ data, language, isMobile }) {
   const tr = language === 'tr';
   const items = data.items || [];
+  const tiers = data.tiers || {};
   if (items.length === 0) return null;
+
+  // Group items by tier (preserves source order within each tier)
+  const byTier = items.reduce((acc, item) => {
+    const t = item.tier || 1;
+    (acc[t] = acc[t] || []).push(item);
+    return acc;
+  }, {});
+  const tierOrder = Object.keys(byTier).sort((a, b) => Number(a) - Number(b));
 
   return (
     <div style={{
@@ -1307,6 +1479,7 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
       borderTop: `1px solid ${COLORS.glassBorderSoft}`,
       marginTop: '20px',
     }}>
+      <div style={{ maxWidth: '960px', margin: '0 auto' }}>
       <div style={{
         fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
@@ -1327,53 +1500,105 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
       <p style={{
         fontFamily: FONTS.body,
         fontSize: isMobile ? '0.92rem' : '1rem',
-        color: COLORS.silver, margin: '0 0 32px', lineHeight: 1.65,
+        color: COLORS.silver, margin: '0 0 36px', lineHeight: 1.65,
         maxWidth: '880px',
       }}>
         {tr ? data.introTr : data.introEn}
       </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-        {items.map((item, i) => (
-          <div key={i} style={{
-            padding: '20px 24px',
-            background: 'rgba(255,255,255,0.02)',
-            border: `1px solid ${COLORS.glassBorderSoft}`,
-            borderLeft: `2px solid ${COLORS.silverAlpha40}`,
-            borderRadius: RADIUS.md,
-          }}>
+      {tierOrder.map((tierKey, tierIdx) => {
+        const tierMeta = tiers[tierKey] || {};
+        const palette = TIER_PALETTE[tierKey] || TIER_PALETTE[1];
+        const tierItems = byTier[tierKey];
+        const isLast = tierIdx === tierOrder.length - 1;
+        return (
+          <div key={tierKey} style={{ marginBottom: isLast ? 0 : '40px' }}>
+            {/* Tier header */}
             <div style={{
-              display: 'flex', alignItems: 'baseline', gap: '14px',
-              flexWrap: 'wrap', marginBottom: '10px',
+              display: 'flex', alignItems: 'flex-start', gap: '14px',
+              marginBottom: '16px', paddingLeft: '2px',
             }}>
-              <h4 style={{
-                margin: 0,
-                fontFamily: FONTS.display, fontWeight: 700,
-                fontSize: '1rem',
-                color: COLORS.offWhite,
-              }}>
-                {tr ? item.titleTr : item.titleEn}
-              </h4>
-              {item.ref && (
-                <span style={{
-                  fontSize: '0.72rem',
-                  color: COLORS.gold, opacity: 0.8,
-                  fontFamily: FONTS.body, fontWeight: 600,
-                  letterSpacing: '0.05em',
+              <span style={{
+                width: '24px', height: '2px',
+                background: palette.accent, opacity: 0.7,
+                flexShrink: 0, marginTop: '9px',
+              }} />
+              <div style={{ flex: 1 }}>
+                <div style={{
+                  fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 700,
+                  letterSpacing: '0.22em', textTransform: 'uppercase',
+                  color: palette.accent, opacity: 0.9,
+                  marginBottom: '6px',
                 }}>
-                  {item.ref}
-                </span>
-              )}
+                  {tr ? tierMeta.labelTr : tierMeta.labelEn}
+                </div>
+                {(tierMeta.descTr || tierMeta.descEn) && (
+                  <div style={{
+                    fontSize: '0.82rem', fontFamily: FONTS.body,
+                    color: COLORS.silver, opacity: 0.78,
+                    fontStyle: 'italic', lineHeight: 1.55,
+                    maxWidth: '760px',
+                  }}>
+                    {tr ? tierMeta.descTr : tierMeta.descEn}
+                  </div>
+                )}
+              </div>
             </div>
-            <p style={{
-              margin: 0,
-              fontFamily: FONTS.body, fontSize: '0.86rem',
-              color: COLORS.silver, lineHeight: 1.65,
-            }}>
-              {tr ? item.noteTr : item.noteEn}
-            </p>
+
+            {/* Cards in this tier */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {tierItems.map((item, i) => (
+                <div key={i} style={{
+                  padding: isMobile ? '18px 20px' : '22px 26px',
+                  background: 'rgba(255,255,255,0.02)',
+                  border: `1px solid ${COLORS.glassBorderSoft}`,
+                  borderLeft: `2px solid ${palette.accent}`,
+                  borderRadius: RADIUS.md,
+                }}>
+                  <div style={{
+                    display: 'flex', alignItems: 'baseline', gap: '12px',
+                    flexWrap: 'wrap', marginBottom: '12px',
+                  }}>
+                    <h4 style={{
+                      margin: 0,
+                      fontFamily: FONTS.display, fontWeight: 700,
+                      fontSize: isMobile ? '1rem' : '1.05rem',
+                      color: COLORS.offWhite,
+                      lineHeight: 1.3,
+                    }}>
+                      {tr ? item.titleTr : item.titleEn}
+                    </h4>
+                    {item.ref && (
+                      <span style={{
+                        fontSize: '0.68rem',
+                        color: palette.accent,
+                        background: palette.chipBg,
+                        border: `1px solid ${palette.chipBorder}`,
+                        padding: '3px 10px',
+                        borderRadius: '999px',
+                        fontFamily: FONTS.body, fontWeight: 600,
+                        letterSpacing: '0.04em',
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {item.ref}
+                      </span>
+                    )}
+                  </div>
+                  <p style={{
+                    margin: 0,
+                    fontFamily: FONTS.body,
+                    fontSize: isMobile ? '0.86rem' : '0.9rem',
+                    color: COLORS.silver, lineHeight: 1.75,
+                    maxWidth: '780px',
+                  }}>
+                    {tr ? item.noteTr : item.noteEn}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+        );
+      })}
       </div>
     </div>
   );

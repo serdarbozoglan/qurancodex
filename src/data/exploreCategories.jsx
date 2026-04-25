@@ -171,6 +171,16 @@ const LadderIcon = ({ size = 18 }) => (
   </svg>
 );
 
+// İlk ve Son Kelimeler — bookends: iki dikey sınır + ortada ok (açılış → kapanış)
+const BookendsIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="4" y1="5" x2="4" y2="19" />
+    <line x1="20" y1="5" x2="20" y2="19" />
+    <line x1="7" y1="12" x2="17" y2="12" />
+    <polyline points="14 9 17 12 14 15" />
+  </svg>
+);
+
 // ── Categories ──────────────────────────────────────────────────────────────
 // User-approved order (2026-04-10):
 //   DİL & YAPI          — unchanged
@@ -219,6 +229,15 @@ export const EXPLORE_CATEGORIES = [
         titleTr: 'Yapısal Mimari',        titleEn: 'Hidden Architecture',
         descTr: 'Halka kompozisyon ve simetri',
         descEn: 'Ring composition & symmetry',
+      },
+      {
+        id:     'ilkSon',
+        kind:   'overlay',
+        target: 'ilkSon',
+        icon:   BookendsIcon,
+        titleTr: 'İlk ve Son Kelimeler',  titleEn: 'First and Last Words',
+        descTr: '114 sûre · açılış ↔ kapanış deseni',
+        descEn: '114 surahs · opening ↔ closing pattern',
       },
       {
         id:     'renkler',
