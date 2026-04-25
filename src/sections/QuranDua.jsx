@@ -115,8 +115,8 @@ const PROPHET_PROFILES = [
     countEn: '4 main supplications',
     insightTr: "Hz. Zekeriyyâ'nın duası 'gizli ses' (nidâen hafiyyâ — Meryem 19:3) ile yapılır; ne dilediği başkalarının duymasından utanç duyar. Kemiklerinin zayıfladığını söyler ama 'biliyorsun' demez — Allah'a tanıklık değil, kendi acziyetini sunar. İleri yaşın çaresizliği umut talebine dönüşür: 'sana dua ederken hiçbir zaman bedbaht olmadım.'",
     insightEn: "Zechariah's prayer is offered 'in a hushed voice' (nidā'an khafiyyan — Maryam 19:3); he is too modest for others to overhear what he asks. He notes that his bones have weakened, yet does not say 'You know'; he places his own helplessness before God rather than testifying to it. The despair of old age transforms into a petition of hope: 'I have never been unblessed in calling upon You.'",
-    responseTr: 'Cevap: İleri yaşta Yahyâ (Yûhanna) verildi (Meryem 19:7). Aynı isim daha önce kimseye verilmemişti.',
-    responseEn: 'Response: In advanced age he was granted Yaḥyā (John) (Maryam 19:7). A name not given to anyone before.',
+    responseTr: 'Cevap: İleri yaşta Hz. Yahyâ (Yûhanna) verildi (Meryem 19:7). Aynı isim daha önce kimseye verilmemişti.',
+    responseEn: 'Response: In advanced age he was granted Hz. Yaḥyā (John) (Maryam 19:7). A name not given to anyone before.',
   },
 ];
 
