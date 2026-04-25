@@ -96,8 +96,27 @@ const PROPHET_PROFILES = [
     countEn: "15+ supplications — the Qur'an's longest prayer chain",
     insightTr: "Hz. Mûsâ'nın duası psikolojinin haritasıdır: önce iç durum (göğüs açılsın, dar olmasın), sonra dış görev (iş kolaylaşsın), ardından iletişim (dil çözülsün), nihayet sosyal destek (kardeş Hz. Hârûn). Modern psikolojinin 'iç düzenleme → dış eylem → diyalog → ekosistem' sıralamasını 14 asır önce verir. Firavun karşısında bir peygamber kendi zaafını şikâyet değil talep diliyle sunar — 'şerh-i sadr' iç dünyada yer açma demektir.",
     insightEn: "Moses' prayer is a map of psychology: first inner state (let the chest expand, not constrict), then outer task (ease the work), then communication (untie my tongue), finally social support (my brother Aaron). Fourteen centuries before modern psychology, this sequence — inner regulation → outer action → dialogue → ecosystem — is laid out. Before Pharaoh, a prophet voices his own weakness not as complaint but as petition — 'sharḥ al-ṣadr' means making inner space.",
-    responseTr: 'Cevap: "Talebin verildi" (Tâhâ 20:36). Hârûn yardımcı kılındı, korku açıklığa dönüştürüldü.',
+    responseTr: 'Cevap: "Talebin verildi" (Tâhâ 20:36). Hz. Hârûn yardımcı kılındı, korku açıklığa dönüştürüldü.',
     responseEn: 'Response: "Your request is granted" (Ta-Ha 20:36). Aaron was made his helper; fear was transformed into clarity.',
+  },
+  {
+    id: 'yusuf',
+    nameTr: 'Hz. Yusuf',
+    nameEn: 'Prophet Joseph',
+    emojiColor: '#ec4899',
+    profileTr: 'Gurbet · Travma · Tamamlanma',
+    profileEn: 'Exile · Trauma · Completion',
+    themesTr: ['Yabancı topraklarda dua', 'İmtihandan sığınma', 'İktidar şükrü', 'Müslüman olarak ölüm talebi'],
+    themesEn: ['Prayer in foreign lands', 'Refuge from trial', 'Gratitude in power', 'Petition to die as a Muslim'],
+    famousTr: '"Rabbi\'s-sicnu ehabbu ileyye mimmâ yedʿûnenî ileyh" — Rabbim, bunların beni davet ettiği şeyden bana zindan daha sevimlidir. (Yûsuf 12:33)',
+    famousEn: '"Rabbi al-sijnu aḥabbu ilayya mimmā yadʿūnanī ilayhi" — My Lord, prison is dearer to me than what they invite me to. (Yūsuf 12:33)',
+    ar: 'رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ',
+    countTr: '3 dua — gurbet, sığınma ve tamamlanma',
+    countEn: '3 prayers — exile, refuge, and completion',
+    insightTr: "Hz. Yusuf'un duaları gurbetin üç evresini izler: (1) İmtihan anında sığınma — 'zindan günaha tercih edilir' (12:33), bedensel kaybın ahlâkî kazançtan az olduğunun ifadesi. (2) İktidar elde edildiğinde şükür ve teslimiyet — 'beni Müslüman olarak öldür ve sâlihlere kat' (12:101), zafer anında dahi son talep dünyada değil ahirette tamamlanmak. Yûsuf süresi tek bir kıssa olarak inen tek sûredir; duaları kıssanın zirvelerini işaretler.",
+    insightEn: "Hz. Joseph's prayers trace three phases of exile: (1) Refuge in trial — 'prison is dearer than sin' (12:33), an assertion that bodily loss is less than moral gain. (2) Surrender in power — 'cause me to die as a Muslim and join me with the righteous' (12:101); even at the moment of victory, the final petition is for completion not in this world but in the next. The Sūra of Yūsuf is the only sura revealed as a single continuous narrative; his prayers mark its peaks.",
+    responseTr: 'Cevap: Yusuf zindandan kurtulup Mısır\'a iktidar oldu (12:54-56), babası ve kardeşleri yanına geldi (12:99-100); duası ile ailesi bütünleştirildi.',
+    responseEn: 'Response: Joseph was released from prison and given authority in Egypt (12:54-56), his father and brothers came to him (12:99-100); through his prayer his family was reunited.',
   },
 ];
 
@@ -141,6 +160,14 @@ const RABBENA_DUAS = [
     tr: 'Rabbimiz! Şüphesiz biz iman ettik; günahlarımızı bağışla ve bizi ateş azabından koru.',
     en: 'Our Lord, indeed we have believed; so forgive us our sins and protect us from the punishment of the Fire.',
     ref: 'Âl-i İmrân 3:16', color: '#3498db',
+  },
+  {
+    ar: 'رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
+    tr: 'Rabbimiz! Unutursak veya hata yaparsak bizi sorumlu tutma. Rabbimiz! Bizden öncekilere yüklediğin gibi bize de ağır bir yük yükleme. Rabbimiz! Bize gücümüzün yetmediği şeyleri yükleme. Bizi affet, bağışla ve bize merhamet et. Sen bizim Mevlâmızsın; kâfirler topluluğuna karşı bize yardım et.',
+    en: 'Our Lord, do not hold us accountable if we forget or err. Our Lord, do not place upon us a burden like that which You placed on those before us. Our Lord, do not burden us with what we cannot bear. Pardon us, forgive us, and have mercy on us. You are our Protector — help us against the disbelieving people.',
+    ref: 'Bakara 2:286', color: '#a78bfa',
+    noteTr: "Kur'an'ın en kapsamlı duası — Bakara'nın son ayeti. Hata kabulü, taşınamaz yükten muafiyet, af, mağfiret, merhamet ve nusret talebi tek dua içinde. Hadiste 'Bakara'nın son iki ayetini geceleyin okuyana o iki ayet yeter' (Buhârî, Fedâilü'l-Kur'an 10).",
+    noteEn: "The Qur'an's most comprehensive prayer — the closing verse of Al-Baqara. Acknowledgment of error, exemption from unbearable burden, pardon, forgiveness, mercy, and victory — all in one prayer. Hadith: 'Whoever recites the last two verses of Al-Baqara at night, they will suffice him' (Bukhārī, Faḍāʾil al-Qurʾān 10).",
   },
 ];
 
@@ -408,7 +435,7 @@ export default function QuranDua() {
         {[
           { value: '40+',  labelTr: 'Rabbenâ Duası',         labelEn: 'Rabbanā Prayers',     color: '#d4a574', subTr: 'çoğul · ümmet adına',  subEn: 'plural · for community' },
           { value: '40+',  labelTr: 'Rabbî Duası',           labelEn: 'Rabbī Prayers',       color: '#3498db', subTr: 'tekil · kişisel başvuru', subEn: 'singular · personal' },
-          { value: '5',    labelTr: 'Peygamber Profili',      labelEn: 'Prophet Profiles',    color: '#a78bfa', subTr: 'Hz. İbrahim · Hz. Eyyub · Hz. Yunus · Hz. Zekeriyyâ · Hz. Mûsâ', subEn: 'Abraham · Job · Jonah · Zechariah · Moses' },
+          { value: '6',    labelTr: 'Peygamber Profili',      labelEn: 'Prophet Profiles',    color: '#a78bfa', subTr: 'Hz. İbrahim · Hz. Eyyub · Hz. Yunus · Hz. Zekeriyyâ · Hz. Mûsâ · Hz. Yusuf', subEn: 'Abraham · Job · Jonah · Zechariah · Moses · Joseph' },
           { value: '27',   labelTr: 'Dua İçeren Sûre',        labelEn: 'Surahs with Prayers', color: '#2ecc71', subTr: 'Mekkî · Medenî dengeli',   subEn: 'Meccan · Medinan balanced' },
         ].map((s, i) => (
           <div key={i} style={{
