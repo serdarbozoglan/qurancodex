@@ -173,14 +173,14 @@ export default function QuranDua() {
           : 'The Quran contains over 40 prayers beginning with "Rabbana" (Our Lord!). These are not merely words — they are a map of the human soul, voiced by different prophets at different moments with different needs.'}
       </motion.p>
 
-      {/* Linguistik gözlem — Rabbî ⇋ Rabbenâ karşılaştırma paneli */}
+      {/* Linguistik gözlemler — 3 pencere: Tekil/Çoğul · Yâ Edatı · Zalemnâ Enfusenâ */}
       <motion.div variants={fadeUpItem} className="mb-10" style={{ maxWidth: '900px' }}>
         <p style={{
           fontSize: '0.65rem', letterSpacing: '0.16em', textTransform: 'uppercase',
           color: '#d4a574', fontFamily: "'Inter', sans-serif", fontWeight: 700,
           marginBottom: '12px', opacity: 0.85,
         }}>
-          {tr ? 'Linguistik Gözlem — Tekil ⇋ Çoğul Dengesi' : 'Linguistic Observation — Singular ⇋ Plural Balance'}
+          {tr ? "Linguistik Gözlemler — Dua Dilinin Üç Penceresi" : "Linguistic Observations — Three Windows into the Language of Prayer"}
         </p>
         <div style={{
           display: 'grid',
@@ -277,7 +277,7 @@ export default function QuranDua() {
           </div>
         </div>
 
-        {/* Synthesis line */}
+        {/* Synthesis line — Pencere 1 sonu */}
         <p style={{
           marginTop: '14px', textAlign: 'center',
           color: 'rgba(232,230,227,0.55)', fontSize: '0.78rem',
@@ -288,6 +288,115 @@ export default function QuranDua() {
             ? '"Rabbî" kişinin Allah\'ı yalnız kendi adına çağırması, "Rabbenâ" başkalarını da sesin içine alan davet. Birey Allah\'a sadece kendisi için yönelebilir; ama topluluğa açıldığı an, dili çoğullaşır.'
             : '"Rabbī" calls upon God for oneself alone; "Rabbanā" is an invitation that draws others into the voice. One may turn to God for oneself only — but the moment the call opens to a community, the language becomes plural.'}
         </p>
+
+        {/* Pencere 2 + 3: alt grid */}
+        <div style={{
+          marginTop: '20px',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
+          gap: '14px',
+        }}>
+          {/* Pencere 2: "Yâ" Edatının Yokluğu */}
+          <div style={{
+            background: 'rgba(167,139,250,0.05)',
+            border: '1px solid rgba(167,139,250,0.22)',
+            borderTop: '2px solid #a78bfa',
+            borderRadius: '10px',
+            padding: '16px 18px 14px',
+          }}>
+            <div style={{
+              fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
+              color: '#a78bfa', fontWeight: 700, fontFamily: "'Inter', sans-serif",
+              marginBottom: '10px', opacity: 0.9,
+            }}>
+              {tr ? 'Pencere 2 · "Yâ" Edatının Yokluğu' : 'Window 2 · The Absence of "Yā"'}
+            </div>
+            <div dir="rtl" lang="ar" style={{
+              fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+              fontSize: '1.4rem', color: '#a78bfa', textAlign: 'right',
+              lineHeight: 1.7, marginBottom: '4px',
+              textShadow: '0 0 14px rgba(167,139,250,0.18)',
+            }}>
+              إِنِّي قَرِيبٌ
+            </div>
+            <div style={{
+              fontSize: '0.7rem', color: '#a78bfa', opacity: 0.7, fontWeight: 600,
+              fontFamily: "'Inter', sans-serif", textAlign: 'right', marginBottom: '10px',
+            }}>
+              ↳ {tr ? 'Bakara 2:186 — "Ben yakınım"' : 'Al-Baqara 2:186 — "I am near"'}
+            </div>
+            <p style={{
+              color: 'rgba(232,230,227,0.7)', fontSize: '0.8rem',
+              fontFamily: "'Inter', sans-serif", lineHeight: 1.7, margin: 0,
+            }}>
+              {tr
+                ? 'Türkçede "Ey Rabbim!" doğal görünür. Kur\'an\'da hiçbir dua "yâ" hitap edatıyla başlamaz — sadece "Rabbî" veya "Rabbenâ". Çünkü "yâ" edatı, çağrılan ile çağıran arasında mesafe varsa kullanılır. Kur\'an zaten der: "Kullarım sana Beni sorduğunda, Ben elbette yakınım." Hitap edatının düşmesi, bu yakınlığın gramatik ifadesidir.'
+                : 'In Turkish "Ey Rabbim!" sounds natural. In the Qur\'an no prayer begins with the vocative "yā" — only "Rabbī" or "Rabbanā". The "yā" particle is used when there is distance between the caller and the called. The Qur\'an itself states: "When My servants ask you about Me, I am near." The omission of the vocative is the grammatical expression of this nearness.'}
+            </p>
+          </div>
+
+          {/* Pencere 3: Zalemnâ Enfusenâ Pişmanlık Formülü */}
+          <div style={{
+            background: 'rgba(231,76,60,0.05)',
+            border: '1px solid rgba(231,76,60,0.22)',
+            borderTop: '2px solid #e74c3c',
+            borderRadius: '10px',
+            padding: '16px 18px 14px',
+          }}>
+            <div style={{
+              fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
+              color: '#e74c3c', fontWeight: 700, fontFamily: "'Inter', sans-serif",
+              marginBottom: '10px', opacity: 0.9,
+            }}>
+              {tr ? 'Pencere 3 · "Zalemnâ Enfusenâ" — Pişmanlık Formülü' : 'Window 3 · "Ẓalamnā Anfusanā" — Formula of Repentance'}
+            </div>
+
+            {/* İki paralel ayet */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
+              <div>
+                <div dir="rtl" lang="ar" style={{
+                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontSize: '1.25rem', color: '#e74c3c', textAlign: 'right',
+                  lineHeight: 1.7,
+                  textShadow: '0 0 14px rgba(231,76,60,0.18)',
+                }}>
+                  رَبَّنَا ظَلَمْنَا أَنفُسَنَا
+                </div>
+                <div style={{
+                  fontSize: '0.68rem', color: '#e74c3c', opacity: 0.7, fontWeight: 600,
+                  fontFamily: "'Inter', sans-serif", textAlign: 'right',
+                }}>
+                  ↳ {tr ? 'Hz. Âdem · A\'râf 7:23' : 'Hz. Adam · Al-Aʿrāf 7:23'}
+                </div>
+              </div>
+              <div>
+                <div dir="rtl" lang="ar" style={{
+                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontSize: '1.25rem', color: '#e74c3c', textAlign: 'right',
+                  lineHeight: 1.7,
+                  textShadow: '0 0 14px rgba(231,76,60,0.18)',
+                }}>
+                  رَبِّ إِنِّي ظَلَمْتُ نَفْسِي
+                </div>
+                <div style={{
+                  fontSize: '0.68rem', color: '#e74c3c', opacity: 0.7, fontWeight: 600,
+                  fontFamily: "'Inter', sans-serif", textAlign: 'right',
+                }}>
+                  ↳ {tr ? 'Hz. Mûsâ · Kasas 28:16' : 'Hz. Moses · Al-Qaṣaṣ 28:16'}
+                </div>
+              </div>
+            </div>
+
+            <p style={{
+              color: 'rgba(232,230,227,0.7)', fontSize: '0.8rem',
+              fontFamily: "'Inter', sans-serif", lineHeight: 1.7, margin: 0,
+            }}>
+              {tr
+                ? '"Kendimize zulmettik" — Hz. Âdem ve Hz. Mûsâ\'nın tövbe dillerinde aynı kalıp tekrar eder (çoğul ve tekil formlarda). Birden fazla peygamberin tövbe duasında yankılanan bu formül tek bir öğreti taşır: günah dışsal değil içseldir; sorumluluk başkasına değil, kendi nefsine yöneltilir.'
+                : '"We wronged ourselves" — the same formula recurs in Hz. Adam\'s and Hz. Moses\' repentance prayers (plural and singular forms). Echoing across multiple prophetic prayers, this formula carries one teaching: sin is internal, not external; responsibility is directed inward to one\'s own self, not outward.'}
+            </p>
+          </div>
+        </div>
       </motion.div>
 
       {/* Hero stat şeridi — 4 paralel istatistik */}
