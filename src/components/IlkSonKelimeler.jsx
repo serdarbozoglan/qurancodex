@@ -41,6 +41,7 @@ const cleanArabic = (str) => {
 export default function IlkSonKelimeler({ onClose }) {
   const { language } = useLanguage();
   const [data, setData]           = useState(null);
+  const [spotlights, setSpotlights] = useState([]);
   const [activeFilter, setFilter] = useState('all');
   const [searchValue, setSearch]  = useState('');
   const [selected, setSelected]   = useState(null);
@@ -57,6 +58,13 @@ export default function IlkSonKelimeler({ onClose }) {
       .then(r => r.json())
       .then(setData)
       .catch(err => console.error('[IlkSonKelimeler] fetch failed:', err));
+  }, []);
+
+  useEffect(() => {
+    fetch('/ilk-son-kelimeler-spotlights.json')
+      .then(r => r.json())
+      .then(d => setSpotlights(d.spotlights || []))
+      .catch(err => console.error('[IlkSonKelimeler] spotlights fetch failed:', err));
   }, []);
 
   useEffect(() => {
@@ -208,6 +216,11 @@ export default function IlkSonKelimeler({ onClose }) {
           gap: '12px',
           alignContent: 'start',
         }}>
+          {activeFilter === 'all' && searchValue.trim().length < 2 && spotlights.length > 0 && (
+            <div style={{ gridColumn: '1 / -1' }}>
+              <SpotlightSection spotlights={spotlights} language={language} isMobile={isMobile} />
+            </div>
+          )}
           {filtered.map(s => (
             <Card key={s.surah} surah={s} onClick={() => setSelected(s)} selected={selected?.surah === s.surah} language={language} />
           ))}
@@ -529,6 +542,296 @@ function AyahBlock({ label, verseRef, word, ayahAr, ayahTr, language }) {
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+// ─── Spotlight Section ────────────────────────────────────────────────────────
+// Münâsebât-ı Süver çerçevesinde 7 öne çıkan kelime bağı kartı.
+// Bridge / ring / family / cluster / intra-bridge / intra-ring tipleri.
+function SpotlightSection({ spotlights, language, isMobile }) {
+  if (!spotlights || spotlights.length === 0) return null;
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      maxWidth: '960px',
+      margin: '0 auto 32px',
+      padding: isMobile ? '0 4px' : 0,
+    }}>
+      {/* Section header */}
+      <div style={{ marginBottom: '24px' }}>
+        <div style={{
+          fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
+          letterSpacing: '0.3em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.65, marginBottom: '8px',
+        }}>
+          {tr ? 'Münâsebât-ı Süver' : 'Munāsabāt al-Suwar'}
+        </div>
+        <h2 style={{
+          fontFamily: FONTS.display, fontWeight: 700,
+          fontSize: isMobile ? '1.4rem' : '1.7rem',
+          color: COLORS.offWhite, margin: '0 0 12px',
+          lineHeight: 1.2,
+        }}>
+          {tr ? 'Sûreler Arasındaki Gizli Bağ' : 'The Hidden Bond Between Surahs'}
+        </h2>
+        <p style={{
+          fontFamily: FONTS.body,
+          fontSize: isMobile ? '0.9rem' : '0.95rem',
+          color: COLORS.silver, margin: 0, lineHeight: 1.7,
+          maxWidth: '760px',
+        }}>
+          {tr
+            ? 'Her sûrenin ilk ve son kelimesi tesadüf değildir. Klasik İslâm âlimliğinde bunun adı vardır: Münâsebât-ı Süver — sûreler arası ve sûre içi bağıntılar bilimi. Suyûtî, Bikâî, Râzî bu konuya ciltler ayırdı. Aşağıdaki yedi örnek, verideki saklı örüntüleri açar.'
+            : 'The first and last words of every surah are no accident. Classical Islamic scholarship has a name for this: Munāsabāt al-Suwar — the science of inter- and intra-surah connections. Al-Suyūṭī, al-Biqāʿī, and al-Rāzī devoted volumes to it. The seven examples below open the patterns hidden in the data.'}
+        </p>
+      </div>
+
+      {/* Spotlight cards */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {spotlights.map(sp => (
+          <SpotlightCard key={sp.id} spotlight={sp} language={language} isMobile={isMobile} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SpotlightCard({ spotlight, language, isMobile }) {
+  const tr = language === 'tr';
+  const isPair = ['bridge', 'ring', 'intra-bridge', 'intra-ring'].includes(spotlight.type);
+  const isList = ['family', 'cluster'].includes(spotlight.type);
+  const arrow  = ['ring', 'intra-ring'].includes(spotlight.type) ? '↻' : '→';
+
+  return (
+    <div style={{
+      padding: isMobile ? '20px 18px' : '28px 32px',
+      background: COLORS.goldAlpha04,
+      border: `1px solid ${COLORS.goldAlpha25}`,
+      borderRadius: RADIUS.lg,
+    }}>
+      {/* Category badge */}
+      <div style={{
+        fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
+        letterSpacing: '0.28em', textTransform: 'uppercase',
+        color: COLORS.gold, opacity: 0.7, marginBottom: '10px',
+      }}>
+        {tr ? spotlight.categoryLabelTr : spotlight.categoryLabelEn}
+      </div>
+
+      {/* Title */}
+      <h3 style={{
+        fontFamily: FONTS.display, fontWeight: 700,
+        fontSize: isMobile ? '1.15rem' : '1.3rem',
+        color: COLORS.offWhite, margin: '0 0 22px',
+        lineHeight: 1.3,
+      }}>
+        {tr ? spotlight.titleTr : spotlight.titleEn}
+      </h3>
+
+      {/* Visual: pair or list */}
+      {isPair && <SpotlightPair spotlight={spotlight} arrow={arrow} language={language} isMobile={isMobile} />}
+      {isList && <SpotlightList spotlight={spotlight} language={language} isMobile={isMobile} />}
+
+      {/* Thematic prose */}
+      <p style={{
+        fontFamily: FONTS.body,
+        fontSize: isMobile ? '0.86rem' : '0.92rem',
+        color: COLORS.silver, lineHeight: 1.75,
+        margin: '22px 0 0',
+      }}>
+        {tr ? spotlight.thematicTr : spotlight.thematicEn}
+      </p>
+
+      {/* Hidden detail */}
+      {(spotlight.hiddenTr || spotlight.hiddenEn) && (
+        <div style={{
+          marginTop: '14px',
+          padding: '12px 16px',
+          background: 'rgba(255,255,255,0.025)',
+          borderLeft: `2px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}`,
+          borderRadius: RADIUS.sm,
+        }}>
+          <div style={{
+            fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
+            letterSpacing: '0.25em', textTransform: 'uppercase',
+            color: COLORS.gold, opacity: 0.75, marginBottom: '6px',
+          }}>
+            {tr ? 'Saklı Detay' : 'Hidden Detail'}
+          </div>
+          <p style={{
+            fontFamily: FONTS.body, fontSize: isMobile ? '0.82rem' : '0.86rem',
+            color: COLORS.offWhite, lineHeight: 1.65,
+            margin: 0, opacity: 0.88,
+          }}>
+            {tr ? spotlight.hiddenTr : spotlight.hiddenEn}
+          </p>
+        </div>
+      )}
+
+      {/* Sources */}
+      {spotlight.sources && spotlight.sources.length > 0 && (
+        <div style={{
+          marginTop: '14px',
+          fontSize: '0.74rem', fontFamily: FONTS.body,
+          color: COLORS.silver, opacity: 0.6,
+          fontStyle: 'italic', letterSpacing: '0.02em',
+        }}>
+          — {spotlight.sources.join(' · ')}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SpotlightPair({ spotlight, arrow, language, isMobile }) {
+  const { leftSurah: L, rightSurah: R } = spotlight;
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr',
+      gap: isMobile ? '10px' : '16px',
+      alignItems: 'center',
+    }}>
+      <SpotlightSurahPanel surah={L} language={language} />
+      <div style={{
+        fontSize: isMobile ? '1.4rem' : '1.8rem',
+        color: COLORS.gold, opacity: 0.55,
+        textAlign: 'center',
+        padding: isMobile ? '4px' : '0',
+        userSelect: 'none',
+      }}>
+        {arrow}
+      </div>
+      <SpotlightSurahPanel surah={R} language={language} />
+    </div>
+  );
+}
+
+function SpotlightSurahPanel({ surah, language }) {
+  const tr = language === 'tr';
+  const positionLabel =
+    surah.position === 'ilk'
+      ? (tr ? 'İlk' : 'First')
+      : (tr ? 'Son' : 'Last');
+  return (
+    <div style={{
+      padding: '16px 14px',
+      background: 'rgba(255,255,255,0.03)',
+      border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
+      borderRadius: RADIUS.md,
+      textAlign: 'center',
+    }}>
+      <div style={{
+        fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
+        letterSpacing: '0.18em', textTransform: 'uppercase',
+        color: COLORS.silver, opacity: 0.7, marginBottom: '10px',
+      }}>
+        {surah.num}. {tr ? surah.nameTr : surah.nameEn} · {positionLabel}
+      </div>
+      <p dir="rtl" lang="ar" style={{
+        fontFamily: FONTS.quran,
+        fontSize: '1.6rem',
+        color: COLORS.gold,
+        margin: '0 0 8px',
+        lineHeight: 1.6,
+      }}>
+        {cleanArabic(surah.wordAr)}
+      </p>
+      {surah.translit && (
+        <div style={{
+          fontSize: '0.74rem',
+          color: COLORS.offWhite, opacity: 0.65,
+          fontStyle: 'italic',
+          marginBottom: '4px',
+        }}>
+          {surah.translit}
+        </div>
+      )}
+      {surah.meaning && (
+        <div style={{
+          fontSize: '0.78rem',
+          color: COLORS.offWhite, opacity: 0.85,
+        }}>
+          {surah.meaning}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SpotlightList({ spotlight, language, isMobile }) {
+  return (
+    <div style={{
+      padding: isMobile ? '10px 12px' : '14px 18px',
+      background: 'rgba(255,255,255,0.02)',
+      border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
+      borderRadius: RADIUS.md,
+    }}>
+      {spotlight.items.map((item, i) => (
+        <div
+          key={i}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '36px 1fr 16px 1.4fr' : '40px 1fr 24px 1.4fr',
+            gap: isMobile ? '6px' : '10px',
+            alignItems: 'center',
+            padding: '8px 0',
+            borderBottom: i < spotlight.items.length - 1
+              ? '1px solid rgba(255,255,255,0.05)'
+              : 'none',
+          }}
+        >
+          {/* Surah number */}
+          <div style={{
+            fontSize: '0.78rem',
+            color: COLORS.silver, opacity: 0.7,
+            fontWeight: 600,
+            fontFamily: FONTS.body,
+          }}>
+            {item.num}.
+          </div>
+          {/* First word (Arabic) */}
+          <div dir="rtl" lang="ar" style={{
+            fontFamily: FONTS.quran,
+            fontSize: isMobile ? '1.05rem' : '1.2rem',
+            color: COLORS.gold,
+            textAlign: 'right',
+            lineHeight: 1.4,
+          }}>
+            {cleanArabic(item.firstAr)}
+          </div>
+          {/* Arrow */}
+          <div style={{
+            color: COLORS.gold, opacity: 0.45,
+            fontSize: '0.85rem',
+            textAlign: 'center',
+            userSelect: 'none',
+          }}>
+            →
+          </div>
+          {/* Last word + meaning */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: '8px' }}>
+            <span dir="rtl" lang="ar" style={{
+              fontFamily: FONTS.quran,
+              fontSize: isMobile ? '1.05rem' : '1.2rem',
+              color: COLORS.gold,
+              lineHeight: 1.4,
+            }}>
+              {cleanArabic(item.lastAr)}
+            </span>
+            {item.lastMeaning && (
+              <span style={{
+                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                color: COLORS.offWhite, opacity: 0.7,
+                fontStyle: 'italic',
+              }}>
+                {item.lastMeaning}
+              </span>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
