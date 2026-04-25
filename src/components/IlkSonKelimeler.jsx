@@ -47,11 +47,18 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
   const [selected, setSelected]   = useState(null);
   const [isMobile, setIsMobile]   = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
 
-  // Back-nav: when a category filter is active, browser-back resets it (Navbar pattern).
+  // Back-nav: when a category filter is active, browser-back resets it AND
+  // scrolls back to the category card the user originally clicked from.
   useEffect(() => {
     if (!backRef) return;
     if (activeFilter !== 'all') {
-      backRef.current = () => setFilter('all');
+      const filterId = activeFilter; // capture for closure
+      backRef.current = () => {
+        setFilter('all');
+        setTimeout(() => {
+          document.getElementById(`category-${filterId}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 80);
+      };
     } else {
       backRef.current = null;
     }
@@ -828,8 +835,8 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
       filterId: 'divineNameCloser',
       count: surahs.filter(s => (s.closerTags || []).includes('divine-name-closer')).length,
       labelTr: 'İlâhî sıfatla biten', labelEn: 'Divine attribute closer',
-      insightTr: 'Esmâ-i Hüsnâ\'dan biriyle mühürlenen 9 sûre — Hakîm, Habîr, Muhît, Tevvâb… Sûrenin son nefesi Allah\'ın bir sıfatına teslim olur.',
-      insightEn: 'Nine surahs sealed with one of God\'s Beautiful Names — al-Ḥakīm, al-Khabīr, al-Muḥīṭ, al-Tawwāb… The surah\'s last breath surrenders to one of God\'s attributes.',
+      insightTr: 'Esmâ-i Hüsnâ\'dan biriyle mühürlenen 9 sûre — Hakîm, Habîr, Muhît, Tevvâb… Sûrenin son kelimesi Allah\'ın bir sıfatıyla mühürlenir.',
+      insightEn: 'Nine surahs sealed with one of God\'s Beautiful Names — al-Ḥakīm, al-Khabīr, al-Muḥīṭ, al-Tawwāb… Each surah\'s closing word is one of God\'s attributes.',
     },
     {
       filterId: 'kulOpener',
@@ -902,6 +909,7 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
           return (
             <button
               key={ins.filterId}
+              id={`category-${ins.filterId}`}
               onClick={() => onFilterClick && onFilterClick(ins.filterId)}
               style={{
                 position: 'relative',
@@ -914,6 +922,7 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
                 fontFamily: 'inherit',
                 transition: 'all 0.15s',
                 display: 'flex', flexDirection: 'column',
+                scrollMarginTop: '120px',
               }}
               onMouseEnter={e => {
                 if (isActive) return;
@@ -1027,7 +1036,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
     {
       headlineTr: 'İsrâ tesbih ile açılır, tekbir ile mühürlenir — namaz sonrası tesbihâtın iki ucu.',
       headlineEn: 'Al-Isrāʾ opens with tasbīḥ and is sealed with takbīr — the two ends of post-prayer remembrance.',
-      bodyTr: 'Subḥān ile başlar (subḥāne\'llezî asrā), kebbir ile biter (ve kebbirhu tekbîrâ). Mü\'minin her namaz sonrası söylediği Subḥānallāh ve Allāhu Akbar zikrinin iki kelimesi, sûrenin iki ucudur.',
+      bodyTr: 'Sübhân ile başlar (subḥâne\'llezî esrâ), kebbir ile biter (ve kebbirhu tekbîrâ). Mü\'minin her namaz sonrası söylediği Sübhânallah ve Allahu Ekber zikrinin iki kelimesi, sûrenin iki ucudur.',
       bodyEn: 'It opens with subḥān (subḥāna alladhī asrā) and ends with kabbir (wa-kabbirhu takbīrā). The two words at the heart of the believer\'s post-prayer remembrance — Subḥānallāh and Allāhu Akbar — frame the surah.',
       tagTr: 'Sûre İçi Halka',
       tagEn: 'Intra-Surah Ring',
@@ -1204,15 +1213,21 @@ function SpotlightCard({ spotlight, language, isMobile }) {
       {isPair && <SpotlightPair spotlight={spotlight} arrow={arrow} language={language} isMobile={isMobile} />}
       {isList && <SpotlightList spotlight={spotlight} language={language} isMobile={isMobile} />}
 
-      {/* Thematic prose */}
-      <p style={{
-        fontFamily: FONTS.body,
-        fontSize: isMobile ? '0.86rem' : '0.92rem',
-        color: COLORS.silver, lineHeight: 1.75,
-        margin: '22px 0 0',
-      }}>
-        {tr ? spotlight.thematicTr : spotlight.thematicEn}
-      </p>
+      {/* Thematic prose — split on \n\n to render multiple paragraphs */}
+      <div style={{ marginTop: '22px' }}>
+        {(tr ? spotlight.thematicTr : spotlight.thematicEn)
+          .split('\n\n')
+          .map((para, idx) => (
+            <p key={idx} style={{
+              fontFamily: FONTS.body,
+              fontSize: isMobile ? '0.86rem' : '0.92rem',
+              color: COLORS.silver, lineHeight: 1.75,
+              margin: idx === 0 ? '0 0 12px' : '0 0 12px',
+            }}>
+              {para}
+            </p>
+          ))}
+      </div>
 
       {/* Hidden detail */}
       {(spotlight.hiddenTr || spotlight.hiddenEn) && (
@@ -1230,13 +1245,18 @@ function SpotlightCard({ spotlight, language, isMobile }) {
           }}>
             {tr ? 'Saklı Detay' : 'Hidden Detail'}
           </div>
-          <p style={{
-            fontFamily: FONTS.body, fontSize: isMobile ? '0.82rem' : '0.86rem',
-            color: COLORS.offWhite, lineHeight: 1.65,
-            margin: 0, opacity: 0.88,
-          }}>
-            {tr ? spotlight.hiddenTr : spotlight.hiddenEn}
-          </p>
+          {(tr ? spotlight.hiddenTr : spotlight.hiddenEn)
+            .split('\n\n')
+            .map((para, idx, arr) => (
+              <p key={idx} style={{
+                fontFamily: FONTS.body, fontSize: isMobile ? '0.82rem' : '0.86rem',
+                color: COLORS.offWhite, lineHeight: 1.65,
+                margin: idx === arr.length - 1 ? 0 : '0 0 8px',
+                opacity: 0.88,
+              }}>
+                {para}
+              </p>
+            ))}
         </div>
       )}
 
