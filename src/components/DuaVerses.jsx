@@ -222,6 +222,25 @@ export default function DuaVerses({ onClose }) {
     };
   }, []);
 
+  // Lock background scroll while overlay is open (prevents duplicate scrollbar)
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    const prevPad = body.style.paddingRight;
+    // Compensate for scrollbar disappearance to prevent layout shift
+    const sbWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
+    return () => {
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      body.style.paddingRight = prevPad;
+    };
+  }, []);
+
   const handlePlay = (dua) => {
     if (audioRef.current) {
       audioRef.current.onended = null;
@@ -330,14 +349,30 @@ export default function DuaVerses({ onClose }) {
         background: 'rgba(8,10,18,0.95)', backdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(212,165,116,0.1)',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+          {/* Open palms / supplication gesture — clean & recognizable */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            {/* Left palm cupped */}
+            <path d="M11 21H8a4 4 0 0 1-4-4V11a2 2 0 0 1 4 0v3"/>
+            <path d="M8 14V6a2 2 0 0 1 4 0v8"/>
+            {/* Right palm cupped, mirroring */}
+            <path d="M13 21h3a4 4 0 0 0 4-4V11a2 2 0 0 0-4 0v3"/>
+            <path d="M16 14V6a2 2 0 0 0-4 0v8"/>
+            {/* Light rays rising from cupped palms (dua/blessing) */}
+            <path d="M12 2v2M9 3l1 1.5M15 3l-1 1.5" opacity="0.6"/>
+          </svg>
           <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Dua Ayetleri' : 'Quranic Supplications'}
           </span>
+          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: 'Inter, sans-serif' }}>
+            {language === 'tr' ? "Edʿiyetü'l-Kur'an" : "Adʿiyat al-Qur'an"}
+          </span>
           {!loading && (
             <span style={{
+              marginLeft: '4px',
               background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)',
-              borderRadius: '12px', color: gold, fontSize: '0.7rem', padding: '2px 10px',
+              borderRadius: '12px', color: gold, fontSize: '0.7rem', padding: '2px 10px', flexShrink: 0,
             }}>
               {filtered.length} {language === 'tr' ? 'dua' : 'supplications'}
             </span>

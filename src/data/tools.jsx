@@ -171,8 +171,14 @@ const CommandsIcon = ({ size = 14 }) => (
 );
 
 const DuaIcon = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    {/* Open palms / supplication gesture */}
+    <path d="M11 21H8a4 4 0 0 1-4-4V11a2 2 0 0 1 4 0v3"/>
+    <path d="M8 14V6a2 2 0 0 1 4 0v8"/>
+    <path d="M13 21h3a4 4 0 0 0 4-4V11a2 2 0 0 0-4 0v3"/>
+    <path d="M16 14V6a2 2 0 0 0-4 0v8"/>
+    {/* Light rays rising from cupped palms */}
+    <path d="M12 2v2M9 3l1 1.5M15 3l-1 1.5" opacity="0.6"/>
   </svg>
 );
 
