@@ -502,9 +502,68 @@ export default function HiddenArchitecture() {
         </p>
       </motion.div>
 
-      <motion.p variants={fadeUpItem} className="text-silver text-lg leading-relaxed max-w-3xl italic mb-16">
+      <motion.p variants={fadeUpItem} className="text-silver text-lg leading-relaxed max-w-3xl italic mb-12">
         {t('hiddenSymmetry.closing')}
       </motion.p>
+
+      {/* CTA — IlkSonKelimeler atlas link (halka kompozisyon ↔ münâsebât) */}
+      <motion.div variants={fadeUpItem} className="mb-16" style={{ maxWidth: '760px' }}>
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('openIlkSonKelimeler'))}
+          style={{
+            width: '100%',
+            display: 'grid',
+            gridTemplateColumns: '1fr auto',
+            gap: '20px',
+            alignItems: 'center',
+            padding: '18px 24px',
+            background: 'rgba(212,165,116,0.035)',
+            border: '1px solid rgba(212,165,116,0.18)',
+            borderRadius: '10px',
+            cursor: 'pointer',
+            textAlign: 'left',
+            fontFamily: 'inherit',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.07)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.035)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.18)';
+          }}
+        >
+          <div style={{ minWidth: 0 }}>
+            <div style={{
+              fontSize: '0.6rem', fontWeight: 700,
+              letterSpacing: '0.32em', textTransform: 'uppercase',
+              color: '#d4a574', opacity: 0.6,
+              marginBottom: '6px',
+              fontFamily: "'Inter', sans-serif",
+            }}>
+              {language === 'tr' ? 'Devam Et — Tüm Sûrelerde' : 'Continue — Across All Surahs'}
+            </div>
+            <div style={{
+              fontSize: '0.95rem',
+              color: '#e8e6e3',
+              lineHeight: 1.55,
+              fontFamily: "'Inter', sans-serif",
+            }}>
+              {language === 'tr'
+                ? <><span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#d4a574' }}>İlk ve Son Kelimeler</span> — 114 sûrede halka kompozisyonu, sûreler arası münâsebât ve açılış-kapanış imzaları.</>
+                : <><span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#d4a574' }}>First and Last Words</span> — ring composition, inter-surah munāsabah, and opening-closing signatures across all 114 surahs.</>}
+            </div>
+          </div>
+          <span style={{
+            fontSize: '1.4rem',
+            color: '#d4a574',
+            opacity: 0.75,
+            lineHeight: 1,
+            flexShrink: 0,
+          }}>→</span>
+        </button>
+      </motion.div>
 
       {/* ── Divider ── */}
       <motion.div variants={fadeUpItem} className="mb-10">
@@ -923,85 +982,6 @@ export default function HiddenArchitecture() {
           </AnimatePresence>
 
         </div>
-      </motion.div>
-
-      {/* CTA — IlkSonKelimeler atlas link */}
-      <motion.div
-        variants={fadeUpItem}
-        style={{
-          maxWidth: '720px',
-          margin: '64px auto 0',
-          padding: '24px 28px',
-          borderRadius: '14px',
-          background: 'rgba(212,165,116,0.04)',
-          border: '1px solid rgba(212,165,116,0.25)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '24px',
-          flexWrap: 'wrap',
-        }}
-      >
-        <div style={{ flex: 1, minWidth: '240px' }}>
-          <div style={{
-            fontSize: '0.66rem', fontWeight: 700,
-            letterSpacing: '0.3em', textTransform: 'uppercase',
-            color: '#d4a574', opacity: 0.7,
-            marginBottom: '8px',
-            fontFamily: "'Inter', sans-serif",
-          }}>
-            {language === 'tr' ? 'Bu Konunun Atlası' : 'The Atlas of This Topic'}
-          </div>
-          <div style={{
-            fontSize: '1.15rem', fontWeight: 700,
-            color: '#e8e6e3', marginBottom: '6px',
-            fontFamily: "'Playfair Display', serif",
-            lineHeight: 1.25,
-          }}>
-            {language === 'tr' ? 'İlk ve Son Kelimeler' : 'First and Last Words'}
-          </div>
-          <p style={{
-            fontSize: '0.86rem',
-            color: 'rgba(232,230,227,0.7)',
-            lineHeight: 1.6,
-            margin: 0,
-            fontFamily: "'Inter', sans-serif",
-          }}>
-            {language === 'tr'
-              ? '114 sûrede halka kompozisyonu, münâsebât ve açılış-kapanış imzalarının tüm tezahürleri — Suyûtî, Bikâî ve Râzî\'nin geleneğinden modern atlas.'
-              : 'Every manifestation of ring composition, munāsabah, and opening-closing signatures across the 114 surahs — a modern atlas in the tradition of al-Suyūṭī, al-Biqāʿī, and al-Rāzī.'}
-          </p>
-        </div>
-        <button
-          onClick={() => window.dispatchEvent(new CustomEvent('openIlkSonKelimeler'))}
-          style={{
-            padding: '10px 20px',
-            borderRadius: '999px',
-            background: 'rgba(212,165,116,0.15)',
-            border: '1px solid rgba(212,165,116,0.45)',
-            color: '#d4a574',
-            fontSize: '0.86rem',
-            fontWeight: 600,
-            fontFamily: "'Inter', sans-serif",
-            cursor: 'pointer',
-            transition: 'all 0.15s',
-            whiteSpace: 'nowrap',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            flexShrink: 0,
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.background = 'rgba(212,165,116,0.25)';
-            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.7)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.background = 'rgba(212,165,116,0.15)';
-            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.45)';
-          }}
-        >
-          <span>{language === 'tr' ? 'Atlası Aç' : 'Open the Atlas'}</span>
-          <span style={{ fontSize: '1rem', lineHeight: 1 }}>→</span>
-        </button>
       </motion.div>
 
     </SectionWrapper>
