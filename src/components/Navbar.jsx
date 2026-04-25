@@ -43,6 +43,7 @@ const MunasebatAtlasi = lazy(() => import('./MunasebatAtlasi'));
 const SunnetullahAtlasi = lazy(() => import('./SunnetullahAtlasi'));
 const MunafikProfili    = lazy(() => import('./MunafikProfili'));
 const NefisMertebeleri  = lazy(() => import('./NefisMertebeleri'));
+const IblisSatan        = lazy(() => import('./IblisSatan'));
 const KadinlarAtlasi    = lazy(() => import('./KadinlarAtlasi'));
 
 const ChevronDown = () => (
@@ -160,6 +161,16 @@ const navSections = [
     ),
   },
   {
+    id: 'iblis-satan', keyTr: "Kur'an'da İblis / Şeytan", keyEn: 'Iblis / Satan in the Quran',
+    descTr: 'Yedi sûrede aynı sahne — kibrin başlangıcı', descEn: 'Same scene in seven surahs — the origin of pride',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+    ),
+  },
+  {
     id: 'conclusion', keyTr: 'Sonuç', keyEn: 'Conclusion',
     descTr: 'Bir insan eseri olabilir mi?', descEn: 'Could this be the work of a human?',
     icon: (
@@ -220,6 +231,7 @@ export default function Navbar() {
   const [sunnetullahOpen, setSunnetullahOpen] = useState(false);
   const [munafikOpen,     setMunafikOpen]     = useState(false);
   const [nefisOpen,       setNefisOpen]       = useState(false);
+  const [iblisSatanOpen,  setIblisSatanOpen]  = useState(false);
   const [kadinlarOpen,    setKadinlarOpen]    = useState(false);
   const [duaCount, setDuaCount]         = useState(null);
 
@@ -357,6 +369,7 @@ export default function Navbar() {
       ['openSunnetullah',      () => setSunnetullahOpen(true)],
       ['openMunafikProfili',   () => setMunafikOpen(true)],
       ['openNefisMertebeleri', () => setNefisOpen(true)],
+      ['openIblisSatan',       () => setIblisSatanOpen(true)],
       ['openKadinlarAtlasi',   () => setKadinlarOpen(true)],
     ];
     handlers.forEach(([name, fn]) => window.addEventListener(name, fn));
@@ -390,7 +403,7 @@ export default function Navbar() {
   //      so this doesn't double-close anything. Loop-safe: setState isn't
   //      called from this branch, so the effect doesn't re-run.
   useEffect(() => {
-    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen || furukOpen || munasebatOpen || sunnetullahOpen || munafikOpen || nefisOpen || kadinlarOpen;
+    const anyOpen = readingOpen || graphOpen || heatmapOpen || revelationOpen || duaOpen || wowOpen || prophetOpen || conceptOpen || kissaOpen || comparatorOpen || commandsOpen || addresseeOpen || esmaOpen || zamanOpen || yeminlerOpen || dogaOpen || kavimlerOpen || cennetOpen || meleklerOpen || renkleriOpen || kiyametOpen || retorigiOpen || kiraatOpen || diyalogOpen || meselOpen || sebebOpen || furukOpen || munasebatOpen || sunnetullahOpen || munafikOpen || nefisOpen || iblisSatanOpen || kadinlarOpen;
     const alreadyOnOverlayEntry = window.history.state?.overlay === true;
     if (anyOpen) {
       // Only push a fresh overlay sentinel when we're NOT already sitting
@@ -410,7 +423,7 @@ export default function Navbar() {
       // active anymore — pop it so listeners get notified.
       window.history.back();
     }
-  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen, kadinlarOpen]);
+  }, [readingOpen, graphOpen, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen, iblisSatanOpen, kadinlarOpen]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -495,11 +508,12 @@ export default function Navbar() {
       if (sunnetullahOpen){ setSunnetullahOpen(false);      return; }
       if (munafikOpen)    { setMunafikOpen(false);          return; }
       if (nefisOpen)      { setNefisOpen(false);            return; }
+      if (iblisSatanOpen) { setIblisSatanOpen(false);       return; }
       if (kadinlarOpen)   { setKadinlarOpen(false);         return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
-  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen, kadinlarOpen]);
+  }, [readingOpen, graphOpen, graphReturnToWow, graphReturnToConcept, heatmapOpen, revelationOpen, duaOpen, wowOpen, prophetOpen, conceptOpen, kissaOpen, comparatorOpen, commandsOpen, addresseeOpen, esmaOpen, zamanOpen, yeminlerOpen, dogaOpen, kavimlerOpen, cennetOpen, meleklerOpen, renkleriOpen, kiyametOpen, retorigiOpen, kiraatOpen, diyalogOpen, meselOpen, sebebOpen, furukOpen, munasebatOpen, sunnetullahOpen, munafikOpen, nefisOpen, iblisSatanOpen, kadinlarOpen]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -566,6 +580,8 @@ export default function Navbar() {
     openSebebNuzul:      () => setSebebOpen(true),
     openFurukAtlasi:     () => setFurukOpen(true),
     openMunasebatAtlasi: () => setMunasebatOpen(true),
+    openIblisSatan:      () => setIblisSatanOpen(true),
+    openKadinlarAtlasi:  () => setKadinlarOpen(true),
   };
 
   // Adapt an imported tool entry to the shape Navbar's existing toolBtn renderer
@@ -693,6 +709,7 @@ export default function Navbar() {
                       sunnetullah: 'openSunnetullah',
                       munafik:     'openMunafikProfili',
                       nefis:       'openNefisMertebeleri',
+                      iblisSatan:  'openIblisSatan',
                       kadinlar:    'openKadinlarAtlasi',
                     };
                     const itemBtn = (item) => {
@@ -1430,6 +1447,11 @@ export default function Navbar() {
     {nefisOpen && (
       <Suspense fallback={null}>
         <NefisMertebeleri onClose={() => setNefisOpen(false)} />
+      </Suspense>
+    )}
+    {iblisSatanOpen && (
+      <Suspense fallback={null}>
+        <IblisSatan onClose={() => setIblisSatanOpen(false)} />
       </Suspense>
     )}
     {kadinlarOpen && (

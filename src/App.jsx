@@ -91,6 +91,7 @@ export default function App() {
             <PsychologySection />
             <QuranDua />
             <ToolsShowcase />
+            <div className="gradient-divider-reverse" />
             <Conclusion />
           </Suspense>
         </main>

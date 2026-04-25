@@ -568,6 +568,29 @@
     "transformationIntro": "Kur'an üç aşamalı bir insan dönüşümü tanımlar. Bu aşamalar birbirini takip eder ve iç içe geçer.",
     "transformationHadithNote": "İhsan tanımı (\"Allah'ı görüyormuşçasına ibadet et\") Cebrail hadisinden alınmıştır — hadis kaynağı (Müslim), Kur'an'dan değil."
   },
+  "iblisSatan": {
+    "badge": "Kur'an'da İblis / Şeytan",
+    "title": "Yedi Sûrede Aynı Sahne",
+    "subtitle": "Hz. Âdem'e secde emri ve İblis'in reddi yedi sûrede geçer — hiçbiri diğerinin aynısı değil.",
+    "intro": "Bakara, A'râf, Hicr, İsrâ, Kehf, Tâhâ ve Sâd. Yedi sûre, tek bir olay: meleklere Hz. Âdem'e secde emri ve İblis'in reddi. Bir sûrede (Tâhâ 20:116) İblis hiçbir gerekçe sunmaz, hiçbir söz etmez; ayet bütün sahneyi tek bir fiile — ebā (diretti) — sıkıştırır. Bir başkasında ateş-çamur karşılaştırması öne çıkar. Bir diğerinde İblis'in cin olduğu belirtilir; bir başkasında ise Allah'ın (c.c.) \"iki elimle yarattığım\" ifadesi geçer. Yedi anlatımı yan yana koyduğumuzda, tek olayın her tekrarında başka bir boyutun öne çıktığı görülür.",
+    "subBlockLabel": "Büyük Reddediş",
+    "anchorVerseTitle": "Çekirdek Anlatım",
+    "anchorVerseAr": "وَاِذْ قُلْنَا لِلْمَلٰٓئِكَةِ اسْجُدُوا لِاٰدَمَ فَسَجَدُوا اِلَّا اِبْل۪يسَ اَبٰى وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِر۪ينَ",
+    "anchorVerseTr": "Hani meleklere, \"Âdem'e secde edin\" demiştik; İblis hariç secde ettiler. O yüz çevirdi, büyüklendi ve kâfirlerden oldu.",
+    "anchorVerseRef": "Bakara 2:34",
+    "statsTitle": "Yedi Anlatımın Sayıları",
+    "stats": {
+      "surahs": { "value": "7", "label": "Sûre", "desc": "Aynı olayın geçtiği farklı sûreler" },
+      "longest": { "value": "16", "label": "Ayetlik En Uzun", "desc": "Hicr 15:28-43" },
+      "shortest": { "value": "1", "label": "Ayetlik En Kısa", "desc": "Tâhâ 20:116 ve Kehf 18:50" },
+      "fireClay": { "value": "2", "label": "Sûrede Ateş-Çamur", "desc": "Sadece A'râf ve Sâd'da" }
+    },
+    "passagesTitle": "Yedi Sûre, Yedi Anlatım",
+    "passagesIntro": "Mushaf sırasında, her sûrenin neyi öne çıkardığı:",
+    "observationsTitle": "Çapraz Okuma",
+    "observationsIntro": "Yedi anlatımı tek tek değil birlikte okuduğumuzda ortaya çıkan örüntüler:",
+    "closing": "Yedi sûre, tek olay, başka başka pencereler. Bir anlatının bağlama göre nasıl genişleyip daraldığı — Kur'an, anlatı ekonomisini retorik bir araç olarak kullanır. Her tekrarda başka bir kelime, başka bir gerekçe, başka bir kimlik öğesi öne çıkar; ortak çekirdek değişmez. Bu, kibrin başlangıcının yedi farklı kayda geçirilişidir."
+  },
   "footer": {
     "title": "Quran Codex",
     "methodology": "Bu sitedeki analizler akademik kaynaklar, klasik tefsir geleneği ve Kur'an korpus çalışmalarından derlenmiştir. Her bölümdeki iddialar, o bölüme ait kaynaklara dayanmaktadır; akademik tartışmalar ve nüanslar ilgili bölüm notlarında belirtilmiştir.",
