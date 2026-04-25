@@ -280,10 +280,10 @@ const OBSERVATIONS = [
   {
     id: 'speech',
     statValue: '3 + 3 + 3',
-    labelTr: 'Üçer söz simetrisi',
-    labelEn: 'Triple-speech symmetry',
-    bodyTr: 'Üç anlatımda da İblis tam üç ayrı söz eder — nadir bir simetri. İsrâ\'da iki, kalan üç sûrede hiç.',
-    bodyEn: 'In three tellings Iblis speaks exactly three times — a rare symmetry. Two in Isra, none in the remaining three.',
+    labelTr: 'Üç diyalog turu',
+    labelEn: 'Three dialogue turns',
+    bodyTr: "A'râf, Hicr ve Sâd anlatımlarında İblis tam üç diyalog turunda konuşur — her tur Allah'ın bir sözüne karşılık. İsrâ'da iki tur, kalan üç sûrede İblis hiç konuşmaz.",
+    bodyEn: "In Aʿrāf, Ḥijr and Ṣād, Iblis speaks across exactly three dialogue turns — each a reply to a divine address. Two turns in Isrāʾ, and silence in the remaining three.",
     groups: [
       {
         labelTr: "A'RÂF (3)", labelEn: "A'RAF (3)",
@@ -389,6 +389,38 @@ const OBSERVATIONS = [
       },
     ],
   },
+  {
+    id: 'chronology',
+    statValue: '38 → 87',
+    labelTr: 'Nüzul kronolojisi',
+    labelEn: 'Revelation chronology',
+    bodyTr: 'Mushaf sırası ile nüzul sırası farklı bir hikâye anlatır. En erken inen Sâd anlatımı en uzun ve dramatik (15 ayet, "bi-ʿizzetik" — izzete yemin). En geç inen Bakara anlatımı en kısa (1 ayet, üç fiil). Vahyin akışında **kronolojik daralma**: aynı sahne, yıllar geçtikçe daha az kelimeyle. (Sıralama Suyûtî, el-İtkān.)',
+    bodyEn: 'Mushaf order and revelation order tell different stories. The earliest telling (Ṣād) is the longest and most dramatic (15 verses, "bi-ʿizzatik" — an oath on God\'s might). The latest (Baqara) is the shortest (1 verse, three verbs). A **chronological compression** across revelation: the same scene told with fewer words as years pass. (Order per al-Suyūṭī, al-Itqān.)',
+    groups: [
+      {
+        labelTr: 'EN ERKEN', labelEn: 'EARLIEST',
+        chips: [
+          { surah: 'Sâd',    verse: '38:71-85', tag: 'nüzul ~38', tagEn: 'rev. ~38' },
+          { surah: "A'râf",  verse: '7:11-18',  tag: 'nüzul ~39', tagEn: 'rev. ~39' },
+        ],
+      },
+      {
+        labelTr: 'ORTA', labelEn: 'MIDDLE',
+        chips: [
+          { surah: 'Tâhâ',  verse: '20:116',    tag: 'nüzul ~45', tagEn: 'rev. ~45' },
+          { surah: 'İsrâ',  verse: '17:61-65',  tag: 'nüzul ~50', tagEn: 'rev. ~50' },
+          { surah: 'Hicr',  verse: '15:28-43',  tag: 'nüzul ~54', tagEn: 'rev. ~54' },
+        ],
+      },
+      {
+        labelTr: 'EN GEÇ', labelEn: 'LATEST',
+        chips: [
+          { surah: 'Kehf',   verse: '18:50', tag: 'nüzul ~69', tagEn: 'rev. ~69' },
+          { surah: 'Bakara', verse: '2:34',  tag: 'nüzul ~87 · Medenî', tagEn: 'rev. ~87 · Medinan' },
+        ],
+      },
+    ],
+  },
 ];
 
 export default function IblisSatan({ onClose }) {
@@ -469,7 +501,56 @@ export default function IblisSatan({ onClose }) {
         padding: isMobile ? '24px 16px 60px' : '40px 60px 80px',
       }}>
       {/* ─── Header (in-body) ───────────────────────────── */}
-      <motion.div initial="hidden" animate="visible" initial="hidden" animate="visible" variants={fadeUpItem}>
+      {/* 7-Marker Preview: her nokta = bir sûrenin accent rengi.
+          Aşağıdaki passage kartlarında aynı renk başlık olarak görünür —
+          okuyucu sûreye geldiğinde rengi tanır. Sûre adları isim-renk
+          eşlemesini açıkça verir, ezbere bakılmaz. */}
+      <motion.div
+        initial="hidden" animate="visible" variants={fadeUpItem}
+        className="mb-4"
+      >
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+          {[
+            { name: 'Bakara', color: COLORS.silver },
+            { name: "A'râf",  color: COLORS.softRed },
+            { name: 'Hicr',   color: COLORS.softEmerald },
+            { name: 'İsrâ',   color: COLORS.coral },
+            { name: 'Kehf',   color: COLORS.violet },
+            { name: 'Tâhâ',   color: COLORS.skyBlue },
+            { name: 'Sâd',    color: COLORS.gold },
+          ].map((s) => (
+            <span
+              key={s.name}
+              className="inline-flex items-center gap-1.5"
+              style={{ fontFamily: FONTS.body, fontSize: '0.7rem' }}
+            >
+              <span
+                style={{
+                  width: '7px', height: '7px', borderRadius: '50%',
+                  background: s.color, opacity: 0.85,
+                  boxShadow: `0 0 5px ${s.color}66`,
+                  flexShrink: 0,
+                }}
+              />
+              <span style={{ color: COLORS.silver, opacity: 0.7, letterSpacing: '0.04em' }}>
+                {s.name}
+              </span>
+            </span>
+          ))}
+        </div>
+        <div style={{
+          marginTop: '6px',
+          color: COLORS.silver, opacity: 0.4,
+          fontSize: '0.6rem', letterSpacing: '0.18em',
+          fontFamily: FONTS.body, textTransform: 'uppercase',
+        }}>
+          {language === 'tr'
+            ? 'Her renk bir sûre · aşağıdaki kartlarda aynı renk başlık olarak görünür'
+            : 'Each color = one surah · the same color reappears as the section heading below'}
+        </div>
+      </motion.div>
+
+      <motion.div initial="hidden" animate="visible" variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
           {t('iblisSatan.badge')}
         </span>
