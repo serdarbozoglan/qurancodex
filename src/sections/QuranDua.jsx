@@ -17,8 +17,8 @@ const PROPHET_PROFILES = [
     famousTr: '"Rabbena tekabbel minnâ" — Rabbimiz, bunu bizden kabul et. (Bakara 2:127)',
     famousEn: '"Rabbana taqabbal minna" — Our Lord, accept this from us. (Al-Baqara 2:127)',
     ar: 'رَبَّنَا تَقَبَّلْ مِنَّا',
-    countTr: '10+ dua',
-    countEn: '10+ supplications',
+    countTr: '15+ dua',
+    countEn: '15+ supplications',
     insightTr: 'İbrahim duaları görev bilinci taşır — her dua bir nesil, bir ümmet, bir şehir için.',
     insightEn: "Abraham's prayers carry a sense of mission — each prayer is for a generation, a nation, a city.",
   },
@@ -36,8 +36,8 @@ const PROPHET_PROFILES = [
     ar: 'رَبِّ إِنِّي مَسَّنِيَ الضُّرُّ',
     countTr: '2 dua',
     countEn: '2 supplications',
-    insightTr: "Eyyub'un duası şikâyetle başlar — ama Allah'ın sıfatını hatırlatarak biter. Acıyı reddetmez, sunar.",
-    insightEn: "Job's prayer begins with affliction — but ends by invoking God's attribute. He doesn't deny pain; he presents it.",
+    insightTr: "Eyyub'un duası şikâyet değil, arz'tır — durumunu Allah'a sunar ama isyan etmez. 'Bana zarar dokundu' der, hemen 'Sen merhametlilerin en merhametlisisin' diye Allah'ın sıfatını hatırlatır. Klasik tefsir (Râzî, Kurtubî, İbn Kesîr): edebî sınırlar içinde halini arz, sabrın peygamberinin yöntemi.",
+    insightEn: "Job's prayer is not complaint but presentation — he lays his condition before God without rebellion. 'Adversity has touched me,' he says, then immediately invokes 'You are the Most Merciful.' Classical exegesis (Rāzī, Qurṭubī, Ibn Kathīr): a respectful arrangement of one's state, the method of the prophet of patience.",
   },
   {
     id: 'yunus',
@@ -51,10 +51,10 @@ const PROPHET_PROFILES = [
     famousTr: '"Lâ ilâhe illâ ente sübhâneke innî küntü mine\'z-zâlimîn" — Senden başka ilah yoktur, Seni tenzih ederim; ben zalimlerden oldum. (Enbiyâ 21:87)',
     famousEn: '"La ilaha illa anta subhanaka inni kuntu min al-zalimin" — There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers. (Al-Anbiya 21:87)',
     ar: 'لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ',
-    countTr: "1 dua — ama Kur'an'ın en yoğun duası",
-    countEn: "1 supplication — but the Quran's most concentrated prayer",
-    insightTr: "Yunus'un duası en kısa — ama en yoğun. Tek cümlede Allah'ı tenzih, kendini suçlama ve af talebi bir arada.",
-    insightEn: "Jonah's prayer is the shortest — but the most concentrated. In one sentence: glorifying God, self-accusation, and a request for forgiveness.",
+    countTr: "1 ana dua (Enbiyâ 21:87) — teolojik olarak en yoğun",
+    countEn: "1 main prayer (Al-Anbiya 21:87) — theologically most dense",
+    insightTr: "Yunus'un duası teolojik olarak Kur'an'ın en yoğun dualarından biri — tek cümlede üç katman: tevhid (lâ ilâhe illâ ente), tenzih (sübhâneke) ve itiraf (innî küntü mine'z-zâlimîn). Daha kısa dualar vardır (Zekeriyyâ 19:4, Mûsâ Kasas 28:24); Yunus'un farkı uzunluk değil, içerik yoğunluğudur.",
+    insightEn: "Jonah's prayer is among the most theologically dense in the Qur'an — three layers in one sentence: divine unity (lā ilāha illā anta), exaltation (subḥānaka), and confession (innī kuntu mina'z-zālimīn). Shorter prayers exist (Zechariah 19:4, Moses Qaṣaṣ 28:24); Jonah's distinction is not length but density of content.",
   },
 ];
 
@@ -64,6 +64,8 @@ const RABBENA_DUAS = [
     tr: 'Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver.',
     en: 'Our Lord, give us good in this world and good in the Hereafter.',
     ref: 'Bakara 2:201', color: '#d4a574',
+    noteTr: "Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26 — Enes b. Mâlik'ten); Arafat vakfesinde okunan klasik dua.",
+    noteEn: "The Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26 — from Anas b. Mālik); the classical prayer recited during the Arafat standing.",
   },
   {
     ar: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا',
@@ -84,10 +86,12 @@ const RABBENA_DUAS = [
     ref: 'Haşr 59:10', color: '#a78bfa',
   },
   {
-    ar: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا',
-    tr: 'Rabbimiz! Bize eşlerimizden ve çocuklarımızdan göz aydınlığı ver.',
-    en: 'Our Lord, grant us from among our wives and offspring comfort to our eyes.',
+    ar: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
+    tr: 'Rabbimiz! Bize eşlerimizden ve soyumuzdan göz aydınlığı ver; bizi muttakîlere imam (öncü) kıl.',
+    en: 'Our Lord, grant us from our spouses and offspring comfort to our eyes, and make us a model for the God-conscious.',
     ref: 'Furkan 25:74', color: '#d4a574',
+    noteTr: 'Talep aile mutluluğu ile bitmez — liderlik sorumluluğuyla taçlanır. İdeal mü\'min profili: önce kendi yuvası, sonra ümmet için öncülük.',
+    noteEn: "The petition does not end with family harmony — it is crowned with leadership responsibility. The ideal believer profile: first one's own household, then exemplarship for the community.",
   },
   {
     ar: 'رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا',
@@ -138,8 +142,8 @@ export default function QuranDua() {
             {tr ? 'Linguistik gözlem: ' : 'Linguistic observation: '}
           </span>
           {tr
-            ? '"Rabbena" (رَبَّنَا) kelimesindeki "-nâ" eki "biz" anlamına gelir. Kur\'an\'daki duaların büyük çoğunluğu tekil değil çoğul formda — "Rabbim" değil "Rabbimiz." Dua bireysel bir eylem gibi görünse de, Kur\'an onu kolektif bir bilinç olarak sunar.'
-            : 'The suffix "-nā" in "Rabbanā" (رَبَّنَا) means "our." The vast majority of Quranic prayers use the plural form — not "my Lord" but "our Lord." Though prayer appears individual, the Quran presents it as an act of collective consciousness.'}
+            ? 'Kur\'an\'da dua açılışları "Rabbî" (رَبِّ — Rabbim) ve "Rabbenâ" (رَبَّنَا — Rabbimiz) arasında dengeli dağılır (her biri yaklaşık 38-40 yer). Fark anlamsaldır: tekil form genellikle peygamberin kişisel başvurusunu (Zekeriyyâ, Eyyub, Mûsâ, Süleyman, Yusuf), çoğul form ise topluluk/ümmet adına başvuruyu (Bedir öncesi, Âdem-Havvâ, hac duası) işaret eder. "-nâ" eki dua eden kişiyi cemaate bağlar — bireysel iman dahi kolektif bir omurga taşır.'
+            : 'In the Qur\'an, prayer openings are evenly distributed between "Rabbī" (رَبِّ — my Lord) and "Rabbanā" (رَبَّنَا — our Lord), each appearing in roughly 38-40 places. The difference is semantic: the singular generally marks a prophet\'s personal petition (Zechariah, Job, Moses, Solomon, Joseph), while the plural marks a petition on behalf of community/ummah (before Badr, Adam-Eve, the Hajj prayer). The suffix "-nā" binds the supplicant to the congregation — even individual faith carries a collective spine.'}
         </p>
       </motion.div>
 
@@ -358,47 +362,106 @@ export default function QuranDua() {
               >
                 {d.ref}
               </p>
+              {(tr ? d.noteTr : d.noteEn) && (
+                <p
+                  style={{
+                    marginTop: '10px',
+                    paddingTop: '10px',
+                    borderTop: `1px dashed ${d.color}33`,
+                    color: 'rgba(232,230,227,0.6)',
+                    fontSize: '0.74rem',
+                    fontStyle: 'italic',
+                    lineHeight: 1.6,
+                    fontFamily: "'Inter', sans-serif",
+                  }}
+                >
+                  {tr ? d.noteTr : d.noteEn}
+                </p>
+              )}
             </div>
           ))}
         </div>
       </motion.div>
 
-      {/* Bağlantı kartları */}
-
-      <motion.div variants={fadeUpItem} className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      {/* CTA — İnsan Psikolojisi bölümüne git */}
+      <motion.div variants={fadeUpItem} className="mt-10">
         <button
           onClick={() => document.getElementById('psychology')?.scrollIntoView({ behavior: 'smooth' })}
-          className="glass-card p-5 text-left hover:bg-white/5 transition-colors"
-          style={{ cursor: 'pointer' }}
+          style={{
+            width: '100%',
+            padding: '14px 24px',
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.3)',
+            borderRadius: '10px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.06)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)';
+          }}
         >
-          <p style={{ color: '#d4a574', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', marginBottom: 4, fontFamily: "'Inter', sans-serif" }}>
-            {tr ? '→ İLGİLİ BÖLÜM' : '→ RELATED SECTION'}
-          </p>
-          <p style={{ color: '#e8e6e3', fontWeight: 600, fontFamily: "'Inter', sans-serif", marginBottom: 2 }}>
-            {tr ? 'İnsan Psikolojisi' : 'Human Psychology'}
-          </p>
-          <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif" }}>
-            {tr
-              ? "Nefis, kalp ve savunma mekanizmaları — Kur'an'ın psikoloji haritası."
-              : "Nafs, heart and defense mechanisms — the Quran's map of the mind."}
-          </p>
+          <div style={{ textAlign: 'left' }}>
+            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+              {tr ? '↗ İNSAN PSİKOLOJİSİ — BÖLÜME GİT' : '↗ HUMAN PSYCHOLOGY — GO TO SECTION'}
+            </p>
+            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+              {tr
+                ? "Nefis · kalp · korku · savunma · Yusuf travma-iyileşme — Kur'an'ın psikoloji haritası"
+                : "Nafs · heart · fear · defenses · Joseph trauma-healing — the Qur'an's map of the mind"}
+            </p>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
         </button>
+      </motion.div>
+
+      {/* CTA — Dua Ayetleri aracını aç */}
+      <motion.div variants={fadeUpItem} className="mt-3">
         <button
           onClick={() => window.dispatchEvent(new CustomEvent('openDuaVerses'))}
-          className="glass-card p-5 text-left hover:bg-white/5 transition-colors"
-          style={{ cursor: 'pointer' }}
+          style={{
+            width: '100%',
+            padding: '14px 24px',
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.3)',
+            borderRadius: '10px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.06)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)';
+          }}
         >
-          <p style={{ color: '#d4a574', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', marginBottom: 4, fontFamily: "'Inter', sans-serif" }}>
-            {tr ? '→ ARAÇ' : '→ TOOL'}
-          </p>
-          <p style={{ color: '#e8e6e3', fontWeight: 600, fontFamily: "'Inter', sans-serif", marginBottom: 2 }}>
-            {tr ? 'Dua Ayetleri' : 'Prayer Verses'}
-          </p>
-          <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif" }}>
-            {tr
-              ? "Kur'an'dan seçilmiş duaların tamamına göz at."
-              : 'Browse all selected supplications from the Quran.'}
-          </p>
+          <div style={{ textAlign: 'left' }}>
+            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+              {tr ? '↗ KUR\'AN\'DA DUA AYETLERİ — ARACI AÇ' : '↗ PRAYER VERSES IN THE QUR\'AN — OPEN THE TOOL'}
+            </p>
+            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+              {tr
+                ? "Sığınma · şifa · hidayet · şükür · tövbe — Kur'an'dan seçilmiş duaların tamamı"
+                : "Refuge · healing · guidance · gratitude · repentance — the full collection of selected supplications"}
+            </p>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
         </button>
       </motion.div>
     </SectionWrapper>
