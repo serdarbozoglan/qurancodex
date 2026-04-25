@@ -52,6 +52,14 @@ const OVERLAY_EVENTS = {
   diyalog:    'openDiyalogAgi',
   furuk:      'openFurukAtlasi',
   munasebat:  'openMunasebatAtlasi',
+
+  // Phase 3 — eklenen yeni overlay'ler (önceki phase'lerde kayıt unutulmuş)
+  sunnetullah: 'openSunnetullah',
+  munafik:     'openMunafikProfili',
+  nefis:       'openNefisMertebeleri',
+  iblisSatan:  'openIblisSatan',
+  kadinlar:    'openKadinlarAtlasi',
+  ilkSon:      'openIlkSonKelimeler',
 };
 
 export function useQuranNav() {
