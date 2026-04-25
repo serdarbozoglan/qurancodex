@@ -285,8 +285,8 @@ export default function QuranDua() {
           lineHeight: 1.6,
         }}>
           {tr
-            ? 'İki form yarışmaz — birbirini tamamlar. Yalnız okurken "Rabbî", cemaatte okurken "Rabbenâ" — ama her duada öteki gizlidir.'
-            : 'The two forms do not compete — they complete each other. "Rabbī" when read alone, "Rabbanā" when in congregation — yet in every prayer, the other is implicit.'}
+            ? '"Rabbî" kişinin Allah\'ı yalnız kendi adına çağırması, "Rabbenâ" başkalarını da sesin içine alan davet. Birey Allah\'a sadece kendisi için yönelebilir; ama topluluğa açıldığı an, dili çoğullaşır.'
+            : '"Rabbī" calls upon God for oneself alone; "Rabbanā" is an invitation that draws others into the voice. One may turn to God for oneself only — but the moment the call opens to a community, the language becomes plural.'}
         </p>
       </motion.div>
 
