@@ -103,29 +103,29 @@ const PROPHET_PROFILES = [
 
 const RABBENA_DUAS = [
   {
-    ar: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً',
-    tr: 'Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver.',
-    en: 'Our Lord, give us good in this world and good in the Hereafter.',
+    ar: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ',
+    tr: 'Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver ve bizi ateş azabından koru.',
+    en: 'Our Lord, grant us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.',
     ref: 'Bakara 2:201', color: '#d4a574',
     noteTr: "Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26 — Enes b. Mâlik'ten); Arafat vakfesinde okunan klasik dua.",
     noteEn: "The Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26 — from Anas b. Mālik); the classical prayer recited during the Arafat standing.",
   },
   {
-    ar: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا',
-    tr: 'Rabbimiz! Bizi doğru yola ilettikten sonra kalplerimizi saptırma.',
-    en: 'Our Lord, do not let our hearts deviate after You have guided us.',
+    ar: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ',
+    tr: 'Rabbimiz! Bizi doğru yola ilettikten sonra kalplerimizi saptırma; tarafından bize rahmet bağışla. Şüphesiz Sen, çok bağışlayansın.',
+    en: 'Our Lord, do not let our hearts deviate after You have guided us, and grant us mercy from Your presence. Indeed, You are the Bestower.',
     ref: 'Âl-i İmrân 3:8', color: '#3498db',
   },
   {
-    ar: 'رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا',
-    tr: 'Rabbimiz! Üzerimize sabır yağdır, ayaklarımızı sabit kıl.',
-    en: 'Our Lord, pour upon us patience and plant firmly our feet.',
+    ar: 'رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
+    tr: 'Rabbimiz! Üzerimize sabır yağdır, ayaklarımızı sabit kıl ve kâfir topluma karşı bize yardım et.',
+    en: 'Our Lord, pour upon us patience, plant firmly our feet, and help us against the disbelieving people.',
     ref: 'Bakara 2:250', color: '#2ecc71',
   },
   {
-    ar: 'رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا',
-    tr: 'Rabbimiz! Bizi ve bizden önce iman etmiş kardeşlerimizi bağışla.',
-    en: 'Our Lord, forgive us and our brothers who preceded us in faith.',
+    ar: 'رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِّلَّذِينَ آمَنُوا رَبَّنَا إِنَّكَ رَءُوفٌ رَّحِيمٌ',
+    tr: "Rabbimiz! Bizi ve bizden önce iman etmiş kardeşlerimizi bağışla; iman edenlere karşı kalplerimizde kin bırakma. Rabbimiz! Şüphesiz Sen çok şefkatli, çok merhametlisin.",
+    en: 'Our Lord, forgive us and our brothers who preceded us in faith; place no rancor in our hearts toward those who believe. Our Lord, indeed You are Most Compassionate, Most Merciful.',
     ref: 'Haşr 59:10', color: '#a78bfa',
   },
   {
@@ -137,9 +137,9 @@ const RABBENA_DUAS = [
     noteEn: "The petition does not end with family harmony — it is crowned with leadership responsibility. The ideal believer profile: first one's own household, then exemplarship for the community.",
   },
   {
-    ar: 'رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا',
+    ar: 'رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ النَّارِ',
     tr: 'Rabbimiz! Şüphesiz biz iman ettik; günahlarımızı bağışla ve bizi ateş azabından koru.',
-    en: 'Our Lord, we have believed, so forgive us our sins and protect us from the punishment of the Fire.',
+    en: 'Our Lord, indeed we have believed; so forgive us our sins and protect us from the punishment of the Fire.',
     ref: 'Âl-i İmrân 3:16', color: '#3498db',
   },
 ];
