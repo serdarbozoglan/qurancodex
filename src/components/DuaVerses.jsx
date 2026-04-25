@@ -20,17 +20,19 @@ const SURAH_NAMES = [
 ];
 
 const CATEGORY_CONFIG = {
-  af:      { color: 'rgba(245,158,11,0.8)',   label_tr: 'Af',        label_en: 'Forgiveness' },
-  hidayet: { color: 'rgba(52,152,219,0.8)',   label_tr: 'Hidayet',   label_en: 'Guidance'    },
-  sabir:   { color: 'rgba(155,89,182,0.8)',   label_tr: 'Sabır',     label_en: 'Patience'    },
-  sikinit: { color: 'rgba(230,126,34,0.8)',   label_tr: 'Sıkıntıda', label_en: 'In Distress' },
-  aile:    { color: 'rgba(46,204,113,0.8)',   label_tr: 'Aile',      label_en: 'Family'      },
-  sukur:   { color: 'rgba(212,165,116,0.8)',  label_tr: 'Şükür',     label_en: 'Gratitude'   },
-  rizik:   { color: 'rgba(26,122,76,0.8)',    label_tr: 'Rızık',     label_en: 'Provision'   },
-  genel:   { color: 'rgba(149,165,166,0.8)',  label_tr: 'Genel',     label_en: 'General'     },
+  af:       { color: 'rgba(245,158,11,0.8)',   label_tr: 'Af',         label_en: 'Forgiveness' },
+  tovbe:    { color: 'rgba(236,72,153,0.8)',   label_tr: 'Tövbe',      label_en: 'Repentance'  },
+  siginma:  { color: 'rgba(20,184,166,0.8)',   label_tr: 'Sığınma',    label_en: 'Refuge'      },
+  hidayet:  { color: 'rgba(52,152,219,0.8)',   label_tr: 'Hidayet',    label_en: 'Guidance'    },
+  sabir:    { color: 'rgba(155,89,182,0.8)',   label_tr: 'Sabır',      label_en: 'Patience'    },
+  sikinit:  { color: 'rgba(230,126,34,0.8)',   label_tr: 'Sıkıntıda',  label_en: 'In Distress' },
+  aile:     { color: 'rgba(46,204,113,0.8)',   label_tr: 'Aile',       label_en: 'Family'      },
+  sukur:    { color: 'rgba(212,165,116,0.8)',  label_tr: 'Şükür',      label_en: 'Gratitude'   },
+  rizik:    { color: 'rgba(26,122,76,0.8)',    label_tr: 'Rızık',      label_en: 'Provision'   },
+  genel:    { color: 'rgba(149,165,166,0.8)',  label_tr: 'Genel',      label_en: 'General'     },
 };
 
-const CATEGORY_ORDER = ['af', 'hidayet', 'sabir', 'sikinit', 'aile', 'sukur', 'rizik', 'genel'];
+const CATEGORY_ORDER = ['af', 'tovbe', 'siginma', 'hidayet', 'sabir', 'sikinit', 'aile', 'sukur', 'rizik', 'genel'];
 
 const gold = COLORS.gold;
 const silver = COLORS.silver;
