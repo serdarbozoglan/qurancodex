@@ -207,6 +207,31 @@
       ]
     },
     {
+      "id": "musebbihat-ailesi-5-sure",
+      "category": "aile-imzasi",
+      "categoryLabelTr": "Aile İmzası",
+      "categoryLabelEn": "Family Signature",
+      "type": "family",
+      "titleTr": "Müsebbihât Ailesi: Beş Sûre, Bir Tesbih",
+      "titleEn": "The Musabbiḥāt Family: Five Surahs, One Tasbīḥ",
+      "items": [
+        { "num": 57, "nameTr": "el-Hadîd",   "nameEn": "Al-Ḥadīd",     "firstAr": "سَبَّحَ",    "firstTranslit": "sabbaḥa",    "lastAr": "الْعَظ۪يمِ",    "lastTranslit": "al-ʿaẓīm",    "lastMeaning": "Yüce" },
+        { "num": 59, "nameTr": "el-Haşr",    "nameEn": "Al-Ḥashr",     "firstAr": "سَبَّحَ",    "firstTranslit": "sabbaḥa",    "lastAr": "الْحَك۪يمُ",    "lastTranslit": "al-ḥakīm",    "lastMeaning": "Hakîm" },
+        { "num": 61, "nameTr": "es-Saff",    "nameEn": "Al-Ṣaff",      "firstAr": "سَبَّحَ",    "firstTranslit": "sabbaḥa",    "lastAr": "ظَاهِر۪ينَ",    "lastTranslit": "ẓāhirīn",     "lastMeaning": "galip gelenler" },
+        { "num": 62, "nameTr": "el-Cum'a",   "nameEn": "Al-Jumuʿa",    "firstAr": "يُسَبِّحُ",  "firstTranslit": "yusabbiḥu",  "lastAr": "الرَّازِق۪ينَ", "lastTranslit": "ar-rāziqīn", "lastMeaning": "rızık verenler" },
+        { "num": 64, "nameTr": "et-Tegâbün", "nameEn": "Al-Taghābun",  "firstAr": "يُسَبِّحُ",  "firstTranslit": "yusabbiḥu",  "lastAr": "الْحَك۪يمُ",    "lastTranslit": "al-ḥakīm",    "lastMeaning": "Hakîm" }
+      ],
+      "thematicTr": "Beş sûre Allah'ın tesbihiyle açılır — mâzî (sebbeḥa, geçti) ve muzâri (yusebbiḥu, anlık) olarak iki zaman çekiminde. Klasik İslâm âlimliğinde bu beşliye Müsebbihât (المسبّحات) denir; Hadîd-Tegâbün arası beş ardışık-yakın sûre (57, 59, 61, 62, 64) ortak imzayı taşır. Kapanışlar farklı ama hepsi ilahî ya da O'nun fiiline ait: Yüce, Hakîm, galip gelenler, rızık verenler, Hakîm. Yani sûre nasıl başladıysa öyle de bitiyor — Allah\\'ın sıfat ve fiilleriyle çevrelenmiş.",
+      "thematicEn": "Five surahs open with the tasbīḥ of God — in two tenses: perfect (sabbaḥa, \"all that exists has glorified\") and imperfect (yusabbiḥu, \"glorifies, in the present\"). Classical Islamic scholarship calls this set the Musabbiḥāt (المسبّحات); five near-consecutive surahs between al-Ḥadīd and al-Taghābun (57, 59, 61, 62, 64) carry the shared signature. The closings differ, but all return to God or His agency: the Mighty, the Wise, the victorious (His side), the providers (His name), the Wise. The surahs end as they began — wrapped in God's attributes and acts.",
+      "hiddenTr": "Aileye iki uzantı vardır: (1) A'lâ 87 — açılışı سَبِّحِ (sabbiḥ — emir kipinde \"tesbih et!\") olduğu için bazı klasik kaynaklar (Bikâî dahil) Müsebbihât'a katar; mevcut taksonomide ise muzâri/mâzî beşli kabul edilir. (2) İsrâ 17 سُبْحَانَ ile (isim formu) açılır — kendine özel bir spotlight'ı vardır (Spotlight #7), ayrı kategoride. Hadis literatüründe Hz. Peygamber Müsebbihât'ı her gece okurdu (Tirmizî, Fedâilü'l-Kur'ân 21).",
+      "hiddenEn": "The family has two extensions: (1) Al-Aʿlā 87 — its opening is سَبِّحِ (sabbiḥ — imperative \"Glorify!\"), so some classical sources (al-Biqāʿī among them) include it in the Musabbiḥāt; the present taxonomy treats the verbal-clause five (perfect + imperfect) as the core. (2) Al-Isrāʾ 17 opens with سُبْحَانَ (the noun form) — it has its own dedicated spotlight (#7) in a separate category. In hadith literature, the Prophet would recite the Musabbiḥāt every night (al-Tirmidhī, Faḍāʾil al-Qurʾān 21).",
+      "sources": [
+        "Bikâî, Nazmü'd-Dürer, XX/188-192 (Müsebbihât silsilesi)",
+        "Suyûtî, el-İtkân, III/41",
+        "Tirmizî, Fedâilü'l-Kur'ân 21 (Müsebbihât hadisi)"
+      ]
+    },
+    {
       "id": "kul-ailesi-5-sure",
       "category": "sure-kumesi",
       "categoryLabelTr": "Sûre Kümesi",

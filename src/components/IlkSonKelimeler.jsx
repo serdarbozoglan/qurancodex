@@ -644,6 +644,9 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, onFilterClic
         </div>
       </div>
 
+      {/* Bilmediğin 5 Şey — teaser hooks */}
+      <KnowYouDidNotKnow language={language} isMobile={isMobile} />
+
       {/* Spotlight cards */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         {spotlights.map(sp => (
@@ -823,6 +826,109 @@ function CrossReadingSection({ surahs, language, isMobile, onFilterClick }) {
               {tr ? 'Detayını Gör →' : 'See Details →'}
             </div>
           </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Bilmediğin 5 Şey — teaser hooks ─────────────────────────────────────────
+// Hero altı, Spotlights üstü; aşağıda gelen kartların ana iddialarını
+// punchy tek cümlelerle önden duyurur.
+function KnowYouDidNotKnow({ language, isMobile }) {
+  const tr = language === 'tr';
+  const items = [
+    {
+      headlineTr: 'Mushaf, kendi sonundan başına dönen bir halkadır.',
+      headlineEn: 'The Mushaf is a loop that returns from its own end to its beginning.',
+      bodyTr: 'Nâs sûresi insanın şerlerden sığınmasıyla biter — Fâtiha hemen ardından Allah\'a hamd ile başlar. Hâfız Mushaf\'ı bitirmez, çevirir.',
+      bodyEn: 'Surah Al-Nās ends with refuge from evil — Al-Fātiḥa immediately begins with praise. The ḥāfiẓ does not finish the Mushaf; he turns it over.',
+    },
+    {
+      headlineTr: 'Yedi sûre tek bir harf ile başlar — حم — ve hepsi ardışık.',
+      headlineEn: 'Seven surahs begin with the same two letters — ḥā-mīm — and all are consecutive.',
+      bodyTr: '40-46 arası kesintisiz bir blok. Aralarında mushaf akışı kırılmaz; her biri imanın farklı bir yüzünü gösterir.',
+      bodyEn: 'Surahs 40–46 form an unbroken block. The Mushaf flow is never interrupted; each shows a different face of faith.',
+    },
+    {
+      headlineTr: '"Sapanların yolu" Fâtiha\'da bitince, Bakara hemen "işte doğru yol" der.',
+      headlineEn: '"The path of those who went astray" ends Al-Fātiḥa — Al-Baqara opens with "this is the guidance."',
+      bodyTr: 'Sûrelerin biri diğerine cevap verir. Râzî der ki: kul Fâtiha\'da hidayet ister, Allah Bakara\'nın açılışında onu sunar.',
+      bodyEn: 'One surah answers the other. Al-Rāzī says: the servant asks for guidance in Al-Fātiḥa, and God offers it at the start of Al-Baqara.',
+    },
+    {
+      headlineTr: 'İsrâ tesbihle açılır, tekbirle biter — günde 33+33 zikrettiğin iki kelime.',
+      headlineEn: 'Al-Isrāʾ opens with tasbīḥ and closes with takbīr — two words recited 33+33 times daily.',
+      bodyTr: 'Sûre, mü\'minin günlük dilinde olan iki zikrin arasında nefes alır. Subḥān ile başlar, kebbir ile mühürlenir.',
+      bodyEn: 'The surah breathes between two daily remembrances. It begins with subḥān and is sealed with kabbir.',
+    },
+    {
+      headlineTr: 'Mukattaa harfleriyle açılan sûrelerin sonu neredeyse hep bir vahiy/Kitap atfıdır.',
+      headlineEn: 'Surahs that open with muqaṭṭaʿāt almost always close with a reference to revelation or the Book.',
+      bodyTr: '29 sûre 14 farklı harf kombinasyonuyla başlar. Şifre çözülmez, ama her biri bir vaadle, bir mü\'jdeyle ya da bir uyarıyla biter.',
+      bodyEn: '29 surahs open with 14 different letter combinations. The cipher is never decoded, but each closes with a promise, a reward, or a warning.',
+    },
+  ];
+
+  return (
+    <div style={{
+      marginBottom: '32px',
+      padding: isMobile ? '20px 18px' : '26px 28px',
+      background: 'rgba(255,255,255,0.025)',
+      border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
+      borderRadius: RADIUS.lg,
+    }}>
+      <div style={{
+        fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
+        letterSpacing: '0.3em', textTransform: 'uppercase',
+        color: COLORS.gold, opacity: 0.7, marginBottom: '8px',
+      }}>
+        {tr ? 'Bu Sayfaya Geldiğinde Bilmiyordun ki' : 'Before You Came to This Page You Did Not Know'}
+      </div>
+      <h3 style={{
+        fontFamily: FONTS.display, fontWeight: 700,
+        fontSize: isMobile ? '1.2rem' : '1.4rem',
+        color: COLORS.offWhite, margin: '0 0 18px',
+        lineHeight: 1.25,
+      }}>
+        {tr ? 'Beş Keşif' : 'Five Discoveries'}
+      </h3>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        {items.map((it, i) => (
+          <div key={i} style={{
+            display: 'grid',
+            gridTemplateColumns: '24px 1fr',
+            gap: '12px',
+            alignItems: 'baseline',
+          }}>
+            <div style={{
+              fontFamily: FONTS.display, fontWeight: 800,
+              fontSize: '1.1rem',
+              color: COLORS.gold, opacity: 0.7,
+              textAlign: 'center',
+              lineHeight: 1,
+            }}>
+              ✦
+            </div>
+            <div>
+              <div style={{
+                fontFamily: FONTS.body, fontWeight: 600,
+                fontSize: isMobile ? '0.92rem' : '0.97rem',
+                color: COLORS.offWhite, lineHeight: 1.45,
+                marginBottom: '4px',
+              }}>
+                {tr ? it.headlineTr : it.headlineEn}
+              </div>
+              <div style={{
+                fontFamily: FONTS.body,
+                fontSize: isMobile ? '0.82rem' : '0.86rem',
+                color: COLORS.silver, lineHeight: 1.65,
+                opacity: 0.85,
+              }}>
+                {tr ? it.bodyTr : it.bodyEn}
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>
