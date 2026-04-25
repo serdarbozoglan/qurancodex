@@ -219,12 +219,12 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
       {/* Main body: grid (+ detail panel on desktop) */}
       <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
         {/* Grid */}
-        <div style={{
+        <div id="ilk-son-grid-container" style={{
           flex: 1, overflowY: 'auto',
           padding: isMobile ? '14px' : '18px 24px 32px',
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '12px',
+          gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(200px, 1fr))',
+          gap: '10px',
           alignContent: 'start',
         }}>
           {activeFilter === 'all' && searchValue.trim().length < 2 && spotlights.length > 0 && (
@@ -234,10 +234,62 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
                 surahs={data.surahs}
                 language={language}
                 isMobile={isMobile}
-                onFilterClick={(id) => setFilter(id)}
+                activeFilter={activeFilter}
+                onFilterClick={(id) => {
+                  setFilter(id);
+                  // Phase 2: scroll grid header into view after filter applies
+                  setTimeout(() => {
+                    document.getElementById('ilk-son-grid-header')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 50);
+                }}
               />
             </div>
           )}
+
+          {/* Grid section header — always visible above the surah cards */}
+          <div id="ilk-son-grid-header" style={{
+            gridColumn: '1 / -1',
+            paddingTop: '20px',
+            marginBottom: '4px',
+          }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '14px',
+              marginBottom: '12px',
+            }}>
+              <div style={{ flex: 1, height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.goldAlpha25}, transparent)` }} />
+              <span style={{
+                fontSize: '0.64rem', fontFamily: FONTS.body, fontWeight: 700,
+                letterSpacing: '0.3em', textTransform: 'uppercase',
+                color: COLORS.gold, opacity: 0.65, whiteSpace: 'nowrap',
+              }}>
+                {language === 'tr' ? '114 Sûrenin Tamamı' : 'All 114 Surahs'}
+              </span>
+              <div style={{ flex: 1, height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.goldAlpha25}, transparent)` }} />
+            </div>
+            {(() => {
+              const f = FILTERS.find(x => x.id === activeFilter);
+              const isFiltered = activeFilter !== 'all' || searchValue.trim().length >= 2;
+              return (
+                <p style={{
+                  textAlign: 'center',
+                  fontFamily: FONTS.body, fontSize: '0.84rem',
+                  color: COLORS.silver, opacity: 0.8,
+                  margin: 0, lineHeight: 1.55,
+                }}>
+                  {isFiltered ? (
+                    language === 'tr'
+                      ? <>Filtrelenmiş <strong style={{ color: COLORS.gold }}>{filtered.length}</strong> sûre — yukarıdaki örüntüleri burada doğrulayın.</>
+                      : <>Filtered to <strong style={{ color: COLORS.gold }}>{filtered.length}</strong> surahs — verify the patterns above here.</>
+                  ) : (
+                    language === 'tr'
+                      ? 'Tüm sûrelerin ilk ve son kelimelerini tarayın. Yukarıda anlattıklarımızı burada doğrulayabilirsiniz.'
+                      : 'Browse the opening and closing words of every surah. Verify the patterns we explored above.'
+                  )}
+                </p>
+              );
+            })()}
+          </div>
+
           {filtered.map(s => (
             <Card key={s.surah} surah={s} onClick={() => setSelected(s)} selected={selected?.surah === s.surah} language={language} />
           ))}
@@ -250,13 +302,13 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
 
         {/* Detail panel */}
         {selected && !isMobile && (
-          <DetailPanel surah={selected} onClose={() => setSelected(null)} language={language} isMobile={false} />
+          <DetailPanel surah={selected} spotlights={spotlights} onClose={() => setSelected(null)} language={language} isMobile={false} />
         )}
       </div>
 
       {/* Mobile: detail as bottom sheet */}
       {selected && isMobile && (
-        <DetailPanel surah={selected} onClose={() => setSelected(null)} language={language} isMobile={true} />
+        <DetailPanel surah={selected} spotlights={spotlights} onClose={() => setSelected(null)} language={language} isMobile={true} />
       )}
     </div>
   );
@@ -296,28 +348,28 @@ function Card({ surah, onClick, selected, language }) {
         textAlign: 'left',
         background: selected ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.035)',
         border: `1px solid ${selected ? COLORS.goldAlpha40 : 'rgba(255,255,255,0.08)'}`,
-        borderRadius: '10px',
-        padding: '14px 16px',
+        borderRadius: '8px',
+        padding: '11px 13px',
         cursor: 'pointer',
         transition: 'all 0.15s',
-        display: 'flex', flexDirection: 'column', gap: '10px',
+        display: 'flex', flexDirection: 'column', gap: '8px',
         fontFamily: FONTS.body,
-        minHeight: '108px',
+        minHeight: '92px',
       }}
       onMouseEnter={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
       onMouseLeave={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
     >
       {/* Top: surah no + name + revelation badge */}
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
-        <span style={{ color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em' }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexWrap: 'wrap' }}>
+        <span style={{ color: COLORS.gold, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.06em' }}>
           {String(surah.surah).padStart(3, '0')}
         </span>
-        <span style={{ color: COLORS.offWhite, fontSize: '0.92rem', fontWeight: 600 }}>{name}</span>
+        <span style={{ color: COLORS.offWhite, fontSize: '0.84rem', fontWeight: 600 }}>{name}</span>
         <span style={{
           marginLeft: 'auto',
-          fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
+          fontSize: '0.56rem', letterSpacing: '0.12em', textTransform: 'uppercase',
           color: surah.revelation === 'medeni' ? '#8ec5a5' : COLORS.silver,
-          opacity: 0.75,
+          opacity: 0.7,
         }}>
           {surah.revelation === 'medeni'
             ? (language === 'tr' ? 'Medenî' : 'Medinan')
@@ -326,39 +378,31 @@ function Card({ surah, onClick, selected, language }) {
       </div>
 
       {/* Middle: first word → last word */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '10px' }}>
-        <div style={{ textAlign: 'right' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '6px' }}>
+        <div style={{ textAlign: 'right', minWidth: 0, overflow: 'hidden' }}>
           <div dir="rtl" lang="ar" style={{
-            fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.offWhite,
+            fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite,
             lineHeight: 1.4, direction: 'rtl',
+            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
           }}>
             {cleanArabic(surah.firstWord?.ar) || '—'}
           </div>
-          {surah.firstWord?.translit && (
-            <div style={{ fontSize: '0.7rem', color: COLORS.silver, marginTop: '2px', fontStyle: 'italic' }}>
-              {surah.firstWord.translit}
-            </div>
-          )}
         </div>
-        <span style={{ color: COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)', fontSize: '1rem', opacity: 0.7 }}>←</span>
-        <div style={{ textAlign: 'left' }}>
+        <span style={{ color: COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)', fontSize: '0.85rem', opacity: 0.6 }}>←</span>
+        <div style={{ textAlign: 'left', minWidth: 0, overflow: 'hidden' }}>
           <div dir="rtl" lang="ar" style={{
-            fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.offWhite,
+            fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite,
             lineHeight: 1.4, direction: 'rtl',
+            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
           }}>
             {cleanArabic(surah.lastWord?.ar) || '—'}
           </div>
-          {surah.lastWord?.translit && (
-            <div style={{ fontSize: '0.7rem', color: COLORS.silver, marginTop: '2px', fontStyle: 'italic' }}>
-              {surah.lastWord.translit}
-            </div>
-          )}
         </div>
       </div>
 
       {/* Tags */}
       {(surah.openerTags?.length > 0 || surah.hasMukattaa || surah.hasOath) && (
-        <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
           {surah.hasMukattaa && <Tag label="mukattaa" />}
           {surah.hasOath && <Tag label="yemin" />}
           {surah.openerTags?.filter(t => t !== 'mukattaa' && t !== 'oath').map(t => (
@@ -385,8 +429,24 @@ function Tag({ label }) {
 }
 
 // ─── Detail panel (right drawer on desktop, bottom sheet on mobile) ───────────
-function DetailPanel({ surah, onClose, language, isMobile }) {
+function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
   const name = language === 'tr' ? surah.nameTr : (surah.nameEn || surah.nameTr);
+  const tr = language === 'tr';
+
+  // Find spotlights that include this surah
+  const relatedSpotlights = (spotlights || []).filter(sp => {
+    if (sp.leftSurah?.num === surah.surah || sp.rightSurah?.num === surah.surah) return true;
+    if (sp.items?.some(it => it.num === surah.surah)) return true;
+    return false;
+  });
+
+  const goToSpotlight = (id) => {
+    onClose();
+    // Wait for detail panel to close before scrolling, so the spotlight card is visible
+    setTimeout(() => {
+      document.getElementById(`spotlight-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
 
   const panelStyle = isMobile ? {
     position: 'fixed', left: 0, right: 0, bottom: 0, top: '15%',
@@ -462,6 +522,66 @@ function DetailPanel({ surah, onClose, language, isMobile }) {
               {language === 'tr' ? 'Not' : 'Note'}
             </div>
             {surah.note}
+          </div>
+        )}
+
+        {/* Related Spotlights — surah'nın yer aldığı spotlight kartları */}
+        {relatedSpotlights.length > 0 && (
+          <div style={{ marginTop: '20px' }}>
+            <div style={{
+              fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
+              letterSpacing: '0.22em', textTransform: 'uppercase',
+              color: COLORS.gold, opacity: 0.75, marginBottom: '10px',
+            }}>
+              {tr ? 'Bu Sûre Şu Spotlight\'larda' : 'Featured in Spotlights'}
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {relatedSpotlights.map(sp => (
+                <button
+                  key={sp.id}
+                  onClick={() => goToSpotlight(sp.id)}
+                  style={{
+                    textAlign: 'left',
+                    padding: '10px 12px',
+                    background: 'rgba(212,165,116,0.05)',
+                    border: `1px solid ${COLORS.goldAlpha25}`,
+                    borderRadius: RADIUS.sm,
+                    cursor: 'pointer',
+                    fontFamily: 'inherit',
+                    transition: `all ${TRANSITION.fast}`,
+                    display: 'flex', flexDirection: 'column', gap: '4px',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = COLORS.goldAlpha15;
+                    e.currentTarget.style.borderColor = COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(212,165,116,0.05)';
+                    e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+                  }}
+                >
+                  <span style={{
+                    fontSize: '0.58rem', fontFamily: FONTS.body, fontWeight: 700,
+                    letterSpacing: '0.18em', textTransform: 'uppercase',
+                    color: COLORS.gold, opacity: 0.7,
+                  }}>
+                    {tr ? sp.categoryLabelTr : sp.categoryLabelEn}
+                  </span>
+                  <span style={{
+                    fontFamily: FONTS.body, fontSize: '0.84rem', fontWeight: 600,
+                    color: COLORS.offWhite, lineHeight: 1.35,
+                  }}>
+                    {tr ? sp.titleTr : sp.titleEn}
+                  </span>
+                  <span style={{
+                    fontSize: '0.7rem', color: COLORS.gold, opacity: 0.7,
+                    fontWeight: 600, letterSpacing: '0.02em',
+                  }}>
+                    {tr ? 'Spotlight\'a Git →' : 'Go to Spotlight →'}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
 
@@ -566,7 +686,7 @@ function AyahBlock({ label, verseRef, word, ayahAr, ayahTr, language }) {
 // ─── Spotlight Section ────────────────────────────────────────────────────────
 // Münâsebât-ı Süver çerçevesinde 7 öne çıkan kelime bağı kartı.
 // Bridge / ring / family / cluster / intra-bridge / intra-ring tipleri.
-function SpotlightSection({ spotlights, surahs, language, isMobile, onFilterClick }) {
+function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter, onFilterClick }) {
   if (!spotlights || spotlights.length === 0) return null;
   const tr = language === 'tr';
   return (
@@ -670,6 +790,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, onFilterClic
         surahs={surahs}
         language={language}
         isMobile={isMobile}
+        activeFilter={activeFilter}
         onFilterClick={onFilterClick}
       />
     </div>
@@ -679,7 +800,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, onFilterClic
 // ─── Çapraz Okuma — Örüntü Kategorileri ──────────────────────────────────────
 // Açılış/kapanış kalıplarının istatistiği + her örüntünün ne anlama geldiğine
 // dair bir-iki cümle insight. Tıklanınca filtre uygulanır.
-function CrossReadingSection({ surahs, language, isMobile, onFilterClick }) {
+function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilterClick }) {
   if (!surahs || surahs.length === 0) return null;
   const tr = language === 'tr';
   const insights = [
@@ -770,74 +891,98 @@ function CrossReadingSection({ surahs, language, isMobile, onFilterClick }) {
         gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
         gap: '12px',
       }}>
-        {insights.map(ins => (
-          <button
-            key={ins.filterId}
-            onClick={() => onFilterClick && onFilterClick(ins.filterId)}
-            style={{
-              textAlign: 'left',
-              padding: '16px 18px',
-              background: 'rgba(255,255,255,0.025)',
-              border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
-              borderRadius: RADIUS.md,
-              cursor: 'pointer',
-              fontFamily: 'inherit',
-              transition: 'all 0.15s',
-              display: 'flex', flexDirection: 'column',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = COLORS.goldAlpha04;
-              e.currentTarget.style.borderColor = COLORS.goldAlpha25;
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
-              e.currentTarget.style.borderColor = COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)';
-            }}
-          >
-            <div style={{
-              display: 'flex', alignItems: 'baseline', gap: '10px',
-              marginBottom: '8px',
-            }}>
-              <span style={{
-                fontFamily: FONTS.display, fontWeight: 800,
-                fontSize: '1.7rem',
-                color: COLORS.gold,
-                lineHeight: 1,
+        {insights.map(ins => {
+          const isActive = ins.filterId === activeFilter;
+          return (
+            <button
+              key={ins.filterId}
+              onClick={() => onFilterClick && onFilterClick(ins.filterId)}
+              style={{
+                position: 'relative',
+                textAlign: 'left',
+                padding: '16px 18px',
+                background: isActive ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.025)',
+                border: `1px solid ${isActive ? (COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)') : (COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)')}`,
+                borderRadius: RADIUS.md,
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+                transition: 'all 0.15s',
+                display: 'flex', flexDirection: 'column',
+              }}
+              onMouseEnter={e => {
+                if (isActive) return;
+                e.currentTarget.style.background = COLORS.goldAlpha04;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+              }}
+              onMouseLeave={e => {
+                if (isActive) return;
+                e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
+                e.currentTarget.style.borderColor = COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)';
+              }}
+            >
+              {isActive && (
+                <span style={{
+                  position: 'absolute',
+                  top: '10px', right: '12px',
+                  fontSize: '0.58rem', fontFamily: FONTS.body, fontWeight: 700,
+                  letterSpacing: '0.18em', textTransform: 'uppercase',
+                  color: COLORS.gold,
+                  background: COLORS.goldAlpha25,
+                  padding: '3px 9px',
+                  borderRadius: '999px',
+                  border: `1px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}`,
+                }}>
+                  {tr ? 'Aktif' : 'Active'}
+                </span>
+              )}
+              <div style={{
+                display: 'flex', alignItems: 'baseline', gap: '10px',
+                marginBottom: '8px',
               }}>
-                {ins.count}
-              </span>
-              <span style={{
-                fontSize: '0.78rem', fontFamily: FONTS.body,
-                color: COLORS.silver, opacity: 0.7,
+                <span style={{
+                  fontFamily: FONTS.display, fontWeight: 800,
+                  fontSize: '1.7rem',
+                  color: COLORS.gold,
+                  lineHeight: 1,
+                }}>
+                  {ins.count}
+                </span>
+                <span style={{
+                  fontSize: '0.78rem', fontFamily: FONTS.body,
+                  color: COLORS.silver, opacity: 0.7,
+                }}>
+                  {tr ? 'sûre' : 'surahs'}
+                </span>
+              </div>
+              <div style={{
+                fontSize: '0.82rem', fontFamily: FONTS.body, fontWeight: 700,
+                color: COLORS.offWhite, marginBottom: '8px',
+                letterSpacing: '0.01em',
+                paddingRight: isActive ? '54px' : 0,
               }}>
-                {tr ? 'sûre' : 'surahs'}
-              </span>
-            </div>
-            <div style={{
-              fontSize: '0.82rem', fontFamily: FONTS.body, fontWeight: 700,
-              color: COLORS.offWhite, marginBottom: '8px',
-              letterSpacing: '0.01em',
-            }}>
-              {tr ? ins.labelTr : ins.labelEn}
-            </div>
-            <p style={{
-              fontSize: '0.8rem', fontFamily: FONTS.body,
-              color: COLORS.silver, margin: 0, lineHeight: 1.6,
-              opacity: 0.85,
-            }}>
-              {tr ? ins.insightTr : ins.insightEn}
-            </p>
-            <div style={{
-              marginTop: '10px',
-              fontSize: '0.72rem',
-              color: COLORS.gold, opacity: 0.7,
-              fontFamily: FONTS.body, fontWeight: 600,
-              letterSpacing: '0.02em',
-            }}>
-              {tr ? 'Detayını Gör →' : 'See Details →'}
-            </div>
-          </button>
-        ))}
+                {tr ? ins.labelTr : ins.labelEn}
+              </div>
+              <p style={{
+                fontSize: '0.8rem', fontFamily: FONTS.body,
+                color: COLORS.silver, margin: 0, lineHeight: 1.6,
+                opacity: 0.85,
+              }}>
+                {tr ? ins.insightTr : ins.insightEn}
+              </p>
+              <div style={{
+                marginTop: '10px',
+                fontSize: '0.72rem',
+                color: COLORS.gold, opacity: isActive ? 0.95 : 0.7,
+                fontFamily: FONTS.body, fontWeight: 600,
+                letterSpacing: '0.02em',
+              }}>
+                {isActive
+                  ? (tr ? 'Aşağıda Filtreli Görüntüleniyor ↓' : 'Filtered View Below ↓')
+                  : (tr ? 'Detayını Gör →' : 'See Details →')}
+              </div>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
@@ -1023,11 +1168,12 @@ function SpotlightCard({ spotlight, language, isMobile }) {
   const arrow  = ['ring', 'intra-ring'].includes(spotlight.type) ? '↻' : '→';
 
   return (
-    <div style={{
+    <div id={`spotlight-${spotlight.id}`} style={{
       padding: isMobile ? '20px 18px' : '28px 32px',
       background: COLORS.goldAlpha04,
       border: `1px solid ${COLORS.goldAlpha25}`,
       borderRadius: RADIUS.lg,
+      scrollMarginTop: '120px',
     }}>
       {/* Category badge */}
       <div style={{
