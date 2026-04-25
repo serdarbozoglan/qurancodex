@@ -1,0 +1,275 @@
+{
+  "meta": {
+    "version": "1.0",
+    "generatedAt": "2026-04-25",
+    "generator": "qc-content-producer",
+    "purpose": "Münâsebât-ı Süver çerçevesinde sûreler arası ve sûre içi kelime bağlantılarını öne çıkaran 7 spotlight kartı.",
+    "fatihaPolicy": "hanefi-1-1 — Fâtiha'nın ilk kelimesi 'al-ḥamdu' (Bismillah ayet sayılmaz).",
+    "verifiedAgainst": "public/ilk-son-kelimeler.json (2026-04-25)",
+    "sources": [
+      "Suyûtî, el-İtkān fî Ulūmi'l-Kur'ān",
+      "Bikâî, Nazmü'd-Dürer fî Tenâsubi'l-Âyâti ve's-Süver",
+      "Râzî, Mefâtīḥu'l-Gayb",
+      "Mustansir Mir, 'The Sūra as a Unity' (1986)",
+      "Raymond Farrin, 'Surat al-Baqara: A Structural Analysis' (2010)"
+    ]
+  },
+  "spotlights": [
+    {
+      "id": "fatiha-bakara-dua-cevap",
+      "category": "klasik-munasebe",
+      "categoryLabelTr": "Klasik Münâsebe",
+      "categoryLabelEn": "Classical Munāsabah",
+      "type": "bridge",
+      "titleTr": "Fâtiha → Bakara: Duâ ve Cevap",
+      "titleEn": "Al-Fātiḥa → Al-Baqara: The Prayer and the Answer",
+      "leftSurah": {
+        "num": 1,
+        "nameTr": "el-Fâtiha",
+        "nameEn": "Al-Fātiḥa",
+        "position": "son",
+        "wordAr": "الضَّالِّينَ",
+        "translit": "aḍ-ḍāllīn",
+        "meaning": "sapanlar",
+        "ayahRef": "1:7",
+        "ayahArSnippet": "صِرَاطَ الَّذ۪ينَ اَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّآلّ۪ينَ",
+        "ayahTr": "Kendilerine nimet verdiklerinin yoluna; gazaba uğrayanların ve sapmışların yoluna değil."
+      },
+      "rightSurah": {
+        "num": 2,
+        "nameTr": "el-Bakara",
+        "nameEn": "Al-Baqara",
+        "position": "ilk",
+        "wordAr": "الٓمٓ",
+        "translit": "alif-lām-mīm",
+        "meaning": "mukattaa",
+        "ayahRef": "2:1-2",
+        "ayahArSnippet": "الٓمٓ ۚ ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ف۪يهِ هُدًى لِلْمُتَّق۪ينَ",
+        "ayahTr": "Elif. Lâm. Mîm. İşte o Kitap; onda asla şüphe yoktur. Müttakiler için bir hidayettir."
+      },
+      "thematicTr": "Fâtiha bir duâ ile biter: \"Bizi doğru yola ilet… sapmışların yoluna değil.\" Bakara o duâya doğrudan cevap verir: \"İşte aradığın hidayet — bu Kitap, müttakiler için.\" Klasik tefsirde bu, Mushaf'ın en bilinen münâsebe örneğidir. Râzî, Mefâtîhu'l-Gayb'da der ki: kul Fâtiha'yı okuyup hidayet ister; Allah Bakara'nın başında \"işte hidayet, işte Kitap\" diyerek cevap verir. Bikâî, Nazmü'd-Dürer'de aynı bağı iki sûreyi tek metin gibi okumanın anahtarı sayar.",
+      "thematicEn": "Al-Fātiḥa ends with a prayer: \"Guide us to the straight path… not the path of those who went astray.\" Al-Baqara answers that prayer directly: \"This is the guidance you sought — this Book, for the God-conscious.\" In classical tafsir this is the most well-known example of munāsabah in the Mushaf. Al-Rāzī writes in Mafātīḥ al-Ghayb that the servant prays for guidance in al-Fātiḥa, and God responds at the start of al-Baqara: \"here is the guidance, here is the Book.\" Al-Biqāʿī treats this bond as the key to reading the two surahs as a single text.",
+      "hiddenTr": "Fâtiha 7 ayettir, Bakara 286 — yani Bakara, Fâtiha'nın duâsının ayrıntılı uygulamasıdır. Hidayet sorulduğu anda hidayet rehberi başlar.",
+      "hiddenEn": "Al-Fātiḥa is 7 verses, al-Baqara is 286 — al-Baqara is the detailed enactment of al-Fātiḥa's prayer. The moment guidance is requested, the guidance manual begins.",
+      "sources": [
+        "Râzî, Mefâtîhu'l-Gayb, II/8",
+        "Bikâî, Nazmü'd-Dürer, I/22",
+        "Farrin, 'Surat al-Baqara: A Structural Analysis' (2010)"
+      ]
+    },
+    {
+      "id": "nas-fatiha-mushaf-halkasi",
+      "category": "mushaf-halkasi",
+      "categoryLabelTr": "Mushaf Halkası",
+      "categoryLabelEn": "Mushaf Cycle",
+      "type": "ring",
+      "titleTr": "Nâs → Fâtiha: Mushaf'ın Halkası",
+      "titleEn": "Al-Nās → Al-Fātiḥa: The Cycle of the Mushaf",
+      "leftSurah": {
+        "num": 114,
+        "nameTr": "en-Nâs",
+        "nameEn": "Al-Nās",
+        "position": "son",
+        "wordAr": "وَالنَّاسِ",
+        "translit": "wa'n-nās",
+        "meaning": "ve insanlar",
+        "ayahRef": "114:6",
+        "ayahArSnippet": "مِنَ الْجِنَّةِ وَالنَّاسِ",
+        "ayahTr": "Cinlerden ve insanlardan."
+      },
+      "rightSurah": {
+        "num": 1,
+        "nameTr": "el-Fâtiha",
+        "nameEn": "Al-Fātiḥa",
+        "position": "ilk",
+        "wordAr": "الْحَمْدُ",
+        "translit": "al-ḥamdu",
+        "meaning": "hamd, övgü",
+        "ayahRef": "1:1",
+        "ayahArSnippet": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَم۪ينَ",
+        "ayahTr": "Hamd, âlemlerin Rabbi Allah'a mahsustur."
+      },
+      "thematicTr": "Mushaf, insanı şerlerden korumayla biter: \"cin ve insanların vesvesinden Allah'a sığınırım.\" Hemen ardından — Mushaf'ı bitirip yeniden başlattığında — Allah'a hamd ile karşılaşırsın. Yani Kur'an, kendinden çıkıp kendine dönen kapalı bir halka. Bu klasik dönemde \"hatm bağı\" (ربط الختم بالتلاوة) olarak bilinir; İslam'ın hâfız geleneğinde Mushaf'ı bitiren kişi otomatik olarak başa döner; halka kapanmaz, ebediyen döner. Süyûtî, İtkân'da bu döngünün kasten kurulduğunu söyler: sığınmadan övgüye, korkudan ümide.",
+      "thematicEn": "The Mushaf ends with protection from evil: \"I seek refuge from the whispers of jinn and mankind.\" Immediately after — when you finish and begin again — you meet praise of God. The Qur'an is a closed loop that exits itself and returns to itself. Classical tradition calls this rabṭ al-khatm bi'l-tilāwah (the binding of completion to recitation). In the ḥuffāẓ tradition, whoever finishes the Mushaf returns to the start automatically — the cycle never closes; it eternally turns. Al-Suyūṭī in al-Itqān says this cycle is intentional: from refuge to praise, from fear to hope.",
+      "hiddenTr": "Son üç sûre (İhlâs–Felak–Nâs / \"Muavvizât\") Allah'a sığınma; ilk sûre (Fâtiha) Allah'a yöneliş. Yani Mushaf sığınma → yöneliş geçişiyle döngüye girer.",
+      "hiddenEn": "The final three surahs (Ikhlāṣ–Falaq–Nās / \"Muʿawwidhāt\") are about seeking refuge in God; the first surah (al-Fātiḥa) is about turning to God. The Mushaf enters its cycle through the transition from seeking-refuge to turning-toward.",
+      "sources": [
+        "Süyûtî, el-İtkân, III/372",
+        "Bikâî, Nazmü'd-Dürer, XXII/482"
+      ]
+    },
+    {
+      "id": "ali-imran-sifreden-kurtulusa",
+      "category": "sure-ici-yolculuk",
+      "categoryLabelTr": "Sûre İçi Yolculuk",
+      "categoryLabelEn": "Intra-Surah Journey",
+      "type": "intra-bridge",
+      "titleTr": "Âl-i İmrân: Şifreden Kurtuluşa",
+      "titleEn": "Āl ʿImrān: From the Cipher to Salvation",
+      "leftSurah": {
+        "num": 3,
+        "nameTr": "Âl-i İmrân",
+        "nameEn": "Āl ʿImrān",
+        "position": "ilk",
+        "wordAr": "الٓمٓ",
+        "translit": "alif-lām-mīm",
+        "meaning": "mukattaa (şifre)",
+        "ayahRef": "3:1",
+        "ayahArSnippet": "الٓمٓ",
+        "ayahTr": "Elif. Lâm. Mîm."
+      },
+      "rightSurah": {
+        "num": 3,
+        "nameTr": "Âl-i İmrân",
+        "nameEn": "Āl ʿImrān",
+        "position": "son",
+        "wordAr": "تُفْلِحُونَ",
+        "translit": "tufliḥūn",
+        "meaning": "kurtuluşa erersiniz",
+        "ayahRef": "3:200",
+        "ayahArSnippet": "وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
+        "ayahTr": "Allah'a karşı takvâ üzere olun ki kurtuluşa eresiniz."
+      },
+      "thematicTr": "Sûre anlaşılmayan bir harfle başlar; anlaşılır bir vaadle biter. Mukattaa şifredir — Râzî der ki \"anlamı yalnız Allah bilir.\" Ama 200 ayet sonra, sûre kapanırken Allah söyler: \"Sabredin, sebat gösterin, takvâ üzere olun — kurtuluşa eresiniz.\" Şifreden vaade. Bilinmezden bilinene. Mukattaa bir mühürdür: sabret, başında anlamadığını sonunda anlayacaksın.",
+      "thematicEn": "The surah opens with letters whose meaning is hidden, and closes with a clear promise. Muqaṭṭaʿāt are a cipher — al-Rāzī says \"only God knows their meaning.\" But 200 verses later, as the surah closes, God says: \"Be patient, persevere, hold to taqwā — that you may attain salvation.\" From cipher to promise. From the unknowable to the known. The muqaṭṭaʿāt are a seal: be patient — what you did not understand at the beginning, you will understand by the end.",
+      "hiddenTr": "Aynı kalıp diğer mukattaa sûrelerinde: Bakara 2 (الم → الْكَافِر۪ينَ — kâfirlere karşı son söz), Lokmân 31 (الم → خَب۪يرٌ — Allah her şeyden haberdar), Secde 32 (الم → مُنْتَظِرُونَ — bekleyiş, kıyamete). Mukattaa açılışı her zaman bir yolculuğun başlangıcıdır — sûre boyunca harf çözülmez, ama okuyan kişi dönüşür.",
+      "hiddenEn": "The same pattern appears in other muqaṭṭaʿāt surahs: al-Baqara 2 (ALM → al-kāfirīn — the last word against deniers), Luqmān 31 (ALM → khabīr — God knows all), al-Sajda 32 (ALM → muntaẓirūn — waiting, for the Hour). A muqaṭṭaʿāt opening is always the start of a journey — the letters are never decoded across the surah, but the reader is transformed.",
+      "sources": [
+        "Râzî, Mefâtîhu'l-Gayb, II/3-7",
+        "Suyûtî, el-İtkân, III/22-30 (mukattaa fasılı)"
+      ]
+    },
+    {
+      "id": "hicr-nahl-yakin-emir",
+      "category": "sureler-arasi-kopru",
+      "categoryLabelTr": "Sûreler Arası Köprü",
+      "categoryLabelEn": "Inter-Surah Bridge",
+      "type": "bridge",
+      "titleTr": "Hicr → Nahl: Ölüm Eşiği, İlahi Emir",
+      "titleEn": "Al-Ḥijr → Al-Naḥl: The Threshold of Death, the Divine Command",
+      "leftSurah": {
+        "num": 15,
+        "nameTr": "el-Hicr",
+        "nameEn": "Al-Ḥijr",
+        "position": "son",
+        "wordAr": "الْيَق۪ينُ",
+        "translit": "al-yaqīn",
+        "meaning": "kesin gerçek (ölüm)",
+        "ayahRef": "15:99",
+        "ayahArSnippet": "وَاعْبُدْ رَبَّكَ حَتّٰى يَأْتِيَكَ الْيَق۪ينُ",
+        "ayahTr": "Sana yakîn (ölüm) gelinceye kadar Rabbine ibadet et."
+      },
+      "rightSurah": {
+        "num": 16,
+        "nameTr": "en-Nahl",
+        "nameEn": "Al-Naḥl",
+        "position": "ilk",
+        "wordAr": "اَتٰى",
+        "translit": "atā",
+        "meaning": "geldi",
+        "ayahRef": "16:1",
+        "ayahArSnippet": "اَتٰٓى اَمْرُ اللّٰهِ فَلَا تَسْتَعْجِلُوهُ",
+        "ayahTr": "Allah'ın emri geldi — onu acele istemeyin."
+      },
+      "thematicTr": "Hicr, kula bir sınır çizer: \"Sana yakîn gelinceye kadar Rabbine ibadet et.\" Klasik tefsirin tamamı (Taberî, Kurtubî, İbn Kesîr) \"yakîn\"i ölüm olarak yorumlar — yani son nefesine kadar kulluğa devam et. Sûre biter. Hemen ardından Nahl başlar: \"Allah'ın emri geldi — onu acele istemeyin.\" İki sûre arasındaki hareketi yakala: Hicr bireyin ölümüne kadar olan zaman dilimi; Nahl kollektif kıyametin gelişi. Bireysel ecel → kozmik son. Hicr'in son nefesi, Nahl'in kıyamet ânına bağlanır.",
+      "thematicEn": "Al-Ḥijr draws the limit for the servant: \"Worship your Lord until certainty (al-yaqīn) comes to you.\" All classical tafsir (al-Ṭabarī, al-Qurṭubī, Ibn Kathīr) reads al-yaqīn as death — that is, continue worship until your last breath. The surah ends. Al-Naḥl opens immediately: \"The command of God has come — do not seek to hasten it.\" Catch the motion between the two: al-Ḥijr is the time-window until the individual's death; al-Naḥl is the arrival of collective eschaton. Individual death → cosmic end. The last breath of al-Ḥijr connects to the moment of the Hour in al-Naḥl.",
+      "hiddenTr": "Nahl'in açılışındaki \"اَتٰى\" (geldi) mâzî (geçmiş) zamandır — gelecekte gelecek olan kıyamet, olmuş gibi anlatılır. Bu retorik figüre Arap belâgatinde iltifât denir; Nahl'in açılışındaki bu mâzî kullanımı klasik tefsirde \"vukûun kesinliği için geçmiş zaman kalıbı\" olarak okunur.",
+      "hiddenEn": "The opening verb of al-Naḥl, \"atā\" (came), is in the past tense — the future Hour is described as if already complete. In Arabic rhetoric this figure is iltifāt; classical tafsir reads this past-tense use as \"the perfect tense for the certainty of occurrence.\"",
+      "sources": [
+        "Taberî, Câmiu'l-Beyân (15:99 ve 16:1 yorumları)",
+        "Bikâî, Nazmü'd-Dürer, IV/267"
+      ]
+    },
+    {
+      "id": "havamim-ailesi-7-sure",
+      "category": "aile-imzasi",
+      "categoryLabelTr": "Aile İmzası",
+      "categoryLabelEn": "Family Signature",
+      "type": "family",
+      "titleTr": "Havâmîm Ailesi: Aynı İmza, Yedi Son",
+      "titleEn": "The Ḥawāmīm Family: One Signature, Seven Endings",
+      "items": [
+        { "num": 40, "nameTr": "Mü'min",   "nameEn": "Ghāfir",      "firstAr": "حم", "firstTranslit": "ḥā-mīm", "lastAr": "الْكَافِرُونَ", "lastTranslit": "al-kāfirūn",   "lastMeaning": "kâfirler" },
+        { "num": 41, "nameTr": "Fussilet", "nameEn": "Fuṣṣilat",    "firstAr": "حم", "firstTranslit": "ḥā-mīm", "lastAr": "مُح۪يطٌ",         "lastTranslit": "muḥīṭ",        "lastMeaning": "her şeyi kuşatan" },
+        { "num": 42, "nameTr": "eş-Şûrâ",  "nameEn": "Al-Shūrā",    "firstAr": "حم", "firstTranslit": "ḥā-mīm", "lastAr": "الْاُمُورُ",      "lastTranslit": "al-umūr",      "lastMeaning": "tüm işler" },
+        { "num": 43, "nameTr": "Zuhruf",   "nameEn": "Al-Zukhruf",  "firstAr": "حم", "firstTranslit": "ḥā-mīm", "lastAr": "يَعْلَمُونَ",     "lastTranslit": "yaʿlamūn",     "lastMeaning": "yakında bilecekler" },
+        { "num": 44, "nameTr": "Duhân",    "nameEn": "Al-Dukhān",   "firstAr": "حم", "firstTranslit": "ḥā-mīm", "lastAr": "مُرْتَقِبُونَ",   "lastTranslit": "murtaqibūn",   "lastMeaning": "bekliyorlar" },
+        { "num": 45, "nameTr": "Câsiye",   "nameEn": "Al-Jāthiya",  "firstAr": "حم", "firstTranslit": "ḥā-mīm", "lastAr": "الْحَك۪يمُ",      "lastTranslit": "al-ḥakīm",     "lastMeaning": "Hakîm olan" },
+        { "num": 46, "nameTr": "el-Ahkâf", "nameEn": "Al-Aḥqāf",    "firstAr": "حم", "firstTranslit": "ḥā-mīm", "lastAr": "الْفَاسِقُونَ",   "lastTranslit": "al-fāsiqūn",   "lastMeaning": "fâsıklar" }
+      ],
+      "thematicTr": "Yedi sûre aynı harfle başlar — حم — ama her biri farklı bir kapanışla mühürlenir. Yine de örüntü görünür: blok'un kendisi bir halka kompozisyondur. 40. Mü'min \"kâfirler\" ile biter (Mü'min 40:85: hüsrana uğradılar); 46. Ahkâf \"fâsıklar\" ile biter (Ahkâf 46:35: helak edilirler). İlk ve son sûreler, inkârın akıbetini mühürlüyor. Aradaki beş sûre (41-45) ise Allah'ın sıfatlarını (Muhît, Hakîm) ve kulun durumunu (umûr Allah'a döner, bekliyorlar, yakında bilecekler) işliyor.",
+      "thematicEn": "Seven surahs open with the same two letters — ḥā-mīm — but each is sealed with a different ending. Yet a pattern emerges: the block itself is a ring composition. Surah 40 al-Muʾmin closes with \"the disbelievers\" (40:85: they were lost); surah 46 al-Aḥqāf closes with \"the iniquitous\" (46:35: they are destroyed). The first and last surahs of the block seal the fate of denial. The five surahs in between (41–45) work on God's attributes (al-Muḥīṭ, al-Ḥakīm) and the human condition (all matters return to God, they wait, they will soon know).",
+      "hiddenTr": "Bikâî bu blok için der ki: \"Havâmîm yedilisi tek bir mektup gibi okunur — açılışı hep aynı, ama her biri imanın farklı bir yüzünü gösterir; ilk ve son sûreler kâfirin sonunu yazıp aralarında mü'mine yer açar.\" Ek detay: bu yedi sûrenin tamamı Mekkî'dir ve vahyin reddedilmesi + kıyamet ana temalarını paylaşır. Yani sadece açılış değil, tematik DNA aynıdır.",
+      "hiddenEn": "Al-Biqāʿī writes of this block: \"The Ḥawāmīm seven are read as a single letter — the opening is always the same, but each shows a different face of faith; the first and last surahs write the end of denial, and between them they make room for the believer.\" Additional detail: all seven are Meccan and share the themes of rejection of revelation + the Hour. Not only the opening but the thematic DNA is shared.",
+      "sources": [
+        "Bikâî, Nazmü'd-Dürer, XVII/20-23",
+        "Suyûtî, el-İtkân, III/39 (Havâmîm fasılı)"
+      ]
+    },
+    {
+      "id": "kul-ailesi-5-sure",
+      "category": "sure-kumesi",
+      "categoryLabelTr": "Sûre Kümesi",
+      "categoryLabelEn": "Surah Cluster",
+      "type": "cluster",
+      "titleTr": "\"Kul\" Ailesi: Beş Emir, Beş Ufuk",
+      "titleEn": "The \"Qul\" Family: Five Commands, Five Horizons",
+      "items": [
+        { "num": 72,  "nameTr": "el-Cin",     "nameEn": "Al-Jinn",     "firstAr": "قُلْ", "firstTranslit": "qul", "lastAr": "عَدَداً",      "lastTranslit": "ʿadadā",  "lastMeaning": "bir bir saymıştır" },
+        { "num": 109, "nameTr": "el-Kâfirûn", "nameEn": "Al-Kāfirūn",  "firstAr": "قُلْ", "firstTranslit": "qul", "lastAr": "د۪ينِ",        "lastTranslit": "dīnī",    "lastMeaning": "benim dinim banadır" },
+        { "num": 112, "nameTr": "el-İhlâs",   "nameEn": "Al-Ikhlāṣ",   "firstAr": "قُلْ", "firstTranslit": "qul", "lastAr": "اَحَدٌ",        "lastTranslit": "aḥad",    "lastMeaning": "Tek (denksiz)" },
+        { "num": 113, "nameTr": "el-Felak",   "nameEn": "Al-Falaq",    "firstAr": "قُلْ", "firstTranslit": "qul", "lastAr": "حَسَدَ",        "lastTranslit": "ḥasada",  "lastMeaning": "hased eden" },
+        { "num": 114, "nameTr": "en-Nâs",     "nameEn": "Al-Nās",      "firstAr": "قُلْ", "firstTranslit": "qul", "lastAr": "وَالنَّاسِ",   "lastTranslit": "wa'n-nās","lastMeaning": "ve insanlar" }
+      ],
+      "thematicTr": "Beş sûre doğrudan emirle açılır: Kul — \"Söyle!\" Hz. Peygamber'in ağzıyla iletilen tebliğin saf hâli. Ama son kelimeler beş farklı ufka dağılır: (1) İlim ufku (Cin 72): \"Allah her şeyi bir bir saymıştır\" — bilgi sınırsızdır. (2) Akide ufku (Kâfirûn 109): \"Sizin dininiz size, benim dinim bana\" — kimliğin tanımı. (3) Tevhid ufku (İhlâs 112): \"O'nun hiçbir dengi yoktur\" — Allah'ın benzersizliği. (4) Korunma ufku (Felak 113): \"Hased edenin şerrinden\" — dış tehlike. (5) Korunma ufku (Nâs 114): \"Cin ve insanlardan\" — iç tehlike. İlk üçü deklarasyon; son ikisi sığınma.",
+      "thematicEn": "Five surahs open with a direct command: Qul — \"Say!\" The pure form of the message conveyed through the Prophet's tongue. But the closing words scatter into five different horizons: (1) The horizon of knowledge (al-Jinn 72): \"God has counted everything one by one\" — knowledge is boundless. (2) The horizon of creed (al-Kāfirūn 109): \"Your religion is yours, mine is mine\" — the definition of identity. (3) The horizon of unity (al-Ikhlāṣ 112): \"He has no equal\" — God's uniqueness. (4) The horizon of protection (al-Falaq 113): \"From the evil of the envier\" — external threat. (5) The horizon of protection (al-Nās 114): \"From jinn and mankind\" — internal threat. The first three are declarations; the last two are seeking refuge.",
+      "hiddenTr": "İhlâs'ın son kelimesi aḥad (Tek), Cin'in son kelimesi ʿadadā (sayı) — biri vahdâniyet, diğeri mahlûkâtın çokluğunu Allah'ın bilmesi. İki \"Kul\" sûresi, paradoksal bir simetri kurar: Bir Allah, sayısız mahlûk.",
+      "hiddenEn": "Al-Ikhlāṣ closes with aḥad (one); al-Jinn closes with ʿadadā (number). One is divine unity, the other is God's count of the multitude of creatures. Two \"Qul\" surahs build a paradoxical symmetry: One God, countless creatures.",
+      "sources": [
+        "Râzî, Mefâtîhu'l-Gayb (İhlâs ve Muavvizât yorumları)",
+        "İbn Kesîr, Tefsîrü'l-Kur'âni'l-Azîm (114:6 yorumu)"
+      ]
+    },
+    {
+      "id": "isra-tesbih-tekbir",
+      "category": "sure-ici-halka",
+      "categoryLabelTr": "Sûre İçi Halka",
+      "categoryLabelEn": "Intra-Surah Ring",
+      "type": "intra-ring",
+      "titleTr": "el-İsrâ: Tesbihten Tekbire",
+      "titleEn": "Al-Isrāʾ: From Tasbīḥ to Takbīr",
+      "leftSurah": {
+        "num": 17,
+        "nameTr": "el-İsrâ",
+        "nameEn": "Al-Isrāʾ",
+        "position": "ilk",
+        "wordAr": "سُبْحَانَ",
+        "translit": "subḥāna",
+        "meaning": "münezzehtir",
+        "ayahRef": "17:1",
+        "ayahArSnippet": "سُبْحَانَ الَّذ۪ٓي اَسْرٰى بِعَبْدِه۪",
+        "ayahTr": "Kulunu (Mescid-i Harâm'dan) gece yürüten (Allah) noksandan münezzehtir."
+      },
+      "rightSurah": {
+        "num": 17,
+        "nameTr": "el-İsrâ",
+        "nameEn": "Al-Isrāʾ",
+        "position": "son",
+        "wordAr": "تَكْب۪يراً",
+        "translit": "takbīrā",
+        "meaning": "büyükleyerek",
+        "ayahRef": "17:111",
+        "ayahArSnippet": "وَكَبِّرْهُ تَكْب۪يراً",
+        "ayahTr": "Ve O'nu yücelterek tekbir getir."
+      },
+      "thematicTr": "İsrâ sûresi tesbih ile açılır — Allah'ın eksiklikten münezzeh olduğu beyanı (subḥāne'llezî asrā). 111 ayet sonra tekbir ile mühürlenir — Allah'ın büyüklüğünü ilan emri (ve kebbirhu tekbîrâ). Tesbih + Tekbir birlikte günde 33+33 kez söylenen zikirdir (Buhârî, Ezan 155 — Hz. Fâtıma'ya öğretilen tesbih). Yani sûre, bir zikir döngüsü gibi açılıp kapanır: mü'minin günlük dilinde olan iki kelimeden biriyle başlar, diğeriyle biter.",
+      "thematicEn": "Al-Isrāʾ opens with tasbīḥ — the declaration of God's transcendence beyond imperfection (subḥāna alladhī asrā). 111 verses later, it seals with takbīr — the command to declare God's greatness (wa-kabbirhu takbīrā). Tasbīḥ + Takbīr together are the dhikr recited 33+33 times daily (Bukhārī, Adhān 155 — the tasbīḥ taught to Fāṭima). The surah opens and closes like a cycle of remembrance: it begins with one word from the believer's daily tongue, and ends with the other.",
+      "hiddenTr": "İsrâ ayrıca Mi'rac sûresidir — Hz. Peygamber'in göğe yükselişi anlatılır. Sûrenin göğe çıkışı anlatması ile tesbih/tekbir ile çevrelenmesi tesadüf değil: yükseliş, ancak Allah'ın yüceltilmesiyle gerçekleşir.",
+      "hiddenEn": "Al-Isrāʾ is also the Surah of the Miʿrāj — it narrates the Prophet's ascent to heaven. The surah's account of an ascent and its enclosure by tasbīḥ/takbīr is no coincidence: ascension can only happen through the exaltation of God.",
+      "sources": [
+        "Bikâî, Nazmü'd-Dürer, IV/376-380",
+        "Mustansir Mir, 'The Sūra as a Unity' (1986)"
+      ]
+    }
+  ]
+}
