@@ -60,6 +60,19 @@ export default function SunnetullahAtlasi({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
+  // Body scroll lock — prevent background page scroll while overlay is open
+  // (CLAUDE.md §13.16 — overlay scroll architecture)
+  useEffect(() => {
+    const prevBody = document.body.style.overflow;
+    const prevHtml = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevBody;
+      document.documentElement.style.overflow = prevHtml;
+    };
+  }, []);
+
   // Mobile detection
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
@@ -109,9 +122,10 @@ export default function SunnetullahAtlasi({ onClose }) {
       {/* ── HEADER ─────────────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* Infinity-style shield icon — immutability of divine law */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.739-8z" />
+          {/* Compass icon — sünnetullah as the unchanging guide; matches exploreCategories.jsx */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
           </svg>
           <span style={{ ...OVERLAY_TITLE, color: COLORS.royalGold }}>
             {language === 'tr' ? "Sünnetullah" : "Sunnatullāh"}
@@ -678,6 +692,50 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'flex-end' }}>
         <EkolChip label={active.ekolEtiketi} />
       </div>
+
+      {/* Cross-link to Kavimler Atlası — somut helâk örnekleri için */}
+      {active.id === 'helak-kanunu' && (
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('openKavimlerAtlasi'))}
+          style={{
+            width: '100%',
+            marginTop: '20px',
+            padding: isMobile ? '14px 16px' : '14px 22px',
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.3)',
+            borderRadius: '10px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '12px',
+            transition: 'all 0.2s',
+            textAlign: 'left',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.06)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)';
+          }}
+        >
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p style={{ color: COLORS.gold, fontSize: '0.74rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: FONTS.body }}>
+              {language === 'tr' ? '↗ KAVİMLER ATLASI' : '↗ NATIONS ATLAS'}
+            </p>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.5 }}>
+              {language === 'tr'
+                ? 'Bu kanunun somut tarihsel uygulamaları: Âd · Semûd · Lût kavmi · Firavun · Sebe — helâk biçimleri ve arkeolojik izler'
+                : 'Concrete historical applications of this law: ʿĀd · Thamūd · the people of Lot · Pharaoh · Sabaʾ — modes of destruction and archaeological traces'}
+            </p>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

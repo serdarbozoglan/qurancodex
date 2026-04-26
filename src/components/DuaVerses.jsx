@@ -29,10 +29,11 @@ const CATEGORY_CONFIG = {
   aile:     { color: 'rgba(46,204,113,0.8)',   label_tr: 'Aile',       label_en: 'Family'      },
   sukur:    { color: 'rgba(212,165,116,0.8)',  label_tr: 'Şükür',      label_en: 'Gratitude'   },
   rizik:    { color: 'rgba(26,122,76,0.8)',    label_tr: 'Rızık',      label_en: 'Provision'   },
+  ilim:     { color: 'rgba(99,102,241,0.8)',   label_tr: 'İlim',       label_en: 'Knowledge'   },
   genel:    { color: 'rgba(149,165,166,0.8)',  label_tr: 'Genel',      label_en: 'General'     },
 };
 
-const CATEGORY_ORDER = ['af', 'tovbe', 'siginma', 'hidayet', 'sabir', 'sikinit', 'aile', 'sukur', 'rizik', 'genel'];
+const CATEGORY_ORDER = ['af', 'tovbe', 'siginma', 'hidayet', 'ilim', 'sabir', 'sikinit', 'aile', 'sukur', 'rizik', 'genel'];
 
 const gold = COLORS.gold;
 const silver = COLORS.silver;
@@ -70,20 +71,54 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
   const note = language === 'tr' ? dua.note_tr : dua.note_en;
   const ref = getSurahRef(dua, language);
 
+  const isFeatured = dua.featured === true;
+
   return (
     <div style={{
-      background: 'rgba(255,255,255,0.025)',
-      border: `1px solid ${isPlaying ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)'}`,
+      background: isFeatured
+        ? 'linear-gradient(135deg, rgba(212,165,116,0.08), rgba(212,165,116,0.02))'
+        : 'rgba(255,255,255,0.025)',
+      border: `1px solid ${
+        isFeatured
+          ? (isPlaying ? 'rgba(212,165,116,0.6)' : 'rgba(212,165,116,0.45)')
+          : (isPlaying ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)')
+      }`,
       borderRadius: '12px',
       padding: '18px 20px',
       display: 'flex',
       flexDirection: 'column',
       gap: '12px',
       transition: 'border-color 0.2s',
+      position: 'relative',
     }}>
+      {/* Featured top accent strip */}
+      {isFeatured && (
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+          background: `linear-gradient(90deg, transparent, ${gold}, transparent)`,
+          borderRadius: '12px 12px 0 0',
+        }} />
+      )}
+
       {/* Top row */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
+          {/* Featured star badge */}
+          {isFeatured && (
+            <span style={{
+              background: 'rgba(212,165,116,0.18)',
+              border: `1px solid ${gold}66`,
+              color: gold,
+              borderRadius: '10px',
+              fontSize: '0.65rem',
+              fontWeight: 700,
+              padding: '2px 8px',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+            }}>
+              {language === 'tr' ? '★ Özel' : '★ Featured'}
+            </span>
+          )}
           {/* Category badge */}
           <span style={{
             background: cfg.color.replace('0.8)', '0.15)'),
@@ -322,7 +357,11 @@ export default function DuaVerses({ onClose }) {
         if (isArabicSearch) {
           return d.arabic.includes(searchValue.trim());
         }
-        const haystack = normalizeSearch(d.tr + ' ' + d.en + ' ' + (d.note_tr || '') + ' ' + (d.note_en || ''));
+        const haystack = normalizeSearch(
+          d.tr + ' ' + d.en + ' ' +
+          (d.note_tr || '') + ' ' + (d.note_en || '') + ' ' +
+          (d.prophet_tr || '') + ' ' + (d.prophet_en || '')
+        );
         return haystack.includes(q);
       });
     }
@@ -485,6 +524,25 @@ export default function DuaVerses({ onClose }) {
                 onStop={handleStop}
               />
             ))}
+          </div>
+        )}
+
+        {/* Kapsam disclaimer'ı */}
+        {!loading && (
+          <div style={{
+            marginTop: '32px',
+            paddingTop: '20px',
+            borderTop: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
+            color: silver,
+            fontSize: '0.78rem',
+            lineHeight: 1.7,
+            fontStyle: 'italic',
+            textAlign: 'left',
+            maxWidth: '720px',
+          }}>
+            {language === 'tr'
+              ? 'Bu sayfa yalnızca Kur\'an\'da geçen ayet-duaları (Edʿiyetü\'l-Kur\'an) içerir. Hadis kaynaklı tesbihat, sabah-akşam ezkârları ve dua koleksiyonları için klasik kaynaklar: Nevevî, El-Ezkâr · İbn Sünnî, Amelü\'l-Yevm ve\'l-Leyle · İbn Kayyim, El-Vâbilü\'s-Sayyib.'
+              : "This page contains only the supplications drawn directly from the Quran (Adʿiyat al-Qurʾān). For hadith-based litanies, morning/evening adhkār, and broader prayer collections, see classical sources: al-Nawawī, al-Adhkār · Ibn al-Sunnī, ʿAmal al-Yawm wa-al-Layla · Ibn al-Qayyim, al-Wābil al-Ṣayyib."}
           </div>
         )}
       </div>

@@ -62,13 +62,14 @@
       "ayah": 286,
       "ayah_end": null,
       "category": "af",
+      "featured": true,
       "arabic": "رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
       "tr": "Rabbimiz! Unutur ya da yanılırsak bizi sorumlu tutma. Rabbimiz! Bizden öncekilere yüklediğin gibi bize ağır yük yükleme. Rabbimiz! Bize taşıyamayacağımız yükü taşıtma. Bizi affet, bizi bağışla, bize merhamet et. Sen bizim Mevlâmızsın; kâfirler topluluğuna karşı bize yardım et.",
       "en": "Our Lord! Do not blame us if we forget or err. Our Lord! Lay not on us a burden like that which You laid on those before us. Our Lord! Burden us not beyond what we have strength to bear. Pardon us, forgive us, and have mercy on us. You are our Master, so give us victory over the disbelieving people.",
       "prophet_tr": null,
       "prophet_en": null,
-      "note_tr": null,
-      "note_en": null
+      "note_tr": "Klasik İslamî gelenekte özel bir konum taşır. Hz. Peygamber: \"Kim geceleyin Bakara sûresinin son iki ayetini okursa, ona yeter (kâfi gelir).\" (Buhârî, Fedâ'ilü'l-Kur'an 10; Müslim, Müsâfirîn 256). Mü'minin tüm dua kategorilerini özetleyen kapsamlı bir dua olarak bilinir.",
+      "note_en": "Holds a special place in classical Islamic tradition. The Prophet said: \"Whoever recites the last two verses of Surah al-Baqarah at night, they will suffice him.\" (al-Bukhārī, Faḍāʾil al-Qurʾān 10; Muslim, Musāfirīn 256). Considered a comprehensive prayer that summarizes the believer's full range of supplications."
     },
     {
       "id": "ali-imran-8",
@@ -397,7 +398,7 @@
       "surah": 20,
       "ayah": 114,
       "ayah_end": null,
-      "category": "genel",
+      "category": "ilim",
       "arabic": "رَبِّ زِدْنِي عِلْمًا",
       "tr": "Rabbim! İlmimi artır.",
       "en": "My Lord! Increase me in knowledge.",
