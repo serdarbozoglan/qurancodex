@@ -10,10 +10,12 @@
       "id": "erotema",
       "color": "#d4a574",
       "pct": 40,
-      "nameTr": "Retorik Soru",
-      "nameEn": "Rhetorical Question",
-      "descTr": "Cevabı sorunun içinde gizli olan soru. Muhatap cevabı söylemek zorunda değildir — ama vermemek için özel çaba harcamalıdır. Kur'an bu türü en sık kullanır: muhatabı suçlamaz, kendi sonucuna kendisi ulaştırır. (Klasik retorikte adı erotema — Yunanca 'soru' kökünden.)",
-      "descEn": "A question whose answer is hidden within itself. The listener does not need to answer — but must make a special effort not to. The Quran uses this type most frequently: it does not accuse, it guides the listener to their own conclusion. (Classical rhetoric term: erotema — from the Greek root for question.)",
+      "nameTr": "İstifhâm-ı İnkârî",
+      "nameEn": "Istifhām Inkārī",
+      "aliasTr": "Retorik Soru (Erotema)",
+      "aliasEn": "Rhetorical Question (Erotema)",
+      "descTr": "Cevabı sorunun içinde gizli olan soru. Muhatap cevabı söylemek zorunda değildir — ama vermemek için özel çaba harcamalıdır. Kur'an bu türü en sık kullanır: muhatabı suçlamaz, kendi sonucuna kendisi ulaştırır. Klasik Arap belagatinde 'istifhâm-ı inkârî' (inkâr/itiraz amaçlı soru) olarak adlandırılır; Yunanca-Latince retorik geleneğinde karşılığı 'erotema'dır.",
+      "descEn": "A question whose answer is hidden within itself. The listener does not need to answer — but must make a special effort not to. The Quran uses this type most frequently: it does not accuse, it guides the listener to their own conclusion. Classical Arabic rhetoric calls it 'istifhām inkārī' (a question of denial/objection); the Greco-Latin rhetorical equivalent is 'erotema'.",
       "subPatterns": [
         {
           "id": "efela-takılun",
@@ -97,8 +99,10 @@
       "id": "irsad",
       "color": "#3498db",
       "pct": 28,
-      "nameTr": "İrşad / Yönlendirme",
-      "nameEn": "Guidance / Irshad",
+      "nameTr": "İstifhâm-ı İrşâdî",
+      "nameEn": "Istifhām Irshādī",
+      "aliasTr": "İrşad / Yönlendirme",
+      "aliasEn": "Guidance",
       "descTr": "İrşad soruları cevabı bilinen değil — cevabı düşünülmemiş olanı hedefler. 'Gökleri ve yeri kim yarattı?' sorusunda muhatap bilir ama hiç düşünmemiştir. Soru düşünmeyi başlatır. Yaratılış, evren ve tarih üzerine — okuyucuyu gerçeğe yönlendiren.",
       "descEn": "Guidance questions do not target what is unknown — they target what has never been thought about. In 'Who created the heavens and earth?' the listener knows the answer but has never reflected on it. The question initiates thought. On creation, cosmos, and history — guiding the reader toward truth.",
       "subPatterns": [
@@ -201,8 +205,10 @@
       "id": "tevbih",
       "color": "#2ecc71",
       "pct": 20,
-      "nameTr": "Tevbih / Kınama",
-      "nameEn": "Reproach / Tawbikh",
+      "nameTr": "İstifhâm-ı Tevbîhî",
+      "nameEn": "Istifhām Tawbīkhī",
+      "aliasTr": "Tevbih / Kınama",
+      "aliasEn": "Reproach",
       "descTr": "Tevbih yalnızca kınama değil — susturmadır. Muhatabın itirazını kendi mantığıyla çürütür. 'Seni o Kerim Rabbine karşı ne aldattı?' sorusu cevap beklemez — cevap yok ki. İnkarcılara yönelik — hesap sorar, uyarır, sorumlu tutar.",
       "descEn": "Tawbikh is not merely reproach — it is silencing. It refutes the listener's objection with their own logic. 'What deceived you about your Most Generous Lord?' expects no answer — because there is none. Directed at deniers — it demands accountability, warns, and holds responsible.",
       "subPatterns": [
@@ -301,8 +307,10 @@
       "id": "taaccub",
       "color": "#a78bfa",
       "pct": 12,
-      "nameTr": "Taaccüb / Hayret",
-      "nameEn": "Wonder / Taʿajjub",
+      "nameTr": "İstifhâm-ı Taaccübî",
+      "nameEn": "Istifhām Taʿajjubī",
+      "aliasTr": "Taaccüb / Hayret",
+      "aliasEn": "Wonder",
       "descTr": "Taaccüb sorusu ilahi hayret ifadesi — ama bu hayreti hisseden muhatabın kendisidir. 'Nereye gidiyorsunuz?' sorusunda hayret eden Allah değil, soru muhatabı kendi davranışına hayret etmeye davet ediyor. Minnetsizliğe ve gaflete karşı duyulan ilahi hayret.",
       "descEn": "A wonder question expresses divine astonishment — but it is the listener who feels the wonder. In 'Where then are you going?' it is not God who is astonished — the question invites the listener to be astonished at their own behavior. Divine astonishment at ingratitude and heedlessness.",
       "subPatterns": [
@@ -440,9 +448,9 @@
         },
         {
           "id": "nun-tekid-sedide",
-          "arabicForm": "ـَنَّ (şeddeli)",
-          "nameTr": "Nûn-u Tekîd-i Şedîde",
-          "nameEn": "Nūn of Heavy Emphasis",
+          "arabicForm": "ـَنَّ",
+          "nameTr": "Nûn-u Tekîd-i Şedîde (şeddeli nûn)",
+          "nameEn": "Nūn of Heavy Emphasis (doubled nūn)",
           "countTr": "Kur'ân'da yaklaşık 50-60 fiilde",
           "countEn": "Approximately 50-60 verbs in the Qur'an",
           "noteTr": "Muzari fiillerin sonuna eklenen şeddeli 'nûn' — o fiili 'mutlaka olacak' anlamına çevirir. 'tübla-' (sınanırsınız) → 'le-tübellevünne' (andolsun mutlaka sınanacaksınız). Sîbeveyh Kitâb'ta 'en güçlü gelecek zaman te'kîdi' olarak sınıflar.",
@@ -491,7 +499,7 @@
         },
         {
           "id": "la-i-nefy-cinsi",
-          "arabicForm": "لَا ... (nefy-i cins)",
+          "arabicForm": "لَا ...",
           "nameTr": "Lâ-i Nefy-i Cinsi — Cinsinin Tümünü Reddetme",
           "nameEn": "Lā of Absolute Negation — Category-Wide Denial",
           "countTr": "Kur'ân'da onlarca meşhur örnek",
@@ -509,7 +517,7 @@
       ],
       "exampleVerses": [
         {
-          "ar": "فَوَرَبِّ السَّمَٓاءِ وَالْاَرْضِ اِنَّهُ لَحَقٌّ مِثْلَ مَٓا اَنَّكُمْ تَنْطِقُونَ۟",
+          "ar": "فَوَرَبِّ السَّمَٓاءِ وَالْاَرْضِ اِنَّهُ لَحَقٌّ مِثْلَ مَٓا اَنَّكُمْ تَنْطِقُونَ",
           "tr": "Göğün ve yerin Rabbine andolsun ki bu vaad, sizin konuşmanız gibi kesin ve gerçektir.",
           "en": "Then by the Lord of the heaven and earth, indeed, it is truth — just as [sure as] it is that you are speaking.",
           "ref": "Zâriyât 51:23",
@@ -520,7 +528,7 @@
           "patternNoteEn": "'innahu la-ḥaqq' — inna + lām together. The strongest double emphasis."
         },
         {
-          "ar": "اِنَّ رَبَّكَ لَبِالْمِرْصَادِۜ",
+          "ar": "اِنَّ رَبَّكَ لَبِالْمِرْصَادِ",
           "tr": "Çünkü Rabbin (her an) gözetlemededir.",
           "en": "Indeed, your Lord is in observation.",
           "ref": "Fecr 89:14",
@@ -531,7 +539,7 @@
           "patternNoteEn": "'inna rabbaka la-bi'l-mirṣād' — inna + lām + locative phrase. Short but among the densest verses."
         },
         {
-          "ar": "لَتُبْلَوُنَّ ف۪ٓي اَمْوَالِكُمْ وَاَنْفُسِكُمْ",
+          "ar": "لَتُبْلَوُنَّ فِٓي اَمْوَالِكُمْ وَاَنْفُسِكُمْ",
           "tr": "Andolsun ki, mallarınız ve canlarınız konusunda imtihana çekileceksiniz...",
           "en": "You will certainly be tested in your possessions and in yourselves...",
           "ref": "Âl-i İmrân 3:186",
@@ -542,7 +550,7 @@
           "patternNoteEn": "'la-tublawunna' — lām + heavy nūn of emphasis. The promise rises to the level of 'written destiny.'"
         },
         {
-          "ar": "قَدْ اَفْلَحَ الْمُؤْمِنُونَۙ",
+          "ar": "قَدْ اَفْلَحَ الْمُؤْمِنُونَ",
           "tr": "Gerçekten müminler kurtuluşa ermiştir.",
           "en": "Certainly will the believers have succeeded.",
           "ref": "Mü'minûn 23:1",
@@ -553,7 +561,7 @@
           "patternNoteEn": "'qad aflaḥa al-muʾminūn' — qad + past-tense verb. Opening a surah with a claim of completed reality."
         },
         {
-          "ar": "اِنَّ اِلٰهَكُمْ لَوَاحِدٌۜ",
+          "ar": "اِنَّ اِلٰهَكُمْ لَوَاحِدٌ",
           "tr": "Yemin ederim ki, ilahınız birdir.",
           "en": "Indeed, your God is One.",
           "ref": "Sâffât 37:4",
@@ -564,7 +572,7 @@
           "patternNoteEn": "The response to three oaths in 37:1-3: 'inna ilāhakum la-wāḥid' — oath + inna + lām, triple emphasis."
         },
         {
-          "ar": "ذٰلِكَ الْكِتَابُ لَا رَيْبَۚۛ ف۪يهِۚۛ هُدًى لِلْمُتَّق۪ينَۙ",
+          "ar": "ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِلْمُتَّقِينَ",
           "tr": "O kitap (Kur'an); onda asla şüphe yoktur. O, müttakiler için bir yol göstericidir.",
           "en": "This is the Book — no doubt in it; a guidance for those conscious [of Allah].",
           "ref": "Bakara 2:2",
@@ -585,6 +593,8 @@
       "nameTr": "Ve Mâ Edrâke Mâ",
       "nameEn": "And What Will Make You Know",
       "count": 13,
+      "countSourceTr": "Sayım kaynağı: Süyûtî, el-İtkân fî ʿulûmi'l-Kur'ân (kalıp 13 ayrı kavramı tanımlar).",
+      "countSourceEn": "Count source: Suyūṭī, al-Itqān fī ʿulūm al-Qurʾān (the pattern defines 13 distinct concepts).",
       "descTr": "Bu kalıp her zaman iki şeyden birini tanımlar: ya kıyamet sahnesi ya ahlaki eylem. Her iki durumda da tanım beklenmedik — büyük kavram küçük eylemle, küçük kavram büyük gerçekle açıklanır. Yapı aynı: kavram anılır → soru gelir → ardından çarpıcı tanım.",
       "descEn": "This pattern always defines one of two things: either a scene of Judgment or a moral action. In both cases the definition is unexpected — a grand concept explained through a small act, a small concept through a vast truth. The structure is identical: concept named → question posed → stunning definition follows.",
       "tefsirNoteTr": "ℹ️ 'Ve mâ edrâke' ile 'Ve mâ yüdrîke' farklı kalıplar. 'Edrâke' (أَدْرَاكَ) Allah'ın peygambere bilgi verdiğini ifade eder — ardından tanım gelir. 'Yüdrîke' (يُدْرِيكَ) ise belirsizlik bırakır — bilgi verilmez. Bu fark tefsir literatüründe önemlidir.",
@@ -833,12 +843,12 @@
     {
       "id": "eleyse",
       "color": "#8b5cf6",
-      "arabicForm": "أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَهُ",
-      "nameTr": "Eleyse — Olumsuz Onay Sorusu",
-      "nameEn": "Alaysa — Negative Affirmation",
+      "arabicForm": "أَلَيْسَ / أَلَمْ",
+      "nameTr": "Eleyse / E-lem — Olumsuz Onay Sorusu",
+      "nameEn": "Alaysa / A-lam — Negative Affirmation",
       "count": 6,
-      "descTr": "Bu kalıp 'evet' cevabını zorunlu kılar — 'hayır' diyemezsin. Muhatabın itiraz etme alanını tamamen kapatır. En kısa retorik baskı kalıbı.",
-      "descEn": "This pattern compels a 'yes' answer — you cannot say 'no'. It completely closes off the listener's space for objection. The shortest rhetorical pressure pattern in the Quran.",
+      "descTr": "Bu kalıp 'evet' cevabını zorunlu kılar — 'hayır' diyemezsin. Muhatabın itiraz etme alanını tamamen kapatır. En kısa retorik baskı kalıbı. İki form aynı işlevi görür: أَلَيْسَ (eleyse, 'değil mi?') isim cümlelerinde, أَلَمْ (e-lem, '… değil mi ki?') geçmiş zaman fiil cümlelerinde kullanılır — örn. İnşirâh 94:1 'Senin göğsünü açmadık mı?' (أَلَمْ نَشْرَحْ) ve Fîl 105:1 'Görmedin mi?' (أَلَمْ تَرَ).",
+      "descEn": "This pattern compels a 'yes' answer — you cannot say 'no'. It completely closes off the listener's space for objection. The shortest rhetorical pressure pattern in the Quran. Two forms share the same function: أَلَيْسَ (alaysa, 'is it not?') for nominal sentences, أَلَمْ (a-lam, 'did We not...?') for past-tense verbal sentences — e.g. Ash-Sharh 94:1 'Did We not expand your chest?' (أَلَمْ نَشْرَحْ) and Al-Fīl 105:1 'Did you not see?' (أَلَمْ تَرَ).",
       "examples": [
         {
           "ar": "أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَهُ",
@@ -1453,6 +1463,18 @@
       "type": "erotema",
       "pattern": null,
       "addressee": "humanity"
+    },
+    {
+      "id": "q31",
+      "ar": "أَيَحْسَبُونَ أَنَّهُمْ يُخَادِعُونَ اللَّهَ",
+      "tr": "Allah'ı aldattıklarını mı sanıyorlar?",
+      "en": "Do they think they deceive Allah?",
+      "ref": "Bakara 2:9",
+      "surah": 2,
+      "ayah": 9,
+      "type": "erotema",
+      "pattern": null,
+      "addressee": "munafikun"
     }
   ],
   "surahDensity": [
@@ -1636,8 +1658,8 @@
       {
         "type": "erotema",
         "color": "#d4a574",
-        "labelTr": "Retorik Soru Olarak",
-        "labelEn": "As Rhetorical Question",
+        "labelTr": "İstifhâm-ı İnkârî Olarak",
+        "labelEn": "As Istifhām Inkārī",
         "refTr": "Lokman 31:25",
         "refEn": "Luqman 31:25",
         "analysisTr": "Soru sorulur, kavim 'Allah' der — Kur'an bunu delil olarak kullanır. Cevabı zaten biliyorlar.",
@@ -1646,8 +1668,8 @@
       {
         "type": "irsad",
         "color": "#3498db",
-        "labelTr": "İrşad Olarak",
-        "labelEn": "As Guidance",
+        "labelTr": "İstifhâm-ı İrşâdî Olarak",
+        "labelEn": "As Istifhām Irshādī",
         "refTr": "Ankebut 29:61",
         "refEn": "Al-Ankabut 29:61",
         "analysisTr": "Aynı soruyu soran muhatap tevhide yönlendiriliyor: 'Bunu biliyorsanız neden şirk?'",
@@ -1656,15 +1678,15 @@
       {
         "type": "tevbih",
         "color": "#2ecc71",
-        "labelTr": "Tevbih Olarak",
-        "labelEn": "As Reproach",
+        "labelTr": "İstifhâm-ı Tevbîhî Olarak",
+        "labelEn": "As Istifhām Tawbīkhī",
         "refTr": "Mü'minun 23:84-89",
         "refEn": "Al-Mu'minun 23:84-89",
         "analysisTr": "Aynı temayı farklı sorularla işler: 'Yeryüzü kimindir? Yedi göğün rabbi kimdir? Mülk kimin elinde?' — her cevap muhatabı daha çok sıkıştırır. Buradaki soru bu tam cümle değil, aynı retorik zincirin parçasıdır.",
         "analysisEn": "The same theme is pursued with different questions: 'To whom belongs the earth? Who is the Lord of the seven heavens? In whose hand is dominion?' — each answer tightens the noose. This exact verse does not appear here; it is part of the same rhetorical chain."
       }
     ],
-    "taaccubNoteTr": "Bu soru taaccüb biçiminde kullanılmıyor çünkü yaratılış mucizesi hayret değil, bilinç gerektirir. Taaccüb soruları genellikle nankörlük veya mantıksız davranışa yönelir; bu soru ise köklü bir akıl yürütme zincirine başlangıç noktasıdır.",
-    "taaccubNoteEn": "This question is not used in the wonder form because the miracle of creation requires not astonishment but consciousness. Wonder questions usually target ingratitude or irrational behavior; this question is a starting point for a deep chain of reasoning."
+    "taaccubNoteTr": "Bu soru İstifhâm-ı Taaccübî biçiminde kullanılmıyor çünkü yaratılış mucizesi hayret değil, bilinç gerektirir. Taaccübî sorular genellikle nankörlük veya mantıksız davranışa yönelir; bu soru ise köklü bir akıl yürütme zincirine başlangıç noktasıdır.",
+    "taaccubNoteEn": "This question is not used in the Istifhām Taʿajjubī (wonder) form because the miracle of creation requires not astonishment but consciousness. Wonder questions usually target ingratitude or irrational behavior; this question is a starting point for a deep chain of reasoning."
   }
 }

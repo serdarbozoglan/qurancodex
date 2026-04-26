@@ -59,8 +59,10 @@ const PaletteIcon = ({ size = 18 }) => (
 );
 
 const ScrollIcon = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M8 3H6a2 2 0 0 0-2 2v3a2 2 0 0 1-2 2H1m6 0h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H7M14 21h6a2 2 0 0 0 2-2v-3a2 2 0 0 1 2-2h1m-6 0h-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2" />
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+    <line x1="12" y1="17" x2="12.01" y2="17"/>
   </svg>
 );
 

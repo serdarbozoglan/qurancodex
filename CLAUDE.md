@@ -528,6 +528,81 @@ function cleanArabic(str) {
 
 **Yeni bir JSON veri dosyası oluşturulurken veya mevcut veri güncellenirken**, Arapça metin standart encoding kullanmalıdır. Uthmani encoding'li veri asla doğrudan JSON'a yazılmamalı — önce normalize edilmeli.
 
+#### Tam Normalizasyon Listesi — KFGQPC Glyph Eksikliği
+
+KFGQPC font'unda glyph'i bulunmayan ek tajwid/sajdah/waqf işaretleri de strip edilmelidir. Aksi takdirde ekranda boş kare (□□) veya tofu (◯◯) olarak render olur — örn. "ف۪يهِ" → "ف◯◯يهِ".
+
+**Strip edilmesi zorunlu Unicode aralıkları:**
+
+```js
+// 1. Standart dönüşümler (CLAUDE.md §13.15 üst kısım)
+str = str.replace(/\u06EA/g, '\u0650');   // Uthmani subscript kasra → standart kasra
+str = str.replace(/\u06E1/g, '\u0652');   // Uthmani sukun → standart sukun
+str = str.replace(/\u0671/g, '\u0627');   // Alef wasla → düz alef
+str = str.replace(/\u06CC/g, '\u064A');   // Farsi yeh → Arabic yeh
+
+// 2. Strip — KFGQPC glyph eksikliği nedeniyle
+str = str.replace(/[\u0610-\u0614\u0616\u0617]/g, '');         // İslami ifade kısaltmaları (sallallahu, vb.)
+str = str.replace(/[\u0600-\u0605]/g, '');                     // Quranic numara/dipnot işaretleri
+str = str.replace(/[\u06DD\u06DE\u06E9]/g, '');                // Ayet sonu, rub el hizb, sajda
+str = str.replace(/[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06ED]/g, ''); // Waqf + tajwid (small high seen, lam-alef, jeem, three dots, rounded zero, vb.)
+```
+
+Tam referans implementasyon: `src/components/VerseGraph.jsx` → `cleanArabicForGraph()`.
+
+#### Render Yöntemi (mevcut data dosyalarında)
+
+JSON dosyaları **iki yöntemden biri** ile temizlenir:
+
+**Yöntem A — Build-time normalizasyon (tercih edilen):**
+JSON'a yazmadan önce metin normalize edilir. Veri tek seferlik temizlendiği için runtime maliyeti yok. Yeni JSON yazımı veya mevcut JSON güncellenmesinde:
+
+```bash
+# Python ile in-place normalizasyon (örnek: kuran-retorigi.json'da uygulandı)
+python3 -c "
+import json, re
+with open('public/X.json') as f: data = json.load(f)
+def normalize(s):
+    if not isinstance(s, str): return s
+    s = s.replace('\u06EA','\u0650').replace('\u06E1','\u0652')
+    s = s.replace('\u0671','\u0627').replace('\u06CC','\u064A')
+    s = re.sub(r'[\u0610-\u0614\u0616\u0617]','',s)
+    s = re.sub(r'[\u0600-\u0605]','',s)
+    s = re.sub(r'[\u06DD\u06DE\u06E9]','',s)
+    s = re.sub(r'[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06ED]','',s)
+    return s
+def walk(o):
+    if isinstance(o, dict): return {k: walk(v) for k,v in o.items()}
+    if isinstance(o, list): return [walk(v) for v in o]
+    return normalize(o)
+with open('public/X.json','w') as f: json.dump(walk(data), f, ensure_ascii=False, indent=2)
+"
+```
+
+**Yöntem B — Runtime cleanArabic() (canlı API'lerde):**
+api.acikkuran.com gibi canlı kaynaklardan gelen Arapça metin ekrana yazılmadan önce `cleanArabic()` fonksiyonundan geçirilir.
+
+#### Audit Komutu
+
+Mevcut JSON'da problem karakter var mı tespit etmek için:
+
+```bash
+python3 -c "
+import json
+PROBLEM = {'\u06E1','\u0671','\u06EA','\u06CC','\u06DC','\u06D9','\u06DA','\u06DB','\u06DD','\u06DE','\u06DF','\u06E0','\u06E9','\u06ED'}
+with open('public/X.json') as f: data = json.load(f)
+hits = 0
+def walk(o):
+    global hits
+    if isinstance(o, dict): [walk(v) for v in o.values()]
+    elif isinstance(o, list): [walk(v) for v in o]
+    elif isinstance(o, str): hits += sum(1 for c in o if c in PROBLEM)
+walk(data); print(f'Problem chars: {hits}')
+"
+```
+
+`Problem chars: 0` çıktısı bekleniyor — herhangi bir sayı varsa Yöntem A ile normalize et.
+
 #### Test Yöntemi
 
 Bir font/encoding değişikliğinden sonra **Fatiha Suresi'ni (1:1-7) Kitap modunda açıp kontrol et:**
@@ -535,6 +610,93 @@ Bir font/encoding değişikliğinden sonra **Fatiha Suresi'ni (1:1-7) Kitap modu
 - Harekelerin dikey (harfin üstünde/altında) olduğunu doğrula (yatay = font hatası)
 - Temmim (ـ uzatma) işaretlerinin düzgün göründüğünü doğrula
 - Bismillah ile ayet metninin aynı stilde olduğunu doğrula
+
+---
+
+### 13.16 Overlay Scroll Mimarisi — Tek Scrollbar Kuralı
+
+**Her overlay açıldığında ekranda yalnızca bir scrollbar görünmelidir.** Birden fazla scrollbar — ya iç container'lardan ya da arka plan sayfasından sızan window scroll'undan — kullanıcıyı şaşırtır ve UX'i bozar.
+
+#### Pattern — Üç Katmanlı Scroll Hijyeni
+
+**Katman 1: Body scroll lock**
+
+Overlay mount olduğunda hem `<body>` hem `<html>` overflow'u kilitlenir. `position: fixed` overlay alttaki sayfa scroll'unu otomatik durdurmaz — tarayıcı window scrollbar'ı sağ kenarda görünmeye devam eder. Bu yüzden ikisini de manuel kilitlemek gerekir:
+
+```jsx
+useEffect(() => {
+  const prevBody = document.body.style.overflow;
+  const prevHtml = document.documentElement.style.overflow;
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+  return () => {
+    document.body.style.overflow = prevBody;
+    document.documentElement.style.overflow = prevHtml;
+  };
+}, []);
+```
+
+**Katman 2: Overlay body scroll'u kapatılır, her tab kendi scroll'unu yönetir**
+
+Tab'lı overlay'lerde dış body container'a `overflow: auto` koymak — iç tab'ın da kendi `overflow: auto` ile scroll yapmasıyla — **çift scrollbar** üretir. Çözüm: dış body sadece flex container, scroll iç tab'ın sorumluluğu:
+
+```jsx
+{/* Outer body — no scroll, just flex layout */}
+<div ref={bodyRef} style={{
+  flex: 1,
+  overflow: 'hidden',
+  minHeight: 0,
+  display: 'flex',
+  flexDirection: 'column',
+}}>
+  {activeTab === 0 && <Tab1 />}
+  {activeTab === 1 && <Tab2 />}
+</div>
+```
+
+`minHeight: 0` flex child'ın content-based min-height'ı override etmek için **zorunlu** — yoksa flex item dış container'ı taşırır.
+
+**Katman 3: Her tab'ın root div'i kendi scroll container'ı**
+
+```jsx
+function TabSomething({ ... }) {
+  return (
+    <div style={{
+      flex: 1,
+      minHeight: 0,
+      overflowY: 'auto',
+      overflowX: 'hidden',
+      padding: ...,
+    }}>
+      {/* tab içeriği */}
+    </div>
+  );
+}
+```
+
+İki panelli tab'larda (sidebar + main panel) sidebar ve main panel ayrı ayrı `overflowY: auto` kullanabilir — bu **istenen davranış**, çünkü sidebar sticky kalır, main panel kayar.
+
+#### Anti-pattern — Yapma
+
+```jsx
+// ❌ YANLIŞ — outer body + inner panel ikisi birden scroll
+<div style={{ flex: 1, overflowY: 'auto' }}>           {/* outer scrolls */}
+  <div style={{ overflowY: 'auto', height: '100%' }}>  {/* inner ALSO scrolls */}
+```
+
+Bu yapı çift scrollbar üretir. **Sadece birinde** `overflow: auto` olmalı.
+
+#### Test Yöntemi
+
+Overlay açıkken sayfayı şu adımlarla doğrula:
+1. Sağ kenarda yalnızca **bir** vertical scrollbar görünüyor mu?
+2. Tab'lar arası geçtiğinde scroll position sıfırlanıyor mu? (`bodyRef.scrollTop = 0` veya tab'ın kendi scroll'u)
+3. Overlay kapatıldığında arka plan sayfası eski scroll position'ına dönüyor mu? (cleanup gerekli)
+4. Mobile'da yatay scroll var mı? (overflowX: hidden gerekli)
+
+#### Referans Implementasyon
+
+`src/components/KuranRetorigi.jsx` — 4 tab'lı overlay; outer body flex+hidden, her tab kendi scroll'u, body+html scroll lock useEffect.
 
 ---
 

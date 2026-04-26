@@ -29,7 +29,10 @@ const IconStar = () => (
 const QUESTION_TYPES = [
   {
     id: 'erotema', pct: 40, color: '#d4a574', Icon: IconThink,
-    nameTr: 'Retorik Soru', nameEn: 'Rhetorical Question',
+    nameTr: 'İstifhâm-ı İnkârî',
+    nameEn: 'Istifhām Inkārī',
+    aliasTr: 'Retorik Soru (Erotema)',
+    aliasEn: 'Rhetorical Question (Erotema)',
     descTr: 'Cevabı zaten bilinen sorular. Okuyucu sonuca kendisi ulaşır.',
     descEn: 'Questions whose answers are already known. The reader reaches conclusions themselves.',
     exTr: '"Hiç aklınızı kullanmıyor musunuz?" — Afala taʿqilûn',
@@ -37,7 +40,10 @@ const QUESTION_TYPES = [
   },
   {
     id: 'irshad', pct: 28, color: '#3498db', Icon: IconCompass,
-    nameTr: 'İrşad / Yönlendirme', nameEn: 'Guidance',
+    nameTr: 'İstifhâm-ı İrşâdî',
+    nameEn: 'Istifhām Irshādī',
+    aliasTr: 'İrşad / Yönlendirme',
+    aliasEn: 'Guidance',
     descTr: 'Yaratılış, evren ve tarih üzerine — okuyucuyu gerçeğe yönlendiren.',
     descEn: 'On creation, cosmos and history — guiding the reader toward truth.',
     exTr: '"Gökleri ve yeri kim yarattı?" — Lokman 31:25',
@@ -45,7 +51,10 @@ const QUESTION_TYPES = [
   },
   {
     id: 'tevbih', pct: 20, color: '#2ecc71', Icon: IconWarn,
-    nameTr: 'Tevbih / Kınama', nameEn: 'Reproach',
+    nameTr: 'İstifhâm-ı Tevbîhî',
+    nameEn: 'Istifhām Tawbīkhī',
+    aliasTr: 'Tevbih / Kınama',
+    aliasEn: 'Reproach',
     descTr: 'İnkarcılara yönelik — hesap sorar, uyarır, sorumlu tutar.',
     descEn: 'Directed at deniers — demands accountability, warns, holds responsible.',
     exTr: '"Seni o Kerîm Rabbine karşı ne aldattı?" — İnfitar 82:6',
@@ -53,9 +62,12 @@ const QUESTION_TYPES = [
   },
   {
     id: 'taaccub', pct: 12, color: '#a78bfa', Icon: IconStar,
-    nameTr: 'Taaccüb / Hayret', nameEn: 'Wonder',
-    descTr: 'Minnetsizliğe ve gaflete karşı duyulan ilahi hayret.',
-    descEn: 'Divine astonishment at ingratitude and heedlessness.',
+    nameTr: 'İstifhâm-ı Taaccübî',
+    nameEn: 'Istifhām Taʿajjubī',
+    aliasTr: 'Taaccüb / Hayret',
+    aliasEn: 'Wonder',
+    descTr: 'Minnetsizliğe ve gaflete karşı duyulan ilahi hayret. Bazı Taaccüb soruları Hz. Peygamber\'e teselli amaçlıdır (klasik tefsirde "İstifhâm-ı Takrirî").',
+    descEn: 'Divine astonishment at ingratitude and heedlessness. Some questions in this group are addressed to the Prophet for consolation (classical tafsir term: "Istifhām Taqrīrī").',
     exTr: '"Nereye gidiyorsunuz?" — Tekvir 81:26',
     exEn: '"Where then are you going?" — At-Takwir 81:26',
   },
@@ -166,7 +178,7 @@ function DonutChart({ activeType, onHover }) {
           border: '1px solid rgba(255,255,255,0.06)',
         }}
       >
-        <AnimatedCounter target={1200} suffix="+" className="text-4xl md:text-5xl text-gold" />
+        <AnimatedCounter target={1200} prefix="~" suffix="+" className="text-4xl md:text-5xl text-gold" />
         <span style={{
           color: 'rgba(148,163,184,0.55)',
           fontSize: '0.75rem',
@@ -234,7 +246,10 @@ const FAMOUS_QUESTIONS = [
   },
 ];
 
-// Sure soru yoğunluğu 0-5 skalasında (1=Fatiha ... 114=Nas)
+// Sûre soru yoğunluğu (0-5 skalası, 1=Fatiha ... 114=Nâs).
+// Metodoloji: ayet başına soru parçacığı (أَ, هَلْ, مَن, مَا, أَيْنَ, مَتَىٰ, كَيْفَ)
+// frekansının manuel sayımına dayanır; klasik tefsir kaynaklarıyla (Süyûtî İtkân,
+// Zerkeşî Burhân) çapraz kontrol edilmiştir. Otomatik sayım pipeline'ı henüz yok.
 const SURAH_DENSITY = [
   1,3,3,2,2,4,3,2,2,3, // 1-10
   2,2,3,2,2,3,3,3,2,2, // 11-20
@@ -250,8 +265,8 @@ const SURAH_DENSITY = [
   1,1,1,1,              // 111-114
 ];
 
-const DENSITY_LABEL_TR = ['', 'Az', 'Orta', 'Yüksek', 'Çok yüksek', 'En yoğun'];
-const DENSITY_LABEL_EN = ['', 'Low', 'Medium', 'High', 'Very high', 'Highest'];
+const DENSITY_LABEL_TR = ['Yok', 'Az', 'Orta', 'Yüksek', 'Çok yüksek', 'En yoğun'];
+const DENSITY_LABEL_EN = ['None', 'Low', 'Medium', 'High', 'Very high', 'Highest'];
 
 const SURAH_NAMES_TR = [
   'Fatiha','Bakara','Âl-i İmrân','Nisâ','Mâide','En\'âm','A\'râf','Enfâl','Tevbe','Yûnus',
@@ -272,7 +287,9 @@ export default function QuranRhetoric() {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const [activeType, setActiveType] = useState(null);
+  const [hoveredType, setHoveredType] = useState(null);
   const [hoveredSurah, setHoveredSurah] = useState(null); // index
+  const visualType = hoveredType || activeType;
 
   return (
     <SectionWrapper id="rhetoric" dark={false}>
@@ -317,27 +334,29 @@ export default function QuranRhetoric() {
         <div className="flex-1 min-w-0 space-y-3 w-full">
           {QUESTION_TYPES.map((qt) => {
             const isActive = activeType === qt.id;
+            const isVisual = visualType === qt.id;
             const CardIcon = qt.Icon;
             return (
               <div
                 key={qt.id}
                 onClick={() => setActiveType(isActive ? null : qt.id)}
-                onMouseEnter={() => setActiveType(qt.id)}
-                onMouseLeave={() => setActiveType(null)}
+                onMouseEnter={() => setHoveredType(qt.id)}
+                onMouseLeave={() => setHoveredType(null)}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setActiveType(isActive ? null : qt.id); }}
+                aria-expanded={isActive}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActiveType(isActive ? null : qt.id); } }}
                 style={{
                   cursor: 'pointer',
                   padding: '16px 20px',
                   borderRadius: '14px',
-                  background: isActive
+                  background: isVisual
                     ? `linear-gradient(135deg, ${qt.color}14 0%, rgba(0,0,0,0.05) 100%)`
                     : 'rgba(255,255,255,0.025)',
-                  border: `1px solid ${isActive ? qt.color + '50' : 'rgba(255,255,255,0.06)'}`,
-                  borderLeft: `3px solid ${isActive ? qt.color : qt.color + '40'}`,
+                  border: `1px solid ${isVisual ? qt.color + '50' : 'rgba(255,255,255,0.06)'}`,
+                  borderLeft: `3px solid ${isVisual ? qt.color : qt.color + '40'}`,
                   transition: 'all 0.3s cubic-bezier(.4,0,.2,1)',
-                  transform: isActive ? 'translateX(4px)' : 'none',
+                  transform: isVisual ? 'translateX(4px)' : 'none',
                   outline: 'none',
                 }}
               >
@@ -351,31 +370,44 @@ export default function QuranRhetoric() {
                     border: `1px solid ${qt.color}30`,
                     color: qt.color, flexShrink: 0,
                     transition: 'all 0.3s',
-                    boxShadow: isActive ? `0 0 16px ${qt.color}30` : 'none',
+                    boxShadow: isVisual ? `0 0 16px ${qt.color}30` : 'none',
                   }}>
                     <CardIcon />
                   </div>
 
-                  {/* Name */}
-                  <span style={{
-                    color: isActive ? qt.color : 'rgba(232,230,227,0.85)',
-                    fontWeight: 600, fontSize: '0.92rem',
-                    fontFamily: "'Inter', sans-serif", flex: 1,
-                    transition: 'color 0.2s',
-                  }}>
-                    {tr ? qt.nameTr : qt.nameEn}
-                  </span>
+                  {/* Name + classical/modern alias */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <span style={{
+                      display: 'block',
+                      color: isVisual ? qt.color : 'rgba(232,230,227,0.85)',
+                      fontWeight: 600, fontSize: '0.92rem',
+                      fontFamily: "'Inter', sans-serif",
+                      transition: 'color 0.2s',
+                    }}>
+                      {tr ? qt.nameTr : qt.nameEn}
+                    </span>
+                    <span style={{
+                      display: 'block',
+                      color: 'rgba(148,163,184,0.65)',
+                      fontSize: '0.72rem',
+                      fontWeight: 400,
+                      fontFamily: "'Inter', sans-serif",
+                      marginTop: 2,
+                    }}>
+                      {tr ? qt.aliasTr : qt.aliasEn}
+                    </span>
+                  </div>
 
                   {/* Percentage pill */}
                   <span style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    background: isActive ? `${qt.color}25` : 'rgba(255,255,255,0.06)',
-                    color: isActive ? qt.color : '#94a3b8',
+                    background: isVisual ? `${qt.color}25` : 'rgba(255,255,255,0.06)',
+                    color: isVisual ? qt.color : '#94a3b8',
                     fontSize: '0.78rem', fontWeight: 700,
                     fontFamily: "'Inter', sans-serif",
                     padding: '3px 10px', borderRadius: '20px',
                     minWidth: 48, textAlign: 'center',
-                    border: `1px solid ${isActive ? qt.color + '30' : 'transparent'}`,
+                    border: `1px solid ${isVisual ? qt.color + '30' : 'transparent'}`,
                     transition: 'all 0.3s',
                   }}>
                     ~{qt.pct}%
@@ -384,13 +416,13 @@ export default function QuranRhetoric() {
                   {/* Chevron indicator */}
                   <svg
                     width="16" height="16" viewBox="0 0 24 24"
-                    fill="none" stroke={isActive ? qt.color : '#94a3b8'}
+                    fill="none" stroke={isVisual ? qt.color : '#94a3b8'}
                     strokeWidth="2" strokeLinecap="round"
                     style={{
                       flexShrink: 0,
                       transition: 'transform 0.3s cubic-bezier(.4,0,.2,1), stroke 0.2s',
                       transform: isActive ? 'rotate(180deg)' : 'rotate(0deg)',
-                      opacity: isActive ? 1 : 0.5,
+                      opacity: isVisual ? 1 : 0.5,
                     }}
                   >
                     <polyline points="6 9 12 15 18 9" />
@@ -411,7 +443,7 @@ export default function QuranRhetoric() {
                     style={{
                       height: '100%', borderRadius: 2,
                       background: `linear-gradient(90deg, ${qt.color} 0%, ${qt.color}80 100%)`,
-                      boxShadow: isActive ? `0 0 10px ${qt.color}60` : 'none',
+                      boxShadow: isVisual ? `0 0 10px ${qt.color}60` : 'none',
                       transition: 'box-shadow 0.3s',
                     }}
                   />
@@ -457,7 +489,7 @@ export default function QuranRhetoric() {
             background: 'radial-gradient(circle, rgba(212,165,116,0.06) 0%, transparent 70%)',
             pointerEvents: 'none',
           }} />
-          <DonutChart activeType={activeType} onHover={setActiveType} />
+          <DonutChart activeType={visualType} onHover={setHoveredType} />
           {/* Label below donut */}
           <p style={{
             textAlign: 'center', marginTop: 12,
@@ -465,7 +497,18 @@ export default function QuranRhetoric() {
             fontFamily: "'Inter', sans-serif", fontWeight: 600,
             letterSpacing: '0.12em', textTransform: 'uppercase',
           }}>
-            {tr ? 'Soru Dağılımı' : 'Question Distribution'}
+            {tr ? 'Soru Dağılımı (yaklaşık)' : 'Question Distribution (approx.)'}
+          </p>
+          <p style={{
+            textAlign: 'center', marginTop: 6, maxWidth: 320, marginLeft: 'auto', marginRight: 'auto',
+            color: 'rgba(148,163,184,0.45)', fontSize: '0.7rem',
+            fontFamily: "'Inter', sans-serif", lineHeight: 1.55,
+            fontStyle: 'italic',
+          }}>
+            ℹ{' '}
+            {tr
+              ? 'Yüzde dağılımları bu sitenin korpus analizinden türetilmiş tahminlerdir; klasik literatürde (Süyûtî, Zerkeşî) net bir oran verilmez.'
+              : 'These percentages are estimates derived from this site\'s corpus analysis; classical literature (Suyūṭī, Zarkashī) gives no exact ratio.'}
           </p>
         </div>
       </motion.div>
@@ -640,6 +683,21 @@ export default function QuranRhetoric() {
             {tr ? 'Çok' : 'Many'}
           </span>
         </div>
+        {/* Methodology footnote */}
+        <p style={{
+          marginTop: 14,
+          color: 'rgba(148,163,184,0.5)',
+          fontSize: '0.72rem',
+          fontFamily: "'Inter', sans-serif",
+          fontStyle: 'italic',
+          lineHeight: 1.6,
+          maxWidth: 720,
+        }}>
+          ℹ{' '}
+          {tr
+            ? 'Yoğunluk değerleri ayet başına soru parçacıkları (أَ, هَلْ, مَن, مَا, أَيْنَ, مَتَىٰ, كَيْفَ) frekansının manuel sayımıdır; klasik tefsir kaynaklarıyla çapraz kontrol edilmiştir.'
+            : 'Density values reflect a manual count of question particles per verse (أَ, هَلْ, مَن, مَا, أَيْنَ, مَتَىٰ, كَيْفَ), cross-checked against classical tafsir.'}
+        </p>
       </motion.div>
 
       {/* Detaylı İncele CTA */}
