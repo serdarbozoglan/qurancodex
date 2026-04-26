@@ -129,14 +129,56 @@ function InfoNote({ text }) {
   );
 }
 
+// ── Tab SVG icons (replaces emoji set for visual consistency with sister overlays) ──
+const TAB_ICONS = {
+  isimler: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+    </svg>
+  ),
+  cennet: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.5c1 1.5.5 7-2 11.5-1.5 2.7-4.5 5-7.2 5z"/>
+      <path d="M2 21c0-3 1.85-5.36 5.08-6"/>
+    </svg>
+  ),
+  cehennem: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+    </svg>
+  ),
+  araf: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="3" x2="12" y2="21"/>
+      <path d="M5 8h14"/>
+      <path d="M3 8l-2 4a4 4 0 0 0 4 4 4 4 0 0 0 4-4l-2-4"/>
+      <path d="M21 8l-2 4a4 4 0 0 0 4 4 4 4 0 0 0 4-4l-2-4"/>
+    </svg>
+  ),
+  rahman: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12H3"/>
+      <polyline points="9 6 3 12 9 18"/>
+      <polyline points="15 6 21 12 15 18"/>
+    </svg>
+  ),
+  kaynaklar: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+      <line x1="9" y1="10" x2="15" y2="10"/>
+    </svg>
+  ),
+};
+
 // ── TABS definition ───────────────────────────────────────────────────────────
 const TABS = [
-  { id: 'isimler',   labelTr: 'İsimler',       labelEn: 'Names',        icon: '📖' },
-  { id: 'cennet',    labelTr: 'Cennet',         labelEn: 'Paradise',     icon: '🌿' },
-  { id: 'cehennem',  labelTr: 'Cehennem',       labelEn: 'Hell',         icon: '🔥' },
-  { id: 'araf',      labelTr: "A'râf",          labelEn: "A'raf",        icon: '⚖️' },
-  { id: 'rahman',    labelTr: 'Rahman Simetrisi', labelEn: 'Al-Rahman Symmetry', icon: '↔️' },
-  { id: 'kaynaklar', labelTr: 'Kaynaklar',      labelEn: 'Sources',      icon: '📚' },
+  { id: 'isimler',   labelTr: 'İsimler',         labelEn: 'Names',              icon: TAB_ICONS.isimler   },
+  { id: 'cennet',    labelTr: 'Cennet',          labelEn: 'Paradise',           icon: TAB_ICONS.cennet    },
+  { id: 'cehennem',  labelTr: 'Cehennem',        labelEn: 'Hell',               icon: TAB_ICONS.cehennem  },
+  { id: 'araf',      labelTr: "A'râf",           labelEn: "A'raf",              icon: TAB_ICONS.araf      },
+  { id: 'rahman',    labelTr: 'Rahman Simetrisi', labelEn: 'Al-Rahman Symmetry', icon: TAB_ICONS.rahman    },
+  { id: 'kaynaklar', labelTr: 'Kaynaklar',       labelEn: 'Sources',            icon: TAB_ICONS.kaynaklar },
 ];
 
 // ── MAIN COMPONENT ────────────────────────────────────────────────────────────
@@ -162,6 +204,24 @@ export default function CennetCehennem({ onClose }) {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
+  }, []);
+
+  // CLAUDE.md §13.16 Katman 1 — body+html scroll lock with scrollbar gutter compensation
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    const prevPad  = body.style.paddingRight;
+    const sbWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
+    return () => {
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      body.style.paddingRight = prevPad;
+    };
   }, []);
 
   // Scroll content to top on tab change
@@ -1072,6 +1132,32 @@ function TabRahman({ data, language, isMobile }) {
           </div>
         ))}
       </div>
+
+      {/* Yorum Çerçeveleri — kelâmî pozisyonlar + Said Nursi */}
+      {(rs.yorumCerceveleri || []).length > 0 && (
+        <>
+          <SectionTitle color={GOLD}>
+            {tr ? 'Yorum Çerçeveleri' : 'Interpretive Frames'}
+          </SectionTitle>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {rs.yorumCerceveleri.map(k => (
+              <div key={k.id} style={{
+                background: COLORS.softGoldAlpha05,
+                border: `1px solid ${COLORS.softGoldAlpha20}`,
+                borderLeft: `3px solid ${GOLD}`,
+                borderRadius: RADIUS.chip, padding: '16px 18px',
+              }}>
+                <p style={{ fontSize: '0.9rem', fontWeight: 700, color: GOLD, margin: '0 0 8px' }}>
+                  {tr ? k.titleTr : k.titleEn}
+                </p>
+                <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.7, margin: 0 }}>
+                  {tr ? k.bodyTr : k.bodyEn}
+                </p>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }
@@ -1086,11 +1172,12 @@ const SOURCE_URLS = {
 };
 
 const CROSS_LINKS = [
-  { labelTr: 'Tabiat Atlası',       labelEn: 'Nature Atlas',         event: 'openNatureAtlas' },
-  { labelTr: 'Muhatap Sistemi',      labelEn: 'Addressee System',     event: 'openAddresseeSystem' },
-  { labelTr: 'İmkânsız Ritim',       labelEn: 'Impossible Rhythm',    section: '#impossible-rhythm' },
-  { labelTr: 'Kavram Ağı',           labelEn: 'Concept Graph',        event: 'openConceptGraph' },
-  { labelTr: 'Kur\'an\'ın Emirleri', labelEn: 'Quran Commands',       event: 'openQuranCommands' },
+  { labelTr: 'Melekler',             labelEn: 'Angels',                event: 'openMelekler' },
+  { labelTr: 'Kıyamet Sahneleri',     labelEn: 'Scenes of Qiyamah',     event: 'openKiyametSahneleri' },
+  { labelTr: 'Nefis Mertebeleri',     labelEn: 'Stations of the Self',  event: 'openNefisMertebeleri' },
+  { labelTr: 'Muhatap Sistemi',       labelEn: 'Addressee System',      event: 'openAddresseeSystem' },
+  { labelTr: 'Kavram Ağı',            labelEn: 'Concept Graph',         event: 'openConceptGraph' },
+  { labelTr: 'Kur\'an\'ın Emirleri',  labelEn: 'Quran Commands',        event: 'openQuranCommands' },
 ];
 
 function SourceSection({ titleTr, titleEn, items, tr }) {

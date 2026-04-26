@@ -118,7 +118,8 @@
       "kaynakEn": "Ad-Dukhan 44:51",
       "notTr": "Müttakilerin yeri olarak tarif edilen bu isim yalnızca tek bir ayette geçer.",
       "notEn": "Described as the place of the righteous (muttaqin), this name appears in only one verse.",
-      "isHadis": false
+      "isHadis": false,
+      "isHapax": true
     },
     {
       "id": "illiyyun",
@@ -213,7 +214,8 @@
       "kaynakEn": "Al-Ma'arij 70:15-16",
       "notTr": "'Bedenin uç organlarını söküp koparan' diye nitelendirilir. Kur'an'daki en spesifik fiziksel azap tasvirlerinden biridir.",
       "notEn": "Described as 'plucking away the extremities.' One of the most specific physical punishment descriptions in the Quran.",
-      "isHadis": false
+      "isHadis": false,
+      "isHapax": true
     },
     {
       "id": "sair",
@@ -350,8 +352,8 @@
         "descTr": "Kur'an 'hûr' (çoğul) ve 'ayn' (iri gözlü) sıfatlarını kullanır. Sayı verilmez.",
         "descEn": "The Quran uses the attributes 'hur' (plural) and 'ayn' (large-eyed). No number is given.",
         "kaynak": "Vâkıa 56:22, Rahmân 55:72",
-        "notTr": "Bazı akademisyenler 'hûr' kelimesini farklı biçimlerde yorumlar. Bu tartışma akademik literatürde mevcuttur.",
-        "notEn": "Some scholars interpret the word 'hur' differently. This discussion exists in academic literature.",
+        "notTr": "Christoph Luxenberg (Die syro-aramäische Lesart des Koran, 2000) 'hûr'un Süryanice 'beyaz üzümler' anlamında olabileceğini ileri sürdü; bu iddia Patricia Crone, Andrew Rippin ve Walid Saleh gibi akademisyenler tarafından metodolojik açıdan eleştirilerek büyük çoğunlukla reddedildi. Klasik tefsir geleneğindeki 'cennet eşleri' yorumu hâkim akademik pozisyondur.",
+        "notEn": "Christoph Luxenberg (Die syro-aramäische Lesart des Koran, 2000) proposed that 'hur' might mean 'white grapes' in Syriac; this claim has been broadly rejected by scholars such as Patricia Crone, Andrew Rippin and Walid Saleh on methodological grounds. The classical reading ('companions of Paradise') remains the prevailing academic position.",
         "isHadis": false
       },
       {
@@ -372,8 +374,8 @@
         "descTr": "'Allah'ın rızası en büyüktür.' Tüm maddî nimetlerden sonra en yüce olarak gösterilen rıdvandır.",
         "descEn": "'And the pleasure of Allah is greater.' The divine pleasure (ridwan) is presented as the supreme blessing above all material gifts.",
         "kaynak": "Tevbe 9:72",
-        "notTr": "Rü'yetullah (Allah'ı görme) hadislerde geçer; Kur'an'da ima düzeyindedir.",
-        "notEn": "The beatific vision (ru'yat Allah) is found in hadith; in the Quran it is at the level of implication.",
+        "notTr": "Klasik Sünnî kelâm (Eş'arî, Mâturîdî) Kıyâme 75:22-23'ü (\"O gün yüzler ışıl ışıl, Rablerine bakıp duracak\") doğrudan rü'yetullah ifadesi olarak okur. Mu'tezile bu yorumu reddeder. Sahih hadisler rü'yetullahı kesin olarak ifade eder (Buhârî, Tevhîd 24; Müslim, İmân 297).",
+        "notEn": "Classical Sunni kalām (Ash'ari, Maturidi) reads Al-Qiyamah 75:22-23 (\"On that day faces will be radiant, looking at their Lord\") as a direct reference to the beatific vision (ru'yat Allah). The Mu'tazila reject this reading. Sound hadiths affirm ru'yat Allah categorically (Bukhari, Tawhid 24; Muslim, Iman 297).",
         "isHadis": false
       }
     ],
@@ -522,8 +524,8 @@
         "verseAr": "كُلَّمَا نَضِجَتْ جُلُودُهُم بَدَّلْنَاهُمْ جُلُودًا غَيْرَهَا لِيَذُوقُوا الْعَذَابَ ۗ إِنَّ اللَّهَ كَانَ عَزِيزًا حَكِيمًا",
         "verseTr": "Derileri her yandıkça, azabı tattırmak için onları başka derilerle değiştiririz. Şüphesiz Allah mutlak güç sahibidir, hüküm ve hikmet sahibidir.",
         "verseEn": "Every time their skins are roasted through, We will replace them with other skins so they may taste the punishment. Indeed, Allah is ever Exalted in Might and Wise.",
-        "notTr": "Modern sinir bilimi: acı hissi deri almaçlarıyla taşınır. Kur'an bu mekanizmayı ayet içinde sorgulatan bir sonuca bağlar.",
-        "notEn": "Modern neuroscience: pain is carried by skin receptors. The Quran links this mechanism to a conclusion that invites reflection.",
+        "notTr": "Klasik tefsirde (Râzî, Kurtubî) bu ayet azabın mahiyeti ve sürekliliği üzerine düşündürür. Modern sinir biliminin acı resepsiyonu deri almaçlarına bağlaması ile ayet arasında çıkarılabilecek bağlantı felsefî bir gözlemdir; Kur'ân'ın bilimsel teori öngördüğü iddiası taşımaz.",
+        "notEn": "Classical commentators (Razi, Qurtubi) read this verse as a meditation on the nature and continuity of punishment. Any parallel that may be drawn with modern neuroscience's localisation of pain in skin receptors is a philosophical observation, not a claim that the Quran predicted scientific theory.",
         "kaynak": "Nisâ 4:56"
       }
     ],
@@ -577,9 +579,10 @@
         "nameAr": "عِلِّيِّينَ",
         "nameTr": "İlliyyûn",
         "nameEn": "Illiyyun",
-        "descTr": "İyilerin kitabı illiyyûndadır — mukarreblerle birlikte. Kur'an'ın en gizemli kavramlarından biri.",
-        "descEn": "The record of the righteous is in Illiyyun — with those brought near to God. One of the Quran's most mysterious concepts.",
+        "descTr": "İyilerin kitabı illiyyûndadır — mukarreblerle birlikte. Mutaffifîn sûresinde Siccîn ile aynı yapıda art arda anılır. Cennet ismi mi, kayıt yeri mi olduğu klasik tartışmadır (bkz. 'İsimler' sekmesi).",
+        "descEn": "The record of the righteous is in Illiyyun — with those brought near to God. Mentioned consecutively with Sijjin in Surah Mutaffifin in mirror structure. Whether it is a name of Paradise or a record-keeping location is a classical dispute (see 'Names' tab).",
         "kaynak": "Mutaffifîn 83:18-21",
+        "crossRef": "cennetIsimleri.illiyyun",
         "taraf": "cennet"
       },
       {
@@ -619,6 +622,22 @@
         "bodyTr": "Rahman sûresi 78 ayettir. 31 kez tekrarlanan nakarat, sûre boyunca bölümler oluşturur ve anlatıyı ritimli biçimde böler. Bu yapı, Kur'an'ın retorik mimarisinin en güçlü örneklerinden biridir. Nakaratın cennet ayetleriyle olan ilişkisi 19, cehennem ayetleriyle olan ilişkisi ise 12'dir — eşit dağılım değildir, bilerek biçimlendirilmiş bir orandır.",
         "bodyEn": "Surah Rahman has 78 verses. The 31-fold refrain divides the surah into sections and rhythmically segments the narrative. This structure is among the most powerful examples of the Quran's rhetorical architecture. The refrain appears 19 times in relation to Paradise verses and 12 times in relation to Hell verses — not an equal distribution, but a deliberately shaped ratio."
       }
+    ],
+    "yorumCerceveleri": [
+      {
+        "id": "kelami-pozisyonlar",
+        "titleTr": "Cennet ve cehennem hakkında 4 kelâmî pozisyon",
+        "titleEn": "Four theological positions on Paradise and Hell",
+        "bodyTr": "Klasik İslam kelâmı aynı ayetlerden farklı sonuçlar çıkarır: (1) Eş'arî — cennet ve cehennem ebedidir, bedensel niteliktedir, nimet ve azap somuttur. (2) Mâturîdî — Eş'arî'yle uyumlu, akıl yoluyla da kavranabilirliğine vurgu yapar. (3) Mu'tezile — ebedilik ve adalet ilkesini öne çıkarır; büyük günah sahibinin durumu (menzile beyne'l-menzileteyn) tartışması bu ekolde belirgindir. (4) İslam filozofları (Fârâbî, İbn Sînâ) — cennet-cehennem azabını bedensel değil ruhsal/aklî olarak okur; Gazâlî bu yorumu Tehâfüt'te eleştirir. Atlas çoğunluk Sünnî pozisyonu birincil sunar; diğerlerini akademik dürüstlükle açık tutar.",
+        "bodyEn": "Classical Islamic kalām draws different conclusions from the same verses: (1) Ash'ari — Paradise and Hell are eternal and bodily; their bliss and punishment are concrete. (2) Maturidi — aligns with Ash'ari and adds that their existence is also rationally accessible. (3) Mu'tazila — emphasises eternity and divine justice; the question of the grave-sinner ('the position between two positions') is distinctive to this school. (4) Islamic philosophers (Farabi, Ibn Sina) — read the punishment as spiritual/intellectual rather than bodily; Ghazali critiques this in Tahāfut. The Atlas presents the majority Sunni position as primary while keeping the others academically open."
+      },
+      {
+        "id": "said-nursi-cennet",
+        "titleTr": "Said Nursi — Cennet ve cehennemin felsefî temellendirmesi",
+        "titleEn": "Said Nursi — The philosophical grounding of Paradise and Hell",
+        "bodyTr": "Said Nursi, Sözler'in Yirmi Sekizinci Söz'ünde cennetin bedensel boyutunu, modern reformist 'sadece ruhsal' yorumlarına karşı klasik Sünnî pozisyon içinden savunur: ebedilik nimetin sürekli tazelenmesidir, monoton tekrar değil. Yirmi Yedinci Söz cehennem azabının ilâhî adaletle ilişkisini, Onuncu Söz dirilişin aklî temellerini işler. Mi'râc Risâlesi (Otuz Birinci Söz) Sidretü'l-Müntehâ ve Cebrail bağlamında cennet-bağlantısını ele alır. Atlas'ın Türk Müslüman okuyucu için klasik pozisyonu modern dünya ile eşleştirme çerçevesi.",
+        "bodyEn": "In the Twenty-Eighth Word, Said Nursi defends the bodily dimension of Paradise from within the classical Sunni position, against modern reformist 'spiritual-only' readings: eternity is the continual renewal of blessing, not monotonous repetition. The Twenty-Seventh Word treats the relation between Hell's punishment and divine justice; the Tenth Word grounds resurrection rationally. The Mi'raj Treatise (Thirty-First Word) addresses the link to Paradise via Sidrat al-Muntaha and Jibril. For the Turkish-Muslim reader, this is the framework that situates the Atlas's classical position within the modern world."
+      }
     ]
   },
 
@@ -655,6 +674,31 @@
         "id": "tdv-cahim",
         "nameTr": "TDV İslam Ansiklopedisi — 'Cahîm' maddesi",
         "nameEn": "TDV Encyclopedia of Islam — 'Jahim' entry"
+      },
+      {
+        "id": "lange-2016",
+        "nameTr": "Christian Lange — Paradise and Hell in Islamic Traditions (Cambridge, 2016)",
+        "nameEn": "Christian Lange — Paradise and Hell in Islamic Traditions (Cambridge, 2016)"
+      },
+      {
+        "id": "rustomji-2008",
+        "nameTr": "Nerina Rustomji — The Garden and the Fire: Heaven and Hell in Islamic Culture (Columbia, 2008)",
+        "nameEn": "Nerina Rustomji — The Garden and the Fire: Heaven and Hell in Islamic Culture (Columbia, 2008)"
+      },
+      {
+        "id": "gunther-2017",
+        "nameTr": "Sebastian Günther (ed.) — Roads to Paradise (Brill, 2017)",
+        "nameEn": "Sebastian Günther (ed.) — Roads to Paradise (Brill, 2017)"
+      },
+      {
+        "id": "smith-haddad-1981",
+        "nameTr": "Jane I. Smith & Yvonne Y. Haddad — The Islamic Understanding of Death and Resurrection (1981)",
+        "nameEn": "Jane I. Smith & Yvonne Y. Haddad — The Islamic Understanding of Death and Resurrection (1981)"
+      },
+      {
+        "id": "nursi-28",
+        "nameTr": "Said Nursi — Sözler, Yirmi Sekizinci Söz (cennet bahsi)",
+        "nameEn": "Said Nursi — The Words, Twenty-Eighth Word (on Paradise)"
       },
       {
         "id": "corpus",
