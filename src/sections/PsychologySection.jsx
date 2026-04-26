@@ -2,6 +2,48 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
+import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
+
+// Parse references like "Yusuf, 12:84", "Tawba 9:128", or "12:84"
+function parseRef(ref) {
+  if (!ref) return null;
+  const m = String(ref).match(/(\d+)\s*[:,]\s*(\d+)/);
+  if (!m) return null;
+  return { surah: parseInt(m[1], 10), ayah: parseInt(m[2], 10) };
+}
+
+function VerseAudioButton({ surah, ayah, accentColor }) {
+  const { playing, loading, failed, toggle } = useAudioWithFallback(surah, ayah);
+  const disabled = failed;
+  return (
+    <button
+      onClick={(e) => { e.stopPropagation(); if (!disabled) toggle(); }}
+      disabled={disabled}
+      aria-label={playing ? 'Pause' : 'Play verse'}
+      style={{
+        width: 26, height: 26, borderRadius: '50%', flexShrink: 0,
+        background: disabled ? 'rgba(100,116,139,0.08)' : playing ? `${accentColor}28` : `${accentColor}12`,
+        border: `1px solid ${disabled ? 'rgba(100,116,139,0.2)' : playing ? `${accentColor}80` : `${accentColor}30`}`,
+        color: disabled ? '#475569' : accentColor,
+        cursor: disabled ? 'not-allowed' : 'pointer',
+        opacity: disabled ? 0.5 : 1,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        transition: 'all 0.15s',
+        marginLeft: 'auto',
+      }}
+    >
+      {loading ? (
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+          <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+        </svg>
+      ) : playing ? (
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/></svg>
+      ) : (
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+      )}
+    </button>
+  );
+}
 
 const MAIN_TABS = ['nefs', 'kalp', 'korku', 'savunma', 'yusuf', 'sosyal', 'araclar', 'anlam', 'modern'];
 const APPENDIX_TABS = ['a', 'b', 'c'];
@@ -148,15 +190,21 @@ function AccordionItem({ item, accentColor }) {
                   }}>
                     {item.translation}
                   </p>
-                  {item.reference && (
-                    <p style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '0.72rem', color: accentColor,
-                      margin: 0, opacity: 0.8,
-                    }}>
-                      {item.reference}
-                    </p>
-                  )}
+                  {item.reference && (() => {
+                    const ref = parseRef(item.reference);
+                    return (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <p style={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: '0.72rem', color: accentColor,
+                          margin: 0, opacity: 0.8,
+                        }}>
+                          {item.reference}
+                        </p>
+                        {ref && <VerseAudioButton surah={ref.surah} ayah={ref.ayah} accentColor={accentColor} />}
+                      </div>
+                    );
+                  })()}
                 </div>
               )}
 
@@ -199,10 +247,66 @@ function AccordionItem({ item, accentColor }) {
   );
 }
 
+// Cross-page CTA: opens an Atlas overlay relevant to the tab content
+const TAB_CTA = {
+  nefs: {
+    event: 'openNefisMertebeleri',
+    labelTr: '↗ NEFSİN MERTEBELERİ ATLAS — TAM 7 MAKÂM',
+    labelEn: '↗ STAGES OF THE SOUL ATLAS — FULL 7 STATIONS',
+    descTr: 'Tasavvufî sistematik (Necmeddin Kübra) — bu sayfadaki 5\'li özetin tam karşılığı',
+    descEn: 'Sufi systematization (Najm al-Dīn Kubrā) — the full counterpart to this page\'s 5-stage summary',
+  },
+  yusuf: {
+    event: 'openProphetAtlas',
+    labelTr: '↗ PEYGAMBERLER ATLAS — HZ. YUSUF',
+    labelEn: '↗ PROPHETS ATLAS — JOSEPH (AS)',
+    descTr: 'Kıssanın tam zaman çizelgesi, mekânlar ve aile bağları',
+    descEn: 'Full timeline of the narrative, locations and family ties',
+  },
+};
+
+function TabCTA({ cfg, accentColor, language }) {
+  return (
+    <button
+      onClick={() => window.dispatchEvent(new CustomEvent(cfg.event))}
+      style={{
+        marginTop: '20px',
+        width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '14px 18px', borderRadius: '12px',
+        background: `${accentColor}10`,
+        border: `1px solid ${accentColor}40`,
+        cursor: 'pointer', textAlign: 'left',
+        transition: 'all 0.2s',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.background = `${accentColor}18`;
+        e.currentTarget.style.borderColor = `${accentColor}70`;
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.background = `${accentColor}10`;
+        e.currentTarget.style.borderColor = `${accentColor}40`;
+      }}
+    >
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <p style={{ color: accentColor, fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.08em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+          {language === 'tr' ? cfg.labelTr : cfg.labelEn}
+        </p>
+        <p style={{ color: '#94a3b8', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", margin: 0, lineHeight: 1.45 }}>
+          {language === 'tr' ? cfg.descTr : cfg.descEn}
+        </p>
+      </div>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={accentColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7, marginLeft: 12 }}>
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </button>
+  );
+}
+
 function TabPanel({ tabKey, accentColor }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const data = t(`psychology.sections.${tabKey}`) || {};
   const items = data.items || [];
+  const cta = TAB_CTA[tabKey];
 
   return (
     <div>
@@ -224,6 +328,9 @@ function TabPanel({ tabKey, accentColor }) {
           <AccordionItem key={item.id} item={item} accentColor={accentColor} />
         ))}
       </div>
+
+      {/* Cross-page CTA (only for tabs with a relevant Atlas overlay) */}
+      {cta && <TabCTA cfg={cta} accentColor={accentColor} language={language} />}
     </div>
   );
 }
