@@ -23,21 +23,17 @@ const KAWTHAR_VERSES = [
 // 'ot' = ara farklı ses (deviation — konu değişimi sinyali)
 // 'mq' = maqta' kapanış bölümü (ayet 57-62)
 
-// Deviation notları: 28 ve 30. ayetlerdeki ses sapması konu değişimiyle örtüşür
+// Deviation notu: 28. ayetteki ses sapması konu değişimiyle örtüşür
 const NAJM_DEVIATION_NOTES = {
   27: {
     tr: 'Sapma noktası: 28. ayette konu "putların isimleri"nden "bilgisiz zanlar"a geçer — ses değişimi bu tematik kırılmayı işaret eder.',
     en: 'Deviation point: Verse 28 shifts from "naming the idols" to "baseless conjecture" — the sound break signals this thematic turn.',
   },
-  29: {
-    tr: 'Sapma noktası: 30. ayette "dünya hayatına razı olanlar" ile "Allah\'ın ilmi" karşılaştırması başlar — ses kırılması bu zıtlığı vurgular.',
-    en: 'Deviation point: Verse 30 introduces the contrast between "those content with worldly life" and "Allah\'s knowledge" — the sound break underscores this opposition.',
-  },
 };
 const NAJM_FASILA = [
   'aa','aa','aa','aa','aa','aa','aa','aa','aa','aa', // 1-10
   'aa','aa','aa','aa','aa','aa','aa','aa','aa','aa', // 11-20
-  'aa','aa','aa','aa','aa','aa','aa','ot','aa','ot', // 21-30
+  'aa','aa','aa','aa','aa','aa','aa','ot','aa','aa', // 21-30
   'aa','aa','aa','aa','aa','aa','aa','aa','aa','aa', // 31-40
   'aa','aa','aa','aa','aa','aa','aa','aa','aa','aa', // 41-50
   'aa','aa','aa','aa','aa','aa','mq','mq','mq','mq', // 51-60
@@ -48,7 +44,7 @@ const NAJM_FASILA = [
 const NAJM_WORDS = [
   'هَوَىٰ','غَوَىٰ','الْهَوَىٰ','يُوحَىٰ','الْقُوَىٰ','فَاسْتَوَىٰ','الْأَعْلَىٰ','فَتَدَلَّىٰ','أَدْنَىٰ','أَوْحَىٰ',
   'رَأَىٰ','يَرَىٰ','أُخْرَىٰ','الْمُنتَهَىٰ','الْمَأْوَىٰ','يَغْشَىٰ','طَغَىٰ','الْكُبْرَىٰ','الْعُزَّىٰ','الْأُخْرَىٰ',
-  'الْأُنثَىٰ','ضِيزَىٰ','الْهُدَىٰ','تَمَنَّىٰ','الْأُولَىٰ','وَيَرْضَىٰ','الْأُنثَىٰ','شَيْئًا','تَوَلَّىٰ','بِالْمُهْتَدِينَ',
+  'الْأُنثَىٰ','ضِيزَىٰ','الْهُدَىٰ','تَمَنَّىٰ','الْأُولَىٰ','وَيَرْضَىٰ','الْأُنثَىٰ','شَيْئًا','الدُّنْيَا','اهْتَدَىٰ',
   'بِالْحُسْنَىٰ','اتَّقَىٰ','تَوَلَّىٰ','وَأَكْدَىٰ','يَرَىٰ','مُوسَىٰ','وَفَّىٰ','أُخْرَىٰ','سَعَىٰ','يُرَىٰ',
   'الْأَوْفَىٰ','الْمُنتَهَىٰ','وَأَبْكَىٰ','وَأَحْيَا','وَالْأُنثَىٰ','تُمْنَىٰ','الْأُخْرَىٰ','وَأَقْنَىٰ','الشِّعْرَىٰ','الْأُولَىٰ',
   'أَبْقَىٰ','وَأَطْغَىٰ','أَهْوَىٰ','غَشَّىٰ','تَتَمَارَىٰ','الْأُولَىٰ','الْآزِفَةُ','كَاشِفَةٌ','تَعْجَبُونَ','تَبْكُونَ',
@@ -817,7 +813,7 @@ export default function ImpossibleRhythm() {
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '20px', marginBottom: '14px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
             <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: '#d4a574' }} />
-            <span className="text-silver text-sm font-body">'-â' {language === 'tr' ? 'sesi (54 ayet)' : 'sound (54 verses)'}</span>
+            <span className="text-silver text-sm font-body">'-â' {language === 'tr' ? 'sesi (55 ayet)' : 'sound (55 verses)'}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
             <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: '#7c3f58' }} />
@@ -825,7 +821,7 @@ export default function ImpossibleRhythm() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
             <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: 'rgba(148,163,184,0.12)', border: '1px solid rgba(148,163,184,0.25)' }} />
-            <span className="text-silver text-sm font-body">{language === 'tr' ? 'Farklı ses (2 ayet)' : 'Other sound (2 verses)'}</span>
+            <span className="text-silver text-sm font-body">{language === 'tr' ? 'Farklı ses (1 ayet)' : 'Other sound (1 verse)'}</span>
           </div>
         </div>
 
@@ -833,8 +829,8 @@ export default function ImpossibleRhythm() {
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
           <p className="text-gold font-body text-sm">
             {language === 'tr'
-              ? <>62 ayetin <strong>54'ü</strong> (~%87) aynı '-â' sesiyle bitiyor.</>
-              : <>54 of 62 verses (~87%) end with the same '-â' sound.</>}
+              ? <>62 ayetin <strong>55'i</strong> (~%89) aynı '-â' sesiyle bitiyor.</>
+              : <>55 of 62 verses (~89%) end with the same '-â' sound.</>}
           </p>
           <div className="relative" style={{ flexShrink: 0, marginTop: '1px' }}>
             <button
