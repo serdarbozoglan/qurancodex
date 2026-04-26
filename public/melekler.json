@@ -13,8 +13,8 @@
       "allSurahs": ["Bakara 2:97", "Bakara 2:98", "Tahrim 66:4"],
       "summaryTr": "Vahyin taşıyıcısı. Kur'an'da üç kez ismiyle anılır: Bakara 2:97-98 ve Tahrim 66:4. Hz. Meryem'e müjdeyi getiren, Bedir'de meleklerle birlikte Hz. Peygamber'e yardım eden elçi. Kur'an'da ayrıca Ruhul Kudüs, Ruhul Emin ve er-Ruh isimleriyle geçtiği tefsir görüşüdür.",
       "summaryEn": "The bearer of revelation. Named three times in the Quran: Al-Baqarah 2:97-98 and At-Tahrim 66:4. Brought the annunciation to Mary, aided the Prophet at Badr. Also referred to as Ruh al-Qudus, Ruh al-Amin, and ar-Ruh — though these identifications are tafsir conclusions.",
-      "infoTr": "Cebrail'in '600 kanadı vardır', 'nurdan yaratılmıştır', 'Sidretül Müntehaya kadar çıkabilir' gibi özellikleri hadis bilgisidir. Kur'an Cebrail'in fiziksel özelliklerini vermez. Ruhul Kudüs ve Ruhul Emin'in Cebrail olduğu tefsir görüşüdür — Kur'an bu isimleri bizzat özdeşleştirmez.",
-      "infoEn": "Descriptions such as '600 wings,' 'created from light,' and 'can ascend to Sidrat al-Muntaha' come from hadith. The Quran gives no physical description of Jibril. The identification of Ruh al-Qudus and Ruh al-Amin with Jibril is a tafsir conclusion — the Quran does not make this equation explicitly.",
+      "infoTr": "Cebrail'in '600 kanadı vardır' (Buhârî, Bed'ü'l-Halk 7 — sahih), 'nurdan yaratılmıştır' (Müslim, Zühd 60 — sahih, Aişe rivayeti), 'Sidretül Müntehaya kadar çıkabilir' gibi özellikleri hadis bilgisidir. Kur'an Cebrail'in fiziksel özelliklerini vermez. Ruhul Kudüs ve Ruhul Emin'in Cebrail olduğu tefsir görüşüdür — Kur'an bu isimleri bizzat özdeşleştirmez.",
+      "infoEn": "Descriptions such as '600 wings' (Bukhari, Bad' al-Khalq 7 — sahih), 'created from light' (Muslim, Zuhd 60 — sahih, narrated by Aisha), and 'can ascend to Sidrat al-Muntaha' come from hadith. The Quran gives no physical description of Jibril. The identification of Ruh al-Qudus and Ruh al-Amin with Jibril is a tafsir conclusion — the Quran does not make this equation explicitly.",
       "keyVerse": {
         "arabic": "قُلْ مَن كَانَ عَدُوًّا لِّجِبْرِيلَ فَإِنَّهُ نَزَّلَهُ عَلَىٰ قَلْبِكَ بِإِذْنِ اللَّهِ",
         "turkish": "De ki: Kim Cebrail'e düşman olursa — onu senin kalbine Allah'ın izniyle indiren odur.",
@@ -166,15 +166,15 @@
       "indirectMentions": 3,
       "mainSurah": "İnfitar 82:11",
       "allSurahs": ["İnfitar 82:11", "Kaf 50:17-18"],
-      "summaryTr": "İnfitar 82:11'de 'kiramen katibin' — değerli, yazıcı — iki sıfat bir arada. Kaf 50:17-18'de ise 'iki alıcı, sağda ve solda oturmuş' şeklinde konumları belirtilir. Her söz kayıt altındadır.",
-      "summaryEn": "Kiraman Katibin — noble, recording — two attributes together in Al-Infitar 82:11. In Qaf 50:17-18 their positions are given: right and left. Every word is recorded.",
+      "summaryTr": "İnfitar 82:10-11 üç sıfat verir: hâfizîn (koruyanlar), kirâm (değerli) ve kâtibîn (yazıcılar). Yani aynı anda iki görev: koruma + kayıt. Kaf 50:17-18 konumlarını belirtir — sağda ve solda. Her söz kayıt altındadır.",
+      "summaryEn": "Al-Infitar 82:10-11 gives three attributes: hāfizīn (guardians), kirām (noble) and kātibīn (recording). Two simultaneous duties: guarding + recording. Qaf 50:17-18 places them on the right and left. Every word is recorded.",
       "infoTr": "Münker ve Nekir isimleri Kur'an'da geçmiyor. Kabir sorgusu hadis bilgisidir. Kiramen Katibin ile Münker-Nekir farklı meleklerdir ve ikincisi Kur'an'da yer almaz.",
       "infoEn": "The names Munkar and Nakir do not appear in the Quran. The questioning of the grave is from hadith. Kiraman Katibin and Munkar-Nakir are different angels — the latter does not appear in the Quran.",
       "keyVerse": {
         "arabic": "وَإِنَّ عَلَيْكُمْ لَحَافِظِينَ كِرَامًا كَاتِبِينَ",
-        "turkish": "Sizi koruyup gözetenler vardır — değerli yazıcılar.",
-        "english": "And indeed, there are over you those who keep watch — noble and recording.",
-        "ref": "İnfitar 82:11"
+        "turkish": "Üzerinizde gerçekten koruyucular vardır — değerli yazıcılar.",
+        "english": "And indeed, [appointed] over you are guardians — noble and recording.",
+        "ref": "İnfitar 82:10-11"
       },
       "alternateNames": [],
       "isHapax": false,
@@ -298,7 +298,9 @@
       "keyVerse": null,
       "alternateNames": [],
       "isHapax": false,
-      "hasHadisInfo": true
+      "hasHadisInfo": true,
+      "hadithGrade": "tartismali",
+      "hadithMainSource": "İsim olarak 'Azrail' Kur'an'a ve sahih hadis külliyatına geçmez; tefsir ve kelâm geleneğinde yer alır."
     },
     {
       "id": "israfil",
@@ -318,7 +320,9 @@
       "keyVerse": null,
       "alternateNames": [],
       "isHapax": false,
-      "hasHadisInfo": true
+      "hasHadisInfo": true,
+      "hadithGrade": "hasen",
+      "hadithMainSource": "Tirmizî, Sıfatü'l-Kıyâme; İbn Mâce, Zühd 32 — sûr üfleyen meleğin İsrafil olduğu rivayetleri."
     },
     {
       "id": "munker-nekir",
@@ -338,7 +342,9 @@
       "keyVerse": null,
       "alternateNames": [],
       "isHapax": false,
-      "hasHadisInfo": true
+      "hasHadisInfo": true,
+      "hadithGrade": "hasen",
+      "hadithMainSource": "Tirmizî, Cenâiz 70; Ebû Dâvûd, Sünnet 27 — kabir sorgusu hadisleri (hasen-sahih)."
     },
     {
       "id": "ridvan",
@@ -351,14 +357,21 @@
       "indirectMentions": 0,
       "mainSurah": null,
       "allSurahs": [],
-      "summaryTr": "Rıdvan ismi Kur'an'da geçmez. Kur'an cennetin bekçilerinden bahseder (Zümer 39:73) ama isim vermez. 'Rıdvan' kelimesi Kur'an'da 'Allah'ın rızası' anlamında çok kez geçer — ama bu melek ismi değil, kavram adıdır.",
-      "summaryEn": "The name Ridwan does not appear in the Quran. The Quran mentions keepers of Paradise (Az-Zumar 39:73) but gives no name. 'Ridwan' as a word appears frequently in the Quran meaning 'God's pleasure' — not as an angel's name.",
-      "infoTr": "Kaynak: Hadis geleneği. Kur'an'da karşılığı: İsimsiz cennet bekçileri (Zümer 39:73, Zümer 39:20).",
-      "infoEn": "Source: Hadith tradition. Quranic equivalent: unnamed keepers of Paradise (Az-Zumar 39:73).",
-      "keyVerse": null,
+      "summaryTr": "Rıdvan ismi Kur'an'da geçmez. Kur'an cennetin bekçilerinden bahseder (Zümer 39:73) ama isim vermez. 'Rıdvân' kelimesi Kur'an'da 13 kez 'Allah'ın rızası' anlamında geçer — melek ismi değil, kavram adıdır. En meşhur kullanımı: Beyatü'r-Rıdvân (Fetih 48:18) — Hudeybiye'de ağaç altında biat eden 1.400 sahabeye Allah'ın rızasının bildirildiği ayet.",
+      "summaryEn": "The name Ridwan does not appear in the Quran as an angel's name. The Quran mentions unnamed keepers of Paradise (Az-Zumar 39:73). The word 'ridwān' appears 13 times in the Quran meaning 'God's pleasure' — a concept, not a name. Its most famous usage: Bay'at al-Ridwan (Al-Fath 48:18) — the verse in which Allah's pleasure is declared upon the 1,400 companions who pledged allegiance under the tree at Hudaybiyya.",
+      "infoTr": "Kaynak: Hadis geleneği. Kur'an'da karşılığı: İsimsiz cennet bekçileri (Zümer 39:73, Zümer 39:20). 'Rıdvân' kavramının Kur'ânî kullanımı melek ismiyle karıştırılmamalı.",
+      "infoEn": "Source: Hadith tradition. Quranic equivalent: unnamed keepers of Paradise (Az-Zumar 39:73). The Quranic concept 'ridwān' (divine pleasure) should not be conflated with the angel name.",
+      "keyVerse": {
+        "arabic": "لَّقَدْ رَضِيَ اللَّهُ عَنِ الْمُؤْمِنِينَ إِذْ يُبَايِعُونَكَ تَحْتَ الشَّجَرَةِ",
+        "turkish": "Andolsun, ağaç altında sana biat eden mü'minlerden Allah razı olmuştur.",
+        "english": "Certainly Allah was pleased with the believers when they pledged allegiance to you under the tree.",
+        "ref": "Fetih 48:18 — Beyatü'r-Rıdvân"
+      },
       "alternateNames": [],
       "isHapax": false,
-      "hasHadisInfo": true
+      "hasHadisInfo": true,
+      "hadithGrade": null,
+      "hadithMainSource": null
     }
   ],
   "gorevler": [
@@ -611,7 +624,11 @@
     ],
     "akademik": [
       { "id": "tdv-cebrail", "isim": "TDV İslam Ansiklopedisi", "eser": "\"Cebrail\" maddesi", "notTr": "", "notEn": "" },
-      { "id": "tdv-melek", "isim": "TDV İslam Ansiklopedisi", "eser": "\"Melek\" maddesi", "notTr": "", "notEn": "" },
+      { "id": "tdv-melek", "isim": "TDV İslam Ansiklopedisi", "eser": "\"Melek\" maddesi (Bekir Topaloğlu)", "notTr": "", "notEn": "" },
+      { "id": "tdv-harut-marut", "isim": "TDV İslam Ansiklopedisi", "eser": "\"Hârût ve Mârût\" maddesi", "notTr": "Kimlik tartışması", "notEn": "Identity debate" },
+      { "id": "burge-2012", "isim": "Stephen Burge", "eser": "Angels in Islam (Routledge, 2012)", "notTr": "Modern akademik İslamoloji'nin meleklerle ilgili baş eseri", "notEn": "Standard reference for angelology in modern Islamic studies" },
+      { "id": "schimmel-1975", "isim": "Annemarie Schimmel", "eser": "Mystical Dimensions of Islam (UNC Press, 1975)", "notTr": "Tasavvufî gelenekte melek", "notEn": "Angels in the Sufi tradition" },
+      { "id": "nursi-sozler", "isim": "Said Nursi", "eser": "Sözler — Yirmi Dokuzuncu Söz", "notTr": "Melekler ve ruhanîler bahsi (en kapsamlı Risâle bölümü)", "notEn": "Most comprehensive Risale-i Nur treatment of angels and spirit beings" },
       { "id": "corpus-quran", "isim": "Corpus Quran", "eser": "corpus.quran.com", "notTr": "Frekans verileri", "notEn": "Frequency data" }
     ],
     "dijital": [
