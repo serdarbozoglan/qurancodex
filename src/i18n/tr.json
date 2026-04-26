@@ -97,12 +97,114 @@
   "soundArchitecture": {
     "badge": "Ses Mimarisi",
     "title": "Sesler Tesadüf Değil",
-    "intro": "Kur'an'da azap ve cehennem anlatan ayetleri yüksek sesle okuyun. Sert, patlayıcı ünsüzler duyarsınız: ق ك ط ص. Şimdi rahmet ve cennet ayetlerini okuyun. Yumuşak, akıcı sesler duyarsınız: م ن ل ر. Bu kontrast tesadüf değil — dilbilim bu olguya 'ses sembolizmi' (phonetic symbolism) adını veriyor.",
+    "intro": "Kur'an'da azap ve cehennem anlatan ayetleri yüksek sesle okuyun. Yoğun, patlayıcı ünsüzler duyarsınız: ق ك ط — boğazda, dilde, damakta gerilim. Şimdi rahmet ve cennet ayetlerini okuyun. Akıcı sesler duyarsınız: م ن (nazal), ل ر (likit). Nefes yumuşar. Bu kontrast tesadüf değil — modern dilbilim buna 'ses sembolizmi' der; klasik İslamî gelenek ise bunu yüzyıllar önce tafhîm ve tarqîq adıyla kodlamıştı.",
     "phonetics": {
-      "title": "Ses Sembolizmi",
-      "description": "Dilbilimciler ve fonetik araştırmacılar, patlayıcı ünsüzlerin (ق ك ط) fizyolojik gerginlik yarattığını, nazal ve sürtünmeli seslerin (م ن ل ر) ise rahatlamayı kolaylaştırdığını gözlemlemiştir. Bu olgu 'ses sembolizmi' olarak bilinir ve pek çok dilde geçerlidir. Kur'an'da bu örüntü, sözün konusuyla sesin dokusu arasındaki sistematik uyumu gösterir."
+      "title": "Ses Sembolizmi — İki Gelenek, Tek Olgu",
+      "description": "Modern fonetik (Sapir 1929; Köhler'in bouba/kiki etkisi, 1929) seslerin kendi başlarına anlam taşıdığını gösterir: patlayıcı ünsüzler (ق ك ط) gerilim, nazaller (م ن) ve likitler (ل ر) gevşeme çağrıştırır. Klasik İslamî tecvid bilimi ise aynı olguyu çok daha önce kategorilere ayırmıştı — kalın/ince (tafhīm/tarqīq), sert/yumuşak (şiddet/rahâvet), titrek/durağan (qalqala). Kur'an'da bu örüntü, sözün konusuyla sesin dokusu arasındaki sistematik uyumu işaret eder."
     },
-    "closing": "Kur'an, anlamdan ÖNCE sesle iletişim kuruyor."
+    "comparison": {
+      "title": "Ses Dokusu Karşılaştırması",
+      "subtitle": "İki sûrenin ses imzası — yan yana",
+      "punishment": {
+        "label": "Azap & Uyarı",
+        "sura": "El-Kāria 101:1-3",
+        "arabic": "الْقَارِعَةُ ۝ مَا الْقَارِعَةُ ۝ وَمَا أَدْرَاكَ مَا الْقَارِعَةُ",
+        "dominant": "ق ر ع",
+        "feature": "Sesin kendisi 'çarpan'ı taklit eder",
+        "noteTr": "Üç ayette ق sesi her seferinde geri döner — boğazda tıkanan, sonra patlayan harf. 'Kāria' kelimesinin anlamı zaten 'çarpan, vuran' — ses anlamın kendisi olur."
+      },
+      "mercy": {
+        "label": "Rahmet & Nimet",
+        "sura": "Er-Rahmân 55:1-4",
+        "arabic": "الرَّحْمَٰنُ ۝ عَلَّمَ الْقُرْآنَ ۝ خَلَقَ الْإِنسَانَ ۝ عَلَّمَهُ الْبَيَانَ",
+        "dominant": "ر ل م ن",
+        "feature": "Akıcı, dalgalı, açık sesler — Kur'an'ın 'gelini' (arûs)",
+        "noteTr": "Klasik gelenek bu sûreyi 'arûsü'l-Kur'an' (Kur'an'ın gelini) olarak adlandırır. Sebep: sesin estetiği. ر ل م ن — dört likit/nazal süreklilik içinde yankılanır."
+      },
+      "methodologyTr": "Bu karşılaştırma sezgisel bir gösterimdir — kesin bir fonetik istatistik değil, ses dokusunun mesajla nasıl uyumlu çalıştığını işitilebilir kılan bir örnek."
+    },
+    "tajwid": {
+      "title": "Klasik Tecvid: İslamî Geleneğin Ses Sınıflandırması",
+      "subtitle": "Müslümanlar bu kategorileri 1.400 yıldır biliyor — Batı dilbilimi 20. yüzyılda buldu",
+      "categories": [
+        {
+          "name": "Tafhīm — Kalın Sesler",
+          "letters": "خ ص ض ط ظ غ ق",
+          "mnemonic": "خُصَّ ضَغْطٍ قِظ — 'hus-sa dağtin kız'",
+          "trait": "Damağa basınç, ağız boşluğunda yükselme (istiʿlâ)",
+          "function": "Ağırlık, otorite, azamet — celâl sıfatlarını taşır"
+        },
+        {
+          "name": "Tarqīq — İnce Sesler",
+          "letters": "ل م ن ر و ي ه ف ث س ز ...",
+          "mnemonic": "Geri kalan tüm harfler",
+          "trait": "Damak rahat, ağız önünde (istifâl)",
+          "function": "Hafiflik, akıcılık, yakınlık — cemâl sıfatlarını taşır"
+        },
+        {
+          "name": "Qalqala — Titrek Sesler",
+          "letters": "ق ط ب ج د",
+          "mnemonic": "قُطْبُ جَدٍّ — 'kutb-i cedd'",
+          "trait": "Sükûn aldıklarında küçük bir titreşimle 'patlar'",
+          "function": "Vurgu, dikkat çekme — sözün altını çizer"
+        }
+      ],
+      "noteTr": "İbn Sînâ Esbâbu Hudûsi'l-Hurûf risalesinde her sesin fizyolojisini, modern fonetik biliminden 900 yıl önce tarif etti. Tecvid ilmi bunu Kur'an okuma pratiğine indirgedi."
+    },
+    "discovery": {
+      "title": "Tahmin Et: Hangi Ses, Hangi Anlam?",
+      "subtitle": "Üç ayet — her birinin sesi konusunu söylüyor. Sen seçer misin?",
+      "instructionTr": "Önce dinle ya da oku. Sonra 'Azap mı, Rahmet mi?' tahmin et.",
+      "items": [
+        {
+          "id": "q1",
+          "audioKey": "069001",
+          "arabic": "الْحَاقَّةُ ۝ مَا الْحَاقَّةُ",
+          "verseRef": "Hâkka 69:1-2",
+          "answer": "punishment",
+          "revealTr": "Azap. İki ayet boyunca الْحَاقَّةُ kelimesi tekrar tekrar — her ق şedde ile çift telaffuz: 'ḥāq-qa'. Sesin kendisi vurmayı, yere çarpmayı taklit eder. 'Hâkka' = 'gerçekleşen kıyamet'.",
+          "dominantLetter": "ق"
+        },
+        {
+          "id": "q2",
+          "audioKey": "076005",
+          "arabic": "إِنَّ الْأَبْرَارَ يَشْرَبُونَ مِن كَأْسٍ كَانَ مِزَاجُهَا كَافُورًا",
+          "verseRef": "İnsân 76:5",
+          "answer": "mercy",
+          "revealTr": "Rahmet. ن ل ر م — likitler ve nazaller akar. Cennet içeceklerinin tanımı.",
+          "dominantLetter": "ر"
+        },
+        {
+          "id": "q3",
+          "audioKey": "074026",
+          "arabic": "سَأُصْلِيهِ سَقَرَ",
+          "verseRef": "Müddessir 74:26",
+          "answer": "punishment",
+          "revealTr": "Azap. ص ق — kısa bir cümlede iki emphatik patlayıcı. 'Sekar' = cehennem isimlerinden biri.",
+          "dominantLetter": "ق"
+        }
+      ],
+      "labels": {
+        "punishment": "Azap / Uyarı",
+        "mercy": "Rahmet / Huzur",
+        "correct": "Doğru",
+        "wrong": "Yanlış",
+        "scoreLabel": "Skorun",
+        "resetLabel": "Yeniden Başlat",
+        "listenLabel": "Dinle",
+        "stopLabel": "Durdur",
+        "submitLabel": "Cevabı Gör",
+        "completeLabel": "Tamamlandı"
+      }
+    },
+    "classicalSource": {
+      "title": "Klasik Tanıklık",
+      "authorTr": "Ebû Bekir el-Bâkıllânî (ö. 1013)",
+      "workTr": "İ'câzü'l-Kur'an",
+      "quoteTr": "\"Kur'an'ın nazmı, Arapların kelâmının ne şiirine ne hutbesine ne de seclerine benzer; her birinden ayrı, kendine özgü bir nizamı vardır. Sesin diziminde bile bir mucize taşır.\"",
+      "noteTr": "Bâkıllânî 11. yüzyılda Kur'an'ın i'câzını (eşsizliğini) ses-mâna uyumuna dayandıran ilk sistematik çalışmayı yazdı. Cürcânî bunu 'nazm teorisi' ile genişletti."
+    },
+    "closing": "Kur'an'da ses ve anlam tek bir dokunun iki yüzüdür — biri diğerini taşır."
   },
   "hiddenSymmetry": {
     "badge": "Gizli Simetri",

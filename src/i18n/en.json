@@ -97,12 +97,115 @@
   "soundArchitecture": {
     "badge": "Sound Architecture",
     "title": "These Sounds Are No Coincidence",
-    "intro": "Read the verses about punishment aloud. You will hear harsh, explosive consonants: ق ك ط ص. Now read the verses of mercy and paradise. You will hear soft, flowing sounds: م ن ل ر. This contrast is not accidental — linguistics calls this phenomenon 'phonetic symbolism.'",
+    "intro": "Read the verses of punishment aloud. You hear dense, plosive consonants: ق ك ط — tension in throat, tongue, palate. Now read the verses of mercy. You hear flowing sounds: م ن (nasals), ل ر (liquids). The breath softens. This contrast is not accidental — modern linguistics calls it 'phonetic symbolism'; the classical Islamic tradition had codified the same phenomenon centuries earlier under the names tafhīm and tarqīq.",
     "phonetics": {
-      "title": "Phonetic Symbolism",
-      "description": "Linguists and phoneticians have observed that plosive consonants (ق ك ط) create physiological tension, while nasal and fricative sounds (م ن ل ر) facilitate relaxation. This phenomenon, known as phonetic symbolism, is found across many languages. In the Quran, the pattern shows a systematic correspondence between a verse's subject and the texture of its sounds."
+      "title": "Phonetic Symbolism — Two Traditions, One Phenomenon",
+      "description": "Modern phonetics (Sapir 1929; Köhler's bouba/kiki effect, 1929) shows that sounds carry meaning in themselves: plosives (ق ك ط) evoke tension; nasals (م ن) and liquids (ل ر) evoke release. The classical Islamic science of tajwid had already classified the same phenomenon — thick/thin (tafhīm/tarqīq), hard/soft (shidda/rakhāwa), echoing/static (qalqala). In the Quran, this pattern reveals a systematic correspondence between subject matter and sonic texture.",
+      "noteEn": "This is not a numerical claim — it is a structural observation that classical Muslim grammarians and modern phoneticians independently arrived at."
     },
-    "closing": "The Quran communicates through sound BEFORE meaning."
+    "comparison": {
+      "title": "Sonic Texture — Side by Side",
+      "subtitle": "Two surahs, two sound signatures",
+      "punishment": {
+        "label": "Punishment & Warning",
+        "sura": "Al-Qāriʿa 101:1-3",
+        "arabic": "الْقَارِعَةُ ۝ مَا الْقَارِعَةُ ۝ وَمَا أَدْرَاكَ مَا الْقَارِعَةُ",
+        "dominant": "ق ر ع",
+        "feature": "The sound itself enacts 'the striking'",
+        "noteEn": "ق returns in each of the three verses — clogged in the throat, then bursting. 'Qāriʿa' literally means 'the striker' — sound becomes meaning."
+      },
+      "mercy": {
+        "label": "Mercy & Blessing",
+        "sura": "Ar-Rahmān 55:1-4",
+        "arabic": "الرَّحْمَٰنُ ۝ عَلَّمَ الْقُرْآنَ ۝ خَلَقَ الْإِنسَانَ ۝ عَلَّمَهُ الْبَيَانَ",
+        "dominant": "ر ل م ن",
+        "feature": "Flowing, open sounds — the 'bride of the Quran'",
+        "noteEn": "Classical tradition calls this surah 'arūs al-Qurʾān' (the bride of the Quran) for its sonic beauty. Four liquids/nasals echo continuously."
+      },
+      "methodologyEn": "This comparison is intuitive, not statistical — an audible illustration of how sound texture aligns with message, not a precise count."
+    },
+    "tajwid": {
+      "title": "Classical Tajwid: The Islamic Sound Taxonomy",
+      "subtitle": "Muslims have known these categories for 1,400 years — Western linguistics rediscovered them in the 20th century",
+      "categories": [
+        {
+          "name": "Tafhīm — Heavy Sounds",
+          "letters": "خ ص ض ط ظ غ ق",
+          "mnemonic": "خُصَّ ضَغْطٍ قِظ — 'khussa ḍaghṭin qiẓ'",
+          "trait": "Pressure on palate, tongue raised (istiʿlāʾ)",
+          "function": "Weight, authority, majesty — carries jalāl"
+        },
+        {
+          "name": "Tarqīq — Light Sounds",
+          "letters": "ل م ن ر و ي ه ف ث س ز ...",
+          "mnemonic": "All remaining letters",
+          "trait": "Palate relaxed, articulation forward (istifāl)",
+          "function": "Lightness, fluidity, intimacy — carries jamāl"
+        },
+        {
+          "name": "Qalqala — Echoing Sounds",
+          "letters": "ق ط ب ج د",
+          "mnemonic": "قُطْبُ جَدٍّ — 'qutb-i jadd'",
+          "trait": "When silent, they release a small bounce",
+          "function": "Emphasis, attention — underlines the word"
+        }
+      ],
+      "noteEn": "Ibn Sina described the physiology of every Arabic sound in 'Asbāb Ḥudūth al-Ḥurūf' — 900 years before the modern phonetic academy. Tajwid then internalized this knowledge into the practice of Quranic recitation."
+    },
+    "discovery": {
+      "title": "Guess: Which Sound, Which Meaning?",
+      "subtitle": "Three verses — each verse's sound tells you its theme. Can you guess?",
+      "instructionEn": "Listen or read first. Then guess: punishment or mercy?",
+      "items": [
+        {
+          "id": "q1",
+          "audioKey": "069001",
+          "arabic": "الْحَاقَّةُ ۝ مَا الْحَاقَّةُ",
+          "verseRef": "Al-Ḥāqqa 69:1-2",
+          "answer": "punishment",
+          "revealEn": "Punishment. الْحَاقَّةُ keeps returning across the two verses — each ق is geminated by shadda ('ḥāq-qa'). The sound enacts striking, slamming. 'Ḥāqqa' = 'the inevitable reality.'",
+          "dominantLetter": "ق"
+        },
+        {
+          "id": "q2",
+          "audioKey": "076005",
+          "arabic": "إِنَّ الْأَبْرَارَ يَشْرَبُونَ مِن كَأْسٍ كَانَ مِزَاجُهَا كَافُورًا",
+          "verseRef": "Al-Insān 76:5",
+          "answer": "mercy",
+          "revealEn": "Mercy. ن ل ر م — liquids and nasals flow. Description of paradise drinks.",
+          "dominantLetter": "ر"
+        },
+        {
+          "id": "q3",
+          "audioKey": "074026",
+          "arabic": "سَأُصْلِيهِ سَقَرَ",
+          "verseRef": "Al-Muddaththir 74:26",
+          "answer": "punishment",
+          "revealEn": "Punishment. ص ق — two emphatic plosives in a single short phrase. 'Saqar' = a name of hellfire.",
+          "dominantLetter": "ق"
+        }
+      ],
+      "labels": {
+        "punishment": "Punishment / Warning",
+        "mercy": "Mercy / Peace",
+        "correct": "Correct",
+        "wrong": "Wrong",
+        "scoreLabel": "Your Score",
+        "resetLabel": "Reset",
+        "listenLabel": "Listen",
+        "stopLabel": "Stop",
+        "submitLabel": "Reveal",
+        "completeLabel": "Complete"
+      }
+    },
+    "classicalSource": {
+      "title": "Classical Witness",
+      "authorEn": "Abū Bakr al-Bāqillānī (d. 1013)",
+      "workEn": "Iʿjāz al-Qurʾān",
+      "quoteEn": "\"The composition of the Quran resembles neither the poetry, the oratory, nor the rhymed prose of the Arabs. It has its own order, distinct from each. Even in the arrangement of its sounds it carries a miracle.\"",
+      "noteEn": "In the 11th century, al-Bāqillānī wrote the first systematic study grounding Quranic iʿjāz (inimitability) in the harmony of sound and meaning. Al-Jurjānī later expanded this with his 'theory of nazm.'"
+    },
+    "closing": "In the Quran, sound and meaning are two faces of one fabric — each carries the other."
   },
   "hiddenSymmetry": {
     "badge": "Hidden Symmetry",
