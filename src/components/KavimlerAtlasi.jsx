@@ -227,7 +227,7 @@ function HeroSection({ meta, language, isMobile }) {
     { value: `~${meta.firavunVerses}`, labelTr: 'Ayet Firavun kavmine', labelEn: 'Verses on Pharaoh', color: '#1abc9c' },
     { value: meta.destructionTypes, labelTr: 'Farklı helak biçimi', labelEn: 'Destruction types', color: '#a78bfa' },
     { value: meta.archaeologicalMatches, labelTr: 'Arkeolojik örtüşme', labelEn: 'Archaeological matches', color: '#e67e22' },
-    { value: meta.structuralPattern, labelTr: 'Yapısal şablon', labelEn: 'Structural pattern', color: '#2ecc71' },
+    { value: meta.structuralPattern, labelTr: 'Universal şablon (7 evre)', labelEn: 'Universal pattern (7 stages)', color: '#2ecc71' },
   ];
 
   return (
@@ -717,10 +717,10 @@ const ARCH_CARDS_TR = [
     location: 'Ürdün, Ölü Deniz çevresi',
     status: 'debated',
     statusLabel: 'TARTIŞMALI',
-    body: 'Tall el-Hammam kazılarında MÖ 1650\'ye tarihlenen ani yıkım tabakası bulundu. Bazı araştırmacılar kozmik etki (göktaşı patlaması) teorisi öne sürdü. Tuz ve kükürt kalıntıları gözlemlendi.',
+    body: 'Tall el-Hammam kazılarında MÖ 1650\'ye tarihlenen ani yıkım tabakası bulundu. Steven Collins (kazı yöneticisi) ve ekibi Scientific Reports (2021) makalesinde "kozmik patlama" (cosmic airburst) hipotezi önerdi. Tuz ve kükürt kalıntıları gözlemlendi.',
     quranNote: '"Şehrin altını üstüne getirdik, üzerine taş yağdırdık." — Hud 11:82',
     extra: null,
-    info: 'Sodom ve Gomorra isimleri Kur\'an\'da geçmez — İncil terminolojisidir. Kur\'an bu kavmi "Lût\'un kavmi" olarak anar. Tall el-Hammam özdeşleştirmesi tartışmalıdır.',
+    info: 'Sodom ve Gomorra isimleri Kur\'an\'da geçmez — İncil terminolojisidir. Kur\'an bu kavmi "Lût\'un kavmi" olarak anar; Necm 53:53\'te şehir için "Mu\'tefike" (altüst edilen) terimi kullanılır. Tall el-Hammam → Sodom özdeşleştirmesi mainstream İncil arkeolojisinde reddedilir; tarihsel olarak Sodom\'un farklı bir konumda olduğu kabul edilir. 2021 Scientific Reports "kozmik patlama" hipotezi 2023 sonrasında ciddi şekilde sorgulandı (Pelegrina vd., Quaternary Research, 2023): yorumun metodolojik kusurları, görüntü işleme şüpheleri ve veri yorumlama sorunları belgelendi.',
   },
   {
     nationId: 'ad',
@@ -775,10 +775,10 @@ const ARCH_CARDS_EN = [
     location: 'Jordan, around the Dead Sea',
     status: 'debated',
     statusLabel: 'DEBATED',
-    body: "Tall el-Hammam excavations found a sudden destruction layer dated to ~1650 BCE. Some researchers proposed a cosmic impact (airburst) theory. Salt and sulphur residues were observed.",
+    body: "Tall el-Hammam excavations found a sudden destruction layer dated to ~1650 BCE. Steven Collins (excavation lead) and his team proposed a cosmic airburst hypothesis in Scientific Reports (2021). Salt and sulphur residues were observed.",
     quranNote: '"We turned its uppermost part downward and rained upon it stones of baked clay." — Hud 11:82',
     extra: null,
-    info: 'The names Sodom and Gomorrah do not appear in the Quran — they are Biblical terms. The Quran calls this people "the people of Lot". The Tall el-Hammam identification is disputed.',
+    info: "The names Sodom and Gomorrah do not appear in the Quran — they are Biblical terms. The Quran calls this people 'the people of Lot'; in An-Najm 53:53 the city is referred to as 'al-Mu'tafikah' (the overturned). The Tall el-Hammam → Sodom identification is rejected by mainstream biblical archaeology, which historically locates Sodom elsewhere. The 2021 Scientific Reports 'cosmic airburst' hypothesis has been seriously questioned since 2023 (Pelegrina et al., Quaternary Research, 2023): methodological flaws, image-processing concerns, and data-interpretation issues have been documented.",
   },
   {
     nationId: 'ad',
@@ -1019,6 +1019,17 @@ const NATION_REGIONS = [
     status: 'confirmed',
     sourceTr: "Kaynak: Kur'an Yunus'u 100.000 kişilik bir şehre gönderir (Saffat 37:147). Ninova, bugünkü Musul yakınında; Asur başkenti olarak tarihen teyitlenmiştir.",
     sourceEn: "Source: The Quran sends Jonah to a city of 100,000 (As-Saffat 37:147). Nineveh, near modern Mosul, is historically confirmed as the Assyrian capital.",
+  },
+  {
+    id: 'uhdud',
+    nameTr: "Ashâb-ı Uhdud (Necran — aday)",
+    nameEn: "Companions of the Pit (Najran — candidate)",
+    lat: 17.5, lon: 44.1,
+    radiusKm: 80,
+    color: '#dc2626',
+    status: 'debated',
+    sourceTr: "Kaynak: Klasik tefsirin en güçlü adayı MS 523 Necran katliamı; Yemen Hima yazıtları (Christian Robin, CNRS), Procopius ve Yuhanna Efesli olayı doğrular. Ancak Kur'an'ın doğrudan bu olaya işaret ettiği akademik açıdan kesin değildir.",
+    sourceEn: "Source: The strongest classical-tafsir candidate is the 523 CE Najran massacre; Hima inscriptions in Yemen (Christian Robin, CNRS), Procopius, and John of Ephesus confirm the event. Whether the Quranic verse refers directly to this event is, however, not academically settled.",
   },
 ];
 

@@ -3,7 +3,7 @@
     "totalMentioned": 16,
     "firavunVerses": 70,
     "destructionTypes": 10,
-    "archaeologicalMatches": 6,
+    "archaeologicalMatches": 7,
     "structuralPattern": 1
   },
   "nations": [
@@ -392,9 +392,9 @@
       "verseTr": "Yakıtı bol ateş çukurunun sahipleri kahrolsun!",
       "verseEn": "Cursed were the companions of the pit — of the fire, full of fuel.",
       "verseRef": "Büruc 85:4-5",
-      "infoTr": "Tarihsel özdeşleştirme tartışmalıdır. En güçlü aday: MS 523'te Hristiyan Necran halkını katleden Himyerî hükümdarı Yusuf Ası'ar Yesar (Zü Nuvas). Kesin değil.",
-      "infoEn": "Historical identification is debated. Strongest candidate: the Himyarite ruler Yusuf As'ar Yath'ar (Dhu Nuwas) who massacred the Christian community of Najran in 523 CE. Not definitive.",
-      "hasArchaeology": false,
+      "infoTr": "Tarihsel özdeşleştirme tartışmalıdır; klasik tefsirin en güçlü adayı: MS 523'te Necran Hıristiyanlarını ateş çukurunda yakan Himyerî hükümdarı Yusuf As'ar Yas'ar (Zü Nüvâs). Bu olay modern arkeoloji ve tarih biliminde çok iyi belgelenmiştir: Yemen'deki Hima yazıtları (Christian Robin, CNRS — uzun yıllı epigrafik çalışmalar), çağdaş Bizans kaynakları (Procopius), Süryani kaynakları (Yuhanna Efesli) olayı doğrular. Olay Kur'an'ın indirilişine yaklaşık 100 yıl uzaklıkta — yani çağdaş tarihsel hafızadaydı. Ancak Kur'an metninin doğrudan bu olaya işaret edip etmediği akademik açıdan kesin değildir; daha erken Hıristiyan zulümleri de aday olarak öne sürülmüştür.",
+      "infoEn": "The historical identification is debated; the strongest classical-tafsir candidate is the Himyarite ruler Yusuf As'ar Yath'ar (Dhu Nuwas), who burnt the Christian community of Najran in a fire-trench in 523 CE. This event is well documented in modern archaeology and history: the Hima inscriptions in Yemen (long-standing epigraphic work by Christian Robin, CNRS), contemporary Byzantine sources (Procopius), and Syriac sources (John of Ephesus) confirm it. The event lies about 100 years from the Quranic revelation — within living historical memory. Whether the Quranic text refers to this specific event is, however, not academically settled; earlier Christian persecutions have also been proposed.",
+      "hasArchaeology": true,
       "isRare": true
     },
     {
