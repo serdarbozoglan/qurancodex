@@ -12,6 +12,23 @@ import {
   BREAKPOINT_TABLET,
 } from '../tokens';
 
+// CLAUDE.md §13.14 + §13.15 — Uthmani encoding → standard + Maddah render fix
+function cleanArabic(str) {
+  if (!str) return str;
+  return str
+    .replace(/\u06EA/g, '\u0650')
+    .replace(/\u06E1/g, '\u0652')
+    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
+    .replace(/\u0671/g, '\u0627')
+    .replace(/\u06CC/g, '\u064A')
+    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
+    .replace(/[\u0600-\u0605]/g, '')
+    .replace(/[\u06DD\u06DE\u06E9]/g, '')
+    .replace(/\u06E6/g, ' ')
+    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
+    .replace(/[\uFD3E\uFD3F]/g, '');
+}
+
 // ─── Tabs ────────────────────────────────────────────────────────────────────
 const TABS = [
   {
@@ -67,6 +84,24 @@ export default function MunafikProfili({ onClose }) {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
+  }, []);
+
+  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    const prevPad  = body.style.paddingRight;
+    const sbWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
+    return () => {
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      body.style.paddingRight = prevPad;
+    };
   }, []);
 
   // Data load
@@ -169,12 +204,45 @@ export default function MunafikProfili({ onClose }) {
             color: COLORS.offWhite,
             fontSize: isMobile ? '0.92rem' : '0.98rem',
             fontFamily: FONTS.body,
-            margin: '0 0 24px 0',
+            margin: '0 0 18px 0',
             lineHeight: 1.75,
             maxWidth: '720px',
           }}>
             {language === 'tr' ? intro.descTr : intro.descEn}
           </p>
+
+          {/* Etymology — klasik Arap dilbilim çerçevesi */}
+          {(intro.etymologyTr || intro.etymologyEn) && (
+            <div style={{
+              background: 'rgba(231,76,60,0.05)',
+              border: '1px solid rgba(231,76,60,0.20)',
+              borderRadius: '10px',
+              padding: isMobile ? '12px 14px' : '14px 18px',
+              margin: '0 0 20px 0',
+              maxWidth: '720px',
+            }}>
+              <p style={{
+                color: COLORS.softRed,
+                fontSize: '0.7rem',
+                fontFamily: FONTS.body,
+                fontWeight: 700,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                margin: '0 0 6px 0',
+              }}>
+                {language === 'tr' ? 'Etimoloji' : 'Etymology'}
+              </p>
+              <p style={{
+                color: COLORS.silver,
+                fontSize: isMobile ? '0.84rem' : '0.88rem',
+                fontFamily: FONTS.body,
+                lineHeight: 1.7,
+                margin: 0,
+              }}>
+                {language === 'tr' ? intro.etymologyTr : intro.etymologyEn}
+              </p>
+            </div>
+          )}
 
           {/* Mini stat chips */}
           <div style={{
@@ -275,9 +343,70 @@ export default function MunafikProfili({ onClose }) {
             <HadithTab hadith={authenticHadith} language={language} isMobile={isMobile} />
           )}
 
+          {/* Cross-page CTA — Psychology section'a yönlendir */}
+          <PsychologyCTA onClose={onClose} language={language} isMobile={isMobile} />
+
         </div>
       </div>
     </div>
+  );
+}
+
+// ─── Cross-page CTA: Psychology section bağlantısı ───────────────────────────
+function PsychologyCTA({ onClose, language, isMobile }) {
+  const handleClick = () => {
+    onClose();
+    setTimeout(() => {
+      const el = document.getElementById('psychology');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 120);
+  };
+  return (
+    <button
+      onClick={handleClick}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '12px',
+        width: '100%',
+        marginTop: '32px',
+        padding: isMobile ? '14px 16px' : '16px 22px',
+        background: 'linear-gradient(135deg, rgba(212,165,116,0.06), rgba(212,165,116,0.02))',
+        border: `1px solid ${COLORS.gold}40`,
+        borderRadius: '12px',
+        color: COLORS.offWhite,
+        fontFamily: FONTS.body,
+        fontSize: isMobile ? '0.85rem' : '0.92rem',
+        textAlign: 'left',
+        cursor: 'pointer',
+        transition: 'all 0.18s',
+      }}
+      onMouseEnter={e => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(212,165,116,0.12), rgba(212,165,116,0.04))'; e.currentTarget.style.borderColor = COLORS.gold; }}
+      onMouseLeave={e => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(212,165,116,0.06), rgba(212,165,116,0.02))'; e.currentTarget.style.borderColor = `${COLORS.gold}40`; }}
+    >
+      <div>
+        <div style={{
+          color: COLORS.gold,
+          fontSize: '0.66rem',
+          fontWeight: 700,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          marginBottom: '6px',
+        }}>
+          {language === 'tr' ? '↗ Devamı için' : '↗ Continue with'}
+        </div>
+        <div style={{ color: COLORS.offWhite, fontWeight: 600, marginBottom: '4px' }}>
+          {language === 'tr' ? 'İnsanın Psikolojisi — Bölüme Git' : 'Human Psychology — Go to Section'}
+        </div>
+        <div style={{ color: COLORS.silver, fontSize: '0.78rem', lineHeight: 1.5 }}>
+          {language === 'tr'
+            ? 'Anna Freud savunma mekanizmaları, kalp kavramı, modern psikoloji ile Kur\'ânî psikoloji köprüsü.'
+            : 'Anna Freud defense mechanisms, the concept of the heart, classical Quranic psychology bridged with modern theory.'}
+        </div>
+      </div>
+      <span style={{ color: COLORS.gold, fontSize: '1.4rem', flexShrink: 0 }}>→</span>
+    </button>
   );
 }
 
@@ -504,6 +633,11 @@ function ProfileCard({ profile, isOpen, onToggle, language, isMobile }) {
             </p>
           )}
 
+          {/* Mukâbele kartı — sadece collective-network profilinde (9:67 ↔ 9:71) */}
+          {profile.mukabele && (
+            <MukabeleCard data={profile.mukabele} language={language} isMobile={isMobile} />
+          )}
+
           {/* Ekol etiketi chip */}
           {profile.ekolEtiketi && (
             <div style={{ marginTop: '8px' }}>
@@ -512,6 +646,96 @@ function ProfileCard({ profile, isOpen, onToggle, language, isMobile }) {
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+// ─── Mukâbele Card — 9:67 ↔ 9:71 yan yana ────────────────────────────────────
+function MukabeleCard({ data, language, isMobile }) {
+  const title = language === 'tr' ? data.titleTr : data.titleEn;
+  const note  = language === 'tr' ? data.noteTr  : data.noteEn;
+  const mirrorVerseTr = language === 'tr' ? data.mirrorVerseTr : data.mirrorVerseEn;
+  return (
+    <div style={{
+      marginTop: '16px',
+      background: 'rgba(212,165,116,0.05)',
+      border: '1px solid rgba(212,165,116,0.25)',
+      borderRadius: '10px',
+      padding: isMobile ? '14px 14px' : '16px 18px',
+    }}>
+      <p style={{
+        color: COLORS.gold,
+        fontSize: '0.72rem',
+        fontFamily: FONTS.body,
+        fontWeight: 700,
+        letterSpacing: '0.16em',
+        textTransform: 'uppercase',
+        margin: '0 0 6px 0',
+      }}>
+        ⚖ {title}
+      </p>
+      <p style={{
+        color: COLORS.silver,
+        fontSize: '0.82rem',
+        fontFamily: FONTS.body,
+        lineHeight: 1.65,
+        margin: '0 0 14px 0',
+      }}>
+        {note}
+      </p>
+
+      {/* 4-pair grid — desktop'ta 2 sütun, mobilde tek sütun */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
+        {data.pairs?.map((pair, i) => (
+          <div key={i} style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '1fr 24px 1fr',
+            alignItems: 'center',
+            gap: isMobile ? '4px' : '8px',
+            padding: '8px 10px',
+            background: 'rgba(0,0,0,0.18)',
+            borderRadius: '8px',
+            fontSize: '0.82rem',
+            fontFamily: FONTS.body,
+          }}>
+            <span style={{ color: COLORS.softRed }}>
+              <strong style={{ color: COLORS.softRed, fontSize: '0.65rem', letterSpacing: '0.1em', display: 'block', textTransform: 'uppercase', marginBottom: '2px' }}>Münâfık</strong>
+              {language === 'tr' ? pair.munafikTr : pair.munafikEn}
+            </span>
+            {!isMobile && (
+              <span style={{ color: COLORS.gold, textAlign: 'center', fontWeight: 700, opacity: 0.6 }}>↔</span>
+            )}
+            <span style={{ color: COLORS.offWhite }}>
+              <strong style={{ color: COLORS.gold, fontSize: '0.65rem', letterSpacing: '0.1em', display: 'block', textTransform: 'uppercase', marginBottom: '2px' }}>Mü'min</strong>
+              {language === 'tr' ? pair.muminTr : pair.muminEn}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Mirror verse Arabic */}
+      <div dir="rtl" lang="ar" style={{
+        fontFamily: FONTS.quran,
+        fontSize: '1.15rem',
+        color: COLORS.gold,
+        lineHeight: 1.85,
+        textAlign: 'right',
+        background: 'rgba(0,0,0,0.20)',
+        borderRadius: '8px',
+        padding: '10px 14px',
+        margin: '0 0 6px 0',
+      }}>
+        {cleanArabic(data.mirrorVerseAr)}
+      </div>
+      <p style={{
+        color: COLORS.silver,
+        fontSize: '0.78rem',
+        fontFamily: FONTS.body,
+        fontStyle: 'italic',
+        margin: 0,
+      }}>
+        {mirrorVerseTr}
+      </p>
     </div>
   );
 }
@@ -557,7 +781,7 @@ function VerseCard({ verse, language }) {
           direction: 'rtl',
         }}
       >
-        {verse.verseAr}
+        {cleanArabic(verse.verseAr)}
       </p>
       {/* Translation */}
       <p style={{

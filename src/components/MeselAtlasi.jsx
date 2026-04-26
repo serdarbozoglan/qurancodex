@@ -1251,6 +1251,24 @@ export default function MeselAtlasi({ onClose, backRef }) {
     return () => window.removeEventListener('keydown', h);
   }, [backRef]);
 
+  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    const prevPad  = body.style.paddingRight;
+    const sbWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
+    return () => {
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      body.style.paddingRight = prevPad;
+    };
+  }, []);
+
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);

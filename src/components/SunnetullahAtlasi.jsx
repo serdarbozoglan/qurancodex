@@ -12,6 +12,23 @@ import {
   BREAKPOINT_TABLET,
 } from '../tokens';
 
+// CLAUDE.md §13.14 + §13.15 — Uthmani encoding → standard + Maddah render fix
+function cleanArabic(str) {
+  if (!str) return str;
+  return str
+    .replace(/\u06EA/g, '\u0650')
+    .replace(/\u06E1/g, '\u0652')
+    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
+    .replace(/\u0671/g, '\u0627')
+    .replace(/\u06CC/g, '\u064A')
+    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
+    .replace(/[\u0600-\u0605]/g, '')
+    .replace(/[\u06DD\u06DE\u06E9]/g, '')
+    .replace(/\u06E6/g, ' ')
+    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
+    .replace(/[\uFD3E\uFD3F]/g, '');
+}
+
 // ─── Tab definitions ──────────────────────────────────────────────────────────
 const TABS = [
   {
@@ -60,16 +77,21 @@ export default function SunnetullahAtlasi({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — prevent background page scroll while overlay is open
-  // (CLAUDE.md §13.16 — overlay scroll architecture)
+  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
   useEffect(() => {
-    const prevBody = document.body.style.overflow;
-    const prevHtml = document.documentElement.style.overflow;
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    const prevPad  = body.style.paddingRight;
+    const sbWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
     return () => {
-      document.body.style.overflow = prevBody;
-      document.documentElement.style.overflow = prevHtml;
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      body.style.paddingRight = prevPad;
     };
   }, []);
 
@@ -427,7 +449,7 @@ function LiteralVerseCard({ item, language, isMobile }) {
           lineHeight: 2.0,
         }}
       >
-        {item.verseAr}
+        {cleanArabic(item.verseAr)}
       </div>
 
       {/* Highlight phrase (the subject!) */}
@@ -795,7 +817,7 @@ function ThematicItemCard({ item, accent, index, language, isMobile }) {
           marginBottom: '12px',
         }}
       >
-        {item.verseAr}
+        {cleanArabic(item.verseAr)}
       </div>
 
       {/* Translation */}

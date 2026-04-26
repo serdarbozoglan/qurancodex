@@ -32,10 +32,13 @@ function formatRef(ref, language) {
 // Strips Uthmani recitation marks (waqf, end-of-ayah, asar) that fall back
 // to tofu in KFGQPC outside the ReadingMode tajweed pipeline. Keeps standard
 // harakat (U+064B–U+0652), maddah (U+0653), dagger alef (U+0670).
+// CLAUDE.md §13.14 + §13.15 — Uthmani encoding → standard + Maddah render fix
 function normalizeAr(s) {
   if (!s) return '';
   return s
     .replace(/\u06EA/g, '\u0650')                                  // asar → kasra
+    .replace(/\u06E1/g, '\u0652')                                  // Uthmani sukun → standart sukun
+    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')                  // CLAUDE.md §13.14 — Maddah render fix
     .replace(/[\u06D6-\u06DC]/g, '')                              // small high marks (waqf etc.)
     .replace(/[\u06DD\u06DE]/g, '')                                // end-of-ayah, rub el hizb
     .replace(/[\u06E0\u06E2-\u06E4\u06E7-\u06E9\u06EB-\u06ED]/g, '') // misc Uthmani marks
@@ -101,6 +104,24 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
+
+  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    const prevPad  = body.style.paddingRight;
+    const sbWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
+    return () => {
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      body.style.paddingRight = prevPad;
+    };
+  }, []);
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
