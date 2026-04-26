@@ -18,7 +18,7 @@
   "linguisticDNA": {
     "badge": "Dilsel DNA",
     "title": "1.400 Yıllık Şifre",
-    "intro": "Kur'an'ın 29 sûresi gizemli harflerle başlar: Elif-Lâm-Mîm. Hâ-Mîm. Yâ-Sîn. Bu harflerin ne anlama geldiğini kesin olarak kimse bilmiyor. 1.400 yıldır çözülemeyen bir şifre. Ama bildiğimiz şey şu: Bu 14 harf, Arap alfabesinin tam yarısı. Neden tam olarak bu 14 harfin seçildiği, neden alfabenin yarısı olduğu — 1.400 yıldır cevapsız kalan sorular. Bir şifre mi? Bir denge sistemi mi? Yalnızca Allah bilir.",
+    "intro": "Kur'an'ın 29 sûresi gizemli harflerle başlar: Elif-Lâm-Mîm. Hâ-Mîm. Yâ-Sîn. Bu harflerin ne anlama geldiğini kesin olarak kimse bilmiyor. 1.400 yıldır üzerinde icma sağlanamayan, çoklu yorumlanan bir yapı. Ama bildiğimiz şey şu: Bu 14 harf, Arap alfabesinin tam yarısı. Neden tam olarak bu 14 harfin seçildiği, neden alfabenin yarısı olduğu — 1.400 yıldır farklı yorumlara açık sorular. Bir şifre mi? Bir denge sistemi mi? Yalnızca Allah bilir.",
     "stats": {
       "letters": {
         "label": "Benzersiz Harf",
@@ -31,6 +31,10 @@
       "coverage": {
         "label": "Sûre Oranı",
         "description": "Kur'ân'ın 114 sûresinin 29'u (%25) kesik harflerle başlar"
+      },
+      "meccan": {
+        "label": "Mekkî",
+        "description": "29 mukattaa sûresinin 27'si Mekke dönemi imzasıdır; yalnızca Bakara ve Âl-i İmrân Medenî"
       }
     },
     "checksum": {
