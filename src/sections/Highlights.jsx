@@ -49,7 +49,7 @@ function SolarLunarConverter({ accent }) {
           <input
             type="number"
             value={solarYears}
-            onChange={e => { setSolarYears(Number(e.target.value) || 0); setDisplayLunar(null); }}
+            onChange={e => { setSolarYears(Math.max(1, Math.min(9999, Number(e.target.value) || 1))); setDisplayLunar(null); }}
             min={1} max={9999}
             style={{
               width: '70px', padding: '6px 8px', borderRadius: '6px',

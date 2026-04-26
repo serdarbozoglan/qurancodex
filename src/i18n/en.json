@@ -583,7 +583,8 @@
           { "label": "Mercy (rahmet)", "value": "294" },
           { "label": "Punishment (azap)", "value": "343" }
         ],
-        "statsNote": "Punishment (343) appears to exceed mercy (294) — but most 'punishment' verses recount the historical fates of past peoples, not direct threats; mercy is predominantly direct promise. Ratio: 1.54 — the Quran carries a positive bias. Hapax legomena rate (~18-20% vs ~15%) is approximate."
+        "statsNote": "Punishment (343) appears to exceed mercy (294) — but most 'punishment' verses recount the historical fates of past peoples, not direct threats; mercy is predominantly direct promise. Ratio: 1.54 — the Quran carries a positive bias. Hapax legomena rate (~18-20% vs ~15%) is approximate.",
+        "note": "Root-frequency counts are based on the Quranic Arabic Corpus (University of Leeds) and Lane's Lexicon; individual lemma counts may vary slightly between sources."
       },
       {
         "title": "Time Flexibility",
@@ -593,7 +594,7 @@
       {
         "title": "Iltifat",
         "content": "Sura Al-Fatiha uses 3 different perspectives in just 7 verses: third person (He), second person (You), first person plural (We). In modern literature, this is known as 'polyphonic voice.' Verses 1–3 speak about God — third person ('He'). Then suddenly in verse 5: 'You alone we worship' — a shift to second person. Then: 'Guide us to the straight path' — first person plural. Seven verses, three voices.",
-        "note": "The iltifat technique is documented in classical Arabic rhetoric: Ibn Abi al-Isba' and Al-Zarkashi's al-Burhan give it extensive treatment. 'Unprecedented in literary history' is a strong claim that warrants a systematic comparative study for full academic support."
+        "note": "The iltifat technique is documented in classical Arabic rhetoric: Ibn Abi al-Isba' and Al-Zarkashi's al-Burhan give it extensive treatment. Person-shifting is not unique to the Quran in world literature (Psalms, Vedic Sanskrit, Egyptian texts contain similar examples); however, its systematic use in the Quran — notably three perspectives across the seven verses of Surah al-Fatiha — has been treated as a sign of i'jāz al-Qur'ān in the classical Islamic tradition (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
       }
     ]
   },

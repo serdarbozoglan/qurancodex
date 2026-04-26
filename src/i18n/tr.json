@@ -582,7 +582,8 @@
           { "label": "Rahmet", "value": "294" },
           { "label": "Azap", "value": "343" }
         ],
-        "statsNote": "Azap (343) rahmetten (294) fazla görünür — ama azap ayetlerinin büyük çoğunluğu doğrudan tehdit değil, geçmiş kavimlerin tarihi ibretleridir; rahmet ise çoğunlukla doğrudan vaattir. Oran 1.54 — Kur'an pozitif bir önyargıyla yüklüdür. Hapax legomena oranı (%18-20 vs %15) yaklaşıktır."
+        "statsNote": "Azap (343) rahmetten (294) fazla görünür — ama azap ayetlerinin büyük çoğunluğu doğrudan tehdit değil, geçmiş kavimlerin tarihi ibretleridir; rahmet ise çoğunlukla doğrudan vaattir. Oran 1.54 — Kur'an pozitif bir önyargıyla yüklüdür. Hapax legomena oranı (%18-20 vs %15) yaklaşıktır.",
+        "note": "Kök sayım verileri Quranic Arabic Corpus (Leeds Üniversitesi) ve Lane's Lexicon temelli sayımlardır; tek tek lemma sayımları kaynaklara göre küçük farklar gösterebilir."
       },
       {
         "title": "Zaman Esnekliği",
@@ -592,7 +593,7 @@
       {
         "title": "İltifât",
         "content": "Fatiha sûresi, sadece 7 ayette 3 farklı bakış açısı kullanır: 3. kişi (O), 2. kişi (Sen), 1. kişi çoğul (Biz). Bu, modern edebiyatta 'polyphonic voice' (çok sesli anlatı) olarak bilinir. 1-3. ayetler Allah'tan söz eder — 'O' kipi. 5. ayette birdenbire 'Yalnız Sana ibadet ederiz' — 'Sen' kipine ani geçiş. Sonra 'Bizi doğru yola ilet' — 'Biz' kipi. Yedi ayette üç farklı ses.",
-        "note": "İltifât sanatı klasik Arap belağatında tanımlanmıştır: İbn Ebu'l-İsba' ve Zerkeşî'nin el-Burhân'ı bu sanata kapsamlı yer verir. '7 ayette edebiyat tarihinde benzersizdir' ifadesi güçlü bir iddiadır; bu kapsamı destekleyecek sistematik bir karşılaştırmalı çalışma referans alınmalıdır."
+        "note": "İltifât sanatı klasik Arap belağatında tanımlanmıştır: İbn Ebu'l-İsba' ve Zerkeşî'nin el-Burhân'ı bu sanata kapsamlı yer verir. Perspektif değişimi dünya edebiyatında tek değildir (Zebur/Mezmurlar, Vedik Sanskrit, Eski Mısır metinleri benzer örnekler taşır); ancak Kur'an'daki sistematik kullanımı — özellikle Fatiha'da 7 ayette 3 farklı perspektif — klasik İslamî gelenekte i'jâzü'l-Kur'an'ın bir göstergesi olarak değerlendirilmiştir (Suyûtî, El-İtkân; Zerkeşî, El-Burhân)."
       }
     ]
   },
