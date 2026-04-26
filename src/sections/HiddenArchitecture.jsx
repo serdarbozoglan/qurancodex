@@ -35,13 +35,13 @@ const SURAHS = {
     introTr: "Fatiha'nın 7 ayeti bir ayna gibi yapılanmış: ilk ayet son ayetle, ikincisi sondan ikinciyle eşleşiyor. Ortadaki 4. ayet ise döngünün eksenini oluşturuyor.",
     introEn: "Al-Fatiha's 7 verses are structured like a mirror: the first corresponds to the last, the second to the second-to-last. The 4th verse in the middle is the pivot of the ring.",
     pairsTr: [
-      { label: "A ↔ A'", desc: "Her ikisi de Allah'ın ismi ve nimetiyle ilgilidir. Sûre 'Bismillah' ile açılır, 'nimetlendirdiklerin' ile kapanır — ilahî isimden ilahî nimet doğar." },
+      { label: "A ↔ A'", desc: "Her iki uçta üçlü yapı: A'da Allah'ın 3 ismi/sıfatı (Allah, Rahmân, Rahîm); A'nda insanların 3 kategorisi (mun'am aleyhim, mağdûb aleyhim, dâllîn). 3+3 paralelliği — ilahî isimden insan tipolojisine yansıyan ayna. Sûre 'Bismillah' ile açılır, 'nimetlendirdiklerin/gazaba uğrayanlar/sapanlar' ile kapanır." },
       { label: "B ↔ B'", desc: "B, Allah'ı Rab olarak tanımlar. B' ise o Rab'den bir şey ister: 'Bizi doğru yola ilet.' Önce kim olduğu söylenir, sonra Ona yönelilir." },
       { label: "C ↔ C'", desc: "C, Allah'ın Rahman ve Rahim olduğunu bildirir. C' buna cevap verir: 'Yalnız Sana ibadet ederiz.' Merhamet beyanı ibadeti doğurur." },
       { label: "D — Merkez", desc: "'Din Gününün Sahibi.' D'den önce Allah tanımlanır, D'den sonra biz konuşmaya başlarız. Hesap günü bilinci tüm duanın dönüm noktasıdır." },
     ],
     pairsEn: [
-      { label: "A ↔ A'", desc: "Both relate to Allah's name and blessing. Opens with 'Bismillah', closes with 'those You have blessed' — divine name gives rise to divine grace." },
+      { label: "A ↔ A'", desc: "Both ends mirror a triadic structure: A names Allah's three attributes (Allah, al-Raḥmān, al-Raḥīm); A' names three human categories (the favored, those who incur wrath, those who go astray). A 3+3 parallelism — the divine name reflected in human typology. The sura opens with 'Bismillah' and closes with 'those You have blessed / those who incur wrath / those who go astray.'" },
       { label: "B ↔ B'", desc: "B declares Allah as Lord. B' makes a request to that Lord: 'Guide us to the straight path.' First who He is, then we turn to Him." },
       { label: "C ↔ C'", desc: "C proclaims Allah's mercy. C' responds: 'You alone we worship.' The declaration of mercy produces the act of worship." },
       { label: "D — Center", desc: "'Master of the Day of Judgment.' Before D, Allah is described. After D, we begin to speak. Accountability is the turning point of the prayer." },
@@ -160,8 +160,8 @@ const NUR_LAYERS = [
     scholarTr: 'Muhyiddin İbn Arabi', scholarEn: 'Muhyiddin Ibn Arabi',
     quoteTr: 'Nur-u Muhammedi, Allah\'ın ilk yarattığı varlıktır; tüm kainat bu nurdan zuhur etmiştir.',
     quoteEn: "Nur al-Muhammadi is the first thing Allah created; the entire universe emerged from this light.",
-    noteTr: 'Bu öğretiye dayandırılan bazı rivayetlerin sıhhati hadis âlimleri arasında tartışmalıdır; metin onları mümkün kaynak olarak değil, İbn Arabî\'nin yorumu bağlamında sunar.',
-    noteEn: "Some narrations cited in support of this doctrine are debated among hadith scholars; this text presents them within the context of Ibn Arabi's interpretation, not as established sources.",
+    noteTr: 'Bu doktrin İbn Arabî ve Vahdetü\'l-Vücûd ekolüne özgüdür. Selefî/Hanbelî gelenekte (İbn Teymiyye, İbn Kayyim) reddedilir; Sünnî mainstream tasavvufta (Gazâlî, Cüneyd-i Bağdâdî) dolaylı kabul vardır. Atfedilen rivayet (أوّل ما خلق الله نوري) hadis âlimlerinin çoğunluğuna göre — Albânî dahil — mevzûdur (uydurma); metin bu doktrini sahih bir kaynak olarak değil, İbn Arabî\'nin teolojik yorumu bağlamında sunar.',
+    noteEn: "This doctrine is specific to Ibn Arabi and the Wahdat al-Wujūd school. It is rejected in the Salafī/Ḥanbalī tradition (Ibn Taymiyyah, Ibn Qayyim); mainstream Sunni Sufism (Ghazālī, Junayd) accepts it indirectly. The narration cited in its support (أوّل ما خلق الله نوري) is considered fabricated (mawḍūʿ) by the majority of hadith scholars — including al-Albānī. This text presents the doctrine within the context of Ibn Arabi's theological interpretation, not as an established source.",
     questionTr: 'Eğer her şey O\'nun nurundan yaratıldıysa — sen kim oluyorsun, o nur sende nasıl tecelli ediyor?',
     questionEn: 'If everything was created from his light — who are you, and how does that light manifest in you?',
   },
@@ -260,6 +260,14 @@ export default function HiddenArchitecture() {
               ? 'Bir çift veya merkeze tıkla — açıklamasını gör'
               : 'Click a pair or the center — see its explanation'}
           </p>
+
+          {activeSurah === 'fatiha' && (
+            <p className="text-silver/40 text-xs text-center mb-5 font-body italic max-w-lg mx-auto leading-relaxed">
+              {language === 'tr'
+                ? 'ℹ Bismillah\'ın ayet sayımı mezhep meselesidir: Şafiî mezhebinde Fatiha\'nın 1. ayetidir; Hanefî mezhebinde bağımsızdır. Bu sayfada Şafiî sayımı kullanılmaktadır (7 ayet, Bismillah dahil).'
+                : 'ℹ Counting Bismillah as a verse is a matter of legal school: in Shāfiʿī it is verse 1 of al-Fātiḥa; in Ḥanafī it is independent. This page follows the Shāfiʿī count (7 verses, Bismillah included).'}
+            </p>
+          )}
 
           {/* Pair rows */}
           {surah.pairs.map((pair, rowIdx) => {
@@ -464,8 +472,8 @@ export default function HiddenArchitecture() {
         </p>
         <p className="text-off-white/80 text-sm leading-relaxed font-body italic">
           {language === 'tr'
-            ? 'Halka kompozisyon, ancak 20. yüzyılda Mary Douglas gibi akademisyenlerin geliştirdiği modern edebi analiz yöntemleriyle sistematik olarak tanımlanabilen bir yapıdır. 1.400 yıl boyunca hiçbir müfessir bu çerçeveyi kullanmadan tefsir yazdı — yapı vardı, ama adı yoktu. Peki 23 yıl boyunca parça parça inen bir metnin bu denli tutarlı bir mimariyi nasıl taşıdığı sorusu hâlâ yanıtsızdır.'
-            : 'Ring composition is a structure that could only be systematically identified through modern literary analysis — the kind developed by scholars like Mary Douglas in the 20th century. For 1,400 years, commentators wrote volumes without naming this framework — the structure was there, but it had no name. How a text revealed in fragments over 23 years carries such consistent architecture remains an open question.'}
+            ? 'Halka kompozisyon — klasik retorikte chiasmus olarak biliniyordu — büyük ölçekli metinlere sistematik uygulanması 20. yüzyıl ürünüdür: Cedric Whitman\'ın Homer çalışması (1958) ve Mary Douglas\'ın *Thinking in Circles*\'ı (2007). Klasik İslam geleneği bu yapıları görmedi mi? Hayır — Bikâî *Nazmü\'d-Dürer*\'de, Suyûtî *İtkân*\'da ve Râzî *Mefâtîhu\'l-Gayb*\'da ayetler/sûreler arası bağlantıları (münâsebât) kapsamlı çalıştı. Modern akademinin asıl katkısı: varolan örüntüleri **A-B-C-D-C\'-B\'-A\'** gibi şematik bir dile çevirmek. 23 yıl boyunca parça parça inen bir metnin bu denli tutarlı mimariyi nasıl taşıdığı sorusu ise hâlâ yanıtsız.'
+            : 'Ring composition — known in classical rhetoric as chiasmus — was systematically applied to large-scale texts only in the 20th century: Cedric Whitman\'s Homer studies (1958) and Mary Douglas\'s *Thinking in Circles* (2007). Did classical Islamic tradition miss these structures? No — Biqāʿī in *Naẓm al-Durar*, Suyūṭī in *al-Itqān*, and Rāzī in *Mafātīḥ al-Ghayb* extensively studied inter-verse and inter-sura connections (munāsabāt). The real contribution of modern scholarship: translating existing patterns into schematic notation like **A-B-C-D-C\'-B\'-A\'**. How a text revealed in fragments over 23 years carries such consistent architecture remains an open question.'}
         </p>
       </motion.div>
 
@@ -563,8 +571,15 @@ export default function HiddenArchitecture() {
         {t('sevenLayers.title')}
       </motion.h3>
 
-      <motion.p variants={fadeUpItem} className="text-silver text-base leading-relaxed max-w-3xl mb-6">
+      <motion.p variants={fadeUpItem} className="text-silver text-base leading-relaxed max-w-3xl mb-3">
         {t('sevenLayers.intro')}
+      </motion.p>
+
+      {/* Academic disclaimer — 7-layer taxonomy is a modern construct */}
+      <motion.p variants={fadeUpItem} className="text-silver/45 text-xs leading-relaxed max-w-3xl mb-6 font-body italic">
+        {language === 'tr'
+          ? 'ℹ Bu 7 katmanlı yorum, Râzî–Gazâlî–İbn Arabî geleneğini modern fizik, psikoloji ve felsefe perspektifleriyle harmanlayan çağdaş bir okumadır. Klasik tefsirin standart taksonomisi 4 katmandır: zâhir (literal), bâtın (ezoterik), hadd (sınır/hudud), muttala\' (yüksek makam) — İbn Mes\'ûd rivayetine dayanır.'
+          : 'ℹ This 7-layer reading is a modern synthesis blending the Rāzī–Ghazālī–Ibn Arabi tradition with contemporary perspectives from physics, psychology, and philosophy. The standard classical taxonomy is 4-layer: ẓāhir (literal), bāṭin (esoteric), ḥadd (limits), muṭṭalaʿ (highest), based on a tradition reported from Ibn Masʿūd.'}
       </motion.p>
 
       {/* ── Verse + audio (fallback chain via QuranVerse) ── */}
@@ -702,17 +717,26 @@ export default function HiddenArchitecture() {
               <circle cx="54" cy="141" r="5" fill="white" fillOpacity="0.95"
                 filter="url(#dot-glow)"/>
 
-              {/* "Nur" label — Latin, gold, near origin of ray */}
-              <text x="-74" y="129"
+              {/* "Nur" label — Arabic + Latin, gold, near origin of ray */}
+              <text x="-74" y="124"
                 style={{
                   fill: '#d4a574',
-                  fontSize: '14px',
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: '0.12em',
+                  fontSize: '20px',
+                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
                   opacity: 0.95,
                 }}>
-                {language === 'tr' ? 'Nur' : 'Light'}
+                نور
+              </text>
+              <text x="-74" y="142"
+                style={{
+                  fill: '#d4a574',
+                  fontSize: '11px',
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 600,
+                  letterSpacing: '0.1em',
+                  opacity: 0.85,
+                }}>
+                {language === 'tr' ? 'Nur (Işık)' : 'Nur (Light)'}
               </text>
 
               {/* Internal beam to dispersion point */}
