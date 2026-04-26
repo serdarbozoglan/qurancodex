@@ -488,7 +488,16 @@ export default function IblisSatan({ onClose }) {
     <div style={OVERLAY_BASE} role="dialog" aria-label={t('iblisSatan.title')}>
       {/* ─── Overlay Header (standard) ─────────────────── */}
       <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', minWidth: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+          {/* DevilIcon — boynuzlu yüz: şeytan / İblis figürü — matches exploreCategories.jsx */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, alignSelf: 'center' }}>
+            <path d="M7 5 L9 2 L10.5 5" />
+            <path d="M17 5 L15 2 L13.5 5" />
+            <path d="M6 9c0-3 2.7-5 6-5s6 2 6 5v3c0 4-2.3 7-6 9-3.7-2-6-5-6-9z" />
+            <circle cx="10" cy="12" r="0.9" fill={COLORS.gold} />
+            <circle cx="14" cy="12" r="0.9" fill={COLORS.gold} />
+            <path d="M10 16c0.7 0.6 1.3 0.8 2 0.8s1.3-0.2 2-0.8" />
+          </svg>
           <span style={OVERLAY_TITLE}>{t('iblisSatan.badge')}</span>
           <span style={{
             fontSize: '0.72rem', color: '#475569',

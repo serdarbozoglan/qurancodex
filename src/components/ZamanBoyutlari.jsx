@@ -1272,11 +1272,10 @@ export default function ZamanBoyutlari({ onClose }) {
       {/* Header */}
       <div style={{ ...OVERLAY_HEADER }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
-            <circle cx="12" cy="12" r="2" fill={COLORS.gold} stroke="none"/>
-            <circle cx="12" cy="12" r="5.5"/>
-            <path d="M12 3a9 9 0 0 1 9 9"/>
-            <path d="M12 21a9 9 0 0 1-9-9"/>
+          {/* ClockIcon — matches exploreCategories.jsx for navbar/header consistency */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
           </svg>
           <span style={{ ...OVERLAY_TITLE }}>
             {language === 'tr' ? 'Zamanın Boyutları' : 'Dimensions of Time'}

@@ -144,12 +144,11 @@ export default function MunafikProfili({ onClose }) {
       {/* ── HEADER ─────────────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* Double-face icon: two overlapping profile silhouettes */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.softRed} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="9" cy="8" r="3.2" />
-            <circle cx="15" cy="8" r="3.2" />
-            <path d="M3.5 20c0-3 2.6-5.2 5.5-5.2s5.5 2.2 5.5 5.2" />
-            <path d="M9.5 20c0-3 2.6-5.2 5.5-5.2s5.5 2.2 5.5 5.2" opacity="0.55" />
+          {/* MaskIcon — matches exploreCategories.jsx for navbar/header consistency */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.softRed} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z" />
+            <circle cx="8.5" cy="12" r="1.5" fill={COLORS.softRed} />
+            <circle cx="15.5" cy="12" r="1.5" fill={COLORS.softRed} />
           </svg>
           <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}

@@ -162,6 +162,34 @@ const MaskIcon = ({ size = 18 }) => (
   </svg>
 );
 
+// DevilIcon — boynuzlu yüz: şeytan / İblis figürü
+const DevilIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    {/* İki sivri boynuz */}
+    <path d="M7 5 L9 2 L10.5 5" />
+    <path d="M17 5 L15 2 L13.5 5" />
+    {/* Yüz: yuvarlak üst, sivri çene */}
+    <path d="M6 9c0-3 2.7-5 6-5s6 2 6 5v3c0 4-2.3 7-6 9-3.7-2-6-5-6-9z" />
+    {/* Gözler */}
+    <circle cx="10" cy="12" r="0.9" fill="currentColor" />
+    <circle cx="14" cy="12" r="0.9" fill="currentColor" />
+    {/* Sırıtış */}
+    <path d="M10 16c0.7 0.6 1.3 0.8 2 0.8s1.3-0.2 2-0.8" />
+  </svg>
+);
+
+// Landmark — antik sütunlar + zemin, arkeoloji / tarihsel medeniyet teması
+const LandmarkIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="3" y1="22" x2="21" y2="22" />
+    <line x1="6" y1="18" x2="6" y2="11" />
+    <line x1="10" y1="18" x2="10" y2="11" />
+    <line x1="14" y1="18" x2="14" y2="11" />
+    <line x1="18" y1="18" x2="18" y2="11" />
+    <polygon points="3 11 21 11 12 4" />
+  </svg>
+);
+
 const LadderIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <line x1="6" y1="2" x2="6" y2="22" />
@@ -304,7 +332,7 @@ export const EXPLORE_CATEGORIES = [
         id:     'history',
         kind:   'section',
         target: 'history',
-        icon:   Scroll2Icon,
+        icon:   LandmarkIcon,
         titleTr: 'Tarihsel Kanıtlar',     titleEn: 'Historical Proof',
         descTr: 'Firavun, Haman, Roma',
         descEn: 'Pharaoh, Haman, Rome',
@@ -358,7 +386,7 @@ export const EXPLORE_CATEGORIES = [
         id:     'iblisSatan',
         kind:   'overlay',
         target: 'iblisSatan',
-        icon:   MaskIcon,
+        icon:   DevilIcon,
         titleTr: "Kur'an'da İblis / Şeytan", titleEn: 'Iblis / Satan in the Quran',
         descTr: 'Yedi sûrede aynı sahne · kibrin başlangıcı',
         descEn: 'Same scene in seven surahs · the origin of pride',

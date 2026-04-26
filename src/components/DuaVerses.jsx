@@ -391,16 +391,9 @@ export default function DuaVerses({ onClose }) {
         borderBottom: '1px solid rgba(212,165,116,0.1)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* Open palms / supplication gesture — clean & recognizable */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            {/* Left palm cupped */}
-            <path d="M11 21H8a4 4 0 0 1-4-4V11a2 2 0 0 1 4 0v3"/>
-            <path d="M8 14V6a2 2 0 0 1 4 0v8"/>
-            {/* Right palm cupped, mirroring */}
-            <path d="M13 21h3a4 4 0 0 0 4-4V11a2 2 0 0 0-4 0v3"/>
-            <path d="M16 14V6a2 2 0 0 0-4 0v8"/>
-            {/* Light rays rising from cupped palms (dua/blessing) */}
-            <path d="M12 2v2M9 3l1 1.5M15 3l-1 1.5" opacity="0.6"/>
+          {/* HandsIcon — matches exploreCategories.jsx (Dua Dili) for navbar/header consistency */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M11 14V8a2 2 0 1 0-4 0M7 12V6a2 2 0 0 0-4 0v9c0 4 3 7 7 7h2a7 7 0 0 0 7-7V9a2 2 0 0 0-4 0M15 11V6a2 2 0 0 0-4 0" />
           </svg>
           <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Dua Ayetleri' : 'Quranic Supplications'}

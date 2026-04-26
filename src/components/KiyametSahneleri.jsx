@@ -493,11 +493,10 @@ export default function KiyametSahneleri({ onClose }) {
         background: 'rgba(8,9,26,0.95)', flexShrink: 0,
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* Shockwave / Sur trumpet icon — concentric ripples emanating from center */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeLinecap="round">
-            <circle cx="12" cy="12" r="2" fill={GOLD} />
-            <circle cx="12" cy="12" r="6" strokeWidth="1.6" opacity="0.7" />
-            <circle cx="12" cy="12" r="10" strokeWidth="1.2" opacity="0.35" />
+          {/* Trumpet (Sûr) icon — matches exploreCategories.jsx for navbar/header consistency */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 6v12l10-4V10z" />
+            <path d="M12 10v4M16 8v8M20 6v12" />
           </svg>
           <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Kıyamet Sahneleri' : 'Scenes of Judgment'}

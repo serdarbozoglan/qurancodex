@@ -343,13 +343,22 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
 function Header({ language, onClose }) {
   return (
     <div style={{ ...OVERLAY_HEADER }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
-        <span style={{ ...OVERLAY_TITLE }}>
-          {language === 'tr' ? 'İlk ve Son Kelimeler' : 'First and Last Words'}
-        </span>
-        <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body }}>
-          {language === 'tr' ? '114 sûre · açılış-kapanış kelimesi' : '114 surahs · opening-closing word'}
-        </span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+        {/* BookendsIcon — matches exploreCategories.jsx for navbar/header consistency */}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+          <line x1="4" y1="5" x2="4" y2="19" />
+          <line x1="20" y1="5" x2="20" y2="19" />
+          <line x1="7" y1="12" x2="17" y2="12" />
+          <polyline points="14 9 17 12 14 15" />
+        </svg>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+          <span style={{ ...OVERLAY_TITLE }}>
+            {language === 'tr' ? 'İlk ve Son Kelimeler' : 'First and Last Words'}
+          </span>
+          <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body }}>
+            {language === 'tr' ? '114 sûre · açılış-kapanış kelimesi' : '114 surahs · opening-closing word'}
+          </span>
+        </div>
       </div>
       <button style={{ ...CLOSE_BTN }} onClick={onClose}
         onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
