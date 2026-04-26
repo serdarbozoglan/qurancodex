@@ -399,22 +399,22 @@
     }
   },
   "historicalProof": {
-    "badge": "Tarihsel Kanıtlar",
-    "title": "Tarihin Doğruladığı Üç Hikaye",
-    "intro": "Yüzyıllar boyunca 'hata' denilen detaylar, modern arkeoloji ve dilbilim tarafından doğrulandı. İşte üç çarpıcı örnek.",
+    "badge": "Tarihsel İzler",
+    "title": "Üç Hikaye, Üç Tartışmalı Tarihsel İz",
+    "intro": "Bazı Kur'ânî detaylar — Firavun'un bedeni, Hâmân ismi, Roma'nın yenilgisi — uzun süre tarihsel hata olarak görüldü. Modern araştırmalar bu üç hikaye etrafında karmaşık bir akademik tartışma yarattı: kesin sonuçlardan çok, açık sorular ve tartışmalı paralellikler bıraktı. Atlas burada üç vakayı 'kanıt' olarak değil, eleştirel olarak değerlendirilmiş tarihsel izler olarak sunar.",
     "criticalNoteLabel": "Eleştirel Not",
     "pharaoh": {
       "title": "Firavun'un Bedeni",
-      "subtitle": "MÖ ~1200 — 1881'de doğrulandı",
-      "content": "Yunus Sûresi 10:92 - Allah, Firavun'a boğulurken der ki: 'Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.' Garip bir vaat. Tevrat'ta Firavun'un bedeninden tek kelime bahsedilmez. Sadece 'boğuldu' der, hikayeyi kapatır.",
+      "subtitle": "MÖ ~1200 — modern apolojetik bir paralellik",
+      "content": "Yunus Sûresi 10:92 — Allah, boğulan Firavun'a der ki: 'Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.' Tevrat (Çıkış 14:28-30) Firavun'un boğulduğunu ve cesetlerin sahile vurduğunu söyler, ama bedenin sonraki kaderinden söz etmez. Maurice Bucaille 1976'daki kitabıyla ('La Bible, le Coran et la Science') bu ayeti 1881'de Deir el-Bahari'de bulunan mumyalarla bir paralellik olarak yorumlamış, fikir geniş bir popüler okuma haline gelmiştir.",
       "points": [
-        "Tevrat Firavun'un bedeni hakkında sessiz kalır (Çıkış 14:28 - sadece 'boğuldu')",
-        "1881: Deir el-Bahari'de 3.000 yıllık mumyalar keşfedildi",
-        "Ramses II mumyası bugün Kahire Mısır Müzesi'nde sergileniyor",
-        "7. yüzyılda bu mumyaların varlığı bilinmiyordu"
+        "Tevrat (Çıkış 14:28-30) cesetlerin sahile vurduğunu söyler ama bedenin sonraki kaderine değinmez",
+        "1881: Deir el-Bahari'de Yeni Krallık dönemi mumyaları keşfedildi",
+        "Çıkış'ın Firavun'unun hangisi olduğu akademide tartışmalı: Ahmose I, Thutmose III, Ramses II ve Merneptah dahil dört aday var",
+        "Bucaille'in 'tuz kristali = boğulma' argümanı Mısıroloji'de reddedilir: tüm mumyalar ~40 gün natron tuzu içinde bekletildiği için her mumyada tuz izi vardır"
       ],
-      "significance": "Neden önemli: Tevrat boğuldu der, bedenden bahsetmez. Yalnızca Kur'an 1.400 yıl önce 'bedenini koruyacağız' dedi — ve mumya gerçekten bulundu. Bu bilgi 7. yüzyılda hiçbir kaynaktan öğrenilemezdi.",
-      "criticalNote": "Hz. Musa döneminin Firavun'unun hangi mumya olduğu kesin değildir; Ramses II ile özdeşleştirme yaygın bir varsayım, kesin bir bulgu değildir. Bucaille'in 1975'teki 'tuz kristalleri' yorumu bilim çevrelerinde tartışmalı kabul edilir ve doğrudan kanıt olarak sunulamaz. Ayetin vurgusu ise asıl olarak bir mumyaya değil, Firavun'un bedeninin 'ibret' olarak kalmasına atıftır.",
+      "significance": "Neden dikkat çekici: Tevrat Firavun'un boğulduğunu anlatır ama bedeninin uzun süreli korunmasından söz etmez; Kur'an'ın 'bedenini ibret olarak koruyacağız' ifadesi ile 1881'de bulunan mumyalar arasında popüler apolojetik literatür bir paralellik kurmuştur. Bu paralelliğin akademik değeri sınırlıdır: Çıkış'ın hangi Firavun'a denk düştüğü hâlâ açıktır, klasik tefsirde 'bibedenik' ifadesi farklı yorumlanır, Bucaille'in mumya argümanı ise Mısıroloji tarafından kabul edilmez.",
+      "criticalNote": "Çıkış'ın Firavun'unun hangi tarihsel kişi olduğu akademik konsensüs değildir (Ahmose I, Thutmose III, Ramses II, Merneptah dört ana adaydır; Çıkış olayının kendisi de William G. Dever gibi tarihçiler tarafından sorgulanır). Maurice Bucaille'in 'tuz kristalleri' argümanı (1976) Mısıroloji'de reddedilir: tüm Eski Mısır mumyaları yaklaşık 40 gün natron (sodyum karbonat tuzu) içinde bekletildiği için her mumyada tuz izi bulunur — bu, normal mumyalama prosedürünün izi olup boğulmanın kanıtı değildir. Klasik tefsirde de 'bibedenik' tek biçimli okunmaz: Râzî ve Taberî bunu çoğunlukla 'sadece bedeni (ruhu hidayetsiz) ile' veya 'cesedinin sahile bırakılması' anlamında yorumlar; mumyanın korunması okuması esas olarak modern bir okumadır.",
       "verse": {
         "arabic": "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ آيَةً",
         "translation": "Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.",
@@ -422,32 +422,31 @@
       }
     },
     "haman": {
-      "title": "Haman Şifresi",
-      "subtitle": "MÖ ~1300 — tartışmalı bir dilbilimsel paralellik",
-      "content": "Yüzyıllarca eleştirmenler Kur'an'da bir 'hata' olduğunu iddia etti: Haman ismi. Tevrat'ta Haman, Pers İmparatorluğu'nda (MÖ ~480) yaşar. Kur'an'da ise Haman, Firavun'un yanında (MÖ ~1300). 800 yıllık fark!",
+      "title": "Hâmân Vakası",
+      "subtitle": "MÖ ~1300 — Bucaillism'in tartışmalı bir örneği",
+      "content": "Maurice Bucaille (1976) Kur'an'daki Hâmân ile Eski Mısır kayıtlarındaki 'Ḥmn' kökünden isimler arasında bir dilbilimsel paralellik önerdi. Bu öneri popüler apolojetik literatürde 'klasik bir Kur'ânî mucize' olarak dolaşıma girdi; akademik Mısıroloji'de ise kabul görmedi. Atlas burada paralelliğin akademik durumunu olduğu gibi sunar.",
       "points": [
-        "Tevrat'taki Haman ile 800 yıllık tarih farkı",
-        "Rosetta Taşı (1799) → Champollion (1822) → Hiyeroglifler çözüldü",
-        "Ranke'nin ansiklopedisi (1935): Mısır kayıtlarında 'Ḥmn' kökünden isimler kayıtlıdır",
-        "Bu isimlerden bazıları inşaat / taş işçiliği görevinde geçer - Yeni Krallık dönemi",
-        "Kur'an'daki Hâmân ile Mısır kayıtlarındaki 'Ḥmn' isimleri arasında bir dilbilimsel yakınlaşma önerilmiştir; Egyptology mainstream'i bunu kesin bir özdeşlik olarak kabul etmez"
+        "Tevrat'ta Hâmân, Pers İmparatorluğu'nda yaşayan Ester Kitabı karakteridir (MÖ ~480); Kur'an'da Mısır'da Firavun'un yardımcısıdır",
+        "Rosetta Taşı (1799) → Champollion (1822) ile hiyeroglifler çözüldü",
+        "Ranke, Die Ägyptischen Personennamen (1935): 'Ḥmn' kökünden isimler dahil yüzlerce 'ḥm-' başlangıçlı isim listelenir",
+        "Mainstream Mısıroloji bu paralelliği reddeder: 'ḥm-' başlangıçlı isimler oldukça yaygındır, vokalleştirme farkları büyüktür ve hiçbiri 'Hâmân' olarak okunmaz",
+        "Walid Saleh, Reuven Firestone gibi Kur'an-Tora ilişkisini inceleyen akademisyenler, iki Hâmân arasındaki bağı edebî/teolojik bir birleşme veya farklı kişiler olarak da yorumlar"
       ],
-      "significance": "Neden dikkat çekici: Bu 'hata' Kur'an'ı çürütmek için 1.200 yıl boyunca kullanıldı. Hiyerogliflerin çözülmesinden sonra Mısır kayıtlarında 'Ḥmn' kökünden isimler keşfedildi; bazı akademisyenler bunu Kur'ân'daki Hâmân ile dilbilimsel bir yakınlaşma olarak görürken, diğerleri farklı kökenli isimler olarak değerlendirir. Tartışma hâlâ açık.",
-      "criticalNote": "Ranke'nin 1935 tarihli 'Die Ägyptischen Personennamen' eserinde 'Ḥmn' kökünden isimler geçmektedir; ancak bu isimlerin Kur'an'daki Haman ile özdeşliği bazı akademisyenler tarafından dilbilimsel bir yakınlaşma olarak kabul edilirken, diğerleri farklı kökenli isimler olarak değerlendirir. Ranke'nin kendisi bu özdeşliği Kur'ansal bir bağlamda yorumlamamıştır."
+      "significance": "Neden dikkat çekici: Bu vakanın ilginç tarafı, popüler apolojetik literatürün onu sıklıkla 'tarih Kur'an'ı doğruladı' diye sunması ama akademik Mısıroloji'nin bu özdeşliği kabul etmemesidir. Atlas bu asimetriye dikkat çeker: dilbilimsel uyumun kendisi mainstream konsensüsün dışındadır, dolayısıyla 'tarih bunu kanıtladı' iddiası burada savunulamaz.",
+      "criticalNote": "Bu paralellik öncelikle Maurice Bucaille (La Bible, le Coran et la Science, 1976) tarafından popülerleştirildi ve mainstream Mısıroloji'de kabul edilmez. Ranke'nin 1935 tarihli Die Ägyptischen Personennamen eseri yüzlerce 'ḥm-' başlangıçlı ismi listeler — bunlar arasında 'Ḥmn' kökünden olanlar bulunsa da Ranke ne bunları 'Hâmân' olarak okur, ne de Kur'an'la bir bağlantı kurar. Walid Saleh ve Reuven Firestone gibi Kur'an-Tora ilişkisini inceleyen akademisyenler, Tora-Ester'deki Hâmân ile Kur'an'daki Hâmân'ın edebî/teolojik bir birleşme olarak da okunabileceğini önerir."
     },
     "rome": {
-      "title": "Roma'nın İmkansız Zaferi",
-      "subtitle": "MS 614-628 — Tarihsel kayıtlarla doğrulandı",
-      "content": "614: Sasani Persler Kudüs'ü ele geçirir. Bizans İmparatorluğu çöküş halindedir. Kimse Bizans'ın toparlanabileceğini düşünmüyor. Tam bu dönemde Kur'an çarpıcı bir tarihsel öngörü sunar.",
+      "title": "Roma'nın Beklenmedik Zaferi",
+      "subtitle": "MS 614-628 — kısmen tarihsel kayıtlarla örtüşür",
+      "content": "614: Sasani Persleri Kudüs'ü ele geçirir; Bizans İmparatorluğu çöküşün eşiğindedir. Kur'an bu dönemde Bizans'ın 'birkaç yıl içinde' galip geleceğini bildirir. 622'den 628'e kadar uzanan Heraclius karşı saldırısı bu öngörüyle örtüşür. Üç hikaye içinde akademik olarak en sağlam paralellik budur.",
       "points": [
-        "'Bid' sinin' (birkaç yıl) = Arapça'da 3-9 yıl demektir",
-        "622'den 628'e = 6 yıl - tam sınırların içinde",
-        "'Edna el-ard' hem 'en yakın yer' hem 'en alçak yer' anlamına gelir",
-        "Ölü Deniz çevresi: deniz seviyesinden 430 metre aşağıda - dünyanın en alçak kara noktası",
-        "Bu coğrafi gerçek 19. yüzyılda keşfedildi"
+        "'Bid'i sineen' (birkaç yıl) — klasik Arap dilbilimine göre 3-9 yıl arası (Lisân al-ʿArab, Tâcü'l-ʿArûs)",
+        "Heraclius'un karşı saldırısı 622'de başladı; Ninova Savaşı 627, barış antlaşması 628 — '3-9 yıl' aralığında",
+        "Klasik tefsir 'edna el-ard'ı 'Araplara en yakın bölge' olarak yorumlar (Râzî, Taberî, İbn Aşur); 'en alçak yer' jeolojik okuması ise modern apolojetiğe aittir",
+        "Tarihsel kayıt: Walter E. Kaegi, Heraclius: Emperor of Byzantium (Cambridge UP, 2003)"
       ],
-      "significance": "Neden dikkat çekici: '3-9 yıl içinde' zaman tahmini tarihsel olarak doğrulanır (622-628). 'Edna el-ard' ifadesinin 'en alçak yer' şeklindeki jeolojik okuması ise modern bir yorumdur — klasik tefsir geleneğinde bu bağ kurulmaz; ayrıntı için aşağıdaki kritik nota bakınız.",
-      "criticalNote": "'Edna el-ard' ifadesinin 'en alçak yer' şeklindeki jeolojik yorumu modern bir okumadır; klasik tefsirlerin çoğu bu ifadeyi coğrafi olarak 'Araplara en yakın bölge' şeklinde açıklar. Ölü Deniz çevresinin dünyanın en alçak kara noktası olduğu bulgusu ise bu okumayı tartışmalı kılacak kadar yeni bir bilimsel ölçümdür ve klasik tefsir geleneğinde bu bağ kurulmamıştır.",
+      "significance": "Neden dikkat çekici: Bizans'ın 614'teki ezici yenilgisinden 622-628 arasındaki Heraclius zaferine kadar geçen süre, Kur'an'ın 'birkaç yıl içinde' (bid'i sineen — klasik dilbilime göre 3-9 yıl) ifadesiyle tarihsel olarak örtüşür. Bu, bu sayfadaki üç paralellik arasında akademik olarak en sağlam olanıdır. 'Edna el-ard' ifadesinin 'en alçak yer' şeklindeki jeolojik okuması ise klasik tefsire değil modern apolojetiğe aittir — bkz. eleştirel not.",
+      "criticalNote": "'Edna el-ard' ifadesinin 'en alçak yer' şeklindeki jeolojik yorumu modern bir okumadır; klasik tefsirlerin çoğu (Râzî, Taberî, İbn Aşur) bu ifadeyi coğrafi olarak 'Araplara en yakın bölge' şeklinde açıklar. Ek bir tutarsızlık: 614 Sasani-Bizans çatışmasının ana sahnesi Yeruşalim'di — bu şehir deniz seviyesinin yaklaşık 750m üstündedir, Ölü Deniz'in (-430m) değil. Yani 'en alçak yerde yenildi' okuması, savaşın asıl coğrafyasıyla bile birebir örtüşmez. Atlas bu sebeple bu ayetin gücünü 'jeolojik mucize' olarak değil, 'birkaç yıl' zaman tahmininin tarihsel olarak doğrulanması olarak sunar.",
       "verse": {
         "arabic": "غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
         "translation": "Rumlar en yakın yerde yenildi. Ama onlar, yenilgilerinden sonra birkaç yıl içinde galip gelecekler.",

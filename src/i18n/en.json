@@ -400,22 +400,22 @@
     }
   },
   "historicalProof": {
-    "badge": "Historical Evidence",
-    "title": "Three Stories Confirmed by History",
-    "intro": "For centuries, details in the Quran were dismissed as 'errors.' Modern archaeology and linguistics proved them right. Here are three striking examples.",
+    "badge": "Historical Traces",
+    "title": "Three Stories, Three Contested Historical Traces",
+    "intro": "Some Quranic details — the Pharaoh's body, the name Hāmān, the defeat of Rome — were long dismissed as historical errors. Modern research opened a complex academic debate around all three: rather than producing definitive proofs, it left open questions and contested parallels. The Atlas presents these three cases not as 'evidence,' but as critically examined historical traces.",
     "criticalNoteLabel": "Critical Note",
     "pharaoh": {
       "title": "The Pharaoh's Body",
-      "subtitle": "~1200 BCE — Confirmed in 1881",
-      "content": "Sura Yunus 10:92 - God tells the drowning Pharaoh: 'Today We will preserve your body so that you may be a sign for those who come after you.' A strange promise. The Torah makes no mention of the Pharaoh's body being preserved. It simply says he 'drowned' and closes the story.",
+      "subtitle": "~1200 BCE — a modern apologetic parallel",
+      "content": "Sura Yunus 10:92 — God tells the drowning Pharaoh: 'Today We will preserve your body so that you may be a sign for those who come after you.' The Torah (Exodus 14:28-30) reports that he drowned and that bodies were seen on the shore, but says nothing about the later fate of the body. Maurice Bucaille, in his 1976 book La Bible, le Coran et la Science, read this verse as a parallel to the New Kingdom mummies discovered at Deir el-Bahari in 1881; the reading became widespread in popular apologetic literature.",
       "points": [
-        "The Torah is silent about the Pharaoh's body (Exodus 14:28 - just 'drowned')",
-        "1881: 3,000-year-old mummies discovered at Deir el-Bahari",
-        "Ramesses II's mummy is now displayed at the Cairo Egyptian Museum",
-        "In the 7th century, the existence of these mummies was unknown"
+        "The Torah (Exodus 14:28-30) reports bodies on the shore but is silent on the body's later fate",
+        "1881: New Kingdom mummies discovered at Deir el-Bahari",
+        "Which Pharaoh ruled at the Exodus is academically contested: Ahmose I, Thutmose III, Ramesses II and Merneptah are all candidates",
+        "Bucaille's 'salt crystal = drowning' argument is rejected in Egyptology: every mummy was steeped in natron salt for ~40 days, so salt traces appear in all of them"
       ],
-      "significance": "Why it matters: The Torah says he drowned — silent about the body. Only the Quran said 1,400 years ago 'We will preserve your body as a sign' — and the mummy was actually found. This information could not have been known from any 7th-century source.",
-      "criticalNote": "The identification of the Pharaoh of the Exodus is not certain; the association with Ramesses II is a common assumption, not an established finding. Bucaille's 1975 interpretation of 'salt crystals' is considered debatable in scholarly circles and cannot be presented as direct evidence. The verse primarily emphasizes the preservation of the Pharaoh's body as a 'sign,' not the discovery of a specific mummy.",
+      "significance": "Why it's notable: The Torah recounts the drowning but says nothing about long-term preservation of the body; popular apologetic literature drew a parallel between the Quranic phrase 'We will preserve your body as a sign' and the mummies found in 1881. The academic strength of this parallel is limited: which Pharaoh corresponds to the Exodus is still open, classical tafsir reads the phrase 'with your body' in more than one way, and Bucaille's mummy argument is rejected by Egyptology.",
+      "criticalNote": "The identification of the Exodus Pharaoh is not an academic consensus (Ahmose I, Thutmose III, Ramesses II and Merneptah are the four main candidates; the historicity of the Exodus event itself is questioned by historians such as William G. Dever). Maurice Bucaille's 'salt crystals' argument (1976) is rejected in Egyptology: every Egyptian mummy was steeped in natron (sodium carbonate salt) for roughly 40 days, so traces of salt are present in all of them — these are remnants of normal mummification, not evidence of drowning. Classical tafsir does not read 'with your body' in a single way: Rāzī and Ṭabarī mostly explain it as 'with your body alone (without guidance for the soul)' or 'your corpse cast onto the shore'; the 'preserved mummy' reading is largely a modern one.",
       "verse": {
         "arabic": "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ آيَةً",
         "translation": "Today We will preserve your body so that you may be a sign for those who come after you.",
@@ -423,32 +423,31 @@
       }
     },
     "haman": {
-      "title": "The Haman Code",
-      "subtitle": "~1300 BCE — a disputed linguistic parallel",
-      "content": "For centuries, critics claimed the Quran contained an 'error': the name Haman. In the Torah, Haman lives in the Persian Empire (~480 BCE). In the Quran, Haman appears alongside the Pharaoh (~1300 BCE). An 800-year discrepancy!",
+      "title": "The Hāmān Case",
+      "subtitle": "~1300 BCE — a contested example of Bucaillism",
+      "content": "Maurice Bucaille (1976) proposed a linguistic parallel between the Quran's Hāmān and names from the 'Ḥmn' root attested in ancient Egyptian sources. The proposal entered popular apologetic literature as a 'classical Quranic miracle'; in academic Egyptology it has not been accepted. The Atlas presents the parallel here together with its actual academic standing.",
       "points": [
-        "800-year discrepancy between the Torah's Haman and the Quran's Haman",
-        "Rosetta Stone (1799) → Champollion (1822) → Hieroglyphs decoded",
-        "Ranke's encyclopedia (1935): names from the 'Ḥmn' root are recorded in Egyptian sources",
-        "Some of these names appear in stone-working / construction roles — New Kingdom period",
-        "A linguistic convergence has been proposed between the Quran's Hāmān and the Egyptian 'Ḥmn' names; mainstream Egyptology does not accept this as a definitive identification"
+        "In the Torah, Hāmān is a figure from the Book of Esther who lives in the Persian Empire (~480 BCE); in the Quran he is the Pharaoh's aide in Egypt",
+        "The Rosetta Stone (1799) → Champollion (1822) made hieroglyphs readable",
+        "Ranke, Die Ägyptischen Personennamen (1935): hundreds of 'ḥm-' initial names are listed, including some from the 'Ḥmn' root",
+        "Mainstream Egyptology rejects the parallel: 'ḥm-' initial names are very common, vocalisations differ widely, and none of them is read as 'Hāmān'",
+        "Scholars working on Quran–Bible relations (Walid Saleh, Reuven Firestone) read the link between the two Hāmāns as a possible literary/theological merging, or as different figures entirely"
       ],
-      "significance": "Why it's notable: This alleged 'error' was used to attack the Quran for 1,200 years. After hieroglyphs were decoded, names from the 'Ḥmn' root were found in Egyptian records; some scholars see this as a linguistic convergence with the Quran's Hāmān, while others consider them unrelated. The question remains open.",
-      "criticalNote": "Ranke's 1935 'Die Ägyptischen Personennamen' records names from the 'Ḥmn' root; however, the identification of these names with the Haman of the Quran is accepted by some scholars as a linguistic convergence, while others consider them unrelated. Ranke himself did not interpret this correspondence in a Quranic context."
+      "significance": "Why it's notable: What is striking about this case is the asymmetry between popular apologetic literature — which often presents it as 'history confirming the Quran' — and academic Egyptology, which does not accept the identification. The Atlas highlights this asymmetry: the very existence of a linguistic convergence is outside mainstream consensus, so the claim that 'history has proved this' cannot be defended here.",
+      "criticalNote": "The parallel was popularised primarily by Maurice Bucaille (La Bible, le Coran et la Science, 1976) and is not accepted in mainstream Egyptology. Ranke's 1935 Die Ägyptischen Personennamen lists hundreds of 'ḥm-' initial names — some from the 'Ḥmn' root — but Ranke neither reads them as 'Hāmān' nor connects them to the Quran. Scholars of Quran–Bible relations such as Walid Saleh and Reuven Firestone suggest that the Hāmān of the Torah/Esther and the Hāmān of the Quran can also be read as a literary/theological merging."
     },
     "rome": {
-      "title": "Rome's Impossible Victory",
-      "subtitle": "614-628 CE — Confirmed by historical records",
-      "content": "614 CE: The Sasanian Persians capture Jerusalem. The Byzantine Empire is on the verge of collapse. No one believes Byzantium can recover. At precisely this time, the Quran offers a startling prophecy.",
+      "title": "Rome's Unexpected Victory",
+      "subtitle": "614-628 CE — partially aligned with historical records",
+      "content": "614 CE: The Sasanian Persians capture Jerusalem; the Byzantine Empire is on the verge of collapse. The Quran announces that the Byzantines will prevail 'within a few years.' Heraclius's counter-offensive from 622 to 628 fits this window. Of the three cases on this page, this is the most academically defensible parallel.",
       "points": [
-        "'Bid'i sineen' (a few years) = 3-9 years in Arabic",
-        "From 622 to 628 = 6 years - right within the boundaries",
-        "'Adna al-ard' means both 'the nearest land' and 'the lowest land'",
-        "The Dead Sea area: 430 meters below sea level - the lowest point on Earth",
-        "This geographical fact was only discovered in the 19th century"
+        "'Bid'i sineen' (a few years) — in classical Arabic lexicography 3 to 9 years (Lisān al-ʿArab, Tāj al-ʿArūs)",
+        "Heraclius's counter-offensive began in 622; the Battle of Nineveh was fought in 627, and the peace treaty was signed in 628 — within the 3–9 year window",
+        "Classical tafsir reads 'adna al-ard' as 'the region nearest to the Arabs' (Rāzī, Ṭabarī, Ibn ʿĀshūr); the geological reading 'the lowest land' is a modern apologetic addition",
+        "Historical record: Walter E. Kaegi, Heraclius: Emperor of Byzantium (Cambridge UP, 2003)"
       ],
-      "significance": "Why it's notable: The '3-9 years' timeframe is historically confirmed (622-628 CE). The geological reading of 'Adna al-ard' as 'the lowest land' is a modern interpretation — classical tafsir does not make this connection; see the critical note below.",
-      "criticalNote": "The geological reading of 'Adna al-ard' as 'the lowest land' is a modern interpretation; classical commentaries mostly explain this phrase geographically as 'the region nearest to the Arabs.' The discovery that the Dead Sea region is the lowest point on Earth is a relatively recent scientific measurement, and this connection was not drawn in the classical tafsir tradition.",
+      "significance": "Why it's notable: From the crushing Byzantine defeat of 614 to Heraclius's victories of 622–628, the elapsed time fits the Quran's phrase 'within a few years' (bid'i sineen — 3 to 9 years in classical lexicography). This is the most academically defensible parallel of the three on this page. The geological reading of 'adna al-ard' as 'the lowest land,' by contrast, belongs to modern apologetic literature rather than classical tafsir — see the critical note.",
+      "criticalNote": "The geological reading of 'adna al-ard' as 'the lowest land' is a modern interpretation; most classical commentaries (Rāzī, Ṭabarī, Ibn ʿĀshūr) explain the phrase geographically as 'the region nearest to the Arabs.' A further inconsistency: the main theatre of the 614 Sasanian–Byzantine clash was Jerusalem, which lies roughly 750m above sea level — not the Dead Sea (-430m). So the 'defeated in the lowest land' reading does not even match the actual geography of the war. For this reason the Atlas presents the strength of this verse not as a 'geological miracle,' but as the historical confirmation of its 'within a few years' timeframe.",
       "verse": {
         "arabic": "غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
         "translation": "The Romans have been defeated in the nearest land. But after their defeat, they will triumph within a few years.",
