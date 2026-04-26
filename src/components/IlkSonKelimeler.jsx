@@ -91,6 +91,19 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose, selected]);
 
+  // Body scroll lock — prevents background page scroll showing through overlay
+  // (CLAUDE.md §13.16 — overlay scroll mimarisi)
+  useEffect(() => {
+    const prevBody = document.body.style.overflow;
+    const prevHtml = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevBody;
+      document.documentElement.style.overflow = prevHtml;
+    };
+  }, []);
+
   const filtered = useMemo(() => {
     if (!data) return [];
     const fn = FILTERS.find(f => f.id === activeFilter)?.match ?? (() => true);
