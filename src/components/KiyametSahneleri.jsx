@@ -492,9 +492,21 @@ export default function KiyametSahneleri({ onClose }) {
         padding: '16px 24px', borderBottom: `1px solid ${COLORS.glassBorder}`,
         background: 'rgba(8,9,26,0.95)', flexShrink: 0,
       }}>
-        <span style={OVERLAY_TITLE}>
-          {language === 'tr' ? 'Kıyamet Sahneleri' : 'Scenes of Judgment'}
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+          {/* Shockwave / Sur trumpet icon — concentric ripples emanating from center */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeLinecap="round">
+            <circle cx="12" cy="12" r="2" fill={GOLD} />
+            <circle cx="12" cy="12" r="6" strokeWidth="1.6" opacity="0.7" />
+            <circle cx="12" cy="12" r="10" strokeWidth="1.2" opacity="0.35" />
+          </svg>
+          <span style={OVERLAY_TITLE}>
+            {language === 'tr' ? 'Kıyamet Sahneleri' : 'Scenes of Judgment'}
+          </span>
+          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {language === 'tr' ? "Kur'an'ın Kıyamet Haritası" : "The Quran's Map of the Day"}
+          </span>
+        </div>
         <CloseBtn onClose={onClose} />
       </div>
 
@@ -548,6 +560,7 @@ export default function KiyametSahneleri({ onClose }) {
                 background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
                 borderRadius: RADIUS.chip, padding: '12px 14px',
                 flexShrink: 0, minWidth: isMobile ? '120px' : 'auto',
+                textAlign: 'center',
               }}>
                 <p style={{ fontSize: '1.1rem', fontWeight: 800, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>{s.value}</p>
                 <p style={{ fontSize: '0.7rem', color: COLORS.silver, margin: 0, lineHeight: 1.4, fontFamily: FONTS.body }}>{s.label}</p>
@@ -571,12 +584,17 @@ export default function KiyametSahneleri({ onClose }) {
               textEn="The Quran naming the Last Day with so many names shows that each name reflects a different reality of that Day."
             />
           </p>
-          <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: '6px' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile
+              ? 'repeat(auto-fill, minmax(150px, 1fr))'
+              : 'repeat(auto-fill, minmax(180px, 1fr))',
+            gap: '10px',
+          }}>
             {KIYAMET_ISIMLERI.map((isim) => (
               <div key={isim.tr} style={{
-                flexShrink: 0, background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
+                background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
                 borderRadius: RADIUS.chip, padding: '12px 14px',
-                minWidth: isMobile ? '150px' : '170px', maxWidth: '200px',
               }}>
                 <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: GOLD, margin: '0 0 4px', direction: 'rtl', textAlign: 'right' }} dir="rtl" lang="ar">
                   {isim.ar}
@@ -646,6 +664,9 @@ export default function KiyametSahneleri({ onClose }) {
             {[
               { tr: 'Cennet & Cehennem →', en: 'Paradise & Hell →', event: 'openCennetCehennem' },
               { tr: 'Kavimler Atlası →', en: 'Nations Atlas →', event: 'openKavimlerAtlasi' },
+              { tr: "Kur'an'da Melekler →", en: 'Angels in the Quran →', event: 'openMelekler' },
+              { tr: 'Nefis Mertebeleri →', en: 'Stations of the Self →', event: 'openNefisMertebeleri' },
+              { tr: 'Zaman Boyutları →', en: 'Dimensions of Time →', event: 'openZamanBoyutlari' },
             ].map(link => (
               <button
                 key={link.tr}
@@ -885,6 +906,12 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
       isInfo: true,
       infoText: 'Şefaatin kimin için, nasıl ve ne zaman işleyeceğine dair ayrıntılar hadis geleneğine aittir.',
     },
+    {
+      title: "Said Nursi'nin Onuncu Söz Argümanı",
+      content: "Said Nursi (Bediüzzaman, ö. 1960) Risâle-i Nur külliyatında kıyamete dair en kapsamlı argümantasyonu Onuncu Söz'de (Sözler) sunar. Onuncu Söz'ün omurgası, bedensel diriliş (haşr-i cismânî) için dokuz ayrı 'hakikat' başlığında işlenen delillerdir; merkezî analoji ise bahar-sonbahar döngüsüdür: sonbaharda yapraklar dökülür, canlı dünya ölü gibi olur; baharda yeniden hayata döner. Bu 'küçük kıyamet' büyüğüne işaret eden bir göstergedir. Argüman klasik Sünnî kıyamet inancını (Eş'arî/Mâturîdî zemin) modern Türkçe ile sistematik olarak ifade eder. Aynı tema Yedinci Şua (Lem'alar — Âyetü'l-Kübrâ) ve Yirmi Dokuzuncu Söz'de genişletilir.",
+      isInfo: true,
+      infoText: "Modern Türk Müslüman düşüncesinin kıyamet referansı. Klasik Sünnî inancı reddetmeden, modern dile aktaran sistematik bir bedensel diriliş savunması.",
+    },
   ] : [
     {
       title: 'Who Is Held to Account?',
@@ -905,6 +932,12 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
       ref: 'Al-Baqarah 2:255',
       isInfo: true,
       infoText: 'The details of intercession — for whom, how, and when — belong to the hadith tradition.',
+    },
+    {
+      title: "Said Nursi's Argument in the Tenth Word",
+      content: "Said Nursi (Bediüzzaman, d. 1960), in the Risāle-i Nūr corpus, presents his most comprehensive argument for resurrection in the Tenth Word (Onuncu Söz, in Sözler). Its backbone is a sequence of nine 'truths' (haqāʾiq) that establish bodily resurrection (haşr-i cismānī); the central analogy is the autumn–spring cycle: in autumn leaves fall and the living world appears dead; in spring it returns to life. This 'small resurrection' is read as a sign pointing to the great one. The argument expresses the classical Sunnī doctrine of resurrection (on Ashʿarī/Māturīdī ground) in systematic modern Turkish prose. The Seventh Ray (Yedinci Şua in Lemʿalar — Āyat al-Kubrā) and the Twenty-Ninth Word develop the same theme.",
+      isInfo: true,
+      infoText: 'A modern Turkish Muslim reference for resurrection: a systematic defence of bodily resurrection that translates classical Sunnī belief into modern prose without departing from it.',
     },
   ];
 
