@@ -8,7 +8,7 @@ const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI',
 const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'REGION MAP', 'COMPARE', 'SOURCES'];
 
 const HELAK_COLORS = {
-  ruzgar:   '#94a3b8',
+  ruzgar:   '#93c5fd',
   su:       '#3498db',
   ses:      '#a78bfa',
   sarsinti: '#f39c12',
@@ -1067,7 +1067,7 @@ function TabHarita({ language, isMobile }) {
       </div>
 
       {/* Harita */}
-      <div style={{ borderRadius: RADIUS.lg, overflow: 'hidden', border: `1px solid ${COLORS.glassBorder}`, marginBottom: '20px', height: isMobile ? '340px' : '480px' }}>
+      <div style={{ borderRadius: RADIUS.lg, overflow: 'hidden', border: `1px solid ${COLORS.glassBorder}`, marginBottom: '20px', height: isMobile ? '400px' : '480px' }}>
         <MapContainer
           center={[28, 40]}
           zoom={isMobile ? 3 : 4}
