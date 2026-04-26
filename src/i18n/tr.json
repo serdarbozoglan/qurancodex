@@ -801,7 +801,7 @@
     "sections": {
       "nefs": {
         "title": "Nefsin Haritası",
-        "intro": "Kur'an, insanın iç dünyasını 'nefis' kavramıyla tanımlar. Tek bir şey değil — bir yolculuk. Nefis, aşamalar boyunca dönüşen, gelişen bir varlık. Modern psikoloji bu aşamaları yeni yeni keşfederken, Kur'an onları on dört asır önce adlandırmıştı.",
+        "intro": "Kur'an, insanın iç dünyasını 'nefis' kavramıyla tanımlar. Tek bir şey değil — bir yolculuk. Nefis, aşamalar boyunca dönüşen, gelişen bir varlık. Modern psikoloji bu aşamaları yeni yeni keşfederken, Kur'an onları on dört asır önce adlandırmıştı. Akademik nüans: Kur'an'da yalnızca üç nefs aşaması ismen geçer — emmâre (Yûsuf 12:53), levvâme (Kıyâmet 75:2), mutmainne (Fecr 89:27). Mülhime ve râdıye/mardıyye, tasavvuf geleneğinin (Necmeddin Kübra, Said Nursi) Kur'ânî kategorilerden türettiği ileri makâmlardır.",
         "items": [
           {
             "id": "emmare",
@@ -926,9 +926,9 @@
           {
             "id": "huzun",
             "title": "Hüzün — Sağlıklı Yas ve Üzüntü",
-            "arabic": "قَالُوا يَا أَبَانَا إِنَّا ذَهَبْنَا نَسْتَبِقُ وَتَرَكْنَا يُوسُفَ",
-            "translation": "Dediler ki: Babamız, biz yarışmaya gitmiştik...",
-            "reference": "Yusuf, 12:17",
+            "arabic": "وَابْيَضَّتْ عَيْنَاهُ مِنَ الْحُزْنِ فَهُوَ كَظ۪يمٌ",
+            "translation": "Hüzünden gözleri ağardı; kederini içine gömdü.",
+            "reference": "Yusuf, 12:84",
             "description": "Hz. Yakup, Yusuf'u kaybedince yıllarca ağladı — gözleri aktı. Kur'an bunu zayıflık olarak göstermez; derinlemenin, sevginin ve beşerî acının doğal ifadesi olarak aktarır. Hüzün bastırılmamalı; yaşanmalı.",
             "modernNote": "Sağlıklı yas sürecinin önemi: Elizabeth Kübler-Ross'un yas aşamaları. Bastırılmış yas travmaya dönüşür."
           },
@@ -1116,7 +1116,7 @@
             "translation": "Eğer şükrederseniz, sizi artırırım.",
             "reference": "İbrahim, 14:7",
             "description": "Şükür bir kibarlık ritüeli değil — bir bilişsel yeniden çerçeveleme (reframing) pratiği. Odağı 'eksik olanlar'dan 'mevcut olanlar'a kaydırmak. Kur'an şükrün 'artırmayı' getireceğini söylüyor — nörobilim bunun dopamin ve serotonin artışıyla gerçekleştiğini doğruluyor.",
-            "modernNote": "Robert Emmons'ın minnet (gratitude) araştırmaları: düzenli şükür pratiği depresyonu %25 azaltır, uyku kalitesini artırır."
+            "modernNote": "Robert Emmons'ın minnet (gratitude) araştırmaları: düzenli şükür pratiği uyku kalitesini artırır ve duygu durumunu iyileştirir. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analizi gratitude müdahalelerinin klinik depresyon ve anksiyetede orta düzey etki gösterdiğini doğrular."
           },
           {
             "id": "zikir",
@@ -1125,7 +1125,7 @@
             "translation": "Biliniz ki kalpler ancak Allah'ı zikretmekle huzur bulur.",
             "reference": "Ra'd, 13:28",
             "description": "Kur'an kalpler için tek bir reçete yazar: Allah'ın zikri. Tekrarlayan, ritimli ses ve hareket — beyin frekansını değiştirir. fMRI çalışmaları, tekrarlayan dini pratik sırasında amigdala aktivitesinin düştüğünü, prefrontal korteks aktivitesinin arttığını gösteriyor.",
-            "modernNote": "Mindfulness ve meditasyon araştırmaları: tekrarlayan odaklanma pratiği kortizolü düşürür, parasempatik sinir sistemini aktive eder."
+            "modernNote": "Mindfulness ve meditasyon araştırmaları: tekrarlayan odaklanma pratiği kortizolü düşürür, parasempatik sinir sistemini aktive eder. Akademik nüans: aynı bulgular Buddhist meditasyon, Hıristiyan dua ve sekuler mindfulness pratiklerinde de gözlemlenir; etki gerçektir ama dini-spesifik değildir."
           },
           {
             "id": "dua",
@@ -1239,7 +1239,7 @@
         "intro": "Daniel Goleman, duygusal zekâyı 1995'te tanımladı: öz farkındalık, öz yönetim, empati, sosyal beceriler. Kur'an bu becerilerin her birini somut örnekler ve çerçeveler aracılığıyla aktarır.",
         "items": [
           { "id": "oz_farkindalik", "title": "Öz Farkındalık", "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ", "translation": "Ve kendi içinizde de (ayetler var). Görmüyor musunuz?", "reference": "Zariyat, 51:21", "description": "Kur'an içsel gözlemi dışsal gözlemle yan yana koyar. Kendi niyetlerini, motivasyonlarını, zayıf noktalarını görmek — psikolojik sağlığın temelidir. Murakebe (öz denetim) pratiği, öz farkındalığın İslami karşılığıdır." },
-          { "id": "empati", "title": "Empati — Ötekinin İçine Girmek", "arabic": "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَى", "translation": "İyilik ve takva üzerine yardımlaşın.", "reference": "Maide, 5:2", "description": "Hz. Peygamber'in empatisini Kur'an şöyle tanımlar: 'Size kendinizden bir peygamber geldi; sıkıntıya düşmeniz onu zorlar.' (Tevbe 9:128). Empati bir duygu değil — aktif bir yönelim: başkasının yükünü hissetmek ve ona doğru harekete geçmek." },
+          { "id": "empati", "title": "Empati — Ötekinin İçine Girmek", "arabic": "لَقَدْ جَٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَز۪يزٌۘ عَلَيْهِ مَا عَنِتُّمْ", "translation": "Size kendinizden bir peygamber geldi; sıkıntıya uğramanız ona ağır gelir.", "reference": "Tevbe, 9:128", "description": "Empati bir duygu değil — aktif bir yönelim: başkasının yükünü hissetmek ve ona doğru harekete geçmek. Hz. Peygamber'in empatisinin Kur'ânî tanımı budur. Sosyal uzantısı: iyilik ve takvada karşılıklı yardımlaşma (Maide 5:2)." },
           { "id": "ofke", "title": "Öfke Yönetimi", "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ", "translation": "Öfkelerini yutanlar ve insanları affedenler.", "reference": "Al-i İmran, 3:134", "description": "Kur'an öfkeyiinkâr etmez — 'yutmayı' ödüllendirir. Duygusal baskılama değil, bilinçli düzenleme. Hz. Peygamber: 'Güçlü olan güreşi yenen değil, öfkesinde kendini tutabilen.' Öfke enerjisi varoluşunu korur ama yönlendirme gerektir." },
           { "id": "sosyal_farkindalik", "title": "Sosyal Farkındalık", "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَى", "translation": "Ey insanlar! Sizi bir erkek ve kadından yarattık.", "reference": "Hucurât, 49:13", "description": "Kur'an çeşitliliği bir tehdit değil, tanışma fırsatı olarak sunar. Sosyal farkındalık: farklı deneyimlerin, arka planların, kırılganlıkların bilincinde olmak. Takvanın (Allah bilinci) sosyal versiyonu budur." },
           { "id": "iliski_yonetimi", "title": "İlişki Yönetimi — Adalet ve Şefkat", "arabic": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ", "translation": "Allah, adaleti ve ihsanı (güzel muameleyi) emreder.", "reference": "Nahl, 16:90", "description": "İki temel ilişki ilkesi: adalet (hakkaniyetli olmak) ve ihsan (standartın üzerinde iyilik yapmak). İlişki yönetimi sadece çatışmadan kaçınmak değil — aktif olarak iyilik üretmek. İhsan, karşılık beklemeyen bir verme biçimidir." }

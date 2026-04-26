@@ -802,7 +802,7 @@
     "sections": {
       "nefs": {
         "title": "Map of the Self (Nafs)",
-        "intro": "The Quran describes the inner world of the human being through the concept of 'nafs'. Not a single static thing — but a journey. The nafs transforms, develops through stages. While modern psychology is only now discovering these stages, the Quran named them fourteen centuries ago.",
+        "intro": "The Quran describes the inner world of the human being through the concept of 'nafs'. Not a single static thing — but a journey. The nafs transforms, develops through stages. While modern psychology is only now discovering these stages, the Quran named them fourteen centuries ago. Academic nuance: only three stages are explicitly named in the Quran — ammāra (Yusuf 12:53), lawwāma (Qiyāma 75:2), muṭmaʾinna (Fajr 89:27). Mulhima and rāḍiya/marḍiyya are advanced stations elaborated by the Sufi tradition (Najm al-Dīn Kubrā, Said Nursi) from Quranic categories.",
         "items": [
           {
             "id": "emmare",
@@ -927,9 +927,9 @@
           {
             "id": "huzun",
             "title": "Huzn — Healthy Grief and Sorrow",
-            "arabic": "قَالُوا يَا أَبَانَا إِنَّا ذَهَبْنَا نَسْتَبِقُ وَتَرَكْنَا يُوسُفَ",
-            "translation": "They said: Our father, we went racing and left Yusuf...",
-            "reference": "Yusuf, 12:17",
+            "arabic": "وَابْيَضَّتْ عَيْنَاهُ مِنَ الْحُزْنِ فَهُوَ كَظ۪يمٌ",
+            "translation": "His eyes whitened from grief, while he suppressed his sorrow.",
+            "reference": "Yusuf, 12:84",
             "description": "Prophet Ya'qub wept for years after losing Yusuf — until his eyes went white. The Quran does not present this as weakness; it conveys it as the natural expression of depth, love, and human pain. Grief should not be suppressed — it must be experienced.",
             "modernNote": "The importance of healthy grief: Elizabeth Kübler-Ross's stages of grief. Suppressed grief turns into trauma."
           },
@@ -1117,7 +1117,7 @@
             "translation": "If you are grateful, I will surely increase you.",
             "reference": "Ibrahim, 14:7",
             "description": "Gratitude is not a courtesy ritual — it is a cognitive reframing practice. Shifting focus from 'what is missing' to 'what is present'. The Quran says gratitude brings 'increase' — neuroscience confirms this happens through dopamine and serotonin increases.",
-            "modernNote": "Robert Emmons' gratitude research: regular gratitude practice reduces depression by 25% and improves sleep quality."
+            "modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis confirms gratitude interventions show moderate effects on clinical depression and anxiety."
           },
           {
             "id": "zikir",
@@ -1126,7 +1126,7 @@
             "translation": "Verily, in the remembrance of Allah do hearts find rest.",
             "reference": "Ra'd, 13:28",
             "description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement — changes brain frequency. fMRI studies show that during repetitive religious practice, amygdala activity decreases and prefrontal cortex activity increases.",
-            "modernNote": "Mindfulness and meditation research: repetitive focused practice lowers cortisol, activates the parasympathetic nervous system."
+            "modernNote": "Mindfulness and meditation research: repetitive focused practice lowers cortisol, activates the parasympathetic nervous system. Academic nuance: the same findings appear in Buddhist meditation, Christian prayer, and secular mindfulness — the effect is real but not religion-specific."
           },
           {
             "id": "dua",
@@ -1240,7 +1240,7 @@
         "intro": "Daniel Goleman defined emotional intelligence in 1995: self-awareness, self-management, empathy, social skills. The Quran conveys each of these skills through concrete examples and frameworks.",
         "items": [
           { "id": "oz_farkindalik", "title": "Self-Awareness", "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ", "translation": "And within yourselves — will you not see?", "reference": "Dhariyat, 51:21", "description": "The Quran places internal observation alongside external observation. Seeing one's own intentions, motivations, and weak points — it is the foundation of psychological health. Muraqaba (self-monitoring) practice is the Islamic counterpart of self-awareness." },
-          { "id": "empati", "title": "Empathy — Entering the Other's Interior", "arabic": "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَى", "translation": "And cooperate in righteousness and piety.", "reference": "Maidah, 5:2", "description": "The Quran describes the Prophet's empathy: 'There has come to you a messenger from among yourselves; grievous to him is what you suffer.' (Tawba 9:128). Empathy is not a feeling — it is an active orientation: feeling another's burden and moving toward them." },
+          { "id": "empati", "title": "Empathy — Entering the Other's Interior", "arabic": "لَقَدْ جَٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَز۪يزٌۘ عَلَيْهِ مَا عَنِتُّمْ", "translation": "There has come to you a Messenger from among yourselves; your suffering is grievous to him.", "reference": "Tawba, 9:128", "description": "Empathy is not a feeling — it is an active orientation: feeling another's burden and moving toward them. This verse defines the Prophet's empathy in Quranic terms. Its social extension: cooperation in righteousness and piety (Maidah 5:2)." },
           { "id": "ofke", "title": "Anger Management", "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ", "translation": "Those who restrain anger and pardon people.", "reference": "Ali Imran, 3:134", "description": "The Quran does not deny anger — it rewards 'swallowing' it. Not emotional suppression but conscious regulation. The Prophet: 'The strong one is not who wins in wrestling, but who can restrain themselves in anger.' Anger energy preserves existence but requires direction." },
           { "id": "sosyal_farkindalik", "title": "Social Awareness", "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَى", "translation": "O people! We created you from a male and female.", "reference": "Hujurat, 49:13", "description": "The Quran presents diversity not as a threat but as an opportunity for acquaintance. Social awareness: being conscious of different experiences, backgrounds, and vulnerabilities. This is the social version of taqwa (God-consciousness)." },
           { "id": "iliski_yonetimi", "title": "Relationship Management — Justice and Compassion", "arabic": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ", "translation": "Indeed, Allah commands justice and good conduct.", "reference": "Nahl, 16:90", "description": "Two fundamental relationship principles: adl (fairness) and ihsan (beautiful conduct beyond the standard). Relationship management is not just avoiding conflict — it is actively producing goodness. Ihsan is a form of giving that does not expect reciprocity." }
