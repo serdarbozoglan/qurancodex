@@ -1227,6 +1227,24 @@ export default function KuranRenkleri({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
+  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    const prevPad  = body.style.paddingRight;
+    const sbWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
+    return () => {
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      body.style.paddingRight = prevPad;
+    };
+  }, []);
+
   const tabStyle = (id) => ({
     padding: isMobile ? '12px 14px' : '13px 22px',
     borderRadius: '0',

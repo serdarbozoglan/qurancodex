@@ -6,6 +6,23 @@ import {
   BREAKPOINT_MOBILE,
 } from '../tokens';
 
+// CLAUDE.md §13.14 + §13.15 — Uthmani encoding → standard + Maddah render fix
+function cleanArabic(str) {
+  if (!str) return str;
+  return str
+    .replace(/\u06EA/g, '\u0650')
+    .replace(/\u06E1/g, '\u0652')
+    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
+    .replace(/\u0671/g, '\u0627')
+    .replace(/\u06CC/g, '\u064A')
+    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
+    .replace(/[\u0600-\u0605]/g, '')
+    .replace(/[\u06DD\u06DE\u06E9]/g, '')
+    .replace(/\u06E6/g, ' ')
+    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
+    .replace(/[\uFD3E\uFD3F]/g, '');
+}
+
 const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', 'Seçilmiş Sorular', 'Sûre Haritası'];
 const TABS_EN = ['Categories & Patterns', 'Addressee Analysis', 'Selected Questions', 'Surah Map'];
 
@@ -43,15 +60,21 @@ export default function KuranRetorigi({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — prevents background page scroll showing through overlay
+  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
   useEffect(() => {
-    const prevBody = document.body.style.overflow;
-    const prevHtml = document.documentElement.style.overflow;
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    const prevPad  = body.style.paddingRight;
+    const sbWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
     return () => {
-      document.body.style.overflow = prevBody;
-      document.documentElement.style.overflow = prevHtml;
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      body.style.paddingRight = prevPad;
     };
   }, []);
 
@@ -278,7 +301,7 @@ function TabKategoriler({ data, tr, isMobile }) {
           margin: '0 0 8px',
         }}
       >
-        {v.ar}
+        {cleanArabic(v.ar)}
       </p>
       <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
         {tr ? v.tr : v.en}
@@ -314,7 +337,7 @@ function TabKategoriler({ data, tr, isMobile }) {
           dir="rtl"
           style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: 0, flexShrink: 0 }}
         >
-          {sp.arabicForm}
+          {cleanArabic(sp.arabicForm)}
         </p>
       </div>
       <p style={{ color: catColor, fontSize: '0.82rem', fontWeight: 600, margin: '0 0 4px', fontFamily: FONTS.body }}>
@@ -479,7 +502,7 @@ function TabKategoriler({ data, tr, isMobile }) {
                 dir="rtl"
                 style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 4px' }}
               >
-                {activeSpecial.arabicForm}
+                {cleanArabic(activeSpecial.arabicForm)}
               </p>
               {(activeSpecial.meaningTr || activeSpecial.meaningEn) && (
                 <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver, fontStyle: 'italic', margin: 0, textAlign: 'right' }}>
@@ -502,7 +525,7 @@ function TabKategoriler({ data, tr, isMobile }) {
               <div key={i} style={{ padding: '10px 14px', marginBottom: 8, background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
                 <div>
                   <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: '0 0 4px' }}>
-                    {u.conceptAr}
+                    {cleanArabic(u.conceptAr)}
                   </p>
                   <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, margin: '0 0 2px', fontWeight: 600 }}>
                     {tr ? u.conceptTr : u.conceptEn}
@@ -572,7 +595,7 @@ function TabKategoriler({ data, tr, isMobile }) {
                     </p>
                   )}
                   <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: 0, marginLeft: 'auto' }}>
-                    {f.arabicForm}
+                    {cleanArabic(f.arabicForm)}
                   </p>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 8 }}>
@@ -616,7 +639,7 @@ function TabKategoriler({ data, tr, isMobile }) {
               </span>
             </div>
             <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, marginBottom: 8 }}>
-              {activeSpecial.arabicForm}
+              {cleanArabic(activeSpecial.arabicForm)}
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 24 }}>
               {tr ? activeSpecial.descTr : activeSpecial.descEn}
@@ -624,7 +647,7 @@ function TabKategoriler({ data, tr, isMobile }) {
             {activeSpecial.examples.map((ex, i) => (
               <div key={i} style={{ padding: '14px 16px', marginBottom: 10, background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${activeSpecial.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
                 <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
-                  {ex.ar}
+                  {cleanArabic(ex.ar)}
                 </p>
                 <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
                   {tr ? ex.tr : ex.en}
@@ -737,7 +760,7 @@ function TabMuhatap({ data, tr, isMobile }) {
                   </span>
                   {/* Arapça */}
                   <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
-                    {v.ar}
+                    {cleanArabic(v.ar)}
                   </p>
                   {/* Çeviri */}
                   <p style={{ color: COLORS.silver, fontSize: '0.87rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
@@ -896,7 +919,7 @@ function TabSorular({ data, tr, isMobile }) {
                 </div>
                 {/* Arapça */}
                 <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
-                  {q.ar}
+                  {cleanArabic(q.ar)}
                 </p>
                 {/* Çeviri */}
                 <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 6px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
@@ -1089,7 +1112,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
                 </span>
               </div>
               <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.35rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2.0, margin: '0 0 10px' }}>
-                {s.iconicQuestionAr}
+                {cleanArabic(s.iconicQuestionAr)}
               </p>
               <p style={{ color: `${COLORS.silver}80`, fontSize: '0.82rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.6 }}>
                 {tr ? s.noteTr : s.noteEn}
@@ -1110,7 +1133,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
         {/* Merkez soru */}
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.4rem' : '1.8rem', color: COLORS.gold, lineHeight: 2, margin: '0 0 4px', textAlign: 'center' }}>
-            {data.comparativeAnalysis.questionAr}
+            {cleanArabic(data.comparativeAnalysis.questionAr)}
           </p>
           <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', fontFamily: FONTS.body, margin: 0 }}>
             {tr ? data.comparativeAnalysis.questionTr : data.comparativeAnalysis.questionEn}
