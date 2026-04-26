@@ -1233,6 +1233,35 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
         </div>
       </div>
 
+      {/* ── Modern Türk Düşüncesinde Temsîl — Said Nursi köprüsü ───────────── */}
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
+          <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>
+            {language === 'tr' ? 'Modern Türk Düşüncesinde Temsîl' : 'Tamthīl in Modern Turkish Thought'}
+          </span>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
+        </div>
+        <div style={{ ...GLASS_CARD, padding: '18px 20px', borderLeft: `3px solid ${COLORS.gold}` }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '12px' }}>
+            <div>
+              <div style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '1rem' }}>
+                Said Nursi (1877–1960)
+              </div>
+              <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 600, fontSize: '0.78rem', opacity: 0.85, marginTop: '2px' }}>
+                {language === 'tr' ? 'Risâle-i Nur Külliyatı · Yirmi İkinci Söz' : 'Risāle-i Nūr Collection · Twenty-Second Word'}
+              </div>
+            </div>
+          </div>
+          <div style={{ height: '1px', background: COLORS.glassBorder, marginBottom: '12px' }} />
+          <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
+            {language === 'tr'
+              ? "Modern Türk Müslüman düşüncesinde Said Nursi, Risâle-i Nur'da temsîlî metodu sistematik olarak kullanmıştır. Özellikle Yirmi İkinci Söz, Sâni‑i Hakîm (her şeyi hikmetle yapan Yapıcı) hakikatini birden fazla büyük temsil üzerinden işler. Nursi'ye göre kâinat 'açık bir Kur'ân'dır — her atom, her hücre, her gezegen Yaratıcı'nın hikmetinin temsîlî bir aynasıdır. Bu yaklaşım klasik mesel‑temsîl geleneğinin modern bir uzantısı olarak okunabilir."
+              : "In modern Turkish Muslim thought, Said Nursi employs the parabolic method systematically in the Risāle-i Nūr. The Twenty-Second Word in particular unfolds the truth of Ṣāniʿ-i Ḥakīm (the All-Wise Maker) through multiple grand parables. For Nursi, the cosmos is 'an open Qurʾān' — every atom, cell, and planet a parabolic mirror of the Creator's wisdom. This approach can be read as a modern extension of the classical mathal–tamthīl tradition."}
+          </p>
+        </div>
+      </div>
+
       {/* ── Cross-page CTA grubu — Atlas ekosistem ────────────────────────── */}
       <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
