@@ -717,8 +717,8 @@ export default function HiddenArchitecture() {
               <circle cx="54" cy="141" r="5" fill="white" fillOpacity="0.95"
                 filter="url(#dot-glow)"/>
 
-              {/* "Nur" label — Arabic + Latin, gold, near origin of ray */}
-              <text x="-74" y="124"
+              {/* "Nur" label — Arabic on left, Latin on right, ABOVE the ray (no overlap) */}
+              <text x="-74" y="118"
                 style={{
                   fill: '#d4a574',
                   fontSize: '20px',
@@ -727,7 +727,7 @@ export default function HiddenArchitecture() {
                 }}>
                 نور
               </text>
-              <text x="-74" y="142"
+              <text x="-32" y="116"
                 style={{
                   fill: '#d4a574',
                   fontSize: '11px',

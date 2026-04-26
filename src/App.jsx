@@ -81,6 +81,7 @@ export default function App() {
             <QuranRhetoric />
             <div className="gradient-divider" />
             <HiddenArchitecture />
+            {/* HiddenArch (navy) → SciSigns (navy): aynı zemin, bridge phantom — kaldırıldı */}
             <ScientificSigns />
             <div className="gradient-divider-reverse" />
             <HistoricalProof />
