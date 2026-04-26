@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import {
   COLORS,
   FONTS,
@@ -773,8 +774,10 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
   );
 }
 
-// ─── Verse block (Arabic + translation + ref) ────────────────────────────────
+// ─── Verse block (Arabic + translation + ref + audio) ───────────────────────
 function VerseBlock({ verse, accent, isMobile, language }) {
+  const { playing, loading, failed, toggle } = useAudioWithFallback(verse.surah, verse.ayah);
+  const canPlay = verse.surah && verse.ayah && !failed;
   return (
     <div style={{
       ...VERSE_DISPLAY_CARD,
@@ -802,20 +805,60 @@ function VerseBlock({ verse, accent, isMobile, language }) {
         fontFamily: FONTS.body,
         fontStyle: 'italic',
         lineHeight: 1.7,
-        margin: '0 0 6px 0',
+        margin: '0 0 8px 0',
       }}>
         {language === 'tr' ? verse.verseTr : verse.verseEn}
       </p>
-      <p style={{
-        color: accent,
-        fontSize: '0.74rem',
-        fontFamily: FONTS.body,
-        fontWeight: 600,
-        margin: 0,
-        letterSpacing: '0.02em',
-      }}>
-        — {verse.verseRef}
-      </p>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+        <p style={{
+          color: accent,
+          fontSize: '0.74rem',
+          fontFamily: FONTS.body,
+          fontWeight: 600,
+          margin: 0,
+          letterSpacing: '0.02em',
+        }}>
+          — {verse.verseRef}
+        </p>
+        {canPlay && (
+          <button
+            onClick={toggle}
+            aria-label={playing ? (language === 'tr' ? 'Durdur' : 'Stop') : (language === 'tr' ? 'Dinle' : 'Listen')}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '4px 10px',
+              borderRadius: '999px',
+              background: playing ? `${accent}20` : 'rgba(255,255,255,0.04)',
+              border: `1px solid ${playing ? accent + '60' : 'rgba(255,255,255,0.10)'}`,
+              color: playing ? accent : COLORS.silver,
+              fontSize: '0.72rem',
+              fontFamily: FONTS.body,
+              cursor: 'pointer',
+              transition: 'all 0.15s',
+              flexShrink: 0,
+            }}
+          >
+            {loading ? (
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <circle cx="12" cy="12" r="9" opacity="0.25" />
+                <path d="M21 12a9 9 0 0 1-9 9" />
+              </svg>
+            ) : playing ? (
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="5" width="4" height="14" rx="1" />
+                <rect x="14" y="5" width="4" height="14" rx="1" />
+              </svg>
+            ) : (
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            )}
+            <span>{playing ? (language === 'tr' ? 'Durdur' : 'Stop') : (language === 'tr' ? 'Dinle' : 'Listen')}</span>
+          </button>
+        )}
+      </div>
     </div>
   );
 }
