@@ -561,15 +561,18 @@
     "cards": [
       {
         "title": "The Prefrontal Cortex",
-        "content": "The Quran says the liar will be seized by his 'forelock' — the forehead (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (directly behind the forehead) is the center of lying, moral reasoning, and deception. Brain functions were unknown in the 7th century. The prefrontal cortex's role in moral reasoning was only mapped in the 20th century using fMRI technology. The Quran singled out this one point on the human body — out of all its parts — 1,400 years earlier."
+        "content": "The Quran says the liar will be seized by his 'forelock' — the forehead (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (directly behind the forehead) plays a central role in moral reasoning, planning, and deceptive behavior. Its function was mapped in the 20th century using fMRI technology.",
+        "note": "Classical exegesis (al-Tabari, al-Razi, Ibn Kathir) reads 'seizing by the forelock' as an Arabic idiom for taking control — not a direct anatomical claim about the brain. Modern neuroscience also locates lying in distributed function rather than a single region (Sean Spence et al., 2001+). The parallel is striking, but the reading 'the Quran identified the prefrontal cortex' carries selective-reading risk — part of the broader Bucaillism debate."
       },
       {
         "title": "Fingerprints",
-        "content": "'We are able to restore even his fingertips' (Al-Qiyama 75:4) — God's answer to resurrection-deniers, demonstrating power to recreate in the finest detail. Some contemporary commentators have noted a connection to fingerprint uniqueness; classical exegesis, however, interprets this verse as being about the power of resurrection. No two of Earth's 8 billion people share the same fingerprint — a fact first scientifically documented by Francis Galton in 1880. The Quran had singled out this one detail, from among all body parts, 1,200 years earlier."
+        "content": "'We are able to restore even his fingertips' (Al-Qiyama 75:4) — God's answer to resurrection-deniers, demonstrating power to recreate in the finest detail. Classical exegesis interprets this verse as being about the power of resurrection; some contemporary commentators have additionally noted a connection to fingerprint uniqueness. The uniqueness of fingerprints was scientifically documented from the 1880s onward (Henry Faulds, Nature 1880; Francis Galton, Finger Prints 1892).",
+        "note": "The card title reflects a modern reading; the classical tradition (al-Razi, al-Tabari) reads 'banān' as 'the precision of creation, the power of resurrection.' The fingerprint reading is modern — the verse's primary theological point is the power of resurrection itself."
       },
       {
         "title": "Modular Narrative",
-        "content": "Moses (AS)'s story is distributed across 30+ chapters in 10 distinct 'blocks.' Each block reads independently, yet together they form a unified whole. Modern cinema calls this 'non-linear narrative.' 1,400 years before Pulp Fiction. For example: Surah Ta-Ha covers only the moment of revelation and the dialogue with Pharaoh. Surah Al-Qasas gives a full biography from birth to exile. Surah Ash-Shu'ara focuses on the confrontation with the sorcerers. Same story — a different lesson each time."
+        "content": "Moses (AS)'s story is distributed across 30+ chapters in 10 distinct 'blocks.' Each block reads independently, yet together they form a unified whole. This structure is called 'modular narrative': the same event, different emphases. For example: Surah Ta-Ha covers only the moment of revelation and the dialogue with Pharaoh. Surah Al-Qasas gives a full biography from birth to exile. Surah Ash-Shu'ara focuses on the confrontation with the sorcerers. Same story — a different lesson each time.",
+        "note": "Modular narrative (retelling the same event with different emphases) and non-linear narrative (deliberately disrupting chronology) are distinct techniques. The Quran uses modularity — chronology within each surah is preserved. Modular structure also appears in classical literature (Homer's Odyssey 'in medias res', 8th c. BCE); however, the Quran's systematic distribution across 30+ surahs is characteristic."
       },
       {
         "title": "The Word Map",
@@ -584,7 +587,8 @@
       },
       {
         "title": "Time Flexibility",
-        "content": "In the Quran, future events are described in past tense (Prophetic Perfect) — as though they have already occurred. And past events are narrated in present tense (Historical Present) — as though happening now. The Sleepers of the Cave: 300 solar years = 309 lunar years. The difference is the exact solar-lunar calendar conversion. Surah Ar-Rum, written in 614 CE as Byzantium had just fallen, said 'the Romans have been defeated' — past tense for a victory that had not yet happened. Not a prediction, but a declaration of certainty. Byzantium won in 628 CE."
+        "content": "In the Quran, future events are described in past tense (Prophetic Perfect) — as though they have already occurred. And past events are narrated in present tense (Historical Present) — as though happening now. The Sleepers of the Cave: 300 solar years = 309 lunar years. The difference is the exact solar-lunar calendar conversion. Surah Ar-Rum, written in 614 CE as Byzantium had just fallen, said 'the Romans have been defeated' — past tense for a victory that had not yet happened. Not a prediction, but a declaration of certainty. Byzantium won in 628 CE.",
+        "note": "The solar-to-lunar conversion is mathematically exact (300 × 365.25 / 354.37 ≈ 309.017). However, classical tafsir (al-Razi, al-Tabari) offers three different interpretations of this gap (margin of error, lunar-month reading, etc.) — the solar-to-lunar reading is a modern one, not specifically highlighted as a miracle in the classical tradition. The al-māḍī bi-maʿnā al-mustaqbal (past tense for future meaning) technique is well established in classical Arabic linguistics (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
       },
       {
         "title": "Iltifat",
