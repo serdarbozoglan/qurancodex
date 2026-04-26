@@ -382,6 +382,52 @@ export default function NefisMertebeleri({ onClose }) {
           ))}
         </div>
 
+        {/* ───────────────── CROSS-LINK: Münâfık Profili ───────────────── */}
+        {/* Mutmainne ↔ müzebzeb mukâbelesi — Atlas içi konseptüel diyalog */}
+        <div style={{
+          padding: isMobile ? '0 20px 24px' : '0 40px 32px',
+        }}>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('openMunafikProfili'))}
+            style={{
+              width: '100%',
+              padding: isMobile ? '14px 16px' : '14px 22px',
+              background: 'rgba(212,165,116,0.06)',
+              border: '1px solid rgba(212,165,116,0.3)',
+              borderRadius: '10px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              transition: 'all 0.2s',
+              textAlign: 'left',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
+              e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'rgba(212,165,116,0.06)';
+              e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)';
+            }}
+          >
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ color: COLORS.gold, fontSize: '0.74rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: FONTS.body }}>
+                {language === 'tr' ? '↗ MÜNÂFIK PROFİLİ' : '↗ MUNĀFIQ PROFILE'}
+              </p>
+              <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.5 }}>
+                {language === 'tr'
+                  ? "Mutmainne'nin tam zıddı: müzebzeb (bocalayan) hâli — Nisâ 4:143. İki yol, aynı insan psikolojisi, farklı sonuç."
+                  : "The exact opposite of muṭmaʾinna: muzabzab ('the wavering') — Q 4:143. Two paths, the same human psychology, different outcomes."}
+              </p>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+
         {/* ───────────────── FOOTER NOTE ───────────────── */}
         <div style={{
           padding: isMobile ? '24px 20px 40px' : '32px 40px 56px',
