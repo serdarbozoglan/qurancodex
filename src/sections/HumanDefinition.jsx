@@ -63,6 +63,8 @@ const HUMAN_TERMS = [
     meaningEn: 'Humankind as a collective, communal address',
     contextTr: '"Ey insanlar..." hitaplarında — evrensel mesaj',
     contextEn: '"O people..." — universal address to all of humanity',
+    rootNoteTr: 'Nâs çoğul ismi olup klasik dilbilimcilerce iki kökle ilişkilendirilir: "hareket / sosyal görünürlük" (ن-و-س) ve "unutkanlık" (ن-س-ي, insân ile aynı kök). Kolektif boyut vurgusu kelimenin ayırıcı özelliğidir.',
+    rootNoteEn: 'Nās is a collective noun that classical linguists link to two roots: "to move / be socially visible" (n-w-s) and "to forget" (n-s-y, the same root as insān). Its distinctive feature is the collective dimension.',
     verse: {
       ar: 'يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ',
       tr: '"Ey insanlar! Rabbinizden korkun."',
@@ -82,6 +84,8 @@ const HUMAN_TERMS = [
     meaningEn: "Adam's descendants — historical continuity and dignity",
     contextTr: 'Kerâmet (onur), sorumluluk ve ilâhî ahit bağlamlarında',
     contextEn: 'Used in contexts of dignity (karāma), responsibility, and covenant',
+    rootNoteTr: 'Benî Âdem ("Âdem oğulları") tek bir kökten türemiş bir kelime değil, soy/silsile ifadesidir. Klasik tefsir bu kullanımı kerâmet (onurlandırma) ve ilâhî ahit (mîsâk) bağlamında okur — insanlığın yaratılış ahdiyle tarihsel bağı (A\'râf 7:172).',
+    rootNoteEn: 'Banī Ādam ("children of Adam") is not derived from a single root — it is a lineage formula. Classical tafsir reads it through the lens of dignity (karāma) and the primordial covenant (mīthāq) — humanity\'s historical bond from creation (A\'rāf 7:172).',
     verse: {
       ar: 'وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ',
       tr: '"Andolsun, biz Âdem oğullarını onurlandırdık."',
@@ -189,9 +193,9 @@ const OPPOSITION_PAIRS = [
   {
     pos: { tr: 'Sâdık', en: 'Ṣādiq', ar: 'صَادِق', noteTr: 'Doğru, dürüst', noteEn: 'Truthful, sincere' },
     neg: { tr: 'Kâzib', en: 'Kādhib', ar: 'كَاذِب', noteTr: 'Yalancı', noteEn: 'The liar' },
-    ref: 'Zümer 39:32–33',
-    contextTr: '"Allah\'a yalan isnad eden (kezzebe) vs sıdkı (doğruyu) getiren ve tasdik eden"',
-    contextEn: '"He who lies against Allah (kadhdhaba) vs he who brings the truth (ṣidq) and confirms it"',
+    ref: 'Zümer 39:32–33 / Yûsuf 12:26-27',
+    contextTr: 'Zümer 39:32-33: "Allah\'a yalan isnad eden (kezzebe) vs sıdkı (doğruyu) getiren ve tasdik eden" — verbal form. Nominal sâdıkîn ↔ kâzibîn çifti Yûsuf 12:26-27\'de aynı pasajda yan yana geçer (gömlek tanıklığı).',
+    contextEn: 'Sura Az-Zumar 39:32-33: "He who lies against Allah (kadhdhaba) vs he who brings the truth (ṣidq) and confirms it" — verbal form. The nominal pair ṣādiqīn ↔ kādhibīn appears side-by-side in Yūsuf 12:26-27 (the testimony of the shirt).',
   },
 ];
 
