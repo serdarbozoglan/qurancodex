@@ -394,8 +394,8 @@ export const EXPLORE_CATEGORIES = [
         target: 'zaman',
         icon:   ClockIcon,
         titleTr: 'Zaman Boyutları',       titleEn: 'Dimensions of Time',
-        descTr: 'Yevm, dehir, hîn, asr',
-        descEn: 'Yawm, dahr, ḥīn, ʿaṣr',
+        descTr: '6 zaman boyutu · ilahî vs insan zamanı',
+        descEn: '6 time scales · divine vs human time',
       },
       {
         id:     'melekler',
