@@ -122,10 +122,55 @@ export default function ScientificSigns() {
       {/* Intro */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-10 font-body"
+        className="text-silver text-lg leading-relaxed max-w-3xl mb-6 font-body"
       >
         {t('scientificSigns.intro')}
       </motion.p>
+
+      {/* Academic frame — Bucaillism critique */}
+      <motion.div
+        variants={fadeUpItem}
+        className="mb-10"
+        style={{
+          borderLeft: '3px solid rgba(212,165,116,0.5)',
+          background: 'rgba(212,165,116,0.04)',
+          borderRadius: '0 8px 8px 0',
+          padding: '14px 18px',
+          maxWidth: '760px',
+        }}
+      >
+        <p style={{
+          color: COLORS.gold,
+          fontSize: '0.7rem',
+          fontWeight: 700,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          fontFamily: FONTS.body,
+          margin: '0 0 4px',
+        }}>
+          {t('scientificSigns.bucaillismFrame.label')}
+        </p>
+        <p style={{
+          color: COLORS.offWhite,
+          fontSize: '0.92rem',
+          fontWeight: 600,
+          fontFamily: FONTS.body,
+          margin: '0 0 8px',
+          lineHeight: 1.45,
+        }}>
+          {t('scientificSigns.bucaillismFrame.title')}
+        </p>
+        <p style={{
+          color: COLORS.silver,
+          fontSize: '0.82rem',
+          fontFamily: FONTS.body,
+          margin: 0,
+          lineHeight: 1.7,
+          fontStyle: 'italic',
+        }}>
+          {t('scientificSigns.bucaillismFrame.body')}
+        </p>
+      </motion.div>
 
       {/* Tab buttons — per-tab accent colors preserved, DogaAtlasi underline pattern */}
       <motion.div

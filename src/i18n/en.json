@@ -306,6 +306,11 @@
     "badge": "Scientific Signs",
     "title": "What Science Discovered 1,400 Years Later",
     "intro": "The Quran is not a book of science. But certain verses point to realities that modern science would not discover for centuries. Each example is accompanied by an honest question.",
+    "bucaillismFrame": {
+      "label": "Academic Frame",
+      "title": "This Page Is Not a Claim of 'Scientific Miracle'",
+      "body": "In modern scholarship, \"Bucaillism\" — named after Maurice Bucaille's *La Bible, le Coran et la Science* (1976), the systematic effort to \"locate\" modern scientific discoveries within Quranic verses — is widely critiqued. Critics (Ziauddin Sardar; Stefano Bigliardi, *Islam and the Quest for Modern Science*; Taner Edis) note that it risks selective reading, can sideline classical exegesis, and remains hostage to shifting scientific theories. Classical Islamic scholars (al-Shāṭibī, *al-Muwāfaqāt*) emphasized that the Quran is a book of guidance, not science. This page does **not** advance a definitive miracle claim — it presents the parallels classical exegetes recognized as ishārāt / iʿjāz as **possible alignments** with modern context; the critical notes within each tab are part of this frame."
+    },
     "tabs": {
       "iron": "Iron",
       "universe": "Universe",
@@ -314,7 +319,7 @@
     },
     "iron": {
       "title": "The Cosmic Journey of Iron",
-      "content": "The Quran chooses an extraordinary verb for iron: anzalnā — We sent down. Not created, not formed: sent down. In the 7th century, this would have seemed illogical; iron comes from the ground, found in mines. Modern astrophysics explains why this choice is correct. Iron cannot form in medium-sized stars like our Sun — the required fusion energy is simply not available. Iron is only synthesized at the end of massive stars' lives, in supernova explosions, then scattered into space. The iron on Earth arrived via meteorites from such an explosion billions of years ago. The correspondence between this word choice and astrophysical reality is something scholars have interpreted in various ways across centuries.",
+      "content": "The Quran chooses an extraordinary verb for iron: anzalnā — We sent down. Not created, not formed: sent down. In the 7th century, this would have seemed illogical; iron comes from the ground, found in mines. Modern astrophysics explains why this choice is correct. Iron cannot form in medium-sized stars like our Sun — the required fusion energy is simply not available. Iron-group elements are synthesized at the end of massive stars' lives — in supernova explosions and in neutron-star mergers (kilonovae; the GW170817 event observed in 2017) — and scattered into space. The iron on Earth arrived via meteorites from such events billions of years ago. The correspondence between this word choice and astrophysical reality is something scholars have interpreted in various ways across centuries.",
       "verse": {
         "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
         "translation": "We sent down iron, wherein is great might and benefits for humanity.",
@@ -323,10 +328,10 @@
       "facts": [
         "Hadid 57:25 — the verb 'anzalnā' (We sent down) is used specifically for iron",
         "Iron cannot form in stars like our Sun: insufficient temperature and pressure for fusion",
-        "Iron is only produced in supernovae and scattered into space",
+        "Iron-group elements are produced in supernovae and in neutron-star mergers (kilonovae) — the 2017 GW170817 event directly observed this process",
         "All iron on Earth arrived via meteorites billions of years ago"
       ],
-      "criticalNote": "Whether 'anzalnā' in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean 'We bestowed' or 'We provided.' The astrophysical interpretation is a reading that became prominent in the 20th century."
+      "criticalNote": "Whether 'anzalnā' in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean 'We bestowed' or 'We provided.' Important linguistic nuance: the same verb is used in the Quran for rain, the Book, clothing (Al-An'ām 7:26), and animals (Al-Zumar 39:6) — meaning 'anzalnā' is not a special term reserved for cosmic origin, but a broad pattern of 'We bestowed / We brought into being.' The astrophysical interpretation is a reading that became prominent in the 20th century."
     },
     "universe": {
       "title": "The Expanding Universe",
@@ -360,7 +365,7 @@
         "Al-Furqan 25:53: between them is a barzakh (barrier) and hijr mahjūr (forbidden boundary)",
         "Barzakh: an impassable intermediate zone — corresponds precisely to the halocline definition"
       ],
-      "criticalNote": "Quranic statements about the seas are exaggerated in some popular narratives. The widely cited story that Jacques Cousteau discovered this verse and converted to Islam cannot be verified in the sources; no such statement appears in Cousteau's own writings. The interpretation presented here is based solely on oceanographic data and the Quranic text."
+      "criticalNote": "Important contextual note: classical exegesis (Ṭabarī, Rāzī, Ibn Kathīr) typically reads barzakh in the context of fresh-versus-salt water at river–sea junctions, rather than as a halocline between two open seas. The halocline reading (density/salinity stratification, e.g., the Gibraltar–Mediterranean example) is a modern interpretation. Additionally, Quranic statements about the seas are exaggerated in some popular narratives: the widely cited story that Jacques Cousteau discovered this verse and converted to Islam cannot be verified in the sources, and no such statement appears in Cousteau's own writings."
     },
     "embryo": {
       "title": "Embryology — The Word 'Alaqah'",
@@ -388,10 +393,10 @@
       "facts": [
         "Alaqah — three simultaneous definitions: clinging substance / blood clot / leech; all three apply to the early embryo",
         "Days 6–12: embryo clings to the uterine wall — matches 'clinging substance'",
-        "Al-Mu'minun 23:14: bones form first, then flesh — the opposite of Galen's teaching; modern embryology accepts this sequence",
+        "Al-Mu'minun 23:14: the 'bones → flesh' sequence is roughly compatible with modern embryology (bone and muscle develop in parallel, though the skeletal framework is generally observable a little earlier)",
         "Dr. Keith L. Moore (The Developing Human, 5th ed.): noted the correspondence between Quranic embryological descriptions and modern science as remarkable"
       ],
-      "criticalNote": "Keith Moore's interpretations are disputed in the scientific community; some academics argue that Quranic descriptions may reflect the Greek medical traditions of the era. The linguistic interpretation of alaqah, however, is strong on its own terms and can be evaluated independently of Moore."
+      "criticalNote": "Keith Moore's interpretations are disputed regarding academic independence: the 'Islamic Additions to Embryology' sections appear only in the Saudi Arabia edition of The Developing Human and were supported by King Abdulaziz University (source: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). This does not question Moore's anatomical expertise but does open the independence of his interpretations to debate. The Galen comparison also requires nuance: Galen's embryological views are inconsistent across his works (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983) — the one-way claim 'Galen was wrong, the Quran corrected him' is not academically defensible. In modern embryology, bone and muscle tissue develop in parallel; the Quran's 'bones → flesh' sequence is not a literal chronology but a roughly compatible phrasing. The linguistic richness of alaqah, however, can be evaluated independently of Moore."
     }
   },
   "historicalProof": {
