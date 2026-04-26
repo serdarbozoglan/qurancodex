@@ -348,7 +348,10 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
       )}
 
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '16px' }}>
-        {['~50 Mesel', '7 İmge Alanı', '200+ Ayet', '6 Hayvan Sûresi'].map(s => (
+        {(language === 'tr'
+          ? ['42 Mesel', '7 İmge Alanı', '200+ Ayet', '6 Hayvan Sûresi']
+          : ['42 Parables', '7 Imagery Domains', '200+ Verses', '6 Animal Surahs']
+        ).map(s => (
           <span key={s} style={{
             ...GLASS_CARD, padding: '5px 14px',
             color: COLORS.gold, fontSize: '0.8rem', fontFamily: FONTS.body, fontWeight: 600,
@@ -1089,6 +1092,26 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
   return (
     <div style={{ padding: isMobile ? '12px' : '24px 28px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
 
+      {/* ── Metodoloji Notu ──────────────────────────────────────────────── */}
+      <div style={{
+        borderLeft: `3px solid ${COLORS.gold}`,
+        background: COLORS.goldAlpha15,
+        borderRadius: '0 8px 8px 0',
+        padding: '12px 16px',
+      }}>
+        <p style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.82rem',
+          color: COLORS.gold,
+          margin: 0,
+          lineHeight: 1.6,
+        }}>
+          ℹ {language === 'tr'
+            ? "Bu sayfa Kur'an'daki 42 meseli klasik tefsir ve Ulûm el-Kur'ân kaynaklarına (İbn Kayyim el-Cevziyye, Suyûtî, İbn Kesîr, Râzî, Zerkeşî) dayalı sunar. Yorum nüansları müfessirler arasında zaman zaman farklılık gösterir; mümkün olduğunda paralel pozisyonlar belirtilmiştir. Mealler Erhan Aktaş çevirisindendir."
+            : "This page presents the 42 parables in the Quran based on classical tafsīr and ʿUlūm al-Qurʾān sources (Ibn Qayyim al-Jawziyya, al-Suyūṭī, Ibn Kathīr, al-Rāzī, al-Zarkashī). Interpretive nuances vary among commentators; parallel positions are noted where possible. Translations are from Erhan Aktaş."}
+        </p>
+      </div>
+
       {/* ── Mesel Türleri ─────────────────────────────────────────────────── */}
       <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
@@ -1206,6 +1229,53 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
                 {s.workTr}
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Cross-page CTA grubu — Atlas ekosistem ────────────────────────── */}
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
+          <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>
+            {language === 'tr' ? 'İlgili Atlas Sayfaları' : 'Related Atlas Pages'}
+          </span>
+          <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {[
+            { event: 'openKuranRetorigi',    tr: "KUR'AN'IN RETORİĞİ", en: 'QURANIC RHETORIC',  descTr: 'Mesel & temsil belâgat sanatının parçası — teşbîh, istiâre, kinâye',                   descEn: 'Parables as part of rhetorical art — tashbīh, istiʿāra, kināya' },
+            { event: 'openDogaAtlasi',       tr: 'DOĞA ATLASI',         en: 'NATURE ATLAS',     descTr: 'Arı, deve, sığır — hayvanların kevniyye/yaratılış bağlamı',                          descEn: 'Bee, camel, cattle — animals in their cosmological context' },
+            { event: 'openMunafikProfili',   tr: 'MÜNAFIK PROFİLİ',     en: 'HYPOCRITE PROFILE', descTr: 'Bakara 2:17-19 — münafık çift mesellerinin klinik analizi',                           descEn: 'Bakara 2:17-19 — clinical analysis of paired hypocrite parables' },
+            { event: 'openCennetCehennem',   tr: 'CENNET & CEHENNEM',   en: 'PARADISE & HELL',  descTr: 'Muhammed 47:15 — cennet nehirlerinin (paradise-rivers) detaylı tasviri',              descEn: 'Muhammad 47:15 — detailed description of paradise rivers' },
+            { event: 'openKiyametSahneleri', tr: 'KIYAMET SAHNELERİ',   en: 'SCENES OF QIYĀMAH', descTr: 'Yâsîn 36:78 (kuru kemikler), Bakara 2:259 (yıkık kasaba) — diriliş meselleri',     descEn: 'Yāsīn 36:78 (dry bones), Bakara 2:259 (ruined town) — resurrection parables' },
+          ].map(cta => (
+            <button
+              key={cta.event}
+              onClick={() => window.dispatchEvent(new CustomEvent(cta.event))}
+              style={{
+                width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                padding: '12px 16px', borderRadius: '10px',
+                background: COLORS.goldAlpha15,
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                cursor: 'pointer', textAlign: 'left',
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha25; e.currentTarget.style.borderColor = COLORS.goldAlpha45; }}
+              onMouseLeave={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = COLORS.goldAlpha25; }}
+            >
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <p style={{ color: COLORS.gold, fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.08em', margin: '0 0 2px', fontFamily: FONTS.body }}>
+                  ↗ {language === 'tr' ? cta.tr : cta.en}
+                </p>
+                <p style={{ color: COLORS.silver, fontSize: '0.76rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.4 }}>
+                  {language === 'tr' ? cta.descTr : cta.descEn}
+                </p>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7, marginLeft: 10 }}>
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
           ))}
         </div>
       </div>
