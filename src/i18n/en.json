@@ -18,7 +18,7 @@
   "linguisticDNA": {
     "badge": "Linguistic DNA",
     "title": "A 1,400-Year-Old Code",
-    "intro": "Twenty-nine chapters of the Quran open with mysterious letters: Alif-Lam-Mim. Ha-Mim. Ya-Sin. No one knows for certain what they mean. A code that has remained unsolved for 1,400 years. But here is what we do know: these 14 letters make up exactly half of the 28-letter Arabic alphabet. Why exactly these 14 letters were chosen, why precisely half the alphabet — questions that have gone unanswered for 1,400 years. A cipher? A system of balance? Only Allah knows.",
+    "intro": "Twenty-nine chapters of the Quran open with mysterious letters: Alif-Lam-Mim. Ha-Mim. Ya-Sin. No one knows for certain what they mean. A pattern that has resisted scholarly consensus for 1,400 years, drawing multiple interpretations across the tradition. But here is what we do know: these 14 letters make up exactly half of the 28-letter Arabic alphabet. Why exactly these 14 letters were chosen, why precisely half the alphabet — questions that have remained open to interpretation for 1,400 years. A cipher? A system of balance? Only Allah knows.",
     "stats": {
       "letters": {
         "label": "Unique Letters",
@@ -31,6 +31,10 @@
       "coverage": {
         "label": "Chapter Ratio",
         "description": "29 of the Quran's 114 chapters (25%) open with disconnected letters"
+      },
+      "meccan": {
+        "label": "Meccan",
+        "description": "27 of the 29 muqaṭṭaʿāt suras are from the Meccan period; only Al-Baqarah and Āl ʿImrān are Medinan"
       }
     },
     "checksum": {

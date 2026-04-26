@@ -57,14 +57,14 @@ const GROUPS = [
       '🔹 Bakara & Âl-i İmrân (Medenî): Kitap ile toplumsal ve hukuki inşa',
       '🔹 Lokmân & Secde (Mekkî): Kozmik deliller, hikmet ve yaratılışa secde',
       '🔸 Ankebût (Mekkî): İmanın sarsıcı sınavı — "Sınanmayacaklarını mı sandılar?" (29:2)',
-      '🔸 Rûm (Mekkî): Vahyin tarihsel zaferle (Rûm-İran) kanıtlanması',
+      '🔸 Rûm (Mekkî): Bizans-Pers savaşı kehanetinin doğrulanması — modern okumayla "vahyin tarihsel ispatı" olarak yorumlanır',
       '→ not: 4+2 yapısı — vahyin hem metin (Kitap) hem hayat (İmtihan & Tarih) olarak ispatı',
     ],
     bulletsEn: [
       '🔹 Al-Baqarah & Al-Imran (Medinan): Building society and law through the Book',
       '🔹 Luqman & As-Sajdah (Meccan): Cosmic signs, wisdom, and prostration before creation',
       '🔸 Al-Ankabut (Meccan): The shattering trial of faith — "Do people think they will not be tested?" (29:2)',
-      '🔸 Ar-Rum (Meccan): Revelation proven through historical victory (Byzantine-Persian war)',
+      '🔸 Ar-Rum (Meccan): Fulfillment of the Byzantine-Persian prophecy — read in modern scholarship as a "historical proof" of revelation',
       '→ note: A 4+2 structure — revelation proven both as text (Book) and lived reality (Trial & History)',
     ],
   },
@@ -93,6 +93,7 @@ const GROUPS = [
       'Hepsi Mekkî — baskı ve zulüm döneminin sûreleri',
       'Yûsuf: baştan sona tek ve bütünlüklü bir kıssa — Kur\'an\'da eşsiz',
       'Yûnus & Hûd: birden fazla peygamber kıssası ve Hz. Muhammed\'e teselli',
+      'Hicr (15:1) özel — bu beş sûre arasında "Kitap" ve "Kur\'ân"ı birlikte zikreden tek açılış: تِلْكَ آيَاتُ الْكِتَابِ وَقُرْآنٍ مُّبِينٍ',
       '→ not: Ra\'d sûresi (13) dört harfli Elif-Lâm-Mîm-Râ (الـمر) ile açılır; saf Elif-Lâm-Râ grubuna dahil değildir',
     ],
     bulletsEn: [
@@ -100,6 +101,7 @@ const GROUPS = [
       'All Meccan — suras from the period of persecution and pressure',
       'Yusuf: a single, continuous narrative from beginning to end — unique in the Quran',
       'Yunus & Hud: multiple prophetic stories with consolation to the Prophet',
+      'Al-Ḥijr (15:1) is special — the only opening among these five that pairs "the Book" and "the Qur\'ān" together: تِلْكَ آيَاتُ الْكِتَابِ وَقُرْآنٍ مُّبِينٍ',
       '→ note: Sura Ar-Ra\'d (13) opens with four letters Elif-Lâm-Mîm-Râ (الـمر); it is not part of the pure Elif-Lâm-Râ group',
     ],
   },
@@ -129,18 +131,21 @@ const GROUPS = [
       '7\'sinde de açılış, doğrudan vahyin kaynağına ve nüzulüne (indirilme/vahiy) odaklanır',
       'İmza sıfatları: Azîz · Hakîm ikilisi grubun adeta damgası (öz. 42, 45, 46)',
       'Makro-kozmik gözlem: yedisinde de göklerin ve yerin yaratılış kodları işlenir',
-      '→ not: Şûrâ (42) özel — "حم" ile açılır, ardından "عسق" gelir; Kur\'an\'da iki ayrı huruf-i mukattaa ayeti olan tek sûre',
+      '→ not: Şûrâ (42) hibrit yapıdadır — حم (42:1) ardından عسق (42:2) gelir; mukattaa harfleri iki ayrı ayet olarak sayılan tek sûredir (diğer 28 sûrede mukattaa tek ayet sayılır)',
+      '→ not: Bu hibrit yapıya rağmen Şûrâ klasik tasnifte Havâmîm yedilisine dahil edilir (Suyûtî, İtkân; Bikâî, Nazmü\'d-Dürer)',
     ],
     bulletsEn: [
       'All 7 openings focus directly on the source and process of revelation (tanzīl and wahy)',
       'Signature attributes: Al-Aziz · Al-Hakim pairing is the hallmark of this group (esp. 42, 45, 46)',
       'Macro-cosmic observation: all seven address the creation codes of heavens and earth',
-      '→ note: Ash-Shura (42) is unique — opens with "Ha Mim" then "Ayn Sin Qaf"; the only sura with two separate opening-letter verses',
+      '→ note: Ash-Shura (42) is hybrid — حم (42:1) is followed by عسق (42:2); the only sura where opening letters are counted as two separate verses (the other 28 count them as a single verse)',
+      '→ note: Despite this hybrid structure, classical exegesis includes Ash-Shura within the seven-strong Ḥawāmīm family (Suyūṭī, Itqān; Biqāʿī, Naẓm al-Durar)',
     ],
   },
   {
     arabic: 'طس',
-    latin: 'Tâ · Sîn (ve Tâ Sîn Mîm)',
+    latin: 'Tâ-Sîn ailesi (طسم + طس)',
+    latinEn: 'Ṭā-Sīn family (طسم + طس)',
     count: 3,
     period: 'Mekkî',
     periodEn: 'Meccan',
@@ -197,10 +202,10 @@ const DISCOVERIES = [
   },
   {
     num: '1.400+',
-    label: 'Yıldır Çözülemeyen Şifre',
-    labelEn: 'An Unsolved Code for 1,400+ Years',
-    desc: 'Klasik tefsir literatüründe "müteşâbih" (anlamı kapalı) olarak kodlanan bu yapı, modern veri analizinde "yüksek korelasyonlu semantik girişler" olarak karşımıza çıkıyor. Kesin anlam hâlâ yalnızca Allah katında.',
-    descEn: 'Classified as "mutashābih" (unclear in meaning) in classical exegesis, these structures appear in modern data analysis as "high-correlation semantic headers." Their definitive meaning remains with Allah alone.',
+    label: 'Yıldır Üzerinde İcma Sağlanamayan',
+    labelEn: '1,400+ Years Without Scholarly Consensus',
+    desc: 'Klasik tefsir geleneğinde İbn Abbâs, Mücâhid, Râzî, Suyûtî ve diğerleri farklı yorumlar (ilahî isimler, sûre kısaltmaları, dilsel meydan okuma, ilahî sırlar) önerdi; ancak hiçbiri konsensüsa ulaşmadı. Modern veri analizi bunları "yüksek korelasyonlu semantik girişler" olarak görüyor — kesin anlam hâlâ yalnızca Allah katında.',
+    descEn: 'Classical exegesis (Ibn ʿAbbās, Mujāhid, Rāzī, Suyūṭī, and others) proposed multiple interpretations — divine names, sura abbreviations, linguistic challenge, divine secrets — but none reached consensus. Modern data analysis treats them as "high-correlation semantic headers"; the definitive meaning remains with Allah alone.',
   },
 ];
 
@@ -234,7 +239,7 @@ export default function LinguisticDNA() {
       </motion.p>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
         <StatCard
           label={t('linguisticDNA.stats.letters.label')}
           value="14"
@@ -252,6 +257,12 @@ export default function LinguisticDNA() {
           value="25%"
           description={t('linguisticDNA.stats.coverage.description')}
           glowColor="blue"
+        />
+        <StatCard
+          label={t('linguisticDNA.stats.meccan.label')}
+          value="27 / 29"
+          description={t('linguisticDNA.stats.meccan.description')}
+          glowColor="gold"
         />
       </div>
 
@@ -380,7 +391,7 @@ export default function LinguisticDNA() {
                     >
                       {group.arabic}
                     </span>
-                    <span className="text-silver/50 text-sm font-body tracking-wider">{group.latin}</span>
+                    <span className="text-silver/50 text-sm font-body tracking-wider">{language === 'en' && group.latinEn ? group.latinEn : group.latin}</span>
                   </div>
                   <div className="text-right flex flex-col items-end gap-1">
                     <div>
@@ -517,8 +528,8 @@ export default function LinguisticDNA() {
         </h3>
         <p className="text-silver/65 text-base font-body mb-6">
           {language === 'tr'
-            ? <>Standart grupların dışında kalan özel yapılar — hibrit kodlar, tek harfli açılışlar ve benzersiz istisnalar. Ezici çoğunluğunda <span className="text-gold font-semibold">vahyin araçlarına (Kitap, Kalem, Zikir)</span> atıf gelir.</>
-            : <>Unique structures outside the standard groups — hybrid codes, single-letter openings, and singular exceptions. The vast majority reference <span className="text-gold font-semibold">the instruments of revelation (Book, Pen, Remembrance).</span></>}
+            ? <>Standart grupların dışında kalan özel yapılar — hibrit kodlar, tek harfli açılışlar ve benzersiz istisnalar. Çoğunluğunda <span className="text-gold font-semibold">vahyin formülüne (Kitap, Kur'ân, Zikir)</span> atıf gelir; Kalem (68) bu kalıbın dışında kalan dikkat çekici istisnadır.</>
+            : <>Unique structures outside the standard groups — hybrid codes, single-letter openings, and singular exceptions. Most reference <span className="text-gold font-semibold">the formula of revelation (Book, Qur'ān, Remembrance)</span>; Al-Qalam (68) is the notable exception that breaks this pattern.</>}
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-14">
           {[
@@ -529,7 +540,7 @@ export default function LinguisticDNA() {
             { ar: 'يس',   num: 36, name: "Yâ-Sîn", nameEn: "Ya-Sin",   desc: language === 'tr' ? '"Hikmetli Kur\'an\'a andolsun" — hemen ardından Kur\'an yemini' : '"By the wise Quran" — immediately followed by an oath on the Quran' },
             { ar: 'ص',    num: 38, name: "Sâd",     nameEn: "Sad",      desc: language === 'tr' ? 'tek harf, ardından "Zikir dolu Kur\'an" vurgusu' : 'single letter, followed by "the Quran full of Remembrance"' },
             { ar: 'ق',    num: 50, name: "Kâf",     nameEn: "Qaf",      desc: language === 'tr' ? '"Şanlı Kur\'an\'a andolsun" (50:1)' : '"By the glorious Quran" (50:1)' },
-            { ar: 'ن',    num: 68, name: "Kalem",   nameEn: "Al-Qalam", desc: language === 'tr' ? 'Yazı ve Kayıt: Kaleme ve satırlara yeminle başlar (68:1)' : 'Writing & Record: Opens with an oath by the Pen and what they inscribe (68:1)' },
+            { ar: 'ن',    num: 68, name: "Kalem",   nameEn: "Al-Qalam", desc: language === 'tr' ? 'Kaleme ve yazılana yemin (68:1) — vahyin tipik "Kitap / Kur\'ân" formülünü kullanmayan istisnai açılış' : 'Oath by the Pen and what they inscribe (68:1) — an exceptional opening that does not use the typical "Book / Qur\'ān" formula of revelation' },
           ].map((s, i) => {
             const letterCount = s.ar.length;
             const fontSize = letterCount === 1 ? '3rem' : letterCount === 2 ? '2.5rem' : letterCount <= 3 ? '2rem' : letterCount === 4 ? '1.7rem' : '1.4rem';
