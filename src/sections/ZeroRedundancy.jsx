@@ -200,9 +200,15 @@ export default function ZeroRedundancy() {
               : 'The difference: Redundancy is repeating in the same context with no added meaning. In these verses, the context shifts each time — a different blessing, a different scene, a different destroyed nation. The refrain is the same, but each time it addresses something new.'}
           </p>
           <p className="text-silver text-base leading-relaxed">
-            {language === 'tr'
-              ? 'Modern edebiyat buna "anafora" ya da "refrein" diyor. Beatles\'ın "Let it be" nakaratı gereksiz mi? Bir avukatın her delil için "Bu delile ne diyeceksiniz?" sorusunu tekrarlaması boş mu? Hayır — birikimli bir etki yaratıyor.'
-              : 'Modern literature calls this "anaphora" or "refrain." Is the Beatles\' "Let it be" chorus redundant? Is a lawyer\'s repeated "What do you say to this evidence?" for each piece of evidence unnecessary? No — it creates a cumulative effect.'}
+            {language === 'tr' ? (
+              <>
+                Klasik Arap belagatı bu tekniği 1.000 yıl önce <strong className="text-gold/80">tekrîr</strong> <span lang="ar" style={{ fontFamily: FONTS.quran }}>(تكرير)</span> olarak sistematize etmiş, birden fazla işlevini (te'kîd, tafhîm, istis'âr…) ayırt etmişti — Zerkeşî, <em>el-Burhân fî Ulûmi'l-Kur'an</em> (14. yy). Modern edebiyat aynı yapıyı yüzyıllar sonra "anafora" veya "refrein" olarak yeniden adlandırdı. Beatles'ın "Let it be" nakaratı gereksiz mi? Bir avukatın her delil için "Bu delile ne diyeceksiniz?" sorusunu tekrarlaması boş mu? Hayır — birikimli bir etki yaratıyor.
+              </>
+            ) : (
+              <>
+                Classical Arabic rhetoric had systematized this technique a thousand years ago as <strong className="text-gold/80">takrīr</strong> <span lang="ar" style={{ fontFamily: FONTS.quran }}>(تكرير)</span>, distinguishing multiple functions (ta'kīd, tafhīm, istis'ār…) — al-Zarkashī, <em>al-Burhān fī 'Ulūm al-Qur'ān</em> (14th c.). Modern literature later renamed the same structure "anaphora" or "refrain." Is the Beatles' "Let it be" chorus redundant? Is a lawyer's repeated "What do you say to this evidence?" for each piece of evidence unnecessary? No — it creates a cumulative effect.
+              </>
+            )}
           </p>
           <p className="text-gold/80 text-base font-semibold leading-relaxed">
             {language === 'tr'
