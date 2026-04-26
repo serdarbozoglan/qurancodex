@@ -1,6 +1,48 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, GLASS_CARD, BREAKPOINT_TABLET } from '../tokens';
+import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
+
+// Parse references like "Kadr 97:3", "Hac 22:47 / Secde 32:5" — first match wins
+function parseRef(ref) {
+  if (!ref) return null;
+  const m = String(ref).match(/(\d+)\s*:\s*(\d+)/);
+  if (!m) return null;
+  return { surah: parseInt(m[1], 10), ayah: parseInt(m[2], 10) };
+}
+
+function VerseAudioButton({ surah, ayah }) {
+  const { playing, loading, failed, toggle } = useAudioWithFallback(surah, ayah);
+  const disabled = failed;
+  return (
+    <button
+      onClick={(e) => { e.stopPropagation(); if (!disabled) toggle(); }}
+      disabled={disabled}
+      aria-label={playing ? 'Pause' : 'Play verse'}
+      style={{
+        width: 22, height: 22, borderRadius: '50%', flexShrink: 0,
+        background: disabled ? 'rgba(100,116,139,0.08)' : playing ? 'rgba(212,165,116,0.28)' : 'rgba(212,165,116,0.10)',
+        border: `1px solid ${disabled ? 'rgba(100,116,139,0.2)' : playing ? 'rgba(212,165,116,0.6)' : 'rgba(212,165,116,0.35)'}`,
+        color: disabled ? '#475569' : '#d4a574',
+        cursor: disabled ? 'not-allowed' : 'pointer',
+        opacity: disabled ? 0.5 : 1,
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        transition: 'all 0.15s',
+        marginLeft: '6px', verticalAlign: 'middle',
+      }}
+    >
+      {loading ? (
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+          <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+        </svg>
+      ) : playing ? (
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/></svg>
+      ) : (
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+      )}
+    </button>
+  );
+}
 
 // ── Timeline data ─────────────────────────────────────────────────────────────
 const TIMELINE_DATA = [
@@ -374,8 +416,6 @@ const TABS = [
 export default function ZamanBoyutlari({ onClose }) {
   const { language } = useLanguage();
   const [activeTab, setActiveTab]         = useState('olcek');
-  const [activeDot, _setActiveDot]         = useState('kadr');
-  const [_openAccordion, _setOpenAccordion] = useState(null);
   const [expandedRow,   setExpandedRow]   = useState(null);
   const [expandedCard,  setExpandedCard]  = useState(null);
   const [sourcesOpen, setSourcesOpen]     = useState(true);
@@ -415,23 +455,25 @@ export default function ZamanBoyutlari({ onClose }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const _activeItem = TIMELINE_DATA.find(d => d.id === activeDot) ?? TIMELINE_DATA[0];
-
   // ── Render helpers ────────────────────────────────────────────────────────────
   function renderRefPill(ref) {
+    const parsed = parseRef(ref);
     return (
-      <span style={{
-        display: 'inline-block',
-        padding: '2px 8px',
-        borderRadius: '10px',
-        border: `1px solid ${COLORS.gold}`,
-        color: COLORS.gold,
-        fontSize: '0.72rem',
-        fontFamily: FONTS.body,
-        fontWeight: 600,
-        lineHeight: 1.4,
-      }}>
-        {ref}
+      <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+        <span style={{
+          display: 'inline-block',
+          padding: '2px 8px',
+          borderRadius: '10px',
+          border: `1px solid ${COLORS.gold}`,
+          color: COLORS.gold,
+          fontSize: '0.72rem',
+          fontFamily: FONTS.body,
+          fontWeight: 600,
+          lineHeight: 1.4,
+        }}>
+          {ref}
+        </span>
+        {parsed && <VerseAudioButton surah={parsed.surah} ayah={parsed.ayah} />}
       </span>
     );
   }
@@ -975,8 +1017,8 @@ export default function ZamanBoyutlari({ onClose }) {
               </thead>
               <tbody>
                 {rows.map((row, idx) => (
-                  <>
-                    <tr key={row.id} style={{ background: idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
+                  <Fragment key={row.id}>
+                    <tr style={{ background: idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
                       <td style={{ padding: '10px 14px', fontSize: '0.85rem', color: COLORS.offWhite, fontWeight: 600 }}>
                         {tr ? row.expressionTr : row.expressionEn}
                       </td>
@@ -1008,8 +1050,8 @@ export default function ZamanBoyutlari({ onClose }) {
                         {row.hasInfo ? 'ℹ ' : ''}{tr ? row.noteTr : row.noteEn}
                       </td>
                     </tr>
-                    {expandedRow === row.id && <VersePanel key={`${row.id}-panel`} rowId={row.id} />}
-                  </>
+                    {expandedRow === row.id && <VersePanel rowId={row.id} />}
+                  </Fragment>
                 ))}
               </tbody>
             </table>
@@ -1177,6 +1219,48 @@ export default function ZamanBoyutlari({ onClose }) {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Cross-page CTAs — related Atlas overlays */}
+        <div style={{ marginTop: '24px' }}>
+          <p style={{ fontFamily: FONTS.body, fontSize: '0.78rem', fontWeight: 700, color: COLORS.gold, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 12px' }}>
+            {isTr ? 'İlgili Atlas Sayfaları' : 'Related Atlas Pages'}
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {[
+              { event: 'openKiyametSahneleri', tr: 'KIYAMET SAHNELERİ', en: 'SCENES OF QIYĀMAH', descTr: 'Eskatolojik zaman ve ahiret sahneleri', descEn: 'Eschatological time and afterlife scenes' },
+              { event: 'openKavimlerAtlasi',   tr: 'KAVİMLER ATLASI',   en: 'NATIONS ATLAS',     descTr: 'Tarihsel kıssalar — "Yûsuf 12:111: kıssalarda ibret"', descEn: 'Historical narratives — "Yusuf 12:111: lessons in stories"' },
+              { event: 'openYeminler',         tr: "KUR'AN'IN YEMİNLERİ", en: 'OATHS OF THE QURAN', descTr: 'Kadr, Asr, Fecr — zaman üzerine yeminler', descEn: 'Qadr, Asr, Fajr — oaths upon time' },
+              { event: 'openKuranRetorigi',    tr: "KUR'AN'IN RETORİĞİ", en: 'QURANIC RHETORIC',  descTr: 'Prophetic Perfect ve apokaliptik dilbilim', descEn: 'Prophetic Perfect and apocalyptic linguistics' },
+            ].map(cta => (
+              <button
+                key={cta.event}
+                onClick={() => window.dispatchEvent(new CustomEvent(cta.event))}
+                style={{
+                  width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  padding: '12px 16px', borderRadius: '10px',
+                  background: COLORS.goldAlpha15,
+                  border: `1px solid ${COLORS.goldAlpha25}`,
+                  cursor: 'pointer', textAlign: 'left',
+                  transition: 'all 0.15s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha25; e.currentTarget.style.borderColor = COLORS.goldAlpha45; }}
+                onMouseLeave={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = COLORS.goldAlpha25; }}
+              >
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ color: COLORS.gold, fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.08em', margin: '0 0 2px', fontFamily: FONTS.body }}>
+                    ↗ {isTr ? cta.tr : cta.en}
+                  </p>
+                  <p style={{ color: COLORS.silver, fontSize: '0.76rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.4 }}>
+                    {isTr ? cta.descTr : cta.descEn}
+                  </p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7, marginLeft: 10 }}>
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     );
