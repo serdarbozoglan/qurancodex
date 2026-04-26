@@ -625,11 +625,11 @@ function DiscoveryWidget({ t, language }) {
         background: 'rgba(255,255,255,0.03)',
         border: `1px solid ${revealed ? (isCorrect ? 'rgba(46,204,113,0.40)' : 'rgba(231,76,60,0.40)') : 'rgba(255,255,255,0.10)'}`,
         borderRadius: '16px',
-        padding: 'clamp(18px, 3vw, 26px)',
+        padding: 'clamp(14px, 2.4vw, 20px)',
         transition: 'border-color 0.3s',
       }}>
         {/* Progress + score */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', gap: '10px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', gap: '10px', flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', gap: '6px' }}>
             {items.map((_, i) => (
               <div key={i} style={{
@@ -659,31 +659,31 @@ function DiscoveryWidget({ t, language }) {
               {!revealed && (
                 <p style={{
                   color: COLORS.silver, fontSize: '0.85rem', fontFamily: 'Inter, sans-serif',
-                  fontStyle: 'italic', marginBottom: '14px',
+                  fontStyle: 'italic', marginBottom: '10px',
                 }}>{language === 'tr' ? data.instructionTr : data.instructionEn}</p>
               )}
 
               {/* Arabic verse */}
               <div dir="rtl" lang="ar" style={{
                 fontFamily: FONTS.quran,
-                fontSize: 'clamp(1.5rem, 4vw, 2.4rem)',
-                lineHeight: 1.7,
+                fontSize: 'clamp(1.3rem, 3vw, 1.9rem)',
+                lineHeight: 1.5,
                 color: revealed ? (isCorrect ? '#2ecc71' : '#e74c3c') : COLORS.gold,
                 textAlign: 'right',
                 wordBreak: 'keep-all',
-                marginBottom: '8px',
+                marginBottom: '6px',
                 transition: 'color 0.4s',
                 textShadow: revealed ? `0 0 16px ${isCorrect ? 'rgba(46,204,113,0.30)' : 'rgba(231,76,60,0.30)'}` : 'none',
               }}>{item.arabic}</div>
 
               <p style={{
                 color: COLORS.silver, fontSize: '0.78rem', fontFamily: 'Inter, sans-serif',
-                textAlign: 'right', direction: 'ltr', marginBottom: '18px',
+                textAlign: 'right', direction: 'ltr', marginBottom: '12px',
               }}>{item.verseRef}</p>
 
               {/* Listen + answer buttons */}
               {!revealed ? (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {/* Listen button */}
                   <button
                     onClick={togglePlay}
@@ -714,7 +714,7 @@ function DiscoveryWidget({ t, language }) {
                         background: 'rgba(231,76,60,0.08)',
                         border: '1px solid rgba(231,76,60,0.35)',
                         borderRadius: '12px',
-                        padding: '14px 12px',
+                        padding: '11px 12px',
                         color: '#e74c3c',
                         fontSize: '0.95rem', fontFamily: "'Playfair Display', serif",
                         fontWeight: 700, cursor: 'pointer',
@@ -729,7 +729,7 @@ function DiscoveryWidget({ t, language }) {
                         background: 'rgba(46,204,113,0.08)',
                         border: '1px solid rgba(46,204,113,0.35)',
                         borderRadius: '12px',
-                        padding: '14px 12px',
+                        padding: '11px 12px',
                         color: '#2ecc71',
                         fontSize: '0.95rem', fontFamily: "'Playfair Display', serif",
                         fontWeight: 700, cursor: 'pointer',
