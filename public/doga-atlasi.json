@@ -21,7 +21,16 @@
       "sureRef": "Nahl 16:68-69",
       "noteTr": "Kur'an'da yalnızca arı doğrudan ilahi vahye mazhar hayvan olarak anılır. Bal şifa olarak nitelendirilir (Nahl 16:69: \"فِيهِ شِفَاءٌ لِّلنَّاسِ\" — insanlar için şifa).",
       "noteEn": "In the Quran, only the bee is explicitly mentioned as a creature to whom God directly revealed. Honey is described as a healing (Nahl 16:69: \"فِيهِ شِفَاءٌ لِّلنَّاسِ\" — in it is healing for people).",
-      "hasTefsirNote": false
+      "hasTefsirNote": false,
+      "featured": true,
+      "featuredTitleTr": "Bal Arısının Vahyi — Kur'an'ın Tek Vahy Alan Hayvanı",
+      "featuredTitleEn": "The Bee's Revelation — The Only Animal Granted Wahy in the Quran",
+      "featuredArabic": "وَأَوْحَىٰ رَبُّكَ إِلَى النَّحْلِ أَنِ اتَّخِذِي مِنَ الْجِبَالِ بُيُوتًا وَمِنَ الشَّجَرِ وَمِمَّا يَعْرِشُونَ",
+      "featuredVerseRef": "Nahl 16:68",
+      "featuredVerseTr": "\"Rabbin bal arısına şöyle vahyetti: Dağlardan, ağaçlardan ve insanların kurdukları çardaklardan kendine evler edin.\"",
+      "featuredVerseEn": "\"And your Lord revealed to the bee: Build your homes in the mountains, in the trees, and in what they construct.\"",
+      "featuredInsightTr": "Klasik tefsir vahyi 4 katmana ayırır: (1) **Vahy-i şer'î** — peygamberlere indirilen şeriat vahyi; (2) **İlhâm** — peygamber olmayan insanlara (örn. Hz. Mûsâ'nın annesine, Kasas 28:7); (3) **Vahy-i tabîî** — doğal içgüdü, hayvan ve göklere yönelik (Nahl 16:68 ve Fussilet 41:12); (4) **Vesvese** — şeytanın fısıltısı (Nâs 114:5). Bal arısı, Kur'an'da peygamber dışında doğrudan 'وَحَى' fiiliyle muhatap alınan tek hayvandır — bu özel statü, klasik tefsirin canlıya verdiği ilahi pedagojinin sembolüdür.",
+      "featuredInsightEn": "Classical tafsir distinguishes four levels of revelation: (1) **wahy-i sharʿī** — prophetic revelation of law; (2) **ilhām** — inspiration to non-prophets (e.g. Moses's mother, Qasas 28:7); (3) **wahy-i ṭabīʿī** — natural instinct directed at animals and the heavens (Nahl 16:68; Fussilat 41:12); (4) **waswasa** — Satanic whisper (Nās 114:5). The bee is the only non-prophetic creature in the Quran addressed with the verb 'wa-aḥā' — a unique status that classical exegesis treats as a symbol of divine pedagogy embedded in creation."
     },
     {
       "id": "karinca",
@@ -171,11 +180,21 @@
       "arabic": "الْبَعُوضَة",
       "nameTr": "Sivrisinek",
       "frequency": "1 kez",
-      "contexts": ["delil"],
+      "contexts": ["delil", "mecaz"],
+      "isHapax": true,
       "sureRef": "Bakara 2:26",
-      "noteTr": "'Allah bir sivrisineği bile misal getirmekten çekinmez.' Küçüklük büyüklük ayrımı yapmayan bir ilahi pedagoji. Nadir geçişlerden.",
-      "noteEn": "'God does not shy away from giving the example of a mosquito.' A divine pedagogy that makes no distinction between small and great. One of the rarer occurrences.",
-      "hasTefsirNote": false
+      "noteTr": "'Allah bir sivrisineği bile misal getirmekten çekinmez.' Küçüklük büyüklük ayrımı yapmayan bir ilahi pedagoji. Kur'an'da tek geçişli (hapax legomenon).",
+      "noteEn": "'God does not shy away from giving the example of a mosquito.' A divine pedagogy that makes no distinction between small and great. A hapax legomenon — appears only once in the Quran.",
+      "hasTefsirNote": false,
+      "featured": true,
+      "featuredTitleTr": "Sinek Meseli — Kur'an'ın 'Küçük Pedagojisi'",
+      "featuredTitleEn": "The Mosquito Parable — The Quran's 'Pedagogy of the Small'",
+      "featuredArabic": "إِنَّ اللَّهَ لَا يَسْتَحْيِي أَن يَضْرِبَ مَثَلًا مَّا بَعُوضَةً فَمَا فَوْقَهَا",
+      "featuredVerseRef": "Bakara 2:26",
+      "featuredVerseTr": "\"Şüphesiz Allah bir sivrisineği, hatta onun da üstündekini misal vermekten çekinmez.\"",
+      "featuredVerseEn": "\"Indeed, God is not ashamed to set forth a parable — even of a mosquito, or of what is above it.\"",
+      "featuredInsightTr": "Klasik tefsir (Râzî, Kurtubî, Taberî) 'فَمَا فَوْقَهَا' (üstündeki) ifadesini iki yönde okur: (1) Daha **büyük** olan — sivrisinekten daha büyük yaratılmışlar; (2) Daha **küçük** olan — sivrisinekten daha basit yaratılmışlar. Bu çift okuma, ayetin **ölçek-bağımsız** delilini açıklar: ilahi sanat ne kadar küçük ne kadar büyük olursa olsun aynı incelikle işler. Klasik gelenek bu ayeti müşriklerin 'Allah neden böyle önemsiz şeyleri örnek veriyor?' itirazına cevap olarak yorumlar — küçüklük, hakikatin değerini düşürmez. Atlas'ın bu kartı: **Kur'an'ın doğa pedagojisinin en kısa formülü.**",
+      "featuredInsightEn": "Classical tafsir (al-Rāzī, al-Qurṭubī, al-Ṭabarī) reads 'fa-mā fawqahā' ('that which is above it') in two directions: (1) larger — beings greater than a mosquito; (2) smaller — beings simpler than a mosquito. This double reading explains the verse's scale-independent argument: divine craftsmanship operates with the same precision regardless of scale. Classical tradition interprets this verse as a response to polytheist objections ('why does God use such trivial examples?') — smallness does not diminish the weight of truth. This card is the Quran's shortest formulation of its nature pedagogy."
     },
     {
       "id": "aslan",
