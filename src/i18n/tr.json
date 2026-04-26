@@ -801,7 +801,7 @@
     "sections": {
       "nefs": {
         "title": "Nefsin Haritası",
-        "intro": "Kur'an, insanın iç dünyasını 'nefis' kavramıyla tanımlar. Tek bir şey değil — bir yolculuk. Nefis, aşamalar boyunca dönüşen, gelişen bir varlık. Modern psikoloji bu aşamaları yeni yeni keşfederken, Kur'an onları on dört asır önce adlandırmıştı. Akademik nüans: Kur'an'da yalnızca üç nefs aşaması ismen geçer — emmâre (Yûsuf 12:53), levvâme (Kıyâmet 75:2), mutmainne (Fecr 89:27). Mülhime ve râdıye/mardıyye, tasavvuf geleneğinin (Necmeddin Kübra, Said Nursi) Kur'ânî kategorilerden türettiği ileri makâmlardır.",
+        "intro": "Kur'an, insanın iç dünyasını 'nefis' kavramıyla tanımlar. Tek bir şey değil — bir yolculuk. Nefis, aşamalar boyunca dönüşen, gelişen bir varlık. Modern psikoloji bu aşamaları yeni yeni keşfederken, Kur'an onları on dört asır önce adlandırmıştı. Akademik nüans: Kur'an'da yalnızca üç nefs aşaması ismen geçer — emmâre (Yûsuf 12:53), levvâme (Kıyâmet 75:2), mutmainne (Fecr 89:27). Mülhime ve râdıye/mardıyye, tasavvuf geleneğinin (Necmeddin Kübra, Said Nursi) Kur'ânî kategorilerden türettiği ileri makâmlardır. Tam 7-makâm sistemi (râdıye + mardıyye + sâfiye ayrı) için bk. Nefsin Mertebeleri Atlas; burada popüler 5'li özet sunulmuştur.",
         "items": [
           {
             "id": "emmare",
