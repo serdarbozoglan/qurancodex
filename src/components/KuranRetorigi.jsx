@@ -6,8 +6,8 @@ import {
   BREAKPOINT_MOBILE,
 } from '../tokens';
 
-const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', '30 Soru', 'Sûre Haritası'];
-const TABS_EN = ['Categories & Patterns', 'Addressee Analysis', '30 Questions', 'Surah Map'];
+const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', 'Seçilmiş Sorular', 'Sûre Haritası'];
+const TABS_EN = ['Categories & Patterns', 'Addressee Analysis', 'Selected Questions', 'Surah Map'];
 
 const CloseBtn = ({ onClose }) => (
   <button
@@ -42,6 +42,18 @@ export default function KuranRetorigi({ onClose }) {
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
+
+  // Body scroll lock — prevents background page scroll showing through overlay
+  useEffect(() => {
+    const prevBody = document.body.style.overflow;
+    const prevHtml = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevBody;
+      document.documentElement.style.overflow = prevHtml;
+    };
+  }, []);
 
   // isMobile resize
   useEffect(() => {
@@ -89,6 +101,11 @@ export default function KuranRetorigi({ onClose }) {
       {/* ── HEADER ─────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" style={{ flexShrink: 0 }}>
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
           <span style={OVERLAY_TITLE}>
             {tr ? "Kur'an'ın Retoriği" : "The Quran's Rhetoric"}
           </span>
@@ -133,7 +150,7 @@ export default function KuranRetorigi({ onClose }) {
       </div>
 
       {/* ── BODY ───────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+      <div ref={bodyRef} style={{ flex: 1, overflow: 'hidden', minHeight: 0, display: 'flex', flexDirection: 'column' }}>
         {activeTab === 0 && <TabKategoriler data={data} tr={tr} isMobile={isMobile} />}
         {activeTab === 1 && <TabMuhatap data={data} tr={tr} isMobile={isMobile} />}
         {activeTab === 2 && <TabSorular data={data} tr={tr} isMobile={isMobile} />}
@@ -145,8 +162,8 @@ export default function KuranRetorigi({ onClose }) {
 }
 
 // ── MODULE-LEVEL CONSTANTS ──────────────────────────────────────
-const DENSITY_LABEL_TR = ['', 'Az', 'Orta', 'Yüksek', 'Çok yüksek', 'En yoğun'];
-const DENSITY_LABEL_EN = ['', 'Low', 'Medium', 'High', 'Very high', 'Highest'];
+const DENSITY_LABEL_TR = ['Yok', 'Az', 'Orta', 'Yüksek', 'Çok yüksek', 'En yoğun'];
+const DENSITY_LABEL_EN = ['None', 'Low', 'Medium', 'High', 'Very high', 'Highest'];
 
 const SURAH_NAMES_TR = [
   'Fatiha','Bakara','Âl-i İmrân','Nisâ','Mâide','En\'âm','A\'râf','Enfâl','Tevbe','Yûnus',
@@ -173,29 +190,67 @@ function TabKategoriler({ data, tr, isMobile }) {
   const activeSpecial  = data.specialPatterns.find(p => p.id === activeItem);
 
   // Sidebar item stili
-  const sidebarItem = (id, color, label, isActive) => (
+  const sidebarItem = (id, color, name, secondary, isActive) => (
     <button
       key={id}
       onClick={() => setActiveItem(id)}
       style={{
         width: '100%',
         textAlign: 'left',
-        padding: '9px 16px',
-        background: isActive ? `${color}18` : 'transparent',
-        borderLeft: isActive ? `3px solid ${color}` : '3px solid transparent',
-        border: 'none',
+        padding: '11px 14px 11px 11px',
+        background: isActive ? `${color}14` : 'transparent',
+        borderLeft: `3px solid ${isActive ? color : 'transparent'}`,
+        borderTop: 'none',
+        borderRight: 'none',
+        borderBottom: 'none',
         cursor: 'pointer',
-        color: isActive ? color : `${color}70`,
+        transition: 'background 0.15s',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+      }}
+      onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+      onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+    >
+      {/* Color dot indicator */}
+      <span
+        aria-hidden="true"
+        style={{
+          width: 6, height: 6, borderRadius: '50%',
+          background: color,
+          flexShrink: 0,
+          opacity: isActive ? 1 : 0.55,
+          boxShadow: isActive ? `0 0 6px ${color}90` : 'none',
+          transition: 'opacity 0.15s, box-shadow 0.15s',
+        }}
+      />
+      {/* Name */}
+      <span style={{
+        flex: 1,
+        minWidth: 0,
+        color: isActive ? color : `${color}c0`,
         fontSize: '0.82rem',
         fontFamily: FONTS.body,
-        fontWeight: isActive ? 600 : 400,
-        transition: 'all 0.15s',
-        lineHeight: 1.3,
-      }}
-      onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = `${color}99`; }}
-      onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = `${color}70`; }}
-    >
-      {label}
+        fontWeight: isActive ? 600 : 500,
+        lineHeight: 1.35,
+        wordBreak: 'normal',
+      }}>
+        {name}
+      </span>
+      {/* Secondary (pct) */}
+      {secondary && (
+        <span style={{
+          color: isActive ? color : COLORS.slate500,
+          fontSize: '0.72rem',
+          fontFamily: FONTS.body,
+          fontWeight: 500,
+          flexShrink: 0,
+          fontVariantNumeric: 'tabular-nums',
+          letterSpacing: '0.01em',
+        }}>
+          {secondary}
+        </span>
+      )}
     </button>
   );
 
@@ -280,7 +335,7 @@ function TabKategoriler({ data, tr, isMobile }) {
   );
 
   return (
-    <div style={{ display: 'flex', height: '100%' }}>
+    <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
 
       {/* ── SOL SIDEBAR ──────────────────────────────── */}
       {!isMobile && (
@@ -298,16 +353,18 @@ function TabKategoriler({ data, tr, isMobile }) {
           <div style={{ padding: '12px 16px 6px', color: COLORS.slate500, fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
             {tr ? 'Soru Türleri' : 'Question Types'}
           </div>
-          {data.categories.map(c =>
-            sidebarItem(c.id, c.color, `${tr ? c.nameTr : c.nameEn} ~${c.pct}%`, activeItem === c.id)
-          )}
+          {data.categories.map(c => {
+            const name = tr ? c.nameTr : c.nameEn;
+            const secondary = c.pct != null ? `~${c.pct}%` : null;
+            return sidebarItem(c.id, c.color, name, secondary, activeItem === c.id);
+          })}
 
           {/* Özel Kalıplar */}
           <div style={{ padding: '16px 16px 6px', color: COLORS.slate500, fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 4, borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>
             {tr ? 'Özel Kalıplar' : 'Special Patterns'}
           </div>
           {data.specialPatterns.map(p =>
-            sidebarItem(p.id, p.color, tr ? p.nameTr : p.nameEn, activeItem === p.id)
+            sidebarItem(p.id, p.color, tr ? p.nameTr : p.nameEn, null, activeItem === p.id)
           )}
         </div>
       )}
@@ -366,14 +423,21 @@ function TabKategoriler({ data, tr, isMobile }) {
         {activeCategory && (
           <>
             {/* Başlık + badge */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6, flexWrap: 'wrap' }}>
               <h2 style={{ color: activeCategory.color, fontFamily: FONTS.display, fontSize: '1.5rem', fontWeight: 700, margin: 0 }}>
                 {tr ? activeCategory.nameTr : activeCategory.nameEn}
               </h2>
-              <span style={{ background: `${activeCategory.color}25`, color: activeCategory.color, fontSize: '0.78rem', padding: '3px 12px', borderRadius: 20, fontFamily: FONTS.body, fontWeight: 600 }}>
-                ~{activeCategory.pct}%
-              </span>
+              {activeCategory.pct != null && (
+                <span style={{ background: `${activeCategory.color}25`, color: activeCategory.color, fontSize: '0.78rem', padding: '3px 12px', borderRadius: 20, fontFamily: FONTS.body, fontWeight: 600 }}>
+                  ~{activeCategory.pct}%
+                </span>
+              )}
             </div>
+            {(activeCategory.aliasTr || activeCategory.aliasEn) && (
+              <p style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, margin: '0 0 16px' }}>
+                {tr ? activeCategory.aliasTr : activeCategory.aliasEn}
+              </p>
+            )}
 
             {/* Tanım */}
             <p style={{ color: COLORS.silver, fontSize: '0.92rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 24 }}>
@@ -397,7 +461,7 @@ function TabKategoriler({ data, tr, isMobile }) {
         {/* VE MÂ EDRÂKE PANELİ */}
         {activeSpecial && activeSpecial.id === 've-ma-edrake' && (
           <>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, flexWrap: 'wrap' }}>
               <h2 style={{ color: activeSpecial.color, fontFamily: FONTS.display, fontSize: '1.4rem', fontWeight: 700, margin: 0 }}>
                 {tr ? activeSpecial.nameTr : activeSpecial.nameEn}
               </h2>
@@ -405,6 +469,11 @@ function TabKategoriler({ data, tr, isMobile }) {
                 {activeSpecial.count} {tr ? 'kullanım' : 'occurrences'}
               </span>
             </div>
+            {(activeSpecial.countSourceTr || activeSpecial.countSourceEn) && (
+              <p style={{ color: COLORS.slate500, fontSize: '0.74rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.5 }}>
+                {tr ? activeSpecial.countSourceTr : activeSpecial.countSourceEn}
+              </p>
+            )}
             <div style={{ marginBottom: 12 }}>
               <p
                 dir="rtl"
@@ -580,6 +649,8 @@ function TabMuhatap({ data, tr, isMobile }) {
     ? groups
     : groups.filter(g => g.id === activeGroup);
 
+  const SCROLL_WRAP = { flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden' };
+
   const pillStyle = (id, color) => {
     const isActive = activeGroup === id;
     return {
@@ -597,7 +668,7 @@ function TabMuhatap({ data, tr, isMobile }) {
   };
 
   return (
-    <div style={{ padding: isMobile ? '16px' : '28px 32px' }}>
+    <div style={{ ...SCROLL_WRAP, padding: isMobile ? '16px' : '28px 32px' }}>
 
       {/* Başlık */}
       <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.3rem' : '1.6rem', fontWeight: 700, margin: '0 0 6px' }}>
@@ -698,12 +769,12 @@ function TabSorular({ data, tr, isMobile }) {
     tevbih:  '#2ecc71',
     taaccub: '#c084fc',
   };
-  const TYPE_LABELS_TR = { erotema: 'Retorik Soru', irsad: 'İrşad', tevbih: 'Tevbih', taaccub: 'Taaccüb' };
-  const TYPE_LABELS_EN = { erotema: 'Rhetorical Q.', irsad: 'Guidance', tevbih: 'Reproach', taaccub: 'Wonder' };
+  const TYPE_LABELS_TR = { erotema: 'İstifhâm-ı İnkârî', irsad: 'İstifhâm-ı İrşâdî', tevbih: 'İstifhâm-ı Tevbîhî', taaccub: 'İstifhâm-ı Taaccübî' };
+  const TYPE_LABELS_EN = { erotema: 'Istifhām Inkārī', irsad: 'Istifhām Irshādī', tevbih: 'Istifhām Tawbīkhī', taaccub: 'Istifhām Taʿajjubī' };
 
   const PATTERN_COLORS = { 've-ma-edrake': '#D85A30', 'efela-takılun': '#14b8a6', eleyse: '#8b5cf6' };
-  const PATTERN_LABELS_TR = { 've-ma-edrake': 'Ve Mâ Edrâke', 'efela-takılun': "Efela Ta'kılûn", eleyse: 'Eleyse' };
-  const PATTERN_LABELS_EN = { 've-ma-edrake': 'Wa Ma Adraka', 'efela-takılun': 'Afala Taʿqilun', eleyse: 'Alaysa' };
+  const PATTERN_LABELS_TR = { 've-ma-edrake': 'Ve Mâ Edrâke', 'efela-takılun': "Efela Ta'kılûn", eleyse: 'Eleyse / E-lem' };
+  const PATTERN_LABELS_EN = { 've-ma-edrake': 'Wa Ma Adraka', 'efela-takılun': 'Afala Taʿqilun', eleyse: 'Alaysa / A-lam' };
 
   const ADDRESS_COLORS = { humanity: '#d4a574', mushrikeen: '#e74c3c', prophet: '#c084fc', 'ehl-i-kitap': '#14b8a6', munafikun: '#64748b' };
   const ADDRESS_LABELS_TR = { humanity: 'İnsanlık', mushrikeen: 'Müşrik', prophet: 'Peygamber', 'ehl-i-kitap': 'Ehli Kitap', munafikun: 'Münafık' };
@@ -741,12 +812,12 @@ function TabSorular({ data, tr, isMobile }) {
   };
 
   return (
-    <div style={{ padding: isMobile ? '16px' : '24px 32px' }}>
+    <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', padding: isMobile ? '16px' : '24px 32px' }}>
 
       {/* Başlık */}
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.2rem' : '1.5rem', fontWeight: 700, margin: '0 0 4px' }}>
-          {tr ? '30 Seçilmiş Soru' : '30 Selected Questions'}
+          {tr ? 'Seçilmiş Sorular' : 'Selected Questions'}
         </h2>
         <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: 0 }}>
           {tr ? `${filtered.length} soru gösteriliyor` : `Showing ${filtered.length} questions`}
@@ -853,8 +924,8 @@ function TabSorular({ data, tr, isMobile }) {
             {tr ? 'Seçim kriteri:' : 'Selection criteria:'}
           </span>
           {tr
-            ? ' Bu 30 soru; dört retorik işlevi (retorik soru, irşad, tevbih, taaccüb), beş muhatap grubunu (tüm insanlık, müşrikler, ehli kitap, münafıklar, Hz. Peygamber) ve üç tekrar kalıbını (Ve Mâ Edrâke, Efela Ta\'kılûn, Eleyse) temsil edecek biçimde seçilmiştir. Her kategoriden en az iki örnek alınmış; kısa, ezberlenebilir ve Türkçe tefsirlerde en sık alıntılanan ayetler tercih edilmiştir.'
-            : ' These 30 questions were selected to represent four rhetorical functions (rhetorical question, guidance, reproach, wonder), five addressee groups (all humanity, polytheists, People of the Book, hypocrites, the Prophet), and three recurring patterns (Wa Ma Adraka, Afala Taʿqilun, Alaysa). At least two examples were drawn from each category; preference was given to short, memorable verses most frequently cited in classical and modern Turkish tafsir.'}
+            ? ' Bu sorular; dört retorik işlevi (İstifhâm-ı İnkârî, İrşâdî, Tevbîhî, Taaccübî), beş muhatap grubunu (tüm insanlık, müşrikler, ehli kitap, münafıklar, Hz. Peygamber) ve üç tekrar kalıbını (Ve Mâ Edrâke, Efela Ta\'kılûn, Eleyse / E-lem) temsil edecek biçimde seçilmiştir. Her kategoriden en az iki örnek alınmış; kısa, ezberlenebilir ve Türkçe tefsirlerde en sık alıntılanan ayetler tercih edilmiştir.'
+            : ' These questions were selected to represent four rhetorical functions (Istifhām Inkārī, Irshādī, Tawbīkhī, Taʿajjubī), five addressee groups (all humanity, polytheists, People of the Book, hypocrites, the Prophet), and three recurring patterns (Wa Ma Adraka, Afala Taʿqilun, Alaysa / A-lam). At least two examples were drawn from each category; preference was given to short, memorable verses most frequently cited in classical and modern Turkish tafsir.'}
         </p>
       </div>
 
@@ -866,13 +937,13 @@ function TabSureHaritasi({ data, tr, isMobile }) {
   const TYPE_COLORS = { erotema: '#d4a574', irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#c084fc' };
 
   return (
-    <div style={{ padding: isMobile ? '16px' : '28px 32px' }}>
+    <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', padding: isMobile ? '16px' : '28px 32px' }}>
 
       {/* ── BÖLÜM 1: MUHATAP × TİP MATRİSİ ─────────────── */}
       {(() => {
         const TYPE_COLORS = { erotema: '#d4a574', irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#c084fc' };
-        const TYPE_LABELS_TR = { erotema: 'Retorik Soru', irsad: 'İrşad', tevbih: 'Tevbih', taaccub: 'Taaccüb' };
-        const TYPE_LABELS_EN = { erotema: 'Rhetorical Q.', irsad: 'Guidance', tevbih: 'Reproach', taaccub: 'Wonder' };
+        const TYPE_LABELS_TR = { erotema: 'İstifhâm-ı İnkârî', irsad: 'İstifhâm-ı İrşâdî', tevbih: 'İstifhâm-ı Tevbîhî', taaccub: 'İstifhâm-ı Taaccübî' };
+        const TYPE_LABELS_EN = { erotema: 'Istifhām Inkārī', irsad: 'Istifhām Irshādī', tevbih: 'Istifhām Tawbīkhī', taaccub: 'Istifhām Taʿajjubī' };
         const ADDR_COLORS = { humanity: '#d4a574', mushrikeen: '#e74c3c', 'ehl-i-kitap': '#14b8a6', munafikun: '#64748b', prophet: '#a78bfa' };
         const ADDR_LABELS_TR = { humanity: 'Tüm İnsanlık', mushrikeen: 'Müşrikler', 'ehl-i-kitap': 'Ehli Kitap', munafikun: 'Münafıklar', prophet: 'Hz. Peygamber' };
         const ADDR_LABELS_EN = { humanity: 'All Humanity', mushrikeen: 'Polytheists', 'ehl-i-kitap': 'People of Book', munafikun: 'Hypocrites', prophet: 'The Prophet' };
@@ -893,8 +964,8 @@ function TabSureHaritasi({ data, tr, isMobile }) {
             </h2>
             <p style={{ color: `${COLORS.silver}80`, fontSize: '0.82rem', fontFamily: FONTS.body, marginBottom: 20, lineHeight: 1.5 }}>
               {tr
-                ? 'Seçilen 30 sorunun muhatap × tip dağılımı — her grupta hangi soru biçimi öne çıkıyor?'
-                : 'Distribution of the 30 selected questions by addressee × type — which form dominates each group?'}
+                ? 'Seçilen soruların muhatap × tip dağılımı — her grupta hangi soru biçimi öne çıkıyor?'
+                : 'Distribution of the selected questions by addressee × type — which form dominates each group?'}
             </p>
 
             {/* Tür legend */}
@@ -975,8 +1046,8 @@ function TabSureHaritasi({ data, tr, isMobile }) {
                   {tr ? 'Hz. Peygamber\'e yönelen sorular:' : 'Questions to the Prophet:'}
                 </span>
                 {tr
-                  ? ' Retorik soru formunu taşısalar da işlevleri farklıdır — inkârcıyı sorgulatmak için değil, Peygamber\'i teselli etmek ve aşırı üzüntüden alıkoymak için gelmiştir. Klasik tefsirde bunlara "istifhâm-ı takrirî" (tescil sorusu) denir: cevabı zaten bilinen, hatırlatmak için sorulan soru.'
-                  : ' Though they take a rhetorical question form, their function is distinct — not to challenge a denier, but to console the Prophet and restrain his excessive grief. Classical tafsir calls these "istifhām taqrīrī" (confirmatory questions): asked not for information but to remind of what is already known.'}
+                  ? ' Yüzeyde soru biçiminde olsalar da bilgi sormaz; Peygamber\'i teselli etmek ve aşırı üzüntüden alıkoymak için gelmiştir. Klasik tefsir bunları İstifhâm-ı İnkârî değil — ayrı bir alt sınıf olan "İstifhâm-ı Takrirî" (tescil sorusu) olarak sayar: cevabı zaten bilinen, "evet, öyledir" diye hatırlatmak için sorulan soru.'
+                  : ' Though they appear in question form, they do not seek information; they come to console the Prophet and restrain his excessive grief. Classical tafsir does not group them under Istifhām Inkārī but under a distinct subcategory — "Istifhām Taqrīrī" (confirmatory questions): asked not for information but to remind, expecting the answer "yes, it is so."'}
               </p>
             </div>
 
@@ -1066,7 +1137,9 @@ function TabSureHaritasi({ data, tr, isMobile }) {
         </div>
         {/* Taaccüb analiz notu */}
         <div style={{ background: 'rgba(167,139,250,0.08)', borderLeft: `3px solid #c084fc`, padding: '10px 14px', borderRadius: 6, fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.65 }}>
-          <span style={{ color: '#c084fc', fontWeight: 600, marginRight: 6 }}>Taaccüb:</span>
+          <span style={{ color: '#c084fc', fontWeight: 600, marginRight: 6 }}>
+            {tr ? 'İstifhâm-ı Taaccübî:' : 'Istifhām Taʿajjubī:'}
+          </span>
           {tr ? data.comparativeAnalysis.taaccubNoteTr : data.comparativeAnalysis.taaccubNoteEn}
         </div>
       </div>
