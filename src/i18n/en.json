@@ -528,7 +528,7 @@
         "label": "UNIQUE WORD FORMS",
         "value": "~14,870",
         "description": "Each distinct surface form counted once",
-        "tooltip": "The vast majority of these forms appear more than once. Source: Dr. Tariq Al-Suwaidan."
+        "tooltip": "The vast majority of these forms appear more than once. Source: Quranic Arabic Corpus, University of Leeds (corpus.quran.com)."
       },
       "hapax": {
         "label": "APPEARING ONLY ONCE",
@@ -553,7 +553,7 @@
       }
     },
     "zemahseriQuote": "Every word of the Quran is a treasure. Remove one, and the entire edifice collapses.",
-    "zemahseriAttribution": "Zamakhshari, al-Kashshāf (d. 1144) — paraphrase"
+    "zemahseriAttribution": "A foundational view of the classical i'jāz al-Qur'ān tradition — summarising the concept of 'naẓm' (structural composition) developed by al-Bāqillānī (I'jāz al-Qur'ān, d. 1013) and al-Zarkashī (al-Burhān, d. 1392)."
   },
   "highlights": {
     "badge": "Go Deeper",

@@ -358,7 +358,7 @@ export default function ZeroRedundancy() {
                 flexShrink: 0,
               }}>
                 <span style={{
-                  color: COLORS.gold, fontSize: '1.1rem', fontWeight: 800,
+                  color: COLORS.gold, fontSize: '0.95rem', fontWeight: 700,
                   fontFamily: FONTS.body,
                 }}>~0%</span>
               </div>
@@ -371,7 +371,7 @@ export default function ZeroRedundancy() {
             }}>
               <motion.div
                 initial={{ width: 0 }}
-                whileInView={{ width: '2%' }}
+                whileInView={{ width: '1%' }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: 'easeOut', delay: 0.2 }}
                 style={{
@@ -383,8 +383,8 @@ export default function ZeroRedundancy() {
             </div>
             {t('zeroRedundancy.comparison.quran.note') && (
               <p style={{
-                color: 'rgba(148,163,184,0.45)', fontSize: '0.72rem',
-                fontFamily: FONTS.body, marginTop: 10, lineHeight: 1.5,
+                color: 'rgba(148,163,184,0.7)', fontSize: '0.78rem',
+                fontFamily: FONTS.body, marginTop: 10, lineHeight: 1.55,
               }}>
                 ℹ {t('zeroRedundancy.comparison.quran.note')}
               </p>

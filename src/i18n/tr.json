@@ -527,7 +527,7 @@
         "label": "UNIQUE KELİME FORMU",
         "value": "~14,870",
         "description": "Her farklı form bir kez sayılarak",
-        "tooltip": "Bu formların büyük çoğunluğu birden fazla kez geçer. Kaynak: Dr. Tariq Al-Suwaidan"
+        "tooltip": "Bu formların büyük çoğunluğu birden fazla kez geçer. Kaynak: Quranic Arabic Corpus, Leeds Üniversitesi (corpus.quran.com)."
       },
       "hapax": {
         "label": "SADECE BİR KEZ GEÇEN",
@@ -552,7 +552,7 @@
       }
     },
     "zemahseriQuote": "Kur'an'ın her kelimesi bir hazinedir. Bir kelimeyi çıkarsan, bina çöker.",
-    "zemahseriAttribution": "Zemahşeri, el-Keşşâf (ö. 1144) — parafraz"
+    "zemahseriAttribution": "Klasik İ'câzu'l-Kur'an geleneğinin temel kanaati — Bâkıllānī (İ'câzu'l-Kur'an, ö. 1013) ve Zerkeşî (el-Burhân, ö. 1392) işlediği 'nazm' (yapısal düzen) anlayışının özeti."
   },
   "highlights": {
     "badge": "Daha Derin Git",
