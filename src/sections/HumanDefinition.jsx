@@ -42,6 +42,8 @@ const HUMAN_TERMS = [
     meaningEn: 'The biological and physical dimension of the human being',
     contextTr: 'Peygamberlerin beşerliği, ten, dış görünüş bağlamlarında',
     contextEn: 'The humanity of prophets, skin, physical appearance',
+    rootNoteTr: 'Beşer kelimesi "deri, cilt, dış görünüş" anlamlarındaki ب-ش-ر kökünden gelir — insanın biyolojik/dış boyutuna işaret eder. "Ben de sizin gibi bir beşerim" (Kehf 18:110) ifadesi peygamberlerin biyolojik insan oluşunu vurgular.',
+    rootNoteEn: 'The word bashar derives from the root b-sh-r meaning "skin, outward appearance" — pointing to the human\'s biological/external dimension. "I am only a human like you" (Kahf 18:110) emphasises the prophets\' biological humanity.',
     verse: {
       ar: 'قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ',
       tr: '"De ki: Ben de sizin gibi bir beşerim."',
@@ -166,9 +168,9 @@ const OPPOSITION_PAIRS = [
   {
     pos: { tr: 'Muhsin', en: 'Muḥsin', ar: 'مُحْسِن', noteTr: 'İhsanla, güzellikle davranan', noteEn: 'One who acts with excellence' },
     neg: { tr: 'Müfsid', en: 'Mufsid', ar: 'مُفْسِد', noteTr: 'Fesat çıkaran, bozan', noteEn: 'One who spreads corruption' },
-    ref: "A'râf 7:56",
-    contextTr: 'Islah (iyileştirme) ve ifsad (bozma) aynı ayette karşılaştırılır',
-    contextEn: 'Reform (iṣlāḥ) and corruption (ifsād) contrasted in the same verse',
+    ref: "A'râf 7:56 / Bakara 2:11",
+    contextTr: '"Muhsin" nominal sıfat-fiil olarak A\'râf 7:56\'da geçer; aynı ayette ifsâd fiil olarak (lā tüfsidû) bulunur. Müfsid\'in nominal formu Bakara 2:11\'de açıkça yer alır.',
+    contextEn: '"Muḥsin" appears as a nominal active participle in A\'rāf 7:56; the same verse expresses corruption as a verb (lā tufsidū). The nominal form mufsid appears explicitly in Bakara 2:11.',
   },
   {
     pos: { tr: 'Ebrâr', en: 'Abrār', ar: 'أَبْرَار', noteTr: 'İyiler, hayır sahipleri', noteEn: 'The righteous, people of goodness' },
@@ -420,8 +422,11 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('termsTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-2xl mb-8">
+        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-2xl mb-2">
           {tr('termsSubtitle')}
+        </p>
+        <p className="text-silver/40 text-[0.7rem] font-body italic mb-8">
+          {tr('termsSourceNote')}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
@@ -768,6 +773,14 @@ export default function HumanDefinition() {
             </motion.div>
           );
         })()}
+
+        {/* Verses 23:6-7 academic disclaimer */}
+        <p
+          className="text-silver/45 text-xs font-body italic leading-relaxed mb-4"
+          style={{ borderLeft: '2px solid rgba(255,255,255,0.08)', paddingLeft: '0.75rem' }}
+        >
+          {tr('muminVersesGapNote')}
+        </p>
 
         {/* Linguistic wow notes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
