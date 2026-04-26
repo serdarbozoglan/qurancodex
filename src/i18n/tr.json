@@ -305,6 +305,11 @@
     "badge": "Bilimsel İşaretler",
     "title": "Bilimin 1.400 Yıl Sonra Keşfettikleri",
     "intro": "Kur'an bir bilim kitabı değildir. Ama bazı ayetleri, modern bilimin yüzyıllar sonra keşfedeceği gerçeklere işaret eder. Her örnek, dürüstçe sunulmuş bir soruyu da beraberinde taşıyor.",
+    "bucaillismFrame": {
+      "label": "Akademik Çerçeve",
+      "title": "Bu Sayfa Bir 'Bilimsel Mucize' İddiası Değildir",
+      "body": "Modern akademide \"Bucaillism\" — Maurice Bucaille'in *La Bible, le Coran et la Science* (1976) eserinden adını alan, modern bilimsel keşifleri Kur'an ayetlerinde sistematik olarak \"bulma\" yaklaşımı — eleştirilmektedir. Eleştirmenler (Ziauddin Sardar, Stefano Bigliardi *Islam and the Quest for Modern Science*, Taner Edis) bunun selektif okuma riski taşıdığını, klasik müfessirlerin yorumlarını göz ardı edebileceğini ve değişen bilimsel teorilere bağımlı olduğunu söyler. Klasik İslam alimleri (Şâtıbî *El-Muvâfakât*) Kur'an'ın hidayet kitabı olduğunu, bilim kitabı olmadığını vurgular. Atlas burada **kesin mucize iddiası** sunmaz — klasik tefsir geleneğinin işaret/i'caz olarak kabul ettiği örtüşmeleri, modern bağlamla **olası paralellikler** olarak sunar; her tab altındaki eleştirel notlar bu çerçevenin bir parçasıdır."
+    },
     "tabs": {
       "iron": "Demir",
       "universe": "Evren",
@@ -313,7 +318,7 @@
     },
     "iron": {
       "title": "Demirin Kozmik Yolculuğu",
-      "content": "Kur'an demir için sıradışı bir fiil seçer: enzelnâ — indirdik. Yarattık değil, inşa ettik değil: indirdik. 7. yüzyılda bu ifade mantıksız görünürdü; demir yerden çıkar, madenlerde bulunur. Modern astrofizik ise bu seçimin neden doğru olduğunu açıklıyor. Demir, Güneş gibi orta büyüklükteki yıldızlarda oluşamaz — bunun için gereken füzyon enerjisi mevcut değildir. Demir yalnızca dev yıldızların ömürlerinin sonunda, süpernova patlamalarında sentezlenir ve uzaya saçılır. Dünya'daki demir, milyarlarca yıl önce böyle bir patlamadan gelen meteorlarla geldi. Kelime seçimi ile astrofizik gerçeği arasındaki bu örtüşme, müfessirlerin yüzyıllar boyunca farklı biçimlerde yorumladığı bir meseledir.",
+      "content": "Kur'an demir için sıradışı bir fiil seçer: enzelnâ — indirdik. Yarattık değil, inşa ettik değil: indirdik. 7. yüzyılda bu ifade mantıksız görünürdü; demir yerden çıkar, madenlerde bulunur. Modern astrofizik ise bu seçimin neden doğru olduğunu açıklıyor. Demir, Güneş gibi orta büyüklükteki yıldızlarda oluşamaz — bunun için gereken füzyon enerjisi mevcut değildir. Demir-grup elementler dev yıldızların ömürlerinin sonunda gerçekleşen süpernova patlamalarında ve nötron yıldızı çarpışmalarında (kilonova; 2017'de gözlemlenen GW170817 olayı) sentezlenir ve uzaya saçılır. Dünya'daki demir, milyarlarca yıl önce böyle olaylardan gelen meteorlarla taşındı. Kelime seçimi ile astrofizik gerçeği arasındaki bu örtüşme, müfessirlerin yüzyıllar boyunca farklı biçimlerde yorumladığı bir meseledir.",
       "verse": {
         "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
         "translation": "Biz demiri indirdik; onda büyük bir güç ve insanlar için faydalar vardır.",
@@ -322,10 +327,10 @@
       "facts": [
         "Hadid 57:25 — demir için özellikle 'enzelnâ' (indirdik) fiili kullanılır",
         "Demir, Güneş gibi yıldızlarda oluşamaz: füzyon için yeterli sıcaklık ve basınç yoktur",
-        "Demir yalnızca süpernovalarda üretilir ve uzaya saçılır",
+        "Demir-grup elementler süpernovalarda ve nötron yıldızı çarpışmalarında (kilonova) üretilir — 2017 GW170817 olayı bu süreci doğrudan gözlemledi",
         "Dünya'daki tüm demir milyarlarca yıl önce meteorlarla gelmiştir"
       ],
-      "criticalNote": "'Enzelnâ' kelimesinin bu bağlamda kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin büyük çoğunluğu bu fiili 'lütfettik, ihsan ettik' anlamında yorumlamıştır. Modern astrofizik yorumu, 20. yüzyıldan itibaren öne çıkan bir okumadır."
+      "criticalNote": "'Enzelnâ' kelimesinin bu bağlamda kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin büyük çoğunluğu bu fiili 'lütfettik, ihsan ettik' anlamında yorumlamıştır. Önemli bir dilsel nüans: aynı fiil Kur'an'da yağmur, Kitap, elbise (En'âm 7:26) ve hayvanlar (Zümer 39:6) için de kullanılır — yani 'enzelnâ' demir için kozmik köken bildiren özel bir kullanım değil, geniş bir 'ihsan ettik / var ettik' kalıbıdır. Modern astrofizik yorumu, 20. yüzyıldan itibaren öne çıkan bir okumadır."
     },
     "universe": {
       "title": "Genişleyen Evren",
@@ -359,7 +364,7 @@
         "Furkan 25:53: aralarında berzah (engel) ve hicr mahcûr (yasak sınır) vardır",
         "Berzah kelimesi: iki şey arasındaki geçit vermez ara bölge — halocline tanımıyla örtüşür"
       ],
-      "criticalNote": "Kur'an'ın denizler hakkındaki ifadeleri, bazı yaygın anlatılarda abartılmaktadır. Sıkça atıfta bulunulan 'Jacques Cousteau bu ayeti keşfedip Müslüman oldu' hikayesi kaynaklarda doğrulanamamaktadır; Cousteau'nun kendi yazılarında böyle bir ifadeye rastlanmamaktadır. Burada sunulan yorum yalnızca oşinografik veriye ve Kur'an metnine dayanmaktadır."
+      "criticalNote": "Önemli bir bağlam notu: klasik tefsirde (Taberî, Razi, İbn Kesîr) berzah genellikle nehir-deniz buluşması, yani tatlı su ile tuzlu suyun karışmaması bağlamında yorumlanmıştır. Halocline yorumu (denizler arası yoğunluk/tuzluluk tabakalaşması, Cebelitarık-Akdeniz örneği) modern bir okumadır. Ayrıca Kur'an'ın denizler hakkındaki ifadeleri bazı yaygın anlatılarda abartılmaktadır: sıkça atıfta bulunulan 'Jacques Cousteau bu ayeti keşfedip Müslüman oldu' hikayesi kaynaklarda doğrulanamamaktadır; Cousteau'nun kendi yazılarında böyle bir ifadeye rastlanmamaktadır."
     },
     "embryo": {
       "title": "Embriyoloji — Alaka Kelimesi",
@@ -387,10 +392,10 @@
       "facts": [
         "Alaka — üç eş anlamlı tanım: yapışan şey / kan pıhtısı / sülük; üçü de erken embriyoya uyar",
         "Gün 6-12: embriyo rahim duvarına yapışır — 'yapışan şey' tanımıyla örtüşür",
-        "Mü'minun 23:14: kemikler önce oluşur, ardından et — Galen'in öğrettiğinin tersi; modern embriyoloji bu sırayı kabul eder",
+        "Mü'minun 23:14: 'kemik → et' ifadesi modern embriyolojiyle kabaca uyumludur (kemik ve kas paralel gelişir, ancak iskelet yapı genelde belirginleşmede önce gözlemlenir)",
         "Dr. Keith L. Moore (The Developing Human, 5. baskı): Kur'an'daki embriyolojik tanımların modern bilimle uyumunu incelemiş, örtüşmeleri dikkat çekici bulduğunu belirtmiştir"
       ],
-      "criticalNote": "Keith Moore'un yorumları bilim dünyasında tartışmalıdır; bir kısım akademisyen, Kur'an'daki ifadelerin dönemin Yunan tıbbından etkilenmiş olabileceğini öne sürer. Alaka kelimesinin bu bağlamdaki yorumu ise dilbilimsel açıdan güçlüdür ve Moore'dan bağımsız olarak değerlendirilebilir."
+      "criticalNote": "Keith Moore'un yorumları akademik bağımsızlık açısından tartışmalıdır: 'Islamic Additions to Embryology' bölümleri yalnızca The Developing Human'ın Suudi Arabistan baskısında bulunur ve King Abdulaziz Üniversitesi tarafından desteklenmiştir (kaynak: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). Bu, Moore'un anatomik uzmanlığını sorgulamaz ama yorumlarının bağımsızlığını tartışmaya açar. Galen karşılaştırması da nüans gerektirir: Galen'in embriyoloji görüşleri çelişkilidir (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983) — 'Galen tamamen yanlış, Kur'an doğru' tek-yönlü iddia akademik olarak desteklenmez. Modern embriyolojide kemik ve kas dokusu paralel gelişir; Kur'an'ın 'kemik → et' sırası literal bir kronoloji değil, kabaca uyumlu bir ifadedir. Alaka kelimesinin dilbilimsel zenginliği ise Moore'dan bağımsız olarak değerlendirilebilir."
     }
   },
   "historicalProof": {
