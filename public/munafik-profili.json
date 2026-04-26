@@ -14,7 +14,9 @@
     "subtitleTr": "7 davranış deseni, İbn Kayyim'in tipolojisi ve bir sahih hadis",
     "subtitleEn": "7 behavioral patterns, Ibn Qayyim's typology, and one authentic hadith",
     "descTr": "Kur'ân münâfıkları olağanüstü bir ayrıntıyla çizer. Bakara 2:8-20, Nisâ 4:140-145, Tevbe 9:64-87, Ahzâb 33:12-20, Münâfikûn Sûresi başta olmak üzere 300'ü aşkın ayette münâfık davranışı işlenir. Bu tool, Kur'ân'ın tek bir karakter tipine yaptığı en yoğun portreyi bir yerde toplar.",
-    "descEn": "The Qur'an depicts hypocrites with extraordinary detail. Over 300 verses — centered on Q 2:8-20, Q 4:140-145, Q 9:64-87, Q 33:12-20, and Sūrat al-Munāfiqūn — address hypocritical behavior. This tool gathers the Qur'an's most intensive portrait of a single character type."
+    "descEn": "The Qur'an depicts hypocrites with extraordinary detail. Over 300 verses — centered on Q 2:8-20, Q 4:140-145, Q 9:64-87, Q 33:12-20, and Sūrat al-Munāfiqūn — address hypocritical behavior. This tool gathers the Qur'an's most intensive portrait of a single character type.",
+    "etymologyTr": "Münâfık (مُنَافِق) kelimesi 'nefak' (نَفَق) kökünden gelir — Arap çöl coğrafyasındaki tarla faresinin (yerboe) iki çıkışlı yuvasını ifade eder: biri görünür, biri saklı. Tehlike geldiğinde hayvan saklı çıkıştan kaçar. Râgıb el-İsfahânî *El-Müfredât*'ta bu metaforu klasik İslamî psikolojinin çekirdeği olarak işler: münâfık iki kapısı olan kişidir — biri zâhirî (mü'min görünür), biri bâtınî (kâfir kaçar). Türkçedeki 'iki yüzlü' karşılığı bu çift-kapılı yapının ancak yüzeysel bir ifadesidir.",
+    "etymologyEn": "The word munāfiq (مُنَافِق) derives from the root nafaq (نَفَق) — the two-mouthed burrow of the desert jerboa: one entrance visible, the other concealed. When danger comes, the animal escapes through the hidden exit. Rāghib al-Iṣfahānī treats this metaphor in *al-Mufradāt* as the core of classical Islamic psychology: the hypocrite is a person with two doors — one outward (appearing as a believer), one inward (departing as a disbeliever). The English 'two-faced' captures only the surface of this dual-door structure."
   },
   "profiles": [
     {
@@ -53,8 +55,8 @@
       "behaviorPatternEn": "Verbal confession of faith + inner denial. The Qur'an offers a striking psychological insight: the act of deception is entangled with self-deception — the hypocrite is first and foremost the victim of his own awareness, not of those he imagines he deceives.",
       "classicalAnalysisTr": "Fahreddin er-Râzî, Mefâtîhu'l-Gayb'da Bakara 9'u şöyle açıklar: 'Onların aldatmaları aslında kendilerinedir, çünkü aldatma sonucu ortaya çıkan zarar — dünyadaki itibarsızlık + ahiretteki azap — münâfığın kendisine döner.' Bu tespit, klasik kelâmın 'fiil-sonuç' analizinin en net örneklerinden biridir.",
       "classicalAnalysisEn": "Al-Rāzī, in *Mafātīḥ al-Ghayb* on Q 2:9, explains: 'Their deception is actually against themselves — because the harm that emerges (worldly disgrace plus afterlife punishment) returns to the hypocrite.' His analysis is among the clearest instances of classical *kalām*'s act-consequence logic.",
-      "modernParallelTr": "Modern psikolojide 'self-deception' kavramı Robert Trivers'ın The Folly of Fools (2011) çalışmasıyla akademik gündeme oturdu. Trivers, kendini aldatmanın başkasını aldatmaya yardım eden bir evrimsel adaptasyon olduğunu öne sürer. Kur'ân'ın 1400 yıl önce farkettiği ilişkinin (aldatma ↔ kendini aldatma) modern biyopsikolojide teorik zeminini bulması dikkatle yorumlanabilecek bir yaklaşım benzerliğidir — 'bilimsel önceden biliş' değil.",
-      "modernParallelEn": "In modern psychology, the concept of *self-deception* was brought to academic prominence by Robert Trivers's *The Folly of Fools* (2011). The relationship the Qur'an noticed 1400 years ago (deception ↔ self-deception) finds a theoretical footing in modern biopsychology — a carefully-interpretable parallel of approach, not a 'prescient scientific claim.'",
+      "modernParallelTr": "Modern psikolojide 'self-deception' kavramı Robert Trivers'ın The Folly of Fools (2011) çalışmasıyla akademik gündeme oturdu. Trivers, kendini aldatmanın başkasını aldatmaya yardım eden bir evrimsel adaptasyon olduğunu öne sürer. Klasik İslamî psikoloji aldatma ↔ kendini aldatma ilişkisini Kur'ân'ın ahlâkî/teolojik çerçevesinde tanımıştır; modern evrimsel psikoloji aynı insan fenomenini biyolojik mekanizma diliyle modeller. İki gelenek aynı deneyimi farklı kavram ağlarıyla tarif eder — bilimsel önceden biliş veya doğrulama iddiası burada yapılmaz.ir — 'bilimsel önceden biliş' değil.",
+      "modernParallelEn": "In modern psychology, *self-deception* came to academic prominence with Robert Trivers's *The Folly of Fools* (2011), which argues that self-deception is an evolutionary adaptation that aids in deceiving others. Classical Islamic psychology recognized the deception ↔ self-deception relationship within the Qur'an's ethical/theological frame; modern evolutionary psychology models the same human phenomenon through the language of biological mechanism. Two traditions describe the same experience through different conceptual networks — no claim of scientific foreknowledge or validation is made here.",
       "sourceTr": "Râzî, Mefâtîhu'l-Gayb, Bakara 2:9; İbn Kesîr, Bakara 2:8-10; Robert Trivers, The Folly of Fools, Basic Books, 2011.",
       "sourceEn": "Al-Rāzī, *Mafātīḥ al-Ghayb*, on Q 2:9; Ibn Kathīr on Q 2:8-10; Robert Trivers, *The Folly of Fools*, Basic Books, 2011.",
       "infoTr": "Modern paralellik 'Kur'ân bilimi önceden bildi' iddiası olarak değil, iki farklı geleneğin aynı insan fenomenini farklı dillerde tarif etmesi olarak sunuluyor. Trivers'ın evrimsel çerçevesi ile Kur'ân'ın ahlâkî çerçevesi ontolojik olarak farklıdır.",
@@ -161,8 +163,8 @@
       "behaviorPatternEn": "A rupture between the inner (*ikhlāṣ*, sincerity) and social (*riyāʾ*, show) dimensions of worship. The hypocrite attends worship — because social membership requires it — but his attendance is marked by two signs: (1) listlessness (*kusālā*), (2) showing off (*yurāʾūna al-nās*). A third sign: scarcity of remembrance.",
       "classicalAnalysisTr": "Kurtubî, el-Câmi' li-Ahkâmi'l-Kur'ân'da Nisâ 142 için: 'Namaza kalkışlarındaki üşengeçliği — ibadetin bir dış form olduğuna, iç gerçekliği olmadığına — delildir. Mü'min, ibadete koşarak kalkar; münâfık sürüklenerek.' Klasik tefsirde bu ayet 'ibâdet-i halvet' (tenha ibadet) ile 'ibâdet-i ra'y' (görünür ibadet) ayrımının anahtar metinlerindendir.",
       "classicalAnalysisEn": "Al-Qurṭubī on Q 4:142 writes: 'The listlessness of their standing for prayer is proof that worship is for them an outer form without inner reality. The believer rises eagerly to worship; the hypocrite drags himself.' In classical exegesis this verse is a key text in the distinction between *ʿibādat al-khalwa* (solitary worship) and *ʿibādat al-raʾy* (visible worship).",
-      "modernParallelTr": "Modern din psikolojisinde Gordon Allport'un intrinsic vs. extrinsic religiosity ayrımı (1950) benzer davranışları tanımlar. Kur'ân bu ayrımı 1400 yıl önce 'ihlâs-riyâ' ikiliği ile yapmıştır.",
-      "modernParallelEn": "In modern psychology of religion, Gordon Allport's distinction between intrinsic and extrinsic religiosity (1950) names similar behaviors. The Qur'an made this distinction 1400 years ago through the *ikhlāṣ*/*riyāʾ* pairing.",
+      "modernParallelTr": "Modern din psikolojisinde Gordon Allport'un intrinsic vs. extrinsic religiosity ayrımı (1950) benzer davranışları tanımlar. Klasik İslamî gelenek aynı ayrımı 'ihlâs-riyâ' ikiliği ile çok daha önceden işlemiştir; iki çerçeve farklı dillerden aynı insan ihtilafına işaret eder.",
+      "modernParallelEn": "In modern psychology of religion, Gordon Allport's distinction between intrinsic and extrinsic religiosity (1950) names similar behaviors. The classical Islamic tradition treated the same distinction much earlier through the *ikhlāṣ*/*riyāʾ* pairing; the two frames point to the same human conflict in different languages.",
       "sourceTr": "Kurtubî, el-Câmi' li-Ahkâmi'l-Kur'ân, Nisâ 4:142; Râzî, Mefâtîh, Nisâ 142; İbn Kayyim, Medâric (riyâ bahsi).",
       "sourceEn": "Al-Qurṭubī on Q 4:142; Al-Rāzī on Q 4:142; Ibn Qayyim on *riyāʾ* in *Madārij*.",
       "infoTr": "Klasik tefsir ahlâkî-dinî bir tespit yapar; modern din psikolojisi aynı davranışı ampirik olarak ölçer. İki disiplin birbirinden türetilemez ama birbirini aydınlatır.",
@@ -223,7 +225,22 @@
       "sourceEn": "Ibn ʿĀshūr on Q 9:67; Elmalılı on Q 9:67; Al-Ṭabarī on Q 9:67.",
       "infoTr": "Bu ayet, Kur'ân'ın münâfıklık analizini psikolojiden sosyolojiye taşıyan en önemli ayetlerden biri olarak klasik tefsirde işlenir.",
       "infoEn": "Classical exegesis treats this verse as one of the most significant in shifting the analysis of hypocrisy from psychology to sociology.",
-      "ekolEtiketi": "klasik tefsir + sosyolojik analiz"
+      "ekolEtiketi": "klasik tefsir + sosyolojik analiz",
+      "mukabele": {
+        "titleTr": "Mukâbele — Münâfık (9:67) ↔ Mü'min (9:71)",
+        "titleEn": "Mukābala — Hypocrite (9:67) ↔ Believer (9:71)",
+        "noteTr": "Klasik Arap belâgatında 'mukâbele' (zıt karşılaştırma) sanatının zirve örneklerinden biri. Aynı sûrede dört ayet arayla münâfık ve mü'min, dört eksende ters-ayna konumunda tarif edilir.",
+        "noteEn": "One of the canonical examples of *mukābala* (antithetical pairing) in classical Arabic rhetoric. In the same sura, four verses apart, hypocrites and believers are described as mirror inversions across four axes.",
+        "mirrorVerseAr": "وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ ۚ يَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ وَيُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ",
+        "mirrorVerseTr": "Mü'min erkekler ve mü'min kadınlar birbirinin velîsidir. İyiliği emreder, kötülükten alıkoyar; namazı kılar, zekâtı verirler. — Tevbe 9:71",
+        "mirrorVerseEn": "The believing men and the believing women are allies of one another. They enjoin what is right, forbid what is wrong, establish prayer, and give zakāt. — Q 9:71",
+        "pairs": [
+          { "munafikTr": "Birbirlerindendir (ba'duhum min ba'd)",  "muminTr": "Birbirinin velîsidir (evliyâ ba'd)",        "munafikEn": "Of one another (baʿḍuhum min baʿḍ)", "muminEn": "Allies of one another (awliyāʾ baʿḍ)" },
+          { "munafikTr": "Kötülüğü emreder",                        "muminTr": "İyiliği emreder",                            "munafikEn": "Enjoin wrong",                       "muminEn": "Enjoin right" },
+          { "munafikTr": "İyilikten alıkor",                        "muminTr": "Kötülükten alıkor",                          "munafikEn": "Forbid right",                       "muminEn": "Forbid wrong" },
+          { "munafikTr": "Ellerini kapatır (cimrilik)",              "muminTr": "Namaz kılar, zekât verir",                   "munafikEn": "Close their hands (withhold)",       "muminEn": "Establish prayer, give zakāt" }
+        ]
+      }
     },
     {
       "id": "cowardice-pride",
