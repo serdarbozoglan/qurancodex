@@ -112,6 +112,66 @@ function HadithOnlyBadge({ language }) {
   );
 }
 
+// Hadith grade sub-badge (Münâfık Profili 'mütefekkun aleyh' standartının melek sayfasına uygulanması)
+const HADITH_GRADE_META = {
+  'mutefekkun-aleyh': { color: '#1D9E75', tr: 'Mütefekkun Aleyh', en: 'Muttafaqun Alayh', noteTr: 'Buhârî + Müslim ortak', noteEn: 'Bukhari + Muslim agreed' },
+  'sahih':            { color: '#3B82F6', tr: 'Sahih',            en: 'Sahih',           noteTr: 'Sahih kaynak',       noteEn: 'Sahih source' },
+  'hasen':            { color: '#B8860B', tr: 'Hasen',            en: 'Hasan',           noteTr: 'Hasen seviye',       noteEn: 'Hasan grade' },
+  'tartismali':       { color: '#D85A30', tr: 'Tartışmalı',       en: 'Disputed',        noteTr: 'Sened/sıhhati tartışmalı', noteEn: 'Chain/grade disputed' },
+};
+
+function HadithGradeBadge({ grade, source, language }) {
+  const [tip, setTip] = useState(false);
+  const meta = HADITH_GRADE_META[grade];
+  if (!meta) return null;
+  const tr = language === 'tr';
+  return (
+    <span style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+      <span style={{
+        display: 'inline-flex', alignItems: 'center', gap: '3px',
+        fontSize: '0.62rem', fontWeight: 700,
+        color: meta.color,
+        background: `${meta.color}12`,
+        border: `1px solid ${meta.color}30`,
+        borderRadius: RADIUS.pillSm, padding: '1px 7px', whiteSpace: 'nowrap',
+      }}>
+        ◈ {tr ? meta.tr : meta.en}
+      </span>
+      {source && (
+        <span
+          onMouseEnter={() => setTip(true)}
+          onMouseLeave={() => setTip(false)}
+          onClick={() => setTip(v => !v)}
+          style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: '14px', height: '14px', borderRadius: '50%',
+            background: `${meta.color}18`, border: `1px solid ${meta.color}40`,
+            color: meta.color, fontSize: '0.6rem', fontWeight: 700,
+            cursor: 'help', flexShrink: 0,
+          }}
+        >
+          ?
+        </span>
+      )}
+      {tip && source && (
+        <span style={{
+          position: 'absolute', bottom: '22px', left: 0,
+          width: '260px', maxWidth: '70vw',
+          background: 'rgba(8,10,26,0.97)',
+          border: `1px solid ${meta.color}40`,
+          borderRadius: RADIUS.md, padding: '8px 12px',
+          fontSize: '0.7rem', color: '#c8cdd8', lineHeight: 1.55,
+          zIndex: 50, pointerEvents: 'none',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+          whiteSpace: 'normal',
+        }}>
+          {source}
+        </span>
+      )}
+    </span>
+  );
+}
+
 function InfoPopover({ text, language: _language }) {
   const [open, setOpen] = useState(false);
   if (!text) return null;
@@ -249,6 +309,9 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
             {tr ? cat.labelTr : cat.labelEn}
           </span>
           {angel.isHapax && <HapaxBadge language={language} />}
+          {isHadithOnly && angel.hadithGrade && (
+            <HadithGradeBadge grade={angel.hadithGrade} source={tr ? angel.hadithMainSource : angel.hadithMainSource} language={language} />
+          )}
         </div>
       </div>
 
@@ -500,8 +563,8 @@ const ANALYSIS_CARDS = [
   {
     titleTr: "Neden meleklerin çoğu isimsiz?",
     titleEn: "Why are most angels unnamed?",
-    bodyTr: "Kur'an melekleri işlevle tanımlar — isimle değil. 'Ölüm meleği', 'vahiy meleği', 'koruyucu melekler' — görev ön planda, kişilik değil. Bu İslam kelâmındaki 'melek bağımsız bir fail değil, ilahi bir araçtır' anlayışıyla örtüşür.",
-    bodyEn: "The Quran identifies angels by function, not name. 'Angel of death,' 'angel of revelation,' 'guardian angels' — role is primary, not personality. This aligns with the theological position that angels are instruments of divine will, not independent agents.",
+    bodyTr: "Kur'an melekleri işlevle tanımlar — isimle değil. 'Ölüm meleği', 'vahiy meleği', 'koruyucu melekler' — görev ön planda, kişilik değil. Klasik Sünnî kelâmında bu 'melek bağımsız bir fail değil, ilâhi bir araçtır' anlayışıyla okunur. Mu'tezile, Mâturîdî ve İslam filozofları aynı ayetleri farklı çıkarımlarla okur (bkz. ‘4 kelâmî pozisyon’ kartı).",
+    bodyEn: "The Quran identifies angels by function, not name. 'Angel of death,' 'angel of revelation,' 'guardian angels' — role is primary, not personality. In classical Ash'ari Sunni kalām this is read as 'angels are instruments of divine will, not independent agents.' Mu'tazila, Maturidi and the Islamic philosophers draw different conclusions from the same verses (see ‘4 theological positions’ card below).",
   },
   {
     titleTr: "Melek mi cin mi? İblis örneği",
@@ -514,6 +577,18 @@ const ANALYSIS_CARDS = [
     titleEn: "Are angels genderless?",
     bodyTr: "Saffat 37:150, Zuhruf 43:19 — Kur'an Arap geleneğindeki 'melekler Allah'ın kızlarıdır' iddiasını reddeder. Meleklere cinsiyet atfetmek Kur'an'a göre delilsiz bir iddiadır.",
     bodyEn: "As-Saffat 37:150 and Az-Zukhruf 43:19 reject the Arab cultural claim that 'angels are daughters of God.' The Quran explicitly refutes this. Attributing gender to angels is presented as an unfounded claim.",
+  },
+  {
+    titleTr: "Melekler hakkında 4 kelâmî pozisyon",
+    titleEn: "Four theological positions on angels",
+    bodyTr: "Aynı Kur'ânî ayetlerden klasik İslam kelâmı dört farklı sonuç çıkarır: (1) Eş'arî — melekler 'latîf cisimler', nurdan yaratılmış varlıklardır. (2) Mâturîdî — Eş'arî pozisyonuyla uyumlu, ancak meleklerin varlığının akılla da kabul edilebilir olduğunu söyler. (3) Mu'tezile — bazı temsilciler meleklerin ilâhi güçlerin yansıması olduğunu, müstakil cisimsel varlıklar olmayabileceğini öne sürer. (4) İslam filozofları (Fârâbî, İbn Sînâ) — melekleri 'mücerred akıllar' (al-uqūl al-mufāriqa) ile özdeşleştirir; aktif akıl olarak Cebrail. Atlas çoğunluk Sünnî pozisyonu birincil sunar; diğerlerini akademik dürüstlükle açık tutar.",
+    bodyEn: "Classical Islamic kalām draws four distinct conclusions from the same Quranic verses: (1) Ash'ari — angels are 'subtle bodies' (latīf), beings created from light. (2) Maturidi — aligns with the Ash'ari view but adds that the existence of angels is also rationally accessible. (3) Mu'tazila — some representatives suggest angels are reflections of divine powers, not necessarily independent corporeal beings. (4) Islamic philosophers (Farabi, Ibn Sina) — identify angels with 'separate intellects' (al-ʿuqūl al-mufāriqa); Jibril as the Active Intellect. The Atlas presents the majority Sunni position as primary while keeping the others academically open.",
+  },
+  {
+    titleTr: "Said Nursi'nin Risâle perspektifi",
+    titleEn: "Said Nursi's Risale perspective",
+    bodyTr: "Said Nursi, Yirmi Dokuzuncu Söz'de meleklere ve ruhanîlere en kapsamlı Risâle bölümünü ayırır. Pozisyonu klasik Sünnî inanca bağlıdır: melekler ilâhi isimlerin tecellisidir, doğa kuvvetleriyle özdeşleştirilemez. Mi'râc Risâlesi'nde (Otuz Birinci Söz) Cebrail'in vahyi taşıması ve Sidretü'l-Müntehâ ayrıntılı işlenir. Nursi modern bilim ile melek dünyası arasında felsefî bir paralellik kurar — özdeşlik değil. Bu yaklaşım, Türk Müslüman okuyucu için Atlas'ın klasik pozisyonu bağlam içinde okumasını kolaylaştırır.",
+    bodyEn: "Said Nursi devotes the most comprehensive Risale-i Nur treatment of angels to the Twenty-Ninth Word. His position remains within classical Sunni doctrine: angels are manifestations of divine names, not to be identified with the forces of nature. The Mi'raj Treatise (Thirty-First Word) elaborates Jibril's bearing of revelation and Sidrat al-Muntaha. Nursi draws a philosophical parallel — not an identification — between modern science and the angelic realm. This framing helps Turkish-Muslim readers situate the Atlas's classical position within a familiar interpretive horizon.",
   },
 ];
 
@@ -686,6 +761,13 @@ function TabDilbilim({ data, language, isMobile }) {
 }
 
 // ── TAB 6: KAYNAKLAR ────────────────────────────────────────────────────────────
+const RELATED_PAGES = [
+  { event: 'openIblisSatan',       tr: 'İBLİS / ŞEYTAN ATLASI', en: 'IBLIS / SHAYTAN ATLAS', descTr: 'Yedi sûrede aynı sahne — kibrin başlangıcı', descEn: 'The same scene across seven suras — the origin of pride' },
+  { event: 'openMunafikProfili',   tr: 'MÜNÂFIK PROFİLİ',        en: 'PROFILE OF THE MUNAFIQ', descTr: 'İnsan psikolojisi — kalbin gizli hastalığı',     descEn: 'Human psychology — the hidden disease of the heart' },
+  { event: 'openKiyametSahneleri', tr: 'KIYAMET SAHNELERİ',      en: 'SCENES OF QIYAMAH',      descTr: 'Sûr üfleyen melek ve eskatolojik sahneler',       descEn: 'The angel of the trumpet and eschatological scenes' },
+  { event: 'openKavimlerAtlasi',   tr: 'KAVİMLER ATLASI',        en: 'NATIONS ATLAS',          descTr: 'Lût helakının melekleri — tarihsel kıssalar',     descEn: 'The angels of Lot\'s destruction — historical narratives' },
+];
+
 function TabKaynaklar({ data, language }) {
   const tr = language === 'tr';
   const k = data.kaynaklar || {};
@@ -740,6 +822,41 @@ function TabKaynaklar({ data, language }) {
           </div>
         </div>
       ))}
+
+      {/* Cross-page CTAs — related Atlas overlays */}
+      <div style={{ marginTop: '8px' }}>
+        <SectionTitle>{tr ? 'İlgili Atlas Sayfaları' : 'Related Atlas Pages'}</SectionTitle>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {RELATED_PAGES.map(cta => (
+            <button
+              key={cta.event}
+              onClick={() => window.dispatchEvent(new CustomEvent(cta.event))}
+              style={{
+                width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                padding: '12px 16px', borderRadius: RADIUS.md,
+                background: COLORS.goldAlpha15,
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                cursor: 'pointer', textAlign: 'left',
+                transition: `all ${TRANSITION.fast}`,
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha25; e.currentTarget.style.borderColor = COLORS.goldAlpha45; }}
+              onMouseLeave={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = COLORS.goldAlpha25; }}
+            >
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <p style={{ color: COLORS.gold, fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.08em', margin: '0 0 2px', fontFamily: FONTS.body }}>
+                  ↗ {tr ? cta.tr : cta.en}
+                </p>
+                <p style={{ color: COLORS.silver, fontSize: '0.76rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.4 }}>
+                  {tr ? cta.descTr : cta.descEn}
+                </p>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7, marginLeft: 10 }}>
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -955,6 +1072,24 @@ export default function Melekler({ onClose }) {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
+  }, []);
+
+  // CLAUDE.md §13.16 Katman 1 — body+html scroll lock with scrollbar gutter compensation
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtml = html.style.overflow;
+    const prevBody = body.style.overflow;
+    const prevPad  = body.style.paddingRight;
+    const sbWidth = window.innerWidth - html.clientWidth;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
+    return () => {
+      html.style.overflow = prevHtml;
+      body.style.overflow = prevBody;
+      body.style.paddingRight = prevPad;
+    };
   }, []);
 
   useEffect(() => {
