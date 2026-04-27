@@ -242,8 +242,8 @@
             54,
             79
           ],
-          "descTr": "Asasıyla denize vurdu; on iki yol açıldı. İsrailoğulları geçti. Firavun ve ordusu dalgalara gömüldü.",
-          "descEn": "He struck the sea with his staff; twelve paths opened. The Israelites crossed. Pharaoh and his army were swallowed by the waves.",
+          "descTr": "Asasıyla denize vurdu; deniz yarıldı, her parça büyük bir dağ gibi oldu (Şuarâ 26:63). İsrailoğulları geçti; Firavun ve ordusu dalgalara gömüldü.",
+          "descEn": "He struck the sea with his staff; the sea split, each part like a great mountain (Shu'arā 26:63). The Israelites crossed; Pharaoh and his army were swallowed by the waves.",
           "surahRefs": {
             "2": "2:50",
             "7": "7:136-138",
@@ -392,8 +392,8 @@
           "surahs": [
             10
           ],
-          "descTr": "'Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.' 3.000 yıl sonra Mısır'da mumya olarak keşfedildi.",
-          "descEn": "'Today We will preserve your body as a sign for those who come after you.' Discovered as a mummy in Egypt millennia later.",
+          "descTr": "'Bugün senin bedenini kurtaracağız ki, senden sonrakilere ibret olasın.' Klasik müfessirler bu ayeti Firavun cesedinin ibret işareti olarak korunması şeklinde yorumlar; bazı modern okumalar Mısır mumyalarının arkeolojik keşfine bağlar — ancak bu yorum klasik tefsirde yer almaz.",
+          "descEn": "'Today We will preserve your body as a sign for those who come after you.' Classical commentators read this verse as the preservation of Pharaoh's body as a warning sign; some modern readings link it to the archaeological discovery of Egyptian mummies — though this interpretation is absent from classical tafsīr.",
           "surahRefs": {
             "10": "10:92"
           }
@@ -461,14 +461,14 @@
         {
           "id": "yusuf_04",
           "order": 4,
-          "titleTr": "Züleyha'nın İhaneti ve Hapse Atılması",
-          "titleEn": "Potiphar's Wife's Betrayal; Yusuf Jailed",
+          "titleTr": "Aziz'in Eşinin İhaneti ve Hapse Atılması",
+          "titleEn": "The 'Azīz's Wife's Betrayal; Yusuf Jailed",
           "verseRef": "12:23–35",
           "surahs": [
             12
           ],
-          "descTr": "Evin hanımı ona saldırdı; Yusuf kaçtı. Kapıdan gömleği arkadan yırtıldı. Suçlanan Yusuf masum olmasına rağmen hapse atıldı.",
-          "descEn": "The master's wife assaulted him; Joseph fled. His shirt was torn from behind. Falsely accused, he was jailed despite his innocence.",
+          "descTr": "Evin hanımı ona saldırdı; Yusuf kaçtı. Kapıdan gömleği arkadan yırtıldı. Suçlanan Yusuf masum olmasına rağmen hapse atıldı. (Kur'ân kadının adını vermez; 'Züleyha' adı klasik tefsir nakilleri ve Câmî gibi Fars edebî geleneğinden gelir.)",
+          "descEn": "The master's wife assaulted him; Joseph fled. His shirt was torn from behind. Falsely accused, he was jailed despite his innocence. (The Qur'ān does not name the woman; 'Zulaykha' comes from classical tafsīr narrations and the Persian literary tradition, e.g. Jāmī.)",
           "surahRefs": {
             "12": "12:23-35"
           }
@@ -512,7 +512,7 @@
           "surahs": [
             12
           ],
-          "descTr": "Yedi zayıf inek yedi semizderi yutuyor, yedi yeşil başak yedi kuruyu. Yusuf yorumladı: yedi bolluk, yedi kıtlık, sonra kurtuluş yılı.",
+          "descTr": "Yedi zayıf inek yedi semizi yutuyor, yedi yeşil başak yedi kuruyu. Yusuf yorumladı: yedi bolluk, yedi kıtlık, sonra kurtuluş yılı.",
           "descEn": "Seven lean cows eating seven fat ones, seven dry stalks consuming seven green. Joseph interpreted: seven plenty, seven famine, then relief.",
           "surahRefs": {
             "12": "12:43-49"
@@ -589,8 +589,8 @@
             6,
             40
           ],
-          "descTr": "Gömleği babasının yüzüne koydular; gözleri açıldı. Mısır'a geldiler, Yusuf annesini kucakladı. Küçük Yusuf'un rüyası gerçek oldu.",
-          "descEn": "The shirt cast on Jacob's face restored his sight. They came to Egypt; Joseph embraced his parents. The childhood dream was fulfilled.",
+          "descTr": "Gömleği babasının yüzüne koydular; gözleri açıldı. Mısır'a geldiler, Yusuf anne-babasını taht üzerine oturttu (12:100). Küçük Yusuf'un rüyası gerçek oldu.",
+          "descEn": "The shirt cast on Jacob's face restored his sight. They came to Egypt; Joseph seated his parents on the throne (12:100). The childhood dream was fulfilled.",
           "surahRefs": {
             "6": "6:84",
             "12": "12:93-101",
@@ -795,8 +795,8 @@
           "surahs": [
             37
           ],
-          "descTr": "Rüyasında oğlunu kurban ettiğini gördü. İsmail: 'Babacığım, emredileni yap; beni sabredenlerden bulacaksın.' Allah fidye olarak büyük bir koç gönderdi.",
-          "descEn": "He saw in a dream that he was slaughtering his son. Ishmael: 'Father, do what you are commanded; you will find me patient.' God sent a great ram as ransom.",
+          "descTr": "Rüyasında oğlunu kurban ettiğini gördü. Oğul: 'Babacığım, emredileni yap; beni sabredenlerden bulacaksın.' Allah fidye olarak büyük bir koç gönderdi. (Kur'ân kurban edilmesi istenen oğulun ismini vermez; klasik İslâmî tefsir İsmail olarak kabul eder, Yahudi-Hıristiyan geleneklerinde İshak'tır.)",
+          "descEn": "He saw in a dream that he was slaughtering his son. The son: 'Father, do what you are commanded; you will find me patient.' God sent a great ram as ransom. (The Qur'ān does not name the son; classical Islamic tafsīr identifies him as Ishmael, while Jewish-Christian traditions hold him to be Isaac.)",
           "surahRefs": {
             "37": "37:99-107"
           }
