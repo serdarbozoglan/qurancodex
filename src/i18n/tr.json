@@ -10,7 +10,7 @@
   "hero": {
     "title": "KUR'AN-I KERİM'İN GÖRÜNMEYEN MİMARİSİ",
     "subtitle": "Dilbilimsel, Matematiksel ve Bilimsel Kanıtlarla",
-    "description": "1.400 yıllık bir metnin derinliklerinde, çıplak gözle görülemeyen bir düzen yatıyor. Her kelimesi ölçülmüş, her sesi hesaplanmış, her hikayesi bir yapının parçası. Modern bilim bu düzeni çözmeye yeni başlıyor — ve çözülecek çok şey var.",
+    "description": "1.400 yıllık bir metnin derinliklerinde, çıplak gözle görülemeyen bir mimari yatıyor. Her kelimesi ölçülmüş, her sesi hesaplanmış, her hikâyesi bir yapının parçası. Klasik İslamî gelenek bunu yüzyıllardır işliyor; modern akademik araştırma da bu yapıyı kendi metoduyla incelemeye devam ediyor.",
     "cta": "Keşfe Başla",
     "ctaRead": "Kur'an'ı Oku",
     "scroll": "Aşağı kaydır"
@@ -275,8 +275,8 @@
       },
       {
         "number": 3,
-        "title": "Bilimsel (Kozmolojik)",
-        "description": "Evrenin temel kuvveti olarak ışık, fotonlar, elektromanyetik spektrum"
+        "title": "Modern Okuma (tartışmalı)",
+        "description": "Bazı çağdaş yorumcular bu ayette ışığın fizik niteliklerine işaret görür; klasik tefsir geleneğinde (Râzî, Gazâlî, İbn Arabî) yer almayan bir çerçevedir"
       },
       {
         "number": 4,
@@ -587,7 +587,7 @@
       },
       {
         "title": "Zaman Esnekliği",
-        "content": "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (Prophetic Perfect) — sanki zaten olmuş gibi. Ve geçmiş, şimdiki zamanla anlatılır (Historical Present) — sanki şu an yaşanıyor. Ashab-ı Kehf: 300 güneş yılı = 309 ay yılı. Fark tam olarak güneş-ay takvimi dönüşümü. Rum sûresi, 614'te Bizans yeni yenilmişken 'Rumlar galip geldiler' dedi — henüz yaşanmamış bir zafer için geçmiş zaman. Bu tahmin değil, kesinlik bildirimi. Bizans 628'de gerçekten galip geldi.",
+        "content": "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (Prophetic Perfect) — sanki zaten olmuş gibi. Ve geçmiş, şimdiki zamanla anlatılır (Historical Present) — sanki şu an yaşanıyor. Ashab-ı Kehf: 300 güneş yılı = 309 ay yılı. Fark tam olarak güneş-ay takvimi dönüşümüne karşılık gelir. Rum sûresi, 614'te Bizans yeni yenilmişken 'Rumlar galip geldiler' dedi — henüz yaşanmamış bir zafer için geçmiş zaman. Bizans 628'de gerçekten galip geldi.",
         "note": "Solar-Lunar dönüşüm matematik açısından birebir uyumludur (300 × 365.25 / 354.37 ≈ 309.017). Ancak klasik tefsirde Razi ve Taberî bu farkı 3 farklı şekilde yorumlar (yanılma payı, ay yıllarına atıf, vb.) — solar-lunar dönüşüm modern bir okumadır, klasik gelenekte 'mucize' olarak özel olarak vurgulanmaz. El-mâzî bi-ma'na'l-müstakbel (gelecek anlamında geçmiş zaman) tekniği klasik Arap dilbiliminde yerleşiktir (Suyûtî, El-İtkân; Zerkeşî, El-Burhân)."
       },
       {
@@ -605,7 +605,7 @@
       "Sesleri duyguları yönlendiriyor",
       "Yapısı ayna simetrisi oluşturuyor",
       "Her ayeti yedi katmanlı anlam barındırıyor",
-      "Bilimsel gerçeklere 1.400 yıl öncesinden işaret ediyor",
+      "Bazı ayetleri modern bilimin keşifleriyle paralel okunmaktadır",
       "Tarihsel detayları arkeoloji ile doğrulanıyor",
       "77.800 kelimesinde tek bir gereksiz kelime yok",
       "1.400 yıldır harf harf değişmeden korunuyor"
@@ -785,7 +785,8 @@
   "psychology": {
     "badge": "İnsan Psikolojisi",
     "title": "Kur'an'ın Psikoloji Haritası",
-    "intro": "Modern psikoloji, insan zihnini anlamak için yüzyıllardır çaba harcıyor. Freud benliği, Jung arketipleri, Maslow ihtiyaç hiyerarşisini, Frankl anlamı keşfetti. Kur'an 1.400 yıl önce bu haritanın tamamını çoktan çizmişti — sadece farklı bir dille.",
+    "intro": "Modern psikoloji, insan zihnini anlamak için yüzyıllardır biyolojik-bilişsel bir dil geliştirdi: Freud benliği, Jung arketipleri, Maslow ihtiyaç hiyerarşisini, Frankl anlamı kendi çerçeveleriyle adlandırdı. Kur'an aynı insan deneyimini farklı bir dille — ahlâkî-teolojik dille — anlatır. Bu sayfa, iki çerçeve arasındaki paralellikleri akademik bir gözlem olarak sunar; Kur'an'ın modern psikolojiyi öngördüğü iddiası taşımaz.",
+    "methodologyNote": "Bu bölüm boyunca yapılan modern psikoloji paralellikleri (Freud, Jung, Maslow, Frankl, Seligman vb.) farklı epistemolojik çerçevelerin aynı insan deneyimini farklı dillerde tarif ettiğini gösterir. Klasik İslamî pozisyon (Şâtıbî, El-Muvâfakât) Kur'an'ı hidâyet kitabı olarak tanımlar — bilimsel bir teoriyi öngören ya da doğrulayan bir metin değil. Buradaki paralellikler felsefî gözlemdir, 'Kur'an bu kavramı 1.400 yıl önce öngördü' iddiası taşımaz.",
     "tabs": {
       "nefs": "Nefsin Haritası",
       "kalp": "Kalp Psikolojisi",
@@ -852,7 +853,7 @@
       },
       "kalp": {
         "title": "Kalp Psikolojisi",
-        "intro": "Kur'an'da kalp (qalb) sadece fiziksel bir organ değil, aynı zamanda bilinç, irade ve ahlakın merkezi olarak ele alınır. Kur'an bu merkezi beş farklı hâlde tanımlar. Modern nörobilim kalbin karmaşık bir sinir ağına (intrinsic cardiac nervous system) sahip olduğunu göstermiştir — bu bulgu kalbin 'bilinç merkezi' olduğunu ispatlamaz, ancak Kur'ânî metaforun fiziksel dokuyla nasıl etkileşebileceğine dair ilgi çekici bir zemin sunar.",
+        "intro": "Kur'an'da kalp (qalb) sadece fiziksel bir organ değil, klasik Sünnî kelâmında (Gazâlî, İhya) bilinç, irade ve ahlâkın merkezi olarak — ruhî/manevî bir mahal olarak — ele alınır. Kur'an bu merkezi beş farklı hâlde tanımlar. Modern nörobilimin kalpteki sinir ağı (intrinsic cardiac nervous system) bulguları farklı bir epistemolojik düzlemde durur; iki düzlem arasında paralellik kurmak akademik literatürde tartışmalı bir yaklaşımdır.",
         "items": [
           {
             "id": "selim",
@@ -945,7 +946,7 @@
       },
       "savunma": {
         "title": "Savunma Mekanizmaları",
-        "intro": "Freud'un kızı Anna Freud, 1936'da savunma mekanizmalarını sistematik olarak tanımladı. Kur'an, bu mekanizmaları somut insan hikayeleri üzerinden 1.400 yıl önce sergiledi — isim vermeden ama kristal netliğiyle.",
+        "intro": "Freud'un kızı Anna Freud, 1936'da savunma mekanizmalarını modern psikolojinin sistematik dilinde tanımladı. Kur'an, somut insan hikayeleri üzerinden — kavramsal terminolojiye değil ahlâkî-anlatısal bir dile dayanarak — benzer davranış kalıplarını çok daha önce işaret eder. İki dil arasında paralellik akademik bir gözlemdir; Kur'an'ın Anna Freud'un kavramsal sistemini öngördüğü anlamına gelmez.",
         "items": [
           {
             "id": "rasyonalizasyon",
@@ -1140,7 +1141,7 @@
       },
       "anlam": {
         "title": "Anlam Psikolojisi",
-        "intro": "Viktor Frankl, Auschwitz'de hayatta kalmayı anlamla açıkladı: 'Yaşamak için bir nedeni olan insan, neredeyse her nasılı kaldırabilir.' Kur'an bu cevabı 1.400 yıl önce vermişti — hem daha geniş hem daha derin bir çerçevede.",
+        "intro": "Viktor Frankl, Auschwitz'de hayatta kalmayı anlamla açıkladı: 'Yaşamak için bir nedeni olan insan, neredeyse her nasılı kaldırabilir.' Frankl'ın varoluşçu psikoterapi çerçevesi ile Kur'an'ın metafizik-teolojik çerçevesi farklı zeminlerde durur; ikisinin paralelliği felsefî bir gözlemdir, hiyerarşik bir karşılaştırma değildir. Kur'an aynı insan ihtiyacını ahlâkî-teolojik bir dille tarif eder.",
         "items": [
           {
             "id": "amac",
