@@ -91,8 +91,8 @@ const PATHS = [
     target: 'science', // legacy field, unused now that the card triggers path mode
     titleTr: 'Evren ve Bilim',
     titleEn: 'Universe and Science',
-    descTr: 'Modern bilimin 1.400 yıl sonra keşfettikleri',
-    descEn: 'What modern science only discovered 1,400 years later',
+    descTr: 'Kâinat ayetleri ve bilim — paralellikler ve sınırlar',
+    descEn: 'Cosmic verses and science — parallels and limits',
     // Pill preview must match paths.jsx step order. Tarihsel Kanıtlar moved
     // here from the Prophets path because its content is archaeological
     // verification (same epistemic category as Scientific Signs). Cennet &

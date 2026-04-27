@@ -10,7 +10,7 @@
   "hero": {
     "title": "THE INVISIBLE ARCHITECTURE OF THE QURAN",
     "subtitle": "Linguistic, Mathematical & Scientific Evidence",
-    "description": "Beneath the surface of a 1,400-year-old text lies an order invisible to the naked eye. Every word measured, every sound calculated, every story part of a grand design. Modern science is only now beginning to decode it — and there is much left to uncover.",
+    "description": "Beneath the surface of a 1,400-year-old text lies an architecture invisible to the naked eye. Every word measured, every sound calculated, every story part of a grand design. Classical Islamic scholarship has been mapping this structure for centuries; modern academic research continues to study it through its own methods.",
     "cta": "Begin the Discovery",
     "ctaRead": "Read Quran",
     "scroll": "Scroll down"
@@ -276,8 +276,8 @@
       },
       {
         "number": 3,
-        "title": "Cosmological (Scientific)",
-        "description": "Light as the fundamental force of the universe, photons, the electromagnetic spectrum"
+        "title": "Modern Reading (debated)",
+        "description": "Some contemporary commentators read the verse as referring to the physical properties of light; this framing does not appear in the classical tafsir tradition (Razi, Ghazali, Ibn Arabi)"
       },
       {
         "number": 4,
@@ -588,7 +588,7 @@
       },
       {
         "title": "Time Flexibility",
-        "content": "In the Quran, future events are described in past tense (Prophetic Perfect) — as though they have already occurred. And past events are narrated in present tense (Historical Present) — as though happening now. The Sleepers of the Cave: 300 solar years = 309 lunar years. The difference is the exact solar-lunar calendar conversion. Surah Ar-Rum, written in 614 CE as Byzantium had just fallen, said 'the Romans have been defeated' — past tense for a victory that had not yet happened. Not a prediction, but a declaration of certainty. Byzantium won in 628 CE.",
+        "content": "In the Quran, future events are described in past tense (Prophetic Perfect) — as though they have already occurred. And past events are narrated in present tense (Historical Present) — as though happening now. The Sleepers of the Cave: 300 solar years = 309 lunar years. The difference corresponds exactly to the solar-lunar calendar conversion. Surah Ar-Rum, revealed in 614 CE while Byzantium had just fallen, said 'the Romans have been defeated' — past tense for a victory that had not yet happened. Byzantium won in 628 CE.",
         "note": "The solar-to-lunar conversion is mathematically exact (300 × 365.25 / 354.37 ≈ 309.017). However, classical tafsir (al-Razi, al-Tabari) offers three different interpretations of this gap (margin of error, lunar-month reading, etc.) — the solar-to-lunar reading is a modern one, not specifically highlighted as a miracle in the classical tradition. The al-māḍī bi-maʿnā al-mustaqbal (past tense for future meaning) technique is well established in classical Arabic linguistics (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
       },
       {
@@ -606,7 +606,7 @@
       "Its sounds guide emotions",
       "Its structure forms mirror symmetries",
       "Each verse holds seven layers of meaning",
-      "It pointed to scientific truths 1,400 years in advance",
+      "Several of its verses are read in parallel with discoveries of modern science",
       "Its historical details are confirmed by archaeology",
       "Not a single unnecessary word among its 77,800",
       "Preserved letter by letter, unchanged for 1,400 years"
@@ -786,7 +786,8 @@
   "psychology": {
     "badge": "Human Psychology",
     "title": "The Quran's Map of the Human Mind",
-    "intro": "Modern psychology has spent centuries trying to understand the human mind. Freud mapped the self, Jung the archetypes, Maslow the hierarchy of needs, Frankl the search for meaning. The Quran had drawn this complete map 1,400 years earlier — in a different language.",
+    "intro": "For over a century, modern psychology has developed a biological-cognitive vocabulary: Freud named the self, Jung the archetypes, Maslow the hierarchy of needs, Frankl the search for meaning — each within its own framework. The Quran addresses the same human experience in a different language: a moral-theological one. This page presents the parallels between the two frameworks as an academic observation; it does not claim that the Quran predicted modern psychology.",
+    "methodologyNote": "The modern psychology parallels in this section (Freud, Jung, Maslow, Frankl, Seligman, etc.) reflect different epistemological frameworks describing the same human experience in different languages. The classical Islamic position (Shatibi, al-Muwafaqat) understands the Quran as a book of guidance — not a text that anticipates or validates a scientific theory. These parallels are philosophical observations and carry no claim of '1,400-year-old prediction.'",
     "tabs": {
       "nefs": "Map of the Self",
       "kalp": "Heart Psychology",
@@ -853,7 +854,7 @@
       },
       "kalp": {
         "title": "Heart Psychology",
-        "intro": "In the Quran, the heart (qalb) is understood not merely as a physical organ but as the seat of consciousness, will, and morality. The Quran describes this center in five distinct states. Modern neuroscience has shown that the heart possesses its own intrinsic nervous system — this discovery does not prove the heart is a 'center of consciousness,' but offers an intriguing backdrop for how the Quranic metaphor might interact with physical structure.",
+        "intro": "In the Quran, the heart (qalb) is not merely a physical organ — in classical Sunni kalām (Ghazali, Iḥyāʾ) it is the seat of consciousness, will, and morality, a spiritual locus. The Quran describes this center in five distinct states. The modern neuroscience finding of an intrinsic cardiac nervous system stands on a different epistemological plane; drawing a parallel between the two is methodologically debated in the academic literature.",
         "items": [
           {
             "id": "selim",
@@ -946,7 +947,7 @@
       },
       "savunma": {
         "title": "Defense Mechanisms",
-        "intro": "Freud's daughter Anna Freud systematically described defense mechanisms in 1936. The Quran had displayed these mechanisms through concrete human stories 1,400 years earlier — without naming them, but with crystal clarity.",
+        "intro": "Freud's daughter Anna Freud described defense mechanisms in the systematic language of modern psychology in 1936. The Quran points to similar behavioural patterns much earlier — through concrete human stories rather than conceptual terminology, in a moral-narrative register. The parallel between the two languages is an academic observation, not a claim that the Quran anticipated Anna Freud's conceptual system.",
         "items": [
           {
             "id": "rasyonalizasyon",
@@ -1141,7 +1142,7 @@
       },
       "anlam": {
         "title": "Psychology of Meaning",
-        "intro": "Viktor Frankl explained survival at Auschwitz through meaning: 'He who has a why to live can bear almost any how.' The Quran had given this answer 1,400 years earlier — in a broader and deeper framework.",
+        "intro": "Viktor Frankl explained survival at Auschwitz through meaning: 'He who has a why to live can bear almost any how.' Frankl's existential-psychotherapeutic framework and the Quran's metaphysical-theological framework rest on different grounds; the parallel between them is a philosophical observation rather than a hierarchical comparison. The Quran addresses the same human need in a moral-theological language.",
         "items": [
           {
             "id": "amac",
