@@ -5,6 +5,7 @@ import { COLORS, BREAKPOINT_MOBILE } from '../tokens';
 import InterlinearView from './InterlinearView';
 import TafsirPanel from './TafsirPanel';
 import WordTooltip from './WordTooltip';
+import WordPopover from './WordPopover';
 import { useInterlinearData } from '../hooks/useInterlinearData';
 import { fetchMealSurah } from '../utils/mealCache';
 
@@ -47,7 +48,9 @@ function cleanArabic(str) {
     .replace(/\u06E6/g, ' ')
     // U+06DF (صفر مستدير/Ayn) + U+06EC (kasr) applyTajweed'e bırakılıyor — diğerleri siliniyor
     // U+06EB (EMPTY CENTRE HIGH STOP) = med işareti (örn. Secde 32:18 "يَسْتَوُ۫نَ") — korunur
-    .replace(/[\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
+    // U+06E8 (ARABIC SMALL HIGH NOON / nūn al-wiqāyah) — tenvin + hamzatu'l-wasl birleşmesinde
+    // koruyucu nûn'u gösterir (örn. Hac 22:11 فِتْنَةٌۨ ٱنْقَلَبَ). KFGQPC bunu destekler — korunur.
+    .replace(/[\u06E0\u06E2-\u06E4\u06E7\u06ED]/g, '')
     // Ornate parentheses
     .replace(/[\uFD3E\uFD3F]/g, '');
 }
@@ -67,7 +70,7 @@ function cleanArabic(str) {
 // (aynı harfte hem sükun hem başka hareke olması fonetik olarak imkânsız).
 // DIAC grubunun sükunu içermesi nedeniyle `[DIAC]*[sukun]` regex'te backtracking
 // sorunu çıkabilir; doğrudan `harf+sükun` eşlemesi daha güvenilirdir.
-const DIAC    = '\u064B-\u065F\u06E1\u0670\u06EA'; // hareke + Osmanlı küçük sükun + dagger alef + asar kasra
+const DIAC    = '\u064B-\u065F\u06E1\u0670\u06EA\u06E8'; // hareke + Osmanlı küçük sükun + dagger alef + asar kasra + nūn al-wiqāyah
 const NUN_SAK = 'ن[\u0652\u06E1]';    // نْ — sükun doğrudan
 const MIM_SAK = 'م[\u0652\u06E1]';    // مْ — sükun doğrudan
 const TANWIN  = '[\u064B-\u064D]';    // tenvîn (ً ٌ ٍ)
@@ -78,10 +81,11 @@ const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; /
 // Vakıf + med/kasr + sekte + küçük mim/nun işaretleri — kırmızı, metnin üstünde
 // Gündüz: koyu kırmızı (#c0392b) — Gece: yumuşak terrakota (#c87a72, göz yormaz)
 // NOT: `vertical-align:super` kullanmıyoruz — lineHeight 2.2 ile birleşince işaret
-// satır-boşluğuna taşıyor. Küçük `top:-0.4em` offset harflerin biraz üstüne oturtur.
+// satır-boşluğuna taşıyor. Küçük negatif `top` offset harflerin biraz üstüne oturtur,
+// alttaki kelime ile çakışmayı önler (özellikle Vâkıa 56 başındaki لا markerları).
 const makeWaqfSpan = (dayMode) => (m) =>
   `<span style="display:inline-block;font-size:0.85em;font-weight:400;line-height:1;` +
-  `position:relative;top:0;` +
+  `position:relative;top:-0.15em;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;">${m}</span>`;
 
@@ -117,16 +121,35 @@ const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06
 // uzun kutunun dibine göre hesaplanır ve etiket satır-boşluğuna iner.
 const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
-  `<span style="position:absolute;bottom:-0.8em;left:50%;transform:translateX(-50%);` +
+  `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
   `font-size:0.5em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
+
+// U+06EB (ARABIC EMPTY CENTRE HIGH STOP): KFGQPC tarafından "مد" annotation olarak
+// render edilir (örn. Vâkıa 56:53 "فَمَالِـؤُ۫نَ"). قصر paterniyle paralel olarak,
+// kelimenin altında küçük "مد" etiketi kırmızıyla gösterilir.
+const MED_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06EA\u06EC\u06ED])*)\u06EB/gu;
+const makeMedWrap = (dayMode) => (_, letter) =>
+  `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
+  `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
+  `font-size:0.5em;font-weight:400;line-height:1;` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
+  `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">مد</span></span>`;
+
+// NOT: Maddah curve (U+0653) tek başına kırmızı yapılamadı — browser'lar combining
+// mark'ı önceki harfle aynı glyph cluster olarak render ediyor; ayrı renk vermek için
+// span ile bölmek Arapça letter shaping'i kırıyor (örn. عَلَىٰٓ → ع ل ayrılması).
+// CSS spesifikasyonu düzeyinde combining mark'a bağımsız renk vermek desteklenmiyor.
+// Tajweed-on modunda K.med (mor) kuralı zaten med için renk veriyor; tajweed-off
+// modunda maddah curve şu an altın renkte kalır (orijinal davranış).
 
 function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
+  html = html.replace(MED_RE, makeMedWrap(dayMode));
   if (!skipAllahColor) html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
   return html;
 }
@@ -566,7 +589,7 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
 }
 
 // ─── Single verse row ─────────────────────────────────────────────────────────
-function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audioFailed, language, showTranslation, reciterIdx, currentFont, dayMode }) {
+function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audioFailed, language, showTranslation, reciterIdx, currentFont, dayMode, corpusWords, onWordClick }) {
   const vt = language === 'tr' ? (cleanTr(verse.turkish) || verse.english) : (verse.english || cleanTr(verse.turkish));
   const gold = '#d4a574';
   const isSajda = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
@@ -621,7 +644,32 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
         color: isActive ? '#e8c98a' : '#d4b483',
         textAlign: 'right', direction: 'rtl',
       }}>
-        <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(cleanArabic(verse.arabic), dayMode) }} />
+        {corpusWords && corpusWords.length > 0 ? (
+          // Corpus prototype: clickable word spans (no tajweed coloring in this mode)
+          <span>
+            {corpusWords.map((w, i) => (
+              <span key={i}>
+                <span
+                  onClick={(e) => { e.stopPropagation(); onWordClick(w, verse.surah, verse.ayah); }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,165,116,0.12)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                  style={{
+                    cursor: 'pointer',
+                    padding: '2px 4px',
+                    borderRadius: '4px',
+                    transition: 'background 0.12s',
+                  }}
+                  title={w.en || ''}
+                >
+                  {w.ar}
+                </span>
+                {i < corpusWords.length - 1 ? ' ' : ''}
+              </span>
+            ))}
+          </span>
+        ) : (
+          <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(cleanArabic(verse.arabic), dayMode) }} />
+        )}
       </div>
 
       {/* Translation */}
@@ -658,6 +706,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   });
   const [playingVerseId, setPlayingVerseId] = useState(null);
   const [failedVerseId, setFailedVerseId] = useState(null);
+  // Corpus Quran prototype — Fatiha (sura 1) için kelime düzeyinde tıklama + WordPopover
+  const [fatihaCorpus, setFatihaCorpus] = useState(null);
+  const [activeWord, setActiveWord] = useState(null);
+  useEffect(() => {
+    fetch('/corpus/fatiha.json').then(r => r.ok ? r.json() : null).then(setFatihaCorpus).catch(() => {});
+  }, []);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   useEffect(() => {
     const handler = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
@@ -3397,6 +3451,27 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }}>
                       {(() => {
                         const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
+                        const corpusWords = (verse.surah === 1 && fatihaCorpus?.verses?.[String(verse.ayah)]) || null;
+                        if (corpusWords) {
+                          return (
+                            <span>
+                              {corpusWords.map((w, i) => (
+                                <span key={i}>
+                                  <span
+                                    onClick={(e) => { e.stopPropagation(); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,165,116,0.14)'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                                    style={{ cursor: 'pointer', padding: '1px 3px', borderRadius: '4px', transition: 'background 0.12s' }}
+                                    title={w.en || ''}
+                                  >
+                                    {w.ar}
+                                  </span>
+                                  {i < corpusWords.length - 1 ? ' ' : ''}
+                                </span>
+                              ))}
+                            </span>
+                          );
+                        }
                         const ar = isFatiha1 ? cleanArabic(verse.arabic).replace(/\u064E\u0670/g, '\u0670').replace(/\u0670\u064E/g, '\u0670') : cleanArabic(verse.arabic);
                         return showTajweed
                           ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(ar, dayMode, false, isFatiha1) }} />
@@ -3494,6 +3569,27 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }}>
                       {(() => {
                         const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
+                        const corpusWords = (verse.surah === 1 && fatihaCorpus?.verses?.[String(verse.ayah)]) || null;
+                        if (corpusWords) {
+                          return (
+                            <span>
+                              {corpusWords.map((w, i) => (
+                                <span key={i}>
+                                  <span
+                                    onClick={(e) => { e.stopPropagation(); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,165,116,0.14)'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                                    style={{ cursor: 'pointer', padding: '1px 3px', borderRadius: '4px', transition: 'background 0.12s' }}
+                                    title={w.en || ''}
+                                  >
+                                    {w.ar}
+                                  </span>
+                                  {i < corpusWords.length - 1 ? ' ' : ''}
+                                </span>
+                              ))}
+                            </span>
+                          );
+                        }
                         const ar = isFatiha1 ? cleanArabic(verse.arabic).replace(/\u064E\u0670/g, '\u0670').replace(/\u0670\u064E/g, '\u0670') : cleanArabic(verse.arabic);
                         return showTajweed
                           ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(ar, dayMode, false, isFatiha1) }} />
@@ -3983,6 +4079,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </button>
           </div>
         </>
+      )}
+
+      {/* Corpus Quran kelime popover (Fatiha prototipi) */}
+      {activeWord && (
+        <WordPopover
+          word={activeWord.word}
+          surah={activeWord.surah}
+          ayah={activeWord.ayah}
+          onClose={() => setActiveWord(null)}
+        />
       )}
     </div>
   );

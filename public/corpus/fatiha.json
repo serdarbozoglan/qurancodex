@@ -1,0 +1,59 @@
+{
+  "surah": 1,
+  "name": "Al-Fatiha",
+  "nameAr": "الفاتحة",
+  "nameTr": "Fâtiha",
+  "source": {
+    "name": "Quranic Arabic Corpus",
+    "author": "Kais Dukes",
+    "institution": "Leeds University",
+    "url": "https://corpus.quran.com",
+    "license": "Akademik kullanım — atıfla / Academic use with attribution",
+    "fetchedAt": "2026-04-29"
+  },
+  "verses": {
+    "1": [
+      { "idx": 1, "ar": "بِسْمِ", "translit": "bis'mi", "en": "In (the) name", "root": "س-م-و", "lemma": "اِسْم", "pos": "N", "features": "prefixed preposition bi + genitive masculine noun" },
+      { "idx": 2, "ar": "اللّٰهِ", "translit": "l-lāhi", "en": "(of) Allah", "root": "ا-ل-ه", "lemma": "اللّٰه", "pos": "PN", "features": "genitive proper noun" },
+      { "idx": 3, "ar": "الرَّحْمٰنِ", "translit": "l-raḥmāni", "en": "the Most Gracious", "root": "ر-ح-م", "lemma": "رَحْمٰن", "pos": "ADJ", "features": "genitive masculine singular adjective" },
+      { "idx": 4, "ar": "الرَّح۪يمِ", "translit": "l-raḥīmi", "en": "the Most Merciful", "root": "ر-ح-م", "lemma": "رَح۪يم", "pos": "ADJ", "features": "genitive masculine singular adjective" }
+    ],
+    "2": [
+      { "idx": 1, "ar": "اَلْحَمْدُ", "translit": "al-ḥamdu", "en": "All praises and thanks", "root": "ح-م-د", "lemma": "حَمْد", "pos": "N", "features": "nominative masculine noun" },
+      { "idx": 2, "ar": "لِلّٰهِ", "translit": "lillāhi", "en": "(be) to Allah", "root": "ا-ل-ه", "lemma": "اللّٰه", "pos": "PN", "features": "prefixed preposition lām + genitive proper noun" },
+      { "idx": 3, "ar": "رَبِّ", "translit": "rabbi", "en": "the Lord", "root": "ر-ب-ب", "lemma": "رَبّ", "pos": "N", "features": "genitive masculine noun" },
+      { "idx": 4, "ar": "الْعَالَم۪ينَ", "translit": "l-ʿālamīna", "en": "of the universe", "root": "ع-ل-م", "lemma": "عَالَم", "pos": "N", "features": "genitive masculine plural noun" }
+    ],
+    "3": [
+      { "idx": 1, "ar": "اَلرَّحْمٰنِ", "translit": "al-raḥmāni", "en": "The Most Gracious", "root": "ر-ح-م", "lemma": "رَحْمٰن", "pos": "ADJ", "features": "genitive masculine singular adjective" },
+      { "idx": 2, "ar": "الرَّح۪يمِ", "translit": "l-raḥīmi", "en": "the Most Merciful", "root": "ر-ح-م", "lemma": "رَح۪يم", "pos": "ADJ", "features": "genitive masculine singular adjective" }
+    ],
+    "4": [
+      { "idx": 1, "ar": "مَالِكِ", "translit": "māliki", "en": "(The) Master", "root": "م-ل-ك", "lemma": "مَالِك", "pos": "N", "features": "genitive masculine active participle" },
+      { "idx": 2, "ar": "يَوْمِ", "translit": "yawmi", "en": "(of the) Day", "root": "ي-و-م", "lemma": "يَوْم", "pos": "N", "features": "genitive masculine noun" },
+      { "idx": 3, "ar": "الدّ۪ينِ", "translit": "l-dīni", "en": "(of the) Judgment", "root": "د-ي-ن", "lemma": "د۪ين", "pos": "N", "features": "genitive masculine noun" }
+    ],
+    "5": [
+      { "idx": 1, "ar": "اِيَّاكَ", "translit": "iyyāka", "en": "You Alone", "root": null, "lemma": "اِيَّاكَ", "pos": "PRON", "features": "2nd person masculine singular personal pronoun" },
+      { "idx": 2, "ar": "نَعْبُدُ", "translit": "naʿbudu", "en": "we worship", "root": "ع-ب-د", "lemma": "عَبَدَ", "pos": "V", "features": "1st person plural imperfect verb" },
+      { "idx": 3, "ar": "وَاِيَّاكَ", "translit": "wa-iyyāka", "en": "and You Alone", "root": null, "lemma": "اِيَّاكَ", "pos": "PRON", "features": "prefixed conjunction wa + 2nd person masculine singular personal pronoun" },
+      { "idx": 4, "ar": "نَسْتَع۪ينُ", "translit": "nastaʿīnu", "en": "we ask for help", "root": "ع-و-ن", "lemma": "اِسْتَعَانَ", "pos": "V", "features": "1st person plural form X imperfect verb" }
+    ],
+    "6": [
+      { "idx": 1, "ar": "اِهْدِنَا", "translit": "ih'dinā", "en": "Guide us", "root": "ه-د-ي", "lemma": "هَدٰى", "pos": "V", "features": "2nd person masculine singular imperative verb + 1st person plural object pronoun" },
+      { "idx": 2, "ar": "الصِّرَاطَ", "translit": "l-ṣirāṭa", "en": "(to) the path", "root": "ص-ر-ط", "lemma": "صِرَاط", "pos": "N", "features": "accusative masculine noun" },
+      { "idx": 3, "ar": "الْمُسْتَق۪يمَ", "translit": "l-mus'taqīma", "en": "the straight", "root": "ق-و-م", "lemma": "مُسْتَق۪يم", "pos": "ADJ", "features": "accusative masculine form X active participle" }
+    ],
+    "7": [
+      { "idx": 1, "ar": "صِرَاطَ", "translit": "ṣirāṭa", "en": "(The) path", "root": "ص-ر-ط", "lemma": "صِرَاط", "pos": "N", "features": "accusative masculine noun" },
+      { "idx": 2, "ar": "الَّذ۪ينَ", "translit": "alladhīna", "en": "(of) those", "root": null, "lemma": "الَّذ۪ينَ", "pos": "REL", "features": "masculine plural relative pronoun" },
+      { "idx": 3, "ar": "اَنْعَمْتَ", "translit": "anʿamta", "en": "You have bestowed favors", "root": "ن-ع-م", "lemma": "اَنْعَمَ", "pos": "V", "features": "2nd person masculine singular perfect verb (form IV)" },
+      { "idx": 4, "ar": "عَلَيْهِمْ", "translit": "ʿalayhim", "en": "on them", "root": null, "lemma": "عَلَىٰ", "pos": "P+PRON", "features": "preposition + 3rd person masculine plural object pronoun" },
+      { "idx": 5, "ar": "غَيْرِ", "translit": "ghayri", "en": "not (of)", "root": "غ-ي-ر", "lemma": "غَيْر", "pos": "N", "features": "genitive masculine noun" },
+      { "idx": 6, "ar": "الْمَغْضُوبِ", "translit": "l-maghḍūbi", "en": "those who earned wrath", "root": "غ-ض-ب", "lemma": "مَغْضُوب", "pos": "N", "features": "genitive masculine passive participle" },
+      { "idx": 7, "ar": "عَلَيْهِمْ", "translit": "ʿalayhim", "en": "on themselves", "root": null, "lemma": "عَلَىٰ", "pos": "P+PRON", "features": "preposition + 3rd person masculine plural object pronoun" },
+      { "idx": 8, "ar": "وَلَا", "translit": "walā", "en": "and not", "root": null, "lemma": "لَا", "pos": "CONJ+NEG", "features": "conjunction wa + negative particle" },
+      { "idx": 9, "ar": "الضَّٓالّ۪ينَ", "translit": "l-ḍāllīna", "en": "(of) those who go astray", "root": "ض-ل-ل", "lemma": "ضَالّ", "pos": "N", "features": "genitive masculine plural active participle" }
+    ]
+  }
+}
