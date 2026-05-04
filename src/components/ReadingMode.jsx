@@ -137,6 +137,19 @@ const makeMedWrap = (dayMode) => (_, letter) =>
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">مد</span></span>`;
 
+// U+06E8 (ARABIC SMALL HIGH NOON / nūn al-wiqāyah): KFGQPC bunu çok zayıf bir küçük
+// çizgi olarak render eder. Diyanet/Medine basımındaki gibi belirgin "نِ" göstermek
+// için U+06E8'i tüketip custom HTML ile kelimenin yanına küçük kırmızı "نِ" ekliyoruz.
+// Tenvin + hamzatu'l-wasl birleşmesinde koruyucu nûn olarak görev yapar.
+// Örn. Hac 22:11 "خَيْرٌۨ ٱطْمَأَنَّ", "فِتْنَةٌۨ ٱنْقَلَبَ".
+const NUN_WIQAYAH_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06E7\u06E9-\u06EA\u06EC\u06ED])*)\u06E8/gu;
+const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
+  `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
+  `<span style="position:absolute;bottom:-0.7em;left:-0.4em;` +
+  `font-size:0.55em;font-weight:400;line-height:1;` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
+  `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">نِ</span></span>`;
+
 // NOT: Maddah curve (U+0653) tek başına kırmızı yapılamadı — browser'lar combining
 // mark'ı önceki harfle aynı glyph cluster olarak render ediyor; ayrı renk vermek için
 // span ile bölmek Arapça letter shaping'i kırıyor (örn. عَلَىٰٓ → ع ل ayrılması).
@@ -150,6 +163,7 @@ function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = 
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
   html = html.replace(MED_RE, makeMedWrap(dayMode));
+  html = html.replace(NUN_WIQAYAH_RE, makeNunWiqayahWrap(dayMode));
   if (!skipAllahColor) html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
   return html;
 }
@@ -160,6 +174,8 @@ function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
 
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
+  html = html.replace(MED_RE, makeMedWrap(dayMode));
+  html = html.replace(NUN_WIQAYAH_RE, makeNunWiqayahWrap(dayMode));
 
   // Renk paleti: altın metin renginden (#d4a574) maksimum kontrast sağlanır.
   // Amber/turuncu tonlar altın renge yakın olduğu için ihfa → cyan, ihfa-şefevî → teal.
@@ -1748,7 +1764,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {btn(false, onClose,
                 language === 'tr' ? 'Kapat' : 'Close', isMobile ? <CloseIcon size={13} /> : '✕',
                 e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.querySelectorAll('span').forEach(s => { s.style.color = '#f87171'; }); },
-                e => { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.querySelectorAll('span').forEach(s => { s.style.color = ''; }); }
+                e => {
+                  e.currentTarget.style.background = navC.btnBg;
+                  e.currentTarget.style.borderColor = navC.btnBorder;
+                  // Restore explicit colors (empty string falls back to inherited which is invisible in day mode)
+                  const spans = e.currentTarget.querySelectorAll('span');
+                  if (spans[0]) spans[0].style.color = gold;
+                  if (spans[1]) spans[1].style.color = navC.label;
+                }
               )}
             </div>
           );
@@ -3024,39 +3047,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           <>
           <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '10px 12px 32px 12px' : '20px 12px 36px 12px' }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
-                Non-Fatiha surah openers (bismillah banner) are rendered inline in
-                the items loop below, so multi-surah pages show bismillah at the
-                correct position (between surahs, not at page top). */}
-            {versesOnPage[0]?.surah === 1 && versesOnPage[0]?.ayah === 1 && (
-              <div style={{ textAlign: 'center', marginTop: '8px', marginBottom: '32px' }}>
-                <div style={{
-                  fontFamily: currentFont,
-                  fontSize: isMobile ? '2.4rem' : '3.2rem',
-                  color: C.gold,
-                  lineHeight: 1.2,
-                  marginBottom: '14px',
-                  letterSpacing: '0.02em',
-                }}>
-                  الفاتحة
-                </div>
-                <div style={{
-                  width: '64px',
-                  height: '1px',
-                  background: C.gold,
-                  opacity: 0.55,
-                  margin: '0 auto 14px',
-                }} />
-                <div style={{
-                  fontSize: '0.75rem',
-                  color: C.muted,
-                  letterSpacing: '0.3em',
-                  textTransform: 'uppercase',
-                  fontFamily: "'Inter', sans-serif",
-                }}>
-                  {language === 'tr' ? 'Açılış · 7 Ayet' : 'The Opening · 7 Verses'}
-                </div>
-              </div>
-            )}
+                Surah title cards (Arabic name + transliteration + ayah count) are
+                rendered inline in the items loop below — one before each surah on
+                the page, so multi-surah pages show titles at the correct position. */}
 
             <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr', gap: '0' }}>
               {/* Left: Translation — hidden when Meal is off */}
@@ -3086,7 +3079,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     let prevSurah = null;
                     for (const [idx, verse] of versesOnPage.entries()) {
                       const isTransition = prevSurah !== null && verse.surah !== prevSurah;
-                      const isFirstSurahStart = idx === 0 && verse.ayah === 1 && verse.surah !== 1;
+                      const isFirstSurahStart = idx === 0 && verse.ayah === 1;
                       if (isTransition || isFirstSurahStart) {
                         items.push({ type: 'surahHeader', surah: verse.surah });
                       }
@@ -3095,30 +3088,45 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }
                     return items.map(item => {
                       if (item.type === 'surahHeader') {
-                        const surahLabel = SURAH_NAMES_TR[item.surah - 1];
-                        const showBismillah = item.surah !== 9;
+                        const arName = SURAH_NAMES_AR[item.surah - 1];
+                        const trName = SURAH_NAMES_TR[item.surah - 1] || '';
+                        const ayahCount = SURAH_AYAH_COUNTS[item.surah - 1] || 0;
+                        const displayName = trName.replace(/^El-/i, '')
+                          .toLocaleUpperCase(language === 'tr' ? 'tr-TR' : 'en-US');
+                        // Mirror the Arabic-side title card so meal column aligns vertically
+                        // with the first verse on the Arabic side. Skip Fatiha and At-Tawbah
+                        // bismillah just like the Arabic side (Fatiha's bismillah IS verse 1).
                         return (
-                          <div key={`tr-sh-${item.surah}`} style={{
-                            padding: '8px 12px 6px',
-                            textAlign: 'center',
-                            borderTop: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.12)'}`,
-                            marginTop: '4px',
-                          }}>
-                            <div style={{
-                              fontSize: '0.7rem',
-                              color: C.muted,
-                              letterSpacing: '0.25em',
-                              textTransform: 'uppercase',
-                              fontFamily: "'Inter', sans-serif",
-                              marginBottom: showBismillah ? '8px' : 0,
-                            }}>
-                              {language === 'tr' ? `Sûre ${item.surah} · ${surahLabel}` : `Surah ${item.surah} · ${surahLabel}`}
-                            </div>
-                            {showBismillah && (
+                          <div key={`tr-sh-${item.surah}`} style={{ display: 'block' }}>
+                            <div style={{ textAlign: 'center', marginTop: '36px', marginBottom: '18px' }}>
                               <div style={{
+                                fontFamily: currentFont,
+                                fontSize: isMobile ? '2.4rem' : '3.2rem',
+                                color: C.gold,
+                                lineHeight: 1.2,
+                                letterSpacing: '0.02em',
+                                direction: 'rtl',
+                              }}>
+                                {arName}
+                              </div>
+                              <div style={{ width: '64px', height: '1px', background: C.gold, opacity: 0.55, margin: '14px auto' }} />
+                              <div style={{
+                                fontSize: '0.75rem',
+                                color: C.muted,
+                                letterSpacing: '0.3em',
+                                fontFamily: "'Inter', sans-serif",
+                              }}>
+                                {displayName} · {ayahCount} {language === 'tr' ? 'AYET' : 'VERSES'}
+                              </div>
+                            </div>
+                            {item.surah !== 9 && item.surah !== 1 && (
+                              <div style={{
+                                textAlign: 'center',
                                 color: dayMode ? 'rgba(90,50,5,0.6)' : 'rgba(200,185,165,0.55)',
                                 fontSize: '0.78rem',
                                 fontStyle: 'italic',
+                                marginTop: '6px',
+                                marginBottom: '10px',
                               }}>
                                 {language === 'tr' ? 'Rahman ve Rahim olan Allah\'ın adıyla.' : 'In the name of Allah, the Most Gracious, the Most Merciful.'}
                               </div>
@@ -3204,7 +3212,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   let prevSurah = null;
                   for (const [idx, verse] of versesOnPage.entries()) {
                     const isTransition = prevSurah !== null && verse.surah !== prevSurah;
-                    const isFirstSurahStart = idx === 0 && verse.ayah === 1 && verse.surah !== 1;
+                    const isFirstSurahStart = idx === 0 && verse.ayah === 1;
                     if (isTransition || isFirstSurahStart) {
                       items.push({ type: 'surahHeader', surah: verse.surah });
                     }
@@ -3213,18 +3221,38 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }
                   return items.map(item => {
                     if (item.type === 'surahHeader') {
+                      const arName = SURAH_NAMES_AR[item.surah - 1];
+                      const trName = SURAH_NAMES_TR[item.surah - 1] || '';
+                      const ayahCount = SURAH_AYAH_COUNTS[item.surah - 1] || 0;
+                      // Strip "El-" prefix and locale-uppercase for the transliteration label.
+                      const displayName = trName.replace(/^El-/i, '')
+                        .toLocaleUpperCase(language === 'tr' ? 'tr-TR' : 'en-US');
                       return (
                         <span key={`ar-sh-${item.surah}`} style={{ display: 'block' }}>
-                          {/* Minimal gold ornament — traditional rub-el-hizb between thin gradient lines */}
-                          {item.surah !== 9 && (
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', marginTop: '22px', marginBottom: '4px', direction: 'ltr' }}>
-                              <span style={{ flex: '0 0 70px', height: '1px', background: `linear-gradient(to right, transparent, ${C.gold}55, transparent)` }} />
-                              <span style={{ color: C.gold, fontSize: '1.1rem', fontFamily: currentFont, opacity: 0.78, lineHeight: 1 }}>۞</span>
-                              <span style={{ flex: '0 0 70px', height: '1px', background: `linear-gradient(to left, transparent, ${C.gold}55, transparent)` }} />
+                          {/* Surah title card — Arabic name + transliteration + ayah count */}
+                          <div style={{ textAlign: 'center', direction: 'rtl', marginTop: '36px', marginBottom: '18px' }}>
+                            <div style={{
+                              fontFamily: currentFont,
+                              fontSize: isMobile ? '2.4rem' : '3.2rem',
+                              color: C.gold,
+                              lineHeight: 1.2,
+                              letterSpacing: '0.02em',
+                            }}>
+                              {arName}
                             </div>
-                          )}
-                          {/* Bismillah — not for At-Tawbah (9) or Al-Fatiha (already verse 1) */}
-                          {item.surah !== 9 && (
+                            <div style={{ width: '64px', height: '1px', background: C.gold, opacity: 0.55, margin: '14px auto' }} />
+                            <div style={{
+                              fontSize: '0.75rem',
+                              color: C.muted,
+                              letterSpacing: '0.3em',
+                              fontFamily: "'Inter', sans-serif",
+                              direction: 'ltr',
+                            }}>
+                              {displayName} · {ayahCount} {language === 'tr' ? 'AYET' : 'VERSES'}
+                            </div>
+                          </div>
+                          {/* Bismillah — skip for At-Tawbah (9) and Al-Fatiha (its ayah 1 already IS bismillah) */}
+                          {item.surah !== 9 && item.surah !== 1 && (
                             <div style={{ textAlign: 'center', direction: 'rtl', fontFamily: currentFont, fontSize: `${arabicFontSize}rem`, color: C.bismillah, marginTop: '6px', marginBottom: '10px', lineHeight: 2 }}>
                               {BISMILLAH_AR}
                             </div>
@@ -3314,10 +3342,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             const ourWords = ar.split(/\s+/).filter(Boolean);
                             if (ourWords.length > 0) {
                               const lastIdx = ourWords.length - 1;
+                              // Fatiha: use Corpus Quran (Leeds) data for richer popover on click.
+                              const corpusWordsForVerse = (verse.surah === 1 && fatihaCorpus?.verses?.[String(verse.ayah)]) || null;
                               return (
                                 <>
                                   {ourWords.map((arabicWord, i) => {
                                     const wordMeta = wordList[i] || null;
+                                    const corpusWord = corpusWordsForVerse?.[i] || null;
                                     const hoverable = !!wordMeta;
                                     const isLast = i === lastIdx;
                                     const wordSpan = (
@@ -3328,11 +3359,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                           setHoveredWord({ word: wordMeta, anchorRect: rect });
                                         } : undefined}
                                         onMouseLeave={hoverable ? () => setHoveredWord(null) : undefined}
-                                        onClick={hoverable ? (e) => {
-                                          e.stopPropagation();
-                                          const rect = e.currentTarget.getBoundingClientRect();
-                                          setHoveredWord({ word: wordMeta, anchorRect: rect });
-                                        } : undefined}
+                                        onClick={(e) => {
+                                          if (corpusWord) {
+                                            e.stopPropagation();
+                                            setHoveredWord(null);
+                                            setActiveWord({ word: corpusWord, surah: verse.surah, ayah: verse.ayah });
+                                            return;
+                                          }
+                                          if (hoverable) {
+                                            e.stopPropagation();
+                                            const rect = e.currentTarget.getBoundingClientRect();
+                                            setHoveredWord({ word: wordMeta, anchorRect: rect });
+                                          }
+                                        }}
                                         style={{
                                           ...highlightStyle,
                                           cursor: hoverable ? 'pointer' : 'inherit',
@@ -3342,9 +3381,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                         }}
                                         onMouseOver={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
                                         onMouseOut={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; } : undefined}
-                                      >
-                                        {arabicWord}
-                                      </span>
+                                        dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(arabicWord, dayMode) }}
+                                      />
                                     );
                                     if (isLast) {
                                       return (

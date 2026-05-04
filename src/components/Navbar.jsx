@@ -440,7 +440,10 @@ export default function Navbar() {
 
   useEffect(() => {
     const handlePop = () => {
-      if (readingOpen)    { setReadingOpen(false); setPendingReadingNav(null); return; }
+      // ÖNEMLİ: ReadingMode EN SON kontrol edilir.
+      // Eğer ReadingMode'un üstüne başka overlay (VerseGraph, ConceptGraph, vb.)
+      // açılmışsa, Back tuşu üstteki overlay'i kapatmalı; ReadingMode arkada
+      // sürah konumunu koruyarak kalmalı.
       if (graphOpen) {
         if (graphBackRef.current && !graphReturnToConcept && !graphReturnToWow) {
           graphBackRef.current();                          // VerseGraph handles internally
@@ -534,6 +537,10 @@ export default function Navbar() {
         }
         return;
       }
+      // ReadingMode EN SON kontrol edilir — yukarıdaki overlay'ler kapandıktan
+      // sonra Back basılırsa ReadingMode kapanır. Böylece WordPopover'dan VerseGraph
+      // açıldığında Back ilkin VerseGraph'ı kapatır, sürah konumu korunur.
+      if (readingOpen)    { setReadingOpen(false); setPendingReadingNav(null); return; }
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
@@ -1242,6 +1249,15 @@ export default function Navbar() {
     </AnimatePresence>
 
     {/* Overlays */}
+    {readingOpen && (
+      <Suspense fallback={null}>
+        <ReadingMode
+          onClose={() => { setReadingOpen(false); setPendingReadingNav(null); }}
+          initialSurah={pendingReadingNav?.surah}
+          initialAyah={pendingReadingNav?.ayah}
+        />
+      </Suspense>
+    )}
     {graphOpen && (
       <Suspense fallback={null}>
         <VerseGraph
@@ -1261,15 +1277,6 @@ export default function Navbar() {
           }}
           initialSearch={graphInitialSearch}
           onRegisterBackHandler={(fn) => { graphBackRef.current = fn; }}
-        />
-      </Suspense>
-    )}
-    {readingOpen && (
-      <Suspense fallback={null}>
-        <ReadingMode
-          onClose={() => { setReadingOpen(false); setPendingReadingNav(null); }}
-          initialSurah={pendingReadingNav?.surah}
-          initialAyah={pendingReadingNav?.ayah}
         />
       </Suspense>
     )}
