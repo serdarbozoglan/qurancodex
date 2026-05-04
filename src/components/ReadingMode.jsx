@@ -456,6 +456,17 @@ const JUZ_PAGES = [
   402, 422, 442, 462, 482, 502, 522, 542, 562, 582,
 ];
 
+// Hizb start pages — Madinah 604-page mushaf (60 hizb, 2 per cüz, ~10 pages each).
+// Index 0 unused; HIZB_PAGES[1..60] = start page of that hizb.
+const HIZB_PAGES = [
+  0,   1,  11,  22,  32,  42,  52,  62,  72,  82,  92,
+  102, 112, 121, 131, 142, 152, 162, 172, 182, 192,
+  201, 211, 222, 232, 242, 252, 262, 272, 282, 292,
+  302, 312, 322, 332, 342, 352, 362, 372, 382, 392,
+  402, 412, 422, 432, 442, 452, 462, 472, 482, 492,
+  502, 512, 522, 532, 542, 552, 562, 572, 582, 592,
+];
+
 // Starting [surah, ayah] for each juz (1-indexed; index 0 unused)
 const JUZ_START = [
   null,
@@ -1437,6 +1448,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     return juz;
   }, [bookMode, currentPage, surahStartPage]);
 
+  // Compute current hizb (1–60) — same scan pattern, twice the granularity.
+  const currentDisplayHizb = useMemo(() => {
+    const page = bookMode ? currentPage : surahStartPage;
+    let hizb = 1;
+    for (let h = 1; h <= 60; h++) {
+      if (HIZB_PAGES[h] <= page) hizb = h;
+      else break;
+    }
+    return hizb;
+  }, [bookMode, currentPage, surahStartPage]);
+
   return (
     <div
       style={{ position: 'fixed', inset: 0, zIndex: 9999, background: C.bg, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
@@ -1569,7 +1591,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               color: dayMode ? 'rgba(80,50,20,0.75)' : 'rgba(200,185,165,0.85)',
               fontFamily: "'Inter', sans-serif", letterSpacing: '0.06em',
             }}>
-              {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
+              {language === 'tr'
+                ? `Cüz ${currentDisplayJuz} · Hizb ${currentDisplayHizb}`
+                : `Juz ${currentDisplayJuz} · Hizb ${currentDisplayHizb}`}
             </span>
             {currentPage > 0 && (
               <span style={{
@@ -1589,9 +1613,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
         {/* RIGHT: controls */}
         {(() => {
-          const btn = (active, onClick, label, value, onEnter, onLeave) => (
+          const btn = (active, onClick, label, value, onEnter, onLeave, tooltip) => (
             <button
               onClick={onClick}
+              title={tooltip || label}
               style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                 width: isMobile ? '36px' : '64px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer',
@@ -1713,7 +1738,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = showViewPicker ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showViewPicker ? navC.btnBorderActive : navC.btnBorder; }}
-                title={language === 'tr' ? 'Görünüm' : 'View'}
+                title={language === 'tr' ? 'Görünüm modu — kitap (mushaf) ya da dikey akış' : 'View mode — book (mushaf) or vertical scroll'}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <LayoutIcon size={isMobile ? 15 : 18} />
@@ -1736,7 +1761,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = showSettingsPicker ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showSettingsPicker ? navC.btnBorderActive : navC.btnBorder; }}
-                title={language === 'tr' ? 'Ayarlar' : 'Settings'}
+                title={language === 'tr' ? 'Ayarlar — meal, kıraat, font boyutu, tecvid, mushaf seçimi' : 'Settings — translation, reciter, font size, tajweed, mushaf'}
               >
                 <span style={{ fontSize: isMobile ? '1.0rem' : '1.1rem', color: gold, lineHeight: 1.2 }}>⚙</span>
                 <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
@@ -1750,12 +1775,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {!isMobile && btn(showBookmarks || isCurrentPageBookmarked,
                 () => { setShowBookmarks(p => !p); setShowSurahPicker(false); setShowMealPicker(false); setShowSettingsPicker(false); },
                 language === 'tr' ? 'Yer İmi' : 'Bookmark',
-                <BookmarkIcon size={13} filled={isCurrentPageBookmarked} />)}
+                <BookmarkIcon size={13} filled={isCurrentPageBookmarked} />,
+                undefined, undefined,
+                isCurrentPageBookmarked
+                  ? (language === 'tr' ? 'Yer imlerini aç — bu sayfa zaten kayıtlı' : 'Open bookmarks — this page is saved')
+                  : (language === 'tr' ? 'Yer imlerini aç / bu sayfayı kaydet' : 'Open bookmarks / save this page'))}
 
               {/* Ara — hidden on mobile */}
               {!isMobile && btn(showSearch, () => { setShowSearch(p => !p); setSearchQuery(''); },
                 language === 'tr' ? 'Ara' : 'Search',
-                <SearchIcon size={14} />)}
+                <SearchIcon size={14} />,
+                undefined, undefined,
+                language === 'tr' ? 'Ara — sûre adı, sayfa numarası, cüz, kelime' : 'Search — surah, page, juz, word')}
 
               {/* Divider before close — desktop only */}
               {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 12px' }} />}
@@ -1771,7 +1802,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   const spans = e.currentTarget.querySelectorAll('span');
                   if (spans[0]) spans[0].style.color = gold;
                   if (spans[1]) spans[1].style.color = navC.label;
-                }
+                },
+                language === 'tr' ? 'Okuma modundan çık' : 'Exit reading mode'
               )}
             </div>
           );
@@ -3222,14 +3254,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   return items.map(item => {
                     if (item.type === 'surahHeader') {
                       const arName = SURAH_NAMES_AR[item.surah - 1];
-                      const trName = SURAH_NAMES_TR[item.surah - 1] || '';
                       const ayahCount = SURAH_AYAH_COUNTS[item.surah - 1] || 0;
-                      // Strip "El-" prefix and locale-uppercase for the transliteration label.
-                      const displayName = trName.replace(/^El-/i, '')
-                        .toLocaleUpperCase(language === 'tr' ? 'tr-TR' : 'en-US');
                       return (
                         <span key={`ar-sh-${item.surah}`} style={{ display: 'block' }}>
-                          {/* Surah title card — Arabic name + transliteration + ayah count */}
+                          {/* Arabic-side title card — fully Arabic (mirror of meal side which is fully Latin) */}
                           <div style={{ textAlign: 'center', direction: 'rtl', marginTop: '36px', marginBottom: '18px' }}>
                             <div style={{
                               fontFamily: currentFont,
@@ -3242,13 +3270,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             </div>
                             <div style={{ width: '64px', height: '1px', background: C.gold, opacity: 0.55, margin: '14px auto' }} />
                             <div style={{
-                              fontSize: '0.75rem',
+                              fontFamily: currentFont,
+                              fontSize: isMobile ? '1.3rem' : '1.5rem',
                               color: C.muted,
-                              letterSpacing: '0.3em',
-                              fontFamily: "'Inter', sans-serif",
-                              direction: 'ltr',
+                              letterSpacing: '0.05em',
+                              lineHeight: 1.6,
+                              direction: 'rtl',
                             }}>
-                              {displayName} · {ayahCount} {language === 'tr' ? 'AYET' : 'VERSES'}
+                              {toArabicNumerals(ayahCount)} {(() => {
+                                // Arabic grammatical agreement (temyiz rule):
+                                //   1   → آيَة (mufrad)
+                                //   2   → آيَتَان (muthanna)
+                                //   3-10 → آيَات (broken plural)
+                                //   11+ → آيَة (singular accusative — temyiz)
+                                if (ayahCount === 1) return 'آيَة';
+                                if (ayahCount === 2) return 'آيَتَان';
+                                if (ayahCount <= 10) return 'آيَات';
+                                return 'آيَة';
+                              })()}
                             </div>
                           </div>
                           {/* Bismillah — skip for At-Tawbah (9) and Al-Fatiha (its ayah 1 already IS bismillah) */}
