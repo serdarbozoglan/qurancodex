@@ -79,6 +79,7 @@ const PRESETS_TR = [
   { label: 'Cennet', term: 'cennet', group: 'kavram' },
   { label: 'Hz. İbrahim', term: 'ibrahim', group: 'kavram' },
   { label: 'Hz. İsa', term: 'isa', group: 'kavram' },
+  { label: 'Hz. Muhammed', term: 'muhammed', group: 'kavram' },
   { label: 'Hz. Musa', term: 'musa', group: 'kavram' },
   { label: 'Hz. Nuh', term: 'nuh', group: 'kavram' },
   { label: 'Hz. Yusuf', term: 'yusuf', group: 'kavram' },
@@ -126,6 +127,7 @@ const PRESETS_EN = [
   { label: 'Repentance', term: 'repent', group: 'concept' },
   { label: 'Angel', term: 'angel', group: 'concept' },
   { label: 'Satan', term: 'satan', group: 'concept' },
+  { label: 'Muhammad', term: 'muhammed', group: 'concept' },
   { label: 'Moses', term: 'moses', group: 'concept' },
   { label: 'Abraham', term: 'abraham', group: 'concept' },
   { label: 'Jesus', term: 'jesus', group: 'concept' },
@@ -151,37 +153,301 @@ const PRESETS_EN = [
   { label: 'فَكَيْفَ كَانَ عَذَابِي وَنُذُرِ',      desc: 'How severe was My punishment and warning! · ×4', term: 'كيف كان عذابي ونذر',      group: 'pattern' },
 ];
 
-// Proper name transliteration → Arabic. When a Latin input matches a key here,
+// Latin (TR/EN) input → Arabic Quranic word. When a Latin input matches a key here,
 // the search is automatically redirected to the Arabic text, giving accurate counts
-// instead of counting translator additions in the Turkish meal.
+// instead of counting translator additions in the meal.
+// Keys are normalizeTr()-output (lowercase, ASCII-folded). Values are stripHarakat-safe Arabic.
+//
+// IMPORTANT: The Quranic text uses Uthmani spelling with the dagger alef (U+0670)
+// for the long-a sound in many proper names (e.g., اِبْرٰه۪يم, مُوسٰى, مَلٰئِكَة).
+// Our stripHarakat() removes U+0670, so values here MUST match the *post-strip* form
+// (e.g., 'ابرهيم' not 'ابراهيم', 'مليك' not 'ملائك'). Each value below is verified
+// against verse-graph-bgem3.json — see audit script in commit history.
+//
+// Notes:
+//   • 'melek' → 'مليك' catches all plural-angel forms (ملائكة → مليكة after strip)
+//     plus the divine attribute مَلِيك (54:55), without hitting ملك (king/kingdom).
+//   • 'kiyamet' → 'قيمة' (post-strip form of قيامة) catches yawm al-qiyāma.
+//   • 'sehvet' → 'شهوة' is rare (2 ayet — Lūṭ); root شهو appears more broadly but
+//     overlaps with شهور (months) so we use the specific noun.
 const PROPER_NAMES_AR = {
+  // Prophets — values use post-strip forms (dagger alef removed)
   'muhammed':  'محمد',
   'ahmed':     'احمد',
   'musa':      'موسى',
+  'moses':     'موسى',
   'isa':       'عيسى',
-  'ibrahim':   'ابراهيم',
+  'jesus':     'عيسى',
+  'ibrahim':   'ابرهيم',
+  'abraham':   'ابرهيم',
+  'noah':      'نوح',
   'nuh':       'نوح',
   'yusuf':     'يوسف',
+  'joseph':    'يوسف',
   'yahya':     'يحيى',
   'zekeriya':  'زكريا',
+  'zechariah': 'زكريا',
   'idris':     'ادريس',
   'adem':      'ادم',
+  'adam':      'ادم',
   'davud':     'داود',
-  'suleyman':  'سليمان',
+  'david':     'داود',
+  'suleyman':  'سليمن',
+  'solomon':   'سليمن',
   'ilyas':     'الياس',
   'elyesa':    'اليسع',
   'yunus':     'يونس',
+  'jonah':     'يونس',
   'eyyub':     'ايوب',
-  'ishak':     'اسحاق',
-  'ismail':    'اسماعيل',
+  'job':       'ايوب',
+  'ishak':     'اسحق',
+  'isaac':     'اسحق',
+  'ismail':    'اسمعيل',
+  'ishmael':   'اسمعيل',
   'yakub':     'يعقوب',
-  'harun':     'هارون',
+  'jacob':     'يعقوب',
+  'harun':     'هرون',
+  'aaron':     'هرون',
   'salih':     'صالح',
   'hud':       'هود',
   'lut':       'لوط',
+  'lot':       'لوط',
   'meryem':    'مريم',
-  'lokman':    'لقمان',
-  'zulkarneyn':'ذو القرنين',
+  'mary':      'مريم',
+  'lokman':    'لقمن',
+  'zulkarneyn':'ذي القرنين',
+  // Theological concepts (TR + EN entry points)
+  'allah':     'الله',
+  'rahim':     'رحيم',
+  'rahman':    'رحمن',
+  'rahmet':    'رحمة',
+  'mercy':     'رحمة',
+  'iman':      'ايمان',
+  'faith':     'ايمان',
+  'takva':     'تقوى',
+  'piety':     'تقوى',
+  'sabir':     'صبر',     // normalizeTr('sabır') → 'sabir'
+  'patience':  'صبر',
+  'patient':   'صبر',
+  'tovbe':     'توبة',    // normalizeTr('tövbe') → 'tovbe'
+  'repent':    'توبة',
+  'repentance':'توبة',
+  'melek':     'مليك',    // post-strip form of ملائكة — angel-plural; safe vs ملك (king)
+  'angel':     'مليك',
+  'seytan':    'شيطان',   // normalizeTr('şeytan') → 'seytan'
+  'satan':     'شيطان',
+  'cennet':    'جنة',
+  'paradise':  'جنة',
+  'cehennem':  'جهنم',
+  'hell':      'جهنم',
+  'kiyamet':   'قيمة',    // post-strip form of قيامة (yawm al-qiyāma)
+  'mumin':     'مؤمن',
+  'believer':  'مؤمن',
+  'kafir':     'كافر',
+  'disbeliever':'كافر',
+  'rasul':     'رسول',
+  'messenger': 'رسول',
+  'nebi':      'نبي',
+  'prophet':   'نبي',
+  'kuran':     'قرآن',
+  'kitap':     'كتاب',
+  'kitab':     'كتاب',
+  'book':      'كتاب',
+  'sehvet':    'شهوة',
+  'lust':      'شهوة',
+  // Worship & ethics
+  'dua':       'دعاء',
+  'supplication':'دعاء',
+  'secde':     'سجد',
+  'prostration':'سجد',
+  'oruc':      'صيام',    // normalizeTr('oruç') → 'oruc'
+  'fasting':   'صيام',
+  'salat':     'صلوة',    // Uthmani form الصَّلٰوة (post-strip = صلوة)
+  'namaz':     'صلوة',
+  'prayer':    'صلوة',
+  'hac':       'حج',
+  'pilgrimage':'حج',
+  'cihad':     'جاهد',    // verb stem جاهد catches the active forms (28 ayet)
+  'jihad':     'جاهد',
+  'nimet':     'نعمة',
+  'blessing':  'نعمة',
+  'hidayet':   'هدى',
+  'guidance':  'هدى',
+  'azap':      'عذاب',
+  'punishment':'عذاب',
+  'munafik':   'منافق',
+  'hypocrite': 'منافق',
+  // Ontology — life / death / world / hereafter
+  'dunya':     'دنيا',    // normalizeTr('dünya') → 'dunya'
+  'world':     'دنيا',
+  'ahiret':    'اخرة',
+  'hereafter': 'اخرة',
+  'olum':      'موت',     // normalizeTr('ölüm') → 'olum'
+  'death':     'موت',
+  'hayat':     'حيوة',    // Uthmani form الْحَيٰوة (post-strip = حيوة)
+  'life':      'حيوة',
+  // Esmâ-ül Hüsnâ — divine attributes
+  'rab':       'رب',      // 1069 ayet — al-Rabb / Lord
+  'lord':      'رب',
+  'melik':     'الملك',   // "the King" — bare ملك too broad (king/possession)
+  'king':      'الملك',
+  'kuddus':    'قدوس',
+  'selam':     'سلام',
+  'salaam':    'سلام',
+  'aziz':      'عزيز',
+  'hakim':     'حكيم',
+  'alim':      'عليم',
+  'kadir':     'قدير',
+  'semi':      'سميع',
+  'basir':     'بصير',
+  'vahid':     'واحد',
+  'tevhid':    'واحد',    // tevhid kavramı kelime olarak geçmez; al-Wāḥid kullan
+  'oneness':   'واحد',
+  'ahad':      'احد',
+  'samed':     'صمد',
+  // İnanç esasları
+  'sirk':      'شرك',
+  'polytheism':'شرك',
+  'kufr':      'كفر',
+  'disbelief': 'كفر',
+  'nifak':     'نافق',    // verb stem catches منافق, نافقوا
+  'hypocrisy': 'نافق',
+  'vahy':      'وحي',
+  'revelation':'وحي',
+  'nubuvvet':  'نبوة',
+  'prophethood':'نبوة',
+  'risalet':   'رسالت',
+  'mucize':    'اية',     // Quran calls miracles āyāt (signs)
+  'miracle':   'اية',
+  'ayet':      'اية',
+  'sign':      'اية',
+  'gayb':      'غيب',
+  'unseen':    'غيب',
+  // Âhiret
+  'bas':       'بعث',     // diriliş
+  'resurrection':'بعث',
+  'hasr':      'حشر',
+  'gathering': 'حشر',
+  'hisab':     'حساب',
+  'reckoning': 'حساب',
+  'mizan':     'ميزان',
+  'scale':     'ميزان',
+  'sirat':     'صراط',
+  'path':      'صراط',
+  'nar':       'نار',
+  'fire':      'نار',
+  'firdevs':   'فردوس',
+  'firdaws':   'فردوس',
+  'berzah':    'برزخ',
+  'sur':       'الصور',   // trumpet
+  'trumpet':   'الصور',
+  'araf':      'اعراف',
+  'aaraf':     'اعراف',
+  'tuba':      'طوبى',
+  // İbadet
+  'ibadet':    'عبد',     // root ʿabada — worship/servitude
+  'worship':   'عبد',
+  'zekat':     'زكوة',    // Uthmani strip-form
+  'zakah':     'زكوة',
+  'umre':      'عمرة',
+  'umrah':     'عمرة',
+  'sadaka':    'صدقات',
+  'charity':   'صدقات',
+  'infak':     'ينفق',
+  'spending':  'ينفق',
+  'zikr':      'ذكر',
+  'remembrance':'ذكر',
+  'tesbih':    'سبح',     // root sabbaḥa — glorification
+  'glorification':'سبح',
+  'hamd':      'حمد',
+  'praise':    'حمد',
+  'tekbir':    'اكبر',    // includes "Allāhu akbar" forms
+  'sehadet':   'شهد',     // root ş-h-d
+  'witness':   'شهد',
+  'tilavet':   'يتلو',    // verb form for recite
+  'recitation':'يتلو',
+  // Ahlâk
+  'ihlas':     'مخلص',
+  'sincerity': 'مخلص',
+  'ihsan':     'محسن',
+  'excellence':'محسن',
+  'sukr':      'شكر',
+  'gratitude': 'شكر',
+  'tevekkul':  'توكل',
+  'trust':     'توكل',
+  'istigfar':  'استغفر',
+  'forgiveness':'استغفر',
+  'hikmet':    'حكمة',
+  'wisdom':    'حكمة',
+  'adl':       'عدل',
+  'justice':   'عدل',
+  'emanet':    'امانة',
+  'trustworthiness':'امانة',
+  'sidk':      'صدق',
+  'truth':     'صدق',
+  'yakin':     'يقين',
+  'certainty': 'يقين',
+  'husu':      'خاشع',
+  'humility':  'خاشع',
+  'riza':      'رضى',
+  'pleasure':  'رضى',
+  'havf':      'خاف',     // root catches خاف, يخاف, خوف
+  'fear':      'خاف',
+  'hasye':     'خشي',     // hasyet (awe)
+  'awe':       'خشي',
+  // Toplumsal
+  'ummet':     'امة',
+  'community': 'امة',
+  'sura':      'شورى',
+  'consultation':'شورى',
+  'hicret':    'هاجر',
+  'migration': 'هاجر',
+  'nikah':     'نكاح',
+  'marriage':  'نكاح',
+  'talak':     'طلاق',
+  'divorce':   'طلاق',
+  'miras':     'ميراث',
+  'inheritance':'ميراث',
+  'riba':      'ربا',
+  'usury':     'ربا',
+  'ahd':       'عهد',
+  'covenant':  'عهد',
+  'misak':     'ميثاق',
+  'kisas':     'قصاص',
+  'retribution':'قصاص',
+  'hudud':     'حدود',
+  'limits':    'حدود',
+  'beyyine':   'بينة',
+  'evidence':  'بينة',
+  // Kur'an
+  'furkan':    'فرقان',
+  'criterion': 'فرقان',
+  'nur':       'نور',
+  'light':     'نور',
+  'sure':      'سورة',
+  'chapter':   'سورة',
+  'mesel':     'مثل',
+  'parable':   'مثل',
+  'tafsil':    'تفصيل',
+  'detail':    'تفصيل',
+  'tertil':    'ترتيل',
+  // Varlık
+  'halk':      'خلق',
+  'creation':  'خلق',
+  'fitrat':    'فطر',     // root only; noun فطرة → 0 (Uthmani anomaly)
+  'nature':    'فطر',
+  'ruh':       'روح',
+  'spirit':    'روح',
+  'soul':      'نفس',
+  'nefs':      'نفس',
+  'kalb':      'قلب',
+  'heart':     'قلب',
+  'akl':       'عقل',
+  'reason':    'عقل',
+  'rizk':      'رزق',
+  'provision': 'رزق',
+  'ecel':      'اجل',
+  'term':      'اجل',
 };
 
 // Returns the effective search term and whether to search Arabic.
@@ -194,19 +460,35 @@ function resolveSearch(term) {
   return arEquiv ? { term: arEquiv, isArabic: true } : { term, isArabic: false };
 }
 
-// Count per-surah occurrences of a search term
+// Escape a string for use inside a RegExp literal.
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Count per-surah occurrences of a search term.
+// Arabic: substring match (Arabic morphology attaches prefixes/suffixes — substring is correct).
+// Latin (TR/EN): word-boundary match — prevents "rahim" from matching "ibrahim", etc.
 function computeFrequency(verses, term, language, isArabic) {
   if (!verses || !term || term.length < 2) return {};
-  const normTerm = isArabic ? stripHarakat(term) : normalizeTr(term);
   const counts = {};
-  for (const v of verses) {
-    const text = isArabic
-      ? stripHarakat(v.arabic)
-      : normalizeTr(language === 'tr' ? (cleanTr(v.turkish) || v.english) : (v.english || cleanTr(v.turkish)));
-    if (text.includes(normTerm)) {
-      let count = 0, idx = 0;
-      while ((idx = text.indexOf(normTerm, idx)) !== -1) { count++; idx += normTerm.length; }
-      counts[v.surah] = (counts[v.surah] || 0) + count;
+
+  if (isArabic) {
+    const normTerm = stripHarakat(term);
+    for (const v of verses) {
+      const text = stripHarakat(v.arabic);
+      if (text.includes(normTerm)) {
+        let count = 0, idx = 0;
+        while ((idx = text.indexOf(normTerm, idx)) !== -1) { count++; idx += normTerm.length; }
+        counts[v.surah] = (counts[v.surah] || 0) + count;
+      }
+    }
+  } else {
+    const normTerm = normalizeTr(term);
+    const re = new RegExp(`\\b${escapeRegExp(normTerm)}\\b`, 'g');
+    for (const v of verses) {
+      const text = normalizeTr(language === 'tr' ? (cleanTr(v.turkish) || v.english) : (v.english || cleanTr(v.turkish)));
+      const matches = text.match(re);
+      if (matches) counts[v.surah] = (counts[v.surah] || 0) + matches.length;
     }
   }
   return counts;
@@ -217,13 +499,12 @@ const HARAKAT_SET = new Set('\u0610\u0611\u0612\u0613\u0614\u0615\u0616\u0617\u0
 
 function highlightText(text, term, isArabic) {
   if (!text || !term || term.length < 2) return text;
-  const normText = isArabic ? stripHarakat(text) : normalizeTr(text);
-  const normTerm = isArabic ? stripHarakat(term) : normalizeTr(term);
-  if (!normText.includes(normTerm)) return text;
-
   const hlStyle = { background: 'rgba(212,165,116,0.32)', borderRadius: '3px', color: '#f5e4a8', padding: '0 2px' };
 
   if (isArabic) {
+    const normText = stripHarakat(text);
+    const normTerm = stripHarakat(term);
+    if (!normText.includes(normTerm)) return text;
     // Build char map: stripped index → original text index
     const charMap = [];
     for (let i = 0; i < text.length; i++) {
@@ -242,13 +523,20 @@ function highlightText(text, term, isArabic) {
     if (lastOrig < text.length) parts.push(text.slice(lastOrig));
     return parts;
   } else {
+    // Latin: word-boundary regex so "rahim" does not highlight inside "ibrahim"
+    const normText = normalizeTr(text);
+    const normTerm = normalizeTr(term);
+    const re = new RegExp(`\\b${escapeRegExp(normTerm)}\\b`, 'g');
+    if (!re.test(normText)) return text;
+    re.lastIndex = 0;
+
     const parts = [];
-    let lastIdx = 0, searchFrom = 0, mi;
-    while ((mi = normText.indexOf(normTerm, searchFrom)) !== -1) {
-      if (mi > lastIdx) parts.push(text.slice(lastIdx, mi));
-      parts.push(<span key={mi} style={hlStyle}>{text.slice(mi, mi + normTerm.length)}</span>);
-      lastIdx = mi + normTerm.length;
-      searchFrom = mi + normTerm.length;
+    let lastIdx = 0;
+    let m;
+    while ((m = re.exec(normText)) !== null) {
+      if (m.index > lastIdx) parts.push(text.slice(lastIdx, m.index));
+      parts.push(<span key={m.index} style={hlStyle}>{text.slice(m.index, m.index + m[0].length)}</span>);
+      lastIdx = m.index + m[0].length;
     }
     if (lastIdx < text.length) parts.push(text.slice(lastIdx));
     return parts;
@@ -258,13 +546,17 @@ function highlightText(text, term, isArabic) {
 // Matching verses for a surah
 function getMatchingVerses(verses, surah, term, language, isArabic) {
   if (!verses || !term || term.length < 2) return [];
-  const normTerm = isArabic ? stripHarakat(term) : normalizeTr(term);
+  if (isArabic) {
+    const normTerm = stripHarakat(term);
+    return verses.filter(v => v.surah === surah && stripHarakat(v.arabic).includes(normTerm))
+      .sort((a, b) => a.ayah - b.ayah);
+  }
+  const normTerm = normalizeTr(term);
+  const re = new RegExp(`\\b${escapeRegExp(normTerm)}\\b`);
   return verses.filter(v => {
     if (v.surah !== surah) return false;
-    const text = isArabic
-      ? stripHarakat(v.arabic)
-      : normalizeTr(language === 'tr' ? (cleanTr(v.turkish) || v.english) : (v.english || cleanTr(v.turkish)));
-    return text.includes(normTerm);
+    const text = normalizeTr(language === 'tr' ? (cleanTr(v.turkish) || v.english) : (v.english || cleanTr(v.turkish)));
+    return re.test(text);
   }).sort((a, b) => a.ayah - b.ayah);
 }
 
@@ -292,6 +584,18 @@ export default function WordHeatmap({ onClose }) {
 
   useEffect(() => {
     fetch('/verse-graph-bgem3.json').then(r => r.json()).then(d => { setVerses(d); setLoading(false); }).catch(() => setLoading(false));
+  }, []);
+
+  // Body scroll lock — CLAUDE.md §13.16 Layer 1: prevent background page scrollbar leaking through fixed overlay.
+  useEffect(() => {
+    const prevBody = document.body.style.overflow;
+    const prevHtml = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevBody;
+      document.documentElement.style.overflow = prevHtml;
+    };
   }, []);
 
   useEffect(() => {
@@ -418,12 +722,21 @@ export default function WordHeatmap({ onClose }) {
         background: 'rgba(8,10,18,0.95)', backdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(212,165,116,0.1)',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+            <rect x="4" y="14" width="3.5" height="6" rx="0.5" />
+            <rect x="10.25" y="9" width="3.5" height="11" rx="0.5" />
+            <rect x="16.5" y="4" width="3.5" height="16" rx="0.5" />
+          </svg>
           <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Kelime Frekans Haritası' : 'Word Frequency Map'}
           </span>
+          <span style={{ color: '#64748b', fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+          <span style={{ color: '#64748b', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif" }}>
+            {language === 'tr' ? "Tekrârü'l-Kelimât" : 'Lexical Frequency'}
+          </span>
           {totalOccurrences > 0 && searchTerm && (
-            <span style={{ background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '12px', color: gold, fontSize: '0.7rem', padding: '2px 10px' }}>
+            <span style={{ background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '12px', color: gold, fontSize: '0.7rem', padding: '2px 10px', marginLeft: '4px', flexShrink: 0 }}>
               {totalOccurrences} {language === 'tr' ? 'kez' : 'times'} · {Object.keys(freqMap).length} {language === 'tr' ? 'sûre' : 'surahs'}
             </span>
           )}
@@ -441,26 +754,35 @@ export default function WordHeatmap({ onClose }) {
 
           {/* Search input — max-width to avoid spanning full ultra-wide panel */}
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0, maxWidth: '680px' }}>
-            <input
-              ref={inputRef}
-              value={inputValue}
-              onChange={e => {
-                const v = e.target.value;
-                setInputValue(v);
-                if (activePreset) setActivePreset(null);
-                if (!v) { setSearchTerm(''); setSelectedSurah(null); setVersePage(0); }
-              }}
-              onKeyDown={e => { if (e.key === 'Enter') handleSearch(inputValue); }}
-              onFocus={e => e.target.select()}
-              dir="auto"
-              placeholder={language === 'tr' ? 'Kelime ara... (Enter)' : 'Search a word... (Enter)'}
-              style={{
-                background: activePreset ? 'rgba(212,165,116,0.08)' : 'rgba(255,255,255,0.06)',
-                border: `1px solid ${activePreset ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.25)'}`,
-                borderRadius: '8px', color: '#e8e6e3', padding: '7px 14px',
-                fontSize: '0.88rem', outline: 'none', flex: 1,
-              }}
-            />
+            {(() => {
+              const hasArabic = /[\u0600-\u06FF]/.test(inputValue);
+              return (
+                <input
+                  ref={inputRef}
+                  value={inputValue}
+                  onChange={e => {
+                    const v = e.target.value;
+                    setInputValue(v);
+                    if (activePreset) setActivePreset(null);
+                    if (!v) { setSearchTerm(''); setSelectedSurah(null); setVersePage(0); }
+                  }}
+                  onKeyDown={e => { if (e.key === 'Enter') handleSearch(inputValue); }}
+                  onFocus={e => e.target.select()}
+                  dir="auto"
+                  placeholder={language === 'tr' ? 'Kelime ara... (Enter)' : 'Search a word... (Enter)'}
+                  style={{
+                    background: activePreset ? 'rgba(212,165,116,0.08)' : 'rgba(255,255,255,0.06)',
+                    border: `1px solid ${activePreset ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.25)'}`,
+                    borderRadius: '8px', color: '#e8e6e3',
+                    padding: hasArabic ? '6px 14px' : '7px 14px',
+                    fontFamily: hasArabic ? "'KFGQPC','Amiri Quran',serif" : undefined,
+                    fontSize: hasArabic ? '1.25rem' : '0.88rem',
+                    lineHeight: hasArabic ? 1.5 : 1.4,
+                    outline: 'none', flex: 1,
+                  }}
+                />
+              );
+            })()}
 
             <button onClick={() => handleSearch(inputValue)} style={{ background: 'rgba(212,165,116,0.12)', border: '1px solid rgba(212,165,116,0.3)', borderRadius: '8px', color: gold, cursor: 'pointer', padding: '7px 16px', fontSize: '0.82rem', fontWeight: 600, flexShrink: 0 }}>
               {language === 'tr' ? 'Ara' : 'Search'}
@@ -469,6 +791,28 @@ export default function WordHeatmap({ onClose }) {
               <button onClick={clearSearch} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#4a5568', cursor: 'pointer', padding: '7px 10px', fontSize: '0.82rem', flexShrink: 0 }}>
                 ✕
               </button>
+            )}
+          </div>
+
+          {/* Search-scope helper — explains whether we are searching Arabic Quranic text or the translation */}
+          <div style={{ fontSize: '0.7rem', color: '#64748b', fontStyle: 'italic', maxWidth: '680px', marginTop: '-4px', flexShrink: 0 }}>
+            {searchTerm && isArabicSearch && resolvedTerm !== searchTerm ? (
+              <>
+                {language === 'tr' ? '→ Kur\'an metninde arandı: ' : '→ Searched in Quranic text: '}
+                <span style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '1rem', color: gold, direction: 'rtl', display: 'inline-block', verticalAlign: 'middle', marginInlineStart: '4px' }}>
+                  {resolvedTerm}
+                </span>
+              </>
+            ) : searchTerm && isArabicSearch ? (
+              language === 'tr' ? 'Kur\'an metninde arandı (Arapça kök eşleşmesi).' : 'Searched directly in Quranic text.'
+            ) : searchTerm ? (
+              language === 'tr'
+                ? 'Türkçe meal\'de arandı (tam kelime). Daha hassas sonuç için Arapça yazabilirsiniz.'
+                : 'Searched in translation (whole word). For Quranic accuracy, type in Arabic.'
+            ) : (
+              language === 'tr'
+                ? 'Türkçe veya Arapça yazabilirsiniz — yaygın kavramlar otomatik Arapça\'ya yönlendirilir.'
+                : 'Type in Latin or Arabic — common concepts auto-redirect to Quranic Arabic.'
             )}
           </div>
 
@@ -723,7 +1067,7 @@ export default function WordHeatmap({ onClose }) {
                       <div style={{ color: gold, fontSize: '0.7rem', fontWeight: 700, marginBottom: '5px' }}>{v.id}</div>
                       {/* Arabic — always shown */}
                       {v.arabic && (
-                        <div style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '0.95rem', lineHeight: 1.9, color: 'rgba(212,165,116,0.55)', textAlign: 'right', direction: 'rtl', marginBottom: '4px' }}>
+                        <div style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '1.35rem', lineHeight: 2.0, color: 'rgba(212,165,116,0.65)', textAlign: 'right', direction: 'rtl', marginBottom: '6px' }}>
                           {arabicContent}
                         </div>
                       )}
