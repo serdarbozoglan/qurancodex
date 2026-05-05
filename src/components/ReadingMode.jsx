@@ -3489,15 +3489,26 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   paddingTop: isMobile ? '12px' : '0',
                   marginTop: isMobile ? '12px' : '0',
                   display: 'flex', flexDirection: 'column', gap: '0',
+                  // Relative parent so the absolute-positioned translator attribution
+                  // floats above the column without pushing the surah header down —
+                  // keeps the meal-side surah header aligned with the Arabic side.
+                  position: 'relative',
                 }}>
-                  {/* Attribution — subtle header for translation column */}
+                  {/* Attribution — floating annotation. Sits in the column's natural
+                      top breathing space (above where the surah header starts), with a
+                      thin underline spanning the full column width to echo the original
+                      "row separator" feel. Layout-neutral so meal column starts at the
+                      same top as the Arabic column. */}
                   <div style={{
-                    padding: '0 12px 10px',
-                    marginBottom: '6px',
+                    position: 'absolute',
+                    top: 0, left: 0, right: 0,
+                    padding: '8px 12px 10px',
                     fontSize: '0.82rem',
                     color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.45)',
                     letterSpacing: '0.04em',
                     borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
+                    pointerEvents: 'none',
+                    zIndex: 1,
                   }}>
                     {selectedMealAuthor.label}
                   </div>
@@ -3530,7 +3541,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // navigational metadata while the Arabic side stays mushaf-pure.
                         return (
                           <div key={`tr-sh-${item.surah}`} style={{ display: 'block' }}>
-                            <div style={{ textAlign: 'center', margin: isMobile ? '48px 0 22px' : '60px 0 30px' }}>
+                            <div style={{ textAlign: 'center', paddingTop: isMobile ? '48px' : '60px', marginBottom: isMobile ? '22px' : '30px' }}>
                               {/* Vertical gold rule — same anchor as Arabic side */}
                               <div style={{
                                 width: '1.5px',
@@ -3598,8 +3609,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               </div>
                             </div>
 
-                            {/* Bismillah meaning — italic, slight emphasis bump to anchor the
-                                Turkish reading column (italic + 500 weight + warmer earth tone). */}
+                            {/* Bismillah meaning — italic, slight emphasis bump.
+                                Extra marginTop compensates for the height difference
+                                between the Arabic surah header (taller hero + larger meta)
+                                and the Latin one, so the two bismillahs sit on the same Y. */}
                             {item.surah !== 9 && item.surah !== 1 && (
                               <div style={{
                                 textAlign: 'center',
@@ -3608,7 +3621,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 fontStyle: 'italic',
                                 fontWeight: 500,
                                 color: dayMode ? '#7a6850' : 'rgba(200,185,165,0.62)',
-                                marginTop: isMobile ? '20px' : '28px',
+                                marginTop: isMobile ? '38px' : '54px',
                                 marginBottom: isMobile ? '14px' : '22px',
                                 lineHeight: 1.7,
                               }}>
@@ -3720,8 +3733,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           {/* Mushaf header — pure typography, no frame, no faux ornaments.
                               Vertical gold rule → breathing space → small "Sūratu N" label
                               → hero Arabic name → Arabic meta → short rule → naked bismillah.
-                              Honors mushaf tradition (Arabic-only) without half-baked tezhip. */}
-                          <div style={{ direction: 'rtl', textAlign: 'center', margin: isMobile ? '48px 0 22px' : '60px 0 30px' }}>
+                              Honors mushaf tradition (Arabic-only) without half-baked tezhip.
+                              Uses padding (not margin) on top to prevent margin-collapse issues
+                              that misaligned this side from the flex-based meal column. */}
+                          <div style={{ direction: 'rtl', textAlign: 'center', paddingTop: isMobile ? '48px' : '60px', marginBottom: isMobile ? '22px' : '30px' }}>
                             {/* Vertical gold rule — ink-drop transition marker */}
                             <div style={{
                               width: '1.5px',
