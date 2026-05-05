@@ -604,6 +604,40 @@ const SURAH_AYAH_COUNTS = [
     5,  4,  5,  6,
 ];
 
+// Revelation order rank — Egyptian/Suyûtî chronology (the standard academic reference).
+// Index = surah - 1, value = nüzul sırası (e.g., Fatiha is 5th, Hadîd is 94th).
+const SURAH_NUZUL_ORDER = [
+   5, 87, 89, 92,112, 55, 39, 88,113, 51,
+  52, 53, 96, 72, 54, 70, 50, 69, 44, 45,
+  73,103, 74,102, 42, 47, 48, 49, 85, 84,
+  57, 75, 90, 58, 43, 41, 56, 38, 59, 60,
+  61, 62, 63, 64, 65, 66, 95,111,106, 34,
+  67, 76, 23, 37, 97, 46, 94,105,101, 91,
+ 109,110,104,108, 99,107, 77,  2, 78, 79,
+  71, 40,  3,  4, 31, 98, 33, 80, 81, 24,
+   7, 82, 86, 83, 27, 36,  8, 68, 10, 35,
+  26,  9, 11, 12, 28,  1, 25,100, 93, 14,
+  30, 16, 13, 32, 19, 29, 17, 15, 18,114,
+   6, 22, 20, 21,
+];
+
+// Standard rukū (paragraph) counts — Madinah / Hindustan mushaf tradition.
+// Used in surah headers as supplemental hâfız metadata.
+const SURAH_RUKU_COUNTS = [
+   1,40,20,24,16,20,24,10,16,11,
+  10,12, 6, 7, 6,16,12,12, 6, 8,
+   7,10, 6, 9, 6,11, 7, 8, 7, 6,
+   4, 3, 9, 6, 5, 5, 5, 5, 8, 9,
+   6, 5, 7, 3, 4, 4, 4, 4, 2, 3,
+   3, 2, 3, 3, 3, 3, 4, 3, 3, 2,
+   2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+   2, 2, 2, 2, 2, 2, 2, 2, 2, 1,
+   1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+   1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+   1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+   1, 1, 1, 1,
+];
+
 const RECITERS = [
   { id: 'Alafasy_128kbps',              labelTr: 'Meşarî',            labelEn: 'Alafasy' },
   { id: 'Ghamadi_40kbps',               labelTr: 'Sa\'d el-Ğâmidî',   labelEn: 'Saad Al-Ghamdi' },
@@ -3471,47 +3505,104 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }
                     return items.map(item => {
                       if (item.type === 'surahHeader') {
-                        const arName = SURAH_NAMES_AR[item.surah - 1];
                         const trName = SURAH_NAMES_TR[item.surah - 1] || '';
                         const ayahCount = SURAH_AYAH_COUNTS[item.surah - 1] || 0;
+                        const rukuCount = SURAH_RUKU_COUNTS[item.surah - 1] || 0;
+                        const nuzulRank = SURAH_NUZUL_ORDER[item.surah - 1] || 0;
+                        const isMadani = MADANI_SURAHS.has(item.surah);
+                        const periodLabel = language === 'tr'
+                          ? (isMadani ? 'Medenî' : 'Mekkî')
+                          : (isMadani ? 'Madani' : 'Makki');
                         const displayName = trName.replace(/^El-/i, '')
                           .toLocaleUpperCase(language === 'tr' ? 'tr-TR' : 'en-US');
-                        // Mirror the Arabic-side title card so meal column aligns vertically
-                        // with the first verse on the Arabic side. Skip Fatiha and At-Tawbah
-                        // bismillah just like the Arabic side (Fatiha's bismillah IS verse 1).
+                        // Meal-column header — mirrors the Arabic side's vertical rhythm so
+                        // verses line up. Latin/UI-language content here gives readers the
+                        // navigational metadata while the Arabic side stays mushaf-pure.
                         return (
                           <div key={`tr-sh-${item.surah}`} style={{ display: 'block' }}>
-                            <div style={{ textAlign: 'center', marginTop: '36px', marginBottom: '18px' }}>
+                            <div style={{ textAlign: 'center', margin: isMobile ? '48px 0 22px' : '60px 0 30px' }}>
+                              {/* Vertical gold rule — same anchor as Arabic side */}
                               <div style={{
-                                fontFamily: currentFont,
-                                fontSize: isMobile ? '2.4rem' : '3.2rem',
-                                color: C.gold,
-                                lineHeight: 1.2,
-                                letterSpacing: '0.02em',
-                                direction: 'rtl',
-                              }}>
-                                {arName}
-                              </div>
-                              <div style={{ width: '64px', height: '1px', background: C.gold, opacity: 0.55, margin: '14px auto' }} />
+                                width: '1.5px',
+                                height: isMobile ? '32px' : '40px',
+                                background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
+                                margin: '0 auto',
+                              }} />
+
+                              <div style={{ height: isMobile ? '40px' : '52px' }} />
+
+                              {/* Sûre N — small caps gold label.
+                                  Slightly tighter than before so it doesn't out-weigh
+                                  the Arabic-side السُّورَةُ ٥٧ counterpart. */}
                               <div style={{
-                                fontSize: '0.75rem',
-                                color: C.muted,
-                                letterSpacing: '0.3em',
                                 fontFamily: "'Inter', sans-serif",
+                                fontSize: '0.62rem',
+                                color: C.gold,
+                                opacity: 0.78,
+                                letterSpacing: '0.18em',
+                                textTransform: 'uppercase',
+                                fontWeight: 600,
+                                marginBottom: isMobile ? '14px' : '20px',
                               }}>
-                                {displayName} · {ayahCount} {language === 'tr' ? 'AYET' : 'VERSES'}
+                                {language === 'tr' ? `Sûre ${item.surah}` : `Surah ${item.surah}`}
+                              </div>
+
+                              {/* Hero name — Playfair display, gold */}
+                              <div style={{
+                                fontFamily: "'Playfair Display', Georgia, serif",
+                                fontSize: isMobile ? '1.95rem' : '2.5rem',
+                                color: C.gold,
+                                fontWeight: 700,
+                                letterSpacing: '0.05em',
+                                lineHeight: 1.1,
+                                marginBottom: isMobile ? '6px' : '10px',
+                              }}>
+                                {displayName}
+                              </div>
+
+                              {/* Italic Turkish/English subtitle */}
+                              <div style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontSize: isMobile ? '0.85rem' : '0.92rem',
+                                color: C.muted,
+                                fontStyle: 'italic',
+                                marginBottom: isMobile ? '14px' : '20px',
+                              }}>
+                                {language === 'tr' ? `${trName} Sûresi` : `Sūrah ${trName}`}
+                              </div>
+
+                              {/* Meta — chronological → spatial → structural:
+                                  nüzul rank · period · ayah count · rukū count.
+                                  Day-mode tone slightly darker than C.muted for readability. */}
+                              <div style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontSize: '0.68rem',
+                                color: dayMode ? '#5a4a32' : C.muted,
+                                letterSpacing: '0.16em',
+                                textTransform: 'uppercase',
+                                fontWeight: 500,
+                                opacity: 0.92,
+                                lineHeight: 1.5,
+                              }}>
+                                {language === 'tr' ? `Nüzul ${nuzulRank}` : `Revelation ${nuzulRank}`} · {periodLabel} · {ayahCount} {language === 'tr' ? 'ayet' : 'verses'} · {rukuCount} {language === 'tr' ? 'rukû' : 'rukūʿ'}
                               </div>
                             </div>
+
+                            {/* Bismillah meaning — italic, slight emphasis bump to anchor the
+                                Turkish reading column (italic + 500 weight + warmer earth tone). */}
                             {item.surah !== 9 && item.surah !== 1 && (
                               <div style={{
                                 textAlign: 'center',
-                                color: dayMode ? 'rgba(90,50,5,0.6)' : 'rgba(200,185,165,0.55)',
-                                fontSize: '0.78rem',
+                                fontFamily: "'Inter', sans-serif",
+                                fontSize: isMobile ? '0.86rem' : '0.94rem',
                                 fontStyle: 'italic',
-                                marginTop: '6px',
-                                marginBottom: '10px',
+                                fontWeight: 500,
+                                color: dayMode ? '#7a6850' : 'rgba(200,185,165,0.62)',
+                                marginTop: isMobile ? '20px' : '28px',
+                                marginBottom: isMobile ? '14px' : '22px',
+                                lineHeight: 1.7,
                               }}>
-                                {language === 'tr' ? 'Rahman ve Rahim olan Allah\'ın adıyla.' : 'In the name of Allah, the Most Gracious, the Most Merciful.'}
+                                {language === 'tr' ? 'Rahmân ve Rahîm olan Allah\'ın adıyla' : 'In the name of Allah, the Most Gracious, the Most Merciful'}
                               </div>
                             )}
                           </div>
@@ -3606,44 +3697,87 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     if (item.type === 'surahHeader') {
                       const arName = SURAH_NAMES_AR[item.surah - 1];
                       const ayahCount = SURAH_AYAH_COUNTS[item.surah - 1] || 0;
+                      const rukuCount = SURAH_RUKU_COUNTS[item.surah - 1] || 0;
+                      const nuzulRank = SURAH_NUZUL_ORDER[item.surah - 1] || 0;
+                      const isMadani = MADANI_SURAHS.has(item.surah);
+                      const periodAr = isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة';
+                      const ayahWord = ayahCount === 1 ? 'آيَة'
+                        : ayahCount === 2 ? 'آيَتَان'
+                        : ayahCount <= 10 ? 'آيَات'
+                        : 'آيَة';
                       return (
                         <span key={`ar-sh-${item.surah}`} style={{ display: 'block' }}>
-                          {/* Arabic-side title card — fully Arabic (mirror of meal side which is fully Latin) */}
-                          <div style={{ textAlign: 'center', direction: 'rtl', marginTop: '36px', marginBottom: '18px' }}>
+                          {/* Mushaf header — pure typography, no frame, no faux ornaments.
+                              Vertical gold rule → breathing space → small "Sūratu N" label
+                              → hero Arabic name → Arabic meta → short rule → naked bismillah.
+                              Honors mushaf tradition (Arabic-only) without half-baked tezhip. */}
+                          <div style={{ direction: 'rtl', textAlign: 'center', margin: isMobile ? '48px 0 22px' : '60px 0 30px' }}>
+                            {/* Vertical gold rule — ink-drop transition marker */}
+                            <div style={{
+                              width: '1.5px',
+                              height: isMobile ? '32px' : '40px',
+                              background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
+                              margin: '0 auto',
+                            }} />
+
+                            {/* Breathing space before label */}
+                            <div style={{ height: isMobile ? '40px' : '52px' }} />
+
+                            {/* Sūratu N — small calligraphic Arabic label */}
                             <div style={{
                               fontFamily: currentFont,
-                              fontSize: isMobile ? '2.4rem' : '3.2rem',
+                              fontSize: isMobile ? '0.95rem' : '1.1rem',
                               color: C.gold,
-                              lineHeight: 1.2,
+                              opacity: 0.78,
                               letterSpacing: '0.02em',
+                              lineHeight: 1.4,
+                              marginBottom: isMobile ? '14px' : '20px',
+                            }}>
+                              السُّورَةُ {toArabicNumerals(item.surah)}
+                            </div>
+
+                            {/* Hero name — calligraphy at scale, gold */}
+                            <div style={{
+                              fontFamily: currentFont,
+                              fontSize: isMobile ? '3rem' : '3.8rem',
+                              color: C.gold,
+                              lineHeight: 1.1,
+                              letterSpacing: '0.02em',
+                              marginBottom: isMobile ? '18px' : '26px',
+                              textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
                             }}>
                               {arName}
                             </div>
-                            <div style={{ width: '64px', height: '1px', background: C.gold, opacity: 0.55, margin: '14px auto' }} />
+
+                            {/* Meta — chronological → spatial → structural:
+                                nüzul rank · period · ayah count · rukū count.
+                                Day-mode tone slightly darker than C.muted for readability
+                                without competing with the gold hero. */}
                             <div style={{
                               fontFamily: currentFont,
-                              fontSize: isMobile ? '1.3rem' : '1.5rem',
-                              color: C.muted,
-                              letterSpacing: '0.05em',
-                              lineHeight: 1.6,
-                              direction: 'rtl',
+                              fontSize: isMobile ? '0.95rem' : '1.1rem',
+                              color: dayMode ? '#5a4a32' : C.muted,
+                              letterSpacing: '0.04em',
+                              lineHeight: 1.5,
+                              opacity: 0.92,
                             }}>
-                              {toArabicNumerals(ayahCount)} {(() => {
-                                // Arabic grammatical agreement (temyiz rule):
-                                //   1   → آيَة (mufrad)
-                                //   2   → آيَتَان (muthanna)
-                                //   3-10 → آيَات (broken plural)
-                                //   11+ → آيَة (singular accusative — temyiz)
-                                if (ayahCount === 1) return 'آيَة';
-                                if (ayahCount === 2) return 'آيَتَان';
-                                if (ayahCount <= 10) return 'آيَات';
-                                return 'آيَة';
-                              })()}
+                              النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
                             </div>
                           </div>
-                          {/* Bismillah — skip for At-Tawbah (9) and Al-Fatiha (its ayah 1 already IS bismillah) */}
+
+                          {/* Bismillah — naked, classical red, no cartouche.
+                              Skip for At-Tawbah (9) and Al-Fatiha (its ayah 1 already IS bismillah). */}
                           {item.surah !== 9 && item.surah !== 1 && (
-                            <div style={{ textAlign: 'center', direction: 'rtl', fontFamily: currentFont, fontSize: `${arabicFontSize}rem`, color: C.bismillah, marginTop: '6px', marginBottom: '10px', lineHeight: 2 }}>
+                            <div style={{
+                              textAlign: 'center',
+                              direction: 'rtl',
+                              fontFamily: currentFont,
+                              fontSize: `${arabicFontSize}rem`,
+                              color: C.bismillah,
+                              marginTop: isMobile ? '20px' : '28px',
+                              marginBottom: isMobile ? '20px' : '30px',
+                              lineHeight: 1.9,
+                            }}>
                               {BISMILLAH_AR}
                             </div>
                           )}
