@@ -279,10 +279,12 @@ function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
   //   هُوَ (hüve) ve هِيَ (hiye) müstakil zamir — sıla yapılmaz.
   {
     const HAREKE_SET = '\u064B\u064C\u064D\u064E\u064F\u0650\u0651\u06EA';
-    // Lookahead: opsiyonel diacritik (maddah, waqf vb.) + boşluk + harekeli harf
-    // Lookbehind: hareke VEYA > (önceki harf span içinde olabilir, örn. gunne نَّ</span>هُ)
+    // Lookbehind: hareke direkt önce, VEYA hareke + kapanan span sonu — yani span içindeki
+    // SON karakter hareke olmalı. Bu ekstra koşul olmadan, kalkele/med/qalqala span'ları
+    // (sakin harf içerirler) '>'yi tetikleyip ه'yı yanlışlıkla Sıla rengine boyuyordu.
+    // Örnek bug: مُدْهِنُونَ → دْ kalkele span'ından sonra ه, ama önceki harf SAKİN, zamir değil.
     const silaRe = new RegExp(
-      `(?<=[${HAREKE_SET}>])(\\u0647[\\u064F\\u0650\\u06EA])(?![\\u0648\\u064A]\\u064E)(?=[${DIAC}\\u0653\\u06D6-\\u06DC]*\\s*${BASE}[${DIAC}]*[${HAREKE_SET}])`,
+      `(?<=[${HAREKE_SET}](?:[^<>]*<\\/span>)?)(\\u0647[\\u064F\\u0650\\u06EA])(?![\\u0648\\u064A]\\u064E)(?=[${DIAC}\\u0653\\u06D6-\\u06DC]*\\s*${BASE}[${DIAC}]*[${HAREKE_SET}])`,
       'gu'
     );
     html = html.replace(silaRe, m => sp(K.sila, m));
@@ -342,6 +344,14 @@ const MoonIcon = ({ size = 14 }) => (
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
   </svg>
 );
+const GlobeIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M3 12h18"/>
+    <path d="M12 3a14 14 0 0 1 0 18"/>
+    <path d="M12 3a14 14 0 0 0 0 18"/>
+  </svg>
+);
 const PenIcon = ({ size = 16 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 19l7-7 3 3-7 7-3-3z"/>
@@ -361,6 +371,32 @@ const TrashIcon = ({ size = 14 }) => (
     <polyline points="3 6 5 6 21 6"/>
     <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
     <path d="M10 11v6M14 11v6"/>
+  </svg>
+);
+const GripIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/>
+    <circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/>
+    <circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/>
+  </svg>
+);
+const TextIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 5h14M12 5v14M9 19h6"/>
+  </svg>
+);
+const WarningIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2L2 21h20L12 2z"/>
+    <line x1="12" y1="10" x2="12" y2="14"/>
+    <circle cx="12" cy="17.5" r="0.6" fill="currentColor"/>
+  </svg>
+);
+const HighlighterIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 11l-4 4 1 4 4 1 4-4"/>
+    <path d="M14 6l4 4-7 7-4-4z"/>
+    <path d="M3 21h8"/>
   </svg>
 );
 const BookOpenIcon = ({ size = 18 }) => (
@@ -403,6 +439,19 @@ const TranslateIcon = ({ size = 15 }) => (
 const CloseIcon = ({ size = 13 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+  </svg>
+);
+const GearIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="3"/>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+  </svg>
+);
+const TahtaIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 4l6 6-9 9-6 1 1-6z"/>
+    <path d="M14 4l3-3 6 6-3 3"/>
+    <path d="M3 21h7"/>
   </svg>
 );
 const LayoutIcon = ({ size = 16 }) => (
@@ -711,7 +760,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
 
 // ─── Main ReadingMode component ───────────────────────────────────────────────
 export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
-  const { language } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
   const [verses, setVerses] = useState(null);
   const [loading, setLoading] = useState(true);
   // initialSurah (from SurahLink click) overrides the last-read position.
@@ -733,23 +782,37 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   });
   const [playingVerseId, setPlayingVerseId] = useState(null);
   const [failedVerseId, setFailedVerseId] = useState(null);
-  // Corpus Quran prototype — Fatiha (sura 1) için kelime düzeyinde tıklama + WordPopover
-  const [fatihaCorpus, setFatihaCorpus] = useState(null);
+  // Corpus Quran (Leeds) — kelime düzeyinde tıklama + WordPopover.
+  // Surah 1 (Fâtiha) hand-curated (tr/en + ince sarf), 2..114 auto-generated.
+  // Cache: load once per surah, keep in memory.
+  const [corpusBySurah, setCorpusBySurah] = useState({});
   const [activeWord, setActiveWord] = useState(null);
   useEffect(() => {
-    fetch('/corpus/fatiha.json').then(r => r.ok ? r.json() : null).then(setFatihaCorpus).catch(() => {});
-  }, []);
+    if (!selectedSurah || corpusBySurah[selectedSurah]) return;
+    const path = selectedSurah === 1 ? '/corpus/fatiha.json' : `/corpus/${selectedSurah}.json`;
+    fetch(path)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data) setCorpusBySurah(prev => ({ ...prev, [selectedSurah]: data }));
+      })
+      .catch(() => {});
+  }, [selectedSurah, corpusBySurah]);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   useEffect(() => {
     const handler = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
   }, []);
-  // Body scroll'u kilitle — overlay açıkken arka plan scroll olmasın
+  // Body + html scroll'u kilitle — overlay açıkken arka plan window scrollbar'ı sızıyordu (CLAUDE.md §13.16).
   useEffect(() => {
-    const prev = document.body.style.overflow;
+    const prevBody = document.body.style.overflow;
+    const prevHtml = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = prev; };
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevBody;
+      document.documentElement.style.overflow = prevHtml;
+    };
   }, []);
   const [bookMode, setBookMode] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_book_mode') ?? 'true'); }
@@ -856,10 +919,43 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // Lightweight teaching tool: transparent canvas above content; refresh,
   // ✕ close, or 🗑️ clear all wipe the strokes. No persistence.
   const [drawMode, setDrawMode]   = useState(false);
+  // drawColor can be a hex (red/yellow/blue/green) or a tool token: 'eraser' | 'text' | 'highlight'.
   const [drawColor, setDrawColor] = useState('#dc2626'); // default: red
+  // Last selected color hex — preserved when switching to text/eraser/highlight so we can resume.
+  const [lastColor, setLastColor] = useState('#dc2626');
   const drawCanvasRef = useRef(null);
   const drawingActiveRef = useRef(false);
   const drawLastPointRef = useRef(null);
+  // Tracks whether any stroke has been drawn on the canvas during this Tahta session.
+  // Used to decide whether closing the board needs a confirmation prompt.
+  const hasDrawnRef = useRef(false);
+  // Persistent text annotations — rendered as DOM elements above the canvas, so they
+  // remain editable/movable after commit. Each: { id, x, y, value, color }.
+  const [textAnnotations, setTextAnnotations] = useState([]);
+  const annotationDragRef = useRef(null);
+  // Inline text annotation editor state: { x, y, value, editingId? } or null.
+  const [textInput, setTextInput] = useState(null);
+  const textInputRef = useRef(null);
+  useEffect(() => { textInputRef.current = textInput; }, [textInput]);
+  // DOM ref to the actual <input> so we can guarantee focus on open / canvas-stomp.
+  const textInputElRef = useRef(null);
+  // One-shot flag set when the input is *opened* (canvas click), not on drag.
+  // Without this, dragging the box would re-focus + re-select on every pointer move
+  // and visibly fight with the user's typing.
+  const focusOnNextRenderRef = useRef(false);
+  useEffect(() => {
+    if (textInput && textInputElRef.current && focusOnNextRenderRef.current) {
+      textInputElRef.current.focus();
+      textInputElRef.current.select();
+      focusOnNextRenderRef.current = false;
+    }
+  }, [textInput]);
+  // Drag state for the floating text box.
+  const textDragRef = useRef(null);
+  // Floating toolbar position — null = default (bottom-center). Set after first drag.
+  const [toolbarPos, setToolbarPos] = useState(null);
+  const toolbarRef = useRef(null);
+  const dragStateRef = useRef(null);
 
   // ── Tefsir paneli (Elmalılı Hamdi Yazır) ────────────────────────────────
   const [tafsirOpen, setTafsirOpen] = useState(false);
@@ -899,6 +995,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // teaching tool; keeps math simple). Refresh / ✕ / 🗑️ also clear.
   useEffect(() => {
     if (!drawMode) return;
+    // Fresh session — no strokes yet, so closing without drawing won't prompt.
+    hasDrawnRef.current = false;
     const fit = () => {
       const c = drawCanvasRef.current;
       if (!c) return;
@@ -918,8 +1016,65 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   const clearTahta = () => {
     const c = drawCanvasRef.current;
-    if (!c) return;
-    c.getContext('2d').clearRect(0, 0, c.width, c.height);
+    if (c) c.getContext('2d').clearRect(0, 0, c.width, c.height);
+    setTextInput(null);
+    setTextAnnotations([]);
+    hasDrawnRef.current = false;
+  };
+
+  // Custom themed confirmation dialog. `null` when closed, otherwise carries the
+  // copy + the callback to fire on confirm. The cancel path just clears the state.
+  const [confirmDialog, setConfirmDialog] = useState(null);
+
+  // Tahta exit gate: silently runs `onConfirmed` if the board is empty; otherwise
+  // surfaces the themed dialog and only runs it on user confirmation.
+  const requestExitTahta = (onConfirmed) => {
+    const hasContent = hasDrawnRef.current || textAnnotations.length > 0;
+    if (!hasContent) {
+      onConfirmed();
+      return;
+    }
+    setConfirmDialog({
+      title: language === 'tr' ? 'Tahtayı kapat?' : 'Close board?',
+      message: language === 'tr'
+        ? 'Tahtadaki tüm çizimler ve notlar silinecek. Bu işlem geri alınamaz.'
+        : 'All drawings and notes on the board will be deleted. This cannot be undone.',
+      confirmLabel: language === 'tr' ? 'Evet, kapat' : 'Yes, close',
+      cancelLabel:  language === 'tr' ? 'İptal' : 'Cancel',
+      onConfirm: () => { setConfirmDialog(null); onConfirmed(); },
+      onCancel:  () => setConfirmDialog(null),
+    });
+  };
+
+  // Commit the inline editor as a DOM annotation. Three modes:
+  //   - editing + empty value  → delete the annotation
+  //   - editing + non-empty    → update the annotation in place
+  //   - new + non-empty        → push a new annotation
+  // Color always resolves to the *current* lastColor at commit time, so users can
+  // recolor existing text by switching the color before pressing Enter.
+  const commitTextAt = (entry) => {
+    if (!entry) return;
+    const trimmed = (entry.value || '').trim();
+    if (entry.editingId) {
+      if (!trimmed) {
+        setTextAnnotations((arr) => arr.filter((x) => x.id !== entry.editingId));
+        return;
+      }
+      setTextAnnotations((arr) => {
+        const updated = { id: entry.editingId, x: entry.x, y: entry.y, value: entry.value, color: lastColor };
+        const exists = arr.some((x) => x.id === entry.editingId);
+        return exists ? arr.map((x) => (x.id === entry.editingId ? updated : x)) : [...arr, updated];
+      });
+      return;
+    }
+    if (!trimmed) return;
+    setTextAnnotations((arr) => [
+      ...arr,
+      {
+        id: `t-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        x: entry.x, y: entry.y, value: entry.value, color: lastColor,
+      },
+    ]);
   };
 
   const anyMenuOpen = showSearch || showMealPicker || showReciterPicker || showSurahPicker || showBookmarks || showFontPicker || showSettingsPicker || showViewPicker;
@@ -1084,6 +1239,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   useEffect(() => { localStorage.setItem('qurancodex_reciter_idx', String(reciterIdx)); }, [reciterIdx]);
   useEffect(() => { localStorage.setItem('qurancodex_show_translation', JSON.stringify(showTranslation)); }, [showTranslation]);
   useEffect(() => { localStorage.setItem('qurancodex_tajweed', JSON.stringify(showTajweed)); }, [showTajweed]);
+
+  // Collapsible state for the tajweed legend strip below the navbar.
+  // Defaults to collapsed — power users don't need it; new users discover via the chevron.
+  const [showTajweedLegend, setShowTajweedLegend] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_tajweed_legend') ?? 'false'); }
+    catch { return false; }
+  });
+  useEffect(() => { localStorage.setItem('qurancodex_tajweed_legend', JSON.stringify(showTajweedLegend)); }, [showTajweedLegend]);
   useEffect(() => { localStorage.setItem('qurancodex_meal_id', selectedMealId); }, [selectedMealId]);
 
   // Book mode: auto-sync selectedSurah when navigating to a page with no verses from current surah.
@@ -1328,8 +1491,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     borderBottom: 'rgba(122,82,21,0.15)',
     btnBg: 'rgba(0,0,0,0.04)',
     btnBorder: 'rgba(0,0,0,0.12)',
-    btnBgActive: 'rgba(122,82,21,0.12)',
-    btnBorderActive: 'rgba(122,82,21,0.35)',
+    btnBgActive: 'rgba(122,82,21,0.26)',
+    btnBorderActive: 'rgba(122,82,21,0.60)',
     text: 'rgba(30,15,5,0.88)',
     label: 'rgba(80,50,20,0.60)',
     divider: 'rgba(0,0,0,0.10)',
@@ -1340,8 +1503,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     borderBottom: 'rgba(212,165,116,0.08)',
     btnBg: 'rgba(255,255,255,0.05)',
     btnBorder: 'rgba(255,255,255,0.10)',
-    btnBgActive: 'rgba(212,165,116,0.1)',
-    btnBorderActive: 'rgba(212,165,116,0.35)',
+    btnBgActive: 'rgba(212,165,116,0.22)',
+    btnBorderActive: 'rgba(212,165,116,0.60)',
     text: 'rgba(255,255,255,0.90)',
     label: 'rgba(200,185,165,0.72)',
     divider: 'rgba(255,255,255,0.10)',
@@ -1482,6 +1645,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         padding: isMobile ? '0 8px' : '0 16px', height: isMobile ? 'auto' : '64px', flexShrink: 0,
         background: navC.bg, backdropFilter: 'blur(24px)',
         borderBottom: `1px solid ${navC.borderBottom}`,
+        // Lift the navbar above the Tahta canvas (zIndex 200) so its buttons remain
+        // clickable while drawing — without this, the canvas swallows all clicks.
+        position: 'relative', zIndex: 250,
       }}>
 
         {/* LEFT: surah navigation */}
@@ -1619,16 +1785,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={tooltip || label}
               style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                width: isMobile ? '36px' : '64px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer',
+                width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer',
                 border: `1px solid ${active ? navC.btnBorderActive : navC.btnBorder}`,
                 background: active ? navC.btnBgActive : navC.btnBg,
                 transition: 'all 0.15s', flexShrink: 0, gap: isMobile ? '3px' : '2px',
+                padding: 0,
               }}
               onMouseEnter={onEnter || (e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; })}
               onMouseLeave={onLeave || (e => { e.currentTarget.style.background = active ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = active ? navC.btnBorderActive : navC.btnBorder; })}
             >
-              <span style={{ fontSize: isMobile ? '0.72rem' : '0.78rem', color: gold, fontWeight: 700, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{value}</span>
-              <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: isMobile ? '0.05em' : '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>{label}</span>
+              <span style={{ color: gold, fontWeight: 700, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{value}</span>
+              <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>{label}</span>
             </button>
           );
 
@@ -1638,10 +1805,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {/* Kelime (word-by-word) mode toggle — book mode only */}
               {bookMode && (
                 <button
-                  onClick={() => setWordMode(v => !v)}
+                  onClick={() => {
+                    // Word mode and tajweed colors are mutually exclusive — word-by-word
+                    // rendering bypasses the tajweed pipeline, so leaving tajweed on while
+                    // entering word mode silently swallows it. Auto-disable to keep the
+                    // user's intent ("turn this on") working without surprise.
+                    setWordMode(v => {
+                      const next = !v;
+                      if (next && showTajweed) setShowTajweed(false);
+                      return next;
+                    });
+                  }}
                   style={{
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                    width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
                     border: `1px solid ${wordMode ? navC.btnBorderActive : navC.btnBorder}`,
                     background: wordMode ? navC.btnBgActive : navC.btnBg,
                     transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
@@ -1653,7 +1830,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700 }}>
                     ك
                   </span>
-                  <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: isMobile ? '0.05em' : '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
                     {language === 'tr' ? 'Kelime' : 'Word'}
                   </span>
                 </button>
@@ -1664,7 +1841,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => setTafsirOpen(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${tafsirOpen ? navC.btnBorderActive : navC.btnBorder}`,
                   background: tafsirOpen ? navC.btnBgActive : navC.btnBg,
                   transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
@@ -1676,17 +1853,23 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <BookOpenIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: isMobile ? '0.05em' : '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
                   {language === 'tr' ? 'Tefsir' : 'Tafsir'}
                 </span>
               </button>
 
               {/* Tahta (drawing overlay) toggle — opens floating mini-toolbar */}
               <button
-                onClick={() => setDrawMode(v => !v)}
+                onClick={() => {
+                  if (drawMode) {
+                    requestExitTahta(() => { clearTahta(); setDrawMode(false); });
+                  } else {
+                    setDrawMode(true);
+                  }
+                }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${drawMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: drawMode ? navC.btnBgActive : navC.btnBg,
                   transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
@@ -1696,19 +1879,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 title={drawMode ? (language === 'tr' ? 'Tahtayı kapat' : 'Close board') : (language === 'tr' ? 'Tahta — ders için kalemle çiz' : 'Board — draw with pen for teaching')}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <PenIcon size={isMobile ? 15 : 18} />
+                  <TahtaIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: isMobile ? '0.05em' : '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
                   {language === 'tr' ? 'Tahta' : 'Board'}
                 </span>
               </button>
+
+              {/* Group divider: Reading tools | Visual */}
+              {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 4px' }} />}
 
               {/* Day/Night toggle — always visible for quick access */}
               <button
                 onClick={() => setDayMode(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${dayMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: dayMode ? navC.btnBgActive : navC.btnBg,
                   transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
@@ -1720,62 +1906,67 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {dayMode ? <SunIcon size={isMobile ? 15 : 18} /> : <MoonIcon size={isMobile ? 15 : 18} />}
                 </span>
-                <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: isMobile ? '0.05em' : '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
                   {dayMode ? (language === 'tr' ? 'Gündüz' : 'Day') : (language === 'tr' ? 'Gece' : 'Night')}
                 </span>
               </button>
 
-              {/* Görünüm (View) picker button — mobile + desktop */}
+              {/* Language toggle — TR ↔ EN. Shows the *target* language code, matching
+                  the main Navbar convention. Click flips the global useLanguage state. */}
               <button
-                onClick={() => { setShowViewPicker(p => !p); setShowSettingsPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); }}
+                onClick={toggleLanguage}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '34px' : '44px', height: isMobile ? '42px' : '44px',
-                  borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
-                  border: `1px solid ${showViewPicker ? navC.btnBorderActive : navC.btnBorder}`,
-                  background: showViewPicker ? navC.btnBgActive : navC.btnBg,
-                  transition: 'all 0.15s', gap: '1px',
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  border: `1px solid ${navC.btnBorder}`,
+                  background: navC.btnBg,
+                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-                onMouseLeave={e => { e.currentTarget.style.background = showViewPicker ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showViewPicker ? navC.btnBorderActive : navC.btnBorder; }}
-                title={language === 'tr' ? 'Görünüm modu — kitap (mushaf) ya da dikey akış' : 'View mode — book (mushaf) or vertical scroll'}
+                onMouseLeave={e => { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; }}
+                title={language === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
+                aria-label={language === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <LayoutIcon size={isMobile ? 15 : 18} />
+                  <GlobeIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
-                  {language === 'tr' ? 'Mod' : 'View'}
+                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%', fontWeight: 700 }}>
+                  {language === 'tr' ? 'TR' : 'EN'}
                 </span>
               </button>
 
-              {/* Settings gear — mobile + desktop */}
+              {/* Group divider: Visual | Auxiliary */}
+              {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 4px' }} />}
+
+              {/* Settings gear — combines view picker + meal/reciter/font/tajweed/mushaf */}
               <button
-                onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); }}
+                onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); setShowViewPicker(false); }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '64px', height: isMobile ? '42px' : '44px',
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px',
                   borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${showSettingsPicker ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showSettingsPicker ? navC.btnBgActive : navC.btnBg,
                   transition: 'all 0.15s', gap: '1px',
+                  padding: 0,
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = showSettingsPicker ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showSettingsPicker ? navC.btnBorderActive : navC.btnBorder; }}
-                title={language === 'tr' ? 'Ayarlar — meal, kıraat, font boyutu, tecvid, mushaf seçimi' : 'Settings — translation, reciter, font size, tajweed, mushaf'}
+                title={language === 'tr' ? 'Ayarlar — görünüm modu, meal, kıraat, font boyutu, tecvid, mushaf' : 'Settings — view mode, translation, reciter, font, tajweed, mushaf'}
               >
-                <span style={{ fontSize: isMobile ? '1.0rem' : '1.1rem', color: gold, lineHeight: 1.2 }}>⚙</span>
-                <span style={{ fontSize: isMobile ? '0.40rem' : '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <GearIcon size={isMobile ? 15 : 18} />
+                </span>
+                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
                   {language === 'tr' ? 'Ayar' : 'Settings'}
                 </span>
               </button>
 
-              <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 2px' }} />
-
               {/* Yer İmi — hidden on mobile */}
               {!isMobile && btn(showBookmarks || isCurrentPageBookmarked,
                 () => { setShowBookmarks(p => !p); setShowSurahPicker(false); setShowMealPicker(false); setShowSettingsPicker(false); },
-                language === 'tr' ? 'Yer İmi' : 'Bookmark',
-                <BookmarkIcon size={13} filled={isCurrentPageBookmarked} />,
+                language === 'tr' ? 'Yer İmi' : 'Bookmark', // 8 chars, fits 58px wide button
+                <BookmarkIcon size={isMobile ? 15 : 18} filled={isCurrentPageBookmarked} />,
                 undefined, undefined,
                 isCurrentPageBookmarked
                   ? (language === 'tr' ? 'Yer imlerini aç — bu sayfa zaten kayıtlı' : 'Open bookmarks — this page is saved')
@@ -1784,7 +1975,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {/* Ara — hidden on mobile */}
               {!isMobile && btn(showSearch, () => { setShowSearch(p => !p); setSearchQuery(''); },
                 language === 'tr' ? 'Ara' : 'Search',
-                <SearchIcon size={14} />,
+                <SearchIcon size={isMobile ? 15 : 18} />,
                 undefined, undefined,
                 language === 'tr' ? 'Ara — sûre adı, sayfa numarası, cüz, kelime' : 'Search — surah, page, juz, word')}
 
@@ -1793,7 +1984,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               {/* Kapat */}
               {btn(false, onClose,
-                language === 'tr' ? 'Kapat' : 'Close', isMobile ? <CloseIcon size={13} /> : '✕',
+                language === 'tr' ? 'Kapat' : 'Close', <CloseIcon size={isMobile ? 15 : 18} />,
                 e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.querySelectorAll('span').forEach(s => { s.style.color = '#f87171'; }); },
                 e => {
                   e.currentTarget.style.background = navC.btnBg;
@@ -1809,6 +2000,157 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           );
         })()}
       </div>
+
+      {/* ── Tecvid Legend Strip ──────────────────────────────────────────────
+          Visible only while tajweed colors are enabled. Collapsed by default
+          (single thin row showing the title + chevron). When expanded, shows
+          one chip per rule with its color swatch + Turkish/English name. */}
+      {showTajweed && (() => {
+        // Palette must match `applyTajweed` in this file (lines ~182–200).
+        // Duplicating the values keeps the legend a pure presentation component.
+        const PAL = dayMode ? {
+          qalqala:'#dc2626', gunne:'#16a34a', idgamBila:'#2563eb', iklab:'#db2777',
+          ihfa:'#ea580c',    ihfaSef:'#0284c7', med:'#d946ef',     sila:'#0d9488',
+        } : {
+          qalqala:'#f87171', gunne:'#4ade80', idgamBila:'#60a5fa', iklab:'#f472b6',
+          ihfa:'#22d3ee',    ihfaSef:'#38bdf8', med:'#c084fc',     sila:'#2dd4bf',
+        };
+        // Each rule: primary technical name + optional Turkish/colloquial reminder shown
+        // in parentheses, lighter color, smaller font. Keeps chip compact while still
+        // teaching the alternate name many readers know better.
+        const items = [
+          { c: PAL.qalqala,   tr: 'Kalkale',          en: 'Qalqala' },
+          { c: PAL.gunne,     tr: 'Gunne',            en: 'Ghunna' },
+          { c: PAL.idgamBila, tr: 'İdgam Bilağunne',  en: 'Idgham bilā Ghunna' },
+          { c: PAL.iklab,     tr: 'İklab',            en: 'Iqlab' },
+          { c: PAL.ihfa,      tr: 'İhfâ',             en: "Ikhfaʼ" },
+          { c: PAL.ihfaSef,   tr: 'İhfâ-i Şefevî',    en: "Ikhfaʼ Shafawi", altTr: 'Dudak', altEn: 'Lip' },
+          { c: PAL.med,       tr: 'Med',              en: 'Madd' },
+          { c: PAL.sila,      tr: 'Sıla',             en: 'Silah',          altTr: 'Zamir', altEn: 'Pronoun' },
+        ];
+        return (
+          <div style={{
+            position: 'relative', zIndex: 240, // above tahta canvas (200), below navbar (250)
+            background: navC.bg,
+            borderBottom: `1px solid ${navC.borderBottom}`,
+            flexShrink: 0,
+            backdropFilter: 'blur(20px)',
+          }}>
+            {/* Header row — always visible, click toggles expansion */}
+            <button
+              onClick={() => setShowTajweedLegend(v => !v)}
+              style={{
+                width: '100%',
+                padding: isMobile ? '5px 12px' : '6px 20px',
+                background: 'transparent',
+                border: 'none',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                cursor: 'pointer',
+                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = navC.btnBgActive; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+              aria-expanded={showTajweedLegend}
+              title={showTajweedLegend
+                ? (language === 'tr' ? 'Tecvid kurallarını gizle' : 'Hide tajweed rules')
+                : (language === 'tr' ? 'Tecvid kurallarını göster' : 'Show tajweed rules')}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+                <span style={{
+                  fontSize: '0.62rem',
+                  color: navC.label,
+                  letterSpacing: '0.10em',
+                  textTransform: 'uppercase',
+                  fontWeight: 700,
+                  whiteSpace: 'nowrap',
+                }}>
+                  {language === 'tr' ? 'Tecvid Kuralları' : 'Tajweed Rules'}
+                </span>
+                {/* Inline color preview when collapsed — gives at-a-glance hint of palette */}
+                {!showTajweedLegend && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
+                    {[PAL.qalqala, PAL.gunne, PAL.idgamBila, PAL.iklab, PAL.ihfa, PAL.med].map((c, i) => (
+                      <span key={i} style={{
+                        width: '8px', height: '8px',
+                        borderRadius: '50%',
+                        background: c,
+                        opacity: 0.85,
+                      }} />
+                    ))}
+                  </div>
+                )}
+              </div>
+              <span style={{
+                color: navC.chevron,
+                fontSize: '0.7rem',
+                transition: 'transform 0.2s',
+                transform: showTajweedLegend ? 'rotate(180deg)' : 'rotate(0deg)',
+                display: 'inline-flex',
+              }}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </span>
+            </button>
+
+            {/* Expanded chip row */}
+            {showTajweedLegend && (
+              <div style={{
+                display: 'flex',
+                gap: isMobile ? '12px' : '18px',
+                padding: isMobile ? '4px 12px 10px' : '4px 20px 12px',
+                overflowX: 'auto',
+                overflowY: 'hidden',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch',
+              }}>
+                {items.map((item) => (
+                  <div
+                    key={item.tr}
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '7px',
+                      flexShrink: 0,
+                      padding: '3px 10px 3px 5px',
+                      borderRadius: '999px',
+                      background: dayMode ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.04)',
+                      border: `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)'}`,
+                    }}
+                  >
+                    <span style={{
+                      width: '12px', height: '12px',
+                      borderRadius: '50%',
+                      background: item.c,
+                      boxShadow: `0 0 0 2px ${item.c}26`,
+                      flexShrink: 0,
+                    }} />
+                    <span style={{
+                      fontSize: '0.74rem',
+                      color: navC.text,
+                      fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                      fontWeight: 500,
+                      whiteSpace: 'nowrap',
+                    }}>
+                      {language === 'tr' ? item.tr : item.en}
+                      {(language === 'tr' ? item.altTr : item.altEn) && (
+                        <span style={{
+                          marginLeft: '4px',
+                          fontSize: '0.66rem',
+                          fontWeight: 400,
+                          color: navC.label,
+                          opacity: 0.85,
+                        }}>
+                          ({language === 'tr' ? item.altTr : item.altEn})
+                        </span>
+                      )}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       {/* Surah picker dropdown */}
       {showSurahPicker && (
@@ -2305,8 +2647,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             {language === 'tr' ? 'Ayarlar' : 'Settings'}
           </span>
 
-          {/* Görünüm: 3-seçenekli segmented control — sadece mobile'da (desktop'ta navbar'da gösteriliyor) */}
-          {isMobile && <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {/* Görünüm: 3-seçenekli segmented control — desktop + mobile (MOD navbar butonu kaldırıldı, tek erişim noktası burası) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <span style={{ fontSize: '0.65rem', color: dropC.textMuted, padding: '0 2px', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
               {language === 'tr' ? 'Görünüm' : 'View'}
             </span>
@@ -2369,7 +2711,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 ))}
               </div>
             )}
-          </div>}
+          </div>
 
           {/* Interlinear (Kırık Meal) toggle — only visible in verse mode */}
 
@@ -2442,7 +2784,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           {/* Tajweed toggle */}
           <button
-            onClick={() => setShowTajweed(v => !v)}
+            onClick={() => {
+              // Mirror of word-mode toggle: turning tajweed on while in word mode would
+              // silently swallow the colors (word-by-word renderer bypasses tajweed).
+              // Auto-disable word mode so the user actually sees what they enabled.
+              setShowTajweed(v => {
+                const next = !v;
+                if (next && wordMode) setWordMode(false);
+                return next;
+              });
+            }}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
@@ -3382,7 +3733,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             if (ourWords.length > 0) {
                               const lastIdx = ourWords.length - 1;
                               // Fatiha: use Corpus Quran (Leeds) data for richer popover on click.
-                              const corpusWordsForVerse = (verse.surah === 1 && fatihaCorpus?.verses?.[String(verse.ayah)]) || null;
+                              const corpusWordsForVerse = corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null;
                               return (
                                 <>
                                   {ourWords.map((arabicWord, i) => {
@@ -3528,7 +3879,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }}>
                       {(() => {
                         const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
-                        const corpusWords = (verse.surah === 1 && fatihaCorpus?.verses?.[String(verse.ayah)]) || null;
+                        const corpusWords = corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null;
                         if (corpusWords) {
                           return (
                             <span>
@@ -3646,7 +3997,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }}>
                       {(() => {
                         const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
-                        const corpusWords = (verse.surah === 1 && fatihaCorpus?.verses?.[String(verse.ayah)]) || null;
+                        const corpusWords = corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null;
                         if (corpusWords) {
                           return (
                             <span>
@@ -4014,10 +4365,21 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               background: 'transparent',
             }}
             onPointerDown={(e) => {
-              e.currentTarget.setPointerCapture(e.pointerId);
               const rect = e.currentTarget.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              if (drawColor === 'text') {
+                // Prevent browser default focus shift away from the input we are about to mount/refocus.
+                e.preventDefault();
+                // Stomp any current input first so accidental clicks elsewhere don't lose typed text.
+                if (textInputRef.current) commitTextAt(textInputRef.current);
+                focusOnNextRenderRef.current = true;
+                setTextInput({ x, y, value: '' });
+                return;
+              }
+              e.currentTarget.setPointerCapture(e.pointerId);
               drawingActiveRef.current = true;
-              drawLastPointRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+              drawLastPointRef.current = { x, y };
             }}
             onPointerMove={(e) => {
               if (!drawingActiveRef.current) return;
@@ -4031,16 +4393,26 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               if (drawColor === 'eraser') {
                 ctx.globalCompositeOperation = 'destination-out';
                 ctx.lineWidth = 22;
+                ctx.lineCap = 'round';
                 ctx.strokeStyle = 'rgba(0,0,0,1)';
+              } else if (drawColor === 'highlight') {
+                // Translucent thick stroke; "multiply" blends like a real marker but
+                // looks muddy on a transparent canvas — source-over with low alpha is cleaner.
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.lineWidth = 18;
+                ctx.lineCap = 'square';
+                ctx.strokeStyle = lastColor + '55'; // ~33% alpha
               } else {
                 ctx.globalCompositeOperation = 'source-over';
                 ctx.lineWidth = 3;
+                ctx.lineCap = 'round';
                 ctx.strokeStyle = drawColor;
               }
               ctx.beginPath();
               ctx.moveTo(last.x, last.y);
               ctx.lineTo(x, y);
               ctx.stroke();
+              hasDrawnRef.current = true;
               drawLastPointRef.current = { x, y };
             }}
             onPointerUp={() => { drawingActiveRef.current = false; drawLastPointRef.current = null; }}
@@ -4048,11 +4420,163 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             onPointerLeave={() => { drawingActiveRef.current = false; drawLastPointRef.current = null; }}
           />
 
-          {/* Floating mini-toolbar — bottom-center, above canvas */}
+          {/* Persistent text annotations — clickable to edit, draggable to move (only in text mode).
+              The annotation currently being edited is hidden so the input can take its place. */}
+          {textAnnotations
+            .filter((a) => a.id !== textInput?.editingId)
+            .map((a) => {
+              const interactive = drawColor === 'text';
+              return (
+                <div
+                  key={a.id}
+                  onPointerDown={(e) => {
+                    if (!interactive) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.currentTarget.setPointerCapture(e.pointerId);
+                    annotationDragRef.current = {
+                      id: a.id,
+                      pointerId: e.pointerId,
+                      startX: e.clientX, startY: e.clientY,
+                      origX: a.x, origY: a.y,
+                      moved: false,
+                    };
+                  }}
+                  onPointerMove={(e) => {
+                    const s = annotationDragRef.current;
+                    if (!s || s.pointerId !== e.pointerId || s.id !== a.id) return;
+                    const dx = e.clientX - s.startX;
+                    const dy = e.clientY - s.startY;
+                    if (!s.moved && Math.hypot(dx, dy) > 5) s.moved = true;
+                    if (s.moved) {
+                      const nx = Math.max(0, Math.min(window.innerWidth  - 40, s.origX + dx));
+                      const ny = Math.max(0, Math.min(window.innerHeight - 30, s.origY + dy));
+                      setTextAnnotations((arr) => arr.map((x) => (x.id === a.id ? { ...x, x: nx, y: ny } : x)));
+                    }
+                  }}
+                  onPointerUp={(e) => {
+                    const s = annotationDragRef.current;
+                    if (!s || s.id !== a.id) return;
+                    annotationDragRef.current = null;
+                    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* ignore */ }
+                    if (!s.moved) {
+                      // Treat as click → open the inline editor pre-filled with this annotation.
+                      if (textInputRef.current) commitTextAt(textInputRef.current);
+                      focusOnNextRenderRef.current = true;
+                      setTextInput({ x: a.x, y: a.y, value: a.value, editingId: a.id });
+                    }
+                  }}
+                  onPointerCancel={() => { annotationDragRef.current = null; }}
+                  onMouseEnter={(e) => { if (interactive) e.currentTarget.style.outline = `1px dashed ${COLORS.gold}`; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.outline = 'none'; }}
+                  style={{
+                    position: 'fixed',
+                    left: `${a.x}px`, top: `${a.y}px`,
+                    zIndex: 201,
+                    color: a.color,
+                    fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                    fontWeight: 600,
+                    fontSize: '22px',
+                    lineHeight: 1.1,
+                    padding: '2px 4px',
+                    borderRadius: '4px',
+                    pointerEvents: interactive ? 'auto' : 'none',
+                    cursor: interactive ? 'move' : 'default',
+                    userSelect: 'none',
+                    whiteSpace: 'pre',
+                    touchAction: 'none',
+                  }}
+                >
+                  {a.value}
+                </div>
+              );
+            })}
+
+          {/* Inline text annotation editor — draggable container with a grip + the input */}
+          {textInput && (
+            <div
+              style={{
+                position: 'fixed',
+                left: `${textInput.x}px`, top: `${textInput.y}px`,
+                zIndex: 203,
+                display: 'flex',
+                alignItems: 'stretch',
+                background: 'rgba(13,27,42,0.96)',
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                borderRadius: '6px',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.45)',
+                overflow: 'hidden',
+              }}
+            >
+              {/* Drag handle — grab here to move the text box anywhere on screen */}
+              <div
+                title={language === 'tr' ? 'Sürükle' : 'Drag'}
+                onPointerDown={(e) => {
+                  e.preventDefault();
+                  e.currentTarget.setPointerCapture(e.pointerId);
+                  textDragRef.current = {
+                    pointerId: e.pointerId,
+                    startX: e.clientX, startY: e.clientY,
+                    origX: textInput.x, origY: textInput.y,
+                  };
+                  e.currentTarget.style.cursor = 'grabbing';
+                }}
+                onPointerMove={(e) => {
+                  const s = textDragRef.current;
+                  if (!s || s.pointerId !== e.pointerId) return;
+                  const nx = Math.max(0, Math.min(window.innerWidth  - 60, s.origX + (e.clientX - s.startX)));
+                  const ny = Math.max(0, Math.min(window.innerHeight - 40, s.origY + (e.clientY - s.startY)));
+                  setTextInput((cur) => (cur ? { ...cur, x: nx, y: ny } : cur));
+                }}
+                onPointerUp={(e) => { textDragRef.current = null; e.currentTarget.style.cursor = 'grab'; }}
+                onPointerCancel={(e) => { textDragRef.current = null; e.currentTarget.style.cursor = 'grab'; }}
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: '22px',
+                  background: 'rgba(255,255,255,0.05)',
+                  borderRight: '1px solid rgba(255,255,255,0.10)',
+                  color: COLORS.silver,
+                  cursor: 'grab',
+                  touchAction: 'none',
+                  userSelect: 'none',
+                }}
+              >
+                <GripIcon size={12} />
+              </div>
+              <input
+                ref={textInputElRef}
+                autoFocus
+                type="text"
+                value={textInput.value}
+                onChange={(e) => setTextInput((cur) => (cur ? { ...cur, value: e.target.value } : cur))}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter')      { commitTextAt(textInput); setTextInput(null); }
+                  else if (e.key === 'Escape') { setTextInput(null); }
+                }}
+                placeholder={language === 'tr' ? 'metin…' : 'text…'}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: lastColor,
+                  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                  fontWeight: 600,
+                  fontSize: '22px',
+                  padding: '4px 10px',
+                  outline: 'none',
+                  minWidth: '140px',
+                }}
+              />
+            </div>
+          )}
+
+          {/* Floating mini-toolbar — draggable; default bottom-center on first open */}
           <div
+            ref={toolbarRef}
             style={{
               position: 'fixed',
-              bottom: '24px', left: '50%', transform: 'translateX(-50%)',
+              ...(toolbarPos
+                ? { left: `${toolbarPos.x}px`, top: `${toolbarPos.y}px` }
+                : { bottom: '24px', left: '50%', transform: 'translateX(-50%)' }),
               zIndex: 201,
               display: 'flex', alignItems: 'center', gap: '6px',
               padding: '8px 12px',
@@ -4061,8 +4585,51 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               borderRadius: '999px',
               boxShadow: '0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.4)',
               backdropFilter: 'blur(10px)',
+              userSelect: 'none',
             }}
           >
+            {/* Drag handle */}
+            <button
+              title={language === 'tr' ? 'Sürükle' : 'Drag'}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                e.currentTarget.setPointerCapture(e.pointerId);
+                const tb = toolbarRef.current;
+                if (!tb) return;
+                const rect = tb.getBoundingClientRect();
+                dragStateRef.current = {
+                  pointerId: e.pointerId,
+                  startX: e.clientX, startY: e.clientY,
+                  startLeft: rect.left, startTop: rect.top,
+                  width: rect.width, height: rect.height,
+                };
+              }}
+              onPointerMove={(e) => {
+                const s = dragStateRef.current;
+                if (!s || s.pointerId !== e.pointerId) return;
+                const newX = Math.max(8, Math.min(window.innerWidth  - s.width  - 8, s.startLeft + (e.clientX - s.startX)));
+                const newY = Math.max(8, Math.min(window.innerHeight - s.height - 8, s.startTop  + (e.clientY - s.startY)));
+                setToolbarPos({ x: newX, y: newY });
+              }}
+              onPointerUp={() => { dragStateRef.current = null; }}
+              onPointerCancel={() => { dragStateRef.current = null; }}
+              style={{
+                width: '24px', height: '32px',
+                borderRadius: '6px',
+                background: 'transparent',
+                border: 'none',
+                color: COLORS.silver,
+                cursor: 'grab',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                padding: 0,
+                touchAction: 'none',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; }}
+              onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; }}
+            >
+              <GripIcon size={14} />
+            </button>
+
             {/* Color dots */}
             {[
               { c: '#dc2626', name: 'Kırmızı' },
@@ -4070,11 +4637,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               { c: '#3b82f6', name: 'Mavi' },
               { c: '#22c55e', name: 'Yeşil' },
             ].map(({ c, name }) => {
-              const active = drawColor === c;
+              // Show active ring if this color is selected directly OR if a tool that
+              // uses lastColor (text/highlight) is active and this is that color.
+              const usesLast = drawColor === 'text' || drawColor === 'highlight';
+              const active = drawColor === c || (usesLast && lastColor === c);
               return (
                 <button
                   key={c}
-                  onClick={() => setDrawColor(c)}
+                  onClick={() => { setDrawColor(c); setLastColor(c); }}
                   title={name}
                   style={{
                     width: '28px', height: '28px',
@@ -4089,6 +4659,42 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 />
               );
             })}
+
+            {/* Text tool — uses currently selected color */}
+            <button
+              onClick={() => setDrawColor('text')}
+              title={language === 'tr' ? 'Metin ekle' : 'Add text'}
+              style={{
+                width: '36px', height: '32px',
+                borderRadius: '8px',
+                background: drawColor === 'text' ? 'rgba(212,165,116,0.22)' : 'rgba(255,255,255,0.05)',
+                border: `1px solid ${drawColor === 'text' ? COLORS.gold : 'rgba(255,255,255,0.15)'}`,
+                color: drawColor === 'text' ? COLORS.gold : COLORS.silver,
+                cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'all 0.15s',
+              }}
+            >
+              <TextIcon size={16} />
+            </button>
+
+            {/* Highlighter — translucent thick stroke in current color */}
+            <button
+              onClick={() => setDrawColor('highlight')}
+              title={language === 'tr' ? 'Fosforlu kalem' : 'Highlighter'}
+              style={{
+                width: '36px', height: '32px',
+                borderRadius: '8px',
+                background: drawColor === 'highlight' ? 'rgba(212,165,116,0.22)' : 'rgba(255,255,255,0.05)',
+                border: `1px solid ${drawColor === 'highlight' ? COLORS.gold : 'rgba(255,255,255,0.15)'}`,
+                color: drawColor === 'highlight' ? COLORS.gold : COLORS.silver,
+                cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'all 0.15s',
+              }}
+            >
+              <HighlighterIcon size={16} />
+            </button>
 
             {/* Divider */}
             <div style={{ width: '1px', height: '24px', background: 'rgba(255,255,255,0.15)', margin: '0 4px' }} />
@@ -4136,7 +4742,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             {/* Close — exits drawing mode */}
             <button
-              onClick={() => { clearTahta(); setDrawMode(false); }}
+              onClick={() => requestExitTahta(() => { clearTahta(); setDrawMode(false); })}
               title={language === 'tr' ? 'Tahtayı kapat' : 'Close board'}
               style={{
                 width: '36px', height: '32px',
@@ -4167,6 +4773,145 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           onClose={() => setActiveWord(null)}
         />
       )}
+
+      {/* Themed confirmation dialog — replaces native window.confirm. Site-aligned
+          glassmorphism + gold/red accents; Escape cancels, Enter confirms. */}
+      {confirmDialog && (
+        <ConfirmDialog
+          title={confirmDialog.title}
+          message={confirmDialog.message}
+          confirmLabel={confirmDialog.confirmLabel}
+          cancelLabel={confirmDialog.cancelLabel}
+          onConfirm={confirmDialog.onConfirm}
+          onCancel={confirmDialog.onCancel}
+        />
+      )}
     </div>
+  );
+}
+
+// ── Themed confirm dialog ───────────────────────────────────────────────────
+// Glassmorphism modal with backdrop blur, gold border, and a destructive-tone
+// confirm button. Used in place of `window.confirm` for in-app gating.
+function ConfirmDialog({ title, message, confirmLabel, cancelLabel, onConfirm, onCancel }) {
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') { e.preventDefault(); onCancel?.(); }
+      else if (e.key === 'Enter') { e.preventDefault(); onConfirm?.(); }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onConfirm, onCancel]);
+
+  return (
+    <>
+      {/* Backdrop — click to cancel */}
+      <div
+        onClick={onCancel}
+        style={{
+          position: 'fixed', inset: 0, zIndex: 9500,
+          background: 'rgba(8,9,18,0.65)',
+          backdropFilter: 'blur(6px)',
+          WebkitBackdropFilter: 'blur(6px)',
+        }}
+      />
+      {/* Dialog */}
+      <div
+        role="dialog"
+        aria-modal="true"
+        style={{
+          position: 'fixed',
+          top: '50%', left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 9501,
+          width: 'min(440px, calc(100vw - 32px))',
+          background: 'rgba(13,27,42,0.97)',
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          borderRadius: '14px',
+          boxShadow: '0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.4)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          padding: '22px 24px 20px',
+        }}
+      >
+        {/* Title row */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+          <div style={{
+            width: '38px', height: '38px',
+            borderRadius: '50%',
+            background: 'rgba(231,76,60,0.18)',
+            border: '1px solid rgba(231,76,60,0.35)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: '#f87171',
+            flexShrink: 0,
+          }}>
+            <WarningIcon size={18} />
+          </div>
+          <h3 style={{
+            margin: 0,
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontSize: '1.15rem',
+            fontWeight: 700,
+            color: COLORS.gold,
+            letterSpacing: '0.01em',
+          }}>
+            {title}
+          </h3>
+        </div>
+        {/* Message */}
+        <p style={{
+          margin: '0 0 22px',
+          fontSize: '0.94rem',
+          lineHeight: 1.55,
+          color: COLORS.offWhite,
+          opacity: 0.92,
+          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+        }}>
+          {message}
+        </p>
+        {/* Actions */}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+          <button
+            onClick={onCancel}
+            style={{
+              padding: '9px 18px',
+              borderRadius: '8px',
+              background: 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(255,255,255,0.15)',
+              color: COLORS.silver,
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              cursor: 'pointer',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.10)'; e.currentTarget.style.color = COLORS.offWhite; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.silver; }}
+          >
+            {cancelLabel}
+          </button>
+          <button
+            onClick={onConfirm}
+            autoFocus
+            style={{
+              padding: '9px 18px',
+              borderRadius: '8px',
+              background: 'linear-gradient(135deg, rgba(231,76,60,0.28), rgba(231,76,60,0.16))',
+              border: '1px solid rgba(231,76,60,0.55)',
+              color: '#fee2e2',
+              fontSize: '0.9rem',
+              fontWeight: 700,
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              cursor: 'pointer',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(231,76,60,0.40), rgba(231,76,60,0.24))'; e.currentTarget.style.borderColor = 'rgba(231,76,60,0.75)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(231,76,60,0.28), rgba(231,76,60,0.16))'; e.currentTarget.style.borderColor = 'rgba(231,76,60,0.55)'; }}
+          >
+            {confirmLabel}
+          </button>
+        </div>
+      </div>
+    </>
   );
 }

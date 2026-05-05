@@ -18,9 +18,46 @@ function cleanForPopover(str) {
     .replace(/[\u06D6-\u06DC\u06DF\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB-\u06ED]/g, '');
 }
 
-// Sûre adı haritası — şimdilik sadece prototip kapsamı (Fâtiha). Genişletme: 114 sûre.
+// Sûre adı haritası — Türkçe transliteration + standart İngilizce (114 sûre).
 const SURAH_NAMES = {
-  1: { tr: 'Fâtiha', en: 'Al-Fatiha' },
+  1:{tr:'Fâtiha',en:'Al-Fatiha'},2:{tr:'Bakara',en:'Al-Baqarah'},3:{tr:'Âl-i İmrân',en:'Aal-E-Imran'},
+  4:{tr:'Nisâ',en:'An-Nisa'},5:{tr:'Mâide',en:'Al-Maidah'},6:{tr:'En\'âm',en:'Al-Anaam'},
+  7:{tr:'A\'râf',en:'Al-Araf'},8:{tr:'Enfâl',en:'Al-Anfal'},9:{tr:'Tevbe',en:'At-Tawbah'},
+  10:{tr:'Yûnus',en:'Yunus'},11:{tr:'Hûd',en:'Hud'},12:{tr:'Yûsuf',en:'Yusuf'},
+  13:{tr:'Ra\'d',en:'Ar-Rad'},14:{tr:'İbrâhim',en:'Ibrahim'},15:{tr:'Hicr',en:'Al-Hijr'},
+  16:{tr:'Nahl',en:'An-Nahl'},17:{tr:'İsrâ',en:'Al-Isra'},18:{tr:'Kehf',en:'Al-Kahf'},
+  19:{tr:'Meryem',en:'Maryam'},20:{tr:'Tâhâ',en:'Taha'},21:{tr:'Enbiyâ',en:'Al-Anbiya'},
+  22:{tr:'Hac',en:'Al-Hajj'},23:{tr:'Mü\'minûn',en:'Al-Muminun'},24:{tr:'Nûr',en:'An-Nur'},
+  25:{tr:'Furkân',en:'Al-Furqan'},26:{tr:'Şuarâ',en:'Ash-Shuara'},27:{tr:'Neml',en:'An-Naml'},
+  28:{tr:'Kasas',en:'Al-Qasas'},29:{tr:'Ankebût',en:'Al-Ankabut'},30:{tr:'Rûm',en:'Ar-Rum'},
+  31:{tr:'Lokmân',en:'Luqman'},32:{tr:'Secde',en:'As-Sajdah'},33:{tr:'Ahzâb',en:'Al-Ahzab'},
+  34:{tr:'Sebe\'',en:'Saba'},35:{tr:'Fâtır',en:'Fatir'},36:{tr:'Yâ-Sîn',en:'Ya-Sin'},
+  37:{tr:'Sâffât',en:'As-Saffat'},38:{tr:'Sâd',en:'Sad'},39:{tr:'Zümer',en:'Az-Zumar'},
+  40:{tr:'Mü\'min',en:'Ghafir'},41:{tr:'Fussilet',en:'Fussilat'},42:{tr:'Şûrâ',en:'Ash-Shura'},
+  43:{tr:'Zuhruf',en:'Az-Zukhruf'},44:{tr:'Duhân',en:'Ad-Dukhan'},45:{tr:'Câsiye',en:'Al-Jathiyah'},
+  46:{tr:'Ahkâf',en:'Al-Ahqaf'},47:{tr:'Muhammed',en:'Muhammad'},48:{tr:'Feth',en:'Al-Fath'},
+  49:{tr:'Hucurât',en:'Al-Hujurat'},50:{tr:'Kâf',en:'Qaf'},51:{tr:'Zâriyât',en:'Adh-Dhariyat'},
+  52:{tr:'Tûr',en:'At-Tur'},53:{tr:'Necm',en:'An-Najm'},54:{tr:'Kamer',en:'Al-Qamar'},
+  55:{tr:'Rahmân',en:'Ar-Rahman'},56:{tr:'Vâkıa',en:'Al-Waqiah'},57:{tr:'Hadîd',en:'Al-Hadid'},
+  58:{tr:'Mücâdele',en:'Al-Mujadilah'},59:{tr:'Haşr',en:'Al-Hashr'},60:{tr:'Mümtehine',en:'Al-Mumtahanah'},
+  61:{tr:'Saf',en:'As-Saf'},62:{tr:'Cum\'a',en:'Al-Jumuah'},63:{tr:'Münâfikûn',en:'Al-Munafiqun'},
+  64:{tr:'Teğâbun',en:'At-Taghabun'},65:{tr:'Talâk',en:'At-Talaq'},66:{tr:'Tahrîm',en:'At-Tahrim'},
+  67:{tr:'Mülk',en:'Al-Mulk'},68:{tr:'Kalem',en:'Al-Qalam'},69:{tr:'Hâkka',en:'Al-Haqqah'},
+  70:{tr:'Meâric',en:'Al-Maarij'},71:{tr:'Nûh',en:'Nuh'},72:{tr:'Cin',en:'Al-Jinn'},
+  73:{tr:'Müzzemmil',en:'Al-Muzzammil'},74:{tr:'Müddessir',en:'Al-Muddathir'},75:{tr:'Kıyâme',en:'Al-Qiyamah'},
+  76:{tr:'İnsân',en:'Al-Insan'},77:{tr:'Mürselât',en:'Al-Mursalat'},78:{tr:'Nebe\'',en:'An-Naba'},
+  79:{tr:'Nâziât',en:'An-Naziat'},80:{tr:'Abese',en:'Abasa'},81:{tr:'Tekvîr',en:'At-Takwir'},
+  82:{tr:'İnfitâr',en:'Al-Infitar'},83:{tr:'Mutaffifîn',en:'Al-Mutaffifin'},84:{tr:'İnşikâk',en:'Al-Inshiqaq'},
+  85:{tr:'Burûc',en:'Al-Buruj'},86:{tr:'Târık',en:'At-Tariq'},87:{tr:'A\'lâ',en:'Al-Ala'},
+  88:{tr:'Ğâşiye',en:'Al-Ghashiyah'},89:{tr:'Fecr',en:'Al-Fajr'},90:{tr:'Beled',en:'Al-Balad'},
+  91:{tr:'Şems',en:'Ash-Shams'},92:{tr:'Leyl',en:'Al-Lail'},93:{tr:'Duhâ',en:'Ad-Dhuha'},
+  94:{tr:'İnşirah',en:'Ash-Sharh'},95:{tr:'Tîn',en:'At-Tin'},96:{tr:'Alak',en:'Al-Alaq'},
+  97:{tr:'Kadr',en:'Al-Qadr'},98:{tr:'Beyyine',en:'Al-Bayyinah'},99:{tr:'Zilzâl',en:'Az-Zalzalah'},
+  100:{tr:'Âdiyât',en:'Al-Adiyat'},101:{tr:'Kâri\'a',en:'Al-Qariah'},102:{tr:'Tekâsür',en:'At-Takathur'},
+  103:{tr:'Asr',en:'Al-Asr'},104:{tr:'Hümeze',en:'Al-Humazah'},105:{tr:'Fîl',en:'Al-Fil'},
+  106:{tr:'Kureyş',en:'Quraysh'},107:{tr:'Mâûn',en:'Al-Maun'},108:{tr:'Kevser',en:'Al-Kawthar'},
+  109:{tr:'Kâfirûn',en:'Al-Kafirun'},110:{tr:'Nasr',en:'An-Nasr'},111:{tr:'Tebbet',en:'Al-Masad'},
+  112:{tr:'İhlâs',en:'Al-Ikhlas'},113:{tr:'Felak',en:'Al-Falaq'},114:{tr:'Nâs',en:'An-Nas'},
 };
 
 // Mekkî/Medenî sınıflandırması — Hafs an Asim standardı (29 Medenî, kalanı Mekkî)
