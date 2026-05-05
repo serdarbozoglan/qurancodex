@@ -794,7 +794,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
 
 // ─── Main ReadingMode component ───────────────────────────────────────────────
 export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
-  const { language, toggleLanguage } = useLanguage();
+  const { language, setLanguage, toggleLanguage } = useLanguage();
   const [verses, setVerses] = useState(null);
   const [loading, setLoading] = useState(true);
   // initialSurah (from SurahLink click) overrides the last-read position.
@@ -3004,7 +3004,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const isActive = selectedMealId === author.id;
               return (
                 <button key={author.id}
-                  onClick={() => { setSelectedMealId(author.id); if (!showTranslation) setShowTranslation(true); }}
+                  onClick={() => {
+                    setSelectedMealId(author.id);
+                    if (!showTranslation) setShowTranslation(true);
+                    // Sync UI language to the meal's language so the navbar, surah
+                    // header, and metadata follow what the user is actually reading.
+                    if (author.lang && author.lang !== language) setLanguage(author.lang);
+                  }}
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                     width: '100%', padding: '7px 14px', border: 'none',
@@ -3031,7 +3037,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const isActive = selectedMealId === author.id;
               return (
                 <button key={author.id}
-                  onClick={() => { setSelectedMealId(author.id); if (!showTranslation) setShowTranslation(true); }}
+                  onClick={() => {
+                    setSelectedMealId(author.id);
+                    if (!showTranslation) setShowTranslation(true);
+                    if (author.lang && author.lang !== language) setLanguage(author.lang);
+                  }}
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                     width: '100%', padding: '7px 14px', border: 'none',
