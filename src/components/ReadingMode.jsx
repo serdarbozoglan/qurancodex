@@ -3628,7 +3628,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
                           style={{
                             cursor: 'pointer', borderRadius: isMobile ? '0' : '6px',
-                            padding: isMobile ? '8px 8px' : '4px 12px',
+                            padding: isMobile ? '10px 8px' : '8px 12px',
                             background: isActive ? C.activeHighlight : 'transparent',
                             borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                             transition: 'all 0.18s',
@@ -3653,7 +3653,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             <p style={{
                               margin: 0, color: isActive ? C.translationActive : C.translation,
                               fontSize: isMobile ? '0.82rem' : '1rem',
-                              lineHeight: isMobile ? 1.5 : 1.6,
+                              lineHeight: isMobile ? 1.55 : 1.7,
                               fontStyle: 'italic',
                               flex: 1,
                             }}>
