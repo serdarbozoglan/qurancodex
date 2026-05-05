@@ -881,6 +881,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     catch { return 'local'; }
   });
   const [showMealPicker, setShowMealPicker] = useState(false);
+  // Inline meal picker — opens from the meal-column "Suat Yıldırım" label.
+  // Lets the user change translator with a single click without opening AYAR.
+  const [showInlineMealPicker, setShowInlineMealPicker] = useState(false);
+  const inlineMealPickerRef = useRef(null);
   const [showReciterPicker, setShowReciterPicker] = useState(false);
   const [mealLoading, setMealLoading] = useState(false);
   const mealCacheRef = useRef(new Map()); // key: "mealId:surahNum" → Map<ayah, text>
@@ -1047,6 +1051,23 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     window.addEventListener('resize', fit);
     return () => window.removeEventListener('resize', fit);
   }, [drawMode]);
+
+  // Inline meal picker — close on Esc or click outside.
+  useEffect(() => {
+    if (!showInlineMealPicker) return;
+    const onKey = (e) => { if (e.key === 'Escape') setShowInlineMealPicker(false); };
+    const onDoc = (e) => {
+      if (inlineMealPickerRef.current && !inlineMealPickerRef.current.contains(e.target)) {
+        setShowInlineMealPicker(false);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    document.addEventListener('mousedown', onDoc);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.removeEventListener('mousedown', onDoc);
+    };
+  }, [showInlineMealPicker]);
 
   const clearTahta = () => {
     const c = drawCanvasRef.current;
@@ -3494,23 +3515,125 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // keeps the meal-side surah header aligned with the Arabic side.
                   position: 'relative',
                 }}>
-                  {/* Attribution — floating annotation. Sits in the column's natural
-                      top breathing space (above where the surah header starts), with a
-                      thin underline spanning the full column width to echo the original
-                      "row separator" feel. Layout-neutral so meal column starts at the
-                      same top as the Arabic column. */}
-                  <div style={{
+                  {/* Attribution — floating + interactive. Click opens an inline meal
+                      picker so the translator can be switched with one click. Same
+                      data as the AYAR-triggered meal dropdown; redundancy is intentional
+                      (frequent action deserves a fast inline path). */}
+                  <div ref={inlineMealPickerRef} style={{
                     position: 'absolute',
                     top: 0, left: 0, right: 0,
-                    padding: '8px 12px 10px',
-                    fontSize: '0.82rem',
-                    color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.45)',
-                    letterSpacing: '0.04em',
                     borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
-                    pointerEvents: 'none',
-                    zIndex: 1,
+                    zIndex: 5,
                   }}>
-                    {selectedMealAuthor.label}
+                    <button
+                      onClick={() => setShowInlineMealPicker(p => !p)}
+                      title={language === 'tr' ? 'Çevirmeni değiştir' : 'Change translator'}
+                      style={{
+                        width: '100%',
+                        padding: '8px 12px 10px',
+                        background: 'transparent',
+                        border: 'none',
+                        fontSize: '0.82rem',
+                        color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)',
+                        letterSpacing: '0.04em',
+                        cursor: 'pointer',
+                        textAlign: 'left',
+                        display: 'flex', alignItems: 'center', gap: '6px',
+                        transition: 'color 0.15s',
+                        fontFamily: 'inherit',
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = C.gold; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)'; }}
+                    >
+                      <span>{selectedMealAuthor.label}</span>
+                      <span style={{
+                        fontSize: '0.6rem',
+                        opacity: 0.7,
+                        transform: showInlineMealPicker ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.18s',
+                        display: 'inline-flex',
+                      }}>▾</span>
+                    </button>
+
+                    {showInlineMealPicker && (
+                      <div style={{
+                        position: 'absolute',
+                        top: 'calc(100% + 4px)',
+                        left: '8px',
+                        minWidth: '260px',
+                        maxHeight: '360px',
+                        overflowY: 'auto',
+                        background: dropC.bg,
+                        backdropFilter: 'blur(20px)',
+                        WebkitBackdropFilter: 'blur(20px)',
+                        border: `1px solid ${dropC.border}`,
+                        borderRadius: '10px',
+                        boxShadow: dropC.shadow,
+                        zIndex: 20,
+                      }}>
+                        <div style={{ padding: '6px 0' }}>
+                          <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                            Türkçe
+                          </div>
+                          {MEAL_AUTHORS.filter(a => a.lang === 'tr').map(author => {
+                            const isActive = selectedMealId === author.id;
+                            return (
+                              <button key={author.id}
+                                onClick={() => {
+                                  setSelectedMealId(author.id);
+                                  if (!showTranslation) setShowTranslation(true);
+                                  if (author.lang && author.lang !== language) setLanguage(author.lang);
+                                  setShowInlineMealPicker(false);
+                                }}
+                                style={{
+                                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                                  width: '100%', padding: '7px 14px', border: 'none',
+                                  background: isActive ? dropC.itemBgActive : 'transparent',
+                                  color: isActive ? gold : dropC.text, cursor: 'pointer', fontSize: '0.82rem',
+                                  transition: 'background 0.12s', textAlign: 'left',
+                                }}
+                                onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = dropC.itemBgHover; }}
+                                onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                              >
+                                <span>{author.label}</span>
+                                {isActive && <span style={{ fontSize: '0.7rem', color: gold }}>✓</span>}
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        <div style={{ padding: '6px 0', borderTop: `1px solid ${dropC.divider}` }}>
+                          <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                            English
+                          </div>
+                          {MEAL_AUTHORS.filter(a => a.lang === 'en').map(author => {
+                            const isActive = selectedMealId === author.id;
+                            return (
+                              <button key={author.id}
+                                onClick={() => {
+                                  setSelectedMealId(author.id);
+                                  if (!showTranslation) setShowTranslation(true);
+                                  if (author.lang && author.lang !== language) setLanguage(author.lang);
+                                  setShowInlineMealPicker(false);
+                                }}
+                                style={{
+                                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                                  width: '100%', padding: '7px 14px', border: 'none',
+                                  background: isActive ? dropC.itemBgActive : 'transparent',
+                                  color: isActive ? gold : dropC.text, cursor: 'pointer', fontSize: '0.82rem',
+                                  transition: 'background 0.12s', textAlign: 'left',
+                                }}
+                                onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = dropC.itemBgHover; }}
+                                onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                              >
+                                <span>{author.label}</span>
+                                {isActive && <span style={{ fontSize: '0.7rem', color: gold }}>✓</span>}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
                   {(() => {
                     const items = [];
