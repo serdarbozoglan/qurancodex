@@ -4807,8 +4807,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               top: 0, left: 0, right: 0, bottom: 0,
               width: '100%', height: '100%',
               zIndex: 200,
-              cursor: 'crosshair',
-              touchAction: 'none',
+              // 'scroll' tool: canvas becomes click-through so the page below
+              // can scroll/select normally. Drawings remain visible (canvas
+              // pixel data is preserved). User toggles back to a draw tool to
+              // resume sketching.
+              cursor: drawColor === 'scroll' ? 'default' : 'crosshair',
+              pointerEvents: drawColor === 'scroll' ? 'none' : 'auto',
+              touchAction: drawColor === 'scroll' ? 'auto' : 'none',
               background: 'transparent',
             }}
             onPointerDown={(e) => {
@@ -5080,7 +5085,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             {/* Color dots */}
             {[
               { c: '#dc2626', name: 'Kırmızı' },
-              { c: '#ffffff', name: 'Sarı' },
+              { c: '#facc15', name: 'Sarı' },
               { c: '#3b82f6', name: 'Mavi' },
               { c: '#22c55e', name: 'Yeşil' },
             ].map(({ c, name }) => {
@@ -5141,6 +5146,29 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}
             >
               <HighlighterIcon size={16} />
+            </button>
+
+            {/* Scroll/pan — canvas becomes click-through so user can scroll
+                the page; existing drawings remain visible. */}
+            <button
+              onClick={() => setDrawColor('scroll')}
+              title={language === 'tr' ? 'Sayfayı kaydır' : 'Scroll page'}
+              style={{
+                width: '36px', height: '32px',
+                borderRadius: '8px',
+                background: drawColor === 'scroll' ? 'rgba(212,165,116,0.22)' : 'rgba(255,255,255,0.05)',
+                border: `1px solid ${drawColor === 'scroll' ? COLORS.gold : 'rgba(255,255,255,0.15)'}`,
+                color: drawColor === 'scroll' ? COLORS.gold : COLORS.silver,
+                cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'all 0.15s',
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M9 11V6a2 2 0 1 1 4 0v5" />
+                <path d="M9 11a2 2 0 1 0-4 0v5a7 7 0 0 0 14 0v-3a2 2 0 1 0-4 0" />
+                <path d="M13 11a2 2 0 1 1 4 0v3" />
+              </svg>
             </button>
 
             {/* Divider */}
