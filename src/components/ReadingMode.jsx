@@ -1016,6 +1016,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const drawCanvasRef = useRef(null);
   const drawingActiveRef = useRef(false);
   const drawLastPointRef = useRef(null);
+  // Tahta canvas anchors to scroll container content (not viewport) so
+  // drawings move with the verses when user scrolls. Tracked in state so
+  // CSS transform on canvas stays in sync.
+  const [tahtaScrollTop, setTahtaScrollTop] = useState(0);
+  const [tahtaContentHeight, setTahtaContentHeight] = useState(0);
   // Tracks whether any stroke has been drawn on the canvas during this Tahta session.
   // Used to decide whether closing the board needs a confirmation prompt.
   const hasDrawnRef = useRef(false);
@@ -1080,28 +1085,45 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const overlayStateRef = useRef({});
   overlayStateRef.current = { showSearch, showMealPicker, showReciterPicker, showSurahPicker, showBookmarks, showFontPicker, showSettingsPicker, showViewPicker, compareVerse };
 
-  // Tahta canvas — initialize size on open, refit on window resize.
-  // Existing strokes are intentionally cleared on resize (acceptable for a
-  // teaching tool; keeps math simple). Refresh / ✕ / 🗑️ also clear.
+  // Tahta canvas — sized to the scroll container's full content height so
+  // drawings can be placed at any verse position; fixed-positioned with a
+  // transform that follows containerRef.scrollTop. Net effect: drawings
+  // stay anchored to the verses, not to the viewport. Existing strokes are
+  // intentionally cleared on resize (acceptable for a teaching tool; keeps
+  // the math simple). Refresh / ✕ / 🗑️ also clear.
   useEffect(() => {
     if (!drawMode) return;
-    // Fresh session — no strokes yet, so closing without drawing won't prompt.
     hasDrawnRef.current = false;
     const fit = () => {
       const c = drawCanvasRef.current;
-      if (!c) return;
+      const sc = containerRef.current;
+      if (!c || !sc) return;
       const dpr = window.devicePixelRatio || 1;
-      const rect = c.getBoundingClientRect();
-      c.width  = rect.width  * dpr;
-      c.height = rect.height * dpr;
+      const w  = sc.clientWidth;
+      const h  = sc.scrollHeight;
+      setTahtaContentHeight(h);
+      c.width  = w * dpr;
+      c.height = h * dpr;
+      c.style.width  = `${w}px`;
+      c.style.height = `${h}px`;
       const ctx = c.getContext('2d');
       ctx.scale(dpr, dpr);
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
     };
     fit();
+    // Track scroll so the canvas translates with the verses.
+    const sc = containerRef.current;
+    const onScroll = () => { if (sc) setTahtaScrollTop(sc.scrollTop); };
+    if (sc) {
+      setTahtaScrollTop(sc.scrollTop);
+      sc.addEventListener('scroll', onScroll, { passive: true });
+    }
     window.addEventListener('resize', fit);
-    return () => window.removeEventListener('resize', fit);
+    return () => {
+      window.removeEventListener('resize', fit);
+      if (sc) sc.removeEventListener('scroll', onScroll);
+    };
   }, [drawMode]);
 
   // Inline meal picker — close on Esc or click outside.
@@ -4804,17 +4826,26 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             ref={drawCanvasRef}
             style={{
               position: 'fixed',
-              top: 0, left: 0, right: 0, bottom: 0,
-              width: '100%', height: '100%',
+              top: 0, left: 0,
+              // Canvas spans the scroll container's FULL content height; the
+              // CSS transform shifts it with scrollTop so drawings stay glued
+              // to the verses they were drawn on. Width is just the container
+              // viewport width (drawings only need horizontal space for what's
+              // visible at any moment).
+              width: '100%',
+              height: tahtaContentHeight ? `${tahtaContentHeight}px` : '100%',
+              transform: `translateY(${-tahtaScrollTop}px)`,
+              willChange: 'transform',
               zIndex: 200,
-              // 'scroll' tool: canvas becomes click-through so the page below
-              // can scroll/select normally. Drawings remain visible (canvas
-              // pixel data is preserved). User toggles back to a draw tool to
-              // resume sketching.
-              cursor: drawColor === 'scroll' ? 'default' : 'crosshair',
-              pointerEvents: drawColor === 'scroll' ? 'none' : 'auto',
-              touchAction: drawColor === 'scroll' ? 'auto' : 'none',
+              cursor: 'crosshair',
+              touchAction: 'none',
               background: 'transparent',
+            }}
+            // Mouse wheel always pans the underlying scroll container so the
+            // user never gets scroll-locked just because Tahta is open.
+            onWheel={(e) => {
+              const sc = containerRef.current;
+              if (sc) sc.scrollBy({ top: e.deltaY, left: e.deltaX, behavior: 'auto' });
             }}
             onPointerDown={(e) => {
               const rect = e.currentTarget.getBoundingClientRect();
@@ -4922,8 +4953,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onMouseEnter={(e) => { if (interactive) e.currentTarget.style.outline = `1px dashed ${COLORS.gold}`; }}
                   onMouseLeave={(e) => { e.currentTarget.style.outline = 'none'; }}
                   style={{
+                    // a.x/a.y are stored in document/canvas coords (matches the
+                    // canvas drawing space). Subtract scrollTop here so the
+                    // annotation appears at the correct viewport position and
+                    // scrolls together with the verses.
                     position: 'fixed',
-                    left: `${a.x}px`, top: `${a.y}px`,
+                    left: `${a.x}px`, top: `${a.y - tahtaScrollTop}px`,
                     zIndex: 201,
                     color: a.color,
                     fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
@@ -4948,8 +4983,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           {textInput && (
             <div
               style={{
+                // textInput.x/y are document coords (set from canvas pointerDown
+                // which already subtracted -scrollTop). Render at viewport-Y by
+                // subtracting current scrollTop.
                 position: 'fixed',
-                left: `${textInput.x}px`, top: `${textInput.y}px`,
+                left: `${textInput.x}px`, top: `${textInput.y - tahtaScrollTop}px`,
                 zIndex: 203,
                 display: 'flex',
                 alignItems: 'stretch',
@@ -5146,29 +5184,6 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}
             >
               <HighlighterIcon size={16} />
-            </button>
-
-            {/* Scroll/pan — canvas becomes click-through so user can scroll
-                the page; existing drawings remain visible. */}
-            <button
-              onClick={() => setDrawColor('scroll')}
-              title={language === 'tr' ? 'Sayfayı kaydır' : 'Scroll page'}
-              style={{
-                width: '36px', height: '32px',
-                borderRadius: '8px',
-                background: drawColor === 'scroll' ? 'rgba(212,165,116,0.22)' : 'rgba(255,255,255,0.05)',
-                border: `1px solid ${drawColor === 'scroll' ? COLORS.gold : 'rgba(255,255,255,0.15)'}`,
-                color: drawColor === 'scroll' ? COLORS.gold : COLORS.silver,
-                cursor: 'pointer',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.15s',
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M9 11V6a2 2 0 1 1 4 0v5" />
-                <path d="M9 11a2 2 0 1 0-4 0v5a7 7 0 0 0 14 0v-3a2 2 0 1 0-4 0" />
-                <path d="M13 11a2 2 0 1 1 4 0v3" />
-              </svg>
             </button>
 
             {/* Divider */}
