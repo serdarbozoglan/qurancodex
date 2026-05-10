@@ -3430,17 +3430,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       )}
 
       {/* Search overlay — full-screen modal with palette card centered.
-          Backdrop is intentionally darker than a typical menu dim: at this
-          opacity the underlying page becomes "functionally invisible" and
-          the palette captures attention. Linear / Raycast / Notion all use
-          0.4–0.6 — anything lighter feels amateur. */}
+          Backdrop deliberately strong: at these opacities the underlying page
+          becomes "functionally invisible" and the palette captures attention,
+          matching the dim used by Linear / Raycast / Notion. Day mode uses a
+          warm dark-brown so it harmonizes with the beige page palette instead
+          of clashing as flat black. */}
       {showSearch && (
         <div
           style={{
             position: 'absolute', inset: 0, zIndex: 200,
-            background: dayMode ? 'rgba(40,28,12,0.42)' : 'rgba(3,5,14,0.72)',
-            backdropFilter: 'blur(6px)',
-            WebkitBackdropFilter: 'blur(6px)',
+            // Day mode bumped to 0.58 because 6px blur visibly dilutes the
+            // perceived darkness — math says 0.42 should suffice but on
+            // light beige bg it still reads as a "haze". 0.58 makes the
+            // page genuinely recede behind the palette.
+            background: dayMode ? 'rgba(35,22,8,0.58)' : 'rgba(3,5,14,0.78)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
           }}
           onClick={e => { if (e.target === e.currentTarget) { setShowSearch(false); setSearchQuery(''); } }}
         >
@@ -3450,11 +3455,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             background: dayMode ? 'rgba(245,239,228,0.99)' : 'rgba(10,12,28,0.98)',
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
-            border: `1.5px solid ${dayMode ? 'rgba(122,82,21,0.32)' : 'rgba(212,165,116,0.32)'}`,
+            // Border bumped to a more visible gold tone (#C5A85A-ish at 0.55
+            // alpha) so the palette has a clear edge against the now-darker
+            // backdrop. Inner soft gold ring (0 0 0 1px) reinforces the
+            // "floating card" affordance without looking heavy.
+            border: `1.5px solid ${dayMode ? 'rgba(197,168,90,0.55)' : 'rgba(212,165,116,0.40)'}`,
             borderRadius: '14px',
             boxShadow: dayMode
-              ? '0 24px 64px rgba(60,40,10,0.22), 0 4px 12px rgba(60,40,10,0.10)'
-              : '0 24px 64px rgba(0,0,0,0.7), 0 4px 12px rgba(0,0,0,0.4)',
+              ? '0 24px 64px rgba(60,40,10,0.32), 0 8px 20px rgba(60,40,10,0.16), 0 0 0 1px rgba(212,165,116,0.10)'
+              : '0 24px 64px rgba(0,0,0,0.7), 0 8px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,165,116,0.08)',
             display: 'flex', flexDirection: 'column', maxHeight: 'calc(100vh - 100px)',
           }}>
           {/* Search input bar */}
