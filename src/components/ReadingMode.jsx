@@ -1646,7 +1646,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     btnBgActive: 'rgba(122,82,21,0.26)',
     btnBorderActive: 'rgba(122,82,21,0.60)',
     text: 'rgba(30,15,5,0.88)',
-    label: 'rgba(80,50,20,0.60)',
+    // Label bumped 0.60 → 0.75 so "SÛRE N" / "AYET" caps reach AA contrast
+    // on the beige bg (~245,238,217) — previously washed-out scaffolding.
+    label: 'rgba(80,50,20,0.75)',
+    // Soft warm tint for inline meta like "· 98 AYET" — replaces the
+    // hardcoded slate-gray (#7a8a9a) that read cold against beige.
+    labelSoft: 'rgba(80,50,20,0.55)',
     divider: 'rgba(0,0,0,0.10)',
     chevron: 'rgba(30,15,5,0.55)',
     chevronDisabled: 'rgba(30,15,5,0.18)',
@@ -1658,7 +1663,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     btnBgActive: 'rgba(212,165,116,0.22)',
     btnBorderActive: 'rgba(212,165,116,0.60)',
     text: 'rgba(255,255,255,0.90)',
-    label: 'rgba(200,185,165,0.72)',
+    label: 'rgba(200,185,165,0.78)',
+    labelSoft: 'rgba(200,185,165,0.55)',
     divider: 'rgba(255,255,255,0.10)',
     chevron: 'rgba(255,255,255,0.60)',
     chevronDisabled: 'rgba(255,255,255,0.15)',
@@ -1884,7 +1890,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 {!isMobile && (
                   <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
                     {language === 'tr' ? 'Sûre' : 'Surah'} {selectedSurah}
-                    {surahVerses.length > 0 && <span style={{ color: '#7a8a9a', marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
+                    {surahVerses.length > 0 && <span style={{ color: navC.labelSoft, marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
                   </span>
                 )}
                 <span style={{ fontSize: isMobile ? '0.75rem' : '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
@@ -1918,7 +1924,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
                   {' · ' + (language === 'tr' ? 'Sayfa ' : 'Page ')}
                   <span style={{ color: gold, fontWeight: 700 }}>{currentPage}</span>
-                  <span style={{ opacity: 0.55 }}>{'/604'}</span>
+                  <span style={{ opacity: 0.72 }}>{'/604'}</span>
                 </span>
               )}
 
