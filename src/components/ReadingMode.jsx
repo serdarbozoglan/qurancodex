@@ -5138,11 +5138,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </div>
               )}
 
-              {/* Meal author dropdown — same picker as plain verse mode,
-                  shares showInlineMealPicker state. Only when meal on. */}
+              {/* Meal author dropdown (left) + word-by-word data attribution
+                  (right) — shared header row, 1fr 1fr on desktop so they
+                  sit on opposite sides of the divider. Mobile stacks them. */}
               {showTranslation && (
                 <div ref={inlineMealPickerRef} style={{
                   position: 'relative',
+                  display: 'grid',
+                  gridTemplateColumns: !isMobile ? '1fr 1fr' : '1fr',
+                  alignItems: 'center',
                   padding: isMobile ? '4px 16px 10px' : '0 20px 10px',
                   marginBottom: '6px',
                   borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
@@ -5214,6 +5218,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           })}
                         </div>
                       ))}
+                    </div>
+                  )}
+                  {/* Right-side attribution — symmetric to the meal
+                      dropdown on the left. Word-by-word data source on the
+                      Arabic side of the spread. */}
+                  {!isMobile && (
+                    <div style={{
+                      fontSize: '0.82rem',
+                      color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)',
+                      letterSpacing: '0.04em',
+                      fontFamily: 'inherit',
+                      textAlign: 'right',
+                    }}>
+                      {language === 'tr' ? 'Kelime meali: kuran.com' : 'Word-by-word: kuran.com'}
                     </div>
                   )}
                 </div>

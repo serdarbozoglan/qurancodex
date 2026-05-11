@@ -203,8 +203,12 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
       style={{
         display: (isMobile && translation) ? 'flex' : 'grid',
         flexDirection: (isMobile && translation) ? 'column' : undefined,
+        // 50/50 split so the cilt boşluğu divider in the parent wrapper
+        // (positioned at left: 50%) aligns with the column boundary.
+        // Arabic word chips would otherwise spill past the divider into
+        // the meal column. RTL chip flow stays inside the right cell.
         gridTemplateColumns: translation
-          ? (isMobile ? undefined : '2fr 3fr')
+          ? (isMobile ? undefined : '1fr 1fr')
           : '1fr',
         gap: isMobile ? (translation ? '4px' : '8px') : '16px',
         alignItems: isMobile ? 'flex-start' : 'center',
@@ -437,16 +441,22 @@ export default function InterlinearView({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-      {/* Source attribution — matches verse mode's author label style */}
-      <div style={{
-        padding: isMobile ? '4px 12px 6px' : '4px 20px 8px',
-        fontSize: '0.68rem',
-        color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)',
-        letterSpacing: '0.03em',
-        fontFamily: "'Inter', sans-serif",
-      }}>
-        {mealAuthorLabel ? `Meal: ${mealAuthorLabel} · ${src.label}` : src.label}
-      </div>
+      {/* Source attribution moved to ReadingMode wrapper — appears in the
+          top-right corner alongside the meal dropdown, on the Arabic side
+          of the spread (where the word-by-word data lives). Keeping the
+          fallback (mobile / no-translation) inline here. */}
+      {(isMobile || !mealAuthorLabel) && (
+        <div style={{
+          padding: isMobile ? '4px 12px 6px' : '4px 20px 8px',
+          fontSize: '0.68rem',
+          color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)',
+          letterSpacing: '0.03em',
+          fontFamily: "'Inter', sans-serif",
+          textAlign: isMobile ? 'left' : 'right',
+        }}>
+          {src.label}
+        </div>
+      )}
 
       {verses.map((verse, verseIdx) => {
         const verseData = byAyah[verse.ayah];
