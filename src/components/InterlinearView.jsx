@@ -441,22 +441,9 @@ export default function InterlinearView({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-      {/* Source attribution moved to ReadingMode wrapper — appears in the
-          top-right corner alongside the meal dropdown, on the Arabic side
-          of the spread (where the word-by-word data lives). Keeping the
-          fallback (mobile / no-translation) inline here. */}
-      {(isMobile || !mealAuthorLabel) && (
-        <div style={{
-          padding: isMobile ? '4px 12px 6px' : '4px 20px 8px',
-          fontSize: '0.68rem',
-          color: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.45)',
-          letterSpacing: '0.03em',
-          fontFamily: "'Inter', sans-serif",
-          textAlign: isMobile ? 'left' : 'right',
-        }}>
-          {src.label}
-        </div>
-      )}
+      {/* Source attribution lives in ReadingMode wrapper (top-right of the
+          dropdown row, on the Arabic side of the spread). The inline copy
+          here was double-stamping above the first verse — removed. */}
 
       {verses.map((verse, verseIdx) => {
         const verseData = byAyah[verse.ayah];
