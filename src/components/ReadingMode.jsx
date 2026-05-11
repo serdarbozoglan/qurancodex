@@ -3523,8 +3523,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               left-anchored surah dropdown (Son Okunan, page/juz/surah lookups,
               full sûre list, Hatim Duası), PLUS verse-text matches when the
               query has 2+ alphanumeric characters. Result is a single command
-              palette that handles every navigation use case in Reading mode. */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: '4px 0' }}>
+              palette that handles every navigation use case in Reading mode.
+              minHeight: 0 is the magic that lets `overflowY: auto` actually
+              clip — in a flex column, the default min-height:auto would let
+              this child grow past the parent's maxHeight, killing scroll. */}
+          <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: '4px 0' }}>
             {(() => {
               const q = searchQuery.trim();
               const num = parseInt(q, 10);
