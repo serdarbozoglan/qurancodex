@@ -4620,10 +4620,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 return {
                   order: isMobile ? 1 : 2,
                   position: 'relative',
-                  // Internal left padding zeroed — the 88px grid gap +
-                  // 3-layer divider provides all the breathing room from
-                  // the meal column. Mobile keeps 0 (stacked layout).
-                  paddingLeft: '0',
+                  // Asymmetric internal left padding when meal is on +
+                  // desktop. Arabic is text-align:justify, so it fills the
+                  // entire column width — without this, the leftmost glyphs
+                  // touch the gutter while the Turkish (text-align:left,
+                  // short lines) keeps its right edge airy. 36px restores
+                  // visual symmetry around the divider.
+                  paddingLeft: showTranslation && !isMobile ? '36px' : '0',
                   // Compact gutter sized to the medallion + a touch of
                   // breathing room. Mushaf outer margin in miniature.
                   paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : '0',
