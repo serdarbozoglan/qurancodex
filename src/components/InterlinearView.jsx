@@ -167,7 +167,7 @@ function WordChip({ word, idx, colorIdx, C, isMobile, dayMode, lang, arabicFontS
   );
 }
 
-function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, lang, arabicFontSize, arabicFont, translation, verseIdx }) {
+function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, lang, arabicFontSize, arabicFont, translation, verseIdx, onCompareClick, isSajda, language }) {
   const rowRef = useRef(null);
 
   useEffect(() => {
@@ -239,7 +239,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
               : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
             color: C.ayahNum,
             fontSize: verseData.ayah >= 100 ? '0.50rem' : verseData.ayah >= 10 ? '0.56rem' : '0.62rem',
-            fontFamily: "'Amiri', serif", fontWeight: dayMode ? 600 : 400,
+            fontFamily: arabicFont, fontWeight: dayMode ? 600 : 400,
           }}>{toArabicNumerals(verseData.ayah)}</span>
           <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '2px', flex: 1 }}>
             {chips}
@@ -247,27 +247,52 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
         </div>
       )}
 
-      {/* Left column: badge + translation — only shown when meal is open */}
+      {/* Left column: badge + translation — only shown when meal is open.
+          Badge is interactive (compare button) with sajda variant in green. */}
       {translation && (
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
-          <span style={{
-            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-            borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
-            border: `1.5px solid ${C.ayahNum}${isActive ? 'cc' : '88'}`,
-            background: dayMode
-              ? `radial-gradient(circle, ${C.ayahNum}28 0%, ${C.ayahNum}0a 70%)`
-              : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-            color: C.ayahNum,
-            fontSize: verseData.ayah >= 100
-              ? (isMobile ? '0.58rem' : '0.66rem')
-              : verseData.ayah >= 10
-              ? (isMobile ? '0.64rem' : '0.74rem')
-              : (isMobile ? '0.72rem' : '0.84rem'),
-            fontFamily: "'Amiri', serif", fontWeight: dayMode ? 600 : 400,
-          }}>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); if (onCompareClick) onCompareClick(verse.surah, verse.ayah); }}
+            title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
+            aria-label={language === 'tr' ? `Ayet ${verseData.ayah} — mealleri karşılaştır` : `Verse ${verseData.ayah} — compare translations`}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'scale(1.08)';
+              e.currentTarget.style.borderColor = isSajda ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.ayahNum;
+              e.currentTarget.style.boxShadow = isSajda
+                ? `0 0 0 3px ${dayMode ? 'rgba(26,122,76,0.18)' : 'rgba(46,204,113,0.22)'}`
+                : `0 0 0 3px ${C.ayahNum}22`;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.borderColor = isSajda
+                ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)')
+                : `${C.ayahNum}${isActive ? 'cc' : '88'}`;
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+            style={{
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
+              borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
+              border: `1.5px solid ${isSajda ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : `${C.ayahNum}${isActive ? 'cc' : '88'}`}`,
+              background: isSajda
+                ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.20) 0%, rgba(26,122,76,0.06) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
+                : (dayMode
+                    ? `radial-gradient(circle, ${C.ayahNum}28 0%, ${C.ayahNum}0a 70%)`
+                    : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)'),
+              color: isSajda ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.ayahNum,
+              fontSize: verseData.ayah >= 100
+                ? (isMobile ? '0.58rem' : '0.66rem')
+                : verseData.ayah >= 10
+                ? (isMobile ? '0.64rem' : '0.74rem')
+                : (isMobile ? '0.72rem' : '0.84rem'),
+              fontFamily: arabicFont, fontWeight: dayMode ? 600 : 400,
+              cursor: onCompareClick ? 'pointer' : 'default',
+              padding: 0,
+              transition: 'transform 0.15s, border-color 0.15s, box-shadow 0.15s',
+            }}>
             {verseData.ayah}
-          </span>
+          </button>
           <p style={{
             margin: 0, flex: 1,
             color: isActive ? C.translationActive : C.translation,
@@ -298,7 +323,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
               : verseData.ayah >= 10
               ? (isMobile ? '0.56rem' : '0.64rem')
               : (isMobile ? '0.62rem' : '0.72rem'),
-            fontFamily: "'Amiri', serif", fontWeight: dayMode ? 600 : 400,
+            fontFamily: arabicFont, fontWeight: dayMode ? 600 : 400,
           }}>{toArabicNumerals(verseData.ayah)}</span>
           <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: isMobile ? '2px' : '4px', alignItems: 'flex-start', flex: 1 }}>
             {chips}
@@ -352,6 +377,10 @@ export default function InterlinearView({
   arabicFont,
   getTranslation,
   mealAuthorLabel,
+  // New: enable book-mode-parity badge (clickable compare + sajda variant).
+  onCompareClick,
+  sajdaVerses,
+  language = 'tr',
 }) {
   const { data, loading, error } = useInterlinearData(surahNumber, lang);
   const C = getColors(dayMode);
@@ -422,6 +451,7 @@ export default function InterlinearView({
       {verses.map((verse, verseIdx) => {
         const verseData = byAyah[verse.ayah];
         if (!verseData || verseData.words.length === 0) return null;
+        const isSajda = sajdaVerses ? sajdaVerses.has(`${verse.surah}:${verse.ayah}`) : false;
 
         return (
           <VerseRow
@@ -438,6 +468,9 @@ export default function InterlinearView({
             arabicFont={arabicFont}
             translation={getTranslation ? getTranslation(verse) : null}
             verseIdx={verseIdx}
+            onCompareClick={onCompareClick}
+            isSajda={isSajda}
+            language={language}
           />
         );
       })}

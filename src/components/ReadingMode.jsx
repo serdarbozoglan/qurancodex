@@ -5082,20 +5082,329 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         ) : (
           /* ── Verse mode — ayet ayet, sayfa moduyla aynı rozet ve renk stili ── */
           interlinearMode ? (
-            <div style={{ padding: isMobile ? '8px 0 40px' : '16px 24px 60px' }}>
-              <InterlinearView
-                surahNumber={selectedSurah}
-                verses={surahVerses}
-                dayMode={dayMode}
-                isMobile={isMobile}
-                activeVerseId={activeVerse?.id}
-                onVerseClick={(verse) => { handleSelectVerse(verse); handleAudioToggle(verse); }}
-                lang={interlinearLang}
-                arabicFontSize={arabicFontSize}
-                arabicFont={currentFont}
-                getTranslation={showTranslation ? getTranslation : null}
-                mealAuthorLabel={showTranslation ? selectedMealAuthor.label : null}
-              />
+            <div style={{
+              padding: isMobile ? '8px 0 40px' : '16px 24px 60px',
+              // Relative wrapper hosts the cilt boşluğu divider and gives
+              // the surah-opening card a positioned context (parity with
+              // plain verse mode).
+              position: 'relative',
+            }}>
+              {/* Cilt boşluğu divider — same 3-layer mushaf binding seam as
+                  plain verse mode, between Turkish meal (left) and Arabic
+                  words (right). Only when meal on + desktop. */}
+              {showTranslation && !isMobile && (
+                <div aria-hidden style={{
+                  position: 'absolute',
+                  left: '50%',
+                  top: '12px',
+                  bottom: '12px',
+                  width: '18px',
+                  transform: 'translateX(-50%)',
+                  pointerEvents: 'none',
+                  zIndex: 0,
+                }}>
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: dayMode
+                      ? 'linear-gradient(to right, rgba(120,90,40,0) 0%, rgba(120,90,40,0.06) 28%, rgba(120,90,40,0.11) 50%, rgba(120,90,40,0.06) 72%, rgba(120,90,40,0) 100%)'
+                      : 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.20) 28%, rgba(0,0,0,0.32) 50%, rgba(0,0,0,0.20) 72%, rgba(0,0,0,0) 100%)',
+                  }} />
+                  <div style={{
+                    position: 'absolute', top: 0, bottom: 0, left: '50%', width: '1px',
+                    transform: 'translateX(-50%)',
+                    background: dayMode
+                      ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.55) 6%, rgba(154,120,56,0.55) 94%, transparent 100%)'
+                      : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.45) 6%, rgba(212,165,116,0.45) 94%, transparent 100%)',
+                  }} />
+                  <div style={{
+                    position: 'absolute', top: '10px', left: '50%', width: '6px', height: '6px',
+                    transform: 'translateX(-50%) rotate(45deg)',
+                    background: C.gold, opacity: dayMode ? 0.5 : 0.4,
+                    boxShadow: dayMode ? `0 0 5px ${C.gold}44` : `0 0 6px ${C.gold}55`,
+                  }} />
+                  <div style={{
+                    position: 'absolute', top: '50%', left: '50%', width: '9px', height: '9px',
+                    transform: 'translate(-50%, -50%) rotate(45deg)',
+                    background: dayMode ? 'rgba(154,120,56,0.22)' : 'rgba(212,165,116,0.18)',
+                    border: `1px solid ${dayMode ? 'rgba(154,120,56,0.85)' : 'rgba(212,165,116,0.75)'}`,
+                    boxShadow: dayMode ? `0 0 8px ${C.gold}33` : `0 0 10px ${C.gold}44`,
+                  }} />
+                  <div style={{
+                    position: 'absolute', bottom: '10px', left: '50%', width: '6px', height: '6px',
+                    transform: 'translateX(-50%) rotate(45deg)',
+                    background: C.gold, opacity: dayMode ? 0.5 : 0.4,
+                    boxShadow: dayMode ? `0 0 5px ${C.gold}44` : `0 0 6px ${C.gold}55`,
+                  }} />
+                </div>
+              )}
+
+              {/* Meal author dropdown — same picker as plain verse mode,
+                  shares showInlineMealPicker state. Only when meal on. */}
+              {showTranslation && (
+                <div ref={inlineMealPickerRef} style={{
+                  position: 'relative',
+                  padding: isMobile ? '4px 16px 10px' : '0 20px 10px',
+                  marginBottom: '6px',
+                  borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
+                  zIndex: 1,
+                }}>
+                  <button
+                    onClick={() => setShowInlineMealPicker(p => !p)}
+                    title={language === 'tr' ? 'Çevirmeni değiştir' : 'Change translator'}
+                    style={{
+                      background: 'transparent', border: 'none', padding: 0,
+                      fontSize: '0.82rem',
+                      color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)',
+                      letterSpacing: '0.04em', cursor: 'pointer',
+                      display: 'flex', alignItems: 'center', gap: '6px',
+                      transition: 'color 0.15s', fontFamily: 'inherit',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = C.gold; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)'; }}
+                  >
+                    <span>{language === 'tr' ? 'Meal:' : 'Translation:'} {selectedMealAuthor.label}</span>
+                    <span style={{
+                      fontSize: '0.6rem', opacity: 0.7,
+                      transform: showInlineMealPicker ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.18s', display: 'inline-flex',
+                    }}>▾</span>
+                  </button>
+                  {showInlineMealPicker && (
+                    <div style={{
+                      position: 'absolute', top: 'calc(100% + 4px)',
+                      left: isMobile ? '16px' : '20px',
+                      minWidth: '260px', maxHeight: '360px', overflowY: 'auto',
+                      background: dropC.bg,
+                      backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
+                      border: `1px solid ${dropC.border}`, borderRadius: '10px',
+                      boxShadow: dropC.shadow, zIndex: 20,
+                    }}>
+                      {['tr', 'en'].map((lng, lngIdx) => (
+                        <div key={lng} style={{
+                          padding: '6px 0',
+                          borderTop: lngIdx > 0 ? `1px solid ${dropC.divider}` : 'none',
+                        }}>
+                          <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                            {lng === 'tr' ? 'Türkçe' : 'English'}
+                          </div>
+                          {MEAL_AUTHORS.filter(a => a.lang === lng).map(author => {
+                            const isActive = selectedMealId === author.id;
+                            return (
+                              <button key={author.id}
+                                onClick={() => {
+                                  setSelectedMealId(author.id);
+                                  if (!showTranslation) setShowTranslation(true);
+                                  if (author.lang && author.lang !== language) setLanguage(author.lang);
+                                  setShowInlineMealPicker(false);
+                                }}
+                                style={{
+                                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                                  width: '100%', padding: '7px 14px', border: 'none',
+                                  background: isActive ? dropC.itemBgActive : 'transparent',
+                                  color: isActive ? gold : dropC.text, cursor: 'pointer', fontSize: '0.82rem',
+                                  transition: 'background 0.12s', textAlign: 'left',
+                                }}
+                                onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = dropC.itemBgHover; }}
+                                onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                              >
+                                <span>{author.label}</span>
+                                {isActive && <span style={{ fontSize: '0.7rem', color: gold }}>✓</span>}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Surah opening card — Turkish (left) + Arabic (right)
+                  karşılıklı, same as plain verse mode. */}
+              {surahVerses.length > 0 && (() => {
+                const sn = selectedSurah;
+                const arName = SURAH_NAMES_AR[sn - 1];
+                const trName = SURAH_NAMES_TR[sn - 1];
+                const ayahCount = SURAH_AYAH_COUNTS[sn - 1] || 0;
+                const rukuCount = SURAH_RUKU_COUNTS[sn - 1] || 0;
+                const nuzulRank = SURAH_NUZUL_ORDER[sn - 1] || 0;
+                const isMadani = MADANI_SURAHS.has(sn);
+                const periodAr = isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة';
+                const periodTr = isMadani ? 'Medenî' : 'Mekkî';
+                const periodEn = isMadani ? 'Madani' : 'Makki';
+                const ayahWord = ayahCount === 1 ? 'آيَة'
+                  : ayahCount === 2 ? 'آيَتَان'
+                  : ayahCount <= 10 ? 'آيَات'
+                  : 'آيَة';
+                const bismillahTr = 'Rahmân ve Rahîm olan Allah\'ın adıyla';
+                const bismillahEn = 'In the name of Allah, the Most Gracious, the Most Merciful';
+
+                const arBlock = (
+                  <div>
+                    <div style={{ direction: 'rtl', textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
+                      <div style={{
+                        width: '1.5px', height: isMobile ? '28px' : '36px',
+                        background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
+                        margin: '0 auto',
+                      }} />
+                      <div style={{ height: isMobile ? '32px' : '44px' }} />
+                      <div style={{
+                        fontFamily: currentFont,
+                        fontSize: isMobile ? '0.9rem' : '1.05rem',
+                        color: C.gold, opacity: 0.78,
+                        letterSpacing: '0.02em', lineHeight: 1.4,
+                        marginBottom: isMobile ? '12px' : '18px',
+                      }}>
+                        السُّورَةُ {toArabicNumerals(sn)}
+                      </div>
+                      <div style={{
+                        fontFamily: currentFont,
+                        fontSize: isMobile ? '2.6rem' : '3.4rem',
+                        color: C.gold, lineHeight: 1.1, letterSpacing: '0.02em',
+                        marginBottom: isMobile ? '16px' : '22px',
+                        textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
+                      }}>
+                        {arName}
+                      </div>
+                      <div style={{
+                        fontFamily: currentFont,
+                        fontSize: isMobile ? '0.9rem' : '1.05rem',
+                        color: dayMode ? '#5a4a32' : C.muted,
+                        letterSpacing: '0.04em', lineHeight: 1.5, opacity: 0.92,
+                      }}>
+                        النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
+                      </div>
+                    </div>
+                    {sn !== 9 && sn !== 1 && (
+                      <div style={{
+                        textAlign: 'center', direction: 'rtl',
+                        fontFamily: currentFont,
+                        fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`,
+                        color: C.bismillah,
+                        marginTop: isMobile ? '16px' : '24px',
+                        marginBottom: isMobile ? '20px' : '28px',
+                        lineHeight: 1.9,
+                      }}>
+                        {BISMILLAH_AR}
+                      </div>
+                    )}
+                  </div>
+                );
+
+                const trBlock = (
+                  <div>
+                    <div style={{ textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
+                      <div style={{
+                        width: '1.5px', height: isMobile ? '28px' : '36px',
+                        background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
+                        margin: '0 auto',
+                      }} />
+                      <div style={{ height: isMobile ? '32px' : '44px' }} />
+                      <div style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: isMobile ? '0.65rem' : '0.72rem',
+                        color: C.gold, opacity: 0.78,
+                        letterSpacing: '0.14em', textTransform: 'uppercase',
+                        marginBottom: isMobile ? '10px' : '14px',
+                      }}>
+                        {language === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
+                      </div>
+                      <div style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: isMobile ? '2.4rem' : '3.1rem',
+                        fontWeight: 700,
+                        color: C.gold, lineHeight: 1.1, letterSpacing: '0.04em',
+                        textTransform: 'uppercase',
+                        marginBottom: isMobile ? '8px' : '12px',
+                        textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}20`,
+                      }}>
+                        {trName}
+                      </div>
+                      <div style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: isMobile ? '0.85rem' : '1rem',
+                        fontStyle: 'italic',
+                        color: dayMode ? '#5a4a32' : C.muted,
+                        lineHeight: 1.4,
+                        marginBottom: isMobile ? '14px' : '20px',
+                        opacity: 0.85,
+                      }}>
+                        {language === 'tr' ? `${trName} Sûresi` : `Surah ${trName}`}
+                      </div>
+                      <div style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: isMobile ? '0.7rem' : '0.78rem',
+                        color: dayMode ? '#5a4a32' : C.muted,
+                        letterSpacing: '0.12em', textTransform: 'uppercase',
+                        lineHeight: 1.5, opacity: 0.85,
+                      }}>
+                        {language === 'tr'
+                          ? `NÜZUL ${nuzulRank} · ${periodTr.toUpperCase()} · ${ayahCount} AYET · ${rukuCount} RUKÛ`
+                          : `REVELATION ${nuzulRank} · ${periodEn.toUpperCase()} · ${ayahCount} VERSES · ${rukuCount} RUKŪʿ`}
+                      </div>
+                    </div>
+                    {sn !== 9 && sn !== 1 && (
+                      <div style={{
+                        textAlign: 'center',
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: isMobile ? '0.95rem' : '1.05rem',
+                        fontStyle: 'italic',
+                        color: dayMode ? 'rgba(120,90,40,0.7)' : 'rgba(212,165,116,0.65)',
+                        marginTop: isMobile ? '16px' : '24px',
+                        marginBottom: isMobile ? '20px' : '28px',
+                        lineHeight: 1.6,
+                        padding: '0 12px',
+                      }}>
+                        {language === 'tr' ? bismillahTr : bismillahEn}
+                      </div>
+                    )}
+                  </div>
+                );
+
+                if (showTranslation && !isMobile) {
+                  return (
+                    <div style={{
+                      display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px',
+                      position: 'relative', zIndex: 1,
+                    }}>
+                      {trBlock}
+                      {arBlock}
+                    </div>
+                  );
+                }
+                if (showTranslation && isMobile) {
+                  return (
+                    <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
+                      {arBlock}
+                      {trBlock}
+                    </div>
+                  );
+                }
+                return (
+                  <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
+                    {arBlock}
+                  </div>
+                );
+              })()}
+
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <InterlinearView
+                  surahNumber={selectedSurah}
+                  verses={surahVerses}
+                  dayMode={dayMode}
+                  isMobile={isMobile}
+                  activeVerseId={activeVerse?.id}
+                  onVerseClick={(verse) => { handleSelectVerse(verse); handleAudioToggle(verse); }}
+                  lang={interlinearLang}
+                  arabicFontSize={arabicFontSize}
+                  arabicFont={currentFont}
+                  getTranslation={showTranslation ? getTranslation : null}
+                  mealAuthorLabel={null}
+                  onCompareClick={(s, a) => setCompareVerse({ surah: s, ayah: a })}
+                  sajdaVerses={SAJDA_VERSES}
+                  language={language}
+                />
+              </div>
             </div>
           ) : (
           <div style={{
