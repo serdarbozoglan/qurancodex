@@ -4124,16 +4124,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         )}
 
 
-        {/* Verse mode: bismillah */}
-        {!loading && surahVerses.length > 0 && !bookMode && (
-          <div style={{ padding: isMobile ? '4px 16px 0' : '8px 40px 0' }}>
-            {selectedSurah !== 9 && (
-              <div style={{ textAlign: 'center', padding: isMobile ? '0 8px 6px' : '0 24px 12px', fontFamily: currentFont, fontSize: isMobile ? '1.5rem' : '2.2rem', color: C.bismillah, lineHeight: 2 }}>
-                {BISMILLAH_AR}
-              </div>
-            )}
-          </div>
-        )}
+        {/* Verse mode duplicate bismillah removed — bismillah now lives
+            inside the per-side surah opening cards (Turkish meal on left,
+            Arabic on right). Old centered block here would double-stamp it. */}
 
         {bookMode ? (
           /* ── Book format — all surahs ── */
@@ -5283,24 +5276,34 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 )}
               </div>
             )}
-            {/* Surah opening card — book-mode parity. Vertical gold rule →
-                "Sūratu N" label → hero Arabic name → meta (nüzul · period ·
-                ayah count · rukū) → bismillah. Honors mushaf tradition,
-                shown once at the top of each surah in verse mode. */}
+            {/* Surah opening card — book-mode typography parity, mirrored
+                across both sides of the meal layout:
+                  Left (Turkish): SÛRE N → Latin hero → Türkçe meta →
+                                   bismillah meal
+                  Right (Arabic): Sūratu N → Arabic hero → Arabic meta →
+                                   bismillah
+                When meal is off: Arabic-only, centered (single column).
+                Mobile + meal on: stacked (Arabic first, then Turkish). */}
             {surahVerses.length > 0 && (() => {
               const sn = selectedSurah;
               const arName = SURAH_NAMES_AR[sn - 1];
+              const trName = SURAH_NAMES_TR[sn - 1];
               const ayahCount = SURAH_AYAH_COUNTS[sn - 1] || 0;
               const rukuCount = SURAH_RUKU_COUNTS[sn - 1] || 0;
               const nuzulRank = SURAH_NUZUL_ORDER[sn - 1] || 0;
               const isMadani = MADANI_SURAHS.has(sn);
               const periodAr = isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة';
+              const periodTr = isMadani ? 'Medenî' : 'Mekkî';
+              const periodEn = isMadani ? 'Madani' : 'Makki';
               const ayahWord = ayahCount === 1 ? 'آيَة'
                 : ayahCount === 2 ? 'آيَتَان'
                 : ayahCount <= 10 ? 'آيَات'
                 : 'آيَة';
-              return (
-                <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
+              const bismillahTr = 'Rahmân ve Rahîm olan Allah\'ın adıyla';
+              const bismillahEn = 'In the name of Allah, the Most Gracious, the Most Merciful';
+
+              const arBlock = (
+                <div>
                   <div style={{ direction: 'rtl', textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
                     <div style={{
                       width: '1.5px',
@@ -5349,6 +5352,105 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       {BISMILLAH_AR}
                     </div>
                   )}
+                </div>
+              );
+
+              const trBlock = (
+                <div>
+                  <div style={{ textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
+                    <div style={{
+                      width: '1.5px',
+                      height: isMobile ? '28px' : '36px',
+                      background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
+                      margin: '0 auto',
+                    }} />
+                    <div style={{ height: isMobile ? '32px' : '44px' }} />
+                    <div style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: isMobile ? '0.65rem' : '0.72rem',
+                      color: C.gold, opacity: 0.78,
+                      letterSpacing: '0.14em', textTransform: 'uppercase',
+                      marginBottom: isMobile ? '10px' : '14px',
+                    }}>
+                      {language === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
+                    </div>
+                    <div style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: isMobile ? '2.4rem' : '3.1rem',
+                      fontWeight: 700,
+                      color: C.gold, lineHeight: 1.1, letterSpacing: '0.04em',
+                      textTransform: 'uppercase',
+                      marginBottom: isMobile ? '8px' : '12px',
+                      textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}20`,
+                    }}>
+                      {trName}
+                    </div>
+                    <div style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: isMobile ? '0.85rem' : '1rem',
+                      fontStyle: 'italic',
+                      color: dayMode ? '#5a4a32' : C.muted,
+                      lineHeight: 1.4,
+                      marginBottom: isMobile ? '14px' : '20px',
+                      opacity: 0.85,
+                    }}>
+                      {language === 'tr' ? `${trName} Sûresi` : `Surah ${trName}`}
+                    </div>
+                    <div style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: isMobile ? '0.7rem' : '0.78rem',
+                      color: dayMode ? '#5a4a32' : C.muted,
+                      letterSpacing: '0.12em', textTransform: 'uppercase',
+                      lineHeight: 1.5, opacity: 0.85,
+                    }}>
+                      {language === 'tr'
+                        ? `NÜZUL ${nuzulRank} · ${periodTr.toUpperCase()} · ${ayahCount} AYET · ${rukuCount} RUKÛ`
+                        : `REVELATION ${nuzulRank} · ${periodEn.toUpperCase()} · ${ayahCount} VERSES · ${rukuCount} RUKŪʿ`}
+                    </div>
+                  </div>
+                  {sn !== 9 && sn !== 1 && (
+                    <div style={{
+                      textAlign: 'center',
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: isMobile ? '0.95rem' : '1.05rem',
+                      fontStyle: 'italic',
+                      color: dayMode ? 'rgba(120,90,40,0.7)' : 'rgba(212,165,116,0.65)',
+                      marginTop: isMobile ? '16px' : '24px',
+                      marginBottom: isMobile ? '20px' : '28px',
+                      lineHeight: 1.6,
+                      padding: '0 12px',
+                    }}>
+                      {language === 'tr' ? bismillahTr : bismillahEn}
+                    </div>
+                  )}
+                </div>
+              );
+
+              if (showTranslation && !isMobile) {
+                return (
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '16px',
+                    position: 'relative',
+                    zIndex: 1,
+                  }}>
+                    {trBlock}
+                    {arBlock}
+                  </div>
+                );
+              }
+              if (showTranslation && isMobile) {
+                return (
+                  <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
+                    {arBlock}
+                    {trBlock}
+                  </div>
+                );
+              }
+              return (
+                <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
+                  {arBlock}
                 </div>
               );
             })()}
