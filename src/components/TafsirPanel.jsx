@@ -4,6 +4,30 @@ import { COLORS, FONTS } from '../tokens';
 // Simple per-component cache: { [surahNumber]: data }
 const _cache = new Map();
 
+// Hafs canonical verse counts (Diyanet standard). Used to reject "over-max"
+// anchors — tafsir-internal numbered lists (e.g. Felak has "1-, 2-, ... 12-"
+// inline lexicographic enumeration of word meanings that the scraper
+// mis-captured as ayet anchors past the surah's real ayet count of 5).
+const CANONICAL_VERSE_COUNTS = {
+  1:7,2:286,3:200,4:176,5:120,6:165,7:206,8:75,9:129,10:109,
+  11:123,12:111,13:43,14:52,15:99,16:128,17:111,18:110,19:98,20:135,
+  21:112,22:78,23:118,24:64,25:77,26:227,27:93,28:88,29:69,30:60,
+  31:34,32:30,33:73,34:54,35:45,36:83,37:182,38:88,39:75,40:85,
+  41:54,42:53,43:89,44:59,45:37,46:35,47:38,48:29,49:18,50:45,
+  51:60,52:49,53:62,54:55,55:78,56:96,57:29,58:22,59:24,60:13,
+  61:14,62:11,63:11,64:18,65:12,66:12,67:30,68:52,69:52,70:44,
+  71:28,72:28,73:20,74:56,75:40,76:31,77:50,78:40,79:46,80:42,
+  81:29,82:19,83:36,84:25,85:22,86:17,87:19,88:26,89:30,90:20,
+  91:15,92:21,93:11,94:8,95:8,96:19,97:5,98:8,99:8,100:11,
+  101:11,102:8,103:3,104:9,105:5,106:4,107:7,108:3,109:6,110:3,
+  111:5,112:4,113:5,114:6,
+};
+
+// Minimum char gap between two real anchor offsets. Less than this = scraper
+// captured an inline numbered list item, not a real verse anchor (e.g. Necm
+// ayet 1 and 2 anchors only 14 chars apart in the source).
+const MIN_ANCHOR_GAP = 80;
+
 // Elmalılı scrape'i PDF/HTML görsel satır sonlarını `\n` olarak koruyor.
 // Bu yüzden cümle ortasında "enter" varmış gibi görünüyor. Tek `\n`'i
 // cümle devamı kabul edip boşluğa çevir; paragraf sınırı olan `\n\n`
@@ -103,61 +127,40 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
       .catch(err => { setError(err); setLoading(false); });
   }, [open, surah]);
 
-  // Split tefsir text into chunks at each verse anchor (best-effort; anchors may be sparse)
-  const chunks = useMemo(() => {
+  // FLAT PROSE MODE — anchor-based ayet chunking devre dışı.
+  // Elmalılı scrape verisindeki `verseAnchors` çoğunlukla yanlış: scraper
+  // Elmalılı'nın kendi numaralı analitik listelerini (örn. "1- Halik'in ilmi
+  // vardır, 2- Halik'in kudreti vardır...") ya da inline numaralı liste
+  // maddelerini (Maide'de "1- Meyte, 2- Dem, 3- Domuz eti...") ayet anchor'ı
+  // sandı. "Ayet X tefsiri" badge'i altında yanlış metin gösteren bir UI
+  // kullanıcıya dürüst değil — bu yüzden badge sistemi geçici olarak
+  // kaldırıldı (daha iyi data kaynağı bulununca tekrar devreye girecek).
+  // Şu anda tek yaptığımız: lider sûre başlığını ("3-AL-İ İMRAN:" gibi)
+  // strip etmek (panel header zaten sûre adını gösteriyor) ve metni
+  // paragraflar halinde akıtmak.
+  const paragraphs = useMemo(() => {
     if (!data || !data.text) return [];
-    const anchors = Object.entries(data.verseAnchors || {})
-      .map(([a, o]) => [parseInt(a, 10), o])
-      .filter(([a, o]) => !isNaN(a) && typeof o === 'number')
-      .sort((a, b) => a[1] - b[1]);
-    if (anchors.length === 0) return [{ ayah: null, text: data.text }];
-    const result = [];
-    if (anchors[0][1] > 0) {
-      result.push({ ayah: null, text: data.text.slice(0, anchors[0][1]) });
-    }
-    for (let i = 0; i < anchors.length; i++) {
-      const [ay, off] = anchors[i];
-      const nextOff = i + 1 < anchors.length ? anchors[i + 1][1] : data.text.length;
-      result.push({ ayah: ay, text: data.text.slice(off, nextOff) });
-    }
-    return result;
+    const surahHeaderRe = /^\s*\d+\s*-\s*[\p{L}\p{M}\s\-']+:\s*\n?/u;
+    const cleaned = normalizeTafsirText(data.text).replace(surahHeaderRe, '').trim();
+    return cleaned.split(/\n\n+/g).filter(p => p.trim());
   }, [data]);
-
-  // Scroll to active ayah when it changes or data loads
-  useEffect(() => {
-    if (!ayah || !data || !scrollRef.current) return;
-    // Find nearest anchor <= ayah
-    const anchorKeys = Object.keys(data.verseAnchors || {}).map(n => parseInt(n, 10)).filter(n => !isNaN(n)).sort((a, b) => a - b);
-    const target = [...anchorKeys].reverse().find(n => n <= ayah) || anchorKeys[0];
-    if (!target) return;
-    const el = document.getElementById(`tafsir-ayah-${target}`);
-    if (el) {
-      // Use requestAnimationFrame so DOM is painted before scrolling
-      requestAnimationFrame(() => {
-        const container = scrollRef.current;
-        if (!container) return;
-        const relTop = el.offsetTop - container.offsetTop;
-        container.scrollTo({ top: Math.max(0, relTop - 16), behavior: 'smooth' });
-      });
-    }
-  }, [ayah, data]);
 
   if (!open) return null;
 
   const C = dayMode ? {
-    bg:        '#f5eed9',
-    bgRaised:  'rgba(255,250,235,0.6)',
-    border:    'rgba(100,60,10,0.18)',
-    divider:   'rgba(100,60,10,0.10)',
-    text:      '#3a2410',
-    textSoft:  'rgba(58,36,16,0.82)',
-    muted:     'rgba(100,60,10,0.6)',
-    mutedSoft: 'rgba(100,60,10,0.45)',
-    gold:      '#8b6914',
+    bg:        '#faf6ed',
+    bgRaised:  'rgba(255,250,235,0.55)',
+    border:    'rgba(180,140,80,0.22)',
+    divider:   'rgba(180,140,80,0.14)',
+    text:      '#1f1908',
+    textSoft:  '#3a2814',
+    muted:     '#6a5638',
+    mutedSoft: 'rgba(106,86,56,0.55)',
+    gold:      '#9a7838',
     goldSoft:  '#a8842b',
-    activeBg:  'rgba(212,165,116,0.12)',
-    refBg:     'rgba(212,165,116,0.18)',
-    refBorder: 'rgba(139,105,20,0.25)',
+    activeBg:  'rgba(212,165,116,0.10)',
+    refBg:     'rgba(212,165,116,0.16)',
+    refBorder: 'rgba(180,140,80,0.30)',
     refColor:  '#6e5310',
     quoteColor:'#6e5310',
   } : {
@@ -186,10 +189,6 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
     quoteColor:C.quoteColor,
   };
 
-  // Ayah counter for the per-section index ("1 / N")
-  const ayahChunks = chunks.filter(c => c.ayah != null);
-  const totalAyahs = ayahChunks.length;
-
   return (
     <div
       style={{
@@ -198,7 +197,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
         position: 'fixed',
         top: isMobile ? '52px' : '64px',
         left: 0, bottom: 0,
-        width: isMobile ? '100vw' : '480px',
+        width: isMobile ? '100vw' : '50vw',
         maxWidth: '100vw',
         background: C.bg,
         borderRight: isMobile ? 'none' : `1px solid ${C.border}`,
@@ -265,11 +264,6 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
             letterSpacing: '-0.005em', lineHeight: 1.2,
           }}>
             {data ? data.surahName : '…'}
-            {ayah && (
-              <span style={{ color: C.gold, fontWeight: 600, marginLeft: '8px', fontSize: '0.85rem' }}>
-                {surah}:{ayah}
-              </span>
-            )}
           </div>
         </div>
 
@@ -298,12 +292,13 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
       </div>
 
       {/* ── Body ────────────────────────────────────────────────────────
-          One <article> per chunk. Each ayah-bound chunk gets a circular
-          ayah badge on the left, paragraphs split on \n\n, and inline
-          formatting for Quranic refs / quotes. Active ayah card is
-          accented with a faint gold left bar + slight tint. */}
+          Flat-prose render. Paragraphs split on \n\n with inline formatting
+          for verse refs / quotes. Drop-cap on first paragraph. Elmalılı's
+          own inline numbering ("1- ... 2- ... 3-4- ...") is preserved as
+          natural section markers — we don't promise per-ayet alignment. */}
       <div
         ref={scrollRef}
+        className={dayMode ? 'tafsir-day-scroll' : ''}
         style={{
           flex: 1, overflowY: 'auto',
           padding: '0 20px 48px',
@@ -332,7 +327,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
               : 'Could not load Elmalılı tafsir for this surah.'}
           </div>
         )}
-        {!loading && !error && data && chunks.length === 0 && (
+        {!loading && !error && data && paragraphs.length === 0 && (
           <div style={{ color: C.muted, padding: '40px 0', textAlign: 'center' }}>
             {language === 'tr'
               ? 'Bu sûre için detaylı tefsir kaynaktan getirilemedi.'
@@ -354,123 +349,67 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
           </div>
         )}
 
-        {chunks.map((chunk, idx) => {
-          const isActive = chunk.ayah != null && chunk.ayah === ayah;
-          const isLast = idx === chunks.length - 1;
-          const cleanText = normalizeTafsirText(chunk.text).trim();
-          // Split into paragraphs on the normalized double-newline
-          const paragraphs = cleanText.split(/\n\n+/g).filter(p => p.trim());
-
-          // Position of this ayah-chunk among ayah-chunks (e.g. 3 / 12)
-          const ayahPos = chunk.ayah != null
-            ? ayahChunks.findIndex(c => c.ayah === chunk.ayah) + 1
-            : 0;
-
-          return (
-            <article
-              key={idx}
-              id={chunk.ayah != null ? `tafsir-ayah-${chunk.ayah}` : undefined}
-              style={{
-                position: 'relative',
-                padding: chunk.ayah != null ? '24px 18px 20px' : '20px 4px',
-                marginTop: idx === 0 ? '12px' : '0',
-                borderRadius: '12px',
-                background: isActive ? C.activeBg : 'transparent',
-                borderLeft: isActive ? `3px solid ${C.gold}` : '3px solid transparent',
-                marginLeft: isActive ? '-3px' : 0,
-                transition: 'background 0.25s ease, border-color 0.25s ease',
-              }}
-            >
-              {/* Per-ayah header — circular badge + label + counter */}
-              {chunk.ayah != null && (
-                <header style={{
-                  display: 'flex', alignItems: 'center', gap: '12px',
-                  marginBottom: '14px',
+        {paragraphs.length > 0 && (
+          <div style={{ padding: '20px 4px 0' }}>
+            {paragraphs.map((p, pi) => {
+              const isFirst = pi === 0;
+              // Highlight Elmalılı's own numbered section markers
+              // ("1- ...", "3-4- ...", "12-13- ...") at paragraph starts —
+              // these are his analytical enumeration, not ayet references.
+              const sectionMatch = p.match(/^\s*(\d+(?:-\d+)?)-\s+/);
+              const sectionLabel = sectionMatch ? sectionMatch[1] : null;
+              const body = sectionLabel ? p.slice(sectionMatch[0].length) : p;
+              return (
+                <p key={pi} style={{
+                  margin: '0 0 16px',
+                  fontSize: isFirst ? '0.96rem' : '0.93rem',
+                  color: isFirst ? C.text : C.textSoft,
+                  lineHeight: 1.78,
+                  textAlign: 'justify',
+                  hyphens: 'auto',
+                  wordBreak: 'break-word',
                 }}>
-                  <div style={{
-                    flexShrink: 0,
-                    width: '40px', height: '40px',
-                    borderRadius: '50%',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: isActive
-                      ? (dayMode ? 'rgba(212,165,116,0.28)' : 'rgba(212,165,116,0.20)')
-                      : (dayMode ? 'rgba(212,165,116,0.14)' : 'rgba(212,165,116,0.10)'),
-                    border: `1.5px solid ${isActive ? C.gold : C.gold + '55'}`,
-                    fontSize: '0.95rem',
-                    color: C.gold,
-                    fontWeight: 800,
-                    fontFamily: FONTS.body,
-                    letterSpacing: '-0.01em',
-                    transition: 'all 0.2s',
-                  }}>
-                    {chunk.ayah}
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                  {sectionLabel && (
                     <span style={{
-                      fontSize: '0.65rem', color: C.gold, fontWeight: 700,
-                      letterSpacing: '0.18em', textTransform: 'uppercase',
+                      display: 'inline-block',
+                      marginRight: '8px',
+                      padding: '1px 8px',
+                      fontSize: '0.72rem',
+                      fontWeight: 700,
+                      color: C.gold,
+                      background: dayMode ? 'rgba(212,165,116,0.14)' : 'rgba(212,165,116,0.10)',
+                      border: `1px solid ${C.gold}44`,
+                      borderRadius: '999px',
+                      letterSpacing: '0.02em',
+                      verticalAlign: '2px',
+                      fontFamily: FONTS.body,
                     }}>
-                      {language === 'tr' ? 'Âyet' : 'Verse'} {chunk.ayah}
+                      {sectionLabel}
                     </span>
-                    {totalAyahs > 1 && (
+                  )}
+                  {isFirst && !sectionLabel && body.length > 1 ? (
+                    <>
                       <span style={{
-                        fontSize: '0.62rem', color: C.mutedSoft, fontWeight: 500,
-                        letterSpacing: '0.04em',
+                        float: 'left',
+                        fontSize: '2.4em',
+                        lineHeight: '0.85',
+                        fontWeight: 700,
+                        color: C.gold,
+                        padding: '4px 8px 0 0',
+                        fontFamily: FONTS.display || FONTS.body,
                       }}>
-                        {ayahPos} / {totalAyahs}
+                        {body[0]}
                       </span>
-                    )}
-                  </div>
-                </header>
-              )}
-
-              {/* Paragraphs */}
-              {paragraphs.map((p, pi) => {
-                const isFirst = pi === 0;
-                return (
-                  <p key={pi} style={{
-                    margin: pi === 0 ? '0 0 14px' : '0 0 14px',
-                    fontSize: isFirst ? '0.96rem' : '0.93rem',
-                    color: isFirst ? C.text : C.textSoft,
-                    lineHeight: 1.78,
-                    textAlign: 'justify',
-                    hyphens: 'auto',
-                    wordBreak: 'break-word',
-                  }}>
-                    {/* Drop-cap on first paragraph of each ayah chunk */}
-                    {isFirst && chunk.ayah != null && p.length > 1 ? (
-                      <>
-                        <span style={{
-                          float: 'left',
-                          fontSize: '2.4em',
-                          lineHeight: '0.85',
-                          fontWeight: 700,
-                          color: C.gold,
-                          padding: '4px 8px 0 0',
-                          fontFamily: FONTS.display || FONTS.body,
-                        }}>
-                          {p[0]}
-                        </span>
-                        {renderInline(p.slice(1), inlinePal)}
-                      </>
-                    ) : (
-                      renderInline(p, inlinePal)
-                    )}
-                  </p>
-                );
-              })}
-
-              {/* Subtle divider between ayah-chunks (not after the last one) */}
-              {!isLast && chunk.ayah != null && (
-                <div style={{
-                  marginTop: '12px',
-                  height: '1px',
-                  background: `linear-gradient(to right, ${C.divider} 0%, ${C.divider} 50%, transparent 100%)`,
-                }} />
-              )}
-            </article>
-          );
-        })}
+                      {renderInline(body.slice(1), inlinePal)}
+                    </>
+                  ) : (
+                    renderInline(body, inlinePal)
+                  )}
+                </p>
+              );
+            })}
+          </div>
+        )}
 
         {/* Source attribution */}
         {data?.sourceUrl && !loading && !error && (

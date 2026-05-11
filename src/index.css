@@ -97,6 +97,20 @@ body {
   background: rgba(212, 165, 116, 0.5);
 }
 
+/* Tefsir panel day-mode scrollbar — cream track instead of cosmic-black */
+.tafsir-day-scroll {
+  scrollbar-color: rgba(154, 120, 56, 0.35) rgba(250, 246, 237, 0.6);
+}
+.tafsir-day-scroll::-webkit-scrollbar-track {
+  background: rgba(250, 246, 237, 0.6);
+}
+.tafsir-day-scroll::-webkit-scrollbar-thumb {
+  background: rgba(154, 120, 56, 0.32);
+}
+.tafsir-day-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(154, 120, 56, 0.55);
+}
+
 /* ---- Glassmorphism ---- */
 .glass-card {
   background: rgba(255, 255, 255, 0.04);
