@@ -5105,7 +5105,65 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               />
             </div>
           ) : (
-          <div style={{ padding: isMobile ? '8px 0' : '16px 24px', display: 'flex', flexDirection: 'column', gap: '0' }}>
+          <div style={{
+            padding: isMobile ? '8px 0' : '16px 24px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0',
+            // Relative wrapper hosts the central binding-seam divider that
+            // mirrors book mode's cilt boşluğu separating meal and Arabic.
+            position: 'relative',
+          }}>
+            {/* Cilt boşluğu — 3-layer mushaf binding-seam divider centered
+                between the Turkish meal (left) and Arabic verses (right).
+                Mirrors book mode treatment for unified mushaf experience.
+                Only rendered when meal is on + desktop (verse rows are
+                stacked, not split, on mobile or meal-off). */}
+            {showTranslation && !isMobile && (
+              <div aria-hidden style={{
+                position: 'absolute',
+                left: '50%',
+                top: '12px',
+                bottom: '12px',
+                width: '18px',
+                transform: 'translateX(-50%)',
+                pointerEvents: 'none',
+                zIndex: 0,
+              }}>
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  background: dayMode
+                    ? 'linear-gradient(to right, rgba(120,90,40,0) 0%, rgba(120,90,40,0.06) 28%, rgba(120,90,40,0.11) 50%, rgba(120,90,40,0.06) 72%, rgba(120,90,40,0) 100%)'
+                    : 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.20) 28%, rgba(0,0,0,0.32) 50%, rgba(0,0,0,0.20) 72%, rgba(0,0,0,0) 100%)',
+                }} />
+                <div style={{
+                  position: 'absolute', top: 0, bottom: 0, left: '50%', width: '1px',
+                  transform: 'translateX(-50%)',
+                  background: dayMode
+                    ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.55) 6%, rgba(154,120,56,0.55) 94%, transparent 100%)'
+                    : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.45) 6%, rgba(212,165,116,0.45) 94%, transparent 100%)',
+                }} />
+                <div style={{
+                  position: 'absolute', top: '10px', left: '50%', width: '6px', height: '6px',
+                  transform: 'translateX(-50%) rotate(45deg)',
+                  background: C.gold, opacity: dayMode ? 0.5 : 0.4,
+                  boxShadow: dayMode ? `0 0 5px ${C.gold}44` : `0 0 6px ${C.gold}55`,
+                }} />
+                <div style={{
+                  position: 'absolute', top: '50%', left: '50%', width: '9px', height: '9px',
+                  transform: 'translate(-50%, -50%) rotate(45deg)',
+                  background: dayMode ? 'rgba(154,120,56,0.22)' : 'rgba(212,165,116,0.18)',
+                  border: `1px solid ${dayMode ? 'rgba(154,120,56,0.85)' : 'rgba(212,165,116,0.75)'}`,
+                  boxShadow: dayMode ? `0 0 8px ${C.gold}33` : `0 0 10px ${C.gold}44`,
+                }} />
+                <div style={{
+                  position: 'absolute', bottom: '10px', left: '50%', width: '6px', height: '6px',
+                  transform: 'translateX(-50%) rotate(45deg)',
+                  background: C.gold, opacity: dayMode ? 0.5 : 0.4,
+                  boxShadow: dayMode ? `0 0 5px ${C.gold}44` : `0 0 6px ${C.gold}55`,
+                }} />
+              </div>
+            )}
             {/* Attribution — interactive translator picker (book-mode parity).
                 Click to open inline dropdown with TR + EN authors; shares
                 `showInlineMealPicker` state with book mode so behaviour stays
@@ -5225,6 +5283,75 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 )}
               </div>
             )}
+            {/* Surah opening card — book-mode parity. Vertical gold rule →
+                "Sūratu N" label → hero Arabic name → meta (nüzul · period ·
+                ayah count · rukū) → bismillah. Honors mushaf tradition,
+                shown once at the top of each surah in verse mode. */}
+            {surahVerses.length > 0 && (() => {
+              const sn = selectedSurah;
+              const arName = SURAH_NAMES_AR[sn - 1];
+              const ayahCount = SURAH_AYAH_COUNTS[sn - 1] || 0;
+              const rukuCount = SURAH_RUKU_COUNTS[sn - 1] || 0;
+              const nuzulRank = SURAH_NUZUL_ORDER[sn - 1] || 0;
+              const isMadani = MADANI_SURAHS.has(sn);
+              const periodAr = isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة';
+              const ayahWord = ayahCount === 1 ? 'آيَة'
+                : ayahCount === 2 ? 'آيَتَان'
+                : ayahCount <= 10 ? 'آيَات'
+                : 'آيَة';
+              return (
+                <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
+                  <div style={{ direction: 'rtl', textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
+                    <div style={{
+                      width: '1.5px',
+                      height: isMobile ? '28px' : '36px',
+                      background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
+                      margin: '0 auto',
+                    }} />
+                    <div style={{ height: isMobile ? '32px' : '44px' }} />
+                    <div style={{
+                      fontFamily: currentFont,
+                      fontSize: isMobile ? '0.9rem' : '1.05rem',
+                      color: C.gold, opacity: 0.78,
+                      letterSpacing: '0.02em', lineHeight: 1.4,
+                      marginBottom: isMobile ? '12px' : '18px',
+                    }}>
+                      السُّورَةُ {toArabicNumerals(sn)}
+                    </div>
+                    <div style={{
+                      fontFamily: currentFont,
+                      fontSize: isMobile ? '2.6rem' : '3.4rem',
+                      color: C.gold, lineHeight: 1.1, letterSpacing: '0.02em',
+                      marginBottom: isMobile ? '16px' : '22px',
+                      textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
+                    }}>
+                      {arName}
+                    </div>
+                    <div style={{
+                      fontFamily: currentFont,
+                      fontSize: isMobile ? '0.9rem' : '1.05rem',
+                      color: dayMode ? '#5a4a32' : C.muted,
+                      letterSpacing: '0.04em', lineHeight: 1.5, opacity: 0.92,
+                    }}>
+                      النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
+                    </div>
+                  </div>
+                  {sn !== 9 && sn !== 1 && (
+                    <div style={{
+                      textAlign: 'center', direction: 'rtl',
+                      fontFamily: currentFont,
+                      fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`,
+                      color: C.bismillah,
+                      marginTop: isMobile ? '16px' : '24px',
+                      marginBottom: isMobile ? '20px' : '28px',
+                      lineHeight: 1.9,
+                    }}>
+                      {BISMILLAH_AR}
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
             {surahVerses.map((verse, verseIdx) => {
               const vt = getTranslation(verse);
               const isActive = activeVerse?.id === verse.id;
@@ -5309,19 +5436,39 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       height: `${arLineHeightRem}rem`,
                       flexShrink: 0,
                     }}>
-                    <span style={{
-                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                      width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                      borderRadius: '50%', flexShrink: 0,
-                      border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
-                      background: dayMode
-                        ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
-                        : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                      color: C.gold,
-                      fontSize: verse.ayah >= 100 ? (isMobile ? '0.58rem' : '0.66rem') : verse.ayah >= 10 ? (isMobile ? '0.64rem' : '0.74rem') : (isMobile ? '0.72rem' : '0.84rem'),
-                      fontFamily: currentFont,
-                      fontWeight: dayMode ? 600 : 400,
-                    }}>{verse.ayah}</span>
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); setCompareVerse({ surah: verse.surah, ayah: verse.ayah }); }}
+                      title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
+                      aria-label={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.transform = 'scale(1.08)';
+                        e.currentTarget.style.borderColor = `${C.gold}`;
+                        e.currentTarget.style.boxShadow = `0 0 0 3px ${C.gold}22`;
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                        e.currentTarget.style.borderColor = `${C.gold}${isActive ? 'cc' : '88'}`;
+                        e.currentTarget.style.boxShadow = 'none';
+                      }}
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                        width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
+                        borderRadius: '50%', flexShrink: 0,
+                        border: `1.5px solid ${isSajda ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : `${C.gold}${isActive ? 'cc' : '88'}`}`,
+                        background: isSajda
+                          ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.20) 0%, rgba(26,122,76,0.06) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
+                          : (dayMode
+                              ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
+                              : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)'),
+                        color: isSajda ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.gold,
+                        fontSize: verse.ayah >= 100 ? (isMobile ? '0.58rem' : '0.66rem') : verse.ayah >= 10 ? (isMobile ? '0.64rem' : '0.74rem') : (isMobile ? '0.72rem' : '0.84rem'),
+                        fontFamily: currentFont,
+                        fontWeight: dayMode ? 600 : 400,
+                        cursor: 'pointer',
+                        padding: 0,
+                        transition: 'transform 0.15s, border-color 0.15s, box-shadow 0.15s',
+                      }}>{verse.ayah}</button>
                     </div>
                     )}
                     <div style={{ flex: 1, paddingTop: showTranslation ? `${trPaddingTopRem}rem` : 0 }}>
