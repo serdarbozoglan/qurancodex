@@ -1169,20 +1169,26 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     };
   }, [drawMode]);
 
-  // Inline meal picker — close on Esc or click outside.
+  // Inline meal picker — close on Esc or click outside. Uses both
+  // mousedown and touchstart in the CAPTURE phase so the close runs
+  // before any sibling pointer handler can swallow the event. Touch
+  // handler ensures mobile click-outside works too.
   useEffect(() => {
     if (!showInlineMealPicker) return;
     const onKey = (e) => { if (e.key === 'Escape') setShowInlineMealPicker(false); };
     const onDoc = (e) => {
-      if (inlineMealPickerRef.current && !inlineMealPickerRef.current.contains(e.target)) {
+      const node = inlineMealPickerRef.current;
+      if (!node || !node.contains(e.target)) {
         setShowInlineMealPicker(false);
       }
     };
     window.addEventListener('keydown', onKey);
-    document.addEventListener('mousedown', onDoc);
+    document.addEventListener('mousedown', onDoc, true);
+    document.addEventListener('touchstart', onDoc, true);
     return () => {
       window.removeEventListener('keydown', onKey);
-      document.removeEventListener('mousedown', onDoc);
+      document.removeEventListener('mousedown', onDoc, true);
+      document.removeEventListener('touchstart', onDoc, true);
     };
   }, [showInlineMealPicker]);
 
@@ -4309,6 +4315,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </button>
 
                     {showInlineMealPicker && (
+                      <div
+                        onClick={() => setShowInlineMealPicker(false)}
+                        style={{ position: 'fixed', inset: 0, zIndex: 18, background: 'transparent' }}
+                      />
+                    )}
+                    {showInlineMealPicker && (
                       <div style={{
                         position: 'absolute',
                         top: 'calc(100% + 4px)',
@@ -5182,6 +5194,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }}>▾</span>
                   </button>
                   {showInlineMealPicker && (
+                    <div
+                      onClick={() => setShowInlineMealPicker(false)}
+                      style={{ position: 'fixed', inset: 0, zIndex: 18, background: 'transparent' }}
+                    />
+                  )}
+                  {showInlineMealPicker && (
                     <div style={{
                       position: 'absolute', top: 'calc(100% + 4px)',
                       left: isMobile ? '16px' : '20px',
@@ -5531,6 +5549,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}>▾</span>
                 </button>
 
+                {showInlineMealPicker && (
+                  <div
+                    onClick={() => setShowInlineMealPicker(false)}
+                    style={{ position: 'fixed', inset: 0, zIndex: 18, background: 'transparent' }}
+                  />
+                )}
                 {showInlineMealPicker && (
                   <div style={{
                     position: 'absolute',
