@@ -415,7 +415,15 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
           ].map(cta => (
             <button
               key={cta.event}
-              onClick={() => { onClose(); window.dispatchEvent(new CustomEvent(cta.event, cta.detail ? { detail: cta.detail } : undefined)); }}
+              onClick={() => {
+                // Preserve the current word so Navbar can re-open this popover
+                // when the user backs out of the target overlay (parity with
+                // returnToConcept / returnToWow patterns, CLAUDE.md §13.12).
+                const wordRestore = { word, surah, ayah };
+                const detail = { ...(cta.detail || {}), returnToWord: true, wordRestore };
+                onClose();
+                window.dispatchEvent(new CustomEvent(cta.event, { detail }));
+              }}
               style={{
                 fontSize: '0.7rem',
                 fontWeight: 600,

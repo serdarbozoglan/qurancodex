@@ -201,6 +201,10 @@ export default function Navbar() {
   const kadinlarBackRef = useRef(null); // set by KadinlarAtlasi when theme filter is active
   const ilkSonBackRef   = useRef(null); // set by IlkSonKelimeler when category filter is active
   const conceptRestoreRef = useRef(null); // stores concept state to restore after VerseGraph closes
+  // Word-detail return pattern (CLAUDE.md §13.12 parity): when WordPopover
+  // launches Verse Graph / Concept Graph / Heatmap, store the word data
+  // here so back navigation can re-open the popover where the user was.
+  const wordRestoreRef = useRef(null);
   const [readingOpen, setReadingOpen]   = useState(
     () => localStorage.getItem('qurancodex_reading_open') === 'true'
   );
@@ -271,6 +275,7 @@ export default function Navbar() {
       setGraphReturnToWow(e.detail?.returnToWow || false);
       setGraphReturnToConcept(e.detail?.returnToConcept || false);
       conceptRestoreRef.current = e.detail?.conceptRestore ?? null;
+      if (e.detail?.returnToWord) wordRestoreRef.current = e.detail.wordRestore || null;
       setGraphOpen(true);
     };
     window.addEventListener('openVerseGraph', handler);
@@ -361,9 +366,16 @@ export default function Navbar() {
       ['openDogaAtlasi',       () => setDogaOpen(true)],
       ['openKiyametSahneleri', () => setKiyametOpen(true)],
       ['openWowFacts',         () => setWowOpen(true)],
-      ['openConceptGraph',     () => { conceptRestoreRef.current = null; setConceptOpen(true); }],
+      ['openConceptGraph',     (e) => {
+        conceptRestoreRef.current = null;
+        if (e?.detail?.returnToWord) wordRestoreRef.current = e.detail.wordRestore || null;
+        setConceptOpen(true);
+      }],
       ['openProphetAtlas',     () => setProphetOpen(true)],
-      ['openHeatmap',          () => setHeatmapOpen(true)],
+      ['openHeatmap',          (e) => {
+        if (e?.detail?.returnToWord) wordRestoreRef.current = e.detail.wordRestore || null;
+        setHeatmapOpen(true);
+      }],
       ['openRevelationOrder',  () => setRevelationOpen(true)],
       ['openEsmaFrekans',      () => setEsmaOpen(true)],
       ['openAddresseeSystem',  () => setAddresseeOpen(true)],
@@ -445,7 +457,7 @@ export default function Navbar() {
       // açılmışsa, Back tuşu üstteki overlay'i kapatmalı; ReadingMode arkada
       // sürah konumunu koruyarak kalmalı.
       if (graphOpen) {
-        if (graphBackRef.current && !graphReturnToConcept && !graphReturnToWow) {
+        if (graphBackRef.current && !graphReturnToConcept && !graphReturnToWow && !wordRestoreRef.current) {
           graphBackRef.current();                          // VerseGraph handles internally
           window.history.pushState({ overlay: true }, ''); // restore history entry for graph
         } else {
@@ -456,16 +468,36 @@ export default function Navbar() {
           } else if (graphReturnToConcept) {
             setGraphReturnToConcept(false);
             setConceptOpen(true);
+          } else if (wordRestoreRef.current) {
+            const wr = wordRestoreRef.current;
+            wordRestoreRef.current = null;
+            window.dispatchEvent(new CustomEvent('openWordPopover', { detail: wr }));
           }
         }
         return;
       }
-      if (heatmapOpen)    { setHeatmapOpen(false);    return; }
+      if (heatmapOpen)    {
+        setHeatmapOpen(false);
+        if (wordRestoreRef.current) {
+          const wr = wordRestoreRef.current;
+          wordRestoreRef.current = null;
+          window.dispatchEvent(new CustomEvent('openWordPopover', { detail: wr }));
+        }
+        return;
+      }
       if (revelationOpen) { setRevelationOpen(false); return; }
       if (duaOpen)        { setDuaOpen(false);        return; }
       if (wowOpen)        { setWowOpen(false);         return; }
       if (prophetOpen)    { setProphetOpen(false);     return; }
-      if (conceptOpen)    { setConceptOpen(false);       return; }
+      if (conceptOpen)    {
+        setConceptOpen(false);
+        if (wordRestoreRef.current) {
+          const wr = wordRestoreRef.current;
+          wordRestoreRef.current = null;
+          window.dispatchEvent(new CustomEvent('openWordPopover', { detail: wr }));
+        }
+        return;
+      }
       if (kissaOpen)      { setKissaOpen(false);         return; }
       if (comparatorOpen) { setComparatorOpen(false);    return; }
       if (commandsOpen)   { setCommandsOpen(false);       return; }

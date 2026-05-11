@@ -906,6 +906,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // Cache: load once per surah, keep in memory.
   const [corpusBySurah, setCorpusBySurah] = useState({});
   const [activeWord, setActiveWord] = useState(null);
+
+  // Back-from-overlay → re-open WordPopover. When the user clicks one of
+  // the 3 WordPopover CTAs (Kavram Ağı / Kelime Sıklığı / Ayet Haritası),
+  // WordPopover closes and the target overlay opens. Navbar tracks the
+  // word data; when the target overlay closes, it dispatches this event
+  // so the popover comes back where the user was (CLAUDE.md §13.12).
+  useEffect(() => {
+    const handler = (e) => {
+      const d = e.detail;
+      if (!d || !d.word) return;
+      setActiveWord({ word: d.word, surah: d.surah, ayah: d.ayah });
+    };
+    window.addEventListener('openWordPopover', handler);
+    return () => window.removeEventListener('openWordPopover', handler);
+  }, []);
+
   useEffect(() => {
     if (!selectedSurah || corpusBySurah[selectedSurah]) return;
     const path = selectedSurah === 1 ? '/corpus/fatiha.json' : `/corpus/${selectedSurah}.json`;
