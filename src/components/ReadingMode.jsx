@@ -4107,13 +4107,113 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 rendered inline in the items loop below — one before each surah on
                 the page, so multi-surah pages show titles at the correct position. */}
 
-            <div style={{ display: 'grid', gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr', gap: '0' }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr',
+              // Cilt boşluğu gap when meal is on + desktop, evoking a
+              // facing-page Turkish/Arabic translation book where the two
+              // languages meet at the binding. Wide enough for the
+              // 3-layer divider (18px) with ~35px clear on each side.
+              gap: showTranslation && !isMobile ? '88px' : '0',
+              // Relative wrapper so the divider can be absolutely
+              // positioned at the binding gutter between the two columns.
+              position: 'relative',
+            }}>
+              {/* Cilt boşluğu divider — 3-layer mushaf binding-seam
+                  treatment separating the Turkish meal from the Arabic
+                  mushaf text:
+                  (1) horizontal valley shadow gradient = page-fold depth;
+                  (2) centered gold hairline = binding seam stitch line;
+                  (3) gold-diamond ornaments at top/midpoint/bottom = mushaf
+                      chapter-cap decorations framing the seam.
+                  Only renders when meal is on + desktop. */}
+              {showTranslation && !isMobile && (
+                <div aria-hidden style={{
+                  position: 'absolute',
+                  left: '50%',
+                  top: '0',
+                  bottom: '0',
+                  width: '18px',
+                  transform: 'translateX(-50%)',
+                  pointerEvents: 'none',
+                  zIndex: 0,
+                }}>
+                  {/* Layer 1 — valley shadow (page-fold depth) */}
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: dayMode
+                      ? 'linear-gradient(to right, rgba(120,90,40,0) 0%, rgba(120,90,40,0.06) 28%, rgba(120,90,40,0.11) 50%, rgba(120,90,40,0.06) 72%, rgba(120,90,40,0) 100%)'
+                      : 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.20) 28%, rgba(0,0,0,0.32) 50%, rgba(0,0,0,0.20) 72%, rgba(0,0,0,0) 100%)',
+                  }} />
+                  {/* Layer 2 — gold hairline (binding seam) */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '0',
+                    bottom: '0',
+                    left: '50%',
+                    width: '1px',
+                    transform: 'translateX(-50%)',
+                    background: dayMode
+                      ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.55) 6%, rgba(154,120,56,0.55) 94%, transparent 100%)'
+                      : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.45) 6%, rgba(212,165,116,0.45) 94%, transparent 100%)',
+                  }} />
+                  {/* Layer 3a — top diamond ornament */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '10px',
+                    left: '50%',
+                    width: '6px',
+                    height: '6px',
+                    transform: 'translateX(-50%) rotate(45deg)',
+                    background: C.gold,
+                    opacity: dayMode ? 0.5 : 0.4,
+                    boxShadow: dayMode
+                      ? `0 0 5px ${C.gold}44`
+                      : `0 0 6px ${C.gold}55`,
+                  }} />
+                  {/* Layer 3b — center diamond ornament (outlined anchor) */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    width: '9px',
+                    height: '9px',
+                    transform: 'translate(-50%, -50%) rotate(45deg)',
+                    background: dayMode
+                      ? `rgba(154,120,56,0.22)`
+                      : `rgba(212,165,116,0.18)`,
+                    border: `1px solid ${dayMode ? 'rgba(154,120,56,0.85)' : 'rgba(212,165,116,0.75)'}`,
+                    boxShadow: dayMode
+                      ? `0 0 8px ${C.gold}33`
+                      : `0 0 10px ${C.gold}44`,
+                  }} />
+                  {/* Layer 3c — bottom diamond ornament */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '10px',
+                    left: '50%',
+                    width: '6px',
+                    height: '6px',
+                    transform: 'translateX(-50%) rotate(45deg)',
+                    background: C.gold,
+                    opacity: dayMode ? 0.5 : 0.4,
+                    boxShadow: dayMode
+                      ? `0 0 5px ${C.gold}44`
+                      : `0 0 6px ${C.gold}55`,
+                  }} />
+                </div>
+              )}
               {/* Left: Translation — hidden when Meal is off */}
               {showTranslation && (
                 <div style={{
                   order: isMobile ? 2 : 1,
-                  paddingRight: isMobile ? '0' : '32px',
-                  borderRight: isMobile ? 'none' : `1px solid ${dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.22)'}`,
+                  // Internal right padding kept small — the 88px grid gap +
+                  // 3-layer divider handles the visual separation from the
+                  // Arabic column. Old hairline borderRight removed to avoid
+                  // doubling with the new gold-seam divider.
+                  paddingRight: '0',
+                  borderRight: 'none',
                   borderTop: isMobile ? `1px solid ${dayMode ? 'rgba(100,60,10,0.15)' : 'rgba(212,165,116,0.15)'}` : 'none',
                   // Reserve space for the absolute-positioned inline meal picker
                   // (translator label + chevron). When the page starts with a
@@ -4506,23 +4606,157 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </div>
               )}
 
-              {/* Right: Arabic continuous */}
-              <div style={{
-                order: isMobile ? 1 : 2,
-                paddingLeft: showTranslation && !isMobile ? '36px' : '0',
-                direction: 'rtl',
-                fontFamily: currentFont,
-                fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
-                lineHeight: isMobile ? 2.0 : 2.3,
-                color: C.arabic,
-                textAlign: 'justify',
-              }}>
+              {/* Right: Arabic continuous.
+                  Page-level juz/hizb marker is hoisted out of the flow so it
+                  doesn't shorten any verse line. We reserve a right-side
+                  gutter (mushaf outer margin) and position the medallion
+                  absolutely inside it. */}
+              <div style={(() => {
+                const firstPage = versesOnPage[0]?.page;
+                const hasMarker = !!firstPage && firstPage !== 1 && (
+                  JUZ_PAGES.indexOf(firstPage) > 0 ||
+                  HIZB_PAGES.indexOf(firstPage) > 0
+                );
+                return {
+                  order: isMobile ? 1 : 2,
+                  position: 'relative',
+                  // Internal left padding zeroed — the 88px grid gap +
+                  // 3-layer divider provides all the breathing room from
+                  // the meal column. Mobile keeps 0 (stacked layout).
+                  paddingLeft: '0',
+                  // Compact gutter sized to the medallion + a touch of
+                  // breathing room. Mushaf outer margin in miniature.
+                  paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : '0',
+                  direction: 'rtl',
+                  fontFamily: currentFont,
+                  fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
+                  lineHeight: isMobile ? 2.0 : 2.3,
+                  color: C.arabic,
+                  textAlign: 'justify',
+                };
+              })()}>
+                {/* Page-level Cüz/Hizb medallion — absolute-positioned in the
+                    right-side gutter so verse lines remain full width. Single
+                    hairline ring, navbar-amber saturation, page-corner anchor
+                    (top-right, not floating). Click jumps to a confirmation /
+                    info hint via native tooltip. Only appears when this page
+                    starts a juz or hizb (Madinah mushaf design aligns
+                    boundaries with page starts). */}
+                {(() => {
+                  const firstPage = versesOnPage[0]?.page;
+                  if (!firstPage || firstPage === 1) return null;
+                  const juzIdx = JUZ_PAGES.indexOf(firstPage);
+                  const hizbIdx = HIZB_PAGES.indexOf(firstPage);
+                  const isJuz = juzIdx > 0;
+                  const num = isJuz ? juzIdx : (hizbIdx > 0 ? hizbIdx : 0);
+                  if (!num) return null;
+                  const arLabel = isJuz ? 'الجُزْء' : 'الحِزْب';
+                  // Mushaf-proportionate medallion. Sized to remain ~1.6x
+                  // ayah-badge diameter (proportional, not dominant) while
+                  // still accommodating the two-line Arabic content
+                  // (الجُزْء / الحِزْب + numeral).
+                  const size = isMobile ? 40 : 48;
+                  // Tooltip — juz range from JUZ_START table (start..nextStart-1).
+                  // For hizb we keep it short ("Hizb N") since hizb end requires
+                  // page-level resolution we don't pre-compute here.
+                  const tooltip = (() => {
+                    if (!isJuz) {
+                      return language === 'tr' ? `Hizb ${num}` : `Hizb ${num}`;
+                    }
+                    const [sStart, aStart] = JUZ_START[num] || [];
+                    const next = JUZ_START[num + 1];
+                    const sName = (arr) => arr[sStart - 1];
+                    const startLabel = `${sName(SURAH_NAMES_TR)} ${sStart}:${aStart}`;
+                    if (!next) {
+                      const endName = `${sName(SURAH_NAMES_TR)}`;
+                      return language === 'tr'
+                        ? `Cüz ${num} — ${startLabel} → sonuna kadar`
+                        : `Juz ${num} — ${startLabel} → end`;
+                    }
+                    const [sEnd, aEnd] = next;
+                    // end = verse before next juz start. If next juz starts at
+                    // surah X ayah 1, prev juz ends at end of surah X-1. We
+                    // approximate by showing "ends just before [next start]".
+                    const endLabel = aEnd === 1
+                      ? `${SURAH_NAMES_TR[sEnd - 2]} sonu`
+                      : `${SURAH_NAMES_TR[sEnd - 1]} ${sEnd}:${aEnd - 1}`;
+                    return language === 'tr'
+                      ? `Cüz ${num} — ${startLabel} → ${endLabel}`
+                      : `Juz ${num} — ${startLabel} → ${endLabel}`;
+                  })();
+                  return (
+                    <span
+                      role="img"
+                      aria-label={tooltip}
+                      title={tooltip}
+                      style={{
+                        position: 'absolute',
+                        // Align the medallion's optical center with the first
+                        // Arabic line's mid-baseline. lineHeight = 2.3 inflates
+                        // the line box well above the glyphs' optical center,
+                        // so a small downward nudge balances the icon with
+                        // the first verse instead of floating above it.
+                        top: isMobile ? '6px' : '10px',
+                        right: isMobile ? '-2px' : '-4px',
+                        width: `${size}px`,
+                        height: `${size}px`,
+                        borderRadius: '50%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        // Asymmetric vertical padding — Arabic glyphs render in
+                        // the upper half of their line box (ascender-heavy:
+                        // hamza, fatha, sukun extend up), which pushes the
+                        // optical center above the geometric center. We add
+                        // top padding to nudge the content down so the visible
+                        // glyphs sit at the medallion's true visual center.
+                        paddingTop: isMobile ? '4px' : '6px',
+                        paddingBottom: isMobile ? '1px' : '1px',
+                        gap: '0',
+                        color: C.gold,
+                        // Single tinted fill matching navbar amber saturation.
+                        // Juz slightly stronger than hizb (30 vs 60 units).
+                        background: dayMode
+                          ? (isJuz ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.10)')
+                          : (isJuz ? 'rgba(212,165,116,0.12)' : 'rgba(212,165,116,0.07)'),
+                        // Hairline border at full navbar-amber tone.
+                        border: `1.5px solid ${C.gold}${isJuz ? 'cc' : '88'}`,
+                        direction: 'rtl',
+                        cursor: 'help',
+                        zIndex: 1,
+                      }}
+                    >
+                      <span style={{
+                        fontFamily: currentFont,
+                        fontSize: isMobile ? '0.86rem' : '1.02rem',
+                        lineHeight: 1,
+                        opacity: 0.95,
+                        letterSpacing: 0,
+                      }}>{arLabel}</span>
+                      <span style={{
+                        fontFamily: currentFont,
+                        fontSize: isMobile ? '1.15rem' : '1.35rem',
+                        fontWeight: 500,
+                        lineHeight: 1,
+                        // Negative top margin pulls the numeral closer to the
+                        // word above; KFGQPC numerals have wide top whitespace
+                        // in their line box that otherwise opens a gap.
+                        marginTop: '-2px',
+                      }}>{toArabicNumerals(num)}</span>
+                    </span>
+                  );
+                })()}
                 {(() => {
                   const items = [];
                   let prevSurah = null;
                   for (const [idx, verse] of versesOnPage.entries()) {
                     const isTransition = prevSurah !== null && verse.surah !== prevSurah;
                     const isFirstSurahStart = idx === 0 && verse.ayah === 1;
+                    // Note: Cüz/hizb markers are hoisted out of this flow and
+                    // rendered as an absolutely-positioned side medallion (see
+                    // the page-level marker block above the items loop). This
+                    // keeps verse line breaks identical to a printed mushaf.
                     if (isTransition || isFirstSurahStart) {
                       items.push({ type: 'surahHeader', surah: verse.surah });
                     }
