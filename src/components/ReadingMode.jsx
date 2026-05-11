@@ -45,6 +45,11 @@ function cleanArabic(str) {
     // (örn. Âl-i İmrân 3:4 'al-Furqānộ'). CLAUDE.md §13.15 strip listesi gereği temizleniyor.
     // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9) da strip.
     .replace(/[\u06DC\u06DD\u06DE\u06E9]/g, '')
+    // Leeds Quranic Arabic Corpus encoding artifacts — literal ASCII
+    // markers (@, #, _) embedded in word strings for morphological
+    // boundaries / sajda hints. They have no Arabic typography meaning;
+    // strip so words like 'كَفَرُوا@' and 'بِ_#آيَاتِ' render cleanly.
+    .replace(/[@#_]/g, '')
     // Decomposed alef-with-maddah: U+0627 (ا) + U+0670 (ٰ) → U+0622 (آ).
     // API verisinde 'بِاٰيَاتِ' (Âl-i İmrân 3:4) gibi kelimelerde dagger
     // alef bir alef'in üstüne yerleştiriliyor; bu non-standart encoding,
@@ -806,7 +811,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
             <span style={{
               fontSize: '0.6rem', padding: '2px 6px', borderRadius: '4px',
               background: 'rgba(46,204,113,0.12)', border: '1px solid rgba(46,204,113,0.3)',
-              color: '#2ecc71', fontFamily: "'Amiri', serif", letterSpacing: '0.02em',
+              color: '#2ecc71', fontFamily: currentFont, letterSpacing: '0.02em',
             }}>
               {language === 'tr' ? 'Secde' : 'Sajda'} ۩
             </span>
@@ -845,7 +850,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
                   }}
                   title={w.en || ''}
                 >
-                  {w.ar}
+                  {cleanArabic(w.ar)}
                 </span>
                 {i < corpusWords.length - 1 ? ' ' : ''}
               </span>
@@ -4556,7 +4561,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
                                 color: C.gold,
                                 fontSize: verse.ayah >= 100 ? (isMobile ? '0.58rem' : '0.66rem') : verse.ayah >= 10 ? (isMobile ? '0.64rem' : '0.74rem') : (isMobile ? '0.72rem' : '0.84rem'),
-                                fontFamily: "'Amiri', serif",
+                                fontFamily: currentFont,
                                 fontWeight: dayMode ? 600 : 400,
                                 cursor: 'pointer',
                                 padding: 0,
@@ -4594,7 +4599,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
                                     border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
                                     color: dayMode ? COLORS.emerald : COLORS.softEmerald,
-                                    fontFamily: "'Amiri', serif",
+                                    fontFamily: currentFont,
                                     fontStyle: 'normal',
                                   }}>
                                     {language === 'tr' ? 'Secde' : 'Sajda'} ۩
@@ -5255,7 +5260,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }}>
                       {(() => {
                         const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
-                        const corpusWords = corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null;
+                        // Use corpus word-by-word ONLY in kelime (wordMode).
+                        // When wordMode is off, fall back to acikkuran verse text
+                        // (cleanArabic → applyTajweed/wrapWaqfOnly pipeline)
+                        // for book-mode-identical rendering: same font, same
+                        // Allah highlight, same waqf marks, same tajweed coloring.
+                        const corpusWords = wordMode ? (corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null) : null;
                         if (corpusWords) {
                           return (
                             <span>
@@ -5268,7 +5278,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     style={{ cursor: 'pointer', padding: '1px 3px', borderRadius: '4px', transition: 'background 0.12s' }}
                                     title={w.en || ''}
                                   >
-                                    {w.ar}
+                                    {cleanArabic(w.ar)}
                                   </span>
                                   {i < corpusWords.length - 1 ? ' ' : ''}
                                 </span>
@@ -5309,7 +5319,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
                       color: C.gold,
                       fontSize: verse.ayah >= 100 ? (isMobile ? '0.58rem' : '0.66rem') : verse.ayah >= 10 ? (isMobile ? '0.64rem' : '0.74rem') : (isMobile ? '0.72rem' : '0.84rem'),
-                      fontFamily: "'Amiri', serif",
+                      fontFamily: currentFont,
                       fontWeight: dayMode ? 600 : 400,
                     }}>{verse.ayah}</span>
                     </div>
@@ -5329,7 +5339,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px',
                               background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
                               border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
-                              color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: "'Amiri', serif",
+                              color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: currentFont,
                             }}>
                               {language === 'tr' ? 'Secde' : 'Sajda'} ۩
                             </span>
@@ -5361,7 +5371,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
                       color: C.gold,
                       fontSize: verse.ayah >= 100 ? (isMobile ? '0.58rem' : '0.66rem') : verse.ayah >= 10 ? (isMobile ? '0.64rem' : '0.74rem') : (isMobile ? '0.72rem' : '0.84rem'),
-                      fontFamily: "'Amiri', serif",
+                      fontFamily: currentFont,
                       fontWeight: dayMode ? 600 : 400,
                     }}>{toArabicNumerals(verse.ayah)}</span>
                     </div>
@@ -5373,7 +5383,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }}>
                       {(() => {
                         const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
-                        const corpusWords = corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null;
+                        // Use corpus word-by-word ONLY in kelime (wordMode).
+                        // When wordMode is off, fall back to acikkuran verse text
+                        // (cleanArabic → applyTajweed/wrapWaqfOnly pipeline)
+                        // for book-mode-identical rendering: same font, same
+                        // Allah highlight, same waqf marks, same tajweed coloring.
+                        const corpusWords = wordMode ? (corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null) : null;
                         if (corpusWords) {
                           return (
                             <span>
@@ -5386,7 +5401,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     style={{ cursor: 'pointer', padding: '1px 3px', borderRadius: '4px', transition: 'background 0.12s' }}
                                     title={w.en || ''}
                                   >
-                                    {w.ar}
+                                    {cleanArabic(w.ar)}
                                   </span>
                                   {i < corpusWords.length - 1 ? ' ' : ''}
                                 </span>
