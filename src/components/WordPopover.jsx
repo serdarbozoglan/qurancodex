@@ -74,10 +74,52 @@ const isMakki = (surah) => !MADANI.has(surah);
  * Veri kaynağı: Quranic Arabic Corpus (Kais Dukes, Leeds University)
  *               https://corpus.quran.com — akademik atıfla kullanım
  */
-export default function WordPopover({ word, surah, ayah, onClose }) {
+export default function WordPopover({ word, surah, ayah, onClose, dayMode = false }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const panelRef = useRef(null);
+
+  // Palette — light cream parchment (day) vs deep navy (night). Only the
+  // structural colors are swapped; gold/emerald accents work in both.
+  const C = dayMode
+    ? {
+        backdrop: 'rgba(58,38,12,0.42)',
+        panelBg: 'linear-gradient(180deg, #f6efe1 0%, #ede2cd 100%)',
+        panelBorderTop: 'rgba(154,120,56,0.55)',
+        panelBorderSide: 'rgba(120,90,40,0.20)',
+        textPrimary: '#2e1a08',
+        textSecondary: '#5c4626',
+        textMuted: 'rgba(106,86,56,0.62)',
+        divider: 'rgba(120,90,40,0.18)',
+        sectionLabel: 'rgba(154,120,56,0.65)',
+        valueArabicBg: 'rgba(154,120,56,0.08)',
+        gold: '#9a6f0e',
+        goldSoft: 'rgba(154,120,56,0.18)',
+        emerald: '#1a7a4c',
+        emeraldSoft: 'rgba(26,122,76,0.12)',
+        emeraldBorder: 'rgba(26,122,76,0.35)',
+        chipBg: 'rgba(154,120,56,0.10)',
+        chipText: '#5c4626',
+      }
+    : {
+        backdrop: 'rgba(0,0,0,0.62)',
+        panelBg: 'linear-gradient(180deg, #0f1530 0%, #0a1024 100%)',
+        panelBorderTop: COLORS.softGoldAlpha35,
+        panelBorderSide: 'rgba(255,255,255,0.07)',
+        textPrimary: '#e8e6e3',
+        textSecondary: '#cdc6bb',
+        textMuted: '#94a3b8',
+        divider: 'rgba(255,255,255,0.08)',
+        sectionLabel: COLORS.softGoldAlpha60,
+        valueArabicBg: 'rgba(255,255,255,0.04)',
+        gold: COLORS.softGold,
+        goldSoft: 'rgba(212,165,116,0.18)',
+        emerald: '#2ecc71',
+        emeraldSoft: 'rgba(46,204,113,0.12)',
+        emeraldBorder: 'rgba(46,204,113,0.35)',
+        chipBg: 'rgba(120,168,255,0.12)',
+        chipText: '#9ec1ff',
+      };
 
   useEffect(() => {
     const h = (e) => { if (e.key === 'Escape') onClose(); };
@@ -100,7 +142,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
       onClick={onClose}
       style={{
         position: 'fixed', inset: 0, zIndex: 10000,
-        background: 'rgba(0,0,0,0.62)', backdropFilter: 'blur(6px)',
+        background: C.backdrop, backdropFilter: 'blur(6px)',
         display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
         animation: 'wpFadeIn 0.18s ease-out',
       }}
@@ -109,10 +151,10 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
         ref={panelRef}
         onClick={e => e.stopPropagation()}
         style={{
-          background: 'linear-gradient(180deg, #0f1530 0%, #0a1024 100%)',
-          borderTop: `1px solid ${COLORS.softGoldAlpha35}`,
-          borderLeft: '1px solid rgba(255,255,255,0.07)',
-          borderRight: '1px solid rgba(255,255,255,0.07)',
+          background: C.panelBg,
+          borderTop: `1px solid ${C.panelBorderTop}`,
+          borderLeft: `1px solid ${C.panelBorderSide}`,
+          borderRight: `1px solid ${C.panelBorderSide}`,
           borderRadius: `${RADIUS.xl} ${RADIUS.xl} 0 0`,
           width: '100%', maxWidth: '600px',
           maxHeight: '88vh', overflowY: 'auto',
@@ -126,7 +168,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
         <div style={{ paddingTop: '12px', display: 'flex', justifyContent: 'center' }}>
           <div style={{
             width: '40px', height: '4px', borderRadius: '2px',
-            background: 'rgba(255,255,255,0.18)',
+            background: C.divider,
           }} />
         </div>
 
@@ -141,7 +183,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
             style={{
               fontFamily: FONTS.quran,
               fontSize: '3rem',
-              color: COLORS.softGold,
+              color: C.gold,
               lineHeight: 1.45,
               margin: 0,
               textShadow: `0 0 36px ${COLORS.softGoldAlpha25}`,
@@ -151,7 +193,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
           </p>
           {word.translit && (
             <p style={{
-              fontSize: '0.95rem', color: '#94a3b8',
+              fontSize: '0.95rem', color: C.textMuted,
               fontStyle: 'italic', margin: '6px 0 0',
               letterSpacing: '0.02em',
             }}>
@@ -168,7 +210,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
           }}>
             <p style={{
               fontSize: '0.7rem',
-              color: COLORS.softGoldAlpha60,
+              color: C.goldAlpha60,
               margin: 0,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
@@ -203,7 +245,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
             )}
             {hasEn && (
               <Field label={tr ? 'İngilizce' : 'English'}>
-                <span style={{ fontStyle: 'italic', color: '#94a3b8' }}>{word.en}</span>
+                <span style={{ fontStyle: 'italic', color: C.textMuted }}>{word.en}</span>
               </Field>
             )}
           </Section>
@@ -217,7 +259,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
                 <span lang="ar" dir="rtl" style={{
                   fontFamily: FONTS.quran,
                   fontSize: '1.7rem',
-                  color: COLORS.softGold,
+                  color: C.gold,
                   letterSpacing: '0.06em',
                 }}>
                   {cleanForPopover(word.root)}
@@ -229,7 +271,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
                 <span lang="ar" dir="rtl" style={{
                   fontFamily: FONTS.quran,
                   fontSize: '1.6rem',
-                  color: '#e8e6e3',
+                  color: C.textPrimary,
                 }}>
                   {cleanForPopover(word.lemma)}
                 </span>
@@ -246,15 +288,15 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
                 <span style={{
                   display: 'inline-block', padding: '4px 12px',
                   borderRadius: RADIUS.pillSm,
-                  background: 'rgba(120,168,255,0.12)',
+                  background: C.chipBg,
                   border: '1px solid rgba(120,168,255,0.32)',
-                  color: '#9ec1ff', fontSize: '0.85rem', fontWeight: 600,
+                  color: C.chipText, fontSize: '0.85rem', fontWeight: 600,
                   letterSpacing: '0.02em',
                 }}>
                   {posLabel(word.pos, language)}
                 </span>
                 <span style={{
-                  fontSize: '0.7rem', color: '#475569',
+                  fontSize: '0.7rem', color: C.textMuted,
                   marginLeft: '10px', fontFamily: 'monospace',
                   letterSpacing: '0.06em',
                 }}>
@@ -271,7 +313,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
               <Field label={tr ? 'Detay (akademik)' : 'Detail'}>
                 <span style={{
                   fontStyle: 'italic',
-                  color: '#94a3b8',
+                  color: C.textMuted,
                   fontSize: '0.85rem',
                   lineHeight: 1.55,
                 }}>
@@ -292,14 +334,14 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
         }}>
           <div style={{ flex: 1, minWidth: 0 }}>
             <p style={{
-              fontSize: '0.62rem', color: COLORS.softGoldAlpha55,
+              fontSize: '0.62rem', color: C.goldAlpha55,
               letterSpacing: '0.18em', textTransform: 'uppercase',
               fontWeight: 600, margin: '0 0 4px',
             }}>
               {tr ? 'Akademik Kaynak' : 'Academic Source'}
             </p>
             <p style={{
-              fontSize: '0.78rem', color: '#94a3b8',
+              fontSize: '0.78rem', color: C.textMuted,
               margin: 0, lineHeight: 1.5,
             }}>
               Quranic Arabic Corpus<br />
@@ -313,7 +355,7 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
             target="_blank" rel="noopener noreferrer"
             style={{
               fontSize: '0.78rem', fontWeight: 600,
-              color: COLORS.softGold,
+              color: C.gold,
               textDecoration: 'none',
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               padding: '8px 14px',
@@ -355,8 +397,8 @@ export default function WordPopover({ word, surah, ayah, onClose }) {
               style={{
                 fontSize: '0.7rem',
                 fontWeight: 600,
-                color: COLORS.softGoldAlpha75,
-                background: 'rgba(255,255,255,0.04)',
+                color: C.goldAlpha75,
+                background: C.valueArabicBg,
                 border: '1px solid rgba(255,255,255,0.10)',
                 borderRadius: RADIUS.pillSm,
                 padding: '5px 11px',
@@ -395,7 +437,7 @@ function Section({ title, children }) {
     <div style={{ padding: '16px 28px 6px' }}>
       <p style={{
         fontSize: '0.62rem',
-        color: COLORS.softGoldAlpha55,
+        color: C.goldAlpha55,
         margin: '0 0 12px',
         letterSpacing: '0.22em',
         textTransform: 'uppercase',

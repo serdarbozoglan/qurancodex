@@ -6859,6 +6859,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           surah={activeWord.surah}
           ayah={activeWord.ayah}
           onClose={() => setActiveWord(null)}
+          dayMode={dayMode}
         />
       )}
 
