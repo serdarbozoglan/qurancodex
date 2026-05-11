@@ -45,6 +45,12 @@ function cleanArabic(str) {
     // (örn. Âl-i İmrân 3:4 'al-Furqānộ'). CLAUDE.md §13.15 strip listesi gereği temizleniyor.
     // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9) da strip.
     .replace(/[\u06DC\u06DD\u06DE\u06E9]/g, '')
+    // Decomposed alef-with-maddah: U+0627 (ا) + U+0670 (ٰ) → U+0622 (آ).
+    // API verisinde 'بِاٰيَاتِ' (Âl-i İmrân 3:4) gibi kelimelerde dagger
+    // alef bir alef'in üstüne yerleştiriliyor; bu non-standart encoding,
+    // ShaykhHamdullah/KFGQPC underscore-tofu render ediyor. Precomposed
+    // آ ile değiştirildiğinde fontlar sorunsuz çiziyor; telaffuz aynı.
+    .replace(/\u0627\u0670/g, '\u0622')
     // U+06E6 (ARABIC SMALL YEH ۦ) → boşluk ile değiştir.
     // API verisinde ۦ kelimeler arası tek ayraç olarak kullanılıyor (رِزْقِهِۦوَإِلَيْهِ).
     // Kaldırılırsa veya ZWNJ konulursa harfler görsel olarak birleşiyor; boşluk gerekli.
@@ -5095,17 +5101,123 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </div>
           ) : (
           <div style={{ padding: isMobile ? '8px 0' : '16px 24px', display: 'flex', flexDirection: 'column', gap: '0' }}>
-            {/* Attribution — harmonized with book mode header style */}
+            {/* Attribution — interactive translator picker (book-mode parity).
+                Click to open inline dropdown with TR + EN authors; shares
+                `showInlineMealPicker` state with book mode so behaviour stays
+                consistent across modes. */}
             {showTranslation && (
-              <div style={{
+              <div ref={inlineMealPickerRef} style={{
+                position: 'relative',
                 padding: isMobile ? '4px 16px 10px' : '0 20px 10px',
                 marginBottom: '6px',
-                fontSize: '0.82rem',
-                color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.45)',
-                letterSpacing: '0.04em',
                 borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
               }}>
-                {`Meal: ${selectedMealAuthor.label}`}
+                <button
+                  onClick={() => setShowInlineMealPicker(p => !p)}
+                  title={language === 'tr' ? 'Çevirmeni değiştir' : 'Change translator'}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    padding: 0,
+                    fontSize: '0.82rem',
+                    color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)',
+                    letterSpacing: '0.04em',
+                    cursor: 'pointer',
+                    display: 'flex', alignItems: 'center', gap: '6px',
+                    transition: 'color 0.15s',
+                    fontFamily: 'inherit',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = C.gold; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)'; }}
+                >
+                  <span>{language === 'tr' ? 'Meal:' : 'Translation:'} {selectedMealAuthor.label}</span>
+                  <span style={{
+                    fontSize: '0.6rem',
+                    opacity: 0.7,
+                    transform: showInlineMealPicker ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.18s',
+                    display: 'inline-flex',
+                  }}>▾</span>
+                </button>
+
+                {showInlineMealPicker && (
+                  <div style={{
+                    position: 'absolute',
+                    top: 'calc(100% + 4px)',
+                    left: isMobile ? '16px' : '20px',
+                    minWidth: '260px',
+                    maxHeight: '360px',
+                    overflowY: 'auto',
+                    background: dropC.bg,
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    border: `1px solid ${dropC.border}`,
+                    borderRadius: '10px',
+                    boxShadow: dropC.shadow,
+                    zIndex: 20,
+                  }}>
+                    <div style={{ padding: '6px 0' }}>
+                      <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                        Türkçe
+                      </div>
+                      {MEAL_AUTHORS.filter(a => a.lang === 'tr').map(author => {
+                        const isActive = selectedMealId === author.id;
+                        return (
+                          <button key={author.id}
+                            onClick={() => {
+                              setSelectedMealId(author.id);
+                              if (!showTranslation) setShowTranslation(true);
+                              if (author.lang && author.lang !== language) setLanguage(author.lang);
+                              setShowInlineMealPicker(false);
+                            }}
+                            style={{
+                              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                              width: '100%', padding: '7px 14px', border: 'none',
+                              background: isActive ? dropC.itemBgActive : 'transparent',
+                              color: isActive ? gold : dropC.text, cursor: 'pointer', fontSize: '0.82rem',
+                              transition: 'background 0.12s', textAlign: 'left',
+                            }}
+                            onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = dropC.itemBgHover; }}
+                            onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <span>{author.label}</span>
+                            {isActive && <span style={{ fontSize: '0.7rem', color: gold }}>✓</span>}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <div style={{ padding: '6px 0', borderTop: `1px solid ${dropC.divider}` }}>
+                      <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                        English
+                      </div>
+                      {MEAL_AUTHORS.filter(a => a.lang === 'en').map(author => {
+                        const isActive = selectedMealId === author.id;
+                        return (
+                          <button key={author.id}
+                            onClick={() => {
+                              setSelectedMealId(author.id);
+                              if (!showTranslation) setShowTranslation(true);
+                              if (author.lang && author.lang !== language) setLanguage(author.lang);
+                              setShowInlineMealPicker(false);
+                            }}
+                            style={{
+                              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                              width: '100%', padding: '7px 14px', border: 'none',
+                              background: isActive ? dropC.itemBgActive : 'transparent',
+                              color: isActive ? gold : dropC.text, cursor: 'pointer', fontSize: '0.82rem',
+                              transition: 'background 0.12s', textAlign: 'left',
+                            }}
+                            onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = dropC.itemBgHover; }}
+                            onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <span>{author.label}</span>
+                            {isActive && <span style={{ fontSize: '0.7rem', color: gold }}>✓</span>}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
             {surahVerses.map((verse, verseIdx) => {
