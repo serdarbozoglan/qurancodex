@@ -38,10 +38,13 @@ function cleanArabic(str) {
     .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
     // Quranic number / footnote prefix marks (U+0600–U+0605)
     .replace(/[\u0600-\u0605]/g, '')
-    // Waqf / pause markers (U+06D6–U+06DC) — applyTajweed'de absolute konumlandırma ile gösterilir
-    // cleanArabic'te kaldırılmıyor; tajweed pipeline'ı handle ediyor
-    // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9)
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
+    // Waqf / pause markers (U+06D6–U+06DB) — applyTajweed/wrapWaqfOnly'de
+    // absolute konumlandırma ile gösterilir; cleanArabic'te kaldırılmıyor.
+    // U+06DC (ARABIC SMALL HIGH SEEN, sekta waqf) — ShaykhHamdullah/KFGQPC
+    // chain'inde glif eksikliği yüzünden '@' tofu olarak render oluyor
+    // (örn. Âl-i İmrân 3:4 'al-Furqānộ'). CLAUDE.md §13.15 strip listesi gereği temizleniyor.
+    // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9) da strip.
+    .replace(/[\u06DC\u06DD\u06DE\u06E9]/g, '')
     // U+06E6 (ARABIC SMALL YEH ۦ) → boşluk ile değiştir.
     // API verisinde ۦ kelimeler arası tek ayraç olarak kullanılıyor (رِزْقِهِۦوَإِلَيْهِ).
     // Kaldırılırsa veya ZWNJ konulursa harfler görsel olarak birleşiyor; boşluk gerekli.
