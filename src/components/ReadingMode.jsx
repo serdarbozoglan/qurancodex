@@ -716,23 +716,46 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
   const gold = '#d4a574';
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-      <button
-        onClick={failed ? undefined : onToggle}
-        disabled={failed}
-        title={failed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
-        style={{
-          width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
-          background: failed ? 'rgba(100,116,139,0.08)' : playing ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
-          border: `1px solid ${failed ? 'rgba(100,116,139,0.2)' : playing ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
-          color: failed ? '#475569' : gold,
-          cursor: failed ? 'not-allowed' : 'pointer',
-          opacity: failed ? 0.5 : 1,
-          fontSize: '0.7rem',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transition: 'all 0.18s',
-        }}>
-        {playing ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
-      </button>
+      {/* Relative wrapper hosts the pulse rings behind the button when
+          audio is playing. Two staggered rings produce a heartbeat-style
+          continuous pulse without dominating the small 28px button. */}
+      <div style={{ position: 'relative', width: '28px', height: '28px', flexShrink: 0 }}>
+        {playing && !failed && (
+          <>
+            <span aria-hidden className="rm-audio-pulse-ring" style={{
+              position: 'absolute', inset: 0, borderRadius: '50%',
+              border: `1.5px solid ${gold}`,
+              animation: 'rm-audio-pulse 1.6s ease-out infinite',
+              pointerEvents: 'none',
+            }} />
+            <span aria-hidden className="rm-audio-pulse-ring" style={{
+              position: 'absolute', inset: 0, borderRadius: '50%',
+              border: `1.5px solid ${gold}`,
+              animation: 'rm-audio-pulse 1.6s ease-out infinite',
+              animationDelay: '0.8s',
+              pointerEvents: 'none',
+            }} />
+          </>
+        )}
+        <button
+          onClick={failed ? undefined : onToggle}
+          disabled={failed}
+          title={failed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
+          style={{
+            position: 'relative', zIndex: 1,
+            width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+            background: failed ? 'rgba(100,116,139,0.08)' : playing ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
+            border: `1px solid ${failed ? 'rgba(100,116,139,0.2)' : playing ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
+            color: failed ? '#475569' : gold,
+            cursor: failed ? 'not-allowed' : 'pointer',
+            opacity: failed ? 0.5 : 1,
+            fontSize: '0.7rem',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transition: 'all 0.18s',
+          }}>
+          {playing ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
+        </button>
+      </div>
       <span style={{ color: '#64748b', fontSize: '0.65rem' }}>
         {language === 'tr' ? reciter.labelTr : reciter.labelEn}
       </span>
@@ -5476,35 +5499,65 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <ChevronLeft size={isMobile ? 15 : 20} />
               </button>
 
-              <button
-                onClick={isFailed ? undefined : () => handleAudioToggle(activeVerse)}
-                disabled={isFailed}
-                title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
-                style={{
-                  width: isMobile ? '36px' : '48px', height: isMobile ? '36px' : '48px', borderRadius: '50%', flexShrink: 0,
-                  background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? gold : 'rgba(212,165,116,0.12)',
-                  border: `1.5px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? gold : 'rgba(212,165,116,0.35)'}`,
-                  color: isFailed ? '#475569' : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold,
-                  cursor: isFailed ? 'not-allowed' : 'pointer',
-                  opacity: isFailed ? 0.5 : 1,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  transition: 'all 0.18s', boxShadow: isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none',
-                }}
-                onMouseEnter={e => {
-                  if (isFailed) return;
-                  e.currentTarget.style.background = isPlaying ? '#c8935e' : 'rgba(212,165,116,0.22)';
-                  e.currentTarget.style.boxShadow = `0 0 16px rgba(212,165,116,0.3)`;
-                }}
-                onMouseLeave={e => {
-                  if (isFailed) return;
-                  e.currentTarget.style.background = isPlaying ? gold : 'rgba(212,165,116,0.12)';
-                  e.currentTarget.style.boxShadow = isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none';
-                }}
-              >
-                <span style={{ color: isFailed ? '#475569' : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold }}>
-                  {isPlaying ? <PauseIcon size={16} /> : <PlayIcon size={16} />}
-                </span>
-              </button>
+              {/* Footer audio button wrapped in a relative container so the
+                  pulse rings can sit behind the button. Two staggered rings
+                  (0.8s apart) create a heartbeat-style continuous pulse,
+                  signalling that audio is playing even when the user has
+                  scrolled the active ayet off-screen. */}
+              <div style={{
+                position: 'relative',
+                width: isMobile ? '36px' : '48px',
+                height: isMobile ? '36px' : '48px',
+                flexShrink: 0,
+              }}>
+                {isPlaying && !isFailed && (
+                  <>
+                    <span aria-hidden className="rm-audio-pulse-ring" style={{
+                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      border: `2px solid ${gold}`,
+                      animation: 'rm-audio-pulse 1.6s ease-out infinite',
+                      pointerEvents: 'none',
+                    }} />
+                    <span aria-hidden className="rm-audio-pulse-ring" style={{
+                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      border: `2px solid ${gold}`,
+                      animation: 'rm-audio-pulse 1.6s ease-out infinite',
+                      animationDelay: '0.8s',
+                      pointerEvents: 'none',
+                    }} />
+                  </>
+                )}
+                <button
+                  onClick={isFailed ? undefined : () => handleAudioToggle(activeVerse)}
+                  disabled={isFailed}
+                  title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
+                  style={{
+                    position: 'relative', zIndex: 1,
+                    width: '100%', height: '100%', borderRadius: '50%',
+                    background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? gold : 'rgba(212,165,116,0.12)',
+                    border: `1.5px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? gold : 'rgba(212,165,116,0.35)'}`,
+                    color: isFailed ? '#475569' : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold,
+                    cursor: isFailed ? 'not-allowed' : 'pointer',
+                    opacity: isFailed ? 0.5 : 1,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    transition: 'all 0.18s', boxShadow: isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none',
+                  }}
+                  onMouseEnter={e => {
+                    if (isFailed) return;
+                    e.currentTarget.style.background = isPlaying ? '#c8935e' : 'rgba(212,165,116,0.22)';
+                    e.currentTarget.style.boxShadow = `0 0 16px rgba(212,165,116,0.3)`;
+                  }}
+                  onMouseLeave={e => {
+                    if (isFailed) return;
+                    e.currentTarget.style.background = isPlaying ? gold : 'rgba(212,165,116,0.12)';
+                    e.currentTarget.style.boxShadow = isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none';
+                  }}
+                >
+                  <span style={{ color: isFailed ? '#475569' : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold }}>
+                    {isPlaying ? <PauseIcon size={16} /> : <PlayIcon size={16} />}
+                  </span>
+                </button>
+              </div>
 
               <button
                 onClick={() => nextVerse && handleSelectVerse(nextVerse)}

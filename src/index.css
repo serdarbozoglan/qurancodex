@@ -223,6 +223,21 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Audio playback pulse — soft expanding ring around the play button when
+   an ayet is actively playing. Two staggered instances of this animation
+   (offset by ~0.8s) produce a heartbeat-style continuous pulse. */
+@keyframes rm-audio-pulse {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  70%  { transform: scale(1.85); opacity: 0;    }
+  100% { transform: scale(1.85); opacity: 0;    }
+}
+
+/* Respect reduced motion preference — audio button still changes color but
+   the pulse ring stops moving. */
+@media (prefers-reduced-motion: reduce) {
+  .rm-audio-pulse-ring { animation: none !important; opacity: 0 !important; }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
