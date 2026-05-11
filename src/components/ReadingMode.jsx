@@ -4290,7 +4290,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       onMouseEnter={(e) => { e.currentTarget.style.color = C.gold; }}
                       onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)'; }}
                     >
-                      <span>{selectedMealAuthor.label}</span>
+                      <span>{language === 'tr' ? 'Meal:' : 'Translation:'} {selectedMealAuthor.label}</span>
                       <span style={{
                         fontSize: '0.6rem',
                         opacity: 0.7,
