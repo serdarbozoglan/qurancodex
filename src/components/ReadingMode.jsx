@@ -1899,12 +1899,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   as a separate context strip rather than a fourth pill. Single
                   line, muted, with gold-tinted numbers to keep the data legible
                   without competing with the active pill. Hidden on mobile —
-                  the compact mobile cüz info below handles small screens. */}
+                  the compact mobile cüz info below handles small screens.
+                  Label opacity bumped to 0.72 from 0.55 — at 0.55 the labels
+                  fell below WCAG AA contrast on beige bg and "Cüz/Hizb/Sayfa"
+                  read as washed-out scaffolding instead of legible context. */}
               {!isMobile && bookMode && currentPage > 0 && (
                 <span style={{
                   marginLeft: '14px',
                   fontSize: '0.72rem',
-                  color: dayMode ? 'rgba(80,50,20,0.55)' : 'rgba(200,185,165,0.55)',
+                  color: dayMode ? 'rgba(80,50,20,0.72)' : 'rgba(200,185,165,0.70)',
                   fontFamily: "'Inter', sans-serif", letterSpacing: '0.03em',
                   whiteSpace: 'nowrap', fontWeight: 500,
                   flexShrink: 0,
