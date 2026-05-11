@@ -56,6 +56,12 @@ function cleanArabic(str) {
     // ShaykhHamdullah/KFGQPC underscore-tofu render ediyor. Precomposed
     // آ ile değiştirildiğinde fontlar sorunsuz çiziyor; telaffuz aynı.
     .replace(/\u0627\u0670/g, '\u0622')
+    // Dagger-alef + maddah-above combo (U+0670 + U+0653) → precomposed
+    // alef-with-maddah (U+0622). Used in Uthmani 'يَٰٓأَيُّهَا' (yā-ayyuhā)
+    // to mark a long stretched alef before hamza; ShaykhHamdullah/KFGQPC
+    // render this combining pair as a misplaced miniature 'ال' glyph
+    // above the host letter. Precomposed آ renders cleanly.
+    .replace(/\u0670\u0653/g, '\u0622')
     // U+06E6 (ARABIC SMALL YEH ۦ) → boşluk ile değiştir.
     // API verisinde ۦ kelimeler arası tek ayraç olarak kullanılıyor (رِزْقِهِۦوَإِلَيْهِ).
     // Kaldırılırsa veya ZWNJ konulursa harfler görsel olarak birleşiyor; boşluk gerekli.
@@ -2101,10 +2107,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   "search-toggle-toggle-toggle" as one undifferentiated group. */}
               {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 4px' }} />}
 
-              {/* Kelime (word-by-word) mode toggle — book mode only.
-                  Desktop only — mobile accesses this via the Settings panel
-                  to keep the mobile toolbar from overflowing. */}
-              {bookMode && !isMobile && (
+              {/* Kelime (word-by-word) mode toggle — visible in both book
+                  and verse modes (corpus hover tooltips work in both).
+                  Hidden in interlinear / kırık meal mode since that view
+                  is already word-by-word by nature. Desktop only —
+                  mobile accesses this via the Settings panel. */}
+              {!isMobile && !interlinearMode && (
                 <button
                   onClick={() => {
                     // Word mode and tajweed colors are mutually exclusive — word-by-word
