@@ -15,7 +15,12 @@ function cleanForPopover(str) {
     .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
     .replace(/[\u0600-\u0605]/g, '')
     .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/[\u06D6-\u06DC\u06DF\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB-\u06ED]/g, '');
+    .replace(/[\u06D6-\u06DC\u06DF\u06E0\u06E2-\u06E4\u06E7\u06E8\u06EB-\u06ED]/g, '')
+    // Leeds Quranic Arabic Corpus encoding artifacts (@, #, _) used as
+    // morphological / sajda markers in the source data. They have no
+    // Arabic typography meaning and would render as literal ASCII glyphs
+    // beside the word (e.g. 'تَعُولُوا@'). Same strip rule as cleanArabic.
+    .replace(/[@#_]/g, '');
 }
 
 // Sûre adı haritası — Türkçe transliteration + standart İngilizce (114 sûre).
@@ -79,27 +84,28 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
   const tr = language === 'tr';
   const panelRef = useRef(null);
 
-  // Palette — light cream parchment (day) vs deep navy (night). Only the
-  // structural colors are swapped; gold/emerald accents work in both.
+  // Palette — light cream parchment (day) vs deep navy (night). Day mode
+  // mirrors the verse compare modal (named as the reference): same warm
+  // paper tones, label gold #9a7838, and deep-ink body text #1f1908.
   const C = dayMode
     ? {
-        backdrop: 'rgba(58,38,12,0.42)',
-        panelBg: 'linear-gradient(180deg, #f6efe1 0%, #ede2cd 100%)',
-        panelBorderTop: 'rgba(154,120,56,0.55)',
-        panelBorderSide: 'rgba(120,90,40,0.20)',
-        textPrimary: '#2e1a08',
-        textSecondary: '#5c4626',
-        textMuted: 'rgba(106,86,56,0.62)',
-        divider: 'rgba(120,90,40,0.18)',
-        sectionLabel: 'rgba(154,120,56,0.65)',
-        valueArabicBg: 'rgba(154,120,56,0.08)',
-        gold: '#9a6f0e',
-        goldSoft: 'rgba(154,120,56,0.18)',
+        backdrop: 'rgba(20,12,4,0.55)',
+        panelBg: '#faf6ed',
+        panelBorderTop: 'rgba(180,140,80,0.45)',
+        panelBorderSide: 'rgba(180,140,80,0.22)',
+        textPrimary: '#1f1908',
+        textSecondary: '#3a2814',
+        textMuted: '#6a5638',
+        divider: 'rgba(180,140,80,0.18)',
+        sectionLabel: '#9a7838',
+        valueArabicBg: 'rgba(212,165,116,0.06)',
+        gold: '#9a7838',
+        goldSoft: 'rgba(212,165,116,0.05)',
         emerald: '#1a7a4c',
         emeraldSoft: 'rgba(26,122,76,0.12)',
-        emeraldBorder: 'rgba(26,122,76,0.35)',
-        chipBg: 'rgba(154,120,56,0.10)',
-        chipText: '#5c4626',
+        emeraldBorder: 'rgba(26,122,76,0.42)',
+        chipBg: 'rgba(212,165,116,0.05)',
+        chipText: '#1f1908',
       }
     : {
         backdrop: 'rgba(0,0,0,0.62)',
@@ -209,12 +215,14 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
             justifyContent: 'center',
           }}>
             <p style={{
-              fontSize: '0.7rem',
-              color: C.goldAlpha60,
+              fontSize: '0.72rem',
+              // Use palette gold (full opacity) — soft-gold-60 was too faded
+              // on the cream day-mode bg, making the breadcrumb illegible.
+              color: C.gold,
               margin: 0,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              fontWeight: 600,
+              fontWeight: 700,
             }}>
               {surahName} · {tr ? 'Âyet' : 'Verse'} {ayah} · {tr ? 'Kelime' : 'Word'} {word.idx}
             </p>
@@ -226,26 +234,38 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
               fontWeight: 700,
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              color: isMakki(surah) ? '#f7c873' : '#7dd3fc',
-              background: isMakki(surah) ? 'rgba(247,200,115,0.10)' : 'rgba(125,211,252,0.10)',
-              border: `1px solid ${isMakki(surah) ? 'rgba(247,200,115,0.32)' : 'rgba(125,211,252,0.32)'}`,
+              // Site-wide convention (RevelationTimeline.jsx, IlkSonKelimeler.jsx,
+              // SebebiNuzul.jsx): Mekkî = royal gold #c9a227, Medenî = emerald
+              // #2ecc71. Day-mode emerald uses a slightly darker shade for
+              // readable contrast on cream background.
+              color: isMakki(surah) ? '#c9a227' : (dayMode ? '#1a7a4c' : '#2ecc71'),
+              background: isMakki(surah) ? 'rgba(201,162,39,0.12)' : (dayMode ? 'rgba(26,122,76,0.10)' : 'rgba(46,204,113,0.12)'),
+              border: `1px solid ${isMakki(surah) ? 'rgba(201,162,39,0.40)' : (dayMode ? 'rgba(26,122,76,0.40)' : 'rgba(46,204,113,0.40)')}`,
             }}>
               {isMakki(surah) ? 'Mekkî' : 'Medenî'}
             </span>
           </div>
         </div>
 
-        {/* SECTION — Anlam (Meaning) */}
+        {/* SECTION — Anlam (Meaning). Corpus gloss '*' means the word
+            inherits its meaning from the preceding word group (typical
+            for grammatical particles like cer harfi + isim chains).
+            Show an em dash instead of the raw asterisk to communicate
+            this without exposing data-encoding internals. */}
         {(hasTr || hasEn) && (
-          <Section title={tr ? 'Anlam' : 'Meaning'}>
+          <Section title={tr ? 'Anlam' : 'Meaning'} C={C}>
             {hasTr && (
-              <Field label={tr ? 'Türkçe' : 'Turkish'} primary>
-                {word.tr}
+              <Field label={tr ? 'Türkçe' : 'Turkish'} primary C={C}>
+                {word.tr === '*'
+                  ? <span style={{ color: C.textMuted, fontStyle: 'italic' }}>{tr ? 'önceki kelimeyle bağlı' : 'linked to previous word'}</span>
+                  : word.tr}
               </Field>
             )}
             {hasEn && (
-              <Field label={tr ? 'İngilizce' : 'English'}>
-                <span style={{ fontStyle: 'italic', color: C.textMuted }}>{word.en}</span>
+              <Field label={tr ? 'İngilizce' : 'English'} C={C}>
+                <span style={{ fontStyle: 'italic', color: C.textMuted }}>
+                  {word.en === '*' ? '—' : word.en}
+                </span>
               </Field>
             )}
           </Section>
@@ -253,9 +273,9 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
 
         {/* SECTION — Köken (Etymology) */}
         {(word.root || word.lemma) && (
-          <Section title={tr ? 'Köken' : 'Etymology'}>
+          <Section title={tr ? 'Köken' : 'Etymology'} C={C}>
             {word.root && (
-              <Field label={tr ? 'Kök' : 'Root'}>
+              <Field label={tr ? 'Kök' : 'Root'} C={C}>
                 <span lang="ar" dir="rtl" style={{
                   fontFamily: FONTS.quran,
                   fontSize: '1.7rem',
@@ -267,7 +287,7 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
               </Field>
             )}
             {word.lemma && (
-              <Field label={tr ? 'Kök Kelime' : 'Lemma'}>
+              <Field label={tr ? 'Kök Kelime' : 'Lemma'} C={C}>
                 <span lang="ar" dir="rtl" style={{
                   fontFamily: FONTS.quran,
                   fontSize: '1.6rem',
@@ -282,9 +302,9 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
 
         {/* SECTION — Gramer (Grammar) */}
         {(word.pos || hasFeatures || hasFeaturesTr) && (
-          <Section title={tr ? 'Gramer' : 'Grammar'}>
+          <Section title={tr ? 'Gramer' : 'Grammar'} C={C}>
             {word.pos && (
-              <Field label={tr ? 'Sözcük Türü' : 'Part of Speech'}>
+              <Field label={tr ? 'Sözcük Türü' : 'Part of Speech'} C={C}>
                 <span style={{
                   display: 'inline-block', padding: '4px 12px',
                   borderRadius: RADIUS.pillSm,
@@ -305,12 +325,12 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
               </Field>
             )}
             {hasFeaturesTr && tr && (
-              <Field label="Özellikler" primary>
+              <Field label="Özellikler" primary C={C}>
                 {word.featuresTr}
               </Field>
             )}
             {hasFeatures && (
-              <Field label={tr ? 'Detay (akademik)' : 'Detail'}>
+              <Field label={tr ? 'Detay (akademik)' : 'Detail'} C={C}>
                 <span style={{
                   fontStyle: 'italic',
                   color: C.textMuted,
@@ -324,28 +344,30 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
           </Section>
         )}
 
-        {/* SOURCE BAND */}
+        {/* SOURCE BAND — palette-aware: warm gold-tinted wash in day mode,
+            soft dark overlay in night mode. Was hardcoded rgba(0,0,0,0.18)
+            which rendered as a dirty gray band on the cream day-mode bg. */}
         <div style={{
           padding: '18px 28px 22px',
-          background: 'rgba(0,0,0,0.18)',
-          borderTop: '1px solid rgba(255,255,255,0.05)',
+          background: dayMode ? 'rgba(212,165,116,0.10)' : 'rgba(0,0,0,0.18)',
+          borderTop: `1px solid ${C.divider}`,
           display: 'flex', alignItems: 'center',
           justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap',
         }}>
           <div style={{ flex: 1, minWidth: 0 }}>
             <p style={{
-              fontSize: '0.62rem', color: C.goldAlpha55,
+              fontSize: '0.62rem', color: C.sectionLabel,
               letterSpacing: '0.18em', textTransform: 'uppercase',
               fontWeight: 600, margin: '0 0 4px',
             }}>
               {tr ? 'Akademik Kaynak' : 'Academic Source'}
             </p>
             <p style={{
-              fontSize: '0.78rem', color: C.textMuted,
+              fontSize: '0.78rem', color: C.textSecondary,
               margin: 0, lineHeight: 1.5,
             }}>
               Quranic Arabic Corpus<br />
-              <span style={{ color: '#64748b' }}>
+              <span style={{ color: C.textMuted }}>
                 Kais Dukes · {tr ? 'Leeds Üniversitesi' : 'Leeds University'}
               </span>
             </p>
@@ -397,7 +419,7 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
               style={{
                 fontSize: '0.7rem',
                 fontWeight: 600,
-                color: C.goldAlpha75,
+                color: COLORS.softGoldAlpha75,
                 background: C.valueArabicBg,
                 border: '1px solid rgba(255,255,255,0.10)',
                 borderRadius: RADIUS.pillSm,
@@ -432,12 +454,13 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
 }
 
 // ── Reusable section ──────────────────────────────────────────────────────────
-function Section({ title, children }) {
+// Accepts the C palette so labels swap between day and night themes.
+function Section({ title, children, C }) {
   return (
     <div style={{ padding: '16px 28px 6px' }}>
       <p style={{
         fontSize: '0.62rem',
-        color: C.goldAlpha55,
+        color: C ? C.sectionLabel : COLORS.softGoldAlpha55,
         margin: '0 0 12px',
         letterSpacing: '0.22em',
         textTransform: 'uppercase',
@@ -451,7 +474,14 @@ function Section({ title, children }) {
 }
 
 // ── Reusable field row ────────────────────────────────────────────────────────
-function Field({ label, children, primary }) {
+// Accepts the C palette. In day mode, primary values use deep-ink text
+// (#1f1908) for legibility; in night mode, light off-white. Non-primary
+// values use the muted color in both themes.
+function Field({ label, children, primary, C }) {
+  const labelColor = C ? C.textMuted : '#64748b';
+  const valuePrimary = C ? C.textPrimary : '#e8e6e3';
+  const valueMuted = C ? C.textMuted : '#94a3b8';
+  const dividerColor = C ? C.divider : 'rgba(255,255,255,0.04)';
   return (
     <div style={{
       display: 'flex',
@@ -459,12 +489,12 @@ function Field({ label, children, primary }) {
       justifyContent: 'space-between',
       gap: '16px',
       padding: '8px 0',
-      borderBottom: '1px solid rgba(255,255,255,0.04)',
+      borderBottom: `1px solid ${dividerColor}`,
       flexWrap: 'wrap',
     }}>
       <span style={{
         fontSize: '0.72rem',
-        color: '#64748b',
+        color: labelColor,
         fontWeight: 500,
         letterSpacing: '0.04em',
         flexShrink: 0,
@@ -473,7 +503,7 @@ function Field({ label, children, primary }) {
       </span>
       <span style={{
         textAlign: 'right',
-        color: primary ? '#e8e6e3' : '#94a3b8',
+        color: primary ? valuePrimary : valueMuted,
         fontSize: primary ? '0.98rem' : '0.88rem',
         fontWeight: primary ? 500 : 400,
         lineHeight: 1.5,
