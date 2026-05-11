@@ -5860,11 +5860,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               {corpusWords.map((w, i) => (
                                 <span key={i}>
                                   <span
-                                    onClick={(e) => { e.stopPropagation(); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
-                                    onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,165,116,0.14)'; }}
-                                    onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                                    onClick={(e) => { e.stopPropagation(); setHoveredWord(null); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.background = 'rgba(212,165,116,0.14)';
+                                      // Map corpus shape → WordTooltip shape: corpus uses
+                                      // {ar, tr, ...} whereas WordTooltip expects
+                                      // {arabic, tr, en, ...}. Build a thin adapter on the fly.
+                                      const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
+                                      setHoveredWord({ word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.background = 'transparent';
+                                      setHoveredWord(null);
+                                    }}
                                     style={{ cursor: 'pointer', padding: '1px 3px', borderRadius: '4px', transition: 'background 0.12s' }}
-                                    title={w.en || ''}
                                   >
                                     {cleanArabic(w.ar)}
                                   </span>
@@ -6003,11 +6012,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               {corpusWords.map((w, i) => (
                                 <span key={i}>
                                   <span
-                                    onClick={(e) => { e.stopPropagation(); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
-                                    onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,165,116,0.14)'; }}
-                                    onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                                    onClick={(e) => { e.stopPropagation(); setHoveredWord(null); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.background = 'rgba(212,165,116,0.14)';
+                                      // Map corpus shape → WordTooltip shape: corpus uses
+                                      // {ar, tr, ...} whereas WordTooltip expects
+                                      // {arabic, tr, en, ...}. Build a thin adapter on the fly.
+                                      const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
+                                      setHoveredWord({ word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.background = 'transparent';
+                                      setHoveredWord(null);
+                                    }}
                                     style={{ cursor: 'pointer', padding: '1px 3px', borderRadius: '4px', transition: 'background 0.12s' }}
-                                    title={w.en || ''}
                                   >
                                     {cleanArabic(w.ar)}
                                   </span>
