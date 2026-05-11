@@ -1779,15 +1779,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       style={{ position: 'fixed', inset: 0, zIndex: 9999, background: C.bg, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
     >
       {/* Click-outside backdrop — closes any open menu/picker on tap.
-          Sits above side panels (TafsirPanel zIndex 180) so a tap-outside
-          closes the menu even when Tefsir is also open underneath. The
-          dropdowns themselves live at zIndex 220 so they stay tappable
-          above this backdrop. Tap order: dropdown (220) > backdrop (210)
-          > tafsir (180) > main content. */}
+          Must sit ABOVE side panels (TafsirPanel 180) so tapping the tafsir
+          area while a menu is open closes the menu, but BELOW the search
+          overlay (200) so that clicks inside the ⌘K palette reach its rows
+          (otherwise the backdrop swallows them and clicking a surah just
+          closes the palette without navigating). The navbar dropdowns at
+          220 stay above the backdrop and remain interactive.
+          Tap order: dropdowns (220) > search overlay (200) > backdrop (195)
+          > tafsir panel (180) > main content. */}
       {anyMenuOpen && (
         <div
           onClick={closeAllMenus}
-          style={{ position: 'absolute', inset: 0, zIndex: 210, background: 'transparent' }}
+          style={{ position: 'absolute', inset: 0, zIndex: 195, background: 'transparent' }}
         />
       )}
       {/* Audio is handled imperatively via audioLiveRef — no DOM <audio> element needed */}
