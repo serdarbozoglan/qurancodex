@@ -560,22 +560,27 @@ const SURAH_PAGES = [
 603, 604, 604, 604,
 ];
 
-// Starting mushaf page for each juz in the standard 604-page Medina mushaf (index 0 unused)
+// Starting mushaf page for each juz — aligned to our Diyanet pagination
+// (Fatiha=0, Bakara=1; verse-to-page comes from acikkuran.com API). The
+// Madinah King-Fahd numbering is offset by +1 because Fatiha there is
+// page 1 — so cüz 2 starts at Madinah p.22 but our p.21 (2:142). Index 0
+// unused; index 1 stays at 1 because Cüz 1 spans Fatiha (p.0) + start of
+// Bakara, and the default-juz-1 fall-through in getCurrentJuz handles p.0.
 const JUZ_PAGES = [
-  0, 1, 22, 42, 62, 82, 102, 121, 142, 162, 182,
-  201, 222, 242, 262, 282, 302, 322, 342, 362, 382,
-  402, 422, 442, 462, 482, 502, 522, 542, 562, 582,
+  0, 1, 21, 41, 61, 81, 101, 120, 141, 161, 181,
+  200, 221, 241, 261, 281, 301, 321, 341, 361, 381,
+  401, 421, 441, 461, 481, 501, 521, 541, 561, 581,
 ];
 
-// Hizb start pages — Madinah 604-page mushaf (60 hizb, 2 per cüz, ~10 pages each).
-// Index 0 unused; HIZB_PAGES[1..60] = start page of that hizb.
+// Hizb start pages — same Diyanet offset rule. 60 hizb (2 per cüz, ~10
+// pages each). Index 0 unused; HIZB_PAGES[1..60] = start page of that hizb.
 const HIZB_PAGES = [
-  0,   1,  11,  22,  32,  42,  52,  62,  72,  82,  92,
-  102, 112, 121, 131, 142, 152, 162, 172, 182, 192,
-  201, 211, 222, 232, 242, 252, 262, 272, 282, 292,
-  302, 312, 322, 332, 342, 352, 362, 372, 382, 392,
-  402, 412, 422, 432, 442, 452, 462, 472, 482, 492,
-  502, 512, 522, 532, 542, 552, 562, 572, 582, 592,
+  0,   1,  10,  21,  31,  41,  51,  61,  71,  81,  91,
+  101, 111, 120, 130, 141, 151, 161, 171, 181, 191,
+  200, 210, 221, 231, 241, 251, 261, 271, 281, 291,
+  301, 311, 321, 331, 341, 351, 361, 371, 381, 391,
+  401, 411, 421, 431, 441, 451, 461, 471, 481, 491,
+  501, 511, 521, 531, 541, 551, 561, 571, 581, 591,
 ];
 
 // Starting [surah, ayah] for each juz (1-indexed; index 0 unused)
