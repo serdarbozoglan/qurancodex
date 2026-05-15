@@ -2318,7 +2318,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   ? (language === 'tr' ? 'Meali kapat — mushaf görünümü' : 'Hide meaning — mushaf view')
                   : (language === 'tr' ? 'Meali göster — Türkçe çeviri' : 'Show meaning — translation')}
               >
-                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700 }}>
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700, transform: 'translateY(-3px)' }}>
                   م
                 </span>
                 <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
