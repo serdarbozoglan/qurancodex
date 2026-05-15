@@ -1524,71 +1524,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     }
   }, [bookMode, bookPage, selectedSurah, verses]);
 
-  // Arrow key navigation
-  //   • Book mode: ←/→ flip PAGES (±1 normally, ±2 in 2-page spread —
-  //     matches the visual side-arrow buttons and the RTL mushaf
-  //     convention where the LEFT arrow is "next"). ↑/↓ still move
-  //     verse-to-verse so the keyboard can drive audio playback.
-  //   • Verse mode: all four arrows move verse-to-verse (legacy).
-  // Ignored while focus is in a text input/textarea so typing in the
-  // page-jump field or search doesn't trigger nav.
-  useEffect(() => {
-    const h = (e) => {
-      const target = e.target;
-      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
-      if (e.metaKey || e.ctrlKey || e.altKey) return;
-      if (bookMode) {
-        // `spreadMode` itself is declared further down — recompute locally
-        // from its source deps to stay above its temporal-dead-zone here.
-        const spreadActive = bookMode && !showTranslation && !isMobile && isWide;
-        const step = spreadActive ? 2 : 1;
-        if (e.key === 'ArrowLeft') {
-          if (currentPage < 604) { e.preventDefault(); navigateToPage(Math.min(604, currentPage + step)); }
-          return;
-        }
-        if (e.key === 'ArrowRight') {
-          if (currentPage > 0) { e.preventDefault(); navigateToPage(Math.max(0, currentPage - step)); }
-          return;
-        }
-        if (e.key === 'ArrowDown') {
-          if (!surahVerses.length) return;
-          const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
-          const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
-          if (next) { e.preventDefault(); handleSelectVerse(next); }
-          return;
-        }
-        if (e.key === 'ArrowUp') {
-          if (!surahVerses.length) return;
-          const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
-          const prev = surahVerses[Math.max(idx - 1, 0)];
-          if (prev) { e.preventDefault(); handleSelectVerse(prev); }
-          return;
-        }
-        return;
-      }
-      // Verse mode — legacy verse-to-verse behaviour on all 4 arrows.
-      if (!surahVerses.length) return;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
-        const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
-        if (next) handleSelectVerse(next);
-      }
-      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
-        const prev = surahVerses[Math.max(idx - 1, 0)];
-        if (prev) handleSelectVerse(prev);
-      }
-    };
-    window.addEventListener('keydown', h);
-    return () => window.removeEventListener('keydown', h);
-    // navigateToPage is intentionally OFF the deps list — it's declared
-    // later in the component body so listing it here triggers a TDZ
-    // ReferenceError on the very first render. The handler captures it
-    // lexically at call time (when a key is actually pressed, by which
-    // point the binding is initialised), so the closure stays current
-    // without needing a re-subscribe.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, showTranslation, isMobile, isWide, currentPage]);
+  // Arrow key navigation effect moved further down — it depends on
+  // `currentPage`, `spreadMode`, and `navigateToPage`, all of which are
+  // declared later in this component. Placing the effect here triggered
+  // a TDZ on first render. See the matching useEffect block right after
+  // `navigateToPage`.
 
   // Refs for imperative audio (no DOM <audio> element needed)
   const audioLiveRef = useRef(null);    // currently active Audio instance
@@ -1905,6 +1845,64 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     setLastRead(lr);
     localStorage.setItem('qurancodex_last_read', JSON.stringify(lr));
   };
+
+  // Arrow key navigation
+  //   • Book mode: ←/→ flip PAGES (±1 normally, ±2 in 2-page spread —
+  //     matches the visual side-arrow buttons and the RTL mushaf
+  //     convention where the LEFT arrow is "next"). ↑/↓ still move
+  //     verse-to-verse so the keyboard can drive audio playback.
+  //   • Verse mode: all four arrows move verse-to-verse (legacy).
+  // Ignored while focus is in a text input/textarea so typing in the
+  // page-jump field or search doesn't trigger nav.
+  useEffect(() => {
+    const h = (e) => {
+      const target = e.target;
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (bookMode) {
+        const spreadActive = bookMode && !showTranslation && !isMobile && isWide;
+        const step = spreadActive ? 2 : 1;
+        if (e.key === 'ArrowLeft') {
+          if (currentPage < 604) { e.preventDefault(); navigateToPage(Math.min(604, currentPage + step)); }
+          return;
+        }
+        if (e.key === 'ArrowRight') {
+          if (currentPage > 0) { e.preventDefault(); navigateToPage(Math.max(0, currentPage - step)); }
+          return;
+        }
+        if (e.key === 'ArrowDown') {
+          if (!surahVerses.length) return;
+          const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+          const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
+          if (next) { e.preventDefault(); handleSelectVerse(next); }
+          return;
+        }
+        if (e.key === 'ArrowUp') {
+          if (!surahVerses.length) return;
+          const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+          const prev = surahVerses[Math.max(idx - 1, 0)];
+          if (prev) { e.preventDefault(); handleSelectVerse(prev); }
+          return;
+        }
+        return;
+      }
+      // Verse mode — legacy verse-to-verse behaviour on all 4 arrows.
+      if (!surahVerses.length) return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+        const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
+        if (next) handleSelectVerse(next);
+      }
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+        const prev = surahVerses[Math.max(idx - 1, 0)];
+        if (prev) handleSelectVerse(prev);
+      }
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, showTranslation, isMobile, isWide, currentPage]);
 
   // Update autoNextRef on every render so onended always has fresh state
   autoNextRef.current = (currentVerseId) => {
