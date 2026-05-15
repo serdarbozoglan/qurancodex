@@ -4370,15 +4370,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           <div style={{
             maxWidth: '1600px',
             margin: '0 auto',
-            // Spread mode reserves a narrower gutter just wide enough to clear
-            // the (narrowed) side-arrow buttons — see the arrowBtn block: in
-            // spreadMode the arrow shrinks to 28px so a 32px outer gutter
-            // gives a 4px breathing space without wasting horizontal area.
+            // Outer gutter on desktop is the same in both spread (Arabic only)
+            // and meal-open modes — toggling MEAL should change which columns
+            // are visible, NOT how the page sits in the viewport. 22px clears
+            // the slim 18px arrow tab and leaves a 4px breathing space, a
+            // tight mushaf-style outer binding margin in either layout.
             padding: isMobile
               ? '10px 12px 32px 12px'
-              : spreadMode
-                ? '20px 28px 36px 28px'
-                : '20px 12px 36px 12px',
+              : '20px 22px 36px 22px',
           }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
                 Surah title cards (Arabic name + transliteration + ayah count) are
@@ -6955,22 +6954,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         const handlePrev = () => { const step = spreadMode ? 2 : 1; if (currentPage > 0) navigateToPage(Math.max(0, currentPage - step)); };
         const handleNext = () => { const step = spreadMode ? 2 : 1; if (currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); };
         const arrowBtn = (enabled, onClick, side, title) => {
-          // Spread mode uses a narrower arrow tab — bump opacity so it's
-          // still visually obvious despite the smaller footprint.
+          // Side arrows are styled the same regardless of meal-open vs
+          // spread mode — toggling MEAL should not change navigation chrome.
+          // The slim, saturated tab style (originally introduced for spread)
+          // applies to all desktop book-mode reading.
           const defaultBg = enabled
-            ? (spreadMode
-                ? (dayMode ? 'rgba(100,60,10,0.16)' : 'rgba(212,165,116,0.18)')
-                : (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.08)'))
+            ? (dayMode ? 'rgba(100,60,10,0.16)' : 'rgba(212,165,116,0.18)')
             : 'transparent';
           const defaultColor = enabled
-            ? (spreadMode
-                ? (dayMode ? 'rgba(100,60,10,0.7)' : 'rgba(212,165,116,0.75)')
-                : (dayMode ? 'rgba(100,60,10,0.45)' : 'rgba(212,165,116,0.45)'))
+            ? (dayMode ? 'rgba(100,60,10,0.7)' : 'rgba(212,165,116,0.75)')
             : 'transparent';
           const defaultBorder = enabled
-            ? (spreadMode
-                ? (dayMode ? 'rgba(100,60,10,0.35)' : 'rgba(212,165,116,0.4)')
-                : (dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(212,165,116,0.15)'))
+            ? (dayMode ? 'rgba(100,60,10,0.35)' : 'rgba(212,165,116,0.4)')
             : 'transparent';
           return (
             <button
@@ -6978,14 +6973,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 zIndex: 20,
-                // In 2-page spread mode the arrow is a 24px-wide, 180px-tall
-                // tab — narrow enough to keep the gutter tight (paired with
-                // 28px content padding for a 4px breathing space) but tall
-                // and saturated enough to be clearly recognisable as a
-                // clickable target. Non-spread keeps the original generous
-                // 44px hit-area.
-                width: spreadMode ? '24px' : '44px',
-                height: spreadMode ? '180px' : '120px',
+                // Slim 18×180 arrow tab applies to both meal-open and
+                // meal-closed reading — toggling MEAL changes the columns,
+                // not the navigation chrome. Tight gutter (22px) paired
+                // with a 4px breathing space.
+                width: '18px',
+                height: '180px',
                 background: defaultBg,
                 border: `1px solid ${defaultBorder}`,
                 borderLeft: side === 'left' ? 'none' : undefined,
@@ -7009,8 +7002,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}}
             >
               {side === 'left'
-                ? <ChevronLeft size={spreadMode ? 18 : 20} />
-                : <ChevronRight size={spreadMode ? 18 : 20} />}
+                ? <ChevronLeft size={16} />
+                : <ChevronRight size={16} />}
             </button>
           );
         };
