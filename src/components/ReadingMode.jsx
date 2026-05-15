@@ -4388,12 +4388,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               display: 'grid',
               gridTemplateColumns: spreadMode
                 ? '1fr 1fr'
-                : showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr',
-              // Cilt boşluğu gap when meal is on + desktop, evoking a
-              // facing-page Turkish/Arabic translation book where the two
-              // languages meet at the binding. Wide enough for the
-              // 3-layer divider (18px) with ~35px clear on each side.
-              gap: spreadMode ? '64px' : (showTranslation && !isMobile ? '88px' : '0'),
+                : showTranslation ? (isMobile ? '1fr' : '1fr 1fr') : '1fr',
+              // Same 64px binding gutter whether the spread is Arabic+Arabic
+              // (spread mode) or Arabic+Meal — keeps the Arabic column width
+              // identical between the two modes so line breaks don't shift
+              // when MEAL is toggled. Divider (18px wide) still has 23px
+              // breathing space on each side.
+              gap: (spreadMode || (showTranslation && !isMobile)) ? '64px' : '0',
               // Relative wrapper so the divider can be absolutely
               // positioned at the binding gutter between the two columns.
               position: 'relative',
@@ -5375,7 +5376,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // touch the gutter while the Turkish (text-align:left,
                   // short lines) keeps its right edge airy. 36px restores
                   // visual symmetry around the divider.
-                  paddingLeft: showTranslation && !isMobile ? '36px' : '0',
+                  // No asymmetric left-padding any more — Arabic column now
+                  // gets exactly the same width whether meal is open or not,
+                  // so the same justified line breaks appear in both modes.
+                  paddingLeft: '0',
                   // Compact gutter sized to the medallion + a touch of
                   // breathing room. Mushaf outer margin in miniature.
                   paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : '0',
