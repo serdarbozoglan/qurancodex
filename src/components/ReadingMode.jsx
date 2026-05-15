@@ -73,7 +73,10 @@ function cleanArabic(str) {
     // de g\u00f6rsel olarak fatha + dagger-alef stroke birlikte g\u00f6sterir.
     // Shadda araya girerse (\u00f6rn. \u0627\u064e\u0644\u0635\u064e\u0651\u0644\u0670\u0648\u0629\u064e \u2192 \u0644 \u0651 \u0670) shadda korunur, fatha
     // shadda'dan sonra dagger-alef \u00f6ncesi inject edilir.
-    .replace(/([\u0628-\u063a\u0641-\u0647])(\u0651)?\u0670/g, (_, c, sh) => c + (sh || '') + '\u064e\u0670')
+    // NOTE: 'consonant + dagger alef' fatha injection REVERTED. Diyanet
+    // typography uses the dagger alef stroke ALONE as the visible mark
+    // (it implicitly encodes fatha + long alef). Adding a separate fatha
+    // stacked both glyphs above the consonant and they overlapped.
     // Lam-shamsiyah missing-sukun fix. verse-graph-bgem3.json has 5278
     // places where the silent 'al-' lam (assimilated definite article)
     // is encoded as bare \u0644 with no hareke, immediately before a sun
