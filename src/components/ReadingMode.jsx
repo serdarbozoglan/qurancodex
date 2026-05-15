@@ -4240,7 +4240,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             padding: isMobile
               ? '10px 12px 32px 12px'
               : spreadMode
-                ? '20px 32px 36px 32px'
+                ? '20px 24px 36px 24px'
                 : '20px 12px 36px 12px',
           }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
@@ -6755,10 +6755,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 zIndex: 20,
-                // In 2-page spread mode the arrow shrinks to 28px so the
-                // gutter between page edge and arrow can be small — see the
+                // In 2-page spread mode the arrow shrinks to 20px so the
+                // gutter between page edge and arrow can be tight — see the
                 // grid-container padding for the matching spread-mode value.
-                width: spreadMode ? '28px' : '44px', height: '120px',
+                width: spreadMode ? '20px' : '44px', height: '120px',
                 background: defaultBg,
                 border: `1px solid ${defaultBorder}`,
                 borderLeft: side === 'left' ? 'none' : undefined,
