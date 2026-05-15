@@ -84,7 +84,10 @@ function cleanArabic(str) {
     // \u0627\u064e\u0644\u0635\u064e\u0651\u0644\u0670\u0648\u0629\u064e, \u0627\u0644\u0630\u0650\u0651\u0643\u0652\u0631\u064e). Inject sukun on the silent lam so the
     // letter shows the \u0645\u0652 marker Diyanet typography expects. Sun letters
     // (14): \u062a \u062b \u062f \u0630 \u0631 \u0632 \u0633 \u0634 \u0635 \u0636 \u0637 \u0638 \u0644 \u0646.
-    .replace(/\u0644(?![\u064b-\u065f])(?=[\u062a\u062b\u062f\u0630\u0631\u0632\u0633\u0634\u0635\u0636\u0637\u0638\u0644\u0646]\u0651)/g, '\u0644\u0652')
+    // NOTE: lam-shamsiyah sukun injection REVERTED. In Diyanet typography
+    // the silent assimilated-article lam is left BARE \u2014 the shadda on the
+    // following sun letter already encodes id\u011fam-\u015fems\u00ee. Adding a sukun
+    // contradicts the source mushaf style.
     // Reorder [waqf-marker][tenvin] \u2192 [tenvin][waqf-marker] so the
     // kasratan/fathatan/dammatan glyph renders below/above the host
     // letter without colliding with the small high waqf glyph stacked
