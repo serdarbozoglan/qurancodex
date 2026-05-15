@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { COLORS, FONTS } from '../tokens';
 
 const QURAN_CDN = 'https://audio.qurancdn.com/';
@@ -9,10 +9,16 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
   const ref = useRef(null);
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
-  const [pos, setPos] = useState({ top: 0, left: 0, arrowSide: 'bottom' });
+  // `ready` gates the first paint until useLayoutEffect has measured + placed
+  // the tooltip. Without it, hovering quickly between words produced a brief
+  // top-left flash because the initial render painted at (0,0) before
+  // positioning ran on the next tick.
+  const [pos, setPos] = useState({ top: 0, left: 0, arrowSide: 'bottom', ready: false });
 
-  // Compute position based on anchor + measured tooltip size
-  useEffect(() => {
+  // Compute position based on anchor + measured tooltip size. useLayoutEffect
+  // runs synchronously after DOM mutations but BEFORE the browser paints, so
+  // the corrected position is applied in the same frame as the mount.
+  useLayoutEffect(() => {
     if (!anchorRect || !ref.current) return;
     const el = ref.current;
     const ww = window.innerWidth;
@@ -29,7 +35,7 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
     left = Math.max(8, Math.min(ww - tw - 8, left));
     // Clamp top too
     top = Math.max(8, Math.min(wh - th - 8, top));
-    setPos({ top, left, arrowSide });
+    setPos({ top, left, arrowSide, ready: true });
   }, [anchorRect, word]);
 
   // Close on Escape / scroll / resize
@@ -105,8 +111,12 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
         boxShadow: C.shadow,
         fontFamily: FONTS.body,
         color: C.text,
-        pointerEvents: 'auto',
+        pointerEvents: pos.ready ? 'auto' : 'none',
         userSelect: 'text',
+        // Hide the tooltip until layout has measured and positioned it,
+        // otherwise rapid hover-swipes between words flash an unpositioned
+        // shell at the top-left corner of the viewport for one frame.
+        visibility: pos.ready ? 'visible' : 'hidden',
       }}
     >
       {/* Arabic */}

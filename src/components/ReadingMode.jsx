@@ -971,8 +971,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       .catch(() => {});
   }, [selectedSurah, corpusBySurah]);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
+  // Wide-screen detector for the meal-off 2-page Arabic spread. 1440px gives
+  // each page ~700px which fits standard 22-26px Arabic comfortably; below
+  // this we keep the single-page fallback even when meal is hidden.
+  const SPREAD_MIN_WIDTH = 1440;
+  const [isWide, setIsWide] = useState(() => typeof window !== 'undefined' && window.innerWidth >= SPREAD_MIN_WIDTH);
   useEffect(() => {
-    const handler = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    const handler = () => {
+      setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+      setIsWide(window.innerWidth >= SPREAD_MIN_WIDTH);
+    };
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
   }, []);
@@ -1083,7 +1091,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   // ── Font size (persisted) ──────────────────────────────────────────────────
   const [arabicFontSize, setArabicFontSize] = useState(() => {
-    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.2'); }
+    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.4'); }
     catch { return 2.2; }
   });
   // ── Day / Night mode (persisted) ───────────────────────────────────────────
@@ -1516,24 +1524,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     }
   }, [bookMode, bookPage, selectedSurah, verses]);
 
-  // Arrow key navigation
-  useEffect(() => {
-    const h = (e) => {
-      if (!surahVerses.length) return;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
-        const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
-        if (next) handleSelectVerse(next);
-      }
-      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
-        const prev = surahVerses[Math.max(idx - 1, 0)];
-        if (prev) handleSelectVerse(prev);
-      }
-    };
-    window.addEventListener('keydown', h);
-    return () => window.removeEventListener('keydown', h);
-  }, [surahVerses, activeVerse, handleSelectVerse]);
+  // Arrow key navigation effect moved further down — it depends on
+  // `currentPage`, `spreadMode`, and `navigateToPage`, all of which are
+  // declared later in this component. Placing the effect here triggered
+  // a TDZ on first render. See the matching useEffect block right after
+  // `navigateToPage`.
 
   // Refs for imperative audio (no DOM <audio> element needed)
   const audioLiveRef = useRef(null);    // currently active Audio instance
@@ -1802,11 +1797,25 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     return pageVerses.length > 0 ? pageVerses : surahVerses;
   }, [bookMode, verses, surahVerses, currentPage]);
 
-  // Scroll to active verse — if on a different page navigate there first, then scroll
+  // 2-page spread mode: only active in book mode when meal is hidden AND
+  // viewport is wide enough. Renders currentPage (right, RTL-first) plus
+  // currentPage+1 (left) side-by-side, mirroring a physical mushaf opening.
+  const spreadMode = bookMode && !showTranslation && !isMobile && isWide;
+  const versesOnNextPage = useMemo(() => {
+    if (!spreadMode || !verses || verses.length === 0) return [];
+    return verses
+      .filter(v => v.page === currentPage + 1)
+      .sort((a, b) => (a.surah - b.surah) || (a.ayah - b.ayah));
+  }, [spreadMode, verses, currentPage]);
+
+  // Scroll to active verse — if on a different page navigate there first, then scroll.
+  // In 2-page spread mode, the left (next) page is also visible alongside the current
+  // page, so an activeVerse landing there must NOT trigger a page jump.
   useEffect(() => {
     if (!activeVerse || !bookMode) return;
     const onPage = versesOnPage.find(v => v.id === activeVerse.id);
-    if (!onPage && activeVerse.page) {
+    const onNextPage = spreadMode && versesOnNextPage.find(v => v.id === activeVerse.id);
+    if (!onPage && !onNextPage && activeVerse.page) {
       const clamped = Math.max(0, Math.min(604, activeVerse.page));
       setBookPage(clamped);
     }
@@ -1836,6 +1845,64 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     setLastRead(lr);
     localStorage.setItem('qurancodex_last_read', JSON.stringify(lr));
   };
+
+  // Arrow key navigation
+  //   • Book mode: ←/→ flip PAGES (±1 normally, ±2 in 2-page spread —
+  //     matches the visual side-arrow buttons and the RTL mushaf
+  //     convention where the LEFT arrow is "next"). ↑/↓ still move
+  //     verse-to-verse so the keyboard can drive audio playback.
+  //   • Verse mode: all four arrows move verse-to-verse (legacy).
+  // Ignored while focus is in a text input/textarea so typing in the
+  // page-jump field or search doesn't trigger nav.
+  useEffect(() => {
+    const h = (e) => {
+      const target = e.target;
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (bookMode) {
+        const spreadActive = bookMode && !showTranslation && !isMobile && isWide;
+        const step = spreadActive ? 2 : 1;
+        if (e.key === 'ArrowLeft') {
+          if (currentPage < 604) { e.preventDefault(); navigateToPage(Math.min(604, currentPage + step)); }
+          return;
+        }
+        if (e.key === 'ArrowRight') {
+          if (currentPage > 0) { e.preventDefault(); navigateToPage(Math.max(0, currentPage - step)); }
+          return;
+        }
+        if (e.key === 'ArrowDown') {
+          if (!surahVerses.length) return;
+          const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+          const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
+          if (next) { e.preventDefault(); handleSelectVerse(next); }
+          return;
+        }
+        if (e.key === 'ArrowUp') {
+          if (!surahVerses.length) return;
+          const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+          const prev = surahVerses[Math.max(idx - 1, 0)];
+          if (prev) { e.preventDefault(); handleSelectVerse(prev); }
+          return;
+        }
+        return;
+      }
+      // Verse mode — legacy verse-to-verse behaviour on all 4 arrows.
+      if (!surahVerses.length) return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+        const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
+        if (next) handleSelectVerse(next);
+      }
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+        const prev = surahVerses[Math.max(idx - 1, 0)];
+        if (prev) handleSelectVerse(prev);
+      }
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, showTranslation, isMobile, isWide, currentPage]);
 
   // Update autoNextRef on every render so onended always has fresh state
   autoNextRef.current = (currentVerseId) => {
@@ -2025,12 +2092,31 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   whiteSpace: 'nowrap', fontWeight: 500,
                   flexShrink: 0,
                 }}>
-                  {language === 'tr' ? 'Cüz ' : 'Juz '}
-                  <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayJuz}</span>
-                  {' · ' + (language === 'tr' ? 'Hizb ' : 'Hizb ')}
-                  <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
+                  <span
+                    title={language === 'tr'
+                      ? "Cüz: Kur'an'ın 30 eşit bölümünden biri (≈20 sayfa). Ramazan'da her gün bir cüz okunarak hatim tamamlanır."
+                      : "Juz: One of the 30 equal divisions of the Qur'an (~20 pages). Reading one a day completes the Qur'an in Ramadan."}
+                    style={{ cursor: 'help' }}
+                  >
+                    {language === 'tr' ? 'Cüz ' : 'Juz '}
+                    <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayJuz}</span>
+                  </span>
+                  {' · '}
+                  <span
+                    title={language === 'tr'
+                      ? 'Hizb: Cüzün yarısı (≈10 sayfa). Her cüz 2 hizbe bölünür; toplam 60 hizb vardır.'
+                      : 'Hizb: Half of a juz (~10 pages). Each juz contains 2 hizbs; 60 in total.'}
+                    style={{ cursor: 'help' }}
+                  >
+                    {language === 'tr' ? 'Hizb ' : 'Hizb '}
+                    <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
+                  </span>
                   {' · ' + (language === 'tr' ? 'Sayfa ' : 'Page ')}
-                  <span style={{ color: gold, fontWeight: 700 }}>{currentPage}</span>
+                  <span style={{ color: gold, fontWeight: 700 }}>
+                    {spreadMode && versesOnNextPage.length > 0
+                      ? `${currentPage}–${currentPage + 1}`
+                      : currentPage}
+                  </span>
                   <span style={{ opacity: 0.72 }}>{'/604'}</span>
                 </span>
               )}
@@ -2208,6 +2294,37 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   </span>
                 </button>
               )}
+
+              {/* Meal (Turkish translation) toggle — desktop only.
+                  Was previously buried in the Settings panel; surfaced
+                  here because tedebbür ↔ tilavet switching is frequent
+                  and "5-step Settings dive" is the wrong friction for a
+                  primary reading mode. Translator picker stays in
+                  Settings (Diyanet / Yıldırım / Elmalılı). Order in the
+                  reading-tool group: KELİME (micro) · MEAL (mid) · TEFSİR
+                  (macro) · TAHTA — natural mikro→makro hiyerarşi. */}
+              {!isMobile && <button
+                onClick={() => setShowTranslation(v => !v)}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  border: `1px solid ${showTranslation ? navC.btnBorderActive : navC.btnBorder}`,
+                  background: showTranslation ? navC.btnBgActive : navC.btnBg,
+                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                onMouseLeave={e => { e.currentTarget.style.background = showTranslation ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : navC.btnBorder; }}
+                title={showTranslation
+                  ? (language === 'tr' ? 'Meali kapat — mushaf görünümü' : 'Hide meaning — mushaf view')
+                  : (language === 'tr' ? 'Meali göster — Türkçe çeviri' : 'Show meaning — translation')}
+              >
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700, transform: 'translateY(-3px)' }}>
+                  م
+                </span>
+                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
+                  {language === 'tr' ? 'Meal' : 'Meaning'}
+                </span>
+              </button>}
 
               {/* Tefsir (Elmalılı Hamdi Yazır) panel toggle — desktop only.
                   Mobile accesses this via the Settings panel. */}
@@ -3991,8 +4108,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           swipeTouchY.current = null;
           // Yalnızca net yatay swipe: en az 60px yatay ve dikey hareketten 1.5x fazla
           if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-          if (dx > 0 && currentPage < 604) navigateToPage(currentPage + 1); // swipe right → next page (RTL)
-          if (dx < 0 && currentPage > 0) navigateToPage(currentPage - 1);   // swipe left → prev page (RTL)
+          const step = spreadMode ? 2 : 1;
+          if (dx > 0 && currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); // swipe right → next page (RTL)
+          if (dx < 0 && currentPage > 0) navigateToPage(Math.max(0, currentPage - step));     // swipe left → prev page (RTL)
         } : undefined}
       >
         {/* ── Hatim Duası screen ────────────────────────────────────────── */}
@@ -4203,7 +4321,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         {bookMode ? (
           /* ── Book format — all surahs ── */
           <>
-          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '10px 12px 32px 12px' : '20px 12px 36px 12px' }}>
+          <div style={{
+            maxWidth: '1600px',
+            margin: '0 auto',
+            // Spread mode reserves a narrower gutter just wide enough to clear
+            // the (narrowed) side-arrow buttons — see the arrowBtn block: in
+            // spreadMode the arrow shrinks to 28px so a 32px outer gutter
+            // gives a 4px breathing space without wasting horizontal area.
+            padding: isMobile
+              ? '10px 12px 32px 12px'
+              : spreadMode
+                ? '20px 28px 36px 28px'
+                : '20px 12px 36px 12px',
+          }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
                 Surah title cards (Arabic name + transliteration + ayah count) are
                 rendered inline in the items loop below — one before each surah on
@@ -4211,12 +4341,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             <div style={{
               display: 'grid',
-              gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr',
+              gridTemplateColumns: spreadMode
+                ? '1fr 1fr'
+                : showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr',
               // Cilt boşluğu gap when meal is on + desktop, evoking a
               // facing-page Turkish/Arabic translation book where the two
               // languages meet at the binding. Wide enough for the
               // 3-layer divider (18px) with ~35px clear on each side.
-              gap: showTranslation && !isMobile ? '88px' : '0',
+              gap: spreadMode ? '64px' : (showTranslation && !isMobile ? '88px' : '0'),
               // Relative wrapper so the divider can be absolutely
               // positioned at the binding gutter between the two columns.
               position: 'relative',
@@ -4228,8 +4360,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   (2) centered gold hairline = binding seam stitch line;
                   (3) gold-diamond ornaments at top/midpoint/bottom = mushaf
                       chapter-cap decorations framing the seam.
-                  Only renders when meal is on + desktop. */}
-              {showTranslation && !isMobile && (
+                  Renders when meal is on + desktop, OR when 2-page Arabic
+                  spread is active (also a side-by-side mushaf layout). */}
+              {(showTranslation || spreadMode) && !isMobile && (
                 <div aria-hidden style={{
                   position: 'absolute',
                   left: '50%',
@@ -4346,29 +4479,58 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       onClick={() => setShowInlineMealPicker(p => !p)}
                       title={language === 'tr' ? 'Çevirmeni değiştir' : 'Change translator'}
                       style={{
-                        width: '100%',
-                        padding: '8px 12px 10px',
-                        background: 'transparent',
-                        border: 'none',
-                        fontSize: '0.82rem',
-                        color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)',
-                        letterSpacing: '0.04em',
+                        // Inline meal picker — bumped from a near-invisible
+                        // label to a proper pill so users immediately see it
+                        // as a control. Subtle gold border + slightly bolder
+                        // text + persistent chevron arrow. The fancier
+                        // dropdown panel below already had presence; the
+                        // trigger was the weak link.
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        margin: '6px 12px 8px',
+                        padding: '6px 12px',
+                        background: showInlineMealPicker
+                          ? (dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.16)')
+                          : (dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.06)'),
+                        border: `1px solid ${dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(212,165,116,0.25)'}`,
+                        borderRadius: '6px',
+                        fontSize: '0.78rem',
+                        fontWeight: 500,
+                        color: dayMode ? COLORS.paperGold : 'rgba(232,181,71,0.92)',
+                        letterSpacing: '0.02em',
                         cursor: 'pointer',
                         textAlign: 'left',
-                        display: 'flex', alignItems: 'center', gap: '6px',
-                        transition: 'color 0.15s',
+                        transition: 'all 0.15s',
                         fontFamily: 'inherit',
                       }}
-                      onMouseEnter={(e) => { e.currentTarget.style.color = C.gold; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)'; }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.14)' : 'rgba(212,165,116,0.14)';
+                        e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.45)' : 'rgba(212,165,116,0.45)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = showInlineMealPicker
+                          ? (dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.16)')
+                          : (dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.06)');
+                        e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(212,165,116,0.25)';
+                      }}
                     >
-                      <span>{language === 'tr' ? 'Meal:' : 'Translation:'} {selectedMealAuthor.label}</span>
+                      <span style={{
+                        fontSize: '0.62rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.12em',
+                        opacity: 0.7,
+                      }}>
+                        {language === 'tr' ? 'Meal' : 'Translation'}
+                      </span>
+                      <span style={{ fontWeight: 600 }}>{selectedMealAuthor.label}</span>
                       <span style={{
                         fontSize: '0.6rem',
-                        opacity: 0.7,
+                        opacity: 0.75,
                         transform: showInlineMealPicker ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 0.18s',
                         display: 'inline-flex',
+                        marginLeft: '2px',
                       }}>▾</span>
                     </button>
 
@@ -4772,6 +4934,382 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </div>
               )}
 
+              {/* 2-page spread — LEFT column = next page Arabic.
+                  Mirrors the right column's items-loop pattern (surah header
+                  card on transitions + verse text + ayah badge) plus active
+                  verse highlight, click-to-play audio, nowrap last-word+badge,
+                  and a Cüz/Hizb medallion in the OUTER (physical-left) gutter
+                  when the left page starts a juz/hizb. Kelime mode is still
+                  display-only on this side. */}
+              {spreadMode && versesOnNextPage.length > 0 && (() => {
+                const firstPageL = versesOnNextPage[0]?.page;
+                const hasMarkerL = !!firstPageL && firstPageL !== 1 && (
+                  JUZ_PAGES.indexOf(firstPageL) > 0 ||
+                  HIZB_PAGES.indexOf(firstPageL) > 0
+                );
+                return (
+                <div style={{
+                  order: 1,
+                  position: 'relative',
+                  // Outer (physical-left) gutter for the Cüz/Hizb medallion —
+                  // mirrors the right page's right-gutter so both pages keep
+                  // mushaf outer-margin symmetry.
+                  paddingLeft: hasMarkerL ? (isMobile ? '44px' : '56px') : '0',
+                  direction: 'rtl',
+                  fontFamily: currentFont,
+                  fontSize: `${arabicFontSize}rem`,
+                  lineHeight: 2.3,
+                  color: C.arabic,
+                  textAlign: 'justify',
+                  paddingTop: '0',
+                }}>
+                  {/* Page-level Cüz/Hizb medallion — absolute-positioned in the
+                      physical-left gutter (outer edge of the left page). */}
+                  {hasMarkerL && (() => {
+                    const juzIdx = JUZ_PAGES.indexOf(firstPageL);
+                    const hizbIdx = HIZB_PAGES.indexOf(firstPageL);
+                    const isJuz = juzIdx > 0;
+                    const num = isJuz ? juzIdx : (hizbIdx > 0 ? hizbIdx : 0);
+                    if (!num) return null;
+                    const arLabel = isJuz ? 'الجُزْء' : 'الحِزْب';
+                    const size = isMobile ? 40 : 48;
+                    const tooltip = (() => {
+                      if (!isJuz) return `Hizb ${num}`;
+                      const [sStart, aStart] = JUZ_START[num] || [];
+                      const next = JUZ_START[num + 1];
+                      const sName = (arr) => arr[sStart - 1];
+                      const startLabel = `${sName(SURAH_NAMES_TR)} ${sStart}:${aStart}`;
+                      if (!next) {
+                        return language === 'tr'
+                          ? `Cüz ${num} — ${startLabel} → sonuna kadar`
+                          : `Juz ${num} — ${startLabel} → end`;
+                      }
+                      const [sEnd, aEnd] = next;
+                      const endLabel = aEnd === 1
+                        ? `${SURAH_NAMES_TR[sEnd - 2]} sonu`
+                        : `${SURAH_NAMES_TR[sEnd - 1]} ${sEnd}:${aEnd - 1}`;
+                      return language === 'tr'
+                        ? `Cüz ${num} — ${startLabel} → ${endLabel}`
+                        : `Juz ${num} — ${startLabel} → ${endLabel}`;
+                    })();
+                    return (
+                      <span
+                        role="img"
+                        aria-label={tooltip}
+                        title={tooltip}
+                        style={{
+                          position: 'absolute',
+                          top: isMobile ? '6px' : '10px',
+                          left: isMobile ? '-2px' : '-4px',
+                          width: `${size}px`,
+                          height: `${size}px`,
+                          borderRadius: '50%',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          paddingTop: isMobile ? '4px' : '6px',
+                          paddingBottom: isMobile ? '1px' : '1px',
+                          gap: '0',
+                          color: C.gold,
+                          background: dayMode
+                            ? (isJuz ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.10)')
+                            : (isJuz ? 'rgba(212,165,116,0.12)' : 'rgba(212,165,116,0.07)'),
+                          border: `1.5px solid ${C.gold}${isJuz ? 'cc' : '88'}`,
+                          direction: 'rtl',
+                          cursor: 'help',
+                          zIndex: 1,
+                        }}
+                      >
+                        <span style={{
+                          fontFamily: currentFont,
+                          fontSize: isMobile ? '0.86rem' : '1.02rem',
+                          lineHeight: 1,
+                          opacity: 0.95,
+                          letterSpacing: 0,
+                        }}>{arLabel}</span>
+                        <span style={{
+                          fontFamily: currentFont,
+                          fontSize: isMobile ? '1.15rem' : '1.35rem',
+                          fontWeight: 500,
+                          lineHeight: 1,
+                          marginTop: '-2px',
+                        }}>{toArabicNumerals(num)}</span>
+                      </span>
+                    );
+                  })()}
+                  {(() => {
+                    const items = [];
+                    let prevSurah = null;
+                    for (const [idx, verse] of versesOnNextPage.entries()) {
+                      const isTransition = prevSurah !== null && verse.surah !== prevSurah;
+                      const isFirstSurahStart = idx === 0 && verse.ayah === 1;
+                      if (isTransition || isFirstSurahStart) {
+                        items.push({ type: 'surahHeader', surah: verse.surah });
+                      }
+                      items.push({ type: 'verse', verse });
+                      prevSurah = verse.surah;
+                    }
+                    return items.map(item => {
+                      if (item.type === 'surahHeader') {
+                        const arName = SURAH_NAMES_AR[item.surah - 1];
+                        const ayahCount = SURAH_AYAH_COUNTS[item.surah - 1] || 0;
+                        const rukuCount = SURAH_RUKU_COUNTS[item.surah - 1] || 0;
+                        const nuzulRank = SURAH_NUZUL_ORDER[item.surah - 1] || 0;
+                        const isMadani = MADANI_SURAHS.has(item.surah);
+                        const periodAr = isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة';
+                        const ayahWord = ayahCount === 1 ? 'آيَة'
+                          : ayahCount === 2 ? 'آيَتَان'
+                          : ayahCount <= 10 ? 'آيَات'
+                          : 'آيَة';
+                        return (
+                          <span key={`ar-sh-L-${item.surah}`} style={{ display: 'block' }}>
+                            <div style={{ direction: 'rtl', textAlign: 'center', paddingTop: isMobile ? '48px' : '60px', marginBottom: isMobile ? '22px' : '30px' }}>
+                              <div style={{
+                                width: '1.5px',
+                                height: isMobile ? '32px' : '40px',
+                                background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
+                                margin: '0 auto',
+                              }} />
+                              <div style={{ height: isMobile ? '40px' : '52px' }} />
+                              <div style={{
+                                fontFamily: currentFont,
+                                fontSize: isMobile ? '0.95rem' : '1.1rem',
+                                color: C.gold,
+                                opacity: 0.78,
+                                letterSpacing: '0.02em',
+                                lineHeight: 1.4,
+                                marginBottom: isMobile ? '14px' : '20px',
+                              }}>
+                                السُّورَةُ {toArabicNumerals(item.surah)}
+                              </div>
+                              <div style={{
+                                fontFamily: currentFont,
+                                fontSize: isMobile ? '3rem' : '3.8rem',
+                                color: C.gold,
+                                lineHeight: 1.1,
+                                letterSpacing: '0.02em',
+                                marginBottom: isMobile ? '18px' : '26px',
+                                textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
+                              }}>
+                                {arName}
+                              </div>
+                              {/* Latin caption — only when meal is hidden.
+                                  When the translation column is open the
+                                  Latin surah name already appears in the
+                                  meal-side header, so this duplicate would
+                                  be visual noise. With meal closed (mushaf
+                                  spread mode) this is the only chance for a
+                                  non-Arabic-reading user to confirm which
+                                  surah they're on. */}
+                              {!showTranslation && (
+                                <div style={{
+                                  fontFamily: "'Playfair Display', Georgia, serif",
+                                  fontSize: isMobile ? '0.78rem' : '0.92rem',
+                                  fontWeight: 500,
+                                  fontStyle: 'italic',
+                                  color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
+                                  letterSpacing: '0.06em',
+                                  lineHeight: 1.4,
+                                  marginTop: isMobile ? '-6px' : '-10px',
+                                  marginBottom: isMobile ? '10px' : '14px',
+                                  direction: 'ltr',
+                                }}>
+                                  {language === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {SURAH_NAMES_TR[item.surah - 1]}
+                                </div>
+                              )}
+                              <div style={{
+                                fontFamily: currentFont,
+                                fontSize: isMobile ? '0.95rem' : '1.1rem',
+                                color: dayMode ? '#5a4a32' : C.muted,
+                                letterSpacing: '0.04em',
+                                lineHeight: 1.5,
+                                opacity: 0.92,
+                              }}>
+                                النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
+                              </div>
+                            </div>
+                            {item.surah !== 9 && item.surah !== 1 && (
+                              <div style={{
+                                textAlign: 'center',
+                                direction: 'rtl',
+                                fontFamily: currentFont,
+                                fontSize: `${arabicFontSize}rem`,
+                                color: C.bismillah,
+                                marginTop: isMobile ? '20px' : '28px',
+                                marginBottom: isMobile ? '20px' : '30px',
+                                lineHeight: 1.9,
+                              }}>
+                                {BISMILLAH_AR}
+                              </div>
+                            )}
+                          </span>
+                        );
+                      }
+                      const { verse } = item;
+                      const isActive = activeVerse?.id === verse.id;
+                      const isSajdaBook = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
+                      const ar = cleanArabic(verse.arabic).trimEnd();
+                      const fullHtml = showTajweed
+                        ? applyTajweed(ar, dayMode, true, false)
+                        : wrapWaqfOnly(ar, dayMode, true, false);
+                      // Tag-depth-aware scan to find the last real inter-word
+                      // space (not a space inside a style attribute) — same
+                      // technique as the right column. Used to wrap [last word
+                      // + badge] in white-space:nowrap so the badge never gets
+                      // orphaned on a new line at a justified line boundary.
+                      let htmlSplitIdxL = -1;
+                      {
+                        let depth = 0;
+                        for (let _i = 0; _i < fullHtml.length; _i++) {
+                          const _ch = fullHtml[_i];
+                          if (_ch === '<') depth++;
+                          else if (_ch === '>') depth--;
+                          else if (_ch === ' ' && depth === 0) htmlSplitIdxL = _i;
+                        }
+                      }
+                      const hasSplitL = htmlSplitIdxL > 0;
+                      const leadingHtmlL  = hasSplitL ? fullHtml.slice(0, htmlSplitIdxL + 1) : '';
+                      const lastWordHtmlL = hasSplitL ? fullHtml.slice(htmlSplitIdxL + 1) : fullHtml;
+                      const highlightStyleL = {
+                        background: isActive ? C.activeHighlight : 'transparent',
+                        WebkitBoxDecorationBreak: 'clone',
+                        boxDecorationBreak: 'clone',
+                        transition: 'background 0.2s',
+                        color: isActive ? C.arabicActive : 'inherit',
+                      };
+                      const badge = (
+                        <span style={{
+                          display: 'inline-flex', flexDirection: 'column', alignItems: 'center',
+                          verticalAlign: 'middle',
+                          margin: '0 18px',
+                          gap: '2px',
+                        }}>
+                          {isSajdaBook && (
+                            <span style={{
+                              fontSize: '0.48em', lineHeight: 1,
+                              color: dayMode ? '#1a7a4c' : '#2ecc71',
+                              fontFamily: currentFont,
+                              letterSpacing: '0.02em',
+                            }}>سجدة</span>
+                          )}
+                          <span style={{
+                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                            width: '1.72em', height: '1.72em',
+                            textAlign: 'center', borderRadius: '50%',
+                            border: `1.5px solid ${isSajdaBook ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : C.gold + 'aa'}`,
+                            boxShadow: isSajdaBook
+                              ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`
+                              : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
+                            color: isSajdaBook ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.gold,
+                            fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
+                            fontFamily: currentFont,
+                            background: isSajdaBook
+                              ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.18) 0%, rgba(26,122,76,0.05) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
+                              : dayMode
+                                ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
+                                : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                            boxSizing: 'border-box', flexShrink: 0,
+                          }}>
+                            {toArabicNumerals(verse.ayah)}
+                          </span>
+                        </span>
+                      );
+                      // ── Kelime modu: word-by-word hover tooltip ──────────
+                      // Mirrors the right column's kelime path: split the
+                      // standard-encoded Arabic into words, attach hover/
+                      // click popovers using kuran.com data when available.
+                      // Fatiha-only corpus popover is skipped (Fatiha never
+                      // lands on the left page in a 2-page spread).
+                      const wordListL = wordMode && wordByAyah ? wordByAyah[verse.ayah] : null;
+                      if (wordListL && wordListL.length > 0) {
+                        // wordByAyah is keyed by ayah only — if the left
+                        // page hosts a different surah than wordByAyah was
+                        // loaded for, positional pairing may be off; we
+                        // accept that limitation rather than block kelime.
+                        const ourWords = ar.split(/\s+/).filter(Boolean);
+                        if (ourWords.length > 0) {
+                          const lastIdx = ourWords.length - 1;
+                          return (
+                            <span
+                              key={verse.id ?? `L-${verse.surah}-${verse.ayah}`}
+                              id={`rm-verse-L-${verse.id}`}
+                              spellCheck={false}
+                            >
+                              {ourWords.map((arabicWord, i) => {
+                                const wordMeta = wordListL[i] || null;
+                                const hoverable = !!wordMeta;
+                                const isLast = i === lastIdx;
+                                const wordSpan = (
+                                  <span
+                                    key={i}
+                                    onMouseEnter={hoverable ? (e) => {
+                                      const rect = e.currentTarget.getBoundingClientRect();
+                                      setHoveredWord({ word: wordMeta, anchorRect: rect });
+                                    } : undefined}
+                                    onMouseLeave={hoverable ? () => setHoveredWord(null) : undefined}
+                                    onClick={(e) => {
+                                      if (hoverable) {
+                                        e.stopPropagation();
+                                        const rect = e.currentTarget.getBoundingClientRect();
+                                        setHoveredWord({ word: wordMeta, anchorRect: rect });
+                                      } else {
+                                        handleSelectVerse(verse);
+                                        handleAudioToggle(verse);
+                                      }
+                                    }}
+                                    style={{
+                                      ...highlightStyleL,
+                                      cursor: hoverable ? 'pointer' : 'inherit',
+                                      borderRadius: '4px',
+                                      padding: '0 1px',
+                                      transition: 'background 0.15s',
+                                    }}
+                                    onMouseOver={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
+                                    onMouseOut={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; } : undefined}
+                                    dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(arabicWord, dayMode) }}
+                                  />
+                                );
+                                if (isLast) {
+                                  return (
+                                    <span key="tail" style={{ whiteSpace: 'nowrap' }}>
+                                      {wordSpan}
+                                      {badge}
+                                    </span>
+                                  );
+                                }
+                                return <span key={i}>{wordSpan}{' '}</span>;
+                              })}
+                              {' '}
+                            </span>
+                          );
+                        }
+                      }
+                      // ── Default (tajweed / non-kelime) rendering ──────────
+                      return (
+                        <span
+                          key={verse.id ?? `L-${verse.surah}-${verse.ayah}`}
+                          id={`rm-verse-L-${verse.id}`}
+                          onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
+                          spellCheck={false}
+                          style={{ cursor: 'pointer' }}
+                        >
+                          {leadingHtmlL && (
+                            <span style={highlightStyleL} dangerouslySetInnerHTML={{ __html: leadingHtmlL }} />
+                          )}
+                          <span style={{ whiteSpace: 'nowrap' }}>
+                            <span style={highlightStyleL} dangerouslySetInnerHTML={{ __html: lastWordHtmlL }} />
+                            {badge}
+                          </span>
+                          {' '}
+                        </span>
+                      );
+                    });
+                  })()}
+                </div>
+                );
+              })()}
+
               {/* Right: Arabic continuous.
                   Page-level juz/hizb marker is hoisted out of the flow so it
                   doesn't shorten any verse line. We reserve a right-side
@@ -5000,6 +5538,25 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             }}>
                               {arName}
                             </div>
+                            {/* Latin caption — only when meal hidden; see
+                                matching block in the right column for the
+                                rationale. */}
+                            {!showTranslation && (
+                              <div style={{
+                                fontFamily: "'Playfair Display', Georgia, serif",
+                                fontSize: isMobile ? '0.78rem' : '0.92rem',
+                                fontWeight: 500,
+                                fontStyle: 'italic',
+                                color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
+                                letterSpacing: '0.06em',
+                                lineHeight: 1.4,
+                                marginTop: isMobile ? '-6px' : '-10px',
+                                marginBottom: isMobile ? '10px' : '14px',
+                                direction: 'ltr',
+                              }}>
+                                {language === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {SURAH_NAMES_TR[item.surah - 1]}
+                              </div>
+                            )}
 
                             {/* Meta — chronological → spatial → structural:
                                 nüzul rank · period · ayah count · rukū count.
@@ -6246,7 +6803,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             gap: '12px', padding: '18px 0 8px',
           }}>
             <button
-              onClick={() => { if (currentPage < 604) navigateToPage(currentPage + 1); }}
+              onClick={() => { const step = spreadMode ? 2 : 1; if (currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); }}
               disabled={currentPage >= 604}
               style={{
                 width: '36px', height: '36px', borderRadius: '50%',
@@ -6268,6 +6825,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 padding: '2px 6px',
               }}>
                 {language === 'tr' ? 'Açılış' : 'Opening'}
+                {spreadMode && versesOnNextPage.length > 0 && (
+                  <span style={{ opacity: 0.72, fontWeight: 500 }}>{' · 1'}</span>
+                )}
               </span>
             ) : showPageInput ? (
               <form
@@ -6310,13 +6870,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
               >
                 {language === 'tr' ? 'Sayfa' : 'Page'}{' '}
-                <span style={{ color: gold, fontWeight: 700 }}>{currentPage}</span>
+                <span style={{ color: gold, fontWeight: 700 }}>
+                  {spreadMode && versesOnNextPage.length > 0
+                    ? `${currentPage}–${currentPage + 1}`
+                    : currentPage}
+                </span>
                 <span style={{ color: dayMode ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.2)' }}> / 604</span>
               </button>
             )}
 
             <button
-              onClick={() => { if (currentPage > 0) navigateToPage(currentPage - 1); }}
+              onClick={() => { const step = spreadMode ? 2 : 1; if (currentPage > 0) navigateToPage(Math.max(0, currentPage - step)); }}
               disabled={currentPage <= 0}
               style={{
                 width: '36px', height: '36px', borderRadius: '50%',
@@ -6342,18 +6906,40 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {bookMode && (() => {
         const canGoPrev = currentPage > 0;
         const canGoNext = currentPage < 604;
-        const handlePrev = () => { if (currentPage > 0) navigateToPage(currentPage - 1); };
-        const handleNext = () => { if (currentPage < 604) navigateToPage(currentPage + 1); };
+        const handlePrev = () => { const step = spreadMode ? 2 : 1; if (currentPage > 0) navigateToPage(Math.max(0, currentPage - step)); };
+        const handleNext = () => { const step = spreadMode ? 2 : 1; if (currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); };
         const arrowBtn = (enabled, onClick, side, title) => {
-          const defaultBg = enabled ? (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.08)') : 'transparent';
-          const defaultColor = enabled ? (dayMode ? 'rgba(100,60,10,0.45)' : 'rgba(212,165,116,0.45)') : 'transparent';
-          const defaultBorder = enabled ? (dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(212,165,116,0.15)') : 'transparent';
+          // Spread mode uses a narrower arrow tab — bump opacity so it's
+          // still visually obvious despite the smaller footprint.
+          const defaultBg = enabled
+            ? (spreadMode
+                ? (dayMode ? 'rgba(100,60,10,0.16)' : 'rgba(212,165,116,0.18)')
+                : (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.08)'))
+            : 'transparent';
+          const defaultColor = enabled
+            ? (spreadMode
+                ? (dayMode ? 'rgba(100,60,10,0.7)' : 'rgba(212,165,116,0.75)')
+                : (dayMode ? 'rgba(100,60,10,0.45)' : 'rgba(212,165,116,0.45)'))
+            : 'transparent';
+          const defaultBorder = enabled
+            ? (spreadMode
+                ? (dayMode ? 'rgba(100,60,10,0.35)' : 'rgba(212,165,116,0.4)')
+                : (dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(212,165,116,0.15)'))
+            : 'transparent';
           return (
             <button
               onClick={onClick} disabled={!enabled} title={title}
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
-                zIndex: 20, width: '44px', height: '120px',
+                zIndex: 20,
+                // In 2-page spread mode the arrow is a 24px-wide, 180px-tall
+                // tab — narrow enough to keep the gutter tight (paired with
+                // 28px content padding for a 4px breathing space) but tall
+                // and saturated enough to be clearly recognisable as a
+                // clickable target. Non-spread keeps the original generous
+                // 44px hit-area.
+                width: spreadMode ? '24px' : '44px',
+                height: spreadMode ? '180px' : '120px',
                 background: defaultBg,
                 border: `1px solid ${defaultBorder}`,
                 borderLeft: side === 'left' ? 'none' : undefined,
@@ -6376,7 +6962,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 e.currentTarget.style.borderColor = defaultBorder;
               }}}
             >
-              {side === 'left' ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+              {side === 'left'
+                ? <ChevronLeft size={spreadMode ? 18 : 20} />
+                : <ChevronRight size={spreadMode ? 18 : 20} />}
             </button>
           );
         };
