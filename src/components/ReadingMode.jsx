@@ -7000,21 +7000,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         const arrowBtn = (enabled, onClick, side, title) => {
           // Side arrows are styled the same regardless of meal-open vs
           // spread mode — toggling MEAL should not change navigation chrome.
-          // Deepened saturation + box-shadow so the slim tab reads as a
-          // proper recessed mushaf-edge control without growing horizontally.
+          // Lighter, brighter amber base (shifted away from the heavy
+          // brown/deep-gold toward a warm-cream amber) so the tab reads as
+          // an inviting control rather than a recessed brown groove.
           const defaultBg = enabled
-            ? (dayMode ? 'rgba(100,60,10,0.28)' : 'rgba(212,165,116,0.30)')
+            ? (dayMode ? 'rgba(154,111,16,0.18)' : 'rgba(232,181,71,0.22)')
             : 'transparent';
           const defaultColor = enabled
-            ? (dayMode ? 'rgba(100,60,10,0.85)' : 'rgba(212,165,116,0.9)')
+            ? (dayMode ? 'rgba(154,111,16,0.88)' : 'rgba(244,206,131,0.95)')
             : 'transparent';
           const defaultBorder = enabled
-            ? (dayMode ? 'rgba(100,60,10,0.55)' : 'rgba(212,165,116,0.6)')
+            ? (dayMode ? 'rgba(154,111,16,0.45)' : 'rgba(232,181,71,0.55)')
             : 'transparent';
           const defaultShadow = enabled
             ? (dayMode
-                ? `0 2px 8px rgba(100,60,10,0.18), inset 0 0 0 1px rgba(154,111,16,0.18)`
-                : `0 2px 12px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(232,181,71,0.15)`)
+                ? `0 2px 8px rgba(154,111,16,0.14), inset 0 0 0 1px rgba(232,181,71,0.20)`
+                : `0 2px 12px rgba(0,0,0,0.40), inset 0 0 0 1px rgba(244,206,131,0.18)`)
             : 'none';
           return (
             <button
@@ -7040,11 +7041,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 borderRadius: side === 'left' ? '0 10px 10px 0' : '10px 0 0 10px',
               }}
               onMouseEnter={e => { if (enabled) {
-                // Hover must read as one step "louder" than the already
-                // deepened default — bump background + border further.
-                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.42)' : 'rgba(212,165,116,0.45)';
+                // Hover bumps to a brighter, saturated amber — one step
+                // louder than the already-lightened default so the affordance
+                // is unmistakable on mouseover.
+                e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(232,181,71,0.38)';
                 e.currentTarget.style.color = gold;
-                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.75)' : 'rgba(212,165,116,0.8)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(232,181,71,0.75)';
               }}}
               onMouseLeave={e => { if (enabled) {
                 e.currentTarget.style.background = defaultBg;
