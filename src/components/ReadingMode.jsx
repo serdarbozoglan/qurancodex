@@ -4240,7 +4240,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             padding: isMobile
               ? '10px 12px 32px 12px'
               : spreadMode
-                ? '20px 16px 36px 16px'
+                ? '20px 22px 36px 22px'
                 : '20px 12px 36px 12px',
           }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
@@ -6746,21 +6746,37 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         const handlePrev = () => { const step = spreadMode ? 2 : 1; if (currentPage > 0) navigateToPage(Math.max(0, currentPage - step)); };
         const handleNext = () => { const step = spreadMode ? 2 : 1; if (currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); };
         const arrowBtn = (enabled, onClick, side, title) => {
-          const defaultBg = enabled ? (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.08)') : 'transparent';
-          const defaultColor = enabled ? (dayMode ? 'rgba(100,60,10,0.45)' : 'rgba(212,165,116,0.45)') : 'transparent';
-          const defaultBorder = enabled ? (dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(212,165,116,0.15)') : 'transparent';
+          // Spread mode uses a narrower arrow tab — bump opacity so it's
+          // still visually obvious despite the smaller footprint.
+          const defaultBg = enabled
+            ? (spreadMode
+                ? (dayMode ? 'rgba(100,60,10,0.16)' : 'rgba(212,165,116,0.18)')
+                : (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.08)'))
+            : 'transparent';
+          const defaultColor = enabled
+            ? (spreadMode
+                ? (dayMode ? 'rgba(100,60,10,0.7)' : 'rgba(212,165,116,0.75)')
+                : (dayMode ? 'rgba(100,60,10,0.45)' : 'rgba(212,165,116,0.45)'))
+            : 'transparent';
+          const defaultBorder = enabled
+            ? (spreadMode
+                ? (dayMode ? 'rgba(100,60,10,0.35)' : 'rgba(212,165,116,0.4)')
+                : (dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(212,165,116,0.15)'))
+            : 'transparent';
           return (
             <button
               onClick={onClick} disabled={!enabled} title={title}
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 zIndex: 20,
-                // In 2-page spread mode the arrow shrinks to 12px and pairs
-                // with a 16px content padding (so just a ~4px gap), making
-                // the page-edge feel like a thin mushaf binding without
-                // wasting screen real estate. Non-spread keeps the original
-                // generous 44px hit-area.
-                width: spreadMode ? '12px' : '44px', height: '120px',
+                // In 2-page spread mode the arrow is a 18px-wide, 160px-tall
+                // tab — narrow enough to keep the gutter tight (paired with
+                // 22px content padding for a 4px breathing space) but tall
+                // and saturated enough to be clearly recognisable as a
+                // clickable target. Non-spread keeps the original generous
+                // 44px hit-area.
+                width: spreadMode ? '18px' : '44px',
+                height: spreadMode ? '160px' : '120px',
                 background: defaultBg,
                 border: `1px solid ${defaultBorder}`,
                 borderLeft: side === 'left' ? 'none' : undefined,
@@ -6784,8 +6800,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}}
             >
               {side === 'left'
-                ? <ChevronLeft size={spreadMode ? 12 : 20} />
-                : <ChevronRight size={spreadMode ? 12 : 20} />}
+                ? <ChevronLeft size={spreadMode ? 16 : 20} />
+                : <ChevronRight size={spreadMode ? 16 : 20} />}
             </button>
           );
         };
