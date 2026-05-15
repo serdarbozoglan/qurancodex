@@ -65,6 +65,15 @@ function cleanArabic(str) {
     // render this combining pair as a misplaced miniature 'ال' glyph
     // above the host letter. Precomposed آ renders cleanly.
     // .replace(/\u0670\u0653/g, '\u0622') \u2014 kald\u0131r\u0131ld\u0131 (Z\u00e2riy\u00e2t 51:38 '\u0645\u064f\u0648\u0633\u0670\u0653\u0649' bug)
+    // Inject missing fatha before a dagger alef (U+0670).
+    // verse-graph-bgem3.json kaynak verisinde 3761 yerde 'consonant + \u0670'
+    // do\u011frudan kodlu \u2014 arada fatha YOK (\u00f6rn. \u0627\u064e\u0644\u0631\u064e\u0651\u062d\u0652\u0645\u0670\u0646\u0650, \u0630\u0670\u0644\u0650\u0643, \u0627\u0650\u0644\u0670\u0649, \u0645\u064f\u0648\u0633\u0670\u0649,
+    // \u0627\u064e\u0644\u0652\u0645\u064e\u0644\u0670\u0653\u0626\u0650\u0643\u064e\u0629\u064e, \u0641\u064e\u0627\u064e\u0648\u0652\u062d\u0670\u0649). Fonetik olarak dagger alef = "fatha + long alef",
+    // yani \u00f6n\u00fcndeki consonant fatha almal\u0131. Diyanet/Madinah typografisi
+    // de g\u00f6rsel olarak fatha + dagger-alef stroke birlikte g\u00f6sterir.
+    // Shadda araya girerse (\u00f6rn. \u0627\u064e\u0644\u0635\u064e\u0651\u0644\u0670\u0648\u0629\u064e \u2192 \u0644 \u0651 \u0670) shadda korunur, fatha
+    // shadda'dan sonra dagger-alef \u00f6ncesi inject edilir.
+    .replace(/([\u0628-\u063a\u0641-\u0647])(\u0651)?\u0670/g, (_, c, sh) => c + (sh || '') + '\u064e\u0670')
     // U+06E6 (ARABIC SMALL YEH ۦ) → boşluk ile değiştir.
     // API verisinde ۦ kelimeler arası tek ayraç olarak kullanılıyor (رِزْقِهِۦوَإِلَيْهِ).
     // Kaldırılırsa veya ZWNJ konulursa harfler görsel olarak birleşiyor; boşluk gerekli.
