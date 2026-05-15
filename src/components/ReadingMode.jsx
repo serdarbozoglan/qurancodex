@@ -4479,29 +4479,58 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       onClick={() => setShowInlineMealPicker(p => !p)}
                       title={language === 'tr' ? 'Çevirmeni değiştir' : 'Change translator'}
                       style={{
-                        width: '100%',
-                        padding: '8px 12px 10px',
-                        background: 'transparent',
-                        border: 'none',
-                        fontSize: '0.82rem',
-                        color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)',
-                        letterSpacing: '0.04em',
+                        // Inline meal picker — bumped from a near-invisible
+                        // label to a proper pill so users immediately see it
+                        // as a control. Subtle gold border + slightly bolder
+                        // text + persistent chevron arrow. The fancier
+                        // dropdown panel below already had presence; the
+                        // trigger was the weak link.
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        margin: '6px 12px 8px',
+                        padding: '6px 12px',
+                        background: showInlineMealPicker
+                          ? (dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.16)')
+                          : (dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.06)'),
+                        border: `1px solid ${dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(212,165,116,0.25)'}`,
+                        borderRadius: '6px',
+                        fontSize: '0.78rem',
+                        fontWeight: 500,
+                        color: dayMode ? COLORS.paperDeepBrown : 'rgba(232,181,71,0.92)',
+                        letterSpacing: '0.02em',
                         cursor: 'pointer',
                         textAlign: 'left',
-                        display: 'flex', alignItems: 'center', gap: '6px',
-                        transition: 'color 0.15s',
+                        transition: 'all 0.15s',
                         fontFamily: 'inherit',
                       }}
-                      onMouseEnter={(e) => { e.currentTarget.style.color = C.gold; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)'; }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.14)' : 'rgba(212,165,116,0.14)';
+                        e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.45)' : 'rgba(212,165,116,0.45)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = showInlineMealPicker
+                          ? (dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.16)')
+                          : (dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.06)');
+                        e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(212,165,116,0.25)';
+                      }}
                     >
-                      <span>{language === 'tr' ? 'Meal:' : 'Translation:'} {selectedMealAuthor.label}</span>
+                      <span style={{
+                        fontSize: '0.62rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.12em',
+                        opacity: 0.7,
+                      }}>
+                        {language === 'tr' ? 'Meal' : 'Translation'}
+                      </span>
+                      <span style={{ fontWeight: 600 }}>{selectedMealAuthor.label}</span>
                       <span style={{
                         fontSize: '0.6rem',
-                        opacity: 0.7,
+                        opacity: 0.75,
                         transform: showInlineMealPicker ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 0.18s',
                         display: 'inline-flex',
+                        marginLeft: '2px',
                       }}>▾</span>
                     </button>
 
