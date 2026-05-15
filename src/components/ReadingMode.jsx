@@ -4372,12 +4372,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             margin: '0 auto',
             // Outer gutter on desktop is the same in both spread (Arabic only)
             // and meal-open modes — toggling MEAL should change which columns
-            // are visible, NOT how the page sits in the viewport. 16px clears
-            // the slim 14px arrow tab and leaves a 2px breathing space, a
-            // tight mushaf-style outer binding margin in either layout.
+            // are visible, NOT how the page sits in the viewport. 26px clears
+            // the 22px arrow tab and leaves a 4px breathing space, comfortable
+            // mushaf-style outer binding margin in either layout.
             padding: isMobile
               ? '10px 12px 32px 12px'
-              : '20px 16px 36px 16px',
+              : '20px 26px 36px 26px',
           }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
                 Surah title cards (Arabic name + transliteration + ayah count) are
@@ -6977,11 +6977,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 zIndex: 20,
-                // Slim 14×180 arrow tab applies to both meal-open and
-                // meal-closed reading — toggling MEAL changes the columns,
-                // not the navigation chrome. Very tight gutter (16px) paired
-                // with a 2px breathing space.
-                width: '14px',
+                // 22×180 arrow tab applies to both meal-open and meal-closed
+                // reading — toggling MEAL changes the columns, not the
+                // navigation chrome. Comfortable click target without
+                // wasting horizontal real estate (paired with 26px outer
+                // padding for a 4px breathing space).
+                width: '22px',
                 height: '180px',
                 background: defaultBg,
                 border: `1px solid ${defaultBorder}`,
@@ -7006,8 +7007,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}}
             >
               {side === 'left'
-                ? <ChevronLeft size={14} />
-                : <ChevronRight size={14} />}
+                ? <ChevronLeft size={18} />
+                : <ChevronRight size={18} />}
             </button>
           );
         };
