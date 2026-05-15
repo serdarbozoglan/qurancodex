@@ -4413,12 +4413,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             margin: '0 auto',
             // Outer gutter on desktop is the same in both spread (Arabic only)
             // and meal-open modes — toggling MEAL should change which columns
-            // are visible, NOT how the page sits in the viewport. 26px clears
-            // the 22px arrow tab and leaves a 4px breathing space, comfortable
-            // mushaf-style outer binding margin in either layout.
+            // are visible, NOT how the page sits in the viewport. 32px clears
+            // the 28px deepened arrow tab and leaves a 4px breathing space.
             padding: isMobile
               ? '10px 12px 32px 12px'
-              : '20px 26px 36px 26px',
+              : '20px 32px 36px 32px',
           }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
                 Surah title cards (Arabic name + transliteration + ayah count) are
@@ -7001,30 +7000,34 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         const arrowBtn = (enabled, onClick, side, title) => {
           // Side arrows are styled the same regardless of meal-open vs
           // spread mode — toggling MEAL should not change navigation chrome.
-          // The slim, saturated tab style (originally introduced for spread)
-          // applies to all desktop book-mode reading.
+          // Deepened saturation + box-shadow so the slim tab reads as a
+          // proper recessed mushaf-edge control without growing horizontally.
           const defaultBg = enabled
-            ? (dayMode ? 'rgba(100,60,10,0.16)' : 'rgba(212,165,116,0.18)')
+            ? (dayMode ? 'rgba(100,60,10,0.28)' : 'rgba(212,165,116,0.30)')
             : 'transparent';
           const defaultColor = enabled
-            ? (dayMode ? 'rgba(100,60,10,0.7)' : 'rgba(212,165,116,0.75)')
+            ? (dayMode ? 'rgba(100,60,10,0.85)' : 'rgba(212,165,116,0.9)')
             : 'transparent';
           const defaultBorder = enabled
-            ? (dayMode ? 'rgba(100,60,10,0.35)' : 'rgba(212,165,116,0.4)')
+            ? (dayMode ? 'rgba(100,60,10,0.55)' : 'rgba(212,165,116,0.6)')
             : 'transparent';
+          const defaultShadow = enabled
+            ? (dayMode
+                ? `0 2px 8px rgba(100,60,10,0.18), inset 0 0 0 1px rgba(154,111,16,0.18)`
+                : `0 2px 12px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(232,181,71,0.15)`)
+            : 'none';
           return (
             <button
               onClick={onClick} disabled={!enabled} title={title}
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 zIndex: 20,
-                // 22×180 arrow tab applies to both meal-open and meal-closed
-                // reading — toggling MEAL changes the columns, not the
-                // navigation chrome. Comfortable click target without
-                // wasting horizontal real estate (paired with 26px outer
-                // padding for a 4px breathing space).
-                width: '22px',
-                height: '180px',
+                // 28×200 arrow tab applies to both meal-open and meal-closed
+                // reading. Comfortable click target without dominating the
+                // gutter. Paired with 32px outer padding for a 4px gap.
+                width: '28px',
+                height: '200px',
+                boxShadow: enabled ? defaultShadow : 'none',
                 background: defaultBg,
                 border: `1px solid ${defaultBorder}`,
                 borderLeft: side === 'left' ? 'none' : undefined,
@@ -7037,9 +7040,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 borderRadius: side === 'left' ? '0 10px 10px 0' : '10px 0 0 10px',
               }}
               onMouseEnter={e => { if (enabled) {
-                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.15)' : 'rgba(212,165,116,0.18)';
+                // Hover must read as one step "louder" than the already
+                // deepened default — bump background + border further.
+                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.42)' : 'rgba(212,165,116,0.45)';
                 e.currentTarget.style.color = gold;
-                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.35)' : 'rgba(212,165,116,0.45)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.75)' : 'rgba(212,165,116,0.8)';
               }}}
               onMouseLeave={e => { if (enabled) {
                 e.currentTarget.style.background = defaultBg;
@@ -7048,8 +7053,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}}
             >
               {side === 'left'
-                ? <ChevronLeft size={18} />
-                : <ChevronRight size={18} />}
+                ? <ChevronLeft size={20} />
+                : <ChevronRight size={20} />}
             </button>
           );
         };
