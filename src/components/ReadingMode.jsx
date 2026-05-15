@@ -971,8 +971,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       .catch(() => {});
   }, [selectedSurah, corpusBySurah]);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
+  // Wide-screen detector for the meal-off 2-page Arabic spread. 1440px gives
+  // each page ~700px which fits standard 22-26px Arabic comfortably; below
+  // this we keep the single-page fallback even when meal is hidden.
+  const SPREAD_MIN_WIDTH = 1440;
+  const [isWide, setIsWide] = useState(() => typeof window !== 'undefined' && window.innerWidth >= SPREAD_MIN_WIDTH);
   useEffect(() => {
-    const handler = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    const handler = () => {
+      setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+      setIsWide(window.innerWidth >= SPREAD_MIN_WIDTH);
+    };
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
   }, []);
@@ -1798,6 +1806,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     return pageVerses.length > 0 ? pageVerses : surahVerses;
   }, [bookMode, verses, surahVerses, currentPage]);
 
+  // 2-page spread mode: only active in book mode when meal is hidden AND
+  // viewport is wide enough. Renders currentPage (right, RTL-first) plus
+  // currentPage+1 (left) side-by-side, mirroring a physical mushaf opening.
+  const spreadMode = bookMode && !showTranslation && !isMobile && isWide;
+  const versesOnNextPage = useMemo(() => {
+    if (!spreadMode || !verses || verses.length === 0) return [];
+    return verses
+      .filter(v => v.page === currentPage + 1)
+      .sort((a, b) => (a.surah - b.surah) || (a.ayah - b.ayah));
+  }, [spreadMode, verses, currentPage]);
+
   // Scroll to active verse — if on a different page navigate there first, then scroll
   useEffect(() => {
     if (!activeVerse || !bookMode) return;
@@ -2026,7 +2045,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   {' · ' + (language === 'tr' ? 'Hizb ' : 'Hizb ')}
                   <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
                   {' · ' + (language === 'tr' ? 'Sayfa ' : 'Page ')}
-                  <span style={{ color: gold, fontWeight: 700 }}>{currentPage}</span>
+                  <span style={{ color: gold, fontWeight: 700 }}>
+                    {spreadMode && versesOnNextPage.length > 0
+                      ? `${currentPage}–${currentPage + 1}`
+                      : currentPage}
+                  </span>
                   <span style={{ opacity: 0.72 }}>{'/604'}</span>
                 </span>
               )}
@@ -3987,8 +4010,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           swipeTouchY.current = null;
           // Yalnızca net yatay swipe: en az 60px yatay ve dikey hareketten 1.5x fazla
           if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-          if (dx > 0 && currentPage < 604) navigateToPage(currentPage + 1); // swipe right → next page (RTL)
-          if (dx < 0 && currentPage > 0) navigateToPage(currentPage - 1);   // swipe left → prev page (RTL)
+          const step = spreadMode ? 2 : 1;
+          if (dx > 0 && currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); // swipe right → next page (RTL)
+          if (dx < 0 && currentPage > 0) navigateToPage(Math.max(0, currentPage - step));     // swipe left → prev page (RTL)
         } : undefined}
       >
         {/* ── Hatim Duası screen ────────────────────────────────────────── */}
@@ -4207,12 +4231,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             <div style={{
               display: 'grid',
-              gridTemplateColumns: showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr',
+              gridTemplateColumns: spreadMode
+                ? '1fr 1fr'
+                : showTranslation ? (isMobile ? '1fr' : '48fr 52fr') : '1fr',
               // Cilt boşluğu gap when meal is on + desktop, evoking a
               // facing-page Turkish/Arabic translation book where the two
               // languages meet at the binding. Wide enough for the
               // 3-layer divider (18px) with ~35px clear on each side.
-              gap: showTranslation && !isMobile ? '88px' : '0',
+              gap: spreadMode ? '64px' : (showTranslation && !isMobile ? '88px' : '0'),
               // Relative wrapper so the divider can be absolutely
               // positioned at the binding gutter between the two columns.
               position: 'relative',
@@ -4707,6 +4733,60 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         : 'Click any verse number to compare translations'}
                     </span>
                   </div>
+                </div>
+              )}
+
+              {/* 2-page spread — LEFT column = next page Arabic (PoC).
+                  Minimal render: verses only, no surah header / cüz medallion
+                  yet. Visible only when spreadMode is active and the next
+                  page actually exists in the dataset (avoids empty col at
+                  end of mushaf). */}
+              {spreadMode && versesOnNextPage.length > 0 && (
+                <div style={{
+                  order: 1,
+                  direction: 'rtl',
+                  fontFamily: currentFont,
+                  fontSize: `${arabicFontSize}rem`,
+                  lineHeight: 2.3,
+                  color: C.arabic,
+                  textAlign: 'justify',
+                  paddingTop: '48px',
+                }}>
+                  <div style={{
+                    fontSize: '0.7rem',
+                    color: dayMode ? 'rgba(100,60,10,0.4)' : 'rgba(212,165,116,0.4)',
+                    textAlign: 'center',
+                    letterSpacing: '0.12em',
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    direction: 'ltr',
+                    marginBottom: '14px',
+                  }}>
+                    {language === 'tr' ? `SAYFA ${currentPage + 1}` : `PAGE ${currentPage + 1}`}
+                  </div>
+                  {versesOnNextPage.map((verse, idx) => {
+                    const arabicHtml = (verse.arabic || '')
+                      .split(/\s+/)
+                      .filter(Boolean)
+                      .join(' ');
+                    return (
+                      <span key={verse.id ?? `${verse.surah}-${verse.ayah}`}>
+                        {applyTajweed
+                          ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(cleanArabic(arabicHtml), dayMode) }} />
+                          : cleanArabic(arabicHtml)}
+                        {' '}
+                        <span style={{
+                          fontFamily: currentFont,
+                          color: C.gold,
+                          fontSize: '0.85em',
+                          opacity: 0.85,
+                          margin: '0 4px',
+                        }}>
+                          ﴿{toArabicNumerals(verse.ayah)}﴾
+                        </span>
+                        {' '}
+                      </span>
+                    );
+                  })}
                 </div>
               )}
 
@@ -6123,7 +6203,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             gap: '12px', padding: '18px 0 8px',
           }}>
             <button
-              onClick={() => { if (currentPage < 604) navigateToPage(currentPage + 1); }}
+              onClick={() => { const step = spreadMode ? 2 : 1; if (currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); }}
               disabled={currentPage >= 604}
               style={{
                 width: '36px', height: '36px', borderRadius: '50%',
@@ -6193,7 +6273,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             )}
 
             <button
-              onClick={() => { if (currentPage > 0) navigateToPage(currentPage - 1); }}
+              onClick={() => { const step = spreadMode ? 2 : 1; if (currentPage > 0) navigateToPage(Math.max(0, currentPage - step)); }}
               disabled={currentPage <= 0}
               style={{
                 width: '36px', height: '36px', borderRadius: '50%',
@@ -6219,8 +6299,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {bookMode && (() => {
         const canGoPrev = currentPage > 0;
         const canGoNext = currentPage < 604;
-        const handlePrev = () => { if (currentPage > 0) navigateToPage(currentPage - 1); };
-        const handleNext = () => { if (currentPage < 604) navigateToPage(currentPage + 1); };
+        const handlePrev = () => { const step = spreadMode ? 2 : 1; if (currentPage > 0) navigateToPage(Math.max(0, currentPage - step)); };
+        const handleNext = () => { const step = spreadMode ? 2 : 1; if (currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); };
         const arrowBtn = (enabled, onClick, side, title) => {
           const defaultBg = enabled ? (dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(212,165,116,0.08)') : 'transparent';
           const defaultColor = enabled ? (dayMode ? 'rgba(100,60,10,0.45)' : 'rgba(212,165,116,0.45)') : 'transparent';
