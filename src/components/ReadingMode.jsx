@@ -4497,7 +4497,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         borderRadius: '6px',
                         fontSize: '0.78rem',
                         fontWeight: 500,
-                        color: dayMode ? COLORS.paperDeepBrown : 'rgba(232,181,71,0.92)',
+                        color: dayMode ? COLORS.paperGold : 'rgba(232,181,71,0.92)',
                         letterSpacing: '0.02em',
                         cursor: 'pointer',
                         textAlign: 'left',
