@@ -5094,6 +5094,30 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               }}>
                                 {arName}
                               </div>
+                              {/* Latin caption — only when meal is hidden.
+                                  When the translation column is open the
+                                  Latin surah name already appears in the
+                                  meal-side header, so this duplicate would
+                                  be visual noise. With meal closed (mushaf
+                                  spread mode) this is the only chance for a
+                                  non-Arabic-reading user to confirm which
+                                  surah they're on. */}
+                              {!showTranslation && (
+                                <div style={{
+                                  fontFamily: "'Playfair Display', Georgia, serif",
+                                  fontSize: isMobile ? '0.78rem' : '0.92rem',
+                                  fontWeight: 500,
+                                  fontStyle: 'italic',
+                                  color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
+                                  letterSpacing: '0.06em',
+                                  lineHeight: 1.4,
+                                  marginTop: isMobile ? '-6px' : '-10px',
+                                  marginBottom: isMobile ? '10px' : '14px',
+                                  direction: 'ltr',
+                                }}>
+                                  {language === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {SURAH_NAMES_TR[item.surah - 1]}
+                                </div>
+                              )}
                               <div style={{
                                 fontFamily: currentFont,
                                 fontSize: isMobile ? '0.95rem' : '1.1rem',
@@ -5514,6 +5538,25 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             }}>
                               {arName}
                             </div>
+                            {/* Latin caption — only when meal hidden; see
+                                matching block in the right column for the
+                                rationale. */}
+                            {!showTranslation && (
+                              <div style={{
+                                fontFamily: "'Playfair Display', Georgia, serif",
+                                fontSize: isMobile ? '0.78rem' : '0.92rem',
+                                fontWeight: 500,
+                                fontStyle: 'italic',
+                                color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
+                                letterSpacing: '0.06em',
+                                lineHeight: 1.4,
+                                marginTop: isMobile ? '-6px' : '-10px',
+                                marginBottom: isMobile ? '10px' : '14px',
+                                direction: 'ltr',
+                              }}>
+                                {language === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {SURAH_NAMES_TR[item.surah - 1]}
+                              </div>
+                            )}
 
                             {/* Meta — chronological → spatial → structural:
                                 nüzul rank · period · ayah count · rukū count.
