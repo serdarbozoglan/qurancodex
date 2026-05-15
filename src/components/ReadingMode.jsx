@@ -1712,7 +1712,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     bg: COLORS.cosmicBlack, gold: COLORS.gold,
     arabic: COLORS.arabicQuiet, arabicActive: COLORS.arabicBright,
     translation: COLORS.creamQuiet, translationActive: COLORS.creamBright,
-    bismillah: COLORS.besmele,
+    // Bismillah in night mode: muted amber (#d4a574 = COLORS.gold) instead of
+    // coral red — easier on the eye against the cosmic-black background.
+    bismillah: COLORS.gold,
     activeHighlight: 'rgba(212,165,116,0.14)', activeBorder: 'rgba(200,185,165,0.72)',
     muted: COLORS.slate500, scrollbar: 'rgba(212,165,116,0.2) transparent',
     footerBg: 'rgba(6,8,16,0.98)', footerBorder: 'rgba(212,165,116,0.12)',
