@@ -74,6 +74,21 @@ function cleanArabic(str) {
     // Shadda araya girerse (\u00f6rn. \u0627\u064e\u0644\u0635\u064e\u0651\u0644\u0670\u0648\u0629\u064e \u2192 \u0644 \u0651 \u0670) shadda korunur, fatha
     // shadda'dan sonra dagger-alef \u00f6ncesi inject edilir.
     .replace(/([\u0628-\u063a\u0641-\u0647])(\u0651)?\u0670/g, (_, c, sh) => c + (sh || '') + '\u064e\u0670')
+    // Lam-shamsiyah missing-sukun fix. verse-graph-bgem3.json has 5278
+    // places where the silent 'al-' lam (assimilated definite article)
+    // is encoded as bare \u0644 with no hareke, immediately before a sun
+    // letter carrying shadda (e.g. \u0644\u0650\u0644\u0630\u0650\u0651\u0643\u0652\u0631\u0650 in Kamer 54:17, \u0627\u064e\u0644\u0631\u064e\u0651\u062d\u0652\u0645\u0670\u0646\u0650,
+    // \u0627\u064e\u0644\u0635\u064e\u0651\u0644\u0670\u0648\u0629\u064e, \u0627\u0644\u0630\u0650\u0651\u0643\u0652\u0631\u064e). Inject sukun on the silent lam so the
+    // letter shows the \u0645\u0652 marker Diyanet typography expects. Sun letters
+    // (14): \u062a \u062b \u062f \u0630 \u0631 \u0632 \u0633 \u0634 \u0635 \u0636 \u0637 \u0638 \u0644 \u0646.
+    .replace(/\u0644(?![\u064b-\u065f])(?=[\u062a\u062b\u062f\u0630\u0631\u0632\u0633\u0634\u0635\u0636\u0637\u0638\u0644\u0646]\u0651)/g, '\u0644\u0652')
+    // Reorder [waqf-marker][tenvin] \u2192 [tenvin][waqf-marker] so the
+    // kasratan/fathatan/dammatan glyph renders below/above the host
+    // letter without colliding with the small high waqf glyph stacked
+    // above it (Kamer 54:19 '\u0645\u064f\u0633\u0652\u062a\u064e\u0645\u0650\u0631\u064d\u0651\u06d9' had \u0640\u0651+\u06d9+\u0640\u064d in source \u2014 the
+    // tenvin floated under the letter's descender). Waqf range
+    // U+06D6-U+06DB covers mim/lam-alif/jeem/etc. small-high markers.
+    .replace(/([\u06d6-\u06db])([\u064b-\u064d])/g, '$2$1')
     // U+06E6 (ARABIC SMALL YEH ۦ) → boşluk ile değiştir.
     // API verisinde ۦ kelimeler arası tek ayraç olarak kullanılıyor (رِزْقِهِۦوَإِلَيْهِ).
     // Kaldırılırsa veya ZWNJ konulursa harfler görsel olarak birleşiyor; boşluk gerekli.
