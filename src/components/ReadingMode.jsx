@@ -4801,13 +4801,25 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               {/* 2-page spread — LEFT column = next page Arabic.
                   Mirrors the right column's items-loop pattern (surah header
-                  card on transitions + verse text + ayah badge), but keeps
-                  it display-only for now: no click-to-play, no kelime mode,
-                  no hover popover. Tajweed gating respects the `showTajweed`
-                  boolean (NOT the `applyTajweed` function reference). */}
-              {spreadMode && versesOnNextPage.length > 0 && (
+                  card on transitions + verse text + ayah badge) plus active
+                  verse highlight, click-to-play audio, nowrap last-word+badge,
+                  and a Cüz/Hizb medallion in the OUTER (physical-left) gutter
+                  when the left page starts a juz/hizb. Kelime mode is still
+                  display-only on this side. */}
+              {spreadMode && versesOnNextPage.length > 0 && (() => {
+                const firstPageL = versesOnNextPage[0]?.page;
+                const hasMarkerL = !!firstPageL && firstPageL !== 1 && (
+                  JUZ_PAGES.indexOf(firstPageL) > 0 ||
+                  HIZB_PAGES.indexOf(firstPageL) > 0
+                );
+                return (
                 <div style={{
                   order: 1,
+                  position: 'relative',
+                  // Outer (physical-left) gutter for the Cüz/Hizb medallion —
+                  // mirrors the right page's right-gutter so both pages keep
+                  // mushaf outer-margin symmetry.
+                  paddingLeft: hasMarkerL ? (isMobile ? '44px' : '56px') : '0',
                   direction: 'rtl',
                   fontFamily: currentFont,
                   fontSize: `${arabicFontSize}rem`,
@@ -4816,6 +4828,81 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   textAlign: 'justify',
                   paddingTop: '0',
                 }}>
+                  {/* Page-level Cüz/Hizb medallion — absolute-positioned in the
+                      physical-left gutter (outer edge of the left page). */}
+                  {hasMarkerL && (() => {
+                    const juzIdx = JUZ_PAGES.indexOf(firstPageL);
+                    const hizbIdx = HIZB_PAGES.indexOf(firstPageL);
+                    const isJuz = juzIdx > 0;
+                    const num = isJuz ? juzIdx : (hizbIdx > 0 ? hizbIdx : 0);
+                    if (!num) return null;
+                    const arLabel = isJuz ? 'الجُزْء' : 'الحِزْب';
+                    const size = isMobile ? 40 : 48;
+                    const tooltip = (() => {
+                      if (!isJuz) return `Hizb ${num}`;
+                      const [sStart, aStart] = JUZ_START[num] || [];
+                      const next = JUZ_START[num + 1];
+                      const sName = (arr) => arr[sStart - 1];
+                      const startLabel = `${sName(SURAH_NAMES_TR)} ${sStart}:${aStart}`;
+                      if (!next) {
+                        return language === 'tr'
+                          ? `Cüz ${num} — ${startLabel} → sonuna kadar`
+                          : `Juz ${num} — ${startLabel} → end`;
+                      }
+                      const [sEnd, aEnd] = next;
+                      const endLabel = aEnd === 1
+                        ? `${SURAH_NAMES_TR[sEnd - 2]} sonu`
+                        : `${SURAH_NAMES_TR[sEnd - 1]} ${sEnd}:${aEnd - 1}`;
+                      return language === 'tr'
+                        ? `Cüz ${num} — ${startLabel} → ${endLabel}`
+                        : `Juz ${num} — ${startLabel} → ${endLabel}`;
+                    })();
+                    return (
+                      <span
+                        role="img"
+                        aria-label={tooltip}
+                        title={tooltip}
+                        style={{
+                          position: 'absolute',
+                          top: isMobile ? '6px' : '10px',
+                          left: isMobile ? '-2px' : '-4px',
+                          width: `${size}px`,
+                          height: `${size}px`,
+                          borderRadius: '50%',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          paddingTop: isMobile ? '4px' : '6px',
+                          paddingBottom: isMobile ? '1px' : '1px',
+                          gap: '0',
+                          color: C.gold,
+                          background: dayMode
+                            ? (isJuz ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.10)')
+                            : (isJuz ? 'rgba(212,165,116,0.12)' : 'rgba(212,165,116,0.07)'),
+                          border: `1.5px solid ${C.gold}${isJuz ? 'cc' : '88'}`,
+                          direction: 'rtl',
+                          cursor: 'help',
+                          zIndex: 1,
+                        }}
+                      >
+                        <span style={{
+                          fontFamily: currentFont,
+                          fontSize: isMobile ? '0.86rem' : '1.02rem',
+                          lineHeight: 1,
+                          opacity: 0.95,
+                          letterSpacing: 0,
+                        }}>{arLabel}</span>
+                        <span style={{
+                          fontFamily: currentFont,
+                          fontSize: isMobile ? '1.15rem' : '1.35rem',
+                          fontWeight: 500,
+                          lineHeight: 1,
+                          marginTop: '-2px',
+                        }}>{toArabicNumerals(num)}</span>
+                      </span>
+                    );
+                  })()}
                   {(() => {
                     const items = [];
                     let prevSurah = null;
@@ -4901,11 +4988,37 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         );
                       }
                       const { verse } = item;
+                      const isActive = activeVerse?.id === verse.id;
                       const isSajdaBook = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
                       const ar = cleanArabic(verse.arabic).trimEnd();
                       const fullHtml = showTajweed
                         ? applyTajweed(ar, dayMode, true, false)
                         : wrapWaqfOnly(ar, dayMode, true, false);
+                      // Tag-depth-aware scan to find the last real inter-word
+                      // space (not a space inside a style attribute) — same
+                      // technique as the right column. Used to wrap [last word
+                      // + badge] in white-space:nowrap so the badge never gets
+                      // orphaned on a new line at a justified line boundary.
+                      let htmlSplitIdxL = -1;
+                      {
+                        let depth = 0;
+                        for (let _i = 0; _i < fullHtml.length; _i++) {
+                          const _ch = fullHtml[_i];
+                          if (_ch === '<') depth++;
+                          else if (_ch === '>') depth--;
+                          else if (_ch === ' ' && depth === 0) htmlSplitIdxL = _i;
+                        }
+                      }
+                      const hasSplitL = htmlSplitIdxL > 0;
+                      const leadingHtmlL  = hasSplitL ? fullHtml.slice(0, htmlSplitIdxL + 1) : '';
+                      const lastWordHtmlL = hasSplitL ? fullHtml.slice(htmlSplitIdxL + 1) : fullHtml;
+                      const highlightStyleL = {
+                        background: isActive ? C.activeHighlight : 'transparent',
+                        WebkitBoxDecorationBreak: 'clone',
+                        boxDecorationBreak: 'clone',
+                        transition: 'background 0.2s',
+                        color: isActive ? C.arabicActive : 'inherit',
+                      };
                       const badge = (
                         <span style={{
                           display: 'inline-flex', flexDirection: 'column', alignItems: 'center',
@@ -4944,16 +5057,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         </span>
                       );
                       return (
-                        <span key={verse.id ?? `L-${verse.surah}-${verse.ayah}`}>
-                          <span dangerouslySetInnerHTML={{ __html: fullHtml }} />
-                          <span style={{ whiteSpace: 'nowrap' }}>{badge}</span>
+                        <span
+                          key={verse.id ?? `L-${verse.surah}-${verse.ayah}`}
+                          id={`rm-verse-L-${verse.id}`}
+                          onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
+                          spellCheck={false}
+                          style={{ cursor: 'pointer' }}
+                        >
+                          {leadingHtmlL && (
+                            <span style={highlightStyleL} dangerouslySetInnerHTML={{ __html: leadingHtmlL }} />
+                          )}
+                          <span style={{ whiteSpace: 'nowrap' }}>
+                            <span style={highlightStyleL} dangerouslySetInnerHTML={{ __html: lastWordHtmlL }} />
+                            {badge}
+                          </span>
                           {' '}
                         </span>
                       );
                     });
                   })()}
                 </div>
-              )}
+                );
+              })()}
 
               {/* Right: Arabic continuous.
                   Page-level juz/hizb marker is hoisted out of the flow so it
