@@ -2295,6 +2295,37 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </button>
               )}
 
+              {/* Meal (Turkish translation) toggle — desktop only.
+                  Was previously buried in the Settings panel; surfaced
+                  here because tedebbür ↔ tilavet switching is frequent
+                  and "5-step Settings dive" is the wrong friction for a
+                  primary reading mode. Translator picker stays in
+                  Settings (Diyanet / Yıldırım / Elmalılı). Order in the
+                  reading-tool group: KELİME (micro) · MEAL (mid) · TEFSİR
+                  (macro) · TAHTA — natural mikro→makro hiyerarşi. */}
+              {!isMobile && <button
+                onClick={() => setShowTranslation(v => !v)}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  border: `1px solid ${showTranslation ? navC.btnBorderActive : navC.btnBorder}`,
+                  background: showTranslation ? navC.btnBgActive : navC.btnBg,
+                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                onMouseLeave={e => { e.currentTarget.style.background = showTranslation ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : navC.btnBorder; }}
+                title={showTranslation
+                  ? (language === 'tr' ? 'Meali kapat — mushaf görünümü' : 'Hide meaning — mushaf view')
+                  : (language === 'tr' ? 'Meali göster — Türkçe çeviri' : 'Show meaning — translation')}
+              >
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700 }}>
+                  م
+                </span>
+                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
+                  {language === 'tr' ? 'Meal' : 'Meaning'}
+                </span>
+              </button>}
+
               {/* Tefsir (Elmalılı Hamdi Yazır) panel toggle — desktop only.
                   Mobile accesses this via the Settings panel. */}
               {!isMobile && <button
