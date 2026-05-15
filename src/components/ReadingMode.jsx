@@ -1111,6 +1111,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     try { return JSON.parse(localStorage.getItem('qurancodex_tajweed') ?? 'false'); }
     catch { return false; }
   });
+  // Spread-mode opt-out: when MEAL is closed on a wide desktop, the spread
+  // auto-activates. Some users (hafızlar, single-page-focus readers) prefer
+  // a single full-width page even on wide screens — this lets them stick to
+  // one page at a time without re-enabling MEAL.
+  const [preferSinglePage, setPreferSinglePage] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_prefer_single_page') ?? 'false'); }
+    catch { return false; }
+  });
   // ── Share / copy feedback ─────────────────────────────────────────────────
   const [copiedVerseId, setCopiedVerseId] = useState(null);
   const [showFontPicker, setShowFontPicker] = useState(false);
@@ -1509,6 +1517,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   useEffect(() => { localStorage.setItem('qurancodex_reciter_idx', String(reciterIdx)); }, [reciterIdx]);
   useEffect(() => { localStorage.setItem('qurancodex_show_translation', JSON.stringify(showTranslation)); }, [showTranslation]);
   useEffect(() => { localStorage.setItem('qurancodex_tajweed', JSON.stringify(showTajweed)); }, [showTajweed]);
+  useEffect(() => { localStorage.setItem('qurancodex_prefer_single_page', JSON.stringify(preferSinglePage)); }, [preferSinglePage]);
 
   // Collapsible state for the tajweed legend strip below the navbar.
   // Defaults to collapsed — power users don't need it; new users discover via the chevron.
@@ -1808,7 +1817,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // 2-page spread mode: only active in book mode when meal is hidden AND
   // viewport is wide enough. Renders currentPage (right, RTL-first) plus
   // currentPage+1 (left) side-by-side, mirroring a physical mushaf opening.
-  const spreadMode = bookMode && !showTranslation && !isMobile && isWide;
+  const spreadMode = bookMode && !showTranslation && !isMobile && isWide && !preferSinglePage;
   const versesOnNextPage = useMemo(() => {
     if (!spreadMode || !verses || verses.length === 0) return [];
     return verses
@@ -1868,7 +1877,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (bookMode) {
-        const spreadActive = bookMode && !showTranslation && !isMobile && isWide;
+        const spreadActive = bookMode && !showTranslation && !isMobile && isWide && !preferSinglePage;
         const step = spreadActive ? 2 : 1;
         if (e.key === 'ArrowLeft') {
           if (currentPage < 604) { e.preventDefault(); navigateToPage(Math.min(604, currentPage + step)); }
@@ -1910,7 +1919,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, showTranslation, isMobile, isWide, currentPage]);
+  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, showTranslation, isMobile, isWide, currentPage, preferSinglePage]);
 
   // Update autoNextRef on every render so onended always has fresh state
   autoNextRef.current = (currentVerseId) => {
@@ -3415,6 +3424,38 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {showTajweed ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
             </span>
           </button>
+
+          {/* Layout — single page vs two-page spread. Only meaningful when
+              meal is closed on a wide desktop (the auto-spread conditions).
+              When meal is open or screen is narrow, the toggle is harmless
+              but doesn't change anything visible. */}
+          {!isMobile && (
+            <button
+              onClick={() => setPreferSinglePage(v => !v)}
+              title={language === 'tr'
+                ? 'İki sayfayı yan yana göster (kitap modu) veya tek sayfaya zorla'
+                : 'Show two pages side-by-side (book mode) or force single page'}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                border: `1px solid ${!preferSinglePage ? navC.btnBorderActive : dropC.btnBorder}`,
+                background: !preferSinglePage ? dropC.itemBgActive : dropC.btnBg,
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+              onMouseLeave={e => { e.currentTarget.style.background = !preferSinglePage ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = !preferSinglePage ? navC.btnBorderActive : dropC.btnBorder; }}
+            >
+              <span style={{ fontSize: '0.82rem', color: !preferSinglePage ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <BookOpenIcon size={13} />
+                {language === 'tr' ? 'Kitap Modu' : 'Book Mode'}
+              </span>
+              <span style={{ fontSize: '0.7rem', color: !preferSinglePage ? gold : dropC.textMuted, fontWeight: 600 }}>
+                {preferSinglePage
+                  ? (language === 'tr' ? 'Tek sayfa' : 'Single page')
+                  : (language === 'tr' ? 'Çift sayfa' : 'Two pages')}
+              </span>
+            </button>
+          )}
 
           <div style={{ height: '1px', background: dropC.divider }} />
 
