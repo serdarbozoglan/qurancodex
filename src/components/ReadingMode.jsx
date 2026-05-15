@@ -4240,7 +4240,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             padding: isMobile
               ? '10px 12px 32px 12px'
               : spreadMode
-                ? '20px 24px 36px 24px'
+                ? '20px 16px 36px 16px'
                 : '20px 12px 36px 12px',
           }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
@@ -6755,10 +6755,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 zIndex: 20,
-                // In 2-page spread mode the arrow shrinks to 20px so the
-                // gutter between page edge and arrow can be tight — see the
-                // grid-container padding for the matching spread-mode value.
-                width: spreadMode ? '20px' : '44px', height: '120px',
+                // In 2-page spread mode the arrow shrinks to 12px and pairs
+                // with a 16px content padding (so just a ~4px gap), making
+                // the page-edge feel like a thin mushaf binding without
+                // wasting screen real estate. Non-spread keeps the original
+                // generous 44px hit-area.
+                width: spreadMode ? '12px' : '44px', height: '120px',
                 background: defaultBg,
                 border: `1px solid ${defaultBorder}`,
                 borderLeft: side === 'left' ? 'none' : undefined,
@@ -6781,7 +6783,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 e.currentTarget.style.borderColor = defaultBorder;
               }}}
             >
-              {side === 'left' ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+              {side === 'left'
+                ? <ChevronLeft size={spreadMode ? 12 : 20} />
+                : <ChevronRight size={spreadMode ? 12 : 20} />}
             </button>
           );
         };
