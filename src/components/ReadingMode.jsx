@@ -4227,7 +4227,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         {bookMode ? (
           /* ── Book format — all surahs ── */
           <>
-          <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '10px 12px 32px 12px' : '20px 12px 36px 12px' }}>
+          <div style={{
+            maxWidth: '1600px',
+            margin: '0 auto',
+            // Spread mode reserves ~56px gutters on each side so the absolute
+            // side-arrow buttons (44px wide at left:0/right:0) don't sit on
+            // top of the leftmost/rightmost glyphs of the spread pages. On
+            // viewports < ~1440px the spread feature itself is off so this
+            // doesn't affect single-page reading.
+            padding: isMobile
+              ? '10px 12px 32px 12px'
+              : spreadMode
+                ? '20px 56px 36px 56px'
+                : '20px 12px 36px 12px',
+          }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
                 Surah title cards (Arabic name + transliteration + ayah count) are
                 rendered inline in the items loop below — one before each surah on
@@ -5056,6 +5069,77 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           </span>
                         </span>
                       );
+                      // ── Kelime modu: word-by-word hover tooltip ──────────
+                      // Mirrors the right column's kelime path: split the
+                      // standard-encoded Arabic into words, attach hover/
+                      // click popovers using kuran.com data when available.
+                      // Fatiha-only corpus popover is skipped (Fatiha never
+                      // lands on the left page in a 2-page spread).
+                      const wordListL = wordMode && wordByAyah ? wordByAyah[verse.ayah] : null;
+                      if (wordListL && wordListL.length > 0) {
+                        // wordByAyah is keyed by ayah only — if the left
+                        // page hosts a different surah than wordByAyah was
+                        // loaded for, positional pairing may be off; we
+                        // accept that limitation rather than block kelime.
+                        const ourWords = ar.split(/\s+/).filter(Boolean);
+                        if (ourWords.length > 0) {
+                          const lastIdx = ourWords.length - 1;
+                          return (
+                            <span
+                              key={verse.id ?? `L-${verse.surah}-${verse.ayah}`}
+                              id={`rm-verse-L-${verse.id}`}
+                              spellCheck={false}
+                            >
+                              {ourWords.map((arabicWord, i) => {
+                                const wordMeta = wordListL[i] || null;
+                                const hoverable = !!wordMeta;
+                                const isLast = i === lastIdx;
+                                const wordSpan = (
+                                  <span
+                                    key={i}
+                                    onMouseEnter={hoverable ? (e) => {
+                                      const rect = e.currentTarget.getBoundingClientRect();
+                                      setHoveredWord({ word: wordMeta, anchorRect: rect });
+                                    } : undefined}
+                                    onMouseLeave={hoverable ? () => setHoveredWord(null) : undefined}
+                                    onClick={(e) => {
+                                      if (hoverable) {
+                                        e.stopPropagation();
+                                        const rect = e.currentTarget.getBoundingClientRect();
+                                        setHoveredWord({ word: wordMeta, anchorRect: rect });
+                                      } else {
+                                        handleSelectVerse(verse);
+                                        handleAudioToggle(verse);
+                                      }
+                                    }}
+                                    style={{
+                                      ...highlightStyleL,
+                                      cursor: hoverable ? 'pointer' : 'inherit',
+                                      borderRadius: '4px',
+                                      padding: '0 1px',
+                                      transition: 'background 0.15s',
+                                    }}
+                                    onMouseOver={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
+                                    onMouseOut={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; } : undefined}
+                                    dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(arabicWord, dayMode) }}
+                                  />
+                                );
+                                if (isLast) {
+                                  return (
+                                    <span key="tail" style={{ whiteSpace: 'nowrap' }}>
+                                      {wordSpan}
+                                      {badge}
+                                    </span>
+                                  );
+                                }
+                                return <span key={i}>{wordSpan}{' '}</span>;
+                              })}
+                              {' '}
+                            </span>
+                          );
+                        }
+                      }
+                      // ── Default (tajweed / non-kelime) rendering ──────────
                       return (
                         <span
                           key={verse.id ?? `L-${verse.surah}-${verse.ayah}`}
