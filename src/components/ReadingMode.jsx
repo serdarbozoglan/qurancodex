@@ -1525,8 +1525,45 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   }, [bookMode, bookPage, selectedSurah, verses]);
 
   // Arrow key navigation
+  //   • Book mode: ←/→ flip PAGES (±1 normally, ±2 in 2-page spread —
+  //     matches the visual side-arrow buttons and the RTL mushaf
+  //     convention where the LEFT arrow is "next"). ↑/↓ still move
+  //     verse-to-verse so the keyboard can drive audio playback.
+  //   • Verse mode: all four arrows move verse-to-verse (legacy).
+  // Ignored while focus is in a text input/textarea so typing in the
+  // page-jump field or search doesn't trigger nav.
   useEffect(() => {
     const h = (e) => {
+      const target = e.target;
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (bookMode) {
+        const step = spreadMode ? 2 : 1;
+        if (e.key === 'ArrowLeft') {
+          if (currentPage < 604) { e.preventDefault(); navigateToPage(Math.min(604, currentPage + step)); }
+          return;
+        }
+        if (e.key === 'ArrowRight') {
+          if (currentPage > 0) { e.preventDefault(); navigateToPage(Math.max(0, currentPage - step)); }
+          return;
+        }
+        if (e.key === 'ArrowDown') {
+          if (!surahVerses.length) return;
+          const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+          const next = surahVerses[Math.min(idx + 1, surahVerses.length - 1)];
+          if (next) { e.preventDefault(); handleSelectVerse(next); }
+          return;
+        }
+        if (e.key === 'ArrowUp') {
+          if (!surahVerses.length) return;
+          const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
+          const prev = surahVerses[Math.max(idx - 1, 0)];
+          if (prev) { e.preventDefault(); handleSelectVerse(prev); }
+          return;
+        }
+        return;
+      }
+      // Verse mode — legacy verse-to-verse behaviour on all 4 arrows.
       if (!surahVerses.length) return;
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
         const idx = surahVerses.findIndex(v => v.id === activeVerse?.id);
@@ -1541,7 +1578,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, [surahVerses, activeVerse, handleSelectVerse]);
+  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, spreadMode, currentPage, navigateToPage]);
 
   // Refs for imperative audio (no DOM <audio> element needed)
   const audioLiveRef = useRef(null);    // currently active Audio instance
@@ -2047,10 +2084,25 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   whiteSpace: 'nowrap', fontWeight: 500,
                   flexShrink: 0,
                 }}>
-                  {language === 'tr' ? 'Cüz ' : 'Juz '}
-                  <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayJuz}</span>
-                  {' · ' + (language === 'tr' ? 'Hizb ' : 'Hizb ')}
-                  <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
+                  <span
+                    title={language === 'tr'
+                      ? "Cüz: Kur'an'ın 30 eşit bölümünden biri (≈20 sayfa). Ramazan'da her gün bir cüz okunarak hatim tamamlanır."
+                      : "Juz: One of the 30 equal divisions of the Qur'an (~20 pages). Reading one a day completes the Qur'an in Ramadan."}
+                    style={{ cursor: 'help' }}
+                  >
+                    {language === 'tr' ? 'Cüz ' : 'Juz '}
+                    <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayJuz}</span>
+                  </span>
+                  {' · '}
+                  <span
+                    title={language === 'tr'
+                      ? 'Hizb: Cüzün yarısı (≈10 sayfa). Her cüz 2 hizbe bölünür; toplam 60 hizb vardır.'
+                      : 'Hizb: Half of a juz (~10 pages). Each juz contains 2 hizbs; 60 in total.'}
+                    style={{ cursor: 'help' }}
+                  >
+                    {language === 'tr' ? 'Hizb ' : 'Hizb '}
+                    <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
+                  </span>
                   {' · ' + (language === 'tr' ? 'Sayfa ' : 'Page ')}
                   <span style={{ color: gold, fontWeight: 700 }}>
                     {spreadMode && versesOnNextPage.length > 0
@@ -4240,7 +4292,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             padding: isMobile
               ? '10px 12px 32px 12px'
               : spreadMode
-                ? '20px 22px 36px 22px'
+                ? '20px 28px 36px 28px'
                 : '20px 12px 36px 12px',
           }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
@@ -6769,14 +6821,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 zIndex: 20,
-                // In 2-page spread mode the arrow is a 18px-wide, 160px-tall
+                // In 2-page spread mode the arrow is a 24px-wide, 180px-tall
                 // tab — narrow enough to keep the gutter tight (paired with
-                // 22px content padding for a 4px breathing space) but tall
+                // 28px content padding for a 4px breathing space) but tall
                 // and saturated enough to be clearly recognisable as a
                 // clickable target. Non-spread keeps the original generous
                 // 44px hit-area.
-                width: spreadMode ? '18px' : '44px',
-                height: spreadMode ? '160px' : '120px',
+                width: spreadMode ? '24px' : '44px',
+                height: spreadMode ? '180px' : '120px',
                 background: defaultBg,
                 border: `1px solid ${defaultBorder}`,
                 borderLeft: side === 'left' ? 'none' : undefined,
@@ -6800,8 +6852,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}}
             >
               {side === 'left'
-                ? <ChevronLeft size={spreadMode ? 16 : 20} />
-                : <ChevronRight size={spreadMode ? 16 : 20} />}
+                ? <ChevronLeft size={spreadMode ? 18 : 20} />
+                : <ChevronRight size={spreadMode ? 18 : 20} />}
             </button>
           );
         };
