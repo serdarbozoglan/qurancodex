@@ -1581,7 +1581,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, showTranslation, isMobile, isWide, currentPage, navigateToPage]);
+    // navigateToPage is intentionally OFF the deps list — it's declared
+    // later in the component body so listing it here triggers a TDZ
+    // ReferenceError on the very first render. The handler captures it
+    // lexically at call time (when a key is actually pressed, by which
+    // point the binding is initialised), so the closure stays current
+    // without needing a re-subscribe.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, showTranslation, isMobile, isWide, currentPage]);
 
   // Refs for imperative audio (no DOM <audio> element needed)
   const audioLiveRef = useRef(null);    // currently active Audio instance
