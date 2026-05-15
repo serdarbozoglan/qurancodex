@@ -1712,9 +1712,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     bg: COLORS.cosmicBlack, gold: COLORS.gold,
     arabic: COLORS.arabicQuiet, arabicActive: COLORS.arabicBright,
     translation: COLORS.creamQuiet, translationActive: COLORS.creamBright,
-    // Bismillah in night mode: muted amber (#d4a574 = COLORS.gold) instead of
-    // coral red — easier on the eye against the cosmic-black background.
-    bismillah: COLORS.gold,
+    // Bismillah in night mode: warm amber (#E8B547) — slightly brighter and
+    // warmer than the standard gold so it reads as "honoured opening line"
+    // against the cosmic-black background, without the eye-fatigue of the old
+    // coral red. Day mode keeps the classical paperRed.
+    bismillah: '#E8B547',
     activeHighlight: 'rgba(212,165,116,0.14)', activeBorder: 'rgba(200,185,165,0.72)',
     muted: COLORS.slate500, scrollbar: 'rgba(212,165,116,0.2) transparent',
     footerBg: 'rgba(6,8,16,0.98)', footerBorder: 'rgba(212,165,116,0.12)',
@@ -4619,14 +4621,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     fontSize: isMobile ? '0.86rem' : '0.94rem',
                                     fontStyle: 'italic',
                                     fontWeight: 500,
-                                    // Bismillah meal echoes the Arabic Bismillah colour
-                                    // (paperRed in day mode, besmele red in night mode)
-                                    // so both columns read as the same opening line.
-                                    // Generic placeholder (non-Fatiha) stays in the
-                                    // muted prose tone.
-                                    color: isFatihaHeaderTr
-                                      ? C.bismillah
-                                      : (dayMode ? '#7a6850' : 'rgba(200,185,165,0.78)'),
+                                    // Bismillah meal — always renders in C.bismillah
+                                    // (paperRed in day mode, warm amber in night mode)
+                                    // for ALL surahs, including the generic placeholder
+                                    // shown when the surah is not Fatiha — so Bismillah
+                                    // gets its honoured colour wherever it appears.
+                                    color: C.bismillah,
                                     marginTop: isMobile ? '38px' : '54px',
                                     marginBottom: isMobile ? '14px' : '22px',
                                     lineHeight: 1.7,
