@@ -4457,11 +4457,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   {(() => {
                     const items = [];
                     let prevSurah = null;
+                    // Fatiha-specific: Bismillah meaning is rendered inside the
+                    // surah header (mirrors the Arabic side) with its own (1)
+                    // badge, so Bismillah Arabic & meal sit on the same row.
+                    let fatihaFirstVerseTr = null;
                     for (const [idx, verse] of versesOnPage.entries()) {
                       const isTransition = prevSurah !== null && verse.surah !== prevSurah;
                       const isFirstSurahStart = idx === 0 && verse.ayah === 1;
                       if (isTransition || isFirstSurahStart) {
                         items.push({ type: 'surahHeader', surah: verse.surah });
+                      }
+                      if (verse.surah === 1 && verse.ayah === 1) {
+                        fatihaFirstVerseTr = verse;
+                        prevSurah = verse.surah;
+                        continue;
                       }
                       items.push({ type: 'verse', verse });
                       prevSurah = verse.surah;
@@ -4554,22 +4563,71 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             {/* Bismillah meaning — italic, slight emphasis bump.
                                 Extra marginTop compensates for the height difference
                                 between the Arabic surah header (taller hero + larger meta)
-                                and the Latin one, so the two bismillahs sit on the same Y. */}
-                            {item.surah !== 9 && item.surah !== 1 && (
-                              <div style={{
-                                textAlign: 'center',
-                                fontFamily: "'Inter', sans-serif",
-                                fontSize: isMobile ? '0.86rem' : '0.94rem',
-                                fontStyle: 'italic',
-                                fontWeight: 500,
-                                color: dayMode ? '#7a6850' : 'rgba(200,185,165,0.62)',
-                                marginTop: isMobile ? '38px' : '54px',
-                                marginBottom: isMobile ? '14px' : '22px',
-                                lineHeight: 1.7,
-                              }}>
-                                {language === 'tr' ? 'Rahmân ve Rahîm olan Allah\'ın adıyla' : 'In the name of Allah, the Most Gracious, the Most Merciful'}
-                              </div>
-                            )}
+                                and the Latin one, so the two bismillahs sit on the same Y.
+                                Fatiha (1): we render the actual translated text of ayah 1
+                                with its own (1) badge so the meal sits on the same row as
+                                the Arabic Bismillah; the verse loop below then starts at
+                                ayah 2 (verse skip handled in the items builder). */}
+                            {item.surah !== 9 && (() => {
+                              const isFatihaHeaderTr = item.surah === 1 && fatihaFirstVerseTr;
+                              const fv = fatihaFirstVerseTr;
+                              const fatihaTrText = isFatihaHeaderTr ? (getTranslation(fv) || '') : '';
+                              const isActiveFV = isFatihaHeaderTr && activeVerse?.id === fv?.id;
+                              const text = isFatihaHeaderTr
+                                ? fatihaTrText
+                                : (language === 'tr' ? 'Rahmân ve Rahîm olan Allah\'ın adıyla' : 'In the name of Allah, the Most Gracious, the Most Merciful');
+                              return (
+                                <div
+                                  id={isFatihaHeaderTr ? `rm-meal-${fv.id}` : undefined}
+                                  onClick={isFatihaHeaderTr ? () => { handleSelectVerse(fv); handleAudioToggle(fv); } : undefined}
+                                  style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '12px',
+                                    textAlign: 'center',
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontSize: isMobile ? '0.86rem' : '0.94rem',
+                                    fontStyle: 'italic',
+                                    fontWeight: 500,
+                                    // Bismillah meal echoes the Arabic Bismillah colour
+                                    // (paperRed in day, besmele red in night) so both
+                                    // columns read as the same opening line.
+                                    color: isFatihaHeaderTr
+                                      ? C.bismillah
+                                      : (dayMode ? '#7a6850' : 'rgba(200,185,165,0.62)'),
+                                    marginTop: isMobile ? '38px' : '54px',
+                                    marginBottom: isMobile ? '14px' : '22px',
+                                    lineHeight: 1.7,
+                                    cursor: isFatihaHeaderTr ? 'pointer' : 'default',
+                                    background: isActiveFV ? C.activeHighlight : 'transparent',
+                                    borderRadius: isFatihaHeaderTr ? '6px' : 0,
+                                    padding: isFatihaHeaderTr ? '4px 8px' : 0,
+                                    transition: 'background 0.2s',
+                                  }}
+                                >
+                                  {isFatihaHeaderTr && (
+                                    <span style={{
+                                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                                      width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
+                                      textAlign: 'center', borderRadius: '50%',
+                                      border: `1.5px solid ${C.gold}88`,
+                                      color: C.gold,
+                                      fontSize: isMobile ? '0.72rem' : '0.84rem',
+                                      fontFamily: currentFont,
+                                      fontWeight: dayMode ? 600 : 400,
+                                      background: dayMode
+                                        ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
+                                        : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                                      boxSizing: 'border-box', flexShrink: 0,
+                                    }}>
+                                      1
+                                    </span>
+                                  )}
+                                  <span>{text}</span>
+                                </div>
+                              );
+                            })()}
                           </div>
                         );
                       }
@@ -4857,6 +4915,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 {(() => {
                   const items = [];
                   let prevSurah = null;
+                  // Fatiha-specific: Bismillah (ayah 1) is rendered INSIDE the
+                  // surah header (with its own (1) badge) so the surah is
+                  // visually consistent with the other 112 surahs. We capture
+                  // the verse object here so the header can attach click/audio
+                  // handlers, and we skip adding it as an inline 'verse' item.
+                  let fatihaFirstVerse = null;
                   for (const [idx, verse] of versesOnPage.entries()) {
                     const isTransition = prevSurah !== null && verse.surah !== prevSurah;
                     const isFirstSurahStart = idx === 0 && verse.ayah === 1;
@@ -4866,6 +4930,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     // keeps verse line breaks identical to a printed mushaf.
                     if (isTransition || isFirstSurahStart) {
                       items.push({ type: 'surahHeader', surah: verse.surah });
+                    }
+                    if (verse.surah === 1 && verse.ayah === 1) {
+                      fatihaFirstVerse = verse;
+                      prevSurah = verse.surah;
+                      continue;
                     }
                     items.push({ type: 'verse', verse });
                     prevSurah = verse.surah;
@@ -4945,21 +5014,71 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           </div>
 
                           {/* Bismillah — naked, classical red, no cartouche.
-                              Skip for At-Tawbah (9) and Al-Fatiha (its ayah 1 already IS bismillah). */}
-                          {item.surah !== 9 && item.surah !== 1 && (
-                            <div style={{
-                              textAlign: 'center',
-                              direction: 'rtl',
-                              fontFamily: currentFont,
-                              fontSize: `${arabicFontSize}rem`,
-                              color: C.bismillah,
-                              marginTop: isMobile ? '20px' : '28px',
-                              marginBottom: isMobile ? '20px' : '30px',
-                              lineHeight: 1.9,
-                            }}>
-                              {BISMILLAH_AR}
-                            </div>
-                          )}
+                              Skipped only for At-Tawbah (9). Fatiha (1): Bismillah
+                              IS ayah 1, so we render it here with its own (1) badge
+                              and attach click/audio handlers — visual parity with
+                              other surahs without losing the Diyanet/Hanafi count. */}
+                          {item.surah !== 9 && (() => {
+                            const isFatihaHeader = item.surah === 1 && fatihaFirstVerse;
+                            const fv = fatihaFirstVerse;
+                            const isActiveFV = isFatihaHeader && activeVerse?.id === fv?.id;
+                            const fatihaArHtml = (() => {
+                              if (!isFatihaHeader) return null;
+                              const ar = cleanArabic(fv.arabic)
+                                .replace(/\u064E\u0670/g, '\u0670')
+                                .replace(/\u0670\u064E/g, '\u0670')
+                                .trimEnd();
+                              return showTajweed
+                                ? applyTajweed(ar, dayMode, true, true)
+                                : wrapWaqfOnly(ar, dayMode, true, true);
+                            })();
+                            return (
+                              <div
+                                id={isFatihaHeader ? `rm-verse-${fv.id}` : undefined}
+                                onClick={isFatihaHeader ? () => { handleSelectVerse(fv); handleAudioToggle(fv); } : undefined}
+                                style={{
+                                  textAlign: 'center',
+                                  direction: 'rtl',
+                                  fontFamily: currentFont,
+                                  fontSize: `${arabicFontSize}rem`,
+                                  color: C.bismillah,
+                                  marginTop: isMobile ? '20px' : '28px',
+                                  marginBottom: isMobile ? '20px' : '30px',
+                                  lineHeight: 1.9,
+                                  cursor: isFatihaHeader ? 'pointer' : 'default',
+                                  background: isActiveFV ? C.activeHighlight : 'transparent',
+                                  borderRadius: isFatihaHeader ? '6px' : 0,
+                                  transition: 'background 0.2s',
+                                }}
+                              >
+                                {isFatihaHeader ? (
+                                  <span style={{ whiteSpace: 'nowrap' }}>
+                                    <span dangerouslySetInnerHTML={{ __html: fatihaArHtml }} />
+                                    <span style={{
+                                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                                      verticalAlign: 'middle',
+                                      width: '1.72em', height: '1.72em',
+                                      margin: '0 14px',
+                                      textAlign: 'center', borderRadius: '50%',
+                                      border: `1.5px solid ${C.gold}aa`,
+                                      boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
+                                      color: C.gold,
+                                      fontSize: '0.54em',
+                                      fontFamily: currentFont,
+                                      background: dayMode
+                                        ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
+                                        : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                                      boxSizing: 'border-box', flexShrink: 0,
+                                    }}>
+                                      {toArabicNumerals(1)}
+                                    </span>
+                                  </span>
+                                ) : (
+                                  BISMILLAH_AR
+                                )}
+                              </div>
+                            );
+                          })()}
                         </span>
                       );
                     }
