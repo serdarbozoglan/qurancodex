@@ -4233,15 +4233,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           <div style={{
             maxWidth: '1600px',
             margin: '0 auto',
-            // Spread mode reserves ~56px gutters on each side so the absolute
-            // side-arrow buttons (44px wide at left:0/right:0) don't sit on
-            // top of the leftmost/rightmost glyphs of the spread pages. On
-            // viewports < ~1440px the spread feature itself is off so this
-            // doesn't affect single-page reading.
+            // Spread mode reserves a narrower gutter just wide enough to clear
+            // the (narrowed) side-arrow buttons — see the arrowBtn block: in
+            // spreadMode the arrow shrinks to 28px so a 32px outer gutter
+            // gives a 4px breathing space without wasting horizontal area.
             padding: isMobile
               ? '10px 12px 32px 12px'
               : spreadMode
-                ? '20px 56px 36px 56px'
+                ? '20px 32px 36px 32px'
                 : '20px 12px 36px 12px',
           }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
@@ -6755,7 +6754,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               onClick={onClick} disabled={!enabled} title={title}
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
-                zIndex: 20, width: '44px', height: '120px',
+                zIndex: 20,
+                // In 2-page spread mode the arrow shrinks to 28px so the
+                // gutter between page edge and arrow can be small — see the
+                // grid-container padding for the matching spread-mode value.
+                width: spreadMode ? '28px' : '44px', height: '120px',
                 background: defaultBg,
                 border: `1px solid ${defaultBorder}`,
                 borderLeft: side === 'left' ? 'none' : undefined,
