@@ -1821,11 +1821,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       .sort((a, b) => (a.surah - b.surah) || (a.ayah - b.ayah));
   }, [spreadMode, verses, currentPage]);
 
-  // Scroll to active verse — if on a different page navigate there first, then scroll
+  // Scroll to active verse — if on a different page navigate there first, then scroll.
+  // In 2-page spread mode, the left (next) page is also visible alongside the current
+  // page, so an activeVerse landing there must NOT trigger a page jump.
   useEffect(() => {
     if (!activeVerse || !bookMode) return;
     const onPage = versesOnPage.find(v => v.id === activeVerse.id);
-    if (!onPage && activeVerse.page) {
+    const onNextPage = spreadMode && versesOnNextPage.find(v => v.id === activeVerse.id);
+    if (!onPage && !onNextPage && activeVerse.page) {
       const clamped = Math.max(0, Math.min(604, activeVerse.page));
       setBookPage(clamped);
     }
