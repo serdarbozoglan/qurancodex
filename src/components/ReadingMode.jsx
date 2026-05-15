@@ -55,7 +55,10 @@ function cleanArabic(str) {
     // alef bir alef'in üstüne yerleştiriliyor; bu non-standart encoding,
     // ShaykhHamdullah/KFGQPC underscore-tofu render ediyor. Precomposed
     // آ ile değiştirildiğinde fontlar sorunsuz çiziyor; telaffuz aynı.
-    .replace(/\u0627\u0670/g, '\u0622')
+    // NOTE: 'alef + dagger alef' (U+0627 + U+0670) to alef-maddah (U+0622)
+    // conversion REMOVED \u2014 semantically wrong: dagger alef is a small
+    // vertical stroke above the alef (Diyanet/Madinah typography for the
+    // long /aa/ sound), not the wavy maddah. Fonts render the pair OK.
     // Dagger-alef + maddah-above combo (U+0670 + U+0653) → precomposed
     // alef-with-maddah (U+0622). Used in Uthmani 'يَٰٓأَيُّهَا' (yā-ayyuhā)
     // to mark a long stretched alef before hamza; ShaykhHamdullah/KFGQPC
