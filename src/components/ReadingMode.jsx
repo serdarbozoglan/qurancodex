@@ -64,7 +64,7 @@ function cleanArabic(str) {
     // to mark a long stretched alef before hamza; ShaykhHamdullah/KFGQPC
     // render this combining pair as a misplaced miniature 'ال' glyph
     // above the host letter. Precomposed آ renders cleanly.
-    .replace(/\u0670\u0653/g, '\u0622')
+    // .replace(/\u0670\u0653/g, '\u0622') \u2014 kald\u0131r\u0131ld\u0131 (Z\u00e2riy\u00e2t 51:38 '\u0645\u064f\u0648\u0633\u0670\u0653\u0649' bug)
     // U+06E6 (ARABIC SMALL YEH ۦ) → boşluk ile değiştir.
     // API verisinde ۦ kelimeler arası tek ayraç olarak kullanılıyor (رِزْقِهِۦوَإِلَيْهِ).
     // Kaldırılırsa veya ZWNJ konulursa harfler görsel olarak birleşiyor; boşluk gerekli.
