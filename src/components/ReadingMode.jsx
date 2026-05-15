@@ -1538,7 +1538,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (bookMode) {
-        const step = spreadMode ? 2 : 1;
+        // `spreadMode` itself is declared further down — recompute locally
+        // from its source deps to stay above its temporal-dead-zone here.
+        const spreadActive = bookMode && !showTranslation && !isMobile && isWide;
+        const step = spreadActive ? 2 : 1;
         if (e.key === 'ArrowLeft') {
           if (currentPage < 604) { e.preventDefault(); navigateToPage(Math.min(604, currentPage + step)); }
           return;
@@ -1578,7 +1581,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, spreadMode, currentPage, navigateToPage]);
+  }, [surahVerses, activeVerse, handleSelectVerse, bookMode, showTranslation, isMobile, isWide, currentPage, navigateToPage]);
 
   // Refs for imperative audio (no DOM <audio> element needed)
   const audioLiveRef = useRef(null);    // currently active Audio instance
