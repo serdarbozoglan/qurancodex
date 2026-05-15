@@ -1094,6 +1094,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.4'); }
     catch { return 2.2; }
   });
+  // Turkish meal / translation font size — independent of Arabic so users can
+  // scale the two columns separately. Stored in rem; default 1.0 (matches the
+  // pre-existing desktop literal `1rem`). Slider clamps to 0.75–1.6.
+  const [mealFontSize, setMealFontSize] = useState(() => {
+    try { return parseFloat(localStorage.getItem('qurancodex_meal_font_size') || '1.0'); }
+    catch { return 1.0; }
+  });
   // ── Day / Night mode (persisted) ───────────────────────────────────────────
   const [dayMode, setDayMode] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_day_mode') || 'false'); }
@@ -1494,6 +1501,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   // Persist preferences
   useEffect(() => { localStorage.setItem('qurancodex_font_size', String(arabicFontSize)); }, [arabicFontSize]);
+  useEffect(() => { localStorage.setItem('qurancodex_meal_font_size', String(mealFontSize)); }, [mealFontSize]);
   useEffect(() => { localStorage.setItem('qurancodex_day_mode', JSON.stringify(dayMode)); }, [dayMode]);
   useEffect(() => { localStorage.setItem('qurancodex_book_mode', JSON.stringify(bookMode)); }, [bookMode]);
   useEffect(() => { localStorage.setItem('qurancodex_interlinear_mode', JSON.stringify(interlinearMode)); }, [interlinearMode]);
@@ -3410,10 +3418,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           <div style={{ height: '1px', background: dropC.divider }} />
 
-          {/* Font size */}
+          {/* Font size — Arabic */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <span style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              {language === 'tr' ? 'Yazı Boyutu' : 'Font Size'}
+              {language === 'tr' ? 'Arapça Yazı Boyutu' : 'Arabic Font Size'}
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <button
@@ -3438,7 +3446,45 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
               <button
-                onClick={() => setArabicFontSize(2.2)}
+                onClick={() => setArabicFontSize(2.4)}
+                style={{ fontSize: '0.65rem', color: dropC.textMuted, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                onMouseEnter={e => { e.currentTarget.style.color = dropC.text; }}
+                onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
+              >{language === 'tr' ? 'Sıfırla' : 'Reset'}</button>
+            </div>
+          </div>
+
+          {/* Font size — Turkish meal (independent of Arabic so users can
+              scale the translation column without making the Arabic
+              column huge). Multiplier-style slider: 1.0 = current default. */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <span style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              {language === 'tr' ? 'Meal Yazı Boyutu' : 'Meal Font Size'}
+            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <button
+                onClick={() => setMealFontSize(s => Math.max(0.75, +(s - 0.1).toFixed(2)))}
+                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
+                onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
+              >−</button>
+              <input
+                type="range" min={0.75} max={1.6} step={0.05}
+                value={mealFontSize}
+                onChange={e => setMealFontSize(+parseFloat(e.target.value).toFixed(2))}
+                style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
+              />
+              <button
+                onClick={() => setMealFontSize(s => Math.min(1.6, +(s + 0.1).toFixed(2)))}
+                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
+                onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
+              >+</button>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{(mealFontSize * 100).toFixed(0)}%</span>
+              <button
+                onClick={() => setMealFontSize(1.0)}
                 style={{ fontSize: '0.65rem', color: dropC.textMuted, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                 onMouseEnter={e => { e.currentTarget.style.color = dropC.text; }}
                 onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
@@ -4877,7 +4923,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             ) : (
                               <p style={{
                                 margin: 0, color: isActive ? C.translationActive : C.translation,
-                                fontSize: isMobile ? '0.82rem' : '1rem',
+                                fontSize: `${(isMobile ? 0.82 : 1.0) * mealFontSize}rem`,
                                 lineHeight: isMobile ? 1.55 : 1.7,
                                 fontStyle: 'italic',
                                 flex: 1,
