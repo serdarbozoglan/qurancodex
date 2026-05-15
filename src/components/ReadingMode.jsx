@@ -5180,15 +5180,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               }}>
                                 {arName}
                               </div>
-                              {/* Latin caption — only when meal is hidden.
-                                  When the translation column is open the
-                                  Latin surah name already appears in the
-                                  meal-side header, so this duplicate would
-                                  be visual noise. With meal closed (mushaf
-                                  spread mode) this is the only chance for a
-                                  non-Arabic-reading user to confirm which
-                                  surah they're on. */}
-                              {!showTranslation && (
+                              {/* Latin caption — visibility rules:
+                                  • Desktop: only when meal is hidden (the
+                                    meal column already carries the Latin
+                                    name in its header, so duplicating here
+                                    would be noise).
+                                  • Mobile: ALWAYS shown — the meal column
+                                    on phone stacks below the Arabic verse
+                                    rather than sitting beside it, so the
+                                    Arabic surah header is the only place a
+                                    non-Arabic reader can confirm which
+                                    surah they've opened. */}
+                              {(!showTranslation || isMobile) && (
                                 <div style={{
                                   fontFamily: "'Playfair Display', Georgia, serif",
                                   fontSize: isMobile ? '0.78rem' : '0.92rem',
@@ -5627,10 +5630,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             }}>
                               {arName}
                             </div>
-                            {/* Latin caption — only when meal hidden; see
-                                matching block in the right column for the
-                                rationale. */}
-                            {!showTranslation && (
+                            {/* Latin caption — desktop hides when meal is
+                                visible (Latin already on the meal side);
+                                mobile always shows (no side-by-side meal). */}
+                            {(!showTranslation || isMobile) && (
                               <div style={{
                                 fontFamily: "'Playfair Display', Georgia, serif",
                                 fontSize: isMobile ? '0.78rem' : '0.92rem',
