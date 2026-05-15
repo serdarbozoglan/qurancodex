@@ -6663,6 +6663,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 padding: '2px 6px',
               }}>
                 {language === 'tr' ? 'Açılış' : 'Opening'}
+                {spreadMode && versesOnNextPage.length > 0 && (
+                  <span style={{ opacity: 0.72, fontWeight: 500 }}>{' · 1'}</span>
+                )}
               </span>
             ) : showPageInput ? (
               <form
@@ -6705,7 +6708,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
               >
                 {language === 'tr' ? 'Sayfa' : 'Page'}{' '}
-                <span style={{ color: gold, fontWeight: 700 }}>{currentPage}</span>
+                <span style={{ color: gold, fontWeight: 700 }}>
+                  {spreadMode && versesOnNextPage.length > 0
+                    ? `${currentPage}–${currentPage + 1}`
+                    : currentPage}
+                </span>
                 <span style={{ color: dayMode ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.2)' }}> / 604</span>
               </button>
             )}
