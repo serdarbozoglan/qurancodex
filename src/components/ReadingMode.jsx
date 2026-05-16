@@ -172,7 +172,7 @@ const makeSektaWrap = (dayMode) => (_m) =>
 // [\u064B-\u065F\u0670\u06E1]* eklenerek bu durum da yakalanır.
 const ALLAH_RE = /\u0627[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u06E1\u0651]*\u0647[\u064B-\u065F\u0670\u06E1]*/gu;
 const makeAllahWrap = (dayMode) => (m) =>
-  `<span style="color:${dayMode ? '#4338ca' : '#93c5fd'};">${m}</span>`;
+  `<span style="color:${dayMode ? '#c0392b' : '#93c5fd'};">${m}</span>`;
 
 // Same indigo/blue family for the LATIN-script 'Allah' inside Turkish and
 // English meal translations — visual bridge between the Arabic side's
@@ -187,7 +187,7 @@ const highlightAllahInMeal = (text, dayMode) => {
   const escaped = escapeHtml(text);
   return escaped.replace(
     ALLAH_LATIN_RE,
-    `<span style="color:${dayMode ? '#4338ca' : '#93c5fd'};">Allah</span>`
+    `<span style="color:${dayMode ? '#c0392b' : '#93c5fd'};">Allah</span>`
   );
 };
 
