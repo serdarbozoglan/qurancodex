@@ -4445,12 +4445,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           /* ── Book format — all surahs ── */
           <>
           <div style={{
-            // Removed the 1600px max-width: on wider screens the page now
-            // expands all the way out to the navigation gutter, letting
-            // Arabic justify spread to more words per line. The 32px outer
-            // padding still clears the 28px arrow tab with a 4px gap so
-            // navigation behaviour is unchanged. Easy to revert by putting
-            // maxWidth back if it reads too wide.
+            // Cap at 1700px so very wide displays (4K, ultrawide) don't
+            // stretch Arabic lines into 'magazine' territory. Below that
+            // width the grid fills the viewport (minus 32px padding), which
+            // recovers the ~100-150px of dead space that used to sit between
+            // the centered 1600px container and the side-arrow buttons.
+            maxWidth: '1700px',
             margin: '0 auto',
             padding: isMobile
               ? '10px 12px 32px 12px'
