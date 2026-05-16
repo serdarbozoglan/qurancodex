@@ -4445,12 +4445,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           /* ── Book format — all surahs ── */
           <>
           <div style={{
-            maxWidth: '1600px',
+            // Removed the 1600px max-width: on wider screens the page now
+            // expands all the way out to the navigation gutter, letting
+            // Arabic justify spread to more words per line. The 32px outer
+            // padding still clears the 28px arrow tab with a 4px gap so
+            // navigation behaviour is unchanged. Easy to revert by putting
+            // maxWidth back if it reads too wide.
             margin: '0 auto',
-            // Outer gutter on desktop is the same in both spread (Arabic only)
-            // and meal-open modes — toggling MEAL should change which columns
-            // are visible, NOT how the page sits in the viewport. 32px clears
-            // the 28px deepened arrow tab and leaves a 4px breathing space.
             padding: isMobile
               ? '10px 12px 32px 12px'
               : '20px 32px 36px 32px',
