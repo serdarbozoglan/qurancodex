@@ -4978,7 +4978,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           style={{
                             cursor: 'pointer', borderRadius: isMobile ? '0' : '6px',
                             padding: isMobile ? '10px 8px' : '8px 12px',
-                            marginBottom: longSurah ? (isMobile ? '6px' : '8px') : 0,
+                            marginBottom: longSurah ? (isMobile ? '10px' : '14px') : 0,
                             background: isActive ? C.activeHighlight : 'transparent',
                             borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                             transition: 'all 0.18s',
