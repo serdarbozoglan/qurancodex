@@ -4884,7 +4884,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     gap: '12px',
                                     textAlign: 'center',
                                     fontFamily: "'Inter', sans-serif",
-                                    fontSize: isMobile ? '0.86rem' : '0.94rem',
+                                    fontSize: isMobile ? '0.98rem' : '1.08rem',
                                     fontStyle: 'italic',
                                     fontWeight: 500,
                                     // Bismillah meal — always renders in C.bismillah
@@ -5042,7 +5042,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     marginTop: isMobile ? '20px' : '28px',
                     paddingTop: isMobile ? '14px' : '16px',
                     borderTop: `1px dashed ${dayMode ? 'rgba(154,120,56,0.20)' : 'rgba(212,165,116,0.14)'}`,
-                    fontSize: isMobile ? '0.78rem' : '0.82rem',
+                    fontSize: isMobile ? '0.86rem' : '0.92rem',
                     fontStyle: 'italic',
                     color: dayMode ? 'rgba(106,86,56,0.62)' : 'rgba(148,163,184,0.48)',
                     fontFamily: 'Inter, system-ui, sans-serif',
