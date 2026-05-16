@@ -1091,8 +1091,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   // ── Font size (persisted) ──────────────────────────────────────────────────
   const [arabicFontSize, setArabicFontSize] = useState(() => {
-    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.4'); }
-    catch { return 2.2; }
+    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.5'); }
+    catch { return 2.5; }
   });
   // Turkish meal / translation font size — independent of Arabic so users can
   // scale the two columns separately. Stored in rem; default 1.0 (matches the
@@ -3051,7 +3051,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
             <button
-              onClick={() => setArabicFontSize(2.4)}
+              onClick={() => setArabicFontSize(2.5)}
               style={{ fontSize: '0.65rem', color: '#64748b', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               onMouseEnter={e => { e.currentTarget.style.color = '#a0abb8'; }}
               onMouseLeave={e => { e.currentTarget.style.color = '#64748b'; }}
@@ -3523,7 +3523,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
               <button
-                onClick={() => setArabicFontSize(2.4)}
+                onClick={() => setArabicFontSize(2.5)}
                 style={{ fontSize: '0.65rem', color: dropC.textMuted, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                 onMouseEnter={e => { e.currentTarget.style.color = dropC.text; }}
                 onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
@@ -4445,12 +4445,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           /* ── Book format — all surahs ── */
           <>
           <div style={{
-            // Cap at 1650px so very wide displays (4K, ultrawide) don't
+            // Cap at 1700px so very wide displays (4K, ultrawide) don't
             // stretch Arabic lines into 'magazine' territory. Below that
             // width the grid fills the viewport (minus 32px padding), which
             // recovers the dead space that used to sit between the centered
             // container and the side-arrow buttons.
-            maxWidth: '1650px',
+            maxWidth: '1700px',
             margin: '0 auto',
             padding: isMobile
               ? '10px 12px 32px 12px'
