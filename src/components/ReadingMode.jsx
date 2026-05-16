@@ -3051,7 +3051,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
             <button
-              onClick={() => setArabicFontSize(2.2)}
+              onClick={() => setArabicFontSize(2.4)}
               style={{ fontSize: '0.65rem', color: '#64748b', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               onMouseEnter={e => { e.currentTarget.style.color = '#a0abb8'; }}
               onMouseLeave={e => { e.currentTarget.style.color = '#64748b'; }}
