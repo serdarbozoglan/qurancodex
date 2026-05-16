@@ -5250,7 +5250,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   fontSize: isMobile ? '0.78rem' : '0.92rem',
                                   fontWeight: 500,
                                   fontStyle: 'italic',
-                                  color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
+                                  color: dayMode ? '#6a4d18' : 'rgba(232,181,71,0.85)',
                                   letterSpacing: '0.06em',
                                   lineHeight: 1.4,
                                   marginTop: isMobile ? '-6px' : '-10px',
