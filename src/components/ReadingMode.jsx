@@ -1119,6 +1119,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     try { return JSON.parse(localStorage.getItem('qurancodex_prefer_single_page') ?? 'false'); }
     catch { return false; }
   });
+  // Classical mushaf-page frame around each visible page (right Arabic,
+  // left Arabic in spread, Turkish meal column). Each page gets its OWN
+  // thin gold frame — keeps the "two facing pages" reading rather than the
+  // "two-column magazine" reading. Default on; togglable in Settings.
+  const [showPageFrame, setShowPageFrame] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_page_frame') ?? 'true'); }
+    catch { return true; }
+  });
   // ── Share / copy feedback ─────────────────────────────────────────────────
   const [copiedVerseId, setCopiedVerseId] = useState(null);
   const [showFontPicker, setShowFontPicker] = useState(false);
@@ -1518,6 +1526,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   useEffect(() => { localStorage.setItem('qurancodex_show_translation', JSON.stringify(showTranslation)); }, [showTranslation]);
   useEffect(() => { localStorage.setItem('qurancodex_tajweed', JSON.stringify(showTajweed)); }, [showTajweed]);
   useEffect(() => { localStorage.setItem('qurancodex_prefer_single_page', JSON.stringify(preferSinglePage)); }, [preferSinglePage]);
+  useEffect(() => { localStorage.setItem('qurancodex_page_frame', JSON.stringify(showPageFrame)); }, [showPageFrame]);
 
   // Collapsible state for the tajweed legend strip below the navbar.
   // Defaults to collapsed — power users don't need it; new users discover via the chevron.
@@ -3425,6 +3434,33 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </span>
           </button>
 
+          {/* Classical mushaf page frame toggle */}
+          {!isMobile && (
+            <button
+              onClick={() => setShowPageFrame(v => !v)}
+              title={language === 'tr'
+                ? 'Her sayfanın etrafına klasik altın çerçeve çiz'
+                : 'Draw a classical gold frame around each page'}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                border: `1px solid ${showPageFrame ? navC.btnBorderActive : dropC.btnBorder}`,
+                background: showPageFrame ? dropC.itemBgActive : dropC.btnBg,
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+              onMouseLeave={e => { e.currentTarget.style.background = showPageFrame ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = showPageFrame ? navC.btnBorderActive : dropC.btnBorder; }}
+            >
+              <span style={{ fontSize: '0.82rem', color: showPageFrame ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ fontSize: '0.9rem' }}>▭</span>
+                {language === 'tr' ? 'Sayfa Çerçevesi' : 'Page Frame'}
+              </span>
+              <span style={{ fontSize: '0.7rem', color: showPageFrame ? gold : dropC.textMuted, fontWeight: 600 }}>
+                {showPageFrame ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
+              </span>
+            </button>
+          )}
+
           {/* Layout — single page vs two-page spread. Only meaningful when
               meal is closed on a wide desktop (the auto-spread conditions).
               When meal is open or screen is narrow, the toggle is harmless
@@ -4533,7 +4569,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // 3-layer divider handles the visual separation from the
                   // Arabic column. Old hairline borderRight removed to avoid
                   // doubling with the new gold-seam divider.
-                  paddingRight: '0',
+                  paddingLeft: showPageFrame && !isMobile ? '14px' : '0',
+                  paddingRight: showPageFrame && !isMobile ? '14px' : '0',
                   borderRight: 'none',
                   borderTop: isMobile ? `1px solid ${dayMode ? 'rgba(100,60,10,0.15)' : 'rgba(212,165,116,0.15)'}` : 'none',
                   // Reserve space for the absolute-positioned inline meal picker
@@ -4542,14 +4579,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // ample top space, so we skip the reservation to keep it from
                   // doubling up with the Arabic side.
                   paddingTop: (versesOnPage[0]?.ayah === 1)
-                    ? (isMobile ? '12px' : '0')
+                    ? (isMobile ? '12px' : (showPageFrame ? '14px' : '0'))
                     : (isMobile ? '52px' : '48px'),
+                  paddingBottom: showPageFrame && !isMobile ? '14px' : '0',
                   marginTop: isMobile ? '12px' : '0',
                   display: 'flex', flexDirection: 'column', gap: '0',
                   // Relative parent so the absolute-positioned translator attribution
                   // floats above the column without pushing the surah header down —
                   // keeps the meal-side surah header aligned with the Arabic side.
                   position: 'relative',
+                  boxShadow: showPageFrame && !isMobile
+                    ? `inset 0 0 0 1px ${dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(232,181,71,0.28)'}`
+                    : 'none',
+                  borderRadius: showPageFrame && !isMobile ? '6px' : 0,
                 }}>
                   {/* Attribution — floating + interactive. Click opens an inline meal
                       picker so the translator can be switched with one click. Same
@@ -5033,6 +5075,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   JUZ_PAGES.indexOf(firstPageL) > 0 ||
                   HIZB_PAGES.indexOf(firstPageL) > 0
                 );
+                const frameColorL = dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(232,181,71,0.28)';
                 return (
                 <div style={{
                   order: 1,
@@ -5040,14 +5083,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // Outer (physical-left) gutter for the Cüz/Hizb medallion —
                   // mirrors the right page's right-gutter so both pages keep
                   // mushaf outer-margin symmetry.
-                  paddingLeft: hasMarkerL ? (isMobile ? '44px' : '56px') : '0',
+                  paddingLeft: hasMarkerL ? (isMobile ? '44px' : '56px') : (showPageFrame ? '14px' : '0'),
+                  paddingRight: showPageFrame ? '14px' : '0',
                   direction: 'rtl',
                   fontFamily: currentFont,
                   fontSize: `${arabicFontSize}rem`,
                   lineHeight: 2.3,
                   color: C.arabic,
                   textAlign: 'justify',
-                  paddingTop: '0',
+                  paddingTop: showPageFrame ? '14px' : '0',
+                  paddingBottom: showPageFrame ? '14px' : '0',
+                  boxShadow: showPageFrame ? `inset 0 0 0 1px ${frameColorL}` : 'none',
+                  borderRadius: showPageFrame ? '6px' : 0,
                 }}>
                   {/* Page-level Cüz/Hizb medallion — absolute-positioned in the
                       physical-left gutter (outer edge of the left page). */}
@@ -5410,22 +5457,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   JUZ_PAGES.indexOf(firstPage) > 0 ||
                   HIZB_PAGES.indexOf(firstPage) > 0
                 );
+                // Classical mushaf-page frame: thin gold inset box drawn
+                // entirely INSIDE the column's right gutter (so the Cüz/Hizb
+                // medallion stays outside the frame, mushaf-correct). When
+                // showPageFrame is off it falls back to no border.
+                const frameColor = dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(232,181,71,0.28)';
                 return {
                   order: isMobile ? 1 : 2,
                   position: 'relative',
-                  // Asymmetric internal left padding when meal is on +
-                  // desktop. Arabic is text-align:justify, so it fills the
-                  // entire column width — without this, the leftmost glyphs
-                  // touch the gutter while the Turkish (text-align:left,
-                  // short lines) keeps its right edge airy. 36px restores
-                  // visual symmetry around the divider.
-                  // No asymmetric left-padding any more — Arabic column now
-                  // gets exactly the same width whether meal is open or not,
-                  // so the same justified line breaks appear in both modes.
-                  paddingLeft: '0',
+                  paddingLeft: showPageFrame ? '14px' : '0',
                   // Compact gutter sized to the medallion + a touch of
                   // breathing room. Mushaf outer margin in miniature.
-                  paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : '0',
+                  paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : (showPageFrame ? '14px' : '0'),
+                  paddingTop: showPageFrame ? '14px' : '0',
+                  paddingBottom: showPageFrame ? '14px' : '0',
+                  // Inset border = the page frame; rounded corners soften it
+                  // without going full ornate-mushaf cartouche.
+                  boxShadow: showPageFrame ? `inset 0 0 0 1px ${frameColor}` : 'none',
+                  borderRadius: showPageFrame ? '6px' : 0,
                   direction: 'rtl',
                   fontFamily: currentFont,
                   fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
