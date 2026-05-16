@@ -4975,7 +4975,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               }}
                               style={{
                                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                                width: isMobile ? '30px' : '36px', height: isMobile ? '30px' : '36px',
+                                width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
                                 borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
                                 border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
                                 background: dayMode
