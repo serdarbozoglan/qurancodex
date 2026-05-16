@@ -2246,8 +2246,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // expand on wider monitors. clamp() prevents the bar from
                   // pushing other right-group buttons off-screen at ≤1280px
                   // while still feeling like a search field at 1440px+.
-                  width: isMobile ? '36px' : 'clamp(170px, 16vw, 220px)',
-                  minWidth: isMobile ? '36px' : '170px',
+                  width: isMobile ? '36px' : 'clamp(220px, 20vw, 280px)',
+                  minWidth: isMobile ? '36px' : '220px',
                   height: isMobile ? '42px' : '44px',
                   padding: isMobile ? 0 : '0 8px 0 12px',
                   borderRadius: '8px',
@@ -7017,6 +7017,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <button
               onClick={() => { const step = spreadMode ? 2 : 1; if (currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); }}
               disabled={currentPage >= 604}
+              onMouseEnter={e => {
+                if (currentPage >= 604) return;
+                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.14)' : 'rgba(212,165,116,0.16)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.5)' : 'rgba(212,165,116,0.5)';
+                e.currentTarget.style.transform = 'scale(1.06)';
+              }}
+              onMouseLeave={e => {
+                if (currentPage >= 604) return;
+                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.06)' : 'rgba(212,165,116,0.06)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)';
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
               style={{
                 width: '36px', height: '36px', borderRadius: '50%',
                 border: `1px solid ${currentPage < 604 ? (dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)') : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
@@ -7024,7 +7036,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 color: currentPage < 604 ? gold : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.12)'),
                 cursor: currentPage < 604 ? 'pointer' : 'default',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.18s',
+                transition: 'background 0.18s, border-color 0.18s, transform 0.18s',
               }}
             >
               <ChevronLeft size={16} />
@@ -7094,6 +7106,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <button
               onClick={() => { const step = spreadMode ? 2 : 1; if (currentPage > 0) navigateToPage(Math.max(0, currentPage - step)); }}
               disabled={currentPage <= 0}
+              onMouseEnter={e => {
+                if (currentPage <= 0) return;
+                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.14)' : 'rgba(212,165,116,0.16)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.5)' : 'rgba(212,165,116,0.5)';
+                e.currentTarget.style.transform = 'scale(1.06)';
+              }}
+              onMouseLeave={e => {
+                if (currentPage <= 0) return;
+                e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.06)' : 'rgba(212,165,116,0.06)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)';
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
               style={{
                 width: '36px', height: '36px', borderRadius: '50%',
                 border: `1px solid ${currentPage > 0 ? (dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)') : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
@@ -7101,7 +7125,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 color: currentPage > 0 ? gold : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.12)'),
                 cursor: currentPage > 0 ? 'pointer' : 'default',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.18s',
+                transition: 'background 0.18s, border-color 0.18s, transform 0.18s',
               }}
             >
               <ChevronRight size={16} />
@@ -7871,6 +7895,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           setCompareAuthors={setCompareAuthors}
           mealCacheRef={mealCacheRef}
           setCompareVerse={setCompareVerse}
+          reciterIdx={reciterIdx}
           onClose={() => setCompareVerse(null)}
         />
       )}
@@ -8012,13 +8037,64 @@ function ConfirmDialog({ title, message, confirmLabel, cancelLabel, onConfirm, o
 function VerseCompareModal({
   surah, ayah, language, dayMode, isMobile, showTajweed,
   currentMealId, verses, compareAuthors, setCompareAuthors, mealCacheRef,
-  setCompareVerse, onClose,
+  setCompareVerse, reciterIdx, onClose,
 }) {
   const [tick, setTick] = useState(0);
   const [loadingAuthors, setLoadingAuthors] = useState(() => new Set());
   const [errorAuthors, setErrorAuthors] = useState(() => new Set());
   const [mounted, setMounted] = useState(false);
   const [copiedAuthorId, setCopiedAuthorId] = useState(null); // shows "Kopyalandı" feedback
+
+  // Single-verse audio playback — local to the modal so it doesn't interfere
+  // with the main reading view's playingVerseId state. Uses the user's
+  // selected reciter (reciterIdx) via the same fallback chain as the main
+  // view, so audio quality and source are consistent.
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const [audioFailed, setAudioFailed] = useState(false);
+  const audioRef = useRef(null);
+  const audioActiveRef = useRef(false);
+  const stopAudio = useCallback(() => {
+    audioActiveRef.current = false;
+    const a = audioRef.current;
+    if (a) {
+      a.onerror = null;
+      a.onended = null;
+      a.pause();
+      audioRef.current = null;
+    }
+    setAudioPlaying(false);
+  }, []);
+  const toggleAudio = useCallback(() => {
+    if (audioPlaying) { stopAudio(); return; }
+    setAudioFailed(false);
+    setAudioPlaying(true);
+    audioActiveRef.current = true;
+    const reciterId = (RECITERS[reciterIdx] || RECITERS[0]).id;
+    const urls = buildFallbackUrlsFromReciter(reciterId, surah, ayah);
+    let idx = 0;
+    const tryNext = () => {
+      if (!audioActiveRef.current) return;
+      if (idx >= urls.length) {
+        setAudioFailed(true);
+        setAudioPlaying(false);
+        audioActiveRef.current = false;
+        return;
+      }
+      const a = new Audio(urls[idx++]);
+      audioRef.current = a;
+      a.onerror = () => { if (audioActiveRef.current) tryNext(); };
+      a.onended = () => {
+        audioActiveRef.current = false;
+        audioRef.current = null;
+        setAudioPlaying(false);
+      };
+      a.play().catch(() => { if (audioActiveRef.current) tryNext(); });
+    };
+    tryNext();
+  }, [audioPlaying, reciterIdx, surah, ayah, stopAudio]);
+  // Stop audio on verse change or unmount
+  useEffect(() => { stopAudio(); }, [surah, ayah, stopAudio]);
+  useEffect(() => () => stopAudio(), [stopAudio]);
 
   // Within-surah ayah navigation. Cross-surah jumps are out of scope; users
   // close the modal and click another verse if they need to switch surahs.
@@ -8292,12 +8368,107 @@ function VerseCompareModal({
       >
         {/* Header */}
         <div style={{
+          position: 'relative',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: isMobile ? '12px 14px' : '16px 20px',
           borderBottom: `1px solid ${C.divider}`,
           flexShrink: 0,
           gap: '12px',
         }}>
+          {/* Center play button — sits in the empty space between the
+              "Meal Karşılaştırma / verseRef" title block (left) and the
+              < > × nav cluster (right). Absolute centering keeps it on
+              the header's true midline regardless of title width. Hidden
+              on mobile where header is tight (12px padding, smaller fonts);
+              mobile users can still play audio from the main reading view. */}
+          {!isMobile && (
+            <div style={{
+              position: 'absolute',
+              top: '50%', left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '36px', height: '36px',
+              pointerEvents: 'none',
+            }}>
+              <div style={{ position: 'relative', width: '36px', height: '36px', pointerEvents: 'auto' }}>
+                {audioPlaying && !audioFailed && (
+                  <>
+                    <span aria-hidden className="rm-audio-pulse-ring" style={{
+                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
+                      animation: 'rm-audio-pulse 1.6s ease-out infinite',
+                      pointerEvents: 'none',
+                    }} />
+                    <span aria-hidden className="rm-audio-pulse-ring" style={{
+                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
+                      animation: 'rm-audio-pulse 1.6s ease-out infinite',
+                      animationDelay: '0.8s',
+                      pointerEvents: 'none',
+                    }} />
+                  </>
+                )}
+                <button
+                  type="button"
+                  onClick={audioFailed ? undefined : toggleAudio}
+                  disabled={audioFailed}
+                  aria-label={
+                    audioFailed
+                      ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable')
+                      : audioPlaying
+                        ? (language === 'tr' ? 'Sesi durdur' : 'Stop audio')
+                        : (language === 'tr' ? 'Ayeti dinle' : 'Listen to verse')
+                  }
+                  title={
+                    audioFailed
+                      ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable')
+                      : audioPlaying
+                        ? (language === 'tr' ? 'Durdur' : 'Stop')
+                        : (language === 'tr' ? 'Dinle' : 'Listen')
+                  }
+                  style={{
+                    position: 'relative', zIndex: 1,
+                    width: '36px', height: '36px',
+                    borderRadius: '50%',
+                    background: audioFailed
+                      ? (dayMode ? 'rgba(100,116,139,0.08)' : 'rgba(100,116,139,0.10)')
+                      : audioPlaying
+                        ? (dayMode ? 'rgba(154,111,16,0.22)' : 'rgba(212,165,116,0.24)')
+                        : (dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.10)'),
+                    border: `1px solid ${audioFailed
+                      ? (dayMode ? 'rgba(100,116,139,0.25)' : 'rgba(100,116,139,0.3)')
+                      : audioPlaying
+                        ? (dayMode ? 'rgba(154,111,16,0.6)' : 'rgba(212,165,116,0.7)')
+                        : (dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(212,165,116,0.32)')}`,
+                    color: audioFailed
+                      ? (dayMode ? 'rgba(0,0,0,0.35)' : 'rgba(148,163,184,0.5)')
+                      : (dayMode ? '#9a6f10' : '#d4a574'),
+                    cursor: audioFailed ? 'not-allowed' : 'pointer',
+                    opacity: audioFailed ? 0.55 : 1,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    transition: 'background 0.18s, border-color 0.18s, transform 0.18s',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (audioFailed) return;
+                    e.currentTarget.style.transform = 'scale(1.07)';
+                    if (!audioPlaying) {
+                      e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.18)' : 'rgba(212,165,116,0.18)';
+                      e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.5)' : 'rgba(212,165,116,0.55)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (audioFailed) return;
+                    e.currentTarget.style.transform = 'scale(1)';
+                    if (!audioPlaying) {
+                      e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.10)';
+                      e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(212,165,116,0.32)';
+                    }
+                  }}
+                >
+                  {audioPlaying ? <PauseIcon size={13} /> : <PlayIcon size={13} />}
+                </button>
+              </div>
+            </div>
+          )}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
             <span style={{
               fontSize: '0.66rem',
