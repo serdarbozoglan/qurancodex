@@ -4966,6 +4966,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       const isRangeFollower = rangeMatch
                         && verse.ayah > rangeStart
                         && verse.ayah <= rangeEnd;
+                      // Longer narrative surahs (1–96) get an extra margin
+                      // between meal lines for readability — long Türkçe
+                      // paragraphs need more breathing space than the short
+                      // surahs (97–114) where extra gap creates empty pages.
+                      const longSurah = verse.surah <= 96;
                       return (
                         <div
                           key={verse.id}
@@ -4973,6 +4978,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           style={{
                             cursor: 'pointer', borderRadius: isMobile ? '0' : '6px',
                             padding: isMobile ? '10px 8px' : '8px 12px',
+                            marginBottom: longSurah ? (isMobile ? '6px' : '8px') : 0,
                             background: isActive ? C.activeHighlight : 'transparent',
                             borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                             transition: 'all 0.18s',
