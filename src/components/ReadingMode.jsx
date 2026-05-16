@@ -2429,17 +2429,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </span>
               </button>
 
-              {/* Language toggle — TR ↔ EN. Visible on both desktop and
-                  mobile — quick access matters more than the saved toolbar
-                  pixel. Shows the *current* language code (TR or EN). */}
-              <button
+              {/* Language toggle — TR ↔ EN. Moved off the desktop toolbar
+                  to reduce the top-bar density (typical Turkish user picks a
+                  language once and never switches). Still visible on mobile
+                  where Settings is a deeper-dive panel. Desktop users can
+                  toggle via Settings → Dil. */}
+              {isMobile && <button
                 onClick={toggleLanguage}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  width: '36px', height: '42px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${navC.btnBorder}`,
                   background: navC.btnBg,
-                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                  transition: 'all 0.15s', gap: '3px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; }}
@@ -2447,12 +2449,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 aria-label={language === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <GlobeIcon size={isMobile ? 15 : 18} />
+                  <GlobeIcon size={15} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%', fontWeight: 700 }}>
+                <span style={{ fontSize: '0.38rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%', fontWeight: 700 }}>
                   {language === 'tr' ? 'TR' : 'EN'}
                 </span>
-              </button>
+              </button>}
 
               {/* Group divider: Visual | Auxiliary */}
               {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 4px' }} />}
@@ -3402,6 +3404,36 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           )}
 
           <div style={{ height: '1px', background: dropC.divider }} />
+
+          {/* Language (Dil) toggle — moved here from the desktop toolbar.
+              Rarely flipped (Turkish users typically settle and stay), so
+              one slot of top-bar real estate matters more than a 1-click
+              path. */}
+          {!isMobile && (
+            <button
+              onClick={toggleLanguage}
+              title={language === 'tr' ? 'Switch interface to English' : 'Arayüzü Türkçe yap'}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                border: `1px solid ${dropC.btnBorder}`,
+                background: dropC.btnBg,
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+              onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; }}
+            >
+              <span style={{ fontSize: '0.82rem', color: dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <GlobeIcon size={13} />
+                {language === 'tr' ? 'Dil' : 'Language'}
+              </span>
+              <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>
+                {language === 'tr' ? 'Türkçe' : 'English'}
+              </span>
+            </button>
+          )}
+
+          {!isMobile && <div style={{ height: '1px', background: dropC.divider }} />}
 
           {/* Tajweed toggle */}
           <button
@@ -4603,7 +4635,6 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <div ref={inlineMealPickerRef} style={{
                     position: 'absolute',
                     top: 0, left: 0, right: 0,
-                    borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
                     zIndex: 5,
                   }}>
                     <button
@@ -4956,22 +4987,33 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
                               aria-label={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
                               onMouseEnter={e => {
+                                // Hover keeps the double-ring (page-bg ring +
+                                // gold ring) and adds an outer glow halo so
+                                // the gülçe stays intact instead of collapsing
+                                // back to a flat circle.
                                 e.currentTarget.style.transform = 'scale(1.08)';
                                 e.currentTarget.style.borderColor = `${C.gold}`;
-                                e.currentTarget.style.boxShadow = `0 0 0 3px ${C.gold}22`;
+                                e.currentTarget.style.boxShadow = `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}88, 0 0 8px ${C.gold}55`;
                               }}
                               onMouseLeave={e => {
                                 e.currentTarget.style.transform = 'scale(1)';
-                                e.currentTarget.style.borderColor = `${C.gold}${isActive ? 'cc' : '88'}`;
-                                e.currentTarget.style.boxShadow = 'none';
+                                e.currentTarget.style.borderColor = `${C.gold}${isActive ? 'cc' : 'aa'}`;
+                                e.currentTarget.style.boxShadow = `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`;
                               }}
                               style={{
+                                // Visually unified with the Arabic-side ayet
+                                // badge: same gold border opacity (aa = ~0.67)
+                                // + the double-ring boxShadow that gives the
+                                // Arabic badges their 'gülçe' / mushaf-rosette
+                                // feel. Active state still bumps the border
+                                // to cc for stronger emphasis.
                                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                                 width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
                                 borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
-                                border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
+                                border: `1.5px solid ${C.gold}${isActive ? 'cc' : 'aa'}`,
+                                boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
                                 background: dayMode
-                                  ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
+                                  ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
                                   : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
                                 color: C.gold,
                                 fontSize: verse.ayah >= 100 ? (isMobile ? '0.66rem' : '0.74rem') : verse.ayah >= 10 ? (isMobile ? '0.72rem' : '0.82rem') : (isMobile ? '0.8rem' : '0.94rem'),
