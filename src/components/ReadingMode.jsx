@@ -5214,7 +5214,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               <div style={{ height: isMobile ? '40px' : '52px' }} />
                               <div style={{
                                 fontFamily: currentFont,
-                                fontSize: isMobile ? '0.95rem' : '1.1rem',
+                                fontSize: isMobile ? '1.1rem' : '1.3rem',
                                 color: C.gold,
                                 opacity: 0.78,
                                 letterSpacing: '0.02em',
@@ -5248,7 +5248,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               {(!showTranslation || isMobile) && (
                                 <div style={{
                                   fontFamily: "'Playfair Display', Georgia, serif",
-                                  fontSize: isMobile ? '0.78rem' : '0.92rem',
+                                  fontSize: isMobile ? '0.92rem' : '1.1rem',
                                   fontWeight: 500,
                                   fontStyle: 'italic',
                                   color: dayMode ? '#6a4d18' : 'rgba(232,181,71,0.85)',
@@ -5263,7 +5263,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               )}
                               <div style={{
                                 fontFamily: currentFont,
-                                fontSize: isMobile ? '0.95rem' : '1.1rem',
+                                fontSize: isMobile ? '1.1rem' : '1.3rem',
                                 color: dayMode ? '#5a4a32' : C.muted,
                                 letterSpacing: '0.04em',
                                 lineHeight: 1.5,
@@ -5670,7 +5670,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             {/* Sūratu N — small calligraphic Arabic label */}
                             <div style={{
                               fontFamily: currentFont,
-                              fontSize: isMobile ? '0.95rem' : '1.1rem',
+                              fontSize: isMobile ? '1.1rem' : '1.3rem',
                               color: C.gold,
                               opacity: 0.78,
                               letterSpacing: '0.02em',
@@ -5698,7 +5698,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             {(!showTranslation || isMobile) && (
                               <div style={{
                                 fontFamily: "'Playfair Display', Georgia, serif",
-                                fontSize: isMobile ? '0.78rem' : '0.92rem',
+                                fontSize: isMobile ? '0.92rem' : '1.1rem',
                                 fontWeight: 500,
                                 fontStyle: 'italic',
                                 color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
@@ -5718,7 +5718,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 without competing with the gold hero. */}
                             <div style={{
                               fontFamily: currentFont,
-                              fontSize: isMobile ? '0.95rem' : '1.1rem',
+                              fontSize: isMobile ? '1.1rem' : '1.3rem',
                               color: dayMode ? '#5a4a32' : C.muted,
                               letterSpacing: '0.04em',
                               lineHeight: 1.5,
