@@ -4445,12 +4445,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           /* ── Book format — all surahs ── */
           <>
           <div style={{
-            // Cap at 1700px so very wide displays (4K, ultrawide) don't
+            // Cap at 1650px so very wide displays (4K, ultrawide) don't
             // stretch Arabic lines into 'magazine' territory. Below that
             // width the grid fills the viewport (minus 32px padding), which
-            // recovers the ~100-150px of dead space that used to sit between
-            // the centered 1600px container and the side-arrow buttons.
-            maxWidth: '1700px',
+            // recovers the dead space that used to sit between the centered
+            // container and the side-arrow buttons.
+            maxWidth: '1650px',
             margin: '0 auto',
             padding: isMobile
               ? '10px 12px 32px 12px'
