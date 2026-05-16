@@ -4466,12 +4466,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               gridTemplateColumns: spreadMode
                 ? '1fr 1fr'
                 : showTranslation ? (isMobile ? '1fr' : '1fr 1fr') : '1fr',
-              // Same 64px binding gutter whether the spread is Arabic+Arabic
-              // (spread mode) or Arabic+Meal — keeps the Arabic column width
-              // identical between the two modes so line breaks don't shift
-              // when MEAL is toggled. Divider (18px wide) still has 23px
-              // breathing space on each side.
-              gap: (spreadMode || (showTranslation && !isMobile)) ? '64px' : '0',
+              // Tightened binding gutter (48px) brings the divider closer to
+              // both pages — reinforces the 'single open book' impression
+              // rather than two adjacent panels. Divider (18px) still keeps
+              // 15px clear on each side.
+              gap: (spreadMode || (showTranslation && !isMobile)) ? '48px' : '0',
               // Relative wrapper so the divider can be absolutely
               // positioned at the binding gutter between the two columns.
               position: 'relative',
@@ -4516,10 +4515,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.55) 6%, rgba(154,120,56,0.55) 94%, transparent 100%)'
                       : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.45) 6%, rgba(212,165,116,0.45) 94%, transparent 100%)',
                   }} />
-                  {/* Layer 3a — top diamond ornament */}
+                  {/* Layer 3a — top diamond ornament.
+                      22px inset from the frame top so the bead has visible
+                      breathing room before the page-frame rule. */}
                   <div style={{
                     position: 'absolute',
-                    top: '10px',
+                    top: '22px',
                     left: '50%',
                     width: '6px',
                     height: '6px',
@@ -4546,10 +4547,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       ? `0 0 8px ${C.gold}33`
                       : `0 0 10px ${C.gold}44`,
                   }} />
-                  {/* Layer 3c — bottom diamond ornament */}
+                  {/* Layer 3c — bottom diamond ornament (matches top inset). */}
                   <div style={{
                     position: 'absolute',
-                    bottom: '10px',
+                    bottom: '22px',
                     left: '50%',
                     width: '6px',
                     height: '6px',
