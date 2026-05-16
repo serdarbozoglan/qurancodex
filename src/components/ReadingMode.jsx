@@ -4569,8 +4569,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // 3-layer divider handles the visual separation from the
                   // Arabic column. Old hairline borderRight removed to avoid
                   // doubling with the new gold-seam divider.
-                  paddingLeft: showPageFrame && !isMobile ? '14px' : '0',
-                  paddingRight: showPageFrame && !isMobile ? '14px' : '0',
+                  paddingLeft: showPageFrame && !isMobile ? '18px' : '0',
+                  paddingRight: showPageFrame && !isMobile ? '18px' : '0',
                   borderRight: 'none',
                   borderTop: isMobile ? `1px solid ${dayMode ? 'rgba(100,60,10,0.15)' : 'rgba(212,165,116,0.15)'}` : 'none',
                   // Reserve space for the absolute-positioned inline meal picker
@@ -4579,17 +4579,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // ample top space, so we skip the reservation to keep it from
                   // doubling up with the Arabic side.
                   paddingTop: (versesOnPage[0]?.ayah === 1)
-                    ? (isMobile ? '12px' : (showPageFrame ? '14px' : '0'))
+                    ? (isMobile ? '12px' : (showPageFrame ? '18px' : '0'))
                     : (isMobile ? '52px' : '48px'),
-                  paddingBottom: showPageFrame && !isMobile ? '14px' : '0',
+                  paddingBottom: showPageFrame && !isMobile ? '18px' : '0',
                   marginTop: isMobile ? '12px' : '0',
                   display: 'flex', flexDirection: 'column', gap: '0',
                   // Relative parent so the absolute-positioned translator attribution
                   // floats above the column without pushing the surah header down —
                   // keeps the meal-side surah header aligned with the Arabic side.
                   position: 'relative',
+                  // Double-line classical frame, same as the Arabic columns.
                   boxShadow: showPageFrame && !isMobile
-                    ? `inset 0 0 0 1px ${dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(232,181,71,0.28)'}`
+                    ? `inset 0 0 0 1px ${dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)'}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)'}`
                     : 'none',
                   borderRadius: showPageFrame && !isMobile ? '6px' : 0,
                 }}>
@@ -5075,7 +5076,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   JUZ_PAGES.indexOf(firstPageL) > 0 ||
                   HIZB_PAGES.indexOf(firstPageL) > 0
                 );
-                const frameColorL = dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(232,181,71,0.28)';
+                const frameOuterL = dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
+                const frameInnerL = dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
+                const frameDoubleL = showPageFrame
+                  ? `inset 0 0 0 1px ${frameOuterL}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${frameInnerL}`
+                  : 'none';
                 return (
                 <div style={{
                   order: 1,
@@ -5083,17 +5088,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // Outer (physical-left) gutter for the Cüz/Hizb medallion —
                   // mirrors the right page's right-gutter so both pages keep
                   // mushaf outer-margin symmetry.
-                  paddingLeft: hasMarkerL ? (isMobile ? '44px' : '56px') : (showPageFrame ? '14px' : '0'),
-                  paddingRight: showPageFrame ? '14px' : '0',
+                  paddingLeft: hasMarkerL ? (isMobile ? '44px' : '56px') : (showPageFrame ? '18px' : '0'),
+                  paddingRight: showPageFrame ? '18px' : '0',
                   direction: 'rtl',
                   fontFamily: currentFont,
                   fontSize: `${arabicFontSize}rem`,
                   lineHeight: 2.3,
                   color: C.arabic,
                   textAlign: 'justify',
-                  paddingTop: showPageFrame ? '14px' : '0',
-                  paddingBottom: showPageFrame ? '14px' : '0',
-                  boxShadow: showPageFrame ? `inset 0 0 0 1px ${frameColorL}` : 'none',
+                  paddingTop: showPageFrame ? '18px' : '0',
+                  paddingBottom: showPageFrame ? '18px' : '0',
+                  boxShadow: frameDoubleL,
                   borderRadius: showPageFrame ? '6px' : 0,
                 }}>
                   {/* Page-level Cüz/Hizb medallion — absolute-positioned in the
@@ -5457,23 +5462,29 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   JUZ_PAGES.indexOf(firstPage) > 0 ||
                   HIZB_PAGES.indexOf(firstPage) > 0
                 );
-                // Classical mushaf-page frame: thin gold inset box drawn
+                // Classical mushaf-page frame: DOUBLE-line gold cetvel drawn
                 // entirely INSIDE the column's right gutter (so the Cüz/Hizb
-                // medallion stays outside the frame, mushaf-correct). When
-                // showPageFrame is off it falls back to no border.
-                const frameColor = dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(232,181,71,0.28)';
+                // medallion stays outside the frame, mushaf-correct). Outer
+                // gold + 2px page-coloured gap + inner muted line — the
+                // standard Osmanlı/Kazan baskısı misturah pattern. Layered
+                // inset box-shadows: front layer paints first, then the gap
+                // shadow covers the middle band with the page background,
+                // then the back layer shows through as the inner line.
+                const frameOuter = dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
+                const frameInner = dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
+                const frameDouble = showPageFrame
+                  ? `inset 0 0 0 1px ${frameOuter}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${frameInner}`
+                  : 'none';
                 return {
                   order: isMobile ? 1 : 2,
                   position: 'relative',
-                  paddingLeft: showPageFrame ? '14px' : '0',
+                  paddingLeft: showPageFrame ? '18px' : '0',
                   // Compact gutter sized to the medallion + a touch of
                   // breathing room. Mushaf outer margin in miniature.
-                  paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : (showPageFrame ? '14px' : '0'),
-                  paddingTop: showPageFrame ? '14px' : '0',
-                  paddingBottom: showPageFrame ? '14px' : '0',
-                  // Inset border = the page frame; rounded corners soften it
-                  // without going full ornate-mushaf cartouche.
-                  boxShadow: showPageFrame ? `inset 0 0 0 1px ${frameColor}` : 'none',
+                  paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : (showPageFrame ? '18px' : '0'),
+                  paddingTop: showPageFrame ? '18px' : '0',
+                  paddingBottom: showPageFrame ? '18px' : '0',
+                  boxShadow: frameDouble,
                   borderRadius: showPageFrame ? '6px' : 0,
                   direction: 'rtl',
                   fontFamily: currentFont,
