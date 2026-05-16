@@ -4610,40 +4610,32 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       onClick={() => setShowInlineMealPicker(p => !p)}
                       title={language === 'tr' ? 'Çevirmeni değiştir' : 'Change translator'}
                       style={{
-                        // Inline meal picker — bumped from a near-invisible
-                        // label to a proper pill so users immediately see it
-                        // as a control. Subtle gold border + slightly bolder
-                        // text + persistent chevron arrow. The fancier
-                        // dropdown panel below already had presence; the
-                        // trigger was the weak link.
+                        // Text-only trigger — the previous pill version sat
+                        // inside the new double-line page frame and read as
+                        // 'card inside card'. Dropping the border + background
+                        // makes it a quiet label that only lights up on hover,
+                        // letting the page frame stay the dominant outline.
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '8px',
                         margin: '6px 12px 8px',
-                        padding: '6px 12px',
-                        background: showInlineMealPicker
-                          ? (dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.16)')
-                          : (dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.06)'),
-                        border: `1px solid ${dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(212,165,116,0.25)'}`,
-                        borderRadius: '6px',
+                        padding: '4px 0',
+                        background: 'transparent',
+                        border: 'none',
                         fontSize: '0.78rem',
                         fontWeight: 500,
-                        color: dayMode ? COLORS.paperGold : 'rgba(232,181,71,0.92)',
+                        color: dayMode ? COLORS.paperGold : 'rgba(232,181,71,0.78)',
                         letterSpacing: '0.02em',
                         cursor: 'pointer',
                         textAlign: 'left',
-                        transition: 'all 0.15s',
+                        transition: 'color 0.15s',
                         fontFamily: 'inherit',
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.14)' : 'rgba(212,165,116,0.14)';
-                        e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.45)' : 'rgba(212,165,116,0.45)';
+                        e.currentTarget.style.color = dayMode ? '#7a5210' : 'rgba(244,206,131,1)';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = showInlineMealPicker
-                          ? (dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.16)')
-                          : (dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.06)');
-                        e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(212,165,116,0.25)';
+                        e.currentTarget.style.color = dayMode ? COLORS.paperGold : 'rgba(232,181,71,0.78)';
                       }}
                     >
                       <span style={{
