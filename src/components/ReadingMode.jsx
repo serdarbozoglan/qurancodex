@@ -5008,7 +5008,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             ) : (
                               <p style={{
                                 margin: 0, color: isActive ? C.translationActive : C.translation,
-                                fontSize: `${(isMobile ? 0.82 : 1.0) * mealFontSize}rem`,
+                                fontSize: `${(isMobile ? 0.92 : 1.12) * mealFontSize}rem`,
                                 lineHeight: isMobile ? 1.55 : 1.7,
                                 fontStyle: 'italic',
                                 flex: 1,
@@ -5042,7 +5042,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     marginTop: isMobile ? '20px' : '28px',
                     paddingTop: isMobile ? '14px' : '16px',
                     borderTop: `1px dashed ${dayMode ? 'rgba(154,120,56,0.20)' : 'rgba(212,165,116,0.14)'}`,
-                    fontSize: isMobile ? '0.68rem' : '0.72rem',
+                    fontSize: isMobile ? '0.78rem' : '0.82rem',
                     fontStyle: 'italic',
                     color: dayMode ? 'rgba(106,86,56,0.62)' : 'rgba(148,163,184,0.48)',
                     fontFamily: 'Inter, system-ui, sans-serif',
@@ -6833,7 +6833,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       {showTranslation && (
                         <p style={{
                           margin: 0, color: isActive ? C.translationActive : C.translation,
-                          fontSize: isMobile ? '0.82rem' : '1rem',
+                          fontSize: `${(isMobile ? 0.92 : 1.12) * mealFontSize}rem`,
                           lineHeight: isMobile ? 1.55 : 1.8,
                           fontStyle: 'italic',
                         }}>
