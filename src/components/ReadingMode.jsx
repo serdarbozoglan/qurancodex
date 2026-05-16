@@ -4805,7 +4805,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   the Arabic-side السُّورَةُ ٥٧ counterpart. */}
                               <div style={{
                                 fontFamily: "'Inter', sans-serif",
-                                fontSize: '0.62rem',
+                                fontSize: '0.74rem',
                                 color: C.gold,
                                 opacity: 0.78,
                                 letterSpacing: '0.18em',
@@ -4832,7 +4832,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               {/* Italic Turkish/English subtitle */}
                               <div style={{
                                 fontFamily: "'Inter', sans-serif",
-                                fontSize: isMobile ? '0.85rem' : '0.92rem',
+                                fontSize: isMobile ? '0.98rem' : '1.06rem',
                                 color: C.muted,
                                 fontStyle: 'italic',
                                 marginBottom: isMobile ? '14px' : '20px',
@@ -4845,7 +4845,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   Day-mode tone slightly darker than C.muted for readability. */}
                               <div style={{
                                 fontFamily: "'Inter', sans-serif",
-                                fontSize: '0.68rem',
+                                fontSize: '0.8rem',
                                 color: dayMode ? '#5a4a32' : C.muted,
                                 letterSpacing: '0.16em',
                                 textTransform: 'uppercase',
