@@ -174,6 +174,23 @@ const ALLAH_RE = /\u0627[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u
 const makeAllahWrap = (dayMode) => (m) =>
   `<span style="color:${dayMode ? '#4338ca' : '#93c5fd'};">${m}</span>`;
 
+// Same indigo/blue family for the LATIN-script 'Allah' inside Turkish and
+// English meal translations — visual bridge between the Arabic side's
+// coloured lafz and its translation counterpart. We HTML-escape the text
+// first so any stray angle-brackets in a translator's payload don't break
+// out of the wrapping span.
+const ESCAPE_HTML_RE = /[&<>]/g;
+const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;' };
+const escapeHtml = (s) => (s == null ? '' : String(s).replace(ESCAPE_HTML_RE, (c) => HTML_ESCAPES[c]));
+const ALLAH_LATIN_RE = /\bAllah\b/g;
+const highlightAllahInMeal = (text, dayMode) => {
+  const escaped = escapeHtml(text);
+  return escaped.replace(
+    ALLAH_LATIN_RE,
+    `<span style="color:${dayMode ? '#4338ca' : '#93c5fd'};">Allah</span>`
+  );
+};
+
 
 // U+06EC (ARABIC ROUNDED HIGH STOP WITH FILLED CENTRE): acikkuran verisinde و (vav)
 // sonrasına yerleştirilir. Vav'ın hemen altına, kasra hizasında küçük "قصر" etiketi
@@ -907,9 +924,10 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
 
       {/* Translation */}
       {showTranslation && (
-        <div style={{ color: '#c2bbb0', fontSize: '1rem', lineHeight: 1.85 }}>
-          {vt}
-        </div>
+        <div
+          style={{ color: '#c2bbb0', fontSize: '1rem', lineHeight: 1.85 }}
+          dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }}
+        />
       )}
     </div>
   );
@@ -5053,7 +5071,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 fontStyle: 'italic',
                                 flex: 1,
                               }}>
-                                {vt}
+                                <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
                                 {isSajdaTr && (
                                   <span style={{
                                     display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle',
@@ -6877,7 +6895,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           lineHeight: isMobile ? 1.55 : 1.8,
                           fontStyle: 'italic',
                         }}>
-                          {vt}
+                          <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
                           {isSajda && (
                             <span style={{
                               display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle',
