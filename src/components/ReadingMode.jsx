@@ -4975,14 +4975,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               }}
                               style={{
                                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                                width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
+                                width: isMobile ? '30px' : '36px', height: isMobile ? '30px' : '36px',
                                 borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
                                 border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
                                 background: dayMode
                                   ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
                                   : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
                                 color: C.gold,
-                                fontSize: verse.ayah >= 100 ? (isMobile ? '0.58rem' : '0.66rem') : verse.ayah >= 10 ? (isMobile ? '0.64rem' : '0.74rem') : (isMobile ? '0.72rem' : '0.84rem'),
+                                fontSize: verse.ayah >= 100 ? (isMobile ? '0.66rem' : '0.74rem') : verse.ayah >= 10 ? (isMobile ? '0.72rem' : '0.82rem') : (isMobile ? '0.8rem' : '0.94rem'),
                                 fontFamily: currentFont,
                                 fontWeight: dayMode ? 600 : 400,
                                 cursor: 'pointer',
