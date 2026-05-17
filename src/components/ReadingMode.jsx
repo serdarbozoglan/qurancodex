@@ -3586,11 +3586,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </span>
           </button>
 
-          {/* Layout — single page vs two-page spread. Only meaningful when
-              meal is closed on a wide desktop (the auto-spread conditions).
-              When meal is open or screen is narrow, the toggle is harmless
-              but doesn't change anything visible. */}
-          {!isMobile && (
+          {/* Layout — single page vs two-page spread. spreadMode is only
+              eligible when meal is closed (spreadMode = bookMode &&
+              !showTranslation && !isMobile && isWide && !preferSinglePage),
+              so the toggle has zero effect while meal is open. Hidden in
+              that case to avoid dead UI. */}
+          {!isMobile && !showTranslation && (
             <button
               onClick={() => setPreferSinglePage(v => !v)}
               title={language === 'tr'
