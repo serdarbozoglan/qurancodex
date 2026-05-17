@@ -4946,8 +4946,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     justifyContent: 'center',
                                     gap: '12px',
                                     textAlign: 'center',
-                                    fontFamily: "'Inter', sans-serif",
-                                    fontSize: isMobile ? '0.98rem' : '1.08rem',
+                                    // Bismillah text is semantically meal — match the
+                                    // Crimson Pro family AND scale with the same
+                                    // mealFontSize multiplier so the Meal Boyutu
+                                    // slider moves both in lock-step.
+                                    fontFamily: "'Crimson Pro', Georgia, serif",
+                                    fontSize: `${(isMobile ? 1.15 : 1.35) * mealFontSize}rem`,
                                     fontStyle: 'italic',
                                     fontWeight: 500,
                                     // Bismillah meal — always renders in C.bismillah
@@ -5088,7 +5092,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             ) : (
                               <p style={{
                                 margin: 0, color: isActive ? C.translationActive : C.translation,
-                                fontSize: `${(isMobile ? 0.92 : 1.12) * mealFontSize}rem`,
+                                // Lora body serif — true italic forms, designed
+                                // for long-form screen reading. Replaces Inter's
+                                // oblique sans-italic for the meal column.
+                                fontFamily: "'Crimson Pro', Georgia, serif",
+                                fontSize: `${(isMobile ? 1.15 : 1.35) * mealFontSize}rem`,
                                 lineHeight: isMobile ? 1.55 : 1.7,
                                 fontStyle: 'italic',
                                 flex: 1,
@@ -5122,11 +5130,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     marginTop: isMobile ? '20px' : '28px',
                     paddingTop: isMobile ? '14px' : '16px',
                     borderTop: `1px dashed ${dayMode ? 'rgba(154,120,56,0.20)' : 'rgba(212,165,116,0.14)'}`,
-                    fontSize: isMobile ? '0.86rem' : '0.92rem',
+                    fontSize: isMobile ? '0.98rem' : '1.05rem',
                     fontStyle: 'italic',
                     color: dayMode ? 'rgba(106,86,56,0.62)' : 'rgba(148,163,184,0.48)',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    letterSpacing: '0.02em',
+                    fontFamily: "'Crimson Pro', Georgia, serif",
+                    letterSpacing: '0.01em',
                     lineHeight: 1.55,
                     display: 'flex', alignItems: 'center', gap: '7px',
                     justifyContent: 'center',
@@ -5327,12 +5335,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     surah they've opened. */}
                               {(!showTranslation || isMobile) && (
                                 <div style={{
-                                  fontFamily: "'Playfair Display', Georgia, serif",
-                                  fontSize: isMobile ? '0.92rem' : '1.1rem',
+                                  // Crimson Pro italic — matches the meal body
+                                  // family for typographic coherence (Playfair
+                                  // Display is a heading face, looked forced
+                                  // when used as a small italic caption).
+                                  fontFamily: "'Crimson Pro', Georgia, serif",
+                                  fontSize: isMobile ? '1.0rem' : '1.2rem',
                                   fontWeight: 500,
                                   fontStyle: 'italic',
                                   color: dayMode ? '#6a4d18' : 'rgba(232,181,71,0.85)',
-                                  letterSpacing: '0.06em',
+                                  letterSpacing: '0.04em',
                                   lineHeight: 1.4,
                                   marginTop: isMobile ? '-6px' : '-10px',
                                   marginBottom: isMobile ? '10px' : '14px',
@@ -5777,12 +5789,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 mobile always shows (no side-by-side meal). */}
                             {(!showTranslation || isMobile) && (
                               <div style={{
-                                fontFamily: "'Playfair Display', Georgia, serif",
-                                fontSize: isMobile ? '0.92rem' : '1.1rem',
+                                fontFamily: "'Crimson Pro', Georgia, serif",
+                                fontSize: isMobile ? '1.0rem' : '1.2rem',
                                 fontWeight: 500,
                                 fontStyle: 'italic',
                                 color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
-                                letterSpacing: '0.06em',
+                                letterSpacing: '0.04em',
                                 lineHeight: 1.4,
                                 marginTop: isMobile ? '-6px' : '-10px',
                                 marginBottom: isMobile ? '10px' : '14px',
@@ -6913,7 +6925,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       {showTranslation && (
                         <p style={{
                           margin: 0, color: isActive ? C.translationActive : C.translation,
-                          fontSize: `${(isMobile ? 0.92 : 1.12) * mealFontSize}rem`,
+                          fontFamily: "'Crimson Pro', Georgia, serif",
+                          fontSize: `${(isMobile ? 1.15 : 1.35) * mealFontSize}rem`,
                           lineHeight: isMobile ? 1.55 : 1.8,
                           fontStyle: 'italic',
                         }}>

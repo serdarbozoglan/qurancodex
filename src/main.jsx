@@ -12,6 +12,16 @@ import '@fontsource/amiri/400.css';
 import '@fontsource/amiri/700.css';
 import '@fontsource/amiri/400-italic.css';
 import '@fontsource/amiri-quran/400.css';
+// Meal-text body serif candidates — only the active one is referenced from
+// ReadingMode.jsx; the others stay imported so swapping is a one-line change.
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/400-italic.css';
+import '@fontsource/lora/500-italic.css';
+import '@fontsource/crimson-pro/400.css';
+import '@fontsource/crimson-pro/500.css';
+import '@fontsource/crimson-pro/400-italic.css';
+import '@fontsource/crimson-pro/500-italic.css';
 
 import './index.css'
 import App from './App.jsx'

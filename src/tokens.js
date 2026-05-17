@@ -84,8 +84,13 @@ export const COLORS = {
   // Used exclusively by ReadingMode.jsx night theme. See §13.1.
   arabicQuiet:   '#cca96a',
   arabicBright:  '#f0d898',
-  creamQuiet:    '#b8a888',
-  creamBright:   '#e8c98a',
+  // Night-mode meal text — three brightening passes total:
+  //   #b8a888 (original) → #d4c5a0 → #e2d4b0 → #ede0c4 (current)
+  // ~9:1 contrast against cosmic-black, well past WCAG AAA for body text,
+  // while staying inside the warm cream family so the parchment-feel of
+  // the reading mode is preserved.
+  creamQuiet:    '#ede0c4',
+  creamBright:   '#faecca',
   besmele:       '#e05a48',
 
   // ── Reading mode — paper palette for day mode ────────────────────────────
@@ -97,8 +102,13 @@ export const COLORS = {
   paperGoldAlpha18:  'rgba(154,111,16,0.18)',  // footerBorder
   paperInk:          '#1a0e00',                // Arabic text — near-black with brown warmth
   paperInkLight:     '#4a2800',                // Arabic active/spotlight
-  paperSepia:        '#2e1a08',                // translation — dark sepia
-  paperSepiaLight:   '#5c3418',                // translation active/spotlight
+  // Translation tone — user explicitly asked for "more clearly black", so
+  // we drop the warm bias entirely and go pure black. The cream paper bg
+  // (#f9f7f2) keeps the page from feeling clinical, and italic 500 still
+  // carries the narrative voice. Active variant is just one notch lighter
+  // so isActive vs. inactive stays distinguishable.
+  paperSepia:        '#000000',                // translation — pure black
+  paperSepiaLight:   '#1a1a1a',                // translation active/spotlight
   paperRed:          '#c0392b',                // Bismillah coral (day variant)
   paperMuted:        '#7a6040',                // muted labels
 
