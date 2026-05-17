@@ -84,13 +84,13 @@ export const COLORS = {
   // Used exclusively by ReadingMode.jsx night theme. See §13.1.
   arabicQuiet:   '#cca96a',
   arabicBright:  '#f0d898',
-  // Night-mode meal text — three brightening passes total:
-  //   #b8a888 (original) → #d4c5a0 → #e2d4b0 → #ede0c4 (current)
-  // ~9:1 contrast against cosmic-black, well past WCAG AAA for body text,
-  // while staying inside the warm cream family so the parchment-feel of
-  // the reading mode is preserved.
-  creamQuiet:    '#ede0c4',
-  creamBright:   '#faecca',
+  // Night-mode meal text — sixth pass, one more notch toward the original:
+  //   #ede0c4 → #cfbea0 → #c4b394 → #beae8e (current).
+  //   Halfway between current (#c4b394) and the original (#b8a888);
+  //   ~5:1 contrast, still WCAG AA-safe. Sits firmly in the muted cream
+  //   range so the meal column reads as quiet narration, not headline.
+  creamQuiet:    '#beae8e',
+  creamBright:   '#d1c2a1',
   besmele:       '#e05a48',
 
   // ── Reading mode — paper palette for day mode ────────────────────────────

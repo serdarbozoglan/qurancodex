@@ -1169,6 +1169,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     try { return JSON.parse(localStorage.getItem('qurancodex_page_frame') ?? 'true'); }
     catch { return true; }
   });
+  // Meal text italic toggle — default on (mushaf book feel), off for users
+  // who find continuous italic body fatiguing on long reading sessions.
+  const [mealItalic, setMealItalic] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_meal_italic') ?? 'true'); }
+    catch { return true; }
+  });
   // ── Share / copy feedback ─────────────────────────────────────────────────
   const [copiedVerseId, setCopiedVerseId] = useState(null);
   const [showFontPicker, setShowFontPicker] = useState(false);
@@ -1569,6 +1575,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   useEffect(() => { localStorage.setItem('qurancodex_tajweed', JSON.stringify(showTajweed)); }, [showTajweed]);
   useEffect(() => { localStorage.setItem('qurancodex_prefer_single_page', JSON.stringify(preferSinglePage)); }, [preferSinglePage]);
   useEffect(() => { localStorage.setItem('qurancodex_page_frame', JSON.stringify(showPageFrame)); }, [showPageFrame]);
+  useEffect(() => { localStorage.setItem('qurancodex_meal_italic', JSON.stringify(mealItalic)); }, [mealItalic]);
 
   // Collapsible state for the tajweed legend strip below the navbar.
   // Defaults to collapsed — power users don't need it; new users discover via the chevron.
@@ -1773,13 +1780,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     muted: COLORS.paperMuted, scrollbar: `${COLORS.paperInkBrownAlpha22} transparent`,
     footerBg: COLORS.paperCreamDim, footerBorder: COLORS.paperGoldAlpha18,
   } : {
-    // outerBg #0b1322: midpoint between cosmicBlack (#0a0a1a) inside and
-    // the original deepNavy (#0d1b2a) candidate. deepNavy alone read too
-    // dramatic against the page; cosmicBlack reused for outer killed the
-    // separation entirely. This 50/50 blend gives a perceptible "page is
-    // a darker object on a slightly-lit surface" feel without the strong
-    // navy hue shift.
-    bg: COLORS.cosmicBlack, outerBg: '#0b1322', gold: COLORS.gold,
+    // outerBg #0e1a30: fourth-pass tuning toward a clearer navy identity.
+    //   #0d1b2a (deepNavy) → too dramatic against the page
+    //   #0b1322 (50/50 midpoint) → too little separation
+    //   #0c1826 (~65% toward deepNavy) → balanced luminance but read
+    //                                    as "neutral dark void"
+    //   #0e1a30 (current) → bumps the B channel (38→48) so the hue reads
+    //                       as "lacivert midnight" rather than neutral dark
+    // Pairs better with gold accents (gold + navy is the classic luxury
+    // combination), and aligns with the existing deepNavy palette token.
+    bg: COLORS.cosmicBlack, outerBg: '#0e1a30', gold: COLORS.gold,
     arabic: COLORS.arabicQuiet, arabicActive: COLORS.arabicBright,
     translation: COLORS.creamQuiet, translationActive: COLORS.creamBright,
     // Bismillah in night mode: warm amber (#E8B547) — slightly brighter and
@@ -3550,6 +3560,32 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </button>
           )}
 
+          {/* Italic meal text toggle — default on (mushaf-book feel), off for
+              users who find sustained italic body text fatiguing. */}
+          <button
+            onClick={() => setMealItalic(v => !v)}
+            title={language === 'tr'
+              ? 'Meal yazısı italic mi düz mü görünsün'
+              : 'Meal body in italic or upright'}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              border: `1px solid ${mealItalic ? navC.btnBorderActive : dropC.btnBorder}`,
+              background: mealItalic ? dropC.itemBgActive : dropC.btnBg,
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+            onMouseLeave={e => { e.currentTarget.style.background = mealItalic ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = mealItalic ? navC.btnBorderActive : dropC.btnBorder; }}
+          >
+            <span style={{ fontSize: '0.82rem', color: mealItalic ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontStyle: 'italic', fontFamily: "'Crimson Pro', Georgia, serif", fontWeight: 600 }}>I</span>
+              {language === 'tr' ? 'İtalic Meal' : 'Italic Meal'}
+            </span>
+            <span style={{ fontSize: '0.7rem', color: mealItalic ? gold : dropC.textMuted, fontWeight: 600 }}>
+              {mealItalic ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
+            </span>
+          </button>
+
           {/* Layout — single page vs two-page spread. Only meaningful when
               meal is closed on a wide desktop (the auto-spread conditions).
               When meal is open or screen is narrow, the toggle is harmless
@@ -5121,7 +5157,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 fontFamily: "'Crimson Pro', Georgia, serif",
                                 fontSize: `${(isMobile ? 1.15 : 1.35) * mealFontSize}rem`,
                                 lineHeight: isMobile ? 1.55 : 1.7,
-                                fontStyle: 'italic',
+                                fontStyle: mealItalic ? 'italic' : 'normal',
                                 flex: 1,
                               }}>
                                 <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
@@ -6958,7 +6994,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           fontFamily: "'Crimson Pro', Georgia, serif",
                           fontSize: `${(isMobile ? 1.15 : 1.35) * mealFontSize}rem`,
                           lineHeight: isMobile ? 1.55 : 1.8,
-                          fontStyle: 'italic',
+                          fontStyle: mealItalic ? 'italic' : 'normal',
                         }}>
                           <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
                           {isSajda && (
