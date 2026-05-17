@@ -190,7 +190,7 @@ const ALLAH_RE = /\u0627[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u
 //     tasimalidir; random "lam-ha" ciftleri elenir.
 const LILLAHI_RE = /(?<![\u0621-\u064A])\u0644[\u064B-\u065F\u0670\u06E1]*\u0644(?=[\u064B-\u065F\u0670\u06E1]*\u0651)[\u064B-\u065F\u0670\u06E1\u0651]*\u0647[\u064B-\u065F\u0670\u06E1]*/gu;
 const makeAllahWrap = (dayMode) => (m) =>
-  `<span style="color:${dayMode ? '#c0392b' : '#93c5fd'};">${m}</span>`;
+  `<span style="color:${dayMode ? '#a02828' : '#93c5fd'};">${m}</span>`;
 
 // Same indigo/blue family for the LATIN-script 'Allah' inside Turkish and
 // English meal translations — visual bridge between the Arabic side's
@@ -205,7 +205,7 @@ const highlightAllahInMeal = (text, dayMode) => {
   const escaped = escapeHtml(text);
   return escaped.replace(
     ALLAH_LATIN_RE,
-    `<span style="color:${dayMode ? '#c0392b' : '#93c5fd'};">Allah</span>`
+    `<span style="color:${dayMode ? '#a02828' : '#93c5fd'};">Allah</span>`
   );
 };
 
@@ -1755,8 +1755,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   }, [surahVerses, pendingScrollAyah]);
 
   // ── Theme colors (day / night) ────────────────────────────────────────────
+  // bg     = page surface (inside the gold frame) — where Arabic + meal text sits
+  // outerBg = "desk / table" surface around the framed pages — ~5% darker so
+  //           the framed page reads as an object resting on a different surface,
+  //           giving the book metaphor real visual hierarchy.
   const C = dayMode ? {
-    bg: COLORS.paperCream, gold: COLORS.paperGold,
+    // outerBg #f4f0e0: ~%6 luminance darker than paperCream (#f9f7f2). First
+    // pass used #ede6d6 (~%14.5 diff) which crossed the JND threshold and
+    // shifted the hue toward tan/buff, breaking the "single warm cream
+    // family" feel. #f4f0e0 stays inside the same family and lands in the
+    // 3-7% sweet spot for "two-layer" perception.
+    bg: COLORS.paperCream, outerBg: '#f4f0e0', gold: COLORS.paperGold,
     arabic: COLORS.paperInk, arabicActive: COLORS.paperInkLight,
     translation: COLORS.paperSepia, translationActive: COLORS.paperSepiaLight,
     bismillah: COLORS.paperRed,
@@ -1764,7 +1773,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     muted: COLORS.paperMuted, scrollbar: `${COLORS.paperInkBrownAlpha22} transparent`,
     footerBg: COLORS.paperCreamDim, footerBorder: COLORS.paperGoldAlpha18,
   } : {
-    bg: COLORS.cosmicBlack, gold: COLORS.gold,
+    // outerBg #0b1322: midpoint between cosmicBlack (#0a0a1a) inside and
+    // the original deepNavy (#0d1b2a) candidate. deepNavy alone read too
+    // dramatic against the page; cosmicBlack reused for outer killed the
+    // separation entirely. This 50/50 blend gives a perceptible "page is
+    // a darker object on a slightly-lit surface" feel without the strong
+    // navy hue shift.
+    bg: COLORS.cosmicBlack, outerBg: '#0b1322', gold: COLORS.gold,
     arabic: COLORS.arabicQuiet, arabicActive: COLORS.arabicBright,
     translation: COLORS.creamQuiet, translationActive: COLORS.creamBright,
     // Bismillah in night mode: warm amber (#E8B547) — slightly brighter and
@@ -2024,7 +2039,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   return (
     <div
-      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: C.bg, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: C.outerBg, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
     >
       {/* Click-outside backdrop — closes any open menu/picker on tap.
           Must sit ABOVE side panels (TafsirPanel 180) so tapping the tafsir
@@ -4673,6 +4688,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   boxShadow: showPageFrame && !isMobile
                     ? `inset 0 0 0 1px ${dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)'}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)'}`
                     : 'none',
+                  background: C.bg,
                   borderRadius: showPageFrame && !isMobile ? '6px' : 0,
                 }}>
                   {/* Attribution — floating + interactive. Click opens an inline meal
@@ -5195,6 +5211,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   textAlign: 'justify',
                   paddingTop: showPageFrame ? '18px' : '0',
                   paddingBottom: showPageFrame ? '18px' : '0',
+                  background: C.bg,
                   boxShadow: frameDoubleL,
                   borderRadius: showPageFrame ? '6px' : 0,
                 }}>
@@ -5588,6 +5605,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : (showPageFrame ? '18px' : '0'),
                   paddingTop: showPageFrame ? '18px' : '0',
                   paddingBottom: showPageFrame ? '18px' : '0',
+                  background: C.bg,
                   boxShadow: frameDouble,
                   borderRadius: showPageFrame ? '6px' : 0,
                   direction: 'rtl',

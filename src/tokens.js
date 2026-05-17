@@ -96,7 +96,12 @@ export const COLORS = {
   // ── Reading mode — paper palette for day mode ────────────────────────────
   // Warm cream + dark ink tones mimicking a printed mushaf page.
   // Used exclusively by ReadingMode.jsx day theme. See §13.1.
-  paperCream:        '#f9f7f2',                // main bg
+  // paperCream — multi-pass tuning:
+  //   #f9f7f2 (original) → #f8f4e5 (too dark, contrast collapsed) →
+  //   #f9f5e8 (current). Lifts the page a hair while keeping the warm
+  //   body that the original screen-white lacked. Final contrast vs.
+  //   outerBg (#f4f0e0) lands at ~%5 — sweet spot of the JND range.
+  paperCream:        '#f9f5e8',                // main bg (page interior)
   paperCreamDim:     'rgba(244,241,234,0.98)', // footerBg (slightly warmer for visual layering)
   paperGold:         '#9a6f10',                // primary gold (badges, attribution)
   paperGoldAlpha18:  'rgba(154,111,16,0.18)',  // footerBorder
@@ -109,7 +114,11 @@ export const COLORS = {
   // so isActive vs. inactive stays distinguishable.
   paperSepia:        '#000000',                // translation — pure black
   paperSepiaLight:   '#1a1a1a',                // translation active/spotlight
-  paperRed:          '#c0392b',                // Bismillah coral (day variant)
+  // paperRed: muted-burgundy (#a02828, was #c0392b vivid cherry). Classical
+  // mushaf (Egyptian/Madinah) editions use a deeper burgundy for the Allah
+  // lafz so it reads as "honored/sacred" instead of "warning/error red".
+  // Easy revert: replace with '#c0392b'.
+  paperRed:          '#a02828',                // Bismillah burgundy (day variant)
   paperMuted:        '#7a6040',                // muted labels
 
   // Paper ink-brown alpha family (base #6e480a, warmer/lighter brown)
