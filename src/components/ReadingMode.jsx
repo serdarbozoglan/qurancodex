@@ -1787,9 +1787,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     // arabicActive #dcc480: aktif ayet altını biraz söndürülmüş — hâlâ net,
     //   yanma etkisi azaltılmış.
     // translationActive #c4b59a: aktif meal metni de eşit şekilde dengelendi.
-    bg: '#13171f', outerBg: '#0f1f3a', gold: COLORS.gold,
+    bg: COLORS.cosmicBlack, outerBg: '#0f1f3a', gold: COLORS.gold,
     arabic: '#b89660', arabicActive: '#caa870',
-    translation: '#968470', translationActive: '#a89878',
+    translation: COLORS.creamQuiet, translationActive: COLORS.creamBright,
     // Bismillah in night mode: warm amber (#E8B547) — slightly brighter and
     // warmer than the standard gold so it reads as "honoured opening line"
     // against the cosmic-black background, without the eye-fatigue of the old
