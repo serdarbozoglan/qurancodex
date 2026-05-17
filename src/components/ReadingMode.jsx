@@ -171,6 +171,18 @@ const makeSektaWrap = (dayMode) => (_m) =>
 // ا üzerinde fatha (U+064E) veya başka hareke olabilir (örn. Secde 32:4 başı) — alef sonrasına
 // [\u064B-\u065F\u0670\u06E1]* eklenerek bu durum da yakalanır.
 const ALLAH_RE = /\u0627[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u06E1]*\u0644[\u064B-\u065F\u0670\u06E1\u0651]*\u0647[\u064B-\u065F\u0670\u06E1]*/gu;
+// Allah lafzi bilesik formlarda (alef dusen tek vaka): lillahi (li- preposition +
+// Allah). li- prefix Allah ile birlestiginde alif-vasla absorbe olur ve gorsel
+// olarak "lam + kesre + lam (sedde) + ha" kalir. Klasik mushaf baskilari
+// (Misir/Madinah) bu formu da Allah lafzi sayqisiyla vurgular. bi-Allah,
+// wa-Allah, ta-Allah gibi diger bilesik formlarda Allah'in alefi muhafaza
+// edildigi icin zaten ALLAH_RE tarafindan yakalanir - sadece lillahi ozel
+// bir patern gerektirir.
+//   (?<![\u0621-\u064A])  - lookbehind: oncesinde baska Arapca harf olmayan lam
+//     ile baslayan kelimeleri secer; normal "lahu/lahi" yanlis eslesmesini engeller.
+//   (?=[\u064B-\u065F\u0670]*\u0651) - lookahead: ikinci lam sedde (U+0651)
+//     tasimalidir; random "lam-ha" ciftleri elenir.
+const LILLAHI_RE = /(?<![\u0621-\u064A])\u0644[\u064B-\u065F\u0670\u06E1]*\u0644(?=[\u064B-\u065F\u0670\u06E1]*\u0651)[\u064B-\u065F\u0670\u06E1\u0651]*\u0647[\u064B-\u065F\u0670\u06E1]*/gu;
 const makeAllahWrap = (dayMode) => (m) =>
   `<span style="color:${dayMode ? '#c0392b' : '#93c5fd'};">${m}</span>`;
 
@@ -258,7 +270,10 @@ function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = 
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
   html = html.replace(MED_RE, makeMedWrap(dayMode));
   html = html.replace(NUN_WIQAYAH_RE, makeNunWiqayahWrap(dayMode));
-  if (!skipAllahColor) html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
+  if (!skipAllahColor) {
+    html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
+    html = html.replace(LILLAHI_RE, makeAllahWrap(dayMode));
+  }
   return html;
 }
 
@@ -402,7 +417,10 @@ function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
     html = html.replace(silaRe, m => sp(K.sila, m));
   }
 
-  if (!skipAllahColor) html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
+  if (!skipAllahColor) {
+    html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
+    html = html.replace(LILLAHI_RE, makeAllahWrap(dayMode));
+  }
   return html;
 }
 
