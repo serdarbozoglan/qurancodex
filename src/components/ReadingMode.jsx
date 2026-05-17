@@ -1133,8 +1133,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   // ── Font size (persisted) ──────────────────────────────────────────────────
   const [arabicFontSize, setArabicFontSize] = useState(() => {
-    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.5'); }
-    catch { return 2.5; }
+    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.8'); }
+    catch { return 2.8; }
   });
   // Turkish meal / translation font size — independent of Arabic so users can
   // scale the two columns separately. Stored in rem; default 1.0 (matches the
@@ -2210,7 +2210,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       ? `${currentPage}–${currentPage + 1}`
                       : currentPage}
                   </span>
-                  <span style={{ opacity: 0.72 }}>{'/604'}</span>
+                  <span style={{ opacity: 0.72 }}>{' · 604'}</span>
                 </span>
               )}
 
@@ -2226,7 +2226,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       <span style={{ fontSize: '0.55rem', color: navC.label, opacity: 0.55, whiteSpace: 'nowrap' }}>
                         {language === 'tr' ? 'S.' : 'P.'}{' '}
                         <span style={{ fontWeight: 600 }}>{currentPage}</span>
-                        {' /604'}
+                        {' · 604'}
                       </span>
                     )}
                   </div>
@@ -2396,28 +2396,64 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   Settings (Diyanet / Yıldırım / Elmalılı). Order in the
                   reading-tool group: KELİME (micro) · MEAL (mid) · TEFSİR
                   (macro) · TAHTA — natural mikro→makro hiyerarşi. */}
-              {!isMobile && <button
-                onClick={() => setShowTranslation(v => !v)}
-                style={{
-                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+              {/* Split button — left section toggles meal on/off, right
+                  section shows current author and opens the meal picker
+                  dropdown. Two distinct intents (toggle vs. author change)
+                  collapse into a single button group, eliminating the
+                  hidden "inline picker inside meal column" affordance. */}
+              {!isMobile && (
+                <div style={{
+                  display: 'flex', alignItems: 'center',
+                  height: '44px', borderRadius: '8px', overflow: 'hidden',
                   border: `1px solid ${showTranslation ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showTranslation ? navC.btnBgActive : navC.btnBg,
-                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                  transition: 'all 0.15s', flexShrink: 0,
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-                onMouseLeave={e => { e.currentTarget.style.background = showTranslation ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : navC.btnBorder; }}
-                title={showTranslation
-                  ? (language === 'tr' ? 'Meali kapat — mushaf görünümü' : 'Hide meaning — mushaf view')
-                  : (language === 'tr' ? 'Meali göster — Türkçe çeviri' : 'Show meaning — translation')}
-              >
-                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700, transform: 'translateY(-3px)' }}>
-                  م
-                </span>
-                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
-                  {language === 'tr' ? 'Meal' : 'Meaning'}
-                </span>
-              </button>}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : navC.btnBorder; }}
+                >
+                  {/* Left half: toggle meal on/off — vertical icon/label
+                      stack matching KELİME / TEFSİR / TAHTA / GÜNDÜZ
+                      toolbar buttons for visual consistency. */}
+                  <button
+                    onClick={() => setShowTranslation(v => !v)}
+                    title={showTranslation
+                      ? (language === 'tr' ? 'Meali kapat — mushaf görünümü' : 'Hide meaning — mushaf view')
+                      : (language === 'tr' ? 'Meali göster — Türkçe çeviri' : 'Show meaning — translation')}
+                    style={{
+                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                      height: '100%', padding: '0 10px', gap: '3px',
+                      background: 'transparent', border: 'none', cursor: 'pointer',
+                    }}
+                  >
+                    <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: '1.05rem', fontWeight: 700, transform: 'translateY(-5px)' }}>
+                      م
+                    </span>
+                    <span style={{ fontSize: '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center' }}>
+                      {language === 'tr' ? 'Meal' : 'Meaning'}
+                    </span>
+                  </button>
+                  {/* Divider — bumped to 1.5px alpha-rich so the segmented
+                      control reads as two grouped sections, not two
+                      independent buttons stacked side by side. */}
+                  <div style={{ width: '1.5px', height: '24px', background: showTranslation ? navC.btnBorderActive : navC.divider, opacity: 0.85 }} />
+                  {/* Right half: open author picker */}
+                  <button
+                    onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowReciterPicker(false); setShowSurahPicker(false); }}
+                    title={language === 'tr' ? 'Çevirmen değiştir' : 'Change translator'}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '4px',
+                      height: '100%', padding: '0 10px',
+                      background: 'transparent', border: 'none', cursor: 'pointer',
+                    }}
+                  >
+                    <span style={{ fontSize: '0.68rem', color: gold, fontWeight: 600, whiteSpace: 'nowrap', maxWidth: '70px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {selectedMealAuthor.shortLabel}
+                    </span>
+                    <span style={{ fontSize: '0.55rem', color: navC.label, transform: showMealPicker ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.15s', lineHeight: 1 }}>▾</span>
+                  </button>
+                </div>
+              )}
 
               {/* Tefsir (Elmalılı Hamdi Yazır) panel toggle — desktop only.
                   Mobile accesses this via the Settings panel. */}
@@ -4598,7 +4634,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             // width the grid fills the viewport (minus 32px padding), which
             // recovers the dead space that used to sit between the centered
             // container and the side-arrow buttons.
-            maxWidth: '1700px',
+            maxWidth: '1800px',
             margin: '0 auto',
             padding: isMobile
               ? '10px 12px 32px 12px'
@@ -5011,7 +5047,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     // mealFontSize multiplier so the Meal Boyutu
                                     // slider moves both in lock-step.
                                     fontFamily: "'Crimson Pro', Georgia, serif",
-                                    fontSize: `${(isMobile ? 1.15 : 1.35) * mealFontSize}rem`,
+                                    fontSize: `${(isMobile ? 1.22 : 1.45) * mealFontSize}rem`,
                                     fontStyle: 'italic',
                                     fontWeight: 500,
                                     // Bismillah meal — always renders in C.bismillah
@@ -5156,7 +5192,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 // for long-form screen reading. Replaces Inter's
                                 // oblique sans-italic for the meal column.
                                 fontFamily: "'Crimson Pro', Georgia, serif",
-                                fontSize: `${(isMobile ? 1.15 : 1.35) * mealFontSize}rem`,
+                                fontSize: `${(isMobile ? 1.22 : 1.45) * mealFontSize}rem`,
                                 lineHeight: isMobile ? 1.55 : 1.7,
                                 fontStyle: mealItalic ? 'italic' : 'normal',
                                 flex: 1,
@@ -5243,7 +5279,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   direction: 'rtl',
                   fontFamily: currentFont,
                   fontSize: `${arabicFontSize}rem`,
-                  lineHeight: 2.3,
+                  lineHeight: 2.1,
                   color: C.arabic,
                   textAlign: 'justify',
                   paddingTop: showPageFrame ? '18px' : '0',
@@ -5648,7 +5684,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   direction: 'rtl',
                   fontFamily: currentFont,
                   fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
-                  lineHeight: isMobile ? 2.0 : 2.3,
+                  lineHeight: isMobile ? 1.9 : 2.1,
                   color: C.arabic,
                   textAlign: 'justify',
                 };
@@ -6993,7 +7029,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         <p style={{
                           margin: 0, color: isActive ? C.translationActive : C.translation,
                           fontFamily: "'Crimson Pro', Georgia, serif",
-                          fontSize: `${(isMobile ? 1.15 : 1.35) * mealFontSize}rem`,
+                          fontSize: `${(isMobile ? 1.22 : 1.45) * mealFontSize}rem`,
                           lineHeight: isMobile ? 1.55 : 1.8,
                           fontStyle: mealItalic ? 'italic' : 'normal',
                         }}>
@@ -7182,7 +7218,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     color: gold, fontSize: '16px', fontWeight: 700, textAlign: 'center', outline: 'none',
                   }}
                 />
-                <span style={{ color: dayMode ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.25)', fontSize: '0.75rem' }}>/ 604</span>
+                <span style={{ color: dayMode ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.25)', fontSize: '0.75rem' }}>· 604</span>
               </form>
             ) : (
               <button
@@ -7201,7 +7237,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     ? `${currentPage}–${currentPage + 1}`
                     : currentPage}
                 </span>
-                <span style={{ color: dayMode ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.2)' }}> / 604</span>
+                <span style={{ color: dayMode ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.2)' }}> · 604</span>
               </button>
             )}
 
