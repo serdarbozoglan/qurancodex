@@ -94,7 +94,13 @@ function cleanArabic(str) {
     // above it (Kamer 54:19 '\u0645\u064f\u0633\u0652\u062a\u064e\u0645\u0650\u0631\u064d\u0651\u06d9' had \u0640\u0651+\u06d9+\u0640\u064d in source \u2014 the
     // tenvin floated under the letter's descender). Waqf range
     // U+06D6-U+06DB covers mim/lam-alif/jeem/etc. small-high markers.
-    .replace(/([\u06d6-\u06db])([\u064b-\u064d])/g, '$2$1')
+    // Extended: was tenvin-only ([\u064b-\u064d]); now any single-letter
+    // harakah (fatha/damma/kasra/sukun + tenvin). Bakara 2:256 'الْغَيِّۚ' encoded
+    // as ya+shadda+ۚ+kasra; without this swap the kasra rendered detached
+    // below the ya's descender because the font anchored it to the waqf
+    // glyph rather than the ya. Shadda (\u0651) intentionally excluded —
+    // it's a doubling marker, not a vowel.
+    .replace(/([\u06d6-\u06db])([\u064b-\u0650\u0652])/g, '$2$1')
     // U+06E6 (ARABIC SMALL YEH ۦ) → boşluk ile değiştir.
     // API verisinde ۦ kelimeler arası tek ayraç olarak kullanılıyor (رِزْقِهِۦوَإِلَيْهِ).
     // Kaldırılırsa veya ZWNJ konulursa harfler görsel olarak birleşiyor; boşluk gerekli.
@@ -5228,8 +5234,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         title={tooltip}
                         style={{
                           position: 'absolute',
-                          top: isMobile ? '6px' : '10px',
-                          left: isMobile ? '-2px' : '-4px',
+                          // Inset positioning — keeps the medallion clear of
+                          // the gold double-line frame; mirrors the right-page
+                          // version's offsets (12px top, 12px outer side).
+                          top: isMobile ? '10px' : '12px',
+                          left: isMobile ? '8px' : '12px',
                           width: `${size}px`,
                           height: `${size}px`,
                           borderRadius: '50%',
@@ -5645,13 +5654,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       title={tooltip}
                       style={{
                         position: 'absolute',
-                        // Align the medallion's optical center with the first
-                        // Arabic line's mid-baseline. lineHeight = 2.3 inflates
-                        // the line box well above the glyphs' optical center,
-                        // so a small downward nudge balances the icon with
-                        // the first verse instead of floating above it.
-                        top: isMobile ? '6px' : '10px',
-                        right: isMobile ? '-2px' : '-4px',
+                        // Inset positioning — medallion sits inside the page
+                        // frame with breathing room from the gold rule.
+                        // Earlier value (top 10, right -4) made the badge
+                        // bleed across the outer gold line, reading as a
+                        // visual collision rather than a corner ornament.
+                        // 12px inset = ~8px clearance from the inner gold
+                        // rule of the double-line page frame.
+                        top: isMobile ? '10px' : '12px',
+                        right: isMobile ? '8px' : '12px',
                         width: `${size}px`,
                         height: `${size}px`,
                         borderRadius: '50%',
