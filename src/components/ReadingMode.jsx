@@ -1832,7 +1832,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   };
 
   const navC = dayMode ? {
-    bg: 'rgba(242, 236, 224, 0.98)',
+    bg: COLORS.paperCream,
     borderBottom: 'rgba(122,82,21,0.15)',
     btnBg: 'rgba(0,0,0,0.04)',
     btnBorder: 'rgba(0,0,0,0.12)',
@@ -1849,8 +1849,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     chevron: 'rgba(30,15,5,0.55)',
     chevronDisabled: 'rgba(30,15,5,0.18)',
   } : {
-    bg: 'rgba(8,10,18,0.97)',
-    borderBottom: 'rgba(212,165,116,0.08)',
+    bg: COLORS.cosmicBlack,
+    borderBottom: 'rgba(212,165,116,0.12)',
     btnBg: 'rgba(255,255,255,0.05)',
     btnBorder: 'rgba(255,255,255,0.10)',
     btnBgActive: 'rgba(212,165,116,0.22)',
@@ -2191,7 +2191,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{
                   marginLeft: '14px',
                   fontSize: '0.72rem',
-                  color: dayMode ? 'rgba(80,50,20,0.72)' : 'rgba(200,185,165,0.70)',
+                  color: dayMode ? 'rgba(80,50,20,0.95)' : 'rgba(200,185,165,0.90)',
                   fontFamily: "'Inter', sans-serif", letterSpacing: '0.03em',
                   whiteSpace: 'nowrap', fontWeight: 500,
                   flexShrink: 0,
@@ -2221,7 +2221,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       ? `${currentPage}–${currentPage + 1}`
                       : currentPage}
                   </span>
-                  <span style={{ opacity: 0.72 }}>{' · 604'}</span>
+                  <span style={{ opacity: 0.88 }}>{' · 604'}</span>
                 </span>
               )}
 
