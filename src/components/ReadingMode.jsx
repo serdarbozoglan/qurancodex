@@ -4593,7 +4593,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       ? 'linear-gradient(to right, rgba(120,90,40,0) 0%, rgba(120,90,40,0.06) 28%, rgba(120,90,40,0.11) 50%, rgba(120,90,40,0.06) 72%, rgba(120,90,40,0) 100%)'
                       : 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.20) 28%, rgba(0,0,0,0.32) 50%, rgba(0,0,0,0.20) 72%, rgba(0,0,0,0) 100%)',
                   }} />
-                  {/* Layer 2 — gold hairline (binding seam) */}
+                  {/* Layer 2 — gold hairline (binding seam). Weight bumped
+                      from 0.55/0.45 → 0.72/0.60 so the seam matches the
+                      page-frame inner rule and reads as part of the same
+                      drawing rather than a fainter overlay. */}
                   <div style={{
                     position: 'absolute',
                     top: '0',
@@ -4602,55 +4605,35 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     width: '1px',
                     transform: 'translateX(-50%)',
                     background: dayMode
-                      ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.55) 6%, rgba(154,120,56,0.55) 94%, transparent 100%)'
-                      : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.45) 6%, rgba(212,165,116,0.45) 94%, transparent 100%)',
+                      ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.72) 6%, rgba(154,120,56,0.72) 94%, transparent 100%)'
+                      : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.60) 6%, rgba(212,165,116,0.60) 94%, transparent 100%)',
                   }} />
-                  {/* Layer 3a — top diamond ornament.
-                      22px inset from the frame top so the bead has visible
-                      breathing room before the page-frame rule. */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '22px',
-                    left: '50%',
-                    width: '6px',
-                    height: '6px',
-                    transform: 'translateX(-50%) rotate(45deg)',
-                    background: C.gold,
-                    opacity: dayMode ? 0.5 : 0.4,
-                    boxShadow: dayMode
-                      ? `0 0 5px ${C.gold}44`
-                      : `0 0 6px ${C.gold}55`,
-                  }} />
-                  {/* Layer 3b — center diamond ornament (outlined anchor) */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    width: '9px',
-                    height: '9px',
-                    transform: 'translate(-50%, -50%) rotate(45deg)',
-                    background: dayMode
-                      ? `rgba(154,120,56,0.22)`
-                      : `rgba(212,165,116,0.18)`,
-                    border: `1px solid ${dayMode ? 'rgba(154,120,56,0.85)' : 'rgba(212,165,116,0.75)'}`,
-                    boxShadow: dayMode
-                      ? `0 0 8px ${C.gold}33`
-                      : `0 0 10px ${C.gold}44`,
-                  }} />
-                  {/* Layer 3c — bottom diamond ornament (matches top inset). */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '22px',
-                    left: '50%',
-                    width: '6px',
-                    height: '6px',
-                    transform: 'translateX(-50%) rotate(45deg)',
-                    background: C.gold,
-                    opacity: dayMode ? 0.5 : 0.4,
-                    boxShadow: dayMode
-                      ? `0 0 5px ${C.gold}44`
-                      : `0 0 6px ${C.gold}55`,
-                  }} />
+                  {/* Layer 3a–c — three diamond ornaments, all FILLED and
+                      identical so the cilt seam reads as a deliberate
+                      symmetrical mushaf binding (top/centre/bottom). Classical
+                      Ottoman/Egyptian mushaf bindings use uniform ornaments —
+                      uniformity is the whole point of the decoration. */}
+                  {[
+                    { pos: { top: '22px' }, label: 'top' },
+                    { pos: { top: '50%' }, label: 'center', centerY: true },
+                    { pos: { bottom: '22px' }, label: 'bottom' },
+                  ].map(({ pos, label, centerY }) => (
+                    <div key={label} style={{
+                      position: 'absolute',
+                      ...pos,
+                      left: '50%',
+                      width: '7px',
+                      height: '7px',
+                      transform: centerY
+                        ? 'translate(-50%, -50%) rotate(45deg)'
+                        : 'translateX(-50%) rotate(45deg)',
+                      background: C.gold,
+                      opacity: dayMode ? 0.55 : 0.45,
+                      boxShadow: dayMode
+                        ? `0 0 6px ${C.gold}44`
+                        : `0 0 7px ${C.gold}55`,
+                    }} />
+                  ))}
                 </div>
               )}
               {/* Left: Translation — hidden when Meal is off */}
@@ -6131,28 +6114,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     position: 'absolute', top: 0, bottom: 0, left: '50%', width: '1px',
                     transform: 'translateX(-50%)',
                     background: dayMode
-                      ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.55) 6%, rgba(154,120,56,0.55) 94%, transparent 100%)'
-                      : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.45) 6%, rgba(212,165,116,0.45) 94%, transparent 100%)',
+                      ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.72) 6%, rgba(154,120,56,0.72) 94%, transparent 100%)'
+                      : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.60) 6%, rgba(212,165,116,0.60) 94%, transparent 100%)',
                   }} />
-                  <div style={{
-                    position: 'absolute', top: '10px', left: '50%', width: '6px', height: '6px',
-                    transform: 'translateX(-50%) rotate(45deg)',
-                    background: C.gold, opacity: dayMode ? 0.5 : 0.4,
-                    boxShadow: dayMode ? `0 0 5px ${C.gold}44` : `0 0 6px ${C.gold}55`,
-                  }} />
-                  <div style={{
-                    position: 'absolute', top: '50%', left: '50%', width: '9px', height: '9px',
-                    transform: 'translate(-50%, -50%) rotate(45deg)',
-                    background: dayMode ? 'rgba(154,120,56,0.22)' : 'rgba(212,165,116,0.18)',
-                    border: `1px solid ${dayMode ? 'rgba(154,120,56,0.85)' : 'rgba(212,165,116,0.75)'}`,
-                    boxShadow: dayMode ? `0 0 8px ${C.gold}33` : `0 0 10px ${C.gold}44`,
-                  }} />
-                  <div style={{
-                    position: 'absolute', bottom: '10px', left: '50%', width: '6px', height: '6px',
-                    transform: 'translateX(-50%) rotate(45deg)',
-                    background: C.gold, opacity: dayMode ? 0.5 : 0.4,
-                    boxShadow: dayMode ? `0 0 5px ${C.gold}44` : `0 0 6px ${C.gold}55`,
-                  }} />
+                  {[
+                    { pos: { top: '10px' }, label: 'top' },
+                    { pos: { top: '50%' }, label: 'center', centerY: true },
+                    { pos: { bottom: '10px' }, label: 'bottom' },
+                  ].map(({ pos, label, centerY }) => (
+                    <div key={label} style={{
+                      position: 'absolute',
+                      ...pos,
+                      left: '50%',
+                      width: '7px',
+                      height: '7px',
+                      transform: centerY
+                        ? 'translate(-50%, -50%) rotate(45deg)'
+                        : 'translateX(-50%) rotate(45deg)',
+                      background: C.gold,
+                      opacity: dayMode ? 0.55 : 0.45,
+                      boxShadow: dayMode ? `0 0 6px ${C.gold}44` : `0 0 7px ${C.gold}55`,
+                    }} />
+                  ))}
                 </div>
               )}
 
