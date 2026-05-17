@@ -536,20 +536,49 @@
         "tooltip": "Hapax legomenon — tüm Kur'an'da yalnızca bir kez geçen kelime formu. Örnekler: 'أَبًّا' (abben, otlak — Abese 80:31), 'غِسْلِينٍ' (gıslîn, irin — Hâkka 69:36), 'صَلْدًا' (salden, kaygan taş — Bakara 2:264). Kaynak: Shawkat M. Toorawa (2011). Sayım yöntemine göre 400–500 arası."
       }
     },
-    "comparisonTitle": "Gereksiz Tekrar Karşılaştırması",
-    "comparisonNote": "Bu oranlar \"anlamsal tekrar\" değil, aynı bağlamda hiçbir ek bilgi veya duygu katmayan literal (birebir) tekrar oranlarına dayanan projeksiyonlardır. Shakespeare ve İncil yüzdeleri geniş kapsamlı karşılaştırmalı korpus çalışmalarına dayanan tahmini değerlerdir; tek bir akademik kaynaktan alınmamıştır. Bu grafik teolojik bir karşılaştırma değil, dilsel bir gözlemdir.",
-    "comparison": {
-      "quran": {
-        "label": "Kur'an — ~0% anlamsız tekrar",
-        "note": "'Gereksiz tekrar' burada anafora, refren ve pedagojik tekrar hariç tutularak değerlendirilmiştir. Bu oran hesaplanmış değil, dilbilimsel gözleme dayanan tahmini bir değerdir."
+    "icaz": {
+      "intro": {
+        "title": "Tekrar: Eksiklik mi, Tasarım mı?",
+        "body": "Kur'an'da yapısal tekrar bir vâkıadır. Aynı kıssa farklı sûrelerde yeniden anlatılır, aynı uyarı farklı bağlamlarda yeniden gelir, Besmele 113 sûrenin başında tekrarlanır. Klasik İslamî gelenek bu tekrarı bir eksiklik olarak değil, belirli işlevleri olan bir retorik tercih olarak okumuştur. Bu okuma, soruyu \"Neden tekrar?\" değil, \"Bu tekrarın bağlamı ne yapıyor?\" şeklinde kurar."
       },
-      "shakespeare": {
-        "label": "Shakespeare *"
+      "card1": {
+        "title": "Klasik Ulûmü'l-Kur'an Kaynaklarında Tekrir Bahsi",
+        "body": "Bedreddin Zerkeşî (ö. 1392) el-Burhân fî Ulûmi'l-Kur'an'da, kırk yedi nev'lik tasnifinin içinde tekrar meselesini ayrı bir başlık altında inceler. Yüzyıl sonra Celâleddin Suyûtî (ö. 1505) el-Itkân fî Ulûmi'l-Kur'an'da aynı meseleyi tekrar ele alır ve genişletir. Her iki müellif de tekrârı tek başına bir kusur olarak değil, anlam katmanları üreten bir retorik yapı olarak inceler.",
+        "body2": "Soruyu açıkça koyarlar: Aynı şeyi tekrar söylemek anlatımı zayıflatır mı, güçlendirir mi? Cevap, klasik belâgat çerçevesinde, bağlama bağlıdır. Aynı ifade aynı bağlamda fazla geliyorsa \"haşv\" (gereksiz dolgu) sayılır; ama bağlam değişiyor ya da tekrar belirli bir işlevi yerine getiriyorsa, tekrir bir belâgat sanatıdır.",
+        "source": "Zerkeşî, el-Burhân fî Ulûmi'l-Kur'an · Suyûtî, el-Itkân fî Ulûmi'l-Kur'an"
       },
-      "bible": {
-        "label": "İncil (Yeni Ahit) *",
-        "note": "Bu karşılaştırma teolojik değil, dilbilimseldir. İncil'deki tekrarlar farklı yazarların farklı dönemlerde yazdığı metinlerin derlenmesinden kaynaklanır — bu da Kur'an'ın tek ses tutarlılığını daha dikkat çekici kılar."
-      }
+      "card2": {
+        "title": "Tekrir Bir Belâgat Sanatıdır — Üç Tipik İşlev",
+        "lead": "Klasik Arap belâgatinde tekrir farklı işlevleri yerine getiren bir sanat olarak kodlanmıştır. Aşağıdaki üç işlev, klasik belâgat geleneğinin tekrir/te'kîd literatüründe en sık vurgulananlardır — te'kîd terimi için TDV İslâm Ansiklopedisi \"tekit\" maddesi, tafsîl ve ihtimâm için el-Burhân ve el-Itkân'ın tekrar bahisleri esas alınmıştır.",
+        "functions": [
+          {
+            "name": "Te'kîd",
+            "subtitle": "Pekiştirme",
+            "desc": "Bir hükmün şüpheye yer bırakmayacak şekilde sabitlenmesi. Klasik nahivde \"kelâmı sağlamlaştırmak\" olarak tanımlanır.",
+            "example": "\"Hayır, ilerde bileceksiniz! Yine hayır, ilerde bileceksiniz!\" (Tekâsür 102:3-4). Aynı ifade iki ardışık ayette yinelenir — uyarının kesinliğini ve aciliyetini ses ve anlam düzleminde sabitlemek için."
+          },
+          {
+            "name": "Tafsîl",
+            "subtitle": "Detaylandırma / Bağlam Değiştirme",
+            "desc": "Aynı çekirdek olayı her seferinde farklı bir veçhesini öne çıkararak yeniden anlatmak. Bağlam değiştikçe vurgu da değişir.",
+            "example": "Hz. Musa kıssası birden fazla sûrede geçer. A'râf'ta peygamberlik mücadelesi ve Firavun'la diyalog öne çıkar; Tâhâ'da Hz. Musa'nın iç dünyası ve annesine vahiy aktarılır; Kasas'ta doğumundan Medyen yıllarına biyografik akış vurgulanır. Aynı olay, farklı edebî mercekle."
+          },
+          {
+            "name": "İhtimâm",
+            "subtitle": "Önemi Vurgulama",
+            "desc": "Bir hakikatin her vesileyle hatırlatılması — söz konusu mesele o kadar merkezîdir ki anlatı boyunca farklı kapılardan geri döner.",
+            "example": "\"Rabbinizin hangi nimetlerini yalanlıyorsunuz?\" (Rahmân 55:13 ve devamı). Otuz bir kez yinelenen bu refren, her seferinde farklı bir nimet ile birlikte gelir — refrenin sabit oluşu hatırlatılan hakikatin merkezîliğini, etrafındaki içeriğin değişmesi ise farklı vechelerini gösterir."
+          }
+        ],
+        "source": "\"Tekit\" maddesi, TDV İslâm Ansiklopedisi · Zerkeşî, el-Burhân · Suyûtî, el-Itkân"
+      },
+      "card3": {
+        "title": "Aynı Kıssa, Farklı Sûreler — Klasik Müfessirlerin Cevabı",
+        "body": "Kur'an'ın en belirgin tekrar formu kıssaların birden fazla sûrede anlatılmasıdır. Fahreddin Râzî (ö. 1210) Mefâtîhu'l-Gayb'ta ve Tâhir İbn Âşûr (ö. 1973) et-Tahrîr ve't-Tenvîr'de bu meseleye sistematik olarak değinir. Klasik tefsir geleneğinin ortak vurgusu şudur: Aynı kıssa farklı sûrelerde anlatıldığında, her anlatımda farklı bir öğe öne çıkarılır — kahraman, sahne, diyalog, ders — ve böylece tek bir olay anlamsal olarak çoğul okumalara açılır.",
+        "body2": "Bu durum özellikle Hz. Musa kıssasında görünür hâle gelir: anlatım üslubu, başlangıç noktası, hangi diyalogların aktarıldığı ve hangilerinin atlandığı her sûrede değişir (A'râf'ta Firavun'la diyalog ve mücadele öne çıkar; Tâhâ'da Hz. Musa'nın iç dünyası ve annesine vahiy aktarılır; Kasas'ta doğumdan Medyen yıllarına biyografik akış vurgulanır). İbn Âşûr ise kıssaların yeniden anlatımının bir dinleyici eğitim yöntemi olarak işlediğini, dinleyenin her seferinde olayın farklı bir veçhesiyle karşılaşarak konuyu çok katmanlı kavradığını belirtir.",
+        "source": "Fahreddin Râzî, Mefâtîhu'l-Gayb · Tâhir İbn Âşûr, et-Tahrîr ve't-Tenvîr"
+      },
+      "outro": "Klasik İslamî gelenek, Kur'an'daki tekrarı bağlama bağlı olarak okur. Aynı ifade aynı bağlamda fazla geliyorsa bu eleştirilir; ama bağlam değişiyor ya da tekrar bir işlev yerine getiriyorsa, tekrir bir belâgat sanatıdır. Bu nedenle \"Kur'an'da gereksiz tekrar var mıdır?\" sorusunun klasik gelenekteki cevabı kategorik bir \"hayır\" değil, \"hangi tekrarın, hangi bağlamda, hangi işlevi yerine getirdiğini incelemek gerekir\"dir. Zerkeşî ve Suyûtî'nin müstakil bahisleri tam da bu incelemenin haritasıdır."
     },
     "zemahseriQuote": "Kur'an'ın her kelimesi bir hazinedir. Bir kelimeyi çıkarsan, bina çöker.",
     "zemahseriAttribution": "Klasik İ'câzu'l-Kur'an geleneğinin temel kanaati — Bâkıllānī (İ'câzu'l-Kur'an, ö. 1013) ve Zerkeşî (el-Burhân, ö. 1392) işlediği 'nazm' (yapısal düzen) anlayışının özeti."

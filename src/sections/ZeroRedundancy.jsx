@@ -304,217 +304,175 @@ export default function ZeroRedundancy() {
       </div>
 
 
-      {/* ── Comparison Section ── */}
+      {/* ── İ'câz / Belâgat Section ──
+          Replaces the previous Quran/Shakespeare/Bible bar-chart comparison
+          with a classical takrīr-bahsi framing. Sources sit inside each card
+          (Zerkeşî, Suyûtî, Râzî, İbn Âşûr, TDV İslâm Ansiklopedisi). The
+          older comparison was methodologically unsourced and unintentionally
+          polemical; this block stays inside the classical Islamic tradition
+          and replies to the question "is Quranic repetition a flaw or a
+          design?" with direct citations to the i'câz literature itself. */}
       <motion.div variants={fadeUpItem} className="mb-10">
-        <h3 className="font-display text-lg font-bold text-off-white mb-2">
-          {t('zeroRedundancy.comparisonTitle')}
+        <h3 className="font-display text-xl md:text-2xl font-bold text-off-white mb-3">
+          {t('zeroRedundancy.icaz.intro.title')}
         </h3>
-        <p style={{
-          color: 'rgba(148,163,184,0.5)', fontSize: '0.78rem',
-          fontFamily: FONTS.body, marginBottom: 20,
-        }}>
-          {language === 'tr'
-            ? 'Karşılaştırılabilir uzunlukta metinlerde gereksiz tekrar oranı'
-            : 'Unnecessary repetition rate in texts of comparable length'}
+        <p className="text-silver text-base leading-relaxed max-w-3xl mb-8">
+          {t('zeroRedundancy.icaz.intro.body')}
         </p>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {/* Quran Card — hero treatment */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {/* Card 1 — Zerkeşî / Suyûtî müstakil bahis */}
           <div style={{
             padding: '20px 24px',
             borderRadius: 14,
-            background: 'linear-gradient(135deg, rgba(212,165,116,0.08) 0%, rgba(0,0,0,0.1) 100%)',
-            border: '1px solid rgba(212,165,116,0.25)',
-            position: 'relative',
-            overflow: 'hidden',
+            background: 'rgba(212,165,116,0.04)',
+            border: '1px solid rgba(212,165,116,0.18)',
+            borderLeft: '4px solid rgba(212,165,116,0.55)',
           }}>
-            {/* Background glow */}
-            <div style={{
-              position: 'absolute', top: '-20px', right: '-20px',
-              width: 100, height: 100, borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(212,165,116,0.12) 0%, transparent 70%)',
-              pointerEvents: 'none',
-            }} />
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 12, position: 'relative' }}>
-              {/* Icon */}
-              <div style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                width: 40, height: 40, borderRadius: 10,
-                background: 'rgba(212,165,116,0.12)', border: '1px solid rgba(212,165,116,0.25)',
-                color: COLORS.gold, flexShrink: 0,
-              }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                  <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
-                </svg>
-              </div>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <span style={{
-                  color: COLORS.gold, fontWeight: 700, fontSize: '0.95rem',
-                  fontFamily: FONTS.body,
-                }}>
-                  {t('zeroRedundancy.comparison.quran.label')}
-                </span>
-              </div>
-              {/* Percentage badge */}
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: 6,
-                background: 'rgba(212,165,116,0.15)',
-                border: '1px solid rgba(212,165,116,0.3)',
-                borderRadius: 20, padding: '4px 14px',
-                flexShrink: 0,
-              }}>
-                <span style={{
-                  color: COLORS.gold, fontSize: '0.95rem', fontWeight: 700,
-                  fontFamily: FONTS.body,
-                }}>~0%</span>
-              </div>
-            </div>
-            {/* Bar */}
-            <div style={{
-              height: 6, borderRadius: 3,
-              background: 'rgba(255,255,255,0.06)',
-              overflow: 'hidden', position: 'relative',
+            <h4 style={{
+              color: COLORS.gold, fontWeight: 700, fontSize: '1.1rem',
+              fontFamily: FONTS.body, marginBottom: 14,
             }}>
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: '1%' }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, ease: 'easeOut', delay: 0.2 }}
-                style={{
-                  height: '100%', borderRadius: 3, minWidth: 8,
-                  background: `linear-gradient(90deg, ${COLORS.gold} 0%, ${COLORS.gold}aa 100%)`,
-                  boxShadow: '0 0 12px rgba(212,165,116,0.4)',
-                }}
-              />
-            </div>
-            {t('zeroRedundancy.comparison.quran.note') && (
-              <p style={{
-                color: 'rgba(148,163,184,0.7)', fontSize: '0.78rem',
-                fontFamily: FONTS.body, marginTop: 10, lineHeight: 1.55,
-              }}>
-                ℹ {t('zeroRedundancy.comparison.quran.note')}
-              </p>
-            )}
+              {t('zeroRedundancy.icaz.card1.title')}
+            </h4>
+            <p style={{
+              color: COLORS.offWhite, fontSize: '1rem',
+              fontFamily: FONTS.body, lineHeight: 1.75, marginBottom: 14,
+            }}>
+              {t('zeroRedundancy.icaz.card1.body')}
+            </p>
+            <p style={{
+              color: 'rgba(232,230,227,0.85)', fontSize: '1rem',
+              fontFamily: FONTS.body, lineHeight: 1.75,
+            }}>
+              {t('zeroRedundancy.icaz.card1.body2')}
+            </p>
+            <p style={{
+              color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem',
+              fontFamily: FONTS.body, marginTop: 16, fontStyle: 'italic',
+            }}>
+              {t('zeroRedundancy.icaz.card1.source')}
+            </p>
           </div>
 
-          {/* Shakespeare Card */}
+          {/* Card 2 — Üç klasik tekrir işlevi */}
           <div style={{
-            padding: '16px 24px',
+            padding: '20px 24px',
             borderRadius: 14,
-            background: 'rgba(255,255,255,0.025)',
-            border: '1px solid rgba(255,255,255,0.06)',
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.08)',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 10 }}>
-              <div style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                width: 40, height: 40, borderRadius: 10,
-                background: 'rgba(148,163,184,0.08)', border: '1px solid rgba(148,163,184,0.15)',
-                color: COLORS.silver, flexShrink: 0,
-              }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                </svg>
-              </div>
-              <span style={{
-                color: 'rgba(232,230,227,0.7)', fontWeight: 600, fontSize: '0.92rem',
-                fontFamily: FONTS.body, flex: 1,
-              }}>
-                {t('zeroRedundancy.comparison.shakespeare.label')}
-              </span>
-              <span style={{
-                color: COLORS.silver, fontSize: '0.95rem', fontWeight: 700,
-                fontFamily: FONTS.body,
-                background: 'rgba(255,255,255,0.06)',
-                borderRadius: 20, padding: '4px 14px',
-                flexShrink: 0,
-              }}>5-10%</span>
-            </div>
-            <div style={{
-              height: 6, borderRadius: 3,
-              background: 'rgba(255,255,255,0.06)',
-              overflow: 'hidden',
+            <h4 style={{
+              color: COLORS.gold, fontWeight: 700, fontSize: '1.1rem',
+              fontFamily: FONTS.body, marginBottom: 12,
             }}>
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: '10%' }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, ease: 'easeOut', delay: 0.4 }}
-                style={{
-                  height: '100%', borderRadius: 3,
-                  background: `linear-gradient(90deg, ${COLORS.silver} 0%, ${COLORS.silver}80 100%)`,
-                }}
-              />
-            </div>
+              {t('zeroRedundancy.icaz.card2.title')}
+            </h4>
+            <p style={{
+              color: COLORS.silver, fontSize: '0.95rem',
+              fontFamily: FONTS.body, lineHeight: 1.7, marginBottom: 18,
+            }}>
+              {t('zeroRedundancy.icaz.card2.lead')}
+            </p>
+            {/* Three function sub-blocks — each with a distinct accent colour
+                so they read as parallel structures rather than running prose. */}
+            {(() => {
+              const functions = t('zeroRedundancy.icaz.card2.functions') || [];
+              const accents = [
+                { color: COLORS.gold,         tint: 'rgba(212,165,116,0.10)', border: 'rgba(212,165,116,0.30)' },
+                { color: COLORS.skyBlue,      tint: 'rgba(52,152,219,0.10)',  border: 'rgba(52,152,219,0.30)' },
+                { color: COLORS.softEmerald,  tint: 'rgba(46,204,113,0.10)',  border: 'rgba(46,204,113,0.30)' },
+              ];
+              return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {functions.map((fn, i) => {
+                    const a = accents[i] || accents[0];
+                    return (
+                      <div key={fn.name} style={{
+                        padding: '14px 18px',
+                        borderRadius: 10,
+                        background: a.tint,
+                        border: `1px solid ${a.border}`,
+                      }}>
+                        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 10 }}>
+                          <span style={{ color: a.color, fontWeight: 700, fontSize: '1.05rem', fontFamily: FONTS.body }}>
+                            {fn.name}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.85rem', fontFamily: FONTS.body }}>
+                            {fn.subtitle}
+                          </span>
+                        </div>
+                        <p style={{
+                          color: COLORS.offWhite, fontSize: '0.95rem',
+                          fontFamily: FONTS.body, lineHeight: 1.7, marginBottom: 10,
+                        }}>
+                          {fn.desc}
+                        </p>
+                        <p style={{
+                          color: 'rgba(232,230,227,0.78)', fontSize: '0.92rem',
+                          fontFamily: FONTS.body, lineHeight: 1.7,
+                          paddingLeft: 14, borderLeft: `2px solid ${a.border}`,
+                          fontStyle: 'italic',
+                        }}>
+                          {fn.example}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
+            <p style={{
+              color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem',
+              fontFamily: FONTS.body, marginTop: 16, fontStyle: 'italic',
+            }}>
+              {t('zeroRedundancy.icaz.card2.source')}
+            </p>
           </div>
 
-          {/* Bible Card */}
+          {/* Card 3 — Kıssaların çoklu anlatımı */}
           <div style={{
-            padding: '16px 24px',
+            padding: '20px 24px',
             borderRadius: 14,
-            background: 'rgba(255,255,255,0.025)',
-            border: '1px solid rgba(255,255,255,0.06)',
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.08)',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 10 }}>
-              <div style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                width: 40, height: 40, borderRadius: 10,
-                background: 'rgba(148,163,184,0.08)', border: '1px solid rgba(148,163,184,0.15)',
-                color: COLORS.silver, flexShrink: 0,
-              }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                  <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
-                </svg>
-              </div>
-              <span style={{
-                color: 'rgba(232,230,227,0.7)', fontWeight: 600, fontSize: '0.92rem',
-                fontFamily: FONTS.body, flex: 1,
-              }}>
-                {t('zeroRedundancy.comparison.bible.label')}
-              </span>
-              <span style={{
-                color: COLORS.silver, fontSize: '0.95rem', fontWeight: 700,
-                fontFamily: FONTS.body,
-                background: 'rgba(255,255,255,0.06)',
-                borderRadius: 20, padding: '4px 14px',
-                flexShrink: 0,
-              }}>15-20%</span>
-            </div>
-            <div style={{
-              height: 6, borderRadius: 3,
-              background: 'rgba(255,255,255,0.06)',
-              overflow: 'hidden',
+            <h4 style={{
+              color: COLORS.gold, fontWeight: 700, fontSize: '1.1rem',
+              fontFamily: FONTS.body, marginBottom: 14,
             }}>
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: '20%' }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, ease: 'easeOut', delay: 0.6 }}
-                style={{
-                  height: '100%', borderRadius: 3,
-                  background: `linear-gradient(90deg, ${COLORS.silver} 0%, ${COLORS.silver}60 100%)`,
-                }}
-              />
-            </div>
-            {t('zeroRedundancy.comparison.bible.note') && (
-              <p style={{
-                color: 'rgba(148,163,184,0.45)', fontSize: '0.72rem',
-                fontFamily: FONTS.body, marginTop: 10, lineHeight: 1.5,
-              }}>
-                ℹ {t('zeroRedundancy.comparison.bible.note')}
-              </p>
-            )}
+              {t('zeroRedundancy.icaz.card3.title')}
+            </h4>
+            <p style={{
+              color: COLORS.offWhite, fontSize: '1rem',
+              fontFamily: FONTS.body, lineHeight: 1.75, marginBottom: 14,
+            }}>
+              {t('zeroRedundancy.icaz.card3.body')}
+            </p>
+            <p style={{
+              color: 'rgba(232,230,227,0.85)', fontSize: '1rem',
+              fontFamily: FONTS.body, lineHeight: 1.75,
+            }}>
+              {t('zeroRedundancy.icaz.card3.body2')}
+            </p>
+            <p style={{
+              color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem',
+              fontFamily: FONTS.body, marginTop: 16, fontStyle: 'italic',
+            }}>
+              {t('zeroRedundancy.icaz.card3.source')}
+            </p>
           </div>
         </div>
 
-        {t('zeroRedundancy.comparisonNote') && (
-          <p style={{
-            color: 'rgba(148,163,184,0.35)', fontSize: '0.7rem',
-            fontFamily: FONTS.body, marginTop: 14,
-            lineHeight: 1.6, fontStyle: 'italic',
-          }}>
-            * {t('zeroRedundancy.comparisonNote')}
-          </p>
-        )}
+        {/* Outro paragraph */}
+        <p style={{
+          color: 'rgba(212,165,116,0.9)', fontSize: '1.05rem',
+          fontFamily: FONTS.body, fontStyle: 'italic',
+          lineHeight: 1.75, marginTop: 24,
+          maxWidth: '48rem',
+        }}>
+          {t('zeroRedundancy.icaz.outro')}
+        </p>
       </motion.div>
 
       {/* Zemahseri Quote */}
