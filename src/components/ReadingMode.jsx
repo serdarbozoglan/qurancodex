@@ -1789,7 +1789,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     // translationActive #c4b59a: aktif meal metni de eşit şekilde dengelendi.
     bg: COLORS.cosmicBlack, outerBg: '#0f1f3a', gold: COLORS.gold,
     arabic: '#b89660', arabicActive: '#caa870',
-    translation: COLORS.creamQuiet, translationActive: COLORS.creamBright,
+    translation: '#cab997', translationActive: '#deceab',
     // Bismillah in night mode: warm amber (#E8B547) — slightly brighter and
     // warmer than the standard gold so it reads as "honoured opening line"
     // against the cosmic-black background, without the eye-fatigue of the old
@@ -3625,7 +3625,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             onMouseLeave={e => { e.currentTarget.style.background = mealItalic ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = mealItalic ? navC.btnBorderActive : dropC.btnBorder; }}
           >
             <span style={{ fontSize: '0.82rem', color: mealItalic ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ fontStyle: 'italic', fontFamily: "'Crimson Pro', Georgia, serif", fontWeight: 600 }}>I</span>
+              <span style={{ fontStyle: 'italic', fontFamily: "'Lora', Georgia, serif", fontWeight: 600 }}>I</span>
               {language === 'tr' ? 'İtalic Meal' : 'Italic Meal'}
             </span>
             <span style={{ fontSize: '0.7rem', color: mealItalic ? gold : dropC.textMuted, fontWeight: 600 }}>
@@ -5057,8 +5057,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     // Crimson Pro family AND scale with the same
                                     // mealFontSize multiplier so the Meal Boyutu
                                     // slider moves both in lock-step.
-                                    fontFamily: "'Crimson Pro', Georgia, serif",
-                                    fontSize: `${(isMobile ? 1.22 : 1.45) * mealFontSize}rem`,
+                                    fontFamily: "'Lora', Georgia, serif",
+                                    fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
                                     fontStyle: 'italic',
                                     fontWeight: 500,
                                     // Bismillah meal — always renders in C.bismillah
@@ -5202,8 +5202,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 // Lora body serif — true italic forms, designed
                                 // for long-form screen reading. Replaces Inter's
                                 // oblique sans-italic for the meal column.
-                                fontFamily: "'Crimson Pro', Georgia, serif",
-                                fontSize: `${(isMobile ? 1.22 : 1.45) * mealFontSize}rem`,
+                                fontFamily: "'Lora', Georgia, serif",
+                                fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
                                 lineHeight: isMobile ? 1.55 : 1.7,
                                 fontStyle: mealItalic ? 'italic' : 'normal',
                                 flex: 1,
@@ -5240,7 +5240,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     fontSize: isMobile ? '0.98rem' : '1.05rem',
                     fontStyle: 'italic',
                     color: dayMode ? 'rgba(106,86,56,0.62)' : 'rgba(148,163,184,0.48)',
-                    fontFamily: "'Crimson Pro', Georgia, serif",
+                    fontFamily: "'Lora', Georgia, serif",
                     letterSpacing: '0.01em',
                     lineHeight: 1.55,
                     display: 'flex', alignItems: 'center', gap: '7px',
@@ -5450,7 +5450,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   // family for typographic coherence (Playfair
                                   // Display is a heading face, looked forced
                                   // when used as a small italic caption).
-                                  fontFamily: "'Crimson Pro', Georgia, serif",
+                                  fontFamily: "'Lora', Georgia, serif",
                                   fontSize: isMobile ? '1.0rem' : '1.2rem',
                                   fontWeight: 500,
                                   fontStyle: 'italic',
@@ -5903,7 +5903,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 mobile always shows (no side-by-side meal). */}
                             {(!showTranslation || isMobile) && (
                               <div style={{
-                                fontFamily: "'Crimson Pro', Georgia, serif",
+                                fontFamily: "'Lora', Georgia, serif",
                                 fontSize: isMobile ? '1.0rem' : '1.2rem',
                                 fontWeight: 500,
                                 fontStyle: 'italic',
@@ -7039,8 +7039,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       {showTranslation && (
                         <p style={{
                           margin: 0, color: isActive ? C.translationActive : C.translation,
-                          fontFamily: "'Crimson Pro', Georgia, serif",
-                          fontSize: `${(isMobile ? 1.22 : 1.45) * mealFontSize}rem`,
+                          fontFamily: "'Lora', Georgia, serif",
+                          fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
                           lineHeight: isMobile ? 1.55 : 1.8,
                           fontStyle: mealItalic ? 'italic' : 'normal',
                         }}>
