@@ -3928,6 +3928,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 esc
               </kbd>
             )}
+            {/* Mobile close-overlay button — replaces the ESC hint (no keyboard
+                on mobile) so users have an explicit affordance to dismiss the
+                search palette instead of hunting for the thin tap-outside edge. */}
+            {isMobile && (
+              <button
+                type="button"
+                onClick={() => { setShowSearch(false); setSearchQuery(''); }}
+                aria-label={language === 'tr' ? 'Aramayı kapat' : 'Close search'}
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: '32px', height: '32px', borderRadius: '50%',
+                  background: dayMode ? 'rgba(80,50,20,0.08)' : 'rgba(255,255,255,0.06)',
+                  border: `1px solid ${dayMode ? 'rgba(80,50,20,0.18)' : 'rgba(255,255,255,0.12)'}`,
+                  color: dayMode ? 'rgba(80,50,20,0.7)' : 'rgba(200,185,165,0.75)',
+                  cursor: 'pointer', flexShrink: 0,
+                }}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            )}
           </div>
 
           {/* Results — unified palette body. Same content categories as the
@@ -8336,12 +8358,19 @@ function VerseCompareModal({
       onClick={onClose}
       style={{
         position: 'fixed', inset: 0,
+        // iOS Safari: explicit dvh keeps the modal inside the *visible*
+        // viewport — without this the address bar / bottom tab bar overlap
+        // the modal top/bottom and content is truncated (label clipped above,
+        // last meal card hidden below).
+        height: '100dvh',
         zIndex: 10000,
         background: C.backdrop,
         backdropFilter: 'blur(6px)',
         WebkitBackdropFilter: 'blur(6px)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: isMobile ? '20px 12px' : '32px',
+        padding: isMobile
+          ? `max(12px, env(safe-area-inset-top, 12px)) 10px max(12px, env(safe-area-inset-bottom, 12px))`
+          : '32px',
         opacity: mounted ? 1 : 0,
         transition: 'opacity 0.2s ease-out',
       }}
@@ -8351,7 +8380,7 @@ function VerseCompareModal({
         style={{
           width: '100%',
           maxWidth: isMobile ? '100%' : '720px',
-          maxHeight: isMobile ? 'calc(100vh - 40px)' : '88vh',
+          maxHeight: isMobile ? 'calc(100dvh - 24px)' : '88vh',
           background: C.cardBg,
           backdropFilter: dayMode ? 'none' : 'blur(20px)',
           WebkitBackdropFilter: dayMode ? 'none' : 'blur(20px)',
@@ -8571,6 +8600,85 @@ function VerseCompareModal({
           overflowX: 'hidden',
           padding: isMobile ? '14px' : '20px 24px',
         }}>
+          {/* Mobile-only play button — on mobile the header is too tight to
+              host the audio control, so it sits in the body as a small row
+              above the Arabic verse card. Desktop keeps the header version. */}
+          {isMobile && (
+            <div style={{
+              display: 'flex', justifyContent: 'center', alignItems: 'center',
+              gap: '10px',
+              marginBottom: '12px',
+            }}>
+              <div style={{ position: 'relative', width: '34px', height: '34px' }}>
+                {audioPlaying && !audioFailed && (
+                  <>
+                    <span aria-hidden className="rm-audio-pulse-ring" style={{
+                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
+                      animation: 'rm-audio-pulse 1.6s ease-out infinite',
+                      pointerEvents: 'none',
+                    }} />
+                    <span aria-hidden className="rm-audio-pulse-ring" style={{
+                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
+                      animation: 'rm-audio-pulse 1.6s ease-out infinite',
+                      animationDelay: '0.8s',
+                      pointerEvents: 'none',
+                    }} />
+                  </>
+                )}
+                <button
+                  type="button"
+                  onClick={audioFailed ? undefined : toggleAudio}
+                  disabled={audioFailed}
+                  aria-label={
+                    audioFailed
+                      ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable')
+                      : audioPlaying
+                        ? (language === 'tr' ? 'Sesi durdur' : 'Stop audio')
+                        : (language === 'tr' ? 'Ayeti dinle' : 'Listen to verse')
+                  }
+                  style={{
+                    position: 'relative', zIndex: 1,
+                    width: '34px', height: '34px', borderRadius: '50%',
+                    background: audioFailed
+                      ? (dayMode ? 'rgba(100,116,139,0.08)' : 'rgba(100,116,139,0.10)')
+                      : audioPlaying
+                        ? (dayMode ? 'rgba(154,111,16,0.22)' : 'rgba(212,165,116,0.24)')
+                        : (dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.10)'),
+                    border: `1px solid ${audioFailed
+                      ? (dayMode ? 'rgba(100,116,139,0.25)' : 'rgba(100,116,139,0.3)')
+                      : audioPlaying
+                        ? (dayMode ? 'rgba(154,111,16,0.6)' : 'rgba(212,165,116,0.7)')
+                        : (dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(212,165,116,0.32)')}`,
+                    color: audioFailed
+                      ? (dayMode ? 'rgba(0,0,0,0.35)' : 'rgba(148,163,184,0.5)')
+                      : (dayMode ? '#9a6f10' : '#d4a574'),
+                    cursor: audioFailed ? 'not-allowed' : 'pointer',
+                    opacity: audioFailed ? 0.55 : 1,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}
+                >
+                  {audioPlaying ? <PauseIcon size={12} /> : <PlayIcon size={12} />}
+                </button>
+              </div>
+              <span style={{
+                fontSize: '0.72rem',
+                fontFamily: 'Inter, system-ui, sans-serif',
+                fontWeight: 600,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: dayMode ? 'rgba(80,55,15,0.55)' : 'rgba(200,185,165,0.55)',
+              }}>
+                {audioFailed
+                  ? (language === 'tr' ? 'Ses yok' : 'No audio')
+                  : audioPlaying
+                    ? (language === 'tr' ? 'Çalıyor' : 'Playing')
+                    : (language === 'tr' ? 'Ayeti dinle' : 'Listen to verse')}
+              </span>
+            </div>
+          )}
+
           {/* Arabic verse — rendered through the same wrapWaqfOnly/applyTajweed
               pipeline as the main reading view so waqf markers, medd glyphs and
               tajweed colors land correctly under ShaykhHamdullah/KFGQPC. */}
@@ -8600,10 +8708,20 @@ function VerseCompareModal({
             </div>
           )}
 
-          {/* Chip selector */}
+          {/* Chip selector — on mobile we wrap in a subtle frame so the
+              chip area stops feeling "naked" between the Arabic card and
+              the meal cards (both of which DO have frames). Desktop keeps
+              the flush layout since the wider canvas gives enough breathing
+              room to read the groups as separate sections. */}
           <div style={{
             display: 'flex', flexDirection: 'column', gap: '10px',
             marginBottom: '18px',
+            padding: isMobile ? '12px' : 0,
+            background: isMobile
+              ? (dayMode ? 'rgba(212,165,116,0.04)' : 'rgba(212,165,116,0.03)')
+              : 'transparent',
+            border: isMobile ? `1px solid ${C.cardItemBorder}` : 'none',
+            borderRadius: isMobile ? '10px' : 0,
           }}>
             <div>
               <div style={{
