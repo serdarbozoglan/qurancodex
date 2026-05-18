@@ -1,0 +1,199 @@
+{
+  "surah": 106,
+  "name": "Surah 106",
+  "nameAr": "",
+  "nameTr": "",
+  "source": {
+    "name": "Quranic Arabic Corpus",
+    "author": "Kais Dukes",
+    "institution": "Leeds University",
+    "url": "https://corpus.quran.com",
+    "license": "GPL — atıfla / with attribution",
+    "fetchedAt": "2026-05-04",
+    "turkish": {
+      "name": "Diyanet İşleri Başkanlığı (kelime meal)",
+      "via": "QuranWBW.com (resource #77)",
+      "url": "https://quranwbw.com"
+    }
+  },
+  "verses": {
+    "1": [
+      {
+        "idx": 1,
+        "ar": "لِإِيلَٰفِ",
+        "pos": "N",
+        "root": "ا-ل-ف",
+        "lemma": "إِلَٰف",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "alıştırdığı için"
+      },
+      {
+        "idx": 2,
+        "ar": "قُرَيْشٍ",
+        "pos": "PN",
+        "root": null,
+        "lemma": "قُرَيْش",
+        "features": "plural genitive proper noun",
+        "featuresTr": "çoğul mecrur özel isim",
+        "tr": "Kureyşi"
+      }
+    ],
+    "2": [
+      {
+        "idx": 1,
+        "ar": "إِ.لَٰفِهِمْ",
+        "pos": "N",
+        "root": "ا-ل-ف",
+        "lemma": "إِلَٰف",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "onları alıştırdığı için"
+      },
+      {
+        "idx": 2,
+        "ar": "رِحْلَةَ",
+        "pos": "N",
+        "root": "ر-ح-ل",
+        "lemma": "رِحْلَة",
+        "features": "feminine accusative noun",
+        "featuresTr": "müennes mansub isim",
+        "tr": "yolculuğuna"
+      },
+      {
+        "idx": 3,
+        "ar": "ٱلشِّتَآءِ",
+        "pos": "N",
+        "root": "ش-ت-و",
+        "lemma": "شِّتَآء",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "kış"
+      },
+      {
+        "idx": 4,
+        "ar": "وَٱلصَّيْفِ",
+        "pos": "N",
+        "root": "ص-ي-ف",
+        "lemma": "صَّيْف",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "ve yaz"
+      }
+    ],
+    "3": [
+      {
+        "idx": 1,
+        "ar": "فَلْيَعْبُدُوا@",
+        "pos": "V",
+        "root": "ع-ب-د",
+        "lemma": "عَبَدَ",
+        "features": "imperfect 3rd person masculine plural jussive mood verb",
+        "featuresTr": "muzâri gâib müzekker cem meczum (muzâri) fiil",
+        "tr": "kulluk etsinler"
+      },
+      {
+        "idx": 2,
+        "ar": "رَبَّ",
+        "pos": "N",
+        "root": "ر-ب-ب",
+        "lemma": "رَبّ",
+        "features": "masculine accusative noun",
+        "featuresTr": "müzekker mansub isim",
+        "tr": "Rabbine"
+      },
+      {
+        "idx": 3,
+        "ar": "هَٰذَا",
+        "pos": "DEM",
+        "root": null,
+        "lemma": "هَٰذَا",
+        "features": "masculine singular demonstrative",
+        "featuresTr": "müzekker müfred işaret zamiri",
+        "tr": "bu"
+      },
+      {
+        "idx": 4,
+        "ar": "ٱلْبَيْتِ",
+        "pos": "N",
+        "root": "ب-ي-ت",
+        "lemma": "بَيْت",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "evin"
+      }
+    ],
+    "4": [
+      {
+        "idx": 1,
+        "ar": "ٱلَّذِىٓ",
+        "pos": "REL",
+        "root": null,
+        "lemma": "ٱلَّذِى",
+        "features": "masculine singular relative pronoun",
+        "featuresTr": "müzekker müfred ilgi zamiri (mevsûl)",
+        "tr": "o ki"
+      },
+      {
+        "idx": 2,
+        "ar": "أَطْعَمَهُم",
+        "pos": "V",
+        "root": "ط-ع-م",
+        "lemma": "أَطْعَمَ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "onları yedirip"
+      },
+      {
+        "idx": 3,
+        "ar": "مِّن",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "açlıktan (kurtardı)"
+      },
+      {
+        "idx": 4,
+        "ar": "جُوعٍ",
+        "pos": "N",
+        "root": "ج-و-ع",
+        "lemma": "جُوع",
+        "features": "masculine indefinite genitive noun",
+        "featuresTr": "müzekker nekira mecrur isim",
+        "tr": "*"
+      },
+      {
+        "idx": 5,
+        "ar": "وَءَامَنَهُم",
+        "pos": "V",
+        "root": "ا-م-ن",
+        "lemma": "ءَامَنَ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "ve onları güvene kavuşturdu"
+      },
+      {
+        "idx": 6,
+        "ar": "مِّنْ",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "korkudan"
+      },
+      {
+        "idx": 7,
+        "ar": "خَوْفٍ",
+        "pos": "N",
+        "root": "خ-و-ف",
+        "lemma": "خَوْف",
+        "features": "masculine indefinite genitive noun",
+        "featuresTr": "müzekker nekira mecrur isim",
+        "tr": "*"
+      }
+    ]
+  }
+}
