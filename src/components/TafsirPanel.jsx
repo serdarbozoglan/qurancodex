@@ -1,8 +1,28 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { COLORS, FONTS } from '../tokens';
 
-// Simple per-component cache: { [surahNumber]: data }
+// Simple per-component cache: keyed by `${surahNumber}-${language}`
 const _cache = new Map();
+
+// Tafsir source registry — adds new sources here when we expand.
+// Each language gets ONE primary source for now. When the project grows
+// we can add per-language multi-source switchers (dropdown).
+const TAFSIR_SOURCES = {
+  tr: {
+    id: 'elmalili',
+    name: 'Elmalılı Hamdi Yazır',
+    fullName: 'Hak Dini Kur\'an Dili',
+    path: (surah) => `/tafsir/elmalili/${surah}.json`,
+    format: 'flat-prose', // { text, verseAnchors, ... }
+  },
+  en: {
+    id: 'ibnkathir-en',
+    name: 'Ibn Kathir',
+    fullName: 'Tafsir Ibn Kathir (Abridged)',
+    path: (surah) => `/tafsir/ibnkathir-en/${surah}.json`,
+    format: 'verse-html', // { verses: { ayahNum: htmlString } }
+  },
+};
 
 // Hafs canonical verse counts (Diyanet standard). Used to reject "over-max"
 // anchors — tafsir-internal numbered lists (e.g. Felak has "1-, 2-, ... 12-"
@@ -111,21 +131,23 @@ function renderInline(text, palette) {
 }
 
 export default function TafsirPanel({ open, onClose, surah, ayah, language, dayMode, isMobile }) {
-  const [data,    setData]    = useState(_cache.get(surah) || null);
+  const source = TAFSIR_SOURCES[language] || TAFSIR_SOURCES.tr;
+  const cacheKey = `${surah}-${language}`;
+  const [data,    setData]    = useState(_cache.get(cacheKey) || null);
   const [loading, setLoading] = useState(false);
   const [error,   setError]   = useState(null);
   const scrollRef = useRef(null);
 
-  // Fetch surah tefsir JSON when open or surah changes
+  // Fetch surah tefsir JSON when open, surah, or language changes
   useEffect(() => {
     if (!open || !surah) return;
-    if (_cache.has(surah)) { setData(_cache.get(surah)); setError(null); return; }
+    if (_cache.has(cacheKey)) { setData(_cache.get(cacheKey)); setError(null); return; }
     setLoading(true); setError(null);
-    fetch(`/tafsir/elmalili/${surah}.json`)
+    fetch(source.path(surah))
       .then(r => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)))
-      .then(d => { _cache.set(surah, d); setData(d); setLoading(false); })
+      .then(d => { _cache.set(cacheKey, d); setData(d); setLoading(false); })
       .catch(err => { setError(err); setLoading(false); });
-  }, [open, surah]);
+  }, [open, surah, language]);  // eslint-disable-line react-hooks/exhaustive-deps
 
   // FLAT PROSE MODE — anchor-based ayet chunking devre dışı.
   // Elmalılı scrape verisindeki `verseAnchors` çoğunlukla yanlış: scraper
@@ -139,11 +161,32 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
   // strip etmek (panel header zaten sûre adını gösteriyor) ve metni
   // paragraflar halinde akıtmak.
   const paragraphs = useMemo(() => {
-    if (!data || !data.text) return [];
-    const surahHeaderRe = /^\s*\d+\s*-\s*[\p{L}\p{M}\s\-']+:\s*\n?/u;
-    const cleaned = normalizeTafsirText(data.text).replace(surahHeaderRe, '').trim();
-    return cleaned.split(/\n\n+/g).filter(p => p.trim());
-  }, [data]);
+    if (!data) return [];
+    // Turkish (Elmalili) — flat-prose format
+    if (source.format === 'flat-prose') {
+      if (!data.text) return [];
+      const surahHeaderRe = /^\s*\d+\s*-\s*[\p{L}\p{M}\s\-']+:\s*\n?/u;
+      const cleaned = normalizeTafsirText(data.text).replace(surahHeaderRe, '').trim();
+      return cleaned.split(/\n\n+/g).filter(p => p.trim());
+    }
+    // English (Ibn Kathir) — verse-html format, each entry is HTML
+    if (source.format === 'verse-html') {
+      const verses = data.verses || {};
+      const keys = Object.keys(verses).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+      return keys.map(ayahNum => ({
+        ayahNum,
+        html: verses[ayahNum],
+      })).filter(p => p.html);
+    }
+    return [];
+  }, [data, source.format]);
+
+  // Determine if data is empty (no usable content)
+  const hasContent = paragraphs.length > 0;
+  // Short-content note: Elmalili length, or low verse count for Ibn Kathir
+  const isShortContent = source.format === 'flat-prose'
+    ? (data && data.textLength < 3000)
+    : (source.format === 'verse-html' && data && Object.keys(data.verses || {}).length < 3 && hasContent);
 
   if (!open) return null;
 
@@ -323,18 +366,18 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
             borderRadius: '10px', fontSize: '0.85rem',
           }}>
             {language === 'tr'
-              ? 'Bu sûre için Elmalılı tefsiri yüklenemedi.'
-              : 'Could not load Elmalılı tafsir for this surah.'}
+              ? `Bu sûre için ${source.name} tefsiri yüklenemedi.`
+              : `Could not load ${source.name} tafsir for this surah.`}
           </div>
         )}
-        {!loading && !error && data && paragraphs.length === 0 && (
+        {!loading && !error && data && !hasContent && (
           <div style={{ color: C.muted, padding: '40px 0', textAlign: 'center' }}>
             {language === 'tr'
               ? 'Bu sûre için detaylı tefsir kaynaktan getirilemedi.'
               : 'Detailed tafsir not available for this surah from source.'}
           </div>
         )}
-        {data && data.textLength < 3000 && (
+        {isShortContent && (
           <div style={{
             margin: '18px 0 8px', padding: '10px 14px',
             fontSize: '0.78rem', lineHeight: 1.55,
@@ -349,7 +392,8 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
           </div>
         )}
 
-        {paragraphs.length > 0 && (
+        {/* Turkish (Elmalili) flat-prose paragraphs */}
+        {source.format === 'flat-prose' && paragraphs.length > 0 && (
           <div style={{ padding: '20px 4px 0' }}>
             {paragraphs.map((p, pi) => {
               const isFirst = pi === 0;
@@ -411,6 +455,81 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
           </div>
         )}
 
+        {/* English (Ibn Kathir) verse-html blocks: each entry is a tafsir
+            group keyed by its starting ayah number. Render HTML with light
+            styling — h1/h2 → gold headings, p → body text, .arabic → quran
+            font + RTL. */}
+        {source.format === 'verse-html' && paragraphs.length > 0 && (
+          <div style={{ padding: '20px 4px 0' }} className={`tafsir-en-${dayMode ? 'day' : 'night'}`}>
+            <style>{`
+              .tafsir-en-day h1, .tafsir-en-night h1 {
+                font-size: 1.1rem; font-weight: 700; margin: 18px 0 8px;
+                color: ${C.gold}; letter-spacing: 0.01em;
+              }
+              .tafsir-en-day h2, .tafsir-en-night h2 {
+                font-size: 0.95rem; font-weight: 600; margin: 14px 0 6px;
+                color: ${C.goldSoft}; font-style: italic;
+              }
+              .tafsir-en-day p, .tafsir-en-night p {
+                margin: 0 0 14px; line-height: 1.78;
+                color: ${C.textSoft}; text-align: justify;
+                hyphens: auto; word-break: break-word;
+              }
+              .tafsir-en-day .arabic, .tafsir-en-night .arabic,
+              .tafsir-en-day div.uthmani, .tafsir-en-night div.uthmani {
+                font-family: 'KFGQPC','Amiri Quran',serif;
+                direction: rtl; text-align: right;
+                font-size: 1.4rem; line-height: 2.2;
+                margin: 12px 0; padding: 8px 12px;
+                color: ${C.text};
+                background: ${dayMode ? 'rgba(212,165,116,0.05)' : 'rgba(212,165,116,0.04)'};
+                border-right: 3px solid ${C.gold}55;
+                border-radius: 4px 0 0 4px;
+              }
+              .tafsir-en-day strong, .tafsir-en-night strong { color: ${C.text}; }
+              .tafsir-en-day em, .tafsir-en-night em { color: ${C.goldSoft}; font-style: italic; }
+            `}</style>
+            {paragraphs.map((entry, pi) => {
+              const isFirst = pi === 0;
+              // Show ayah-range badge: "1" or "1-9" depending on next entry
+              const startAyah = parseInt(entry.ayahNum, 10);
+              const nextStart = paragraphs[pi + 1]
+                ? parseInt(paragraphs[pi + 1].ayahNum, 10)
+                : null;
+              const endAyah = nextStart ? nextStart - 1 : null;
+              const label = (endAyah && endAyah > startAyah)
+                ? `${startAyah}–${endAyah}`
+                : `${startAyah}`;
+              return (
+                <div key={pi} style={{
+                  marginBottom: isFirst ? '24px' : '20px',
+                  paddingBottom: isFirst ? '20px' : '0',
+                  borderBottom: isFirst ? `1px dashed ${C.divider}` : 'none',
+                }}>
+                  <div style={{
+                    display: 'inline-block',
+                    marginBottom: '10px',
+                    padding: '2px 10px',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    color: C.gold,
+                    background: dayMode ? 'rgba(212,165,116,0.14)' : 'rgba(212,165,116,0.10)',
+                    border: `1px solid ${C.gold}44`,
+                    borderRadius: '999px',
+                    letterSpacing: '0.03em',
+                  }}>
+                    {language === 'tr' ? 'Ayet' : 'Verse'} {label}
+                  </div>
+                  <div
+                    style={{ fontSize: '0.93rem', color: C.text }}
+                    dangerouslySetInnerHTML={{ __html: entry.html }}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        )}
+
         {/* Source attribution */}
         {data?.sourceUrl && !loading && !error && (
           <div style={{
@@ -424,7 +543,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
               color: C.gold, textDecoration: 'none', fontWeight: 600,
               borderBottom: `1px dotted ${C.gold}55`,
             }}>
-              enfal.de
+              {source.fullName}
             </a>
           </div>
         )}
