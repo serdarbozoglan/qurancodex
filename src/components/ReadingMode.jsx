@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
+import useWordTimings from '../hooks/useWordTimings';
 import { COLORS, BREAKPOINT_MOBILE } from '../tokens';
 import InterlinearView from './InterlinearView';
 import TafsirPanel from './TafsirPanel';
@@ -805,14 +806,27 @@ const SURAH_RUKU_COUNTS = [
    1, 1, 1, 1,
 ];
 
+// quranComId + quranicAudioSlug enable per-surah audio + word-level timing via Quran.com qdc API.
+// Reciters without these fields fall back to the legacy per-ayet EveryAyah/qurancdn chain (no karaoke).
 const RECITERS = [
-  { id: 'Alafasy_128kbps',              labelTr: 'Meşarî',            labelEn: 'Alafasy' },
-  { id: 'Ghamadi_40kbps',               labelTr: 'Sa\'d el-Ğâmidî',   labelEn: 'Saad Al-Ghamdi' },
-  { id: 'Abdul_Basit_Murattal_192kbps', labelTr: 'Abdülbasit',        labelEn: 'Abdul Basit' },
-  { id: 'Husary_128kbps',               labelTr: 'Husarî',            labelEn: 'Al-Husary' },
-  { id: 'Minshawy_Murattal_128kbps',    labelTr: 'Minşâvî',           labelEn: 'Al-Minshawy' },
-  { id: 'Muhammad_Jibreel_128kbps',     labelTr: 'Muhammed Cibrîl',   labelEn: 'Muhammad Jibreel' },
+  { id: 'Alafasy_128kbps',              labelTr: 'Meşarî',                  labelEn: 'Alafasy',                   quranComId: 7,  quranicAudioSlug: 'mishari_al_afasy' },
+  { id: 'Ghamadi_40kbps',               labelTr: 'Sa\'d el-Ğâmidî',         labelEn: 'Saad Al-Ghamdi',            quranComId: null, quranicAudioSlug: null },
+  { id: 'Abdul_Basit_Murattal_192kbps', labelTr: 'Abdülbasit',              labelEn: 'Abdul Basit',               quranComId: 2,  quranicAudioSlug: 'abdul_baset' },
+  { id: 'Husary_128kbps',               labelTr: 'Husarî',                  labelEn: 'Al-Husary',                 quranComId: 6,  quranicAudioSlug: 'khalil_al_husary' },
+  { id: 'Minshawy_Murattal_128kbps',    labelTr: 'Minşâvî',                 labelEn: 'Al-Minshawy',               quranComId: 9,  quranicAudioSlug: 'siddiq_minshawi' },
+  { id: 'Muhammad_Jibreel_128kbps',     labelTr: 'Muhammed Cibrîl',         labelEn: 'Muhammad Jibreel',          quranComId: null, quranicAudioSlug: null },
+  // Yeni karaoke-destekli kâriler — Quran.com qdc API üzerinden word-level timing.
+  // RECITERS sırası array indeksiyle aynı tutuluyor (mevcut kullanıcıların reciter_idx
+  // localStorage değerleri bozulmasın diye). Dropdown sırası ayrı sort logic'iyle yönetilir.
+  { id: 'Abdurrahmaan_As-Sudais_192kbps', labelTr: 'Sudeys',                labelEn: 'Sudais',                    quranComId: 3,  quranicAudioSlug: 'abdurrahmaan_as_sudais' },
+  { id: 'Abu_Bakr_Ash-Shaatree_128kbps',  labelTr: 'Şâtirî',                labelEn: 'Al-Shatri',                 quranComId: 4,  quranicAudioSlug: 'abu_bakr_shatri' },
+  { id: 'Saood_ash-Shuraym_64kbps',       labelTr: 'Şüreym',                labelEn: 'Ash-Shuraym',               quranComId: 10, quranicAudioSlug: 'saud_ash-shuraym' },
+  { id: 'Husary_Muallim_128kbps',         labelTr: 'Husarî (Muallim)',      labelEn: 'Al-Husary (Muallim)',       quranComId: 12, quranicAudioSlug: 'khalil_al_husary' },
+  { id: 'Abdul_Basit_Mujawwad_128kbps',   labelTr: 'Abdülbasit (Mücevved)', labelEn: 'Abdul Basit (Mujawwad)',    quranComId: 1,  quranicAudioSlug: 'abdul_baset' },
+  { id: 'Minshawy_Mujawwad_64kbps',       labelTr: 'Minşâvî (Mücevved)',    labelEn: 'Al-Minshawi (Mujawwad)',    quranComId: 8,  quranicAudioSlug: 'siddiq_al-minshawi' },
 ];
+
+const hasKaraoke = (idx) => Boolean(RECITERS[idx]?.quranComId);
 
 // Quran translations — 'local'/'en_local' use verse-graph.json; others fetched from api.acikkuran.com
 // Author IDs verified from https://api.acikkuran.com/authors
@@ -1007,6 +1021,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   });
   const [playingVerseId, setPlayingVerseId] = useState(null);
   const [failedVerseId, setFailedVerseId] = useState(null);
+  // Karaoke (word-level highlight) — only available for reciters with quranComId.
+  const [karaokeEnabled, setKaraokeEnabled] = useState(() => {
+    try { return localStorage.getItem('qurancodex_karaoke_on') !== '0'; } catch { return true; }
+  });
+  const [karaokeActiveWordIdx, setKaraokeActiveWordIdx] = useState(null);
+  const [karaokeFallbackActive, setKaraokeFallbackActive] = useState(false);
   // Corpus Quran (Leeds) — kelime düzeyinde tıklama + WordPopover.
   // Surah 1 (Fâtiha) hand-curated (tr/en + ince sarf), 2..114 auto-generated.
   // Cache: load once per surah, keep in memory.
@@ -1597,6 +1617,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   useEffect(() => { localStorage.setItem('qurancodex_interlinear_mode', JSON.stringify(interlinearMode)); }, [interlinearMode]);
   useEffect(() => { localStorage.setItem('qurancodex_interlinear_lang', interlinearLang); }, [interlinearLang]);
   useEffect(() => { localStorage.setItem('qurancodex_reciter_idx', String(reciterIdx)); }, [reciterIdx]);
+  useEffect(() => { localStorage.setItem('qurancodex_karaoke_on', karaokeEnabled ? '1' : '0'); }, [karaokeEnabled]);
   useEffect(() => { localStorage.setItem('qurancodex_show_translation', JSON.stringify(showTranslation)); }, [showTranslation]);
   useEffect(() => { localStorage.setItem('qurancodex_tajweed', JSON.stringify(showTajweed)); }, [showTajweed]);
   useEffect(() => { localStorage.setItem('qurancodex_prefer_single_page', JSON.stringify(preferSinglePage)); }, [preferSinglePage]);
@@ -1637,14 +1658,68 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const autoNextRef = useRef(null);     // updated each render; called when a verse finishes
   const preloadNextRef = useRef(null);  // returns next verse URL for preloading
 
+  // Karaoke (per-surah audio) refs
+  const surahAudioRef = useRef(null);     // <audio> element streaming the whole surah
+  const karaokeRAFRef = useRef(null);     // requestAnimationFrame handle for word-highlight loop
+  const karaokeLiveRef = useRef({ verseId: null, wordIdx: null }); // tracks current values without re-renders
+  const surahVersesRef = useRef([]);      // updated each render; rAF reads live verse list
+
+  // Quran.com qdc API — per-surah audio URL + word-level timing.
+  // Returns null fields when reciter is unsupported or user has karaoke disabled.
+  const karaokeReciterId = hasKaraoke(reciterIdx) ? RECITERS[reciterIdx].quranComId : null;
+  const { timings: surahTimings, audioUrl: surahAudioUrl, error: surahTimingsError } = useWordTimings({
+    reciterId: karaokeReciterId,
+    surah: selectedSurah,
+    enabled: karaokeEnabled,
+  });
+  const karaokeActive = karaokeEnabled && hasKaraoke(reciterIdx) && !!surahTimings && !!surahAudioUrl && !surahTimingsError;
+
+  const stopKaraokeLoop = useCallback(() => {
+    if (karaokeRAFRef.current) {
+      cancelAnimationFrame(karaokeRAFRef.current);
+      karaokeRAFRef.current = null;
+    }
+    karaokeLiveRef.current = { verseId: null, wordIdx: null };
+    setKaraokeActiveWordIdx(null);
+  }, []);
+
+  // Tear down surah audio when URL changes (reciter/surah switch) — also runs on unmount.
+  useEffect(() => {
+    return () => {
+      const sa = surahAudioRef.current;
+      if (sa) { sa.pause(); sa.src = ''; surahAudioRef.current = null; }
+      if (karaokeRAFRef.current) {
+        cancelAnimationFrame(karaokeRAFRef.current);
+        karaokeRAFRef.current = null;
+      }
+    };
+  }, [surahAudioUrl]);
+
+  // Karaoke toggled off mid-play: stop surah audio + highlight loop.
+  useEffect(() => {
+    if (karaokeEnabled) return;
+    const sa = surahAudioRef.current;
+    if (sa) { sa.pause(); }
+    if (karaokeRAFRef.current) {
+      cancelAnimationFrame(karaokeRAFRef.current);
+      karaokeRAFRef.current = null;
+    }
+    setKaraokeActiveWordIdx(null);
+    setKaraokeFallbackActive(false);
+  }, [karaokeEnabled]);
+
   const stopAudio = useCallback(() => {
     const a = audioLiveRef.current;
     if (a) { a.onerror = null; a.onended = null; a.pause(); audioLiveRef.current = null; }
     const p = audioPreloadRef.current;
     if (p) { p.src = ''; audioPreloadRef.current = null; }
+    const sa = surahAudioRef.current;
+    if (sa) { sa.pause(); }
+    stopKaraokeLoop();
     setPlayingVerseId(null);
     setFailedVerseId(null);
-  }, []);
+    setKaraokeFallbackActive(false);
+  }, [stopKaraokeLoop]);
 
   const playVerseWithFallback = useCallback((verse, urlIdx, urls) => {
     if (urlIdx >= urls.length) {
@@ -1689,6 +1764,97 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       });
   }, []);
 
+  // Karaoke rAF loop: tracks currentTime against per-surah timing map, updates
+  // active verse + active word state. Single audio element streams the whole surah,
+  // so verse boundaries are detected via timestamp_from/timestamp_to.
+  const karaokeFrame = useCallback(() => {
+    const audio = surahAudioRef.current;
+    if (!audio || audio.paused) {
+      karaokeRAFRef.current = null;
+      return;
+    }
+    const tMs = audio.currentTime * 1000;
+    const timings = surahTimings;
+    const verses = surahVersesRef.current;
+    if (timings && verses.length > 0) {
+      let nextVerse = null;
+      let nextWord = null;
+      for (const v of verses) {
+        const vt = timings[`${v.surah}:${v.ayah}`];
+        if (!vt) continue;
+        if (tMs >= vt.from && tMs < vt.to) {
+          nextVerse = v;
+          for (const seg of vt.segments) {
+            if (tMs >= seg[1] && tMs < seg[2]) { nextWord = seg[0]; break; }
+          }
+          break;
+        }
+      }
+      const live = karaokeLiveRef.current;
+      if (nextVerse && nextVerse.id !== live.verseId) {
+        live.verseId = nextVerse.id;
+        setPlayingVerseId(nextVerse.id);
+        setActiveVerse(nextVerse); // page flip + center scroll existing useEffect tarafından
+      }
+      if (nextWord !== live.wordIdx) {
+        live.wordIdx = nextWord;
+        setKaraokeActiveWordIdx(nextWord);
+      }
+    }
+    karaokeRAFRef.current = requestAnimationFrame(karaokeFrame);
+  }, [surahTimings]);
+
+  const playVerseKaraoke = useCallback((verse) => {
+    const timings = surahTimings;
+    const audioUrl = surahAudioUrl;
+    if (!timings || !audioUrl) return false;
+    const vt = timings[`${verse.surah}:${verse.ayah}`];
+    if (!vt) return false;
+
+    // Lazy-create surah audio element. Reuse if URL hasn't changed (same reciter+surah).
+    let audio = surahAudioRef.current;
+    if (!audio || audio.dataset.url !== audioUrl) {
+      if (audio) { audio.pause(); audio.src = ''; }
+      audio = new Audio(audioUrl);
+      audio.preload = 'auto';
+      audio.dataset.url = audioUrl;
+      audio.onended = () => {
+        stopKaraokeLoop();
+        setPlayingVerseId(null);
+      };
+      // 'playing' her gerçekten oynatma başladığında ateşlenir (ilk start veya
+      // buffer'dan sonra resume). rAF loop'u burada bootstrap'liyoruz ki ilk
+      // play()'in hemen ardından audio.paused=true iken loop exit etmesin.
+      audio.onplaying = () => {
+        if (karaokeRAFRef.current) cancelAnimationFrame(karaokeRAFRef.current);
+        karaokeRAFRef.current = requestAnimationFrame(karaokeFrame);
+      };
+      audio.onpause = () => {
+        if (karaokeRAFRef.current) cancelAnimationFrame(karaokeRAFRef.current);
+        karaokeRAFRef.current = null;
+      };
+      surahAudioRef.current = audio;
+    }
+
+    audio.currentTime = vt.from / 1000;
+    const playPromise = audio.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(err => {
+        if (err?.name === 'AbortError') return;
+        // Surah mp3 unreachable — degrade to per-ayet flow for this play attempt.
+        setKaraokeFallbackActive(true);
+        stopKaraokeLoop();
+        const urls = buildFallbackUrlsFromReciter(RECITERS[reciterIdx].id, verse.surah, verse.ayah);
+        setPlayingVerseId(verse.id);
+        playVerseWithFallback(verse, 0, urls);
+      });
+    }
+    setKaraokeFallbackActive(false);
+    setPlayingVerseId(verse.id);
+    karaokeLiveRef.current = { verseId: verse.id, wordIdx: null };
+    return true;
+  }, [surahTimings, surahAudioUrl, reciterIdx, karaokeFrame, stopKaraokeLoop, playVerseWithFallback]);
+
   const handleAudioToggle = useCallback((verse) => {
     if (playingVerseId === verse.id) {
       stopAudio();
@@ -1696,10 +1862,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     }
     stopAudio();
     setFailedVerseId(null);
+    if (karaokeActive && playVerseKaraoke(verse)) return;
     const urls = buildFallbackUrlsFromReciter(RECITERS[reciterIdx].id, verse.surah, verse.ayah);
     setPlayingVerseId(verse.id);
     playVerseWithFallback(verse, 0, urls);
-  }, [playingVerseId, reciterIdx, stopAudio, playVerseWithFallback]);
+  }, [playingVerseId, reciterIdx, stopAudio, playVerseWithFallback, karaokeActive, playVerseKaraoke]);
 
   const changeSurah = (n) => {
     const clamped = Math.max(1, Math.min(114, n));
@@ -1943,10 +2110,23 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     if (!activeVerse) return;
     const timer = setTimeout(() => {
       const el = document.getElementById(`rm-verse-${activeVerse.id}`);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 60);
+      if (!el) return;
+      // Karaoke aktifken manuel scroll: verse'i viewport'un %30'una koy
+      // (alt play-toolbar'ı engellemesin, sonraki ayetler de okunabilir kalsın).
+      // Normal mod: hafif scrollIntoView nearest (mevcut davranış).
+      if (karaokeActive && containerRef.current) {
+        const containerEl = containerRef.current;
+        const elRect = el.getBoundingClientRect();
+        const containerRect = containerEl.getBoundingClientRect();
+        const elTopInContainer = (elRect.top - containerRect.top) + containerEl.scrollTop;
+        const targetOffset = containerEl.clientHeight * 0.30;
+        containerEl.scrollTo({ top: elTopInContainer - targetOffset, behavior: 'smooth' });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }, 80);
     return () => clearTimeout(timer);
-  }, [activeVerse, versesOnPage]);
+  }, [activeVerse, versesOnPage, karaokeActive]);
 
   const navigateToPage = (page, preserveActive = false) => {
     // In book mode: page-centric navigation across entire mushaf (0–604)
@@ -2020,6 +2200,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     return () => window.removeEventListener('keydown', h);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [surahVerses, activeVerse, handleSelectVerse, bookMode, showTranslation, isMobile, isWide, currentPage, preferSinglePage]);
+
+  // Karaoke rAF loop reads the live verse list — keep ref in sync each render
+  surahVersesRef.current = surahVerses;
 
   // Update autoNextRef on every render so onended always has fresh state
   autoNextRef.current = (currentVerseId) => {
@@ -3956,16 +4139,51 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           position: 'absolute', top: '54px', right: '16px', zIndex: 220,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: '10px',
-          width: '220px', boxShadow: dropC.shadow,
+          width: '240px', boxShadow: dropC.shadow,
           padding: '6px 0',
         }}>
           <div style={{ padding: '4px 14px 8px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
             {language === 'tr' ? 'Kari Seç' : 'Select Reciter'}
           </div>
-          {RECITERS.map((reciter, idx) => {
+          {RECITERS
+            .map((r, idx) => ({ r, idx }))
+            .sort((a, b) => {
+              // Dropdown sırası:
+              //   1) Karaoke-destekli main kâriler (özel sıra)
+              //   2) Karaoke-destekli style varyantları (Mücevved/Muallim)
+              //   3) Karaoke desteksiz kâriler
+              const orderOf = (r) => {
+                if (!r.quranComId) return 1000;
+                if (r.labelEn.includes('(')) return 200; // style variants
+                const mainOrder = [
+                  'Alafasy_128kbps',
+                  'Husary_128kbps',
+                  'Minshawy_Murattal_128kbps',
+                  'Abdul_Basit_Murattal_192kbps',
+                  'Abdurrahmaan_As-Sudais_192kbps',
+                  'Abu_Bakr_Ash-Shaatree_128kbps',
+                  'Saood_ash-Shuraym_64kbps',
+                ];
+                const idx = mainOrder.indexOf(r.id);
+                return idx === -1 ? 100 : idx;
+              };
+              return orderOf(a.r) - orderOf(b.r);
+            })
+            .map(({ r: reciter, idx }, listPos, arr) => {
             const isActive = reciterIdx === idx;
+            const supports = Boolean(reciter.quranComId);
+            // Sınır çizgisi: (a) karaoke→desteksiz geçişinde, (b) main→variant geçişinde
+            const isVariant = supports && reciter.labelEn.includes('(');
+            const prevIsMain = listPos > 0 && Boolean(arr[listPos - 1].r.quranComId) && !arr[listPos - 1].r.labelEn.includes('(');
+            const dividerMainToVariant = isVariant && prevIsMain;
+            const dividerKaraokeToNone = listPos > 0 && supports === false && Boolean(arr[listPos - 1].r.quranComId);
+            const showDivider = dividerMainToVariant || dividerKaraokeToNone;
             return (
-              <button key={reciter.id}
+              <div key={reciter.id}>
+              {showDivider && (
+                <div style={{ height: '1px', background: dropC.divider, margin: '4px 14px' }} />
+              )}
+              <button
                 onClick={() => {
                   setReciterIdx(idx);
                   setShowReciterPicker(false);
@@ -3976,16 +4194,78 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   width: '100%', padding: '8px 14px', border: 'none',
                   background: isActive ? dropC.itemBgActive : 'transparent',
                   color: isActive ? gold : dropC.text, cursor: 'pointer', fontSize: '0.82rem',
-                  transition: 'background 0.12s', textAlign: 'left',
+                  transition: 'background 0.12s', textAlign: 'left', gap: '8px',
                 }}
                 onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = dropC.itemBgHover; }}
                 onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
               >
-                <span>{language === 'tr' ? reciter.labelTr : reciter.labelEn}</span>
-                {isActive && <span style={{ fontSize: '0.7rem', color: gold }}>✓</span>}
+                <span style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
+                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {language === 'tr' ? reciter.labelTr : reciter.labelEn}
+                  </span>
+                  {supports && (
+                    <span
+                      title={language === 'tr' ? 'Kelime takibi destekli' : 'Word highlighting supported'}
+                      style={{
+                        fontSize: '0.58rem', letterSpacing: '0.06em', padding: '2px 5px',
+                        borderRadius: '3px', background: 'rgba(212,165,116,0.14)',
+                        color: gold, fontWeight: 600, flexShrink: 0,
+                      }}
+                    >♪</span>
+                  )}
+                </span>
+                {isActive && <span style={{ fontSize: '0.7rem', color: gold, flexShrink: 0 }}>✓</span>}
               </button>
+              </div>
             );
           })}
+
+          {/* Karaoke toggle */}
+          <div style={{ borderTop: `1px solid ${dropC.divider}`, margin: '6px 0 0', padding: '8px 14px' }}>
+            <button
+              type="button"
+              onClick={() => setKaraokeEnabled(v => !v)}
+              disabled={!hasKaraoke(reciterIdx)}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                width: '100%', padding: '6px 0', border: 'none', background: 'transparent',
+                color: hasKaraoke(reciterIdx) ? dropC.text : dropC.textMuted,
+                cursor: hasKaraoke(reciterIdx) ? 'pointer' : 'not-allowed',
+                fontSize: '0.78rem', textAlign: 'left',
+              }}
+              title={!hasKaraoke(reciterIdx)
+                ? (language === 'tr' ? 'Bu kari için kelime takibi yok' : 'Word highlighting not available for this reciter')
+                : undefined}
+            >
+              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '0.95rem' }}>♪</span>
+                <span>{language === 'tr' ? 'Karaoke' : 'Karaoke'}</span>
+              </span>
+              <span
+                aria-hidden
+                style={{
+                  width: '28px', height: '16px', borderRadius: '8px', position: 'relative',
+                  background: (karaokeEnabled && hasKaraoke(reciterIdx)) ? gold : 'rgba(255,255,255,0.12)',
+                  transition: 'background 0.18s', flexShrink: 0,
+                }}
+              >
+                <span style={{
+                  position: 'absolute', top: '2px',
+                  left: (karaokeEnabled && hasKaraoke(reciterIdx)) ? '14px' : '2px',
+                  width: '12px', height: '12px', borderRadius: '50%',
+                  background: '#fff', transition: 'left 0.18s',
+                }} />
+              </span>
+            </button>
+            {karaokeFallbackActive && hasKaraoke(reciterIdx) && (
+              <div style={{
+                marginTop: '6px', fontSize: '0.62rem',
+                color: dropC.textMuted, lineHeight: 1.4,
+              }}>
+                {language === 'tr' ? 'Yedek kaynak aktif — kelime takibi geçici olarak kapalı.' : 'Fallback source active — word highlighting paused.'}
+              </div>
+            )}
+          </div>
         </div>
       )}
 
@@ -5240,7 +5520,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 // oblique sans-italic for the meal column.
                                 fontFamily: "'Lora', Georgia, serif",
                                 fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
-                                lineHeight: isMobile ? 1.55 : 1.7,
+                                lineHeight: isMobile ? 1.55 : 1.75,
                                 fontStyle: mealItalic ? 'italic' : 'normal',
                                 flex: 1,
                               }}>
@@ -6136,26 +6416,104 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               </span>
                             </span>
                           );
-                          // ── Kelime modu: word-by-word hover tooltip ──────────────────
+                          // ── Kelime modu / Karaoke: word-by-word render ──────────────
                           // Our Arabic (verse.arabic) is already in clean standard encoding;
-                          // we keep it for display (same font/rendering as tajweed mode) and
-                          // use kuran.com data ONLY for tooltip content (meaning/translit/audio).
-                          // Positional pairing by word index — if counts differ, extra words
-                          // are still rendered but without tooltip data.
-                          const wordList = wordMode && wordByAyah ? wordByAyah[verse.ayah] : null;
-                          if (wordList && wordList.length > 0) {
+                          // we split on whitespace for per-word spans. Tooltip data comes from
+                          // kuran.com (wordList) when wordMode is on; corpus (Leeds) provides
+                          // the click-popover. Karaoke uses positional index (1-based) to map
+                          // to Quran.com qdc segments — counts align with corpus and ar.split.
+                          const wordList = wordByAyah ? wordByAyah[verse.ayah] : null;
+                          const isKaraokeVerse = karaokeActive && playingVerseId === verse.id;
+
+                          // ── Karaoke (kelime modu OFF): blok render + sadece aktif kelime span ──
+                          // Tüm ayet tajweed-rendered tek HTML; tag-depth-0 space sınırlarını
+                          // sayıp aktif kelimeyi (1-based karaokeActiveWordIdx) ayrı bir <span>'a
+                          // sararız. Kaligrafik akış (kerning, justification, mushaf hissi) korunur;
+                          // sadece okunan kelime altın pill ile öne çıkar.
+                          if (isKaraokeVerse && karaokeActiveWordIdx && !(wordMode && wordList && wordList.length > 0)) {
+                            const spacePositions = [];
+                            {
+                              let depth = 0;
+                              for (let _i = 0; _i < fullHtml.length; _i++) {
+                                const _ch = fullHtml[_i];
+                                if (_ch === '<') depth++;
+                                else if (_ch === '>') depth--;
+                                else if (_ch === ' ' && depth === 0) spacePositions.push(_i);
+                              }
+                            }
+                            const totalWords = spacePositions.length + 1;
+                            const M = karaokeActiveWordIdx;
+                            if (M >= 1 && M <= totalWords) {
+                              const karaokeWordStyle = {
+                                color: dayMode ? 'inherit' : '#fff0c8',
+                                background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                                boxShadow: dayMode
+                                  ? '0 0 16px rgba(184,134,11,0.55)'
+                                  : '0 0 18px rgba(240,210,143,0.45)',
+                                borderRadius: '4px',
+                                padding: '0 2px',
+                                transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                                WebkitBoxDecorationBreak: 'clone',
+                                boxDecorationBreak: 'clone',
+                              };
+                              const wordStart = M === 1 ? 0 : spacePositions[M - 2] + 1;
+                              const wordEnd = M < totalWords ? spacePositions[M - 1] : fullHtml.length;
+                              if (M === totalWords) {
+                                // Aktif kelime sondaki kelime → nowrap'in içinde, badge ile birlikte
+                                const before = fullHtml.slice(0, wordStart);
+                                const lastWord = fullHtml.slice(wordStart);
+                                return (
+                                  <>
+                                    {before && <span style={highlightStyle} dangerouslySetInnerHTML={{ __html: before }} />}
+                                    <span style={{ whiteSpace: 'nowrap' }}>
+                                      <span style={{ ...highlightStyle, ...karaokeWordStyle }} dangerouslySetInnerHTML={{ __html: lastWord }} />
+                                      {badge}
+                                    </span>
+                                  </>
+                                );
+                              }
+                              // Aktif kelime baş/orta — pre / active / post (last'tan önce) / nowrap(last + badge)
+                              const lastWordStart = spacePositions[totalWords - 2] + 1;
+                              const preActive = fullHtml.slice(0, wordStart);
+                              const active = fullHtml.slice(wordStart, wordEnd);
+                              const postActive = fullHtml.slice(wordEnd, lastWordStart);
+                              const lastWord = fullHtml.slice(lastWordStart);
+                              return (
+                                <>
+                                  {preActive && <span style={highlightStyle} dangerouslySetInnerHTML={{ __html: preActive }} />}
+                                  <span style={{ ...highlightStyle, ...karaokeWordStyle }} dangerouslySetInnerHTML={{ __html: active }} />
+                                  {postActive && <span style={highlightStyle} dangerouslySetInnerHTML={{ __html: postActive }} />}
+                                  <span style={{ whiteSpace: 'nowrap' }}>
+                                    <span style={highlightStyle} dangerouslySetInnerHTML={{ __html: lastWord }} />
+                                    {badge}
+                                  </span>
+                                </>
+                              );
+                            }
+                          }
+
+                          const renderWords = wordMode && wordList && wordList.length > 0;
+                          if (renderWords) {
                             const ourWords = ar.split(/\s+/).filter(Boolean);
                             if (ourWords.length > 0) {
                               const lastIdx = ourWords.length - 1;
-                              // Fatiha: use Corpus Quran (Leeds) data for richer popover on click.
                               const corpusWordsForVerse = corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null;
                               return (
                                 <>
                                   {ourWords.map((arabicWord, i) => {
-                                    const wordMeta = wordList[i] || null;
+                                    const wordMeta = wordList?.[i] || null;
                                     const corpusWord = corpusWordsForVerse?.[i] || null;
                                     const hoverable = !!wordMeta;
                                     const isLast = i === lastIdx;
+                                    const isActiveWord = isKaraokeVerse && karaokeActiveWordIdx === (i + 1);
+                                    const karaokeStyle = isKaraokeVerse && isActiveWord ? {
+                                      color: dayMode ? 'inherit' : '#fff0c8',
+                                      background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                                      boxShadow: dayMode
+                                        ? '0 0 16px rgba(184,134,11,0.55)'
+                                        : '0 0 18px rgba(240,210,143,0.45)',
+                                      borderRadius: '4px',
+                                    } : {};
                                     const wordSpan = (
                                       <span
                                         key={i}
@@ -6179,10 +6537,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                         }}
                                         style={{
                                           ...highlightStyle,
-                                          cursor: hoverable ? 'pointer' : 'inherit',
+                                          cursor: hoverable || corpusWord ? 'pointer' : 'inherit',
                                           borderRadius: '4px',
                                           padding: '0 1px',
-                                          transition: 'background 0.15s',
+                                          transition: 'background 0.15s, opacity 120ms, color 120ms, text-shadow 120ms',
+                                          ...karaokeStyle,
                                         }}
                                         onMouseOver={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
                                         onMouseOut={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; } : undefined}
@@ -6984,10 +7343,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // for book-mode-identical rendering: same font, same
                         // Allah highlight, same waqf marks, same tajweed coloring.
                         const corpusWords = wordMode ? (corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null) : null;
+                        const isKaraokeVerse = karaokeActive && playingVerseId === verse.id;
                         if (corpusWords) {
                           return (
                             <span>
-                              {corpusWords.map((w, i) => (
+                              {corpusWords.map((w, i) => {
+                                const isActiveWord = isKaraokeVerse && karaokeActiveWordIdx === w.idx;
+                                return (
                                 <span key={i}>
                                   <span
                                     onClick={(e) => { e.stopPropagation(); setHoveredWord(null); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
@@ -7003,20 +7365,76 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       e.currentTarget.style.background = 'transparent';
                                       setHoveredWord(null);
                                     }}
-                                    style={{ cursor: 'pointer', padding: '1px 3px', borderRadius: '4px', transition: 'background 0.12s' }}
+                                    style={{
+                                      cursor: 'pointer',
+                                      padding: '1px 3px',
+                                      borderRadius: '4px',
+                                      transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                                      ...(isKaraokeVerse && isActiveWord ? {
+                                        color: dayMode ? 'inherit' : '#fff0c8',
+                                        background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                                        boxShadow: dayMode
+                                          ? '0 0 16px rgba(184,134,11,0.55)'
+                                          : '0 0 18px rgba(240,210,143,0.45)',
+                                      } : {}),
+                                    }}
                                   >
                                     {cleanArabic(w.ar)}
                                   </span>
                                   {i < corpusWords.length - 1 ? ' ' : ''}
                                 </span>
-                              ))}
+                                );
+                              })}
                             </span>
                           );
                         }
                         const ar = isFatiha1 ? cleanArabic(verse.arabic).replace(/\u064E\u0670/g, '\u0670').replace(/\u0670\u064E/g, '\u0670') : cleanArabic(verse.arabic);
-                        return showTajweed
-                          ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(ar, dayMode, false, isFatiha1) }} />
-                          : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(ar, dayMode, false, isFatiha1) }} />;
+                        const fullHtml = showTajweed
+                          ? applyTajweed(ar, dayMode, false, isFatiha1)
+                          : wrapWaqfOnly(ar, dayMode, false, isFatiha1);
+                        // Karaoke (wordMode kapalı): blok render + sadece aktif kelime span.
+                        // Tajweed/kerning/justification korunur; aktif kelime altın pill ile öne çıkar.
+                        if (isKaraokeVerse && karaokeActiveWordIdx) {
+                          const spacePositions = [];
+                          {
+                            let depth = 0;
+                            for (let _i = 0; _i < fullHtml.length; _i++) {
+                              const _ch = fullHtml[_i];
+                              if (_ch === '<') depth++;
+                              else if (_ch === '>') depth--;
+                              else if (_ch === ' ' && depth === 0) spacePositions.push(_i);
+                            }
+                          }
+                          const totalWords = spacePositions.length + 1;
+                          const M = karaokeActiveWordIdx;
+                          if (M >= 1 && M <= totalWords) {
+                            const wordStart = M === 1 ? 0 : spacePositions[M - 2] + 1;
+                            const wordEnd = M < totalWords ? spacePositions[M - 1] : fullHtml.length;
+                            const karaokeWordStyle = {
+                              color: dayMode ? 'inherit' : '#fff0c8',
+                              background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                              boxShadow: dayMode
+                                ? '0 0 16px rgba(184,134,11,0.55)'
+                                : '0 0 18px rgba(240,210,143,0.45)',
+                              borderRadius: '4px',
+                              padding: '0 2px',
+                              transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                              WebkitBoxDecorationBreak: 'clone',
+                              boxDecorationBreak: 'clone',
+                            };
+                            const preActive = fullHtml.slice(0, wordStart);
+                            const active = fullHtml.slice(wordStart, wordEnd);
+                            const postActive = fullHtml.slice(wordEnd);
+                            return (
+                              <>
+                                {preActive && <span dangerouslySetInnerHTML={{ __html: preActive }} />}
+                                <span style={karaokeWordStyle} dangerouslySetInnerHTML={{ __html: active }} />
+                                {postActive && <span dangerouslySetInnerHTML={{ __html: postActive }} />}
+                              </>
+                            );
+                          }
+                        }
+                        return <span dangerouslySetInnerHTML={{ __html: fullHtml }} />;
                       })()}
                     </div>
                   )}
@@ -7077,7 +7495,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           margin: 0, color: isActive ? C.translationActive : C.translation,
                           fontFamily: "'Lora', Georgia, serif",
                           fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
-                          lineHeight: isMobile ? 1.55 : 1.8,
+                          lineHeight: isMobile ? 1.55 : 1.75,
                           fontStyle: mealItalic ? 'italic' : 'normal',
                         }}>
                           <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
@@ -7137,10 +7555,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // for book-mode-identical rendering: same font, same
                         // Allah highlight, same waqf marks, same tajweed coloring.
                         const corpusWords = wordMode ? (corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null) : null;
+                        const isKaraokeVerse = karaokeActive && playingVerseId === verse.id;
                         if (corpusWords) {
                           return (
                             <span>
-                              {corpusWords.map((w, i) => (
+                              {corpusWords.map((w, i) => {
+                                const isActiveWord = isKaraokeVerse && karaokeActiveWordIdx === w.idx;
+                                return (
                                 <span key={i}>
                                   <span
                                     onClick={(e) => { e.stopPropagation(); setHoveredWord(null); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
@@ -7156,20 +7577,76 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       e.currentTarget.style.background = 'transparent';
                                       setHoveredWord(null);
                                     }}
-                                    style={{ cursor: 'pointer', padding: '1px 3px', borderRadius: '4px', transition: 'background 0.12s' }}
+                                    style={{
+                                      cursor: 'pointer',
+                                      padding: '1px 3px',
+                                      borderRadius: '4px',
+                                      transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                                      ...(isKaraokeVerse && isActiveWord ? {
+                                        color: dayMode ? 'inherit' : '#fff0c8',
+                                        background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                                        boxShadow: dayMode
+                                          ? '0 0 16px rgba(184,134,11,0.55)'
+                                          : '0 0 18px rgba(240,210,143,0.45)',
+                                      } : {}),
+                                    }}
                                   >
                                     {cleanArabic(w.ar)}
                                   </span>
                                   {i < corpusWords.length - 1 ? ' ' : ''}
                                 </span>
-                              ))}
+                                );
+                              })}
                             </span>
                           );
                         }
                         const ar = isFatiha1 ? cleanArabic(verse.arabic).replace(/\u064E\u0670/g, '\u0670').replace(/\u0670\u064E/g, '\u0670') : cleanArabic(verse.arabic);
-                        return showTajweed
-                          ? <span dangerouslySetInnerHTML={{ __html: applyTajweed(ar, dayMode, false, isFatiha1) }} />
-                          : <span dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(ar, dayMode, false, isFatiha1) }} />;
+                        const fullHtml = showTajweed
+                          ? applyTajweed(ar, dayMode, false, isFatiha1)
+                          : wrapWaqfOnly(ar, dayMode, false, isFatiha1);
+                        // Karaoke (wordMode kapalı): blok render + sadece aktif kelime span.
+                        // Tajweed/kerning/justification korunur; aktif kelime altın pill ile öne çıkar.
+                        if (isKaraokeVerse && karaokeActiveWordIdx) {
+                          const spacePositions = [];
+                          {
+                            let depth = 0;
+                            for (let _i = 0; _i < fullHtml.length; _i++) {
+                              const _ch = fullHtml[_i];
+                              if (_ch === '<') depth++;
+                              else if (_ch === '>') depth--;
+                              else if (_ch === ' ' && depth === 0) spacePositions.push(_i);
+                            }
+                          }
+                          const totalWords = spacePositions.length + 1;
+                          const M = karaokeActiveWordIdx;
+                          if (M >= 1 && M <= totalWords) {
+                            const wordStart = M === 1 ? 0 : spacePositions[M - 2] + 1;
+                            const wordEnd = M < totalWords ? spacePositions[M - 1] : fullHtml.length;
+                            const karaokeWordStyle = {
+                              color: dayMode ? 'inherit' : '#fff0c8',
+                              background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                              boxShadow: dayMode
+                                ? '0 0 16px rgba(184,134,11,0.55)'
+                                : '0 0 18px rgba(240,210,143,0.45)',
+                              borderRadius: '4px',
+                              padding: '0 2px',
+                              transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                              WebkitBoxDecorationBreak: 'clone',
+                              boxDecorationBreak: 'clone',
+                            };
+                            const preActive = fullHtml.slice(0, wordStart);
+                            const active = fullHtml.slice(wordStart, wordEnd);
+                            const postActive = fullHtml.slice(wordEnd);
+                            return (
+                              <>
+                                {preActive && <span dangerouslySetInnerHTML={{ __html: preActive }} />}
+                                <span style={karaokeWordStyle} dangerouslySetInnerHTML={{ __html: active }} />
+                                {postActive && <span dangerouslySetInnerHTML={{ __html: postActive }} />}
+                              </>
+                            );
+                          }
+                        }
+                        return <span dangerouslySetInnerHTML={{ __html: fullHtml }} />;
                       })()}
                       {isSajda && (
                         <span style={{
