@@ -3,6 +3,23 @@ import { COLORS, FONTS } from '../tokens';
 
 const QURAN_CDN = 'https://audio.qurancdn.com/';
 
+// CLAUDE.md §13.15 — KFGQPC + ShaykhHamdullah fontları yalnızca standart Arabic
+// Unicode ile düzgün çalışır. Uthmani-özel karakterleri normalize et ki tooltip
+// büyük puntoda tofu/circle göstermesin (örn. الْعَالَم۪ينَ'deki U+06EA).
+function cleanArabicForTooltip(s) {
+  if (!s) return s;
+  return s
+    .replace(/۪/g, 'ِ')   // Uthmani subscript kasra → standart kasra
+    .replace(/ۡ/g, 'ْ')   // Uthmani sukun → standart sukun
+    .replace(/ٱ/g, 'ا')   // Alef wasla → düz alef
+    .replace(/ی/g, 'ي')   // Farsi yeh → Arabic yeh
+    .replace(/[ؐ-ؔؖؗ]/g, '')  // Islamic phrase abbreviations
+    .replace(/[؀-؅]/g, '')              // Quranic number marks
+    .replace(/[۝۞۩]/g, '')          // Ayet sonu, rub el hizb, sajda
+    .replace(/[ۖ-ۜ۟۠ۢ-ۤۧۨ۫-ۭ]/g, '')
+    .replace(/[@#_]/g, '');         // Leeds corpus artifacts
+}
+
 // Floating tooltip shown near a word. Positions itself to avoid viewport edges.
 // audio: plays a per-word mp3 from quran.com CDN (same source kuran.com points to).
 export default function WordTooltip({ word, anchorRect, onClose, language, dayMode }) {
@@ -131,7 +148,7 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
           marginBottom: '6px',
         }}
       >
-        {word.arabic}
+        {cleanArabicForTooltip(word.arabic)}
       </div>
       {/* Transliteration */}
       {word.translit && (

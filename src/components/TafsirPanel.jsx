@@ -1,28 +1,34 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { COLORS, FONTS } from '../tokens';
 
-// Simple per-component cache: keyed by `${surahNumber}-${language}`
+// Simple per-component cache: keyed by `${surahNumber}-${sourceId}`
 const _cache = new Map();
 
-// Tafsir source registry — adds new sources here when we expand.
-// Each language gets ONE primary source for now. When the project grows
-// we can add per-language multi-source switchers (dropdown).
+// Tafsir source registry — independent of UI language. User can mix
+// (e.g. read Elmalılı while UI is in English, or Ibn Kathir while UI is
+// in Turkish), just like meal/translation author selection. Default for
+// first-time users is chosen by current UI language but can be overridden.
 const TAFSIR_SOURCES = {
-  tr: {
+  elmalili: {
     id: 'elmalili',
     name: 'Elmalılı Hamdi Yazır',
+    shortName: 'Elmalılı',
     fullName: 'Hak Dini Kur\'an Dili',
+    lang: 'tr',
     path: (surah) => `/tafsir/elmalili/${surah}.json`,
-    format: 'flat-prose', // { text, verseAnchors, ... }
+    format: 'flat-prose',
   },
-  en: {
-    id: 'ibnkathir-en',
+  ibnkathir_en: {
+    id: 'ibnkathir_en',
     name: 'Ibn Kathir',
+    shortName: 'Ibn Kathir',
     fullName: 'Tafsir Ibn Kathir (Abridged)',
+    lang: 'en',
     path: (surah) => `/tafsir/ibnkathir-en/${surah}.json`,
-    format: 'verse-html', // { verses: { ayahNum: htmlString } }
+    format: 'verse-html',
   },
 };
+const TAFSIR_ORDER = ['elmalili', 'ibnkathir_en'];
 
 // Hafs canonical verse counts (Diyanet standard). Used to reject "over-max"
 // anchors — tafsir-internal numbered lists (e.g. Felak has "1-, 2-, ... 12-"
@@ -131,14 +137,30 @@ function renderInline(text, palette) {
 }
 
 export default function TafsirPanel({ open, onClose, surah, ayah, language, dayMode, isMobile }) {
-  const source = TAFSIR_SOURCES[language] || TAFSIR_SOURCES.tr;
-  const cacheKey = `${surah}-${language}`;
+  // selectedTafsirId is independent of UI language. First-time users get a
+  // language-appropriate default; afterwards their explicit choice persists
+  // via localStorage. Switching UI language does NOT change tafsir source.
+  const [selectedTafsirId, setSelectedTafsirId] = useState(() => {
+    try {
+      const saved = localStorage.getItem('qurancodex_tafsir_source');
+      if (saved && TAFSIR_SOURCES[saved]) return saved;
+    } catch (e) { /* localStorage might be blocked */ }
+    return language === 'en' ? 'ibnkathir_en' : 'elmalili';
+  });
+  const source = TAFSIR_SOURCES[selectedTafsirId] || TAFSIR_SOURCES.elmalili;
+  const cacheKey = `${surah}-${selectedTafsirId}`;
   const [data,    setData]    = useState(_cache.get(cacheKey) || null);
   const [loading, setLoading] = useState(false);
   const [error,   setError]   = useState(null);
+  const [pickerOpen, setPickerOpen] = useState(false);
   const scrollRef = useRef(null);
 
-  // Fetch surah tefsir JSON when open, surah, or language changes
+  // Persist tafsir choice
+  useEffect(() => {
+    try { localStorage.setItem('qurancodex_tafsir_source', selectedTafsirId); } catch (e) { /* noop */ }
+  }, [selectedTafsirId]);
+
+  // Fetch surah tafsir JSON when open, surah, or source changes
   useEffect(() => {
     if (!open || !surah) return;
     if (_cache.has(cacheKey)) { setData(_cache.get(cacheKey)); setError(null); return; }
@@ -147,7 +169,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
       .then(r => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)))
       .then(d => { _cache.set(cacheKey, d); setData(d); setLoading(false); })
       .catch(err => { setError(err); setLoading(false); });
-  }, [open, surah, language]);  // eslint-disable-line react-hooks/exhaustive-deps
+  }, [open, surah, selectedTafsirId]);  // eslint-disable-line react-hooks/exhaustive-deps
 
   // FLAT PROSE MODE — anchor-based ayet chunking devre dışı.
   // Elmalılı scrape verisindeki `verseAnchors` çoğunlukla yanlış: scraper
@@ -173,9 +195,24 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
     if (source.format === 'verse-html') {
       const verses = data.verses || {};
       const keys = Object.keys(verses).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+      // Pre-process HTML: Ibn Kathir's source embeds Quranic Arabic quotes in
+      // plain <p> tags (not <div class="arabic">), so pure-CSS styling can't
+      // distinguish them. Walk every <p>...</p> and if it's dominated by
+      // Arabic Unicode characters (U+0600–U+06FF), tag it with class
+      // "arabic-quote" so the scoped <style> block can render it in gold.
+      const ARABIC_RANGE = /[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]/g;
+      const tagArabicParagraphs = (html) =>
+        html.replace(/<p>([^<]*?)<\/p>/g, (full, inner) => {
+          const arabicChars = (inner.match(ARABIC_RANGE) || []).length;
+          const totalChars = inner.replace(/\s/g, '').length;
+          if (totalChars > 0 && arabicChars / totalChars > 0.5) {
+            return `<p class="arabic-quote">${inner}</p>`;
+          }
+          return full;
+        });
       return keys.map(ayahNum => ({
         ayahNum,
-        html: verses[ayahNum],
+        html: tagArabicParagraphs(verses[ayahNum]),
       })).filter(p => p.html);
     }
     return [];
@@ -204,8 +241,11 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
     activeBg:  'rgba(212,165,116,0.10)',
     refBg:     'rgba(212,165,116,0.16)',
     refBorder: 'rgba(180,140,80,0.30)',
-    refColor:  '#6e5310',
-    quoteColor:'#6e5310',
+    // Day-mode quotes were #6e5310 — too close to body text #1f1908,
+    // so quoted phrases blurred into prose. Bumped to a saturated amber
+    // that mirrors night-mode #e2bf85's distinctness against its body.
+    refColor:  '#8a4a10',
+    quoteColor:'#a8581a',
   } : {
     bg:        COLORS.cosmicBlack,
     bgRaised:  'rgba(20,22,40,0.5)',
@@ -296,9 +336,86 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
             textTransform: 'uppercase', fontWeight: 600, marginBottom: '4px',
             fontFamily: FONTS.body,
           }}>
-            {language === 'tr' ? 'Tefsir' : 'Tafsir'}
+            <span>{language === 'tr' ? 'Tefsir' : 'Tafsir'}</span>
             <span style={{ opacity: 0.5, margin: '0 6px' }}>·</span>
-            <span style={{ color: C.gold }}>Elmalılı</span>
+            {/* Source picker — click to switch active tafsir */}
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <button
+                onClick={() => setPickerOpen(p => !p)}
+                title={language === 'tr' ? 'Tefsir kaynağını değiştir' : 'Change tafsir source'}
+                aria-label={language === 'tr' ? 'Tefsir kaynağını seç' : 'Select tafsir source'}
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '6px',
+                  background: dayMode ? 'rgba(154,111,16,0.08)' : 'rgba(212,165,116,0.08)',
+                  border: `1px solid ${dayMode ? 'rgba(154,111,16,0.28)' : 'rgba(212,165,116,0.24)'}`,
+                  color: C.gold, fontFamily: 'inherit', fontSize: 'inherit',
+                  fontWeight: 'inherit', letterSpacing: 'inherit',
+                  textTransform: 'uppercase', padding: '3px 10px',
+                  cursor: 'pointer', borderRadius: '999px',
+                  transition: 'background 0.15s, border-color 0.15s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.18)' : 'rgba(212,165,116,0.18)';
+                  e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.50)' : 'rgba(212,165,116,0.48)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.08)' : 'rgba(212,165,116,0.08)';
+                  e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.28)' : 'rgba(212,165,116,0.24)';
+                }}
+              >
+                <span>{source.shortName}</span>
+                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style={{ marginLeft: '2px', transform: pickerOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s' }}>
+                  <path d="M2.5 4l3.5 4 3.5-4" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              {pickerOpen && (
+                <div style={{
+                  position: 'absolute', top: 'calc(100% + 6px)', left: 0,
+                  minWidth: '240px', zIndex: 10,
+                  background: dayMode ? 'rgba(250,246,237,0.99)' : 'rgba(15,17,30,0.99)',
+                  border: `1px solid ${C.border}`,
+                  borderRadius: '10px',
+                  boxShadow: dayMode ? '0 8px 32px rgba(80,50,20,0.20)' : '0 8px 32px rgba(0,0,0,0.65)',
+                  padding: '6px',
+                  textTransform: 'none', letterSpacing: 'normal',
+                }}>
+                  {TAFSIR_ORDER.map(id => {
+                    const s = TAFSIR_SOURCES[id];
+                    const active = id === selectedTafsirId;
+                    return (
+                      <button
+                        key={id}
+                        onClick={() => { setSelectedTafsirId(id); setPickerOpen(false); }}
+                        style={{
+                          display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
+                          gap: '2px', width: '100%', padding: '8px 12px',
+                          background: active ? (dayMode ? 'rgba(154,111,16,0.12)' : 'rgba(212,165,116,0.10)') : 'transparent',
+                          border: 'none', borderRadius: '6px',
+                          textAlign: 'left', cursor: 'pointer',
+                          color: C.text,
+                          fontFamily: FONTS.body,
+                        }}
+                        onMouseEnter={e => { if (!active) e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(255,255,255,0.04)'; }}
+                        onMouseLeave={e => { if (!active) e.currentTarget.style.background = 'transparent'; }}
+                      >
+                        <span style={{
+                          fontSize: '0.82rem', fontWeight: 700,
+                          color: active ? C.gold : C.text,
+                        }}>
+                          {s.name}
+                          <span style={{ marginLeft: '8px', fontSize: '0.6rem', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>
+                            {s.lang.toUpperCase()}
+                          </span>
+                        </span>
+                        <span style={{ fontSize: '0.7rem', color: C.muted }}>
+                          {s.fullName}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </span>
           </div>
           <div style={{
             fontSize: '1.05rem', color: C.text, fontWeight: 700,
@@ -346,8 +463,11 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
           flex: 1, overflowY: 'auto',
           padding: '0 20px 48px',
           color: C.text,
-          fontFamily: FONTS.body,
-          fontSize: '0.94rem',
+          // Lora — same screen-optimized serif used by the meal column,
+          // so the reader's eye stays in a consistent long-form reading
+          // mode whether they're reading translation or tafsir.
+          fontFamily: "'Lora', Georgia, serif",
+          fontSize: '1.12rem',
           lineHeight: 1.78,
           letterSpacing: '0.005em',
         }}
@@ -406,7 +526,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
               return (
                 <p key={pi} style={{
                   margin: '0 0 16px',
-                  fontSize: isFirst ? '0.96rem' : '0.93rem',
+                  fontSize: isFirst ? '1.15rem' : '1.11rem',
                   color: isFirst ? C.text : C.textSoft,
                   lineHeight: 1.78,
                   textAlign: 'justify',
@@ -476,15 +596,27 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
                 hyphens: auto; word-break: break-word;
               }
               .tafsir-en-day .arabic, .tafsir-en-night .arabic,
-              .tafsir-en-day div.uthmani, .tafsir-en-night div.uthmani {
+              .tafsir-en-day div.uthmani, .tafsir-en-night div.uthmani,
+              .tafsir-en-day p.arabic-quote, .tafsir-en-night p.arabic-quote {
+                /* CLAUDE.md §13.2 / §13.15: tek geçerli Kur'an fontu zinciri.
+                   Arapça noktalama build-time normalize edildi (Latin karşılığı). */
                 font-family: 'KFGQPC','Amiri Quran',serif;
                 direction: rtl; text-align: right;
-                font-size: 1.4rem; line-height: 2.2;
-                margin: 12px 0; padding: 8px 12px;
-                color: ${C.text};
-                background: ${dayMode ? 'rgba(212,165,116,0.05)' : 'rgba(212,165,116,0.04)'};
-                border-right: 3px solid ${C.gold}55;
-                border-radius: 4px 0 0 4px;
+                font-size: 1.75rem; line-height: 2.3;
+                margin: 14px 0; padding: 4px 0;
+                color: ${C.gold};
+                background: transparent;
+                border: none;
+                font-style: normal;
+              }
+              /* English translation block immediately after an Arabic block —
+                 stays in normal text color; only italicized to signal it's
+                 a translation of the preceding Arabic. No border, no gold
+                 tint — keeps the page calm and reading-friendly. */
+              .tafsir-en-day div.uthmani + p, .tafsir-en-night div.uthmani + p,
+              .tafsir-en-day div.arabic + p, .tafsir-en-night div.arabic + p,
+              .tafsir-en-day p.arabic-quote + p, .tafsir-en-night p.arabic-quote + p {
+                font-style: italic;
               }
               .tafsir-en-day strong, .tafsir-en-night strong { color: ${C.text}; }
               .tafsir-en-day em, .tafsir-en-night em { color: ${C.goldSoft}; font-style: italic; }
@@ -521,7 +653,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
                     {language === 'tr' ? 'Ayet' : 'Verse'} {label}
                   </div>
                   <div
-                    style={{ fontSize: '0.93rem', color: C.text }}
+                    style={{ fontSize: '1.11rem', color: C.text }}
                     dangerouslySetInnerHTML={{ __html: entry.html }}
                   />
                 </div>
