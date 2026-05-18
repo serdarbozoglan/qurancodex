@@ -280,12 +280,17 @@ const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">نِ</span></span>`;
 
-// NOT: Maddah curve (U+0653) tek başına kırmızı yapılamadı — browser'lar combining
-// mark'ı önceki harfle aynı glyph cluster olarak render ediyor; ayrı renk vermek için
-// span ile bölmek Arapça letter shaping'i kırıyor (örn. عَلَىٰٓ → ع ل ayrılması).
-// CSS spesifikasyonu düzeyinde combining mark'a bağımsız renk vermek desteklenmiyor.
-// Tajweed-on modunda K.med (mor) kuralı zaten med için renk veriyor; tajweed-off
-// modunda maddah curve şu an altın renkte kalır (orijinal davranış).
+// NOT: Maddah curve (U+0653) tek başına kırmızı yapılamadı (Fatiha 1:7 testi
+// yeniden doğruladı):
+//   - display:inline → renk uygulanmaz (browser combining cluster'da parent
+//     color kullanır)
+//   - display:inline-block → renk uygulanır AMA combining mark önceki harfle
+//     bağını kaybeder; pozisyon harfin üstünden kayıp inline akışa girer
+// CSS spesifikasyonu düzeyinde combining mark'a hem bağımsız renk hem doğru
+// pozisyon vermek desteklenmiyor. Tek çözüm SVG overlay (her madda pozisyonunu
+// hesaplayıp absolute pozisyonda render) — performans/karmaşıklık sebebiyle
+// yapılmadı. Tajweed-on modunda K.med (mor) kuralı zaten med için renk
+// veriyor; tajweed-off modunda maddah curve şu an default text renginde kalır.
 
 function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = false) {
   if (!text) return '';
