@@ -44,7 +44,7 @@ function cleanArabic(str) {
     // chain'inde glif eksikliği yüzünden '@' tofu olarak render oluyor
     // (örn. Âl-i İmrân 3:4 'al-Furqānộ'). CLAUDE.md §13.15 strip listesi gereği temizleniyor.
     // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9) da strip.
-    .replace(/[\u06DC\u06DD\u06DE\u06E9]/g, '')
+    .replace(/[\u06DD\u06DE\u06E9]/g, '')
     // Leeds Quranic Arabic Corpus encoding artifacts — literal ASCII
     // markers (@, #, _) embedded in word strings for morphological
     // boundaries / sajda hints. They have no Arabic typography meaning;
@@ -109,7 +109,7 @@ function cleanArabic(str) {
     // U+06EB (EMPTY CENTRE HIGH STOP) = med işareti (örn. Secde 32:18 "يَسْتَوُ۫نَ") — korunur
     // U+06E8 (ARABIC SMALL HIGH NOON / nūn al-wiqāyah) — tenvin + hamzatu'l-wasl birleşmesinde
     // koruyucu nûn'u gösterir (örn. Hac 22:11 فِتْنَةٌۨ ٱنْقَلَبَ). KFGQPC bunu destekler — korunur.
-    .replace(/[\u06E0\u06E2-\u06E4\u06E7\u06ED]/g, '')
+    .replace(/[\u06E0\u06E3\u06E4\u06E7\u06ED]/g, '')
     // Ornate parentheses
     .replace(/[\uFD3E\uFD3F]/g, '');
 }
@@ -156,7 +156,26 @@ const makeWaqfSpan = (dayMode) => (m) =>
 // strip listesinden çıkarıldı ama kırmızı renklendirme denenmedi — combining mark olduğu
 // için span sarma konumunu bozuyor, text-shadow da çalışmıyor. Doğal konumunda, metnin
 // varsayılan renginde gösteriliyor.
-const UTHMANI_MARKS_RE = /[\u06D6-\u06DA\u06DC\u06DF\u0615]\u06DB?/gu;
+const UTHMANI_MARKS_RE = /[\u06D6-\u06DA\u06DF\u06E2\u0615]\u06DB?/gu;
+
+// U+06DC (ARABIC SMALL HIGH SEEN) — King Fahd / acikkuran.com encoding'inde
+// vakıf-mutlak (ط) pozisyonlarını işaretler. Fontlar Unicode standardına göre
+// "seen" şeklinde render eder ama Diyanet konvansiyonu burada KÜÇÜK ط gösterir.
+//
+// Çözüm: regular ط karakterini zero-width inline-block içinde render et:
+//   - width:0 + overflow:visible → akışı kaydırmaz (ج glyph'in sıfır
+//     advance-width'ini taklit eder)
+//   - dir="ltr" → overflow yönü tersine; ط görsel olarak SAĞA (RTL parent'da
+//     önceki kelimenin üstüne, ج işaretleri gibi) taşar. dir="rtl" olsaydı
+//     sonraki kelimeye taşardı (yanlış pozisyon)
+//   - line-height:0 → satır yüksekliğine etkisi yok
+//   - font-size:0.45em + top:-1.7em → ج işaretleriyle aynı görsel yükseklik
+const WAQF_TA_RE = /ۜ/gu;
+const makeWaqfTaSpan = (dayMode) => () =>
+  `<span dir="ltr" style="display:inline-block;width:0;line-height:0;overflow:visible;` +
+  `font-size:0.45em;position:relative;top:-1.7em;transform:translateX(-0.3em);` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
+  `pointer-events:none;user-select:none;white-space:nowrap;">ط</span>`;
 
 
 // U+06D4 (ARABIC FULL STOP) — Quran encoding'inde sekta (silent stop) işareti
@@ -271,6 +290,7 @@ const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
 function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  html = html.replace(WAQF_TA_RE, makeWaqfTaSpan(dayMode));
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(SEKTA_RE, makeSektaWrap(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
@@ -287,6 +307,7 @@ function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
   if (!text) return '';
   let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+  html = html.replace(WAQF_TA_RE, makeWaqfTaSpan(dayMode));
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(SEKTA_RE, makeSektaWrap(dayMode));
   html = html.replace(KASR_RE, makeKasrWrap(dayMode));
@@ -4749,10 +4770,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // 3-layer divider handles the visual separation from the
                   // Arabic column. Old hairline borderRight removed to avoid
                   // doubling with the new gold-seam divider.
-                  paddingLeft: showPageFrame && !isMobile ? '18px' : '0',
-                  paddingRight: showPageFrame && !isMobile ? '18px' : '0',
+                  paddingLeft: showPageFrame ? (isMobile ? '12px' : '18px') : '0',
+                  paddingRight: showPageFrame ? (isMobile ? '12px' : '18px') : '0',
                   borderRight: 'none',
-                  borderTop: isMobile ? `1px solid ${dayMode ? 'rgba(100,60,10,0.15)' : 'rgba(212,165,116,0.15)'}` : 'none',
+                  // On mobile, the meal panel previously had only a top hairline.
+                  // C-option: replace with a subtle full silver/brown 1px frame
+                  // (no gold) — visually balanced with Arabic but semantically
+                  // distinct (mushaf frame = gold; translation = muted neutral).
+                  borderTop: 'none',
                   // Reserve space for the absolute-positioned inline meal picker
                   // (translator label + chevron). When the page starts with a
                   // surah header, the header's own paddingTop already provides
@@ -4761,19 +4786,25 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   paddingTop: (versesOnPage[0]?.ayah === 1)
                     ? (isMobile ? '12px' : (showPageFrame ? '18px' : '0'))
                     : (isMobile ? '52px' : '48px'),
-                  paddingBottom: showPageFrame && !isMobile ? '18px' : '0',
+                  paddingBottom: showPageFrame ? (isMobile ? '12px' : '18px') : '0',
                   marginTop: isMobile ? '12px' : '0',
                   display: 'flex', flexDirection: 'column', gap: '0',
                   // Relative parent so the absolute-positioned translator attribution
                   // floats above the column without pushing the surah header down —
                   // keeps the meal-side surah header aligned with the Arabic side.
                   position: 'relative',
-                  // Double-line classical frame, same as the Arabic columns.
-                  boxShadow: showPageFrame && !isMobile
-                    ? `inset 0 0 0 1px ${dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)'}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)'}`
+                  // Frame strategy:
+                  //   Desktop → gold double-line classical frame (mushaf-equivalent)
+                  //   Mobile → subtle 1px silver/brown frame (option C):
+                  //     visually balanced with Arabic mushaf frame but semantically
+                  //     muted — gold = Quran page, silver = translation overlay.
+                  boxShadow: showPageFrame
+                    ? (isMobile
+                        ? `inset 0 0 0 1px ${dayMode ? 'rgba(122,82,21,0.22)' : 'rgba(200,185,165,0.22)'}`
+                        : `inset 0 0 0 1px ${dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)'}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)'}`)
                     : 'none',
                   background: C.bg,
-                  borderRadius: showPageFrame && !isMobile ? '6px' : 0,
+                  borderRadius: showPageFrame ? '6px' : 0,
                 }}>
                   {/* Attribution — floating + interactive. Click opens an inline meal
                       picker so the translator can be switched with one click. Same
