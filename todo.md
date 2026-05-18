@@ -2,7 +2,9 @@
 _Son güncelleme: 2026-03-31_
 
 ---
-
+--
+Yeni konu:
+Kur'an ile diger kutsal kitalarin ortusutugu ayristigi yerler
 ## ✅ Tamamlananlar
 
 ### Temel Altyapı
