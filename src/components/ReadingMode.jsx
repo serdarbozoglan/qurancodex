@@ -734,6 +734,32 @@ const SURAH_NAMES_TR = [
   'El-Nasr','Tebbet','El-İhlâs','El-Felak','El-Nâs',
 ];
 
+// English surah names (academic transliteration with diacritics).
+// Used for the meal-column header when selected meal is in English so the
+// surah card matches what the reader is actually reading.
+const SURAH_NAMES_EN = [
+  'Al-Fātiḥa','Al-Baqara','Āl ʿImrān','An-Nisāʾ','Al-Māʾida',
+  'Al-Anʿām','Al-Aʿrāf','Al-Anfāl','At-Tawba','Yūnus',
+  'Hūd','Yūsuf','Ar-Raʿd','Ibrāhīm','Al-Ḥijr','An-Naḥl',
+  'Al-Isrāʾ','Al-Kahf','Maryam','Ṭā-Hā','Al-Anbiyāʾ','Al-Ḥajj',
+  'Al-Muʾminūn','An-Nūr','Al-Furqān','Ash-Shuʿarāʾ','An-Naml',
+  'Al-Qaṣaṣ','Al-ʿAnkabūt','Ar-Rūm','Luqmān','As-Sajda','Al-Aḥzāb',
+  'Sabaʾ','Fāṭir','Yā-Sīn','Aṣ-Ṣāffāt','Ṣād','Az-Zumar','Ghāfir',
+  'Fuṣṣilat','Ash-Shūrā','Az-Zukhruf','Ad-Dukhān','Al-Jāthiya','Al-Aḥqāf',
+  'Muḥammad','Al-Fatḥ','Al-Ḥujurāt','Qāf','Adh-Dhāriyāt','Aṭ-Ṭūr',
+  'An-Najm','Al-Qamar','Ar-Raḥmān','Al-Wāqiʿa','Al-Ḥadīd','Al-Mujādila',
+  'Al-Ḥashr','Al-Mumtaḥana','Aṣ-Ṣaff','Al-Jumuʿa','Al-Munāfiqūn',
+  'At-Taghābun','Aṭ-Ṭalāq','At-Taḥrīm','Al-Mulk','Al-Qalam','Al-Ḥāqqa',
+  'Al-Maʿārij','Nūḥ','Al-Jinn','Al-Muzzammil','Al-Muddaththir','Al-Qiyāma',
+  'Al-Insān','Al-Mursalāt','An-Nabaʾ','An-Nāziʿāt','ʿAbasa','At-Takwīr',
+  'Al-Infiṭār','Al-Muṭaffifīn','Al-Inshiqāq','Al-Burūj','Aṭ-Ṭāriq','Al-Aʿlā',
+  'Al-Ghāshiya','Al-Fajr','Al-Balad','Ash-Shams','Al-Layl','Aḍ-Ḍuḥā',
+  'Ash-Sharḥ','At-Tīn','Al-ʿAlaq','Al-Qadr','Al-Bayyina','Az-Zalzala',
+  'Al-ʿĀdiyāt','Al-Qāriʿa','At-Takāthur','Al-ʿAṣr','Al-Humaza','Al-Fīl',
+  'Quraysh','Al-Māʿūn','Al-Kawthar','Al-Kāfirūn','An-Naṣr','Al-Masad',
+  'Al-Ikhlāṣ','Al-Falaq','An-Nās',
+];
+
 // Arabic surah names (standard Uthmani spelling)
 const SURAH_NAMES_AR = [
   'الفَاتِحَة','البَقَرَة','آل عِمْرَان','النِّسَاء','المَائِدَة','الأَنْعَام','الأَعْرَاف','الأَنْفَال','التَّوْبَة','يُونُس',
@@ -1115,6 +1141,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     try { return localStorage.getItem('qurancodex_meal_id') || 'local'; }
     catch { return 'local'; }
   });
+  // İçerik dili — meal'in dilinden türetilir. UI dilinden bağımsız:
+  // Türk kullanıcı menüleri Türkçe tutarken İngilizce meal seçerse sure kartı,
+  // bismillah çevirisi gibi içerik etiketleri İngilizce olur.
+  const contentLang = useMemo(() => {
+    return MEAL_AUTHORS.find(a => a.id === selectedMealId)?.lang || language;
+  }, [selectedMealId, language]);
   const [showMealPicker, setShowMealPicker] = useState(false);
   // Inline meal picker — opens from the meal-column "Suat Yıldırım" label.
   // Lets the user change translator with a single click without opening AYAR.
@@ -5261,15 +5293,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     return items.map(item => {
                       if (item.type === 'surahHeader') {
                         const trName = SURAH_NAMES_TR[item.surah - 1] || '';
+                        const enName = SURAH_NAMES_EN[item.surah - 1] || '';
                         const ayahCount = SURAH_AYAH_COUNTS[item.surah - 1] || 0;
                         const rukuCount = SURAH_RUKU_COUNTS[item.surah - 1] || 0;
                         const nuzulRank = SURAH_NUZUL_ORDER[item.surah - 1] || 0;
                         const isMadani = MADANI_SURAHS.has(item.surah);
-                        const periodLabel = language === 'tr'
+                        // İçerik etiketleri meal diline bağlı — UI dilinden bağımsız.
+                        const periodLabel = contentLang === 'tr'
                           ? (isMadani ? 'Medenî' : 'Mekkî')
                           : (isMadani ? 'Madani' : 'Makki');
-                        const displayName = trName.replace(/^El-/i, '')
-                          .toLocaleUpperCase(language === 'tr' ? 'tr-TR' : 'en-US');
+                        const nameForHero = contentLang === 'en' ? enName : trName;
+                        const displayName = nameForHero.replace(/^(Al-|Aṣ-|Aḍ-|Aẓ-|Aṭ-|At-|An-|Adh-|Az-|Ar-|As-|Ash-|Aw-|El-)/i, '')
+                          .toLocaleUpperCase(contentLang === 'tr' ? 'tr-TR' : 'en-US');
                         // Meal-column header — mirrors the Arabic side's vertical rhythm so
                         // verses line up. Latin/UI-language content here gives readers the
                         // navigational metadata while the Arabic side stays mushaf-pure.
@@ -5299,7 +5334,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 fontWeight: 600,
                                 marginBottom: isMobile ? '14px' : '20px',
                               }}>
-                                {language === 'tr' ? `Sûre ${item.surah}` : `Surah ${item.surah}`}
+                                {contentLang === 'tr' ? `Sûre ${item.surah}` : `Surah ${item.surah}`}
                               </div>
 
                               {/* Hero name — Playfair display, gold */}
@@ -5323,7 +5358,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 fontStyle: 'italic',
                                 marginBottom: isMobile ? '14px' : '20px',
                               }}>
-                                {language === 'tr' ? `${trName} Sûresi` : `Sūrah ${trName}`}
+                                {contentLang === 'tr' ? `${trName} Sûresi` : `Sūrah ${enName}`}
                               </div>
 
                               {/* Meta — chronological → spatial → structural:
@@ -5339,7 +5374,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 opacity: 0.92,
                                 lineHeight: 1.5,
                               }}>
-                                {language === 'tr' ? `Nüzul ${nuzulRank}` : `Revelation ${nuzulRank}`} · {periodLabel} · {ayahCount} {language === 'tr' ? 'ayet' : 'verses'} · {rukuCount} {language === 'tr' ? 'rukû' : 'rukūʿ'}
+                                {contentLang === 'tr' ? `Nüzul ${nuzulRank}` : `Revelation ${nuzulRank}`} · {periodLabel} · {ayahCount} {contentLang === 'tr' ? 'ayet' : 'verses'} · {rukuCount} {contentLang === 'tr' ? 'rukû' : 'rukūʿ'}
                               </div>
                             </div>
 
@@ -5358,7 +5393,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               const isActiveFV = isFatihaHeaderTr && activeVerse?.id === fv?.id;
                               const text = isFatihaHeaderTr
                                 ? fatihaTrText
-                                : (language === 'tr' ? 'Rahmân ve Rahîm olan Allah\'ın adıyla' : 'In the name of Allah, the Most Gracious, the Most Merciful');
+                                : (contentLang === 'tr' ? 'Rahmân ve Rahîm olan Allah\'ın adıyla' : 'In the name of Allah, the Most Gracious, the Most Merciful');
                               return (
                                 <div
                                   id={isFatihaHeaderTr ? `rm-meal-${fv.id}` : undefined}
@@ -5777,7 +5812,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   marginBottom: isMobile ? '10px' : '14px',
                                   direction: 'ltr',
                                 }}>
-                                  {language === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {SURAH_NAMES_TR[item.surah - 1]}
+                                  {contentLang === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {contentLang === 'en' ? SURAH_NAMES_EN[item.surah - 1] : SURAH_NAMES_TR[item.surah - 1]}
                                 </div>
                               )}
                               <div style={{
@@ -6871,7 +6906,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         letterSpacing: '0.12em', textTransform: 'uppercase',
                         lineHeight: 1.5, opacity: 0.85,
                       }}>
-                        {language === 'tr'
+                        {contentLang === 'tr'
                           ? `NÜZUL ${nuzulRank} · ${periodTr.toUpperCase()} · ${ayahCount} AYET · ${rukuCount} RUKÛ`
                           : `REVELATION ${nuzulRank} · ${periodEn.toUpperCase()} · ${ayahCount} VERSES · ${rukuCount} RUKŪʿ`}
                       </div>
@@ -6888,7 +6923,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         lineHeight: 1.6,
                         padding: '0 12px',
                       }}>
-                        {language === 'tr' ? bismillahTr : bismillahEn}
+                        {contentLang === 'tr' ? bismillahTr : bismillahEn}
                       </div>
                     )}
                   </div>
@@ -7251,7 +7286,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       letterSpacing: '0.12em', textTransform: 'uppercase',
                       lineHeight: 1.5, opacity: 0.85,
                     }}>
-                      {language === 'tr'
+                      {contentLang === 'tr'
                         ? `NÜZUL ${nuzulRank} · ${periodTr.toUpperCase()} · ${ayahCount} AYET · ${rukuCount} RUKÛ`
                         : `REVELATION ${nuzulRank} · ${periodEn.toUpperCase()} · ${ayahCount} VERSES · ${rukuCount} RUKŪʿ`}
                     </div>
@@ -7268,7 +7303,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       lineHeight: 1.6,
                       padding: '0 12px',
                     }}>
-                      {language === 'tr' ? bismillahTr : bismillahEn}
+                      {contentLang === 'tr' ? bismillahTr : bismillahEn}
                     </div>
                   )}
                 </div>
