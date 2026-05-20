@@ -4073,9 +4073,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onClick={() => {
                     setSelectedMealId(author.id);
                     if (!showTranslation) setShowTranslation(true);
-                    // Sync UI language to the meal's language so the navbar, surah
-                    // header, and metadata follow what the user is actually reading.
-                    if (author.lang && author.lang !== language) setLanguage(author.lang);
+                    // UI dili meal seçiminden bağımsızdır — kullanıcı sadece dil
+                    // butonuyla değiştirir. Türk kullanıcı İngilizce meal seçse de
+                    // menüler Türkçe kalır.
                   }}
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -4106,7 +4106,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onClick={() => {
                     setSelectedMealId(author.id);
                     if (!showTranslation) setShowTranslation(true);
-                    if (author.lang && author.lang !== language) setLanguage(author.lang);
+                    // UI dili meal seçiminden bağımsızdır (sadece dil butonu değiştirir)
                   }}
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -5184,7 +5184,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 onClick={() => {
                                   setSelectedMealId(author.id);
                                   if (!showTranslation) setShowTranslation(true);
-                                  if (author.lang && author.lang !== language) setLanguage(author.lang);
+                                  // UI dili meal seçiminden bağımsızdır (sadece dil butonu değiştirir)
                                   setShowInlineMealPicker(false);
                                 }}
                                 style={{
@@ -5215,7 +5215,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 onClick={() => {
                                   setSelectedMealId(author.id);
                                   if (!showTranslation) setShowTranslation(true);
-                                  if (author.lang && author.lang !== language) setLanguage(author.lang);
+                                  // UI dili meal seçiminden bağımsızdır (sadece dil butonu değiştirir)
                                   setShowInlineMealPicker(false);
                                 }}
                                 style={{
@@ -6713,7 +6713,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 onClick={() => {
                                   setSelectedMealId(author.id);
                                   if (!showTranslation) setShowTranslation(true);
-                                  if (author.lang && author.lang !== language) setLanguage(author.lang);
+                                  // UI dili meal seçiminden bağımsızdır (sadece dil butonu değiştirir)
                                   setShowInlineMealPicker(false);
                                 }}
                                 style={{
@@ -7071,7 +7071,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             onClick={() => {
                               setSelectedMealId(author.id);
                               if (!showTranslation) setShowTranslation(true);
-                              if (author.lang && author.lang !== language) setLanguage(author.lang);
+                              // UI dili meal seçiminden bağımsızdır (sadece dil butonu değiştirir)
                               setShowInlineMealPicker(false);
                             }}
                             style={{
@@ -7101,7 +7101,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             onClick={() => {
                               setSelectedMealId(author.id);
                               if (!showTranslation) setShowTranslation(true);
-                              if (author.lang && author.lang !== language) setLanguage(author.lang);
+                              // UI dili meal seçiminden bağımsızdır (sadece dil butonu değiştirir)
                               setShowInlineMealPicker(false);
                             }}
                             style={{
