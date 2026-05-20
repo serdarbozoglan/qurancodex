@@ -734,30 +734,29 @@ const SURAH_NAMES_TR = [
   'El-Nasr','Tebbet','El-İhlâs','El-Felak','El-Nâs',
 ];
 
-// English surah names (academic transliteration with diacritics).
-// Used for the meal-column header when selected meal is in English so the
-// surah card matches what the reader is actually reading.
+// English surah names — sade transliterasyon (akademik diacritics olmadan).
+// Wikipedia ve Sahih International standardı; günlük İngilizce okuyucu için.
 const SURAH_NAMES_EN = [
-  'Al-Fātiḥa','Al-Baqara','Āl ʿImrān','An-Nisāʾ','Al-Māʾida',
-  'Al-Anʿām','Al-Aʿrāf','Al-Anfāl','At-Tawba','Yūnus',
-  'Hūd','Yūsuf','Ar-Raʿd','Ibrāhīm','Al-Ḥijr','An-Naḥl',
-  'Al-Isrāʾ','Al-Kahf','Maryam','Ṭā-Hā','Al-Anbiyāʾ','Al-Ḥajj',
-  'Al-Muʾminūn','An-Nūr','Al-Furqān','Ash-Shuʿarāʾ','An-Naml',
-  'Al-Qaṣaṣ','Al-ʿAnkabūt','Ar-Rūm','Luqmān','As-Sajda','Al-Aḥzāb',
-  'Sabaʾ','Fāṭir','Yā-Sīn','Aṣ-Ṣāffāt','Ṣād','Az-Zumar','Ghāfir',
-  'Fuṣṣilat','Ash-Shūrā','Az-Zukhruf','Ad-Dukhān','Al-Jāthiya','Al-Aḥqāf',
-  'Muḥammad','Al-Fatḥ','Al-Ḥujurāt','Qāf','Adh-Dhāriyāt','Aṭ-Ṭūr',
-  'An-Najm','Al-Qamar','Ar-Raḥmān','Al-Wāqiʿa','Al-Ḥadīd','Al-Mujādila',
-  'Al-Ḥashr','Al-Mumtaḥana','Aṣ-Ṣaff','Al-Jumuʿa','Al-Munāfiqūn',
-  'At-Taghābun','Aṭ-Ṭalāq','At-Taḥrīm','Al-Mulk','Al-Qalam','Al-Ḥāqqa',
-  'Al-Maʿārij','Nūḥ','Al-Jinn','Al-Muzzammil','Al-Muddaththir','Al-Qiyāma',
-  'Al-Insān','Al-Mursalāt','An-Nabaʾ','An-Nāziʿāt','ʿAbasa','At-Takwīr',
-  'Al-Infiṭār','Al-Muṭaffifīn','Al-Inshiqāq','Al-Burūj','Aṭ-Ṭāriq','Al-Aʿlā',
-  'Al-Ghāshiya','Al-Fajr','Al-Balad','Ash-Shams','Al-Layl','Aḍ-Ḍuḥā',
-  'Ash-Sharḥ','At-Tīn','Al-ʿAlaq','Al-Qadr','Al-Bayyina','Az-Zalzala',
-  'Al-ʿĀdiyāt','Al-Qāriʿa','At-Takāthur','Al-ʿAṣr','Al-Humaza','Al-Fīl',
-  'Quraysh','Al-Māʿūn','Al-Kawthar','Al-Kāfirūn','An-Naṣr','Al-Masad',
-  'Al-Ikhlāṣ','Al-Falaq','An-Nās',
+  'Al-Fatihah','Al-Baqarah','Aal-Imran','An-Nisa','Al-Maidah',
+  'Al-Anam','Al-Araf','Al-Anfal','At-Tawbah','Yunus',
+  'Hud','Yusuf','Ar-Rad','Ibrahim','Al-Hijr','An-Nahl',
+  'Al-Isra','Al-Kahf','Maryam','Ta-Ha','Al-Anbiya','Al-Hajj',
+  'Al-Muminun','An-Nur','Al-Furqan','Ash-Shuara','An-Naml',
+  'Al-Qasas','Al-Ankabut','Ar-Rum','Luqman','As-Sajdah','Al-Ahzab',
+  'Saba','Fatir','Ya-Sin','As-Saffat','Sad','Az-Zumar','Ghafir',
+  'Fussilat','Ash-Shura','Az-Zukhruf','Ad-Dukhan','Al-Jathiyah','Al-Ahqaf',
+  'Muhammad','Al-Fath','Al-Hujurat','Qaf','Adh-Dhariyat','At-Tur',
+  'An-Najm','Al-Qamar','Ar-Rahman','Al-Waqiah','Al-Hadid','Al-Mujadilah',
+  'Al-Hashr','Al-Mumtahanah','As-Saff','Al-Jumuah','Al-Munafiqun',
+  'At-Taghabun','At-Talaq','At-Tahrim','Al-Mulk','Al-Qalam','Al-Haqqah',
+  'Al-Maarij','Nuh','Al-Jinn','Al-Muzzammil','Al-Muddaththir','Al-Qiyamah',
+  'Al-Insan','Al-Mursalat','An-Naba','An-Naziat','Abasa','At-Takwir',
+  'Al-Infitar','Al-Mutaffifin','Al-Inshiqaq','Al-Buruj','At-Tariq','Al-Ala',
+  'Al-Ghashiyah','Al-Fajr','Al-Balad','Ash-Shams','Al-Layl','Ad-Duha',
+  'Ash-Sharh','At-Tin','Al-Alaq','Al-Qadr','Al-Bayyinah','Az-Zalzalah',
+  'Al-Adiyat','Al-Qariah','At-Takathur','Al-Asr','Al-Humazah','Al-Fil',
+  'Quraysh','Al-Maun','Al-Kawthar','Al-Kafirun','An-Nasr','Al-Masad',
+  'Al-Ikhlas','Al-Falaq','An-Nas',
 ];
 
 // Arabic surah names (standard Uthmani spelling)
@@ -5309,7 +5308,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // verses line up. Latin/UI-language content here gives readers the
                         // navigational metadata while the Arabic side stays mushaf-pure.
                         return (
-                          <div key={`tr-sh-${item.surah}`} style={{ display: 'block' }}>
+                          <div key={`tr-sh-${item.surah}`} lang={contentLang} style={{ display: 'block' }}>
                             <div style={{ textAlign: 'center', paddingTop: isMobile ? '48px' : '60px', marginBottom: isMobile ? '22px' : '30px' }}>
                               {/* Vertical gold rule — same anchor as Arabic side */}
                               <div style={{
@@ -6859,8 +6858,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   </div>
                 );
 
+                const enName = SURAH_NAMES_EN[sn - 1] || '';
+                const nameForHero = contentLang === 'en' ? enName : trName;
+                const heroDisplay = nameForHero.replace(/^(Al-|Aṣ-|Aḍ-|Aẓ-|Aṭ-|At-|An-|Adh-|Az-|Ar-|As-|Ash-|Aw-|El-)/i, '');
                 const trBlock = (
-                  <div>
+                  <div lang={contentLang}>
                     <div style={{ textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
                       <div style={{
                         width: '1.5px', height: isMobile ? '28px' : '36px',
@@ -6875,7 +6877,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         letterSpacing: '0.14em', textTransform: 'uppercase',
                         marginBottom: isMobile ? '10px' : '14px',
                       }}>
-                        {language === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
+                        {contentLang === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
                       </div>
                       <div style={{
                         fontFamily: "'Playfair Display', serif",
@@ -6886,7 +6888,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         marginBottom: isMobile ? '8px' : '12px',
                         textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}20`,
                       }}>
-                        {trName}
+                        {heroDisplay}
                       </div>
                       <div style={{
                         fontFamily: "'Playfair Display', serif",
@@ -6897,7 +6899,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         marginBottom: isMobile ? '14px' : '20px',
                         opacity: 0.85,
                       }}>
-                        {language === 'tr' ? `${trName} Sûresi` : `Surah ${trName}`}
+                        {contentLang === 'tr' ? `${trName} Sûresi` : `Surah ${enName}`}
                       </div>
                       <div style={{
                         fontFamily: "'Inter', sans-serif",
@@ -7238,8 +7240,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </div>
               );
 
+              const enName = SURAH_NAMES_EN[sn - 1] || '';
+              const nameForHero = contentLang === 'en' ? enName : trName;
+              const heroDisplay = nameForHero.replace(/^(Al-|Aṣ-|Aḍ-|Aẓ-|Aṭ-|At-|An-|Adh-|Az-|Ar-|As-|Ash-|Aw-|El-)/i, '');
               const trBlock = (
-                <div>
+                <div lang={contentLang}>
                   <div style={{ textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
                     <div style={{
                       width: '1.5px',
@@ -7255,7 +7260,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       letterSpacing: '0.14em', textTransform: 'uppercase',
                       marginBottom: isMobile ? '10px' : '14px',
                     }}>
-                      {language === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
+                      {contentLang === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
                     </div>
                     <div style={{
                       fontFamily: "'Playfair Display', serif",
@@ -7266,7 +7271,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       marginBottom: isMobile ? '8px' : '12px',
                       textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}20`,
                     }}>
-                      {trName}
+                      {heroDisplay}
                     </div>
                     <div style={{
                       fontFamily: "'Playfair Display', serif",
@@ -7277,7 +7282,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       marginBottom: isMobile ? '14px' : '20px',
                       opacity: 0.85,
                     }}>
-                      {language === 'tr' ? `${trName} Sûresi` : `Surah ${trName}`}
+                      {contentLang === 'tr' ? `${trName} Sûresi` : `Surah ${enName}`}
                     </div>
                     <div style={{
                       fontFamily: "'Inter', sans-serif",
