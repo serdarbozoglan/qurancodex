@@ -258,7 +258,6 @@ const FILTERS = [
 
 const KISSA_IDS = new Set(['cebrail', 'harut-marut', 'melek-ul-mevt', 'muakkibat', 'on-dokuz-bekci']);
 
-/* eslint-disable react-hooks/refs -- angel.keyVerse.ref, angel.alternateNames[].ref, angel.infoTr are data props, not React refs */
 function AngelCard({ angel, language, isMobile: _isMobile }) {
   const tr = language === 'tr';
   const cat = CAT[angel.category] || CAT.gizemlI;

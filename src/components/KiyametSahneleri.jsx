@@ -242,7 +242,6 @@ function VerseBlock({ ar, tr, en, verseRef, language, color }) {
   );
 }
 
-/* eslint-disable react-hooks/refs -- scene.additionalRefs/primaryRef are data props, not React refs */
 function PhaseScene({ scene, language, defaultOpen }) {
   const [open, setOpen] = useState(defaultOpen);
   const pc = PHASE_COLORS[scene.phase] || PHASE_COLORS[1];

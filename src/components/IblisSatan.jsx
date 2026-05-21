@@ -21,6 +21,7 @@ function normalizeAr(s) {
     .replace(/\u06EA/g, '\u0650')                                  // asar → kasra
     .replace(/[\u06D6-\u06DC]/g, '')                              // small high marks (waqf etc.)
     .replace(/[\u06DD\u06DE]/g, '')                                // end-of-ayah, rub el hizb
+    // eslint-disable-next-line no-misleading-character-class -- Arabic combining marks intentionally stripped via escape sequence; see CLAUDE.md section 13.15.
     .replace(/[\u06E0\u06E2-\u06E4\u06E7-\u06E9\u06EB-\u06ED]/g, '') // misc Uthmani marks
     .replace(/\u0671/g, '\u0627')                                  // alef wasla → alef
     .replace(/\u06CC/g, '\u064A');                                 // farsi yeh → arabic yeh

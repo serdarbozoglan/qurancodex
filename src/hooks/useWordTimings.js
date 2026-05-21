@@ -90,19 +90,23 @@ function writeLocal(reciterId, surah, data) {
  * `reciterId` is the Quran.com qdc reciter id (e.g. 7 for Alafasy). When null/undefined,
  * the hook does nothing.
  */
+const EMPTY = Object.freeze({ timings: null, audioUrl: null, loading: false, error: null });
+
 export default function useWordTimings({ reciterId, surah, enabled }) {
-  const [state, setState] = useState({ timings: null, audioUrl: null, loading: false, error: null });
+  const [state, setState] = useState(EMPTY);
   const abortRef = useRef(null);
 
   useEffect(() => {
     if (!enabled || !reciterId || !surah) {
-      setState({ timings: null, audioUrl: null, loading: false, error: null });
+      abortRef.current?.abort();
+      abortRef.current = null;
       return;
     }
 
     const key = `${reciterId}:${surah}`;
     const mem = memCache.get(key);
     if (mem) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- cache-hit fast path; avoids redundant fetch.
       setState({ timings: mem.verses, audioUrl: mem.audioUrl, loading: false, error: null });
       return;
     }
@@ -135,5 +139,9 @@ export default function useWordTimings({ reciterId, surah, enabled }) {
     return () => ctrl.abort();
   }, [reciterId, surah, enabled]);
 
+  // Derived: when the hook is disabled, always surface the empty state without
+  // setStating from the effect (avoids cascading renders flagged by
+  // react-hooks/set-state-in-effect).
+  if (!enabled || !reciterId || !surah) return EMPTY;
   return state;
 }

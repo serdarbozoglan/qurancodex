@@ -128,6 +128,7 @@ export function useAudioWithFallback(surah, ayah) {
       if (ctx.current.audio !== audio) return;
       audio.onerror = null;
       audio.onended = null;
+      // eslint-disable-next-line react-hooks/immutability -- recursive callback; tryUrl is stable (useCallback with empty deps) and fully defined by the time onerror fires async.
       tryUrl(urlIdx + 1);
     };
 

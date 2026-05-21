@@ -41,6 +41,7 @@ function normalizeAr(s) {
     .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')                  // CLAUDE.md §13.14 — Maddah render fix
     .replace(/[\u06D6-\u06DC]/g, '')                              // small high marks (waqf etc.)
     .replace(/[\u06DD\u06DE]/g, '')                                // end-of-ayah, rub el hizb
+    // eslint-disable-next-line no-misleading-character-class -- Arabic combining marks intentionally stripped via escape sequence; see CLAUDE.md section 13.15.
     .replace(/[\u06E0\u06E2-\u06E4\u06E7-\u06E9\u06EB-\u06ED]/g, '') // misc Uthmani marks
     .replace(/\u0671/g, '\u0627')                                  // alef wasla → alef
     .replace(/\u06CC/g, '\u064A');                                 // farsi yeh → arabic yeh
@@ -80,7 +81,8 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < BREAKPOINT_MOBILE);
   const bodyRef = useRef(null);
 
-  // When category filter changes, clear theme filter (avoid stale state)
+  // When category filter changes, clear theme filter (avoid stale state).
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- reset child state when parent filter changes; firing once per filter change is the intent.
   useEffect(() => { setThemeFilter(null); }, [filter]);
 
   // Browser back-button integration: when theme is active, register a back-handler

@@ -292,7 +292,6 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
               <div style={{ flex: 1, height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.goldAlpha25}, transparent)` }} />
             </div>
             {(() => {
-              const f = FILTERS.find(x => x.id === activeFilter);
               const isFiltered = activeFilter !== 'all' || searchValue.trim().length >= 2;
               return (
                 <p style={{

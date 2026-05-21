@@ -64,9 +64,9 @@ function normalizeTafsirText(str) {
   if (!str) return '';
   return str
     .replace(/\r\n/g, '\n')
-    .replace(/\n{2,}/g, '')  // paragraf işaretini yer tutucuya kaydet
+    .replace(/\n{2,}/g, '\uFFFC')  // paragraf işaretini yer tutucuya kaydet (U+FFFC Object Replacement Character — tafsirde geçmeyen güvenli placeholder)
     .replace(/\n/g, ' ')            // kalan tek satır sonları = cümle içi kırılma
-    .replace(//g, '\n\n')     // paragrafları geri getir
+    .replace(/\uFFFC/g, '\n\n')     // paragrafları geri getir
     .replace(/[ \t]{2,}/g, ' ')     // fazla iç boşluk
     .replace(/ *\n */g, '\n');      // satır başı/sonu boşlukları
 }
@@ -136,7 +136,7 @@ function renderInline(text, palette) {
   return parts.length ? parts : text;
 }
 
-export default function TafsirPanel({ open, onClose, surah, ayah, language, dayMode, isMobile }) {
+export default function TafsirPanel({ open, onClose, surah, language, dayMode, isMobile }) {
   // selectedTafsirId is independent of UI language. First-time users get a
   // language-appropriate default; afterwards their explicit choice persists
   // via localStorage. Switching UI language does NOT change tafsir source.
@@ -144,7 +144,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
     try {
       const saved = localStorage.getItem('qurancodex_tafsir_source');
       if (saved && TAFSIR_SOURCES[saved]) return saved;
-    } catch (e) { /* localStorage might be blocked */ }
+    } catch { /* localStorage might be blocked */ }
     return language === 'en' ? 'ibnkathir_en' : 'elmalili';
   });
   const source = TAFSIR_SOURCES[selectedTafsirId] || TAFSIR_SOURCES.elmalili;
@@ -157,12 +157,13 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
 
   // Persist tafsir choice
   useEffect(() => {
-    try { localStorage.setItem('qurancodex_tafsir_source', selectedTafsirId); } catch (e) { /* noop */ }
+    try { localStorage.setItem('qurancodex_tafsir_source', selectedTafsirId); } catch { /* noop */ }
   }, [selectedTafsirId]);
 
   // Fetch surah tafsir JSON when open, surah, or source changes
   useEffect(() => {
     if (!open || !surah) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- cache-hit fast path; without this we would issue a redundant fetch.
     if (_cache.has(cacheKey)) { setData(_cache.get(cacheKey)); setError(null); return; }
     setLoading(true); setError(null);
     fetch(source.path(surah))
@@ -200,7 +201,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
       // distinguish them. Walk every <p>...</p> and if it's dominated by
       // Arabic Unicode characters (U+0600–U+06FF), tag it with class
       // "arabic-quote" so the scoped <style> block can render it in gold.
-      const ARABIC_RANGE = /[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]/g;
+      const ARABIC_RANGE = /[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]/g;
       const tagArabicParagraphs = (html) =>
         html.replace(/<p>([^<]*?)<\/p>/g, (full, inner) => {
           const arabicChars = (inner.match(ARABIC_RANGE) || []).length;
