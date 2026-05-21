@@ -48,3 +48,8 @@ __pycache__/
 
 # Work-in-progress experimental components — not in repo until ready
 src/components/MihverDemo*.jsx
+
+# Next.js migration workspace — build artifacts only (source committed)
+next/.next/
+next/out/
+next/.vercel/
