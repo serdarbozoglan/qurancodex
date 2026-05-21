@@ -34,7 +34,19 @@
       "WebFetch(domain:whitecloudpress.com)",
       "WebFetch(domain:en.wikipedia.org)",
       "WebFetch(domain:www.whitecloudpress.com)",
-      "WebFetch(domain:www.google.com)"
+      "WebFetch(domain:www.google.com)",
+      "WebFetch(domain:style.quran.ac.ir)",
+      "WebFetch(domain:brill.com)",
+      "WebFetch(domain:qurandev.github.io)",
+      "WebFetch(domain:islamansiklopedisi.org.tr)",
+      "WebFetch(domain:quran.com)",
+      "WebFetch(domain:www.taylorfrancis.com)",
+      "WebFetch(domain:www.routledge.com)",
+      "WebFetch(domain:api.alquran.cloud)",
+      "WebFetch(domain:archive.org)",
+      "WebFetch(domain:shamela.ws)",
+      "WebFetch(domain:api.quran.com)",
+      "WebFetch(domain:api.qurancdn.com)"
     ]
   }
 }
