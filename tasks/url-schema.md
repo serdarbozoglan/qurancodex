@@ -146,17 +146,17 @@ Next.js'in **parallel + intercepting routes** ile modal pattern:
 
 ---
 
-## Açık Sorular (User onayı bekleyen)
+## Kararlar (User onayı: 2026-05-21)
 
-- [ ] **Sure slug:** Sadece numeric `/oku/2` mi, yoksa Latin slug `/oku/bakara` da destekleyecek mi (redirect ile)? **Öneri: numeric canonical + latin redirect**
-- [ ] **Ayet-level URL:** `/oku/2/255` statik SSG mi yoksa ISR mi? **Öneri: ISR, popüler ayetler whitelist**
-- [ ] **Atlas index sayfaları:** `/atlas/kissa` standalone listing mi yoksa direkt `/atlas/kissa/yusuf` (default kıssa) mi? **Öneri: standalone listing — kullanıcı seçimi yapar**
-- [ ] **Locale routing:** Cookie + URL prefix mı sadece URL prefix mi? **Öneri: sadece URL prefix (`/tr/`, `/en/`); root `/` → middleware ile locale detect → redirect**
-- [ ] **Mihver demo route:** Production'da gizli mi (`/_mihver`) yoksa açık mı (`/mihver`)? **Öneri: gizli prefix; sadece `?mihver=1` query param ile keşfedilir**
-- [ ] **Search route:** `/tr/ara` standalone mı yoksa modal-only mı (her sayfadan Cmd+K)? **Öneri: standalone route + intercepting modal**
+- [x] **Sure slug:** Numeric canonical (`/oku/2`) + Latin slug 301 redirect (`/oku/bakara` → `/oku/2`). En kısa URL + Latin SEO bonusu.
+- [x] **Ayet-level URL:** ISR (`generateStaticParams` minimum whitelist + on-demand revalidate). Popüler ayetler (Ayet'el-Kürsi 2:255, İhlas 112:1-4, Nas, Felak, Fâtiha 1:1-7, vs.) pre-build whitelist; geri kalan 6200+ ayet on-demand.
+- [x] **Atlas index sayfaları:** Standalone listing — `/atlas/kissa` tüm kıssaları gösterir, kullanıcı seçimini yapar. Direkt default kıssaya redirect SEO için zayıf (her ziyaretçi aynı sayfaya inerse "thin content" sinyali).
+- [x] **Locale routing:** Sadece URL prefix (`/tr/...`, `/en/...`); root `/` → middleware ile `Accept-Language` header'dan tespit → redirect. Cookie kullanılmaz (canonical URL'ler tek dilli kalır, Google indeks temiz).
+- [x] **Mihver demo route:** Gizli prefix `/_mihver` veya production-disabled. `?mihver=1` query param tetikleyici kalır (mevcut pattern). Production sitemap'a girmez, robots.txt'de disallow.
+- [x] **Search route:** Standalone `/tr/ara` + intercepting modal hybrid. Hard navigation (paylaşım, deep-link) tam sayfa, soft navigation (Cmd+K) modal. Next.js parallel + intercepting routes pattern'ı.
 
 ---
 
 ## Sonraki Adım
 
-User onayı sonrası **Faz 1** başlar: `next/` klasörü kurulumu, Tailwind v4 port, shared modules taşıma. Bu URL şeması Faz 4 için referans olur — her tool migrate edilirken hedef route bu listede.
+**Faz 1** başlıyor: `next/` klasörü kurulumu, Tailwind v4 port, shared modules taşıma. Bu URL şeması Faz 4 için referans olur — her tool migrate edilirken hedef route bu listede.
