@@ -1,0 +1,179 @@
+{
+  "surah": 112,
+  "name": "Al-Ikhlas",
+  "nameAr": "الإخلاص",
+  "nameTr": "İhlâs",
+  "source": {
+    "name": "Quranic Arabic Corpus",
+    "author": "Kais Dukes",
+    "institution": "Leeds University",
+    "url": "https://corpus.quran.com",
+    "license": "GPL — atıfla / with attribution",
+    "fetchedAt": "2026-05-04",
+    "turkish": {
+      "name": "Diyanet İşleri Başkanlığı (kelime meal)",
+      "via": "QuranWBW.com (resource #77)",
+      "url": "https://quranwbw.com"
+    }
+  },
+  "verses": {
+    "1": [
+      {
+        "idx": 1,
+        "ar": "قُلْ",
+        "pos": "V",
+        "root": "ق-و-ل",
+        "lemma": "قَالَ",
+        "features": "imperative 2nd person masculine singular verb",
+        "featuresTr": "emir muhâtab müzekker müfred fiil",
+        "tr": "de ki"
+      },
+      {
+        "idx": 2,
+        "ar": "هُوَ",
+        "pos": "PRON",
+        "root": null,
+        "lemma": null,
+        "features": "3rd person masculine singular pronoun",
+        "featuresTr": "gâib müzekker müfred zamir",
+        "tr": "O"
+      },
+      {
+        "idx": 3,
+        "ar": "ٱللَّهُ",
+        "pos": "PN",
+        "root": "ا-ل-ه",
+        "lemma": "ٱللَّه",
+        "features": "nominative proper noun",
+        "featuresTr": "merfu özel isim",
+        "tr": "Allah"
+      },
+      {
+        "idx": 4,
+        "ar": "أَحَدٌ",
+        "pos": "N",
+        "root": "ا-ح-د",
+        "lemma": "أَحَد",
+        "features": "masculine indefinite nominative noun",
+        "featuresTr": "müzekker nekira merfu isim",
+        "tr": "birdir"
+      }
+    ],
+    "2": [
+      {
+        "idx": 1,
+        "ar": "ٱللَّهُ",
+        "pos": "PN",
+        "root": "ا-ل-ه",
+        "lemma": "ٱللَّه",
+        "features": "nominative proper noun",
+        "featuresTr": "merfu özel isim",
+        "tr": "Allah"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلصَّمَدُ",
+        "pos": "N",
+        "root": "ص-م-د",
+        "lemma": "صَّمَد",
+        "features": "masculine singular nominative noun",
+        "featuresTr": "müzekker müfred merfu isim",
+        "tr": "Samed'dir"
+      }
+    ],
+    "3": [
+      {
+        "idx": 1,
+        "ar": "لَمْ",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَم",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "doğurmamıştır"
+      },
+      {
+        "idx": 2,
+        "ar": "يَلِدْ",
+        "pos": "V",
+        "root": "و-ل-د",
+        "lemma": "وَلَدَ",
+        "features": "imperfect 3rd person masculine singular jussive mood verb",
+        "featuresTr": "muzâri gâib müzekker müfred meczum (muzâri) fiil",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "وَلَمْ",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَم",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "ve"
+      },
+      {
+        "idx": 4,
+        "ar": "يُولَدْ",
+        "pos": "V",
+        "root": "و-ل-د",
+        "lemma": "وَلَدَ",
+        "features": "imperfect passive 3rd person masculine singular jussive mood verb",
+        "featuresTr": "muzâri meçhul gâib müzekker müfred meczum (muzâri) fiil",
+        "tr": "doğurulmamıştır"
+      }
+    ],
+    "4": [
+      {
+        "idx": 1,
+        "ar": "وَلَمْ",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَم",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "ve"
+      },
+      {
+        "idx": 2,
+        "ar": "يَكُن",
+        "pos": "V",
+        "root": "ك-و-ن",
+        "lemma": "كَانَ",
+        "features": "imperfect 3rd person masculine singular jussive mood verb",
+        "featuresTr": "muzâri gâib müzekker müfred meczum (muzâri) fiil",
+        "tr": "olmamıştır"
+      },
+      {
+        "idx": 3,
+        "ar": "لَّهُ",
+        "pos": "PRON",
+        "root": null,
+        "lemma": null,
+        "features": "3rd person masculine singular pronoun",
+        "featuresTr": "gâib müzekker müfred zamir",
+        "tr": "O'nun"
+      },
+      {
+        "idx": 4,
+        "ar": "كُفُوًا",
+        "pos": "N",
+        "root": "ك-ف-ا",
+        "lemma": "كُفُو",
+        "features": "masculine indefinite accusative noun",
+        "featuresTr": "müzekker nekira mansub isim",
+        "tr": "dengi"
+      },
+      {
+        "idx": 5,
+        "ar": "أَحَدٌ",
+        "pos": "N",
+        "root": "ا-ح-د",
+        "lemma": "أَحَد",
+        "features": "masculine indefinite nominative noun",
+        "featuresTr": "müzekker nekira merfu isim",
+        "tr": "hiçbir şey"
+      }
+    ]
+  }
+}

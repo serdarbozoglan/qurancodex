@@ -1,0 +1,2841 @@
+{
+  "meta": {
+    "totalGroups": 32,
+    "totalWords": 108,
+    "totalOccurrences": 337,
+    "version": "0.3.0-phase2",
+    "note": "Phase 2 complete — 32 word groups across 7 categories. Verse occurrence lists are representative key verses, not exhaustive. Frequencies based on classical sources (Askerî, İsfahânî, İbn Kayyım, corpus.quran.com)."
+  },
+  "categories": [
+    { "id": "emotions",  "titleTr": "DUYGULAR VE RUHSAL DURUMLAR", "titleEn": "EMOTIONS & SPIRITUAL STATES" },
+    { "id": "nature",    "titleTr": "TABİAT VE EVREN",             "titleEn": "NATURE & COSMOS" },
+    { "id": "human",     "titleTr": "İNSAN VE TOPLUM",             "titleEn": "HUMAN & SOCIETY" },
+    { "id": "creation",  "titleTr": "YARATMA VE VARLIK",           "titleEn": "CREATION & EXISTENCE" },
+    { "id": "knowledge", "titleTr": "BİLGİ VE İDRAK",              "titleEn": "KNOWLEDGE & PERCEPTION" },
+    { "id": "path",      "titleTr": "HAYAT VE AHİRET",             "titleEn": "LIFE & HEREAFTER" },
+    { "id": "ethics",    "titleTr": "AHLAK VE EYLEM",              "titleEn": "ETHICS & ACTION" }
+  ],
+  "principles": [
+    {
+      "id": "havf-hasye",
+      "quoteTr": "Havf hareket üretir, haşye sakinlik üretir.",
+      "quoteEn": "Khawf produces movement, khashya produces stillness.",
+      "expansionTr": "Düşmanı gören iki tepki verir: kaçış (havf) veya bilgiyle duruş (haşye). Birincisi sıradan mü'minin korkusu, ikincisi âlimin.",
+      "expansionEn": "One seeing danger reacts in two ways: flight (khawf) or stillness through knowledge (khashya). The first is the believer's fear, the second the scholar's.",
+      "source": "İbn Kayyım, Medâricü's-Sâlikîn",
+      "groupId": "fear-family"
+    },
+    {
+      "id": "matar-ghayth",
+      "quoteTr": "Matar azap, ğays rahmet getirir.",
+      "quoteEn": "Matar brings punishment, ghayth brings mercy.",
+      "expansionTr": "Aynı Türkçe çeviri: 'yağmur'. Ama Kur'an Matar'ı neredeyse her zaman azap bağlamında, Ğays'ı her zaman rahmet bağlamında kullanır. Kelime seçimi bağlamı belirler.",
+      "expansionEn": "Same Turkish translation: 'rain'. But the Quran almost always uses Matar in punishment contexts, Ghayth always in mercy contexts. Word choice determines context.",
+      "source": "Klasik dilbilim geleneği",
+      "groupId": "rain-family"
+    },
+    {
+      "id": "rih-riyah",
+      "quoteTr": "Rîh (tekil) azap, riyâh (çoğul) rahmet.",
+      "quoteEn": "Rīḥ (singular) punishment, riyāḥ (plural) mercy.",
+      "expansionTr": "Aynı kökten iki form — tekil ve çoğul. Kur'an'da tekil 'rîh' neredeyse her zaman azap rüzgârı, çoğul 'riyâh' müjdeleyen rahmet rüzgârları. Hz. Peygamber dua ederken bunu söylerdi.",
+      "expansionEn": "Two forms of the same root — singular and plural. In the Quran, singular 'rīḥ' is almost always a wind of punishment; plural 'riyāḥ' are winds of mercy bringing glad tidings.",
+      "source": "es-Süyûtî, el-İtkân",
+      "groupId": "wind-family"
+    },
+    {
+      "id": "sirat-sebil",
+      "quoteTr": "Sırât tektir, sübül (sebîl çoğulu) çoktur.",
+      "quoteEn": "Ṣirāṭ is singular, subul (plural of sabīl) are many.",
+      "expansionTr": "Fatiha'da sırât-ı müstakîm — tek, dosdoğru yol. Kur'an genelinde sırât hep tekil (hak yol), sebîl ise hem tekil hem çoğul olabilir (birçok yol). Bu yapısal bir ayrımdır.",
+      "expansionEn": "In Al-Fatiha, ṣirāṭ al-mustaqīm — the one straight path. Throughout the Quran ṣirāṭ is always singular (the true path), while sabīl can be singular or plural (many paths). This is a structural distinction.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "path-family"
+    },
+    {
+      "id": "insan-beser",
+      "quoteTr": "İnsân sosyal/düşünen varlıktır, beşer biyolojik/fiziksel varlıktır.",
+      "quoteEn": "Insān is the social/thinking being, bashar the biological/physical being.",
+      "expansionTr": "'İnsân' (uns kökünden — 'alışmak, yakın olmak') sosyal ve ahlaki boyutu vurgular. 'Beşer' (beşere — 'cilt') fiziksel/biyolojik varlığa işaret eder. Hz. Peygamber müşriklere cevap verirken 'Ben de sizin gibi bir beşerim' der (Kehf 18:110) — biyolojik eşitlik vurgusu.",
+      "expansionEn": "'Insān' (from root uns — to become familiar) emphasizes the social and moral dimension. 'Bashar' (from bashara — skin) points to the physical/biological being. When the Prophet addresses deniers, he says 'I am only a bashar like you' (Al-Kahf 18:110) — emphasizing biological equality.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "human-family"
+    },
+    {
+      "id": "kalb-fuad",
+      "quoteTr": "Kalb değişken ve çevrilen, fu'âd alevli ve iç çekirdektir.",
+      "quoteEn": "Qalb is the changing, turned; fu'ād is the flaming inner core.",
+      "expansionTr": "Kalb (kalebe — 'çevirmek, dönmek' kökünden) değişim özelliği taşır — iman ile küfür arasında dönebilir. Fu'âd (fe'ede — 'yanmak, alevlenmek') iç yoğunluğu, duygusal şiddeti işaret eder. Hümeze 104:7'de cehennem ateşi 'fu'âdlara' ulaşır — kalbe değil.",
+      "expansionEn": "Qalb (from qalaba — to turn, reverse) carries the property of change — can turn between faith and denial. Fu'ād (from fa'ada — to burn, flame) points to inner intensity and emotional heat. In Al-Humaza 104:7, hellfire reaches 'fu'āds' — not qalbs.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "heart-family"
+    },
+    {
+      "id": "zenb-ism",
+      "quoteTr": "Zenb sonucu/izi olan günah, ism yolu engelleyen günahtır.",
+      "quoteEn": "Zanb is the sin with consequences, ithm is the sin that blocks the path.",
+      "expansionTr": "Zenb (kuyruğa benzetilir — arkada iz bırakır) fiilin sonucuna odaklanır. Ism (eseme — 'ağırlık, geri bırakma') kişinin manevi yürüyüşünü engelleyen ağırlığa işaret eder. Seyyie kötü fiilin kendisi, fâhişe aşırı/açık sınır aşımı, cürm ise kopma/kesilme anlamında suçtur.",
+      "expansionEn": "Zanb (likened to a tail — leaves a trace behind) focuses on the consequence of action. Ithm (from asama — weight, holding back) points to weight that impedes one's spiritual journey. Sayyi'a is the evil act itself; fāḥisha is extreme/open transgression; jurm is crime in the sense of severance.",
+      "source": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "groupId": "sin-family"
+    },
+    {
+      "id": "nar-cahim",
+      "quoteTr": "Cehennem 6 ad taşır — her biri farklı azap boyutu.",
+      "quoteEn": "Hellfire has 6 names — each naming a different dimension of punishment.",
+      "expansionTr": "Nâr genel ateş, Cahîm yoğun/çılgın alev, Sa'îr parlak/tutuşan, Lezâ alev çekirdeği, Hutame parçalayan, Hâviye uçurum. İsim farklı bağlamda farklı boyut vurgular — azabın tek tip olmadığını gösterir.",
+      "expansionEn": "Nār is general fire, Jaḥīm intense/wild flame, Sa'īr blazing, Laẓā flame-core, Ḥuṭama crusher, Hāwiya abyss. Each name emphasizes a different dimension in its context — showing that punishment is not uniform.",
+      "source": "Klasik tefsir geleneği",
+      "groupId": "fire-family"
+    },
+    {
+      "id": "tin-salsal",
+      "quoteTr": "Tîn yapışkan, salsâl çınlayan, hame' değişmiş çamurdur — aşamaları gösterir.",
+      "quoteEn": "Ṭīn is sticky, ṣalṣāl ringing, ḥamaʾ altered mud — naming phases.",
+      "expansionTr": "Kur'an Âdem'in yaratılışında farklı aşamaları farklı isimlerle verir: türâb (toz), tîn (yapışkan çamur), hame' mesnûn (şekillendirilmiş değişmiş çamur), salsâl (kurumuş çınlayan çamur). Bu dizi kronolojik süreci gösterir.",
+      "expansionEn": "The Quran names different phases in Adam's creation with different words: turāb (dust), ṭīn (sticky clay), ḥamaʾ masnūn (shaped altered mud), ṣalṣāl (dried ringing clay). This sequence shows a chronological process.",
+      "source": "Klasik tefsir geleneği",
+      "groupId": "earth-family"
+    },
+    {
+      "id": "veled-ibn",
+      "quoteTr": "Her 'oğul' aynı değil — çocukluk evreleri farklı kelimelerle çağrılır.",
+      "quoteEn": "Not every 'son' is the same — stages of childhood are called by different words.",
+      "expansionTr": "Veled doğrudan doğmuş çocuk (biyolojik), ibn daha geniş — manevi veya mecazi oğul da olabilir. Tıfl küçük/bebeklik, sabî okul çağı, ğulâm ergenlik öncesi/genç. Kur'an her evreyi ismiyle çağırır.",
+      "expansionEn": "Walad is directly born child (biological); ibn is broader — can include spiritual or metaphorical son. Ṭifl is infant/very young; ṣabī school age; ghulām pre-adolescent/youth. The Quran calls each stage by its name.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "child-family"
+    },
+    {
+      "id": "halk-ibda",
+      "quoteTr": "Halk ölçülü, ibdâ' modelsiz, fatr ilk parçalanan yaratmadır.",
+      "quoteEn": "Khalq is measured, ibdā' without precedent, faṭr the original splitting.",
+      "expansionTr": "Halk düzenli/orantılı yaratma (ölçü ile). Bed' başlatma — zamansal ilk. İbdâ' öncesiz, modelsiz yaratma — 'yok'tan var etme. Fatr (fetare — 'yarılmak') göklerin ve yerin ilk ayrılışı. Her fiil yaratmanın farklı boyutunu verir.",
+      "expansionEn": "Khalq is ordered/proportional creation (with measure). Bad' is initiating — temporal first. Ibdā' is creation without precedent — from absolute void. Faṭr (from faṭara — to split) is the original separation of heavens and earth. Each verb captures a different dimension of creation.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "creation-family"
+    },
+    {
+      "id": "enzele-nezzele",
+      "quoteTr": "Enzele toptan iniş, nezzele tedrici (parça parça) iniştir.",
+      "quoteEn": "Anzala is wholesale descent, nazzala gradual (piece by piece) descent.",
+      "expansionTr": "Enzele (bâb ef'al) Kur'an'ın Levh-i Mahfuz'dan dünya semasına tek seferde inişini anlatır (Kadr 97:1). Nezzele (bâb tef'îl) 23 yıl boyunca parça parça Hz. Peygamber'e iniş için kullanılır. Aynı kök, iki farklı indiriş.",
+      "expansionEn": "Anzala (Form IV) describes the Quran's single descent from the Preserved Tablet to the lower heaven (Al-Qadr 97:1). Nazzala (Form II) is used for the gradual descent to the Prophet over 23 years. Same root, two different modes of descent.",
+      "source": "es-Süyûtî, el-İtkân",
+      "groupId": "sending-family"
+    },
+    {
+      "id": "ilm-marife",
+      "quoteTr": "İlm geniş ve soyut, ma'rife tanıma ve özeldir.",
+      "quoteEn": "ʿIlm is broad and abstract; maʿrifa is specific recognition.",
+      "expansionTr": "İlm genel, kapsamlı, teorik bilgi — kök anlamı 'iz bırakan'. Ma'rife tanıma, fark etme — belirli bir nesneyi/kişiyi tanımak. Şu'ûr fark etmek, hissetmek (deri ile temas). Dirâye derin kavrayış. Yakîn kesin bilgi.",
+      "expansionEn": "ʿIlm is general, comprehensive, theoretical knowledge — root 'to leave a mark'. Maʿrifa is recognition — knowing a specific object/person. Shuʿūr is to sense, feel (skin contact). Dirāya deep comprehension. Yaqīn certain knowledge.",
+      "source": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "groupId": "knowledge-family"
+    },
+    {
+      "id": "tefekkur-tedebbur",
+      "quoteTr": "Tefekkür zihinsel inceleme, tedebbür sonuç odaklı derinleşmedir.",
+      "quoteEn": "Tafakkur is mental examination; tadabbur is outcome-oriented depth.",
+      "expansionTr": "Tefekkür (fikir kökü) zihnin bir konu üzerinde dönmesi. Tedebbür (dübür — 'arka, sonuç' kökünden) bir konunun sonucuna, derin anlamına ulaşma. Tezekkür unutulanı hatırlama, akl akıl yürütme. Her biri zihinsel işlemin farklı aşaması.",
+      "expansionEn": "Tafakkur (root fikr) is the mind turning over a topic. Tadabbur (from dubur — 'back, outcome') is reaching the outcome, the deep meaning of a topic. Tadhakkur is recalling the forgotten; 'aql is reasoning. Each is a different stage of mental activity.",
+      "source": "İbn Kayyım el-Cevziyye",
+      "groupId": "thinking-family"
+    },
+    {
+      "id": "yakin-three",
+      "quoteTr": "Yakînin üç derecesi: ilmü'l-yakîn, aynü'l-yakîn, hakku'l-yakîn.",
+      "quoteEn": "The three degrees of certainty: ʿilm, ʿayn, and ḥaqq al-yaqīn.",
+      "expansionTr": "Tekâsür 102'de açıkça sıralanır: İlmü'l-yakîn (haber ile bilme), Aynü'l-yakîn (gözle görme), Hakku'l-yakîn (tecrübe etme). Duman görmek ateş bilgisidir; dumanı görmek ilmü'l-yakîn, ateşi görmek aynü'l-yakîn, ateşe dokunmak hakku'l-yakîndir.",
+      "expansionEn": "Explicitly sequenced in Al-Takāthur 102: ʿIlm al-yaqīn (knowing by report), ʿAyn al-yaqīn (seeing with the eye), Ḥaqq al-yaqīn (experiencing). Seeing smoke is knowledge of fire; seeing smoke is ʿilm, seeing the fire is ʿayn, touching the fire is ḥaqq.",
+      "source": "Klasik tasavvuf geleneği",
+      "groupId": "certainty-family"
+    },
+    {
+      "id": "reca-emel",
+      "quoteTr": "Recâ' aktif umut, emel uzak ve çoğu kez boş arzudur.",
+      "quoteEn": "Rajāʾ is active hope; amal is distant, often vain wish.",
+      "expansionTr": "Recâ' (rece'a — 'dönmek') aksiyon üreten umut — Allah'a dönerek beklemek. Emel (eml — uzakta olan) uzak ve gerçekleşmesi muhtemel olmayan arzu. 'Emelleri onları eğlendirsin' (Hicr 15:3) — olumsuz bağlam. Tama' ise çoğunlukla açgözlülük.",
+      "expansionEn": "Rajāʾ (from raja'a — to return) is action-producing hope — waiting by turning to God. Amal (from aml — that which is distant) is far-off, often unlikely wish. 'Let false hope (amal) amuse them' (Al-Ḥijr 15:3) — negative context. Ṭamaʿ is mostly greed.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "hope-family"
+    },
+    {
+      "id": "huzn-gamm",
+      "quoteTr": "Hüzn sürekli hafif üzüntü, gamm sıkıştıran, kerb tıkanan acıdır.",
+      "quoteEn": "Ḥuzn is steady sorrow, ghamm covering distress, karb constricting anguish.",
+      "expansionTr": "Hüzn uzun süreli, sakin üzüntü (Ya'kûb'un Yusuf için hüznü). Gamm (ğumme — 'örtmek') kişiyi kaplayan, örten sıkıntı. Kerb (kerebe — 'yakıta yaklaşmak') nefesi tıkayan, şiddetli acı. Peygamberlerin kerbinden kurtuluş duaları vardır.",
+      "expansionEn": "Ḥuzn is long, steady sorrow (Jacob's sorrow for Joseph). Ghamm (from ghumma — to cover) is distress that envelops. Karb (from karaba — to approach with severity) is anguish that chokes the breath. Prophets' prayers seek deliverance from karb.",
+      "source": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "groupId": "sadness-family"
+    },
+    {
+      "id": "sekine-itmiinan",
+      "quoteTr": "Sekîne ilahi indirilen durgunluk, emn korkusuzluk, itmi'nân yerleşik kalptir.",
+      "quoteEn": "Sakīna is divinely sent-down stillness, amn fearlessness, iṭmiʾnān a settled heart.",
+      "expansionTr": "Sekîne (sekene — 'yerleşmek') peygamberler ve mü'minlerin üzerine indirilen ilahi durgunluk — 'sekîneyi indirdi' kalıbıyla geçer. Emn dış tehditten güvende olma. Itmi'nân kalbin 'mutma'in' hale gelmesi — zikir ile ulaşılır (Ra'd 13:28).",
+      "expansionEn": "Sakīna (from sakana — to settle) is divine stillness sent down upon prophets and believers — typically 'We sent down sakīna'. Amn is safety from external threat. Iṭmiʾnān is the heart becoming 'muṭmaʾinn' — reached through dhikr (Al-Raʿd 13:28).",
+      "source": "İbn Kayyım el-Cevziyye",
+      "groupId": "peace-family"
+    },
+    {
+      "id": "gadab-sahat",
+      "quoteTr": "Gadab yoğun öfke, sahat derin hoşnutsuzluk, mekt iğrenme derecesinde nefrettir.",
+      "quoteEn": "Ghaḍab is intense anger, sakhaṭ deep displeasure, maqt loathing close to disgust.",
+      "expansionTr": "Gadab (gadibe — 'alevlenmek') ateşli öfke — insani veya ilahi. Sahat uzun süreli hoşnutsuzluk, Allah'ın sahatı insanı zelil kılar. Mekt nefret düzeyinde (Kur'an'da 6x) — Allah'ın mekte ettiği çok ağırdır.",
+      "expansionEn": "Ghaḍab (from ghaḍiba — to flame) is fiery anger — human or divine. Sakhaṭ is lasting displeasure — God's sakhaṭ humiliates. Maqt is loathing-level (6x in Quran) — whomever God has maqt for is in severe state.",
+      "source": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "groupId": "anger-family"
+    },
+    {
+      "id": "hubb-vudd",
+      "quoteTr": "Hubb genel sevgi, vüdd kalıcı şefkat, raġbe meyilli istektir.",
+      "quoteEn": "Ḥubb is general love, wudd enduring affection, raghba inclined desire.",
+      "expansionTr": "Hubb her türlü sevgi için kullanılır (Allah'ın sevdiği, sevilen). Vüdd (ahd/kalıcılık vurgusu) iki taraflı, süregelen şefkat — Allah'ın ismi el-Vedûd'dur. Raġbe yönelerek arzulamak, eğilim duymak.",
+      "expansionEn": "Ḥubb is used for every kind of love (what God loves, the beloved). Wudd (emphasis on constancy) is mutual, enduring affection — God's name al-Wadūd. Raghba is desire by inclination, leaning toward.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "love-family"
+    },
+    {
+      "id": "furat-ucac",
+      "quoteTr": "Furât tatlı-serin, ucâc acı-tuzlu, hamîm kaynayan azap suyudur.",
+      "quoteEn": "Furāt is sweet cool, ujāj bitter salt, ḥamīm boiling water of punishment.",
+      "expansionTr": "Kur'an iki denizin 'berzâh' ile ayrıldığını anlatırken (Furkân 25:53) furât ve ucâc kelimelerini kullanır — tatlı-tuzlu ayrımı. Hamîm hep cehennem bağlamında (ğâsık, kaynar, azap). Mâ' tüm suyun genel adı.",
+      "expansionEn": "When the Quran describes two seas separated by 'barzakh' (Al-Furqān 25:53), it uses furāt and ujāj — fresh vs. salt distinction. Ḥamīm is always in hell context (scorching, boiling, punishment). Māʾ is the general name for all water.",
+      "source": "Klasik dilbilim geleneği",
+      "groupId": "water-family"
+    },
+    {
+      "id": "sema-arş",
+      "quoteTr": "Semâ' gök yapısı, felek yörünge, arş taht/yönetim merkezidir.",
+      "quoteEn": "Samāʾ is the heaven's structure, falak the orbit, ʿarsh the throne/governance center.",
+      "expansionTr": "Semâ' her türlü üst dünya — katlı gökler. Felek (felek — 'yuvarlak') yörünge — güneş, ay, yıldızlar feleklerinde yüzer (Yâsîn 36:40). Arş ilahi yönetim merkezinin sembolik adı — üstte yorumlanan taht.",
+      "expansionEn": "Samāʾ is every upper world — the layered heavens. Falak (from falak — round) is orbit — sun, moon, stars swim in their 'falak' (Yā-Sīn 36:40). ʿArsh is the symbolic name of the divine governance center — the throne interpreted as supreme.",
+      "source": "Klasik tefsir geleneği",
+      "groupId": "heaven-family"
+    },
+    {
+      "id": "kavm-ummet",
+      "quoteTr": "Kavm ortak köken, ümmet ortak ideal/din, şa'b-kabîle soy katmanlarıdır.",
+      "quoteEn": "Qawm shares origin, umma shares ideal/religion, shaʿb-qabīla are lineage layers.",
+      "expansionTr": "Kavm soy, dil, yer birliği olan topluluk — 'kavmim' kişinin yakın çevresi. Ümmet ortak bir ideal, peygamber veya din etrafında toplanan grup — 'en hayırlı ümmet' (Âl-i İmrân 3:110). Şa'b büyük millet, kabîle sub-ünite — Hucurât 49:13 hepsini ayırır.",
+      "expansionEn": "Qawm is a community bound by lineage, language, place — 'my qawm' is one's immediate people. Umma is a group gathered around a shared ideal, prophet, religion — 'the best umma' (Āl ʿImrān 3:110). Shaʿb is the large nation, qabīla the sub-unit — Al-Ḥujurāt 49:13 separates them all.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "people-family"
+    },
+    {
+      "id": "recul-zeker",
+      "quoteTr": "Recul sosyal/olgun erkek, zeker biyolojik erkek, ba'l efendi-koca, zevc çifttir.",
+      "quoteEn": "Rajul is the social/mature man, dhakar the biological male, baʿl husband-as-lord, zawj the spouse-pair.",
+      "expansionTr": "Recul olgun, sorumluluk alan erkek. Zeker cinsiyet/biyolojik (dişi: ünsâ). Ba'l hane efendisi olarak koca (Hûd 11:72 — Sâre kocasına 'ba'lî' der). Zevc 'çift' — eş, her iki cinsiyet için kullanılabilir.",
+      "expansionEn": "Rajul is the mature man who takes responsibility. Dhakar is sex/biology (female: unthā). Baʿl is husband-as-master-of-house (Hūd 11:72 — Sarah calls her husband 'baʿlī'). Zawj is 'pair' — spouse, usable for both sexes.",
+      "source": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "groupId": "man-family"
+    },
+    {
+      "id": "imrae-unsa",
+      "quoteTr": "İmra'e belirli kadın, ünsâ biyolojik dişi, nisâ' çoğul kadınlardır.",
+      "quoteEn": "Imra'a is a specific woman, unthā biological female, nisāʾ plural women.",
+      "expansionTr": "İmra'e Kur'an'da kişi kimliğiyle kadın için: 'İmra'etu Firavn' (Firavun'un karısı), 'İmra'etu Lût'. Ünsâ biyolojik cinsiyet. Nisâ' çoğul, topluluğa hitap. Her biri farklı bağlam vurgusu.",
+      "expansionEn": "Imra'a is used in the Quran for a specific woman's identity: 'Imra'at Firʿawn' (Pharaoh's wife), 'Imra'at Lūṭ'. Unthā is biological sex. Nisāʾ is plural, addresses the community. Each emphasizes a different context.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "woman-family"
+    },
+    {
+      "id": "rizk-nime",
+      "quoteTr": "Rızk rızık-maddi, ni'me bilinçli nimet, fazl karşılıksız lütuftur.",
+      "quoteEn": "Rizq is sustenance-material, niʿma conscious favor, faḍl unmerited grace.",
+      "expansionTr": "Rızk günlük maddi/manevi ihtiyaçların karşılanması. Ni'me farkedilen ve şükredilen nimet — 'Rabbinin ni'metini an' (Duhâ 93:11). Fazl lütuf — hak edilmemiş ilahi cömertlik. Sıra: rızk temel, ni'me bilinçli, fazl surplus.",
+      "expansionEn": "Rizq is daily provision material/spiritual. Niʿma is the favor one recognizes and thanks for — 'Speak of your Lord's niʿma' (Al-Ḍuḥā 93:11). Faḍl is grace — unmerited divine generosity. Order: rizq base, niʿma conscious, faḍl surplus.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "provision-family"
+    },
+    {
+      "id": "mevt-veffa",
+      "quoteTr": "Mevt ölüm olayı, veffâ ruhun alınması, halake yok olma, kazâ son hükümdür.",
+      "quoteEn": "Mawt is the event of death, wafā the soul-taking, halaka perishing, qaḍā final verdict.",
+      "expansionTr": "Mevt hayatın zıddı olarak genel ölüm. Veffâ (vefâ — tam alma) ruhun 'tam alınması' — vefat sözcüğümüzün kökü. Halake yok olma, helâk — kalıcı tehlike anlamında. Kazâ ise 'son hüküm' — bazı bağlamlarda ölümü ifade eder.",
+      "expansionEn": "Mawt is death as the general opposite of life. Wafā (from wafā — to take fully) is 'complete taking' of the soul — root of Turkish 'vefat'. Halaka is perishing, destruction — of lasting peril. Qaḍā is 'final decree' — in some contexts expresses death.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "death-family"
+    },
+    {
+      "id": "ra-basar",
+      "quoteTr": "Ra'â genel görme, nazar yönelerek bakma, basar derin görüş, şehide tanıklıktır.",
+      "quoteEn": "Ra'ā is general seeing, naẓar directed looking, baṣar deep vision, shahida witnessing.",
+      "expansionTr": "Ra'â gözle gördüğünü ifade eder (ve 'görüş/düşünce' anlamına da gelir). Nazar 'bakmak' — yönelme, dikkat. Basar görüş — hem fiziksel hem iç görü (kör olan basardan mahrum değil, kalpten mahrumdur — Hac 22:46). Şehide tanıklık — gördüğüne şahitlik.",
+      "expansionEn": "Ra'ā expresses what one sees with the eye (also 'opinion/view'). Naẓar is 'to look' — directing attention. Baṣar is vision — both physical and inner sight (the blind lacks not baṣar but heart — Al-Ḥajj 22:46). Shahida is witnessing — bearing testimony to what is seen.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "sight-family"
+    },
+    {
+      "id": "dunya-ahire",
+      "quoteTr": "Dünyâ 'yakın hayat', âhire 'son hayat' — Kur'an'da eş sayıda geçer.",
+      "quoteEn": "Dunyā is 'nearer life', ākhira 'latter life' — appear equal times in the Quran.",
+      "expansionTr": "Dünyâ (edna — 'yakın, aşağı' kökünden) hem 'yakın' hem 'alçak' anlamı taşır. Âhire (âhara — 'geriye kalmak') sonraki, sondaki. İkisi de Kur'an'da 115 kez geçer — klasik sayısal denge örneği.",
+      "expansionEn": "Dunyā (from adnā — 'near, lower') carries both 'near' and 'low' meanings. Ākhira (from akhara — 'to remain behind') is the latter, final. Both appear 115 times in the Quran — a classic numeric balance example.",
+      "source": "Klasik tefsir geleneği",
+      "groupId": "life-family"
+    },
+    {
+      "id": "cennet-firdevs",
+      "quoteTr": "Cennet genel bahçe, Firdevs en yüksek, Adn sürekli, Na'îm nimetli cennettir.",
+      "quoteEn": "Janna is garden in general, Firdaws the highest, ʿAdn eternal, Naʿīm delight.",
+      "expansionTr": "Cennet (cenne — 'örtmek') genel bahçe adı — en yaygın. Firdevs en yüksek seviye. Adn (adene — 'ikamet etmek') kalıcı, yerleşik. Na'îm nimet, hoşluk vurgusu. Her biri cennetin farklı boyutunu adlandırır.",
+      "expansionEn": "Janna (from janna — 'to cover') is the general garden name — most widespread. Firdaws the highest level. ʿAdn (from ʿadana — 'to reside') is lasting, resident. Naʿīm emphasizes delight, pleasantness. Each names a different dimension of paradise.",
+      "source": "Klasik tefsir geleneği",
+      "groupId": "paradise-family"
+    },
+    {
+      "id": "hayr-birr",
+      "quoteTr": "Hayr genel iyilik, salâh yapısal düzgünlük, birr özenli iyilik, ma'rûf bilinen iyidir.",
+      "quoteEn": "Khayr is general good, ṣalāḥ structural soundness, birr attentive goodness, maʿrūf recognized good.",
+      "expansionTr": "Hayr her türlü iyilik için (mal, amel, sonuç). Salâh bozukluğun zıddı — iç bütünlük. Birr (berre — 'geniş kara') çok geniş, özenli iyilik — 'en-ne bir etmezsiniz sevdiğinizden infak edene kadar' (Âl-i İmrân 3:92). Ma'rûf toplumun tanıdığı iyi — 'iyiliği emir, kötülüğü nehiy' (emr-i bi'l-ma'rûf).",
+      "expansionEn": "Khayr is for every kind of good (wealth, deed, outcome). Ṣalāḥ is the opposite of corruption — inner integrity. Birr (from barr — 'wide land') is expansive, attentive goodness — 'you will never attain birr until you spend from what you love' (Āl ʿImrān 3:92). Maʿrūf is the good recognized by community — 'enjoining maʿrūf, forbidding munkar'.",
+      "source": "Râgıb el-İsfahânî, Müfredât",
+      "groupId": "good-family"
+    },
+    {
+      "id": "nasr-avn",
+      "quoteTr": "Nasr zafer veren yardım, avn destek, te'yîd güçlendirme, medd uzatmadır.",
+      "quoteEn": "Naṣr is victory-giving help, ʿawn support, ta'yīd reinforcement, madd extension.",
+      "expansionTr": "Nasr (nesare — 'yardım etmek') çatışma bağlamında zafer. Avn her türlü destek ('sana avnimizi artıracağız' — İsrâ 17:8'in yaklaşımı). Te'yîd (eyyede) güç ile pekiştirmek — İsa'nın Rûhu'l-Kudüs ile te'yîd edilmesi. Medd uzatmak — süre/azık uzatma.",
+      "expansionEn": "Naṣr (from naṣara — 'to help') is victory in conflict context. ʿAwn is every kind of support. Ta'yīd (from ayyada) is reinforcing with strength — Jesus being reinforced with the Holy Spirit. Madd is to extend — time/provision extension.",
+      "source": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "groupId": "help-family"
+    }
+  ],
+  "groups": [
+    {
+      "id": "fear-family",
+      "category": "emotions",
+      "titleTr": "Korku Aileleri",
+      "titleEn": "Fear Family",
+      "turkishTranslation": "Korku",
+      "englishTranslation": "Fear",
+      "principleTr": "Havf hareket üretir, haşye sakinlik üretir.",
+      "principleEn": "Khawf produces movement, khashya produces stillness.",
+      "principleSource": "İbn Kayyım, Medâricü's-Sâlikîn",
+      "words": [
+        {
+          "id": "khawf",
+          "ar": "خَوْف",
+          "tr": "Havf",
+          "transliteration": "khawf",
+          "meaningTr": "Somut, rasyonel korku — yılan, düşman, fakirlik gibi karşılaşılabilen tehditlerden duyulan korku. Özünde 'hareket/tepki' vardır — kaçma, koruma gibi aksiyonlara götürür.",
+          "meaningEn": "Concrete, rational fear — from tangible threats like snakes, enemies, poverty. At its core is 'motion/reaction' — it drives action like fleeing or seeking protection.",
+          "distinctionTr": "Haşye'den farkı: Havf hareket üretir. Haşye bilgi ile kök salar.",
+          "distinctionEn": "Difference from khashya: khawf generates action. Khashya takes root through knowledge.",
+          "frequency": 124,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.2, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "2:38",  "context": "positive", "note": "İman edenler için korku ve hüzün yoktur", "targetWord": "خَوْفٌ" },
+            { "ref": "2:62",  "context": "positive", "note": "Ehl-i kitap için korku yoktur",            "targetWord": "خَوْفٌ" },
+            { "ref": "3:175", "context": "neutral",  "note": "Şeytan dostlarını korkutur",              "targetWord": "يُخَوِّفُ" },
+            { "ref": "4:83",  "context": "neutral",  "note": "Güvenlik ve korku haberleri",              "targetWord": "الْخَوْفِ" },
+            { "ref": "24:55", "context": "positive", "note": "Korkudan sonra güvenle değiştirme",       "targetWord": "خَوْفِهِمْ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 2, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 60 }
+        },
+        {
+          "id": "khashya",
+          "ar": "خَشْيَة",
+          "tr": "Haşye",
+          "transliteration": "khashya",
+          "meaningTr": "Bilgiden doğan saygılı korku. Allah'ın azametini bilenin korkusu. Hareket değil, derin bir iç sakinlik ve tevazu üretir.",
+          "meaningEn": "Reverential fear born of knowledge. The fear of one who knows God's majesty. Produces not motion but deep inner stillness and humility.",
+          "distinctionTr": "Havf'tan farkı: 'Kullarından ancak âlimler Allah'a haşye duyar' (Fâtır 35:28). Haşye'nin ön şartı bilgidir.",
+          "distinctionEn": "Difference from khawf: 'Only those of His servants who have knowledge feel khashya of God' (Fatir 35:28). Khashya presupposes knowledge.",
+          "frequency": 48,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.7, "y": 0.4 },
+          "allOccurrences": [
+            { "ref": "35:28", "context": "divine", "note": "'Âlimler Allah'a haşye duyar'",     "targetWord": "يَخْشَى" },
+            { "ref": "2:150", "context": "divine", "note": "Allah'a haşye, insanlara değil",     "targetWord": "تَخْشَوْهُمْ" },
+            { "ref": "13:21", "context": "divine", "note": "Rableri için haşye duyanlar",        "targetWord": "يَخْشَوْنَ" },
+            { "ref": "21:49", "context": "divine", "note": "Gaybde Rableri için haşye duyanlar", "targetWord": "يَخْشَوْنَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 4, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "rahba",
+          "ar": "رَهْبَة",
+          "tr": "Rehbe",
+          "transliteration": "rahba",
+          "meaningTr": "Derin titreyen korku, kaçış yönlü. Havf'tan daha yoğun ama haşye'den daha somut.",
+          "meaningEn": "Deep trembling fear, oriented toward flight. More intense than khawf, more tangible than khashya.",
+          "distinctionTr": "Kaçmak ister ama bazen kaçacak yer yoktur — iç titreyiş kalır.",
+          "distinctionEn": "Wants to flee but sometimes there is nowhere to go — only the inner trembling remains.",
+          "frequency": 8,
+          "color": "#c0392b",
+          "semanticAxes": { "x": 0.3, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "2:40",  "context": "divine",  "note": "'Yalnız benden rehbe duyun'", "targetWord": "ارْهَبُونِ" },
+            { "ref": "7:116", "context": "neutral", "note": "Sihirbazların halkı korkutması", "targetWord": "اسْتَرْهَبُوهُمْ" },
+            { "ref": "16:51", "context": "divine",  "note": "'Yalnız benden rehbe duyun'",  "targetWord": "ارْهَبُونِ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        },
+        {
+          "id": "wajal",
+          "ar": "وَجَل",
+          "tr": "Vecel",
+          "transliteration": "wajal",
+          "meaningTr": "Kalbin titremesi. Fiziksel bir tepki değil, kalbin içsel titreyişi. Allah anıldığında mü'minin kalbinin duyduğu.",
+          "meaningEn": "The heart's trembling. Not a physical response but the heart's inner quivering. What the believer's heart feels when God is mentioned.",
+          "distinctionTr": "En sessiz korku — sadece kalpte. Enfal 8:2 bunu iman alameti sayar.",
+          "distinctionEn": "The quietest fear — only in the heart. Al-Anfal 8:2 counts this as a sign of faith.",
+          "frequency": 5,
+          "color": "#8e44ad",
+          "semanticAxes": { "x": 0.8, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "8:2",   "context": "divine", "note": "Allah anılınca kalpleri titreyenler",  "targetWord": "وَجِلَتْ" },
+            { "ref": "22:35", "context": "divine", "note": "Allah anılınca kalpleri ürperenler",   "targetWord": "وَجِلَتْ" },
+            { "ref": "23:60", "context": "divine", "note": "Rablerine döneceklerinin kalplerinin titremesi", "targetWord": "وَجِلَةٌ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "taqwa",
+          "ar": "تَقْوَى",
+          "tr": "Takvâ",
+          "transliteration": "taqwā",
+          "meaningTr": "Korunma korkusu — eylem üreten. Allah'ın gazabından korunmak için davranış değiştiren bilinç. 'Vikaye' (koruma) kökünden — kalkan gibi.",
+          "meaningEn": "Protective fear — action-producing. Awareness that changes behavior to shield from divine wrath. From 'wiqāya' (protection) — like a shield.",
+          "distinctionTr": "Havf ve haşye'yi eyleme çeviren meyvesidir. Havf hissi, haşye bilgisi, takvâ eylemidir.",
+          "distinctionEn": "The fruit that turns khawf and khashya into action. Khawf is feeling, khashya is knowledge, taqwā is action.",
+          "frequency": 258,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.6, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "2:2",   "context": "divine", "note": "'Kitap muttakîler için hidayettir'", "targetWord": "لِّلْمُتَّقِينَ" },
+            { "ref": "49:13", "context": "divine", "note": "'En üstününüz en takvâlınız'",       "targetWord": "أَتْقَاكُمْ" },
+            { "ref": "3:102", "context": "divine", "note": "'Hakkıyla takvâ üzere olun'",       "targetWord": "اتَّقُوا" },
+            { "ref": "65:2",  "context": "divine", "note": "'Kim Allah'a takvâ duyarsa ona çıkış verir'", "targetWord": "يَتَّقِ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 4, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "rain-family",
+      "category": "nature",
+      "titleTr": "Yağmur Aileleri",
+      "titleEn": "Rain Family",
+      "turkishTranslation": "Yağmur",
+      "englishTranslation": "Rain",
+      "principleTr": "Matar azap bağlamında, ğays rahmet bağlamında kullanılır.",
+      "principleEn": "Matar appears in punishment contexts, ghayth in mercy contexts.",
+      "principleSource": "Klasik dilbilim geleneği",
+      "words": [
+        {
+          "id": "matar",
+          "ar": "مَطَر",
+          "tr": "Matar",
+          "transliteration": "maṭar",
+          "meaningTr": "Neredeyse her zaman azap bağlamında — Lût kavmine taş yağması, müşriklere azap talebi. 'Yağdırma' fiili (amṭara) daima olumsuzdur.",
+          "meaningEn": "Almost always in punishment contexts — stones rained on Lot's people, punishment requested by disbelievers. The verb 'amṭara' (to rain down) is always negative.",
+          "distinctionTr": "Ğays'tan farkı: Matar 'taş yağmuru' gibi azap ifadesi, ğays ise rahmet yağmuru.",
+          "distinctionEn": "Difference from ghayth: Matar is a punishment expression (like 'rain of stones'), ghayth is rain of mercy.",
+          "frequency": 13,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.3, "y": 0.2 },
+          "allOccurrences": [
+            { "ref": "7:84",  "context": "negative", "note": "Lût kavmine taş yağdırdık",           "targetWord": "مَطَرًا" },
+            { "ref": "26:173","context": "negative", "note": "Üzerlerine kötü yağmur yağdırdık",    "targetWord": "مَطَرُ" },
+            { "ref": "27:58", "context": "negative", "note": "Uyarılanlara kötü yağmur",             "targetWord": "مَطَرَ" },
+            { "ref": "8:32",  "context": "negative", "note": "Müşriklerin taş yağması talebi",      "targetWord": "مَطَرًا" },
+            { "ref": "4:102", "context": "neutral",  "note": "Savaş ortamı — hava durumu",           "targetWord": "مَطَرٍ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 4, "dominantPattern": "negative", "dominantPercentage": 80 }
+        },
+        {
+          "id": "ghayth",
+          "ar": "غَيْث",
+          "tr": "Ğays",
+          "transliteration": "ghayth",
+          "meaningTr": "Her zaman rahmet bağlamında — kuraklıktan sonra bereket yağmuru. 'Ğavs' (imdat, yardım) köküyle aynı — yardım eden yağmur.",
+          "meaningEn": "Always in mercy contexts — blessing rain after drought. Shares root with 'ghawth' (aid, rescue) — the rain that rescues.",
+          "distinctionTr": "3 geçişi de olumlu. Matar'dan tam zıt çizgide.",
+          "distinctionEn": "All 3 occurrences positive. Exactly opposite to matar.",
+          "frequency": 3,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.3, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "42:28", "context": "positive", "note": "Ümit kesildiğinde inen rahmet",         "targetWord": "الْغَيْثَ" },
+            { "ref": "31:34", "context": "positive", "note": "Yağmur bilgisi Allah katında",          "targetWord": "الْغَيْثَ" },
+            { "ref": "57:20", "context": "positive", "note": "Dünya hayatı meseli — yağmur ürün verir","targetWord": "غَيْثٍ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "wadq",
+          "ar": "وَدْق",
+          "tr": "Vedk",
+          "transliteration": "wadq",
+          "meaningTr": "Nötr — bulut, şimşek, yağmur döngüsünün doğal tasviri. Bağlamsal bir etiket taşımaz.",
+          "meaningEn": "Neutral — description of cloud, lightning, rainfall cycle. Carries no contextual label.",
+          "distinctionTr": "Matar ve ğays'tan farkı: Vedk hava olayının kendisine atıfta bulunur, ahlaki bağlam taşımaz.",
+          "distinctionEn": "Difference from matar and ghayth: Wadq refers to the weather phenomenon itself, with no moral context.",
+          "frequency": 2,
+          "color": "#95a5a6",
+          "semanticAxes": { "x": 0.4, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "24:43", "context": "neutral", "note": "Bulut-şimşek-yağmur tasviri",     "targetWord": "الْوَدْقَ" },
+            { "ref": "30:48", "context": "neutral", "note": "Rüzgâr bulutları taşır, yağmur iner", "targetWord": "الْوَدْقَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 2, "negative": 0, "dominantPattern": "neutral", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "wind-family",
+      "category": "nature",
+      "titleTr": "Rüzgâr Aileleri",
+      "titleEn": "Wind Family",
+      "turkishTranslation": "Rüzgâr",
+      "englishTranslation": "Wind",
+      "principleTr": "Tekil 'rîh' azap, çoğul 'riyâh' rahmet getirir.",
+      "principleEn": "Singular 'rīḥ' brings punishment, plural 'riyāḥ' brings mercy.",
+      "principleSource": "es-Süyûtî, el-İtkân",
+      "words": [
+        {
+          "id": "rih",
+          "ar": "رِيح",
+          "tr": "Rîh (tekil)",
+          "transliteration": "rīḥ",
+          "meaningTr": "Tekil form — neredeyse her zaman azap rüzgârı. Âd kavmini helâk eden sûr-u sarsar 'rîh'tir.",
+          "meaningEn": "Singular form — almost always a wind of punishment. The devastating wind that destroyed 'Ād is 'rīḥ'.",
+          "distinctionTr": "Çoğul 'riyâh' ile zıt. Aynı kökten iki form, iki farklı bağlam.",
+          "distinctionEn": "Opposite to plural 'riyāḥ'. Same root, two forms, two different contexts.",
+          "frequency": 18,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.3, "y": 0.2 },
+          "allOccurrences": [
+            { "ref": "41:16", "context": "negative", "note": "Âd kavmine uğursuz günlerde rîh",    "targetWord": "رِيحًا" },
+            { "ref": "54:19", "context": "negative", "note": "Sarp günde kasıp kavuran rîh",       "targetWord": "رِيحًا" },
+            { "ref": "69:6",  "context": "negative", "note": "Âd kavmini helâk eden sarsar rîhi", "targetWord": "بِرِيحٍ" },
+            { "ref": "10:22", "context": "neutral",  "note": "Denizde rüzgâr ve fırtına",          "targetWord": "رِيحٌ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 3, "dominantPattern": "negative", "dominantPercentage": 75 }
+        },
+        {
+          "id": "riyah",
+          "ar": "رِيَاح",
+          "tr": "Riyâh (çoğul)",
+          "transliteration": "riyāḥ",
+          "meaningTr": "Çoğul form — her zaman rahmet ve müjde rüzgârları. Bulutları süren, yağmur getiren, tozları dağıtan.",
+          "meaningEn": "Plural form — always winds of mercy and glad tidings. Driving clouds, bringing rain, dispersing dust.",
+          "distinctionTr": "Tekil 'rîh' ile tam zıt. Kur'an'da olumlu bağlamlarda çoğul kullanılır.",
+          "distinctionEn": "Exactly opposite to singular 'rīḥ'. In the Quran, plural is used in positive contexts.",
+          "frequency": 10,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.3, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "7:57",  "context": "positive", "note": "Rahmetinin önünde müjdeci rüzgârlar",  "targetWord": "الرِّيَاحَ" },
+            { "ref": "15:22", "context": "positive", "note": "Bulutları aşılayıcı rüzgârlar",        "targetWord": "الرِّيَاحَ" },
+            { "ref": "30:46", "context": "positive", "note": "Müjdeci rüzgârlar — O'nun rahmetinden","targetWord": "الرِّيَاحَ" },
+            { "ref": "35:9",  "context": "positive", "note": "Bulutları canlandıran rüzgârlar",     "targetWord": "الرِّيَاحَ" }
+          ],
+          "patternStat": { "positive": 4, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "path-family",
+      "category": "path",
+      "titleTr": "Yol Aileleri",
+      "titleEn": "Path Family",
+      "turkishTranslation": "Yol",
+      "englishTranslation": "Path",
+      "principleTr": "Sırât hep tekildir (tek hak yol), sebîl çoğul olabilir (birçok yol).",
+      "principleEn": "Ṣirāṭ is always singular (the one true path), sabīl can be plural (many paths).",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "sirat",
+          "ar": "صِرَاط",
+          "tr": "Sırât",
+          "transliteration": "ṣirāṭ",
+          "meaningTr": "Tek, dosdoğru yol. Kur'an'da hep tekil biçimde — 'sırât-ı müstakîm'. Geniş, açık ve doğrudan giden yol için kullanılır.",
+          "meaningEn": "The one, straight path. Always singular in the Quran — 'ṣirāṭ al-mustaqīm'. Used for wide, clear, directly-going path.",
+          "distinctionTr": "Sebîl'den farkı: Sırât hak yoldur ve tektir. Çoğulu Kur'an'da yok.",
+          "distinctionEn": "Difference from sabīl: ṣirāṭ is the true path, and it is one. Its plural does not appear in the Quran.",
+          "frequency": 45,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.8, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "1:6",   "context": "divine", "note": "'Bizi sırât-ı müstakîme ilet' — Fatiha", "targetWord": "الصِّرَاطَ" },
+            { "ref": "1:7",   "context": "divine", "note": "Nimet verilenlerin sıratı",              "targetWord": "صِرَاطَ" },
+            { "ref": "2:142", "context": "divine", "note": "Dilediğini sırât-ı müstakîme hidayet",  "targetWord": "صِرَاطٍ" },
+            { "ref": "6:153", "context": "divine", "note": "'İşte bu benim sırât-ı müstakîmim'",    "targetWord": "صِرَاطِي" },
+            { "ref": "36:61", "context": "divine", "note": "'Bana ibadet edin — sırât-ı müstakîm'", "targetWord": "صِرَاطٌ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 5, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "sabil",
+          "ar": "سَبِيل",
+          "tr": "Sebîl",
+          "transliteration": "sabīl",
+          "meaningTr": "Tekil veya çoğul (sübül). Yol, yöntem, vesile. Hem Allah yolu hem sapmış yollar için kullanılabilir.",
+          "meaningEn": "Singular or plural (subul). Path, way, means. Can refer to God's path or deviant paths.",
+          "distinctionTr": "Sırât'tan farkı: Sebîl hem olumlu hem olumsuz yollar için kullanılabilir, çoğulu vardır.",
+          "distinctionEn": "Difference from ṣirāṭ: sabīl can refer to both good and deviant paths, and has a plural.",
+          "frequency": 166,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.5, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "2:154", "context": "positive", "note": "'Allah yolunda (sebîl) öldürülenler'",  "targetWord": "سَبِيلِ" },
+            { "ref": "4:76",  "context": "positive", "note": "İman edenler Allah yolunda savaşır",    "targetWord": "سَبِيلِ" },
+            { "ref": "5:35",  "context": "positive", "note": "'O'nun yoluna (sebîl) vesile arayın'",   "targetWord": "سَبِيلِهِ" },
+            { "ref": "4:115", "context": "negative", "note": "Mü'minlerin yolundan (sebîl) ayrılan",  "targetWord": "سَبِيلِ" },
+            { "ref": "6:153", "context": "negative", "note": "'Ayrı yollara (sübül) gitmeyin'",      "targetWord": "السُّبُلَ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 2, "dominantPattern": "positive", "dominantPercentage": 60 }
+        },
+        {
+          "id": "tariq",
+          "ar": "طَرِيق",
+          "tr": "Tarîk",
+          "transliteration": "ṭarīq",
+          "meaningTr": "Nötr yol — somut, fiziksel yol anlamına yakın. Soyut ahlaki bağlam azdır.",
+          "meaningEn": "Neutral path — closer to concrete, physical road. Rarely carries abstract moral context.",
+          "distinctionTr": "Sırât ve sebîl'den farkı: Tarîk daha az tekrar eder, daha 'dünyevî' bir kelime.",
+          "distinctionEn": "Difference from ṣirāṭ and sabīl: ṭarīq appears less often, more 'worldly' a word.",
+          "frequency": 4,
+          "color": "#95a5a6",
+          "semanticAxes": { "x": 0.3, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "20:77", "context": "neutral",  "note": "Musa'ya denizde kuru yol (ṭarīq)",   "targetWord": "طَرِيقًا" },
+            { "ref": "46:30", "context": "positive", "note": "Cinlerin 'sırât-ı müstakîme ve tarîke' rehberlik", "targetWord": "طَرِيقٍ" },
+            { "ref": "4:168", "context": "negative", "note": "Kâfirler için cehennem tarîki",       "targetWord": "طَرِيقًا" },
+            { "ref": "72:16", "context": "positive", "note": "'Tarîka (yola) devam etseler'",      "targetWord": "الطَّرِيقَةِ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 1, "negative": 1, "dominantPattern": "positive", "dominantPercentage": 50 }
+        },
+        {
+          "id": "minhaj",
+          "ar": "مِنْهَاج",
+          "tr": "Minhâc",
+          "transliteration": "minhāj",
+          "meaningTr": "Yöntem, sistem, işletilen yol. Sadece Mâide 5:48'de bir kez geçer — şeriat ile birlikte.",
+          "meaningEn": "Method, system, operational way. Appears only once — in Al-Ma'ida 5:48 — paired with sharī'ah.",
+          "distinctionTr": "Sırât, sebîl, tarîk'ten farkı: Minhâc 'uygulanan sistem' — sadece 1 kez (hapax).",
+          "distinctionEn": "Difference from others: minhāj is 'operational method' — appears only once (hapax).",
+          "frequency": 1,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.6, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "5:48", "context": "divine", "note": "'Her birinize bir şeriat ve minhâc verdik'", "targetWord": "مِنْهَاجًا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "human-family",
+      "category": "human",
+      "titleTr": "İnsan Aileleri",
+      "titleEn": "Human Family",
+      "turkishTranslation": "İnsan",
+      "englishTranslation": "Human",
+      "principleTr": "İnsân sosyal/düşünen varlık, beşer biyolojik/fiziksel varlıktır.",
+      "principleEn": "Insān is the social/thinking being, bashar the biological/physical being.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "insan",
+          "ar": "إِنسَان",
+          "tr": "İnsân",
+          "transliteration": "insān",
+          "meaningTr": "Sosyal, düşünen, ahlaki sorumluluk taşıyan varlık. 'Uns' (alışkanlık, yakınlık) veya 'nesiye' (unutma) kökünden — hem ilişkisel hem de unutkan yanını vurgular.",
+          "meaningEn": "Social, thinking being with moral responsibility. From 'uns' (familiarity) or 'nasiya' (forgetting) — highlighting both relational and forgetful dimensions.",
+          "distinctionTr": "Beşer'den farkı: İnsân ahlaki/ruhsal boyutu kapsar. 'İnsan en güzel biçimde yaratıldı' (Tîn 95:4) — beşer değil insân.",
+          "distinctionEn": "Difference from bashar: Insān encompasses the moral/spiritual dimension. 'Man was created in the best form' (Al-Tīn 95:4) — insān, not bashar.",
+          "frequency": 65,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.7, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "95:4",  "context": "positive", "note": "'İnsanı en güzel biçimde yarattık'",       "targetWord": "الْإِنسَانَ" },
+            { "ref": "103:2", "context": "negative", "note": "'Şüphesiz insan ziyandadır'",              "targetWord": "الْإِنسَانَ" },
+            { "ref": "33:72", "context": "neutral",  "note": "'İnsan emaneti yüklendi — zalim ve cahil'", "targetWord": "الْإِنسَانُ" },
+            { "ref": "76:1",  "context": "neutral",  "note": "'İnsan üzerinden uzun bir zaman geçmedi mi?'", "targetWord": "الْإِنسَانِ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 2, "negative": 1, "dominantPattern": "neutral", "dominantPercentage": 50 }
+        },
+        {
+          "id": "bashar",
+          "ar": "بَشَر",
+          "tr": "Beşer",
+          "transliteration": "bashar",
+          "meaningTr": "Biyolojik, fiziksel insan. 'Beşere' (cilt/deri) kökünden — ten-sahibi canlı. Peygamberlerin biyolojik yönünü vurgulamak için kullanılır.",
+          "meaningEn": "Biological, physical human. From 'bashara' (skin) — skin-bearing being. Used to emphasize the prophets' biological humanity.",
+          "distinctionTr": "İnsân'dan farkı: Beşer biyolojik eşitlik vurgusudur. 'De ki: Ben de sizin gibi bir beşerim' (Kehf 18:110) — insân değil beşer.",
+          "distinctionEn": "Difference from insān: Bashar emphasizes biological equality. 'Say: I am only a bashar like you' (Al-Kahf 18:110) — bashar, not insān.",
+          "frequency": 37,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.2, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "18:110", "context": "neutral", "note": "'Ben de sizin gibi bir beşerim'",           "targetWord": "بَشَرٌ" },
+            { "ref": "15:28",  "context": "neutral", "note": "'Ben çamurdan bir beşer yaratacağım'",       "targetWord": "بَشَرًا" },
+            { "ref": "19:26",  "context": "neutral", "note": "Meryem'in 'Hiçbir beşer görmeyeceğim' yemini", "targetWord": "بَشَرًا" },
+            { "ref": "74:29",  "context": "negative", "note": "Cehennem ateşi 'beşer için' kavurucudur",   "targetWord": "لِّلْبَشَرِ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 3, "negative": 1, "dominantPattern": "neutral", "dominantPercentage": 75 }
+        },
+        {
+          "id": "nas",
+          "ar": "نَاس",
+          "tr": "Nâs",
+          "transliteration": "nās",
+          "meaningTr": "İnsanlar, halk, topluluk. Çoğul anlamlı. 'Ey insanlar!' hitabında kullanılır — kolektif muhatap.",
+          "meaningEn": "People, public, community. Has plural meaning. Used in 'O mankind!' address — collective audience.",
+          "distinctionTr": "İnsân ve beşer'den farkı: Nâs kolektiftir. Kur'an'da 240+ kez geçer — en yaygın kolektif hitap.",
+          "distinctionEn": "Difference from insān and bashar: Nās is collective. Appears 240+ times — the most common collective address.",
+          "frequency": 240,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.5, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "2:21",  "context": "divine",   "note": "'Ey insanlar! Rabbinize kulluk edin'",         "targetWord": "النَّاسُ" },
+            { "ref": "4:1",   "context": "divine",   "note": "'Ey insanlar! Rabbinizden sakının'",           "targetWord": "النَّاسُ" },
+            { "ref": "114:1", "context": "divine",   "note": "'İnsanların Rabbine sığınırım'",               "targetWord": "النَّاسِ" },
+            { "ref": "49:13", "context": "divine",   "note": "'Ey insanlar! Sizi bir erkek ve kadından yarattık'", "targetWord": "النَّاسُ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 4, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "benu-adam",
+          "ar": "بَنِي آدَمَ",
+          "tr": "Benî Âdem",
+          "transliteration": "banī ādam",
+          "meaningTr": "Âdemoğulları — soy vurgusu. İnsanlığı Hz. Âdem'e dayandıran ismi kullanır.",
+          "meaningEn": "Children of Adam — emphasizing lineage. Uses the name that traces humanity back to Adam.",
+          "distinctionTr": "Nâs'tan farkı: Benî Âdem soy/köken vurgusudur. Hatırlatma ve ahit bağlamında kullanılır (A'râf 7:26-27).",
+          "distinctionEn": "Difference from nās: Banī Ādam emphasizes lineage. Used in contexts of reminder and covenant (Al-A'rāf 7:26-27).",
+          "frequency": 7,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.6, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "7:26",  "context": "divine", "note": "'Ey Âdemoğulları! Size giysi indirdik'",      "targetWord": "بَنِي" },
+            { "ref": "7:31",  "context": "divine", "note": "'Ey Âdemoğulları! Her mescidde ziynetinizi takının'", "targetWord": "بَنِي" },
+            { "ref": "36:60", "context": "divine", "note": "'Ey Âdemoğulları! Size ahit vermedim mi?'",    "targetWord": "بَنِي" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "heart-family",
+      "category": "emotions",
+      "titleTr": "Kalp Aileleri",
+      "titleEn": "Heart Family",
+      "turkishTranslation": "Kalp",
+      "englishTranslation": "Heart",
+      "principleTr": "Kalb değişken, fu'âd alevli, sadr açılan, lübb özdür.",
+      "principleEn": "Qalb turns, fu'ād flames, ṣadr expands, lubb is the kernel.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "qalb",
+          "ar": "قَلْب",
+          "tr": "Kalb",
+          "transliteration": "qalb",
+          "meaningTr": "Kökü 'kalebe' (çevirmek, dönmek) — değişen, dönen organ. İman ile küfür arasında dönebilir, bu yüzden 'kalp'tir.",
+          "meaningEn": "Root 'qalaba' (to turn, flip) — the changing, turning organ. Can turn between faith and disbelief — hence 'qalb'.",
+          "distinctionTr": "Fu'âd'dan farkı: Kalb değişkendir. 'Kalpler ancak Allah'ın zikriyle huzur bulur' (Ra'd 13:28) — dinamik organ.",
+          "distinctionEn": "Difference from fu'ād: Qalb is changeable. 'Hearts find rest only in God's remembrance' (Al-Ra'd 13:28) — a dynamic organ.",
+          "frequency": 132,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.5, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "2:10",  "context": "negative", "note": "'Kalplerinde hastalık vardır'",                "targetWord": "قُلُوبِهِم" },
+            { "ref": "13:28", "context": "positive", "note": "'Kalpler ancak Allah'ın zikriyle huzur bulur'", "targetWord": "الْقُلُوبُ" },
+            { "ref": "50:37", "context": "divine",   "note": "'Kalbi olan için ibret vardır'",                "targetWord": "قَلْبٌ" },
+            { "ref": "26:89", "context": "divine",   "note": "'Allah'a selim bir kalp getiren'",              "targetWord": "بِقَلْبٍ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 1, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 50 }
+        },
+        {
+          "id": "fuad",
+          "ar": "فُؤَاد",
+          "tr": "Fu'âd",
+          "transliteration": "fu'ād",
+          "meaningTr": "Kökü 'fe'ede' (yanmak, alevlenmek) — iç çekirdek, alevli kalp. Kalbin en derin, ateşlenmiş özü.",
+          "meaningEn": "Root 'fa'ada' (to burn, flame) — inner core, flaming heart. The deepest, inflamed kernel of the heart.",
+          "distinctionTr": "Kalb'den farkı: Fu'âd iç yoğunluğu ifade eder. Hümeze 104:7'de cehennem ateşi 'fu'âdlara ulaşır' — kalbe değil.",
+          "distinctionEn": "Difference from qalb: Fu'ād expresses inner intensity. In Al-Humaza 104:7 hellfire 'reaches the fu'āds' — not qalbs.",
+          "frequency": 16,
+          "color": "#c0392b",
+          "semanticAxes": { "x": 0.8, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "104:7", "context": "negative", "note": "Ateş 'fu'âdlara' ulaşır — iç çekirdeğe",       "targetWord": "الْأَفْئِدَةِ" },
+            { "ref": "11:120","context": "divine",   "note": "'Senin fu'âdını sağlamlaştırmak için'",        "targetWord": "فُؤَادَكَ" },
+            { "ref": "25:32", "context": "divine",   "note": "'Onu senin fu'âdına yerleştirelim'",            "targetWord": "فُؤَادَكَ" },
+            { "ref": "28:10", "context": "neutral",  "note": "'Musa'nın annesinin fu'âdı boşaldı'",           "targetWord": "فُؤَادُ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 1, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 50 }
+        },
+        {
+          "id": "sadr",
+          "ar": "صَدْر",
+          "tr": "Sadr",
+          "transliteration": "ṣadr",
+          "meaningTr": "Göğüs — duyguların merkezi, genişleyen ve daralabilen alan. Manevi açılma/kapanma için metafor.",
+          "meaningEn": "Breast — seat of emotion, an area that expands and contracts. Metaphor for spiritual openness/closedness.",
+          "distinctionTr": "Kalb'den farkı: Sadr daha geniş bir iç alan. 'Senin göğsünü açmadık mı?' (İnşirâh 94:1) — ferahlık metaforu.",
+          "distinctionEn": "Difference from qalb: Ṣadr is a wider inner space. 'Did We not expand your breast?' (Al-Sharḥ 94:1) — metaphor for relief.",
+          "frequency": 44,
+          "color": "#f39c12",
+          "semanticAxes": { "x": 0.3, "y": 0.4 },
+          "allOccurrences": [
+            { "ref": "94:1",  "context": "positive", "note": "'Senin göğsünü açmadık mı?' (şerh = açılma)",  "targetWord": "صَدْرَكَ" },
+            { "ref": "39:22", "context": "positive", "note": "'Allah kimin sadrını İslam'a açarsa'",           "targetWord": "صَدْرَهُ" },
+            { "ref": "16:106","context": "negative", "note": "'Kim küfre göğsünü açarsa'",                     "targetWord": "صَدْرًا" },
+            { "ref": "7:2",   "context": "neutral",  "note": "'Göğsünde sıkıntı olmasın'",                     "targetWord": "صَدْرِكَ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 1, "negative": 1, "dominantPattern": "positive", "dominantPercentage": 50 }
+        },
+        {
+          "id": "lubb",
+          "ar": "لُبّ",
+          "tr": "Lübb",
+          "transliteration": "lubb",
+          "meaningTr": "Öz, özsuyu, saf akıl. Cevizin içindeki çekirdek gibi — şeyin en temiz, özel kısmı. 'Ulu'l-elbâb' (öz akıl sahipleri).",
+          "meaningEn": "Kernel, essence, pure reason. Like the core inside a nut — the cleanest, essential part. 'Ulū al-albāb' (possessors of kernels of reason).",
+          "distinctionTr": "Kalb'den farkı: Lübb saf akıl özüdür. Kur'an'da hep çoğul — 'ulu'l-elbâb' (öz sahipleri) — derin düşünenlere hitap.",
+          "distinctionEn": "Difference from qalb: Lubb is the kernel of pure reason. Always plural in Quran — 'ulū al-albāb' (possessors of kernels) — addressing deep thinkers.",
+          "frequency": 16,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.9, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "2:269", "context": "positive", "note": "'Ancak öz akıl sahipleri öğüt alır'",    "targetWord": "الْأَلْبَابِ" },
+            { "ref": "3:7",   "context": "positive", "note": "'Ancak öz akıl sahipleri öğüt alır'",    "targetWord": "الْأَلْبَابِ" },
+            { "ref": "39:9",  "context": "positive", "note": "'Ancak öz akıl sahipleri öğüt alır'",    "targetWord": "الْأَلْبَابِ" },
+            { "ref": "65:10", "context": "positive", "note": "'Ey iman eden öz akıl sahipleri!'",      "targetWord": "الْأَلْبَابِ" }
+          ],
+          "patternStat": { "positive": 4, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "sin-family",
+      "category": "emotions",
+      "titleTr": "Günah Aileleri",
+      "titleEn": "Sin Family",
+      "turkishTranslation": "Günah",
+      "englishTranslation": "Sin",
+      "principleTr": "Zenb sonuç bırakan, ism yolu engelleyen, fâhişe aşırılık, cürm kesintidir.",
+      "principleEn": "Zanb leaves a trace, ithm blocks the path, fāḥisha is excess, jurm is severance.",
+      "principleSource": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "words": [
+        {
+          "id": "zanb",
+          "ar": "ذَنْب",
+          "tr": "Zenb",
+          "transliteration": "zanb",
+          "meaningTr": "Kökü 'kuyruk' — arkada iz bırakan fiil. Sonucu olan suç. Peygamberlerin 'zenb'i mağfiret edilir.",
+          "meaningEn": "Root 'tail' — an action that leaves a trace. A sin with consequences. Prophets' 'zanbs' are forgiven.",
+          "distinctionTr": "Ism'den farkı: Zenb fiil-sonuç odaklı. 'Allah'ın senin geçmiş ve gelecek zenbini bağışlaması için' (Fetih 48:2).",
+          "distinctionEn": "Difference from ithm: Zanb focuses on action-consequence. 'So that God may forgive your past and future zanb' (Al-Fatḥ 48:2).",
+          "frequency": 37,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.4, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "48:2",  "context": "divine",   "note": "'Senin geçmiş ve gelecek zenbini bağışlaması için'", "targetWord": "ذَنبِكَ" },
+            { "ref": "39:53", "context": "positive", "note": "'Bütün zenbleri bağışlar'",                           "targetWord": "الذُّنُوبَ" },
+            { "ref": "3:135", "context": "positive", "note": "'Zenblerinden dolayı istiğfar ederler'",               "targetWord": "لِذُنُوبِهِمْ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        },
+        {
+          "id": "ithm",
+          "ar": "إِثْم",
+          "tr": "İsm",
+          "transliteration": "ithm",
+          "meaningTr": "Kökü 'eseme' — ağırlık, geri bırakma. Manevi yürüyüşü engelleyen yük. Bilerek işlenen büyük günah.",
+          "meaningEn": "Root 'asama' — weight, holding back. A burden that impedes spiritual progress. Deliberately committed major sin.",
+          "distinctionTr": "Zenb'den farkı: İsm daha ağır, bilerek yapılan. 'Büyük ism'ten sakın' (Bakara 2:219 — içki/kumar).",
+          "distinctionEn": "Difference from zanb: Ithm is heavier, deliberate. 'Great ithm' (Al-Baqara 2:219 — wine/gambling).",
+          "frequency": 48,
+          "color": "#c0392b",
+          "semanticAxes": { "x": 0.6, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "2:219", "context": "negative", "note": "İçki ve kumarda 'büyük ism' vardır",       "targetWord": "إِثْمٌ" },
+            { "ref": "5:2",   "context": "negative", "note": "'İsm ve düşmanlıkta yardımlaşmayın'",        "targetWord": "الْإِثْمِ" },
+            { "ref": "4:112", "context": "negative", "note": "'İsm irtikab eden kendi aleyhine işler'",     "targetWord": "إِثْمًا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 3, "dominantPattern": "negative", "dominantPercentage": 100 }
+        },
+        {
+          "id": "sayyia",
+          "ar": "سَيِّئَة",
+          "tr": "Seyyie",
+          "transliteration": "sayyi'a",
+          "meaningTr": "Kötülük, kötü fiil. Kökü 'sâe' (kötü olmak). Hasanâtın zıddı — iyiliğin karşı kutbu.",
+          "meaningEn": "Evil, bad deed. Root 'sā'a' (to be bad). Opposite of ḥasanāt — the polar opposite of goodness.",
+          "distinctionTr": "Zenb ve ism'den farkı: Seyyie ahlaki nitelik — kötü fiilin kendisi. 'İyilikler seyyieleri giderir' (Hûd 11:114).",
+          "distinctionEn": "Difference from zanb and ithm: Sayyi'a is a moral quality — the bad deed itself. 'Good deeds erase sayyi'āt' (Hūd 11:114).",
+          "frequency": 36,
+          "color": "#d35400",
+          "semanticAxes": { "x": 0.5, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "11:114", "context": "positive", "note": "'İyilikler seyyieleri giderir'",      "targetWord": "السَّيِّئَاتِ" },
+            { "ref": "4:31",   "context": "positive", "note": "'Büyük günahlardan kaçınırsanız seyyielerinizi örteriz'", "targetWord": "سَيِّئَاتِكُمْ" },
+            { "ref": "25:70",  "context": "positive", "note": "'Allah onların seyyielerini hasenâta çevirir'",         "targetWord": "سَيِّئَاتِهِمْ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "fahisha",
+          "ar": "فَاحِشَة",
+          "tr": "Fâhişe",
+          "transliteration": "fāḥisha",
+          "meaningTr": "Aşırılık, sınır aşan kötülük. Özellikle cinsel/ahlaki taşkınlık için kullanılır. 'Fahş' (taşkınlık) kökünden.",
+          "meaningEn": "Excess, a transgression beyond limits. Especially used for sexual/moral excess. From 'faḥsh' (excess).",
+          "distinctionTr": "Seyyie'den farkı: Fâhişe açık, sınır aşan, skandal boyutta. Zina, livâta gibi aşırı fiiller için kullanılır.",
+          "distinctionEn": "Difference from sayyi'a: Fāḥisha is open, transgressive, scandalous. Used for extreme acts like zinā, liwāṭ.",
+          "frequency": 24,
+          "color": "#8e44ad",
+          "semanticAxes": { "x": 0.7, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "17:32", "context": "negative", "note": "'Zinaya yaklaşmayın — o bir fâhişedir'", "targetWord": "فَاحِشَةً" },
+            { "ref": "7:80",  "context": "negative", "note": "Lût kavmi için 'bu fâhişeyi mi yapıyorsunuz?'", "targetWord": "الْفَاحِشَةَ" },
+            { "ref": "4:22",  "context": "negative", "note": "Babanın karısıyla evlenmek 'fâhişe ve iğrençtir'", "targetWord": "فَاحِشَةً" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 3, "dominantPattern": "negative", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "fire-family",
+      "category": "nature",
+      "titleTr": "Ateş / Cehennem Aileleri",
+      "titleEn": "Fire / Hellfire Family",
+      "turkishTranslation": "Cehennem",
+      "englishTranslation": "Hellfire",
+      "principleTr": "Cehennemin 6 adı — her biri farklı azap boyutunu vurgular.",
+      "principleEn": "Hellfire has 6 names — each emphasizes a different dimension of punishment.",
+      "principleSource": "Klasik tefsir geleneği",
+      "words": [
+        {
+          "id": "nar",
+          "ar": "نَار",
+          "tr": "Nâr",
+          "transliteration": "nār",
+          "meaningTr": "Ateş — genel isim. Hem dünyevi ateş hem cehennem için kullanılır. En sık geçen ad.",
+          "meaningEn": "Fire — general name. Used for both worldly fire and Hellfire. The most frequent term.",
+          "distinctionTr": "Diğer 5 addan farkı: Nâr genel, nötr kelimedir — spesifik azap boyutuna odaklanmaz.",
+          "distinctionEn": "Difference from the other 5 names: Nār is general, neutral — does not focus on a specific punishment dimension.",
+          "frequency": 145,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.3, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "2:24",  "context": "negative", "note": "'Kâfirlere hazırlanmış nâr'ın yakıtı',     ",  "targetWord": "النَّارَ" },
+            { "ref": "20:10", "context": "neutral",  "note": "Mûsâ'nın gördüğü nâr (yanan çalı)",             "targetWord": "نَارًا" },
+            { "ref": "66:6",  "context": "negative", "note": "'Kendinizi ve ailenizi nâr'dan koruyun'",       "targetWord": "نَارًا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 2, "dominantPattern": "negative", "dominantPercentage": 67 }
+        },
+        {
+          "id": "jahim",
+          "ar": "جَحِيم",
+          "tr": "Cahîm",
+          "transliteration": "jaḥīm",
+          "meaningTr": "Yoğun, çılgın alev. Kökü 'cahame' (alevi şiddetlenmek). Şiddetlenen, azgın ateş.",
+          "meaningEn": "Intense, wild flame. Root 'jaḥama' (flames intensifying). Raging, violent fire.",
+          "distinctionTr": "Nâr'dan farkı: Cahîm alevin şiddeti/yoğunluğunu vurgular. Günahkârların yeridir (Mâide 5:86).",
+          "distinctionEn": "Difference from nār: Jaḥīm emphasizes flame intensity. The place of sinners (Al-Mā'ida 5:86).",
+          "frequency": 26,
+          "color": "#c0392b",
+          "semanticAxes": { "x": 0.5, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "5:86",  "context": "negative", "note": "'Kâfirler cahîm'in sahipleridir'",      "targetWord": "الْجَحِيمِ" },
+            { "ref": "37:23", "context": "negative", "note": "'Onları cahîm'in yoluna iletin'",         "targetWord": "الْجَحِيمِ" },
+            { "ref": "56:94", "context": "negative", "note": "'Sonra cahîm'e atılış'",                  "targetWord": "جَحِيمٍ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 3, "dominantPattern": "negative", "dominantPercentage": 100 }
+        },
+        {
+          "id": "sair",
+          "ar": "سَعِير",
+          "tr": "Sa'îr",
+          "transliteration": "sa'īr",
+          "meaningTr": "Parlayan, tutuşan alev. Kökü 'sa'ara' (tutuşmak, alevlenmek). Tutuşan ateş.",
+          "meaningEn": "Blazing, kindling flame. Root 'sa'ara' (to kindle, flame up). A burning fire.",
+          "distinctionTr": "Cahîm'den farkı: Sa'îr tutuşma/alevlenme sürecini vurgular. Şeytanın dostlarının yeridir (Mülk 67:5).",
+          "distinctionEn": "Difference from jaḥīm: Sa'īr emphasizes the kindling process. The place of Satan's allies (Al-Mulk 67:5).",
+          "frequency": 16,
+          "color": "#d35400",
+          "semanticAxes": { "x": 0.4, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "67:5",  "context": "negative", "note": "Şeytanlara 'sa'îr azabı' hazırladık",      "targetWord": "السَّعِيرِ" },
+            { "ref": "4:10",  "context": "negative", "note": "Yetim malı yiyenler 'sa'îr'e girecek'",     "targetWord": "سَعِيرًا" },
+            { "ref": "33:64", "context": "negative", "note": "'Kâfirlere sa'îr hazırladık'",              "targetWord": "سَعِيرًا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 3, "dominantPattern": "negative", "dominantPercentage": 100 }
+        },
+        {
+          "id": "hutama",
+          "ar": "حُطَمَة",
+          "tr": "Hutame",
+          "transliteration": "ḥuṭama",
+          "meaningTr": "Kökü 'hutame' (parçalamak, kırmak) — parçalayan, ezen ateş. Sadece Hümeze suresinde geçer.",
+          "meaningEn": "Root 'ḥaṭama' (to break, crush) — the crushing fire. Appears only in Surah Al-Humaza.",
+          "distinctionTr": "Diğer isimlerden farkı: Hutame parçalama/ezme boyutunu vurgular — Hümeze 104:4-6'da tanımlanır (hapax).",
+          "distinctionEn": "Difference from other names: Ḥuṭama emphasizes the crushing dimension — defined in Al-Humaza 104:4-6 (hapax).",
+          "frequency": 2,
+          "color": "#7f0000",
+          "semanticAxes": { "x": 0.6, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "104:4", "context": "negative", "note": "'Ant olsun ki o Hutame'ye atılacak'", "targetWord": "الْحُطَمَةِ" },
+            { "ref": "104:5", "context": "negative", "note": "'Hutame'nin ne olduğunu sana ne bildirdi?'", "targetWord": "الْحُطَمَةُ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 2, "dominantPattern": "negative", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "earth-family",
+      "category": "nature",
+      "titleTr": "Toprak / Çamur Aileleri",
+      "titleEn": "Earth / Clay Family",
+      "turkishTranslation": "Toprak",
+      "englishTranslation": "Earth",
+      "principleTr": "Âdem'in yaratılış aşamaları farklı isimlerle verilir: türâb → tîn → hame' → salsâl.",
+      "principleEn": "The stages of Adam's creation are named with different words: turāb → ṭīn → ḥamaʾ → ṣalṣāl.",
+      "principleSource": "Klasik tefsir geleneği",
+      "words": [
+        {
+          "id": "turab",
+          "ar": "تُرَاب",
+          "tr": "Türâb",
+          "transliteration": "turāb",
+          "meaningTr": "Kuru toprak, toz. Yaratılış dizisinin başlangıç maddesi — ölümden sonra da 'türâb' olma tasviri vardır.",
+          "meaningEn": "Dry earth, dust. The initial substance of the creation sequence — also used for becoming 'turāb' after death.",
+          "distinctionTr": "Diğer çamur isimlerinden farkı: Türâb su karışmamış, kuru hali ifade eder.",
+          "distinctionEn": "Difference from other clay names: Turāb expresses the dry state, without water.",
+          "frequency": 17,
+          "color": "#8e6f47",
+          "semanticAxes": { "x": 0.2, "y": 0.2 },
+          "allOccurrences": [
+            { "ref": "3:59",  "context": "divine",  "note": "'İsa'yı türâb'dan yarattı'",               "targetWord": "تُرَابٍ" },
+            { "ref": "22:5",  "context": "divine",  "note": "'Sizi türâb'dan yarattık'",                "targetWord": "تُرَابٍ" },
+            { "ref": "30:20", "context": "divine",  "note": "'Sizi türâb'dan yaratması ayetlerindendir'", "targetWord": "تُرَابٍ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "tin",
+          "ar": "طِين",
+          "tr": "Tîn",
+          "transliteration": "ṭīn",
+          "meaningTr": "Yapışkan, ıslak çamur. Su ile karışmış toprak. İkinci yaratılış aşaması.",
+          "meaningEn": "Sticky, wet clay. Earth mixed with water. The second creation stage.",
+          "distinctionTr": "Türâb'dan farkı: Tîn su karışmış, şekillendirilebilir çamur. 'Ben çamurdan beşer yaratacağım' (Hicr 15:28).",
+          "distinctionEn": "Difference from turāb: Ṭīn is water-mixed, mouldable clay. 'I will create a bashar from clay' (Al-Ḥijr 15:28).",
+          "frequency": 12,
+          "color": "#a0522d",
+          "semanticAxes": { "x": 0.4, "y": 0.4 },
+          "allOccurrences": [
+            { "ref": "6:2",   "context": "divine", "note": "'Sizi tîn'den yaratan O'dur'",              "targetWord": "طِينٍ" },
+            { "ref": "7:12",  "context": "divine", "note": "İblis: 'Beni ateşten, onu tîn'den yarattın'", "targetWord": "طِينٍ" },
+            { "ref": "15:26", "context": "divine", "note": "'İnsanı kara, şekillendirilmiş tîn'den yarattık'", "targetWord": "حَمَإٍ" },
+            { "ref": "32:7",  "context": "divine", "note": "'İnsanın yaratılışına tîn'den başladı'",     "targetWord": "طِينٍ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 4, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "salsal",
+          "ar": "صَلْصَال",
+          "tr": "Salsâl",
+          "transliteration": "ṣalṣāl",
+          "meaningTr": "Kurumuş, çınlayan çamur. Pişmiş/kurutulmuş çömlek tınısı. Yaratılışın son çamur aşaması.",
+          "meaningEn": "Dried, ringing clay. The sound of baked/dried pottery. The final clay stage of creation.",
+          "distinctionTr": "Tîn'den farkı: Salsâl kuruyup sertleşmiş, vurulduğunda çınlayan. Hicr 15:26-29 aşama dizisini verir.",
+          "distinctionEn": "Difference from ṭīn: Ṣalṣāl is dried and hardened, ringing when struck. Al-Ḥijr 15:26-29 gives the phase sequence.",
+          "frequency": 4,
+          "color": "#c68642",
+          "semanticAxes": { "x": 0.7, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "15:26", "context": "divine", "note": "'İnsanı salsâl'den — kara şekillendirilmiş çamurdan yarattık'", "targetWord": "صَلْصَالٍ" },
+            { "ref": "15:28", "context": "divine", "note": "'Ben çamur bir salsâl'den beşer yaratıyorum'",                 "targetWord": "صَلْصَالٍ" },
+            { "ref": "55:14", "context": "divine", "note": "'İnsanı çömlek gibi salsâl'den yarattı'",                       "targetWord": "صَلْصَالٍ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "hamaa",
+          "ar": "حَمَإ",
+          "tr": "Hame'",
+          "transliteration": "ḥamaʾ",
+          "meaningTr": "Değişmiş, kararmış çamur. Kokulu, yaşlanmış çamur. 'Hame' mesnûn' = şekillendirilmiş değişmiş çamur.",
+          "meaningEn": "Altered, blackened clay. Smelly, aged clay. 'Ḥamaʾ masnūn' = shaped altered clay.",
+          "distinctionTr": "Tîn ve salsâl'den farkı: Hame' zamanla değişmiş, fermente olmuş çamur. Hicl 15:26-33'te 3 kez geçer.",
+          "distinctionEn": "Difference from ṭīn and ṣalṣāl: Ḥamaʾ is clay that has changed, fermented over time. Appears 3 times in Al-Ḥijr 15:26-33.",
+          "frequency": 3,
+          "color": "#5d4037",
+          "semanticAxes": { "x": 0.5, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "15:26", "context": "divine", "note": "'Salsâl'den — değişmiş çamur (hame' mesnûn)'ndan'", "targetWord": "حَمَإٍ" },
+            { "ref": "15:28", "context": "divine", "note": "'Değişmiş çamurdan bir beşer yaratıyorum'",           "targetWord": "حَمَإٍ" },
+            { "ref": "15:33", "context": "divine", "note": "İblis: 'Hame' mesnûn'dan yarattığına secde etmem'",   "targetWord": "حَمَإٍ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "child-family",
+      "category": "human",
+      "titleTr": "Çocuk Aileleri",
+      "titleEn": "Child Family",
+      "turkishTranslation": "Çocuk",
+      "englishTranslation": "Child",
+      "principleTr": "Her 'çocuk' kelimesi farklı bir yaş/durum evresini adlandırır.",
+      "principleEn": "Each 'child' word names a different age/state.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "walad",
+          "ar": "وَلَد",
+          "tr": "Veled",
+          "transliteration": "walad",
+          "meaningTr": "Doğmuş biyolojik çocuk. Kökü 'velede' (doğurmak). Allah'ın 'veledi yoktur' (İhlâs 112:3) — biyolojik ilişki vurgusu.",
+          "meaningEn": "Biological born child. Root 'walada' (to give birth). 'God has no walad' (Al-Ikhlāṣ 112:3) — emphasizing biological relation.",
+          "distinctionTr": "İbn'den farkı: Veled doğrudan biyolojik doğumu ifade eder — mecazi kullanım nadirdir.",
+          "distinctionEn": "Difference from ibn: Walad expresses direct biological birth — metaphorical use is rare.",
+          "frequency": 59,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.2, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "112:3", "context": "divine",   "note": "'Doğurmadı ve doğurulmadı (veled yok)'", "targetWord": "يُولَدْ" },
+            { "ref": "2:233", "context": "neutral",  "note": "'Anneler çocuklarını (evlâd) emzirir'",    "targetWord": "أَوْلَادَهُنَّ" },
+            { "ref": "18:4",  "context": "negative", "note": "'Allah veled edindi diyenleri uyarmak için'", "targetWord": "وَلَدًا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 1, "divine": 1, "dominantPattern": "neutral", "dominantPercentage": 33 }
+        },
+        {
+          "id": "ibn",
+          "ar": "ابْن",
+          "tr": "İbn",
+          "transliteration": "ibn",
+          "meaningTr": "Oğul — biyolojik veya manevi. 'İbn-i Meryem', 'İbn-i Sebîl' (yolda kalmış = yolun oğlu). Daha geniş anlam.",
+          "meaningEn": "Son — biological or metaphorical. 'Ibn Maryam', 'Ibn al-Sabīl' (traveler = son of the path). Broader meaning.",
+          "distinctionTr": "Veled'den farkı: İbn mecazi kullanım da alır. İbn-i Sebîl yolcu anlamında — biyolojik oğul değil.",
+          "distinctionEn": "Difference from walad: Ibn accepts metaphorical use. Ibn al-sabīl means traveler — not a biological son.",
+          "frequency": 161,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.5, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "3:45",  "context": "divine",  "note": "'Meryem'in oğlu (İbn) Mesih İsa'",          "targetWord": "ابْنُ" },
+            { "ref": "2:215", "context": "divine",  "note": "'Yolda kalmışa (ibn-i sebîl) infak edin'",     "targetWord": "ابْنِ" },
+            { "ref": "4:36",  "context": "divine",  "note": "'Yolcuya (ibn-i sebîl) iyilik edin'",          "targetWord": "ابْنِ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "tifl",
+          "ar": "طِفْل",
+          "tr": "Tıfl",
+          "transliteration": "ṭifl",
+          "meaningTr": "Küçük çocuk, bebek. Kökü 'tafele' (yumuşak, narin olmak). Bebeklik ve erken çocukluk dönemi.",
+          "meaningEn": "Small child, infant. Root 'ṭafala' (to be soft, delicate). Infancy and early childhood.",
+          "distinctionTr": "Veled/ibn'den farkı: Tıfl yaş evresini (bebeklik) vurgular. 'Sizi tıfl olarak çıkarır' (Hac 22:5).",
+          "distinctionEn": "Difference from walad/ibn: Ṭifl emphasizes age (infancy). 'We bring you forth as ṭifl' (Al-Ḥajj 22:5).",
+          "frequency": 4,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.3, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "22:5",  "context": "divine",  "note": "'Sizi tıfl (bebek) olarak çıkarır'",    "targetWord": "طِفْلًا" },
+            { "ref": "24:31", "context": "neutral", "note": "'Henüz kadınların mahremini bilmeyen tıfl (çocuklar)'", "targetWord": "الطِّفْلُ" },
+            { "ref": "40:67", "context": "divine",  "note": "'Sonra sizi tıfl olarak çıkarır'",       "targetWord": "طِفْلًا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        },
+        {
+          "id": "ghulam",
+          "ar": "غُلَام",
+          "tr": "Ğulâm",
+          "transliteration": "ghulām",
+          "meaningTr": "Genç erkek, ergenlik öncesi/çağdaş. Peygamberlerin çocuklarının müjdesinde kullanılır — İbrahim'e, Zekeriyya'ya.",
+          "meaningEn": "Young male, pre-teen/youth. Used for the tidings of prophets' children — to Ibrāhīm, Zakariyyā.",
+          "distinctionTr": "Tıfl'dan farkı: Ğulâm daha büyük yaş, genç delikanlı. 'Sabırlı bir ğulâm müjdesi' (Sâffât 37:101).",
+          "distinctionEn": "Difference from ṭifl: Ghulām is older, a youth. 'Tidings of a forbearing ghulām' (Al-Ṣāffāt 37:101).",
+          "frequency": 13,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.6, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "37:101", "context": "positive", "note": "İbrahim'e 'sabırlı bir ğulâm' müjdesi",       "targetWord": "بِغُلَامٍ" },
+            { "ref": "3:40",   "context": "positive", "note": "Zekeriyya'ya 'ğulâm' müjdesi",                  "targetWord": "غُلَامٌ" },
+            { "ref": "19:7",   "context": "positive", "note": "'Adı Yahya olan bir ğulâm müjdeliyoruz'",        "targetWord": "بِغُلَامٍ" },
+            { "ref": "18:74",  "context": "negative", "note": "Hızır kıssasındaki ğulâm (öldürülen çocuk)",     "targetWord": "غُلَامًا" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 1, "dominantPattern": "positive", "dominantPercentage": 75 }
+        }
+      ]
+    },
+    {
+      "id": "creation-family",
+      "category": "creation",
+      "titleTr": "Yaratma Aileleri",
+      "titleEn": "Creation Family",
+      "turkishTranslation": "Yaratma",
+      "englishTranslation": "Creation",
+      "principleTr": "Halk ölçülü, ibdâ' modelsiz, fatr ilk parçalama, bed' başlatmadır.",
+      "principleEn": "Khalq is measured, ibdā' without precedent, faṭr the original split, bad' is initiating.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "khalq",
+          "ar": "خَلْق",
+          "tr": "Halk",
+          "transliteration": "khalq",
+          "meaningTr": "Ölçülü, düzenli yaratma. Kökü 'halaka' — ölçü ile bir şeyi var etmek. En yaygın yaratma fiili.",
+          "meaningEn": "Measured, ordered creation. Root 'khalaqa' — to bring something into being with measure. The most common creation verb.",
+          "distinctionTr": "İbdâ' ve fatr'dan farkı: Halk var olan maddelerden düzenli yapılanmayı ifade eder. 'Allahu ehsenu'l-hâlikîn' (Mü'minûn 23:14).",
+          "distinctionEn": "Difference from ibdā' and faṭr: Khalq expresses structured composition from existing materials. 'God is the best of Creators' (Al-Mu'minūn 23:14).",
+          "frequency": 261,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.5, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "2:21",   "context": "divine", "note": "'Sizi ve sizden öncekileri yaratan (halk)'", "targetWord": "خَلَقَكُمْ" },
+            { "ref": "23:14",  "context": "divine", "note": "'Allah yaratıcıların en güzelidir'",           "targetWord": "الْخَالِقِينَ" },
+            { "ref": "96:1",   "context": "divine", "note": "'Yaratan Rabbinin adıyla oku'",                "targetWord": "خَلَقَ" },
+            { "ref": "55:3",   "context": "divine", "note": "'İnsanı yarattı'",                             "targetWord": "خَلَقَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 4, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "bada",
+          "ar": "بَدَأ",
+          "tr": "Bed'",
+          "transliteration": "bada'a",
+          "meaningTr": "Başlatma, ilk yaratmayı başlatma. Zamansal ilk — yaratmanın başlangıç anı.",
+          "meaningEn": "Initiating, starting the first creation. Temporal first — the moment creation begins.",
+          "distinctionTr": "Halk'tan farkı: Bed' başlangıca odaklanır. Kur'an 'bed' ve 'iâde' (geri döndürme) çiftini sık kullanır.",
+          "distinctionEn": "Difference from khalq: Bad' focuses on the beginning. The Quran often pairs 'bad'' with 'iʿāda' (return).",
+          "frequency": 14,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.3, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "10:4",  "context": "divine", "note": "'Yaratmayı O başlatır, sonra tekrar yapar'", "targetWord": "يَبْدَأُ" },
+            { "ref": "21:104","context": "divine", "note": "'İlk yarattığımız gibi iade ederiz'",          "targetWord": "بَدَأْنَا" },
+            { "ref": "30:27", "context": "divine", "note": "'Yaratmayı başlatan, sonra iade eden O'dur'",  "targetWord": "يَبْدَأُ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "fatr",
+          "ar": "فَطَر",
+          "tr": "Fatr",
+          "transliteration": "faṭara",
+          "meaningTr": "İlk yarılma, parçalama. Kökü 'fetare' (yarılmak). Göklerin ve yerin ilk ayrılışı. 'Fâtır' = ilk yaratan.",
+          "meaningEn": "Original splitting, cleaving. Root 'faṭara' (to split). The original separation of heavens and earth. 'Fāṭir' = the original Creator.",
+          "distinctionTr": "Halk ve bed'den farkı: Fatr 'yoktan değil, ayırarak yaratma' vurgusu. Enbiyâ 21:30 ratk/fetk (bitişik/ayrılmış).",
+          "distinctionEn": "Difference from khalq and bad': Faṭr emphasizes 'creation by separation'. Al-Anbiyā 21:30 ratq/fatq (joined/separated).",
+          "frequency": 20,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.7, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "6:79",  "context": "divine", "note": "'Gökleri ve yeri fatr eden O'na yöneldim'",       "targetWord": "فَطَرَ" },
+            { "ref": "35:1",  "context": "divine", "note": "'Gökleri ve yeri fatr eden Allah'a hamd'",         "targetWord": "فَاطِرِ" },
+            { "ref": "14:10", "context": "divine", "note": "'Gökleri ve yeri fatr eden Allah'ta şüphe mi?'",   "targetWord": "فَاطِرِ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "ibda",
+          "ar": "بَدِيع",
+          "tr": "Bedî' (İbdâ')",
+          "transliteration": "badīʿ / ibdāʿ",
+          "meaningTr": "Öncesiz, modelsiz yaratma. 'Bedî'u's-semâvât' (göklerin yoktan yaratıcısı). En derin yaratma kavramı.",
+          "meaningEn": "Creation without precedent. 'Badīʿ al-samāwāt' (Originator of the heavens). The deepest creation concept.",
+          "distinctionTr": "Halk, bed' ve fatr'dan farkı: İbdâ' yoktan, modelsiz yaratmadır. Sadece Allah için kullanılır.",
+          "distinctionEn": "Difference from khalq, bad' and faṭr: Ibdāʿ is creation from nothing, without precedent. Only used for God.",
+          "frequency": 2,
+          "color": "#c0392b",
+          "semanticAxes": { "x": 0.9, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "2:117", "context": "divine", "note": "'Gökleri ve yeri yoktan var eden (Bedî')'",     "targetWord": "بَدِيعُ" },
+            { "ref": "6:101", "context": "divine", "note": "'Gökleri ve yeri yoktan var eden O'dur'",        "targetWord": "بَدِيعُ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "sending-family",
+      "category": "creation",
+      "titleTr": "İndirme Aileleri",
+      "titleEn": "Sending Family",
+      "turkishTranslation": "İndirme",
+      "englishTranslation": "Sending down",
+      "principleTr": "Enzele toptan iniş, nezzele parça parça tedrici iniştir.",
+      "principleEn": "Anzala is wholesale descent, nazzala gradual descent.",
+      "principleSource": "es-Süyûtî, el-İtkân",
+      "words": [
+        {
+          "id": "anzala",
+          "ar": "أَنْزَلَ",
+          "tr": "Enzele",
+          "transliteration": "anzala",
+          "meaningTr": "Bâb ef'al — toptan, bir seferde indirme. Kur'an'ın Levh-i Mahfuz'dan dünya semasına tek seferde inişinde kullanılır (Kadr 97:1).",
+          "meaningEn": "Form IV — wholesale descent, all at once. Used for the Quran's single descent from the Preserved Tablet to the lower heaven (Al-Qadr 97:1).",
+          "distinctionTr": "Nezzele'den farkı: Enzele tek seferde bütünün inişidir. 'Biz onu Kadir Gecesi'nde indirdik' (enzele).",
+          "distinctionEn": "Difference from nazzala: Anzala is the whole descending at once. 'We sent it down on the Night of Decree' (anzala).",
+          "frequency": 190,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.7, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "97:1",  "context": "divine", "note": "'Onu Kadir Gecesi'nde indirdik (enzelnâ)'",  "targetWord": "أَنزَلْنَاهُ" },
+            { "ref": "2:185", "context": "divine", "note": "'Kur'an Ramazan ayında indirildi (ünzile)'",    "targetWord": "أُنزِلَ" },
+            { "ref": "57:25", "context": "divine", "note": "'Demiri indirdik (enzelnâ)'",                   "targetWord": "أَنزَلْنَا" },
+            { "ref": "44:3",  "context": "divine", "note": "'Biz onu mübarek bir gecede indirdik'",         "targetWord": "أَنزَلْنَاهُ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 4, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "nazzala",
+          "ar": "نَزَّلَ",
+          "tr": "Nezzele",
+          "transliteration": "nazzala",
+          "meaningTr": "Bâb tef'îl — parça parça, tedrici iniş. Kur'an'ın 23 yıl boyunca Hz. Peygamber'e bölüm bölüm inişinde kullanılır.",
+          "meaningEn": "Form II — piecemeal, gradual descent. Used for the Quran's staged descent to the Prophet over 23 years.",
+          "distinctionTr": "Enzele'den farkı: Nezzele 'bölüm bölüm' iniş vurgusudur. 'Kur'an'ı parça parça indirdik ki' (İsrâ 17:106).",
+          "distinctionEn": "Difference from anzala: Nazzala emphasizes 'piece by piece' descent. 'We have sent down the Quran in portions' (Al-Isrā 17:106).",
+          "frequency": 60,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.4, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "17:106", "context": "divine", "note": "'Biz onu parça parça indirdik'",         "targetWord": "نَزَّلْنَاهُ" },
+            { "ref": "25:32",  "context": "divine", "note": "'Kur'an ona bir bütün olarak neden indirilmedi?' (soruya cevap)", "targetWord": "نُزِّلَ" },
+            { "ref": "26:193", "context": "divine", "note": "'Onu Rûhu'l-Emîn indirdi'",                 "targetWord": "نَزَلَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "knowledge-family",
+      "category": "knowledge",
+      "titleTr": "Bilgi Aileleri",
+      "titleEn": "Knowledge Family",
+      "turkishTranslation": "Bilgi",
+      "englishTranslation": "Knowledge",
+      "principleTr": "İlm geniş, ma'rife özel, şu'ûr fark etme, dirâye derin kavrayıştır.",
+      "principleEn": "ʿIlm is broad, maʿrifa specific, shuʿūr sensing, dirāya deep comprehension.",
+      "principleSource": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "words": [
+        {
+          "id": "ilm",
+          "ar": "عِلْم",
+          "tr": "İlm",
+          "transliteration": "ʿilm",
+          "meaningTr": "Genel, kapsamlı, teorik bilgi. Kökü 'alâme' (iz bırakmak). Bilinçte iz bırakan, kesin bilgi.",
+          "meaningEn": "General, comprehensive, theoretical knowledge. Root 'ʿalāma' (to leave a mark). Knowledge that leaves a trace in consciousness.",
+          "distinctionTr": "Ma'rife'den farkı: İlm geniş ve soyut, ma'rife özel ve bireyseldir. Kur'an'da en sık kullanılan bilgi kelimesi.",
+          "distinctionEn": "Difference from maʿrifa: ʿIlm is broad and abstract, maʿrifa specific and individual. The most frequent knowledge word in the Quran.",
+          "frequency": 782,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.7, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "2:32",  "context": "divine",   "note": "'Senin bize öğrettiğinden başka ilmimiz yok'", "targetWord": "عِلْمَ" },
+            { "ref": "20:114","context": "divine",   "note": "'Rabbim, ilmimi artır'",                         "targetWord": "عِلْمًا" },
+            { "ref": "58:11", "context": "positive", "note": "'İlm verilenleri yüksek derecelere kaldırır'",   "targetWord": "الْعِلْمَ" },
+            { "ref": "35:28", "context": "divine",   "note": "'Kullarından ilim sahipleri Allah'a haşye duyar'","targetWord": "الْعُلَمَاءُ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 75 }
+        },
+        {
+          "id": "marife",
+          "ar": "عَرَفَ",
+          "tr": "Ma'rife",
+          "transliteration": "maʿrifa",
+          "meaningTr": "Tanıma, fark etme. Belirli bir kişi veya şeyi kimliğiyle tanımak. 'A'raf' (tanıma yüksekliği) aynı kökten.",
+          "meaningEn": "Recognition, identifying. Knowing a specific person or thing by identity. 'Aʿrāf' (heights of recognition) is from the same root.",
+          "distinctionTr": "İlm'den farkı: Ma'rife tanıma/kimlik odaklı. 'Birbirinizi tanıyasınız diye' (Hucurât 49:13).",
+          "distinctionEn": "Difference from ʿilm: Maʿrifa focuses on recognition/identity. 'So that you may recognize one another' (Al-Ḥujurāt 49:13).",
+          "frequency": 71,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.4, "y": 0.4 },
+          "allOccurrences": [
+            { "ref": "49:13", "context": "divine",   "note": "'Birbirinizi tanıyasınız (tearefû) diye'",        "targetWord": "لِتَعَارَفُوا" },
+            { "ref": "2:146", "context": "neutral",  "note": "'Onu kendi evlatlarını tanır (yerifûne) gibi tanırlar'", "targetWord": "يَعْرِفُونَهُ" },
+            { "ref": "7:46",  "context": "neutral",  "note": "'A'râf' üstünde olanlar simâlarından tanırlar",     "targetWord": "الْأَعْرَافِ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 2, "negative": 0, "divine": 1, "dominantPattern": "neutral", "dominantPercentage": 67 }
+        },
+        {
+          "id": "shuur",
+          "ar": "شَعَرَ",
+          "tr": "Şu'ûr",
+          "transliteration": "shuʿūr",
+          "meaningTr": "Fark etme, hissetme. 'Şa'are' (saç) kökünden — saç gibi ince fark ediş, hassas algı. Bilinç değil, duyumsayış.",
+          "meaningEn": "To sense, perceive. Root 'shaʿara' (hair) — fine perception like hair, sensitive awareness. Not consciousness but sensing.",
+          "distinctionTr": "İlm'den farkı: Şu'ûr ilk fark ediş, dış temas. 'Ama bilmezler (şa'are etmezler)' (Bakara 2:9) — fark etmiyorlar.",
+          "distinctionEn": "Difference from ʿilm: Shuʿūr is first perception, surface contact. 'But they don't perceive' (Al-Baqara 2:9) — don't notice.",
+          "frequency": 29,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.2, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "2:9",   "context": "negative", "note": "'Aldatıyorlar ama fark etmezler (şa'are)'",    "targetWord": "يَشْعُرُونَ" },
+            { "ref": "2:154", "context": "divine",   "note": "'Onlar diridirler ama siz fark etmezsiniz'",    "targetWord": "تَشْعُرُونَ" },
+            { "ref": "27:18", "context": "neutral",  "note": "Karınca: 'Fark etmeden sizi ezmesinler'",        "targetWord": "يَشْعُرُونَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 1, "divine": 1, "dominantPattern": "neutral", "dominantPercentage": 33 }
+        },
+        {
+          "id": "yaqin",
+          "ar": "يَقِين",
+          "tr": "Yakîn",
+          "transliteration": "yaqīn",
+          "meaningTr": "Kesin bilgi, şüphesiz iman. 'Yakâne' (sağlam olmak) kökünden. Üç derecesi vardır: ilm, ayn, hakk.",
+          "meaningEn": "Certain knowledge, doubtless faith. Root 'yaqīna' (to be firm). Has three degrees: ʿilm, ʿayn, ḥaqq.",
+          "distinctionTr": "İlm'den farkı: Yakîn ilmin kesinlik seviyesine ulaşmış halidir. Şüphesiz, sağlam iman.",
+          "distinctionEn": "Difference from ʿilm: Yaqīn is knowledge reached to certainty. Doubtless, firm faith.",
+          "frequency": 28,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.9, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "2:4",    "context": "divine",   "note": "'Âhirete yakînen iman ederler'",         "targetWord": "يُوقِنُونَ" },
+            { "ref": "15:99",  "context": "divine",   "note": "'Yakîn sana gelene kadar Rabbine kulluk et'", "targetWord": "الْيَقِينُ" },
+            { "ref": "102:5",  "context": "positive", "note": "'Ah keşke ilmü'l-yakîn ile bilseydiniz'",  "targetWord": "الْيَقِينِ" },
+            { "ref": "102:7",  "context": "positive", "note": "'Sonra aynü'l-yakîn ile göreceksiniz'",    "targetWord": "الْيَقِينِ" },
+            { "ref": "69:51",  "context": "divine",   "note": "'Bu ise hakku'l-yakîndir'",               "targetWord": "الْيَقِينِ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 60 }
+        }
+      ]
+    },
+    {
+      "id": "thinking-family",
+      "category": "knowledge",
+      "titleTr": "Düşünme Aileleri",
+      "titleEn": "Thinking Family",
+      "turkishTranslation": "Düşünme",
+      "englishTranslation": "Thinking",
+      "principleTr": "Tefekkür zihinsel, tedebbür sonuç odaklı, tezekkür hatırlama, akl akıl yürütmedir.",
+      "principleEn": "Tafakkur is mental; tadabbur outcome-oriented; tadhakkur recall; ʿaql reasoning.",
+      "principleSource": "İbn Kayyım el-Cevziyye",
+      "words": [
+        {
+          "id": "tafakkur",
+          "ar": "تَفَكُّر",
+          "tr": "Tefekkür",
+          "transliteration": "tafakkur",
+          "meaningTr": "Zihnin bir konu üzerinde dönmesi. Kökü 'fikr'. Kâinatın ayetleri üzerinde düşünmek.",
+          "meaningEn": "Mind turning over a subject. Root 'fikr'. Reflecting on the signs of the cosmos.",
+          "distinctionTr": "Tedebbür'den farkı: Tefekkür sürece, tedebbür sonuca odaklanır. Kur'an tefekkürü sık tavsiye eder.",
+          "distinctionEn": "Difference from tadabbur: Tafakkur focuses on the process, tadabbur on the outcome. The Quran frequently recommends tafakkur.",
+          "frequency": 18,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.4, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "3:191",  "context": "positive", "note": "'Göklerin ve yerin yaratılışı üzerinde tefekkür ederler'", "targetWord": "يَتَفَكَّرُونَ" },
+            { "ref": "16:44",  "context": "divine",   "note": "'Belki tefekkür ederler diye'",                            "targetWord": "يَتَفَكَّرُونَ" },
+            { "ref": "30:21",  "context": "positive", "note": "'Tefekkür eden bir kavim için ayetler'",                    "targetWord": "يَتَفَكَّرُونَ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        },
+        {
+          "id": "tadabbur",
+          "ar": "تَدَبُّر",
+          "tr": "Tedebbür",
+          "transliteration": "tadabbur",
+          "meaningTr": "Bir şeyin 'sonuna' (dübür) ulaşmak, sonucunu kavramak. Özellikle Kur'an ayetleri üzerinde derin anlam arayışı.",
+          "meaningEn": "Reaching the 'back' (dubur) of something, grasping its outcome. Especially seeking deep meaning in Quranic verses.",
+          "distinctionTr": "Tefekkür'den farkı: Tedebbür özellikle Kur'an ayetleri için — derinlik ve sonuç odaklıdır.",
+          "distinctionEn": "Difference from tafakkur: Tadabbur is especially for Quranic verses — depth and outcome-oriented.",
+          "frequency": 4,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.9, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "4:82",  "context": "divine", "note": "'Kur'an'ı tedebbür etmezler mi?'",    "targetWord": "يَتَدَبَّرُونَ" },
+            { "ref": "47:24", "context": "divine", "note": "'Kur'an'ı tedebbür etmezler mi, yoksa kalpleri kilitli mi?'", "targetWord": "يَتَدَبَّرُونَ" },
+            { "ref": "38:29", "context": "positive", "note": "'Ayetlerini tedebbür etsinler diye indirdik'", "targetWord": "لِّيَدَّبَّرُوا" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        },
+        {
+          "id": "tadhakkur",
+          "ar": "تَذَكَّرَ",
+          "tr": "Tezekkür",
+          "transliteration": "tadhakkur",
+          "meaningTr": "Hatırlama, unutulanı anmak. Kökü 'zikr'. Kur'an 'bu bir zikirdir' — hatırlatma.",
+          "meaningEn": "Recalling, remembering the forgotten. Root 'dhikr'. The Quran 'this is a reminder' — recollection.",
+          "distinctionTr": "Tefekkür ve tedebbür'den farkı: Tezekkür zaten bilineni hatırlamaktır — yeni keşif değil.",
+          "distinctionEn": "Difference from tafakkur and tadabbur: Tadhakkur is recalling what is already known — not new discovery.",
+          "frequency": 46,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.5, "y": 0.4 },
+          "allOccurrences": [
+            { "ref": "6:126", "context": "divine",   "note": "'Tezekkür eden bir kavim için'",       "targetWord": "يَذَّكَّرُونَ" },
+            { "ref": "39:9",  "context": "positive", "note": "'Ancak öz akıl sahipleri tezekkür eder'", "targetWord": "يَتَذَكَّرُ" },
+            { "ref": "87:9",  "context": "positive", "note": "'Tezekkür fayda verirse öğüt ver'",      "targetWord": "الذِّكْرَىٰ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        },
+        {
+          "id": "aql",
+          "ar": "عَقْل",
+          "tr": "Akl",
+          "transliteration": "ʿaql",
+          "meaningTr": "Akıl, akıl yürütme. Kökü 'akale' (bağlamak). Zihni taşkınlıktan koruyan, bağlayan yeti.",
+          "meaningEn": "Intellect, reasoning. Root 'ʿaqala' (to bind). The faculty that restrains the mind from excess.",
+          "distinctionTr": "Tefekkür/tedebbür/tezekkür'den farkı: Akl bir süreç değil, bir yetidir. 'Akl etmez misiniz?' (afala ta'kilûn).",
+          "distinctionEn": "Difference from tafakkur/tadabbur/tadhakkur: ʿAql is not a process but a faculty. 'Do you not use reason?' (afalā taʿqilūn).",
+          "frequency": 49,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.7, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "2:44",  "context": "divine",   "note": "'Hiç akıl etmez misiniz?'",           "targetWord": "تَعْقِلُونَ" },
+            { "ref": "2:164", "context": "positive", "note": "'Akıl eden bir kavim için ayetler'",   "targetWord": "يَعْقِلُونَ" },
+            { "ref": "29:43", "context": "positive", "note": "'Âlimlerden başkası akıl etmez'",      "targetWord": "يَعْقِلُهَا" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        }
+      ]
+    },
+    {
+      "id": "certainty-family",
+      "category": "knowledge",
+      "titleTr": "Yakîn'in Üç Derecesi",
+      "titleEn": "Three Degrees of Certainty",
+      "turkishTranslation": "Kesinlik",
+      "englishTranslation": "Certainty",
+      "principleTr": "İlmü'l-yakîn haber, aynü'l-yakîn gözlem, hakku'l-yakîn tecrübedir.",
+      "principleEn": "ʿIlm al-yaqīn is by report, ʿayn al-yaqīn by sight, ḥaqq al-yaqīn by experience.",
+      "principleSource": "Klasik tasavvuf geleneği",
+      "words": [
+        {
+          "id": "ilm-al-yaqin",
+          "ar": "عِلْمُ الْيَقِينِ",
+          "tr": "İlmü'l-Yakîn",
+          "transliteration": "ʿilm al-yaqīn",
+          "meaningTr": "Haberle, bilgiyle ulaşılan kesinlik. Dumanı görerek ateş olduğunu bilmek gibi — dolaylı bilgi.",
+          "meaningEn": "Certainty reached through report or knowledge. Like knowing fire by seeing smoke — indirect knowledge.",
+          "distinctionTr": "Diğer iki dereceden farkı: İlmü'l-yakîn zihnin nakille/çıkarımla ulaştığı kesinliktir — en düşük derece.",
+          "distinctionEn": "Difference from the other two degrees: ʿIlm al-yaqīn is the certainty reached by the mind through report/inference — the lowest degree.",
+          "frequency": 1,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.3, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "102:5", "context": "positive", "note": "'Ah keşke ilmü'l-yakîn ile bilseydiniz'", "targetWord": "عِلْمَ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "ayn-al-yaqin",
+          "ar": "عَيْنُ الْيَقِينِ",
+          "tr": "Aynü'l-Yakîn",
+          "transliteration": "ʿayn al-yaqīn",
+          "meaningTr": "Gözle görme kesinliği. Ateşi görmek gibi — doğrudan müşahede.",
+          "meaningEn": "Certainty of seeing with the eye. Like seeing the fire itself — direct observation.",
+          "distinctionTr": "İlmü'l-yakîn'den farkı: Aynü'l-yakîn direkt gözlemdir — haberin ötesine geçer.",
+          "distinctionEn": "Difference from ʿilm al-yaqīn: ʿAyn al-yaqīn is direct observation — goes beyond report.",
+          "frequency": 1,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.6, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "102:7", "context": "positive", "note": "'Sonra aynü'l-yakîn ile göreceksiniz (cehennemi)'", "targetWord": "عَيْنَ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "haqq-al-yaqin",
+          "ar": "حَقُّ الْيَقِينِ",
+          "tr": "Hakku'l-Yakîn",
+          "transliteration": "ḥaqq al-yaqīn",
+          "meaningTr": "Tecrübe ederek ulaşılan kesinlik. Ateşe dokunmak gibi — bizzat yaşama.",
+          "meaningEn": "Certainty reached through experience. Like touching the fire — first-hand experience.",
+          "distinctionTr": "Aynü'l-yakîn'den farkı: Hakku'l-yakîn özü ile bir olmadır — en yüksek derece.",
+          "distinctionEn": "Difference from ʿayn al-yaqīn: Ḥaqq al-yaqīn is becoming one with the essence — the highest degree.",
+          "frequency": 2,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.9, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "56:95", "context": "divine",   "note": "'Bu kesinlikle hakku'l-yakîndir'",  "targetWord": "حَقُّ" },
+            { "ref": "69:51", "context": "divine",   "note": "'O kesinlikle hakku'l-yakîndir'",   "targetWord": "حَقُّ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "hope-family",
+      "category": "emotions",
+      "titleTr": "Umut Aileleri",
+      "titleEn": "Hope Family",
+      "turkishTranslation": "Umut",
+      "englishTranslation": "Hope",
+      "principleTr": "Recâ' aktif umut, emel uzak/boş arzu, tama' açgözlü istek.",
+      "principleEn": "Rajāʾ is active hope, amal distant/vain wish, ṭamaʿ greedy desire.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "raja",
+          "ar": "رَجَاء",
+          "tr": "Recâ'",
+          "transliteration": "rajāʾ",
+          "meaningTr": "Aksiyon üreten umut — Allah'a yönelmekten doğan bekleyiş. 'Rabbine dönmeyi umar' kalıbıyla geçer.",
+          "meaningEn": "Action-producing hope — the waiting that arises from turning to God.",
+          "distinctionTr": "Emel'den farkı: Recâ' aktif ve Allah yönlüdür. 'Kim Rabbinin huzuruna çıkmayı umuyorsa (yercû)' (Kehf 18:110).",
+          "distinctionEn": "Difference from amal: Rajāʾ is active and God-directed. 'Whoever hopes for the meeting with his Lord' (Al-Kahf 18:110).",
+          "frequency": 28,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.7, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "18:110", "context": "positive", "note": "'Rabbinin huzuruna çıkmayı uman'",  "targetWord": "يَرْجُو" },
+            { "ref": "29:5",   "context": "positive", "note": "'Allah'a kavuşmayı uman'",           "targetWord": "يَرْجُو" },
+            { "ref": "2:218",  "context": "positive", "note": "'Allah'ın rahmetini umarlar'",        "targetWord": "يَرْجُونَ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "amal",
+          "ar": "أَمَل",
+          "tr": "Emel",
+          "transliteration": "amal",
+          "meaningTr": "Uzak, çoğu kez boş/kuruntu türü arzu. Kur'an'da olumsuz bağlamla anılır — insanı oyalayan hayal.",
+          "meaningEn": "Distant, often vain wish. Mentioned in negative contexts in the Quran — illusion that distracts.",
+          "distinctionTr": "Recâ'dan farkı: Emel aksiyondan yoksun, oyalayan arzu. 'Emelleri onları eğlendirsin' (Hicr 15:3) — azarlama.",
+          "distinctionEn": "Difference from rajāʾ: Amal is desire without action, distracting. 'Let vain hope (amal) amuse them' (Al-Ḥijr 15:3) — rebuke.",
+          "frequency": 4,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.2, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "15:3",  "context": "negative", "note": "'Emelleri onları eğlendirsin — yakında bilecekler'", "targetWord": "الْأَمَلُ" },
+            { "ref": "18:46", "context": "neutral",  "note": "'Dünya hayatının süsü mal ve evlat'; kalıcı olan salih amel/emel", "targetWord": "أَمَلًا" },
+            { "ref": "57:14", "context": "negative", "note": "'Emeller sizi aldattı'",                               "targetWord": "الْأَمَانِيُّ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 2, "dominantPattern": "negative", "dominantPercentage": 67 }
+        },
+        {
+          "id": "tama",
+          "ar": "طَمَع",
+          "tr": "Tama'",
+          "transliteration": "ṭamaʿ",
+          "meaningTr": "Açgözlülük derecesinde istek. İlahi rahmeti istemek için olumlu, dünyevi mal için olumsuz.",
+          "meaningEn": "Desire verging on greed. Positive when seeking divine mercy, negative for worldly wealth.",
+          "distinctionTr": "Hem olumlu hem olumsuz kullanım var. Allah'tan 'tama' eden mü'minler (Secde 32:16), harama tama' eden kınanır.",
+          "distinctionEn": "Has both positive and negative usage. Believers who 'ṭamaʿ' from God (Al-Sajda 32:16); one who 'ṭamaʿs' in the forbidden is condemned.",
+          "frequency": 12,
+          "color": "#f39c12",
+          "semanticAxes": { "x": 0.4, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "7:56",  "context": "positive", "note": "'Korku ve tama' (umut) ile dua edin'",     "targetWord": "طَمَعًا" },
+            { "ref": "32:16", "context": "positive", "note": "'Rablerine korku ve tama' ile dua ederler'", "targetWord": "طَمَعًا" },
+            { "ref": "70:38", "context": "negative", "note": "'Tama' mı ediyor nimet cennetine girmeyi?'",  "targetWord": "يَطْمَعُ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        }
+      ]
+    },
+    {
+      "id": "sadness-family",
+      "category": "emotions",
+      "titleTr": "Üzüntü Aileleri",
+      "titleEn": "Sadness Family",
+      "turkishTranslation": "Üzüntü",
+      "englishTranslation": "Sadness",
+      "principleTr": "Hüzn sakin, gamm örten, kerb tıkayıcı, esef pişmanlıklı üzüntüdür.",
+      "principleEn": "Ḥuzn is calm, ghamm covering, karb constricting, asaf regretful sorrow.",
+      "principleSource": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "words": [
+        {
+          "id": "huzn",
+          "ar": "حُزْن",
+          "tr": "Hüzn",
+          "transliteration": "ḥuzn",
+          "meaningTr": "Uzun süreli, derinden gelen sakin üzüntü. Ya'kûb'un Yusuf için hissettiği — ağlamadan, sessiz dayanış.",
+          "meaningEn": "Long, deep, calm sorrow. What Jacob felt for Joseph — quiet endurance without weeping outwardly.",
+          "distinctionTr": "Gamm'dan farkı: Hüzn iç ve süreklidir. 'Korku ve hüzün yoktur' (Bakara 2:38) — cennet ehlinin nitelikleri.",
+          "distinctionEn": "Difference from ghamm: Ḥuzn is internal and ongoing. 'No fear nor ḥuzn' (Al-Baqara 2:38) — an attribute of paradise-dwellers.",
+          "frequency": 42,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.5, "y": 0.4 },
+          "allOccurrences": [
+            { "ref": "2:38",  "context": "positive", "note": "'İman edenlere korku ve hüzün yoktur'",  "targetWord": "يَحْزَنُونَ" },
+            { "ref": "9:40",  "context": "positive", "note": "'Hüzünlenme, Allah bizimle'",              "targetWord": "تَحْزَنْ" },
+            { "ref": "12:86", "context": "neutral",  "note": "Ya'kûb: 'Hüzün ve gamımı yalnız Allah'a şikâyet ederim'", "targetWord": "حُزْنِي" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 1, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 67 }
+        },
+        {
+          "id": "ghamm",
+          "ar": "غَمّ",
+          "tr": "Gamm",
+          "transliteration": "ghamm",
+          "meaningTr": "Kökü 'ğumme' (örtmek) — kişiyi kaplayan, nefesi daraltan sıkıntı. Uhud savaşı sonrası mü'minlerin hissi.",
+          "meaningEn": "Root 'ghumma' (to cover) — distress that envelops and constricts breath. What believers felt after Uḥud.",
+          "distinctionTr": "Hüzn'den farkı: Gamm çarpıcı, örten, geçici bir sıkıntı. 'Gammı gammla ödüllendirdi' (Âl-i İmrân 3:153).",
+          "distinctionEn": "Difference from ḥuzn: Ghamm is striking, covering, transient. 'He rewarded ghamm with ghamm' (Āl ʿImrān 3:153).",
+          "frequency": 11,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.7, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "3:153", "context": "negative", "note": "'Gammı gammla ödüllendirdi'",             "targetWord": "غَمًّا" },
+            { "ref": "20:40", "context": "positive", "note": "Mûsâ'yı 'gammdan kurtardık'",              "targetWord": "الْغَمِّ" },
+            { "ref": "21:88", "context": "positive", "note": "'Yunus'u gammından kurtardık'",            "targetWord": "الْغَمِّ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        },
+        {
+          "id": "karb",
+          "ar": "كَرْب",
+          "tr": "Kerb",
+          "transliteration": "karb",
+          "meaningTr": "En şiddetli, nefes tıkayan acı. 'Büyük kerb'den kurtulma sıkça peygamberler için geçer.",
+          "meaningEn": "Most intense, breath-choking anguish. 'Deliverance from the great karb' appears repeatedly for prophets.",
+          "distinctionTr": "Hüzn ve gamm'dan farkı: Kerb en yoğun boyut. Nuh, İbrahim, Musa 'kerb-i azîm'den kurtarılmıştır.",
+          "distinctionEn": "Difference from ḥuzn and ghamm: Karb is the most intense. Noah, Abraham, Moses were delivered from 'karb ʿaẓīm'.",
+          "frequency": 8,
+          "color": "#c0392b",
+          "semanticAxes": { "x": 0.9, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "21:76", "context": "positive", "note": "'Onu ve ailesini büyük kerbden kurtardık' (Nûh)", "targetWord": "الْكَرْبِ" },
+            { "ref": "37:76", "context": "positive", "note": "'Onu ve ailesini büyük kerbden kurtardık'",        "targetWord": "الْكَرْبِ" },
+            { "ref": "37:115","context": "positive", "note": "Musa ve kavmini 'büyük kerbden kurtardık'",          "targetWord": "الْكَرْبِ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "peace-family",
+      "category": "emotions",
+      "titleTr": "Huzur Aileleri",
+      "titleEn": "Peace Family",
+      "turkishTranslation": "Huzur",
+      "englishTranslation": "Peace",
+      "principleTr": "Sekîne ilahi indirilen durgunluk, emn korkusuzluk, itmi'nân yerleşen kalptir.",
+      "principleEn": "Sakīna is divinely sent stillness, amn safety, iṭmiʾnān a settled heart.",
+      "principleSource": "İbn Kayyım el-Cevziyye",
+      "words": [
+        {
+          "id": "sakina",
+          "ar": "سَكِينَة",
+          "tr": "Sekîne",
+          "transliteration": "sakīna",
+          "meaningTr": "Allah'ın mü'minlerin kalbine 'indirdiği' ilahi durgunluk. Peygamber ve sahabe için kullanılır — zor anlarda inen manevi sükûnet.",
+          "meaningEn": "Divine stillness God 'sends down' into believers' hearts. Used for the Prophet and Companions — spiritual tranquility sent in hard times.",
+          "distinctionTr": "Emn ve itmi'nân'dan farkı: Sekîne Allah'ın indirdiği — ilahi kaynaklı. 6 kez 'enzele sekînete' kalıbıyla geçer.",
+          "distinctionEn": "Difference from amn and iṭmiʾnān: Sakīna is 'sent down' by God — divinely sourced. Appears 6 times in 'anzala sakīna' form.",
+          "frequency": 6,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.9, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "9:26",  "context": "divine", "note": "'Allah sekînesini indirdi'",            "targetWord": "سَكِينَتَهُ" },
+            { "ref": "48:4",  "context": "divine", "note": "'Mü'minlerin kalplerine sekîne indirdi'", "targetWord": "السَّكِينَةَ" },
+            { "ref": "2:248", "context": "divine", "note": "Ahidin tabutundaki sekîne",                "targetWord": "سَكِينَةٌ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "amn",
+          "ar": "أَمْن",
+          "tr": "Emn",
+          "transliteration": "amn",
+          "meaningTr": "Dış tehditten emin olma. Kâbe'nin 'emn ve hidayet' verdiği vurgulanır. İman ile aynı kökten — güven.",
+          "meaningEn": "Safety from external threat. The Kaʿba is said to give 'amn and guidance'. Same root as īmān — trust.",
+          "distinctionTr": "Sekîne ve itmi'nân'dan farkı: Emn somut/fiziksel güvenliği de içerir — korkudan kurtuluş.",
+          "distinctionEn": "Difference from sakīna and iṭmiʾnān: Amn also includes concrete/physical safety — release from fear.",
+          "frequency": 14,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.5, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "2:125", "context": "positive", "note": "Kâbe 'mesâbe ve emn' kılındı",        "targetWord": "أَمْنًا" },
+            { "ref": "106:4", "context": "positive", "note": "'Onları korkudan emin kıldı'",         "targetWord": "خَوْفٍ" },
+            { "ref": "24:55", "context": "positive", "note": "'Korkudan sonra emne değiştirir'",      "targetWord": "أَمْنًا" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "itminan",
+          "ar": "اطْمِئْنَان",
+          "tr": "Itmi'nân",
+          "transliteration": "iṭmiʾnān",
+          "meaningTr": "Kalbin yerleşmesi, mutma'in hale gelmesi. Kökü 'tamane'enne' — yerleşmek. Zikir ile ulaşılır.",
+          "meaningEn": "The heart's settling, becoming muṭmaʾinn. Root 'tamaʾanna' — to settle. Reached through dhikr.",
+          "distinctionTr": "Sekîne ve emn'den farkı: Itmi'nân içsel yerleşmedir — sürecin sonucu. 'Kalpler ancak zikirle mutma'in olur' (Ra'd 13:28).",
+          "distinctionEn": "Difference from sakīna and amn: Iṭmiʾnān is inner settling — the outcome of a process. 'Hearts settle only by dhikr' (Al-Raʿd 13:28).",
+          "frequency": 13,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.7, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "13:28", "context": "positive", "note": "'Kalpler ancak Allah'ın zikriyle mutma'in olur'", "targetWord": "تَطْمَئِنُّ" },
+            { "ref": "89:27", "context": "divine",   "note": "'Ey mutma'in nefs! Rabbine dön'",                     "targetWord": "الْمُطْمَئِنَّةُ" },
+            { "ref": "2:260", "context": "divine",   "note": "İbrahim: 'Kalbim mutma'in olsun diye'",              "targetWord": "قَلْبِي" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        }
+      ]
+    },
+    {
+      "id": "anger-family",
+      "category": "emotions",
+      "titleTr": "Öfke Aileleri",
+      "titleEn": "Anger Family",
+      "turkishTranslation": "Öfke",
+      "englishTranslation": "Anger",
+      "principleTr": "Gadab alevli öfke, sahat derin hoşnutsuzluk, mekt iğrenme düzeyindedir.",
+      "principleEn": "Ghaḍab is fiery anger, sakhaṭ deep displeasure, maqt reaches loathing.",
+      "principleSource": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "words": [
+        {
+          "id": "ghadab",
+          "ar": "غَضَب",
+          "tr": "Gadab",
+          "transliteration": "ghaḍab",
+          "meaningTr": "Alevli, yoğun öfke. Allah'ın gadabı azap işareti — Fatiha'da 'meğdûbi aleyhim' (gadaba uğrayanlar).",
+          "meaningEn": "Fiery, intense anger. God's ghaḍab is a sign of punishment — Fātiḥa mentions 'those upon whom ghaḍab fell'.",
+          "distinctionTr": "Sahat'tan farkı: Gadab yoğun patlayan duygu. Sahat uzun süreli hoşnutsuzluktur.",
+          "distinctionEn": "Difference from sakhaṭ: Ghaḍab is an intense bursting emotion. Sakhaṭ is lasting displeasure.",
+          "frequency": 24,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.8, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "1:7",  "context": "divine",   "note": "'Gadaba uğrayanların yoluna değil'",   "targetWord": "الْمَغْضُوبِ" },
+            { "ref": "4:93", "context": "divine",   "note": "Kasten mü'min öldürene 'Allah'ın gadabı'", "targetWord": "غَضِبَ" },
+            { "ref": "3:112","context": "divine",   "note": "'Allah'ın gadabı ile döndüler'",          "targetWord": "بِغَضَبٍ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "sakhat",
+          "ar": "سَخَط",
+          "tr": "Sahat",
+          "transliteration": "sakhaṭ",
+          "meaningTr": "Uzun süreli, derin hoşnutsuzluk. Allah'ın sahat ettiği kimse için amelleri boşa gider.",
+          "meaningEn": "Long-lasting, deep displeasure. One upon whom God's sakhaṭ falls has their deeds voided.",
+          "distinctionTr": "Gadab'dan farkı: Sahat kalıcı, hoşnutsuzluk durumudur — anlık patlama değil.",
+          "distinctionEn": "Difference from ghaḍab: Sakhaṭ is a lasting state of displeasure — not a sudden burst.",
+          "frequency": 7,
+          "color": "#c0392b",
+          "semanticAxes": { "x": 0.6, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "3:162", "context": "divine",   "note": "'Allah'ın sahatına uğrayanla'",       "targetWord": "سَخَطٍ" },
+            { "ref": "47:28", "context": "divine",   "note": "'Onlar Allah'ı sahata uğratanı takip ettiler'", "targetWord": "أَسْخَطَ" },
+            { "ref": "5:80",  "context": "divine",   "note": "'Allah onlara sahat etti — ebedi azapta'", "targetWord": "سَخِطَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "love-family",
+      "category": "emotions",
+      "titleTr": "Sevgi Aileleri",
+      "titleEn": "Love Family",
+      "turkishTranslation": "Sevgi",
+      "englishTranslation": "Love",
+      "principleTr": "Hubb genel sevgi, vüdd kalıcı şefkat, raġbe meyilli istektir.",
+      "principleEn": "Ḥubb is general love, wudd enduring affection, raghba inclined desire.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "hubb",
+          "ar": "حُبّ",
+          "tr": "Hubb",
+          "transliteration": "ḥubb",
+          "meaningTr": "Her türlü sevgi — kökü 'hıbbetü'l-kalb' (kalbin tohumu). Allah'ın sevdikleri (muhsinler, tevbe edenler) ve sevmedikleri (fâsıklar, kâfirler) sık sayılır.",
+          "meaningEn": "Love of every kind — root 'ḥibbat al-qalb' (seed of the heart). Those God loves (muḥsins, the repentant) and does not love (fāsiqs, disbelievers) are often enumerated.",
+          "distinctionTr": "Vüdd'den farkı: Hubb anlık veya süregen olabilir — en yaygın sevgi kelimesi.",
+          "distinctionEn": "Difference from wudd: Ḥubb can be momentary or ongoing — the most common love word.",
+          "frequency": 95,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.5, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "2:165", "context": "positive", "note": "'İman edenlerin Allah'a sevgisi (hubbı) daha şiddetlidir'", "targetWord": "حُبًّا" },
+            { "ref": "3:31",  "context": "positive", "note": "'Bana uyun; Allah sizi sevsin'",                               "targetWord": "يُحْبِبْكُمُ" },
+            { "ref": "76:8",  "context": "positive", "note": "'Allah'a olan sevgilerinden yemek verirler'",                  "targetWord": "حُبِّهِ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "wudd",
+          "ar": "وُدّ",
+          "tr": "Vüdd",
+          "transliteration": "wudd",
+          "meaningTr": "Sürekli, karşılıklı şefkat. Allah'ın ismi el-Vedûd. Salih amel edenler arasında Allah 'vedden' (karşılıklı şefkat) kılar.",
+          "meaningEn": "Constant, mutual affection. God's name al-Wadūd. For those of righteous deeds God establishes 'wudd' (mutual affection).",
+          "distinctionTr": "Hubb'dan farkı: Vüdd kalıcılık ve ahde sadakat vurgular. İman ve amel eseri olarak kullanılır.",
+          "distinctionEn": "Difference from ḥubb: Wudd emphasizes constancy and covenantal loyalty. Used as the fruit of faith and deeds.",
+          "frequency": 29,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.9, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "19:96", "context": "positive", "note": "'İman eden salihler için vüdd kılar'",    "targetWord": "وُدًّا" },
+            { "ref": "85:14", "context": "divine",   "note": "'O el-Ğafûr, el-Vedûd'dur'",              "targetWord": "الْوَدُودُ" },
+            { "ref": "11:90", "context": "divine",   "note": "'Rabbim rahîm, vedûddur'",                 "targetWord": "وَدُودٌ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        },
+        {
+          "id": "raghba",
+          "ar": "رَغْبَة",
+          "tr": "Raġbe",
+          "transliteration": "raghba",
+          "meaningTr": "İstek, yönelme — raġbe/raġab (istekle yönelmek) köküyle. Allah'a 'raġbe' etmek — O'na içten yönelmek.",
+          "meaningEn": "Desire, inclination — from raghab (to turn with desire). 'Raghba' toward God — turning sincerely to Him.",
+          "distinctionTr": "Hubb ve vüdd'den farkı: Raġbe aktif yönelme, arzulama hareketidir.",
+          "distinctionEn": "Difference from ḥubb and wudd: Raghba is active turning-toward, the act of desiring.",
+          "frequency": 8,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.4, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "9:59",  "context": "positive", "note": "'Biz Allah'a raġbe ederiz'",         "targetWord": "رَاغِبُونَ" },
+            { "ref": "9:120", "context": "positive", "note": "'Kendilerini ondan raġbe etmezler'",  "targetWord": "يَرْغَبُوا" },
+            { "ref": "21:90", "context": "positive", "note": "'Bize raġbe ve rehbe ile dua ederlerdi'", "targetWord": "رَغَبًا" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "water-family",
+      "category": "nature",
+      "titleTr": "Su Aileleri",
+      "titleEn": "Water Family",
+      "turkishTranslation": "Su",
+      "englishTranslation": "Water",
+      "principleTr": "Furât tatlı-serin, ucâc acı-tuzlu, hamîm kaynar azap suyudur.",
+      "principleEn": "Furāt is sweet-cool, ujāj bitter-salt, ḥamīm boiling punishment water.",
+      "principleSource": "Klasik dilbilim geleneği",
+      "words": [
+        {
+          "id": "maa",
+          "ar": "مَاء",
+          "tr": "Mâ'",
+          "transliteration": "māʾ",
+          "meaningTr": "Genel su kelimesi. 'Her canlıyı mâ'dan yarattık' (Enbiyâ 21:30) — hayatın kaynağı.",
+          "meaningEn": "The general word for water. 'We made every living thing from māʾ' (Al-Anbiyāʾ 21:30) — source of life.",
+          "distinctionTr": "Diğer su isimlerinden farkı: Mâ' nötr, kapsayıcı kelimedir — tüm su türlerini içerir.",
+          "distinctionEn": "Difference from other water words: Māʾ is neutral, inclusive — covers all water types.",
+          "frequency": 63,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.5, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "21:30", "context": "divine",   "note": "'Her canlıyı mâ'dan yarattık'",     "targetWord": "الْمَاءِ" },
+            { "ref": "25:54", "context": "divine",   "note": "'Mâ'dan bir beşer yaratan O'dur'", "targetWord": "الْمَاءِ" },
+            { "ref": "2:22",  "context": "divine",   "note": "'Gökten mâ' indirdi'",              "targetWord": "مَاءً" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "furat",
+          "ar": "فُرَات",
+          "tr": "Furât",
+          "transliteration": "furāt",
+          "meaningTr": "Tatlı, serin, susuzluğu kesen su. 'Fâtı', susuzluğu giderici içmek' kökünden. Allah'ın nimeti olarak vurgulanır.",
+          "meaningEn": "Sweet, cool, thirst-quenching water. From 'fata'a' — to quench thirst by drinking. Emphasized as God's favor.",
+          "distinctionTr": "Ucâc'tan tam zıt: Furât içilebilir nimet, ucâc içilemez. Tek ayette birlikte geçerler (Furkân 25:53).",
+          "distinctionEn": "Exact opposite of ujāj: Furāt is drinkable blessing; ujāj undrinkable. They appear together in one verse (Al-Furqān 25:53).",
+          "frequency": 3,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.9, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "25:53", "context": "divine",  "note": "'Biri tatlı-furât, diğeri tuzlu-ucâc'",   "targetWord": "فُرَاتٌ" },
+            { "ref": "35:12", "context": "divine",  "note": "'Biri tatlı-furât içimi hoş'",              "targetWord": "فُرَاتٌ" },
+            { "ref": "77:27", "context": "divine",  "note": "'Size tatlı-furât su içirdik'",             "targetWord": "فُرَاتًا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "ujaj",
+          "ar": "أُجَاج",
+          "tr": "Ucâc",
+          "transliteration": "ujāj",
+          "meaningTr": "Acı, tuzlu, içilemez su. Furât ile tek ayette eşleşir — iki denizin karışmadan yan yana akması.",
+          "meaningEn": "Bitter, salty, undrinkable water. Paired with furāt in one verse — two seas flowing side by side without mixing.",
+          "distinctionTr": "Furât'a tam zıt. Hamîm'den farkı: Ucâc doğal (deniz suyu), hamîm azap suyudur.",
+          "distinctionEn": "Exact opposite of furāt. Difference from ḥamīm: Ujāj is natural (seawater); ḥamīm is punishment water.",
+          "frequency": 3,
+          "color": "#95a5a6",
+          "semanticAxes": { "x": 0.3, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "25:53", "context": "neutral", "note": "'Biri tatlı-furât, diğeri tuzlu-ucâc' (iki deniz)", "targetWord": "أُجَاجٌ" },
+            { "ref": "35:12", "context": "neutral", "note": "'Diğeri tuzlu-ucâc'",                                 "targetWord": "أُجَاجٌ" },
+            { "ref": "56:70", "context": "divine",  "note": "'İsteseydik onu ucâc yapardık' (içecek suyu)",          "targetWord": "أُجَاجًا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 2, "negative": 0, "divine": 1, "dominantPattern": "neutral", "dominantPercentage": 67 }
+        },
+        {
+          "id": "hamim",
+          "ar": "حَمِيم",
+          "tr": "Hamîm",
+          "transliteration": "ḥamīm",
+          "meaningTr": "Kaynayan, yakıcı azap suyu. Cehennem bağlamında — cehennemliklere içirilir. Kökü 'hame' (ısınmak).",
+          "meaningEn": "Boiling, scalding punishment water. In hellfire context — given to hellfire-dwellers. Root 'ḥamma' (to heat).",
+          "distinctionTr": "Diğer su isimlerinden farkı: Hamîm hep azap bağlamında — 'ğassâk' (irin) ile birlikte geçer.",
+          "distinctionEn": "Difference from other water words: Ḥamīm is always in punishment context — often paired with 'ghassāq' (pus).",
+          "frequency": 21,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.2, "y": 0.1 },
+          "allOccurrences": [
+            { "ref": "6:70",  "context": "negative", "note": "'Onlara hamîm ve elem verici azap vardır'", "targetWord": "حَمِيمٍ" },
+            { "ref": "38:57", "context": "negative", "note": "'Hamîm ve ğassâktır'",                      "targetWord": "حَمِيمٌ" },
+            { "ref": "40:72", "context": "negative", "note": "'Sonra hamîmde, sonra ateşte yakılırlar'",    "targetWord": "الْحَمِيمِ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 3, "dominantPattern": "negative", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "heaven-family",
+      "category": "nature",
+      "titleTr": "Gök Aileleri",
+      "titleEn": "Heaven Family",
+      "turkishTranslation": "Gök",
+      "englishTranslation": "Sky",
+      "principleTr": "Semâ' gök yapısı, felek yörünge, arş yönetim merkezidir.",
+      "principleEn": "Samāʾ is the heaven's structure, falak the orbit, ʿarsh the governance center.",
+      "principleSource": "Klasik tefsir geleneği",
+      "words": [
+        {
+          "id": "sama",
+          "ar": "سَمَاء",
+          "tr": "Semâ'",
+          "transliteration": "samāʾ",
+          "meaningTr": "Gök, yukarı dünya. Kökü 'alâ' (yükselmek). Kur'an 'yedi semâvât'tan söz eder — katmanlı gök.",
+          "meaningEn": "Heaven, the upper world. Root 'ʿalā' (to rise). The Quran speaks of 'seven heavens' — layered sky.",
+          "distinctionTr": "Felek ve arş'tan farkı: Semâ' fiziksel gök yapısı — yağmur, yıldızlar, kuşların uçtuğu alan.",
+          "distinctionEn": "Difference from falak and ʿarsh: Samāʾ is the physical sky structure — where rain, stars, birds belong.",
+          "frequency": 310,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.5, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "2:22",  "context": "divine", "note": "'Göğü bir bina yapan'",              "targetWord": "السَّمَاءَ" },
+            { "ref": "41:11", "context": "divine", "note": "'Göğe yöneldi — duman halindeydi'",   "targetWord": "السَّمَاءِ" },
+            { "ref": "55:7",  "context": "divine", "note": "'Göğü yükseltti ve ölçüyü koydu'",     "targetWord": "السَّمَاءَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "falak",
+          "ar": "فَلَك",
+          "tr": "Felek",
+          "transliteration": "falak",
+          "meaningTr": "Yörünge, gök cisminin izlediği dairesel yol. Kökü 'felek' (yuvarlak). Yâsîn 36:40'ta güneş ve ayın kendi feleklerinde yüzdüğü anlatılır.",
+          "meaningEn": "Orbit, the circular path a celestial body traces. Root 'falak' (round). Yā-Sīn 36:40 says sun and moon swim in their falaks.",
+          "distinctionTr": "Semâ'dan farkı: Felek hareketi ve yörüngeyi ifade eder. Modern astronominin 'yörünge' kavramına çok yakın.",
+          "distinctionEn": "Difference from samāʾ: Falak expresses motion and orbit. Remarkably close to modern astronomy's 'orbit'.",
+          "frequency": 2,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.7, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "21:33", "context": "divine", "note": "'Her biri bir felek (yörünge) içinde yüzer'", "targetWord": "فَلَكٍ" },
+            { "ref": "36:40", "context": "divine", "note": "'Hepsi bir felekte yüzmektedir'",              "targetWord": "فَلَكٍ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "arsh",
+          "ar": "عَرْش",
+          "tr": "Arş",
+          "transliteration": "ʿarsh",
+          "meaningTr": "Taht, ilahi yönetim merkezi. Kökü 'areşe' (gölgelik yapmak). 'Allah'ın arşı' — sembolik yönetim.",
+          "meaningEn": "Throne, divine governance center. Root 'ʿarasha' (to canopy). 'God's ʿarsh' — symbolic governance.",
+          "distinctionTr": "Semâ' ve felek'ten farkı: Arş fiziksel değil, ilahi yönetimin sembolüdür. 'Arş üzerine istivâ etti' müteşâbih ifade.",
+          "distinctionEn": "Difference from samāʾ and falak: ʿArsh is not physical but symbolic of divine governance. 'Settled on the ʿarsh' is a mutashābih expression.",
+          "frequency": 26,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.9, "y": 0.95 },
+          "allOccurrences": [
+            { "ref": "7:54", "context": "divine", "note": "'Sonra arş üzerine istivâ etti'",        "targetWord": "الْعَرْشِ" },
+            { "ref": "20:5", "context": "divine", "note": "'Rahmân arş üzerine istivâ etti'",       "targetWord": "الْعَرْشِ" },
+            { "ref": "69:17","context": "divine", "note": "'O gün Rabbinin arşını 8 melek taşır'",    "targetWord": "عَرْشَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "people-family",
+      "category": "human",
+      "titleTr": "Kavim Aileleri",
+      "titleEn": "Community Family",
+      "turkishTranslation": "Topluluk",
+      "englishTranslation": "Community",
+      "principleTr": "Kavm köken, ümmet ideal/din, şa'b büyük millet, kabîle soy-alt birimidir.",
+      "principleEn": "Qawm is origin, umma ideal/religion, shaʿb large nation, qabīla lineage sub-unit.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "qawm",
+          "ar": "قَوْم",
+          "tr": "Kavm",
+          "transliteration": "qawm",
+          "meaningTr": "Ortak soy/yer/dil topluluğu. 'Kavm-i Nûh', 'kavm-i Firavn' — peygamberlerin kavimleri hep bu kelime ile adlandırılır.",
+          "meaningEn": "Community of shared lineage/place/language. 'Qawm of Noah', 'qawm of Pharaoh' — prophets' peoples are always named with this word.",
+          "distinctionTr": "Ümmet'ten farkı: Kavm fiziksel/etnik bağa dayanır, ümmet ideal birliktir.",
+          "distinctionEn": "Difference from umma: Qawm rests on physical/ethnic ties; umma is ideal unity.",
+          "frequency": 383,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.4, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "11:25",  "context": "divine", "note": "'Nûh'u kavmine gönderdik'",          "targetWord": "قَوْمِهِ" },
+            { "ref": "7:59",   "context": "divine", "note": "'Nûh kavmine: Allah'a kulluk edin'",  "targetWord": "قَوْمِهِ" },
+            { "ref": "28:3",   "context": "divine", "note": "'Musa'nın Firavun'un kavmine karşı'", "targetWord": "قَوْمٍ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "umma",
+          "ar": "أُمَّة",
+          "tr": "Ümmet",
+          "transliteration": "umma",
+          "meaningTr": "Ortak din/ideal etrafında birleşen topluluk. 'En hayırlı ümmet' (Âl-i İmrân 3:110). Tek bir kişi bile 'ümmet' olabilir (İbrahim — Nahl 16:120).",
+          "meaningEn": "Community united around shared religion/ideal. 'The best umma' (Āl ʿImrān 3:110). Even a single person can be an 'umma' (Abraham — Al-Naḥl 16:120).",
+          "distinctionTr": "Kavm'den farkı: Ümmet seçim ve bağlılık üzerine kurulur. 'Zaman dilimi' anlamına da gelir (Yusuf 12:45).",
+          "distinctionEn": "Difference from qawm: Umma is built on choice and allegiance. Also means 'period of time' (Yūsuf 12:45).",
+          "frequency": 64,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.7, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "2:143",  "context": "divine",   "note": "'Sizi orta ümmet kıldık'",             "targetWord": "أُمَّةً" },
+            { "ref": "3:110",  "context": "positive", "note": "'İnsanlar için çıkarılmış en hayırlı ümmet'", "targetWord": "أُمَّةٍ" },
+            { "ref": "16:120", "context": "positive", "note": "'İbrahim tek başına bir ümmetti'",        "targetWord": "أُمَّةً" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        },
+        {
+          "id": "shab-qabila",
+          "ar": "شَعْب / قَبِيلَة",
+          "tr": "Şa'b / Kabîle",
+          "transliteration": "shaʿb / qabīla",
+          "meaningTr": "Şa'b büyük millet/halk; kabîle daha küçük soy-alt birimi. Kur'an her ikisini tek ayette birlikte kullanır (Hucurât 49:13) — toplumsal piramit.",
+          "meaningEn": "Shaʿb is a large nation/people; qabīla a smaller lineage sub-unit. The Quran uses both together in one verse (Al-Ḥujurāt 49:13) — a social pyramid.",
+          "distinctionTr": "Kavm ve ümmet'ten farkı: Şa'b-kabîle sosyal organizasyon katmanlarını ifade eder.",
+          "distinctionEn": "Difference from qawm and umma: Shaʿb-qabīla express layers of social organization.",
+          "frequency": 2,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.3, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "49:13", "context": "divine", "note": "'Sizi şa'b (milletler) ve kabîle (kabileler) kıldık'", "targetWord": "شُعُوبًا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "man-family",
+      "category": "human",
+      "titleTr": "Erkek Aileleri",
+      "titleEn": "Man Family",
+      "turkishTranslation": "Erkek",
+      "englishTranslation": "Man",
+      "principleTr": "Recul olgun erkek, zeker biyolojik cinsiyet, ba'l ev efendisi, zevc eştir.",
+      "principleEn": "Rajul is mature man, dhakar biological sex, baʿl lord of house, zawj spouse.",
+      "principleSource": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "words": [
+        {
+          "id": "rajul",
+          "ar": "رَجُل",
+          "tr": "Recul",
+          "transliteration": "rajul",
+          "meaningTr": "Sorumluluk alan, olgun erkek. 'Şehrin uzak ucundan bir recul koşarak geldi' (Yâsîn 36:20) — ahlaki bağlam.",
+          "meaningEn": "Mature man who takes responsibility. 'A rajul came running from the farthest end of the city' (Yā-Sīn 36:20) — moral context.",
+          "distinctionTr": "Zeker'den farkı: Recul sosyal/ahlaki olgunluğu ifade eder. Kadını karşısında 'mer'e' (imra'e) değil, 'nisâ' vardır.",
+          "distinctionEn": "Difference from dhakar: Rajul expresses social/moral maturity. Its counterpart is not 'mar'a' (imra'a) but 'nisāʾ'.",
+          "frequency": 55,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.7, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "36:20", "context": "positive", "note": "'Şehrin uzak yerinden bir recul koşarak geldi'", "targetWord": "رَجُلٌ" },
+            { "ref": "28:20", "context": "positive", "note": "'Şehrin öbür ucundan bir recul geldi' (Musa'yı uyaran)", "targetWord": "رَجُلٌ" },
+            { "ref": "40:28", "context": "positive", "note": "Firavun ailesinden mü'min bir recul",               "targetWord": "رَجُلٌ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "dhakar",
+          "ar": "ذَكَر",
+          "tr": "Zeker",
+          "transliteration": "dhakar",
+          "meaningTr": "Biyolojik erkek cinsiyet. Ünsâ (dişi) ile eşleşir — cinsiyet ayrımı. 'Meryem'in annesi: Ben onu dişi doğurdum' ama 'zeker gibi değil dişi' (Âl-i İmrân 3:36).",
+          "meaningEn": "Biological male sex. Paired with unthā (female). 'Mary's mother: I delivered her female' — not dhakar (Āl ʿImrān 3:36).",
+          "distinctionTr": "Recul'den farkı: Zeker sadece biyoloji vurgusudur — ahlaki/sosyal boyut yok.",
+          "distinctionEn": "Difference from rajul: Dhakar emphasizes only biology — no moral/social dimension.",
+          "frequency": 18,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.2, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "3:36",  "context": "neutral", "note": "'Zeker dişi gibi değildir'",            "targetWord": "الذَّكَرُ" },
+            { "ref": "49:13", "context": "divine",  "note": "'Sizi zeker ve ünsâ'dan yarattık'",     "targetWord": "ذَكَرٍ" },
+            { "ref": "92:3",  "context": "divine",  "note": "'Zeker ve ünsâ'yı yaratanın hakkı için'", "targetWord": "الذَّكَرَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        },
+        {
+          "id": "zawj",
+          "ar": "زَوْج",
+          "tr": "Zevc",
+          "transliteration": "zawj",
+          "meaningTr": "Çift, eş. Hem karı hem kocayı ifade eder — cinsiyet-nötr. 'Adem ve zevci Havva cennete yerleştirildi'.",
+          "meaningEn": "Pair, spouse. Refers to both husband and wife — gender-neutral. 'Adam and his zawj were settled in paradise'.",
+          "distinctionTr": "Recul ve zeker'den farkı: Zevc ilişkisel kelime — eşlik bağını vurgular, cinsiyet belirtmez.",
+          "distinctionEn": "Difference from rajul and dhakar: Zawj is a relational word — emphasizes the pairing bond, genderless.",
+          "frequency": 81,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.5, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "7:189", "context": "divine", "note": "'Sizi tek nefisten yarattı, ondan zevcini yarattı'", "targetWord": "زَوْجَهَا" },
+            { "ref": "30:21", "context": "positive", "note": "'Kendi cinsinizden zevcler yarattı'",              "targetWord": "أَزْوَاجًا" },
+            { "ref": "2:25",  "context": "positive", "note": "'Onlar için cennette tertemiz zevcler var'",        "targetWord": "أَزْوَاجٌ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        }
+      ]
+    },
+    {
+      "id": "woman-family",
+      "category": "human",
+      "titleTr": "Kadın Aileleri",
+      "titleEn": "Woman Family",
+      "turkishTranslation": "Kadın",
+      "englishTranslation": "Woman",
+      "principleTr": "İmra'e belirli kadın kimliği, ünsâ biyolojik dişi, nisâ' kolektif kadındır.",
+      "principleEn": "Imra'a is a specific woman's identity, unthā biological female, nisāʾ collective women.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "imra",
+          "ar": "امْرَأَة",
+          "tr": "İmra'e",
+          "transliteration": "imra'a",
+          "meaningTr": "Belirli, kimliği olan kadın. 'İmra'etu Firavn' (Firavun'un karısı), 'İmra'etu Lût', 'İmra'etu İmran' — bireysel tanınma.",
+          "meaningEn": "A specific woman with identity. 'Imra'at Firʿawn' (Pharaoh's wife), 'Imra'at Lūṭ', 'Imra'at ʿImrān' — individual recognition.",
+          "distinctionTr": "Ünsâ ve nisâ'dan farkı: İmra'e her zaman tek bir bireyi — kıssalardaki kadın karakterleri adlandırır.",
+          "distinctionEn": "Difference from unthā and nisāʾ: Imra'a always names a single individual — women characters in narratives.",
+          "frequency": 26,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.8, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "12:30", "context": "neutral", "note": "'İmra'etu'l-Azîz' (Vezirin karısı — Zeliha)",    "targetWord": "امْرَأَتُ" },
+            { "ref": "66:10", "context": "neutral", "note": "'İmra'etu Nûh ve imra'etu Lût' (eşler)",         "targetWord": "امْرَأَتَ" },
+            { "ref": "66:11", "context": "positive", "note": "'İmra'etu Firavn' (mü'min eş — Âsiye)",           "targetWord": "امْرَأَتَ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 2, "negative": 0, "dominantPattern": "neutral", "dominantPercentage": 67 }
+        },
+        {
+          "id": "untha",
+          "ar": "أُنْثَى",
+          "tr": "Ünsâ",
+          "transliteration": "unthā",
+          "meaningTr": "Biyolojik dişi. Zeker (erkek) ile eşleşir. 'Zeker ve ünsâ'dan yarattık' — insan yaratılışının iki kutbu.",
+          "meaningEn": "Biological female. Paired with dhakar (male). 'We created you from dhakar and unthā' — two poles of human creation.",
+          "distinctionTr": "İmra'e'den farkı: Ünsâ biyoloji vurgusu — ismi yok, kimlik değil cinsiyet.",
+          "distinctionEn": "Difference from imra'a: Unthā emphasizes biology — no name, no identity, just sex.",
+          "frequency": 30,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.2, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "3:36",  "context": "neutral", "note": "'Ben onu ünsâ (dişi) doğurdum'",          "targetWord": "أُنثَىٰ" },
+            { "ref": "49:13", "context": "divine",  "note": "'Sizi zeker ve ünsâ'dan yarattık'",        "targetWord": "أُنثَىٰ" },
+            { "ref": "4:1",   "context": "divine",  "note": "'Birçok ricâl ve nisâ üretti'",            "targetWord": "نِسَاءً" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        },
+        {
+          "id": "nisa",
+          "ar": "نِسَاء",
+          "tr": "Nisâ'",
+          "transliteration": "nisāʾ",
+          "meaningTr": "Kadınlar, çoğul. Sûre adı (4. sûre). Genel kolektif hitap — 'Ey Peygamber'in nisâsı!' (Ahzâb 33:30).",
+          "meaningEn": "Women, plural. Name of the 4th sura. General collective address — 'O wives (nisāʾ) of the Prophet!' (Al-Aḥzāb 33:30).",
+          "distinctionTr": "İmra'e ve ünsâ'dan farkı: Nisâ' kolektiftir — kadın topluluğuna hitap eder.",
+          "distinctionEn": "Difference from imra'a and unthā: Nisāʾ is collective — addresses the community of women.",
+          "frequency": 57,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.5, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "4:1",   "context": "divine", "note": "'Ricâl ve nisâ yarattı'",                "targetWord": "نِسَاءً" },
+            { "ref": "4:34",  "context": "divine", "note": "'Erkekler nisâ' üzerinde kavvâmdır'",    "targetWord": "النِّسَاءِ" },
+            { "ref": "33:32", "context": "divine", "note": "'Ey Peygamber'in nisâ'sı! Siz herhangi bir nisâ gibi değilsiniz'", "targetWord": "النَّبِيِّ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "provision-family",
+      "category": "creation",
+      "titleTr": "Rızık Aileleri",
+      "titleEn": "Provision Family",
+      "turkishTranslation": "Rızık",
+      "englishTranslation": "Provision",
+      "principleTr": "Rızk maddi-manevi temel, ni'me farkedilen iyilik, fazl karşılıksız lütuftur.",
+      "principleEn": "Rizq is material-spiritual base, niʿma recognized goodness, faḍl unmerited grace.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "rizq",
+          "ar": "رِزْق",
+          "tr": "Rızk",
+          "transliteration": "rizq",
+          "meaningTr": "Hayat için gerekli olanın verilmesi — hem maddi hem manevi. Allah 'er-Rezzâk'tır. Kur'an'da günlük ihtiyaçların karşılanması anlamında.",
+          "meaningEn": "The giving of what is needed for life — material and spiritual. God is 'al-Razzāq'. In the Quran, it means the fulfillment of daily needs.",
+          "distinctionTr": "Ni'me'den farkı: Rızk temel düzey — yaşam için gerekli olan. Ni'me ise bilinçle farkedilen nimet.",
+          "distinctionEn": "Difference from niʿma: Rizq is the base level — necessary for life. Niʿma is goodness consciously recognized.",
+          "frequency": 123,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.4, "y": 0.4 },
+          "allOccurrences": [
+            { "ref": "2:3",  "context": "positive", "note": "'Kendilerine verdiğimiz rızktan infak ederler'", "targetWord": "رَزَقْنَاهُمْ" },
+            { "ref": "11:6", "context": "divine",   "note": "'Yerde hareket eden her canlının rızkı Allah'a aittir'", "targetWord": "رِزْقُهَا" },
+            { "ref": "51:22","context": "divine",   "note": "'Gökte rızkınız ve size vadedilenler vardır'",    "targetWord": "رِزْقُكُمْ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        },
+        {
+          "id": "nima",
+          "ar": "نِعْمَة",
+          "tr": "Ni'me",
+          "transliteration": "niʿma",
+          "meaningTr": "Bilinçli, farkedilen nimet. Şükür çağrısı ile birlikte gelir. 'Rabbinin ni'metini say — sayamazsınız' (Nahl 16:18).",
+          "meaningEn": "Consciously recognized blessing. Comes with a call to gratitude. 'Enumerate your Lord's niʿma — you cannot' (Al-Naḥl 16:18).",
+          "distinctionTr": "Rızk'tan farkı: Ni'me şükür beklentisiyle anılır — manevi vurgu daha yüksektir.",
+          "distinctionEn": "Difference from rizq: Niʿma is named with expectation of gratitude — stronger spiritual emphasis.",
+          "frequency": 81,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.7, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "16:18", "context": "divine", "note": "'Allah'ın ni'metini sayarsanız bitiremezsiniz'", "targetWord": "نِعْمَةَ" },
+            { "ref": "14:34", "context": "divine", "note": "'Allah'ın ni'metini sayamazsınız'",               "targetWord": "نِعْمَتَ" },
+            { "ref": "93:11", "context": "divine", "note": "'Rabbinin ni'metini an'",                          "targetWord": "بِنِعْمَةِ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "fadl",
+          "ar": "فَضْل",
+          "tr": "Fazl",
+          "transliteration": "faḍl",
+          "meaningTr": "Hak edilmemiş lütuf, ilahi cömertlik. 'Allah kullarına karşı fazl sahibidir' (Bakara 2:243) — surplus bağış.",
+          "meaningEn": "Unmerited grace, divine bounty. 'God is possessor of faḍl toward His servants' (Al-Baqara 2:243) — surplus bestowal.",
+          "distinctionTr": "Rızk ve ni'me'den farkı: Fazl hak edilmemiş olanı kapsar — ni'me bilinçli, fazl sürpriz.",
+          "distinctionEn": "Difference from rizq and niʿma: Faḍl covers the unmerited — niʿma is recognized, faḍl is surprise.",
+          "frequency": 84,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.9, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "2:64",  "context": "positive", "note": "'Allah'ın fazlı olmasaydı...'",             "targetWord": "فَضْلُ" },
+            { "ref": "4:32",  "context": "divine",   "note": "'Allah'ın fazlından isteyin'",              "targetWord": "فَضْلِ" },
+            { "ref": "62:4",  "context": "divine",   "note": "'Bu Allah'ın fazlıdır, dilediğine verir'",  "targetWord": "فَضْلُ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        }
+      ]
+    },
+    {
+      "id": "death-family",
+      "category": "creation",
+      "titleTr": "Ölüm Aileleri",
+      "titleEn": "Death Family",
+      "turkishTranslation": "Ölüm",
+      "englishTranslation": "Death",
+      "principleTr": "Mevt ölüm olayı, veffâ ruhun tam alınışı, halake yok olma, kazâ ilahi hükümdür.",
+      "principleEn": "Mawt is the event of death, wafā full soul-taking, halaka perishing, qaḍā divine decree.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "mawt",
+          "ar": "مَوْت",
+          "tr": "Mevt",
+          "transliteration": "mawt",
+          "meaningTr": "Hayatın zıddı, ölüm olayı. 'Her nefis mevti tadacak' (Âl-i İmrân 3:185) — evrensel nitelik.",
+          "meaningEn": "Death as the opposite of life. 'Every soul will taste mawt' (Āl ʿImrān 3:185) — universal attribute.",
+          "distinctionTr": "Veffâ'dan farkı: Mevt olaya odaklanır, veffâ ruhun alınması sürecini ifade eder.",
+          "distinctionEn": "Difference from wafā: Mawt focuses on the event; wafā expresses the process of soul-taking.",
+          "frequency": 165,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.5, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "3:185", "context": "divine",   "note": "'Her nefis mevti tadacak'",           "targetWord": "الْمَوْتِ" },
+            { "ref": "2:28",  "context": "divine",   "note": "'Ölü iken sizi dirilten, sonra öldürecek'", "targetWord": "أَمْوَاتًا" },
+            { "ref": "62:8",  "context": "divine",   "note": "'Kaçtığınız mevt size mutlaka kavuşacak'", "targetWord": "الْمَوْتَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "waffa",
+          "ar": "وَفَّى",
+          "tr": "Veffâ",
+          "transliteration": "waffā",
+          "meaningTr": "Ruhun tam olarak alınması. Kökü 'vefâ' (tam ödeme). Türkçe 'vefat' aynı kökten. Sürece ve tamlığa vurgu.",
+          "meaningEn": "The full taking of the soul. Root 'wafā' (full payment). Turkish 'vefat' shares this root. Emphasizes process and completeness.",
+          "distinctionTr": "Mevt'ten farkı: Veffâ ruhun alınma sürecini — tam, eksiksiz alınmayı ifade eder.",
+          "distinctionEn": "Difference from mawt: Wafā expresses the process of soul-taking — taking it fully, completely.",
+          "frequency": 25,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.7, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "3:55",  "context": "divine", "note": "'Ey İsa! Seni müteveffi kılacağım'",        "targetWord": "مُتَوَفِّيكَ" },
+            { "ref": "32:11", "context": "divine", "note": "'Ölüm meleği sizi tevaffi eder'",            "targetWord": "يَتَوَفَّاكُم" },
+            { "ref": "39:42", "context": "divine", "note": "'Allah nefisleri tevaffi eder ölümlerinde'", "targetWord": "يَتَوَفَّى" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "halaka",
+          "ar": "هَلَكَ",
+          "tr": "Halake",
+          "transliteration": "halaka",
+          "meaningTr": "Yok olma, helâk. Kökü 'helk' — kaybolma, mahvolma. Çoğunlukla azap ile helâk edilen kavimler için kullanılır.",
+          "meaningEn": "Perishing, destruction. Root 'halk' — vanishing, annihilation. Mostly used for peoples destroyed by punishment.",
+          "distinctionTr": "Mevt'ten farkı: Halake 'kötü son' anlamını taşır. Helâk olan kavimler (Âd, Semûd) ibret oluşturur.",
+          "distinctionEn": "Difference from mawt: Halaka carries 'bad end' connotation. Destroyed peoples (ʿĀd, Thamūd) serve as examples.",
+          "frequency": 72,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.3, "y": 0.2 },
+          "allOccurrences": [
+            { "ref": "7:72",   "context": "negative", "note": "'Ayetlerimizi yalanlayanları helâk ettik'", "targetWord": "أَهْلَكْنَا" },
+            { "ref": "17:16",  "context": "negative", "note": "'Bir beldeyi helâk etmek istediğimizde'",   "targetWord": "نُهْلِكَ" },
+            { "ref": "28:88",  "context": "neutral",  "note": "'Onun dışında her şey helâktir'",            "targetWord": "هَالِكٌ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 1, "negative": 2, "dominantPattern": "negative", "dominantPercentage": 67 }
+        }
+      ]
+    },
+    {
+      "id": "sight-family",
+      "category": "knowledge",
+      "titleTr": "Görme Aileleri",
+      "titleEn": "Sight Family",
+      "turkishTranslation": "Görme",
+      "englishTranslation": "Sight",
+      "principleTr": "Ra'â genel görme, nazar yönelik bakış, basar görüş/iç görü, şehide tanıklıktır.",
+      "principleEn": "Ra'ā is general seeing, naẓar directed looking, baṣar vision/insight, shahida witnessing.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "raa",
+          "ar": "رَأَى",
+          "tr": "Ra'â",
+          "transliteration": "ra'ā",
+          "meaningTr": "Görmek — fiziksel veya zihinsel. 'Görüş, kanaat' anlamına da gelir. En yaygın görme fiili.",
+          "meaningEn": "To see — physical or mental. Also means 'opinion, view'. The most common seeing verb.",
+          "distinctionTr": "Nazar'dan farkı: Ra'â basit görme eylemidir — yönelme ve niyet gerektirmez.",
+          "distinctionEn": "Difference from naẓar: Ra'ā is simple seeing — requires no direction or intention.",
+          "frequency": 273,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.3, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "2:55", "context": "divine",   "note": "'Allah'ı açıkça görmedikçe sana inanmayız'",   "targetWord": "نَرَى" },
+            { "ref": "75:23","context": "positive", "note": "'Yüzler Rabblerine bakar (nâzıra)'",             "targetWord": "نَاظِرَةٌ" },
+            { "ref": "18:39","context": "divine",   "note": "'Bahçeye girdiğinde görmeli miydin?'",          "targetWord": "رَأَيْتَ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        },
+        {
+          "id": "nazar",
+          "ar": "نَظَر",
+          "tr": "Nazar",
+          "transliteration": "naẓar",
+          "meaningTr": "Yönelerek bakmak, dikkatle temaşa etmek. Kökü 'nazâra' (bakmak, beklemek). Temaşa ile düşünce birleşir.",
+          "meaningEn": "Directed looking, attentive observation. Root 'naẓara' (to look, to wait). Observation joined with thought.",
+          "distinctionTr": "Ra'â'dan farkı: Nazar dikkat ve yönelmedir — kasıtlı gözlem. 'Deveye nazar etmezler mi?' (Ğâşiye 88:17) — düşünce çağrısı.",
+          "distinctionEn": "Difference from ra'ā: Naẓar is attention and direction — deliberate observation. 'Do they not naẓar at the camel?' (Al-Ghāshiya 88:17) — call to reflection.",
+          "frequency": 129,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.6, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "88:17", "context": "divine",   "note": "'Deveye nazar etmezler mi, nasıl yaratıldı?'", "targetWord": "يَنظُرُونَ" },
+            { "ref": "86:5",  "context": "divine",   "note": "'İnsan neden yaratıldığına nazar etsin'",        "targetWord": "فَلْيَنظُرِ" },
+            { "ref": "80:24", "context": "divine",   "note": "'İnsan yemeğine nazar etsin'",                    "targetWord": "فَلْيَنظُرِ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "basar",
+          "ar": "بَصَر",
+          "tr": "Basar",
+          "transliteration": "baṣar",
+          "meaningTr": "Görüş, vizyon. Hem fiziksel hem iç görü. Allah'ın ismi 'el-Basîr' — her şeyi gören. 'Kör olan basardan değil, kalpten mahrumdur' (Hac 22:46).",
+          "meaningEn": "Vision, sight. Both physical and inner sight. God's name 'al-Baṣīr' — the All-Seeing. 'The blind lacks not baṣar but heart' (Al-Ḥajj 22:46).",
+          "distinctionTr": "Ra'â ve nazar'dan farkı: Basar görüş yetisidir — iç-dış görmeyi kapsar. Besîra = iç görü.",
+          "distinctionEn": "Difference from ra'ā and naẓar: Baṣar is the faculty of sight — covers inner-outer seeing. Baṣīra = insight.",
+          "frequency": 148,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.8, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "22:46", "context": "divine",   "note": "'Gözler kör olmaz, kalpler kör olur'",         "targetWord": "الْأَبْصَارُ" },
+            { "ref": "6:103", "context": "divine",   "note": "'Gözler O'nu idrak edemez, O gözleri idrak eder'", "targetWord": "الْأَبْصَارَ" },
+            { "ref": "24:40", "context": "divine",   "note": "'Elini çıkarsa onu göremez'",                      "targetWord": "يَرَاهَا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        },
+        {
+          "id": "shahida",
+          "ar": "شَهِدَ",
+          "tr": "Şehide",
+          "transliteration": "shahida",
+          "meaningTr": "Tanıklık etmek, bizzat görmek ve bilmek. 'Şâhid' (görmüş-bilen tanık), 'şehîd' (canıyla şahitlik). Kökünde görme ve onaylama var.",
+          "meaningEn": "To bear witness, to have seen and known first-hand. 'Shāhid' (the witness who saw), 'shahīd' (martyr — witnessing with life). Sight and confirmation in its root.",
+          "distinctionTr": "Ra'â, nazar, basar'dan farkı: Şehide sadece görme değil, onaylama ve kanıtlamadır.",
+          "distinctionEn": "Difference from the others: Shahida is not just seeing but affirming and attesting.",
+          "frequency": 160,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.9, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "3:18",  "context": "divine",   "note": "'Allah şahitlik etti ki Ondan başka ilah yoktur'", "targetWord": "شَهِدَ" },
+            { "ref": "6:19",  "context": "divine",   "note": "'Allah benimle sizin aranızda şahittir'",              "targetWord": "شَهِيدٌ" },
+            { "ref": "85:9",  "context": "divine",   "note": "'Allah her şeye şahittir'",                             "targetWord": "شَهِيدٌ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "life-family",
+      "category": "path",
+      "titleTr": "Hayat Aileleri",
+      "titleEn": "Life Family",
+      "turkishTranslation": "Hayat",
+      "englishTranslation": "Life",
+      "principleTr": "Hayâh yaşamın özü, dünyâ 'yakın hayat', âhire 'son hayat' — eşit sıklıkta geçer.",
+      "principleEn": "Ḥayāh is the essence of life, dunyā 'nearer life', ākhira 'latter life' — appear with equal frequency.",
+      "principleSource": "Klasik tefsir geleneği",
+      "words": [
+        {
+          "id": "hayah",
+          "ar": "حَيَاة",
+          "tr": "Hayâh",
+          "transliteration": "ḥayāh",
+          "meaningTr": "Hayat — canlılığın özü. Allah'ın ismi el-Hayy. 'Her canlıyı sudan yarattık' — hayatın kaynağı.",
+          "meaningEn": "Life — the essence of being alive. God's name al-Ḥayy. 'We made every living thing from water' — source of life.",
+          "distinctionTr": "Dünyâ ve âhire'den farkı: Hayâh her yaşam formu için — bu dünyadaki ve ötedeki hayatı kapsar.",
+          "distinctionEn": "Difference from dunyā and ākhira: Ḥayāh is for every form of life — covers this life and the next.",
+          "frequency": 76,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.5, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "2:179", "context": "positive", "note": "'Kısasta sizin için hayat vardır'",        "targetWord": "حَيَاةٌ" },
+            { "ref": "45:24", "context": "negative", "note": "'Dünyâ hayâtımızdan başka hayat yoktur'",   "targetWord": "حَيَاتُنَا" },
+            { "ref": "87:16", "context": "negative", "note": "'Dünyâ hayâtını tercih ediyorsunuz'",        "targetWord": "الْحَيَاةَ" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 2, "dominantPattern": "negative", "dominantPercentage": 67 }
+        },
+        {
+          "id": "dunya",
+          "ar": "دُنْيَا",
+          "tr": "Dünyâ",
+          "transliteration": "dunyā",
+          "meaningTr": "'Yakın, aşağı' hayat. Kökü 'edna' (yakın/alçak). Âhiretin zıddı, geçici diyar. Kur'an'da 115 kez geçer.",
+          "meaningEn": "'Nearer, lower' life. Root 'adnā' (near/low). Opposite of ākhira, the temporary abode. Appears 115 times in the Quran.",
+          "distinctionTr": "Hayâh'tan farkı: Dünyâ sadece bu hayatı — geçici olanı ifade eder. 'Dünyâ hayâtı' ifadesi bir oksimoron değil, vurgudur.",
+          "distinctionEn": "Difference from ḥayāh: Dunyā expresses only this life — the temporary. 'Ḥayāt al-dunyā' is not oxymoron but emphasis.",
+          "frequency": 115,
+          "color": "#f39c12",
+          "semanticAxes": { "x": 0.3, "y": 0.3 },
+          "allOccurrences": [
+            { "ref": "2:85",  "context": "negative", "note": "'Dünyâ hayâtında rüsvaylık'",          "targetWord": "الدُّنْيَا" },
+            { "ref": "3:14",  "context": "negative", "note": "'Dünyâ hayâtının süsü'",                "targetWord": "الدُّنْيَا" },
+            { "ref": "28:60", "context": "negative", "note": "'Dünyâ hayâtının metâıdır, Allah yanındaki daha hayırlı'", "targetWord": "الدُّنْيَا" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 3, "dominantPattern": "negative", "dominantPercentage": 100 }
+        },
+        {
+          "id": "akhira",
+          "ar": "آخِرَة",
+          "tr": "Âhire",
+          "transliteration": "ākhira",
+          "meaningTr": "'Son, sonraki' hayat. Kökü 'ehara' (geri bırakmak). Dünyâ'nın tam karşıtı. Kur'an'da 115 kez (eşit).",
+          "meaningEn": "'Latter, subsequent' life. Root 'akhara' (to leave behind). Exact counterpart of dunyā. Appears 115 times (equal).",
+          "distinctionTr": "Dünyâ ile çift: Kur'an sistematik olarak ikisini karşılaştırır. 'Âhire hayırlıdır' (Nahl 16:30) — değer vurgusu.",
+          "distinctionEn": "Paired with dunyā: The Quran systematically contrasts them. 'Ākhira is better' (Al-Naḥl 16:30) — value emphasis.",
+          "frequency": 115,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.8, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "2:4",   "context": "positive", "note": "'Ahirete yakînen iman ederler'",     "targetWord": "بِالْآخِرَةِ" },
+            { "ref": "16:22", "context": "negative", "note": "'Ahirete iman etmeyenlerin kalbi'",   "targetWord": "بِالْآخِرَةِ" },
+            { "ref": "87:17", "context": "positive", "note": "'Ahiret hayırlı ve kalıcıdır'",        "targetWord": "الْآخِرَةُ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        }
+      ]
+    },
+    {
+      "id": "paradise-family",
+      "category": "path",
+      "titleTr": "Cennet Aileleri",
+      "titleEn": "Paradise Family",
+      "turkishTranslation": "Cennet",
+      "englishTranslation": "Paradise",
+      "principleTr": "Cennet genel bahçe, Firdevs en yüksek, Adn kalıcı, Na'îm nimet vurgusudur.",
+      "principleEn": "Janna is general garden, Firdaws highest, ʿAdn eternal, Naʿīm emphasizes delight.",
+      "principleSource": "Klasik tefsir geleneği",
+      "words": [
+        {
+          "id": "janna",
+          "ar": "جَنَّة",
+          "tr": "Cennet",
+          "transliteration": "janna",
+          "meaningTr": "Genel bahçe — örtülü, gizli bağ. Kökü 'cenne' (örtmek). En yaygın cennet adı. Bu dünyadaki bahçeler için de kullanılır.",
+          "meaningEn": "General garden — covered, hidden grove. Root 'janna' (to cover). The most widespread paradise word. Also used for worldly gardens.",
+          "distinctionTr": "Diğer cennet isimlerinden farkı: Cennet kapsayıcıdır — diğerleri özelliklerini adlandırır.",
+          "distinctionEn": "Difference from other paradise names: Janna is inclusive — others name its features.",
+          "frequency": 145,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.5, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "2:25",   "context": "positive", "note": "'Altında nehirler akan cennetler'",  "targetWord": "جَنَّاتٍ" },
+            { "ref": "3:133",  "context": "positive", "note": "'Genişliği gökler ve yer kadar cennet'", "targetWord": "جَنَّةٍ" },
+            { "ref": "13:35",  "context": "positive", "note": "'Müttakîlere vadedilen cennet'",          "targetWord": "الْجَنَّةِ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "firdaws",
+          "ar": "فِرْدَوْس",
+          "tr": "Firdevs",
+          "transliteration": "firdaws",
+          "meaningTr": "En yüksek cennet tabakası. Mü'minun 23:11'de 'mirasçılar' olarak kullanılır. Rasûlullah 'Allah'tan firdevsü'l-a'lâ'yı isteyin' der.",
+          "meaningEn": "The highest level of paradise. Used in Al-Muʾminūn 23:11 as 'inheritors'. The Prophet said 'Ask God for firdaws al-aʿlā'.",
+          "distinctionTr": "Cennet'ten farkı: Firdevs özellikle yüksek seviyedir — iki kez geçer (Kehf 18:107, Mü'minun 23:11).",
+          "distinctionEn": "Difference from janna: Firdaws is specifically the highest level — appears twice (Al-Kahf 18:107, Al-Muʾminūn 23:11).",
+          "frequency": 2,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.9, "y": 0.95 },
+          "allOccurrences": [
+            { "ref": "18:107", "context": "positive", "note": "'Onların ağırlanması firdevs cennetleridir'", "targetWord": "الْفِرْدَوْسِ" },
+            { "ref": "23:11",  "context": "positive", "note": "'Firdevs'e mirasçı olanlar'",                   "targetWord": "الْفِرْدَوْسَ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "adn",
+          "ar": "عَدْن",
+          "tr": "Adn",
+          "transliteration": "ʿadn",
+          "meaningTr": "Kalıcı, sabit cennet. Kökü 'adene' (ikamet etmek). 'Cennâtü Adn' — kalıcı ikametgâh olarak cennet.",
+          "meaningEn": "Permanent, settled paradise. Root 'ʿadana' (to reside). 'Jannāt ʿAdn' — paradise as permanent residence.",
+          "distinctionTr": "Cennet'ten farkı: Adn sürekliliği vurgular. Dünya bağını koparıp oraya yerleşme.",
+          "distinctionEn": "Difference from janna: ʿAdn emphasizes permanence. Detaching from world and settling there.",
+          "frequency": 11,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.7, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "9:72",  "context": "positive", "note": "'Altından nehirler akan Adn cennetleri'", "targetWord": "عَدْنٍ" },
+            { "ref": "16:31", "context": "positive", "note": "'Girdikleri Adn cennetleri'",              "targetWord": "عَدْنٍ" },
+            { "ref": "61:12", "context": "positive", "note": "'Adn cennetlerindeki güzel konaklar'",      "targetWord": "عَدْنٍ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        },
+        {
+          "id": "naim",
+          "ar": "نَعِيم",
+          "tr": "Na'îm",
+          "transliteration": "naʿīm",
+          "meaningTr": "Nimet, hoşluk vurgusu olan cennet. Kökü 'ni'me' (nimet). Vâkıa 56:12'de 'Cennâtü'n-Na'îm' — nimetler cenneti.",
+          "meaningEn": "Paradise emphasizing delight and blessing. Root 'niʿma' (blessing). Al-Wāqiʿa 56:12: 'Jannāt al-Naʿīm' — gardens of delight.",
+          "distinctionTr": "Diğerlerinden farkı: Na'îm bolluk ve zevk vurgusu — yeme-içme ve sevinçli karşılaşma.",
+          "distinctionEn": "Difference from others: Naʿīm emphasizes abundance and pleasure — eating, drinking, joyful meeting.",
+          "frequency": 17,
+          "color": "#f39c12",
+          "semanticAxes": { "x": 0.6, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "5:65",  "context": "positive", "note": "'Onları na'îm cennetlerine sokardık'", "targetWord": "النَّعِيمِ" },
+            { "ref": "10:9",  "context": "positive", "note": "'Na'îm cennetlerinde nehirler akar'",    "targetWord": "النَّعِيمِ" },
+            { "ref": "56:12", "context": "positive", "note": "'Cennâtü'n-Na'îm'de — nimetler cenneti'",  "targetWord": "النَّعِيمِ" }
+          ],
+          "patternStat": { "positive": 3, "neutral": 0, "negative": 0, "dominantPattern": "positive", "dominantPercentage": 100 }
+        }
+      ]
+    },
+    {
+      "id": "good-family",
+      "category": "ethics",
+      "titleTr": "Hayr Aileleri",
+      "titleEn": "Good Family",
+      "turkishTranslation": "İyilik",
+      "englishTranslation": "Good",
+      "principleTr": "Hayr genel iyilik, salâh yapısal düzgünlük, birr özenli iyilik, ma'rûf bilinen iyidir.",
+      "principleEn": "Khayr is general good, ṣalāḥ structural soundness, birr attentive goodness, maʿrūf recognized good.",
+      "principleSource": "Râgıb el-İsfahânî, Müfredât",
+      "words": [
+        {
+          "id": "khayr",
+          "ar": "خَيْر",
+          "tr": "Hayr",
+          "transliteration": "khayr",
+          "meaningTr": "Genel iyilik, fayda, üstünlük. Her türlü iyi şey — mal, amel, sonuç. 'Kim zerre kadar hayr işlerse onu görür' (Zilzâl 99:7).",
+          "meaningEn": "General good, benefit, superiority. Every kind of good thing — wealth, deed, outcome. 'Whoever does an atom's weight of khayr will see it' (Al-Zilzāl 99:7).",
+          "distinctionTr": "Salâh ve birr'den farkı: Hayr kapsayıcı ve sonuç odaklı — iyi olan her şey.",
+          "distinctionEn": "Difference from ṣalāḥ and birr: Khayr is inclusive and outcome-oriented — anything that is good.",
+          "frequency": 196,
+          "color": "#d4a574",
+          "semanticAxes": { "x": 0.5, "y": 0.6 },
+          "allOccurrences": [
+            { "ref": "99:7",  "context": "divine",   "note": "'Zerre kadar hayr işleyen onu görür'",    "targetWord": "خَيْرًا" },
+            { "ref": "2:158", "context": "positive", "note": "'Kim hayır yaparsa Allah bilir'",           "targetWord": "خَيْرًا" },
+            { "ref": "8:70",  "context": "divine",   "note": "'Kalplerinizde bir hayr bulursa size daha hayırlısını verir'", "targetWord": "خَيْرًا" }
+          ],
+          "patternStat": { "positive": 1, "neutral": 0, "negative": 0, "divine": 2, "dominantPattern": "divine", "dominantPercentage": 67 }
+        },
+        {
+          "id": "birr",
+          "ar": "بِرّ",
+          "tr": "Birr",
+          "transliteration": "birr",
+          "meaningTr": "Özenli, geniş iyilik. Kökü 'berr' (geniş kara). 'En-ne bir etmezsiniz sevdiğinizden infak edene kadar' (Âl-i İmrân 3:92) — derin bağış.",
+          "meaningEn": "Attentive, expansive goodness. Root 'barr' (vast land). 'You will never attain birr until you spend from what you love' (Āl ʿImrān 3:92) — deep giving.",
+          "distinctionTr": "Hayr'dan farkı: Birr özen ve derinlik vurgular — sevileni vermektir. Bakara 2:177 birr'i tanımlar.",
+          "distinctionEn": "Difference from khayr: Birr emphasizes care and depth — giving what one loves. Al-Baqara 2:177 defines birr.",
+          "frequency": 20,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.8, "y": 0.9 },
+          "allOccurrences": [
+            { "ref": "2:177", "context": "divine",   "note": "Birr'in tanımı (uzun ayet — iman + amel)", "targetWord": "الْبِرَّ" },
+            { "ref": "3:92",  "context": "positive", "note": "'Sevdiğinizden infak etmeden birre erişemezsiniz'", "targetWord": "الْبِرَّ" },
+            { "ref": "60:8",  "context": "positive", "note": "'Size savaşmayanlara birr etmenizi yasaklamıyor'", "targetWord": "تَبَرُّوهُمْ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        },
+        {
+          "id": "maruf",
+          "ar": "مَعْرُوف",
+          "tr": "Ma'rûf",
+          "transliteration": "maʿrūf",
+          "meaningTr": "Toplumun tanıdığı, onayladığı iyilik. 'Ma'rife' kökü — bilinen. 'Emr-i bi'l-ma'rûf' (iyiliği emretmek) İslami ahlakın direği.",
+          "meaningEn": "Goodness recognized and approved by community. Root 'maʿrifa' — known. 'Amr bi'l-maʿrūf' (enjoining good) is a pillar of Islamic ethics.",
+          "distinctionTr": "Hayr ve birr'den farkı: Ma'rûf toplumun onayladığı — bireysel değil sosyal tanıma.",
+          "distinctionEn": "Difference from khayr and birr: Maʿrūf is what the community approves — social, not individual recognition.",
+          "frequency": 38,
+          "color": "#3498db",
+          "semanticAxes": { "x": 0.6, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "3:110", "context": "positive", "note": "'Ma'rûfu emredersiniz, münkeri nehy edersiniz'", "targetWord": "بِالْمَعْرُوفِ" },
+            { "ref": "9:71",  "context": "positive", "note": "Mü'min erkek-kadınlar 'ma'rûf emredenler'",        "targetWord": "بِالْمَعْرُوفِ" },
+            { "ref": "2:228", "context": "divine",   "note": "'Kocalar eşlerine ma'rûf ile davranır'",           "targetWord": "بِالْمَعْرُوفِ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        }
+      ]
+    },
+    {
+      "id": "help-family",
+      "category": "ethics",
+      "titleTr": "Yardım Aileleri",
+      "titleEn": "Help Family",
+      "turkishTranslation": "Yardım",
+      "englishTranslation": "Help",
+      "principleTr": "Nasr zafer yardımı, avn destek, te'yîd güçlendirme, medd uzatmadır.",
+      "principleEn": "Naṣr is victory-help, ʿawn support, ta'yīd reinforcement, madd extension.",
+      "principleSource": "Ebû Hilâl el-Askerî, el-Furûk fi'l-Lüga",
+      "words": [
+        {
+          "id": "nasr",
+          "ar": "نَصْر",
+          "tr": "Nasr",
+          "transliteration": "naṣr",
+          "meaningTr": "Zafer-yardım, çatışmada üstünlük kazandıran yardım. Sûre adı (110). Mü'minlere hakettikleri zaferi verir.",
+          "meaningEn": "Victory-help, aid that brings superiority in conflict. Name of sura 110. Gives believers the victory they merit.",
+          "distinctionTr": "Avn'dan farkı: Nasr zafer bağlamında — düşmana karşı üstünlük. Allah'ın ismi 'en-Nasîr' (yardımcı).",
+          "distinctionEn": "Difference from ʿawn: Naṣr is in victory context — superiority over enemies. God's name 'al-Naṣīr' (helper).",
+          "frequency": 158,
+          "color": "#e74c3c",
+          "semanticAxes": { "x": 0.7, "y": 0.8 },
+          "allOccurrences": [
+            { "ref": "110:1", "context": "divine",   "note": "'Allah'ın nasrı ve fethi geldiğinde'",  "targetWord": "نَصْرُ" },
+            { "ref": "61:13", "context": "positive", "note": "'Allah'tan bir nasr ve yakın bir fetih'", "targetWord": "نَصْرٌ" },
+            { "ref": "2:214", "context": "positive", "note": "'Allah'ın nasrı ne zaman?' der önceki nesiller de", "targetWord": "نَصْرُ" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        },
+        {
+          "id": "awn",
+          "ar": "عَوْن",
+          "tr": "Avn",
+          "transliteration": "ʿawn",
+          "meaningTr": "Genel destek, yardım. Birbirine destek olmak için kullanılır. 'İyilik ve takvâda teavün (yardımlaşma) edin' (Mâide 5:2).",
+          "meaningEn": "General support, help. Used for mutual support. 'Cooperate (taʿāwun) in righteousness and taqwā' (Al-Māʾida 5:2).",
+          "distinctionTr": "Nasr'dan farkı: Avn genel destek — sosyal yardımlaşma. Çatışma şartı yoktur.",
+          "distinctionEn": "Difference from naṣr: ʿAwn is general support — social cooperation. No conflict condition.",
+          "frequency": 11,
+          "color": "#2ecc71",
+          "semanticAxes": { "x": 0.5, "y": 0.5 },
+          "allOccurrences": [
+            { "ref": "5:2",   "context": "divine",   "note": "'İyilik ve takvâda teavün (yardımlaşma) edin'", "targetWord": "تَعَاوَنُوا" },
+            { "ref": "18:95", "context": "positive", "note": "Zülkarneyn: 'Siz bana güçle yardım (bi-kuvvetin) edin'", "targetWord": "بِقُوَّةٍ" },
+            { "ref": "28:34", "context": "positive", "note": "Mûsâ: 'Beni tasdik edecek yardımcı (avn)'",           "targetWord": "رِدْءًا" }
+          ],
+          "patternStat": { "positive": 2, "neutral": 0, "negative": 0, "divine": 1, "dominantPattern": "positive", "dominantPercentage": 67 }
+        },
+        {
+          "id": "tayid",
+          "ar": "تَأْيِيد",
+          "tr": "Te'yîd",
+          "transliteration": "ta'yīd",
+          "meaningTr": "Güç ile pekiştirme, destekleyerek güçlendirme. Kökü 'eyd' (el/güç). İsa'nın Rûhu'l-Kudüs ile te'yîd edilmesi.",
+          "meaningEn": "Reinforcement with strength, supporting by empowering. Root 'ayd' (hand/strength). Jesus reinforced with the Holy Spirit.",
+          "distinctionTr": "Nasr ve avn'dan farkı: Te'yîd güç/yetki vererek destekleme — içten güçlendirme.",
+          "distinctionEn": "Difference from naṣr and ʿawn: Ta'yīd supports by granting strength/authority — empowerment from within.",
+          "frequency": 11,
+          "color": "#9b59b6",
+          "semanticAxes": { "x": 0.8, "y": 0.7 },
+          "allOccurrences": [
+            { "ref": "2:87",  "context": "divine",   "note": "'İsa'yı Rûhu'l-Kudüs ile te'yîd ettik'", "targetWord": "وَأَيَّدْنَاهُ" },
+            { "ref": "2:253", "context": "divine",   "note": "'İsa'yı açık kanıtlarla verdik ve te'yîd ettik'", "targetWord": "وَأَيَّدْنَاهُ" },
+            { "ref": "8:62",  "context": "divine",   "note": "'Allah seni nasrıyla ve mü'minlerle te'yîd etti'", "targetWord": "أَيَّدَكَ" }
+          ],
+          "patternStat": { "positive": 0, "neutral": 0, "negative": 0, "divine": 3, "dominantPattern": "divine", "dominantPercentage": 100 }
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "nameTr": "Ebû Hilâl el-Askerî",
+      "nameEn": "Abū Hilāl al-ʿAskarī",
+      "died": "395 H / 1005 M",
+      "city": "Askeri Mükrem (İran)",
+      "workTr": "el-Furûk fi'l-Lüga",
+      "workEn": "al-Furūq fī al-Lugha",
+      "roleTr": "Kurucu",
+      "roleEn": "Founder",
+      "descTr": "Furûk ilminin kurucusu. Bu eseri ile Arapça'da eş anlamlı gibi görünen kelimeler arasındaki ince ayrımları sistematik olarak ele alan ilk kişidir.",
+      "descEn": "The founder of furūq discipline. His work systematically addresses the subtle distinctions between apparently synonymous Arabic words for the first time."
+    },
+    {
+      "nameTr": "Râgıb el-İsfahânî",
+      "nameEn": "Rāghib al-Iṣfahānī",
+      "died": "502 H / 1108 M",
+      "city": "İsfahan (İran)",
+      "workTr": "Müfredâtü Elfâzi'l-Kur'ân",
+      "workEn": "Mufradāt Alfāz al-Qurʾān",
+      "roleTr": "Geliştirici",
+      "roleEn": "Developer",
+      "descTr": "En kapsamlı Kur'an sözlüğünün yazarı. Kelime köklerini, anlam alanlarını ve kelimeler arası semantik ayrımları detaylı işler. Bu sitedeki 'kelime seçimi bağlamı belirler' prensibinin temel kaynağıdır.",
+      "descEn": "Author of the most comprehensive Quranic lexicon. Treats word roots, semantic fields, and inter-word distinctions in detail. The foundational source for the 'word choice determines context' principle on this site."
+    },
+    {
+      "nameTr": "İbn Kayyım el-Cevziyye",
+      "nameEn": "Ibn Qayyim al-Jawziyya",
+      "died": "751 H / 1350 M",
+      "city": "Şam (Suriye)",
+      "workTr": "Medâricü's-Sâlikîn",
+      "workEn": "Madārij al-Sālikīn",
+      "roleTr": "Geliştirici",
+      "roleEn": "Developer",
+      "descTr": "Manevi makamlar analizi. Havf-haşye, recâ'-emel, tevbe-inâbe gibi duygusal/ruhsal kelimeler arasındaki ayrımları tasavvuf perspektifinden derinleştirir.",
+      "descEn": "Analysis of spiritual stations. Deepens the distinctions between emotional/spiritual words like khawf-khashya, rajā'-amal, tawba-ināba from a sufi perspective."
+    },
+    {
+      "nameTr": "Fâdıl Sâlih es-Sâmerrâî",
+      "nameEn": "Fāḍil Ṣāliḥ al-Sāmarrāʾī",
+      "died": "çağdaş / contemporary",
+      "city": "Bağdat (Irak)",
+      "workTr": "Lemesât Beyâniyye",
+      "workEn": "Lamasāt Bayāniyya",
+      "roleTr": "Çağdaş",
+      "roleEn": "Contemporary",
+      "descTr": "Çağdaş beyan ilmi uzmanı. Klasik furûk geleneğini modern dilbilimle birleştirerek Kur'an ayetlerindeki kelime seçimlerinin neden başka türlü olmadığını gösterir.",
+      "descEn": "Contemporary expert of bayān (rhetoric). Combines classical furūq tradition with modern linguistics to show why word choices in Quranic verses could not have been otherwise."
+    }
+  ]
+}

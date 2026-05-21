@@ -1,0 +1,1112 @@
+{
+  "meta": {
+    "totalOaths": 47,
+    "categoriesCount": 7,
+    "surahsWithOaths": 21,
+    "maxOathsInSurah": 7,
+    "maxOathsSurahName": "Şems",
+    "meccanCount": 21,
+    "medinanCount": 0,
+    "methodologyTr": "Bu sayfa İbn Kayyim el-Cevziyye'nin et-Tibyân fî Aksâmi'l-Kur'an eserindeki klasik sayımı esas alır. Buna göre zamir veya 'mâ' edatıyla bağlı atıf cümleleri (örn. وَمَا بَنَاهَا) ana yeminin tamamlayıcı kolu sayılır, ayrı bir yemin olarak listelenmez. Bu nedenle Şems sûresinde 7 bileşik yemin görürsünüz; atıfları ayrı sayan geniş tasniflerde aynı dizilim 11 ifadeye genişler.",
+    "methodologyEn": "This page follows the classical count from Ibn Qayyim al-Jawziyya's al-Tibyān fī Aqsām al-Qurʾān. Conjunction clauses bound by a pronoun or by 'mā' (e.g., wa-mā banāhā) count as the complementary arm of the principal oath, not as separate oaths. Hence Surah al-Shams shows 7 compound oaths in total; broader classifications that count conjunctions separately extend the same series to 11 expressions.",
+    "meccanNoteTr": "Yemin içeren 21 sûrenin tamamı Mekkî dönem ağırlıklıdır (Tîn ve Âdiyât için azınlık görüş Medenî der; cumhûr Mekkî kabul eder). Yemin formu, vahyin erken Mekkî evresine özgü bir retorik kalıptır.",
+    "meccanNoteEn": "All 21 surahs containing oaths are predominantly Meccan (a minority view classifies Tīn and ʿĀdiyāt as Medinan; the majority view holds them Meccan). The oath form is a rhetorical pattern distinctive of the early Meccan phase of revelation."
+  },
+  "categories": [
+    {
+      "id": "celestial",
+      "tr": "Gök Cisimleri",
+      "en": "Celestial Bodies",
+      "accent": "#c9a227",
+      "descTr": "Güneş, ay, yıldızlar ve gökyüzü — Allah'ın kudretinin en görünür delilleri",
+      "descEn": "Sun, moon, stars and sky — the most visible signs of God's power",
+      "items": [
+        {
+          "id": "sems-91-1",
+          "arabic": "وَالشَّمْسِ وَضُحَاهَا",
+          "tr": "Güneşe ve onun kuşluk aydınlığına yemin olsun",
+          "en": "By the sun and its morning brightness",
+          "ref": "Şems 91:1",
+          "surah": 91,
+          "ayah": 1,
+          "subjectTr": "Güneş ve Aydınlığı",
+          "subjectEn": "Sun and Its Brightness",
+          "purposeTr": "Ruhun arındırılması ve bozulması arasındaki seçim — kozmosun zirvesinden insan ahlakına",
+          "purposeEn": "Choice between purification and corruption of the soul — from cosmos to human moral life",
+          "isCompound": true,
+          "compoundParts": [
+            {
+              "arabic": "وَالشَّمْسِ",
+              "labelTr": "Güneş",
+              "labelEn": "The Sun",
+              "noteTr": "Şems sûresinin ilk kelimesi. Güneş hem ışık hem enerji hem hayatın kaynağıdır — Allah'ın yaratma kudretinin en görünür delili.",
+              "noteEn": "The first word of Surah Shams. The sun is light, energy, and source of life — the most visible sign of divine creative power."
+            },
+            {
+              "arabic": "وَضُحَاهَا",
+              "labelTr": "ve onun kuşluk aydınlığı",
+              "labelEn": "and its morning brightness",
+              "noteTr": "Atıf cümlesi: 'هَا' zamiri güneşe işaret eder. Klasik İbn Kayyim sayımında ayrı bir yemin değil, ana yeminin tamamlayıcı koludur. Duhâ, güneşin yükseliş anıdır — tamlık ve netliği temsil eder, arınmış ruhun parlaklığının metaforudur.",
+              "noteEn": "Conjunction clause: the pronoun 'hā' refers to the sun. In Ibn Qayyim's classical count this is not a separate oath but the complementary arm of the principal oath. Duhā is the moment of the sun's ascent — symbolizing fullness and clarity, a metaphor for the radiance of the purified soul."
+            }
+          ],
+          "depthTr": "Şems sûresinin açılışı tek bir bileşik yemindir: güneş ve onun aydınlığı bir arada. Eser ile niteliği aynı yeminin iki kanadıdır. Ardından gelen 6 yemin (ay, gündüz, gece, gök, yer, nefs) bu ilkin üzerine inşa edilir; sûre 7 kozmik yemini insan ruhunun arınması temasına bağlar.",
+          "depthEn": "The opening of Surah Shams is a single compound oath: the sun and its brightness together. The artifact and its quality are two wings of the same oath. The 6 oaths that follow (moon, day, night, sky, earth, soul) build upon this first; the surah connects 7 cosmic oaths to the theme of soul purification."
+        },
+        {
+          "id": "sems-91-2",
+          "arabic": "وَالْقَمَرِ إِذَا تَلَاهَا",
+          "tr": "Güneşi takip ettiği zaman aya yemin olsun",
+          "en": "By the moon when it follows it",
+          "ref": "Şems 91:2",
+          "surah": 91,
+          "ayah": 2,
+          "subjectTr": "Ay",
+          "subjectEn": "The Moon",
+          "purposeTr": "Kozmik düzen ve ardıllık",
+          "purposeEn": "Cosmic order and succession",
+          "depthTr": "Ay güneşi takip eder, kendi ışığı yoktur — aynen insanın ilahi rehberliği takip etmesi gibi. Bu yemin kozmik itaatin sembolüdür.",
+          "depthEn": "The moon follows the sun and has no light of its own — just as humans follow divine guidance. This oath symbolizes cosmic obedience."
+        },
+        {
+          "id": "necm-53-1",
+          "arabic": "وَالنَّجْمِ إِذَا هَوَى",
+          "tr": "Battığı zaman yıldıza yemin olsun",
+          "en": "By the star when it sets",
+          "ref": "Necm 53:1",
+          "surah": 53,
+          "ayah": 1,
+          "subjectTr": "Yıldız",
+          "subjectEn": "The Star",
+          "purposeTr": "Vahyin hakikatinin güvenilirliği",
+          "purposeEn": "The reliability of prophetic revelation",
+          "depthTr": "Yıldızın batışı hem insan idrakinin sınırlarını hem de vahyin bu sınırları aşan gerçekliğini temsil eder. Hz. Peygamber'in mirac yolculuğuna da işaret eder.",
+          "depthEn": "The setting star represents both the limits of human perception and revelation's transcendence of those limits. It also alludes to the Prophet's night journey."
+        },
+        {
+          "id": "vakia-56-75",
+          "arabic": "فَلَا أُقْسِمُ بِمَوَاقِعِ النُّجُومِ",
+          "tr": "Yıldızların yerlerine yemin ederim ki",
+          "en": "I swear by the positions of the stars",
+          "ref": "Vâkıa 56:75",
+          "surah": 56,
+          "ayah": 75,
+          "subjectTr": "Yıldız Yerleri",
+          "subjectEn": "Stellar Positions",
+          "purposeTr": "Kur'an'ın büyüklüğü ve değeri",
+          "purposeEn": "The greatness and value of the Quran",
+          "depthTr": "فَلَا أُقْسِمُ ifadesi güçlendirilmiş bir yemin formudur. Yıldızların konumları, evrensel düzenin ve Allah'ın ilminin en çarpıcı göstergelerinden biridir.",
+          "depthEn": "The phrase 'fa-la uqsimu' is an intensified oath form. Stellar positions are among the most striking indicators of universal order and divine knowledge."
+        },
+        {
+          "id": "buruc-85-1",
+          "arabic": "وَالسَّمَاءِ ذَاتِ الْبُرُوجِ",
+          "tr": "Burçları olan gökyüzüne yemin olsun",
+          "en": "By the sky containing the constellations",
+          "ref": "Burûc 85:1",
+          "surah": 85,
+          "ayah": 1,
+          "subjectTr": "Burçlar",
+          "subjectEn": "Constellations",
+          "purposeTr": "Müminlere yapılan zulmün hesabı",
+          "purposeEn": "Accountability for oppression against believers",
+          "depthTr": "Gökyüzünün burçları hem kozmik düzeni hem de Allah'ın saltanatını temsil eder. Ashab-ı Uhdud kıssasına zemin hazırlar.",
+          "depthEn": "The sky's constellations represent both cosmic order and God's sovereignty. This prepares the ground for the story of the People of the Ditch."
+        },
+        {
+          "id": "tarik-86-1",
+          "arabic": "وَالسَّمَاءِ وَالطَّارِقِ",
+          "tr": "Gökyüzüne ve Târık'a yemin olsun",
+          "en": "By the sky and the night-comer",
+          "ref": "Tarık 86:1",
+          "surah": 86,
+          "ayah": 1,
+          "subjectTr": "Gece Gelen Yıldız",
+          "subjectEn": "Night-Comer Star",
+          "purposeTr": "İnsanın hesaba çekilmesi ve gözetlenmesi",
+          "purposeEn": "Human accountability and divine surveillance",
+          "depthTr": "Târık (kapıyı çalan, gece gelen) parlak bir yıldızdır. Her insanın üzerinde bir gözetleyici olduğu gerçeğine zemin hazırlar.",
+          "depthEn": "Tariq (the night-knocker) is a brilliantly shining star. It prepares for the truth that every human has a guardian over them."
+        },
+        {
+          "id": "tarik-86-11",
+          "arabic": "وَالسَّمَاءِ ذَاتِ الرَّجْعِ",
+          "tr": "Döndürücü gökyüzüne yemin olsun",
+          "en": "By the sky that returns",
+          "ref": "Tarık 86:11",
+          "surah": 86,
+          "ayah": 11,
+          "subjectTr": "Döngüsel Gök",
+          "subjectEn": "Cycling Sky",
+          "purposeTr": "Kur'an'ın hüküm koyucu oluşu",
+          "purposeEn": "The decisive nature of the Quran",
+          "depthTr": "Göğün yağmuru geri döndürmesi; yaşam döngüsü, yeniden diriliş ve doğanın devamlı yenilenmesi. Çağdaş okuma atmosferin su döngüsüyle paralellik kurar — felsefî bir gözlem; Kur'an'ın bilimsel teori öngördüğü iddiası değildir.",
+          "depthEn": "The sky returning rain; life cycle, resurrection, and nature's perpetual renewal. A contemporary reading draws a parallel with the atmosphere's water cycle — a philosophical observation, not a claim that the Quran predicted scientific theory."
+        },
+        {
+          "id": "sems-91-5",
+          "arabic": "وَالسَّمَاءِ وَمَا بَنَاهَا",
+          "tr": "Gökyüzüne ve onu inşa edene yemin olsun",
+          "en": "By the sky and Him who built it",
+          "ref": "Şems 91:5",
+          "surah": 91,
+          "ayah": 5,
+          "subjectTr": "Gökyüzü ve İnşa Eden",
+          "subjectEn": "Sky and Its Builder",
+          "purposeTr": "Eser ile Usta'yı tek yeminde birleştirme — kozmik düzenin ilahi kaynağı",
+          "purposeEn": "Uniting artifact with Artisan in one oath — the divine source of cosmic order",
+          "isCompound": true,
+          "compoundParts": [
+            {
+              "arabic": "وَالسَّمَاءِ",
+              "labelTr": "Gökyüzü",
+              "labelEn": "The Sky",
+              "noteTr": "Eser. Sınırsız derinliği ve düzeniyle Allah'ın kudretinin makrokozmik simgesi.",
+              "noteEn": "The artifact. With its boundless depth and order, the macrocosmic symbol of divine power."
+            },
+            {
+              "arabic": "وَمَا بَنَاهَا",
+              "labelTr": "ve onu inşa edene",
+              "labelEn": "and Him who built it",
+              "noteTr": "Atıf cümlesi: 'مَا' burada 'kim' anlamında — Allah'ın kudretine işaret eder. İbn Kayyim bu yapıyı 'eser ile Usta'yı tek yeminde birleştirme' olarak okur: gökyüzü tek başına yeterliydi, ama Kur'an inşa edeni de yeminin kapsamına alır.",
+              "noteEn": "Conjunction clause: 'mā' here means 'who' — pointing to divine power. Ibn Qayyim reads this structure as 'uniting the artifact with the Artisan in one oath': the sky alone would have sufficed, yet the Qur'an also includes the Builder within the oath's scope."
+            }
+          ],
+          "depthTr": "Klasik tefsire göre Şems 91:5 tek bir bileşik yemindir; 'وَالسَّمَاءِ' ile 'وَمَا بَنَاهَا' arasındaki vâv kasem değil ma'tûf vâvıdır. Bu yapı 91:6 ve 91:7'de de tekrarlanır — yer/yeri yayan, nefs/nefsi şekillendiren. Üçü birlikte bir kalıp oluşturur: yaratılan + Yaratıcı.",
+          "depthEn": "According to classical exegesis, Shams 91:5 is a single compound oath; the wāw between 'wa'l-samā'i' and 'wa-mā banāhā' is not a wāw of oath but a wāw of conjunction. The same structure repeats in 91:6 and 91:7 — earth/He who spread it, soul/He who shaped it. Together they form a pattern: the created + the Creator."
+        }
+      ]
+    },
+    {
+      "id": "time",
+      "tr": "Zaman",
+      "en": "Time",
+      "accent": "#3498db",
+      "descTr": "Fecir, sabah, gece, gündüz — zamanın kendisi ilahi bir şahit",
+      "descEn": "Dawn, morning, night, day — time itself is a divine witness",
+      "items": [
+        {
+          "id": "asr-103-1",
+          "arabic": "وَالْعَصْرِ",
+          "tr": "Zamana/Asra yemin olsun",
+          "en": "By the era / by time",
+          "ref": "Asr 103:1",
+          "surah": 103,
+          "ayah": 1,
+          "subjectTr": "Zaman/Asır",
+          "subjectEn": "Time/Era",
+          "purposeTr": "İnsanlığın hüsranda oluşu ve kurtuluş şartları",
+          "purposeEn": "Humanity's state of loss and conditions for salvation",
+          "depthTr": "İmam Şafii'ye göre sadece bu sûre Kur'an'ın özünü anlatmaya yeterlidir. 'Asr' hem akşam vakti hem de genel olarak zaman anlamına gelir — her ikisi de geçicilik ve sorumluluk ima eder.",
+          "depthEn": "According to Imam al-Shafi'i, this single surah suffices to convey the essence of the Quran. 'Asr' means both afternoon and time generally — both imply transience and accountability."
+        },
+        {
+          "id": "fecr-89-1",
+          "arabic": "وَالْفَجْرِ",
+          "tr": "Sabahın aydınlığına yemin olsun",
+          "en": "By the dawn",
+          "ref": "Fecr 89:1",
+          "surah": 89,
+          "ayah": 1,
+          "subjectTr": "Fecr",
+          "subjectEn": "Dawn",
+          "purposeTr": "Zâlim medeniyetlerin sonu ve ahiret gerçeği",
+          "purposeEn": "The fall of oppressive civilizations and the reality of the afterlife",
+          "depthTr": "Fecr (şafak sökmesi) hem günün başlangıcını hem de karanlığın sona ermesini temsil eder. Ad, Semud ve Firavun toplumlarının helakine zemin hazırlar.",
+          "depthEn": "Fajr (breaking of dawn) represents both the start of day and the end of darkness. It prepares for the destruction of the peoples of 'Ad, Thamud, and Pharaoh."
+        },
+        {
+          "id": "fecr-89-2",
+          "arabic": "وَلَيَالٍ عَشْرٍ",
+          "tr": "On geceye yemin olsun",
+          "en": "By the ten nights",
+          "ref": "Fecr 89:2",
+          "surah": 89,
+          "ayah": 2,
+          "subjectTr": "On Gece",
+          "subjectEn": "Ten Nights",
+          "purposeTr": "Kutsal zamanın değeri",
+          "purposeEn": "The value of sacred time",
+          "depthTr": "Alimlerin büyük çoğunluğuna göre Zilhicce'nin ilk on gecesidir; Hz. Musa'nın orucu veya Ramazan'ın son on gecesi olduğu görüşleri de vardır.",
+          "depthEn": "According to most scholars, these are the first ten nights of Dhul Hijjah; others say Moses' fast or the last ten nights of Ramadan."
+        },
+        {
+          "id": "duha-93-1",
+          "arabic": "وَالضُّحَى",
+          "tr": "Kuşluk vaktine yemin olsun",
+          "en": "By the morning light",
+          "ref": "Duha 93:1",
+          "surah": 93,
+          "ayah": 1,
+          "subjectTr": "Kuşluk",
+          "subjectEn": "Morning Light",
+          "purposeTr": "Hz. Peygamber'e Allah'ın desteğinin sürekliliği",
+          "purposeEn": "God's continual support for the Prophet",
+          "depthTr": "Vahyin bir süre kesilmesi üzerine müşriklerin 'Rabbi seni bıraktı' demesi üzerine indi. Kuşluk parlaklığı Allah'ın rahmetini, sona ermeyen süreç ilahi vefalılığı temsil eder.",
+          "depthEn": "Revealed after a pause in revelation when polytheists said 'your Lord has abandoned you.' The morning brightness represents God's mercy; the unending cycle represents divine faithfulness."
+        },
+        {
+          "id": "duha-93-2",
+          "arabic": "وَاللَّيْلِ إِذَا سَجَى",
+          "tr": "Durgunlaştığı zaman geceye yemin olsun",
+          "en": "By the night when it is still",
+          "ref": "Duha 93:2",
+          "surah": 93,
+          "ayah": 2,
+          "subjectTr": "Durgun Gece",
+          "subjectEn": "Still Night",
+          "purposeTr": "Zorluk ve huzur arasındaki denge",
+          "purposeEn": "Balance between hardship and peace",
+          "depthTr": "Gecenin sükûneti hem huzuru hem de geçiciliği temsil eder. Gündüzün akabindeki gece gibi, zorlukların ardından kolaylık gelir.",
+          "depthEn": "The stillness of night represents both peace and transience. Like night following day, ease follows hardship."
+        },
+        {
+          "id": "leyl-92-1",
+          "arabic": "وَاللَّيْلِ إِذَا يَغْشَى",
+          "tr": "Her şeyi örtüp sardığında geceye yemin olsun",
+          "en": "By the night when it covers",
+          "ref": "Leyl 92:1",
+          "surah": 92,
+          "ayah": 1,
+          "subjectTr": "Kaplayan Gece",
+          "subjectEn": "Enveloping Night",
+          "purposeTr": "Cimrilik ile cömertlik arasındaki seçim",
+          "purposeEn": "The choice between stinginess and generosity",
+          "depthTr": "Gecenin her şeyi örtmesi insanın amellerini gizlediğinin metaforudur. Öte yandan ihlasla verilen sadakanın gece gibi görünmez ama etkili olduğunu da anlatır.",
+          "depthEn": "The night covering everything is a metaphor for deeds hidden from eyes. It also suggests sincere charity given invisibly but powerfully, like night."
+        },
+        {
+          "id": "leyl-92-2",
+          "arabic": "وَالنَّهَارِ إِذَا تَجَلَّى",
+          "tr": "Aydınlandığında gündüze yemin olsun",
+          "en": "By the day when it appears",
+          "ref": "Leyl 92:2",
+          "surah": 92,
+          "ayah": 2,
+          "subjectTr": "Aydınlanan Gündüz",
+          "subjectEn": "Gleaming Day",
+          "purposeTr": "Hakikat ve samimiyetin ortaya çıkması",
+          "purposeEn": "The manifestation of truth and sincerity",
+          "depthTr": "Gündüzün aydınlanması, ihlasın ve iyiliğin sonunda görünür hale gelmesini temsil eder. Leyl-Nahar zıtlığı, iki tür insan arasındaki farkı dramatize eder.",
+          "depthEn": "The appearance of daylight represents sincerity and goodness ultimately becoming visible. The Night-Day contrast dramatizes the difference between two types of people."
+        },
+        {
+          "id": "sems-91-3",
+          "arabic": "وَالنَّهَارِ إِذَا جَلَّاهَا",
+          "tr": "Güneşi açığa çıkardığında gündüze yemin olsun",
+          "en": "By the day when it reveals it",
+          "ref": "Şems 91:3",
+          "surah": 91,
+          "ayah": 3,
+          "subjectTr": "Gündüz",
+          "subjectEn": "The Day",
+          "purposeTr": "Açıklık, ortaya çıkma ve hidayetin görünür olması",
+          "purposeEn": "Clarity, revelation and the visibility of guidance",
+          "depthTr": "Gündüz güneşi 'açığa çıkarır' — tam tersine gece onu örter. Bu yemin, hakikatin gün gibi aşikar olduğuna zemin hazırlar: insan ya hidayeti görür ya görmezden gelir.",
+          "depthEn": "The day 'reveals' the sun — just as night covers it. This oath lays the ground for truth being as clear as daylight: a person either sees guidance or ignores it."
+        },
+        {
+          "id": "sems-91-4",
+          "arabic": "وَاللَّيْلِ إِذَا يَغْشَاهَا",
+          "tr": "Güneşi örttüğünde geceye yemin olsun",
+          "en": "By the night when it covers it",
+          "ref": "Şems 91:4",
+          "surah": 91,
+          "ayah": 4,
+          "subjectTr": "Gece",
+          "subjectEn": "The Night",
+          "purposeTr": "Örtme, gizleme ve sapkınlığın karanlığı",
+          "purposeEn": "Covering, concealment and the darkness of deviation",
+          "depthTr": "Gece güneşi örter — aynen sapkınlığın hakikati örtmesi gibi. Gündüz-gece zıtlığı, Şems sûresinin temel mesajının (arınan-bozulan ruh) kozmik yankısıdır.",
+          "depthEn": "Night covers the sun — just as deviation covers truth. The day-night contrast is the cosmic echo of Surah Shams's core message: the purifying vs. corrupting soul."
+        }
+      ]
+    },
+    {
+      "id": "place",
+      "tr": "Yer & Mekân",
+      "en": "Place & Space",
+      "accent": "#2ecc71",
+      "descTr": "Kutsal dağlar, şehirler ve yeryüzü — mekân da yemin konusudur",
+      "descEn": "Sacred mountains, cities and earth — space itself can be sworn by",
+      "items": [
+        {
+          "id": "tur-52-1",
+          "arabic": "وَالطُّورِ",
+          "tr": "Tûr Dağı'na yemin olsun",
+          "en": "By Mount Tur",
+          "ref": "Tûr 52:1",
+          "surah": 52,
+          "ayah": 1,
+          "subjectTr": "Tûr Dağı",
+          "subjectEn": "Mount Sinai",
+          "purposeTr": "Ahiret azabının gerçekliği ve kaçınılmazlığı",
+          "purposeEn": "The reality and inevitability of the afterlife punishment",
+          "depthTr": "Hz. Musa'nın Allah ile konuştuğu kutsal yer. Bu yemin, vahiy geleneğinin sürekliliğini ve Hz. Muhammed'in mesajının Hz. Musa'nın mesajıyla aynı kaynaktan geldiğini ima eder.",
+          "depthEn": "The sacred place where Moses spoke with God. This oath implies the continuity of prophetic tradition and that Muhammad's message comes from the same source as Moses'."
+        },
+        {
+          "id": "beled-90-1",
+          "arabic": "لَا أُقْسِمُ بِهَذَا الْبَلَدِ",
+          "tr": "Bu şehre yemin ederim",
+          "en": "I swear by this city",
+          "ref": "Beled 90:1",
+          "surah": 90,
+          "ayah": 1,
+          "subjectTr": "Mekke",
+          "subjectEn": "Mecca",
+          "purposeTr": "Hz. Peygamber'in onuru ve insanın zorlu yolculuğu",
+          "purposeEn": "The Prophet's honor and humanity's arduous journey",
+          "depthTr": "Mekke hem tarihî önemi hem de Hz. İbrahim'den gelen kutsallığıyla öne çıkarılır. Devamındaki 'وَأَنتَ حِلٌّ بِهَذَا الْبَلَدِ' ifadesiyle Hz. Peygamber şehrin onuru olarak gösterilir.",
+          "depthEn": "Mecca is highlighted both for its historical importance and sanctity going back to Abraham. The following 'you are free to do things in this city' shows the Prophet as the city's honor."
+        },
+        {
+          "id": "tin-95-1",
+          "arabic": "وَالتِّينِ وَالزَّيْتُونِ",
+          "tr": "İncire ve zeytine yemin olsun",
+          "en": "By the fig and the olive",
+          "ref": "Tîn 95:1",
+          "surah": 95,
+          "ayah": 1,
+          "subjectTr": "İncir ve Zeytin",
+          "subjectEn": "Fig and Olive",
+          "purposeTr": "İnsanın mükemmel yaratılışı ve ahlaki düşüşü",
+          "purposeEn": "Human's perfect creation and moral downfall",
+          "depthTr": "Alimler 'tin' ve 'zeytun'u ya literal (kutsal ağaçlar/meyveler) ya da Şam ve Kudüs bölgelerinin sembolü olarak yorumlar. Her iki anlam da üç kutsal bölgeye (Şam, Sina, Mekke) işaret eden bir triad oluşturur.",
+          "depthEn": "Scholars interpret 'tin' and 'zaytun' either literally (sacred fruits/trees) or as symbols for the regions of Damascus and Jerusalem — forming a triad of three sacred regions."
+        },
+        {
+          "id": "tin-95-2",
+          "arabic": "وَطُورِ سِينِينَ",
+          "tr": "Sînâ Dağı'na yemin olsun",
+          "en": "By Mount Sinai",
+          "ref": "Tîn 95:2",
+          "surah": 95,
+          "ayah": 2,
+          "subjectTr": "Sinâ Dağı",
+          "subjectEn": "Mount Sinai",
+          "purposeTr": "Hz. Musa'nın vahiy aldığı kutsal mekân",
+          "purposeEn": "The sacred place where Moses received revelation",
+          "depthTr": "Sinâ Dağı, Musa geleneğini temsil eder. İncir-Zeytin-Sinâ-Mekke dördüsü, Dâvud'dan Musa'ya, Musa'dan Hz. Muhammed'e uzanan peygamberlik zincirini sembolize eder.",
+          "depthEn": "Mount Sinai represents the Mosaic tradition. The Fig-Olive-Sinai-Mecca sequence symbolizes the prophetic chain from David to Moses to Muhammad."
+        },
+        {
+          "id": "tin-95-3",
+          "arabic": "وَهَذَا الْبَلَدِ الْأَمِينِ",
+          "tr": "Bu emin beldeye yemin olsun",
+          "en": "By this secure city",
+          "ref": "Tîn 95:3",
+          "surah": 95,
+          "ayah": 3,
+          "subjectTr": "Emin Belde (Mekke)",
+          "subjectEn": "Secure City (Mecca)",
+          "purposeTr": "İslam geleneğinin merkezine işaret",
+          "purposeEn": "Reference to the center of Islamic tradition",
+          "depthTr": "Hz. İbrahim'in duası ile kurulan 'emîn' şehir Mekke'dir. Yemin, Musa geleneğinden İbrahim-Muhammed geleneğine geçişi tamamlar.",
+          "depthEn": "The 'safe city' established by Abraham's prayer is Mecca. The oath completes the transition from the Mosaic tradition to the Abrahamic-Muhammadan tradition."
+        },
+        {
+          "id": "sems-91-6",
+          "arabic": "وَالْأَرْضِ وَمَا طَحَاهَا",
+          "tr": "Yere ve onu yayıp serene yemin olsun",
+          "en": "By the earth and Him who spread it",
+          "ref": "Şems 91:6",
+          "surah": 91,
+          "ayah": 6,
+          "subjectTr": "Yer ve Yayan",
+          "subjectEn": "Earth and Its Spreader",
+          "purposeTr": "İnsanın imtihan zemini ve onun yaratıcı tasarımı",
+          "purposeEn": "The arena of human trial and its Designer",
+          "isCompound": true,
+          "compoundParts": [
+            {
+              "arabic": "وَالْأَرْضِ",
+              "labelTr": "Yer",
+              "labelEn": "The Earth",
+              "noteTr": "Eser. İnsanın üzerinde yürüdüğü, sorumlu tutulduğu zemin — gök ile arasında imtihan sahnesi. Yer insanı taşır; ahirette ise insan amellerini taşıyacaktır.",
+              "noteEn": "The artifact. The ground upon which humanity walks and is held accountable — the arena of trial between sky and earth. The earth carries humanity; in the hereafter, humanity will carry its deeds."
+            },
+            {
+              "arabic": "وَمَا طَحَاهَا",
+              "labelTr": "ve onu yayana",
+              "labelEn": "and Him who spread it",
+              "noteTr": "Atıf cümlesi: 'tahā' yaymak/sermek demektir — yer üzerinde yaşanabilir olması için düzleştirilmiştir. Bu atıf, yeryüzünün düzeninin tesadüfi değil ilahi tasarım olduğunu vurgular.",
+              "noteEn": "Conjunction clause: 'taḥā' means to spread/lay out — the earth has been laid out to be habitable. This conjunction emphasizes that the earth's order is not coincidental but divine design."
+            }
+          ],
+          "depthTr": "Yer/Yayan çifti, gök/inşa eden çiftiyle simetrik bir yapı kurar. Kur'an, yerin yayılışını ilâhî bir fiil ('طَحَا') olarak sunar; modern bilimin 'gezegen oluşumu' kavramıyla paralel kurmak çağdaş bir okumadır, Kur'ânî öngörü iddiası taşımaz. İbn Kayyim sayımında 91:6 tek bir bileşik yemindir.",
+          "depthEn": "The earth/Spreader pair forms a symmetric structure with the sky/Builder pair. The Qur'an presents the spreading of the earth as a divine act ('ṭaḥā'); drawing a parallel with the modern scientific notion of 'planetary formation' is a contemporary reading and carries no claim of Quranic prediction. In Ibn Qayyim's count, 91:6 is a single compound oath."
+        }
+      ]
+    },
+    {
+      "id": "forces",
+      "tr": "Güçler & Olaylar",
+      "en": "Forces & Events",
+      "accent": "#e67e22",
+      "descTr": "Koşan atlar, dağılan rüzgarlar, sıralanmış varlıklar — doğanın dinamik güçleri",
+      "descEn": "Racing horses, scattering winds, lined-up beings — the dynamic forces of nature",
+      "items": [
+        {
+          "id": "adiyat-100-1",
+          "arabic": "وَالْعَادِيَاتِ ضَبْحًا",
+          "tr": "Soluk soluğa koşan atlara yemin olsun",
+          "en": "By the racers, panting",
+          "ref": "Âdiyât 100:1",
+          "surah": 100,
+          "ayah": 1,
+          "subjectTr": "Koşan Atlar",
+          "subjectEn": "Racing Horses",
+          "purposeTr": "İnsanın nankörliği ve dünyaya bağlılığı",
+          "purposeEn": "Human ingratitude and attachment to worldly life",
+          "depthTr": "Koşan atlar hem cihad ruhunu hem de dünyevî hırsı sembolize eder. Allah'ın yolunda soluk soluğa koşarken insanın bu fedakarlığı gözden kaçırması nankörlüğün zirvesidir.",
+          "depthEn": "Racing horses symbolize both the spirit of striving and worldly ambition. Humans losing sight of this sacrifice while racing in God's path represents the peak of ingratitude."
+        },
+        {
+          "id": "zariyat-51-1",
+          "arabic": "وَالذَّارِيَاتِ ذَرْوًا",
+          "tr": "Savurup saçanlara yemin olsun",
+          "en": "By those that scatter",
+          "ref": "Zâriyat 51:1",
+          "surah": 51,
+          "ayah": 1,
+          "subjectTr": "Savuran Rüzgarlar",
+          "subjectEn": "Scattering Winds",
+          "purposeTr": "Kıyametin kesinliği ve insanların farklı sonları",
+          "purposeEn": "Certainty of resurrection and the varying fates of people",
+          "depthTr": "Müfessirlerin büyük çoğunluğu 'zâriyât'ı rüzgarlar olarak yorumlar; bir kısmı bunu tohumlara veya meleklere de teşmil eder. Sonuç onlar üzerine yüklenen vaade atıftır.",
+          "depthEn": "Most commentators interpret 'dhariyat' as winds; some extend it to seeds or angels. The outcome refers to the promise loaded upon them."
+        },
+        {
+          "id": "zariyat-51-2-3",
+          "arabic": "فَالْحَامِلَاتِ وِقْرًا ۝ فَالْجَارِيَاتِ يُسْرًا",
+          "tr": "Ağır yük taşıyanlara ve kolayca akıp gidenlere yemin olsun",
+          "en": "By those bearing heavy loads, and those flowing with ease",
+          "ref": "Zâriyat 51:2-3",
+          "surah": 51,
+          "ayah": 2,
+          "subjectTr": "Yük Taşıyanlar",
+          "subjectEn": "Load-Bearers",
+          "purposeTr": "Doğanın yüklenme ve akış döngüsü",
+          "purposeEn": "Nature's cycle of loading and flow",
+          "depthTr": "Bulutlar yağmur yükü taşır (hamil), ardından nehirler kolayca akar (câriyat). Aynı döngü vahyin inişini ve yayılışını da temsil eder.",
+          "depthEn": "Clouds carry rain loads (hamil), then rivers flow easily (jariyat). The same cycle also represents the descent and spread of revelation."
+        },
+        {
+          "id": "saffat-37-1",
+          "arabic": "وَالصَّافَّاتِ صَفًّا",
+          "tr": "Saf saf dizilenlere yemin olsun",
+          "en": "By those lined in rows",
+          "ref": "Saffat 37:1",
+          "surah": 37,
+          "ayah": 1,
+          "subjectTr": "Saf Tutanlar",
+          "subjectEn": "Those in Rows",
+          "purposeTr": "Allah'ın birliğinin tescili",
+          "purposeEn": "Proclamation of God's oneness",
+          "depthTr": "Meleklerin saf saf dizilmesine ya da cihad için saf tutan müminlere işaret eder. Düzenli ve itaatkâr bir varlık hiyerarşisini gözler önüne serer.",
+          "depthEn": "Refers to angels in rows or believers lined up for battle. It illustrates an ordered and obedient hierarchy of beings."
+        },
+        {
+          "id": "mürselat-77-1",
+          "arabic": "وَالْمُرْسَلَاتِ عُرْفًا",
+          "tr": "Arka arkaya gönderilenclere yemin olsun",
+          "en": "By those sent forth in succession",
+          "ref": "Mürselat 77:1",
+          "surah": 77,
+          "ayah": 1,
+          "subjectTr": "Gönderilenler",
+          "subjectEn": "Those Sent Forth",
+          "purposeTr": "Kıyamet günü ve hesap",
+          "purposeEn": "The Day of Judgment and accountability",
+          "depthTr": "Müfessirlere göre ardı ardına gönderilen peygamberlere, meleklere ya da rüzgarlara işaret eder. Hepsinde ortak olan 'sıralı gönderim' kavramı hesap gününün kesinliğine delildir.",
+          "depthEn": "Scholars say it refers to prophets sent in succession, angels, or winds. Common to all is the concept of 'ordered dispatch' as evidence for the certainty of Judgment Day."
+        },
+        {
+          "id": "naziat-79-1",
+          "arabic": "وَالنَّازِعَاتِ غَرْقًا",
+          "tr": "Güçle söküp çıkaranlara yemin olsun",
+          "en": "By those who extract with force",
+          "ref": "Nâziât 79:1",
+          "surah": 79,
+          "ayah": 1,
+          "subjectTr": "Söküp Çıkaranlar",
+          "subjectEn": "Those Who Extract",
+          "purposeTr": "Ölüm, yeniden diriliş ve kıyametin kaçınılmazlığı",
+          "purposeEn": "Death, resurrection, and the inevitability of the resurrection",
+          "depthTr": "Ruhları söküp çıkaran ölüm meleğini (Azrail) ya da oklarını çeken okçuları temsil eder. Ardından gelen 'nâşitât' (kolayca çekenler) ikili karşıtlık yaratır: zor ölüm - kolay ölüm.",
+          "depthEn": "Represents the Angel of Death pulling out souls forcefully, or archers drawing bows. The following 'nashitat' (those who draw gently) creates a contrast: difficult vs. easy death."
+        },
+        {
+          "id": "fecr-89-3",
+          "arabic": "وَالشَّفْعِ وَالْوَتْرِ",
+          "tr": "Çift ve teke yemin olsun",
+          "en": "By the even and the odd",
+          "ref": "Fecr 89:3",
+          "surah": 89,
+          "ayah": 3,
+          "subjectTr": "Çift ve Tek",
+          "subjectEn": "Even and Odd",
+          "purposeTr": "Kozmik düzenin matematiksel temeli",
+          "purposeEn": "Mathematical foundation of cosmic order",
+          "depthTr": "Tüm var olanın çift-tek (zıtlar, eşler, tekil) yapı üzerine kurulu olduğuna işaret eder. Bazı alimler bunu namazlara (çift: öğle/ikindi; tek: vitir) de tatbik etmiştir.",
+          "depthEn": "Points to all existence being built on an even-odd (opposites, pairs, singular) structure. Some scholars also apply this to prayers (even: zuhr/asr; odd: witr)."
+        },
+        {
+          "id": "adiyat-100-3-4",
+          "arabic": "فَالْمُغِيرَاتِ صُبْحًا ۝ فَأَثَرْنَ بِهِ نَقْعًا",
+          "tr": "Sabahleyin baskın yapanlara ve toz kaldıranlara yemin olsun",
+          "en": "By those who raid at dawn and raise a cloud of dust",
+          "ref": "Âdiyât 100:3-4",
+          "surah": 100,
+          "ayah": 3,
+          "subjectTr": "Şafak Baskını",
+          "subjectEn": "Dawn Raid",
+          "purposeTr": "İnsanın acımasızlığı ve nankör tabiatı",
+          "purposeEn": "Human ruthlessness and ungrateful nature",
+          "depthTr": "Şafak baskını yapan süvari birliklerinin imgesi, insanın vahşet kapasitesini gözler önüne serer. Allah bu güce yemin ederek insanın ne denli nankörlük ettiğini vurgular.",
+          "depthEn": "The image of cavalry raiding at dawn reveals humanity's capacity for violence. By swearing by this power, God emphasizes how profoundly ungrateful humans are."
+        }
+      ]
+    },
+    {
+      "id": "human-soul",
+      "tr": "İnsan & Ruh",
+      "en": "Human & Soul",
+      "accent": "#a78bfa",
+      "descTr": "Nefs, ruh, erkek-dişi — insanın kendisi de bir yemin konusudur",
+      "descEn": "Soul, spirit, male-female — the human being itself is a subject of oaths",
+      "items": [
+        {
+          "id": "kiyame-75-2",
+          "arabic": "وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ",
+          "tr": "Kendini kınayan nefse yemin ederim ki",
+          "en": "And I swear by the self-reproaching soul",
+          "ref": "Kıyame 75:2",
+          "surah": 75,
+          "ayah": 2,
+          "subjectTr": "Levvâme Nefsi",
+          "subjectEn": "Self-Reproaching Soul",
+          "purposeTr": "Vicdan ve kıyamet günü gerçeği",
+          "purposeEn": "Conscience and the reality of the Day of Resurrection",
+          "depthTr": "Kur'an'da üç tür nefs vardır: emmâre (kötülüğü emreden), levvâme (kendini kınayan, vicdan), mutmainne (huzurlu). Levvâme, insanın iç muhakemesinin ta kendisidir — bu da ahiret hesabının zaten insanın içinde yaşadığına işaret eder.",
+          "depthEn": "The Quran describes three soul types: ammara (commanding evil), lawwama (self-reproaching, conscience), mutmainna (at peace). Lawwama is human inner judgment itself — suggesting the afterlife's accounting already lives within us."
+        },
+        {
+          "id": "beled-90-3",
+          "arabic": "وَوَالِدٍ وَمَا وَلَدَ",
+          "tr": "Babaya ve onun soyuna yemin olsun",
+          "en": "By the father and that which he fathered",
+          "ref": "Beled 90:3",
+          "surah": 90,
+          "ayah": 3,
+          "subjectTr": "Nesil Zinciri",
+          "subjectEn": "Generational Chain",
+          "purposeTr": "İnsanın doğum ve nesilden gelen zorlu yolculuğu",
+          "purposeEn": "Humanity's arduous journey from birth and lineage",
+          "depthTr": "Hz. Âdem ve soyunu, ya da Hz. İbrahim ve nesli olarak yorumlanır. Nesil zinciri, insanın 'dürüst'e çektiğini (kebede: zorlukla yoğrulmuş varlık) vurgular.",
+          "depthEn": "Interpreted as Adam and his progeny, or Abraham and his lineage. The generational chain emphasizes that humans were created in toil (kabada: beings kneaded with hardship)."
+        },
+        {
+          "id": "leyl-92-3",
+          "arabic": "وَمَا خَلَقَ الذَّكَرَ وَالْأُنثَى",
+          "tr": "Erkeği ve dişiyi yaratana yemin olsun",
+          "en": "By what He created of male and female",
+          "ref": "Leyl 92:3",
+          "surah": 92,
+          "ayah": 3,
+          "subjectTr": "Erkek ve Dişi",
+          "subjectEn": "Male and Female",
+          "purposeTr": "Yaratılışın ikiliği ve insanların farklı yolları",
+          "purposeEn": "Duality of creation and divergent human paths",
+          "depthTr": "Gece-gündüz-erkek-dişi üçlemesi, evrensel zıtlıklar dizisidir. Ardından gelen içerikte iki insan tipi (cömert-cimri) aynı zıtlığın ahlaki yansımasıdır.",
+          "depthEn": "The night-day-male-female triad is a series of universal opposites. The following content about two human types (generous-stingy) is the moral reflection of the same polarity."
+        },
+        {
+          "id": "buruc-85-3",
+          "arabic": "وَشَاهِدٍ وَمَشْهُودٍ",
+          "tr": "Şahide ve şahit olunana yemin olsun",
+          "en": "By a witness and what is witnessed",
+          "ref": "Burûc 85:3",
+          "surah": 85,
+          "ayah": 3,
+          "subjectTr": "Şahit ve Gözlemlenen",
+          "subjectEn": "Witness and Witnessed",
+          "purposeTr": "Tarihin ve insanın gözlemlenmesi",
+          "purposeEn": "Observation of history and humanity",
+          "depthTr": "Şahid: melekler, Cuma günü veya Hz. Peygamber; meşhud: kıyamet günü, Arafat ya da Cuma vakti. Her iki yorum da ilahi gözetimin evrenselliğini vurgular.",
+          "depthEn": "The witness: angels, Friday, or the Prophet; the witnessed: Judgment Day, Arafat, or Friday. Both interpretations emphasize the universality of divine surveillance."
+        },
+        {
+          "id": "zariyat-51-7",
+          "arabic": "وَالسَّمَاءِ ذَاتِ الْحُبُكِ",
+          "tr": "Yollarla dolu göğe yemin olsun",
+          "en": "By the sky full of pathways",
+          "ref": "Zâriyat 51:7",
+          "surah": 51,
+          "ayah": 7,
+          "subjectTr": "Yollu Gökyüzü",
+          "subjectEn": "Sky with Pathways",
+          "purposeTr": "Müşriklerin çelişkili sözlerine karşı vahyin kesinliği",
+          "purposeEn": "Certainty of revelation against polytheists' contradictory claims",
+          "depthTr": "Hubuk: yıldız yolları, ağ/örüntü ya da dalgalı su yüzeyi anlamına gelir. Modern astronomi: galaksi filamentleri, evrensel büyük ölçek yapısı. Göğün düzenli örüntüsü, vahyin düzenli gerçeğine işaret eder.",
+          "depthEn": "Hubuk means star paths, web/pattern, or rippled water surface. Modern astronomy: galactic filaments, large-scale structure of the universe. The sky's orderly pattern points to revelation's orderly truth."
+        },
+        {
+          "id": "sems-91-7",
+          "arabic": "وَنَفْسٍ وَمَا سَوَّاهَا",
+          "tr": "Nefse ve onu düzgün şekillendirene yemin olsun",
+          "en": "By the soul and Him who shaped it",
+          "ref": "Şems 91:7",
+          "surah": 91,
+          "ayah": 7,
+          "subjectTr": "Nefs ve Şekillendiren",
+          "subjectEn": "Soul and Its Shaper",
+          "purposeTr": "İnsanın kozmik konumu ve ahlaki seçimi — kozmosun zirvesi",
+          "purposeEn": "Humanity's cosmic position and moral choice — apex of the cosmos",
+          "isCompound": true,
+          "compoundParts": [
+            {
+              "arabic": "وَنَفْسٍ",
+              "labelTr": "Nefs",
+              "labelEn": "The Soul",
+              "noteTr": "Eser. Şems sûresinin 7 yemininin zirvesi: Allah önce kozmik unsurları (güneş, ay, gündüz, gece, gök, yer) sayar, sonra en son insan ruhuna ulaşır. Tüm evren ruhun çerçevesidir.",
+              "noteEn": "The artifact. The apex of Surah Shams's 7 oaths: God first enumerates cosmic elements (sun, moon, day, night, sky, earth), then arrives at last at the human soul. All the universe is the soul's frame."
+            },
+            {
+              "arabic": "وَمَا سَوَّاهَا",
+              "labelTr": "ve onu şekillendirene",
+              "labelEn": "and Him who shaped it",
+              "noteTr": "Atıf cümlesi: 'sevvâ' dengeleme/orantılandırma demektir. Ruh sadece yaratılmadı, denge ile yaratıldı. Hemen ardından gelen 91:8 bu dengeyi bozabilecek veya koruyabilecek kapasiteyi anlatır: 'fucûr' ve 'takvâ'.",
+              "noteEn": "Conjunction clause: 'sawwā' means to balance/proportion. The soul was not merely created but created in balance. The very next verse (91:8) describes the capacity to break or preserve this balance: 'fujūr' (wickedness) and 'taqwā' (righteousness)."
+            }
+          ],
+          "depthTr": "Şems sûresinin yeminler dizisi 91:7'de tepe noktasına ulaşır. Üç bileşik yemin (gök, yer, nefs — her biri 'eser + Şekillendiren' yapısında) kozmosu mikrokozmosa, mikrokozmosu da ahlaki sorumluluğa bağlar. Cevab-ı kasem 91:9-10: 'Onu arındıran kurtuldu, kirleten ise kaybetti.'",
+          "depthEn": "The oath series in Surah Shams reaches its peak at 91:7. Three compound oaths (sky, earth, soul — each in 'artifact + Shaper' form) link the cosmos to the microcosm, and the microcosm to moral accountability. The oath's answer (91:9-10): 'He who purifies it succeeds; he who corrupts it fails.'"
+        }
+      ]
+    },
+    {
+      "id": "sacred-texts",
+      "tr": "Kutsal Metinler",
+      "en": "Sacred Texts",
+      "accent": "#1abc9c",
+      "descTr": "Kur'an'ın kendi üzerine yeminleri — bir metnin kendi değerine tanıklığı",
+      "descEn": "The Quran swearing by itself — a text witnessing its own value",
+      "items": [
+        {
+          "id": "yasin-36-2",
+          "arabic": "وَالْقُرْآنِ الْحَكِيمِ",
+          "tr": "Hikmet dolu Kur'an'a yemin olsun",
+          "en": "By the wise Quran",
+          "ref": "Yâsin 36:2",
+          "surah": 36,
+          "ayah": 2,
+          "subjectTr": "Kur'an-ı Hakîm",
+          "subjectEn": "The Wise Quran",
+          "purposeTr": "Hz. Peygamber'in doğru yol üzere olduğunun tescili",
+          "purposeEn": "Attestation that the Prophet is on the straight path",
+          "depthTr": "Kur'an burada kendi üzerine yemin ederek hem içeriğinin hem de kaynağının hikmetini tescil eder. 'Hakîm' hem 'bilge' hem de 'hükmeden/koruyan' demektir.",
+          "depthEn": "The Quran swears by itself here, certifying both the wisdom of its content and its source. 'Hakim' means both 'wise' and 'judging/guarding.'"
+        },
+        {
+          "id": "kaf-50-1",
+          "arabic": "وَالْقُرْآنِ الْمَجِيدِ",
+          "tr": "Yüce Kur'an'a yemin olsun",
+          "en": "By the glorious Quran",
+          "ref": "Kaf 50:1",
+          "surah": 50,
+          "ayah": 1,
+          "subjectTr": "Kur'an-ı Mecîd",
+          "subjectEn": "The Glorious Quran",
+          "purposeTr": "Diriliş ve Allah'ın her şeyi bilmesi",
+          "purposeEn": "Resurrection and God's omniscience",
+          "depthTr": "Kaf harfinin sırı üzerine yüzlerce tefsir yazılmıştır. 'Mecîd' (yüce, şanlı) Kur'an'ın kendi özüne olan mutlak güveni ifade eder. Bu sûre diriliş delillerine odaklanır.",
+          "depthEn": "Hundreds of commentaries have been written on the mystery of the letter Qaf. 'Majid' (glorious, honorable) expresses the Quran's absolute confidence in its own essence. This surah focuses on proofs of resurrection."
+        },
+        {
+          "id": "sad-38-1",
+          "arabic": "وَالْقُرْآنِ ذِي الذِّكْرِ",
+          "tr": "Öğüt içeren Kur'an'a yemin olsun",
+          "en": "By the Quran full of reminder",
+          "ref": "Sâd 38:1",
+          "surah": 38,
+          "ayah": 1,
+          "subjectTr": "Kur'an-ı Zikr",
+          "subjectEn": "Quran of Reminder",
+          "purposeTr": "Kafirlerin kibrinin ve inkârının geçersizliği",
+          "purposeEn": "Nullity of the arrogance and denial of disbelievers",
+          "depthTr": "Sâd harfinin ardından gelen bu yemin, 'zikr' (hatırlatma, şeref) boyutunu öne çıkarır. Kur'an hem hatırlatır hem de ona tabi olanı şereflendirir.",
+          "depthEn": "This oath following the letter Sad highlights the 'dhikr' (reminder, honor) dimension. The Quran both reminds and honors those who follow it."
+        },
+        {
+          "id": "tur-52-2",
+          "arabic": "وَكِتَابٍ مَسْطُورٍ",
+          "tr": "Satır satır yazılmış kitaba yemin olsun",
+          "en": "By a book inscribed",
+          "ref": "Tûr 52:2",
+          "surah": 52,
+          "ayah": 2,
+          "subjectTr": "Yazılı Kitap",
+          "subjectEn": "Inscribed Book",
+          "purposeTr": "Azabın gerçekliği ve kaçınılmazlığı",
+          "purposeEn": "Reality and inevitability of punishment",
+          "depthTr": "Tûr sûresindeki bu yemin dizisi (Tur, Kitap, Mamur Ev, Yükseltilmiş Çatı, Coşkun Deniz) beş farklı kutsal gerçeğe yemin ederek ilahi azabın kesinliğini pekiştirir.",
+          "depthEn": "This oath series in Surah Tur (Tur, Book, Frequented House, Elevated Roof, Surging Sea) swears by five distinct sacred realities to reinforce the certainty of divine punishment."
+        },
+        {
+          "id": "tur-52-4",
+          "arabic": "وَالْبَيْتِ الْمَعْمُورِ",
+          "tr": "Çokça ziyaret edilen eve yemin olsun",
+          "en": "By the frequently visited House",
+          "ref": "Tûr 52:4",
+          "surah": 52,
+          "ayah": 4,
+          "subjectTr": "Beytü'l-Ma'mur",
+          "subjectEn": "The Frequented House",
+          "purposeTr": "Semavî hac ve ibadet geleneğinin süreğenliği",
+          "purposeEn": "Continuity of celestial pilgrimage and worship tradition",
+          "depthTr": "Hadislere göre Beytü'l-Ma'mur, yedinci gökte Ka'be'nin tam karşısındaki ve her gün 70.000 meleğin tavaf ettiği yapıdır. Ka'be'nin semavî planda karşılığıdır.",
+          "depthEn": "According to hadith, Bayt al-Ma'mur is in the seventh heaven directly above the Ka'ba, circumambulated by 70,000 angels daily. It is the heavenly counterpart of the Ka'ba."
+        }
+      ]
+    },
+    {
+      "id": "eschatology",
+      "tr": "Kıyamet & Gayb",
+      "en": "Eschatology & Unseen",
+      "accent": "#e74c3c",
+      "descTr": "Kıyamet günü, vaat edilen gün ve görünmez gerçeklikler",
+      "descEn": "The Day of Resurrection, the promised day, and invisible realities",
+      "items": [
+        {
+          "id": "kiyame-75-1",
+          "arabic": "لَا أُقْسِمُ بِيَوْمِ الْقِيَامَةِ",
+          "tr": "Kıyamet gününe yemin ederim ki",
+          "en": "I swear by the Day of Resurrection",
+          "ref": "Kıyame 75:1",
+          "surah": 75,
+          "ayah": 1,
+          "subjectTr": "Kıyamet Günü",
+          "subjectEn": "Day of Resurrection",
+          "purposeTr": "Kıyametin ve hesabın kesin gerçekliği",
+          "purposeEn": "Certain reality of resurrection and accountability",
+          "depthTr": "Bu sûre iki büyük gerçeğe yemin eder: Kıyamet günü ve vicdan (levvâme nefsi). Dış hesap (kıyamet) ile iç hesap (vicdan) bir arada gösterilir.",
+          "depthEn": "This surah swears by two great realities: the Day of Resurrection and conscience (lawwama soul). External reckoning (resurrection) and internal reckoning (conscience) are shown together."
+        },
+        {
+          "id": "buruc-85-2",
+          "arabic": "وَالْيَوْمِ الْمَوْعُودِ",
+          "tr": "Vaat edilen güne yemin olsun",
+          "en": "By the promised Day",
+          "ref": "Burûc 85:2",
+          "surah": 85,
+          "ayah": 2,
+          "subjectTr": "Mev'ûd Gün",
+          "subjectEn": "The Promised Day",
+          "purposeTr": "Zalimler için ilahi adaletin gerçekleşmesi",
+          "purposeEn": "Divine justice for oppressors",
+          "depthTr": "Kıyamet gününün 'vaat edilmiş' niteliği, Allah'ın bu konudaki kesinliğini ve adaletinin gecikmeyeceğini vurgular. Ashab-ı Uhdud'u yakan zalimler günün birinde hesap verecektir.",
+          "depthEn": "The 'promised' quality of the Day of Judgment emphasizes the certainty of God's commitment and that His justice will not be delayed. The oppressors who burned the People of the Ditch will be held accountable."
+        },
+        {
+          "id": "tur-52-5-6",
+          "arabic": "وَالسَّقْفِ الْمَرْفُوعِ ۝ وَالْبَحْرِ الْمَسْجُورِ",
+          "tr": "Yükseltilmiş tavana ve ateşlenmiş denize yemin olsun",
+          "en": "By the elevated roof and the sea set ablaze",
+          "ref": "Tûr 52:5-6",
+          "surah": 52,
+          "ayah": 5,
+          "subjectTr": "Gök ve Deniz",
+          "subjectEn": "Sky and Sea",
+          "purposeTr": "Azabın yakınlığı ve kaçış yolunun olmayışı",
+          "purposeEn": "Nearness of punishment and impossibility of escape",
+          "depthTr": "Yükseltilmiş tavan (sema) ve ateşlenmiş deniz (kıyamette tutuşacak okyanus), insanı hem yukarıdan hem aşağıdan kuşatan ilahi azabın imgesidir. Kaçış kapısı yoktur.",
+          "depthEn": "The elevated roof (sky) and the ignited sea (ocean ablaze at the end of times) are images of divine punishment enclosing humans from above and below. There is no escape."
+        },
+        {
+          "id": "vakia-56-75-2",
+          "arabic": "وَإِنَّهُ لَقَسَمٌ لَّوْ تَعْلَمُونَ عَظِيمٌ",
+          "tr": "Eğer bilseydiniz, bu gerçekten büyük bir yemindir",
+          "en": "Indeed it is an oath, if you only knew, most great",
+          "ref": "Vâkıa 56:76",
+          "surah": 56,
+          "ayah": 76,
+          "subjectTr": "Büyük Yemin",
+          "subjectEn": "The Great Oath",
+          "purposeTr": "Yeminin büyüklüğünün vurgulanması",
+          "purposeEn": "Emphasizing the greatness of the oath",
+          "depthTr": "Allah, yaptığı yeminle ilgili 'Eğer bilseydiniz, bu büyük bir yemindir' demesi oldukça dikkat çekicidir. Bu, yeminlerin genellikle insan idrakinin ötesinde bir öneme sahip olduğuna işaret eder.",
+          "depthEn": "God's remark about His own oath — 'If you only knew, this is indeed a great oath' — is remarkably striking. This indicates that oaths generally hold an importance beyond human comprehension."
+        },
+        {
+          "id": "fecr-89-4",
+          "arabic": "وَاللَّيْلِ إِذَا يَسْرِ",
+          "tr": "Gelip geçtiği zaman geceye yemin olsun",
+          "en": "By the night as it departs",
+          "ref": "Fecr 89:4",
+          "surah": 89,
+          "ayah": 4,
+          "subjectTr": "Geçen Gece",
+          "subjectEn": "Departing Night",
+          "purposeTr": "Zamanın geçiciliği ve hesap günü",
+          "purposeEn": "Transience of time and the Day of Reckoning",
+          "depthTr": "Gecelerin ve günlerin akıp gitmesi hesap gününe yaklaşıldığını hatırlatır. Fecr sûresinin dört art arda gelen yemin dizisi (fecr, on gece, şef'-vitr, geçen gece) zaman boyutunu kapsamlı biçimde tarar.",
+          "depthEn": "The passing of nights and days is a reminder of the approaching Day of Reckoning. Surah Fajr's four consecutive oaths (dawn, ten nights, even-odd, departing night) comprehensively survey the dimension of time."
+        }
+      ]
+    }
+  ],
+  "depthAnalysis": [
+    {
+      "id": "qasamul-quran",
+      "titleTr": "Aksâmü'l-Kur'an Geleneği",
+      "titleEn": "The Tradition of Quranic Oaths",
+      "arabic": "ق ۚ وَالْقُرْآنِ الْمَجِيدِ",
+      "mealTr": "Kaf. Yüce Kur'an'a yemin olsun ki... — Kaf 50:1",
+      "mealEn": "Qaf. By the glorious Quran... — Qaf 50:1",
+      "ref": "Kaf 50:1",
+      "bodyTr": "İbn Kayyim el-Cevziyye bu konuya özel 'et-Tibyân fî Aksâmi'l-Kur'an' adlı eserini yazmıştır. Zemahşerî, Râzî ve İbn Âşûr da yeminlerin retorik yapısını derinlemesine incelemiştir. Bu geleneğe göre Kur'ânî yemin üç temel işlev görür:",
+      "bodyEn": "Ibn Qayyim al-Jawziyya wrote a dedicated work on this topic: 'Al-Tibyan fi Aqsam al-Quran.' Zamakhshari, Razi, and Ibn Ashur also deeply analyzed the rhetorical structure of oaths. According to this tradition, the Quranic oath serves three core functions:",
+      "functions": [
+        {
+          "titleTr": "Dikkat Çekmek",
+          "titleEn": "Drawing Attention",
+          "descTr": "Yemin açılışı, dinleyicinin dikkatini anında gelen mesaja yöneltir. Sıradan bir ifadeye göre çok daha etkili bir retorik giriş sağlar.",
+          "descEn": "An oath opening instantly directs the listener's attention to the message that follows. It provides a far more powerful rhetorical entry than ordinary speech."
+        },
+        {
+          "titleTr": "Konunun Değerini Tescil Etmek",
+          "titleEn": "Certifying the Subject's Value",
+          "descTr": "Allah'ın üzerine yemin ettiği şey (güneş, yıldız, zaman…) o şeyin yüceliğini ve dikkatle düşünülmeye değer olduğunu tescil eder.",
+          "descEn": "Whatever Allah swears by (sun, stars, time…) is thereby certified as majestic and worthy of careful reflection."
+        },
+        {
+          "titleTr": "Mesajı Pekiştirmek",
+          "titleEn": "Reinforcing the Message",
+          "descTr": "Yemin cevabı (muqsam aleyhi), yeminle bir kanıt-mesaj bütünü oluşturur. Bu birleşme, mesajı tartışılmaz bir kesinliğe taşır.",
+          "descEn": "The oath's answer (muqsam alayhi) forms an evidence-and-message unity with the oath. This combination elevates the message to indisputable certainty."
+        }
+      ],
+      "closingTr": "Kur'an, beşerî yemin geleneğini aşan eşsiz bir form geliştirmiştir.",
+      "closingEn": "The Quran has developed a unique form that transcends the human oath tradition."
+    },
+    {
+      "id": "muqsam-bihi",
+      "titleTr": "Muqsam Bihi — Neye Yemin Edilir?",
+      "titleEn": "Muqsam Bihi — What Is Sworn By?",
+      "arabic": "وَإِنَّهُ لَقَسَمٌ لَّوْ تَعْلَمُونَ عَظِيمٌ",
+      "mealTr": "Eğer bilseydiniz bu gerçekten büyük bir yemindir. — Vâkıa 56:76",
+      "mealEn": "And indeed, it is an oath, if you only knew, most great. — Al-Waqi'ah 56:76",
+      "ref": "Vâkıa 56:76",
+      "bodyTr": "Kur'an'da yemin edilen şey (muqsam bihi) hiçbir zaman tesadüfi değildir. İbn Kayyim el-Cevziyye'nin tespitine göre yemin konusu ile yemin amacı (muqsam aleyhi) arasında derin bir anlam bağı vardır. Yemin edilen şey, sonucun en güçlü delili olarak seçilmiştir:",
+      "bodyEn": "What is sworn by in the Quran (muqsam bihi) is never coincidental. According to Ibn Qayyim al-Jawziyya, there is a deep semantic connection between the subject of the oath and the purpose of the oath (muqsam alayhi). The sworn subject is chosen as the strongest evidence for the conclusion:",
+      "examples": [
+        {
+          "subjectAr": "الشَّمْس",
+          "subjectTr": "Güneş",
+          "subjectEn": "Sun",
+          "purposeTr": "İnsan ruhunun arınması",
+          "purposeEn": "Purification of the human soul",
+          "contextTr": "Güneşin ışığı karanlığı giderir — arınmış nefis de iç karanlığı giderir. Güneş, arınmanın görünür delilidir.",
+          "contextEn": "Sunlight dispels darkness — a purified soul dispels inner darkness. The sun is the visible evidence of purification.",
+          "linkAr": "قَدْ أَفْلَحَ مَن زَكَّىٰهَا",
+          "linkTr": "Onu (nefsi) arındıran kurtulmuştur.",
+          "linkEn": "He who purifies it (the soul) has succeeded.",
+          "linkVerse": "91:9",
+          "linkIntroTr": "Sûre 7 kozmik yeminden sonra doğrudan nefis arınmasına bağlanır:",
+          "linkIntroEn": "After 7 cosmic oaths, the sura links directly to soul purification:",
+          "refShort": "Şems 91:1-10"
+        },
+        {
+          "subjectAr": "النَّجْم",
+          "subjectTr": "Yıldızlar",
+          "subjectEn": "Stars",
+          "purposeTr": "Kur'an'ın büyüklüğü",
+          "purposeEn": "Greatness of the Quran",
+          "contextTr": "Her yıldızın kozmik düzen içinde kesin bir yeri (mevkii) vardır — Kur'an'ın her ayeti gibi. Hassas diziliş hassas dizilişi kanıtlar.",
+          "contextEn": "Every star has an exact position (mawqi') in the cosmic order — like every verse of the Quran. Precise arrangement proves precise arrangement.",
+          "linkAr": "إِنَّهُ لَقُرْآنٌ كَرِيمٌ",
+          "linkTr": "Şüphesiz o, değerli bir Kur'an'dır.",
+          "linkEn": "Indeed, it is a noble Quran.",
+          "linkVerse": "56:77",
+          "linkIntroTr": "Yemin iki ayet sonra doğrudan Kur'an'ın değerine bağlanır:",
+          "linkIntroEn": "Two verses later, the oath links directly to the Quran's nobility:",
+          "refShort": "Vâkıa 56:75-77"
+        },
+        {
+          "subjectAr": "الْعَصْر",
+          "subjectTr": "Zaman",
+          "subjectEn": "Time",
+          "purposeTr": "İnsanın hüsranı",
+          "purposeEn": "Humanity's loss",
+          "contextTr": "Zaman, hüsranın hem şahidi hem mekanizmasıdır. Her geçen saniye kaybın delilidir — yemin edilen şey kaybın kendisidir.",
+          "contextEn": "Time is both the witness and the mechanism of loss. Every passing second is evidence of loss — the subject sworn by is loss itself.",
+          "linkAr": "إِنَّ الْإِنسَانَ لَفِي خُسْرٍ",
+          "linkTr": "Muhakkak ki insan hüsrandadır.",
+          "linkEn": "Indeed, mankind is in loss.",
+          "linkVerse": "103:2",
+          "linkIntroTr": "Yemin hemen bir sonraki ayette hüsrana bağlanır:",
+          "linkIntroEn": "The oath links to loss in the very next verse:",
+          "refShort": "Asr 103:1-3"
+        }
+      ]
+    },
+    {
+      "id": "laa-uqsimu",
+      "titleTr": "لَا أُقْسِمُ — Güçlendirilmiş Yemin Formu",
+      "titleEn": "Lā Uqsimu — Intensified Oath Form",
+      "arabic": "فَلَا أُقْسِمُ بِمَوَاقِعِ النُّجُومِ",
+      "mealTr": "Yıldızların mevkilerine yemin ederim ki... — Vâkıa 56:75",
+      "mealEn": "I swear by the positions of the stars... — Al-Waqi'ah 56:75",
+      "ref": "Vâkıa 56:75",
+      "bodyTr": "Kur'an'da bazı yeminler 'لَا أُقْسِمُ' ya da 'فَلَا أُقْسِمُ' formunda başlar. Görünürde olumsuz gibi görünen bu form (Yemin etmiyorum) aslında güçlendirilmiş bir yemin formudur; Arap belağatinde 'yemin etmeye bile gerek olmaksızın öyle açık bir gerçektir ki' anlamını taşır. Kıyame sûresi (75:1-2) bu formun en güçlü örneğidir.",
+      "bodyEn": "Some oaths in the Quran begin with 'la uqsimu' or 'fa-la uqsimu.' This seemingly negative form (I do not swear) is actually an intensified oath form; in Arabic rhetoric it means 'this truth is so clear it doesn't even need an oath.' Surah Qiyamah (75:1-2) is the strongest example of this form."
+    }
+  ],
+  "ibnQayyim": {
+    "thesisTr": "Allah yalnızca büyük şeylere yemin eder. Yemin edilen şeyde, mutlaka yemin amacının en güçlü delili vardır.",
+    "thesisEn": "God swears only by great things. Within the thing sworn by, there is always the strongest evidence for the purpose of the oath.",
+    "pullQuoteTr": "\"Her yemin ettiği şey, bir delildir. Her delil, bir gerçeği işaret eder. Her gerçek, iman ve amel ister.\"",
+    "pullQuoteEn": "\"Every thing sworn by is an evidence. Every evidence points to a truth. Every truth demands faith and action.\"",
+    "bookTr": "et-Tibyân fî Aksâmi'l-Kur'an",
+    "bookEn": "Al-Tibyan fi Aqsam al-Quran",
+    "cards": [
+      {
+        "titleTr": "İbn Kayyim'in Metodolojisi",
+        "titleEn": "Ibn Qayyim's Methodology",
+        "bodyTr": "İbn Kayyim her yemine üç soruyla yaklaşır: (1) Muqsam bihi'nin dilsel kökü ve anlamı nedir? (2) Muqsam aleyhi ile semantik bağı nasıl kuruluyor? (3) Bağlamda hangi retorik işlevi üstleniyor? Dilbilim (lugat), retorik (belâğa) ve akıl yürütmeyi birleştiren bu sistematik yaklaşım, modern metin analizinin öncüsü sayılır.",
+        "bodyEn": "Ibn Qayyim approaches every oath with three questions: (1) What is the linguistic root and meaning of the muqsam bihi? (2) How is its semantic connection to the muqsam alayhi formed? (3) What rhetorical function does it serve in context? This systematic approach — combining linguistics (lugha), rhetoric (balagha), and reasoning — is regarded as a precursor to modern textual analysis."
+      },
+      {
+        "titleTr": "Eserin Tarihsel Bağlamı",
+        "titleEn": "Historical Context of the Work",
+        "bodyTr": "\"et-Tibyân fî Aksâmi'l-Kur'an\" 14. yüzyılda Memlük Şam'ında yazıldı. Amacı: Kur'an'daki yeminlerin \"tesadüfi dolgu\" olduğunu iddia eden yorumlara karşı, her yemin seçiminin kasıtlı ve anlamlı olduğunu göstermek. O tarihten bu yana Kur'an yeminleri üzerine yazılan hemen her eserin başvurduğu temel kaynak kitaptır.",
+        "bodyEn": "\"Al-Tibyan fi Aqsam al-Quran\" was written in the 14th century in Mamluk Damascus. Its aim: to counter interpretations that dismissed Quranic oaths as \"incidental filler,\" showing instead that every oath choice is deliberate and meaningful. Since then, it has served as the foundational reference for virtually every work written on Quranic oaths."
+      },
+      {
+        "titleTr": "Allah'ın Yemini vs İnsan Yemini",
+        "titleEn": "God's Oath vs Human Oath",
+        "bodyTr": "İnsan, kendi üstünde bir otorite adına yemin eder. Allah ise kendi yarattığı şeyler adına yemin eder. Bu yeminler zayıflık değil, yaratılanı onurlandırma ve muhatabı ikna etme amacı taşır. İbn Kayyim: 'Allah, kulu için en anlaşılır delili şahit getirir.'",
+        "bodyEn": "Humans swear by an authority greater than themselves. God swears by things He Himself created. These oaths are not signs of weakness but of honoring creation and persuading the addressee. Ibn Qayyim: 'God brings as witness the most comprehensible evidence for His servant.'"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "categoryTr": "Klasik Tefsir",
+      "categoryEn": "Classical Exegesis",
+      "items": [
+        "İbn Kayyim el-Cevziyye — et-Tibyân fî Aksâmi'l-Kur'an (14. yy)",
+        "Fahrüddin er-Râzî — Mefâtîhu'l-Gayb (12.-13. yy)",
+        "Zemahşerî — el-Keşşâf (12. yy)",
+        "İbn Âşûr — et-Tahrîr ve't-Tenvîr (20. yy)"
+      ]
+    },
+    {
+      "categoryTr": "Modern Çalışmalar",
+      "categoryEn": "Modern Studies",
+      "items": [
+        "Angelika Neuwirth — Studien zur Komposition der mekkanischen Suren (1981)",
+        "Neal Robinson — Discovering the Quran: A Contemporary Approach to a Veiled Text (1996)",
+        "Mustansir Mir — Verbal Idioms of the Quran (1987)"
+      ]
+    },
+    {
+      "categoryTr": "Dilbilimsel Kaynaklar",
+      "categoryEn": "Linguistic Sources",
+      "items": [
+        "el-Müberred — el-Muktadab (9. yy) — Arap belağatinde yemin yapıları",
+        "Sibeveyhi — el-Kitab (8. yy) — Arapçada yemin cümleleri",
+        "İbn Hişam — Muğni'l-Lebîb — Arapçada lâ'nın işlevleri"
+      ]
+    }
+  ],
+  "ibnKayyimPatterns": {
+    "titleTr": "İbn Kayyim'in Üç Büyük Tasnifi",
+    "titleEn": "Ibn Qayyim's Three Major Classifications",
+    "descTr": "İbn Kayyim el-Cevziyye, et-Tibyân fî Aksâmi'l-Kur'ân eserinde Kur'ân yeminlerini üç temel yapıya göre tasnif eder. Bu sayfa, mevcut yemin item'larını bu tasniflere bağlar — tekrar eden item eklemeden, retorik görünürlüğü sağlar.",
+    "descEn": "Ibn Qayyim al-Jawziyya, in al-Tibyān fī Aqsām al-Qurʾān, classifies Qur'anic oaths into three fundamental structures. This section maps existing oath items to these classifications — without duplicating items, revealing the rhetorical structure.",
+    "patterns": [
+      {
+        "id": "opposing-pairs",
+        "arabicName": "الأقسام بالمتقابلات",
+        "transliteration": "al-aqsām bi'l-mutaqābilāt",
+        "nameTr": "Zıt Çiftler ile Yeminler",
+        "nameEn": "Oaths by Opposing Pairs",
+        "descTr": "İki zıt unsura birlikte yemin — her çift, varlığın iki kutbunu temsil eder ve ikinci öğe birincinin anlamını tamamlar. İbn Kayyim bunu 'delilin iki kanadı' olarak adlandırır: Allah bir hakikate yemin ederken onun tezahür ettiği iki zıt uçtan birlikte söz eder.",
+        "descEn": "Oaths sworn jointly by two opposing elements — each pair represents two poles of existence, the second completing the first. Ibn Qayyim calls this 'the two wings of proof': Allah bears witness to a truth through both of its opposing manifestations.",
+        "pairs": [
+          {
+            "id": "pair-leyl-nehar",
+            "firstRefs": [
+              "leyl-92-1"
+            ],
+            "firstLabelTr": "Kaplayan Gece",
+            "firstLabelEn": "The Covering Night",
+            "firstVerseRef": "Leyl 92:1",
+            "secondRefs": [
+              "leyl-92-2"
+            ],
+            "secondLabelTr": "Aydınlanan Gündüz",
+            "secondLabelEn": "The Shining Day",
+            "secondVerseRef": "Leyl 92:2",
+            "thematicTr": "Örtme / Açma — Gizleme / Açığa Çıkarma",
+            "thematicEn": "Covering / Uncovering — Concealing / Revealing",
+            "depthTr": "Gece 'gaşâ' (örter) fiiliyle, gündüz 'tecellâ' (açığa çıkar) fiiliyle tanımlanır. Bu iki fiil Kur'ân'da tezâdî yapının zirvelerindendir. Zemahşerî Keşşâf'ta: 'Gece örtmeseydi, gündüz açmazdı — ikisi birbirinin sınırıdır.' İbn Kayyim bu çifti, cevab-ı kasemdeki 'inne sa'yeküm le-şettâ' ifadesine delil olarak görür: insan çabasının iki zıt yönü (hayır-şer), gece-gündüzün iki zıt doğasına benzer.",
+            "depthEn": "Night is defined by the verb ghashā (to cover), day by tajallā (to manifest). These verbs are among the peaks of antithetical construction in the Qur'an. Al-Zamakhsharī in al-Kashshāf: 'If night did not cover, day would not unveil — each is the limit of the other.' Ibn Qayyim sees this pair as evidence for the oath's response inna saʿyakum la-shattā (your efforts are surely varied): the two opposed directions of human effort (good/evil) parallel the two opposing natures of night/day."
+          },
+          {
+            "id": "pair-dhakar-untha",
+            "firstRefs": [
+              "leyl-92-3"
+            ],
+            "firstLabelTr": "Erkek",
+            "firstLabelEn": "Male",
+            "firstVerseRef": "Leyl 92:3",
+            "secondRefs": [
+              "leyl-92-3"
+            ],
+            "secondLabelTr": "Dişi",
+            "secondLabelEn": "Female",
+            "secondVerseRef": "Leyl 92:3",
+            "sameVerseNote": "Bu iki öğe tek ayet içinde 'mâ halaka'dhakera ve'l-ünsâ' ifadesiyle birleşir — tek yeminin iki kolu.",
+            "sameVerseNoteEn": "Both elements are joined in a single verse: mā khalaqa al-dhakara wa'l-unthā — a single oath with two arms.",
+            "thematicTr": "İki Cinsiyet — Beşerî Tamamlanmanın İki Kutbu",
+            "thematicEn": "Two Sexes — The Two Poles of Human Completion",
+            "depthTr": "İbn Kayyim bu çifti 'beşerî fıtratın iki ucu' olarak adlandırır. Tek başına erkek veya dişi varoluşun tamamlanmış formu değildir — ikisi birlikte insanı temsil eder. Ayet, yaratma fiilinin (halak) hem erkeği hem dişiyi eşit bir aktif-yaratma olarak almasına dikkat çeker (kadın 'türevsel' değil, doğrudan 'halk edilmiş'). Râzî Mefâtîh'te bu ayetin yaratılış kozmolojisindeki önemini vurgular.",
+            "depthEn": "Ibn Qayyim calls this pair 'the two ends of human nature (fiṭra).' Neither male nor female alone is the completed form of existence — together they represent the human. The verse emphasizes that the act of creation (khalaqa) takes both male and female as equally active creations (the female is not 'derivative' but directly 'created'). Al-Rāzī in Mafātīḥ underscores this verse's significance in creation cosmology."
+          },
+          {
+            "id": "pair-shafa-vitr",
+            "firstRefs": [
+              "fecr-89-3"
+            ],
+            "firstLabelTr": "Çift",
+            "firstLabelEn": "Even",
+            "firstVerseRef": "Fecr 89:3",
+            "secondRefs": [
+              "fecr-89-3"
+            ],
+            "secondLabelTr": "Tek",
+            "secondLabelEn": "Odd",
+            "secondVerseRef": "Fecr 89:3",
+            "sameVerseNote": "Bu iki öğe de tek ayet içinde — 've'ş-şef'i ve'l-vetr' (çifte ve teke yemin olsun).",
+            "sameVerseNoteEn": "Both elements in a single verse: wa'l-shafʿi wa'l-watr (by the even and the odd).",
+            "thematicTr": "Sayısal İkilik — Varlığın Matematiksel Deseni",
+            "thematicEn": "Numerical Duality — The Mathematical Pattern of Existence",
+            "depthTr": "İbn Kayyim, bu yeminin Kur'ân yeminleri arasında en açık olanlarından biri olduğunu söyler — çünkü her sayı ya çifttir ya tek, başka seçenek yoktur. 'Çift ve Tek' ifadesi, varlığın tüm matematik kompozisyonunu kapsayan bir tasarım yeminidir. Müfessirler çeşitli yorumlar getirmiştir: (1) çift = yaratılmışlar / tek = Allah (Kurtubî), (2) çift = kul ile Rab / tek = Allah'ın Zâtı (Râzî), (3) matematiğin iki temel sınıfı (Elmalılı). Her yorum ortak bir temel kabul eder: bu yemin, bir düzen iddiasıdır, sayısal ve metafiziksel.",
+            "depthEn": "Ibn Qayyim calls this one of the most explicit oaths — because every number is either even or odd, with no other option. 'Even and Odd' is an oath encompassing the entire mathematical composition of existence. Exegetes offer several readings: (1) even = created things / odd = Allah (al-Qurṭubī), (2) even = servant and Lord / odd = the divine Essence (al-Rāzī), (3) the two basic classes of mathematics (Elmalılı). All share a foundation: this oath is a claim about order — numerical and metaphysical."
+          }
+        ],
+        "scholarNote": {
+          "sourceTr": "İbn Kayyim el-Cevziyye, et-Tibyân fî Aksâmi'l-Kur'ân (14. yüzyıl) — 'el-Aksâm bi'l-Mütekâbilât' bölümü",
+          "sourceEn": "Ibn Qayyim al-Jawziyya, al-Tibyān fī Aqsām al-Qurʾān (14th century) — section on al-Aqsām bi'l-Mutaqābilāt",
+          "commentaryTr": "İbn Kayyim bu tasnifi şöyle tanımlar: 'Zıt çiftlerle yemin, yemin edilenin bütünlüğüne yapılan bir vurgudur — çünkü bir hakikat ancak kendi zıddı ile tanınır. Allah gece ile gündüze, erkek ile dişiye, çift ile teke birlikte yemin ederek, bu zıtlıkların hepsine birden şahitlik yapar.'",
+          "commentaryEn": "Ibn Qayyim defines this classification thus: 'An oath by opposing pairs is an emphasis on the wholeness of what is sworn by — because a truth is recognized only through its opposite. By swearing jointly by night and day, male and female, even and odd, Allah bears witness to all of these oppositions at once.'"
+        },
+        "ekolEtiketi": "klasik tefsir (İbn Kayyim Hanbelî geleneği)"
+      }
+    ]
+  }
+}

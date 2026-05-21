@@ -1,0 +1,293 @@
+{
+  "surah": 109,
+  "name": "Surah 109",
+  "nameAr": "",
+  "nameTr": "",
+  "source": {
+    "name": "Quranic Arabic Corpus",
+    "author": "Kais Dukes",
+    "institution": "Leeds University",
+    "url": "https://corpus.quran.com",
+    "license": "GPL — atıfla / with attribution",
+    "fetchedAt": "2026-05-04",
+    "turkish": {
+      "name": "Diyanet İşleri Başkanlığı (kelime meal)",
+      "via": "QuranWBW.com (resource #77)",
+      "url": "https://quranwbw.com"
+    }
+  },
+  "verses": {
+    "1": [
+      {
+        "idx": 1,
+        "ar": "قُلْ",
+        "pos": "V",
+        "root": "ق-و-ل",
+        "lemma": "قَالَ",
+        "features": "imperative 2nd person masculine singular verb",
+        "featuresTr": "emir muhâtab müzekker müfred fiil",
+        "tr": "de ki"
+      },
+      {
+        "idx": 2,
+        "ar": "يَٰٓأَيُّهَا",
+        "pos": "N",
+        "root": null,
+        "lemma": "أَيُّهَا",
+        "features": "nominative noun",
+        "featuresTr": "merfu isim",
+        "tr": "ey"
+      },
+      {
+        "idx": 3,
+        "ar": "ٱلْكَٰفِرُونَ",
+        "pos": "N",
+        "root": "ك-ف-ر",
+        "lemma": "كَٰفِرُون",
+        "features": "active masculine plural nominative noun",
+        "featuresTr": "mâlum müzekker çoğul merfu isim",
+        "tr": "inkar edenler"
+      }
+    ],
+    "2": [
+      {
+        "idx": 1,
+        "ar": "لَآ",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَا",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "ben ibadet etmem"
+      },
+      {
+        "idx": 2,
+        "ar": "أَعْبُدُ",
+        "pos": "V",
+        "root": "ع-ب-د",
+        "lemma": "عَبَدَ",
+        "features": "imperfect 1st person singular verb",
+        "featuresTr": "muzâri mütekellim müfred fiil",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "مَا",
+        "pos": "REL",
+        "root": null,
+        "lemma": "مَا",
+        "features": "relative pronoun",
+        "featuresTr": "ilgi zamiri (mevsûl)",
+        "tr": "şeye"
+      },
+      {
+        "idx": 4,
+        "ar": "تَعْبُدُونَ",
+        "pos": "V",
+        "root": "ع-ب-د",
+        "lemma": "عَبَدَ",
+        "features": "imperfect 2nd person masculine plural verb",
+        "featuresTr": "muzâri muhâtab müzekker cem fiil",
+        "tr": "sizin taptığınız"
+      }
+    ],
+    "3": [
+      {
+        "idx": 1,
+        "ar": "وَلَآ",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَا",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "ve (etmezsiniz)"
+      },
+      {
+        "idx": 2,
+        "ar": "أَنتُمْ",
+        "pos": "PRON",
+        "root": null,
+        "lemma": null,
+        "features": "2nd person masculine plural pronoun",
+        "featuresTr": "muhâtab müzekker cem zamir",
+        "tr": "siz de"
+      },
+      {
+        "idx": 3,
+        "ar": "عَٰبِدُونَ",
+        "pos": "N",
+        "root": "ع-ب-د",
+        "lemma": "عَابِد",
+        "features": "active masculine plural nominative noun",
+        "featuresTr": "mâlum müzekker çoğul merfu isim",
+        "tr": "ibadeti"
+      },
+      {
+        "idx": 4,
+        "ar": "مَآ",
+        "pos": "REL",
+        "root": null,
+        "lemma": "مَا",
+        "features": "relative pronoun",
+        "featuresTr": "ilgi zamiri (mevsûl)",
+        "tr": "benim taptığıma"
+      },
+      {
+        "idx": 5,
+        "ar": "أَعْبُدُ",
+        "pos": "V",
+        "root": "ع-ب-د",
+        "lemma": "عَبَدَ",
+        "features": "imperfect 1st person singular verb",
+        "featuresTr": "muzâri mütekellim müfred fiil",
+        "tr": "*"
+      }
+    ],
+    "4": [
+      {
+        "idx": 1,
+        "ar": "وَلَآ",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَا",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "ve değil(im)"
+      },
+      {
+        "idx": 2,
+        "ar": "أَنَا\"",
+        "pos": "PRON",
+        "root": null,
+        "lemma": null,
+        "features": "1st person singular pronoun",
+        "featuresTr": "mütekellim müfred zamir",
+        "tr": "ben"
+      },
+      {
+        "idx": 3,
+        "ar": "عَابِدٌ",
+        "pos": "N",
+        "root": "ع-ب-د",
+        "lemma": "عَابِد",
+        "features": "active masculine indefinite nominative noun",
+        "featuresTr": "mâlum müzekker nekira merfu isim",
+        "tr": "ibadet eden"
+      },
+      {
+        "idx": 4,
+        "ar": "مَّا",
+        "pos": "REL",
+        "root": null,
+        "lemma": "مَا",
+        "features": "relative pronoun",
+        "featuresTr": "ilgi zamiri (mevsûl)",
+        "tr": "sizin taptıklarınıza"
+      },
+      {
+        "idx": 5,
+        "ar": "عَبَدتُّمْ",
+        "pos": "V",
+        "root": "ع-ب-د",
+        "lemma": "عَبَدَ",
+        "features": "perfect 2nd person masculine plural verb",
+        "featuresTr": "mâzi muhâtab müzekker cem fiil",
+        "tr": "*"
+      }
+    ],
+    "5": [
+      {
+        "idx": 1,
+        "ar": "وَلَآ",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَا",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "ve değilsiniz"
+      },
+      {
+        "idx": 2,
+        "ar": "أَنتُمْ",
+        "pos": "PRON",
+        "root": null,
+        "lemma": null,
+        "features": "2nd person masculine plural pronoun",
+        "featuresTr": "muhâtab müzekker cem zamir",
+        "tr": "siz de"
+      },
+      {
+        "idx": 3,
+        "ar": "عَٰبِدُونَ",
+        "pos": "N",
+        "root": "ع-ب-د",
+        "lemma": "عَابِد",
+        "features": "active masculine plural nominative noun",
+        "featuresTr": "mâlum müzekker çoğul merfu isim",
+        "tr": "ibadet eden"
+      },
+      {
+        "idx": 4,
+        "ar": "مَآ",
+        "pos": "REL",
+        "root": null,
+        "lemma": "مَا",
+        "features": "relative pronoun",
+        "featuresTr": "ilgi zamiri (mevsûl)",
+        "tr": "benim ibadet ettiğime"
+      },
+      {
+        "idx": 5,
+        "ar": "أَعْبُدُ",
+        "pos": "V",
+        "root": "ع-ب-د",
+        "lemma": "عَبَدَ",
+        "features": "imperfect 1st person singular verb",
+        "featuresTr": "muzâri mütekellim müfred fiil",
+        "tr": "*"
+      }
+    ],
+    "6": [
+      {
+        "idx": 1,
+        "ar": "لَكُمْ",
+        "pos": "PRON",
+        "root": null,
+        "lemma": null,
+        "features": "2nd person masculine plural pronoun",
+        "featuresTr": "muhâtab müzekker cem zamir",
+        "tr": "sizindir"
+      },
+      {
+        "idx": 2,
+        "ar": "دِينُكُمْ",
+        "pos": "N",
+        "root": "د-ي-ن",
+        "lemma": "دِين",
+        "features": "masculine nominative noun",
+        "featuresTr": "müzekker merfu isim",
+        "tr": "sizin dininiz"
+      },
+      {
+        "idx": 3,
+        "ar": "وَلِىَ",
+        "pos": "PRON",
+        "root": null,
+        "lemma": null,
+        "features": "1st person singular pronoun",
+        "featuresTr": "mütekellim müfred zamir",
+        "tr": "ve benimdir"
+      },
+      {
+        "idx": 4,
+        "ar": "دِينِ",
+        "pos": "N",
+        "root": "د-ي-ن",
+        "lemma": "دِين",
+        "features": "masculine nominative noun",
+        "featuresTr": "müzekker merfu isim",
+        "tr": "benim dinim"
+      }
+    ]
+  }
+}

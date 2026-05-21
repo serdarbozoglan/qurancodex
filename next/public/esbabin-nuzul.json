@@ -1,0 +1,399 @@
+{
+  "events": [
+    {
+      "id": "ilk-vahiy",
+      "year": -13,
+      "hijriLabel": "610 M",
+      "period": "erken-mekki",
+      "category": "vahiy",
+      "titleTr": "İlk Vahiy: Hira Mağarası",
+      "titleEn": "First Revelation: Cave of Hira",
+      "occasionTr": "Hz. Muhammed (s.a.v.) 40 yaşındayken Hira mağarasında ibadet ederken, Cebrail (a.s.) aniden belirdi ve 'Oku!' dedi. Hz. Peygamber 'Okuma bilmiyorum' deyince, Cebrail onu üç kez sıktı; ardından insanlık tarihinin en dönüştürücü beş ayetini getirdi. Hz. Peygamber titreyen bedeniyle Hz. Hatice'ye koştu.",
+      "occasionEn": "While the Prophet (pbuh) was in meditation at the Cave of Hira at age 40, the angel Jibril suddenly appeared and commanded 'Read!' The Prophet replied 'I cannot read,' and Jibril embraced him three times before delivering the five most transformative verses in human history. The Prophet ran trembling to Khadijah.",
+      "descTr": "İslam'ın başlangıç noktası. İlk inen ayet vahyin amacını tek kelimeyle özetler: İkra — Oku. Bilgi, öğrenme ve kalem Allah'ın adıyla anılıyor. Kur'an'ın ilk emri bir emirdir, bir yasaklama değil.",
+      "descEn": "The starting point of Islam. The first verse summarizes the purpose of revelation in one word: Iqra — Read. Knowledge, learning, and the pen are mentioned in the name of Allah. The Quran's first command is an imperative, not a prohibition.",
+      "verseAr": "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+      "verseTr": "Yaratan Rabbinin adıyla oku!",
+      "verseRef": "Alak 96:1",
+      "surahs": [
+        { "num": 96, "nameTr": "Alak", "verses": "1-5" }
+      ]
+    },
+    {
+      "id": "muddesir-davet",
+      "year": -13,
+      "hijriLabel": "610 M",
+      "period": "erken-mekki",
+      "category": "vahiy",
+      "titleTr": "Davet Emri: Kalk ve Uyar",
+      "titleEn": "The Call to Warn: Rise and Warn",
+      "occasionTr": "İlk vahiyden kısa süre sonra vahiy kesildi. Hz. Peygamber endişe içindeyken yeniden Cebrail göründü ve bu kez görevi netleşti: Artık yalnızca almak değil, vermek; yalnızca okumak değil, uyarmak.",
+      "occasionEn": "Shortly after the first revelation, revelation paused. As the Prophet grew anxious, Jibril appeared again and this time the mission became clear: no longer just receiving, but giving; no longer just reading, but warning.",
+      "descTr": "Bu vahiyle Hz. Peygamber'in görevi resmen başladı. 'Müddessir' (örtüye bürünen) hitabı, Peygamber'i rahat uykusundan uyararak toplumsal sorumluluğa çağırır.",
+      "descEn": "With this revelation the Prophet's mission officially began. The address 'O you who is wrapped in garments' calls the Prophet from comfortable rest to social responsibility.",
+      "verseAr": "يَا أَيُّهَا الْمُدَّثِّرُ ﴿١﴾ قُمْ فَأَنذِرْ",
+      "verseTr": "Ey örtüye bürünen! Kalk ve uyar.",
+      "verseRef": "Müddessir 74:1-2",
+      "surahs": [
+        { "num": 74, "nameTr": "Müddessir", "verses": "1-7" },
+        { "num": 73, "nameTr": "Müzzemmil", "verses": "1-10" }
+      ]
+    },
+    {
+      "id": "abese-kör-adam",
+      "year": -11,
+      "hijriLabel": "~613 M",
+      "period": "erken-mekki",
+      "category": "kisisel",
+      "titleTr": "Kör Adamı Kaşlarını Çatarak Karşıladı",
+      "titleEn": "He Frowned and Turned Away",
+      "occasionTr": "Hz. Peygamber, Kureyş'in ileri gelenlerinden bazılarına İslam'ı anlatırken, gözleri görmeyen Abdullah ibn Ümmi Mektum gelip soru sormak istedi. Hz. Peygamber ona ilgi göstermeyip kaşlarını çattı ve büyüklere yönelmeye devam etti. Bunun üzerine bu sûre indi.",
+      "occasionEn": "While the Prophet was presenting Islam to Quraysh nobles, the blind man Abdullah ibn Umm Maktum came to ask questions. The Prophet frowned and turned away, continuing to attend to the important men. This surah was then revealed.",
+      "descTr": "Allah, Peygamberini bile usulce uyarıyor: Sosyal statü, vahyin önünde engel olamaz. Güçsüz ve bilgi talep eden her insan, en üst derecede muamele görmeyi hak eder. Kur'an kendi Peygamber'ini tenkit eden tek kutsal kitap olma özelliğini korur.",
+      "descEn": "Allah gently corrects even His Prophet: social status cannot block the path of revelation. Every weak person seeking knowledge deserves the highest attention. The Quran remains the only scripture that critiques its own Prophet.",
+      "verseAr": "عَبَسَ وَتَوَلَّىٰ ﴿١﴾ أَن جَاءَهُ الْأَعْمَىٰ",
+      "verseTr": "Kaşlarını çattı ve yüzünü çevirdi; kör adam yanına geldi diye.",
+      "verseRef": "Abese 80:1-2",
+      "surahs": [
+        { "num": 80, "nameTr": "Abese", "verses": "1-10" }
+      ]
+    },
+    {
+      "id": "haciye-boykot",
+      "year": -7,
+      "hijriLabel": "616-619 M",
+      "period": "mekki",
+      "category": "toplumsal",
+      "titleTr": "Şi'b-i Ebu Talib: Üç Yıllık Boykot",
+      "titleEn": "Boycott in the Pass of Abu Talib",
+      "occasionTr": "Kureyş, Hz. Peygamber'i ve ailesini Şi'b-i Ebu Talib vadisine sürüp sosyal ve ekonomik boykot uyguladı. Üç yıl boyunca ne ticaret ne nikah ne de yardım — açlık ve yalnızlık. Bu dönemde sabrı ve tevekkülü anlatan sûreler indi.",
+      "occasionEn": "Quraysh exiled the Prophet and his family to the Pass of Abu Talib and imposed a social and economic boycott. For three years: no trade, no marriage, no help — hunger and isolation. Verses of patience and trust in Allah were revealed in this period.",
+      "descTr": "Kur'an bu dönemde teorik öğretiden ziyade pratik teselli ve dayatmaya karşı ruhsal direnç üzerine yoğunlaştı. 'Rabbinin adını an ve her şeyden yalnızca O'na yönel.'",
+      "descEn": "The Quran in this period focused less on theoretical teaching and more on practical consolation and spiritual resistance against oppression. 'Mention your Lord's name and devote yourself to Him alone.'",
+      "verseAr": "وَاذْكُرِ اسْمَ رَبِّكَ وَتَبَتَّلْ إِلَيْهِ تَبْتِيلًا",
+      "verseTr": "Rabbinin adını an ve her şeyden yalnızca O'na yönel.",
+      "verseRef": "Müzzemmil 73:8",
+      "surahs": [
+        { "num": 73, "nameTr": "Müzzemmil", "verses": "1-19" },
+        { "num": 94, "nameTr": "İnşirah", "verses": "1-8" }
+      ]
+    },
+    {
+      "id": "uzuntu-yili",
+      "year": -3,
+      "hijriLabel": "619 M",
+      "period": "mekki",
+      "category": "kisisel",
+      "titleTr": "Hüzün Yılı: Hz. Hatice ve Hz. Ebu Talib",
+      "titleEn": "Year of Grief: Khadijah and Abu Talib",
+      "occasionTr": "619 yılında Hz. Peygamber, hem en büyük destekçisi ve eşi Hz. Hatice'yi hem de onu Kureyş'e karşı koruyan amcası Ebu Talib'i kaybetti. Bu, 'Hüzün Yılı' olarak bilinir. Koruma şemsiyesi kalkan Hz. Peygamber Mekke'de savunmasız kaldı.",
+      "occasionEn": "In 619 CE the Prophet lost both his greatest supporter and wife Khadijah, and his uncle Abu Talib who protected him from Quraysh. Known as the 'Year of Grief', the Prophet was left vulnerable in Mecca without his protective shield.",
+      "descTr": "Bu dönemde sabır ve Allah'ın yakınlığını anlatan sûrelerin yoğunluğu arttı. Duha sûresi, 'Rabbin seni terk etmedi' güvencesiyle bu dönemin ruhunu özetler.",
+      "descEn": "During this period, surahs emphasizing patience and divine closeness intensified. Surah Ad-Duha, with its assurance 'Your Lord has not abandoned you,' captures the spirit of this time.",
+      "verseAr": "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",
+      "verseTr": "Rabbin seni ne terk etti, ne de sana darıldı.",
+      "verseRef": "Duha 93:3",
+      "surahs": [
+        { "num": 93, "nameTr": "Duha", "verses": "1-11" },
+        { "num": 94, "nameTr": "İnşirah", "verses": "1-8" }
+      ]
+    },
+    {
+      "id": "miraç",
+      "year": -2,
+      "hijriLabel": "620-621 M",
+      "period": "mekki",
+      "category": "vahiy",
+      "titleTr": "Miraç: Yedi Kat Göğe Yolculuk",
+      "titleEn": "The Night Journey and Ascension",
+      "occasionTr": "Hz. Peygamber bir gece Mescid-i Haram'dan Mescid-i Aksa'ya (İsra), oradan yedi kat göğe yükseltildi (Miraç). Beş vakit namaz bu gece farz kılındı. Cennet ve cehennem görüldü, diğer peygamberlerle görüşüldü. Mekke'ye döndüğünde anlattıkları inkârla karşılandı.",
+      "occasionEn": "In a single night the Prophet was taken from Masjid al-Haram to Masjid al-Aqsa (Isra), then ascended through the seven heavens (Miraj). The five daily prayers were made obligatory this night. Heaven and hell were witnessed, other prophets were met. When he returned to Mecca, his account was met with disbelief.",
+      "descTr": "İsra sûresi bu olayı belgeler. 'Kulunu gece yürüten Allah'ı tesbih ederim' — kısa ama yoğun bir açılış. Miraç'ın en önemli mesajı: Namaz, Allah ile doğrudan bağlantı anıdır; aracısız iletişim.",
+      "descEn": "Surah Al-Isra documents this event. 'Glory to He who transported His servant by night' — a brief but dense opening. The most important message of Miraj: Prayer is the moment of direct connection with Allah; communication without intermediary.",
+      "verseAr": "سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى",
+      "verseTr": "Kulunu bir gece, Mescid-i Haram'dan, çevresini mübarek kıldığımız Mescid-i Aksa'ya götüren Allah'ın şanı ne yücedir.",
+      "verseRef": "İsra 17:1",
+      "surahs": [
+        { "num": 17, "nameTr": "İsra", "verses": "1" },
+        { "num": 53, "nameTr": "Necm", "verses": "1-18" }
+      ]
+    },
+    {
+      "id": "kible-degisikligi",
+      "year": 2,
+      "hijriLabel": "624 M",
+      "period": "medeni",
+      "category": "hukuki",
+      "titleTr": "Kıble Değişikliği: Kudüs'ten Mekke'ye",
+      "titleEn": "Change of Qibla: Jerusalem to Mecca",
+      "occasionTr": "Müslümanlar 16-17 ay Kudüs'e yönelerek namaz kıldı. Hz. Peygamber, Mekke'ye yönelmeyi arzulayarak sık sık göğe bakıyordu. Bir Öğle namazında, namaz kılarken kıble değişti ve Mescid-i Kıbleteyn'de (iki kıbleli mescit) cemaat namazda döndü.",
+      "occasionEn": "Muslims prayed toward Jerusalem for 16-17 months. The Prophet longed to face the Kaaba and would often look to the sky. During a Dhuhr prayer at what became the Masjid al-Qiblatayn (Mosque of the Two Qiblas), the congregation turned direction mid-prayer.",
+      "descTr": "Kıble değişikliği Yahudiler ve münafıklar tarafından sert eleştirildi. Bu ayetler hem kıblenin gerekçesini açıklıyor hem de 'Doğu da Batı da Allah'ındır' diyerek meseleyi metafizik bir boyuta taşıyor.",
+      "descEn": "The change was sharply criticized by Jews and hypocrites. These verses both explain the reasoning for the new qibla and elevate the matter to a metaphysical dimension: 'The East and the West belong to Allah.'",
+      "verseAr": "قَدْ نَرَىٰ تَقَلُّبَ وَجْهِكَ فِي السَّمَاءِ ۖ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضَاهَا",
+      "verseTr": "Yüzünü göğe çevirdiğini görüyoruz. Seni, razı olacağın bir kıbleye döndüreceğiz.",
+      "verseRef": "Bakara 2:144",
+      "surahs": [
+        { "num": 2, "nameTr": "Bakara", "verses": "142-150" }
+      ]
+    },
+    {
+      "id": "bedir",
+      "year": 2,
+      "hijriLabel": "624 M (2 H)",
+      "period": "medeni",
+      "category": "savas",
+      "titleTr": "Bedir Savaşı: 313'e Karşı 1000",
+      "titleEn": "Battle of Badr: 313 Against 1,000",
+      "occasionTr": "İslam'ın ilk büyük savaşı. 313 Müslüman, bin kişilik Kureyş ordusuna karşı çıktı. Beklenmedik olan oldu; zafer Müslümanların oldu. Kureyş'in 70 ileri geleni öldürüldü, 70'i esir alındı. Bu zafer, Müslümanların ilk gerçek siyasi ve askeri gücü oldu.",
+      "occasionEn": "The first major battle of Islam. 313 Muslims faced an army of 1,000 from Quraysh. Victory unexpectedly went to the Muslims. 70 Quraysh leaders were killed, 70 taken prisoner. This victory became Muslims' first real political and military power.",
+      "descTr": "Enfal sûresi bu savaşı belgeler ve savaş ganimetlerinin (enfal) dağıtımını düzenler. 'Siz onları öldürmediniz; Allah öldürdü' — Kur'an, stratejik sonuçları ilahi kudrete bağlar.",
+      "descEn": "Surah Al-Anfal documents this battle and regulates the distribution of war gains (anfal). 'You did not kill them; Allah killed them' — the Quran attributes strategic outcomes to divine power.",
+      "verseAr": "وَمَا رَمَيْتَ إِذْ رَمَيْتَ وَلَٰكِنَّ اللَّهَ رَمَىٰ",
+      "verseTr": "Attığın zaman sen atmadın; fakat Allah attı.",
+      "verseRef": "Enfal 8:17",
+      "surahs": [
+        { "num": 8, "nameTr": "Enfal", "verses": "1-75" }
+      ]
+    },
+    {
+      "id": "içki-yasagi",
+      "year": 3,
+      "hijriLabel": "~625-627 M",
+      "period": "medeni",
+      "category": "hukuki",
+      "titleTr": "İçkinin Kademeli Yasaklanması",
+      "titleEn": "The Gradual Prohibition of Intoxicants",
+      "occasionTr": "İçki yasağı üç aşamada geldi. Önce içkinin zararı faydadan büyük diye nitelendi; sonra namaz vakitlerinde sarhoşken namaza yaklaşmak yasaklandı; son olarak tüm içki ve kumar 'şeytanın işi' olarak kesin biçimde haram kılındı. Sahabeler son ayeti duyunca ellerindeki testileri kırdılar.",
+      "occasionEn": "The prohibition of wine came in three stages. First, its harm was stated to outweigh its benefit; then approaching prayer while intoxicated was forbidden; finally all intoxicants and gambling were absolutely prohibited as 'the work of Satan.' When companions heard the final verse, they broke their wine vessels.",
+      "descTr": "Kur'an'ın kademeli yasaması (tedricilik) modern hukuk felsefesinin bir ilkesidir: Toplumun hazır olmadığı bir yasak, uyumsuzluk doğurur. Allah, insanı değiştirmek için önce kalbini hazırladı.",
+      "descEn": "The Quran's gradual legislation (tadreej) is a principle of modern legal philosophy: A prohibition a society isn't ready for creates non-compliance. Allah first prepared hearts before changing behavior.",
+      "verseAr": "يَا أَيُّهَا الَّذِينَ آمَنُوا إِنَّمَا الْخَمْرُ وَالْمَيْسِرُ وَالْأَنصَابُ وَالْأَزْلَامُ رِجْسٌ مِّنْ عَمَلِ الشَّيْطَانِ",
+      "verseTr": "Ey iman edenler! Şarap, kumar, putlar ve fal okları şüphesiz şeytanın işinden birer pistliktir.",
+      "verseRef": "Maide 5:90",
+      "surahs": [
+        { "num": 2, "nameTr": "Bakara", "verses": "219" },
+        { "num": 4, "nameTr": "Nisa", "verses": "43" },
+        { "num": 5, "nameTr": "Maide", "verses": "90-91" }
+      ]
+    },
+    {
+      "id": "uhud",
+      "year": 3,
+      "hijriLabel": "625 M (3 H)",
+      "period": "medeni",
+      "category": "savas",
+      "titleTr": "Uhud Savaşı: Sınavın Bedeli",
+      "titleEn": "Battle of Uhud: The Cost of Disobedience",
+      "occasionTr": "Müslümanlar Uhud Dağı'nda Kureyş'e karşı savaştı. Hz. Peygamber'in emrine rağmen okçular mevzilerini terk edince denge bozuldu; 70 sahabi şehit düştü. Hz. Peygamber ağır yaralandı: dişi kırıldı, yüzü yaralandı, miğferin halkası yanağına saplandı. Müşrikler 'Muhammed öldü' diye bağırdı.",
+      "occasionEn": "Muslims fought Quraysh at Mount Uhud. Despite the Prophet's orders, archers abandoned their positions and the balance shifted; 70 companions were martyred. The Prophet himself was seriously wounded: a tooth was broken, his face cut, chainmail rings embedded in his cheek. The polytheists shouted 'Muhammad is dead!'",
+      "descTr": "Ali İmran'ın büyük bir bölümü Uhud'u ele alır. 'Bir musibet başınıza geldiğinde, iki katını daha önce yaşatmışken...' — Kur'an yenilgiyi analiz eder ve dersi çıkarır. Bu, Kur'an'ın tarihsel bir olayı post-mortem değerlendirmesidir.",
+      "descEn": "A large section of Ali Imran addresses Uhud. 'When a single calamity befell you, you had inflicted twice the like of it...' — the Quran analyzes defeat and draws the lesson. This is the Quran's post-mortem assessment of a historical event.",
+      "verseAr": "أَوَلَمَّا أَصَابَتْكُم مُّصِيبَةٌ قَدْ أَصَبْتُم مِّثْلَيْهَا قُلْتُمْ أَنَّىٰ هَٰذَا",
+      "verseTr": "Peki ya siz iki katını verdikten sonra size bir musibet geldiğinde 'Bu nasıl oldu?' diyorsunuz?",
+      "verseRef": "Ali İmran 3:165",
+      "surahs": [
+        { "num": 3, "nameTr": "Ali İmran", "verses": "121-180" }
+      ]
+    },
+    {
+      "id": "ifk-hadisesi",
+      "year": 5,
+      "hijriLabel": "626 M (5-6 H)",
+      "period": "medeni",
+      "category": "kisisel",
+      "titleTr": "İfk Hadisesi: Hz. Aişe'ye İftira",
+      "titleEn": "The Slander Incident: Accusation Against Aisha",
+      "occasionTr": "Müreysî Gazvesi dönüşünde Hz. Aişe kafileden geri kaldı ve genç sahabi Safvan ibn Muattal tarafından Medine'ye getirildi. Münafıklar iftira yaydı. Hz. Peygamber bir ay boyunca Hz. Aişe hakkında vahiy beklerken büyük bir stres yaşadı. Nihayet bu ayetler inip beraatetini ilan etti.",
+      "occasionEn": "On return from the Ghazwa of Mustaliq, Aisha was left behind and was brought to Medina by the young companion Safwan. The hypocrites spread slander. For a month the Prophet awaited revelation about Aisha under great stress. Finally these verses came and declared her innocence.",
+      "descTr": "Bu olay, Kur'an'ın sosyal adalet anlayışını somutlaştırır: İftira için dört şahit gerekir; dedikodu ve ispatsız suçlama ağır günahtır. 'Bunu duyduğunuzda neden iyilik düşünmediniz?' sorusu tüm zamanlara hitap eder.",
+      "descEn": "This event concretizes the Quran's understanding of social justice: four witnesses are required for slander; gossip and unproven accusation is a grave sin. 'When you heard it, why did you not think well?' — a question that speaks to all ages.",
+      "verseAr": "إِنَّ الَّذِينَ جَاءُوا بِالْإِفْكِ عُصْبَةٌ مِّنكُمْ",
+      "verseTr": "O iftirayı uyduranlar, içinizden bir topluluktur.",
+      "verseRef": "Nur 24:11",
+      "surahs": [
+        { "num": 24, "nameTr": "Nur", "verses": "11-26" }
+      ]
+    },
+    {
+      "id": "zihar",
+      "year": 5,
+      "hijriLabel": "~626-627 M",
+      "period": "medeni",
+      "category": "hukuki",
+      "titleTr": "Zıhar Hadisesi: Evliliği Askıya Alan Söz",
+      "titleEn": "The Zihar Case: The Word that Froze a Marriage",
+      "occasionTr": "Sahabi Evs bin Samit, karısı Havle binti Sa'lebe'ye kızarak 'Sen bana annemin sırtı gibisin' dedi — cahiliye döneminde bu boşanma yerine geçen bir sözdü. Havle dört çocuğuyla Hz. Peygamber'e koşup şikayetini arz etti. Cebrail hemen vahiy getirdi ve bu uygulamayı yasakladı.",
+      "occasionEn": "The companion Aws ibn Samit, angered with his wife Khawla bint Tha'laba, said 'You are to me like my mother's back' — in pre-Islamic times this was equivalent to divorce. Khawla rushed to the Prophet with her four children. Jibril immediately brought revelation prohibiting this practice.",
+      "descTr": "Kur'an 'Allah, seni karın hakkında söylediklerini ve Allah'a şikayetini duyuyor' diyerek Hz. Havle'nin sesini tarihe geçirir. Bu sûre ile keyfi boşanma pratikleri sona erdi ve kefaret sistemi getirildi.",
+      "descEn": "The Quran records Khawla's voice into history: 'Allah has heard the plea of she who disputes with you concerning her husband and who complains to Allah.' With this surah, arbitrary divorce practices ended and a expiation system was introduced.",
+      "verseAr": "قَدْ سَمِعَ اللَّهُ قَوْلَ الَّتِي تُجَادِلُكَ فِي زَوْجِهَا وَتَشْتَكِي إِلَى اللَّهِ",
+      "verseTr": "Allah, kocası hakkında seninle tartışan ve Allah'a şikayette bulunan kadının sözünü duydu.",
+      "verseRef": "Mücadele 58:1",
+      "surahs": [
+        { "num": 58, "nameTr": "Mücadele", "verses": "1-4" }
+      ]
+    },
+    {
+      "id": "hendek",
+      "year": 5,
+      "hijriLabel": "627 M (5 H)",
+      "period": "medeni",
+      "category": "savas",
+      "titleTr": "Hendek Savaşı: 10.000 Kişilik Kuşatma",
+      "titleEn": "Battle of the Trench: Siege of 10,000",
+      "occasionTr": "Bir Yahudi kabilenin ihanetiyle Medine'nin bütün düşmanları birleşip 10.000 kişilik bir ordu kurdu. Hz. Selman el-Farisi'nin önerisiyle şehrin etrafına hendek kazıldı. 25 günlük kuşatmada bir savaş olmadı; fırtına ve psikolojik baskı Arap ittifakını dağıttı.",
+      "occasionEn": "With the betrayal of a Jewish tribe, all of Medina's enemies united to form an army of 10,000. On Salman al-Farisi's suggestion, a trench was dug around the city. In 25 days of siege there was no battle; a storm and psychological pressure dispersed the Arab coalition.",
+      "descTr": "Ahzab sûresi bu olayı belgeler. 'Allah, müminlere savaşmak gerekmeksizin yetti' — savaşın en büyük zaferlerinden biri hiç kılıç çekilmeden kazanıldı. Bunun hemen ardından Benu Kurayza'nın ihaneti de ayrıca ele alındı.",
+      "descEn": "Surah Al-Ahzab documents this event. 'Allah spared the believers from fighting' — one of the greatest military victories was won without drawing a sword. Immediately after, the betrayal of Banu Qurayza was also addressed.",
+      "verseAr": "وَرَدَّ اللَّهُ الَّذِينَ كَفَرُوا بِغَيْظِهِمْ لَمْ يَنَالُوا خَيْرًا",
+      "verseTr": "Allah, kâfirleri hiçbir hayra erişemeden öfkeleriyle geri çevirdi.",
+      "verseRef": "Ahzab 33:25",
+      "surahs": [
+        { "num": 33, "nameTr": "Ahzab", "verses": "1-27" }
+      ]
+    },
+    {
+      "id": "zeyd-zeynep",
+      "year": 5,
+      "hijriLabel": "627 M (5 H)",
+      "period": "medeni",
+      "category": "kisisel",
+      "titleTr": "Zeyd'in Boşaması ve Sosyal Tabunun Yıkılması",
+      "titleEn": "Zayd's Divorce and Breaking the Social Taboo",
+      "occasionTr": "Zeyd bin Harise, Hz. Peygamber'in azat ettiği ve manevi evlat edindiği sahabiydi. Hz. Zeyneb binti Cahş ile evliydi. Ayrılmak istediğinde Hz. Peygamber 'Eşini tut' dedi ama evlilik sonunda sona erdi. Hz. Peygamber'in Hz. Zeyneb ile evlenmesi büyük toplumsal tepki gördü. Bu vahiy ile evlatlığın gerçek evlat gibi kabul edilemeyeceği ilan edildi.",
+      "occasionEn": "Zayd ibn Haritha was the companion whom the Prophet freed and called his son — though not by blood. He was married to Zaynab bint Jahsh. When he wanted to divorce, the Prophet said 'Keep your wife,' but the marriage ultimately ended. The Prophet's subsequent marriage to Zaynab drew great social reaction. This revelation declared that a freed slave called 'son' does not acquire the legal status of a biological child.",
+      "descTr": "Bu ayet, câhiliye geleneğinin evlat edinmeye atfettiği soy bağını kaldırdı. Ayrıca Kur'an, Hz. Peygamber'in bu konudaki tereddüdünü kaydeder — Peygamber'i insani açıdan gösteren nadir bir an.",
+      "descEn": "This verse removed the blood-tie status that pre-Islamic tradition attributed to adoption. The Quran also records the Prophet's hesitation in this matter — one of the rare moments that shows the Prophet in a human light.",
+      "verseAr": "فَلَمَّا قَضَىٰ زَيْدٌ مِّنْهَا وَطَرًا زَوَّجْنَاكَهَا",
+      "verseTr": "Zeyd ondan ilişkisini kesince, onu seninle evlendirdik.",
+      "verseRef": "Ahzab 33:37",
+      "surahs": [
+        { "num": 33, "nameTr": "Ahzab", "verses": "37-40" }
+      ]
+    },
+    {
+      "id": "hudeybiye",
+      "year": 6,
+      "hijriLabel": "628 M (6 H)",
+      "period": "medeni",
+      "category": "siyasi",
+      "titleTr": "Hüdeybiye Anlaşması: Görünmez Zafer",
+      "titleEn": "Treaty of Hudaybiyyah: The Invisible Victory",
+      "occasionTr": "1.400 Müslüman umre için Mekke'ye gitti ama Kureyş kabul etmedi. Hüdeybiye'de görünürde dezavantajlı bir anlaşma imzalandı: Bu yıl geri dön, bir dahaki yıl gel. Sahabeler üzüldü; ama iki yıl içinde Müslümanlar 1.400'den on binlere ulaştı. Anlaşma barış ortamı yarattı.",
+      "occasionEn": "1,400 Muslims went to Mecca for Umra but Quraysh refused entry. An apparently disadvantageous treaty was signed at Hudaybiyya: return this year, come next year. Companions were distressed; but within two years Muslims grew from 1,400 to tens of thousands. The treaty created a peace environment.",
+      "descTr": "Allah bu anlaşmayı 'fetih' ilan etti. Sahabe şaşkındı. İki yıl sonra Mekke fethedildi — kılıç çekilmeden.",
+      "descEn": "'We have given you a clear victory' — Allah named the treaty a 'conquest' (Surah Al-Fath). Muslims didn't understand, but history confirmed: a victory without swords can be greater than one won by war.",
+      "verseAr": "إِنَّا فَتَحْنَا لَكَ فَتْحًا مُّبِينًا",
+      "verseTr": "Şüphesiz biz sana apaçık bir fetih verdik.",
+      "verseRef": "Fetih 48:1",
+      "surahs": [
+        { "num": 48, "nameTr": "Fetih", "verses": "1-29" }
+      ]
+    },
+    {
+      "id": "mekke-fethi",
+      "year": 8,
+      "hijriLabel": "630 M (8 H)",
+      "period": "medeni",
+      "category": "savas",
+      "titleTr": "Mekke'nin Fethi: Kansız Zafer",
+      "titleEn": "Conquest of Mecca: Bloodless Victory",
+      "occasionTr": "10.000 kişilik İslam ordusu Mekke'ye girdi. Hz. Peygamber şehre girerken 'Bu gün yargılama günü değil, merhamet günüdür' dedi. Yıllarca eziyet ettirenleri affetti. Kâbe putlardan arındırıldı. Sadece birkaç kişi cezalandırıldı.",
+      "occasionEn": "An Islamic army of 10,000 entered Mecca. As the Prophet entered, he said 'This is not a day of vengeance but a day of mercy.' He pardoned those who had persecuted him for years. The Kaaba was cleansed of idols. Only a handful were punished.",
+      "descTr": "Nasr sûresi bu zaferi öngörür ve en kısa sûrelerden biri olmasına rağmen tüm bir devrin kapandığını haber verir: 'Allah'ın yardımı geldiğinde... O'nu tesbih et ve bağışlanma dile.' Zafer coşkusu değil, tevazu zamanı.",
+      "descEn": "Surah An-Nasr foresees this victory and, though one of the shortest surahs, announces the closing of an entire era: 'When comes the help of Allah... glorify Him and seek His forgiveness.' Not a time for celebration, but for humility.",
+      "verseAr": "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ",
+      "verseTr": "Allah'ın yardımı ve zafer geldiğinde...",
+      "verseRef": "Nasr 110:1",
+      "surahs": [
+        { "num": 110, "nameTr": "Nasr", "verses": "1-3" }
+      ]
+    },
+    {
+      "id": "tebuk",
+      "year": 9,
+      "hijriLabel": "630 M (9 H)",
+      "period": "medeni",
+      "category": "savas",
+      "titleTr": "Tebük Seferi: İmtihanın En Ağır Saati",
+      "titleEn": "Expedition to Tabuk: The Hardest Test",
+      "occasionTr": "Müslümanlar Bizans'a karşı çıkmak için büyük bir sefer hazırladı. Sıcak yaz, seferin zorluğu ve münafıkların geri çekme propagandası ortamı zehirliyordu. Üç sahabi — Kab ibn Malik, Hilal ibn Umeyye ve Mürare — mazeret üretmeden geri kaldı. Kur'an onları ~50 günlük toplumsal dışlama ve akabinde affetme hikayesiyle belgeler (Kab'ın kendi rivayetinde '40 gece' geçer).",
+      "occasionEn": "Muslims prepared a major expedition against the Byzantines. Hot summer, the hardship of the journey, and the hypocrites' propaganda poisoned the atmosphere. Three companions — Kab ibn Malik, Hilal ibn Umayya, and Murara — remained behind without excuse. The Quran documents them with ~50 days of social exclusion and subsequent forgiveness (Kab's own narration mentions '40 nights').",
+      "descTr": "Tevbe sûresi bu seferi ve münafıkların tutumunu kapsamlı biçimde inceler. 'Onların mescitleri yıkılsın' emriyle münafıkların inşa ettiği fitne mescidi de bu sûrede yasaklandı.",
+      "descEn": "Surah At-Tawbah comprehensively examines this expedition and the hypocrites' stance. The mosque built by hypocrites for discord was also prohibited in this surah with the command 'do not stand in it.'",
+      "verseAr": "وَعَلَى الثَّلَاثَةِ الَّذِينَ خُلِّفُوا حَتَّىٰ إِذَا ضَاقَتْ عَلَيْهِمُ الْأَرْضُ بِمَا رَحُبَتْ",
+      "verseTr": "Geride kalan o üç kişi üzerine de (tevbeleri kabul edildi). Yeryüzü, genişliğine karşın onlara dar geldi.",
+      "verseRef": "Tevbe 9:118",
+      "surahs": [
+        { "num": 9, "nameTr": "Tevbe", "verses": "38-129" }
+      ]
+    },
+    {
+      "id": "munafikların-camii",
+      "year": 9,
+      "hijriLabel": "630 M (9 H)",
+      "period": "medeni",
+      "category": "toplumsal",
+      "titleTr": "Dırar Mescidi: Fitne İçin İnşa Edilen Cami",
+      "titleEn": "Masjid al-Dirar: The Mosque Built for Discord",
+      "occasionTr": "Medine'de münafıklar, görünüşte ibadet için ama gerçekte Müslümanları bölmek amacıyla yeni bir mescit inşa etti. Hz. Peygamber Tebük dönüşünde bu mescidin yakılıp yıkılmasını emretti. Vahiy, 'zarar vermek için kurulan' her yapının geçersizliğini ilan etti.",
+      "occasionEn": "In Medina, hypocrites built a new mosque ostensibly for worship but actually to divide Muslims. On returning from Tabuk, the Prophet ordered it burned and demolished. Revelation declared the invalidity of any structure 'built to cause harm.'",
+      "descTr": "Bu olay, Kur'an'ın niyeti maddi sonuçlardan önce ele aldığını gösterir. Cami gibi bir ibadetin simgesi bile, kötü niyetle inşa edilirse anlamsızlaşır.",
+      "descEn": "This event shows the Quran addressing intention before material outcome. Even a mosque, a symbol of worship, becomes meaningless if built with ill intent.",
+      "verseAr": "وَالَّذِينَ اتَّخَذُوا مَسْجِدًا ضِرَارًا وَكُفْرًا",
+      "verseTr": "Zarar vermek, inkâr etmek... için mescit edinenler...",
+      "verseRef": "Tevbe 9:107",
+      "surahs": [
+        { "num": 9, "nameTr": "Tevbe", "verses": "107-110" }
+      ]
+    },
+    {
+      "id": "faiz-yasagi",
+      "year": 9,
+      "hijriLabel": "~629-632 M",
+      "period": "medeni",
+      "category": "hukuki",
+      "titleTr": "Faizin Kesin Yasaklanması",
+      "titleEn": "Final Prohibition of Usury",
+      "occasionTr": "İçki gibi, faiz yasağı da kademeli geldi. Bakara'nın 275-280. ayetleri faizi en sert ifadelerle yasakladı ve faiz ile Allah arasında âdeta savaş ilan etti: 'Yapmıyorsanız, Allah ve Resulü ile savaşa hazır olun.' Hz. Peygamber Veda Haccı'nda cahiliye faizlerini tamamen silip süpürdü.",
+      "occasionEn": "Like wine, the prohibition of usury came gradually. Verses 275-280 of Surah Al-Baqarah prohibited interest in the strongest terms, virtually declaring war between interest and Allah: 'If you do not, then be warned of war from Allah and His Messenger.' At the Farewell Pilgrimage the Prophet wiped out all pre-Islamic interest debts.",
+      "descTr": "Kur'an'ın faiz karşısındaki tutumu, modern finansal eleştirinin öncüsüdür: Faiz, emeği değil parayı çoğaltır; adaletsiz bir servet transferidir. Bu yasak, İslam ekonomisinin temel taşlarından biridir. (Not: Bu ayetlerin kesin nüzul tarihi tartışmalı; Medine döneminin son yıllarına — özellikle Veda Haccı öncesine — tarihlendirilmesi en yaygın görüştür.)",
+      "descEn": "The Quran's stance against usury is a precursor to modern financial critique: interest multiplies money without labor; it is an unjust transfer of wealth. This prohibition is one of the cornerstones of Islamic economics. (Note: The precise revelation date of these verses is debated; placing them in the final years of the Medinan period — just before the Farewell Pilgrimage — is the most widely held view.)",
+      "verseAr": "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَذَرُوا مَا بَقِيَ مِنَ الرِّبَا",
+      "verseTr": "Ey iman edenler! Allah'tan korkun ve eğer gerçekten müminseniz faizden kalanı bırakın.",
+      "verseRef": "Bakara 2:278",
+      "surahs": [
+        { "num": 2, "nameTr": "Bakara", "verses": "275-280" }
+      ]
+    },
+    {
+      "id": "veda-hutbesi-son-vahiy",
+      "year": 10,
+      "hijriLabel": "632 M (10 H)",
+      "period": "medeni",
+      "category": "vahiy",
+      "titleTr": "Son Vahiy: Dini Tamamladım",
+      "titleEn": "The Final Revelation: I Have Completed the Religion",
+      "occasionTr": "Veda Haccı'nda Arefe günü, Hz. Peygamber yaklaşık 100.000 kişiye hitaben Veda Hutbesi'ni irat etti. Öğle namazının ardından Kur'an'ın son kapsamlı vahyi indi: 'Bugün dininizi kemale erdirdim.' Pek çok rivayete göre son inen ayetlerden biri Bakara 2:281'dir.",
+      "occasionEn": "On the Day of Arafat at the Farewell Pilgrimage, the Prophet addressed approximately 100,000 people with the Farewell Sermon. After Dhuhr prayer the last comprehensive revelation descended: 'Today I have completed your religion.' Some time later the final verse of the Quran to be revealed was Baqarah 2:281.",
+      "descTr": "Bu ayet, İslam'ın bir 'proje' değil bir 'tamamlanmış bütün' olduğunu ilan eder. 23 yıl süren vahiy, bu an itibariyle Kur'an olarak mühürlendi. Hz. Peygamber bu vahy sonrası 80 gün daha yaşadı. (Not: 'Son inen ayet' konusu alimlerce tartışılır; Maide 5:3, Bakara 2:281 ve Bakara 2:278 en sık zikredilen adaylardır.)",
+      "descEn": "This verse declares that Islam is not a 'work in progress' but a 'completed whole.' The 23-year revelation was sealed as the Quran at this moment. The Prophet lived 80 more days after this revelation. (Note: Scholars debate which verse was 'the last revealed'; Al-Maida 5:3, Al-Baqarah 2:281, and Al-Baqarah 2:278 are the most frequently cited candidates.)",
+      "verseAr": "الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي وَرَضِيتُ لَكُمُ الْإِسْلَامَ دِينًا",
+      "verseTr": "Bugün dininizi kemale erdirdim, üzerinizdeki nimetimi tamamladım ve size din olarak İslam'ı seçip beğendim.",
+      "verseRef": "Maide 5:3",
+      "secondaryVerses": [
+        {
+          "verseAr": "وَاتَّقُوا يَوْمًا تُرْجَعُونَ فِيهِ إِلَى اللَّهِ ثُمَّ تُوَفَّىٰ كُلُّ نَفْسٍ مَّا كَسَبَتْ وَهُمْ لَا يُظْلَمُونَ",
+          "verseTr": "Allah'a döndürüleceğiniz günden korkun. Sonra herkese kazandığının karşılığı eksiksiz verilecek ve onlara zulmedilmeyecektir.",
+          "verseRef": "Bakara 2:281",
+          "labelTr": "Pek çok rivayete göre son inen ayetlerden biri",
+          "labelEn": "Among the last verses revealed according to many narrations"
+        }
+      ],
+      "surahs": [
+        { "num": 5, "nameTr": "Maide", "verses": "3" }
+      ]
+    }
+  ]
+}

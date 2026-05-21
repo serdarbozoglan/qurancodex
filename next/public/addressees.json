@@ -1,0 +1,849 @@
+{
+  "categories": [
+    {
+      "id": "iman",
+      "accent": "#c9a96e",
+      "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا",
+      "tr": "Ey İman Edenler",
+      "en": "O You Who Believe",
+      "desc": {
+        "tr": "Kur'an'ın en sık kullandığı doğrudan hitap biçimi. Medenî sûrelerin omurgası — fıkhi, ahlaki ve toplumsal tüm emirlerin çerçevesidir.",
+        "en": "The most frequent direct address in the Quran. The backbone of Medinan surahs — the framework for all legal, moral and social commands."
+      },
+      "stats": {
+        "count": 89,
+        "medeni_percent": 91,
+        "sure_count": 34,
+        "yogun_sureler": [
+          "Bakara",
+          "Mâide",
+          "Nisâ",
+          "Enfâl"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Fıkhi hükümler",
+          "İbadet emirleri",
+          "Ahlaki sorumluluk",
+          "Toplumsal düzen",
+          "Münafıklara uyarı",
+          "Cihad",
+          "Sabır",
+          "İnfak",
+          "Adalet"
+        ],
+        "en": [
+          "Legal rulings",
+          "Worship commands",
+          "Moral responsibility",
+          "Social order",
+          "Warning against hypocrites",
+          "Striving in God's way",
+          "Patience",
+          "Charity",
+          "Justice"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ",
+          "ref": "2:183",
+          "surah": "Bakara",
+          "topic": {
+            "tr": "Oruç emri",
+            "en": "Fasting obligation"
+          },
+          "tr": "Ey iman edenler! Oruç, sizden öncekilere farz kılındığı gibi size de farz kılındı.",
+          "en": "O you who believe! Fasting has been prescribed for you as it was prescribed for those before you."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا ادْخُلُوا فِي السِّلْمِ كَافَّةً",
+          "ref": "2:208",
+          "surah": "Bakara",
+          "topic": {
+            "tr": "Barışa tam teslim",
+            "en": "Enter into peace wholeheartedly"
+          },
+          "tr": "Ey iman edenler! Hepiniz toptan barışa (İslam'a) girin.",
+          "en": "O you who believe! Enter into peace (Islam) wholeheartedly."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنكُمْ",
+          "ref": "4:59",
+          "surah": "Nisâ",
+          "topic": {
+            "tr": "İtaat hiyerarşisi",
+            "en": "Hierarchy of obedience"
+          },
+          "tr": "Ey iman edenler! Allah'a itaat edin, Peygamber'e ve sizden olan yetki sahiplerine de itaat edin.",
+          "en": "O you who believe! Obey Allah and obey the Messenger and those in authority among you."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ",
+          "ref": "5:1",
+          "surah": "Mâide",
+          "topic": {
+            "tr": "Akitleri yerine getirin",
+            "en": "Fulfill your contracts"
+          },
+          "tr": "Ey iman edenler! Akitlerinizi yerine getirin.",
+          "en": "O you who believe! Fulfill your contracts."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِّنَ الظَّنِّ إِنَّ بَعْضَ الظَّنِّ إِثْمٌ",
+          "ref": "49:12",
+          "surah": "Hucurât",
+          "topic": {
+            "tr": "Kötü zandan kaçının",
+            "en": "Avoid suspicion"
+          },
+          "tr": "Ey iman edenler! Zannın çoğundan sakının; çünkü zannın bir kısmı günahtır.",
+          "en": "O you who believe! Avoid much suspicion — indeed, some suspicion is sin."
+        }
+      ]
+    },
+    {
+      "id": "insanlar",
+      "accent": "#4a9ee8",
+      "arabic": "يَا أَيُّهَا النَّاسُ",
+      "tr": "Ey İnsanlar",
+      "en": "O Humanity",
+      "desc": {
+        "tr": "Tüm insanlığa yönelik evrensel hitap. Hem Mekkî hem Medenî sûrelerde geçer; tevhid, yaratılış ve varoluşun anlamına dair mesajları taşır.",
+        "en": "Universal address to all of humanity. Appears in both Meccan and Medinan surahs, conveying messages on monotheism, creation, and the meaning of existence."
+      },
+      "stats": {
+        "count": 20,
+        "medeni_percent": 50,
+        "sure_count": 9,
+        "yogun_sureler": [
+          "Bakara",
+          "Nisâ",
+          "Hac",
+          "Lokmân"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Tevhid daveti",
+          "Yaratılışın hatırlatılması",
+          "Kıyamet uyarısı",
+          "Evrensel sorumluluk",
+          "Dünya hayatının geçiciliği",
+          "İnsanlığın birliği"
+        ],
+        "en": [
+          "Call to monotheism",
+          "Reminder of creation",
+          "Warning of resurrection",
+          "Universal responsibility",
+          "Transience of worldly life",
+          "Unity of humanity"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ",
+          "ref": "4:1",
+          "surah": "Nisâ",
+          "topic": {
+            "tr": "Tek nefisten yaratılış",
+            "en": "Creation from one soul"
+          },
+          "tr": "Ey insanlar! Sizi bir tek nefisten yaratan Rabbinizden korkun.",
+          "en": "O humanity! Fear your Lord who created you from a single soul."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّاسُ اعْبُدُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ وَالَّذِينَ مِن قَبْلِكُمْ",
+          "ref": "2:21",
+          "surah": "Bakara",
+          "topic": {
+            "tr": "İbadetin evrensel emri",
+            "en": "Universal command to worship"
+          },
+          "tr": "Ey insanlar! Sizi ve sizden öncekileri yaratan Rabbinize ibadet edin.",
+          "en": "O humanity! Worship your Lord who created you and those before you."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمْ إِنَّ زَلْزَلَةَ السَّاعَةِ شَيْءٌ عَظِيمٌ",
+          "ref": "22:1",
+          "surah": "Hac",
+          "topic": {
+            "tr": "Kıyamet uyarısı",
+            "en": "Warning of the Hour"
+          },
+          "tr": "Ey insanlar! Rabbinizden korkun; çünkü kıyamet sarsıntısı büyük bir şeydir.",
+          "en": "O humanity! Fear your Lord — indeed, the earthquake of the Hour is a tremendous thing."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّاسُ إِنَّ وَعْدَ اللَّهِ حَقٌّ فَلَا تَغُرَّنَّكُمُ الْحَيَاةُ الدُّنْيَا",
+          "ref": "35:5",
+          "surah": "Fâtır",
+          "topic": {
+            "tr": "Dünya aldatmaması",
+            "en": "Do not be deceived by worldly life"
+          },
+          "tr": "Ey insanlar! Allah'ın vaadi haktır. Sakın dünya hayatı sizi aldatmasın.",
+          "en": "O humanity! The promise of Allah is truth. So let not the worldly life delude you."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ",
+          "ref": "49:13",
+          "surah": "Hucurât",
+          "topic": {
+            "tr": "İnsanlığın birliği ve çeşitliliği",
+            "en": "Unity and diversity of humanity"
+          },
+          "tr": "Ey insanlar! Biz sizi bir erkek ile bir dişiden yarattık ve sizi milletler ve kabileler hâlinde kıldık ki birbirinizi tanıyasınız.",
+          "en": "O humanity! We created you from a male and a female and made you peoples and tribes that you may know one another."
+        }
+      ]
+    },
+    {
+      "id": "ehlikitap",
+      "accent": "#4caf7d",
+      "arabic": "يَا أَهْلَ الْكِتَابِ",
+      "tr": "Ey Ehli Kitap",
+      "en": "O People of the Scripture",
+      "desc": {
+        "tr": "Yahudiler ve Hristiyanlar başta olmak üzere önceki ilahi kitaplara mensup topluluklara yapılan hitap. Tamamı Medenî dönemde, Müslümanların diğer din mensuplarıyla temas kurduğu ortamda nazil olmuştur.",
+        "en": "Address to the communities of previous scriptures, primarily Jews and Christians. All instances are Medinan, revealed in an environment of interfaith contact."
+      },
+      "stats": {
+        "count": 14,
+        "medeni_percent": 100,
+        "sure_count": 4,
+        "yogun_sureler": [
+          "Âl-i İmrân",
+          "Mâide",
+          "Nisâ",
+          "Bakara"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Ortak inanca davet",
+          "Dinde aşırılık yasağı",
+          "Hz. İsa'nın gerçek kimliği",
+          "Peygamberi örtbas etme",
+          "Ahde vefa",
+          "Kitabın tahrifi"
+        ],
+        "en": [
+          "Invitation to common ground",
+          "Prohibition of extremism",
+          "True nature of Jesus",
+          "Concealment of the Prophet",
+          "Fidelity to covenant",
+          "Distortion of scripture"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا أَهْلَ الْكِتَابِ تَعَالَوْا إِلَىٰ كَلِمَةٍ سَوَاءٍ بَيْنَنَا وَبَيْنَكُمْ",
+          "ref": "3:64",
+          "surah": "Âl-i İmrân",
+          "topic": {
+            "tr": "Ortak kelimeye davet",
+            "en": "Call to common ground"
+          },
+          "tr": "Ey Ehli Kitap! Sizinle bizim aramızda ortak bir söze gelin.",
+          "en": "O People of the Scripture! Come to a word that is equitable between us and you."
+        },
+        {
+          "arabic": "يَا أَهْلَ الْكِتَابِ لَا تَغْلُوا فِي دِينِكُمْ",
+          "ref": "4:171",
+          "surah": "Nisâ",
+          "topic": {
+            "tr": "Dinde aşırılık yasağı",
+            "en": "Prohibition of excess in religion"
+          },
+          "tr": "Ey Ehli Kitap! Dininizde aşırı gitmeyin.",
+          "en": "O People of the Scripture! Do not commit excess in your religion."
+        },
+        {
+          "arabic": "يَا أَهْلَ الْكِتَابِ قَدْ جَاءَكُمْ رَسُولُنَا يُبَيِّنُ لَكُمْ كَثِيرًا مِّمَّا كُنتُمْ تُخْفُونَ",
+          "ref": "5:15",
+          "surah": "Mâide",
+          "topic": {
+            "tr": "Sakladıklarınızı açıklayan elçi",
+            "en": "Messenger who reveals what you concealed"
+          },
+          "tr": "Ey Ehli Kitap! Kitaptan gizlemiş olduklarınızın çoğunu size açıklayan Resûlümüz geldi.",
+          "en": "O People of the Scripture! Our Messenger has come to you, making clear to you much of what you used to conceal."
+        },
+        {
+          "arabic": "يَا أَهْلَ الْكِتَابِ لِمَ تُحَاجُّونَ فِي إِبْرَاهِيمَ",
+          "ref": "3:65",
+          "surah": "Âl-i İmrân",
+          "topic": {
+            "tr": "İbrahim tartışması",
+            "en": "Argument about Abraham"
+          },
+          "tr": "Ey Ehli Kitap! Tevrat ve İncil indirilmeden çok önce yaşamış olan İbrahim hakkında neden tartışıyorsunuz?",
+          "en": "O People of the Scripture! Why do you argue about Abraham while the Torah and the Gospel were not revealed until after him?"
+        }
+      ]
+    },
+    {
+      "id": "peygamber",
+      "accent": "#9b59b6",
+      "arabic": "يَا أَيُّهَا النَّبِيُّ",
+      "tr": "Ey Peygamber",
+      "en": "O Prophet",
+      "desc": {
+        "tr": "Hz. Muhammed'e iki ayrı unvanla yapılan doğrudan hitap: 'Nebî' (haberci) ve 'Resul' (elçi). Tamamı Medenî — toplumu yönetme, tebliğ ve şahsi rehberlik içeriklidir.",
+        "en": "Direct address to the Prophet Muhammad with two distinct titles: 'Nabi' (herald) and 'Rasul' (envoy). Entirely Medinan — concerning community governance, proclamation and personal guidance."
+      },
+      "stats": {
+        "count": 15,
+        "medeni_percent": 100,
+        "sure_count": 9,
+        "yogun_sureler": [
+          "Ahzâb",
+          "Talâk",
+          "Tahrîm",
+          "Enfâl",
+          "Mâide"
+        ]
+      },
+      "form_variants": [
+        {
+          "form": "يَا أَيُّهَا النَّبِيُّ",
+          "count": 13,
+          "meaning_tr": "Ey Nebî (Haberci)",
+          "meaning_en": "O Prophet (Herald)"
+        },
+        {
+          "form": "يَا أَيُّهَا الرَّسُولُ",
+          "count": 2,
+          "meaning_tr": "Ey Resul (Elçi)",
+          "meaning_en": "O Messenger (Envoy)"
+        }
+      ],
+      "themes": {
+        "tr": [
+          "Tebliğ görevi",
+          "Aile hükümleri",
+          "Savaş yönetimi",
+          "Sabreden önder",
+          "Toplumsal düzen",
+          "İçtimai şahitlik"
+        ],
+        "en": [
+          "Mission of proclamation",
+          "Family rulings",
+          "Conduct in war",
+          "Patient leadership",
+          "Social order",
+          "Public witnessing"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا أَيُّهَا النَّبِيُّ اتَّقِ اللَّهَ وَلَا تُطِعِ الْكَافِرِينَ وَالْمُنَافِقِينَ",
+          "ref": "33:1",
+          "surah": "Ahzâb",
+          "topic": {
+            "tr": "Takva ve kararlılık",
+            "en": "Piety and resolve"
+          },
+          "tr": "Ey Peygamber! Allah'a karşı gelmekten sakın; kâfirlere ve münafıklara itaat etme.",
+          "en": "O Prophet! Fear Allah and do not obey the disbelievers and the hypocrites."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الرَّسُولُ بَلِّغْ مَا أُنزِلَ إِلَيْكَ مِن رَّبِّكَ",
+          "ref": "5:67",
+          "surah": "Mâide",
+          "topic": {
+            "tr": "Tebliğ emri — Resul unvanıyla",
+            "en": "Command of proclamation — as Rasul"
+          },
+          "tr": "Ey Resul! Rabbinden sana indirileni tebliğ et. Eğer bunu yapmazsan O'nun elçiliğini yapmamış olursun.",
+          "en": "O Messenger! Convey what has been revealed to you from your Lord. If you do not, you will not have conveyed His message."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّبِيُّ إِنَّا أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا",
+          "ref": "33:45",
+          "surah": "Ahzâb",
+          "topic": {
+            "tr": "Peygamberlik görevi",
+            "en": "Prophetic role defined"
+          },
+          "tr": "Ey Peygamber! Şüphesiz Biz seni bir şahit, bir müjdeci ve bir uyarıcı olarak gönderdik.",
+          "en": "O Prophet! Indeed, We have sent you as a witness, a bearer of glad tidings, and a warner."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّبِيُّ إِذَا طَلَّقْتُمُ النِّسَاءَ فَطَلِّقُوهُنَّ لِعِدَّتِهِنَّ",
+          "ref": "65:1",
+          "surah": "Talâk",
+          "topic": {
+            "tr": "Boşanma hükmü",
+            "en": "Ruling on divorce"
+          },
+          "tr": "Ey Peygamber! Kadınları boşadığınızda, onları iddetleri gözetilerek boşayın.",
+          "en": "O Prophet! When you divorce women, divorce them for their prescribed waiting period."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّبِيُّ لِمَ تُحَرِّمُ مَا أَحَلَّ اللَّهُ لَكَ",
+          "ref": "66:1",
+          "surah": "Tahrîm",
+          "topic": {
+            "tr": "Helali haram kılmak",
+            "en": "Making lawful things unlawful"
+          },
+          "tr": "Ey Peygamber! Eşlerinin rızasını arayarak Allah'ın sana helal kıldığı şeyi neden kendine yasaklıyorsun?",
+          "en": "O Prophet! Why do you prohibit yourself from what Allah has made lawful for you, seeking to please your wives?"
+        }
+      ]
+    },
+    {
+      "id": "kafirler",
+      "accent": "#e84a4a",
+      "arabic": "يَا أَيُّهَا الْكَافِرُونَ",
+      "tr": "Ey Kafirler",
+      "en": "O Disbelievers",
+      "desc": {
+        "tr": "Küfrü bir kimlik olarak benimseyenlere doğrudan hitap. Kur'an'da yalnızca 2 ayette geçer; biri tam bir sûre (Kâfirûn), biri cehennem tasvirinde. Net bir inanç sınırı çizer.",
+        "en": "Direct address to those who adopted disbelief as an identity. Appears in only 2 verses in the Quran — one a complete surah (Al-Kafirun), one in a description of Hell. Draws a clear line of belief."
+      },
+      "stats": {
+        "count": 2,
+        "medeni_percent": 0,
+        "sure_count": 2,
+        "yogun_sureler": [
+          "Kâfirûn",
+          "Tahrîm"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "İnanç özgürlüğü bildirisi",
+          "Dinde zorlama yok",
+          "Kesin ayrılık",
+          "Cehennem uyarısı"
+        ],
+        "en": [
+          "Declaration of belief freedom",
+          "No compulsion in religion",
+          "Clear separation",
+          "Warning of Hellfire"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "قُلْ يَا أَيُّهَا الْكَافِرُونَ ۝ لَا أَعْبُدُ مَا تَعْبُدُونَ",
+          "ref": "109:1-2",
+          "surah": "Kâfirûn",
+          "topic": {
+            "tr": "Dini ayrılık bildirisi",
+            "en": "Declaration of religious separation"
+          },
+          "tr": "De ki: Ey kâfirler! Ben sizin ibadet ettiğinize ibadet etmem.",
+          "en": "Say: O disbelievers! I do not worship what you worship."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الَّذِينَ كَفَرُوا لَا تَعْتَذِرُوا الْيَوْمَ",
+          "ref": "66:7",
+          "surah": "Tahrîm",
+          "topic": {
+            "tr": "Kıyamette özür kabul edilmez",
+            "en": "No excuses on Judgment Day"
+          },
+          "tr": "Ey kâfirler! Bugün özür dilemeyin. Siz sadece yaptıklarınızın karşılığını alıyorsunuz.",
+          "en": "O you who disbelieve! Make no excuses today. You are only being recompensed for what you used to do."
+        }
+      ]
+    },
+    {
+      "id": "munafik",
+      "accent": "#e8a24a",
+      "arabic": "يَا أَيُّهَا الْمُنَافِقُونَ",
+      "tr": "Ey Münafıklar",
+      "en": "O Hypocrites",
+      "desc": {
+        "tr": "İki yüzlüğü benimseyen ve İslam topluluğunu içten zayıflatan münafıklara yönelik hitap. Tamamı Medenî dönemde, Müslümanların siyasi olarak örgütlendiği süreçte nazil olmuştur.",
+        "en": "Address to hypocrites who adopted duplicity and sought to weaken the Muslim community from within. All instances are Medinan, revealed during the political organization of the Muslim community."
+      },
+      "stats": {
+        "count": 3,
+        "medeni_percent": 100,
+        "sure_count": 2,
+        "yogun_sureler": [
+          "Münâfikûn",
+          "Ahzâb"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Yalan tanıklık",
+          "İbadetlerde ikiyüzlülük",
+          "Toplumu bölen davranışlar",
+          "İnfaktan kaçınma",
+          "Kalp hastalığı"
+        ],
+        "en": [
+          "False testimony",
+          "Hypocrisy in worship",
+          "Divisive behavior",
+          "Avoidance of giving",
+          "Disease of the heart"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ",
+          "ref": "63:1",
+          "surah": "Münâfikûn",
+          "topic": {
+            "tr": "Yalancı şehadet",
+            "en": "False profession of faith"
+          },
+          "tr": "Münafıklar sana geldiklerinde 'Şüphesiz sen Allah'ın Resûlüsün' derler; Allah da senin elbette Resûlü olduğunu bilir.",
+          "en": "When the hypocrites come to you they say: We testify that you are the Messenger of Allah. And Allah knows that you are His Messenger."
+        },
+        {
+          "arabic": "هُمُ الَّذِينَ يَقُولُونَ لَا تُنفِقُوا عَلَىٰ مَنْ عِندَ رَسُولِ اللَّهِ",
+          "ref": "63:7",
+          "surah": "Münâfikûn",
+          "topic": {
+            "tr": "İnfakı engelleme",
+            "en": "Obstructing charity"
+          },
+          "tr": "Onlar 'Allah'ın Resûlü'nün yanındakilere harcamayın ki dağılsınlar' diyenlerdir.",
+          "en": "They are the ones who say: Do not spend on those with the Messenger of Allah until they disband."
+        },
+        {
+          "arabic": "إِنَّ الْمُنَافِقِينَ يُخَادِعُونَ اللَّهَ وَهُوَ خَادِعُهُمْ",
+          "ref": "4:142",
+          "surah": "Nisâ",
+          "topic": {
+            "tr": "Münafıkların aldatmacası",
+            "en": "Deception of the hypocrites"
+          },
+          "tr": "Şüphesiz münafıklar Allah'ı aldatmaya çalışırlar; oysa O onları aldatır.",
+          "en": "Indeed, the hypocrites seek to deceive Allah, but He is deceiving them."
+        }
+      ]
+    },
+    {
+      "id": "musrik",
+      "accent": "#e84a7c",
+      "arabic": "يَا أَيُّهَا الْمُشْرِكُونَ",
+      "tr": "Ey Müşrikler",
+      "en": "O Polytheists",
+      "desc": {
+        "tr": "Allah'a ortak koşanlara, özellikle Mekke müşriklerine yönelik hitap. Ağırlıklı olarak Mekkî dönemde — erken vahyin putperestliği temelinden reddettiği bağlamlarda geçer.",
+        "en": "Address to those who associate partners with Allah, particularly the Meccan polytheists. Predominantly Meccan — appearing in early revelation's foundational rejection of idol worship."
+      },
+      "stats": {
+        "count": 2,
+        "medeni_percent": 20,
+        "sure_count": 2,
+        "yogun_sureler": [
+          "Tevbe",
+          "Yûnus"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Putperestliğin reddi",
+          "Harem'den uzaklaştırılma",
+          "Tek Allah'a ibadet",
+          "Şirkin boşluğu",
+          "Son uyarı"
+        ],
+        "en": [
+          "Rejection of idol worship",
+          "Expulsion from the sacred precinct",
+          "Worship of the One God",
+          "Emptiness of polytheism",
+          "Final warning"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "وَأَذَانٌ مِّنَ اللَّهِ وَرَسُولِهِ إِلَى النَّاسِ يَوْمَ الْحَجِّ الْأَكْبَرِ أَنَّ اللَّهَ بَرِيءٌ مِّنَ الْمُشْرِكِينَ",
+          "ref": "9:3",
+          "surah": "Tevbe",
+          "topic": {
+            "tr": "Allah'ın müşriklerden berâeti",
+            "en": "Allah's disavowal of polytheists"
+          },
+          "tr": "Büyük hac günü Allah ve Resûlü'nden insanlara bir duyuru: Allah müşriklerden beridir.",
+          "en": "An announcement from Allah and His Messenger to all people on the day of the greater pilgrimage: Allah is disavowed of the polytheists."
+        },
+        {
+          "arabic": "قُلْ يَا أَيُّهَا النَّاسُ إِن كُنتُمْ فِي شَكٍّ مِّن دِينِي فَلَا أَعْبُدُ الَّذِينَ تَعْبُدُونَ مِن دُونِ اللَّهِ",
+          "ref": "10:104",
+          "surah": "Yûnus",
+          "topic": {
+            "tr": "Dini bağımsızlık bildirisi",
+            "en": "Declaration of religious independence"
+          },
+          "tr": "De ki: Ey insanlar! Benim dinim hakkında şüphede iseniz bilin ki ben sizin Allah'tan başka ibadet ettiklerinize ibadet etmiyorum.",
+          "en": "Say: O people! If you are in doubt as to my religion — I do not worship those you worship besides Allah."
+        }
+      ]
+    },
+    {
+      "id": "israil",
+      "accent": "#4caf7d",
+      "arabic": "يَا بَنِي إِسْرَائِيلَ",
+      "tr": "Ey İsrailoğulları",
+      "en": "O Children of Israel",
+      "desc": {
+        "tr": "Kur'an'ın en çok hitap ettiği tarihsel topluluk. Daha önce kendilerine kitap, peygamber ve nimetler verilmiş olan İsrailoğulları, bu hitapla geçmişteki ahitleri, nankörlükleri ve sapkınlıkları hatırlatılarak yüzleştirilir.",
+        "en": "The historical community most frequently addressed in the Quran. The Children of Israel, who were previously given scripture, prophets and blessings, are confronted with their past covenants, ingratitude and transgressions."
+      },
+      "stats": {
+        "count": 41,
+        "medeni_percent": 85,
+        "sure_count": 10,
+        "yogun_sureler": [
+          "Bakara",
+          "Âl-i İmrân",
+          "Mâide",
+          "A'râf"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Verilen nimetlerin hatırlatılması",
+          "Ahit ve sözleşme",
+          "Peygamberlere isyan",
+          "Tevrat'ın tahrifi",
+          "Kıyamete iman daveti"
+        ],
+        "en": [
+          "Reminder of blessings given",
+          "Covenant and promise",
+          "Rebellion against prophets",
+          "Distortion of Torah",
+          "Call to believe in resurrection"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا بَنِي إِسْرَائِيلَ اذْكُرُوا نِعْمَتِيَ الَّتِي أَنْعَمْتُ عَلَيْكُمْ وَأَوْفُوا بِعَهْدِي أُوفِ بِعَهْدِكُمْ",
+          "ref": "2:40",
+          "surah": "Bakara",
+          "topic": {
+            "tr": "Nimet ve ahit hatırlatması",
+            "en": "Reminder of blessing and covenant"
+          },
+          "tr": "Ey İsrailoğulları! Size verdiğim nimeti hatırlayın; bana verdiğiniz ahde vefa gösterin ki ben de size olan ahdimi yerine getireyim.",
+          "en": "O Children of Israel! Remember My blessing which I bestowed upon you and fulfil My covenant that I will fulfil your covenant."
+        },
+        {
+          "arabic": "يَا بَنِي إِسْرَائِيلَ قَدْ أَنجَيْنَاكُم مِّنْ عَدُوِّكُمْ وَوَاعَدْنَاكُمْ جَانِبَ الطُّورِ الْأَيْمَنَ",
+          "ref": "20:80",
+          "surah": "Tâhâ",
+          "topic": {
+            "tr": "Firavun'dan kurtuluş",
+            "en": "Salvation from Pharaoh"
+          },
+          "tr": "Ey İsrailoğulları! Sizi düşmanınızdan kurtardık ve Tur'un sağ tarafında sizinle buluştuk.",
+          "en": "O Children of Israel! We saved you from your enemy and made an appointment with you on the right side of the Mount."
+        },
+        {
+          "arabic": "يَا بَنِي إِسْرَائِيلَ إِنِّي رَسُولُ اللَّهِ إِلَيْكُم",
+          "ref": "61:6",
+          "surah": "Saf",
+          "topic": {
+            "tr": "Hz. İsa'nın risaleti",
+            "en": "Mission of Jesus"
+          },
+          "tr": "Ey İsrailoğulları! Ben size Allah'ın elçisiyim.",
+          "en": "O Children of Israel! Indeed I am the messenger of Allah to you."
+        }
+      ]
+    },
+    {
+      "id": "adem",
+      "accent": "#a78bfa",
+      "arabic": "يَا بَنِي آدَمَ",
+      "tr": "Ey Ademoğulları",
+      "en": "O Children of Adam",
+      "desc": {
+        "tr": "İnsanlığın ortak kökünü ve şeytanın tuzaklarına karşı uyanıklığı vurgulayan hitap. Cennet'ten çıkışı, örtünmeyi ve şeytanın azılı düşmanlığını hatırlatan ayetlerde geçer. Mekkî sûrelerde yoğunlaşır.",
+        "en": "An address emphasizing the common origin of humanity and vigilance against Satan's traps. Appears in verses recalling the exit from Paradise, clothing, and Satan's sworn enmity. Concentrated in Meccan suras."
+      },
+      "stats": {
+        "count": 7,
+        "medeni_percent": 14,
+        "sure_count": 3,
+        "yogun_sureler": [
+          "A'râf",
+          "Yâsîn"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Cennet'ten çıkış hatırası",
+          "Örtünme ve utanç",
+          "Şeytanın azılı düşmanlığı",
+          "İbadet çağrısı",
+          "Dünyanın aldatıcılığı"
+        ],
+        "en": [
+          "Memory of departure from Paradise",
+          "Clothing and modesty",
+          "Satan's sworn enmity",
+          "Call to worship",
+          "Deceptiveness of worldly life"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا بَنِي آدَمَ لَا يَفْتِنَنَّكُمُ الشَّيْطَانُ كَمَا أَخْرَجَ أَبَوَيْكُم مِّنَ الْجَنَّةِ",
+          "ref": "7:27",
+          "surah": "A'râf",
+          "topic": {
+            "tr": "Şeytanın tuzağı",
+            "en": "Satan's trap"
+          },
+          "tr": "Ey Ademoğulları! Şeytan, anne babanızı cennetten çıkardığı gibi sizi de kandırmasın.",
+          "en": "O Children of Adam! Let not Satan tempt you as he removed your parents from Paradise."
+        },
+        {
+          "arabic": "يَا بَنِي آدَمَ قَدْ أَنزَلْنَا عَلَيْكُمْ لِبَاسًا يُوَارِي سَوْآتِكُمْ وَرِيشًا",
+          "ref": "7:26",
+          "surah": "A'râf",
+          "topic": {
+            "tr": "Örtünme nimeti",
+            "en": "Blessing of clothing"
+          },
+          "tr": "Ey Ademoğulları! Size avret yerlerinizi örtecek ve süslenmenize yarayacak elbise indirdik.",
+          "en": "O Children of Adam! We have bestowed upon you clothing to conceal your private parts and as adornment."
+        },
+        {
+          "arabic": "أَلَمْ أَعْهَدْ إِلَيْكُمْ يَا بَنِي آدَمَ أَن لَّا تَعْبُدُوا الشَّيْطَانَ",
+          "ref": "36:60",
+          "surah": "Yâsîn",
+          "topic": {
+            "tr": "Şeytana kulluk yasağı",
+            "en": "Prohibition of worshipping Satan"
+          },
+          "tr": "Ey Ademoğulları! Şeytana kulluk etmeyesiniz diye size ahit vermedim mi?",
+          "en": "Did I not enjoin upon you, O Children of Adam, that you not worship Satan?"
+        }
+      ]
+    },
+    {
+      "id": "resul",
+      "accent": "#06b6d4",
+      "arabic": "يَا أَيُّهَا الرَّسُولُ",
+      "tr": "Ey Resul",
+      "en": "O Messenger",
+      "desc": {
+        "tr": "Yalnızca 2 ayette geçen bu hitap, Nebi hitabından ayrı ve özel bir misyon vurgusudur. 'Resul' sıfatı Allah'tan aldığı mesajı iletme görevini ön plana çıkarır. Her iki ayet de Mâide sûresindedir.",
+        "en": "Appearing in only 2 verses, this address is a distinct emphasis on mission, separate from the Prophet address. The title 'Messenger' foregrounds the duty of conveying God's message. Both verses are in Surah Al-Ma'idah."
+      },
+      "stats": {
+        "count": 2,
+        "medeni_percent": 100,
+        "sure_count": 1,
+        "yogun_sureler": [
+          "Mâide"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Tebliğ sorumluluğu",
+          "İnsanlardan korkmama",
+          "Allah'ın koruması"
+        ],
+        "en": [
+          "Responsibility of conveying the message",
+          "Not fearing people",
+          "Protection of Allah"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا أَيُّهَا الرَّسُولُ بَلِّغْ مَا أُنزِلَ إِلَيْكَ مِن رَّبِّكَ",
+          "ref": "5:67",
+          "surah": "Mâide",
+          "topic": {
+            "tr": "Tebliğ emri",
+            "en": "Command to convey"
+          },
+          "tr": "Ey Resul! Rabbinden sana indirileni tebliğ et. Eğer bunu yapmazsan O'nun elçiliğini yapmamış olursun. Allah seni insanlardan koruyacaktır.",
+          "en": "O Messenger! Convey what has been revealed to you from your Lord. If you do not, you have not conveyed His message. Allah will protect you from the people."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الرَّسُولُ لَا يَحْزُنكَ الَّذِينَ يُسَارِعُونَ فِي الْكُفْرِ",
+          "ref": "5:41",
+          "surah": "Mâide",
+          "topic": {
+            "tr": "Küfre koşanlar",
+            "en": "Those rushing into disbelief"
+          },
+          "tr": "Ey Resul! Küfre koşanlar seni üzmesin.",
+          "en": "O Messenger! Let not those who hasten into disbelief grieve you."
+        }
+      ]
+    },
+    {
+      "id": "insan",
+      "accent": "#94a3b8",
+      "arabic": "يَا أَيُّهَا الْإِنسَانُ",
+      "tr": "Ey İnsan",
+      "en": "O Human Being",
+      "desc": {
+        "tr": "Tekil insana yönelik bu hitap, insanı bireysel olarak Allah karşısında konumlandırır. Topluluk değil birey muhataptır. Yaratılışın mükemmelliği, insanın nankörlüğü ve hesap verme zorunluluğu işlenir.",
+        "en": "This address to the individual human positions a single person before God. The addressee is an individual, not a community. It deals with the perfection of creation, human ingratitude, and the necessity of giving account."
+      },
+      "stats": {
+        "count": 3,
+        "medeni_percent": 0,
+        "sure_count": 3,
+        "yogun_sureler": [
+          "İnfitâr",
+          "İnşikâk",
+          "Alak"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Yaratılışın mükemmelliği",
+          "İnsanın nankörlüğü",
+          "Hesap günü kesinliği",
+          "Allah'a karşı aldanış"
+        ],
+        "en": [
+          "Perfection of creation",
+          "Human ingratitude",
+          "Certainty of Judgement Day",
+          "Delusion against Allah"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا أَيُّهَا الْإِنسَانُ مَا غَرَّكَ بِرَبِّكَ الْكَرِيمِ",
+          "ref": "82:6",
+          "surah": "İnfitâr",
+          "topic": {
+            "tr": "Aldanış sorusu",
+            "en": "The question of delusion"
+          },
+          "tr": "Ey insan! Seni o kerem sahibi Rabbine karşı aldatan nedir?",
+          "en": "O human being! What has deceived you concerning your Lord, the Most Generous?"
+        },
+        {
+          "arabic": "يَا أَيُّهَا الْإِنسَانُ إِنَّكَ كَادِحٌ إِلَىٰ رَبِّكَ كَدْحًا فَمُلَاقِيهِ",
+          "ref": "84:6",
+          "surah": "İnşikâk",
+          "topic": {
+            "tr": "Rabbine yolculuk",
+            "en": "Journey to the Lord"
+          },
+          "tr": "Ey insan! Sen Rabbine doğru didinip durmaktasın; nihayet O'na kavuşacaksın.",
+          "en": "O human being! Indeed you are laboring toward your Lord with great exertion and you will meet Him."
+        }
+      ]
+    }
+  ]
+}

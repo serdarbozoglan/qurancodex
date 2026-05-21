@@ -1,0 +1,217 @@
+{
+  "surah": 110,
+  "name": "Surah 110",
+  "nameAr": "",
+  "nameTr": "",
+  "source": {
+    "name": "Quranic Arabic Corpus",
+    "author": "Kais Dukes",
+    "institution": "Leeds University",
+    "url": "https://corpus.quran.com",
+    "license": "GPL — atıfla / with attribution",
+    "fetchedAt": "2026-05-04",
+    "turkish": {
+      "name": "Diyanet İşleri Başkanlığı (kelime meal)",
+      "via": "QuranWBW.com (resource #77)",
+      "url": "https://quranwbw.com"
+    }
+  },
+  "verses": {
+    "1": [
+      {
+        "idx": 1,
+        "ar": "إِذَا",
+        "pos": "T",
+        "root": null,
+        "lemma": "إِذَا",
+        "features": "time adverb",
+        "featuresTr": "zaman zarfı",
+        "tr": "zaman"
+      },
+      {
+        "idx": 2,
+        "ar": "جَآءَ",
+        "pos": "V",
+        "root": "ج-ي-ا",
+        "lemma": "جَآءَ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "geldiği"
+      },
+      {
+        "idx": 3,
+        "ar": "نَصْرُ",
+        "pos": "N",
+        "root": "ن-ص-ر",
+        "lemma": "نَصْر",
+        "features": "masculine nominative noun",
+        "featuresTr": "müzekker merfu isim",
+        "tr": "yardımı"
+      },
+      {
+        "idx": 4,
+        "ar": "ٱللَّهِ",
+        "pos": "PN",
+        "root": "ا-ل-ه",
+        "lemma": "ٱللَّه",
+        "features": "genitive proper noun",
+        "featuresTr": "mecrur özel isim",
+        "tr": "Allah'ın"
+      },
+      {
+        "idx": 5,
+        "ar": "وَٱلْفَتْحُ",
+        "pos": "N",
+        "root": "ف-ت-ح",
+        "lemma": "فَتْح",
+        "features": "masculine nominative noun",
+        "featuresTr": "müzekker merfu isim",
+        "tr": "ve fetih"
+      }
+    ],
+    "2": [
+      {
+        "idx": 1,
+        "ar": "وَرَأَيْتَ",
+        "pos": "V",
+        "root": "ر-ا-ي",
+        "lemma": "رَءَا",
+        "features": "perfect 2nd person masculine singular verb",
+        "featuresTr": "mâzi muhâtab müzekker müfred fiil",
+        "tr": "ve gördüğün (zaman)"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلنَّاسَ",
+        "pos": "N",
+        "root": "ن-و-س",
+        "lemma": "نَّاس",
+        "features": "masculine plural accusative noun",
+        "featuresTr": "müzekker çoğul mansub isim",
+        "tr": "insanların"
+      },
+      {
+        "idx": 3,
+        "ar": "يَدْخُلُونَ",
+        "pos": "V",
+        "root": "د-خ-ل",
+        "lemma": "دَخَلَ",
+        "features": "imperfect 3rd person masculine plural verb",
+        "featuresTr": "muzâri gâib müzekker cem fiil",
+        "tr": "girdiklerini"
+      },
+      {
+        "idx": 4,
+        "ar": "فِى",
+        "pos": "P",
+        "root": null,
+        "lemma": "فِى",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "dinine"
+      },
+      {
+        "idx": 5,
+        "ar": "دِينِ",
+        "pos": "N",
+        "root": "د-ي-ن",
+        "lemma": "دِين",
+        "features": "genitive noun",
+        "featuresTr": "mecrur isim",
+        "tr": "*"
+      },
+      {
+        "idx": 6,
+        "ar": "ٱللَّهِ",
+        "pos": "PN",
+        "root": "ا-ل-ه",
+        "lemma": "ٱللَّه",
+        "features": "genitive proper noun",
+        "featuresTr": "mecrur özel isim",
+        "tr": "Allah'ın"
+      },
+      {
+        "idx": 7,
+        "ar": "أَفْوَاجًا",
+        "pos": "N",
+        "root": "ف-و-ج",
+        "lemma": "فَوْج",
+        "features": "plural indefinite accusative noun",
+        "featuresTr": "çoğul nekira mansub isim",
+        "tr": "dalga dalga"
+      }
+    ],
+    "3": [
+      {
+        "idx": 1,
+        "ar": "فَسَبِّحْ",
+        "pos": "V",
+        "root": "س-ب-ح",
+        "lemma": "سَبَّحَ",
+        "features": "imperative 2nd person masculine singular verb",
+        "featuresTr": "emir muhâtab müzekker müfred fiil",
+        "tr": "o halde tesbih et"
+      },
+      {
+        "idx": 2,
+        "ar": "بِحَمْدِ",
+        "pos": "N",
+        "root": "ح-م-د",
+        "lemma": "حَمْد",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "överek"
+      },
+      {
+        "idx": 3,
+        "ar": "رَبِّكَ",
+        "pos": "N",
+        "root": "ر-ب-ب",
+        "lemma": "رَبّ",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "Rabbini"
+      },
+      {
+        "idx": 4,
+        "ar": "وَٱسْتَغْفِرْهُ",
+        "pos": "V",
+        "root": "غ-ف-ر",
+        "lemma": "ٱسْتَغْفَرَ",
+        "features": "imperative 2nd person masculine singular verb",
+        "featuresTr": "emir muhâtab müzekker müfred fiil",
+        "tr": "ve O'ndan mağfiret dile"
+      },
+      {
+        "idx": 5,
+        "ar": "إِنَّهُ",
+        "pos": "ACC",
+        "root": null,
+        "lemma": "إِنّ",
+        "features": "accusative particle",
+        "featuresTr": "inne ve benzeri",
+        "tr": "çünkü O"
+      },
+      {
+        "idx": 6,
+        "ar": "كَانَ",
+        "pos": "V",
+        "root": "ك-و-ن",
+        "lemma": "كَانَ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "tevbeyi kabul edendir"
+      },
+      {
+        "idx": 7,
+        "ar": "تَوَّابًا",
+        "pos": "N",
+        "root": "ت-و-ب",
+        "lemma": "تَوَّاب",
+        "features": "active masculine singular indefinite accusative noun",
+        "featuresTr": "mâlum müzekker müfred nekira mansub isim",
+        "tr": "*"
+      }
+    ]
+  }
+}

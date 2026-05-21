@@ -1,0 +1,261 @@
+{
+  "surah": 113,
+  "name": "Surah 113",
+  "nameAr": "",
+  "nameTr": "",
+  "source": {
+    "name": "Quranic Arabic Corpus",
+    "author": "Kais Dukes",
+    "institution": "Leeds University",
+    "url": "https://corpus.quran.com",
+    "license": "GPL — atıfla / with attribution",
+    "fetchedAt": "2026-05-04",
+    "turkish": {
+      "name": "Diyanet İşleri Başkanlığı (kelime meal)",
+      "via": "QuranWBW.com (resource #77)",
+      "url": "https://quranwbw.com"
+    }
+  },
+  "verses": {
+    "1": [
+      {
+        "idx": 1,
+        "ar": "قُلْ",
+        "pos": "V",
+        "root": "ق-و-ل",
+        "lemma": "قَالَ",
+        "features": "imperative 2nd person masculine singular verb",
+        "featuresTr": "emir muhâtab müzekker müfred fiil",
+        "tr": "de ki"
+      },
+      {
+        "idx": 2,
+        "ar": "أَعُوذُ",
+        "pos": "V",
+        "root": "ع-و-ذ",
+        "lemma": "عُذْ",
+        "features": "imperfect 1st person singular verb",
+        "featuresTr": "muzâri mütekellim müfred fiil",
+        "tr": "sığınırım ben"
+      },
+      {
+        "idx": 3,
+        "ar": "بِرَبِّ",
+        "pos": "N",
+        "root": "ر-ب-ب",
+        "lemma": "رَبّ",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "Rabbe"
+      },
+      {
+        "idx": 4,
+        "ar": "ٱلْفَلَقِ",
+        "pos": "N",
+        "root": "ف-ل-ق",
+        "lemma": "فَلَق",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "karanlığı yarıp sabahı ortaya çıkaran"
+      }
+    ],
+    "2": [
+      {
+        "idx": 1,
+        "ar": "مِن",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "şerrinden"
+      },
+      {
+        "idx": 2,
+        "ar": "شَرِّ",
+        "pos": "N",
+        "root": "ش-ر-ر",
+        "lemma": "شَرّ",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "مَا",
+        "pos": "REL",
+        "root": null,
+        "lemma": "مَا",
+        "features": "relative pronoun",
+        "featuresTr": "ilgi zamiri (mevsûl)",
+        "tr": "şeylerin"
+      },
+      {
+        "idx": 4,
+        "ar": "خَلَقَ",
+        "pos": "V",
+        "root": "خ-ل-ق",
+        "lemma": "خَلَقَ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "yarattığı"
+      }
+    ],
+    "3": [
+      {
+        "idx": 1,
+        "ar": "وَمِن",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "ve"
+      },
+      {
+        "idx": 2,
+        "ar": "شَرِّ",
+        "pos": "N",
+        "root": "ش-ر-ر",
+        "lemma": "شَرّ",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "şerrinden"
+      },
+      {
+        "idx": 3,
+        "ar": "غَاسِقٍ",
+        "pos": "N",
+        "root": "غ-س-ق",
+        "lemma": "غَاسِق",
+        "features": "active masculine indefinite genitive noun",
+        "featuresTr": "mâlum müzekker nekira mecrur isim",
+        "tr": "gecenin"
+      },
+      {
+        "idx": 4,
+        "ar": "إِذَا",
+        "pos": "T",
+        "root": null,
+        "lemma": "إِذَا",
+        "features": "time adverb",
+        "featuresTr": "zaman zarfı",
+        "tr": "zaman"
+      },
+      {
+        "idx": 5,
+        "ar": "وَقَبَ",
+        "pos": "V",
+        "root": "و-ق-ب",
+        "lemma": "وَقَبَ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "karanlığı çöktüğü"
+      }
+    ],
+    "4": [
+      {
+        "idx": 1,
+        "ar": "وَمِن",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "ve"
+      },
+      {
+        "idx": 2,
+        "ar": "شَرِّ",
+        "pos": "N",
+        "root": "ش-ر-ر",
+        "lemma": "شَرّ",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "şerrinden"
+      },
+      {
+        "idx": 3,
+        "ar": "ٱلنَّفَّٰثَٰتِ",
+        "pos": "N",
+        "root": "ن-ف-ث",
+        "lemma": "نَّفَّٰثَٰت",
+        "features": "feminine plural genitive noun",
+        "featuresTr": "müennes çoğul mecrur isim",
+        "tr": "üfleyenlerin"
+      },
+      {
+        "idx": 4,
+        "ar": "فِى",
+        "pos": "P",
+        "root": null,
+        "lemma": "فِى",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "düğümlere"
+      },
+      {
+        "idx": 5,
+        "ar": "ٱلْعُقَدِ",
+        "pos": "N",
+        "root": "ع-ق-د",
+        "lemma": "عُقْدَة",
+        "features": "masculine plural genitive noun",
+        "featuresTr": "müzekker çoğul mecrur isim",
+        "tr": "*"
+      }
+    ],
+    "5": [
+      {
+        "idx": 1,
+        "ar": "وَمِن",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "ve"
+      },
+      {
+        "idx": 2,
+        "ar": "شَرِّ",
+        "pos": "N",
+        "root": "ش-ر-ر",
+        "lemma": "شَرّ",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "şerrinden"
+      },
+      {
+        "idx": 3,
+        "ar": "حَاسِدٍ",
+        "pos": "N",
+        "root": "ح-س-د",
+        "lemma": "حَاسِد",
+        "features": "active masculine indefinite genitive noun",
+        "featuresTr": "mâlum müzekker nekira mecrur isim",
+        "tr": "hasedcinin"
+      },
+      {
+        "idx": 4,
+        "ar": "إِذَا",
+        "pos": "T",
+        "root": null,
+        "lemma": "إِذَا",
+        "features": "time adverb",
+        "featuresTr": "zaman zarfı",
+        "tr": "zaman"
+      },
+      {
+        "idx": 5,
+        "ar": "حَسَدَ",
+        "pos": "V",
+        "root": "ح-س-د",
+        "lemma": "حَسَدَ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "hased ettiği"
+      }
+    ]
+  }
+}

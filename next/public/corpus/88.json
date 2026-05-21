@@ -1,0 +1,993 @@
+{
+  "surah": 88,
+  "name": "Surah 88",
+  "nameAr": "",
+  "nameTr": "",
+  "source": {
+    "name": "Quranic Arabic Corpus",
+    "author": "Kais Dukes",
+    "institution": "Leeds University",
+    "url": "https://corpus.quran.com",
+    "license": "GPL — atıfla / with attribution",
+    "fetchedAt": "2026-05-04",
+    "turkish": {
+      "name": "Diyanet İşleri Başkanlığı (kelime meal)",
+      "via": "QuranWBW.com (resource #77)",
+      "url": "https://quranwbw.com"
+    }
+  },
+  "verses": {
+    "1": [
+      {
+        "idx": 1,
+        "ar": "هَلْ",
+        "pos": "INTG",
+        "root": null,
+        "lemma": "هَل",
+        "features": "interrogative",
+        "featuresTr": "soru edatı",
+        "tr": "sana geldimi?"
+      },
+      {
+        "idx": 2,
+        "ar": "أَتَىٰكَ",
+        "pos": "V",
+        "root": "ا-ت-ي",
+        "lemma": "أَتَى",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "حَدِيثُ",
+        "pos": "N",
+        "root": "ح-د-ث",
+        "lemma": "حَدِيث",
+        "features": "masculine nominative noun",
+        "featuresTr": "müzekker merfu isim",
+        "tr": "haberi"
+      },
+      {
+        "idx": 4,
+        "ar": "ٱلْغَٰشِيَةِ",
+        "pos": "N",
+        "root": "غ-ش-و",
+        "lemma": "غَٰشِيَة",
+        "features": "active feminine singular genitive noun",
+        "featuresTr": "mâlum müennes müfred mecrur isim",
+        "tr": "sarıp kaplayacak olanın"
+      }
+    ],
+    "2": [
+      {
+        "idx": 1,
+        "ar": "وُجُوهٌ",
+        "pos": "N",
+        "root": "و-ج-ه",
+        "lemma": "وَجْه",
+        "features": "masculine plural indefinite nominative noun",
+        "featuresTr": "müzekker çoğul nekira merfu isim",
+        "tr": "yüzler var ki"
+      },
+      {
+        "idx": 2,
+        "ar": "يَوْمَئِذٍ",
+        "pos": "T",
+        "root": null,
+        "lemma": "يَوْمَئِذ",
+        "features": "time adverb",
+        "featuresTr": "zaman zarfı",
+        "tr": "o gün"
+      },
+      {
+        "idx": 3,
+        "ar": "خَٰشِعَةٌ",
+        "pos": "N",
+        "root": "خ-ش-ع",
+        "lemma": "خَاشِع",
+        "features": "active feminine singular indefinite nominative noun",
+        "featuresTr": "mâlum müennes müfred nekira merfu isim",
+        "tr": "öne düşüktür"
+      }
+    ],
+    "3": [
+      {
+        "idx": 1,
+        "ar": "عَامِلَةٌ",
+        "pos": "ADJ",
+        "root": "ع-م-ل",
+        "lemma": "عَامِلَة",
+        "features": "active feminine indefinite nominative adjective",
+        "featuresTr": "mâlum müennes nekira merfu sıfat",
+        "tr": "çalışır"
+      },
+      {
+        "idx": 2,
+        "ar": "نَّاصِبَةٌ",
+        "pos": "ADJ",
+        "root": "ن-ص-ب",
+        "lemma": "نَّاصِبَة",
+        "features": "active feminine indefinite nominative adjective",
+        "featuresTr": "mâlum müennes nekira merfu sıfat",
+        "tr": "yorulur"
+      }
+    ],
+    "4": [
+      {
+        "idx": 1,
+        "ar": "تَصْلَىٰ",
+        "pos": "V",
+        "root": "ص-ل-ي",
+        "lemma": "يَصْلَى",
+        "features": "imperfect 3rd person feminine singular verb",
+        "featuresTr": "muzâri gâib müennes müfred fiil",
+        "tr": "girerler"
+      },
+      {
+        "idx": 2,
+        "ar": "نَارًا",
+        "pos": "N",
+        "root": "ن-و-ر",
+        "lemma": "نَار",
+        "features": "feminine indefinite accusative noun",
+        "featuresTr": "müennes nekira mansub isim",
+        "tr": "ateşe"
+      },
+      {
+        "idx": 3,
+        "ar": "حَامِيَةً",
+        "pos": "ADJ",
+        "root": "ح-م-ي",
+        "lemma": "حَامِيَة",
+        "features": "active feminine indefinite accusative adjective",
+        "featuresTr": "mâlum müennes nekira mansub sıfat",
+        "tr": "kızgın"
+      }
+    ],
+    "5": [
+      {
+        "idx": 1,
+        "ar": "تُسْقَىٰ",
+        "pos": "V",
+        "root": "س-ق-ي",
+        "lemma": "سَقَىٰ",
+        "features": "imperfect passive 3rd person feminine singular verb",
+        "featuresTr": "muzâri meçhul gâib müennes müfred fiil",
+        "tr": "kendilerine içirilir"
+      },
+      {
+        "idx": 2,
+        "ar": "مِنْ",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "bir gözeden"
+      },
+      {
+        "idx": 3,
+        "ar": "عَيْنٍ",
+        "pos": "N",
+        "root": "ع-ي-ن",
+        "lemma": "عَيْن",
+        "features": "feminine indefinite genitive noun",
+        "featuresTr": "müennes nekira mecrur isim",
+        "tr": "*"
+      },
+      {
+        "idx": 4,
+        "ar": "ءَانِيَةٍ",
+        "pos": "ADJ",
+        "root": "ا-ن-ي",
+        "lemma": "ءَانِيَة",
+        "features": "active feminine indefinite genitive adjective",
+        "featuresTr": "mâlum müennes nekira mecrur sıfat",
+        "tr": "kaynamış"
+      }
+    ],
+    "6": [
+      {
+        "idx": 1,
+        "ar": "لَّيْسَ",
+        "pos": "V",
+        "root": "ل-ي-س",
+        "lemma": "لَّيْسَ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "yoktur"
+      },
+      {
+        "idx": 2,
+        "ar": "لَهُمْ",
+        "pos": "PRON",
+        "root": null,
+        "lemma": null,
+        "features": "3rd person masculine plural pronoun",
+        "featuresTr": "gâib müzekker cem zamir",
+        "tr": "onlar için"
+      },
+      {
+        "idx": 3,
+        "ar": "طَعَامٌ",
+        "pos": "N",
+        "root": "ط-ع-م",
+        "lemma": "طَعَام",
+        "features": "masculine indefinite nominative noun",
+        "featuresTr": "müzekker nekira merfu isim",
+        "tr": "yiyecek"
+      },
+      {
+        "idx": 4,
+        "ar": "إِلَّا",
+        "pos": "EXP",
+        "root": null,
+        "lemma": "إِلَّا",
+        "features": "expository particle",
+        "featuresTr": "açıklayıcı edat",
+        "tr": "başka"
+      },
+      {
+        "idx": 5,
+        "ar": "مِن",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "kuru dikenden"
+      },
+      {
+        "idx": 6,
+        "ar": "ضَرِيعٍ",
+        "pos": "N",
+        "root": "ض-ر-ع",
+        "lemma": "ضَرِيع",
+        "features": "masculine indefinite genitive noun",
+        "featuresTr": "müzekker nekira mecrur isim",
+        "tr": "*"
+      }
+    ],
+    "7": [
+      {
+        "idx": 1,
+        "ar": "لَّا",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَا",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "o beslemez"
+      },
+      {
+        "idx": 2,
+        "ar": "يُسْمِنُ",
+        "pos": "V",
+        "root": "س-م-ن",
+        "lemma": "يُسْمِنُ",
+        "features": "imperfect 3rd person masculine singular verb",
+        "featuresTr": "muzâri gâib müzekker müfred fiil",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "وَلَا",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَا",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "ve"
+      },
+      {
+        "idx": 4,
+        "ar": "يُغْنِى",
+        "pos": "V",
+        "root": "غ-ن-ي",
+        "lemma": "أَغْنَتْ",
+        "features": "imperfect 3rd person masculine singular verb",
+        "featuresTr": "muzâri gâib müzekker müfred fiil",
+        "tr": "gidermez"
+      },
+      {
+        "idx": 5,
+        "ar": "مِن",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "açlığından bir şey"
+      },
+      {
+        "idx": 6,
+        "ar": "جُوعٍ",
+        "pos": "N",
+        "root": "ج-و-ع",
+        "lemma": "جُوع",
+        "features": "masculine indefinite genitive noun",
+        "featuresTr": "müzekker nekira mecrur isim",
+        "tr": "*"
+      }
+    ],
+    "8": [
+      {
+        "idx": 1,
+        "ar": "وُجُوهٌ",
+        "pos": "N",
+        "root": "و-ج-ه",
+        "lemma": "وَجْه",
+        "features": "masculine plural indefinite nominative noun",
+        "featuresTr": "müzekker çoğul nekira merfu isim",
+        "tr": "yüzler de var ki"
+      },
+      {
+        "idx": 2,
+        "ar": "يَوْمَئِذٍ",
+        "pos": "T",
+        "root": null,
+        "lemma": "يَوْمَئِذ",
+        "features": "time adverb",
+        "featuresTr": "zaman zarfı",
+        "tr": "o gün"
+      },
+      {
+        "idx": 3,
+        "ar": "نَّاعِمَةٌ",
+        "pos": "N",
+        "root": "ن-ع-م",
+        "lemma": "نَّاعِمَة",
+        "features": "active feminine indefinite nominative noun",
+        "featuresTr": "mâlum müennes nekira merfu isim",
+        "tr": "ni'met içinde mutludur"
+      }
+    ],
+    "9": [
+      {
+        "idx": 1,
+        "ar": "لِّسَعْيِهَا",
+        "pos": "N",
+        "root": "س-ع-ي",
+        "lemma": "سَعْي",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "işinden"
+      },
+      {
+        "idx": 2,
+        "ar": "رَاضِيَةٌ",
+        "pos": "N",
+        "root": "ر-ض-و",
+        "lemma": "رَاضِيَة",
+        "features": "active feminine indefinite nominative noun",
+        "featuresTr": "mâlum müennes nekira merfu isim",
+        "tr": "memnun"
+      }
+    ],
+    "10": [
+      {
+        "idx": 1,
+        "ar": "فِى",
+        "pos": "P",
+        "root": null,
+        "lemma": "فِى",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "bir bahçededir"
+      },
+      {
+        "idx": 2,
+        "ar": "جَنَّةٍ",
+        "pos": "N",
+        "root": "ج-ن-ن",
+        "lemma": "جَنَّة",
+        "features": "feminine indefinite genitive noun",
+        "featuresTr": "müennes nekira mecrur isim",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "عَالِيَةٍ",
+        "pos": "ADJ",
+        "root": "ع-ل-و",
+        "lemma": "عَالِيَة",
+        "features": "active feminine indefinite genitive adjective",
+        "featuresTr": "mâlum müennes nekira mecrur sıfat",
+        "tr": "yüksek"
+      }
+    ],
+    "11": [
+      {
+        "idx": 1,
+        "ar": "لَّا",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَا",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "işitmezler"
+      },
+      {
+        "idx": 2,
+        "ar": "تَسْمَعُ",
+        "pos": "V",
+        "root": "س-م-ع",
+        "lemma": "سَمِعَ",
+        "features": "imperfect 2nd person masculine singular verb",
+        "featuresTr": "muzâri muhâtab müzekker müfred fiil",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "فِيهَا",
+        "pos": "P",
+        "root": null,
+        "lemma": "فِى",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "orada"
+      },
+      {
+        "idx": 4,
+        "ar": "لَٰغِيَةً",
+        "pos": "N",
+        "root": "ل-غ-و",
+        "lemma": "لَٰغِيَة",
+        "features": "active feminine indefinite accusative noun",
+        "featuresTr": "mâlum müennes nekira mansub isim",
+        "tr": "boş söz"
+      }
+    ],
+    "12": [
+      {
+        "idx": 1,
+        "ar": "فِيهَا",
+        "pos": "P",
+        "root": null,
+        "lemma": "فِى",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "orada vardır"
+      },
+      {
+        "idx": 2,
+        "ar": "عَيْنٌ",
+        "pos": "N",
+        "root": "ع-ي-ن",
+        "lemma": "عَيْن",
+        "features": "feminine indefinite nominative noun",
+        "featuresTr": "müennes nekira merfu isim",
+        "tr": "bir kaynak"
+      },
+      {
+        "idx": 3,
+        "ar": "جَارِيَةٌ",
+        "pos": "ADJ",
+        "root": "ج-ر-ي",
+        "lemma": "جَارِيَة",
+        "features": "active feminine indefinite nominative adjective",
+        "featuresTr": "mâlum müennes nekira merfu sıfat",
+        "tr": "akan"
+      }
+    ],
+    "13": [
+      {
+        "idx": 1,
+        "ar": "فِيهَا",
+        "pos": "P",
+        "root": null,
+        "lemma": "فِى",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "orada"
+      },
+      {
+        "idx": 2,
+        "ar": "سُرُرٌ",
+        "pos": "N",
+        "root": "س-ر-ر",
+        "lemma": "سُرُر",
+        "features": "masculine plural indefinite nominative noun",
+        "featuresTr": "müzekker çoğul nekira merfu isim",
+        "tr": "tahtlar"
+      },
+      {
+        "idx": 3,
+        "ar": "مَّرْفُوعَةٌ",
+        "pos": "ADJ",
+        "root": "ر-ف-ع",
+        "lemma": "مَّرْفُوعَة",
+        "features": "passive feminine indefinite nominative adjective",
+        "featuresTr": "meçhul müennes nekira merfu sıfat",
+        "tr": "yükseltilmiş"
+      }
+    ],
+    "14": [
+      {
+        "idx": 1,
+        "ar": "وَأَكْوَابٌ",
+        "pos": "N",
+        "root": "ك-و-ب",
+        "lemma": "أَكْوَاب",
+        "features": "masculine plural indefinite nominative noun",
+        "featuresTr": "müzekker çoğul nekira merfu isim",
+        "tr": "ve kadehler"
+      },
+      {
+        "idx": 2,
+        "ar": "مَّوْضُوعَةٌ",
+        "pos": "ADJ",
+        "root": "و-ض-ع",
+        "lemma": "مَّوْضُوعَة",
+        "features": "passive feminine indefinite nominative adjective",
+        "featuresTr": "meçhul müennes nekira merfu sıfat",
+        "tr": "konulmuş"
+      }
+    ],
+    "15": [
+      {
+        "idx": 1,
+        "ar": "وَنَمَارِقُ",
+        "pos": "N",
+        "root": null,
+        "lemma": "نَمَارِق",
+        "features": "masculine plural indefinite nominative noun",
+        "featuresTr": "müzekker çoğul nekira merfu isim",
+        "tr": "ve yastıklar"
+      },
+      {
+        "idx": 2,
+        "ar": "مَصْفُوفَةٌ",
+        "pos": "ADJ",
+        "root": "ص-ف-ف",
+        "lemma": "مَصْفُوفَة",
+        "features": "passive feminine indefinite nominative adjective",
+        "featuresTr": "meçhul müennes nekira merfu sıfat",
+        "tr": "dizilmiş"
+      }
+    ],
+    "16": [
+      {
+        "idx": 1,
+        "ar": "وَزَرَابِىُّ",
+        "pos": "N",
+        "root": null,
+        "lemma": "زَرَابِىّ",
+        "features": "masculine plural indefinite nominative noun",
+        "featuresTr": "müzekker çoğul nekira merfu isim",
+        "tr": "ve halılar"
+      },
+      {
+        "idx": 2,
+        "ar": "مَبْثُوثَةٌ",
+        "pos": "ADJ",
+        "root": "ب-ث-ث",
+        "lemma": "مَبْثُوثَة",
+        "features": "passive feminine indefinite nominative adjective",
+        "featuresTr": "meçhul müennes nekira merfu sıfat",
+        "tr": "serilmiş"
+      }
+    ],
+    "17": [
+      {
+        "idx": 1,
+        "ar": "أَفَلَا",
+        "pos": "NEG",
+        "root": null,
+        "lemma": "لَا",
+        "features": "negative particle",
+        "featuresTr": "olumsuzluk edatı",
+        "tr": "bakmıyorlar mı?"
+      },
+      {
+        "idx": 2,
+        "ar": "يَنظُرُونَ",
+        "pos": "V",
+        "root": "ن-ظ-ر",
+        "lemma": "نَّظَرَ",
+        "features": "imperfect 3rd person masculine plural verb",
+        "featuresTr": "muzâri gâib müzekker cem fiil",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "إِلَى",
+        "pos": "P",
+        "root": null,
+        "lemma": "إِلَىٰ",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "develere"
+      },
+      {
+        "idx": 4,
+        "ar": "ٱلْإِبِلِ",
+        "pos": "N",
+        "root": "ا-ب-ل",
+        "lemma": "إِبِل",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "*"
+      },
+      {
+        "idx": 5,
+        "ar": "كَيْفَ",
+        "pos": "INTG",
+        "root": "ك-ي-ف",
+        "lemma": "كَيْف",
+        "features": "interrogative",
+        "featuresTr": "soru edatı",
+        "tr": "nasıl"
+      },
+      {
+        "idx": 6,
+        "ar": "خُلِقَتْ",
+        "pos": "V",
+        "root": "خ-ل-ق",
+        "lemma": "خَلَقَ",
+        "features": "perfect passive 3rd person feminine singular verb",
+        "featuresTr": "mâzi meçhul gâib müennes müfred fiil",
+        "tr": "yaratılmış"
+      }
+    ],
+    "18": [
+      {
+        "idx": 1,
+        "ar": "وَإِلَى",
+        "pos": "P",
+        "root": null,
+        "lemma": "إِلَىٰ",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "ve"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلسَّمَآءِ",
+        "pos": "N",
+        "root": "س-م-و",
+        "lemma": "سَمَآء",
+        "features": "feminine genitive noun",
+        "featuresTr": "müennes mecrur isim",
+        "tr": "göğe"
+      },
+      {
+        "idx": 3,
+        "ar": "كَيْفَ",
+        "pos": "INTG",
+        "root": "ك-ي-ف",
+        "lemma": "كَيْف",
+        "features": "interrogative",
+        "featuresTr": "soru edatı",
+        "tr": "nasıl?"
+      },
+      {
+        "idx": 4,
+        "ar": "رُفِعَتْ",
+        "pos": "V",
+        "root": "ر-ف-ع",
+        "lemma": "رَفَعَ",
+        "features": "perfect passive 3rd person feminine singular verb",
+        "featuresTr": "mâzi meçhul gâib müennes müfred fiil",
+        "tr": "yükseltilmiş"
+      }
+    ],
+    "19": [
+      {
+        "idx": 1,
+        "ar": "وَإِلَى",
+        "pos": "P",
+        "root": null,
+        "lemma": "إِلَىٰ",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "ve"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلْجِبَالِ",
+        "pos": "N",
+        "root": "ج-ب-ل",
+        "lemma": "جَبَل",
+        "features": "masculine plural genitive noun",
+        "featuresTr": "müzekker çoğul mecrur isim",
+        "tr": "dağlara"
+      },
+      {
+        "idx": 3,
+        "ar": "كَيْفَ",
+        "pos": "INTG",
+        "root": "ك-ي-ف",
+        "lemma": "كَيْف",
+        "features": "interrogative",
+        "featuresTr": "soru edatı",
+        "tr": "nasıl?"
+      },
+      {
+        "idx": 4,
+        "ar": "نُصِبَتْ",
+        "pos": "V",
+        "root": "ن-ص-ب",
+        "lemma": "نُصِبَتْ",
+        "features": "perfect passive 3rd person feminine singular verb",
+        "featuresTr": "mâzi meçhul gâib müennes müfred fiil",
+        "tr": "dikilmiş"
+      }
+    ],
+    "20": [
+      {
+        "idx": 1,
+        "ar": "وَإِلَى",
+        "pos": "P",
+        "root": null,
+        "lemma": "إِلَىٰ",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "ve"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلْأَرْضِ",
+        "pos": "N",
+        "root": "ا-ر-ض",
+        "lemma": "أَرْض",
+        "features": "feminine genitive noun",
+        "featuresTr": "müennes mecrur isim",
+        "tr": "yere"
+      },
+      {
+        "idx": 3,
+        "ar": "كَيْفَ",
+        "pos": "INTG",
+        "root": "ك-ي-ف",
+        "lemma": "كَيْف",
+        "features": "interrogative",
+        "featuresTr": "soru edatı",
+        "tr": "nasıl?"
+      },
+      {
+        "idx": 4,
+        "ar": "سُطِحَتْ",
+        "pos": "V",
+        "root": "س-ط-ح",
+        "lemma": "سُطِحَتْ",
+        "features": "perfect passive 3rd person feminine singular verb",
+        "featuresTr": "mâzi meçhul gâib müennes müfred fiil",
+        "tr": "yayılıp döşenmiş"
+      }
+    ],
+    "21": [
+      {
+        "idx": 1,
+        "ar": "فَذَكِّرْ",
+        "pos": "V",
+        "root": "ذ-ك-ر",
+        "lemma": "ذُكِّرَ",
+        "features": "imperative 2nd person masculine singular verb",
+        "featuresTr": "emir muhâtab müzekker müfred fiil",
+        "tr": "öğüt ver"
+      },
+      {
+        "idx": 2,
+        "ar": "إِنَّمَآ",
+        "pos": "ACC",
+        "root": null,
+        "lemma": "إِنّ",
+        "features": "accusative particle",
+        "featuresTr": "inne ve benzeri",
+        "tr": "çünkü ancak"
+      },
+      {
+        "idx": 3,
+        "ar": "أَنتَ",
+        "pos": "PRON",
+        "root": null,
+        "lemma": null,
+        "features": "2nd person masculine singular pronoun",
+        "featuresTr": "muhâtab müzekker müfred zamir",
+        "tr": "sen"
+      },
+      {
+        "idx": 4,
+        "ar": "مُذَكِّرٌ",
+        "pos": "N",
+        "root": "ذ-ك-ر",
+        "lemma": "مُذَكِّر",
+        "features": "active masculine indefinite nominative noun",
+        "featuresTr": "mâlum müzekker nekira merfu isim",
+        "tr": "öğüt verensin"
+      }
+    ],
+    "22": [
+      {
+        "idx": 1,
+        "ar": "لَّسْتَ",
+        "pos": "V",
+        "root": "ل-ي-س",
+        "lemma": "لَّيْسَ",
+        "features": "perfect 2nd person masculine singular verb",
+        "featuresTr": "mâzi muhâtab müzekker müfred fiil",
+        "tr": "değilsin"
+      },
+      {
+        "idx": 2,
+        "ar": "عَلَيْهِم",
+        "pos": "P",
+        "root": null,
+        "lemma": "عَلَىٰ",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "onların üzerinde"
+      },
+      {
+        "idx": 3,
+        "ar": "بِمُصَيْطِرٍ",
+        "pos": "N",
+        "root": "س-ط-ر",
+        "lemma": "مُصَيْطِر",
+        "features": "active masculine indefinite genitive noun",
+        "featuresTr": "mâlum müzekker nekira mecrur isim",
+        "tr": "zorlayıcı"
+      }
+    ],
+    "23": [
+      {
+        "idx": 1,
+        "ar": "إِلَّا",
+        "pos": "EXP",
+        "root": null,
+        "lemma": "إِلَّا",
+        "features": "expository particle",
+        "featuresTr": "açıklayıcı edat",
+        "tr": "ancak"
+      },
+      {
+        "idx": 2,
+        "ar": "مَن",
+        "pos": "REL",
+        "root": null,
+        "lemma": "مَن",
+        "features": "relative pronoun",
+        "featuresTr": "ilgi zamiri (mevsûl)",
+        "tr": "kim"
+      },
+      {
+        "idx": 3,
+        "ar": "تَوَلَّىٰ",
+        "pos": "V",
+        "root": "و-ل-ي",
+        "lemma": "تَوَلَّىٰ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "yüz çevirirse"
+      },
+      {
+        "idx": 4,
+        "ar": "وَكَفَرَ",
+        "pos": "V",
+        "root": "ك-ف-ر",
+        "lemma": "كَفَرَ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "ve inanmazsa"
+      }
+    ],
+    "24": [
+      {
+        "idx": 1,
+        "ar": "فَيُعَذِّبُهُ",
+        "pos": "V",
+        "root": "ع-ذ-ب",
+        "lemma": "عَذَّبَ",
+        "features": "imperfect 3rd person masculine singular verb",
+        "featuresTr": "muzâri gâib müzekker müfred fiil",
+        "tr": "ona azab eder"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱللَّهُ",
+        "pos": "PN",
+        "root": "ا-ل-ه",
+        "lemma": "ٱللَّه",
+        "features": "nominative proper noun",
+        "featuresTr": "merfu özel isim",
+        "tr": "Allah"
+      },
+      {
+        "idx": 3,
+        "ar": "ٱلْعَذَابَ",
+        "pos": "N",
+        "root": "ع-ذ-ب",
+        "lemma": "عَذَاب",
+        "features": "masculine accusative noun",
+        "featuresTr": "müzekker mansub isim",
+        "tr": "azabla"
+      },
+      {
+        "idx": 4,
+        "ar": "ٱلْأَكْبَرَ",
+        "pos": "ADJ",
+        "root": "ك-ب-ر",
+        "lemma": "أَكْبَر",
+        "features": "masculine singular accusative adjective",
+        "featuresTr": "müzekker müfred mansub sıfat",
+        "tr": "en büyük"
+      }
+    ],
+    "25": [
+      {
+        "idx": 1,
+        "ar": "إِنَّ",
+        "pos": "ACC",
+        "root": null,
+        "lemma": "إِنّ",
+        "features": "accusative particle",
+        "featuresTr": "inne ve benzeri",
+        "tr": "şüphesiz"
+      },
+      {
+        "idx": 2,
+        "ar": "إِلَيْنَآ",
+        "pos": "P",
+        "root": null,
+        "lemma": "إِلَىٰ",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "bizedir"
+      },
+      {
+        "idx": 3,
+        "ar": "إِيَابَهُمْ",
+        "pos": "N",
+        "root": "ا-و-ب",
+        "lemma": "إِيَاب",
+        "features": "masculine accusative noun",
+        "featuresTr": "müzekker mansub isim",
+        "tr": "dönüşleri"
+      }
+    ],
+    "26": [
+      {
+        "idx": 1,
+        "ar": "ثُمَّ",
+        "pos": "CONJ",
+        "root": null,
+        "lemma": "ثُمّ",
+        "features": "conjunction",
+        "featuresTr": "bağlaç",
+        "tr": "sonra"
+      },
+      {
+        "idx": 2,
+        "ar": "إِنَّ",
+        "pos": "ACC",
+        "root": null,
+        "lemma": "إِنّ",
+        "features": "accusative particle",
+        "featuresTr": "inne ve benzeri",
+        "tr": "şüphesiz"
+      },
+      {
+        "idx": 3,
+        "ar": "عَلَيْنَا",
+        "pos": "P",
+        "root": null,
+        "lemma": "عَلَىٰ",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "bize düşer"
+      },
+      {
+        "idx": 4,
+        "ar": "حِسَابَهُم",
+        "pos": "N",
+        "root": "ح-س-ب",
+        "lemma": "حِسَاب",
+        "features": "masculine accusative noun",
+        "featuresTr": "müzekker mansub isim",
+        "tr": "onların hesabı"
+      }
+    ]
+  }
+}

@@ -1,0 +1,680 @@
+{
+  "cennetIsimleri": [
+    {
+      "id": "cennet",
+      "nameAr": "الْجَنَّة",
+      "nameTr": "El-Cennet",
+      "nameEn": "Al-Jannah",
+      "meaningTr": "Bahçe, örtülü, gizlenmiş yer",
+      "meaningEn": "Garden, covered or hidden place",
+      "frequency": "~147 kez",
+      "frequencyEn": "~147 times",
+      "kaynak": "Bakara 2:25 ve çok sayıda ayette",
+      "kaynakEn": "Al-Baqara 2:25 and numerous verses",
+      "notTr": "Tüm cennet isimlerini kapsayan genel addır. Kelime kökü 'örtülmek, gizlenmek' anlamına gelir. En sık geçen cennet ismidir.",
+      "notEn": "The general name encompassing all names of Paradise. The root means 'to be covered or hidden.' The most frequently occurring name.",
+      "isHadis": false
+    },
+    {
+      "id": "firdevs",
+      "nameAr": "الْفِرْدَوْس",
+      "nameTr": "El-Firdevs",
+      "nameEn": "Al-Firdaws",
+      "meaningTr": "Cennetin en yüksek ve en merkezi bahçesi",
+      "meaningEn": "The highest and most central garden of Paradise",
+      "frequency": "2 kez",
+      "frequencyEn": "2 times",
+      "kaynak": "Kehf 18:107, Mü'minûn 23:11",
+      "kaynakEn": "Al-Kahf 18:107, Al-Mu'minun 23:11",
+      "notTr": "Farsça 'Pardis' kökenli — İngilizce 'paradise' kelimesi de buradan gelir. Rivayete göre cennet nehirleri Firdevs'ten doğar.",
+      "notEn": "Derived from Persian 'Pardis' — the English word 'paradise' also comes from here. According to narrations, the rivers of Paradise spring from Al-Firdaws.",
+      "isHadis": true
+    },
+    {
+      "id": "adn",
+      "nameAr": "جَنَّةُ عَدْنٍ",
+      "nameTr": "Cennetü Adn",
+      "nameEn": "Jannat 'Adn",
+      "meaningTr": "Kalıcı ikamet cenneti, ebedilik yurdu",
+      "meaningEn": "The garden of perpetual residence, abode of eternity",
+      "frequency": "11 kez",
+      "frequencyEn": "11 times",
+      "kaynak": "Tevbe 9:72, Ra'd 13:23, Beyyine 98:8",
+      "kaynakEn": "At-Tawba 9:72, Ar-Ra'd 13:23, Al-Bayyina 98:8",
+      "notTr": "'Adn' ikamet etmek demektir. 'Adn Cennetleri' çoğul kullanımı, cennetin kendi içinde tabakalar barındırdığına işaret eder.",
+      "notEn": "'Adn' means to reside or settle. The plural usage 'Gardens of 'Adn' suggests that Paradise contains multiple levels within itself.",
+      "isHadis": false
+    },
+    {
+      "id": "naim",
+      "nameAr": "جَنَّةُ النَّعِيمِ",
+      "nameTr": "Cennetü'n-Naîm",
+      "nameEn": "Jannat al-Na'im",
+      "meaningTr": "Nimetlerle dolu cennet",
+      "meaningEn": "The garden of bliss and bounty",
+      "frequency": "13+ kez",
+      "frequencyEn": "13+ times",
+      "kaynak": "Mâide 5:65, Yûnus 10:9, Hac 22:56",
+      "kaynakEn": "Al-Ma'ida 5:65, Yunus 10:9, Al-Hajj 22:56",
+      "notTr": "'Naîm' refah, huzur ve nimet anlamındadır. Kur'an'da çoğul olarak da geçer: 'Naîm Cennetleri.'",
+      "notEn": "'Na'im' means bliss, ease, and bounty. It also appears in plural form in the Quran: 'Gardens of Bliss.'",
+      "isHadis": false
+    },
+    {
+      "id": "meva",
+      "nameAr": "جَنَّةُ الْمَأْوَى",
+      "nameTr": "Cennetü'l-Me'vâ",
+      "nameEn": "Jannat al-Ma'wa",
+      "meaningTr": "Sığınak, barınak cenneti",
+      "meaningEn": "The garden of refuge and shelter",
+      "frequency": "2+ kez",
+      "frequencyEn": "2+ times",
+      "kaynak": "Secde 32:19, Necm 53:15",
+      "kaynakEn": "As-Sajda 32:19, An-Najm 53:15",
+      "notTr": "Sidretü'l-Müntehâ'nın yanında konumlandırılır. Şehidlerin yeri olduğuna dair rivayet mevcuttur.",
+      "notEn": "Located near the Sidrat al-Muntaha (Lote Tree of the Utmost Boundary). There are narrations that it is the abode of martyrs.",
+      "isHadis": true
+    },
+    {
+      "id": "darussalam",
+      "nameAr": "دَارُ السَّلَامِ",
+      "nameTr": "Dâru's-Selâm",
+      "nameEn": "Dar al-Salam",
+      "meaningTr": "Esenlik yurdu, huzur evi",
+      "meaningEn": "The abode of peace",
+      "frequency": "2 kez",
+      "frequencyEn": "2 times",
+      "kaynak": "En'âm 6:127, Yûnus 10:25",
+      "kaynakEn": "Al-An'am 6:127, Yunus 10:25",
+      "notTr": "Allah'ın doğrudan 'davet ettiği' yer olarak anılır. Yalnızca bu isimde böyle bir davet ifadesi yer alır.",
+      "notEn": "Referenced as the place to which Allah directly 'calls.' This specific expression of divine invitation appears only with this name.",
+      "isHadis": false
+    },
+    {
+      "id": "huld",
+      "nameAr": "دَارُ الْخُلْدِ",
+      "nameTr": "Dâru'l-Huld / Dâru'l-Mukâme",
+      "nameEn": "Dar al-Khuld / Dar al-Muqama",
+      "meaningTr": "Ebedilik yurdu / Kalıcı konut",
+      "meaningEn": "The abode of eternity / The permanent dwelling",
+      "frequency": "2 kez",
+      "frequencyEn": "2 times",
+      "kaynak": "Furkân 25:15, Fâtır 35:35",
+      "kaynakEn": "Al-Furqan 25:15, Fatir 35:35",
+      "notTr": "Fâtır 35:35'te cennet ehli bu ismi bizzat kullanıyor: 'Bizi Dâru'l-Mukâme'ye kondurdu.' Kur'an'da sakinlerinin koyduğu tek cennet ismidir.",
+      "notEn": "In Fatir 35:35, the people of Paradise themselves use this name: 'He has settled us in the Abode of Permanence.' The only name for Paradise coined by its inhabitants in the Quran.",
+      "isHadis": false
+    },
+    {
+      "id": "makamul-emin",
+      "nameAr": "الْمَقَامُ الْأَمِينُ",
+      "nameTr": "El-Makâmü'l-Emîn",
+      "nameEn": "Al-Maqam al-Amin",
+      "meaningTr": "Güvenli, emniyetli makam",
+      "meaningEn": "The secure, trustworthy station",
+      "frequency": "1 kez",
+      "frequencyEn": "1 time",
+      "kaynak": "Duhân 44:51",
+      "kaynakEn": "Ad-Dukhan 44:51",
+      "notTr": "Müttakilerin yeri olarak tarif edilen bu isim yalnızca tek bir ayette geçer.",
+      "notEn": "Described as the place of the righteous (muttaqin), this name appears in only one verse.",
+      "isHadis": false
+    },
+    {
+      "id": "illiyyun",
+      "nameAr": "عِلِّيُّونَ",
+      "nameTr": "İlliyyûn",
+      "nameEn": "Illiyyun",
+      "meaningTr": "En yüksek, yüce makam",
+      "meaningEn": "The highest, most exalted place",
+      "frequency": "3 kez",
+      "frequencyEn": "3 times",
+      "kaynak": "Mutaffifîn 83:18-21",
+      "kaynakEn": "Al-Mutaffifin 83:18-21",
+      "notTr": "Kur'an'da geçer, ancak cennet ismi mi yoksa iyilerin kitabı mı olduğu müfessirler arasında tartışmalıdır.",
+      "notEn": "Mentioned in the Quran, but there is scholarly debate on whether it refers to a place in Paradise or the record book of the righteous.",
+      "isHadis": false,
+      "isTartismaali": true
+    }
+  ],
+
+  "cehennemIsimleri": [
+    {
+      "id": "cehennem",
+      "nameAr": "جَهَنَّمُ",
+      "nameTr": "Cehennem",
+      "nameEn": "Jahannam",
+      "meaningTr": "Derin kuyu, dibi görülmez uçurum",
+      "meaningEn": "Deep pit, bottomless abyss",
+      "frequency": "77 kez",
+      "frequencyEn": "77 times",
+      "kaynak": "Pek çok ayette",
+      "kaynakEn": "In many verses",
+      "notTr": "Yedi ismin tümünü kapsayan genel addır. Kökü Arapça değil — İbranice/Aramice 'Gehinnom'dan türediğine dair etimoloji tartışması vardır.",
+      "notEn": "The general name encompassing all seven names. Its root is not Arabic — there is etymological debate about its derivation from the Hebrew/Aramaic 'Gehinnom.'",
+      "isHadis": false,
+      "isTartismaali": true
+    },
+    {
+      "id": "cahim",
+      "nameAr": "الْجَحِيمُ",
+      "nameTr": "El-Cahîm",
+      "nameEn": "Al-Jahim",
+      "meaningTr": "Kat kat yanan, alevi ve ısısı son derece yüksek ateş",
+      "meaningEn": "Intensely blazing fire with layered, extreme heat",
+      "frequency": "26 kez",
+      "frequencyEn": "26 times",
+      "kaynak": "Sâffât 37:23, 37:55, 37:64",
+      "kaynakEn": "As-Saffat 37:23, 37:55, 37:64",
+      "notTr": "Sâffât 37:64'te zakkum ağacının 'Cahîm'in dibinden çıktığı' söylenir. Cahîm ve zakkum bu ayette doğrudan birbirine bağlanır.",
+      "notEn": "In As-Saffat 37:64 it is stated that the zaqqum tree 'grows from the bottom of Al-Jahim.' Jahim and zaqqum are directly linked in this verse.",
+      "isHadis": false
+    },
+    {
+      "id": "haviye",
+      "nameAr": "الْهَاوِيَةُ",
+      "nameTr": "El-Hâviye",
+      "nameEn": "Al-Hawiya",
+      "meaningTr": "Uçurum, derin çukur",
+      "meaningEn": "Abyss, deep pit",
+      "frequency": "1 kez",
+      "frequencyEn": "1 time",
+      "kaynak": "Kâria 101:9-11",
+      "kaynakEn": "Al-Qari'a 101:9-11",
+      "notTr": "Kâria sûresi bu ismi bizzat tanımlar: 'Hâviye nedir bilir misin? O, kızgın bir ateştir.' Kur'an'da kendini açıklayan iki cehennem isminden biridir.",
+      "notEn": "Surah Al-Qari'a defines this name itself: 'And what will make you know what the Hawiya is? It is a blazing fire.' One of two self-defining names for Hell in the Quran.",
+      "isHadis": false
+    },
+    {
+      "id": "hutame",
+      "nameAr": "الْحُطَمَةُ",
+      "nameTr": "El-Hutame",
+      "nameEn": "Al-Hutama",
+      "meaningTr": "Kırıp ufalayan, parçalayan ateş",
+      "meaningEn": "The Crusher, the shattering fire",
+      "frequency": "2 kez",
+      "frequencyEn": "2 times",
+      "kaynak": "Hümeze 104:4-7",
+      "kaynakEn": "Al-Humaza 104:4-7",
+      "notTr": "'Allah'ın yüreklere kadar tırmanan ateşi' olarak tanımlanır. Hem fiziksel hem psikolojik boyutunu ima eden tek cehennem tasvirdir.",
+      "notEn": "Described as 'the fire of Allah, kindled to the very hearts.' The only description of Hell that implies both a physical and psychological dimension.",
+      "isHadis": false
+    },
+    {
+      "id": "leza",
+      "nameAr": "لَظَى",
+      "nameTr": "Lezâ",
+      "nameEn": "Laza",
+      "meaningTr": "Halis, katıksız alev",
+      "meaningEn": "Pure, blazing flame",
+      "frequency": "1 kez",
+      "frequencyEn": "1 time",
+      "kaynak": "Meâric 70:15-16",
+      "kaynakEn": "Al-Ma'arij 70:15-16",
+      "notTr": "'Bedenin uç organlarını söküp koparan' diye nitelendirilir. Kur'an'daki en spesifik fiziksel azap tasvirlerinden biridir.",
+      "notEn": "Described as 'plucking away the extremities.' One of the most specific physical punishment descriptions in the Quran.",
+      "isHadis": false
+    },
+    {
+      "id": "sair",
+      "nameAr": "السَّعِيرُ",
+      "nameTr": "Es-Saîr",
+      "nameEn": "Al-Sa'ir",
+      "meaningTr": "Tutuşturulmuş, alevli ateş",
+      "meaningEn": "Blazing, ignited fire",
+      "frequency": "17 kez",
+      "frequencyEn": "17 times",
+      "kaynak": "Nisâ 4:55, Mülk 67:5, Sâffât 37:97",
+      "kaynakEn": "An-Nisa 4:55, Al-Mulk 67:5, As-Saffat 37:97",
+      "notTr": "İkinci en çok geçen cehennem ismidir. Farklı bağlamlarda çeşitli günahkârlara atıfla kullanılır.",
+      "notEn": "The second most frequently occurring name for Hell. Used in various contexts referring to different wrongdoers.",
+      "isHadis": false
+    },
+    {
+      "id": "sakar",
+      "nameAr": "سَقَرُ",
+      "nameTr": "Sakar",
+      "nameEn": "Saqar",
+      "meaningTr": "Şiddetli ısıyla yakıp kavuran ateş",
+      "meaningEn": "Scorching, intensely burning fire",
+      "frequency": "4 kez",
+      "frequencyEn": "4 times",
+      "kaynak": "Müddessir 74:26-30, Kamer 54:48",
+      "kaynakEn": "Al-Muddathir 74:26-30, Al-Qamar 54:48",
+      "notTr": "Vahyin kronolojisinde cehennem için kullanılan ilk isimdir. Kendi kendini tanımlar: 'Ne geri bırakır ne vazgeçer — deriyi kavurur. Üzerinde 19 melek.' En dramatik cehennem tasvirlerinden biridir.",
+      "notEn": "The first name used for Hell in the chronology of revelation. Self-defining: 'It leaves nothing and spares none, scorching the skin. Over it are nineteen.' One of the Quran's most dramatic depictions of Hell.",
+      "isHadis": false
+    }
+  ],
+
+  "cennetDetaylari": {
+    "nehirler": [
+      {
+        "id": "su",
+        "nameAr": "مَاءٌ",
+        "nameTr": "Su",
+        "nameEn": "Water",
+        "descTr": "Bozulmayan su — tad, renk ve kokusu hiç değişmez",
+        "descEn": "Unpolluted water — its taste, colour, and smell never change",
+        "kaynak": "Muhammed 47:15"
+      },
+      {
+        "id": "sut",
+        "nameAr": "لَبَنٌ",
+        "nameTr": "Süt",
+        "nameEn": "Milk",
+        "descTr": "Tadı değişmeyen süt — tükenmez bir tazelik",
+        "descEn": "Milk whose taste never changes — inexhaustible freshness",
+        "kaynak": "Muhammed 47:15"
+      },
+      {
+        "id": "bal",
+        "nameAr": "عَسَلٌ",
+        "nameTr": "Bal",
+        "nameEn": "Honey",
+        "descTr": "Arıtılmış, saf bal — dünya balıyla kıyaslanamaz bir lezzet",
+        "descEn": "Clarified, pure honey — a taste incomparable to earthly honey",
+        "kaynak": "Muhammed 47:15"
+      },
+      {
+        "id": "sarap",
+        "nameAr": "خَمْرٌ",
+        "nameTr": "Şarap",
+        "nameEn": "Wine",
+        "descTr": "İçenlere lezzet veren şarap — ne baş ağrısı verir ne sarhoş eder",
+        "descEn": "Wine delightful to drink — it causes neither headache nor intoxication",
+        "kaynak": "Muhammed 47:15, Rahman 55:56",
+        "notTr": "Cennet şarabı dünyadan farklıdır; Sâffât 37:47 ve Vâkıa 56:19 bu özellikleri açıkça belirtir.",
+        "notEn": "Heavenly wine is distinct from earthly wine; As-Saffat 37:47 and Al-Waqi'a 56:19 explicitly state these properties.",
+        "isHadis": false
+      }
+    ],
+    "bitkiler": [
+      {
+        "id": "sidr",
+        "nameAr": "سِدْرٌ",
+        "nameTr": "Sidr (Kiraz Ağacı)",
+        "nameEn": "Sidr (Lote Tree)",
+        "descTr": "Dikensiz kiraz ağacı — cennetin gölgesini temsil eder",
+        "descEn": "Thornless lote tree — represents the shade of Paradise",
+        "kaynak": "Vâkıa 56:28",
+        "isHapax": false
+      },
+      {
+        "id": "talk",
+        "nameAr": "طَلْحٌ",
+        "nameTr": "Talk (Muz/Akasya Ağacı)",
+        "nameEn": "Talh (Banana/Acacia Tree)",
+        "descTr": "Üst üste katmanlanmış meyveli ağaç",
+        "descEn": "A tree with layered, stacked fruit",
+        "kaynak": "Vâkıa 56:29",
+        "isHapax": false
+      },
+      {
+        "id": "kafur",
+        "nameAr": "كَافُورًا",
+        "nameTr": "Kâfur",
+        "nameEn": "Kafur (Camphor Spring)",
+        "descTr": "Cennet içeceğine karıştırılan kâfur pınarı — benzersiz koku ve tazeleştirici etki",
+        "descEn": "A camphor spring mixed into the drink of Paradise — unique fragrance and refreshing effect",
+        "kaynak": "İnsân 76:5",
+        "isHapax": false
+      },
+      {
+        "id": "zencebil",
+        "nameAr": "زَنجَبِيلًا",
+        "nameTr": "Zencebil",
+        "nameEn": "Zanjabil (Ginger Spring)",
+        "descTr": "Salsabil adlı pınardan akan zencebil karışımlı içecek",
+        "descEn": "A ginger-mixed drink flowing from a spring called Salsabil",
+        "kaynak": "İnsân 76:17",
+        "isHapax": false
+      },
+      {
+        "id": "tasnim",
+        "nameAr": "تَسْنِيمًا",
+        "nameTr": "Tasnîm",
+        "nameEn": "Tasnim",
+        "descTr": "Cennetin en yüksek ve en şerefli pınarı — yalnızca mukarreb kullara içirilir",
+        "descEn": "The highest and most honoured spring of Paradise — given purely to those nearest to God",
+        "kaynak": "Mutaffifîn 83:27-28",
+        "isHapax": true
+      }
+    ],
+    "sakinler": [
+      {
+        "id": "hur",
+        "nameAr": "حُورٌ عِينٌ",
+        "nameTr": "Hûriler",
+        "nameEn": "Hur al-'Ayn",
+        "descTr": "Kur'an 'hûr' (çoğul) ve 'ayn' (iri gözlü) sıfatlarını kullanır. Sayı verilmez.",
+        "descEn": "The Quran uses the attributes 'hur' (plural) and 'ayn' (large-eyed). No number is given.",
+        "kaynak": "Vâkıa 56:22, Rahmân 55:72",
+        "notTr": "Bazı akademisyenler 'hûr' kelimesini farklı biçimlerde yorumlar. Bu tartışma akademik literatürde mevcuttur.",
+        "notEn": "Some scholars interpret the word 'hur' differently. This discussion exists in academic literature.",
+        "isHadis": false
+      },
+      {
+        "id": "vildan",
+        "nameAr": "وِلْدَانٌ مُخَلَّدُونَ",
+        "nameTr": "Vildân / Gılmân",
+        "nameEn": "Wildan / Ghilman",
+        "descTr": "'Ölümsüz gençler' — cennetin hizmetçileri. 'Saçılmış inciler gibi' diye tarif edilir. Cinsiyeti Kur'an belirtmez.",
+        "descEn": "'Immortal youths' — the servants of Paradise. Described as 'scattered pearls.' The Quran does not specify their gender.",
+        "kaynak": "Vâkıa 56:17, İnsân 76:19",
+        "isHadis": false
+      },
+      {
+        "id": "ridvan",
+        "nameAr": "وَرِضْوَانٌ مِّنَ اللَّهِ أَكْبَرُ",
+        "nameTr": "Rıdvân — En Büyük Nimet",
+        "nameEn": "Ridwan — The Greatest Blessing",
+        "descTr": "'Allah'ın rızası en büyüktür.' Tüm maddî nimetlerden sonra en yüce olarak gösterilen rıdvandır.",
+        "descEn": "'And the pleasure of Allah is greater.' The divine pleasure (ridwan) is presented as the supreme blessing above all material gifts.",
+        "kaynak": "Tevbe 9:72",
+        "notTr": "Rü'yetullah (Allah'ı görme) hadislerde geçer; Kur'an'da ima düzeyindedir.",
+        "notEn": "The beatific vision (ru'yat Allah) is found in hadith; in the Quran it is at the level of implication.",
+        "isHadis": false
+      }
+    ],
+    "fiziksel": [
+      {
+        "id": "genislik",
+        "labelTr": "Genişliği",
+        "labelEn": "Width",
+        "valueTr": "Gökler ve yer kadar",
+        "valueEn": "As wide as the heavens and the earth",
+        "kaynak": "Âl-i İmrân 3:133",
+        "isHadis": false
+      },
+      {
+        "id": "sicaklik",
+        "labelTr": "Sıcaklık",
+        "labelEn": "Temperature",
+        "valueTr": "Ne yakıcı sıcak ne dondurucu soğuk",
+        "valueEn": "Neither scorching heat nor bitter cold",
+        "kaynak": "İnsân 76:13",
+        "isHadis": false
+      },
+      {
+        "id": "golge",
+        "labelTr": "Gölge",
+        "labelEn": "Shade",
+        "valueTr": "Uzayan, hiç kesilmeyen gölge",
+        "valueEn": "Extended, unending shade",
+        "kaynak": "Vâkıa 56:30",
+        "isHadis": false
+      },
+      {
+        "id": "koku",
+        "labelTr": "Koku",
+        "labelEn": "Fragrance",
+        "valueTr": "Misk ile mühürlenmiş",
+        "valueEn": "Sealed with musk",
+        "kaynak": "Mutaffifîn 83:26",
+        "isHadis": false
+      },
+      {
+        "id": "kapi",
+        "labelTr": "Kapılar",
+        "labelEn": "Gates",
+        "valueTr": "8 kapı (hadis kaynağı)",
+        "valueEn": "8 gates (hadith source)",
+        "kaynak": "Zümer 39:73",
+        "isHadis": true
+      },
+      {
+        "id": "ses",
+        "labelTr": "Ses",
+        "labelEn": "Sound",
+        "valueTr": "Kur'an cennetin sesini tasvir etmez",
+        "valueEn": "The Quran does not describe the sound of Paradise",
+        "kaynak": "—",
+        "isHadis": false,
+        "isSessizlik": true
+      }
+    ]
+  },
+
+  "cehennemDetaylari": {
+    "yiyecekler": [
+      {
+        "id": "zakkum",
+        "nameAr": "الزَّقُّومُ",
+        "nameTr": "Zakkum",
+        "nameEn": "Zaqqum",
+        "descTr": "Cahîm'in dibinden çıkan ağaç. Başları şeytanların başları gibidir. Cehennem ehlinin karnını doldurur, ardından üstüne kaynar su içirilir.",
+        "descEn": "A tree that grows from the bottom of Al-Jahim. Its blossoms are like the heads of devils. It fills the bellies of the people of Hell, after which boiling water is poured over it.",
+        "kaynak": "Sâffât 37:62-65, Duhân 44:43, Vâkıa 56:52",
+        "isHapax": false
+      },
+      {
+        "id": "gaslin",
+        "nameAr": "الْغَسْلِينُ",
+        "nameTr": "Ğaslîn",
+        "nameEn": "Ghislin",
+        "descTr": "Yalnızca bir kez geçen kelime. Müfessirler tarafından 'irinlerin/cerahatın akıntısı' olarak tefsir edilir.",
+        "descEn": "A word that appears only once. Interpreted by commentators as 'the discharge of wounds' or 'pus.',",
+        "kaynak": "Hâkka 69:36",
+        "isHapax": true
+      },
+      {
+        "id": "dari",
+        "nameAr": "الضَّرِيعُ",
+        "nameTr": "Darî",
+        "nameEn": "Dari'",
+        "descTr": "Çölde bilinen zehirli diken bitkisi. 'Ne semirtir ne de açlığı giderir.' Hapax legomenon.",
+        "descEn": "A thorny desert plant known to be poisonous. 'Which neither nourishes nor avails against hunger.' A hapax legomenon.",
+        "kaynak": "Gâşiye 88:6",
+        "isHapax": true
+      }
+    ],
+    "duyusal": [
+      {
+        "id": "goruntu",
+        "duyuTr": "Görme",
+        "duyuEn": "Sight",
+        "verseAr": "إِذَا رَأَتْهُم مِّن مَّكَانٍ بَعِيدٍ سَمِعُوا لَهَا تَغَيُّظًا وَزَفِيرًا",
+        "verseTr": "Onu uzaktan gördüklerinde, onun öfkeli çıkışını ve uğultusunu duyarlar.",
+        "verseEn": "When it sees them from a distant place, they will hear its fury and its roaring.",
+        "notTr": "Cehennem burada canlı, öfkeli bir varlık gibi tasvir edilir.",
+        "notEn": "Hell is depicted here as a living, enraged being.",
+        "kaynak": "Furkân 25:12"
+      },
+      {
+        "id": "isitme",
+        "duyuTr": "İşitme",
+        "duyuEn": "Hearing",
+        "verseAr": "تَكَادُ تَمَيَّزُ مِنَ الْغَيْظِ ۚ كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَا أَلَمْ يَأْتِكُمْ نَذِيرٌ",
+        "verseTr": "Neredeyse öfkesinden parçalanacak. İçine her topluluk atıldığında, bekçileri onlara sorar: 'Size uyarıcı gelmedi mi?'",
+        "verseEn": "It almost bursts with rage. Every time a group is cast into it, its keepers ask them: 'Did no warner come to you?'",
+        "notTr": "Teke-yûz (تَمَيَّزُ): 'öfkesinden parçalanmak' — dilbilimsel olarak son derece güçlü bir imge.",
+        "notEn": "Temayazu (تَمَيَّزُ): 'to burst apart from rage' — linguistically one of the most vivid images in the Quran.",
+        "kaynak": "Mülk 67:8"
+      },
+      {
+        "id": "tatma",
+        "duyuTr": "Tatma",
+        "duyuEn": "Taste",
+        "verseAr": "إِنَّهَا شَجَرَةٌ تَخْرُجُ فِي أَصْلِ الْجَحِيمِ ۝ طَلْعُهَا كَأَنَّهُ رُءُوسُ الشَّيَاطِينِ",
+        "verseTr": "Şüphesiz o, cehennemin dibinden çıkan bir ağaçtır. Tomurcukları şeytanların başları gibidir.",
+        "verseEn": "Indeed, it is a tree issuing from the bottom of the Hellfire. Its fruit is as if it were the heads of the devils.",
+        "notTr": "Sâffât 37:62–67 arasında zakkum ağacının kurgusal anatomisi ayrıntılı anlatılır.",
+        "notEn": "Saffat 37:62–67 gives a detailed narrative anatomy of the zaqqum tree.",
+        "kaynak": "Sâffât 37:64–65"
+      },
+      {
+        "id": "koku-cehennem",
+        "duyuTr": "Koku",
+        "duyuEn": "Smell",
+        "verseAr": null,
+        "verseTr": null,
+        "verseEn": null,
+        "notTr": "Kur'an cehennemin kokusunu hiçbir ayette tasvir etmez. Bu sessizliğin, bilinçli bir retorik tercih olduğu — insan hayal gücüne bırakılmış bir boşluk — şeklinde değerlendirildiği görülmektedir.",
+        "notEn": "The Quran never describes the smell of Hell in any verse. This silence is considered by scholars to be a deliberate rhetorical choice — a void intentionally left to human imagination.",
+        "kaynak": "—",
+        "isSessizlik": true
+      },
+      {
+        "id": "dokunma",
+        "duyuTr": "Dokunma",
+        "duyuEn": "Touch",
+        "verseAr": "كُلَّمَا نَضِجَتْ جُلُودُهُم بَدَّلْنَاهُمْ جُلُودًا غَيْرَهَا لِيَذُوقُوا الْعَذَابَ ۗ إِنَّ اللَّهَ كَانَ عَزِيزًا حَكِيمًا",
+        "verseTr": "Derileri her yandıkça, azabı tattırmak için onları başka derilerle değiştiririz. Şüphesiz Allah mutlak güç sahibidir, hüküm ve hikmet sahibidir.",
+        "verseEn": "Every time their skins are roasted through, We will replace them with other skins so they may taste the punishment. Indeed, Allah is ever Exalted in Might and Wise.",
+        "notTr": "Modern sinir bilimi: acı hissi deri almaçlarıyla taşınır. Kur'an bu mekanizmayı ayet içinde sorgulatan bir sonuca bağlar.",
+        "notEn": "Modern neuroscience: pain is carried by skin receptors. The Quran links this mechanism to a conclusion that invites reflection.",
+        "kaynak": "Nisâ 4:56"
+      }
+    ],
+    "bekciMelekler": {
+      "count": 19,
+      "verseAr": "عَلَيْهَا تِسْعَةَ عَشَرَ",
+      "verseTr": "Onun üzerinde on dokuz (melek) vardır.",
+      "verseEn": "Over it are nineteen [angels].",
+      "kaynak": "Müddessir 74:30",
+      "aciklamaTr": "Kur'an bu sayıyı verdikten hemen sonra şunu ekler (74:31): 'Bu sayıyı kafirler için bir fitne, kitap verilenler için bir kesinlik, müminler için iman artışı vesilesi kıldık.' Tek bir sayı, üç farklı grupta üç farklı etki yaratıyor — Kur'an'ın muhatap sisteminin mükemmel bir örneği.",
+      "aciklamaEn": "Immediately after giving this number (74:31), the Quran adds: 'We have made their number a trial for the disbelievers, a certainty for those given the Scripture, and an increase in faith for the believers.' One number — three distinct effects on three different audiences. A perfect example of the Quran's addressee system."
+    }
+  },
+
+  "araf": {
+    "verseAr": "وَبَيْنَهُمَا حِجَابٌ وَعَلَى الْأَعْرَافِ رِجَالٌ",
+    "verseTr": "İkisi arasında bir perde vardır. A'râf'ta birtakım adamlar vardır.",
+    "verseEn": "Between them is a veil, and on the heights (A'raf) are men.",
+    "kaynak": "A'râf 7:46",
+    "aciklamaTr": "A'râf (الأعراف) 'yüksek yer, sırt, doruk' anlamına gelir. A'râf 7:46-49'da cennet ve cehennem arasında bir bölgeden ve oradaki insanlardan söz edilir. Bu insanlar cennet ehlini de cehennem ehlini de tanır ve her iki tarafa seslenir. Ne cennete ne cehenneme girmişlerdir — bir eşikte, iki dünya arasında bekliyorlardır.",
+    "aciklamaEn": "A'raf (الأعراف) means 'elevated place, ridge, peak.' In A'raf 7:46-49, a place between Paradise and Hell is described, along with the people who dwell there. These individuals recognise the people of both Paradise and Hell and call out to both sides. They have entered neither Paradise nor Hell — they wait on a threshold, between two worlds.",
+    "sorular": [
+      {
+        "id": "kimler",
+        "soruTr": "A'râf'takiler kimler?",
+        "soruEn": "Who are the people of A'raf?",
+        "cevapTr": "Müfessirler arasında farklı görüşler mevcuttur: sevap ve günahları eşit olanlar; şehitler veya alimler; cennet ehlinin henüz girmediği bir geçiş dönemi. Kur'an bu kişilerin kim olduğunu açıkça belirtmez.",
+        "cevapEn": "Scholars hold differing views: those whose good deeds and sins are equal; martyrs or scholars; a transitional period before the people of Paradise enter. The Quran does not explicitly state who these people are.",
+        "isHadis": true
+      },
+      {
+        "id": "sonuc",
+        "soruTr": "Sonunda ne olur?",
+        "soruEn": "What ultimately becomes of them?",
+        "cevapTr": "Kur'an A'râf'takilerin sonunu açıkça söylemez. A'râf 7:49'da onlara 'Girin cennete, korku yok size' denileceği ima edilir. Kesin bir sonuç Kur'an'da yer almaz.",
+        "cevapEn": "The Quran does not explicitly state their fate. In A'raf 7:49, it is implied they will be told: 'Enter Paradise; there shall be no fear upon you.' A definitive outcome is not provided in the Quran.",
+        "isHadis": false
+      },
+      {
+        "id": "yer-mi-sure-mi",
+        "soruTr": "A'râf bir yer mi, yoksa bir süre mi?",
+        "soruEn": "Is A'raf a place or a period of waiting?",
+        "cevapTr": "Bazı müfessirler berzah (ölüm ile kıyamet arası) ile ilişkilendirir. Diğerleri bunu kıyamet sonrası bir bekleme yeri olarak görür. Her iki yorum da akademik literatürde yer almaktadır.",
+        "cevapEn": "Some commentators connect it to the barzakh (the period between death and resurrection). Others view it as a waiting place after the Day of Judgement. Both interpretations appear in academic literature.",
+        "isHadis": true
+      }
+    ],
+    "illiyyunSiccin": [
+      {
+        "id": "illiyyun",
+        "nameAr": "عِلِّيِّينَ",
+        "nameTr": "İlliyyûn",
+        "nameEn": "Illiyyun",
+        "descTr": "İyilerin kitabı illiyyûndadır — mukarreblerle birlikte. Kur'an'ın en gizemli kavramlarından biri.",
+        "descEn": "The record of the righteous is in Illiyyun — with those brought near to God. One of the Quran's most mysterious concepts.",
+        "kaynak": "Mutaffifîn 83:18-21",
+        "taraf": "cennet"
+      },
+      {
+        "id": "siccin",
+        "nameAr": "سِجِّينٌ",
+        "nameTr": "Siccîn",
+        "nameEn": "Sijjin",
+        "descTr": "Kötülerin kitabı siccîndedir. İlliyyûn ile aynı sûrede art arda gelir — öteki alemin kayıt sistemi.",
+        "descEn": "The record of the wicked is in Sijjin. Appears consecutively with Illiyyun in the same surah — the record-keeping system of the hereafter.",
+        "kaynak": "Mutaffifîn 83:7-9",
+        "taraf": "cehennem"
+      }
+    ]
+  },
+
+  "rahmanSimetrisi": {
+    "aciklamaTr": "Rahman sûresi cennet ve cehennem tasvirini art arda sunar. İkisi arasında her seferinde aynı nakarat tekrarlanır. Bu nakarat 31 kez geçer. Cennet ayetlerinin ardından da cehennem ayetlerinin ardından da sorulan bu soru şunu söyler: nimetin farkında olmak, azabı hatırlamakla da başlar.",
+    "aciklamaEn": "Surah Rahman presents descriptions of Paradise and Hell in succession. Between each description, the same refrain is repeated 31 times. Asked after both Paradise and Hell verses, this question conveys: awareness of blessing also begins with remembering punishment.",
+    "nakaratAr": "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",
+    "nakaratTr": "Rabbinizin hangi nimetlerini yalanlıyorsunuz?",
+    "nakaratEn": "So which of the favours of your Lord will you deny?",
+    "nakaratKaynak": "Rahmân 55 (31 kez)",
+    "nakaratKaynakEn": "Ar-Rahman 55 (31 times)",
+    "nakaratCount": 31,
+    "kartlar": [
+      {
+        "id": "neden-ikisi",
+        "titleTr": "Neden aynı nakarat hem cennet hem cehennem ayetlerinin ardından geliyor?",
+        "titleEn": "Why does the same refrain follow both Paradise and Hell verses?",
+        "bodyTr": "'Rabbinizin hangi nimetlerini yalanlıyorsunuz?' sorusu hem cennet hem cehennem tasvirlerinin ardından tekrarlanır. Cenneti göster — nimeti tanı. Cehennemi göster — azaptan korunmak da bir nimet. Her ikisi de nimete dikkat çekiyor. Anlam, bağlama göre dönüşüyor.",
+        "bodyEn": "The question 'Which of your Lord's favours will you deny?' is repeated after both Paradise and Hell descriptions. Show Paradise — recognise the blessing. Show Hell — being spared from punishment is also a blessing. Both draw attention to divine favour. The meaning transforms with each context."
+      },
+      {
+        "id": "31-sayi",
+        "titleTr": "31 sayısının anlamı var mı?",
+        "titleEn": "Does the number 31 carry significance?",
+        "bodyTr": "Rahman sûresi 78 ayettir. 31 kez tekrarlanan nakarat, sûre boyunca bölümler oluşturur ve anlatıyı ritimli biçimde böler. Bu yapı, Kur'an'ın retorik mimarisinin en güçlü örneklerinden biridir. Nakaratın cennet ayetleriyle olan ilişkisi 19, cehennem ayetleriyle olan ilişkisi ise 12'dir — eşit dağılım değildir, bilerek biçimlendirilmiş bir orandır.",
+        "bodyEn": "Surah Rahman has 78 verses. The 31-fold refrain divides the surah into sections and rhythmically segments the narrative. This structure is among the most powerful examples of the Quran's rhetorical architecture. The refrain appears 19 times in relation to Paradise verses and 12 times in relation to Hell verses — not an equal distribution, but a deliberately shaped ratio."
+      }
+    ]
+  },
+
+  "kaynaklar": {
+    "klasikTefsir": [
+      {
+        "id": "ibn-kesir",
+        "nameTr": "İbn Kesîr — Tefsîru'l-Kur'âni'l-Azîm",
+        "nameEn": "Ibn Kathir — Tafsir al-Quran al-Azim"
+      },
+      {
+        "id": "taberi",
+        "nameTr": "Taberî — Câmiu'l-Beyân",
+        "nameEn": "Al-Tabari — Jami' al-Bayan"
+      },
+      {
+        "id": "elmali",
+        "nameTr": "Elmalılı Hamdi Yazır — Hak Dini Kur'an Dili",
+        "nameEn": "Elmalili Hamdi Yazir — Hak Dini Quran Dili"
+      },
+      {
+        "id": "kurtubi",
+        "nameTr": "Kurtubî — et-Tezkire (cehennem tasvirleri)",
+        "nameEn": "Al-Qurtubi — al-Tadhkira (Hell descriptions)"
+      }
+    ],
+    "akademik": [
+      {
+        "id": "tdv-cehennem",
+        "nameTr": "TDV İslam Ansiklopedisi — 'Cehennem' maddesi (Bekir Topaloğlu)",
+        "nameEn": "TDV Encyclopedia of Islam — 'Jahannam' entry (Bekir Topaloğlu)"
+      },
+      {
+        "id": "tdv-cahim",
+        "nameTr": "TDV İslam Ansiklopedisi — 'Cahîm' maddesi",
+        "nameEn": "TDV Encyclopedia of Islam — 'Jahim' entry"
+      },
+      {
+        "id": "corpus",
+        "nameTr": "Corpus Quran — corpus.quran.com (frekans verileri)",
+        "nameEn": "Corpus Quran — corpus.quran.com (frequency data)"
+      }
+    ],
+    "dijital": [
+      {
+        "id": "tanzil",
+        "nameTr": "tanzil.net — ayet araması",
+        "nameEn": "tanzil.net — verse search"
+      },
+      {
+        "id": "kuranvemeali",
+        "nameTr": "kuranvemeali.com — karşılaştırmalı meal",
+        "nameEn": "kuranvemeali.com — comparative translation"
+      }
+    ],
+    "globalNotTr": "Bu sayfadaki veriler Kur'an ayetlerine dayanmaktadır. Hadis kaynaklı bilgiler ℹ️ işaretiyle ayrıca belirtilmiştir. Kur'an'ın hadisleri doğruladığı iddia edilmemektedir. Tartışmalı tefsir yorumları açıkça işaretlenmiştir.",
+    "globalNotEn": "The data on this page is based on Quranic verses. Information derived from hadith sources is marked separately with an ℹ️ symbol. No claim is made that the Quran confirms the hadith. Contested exegetical interpretations are clearly indicated."
+  }
+}
