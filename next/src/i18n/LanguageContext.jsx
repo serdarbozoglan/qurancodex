@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import tr from './tr.json';
 
