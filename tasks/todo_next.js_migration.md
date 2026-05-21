@@ -10,6 +10,24 @@
 
 ---
 
+## Pre-existing Technical Debt (Mutlaka Okunmalı)
+
+> **UNUTMA:** Migration sırasında çözülmesi planlanan ön-mevcut sorunlar `tasks/copilot_findings.md`'de detaylı listelenmiştir. 2026-05-21 commit'inde 34 lint error sıfırlandı, **56 warning bilinçli olarak deferred** edildi çünkü migration ile doğal olarak çözülecek. Faz başlamadan önce `tasks/copilot_findings.md`'nin **"Deferred to Next.js migration"** bölümünü oku.
+
+**Deferred item'ların Faz eşleştirmesi:**
+
+| Copilot finding | Migration fazı | Çözüm yaklaşımı |
+|---|---|---|
+| `react-refresh/only-export-components` × 43 (data/exploreCategories.jsx, data/tools.jsx) | **Faz 1.3 + 6.1** | RSC'lerde data import'u + dedicated `lib/data/` modülleri; component + helper karışık export ortadan kalkar |
+| `react-refresh/only-export-components` × 3 (PathContext, LanguageContext, SectionWrapper) | **Faz 2.1 + 2.2** | Context provider'lar `'use client'` boundary'sine ayrılır; helper'lar ayrı dosyalara taşınır |
+| `react-hooks/exhaustive-deps` × 13 (ConceptGraph, ReadingMode, SebebiNuzul, SurahComparator, VerseGraph) | **Faz 4.5** (Route dönüşüm pattern'ı sırasında) | Her overlay route'a dönüşürken dep array'ler yeniden değerlendirilir; gereksizler temizlenir, eksikler eklenir |
+| `dangerouslySetInnerHTML` × 18+ (ReadingMode tajweed, TafsirPanel, ProphetAtlas) | **Faz 4** (manuel review #1, #2) | Merkezi `safeHtml()` helper + DOMPurify entegrasyonu; sanitize boundary açıkça tanımlanır |
+| ProphetAtlas design token drift (CLAUDE.md §13.1 ihlali) | **Faz 4.2** (atlas tool migration sırasında) | ProphetAtlas → `app/atlas/peygamber/page.jsx` taşınırken hardcoded hex/rgba'lar `COLORS.*` token'larına çevrilir |
+
+**Aksiyon:** Her ilgili faza başlarken `tasks/copilot_findings.md`'yi açıp o faza ait `[DEFERRED]` veya `[OPEN]` item'larını kontrol et. Yeni keşfedilen lint/audit bulguları da aynı dosyaya inline annotate edilebilir.
+
+---
+
 ## Faz 0 — Hazırlık & Audit (3-5 gün)
 
 ### 0.1 SSR-safety audit
