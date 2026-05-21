@@ -481,7 +481,6 @@ export default function SurahComparator({ onClose }) {
     if (promises.length === 0) { setLoading(false); return; }
     setLoading(true);
     Promise.all(promises).then(() => setLoading(false)).catch(() => setLoading(false));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadKey]);
 
   useEffect(() => {

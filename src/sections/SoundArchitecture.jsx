@@ -173,6 +173,7 @@ function ComparisonCard({ t, language }) {
 
   // Plays a sequence of ayahs (each ayah may have multiple fallback URLs)
   const playAyahChain = (audioKeys, sideName) => {
+    // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render; token uniqueness is the intent.
     const token = `${sideName}-${Date.now()}`;
     liveTokenRef.current = token;
     setActiveSide(sideName);
@@ -575,6 +576,7 @@ function DiscoveryWidget({ t, language }) {
     setAudioFailed(false);
     const { surah, ayah } = parseAudioKey(item.audioKey);
     const urls = buildFallbackUrls(surah, ayah);
+    // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render; token uniqueness is the intent.
     const token = `${item.id}-${Date.now()}`;
     liveIdRef.current = token;
     setPlaying(true);

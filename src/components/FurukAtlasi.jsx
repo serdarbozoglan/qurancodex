@@ -15,7 +15,7 @@ function stripFootnotes(str) {
 
 // "2:38" → "Bakara 2:38" (drops leading El-/En-/Et- articles for compactness)
 function surahRefLabel(ref) {
-  const [s, a] = ref.split(':').map(Number);
+  const [s] = ref.split(':').map(Number);
   const name = SURAH_NAMES_TR[s - 1];
   if (!name) return ref;
   const clean = name.replace(/^(El-|En-|Et-|Eş-|Ez-|Er-|Ed-)/, '');

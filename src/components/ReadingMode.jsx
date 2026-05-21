@@ -1024,7 +1024,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
 
 // ─── Main ReadingMode component ───────────────────────────────────────────────
 export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
-  const { language, setLanguage, toggleLanguage } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
   const [verses, setVerses] = useState(null);
   const [loading, setLoading] = useState(true);
   // initialSurah (from SurahLink click) overrides the last-read position.
@@ -1589,7 +1589,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   // ⌘K / Ctrl+K — global hotkey for the unified search bar.
   // Captures the keystroke before the browser's native "search engine quick
@@ -1610,7 +1610,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   const surahVerses = useMemo(() => {
     if (!verses) return [];
@@ -6083,7 +6083,6 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     const sName = (arr) => arr[sStart - 1];
                     const startLabel = `${sName(SURAH_NAMES_TR)} ${sStart}:${aStart}`;
                     if (!next) {
-                      const endName = `${sName(SURAH_NAMES_TR)}`;
                       return language === 'tr'
                         ? `Cüz ${num} — ${startLabel} → sonuna kadar`
                         : `Juz ${num} — ${startLabel} → end`;
@@ -6396,16 +6395,6 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           const hasSplit = htmlSplitIdx > 0;
                           const leadingHtml  = hasSplit ? fullHtml.slice(0, htmlSplitIdx + 1) : '';
                           const lastWordHtml = hasSplit ? fullHtml.slice(htmlSplitIdx + 1) : fullHtml;
-                          // Kept for kelime-mode (word-by-word splitting) below: it walks
-                          // raw chars, where the original cleanArabic text is still needed.
-                          const lastSpaceIdx = ar.lastIndexOf(' ');
-                          const leading  = hasSplit ? ar.slice(0, lastSpaceIdx + 1) : '';
-                          const lastWord = hasSplit ? ar.slice(lastSpaceIdx + 1) : ar;
-                          // renderHtml retained for places that still feed individual
-                          // word/segment strings (kelime modu word-by-word path).
-                          const renderHtml = (t) => showTajweed
-                            ? applyTajweed(t, dayMode, true, isFatiha1)
-                            : wrapWaqfOnly(t, dayMode, true, isFatiha1);
                           const highlightStyle = {
                             background: isActive ? C.activeHighlight : 'transparent',
                             WebkitBoxDecorationBreak: 'clone',
@@ -8741,7 +8730,7 @@ function VerseCompareModal({
   currentMealId, verses, compareAuthors, setCompareAuthors, mealCacheRef,
   setCompareVerse, reciterIdx, onClose,
 }) {
-  const [tick, setTick] = useState(0);
+  const [, setTick] = useState(0);
   const [loadingAuthors, setLoadingAuthors] = useState(() => new Set());
   const [errorAuthors, setErrorAuthors] = useState(() => new Set());
   const [mounted, setMounted] = useState(false);

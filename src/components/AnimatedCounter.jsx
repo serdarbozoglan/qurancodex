@@ -20,6 +20,7 @@ export default function AnimatedCounter({
     if (hasAnimated.current) return;
     // Reduced motion: show the final value immediately, skip the count-up.
     if (reduced) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- guarded by hasAnimated ref, runs at most once.
       setCount(target);
       hasAnimated.current = true;
       return;

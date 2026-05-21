@@ -2691,7 +2691,6 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
     if (IS_MOBILE_3D_BLOCKED) {
       // ClusterView buton zaten `hidden sm:flex` ile gizli; bu silent guard
       // edge case için (örn. event dispatch dışarıdan).
-      // eslint-disable-next-line no-console
       console.warn('[VerseGraph] FullGraph (3D) mobile cihazlarda devre dışı (Three.js OOM).');
       return;
     }

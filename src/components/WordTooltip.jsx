@@ -52,6 +52,7 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
     left = Math.max(8, Math.min(ww - tw - 8, left));
     // Clamp top too
     top = Math.max(8, Math.min(wh - th - 8, top));
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- canonical useLayoutEffect measure-then-position pattern.
     setPos({ top, left, arrowSide, ready: true });
   }, [anchorRect, word]);
 

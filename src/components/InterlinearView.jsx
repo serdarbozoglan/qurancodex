@@ -380,7 +380,6 @@ export default function InterlinearView({
   arabicFontSize,
   arabicFont,
   getTranslation,
-  mealAuthorLabel,
   // New: enable book-mode-parity badge (clickable compare + sajda variant).
   onCompareClick,
   sajdaVerses,
@@ -436,8 +435,6 @@ export default function InterlinearView({
   }
 
   if (!data) return null;
-
-  const src = SOURCE_LABELS[lang] || SOURCE_LABELS.en;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
