@@ -1,6 +1,11 @@
 # KUR'AN-I KERİM'İN GÖRÜNMEYEN MİMARİSİ
 ## Comprehensive Website Design Document
 
+> **Branch:** `migration-to-next.js` — Bu dosya, Next.js 15 App Router migration'ı için temizlenmiştir. Vite-spesifik patternlar (§2, §5, §13.3, §13.4, §13.12, §15) ana CLAUDE.md'den çıkarılıp `docs/legacy-vite-rules.md`'ye arşivlendi. Aşağıdaki bölüm numaraları stabil tutuldu; eksik numaralar bilinçlidir.
+>
+> **Migration planı:** `tasks/todo_next.js_migration.md`
+> **Next.js patternları:** §16 (TBD — Faz 0/1/2 ilerledikçe doldurulacak)
+
 ---
 
 ## 1. PROJECT VISION
@@ -19,27 +24,15 @@ A mesmerizing, cinematic single-page website that reveals the hidden architectur
 
 ---
 
-## 2. TECH STACK
-
-- **React 18 + Vite** (component-driven, lazy-loaded overlays)
-- **Tailwind CSS v4** via `@tailwindcss/vite` plugin
-- **Framer Motion** for scroll animations and transitions
-- **React Context** for lightweight i18n (TR + EN)
-- **Fonts:** KFGQPC + ShaykhHamdullah (Arabic), Inter (UI), Playfair Display (headings), Amiri (fallback)
-- Fully responsive (mobile-first), static deploy (Netlify/Vercel)
-
-> **KURAL — Arapça Font:** Kur'an metni için kullanılan tek font **KFGQPC** (King Fahd Complex, Kral Fahd Basımevi Uthmani fontu) olacaktır. `currentFont` değişkeni her zaman `"'KFGQPC', 'Amiri Quran', serif"` olarak kalmalıdır. İstisna: ReadingMode ve InterlinearView, `"'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif"` zincirini kullanır (bkz. §13.15). KFGQPC, api.acikkuran.com verisinin tasarlandığı fonttur ve tüm Kur'ani karakterleri (hareke, işaret, vaqf) eksiksiz destekler.
-
----
-
 ## 3. BILINGUAL SUPPORT (TR + EN)
 
 - Language switcher in navbar (TR | EN toggle)
-- All content in `src/i18n/tr.json` and `src/i18n/en.json`
+- All content in i18n JSON files (TR + EN olarak ayrı, single source of truth)
 - Arabic Quranic verses remain in Arabic in both languages
 - Verse translations switch with selected language
-- Language preference saved in localStorage
+- Language preference persists across sessions
 - Default: Turkish
+- URL-level locale routing tercih edilir (`/tr/...`, `/en/...`) — Next.js migration sonrası hreflang tags otomatik üretilir
 
 ---
 
@@ -85,48 +78,9 @@ A mesmerizing, cinematic single-page website that reveals the hidden architectur
 
 ---
 
-## 5. FILE STRUCTURE
-
-> **Kural:** Listeler statik değildir — dosya envanteri için `ls src/components/` / `ls src/sections/` kullan. Aşağıdaki harita yalnızca klasör **amaçlarını** belirtir.
-
-```
-qurancodex/
-├── index.html, package.json, vite.config.js
-├── public/                     # statik veri + medya
-│   ├── *.json                  # section/tool veri dosyaları (addressees, kavimler, melekler, vs.)
-│   ├── audio/                  # tilavet ses dosyaları
-│   ├── icons/                  # SVG ikonlar
-│   └── amthal/                 # meseller veri klasörü
-├── src/
-│   ├── main.jsx, App.jsx, index.css, tokens.js
-│   ├── i18n/
-│   │   ├── LanguageContext.jsx
-│   │   ├── tr.json             # Türkçe tüm metinler — tek doğru kaynak
-│   │   └── en.json             # İngilizce tüm metinler — tek doğru kaynak
-│   ├── components/             # reusable + overlay/tool bileşenleri
-│   │   ├── (temel)  Navbar · Hero · Footer · SectionWrapper · ParticleBackground
-│   │   ├── (okuma)  ReadingMode · InterlinearView · ChapterProgress
-│   │   ├── (atlas)  KissaAtlas · KavimlerAtlasi · DogaAtlasi · MeselAtlasi · FurukAtlasi · MunasebatAtlasi · ProphetAtlas · KiraatAtlasi
-│   │   ├── (graf)   VerseGraph · ConceptGraph · DiyalogAgi · RevelationTimeline · SurahComparator · WordHeatmap
-│   │   └── (diğer)  AddresseeSystem · CennetCehennem · DuaVerses · EsmaFrekans · KiyametSahneleri · KuranRenkleri · KuranRetorigi · KuranYeminleri · Melekler · QuranCommands · SebebiNuzul · ToolsBrowser · WowFacts · ZamanBoyutlari · …
-│   ├── sections/               # ana sayfa section bileşenleri (Hero altındaki scroll-story)
-│   │   └── MathMiracle · LinguisticDNA · ImpossibleRhythm · SoundArchitecture · HiddenArchitecture · ScientificSigns · HistoricalProof · LivingPreservation · ZeroRedundancy · Highlights · AllTopics · ToolsHighlight · ToolsShowcase · PathCards · ProphetMap · PsychologySection · QuranDua · QuranRhetoric · HumanDefinition · Conclusion
-│   └── utils/                  # cleanArabic, tajweed, pathContext, vs.
-├── docs/reviews/               # denetim raporları (content, UX, visual, source)
-├── tasks/                      # todo.md, lessons.md (çalışma notları)
-└── CLAUDE.md                   # bu dosya
-```
-
-**Önemli:**
-- `src/i18n/*.json` tüm marketing / içerik metninin **tek doğru kaynağıdır**. Section bileşenleri bu JSON'ları `t('...')` ile okur. CLAUDE.md içerik kopyası tutmaz.
-- Her yeni overlay/tool `src/components/` altına gelir, `src/sections/` yalnızca ana sayfa scroll-story blokları içindir.
-- Veri dosyalarının tam şeması için §13.9 "Yeni JSON Data Dosyası Kuralı"na bakın.
-
----
-
 ## 6. WEBSITE SECTIONS — NARRATIVE CATALOG
 
-> **Kural:** Bu bölüm yalnızca section'ların **amacını ve narrative yerini** özetler. Section metinlerinin **tam içeriği** (paragraflar, ayetler, istatistikler, içerik değişiklikleri) `src/i18n/tr.json` ve `src/i18n/en.json`'da tutulur. Bu dosya ile i18n JSON'ları arasında drift olursa **i18n JSON geçerlidir.**
+> **Kural:** Bu bölüm yalnızca section'ların **amacını ve narrative yerini** özetler. Section metinlerinin **tam içeriği** (paragraflar, ayetler, istatistikler, içerik değişiklikleri) i18n JSON'larında (TR + EN) tutulur. Bu dosya ile i18n JSON'ları arasında drift olursa **i18n JSON geçerlidir.**
 
 | # | Section | Amaç / Emosyonel Evre | Ana Mekanizma |
 |---|---------|------------------------|---------------|
@@ -145,12 +99,12 @@ qurancodex/
 | 13 | **HumanDefinition** | Reflection | İnsan tanımı — çoklu boyut (nefs, fıtrat, halife, imtihan) |
 | 14 | **QuranRhetoric** | Awe | Kur'an belağatı — tezad, istiare, teşbih, iltifât |
 | 15 | **QuranDua** | Reflection | Kur'anî dualar tematik koleksiyon |
-| 16 | **ProphetMap** | Awe | Peygamberler zaman/mekân haritası (detaylı atlas: `ProphetAtlas` overlay) |
-| 17 | **ToolsShowcase** / **ToolsHighlight** / **PathCards** / **AllTopics** | Utility | Araç (overlay) keşif kartları — kullanıcıyı graph/atlas overlay'lerine yönlendirir |
+| 16 | **ProphetMap** | Awe | Peygamberler zaman/mekân haritası (detaylı atlas: ProphetAtlas tool sayfası) |
+| 17 | **ToolsShowcase** / **ToolsHighlight** / **PathCards** / **AllTopics** | Utility | Araç keşif kartları — kullanıcıyı graph/atlas tool sayfalarına yönlendirir |
 | 18 | **Conclusion** | Reflection — "Ne anlama geliyor?" | Kapanış + Nisa 4:82 ayeti |
 | 19 | **Footer** | — | Metodoloji notu, kaynakça (`footer.sources`), bismillah süsü |
 
-**Section ↔ Overlay ilişkisi:** Scroll-story içindeki section'lar (örn. MathMiracle) özet veriyi gösterir ve kullanıcıyı ilgili **overlay/tool**'a (örn. WordHeatmap, ConceptGraph, VerseGraph) yönlendirir. Overlay'ler `src/components/` altındadır; açma/kapama Navbar tarafından yönetilir (bkz. §13.4).
+**Section ↔ Tool ilişkisi:** Scroll-story içindeki section'lar (örn. MathMiracle) özet veriyi gösterir ve kullanıcıyı ilgili **tool sayfasına** (örn. WordHeatmap, ConceptGraph, VerseGraph) yönlendirir. Migration sonrası her tool full-page route'a (`/graf/...`, `/atlas/...`, `/arac/...`) dönüşür — bkz. `tasks/todo_next.js_migration.md` Faz 4.
 
 ---
 
@@ -172,7 +126,8 @@ qurancodex/
 - Intersection Observer for scroll animations (not scroll event listener)
 - Images: SVG for patterns and icons (no heavy raster images)
 - Font loading: `display=swap` to prevent FOIT
-- Bundle: Code-split by section for faster initial load
+- Bundle: Code-split by section/route for faster initial load
+- Next.js'te ek hedefler: LCP < 2.5s, CLS < 0.1, INP < 200ms (bkz. `tasks/todo_next.js_migration.md` Faz 7.10)
 
 ---
 
@@ -218,7 +173,7 @@ Bu kurallar her yeni bileşen, feature veya düzeltmede **istisnasız** uygulan�
 
 ### 13.1 Design Token Kuralı
 
-**Tüm renkler, fontlar ve UI sabitleri `src/tokens.js`'den import edilir.**
+**Tüm renkler, fontlar ve UI sabitleri merkezi tokens dosyasından import edilir** (`src/tokens.js` Vite'ta, `next/src/tokens.js` Next.js'te).
 
 ```js
 import { COLORS, FONTS, OVERLAY_BASE, GLASS_CARD, TEXT, VERSE_BLOCK, CHIP } from '../tokens';
@@ -242,61 +197,10 @@ fontFamily: FONTS.quran  // "'KFGQPC', 'Amiri Quran', serif"
 
 - ❌ YASAK: `fontFamily: "'Amiri', serif"` (Kur'an metni için)
 - ❌ YASAK: `fontFamily: "'Scheherazade', serif"`
-- ❌ YASAK: `fontFamily: "'ShaykhHamdullah', serif"`
+- ❌ YASAK: `fontFamily: "'ShaykhHamdullah', serif"` (ReadingMode/InterlinearView dışında)
 - ✅ DOĞRU: `fontFamily: FONTS.quran` — her zaman, her yerde
 - Arapça UI metni (Kur'an olmayan) için `FONTS.arabic` kullanılabilir.
 - Ayet içeren her blok `dir="rtl"` ve `lang="ar"` attribute'ü taşır.
-
----
-
-### 13.3 Overlay / Tool Bileşeni Pattern
-
-Her yeni tool overlay'i aynı iskelet ile başlar:
-
-```jsx
-import { OVERLAY_BASE, FONTS, COLORS } from '../tokens';
-
-export default function YeniArac({ onClose }) {
-  // Escape key
-  useEffect(() => {
-    const h = (e) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', h);
-    return () => window.removeEventListener('keydown', h);
-  }, [onClose]);
-
-  return (
-    <div style={OVERLAY_BASE} role="dialog">
-      {/* Header */}
-      <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between',
-        padding:'16px 24px', borderBottom:`1px solid ${COLORS.glassBorder}`,
-        background: 'rgba(8,9,26,0.95)', flexShrink:0 }}>
-        ...
-        <button onClick={onClose}>×</button>
-      </div>
-      {/* Body */}
-    </div>
-  );
-}
-```
-
-- Tüm overlay'ler `position:fixed, inset:0, zIndex:9999`
-- Header: `padding: 16px 24px`, altın bordür, yarı saydam arka plan
-- Escape ile kapanma zorunlu
-- Close butonu sağ üstte, daima mevcut
-
----
-
-### 13.4 Navbar Entegrasyon Pattern
-
-Yeni bir tool eklenirken sıra:
-
-1. `const YeniArac = lazy(() => import('./YeniArac'))` — üste lazy import
-2. `const [yeniOpen, setYeniOpen] = useState(false)` — state
-3. `anyOpen` satırına `|| yeniOpen` ekle
-4. `popstate` handler'ına `if (yeniOpen) { setYeniOpen(false); return; }` ekle
-5. `tools` array'ine yeni obje ekle (labelTr, labelEn, descTr, descEn, icon, action)
-6. `vizTools` veya `researchTools` array'ini güncelle (dropdown için)
-7. JSX'in sonuna `{yeniOpen && <Suspense fallback={null}><YeniArac onClose={() => setYeniOpen(false)} /></Suspense>}` ekle
 
 ---
 
@@ -373,14 +277,15 @@ Her yeni tool için `public/` altına bir JSON oluşturulur. Yapı şeması:
 
 ---
 
-### 13.10 Overlay Başlık Stili Kuralı — OVERLAY_TITLE
+### 13.10 Overlay/Modal Başlık Stili Kuralı — OVERLAY_TITLE
 
-**Her tool overlay'inin header'ındaki araç adı/başlık metni `OVERLAY_TITLE` token'ını kullanır.**
+**Modal, dialog veya overlay UI'larındaki header başlık metni `OVERLAY_TITLE` token'ını kullanır.**
+
+> Migration sonrası tool'lar full-page route'lara dönüşür ve overlay header kullanmaz; ancak settings modal, search modal, parallel/intercepting route modal'ları gibi modal/dialog UI'larında bu kural geçerliliğini korur.
 
 ```jsx
 import { OVERLAY_TITLE } from '../tokens';
 
-// Header içinde:
 <span style={OVERLAY_TITLE}>
   {language === 'tr' ? 'Araç Adı' : 'Tool Name'}
 </span>
@@ -388,17 +293,16 @@ import { OVERLAY_TITLE } from '../tokens';
 
 `OVERLAY_TITLE` = `{ color: COLORS.gold, fontSize: '0.9rem', fontWeight: 700, fontFamily: FONTS.body, margin: 0 }`
 
-- ❌ YASAK: `fontFamily: 'Playfair Display, serif'` — overlay başlıkları için display font kullanılmaz
+- ❌ YASAK: `fontFamily: 'Playfair Display, serif'` — modal başlıkları için display font kullanılmaz
 - ❌ YASAK: `color: '#e8e6e3'` veya `color: COLORS.offWhite` — başlık her zaman altın rengindedir
 - ❌ YASAK: `fontSize: '1.1rem'` veya daha büyük — başlık 0.9rem'dir
 - ✅ DOĞRU: `style={OVERLAY_TITLE}` veya `style={{ ...OVERLAY_TITLE, ek: 'stil' }}`
-- Tüm overlay'lerde başlık: altın renk, Inter font, 0.9rem, 700 weight — site genelinde tutarlı
 
 ---
 
 ### 13.11 Kapat Butonu Kuralı — CLOSE_BTN
 
-**Her overlay'in header'ındaki kapat butonu `CLOSE_BTN` token'ını kullanır.**
+**Modal/dialog header'larındaki kapat butonu `CLOSE_BTN` token'ını kullanır.**
 
 ```jsx
 import { CLOSE_BTN, COLORS } from '../tokens';
@@ -421,36 +325,6 @@ import { CLOSE_BTN, COLORS } from '../tokens';
 - ❌ YASAK: Text `×` veya `✕` — her zaman SVG icon kullanılır
 - ❌ YASAK: Inline duplicate style — `width:'36px', height:'36px', borderRadius:'50%'...` tekrar yazılmaz
 - ✅ DOĞRU: `style={{ ...CLOSE_BTN }}` — token'dan spread
-- ReadingMode ve VerseGraph iç panel butonları bu kural dışındadır (kendine özgü UI'ları var)
-
----
-
-### 13.12 Cross-Tool Navigasyon Kuralı — Back Navigation
-
-Bir tool başka bir overlay'i açtığında (örn. ConceptGraph → VerseGraph), back butonu direkt kaynak tool'a dönmelidir.
-
-**Event dispatch pattern:**
-```js
-window.dispatchEvent(new CustomEvent('openVerseGraph', {
-  detail: { search: `${surah}:${ayah}`, returnToConcept: true },
-}));
-onClose(); // kaynak tool kapanır
-```
-
-**Navbar popstate handler** `returnToConcept` veya `returnToWow` true iken VerseGraph'ın iç navigasyonunu (clusters view) atlar:
-
-```js
-if (graphBackRef.current && !graphReturnToConcept && !graphReturnToWow) {
-  graphBackRef.current(); // VerseGraph iç nav
-} else {
-  setGraphOpen(false);
-  if (graphReturnToConcept) { setGraphReturnToConcept(false); setConceptOpen(true); }
-  if (graphReturnToWow)     { setGraphReturnToWow(false);     setWowOpen(true); }
-}
-```
-
-- ❌ YANLIŞ: `if (graphBackRef.current)` — iç nav her zaman tetiklenir, kullanıcı 2 kez back basmak zorunda kalır
-- ✅ DOĞRU: `if (graphBackRef.current && !graphReturnToConcept && !graphReturnToWow)`
 
 ---
 
@@ -471,10 +345,10 @@ KFGQPC fontunda `U+0653` (maddah above) karakterinden önce gelen hareke (U+064B
 **cleanArabic() fonksiyonuna eklenecek fix:**
 
 ```js
-.replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
+.replace(/[ً-ْ]ٓ/gu, 'ٓ')
 ```
 
-Bu fix, tüm Arapça metin temizleme utility'lerinde mevcut olmalıdır (`src/utils/` altındaki ilgili dosyada).
+Bu fix, tüm Arapça metin temizleme utility'lerinde mevcut olmalıdır (`src/utils/` veya Next.js'te `next/src/lib/`).
 
 ---
 
@@ -519,9 +393,9 @@ API'den gelen veya Uthmani kaynaklı her Arapça metin, ekrana yazdırılmadan �
 function cleanArabic(str) {
   if (!str) return str;
   return str
-    .replace(/\u06EA/g, '\u0650')   // Uthmani kasra → standart kasra
-    .replace(/\u0671/g, '\u0627')   // Alef Wasla → düz Alef
-    .replace(/\u06CC/g, '\u064A')   // Farsi Yeh → Arabic Yeh
+    .replace(/۪/g, 'ِ')   // Uthmani kasra → standart kasra
+    .replace(/ٱ/g, 'ا')   // Alef Wasla → düz Alef
+    .replace(/ی/g, 'ي')   // Farsi Yeh → Arabic Yeh
     // ... diğer normalizasyonlar
 }
 ```
@@ -535,20 +409,20 @@ KFGQPC font'unda glyph'i bulunmayan ek tajwid/sajdah/waqf işaretleri de strip e
 **Strip edilmesi zorunlu Unicode aralıkları:**
 
 ```js
-// 1. Standart dönüşümler (CLAUDE.md §13.15 üst kısım)
-str = str.replace(/\u06EA/g, '\u0650');   // Uthmani subscript kasra → standart kasra
-str = str.replace(/\u06E1/g, '\u0652');   // Uthmani sukun → standart sukun
-str = str.replace(/\u0671/g, '\u0627');   // Alef wasla → düz alef
-str = str.replace(/\u06CC/g, '\u064A');   // Farsi yeh → Arabic yeh
+// 1. Standart dönüşümler
+str = str.replace(/۪/g, 'ِ');   // Uthmani subscript kasra → standart kasra
+str = str.replace(/ۡ/g, 'ْ');   // Uthmani sukun → standart sukun
+str = str.replace(/ٱ/g, 'ا');   // Alef wasla → düz alef
+str = str.replace(/ی/g, 'ي');   // Farsi yeh → Arabic yeh
 
 // 2. Strip — KFGQPC glyph eksikliği nedeniyle
-str = str.replace(/[\u0610-\u0614\u0616\u0617]/g, '');         // İslami ifade kısaltmaları (sallallahu, vb.)
-str = str.replace(/[\u0600-\u0605]/g, '');                     // Quranic numara/dipnot işaretleri
-str = str.replace(/[\u06DD\u06DE\u06E9]/g, '');                // Ayet sonu, rub el hizb, sajda
-str = str.replace(/[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06ED]/g, ''); // Waqf + tajwid (small high seen, lam-alef, jeem, three dots, rounded zero, vb.)
+str = str.replace(/[ؐ-ؔؖؗ]/g, '');         // İslami ifade kısaltmaları (sallallahu, vb.)
+str = str.replace(/[؀-؅]/g, '');                     // Quranic numara/dipnot işaretleri
+str = str.replace(/[۝۞۩]/g, '');                // Ayet sonu, rub el hizb, sajda
+str = str.replace(/[ؕۖ-ۜ۟-ۭۤۧۨ]/g, ''); // Waqf + tajwid (small high seen, lam-alef, jeem, three dots, rounded zero, vb.)
 ```
 
-Tam referans implementasyon: `src/components/VerseGraph.jsx` → `cleanArabicForGraph()`.
+Tam referans implementasyon: `VerseGraph` bileşenindeki `cleanArabicForGraph()`.
 
 #### Render Yöntemi (mevcut data dosyalarında)
 
@@ -558,18 +432,17 @@ JSON dosyaları **iki yöntemden biri** ile temizlenir:
 JSON'a yazmadan önce metin normalize edilir. Veri tek seferlik temizlendiği için runtime maliyeti yok. Yeni JSON yazımı veya mevcut JSON güncellenmesinde:
 
 ```bash
-# Python ile in-place normalizasyon (örnek: kuran-retorigi.json'da uygulandı)
 python3 -c "
 import json, re
 with open('public/X.json') as f: data = json.load(f)
 def normalize(s):
     if not isinstance(s, str): return s
-    s = s.replace('\u06EA','\u0650').replace('\u06E1','\u0652')
-    s = s.replace('\u0671','\u0627').replace('\u06CC','\u064A')
-    s = re.sub(r'[\u0610-\u0614\u0616\u0617]','',s)
-    s = re.sub(r'[\u0600-\u0605]','',s)
-    s = re.sub(r'[\u06DD\u06DE\u06E9]','',s)
-    s = re.sub(r'[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06ED]','',s)
+    s = s.replace('۪','ِ').replace('ۡ','ْ')
+    s = s.replace('ٱ','ا').replace('ی','ي')
+    s = re.sub(r'[ؐ-ؔؖؗ]','',s)
+    s = re.sub(r'[؀-؅]','',s)
+    s = re.sub(r'[۝۞۩]','',s)
+    s = re.sub(r'[ؕۖ-ۜ۟-ۭۤۧۨ]','',s)
     return s
 def walk(o):
     if isinstance(o, dict): return {k: walk(v) for k,v in o.items()}
@@ -589,7 +462,7 @@ Mevcut JSON'da problem karakter var mı tespit etmek için:
 ```bash
 python3 -c "
 import json
-PROBLEM = {'\u06E1','\u0671','\u06EA','\u06CC','\u06DC','\u06D9','\u06DA','\u06DB','\u06DD','\u06DE','\u06DF','\u06E0','\u06E9','\u06ED'}
+PROBLEM = {'ۡ','ٱ','۪','ی','ۜ','ۙ','ۚ','ۛ','۝','۞','۟','۠','۩','ۭ'}
 with open('public/X.json') as f: data = json.load(f)
 hits = 0
 def walk(o):
@@ -613,15 +486,17 @@ Bir font/encoding değişikliğinden sonra **Fatiha Suresi'ni (1:1-7) Kitap modu
 
 ---
 
-### 13.16 Overlay Scroll Mimarisi — Tek Scrollbar Kuralı
+### 13.16 Çift Scrollbar Kuralı — Tek Scrollbar Hijyeni
 
-**Her overlay açıldığında ekranda yalnızca bir scrollbar görünmelidir.** Birden fazla scrollbar — ya iç container'lardan ya da arka plan sayfasından sızan window scroll'undan — kullanıcıyı şaşırtır ve UX'i bozar.
+**Modal/dialog veya tab'lı container'larda ekranda yalnızca bir scrollbar görünmelidir.** Birden fazla scrollbar — ya iç container'lardan ya da arka plan sayfasından sızan window scroll'undan — kullanıcıyı şaşırtır ve UX'i bozar.
+
+> Migration sonrası tool'lar full-page route olduğu için arka plan scroll problemi azalır; ancak modal pattern'ları (settings, search, parallel routes) ve tab'lı container'lar bu kurala uymak zorundadır.
 
 #### Pattern — Üç Katmanlı Scroll Hijyeni
 
-**Katman 1: Body scroll lock**
+**Katman 1: Body scroll lock (modal açıldığında)**
 
-Overlay mount olduğunda hem `<body>` hem `<html>` overflow'u kilitlenir. `position: fixed` overlay alttaki sayfa scroll'unu otomatik durdurmaz — tarayıcı window scrollbar'ı sağ kenarda görünmeye devam eder. Bu yüzden ikisini de manuel kilitlemek gerekir:
+Modal mount olduğunda hem `<body>` hem `<html>` overflow'u kilitlenir:
 
 ```jsx
 useEffect(() => {
@@ -636,9 +511,9 @@ useEffect(() => {
 }, []);
 ```
 
-**Katman 2: Overlay body scroll'u kapatılır, her tab kendi scroll'unu yönetir**
+**Katman 2: Outer container scroll'u kapatılır, her tab kendi scroll'unu yönetir**
 
-Tab'lı overlay'lerde dış body container'a `overflow: auto` koymak — iç tab'ın da kendi `overflow: auto` ile scroll yapmasıyla — **çift scrollbar** üretir. Çözüm: dış body sadece flex container, scroll iç tab'ın sorumluluğu:
+Tab'lı UI'larda dış body container'a `overflow: auto` koymak — iç tab'ın da kendi `overflow: auto` ile scroll yapmasıyla — **çift scrollbar** üretir. Çözüm: dış body sadece flex container, scroll iç tab'ın sorumluluğu:
 
 ```jsx
 {/* Outer body — no scroll, just flex layout */}
@@ -674,7 +549,7 @@ function TabSomething({ ... }) {
 }
 ```
 
-İki panelli tab'larda (sidebar + main panel) sidebar ve main panel ayrı ayrı `overflowY: auto` kullanabilir — bu **istenen davranış**, çünkü sidebar sticky kalır, main panel kayar.
+İki panelli tab'larda (sidebar + main panel) sidebar ve main panel ayrı ayrı `overflowY: auto` kullanabilir — bu **istenen davranış**.
 
 #### Anti-pattern — Yapma
 
@@ -688,25 +563,18 @@ Bu yapı çift scrollbar üretir. **Sadece birinde** `overflow: auto` olmalı.
 
 #### Test Yöntemi
 
-Overlay açıkken sayfayı şu adımlarla doğrula:
 1. Sağ kenarda yalnızca **bir** vertical scrollbar görünüyor mu?
-2. Tab'lar arası geçtiğinde scroll position sıfırlanıyor mu? (`bodyRef.scrollTop = 0` veya tab'ın kendi scroll'u)
-3. Overlay kapatıldığında arka plan sayfası eski scroll position'ına dönüyor mu? (cleanup gerekli)
+2. Tab'lar arası geçtiğinde scroll position sıfırlanıyor mu?
+3. Modal kapatıldığında arka plan sayfası eski scroll position'ına dönüyor mu? (cleanup gerekli)
 4. Mobile'da yatay scroll var mı? (overflowX: hidden gerekli)
-
-#### Referans Implementasyon
-
-`src/components/KuranRetorigi.jsx` — 4 tab'lı overlay; outer body flex+hidden, her tab kendi scroll'u, body+html scroll lock useEffect.
 
 ---
 
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
-**Her yeni overlay ve tool bileşeni mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**
+**Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**
 
 ### 14.1 isMobile Algılama Pattern
-
-Her overlay bileşenine şu pattern eklenir:
 
 ```jsx
 const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
@@ -717,6 +585,8 @@ useEffect(() => {
 }, []);
 ```
 
+> Next.js'te SSR-safety için `useState(false)` initial value ile başla, `useEffect` içinde `window.innerWidth` oku — hydration mismatch'ten kaçın.
+
 ### 14.2 Sabit Genişlik Kuralı
 
 - ❌ YASAK: `width: '220px'` gibi sabit sidebar genişlikleri (overflow yapar)
@@ -725,7 +595,7 @@ useEffect(() => {
 - ✅ DOĞRU: `gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr'`
 - ✅ DOĞRU: Sabit sidebar'ı mobilde `display: isMobile ? 'none' : 'flex'` ile gizle
 
-### 14.3 Sidebar Pattern (AddresseeSystem, QuranCommands vb.)
+### 14.3 Sidebar Pattern
 
 Sidebar + detail layout olan bileşenlerde:
 
@@ -733,7 +603,7 @@ Sidebar + detail layout olan bileşenlerde:
 - Header'a horizontally scrollable chip row eklenir (`overflowX: 'auto', scrollbarWidth: 'none'`)
 - Detail panel mobilde tam genişliği alır
 
-### 14.4 Üçlü Panel Pattern (KissaAtlas vb.)
+### 14.4 Üçlü Panel Pattern
 
 Sol panel + orta grid + sağ detail olan bileşenlerde:
 
@@ -755,22 +625,22 @@ Mobilde header'da çok sayıda buton/tab varsa:
 
 ---
 
-## 15. KAYNAK DİZİN KURALI
+## 16. NEXT.JS PATTERNS (TBD)
 
-**Proje kökü:** `/Users/serdar/dev/00_dev_PROJECTS/01_qurancodex/`
+> Bu bölüm migration ilerledikçe doldurulacak. Faz 0 (audit) sonrasında ve Faz 1-2 implementasyonu sırasında keşfedilen patternlar buraya eklenir. Speculation yerine **iş gördüğünde** kayıt altına alınır.
 
-**Tüm kaynak dosyalar proje kökündeki `src/` dizininde bulunur.**
+Beklenen alt bölümler (Faz 0/1/2 ilerledikçe yazılır):
 
-```text
-01_qurancodex/
-├── src/          ← ASIL KOD BURADADIR (git tracked, vite serves this)
-├── public/       ← statik veri + medya
-├── docs/         ← denetim raporları (docs/reviews/)
-├── tasks/        ← todo.md, lessons.md
-├── CLAUDE.md     ← bu dosya
-└── vite.config.js
-```
+- **16.1 RSC vs Client Components karar matrisi** — hangi component RSC, hangi `'use client'`
+- **16.2 `'use client'` direktifi kuralı** — ne zaman gerekli, ne zaman gereksiz
+- **16.3 `generateMetadata` template** — title, description, OG, canonical, alternates
+- **16.4 Locale routing** — `[locale]` dynamic segment, hreflang, next-intl entegrasyonu
+- **16.5 Route-to-overlay transformation pattern** — eski overlay'i route'a çevirme rehberi (Faz 4'ün ana referansı)
+- **16.6 SSR-safety patterns** — localStorage, window, useLayoutEffect, hydration mismatch önleme
+- **16.7 Server vs client data fetching** — RSC fetch + cache vs client useEffect fetch
+- **16.8 JSON-LD structured data component pattern** — schema.org markup helper
+- **16.9 Cross-route navigation** — `router.push` + searchParams pattern (eski §13.12'nin yerine)
+- **16.10 next/font/local pattern** — KFGQPC, ShaykhHamdullah self-host
+- **16.11 Static generation pattern** — `generateStaticParams` her dynamic route için
 
-- ✅ Düzenlenecek: `src/components/...`, `src/sections/...`, `src/i18n/...`
-- Dev server: `npm run dev` proje kökünden çalıştırılır
-- Git repo: proje kökündeki `.git`
+Çalışırken yeni pattern keşfedilirse bu listeyi de güncelle. Boş bir alt bölüm açmak yerine, gerçekten implement edildiğinde alt başlık + açıklama + kod örneği ile yaz.
