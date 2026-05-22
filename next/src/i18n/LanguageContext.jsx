@@ -10,15 +10,24 @@ const translations = { tr, en: null };
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState(() => {
-    try {
-      return localStorage.getItem('quran-lang') || 'tr';
-    } catch {
-      return 'tr';
-    }
-  });
+  // SSR-safe: always start with 'tr' on the server. localStorage is read in
+  // useEffect (post-mount) to avoid hydration mismatch. If the user previously
+  // chose 'en', a brief frame of TR shows before swapping — acceptable for
+  // migration; will be replaced with cookie-backed locale routing in Faz 5
+  // (next-intl + /tr/, /en/ URL prefix).
+  const [language, setLanguage] = useState('tr');
   // EN dict yüklenince re-render tetiklemek için
   const [, setEnLoadedAt] = useState(0);
+
+  // Hydrate persisted choice after mount.
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('quran-lang');
+      if (saved === 'tr' || saved === 'en') {
+        setLanguage(saved);
+      }
+    } catch { /* localStorage blocked */ }
+  }, []);
 
   // EN seçildiğinde lazy yükle (idempotent — bir kez yüklenir, sonra cache'te durur)
   useEffect(() => {

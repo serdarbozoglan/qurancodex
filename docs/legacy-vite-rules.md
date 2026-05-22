@@ -1,6 +1,6 @@
 # Legacy Vite Implementation Rules — Archived
 
-> **Bağlam:** Bu dosya CLAUDE.md'nin Vite + React SPA'ya özgü bölümlerini arşivler. `migration-to-next.js` branch'inde Next.js 15 App Router'a geçiş yapılıyor; aşağıdaki patternlar Next.js mimarisinde geçerli olmadığı için ana CLAUDE.md'den çıkarıldı. "Eskisini nasıl yapmıştık" referansı olarak — özellikle Faz 4 (Overlay → Route Dönüşümü) sırasında — kullanılabilir.
+> **Bağlam:** Bu dosya CLAUDE.md'nin Vite + React SPA'ya özgü bölümlerini arşivler. `migration-to-next.js` branch'inde Next.js 16 App Router'a geçiş yapılıyor; aşağıdaki patternlar Next.js mimarisinde geçerli olmadığı için ana CLAUDE.md'den çıkarıldı. "Eskisini nasıl yapmıştık" referansı olarak — özellikle Faz 4 (Overlay → Route Dönüşümü) sırasında — kullanılabilir.
 >
 > **Arşivlenme tarihi:** 2026-05-21
 > **Branch:** `migration-to-next.js`
@@ -21,7 +21,7 @@
 
 > **KURAL — Arapça Font:** Kur'an metni için kullanılan tek font **KFGQPC** (King Fahd Complex, Kral Fahd Basımevi Uthmani fontu) olacaktır. `currentFont` değişkeni her zaman `"'KFGQPC', 'Amiri Quran', serif"` olarak kalmalıdır. İstisna: ReadingMode ve InterlinearView, `"'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif"` zincirini kullanır (bkz. CLAUDE.md §13.15). KFGQPC, api.acikkuran.com verisinin tasarlandığı fonttur ve tüm Kur'ani karakterleri (hareke, işaret, vaqf) eksiksiz destekler.
 
-*Next.js'te:* React 19 + Next.js 15 + Tailwind v4 + Framer Motion + next-intl. Tech stack ayrıntıları için `tasks/todo_next.js_migration.md` Faz 1.
+*Next.js'te:* React 19 + Next.js 16 + Tailwind v4 + Framer Motion + next-intl. Tech stack ayrıntıları için `tasks/todo_next.js_migration.md` Faz 1.
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Mevcut durum:** React 19.2 + Vite 7.3 SPA, Tailwind v4, Framer Motion, React Context i18n, 50+ overlay/tool, localStorage-heavy, KFGQPC Arabic font, audio karaoke, ~165 statik route potansiyeli (114 sure + tools).
 
-**Hedef:** Next.js 15 (App Router) — SSG-first, RSC nerede mümkünse, client components nerede gerek varsa.
+**Hedef:** Next.js 16 (App Router) — SSG-first, RSC nerede mümkünse, client components nerede gerek varsa.
 
 **Toplam efor tahmini:** 4-6 hafta full-time (faz bazlı paralelleştirilebilir).
 
@@ -63,7 +63,7 @@
 - [ ] URL şemasını `tasks/url-schema.md`'ye yaz, kullanıcı onayı al
 
 ### 0.4 Karar: App Router vs Pages Router
-- [ ] **Öneri: App Router** (Next.js 15) — RSC, streaming, parallel/intercepting routes, layout nesting
+- [ ] **Öneri: App Router** (Next.js 16) — RSC, streaming, parallel/intercepting routes, layout nesting
 - [ ] Pages Router yalnızca legacy senaryo için; bu projede tercih edilmez
 
 ---
@@ -186,7 +186,7 @@
 - [ ] `cd next && npx create-next-app@latest . --typescript=false --tailwind=true --app=true --src-dir=true --import-alias='@/*'`
 - [ ] Node version pinle (`.nvmrc`)
 - [ ] `package.json` deps:
-  - `next@^15`, `react@^19`, `react-dom@^19`
+  - `next@^16`, `react@^19`, `react-dom@^19`
   - `framer-motion` (mevcut)
   - `tailwindcss@^4`, `@tailwindcss/postcss` (Next.js v4 entegrasyon yolu)
   - `tailwind.config.js` portu
@@ -693,7 +693,7 @@ Her sayfa için Rich Results Test geçmeli:
 
 ### 11.2 Dokümantasyon güncelle
 - [ ] CLAUDE.md'yi Next.js'e uyarla:
-  - §2 tech stack → React 19 + Next.js 15 (App Router)
+  - §2 tech stack → React 19 + Next.js 16 (App Router)
   - §5 file structure → Next.js layout
   - §13 implementation rules → `'use client'` direktifi pattern'ı, server component vs client kararları
 - [ ] Yeni overlay/tool ekleme guide'ı (Faz 4.5 transformation pattern)
@@ -769,7 +769,7 @@ Eğer kademeli migration yapılacaksa:
 
 Tüm öneriler kullanıcı tarafından onaylandı. Migration bu kararlarla başlayacak:
 
-- [x] **Router:** App Router (Next.js 15)
+- [x] **Router:** App Router (Next.js 16)
 - [x] **Dil:** JavaScript (TypeScript'e geçilmeyecek — mevcut kod base'i ile uyum, migration scope'unu küçük tutmak)
 - [x] **i18n:** URL prefix routing — `/tr/...` ve `/en/...`
 - [x] **Tool migration stratejisi:** Tool overlay'ler full page olarak taşınacak (SEO için optimal)

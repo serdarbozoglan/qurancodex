@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from 'react';
 
 const CACHE_KEY_PREFIX = 'wbw_v5_';

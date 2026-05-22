@@ -2,7 +2,7 @@
 
 **Tarih:** 2026-05-21
 **Branch:** `migration-to-next.js`
-**Hedef:** Next.js 15 App Router (`'use client'` boundary stratejisi için altyapı)
+**Hedef:** Next.js 16 App Router (`'use client'` boundary stratejisi için altyapı)
 
 ---
 

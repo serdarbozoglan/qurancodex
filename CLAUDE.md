@@ -1,7 +1,7 @@
 # KUR'AN-I KERİM'İN GÖRÜNMEYEN MİMARİSİ
 ## Comprehensive Website Design Document
 
-> **Branch:** `migration-to-next.js` — Bu dosya, Next.js 15 App Router migration'ı için temizlenmiştir. Vite-spesifik patternlar (§2, §5, §13.3, §13.4, §13.12, §15) ana CLAUDE.md'den çıkarılıp `docs/legacy-vite-rules.md`'ye arşivlendi. Aşağıdaki bölüm numaraları stabil tutuldu; eksik numaralar bilinçlidir.
+> **Branch:** `migration-to-next.js` — Bu dosya, Next.js 16 App Router migration'ı için temizlenmiştir. Vite-spesifik patternlar (§2, §5, §13.3, §13.4, §13.12, §15) ana CLAUDE.md'den çıkarılıp `docs/legacy-vite-rules.md`'ye arşivlendi. Aşağıdaki bölüm numaraları stabil tutuldu; eksik numaralar bilinçlidir.
 >
 > **Migration planı:** `tasks/todo_next.js_migration.md`
 > **Next.js patternları:** §16 (TBD — Faz 0/1/2 ilerledikçe doldurulacak)

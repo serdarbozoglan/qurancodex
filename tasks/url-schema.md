@@ -2,7 +2,7 @@
 
 **Tarih:** 2026-05-21
 **Branch:** `migration-to-next.js`
-**Hedef:** Next.js 15 App Router URL routing tasarımı
+**Hedef:** Next.js 16 App Router URL routing tasarımı
 
 ---
 

@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 const pad = (n, w) => String(n).padStart(w, '0');

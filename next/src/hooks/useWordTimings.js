@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useRef, useState } from 'react';
 
 // Quran.com qdc audio API — returns per-surah mp3 + per-verse word timings.

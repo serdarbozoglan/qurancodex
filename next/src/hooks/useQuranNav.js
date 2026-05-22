@@ -1,3 +1,4 @@
+'use client';
 // ─── useQuranNav ──────────────────────────────────────────────────────────────
 // Thin facade over the existing custom-event navigation pattern used by Navbar.
 // Provides a single, named API for the new homepage discovery layer (PathCards,
