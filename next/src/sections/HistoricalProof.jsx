@@ -1,0 +1,271 @@
+'use client';
+
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
+import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
+import QuranVerse from '../components/QuranVerse';
+
+const storyKeys = ['pharaoh', 'haman', 'rome'];
+
+// Verse coordinates (surah/ayah) — audio handled with fallback by QuranVerse
+const storyVerses = {
+  pharaoh: { surah: 10, ayah: 92 },
+  haman:   { surah: 28, ayah: 38 },
+  rome:    [{ surah: 30, ayah: 2 }, { surah: 30, ayah: 3 }, { surah: 30, ayah: 4 }],
+};
+
+const storyAccents = {
+  pharaoh: {
+    border: 'border-gold',
+    text: 'text-gold',
+    dot: 'bg-gold',
+    bg: 'bg-gold/5',
+  },
+  haman: {
+    border: 'border-soft-emerald',
+    text: 'text-soft-emerald',
+    dot: 'bg-soft-emerald',
+    bg: 'bg-soft-emerald/5',
+  },
+  rome: {
+    border: 'border-sky-blue',
+    text: 'text-sky-blue',
+    dot: 'bg-sky-blue',
+    bg: 'bg-sky-blue/5',
+  },
+};
+
+export default function HistoricalProof() {
+  const { t, language } = useLanguage();
+  const [expandedStory, setExpandedStory] = useState('pharaoh');
+
+  const toggleStory = (key) => {
+    setExpandedStory(expandedStory === key ? null : key);
+  };
+
+  return (
+    <SectionWrapper id="history" dark={false}>
+      {/* Section badge */}
+      <motion.div variants={fadeUpItem}>
+        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+          {t('historicalProof.badge')}
+        </span>
+      </motion.div>
+
+      {/* Title */}
+      <motion.h2
+        variants={fadeUpItem}
+        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-8"
+      >
+        {t('historicalProof.title')}
+      </motion.h2>
+
+      {/* Intro */}
+      <motion.p
+        variants={fadeUpItem}
+        className="text-silver text-lg leading-relaxed max-w-3xl mb-12"
+      >
+        {t('historicalProof.intro')}
+      </motion.p>
+
+      {/* Timeline Stories */}
+      <div className="relative">
+        {/* Timeline connecting line */}
+        <div className="absolute left-[19px] md:left-[23px] top-0 bottom-0 w-px bg-gradient-to-b from-gold/20 via-soft-emerald/20 to-sky-blue/20" />
+
+        <div className="space-y-6">
+          {storyKeys.map((key, index) => {
+            const story = t(`historicalProof.${key}`) || {};
+            const accent = storyAccents[key];
+            const isExpanded = expandedStory === key;
+
+            return (
+              <motion.div
+                key={key}
+                variants={fadeUpItem}
+                className="relative pl-12 md:pl-14"
+              >
+                {/* Timeline dot */}
+                <div
+                  className={`absolute left-2 md:left-3 top-6 w-5 h-5 md:w-4 md:h-4 rounded-full border-2 ${accent.border} ${
+                    isExpanded ? accent.dot : 'bg-cosmic-black'
+                  } transition-all duration-300 z-10`}
+                  style={{
+                    boxShadow: isExpanded
+                      ? `0 0 12px ${key === 'pharaoh' ? 'rgba(212,165,116,0.5)' : key === 'haman' ? 'rgba(46,204,113,0.5)' : 'rgba(52,152,219,0.5)'}`
+                      : 'none',
+                    transform: isExpanded ? 'scale(1.3)' : 'scale(1)',
+                  }}
+                />
+
+                {/* Story card */}
+                <div
+                  className={`glass-card overflow-hidden transition-all duration-300 ${
+                    isExpanded ? accent.bg : ''
+                  }`}
+                >
+                  {/* Clickable header */}
+                  <button
+                    onClick={() => toggleStory(key)}
+                    className="w-full flex items-center gap-4 p-5 md:p-6 text-left cursor-pointer"
+                    aria-expanded={isExpanded}
+                  >
+                    {/* Story number */}
+                    <span
+                      className={`flex-shrink-0 text-3xl md:text-4xl font-display font-bold opacity-30 ${accent.text}`}
+                    >
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+
+                    {/* Title and subtitle */}
+                    <div className="flex-1 min-w-0">
+                      <h3
+                        className={`font-display text-lg md:text-xl font-bold ${accent.text}`}
+                      >
+                        {story.title}
+                      </h3>
+                      <p className="text-silver/70 text-sm font-body mt-1">
+                        {story.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Expand indicator */}
+                    <motion.span
+                      className="text-silver/60 text-xl flex-shrink-0"
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      &#9662;
+                    </motion.span>
+                  </button>
+
+                  {/* Expandable content */}
+                  <AnimatePresence initial={false}>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-5 md:px-6 pb-6 md:pb-8 space-y-2">
+                          {/* Content paragraphs */}
+                          <p className="text-silver text-sm leading-relaxed font-body">
+                            {story.content}
+                          </p>
+
+                          {/* Drama points */}
+                          {Array.isArray(story.points) &&
+                            story.points.length > 0 && (
+                              <div className="space-y-2">
+                                {story.points.map((point, i) => (
+                                  <div
+                                    key={i}
+                                    className="flex items-start gap-2"
+                                  >
+                                    <span
+                                      className={`flex-shrink-0 w-1.5 h-1.5 rounded-full mt-2 ${accent.dot}`}
+                                    />
+                                    <p className="text-off-white/70 text-sm font-body leading-relaxed">
+                                      {point}
+                                    </p>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+
+                          {/* Why it matters */}
+                          {story.significance && (
+                            <div className={`rounded-lg p-4 border-l-4 ${accent.border} ${accent.bg}`}>
+                              <p className={`text-sm font-body font-semibold leading-relaxed ${accent.text}`}>
+                                {story.significance}
+                              </p>
+                            </div>
+                          )}
+
+                          {/* Verse */}
+                          {story.verse && (
+                            <QuranVerse
+                              arabic={story.verse.arabic}
+                              translation={story.verse.translation}
+                              reference={story.verse.reference}
+                              {...(Array.isArray(storyVerses[key])
+                                ? { verses: storyVerses[key] }
+                                : { surah: storyVerses[key].surah, ayah: storyVerses[key].ayah }
+                              )}
+                            />
+                          )}
+
+                          {/* Critical note — academic caveat */}
+                          {story.criticalNote && (
+                            <div className="mt-4 rounded-lg px-5 py-4 border border-white/5 border-l-2 border-l-silver/25 bg-white/[0.02]">
+                              <div className="flex items-center gap-2 mb-2">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-silver/40">
+                                  <path d="M12 3v18M3 9l9-6 9 6M5 21h14"/>
+                                  <path d="M3 9c0 3 2 5 4 6M21 9c0 3-2 5-4 6"/>
+                                </svg>
+                                <span className="text-[0.62rem] font-body font-semibold uppercase tracking-[0.16em] text-silver/40">
+                                  {t('historicalProof.criticalNoteLabel') || 'Eleştirel Not'}
+                                </span>
+                              </div>
+                              <p className="text-[0.82rem] font-body italic leading-[1.78] text-silver/60 m-0">
+                                {story.criticalNote}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* CTA — Kavimler Atlas link (tarihsel doğrulama ↔ tüm Kur'ânî kavimler) */}
+      <motion.div variants={fadeUpItem} className="mt-10">
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('openKavimlerAtlasi'))}
+          style={{
+            width: '100%',
+            padding: '14px 24px',
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.3)',
+            borderRadius: '10px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'rgba(212,165,116,0.06)';
+            e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)';
+          }}
+        >
+          <div style={{ textAlign: 'left' }}>
+            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+              {language === 'tr' ? '↗ KUR\'AN\'DA KAVİMLER — ATLASI AÇ' : '↗ PEOPLES IN THE QUR\'AN — OPEN THE ATLAS'}
+            </p>
+            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+              {language === 'tr'
+                ? 'Âd · Semûd · Lût kavmi · Medyen · Sebeʾ · Firavun — kavimlerin akıbeti, helak ve kurtuluş kalıpları'
+                : 'ʿĀd · Thamūd · the people of Lot · Madyan · Sabaʾ · Pharaoh — the fate of nations, patterns of destruction and salvation'}
+            </p>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </motion.div>
+    </SectionWrapper>
+  );
+}
