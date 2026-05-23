@@ -1,11 +1,6 @@
-// Migration home — Batch 3b wiring:
-// - Hero + ParticleBackground (Batch 2)
-// - Discovery layer: PathCards + AllTopics + ToolsHighlight (Batch 3a)
-// - Scroll-story başlangıcı: LinguisticDNA + ImpossibleRhythm +
-//   SoundArchitecture (Batch 3b) — Fascination katmanı
-// - LivingPreservation (Batch 1)
-// - Footer (Batch 1)
-// Batch 3c'de Awe katmanı (HiddenArchitecture, PsychologySection, vs.)
+// Migration home — Batch 3c wiring:
+// Awe katmanı (HiddenArchitecture + PsychologySection + HumanDefinition)
+// scroll-story'ye eklendi.
 
 import Hero from '@/components/Hero';
 import PathCards from '@/sections/PathCards';
@@ -14,6 +9,9 @@ import ToolsHighlight from '@/sections/ToolsHighlight';
 import LinguisticDNA from '@/sections/LinguisticDNA';
 import ImpossibleRhythm from '@/sections/ImpossibleRhythm';
 import SoundArchitecture from '@/sections/SoundArchitecture';
+import HiddenArchitecture from '@/sections/HiddenArchitecture';
+import PsychologySection from '@/sections/PsychologySection';
+import HumanDefinition from '@/sections/HumanDefinition';
 import LivingPreservation from '@/sections/LivingPreservation';
 import Footer from '@/components/Footer';
 
@@ -27,6 +25,9 @@ export default function Home() {
       <LinguisticDNA />
       <ImpossibleRhythm />
       <SoundArchitecture />
+      <HiddenArchitecture />
+      <PsychologySection />
+      <HumanDefinition />
       <LivingPreservation />
       <Footer />
     </>
