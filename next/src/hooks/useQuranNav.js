@@ -1,69 +1,71 @@
 'use client';
-// ─── useQuranNav ──────────────────────────────────────────────────────────────
-// Thin facade over the existing custom-event navigation pattern used by Navbar.
-// Provides a single, named API for the new homepage discovery layer (PathCards,
-// AllTopics, ToolsHighlight) without touching Navbar's 26 useState flags.
+// ─── useQuranNav (Next.js route-based versiyonu) ─────────────────────────────
+// Vite'taki window.dispatchEvent pattern'ı yerine, tool keşfi artık gerçek
+// route'lara navigate ediyor (URL değişiyor, SEO + paylaşım çalışıyor).
 //
 // - scrollToSection(id): smooth scroll to a section, accounting for fixed navbar
-// - openOverlay(name, detail?): dispatches the matching window event Navbar listens to
+// - openOverlay(name, detail?): router.push ile ilgili route'a git
 //
-// All overlay names map to existing Navbar event listeners. Names that do not yet
-// have a listener in Navbar are added as part of Phase 2 (see todo_v1.1.md).
+// Vite davranışı ile uyumluluk: aynı `openOverlay(name)` API'si, sadece
+// internal implementasyon route'a navigate eder. Caller'lar (AllTopics,
+// ToolsHighlight, PathCards, vs.) değişmez.
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 
-// Map: short overlay name → window event name dispatched to Navbar
-const OVERLAY_EVENTS = {
+// Map: short overlay name → Next.js route path
+// (URL şeması: tasks/url-schema.md ile uyumlu)
+const OVERLAY_ROUTES = {
   // Reading + verse browsing
-  reading:    'openReadingMode',
-  graph:      'openVerseGraph',
+  reading:    '/oku',
+  graph:      '/graf/ayet',
 
-  // v1.1 — full tools browser modal (centered modal, NOT navbar dropdown)
-  allTools:   'openToolsBrowser',
+  // Tools browser modal
+  allTools:   '/arac/tum-araclar',
 
-  // Existing Navbar listeners
-  cennet:     'openCennetCehennem',
-  kavimler:   'openKavimlerAtlasi',
-  retorigi:   'openKuranRetorigi',
-  kissa:      'openKissaAtlas',
-  kiraat:     'openKiraatAtlas',
-  sebeb:      'openSebebNuzul',
-  mesel:      'openMeselAtlas',
-  dua:        'openDuaVerses',
-  exploreMenu:'openExploreMenu',
-  toolsMenu:  'openToolsMenu',
+  // Atlas
+  kissa:      '/atlas/kissa',
+  kavimler:   '/atlas/kavim',
+  prophet:    '/atlas/peygamber',
+  kevni:      '/atlas/doga',
+  mesel:      '/atlas/mesel',
+  furuk:      '/atlas/furuk',
+  munasebat:  '/atlas/munasebat',
+  kiraat:     '/atlas/kiraat',
+  sunnetullah:'/atlas/sunnetullah',
+  munafik:    '/atlas/munafik',
+  nefis:      '/atlas/nefs-mertebeleri',
+  kadinlar:   '/atlas/kadinlar',
 
-  // Phase 2 — listeners added to Navbar in this phase
-  yeminler:   'openYeminler',
-  melekler:   'openMelekler',
-  renkler:    'openRenkler',
-  zaman:      'openZamanBoyutlari',
-  kevni:      'openDogaAtlasi',
-  kiyamet:    'openKiyametSahneleri',
-  wow:        'openWowFacts',
-  concept:    'openConceptGraph',
-  prophet:    'openProphetAtlas',
-  heatmap:    'openHeatmap',
-  revelation: 'openRevelationOrder',
-  esma:       'openEsmaFrekans',
-  addressee:  'openAddresseeSystem',
-  commands:   'openSurahCommands',
-  comparator: 'openSurahComparator',
-  diyalog:    'openDiyalogAgi',
-  furuk:      'openFurukAtlasi',
-  munasebat:  'openMunasebatAtlasi',
+  // Graf
+  concept:    '/graf/kavram',
+  diyalog:    '/graf/diyalog',
+  revelation: '/graf/zaman',
+  comparator: '/graf/karsilastir',
+  heatmap:    '/graf/kelime-isi',
 
-  // Phase 3 — eklenen yeni overlay'ler (önceki phase'lerde kayıt unutulmuş)
-  sunnetullah: 'openSunnetullah',
-  munafik:     'openMunafikProfili',
-  nefis:       'openNefisMertebeleri',
-  iblisSatan:  'openIblisSatan',
-  kadinlar:    'openKadinlarAtlasi',
-  ilkSon:      'openIlkSonKelimeler',
+  // Arac (utility)
+  cennet:     '/arac/cennet-cehennem',
+  retorigi:   '/arac/retorik',
+  sebeb:      '/arac/sebebi-nuzul',
+  dua:        '/arac/dualar',
+  yeminler:   '/arac/yeminler',
+  melekler:   '/arac/melekler',
+  renkler:    '/arac/renkler',
+  zaman:      '/arac/zaman-boyutlari',
+  kiyamet:    '/arac/kiyamet',
+  wow:        '/arac/wow',
+  esma:       '/arac/esma-frekans',
+  addressee:  '/arac/muhataplar',
+  commands:   '/arac/buyruklar',
+  iblisSatan: '/arac/iblis-seytan',
+  ilkSon:     '/arac/ilk-son-kelimeler',
 };
 
 export function useQuranNav() {
+  const router = useRouter();
+
   /**
    * Smoothly scroll to a section by its DOM id, offset by the fixed navbar height.
    * @param {string} id - The id attribute of the target section
@@ -75,7 +77,6 @@ export function useQuranNav() {
       console.warn(`useQuranNav.scrollToSection: no element with id="${id}"`);
       return;
     }
-    // Save current scroll position in history so back returns here
     const prevScroll = window.scrollY;
     window.history.replaceState({ ...window.history.state, scrollY: prevScroll }, '');
     window.history.pushState({ section: id }, '');
@@ -87,22 +88,26 @@ export function useQuranNav() {
   }, []);
 
   /**
-   * Open an overlay tool by its short name. Internally dispatches the same
-   * window CustomEvent that Navbar already listens to.
-   * @param {string} name - One of the keys in OVERLAY_EVENTS
-   * @param {object} [detail] - Optional payload (e.g. { search: '2:255' } for graph)
+   * Navigate to an overlay tool's route by its short name.
+   * @param {string} name - One of the keys in OVERLAY_ROUTES
+   * @param {object} [detail] - Optional payload (e.g. { search: '2:255' }) — for now
+   *   only `search` is used and converted to ?q= query param for graph routes.
    */
   const openOverlay = useCallback((name, detail) => {
-    const eventName = OVERLAY_EVENTS[name];
-    if (!eventName) {
+    const route = OVERLAY_ROUTES[name];
+    if (!route) {
       console.warn(`useQuranNav.openOverlay: unknown overlay "${name}"`);
       return;
     }
-    window.dispatchEvent(new CustomEvent(eventName, { detail }));
-  }, []);
+    // Forward `search` payload as ?q= query param (e.g. VerseGraph with verse ref)
+    const url = detail?.search ? `${route}?q=${encodeURIComponent(detail.search)}` : route;
+    router.push(url);
+  }, [router]);
 
   return { scrollToSection, openOverlay };
 }
 
 // Export the map too, so callers (or tests) can introspect what's available
-export { OVERLAY_EVENTS };
+export { OVERLAY_ROUTES };
+// Backwards-compat alias for Vite-era callers that imported OVERLAY_EVENTS
+export { OVERLAY_ROUTES as OVERLAY_EVENTS };

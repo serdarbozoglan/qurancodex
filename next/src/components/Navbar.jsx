@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, lazy, Suspense, useRef, Fragment } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, TRANSITION } from '../tokens';
@@ -186,6 +187,7 @@ const navSections = [
 
 export default function Navbar() {
   const { language, toggleLanguage } = useLanguage();
+  const router = useRouter();
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [toolsOpen, setToolsOpen]       = useState(false);
@@ -621,34 +623,36 @@ export default function Navbar() {
   };
 
   // ── v1.1 redesign — tools data is now imported from src/data/tools.jsx
-  // (single source of truth, shared with the ToolsBrowser modal). Each setter
-  // is bound to its corresponding event name via TOOL_TRIGGERS so the imported
-  // data — which has no knowledge of Navbar's local state — can still drive
-  // the dropdown clicks. ZamanBoyutlari is intentionally kept in the local
-  // tools.zaman entry (Keşfet dropdown only — see "Zaman" in the Evren column).
-  const TOOL_TRIGGERS = {
-    openWowFacts:        () => setWowOpen(true),
-    openVerseGraph:      () => setGraphOpen(true),
-    openHeatmap:         () => setHeatmapOpen(true),
-    openRevelationOrder: () => setRevelationOpen(true),
-    openProphetAtlas:    () => setProphetOpen(true),
-    openConceptGraph:    () => { conceptRestoreRef.current = null; setConceptOpen(true); },
-    openKissaAtlas:      () => setKissaOpen(true),
-    openSurahComparator: () => setComparatorOpen(true),
-    openSurahCommands:   () => setCommandsOpen(true),
-    openDuaVerses:       () => setDuaOpen(true),
-    openAddresseeSystem: () => setAddresseeOpen(true),
-    openEsmaFrekans:     () => setEsmaOpen(true),
-    openKiraatAtlas:     () => setKiraatOpen(true),
-    openDiyalogAgi:      () => setDiyalogOpen(true),
-    openMeselAtlas:      () => setMeselOpen(true),
-    openSebebNuzul:      () => setSebebOpen(true),
-    openFurukAtlasi:     () => setFurukOpen(true),
-    openMunasebatAtlasi: () => setMunasebatOpen(true),
-    openIblisSatan:      () => setIblisSatanOpen(true),
-    openKadinlarAtlasi:  () => setKadinlarOpen(true),
-    openIlkSonKelimeler: () => setIlkSonOpen(true),
+  // (single source of truth, shared with the ToolsBrowser modal).
+  // Next.js migration: event-based dispatch → route navigation. URL artık her
+  // tool tıklamasında değişir, SEO + paylaşım + browser back/forward çalışır.
+  const TOOL_ROUTES = {
+    openWowFacts:        '/arac/wow',
+    openVerseGraph:      '/graf/ayet',
+    openHeatmap:         '/graf/kelime-isi',
+    openRevelationOrder: '/graf/zaman',
+    openProphetAtlas:    '/atlas/peygamber',
+    openConceptGraph:    '/graf/kavram',
+    openKissaAtlas:      '/atlas/kissa',
+    openSurahComparator: '/graf/karsilastir',
+    openSurahCommands:   '/arac/buyruklar',
+    openDuaVerses:       '/arac/dualar',
+    openAddresseeSystem: '/arac/muhataplar',
+    openEsmaFrekans:     '/arac/esma-frekans',
+    openKiraatAtlas:     '/atlas/kiraat',
+    openDiyalogAgi:      '/graf/diyalog',
+    openMeselAtlas:      '/atlas/mesel',
+    openSebebNuzul:      '/arac/sebebi-nuzul',
+    openFurukAtlasi:     '/atlas/furuk',
+    openMunasebatAtlasi: '/atlas/munasebat',
+    openIblisSatan:      '/arac/iblis-seytan',
+    openKadinlarAtlasi:  '/atlas/kadinlar',
+    openIlkSonKelimeler: '/arac/ilk-son-kelimeler',
   };
+  // Backwards-compat alias — bazı yerlerde TOOL_TRIGGERS kullanıyor olabilir.
+  const TOOL_TRIGGERS = Object.fromEntries(
+    Object.entries(TOOL_ROUTES).map(([event, route]) => [event, () => router.push(route)])
+  );
 
   // Adapt an imported tool entry to the shape Navbar's existing toolBtn renderer
   // expects (labelTr/En, descTr/En, icon as JSX, action). Done at render time so
@@ -763,21 +767,23 @@ export default function Navbar() {
                     // (dispatch a window event). Old per-category factories (yeminlerBtn,
                     // renkleriBtn, kavimlerBtn, dogaBtn, meleklerBtn, cennetBtn,
                     // kiyametBtn, zamanBtn) are replaced by this single function.
-                    const OVERLAY_EVENT_BY_TARGET = {
-                      renkler:     'openRenkler',
-                      yeminler:    'openYeminler',
-                      kavimler:    'openKavimlerAtlasi',
-                      kevni:       'openDogaAtlasi',
-                      zaman:       'openZamanBoyutlari',
-                      melekler:    'openMelekler',
-                      kiyamet:     'openKiyametSahneleri',
-                      cennet:      'openCennetCehennem',
-                      sunnetullah: 'openSunnetullah',
-                      munafik:     'openMunafikProfili',
-                      nefis:       'openNefisMertebeleri',
-                      iblisSatan:  'openIblisSatan',
-                      kadinlar:    'openKadinlarAtlasi',
-                      ilkSon:      'openIlkSonKelimeler',
+                    // Vite'taki window.dispatchEvent yerine Next.js route'larına
+                    // navigate ediyoruz — URL değişir, SEO + paylaşım çalışır.
+                    const OVERLAY_ROUTE_BY_TARGET = {
+                      renkler:     '/arac/renkler',
+                      yeminler:    '/arac/yeminler',
+                      kavimler:    '/atlas/kavim',
+                      kevni:       '/atlas/doga',
+                      zaman:       '/arac/zaman-boyutlari',
+                      melekler:    '/arac/melekler',
+                      kiyamet:     '/arac/kiyamet',
+                      cennet:      '/arac/cennet-cehennem',
+                      sunnetullah: '/atlas/sunnetullah',
+                      munafik:     '/atlas/munafik',
+                      nefis:       '/atlas/nefs-mertebeleri',
+                      iblisSatan:  '/arac/iblis-seytan',
+                      kadinlar:    '/atlas/kadinlar',
+                      ilkSon:      '/arac/ilk-son-kelimeler',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;
@@ -785,8 +791,8 @@ export default function Navbar() {
                         if (item.kind === 'section') {
                           scrollTo(item.target);
                         } else {
-                          const ev = OVERLAY_EVENT_BY_TARGET[item.target];
-                          if (ev) window.dispatchEvent(new CustomEvent(ev));
+                          const route = OVERLAY_ROUTE_BY_TARGET[item.target];
+                          if (route) router.push(route);
                         }
                         setExploreOpen(false);
                       };
