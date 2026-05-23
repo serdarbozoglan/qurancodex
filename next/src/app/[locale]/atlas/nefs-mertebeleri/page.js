@@ -1,16 +1,27 @@
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import NefisMertebeleriRoute from './NefisMertebeleriRoute';
 
-import { pageMetadata } from '@/lib/seo';
+const PATH = '/atlas/nefs-mertebeleri';
+const TITLE = 'Nefs Mertebeleri';
+const DESC = '7 nefs mertebesi — emmare, levvâme, mülhime, mutmainne, râziye, marziyye, kâmile.';
 
 export async function generateMetadata({ params }) {
-  return pageMetadata({
-    params,
-    path: '/atlas/nefs-mertebeleri',
-    title: 'Nefs Mertebeleri',
-    description: '7 nefs mertebesi — emmare, levvâme, mülhime, mutmainne, râziye, marziyye, kâmile.',
-  });
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
 }
 
-export default function Page() {
-  return <NefisMertebeleriRoute />;
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, PATH),
+          buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+        ]}
+      />
+      <NefisMertebeleriRoute />
+    </>
+  );
 }

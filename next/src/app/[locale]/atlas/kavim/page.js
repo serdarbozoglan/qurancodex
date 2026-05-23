@@ -1,16 +1,27 @@
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import KavimlerAtlasiRoute from './KavimlerAtlasiRoute';
 
-import { pageMetadata } from '@/lib/seo';
+const PATH = '/atlas/kavim';
+const TITLE = 'Kavimler Atlası';
+const DESC = 'Kur';
 
 export async function generateMetadata({ params }) {
-  return pageMetadata({
-    params,
-    path: '/atlas/kavim',
-    title: 'Kavimler Atlası',
-    description: 'Kur',
-  });
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
 }
 
-export default function Page() {
-  return <KavimlerAtlasiRoute />;
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, PATH),
+          buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+        ]}
+      />
+      <KavimlerAtlasiRoute />
+    </>
+  );
 }

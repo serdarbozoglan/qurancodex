@@ -1,16 +1,27 @@
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import KiyametSahneleriRoute from './KiyametSahneleriRoute';
 
-import { pageMetadata } from '@/lib/seo';
+const PATH = '/arac/kiyamet';
+const TITLE = 'Kıyamet Sahneleri';
+const DESC = 'Kıyamet günü ve sonrası — 7 fazlı sahneler: ön belirtiler, sûr, haşr, hesap, kitap, mizan, sırat.';
 
 export async function generateMetadata({ params }) {
-  return pageMetadata({
-    params,
-    path: '/arac/kiyamet',
-    title: 'Kıyamet Sahneleri',
-    description: 'Kıyamet günü ve sonrası — 7 fazlı sahneler: ön belirtiler, sûr, haşr, hesap, kitap, mizan, sırat.',
-  });
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
 }
 
-export default function Page() {
-  return <KiyametSahneleriRoute />;
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, PATH),
+          buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+        ]}
+      />
+      <KiyametSahneleriRoute />
+    </>
+  );
 }

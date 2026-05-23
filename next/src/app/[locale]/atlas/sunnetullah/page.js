@@ -1,16 +1,27 @@
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import SunnetullahAtlasiRoute from './SunnetullahAtlasiRoute';
 
-import { pageMetadata } from '@/lib/seo';
+const PATH = '/atlas/sunnetullah';
+const TITLE = 'Sünnetullah Atlası';
+const DESC = 'İlâhî yasa örüntüleri — toplumların yükseliş-çöküş sünnetleri; helâk eden ve yücelten ilkeler.';
 
 export async function generateMetadata({ params }) {
-  return pageMetadata({
-    params,
-    path: '/atlas/sunnetullah',
-    title: 'Sünnetullah Atlası',
-    description: 'İlâhî yasa örüntüleri — toplumların yükseliş-çöküş sünnetleri; helâk eden ve yücelten ilkeler.',
-  });
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
 }
 
-export default function Page() {
-  return <SunnetullahAtlasiRoute />;
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, PATH),
+          buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+        ]}
+      />
+      <SunnetullahAtlasiRoute />
+    </>
+  );
 }

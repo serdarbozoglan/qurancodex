@@ -1,16 +1,27 @@
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import KuranYeminleriRoute from './KuranYeminleriRoute';
 
-import { pageMetadata } from '@/lib/seo';
+const PATH = '/arac/yeminler';
+const TITLE = 'Kur';
+const DESC = 'Allah';
 
 export async function generateMetadata({ params }) {
-  return pageMetadata({
-    params,
-    path: '/arac/yeminler',
-    title: 'Kur',
-    description: 'Allah',
-  });
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
 }
 
-export default function Page() {
-  return <KuranYeminleriRoute />;
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, PATH),
+          buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+        ]}
+      />
+      <KuranYeminleriRoute />
+    </>
+  );
 }

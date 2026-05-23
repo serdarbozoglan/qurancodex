@@ -1,16 +1,27 @@
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import MunafikProfiliRoute from './MunafikProfiliRoute';
 
-import { pageMetadata } from '@/lib/seo';
+const PATH = '/atlas/munafik';
+const TITLE = 'Münafık Profili';
+const DESC = 'Münafıkların psikolojik portresi — 12 özellik, ayet referansları, klasik tefsir analizleri.';
 
 export async function generateMetadata({ params }) {
-  return pageMetadata({
-    params,
-    path: '/atlas/munafik',
-    title: 'Münafık Profili',
-    description: 'Münafıkların psikolojik portresi — 12 özellik, ayet referansları, klasik tefsir analizleri.',
-  });
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
 }
 
-export default function Page() {
-  return <MunafikProfiliRoute />;
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, PATH),
+          buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+        ]}
+      />
+      <MunafikProfiliRoute />
+    </>
+  );
 }

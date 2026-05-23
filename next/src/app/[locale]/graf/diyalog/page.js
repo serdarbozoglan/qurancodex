@@ -1,16 +1,27 @@
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import DiyalogAgiRoute from './DiyalogAgiRoute';
 
-import { pageMetadata } from '@/lib/seo';
+const PATH = '/graf/diyalog';
+const TITLE = 'Diyalog Ağı';
+const DESC = 'Kur';
 
 export async function generateMetadata({ params }) {
-  return pageMetadata({
-    params,
-    path: '/graf/diyalog',
-    title: 'Diyalog Ağı',
-    description: 'Kur',
-  });
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
 }
 
-export default function Page() {
-  return <DiyalogAgiRoute />;
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, PATH),
+          buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+        ]}
+      />
+      <DiyalogAgiRoute />
+    </>
+  );
 }

@@ -7,6 +7,8 @@
 // Navbar henüz yok — Faz 4'te 50+ tool route registry'siyle gelecek.
 
 import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import Hero from '@/components/Hero';
 import PathCards from '@/sections/PathCards';
 import AllTopics from '@/sections/AllTopics';
@@ -43,9 +45,11 @@ export async function generateMetadata({ params }) {
   });
 }
 
-export default function Home() {
+export default async function Home({ params }) {
+  const { locale } = await params;
   return (
     <>
+      <JsonLd schemas={buildBreadcrumb(locale, '')} />
       <Hero />
       <PathCards />
       <AllTopics />

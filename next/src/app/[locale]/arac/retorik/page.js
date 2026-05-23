@@ -1,16 +1,27 @@
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import KuranRetorigiRoute from './KuranRetorigiRoute';
 
-import { pageMetadata } from '@/lib/seo';
+const PATH = '/arac/retorik';
+const TITLE = 'Kur';
+const DESC = 'Belâgat figürleri — tezad, istiare, teşbih, iltifât, sehl-i mümteni ve daha fazlası.';
 
 export async function generateMetadata({ params }) {
-  return pageMetadata({
-    params,
-    path: '/arac/retorik',
-    title: 'Kur',
-    description: 'Belâgat figürleri — tezad, istiare, teşbih, iltifât, sehl-i mümteni ve daha fazlası.',
-  });
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
 }
 
-export default function Page() {
-  return <KuranRetorigiRoute />;
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, PATH),
+          buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+        ]}
+      />
+      <KuranRetorigiRoute />
+    </>
+  );
 }

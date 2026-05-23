@@ -1,16 +1,27 @@
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import SebebiNuzulRoute from './SebebiNuzulRoute';
 
-import { pageMetadata } from '@/lib/seo';
+const PATH = '/arac/sebebi-nuzul';
+const TITLE = 'Sebeb-i Nüzûl';
+const DESC = 'Ayetlerin iniş sebepleri — tarihsel olaylar, sorular, bağlamlar; klasik tefsir kaynaklarına dayalı.';
 
 export async function generateMetadata({ params }) {
-  return pageMetadata({
-    params,
-    path: '/arac/sebebi-nuzul',
-    title: 'Sebeb-i Nüzûl',
-    description: 'Ayetlerin iniş sebepleri — tarihsel olaylar, sorular, bağlamlar; klasik tefsir kaynaklarına dayalı.',
-  });
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
 }
 
-export default function Page() {
-  return <SebebiNuzulRoute />;
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, PATH),
+          buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+        ]}
+      />
+      <SebebiNuzulRoute />
+    </>
+  );
 }

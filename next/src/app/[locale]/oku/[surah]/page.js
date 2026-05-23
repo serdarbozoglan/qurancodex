@@ -1,4 +1,6 @@
 import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildArticle, quranBook } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
 import { SURAH_NAMES_TR } from '@/lib/surahNames';
 import ReadingModeRoute from './ReadingModeRoute';
 
@@ -29,6 +31,35 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const { surah } = await params;
-  return <ReadingModeRoute initialSurah={parseInt(surah, 10)} />;
+  const { locale, surah } = await params;
+  const s = parseInt(surah, 10);
+  const valid = !Number.isNaN(s) && s >= 1 && s <= 114;
+  const nameTr = valid ? (SURAH_NAMES_TR[s - 1] || `Sure ${s}`) : 'Sure';
+  const isEN = locale === 'en';
+  const title = valid
+    ? (isEN ? `${nameTr} (Surah ${s})` : `${nameTr} — Sure ${s}`)
+    : 'Sure Bulunamadı';
+  const description = valid
+    ? (isEN
+        ? `Surah ${nameTr} (${s}) — full recitation, tajweed, tafsir, and word-level interlinear.`
+        : `${nameTr} suresinin tam okuması, tajweed, tefsir paneli ve interlinear çeviri.`)
+    : '';
+  return (
+    <>
+      <JsonLd
+        schemas={[
+          buildBreadcrumb(locale, `/oku/${s || surah}`, title),
+          buildArticle({
+            locale,
+            path: `/oku/${s || surah}`,
+            title,
+            description,
+            isPartOf: quranBook(),
+            position: valid ? s : undefined,
+          }),
+        ]}
+      />
+      <ReadingModeRoute initialSurah={valid ? s : undefined} />
+    </>
+  );
 }
