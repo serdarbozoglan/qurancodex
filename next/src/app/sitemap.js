@@ -50,11 +50,19 @@ const ROUTES = [
   { path: '/arac/ilk-son-kelimeler',  priority: 0.7, freq: 'monthly' },
 ];
 
+// Faz 6.2 — per-sure deep-link routes (114 sure × 2 locale = 228 ekstra URL)
+const SURAH_ROUTES = Array.from({ length: 114 }, (_, i) => ({
+  path: `/oku/${i + 1}`,
+  priority: 0.85,
+  freq: 'monthly',
+}));
+
 export default function sitemap() {
   const lastModified = new Date();
   const entries = [];
+  const allRoutes = [...ROUTES, ...SURAH_ROUTES];
   for (const locale of LOCALES) {
-    for (const { path, priority, freq } of ROUTES) {
+    for (const { path, priority, freq } of allRoutes) {
       const url = `${BASE}/${locale}${path}`;
       entries.push({
         url,
