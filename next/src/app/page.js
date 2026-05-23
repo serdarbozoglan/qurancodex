@@ -1,6 +1,10 @@
-// Migration home — Batch 3d wiring:
-// Astonishment katmanı (ScientificSigns + HistoricalProof + ZeroRedundancy
-// + Highlights) scroll-story'ye eklendi.
+// Migration home — Batch 3e wiring (final scroll-story katmanı):
+// Reflection + Misc: QuranRhetoric, QuranDua, ToolsShowcase, Conclusion
+// Eklenmedi: ProphetMap (leaflet bağımlısı — Faz 4'te react-leaflet + L
+// kurulunca taşınacak)
+//
+// Final ana sayfa sırası Vite App.jsx ile uyumlu (eksik: ProphetMap).
+// Navbar henüz yok — Faz 4'te 50+ tool route registry'siyle gelecek.
 
 import Hero from '@/components/Hero';
 import PathCards from '@/sections/PathCards';
@@ -8,15 +12,19 @@ import AllTopics from '@/sections/AllTopics';
 import ToolsHighlight from '@/sections/ToolsHighlight';
 import LinguisticDNA from '@/sections/LinguisticDNA';
 import ImpossibleRhythm from '@/sections/ImpossibleRhythm';
+import QuranRhetoric from '@/sections/QuranRhetoric';
+import QuranDua from '@/sections/QuranDua';
 import SoundArchitecture from '@/sections/SoundArchitecture';
-import HiddenArchitecture from '@/sections/HiddenArchitecture';
 import PsychologySection from '@/sections/PsychologySection';
-import HumanDefinition from '@/sections/HumanDefinition';
+import HiddenArchitecture from '@/sections/HiddenArchitecture';
 import ScientificSigns from '@/sections/ScientificSigns';
 import HistoricalProof from '@/sections/HistoricalProof';
+import LivingPreservation from '@/sections/LivingPreservation';
 import ZeroRedundancy from '@/sections/ZeroRedundancy';
 import Highlights from '@/sections/Highlights';
-import LivingPreservation from '@/sections/LivingPreservation';
+import HumanDefinition from '@/sections/HumanDefinition';
+import ToolsShowcase from '@/sections/ToolsShowcase';
+import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -28,15 +36,19 @@ export default function Home() {
       <ToolsHighlight />
       <LinguisticDNA />
       <ImpossibleRhythm />
+      <QuranRhetoric />
+      <QuranDua />
       <SoundArchitecture />
-      <HiddenArchitecture />
       <PsychologySection />
-      <HumanDefinition />
+      <HiddenArchitecture />
       <ScientificSigns />
       <HistoricalProof />
+      <LivingPreservation />
       <ZeroRedundancy />
       <Highlights />
-      <LivingPreservation />
+      <HumanDefinition />
+      <ToolsShowcase />
+      <Conclusion />
       <Footer />
     </>
   );
