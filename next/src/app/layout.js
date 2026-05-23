@@ -1,7 +1,10 @@
+// Root layout — Next.js zorunlu html/body + global font/metadata
+// Locale-spesifik provider'lar (LanguageProvider + PathProvider + Navbar)
+// app/[locale]/layout.js'ye taşındı (Faz 5 URL-prefix routing).
+// Bu root layout tüm route'lar için ortak kalır; lang attr [locale] layout'ta
+// document.documentElement.lang ile güncellenir.
+
 import { Inter, Playfair_Display } from 'next/font/google';
-import { LanguageProvider } from '@/i18n/LanguageContext';
-import { PathProvider } from '@/contexts/PathContext';
-import Navbar from '@/components/Navbar';
 import './globals.css';
 
 const inter = Inter({
@@ -50,14 +53,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="tr" className={`${inter.variable} ${playfair.variable}`}>
-      <body>
-        <LanguageProvider>
-          <PathProvider>
-            <Navbar />
-            {children}
-          </PathProvider>
-        </LanguageProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

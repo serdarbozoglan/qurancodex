@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import tr from './tr.json';
 
 // EN lazy — initial bundle'dan ~90KB raw / ~25KB gzip kazanım. TR default
@@ -9,25 +10,24 @@ import tr from './tr.json';
 const translations = { tr, en: null };
 const LanguageContext = createContext(null);
 
-export function LanguageProvider({ children }) {
-  // SSR-safe: always start with 'tr' on the server. localStorage is read in
-  // useEffect (post-mount) to avoid hydration mismatch. If the user previously
-  // chose 'en', a brief frame of TR shows before swapping — acceptable for
-  // migration; will be replaced with cookie-backed locale routing in Faz 5
-  // (next-intl + /tr/, /en/ URL prefix).
-  const [language, setLanguage] = useState('tr');
+export function LanguageProvider({ children, initialLocale }) {
+  // Faz 5 — URL-prefix locale routing aktif.
+  // initialLocale [locale]/layout.js'ten gelir (params.locale). Server'da
+  // doğru locale render edilir; client'ta localStorage hidrasyonu yok →
+  // hydration mismatch yok.
+  // Fallback: initialLocale verilmemişse 'tr' (root layout doğrudan kullanılırsa).
+  const [language, setLanguage] = useState(initialLocale === 'en' ? 'en' : 'tr');
   // EN dict yüklenince re-render tetiklemek için
   const [, setEnLoadedAt] = useState(0);
+  const router = useRouter();
+  const pathname = usePathname();
 
-  // Hydrate persisted choice after mount.
+  // Sync language with URL locale on navigation
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem('quran-lang');
-      if (saved === 'tr' || saved === 'en') {
-        setLanguage(saved);
-      }
-    } catch { /* localStorage blocked */ }
-  }, []);
+    if (initialLocale === 'en' || initialLocale === 'tr') {
+      setLanguage(initialLocale);
+    }
+  }, [initialLocale]);
 
   // EN seçildiğinde lazy yükle (idempotent — bir kez yüklenir, sonra cache'te durur)
   useEffect(() => {
@@ -40,9 +40,6 @@ export function LanguageProvider({ children }) {
   }, [language]);
 
   useEffect(() => {
-    try {
-      localStorage.setItem('quran-lang', language);
-    } catch {}
     document.documentElement.lang = language;
   }, [language]);
 
@@ -57,9 +54,20 @@ export function LanguageProvider({ children }) {
     return value ?? key;
   }, [language]);
 
+  // Faz 5: dil değiştir → URL pathname'i locale prefix swap ile yeniden yönlendir.
   const toggleLanguage = useCallback(() => {
-    setLanguage(prev => prev === 'tr' ? 'en' : 'tr');
-  }, []);
+    const next = language === 'tr' ? 'en' : 'tr';
+    if (pathname) {
+      const swapped = pathname.replace(/^\/(tr|en)/, `/${next}`);
+      router.push(swapped);
+    } else {
+      setLanguage(next);
+    }
+  }, [language, pathname, router]);
+
+  // setLanguage corollary: direct setter still works (overlay components that
+  // call setLanguage('en') directly), but doesn't change URL. Caller's
+  // responsibility to navigate if needed.
 
   const value = useMemo(() => ({
     language, setLanguage, toggleLanguage, t

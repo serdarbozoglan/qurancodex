@@ -349,6 +349,80 @@ Her overlay için:
 
 ---
 
+### 4.6 Post-Faz 4.4 Audit Bulguları (2026-05-23)
+
+> Faz 4.4 (20 tool + atlas + graf route'ları) tamamlandıktan sonra `next/src/` üzerinde yapılan hızlı tarama. Aşağıdakiler **migration kapsamında kalan açık iş** — Faz 5'e geçmeden veya Faz 3 home page'i wire etmeden önce kapatılmalı.
+
+#### 4.6.1 🔴 KRİTİK — Section→Tool cross-nav kırık (eski `window.dispatchEvent` pattern)
+Eski Vite overlay-state pattern'ı route migration sonrası ölü kaldı. Section'larda butonlara tıklanıyor ama hiçbir şey olmuyor.
+
+- [ ] `next/src/sections/PsychologySection.jsx` — `window.dispatchEvent(new CustomEvent('open...'))` → `router.push('/arac/...')` veya `<Link>`
+- [ ] `next/src/sections/HiddenArchitecture.jsx` — aynı pattern
+- [ ] `next/src/sections/QuranDua.jsx` — aynı pattern
+- [ ] `next/src/sections/HumanDefinition.jsx` — aynı pattern
+- [ ] `next/src/sections/QuranRhetoric.jsx` — aynı pattern
+- [ ] `next/src/sections/ZeroRedundancy.jsx` — aynı pattern
+- [ ] `grep -rn "window.dispatchEvent" next/src/` ile kalan event-based nav'leri tara — hepsini Next.js router pattern'ına çevir
+- [ ] Faz 4.3 not'unda söz verilen `router.push('/graf/ayet?q=...')` pattern'ı tüm cross-tool linkler için uygulanır
+
+**Pattern (eski → yeni):**
+```jsx
+// ❌ Eski
+onClick={() => window.dispatchEvent(new CustomEvent('openKuranRetorigi'))}
+
+// ✅ Yeni
+import { useRouter } from 'next/navigation';
+const router = useRouter();
+onClick={() => router.push('/arac/retorik')}
+// veya:
+<Link href="/arac/retorik">...</Link>
+```
+
+#### 4.6.2 🔴 KRİTİK — Home page wiring yarım (Faz 3 eksiği)
+Faz 4 tool route'ları, Faz 3 home page tam tamamlanmadan başlamış görünüyor.
+
+- [ ] `next/src/app/page.js` (veya `page.jsx`) — section'ları import edip wire et (Hero, MathMiracle, LinguisticDNA, ... Conclusion sırası — CLAUDE.md §6 narrative arc'ı koru)
+- [ ] `next/src/app/layout.js` — Navbar import + body wrapper kontrolü; Footer da burada
+- [ ] Home page render edildiğinde tüm section'lar görünüyor mu — manuel smoke test
+- [ ] Locale-prefix routing (`/tr`, `/en`) ile uyumlu mu — Faz 5'e geçmeden önce home `/tr`/`/en` altında da çalışmalı
+
+#### 4.6.3 🔴 KRİTİK — SSR-safety: guard'sız `window` çağrıları
+20 section `'use client'` direktifli ama component body'sinde (useEffect dışında) doğrudan `window` çağırıyorlar. Şu an home page wire değil, sessiz; wire edilince patlar.
+
+- [ ] `next/src/sections/AllTopics.jsx:21-22` — `window.addEventListener('resize')` doğrudan; `useEffect`'e taşı
+- [ ] `next/src/sections/PathCards.jsx` — aynı pattern
+- [ ] `next/src/sections/ZeroRedundancy.jsx:22` — `window.dispatchEvent` doğrudan (4.6.1 ile birlikte düzelir)
+- [ ] `grep -rn "window\." next/src/sections/ next/src/components/ | grep -v useEffect` ile guard'sız tüm çağrıları tara
+- [ ] Pattern: `useState(() => window.innerWidth < 640)` → `useState(false)` + `useEffect(() => setIsMobile(window.innerWidth < 640), [])` (CLAUDE.md §14.1 SSR-safe formu)
+
+#### 4.6.4 🟡 ORTA — Token drift (CLAUDE.md §13.1 ihlali)
+Migration sırasında bazı section'larda ham rgba değerleri kalmış.
+
+- [ ] `next/src/sections/ZeroRedundancy.jsx:22` — `'rgba(212,165,116,0.10)'` → `COLORS.goldAlpha10`
+- [ ] Aynı dosyada `'rgba(212,165,116,0.25)'`, `'rgba(212,165,116,0.7)'`, `'rgba(8,10,26,0.97)'` token'lara çevrilir
+- [ ] `grep -rnE "rgba\(212,165,116|rgba\(8,10,26|#d4a574|#0a0a1a" next/src/` — kalan ham renkleri tara, hepsini `tokens.js`'ten import et
+- [ ] Faz 2.3 (tokens audit) bu işin zaten yapılması gereken yeri — orada deferred kalan item'lar buraya akar
+
+#### 4.6.5 🟡 ORTA — i18n key drift (1 satır fark)
+- [ ] `next/src/i18n/tr.json` (1289 satır) ve `en.json` (1290 satır) arası 1 key farkı
+- [ ] `python3 -c "import json; tr=json.load(open('next/src/i18n/tr.json')); en=json.load(open('next/src/i18n/en.json')); ...` ile key delta'sını tespit et
+- [ ] Eksik key'i ekle (büyük olasılıkla yeni Faz 4 tool route'larından birinde i18n unutulmuş)
+
+#### 4.6.6 ⚪ Tartışmalı — Eski `src/` (Vite) klasörünün akıbeti
+- [ ] **Karar gerekli:** Faz 4.4 sonrası Vite tarafı hâlâ deploy ediliyor mu, yoksa salt referans mı?
+- [ ] Eğer aktif değilse: Faz 11.1 (cleanup) sırasında `git mv src/ legacy/src/` veya tag + delete kararı kullanıcıdan alınır (CLAUDE.md "File Safety" — silmeden önce onay)
+- [ ] `dist/` build artifact'ı da aynı muhamele — son Vite build'i artık deploy edilmiyorsa silinir
+
+#### 4.6.7 Doğrulama (Faz 5'e geçmeden)
+- [ ] Home page'i lokalde aç (`npm run dev` next/ içinde), tüm section'lar görünüyor mu?
+- [ ] Her section'daki tool linkleri tıklanınca doğru route'a gidiyor mu? (4.6.1 testi)
+- [ ] `grep -rn "window.dispatchEvent" next/src/` → 0 sonuç bekleniyor
+- [ ] `grep -rnE "rgba\([0-9]" next/src/sections/` → 0 sonuç bekleniyor
+- [ ] tr.json / en.json key sayısı eşit
+- [ ] Production build (`npm run build`) hatasız geçiyor mu — RSC/'use client' boundary doğrulaması
+
+---
+
 ## Faz 5 — i18n Locale Routing (1 hafta)
 
 ### 5.1 Karar
