@@ -14,16 +14,16 @@ import {
 // v1.1 — single source of truth for explore categories, shared with AllTopics
 import { EXPLORE_CATEGORIES } from '../data/exploreCategories';
 
-const VerseGraph = lazy(() => import('./ToolStub'));
+const VerseGraph = lazy(() => import('./VerseGraph'));
 const ReadingMode = lazy(() => import('./ToolStub'));
-const WordHeatmap = lazy(() => import('./ToolStub'));
-const RevelationTimeline = lazy(() => import('./ToolStub'));
+const WordHeatmap = lazy(() => import('./WordHeatmap'));
+const RevelationTimeline = lazy(() => import('./RevelationTimeline'));
 const DuaVerses = lazy(() => import('./ToolStub'));
 const WowFacts      = lazy(() => import('./ToolStub'));
 const ProphetAtlas  = lazy(() => import('../sections/ProphetAtlas'));
-const ConceptGraph     = lazy(() => import('./ToolStub'));
+const ConceptGraph     = lazy(() => import('./ConceptGraph'));
 const KissaAtlas       = lazy(() => import('./KissaAtlas'));
-const SurahComparator  = lazy(() => import('./ToolStub'));
+const SurahComparator  = lazy(() => import('./SurahComparator'));
 const QuranCommands    = lazy(() => import('./ToolStub'));
 const AddresseeSystem  = lazy(() => import('./ToolStub'));
 const EsmaFrekans      = lazy(() => import('./ToolStub'));
@@ -37,7 +37,7 @@ const Melekler         = lazy(() => import('./ToolStub'));
 const KuranRenkleri    = lazy(() => import('./ToolStub'));
 const KiyametSahneleri = lazy(() => import('./ToolStub'));
 const KiraatAtlasi  = lazy(() => import('./KiraatAtlasi'));
-const DiyalogAgi    = lazy(() => import('./ToolStub'));
+const DiyalogAgi    = lazy(() => import('./DiyalogAgi'));
 const MeselAtlasi   = lazy(() => import('./MeselAtlasi'));
 const SebebiNuzul   = lazy(() => import('./ToolStub'));
 const FurukAtlasi   = lazy(() => import('./FurukAtlasi'));
