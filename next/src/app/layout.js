@@ -1,6 +1,7 @@
 import { Inter, Playfair_Display } from 'next/font/google';
 import { LanguageProvider } from '@/i18n/LanguageContext';
 import { PathProvider } from '@/contexts/PathContext';
+import Navbar from '@/components/Navbar';
 import './globals.css';
 
 const inter = Inter({
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
       <body>
         <LanguageProvider>
           <PathProvider>
+            <Navbar />
             {children}
           </PathProvider>
         </LanguageProvider>
