@@ -1,9 +1,15 @@
 import KuranRenkleriRoute from './KuranRenkleriRoute';
 
-export const metadata = {
-  title: "Kur'an'da Renkler",
-  description: "Beyaz, siyah, kırmızı, sarı, yeşil, mavi — Kur'an'da renklerin sembolik kullanımı ve ayet kümeleri.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/arac/renkler',
+    title: 'Kur',
+    description: 'Beyaz, siyah, kırmızı, sarı, yeşil, mavi — Kur',
+  });
+}
 
 export default function Page() {
   return <KuranRenkleriRoute />;

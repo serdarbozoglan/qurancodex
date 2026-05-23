@@ -1,9 +1,15 @@
 import ZamanBoyutlariRoute from './ZamanBoyutlariRoute';
 
-export const metadata = {
-  title: "Zaman Boyutları",
-  description: "Kur'an'da zaman — gün (1000 yıl, 50 bin yıl), ezel, ebed, kıyamet günü; zamansal göreliliğin Kur'ânî izleri.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/arac/zaman-boyutlari',
+    title: 'Zaman Boyutları',
+    description: 'Kur',
+  });
+}
 
 export default function Page() {
   return <ZamanBoyutlariRoute />;

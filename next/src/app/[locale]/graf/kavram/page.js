@@ -1,9 +1,15 @@
 import ConceptGraphRoute from './ConceptGraphRoute';
 
-export const metadata = {
-  title: "Kavram Grafiği",
-  description: "Anahtar Kur'ânî kavramların (rahmet, takvâ, hidayet, vs.) ayet bulutu içindeki dağılımı ve bağlantıları.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/graf/kavram',
+    title: 'Kavram Grafiği',
+    description: 'Anahtar Kur',
+  });
+}
 
 export default function Page() {
   return <ConceptGraphRoute />;

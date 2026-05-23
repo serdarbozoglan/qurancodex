@@ -1,9 +1,15 @@
 import MeselAtlasiRoute from './MeselAtlasiRoute';
 
-export const metadata = {
-  title: "Mesel Atlası",
-  description: "Kur'an'daki meseller — paired parables, animal imagery, light/darkness contrast — ayet referansları ve modern okumalar.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/atlas/mesel',
+    title: 'Mesel Atlası',
+    description: 'Kur',
+  });
+}
 
 export default function Page() {
   return <MeselAtlasiRoute />;

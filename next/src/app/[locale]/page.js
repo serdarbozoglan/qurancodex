@@ -6,6 +6,7 @@
 // Final ana sayfa sırası Vite App.jsx ile uyumlu (eksik: ProphetMap).
 // Navbar henüz yok — Faz 4'te 50+ tool route registry'siyle gelecek.
 
+import { pageMetadata } from '@/lib/seo';
 import Hero from '@/components/Hero';
 import PathCards from '@/sections/PathCards';
 import AllTopics from '@/sections/AllTopics';
@@ -26,6 +27,21 @@ import HumanDefinition from '@/sections/HumanDefinition';
 import ToolsShowcase from '@/sections/ToolsShowcase';
 import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
+
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const isEN = locale === 'en';
+  return pageMetadata({
+    params,
+    path: '',
+    title: isEN
+      ? "QuranCodex — The Invisible Architecture of the Quran"
+      : "QuranCodex — Kur'an-ı Kerim'in Görünmeyen Mimarisi",
+    description: isEN
+      ? "Discover the hidden architecture of the Quran — mathematical patterns, linguistic DNA, ring composition, and scientific signs — through interactive visualizations."
+      : "Kur'an'ın gizli mimarisini, sayısal mucizesini, dilsel DNA'sını ve halka kompozisyonunu interaktif görsellerle keşfedin.",
+  });
+}
 
 export default function Home() {
   return (

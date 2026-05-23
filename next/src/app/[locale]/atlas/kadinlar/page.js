@@ -1,9 +1,15 @@
 import KadinlarAtlasiRoute from './KadinlarAtlasiRoute';
 
-export const metadata = {
-  title: "Kadınlar Atlası",
-  description: "Kur'an'da geçen kadınlar — Meryem, Asiye, Belkıs, Sara, Hâcer ve diğerleri; kıssalar ve ayet referansları.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/atlas/kadinlar',
+    title: 'Kadınlar Atlası',
+    description: 'Kur',
+  });
+}
 
 export default function Page() {
   return <KadinlarAtlasiRoute />;

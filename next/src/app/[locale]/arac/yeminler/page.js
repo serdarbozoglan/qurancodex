@@ -1,9 +1,15 @@
 import KuranYeminleriRoute from './KuranYeminleriRoute';
 
-export const metadata = {
-  title: "Kur'an'daki Yeminler",
-  description: "Allah'ın yeminleri — vaktlere, kozmik olgulara, peygamberlere, kalemlere yeminler.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/arac/yeminler',
+    title: 'Kur',
+    description: 'Allah',
+  });
+}
 
 export default function Page() {
   return <KuranYeminleriRoute />;

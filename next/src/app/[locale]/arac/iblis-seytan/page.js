@@ -1,9 +1,15 @@
 import IblisSatanRoute from './IblisSatanRoute';
 
-export const metadata = {
-  title: "İblîs & Şeytan",
-  description: "Kur'an'da İblîs'in düşüşü — secde reddi, vesvese, takipçileri; 7 fazlı kıssası ve düşmanlık döngüsü.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/arac/iblis-seytan',
+    title: 'İblîs & Şeytan',
+    description: 'Kur',
+  });
+}
 
 export default function Page() {
   return <IblisSatanRoute />;

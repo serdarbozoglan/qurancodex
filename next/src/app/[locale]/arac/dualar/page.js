@@ -1,9 +1,15 @@
 import DuaVersesRoute from './DuaVersesRoute';
 
-export const metadata = {
-  title: "Kur'ânî Dualar",
-  description: "Kur'an'da geçen dualar — peygamber duaları, kabul edilen yakarışlar; tematik koleksiyon.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/arac/dualar',
+    title: 'Kur',
+    description: 'Kur',
+  });
+}
 
 export default function Page() {
   return <DuaVersesRoute />;

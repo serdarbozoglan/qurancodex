@@ -852,3 +852,127 @@ Tüm öneriler kullanıcı tarafından onaylandı. Migration bu kararlarla başl
 - [x] **i18n kütüphanesi:** next-intl (RSC'lerde de translation desteği — Context-tabanlı yaklaşıma göre daha güçlü)
 
 **Bu kararlar `migration-to-next.js` branch'inde uygulanacak. Main branch sadece bu plan dosyası için kullanılır.**
+
+---
+
+## Faz 4.5 — Görsel Audit Düzeltmeleri (2026-05-23)
+
+**Kaynak:** `docs/reviews/2026-05-23-visual-audit-migration-branch.md`
+**Bağlam:** Faz 4.1–4.4 (ReadingMode + 34 tool route'a taşındı) tamamlandıktan sonra qc-visual-auditor ile yapılan denetim. **Kritik: 5, Yüksek: 7, Orta: 8, Düşük: 5 bulgu.**
+**Hedef:** Faz 5'e (Locale routing) geçmeden önce K1–K5 + Y4 mutlaka kapatılmalı (kullanıcı görsel olarak migration'ın yarım olduğunu hissediyor — navbar gizli, route'lar boş açılıyor, çıkış yok).
+
+### Kritik (P0 — Faz 5'ten önce kapatılmalı)
+
+- [ ] **K1 · Çift Navbar bug** — `next/src/app/layout.js:56` ve `next/src/app/[locale]/layout.js:28` ikisi de `<Navbar />` render ediyor. Nested layout'lar birikiyor → her `/tr/...` route'unda iki navbar üst üste.
+  - **Çözüm:** Root `app/layout.js`'ten `<Navbar />` ve Provider'ları kaldır; sadece `<html><body>{children}</body></html>` + font imports + globals kalsın. Provider'lar ve Navbar `[locale]/layout.js`'te.
+  - **Efor:** ~10 dk, 1 commit. En yüksek görsel etki/efor oranı.
+
+- [ ] **K2 · 36 overlay component'i hâlâ `position:fixed, inset:0, zIndex:9999`** — Route'lar kurulmuş ama component'ler hâlâ "modal" zihniyetinde; Navbar'ı tamamen örtüyor. Kullanıcı `/oku`, `/graf/ayet`, `/arac/wow` route'una girince navbar görünmez → site navigation'a erişim yok.
+  - **Etkilenen dosyalar:** `ReadingMode.jsx:2292`, `ConceptGraph.jsx:302`, `WowFacts.jsx:779`, `VerseGraph.jsx:1026`, `EsmaFrekans.jsx`, `Melekler.jsx`, `KuranYeminleri.jsx`, `QuranCommands.jsx` + 28 dosya daha. Liste: `grep -rln "OVERLAY_BASE\|inset: 0, zIndex: 9999" next/src/components next/src/sections`.
+  - **Çözüm A (tercih edilen):** Component'leri "section/main" pattern'ına çevir — `position:fixed, inset:0, zIndex:9999` → `min-height: calc(100vh - 54px)` + `padding-top: 54px`. Header'larındaki kendi başlık barını kaldır.
+  - **Çözüm B (hızlı patch):** Overlay'lerin `zIndex`'ini Navbar altına (`zIndex: 50`) + `top: 54px`. Navbar görünür hale gelir, mimari refactor sonraya bırakılır.
+  - **Efor:** A için birkaç gün (36 component), B için 1-2 saat (codemod).
+
+- [ ] **K3 · `/arac/tum-araclar` boş ekran açıyor** — `ToolsBrowser.jsx:52-74` internal `open=false` ile başlıyor; sadece `'openToolsBrowser'` custom event'iyle açılıyor. Route page `onClose` prop geçiriyor ama event tetiklenmediği için `<AnimatePresence>{open && ...}</AnimatePresence>` boş. Silent bug.
+  - **Çözüm:** ToolsBrowser'a `defaultOpen` veya `mode='page'` prop ekle; route'ta `defaultOpen={true}` ile mount et. Veya `ToolsBrowserRoute.jsx` içinde `useEffect`'le `window.dispatchEvent(new Event('openToolsBrowser'))` (kirli ama hızlı).
+  - **Efor:** ~30 dk, 1 commit.
+
+- [ ] **K4 · `ProphetAtlas` `onClose` prop'unu kabul etmiyor + `id="math"` artığı** — `next/src/sections/ProphetAtlas.jsx:1468` `function ProphetAtlas()` parametresiz; route'tan gelen `onClose={() => router.back()}` siliniyor. Üstelik `id="math"` (Faz 2'den kopya artığı). Kullanıcının çıkış yolu yok (navbar K2 nedeniyle gizli).
+  - **Çözüm:** `function ProphetAtlas({ onClose })` parametre ekle, header'a `CLOSE_BTN`'lu çıkış butonu (onClose verildiyse). `id="math"` → `id="prophet-atlas"`.
+  - **Efor:** ~15 dk, 1 commit.
+
+- [ ] **K5 · `useQuranNav` locale-prefix'siz `router.push`** — `next/src/hooks/useQuranNav.js:19-64` `OVERLAY_ROUTES = { reading: '/oku', graph: '/graf/ayet', ... }` locale prefix yok. Middleware (`middleware.js:38`) redirect ile `/tr/oku`'ya çeviriyor → 2 frame'lik flicker + paylaşılan URL'lerde middleware'siz ortamlarda kırılma riski.
+  - **Çözüm:** `useQuranNav` içinde `useLanguage()` okuyup `const url = \`/${language}${route}${detail?.search ? \`?q=${...}\` : ''}\`` ile prefix ekle.
+  - **Efor:** ~10 dk, 1 commit.
+
+### Yüksek (P1 — Faz 5/6 sırasında)
+
+- [ ] **Y1 · §13.10 ihlali — OVERLAY_TITLE kullanılmayan overlay'ler** — 7+ yerde inline `'Playfair Display', '#d4a574', 1.05–2rem, 700` ile başlık. Modal başlık tipografisi her overlay'de farklı.
+  - **Dosyalar:** `VerseGraph.jsx:1035, 1507`, `QuranCommands.jsx:206`, `ReadingMode.jsx:4792, 5343, 6874, 6885, 6910`.
+  - **Çözüm:** `style={OVERLAY_TITLE}` veya `style={{ ...OVERLAY_TITLE, ek }}`.
+
+- [ ] **Y2 · §13.2 ihlali — Kur'an metni için `'Amiri'`** — Aynı sayfada bazı Arapça kelimeler KFGQPC, bazıları Amiri ile çiziliyor; ritm bozuluyor.
+  - **Dosyalar:** `ConceptGraph.jsx:500, 601`, `KissaAtlas.jsx:371`.
+  - **Çözüm:** Hepsi `fontFamily: FONTS.quran`.
+
+- [ ] **Y3 · §13.1 ihlali — Ham `'KFGQPC', 'Amiri Quran', serif` inline string** — `FONTS.quran` yerine ham string; token değişirse component'ler güncellenmez.
+  - **Dosyalar:** `VerseGraph.jsx:776, 1477, 1624, 2416, 2919, 3061, 3180`, `ReadingMode.jsx:3121, 3451, 3560, 4503`, `DuaVerses.jsx:166`, `QuranCommands.jsx:487`, `WordHeatmap.jsx:780, 804, 863`.
+  - **Çözüm:** `fontFamily: FONTS.quran`. Ek fallback gerekiyorsa token'ı genişlet.
+
+- [ ] **Y4 · `VerseGraph` `width:480px` absolute sidebar, isMobile guard yok** — 390px ekranlarda viewport'tan taşar.
+  - **Dosya:** `VerseGraph.jsx:1490`.
+  - **Çözüm:** `width: isMobile ? '100vw' : '480px'` + mobilde §14.4 tab pattern.
+  - **Efor:** ~30 dk, 1 commit.
+
+- [ ] **Y5 · Hero CTA ham hex `#1c0f00`** — Altın butonun zemin metni; token'a alınmamış. `paperInk: '#1a0e00'` yakın ama semantic karışıklık.
+  - **Dosya:** `Navbar.jsx:1093, 1111`.
+  - **Çözüm:** `COLORS.btnGoldText = '#1c0f00'` token ekle; tüm `btn-primary-gold` ve navbar Oku butonu bunu kullansın.
+
+- [ ] **Y6 · Mobil hamburger butonu farklı yükseklikte (≈40px)** — §13.13 ihlali. Diğer navbar butonları 32px; hamburger `p-2 + 24×24 SVG` = ≈40px → görsel asimetri.
+  - **Dosya:** `Navbar.jsx:1144-1162`.
+  - **Çözüm:** `width:36px; height:36px` ile CLOSE_BTN-benzeri stil.
+
+- [ ] **Y7 · Hero butonu ham rgba + token'sız animasyon değerleri** — `whileHover={{ scale: 1.05, boxShadow: '0 0 48px 12px rgba(180,130,40,0.5)' }}`. `.btn-primary-gold` CSS'inde de `#c9973a → #b8860b → #9a6f0a` renkleri token'da yok.
+  - **Dosya:** `Hero.jsx:94`, `globals.css:158`.
+  - **Çözüm:** "Altın CTA buton dizisi" için token kümesi: `COLORS.goldButtonStart/Mid/End` veya `linear-gradient` token'ı.
+
+### Orta (P2 — Codemod + ESLint kuralı ile sistemik temizlik)
+
+- [ ] **O1 · `#d4a574` ham hex ~159 kez (VerseGraph) + 1.181 toplam kullanım** — `COLORS.gold`/`goldAlpha15/25` token'ları var ama component'ler ham. Codemod:
+  - `'#d4a574'` → `COLORS.gold`
+  - `'rgba(212,165,116,0.15)'` → `COLORS.goldAlpha15`
+  - `'rgba(212,165,116,0.25)'` → `COLORS.goldAlpha25`
+  - `'#e8e6e3'` → `COLORS.offWhite`
+  - `'#94a3b8'` → `COLORS.silver`
+  - `'#64748b'/`#475569'/`#334155'` → `slate500/600/700`
+
+- [ ] **O2 · Ham rgba 2.293 kullanım** — `rgba(255,255,255,0.04/0.05/0.1)`, `rgba(212,165,116,0.X)` sürekli ham. Top dosyalar: `ReadingMode.jsx` (372), `VerseGraph.jsx` (164), `ProphetAtlas.jsx` (155), `HumanDefinition.jsx` (78), `FurukAtlasi.jsx` (67).
+  - **Çözüm:** Codemod + ESLint kuralı: "ham `rgba()` veya `#[a-f0-9]{3,6}` inline style yasak; `tokens.js` import zorunlu".
+
+- [ ] **O3 · BorderRadius token coverage düşük** — 592 ham, 256 RADIUS token. `borderRadius: '8px'` → `RADIUS.md`, `'12px'` → `RADIUS.lg`, `'999px'` → `RADIUS.pill`.
+
+- [ ] **O4 · Transition token coverage düşük** — 226 ham, 25 TRANSITION token. `'all 0.18s'` token'da yok (fast 0.15s ile base 0.2s arası); `TRANSITION.subtle` ekle veya `0.15`'e yuvarla.
+
+- [ ] **O5 · `text-center` body metin üzerinde — §11 ihlali**
+  - `HumanDefinition.jsx:1080` — kart içi açıklama (flow body) `text-center`.
+  - `LinguisticDNA.jsx:310, 617` — body text + `mx-auto`.
+  - **Çözüm:** Kart içi body'lerden `text-center` kaldır; intro paragrafından `mx-auto` kaldır.
+
+- [ ] **O6 · `.glass-card` CSS class ≠ `GLASS_CARD` token** — alpha 0.04 vs 0.05, border 0.08 vs 0.1, radius 16px vs 12px. Tailwind class kullananlar (Footer, Conclusion) ile inline token kullananlar (PathCard, ToolHighlightCard) farklı görünüyor.
+  - **Dosya:** `globals.css:141-155` vs `tokens.js:208-220`.
+  - **Çözüm:** Token'ı baz al, CSS class'ı token değerleriyle eşitle.
+
+- [ ] **O7 · `cleanArabicForGraph` her component'te kopya — drift riski** — VerseGraph, ConceptGraph, ProphetAtlas + 6 component ayrı ayrı tanımlı; `cleanDuaAr` (ProphetAtlas) ve `cleanArabicForGraph` (VerseGraph) **farklı regex listeleri**.
+  - **Çözüm:** `next/src/lib/arabic.js` ortak modülü; tek `cleanArabic()` export. §13.14 + §13.15 fix'leri tek yerde.
+
+- [ ] **O8 · `globals.css --color-glass-border` ≠ `tokens.js glassBorder`** — CSS: `rgba(212,165,116,0.12)` (gold-tonlu), JS: `rgba(255,255,255,0.1)` (beyaz). Tailwind `border-glass-border` altın, inline `COLORS.glassBorder` beyaz → iki farklı kart kenarlığı.
+  - **Çözüm:** Aynı değere kilitle (öneri: `0.1` beyaz, Tailwind class buna eşit).
+
+### Düşük (P3 — Cleanup turu)
+
+- [ ] **D1 · Gold variant ham hex'leri** — `'#e8c98a'` (LinguisticDNA:300, VerseGraph:2919), `'#d4b483'` (VerseGraph:2416). `COLORS.goldBright = '#e8c98a'` token ekle.
+
+- [ ] **D2 · `:focus-visible` global ama component-level focus state'leri inline** — Native outline + inline `borderColor` çakışıyor; bazı yerlerde iki vurgu çizimi.
+  - **Çözüm:** Component'ler `:focus-visible` CSS'e güvensin; inline `onFocus` bırakılsın.
+
+- [ ] **D3 · Inline `'#64748b'/`#475569'/`#334155'` slate hex'leri token'a alınmamış** — `tokens.js`'te `slate500/600/700` zaten tanımlı. Replace.
+  - **Örnek:** `ConceptGraph.jsx:354, 367, 409`.
+
+- [ ] **D4 · Animasyon süreleri tutarsız — `0.15s/0.18s/0.2s/0.25s/0.3s`** — Tüm hover/focus → `fast` (0.15s), tüm panel/drawer → `slow` (0.3s).
+
+- [ ] **D5 · `ProphetAtlas` `id="math"` yanlış anchor** — Section "Peygamberler" işliyor ama id `math` (MathMiracle'dan kalma). Scroll-to-anchor (`#math`) yanlış yere götürüyor + SEO anomalisi.
+  - **Dosya:** `ProphetAtlas.jsx:1575`. **Çözüm:** `id="prophet-atlas"`. **Not:** K4 ile birlikte çözülebilir.
+
+### Önerilen Sıra
+
+1. **K1** (10 dk) — anında görsel iyileşme.
+2. **K4 + D5** (15 dk) — aynı dosya, tek commit.
+3. **K3** (30 dk) — ToolsBrowser mode='page'.
+4. **K5** (10 dk) — locale-prefix.
+5. **K2 Çözüm B** (1-2 saat codemod) — zIndex 50 + top 54px, geçici ama navbar görünür hale gelir.
+6. **Y4** (30 dk) — VerseGraph mobil.
+7. **K2 Çözüm A** (birkaç gün, Faz 5/6 paralelinde) — gerçek section/main refactor.
+8. **Y1-Y3** (1-2 gün codemod) — OVERLAY_TITLE + FONTS.quran disiplini.
+9. **Y5-Y7** — küçük token eklemeleri, tek commit.
+10. **O1-O8** — codemod + ESLint kuralı; Faz 11 (cleanup) içinde.
+11. **D1-D5** — Faz 11'de tek commit.

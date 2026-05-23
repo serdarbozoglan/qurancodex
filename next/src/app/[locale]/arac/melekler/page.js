@@ -1,9 +1,15 @@
 import MeleklerRoute from './MeleklerRoute';
 
-export const metadata = {
-  title: "Melekler",
-  description: "Kur'an'da geçen melekler — Cebrail, Mikail, İsrafil, Azrail, Mâlik, Rıdvan, Münker-Nekir, Kirâmen Kâtibîn.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/arac/melekler',
+    title: 'Melekler',
+    description: 'Kur',
+  });
+}
 
 export default function Page() {
   return <MeleklerRoute />;

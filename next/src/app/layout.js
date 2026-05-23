@@ -50,10 +50,40 @@ export const viewport = {
   initialScale: 1,
 };
 
+// ─── JSON-LD structured data (schema.org) ─────────────────────────────────
+// Organization + WebSite — site-genel SEO sinyali. Per-route schema'lar
+// (Article, FAQPage, Breadcrumb) ilgili route'ların page.js'inde eklenir.
+const ORGANIZATION_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'QuranCodex',
+  url: 'https://qurancodex.com',
+  logo: 'https://qurancodex.com/favicon.svg',
+  description: "Kur'an-ı Kerim'in Görünmeyen Mimarisi — interaktif görsellerle keşfedin.",
+};
+
+const WEBSITE_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'QuranCodex',
+  url: 'https://qurancodex.com',
+  inLanguage: ['tr', 'en'],
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="tr" className={`${inter.variable} ${playfair.variable}`}>
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSONLD) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

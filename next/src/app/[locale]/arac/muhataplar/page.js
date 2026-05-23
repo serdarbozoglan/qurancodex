@@ -1,9 +1,15 @@
 import AddresseeSystemRoute from './AddresseeSystemRoute';
 
-export const metadata = {
-  title: "Muhataplar Sistemi",
-  description: "Kur'an'da Allah'ın hitap ettiği muhatap grupları — müminler, kâfirler, münafıklar, peygamberler, insanlar, kâinat — ayet referansları.",
-};
+import { pageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({
+    params,
+    path: '/arac/muhataplar',
+    title: 'Muhataplar Sistemi',
+    description: 'Kur',
+  });
+}
 
 export default function Page() {
   return <AddresseeSystemRoute />;
