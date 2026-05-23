@@ -9,7 +9,11 @@
 //
 // Response shape matches the raw API: `{ data: { verses: [...], ... } }`.
 
-const API_BASE = 'https://api.acikkuran.com';
+// Faz 6.3 — direct acikkuran.com yerine kendi API route'umuza gidiyoruz.
+// Bu rotada Next.js fetch cache (revalidate 24h) + Cache-Control header'lar
+// var; aynı surah+author kombinasyonu için tek upstream call yapılıp tüm
+// kullanıcılara dağıtılır.
+const API_BASE = '/api/meal';
 
 // In-memory cache of parsed JSON responses (per session).
 // Key: `${author}:${surah}`.
@@ -39,8 +43,8 @@ export async function fetchMealSurah(surah, author, signal) {
     // Other errors (network, parse): fall through to API.
   }
 
-  // Step 2 — fall back to live API.
-  const res = await fetch(`${API_BASE}/surah/${surah}?author=${author}`, { signal });
+  // Step 2 — fall back to our Next.js API route (proxies + caches acikkuran).
+  const res = await fetch(`${API_BASE}/${author}/${surah}`, { signal });
   if (!res.ok) {
     throw new Error(`meal API ${res.status} for surah=${surah} author=${author}`);
   }
@@ -67,8 +71,8 @@ export async function fetchMealVerse(surah, ayah, author = 105, signal) {
     // Fall through.
   }
 
-  // Last-ditch: the single-verse endpoint (used by FurukAtlasi historically).
-  const res = await fetch(`${API_BASE}/surah/${surah}/verse/${ayah}`, { signal });
+  // Last-ditch: single-verse endpoint via /api/meal proxy.
+  const res = await fetch(`${API_BASE}/${author}/${surah}/verse/${ayah}`, { signal });
   if (!res.ok) {
     throw new Error(`verse API ${res.status} for ${surah}:${ayah}`);
   }
