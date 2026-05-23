@@ -40,6 +40,10 @@ export function middleware(request) {
 }
 
 export const config = {
-  // Static asset'ler + API + Next.js internals'i atla
-  matcher: ['/((?!_next|api|fonts|tafsir|corpus|meal-cache|audio|amthal|icons|favicon|.*\\..*).*)'],
+  // Static asset'ler + API + Next.js internals + dynamic image routes'u atla.
+  // opengraph-image|twitter-image: Next.js dosya-konvansiyonu route'ları
+  // (auto-routes that serve PNG); locale-prefix uygulanmamalı.
+  matcher: [
+    '/((?!_next|api|fonts|tafsir|corpus|meal-cache|audio|amthal|icons|favicon|opengraph-image|twitter-image|sitemap.xml|robots.txt|.*\\..*).*)',
+  ],
 };
