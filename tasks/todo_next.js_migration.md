@@ -30,25 +30,25 @@
 
 ## Faz 0 — Hazırlık & Audit (3-5 gün)
 
-### 0.1 SSR-safety audit
-- [ ] `grep -rn "window\." src/` — tüm direct window access'lerin envanteri
-- [ ] `grep -rn "document\." src/` — tüm direct document access'lerin envanteri
-- [ ] `grep -rn "localStorage" src/` — tüm localStorage kullanımı
-- [ ] `grep -rn "useLayoutEffect" src/` — SSR-uyumsuz hook'lar
-- [ ] `grep -rn "useState(() =>" src/` — initializer'da browser API kullananlar (problemli pattern)
-- [ ] Her bulgu için: `useEffect`'e taşı / `typeof window` guard ekle / `useSyncExternalStore` kullan kararı ver
-- [ ] Bulguları `tasks/ssr-audit.md`'ye yaz
+### 0.1 SSR-safety audit  _**Tamamlandı**: tasks/ssr-audit.md_
+- [x] `grep -rn "window\." src/` — tüm direct window access'lerin envanteri
+- [x] `grep -rn "document\." src/` — tüm direct document access'lerin envanteri
+- [x] `grep -rn "localStorage" src/` — tüm localStorage kullanımı
+- [x] `grep -rn "useLayoutEffect" src/` — SSR-uyumsuz hook'lar
+- [x] `grep -rn "useState(() =>" src/` — initializer'da browser API kullananlar (problemli pattern)
+- [x] Her bulgu için: `useEffect`'e taşı / `typeof window` guard ekle / `useSyncExternalStore` kullan kararı ver
+- [x] Bulguları `tasks/ssr-audit.md`'ye yaz
 
-### 0.2 Component envanteri
-- [ ] `ls src/components/ src/sections/` → her component için karar:
+### 0.2 Component envanteri  _**Tamamlandı**: audit Kategori 4_
+- [x] `ls src/components/ src/sections/` → her component için karar:
   - **RSC adayı** (server-side render edilebilir): Sırf JSX/JSON, state yok, browser API yok
   - **Client component** (`'use client'`): state, animasyon, interaktivite, browser API
-- [ ] Karar tablosunu `tasks/component-decisions.md`'ye yaz
-- [ ] Beklenen oran: ~%30 RSC, ~%70 client (audio/interaktif tool ağırlığı yüksek)
+- [x] Karar tablosunu `tasks/component-decisions.md`'ye yaz
+- [x] Beklenen oran: ~%30 RSC, ~%70 client (audio/interaktif tool ağırlığı yüksek)
 
-### 0.3 Routing haritası
-- [ ] Şu an URL fragment/state ile yönetilen overlay'leri listele
-- [ ] Her overlay için yeni URL şeması belirle:
+### 0.3 Routing haritası  _**Tamamlandı**: tasks/url-schema.md_
+- [x] Şu an URL fragment/state ile yönetilen overlay'leri listele
+- [x] Her overlay için yeni URL şeması belirle:
   - `/` — Hero + sections (home)
   - `/oku/[surah]` — ReadingMode
   - `/oku/[surah]/[ayah]` — ReadingMode + deep-link
@@ -60,11 +60,11 @@
   - `/graf/diyalog` — DiyalogAgi
   - `/arac/[slug]` — generic tool wrapper (ToolsBrowser)
   - vs.
-- [ ] URL şemasını `tasks/url-schema.md`'ye yaz, kullanıcı onayı al
+- [x] URL şemasını `tasks/url-schema.md`'ye yaz, kullanıcı onayı al
 
-### 0.4 Karar: App Router vs Pages Router
-- [ ] **Öneri: App Router** (Next.js 16) — RSC, streaming, parallel/intercepting routes, layout nesting
-- [ ] Pages Router yalnızca legacy senaryo için; bu projede tercih edilmez
+### 0.4 Karar: App Router vs Pages Router  _**Tamamlandı**: App Router seçildi_
+- [x] **Öneri: App Router** (Next.js 16) — RSC, streaming, parallel/intercepting routes, layout nesting
+- [x] Pages Router yalnızca legacy senaryo için; bu projede tercih edilmez
 
 ---
 
@@ -181,109 +181,109 @@
 
 ## Faz 1 — Next.js Proje Kurulumu (1-2 gün)
 
-### 1.1 Yeni proje
-- [ ] Proje kökünde `next/` dizini oluştur
-- [ ] `cd next && npx create-next-app@latest . --typescript=false --tailwind=true --app=true --src-dir=true --import-alias='@/*'`
-- [ ] Node version pinle (`.nvmrc`)
-- [ ] `package.json` deps:
+### 1.1 Yeni proje  _**Tamamlandı**: commit 05d0b2c_
+- [x] Proje kökünde `next/` dizini oluştur
+- [x] `cd next && npx create-next-app@latest . --typescript=false --tailwind=true --app=true --src-dir=true --import-alias='@/*'`
+- [x] Node version pinle (`.nvmrc`)
+- [x] `package.json` deps:
   - `next@^16`, `react@^19`, `react-dom@^19`
   - `framer-motion` (mevcut)
   - `tailwindcss@^4`, `@tailwindcss/postcss` (Next.js v4 entegrasyon yolu)
   - `tailwind.config.js` portu
 
-### 1.2 Tailwind v4 portu
-- [ ] `next/postcss.config.mjs` → `@tailwindcss/postcss` plugin
-- [ ] `tailwind.config.js`'yi olduğu gibi taşı; `content` array'ini Next.js path'lerine güncelle
-- [ ] `src/index.css`'yi `next/src/app/globals.css`'e taşı (custom CSS, font @font-face)
-- [ ] KFGQPC `@font-face` declarations'larını koru
-- [ ] Test: `npm run dev` → boş Next.js sayfası açılıyor mu?
+### 1.2 Tailwind v4 portu  _**Tamamlandı**: commit 8f31dc3_
+- [x] `next/postcss.config.mjs` → `@tailwindcss/postcss` plugin
+- [x] `tailwind.config.js`'yi olduğu gibi taşı; `content` array'ini Next.js path'lerine güncelle
+- [x] `src/index.css`'yi `next/src/app/globals.css`'e taşı (custom CSS, font @font-face)
+- [x] KFGQPC `@font-face` declarations'larını koru
+- [x] Test: `npm run dev` → boş Next.js sayfası açılıyor mu?
 
-### 1.3 Klasör yapısı
-- [ ] `next/src/app/` — route'lar (page.jsx, layout.jsx)
-- [ ] `next/src/components/` — shared components (Vite'tan taşınacak)
-- [ ] `next/src/lib/` — utilities (cleanArabic, tajweed, vs.)
-- [ ] `next/src/data/` — JSON imports veya `public/` reads
-- [ ] `next/src/i18n/` — Context + tr.json + en.json
-- [ ] `next/src/tokens.js` — design tokens (Vite'tan kopya)
+### 1.3 Klasör yapısı  _**Tamamlandı**: commit 8f31dc3_
+- [x] `next/src/app/` — route'lar (page.jsx, layout.jsx)
+- [x] `next/src/components/` — shared components (Vite'tan taşınacak)
+- [x] `next/src/lib/` — utilities (cleanArabic, tajweed, vs.)
+- [x] `next/src/data/` — JSON imports veya `public/` reads
+- [x] `next/src/i18n/` — Context + tr.json + en.json
+- [x] `next/src/tokens.js` — design tokens (Vite'tan kopya)
 
-### 1.4 Public assets
-- [ ] `public/corpus/*.json`, `public/audio/`, `public/icons/`, `public/amthal/`, vs. → `next/public/` kopyala
-- [ ] KFGQPC `.ttf/.otf` dosyaları → `next/public/fonts/`
-- [ ] `next/src/app/layout.jsx`'de `next/font/local` ile KFGQPC tanımla (FOIT/FOUT optimization)
+### 1.4 Public assets  _**Tamamlandı**: commit 8f31dc3_
+- [x] `public/corpus/*.json`, `public/audio/`, `public/icons/`, `public/amthal/`, vs. → `next/public/` kopyala
+- [x] KFGQPC `.ttf/.otf` dosyaları → `next/public/fonts/`
+- [x] `next/src/app/layout.jsx`'de `next/font/local` ile KFGQPC tanımla (FOIT/FOUT optimization)
 
-### 1.5 ESLint + Prettier
-- [ ] Next.js ESLint config (`eslint-config-next`)
-- [ ] CLAUDE.md kurallarına uyumlu prettier config
+### 1.5 ESLint + Prettier  _**Tamamlandı**: create-next-app default_
+- [x] Next.js ESLint config (`eslint-config-next`)
+- [x] CLAUDE.md kurallarına uyumlu prettier config
 
 ---
 
 ## Faz 2 — Shared Modules Migration (2-3 gün)
 
-### 2.1 Tokens & i18n
-- [ ] `src/tokens.js` → `next/src/tokens.js` (değişiklik yok)
-- [ ] `src/i18n/tr.json`, `en.json` → `next/src/i18n/` (değişiklik yok)
-- [ ] `src/i18n/LanguageContext.jsx` → `next/src/i18n/LanguageContext.jsx`
+### 2.1 Tokens & i18n  _**Tamamlandı**: Faz 5 SSR-safe pattern + URL-based_
+- [x] `src/tokens.js` → `next/src/tokens.js` (değişiklik yok)
+- [x] `src/i18n/tr.json`, `en.json` → `next/src/i18n/` (değişiklik yok)
+- [x] `src/i18n/LanguageContext.jsx` → `next/src/i18n/LanguageContext.jsx`
   - **CRITICAL:** Initial state'i SSR-safe yap; `useState(() => localStorage...)` → `useState('tr')` + `useEffect` ile hydrate
   - `'use client'` direktifi ekle (Context provider client zorunlu)
   - Hydration mismatch'ten kaçınmak için cookie-based locale persistence düşün (opsiyonel ama önerilen)
 
-### 2.2 Utilities
-- [ ] `src/utils/*.js` → `next/src/lib/`
+### 2.2 Utilities  _**Tamamlandı**: commit 8f31dc3_
+- [x] `src/utils/*.js` → `next/src/lib/`
   - `cleanArabic.js`, `tajweed.js`, `pathContext.js`, vs.
   - Bunlar pure functions → SSR'da sorunsuz çalışır
-- [ ] `src/hooks/useWordTimings.js` → `next/src/hooks/useWordTimings.js`
+- [x] `src/hooks/useWordTimings.js` → `next/src/hooks/useWordTimings.js`
   - `'use client'` direktifi (localStorage + window)
   - Mevcut implementasyon olduğu gibi taşınabilir
 
-### 2.3 Tokens audit
-- [ ] `OVERLAY_BASE`, `GLASS_CARD`, `VERSE_BLOCK`, `TEXT`, `CHIP`, `OVERLAY_TITLE`, `CLOSE_BTN` → değişiklik yok
-- [ ] `FONTS.quran` → `"'KFGQPC', 'Amiri Quran', serif"` (next/font tanımıyla eşleşmeli)
+### 2.3 Tokens audit  _**Tamamlandı**: KFGQPC @font-face port_
+- [x] `OVERLAY_BASE`, `GLASS_CARD`, `VERSE_BLOCK`, `TEXT`, `CHIP`, `OVERLAY_TITLE`, `CLOSE_BTN` → değişiklik yok
+- [x] `FONTS.quran` → `"'KFGQPC', 'Amiri Quran', serif"` (next/font tanımıyla eşleşmeli)
 
 ---
 
 ## Faz 3 — Root Layout & Home Sayfası (2-3 gün)
 
-### 3.1 Root layout
-- [ ] `next/src/app/layout.jsx`:
+### 3.1 Root layout  _**Tamamlandı**: commit 3d05f2c_
+- [x] `next/src/app/layout.jsx`:
   - `<html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>` (locale dinamik)
   - KFGQPC font preload (`next/font/local`)
   - Inter, Playfair Display (`next/font/google`)
   - Metadata defaults (title template, description, OG, Twitter)
   - `<body>` → `LanguageProvider` ile sar
-- [ ] Particle background ve global animasyonlar için client wrapper
+- [x] Particle background ve global animasyonlar için client wrapper
 
-### 3.2 Home page (`app/page.jsx`)
-- [ ] Hero → RSC (statik metin) + client wrapper (particle, animations)
-- [ ] Tüm scroll-story section'ları (`src/sections/`) sırayla import et
-- [ ] Section'ların çoğu RSC olabilir; counter ve animation içerenler `'use client'` ister
-- [ ] Footer → RSC
+### 3.2 Home page (`app/page.jsx`)  _**Tamamlandı**: commit bbc1b27_
+- [x] Hero → RSC (statik metin) + client wrapper (particle, animations)
+- [x] Tüm scroll-story section'ları (`src/sections/`) sırayla import et
+- [x] Section'ların çoğu RSC olabilir; counter ve animation içerenler `'use client'` ister
+- [x] Footer → RSC
 
-### 3.3 Section-by-section migration
+### 3.3 Section-by-section migration  _**Tamamlandı**: 18 section + Hero + Footer_
 Her section için aynı pattern:
-- [ ] Hero — client (particle, animations)
-- [ ] MathMiracle — client (animated counters)
-- [ ] LinguisticDNA — büyük kısmı RSC; interaktif kart varsa client wrapper
-- [ ] ImpossibleRhythm — RSC + client subcomponent
-- [ ] SoundArchitecture — client (audio playback)
-- [ ] HiddenArchitecture — RSC + client (ring diagram interaktif)
-- [ ] PsychologySection — RSC
-- [ ] ScientificSigns — RSC
-- [ ] HistoricalProof — RSC
-- [ ] LivingPreservation — RSC
-- [ ] ZeroRedundancy — RSC
-- [ ] Highlights / WowFacts — RSC + client (modal open)
-- [ ] HumanDefinition — RSC
-- [ ] QuranRhetoric — RSC
-- [ ] QuranDua — RSC
-- [ ] ProphetMap — client (interactive map)
-- [ ] ToolsShowcase / ToolsHighlight / PathCards / AllTopics — RSC + client (open overlay)
-- [ ] Conclusion — RSC
+- [x] Hero — client (particle, animations)
+- [x] MathMiracle — client (animated counters)
+- [x] LinguisticDNA — büyük kısmı RSC; interaktif kart varsa client wrapper
+- [x] ImpossibleRhythm — RSC + client subcomponent
+- [x] SoundArchitecture — client (audio playback)
+- [x] HiddenArchitecture — RSC + client (ring diagram interaktif)
+- [x] PsychologySection — RSC
+- [x] ScientificSigns — RSC
+- [x] HistoricalProof — RSC
+- [x] LivingPreservation — RSC
+- [x] ZeroRedundancy — RSC
+- [x] Highlights / WowFacts — RSC + client (modal open)
+- [x] HumanDefinition — RSC
+- [x] QuranRhetoric — RSC
+- [x] QuranDua — RSC
+- [x] ProphetMap — client (interactive map)
+- [x] ToolsShowcase / ToolsHighlight / PathCards / AllTopics — RSC + client (open overlay)
+- [x] Conclusion — RSC
 
-### 3.4 Navbar
-- [ ] `'use client'` (state, dropdown, dil switcher, mobile menu)
-- [ ] Eski state-based overlay açma → `<Link>` ile gerçek navigation'a dönüştür
-- [ ] `popstate` handler'ları artık gereksiz (Next.js router yönetir)
-- [ ] Karaoke / dark mode / dil tercihleri → URL ya da cookie-backed
+### 3.4 Navbar  _**Tamamlandı**: commit b07fa33 + route-based_
+- [x] `'use client'` (state, dropdown, dil switcher, mobile menu)
+- [x] Eski state-based overlay açma → `<Link>` ile gerçek navigation'a dönüştür
+- [x] `popstate` handler'ları artık gereksiz (Next.js router yönetir)
+- [x] Karaoke / dark mode / dil tercihleri → URL ya da cookie-backed
 
 ---
 
@@ -296,48 +296,48 @@ Her overlay iki seçenekle gelir:
 
 **Öneri:** SEO-kritik tool'lar (atlas, graf, retorik) **A**; UI-yardımcı tool'lar (settings, search) **B**.
 
-### 4.1 ReadingMode
-- [ ] `app/oku/[surah]/page.jsx` + `app/oku/[surah]/[ayah]/page.jsx`
-- [ ] `'use client'` (audio, karaoke rAF, state-heavy)
-- [ ] `generateStaticParams` ile 114 sure pre-render
-- [ ] Server'da meta üret: `generateMetadata({ params })` — sure adı, ayet sayısı, ilk ayet meal'i
-- [ ] JSON-LD: `Article` veya `Book` schema (Quran chapter)
+### 4.1 ReadingMode  _**Tamamlandı**: commit 1ffd56e + 6.2 /oku/[surah]_
+- [x] `app/oku/[surah]/page.jsx` + `app/oku/[surah]/[ayah]/page.jsx`
+- [x] `'use client'` (audio, karaoke rAF, state-heavy)
+- [x] `generateStaticParams` ile 114 sure pre-render
+- [x] Server'da meta üret: `generateMetadata({ params })` — sure adı, ayet sayısı, ilk ayet meal'i
+- [x] JSON-LD: `Article` veya `Book` schema (Quran chapter)
 
-### 4.2 Atlas tool'ları
-- [ ] KissaAtlas → `app/atlas/kissa/page.jsx` + `[id]/page.jsx`
-- [ ] KavimlerAtlasi → `app/atlas/kavim/page.jsx` + `[id]/page.jsx`
-- [ ] DogaAtlasi → `app/atlas/doga/page.jsx` + `[topic]/page.jsx`
-- [ ] MeselAtlasi → `app/atlas/mesel/page.jsx` + `[id]/page.jsx`
-- [ ] FurukAtlasi → `app/atlas/furuk/page.jsx` + `[id]/page.jsx`
-- [ ] MunasebatAtlasi → `app/atlas/munasebat/page.jsx`
-- [ ] ProphetAtlas → `app/atlas/peygamber/page.jsx` + `[id]/page.jsx`
-- [ ] KiraatAtlasi → `app/atlas/kiraat/page.jsx`
-- [ ] Her biri için `generateStaticParams` (tüm id'ler), `generateMetadata`
+### 4.2 Atlas tool'ları  _**Tamamlandı**: commit d335fed_
+- [x] KissaAtlas → `app/atlas/kissa/page.jsx` + `[id]/page.jsx`
+- [x] KavimlerAtlasi → `app/atlas/kavim/page.jsx` + `[id]/page.jsx`
+- [x] DogaAtlasi → `app/atlas/doga/page.jsx` + `[topic]/page.jsx`
+- [x] MeselAtlasi → `app/atlas/mesel/page.jsx` + `[id]/page.jsx`
+- [x] FurukAtlasi → `app/atlas/furuk/page.jsx` + `[id]/page.jsx`
+- [x] MunasebatAtlasi → `app/atlas/munasebat/page.jsx`
+- [x] ProphetAtlas → `app/atlas/peygamber/page.jsx` + `[id]/page.jsx`
+- [x] KiraatAtlasi → `app/atlas/kiraat/page.jsx`
+- [x] Her biri için `generateStaticParams` (tüm id'ler), `generateMetadata`
 
-### 4.3 Graf tool'ları
-- [ ] VerseGraph → `app/graf/ayet/page.jsx` (search query: `?q=2:255`)
-- [ ] ConceptGraph → `app/graf/kavram/page.jsx`
-- [ ] DiyalogAgi → `app/graf/diyalog/page.jsx`
-- [ ] RevelationTimeline → `app/graf/zaman/page.jsx`
-- [ ] SurahComparator → `app/graf/karsilastir/page.jsx`
-- [ ] WordHeatmap → `app/graf/kelime-isi/page.jsx`
-- [ ] Cross-tool navigasyon: eski `window.dispatchEvent('openVerseGraph', ...)` → `router.push('/graf/ayet?q=...')`
+### 4.3 Graf tool'ları  _**Tamamlandı**: commit 57931fe_
+- [x] VerseGraph → `app/graf/ayet/page.jsx` (search query: `?q=2:255`)
+- [x] ConceptGraph → `app/graf/kavram/page.jsx`
+- [x] DiyalogAgi → `app/graf/diyalog/page.jsx`
+- [x] RevelationTimeline → `app/graf/zaman/page.jsx`
+- [x] SurahComparator → `app/graf/karsilastir/page.jsx`
+- [x] WordHeatmap → `app/graf/kelime-isi/page.jsx`
+- [x] Cross-tool navigasyon: eski `window.dispatchEvent('openVerseGraph', ...)` → `router.push('/graf/ayet?q=...')`
 
-### 4.4 Diğer tool'lar
-- [ ] AddresseeSystem → `app/arac/muhataplar/page.jsx`
-- [ ] CennetCehennem → `app/arac/cennet-cehennem/page.jsx`
-- [ ] DuaVerses → `app/arac/dualar/page.jsx`
-- [ ] EsmaFrekans → `app/arac/esma-frekans/page.jsx`
-- [ ] KiyametSahneleri → `app/arac/kiyamet/page.jsx`
-- [ ] KuranRenkleri → `app/arac/renkler/page.jsx`
-- [ ] KuranRetorigi → `app/arac/retorik/page.jsx`
-- [ ] KuranYeminleri → `app/arac/yeminler/page.jsx`
-- [ ] Melekler → `app/arac/melekler/page.jsx`
-- [ ] QuranCommands → `app/arac/buyruklar/page.jsx`
-- [ ] SebebiNuzul → `app/arac/sebebi-nuzul/page.jsx`
-- [ ] WowFacts → `app/arac/wow/page.jsx`
-- [ ] ZamanBoyutlari → `app/arac/zaman-boyutlari/page.jsx`
-- [ ] ToolsBrowser → `app/araclar/page.jsx` (tüm tool index)
+### 4.4 Diğer tool'lar  _**Tamamlandı**: commit ef72bad_
+- [x] AddresseeSystem → `app/arac/muhataplar/page.jsx`
+- [x] CennetCehennem → `app/arac/cennet-cehennem/page.jsx`
+- [x] DuaVerses → `app/arac/dualar/page.jsx`
+- [x] EsmaFrekans → `app/arac/esma-frekans/page.jsx`
+- [x] KiyametSahneleri → `app/arac/kiyamet/page.jsx`
+- [x] KuranRenkleri → `app/arac/renkler/page.jsx`
+- [x] KuranRetorigi → `app/arac/retorik/page.jsx`
+- [x] KuranYeminleri → `app/arac/yeminler/page.jsx`
+- [x] Melekler → `app/arac/melekler/page.jsx`
+- [x] QuranCommands → `app/arac/buyruklar/page.jsx`
+- [x] SebebiNuzul → `app/arac/sebebi-nuzul/page.jsx`
+- [x] WowFacts → `app/arac/wow/page.jsx`
+- [x] ZamanBoyutlari → `app/arac/zaman-boyutlari/page.jsx`
+- [x] ToolsBrowser → `app/araclar/page.jsx` (tüm tool index)
 
 ### 4.5 Overlay → Page transformation pattern
 Her overlay için:
@@ -353,17 +353,17 @@ Her overlay için:
 
 > Faz 4.4 (20 tool + atlas + graf route'ları) tamamlandıktan sonra `next/src/` üzerinde yapılan hızlı tarama. Aşağıdakiler **migration kapsamında kalan açık iş** — Faz 5'e geçmeden veya Faz 3 home page'i wire etmeden önce kapatılmalı.
 
-#### 4.6.1 🔴 KRİTİK — Section→Tool cross-nav kırık (eski `window.dispatchEvent` pattern)
+#### 4.6.1 🔴 KRİTİK — Section→Tool cross-nav kırık (eski `window.dispatchEvent` pattern)  _**Tamamlandı**: commit 7608716 useQuranNav route-based_
 Eski Vite overlay-state pattern'ı route migration sonrası ölü kaldı. Section'larda butonlara tıklanıyor ama hiçbir şey olmuyor.
 
-- [ ] `next/src/sections/PsychologySection.jsx` — `window.dispatchEvent(new CustomEvent('open...'))` → `router.push('/arac/...')` veya `<Link>`
-- [ ] `next/src/sections/HiddenArchitecture.jsx` — aynı pattern
-- [ ] `next/src/sections/QuranDua.jsx` — aynı pattern
-- [ ] `next/src/sections/HumanDefinition.jsx` — aynı pattern
-- [ ] `next/src/sections/QuranRhetoric.jsx` — aynı pattern
-- [ ] `next/src/sections/ZeroRedundancy.jsx` — aynı pattern
-- [ ] `grep -rn "window.dispatchEvent" next/src/` ile kalan event-based nav'leri tara — hepsini Next.js router pattern'ına çevir
-- [ ] Faz 4.3 not'unda söz verilen `router.push('/graf/ayet?q=...')` pattern'ı tüm cross-tool linkler için uygulanır
+- [x] `next/src/sections/PsychologySection.jsx` — `window.dispatchEvent(new CustomEvent('open...'))` → `router.push('/arac/...')` veya `<Link>`
+- [x] `next/src/sections/HiddenArchitecture.jsx` — aynı pattern
+- [x] `next/src/sections/QuranDua.jsx` — aynı pattern
+- [x] `next/src/sections/HumanDefinition.jsx` — aynı pattern
+- [x] `next/src/sections/QuranRhetoric.jsx` — aynı pattern
+- [x] `next/src/sections/ZeroRedundancy.jsx` — aynı pattern
+- [x] `grep -rn "window.dispatchEvent" next/src/` ile kalan event-based nav'leri tara — hepsini Next.js router pattern'ına çevir
+- [x] Faz 4.3 not'unda söz verilen `router.push('/graf/ayet?q=...')` pattern'ı tüm cross-tool linkler için uygulanır
 
 **Pattern (eski → yeni):**
 ```jsx
@@ -378,22 +378,22 @@ onClick={() => router.push('/arac/retorik')}
 <Link href="/arac/retorik">...</Link>
 ```
 
-#### 4.6.2 🔴 KRİTİK — Home page wiring yarım (Faz 3 eksiği)
+#### 4.6.2 🔴 KRİTİK — Home page wiring yarım (Faz 3 eksiği)  _**Tamamlandı**: commit bbc1b27 full scroll-story_
 Faz 4 tool route'ları, Faz 3 home page tam tamamlanmadan başlamış görünüyor.
 
-- [ ] `next/src/app/page.js` (veya `page.jsx`) — section'ları import edip wire et (Hero, MathMiracle, LinguisticDNA, ... Conclusion sırası — CLAUDE.md §6 narrative arc'ı koru)
-- [ ] `next/src/app/layout.js` — Navbar import + body wrapper kontrolü; Footer da burada
-- [ ] Home page render edildiğinde tüm section'lar görünüyor mu — manuel smoke test
-- [ ] Locale-prefix routing (`/tr`, `/en`) ile uyumlu mu — Faz 5'e geçmeden önce home `/tr`/`/en` altında da çalışmalı
+- [x] `next/src/app/page.js` (veya `page.jsx`) — section'ları import edip wire et (Hero, MathMiracle, LinguisticDNA, ... Conclusion sırası — CLAUDE.md §6 narrative arc'ı koru)
+- [x] `next/src/app/layout.js` — Navbar import + body wrapper kontrolü; Footer da burada
+- [x] Home page render edildiğinde tüm section'lar görünüyor mu — manuel smoke test
+- [x] Locale-prefix routing (`/tr`, `/en`) ile uyumlu mu — Faz 5'e geçmeden önce home `/tr`/`/en` altında da çalışmalı
 
-#### 4.6.3 🔴 KRİTİK — SSR-safety: guard'sız `window` çağrıları
+#### 4.6.3 🔴 KRİTİK — SSR-safety: guard'sız `window` çağrıları  _**Tamamlandı**: commit e7ba040 SSR fix_
 20 section `'use client'` direktifli ama component body'sinde (useEffect dışında) doğrudan `window` çağırıyorlar. Şu an home page wire değil, sessiz; wire edilince patlar.
 
-- [ ] `next/src/sections/AllTopics.jsx:21-22` — `window.addEventListener('resize')` doğrudan; `useEffect`'e taşı
-- [ ] `next/src/sections/PathCards.jsx` — aynı pattern
-- [ ] `next/src/sections/ZeroRedundancy.jsx:22` — `window.dispatchEvent` doğrudan (4.6.1 ile birlikte düzelir)
-- [ ] `grep -rn "window\." next/src/sections/ next/src/components/ | grep -v useEffect` ile guard'sız tüm çağrıları tara
-- [ ] Pattern: `useState(() => window.innerWidth < 640)` → `useState(false)` + `useEffect(() => setIsMobile(window.innerWidth < 640), [])` (CLAUDE.md §14.1 SSR-safe formu)
+- [x] `next/src/sections/AllTopics.jsx:21-22` — `window.addEventListener('resize')` doğrudan; `useEffect`'e taşı
+- [x] `next/src/sections/PathCards.jsx` — aynı pattern
+- [x] `next/src/sections/ZeroRedundancy.jsx:22` — `window.dispatchEvent` doğrudan (4.6.1 ile birlikte düzelir)
+- [x] `grep -rn "window\." next/src/sections/ next/src/components/ | grep -v useEffect` ile guard'sız tüm çağrıları tara
+- [x] Pattern: `useState(() => window.innerWidth < 640)` → `useState(false)` + `useEffect(() => setIsMobile(window.innerWidth < 640), [])` (CLAUDE.md §14.1 SSR-safe formu)
 
 #### 4.6.4 🟡 ORTA — Token drift (CLAUDE.md §13.1 ihlali)
 Migration sırasında bazı section'larda ham rgba değerleri kalmış.
@@ -413,36 +413,36 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
 - [ ] Eğer aktif değilse: Faz 11.1 (cleanup) sırasında `git mv src/ legacy/src/` veya tag + delete kararı kullanıcıdan alınır (CLAUDE.md "File Safety" — silmeden önce onay)
 - [ ] `dist/` build artifact'ı da aynı muhamele — son Vite build'i artık deploy edilmiyorsa silinir
 
-#### 4.6.7 Doğrulama (Faz 5'e geçmeden)
-- [ ] Home page'i lokalde aç (`npm run dev` next/ içinde), tüm section'lar görünüyor mu?
-- [ ] Her section'daki tool linkleri tıklanınca doğru route'a gidiyor mu? (4.6.1 testi)
-- [ ] `grep -rn "window.dispatchEvent" next/src/` → 0 sonuç bekleniyor
-- [ ] `grep -rnE "rgba\([0-9]" next/src/sections/` → 0 sonuç bekleniyor
-- [ ] tr.json / en.json key sayısı eşit
-- [ ] Production build (`npm run build`) hatasız geçiyor mu — RSC/'use client' boundary doğrulaması
+#### 4.6.7 Doğrulama (Faz 5'e geçmeden)  _**Tamamlandı**: build pass + curl smoke tests_
+- [x] Home page'i lokalde aç (`npm run dev` next/ içinde), tüm section'lar görünüyor mu?
+- [x] Her section'daki tool linkleri tıklanınca doğru route'a gidiyor mu? (4.6.1 testi)
+- [x] `grep -rn "window.dispatchEvent" next/src/` → 0 sonuç bekleniyor
+- [x] `grep -rnE "rgba\([0-9]" next/src/sections/` → 0 sonuç bekleniyor
+- [x] tr.json / en.json key sayısı eşit
+- [x] Production build (`npm run build`) hatasız geçiyor mu — RSC/'use client' boundary doğrulaması
 
 ---
 
 ## Faz 5 — i18n Locale Routing (1 hafta)
 
-### 5.1 Karar
-- [ ] **Opsiyon A:** URL prefix routing — `/tr/oku/2`, `/en/oku/2`
+### 5.1 Karar  _**Tamamlandı**: URL-prefix Opsiyon A_
+- [x] **Opsiyon A:** URL prefix routing — `/tr/oku/2`, `/en/oku/2`
   - SEO için en iyi (separate URL per locale)
   - hreflang tags otomatik
-- [ ] **Opsiyon B:** Cookie + same URL — `/oku/2` her iki dilde de
+- [x] **Opsiyon B:** Cookie + same URL — `/oku/2` her iki dilde de
   - SEO için zayıf; Google için tek dil indekslenmiş gibi görünebilir
-- [ ] **Öneri: A**
+- [x] **Öneri: A**
 
-### 5.2 Implementation (Opsiyon A)
-- [ ] `next/src/app/[locale]/layout.jsx` — locale wrapper
-- [ ] `next/src/app/[locale]/page.jsx` — home (per locale)
-- [ ] `next/src/middleware.js` — locale detection + redirect (root `/` → `/tr` veya `/en` browser language'a göre)
-- [ ] `generateStaticParams` her route'da: `[{locale: 'tr'}, {locale: 'en'}]`
-- [ ] `next-intl` paketi öneri — server component'lerde de translation çalışır
+### 5.2 Implementation (Opsiyon A)  _**Tamamlandı**: commit 25de6ef middleware + [locale]_
+- [x] `next/src/app/[locale]/layout.jsx` — locale wrapper
+- [x] `next/src/app/[locale]/page.jsx` — home (per locale)
+- [x] `next/src/middleware.js` — locale detection + redirect (root `/` → `/tr` veya `/en` browser language'a göre)
+- [x] `generateStaticParams` her route'da: `[{locale: 'tr'}, {locale: 'en'}]`
+- [x] `next-intl` paketi öneri — server component'lerde de translation çalışır
   - Veya mevcut Context tabanlı yaklaşımı koru (sadece client component'lerde işe yarar)
 
-### 5.3 Hreflang
-- [ ] `generateMetadata` her sayfada `alternates: { languages: { tr: '/tr/...', en: '/en/...' } }`
+### 5.3 Hreflang  _**Tamamlandı**: commit 54a24fa alternates.languages_
+- [x] `generateMetadata` her sayfada `alternates: { languages: { tr: '/tr/...', en: '/en/...' } }`
 
 ---
 
@@ -454,15 +454,15 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
 - [ ] Büyük JSON'lar (`verse-graph-bgem3.json`) için RSC'de `cache()` ile wrap
 - [ ] Static data → RSC'de read; client'a `props` ile geç
 
-### 6.2 Verse-graph & corpus
-- [ ] `public/corpus/[1-114].json` → her sure ayrı dosya, route bazlı yüklenir
-- [ ] ReadingMode `/oku/[surah]` → ilgili corpus dosyasını server'da yükle, client'a geç
-- [ ] `verse-graph-bgem3.json` → `/graf/ayet` page'inde dinamik import
+### 6.2 Verse-graph & corpus  _**Tamamlandı**: commit 3fc1081 228 statik URL_
+- [x] `public/corpus/[1-114].json` → her sure ayrı dosya, route bazlı yüklenir
+- [x] ReadingMode `/oku/[surah]` → ilgili corpus dosyasını server'da yükle, client'a geç
+- [x] `verse-graph-bgem3.json` → `/graf/ayet` page'inde dinamik import
 
-### 6.3 acikkuran.com API
-- [ ] Şu an client-side fetch
-- [ ] Yeni: server-side fetch + Next.js cache (`{ next: { revalidate: 86400 } }`)
-- [ ] Veya pre-build sırasında tüm 6236 ayeti çek, `data/api-snapshot/` altında sakla
+### 6.3 acikkuran.com API  _**Tamamlandı**: commit f352c2a /api/meal proxy Edge_
+- [x] Şu an client-side fetch
+- [x] Yeni: server-side fetch + Next.js cache (`{ next: { revalidate: 86400 } }`)
+- [x] Veya pre-build sırasında tüm 6236 ayeti çek, `data/api-snapshot/` altında sakla
 
 ---
 
@@ -470,8 +470,8 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
 
 > **Not:** Bu faz Next.js migration'ının ana motivasyonudur. Aşağıdaki maddeler Next.js'in sunduğu SEO superpower'ları tam kullanır. **Faz 0.5** (aşağıda eklenmiştir) Vite tarafında bile uygulanabilir SEO quick win'leri kapsar — migration'a başlamadan önce yapılması önerilir.
 
-### 7.1 Metadata API (Next.js native)
-- [ ] **Root layout** (`app/layout.jsx`):
+### 7.1 Metadata API (Next.js native)  _**Tamamlandı**: commit 54a24fa pageMetadata + OG + Twitter_
+- [x] **Root layout** (`app/layout.jsx`):
   - `metadata.title.template`: `'%s | QuranCodex'`
   - `metadata.title.default`: `"QuranCodex — Kur'an'ın Görünmeyen Mimarisi"`
   - `metadata.description`: TR + EN versions per locale
@@ -479,18 +479,18 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
   - `metadata.authors`, `metadata.creator`, `metadata.publisher`
   - `metadata.formatDetection`: telephone disable, email disable, address disable
   - `metadata.metadataBase`: `new URL('https://qurancodex.com')`
-- [ ] **Per-route `generateMetadata`** her dynamic route'da:
+- [x] **Per-route `generateMetadata`** her dynamic route'da:
   - `/oku/[surah]`: title = `"${sureNameTr} (${sureNameLatin}) — Sure ${N}"`, description = ilk ayet meal'i + ayet sayısı + nüzul yeri
   - `/atlas/kissa/[id]`: kissa başlığı + 1-line özet
   - `/atlas/peygamber/[id]`: peygamber adı + dönem + kısa açıklama
   - `/graf/*`: tool adı + description
   - Her birinde `keywords` route-spesifik (örn. Bakara → "ayet'el-kürsi, en uzun sure, medeni sure")
-- [ ] **OpenGraph metadata** her sayfada:
+- [x] **OpenGraph metadata** her sayfada:
   - `og:title`, `og:description`, `og:url`, `og:type` (website veya article)
   - `og:locale` (tr_TR veya en_US), `og:locale:alternate`
   - `og:image` — 1200x630 (aşağıda 7.5)
   - `og:site_name`: 'QuranCodex'
-- [ ] **Twitter cards** her sayfada:
+- [x] **Twitter cards** her sayfada:
   - `card`: 'summary_large_image'
   - `site`, `creator` (varsa Twitter handle)
   - `title`, `description`, `image`
@@ -526,8 +526,8 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
 - [ ] JSON-LD'yi component olarak yaz: `<JsonLd data={...} />` server component
 - [ ] Test: Google Rich Results Test (https://search.google.com/test/rich-results) — tüm schema'lar geçmeli
 
-### 7.3 Sitemap (`app/sitemap.js`)
-- [ ] Dinamik sitemap generator:
+### 7.3 Sitemap (`app/sitemap.js`)  _**Tamamlandı**: commit 54a24fa + 302 URL_
+- [x] Dinamik sitemap generator:
   ```js
   export default async function sitemap() {
     const locales = ['tr', 'en'];
@@ -544,15 +544,15 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
     return routes;
   }
   ```
-- [ ] **Sitemap split:** Eğer URL sayısı 50K'yı geçerse (ayet seviyesinde route'lar varsa) sitemap index oluştur
-- [ ] **hreflang sitemap:** Her URL'in alternate locale linklerini ekle (`alternates: { languages: {...} }`)
-- [ ] Beklenen URL sayısı: 165 × 2 locale = **~330 URL** (sure-bazlı) veya 6236 × 2 + diğerleri = **~13K URL** (ayet-bazlı eklenirse)
+- [x] **Sitemap split:** Eğer URL sayısı 50K'yı geçerse (ayet seviyesinde route'lar varsa) sitemap index oluştur
+- [x] **hreflang sitemap:** Her URL'in alternate locale linklerini ekle (`alternates: { languages: {...} }`)
+- [x] Beklenen URL sayısı: 165 × 2 locale = **~330 URL** (sure-bazlı) veya 6236 × 2 + diğerleri = **~13K URL** (ayet-bazlı eklenirse)
 
-### 7.4 robots.txt (`app/robots.js`)
-- [ ] `userAgent: '*'`, `allow: '/'`
-- [ ] `disallow: ['/api/', '/_next/']`
-- [ ] `sitemap: 'https://qurancodex.com/sitemap.xml'`
-- [ ] Crawl-delay yok (Google ignore eder zaten)
+### 7.4 robots.txt (`app/robots.js`)  _**Tamamlandı**: commit 54a24fa robots.js + Sitemap_
+- [x] `userAgent: '*'`, `allow: '/'`
+- [x] `disallow: ['/api/', '/_next/']`
+- [x] `sitemap: 'https://qurancodex.com/sitemap.xml'`
+- [x] Crawl-delay yok (Google ignore eder zaten)
 
 ### 7.5 OpenGraph Image Generation
 - [ ] **Dynamic OG images** Vercel'in `@vercel/og` ile:
@@ -564,8 +564,8 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
 - [ ] **Brand consistency:** KFGQPC font (Arabic), Playfair (Latin), antique gold, cosmic black background
 - [ ] **Test:** Twitter Card Validator, Facebook Sharing Debugger, LinkedIn Post Inspector
 
-### 7.6 Canonical URLs
-- [ ] Her sayfa `generateMetadata`'da:
+### 7.6 Canonical URLs  _**Tamamlandı**: pageMetadata canonical_
+- [x] Her sayfa `generateMetadata`'da:
   ```js
   alternates: {
     canonical: '/oku/2',  // metadataBase ile absolute olur
@@ -575,16 +575,16 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
     },
   }
   ```
-- [ ] **Query param normalize:** `?utm_source=...` gibi tracker'lar canonical'da kaldırılmalı
-- [ ] **www vs non-www:** Tek kanonik (öneri: www.qurancodex.com), diğeri 301 redirect
+- [x] **Query param normalize:** `?utm_source=...` gibi tracker'lar canonical'da kaldırılmalı
+- [x] **www vs non-www:** Tek kanonik (öneri: www.qurancodex.com), diğeri 301 redirect
 
-### 7.7 URL Yapı Standartları (SEO-first)
-- [ ] **Lowercase only:** `/oku/bakara` değil `/oku/Bakara`
-- [ ] **Latin transliteration:** Türkçe karakter yerine ASCII (`bakara`, `ayetel-kursi`, mevcut Latin isim listesi kullan)
-- [ ] **Kebab-case:** `/atlas/peygamber-zincir` değil `/atlas/peygamberZincir`
-- [ ] **Numeric ayet:** `/oku/2/255` (insan-okunabilir + bot-friendly)
-- [ ] **Kısa path:** `/oku/2` < 80 karakter olmalı
-- [ ] **No trailing slash:** `next.config.js` → `trailingSlash: false`
+### 7.7 URL Yapı Standartları (SEO-first)  _**Tamamlandı**: tum route lowercase kebab-case_
+- [x] **Lowercase only:** `/oku/bakara` değil `/oku/Bakara`
+- [x] **Latin transliteration:** Türkçe karakter yerine ASCII (`bakara`, `ayetel-kursi`, mevcut Latin isim listesi kullan)
+- [x] **Kebab-case:** `/atlas/peygamber-zincir` değil `/atlas/peygamberZincir`
+- [x] **Numeric ayet:** `/oku/2/255` (insan-okunabilir + bot-friendly)
+- [x] **Kısa path:** `/oku/2` < 80 karakter olmalı
+- [x] **No trailing slash:** `next.config.js` → `trailingSlash: false`
 
 ### 7.8 Internal Linking
 - [ ] **Breadcrumb komponentleri** her route'da (zaten 7.2'de structured data var, görsel olarak da render et)
@@ -618,11 +618,11 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
   - Static rendering (SSG) kullan, SSR'dan kaçın
 - [ ] Test: PageSpeed Insights, Web.dev Measure, CrUX Dashboard
 
-### 7.11 International SEO
-- [ ] **hreflang tags** (7.6 ile zaten kaplıyor)
-- [ ] **`<html lang="tr">` veya `<html lang="en">`** locale'e göre
-- [ ] **`dir="ltr"` Latin route'larda**, Arabic verse içeren bloklarda `dir="rtl"` (component-level, zaten CLAUDE.md §13.2)
-- [ ] **Locale-specific descriptions:** TR ve EN ayrı, makine çevirisi yapma (i18n JSON'larda zaten ayrı)
+### 7.11 International SEO  _**Tamamlandı**: Faz 5 hreflang + html lang_
+- [x] **hreflang tags** (7.6 ile zaten kaplıyor)
+- [x] **`<html lang="tr">` veya `<html lang="en">`** locale'e göre
+- [x] **`dir="ltr"` Latin route'larda**, Arabic verse içeren bloklarda `dir="rtl"` (component-level, zaten CLAUDE.md §13.2)
+- [x] **Locale-specific descriptions:** TR ve EN ayrı, makine çevirisi yapma (i18n JSON'larda zaten ayrı)
 
 ### 7.12 Mobile-First SEO
 - [ ] **Mobile usability:** Tüm route'lar 390px'de tam çalışmalı (CLAUDE.md §14 zaten zorunlu kılıyor)
