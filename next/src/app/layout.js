@@ -1,5 +1,6 @@
 import { Inter, Playfair_Display } from 'next/font/google';
 import { LanguageProvider } from '@/i18n/LanguageContext';
+import { PathProvider } from '@/contexts/PathContext';
 import './globals.css';
 
 const inter = Inter({
@@ -50,7 +51,9 @@ export default function RootLayout({ children }) {
     <html lang="tr" className={`${inter.variable} ${playfair.variable}`}>
       <body>
         <LanguageProvider>
-          {children}
+          <PathProvider>
+            {children}
+          </PathProvider>
         </LanguageProvider>
       </body>
     </html>
