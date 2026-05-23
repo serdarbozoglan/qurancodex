@@ -1,7 +1,7 @@
 /* QuranCodex globals — ported from Vite src/index.css (CLAUDE.md §4 design system).
    Tailwind v4 @theme block + cosmic-dark body + scrollbar/typography rules. */
 
-/* @import 'leaflet/dist/leaflet.css'; — restore in Faz 4 when leaflet is installed */
+@import 'leaflet/dist/leaflet.css';
 @import "tailwindcss";
 
 /* ============================================
