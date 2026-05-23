@@ -23,10 +23,13 @@ import { EXPLORE_CATEGORIES } from '../data/exploreCategories';
 export default function AllTopics() {
   const { language } = useLanguage();
   const { scrollToSection, openOverlay } = useQuranNav();
-  const [columns, setColumns] = useState(() => typeof window !== 'undefined' ? getColumnCount(window.innerWidth) : 1);
+  // SSR-safe: start with 1 (matches server render), useEffect hydrates with
+  // actual viewport-based column count after mount. Prevents hydration mismatch.
+  const [columns, setColumns] = useState(1);
 
   useEffect(() => {
     const h = () => setColumns(getColumnCount(window.innerWidth));
+    h(); // post-mount measurement
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

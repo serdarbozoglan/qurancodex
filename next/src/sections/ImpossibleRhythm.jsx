@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, Fragment } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -698,7 +698,7 @@ export default function ImpossibleRhythm() {
                 // Visual separator before maqta' section (verse 57 = index 56, j=25 in row 2)
                 const isMaqtaBoundary = maqtaStart && j === maqtaStart;
                 return (
-                  <>
+                  <Fragment key={i}>
                     {isMaqtaBoundary && (
                       <div key={`sep-${i}`} style={{
                         width: '2px', height: '30px',
@@ -709,7 +709,6 @@ export default function ImpossibleRhythm() {
                       }} />
                     )}
                   <div
-                    key={i}
                     onClick={() => handleNajmClick(i)}
                     title={`${i + 1}. ayet`}
                     style={{
@@ -728,7 +727,7 @@ export default function ImpossibleRhythm() {
                   >
                     {i + 1}
                   </div>
-                  </>
+                  </Fragment>
                 );
               })}
             </div>

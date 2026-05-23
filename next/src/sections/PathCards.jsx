@@ -117,10 +117,13 @@ const PATHS = [
 export default function PathCards() {
   const { language } = useLanguage();
   const { startPath, isPathCompleted } = usePath();
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_TABLET);
+  // SSR-safe: start with false (matches server render), useEffect hydrates
+  // with actual viewport check after mount. Prevents hydration mismatch.
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
+    h(); // post-mount measurement
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);
