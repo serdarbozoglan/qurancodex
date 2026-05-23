@@ -16,7 +16,7 @@ import {
 import { EXPLORE_CATEGORIES } from '../data/exploreCategories';
 
 const VerseGraph = lazy(() => import('./VerseGraph'));
-const ReadingMode = lazy(() => import('./ToolStub'));
+const ReadingMode = lazy(() => import('./ReadingMode'));
 const WordHeatmap = lazy(() => import('./WordHeatmap'));
 const RevelationTimeline = lazy(() => import('./RevelationTimeline'));
 const DuaVerses = lazy(() => import('./DuaVerses'));

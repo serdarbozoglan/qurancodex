@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
-import { posLabel } from '../utils/corpusPos';
+import { posLabel } from '../lib/corpusPos';
 
 // Büyük puntoda KFGQPC bazı Uthmani karakterleri kötü render ediyor
 // (örn. U+06EA asar kasrası → tofu/circle). Popover gösteriminde standart Unicode'a normalize.
