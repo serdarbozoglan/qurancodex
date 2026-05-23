@@ -22,7 +22,7 @@ const DuaVerses = lazy(() => import('./ToolStub'));
 const WowFacts      = lazy(() => import('./ToolStub'));
 const ProphetAtlas  = lazy(() => import('./ToolStub'));
 const ConceptGraph     = lazy(() => import('./ToolStub'));
-const KissaAtlas       = lazy(() => import('./ToolStub'));
+const KissaAtlas       = lazy(() => import('./KissaAtlas'));
 const SurahComparator  = lazy(() => import('./ToolStub'));
 const QuranCommands    = lazy(() => import('./ToolStub'));
 const AddresseeSystem  = lazy(() => import('./ToolStub'));
