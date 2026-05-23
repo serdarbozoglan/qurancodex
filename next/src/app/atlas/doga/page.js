@@ -1,7 +1,7 @@
 import DogaAtlasiRoute from './DogaAtlasiRoute';
 
 export const metadata = {
-  title: 'Doğa Atlası',
+  title: "Doğa Atlası",
   description: "Kur'an'da geçen kevni ayetler — gök, yer, deniz, bitki, hayvan, evren — bilimsel bağlam ve tefsir notları.",
 };
 
