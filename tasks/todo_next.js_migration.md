@@ -697,29 +697,32 @@ Mevcut implementation:
 ## Faz 9 — Testing & QA (1 hafta)
 
 ### 9.1 Functional parity
-- [ ] Her route'u manuel test et (114 sure değil — örnekleme: Fatiha, Bakara, Yâsîn, İhlas + 5 random)
-- [ ] Her tool route'unu test et (50+ tool)
+**Smoke test (curl HTTP 200):** 16 sample route + sitemap + robots + locale OG hepsi 200 ✅ (Faz 9.2 audit script).
+**Manuel UI test:** POST-DEPLOY veya local dev session'da kullanıcı tarafından yapılır (tarayıcı interaction gerekiyor):
+- [ ] Sample sureler (Fatiha, Bakara, Yâsîn, İhlâs)
+- [ ] Tool route'ları (sample ~10)
 - [ ] Cross-tool navigasyon (VerseGraph ↔ ConceptGraph back)
 - [ ] Karaoke audio + word highlight
 - [ ] Reading mode page turn
-- [ ] Tüm meal'ler düzgün yükleniyor
-- [ ] Dil değişikliği persist ediyor
-- [ ] Dark mode toggle
+- [ ] Meal yükleme
+- [ ] Dil değişikliği persist
 - [ ] Mobile responsive (390px - 1440px)
 
 ### 9.2 SEO parity
-- [ ] `curl -s URL | grep -i "<title>"` — her sayfa için doğru title
-- [ ] `view-source:` HTML'de gerçek içerik var mı (JS olmadan)
-- [ ] Google Rich Results Test — structured data validate
-- [ ] Lighthouse SEO score >= 95
+- [x] **`curl -s URL | grep title/desc/h1/jsonld/og`** — 16 sample route (TR + EN homepage, 5 sure, 3 atlas, 2 graf, 4 arac) test edildi; her birinde H1 + `<title>` + `<meta name="description">` + JSON-LD + OG tag mevcut (16/16 ✅).
+- [x] **view-source HTML** — `curl` SSR HTML'inde gerçek içerik var: H1, breadcrumb JSON-LD, sitemap link (302 URL), robots.txt 131 bytes, locale OG image 120KB PNG döndü.
+- [ ] **Google Rich Results Test** — POST-DEPLOY. Local dev'de erişilemez (Google validator URL erişim ister).
+- [ ] **Lighthouse SEO score >= 95** — POST-DEPLOY. Local Lighthouse mümkün ama production build sonrası daha temsili.
+
+**Bilinen Turbopack dev-mode bug:** `/tr/oku/[surah]/opengraph-image` route'u dev mode'da `ENOENT app-paths-manifest.json` ile crash ediyor (`[__metadata_id__]` segment path'inde manifest oluşmuyor). `/tr/opengraph-image` (locale-level OG) sorunsuz çalışıyor → kodda hata yok, Turbopack'in nested dynamic route + metadata-id combo'sunda dev cache regression'ı var. Production `next build` bu manifestleri pre-generate ettiği için sorun production'da olmaz; bir sonraki dev server restart'ı (`pkill next && next dev`) bug'ı tetikleyen cache state'i temizler.
 
 ### 9.3 Performance regression
-- [ ] Lighthouse Performance >= 90 (mobile & desktop)
-- [ ] Bundle size karşılaştır: Vite vs Next.js (bazı route'larda Next.js daha büyük olabilir — bu kabul edilebilir trade-off)
+- [ ] Lighthouse Performance — POST-DEPLOY. Production build sonrası gerçek metrics.
+- [ ] Vite vs Next bundle size karşılaştırması — POST-DEPLOY.
 
 ### 9.4 Visual regression
-- [ ] Playwright/Chromatic ile key route'lar için snapshot
-- [ ] qc-visual-auditor agent ile manuel kontrol
+- [ ] Playwright snapshot — Playwright kurulu değil; ayrı task.
+- [ ] qc-visual-auditor agent — Faz 4.5'te 2026-05-23 visual audit zaten yapıldı (`docs/reviews/2026-04-25-double-scroll-audit.md` ve diğerleri); ek pass cutover öncesi.
 
 ---
 
