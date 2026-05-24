@@ -4,7 +4,7 @@
 > **Branch:** `migration-to-next.js` — Bu dosya, Next.js 16 App Router migration'ı için temizlenmiştir. Vite-spesifik patternlar (§2, §5, §13.3, §13.4, §13.12, §15) ana CLAUDE.md'den çıkarılıp `docs/legacy-vite-rules.md`'ye arşivlendi. Aşağıdaki bölüm numaraları stabil tutuldu; eksik numaralar bilinçlidir.
 >
 > **Migration planı:** `tasks/todo_next.js_migration.md`
-> **Next.js patternları:** §16 (TBD — Faz 0/1/2 ilerledikçe doldurulacak)
+> **Next.js patternları:** §16 — Faz 7-9'da implement edilip dokümante edildi (14 alt başlık).
 
 ---
 
@@ -625,22 +625,222 @@ Mobilde header'da çok sayıda buton/tab varsa:
 
 ---
 
-## 16. NEXT.JS PATTERNS (TBD)
+## 16. NEXT.JS PATTERNS
 
-> Bu bölüm migration ilerledikçe doldurulacak. Faz 0 (audit) sonrasında ve Faz 1-2 implementasyonu sırasında keşfedilen patternlar buraya eklenir. Speculation yerine **iş gördüğünde** kayıt altına alınır.
+> Bu bölüm migration ilerledikçe dolduruldu. Aşağıdaki kurallar Next.js 16 App Router'da implement edilmiş ve `next/` workspace'inde production'da kullanılan pattern'lardır.
 
-Beklenen alt bölümler (Faz 0/1/2 ilerledikçe yazılır):
+### 16.1 RSC vs Client Components Karar Matrisi
 
-- **16.1 RSC vs Client Components karar matrisi** — hangi component RSC, hangi `'use client'`
-- **16.2 `'use client'` direktifi kuralı** — ne zaman gerekli, ne zaman gereksiz
-- **16.3 `generateMetadata` template** — title, description, OG, canonical, alternates
-- **16.4 Locale routing** — `[locale]` dynamic segment, hreflang, next-intl entegrasyonu
-- **16.5 Route-to-overlay transformation pattern** — eski overlay'i route'a çevirme rehberi (Faz 4'ün ana referansı)
-- **16.6 SSR-safety patterns** — localStorage, window, useLayoutEffect, hydration mismatch önleme
-- **16.7 Server vs client data fetching** — RSC fetch + cache vs client useEffect fetch
-- **16.8 JSON-LD structured data component pattern** — schema.org markup helper
-- **16.9 Cross-route navigation** — `router.push` + searchParams pattern (eski §13.12'nin yerine)
-- **16.10 next/font/local pattern** — KFGQPC, ShaykhHamdullah self-host
-- **16.11 Static generation pattern** — `generateStaticParams` her dynamic route için
+**Default: Server Component** (no directive). `'use client'` SADECE şu durumlarda:
 
-Çalışırken yeni pattern keşfedilirse bu listeyi de güncelle. Boş bir alt bölüm açmak yerine, gerçekten implement edildiğinde alt başlık + açıklama + kod örneği ile yaz.
+| Trigger | Örnek |
+|---|---|
+| React hooks (`useState`, `useEffect`, `useRef`, custom hooks) | `Hero`, tüm interaktif section'lar |
+| Browser API (`window`, `localStorage`, `document`) | `LanguageContext`, `PathContext` |
+| Event handlers (`onClick`, `onChange`) | Buton-driven UI |
+| Third-party client libs (framer-motion, react-leaflet, three.js) | Atlas/Graf tool component'ları |
+
+**Server component örneği** (no directive): `PageHeading.jsx`, `SurahPagination.jsx`, `JsonLd.jsx`, `page.js` route handler'ları.
+
+**Client component örneği** (`'use client'` ilk satır): `Navbar.jsx`, `Footer.jsx`, tüm `*Route.jsx` wrapper'ları, tüm `src/sections/*.jsx`.
+
+### 16.2 `'use client'` Direktifi Kuralı
+
+- Dosyanın **ilk satırı** olmalı (yorum bile önce gelmez).
+- Bir client component bir server component import EDEMEZ direkt; sadece prop olarak alabilir (`children`).
+- Server component → client component import: serbest; client otomatik hydrate olur.
+- ❌ YASAK: `'use client'` ekledikten sonra server-only async data fetching (`await fetch(...)` top-level).
+- ✅ DOĞRU: client component içinde `useEffect`+`fetch` veya server component'tan prop al.
+
+### 16.3 `generateMetadata` Template — Module-Level Const Pattern
+
+**Title/desc her sayfada 3 yerde kullanılır**: metadata + JSON-LD + (server-rendered H1 via `PageHeading`). Drift'ten kaçınmak için module-level const'lar:
+
+```jsx
+// page.js
+import { pageMetadata } from '@/lib/seo';
+import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd';
+import PageHeading from '@/components/PageHeading';
+import XRoute from './XRoute';
+
+const PATH  = '/atlas/kissa';
+const TITLE = 'Kıssa Atlası';
+const DESC  = "Kur'an'daki peygamber kıssaları — ..."; // Çift tırnak; apostrophe yok-içeren string'lerde tek tırnak truncation tetikler.
+
+export async function generateMetadata({ params }) {
+  return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
+}
+
+export default async function Page({ params }) {
+  const { locale } = await params;
+  return (
+    <>
+      <JsonLd schemas={[
+        buildBreadcrumb(locale, PATH),
+        buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
+      ]} />
+      <PageHeading title={TITLE} description={DESC} />
+      <XRoute />
+    </>
+  );
+}
+```
+
+- ❌ YASAK: TITLE/DESC'i her kullanım yerinde inline yazmak (drift kaynağı).
+- ❌ YASAK: Apostrophe ('Kur'an') içeren string'leri tek tırnak ile yazmak — string literal erken kapanır, build broken metadata üretir (bkz. Faz 7.2 bug fix).
+- ✅ DOĞRU: `const TITLE = "Kur'an'da X"` (çift tırnak).
+
+### 16.4 Locale Routing — `[locale]` Dynamic Segment
+
+URL pattern: `/tr/...` ve `/en/...`. Middleware (`src/middleware.js`) prefix-less URL'leri default locale'a redirect eder.
+
+```js
+// next/src/middleware.js — locale prefix garantisi
+export const config = {
+  matcher: [
+    '/((?!_next|api|fonts|tafsir|corpus|meal-cache|audio|amthal|icons|favicon|opengraph-image|twitter-image|sitemap.xml|robots.txt|.*\\..*).*)',
+  ],
+};
+```
+
+- `[locale]/layout.js`: `LanguageProvider initialLocale={locale}` ile context'i bootstrap eder; localStorage hydrate ETMEZ (hydration mismatch riski).
+- `pageMetadata` helper'ı `alternates.languages: { tr, en, 'x-default': tr }` ile hreflang otomatik üretir.
+
+### 16.5 Route-to-Overlay Transformation Pattern
+
+**Eski Vite pattern (state-based overlay):** `<button onClick={() => setShowKissa(true)}>` → `{showKissa && <KissaAtlas onClose={...} />}`
+
+**Yeni Next pattern (full-page route):**
+1. `next/src/app/[locale]/atlas/kissa/page.js` — server entry (TITLE/DESC + JsonLd + PageHeading + Route wrapper)
+2. `next/src/app/[locale]/atlas/kissa/KissaAtlasRoute.jsx` — client wrapper:
+   ```jsx
+   'use client';
+   import { useRouter } from 'next/navigation';
+   import KissaAtlas from '@/components/KissaAtlas';
+   export default function KissaAtlasRoute() {
+     const router = useRouter();
+     return <KissaAtlas onClose={() => router.push('/')} />;
+   }
+   ```
+3. Tool component'ının kendi `position: fixed; inset: 0; z-9999` overlay UI'ı korunur (visual parity).
+
+**Navbar/menu trigger:** `setShowKissa(true)` → `router.push('/tr/atlas/kissa')`.
+
+### 16.6 SSR-Safety Patterns
+
+**Hydration mismatch'ten kaçınmak için:**
+
+```jsx
+// ❌ YANLIŞ — server vs client farklı initial value üretir
+const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
+
+// ✅ DOĞRU — server'da güvenli default, client'ta post-mount hydrate
+const [isMobile, setIsMobile] = useState(false);
+useEffect(() => {
+  setIsMobile(window.innerWidth < 640);
+  const h = () => setIsMobile(window.innerWidth < 640);
+  window.addEventListener('resize', h);
+  return () => window.removeEventListener('resize', h);
+}, []);
+```
+
+**localStorage erişimi:** Mutlaka `typeof window !== 'undefined'` guard veya `useEffect` içinde.
+
+**Heavy 3D / leaflet / canvas component'ları:** `dynamic(() => import('...'), { ssr: false })` ile wrap.
+
+### 16.7 Server vs Client Data Fetching
+
+| Veri Kaynağı | Strategy |
+|---|---|
+| Statik JSON (`public/*.json`) | Server component'ta `import` veya `fetch('http://...')` build-time |
+| Eksternal API (acikkuran.com) | **Edge API route proxy** (`/app/api/meal/[author]/[surah]/route.js`) + `fetch` cache (`revalidate: 86400`) + `Cache-Control` headers |
+| Kullanıcı interaksiyonuna bağlı veri | Client component + `useEffect` + `fetch` |
+
+Edge runtime API route örneği: `next/src/app/api/meal/[author]/[surah]/route.js` — `export const runtime = 'edge'`; Next fetch cache + manual Cache-Control header.
+
+### 16.8 JSON-LD Structured Data Pattern
+
+Server component injection via `<script type="application/ld+json">`:
+
+```jsx
+// next/src/components/JsonLd.jsx — server component (no 'use client')
+export default function JsonLd({ schemas }) {
+  if (!schemas) return null;
+  const list = Array.isArray(schemas) ? schemas : [schemas];
+  return (
+    <>
+      {list.filter(Boolean).map((schema, i) => (
+        <script key={i} type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      ))}
+    </>
+  );
+}
+```
+
+Builder fonksiyonları: `next/src/lib/jsonld.js` — `buildBreadcrumb`, `buildArticle`, `buildLearningResource`, `quranBook`. Her route page.js'i kendi schema kombinasyonunu inject eder.
+
+### 16.9 Cross-Route Navigation
+
+```jsx
+'use client';
+import { useRouter } from 'next/navigation';
+const router = useRouter();
+router.push('/tr/graf/ayet?q=2:255');  // path + searchParams
+```
+
+- `useRouter` SADECE client component'larda kullanılır.
+- searchParams `useSearchParams()` hook'u ile okunur (client side).
+- Server component'ta searchParams parametre olarak `Page({ params, searchParams })` üzerinden gelir.
+- ❌ YASAK: `window.location.href = '...'` (full page reload tetikler, hydration kaybolur).
+
+### 16.10 Font Loading Pattern
+
+**Google fonts:** `next/font/google` (otomatik preload + CSS variable):
+```js
+import { Inter, Playfair_Display } from 'next/font/google';
+const inter = Inter({ subsets: ['latin','latin-ext'], variable: '--font-inter', display: 'swap' });
+```
+
+**Local fonts (KFGQPC, ShaykhHamdullah):** Mevcut implementation hybrid:
+- `@font-face` `globals.css`'te (font-family name'i `'KFGQPC'` literal'i olarak korunuyor — 53 inline reference için)
+- `<link rel="preload" as="font" type="font/otf">` root layout `<head>`'inde (LCP için)
+- `font-display: swap` FOIT engellemek için
+
+**`next/font/local` migration DEFERRED:** Tüm inline `'KFGQPC'` literal'lerini `var(--font-kfgqpc)` ile değiştirmek gerekiyor — ek refactor; mevcut preload zaten LCP fayda sağlıyor.
+
+### 16.11 Static Generation Pattern — `generateStaticParams`
+
+```js
+// /oku/[surah]/page.js
+export async function generateStaticParams() {
+  const params = [];
+  for (let s = 1; s <= 114; s++) params.push({ surah: String(s) });
+  return params;
+}
+```
+
+Build sonrası: 114 sure × 2 locale = 228 statik HTML pre-rendered. Tool route'ları (atlas/graf/arac) zaten parametresiz → otomatik static.
+
+### 16.12 SEO-Visible / Visually-Hidden Pattern (sr-only)
+
+Tool overlay'lerinin `position: fixed; inset: 0; z-9999` UI'ı altında kalan SEO içeriği için `sr-only` style:
+
+```jsx
+const SR_ONLY = {
+  position: 'absolute', width: '1px', height: '1px', padding: 0,
+  margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)',
+  whiteSpace: 'nowrap', borderWidth: 0,
+};
+```
+
+Kullanım: `PageHeading` (H1 + DESC), `SurahPagination` (prev/next link nav). Visual parity korunur, HTML'de SEO sinyali bulunur, screen reader'lar erişebilir.
+
+### 16.13 Module-Level Hash Drift'ten Kaçınma
+
+Page.js'te `TITLE`/`DESC` const'larını mutlaka **module-level**'da tut. Function içine koyma — generateMetadata ile JsonLd/PageHeading scope'u farklı; kopya yazarsan drift'in başlangıcı olur.
+
+### 16.14 Bilinen Turbopack Dev-Mode Quirk
+
+`[locale]/oku/[surah]/opengraph-image.jsx` route'unda Turbopack `[__metadata_id__]` segment manifest'i ENOENT verebilir. Çözüm: `pkill next && next dev`. **Production `next build`** pre-generate ettiği için bu sorun production'da yok.

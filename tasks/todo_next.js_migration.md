@@ -765,14 +765,25 @@ Mevcut implementation:
 - [ ] CI/CD pipeline güncelle
 
 ### 11.2 Dokümantasyon güncelle
-- [ ] CLAUDE.md'yi Next.js'e uyarla:
-  - §2 tech stack → React 19 + Next.js 16 (App Router)
-  - §5 file structure → Next.js layout
-  - §13 implementation rules → `'use client'` direktifi pattern'ı, server component vs client kararları
-- [ ] Yeni overlay/tool ekleme guide'ı (Faz 4.5 transformation pattern)
+- [x] **CLAUDE.md §16 Next.js Patterns** — Migration sırasında keşfedilen 14 pattern dokümante edildi (TBD'den production'a):
+  - 16.1 RSC vs Client Components karar matrisi
+  - 16.2 `'use client'` direktifi kuralı
+  - 16.3 `generateMetadata` template + module-level const pattern
+  - 16.4 Locale routing (`[locale]` + middleware)
+  - 16.5 Route-to-overlay transformation pattern
+  - 16.6 SSR-safety patterns (hydration mismatch önleme)
+  - 16.7 Server vs client data fetching
+  - 16.8 JSON-LD structured data pattern
+  - 16.9 Cross-route navigation (`router.push`)
+  - 16.10 Font loading pattern (hybrid: preload + @font-face)
+  - 16.11 `generateStaticParams` statik üretim
+  - 16.12 sr-only SEO-visible / visually-hidden pattern
+  - 16.13 Module-level hash drift'ten kaçınma
+  - 16.14 Turbopack dev-mode quirk (`[__metadata_id__]` ENOENT)
+- [ ] **Yeni overlay/tool ekleme guide'ı** — DEFERRED. §16.5'te overall pattern var; her tool tipine özel checklist (sidebar mobile, search modal, vb.) ayrı yazılır.
 
 ### 11.3 Lessons learned
-- [ ] `tasks/lessons.md`'ye migration'dan çıkan ders/patternları yaz
+- [ ] `tasks/lessons.md`'ye migration'dan çıkan ders/patternları yaz — POST-CUTOVER (deploy ve gerçek production traffic gözlendikten sonra).
 
 ---
 
