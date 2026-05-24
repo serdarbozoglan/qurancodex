@@ -1,6 +1,7 @@
 import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
+import PageHeading from '@/components/PageHeading';
 import NefisMertebeleriRoute from './NefisMertebeleriRoute';
 
 const PATH = '/atlas/nefs-mertebeleri';
@@ -21,6 +22,7 @@ export default async function Page({ params }) {
           buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
         ]}
       />
+      <PageHeading title={TITLE} description={DESC} />
       <NefisMertebeleriRoute />
     </>
   );

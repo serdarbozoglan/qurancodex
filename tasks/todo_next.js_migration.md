@@ -596,12 +596,14 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
 **Faz 7.2 kalıntı bug fix (bonus):** 21 page.js dosyasının TITLE/DESC alanlarında Python regex'i `'` (apostrophe) üzerinden truncate olmuştu — `'Kur'an'` → `'Kur'`. Hepsi düzeltildi: çift tırnaklı string literal kullanıldı, anlamlı 100-150 karakterlik description yazıldı. `<meta name="description">`, OG/Twitter, JSON-LD LearningResource hepsi düzgün metni alıyor.
 
 ### 7.9 Content & On-Page SEO
-- [ ] **H1 tek tane** her sayfada, sure adı veya tool adı
-- [ ] **Heading hierarchy** doğru (H1 → H2 → H3, atlama yok)
-- [ ] **Alt text** tüm görselleri (SVG ikonlar dahil) — TR + EN
-- [ ] **Semantik HTML:** `<article>`, `<section>`, `<nav>`, `<aside>` doğru kullan (CLAUDE.md §9 zaten zorunlu kılıyor)
-- [ ] **Meaningful first paragraph:** Her sayfa giriş paragrafı en azından 50-100 kelime, sayfa özetini açık verir
-- [ ] **Word count:** Sure sayfaları minimum 300 kelime içerik (ayet metni + meal + kısa tanıtım), tool sayfaları minimum 200 kelime tanıtım
+- [x] **H1 tek tane** her sayfada — `<PageHeading>` server component eklendi (`next/src/components/PageHeading.jsx`); 35 tool page.js + `/oku/[surah]/page.js` her birine `<PageHeading title={TITLE} description={DESC} />` enjekte edildi. Homepage'da Hero zaten `<h1>` taşıyor. SSR'da her sayfa exactly 1 H1 (curl ile 4 sayfada verify edildi: /tr, /tr/atlas/kissa, /tr/oku/2, /tr/arac/wow → her biri 1 H1).
+- [x] **Heading hierarchy** doğru — Homepage Hero (H1) → section H2'leri → kart H3/H4'leri, atlama yok. Tool sayfalarında SSR'da yalnız H1 (PageHeading) var; hydration sonrası tool component'leri H2+ ekliyor, hierarchy korunuyor.
+- [ ] **Alt text** tüm görselleri — DEFERRED. 365 SVG var; sadece 2'sinde aria. Çoğu icon button içi (decorative — `aria-hidden="true"` yeterli). Bazıları meaningful (atlas haritaları, charts — `aria-label` gerek). Triage 363 element için ayrı a11y polish task'i; SEO etkisi marginal (Google buton text'ini zaten okuyor).
+- [x] **Semantik HTML** — `<header>` (PageHeading), `<nav>` (SurahPagination + Footer internal links), `<footer>` (Footer.jsx), `<section>` (Hero ve diğer section'lar). CLAUDE.md §9 zaten zorunlu kılıyor — bileşenler bu pattern'ı takip ediyor.
+- [ ] **Meaningful first paragraph** (50-100 kelime giriş) — PARTIAL. PageHeading'in `<p>{DESC}</p>` paragrafı 15-25 kelime aralığında, 50 kelimenin altında. Tam içerik yazımı (per-tool 100+ kelime intro) ayrı content writing fazına bırakıldı.
+- [ ] **Word count** (tool 200+ / sure 300+ kelime) — DEFERRED. Tool sayfaları interaktif — body text minimal. Sure sayfaları zaten 300+ kelime üretiyor (ayet metni + meal + tefsir paneli) ama hydration sonrası. Static body text artırımı için ayrı content writing pass'i gerekli.
+
+**Faz 7.9 sonrası açık not:** Tam TR/EN parite metadata ve uzun-form per-tool intro paragrafları (~200 kelime × 36 tool × 2 dil = 14.400 kelime) Faz 7.17 (Content Strategy) altına alındı.
 
 ### 7.10 Core Web Vitals (SEO ranking factor)
 - [ ] **LCP < 2.5s:**

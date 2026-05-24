@@ -1,6 +1,7 @@
 import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
+import PageHeading from '@/components/PageHeading';
 import IblisSatanRoute from './IblisSatanRoute';
 
 const PATH = '/arac/iblis-seytan';
@@ -21,6 +22,7 @@ export default async function Page({ params }) {
           buildLearningResource({ locale, path: PATH, title: TITLE, description: DESC }),
         ]}
       />
+      <PageHeading title={TITLE} description={DESC} />
       <IblisSatanRoute />
     </>
   );
