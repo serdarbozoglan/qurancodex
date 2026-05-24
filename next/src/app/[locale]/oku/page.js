@@ -4,8 +4,8 @@ import JsonLd from '@/components/JsonLd';
 import ReadingModeRoute from './ReadingModeRoute';
 
 const PATH = '/oku';
-const TITLE = 'Kur';
-const DESC = 'Per-sure tilavet (6 kâri) + karaoke kelime senkronizasyonu + tajweed + Elmalılı/Ibn Kathir tefsir paneli + interlinear kelime-kelime çeviri.';
+const TITLE = "Kur'an'ı Oku";
+const DESC = "Per-sure tilavet (6 kâri) + karaoke kelime senkronizasyonu + tajweed + Elmalılı/Ibn Kathir tefsir paneli + interlinear kelime-kelime çeviri.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
