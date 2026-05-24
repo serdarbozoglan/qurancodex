@@ -45,7 +45,7 @@ export default function Hero() {
         {/* Title — softened a notch (lg: 7xl → 6xl) and looser leading,
             so the headline invites rather than declares. */}
         <motion.h1
-          className="font-display text-4xl sm:text-5xl md:text-[3.25rem] lg:text-6xl font-black text-off-white leading-[1.15] mb-6 tracking-tight"
+          className="font-display text-4xl sm:text-5xl md:text-[3.25rem] lg:text-6xl font-black text-off-white leading-[1.15] mb-6 tracking-[-0.015em] sm:tracking-tight"
           {...entrance(
             { opacity: 0, y: 40 },
             { opacity: 1, y: 0 },
@@ -115,7 +115,7 @@ export default function Hero() {
             }
             className="btn-primary-gold font-body font-semibold text-sm uppercase transition-all duration-300 cursor-pointer"
             style={{
-              padding: '15px 56px',
+              padding: 'clamp(13px, 1.5vw, 15px) clamp(32px, 6vw, 56px)',
               letterSpacing: '0.18em',
               boxShadow: `0 0 28px 4px ${COLORS.btnGoldGlow15}`,
             }}

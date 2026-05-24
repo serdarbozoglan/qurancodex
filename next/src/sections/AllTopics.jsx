@@ -16,7 +16,7 @@ import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import TopicCard from '../components/TopicCard';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, BREAKPOINT_MOBILE } from '../tokens';
 // v1.1 — shared categories source (used by Navbar Keşfet dropdown too)
 import { EXPLORE_CATEGORIES } from '../data/exploreCategories';
 
@@ -26,9 +26,14 @@ export default function AllTopics() {
   // SSR-safe: start with 1 (matches server render), useEffect hydrates with
   // actual viewport-based column count after mount. Prevents hydration mismatch.
   const [columns, setColumns] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const h = () => setColumns(getColumnCount(window.innerWidth));
+    const h = () => {
+      const w = window.innerWidth;
+      setColumns(getColumnCount(w));
+      setIsMobile(w < BREAKPOINT_MOBILE);
+    };
     h(); // post-mount measurement
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
@@ -95,19 +100,22 @@ export default function AllTopics() {
           : 'Every topic in one place. Pick a heading from any category.'}
       </motion.p>
 
-      {/* Legend — pill container, more prominent than original 0.78rem text */}
+      {/* Legend — pill container, more prominent than original 0.78rem text.
+          On mobile (≤640px) the two items + divider don't fit on one line, so
+          we stack them vertically with a horizontal divider. */}
       <motion.div
         variants={fadeUpItem}
         style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '14px',
-          flexWrap: 'wrap',
+          display: isMobile ? 'flex' : 'inline-flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'stretch' : 'center',
+          gap: isMobile ? '10px' : '14px',
+          flexWrap: isMobile ? 'nowrap' : 'wrap',
           marginBottom: '28px',
-          padding: '10px 18px',
+          padding: isMobile ? '12px 16px' : '10px 18px',
           background: COLORS.glassBgFaint,
           border: `1px solid ${COLORS.glassBorderSoft}`,
-          borderRadius: RADIUS.pill,
+          borderRadius: isMobile ? '12px' : RADIUS.pill,
           fontFamily: FONTS.body,
         }}
       >
@@ -141,8 +149,12 @@ export default function AllTopics() {
           {language === 'tr' ? 'Sayfaya gider' : 'Jumps to section'}
         </span>
 
-        {/* Vertical divider */}
-        <span style={{ width: '1px', height: '20px', background: COLORS.glassBorder }} />
+        {/* Divider — vertical on desktop, horizontal on mobile */}
+        <span style={{
+          width: isMobile ? '100%' : '1px',
+          height: isMobile ? '1px' : '20px',
+          background: COLORS.glassBorder,
+        }} />
 
         {/* Overlay legend item */}
         <span

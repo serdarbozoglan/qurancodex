@@ -577,10 +577,11 @@ export default function WordHeatmap({ onClose }) {
   const [tooltip, setTooltip] = useState(null); // { surah, count, x, y }
   const [showAllKalip, setShowAllKalip] = useState(false);
   const [hoverKalip, setHoverKalip] = useState(null); // { desc, x, y }
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
+  const [isMobile, setIsMobile] = useState(false);
   const inputRef = useRef(null);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);

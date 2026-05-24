@@ -36,7 +36,10 @@ function InfoTooltip({ text }) {
       {visible && (
         <div style={{
           position: 'absolute', bottom: '28px', right: 0,
-          width: '220px', padding: '10px 12px',
+          // Mobile-fit: cap at 220px but never exceed viewport minus
+          // a 32px gutter (16px each side). Prevents off-screen clip.
+          width: 'min(220px, calc(100vw - 32px))',
+          padding: '10px 12px',
           background: 'rgba(8,10,26,0.97)',
           border: '1px solid rgba(212,165,116,0.2)',
           borderRadius: '10px',

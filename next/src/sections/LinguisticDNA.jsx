@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -214,6 +214,14 @@ const DISCOVERIES = [
 export default function LinguisticDNA() {
   const { t, language } = useLanguage();
   const [openGroup, setOpenGroup] = useState(null);
+  // §14.1 SSR-safe mobile detection — initial false to avoid hydration mismatch
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    h();
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
 
   return (
     <SectionWrapper id="linguistic" dark={false}>
@@ -290,7 +298,8 @@ export default function LinguisticDNA() {
         <p className="text-silver/50 text-xs uppercase tracking-[0.25em] font-body text-center mb-5">
           {language === 'tr' ? 'Kur\'an\'da Kullanılan 14 Kesik Harf' : '14 Unique Letters Used in the Quran'}
         </p>
-        <div className="flex flex-wrap justify-center gap-4 mb-4">
+        {/* M-Y2: Mobile harf boyutu 3rem (48px ≥ touch target), gap daralt — 5 harf/satır × 3 satır */}
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-4">
           {LETTERS_14.map((letter, i) => (
             <motion.div
               key={i}
@@ -299,8 +308,8 @@ export default function LinguisticDNA() {
               transition={{ delay: i * 0.05, duration: 0.45, type: 'spring', stiffness: 200 }}
               viewport={{ once: true }}
               style={{
-                width: '4rem',
-                height: '4rem',
+                width: isMobile ? '3rem' : '4rem',
+                height: isMobile ? '3rem' : '4rem',
                 borderRadius: RADIUS.full,
                 background: 'radial-gradient(circle at center, rgba(212,165,116,0.14), rgba(212,165,116,0.04))',
                 border: '1.5px solid rgba(212,165,116,0.5)',
@@ -313,7 +322,7 @@ export default function LinguisticDNA() {
               <span
                 style={{
                   fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                  fontSize: '1.6rem',
+                  fontSize: isMobile ? '1.25rem' : '1.6rem',
                   color: COLORS.goldBright,
                   lineHeight: 1,
                   textShadow: '0 0 12px rgba(212,165,116,0.6)',
@@ -341,15 +350,31 @@ export default function LinguisticDNA() {
             ? 'Aynı harfle başlayan sûreler tesadüfen bir arada değil — her grup kendi içinde tutarlı bir tema taşıyor.'
             : 'Suras sharing the same opening letters are not grouped by coincidence — each carries its own consistent theme.'}
         </p>
-        {/* Color legend */}
-        <div className="flex flex-wrap gap-5 text-xs font-body">
-          <span className="flex items-center gap-1.5">
+        {/* Color legend — M-Y5: chip görünümü (border + glassBg) */}
+        <div className="flex flex-wrap gap-2 text-xs font-body">
+          <span
+            className="flex items-center gap-1.5"
+            style={{
+              padding: '3px 10px',
+              borderRadius: RADIUS.pill,
+              background: COLORS.glassBg,
+              border: `1px solid ${COLORS.glassBorder}`,
+            }}
+          >
             <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: '#2ab5a0' }} />
-            <span className="text-silver/60">{language === 'tr' ? 'Mekkî-Medenî Karma' : 'Meccan-Medinan Mixed'}</span>
+            <span className="text-silver/70">{language === 'tr' ? 'Mekkî-Medenî Karma' : 'Meccan-Medinan Mixed'}</span>
           </span>
-          <span className="flex items-center gap-1.5">
+          <span
+            className="flex items-center gap-1.5"
+            style={{
+              padding: '3px 10px',
+              borderRadius: RADIUS.pill,
+              background: COLORS.glassBg,
+              border: `1px solid ${COLORS.glassBorder}`,
+            }}
+          >
             <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: '#e8b860' }} />
-            <span className="text-silver/60">{language === 'tr' ? 'Mekkî' : 'Meccan'}</span>
+            <span className="text-silver/70">{language === 'tr' ? 'Mekkî' : 'Meccan'}</span>
           </span>
         </div>
       </motion.div>

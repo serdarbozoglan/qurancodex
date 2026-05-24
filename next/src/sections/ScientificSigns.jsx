@@ -94,8 +94,9 @@ export default function ScientificSigns() {
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState('iron');
   const [expandedTabs, setExpandedTabs] = useState({});
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
+    setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
@@ -293,6 +294,19 @@ export default function ScientificSigns() {
                       {language === 'tr' ? '1.400 yıl' : '1,400 years'}
                     </span>
                   </div>
+
+                  {/* Mobile-only mini gap label between the two badges —
+                      preserves the "centuries between revelation & discovery"
+                      message when the timeline line is hidden. */}
+                  {isMobile && (
+                    <span style={{
+                      fontSize: '0.6rem', fontFamily: "'Inter', sans-serif",
+                      color: 'rgba(148,163,184,0.35)', letterSpacing: '0.1em',
+                      whiteSpace: 'nowrap', flexShrink: 0,
+                    }}>
+                      {language === 'tr' ? '↔ 1.400 yıl' : '↔ 1,400 yrs'}
+                    </span>
+                  )}
 
                   {/* Discovery badge */}
                   <span style={{

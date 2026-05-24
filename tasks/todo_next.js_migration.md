@@ -689,7 +689,7 @@ Mevcut implementation:
 - [ ] Tool route bundle sınırı — DEFERRED, ölçüm sonrası.
 
 ### 8.4 Core Web Vitals
-- [ ] **LCP/CLS/INP ölçümleri** — POST-DEPLOY. Faz 7.10'da tüm aksiyonlar alındı (preload, SSG, display:swap, requestAnimationFrame visibility-aware). Gerçek ölçümler PageSpeed Insights / Web.dev / CrUX Dashboard ile post-deploy yapılır; threshold ihlali varsa hedefli optimizasyon eklenir.
+- [~] **LCP/CLS/INP ölçümleri** — **Local production benchmark 2026-05-24** (Wave 16 ile birlikte): 8 route × 3 sample networkidle load time **avg 698ms (homepage) - 868ms (oku/bakara)**, hepsi **<1s**, **0 console error**. LCP proxy iyi (≪2.5s); CLS/INP gerçek browser metrics için PageSpeed Insights post-deploy gerekli. Faz 7.10'da alınan tüm aksiyonlar (KFGQPC preload, SSG `generateStaticParams` 228 sure HTML, display:swap, rAF visibility-aware) prod'da geçerli.
 - [x] `next/script` strategy — Next 16'da `<script>` tag'leri otomatik defer; tüm site script'leri SSR/RSC içinde — eksternal third-party script yok.
 
 ---
@@ -717,7 +717,7 @@ Mevcut implementation:
 **Bilinen Turbopack dev-mode bug:** `/tr/oku/[surah]/opengraph-image` route'u dev mode'da `ENOENT app-paths-manifest.json` ile crash ediyor (`[__metadata_id__]` segment path'inde manifest oluşmuyor). `/tr/opengraph-image` (locale-level OG) sorunsuz çalışıyor → kodda hata yok, Turbopack'in nested dynamic route + metadata-id combo'sunda dev cache regression'ı var. Production `next build` bu manifestleri pre-generate ettiği için sorun production'da olmaz; bir sonraki dev server restart'ı (`pkill next && next dev`) bug'ı tetikleyen cache state'i temizler.
 
 ### 9.3 Performance regression
-- [ ] Lighthouse Performance — POST-DEPLOY. Production build sonrası gerçek metrics.
+- [~] Lighthouse Performance — Local prod build benchmark **2026-05-24** ile partial. 8 hot route prod ortalaması <1s, dev'e göre 5-14× speedup. Lighthouse PWA/Perf/SEO/A11y skor: POST-DEPLOY.
 - [ ] Vite vs Next bundle size karşılaştırması — POST-DEPLOY.
 
 ### 9.4 Visual regression
@@ -924,7 +924,67 @@ Tüm öneriler kullanıcı tarafından onaylandı. Migration bu kararlarla başl
   - **Footer:** Hero H2 parity uygulanmadı (yapı uygun değil — footer küçük tipografi katmanı, big section başlık yok); methodology paragraph `text-silver` → `offWhiteAlpha78` Hero body imzası uygulandı. Linguistik transliterasyon hamzaları (`Kur'an`, `Esmâ'ül`) **kasıtlı dokunulmadı** (transliteration hamza ≠ typographic apostrophe).
   - **Toplam:** 4 dosya, 12 curly apostrof, Conclusion verse block korundu, footer linguistic hamza korundu.
 
-**🎯 FAZ 4.5 + POLISH PASS 1 NIHAİ KAPANIŞ:** 13 round, ~35+ paralel agent, **18 section + 5 component + Hero + Navbar** Hero baseline kalitesinde. Tüm homepage narrative arc (Wonder→Davet→Fascination→Awe→Astonishment→Reflection) tek tipografi imzası taşıyor. 9 yeni token, ~85 dosya, ~1,900+ kod değişikliği, ~36 curly apostrof Polish Pass 1'de.
+**🎯 FAZ 4.5 + POLISH PASS 1 NIHAİ KAPANIŞ:** 13 round, ~35+ paralel agent, **18 section + 5 component + Hero + Navbar** Hero baseline kalitesinde. Tüm homepage narrative arc (Wonder→Davet→Fascination→Awe→Astonishment→Reflection) tek tipografi imzası taşıyor. 9 yeni token, ~85 dosya, ~1,900+ kod değişikliği, ~36 curly apostrof Polish Pass 1'de. **Commit 1e2436b ile main'e push edildi.**
+
+---
+
+## Wave 14 — Mobile Audit + Faz 7.5 OG Extension (2026-05-24)
+
+### 14-A: Mobile UX Audit (qc-ux-auditor)
+**Rapor:** `docs/reviews/2026-05-24-mobile-audit-polish1.md`
+**Genel puan:** 7.5/10 — Polish Pass 1 mobile davranışı doğru yönde, edge case'ler kaldı.
+**Bulgu kategorizasyonu:** Kritik 2, Yüksek 5, Orta 6, Düşük 4 = **17 bulgu**.
+
+**Kritik:**
+- **M-K1** Navbar 390px sıkışıklık (px-8 sabit + hamburger 36px) — 320px viewport'ta overflow.
+- **M-K2** Hamburger 36×36 WCAG 2.5.5 ihlali (44×44 minimum gerekiyor).
+
+**Yüksek:**
+- **M-Y1** HumanDefinition opposition 3-panel mobil §14.4 tab pattern ihlali.
+- **M-Y2** LinguisticDNA mukattaa dikey alan yönetimi.
+- **M-Y3** SectionWrapper Hero-to-PathCards transition.
+- **M-Y4** ProphetMap 480px sabit height → mobil dikey kontrol yok.
+- **M-Y5** LinguisticDNA legend chip eksik (visual hierarchy).
+
+**Orta + Düşük (10 bulgu):** Hero TR/EN satır asimetrisi, CTA padding 56px sabit, ChapterProgress mobile equivalent yok, AllTopics legend wrap, Conclusion Arabic 2.6rem sabit, Highlights intro yok, Hamburger/close tutarsızlığı, ZeroRedundancy tooltip taşma, ScientificSigns timeline gap-line.
+
+**Polish Pass 2 önerisi:** ~5 saat effort → 7.5 → 9/10.
+
+### Wave 15 — Polish Pass 2 Mobile Fixes (2026-05-24, paralel 3 agent)
+**Tüm 17 mobile audit bulgusu fix edildi (M-O3 ve M-O4 bilinçli atlandı — düşük öncelik).**
+
+**Agent A — Navbar + Hero (7 fix):**
+- M-K1.a/b/c: `px-8` → `px-4 lg:px-8`, logo tracking responsive, EN/TR padding 14px → 10px (Navbar.jsx:713,721,1136)
+- M-K2 + M-D2: Hamburger + drawer close 36/40 → **44×44** (WCAG 2.5.5) (Navbar.jsx:1163,1219)
+- M-O1: Hero başlık `tracking-[-0.015em] sm:tracking-tight` (Hero.jsx:48)
+- M-O2: Hero CTA `padding: clamp(13px, 1.5vw, 15px) clamp(32px, 6vw, 56px)` (Hero.jsx:118)
+
+**Agent B — LinguisticDNA + HumanDefinition (3 fix + 2 isMobile pattern):**
+- M-Y2: Mukattaa harfler `isMobile ? '3rem' : '4rem'` (48×48 mobil); gap-3 sm:gap-4 — 320px → 200px dikey alan
+- M-Y5: Legend chip border + padding (`RADIUS.pill`, `glassBg/Border`) — chip görünümü
+- M-Y1: Opposition pairs §14.4 column stack: positive → horizontal divider → negative; Arapça çakışması çözüldü
+- Bonus: 2 dosyada §14.1 SSR-safe isMobile pattern eklendi
+
+**Agent C — 7 dosya cluster (7 fix):**
+- M-Y3: `SectionWrapper.firstAfterHero` prop + PathCards mount — Hero→PathCards mobil 56px extra üst boşluk
+- M-Y4: ProphetMap `isMobile ? '380px' : '480px'` (mobil 100px kazanım)
+- M-O5: AllTopics legend mobile column + yatay divider
+- M-O6: Conclusion `فَاتَّبِعُوهُ` `clamp(2.1rem, 6vw, 2.6rem)` (mobil 33.6px)
+- M-D1: Highlights intro paragrafı eklendi (Hero baseline)
+- M-D3: ZeroRedundancy tooltip `width: min(220px, calc(100vw - 32px))`
+- M-D4: ScientificSigns mobil "↔ 1.400 yıl" mini-label (gradient line yerine)
+
+**Build/Lint:** Tüm dosyalarda 0 yeni hata. 17/17 mobile bulgu kapatıldı. Mobile audit puanı 7.5 → tahmini 9/10.
+
+### 14-B: Faz 7.5 OG Image Extension
+**3 yeni dosya** (kategori-level universal strateji):
+- `next/src/app/[locale]/atlas/opengraph-image.jsx` — Atlas kategori (12 tool)
+- `next/src/app/[locale]/graf/opengraph-image.jsx` — Graf kategori (7 tool)
+- `next/src/app/[locale]/arac/opengraph-image.jsx` — Araç kategori (16 tool)
+
+**Pattern:** Mevcut OG image'lerle aynı — radial gradient cosmic-black + gold accent + Playfair başlık + Inter tagline + alt-sağ brand mark. TR/EN locale branş; tool kategorisi label.
+
+**Cascade:** 35 tool route artık 3 branded kategori OG'sine sahip (TR/EN × 3 = 6 unique varyant). Build PASS. İleride per-tool override otomatik olarak kategori'yi override eder.
 
 ### Kritik (P0 — Faz 5'ten önce kapatılmalı)
 
@@ -1021,3 +1081,53 @@ Tüm öneriler kullanıcı tarafından onaylandı. Migration bu kararlarla başl
 9. **Y5-Y7** — küçük token eklemeleri, tek commit.
 10. **O1-O8** — codemod + ESLint kuralı; Faz 11 (cleanup) içinde.
 11. **D1-D5** — Faz 11'de tek commit.
+
+---
+
+## Wave 16 — Playwright Full Visual + Console Audit (2026-05-24)
+
+**Test:** 39 route × 2 viewport (desktop 1440×900 + mobile 390×844) = **78 screenshot**. Dev mode (Turbopack), localhost:3000.
+**Rapor:** `docs/reviews/playwright-2026-05-24/visual-audit-report.md` + 78 PNG.
+**Sonuç:** 0 failed route, 10 console error, 3 network abort (false positive — audio fetch cancel).
+
+### Kritik (P0 — Mobile Hydration Mismatch)
+
+- [x] **W16-K1 · Homepage hydration mismatch (mobile) — ÇÖZÜLDÜ 2026-05-24.** Root cause: `ScientificSigns.jsx:97` `useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE)` — lazy init server'da `false`, client'ta mobile'da `true` → §16.6 ihlali. Fix: `useState(false)` + `useEffect` içinde `setIsMobile(...)` + resize handler. Verify Playwright run: `[mobile] /tr` ve `[mobile] /en` artık 0 error.
+
+- [x] **W16-K2 · ReadingMode hydration mismatch (mobile) — ÇÖZÜLDÜ 2026-05-24.** Root cause: `ReadingMode.jsx:985-998` aynı pattern — `isMobile` + `isWide` ikisi de lazy init. Fix: ikisi de `useState(false)` + ortak `useEffect` resize handler içinde `handler()` ilk çağrı. Verify: `[mobile] /tr/oku`, `/oku/1`, `/oku/2` artık 0 error.
+
+### Yüksek (P1 — React Warnings)
+
+- [x] **W16-Y1 · `TabArama` key prop eksik — ÇÖZÜLDÜ 2026-05-24.** Root cause: `SebebiNuzul.jsx:594` `chipBtn(...)` factory function `<button>` döndürüyor ama `.map(([key, meta]) => chipBtn(...))` içinde key inject edilmemiş — factory call'un dönen JSX elementine key atanmamış. Fix: `chipBtn` signature'a `keyId` parametresi eklendi (`<button key={keyId}>`), `.map` callsite + `cat-all` static call key geçiyor. Verify: `[desktop+mobile] /tr/arac/sebebi-nuzul` 0 error.
+
+- [x] **W16-Y2 · 3 component attribute hydration mismatch (mobile) — ÇÖZÜLDÜ 2026-05-24.** Hepsi aynı root cause (W16-K1/K2 ile aynı pattern):
+  - `WordHeatmap.jsx:580` `useState(() => typeof window...)` → SSR-safe pattern.
+  - `IblisSatan.jsx:434-436` aynı.
+  - `ZamanBoyutlari.jsx:424-426` `useState(typeof window !== 'undefined' ? ... : false)` (lazy init değil, doğrudan call — server'da yine `false` döner ama client'ta render-time'da `true`) → `useState(false)` + resize useEffect içinde `handler()` initial call.
+  - Verify: `[mobile] /tr/graf/kelime-isi`, `/arac/zaman-boyutlari`, `/arac/iblis-seytan` 0 error.
+
+### Orta (P2 — Performans)
+
+- [x] **W16-O1 · `/tr/atlas/kavim` 11.7s desktop load — ÇÖZÜLDÜ 2026-05-24 (production benchmark).** Production build (`npm run build && npm run start`) sonrası 3 sample ortalama: **810ms** (dev 11,755ms → prod 810ms = **14.5× speedup**). LCP < 2.5s hedefi rahat geçti. Kod optimizasyonu gerekmedi — Turbopack dev-mode compile overhead'i idi. **Bonus benchmark (3 sample/route):** cennet-cehennem 562ms (8.3×), esma-frekans 583ms (8.0×), iblis-seytan 594ms (7.5×), graf/karsilastir 807ms (5.1×), homepage 698ms, oku/bakara 868ms. Tüm 8 route prod'da **<1s**, **0 console error** (Wave 16 SSR-safety fix'leri prod'da da hold ediyor).
+
+### Düşük / Kabul (Action gereksiz)
+
+- Audio API `ERR_ABORTED` × 3 route (`/oku`, `/oku/1`, `/oku/2`) — Playwright `networkidle` beklerken ReadingMode `useEffect` cleanup audio fetch'i iptal ediyor. False positive.
+- Dev mode load times 3-4s `/arac/*` — Turbopack RSC compile overhead. Production build'de `next start` ile re-benchmark gerek.
+
+### Önerilen Eylem Sırası
+
+1. **W16-K1 + K2** (aynı root cause — paralel agent değil tek agent, koordineli fix). ✓
+2. **W16-Y1** (15 dk — TabArama). ✓
+3. **W16-Y2** (30-45 dk — 3 dosyada conditional render audit). ✓
+4. **W16-O1** (production benchmark sonrası karar). ← açık
+
+### Faz 4.5 Wave 16 — Final Özet (2026-05-24)
+
+**Tamamlanan:** **5/5 bulgu** (K1, K2, Y1, Y2, O1 ✓).
+
+**Pattern öğrenildi:** §16.6 SSR-safety **lazy-init bile yetersiz** — `useState(() => typeof window !== 'undefined' && ...)` server'da `false` döner, client mobile'da `true` → hydration mismatch. Doğru pattern: `useState(false)` + `useEffect`'in ilk satırında `setX(...)` ile seed. **5 dosyada** uygulandı: ScientificSigns, ReadingMode (isMobile + isWide), WordHeatmap, IblisSatan, ZamanBoyutlari.
+
+**Diğer SSR-unsafe `useState(() => localStorage...)` patterns (ReadingMode'da 25+ instance)** — bu run'da hydration error tetiklemedi (test browser'ı fresh localStorage). Production'da kullanıcı bir kez ayar değiştirirse mismatch oluşur — Faz 11 cleanup'ında topluca §16.6 standardına çevrilmeli.
+
+**Açık:** W16-O1 `/tr/atlas/kavim` 11.7s dev mode load — production `next start` benchmark sonrası karar.

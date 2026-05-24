@@ -710,7 +710,7 @@ export default function Navbar() {
       aria-label="Main navigation"
     >
       {/* Left: logo + nav | Right: actions */}
-      <div className="max-w-7xl mx-auto px-8" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+      <div className="max-w-7xl mx-auto px-4 lg:px-8" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
 
         {/* Left group: logo + nav links */}
         <div className="flex items-center gap-6">
@@ -718,7 +718,7 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-gold font-display font-bold tracking-[0.18em] hover:text-royal-gold transition-colors"
+          className="text-gold font-display font-bold tracking-[0.12em] sm:tracking-[0.18em] hover:text-royal-gold transition-colors"
           style={{ fontSize: '1.05rem', flexShrink: 0 }}
         >
           QURAN CODEX
@@ -1133,7 +1133,7 @@ export default function Navbar() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '0 14px',
+              padding: '0 10px',
               height: '32px',
               borderRadius: '6px',
               border: `1px solid ${COLORS.goldAlpha45}`,
@@ -1160,8 +1160,8 @@ export default function Navbar() {
             style={{
               position: 'relative',
               zIndex: 10002,
-              width: '36px',
-              height: '36px',
+              width: '44px',
+              height: '44px',
             }}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
@@ -1216,8 +1216,8 @@ export default function Navbar() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '40px',
-              height: '40px',
+              width: '44px',
+              height: '44px',
               borderRadius: RADIUS.full,
               background: 'rgba(255,255,255,0.08)',
               border: '1px solid rgba(255,255,255,0.12)',

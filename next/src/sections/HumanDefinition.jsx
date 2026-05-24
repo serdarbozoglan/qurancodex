@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
@@ -308,6 +308,14 @@ export default function HumanDefinition() {
   const [activeWord, setActiveWord] = useState(null);
   const [muminPlaying, setMuminPlaying] = useState(false);
   const muminAudioRef = useRef(null);
+  // §14.1 SSR-safe mobile detection — initial false to avoid hydration mismatch
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    h();
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
 
   const tr = (key) => t(`humanDefinition.${key}`);
   const lang = language;
@@ -849,7 +857,14 @@ export default function HumanDefinition() {
                 }}
                 onClick={() => setOpenPair(isOpen ? null : i)}
               >
-                <div className="flex items-stretch" style={{ minHeight: '80px' }}>
+                {/* M-Y1: §14.4 üçlü panel — mobile column stack, desktop row */}
+                <div
+                  className="flex items-stretch"
+                  style={{
+                    minHeight: '80px',
+                    flexDirection: isMobile ? 'column' : 'row',
+                  }}
+                >
                   {/* Positive side — gradient background */}
                   <div className="flex-1 p-4 md:p-5 flex items-center gap-4"
                     style={{
@@ -876,44 +891,90 @@ export default function HumanDefinition() {
                     </div>
                   </div>
 
-                  {/* Center divider — VS badge + reference + context */}
-                  <div className="flex flex-col items-center justify-center flex-shrink-0" style={{
-                    width: '140px',
-                    background: 'rgba(0,0,0,0.2)',
-                    borderLeft: '1px solid rgba(255,255,255,0.04)',
-                    borderRight: '1px solid rgba(255,255,255,0.04)',
-                    padding: '12px 8px',
-                    gap: '6px',
-                  }}>
-                    <span style={{
-                      width: '28px', height: '28px', borderRadius: RADIUS.full,
-                      background: 'rgba(255,255,255,0.06)',
-                      border: '1px solid rgba(255,255,255,0.12)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '0.6rem', fontWeight: 800, color: 'rgba(148,163,184,0.5)',
-                      fontFamily: FONTS.body, letterSpacing: '0.05em',
-                      flexShrink: 0,
-                    }}>
-                      VS
-                    </span>
-                    <span style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 600, fontFamily: FONTS.body, textAlign: 'center' }}>
-                      {pair.ref}
-                    </span>
-                    {isOpen && pair.contextTr && (
-                      <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.58rem', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.4 }}>
-                        {lang === 'tr' ? pair.contextTr : pair.contextEn}
+                  {/* Center divider — desktop: vertical column (140px); mobile: horizontal bar */}
+                  {isMobile ? (
+                    <div
+                      className="flex items-center justify-center flex-shrink-0"
+                      style={{
+                        flexDirection: 'row',
+                        width: '100%',
+                        background: 'rgba(0,0,0,0.2)',
+                        borderTop: '1px solid rgba(255,255,255,0.04)',
+                        borderBottom: '1px solid rgba(255,255,255,0.04)',
+                        padding: '8px 12px',
+                        gap: '10px',
+                      }}
+                    >
+                      <span style={{
+                        width: '24px', height: '24px', borderRadius: RADIUS.full,
+                        background: 'rgba(255,255,255,0.06)',
+                        border: '1px solid rgba(255,255,255,0.12)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: '0.55rem', fontWeight: 800, color: 'rgba(148,163,184,0.6)',
+                        fontFamily: FONTS.body, letterSpacing: '0.05em',
+                        flexShrink: 0,
+                      }}>
+                        VS
                       </span>
-                    )}
-                  </div>
+                      <span style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 600, fontFamily: FONTS.body, letterSpacing: '0.02em' }}>
+                        {pair.ref}
+                      </span>
+                      {isOpen && pair.contextTr && (
+                        <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.62rem', fontFamily: FONTS.body, lineHeight: 1.4, flex: 1, textAlign: 'right' }}>
+                          {lang === 'tr' ? pair.contextTr : pair.contextEn}
+                        </span>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center justify-center flex-shrink-0" style={{
+                      width: '140px',
+                      background: 'rgba(0,0,0,0.2)',
+                      borderLeft: '1px solid rgba(255,255,255,0.04)',
+                      borderRight: '1px solid rgba(255,255,255,0.04)',
+                      padding: '12px 8px',
+                      gap: '6px',
+                    }}>
+                      <span style={{
+                        width: '28px', height: '28px', borderRadius: RADIUS.full,
+                        background: 'rgba(255,255,255,0.06)',
+                        border: '1px solid rgba(255,255,255,0.12)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: '0.6rem', fontWeight: 800, color: 'rgba(148,163,184,0.5)',
+                        fontFamily: FONTS.body, letterSpacing: '0.05em',
+                        flexShrink: 0,
+                      }}>
+                        VS
+                      </span>
+                      <span style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 600, fontFamily: FONTS.body, textAlign: 'center' }}>
+                        {pair.ref}
+                      </span>
+                      {isOpen && pair.contextTr && (
+                        <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.58rem', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.4 }}>
+                          {lang === 'tr' ? pair.contextTr : pair.contextEn}
+                        </span>
+                      )}
+                    </div>
+                  )}
 
-                  {/* Negative side — gradient background */}
-                  <div className="flex-1 p-4 md:p-5 flex items-center justify-end gap-4"
+                  {/* Negative side — gradient background. Mobile: left-aligned mirror of positive */}
+                  <div
+                    className="flex-1 p-4 md:p-5 flex items-center gap-4"
                     style={{
                       background: isOpen ? 'rgba(224,122,95,0.06)' : 'rgba(224,122,95,0.02)',
                       transition: 'background 0.25s',
+                      justifyContent: isMobile ? 'flex-start' : 'flex-end',
                     }}
                   >
-                    <div className="text-right">
+                    {isMobile && (
+                      <span
+                        className="text-2xl md:text-3xl flex-shrink-0"
+                        style={{ fontFamily: FONTS.quran, color: '#E07A5F', textShadow: isOpen ? '0 0 16px rgba(212,82,62,0.3)' : 'none' }}
+                        dir="rtl"
+                      >
+                        {pair.neg.ar}
+                      </span>
+                    )}
+                    <div className={isMobile ? 'text-left' : 'text-right'}>
                       <span className="text-sm font-body font-bold block" style={{ color: '#E07A5F' }}>
                         {lang === 'tr' ? pair.neg.tr : pair.neg.en}
                       </span>
@@ -923,13 +984,15 @@ export default function HumanDefinition() {
                         </span>
                       )}
                     </div>
-                    <span
-                      className="text-2xl md:text-3xl flex-shrink-0"
-                      style={{ fontFamily: FONTS.quran, color: '#E07A5F', textShadow: isOpen ? '0 0 16px rgba(212,82,62,0.3)' : 'none' }}
-                      dir="rtl"
-                    >
-                      {pair.neg.ar}
-                    </span>
+                    {!isMobile && (
+                      <span
+                        className="text-2xl md:text-3xl flex-shrink-0"
+                        style={{ fontFamily: FONTS.quran, color: '#E07A5F', textShadow: isOpen ? '0 0 16px rgba(212,82,62,0.3)' : 'none' }}
+                        dir="rtl"
+                      >
+                        {pair.neg.ar}
+                      </span>
+                    )}
                   </div>
                 </div>
               </motion.div>

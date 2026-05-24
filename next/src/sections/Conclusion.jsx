@@ -119,7 +119,7 @@ export default function Conclusion() {
         }} />
         <p dir="rtl" lang="ar" style={{
           fontFamily: FONTS.quran,
-          fontSize: '2.6rem', color: COLORS.gold,
+          fontSize: 'clamp(2.1rem, 6vw, 2.6rem)', color: COLORS.gold,
           textShadow: `0 0 20px ${COLORS.goldAlpha45}, 0 0 60px ${COLORS.goldAlpha25}`,
           lineHeight: 1.3, letterSpacing: '0.02em',
           margin: 0,

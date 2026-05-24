@@ -431,11 +431,10 @@ export default function IblisSatan({ onClose }) {
   const lang = language;
   const passageRefs = useRef({});
   const [openIdx, setOpenIdx] = useState(0);
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth < 640
-  );
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 640);
     const h = () => setIsMobile(window.innerWidth < 640);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);

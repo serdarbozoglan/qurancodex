@@ -421,9 +421,7 @@ export default function ZamanBoyutlari({ onClose }) {
   const [expandedRow,   setExpandedRow]   = useState(null);
   const [expandedCard,  setExpandedCard]  = useState(null);
   const [sourcesOpen, setSourcesOpen]     = useState(true);
-  const [isMobile, setIsMobile]           = useState(
-    typeof window !== 'undefined' ? window.innerWidth < BREAKPOINT_TABLET : false
-  );
+  const [isMobile, setIsMobile]           = useState(false);
 
   // Escape key
   useEffect(() => {
@@ -450,9 +448,10 @@ export default function ZamanBoyutlari({ onClose }) {
     };
   }, []);
 
-  // Resize listener
+  // Resize listener — also seeds initial isMobile (SSR-safe per §16.6)
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < BREAKPOINT_TABLET);
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);

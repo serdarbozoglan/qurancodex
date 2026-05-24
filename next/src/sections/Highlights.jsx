@@ -185,7 +185,7 @@ const CARD_THEMES = [
 ];
 
 export default function Highlights() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const cards = t('highlights.cards') || [];
   const [expandedIndex, setExpandedIndex] = useState(null);
 
@@ -203,7 +203,7 @@ export default function Highlights() {
       {/* Title — Hero parity */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display font-bold text-off-white mt-4 mb-10"
+        className="font-display font-bold text-off-white mt-4 mb-4"
         style={{
           fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
           fontWeight: 700,
@@ -214,6 +214,22 @@ export default function Highlights() {
       >
         {t('highlights.title')}
       </motion.h2>
+
+      {/* Intro — Hero baseline (offWhite/78, clamp, 1.7 leading) */}
+      <motion.p
+        variants={fadeUpItem}
+        className="font-body max-w-3xl mb-10"
+        style={{
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
+      >
+        {language === 'tr'
+          ? 'Sezgisel olarak çarpıcı bulduğumuz 6 keşif. Her biri ayrı bir keşfe açılıyor.'
+          : 'Six discoveries we found intuitively striking. Each opens to a separate exploration.'}
+      </motion.p>
 
       {/* 2x3 Grid */}
       <motion.div

@@ -6,7 +6,7 @@ import * as topojson from 'topojson-client';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, BREAKPOINT_MOBILE } from '../tokens';
 
 const LOCATIONS = {
   musa: [
@@ -174,6 +174,8 @@ function FitBounds({ prophetId, locations }) {
 export default function ProphetMap({ activeProphet, prophet }) {
   const { language } = useLanguage();
   const [countriesGeo, setCountriesGeo] = useState(null);
+  // SSR-safe: start with false; useEffect hydrates after mount.
+  const [isMobile, setIsMobile] = useState(false);
 
   const locations = LOCATIONS[activeProphet] || [];
   const positions = locations.map(l => [l.lat, l.lon]);
@@ -188,6 +190,13 @@ export default function ProphetMap({ activeProphet, prophet }) {
         setCountriesGeo(geo);
       })
       .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    h();
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
   }, []);
 
   return (
@@ -228,7 +237,7 @@ export default function ProphetMap({ activeProphet, prophet }) {
         borderRadius: '16px', overflow: 'hidden',
         border: '1px solid rgba(255,255,255,0.06)',
         boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
-        height: '480px',
+        height: isMobile ? '380px' : '480px',
         background: '#0B1220',
         position: 'relative',
       }}>

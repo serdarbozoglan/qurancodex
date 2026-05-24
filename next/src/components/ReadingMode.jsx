@@ -982,17 +982,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       })
       .catch(() => {});
   }, [selectedSurah, corpusBySurah]);
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
+  const [isMobile, setIsMobile] = useState(false);
   // Wide-screen detector for the meal-off 2-page Arabic spread. 1440px gives
   // each page ~700px which fits standard 22-26px Arabic comfortably; below
   // this we keep the single-page fallback even when meal is hidden.
   const SPREAD_MIN_WIDTH = 1440;
-  const [isWide, setIsWide] = useState(() => typeof window !== 'undefined' && window.innerWidth >= SPREAD_MIN_WIDTH);
+  const [isWide, setIsWide] = useState(false);
   useEffect(() => {
     const handler = () => {
       setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
       setIsWide(window.innerWidth >= SPREAD_MIN_WIDTH);
     };
+    handler();
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
   }, []);

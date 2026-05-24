@@ -31,6 +31,10 @@ export default function SectionWrapper({
   className = '',
   dark = false,
   noPadding = false,
+  // When true, adds extra top padding so the first content section
+  // after Hero gets a breathing gap. Mobile gets a larger lift
+  // (pt-14) while desktop keeps the default (md:pt-10).
+  firstAfterHero = false,
 }) {
   // lang attribute ensures CSS text-transform: uppercase uses the correct
   // locale rules for ALL child elements. Without this, html[lang="tr"]
@@ -49,7 +53,9 @@ export default function SectionWrapper({
       id={id}
       lang={language}
       className={`relative overflow-hidden ${
-        noPadding ? '' : 'py-10 px-6 md:px-12 lg:px-16'
+        noPadding
+          ? ''
+          : `py-10 px-6 md:px-12 lg:px-16${firstAfterHero ? ' pt-14 md:pt-10' : ''}`
       } ${dark ? 'bg-deep-navy' : 'bg-cosmic-black'} ${className}`}
       variants={reduced ? undefined : staggerContainer}
       initial={reduced ? false : 'hidden'}

@@ -129,7 +129,7 @@ export default function PathCards() {
   }, []);
 
   return (
-    <SectionWrapper id="path-cards" dark={false}>
+    <SectionWrapper id="path-cards" dark={false} firstAfterHero>
       {/* Section label */}
       <motion.div variants={fadeUpItem}>
         <span

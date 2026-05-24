@@ -488,8 +488,9 @@ function TabArama({ data, language, isMobile }) {
 
   const pad = isMobile ? '16px' : '24px 32px';
 
-  const chipBtn = (active, onClick, label, color) => (
+  const chipBtn = (active, onClick, label, color, keyId) => (
     <button
+      key={keyId}
       onClick={onClick}
       style={{
         padding: '4px 12px',
@@ -590,9 +591,9 @@ function TabArama({ data, language, isMobile }) {
       {/* Category filter */}
       <div style={{ overflowX: 'auto', scrollbarWidth: 'none', marginBottom: '10px' }}>
         <div style={{ display: 'flex', gap: '6px', paddingBottom: '4px' }}>
-          {chipBtn(catFilter === 'all', () => setCatFilter('all'), language === 'tr' ? 'Tümü' : 'All')}
+          {chipBtn(catFilter === 'all', () => setCatFilter('all'), language === 'tr' ? 'Tümü' : 'All', null, 'cat-all')}
           {Object.entries(CATEGORY_META).map(([key, meta]) =>
-            chipBtn(catFilter === key, () => setCatFilter(key), language === 'tr' ? meta.tr : meta.en, meta.color)
+            chipBtn(catFilter === key, () => setCatFilter(key), language === 'tr' ? meta.tr : meta.en, meta.color, `cat-${key}`)
           )}
         </div>
       </div>
