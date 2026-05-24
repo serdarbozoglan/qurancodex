@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, RADIUS, TRANSITION } from '../tokens';
 
 const CATEGORY_CONFIG = {
   sayisal:      { color: COLORS.gold,      labelTr: 'Sayısal',      labelEn: 'Numerical'   },
@@ -590,11 +590,11 @@ function WowCard({ fact, language, onClose }) {
       onMouseLeave={() => setHovered(false)}
       style={{
         background: hovered ? 'rgba(255,255,255,0.055)' : 'rgba(255,255,255,0.03)',
-        borderTop: `1px solid ${hovered ? cfg.color + '33' : 'rgba(255,255,255,0.08)'}`,
-        borderRight: `1px solid ${hovered ? cfg.color + '33' : 'rgba(255,255,255,0.08)'}`,
-        borderBottom: `1px solid ${hovered ? cfg.color + '33' : 'rgba(255,255,255,0.08)'}`,
+        borderTop: `1px solid ${hovered ? cfg.color + '33' : COLORS.glassBgStrong}`,
+        borderRight: `1px solid ${hovered ? cfg.color + '33' : COLORS.glassBgStrong}`,
+        borderBottom: `1px solid ${hovered ? cfg.color + '33' : COLORS.glassBgStrong}`,
         borderLeft: `3px solid ${cfg.color}`,
-        borderRadius: '12px',
+        borderRadius: RADIUS.lg,
         padding: '18px 20px',
         display: 'flex',
         flexDirection: 'column',
@@ -608,7 +608,7 @@ function WowCard({ fact, language, onClose }) {
           background: cfg.color + '22',
           border: `1px solid ${cfg.color + '55'}`,
           color: cfg.color,
-          borderRadius: '10px',
+          borderRadius: RADIUS.chip,
           fontSize: '0.68rem',
           fontWeight: 600,
           padding: '2px 9px',
@@ -641,7 +641,7 @@ function WowCard({ fact, language, onClose }) {
 
       {/* Body */}
       <div style={{
-        color: '#94a3b8',
+        color: COLORS.silver,
         fontSize: '0.85rem',
         fontFamily: "'Inter', sans-serif",
         lineHeight: 1.7,
@@ -655,7 +655,7 @@ function WowCard({ fact, language, onClose }) {
         color: cfg.color,
         fontSize: '0.78rem',
         fontStyle: 'italic',
-        borderTop: '1px solid rgba(255,255,255,0.05)',
+        borderTop: `1px solid ${COLORS.glassBg}`,
         paddingTop: '10px',
         display: 'flex',
         alignItems: 'flex-start',
@@ -674,7 +674,7 @@ function WowCard({ fact, language, onClose }) {
             alignSelf: 'flex-start',
             background: 'transparent',
             border: `1px solid ${cfg.color + '44'}`,
-            borderRadius: '6px',
+            borderRadius: RADIUS.sm,
             color: cfg.color,
             cursor: 'pointer',
             fontSize: '0.72rem',
@@ -758,7 +758,7 @@ export default function WowFacts({ onClose }) {
         }
         .wow-scroll::-webkit-scrollbar { width: 5px; }
         .wow-scroll::-webkit-scrollbar-track { background: transparent; }
-        .wow-scroll::-webkit-scrollbar-thumb { background: rgba(212,165,116,0.2); border-radius: 3px; }
+        .wow-scroll::-webkit-scrollbar-thumb { background: ${COLORS.goldAlpha20}; border-radius: 3px; }
         .wow-scroll::-webkit-scrollbar-thumb:hover { background: rgba(212,165,116,0.35); }
         .wow-tab-active { position: relative; }
         .wow-tab-active::after {
@@ -776,7 +776,7 @@ export default function WowFacts({ onClose }) {
 
       <div
         style={{
-          position: 'fixed', inset: 0, zIndex: 9999,
+          position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
           background: COLORS.cosmicBlack,
           display: 'flex', flexDirection: 'column',
           animation: 'wowFadeIn 0.18s ease',
@@ -800,8 +800,8 @@ export default function WowFacts({ onClose }) {
               </span>
             </div>
             <span style={{
-              background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)',
-              borderRadius: '12px', color: 'rgba(212,165,116,0.8)',
+              background: 'rgba(212,165,116,0.1)', border: `1px solid ${COLORS.goldAlpha20}`,
+              borderRadius: RADIUS.lg, color: 'rgba(212,165,116,0.8)',
               fontSize: '0.68rem', fontFamily: "'Inter', sans-serif",
               padding: '2px 10px', fontWeight: 600,
             }}>
@@ -813,8 +813,8 @@ export default function WowFacts({ onClose }) {
             onClick={onClose}
             aria-label="Kapat"
             style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
+            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
+            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M18 6L6 18M6 6l12 12" />
@@ -828,14 +828,14 @@ export default function WowFacts({ onClose }) {
           padding: '12px 20px 0',
           background: 'rgba(8,10,18,0.92)',
           backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(255,255,255,0.05)',
+          borderBottom: `1px solid ${COLORS.glassBg}`,
           display: 'flex', flexDirection: 'column', gap: '10px',
         }}>
           {/* Search */}
           <div style={{ position: 'relative', maxWidth: '480px' }}>
             <svg
               width="14" height="14" viewBox="0 0 24 24"
-              fill="none" stroke="rgba(148,163,184,0.4)" strokeWidth="2" strokeLinecap="round"
+              fill="none" stroke={COLORS.silverAlpha40} strokeWidth="2" strokeLinecap="round"
               style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}
             >
               <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
@@ -848,15 +848,15 @@ export default function WowFacts({ onClose }) {
               style={{
                 width: '100%', boxSizing: 'border-box',
                 background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '8px',
+                border: `1px solid ${COLORS.glassBgStrong}`,
+                borderRadius: RADIUS.md,
                 color: COLORS.offWhite, fontFamily: "'Inter', sans-serif", fontSize: '0.85rem',
                 padding: '8px 12px 8px 36px',
                 outline: 'none',
                 transition: 'border-color 0.15s',
               }}
               onFocus={e => { e.currentTarget.style.borderColor = 'rgba(212,165,116,0.35)'; }}
-              onBlur={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+              onBlur={e => { e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}
             />
           </div>
 
@@ -876,13 +876,13 @@ export default function WowFacts({ onClose }) {
                     flexShrink: 0,
                     background: isActive ? tabColor + '18' : 'transparent',
                     border: `1px solid ${isActive ? tabColor + '55' : 'rgba(255,255,255,0.07)'}`,
-                    borderRadius: '8px',
+                    borderRadius: RADIUS.md,
                     color: isActive ? tabColor : 'rgba(148,163,184,0.6)',
                     cursor: 'pointer',
                     fontSize: '0.78rem', fontWeight: isActive ? 600 : 400,
                     fontFamily: "'Inter', sans-serif",
                     padding: '5px 13px',
-                    transition: 'all 0.15s',
+                    transition: `all ${TRANSITION.fast}`,
                     display: 'flex', alignItems: 'center', gap: '5px',
                   }}
                   onMouseEnter={e => {
@@ -901,11 +901,11 @@ export default function WowFacts({ onClose }) {
                   {language === 'tr' ? labelTr : labelEn}
                   <span style={{
                     background: isActive ? tabColor + '22' : 'rgba(255,255,255,0.06)',
-                    borderRadius: '6px',
+                    borderRadius: RADIUS.sm,
                     color: isActive ? tabColor : 'rgba(148,163,184,0.5)',
                     fontSize: '0.65rem', fontWeight: 600,
                     padding: '1px 6px',
-                    transition: 'all 0.15s',
+                    transition: `all ${TRANSITION.fast}`,
                   }}>
                     {categoryCounts[key] ?? 0}
                   </span>
@@ -924,7 +924,7 @@ export default function WowFacts({ onClose }) {
             <div style={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               height: '200px', gap: '8px',
-              color: 'rgba(148,163,184,0.4)', fontFamily: "'Inter', sans-serif", fontSize: '0.9rem',
+              color: COLORS.silverAlpha40, fontFamily: "'Inter', sans-serif", fontSize: '0.9rem',
             }}>
               <span style={{ fontSize: '1.5rem', opacity: 0.3 }}>✦</span>
               {language === 'tr' ? 'Sonuç bulunamadı.' : 'No results found.'}

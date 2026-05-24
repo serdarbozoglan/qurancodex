@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
-import { COLORS, FONTS, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
 
 // Verse coordinates for each tab (surah:ayah) — audio handled with fallback by QuranVerse
 const TAB_VERSE = {
@@ -113,18 +113,33 @@ export default function ScientificSigns() {
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero parity */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-4"
+        className="font-display mt-4 mb-4"
+        style={{
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontFamily: FONTS.display,
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.15,
+          maxWidth: '60ch',
+        }}
       >
         {t('scientificSigns.title')}
       </motion.h2>
 
-      {/* Intro */}
+      {/* Intro — Hero parity */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-6 font-body"
+        className="max-w-3xl mb-6 font-body"
+        style={{
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {t('scientificSigns.intro')}
       </motion.p>
@@ -378,7 +393,7 @@ export default function ScientificSigns() {
                           }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                               <span style={{
-                                width: '22px', height: '22px', borderRadius: '50%',
+                                width: '22px', height: '22px', borderRadius: RADIUS.full,
                                 background: meta.color + '22',
                                 border: `1px solid ${meta.color}55`,
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -422,7 +437,7 @@ export default function ScientificSigns() {
                         {facts.map((fact, i) => (
                           <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
                             <span style={{
-                              flexShrink: 0, width: '24px', height: '24px', borderRadius: '50%',
+                              flexShrink: 0, width: '24px', height: '24px', borderRadius: RADIUS.full,
                               background: meta.dim, border: `1px solid ${meta.border}`,
                               display: 'flex', alignItems: 'center', justifyContent: 'center',
                               fontSize: '0.62rem', fontWeight: 700,
@@ -515,8 +530,8 @@ export default function ScientificSigns() {
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
-                ? 'Kur\'an\'ın kevnî ayetleri: gök & yer · gece-gündüz · su & deniz · bitki, hayvan, dağlar — doğanın tam haritası'
-                : "The Quran's cosmic signs (āyāt kawniyya): sky & earth · night-day · water & seas · plants, animals, mountains — a full map of nature"}
+                ? 'Kur’an’ın kevnî ayetleri: gök & yer · gece-gündüz · su & deniz · bitki, hayvan, dağlar — doğanın tam haritası'
+                : 'The Quran’s cosmic signs (āyāt kawniyya): sky & earth · night-day · water & seas · plants, animals, mountains — a full map of nature'}
             </p>
           </div>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>

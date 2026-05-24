@@ -13,11 +13,21 @@ export const COLORS = {
 
   // Accent
   gold:          '#d4a574',
+  goldBright:    '#e8c98a',                  // Brighter gold variant (LinguisticDNA, VerseGraph highlights)
+  goldWarm:      '#d4b483',                  // Warm gold variant (VerseGraph accents)
   royalGold:     '#c9a227',
   goldAlpha04:   'rgba(212,165,116,0.04)',
   goldAlpha15:   'rgba(212,165,116,0.15)',
   goldAlpha25:   'rgba(212,165,116,0.25)',
   goldAlpha45:   'rgba(212,165,116,0.45)',
+
+  // Gold CTA button gradient (.btn-primary-gold, Hero CTA, Navbar Oku)
+  btnGoldStart:   '#c9973a',
+  btnGoldMid:     '#b8860b',
+  btnGoldEnd:     '#9a6f0a',
+  btnGoldText:    '#1c0f00',                 // dark brown text on gold button (high contrast)
+  btnGoldGlow15:  'rgba(180,130,40,0.3)',
+  btnGoldGlow25:  'rgba(180,130,40,0.5)',
 
   // Soft gold — semantic role for "glorification / middle-ground / wisdom"
   // categories (Araf, Yüceltme meleği, Emir, Mucize). Distinct from primary
@@ -46,6 +56,11 @@ export const COLORS = {
 
   // Text
   offWhite:      '#e8e6e3',
+  // offWhite at reduced alpha — Hero baseline imzası. Section intro / card body
+  // gibi "soft" body text için silver (mavi-gri) yerine tercih edilir; ton soğuk
+  // değil, sıcak ve davetkâr kalır. /72 → kart body, /78 → section subtitle.
+  offWhiteAlpha72: 'rgba(232,230,227,0.72)',
+  offWhiteAlpha78: 'rgba(232,230,227,0.78)',
   silver:        '#94a3b8',
   silverAlpha12: 'rgba(148,163,184,0.12)',
   silverAlpha40: 'rgba(148,163,184,0.40)',
@@ -154,10 +169,15 @@ export const FONTS = {
 };
 
 // ── Overlay base — fixed fullscreen container ─────────────────────────────────
+// Sits BELOW the navbar (which uses z-[9999], 54px height). The 54px top inset
+// reserves the navbar row so the overlay route never hides the global nav.
+// Inner stacky elements (overlay header sticky at z 10000, dropdowns, etc.) are
+// bounded by this stacking context — so even their high local z-index stays
+// under the navbar in the global stack.
 export const OVERLAY_BASE = {
   position: 'fixed',
-  inset: 0,
-  zIndex: 9999,
+  inset: '54px 0 0 0',
+  zIndex: 50,
   background: COLORS.overlayBg,
   overflow: 'hidden',
 };
@@ -252,16 +272,23 @@ export const RADIUS = {
   xl:     '14px',
   pillSm: '20px',
   pill:   '999px',
+  full:   '50%',
 };
 
 // ── Z-index scale ─────────────────────────────────────────────────────────────
 // Layering order for overlays, popups, tooltips, navbar.
 // Do NOT use ad-hoc zIndex values (200, 201, 100000) — use these tokens.
+//
+// Stacking model (post K2 codemod):
+//   Navbar:        z 9999 (Tailwind z-[9999]) — ALWAYS on top
+//   Overlay base:  z 50   (OVERLAY_BASE outer container, sits below navbar)
+//   Inner stickies, dropdowns, tooltips render in the overlay's stacking
+//   context — their high local z values stay bounded by the 50 outer.
 export const Z_INDEX = {
-  overlayBase: 9999,   // Standard fullscreen overlay (OVERLAY_BASE uses this)
-  overlayNav:  10000,  // Overlay's own close button / header sticky
-  popup:       10001,  // Dropdowns, menus OPEN over navbar inside overlay
-  tooltip:     10002,  // Floating tooltips, the top of the stack
+  overlayBase: 50,     // Standard fullscreen overlay (OVERLAY_BASE uses this)
+  overlayNav:  10000,  // Overlay's own close button / header sticky (local)
+  popup:       10001,  // Dropdowns, menus OPEN over content inside overlay
+  tooltip:     10002,  // Floating tooltips, the top of the local stack
 };
 
 // ── Blur scale ────────────────────────────────────────────────────────────────

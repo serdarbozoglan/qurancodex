@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useLanguage } from '../i18n/LanguageContext';
-import { FONTS } from '../tokens';
+import { COLORS, FONTS } from '../tokens';
 
 const SITEMAP_LINKS = {
   tr: {
@@ -105,12 +105,23 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="max-w-6xl mx-auto">
-        {/* Title & methodology */}
+        {/* Title & methodology — footer-scale (not section H2). Methodology
+            paragraph uses Hero baseline body color (offWhite/78) instead of
+            silver, so footer reads warm rather than cool-gray. */}
         <div className="text-center mb-12">
           <h3 className="font-display text-gold text-xl mb-4">
             {t('footer.title')}
           </h3>
-          <p className="text-silver text-sm max-w-2xl mx-auto leading-relaxed">
+          <p
+            className="max-w-2xl mx-auto"
+            style={{
+              color: COLORS.offWhiteAlpha78,
+              fontFamily: FONTS.body,
+              fontSize: '0.9rem',
+              lineHeight: 1.7,
+              letterSpacing: '0.01em',
+            }}
+          >
             {t('footer.methodology')}
           </p>
         </div>

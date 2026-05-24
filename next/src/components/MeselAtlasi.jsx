@@ -4,11 +4,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
-  OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
+  OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
+// NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: api.acikkuran.com'dan
+// gelen canlı meal verisi için ek temizlikler (ayet-sonu-marker + Arabic-Indic
+// digit kombinasyonları, baş/son boşluk trim). Component-local bırakıldı.
 function cleanArabic(str) {
   if (!str) return str;
   return str
@@ -499,7 +502,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                 transition: 'border-color 0.2s',
               }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: domColor, flexShrink: 0 }} />
+                <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: domColor, flexShrink: 0 }} />
                 <span style={{ color: domColor, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 600 }}>
                   {language === 'tr' ? DOMAIN_LABELS_TR[p.imageryDomain] : DOMAIN_LABELS_EN[p.imageryDomain]}
                 </span>
@@ -570,7 +573,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                 <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>
                   {verseData?.loading && (
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body }}>
-                      <div style={{ width: '14px', height: '14px', border: `1.5px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+                      <div style={{ width: '14px', height: '14px', border: `1.5px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
                       {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
                     </div>
                   )}
@@ -674,7 +677,7 @@ function TabCiftMeseller({ pairs, parables: _parables, scrollToPairId, language,
         </p>
         {verse?.loading && (
           <div style={{ marginTop: '10px', display: 'flex', gap: '6px', alignItems: 'center', color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body }}>
-            <div style={{ width: '12px', height: '12px', border: `1.5px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+            <div style={{ width: '12px', height: '12px', border: `1.5px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
             {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </div>
         )}
@@ -797,9 +800,9 @@ function TabNurZulumat({ data, language, isMobile }) {
           background: 'linear-gradient(135deg, rgba(30,30,60,0.5) 0%, rgba(0,0,0,0) 100%)',
           textAlign: 'center',
         }}>
-          <div style={{ fontSize: isMobile ? '3.5rem' : '5rem', fontWeight: 900, color: '#64748b', fontFamily: FONTS.body, lineHeight: 1 }}>23</div>
-          <div style={{ color: '#64748b', fontFamily: FONTS.quran, fontSize: '1.4rem', marginTop: '8px', direction: 'rtl' }} dir="rtl" lang="ar">ظُلُمَات</div>
-          <div style={{ color: '#64748b', fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Zulumât</div>
+          <div style={{ fontSize: isMobile ? '3.5rem' : '5rem', fontWeight: 900, color: COLORS.slate500, fontFamily: FONTS.body, lineHeight: 1 }}>23</div>
+          <div style={{ color: COLORS.slate500, fontFamily: FONTS.quran, fontSize: '1.4rem', marginTop: '8px', direction: 'rtl' }} dir="rtl" lang="ar">ظُلُمَات</div>
+          <div style={{ color: COLORS.slate500, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Zulumât</div>
           <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{stats.zulumatForm}</div>
         </div>
       </div>
@@ -1410,7 +1413,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
 
   if (loading) return (
     <div style={{ ...OVERLAY_BASE, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px', fontFamily: FONTS.body }}>
-      <div style={{ width: '36px', height: '36px', border: `2px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+      <div style={{ width: '36px', height: '36px', border: `2px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
       <p style={{ color: COLORS.silver, fontSize: '0.85rem' }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</p>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>

@@ -8,7 +8,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, GLASS_CARD } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, RADIUS } from '../tokens';
 
 export default function ToolHighlightCard({
   icon,
@@ -56,7 +56,7 @@ export default function ToolHighlightCard({
         style={{
           width: '44px',
           height: '44px',
-          borderRadius: '10px',
+          borderRadius: RADIUS.chip,
           background: COLORS.goldAlpha15,
           border: `1px solid ${COLORS.goldAlpha25}`,
           display: 'flex',
@@ -80,6 +80,7 @@ export default function ToolHighlightCard({
             color: COLORS.offWhite,
             margin: 0,
             lineHeight: 1.3,
+            letterSpacing: '0.005em',
           }}
         >
           {title}
@@ -88,7 +89,8 @@ export default function ToolHighlightCard({
           style={{
             fontFamily: FONTS.body,
             fontSize: '0.82rem',
-            color: COLORS.silver,
+            // Hero-paralel body tonu (PathCard ile aynı): silver → offWhite/72.
+            color: COLORS.offWhiteAlpha72,
             margin: '6px 0 0',
             lineHeight: 1.55,
           }}

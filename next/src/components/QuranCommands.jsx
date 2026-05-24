@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, CLOSE_BTN, BREAKPOINT_MOBILE, TRANSITION } from '../tokens';
+import { COLORS, FONTS, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE, TRANSITION, RADIUS } from '../tokens';
 
 // ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
 const CATEGORY_ICONS = {
@@ -110,7 +110,7 @@ export default function QuranCommands({ onClose }) {
   /* eslint-enable react-hooks/set-state-in-effect */
 
   if (!data) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.deepNavy, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.deepNavy, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>Yükleniyor...</div>
     </div>
   );
@@ -171,7 +171,7 @@ export default function QuranCommands({ onClose }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, zIndex: 9999,
+      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
       background: COLORS.deepNavy,
       overflowY: 'auto',
       fontFamily: "'Inter', sans-serif",
@@ -184,7 +184,7 @@ export default function QuranCommands({ onClose }) {
           position: 'fixed', top: '16px', right: '20px', zIndex: 10000,
           background: 'rgba(255,255,255,0.08)',
           border: '1px solid rgba(255,255,255,0.15)',
-          borderRadius: '50%', width: '36px', height: '36px',
+          borderRadius: RADIUS.full, width: '36px', height: '36px',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           cursor: 'pointer', color: COLORS.silver, transition: `all ${TRANSITION.fast}`,
         }}
@@ -203,7 +203,7 @@ export default function QuranCommands({ onClose }) {
             {language === 'tr' ? "KUR'AN'IN EMİRLERİ" : "QURAN COMMANDS"}
           </span>
         </div>
-        <h1 style={{ fontSize: isMobile ? '1.4rem' : '2rem', fontWeight: 800, color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", marginBottom: '8px', lineHeight: 1.2 }}>
+        <h1 style={{ ...OVERLAY_TITLE, fontSize: isMobile ? '1.4rem' : '2rem', marginBottom: '8px', lineHeight: 1.2 }}>
           {L.title}
         </h1>
         <p style={{ color: COLORS.silver, fontSize: '0.95rem', marginBottom: '20px' }}>
@@ -214,7 +214,7 @@ export default function QuranCommands({ onClose }) {
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '14px' }}>
           <div style={{
             background: COLORS.softGoldAlpha10, border: `1px solid ${COLORS.softGoldAlpha28}`,
-            borderRadius: '8px', padding: '7px 14px',
+            borderRadius: RADIUS.md, padding: '7px 14px',
             display: 'flex', alignItems: 'center', gap: '7px',
           }}>
             <span style={{ fontSize: '1.3rem', fontWeight: 800, color: COLORS.softGold, lineHeight: 1 }}>{emirCount}</span>
@@ -222,7 +222,7 @@ export default function QuranCommands({ onClose }) {
           </div>
           <div style={{
             background: 'rgba(232,90,74,0.1)', border: '1px solid rgba(232,90,74,0.28)',
-            borderRadius: '8px', padding: '7px 14px',
+            borderRadius: RADIUS.md, padding: '7px 14px',
             display: 'flex', alignItems: 'center', gap: '7px',
           }}>
             <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#e85a4a', lineHeight: 1 }}>{nehiyCount}</span>
@@ -230,7 +230,7 @@ export default function QuranCommands({ onClose }) {
           </div>
           <div style={{
             background: 'rgba(74,158,232,0.08)', border: '1px solid rgba(74,158,232,0.22)',
-            borderRadius: '8px', padding: '7px 14px',
+            borderRadius: RADIUS.md, padding: '7px 14px',
             display: 'flex', alignItems: 'center', gap: '7px',
           }}>
             <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#4A9EE8', lineHeight: 1 }}>{categories.length}</span>
@@ -259,7 +259,7 @@ export default function QuranCommands({ onClose }) {
                 key={cat.id}
                 onClick={() => { setActiveId(cat.id); setFilter('all'); }}
                 style={{
-                  flexShrink: 0, padding: '6px 12px', borderRadius: '20px',
+                  flexShrink: 0, padding: '6px 12px', borderRadius: RADIUS.pillSm,
                   border: `1px solid ${isActive ? cat.accent : 'rgba(255,255,255,0.1)'}`,
                   background: isActive ? cat.accent + '22' : 'transparent',
                   color: isActive ? cat.accent : '#94a3b8',
@@ -274,7 +274,7 @@ export default function QuranCommands({ onClose }) {
                 <span style={{
                   background: isActive ? cat.accent + '30' : 'rgba(255,255,255,0.08)',
                   color: isActive ? cat.accent : '#64748b',
-                  borderRadius: '10px', padding: '0 5px',
+                  borderRadius: RADIUS.chip, padding: '0 5px',
                   fontSize: '0.7rem', fontWeight: 700,
                 }}>
                   {(cat.commands || []).length}
@@ -330,7 +330,7 @@ export default function QuranCommands({ onClose }) {
                   fontSize: '0.7rem', fontWeight: 600,
                   color: isActive ? cat.accent : 'rgba(148,163,184,0.5)',
                   background: isActive ? cat.accent + '20' : 'rgba(255,255,255,0.05)',
-                  borderRadius: '10px', padding: '1px 7px',
+                  borderRadius: RADIUS.chip, padding: '1px 7px',
                   flexShrink: 0,
                 }}>
                   {catCommands.length}
@@ -362,7 +362,7 @@ export default function QuranCommands({ onClose }) {
               display: 'flex', gap: '4px',
               background: 'rgba(0,0,0,0.3)',
               border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '8px', padding: '3px',
+              borderRadius: RADIUS.md, padding: '3px',
             }}>
               {[
                 { key: 'all',   labelTr: L.allCommands, labelEn: L.allCommands },
@@ -413,7 +413,7 @@ export default function QuranCommands({ onClose }) {
                       padding: '8px 20px',
                       background: 'transparent',
                       border: `1px solid ${accent}50`,
-                      borderRadius: '8px',
+                      borderRadius: RADIUS.md,
                       color: accent,
                       fontSize: '0.85rem',
                       cursor: 'pointer',
@@ -445,7 +445,7 @@ function CommandCard({ cmd, accent, language, L }) {
         background: 'rgba(255,255,255,0.03)',
         border: '1px solid rgba(255,255,255,0.07)',
         borderLeft: `2px solid ${accent}`,
-        borderRadius: '10px',
+        borderRadius: RADIUS.chip,
         padding: '16px 18px',
         display: 'flex',
         flexDirection: 'column',
@@ -462,7 +462,7 @@ function CommandCard({ cmd, accent, language, L }) {
           color: badge.color,
           background: badge.bg,
           border: `1px solid ${badge.border}`,
-          borderRadius: '20px', padding: '2px 9px',
+          borderRadius: RADIUS.pillSm, padding: '2px 9px',
           textTransform: 'uppercase',
         }}>
           {isNehiy ? L.nehiyBadge : L.emirBadge}
@@ -473,7 +473,7 @@ function CommandCard({ cmd, accent, language, L }) {
             color: '#E8A24A',
             background: 'rgba(232,162,74,0.1)',
             border: '1px solid rgba(232,162,74,0.28)',
-            borderRadius: '20px', padding: '2px 8px',
+            borderRadius: RADIUS.pillSm, padding: '2px 8px',
             display: 'flex', alignItems: 'center', gap: '3px',
           }}>
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -484,7 +484,7 @@ function CommandCard({ cmd, accent, language, L }) {
 
       {/* Arabic verse */}
       <div style={{
-        fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+        fontFamily: FONTS.quran,
         fontSize: '1.15rem', lineHeight: 2,
         color: accent,
         textAlign: 'right',
@@ -506,7 +506,7 @@ function CommandCard({ cmd, accent, language, L }) {
           color: accent,
           background: `${accent}20`,
           border: `1px solid ${accent}55`,
-          borderRadius: '20px', padding: '2px 9px',
+          borderRadius: RADIUS.pillSm, padding: '2px 9px',
           display: 'inline-block',
         }}>
           {cmd.surahName} · {cmd.verseRef}
@@ -531,7 +531,7 @@ function CommandCard({ cmd, accent, language, L }) {
           fontSize: '0.73rem', color: 'rgba(148,163,184,0.7)',
           background: 'rgba(148,163,184,0.06)',
           border: '1px solid rgba(148,163,184,0.12)',
-          borderRadius: '6px', padding: '7px 10px',
+          borderRadius: RADIUS.sm, padding: '7px 10px',
           lineHeight: 1.5,
           display: 'flex', gap: '6px', alignItems: 'flex-start',
         }}>

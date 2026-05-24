@@ -94,7 +94,7 @@ function VerseBlock({ ar, tr, en, kaynak, language, color }) {
       <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: c, lineHeight: 2, margin: '0 0 8px', textAlign: 'right', direction: 'rtl', lang: 'ar' }}>
         {ar}
       </p>
-      <p style={{ fontSize: '0.85rem', color: '#94a3b8', fontStyle: 'italic', margin: '0 0 4px', direction: 'ltr', textAlign: 'left' }}>
+      <p style={{ fontSize: '0.85rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 4px', direction: 'ltr', textAlign: 'left' }}>
         {language === 'tr' ? tr : en}
       </p>
       <p style={{ fontSize: '0.72rem', color: `${c}99`, fontWeight: 600, margin: 0, direction: 'ltr', textAlign: 'left' }}>
@@ -108,7 +108,7 @@ function SectionTitle({ children, color }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', marginTop: '28px' }}>
       <div style={{ width: '3px', height: '18px', background: color || GOLD, borderRadius: '2px', flexShrink: 0 }} />
-      <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#e8e6e3', margin: 0, fontFamily: "'Inter', sans-serif" }}>
+      <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: 0, fontFamily: "'Inter', sans-serif" }}>
         {children}
       </h3>
     </div>
@@ -119,9 +119,9 @@ function InfoNote({ text }) {
   return (
     <div style={{
       display: 'flex', gap: '6px', alignItems: 'flex-start',
-      fontSize: '0.73rem', color: 'rgba(148,163,184,0.7)',
+      fontSize: '0.73rem', color: COLORS.silverAlpha70,
       background: 'rgba(148,163,184,0.05)',
-      border: '1px solid rgba(148,163,184,0.12)',
+      border: `1px solid ${COLORS.silverAlpha12}`,
       borderRadius: RADIUS.sm, padding: '8px 10px',
       lineHeight: 1.55,
     }}>
@@ -173,8 +173,8 @@ export default function CennetCehennem({ onClose }) {
   }, [activeTab]);
 
   if (!data) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#06080e', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ color: '#94a3b8', fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: '#06080e', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>
         {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
       </div>
     </div>
@@ -182,7 +182,7 @@ export default function CennetCehennem({ onClose }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, zIndex: 9999,
+      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
       background: '#06080e',
       display: 'flex', flexDirection: 'column',
       fontFamily: "'Inter', sans-serif",
@@ -211,8 +211,8 @@ export default function CennetCehennem({ onClose }) {
           <button
             onClick={onClose}
             style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
+            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
+            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M18 6L6 18M6 6l12 12" />
@@ -291,7 +291,7 @@ function TabIsimler({ data, language, isMobile }) {
     <div>
       {/* Hero intro */}
       <div style={{ marginBottom: '28px' }}>
-        <p style={{ fontSize: '0.98rem', color: '#94a3b8', lineHeight: 1.8, maxWidth: '680px' }}>
+        <p style={{ fontSize: '0.98rem', color: COLORS.silver, lineHeight: 1.8, maxWidth: '680px' }}>
           {tr
             ? "Kur'an cenneti de cehennemi de tek isimle değil, her biri farklı bir anlam boyutu taşıyan birden fazla isimle anlatır. Her isim, öteki alemin ayrı bir yüzünü aydınlatır."
             : "The Quran describes both Paradise and Hell not with a single name, but with multiple names — each carrying a distinct dimension of meaning. Every name illuminates a different facet of the afterlife."}
@@ -311,7 +311,7 @@ function TabIsimler({ data, language, isMobile }) {
             marginBottom: '16px', paddingBottom: '10px',
             borderBottom: `2px solid ${CENNET.accent}40`,
           }}>
-            <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: CENNET.accent }} />
+            <div style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: CENNET.accent }} />
             <h2 style={{ fontSize: '1rem', fontWeight: 700, color: CENNET.accent, margin: 0 }}>
               {tr ? `Cennetin ${cennetIsimleri.length} İsmi` : `${cennetIsimleri.length} Names of Paradise`}
             </h2>
@@ -330,7 +330,7 @@ function TabIsimler({ data, language, isMobile }) {
             marginBottom: '16px', paddingBottom: '10px',
             borderBottom: `2px solid ${CEHENNEM.accent}40`,
           }}>
-            <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: CEHENNEM.accent }} />
+            <div style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: CEHENNEM.accent }} />
             <h2 style={{ fontSize: '1rem', fontWeight: 700, color: CEHENNEM.accent, margin: 0 }}>
               {tr ? `Cehennemin ${cehennemIsimleri.length} İsmi` : `${cehennemIsimleri.length} Names of Hell`}
             </h2>
@@ -368,7 +368,7 @@ function IsimCard({ item, language, color, bg, border }) {
 
       {/* Turkish/English name + meaning */}
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
-        <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#e8e6e3' }}>
+        <span style={{ fontSize: '0.92rem', fontWeight: 700, color: COLORS.offWhite }}>
           {tr ? item.nameTr : item.nameEn}
         </span>
         <span style={{
@@ -380,7 +380,7 @@ function IsimCard({ item, language, color, bg, border }) {
         </span>
       </div>
 
-      <p style={{ fontSize: '0.8rem', color: '#64748b', margin: '0 0 8px', fontStyle: 'italic' }}>
+      <p style={{ fontSize: '0.8rem', color: COLORS.slate500, margin: '0 0 8px', fontStyle: 'italic' }}>
         {tr ? item.meaningTr : item.meaningEn}
       </p>
 
@@ -426,7 +426,7 @@ function StatPill({ value, label, color, isMobile }) {
       minWidth: '60px',
     }}>
       <div style={{ fontSize: isMobile ? '1.1rem' : '1.3rem', fontWeight: 800, color, lineHeight: 1.1 }}>{value}</div>
-      <div style={{ fontSize: '0.62rem', color: '#475569', marginTop: '2px', letterSpacing: '0.04em' }}>{label}</div>
+      <div style={{ fontSize: '0.62rem', color: COLORS.slate600, marginTop: '2px', letterSpacing: '0.04em' }}>{label}</div>
     </div>
   );
 }
@@ -445,7 +445,7 @@ function HeroBanner({ data, language, isMobile }) {
       marginBottom: '28px',
       borderRadius: RADIUS.xl,
       overflow: 'hidden',
-      border: '1px solid rgba(255,255,255,0.08)',
+      border: `1px solid ${COLORS.glassBgStrong}`,
     }}>
       {/* Left: Cennet */}
       <div style={{ background: CENNET.bg, padding: isMobile ? '16px' : '24px 28px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '14px' }}>
@@ -476,7 +476,7 @@ function HeroBanner({ data, language, isMobile }) {
             وَبَيْنَهُمَا حِجَابٌ
           </div>
           <div style={{
-            fontSize: '0.78rem', color: '#94a3b8', textAlign: 'center',
+            fontSize: '0.78rem', color: COLORS.silver, textAlign: 'center',
             fontStyle: 'italic', lineHeight: 1.5, maxWidth: '220px',
           }}>
             {tr
@@ -498,7 +498,7 @@ function HeroBanner({ data, language, isMobile }) {
           <div style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', textAlign: 'center', lineHeight: 1.9, lang: 'ar' }}>
             وَبَيْنَهُمَا حِجَابٌ
           </div>
-          <div style={{ fontSize: '0.75rem', color: '#94a3b8', fontStyle: 'italic', textAlign: 'center' }}>
+          <div style={{ fontSize: '0.75rem', color: COLORS.silver, fontStyle: 'italic', textAlign: 'center' }}>
             {tr ? '"İkisi arasında bir perde vardır."' : '"Between them is a barrier."'}
           </div>
           <div style={{ fontSize: '0.65rem', color: `${GOLD}70`, fontWeight: 600 }}>
@@ -559,8 +559,8 @@ function TabCennet({ data, language, isMobile }) {
             textAlign: 'center',
           }}>
             <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 6px' }}>{n.nameAr}</p>
-            <p style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e8e6e3', margin: '0 0 4px' }}>{tr ? n.nameTr : n.nameEn}</p>
-            <p style={{ fontSize: '0.75rem', color: '#64748b', margin: '0 0 4px', lineHeight: 1.4 }}>{tr ? n.descTr : n.descEn}</p>
+            <p style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 4px' }}>{tr ? n.nameTr : n.nameEn}</p>
+            <p style={{ fontSize: '0.75rem', color: COLORS.slate500, margin: '0 0 4px', lineHeight: 1.4 }}>{tr ? n.descTr : n.descEn}</p>
             {n.notTr && <p style={{ fontSize: '0.7rem', color: 'rgba(148,163,184,0.5)', fontStyle: 'italic', margin: 0, lineHeight: 1.4 }}>{tr ? n.notTr : n.notEn}</p>}
           </div>
         ))}
@@ -574,7 +574,7 @@ function TabCennet({ data, language, isMobile }) {
         {(d.bitkiler || []).map(b => (
           <div key={b.id} style={{
             background: 'rgba(255,255,255,0.03)',
-            border: `1px solid ${b.isHapax ? 'rgba(139,92,246,0.3)' : 'rgba(255,255,255,0.08)'}`,
+            border: `1px solid ${b.isHapax ? 'rgba(139,92,246,0.3)' : COLORS.glassBgStrong}`,
             borderLeft: `2px solid ${b.isHapax ? HAPAX : CENNET.accent}`,
             borderRadius: RADIUS.chip, padding: '12px 14px',
           }}>
@@ -584,8 +584,8 @@ function TabCennet({ data, language, isMobile }) {
                 {b.isHapax && <HapaxBadge language={language} />}
               </div>
             </div>
-            <p style={{ fontSize: '0.88rem', fontWeight: 700, color: '#e8e6e3', margin: '0 0 4px' }}>{tr ? b.nameTr : b.nameEn}</p>
-            <p style={{ fontSize: '0.78rem', color: '#94a3b8', margin: '0 0 6px', lineHeight: 1.5 }}>{tr ? b.descTr : b.descEn}</p>
+            <p style={{ fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 4px' }}>{tr ? b.nameTr : b.nameEn}</p>
+            <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 6px', lineHeight: 1.5 }}>{tr ? b.descTr : b.descEn}</p>
             <p style={{ fontSize: '0.7rem', color: `${CENNET.accent}80`, fontWeight: 500, margin: 0 }}>{b.kaynak}</p>
           </div>
         ))}
@@ -603,8 +603,8 @@ function TabCennet({ data, language, isMobile }) {
             borderRadius: RADIUS.chip, padding: '14px 16px',
           }}>
             <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 8px' }}>{s.nameAr}</p>
-            <p style={{ fontSize: '0.9rem', fontWeight: 700, color: '#e8e6e3', margin: '0 0 6px' }}>{tr ? s.nameTr : s.nameEn}</p>
-            <p style={{ fontSize: '0.78rem', color: '#94a3b8', margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? s.descTr : s.descEn}</p>
+            <p style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>{tr ? s.nameTr : s.nameEn}</p>
+            <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? s.descTr : s.descEn}</p>
             <p style={{ fontSize: '0.7rem', color: `${CENNET.accent}80`, fontWeight: 500, margin: '0 0 6px' }}>{s.kaynak}</p>
             {s.notTr && <InfoNote text={tr ? s.notTr : s.notEn} />}
           </div>
@@ -622,10 +622,10 @@ function TabCennet({ data, language, isMobile }) {
             border: `1px solid ${f.isSessizlik ? 'rgba(255,255,255,0.06)' : CENNET.border}`,
             borderRadius: RADIUS.chip, padding: '12px 14px',
           }}>
-            <p style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 4px', fontWeight: 600 }}>
+            <p style={{ fontSize: '0.72rem', color: COLORS.slate500, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 4px', fontWeight: 600 }}>
               {tr ? f.labelTr : f.labelEn}
             </p>
-            <p style={{ fontSize: '0.88rem', fontWeight: 700, color: f.isSessizlik ? '#475569' : '#e8e6e3', margin: '0 0 6px', lineHeight: 1.4 }}>
+            <p style={{ fontSize: '0.88rem', fontWeight: 700, color: f.isSessizlik ? COLORS.slate600 : COLORS.offWhite, margin: '0 0 6px', lineHeight: 1.4 }}>
               {tr ? f.valueTr : f.valueEn}
             </p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '6px', flexWrap: 'wrap' }}>
@@ -673,12 +673,12 @@ function TabCennet({ data, language, isMobile }) {
           <div key={i} style={{ background: g.bg, border: `1px solid ${g.border}`, borderRadius: RADIUS.chip, padding: '14px 16px' }}>
             <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 8px' }}>{g.nameAr}</p>
             <p style={{ fontSize: '0.88rem', fontWeight: 700, color: g.color, margin: '0 0 6px' }}>{language === 'tr' ? g.nameTr : g.nameEn}</p>
-            <p style={{ fontSize: '0.78rem', color: '#94a3b8', margin: '0 0 8px', lineHeight: 1.55 }}>{language === 'tr' ? g.descTr : g.descEn}</p>
+            <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{language === 'tr' ? g.descTr : g.descEn}</p>
             <p style={{ fontSize: '0.7rem', color: `${g.color}80`, fontWeight: 500, margin: 0 }}>{g.kaynak}</p>
           </div>
         ))}
       </div>
-      <p style={{ fontSize: '0.78rem', color: '#475569', marginTop: '10px', lineHeight: 1.6, fontStyle: 'italic' }}>
+      <p style={{ fontSize: '0.78rem', color: COLORS.slate600, marginTop: '10px', lineHeight: 1.6, fontStyle: 'italic' }}>
         {language === 'tr'
           ? "Vâkıa sûresi insanlığı bu üç gruba ayırır. İlk iki grup detaylı cennet tasvirleriyle ödüllendirilir — her biri farklı nimetlerle."
           : "Surah Al-Waqi'a divides humanity into these three groups. The first two groups are rewarded with detailed descriptions of Paradise — each with distinct blessings."}
@@ -702,26 +702,26 @@ function TabCehennem({ data, language, isMobile }) {
         {(d.duyusal || []).map(item => (
           <div key={item.id} style={{
             background: item.isSessizlik ? 'rgba(255,255,255,0.03)' : CEHENNEM.bg,
-            border: `1px solid ${item.isSessizlik ? 'rgba(255,255,255,0.10)' : CEHENNEM.border}`,
-            borderLeft: `2px solid ${item.isSessizlik ? '#475569' : CEHENNEM.accent}`,
+            border: `1px solid ${item.isSessizlik ? COLORS.glassBorder : CEHENNEM.border}`,
+            borderLeft: `2px solid ${item.isSessizlik ? COLORS.slate600 : CEHENNEM.accent}`,
             borderRadius: RADIUS.chip, padding: '14px 16px',
           }}>
             {/* Sense label */}
-            <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', color: item.isSessizlik ? '#64748b' : CEHENNEM.accent, margin: '0 0 10px' }}>
+            <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', color: item.isSessizlik ? COLORS.slate500 : CEHENNEM.accent, margin: '0 0 10px' }}>
               {tr ? item.duyuTr : item.duyuEn}
             </p>
             {/* Arabic verse */}
             {item.verseAr ? (
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: '#e8e6e3', textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 8px' }} lang="ar">
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: COLORS.offWhite, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 8px' }} lang="ar">
                 {item.verseAr}
               </p>
             ) : (
               /* Sessizlik placeholder */
-              <p style={{ fontSize: '1.1rem', color: '#475569', textAlign: 'center', letterSpacing: '0.3em', margin: '4px 0 12px', fontStyle: 'italic' }}>— — —</p>
+              <p style={{ fontSize: '1.1rem', color: COLORS.slate600, textAlign: 'center', letterSpacing: '0.3em', margin: '4px 0 12px', fontStyle: 'italic' }}>— — —</p>
             )}
             {/* Translation */}
             {(tr ? item.verseTr : item.verseEn) ? (
-              <p style={{ fontSize: '0.82rem', color: item.isSessizlik ? '#64748b' : '#94a3b8', margin: '0 0 8px', lineHeight: 1.6, fontStyle: 'italic' }}>
+              <p style={{ fontSize: '0.82rem', color: item.isSessizlik ? COLORS.slate500 : COLORS.silver, margin: '0 0 8px', lineHeight: 1.6, fontStyle: 'italic' }}>
                 {tr ? item.verseTr : item.verseEn}
               </p>
             ) : null}
@@ -745,7 +745,7 @@ function TabCehennem({ data, language, isMobile }) {
                     {tr ? 'Tefsir Görüşü' : 'Scholarly Interpretation'}
                   </span>
                 )}
-                <p style={{ fontSize: '0.75rem', color: item.isSessizlik ? '#64748b' : `${CEHENNEM.accent}90`, margin: 0, lineHeight: 1.55, fontStyle: 'italic' }}>
+                <p style={{ fontSize: '0.75rem', color: item.isSessizlik ? COLORS.slate500 : `${CEHENNEM.accent}90`, margin: 0, lineHeight: 1.55, fontStyle: 'italic' }}>
                   {tr ? item.notTr : item.notEn}
                 </p>
               </div>
@@ -774,8 +774,8 @@ function TabCehennem({ data, language, isMobile }) {
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: 0 }}>{y.nameAr}</p>
               {y.isHapax && <div style={{ flexShrink: 0, marginTop: '4px' }}><HapaxBadge language={language} /></div>}
             </div>
-            <p style={{ fontSize: '0.9rem', fontWeight: 700, color: '#e8e6e3', margin: '0 0 6px' }}>{tr ? y.nameTr : y.nameEn}</p>
-            <p style={{ fontSize: '0.78rem', color: '#94a3b8', margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? y.descTr : y.descEn}</p>
+            <p style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>{tr ? y.nameTr : y.nameEn}</p>
+            <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? y.descTr : y.descEn}</p>
             <p style={{ fontSize: '0.7rem', color: `${CEHENNEM.accent}80`, fontWeight: 500, margin: 0 }}>{y.kaynak}</p>
           </div>
         ))}
@@ -796,14 +796,14 @@ function TabCehennem({ data, language, isMobile }) {
             <p style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 10px' }}>
               {d.bekciMelekler.verseAr}
             </p>
-            <p style={{ fontSize: '0.88rem', color: '#94a3b8', fontStyle: 'italic', margin: '0 0 6px' }}>
+            <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px' }}>
               {tr ? d.bekciMelekler.verseTr : d.bekciMelekler.verseEn}
             </p>
             <p style={{ fontSize: '0.72rem', color: `${CEHENNEM.accent}80`, fontWeight: 500, margin: '0 0 14px' }}>
               — {d.bekciMelekler.kaynak}
             </p>
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '14px' }}>
-              <p style={{ fontSize: '0.83rem', color: '#94a3b8', lineHeight: 1.75, margin: 0 }}>
+              <p style={{ fontSize: '0.83rem', color: COLORS.silver, lineHeight: 1.75, margin: 0 }}>
                 {tr ? d.bekciMelekler.aciklamaTr : d.bekciMelekler.aciklamaEn}
               </p>
             </div>
@@ -837,7 +837,7 @@ function TabCehennem({ data, language, isMobile }) {
             }}>
               {/* Gate number badge */}
               <div style={{
-                width: '26px', height: '26px', borderRadius: '50%', flexShrink: 0,
+                width: '26px', height: '26px', borderRadius: RADIUS.full, flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 background: `rgba(216,90,48,${0.1 + depth * 0.15})`,
                 border: `1px solid rgba(216,90,48,${0.3 + depth * 0.3})`,
@@ -849,11 +849,11 @@ function TabCehennem({ data, language, isMobile }) {
               </div>
               {/* Name + meaning */}
               <div style={{ flex: 1, minWidth: 0 }}>
-                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e8e6e3' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite }}>
                   {tr ? item.nameTr : item.nameEn}
                 </span>
                 {(tr ? item.meaningTr : item.meaningEn) && (
-                  <span style={{ fontSize: '0.72rem', color: '#64748b', marginLeft: '8px', fontStyle: 'italic' }}>
+                  <span style={{ fontSize: '0.72rem', color: COLORS.slate500, marginLeft: '8px', fontStyle: 'italic' }}>
                     {tr ? item.meaningTr : item.meaningEn}
                   </span>
                 )}
@@ -891,7 +891,7 @@ function TabAraf({ data, language, isMobile }) {
         <p style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 10px', lineHeight: 2 }}>
           {araf.verseAr}
         </p>
-        <p style={{ fontSize: '0.88rem', color: '#94a3b8', fontStyle: 'italic', margin: '0 0 6px' }}>
+        <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px' }}>
           {tr ? araf.verseTr : araf.verseEn}
         </p>
         <p style={{ fontSize: '0.72rem', color: `${ARAF.accent}90`, fontWeight: 600, margin: 0 }}>
@@ -900,7 +900,7 @@ function TabAraf({ data, language, isMobile }) {
       </div>
 
       {/* Explanation */}
-      <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.8, maxWidth: '700px', marginBottom: '24px' }}>
+      <p style={{ fontSize: '0.92rem', color: COLORS.silver, lineHeight: 1.8, maxWidth: '700px', marginBottom: '24px' }}>
         {tr ? araf.aciklamaTr : araf.aciklamaEn}
       </p>
 
@@ -916,10 +916,10 @@ function TabAraf({ data, language, isMobile }) {
             borderLeft: `3px solid ${ARAF.accent}`,
             borderRadius: RADIUS.chip, padding: '16px 18px',
           }}>
-            <p style={{ fontSize: '0.9rem', fontWeight: 700, color: '#e8e6e3', margin: '0 0 8px' }}>
+            <p style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 8px' }}>
               {tr ? s.soruTr : s.soruEn}
             </p>
-            <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.65, margin: '0 0 8px' }}>
+            <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.65, margin: '0 0 8px' }}>
               {tr ? s.cevapTr : s.cevapEn}
             </p>
             {s.isHadis && <HadisBadge language={language} />}
@@ -942,7 +942,7 @@ function TabAraf({ data, language, isMobile }) {
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 8px' }}>{item.nameAr}</p>
               <p style={{ fontSize: '0.9rem', fontWeight: 700, color: c.accent, margin: '0 0 6px' }}>{tr ? item.nameTr : item.nameEn}</p>
-              <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? item.descTr : item.descEn}</p>
+              <p style={{ fontSize: '0.8rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? item.descTr : item.descEn}</p>
               <p style={{ fontSize: '0.7rem', color: `${c.accent}80`, fontWeight: 500, margin: 0 }}>{item.kaynak}</p>
             </div>
           );
@@ -966,7 +966,7 @@ function TabRahman({ data, language, isMobile }) {
       {/* Feature nakarat */}
       <div style={{
         background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.1)',
+        border: `1px solid ${COLORS.glassBorder}`,
         borderRadius: RADIUS.xl, padding: '24px',
         marginBottom: '20px',
         textAlign: 'center',
@@ -974,21 +974,21 @@ function TabRahman({ data, language, isMobile }) {
         <p style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: GOLD, direction: 'rtl', lang: 'ar', margin: '0 0 10px', lineHeight: 2, textAlign: 'center' }}>
           {rs.nakaratAr}
         </p>
-        <p style={{ fontSize: '0.92rem', color: '#94a3b8', fontStyle: 'italic', margin: '0 0 6px' }}>
+        <p style={{ fontSize: '0.92rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px' }}>
           {tr ? rs.nakaratTr : rs.nakaratEn}
         </p>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
           <span style={{
             fontSize: '1.1rem', fontWeight: 800, color: GOLD,
           }}>{rs.nakaratCount}×</span>
-          <span style={{ fontSize: '0.75rem', color: '#64748b' }}>
+          <span style={{ fontSize: '0.75rem', color: COLORS.slate500 }}>
             {tr ? rs.nakaratKaynak : rs.nakaratKaynakEn}
           </span>
         </div>
       </div>
 
       {/* Explanation */}
-      <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.8, maxWidth: '700px', marginBottom: '24px' }}>
+      <p style={{ fontSize: '0.92rem', color: COLORS.silver, lineHeight: 1.8, maxWidth: '700px', marginBottom: '24px' }}>
         {tr ? rs.aciklamaTr : rs.aciklamaEn}
       </p>
 
@@ -1018,7 +1018,7 @@ function TabRahman({ data, language, isMobile }) {
             { tr: "Bunun ötesinde daha iki bahçe daha", en: 'Beyond these, two more gardens', ref: '55:62-76' },
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-              <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>{language === 'tr' ? item.tr : item.en}</span>
+              <span style={{ fontSize: '0.78rem', color: COLORS.silver }}>{language === 'tr' ? item.tr : item.en}</span>
               <span style={{ fontSize: '0.68rem', color: `${CENNET.accent}80`, flexShrink: 0 }}>{item.ref}</span>
             </div>
           ))}
@@ -1032,7 +1032,7 @@ function TabRahman({ data, language, isMobile }) {
             gap: '6px', padding: '8px 0',
           }}>
             {Array.from({ length: 7 }).map((_, i) => (
-              <div key={i} style={{ width: '4px', height: '4px', borderRadius: '50%', background: `${GOLD}50` }} />
+              <div key={i} style={{ width: '4px', height: '4px', borderRadius: RADIUS.full, background: `${GOLD}50` }} />
             ))}
           </div>
         )}
@@ -1050,7 +1050,7 @@ function TabRahman({ data, language, isMobile }) {
             { tr: 'Suçlular yalanlayıp duruyor', en: 'The guilty persist in denial', ref: '55:43-45' },
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-              <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>{language === 'tr' ? item.tr : item.en}</span>
+              <span style={{ fontSize: '0.78rem', color: COLORS.silver }}>{language === 'tr' ? item.tr : item.en}</span>
               <span style={{ fontSize: '0.68rem', color: `${CEHENNEM.accent}80`, flexShrink: 0 }}>{item.ref}</span>
             </div>
           ))}
@@ -1066,10 +1066,10 @@ function TabRahman({ data, language, isMobile }) {
             borderLeft: `3px solid ${GOLD}`,
             borderRadius: RADIUS.chip, padding: '16px 18px',
           }}>
-            <p style={{ fontSize: '0.9rem', fontWeight: 700, color: '#e8e6e3', margin: '0 0 8px' }}>
+            <p style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 8px' }}>
               {tr ? k.titleTr : k.titleEn}
             </p>
-            <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.7, margin: 0 }}>
               {tr ? k.bodyTr : k.bodyEn}
             </p>
           </div>
@@ -1099,7 +1099,7 @@ const CROSS_LINKS = [
 function SourceSection({ titleTr, titleEn, items, tr }) {
   return (
     <div style={{ marginBottom: '20px' }}>
-      <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#64748b', margin: '0 0 10px' }}>
+      <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: COLORS.slate500, margin: '0 0 10px' }}>
         {tr ? titleTr : titleEn}
       </h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -1113,7 +1113,7 @@ function SourceSection({ titleTr, titleEn, items, tr }) {
               borderRadius: RADIUS.md, padding: '10px 14px',
               display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px',
             }}>
-              <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: 0, flex: 1 }}>
+              <p style={{ fontSize: '0.85rem', color: COLORS.silver, margin: 0, flex: 1 }}>
                 {label}
               </p>
               {url && (
@@ -1162,7 +1162,7 @@ function TabKaynaklar({ data, language }) {
         display: 'flex', gap: '10px', alignItems: 'flex-start',
       }}>
         <span style={{ color: GOLD, flexShrink: 0, fontSize: '1rem', marginTop: '1px' }}>ℹ</span>
-        <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.7, margin: 0 }}>
+        <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.7, margin: 0 }}>
           {tr ? k.globalNotTr : k.globalNotEn}
         </p>
       </div>
@@ -1173,7 +1173,7 @@ function TabKaynaklar({ data, language }) {
 
       {/* Cross-tool links */}
       <div style={{ marginTop: '28px' }}>
-        <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#64748b', margin: '0 0 10px' }}>
+        <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: COLORS.slate500, margin: '0 0 10px' }}>
           {tr ? 'İlgili Araçlar' : 'Related Tools'}
         </h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -1185,16 +1185,16 @@ function TabKaynaklar({ data, language }) {
                 display: 'inline-flex', alignItems: 'center', gap: '5px',
                 padding: '6px 14px',
                 background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.1)',
+                border: `1px solid ${COLORS.glassBorder}`,
                 borderRadius: RADIUS.pillSm,
-                color: '#94a3b8',
+                color: COLORS.silver,
                 fontSize: '0.8rem',
                 cursor: 'pointer',
                 fontFamily: "'Inter', sans-serif",
                 transition: `all ${TRANSITION.fast}`,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#e8e6e3'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#94a3b8'; }}
+              onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBgStrong; e.currentTarget.style.color = COLORS.offWhite; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.silver; }}
             >
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />

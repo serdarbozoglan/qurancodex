@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS,
   FONTS,
@@ -12,24 +13,9 @@ import {
   VERSE_DISPLAY_CARD,
   GLASS_CARD,
   BREAKPOINT_TABLET,
+  RADIUS,
 } from '../tokens';
 
-// CLAUDE.md §13.14 + §13.15 — Uthmani encoding → standard + Maddah render fix
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
 // ─── Tab definitions ──────────────────────────────────────────────────────────
 const TABS = [
@@ -782,7 +768,7 @@ function ThematicItemCard({ item, accent, index, language, isMobile }) {
         <div style={{
           width: '26px',
           height: '26px',
-          borderRadius: '50%',
+          borderRadius: RADIUS.full,
           background: `${accent}18`,
           border: `1px solid ${accent}40`,
           display: 'flex',
@@ -1069,7 +1055,7 @@ function CloseBtn({ onClose }) {
       onClick={onClose}
       style={{ ...CLOSE_BTN }}
       onMouseEnter={e => {
-        e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+        e.currentTarget.style.background = COLORS.glassBorder;
         e.currentTarget.style.color = COLORS.offWhite;
       }}
       onMouseLeave={e => {

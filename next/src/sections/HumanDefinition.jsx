@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 
 // ─────────────────────────────────────────────
@@ -324,7 +324,14 @@ export default function HumanDefinition() {
 
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-4"
+        className="font-display font-bold text-off-white mt-4 mb-4"
+        style={{
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.15,
+          maxWidth: '60ch',
+        }}
       >
         {tr('title')}
       </motion.h2>
@@ -338,7 +345,13 @@ export default function HumanDefinition() {
 
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-base leading-relaxed max-w-3xl mb-4"
+        className="font-body max-w-3xl mb-4"
+        style={{
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {tr('intro')}
       </motion.p>
@@ -362,7 +375,7 @@ export default function HumanDefinition() {
           <div
             key={key}
             className="glass-card p-6 text-center"
-            style={{ border: '1px solid rgba(212,165,116,0.15)', position: 'relative' }}
+            style={{ border: `1px solid ${COLORS.goldAlpha15}`, position: 'relative' }}
           >
             <p className="font-display text-4xl font-bold text-gold mb-2">{num}</p>
             <p className="text-off-white text-sm font-body font-semibold mb-1">
@@ -381,7 +394,7 @@ export default function HumanDefinition() {
                   color: 'rgba(212,165,116,0.5)', fontSize: '0.85rem', lineHeight: 1,
                   transition: 'color 0.15s',
                 }}
-                onMouseEnter={e => e.currentTarget.style.color = '#d4a574'}
+                onMouseEnter={e => e.currentTarget.style.color = COLORS.gold}
                 onMouseLeave={e => e.currentTarget.style.color = 'rgba(212,165,116,0.5)'}
               >ⓘ</button>
             )}
@@ -443,7 +456,7 @@ export default function HumanDefinition() {
               className="rounded-xl overflow-hidden cursor-pointer"
               style={{
                 background: openTerm === i ? term.glow : 'rgba(255,255,255,0.03)',
-                border: `1px solid ${openTerm === i ? term.border : 'rgba(255,255,255,0.08)'}`,
+                border: `1px solid ${openTerm === i ? term.border : COLORS.glassBgStrong}`,
                 transition: 'all 0.25s',
               }}
               onClick={() => setOpenTerm(openTerm === i ? null : i)}
@@ -557,7 +570,7 @@ export default function HumanDefinition() {
           style={{
             position: 'relative',
             background: 'rgba(212,165,116,0.05)',
-            border: '1px solid rgba(212,165,116,0.2)',
+            border: `1px solid ${COLORS.goldAlpha20}`,
           }}
         >
           <audio
@@ -583,13 +596,13 @@ export default function HumanDefinition() {
             aria-label={muminPlaying ? 'Durdur' : 'Dinle'}
             style={{
               position: 'absolute', bottom: '14px', right: '14px',
-              width: '36px', height: '36px', borderRadius: '50%',
+              width: '36px', height: '36px', borderRadius: RADIUS.full,
               background: muminPlaying ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.06)',
               border: `1px solid ${muminPlaying ? 'rgba(212,165,116,0.55)' : 'rgba(255,255,255,0.12)'}`,
-              boxShadow: muminPlaying ? '0 0 16px rgba(212,165,116,0.25)' : 'none',
+              boxShadow: muminPlaying ? `0 0 16px ${COLORS.goldAlpha25}` : 'none',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: 'pointer', transition: 'all 0.25s',
-              color: muminPlaying ? '#d4a574' : '#94a3b8',
+              color: muminPlaying ? COLORS.gold : COLORS.silver,
             }}
           >
             {muminPlaying ? (
@@ -629,7 +642,7 @@ export default function HumanDefinition() {
               className="rounded-2xl cursor-pointer flex flex-col"
               style={{
                 background: openTrait === i ? 'rgba(212,165,116,0.07)' : 'rgba(255,255,255,0.03)',
-                border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.08)'}`,
+                border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.35)' : COLORS.glassBgStrong}`,
                 transition: 'all 0.25s',
                 boxShadow: openTrait === i ? '0 0 24px rgba(212,165,116,0.08)' : 'none',
               }}
@@ -641,15 +654,15 @@ export default function HumanDefinition() {
                   <span
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold font-body flex-shrink-0"
                     style={{
-                      background: openTrait === i ? 'rgba(212,165,116,0.2)' : 'rgba(255,255,255,0.06)',
-                      color: openTrait === i ? '#d4a574' : COLORS.slate500,
-                      border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.4)' : 'rgba(255,255,255,0.1)'}`,
+                      background: openTrait === i ? COLORS.goldAlpha20 : 'rgba(255,255,255,0.06)',
+                      color: openTrait === i ? COLORS.gold : COLORS.slate500,
+                      border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.4)' : COLORS.glassBorder}`,
                     }}
                   >{trait.num}</span>
                   <span
                     className="text-xs font-body"
                     style={{
-                      color: openTrait === i ? 'rgba(212,165,116,0.8)' : 'rgba(148,163,184,0.4)',
+                      color: openTrait === i ? 'rgba(212,165,116,0.8)' : COLORS.silverAlpha40,
                       letterSpacing: '0.03em',
                       transition: 'color 0.25s',
                     }}
@@ -663,7 +676,7 @@ export default function HumanDefinition() {
                   style={{
                     fontFamily: FONTS.quran,
                     fontSize: '1.5rem',
-                    color: openTrait === i ? '#d4a574' : 'rgba(212,165,116,0.65)',
+                    color: openTrait === i ? COLORS.gold : 'rgba(212,165,116,0.65)',
                     transition: 'color 0.25s',
                   }}
                 >{trait.arabic}</p>
@@ -712,7 +725,7 @@ export default function HumanDefinition() {
               className="rounded-2xl cursor-pointer mb-8"
               style={{
                 background: openTrait === i ? 'rgba(212,165,116,0.09)' : 'rgba(212,165,116,0.03)',
-                border: `1px solid ${openTrait === i ? 'rgba(212,165,116,0.45)' : 'rgba(212,165,116,0.18)'}`,
+                border: `1px solid ${openTrait === i ? COLORS.goldAlpha45 : 'rgba(212,165,116,0.18)'}`,
                 transition: 'all 0.25s',
                 boxShadow: openTrait === i ? '0 0 32px rgba(212,165,116,0.1)' : 'none',
               }}
@@ -723,7 +736,7 @@ export default function HumanDefinition() {
                   <span
                     className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold font-body flex-shrink-0"
                     style={{
-                      background: 'rgba(212,165,116,0.2)',
+                      background: COLORS.goldAlpha20,
                       color: COLORS.gold,
                       border: '1px solid rgba(212,165,116,0.4)',
                     }}
@@ -768,7 +781,7 @@ export default function HumanDefinition() {
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-5 pt-3" style={{ borderTop: '1px solid rgba(212,165,116,0.15)' }}>
+                    <div className="px-6 pb-5 pt-3" style={{ borderTop: `1px solid ${COLORS.goldAlpha15}` }}>
                       <p className="text-silver/60 text-sm font-body leading-relaxed italic">
                         {lang === 'tr' ? trait.noteTr : trait.noteEn}
                       </p>
@@ -783,7 +796,7 @@ export default function HumanDefinition() {
         {/* Verses 23:6-7 academic disclaimer */}
         <p
           className="text-silver/45 text-xs font-body italic leading-relaxed mb-4"
-          style={{ borderLeft: '2px solid rgba(255,255,255,0.08)', paddingLeft: '0.75rem' }}
+          style={{ borderLeft: `2px solid ${COLORS.glassBgStrong}`, paddingLeft: '0.75rem' }}
         >
           {tr('muminVersesGapNote')}
         </p>
@@ -795,8 +808,8 @@ export default function HumanDefinition() {
               key={i}
               className="rounded-lg p-4"
               style={{
-                background: 'rgba(212,165,116,0.04)',
-                border: '1px solid rgba(212,165,116,0.15)',
+                background: COLORS.goldAlpha04,
+                border: `1px solid ${COLORS.goldAlpha15}`,
                 borderLeft: '3px solid rgba(212,165,116,0.5)',
               }}
             >
@@ -816,7 +829,7 @@ export default function HumanDefinition() {
         </p>
         <p
           className="text-silver/40 text-xs font-body italic mb-8"
-          style={{ borderLeft: '2px solid rgba(255,255,255,0.1)', paddingLeft: '0.75rem' }}
+          style={{ borderLeft: `2px solid ${COLORS.glassBorder}`, paddingLeft: '0.75rem' }}
         >
           {tr('oppositionNote')}
         </p>
@@ -873,7 +886,7 @@ export default function HumanDefinition() {
                     gap: '6px',
                   }}>
                     <span style={{
-                      width: '28px', height: '28px', borderRadius: '50%',
+                      width: '28px', height: '28px', borderRadius: RADIUS.full,
                       background: 'rgba(255,255,255,0.06)',
                       border: '1px solid rgba(255,255,255,0.12)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -937,8 +950,8 @@ export default function HumanDefinition() {
         <div
           className="rounded-2xl p-6 md:p-10 mb-6"
           style={{
-            background: 'rgba(212,165,116,0.04)',
-            border: '1px solid rgba(212,165,116,0.2)',
+            background: COLORS.goldAlpha04,
+            border: `1px solid ${COLORS.goldAlpha20}`,
           }}
         >
           {/* Full Arabic verse */}
@@ -972,7 +985,7 @@ export default function HumanDefinition() {
                     border: activeWord === i
                       ? '1px solid rgba(212,165,116,0.55)'
                       : '1px solid rgba(212,165,116,0.18)',
-                    color: activeWord === i ? '#d4a574' : 'rgba(232,230,227,0.75)',
+                    color: activeWord === i ? COLORS.gold : 'rgba(232,230,227,0.75)',
                     cursor: 'pointer',
                   }}
                 >
@@ -994,7 +1007,7 @@ export default function HumanDefinition() {
                 className="mt-6 rounded-xl p-5"
                 style={{
                   background: 'rgba(212,165,116,0.06)',
-                  border: '1px solid rgba(212,165,116,0.25)',
+                  border: `1px solid ${COLORS.goldAlpha25}`,
                 }}
               >
                 <p className="text-gold font-body font-semibold text-base mb-1">
@@ -1077,7 +1090,7 @@ export default function HumanDefinition() {
                 </div>
 
                 {/* Desc — flex-1 pushes verse to bottom */}
-                <p className="text-silver/60 text-xs font-body text-center leading-relaxed mb-4 flex-1">
+                <p className="text-silver/60 text-xs font-body leading-relaxed mb-4 flex-1">
                   {lang === 'tr' ? stage.descTr : stage.descEn}
                 </p>
 
@@ -1131,12 +1144,12 @@ export default function HumanDefinition() {
             padding: '14px 24px',
             background: 'rgba(212,165,116,0.06)',
             border: '1px solid rgba(212,165,116,0.3)',
-            borderRadius: '10px',
+            borderRadius: RADIUS.chip,
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            transition: 'all 0.2s',
+            transition: `all ${TRANSITION.base}`,
           }}
           onMouseEnter={e => {
             e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
@@ -1148,16 +1161,16 @@ export default function HumanDefinition() {
           }}
         >
           <div style={{ textAlign: 'left' }}>
-            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
               {language === 'tr' ? '↗ NEFSİN MERTEBELERİ — ATLASI AÇ' : '↗ STAGES OF THE SOUL — OPEN THE ATLAS'}
             </p>
-            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
                 ? 'emmâre · levvâme · mülhime · mutmainne · râziye · marzıyye · sâfiye — nefsin yedi makamı'
                 : 'ammāra · lawwāma · mulhima · muṭmaʾinna · rāḍiya · marḍiyya · ṣāfiya — the seven stations of the soul'}
             </p>
           </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>

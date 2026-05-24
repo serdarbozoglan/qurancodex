@@ -3,9 +3,10 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { surahNameTr } from '../lib/surahNames';
+import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
@@ -67,22 +68,6 @@ const TABS = [
   },
 ];
 
-// ── Arabic cleanup (same pipeline as KissaAtlas) ─────────────────────────────
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
 // ── Ref formatter — prepends surah name to verse ref (e.g. "Bakara 2:30-34") ─
 function formatRef(ref) {
@@ -254,7 +239,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
         <button
           onClick={onClose}
           style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
           onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           aria-label="Close"
         >
@@ -589,7 +574,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
           { color: TEMPORAL.ahiret, label: language === 'tr' ? 'Ahiret': 'Hereafter' },
         ].map(l => (
           <div key={l.label} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <div style={{ width: 10, height: 10, borderRadius: '50%', background: l.color }} />
+            <div style={{ width: 10, height: 10, borderRadius: RADIUS.full, background: l.color }} />
             <span style={{ color: COLORS.silver, fontSize: '0.74rem', fontFamily: FONTS.body }}>{l.label}</span>
           </div>
         ))}
@@ -713,12 +698,12 @@ function TabDiyaloglar({ dialogues, axes: _axes, speakers, axisFilter, setAxisFi
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>
                   {dialogue.turns[0] && (
                     <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <span style={{ width: 8, height: 8, borderRadius: '50%', background: getSpeakerColor(dialogue.turns[0].speaker), display: 'inline-block', flexShrink: 0 }} />
+                      <span style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: getSpeakerColor(dialogue.turns[0].speaker), display: 'inline-block', flexShrink: 0 }} />
                       <span style={{ color: getSpeakerColor(dialogue.turns[0].speaker), fontSize: '0.78rem', fontFamily: FONTS.body }}>
                         {getSpeakerName(dialogue.turns[0].speaker)}
                       </span>
                       <span style={{ color: COLORS.silver, fontSize: '0.78rem' }}>→</span>
-                      <span style={{ width: 8, height: 8, borderRadius: '50%', background: getSpeakerColor(dialogue.turns[0].addressee), display: 'inline-block', flexShrink: 0 }} />
+                      <span style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: getSpeakerColor(dialogue.turns[0].addressee), display: 'inline-block', flexShrink: 0 }} />
                       <span style={{ color: getSpeakerColor(dialogue.turns[0].addressee), fontSize: '0.78rem', fontFamily: FONTS.body }}>
                         {getSpeakerName(dialogue.turns[0].addressee)}
                       </span>
@@ -757,7 +742,7 @@ function TabDiyaloglar({ dialogues, axes: _axes, speakers, axisFilter, setAxisFi
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: getSpeakerColor(turn.speaker), display: 'inline-block', flexShrink: 0 }} />
+                        <span style={{ width: 6, height: 6, borderRadius: RADIUS.full, background: getSpeakerColor(turn.speaker), display: 'inline-block', flexShrink: 0 }} />
                         <span style={{ color: getSpeakerColor(turn.speaker), fontSize: '0.74rem', fontFamily: FONTS.body, fontWeight: 600 }}>
                           {getSpeakerName(turn.speaker)}
                         </span>
@@ -992,7 +977,7 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
                   <div key={pi} style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <div style={{
-                        width: 20, height: 20, borderRadius: '50%',
+                        width: 20, height: 20, borderRadius: RADIUS.full,
                         background: TEMPORAL_COLORS[phase.context] || COLORS.silver,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: '0.65rem', color: '#fff', fontFamily: FONTS.body, fontWeight: 700, flexShrink: 0,
@@ -1221,7 +1206,7 @@ function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
                         title={partner ? (language === 'tr' ? partner.nameTr : partner.nameEn) : partnerId}
                         onClick={() => onSpeakerClick(speaker.id, partnerId)}
                         style={{
-                          width: 8, height: 8, borderRadius: '50%',
+                          width: 8, height: 8, borderRadius: RADIUS.full,
                           background: partner?.color || COLORS.silver,
                           cursor: 'pointer',
                           flexShrink: 0,

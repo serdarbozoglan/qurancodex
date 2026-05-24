@@ -147,7 +147,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
                   {tr ? 'Kelime Formları' : 'Word Forms'}
                 </p>
                 {renk.arabicTerms.map(t => (
-                  <div key={t.arabic} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <div key={t.arabic} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 0', borderBottom: `1px solid ${COLORS.glassBg}` }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{t.arabic}</span>
                       <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{t.transliteration}</span>
@@ -291,17 +291,17 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                 >
                   {/* Stage number — büyütülmüş ve daha belirgin */}
                   <span style={{
-                    width: '32px', height: '32px', borderRadius: '50%',
+                    width: '32px', height: '32px', borderRadius: RADIUS.full,
                     background: isLight ? 'rgba(0,0,0,0.22)' : 'rgba(255,255,255,0.18)',
                     border: isLight ? '1.5px solid rgba(0,0,0,0.35)' : '1.5px solid rgba(255,255,255,0.3)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: '0.95rem', fontWeight: 800, color: isLight ? '#0a0a1a' : COLORS.offWhite,
+                    fontSize: '0.95rem', fontWeight: 800, color: isLight ? COLORS.cosmicBlack : COLORS.offWhite,
                     fontFamily: FONTS.display,
                     boxShadow: isLight ? '0 1px 4px rgba(0,0,0,0.18)' : '0 1px 4px rgba(0,0,0,0.4)',
                   }}>
                     {i + 1}
                   </span>
-                  <span style={{ fontSize: '0.72rem', fontWeight: 700, color: isLight ? '#0a0a1a' : COLORS.offWhite, fontFamily: FONTS.body, textAlign: 'center' }}>
+                  <span style={{ fontSize: '0.72rem', fontWeight: 700, color: isLight ? COLORS.cosmicBlack : COLORS.offWhite, fontFamily: FONTS.body, textAlign: 'center' }}>
                     {tr ? s.labelTr : s.labelEn}
                   </span>
                   <span style={{ fontSize: '0.6rem', color: isLight ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.5)', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.3 }}>
@@ -333,7 +333,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                 style={{
                   padding: '4px 12px', borderRadius: RADIUS.pillSm, cursor: 'pointer',
                   border: `1px solid ${expandedVerse === v.ref ? COLORS.gold : 'rgba(212,165,116,0.35)'}`,
-                  background: expandedVerse === v.ref ? 'rgba(212,165,116,0.15)' : 'transparent',
+                  background: expandedVerse === v.ref ? COLORS.goldAlpha15 : 'transparent',
                   color: expandedVerse === v.ref ? COLORS.gold : COLORS.silver,
                   fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,
                   transition: `all ${TRANSITION.fast}`,
@@ -355,7 +355,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
               dry:    { tr: 'Kuru aşama',   en: 'Dry stage' },
             };
             return (
-              <div style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid rgba(212,165,116,0.2)`, borderRadius: RADIUS.chip, overflow: 'hidden', marginBottom: '12px' }}>
+              <div style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.chip, overflow: 'hidden', marginBottom: '12px' }}>
                 {/* Full Arabic */}
                 <div style={{ padding: '16px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                   <p style={{ fontFamily: FONTS.quran, fontSize: '1.35rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 10px' }} lang="ar" dir="rtl">
@@ -376,7 +376,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                     <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
                       {/* Color dot + label */}
                       <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0, minWidth: isMobile ? '70px' : '90px' }}>
-                        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: stageColors[s.stage], flexShrink: 0 }} />
+                        <div style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: stageColors[s.stage], flexShrink: 0 }} />
                         <span style={{ fontSize: '0.68rem', fontWeight: 700, color: stageColors[s.stage], fontFamily: FONTS.body }}>
                           {tr ? stageLabels[s.stage].tr : stageLabels[s.stage].en}
                         </span>
@@ -540,7 +540,7 @@ function TabBaglam({ language, isMobile }) {
     {
       titleTr: 'Tabiat Paleti',
       titleEn: 'Nature Palette',
-      accentColor: '#d4a574',
+      accentColor: COLORS.gold,
       descTr: "Tabiat tasvirinde renk hem gerçekçi hem sembolik. Fâtır 35:27 jeolojik bir gözlem — dağlardaki mineral şeritleri. Bakara 2:187 rengi pratik bir zaman ölçütü olarak kullanır.",
       descEn: "In nature descriptions, color is both realistic and symbolic. Fatir 35:27 is a geological observation — mineral streaks in mountains. Al-Baqarah 2:187 uses color as a practical time measure.",
       colors: [
@@ -625,7 +625,7 @@ function TabBaglam({ language, isMobile }) {
       {sections.map((section, si) => (
         <div key={si} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg, overflow: 'hidden' }}>
           {/* Section header */}
-          <div style={{ padding: isMobile ? '14px' : '16px 20px', borderBottom: `1px solid rgba(255,255,255,0.05)`, background: `linear-gradient(135deg, rgba(0,0,0,0.2), transparent)` }}>
+          <div style={{ padding: isMobile ? '14px' : '16px 20px', borderBottom: `1px solid ${COLORS.glassBg}`, background: `linear-gradient(135deg, rgba(0,0,0,0.2), transparent)` }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
               <div style={{ width: '3px', height: '14px', background: section.accentColor, borderRadius: '2px', flexShrink: 0 }} />
               <span style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: section.accentColor, fontFamily: FONTS.body }}>
@@ -655,7 +655,7 @@ function TabBaglam({ language, isMobile }) {
                       transition: 'background 0.15s',
                     }}
                   >
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: c.hex, flexShrink: 0, boxShadow: `0 0 6px ${c.hex}60` }} />
+                    <div style={{ width: '12px', height: '12px', borderRadius: RADIUS.full, background: c.hex, flexShrink: 0, boxShadow: `0 0 6px ${c.hex}60` }} />
                     <span style={{ flex: 1, fontSize: '0.85rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600 }}>
                       {tr ? c.nameTr : c.nameEn}
                     </span>
@@ -670,7 +670,7 @@ function TabBaglam({ language, isMobile }) {
 
                   {/* Expanded verse */}
                   {isOpen && (
-                    <div style={{ padding: isMobile ? '12px 14px 14px' : '14px 20px 16px', background: 'rgba(0,0,0,0.2)', borderTop: `1px solid rgba(255,255,255,0.05)` }}>
+                    <div style={{ padding: isMobile ? '12px 14px 14px' : '14px 20px 16px', background: 'rgba(0,0,0,0.2)', borderTop: `1px solid ${COLORS.glassBg}` }}>
                       <p style={{ fontFamily: FONTS.quran, fontSize: '1.8rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 12px' }} lang="ar" dir="rtl">
                         {c.verseAr}
                       </p>
@@ -871,7 +871,7 @@ function TabKiyamet({ language, isMobile }) {
       {scenes.map((s, i) => (
         <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${s.hex}`, borderRadius: RADIUS.chip, padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-            <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: s.hex, flexShrink: 0 }} />
+            <div style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: s.hex, flexShrink: 0 }} />
             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? s.titleTr : s.titleEn}</span>
             {(s.infoTr || s.infoEn) && <InfoPopover text={tr ? s.infoTr : s.infoEn} />}
           </div>
@@ -1028,7 +1028,7 @@ function TabDilbilim({ language, isMobile }) {
           ].map((v, i) => (
             <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderTop: `3px solid ${v.color}`, borderRadius: RADIUS.md, padding: '12px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
-                <span style={{ width: '18px', height: '18px', borderRadius: '50%', background: v.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', color: COLORS.offWhite, fontWeight: 700, flexShrink: 0 }}>{v.numTr}</span>
+                <span style={{ width: '18px', height: '18px', borderRadius: RADIUS.full, background: v.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', color: COLORS.offWhite, fontWeight: 700, flexShrink: 0 }}>{v.numTr}</span>
                 <span style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? v.titleTr : v.titleEn}</span>
                 <InfoPopover text={tr ? "Tefsir geleneğinde bu yorum için farklı alimler farklı gerekçeler sunar." : "Different scholars in the tafsir tradition offer different justifications for this interpretation."} />
               </div>
@@ -1088,7 +1088,7 @@ function TabDilbilim({ language, isMobile }) {
           <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${row.hex}`, borderRadius: RADIUS.chip, padding: isMobile ? '12px' : '16px', marginBottom: '10px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: row.hex, flexShrink: 0 }} />
+                <div style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: row.hex, flexShrink: 0 }} />
                 <span style={{ fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? row.objectTr : row.objectEn}</span>
               </div>
               <span style={{ fontSize: '0.78rem', color: COLORS.gold, fontFamily: FONTS.body, fontStyle: 'italic' }}>{tr ? row.colorTr : row.colorEn}</span>
@@ -1279,7 +1279,7 @@ export default function KuranRenkleri({ onClose }) {
           <span style={OVERLAY_TITLE}>
             {tr ? "Kur'an'ın Renkleri" : 'Colors of the Quran'}
           </span>
-          <span style={{ color: 'rgba(148,163,184,0.4)', fontSize: '0.85rem', flexShrink: 0 }}>·</span>
+          <span style={{ color: COLORS.silverAlpha40, fontSize: '0.85rem', flexShrink: 0 }}>·</span>
           <span style={{ color: 'rgba(232,230,227,0.7)', fontSize: '0.88rem', fontFamily: FONTS.body, fontWeight: 600, fontStyle: 'italic', letterSpacing: '0.02em' }}>
             {tr ? 'Elvânü\'l-Kur\'ân' : 'Alwān al-Quran'}
           </span>
@@ -1287,7 +1287,7 @@ export default function KuranRenkleri({ onClose }) {
         <button
           onClick={onClose}
           style={CLOSE_BTN}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
           onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           aria-label="Kapat"
         >
@@ -1301,7 +1301,7 @@ export default function KuranRenkleri({ onClose }) {
       <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
 
         {/* ── Hero ── */}
-        <div style={{ padding: isMobile ? '20px 16px 16px' : '28px 32px 24px', background: 'linear-gradient(180deg,#0d1b2a 0%,#0a0a1a 100%)', borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
+        <div style={{ padding: isMobile ? '20px 16px 16px' : '28px 32px 24px', background: `linear-gradient(180deg,${COLORS.deepNavy} 0%,${COLORS.cosmicBlack} 100%)`, borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
           {/* Page label */}
           <div style={{ fontSize: '0.62rem', letterSpacing: '0.15em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '8px' }}>
             {tr ? "KUR'AN'IN RENK PALETİ" : "THE QURAN'S COLOR PALETTE"}
@@ -1367,7 +1367,7 @@ export default function KuranRenkleri({ onClose }) {
           </p>
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
             {[
-              { ar: 'بِيضٌ', label: tr ? 'Beyaz' : 'White', bg: '#C8D6E5', fg: '#0a0a1a' },
+              { ar: 'بِيضٌ', label: tr ? 'Beyaz' : 'White', bg: '#C8D6E5', fg: COLORS.cosmicBlack },
               { ar: 'حُمْرٌ', label: tr ? 'Kırmızı' : 'Red',   bg: '#B91C1C', fg: '#fff' },
               { ar: 'غَرَابِيبُ سُودٌ', label: tr ? 'Simsiyah' : 'Jet Black', bg: '#1E1B4B', fg: COLORS.offWhite },
             ].map(p => (

@@ -9,23 +9,8 @@ import {
 } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
 
-// ── Arabic text cleanup ───────────────────────────────────────────────────────
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
+import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 // ── Category / reliability / period metadata ──────────────────────────────────
 const CATEGORY_META = {
   'event-response':     { tr: 'Olaya Cevap',       en: 'Event Response',        color: '#e67e22' },
@@ -151,12 +136,12 @@ function TimelinePrevNext({ events, current, onSelect, language }) {
           onClick={() => onSelect(prev)}
           style={{
             flex: 1, padding: '12px 14px', borderRadius: RADIUS.chip, cursor: 'pointer',
-            background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`,
             textAlign: 'left', color: COLORS.silver, transition: 'all 0.15s',
             fontFamily: FONTS.body,
           }}
           onMouseEnter={e => { e.currentTarget.style.borderColor = `${COLORS.gold}4d`; e.currentTarget.style.color = COLORS.gold; }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = COLORS.silver; }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.glassBgStrong; e.currentTarget.style.color = COLORS.silver; }}
         >
           <div style={{ fontSize: '0.6rem', marginBottom: '4px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
             {language === 'tr' ? '← Önceki' : '← Previous'}
@@ -171,12 +156,12 @@ function TimelinePrevNext({ events, current, onSelect, language }) {
           onClick={() => onSelect(next)}
           style={{
             flex: 1, padding: '12px 14px', borderRadius: RADIUS.chip, cursor: 'pointer',
-            background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`,
             textAlign: 'right', color: COLORS.silver, transition: 'all 0.15s',
             fontFamily: FONTS.body,
           }}
           onMouseEnter={e => { e.currentTarget.style.borderColor = `${COLORS.gold}4d`; e.currentTarget.style.color = COLORS.gold; }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = COLORS.silver; }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.glassBgStrong; e.currentTarget.style.color = COLORS.silver; }}
         >
           <div style={{ fontSize: '0.6rem', marginBottom: '4px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
             {language === 'tr' ? 'Sonraki →' : 'Next →'}
@@ -393,7 +378,7 @@ function OccasionCard({ occ, language, isMobile }) {
           {verseData === null || verseData.loading ? (
             <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
               <div style={{
-                width: '24px', height: '24px', borderRadius: '50%',
+                width: '24px', height: '24px', borderRadius: RADIUS.full,
                 border: `2px solid ${COLORS.glassBorder}`,
                 borderTopColor: COLORS.gold,
                 animation: 'spin 0.8s linear infinite',
@@ -760,7 +745,7 @@ function TabIstatistik({ data, language, isMobile }) {
             <div style={{
               width: '180px',
               height: '180px',
-              borderRadius: '50%',
+              borderRadius: RADIUS.full,
               background: donutGradient,
               position: 'relative',
             }}>
@@ -772,7 +757,7 @@ function TabIstatistik({ data, language, isMobile }) {
                 transform: 'translate(-50%, -50%)',
                 width: '108px',
                 height: '108px',
-                borderRadius: '50%',
+                borderRadius: RADIUS.full,
                 background: COLORS.cosmicBlack,
                 display: 'flex',
                 flexDirection: 'column',
@@ -1282,7 +1267,7 @@ function TabZaman({ language, isMobile }) {
     return (
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px' }}>
         <div style={{
-          width: '28px', height: '28px', borderRadius: '50%',
+          width: '28px', height: '28px', borderRadius: RADIUS.full,
           border: `2px solid ${COLORS.glassBorder}`,
           borderTopColor: COLORS.gold,
           animation: 'spin 0.8s linear infinite',
@@ -1313,7 +1298,7 @@ function TabZaman({ language, isMobile }) {
           <div style={{
             display: 'flex', gap: '2px',
             background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            border: `1px solid ${COLORS.glassBgStrong}`,
             borderRadius: RADIUS.chip, padding: '3px', flexShrink: 0,
           }}>
             {[
@@ -1330,12 +1315,12 @@ function TabZaman({ language, isMobile }) {
                     fontSize: '0.8rem', fontWeight: active ? 600 : 400, cursor: 'pointer',
                     border: 'none',
                     background: active ? `${f.color}28` : 'transparent',
-                    color: active ? f.color : 'rgba(148,163,184,0.7)',
+                    color: active ? f.color : COLORS.silverAlpha70,
                     boxShadow: active ? `0 0 12px ${f.color}22` : 'none',
                     transition: 'all 0.15s', fontFamily: FONTS.body,
                   }}
                   onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.offWhite; }}}
-                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(148,163,184,0.7)'; }}}
+                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silverAlpha70; }}}
                 >
                   {language === 'tr' ? f.tr : f.en}
                 </button>
@@ -1343,7 +1328,7 @@ function TabZaman({ language, isMobile }) {
             })}
           </div>
 
-          <div style={{ width: '1px', height: '20px', background: 'rgba(255,255,255,0.08)', margin: '0 16px', flexShrink: 0 }} />
+          <div style={{ width: '1px', height: '20px', background: COLORS.glassBgStrong, margin: '0 16px', flexShrink: 0 }} />
 
           <span style={{
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em',
@@ -1364,17 +1349,17 @@ function TabZaman({ language, isMobile }) {
                     display: 'flex', alignItems: 'center', gap: '6px',
                     padding: '5px 12px', borderRadius: RADIUS.md, whiteSpace: 'nowrap',
                     fontSize: '0.8rem', fontWeight: active ? 600 : 400, cursor: 'pointer',
-                    border: active ? `1px solid ${v.color}55` : '1px solid rgba(255,255,255,0.08)',
+                    border: active ? `1px solid ${v.color}55` : `1px solid ${COLORS.glassBgStrong}`,
                     background: active ? `${v.color}18` : 'rgba(255,255,255,0.03)',
-                    color: active ? v.color : 'rgba(148,163,184,0.7)',
+                    color: active ? v.color : COLORS.silverAlpha70,
                     boxShadow: active ? `0 0 10px ${v.color}20` : 'none',
                     transition: 'all 0.15s', fontFamily: FONTS.body,
                   }}
                   onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.offWhite; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}}
-                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = 'rgba(148,163,184,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}}
+                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = COLORS.silverAlpha70; e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}}
                 >
                   <span style={{
-                    width: '7px', height: '7px', borderRadius: '50%',
+                    width: '7px', height: '7px', borderRadius: RADIUS.full,
                     background: active ? v.color : `${v.color}80`, flexShrink: 0,
                   }} />
                   {language === 'tr' ? v.tr : v.en}
@@ -1395,7 +1380,7 @@ function TabZaman({ language, isMobile }) {
               placeholder={language === 'tr' ? 'Olay veya sûre ara...' : 'Search event or surah...'}
               style={{
                 paddingLeft: '30px', paddingRight: '10px', height: '32px',
-                background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorder}`,
+                background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
                 borderRadius: RADIUS.md, color: COLORS.offWhite, fontSize: '0.8rem',
                 outline: 'none', width: '170px', fontFamily: FONTS.body,
               }}
@@ -1422,7 +1407,7 @@ function TabZaman({ language, isMobile }) {
               return (
                 <div key={periodKey} style={{ marginBottom: '40px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', flexShrink: 0, background: pm.color, boxShadow: `0 0 8px ${pm.color}88` }}/>
+                    <div style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, flexShrink: 0, background: pm.color, boxShadow: `0 0 8px ${pm.color}88` }}/>
                     <div style={{ fontSize: '0.8rem', fontWeight: 700, color: pm.color, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
                       {language === 'tr' ? pm.tr : pm.en}
                     </div>
@@ -1451,7 +1436,7 @@ function TabZaman({ language, isMobile }) {
                           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = `${cm.color}44`; }}
                           onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
                         >
-                          <div style={{ position: 'absolute', left: '-27px', top: '20px', width: '10px', height: '10px', borderRadius: '50%', background: cm.color, flexShrink: 0, boxShadow: `0 0 6px ${cm.color}66` }}/>
+                          <div style={{ position: 'absolute', left: '-27px', top: '20px', width: '10px', height: '10px', borderRadius: RADIUS.full, background: cm.color, flexShrink: 0, boxShadow: `0 0 6px ${cm.color}66` }}/>
                           <div style={{ minWidth: '64px', textAlign: 'center', paddingTop: '2px', flexShrink: 0 }}>
                             <div style={{ fontSize: '0.68rem', color: pm.color, fontWeight: 600, letterSpacing: '0.04em' }}>{ev.hijriLabel}</div>
                           </div>
@@ -1504,12 +1489,12 @@ function TabZaman({ language, isMobile }) {
               style={{
                 display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px',
                 padding: '6px 12px', borderRadius: RADIUS.md,
-                background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorder}`,
+                background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
                 color: COLORS.silver, cursor: 'pointer', fontSize: '0.8rem',
                 fontFamily: FONTS.body, transition: 'all 0.15s',
               }}
               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.09)'; e.currentTarget.style.color = COLORS.offWhite; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.silver; }}
+              onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.color = COLORS.silver; }}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <path d="M19 12H5M12 5l-7 7 7 7"/>
@@ -1564,11 +1549,11 @@ function TabZaman({ language, isMobile }) {
                           width: '100%', textAlign: 'left', cursor: 'pointer',
                           padding: '10px 14px', borderRadius: RADIUS.chip,
                           background: isOpen ? `${COLORS.gold}1a` : 'rgba(255,255,255,0.03)',
-                          border: `1px solid ${isOpen ? `${COLORS.gold}55` : 'rgba(255,255,255,0.08)'}`,
+                          border: `1px solid ${isOpen ? `${COLORS.gold}55` : COLORS.glassBgStrong}`,
                           transition: 'all 0.2s', fontFamily: FONTS.body,
                         }}
                         onMouseEnter={e => { if (!isOpen) { e.currentTarget.style.background = `${COLORS.gold}0d`; e.currentTarget.style.borderColor = `${COLORS.gold}33`; }}}
-                        onMouseLeave={e => { if (!isOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}}
+                        onMouseLeave={e => { if (!isOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}}
                       >
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5" strokeLinecap="round"
                           style={{ flexShrink: 0, transform: isOpen ? 'rotate(90deg)' : 'none', transition: 'transform 0.2s' }}>
@@ -1715,7 +1700,7 @@ export default function SebebiNuzul({ onClose }) {
     return (
       <div style={{ ...OVERLAY_BASE, display: 'flex', alignItems: 'center', justifyContent: 'center' }} role="dialog" aria-modal="true">
         <div style={{
-          width: '36px', height: '36px', borderRadius: '50%',
+          width: '36px', height: '36px', borderRadius: RADIUS.full,
           border: `3px solid ${COLORS.glassBorder}`,
           borderTopColor: COLORS.gold,
           animation: 'spin 0.8s linear infinite',
@@ -1749,7 +1734,7 @@ export default function SebebiNuzul({ onClose }) {
         <button
           onClick={onClose}
           style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
           onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           aria-label="Kapat"
         >

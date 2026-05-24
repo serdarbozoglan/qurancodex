@@ -3,9 +3,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, BREAKPOINT_MOBILE } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
 
+import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 // Surah names (Türkçe kısa)
 const SURAH_NAMES_TR = [
   '', 'Fatiha', 'Bakara', 'Âl-i İmrân', 'Nisâ', 'Mâide',
@@ -58,22 +59,6 @@ const SURAH_NAMES_EN = [
   'Al-Masad', 'Al-Ikhlas', 'Al-Falaq', 'An-Nas',
 ];
 
-// Arabic display cleanup — same pipeline as ReadingMode.cleanArabic
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653') // maddah fix (CLAUDE.md 13.14)
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
 // Parse "20:38–40" → { surah: 20, start: 38, end: 40 }
 // Also handles "20:38" (single verse) and "20:38,40" (two separate)
@@ -163,13 +148,13 @@ export default function KissaAtlas({ onClose }) {
 
   if (loading) return (
     <div style={{
-      position: 'fixed', inset: 0, zIndex: 9999,
+      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
       background: '#06080e',
       display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px',
       fontFamily: "'Inter', sans-serif",
     }}>
-      <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: '#d4a574', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
-      <p style={{ color: '#64748b', fontSize: '0.85rem' }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</p>
+      <div style={{ width: '36px', height: '36px', border: `2px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
+      <p style={{ color: COLORS.slate500, fontSize: '0.85rem' }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</p>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   );
@@ -193,7 +178,7 @@ export default function KissaAtlas({ onClose }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, zIndex: 9999,
+      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
       background: '#06080e',
       display: 'flex', flexDirection: 'column',
       fontFamily: "'Inter', sans-serif",
@@ -225,25 +210,25 @@ export default function KissaAtlas({ onClose }) {
                   key={p.id}
                   onClick={() => selectProphet(p.id)}
                   style={{
-                    padding: '7px 14px', borderRadius: '8px',
+                    padding: '7px 14px', borderRadius: RADIUS.md,
                     border: `1px solid ${selectedProphetId === p.id ? `${p.color}80` : 'rgba(255,255,255,0.08)'}`,
                     background: selectedProphetId === p.id ? `${p.color}18` : 'transparent',
-                    color: selectedProphetId === p.id ? p.color : '#64748b',
+                    color: selectedProphetId === p.id ? p.color : COLORS.slate500,
                     fontSize: '0.82rem', fontWeight: selectedProphetId === p.id ? 700 : 500,
                     cursor: 'pointer', transition: 'all 0.18s',
                     fontFamily: "'Inter', sans-serif",
                   }}
-                  onMouseEnter={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; } }}
-                  onMouseLeave={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = '#64748b'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; } }}
+                  onMouseEnter={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; } }}
+                  onMouseLeave={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = COLORS.slate500; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; } }}
                 >
                   <span style={{ marginRight: '6px', opacity: 0.7 }}>
                     {language === 'tr' ? p.nameTr.split(' ')[1] : p.nameEn.split(' ')[1]}
                   </span>
                   <span style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    width: '18px', height: '18px', borderRadius: '50%',
-                    background: selectedProphetId === p.id ? `${p.color}30` : 'rgba(255,255,255,0.05)',
-                    fontSize: '0.65rem', color: selectedProphetId === p.id ? p.color : '#475569', fontWeight: 700,
+                    width: '18px', height: '18px', borderRadius: RADIUS.full,
+                    background: selectedProphetId === p.id ? `${p.color}30` : COLORS.glassBg,
+                    fontSize: '0.65rem', color: selectedProphetId === p.id ? p.color : COLORS.slate600, fontWeight: 700,
                   }}>
                     {p.surahCount}
                   </span>
@@ -257,8 +242,8 @@ export default function KissaAtlas({ onClose }) {
           <button
             onClick={onClose}
             style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
+            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
+            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M18 6L6 18M6 6l12 12" />
@@ -279,10 +264,10 @@ export default function KissaAtlas({ onClose }) {
                 onClick={() => selectProphet(p.id)}
                 style={{
                   flexShrink: 0,
-                  padding: '6px 12px', borderRadius: '8px',
+                  padding: '6px 12px', borderRadius: RADIUS.md,
                   border: `1px solid ${selectedProphetId === p.id ? `${p.color}80` : 'rgba(255,255,255,0.08)'}`,
                   background: selectedProphetId === p.id ? `${p.color}18` : 'transparent',
-                  color: selectedProphetId === p.id ? p.color : '#64748b',
+                  color: selectedProphetId === p.id ? p.color : COLORS.slate500,
                   fontSize: '0.8rem', fontWeight: selectedProphetId === p.id ? 700 : 500,
                   cursor: 'pointer', transition: 'all 0.18s',
                   fontFamily: "'Inter', sans-serif",
@@ -292,9 +277,9 @@ export default function KissaAtlas({ onClose }) {
                 {language === 'tr' ? p.nameTr.split(' ')[1] : p.nameEn.split(' ')[1]}
                 <span style={{
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                  width: '16px', height: '16px', borderRadius: '50%',
-                  background: selectedProphetId === p.id ? `${p.color}30` : 'rgba(255,255,255,0.05)',
-                  fontSize: '0.6rem', color: selectedProphetId === p.id ? p.color : '#475569', fontWeight: 700,
+                  width: '16px', height: '16px', borderRadius: RADIUS.full,
+                  background: selectedProphetId === p.id ? `${p.color}30` : COLORS.glassBg,
+                  fontSize: '0.6rem', color: selectedProphetId === p.id ? p.color : COLORS.slate600, fontWeight: 700,
                 }}>
                   {p.surahCount}
                 </span>
@@ -325,9 +310,9 @@ export default function KissaAtlas({ onClose }) {
                     background: 'transparent',
                     border: 'none',
                     borderBottom: isActive ? `2px solid ${prophet.color}` : '2px solid transparent',
-                    color: isActive ? prophet.color : '#475569',
+                    color: isActive ? prophet.color : COLORS.slate600,
                     fontSize: '0.78rem', fontWeight: isActive ? 700 : 500,
-                    cursor: 'pointer', transition: 'all 0.15s',
+                    cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                     fontFamily: "'Inter', sans-serif",
                     position: 'relative',
                   }}
@@ -336,7 +321,7 @@ export default function KissaAtlas({ onClose }) {
                   {hasDetail && (
                     <span style={{
                       position: 'absolute', top: '8px', right: 'calc(50% - 16px)',
-                      width: '6px', height: '6px', borderRadius: '50%',
+                      width: '6px', height: '6px', borderRadius: RADIUS.full,
                       background: prophet.color, display: 'inline-block', marginLeft: '4px',
                     }} />
                   )}
@@ -368,11 +353,11 @@ export default function KissaAtlas({ onClose }) {
               <h3 style={{ color: prophet.color, fontSize: '1.1rem', fontWeight: 800, margin: 0 }}>
                 {language === 'tr' ? prophet.nameTr : prophet.nameEn}
               </h3>
-              <span style={{ fontFamily: "'Amiri', serif", fontSize: '1.1rem', color: `${prophet.color}80` }}>
+              <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: `${prophet.color}80` }}>
                 {prophet.nameAr}
               </span>
             </div>
-            <p style={{ color: '#475569', fontSize: '0.78rem', margin: '4px 0 0' }}>
+            <p style={{ color: COLORS.slate600, fontSize: '0.78rem', margin: '4px 0 0' }}>
               {language === 'tr'
                 ? `${prophet.scenes.length} ana sahne · ${prophet.surahCount} sûrede`
                 : `${prophet.scenes.length} key scenes · across ${prophet.surahCount} surahs`}
@@ -395,10 +380,10 @@ export default function KissaAtlas({ onClose }) {
                   }}
                   style={{
                     width: '100%', textAlign: 'left', padding: '10px 12px',
-                    borderRadius: '10px', marginBottom: '3px',
+                    borderRadius: RADIUS.chip, marginBottom: '3px',
                     background: isActive ? `${prophet.color}18` : 'transparent',
                     border: `1px solid ${isActive ? `${prophet.color}50` : 'transparent'}`,
-                    cursor: 'pointer', transition: 'all 0.15s',
+                    cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                     display: 'flex', alignItems: 'flex-start', gap: '10px',
                     fontFamily: "'Inter', sans-serif",
                   }}
@@ -412,9 +397,9 @@ export default function KissaAtlas({ onClose }) {
                   {/* Scene number */}
                   <span style={{
                     flexShrink: 0, width: '24px', height: '24px',
-                    borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    borderRadius: RADIUS.full, display: 'flex', alignItems: 'center', justifyContent: 'center',
                     background: isActive ? prophet.color : 'rgba(255,255,255,0.06)',
-                    color: isActive ? '#0a0a1a' : '#475569',
+                    color: isActive ? COLORS.cosmicBlack : COLORS.slate600,
                     fontSize: '0.7rem', fontWeight: 700, marginTop: '1px',
                   }}>
                     {scene.order}
@@ -431,7 +416,7 @@ export default function KissaAtlas({ onClose }) {
                       {language === 'tr' ? scene.titleTr : scene.titleEn}
                     </p>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-                      <span style={{ color: '#334155', fontSize: '0.7rem' }}>
+                      <span style={{ color: COLORS.slate700, fontSize: '0.7rem' }}>
                         {scene.verseRef.replace(/^(\d+):/, (_, n) => `${language === 'tr' ? SURAH_NAMES_TR[+n] : SURAH_NAMES_EN[+n]}:`)}
                       </span>
                     </div>
@@ -452,7 +437,7 @@ export default function KissaAtlas({ onClose }) {
           <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px' : '20px', display: isMobile && mobileTab === 'detail' ? 'none' : 'block' }}>
 
             {/* Instructions */}
-            <p style={{ color: '#334155', fontSize: '0.78rem', marginBottom: '16px', lineHeight: 1.6 }}>
+            <p style={{ color: COLORS.slate700, fontSize: '0.78rem', marginBottom: '16px', lineHeight: 1.6 }}>
               {selectedScene
                 ? (language === 'tr'
                     ? `"${selectedScene.titleTr}" sahnesi şu sûrelerde anlatılıyor:`
@@ -499,7 +484,7 @@ export default function KissaAtlas({ onClose }) {
                   shadow = 'none';
                 } else {
                   bg = 'rgba(255,255,255,0.03)';
-                  border = '1px solid rgba(255,255,255,0.05)';
+                  border = `1px solid ${COLORS.glassBg}`;
                   color = '#1e293b';
                   shadow = 'none';
                 }
@@ -575,13 +560,13 @@ export default function KissaAtlas({ onClose }) {
           <AnimatePresence>
             {isMobile && mobileTab === 'detail' && !selectedScene && !selectedSurah && (
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px 20px' }}>
-                <p style={{ color: '#334155', fontSize: '0.85rem', textAlign: 'center' }}>
+                <p style={{ color: COLORS.slate700, fontSize: '0.85rem', textAlign: 'center' }}>
                   {language === 'tr' ? 'Bir sahne veya sûre seçin' : 'Select a scene or surah'}
                 </p>
                 <button
                   onClick={() => setMobileTab('scenes')}
                   style={{
-                    padding: '8px 18px', borderRadius: '8px',
+                    padding: '8px 18px', borderRadius: RADIUS.md,
                     background: `${prophet.color}18`,
                     border: `1px solid ${prophet.color}40`,
                     color: prophet.color, fontSize: '0.8rem', cursor: 'pointer',
@@ -613,7 +598,7 @@ export default function KissaAtlas({ onClose }) {
                       style={{
                         display: 'flex', alignItems: 'center', gap: '6px',
                         background: 'transparent', border: 'none',
-                        color: '#64748b', fontSize: '0.78rem', cursor: 'pointer',
+                        color: COLORS.slate500, fontSize: '0.78rem', cursor: 'pointer',
                         padding: '0 0 12px', fontFamily: "'Inter', sans-serif",
                       }}
                     >
@@ -630,9 +615,9 @@ export default function KissaAtlas({ onClose }) {
                         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '10px' }}>
                           <span style={{
                             flexShrink: 0, width: '28px', height: '28px',
-                            borderRadius: '50%', background: prophet.color,
+                            borderRadius: RADIUS.full, background: prophet.color,
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            color: '#0a0a1a', fontSize: '0.75rem', fontWeight: 700,
+                            color: COLORS.cosmicBlack, fontSize: '0.75rem', fontWeight: 700,
                           }}>
                             {selectedScene.order}
                           </span>
@@ -640,18 +625,18 @@ export default function KissaAtlas({ onClose }) {
                             <h4 style={{ color: prophet.color, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 2px' }}>
                               {language === 'tr' ? selectedScene.titleTr : selectedScene.titleEn}
                             </h4>
-                            <span style={{ color: '#475569', fontSize: '0.75rem' }}>{selectedScene.verseRef}</span>
+                            <span style={{ color: COLORS.slate600, fontSize: '0.75rem' }}>{selectedScene.verseRef}</span>
                           </div>
                         </div>
 
                         {/* Description */}
-                        <p style={{ color: '#94a3b8', fontSize: '0.84rem', lineHeight: 1.7, margin: '0 0 12px' }}>
+                        <p style={{ color: COLORS.silver, fontSize: '0.84rem', lineHeight: 1.7, margin: '0 0 12px' }}>
                           {language === 'tr' ? selectedScene.descTr : selectedScene.descEn}
                         </p>
 
                         {/* Surah badges — clickable, show verse range for primary surah */}
                         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '8px' }}>
-                          <span style={{ color: '#334155', fontSize: '0.72rem', alignSelf: 'center' }}>
+                          <span style={{ color: COLORS.slate700, fontSize: '0.72rem', alignSelf: 'center' }}>
                             {language === 'tr' ? 'Sûreler:' : 'Surahs:'}
                           </span>
                           {selectedScene.surahs.map(s => {
@@ -679,9 +664,9 @@ export default function KissaAtlas({ onClose }) {
                                   padding: '4px 10px',
                                   background: isActive ? `${prophet.color}30` : `${prophet.color}18`,
                                   border: `1px solid ${isActive ? prophet.color : prophet.color + '50'}`,
-                                  borderRadius: '20px',
+                                  borderRadius: RADIUS.pillSm,
                                   color: prophet.color, fontSize: '0.78rem', fontWeight: 600,
-                                  cursor: 'pointer', transition: 'all 0.15s',
+                                  cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                                   fontFamily: "'Inter', sans-serif",
                                   display: 'flex', alignItems: 'center', gap: '5px',
                                 }}
@@ -717,15 +702,15 @@ export default function KissaAtlas({ onClose }) {
                                 padding: '12px 14px',
                                 background: 'rgba(0,0,0,0.3)',
                                 border: `1px solid ${prophet.color}25`,
-                                borderRadius: '10px',
+                                borderRadius: RADIUS.chip,
                               }}>
                                 {versePeek.loading ? (
-                                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#475569', fontSize: '0.8rem' }}>
-                                    <div style={{ width: '16px', height: '16px', border: '2px solid rgba(212,165,116,0.2)', borderTopColor: '#d4a574', borderRadius: '50%', animation: 'spin 0.8s linear infinite', flexShrink: 0 }} />
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: COLORS.slate600, fontSize: '0.8rem' }}>
+                                    <div style={{ width: '16px', height: '16px', border: `2px solid ${COLORS.goldAlpha20}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite', flexShrink: 0 }} />
                                     {language === 'tr' ? 'Ayetler yükleniyor…' : 'Loading verses…'}
                                   </div>
                                 ) : versePeek.verses?.length === 0 ? (
-                                  <p style={{ color: '#475569', fontSize: '0.8rem', margin: 0 }}>
+                                  <p style={{ color: COLORS.slate600, fontSize: '0.8rem', margin: 0 }}>
                                     {language === 'tr' ? 'Ayet yüklenemedi.' : 'Could not load verses.'}
                                   </p>
                                 ) : (
@@ -737,19 +722,19 @@ export default function KissaAtlas({ onClose }) {
                                       }}>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                                           <span style={{
-                                            width: '22px', height: '22px', borderRadius: '50%', flexShrink: 0,
+                                            width: '22px', height: '22px', borderRadius: RADIUS.full, flexShrink: 0,
                                             background: `${prophet.color}20`, color: prophet.color,
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             fontSize: '0.62rem', fontWeight: 700,
                                           }}>{v.num}</span>
-                                          <span style={{ color: '#334155', fontSize: '0.68rem' }}>
+                                          <span style={{ color: COLORS.slate700, fontSize: '0.68rem' }}>
                                             {language === 'tr' ? SURAH_NAMES_TR[versePeek.surah] : SURAH_NAMES_EN[versePeek.surah]} {versePeek.surah}:{v.num}
                                           </span>
                                         </div>
                                         <p style={{
-                                          fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                                          fontFamily: FONTS.quran,
                                           fontSize: '1.2rem', lineHeight: 2.1, direction: 'rtl',
-                                          color: '#d4a574', margin: '0 0 8px', textAlign: 'right',
+                                          color: COLORS.gold, margin: '0 0 8px', textAlign: 'right',
                                         }}>{cleanArabic(v.arabic)}</p>
                                         <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.8rem', lineHeight: 1.6, margin: 0, fontStyle: 'italic' }}>
                                           {v.turkish}
@@ -772,12 +757,12 @@ export default function KissaAtlas({ onClose }) {
                       <div>
                         <h4 style={{ color: prophet.color, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 10px' }}>
                           {language === 'tr' ? SURAH_NAMES_TR[selectedSurah] : SURAH_NAMES_EN[selectedSurah]}
-                          <span style={{ color: '#475569', fontWeight: 400, fontSize: '0.82rem', marginLeft: '8px' }}>
+                          <span style={{ color: COLORS.slate600, fontWeight: 400, fontSize: '0.82rem', marginLeft: '8px' }}>
                             ({selectedSurah}. Sûre)
                           </span>
                         </h4>
                         {scenes.length === 0 ? (
-                          <p style={{ color: '#334155', fontSize: '0.82rem', margin: 0 }}>
+                          <p style={{ color: COLORS.slate700, fontSize: '0.82rem', margin: 0 }}>
                             {language === 'tr' ? 'Bu sûrede bu peygambere ait sahne yok.' : 'No scenes of this prophet in this surah.'}
                           </p>
                         ) : (
@@ -790,7 +775,7 @@ export default function KissaAtlas({ onClose }) {
                                   textAlign: 'left', padding: '8px 12px',
                                   background: 'rgba(255,255,255,0.04)',
                                   border: `1px solid ${prophet.color}25`,
-                                  borderRadius: '8px', cursor: 'pointer',
+                                  borderRadius: RADIUS.md, cursor: 'pointer',
                                   display: 'flex', alignItems: 'center', gap: '10px',
                                   transition: 'background 0.15s', fontFamily: "'Inter', sans-serif",
                                 }}
@@ -798,7 +783,7 @@ export default function KissaAtlas({ onClose }) {
                                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
                               >
                                 <span style={{
-                                  width: '20px', height: '20px', borderRadius: '50%',
+                                  width: '20px', height: '20px', borderRadius: RADIUS.full,
                                   background: `${prophet.color}25`, color: prophet.color,
                                   fontSize: '0.68rem', fontWeight: 700,
                                   display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
@@ -808,7 +793,7 @@ export default function KissaAtlas({ onClose }) {
                                 <span style={{ color: '#cbd5e1', fontSize: '0.82rem', fontWeight: 500 }}>
                                   {language === 'tr' ? s.titleTr : s.titleEn}
                                 </span>
-                                <span style={{ color: '#334155', fontSize: '0.72rem', marginLeft: 'auto' }}>
+                                <span style={{ color: COLORS.slate700, fontSize: '0.72rem', marginLeft: 'auto' }}>
                                   {s.verseRef}
                                 </span>
                               </button>
@@ -829,20 +814,20 @@ export default function KissaAtlas({ onClose }) {
       {!isMobile && <div style={{
         display: 'flex', gap: '16px', alignItems: 'center',
         padding: '8px 20px',
-        borderTop: '1px solid rgba(255,255,255,0.05)',
+        borderTop: `1px solid ${COLORS.glassBg}`,
         flexShrink: 0, flexWrap: 'wrap',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: `${prophet.color}35`, border: `1.5px solid ${prophet.color}` }} />
-          <span style={{ color: '#475569', fontSize: '0.72rem' }}>{language === 'tr' ? 'Seçili sahnede' : 'In selected scene'}</span>
+          <span style={{ color: COLORS.slate600, fontSize: '0.72rem' }}>{language === 'tr' ? 'Seçili sahnede' : 'In selected scene'}</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: `${prophet.color}12`, border: `1px solid ${prophet.color}30` }} />
-          <span style={{ color: '#475569', fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssası var' : 'Has narrative'}</span>
+          <span style={{ color: COLORS.slate600, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssası var' : 'Has narrative'}</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }} />
-          <span style={{ color: '#475569', fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssa yok' : 'No narrative'}</span>
+          <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBg}` }} />
+          <span style={{ color: COLORS.slate600, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssa yok' : 'No narrative'}</span>
         </div>
         <span style={{ color: '#1e293b', fontSize: '0.72rem', marginLeft: 'auto' }}>
           {language === 'tr' ? 'Sayı = o sûredeki sahne sayısı' : 'Number = scenes in that surah'}

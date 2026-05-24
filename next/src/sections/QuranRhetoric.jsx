@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import AnimatedCounter from '../components/AnimatedCounter';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 /* ── Icons ── */
 const IconThink = () => (
@@ -171,7 +172,7 @@ function DonutChart({ activeType, onHover }) {
         style={{
           position: 'absolute',
           inset: `${DONUT_STROKE + 16}px`,
-          borderRadius: '50%',
+          borderRadius: RADIUS.full,
           background: 'radial-gradient(circle, rgba(15,15,35,0.95) 0%, rgba(10,10,26,0.98) 100%)',
           display: 'flex',
           flexDirection: 'column',
@@ -298,29 +299,59 @@ export default function QuranRhetoric() {
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
-          {tr ? "Kur'an'ın Retoriği" : "The Quran's Rhetoric"}
+          {tr ? 'Kur’an’ın Retoriği' : 'The Quran’s Rhetoric'}
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero/Discovery parity. Bu section iki satırlı emosyonel kalıp:
+          ana H2 + altın italic kapanış. Alt italic ana başlığın ~%65'i — oran
+          korunur. Margin/leading ortak ritim ile uyumlu. */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-4"
+        style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          marginTop: '12px',
+          marginBottom: '6px',
+          maxWidth: '60ch',
+          lineHeight: 1.15,
+          letterSpacing: '-0.01em',
+        }}
       >
-        {tr ? "Kur'an Cevaplamaz" : "The Quran Doesn't Answer"}
+        {tr ? 'Kur’an Cevaplamaz' : 'The Quran Doesn’t Answer'}
       </motion.h2>
       <motion.p
         variants={fadeUpItem}
-        className="font-display text-xl md:text-2xl text-gold italic mb-10"
+        style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.2rem, 2.5vw, 1.75rem)',
+          color: COLORS.gold,
+          fontStyle: 'italic',
+          lineHeight: 1.2,
+          letterSpacing: '-0.01em',
+          marginBottom: '32px',
+        }}
       >
         {tr ? 'Sorar.' : 'It Asks.'}
       </motion.p>
 
-      {/* Intro text */}
-      <motion.p variants={fadeUpItem} className="text-silver text-lg leading-relaxed max-w-3xl mb-3">
+      {/* Intro text — Hero baseline imzası. */}
+      <motion.p
+        variants={fadeUpItem}
+        className="max-w-3xl mb-3"
+        style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
+      >
         {tr
-          ? "Kur'an'da 1.200'ü aşkın soru yer alıyor. Bu sorular birer retorik araç — muhatabı suçlamaz, sonuca kendisi ulaştırır. Savunmaz; düşündürür. Cevaplamaz; sorar. Dört farklı işlev üstlenen bu sorular, metnin en güçlü ikna katmanını oluşturuyor."
-          : "The Quran contains over 1,200 questions. These are rhetorical instruments — they don't accuse, they guide the reader to conclusions themselves. They don't defend; they provoke thought. They don't answer; they ask. Serving four distinct functions, these questions form the text's most powerful layer of persuasion."}
+          ? "Kur’an'da 1.200'ü aşkın soru yer alıyor. Bu sorular birer retorik araç — muhatabı suçlamaz, sonuca kendisi ulaştırır. Savunmaz; düşündürür. Cevaplamaz; sorar. Dört farklı işlev üstlenen bu sorular, metnin en güçlü ikna katmanını oluşturuyor."
+          : "The Quran contains over 1,200 questions. These are rhetorical instruments — they don’t accuse, they guide the reader to conclusions themselves. They don’t defend; they provoke thought. They don’t answer; they ask. Serving four distinct functions, these questions form the text’s most powerful layer of persuasion."}
       </motion.p>
       <motion.p variants={fadeUpItem} className="text-silver/50 text-sm italic mb-10">
         ℹ{' '}
@@ -487,7 +518,7 @@ export default function QuranRhetoric() {
         <div className="flex-shrink-0 self-center lg:self-start" style={{ position: 'relative' }}>
           {/* Soft outer glow */}
           <div style={{
-            position: 'absolute', inset: '-20px', borderRadius: '50%',
+            position: 'absolute', inset: '-20px', borderRadius: RADIUS.full,
             background: 'radial-gradient(circle, rgba(212,165,116,0.06) 0%, transparent 70%)',
             pointerEvents: 'none',
           }} />

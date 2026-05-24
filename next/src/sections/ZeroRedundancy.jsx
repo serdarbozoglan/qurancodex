@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 // Hover/tap tooltip anchored to bottom-right of its container (card must be position:relative)
 function InfoTooltip({ text }) {
@@ -21,7 +21,7 @@ function InfoTooltip({ text }) {
         style={{
           background: 'rgba(212,165,116,0.10)',
           border: '1px solid rgba(212,165,116,0.25)',
-          borderRadius: '50%',
+          borderRadius: RADIUS.full,
           width: '22px', height: '22px',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           cursor: 'pointer', color: 'rgba(212,165,116,0.7)',
@@ -108,18 +108,31 @@ export default function ZeroRedundancy() {
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero parity */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-8"
+        className="font-display font-bold text-off-white mt-4 mb-8"
+        style={{
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.15,
+          maxWidth: '60ch',
+        }}
       >
         {t('zeroRedundancy.title')}
       </motion.h2>
 
-      {/* Intro */}
+      {/* Intro — Hero parity */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-12"
+        className="font-body max-w-3xl mb-12"
+        style={{
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {t('zeroRedundancy.intro')}
       </motion.p>

@@ -10,8 +10,9 @@ import {
 } from 'three';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
-import { COLORS } from '../tokens';
+import { COLORS, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
 
+import { cleanArabicForGraph } from '../lib/arabic';
 // ─── Strip footnotes from Suat Yıldırım translation ──────────────────────────
 // Removes {KM, Tesniye 4,35; İşaya 43,10-11} style cross-reference notes.
 function cleanTr(str) {
@@ -23,23 +24,6 @@ function cleanTr(str) {
     .trim();
 }
 
-// ─── Arabic display cleanup (ReadingMode cleanArabic + waqf stripping) ─────────
-// ReadingMode has a tajweed pipeline that handles waqf markers via CSS positioning.
-// VerseGraph has no such pipeline, so we strip them here to prevent box/circle rendering.
-function cleanArabicForGraph(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')                          // Uthmani subscript kasra → standard kasra
-    .replace(/\u06E1/g, '\u0652')                          // Uthmani dotless head of khah → standard sukun
-    .replace(/\u0671/g, '\u0627')                          // Alef wasla → plain alef (avoids ص artifact in KFGQPC)
-    .replace(/\u06CC/g, '\u064A')                          // Farsi yeh → Arabic yeh
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')           // Islamic phrase abbreviations
-    .replace(/[\u0600-\u0605]/g, '')                       // Quranic number/footnote marks
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')                  // End-of-ayah, rub el hizb, sajda sign
-    .replace(/\u06E6/g, ' ')                               // Arabic small yeh → space (word separator)
-    .replace(/[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06ED]/g, '') // waqf markers + tajweed signs
-    .replace(/[\uFD3E\uFD3F]/g, '');                       // Ornate parentheses
-}
 
 // ─── Arabic normalization ──────────────────────────────────────────────────────
 // Strips harakat + tatweel + normalizes alef/yeh variants for robust matching.
@@ -469,7 +453,7 @@ function makeNodeObject(node, isSelected, isHovered, isDimmed) {
   if (isDimmed) {
     group.add(new Mesh(
       new SphereGeometry(0.8, 6, 6),
-      new MeshLambertMaterial({ color: hex('#d4a574'), transparent: true, opacity: 0.11 })
+      new MeshLambertMaterial({ color: hex(COLORS.gold), transparent: true, opacity: 0.11 })
     ));
     return group;
   }
@@ -498,14 +482,14 @@ function makeNodeObject(node, isSelected, isHovered, isDimmed) {
   if (isSelected) {
     const ring = new Mesh(
       new TorusGeometry(size * 3.2, 0.35, 8, 48),
-      new MeshLambertMaterial({ color: hex('#f0c860'), emissive: hex('#d4a574'), emissiveIntensity: 1.0, transparent: true, opacity: 0.75 })
+      new MeshLambertMaterial({ color: hex('#f0c860'), emissive: hex(COLORS.gold), emissiveIntensity: 1.0, transparent: true, opacity: 0.75 })
     );
     ring.rotation.x = Math.PI / 2;
     group.add(ring);
     // Second ring at 45°
     const ring2 = new Mesh(
       new TorusGeometry(size * 3.2, 0.2, 6, 48),
-      new MeshLambertMaterial({ color: hex('#d4a574'), transparent: true, opacity: 0.35, depthWrite: false })
+      new MeshLambertMaterial({ color: hex(COLORS.gold), transparent: true, opacity: 0.35, depthWrite: false })
     );
     ring2.rotation.x = Math.PI / 4;
     group.add(ring2);
@@ -714,12 +698,12 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
     <div ref={containerRef} style={{ position: 'relative' }}>
       <button tabIndex={-1}
         onClick={() => setOpen(o => !o)}
-        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: value ? '#e8e6e3' : '#64748b', padding: '0 26px 0 10px', fontSize: '0.875rem', outline: 'none', cursor: 'pointer', height: '36px', minWidth: '155px', maxWidth: '195px', textAlign: 'left', position: 'relative', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', boxSizing: 'border-box' }}>
+        style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: value ? COLORS.offWhite : COLORS.slate500, padding: '0 26px 0 10px', fontSize: '0.875rem', outline: 'none', cursor: 'pointer', height: '36px', minWidth: '155px', maxWidth: '195px', textAlign: 'left', position: 'relative', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', boxSizing: 'border-box' }}>
         {currentLabel}
-        <span style={{ position: 'absolute', right: '8px', top: '50%', transform: `translateY(-50%) rotate(${open ? 180 : 0}deg)`, transition: 'transform 0.15s', color: '#64748b', fontSize: '0.62rem', pointerEvents: 'none' }}>▾</span>
+        <span style={{ position: 'absolute', right: '8px', top: '50%', transform: `translateY(-50%) rotate(${open ? 180 : 0}deg)`, transition: 'transform 0.15s', color: COLORS.slate500, fontSize: '0.62rem', pointerEvents: 'none' }}>▾</span>
       </button>
       {open && (
-        <div style={{ position: 'absolute', top: 'calc(100% + 4px)', right: 0, left: 'auto', background: '#07091a', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px', zIndex: 200, boxShadow: '0 12px 40px rgba(0,0,0,0.95)', overflow: 'hidden', width: '260px', maxWidth: 'calc(100vw - 24px)', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ position: 'absolute', top: 'calc(100% + 4px)', right: 0, left: 'auto', background: '#07091a', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.chip, zIndex: 200, boxShadow: '0 12px 40px rgba(0,0,0,0.95)', overflow: 'hidden', width: '260px', maxWidth: 'calc(100vw - 24px)', display: 'flex', flexDirection: 'column' }}>
           {/* Search input */}
           <div style={{ padding: '8px 10px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
             <input
@@ -729,13 +713,13 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
               onChange={e => setSearch(e.target.value)}
               onKeyDown={handleInputKey}
               placeholder={language === 'tr' ? 'Sûre adı veya numarası…' : 'Surah name or number…'}
-              style={{ width: '100%', padding: '5px 9px', borderRadius: '6px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#e2e8f0', fontSize: '0.78rem', outline: 'none', boxSizing: 'border-box' }}
+              style={{ width: '100%', padding: '5px 9px', borderRadius: RADIUS.sm, background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.glassBorder}`, color: '#e2e8f0', fontSize: '0.78rem', outline: 'none', boxSizing: 'border-box' }}
             />
           </div>
           <div ref={listRef} style={{ maxHeight: '270px', overflowY: 'auto' }}>
             {allowAll && !search && (
               <button onClick={() => { onChange(null); setOpen(false); }}
-                style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 12px', background: !value ? 'rgba(212,165,116,0.1)' : 'transparent', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.07)', color: !value ? '#d4a574' : '#94a3b8', fontSize: '0.78rem', cursor: 'pointer', boxSizing: 'border-box' }}>
+                style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 12px', background: !value ? 'rgba(212,165,116,0.1)' : 'transparent', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.07)', color: !value ? COLORS.gold : COLORS.silver, fontSize: '0.78rem', cursor: 'pointer', boxSizing: 'border-box' }}>
                 {language === 'tr' ? 'Tüm Sûreler' : 'All Surahs'}
               </button>
             )}
@@ -748,7 +732,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
               const isSelected = s === value;
               const isHighlit = idx === highlightIdx;
               const isMadani = MADANI_SURAHS.has(s);
-              const nameColor = isSelected ? '#d4a574' : isHighlit ? '#e8e6e3' : '#94a3b8';
+              const nameColor = isSelected ? COLORS.gold : isHighlit ? COLORS.offWhite : COLORS.silver;
               return (
                 <button key={s} style={itemStyle(idx, s)}
                   onClick={() => { onChange(s); setOpen(false); setSearch(''); }}
@@ -773,7 +757,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
                     </div>
                   </div>
                   {/* Right: Arabic name */}
-                  <span style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '0.9rem', color: isSelected ? '#d4a574' : '#4a5568', flexShrink: 0, direction: 'rtl', maxWidth: '72px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', color: isSelected ? COLORS.gold : '#4a5568', flexShrink: 0, direction: 'rtl', maxWidth: '72px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {SURAH_NAMES_AR[s - 1]}
                   </span>
                 </button>
@@ -1023,7 +1007,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
   }, [onWheel]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, overflow: 'hidden' }}>
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack, overflow: 'hidden' }}>
       {/* Header */}
       <div ref={headerRef} style={{
         position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20,
@@ -1032,7 +1016,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
       }}>
         {/* Row 1: title + close */}
         <div style={{ flex: '1 1 auto', minWidth: 0 }}>
-          <span style={{ fontFamily: 'Playfair Display, serif', color: '#d4a574', fontSize: '1.05rem', fontWeight: 700 }}>
+          <span style={{ ...OVERLAY_TITLE, fontSize: '1.05rem' }}>
             {language === 'tr' ? 'Sûre Haritası' : 'Surah Map'}
           </span>
         </div>
@@ -1044,10 +1028,10 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
             onChange={e => setSearchQuery(e.target.value)}
             placeholder={language === 'tr' ? 'Sûre, ayet veya kelime ara...' : 'Search surah, verse or keyword...'}
             dir="auto"
-            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#e8e6e3', padding: '6px 12px 6px 30px', fontSize: '0.82rem', width: '100%', maxWidth: '260px', outline: 'none', height: '32px', boxSizing: 'border-box' }}
+            style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: COLORS.offWhite, padding: '6px 12px 6px 30px', fontSize: '0.82rem', width: '100%', maxWidth: '260px', outline: 'none', height: '32px', boxSizing: 'border-box' }}
           />
           <svg style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }}
-            width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5">
+            width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
           </svg>
           {/* Hint */}
@@ -1059,8 +1043,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           {(clusterSearchResults.direct || clusterSearchResults.surahs.length > 0 || clusterSearchResults.verses.length > 0) && (
             <div style={{
               position: 'absolute', top: '100%', left: 0, right: 0, marginTop: '4px',
-              background: '#0d1128', border: '1px solid rgba(212,165,116,0.15)',
-              borderRadius: '8px', overflow: 'hidden', zIndex: 30,
+              background: '#0d1128', border: `1px solid ${COLORS.goldAlpha15}`,
+              borderRadius: RADIUS.md, overflow: 'hidden', zIndex: 30,
               boxShadow: '0 8px 32px rgba(0,0,0,0.6)', boxSizing: 'border-box',
             }}>
               {clusterSearchResults.direct && (() => {
@@ -1073,11 +1057,11 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                     onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.18)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,165,116,0.1)'}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ color: '#d4a574', fontSize: '0.68rem', fontWeight: 700 }}>→ AYET</span>
-                      <span style={{ color: '#d4a574', fontWeight: 700 }}>{v.id}</span>
-                      <span style={{ color: '#94a3b8', fontSize: '0.75rem' }}>{surahNameTr(v.surah)}</span>
+                      <span style={{ color: COLORS.gold, fontSize: '0.68rem', fontWeight: 700 }}>→ AYET</span>
+                      <span style={{ color: COLORS.gold, fontWeight: 700 }}>{v.id}</span>
+                      <span style={{ color: COLORS.silver, fontSize: '0.75rem' }}>{surahNameTr(v.surah)}</span>
                     </div>
-                    <div style={{ color: '#94a3b8', fontSize: '0.72rem', lineHeight: 1.4 }}>{vt?.slice(0, 80)}...</div>
+                    <div style={{ color: COLORS.silver, fontSize: '0.72rem', lineHeight: 1.4 }}>{vt?.slice(0, 80)}...</div>
                   </button>
                 );
               })()}
@@ -1087,8 +1071,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                   style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%', textAlign: 'left', padding: '8px 12px', background: 'rgba(212,165,116,0.06)', border: 'none', borderBottom: '1px solid rgba(212,165,116,0.08)', cursor: 'pointer' }}
                   onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.14)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,165,116,0.06)'}>
-                  <span style={{ color: '#d4a574', fontSize: '0.68rem', fontWeight: 700 }}>◈ SÛRE</span>
-                  <span style={{ color: '#d4a574', fontWeight: 700 }}>{s.surah}. {s.name}</span>
+                  <span style={{ color: COLORS.gold, fontSize: '0.68rem', fontWeight: 700 }}>◈ SÛRE</span>
+                  <span style={{ color: COLORS.gold, fontWeight: 700 }}>{s.surah}. {s.name}</span>
                 </button>
               ))}
               {clusterSearchResults.verses.map(v => {
@@ -1096,14 +1080,14 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                 return (
                   <button key={`cv-${v.id}`}
                     onClick={() => { onSelectVerse(v); setSearchQuery(''); }}
-                    style={{ display: 'flex', flexDirection: 'column', gap: '2px', width: '100%', textAlign: 'left', padding: '8px 12px', background: 'none', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.05)', cursor: 'pointer' }}
+                    style={{ display: 'flex', flexDirection: 'column', gap: '2px', width: '100%', textAlign: 'left', padding: '8px 12px', background: 'none', border: 'none', borderBottom: `1px solid ${COLORS.glassBg}`, cursor: 'pointer' }}
                     onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.08)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'none'}>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                      <span style={{ color: '#d4a574', fontWeight: 700, fontSize: '0.78rem' }}>{v.id}</span>
-                      <span style={{ color: '#64748b', fontSize: '0.7rem' }}>{surahNameTr(v.surah)}</span>
+                      <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.78rem' }}>{v.id}</span>
+                      <span style={{ color: COLORS.slate500, fontSize: '0.7rem' }}>{surahNameTr(v.surah)}</span>
                     </div>
-                    <div style={{ color: '#94a3b8', fontSize: '0.71rem', lineHeight: 1.4 }}>{vt?.slice(0, 70)}...</div>
+                    <div style={{ color: COLORS.silver, fontSize: '0.71rem', lineHeight: 1.4 }}>{vt?.slice(0, 70)}...</div>
                   </button>
                 );
               })}
@@ -1121,9 +1105,9 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           <button
             onClick={onOpenFullGraph}
             className="hidden sm:flex"
-            style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#d4a574', padding: '0 14px', fontSize: '0.78rem', cursor: 'pointer', height: '32px', boxSizing: 'border-box', whiteSpace: 'nowrap', flexShrink: 0, alignItems: 'center', order: 5 }}
+            style={{ background: 'rgba(212,165,116,0.08)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: COLORS.gold, padding: '0 14px', fontSize: '0.78rem', cursor: 'pointer', height: '32px', boxSizing: 'border-box', whiteSpace: 'nowrap', flexShrink: 0, alignItems: 'center', order: 5 }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.18)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.2)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.borderColor = COLORS.goldAlpha20; }}
           >
             {language === 'tr' ? '🌐 Tüm Ayet Ağı' : '🌐 Full Verse Network'}
           </button>
@@ -1131,9 +1115,9 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
 
         {/* Close — rightmost */}
         <button onClick={onClose}
-          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '50%', color: '#64748b', cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, order: 10 }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#64748b'; }}>
+          style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.full, color: COLORS.slate500, cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, order: 10 }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.slate500; }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
@@ -1164,7 +1148,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
             <text key={g.id} x={g.nx * W} y={g.ny * H}
               textAnchor="middle" dominantBaseline="middle"
               fontSize={13} fontWeight="700" letterSpacing="0.08em"
-              fill="#d4a574" fillOpacity={0.22}
+              fill={COLORS.gold} fillOpacity={0.22}
               style={{ pointerEvents: 'none', userSelect: 'none', textTransform: 'uppercase' }}>
               {language === 'tr' ? g.tr : g.en}
             </text>
@@ -1183,7 +1167,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                 return (
                   <line key={`${a.surah}-${b.surah}`}
                     x1={posA.x} y1={posA.y} x2={posB.x} y2={posB.y}
-                    stroke="#d4a574" strokeWidth={0.5} opacity={opacity} />
+                    stroke={COLORS.gold} strokeWidth={0.5} opacity={opacity} />
                 );
               });
           })}
@@ -1211,7 +1195,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                   fill={color} fillOpacity={isHov ? 0.9 : 0.7}
                   stroke={color} strokeWidth={isHov ? 2 : 1}
                   strokeOpacity={0.8}
-                  style={{ filter: isHov ? `drop-shadow(0 0 8px ${color})` : 'none', transition: 'all 0.15s' }}
+                  style={{ filter: isHov ? `drop-shadow(0 0 8px ${color})` : 'none', transition: `all ${TRANSITION.fast}` }}
                 />
                 {/* Surah number — shift up slightly when name fits inside */}
                 {(() => {
@@ -1245,13 +1229,13 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                     <>
                       <text x={x} y={labelY} textAnchor="middle"
                         fontSize={isHov ? 11 : 9} fontWeight={isHov ? '600' : '400'}
-                        fill={isHov ? color : '#94a3b8'} fillOpacity={isHov ? 1 : 0.7}
-                        style={{ pointerEvents: 'none', userSelect: 'none', transition: 'all 0.15s' }}>
+                        fill={isHov ? color : COLORS.silver} fillOpacity={isHov ? 1 : 0.7}
+                        style={{ pointerEvents: 'none', userSelect: 'none', transition: `all ${TRANSITION.fast}` }}>
                         {surahNameTr(c.surah)}
                       </text>
                       {isHov && (
                         <text x={x} y={countY} textAnchor="middle"
-                          fontSize={8} fill="#64748b" style={{ pointerEvents: 'none', userSelect: 'none' }}>
+                          fontSize={8} fill={COLORS.slate500} style={{ pointerEvents: 'none', userSelect: 'none' }}>
                           {c.count} {language === 'tr' ? 'ayet' : 'verses'}
                         </text>
                       )}
@@ -1267,8 +1251,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
       {/* Click hint — auto-dismisses after 4s */}
       <div style={{
         position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
-        zIndex: 20, background: 'rgba(10,10,26,0.88)', border: '1px solid rgba(255,255,255,0.08)',
-        borderRadius: '20px', padding: '6px 18px', color: 'rgba(148,163,184,0.75)', fontSize: '0.7rem',
+        zIndex: 20, background: 'rgba(10,10,26,0.88)', border: `1px solid ${COLORS.glassBgStrong}`,
+        borderRadius: RADIUS.pillSm, padding: '6px 18px', color: 'rgba(148,163,184,0.75)', fontSize: '0.7rem',
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
         opacity: showClickHint ? 1 : 0, transition: 'opacity 1s ease',
       }}>
@@ -1278,11 +1262,11 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
       {/* Legend */}
       <div style={{ position: 'absolute', bottom: '24px', left: '24px', display: 'flex', gap: '12px', alignItems: 'center', pointerEvents: 'none' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148,163,184,0.6)', fontFamily: "'Inter', sans-serif" }}>
-          <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: MEKKI_COLOR, flexShrink: 0 }} />
+          <div style={{ width: '9px', height: '9px', borderRadius: RADIUS.full, background: MEKKI_COLOR, flexShrink: 0 }} />
           {language === 'tr' ? 'Mekkî' : 'Meccan'}
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148,163,184,0.6)', fontFamily: "'Inter', sans-serif" }}>
-          <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: MEDENI_COLOR, flexShrink: 0 }} />
+          <div style={{ width: '9px', height: '9px', borderRadius: RADIUS.full, background: MEDENI_COLOR, flexShrink: 0 }} />
           {language === 'tr' ? 'Medenî' : 'Medinan'}
         </div>
       </div>
@@ -1302,11 +1286,11 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           <div style={{
             position: 'absolute', left: panelX, top: panelY, width: PANEL_W,
             background: 'rgba(10,10,26,0.93)', border: '1px solid rgba(212,165,116,0.22)',
-            borderRadius: '10px', padding: '12px 14px',
+            borderRadius: RADIUS.chip, padding: '12px 14px',
             backdropFilter: 'blur(14px)', pointerEvents: 'none', zIndex: 10,
             boxShadow: '0 4px 24px rgba(0,0,0,0.5)',
           }}>
-            <div style={{ color: '#d4a574', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '10px', opacity: 0.85 }}>
+            <div style={{ color: COLORS.gold, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '10px', opacity: 0.85 }}>
               {language === 'tr' ? group.tr : group.en}
             </div>
             {group.surahs.map(s => {
@@ -1314,8 +1298,8 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
               const isActive = s === hovered;
               return (
                 <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                  <span style={{ color: isActive ? '#d4a574' : '#64748b', fontSize: '0.68rem', fontWeight: 700, minWidth: '22px' }}>{s}.</span>
-                  <span style={{ color: isActive ? '#e8e6e3' : '#94a3b8', fontSize: '0.75rem', flex: 1, fontWeight: isActive ? 600 : 400 }}>{surahNameTr(s)}</span>
+                  <span style={{ color: isActive ? COLORS.gold : COLORS.slate500, fontSize: '0.68rem', fontWeight: 700, minWidth: '22px' }}>{s}.</span>
+                  <span style={{ color: isActive ? COLORS.offWhite : COLORS.silver, fontSize: '0.75rem', flex: 1, fontWeight: isActive ? 600 : 400 }}>{surahNameTr(s)}</span>
                   {cl && <span style={{ color: '#4a5568', fontSize: '0.63rem' }}>{cl.count}</span>}
                 </div>
               );
@@ -1356,16 +1340,16 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                 onClick={() => setViewMode(mode)}
                 title={language === 'tr' ? tipTr : tipEn}
                 style={{
-                  padding: '7px 14px', borderRadius: '8px', border: 'none', cursor: 'pointer',
+                  padding: '7px 14px', borderRadius: RADIUS.md, border: 'none', cursor: 'pointer',
                   background: active ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.04)',
-                  color: active ? '#d4a574' : 'rgba(148,163,184,0.55)',
+                  color: active ? COLORS.gold : 'rgba(148,163,184,0.55)',
                   fontSize: '0.75rem', fontFamily: "'Inter', sans-serif",
                   fontWeight: active ? 600 : 400,
                   outline: active ? '1px solid rgba(212,165,116,0.3)' : '1px solid rgba(255,255,255,0.07)',
-                  transition: 'all 0.15s',
+                  transition: `all ${TRANSITION.fast}`,
                   backdropFilter: 'blur(12px)',
                 }}
-                onMouseEnter={e => { if (!active) { e.currentTarget.style.color = '#d4d8e0'; e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}}
+                onMouseEnter={e => { if (!active) { e.currentTarget.style.color = '#d4d8e0'; e.currentTarget.style.background = COLORS.glassBgStrong; }}}
                 onMouseLeave={e => { if (!active) { e.currentTarget.style.color = 'rgba(148,163,184,0.55)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}}
               >
                 {language === 'tr' ? labelTr : labelEn}
@@ -1396,10 +1380,10 @@ function ZoomControls({ graphRef, language, rightOffset = 24 }) {
   }, [graphRef]);
 
   const btnStyle = {
-    width: '34px', height: '34px', border: '1px solid rgba(212,165,116,0.25)',
-    borderRadius: '8px', background: 'rgba(5,5,16,0.88)', color: '#94a3b8',
+    width: '34px', height: '34px', border: `1px solid ${COLORS.goldAlpha25}`,
+    borderRadius: RADIUS.md, background: 'rgba(5,5,16,0.88)', color: COLORS.silver,
     fontSize: '1rem', cursor: 'pointer', display: 'flex', alignItems: 'center',
-    justifyContent: 'center', transition: 'all 0.15s', userSelect: 'none',
+    justifyContent: 'center', transition: `all ${TRANSITION.fast}`, userSelect: 'none',
     boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
   };
 
@@ -1409,16 +1393,16 @@ function ZoomControls({ graphRef, language, rightOffset = 24 }) {
       display: 'flex', flexDirection: 'column', gap: '6px',
     }}>
       <button style={btnStyle} title="Yakınlaştır"
-        onMouseEnter={e => { e.currentTarget.style.color = '#d4a574'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
-        onMouseLeave={e => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.2)'; }}
+        onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
+        onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = COLORS.goldAlpha20; }}
         onClick={() => zoomBy(0.65)}>+</button>
       <button style={btnStyle} title="Uzaklaştır"
-        onMouseEnter={e => { e.currentTarget.style.color = '#d4a574'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
-        onMouseLeave={e => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.2)'; }}
+        onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
+        onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = COLORS.goldAlpha20; }}
         onClick={() => zoomBy(1.54)}>−</button>
-      <button style={{ ...btnStyle, fontSize: '0.7rem', color: '#64748b' }} title={language === 'tr' ? 'Tümünü göster' : 'Fit all'}
-        onMouseEnter={e => { e.currentTarget.style.color = '#d4a574'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
-        onMouseLeave={e => { e.currentTarget.style.color = '#64748b'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.2)'; }}
+      <button style={{ ...btnStyle, fontSize: '0.7rem', color: COLORS.slate500 }} title={language === 'tr' ? 'Tümünü göster' : 'Fit all'}
+        onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
+        onMouseLeave={e => { e.currentTarget.style.color = COLORS.slate500; e.currentTarget.style.borderColor = COLORS.goldAlpha20; }}
         onClick={() => graphRef.current?.zoomToFit(600, 60)}>⊡</button>
     </div>
   );
@@ -1433,6 +1417,13 @@ function linkEndId(endpoint) {
 function SurahInfoPanel({ surah, language, graphData, showName = false, onNavigate = null }) {
   const [info, setInfo] = useState(null);
   const [notes, setNotes] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    h();
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
   useEffect(() => {
     fetch('/surah-info.json').then(r => r.json()).then(d => setInfo(d[String(surah)] || null)).catch(() => {});
     fetch('/surah-notes.json').then(r => r.json()).then(d => setNotes(d[String(surah)] || null)).catch(() => {});
@@ -1453,28 +1444,28 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
     return Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([s, c]) => ({ surah: +s, count: c }));
   }, [graphData, surah]);
 
-  const gold = '#d4a574', muted = '#94a3b8', dim = '#64748b';
+  const gold = COLORS.gold, muted = COLORS.silver, dim = COLORS.slate500;
   const label = (tr, en) => language === 'tr' ? tr : en;
 
   const navBtn = (disabled) => ({
-    flexShrink: 0, width: '32px', height: '32px', borderRadius: '50%',
+    flexShrink: 0, width: '32px', height: '32px', borderRadius: RADIUS.full,
     background: 'transparent',
     border: `1px solid ${disabled ? 'rgba(212,165,116,0.1)' : 'rgba(212,165,116,0.3)'}`,
     color: disabled ? 'rgba(212,165,116,0.18)' : gold,
     cursor: disabled ? 'default' : 'pointer',
     fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
-    transition: 'all 0.2s',
+    transition: `all ${TRANSITION.base}`,
   });
 
   const sectionLabel = (tr, en) => (
-    <div style={{ color: '#475569', fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '10px' }}>
+    <div style={{ color: COLORS.slate600, fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '10px' }}>
       {label(tr, en)}
     </div>
   );
 
-  const divider = <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', margin: '0 0 4px 0' }} />;
+  const divider = <div style={{ borderTop: `1px solid ${COLORS.glassBg}`, margin: '0 0 4px 0' }} />;
 
-  const arabicStyle = { fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.3rem', direction: 'rtl', textAlign: 'right', color: gold, opacity: 0.9, lineHeight: 2, display: 'block', marginTop: '6px' };
+  const arabicStyle = { fontFamily: FONTS.quran, fontSize: '1.3rem', direction: 'rtl', textAlign: 'right', color: gold, opacity: 0.9, lineHeight: 2, display: 'block', marginTop: '6px' };
 
   const pages = SURAH_PAGES[surah - 1];
   const [p1, p2] = pages || [null, null];
@@ -1487,7 +1478,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
 
   return (
     <div className="surah-info-panel" style={{
-      position: 'absolute', left: 0, top: 0, bottom: 0, width: '480px', zIndex: 15,
+      position: 'absolute', left: 0, top: 0, bottom: 0, width: isMobile ? '100vw' : '480px', zIndex: 15,
       background: 'linear-gradient(to right, rgba(6,8,18,0.98) 65%, rgba(6,8,18,0.85) 82%, transparent)',
       padding: '68px 28px 32px 28px', overflowY: 'auto', pointerEvents: 'auto',
       display: 'flex', flexDirection: 'column', gap: '0',
@@ -1504,7 +1495,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; }}
             >‹</button>
           )}
-          <div style={{ fontFamily: "'Playfair Display', serif", color: gold, fontSize: '1.35rem', fontWeight: 700, lineHeight: 1.2, flex: 1, textAlign: 'center' }}>
+          <div style={{ ...OVERLAY_TITLE, fontSize: '1.35rem', lineHeight: 1.2, flex: 1, textAlign: 'center' }}>
             {surah}. {SURAH_NAMES_TR[surah - 1]}
           </div>
           {onNavigate && (
@@ -1520,7 +1511,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
       {/* ── Anlamı ── */}
       {info && (
         <div style={{ marginBottom: '16px' }}>
-          <div style={{ color: '#475569', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>{label('Anlamı', 'Meaning')}</div>
+          <div style={{ color: COLORS.slate600, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>{label('Anlamı', 'Meaning')}</div>
           <div style={{ color: '#c8c0b4', fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
             {label(info.meaning.tr, info.meaning.en)}
           </div>
@@ -1532,11 +1523,11 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
           <span style={{
             background: isMedeni ? 'rgba(26,122,76,0.15)' : 'rgba(212,165,116,0.1)',
-            border: `1px solid ${isMedeni ? 'rgba(26,122,76,0.4)' : 'rgba(212,165,116,0.25)'}`,
-            borderRadius: '20px', color: isMedeni ? '#2ecc71' : gold,
+            border: `1px solid ${isMedeni ? 'rgba(26,122,76,0.4)' : COLORS.goldAlpha25}`,
+            borderRadius: RADIUS.pillSm, color: isMedeni ? '#2ecc71' : gold,
             fontSize: '0.82rem', padding: '4px 14px', fontWeight: 600,
           }}>{label(info.period.tr, info.period.en)}</span>
-          <span style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: '20px', color: muted, fontSize: '0.82rem', padding: '4px 14px' }}>
+          <span style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: RADIUS.pillSm, color: muted, fontSize: '0.82rem', padding: '4px 14px' }}>
             {language === 'tr' ? `M.S. ${info.period.approx}` : `${info.period.approx} CE`}
           </span>
         </div>
@@ -1546,7 +1537,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
       {p1 && (
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
           <span style={{ color: '#3d4f63', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{language === 'tr' ? 'Sayfa' : 'Pages'}</span>
-          <span style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: '#7a8fa6', fontSize: '0.85rem', padding: '3px 10px', fontVariantNumeric: 'tabular-nums' }}>
+          <span style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.sm, color: '#7a8fa6', fontSize: '0.85rem', padding: '3px 10px', fontVariantNumeric: 'tabular-nums' }}>
             {p1 - 1 === 0 ? (language === 'tr' ? 'Açılış' : 'Opening') : (p1 === p2 ? p1 - 1 : `${p1 - 1} – ${p2 - 1}`)}
           </span>
           {pageCount > 1 && (
@@ -1561,7 +1552,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
           { val: primaryCount, lbl: language === 'tr' ? 'ayet' : 'verses', accent: gold },
           { val: linkCount, lbl: language === 'tr' ? 'anlamsal bağ' : 'semantic links', accent: gold },
         ].map(({ val, lbl, accent }, i) => (
-          <div key={i} style={{ flex: 1, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '8px', padding: '5px 6px', textAlign: 'center' }}>
+          <div key={i} style={{ flex: 1, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.md, padding: '5px 6px', textAlign: 'center' }}>
             <div style={{ color: accent, fontSize: '1rem', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>{val}</div>
             <div style={{ color: dim, fontSize: '0.68rem', marginTop: '3px', letterSpacing: '0.04em' }}>{lbl}</div>
           </div>
@@ -1598,11 +1589,11 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
                 const pct = Math.round(15 + ((count - minC) / spread) * 85);
                 return (
               <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{ flex: 1, background: 'rgba(255,255,255,0.05)', borderRadius: '4px', height: '5px', overflow: 'hidden' }}>
-                  <div style={{ height: '100%', background: `linear-gradient(to right, rgba(212,165,116,0.5), ${gold})`, width: `${pct}%`, borderRadius: '4px' }} />
+                <div style={{ flex: 1, background: COLORS.glassBg, borderRadius: RADIUS.xs, height: '5px', overflow: 'hidden' }}>
+                  <div style={{ height: '100%', background: `linear-gradient(to right, rgba(212,165,116,0.5), ${gold})`, width: `${pct}%`, borderRadius: RADIUS.xs }} />
                 </div>
                 <span style={{ color: '#8fa3b8', fontSize: '14px', whiteSpace: 'nowrap', minWidth: '80px', textAlign: 'right' }}>{s}. {surahNameTr(s)}</span>
-                <span style={{ color: '#64748b', fontSize: '13px', minWidth: '20px', textAlign: 'right' }}>{count}</span>
+                <span style={{ color: COLORS.slate500, fontSize: '13px', minWidth: '20px', textAlign: 'right' }}>{count}</span>
               </div>
                 );
               });
@@ -1621,7 +1612,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
           const parts = text.split(/([\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]+)/g);
           return parts.map((part, j) =>
             /[\u0600-\u06FF]/.test(part)
-              ? <span key={j} style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", color: gold, fontWeight: 700, fontSize: '1.1rem', direction: 'rtl', unicodeBidi: 'embed' }}>{part}</span>
+              ? <span key={j} style={{ fontFamily: FONTS.quran, color: gold, fontWeight: 700, fontSize: '1.1rem', direction: 'rtl', unicodeBidi: 'embed' }}>{part}</span>
               : part
           );
         };
@@ -1687,10 +1678,10 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
     <div ref={containerRef} style={{ position: 'relative' }}>
       <div style={{
         display: 'flex', alignItems: 'center', height: '32px',
-        background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)',
-        borderRadius: '8px', overflow: 'visible', boxSizing: 'border-box',
+        background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBorder}`,
+        borderRadius: RADIUS.md, overflow: 'visible', boxSizing: 'border-box',
       }}>
-        <span style={{ color: '#475569', fontSize: '0.68rem', padding: '0 6px 0 10px', whiteSpace: 'nowrap', userSelect: 'none' }}>
+        <span style={{ color: COLORS.slate600, fontSize: '0.68rem', padding: '0 6px 0 10px', whiteSpace: 'nowrap', userSelect: 'none' }}>
           {language === 'tr' ? 'Ayet' : 'Verse'}
         </span>
         <input
@@ -1707,7 +1698,7 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
           }}
           style={{
             width: '72px', background: 'none', border: 'none', outline: 'none',
-            color: '#d4a574', fontSize: '0.82rem', padding: '0 8px 0 0',
+            color: COLORS.gold, fontSize: '0.82rem', padding: '0 8px 0 0',
             MozAppearance: 'textfield',
           }}
         />
@@ -1716,8 +1707,8 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
       {open && filteredAyahs.length > 0 && (
         <div style={{
           position: 'absolute', top: 'calc(100% + 4px)', right: 0,
-          background: '#07091a', border: '1px solid rgba(212,165,116,0.15)',
-          borderRadius: '8px', overflowY: 'auto', maxHeight: '280px',
+          background: '#07091a', border: `1px solid ${COLORS.goldAlpha15}`,
+          borderRadius: RADIUS.md, overflowY: 'auto', maxHeight: '280px',
           minWidth: '220px', maxWidth: 'calc(100vw - 24px)',
           zIndex: 50, boxShadow: '0 8px 32px rgba(0,0,0,0.7)',
           scrollbarWidth: 'none',
@@ -1730,8 +1721,8 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
                 style={{ display: 'flex', alignItems: 'baseline', gap: '8px', width: '100%', textAlign: 'left', padding: '7px 12px', background: 'none', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.04)', cursor: 'pointer' }}
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.08)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'none'}>
-                <span style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 700, flexShrink: 0, minWidth: '26px' }}>{n}</span>
-                <span style={{ color: '#64748b', fontSize: '0.7rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{text?.slice(0, 55)}</span>
+                <span style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 700, flexShrink: 0, minWidth: '26px' }}>{n}</span>
+                <span style={{ color: COLORS.slate500, fontSize: '0.7rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{text?.slice(0, 55)}</span>
               </button>
             );
           })}
@@ -1866,7 +1857,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   }, [focusedSet]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack }}>
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack }}>
       {/* Sûre info panel — left side; follows selected verse's surah when cross-surah */}
       <SurahInfoPanel
         surah={selected?.surah ?? surah} language={language} graphData={graphData} showName={true}
@@ -1880,7 +1871,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
         background: 'linear-gradient(to bottom, rgba(6,8,14,0.98) 60%, transparent)',
       }}>
         <button onClick={onBack}
-          style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.15)', borderRadius: '8px', color: '#94a3b8', padding: '6px 10px', fontSize: '0.8rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px', flexShrink: 0 }}>
+          style={{ background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: RADIUS.md, color: COLORS.silver, padding: '6px 10px', fontSize: '0.8rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px', flexShrink: 0 }}>
           ← {language === 'tr' ? 'Sûre Haritası' : 'Surahs'}
         </button>
 
@@ -1891,14 +1882,14 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
         <VerseJumpSelector surah={surah} language={language} verses={verses} onFocus={focusVerse} selectedAyah={selected?.ayah ?? null} />
 
         <button onClick={onOpenFull3D}
-          style={{ background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#d4a574', padding: '6px 12px', fontSize: '0.78rem', cursor: 'pointer' }}>
+          style={{ background: 'rgba(212,165,116,0.08)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: COLORS.gold, padding: '6px 12px', fontSize: '0.78rem', cursor: 'pointer' }}>
           {language === 'tr' ? '🌐 Tüm Ayet Ağı' : '🌐 Full Verse Network'}
         </button>
 
         {onClose && (
           <button
             onClick={onClose}
-            style={{ background: 'none', border: 'none', color: '#94a3b8', padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
+            style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
             onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
           >
@@ -1912,8 +1903,8 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
       {/* Auto-dismissing hint badge */}
       <div style={{
         position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
-        zIndex: 20, background: 'rgba(10,10,26,0.85)', border: '1px solid rgba(255,255,255,0.08)',
-        borderRadius: '20px', padding: '6px 16px', color: '#64748b', fontSize: '0.7rem',
+        zIndex: 20, background: 'rgba(10,10,26,0.85)', border: `1px solid ${COLORS.glassBgStrong}`,
+        borderRadius: RADIUS.pillSm, padding: '6px 16px', color: COLORS.slate500, fontSize: '0.7rem',
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
         opacity: showHint ? 1 : 0, transition: 'opacity 0.8s ease',
       }}>
@@ -1924,13 +1915,13 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
       {focusedNodeId && (
         <div style={{
           position: 'absolute', top: '56px', left: '50%', transform: 'translateX(-50%)',
-          zIndex: 20, background: 'rgba(6,8,14,0.90)', border: '1px solid rgba(212,165,116,0.25)',
+          zIndex: 20, background: 'rgba(6,8,14,0.90)', border: `1px solid ${COLORS.goldAlpha25}`,
           borderRadius: '24px', padding: '6px 16px', display: 'flex', alignItems: 'center', gap: '12px',
           backdropFilter: 'blur(12px)', boxShadow: '0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,165,116,0.08)',
         }}>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: '#d4a574', fontSize: '0.74rem' }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#d4a574', boxShadow: '0 0 6px #d4a574', flexShrink: 0 }} />
-            <b style={{ color: '#e8c98a', letterSpacing: '0.02em' }}>{focusedNodeId}</b>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: COLORS.gold, fontSize: '0.74rem' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: RADIUS.full, background: COLORS.gold, boxShadow: `0 0 6px ${COLORS.gold}`, flexShrink: 0 }} />
+            <b style={{ color: COLORS.goldBright, letterSpacing: '0.02em' }}>{focusedNodeId}</b>
           </span>
           <button onClick={() => { setFocusedNodeId(null); setSelected(null); }}
             style={{ background: 'none', border: 'none', color: '#5a5040', cursor: 'pointer', fontSize: '0.72rem', padding: '0', lineHeight: 1 }}>
@@ -1947,13 +1938,13 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
         d3AlphaDecay={1} d3VelocityDecay={1}
         nodeThreeObject={nodeThreeObject}
         nodeThreeObjectExtend={false}
-        nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:#d4a574;max-width:220px"><b>${node.id}</b><br/><span style="color:#94a3b8;font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish)))?.slice(0, 80)}...</span></div>`}
+        nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:${COLORS.gold};max-width:220px"><b>${node.id}</b><br/><span style="color:${COLORS.silver};font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish)))?.slice(0, 80)}...</span></div>`}
         linkColor={linkColor}
         linkOpacity={1}
         linkWidth={link => 0.25 + (link.score - 0.55) * 2.0}
         linkDirectionalParticles={link => link.score > 0.80 ? 2 : 0}
         linkDirectionalParticleWidth={1.2}
-        linkDirectionalParticleColor={() => '#d4a574'}
+        linkDirectionalParticleColor={() => COLORS.gold}
         linkDirectionalParticleSpeed={0.005}
         onNodeClick={handleNodeClick}
         onNodeHover={node => setHovered(node || null)}
@@ -2267,7 +2258,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
   }, [focusedSet]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack }}>
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack }}>
       {/* Sûre bilgi paneli — sûre filtresi aktifken veya ayet seçilince */}
       {(filterSurah || selected) && (
         <SurahInfoPanel
@@ -2283,15 +2274,15 @@ function FullGraph({ verses, onBack, language, onClose }) {
         background: 'linear-gradient(to bottom, rgba(6,8,14,0.98) 60%, transparent)',
       }}>
         <button onClick={onBack}
-          style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.15)', borderRadius: '8px', color: '#94a3b8', padding: '6px 12px', fontSize: '0.8rem', cursor: 'pointer' }}>
+          style={{ background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: RADIUS.md, color: COLORS.silver, padding: '6px 12px', fontSize: '0.8rem', cursor: 'pointer' }}>
           ← {language === 'tr' ? 'Sûre Haritası' : 'Surahs'}
         </button>
 
-        <span style={{ fontFamily: 'Playfair Display, serif', color: '#d4a574', fontSize: '1.25rem', fontWeight: 700 }}>
+        <span style={{ fontFamily: 'Playfair Display, serif', color: COLORS.gold, fontSize: '1.25rem', fontWeight: 700 }}>
           {language === 'tr' ? 'Ayet Haritası' : 'Verse Map'}
         </span>
         {verses && !filterSurah && (
-          <span style={{ color: '#94a3b8', fontSize: '0.82rem' }}>
+          <span style={{ color: COLORS.silver, fontSize: '0.82rem' }}>
             {`${graphData.nodes.length} ${language === 'tr' ? 'ayet' : 'verses'} · ${graphData.links.length} ${language === 'tr' ? 'bağlantı' : 'connections'}`}
           </span>
         )}
@@ -2308,9 +2299,9 @@ function FullGraph({ verses, onBack, language, onClose }) {
           <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
             placeholder={language === 'tr' ? 'Sûre, ayet veya kelime ara...' : 'Search surah, verse or keyword...'}
             dir="auto"
-            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '8px', color: '#e8e6e3', padding: '6px 12px 6px 30px', fontSize: '0.875rem', width: '270px', outline: 'none', height: '36px', boxSizing: 'border-box' }}
+            style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: COLORS.offWhite, padding: '6px 12px 6px 30px', fontSize: '0.875rem', width: '270px', outline: 'none', height: '36px', boxSizing: 'border-box' }}
           />
-          <svg style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5">
+          <svg style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
           </svg>
           {/* Hint text below search bar */}
@@ -2320,22 +2311,22 @@ function FullGraph({ verses, onBack, language, onClose }) {
             </div>
           )}
           {(searchResults.direct || searchResults.surahs.length > 0 || searchResults.verses.length > 0) && (
-            <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, marginTop: '4px', background: '#0d1128', border: '1px solid rgba(212,165,116,0.15)', borderRadius: '8px', overflow: 'hidden', zIndex: 30, boxShadow: '0 8px 32px rgba(0,0,0,0.5)', minWidth: '280px' }}>
+            <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, marginTop: '4px', background: '#0d1128', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: RADIUS.md, overflow: 'hidden', zIndex: 30, boxShadow: '0 8px 32px rgba(0,0,0,0.5)', minWidth: '280px' }}>
               {/* Direct verse match */}
               {searchResults.direct && (() => {
                 const v = searchResults.direct;
                 const vt = language === 'tr' ? (cleanTr(v.turkish) || v.english) : (v.english || cleanTr(v.turkish));
                 return (
                   <button key={`direct-${v.id}`} onClick={() => { focusVerse(v.id); setSearchQuery(''); }}
-                    style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '100%', textAlign: 'left', padding: '10px 12px', background: 'rgba(212,165,116,0.1)', border: 'none', borderBottom: '1px solid rgba(212,165,116,0.15)', cursor: 'pointer' }}
+                    style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '100%', textAlign: 'left', padding: '10px 12px', background: 'rgba(212,165,116,0.1)', border: 'none', borderBottom: `1px solid ${COLORS.goldAlpha15}`, cursor: 'pointer' }}
                     onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.17)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,165,116,0.1)'}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ color: '#d4a574', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.05em' }}>→ AYET</span>
-                      <span style={{ color: '#d4a574', fontWeight: 700, fontSize: '0.82rem' }}>{v.id}</span>
-                      <span style={{ color: '#94a3b8', fontSize: '0.75rem' }}>{surahNameTr(v.surah)}</span>
+                      <span style={{ color: COLORS.gold, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.05em' }}>→ AYET</span>
+                      <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.82rem' }}>{v.id}</span>
+                      <span style={{ color: COLORS.silver, fontSize: '0.75rem' }}>{surahNameTr(v.surah)}</span>
                     </div>
-                    <div style={{ color: '#94a3b8', fontSize: '0.73rem', lineHeight: 1.4 }}>{vt?.slice(0, 80)}...</div>
+                    <div style={{ color: COLORS.silver, fontSize: '0.73rem', lineHeight: 1.4 }}>{vt?.slice(0, 80)}...</div>
                   </button>
                 );
               })()}
@@ -2343,21 +2334,21 @@ function FullGraph({ verses, onBack, language, onClose }) {
               {searchResults.surahs.map(s => (
                 <button key={`surah-${s.surah}`}
                   onClick={() => { setFilterSurah(s.surah); setSearchQuery(''); }}
-                  style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%', textAlign: 'left', padding: '8px 12px', background: 'rgba(212,165,116,0.06)', border: 'none', borderBottom: '1px solid rgba(212,165,116,0.1)', color: '#e8e6e3', cursor: 'pointer', fontSize: '0.76rem' }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%', textAlign: 'left', padding: '8px 12px', background: 'rgba(212,165,116,0.06)', border: 'none', borderBottom: '1px solid rgba(212,165,116,0.1)', color: COLORS.offWhite, cursor: 'pointer', fontSize: '0.76rem' }}
                   onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.12)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,165,116,0.06)'}>
-                  <span style={{ color: '#d4a574', fontSize: '0.7rem' }}>◈ Sûre</span>
-                  <span style={{ color: '#d4a574', fontWeight: 700 }}>{s.surah}. {s.name}</span>
+                  <span style={{ color: COLORS.gold, fontSize: '0.7rem' }}>◈ Sûre</span>
+                  <span style={{ color: COLORS.gold, fontWeight: 700 }}>{s.surah}. {s.name}</span>
                 </button>
               ))}
               {/* Verse content matches */}
               {searchResults.verses.map(v => (
                 <button key={v.id} onClick={() => { focusVerse(v.id); setSearchQuery(''); }}
-                  style={{ display: 'block', width: '100%', textAlign: 'left', padding: '7px 12px', background: 'none', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.04)', color: '#e8e6e3', cursor: 'pointer', fontSize: '0.76rem' }}
+                  style={{ display: 'block', width: '100%', textAlign: 'left', padding: '7px 12px', background: 'none', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.04)', color: COLORS.offWhite, cursor: 'pointer', fontSize: '0.76rem' }}
                   onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.08)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'none'}>
-                  <span style={{ color: '#d4a574', marginRight: '6px', fontWeight: 600 }}>{v.id}</span>
-                  <span style={{ color: '#94a3b8' }}>{(language === 'tr' ? (cleanTr(v.turkish) || v.english) : (v.english || cleanTr(v.turkish)))?.slice(0, 50)}...</span>
+                  <span style={{ color: COLORS.gold, marginRight: '6px', fontWeight: 600 }}>{v.id}</span>
+                  <span style={{ color: COLORS.silver }}>{(language === 'tr' ? (cleanTr(v.turkish) || v.english) : (v.english || cleanTr(v.turkish)))?.slice(0, 50)}...</span>
                 </button>
               ))}
             </div>
@@ -2373,9 +2364,9 @@ function FullGraph({ verses, onBack, language, onClose }) {
             <button
               onClick={() => { setSearchQuery(''); setFilterSurah(null); setSelected(null); setFocusedNodeId(null); graphRef.current?.zoomToFit(800); }}
               disabled={!canClear}
-              style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: canClear ? '#94a3b8' : '#3a4150', padding: '0 14px', fontSize: '0.82rem', cursor: canClear ? 'pointer' : 'default', height: '36px', boxSizing: 'border-box', opacity: canClear ? 1 : 0.4, transition: 'opacity 0.2s, color 0.2s' }}
-              onMouseEnter={e => { if (canClear) { e.currentTarget.style.color = '#e8e6e3'; e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; } }}
-              onMouseLeave={e => { e.currentTarget.style.color = canClear ? '#94a3b8' : '#3a4150'; e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}>
+              style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.md, color: canClear ? COLORS.silver : '#3a4150', padding: '0 14px', fontSize: '0.82rem', cursor: canClear ? 'pointer' : 'default', height: '36px', boxSizing: 'border-box', opacity: canClear ? 1 : 0.4, transition: 'opacity 0.2s, color 0.2s' }}
+              onMouseEnter={e => { if (canClear) { e.currentTarget.style.color = COLORS.offWhite; e.currentTarget.style.background = COLORS.glassBorder; } }}
+              onMouseLeave={e => { e.currentTarget.style.color = canClear ? COLORS.silver : '#3a4150'; e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}>
               {language === 'tr' ? 'Temizle' : 'Clear'}
             </button>
           );
@@ -2384,7 +2375,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
         {onClose && (
           <button
             onClick={onClose}
-            style={{ background: 'none', border: 'none', color: '#94a3b8', padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
+            style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
             onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
           >
@@ -2404,16 +2395,16 @@ function FullGraph({ verses, onBack, language, onClose }) {
           alignItems: 'center', justifyContent: 'center', gap: '8px',
           padding: '24px', overflowY: 'auto',
         }}>
-          <div style={{ color: '#d4a574', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.7 }}>
+          <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.7 }}>
             {surahNameTr(filterSurah)} — {graphData.nodes.filter(n => !n.ghost).length} {language === 'tr' ? 'ayet' : 'verses'}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', width: '100%', maxWidth: '480px' }}>
             {graphData.nodes.filter(n => !n.ghost).map(node => (
               <button key={node.id} onClick={() => handleNodeClick(node)}
-                style={{ background: 'rgba(212,165,116,0.04)', border: '1px solid rgba(212,165,116,0.12)', borderRadius: '10px', padding: '12px 16px', textAlign: 'right', cursor: 'pointer', transition: 'all 0.15s' }}
+                style={{ background: COLORS.goldAlpha04, border: '1px solid rgba(212,165,116,0.12)', borderRadius: RADIUS.chip, padding: '12px 16px', textAlign: 'right', cursor: 'pointer', transition: `all ${TRANSITION.fast}` }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.04)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.12)'; }}>
-                <div style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.4rem', lineHeight: 2, color: '#d4b483', direction: 'rtl' }}>{cleanArabicForGraph(node.arabic)}</div>
+                onMouseLeave={e => { e.currentTarget.style.background = COLORS.goldAlpha04; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.12)'; }}>
+                <div style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', lineHeight: 2, color: COLORS.goldWarm, direction: 'rtl' }}>{cleanArabicForGraph(node.arabic)}</div>
                 <div style={{ color: '#7a6a50', fontSize: '0.72rem', marginTop: '4px', textAlign: 'left' }}>{node.id}</div>
               </button>
             ))}
@@ -2430,13 +2421,13 @@ function FullGraph({ verses, onBack, language, onClose }) {
         warmupTicks={0} cooldownTicks={10}
         nodeThreeObject={nodeThreeObject}
         nodeThreeObjectExtend={false}
-        nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:#d4a574;max-width:220px"><b>${node.id}</b> — ${surahNameTr(node.surah)}<br/><span style="color:#94a3b8;font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish)))?.slice(0, 80)}...</span></div>`}
+        nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:${COLORS.gold};max-width:220px"><b>${node.id}</b> — ${surahNameTr(node.surah)}<br/><span style="color:${COLORS.silver};font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish)))?.slice(0, 80)}...</span></div>`}
         linkColor={linkColor}
         linkOpacity={1}
         linkWidth={linkWidth}
         linkDirectionalParticles={link => (!focusedSet && link.score > 0.80) ? 2 : 0}
         linkDirectionalParticleWidth={1.2}
-        linkDirectionalParticleColor={() => '#d4a574'}
+        linkDirectionalParticleColor={() => COLORS.gold}
         linkDirectionalParticleSpeed={0.004}
         onNodeClick={handleNodeClick}
         onNodeHover={node => setHovered(node || null)}
@@ -2468,18 +2459,18 @@ function FullGraph({ verses, onBack, language, onClose }) {
         <div style={{
           display: 'flex', flexDirection: 'column', gap: '5px',
           background: 'rgba(5,5,16,0.72)', backdropFilter: 'blur(8px)',
-          border: '1px solid rgba(255,255,255,0.07)', borderRadius: '8px',
+          border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.md,
           padding: '8px 12px',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#c9a227', flexShrink: 0 }} />
-            <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: '#c9a227', flexShrink: 0 }} />
+            <span style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
               {language === 'tr' ? 'Mekkî' : 'Meccan'}
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2ecc71', flexShrink: 0 }} />
-            <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: '#2ecc71', flexShrink: 0 }} />
+            <span style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
               {language === 'tr' ? 'Medenî' : 'Medinan'}
             </span>
           </div>
@@ -2492,10 +2483,10 @@ function FullGraph({ verses, onBack, language, onClose }) {
           style={{
             width: '34px', height: '34px',
             background: 'rgba(5,5,16,0.72)', backdropFilter: 'blur(8px)',
-            border: '1px solid rgba(255,255,255,0.07)', borderRadius: '8px',
-            color: muted ? '#475569' : '#c9a227',
+            border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.md,
+            color: muted ? COLORS.slate600 : '#c9a227',
             cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            transition: 'all 0.15s', flexShrink: 0,
+            transition: `all ${TRANSITION.fast}`, flexShrink: 0,
           }}
           onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(201,162,39,0.35)'; }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
@@ -2518,13 +2509,13 @@ function FullGraph({ verses, onBack, language, onClose }) {
       {focusedNodeId && (
         <div style={{
           position: 'absolute', bottom: '72px', left: '50%', transform: 'translateX(-50%)',
-          zIndex: 20, background: 'rgba(6,8,14,0.90)', border: '1px solid rgba(212,165,116,0.25)',
+          zIndex: 20, background: 'rgba(6,8,14,0.90)', border: `1px solid ${COLORS.goldAlpha25}`,
           borderRadius: '24px', padding: '6px 16px', display: 'flex', alignItems: 'center', gap: '12px',
           backdropFilter: 'blur(12px)', boxShadow: '0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,165,116,0.08)',
         }}>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: '#d4a574', fontSize: '0.74rem' }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#d4a574', boxShadow: '0 0 6px #d4a574', flexShrink: 0 }} />
-            <b style={{ color: '#e8c98a', letterSpacing: '0.02em' }}>{focusedNodeId}</b>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: COLORS.gold, fontSize: '0.74rem' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: RADIUS.full, background: COLORS.gold, boxShadow: `0 0 6px ${COLORS.gold}`, flexShrink: 0 }} />
+            <b style={{ color: COLORS.goldBright, letterSpacing: '0.02em' }}>{focusedNodeId}</b>
             {focusedSet && <span style={{ color: '#5a5040' }}>·&nbsp;{focusedSet.size - 1} {language === 'tr' ? 'bağlantı' : 'connections'}</span>}
           </span>
           <button onClick={() => { setFocusedNodeId(null); setSelected(null); }}
@@ -2651,17 +2642,17 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   }, [view, onRegisterBackHandler, initialSearch, onClose]);
 
   if (loading) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
-      <div style={{ width: '44px', height: '44px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: '#d4a574', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
-      <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>{language === 'tr' ? 'Harita yükleniyor...' : 'Loading map...'}</span>
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ width: '44px', height: '44px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 1s linear infinite' }} />
+      <span style={{ color: COLORS.silver, fontSize: '0.85rem' }}>{language === 'tr' ? 'Harita yükleniyor...' : 'Loading map...'}</span>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   );
 
   if (error) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
       <span style={{ color: '#e74c3c', fontSize: '1rem', fontWeight: 600 }}>Veri Bulunamadı</span>
-      <span style={{ color: '#64748b', fontSize: '0.82rem', textAlign: 'center', maxWidth: '480px' }}>{error}</span>
+      <span style={{ color: COLORS.slate500, fontSize: '0.82rem', textAlign: 'center', maxWidth: '480px' }}>{error}</span>
     </div>
   );
 
@@ -2808,13 +2799,13 @@ function VerseAudioPlayer({ surah, ayah, language }) {
     setError(false);
   };
 
-  const gold = '#d4a574';
+  const gold = COLORS.gold;
   const reciter = reciters[reciterIdx];
 
   return (
     <div style={{
       background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.18)',
-      borderRadius: '10px', padding: '12px 14px',
+      borderRadius: RADIUS.chip, padding: '12px 14px',
       display: 'flex', flexDirection: 'column', gap: '8px',
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -2823,22 +2814,22 @@ function VerseAudioPlayer({ surah, ayah, language }) {
           onClick={error ? undefined : togglePlay}
           disabled={error}
           style={{
-            width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0,
-            background: error ? 'rgba(100,116,139,0.08)' : playing ? 'rgba(212,165,116,0.25)' : 'rgba(212,165,116,0.12)',
+            width: '36px', height: '36px', borderRadius: RADIUS.full, flexShrink: 0,
+            background: error ? 'rgba(100,116,139,0.08)' : playing ? COLORS.goldAlpha25 : 'rgba(212,165,116,0.12)',
             border: `1px solid ${error ? 'rgba(100,116,139,0.2)' : playing ? 'rgba(212,165,116,0.6)' : 'rgba(212,165,116,0.3)'}`,
-            color: error ? '#475569' : gold,
+            color: error ? COLORS.slate600 : gold,
             cursor: error ? 'not-allowed' : 'pointer',
             opacity: error ? 0.5 : 1,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '0.9rem', transition: 'all 0.2s',
+            fontSize: '0.9rem', transition: `all ${TRANSITION.base}`,
             boxShadow: playing ? '0 0 12px rgba(212,165,116,0.25)' : 'none',
           }}>
-          {loading ? <span style={{ fontSize: '0.6rem', color: '#94a3b8' }}>…</span>
+          {loading ? <span style={{ fontSize: '0.6rem', color: COLORS.silver }}>…</span>
             : playing ? '❙❙' : '▶'}
         </button>
 
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ color: error ? '#475569' : gold, fontSize: '0.75rem', fontWeight: 600 }}>
+          <div style={{ color: error ? COLORS.slate600 : gold, fontSize: '0.75rem', fontWeight: 600 }}>
             {language === 'tr' ? reciter.labelTr : reciter.labelEn}
           </div>
           <div style={{ color: '#7a90a8', fontSize: '0.68rem', marginTop: '1px' }}>
@@ -2855,16 +2846,16 @@ function VerseAudioPlayer({ surah, ayah, language }) {
         {/* Reciter selector — prev/next arrows */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
           <button onClick={() => switchReciter((reciterIdx - 1 + reciters.length) % reciters.length)} style={{
-            background: 'transparent', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '50%',
-            color: '#94a3b8', fontSize: '0.7rem', width: '22px', height: '22px',
+            background: 'transparent', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.full,
+            color: COLORS.silver, fontSize: '0.7rem', width: '22px', height: '22px',
             display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', flexShrink: 0,
           }}>‹</button>
           <span style={{ color: gold, fontSize: '0.65rem', fontWeight: 600, whiteSpace: 'nowrap', minWidth: '72px', textAlign: 'center' }}>
             {language === 'tr' ? reciter.labelTr : reciter.labelEn}
           </span>
           <button onClick={() => switchReciter((reciterIdx + 1) % reciters.length)} style={{
-            background: 'transparent', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '50%',
-            color: '#94a3b8', fontSize: '0.7rem', width: '22px', height: '22px',
+            background: 'transparent', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.full,
+            color: COLORS.silver, fontSize: '0.7rem', width: '22px', height: '22px',
             display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', flexShrink: 0,
           }}>›</button>
         </div>
@@ -2894,7 +2885,7 @@ function ShareModal({ node, language, onClose }) {
     await navigator.share({ title: `Kur'an — ${node.id}`, text: shareText, url: shareUrl }).catch(() => {});
   };
 
-  const gold = '#d4a574';
+  const gold = COLORS.gold;
 
   return (
     <div style={{
@@ -2903,20 +2894,20 @@ function ShareModal({ node, language, onClose }) {
       display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px',
     }} onClick={onClose}>
       <div onClick={e => e.stopPropagation()} style={{
-        background: 'rgba(8,10,22,0.99)', border: '1px solid rgba(212,165,116,0.2)',
+        background: 'rgba(8,10,22,0.99)', border: `1px solid ${COLORS.goldAlpha20}`,
         borderRadius: '16px', padding: '24px', maxWidth: '480px', width: '100%',
         boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
       }}>
         {/* Preview card */}
         <div style={{
           background: 'linear-gradient(135deg, #0a0c1e, #0d1028)',
-          border: '1px solid rgba(212,165,116,0.25)', borderRadius: '12px',
+          border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: RADIUS.lg,
           padding: '24px 20px', marginBottom: '16px', position: 'relative', overflow: 'hidden',
         }}>
           {/* Decorative corner */}
           <div style={{ position: 'absolute', top: 0, right: 0, width: '80px', height: '80px', background: 'radial-gradient(circle at 100% 0%, rgba(212,165,116,0.12), transparent 70%)', pointerEvents: 'none' }} />
 
-          <div style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.6rem', lineHeight: 2.2, color: '#e8c98a', textAlign: 'right', direction: 'rtl', marginBottom: '16px' }}>
+          <div style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', lineHeight: 2.2, color: COLORS.goldBright, textAlign: 'right', direction: 'rtl', marginBottom: '16px' }}>
             {cleanArabicForGraph(node.arabic)}
           </div>
           <div style={{ color: '#c8c5c0', fontSize: '0.88rem', lineHeight: 1.8, borderLeft: '2px solid rgba(212,165,116,0.3)', paddingLeft: '12px', marginBottom: '12px' }}>
@@ -2932,9 +2923,9 @@ function ShareModal({ node, language, onClose }) {
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           <button onClick={copyText} style={{
             flex: 1, background: copied ? 'rgba(46,204,113,0.15)' : 'rgba(212,165,116,0.1)',
-            border: `1px solid ${copied ? 'rgba(46,204,113,0.4)' : 'rgba(212,165,116,0.25)'}`,
-            borderRadius: '8px', color: copied ? '#2ecc71' : gold,
-            padding: '10px 16px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600, transition: 'all 0.2s',
+            border: `1px solid ${copied ? 'rgba(46,204,113,0.4)' : COLORS.goldAlpha25}`,
+            borderRadius: RADIUS.md, color: copied ? '#2ecc71' : gold,
+            padding: '10px 16px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600, transition: `all ${TRANSITION.base}`,
           }}>
             {copied ? '✓ Kopyalandı' : '⎘ Metni Kopyala'}
           </button>
@@ -2943,7 +2934,7 @@ function ShareModal({ node, language, onClose }) {
             <button onClick={nativeShare} style={{
               flex: 1, background: 'rgba(52,152,219,0.1)',
               border: '1px solid rgba(52,152,219,0.25)',
-              borderRadius: '8px', color: '#3498db',
+              borderRadius: RADIUS.md, color: '#3498db',
               padding: '10px 16px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600,
             }}>
               ↗ {language === 'tr' ? 'Paylaş' : 'Share'}
@@ -2951,8 +2942,8 @@ function ShareModal({ node, language, onClose }) {
           )}
 
           <button onClick={onClose} style={{
-            background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
-            borderRadius: '8px', color: '#64748b',
+            background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`,
+            borderRadius: RADIUS.md, color: COLORS.slate500,
             padding: '10px 12px', cursor: 'pointer', fontSize: '0.8rem',
           }}>✕</button>
         </div>
@@ -2999,11 +2990,11 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
   const navBtnStyle = (enabled) => ({
     background: 'transparent',
     border: `1px solid ${enabled ? 'rgba(212,165,116,0.3)' : 'rgba(212,165,116,0.1)'}`,
-    borderRadius: '50%', color: enabled ? '#d4a574' : 'rgba(212,165,116,0.18)',
+    borderRadius: RADIUS.full, color: enabled ? COLORS.gold : 'rgba(212,165,116,0.18)',
     cursor: enabled ? 'pointer' : 'default',
     fontSize: '1.1rem', width: '32px', height: '32px',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
-    flexShrink: 0, transition: 'all 0.2s',
+    flexShrink: 0, transition: `all ${TRANSITION.base}`,
   });
 
   return (
@@ -3028,12 +3019,12 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
           >‹</button>
           <div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
-              <span style={{ color: '#d4a574', fontWeight: 700, fontSize: '1.1rem' }}>{surahNameTr(node.surah)}</span>
+              <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '1.1rem' }}>{surahNameTr(node.surah)}</span>
               <span style={{ color: '#c9a227', fontWeight: 800, fontSize: '1rem', letterSpacing: '0.02em' }}>{node.id}</span>
             </div>
             {connections.length > 0 && (
               <div style={{ marginTop: '5px' }}>
-                <span style={{ background: 'rgba(201,162,39,0.15)', border: '1px solid rgba(201,162,39,0.5)', borderRadius: '10px', color: '#e8c84a', fontSize: '0.75rem', fontWeight: 700, padding: '3px 11px', letterSpacing: '0.02em' }}>
+                <span style={{ background: 'rgba(201,162,39,0.15)', border: '1px solid rgba(201,162,39,0.5)', borderRadius: RADIUS.chip, color: '#e8c84a', fontSize: '0.75rem', fontWeight: 700, padding: '3px 11px', letterSpacing: '0.02em' }}>
                   {connections.length} {language === 'tr' ? 'benzer ayet' : 'similar verses'}
                 </span>
               </div>
@@ -3048,17 +3039,17 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
         </div>
         <div style={{ display: 'flex', gap: '5px' }}>
           <button onClick={() => setShareOpen(true)}
-            style={{ background: 'rgba(212,165,116,0.07)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '6px', color: '#d4a574', cursor: 'pointer', fontSize: '0.72rem', padding: '3px 9px' }}>
+            style={{ background: 'rgba(212,165,116,0.07)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.sm, color: COLORS.gold, cursor: 'pointer', fontSize: '0.72rem', padding: '3px 9px' }}>
             ↗ {language === 'tr' ? 'Paylaş' : 'Share'}
           </button>
           <button onClick={onClose}
-            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: '#64748b', cursor: 'pointer', fontSize: '0.8rem', padding: '3px 8px' }}>✕</button>
+            style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.sm, color: COLORS.slate500, cursor: 'pointer', fontSize: '0.8rem', padding: '3px 8px' }}>✕</button>
         </div>
       </div>
 
       {shareOpen && <ShareModal node={node} language={language} onClose={() => setShareOpen(false)} />}
 
-      <div style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: 'clamp(1.1rem, 4vw, 1.55rem)', lineHeight: 1.9, color: '#d4b483', textAlign: 'right', direction: 'rtl', padding: 'clamp(10px, 2.5vw, 14px) clamp(10px, 2.5vw, 18px)', background: 'linear-gradient(135deg, rgba(212,165,116,0.08), rgba(180,130,70,0.03))', borderRadius: '10px', border: '1px solid rgba(212,165,116,0.15)' }}>
+      <div style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.1rem, 4vw, 1.55rem)', lineHeight: 1.9, color: COLORS.goldWarm, textAlign: 'right', direction: 'rtl', padding: 'clamp(10px, 2.5vw, 14px) clamp(10px, 2.5vw, 18px)', background: 'linear-gradient(135deg, rgba(212,165,116,0.08), rgba(180,130,70,0.03))', borderRadius: RADIUS.chip, border: `1px solid ${COLORS.goldAlpha15}` }}>
         {cleanArabicForGraph(node.arabic)}
       </div>
 
@@ -3075,8 +3066,8 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
               display: 'flex', alignItems: 'center', gap: '8px',
               background: showContext ? 'rgba(52,152,219,0.08)' : 'rgba(52,152,219,0.04)',
               border: `1px solid ${showContext ? 'rgba(52,152,219,0.4)' : 'rgba(52,152,219,0.2)'}`,
-              borderRadius: '8px', padding: '7px 12px', cursor: 'pointer', width: '100%', textAlign: 'left',
-              transition: 'all 0.2s',
+              borderRadius: RADIUS.md, padding: '7px 12px', cursor: 'pointer', width: '100%', textAlign: 'left',
+              transition: `all ${TRANSITION.base}`,
             }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.12)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.5)'; }}
             onMouseLeave={e => { e.currentTarget.style.background = showContext ? 'rgba(52,152,219,0.08)' : 'rgba(52,152,219,0.04)'; e.currentTarget.style.borderColor = showContext ? 'rgba(52,152,219,0.4)' : 'rgba(52,152,219,0.2)'; }}
@@ -3094,8 +3085,8 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
               {contextVerses.prev.map(v => (
                 <button key={v.id} onClick={() => onNavigate(v.id)} style={{
                   background: 'rgba(52,152,219,0.04)', border: '1px solid rgba(52,152,219,0.12)',
-                  borderRadius: '8px', padding: '10px 13px', textAlign: 'left', cursor: 'pointer',
-                  transition: 'all 0.15s',
+                  borderRadius: RADIUS.md, padding: '10px 13px', textAlign: 'left', cursor: 'pointer',
+                  transition: `all ${TRANSITION.fast}`,
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.1)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.3)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.04)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.12)'; }}>
@@ -3105,15 +3096,15 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
               ))}
               {/* Current verse marker */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '3px 12px' }}>
-                <div style={{ height: '1px', flex: 1, background: 'rgba(212,165,116,0.25)' }} />
-                <span style={{ color: '#d4a574', fontSize: '0.68rem', whiteSpace: 'nowrap' }}>◈ {node.id}</span>
-                <div style={{ height: '1px', flex: 1, background: 'rgba(212,165,116,0.25)' }} />
+                <div style={{ height: '1px', flex: 1, background: COLORS.goldAlpha25 }} />
+                <span style={{ color: COLORS.gold, fontSize: '0.68rem', whiteSpace: 'nowrap' }}>◈ {node.id}</span>
+                <div style={{ height: '1px', flex: 1, background: COLORS.goldAlpha25 }} />
               </div>
               {contextVerses.next.map(v => (
                 <button key={v.id} onClick={() => onNavigate(v.id)} style={{
                   background: 'rgba(52,152,219,0.04)', border: '1px solid rgba(52,152,219,0.12)',
-                  borderRadius: '8px', padding: '10px 13px', textAlign: 'left', cursor: 'pointer',
-                  transition: 'all 0.15s',
+                  borderRadius: RADIUS.md, padding: '10px 13px', textAlign: 'left', cursor: 'pointer',
+                  transition: `all ${TRANSITION.fast}`,
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.1)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.3)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.04)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.12)'; }}>
@@ -3130,7 +3121,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
 
       {connections.length > 0 && (
         <div>
-          <div style={{ color: '#d4a574', fontSize: '0.7rem', fontWeight: 700, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.8 }}>
+          <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.8 }}>
             {language === 'tr' ? `En Benzer ${connections.length} Ayet` : `Top ${connections.length} Similar Verses`}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
@@ -3146,15 +3137,15 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                   border: 'none',
                   borderRadius: idx === 0 ? '8px 8px 0 0' : idx === visibleConnections.length - 1 ? '0 0 8px 8px' : '0',
                   padding: '10px 12px', textAlign: 'left', cursor: 'pointer',
-                  transition: 'all 0.2s', width: '100%',
+                  transition: `all ${TRANSITION.base}`, width: '100%',
                   outline: expandedId === c.id ? '1px solid rgba(212,165,116,0.3)' : 'none',
                   outlineOffset: '-1px',
                 }}>
                 {/* Header row */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ color: '#d4a574', fontSize: '0.85rem', fontWeight: 600 }}>{surahNameTr(c.verse.surah)}</span>
-                    <span style={{ color: '#94a3b8', fontSize: '0.78rem' }}>{c.id}</span>
+                    <span style={{ color: COLORS.gold, fontSize: '0.85rem', fontWeight: 600 }}>{surahNameTr(c.verse.surah)}</span>
+                    <span style={{ color: COLORS.silver, fontSize: '0.78rem' }}>{c.id}</span>
                   </div>
                   <span
                     title="Kosinüs benzerlik skoru (0–1 arası, 1 = tam eşleşme)"
@@ -3163,12 +3154,12 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                 </div>
                 {/* Progress bar — normalized to displayed range [0.45, 1.0] */}
                 <div style={{ width: '100%', height: '2px', background: 'rgba(255,255,255,0.06)', borderRadius: '1px', marginBottom: '5px' }}>
-                  <div style={{ width: `${Math.max(0, Math.min(100, Math.round((c.score - 0.45) / 0.55 * 100)))}%`, height: '100%', background: 'linear-gradient(to right, rgba(212,165,116,0.4), #d4a574)', borderRadius: '1px' }} />
+                  <div style={{ width: `${Math.max(0, Math.min(100, Math.round((c.score - 0.45) / 0.55 * 100)))}%`, height: '100%', background: `linear-gradient(to right, rgba(212,165,116,0.4), ${COLORS.gold})`, borderRadius: '1px' }} />
                 </div>
 
                 {/* Collapsed: truncated text */}
                 {expandedId !== c.id && (
-                  <div style={{ color: '#94a3b8', fontSize: '0.87rem', lineHeight: 1.6 }}>
+                  <div style={{ color: COLORS.silver, fontSize: '0.87rem', lineHeight: 1.6 }}>
                     {vt(c.verse)?.slice(0, 110)}...
                   </div>
                 )}
@@ -3177,11 +3168,11 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                 {expandedId === c.id && (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '6px' }}>
                     <div style={{
-                      fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.55rem', lineHeight: 2.0,
-                      color: '#d4a574', textAlign: 'right', direction: 'rtl',
+                      fontFamily: FONTS.quran, fontSize: '1.55rem', lineHeight: 2.0,
+                      color: COLORS.gold, textAlign: 'right', direction: 'rtl',
                       padding: '8px 10px',
                       background: 'rgba(212,165,116,0.05)',
-                      borderRadius: '6px', border: '1px solid rgba(212,165,116,0.08)',
+                      borderRadius: RADIUS.sm, border: '1px solid rgba(212,165,116,0.08)',
                     }}>
                       {cleanArabicForGraph(c.verse.arabic)}
                     </div>

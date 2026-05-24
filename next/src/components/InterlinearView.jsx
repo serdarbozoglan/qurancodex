@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useInterlinearData } from '../hooks/useInterlinearData';
+import { RADIUS, COLORS } from '../tokens';
 
 const DEFAULT_ARABIC_FONT = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
 
@@ -88,7 +89,7 @@ function getColors(dayMode) {
         chipBg: 'transparent',
         loadingText: '#64748b',
         translation: '#cdc6bb',
-        translationActive: '#e8c98a',
+        translationActive: COLORS.goldBright,
       };
 }
 
@@ -238,7 +239,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
         <div style={{ display: 'flex', direction: 'rtl', alignItems: 'flex-start', gap: '6px', width: '100%' }}>
           <span style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            width: '26px', height: '26px', borderRadius: '50%', flexShrink: 0, marginTop: '4px',
+            width: '26px', height: '26px', borderRadius: RADIUS.full, flexShrink: 0, marginTop: '4px',
             border: `1.5px solid ${C.ayahNum}${isActive ? 'cc' : '88'}`,
             background: dayMode
               ? `radial-gradient(circle, ${C.ayahNum}28 0%, ${C.ayahNum}0a 70%)`
@@ -279,7 +280,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
             style={{
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
               width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-              borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
+              borderRadius: RADIUS.full, flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
               border: `1.5px solid ${isSajda ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : `${C.ayahNum}${isActive ? 'cc' : '88'}`}`,
               background: isSajda
                 ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.20) 0%, rgba(26,122,76,0.06) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
@@ -318,7 +319,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
           <span style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-            borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '14px' : '20px',
+            borderRadius: RADIUS.full, flexShrink: 0, marginTop: isMobile ? '14px' : '20px',
             border: `1.5px solid ${C.ayahNum}${isActive ? 'cc' : '88'}`,
             background: dayMode
               ? `radial-gradient(circle, ${C.ayahNum}28 0%, ${C.ayahNum}0a 70%)`

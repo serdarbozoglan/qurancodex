@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
-import { FONTS, COLORS } from '../tokens';
+import { FONTS, COLORS, RADIUS, TRANSITION } from '../tokens';
 
 // Splits text at Arabic character sequences and wraps them with styled spans.
 // Keeps spaces between Arabic letters/punctuation so "ق، ك، ط" stays one span.
-function withArabic(text, { color = '#d4a574', size = '1.15em', weight = 700 } = {}) {
+function withArabic(text, { color = COLORS.gold, size = '1.15em', weight = 700 } = {}) {
   const parts = text.split(/((?:[\u0600-\u06FF،؛؟]+\s*)+)/g);
   return parts.map((part, i) =>
     /[\u0600-\u06FF]/.test(part)
@@ -215,7 +215,7 @@ function ComparisonCard({ t, language }) {
       style={{
         background: glow,
         border: `1px solid ${border}`,
-        borderRadius: '14px',
+        borderRadius: RADIUS.xl,
         padding: '22px',
         display: 'flex',
         flexDirection: 'column',
@@ -252,9 +252,9 @@ function ComparisonCard({ t, language }) {
           title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
-            background: isPlaying ? `${color}26` : 'rgba(255,255,255,0.05)',
+            background: isPlaying ? `${color}26` : COLORS.glassBg,
             border: `1px solid ${isPlaying ? border : 'rgba(255,255,255,0.12)'}`,
-            borderRadius: '20px', padding: '6px 12px',
+            borderRadius: RADIUS.pillSm, padding: '6px 12px',
             color: isFailed ? COLORS.silver : color,
             fontSize: '0.72rem', fontFamily: 'Inter, sans-serif', fontWeight: 600,
             cursor: isFailed ? 'not-allowed' : 'pointer',
@@ -276,7 +276,7 @@ function ComparisonCard({ t, language }) {
         textAlign: 'right',
         wordBreak: 'keep-all',
         background: 'rgba(0,0,0,0.18)',
-        borderRadius: '8px',
+        borderRadius: RADIUS.md,
         padding: '10px 14px',
         minHeight: '76px',
       }}>{side.arabic}</div>
@@ -291,7 +291,7 @@ function ComparisonCard({ t, language }) {
             fontFamily: FONTS.quran, fontSize: '1.2rem',
             color, lineHeight: 1,
             background: `${color}1f`, border: `1px solid ${border}`,
-            borderRadius: '6px', padding: '2px 10px',
+            borderRadius: RADIUS.sm, padding: '2px 10px',
           }}>{l}</span>
         ))}
       </div>
@@ -373,7 +373,7 @@ function ComparisonCard({ t, language }) {
         marginTop: '14px',
         background: 'rgba(212,165,116,0.06)',
         border: '1px solid rgba(212,165,116,0.20)',
-        borderRadius: '10px',
+        borderRadius: RADIUS.chip,
         padding: '10px 14px',
         display: 'flex', alignItems: 'flex-start', gap: '10px',
       }}>
@@ -392,7 +392,7 @@ function ComparisonCard({ t, language }) {
 function TajwidPanel({ t, language }) {
   const data = t('soundArchitecture.tajwid');
   const palette = [
-    { color: '#d4a574', border: 'rgba(212,165,116,0.35)', glow: 'rgba(212,165,116,0.06)' }, // tafhim — gold
+    { color: COLORS.gold, border: 'rgba(212,165,116,0.35)', glow: 'rgba(212,165,116,0.06)' }, // tafhim — gold
     { color: '#3498db', border: 'rgba(52,152,219,0.35)',  glow: 'rgba(52,152,219,0.06)'  }, // tarqiq — blue
     { color: '#e67e22', border: 'rgba(230,126,34,0.35)',  glow: 'rgba(230,126,34,0.06)'  }, // qalqala — orange
   ];
@@ -417,7 +417,7 @@ function TajwidPanel({ t, language }) {
             <div key={cat.name} style={{
               background: p.glow,
               border: `1px solid ${p.border}`,
-              borderRadius: '14px',
+              borderRadius: RADIUS.xl,
               padding: '20px',
               display: 'flex', flexDirection: 'column', gap: '12px',
               position: 'relative', overflow: 'hidden',
@@ -441,7 +441,7 @@ function TajwidPanel({ t, language }) {
                 textAlign: 'right',
                 lineHeight: 1.7,
                 background: 'rgba(0,0,0,0.18)',
-                borderRadius: '8px',
+                borderRadius: RADIUS.md,
                 padding: '8px 14px',
                 letterSpacing: '0.05em',
               }}>{cat.letters}</div>
@@ -491,7 +491,7 @@ function TajwidPanel({ t, language }) {
         marginTop: '14px',
         background: 'rgba(212,165,116,0.06)',
         border: '1px solid rgba(212,165,116,0.20)',
-        borderRadius: '10px',
+        borderRadius: RADIUS.chip,
         padding: '12px 16px',
       }}>
         <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: 'Inter, sans-serif', lineHeight: 1.65 }}>
@@ -695,9 +695,9 @@ function DiscoveryWidget({ t, language }) {
                     style={{
                       alignSelf: 'flex-start',
                       display: 'flex', alignItems: 'center', gap: '8px',
-                      background: playing ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.05)',
+                      background: playing ? 'rgba(212,165,116,0.18)' : COLORS.glassBg,
                       border: `1px solid ${playing ? 'rgba(212,165,116,0.5)' : 'rgba(255,255,255,0.12)'}`,
-                      borderRadius: '20px', padding: '8px 16px',
+                      borderRadius: RADIUS.pillSm, padding: '8px 16px',
                       color: audioFailed ? COLORS.silver : COLORS.gold,
                       fontSize: '0.8rem', fontFamily: 'Inter, sans-serif',
                       cursor: audioFailed ? 'not-allowed' : 'pointer',
@@ -717,7 +717,7 @@ function DiscoveryWidget({ t, language }) {
                       style={{
                         background: 'rgba(231,76,60,0.08)',
                         border: '1px solid rgba(231,76,60,0.35)',
-                        borderRadius: '12px',
+                        borderRadius: RADIUS.lg,
                         padding: '11px 12px',
                         color: '#e74c3c',
                         fontSize: '0.95rem', fontFamily: "'Playfair Display', serif",
@@ -732,7 +732,7 @@ function DiscoveryWidget({ t, language }) {
                       style={{
                         background: 'rgba(46,204,113,0.08)',
                         border: '1px solid rgba(46,204,113,0.35)',
-                        borderRadius: '12px',
+                        borderRadius: RADIUS.lg,
                         padding: '11px 12px',
                         color: '#2ecc71',
                         fontSize: '0.95rem', fontFamily: "'Playfair Display', serif",
@@ -750,7 +750,7 @@ function DiscoveryWidget({ t, language }) {
                   <div style={{
                     background: isCorrect ? 'rgba(46,204,113,0.08)' : 'rgba(231,76,60,0.08)',
                     border: `1px solid ${isCorrect ? 'rgba(46,204,113,0.30)' : 'rgba(231,76,60,0.30)'}`,
-                    borderRadius: '12px',
+                    borderRadius: RADIUS.lg,
                     padding: '14px 16px',
                     marginBottom: '14px',
                   }}>
@@ -772,12 +772,12 @@ function DiscoveryWidget({ t, language }) {
                       style={{
                         background: 'rgba(212,165,116,0.10)',
                         border: '1px solid rgba(212,165,116,0.35)',
-                        borderRadius: '20px', padding: '8px 18px',
+                        borderRadius: RADIUS.pillSm, padding: '8px 18px',
                         color: COLORS.gold,
                         fontSize: '0.82rem', fontFamily: 'Inter, sans-serif', fontWeight: 600,
                         cursor: 'pointer', transition: 'all 0.18s',
                       }}
-                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.20)'; }}
+                      onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha20; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; }}
                     >
                       {idx + 1} / {items.length} →
@@ -810,12 +810,12 @@ function DiscoveryWidget({ t, language }) {
                 style={{
                   background: 'rgba(212,165,116,0.10)',
                   border: '1px solid rgba(212,165,116,0.35)',
-                  borderRadius: '20px', padding: '8px 18px',
+                  borderRadius: RADIUS.pillSm, padding: '8px 18px',
                   color: COLORS.gold,
                   fontSize: '0.82rem', fontFamily: 'Inter, sans-serif', fontWeight: 600,
                   cursor: 'pointer', transition: 'all 0.18s',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.20)'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha20; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; }}
               >↻ {labels.resetLabel}</button>
             </motion.div>
@@ -836,7 +836,7 @@ function ClassicalSource({ t, language }) {
       <div style={{
         background: 'linear-gradient(135deg, rgba(212,165,116,0.06), rgba(212,165,116,0.02))',
         border: '1px solid rgba(212,165,116,0.30)',
-        borderRadius: '14px',
+        borderRadius: RADIUS.xl,
         padding: 'clamp(20px, 3vw, 28px)',
         position: 'relative',
         overflow: 'hidden',
@@ -845,7 +845,7 @@ function ClassicalSource({ t, language }) {
         <div style={{
           position: 'absolute', top: '8px', right: '20px',
           fontSize: '5rem', fontFamily: "'Playfair Display', serif",
-          color: 'rgba(212,165,116,0.15)', lineHeight: 1, fontWeight: 900,
+          color: COLORS.goldAlpha15, lineHeight: 1, fontWeight: 900,
           pointerEvents: 'none',
         }}>"</div>
 
@@ -978,20 +978,37 @@ export default function SoundArchitecture() {
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero/Discovery parity. */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-8"
+        style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          marginTop: '12px',
+          marginBottom: '12px',
+          maxWidth: '60ch',
+          lineHeight: 1.15,
+          letterSpacing: '-0.01em',
+        }}
       >
         {t('soundArchitecture.title')}
       </motion.h2>
 
-      {/* Intro */}
+      {/* Intro — Hero baseline imzası. */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-10"
+        className="max-w-3xl mb-10"
+        style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
-        {withArabic(t('soundArchitecture.intro'), { color: '#d4a574', size: '1.25em' })}
+        {withArabic(t('soundArchitecture.intro'), { color: COLORS.gold, size: '1.25em' })}
       </motion.p>
 
       {/* ── 1. Comparison Card (Azap vs Rahmet) ── */}
@@ -1011,24 +1028,24 @@ export default function SoundArchitecture() {
                 onClick={() => selectSura(sura)}
                 style={{
                   background: isActive ? sura.glow : 'rgba(255,255,255,0.03)',
-                  border: `1px solid ${isActive ? sura.border : 'rgba(255,255,255,0.08)'}`,
-                  borderRadius: '10px',
+                  border: `1px solid ${isActive ? sura.border : COLORS.glassBgStrong}`,
+                  borderRadius: RADIUS.chip,
                   padding: '14px 12px',
                   textAlign: 'left',
                   cursor: 'pointer',
-                  transition: 'all 0.2s',
+                  transition: `all ${TRANSITION.base}`,
                   outline: 'none',
                 }}
                 onMouseEnter={e => { if (!isActive) e.currentTarget.style.borderColor = sura.border; }}
-                onMouseLeave={e => { if (!isActive) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+                onMouseLeave={e => { if (!isActive) e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}
               >
                 <p style={{ color: sura.color, fontSize: '0.65rem', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '4px' }}>
                   {language === 'tr' ? sura.numTr : sura.numEn}
                 </p>
-                <p style={{ color: isActive ? '#e8e6e3' : '#94a3b8', fontSize: '0.95rem', fontFamily: "'Playfair Display', serif", fontWeight: 700, marginBottom: '4px' }}>
+                <p style={{ color: isActive ? COLORS.offWhite : COLORS.silver, fontSize: '0.95rem', fontFamily: "'Playfair Display', serif", fontWeight: 700, marginBottom: '4px' }}>
                   {language === 'tr' ? sura.labelTr : sura.labelEn}
                 </p>
-                <p style={{ color: isActive ? sura.color : '#64748b', fontSize: '0.7rem', fontFamily: 'Inter, sans-serif' }}>
+                <p style={{ color: isActive ? sura.color : COLORS.slate500, fontSize: '0.7rem', fontFamily: 'Inter, sans-serif' }}>
                   {language === 'tr' ? sura.themeTr : sura.themeEn}
                 </p>
               </button>
@@ -1047,7 +1064,7 @@ export default function SoundArchitecture() {
           style={{
             background: activeSura.glow,
             border: `1px solid ${activeSura.border}`,
-            borderRadius: '14px',
+            borderRadius: RADIUS.xl,
             padding: '24px',
             marginBottom: '28px',
           }}
@@ -1085,7 +1102,7 @@ export default function SoundArchitecture() {
                     );
                   })}
                 </p>
-                <p style={{ color: '#64748b', fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', textAlign: 'right', direction: 'ltr' }}>
+                <p style={{ color: COLORS.slate500, fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', textAlign: 'right', direction: 'ltr' }}>
                   {language === 'tr' ? activeSura.numTr : activeSura.numEn} · {activeSura.verseRef}
                 </p>
               </div>
@@ -1106,14 +1123,14 @@ export default function SoundArchitecture() {
                       style={{
                         background: hoveredLetter === l ? 'rgba(231,76,60,0.3)' : 'rgba(231,76,60,0.15)',
                         border: `1px solid ${hoveredLetter === l ? 'rgba(255,107,107,0.7)' : 'rgba(231,76,60,0.4)'}`,
-                        borderRadius: '6px',
+                        borderRadius: RADIUS.sm,
                         padding: '2px 10px',
                         fontFamily: FONTS.quran,
                         fontSize: '1.2rem',
                         color: hoveredLetter === l ? '#ff6b6b' : '#e74c3c',
                         lineHeight: 1.8,
                         cursor: 'pointer',
-                        transition: 'all 0.15s',
+                        transition: `all ${TRANSITION.fast}`,
                         boxShadow: hoveredLetter === l ? '0 0 10px rgba(231,76,60,0.3)' : 'none',
                       }}>{l}</span>
                   ))}
@@ -1133,14 +1150,14 @@ export default function SoundArchitecture() {
                       style={{
                         background: hoveredLetter === l ? 'rgba(46,204,113,0.25)' : 'rgba(46,204,113,0.12)',
                         border: `1px solid ${hoveredLetter === l ? 'rgba(105,219,124,0.7)' : 'rgba(46,204,113,0.35)'}`,
-                        borderRadius: '6px',
+                        borderRadius: RADIUS.sm,
                         padding: '2px 10px',
                         fontFamily: FONTS.quran,
                         fontSize: '1.2rem',
                         color: hoveredLetter === l ? '#69db7c' : '#2ecc71',
                         lineHeight: 1.8,
                         cursor: 'pointer',
-                        transition: 'all 0.15s',
+                        transition: `all ${TRANSITION.fast}`,
                         boxShadow: hoveredLetter === l ? '0 0 10px rgba(46,204,113,0.3)' : 'none',
                       }}>{l}</span>
                   ))}
@@ -1150,21 +1167,21 @@ export default function SoundArchitecture() {
               {/* Qualitative bar + ℹ */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
-                  <span style={{ color: '#94a3b8', fontSize: '0.65rem', fontFamily: 'Inter, sans-serif' }}>
+                  <span style={{ color: COLORS.silver, fontSize: '0.65rem', fontFamily: 'Inter, sans-serif' }}>
                     {language === 'tr' ? 'Fonetik ağırlık' : 'Phonetic weight'}
                   </span>
                   <div className="relative">
                     <button
                       onClick={() => setInfoOpen(v => !v)}
-                      style={{ color: '#d4a574', fontSize: '0.9rem', background: 'none', border: 'none', cursor: 'pointer', lineHeight: 1 }}
+                      style={{ color: COLORS.gold, fontSize: '0.9rem', background: 'none', border: 'none', cursor: 'pointer', lineHeight: 1 }}
                       aria-label="Metodoloji"
                     >ⓘ</button>
                     {infoOpen && (
                       <div style={{
                         position: 'absolute', right: 0, top: '20px', zIndex: 20,
                         background: '#1a2a3a', border: '1px solid rgba(255,255,255,0.1)',
-                        borderRadius: '8px', padding: '10px', width: '210px',
-                        fontSize: '0.7rem', color: '#94a3b8', fontFamily: 'Inter, sans-serif', lineHeight: 1.6,
+                        borderRadius: RADIUS.md, padding: '10px', width: '210px',
+                        fontSize: '0.7rem', color: COLORS.silver, fontFamily: 'Inter, sans-serif', lineHeight: 1.6,
                       }}>
                         {language === 'tr'
                           ? 'Bu gösterim sûrenin fonetik dokusunu sezgisel olarak temsil eder; kesin bir dilbilimsel ölçüm değil, işitsel bir rehberdir. Sert: ق ك ط ت د ض ص ب خ غ — Yumuşak: م ن ل ر و ي ه ح ف'
@@ -1182,10 +1199,10 @@ export default function SoundArchitecture() {
                   />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
-                  <span style={{ color: '#475569', fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
+                  <span style={{ color: COLORS.slate600, fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
                     {language === 'tr' ? 'Hafif' : 'Light'}
                   </span>
-                  <span style={{ color: '#475569', fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
+                  <span style={{ color: COLORS.slate600, fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
                     {language === 'tr' ? 'Ağır' : 'Heavy'}
                   </span>
                 </div>
@@ -1195,7 +1212,7 @@ export default function SoundArchitecture() {
 
           {/* Description + play */}
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', marginTop: '18px', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
-            <p style={{ color: '#94a3b8', fontSize: '0.85rem', fontFamily: 'Inter, sans-serif', lineHeight: 1.6, flex: 1 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: 'Inter, sans-serif', lineHeight: 1.6, flex: 1 }}>
               {language === 'tr' ? activeSura.descTr : activeSura.descEn}
             </p>
             {(() => {
@@ -1208,10 +1225,10 @@ export default function SoundArchitecture() {
                   title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
                   style={{
                     display: 'flex', alignItems: 'center', gap: '6px',
-                    background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? `${activeSura.color}22` : 'rgba(255,255,255,0.05)',
-                    border: `1px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? activeSura.border : 'rgba(255,255,255,0.1)'}`,
-                    borderRadius: '20px', padding: '6px 14px',
-                    color: isFailed ? '#475569' : activeSura.color,
+                    background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? `${activeSura.color}22` : COLORS.glassBg,
+                    border: `1px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? activeSura.border : COLORS.glassBorder}`,
+                    borderRadius: RADIUS.pillSm, padding: '6px 14px',
+                    color: isFailed ? COLORS.slate600 : activeSura.color,
                     fontSize: '0.75rem', fontFamily: 'Inter, sans-serif',
                     cursor: isFailed ? 'not-allowed' : 'pointer',
                     opacity: isFailed ? 0.5 : 1,
@@ -1236,7 +1253,7 @@ export default function SoundArchitecture() {
           {t('soundArchitecture.phonetics.title')}
         </h3>
         <p className="text-silver text-base leading-relaxed font-body">
-          {withArabic(t('soundArchitecture.phonetics.description'), { color: '#d4a574', size: '1.2em' })}
+          {withArabic(t('soundArchitecture.phonetics.description'), { color: COLORS.gold, size: '1.2em' })}
         </p>
       </motion.div>
 
@@ -1253,9 +1270,9 @@ export default function SoundArchitecture() {
       <motion.div
         variants={fadeUpItem}
         className="glass-card p-8 md:p-10 text-center"
-        style={{ borderTop: '2px solid rgba(212,165,116,0.25)', borderBottom: '2px solid rgba(212,165,116,0.25)', borderLeft: 'none', borderRight: 'none', borderRadius: 0, background: 'rgba(212,165,116,0.04)' }}
+        style={{ borderTop: '2px solid rgba(212,165,116,0.25)', borderBottom: '2px solid rgba(212,165,116,0.25)', borderLeft: 'none', borderRight: 'none', borderRadius: 0, background: COLORS.goldAlpha04 }}
       >
-        <p className="text-2xl md:text-4xl font-display font-bold leading-snug" style={{ color: '#d4a574' }}>
+        <p className="text-2xl md:text-4xl font-display font-bold leading-snug" style={{ color: COLORS.gold }}>
           {t('soundArchitecture.closing')}
         </p>
       </motion.div>

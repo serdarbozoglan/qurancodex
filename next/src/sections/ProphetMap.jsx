@@ -6,14 +6,15 @@ import * as topojson from 'topojson-client';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 const LOCATIONS = {
   musa: [
     {
       id: 'nil', lat: 30.5, lon: 31.2,
       nameTr: 'Nil Deltası — Mısır', nameEn: 'Nile Delta — Egypt',
-      phaseTr: 'Doğum & Firavun\'un Sarayında Büyüme',
-      phaseEn: 'Birth & Upbringing in Pharaoh\'s Palace',
+      phaseTr: 'Doğum & Firavun’un Sarayında Büyüme',
+      phaseEn: 'Birth & Upbringing in Pharaoh’s Palace',
     },
     {
       id: 'medyen', lat: 28.5, lon: 34.8,
@@ -23,20 +24,20 @@ const LOCATIONS = {
     },
     {
       id: 'misir', lat: 30.06, lon: 31.24,
-      nameTr: 'Mısır — Firavun Sarayı', nameEn: 'Egypt — Pharaoh\'s Court',
-      phaseTr: 'Firavun\'a Karşı 9 Mucize',
+      nameTr: 'Mısır — Firavun Sarayı', nameEn: 'Egypt — Pharaoh’s Court',
+      phaseTr: 'Firavun’a Karşı 9 Mucize',
       phaseEn: '9 Miracles Against Pharaoh',
     },
     {
       id: 'kizildeniz', lat: 29.9, lon: 32.6,
       nameTr: 'Kızıldeniz Geçişi', nameEn: 'Red Sea Crossing',
-      phaseTr: 'Denizin Yarılması — Firavun\'un Boğulması',
-      phaseEn: 'Parting of the Sea — Pharaoh\'s Drowning',
+      phaseTr: 'Denizin Yarılması — Firavun’un Boğulması',
+      phaseEn: 'Parting of the Sea — Pharaoh’s Drowning',
     },
     {
       id: 'tur-i-sina', lat: 28.54, lon: 33.97,
       nameTr: 'Tûr-i Sînâ', nameEn: 'Mount Sinai',
-      phaseTr: 'Tevrat\'ın İnişi & 40 Gece',
+      phaseTr: 'Tevrat’ın İnişi & 40 Gece',
       phaseEn: 'Revelation of the Torah & 40 Nights',
     },
     {
@@ -62,13 +63,13 @@ const LOCATIONS = {
     {
       id: 'kenan-ibrahim', lat: 31.5, lon: 35.0,
       nameTr: 'Kenan Diyarı / Filistin', nameEn: 'Land of Canaan / Palestine',
-      phaseTr: 'İkâmet, Meleklerin Ziyareti & İsmail\'in Doğumu',
-      phaseEn: 'Settlement, Angels\' Visit & Birth of Ismail',
+      phaseTr: 'İkâmet, Meleklerin Ziyareti & İsmail’in Doğumu',
+      phaseEn: 'Settlement, Angels’ Visit & Birth of Ismail',
     },
     {
       id: 'mekke', lat: 21.42, lon: 39.82,
       nameTr: 'Mekke', nameEn: 'Mecca',
-      phaseTr: 'Kâbe\'nin İnşası, İsmail\'in Kurban Edilmesi & Hac\'ın Emri',
+      phaseTr: 'Kâbe’nin İnşası, İsmail’in Kurban Edilmesi & Hac’ın Emri',
       phaseEn: 'Building the Kaaba, Sacrifice of Ismail & Command of Hajj',
     },
   ],
@@ -102,7 +103,7 @@ const LOCATIONS = {
     {
       id: 'kudus', lat: 31.87, lon: 35.28,
       nameTr: 'Kudüs', nameEn: 'Jerusalem',
-      phaseTr: 'Mucizeler, Havariler & Ref\' (Yükseltilme)',
+      phaseTr: 'Mucizeler, Havariler & Ref’ (Yükseltilme)',
       phaseEn: 'Miracles, Disciples & the Ascension',
     },
   ],
@@ -111,13 +112,13 @@ const LOCATIONS = {
       id: 'mezopotamya', lat: 32.5, lon: 44.4,
       nameTr: 'Mezopotamya — Irak', nameEn: 'Mesopotamia — Iraq',
       phaseTr: '950 Yıllık Davet — Kavminin Sürekli İnkârı',
-      phaseEn: '950 Years of Calling — People\'s Constant Denial',
+      phaseEn: '950 Years of Calling — People’s Constant Denial',
     },
     {
       id: 'cudi', lat: 37.37, lon: 42.47,
       nameTr: 'Cudi Dağı — Şırnak, Türkiye', nameEn: 'Mount Judi — Şırnak, Turkey',
       phaseTr: 'Geminin İnişi — Tufanın Sonu & Yeni Başlangıç',
-      phaseEn: 'Ark\'s Landing — End of the Flood & New Beginning',
+      phaseEn: 'Ark’s Landing — End of the Flood & New Beginning',
     },
   ],
 };
@@ -191,22 +192,33 @@ export default function ProphetMap({ activeProphet, prophet }) {
 
   return (
     <div style={{ marginTop: '64px' }}>
-      {/* Header */}
+      {/* Header — Hero parity (alt-section level: H3 ölçeği biraz indirildi) */}
       <div style={{ textAlign: 'center', marginBottom: '28px' }}>
         <div style={{
-          color: 'rgba(255,255,255,0.45)', fontSize: '0.72rem', fontWeight: 700,
-          letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '10px',
+          color: COLORS.gold,
+          opacity: 0.6,
+          fontSize: '0.75rem',
+          fontWeight: 700,
+          fontFamily: FONTS.body,
+          letterSpacing: '0.3em',
+          textTransform: 'uppercase',
+          marginBottom: '10px',
         }}>
           {tr('Coğrafi Atlas', 'Geographic Atlas')}
         </div>
         <h3 style={{
-          fontFamily: '"Playfair Display", serif',
-          fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
-          fontWeight: 600, color: '#F8FAFC', margin: 0,
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.4rem, 2.8vw, 2rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.2,
+          maxWidth: '60ch',
+          margin: '0 auto',
         }}>
           {tr(
             `${prophet.nameTr} Kıssasının Coğrafyası`,
-            `Geography of ${prophet.nameEn}'s Narrative`,
+            `Geography of ${prophet.nameEn}’s Narrative`,
           )}
         </h3>
       </div>
@@ -302,7 +314,7 @@ export default function ProphetMap({ activeProphet, prophet }) {
         {locations.map((loc, i) => (
           <div key={loc.id} style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
             <div style={{
-              width: '24px', height: '24px', borderRadius: '50%',
+              width: '24px', height: '24px', borderRadius: RADIUS.full,
               background: `radial-gradient(circle at 38% 32%, ${GOLD_LIGHT}, ${GOLD})`,
               color: '#1B1208',
               fontSize: '11px', fontWeight: 700,
@@ -328,7 +340,7 @@ export default function ProphetMap({ activeProphet, prophet }) {
       }}>
         {tr(
           'Numaralar nüzul veya mushaf sırası değil, peygamberin hayat yolculuğunun kronolojik sırasıdır.',
-          'Numbers follow the chronological order of the prophet\'s life journey, not the Quranic or mushaf order.',
+          'Numbers follow the chronological order of the prophet’s life journey, not the Quranic or mushaf order.',
         )}
       </p>
 

@@ -18,12 +18,12 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import ToolHighlightCard from '../components/ToolHighlightCard';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 // ── 6 featured tools ────────────────────────────────────────────────────────
 const FEATURED_TOOLS = [
@@ -125,6 +125,7 @@ const FEATURED_TOOLS = [
 export default function ToolsHighlight() {
   const { language } = useLanguage();
   const { openOverlay } = useQuranNav();
+  const reduced = useReducedMotion();
   // SSR-safe: start with 1 (matches server render), useEffect hydrates with
   // actual viewport-based column count after mount. Prevents hydration mismatch.
   const [columns, setColumns] = useState(1);
@@ -172,15 +173,23 @@ export default function ToolsHighlight() {
           marginBottom: '12px',
           maxWidth: '60ch',
           lineHeight: 1.15,
+          letterSpacing: '-0.01em',
         }}
       >
         {language === 'tr' ? 'Veriyle Keşfet, Görselle Anla' : 'Explore Data, See It Live'}
       </motion.h2>
 
-      {/* Subtitle */}
+      {/* Subtitle — Hero baseline imza. */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-10"
+        className="max-w-2xl mb-10"
+        style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {language === 'tr'
           ? "Sitenin en güçlü yanı: 6.236 ayeti farklı açılardan tarayan interaktif modüller. Aşağıda 6 öne çıkan araç."
@@ -209,7 +218,10 @@ export default function ToolsHighlight() {
         ))}
       </motion.div>
 
-      {/* "View all tools" CTA */}
+      {/* "View all tools" CTA — secondary imzası: Hero primary'nin sönük yansıması.
+          Statik gold halo + hover'da glow yükselir + scale 1.02 (primary 1.04'ten
+          alçak — secondary aksiyon hiyerarşisi). Framer-only hover; DOM mouseenter
+          ile çift sistem yok. */}
       <motion.div
         variants={fadeUpItem}
         style={{
@@ -218,32 +230,39 @@ export default function ToolsHighlight() {
           justifyContent: 'flex-start',
         }}
       >
-        <button
+        <motion.button
           type="button"
           onClick={handleViewAll}
+          whileHover={
+            reduced
+              ? undefined
+              : {
+                  scale: 1.02,
+                  backgroundColor: COLORS.goldAlpha15,
+                  borderColor: COLORS.goldAlpha45,
+                  boxShadow: `0 0 28px 2px ${COLORS.goldAlpha15}`,
+                }
+          }
+          whileTap={reduced ? undefined : { scale: 0.98 }}
+          transition={{ type: 'spring', stiffness: 320, damping: 24 }}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            padding: '10px 18px',
+            padding: '11px 20px',
             background: 'transparent',
-            border: `1px solid ${COLORS.goldAlpha25}`,
-            borderRadius: '8px',
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: COLORS.goldAlpha25,
+            borderRadius: RADIUS.md,
             cursor: 'pointer',
             color: COLORS.gold,
             fontFamily: FONTS.body,
-            fontSize: '0.85rem',
+            fontSize: '0.82rem',
             fontWeight: 600,
-            letterSpacing: '0.04em',
-            transition: 'background 0.2s, border-color 0.2s',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = COLORS.goldAlpha15;
-            e.currentTarget.style.borderColor = COLORS.goldAlpha45;
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'transparent';
-            e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            boxShadow: `0 0 16px ${COLORS.goldAlpha04}`,
           }}
         >
           {language === 'tr' ? 'Tüm Araçları Gör' : 'View All Tools'}
@@ -260,7 +279,7 @@ export default function ToolsHighlight() {
           >
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
-        </button>
+        </motion.button>
       </motion.div>
     </SectionWrapper>
   );

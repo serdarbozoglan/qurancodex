@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 
 const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI', 'KARŞILAŞTIR', 'KAYNAKLAR'];
 const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'REGION MAP', 'COMPARE', 'SOURCES'];
@@ -21,7 +21,7 @@ const HELAK_COLORS = {
   ates:     '#ff6348',
   mesh:     '#8e44ad',
   kurtulan: '#2ecc71',
-  gizemli:  '#64748b',
+  gizemli:  COLORS.slate500,
 };
 
 // ── Shared helpers ────────────────────────────────────────────────────────────
@@ -31,7 +31,7 @@ function CloseBtn({ onClose }) {
     <button
       onClick={onClose}
       style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
       onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -204,7 +204,7 @@ export default function KavimlerAtlasi({ onClose }) {
               fontSize: isMobile ? '0.69rem' : '0.79rem',
               fontWeight: activeTab === i ? 600 : 400,
               fontFamily: FONTS.body,
-              cursor: 'pointer', transition: 'all 0.15s',
+              cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
               letterSpacing: '0.04em',
             }}
           >
@@ -364,7 +364,7 @@ function TabNations({ nations, language, isMobile, filter, setFilter, onArchClic
               borderWidth: '1px', borderStyle: 'solid',
               color: filter === key ? COLORS.gold : COLORS.silver,
               fontSize: '0.78rem', fontFamily: FONTS.body,
-              cursor: 'pointer', transition: 'all 0.15s',
+              cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
             }}
           >
             {labels[i]}
@@ -480,7 +480,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
               background: 'rgba(26,188,156,0.12)', border: '1px solid rgba(26,188,156,0.25)',
               color: '#1abc9c', fontSize: '0.7rem', padding: '2px 8px',
               borderRadius: RADIUS.chip, fontFamily: FONTS.body,
-              cursor: 'pointer', transition: 'all 0.15s',
+              cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(26,188,156,0.22)'; }}
             onMouseLeave={e => { e.currentTarget.style.background = 'rgba(26,188,156,0.12)'; }}
@@ -649,7 +649,7 @@ function TabHelakDesen({ language, isMobile }) {
             {/* Number + connector line */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
               <div style={{
-                width: '32px', height: '32px', borderRadius: '50%',
+                width: '32px', height: '32px', borderRadius: RADIUS.full,
                 background: `${COLORS.gold}20`, border: `1px solid ${COLORS.gold}50`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: COLORS.gold, fontSize: '0.8rem', fontWeight: 700, fontFamily: FONTS.body,
@@ -833,8 +833,8 @@ const ARCH_CARDS_EN = [
 function StatusBadge({ status, label }) {
   const colors = {
     confirmed: { bg: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', text: '#2ecc71' },
-    debated:   { bg: 'rgba(212,165,116,0.12)', border: 'rgba(212,165,116,0.3)', text: '#d4a574' },
-    unknown:   { bg: 'rgba(100,116,139,0.12)', border: 'rgba(100,116,139,0.3)', text: '#64748b' },
+    debated:   { bg: 'rgba(212,165,116,0.12)', border: 'rgba(212,165,116,0.3)', text: COLORS.gold },
+    unknown:   { bg: 'rgba(100,116,139,0.12)', border: 'rgba(100,116,139,0.3)', text: COLORS.slate500 },
   };
   const c = colors[status] || colors.unknown;
   return (
@@ -1059,7 +1059,7 @@ const NATION_REGIONS = [
   },
 ];
 
-const STATUS_COLOR = { confirmed: '#2ecc71', debated: '#d4a574' };
+const STATUS_COLOR = { confirmed: '#2ecc71', debated: COLORS.gold };
 
 function TabHarita({ language, isMobile }) {
   const tr = language === 'tr';
@@ -1084,7 +1084,7 @@ function TabHarita({ language, isMobile }) {
           { status: 'debated',   labelTr: 'Tartışmalı / yaklaşık', labelEn: 'Debated / approximate' },
         ].map(l => (
           <div key={l.status} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: STATUS_COLOR[l.status], opacity: 0.7 }} />
+            <div style={{ width: '12px', height: '12px', borderRadius: RADIUS.full, background: STATUS_COLOR[l.status], opacity: 0.7 }} />
             <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body }}>
               {tr ? l.labelTr : l.labelEn}
             </span>
@@ -1134,7 +1134,7 @@ function TabHarita({ language, isMobile }) {
                       ? (tr ? 'Teyitli' : 'Confirmed')
                       : (tr ? 'Tartışmalı' : 'Debated')}
                   </div>
-                  <div style={{ fontSize: '0.72rem', color: '#64748b', lineHeight: 1.5 }}>
+                  <div style={{ fontSize: '0.72rem', color: COLORS.slate500, lineHeight: 1.5 }}>
                     {tr ? region.sourceTr : region.sourceEn}
                   </div>
                 </div>
@@ -1163,7 +1163,7 @@ function TabHarita({ language, isMobile }) {
 
       {/* Kaynak tablosu */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-        <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#64748b', marginBottom: '4px' }}>
+        <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.slate500, marginBottom: '4px' }}>
           {tr ? 'Bölge Kaynakları' : 'Region Sources'}
         </div>
         {NATION_REGIONS.map(r => (
@@ -1174,7 +1174,7 @@ function TabHarita({ language, isMobile }) {
             borderLeft: `3px solid ${r.color}60`,
             borderRadius: RADIUS.md, padding: '8px 12px',
           }}>
-            <div style={{ flexShrink: 0, width: '10px', height: '10px', borderRadius: '50%', background: r.color, marginTop: '3px', opacity: 0.8 }} />
+            <div style={{ flexShrink: 0, width: '10px', height: '10px', borderRadius: RADIUS.full, background: r.color, marginTop: '3px', opacity: 0.8 }} />
             <div>
               <span style={{ fontSize: '0.8rem', fontWeight: 600, color: COLORS.offWhite, fontFamily: FONTS.body }}>
                 {tr ? r.nameTr : r.nameEn}
@@ -1182,7 +1182,7 @@ function TabHarita({ language, isMobile }) {
               <span style={{ fontSize: '0.72rem', color: `${STATUS_COLOR[r.status]}`, fontFamily: FONTS.body, marginLeft: '6px' }}>
                 {r.status === 'confirmed' ? (tr ? '✓ Teyitli' : '✓ Confirmed') : (tr ? '~ Tartışmalı' : '~ Debated')}
               </span>
-              <p style={{ fontSize: '0.73rem', color: '#64748b', margin: '2px 0 0', lineHeight: 1.55, fontFamily: FONTS.body }}>
+              <p style={{ fontSize: '0.73rem', color: COLORS.slate500, margin: '2px 0 0', lineHeight: 1.55, fontFamily: FONTS.body }}>
                 {tr ? r.sourceTr : r.sourceEn}
               </p>
             </div>
@@ -1233,7 +1233,7 @@ const HELAK_TYPES_TR = [
   { type: 'deniz',    label: 'Deniz (Boğulma)',        color: '#1a5276', nations: ['Firavun Kavmi'] },
   { type: 'ses',      label: 'Ses — Saika/Sayha',      color: '#a78bfa', nations: ['Semûd'] },
   { type: 'sarsinti', label: 'Sarsıntı — Rajfa',       color: '#f39c12', nations: ['Medyen'] },
-  { type: 'ruzgar',   label: 'Rüzgar',                 color: '#94a3b8', nations: ['Âd'] },
+  { type: 'ruzgar',   label: 'Rüzgar',                 color: COLORS.silver, nations: ['Âd'] },
   { type: 'tas',      label: 'Taş / Alt-Üst',          color: '#a0785a', nations: ['Lût Kavmi'] },
   { type: 'golge',    label: 'Gölge Azabı',            color: '#b8860b', nations: ['Eyke Halkı'] },
   { type: 'batirma',  label: 'Yere Batırma',           color: '#c0392b', nations: ['Karun (bireysel)'] },
@@ -1245,7 +1245,7 @@ const HELAK_TYPES_EN = [
   { type: 'deniz',    label: 'Sea (Drowning)',          color: '#1a5276', nations: ["People of Pharaoh"] },
   { type: 'ses',      label: 'Sound — Saika/Sayha',     color: '#a78bfa', nations: ["Thamud"] },
   { type: 'sarsinti', label: 'Earthquake — Rajfa',      color: '#f39c12', nations: ["Midian"] },
-  { type: 'ruzgar',   label: 'Wind',                    color: '#94a3b8', nations: ["ʿAd"] },
+  { type: 'ruzgar',   label: 'Wind',                    color: COLORS.silver, nations: ["ʿAd"] },
   { type: 'tas',      label: 'Stones / Overturned',     color: '#a0785a', nations: ["People of Lot"] },
   { type: 'golge',    label: 'Shade Punishment',        color: '#b8860b', nations: ["Companions of the Grove"] },
   { type: 'batirma',  label: 'Swallowed by Earth',      color: '#c0392b', nations: ["Qarun (individual)"] },
@@ -1292,7 +1292,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
                 {ht.nations.map((nation, j) => (
                   <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <div style={{
-                      width: '22px', height: '22px', borderRadius: '50%',
+                      width: '22px', height: '22px', borderRadius: RADIUS.full,
                       background: `${ht.color}25`,
                       border: `2px solid ${ht.color}`,
                       flexShrink: 0,
@@ -1325,7 +1325,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
             { tr: 'Yunus Kavmi', en: "People of Jonah", noteTr: 'Tüm toplum tövbe edip kurtuldu', noteEn: 'Entire community repented and was saved' },
           ].map((n, i) => (
             <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', marginBottom: i === 0 ? '6px' : 0 }}>
-              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: HELAK_COLORS.kurtulan, flexShrink: 0, marginTop: '4px' }} />
+              <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: HELAK_COLORS.kurtulan, flexShrink: 0, marginTop: '4px' }} />
               <div>
                 <span style={{ color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body }}>{language === 'tr' ? n.tr : n.en}</span>
                 <span style={{ color: COLORS.slate500, fontSize: '0.71rem', fontFamily: FONTS.body, display: 'block', lineHeight: 1.4 }}>{language === 'tr' ? n.noteTr : n.noteEn}</span>
@@ -1346,7 +1346,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
             { tr: "Tübba Kavmi", en: "People of Tubba'", noteTr: 'Helak ima edilir, detay yok', noteEn: 'Destruction implied, no detail' },
           ].map((n, i) => (
             <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', marginBottom: i === 0 ? '6px' : 0 }}>
-              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: HELAK_COLORS.gizemli, flexShrink: 0, marginTop: '4px' }} />
+              <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: HELAK_COLORS.gizemli, flexShrink: 0, marginTop: '4px' }} />
               <div>
                 <span style={{ color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body }}>{language === 'tr' ? n.tr : n.en}</span>
                 <span style={{ color: COLORS.slate500, fontSize: '0.71rem', fontFamily: FONTS.body, display: 'block', lineHeight: 1.4 }}>{language === 'tr' ? n.noteTr : n.noteEn}</span>

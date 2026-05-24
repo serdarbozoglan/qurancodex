@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE } from '../tokens';
+import { OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
 
 // ── Context badge color map ───────────────────────────────────────────────────
 const ANIMAL_CONTEXT_COLORS = {
@@ -171,7 +171,7 @@ function ContextBadge({ ctx, colorMap, language }) {
           onMouseLeave={() => setTip(false)}
           style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            width: '14px', height: '14px', borderRadius: '50%',
+            width: '14px', height: '14px', borderRadius: RADIUS.full,
             background: color + '30', border: `1px solid ${color}60`,
             color, fontSize: '0.6rem', fontWeight: 700, fontFamily: FONTS.body,
             cursor: 'default', flexShrink: 0,
@@ -725,7 +725,7 @@ function TabBaglamAnalizi({ contexts, language }) {
             <div style={{
               width: '10px',
               height: '10px',
-              borderRadius: '50%',
+              borderRadius: RADIUS.full,
               background: ctx.color ?? COLORS.gold,
               flexShrink: 0,
             }} />
@@ -1185,7 +1185,7 @@ function CloseButton({ onClose }) {
       onClick={onClose}
       style={{ ...CLOSE_BTN }}
       onMouseEnter={e => {
-        e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+        e.currentTarget.style.background = COLORS.glassBorder;
         e.currentTarget.style.color = COLORS.offWhite;
       }}
       onMouseLeave={e => {

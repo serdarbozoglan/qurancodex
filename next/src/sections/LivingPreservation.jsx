@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import AnimatedCounter from '../components/AnimatedCounter';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 // Icons for the three counter cards
 const ShieldIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -48,18 +48,33 @@ export default function LivingPreservation() {
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero parity */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-8"
+        className="font-display mt-4 mb-8"
+        style={{
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontFamily: FONTS.display,
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.15,
+          maxWidth: '60ch',
+        }}
       >
         {t('livingPreservation.title')}
       </motion.h2>
 
-      {/* Intro */}
+      {/* Intro — Hero parity */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-12"
+        className="max-w-3xl mb-12 font-body"
+        style={{
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {t('livingPreservation.intro')}
       </motion.p>
@@ -83,7 +98,7 @@ export default function LivingPreservation() {
             {/* Background glow circle */}
             <div style={{
               position: 'absolute', top: '-30px', right: '-30px',
-              width: '120px', height: '120px', borderRadius: '50%',
+              width: '120px', height: '120px', borderRadius: RADIUS.full,
               background: `radial-gradient(circle, ${glow} 0%, transparent 70%)`,
               pointerEvents: 'none',
             }} />
@@ -180,7 +195,7 @@ export default function LivingPreservation() {
               display: 'flex', gap: '12px', alignItems: 'flex-start',
             }}>
               <div style={{
-                width: '32px', height: '32px', borderRadius: '50%',
+                width: '32px', height: '32px', borderRadius: RADIUS.full,
                 background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0, marginTop: '2px',
@@ -246,7 +261,7 @@ export default function LivingPreservation() {
               {[
                 language === 'tr' ? 'Hz. Muhammed ﷺ' : 'Prophet ﷺ',
                 language === 'tr' ? 'Sahabe' : 'Companions',
-                language === 'tr' ? 'Tâbiîn' : "Tabi'in",
+                language === 'tr' ? 'Tâbiîn' : 'Tabi’in',
                 '...',
                 language === 'tr' ? 'Bugün' : 'Today',
               ].map((label, i, arr) => (

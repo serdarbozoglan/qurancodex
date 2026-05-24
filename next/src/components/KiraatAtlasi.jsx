@@ -4,27 +4,12 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import { useLanguage } from '../i18n/LanguageContext';
+import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 
-// ── Arabic text cleanup (same pipeline as ReadingMode) ────────────────────────
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
 // ── City colour map ───────────────────────────────────────────────────────────
 const CITY_COLORS = {
@@ -302,7 +287,7 @@ function CityLegend({ language }) {
           border: `1px solid ${CITY_COLORS[c.key]}44`,
           color: CITY_COLORS[c.key], fontSize: '0.78rem', fontFamily: FONTS.body,
         }}>
-          <span style={{ width: 6, height: 6, borderRadius: '50%', background: CITY_COLORS[c.key], display: 'inline-block' }} />
+          <span style={{ width: 6, height: 6, borderRadius: RADIUS.full, background: CITY_COLORS[c.key], display: 'inline-block' }} />
           {language === 'tr' ? c.labelTr : c.labelEn}
         </span>
       ))}
@@ -474,11 +459,11 @@ function DonutChart({ language }) {
       <div style={{ display: 'flex', gap: 24, alignItems: 'center', flex: 1 }}>
         {/* Donut */}
         <div style={{ position: 'relative', width: 130, height: 130, flexShrink: 0 }}>
-          <div style={{ width: 130, height: 130, borderRadius: '50%', background: `conic-gradient(${stops})` }} />
+          <div style={{ width: 130, height: 130, borderRadius: RADIUS.full, background: `conic-gradient(${stops})` }} />
           <div style={{
             position: 'absolute', top: '50%', left: '50%',
             transform: 'translate(-50%,-50%)',
-            width: 74, height: 74, borderRadius: '50%',
+            width: 74, height: 74, borderRadius: RADIUS.full,
             background: 'rgba(8,9,26,0.95)',
             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
           }}>
@@ -788,7 +773,7 @@ function TabHarita({ data, isMobile, language }) {
         <MapContainer
           center={[20, 20]}
           zoom={isMobile ? 1 : 2}
-          style={{ height: '100%', width: '100%', background: '#0d1b2a' }}
+          style={{ height: '100%', width: '100%', background: COLORS.deepNavy }}
           scrollWheelZoom={true}
           zoomControl={true}
         >
@@ -833,7 +818,7 @@ function TabHarita({ data, isMobile, language }) {
             background: r.color + '18', border: `1px solid ${r.color}44`,
             color: r.color, fontSize: '0.78rem', fontFamily: FONTS.body,
           }}>
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: r.color, flexShrink: 0 }} />
+            <span style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: r.color, flexShrink: 0 }} />
             {r.riwaya} {r.approxShare && <span style={{ opacity: 0.8 }}>— {r.approxShare}</span>}
           </span>
         ))}
@@ -937,7 +922,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                           ['Arap dili', 'Klasik Arapça gramer kurallarına uygunluk'],
                         ].map(([title, desc], i) => (
                           <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                            <div style={{ flexShrink: 0, width: 22, height: 22, borderRadius: '50%', background: COLORS.goldAlpha15, border: `1px solid ${COLORS.gold}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: COLORS.gold, fontWeight: 700, marginTop: 1 }}>{i + 1}</div>
+                            <div style={{ flexShrink: 0, width: 22, height: 22, borderRadius: RADIUS.full, background: COLORS.goldAlpha15, border: `1px solid ${COLORS.gold}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: COLORS.gold, fontWeight: 700, marginTop: 1 }}>{i + 1}</div>
                             <div><strong style={{ color: COLORS.offWhite }}>{title}</strong> <span style={{ color: COLORS.silver }}>— {desc}</span></div>
                           </div>
                         ))}
@@ -1047,7 +1032,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                           ['Arabic grammar', 'Must conform to classical Arabic linguistic rules'],
                         ].map(([title, desc], i) => (
                           <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                            <div style={{ flexShrink: 0, width: 22, height: 22, borderRadius: '50%', background: COLORS.goldAlpha15, border: `1px solid ${COLORS.gold}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: COLORS.gold, fontWeight: 700, marginTop: 1 }}>{i + 1}</div>
+                            <div style={{ flexShrink: 0, width: 22, height: 22, borderRadius: RADIUS.full, background: COLORS.goldAlpha15, border: `1px solid ${COLORS.gold}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: COLORS.gold, fontWeight: 700, marginTop: 1 }}>{i + 1}</div>
                             <div><strong style={{ color: COLORS.offWhite }}>{title}</strong> <span style={{ color: COLORS.silver }}>— {desc}</span></div>
                           </div>
                         ))}
@@ -1144,7 +1129,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
               <div style={{
                 position: 'absolute',
                 left: isMobile ? 12 : 'calc(50% - 8px)',
-                top: 12, width: 16, height: 16, borderRadius: '50%',
+                top: 12, width: 16, height: 16, borderRadius: RADIUS.full,
                 background: COLORS.goldAlpha15,
                 border: `2px solid ${COLORS.gold}`,
                 animation: 'kiraat-pulse 2.5s ease-in-out infinite',
@@ -1372,7 +1357,7 @@ function TabTecvid({ isMobile, language }) {
           }}>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
               <div style={{
-                flexShrink: 0, width: 36, height: 36, borderRadius: '50%',
+                flexShrink: 0, width: 36, height: 36, borderRadius: RADIUS.full,
                 background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: FONTS.body, fontSize: '1rem', fontWeight: 800, color: COLORS.gold,
@@ -1507,7 +1492,7 @@ function TabTecvid({ isMobile, language }) {
             {/* Dot */}
             <div style={{
               position: 'absolute', left: -21, top: 4,
-              width: 14, height: 14, borderRadius: '50%',
+              width: 14, height: 14, borderRadius: RADIUS.full,
               background: i === timelineStages.length - 1 ? COLORS.gold : COLORS.goldAlpha15,
               border: `2px solid ${COLORS.gold}`,
             }} />
@@ -1616,7 +1601,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
           <button
             onClick={onClose}
             style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
             onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -1650,7 +1635,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
         <button
           onClick={onClose}
           style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
           onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

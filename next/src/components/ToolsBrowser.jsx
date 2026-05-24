@@ -49,9 +49,9 @@ const FILTERS = [
 const ALL_TOOLS = [...VIZ_TOOLS, ...ANALYSIS_TOOLS, ...RESEARCH_TOOLS];
 
 // ── Component ────────────────────────────────────────────────────────────────
-export default function ToolsBrowser() {
+export default function ToolsBrowser({ onClose, defaultOpen = false }) {
   const { language } = useLanguage();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const [activeFilter, setActiveFilter] = useState('all');
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
 

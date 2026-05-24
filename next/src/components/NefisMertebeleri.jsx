@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
+import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS,
   FONTS,
@@ -13,24 +14,9 @@ import {
   VERSE_DISPLAY_CARD,
   GLASS_CARD,
   BREAKPOINT_TABLET,
+  RADIUS,
 } from '../tokens';
 
-// CLAUDE.md §13.14 + §13.15 — Uthmani encoding → standard + Maddah render fix
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
 // ─── Small helpers ────────────────────────────────────────────────────────────
 const sectionLabel = (color = COLORS.gold) => ({
@@ -257,7 +243,7 @@ export default function NefisMertebeleri({ onClose }) {
                   <div style={{
                     width: i < 3 ? '16px' : '14px',
                     height: i < 3 ? '16px' : '14px',
-                    borderRadius: '50%',
+                    borderRadius: RADIUS.full,
                     background: c,
                     border: i < 3 ? `2px solid ${c}` : `1px dashed ${COLORS.silver}`,
                     boxShadow: `0 0 10px ${c}55`,
@@ -284,11 +270,11 @@ export default function NefisMertebeleri({ onClose }) {
               fontFamily: FONTS.body,
             }}>
               <span>
-                <span style={{ display: 'inline-block', width: '10px', height: '10px', borderRadius: '50%', background: COLORS.gold, marginRight: '6px', verticalAlign: 'middle' }} />
+                <span style={{ display: 'inline-block', width: '10px', height: '10px', borderRadius: RADIUS.full, background: COLORS.gold, marginRight: '6px', verticalAlign: 'middle' }} />
                 {language === 'tr' ? "Kur'ânî çekirdek (1-3)" : "Qur'anic core (1-3)"}
               </span>
               <span>
-                <span style={{ display: 'inline-block', width: '10px', height: '10px', borderRadius: '50%', background: 'transparent', border: `1px dashed ${COLORS.silver}`, marginRight: '6px', verticalAlign: 'middle' }} />
+                <span style={{ display: 'inline-block', width: '10px', height: '10px', borderRadius: RADIUS.full, background: 'transparent', border: `1px dashed ${COLORS.silver}`, marginRight: '6px', verticalAlign: 'middle' }} />
                 {language === 'tr' ? 'Tasavvufî ek (4-7)' : 'Sufi addition (4-7)'}
               </span>
             </div>
@@ -1042,7 +1028,7 @@ function CloseBtn({ onClose }) {
     <button
       onClick={onClose}
       style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
       onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

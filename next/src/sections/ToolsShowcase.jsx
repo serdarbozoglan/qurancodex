@@ -17,6 +17,7 @@ import { motion } from 'framer-motion';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
+import { COLORS, FONTS } from '../tokens';
 
 export default function ToolsShowcase() {
   const { language } = useLanguage();
@@ -32,10 +33,20 @@ export default function ToolsShowcase() {
     <SectionWrapper id="tools-showcase" noPadding className="py-[30px] px-6 md:px-12 lg:px-16">
       {/* ── Discovery closing layer ─────────────────────────────────── */}
       <motion.div variants={fadeUpItem} style={{ textAlign: 'center', marginTop: '8px' }}>
-        {/* Title */}
-        <h3 className="font-display font-bold text-gold mb-4"
-          style={{ fontSize: 'clamp(17px, 3.5vw, 22px)' }}>
-          {language === 'tr' ? 'Henüz yüzeyi gördünüz' : "You've only seen the surface"}
+        {/* Title — closing-layer h3 (sub-headline, not a section H2).
+            Kept compact on purpose: this is a transitional CTA, not a chapter. */}
+        <h3
+          style={{
+            fontFamily: FONTS.display,
+            fontSize: 'clamp(1.25rem, 2.4vw, 1.6rem)',
+            fontWeight: 700,
+            color: COLORS.gold,
+            letterSpacing: '-0.005em',
+            lineHeight: 1.2,
+            margin: '0 0 1rem',
+          }}
+        >
+          {language === 'tr' ? 'Henüz yüzeyi gördünüz' : 'You’ve only seen the surface'}
         </h3>
 
         {/* Stat chips */}
@@ -49,12 +60,12 @@ export default function ToolsShowcase() {
             <div key={i}
               className="flex items-center gap-1.5 px-4 py-1.5 rounded-full"
               style={{
-                background: 'rgba(212,165,116,0.07)',
-                border: '1px solid rgba(212,165,116,0.2)',
+                background: COLORS.goldAlpha04,
+                border: `1px solid ${COLORS.goldAlpha25}`,
                 fontSize: '13px',
               }}>
               <span className="font-body font-bold text-gold">{s.num}</span>
-              <span className="text-silver">{s.label}</span>
+              <span style={{ color: COLORS.offWhiteAlpha78 }}>{s.label}</span>
             </div>
           ))}
         </div>
@@ -68,11 +79,11 @@ export default function ToolsShowcase() {
               minWidth: 'clamp(140px, 20vw, 180px)',
               padding: '10px 24px',
               borderRadius: '8px',
-              border: '1px solid rgba(212,165,116,0.55)',
+              border: `1px solid ${COLORS.goldAlpha45}`,
               background: 'transparent',
-              color: '#d4a574',
+              color: COLORS.gold,
             }}
-            whileHover={{ background: 'rgba(212,165,116,0.1)', scale: 1.03 }}
+            whileHover={{ background: COLORS.goldAlpha15, scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
             {language === 'tr' ? 'Keşfet' : 'Discover'}
@@ -84,11 +95,11 @@ export default function ToolsShowcase() {
               minWidth: 'clamp(140px, 20vw, 180px)',
               padding: '10px 24px',
               borderRadius: '8px',
-              border: '1px solid #d4a574',
-              background: '#d4a574',
-              color: '#08091a',
+              border: `1px solid ${COLORS.gold}`,
+              background: COLORS.gold,
+              color: COLORS.inkBlack,
             }}
-            whileHover={{ boxShadow: '0 0 28px rgba(212,165,116,0.35)', scale: 1.03 }}
+            whileHover={{ boxShadow: `0 0 28px ${COLORS.goldAlpha45}`, scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
             {language === 'tr' ? 'Araçlar' : 'Tools'}

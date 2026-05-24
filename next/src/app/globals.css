@@ -54,8 +54,16 @@
   --shadow-glow-emerald: 0 0 30px rgba(46,204,113,0.20);
   --shadow-glow-blue: 0 0 30px rgba(52,152,219,0.20);
   --shadow-glow-red: 0 0 30px rgba(231,76,60,0.20);
-  --color-glass-border: rgba(212, 165, 116, 0.12);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
   --color-glass-strong: rgba(255, 245, 220, 0.07);
+
+  /* Gold CTA button gradient (.btn-primary-gold) — mirrors COLORS.btnGold* in tokens.js */
+  --color-btn-gold-start: #c9973a;
+  --color-btn-gold-mid: #b8860b;
+  --color-btn-gold-end: #9a6f0a;
+  --color-btn-gold-text: #1c0f00;
+  --color-btn-gold-glow-15: rgba(180,130,40,0.3);
+  --color-btn-gold-glow-25: rgba(180,130,40,0.5);
 
   --font-display: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
@@ -138,29 +146,30 @@ body {
 }
 
 /* ---- Glassmorphism ---- */
+/* Values mirror GLASS_CARD / GLASS_CARD_STRONG in tokens.js (CLAUDE.md §13.7). */
 .glass-card {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
 }
 
 .glass-card-strong {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
 }
 
 /* ---- CTA Buttons ---- */
 .btn-primary-gold {
-  background: linear-gradient(135deg, #c9973a 0%, #b8860b 60%, #9a6f0a 100%);
+  background: linear-gradient(135deg, var(--color-btn-gold-start) 0%, var(--color-btn-gold-mid) 60%, var(--color-btn-gold-end) 100%);
   border: none;
   border-radius: 6px;
-  color: #1c0f00;
-  box-shadow: 0 0 32px 8px rgba(180, 130, 40, 0.35);
+  color: var(--color-btn-gold-text);
+  box-shadow: 0 0 32px 8px var(--color-btn-gold-glow-15);
 }
 
 .btn-ghost-dark {

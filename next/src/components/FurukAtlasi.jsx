@@ -4,11 +4,12 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  COLORS, FONTS, BREAKPOINT_TABLET,
+  COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS,
 } from '../tokens';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 import { fetchMealVerse } from '../lib/mealCache';
 
+import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 // Strip meal footnote markers like [1], [12] from Turkish translation text
 function stripFootnotes(str) {
   if (!str) return str;
@@ -24,22 +25,6 @@ function surahRefLabel(ref) {
   return `${clean} ${ref}`;
 }
 
-// ── Arabic text cleanup ──────────────────────────────────────────────────────
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
 const CONTEXT_COLORS = {
   negative: '#e74c3c',
@@ -233,7 +218,7 @@ export default function FurukAtlasi({ onClose }) {
                 display: 'flex', alignItems: 'center', gap: 8,
                 padding: '8px 14px', borderRadius: 20, flexShrink: 0,
                 background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
+                border: `1px solid ${COLORS.glassBgStrong}`,
               }}>
                 <span style={{ fontSize: '1.1rem', fontWeight: 800, color: COLORS.gold, fontFamily: FONTS.body, lineHeight: 1 }}>
                   {s.num}
@@ -273,7 +258,7 @@ export default function FurukAtlasi({ onClose }) {
                     fontFamily: FONTS.body,
                     fontWeight: active ? 600 : 400,
                     cursor: 'pointer',
-                    transition: 'all 0.15s',
+                    transition: `all ${TRANSITION.fast}`,
                     whiteSpace: 'nowrap',
                   }}
                   onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
@@ -365,7 +350,7 @@ function TabPanorama({ data, language, isMobile, onSelectGroup }) {
           { ctx: 'neutral',  labelTr: 'Nötr',   labelEn: 'Neutral' },
         ].map(item => (
           <span key={item.ctx} style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: CONTEXT_COLORS[item.ctx] }} />
+            <span style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: CONTEXT_COLORS[item.ctx] }} />
             <span style={{ fontSize: '0.72rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 500 }}>
               {tr ? item.labelTr : item.labelEn}
             </span>
@@ -408,7 +393,7 @@ function GroupCard({ group, language, onClick }) {
         borderRadius: 14,
         padding: '18px 20px',
         cursor: 'pointer',
-        transition: 'all 0.2s',
+        transition: `all ${TRANSITION.base}`,
         display: 'flex', flexDirection: 'column', gap: 12,
       }}
       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; }}
@@ -441,7 +426,7 @@ function GroupCard({ group, language, onClick }) {
           return (
             <div key={w.id} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <span
-                style={{ width: 8, height: 8, borderRadius: '50%', background: dotColor, flexShrink: 0 }}
+                style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: dotColor, flexShrink: 0 }}
                 title={tr ? CONTEXT_LABELS[w.patternStat.dominantPattern]?.tr : CONTEXT_LABELS[w.patternStat.dominantPattern]?.en}
               />
               <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, direction: 'rtl', minWidth: 70, textAlign: 'right' }} lang="ar">
@@ -463,7 +448,7 @@ function GroupCard({ group, language, onClick }) {
         fontSize: '0.78rem', color: 'rgba(212,165,116,0.7)',
         fontStyle: 'italic', fontFamily: FONTS.body,
         margin: 0, lineHeight: 1.5,
-        paddingTop: 10, borderTop: '1px solid rgba(255,255,255,0.05)',
+        paddingTop: 10, borderTop: `1px solid ${COLORS.glassBg}`,
       }}>
         &ldquo;{tr ? group.principleTr : group.principleEn}&rdquo;
       </p>
@@ -491,10 +476,10 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
               style={{
                 padding: '5px 14px', borderRadius: 20,
                 border: `1px solid ${active ? COLORS.gold : 'rgba(255,255,255,0.12)'}`,
-                background: active ? 'rgba(212,165,116,0.15)' : 'transparent',
+                background: active ? COLORS.goldAlpha15 : 'transparent',
                 color: active ? COLORS.gold : COLORS.silver,
                 fontSize: '0.78rem', fontWeight: active ? 600 : 400,
-                fontFamily: FONTS.body, cursor: 'pointer', transition: 'all 0.15s',
+                fontFamily: FONTS.body, cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
               }}
             >
               {tr ? g.titleTr : g.titleEn}
@@ -505,7 +490,7 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
 
       {/* Hero — translation + word cluster */}
       <div style={{
-        background: 'linear-gradient(135deg, rgba(212,165,116,0.04) 0%, rgba(0,0,0,0.1) 100%)',
+        background: `linear-gradient(135deg, ${COLORS.goldAlpha04} 0%, rgba(0,0,0,0.1) 100%)`,
         border: `1px solid ${COLORS.goldAlpha15}`,
         borderRadius: 14,
         padding: isMobile ? '24px 20px' : '32px 40px',
@@ -515,7 +500,7 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
         {/* Subtle decorative glow */}
         <div style={{
           position: 'absolute', top: '-40px', right: '-40px',
-          width: 180, height: 180, borderRadius: '50%',
+          width: 180, height: 180, borderRadius: RADIUS.full,
           background: 'radial-gradient(circle, rgba(212,165,116,0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
@@ -555,7 +540,7 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
           {!isMobile && (
             <div style={{
               width: 1, alignSelf: 'stretch',
-              background: 'linear-gradient(180deg, transparent, rgba(212,165,116,0.25), transparent)',
+              background: `linear-gradient(180deg, transparent, ${COLORS.goldAlpha25}, transparent)`,
             }} />
           )}
 
@@ -569,7 +554,7 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
                 border: `1px solid ${w.color}40`,
               }}>
                 <span style={{
-                  width: 8, height: 8, borderRadius: '50%',
+                  width: 8, height: 8, borderRadius: RADIUS.full,
                   background: w.color, flexShrink: 0,
                   boxShadow: `0 0 8px ${w.color}80`,
                 }} />
@@ -583,7 +568,7 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
                   fontSize: '0.68rem', color: COLORS.silver,
                   fontFamily: FONTS.body, fontWeight: 700,
                   padding: '1px 7px', borderRadius: 10,
-                  background: 'rgba(255,255,255,0.05)',
+                  background: COLORS.glassBg,
                 }}>
                   {w.frequency}×
                 </span>
@@ -658,16 +643,16 @@ function SemanticMap({ group, language, isMobile }) {
           <line x1={pad} y1={size / 2} x2={size - pad} y2={size / 2} stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="3,3" />
           <line x1={size / 2} y1={pad} x2={size / 2} y2={size - pad} stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="3,3" />
           {/* Axis labels */}
-          <text x={pad - 4} y={size / 2 - 6} fill="rgba(148,163,184,0.7)" fontSize="10" fontFamily={FONTS.body} textAnchor="start">
+          <text x={pad - 4} y={size / 2 - 6} fill={COLORS.silverAlpha70} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
             {tr ? 'Somut' : 'Concrete'}
           </text>
-          <text x={size - pad + 4} y={size / 2 - 6} fill="rgba(148,163,184,0.7)" fontSize="10" fontFamily={FONTS.body} textAnchor="end">
+          <text x={size - pad + 4} y={size / 2 - 6} fill={COLORS.silverAlpha70} fontSize="10" fontFamily={FONTS.body} textAnchor="end">
             {tr ? 'Soyut' : 'Abstract'}
           </text>
-          <text x={size / 2 + 6} y={pad + 4} fill="rgba(148,163,184,0.7)" fontSize="10" fontFamily={FONTS.body} textAnchor="start">
+          <text x={size / 2 + 6} y={pad + 4} fill={COLORS.silverAlpha70} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
             {tr ? 'Yoğun' : 'Intense'}
           </text>
-          <text x={size / 2 + 6} y={size - pad - 2} fill="rgba(148,163,184,0.7)" fontSize="10" fontFamily={FONTS.body} textAnchor="start">
+          <text x={size / 2 + 6} y={size - pad - 2} fill={COLORS.silverAlpha70} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
             {tr ? 'Hafif' : 'Light'}
           </text>
 
@@ -688,7 +673,7 @@ function SemanticMap({ group, language, isMobile }) {
                   r={isHov ? 11 : 8}
                   fill={w.color}
                   opacity={isHov ? 1 : 0.85}
-                  style={{ transition: 'all 0.2s', filter: isHov ? `drop-shadow(0 0 8px ${w.color})` : 'none' }}
+                  style={{ transition: `all ${TRANSITION.base}`, filter: isHov ? `drop-shadow(0 0 8px ${w.color})` : 'none' }}
                 />
                 <text x={cx} y={cy - 14} fill="#fff" fontSize="11" fontFamily={FONTS.body} fontWeight="700" textAnchor="middle" style={{ pointerEvents: 'none' }}>
                   {w.tr}
@@ -701,7 +686,7 @@ function SemanticMap({ group, language, isMobile }) {
 
       {/* Legend / hovered info */}
       <div style={{ flex: 1, minWidth: 200 }}>
-        <div style={{ fontSize: '0.68rem', color: 'rgba(148,163,184,0.7)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 700, fontFamily: FONTS.body, marginBottom: 10 }}>
+        <div style={{ fontSize: '0.68rem', color: COLORS.silverAlpha70, textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 700, fontFamily: FONTS.body, marginBottom: 10 }}>
           {tr ? 'Anlam Haritası' : 'Semantic Map'}
         </div>
         {hovered ? (() => {
@@ -795,7 +780,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
                 fontFamily: FONTS.body, fontWeight: 700,
                 padding: '3px 10px', borderRadius: 20,
                 background: 'rgba(212,165,116,0.1)',
-                border: '1px solid rgba(212,165,116,0.25)',
+                border: `1px solid ${COLORS.goldAlpha25}`,
               }}>
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                   <path d="M18 20V10M12 20V4M6 20v-6" />
@@ -811,7 +796,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
                   background: `${CONTEXT_COLORS[dominant]}15`,
                   border: `1px solid ${CONTEXT_COLORS[dominant]}35`,
                 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: CONTEXT_COLORS[dominant] }} />
+                  <span style={{ width: 6, height: 6, borderRadius: RADIUS.full, background: CONTEXT_COLORS[dominant] }} />
                   {dominantLabel} · %{word.patternStat.dominantPercentage}
                 </span>
               )}
@@ -829,7 +814,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
           display: 'flex', gap: 14,
           padding: '12px 16px',
           background: 'rgba(0,0,0,0.2)',
-          border: '1px solid rgba(255,255,255,0.05)',
+          border: `1px solid ${COLORS.glassBg}`,
           borderLeft: `2px solid ${word.color}80`,
           borderRadius: 6,
         }}>
@@ -864,13 +849,13 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
           width: '100%', padding: '12px 20px',
           background: expanded ? 'rgba(212,165,116,0.06)' : 'rgba(0,0,0,0.15)',
           border: 'none',
-          borderTop: '1px solid rgba(255,255,255,0.05)',
+          borderTop: `1px solid ${COLORS.glassBg}`,
           cursor: 'pointer',
           color: expanded ? COLORS.gold : COLORS.silver,
           fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,
           letterSpacing: '0.04em',
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-          transition: 'all 0.15s',
+          transition: `all ${TRANSITION.fast}`,
         }}
         onMouseEnter={e => { if (!expanded) e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
         onMouseLeave={e => { if (!expanded) e.currentTarget.style.background = 'rgba(0,0,0,0.15)'; }}
@@ -891,7 +876,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
         <div style={{
           padding: isMobile ? '16px' : '20px 24px',
           background: 'rgba(0,0,0,0.15)',
-          borderTop: '1px solid rgba(255,255,255,0.05)',
+          borderTop: `1px solid ${COLORS.glassBg}`,
         }}>
           {/* Context distribution — stacked bar visualization */}
           <div style={{ marginBottom: 18 }}>
@@ -953,7 +938,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
             display: 'flex', alignItems: 'center', gap: 8,
             flexWrap: 'wrap', marginBottom: 14,
             paddingBottom: 14,
-            borderBottom: '1px solid rgba(255,255,255,0.05)',
+            borderBottom: `1px solid ${COLORS.glassBg}`,
           }}>
             <span style={{ fontSize: '0.65rem', color: COLORS.silver, fontFamily: FONTS.body, textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, marginRight: 4 }}>
               {tr ? 'Filtrele:' : 'Filter:'}
@@ -972,14 +957,14 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: 5,
                     padding: '4px 12px', borderRadius: 20,
-                    border: `1px solid ${active ? color : 'rgba(255,255,255,0.1)'}`,
+                    border: `1px solid ${active ? color : COLORS.glassBorder}`,
                     background: active ? `${color}20` : 'transparent',
                     color: active ? color : 'rgba(232,230,227,0.6)',
                     fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: active ? 700 : 500,
-                    cursor: 'pointer', transition: 'all 0.15s',
+                    cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                   }}
                 >
-                  {f !== 'all' && <span style={{ width: 6, height: 6, borderRadius: '50%', background: color }} />}
+                  {f !== 'all' && <span style={{ width: 6, height: 6, borderRadius: RADIUS.full, background: color }} />}
                   {label}
                   <span style={{ opacity: 0.7 }}>({count})</span>
                 </button>
@@ -1030,7 +1015,7 @@ function VerseRow({ occurrence, language }) {
         }}
       >
         <span style={{
-          width: 8, height: 8, borderRadius: '50%',
+          width: 8, height: 8, borderRadius: RADIUS.full,
           background: CONTEXT_COLORS[occurrence.context] || COLORS.silver,
           flexShrink: 0,
         }} />
@@ -1047,7 +1032,7 @@ function VerseRow({ occurrence, language }) {
       </button>
 
       {open && (
-        <div style={{ padding: '0 14px 14px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div style={{ padding: '0 14px 14px', borderTop: `1px solid ${COLORS.glassBg}` }}>
           {loading && (
             <p style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, margin: '12px 0 0', fontStyle: 'italic' }}>
               {tr ? 'Ayet yükleniyor...' : 'Loading verse...'}
@@ -1091,7 +1076,7 @@ function HighlightedArabic({ arabic, targetWord }) {
         color: COLORS.gold, textAlign: 'right',
         lineHeight: 2, marginTop: 12,
         padding: '10px 14px',
-        background: 'rgba(212,165,116,0.04)',
+        background: COLORS.goldAlpha04,
         border: `1px solid ${COLORS.goldAlpha15}`,
         borderRadius: 8,
       }}
@@ -1109,7 +1094,7 @@ function HighlightedArabic({ arabic, targetWord }) {
               textDecorationColor: 'rgba(212,165,116,0.6)',
               textUnderlineOffset: 4,
               padding: '0 2px',
-              background: 'rgba(212,165,116,0.2)',
+              background: COLORS.goldAlpha20,
               borderRadius: 3,
             } : {}}
           >
@@ -1140,7 +1125,7 @@ function TabPrinciples({ principles, groups, language, isMobile, onSelectGroup }
           const group = groups.find(g => g.id === p.groupId);
           return (
             <div key={p.id} style={{
-              background: 'rgba(212,165,116,0.04)',
+              background: COLORS.goldAlpha04,
               border: `1px solid ${COLORS.goldAlpha15}`,
               borderRadius: 12, padding: isMobile ? '16px' : '20px 22px',
               display: 'flex', flexDirection: 'column',
@@ -1170,7 +1155,7 @@ function TabPrinciples({ principles, groups, language, isMobile, onSelectGroup }
                     color: COLORS.gold,
                     fontSize: '0.76rem', fontFamily: FONTS.body, fontWeight: 600,
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    transition: 'all 0.15s',
+                    transition: `all ${TRANSITION.fast}`,
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.16)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; }}
@@ -1272,7 +1257,7 @@ function CloseBtn({ onClose }) {
     <button
       onClick={onClose}
       style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
       onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
       aria-label="Kapat"
     >

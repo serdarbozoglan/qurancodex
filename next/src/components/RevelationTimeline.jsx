@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, RADIUS, TRANSITION } from '../tokens';
 
 const SURAH_NAMES_TR = [
   'El-Fatiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide',
@@ -66,7 +66,7 @@ export default function RevelationTimeline({ onClose }) {
   const mekki = orderData?.filter(s => s.period === 'mekki') || [];
   const medeni = orderData?.filter(s => s.period === 'medeni') || [];
 
-  const gold = '#d4a574';
+  const gold = COLORS.gold;
   const mekiColor = '#c9a227';
   const medeniColor = '#2ecc71';
 
@@ -79,7 +79,7 @@ export default function RevelationTimeline({ onClose }) {
   }, [orderData]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       {/* Header */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -96,8 +96,8 @@ export default function RevelationTimeline({ onClose }) {
               <button key={v} onClick={() => setFilter(v)} style={{
                 background: filter === v ? 'rgba(212,165,116,0.18)' : 'transparent',
                 border: `1px solid ${filter === v ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.12)'}`,
-                borderRadius: '6px', color: filter === v ? gold : '#64748b',
-                cursor: 'pointer', padding: '3px 10px', fontSize: '0.72rem', transition: 'all 0.15s',
+                borderRadius: RADIUS.sm, color: filter === v ? gold : COLORS.slate500,
+                cursor: 'pointer', padding: '3px 10px', fontSize: '0.72rem', transition: `all ${TRANSITION.fast}`,
               }}>{l}</button>
             ))}
           </div>
@@ -106,17 +106,17 @@ export default function RevelationTimeline({ onClose }) {
           {/* View mode toggle */}
           {[['grid', language === 'tr' ? 'Kart' : 'Card'], ['timeline', language === 'tr' ? 'Zaman Çizelgesi' : 'Timeline']].map(([m, label]) => (
             <button key={m} onClick={() => setViewMode(m)} style={{
-              background: viewMode === m ? 'rgba(212,165,116,0.15)' : 'transparent',
+              background: viewMode === m ? COLORS.goldAlpha15 : 'transparent',
               border: `1px solid ${viewMode === m ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.1)'}`,
-              borderRadius: '5px', color: viewMode === m ? gold : '#64748b',
+              borderRadius: '5px', color: viewMode === m ? gold : COLORS.slate500,
               cursor: 'pointer', padding: '4px 10px', fontSize: '0.75rem', fontWeight: viewMode === m ? 600 : 400,
             }}>{label}</button>
           ))}
           <button
             onClick={onClose}
             style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
+            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
+            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
           </button>
@@ -124,7 +124,7 @@ export default function RevelationTimeline({ onClose }) {
       </div>
 
       {loading && (
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b' }}>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.slate500 }}>
           {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
         </div>
       )}
@@ -135,15 +135,15 @@ export default function RevelationTimeline({ onClose }) {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '16px', fontSize: '0.72rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: mekiColor, opacity: 0.8 }} />
-              <span style={{ color: '#94a3b8' }}>{language === 'tr' ? 'Mekkî (610–622)' : 'Meccan (610–622)'}</span>
+              <span style={{ color: COLORS.silver }}>{language === 'tr' ? 'Mekkî (610–622)' : 'Meccan (610–622)'}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: medeniColor, opacity: 0.8 }} />
-              <span style={{ color: '#94a3b8' }}>{language === 'tr' ? 'Medenî (622–632)' : 'Medinan (622–632)'}</span>
+              <span style={{ color: COLORS.silver }}>{language === 'tr' ? 'Medenî (622–632)' : 'Medinan (622–632)'}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span style={{ color: '#4a6568', fontSize: '0.68rem', fontWeight: 700 }}>▲▼</span>
-              <span style={{ color: '#94a3b8' }}>
+              <span style={{ color: COLORS.silver }}>
                 {language === 'tr'
                   ? 'Mushaf–nüzul farkı (▲ = mushafta daha geride, ▼ = mushafta daha önde)'
                   : 'Mushaf vs revelation gap (▲ = placed later in mushaf, ▼ = placed earlier)'}
@@ -152,7 +152,7 @@ export default function RevelationTimeline({ onClose }) {
             {viewMode === 'timeline' && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <span style={{ color: '#4a6568', fontSize: '0.68rem' }}>↕</span>
-                <span style={{ color: '#94a3b8' }}>
+                <span style={{ color: COLORS.silver }}>
                   {language === 'tr' ? 'Bar yüksekliği = ayet sayısı' : 'Bar height = verse count'}
                 </span>
               </div>
@@ -162,7 +162,7 @@ export default function RevelationTimeline({ onClose }) {
           {viewMode === 'grid' && (
             <>
               {/* Explanation */}
-              <div style={{ background: 'rgba(212,165,116,0.05)', border: '1px solid rgba(212,165,116,0.1)', borderRadius: '10px', padding: '12px 16px', marginBottom: '16px', color: '#94a3b8', fontSize: '0.8rem', lineHeight: 1.7 }}>
+              <div style={{ background: 'rgba(212,165,116,0.05)', border: '1px solid rgba(212,165,116,0.1)', borderRadius: RADIUS.chip, padding: '12px 16px', marginBottom: '16px', color: COLORS.silver, fontSize: '0.8rem', lineHeight: 1.7 }}>
                 {language === 'tr'
                   ? 'Mushaf sırası ile vahiy sırası farklıdır. Sol üstteki # rozeti nüzul sırasını, sağ üstteki ▲▼ ise mushaf konumunun nüzul sırasından ne kadar saptığını göstermektedir. Sûre adının altında Kur\'an\'daki sûre numarası ve ayet sayısı yer almaktadır.'
                   : 'The Quran\'s chapter order (mushaf) differs from the revelation order. The # badge (top-left) shows the revelation rank; the ▲▼ (top-right) shows how far the mushaf position differs from the revelation rank. Below the name: mushaf chapter number and verse count.'}
@@ -183,10 +183,10 @@ export default function RevelationTimeline({ onClose }) {
                       onMouseLeave={() => setHovered(null)}
                       style={{
                         background: isHovered ? `rgba(${s.period === 'mekki' ? '201,162,39' : '46,204,113'},0.15)` : 'rgba(255,255,255,0.025)',
-                        border: `1px solid ${isHovered ? periodColor(s.period) + '60' : 'rgba(255,255,255,0.05)'}`,
+                        border: `1px solid ${isHovered ? periodColor(s.period) + '60' : COLORS.glassBg}`,
                         borderLeft: `3px solid ${periodColor(s.period)}`,
-                        borderRadius: '8px', padding: '10px 12px', cursor: 'default',
-                        transition: 'all 0.15s',
+                        borderRadius: RADIUS.md, padding: '10px 12px', cursor: 'default',
+                        transition: `all ${TRANSITION.fast}`,
                       }}
                     >
                       {/* Rank badge */}
@@ -202,7 +202,7 @@ export default function RevelationTimeline({ onClose }) {
                               title={language === 'tr'
                                 ? 'Fâtiha\'nın nüzul sırası tartışmalıdır. İlk inen sûre (1. sıra) olduğunu söyleyenler olduğu gibi, 5. sırada indiğini aktaran rivayetler de mevcuttur.'
                                 : "Al-Fatiha's revelation order is debated. Some accounts say it was the very first surah revealed; others place it 5th in the revelation sequence."}
-                              style={{ color: '#64748b', fontSize: '0.65rem', cursor: 'help', lineHeight: 1 }}
+                              style={{ color: COLORS.slate500, fontSize: '0.65rem', cursor: 'help', lineHeight: 1 }}
                             >ⓘ</span>
                           )}
                         </div>
@@ -223,7 +223,7 @@ export default function RevelationTimeline({ onClose }) {
                           </span>
                         )}
                       </div>
-                      <div style={{ color: '#d4b483', fontSize: '0.8rem', fontWeight: 600, lineHeight: 1.2, marginBottom: '3px' }}>{name}</div>
+                      <div style={{ color: COLORS.goldWarm, fontSize: '0.8rem', fontWeight: 600, lineHeight: 1.2, marginBottom: '3px' }}>{name}</div>
                       <div style={{ color: '#4a5568', fontSize: '0.65rem' }}>{language === 'tr' ? `Sûre` : 'Surah'} {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'v.'}</div>
                     </div>
                   );
@@ -276,7 +276,7 @@ export default function RevelationTimeline({ onClose }) {
               {/* Info panel */}
               <div style={{
                 minHeight: '72px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
-                borderRadius: '8px', padding: '10px 14px',
+                borderRadius: RADIUS.md, padding: '10px 14px',
               }}>
                 {hovered ? (() => {
                   const s = orderData.find(x => x.surah === hovered);
@@ -286,14 +286,14 @@ export default function RevelationTimeline({ onClose }) {
                   const delta = s.surah - s.rank;
                   return (
                     <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px' }}>
-                      <span style={{ background: `rgba(${s.period === 'mekki' ? '201,162,39' : '46,204,113'},0.2)`, color: periodColor(s.period), fontSize: '0.65rem', fontWeight: 700, padding: '2px 7px', borderRadius: '4px' }}>#{s.rank}</span>
+                      <span style={{ background: `rgba(${s.period === 'mekki' ? '201,162,39' : '46,204,113'},0.2)`, color: periodColor(s.period), fontSize: '0.65rem', fontWeight: 700, padding: '2px 7px', borderRadius: RADIUS.xs }}>#{s.rank}</span>
                       <span style={{ color: gold, fontWeight: 700, fontSize: '0.9rem' }}>{name}</span>
-                      <span style={{ color: '#64748b', fontSize: '0.72rem' }}>{language === 'tr' ? 'Sûre' : 'Surah'} {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</span>
+                      <span style={{ color: COLORS.slate500, fontSize: '0.72rem' }}>{language === 'tr' ? 'Sûre' : 'Surah'} {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</span>
                       <span style={{ color: periodColor(s.period), fontSize: '0.72rem' }}>{s.period === 'mekki' ? (language === 'tr' ? 'Mekkî' : 'Meccan') : (language === 'tr' ? 'Medenî' : 'Medinan')}</span>
                       {delta !== 0 && (
-                        <span style={{ color: '#64748b', fontSize: '0.7rem', marginLeft: 'auto' }}>
+                        <span style={{ color: COLORS.slate500, fontSize: '0.7rem', marginLeft: 'auto' }}>
                           {language === 'tr' ? 'Mushaf farkı:' : 'Mushaf gap:'}{' '}
-                          <span style={{ color: '#94a3b8', fontWeight: 600 }}>{delta > 0 ? `▲${delta}` : `▼${Math.abs(delta)}`}</span>
+                          <span style={{ color: COLORS.silver, fontWeight: 600 }}>{delta > 0 ? `▲${delta}` : `▼${Math.abs(delta)}`}</span>
                           <span style={{ color: '#4a5568', fontSize: '0.62rem', marginLeft: '4px' }}>
                             {delta > 0
                               ? (language === 'tr' ? '(mushafta daha geride)' : '(placed later in mushaf)')
@@ -312,11 +312,11 @@ export default function RevelationTimeline({ onClose }) {
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center' }}>
                       <div>
                         <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'Gösterilen sûre' : 'Shown surahs'}</div>
-                        <div style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>{shownMekki + shownMedeni}</div>
+                        <div style={{ color: COLORS.silver, fontSize: '0.82rem', fontWeight: 600 }}>{shownMekki + shownMedeni}</div>
                       </div>
                       <div>
                         <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'Toplam ayet' : 'Total verses'}</div>
-                        <div style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>{totalAyah.toLocaleString()}</div>
+                        <div style={{ color: COLORS.silver, fontSize: '0.82rem', fontWeight: 600 }}>{totalAyah.toLocaleString()}</div>
                       </div>
                       <div>
                         <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>Mekkî / Medenî</div>
@@ -329,7 +329,7 @@ export default function RevelationTimeline({ onClose }) {
                       {maxAyahSurah && (
                         <div>
                           <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'En uzun sûre' : 'Longest surah'}</div>
-                          <div style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 600 }}>
+                          <div style={{ color: COLORS.silver, fontSize: '0.82rem', fontWeight: 600 }}>
                             {SURAH_NAMES_TR[maxAyahSurah.surah - 1]}
                             <span style={{ color: '#4a5568', fontWeight: 400, fontSize: '0.72rem', marginLeft: '4px' }}>({AYAH_COUNTS[maxAyahSurah.surah - 1]} {language === 'tr' ? 'ayet' : 'v.'})</span>
                           </div>
@@ -352,11 +352,11 @@ export default function RevelationTimeline({ onClose }) {
           )}
 
           {/* Interesting insight */}
-          <div style={{ marginTop: '20px', background: 'rgba(212,165,116,0.04)', border: '1px solid rgba(212,165,116,0.1)', borderRadius: '10px', padding: '14px 16px' }}>
+          <div style={{ marginTop: '20px', background: COLORS.goldAlpha04, border: '1px solid rgba(212,165,116,0.1)', borderRadius: RADIUS.chip, padding: '14px 16px' }}>
             <div style={{ color: gold, fontSize: '0.72rem', fontWeight: 700, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               {language === 'tr' ? 'İlginç Fark' : 'Notable Difference'}
             </div>
-            <div style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: 1.7 }}>
+            <div style={{ color: COLORS.silver, fontSize: '0.8rem', lineHeight: 1.7 }}>
               {language === 'tr'
                 ? 'Kur\'an\'ın mushaf sırası (1–114) ile vahiy sırası birbirinden farklıdır. Örneğin; en uzun sûre El-Bakara (2. sûre) 87. sırada nâzil olmuştur. İlk nâzil olan sûre El-Alak (96. sûre) ise mushafta 96. sıradadır. Hz. Osman döneminde standartlaştırılan mushaf sıralaması, tematik ve yapısal kriterlere göre belirlenmiştir.'
                 : 'The Quran\'s mushaf order (1–114) differs from its revelation order. Al-Baqara (2nd surah), the longest chapter, was revealed 87th. Al-Alaq (96th surah), the first revelation, is at position 96 in the mushaf. The mushaf ordering, standardized during Uthman\'s era, follows thematic and structural principles.'}
@@ -364,12 +364,12 @@ export default function RevelationTimeline({ onClose }) {
           </div>
 
           {/* Source note */}
-          <div style={{ marginTop: '10px', padding: '10px 14px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '8px' }}>
+          <div style={{ marginTop: '10px', padding: '10px 14px', background: 'rgba(255,255,255,0.02)', border: `1px solid ${COLORS.glassBg}`, borderRadius: RADIUS.md }}>
             <div style={{ color: '#4a5568', fontSize: '0.7rem', lineHeight: 1.6 }}>
-              <span style={{ color: '#64748b', fontWeight: 600 }}>{language === 'tr' ? 'Kaynak:' : 'Source:'}</span>{' '}
+              <span style={{ color: COLORS.slate500, fontWeight: 600 }}>{language === 'tr' ? 'Kaynak:' : 'Source:'}</span>{' '}
               {language === 'tr'
-                ? <>İmam Celâlüddin es-Süyûtî, <em>el-İtkan fî Ulûmi'l-Kur'an</em> (ö. 1505). İbn Abbas'tan gelen rivayete dayanan geleneksel nüzul sırası. Bazı sûreler için âlimler arasında farklı görüşler mevcuttur; bu sıralama en yaygın kabul gören versiyondur. Dijital veri: <a href="https://tanzil.net/docs/revelation_order" target="_blank" rel="noopener noreferrer" style={{ color: '#64748b', textDecoration: 'underline' }}>tanzil.net</a>.</>
-                : <>Imam Jalal al-Din al-Suyuti, <em>al-Itqan fi Ulum al-Quran</em> (d. 1505). Traditional revelation order based on the narration attributed to Ibn Abbas. Minor scholarly differences exist for some surahs; this represents the most widely accepted sequence. Digital reference: <a href="https://tanzil.net/docs/revelation_order" target="_blank" rel="noopener noreferrer" style={{ color: '#64748b', textDecoration: 'underline' }}>tanzil.net</a>.</>}
+                ? <>İmam Celâlüddin es-Süyûtî, <em>el-İtkan fî Ulûmi'l-Kur'an</em> (ö. 1505). İbn Abbas'tan gelen rivayete dayanan geleneksel nüzul sırası. Bazı sûreler için âlimler arasında farklı görüşler mevcuttur; bu sıralama en yaygın kabul gören versiyondur. Dijital veri: <a href="https://tanzil.net/docs/revelation_order" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.slate500, textDecoration: 'underline' }}>tanzil.net</a>.</>
+                : <>Imam Jalal al-Din al-Suyuti, <em>al-Itqan fi Ulum al-Quran</em> (d. 1505). Traditional revelation order based on the narration attributed to Ibn Abbas. Minor scholarly differences exist for some surahs; this represents the most widely accepted sequence. Digital reference: <a href="https://tanzil.net/docs/revelation_order" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.slate500, textDecoration: 'underline' }}>tanzil.net</a>.</>}
             </div>
           </div>
         </div>

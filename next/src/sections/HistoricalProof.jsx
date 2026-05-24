@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
+import { COLORS, FONTS } from '../tokens';
 
 const storyKeys = ['pharaoh', 'haman', 'rome'];
 
@@ -53,18 +54,33 @@ export default function HistoricalProof() {
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero parity */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-8"
+        className="font-display mt-4 mb-8"
+        style={{
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontFamily: FONTS.display,
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.15,
+          maxWidth: '60ch',
+        }}
       >
         {t('historicalProof.title')}
       </motion.h2>
 
-      {/* Intro */}
+      {/* Intro — Hero parity */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-12"
+        className="max-w-3xl mb-12 font-body"
+        style={{
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {t('historicalProof.intro')}
       </motion.p>
@@ -253,7 +269,7 @@ export default function HistoricalProof() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {language === 'tr' ? '↗ KUR\'AN\'DA KAVİMLER — ATLASI AÇ' : '↗ PEOPLES IN THE QUR\'AN — OPEN THE ATLAS'}
+              {language === 'tr' ? '↗ KUR’AN’DA KAVİMLER — ATLASI AÇ' : '↗ PEOPLES IN THE QUR’AN — OPEN THE ATLAS'}
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'

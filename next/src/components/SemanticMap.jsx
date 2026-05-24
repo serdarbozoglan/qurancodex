@@ -393,7 +393,7 @@ function DetailPanel({ cluster, onClose, language, isMobile, clustersById }) {
           </div>
         </div>
         <button onClick={onClose} style={{
-          width: '30px', height: '30px', borderRadius: '50%',
+          width: '30px', height: '30px', borderRadius: RADIUS.full,
           background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.1)'}`,
           color: COLORS.silver, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>

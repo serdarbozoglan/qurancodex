@@ -58,7 +58,7 @@ function HapaxBadge({ language }) {
         onMouseLeave={() => setTip(false)}
         style={{
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          width: '14px', height: '14px', borderRadius: '50%',
+          width: '14px', height: '14px', borderRadius: RADIUS.full,
           background: 'rgba(83,74,183,0.15)', border: '1px solid rgba(83,74,183,0.35)',
           color: HAPAX_COLOR, fontSize: '0.6rem', fontWeight: 700,
           cursor: 'help', flexShrink: 0,
@@ -146,7 +146,7 @@ function HadithGradeBadge({ grade, source, language }) {
           onClick={() => setTip(v => !v)}
           style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            width: '14px', height: '14px', borderRadius: '50%',
+            width: '14px', height: '14px', borderRadius: RADIUS.full,
             background: `${meta.color}18`, border: `1px solid ${meta.color}40`,
             color: meta.color, fontSize: '0.6rem', fontWeight: 700,
             cursor: 'help', flexShrink: 0,
@@ -184,7 +184,7 @@ function InfoPopover({ text, language: _language }) {
         onBlur={() => setOpen(false)}
         style={{
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          width: '18px', height: '18px', borderRadius: '50%',
+          width: '18px', height: '18px', borderRadius: RADIUS.full,
           background: COLORS.softGoldAlpha08, border: `1px solid ${COLORS.softGoldAlpha20}`,
           color: COLORS.softGoldAlpha60, fontSize: '0.6rem', fontWeight: 700,
           cursor: 'pointer', flexShrink: 0,
@@ -213,7 +213,7 @@ function VerseBlock({ arabic, translation, verseRef, accent }) {
   return (
     <div style={{
       background: 'rgba(255,255,255,0.03)',
-      border: `1px solid ${accent ? `${accent}30` : 'rgba(255,255,255,0.08)'}`,
+      border: `1px solid ${accent ? `${accent}30` : COLORS.glassBgStrong}`,
       borderLeft: `2px solid ${accent || GOLD}`,
       borderRadius: RADIUS.md, padding: '12px 14px', margin: '8px 0',
     }}>
@@ -223,7 +223,7 @@ function VerseBlock({ arabic, translation, verseRef, accent }) {
         </p>
       )}
       {translation && (
-        <p style={{ fontSize: '0.82rem', color: '#94a3b8', fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '0.82rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.6 }}>
           {translation}
         </p>
       )}
@@ -297,7 +297,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
 
       {/* Names + badges */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-        <p style={{ fontSize: '0.95rem', fontWeight: 700, color: isHadithOnly ? '#6B7280' : '#e8e6e3', margin: 0 }}>
+        <p style={{ fontSize: '0.95rem', fontWeight: 700, color: isHadithOnly ? '#6B7280' : COLORS.offWhite, margin: 0 }}>
           {tr ? angel.nameTr : angel.nameEn}
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', alignItems: 'center' }}>
@@ -324,7 +324,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
       )}
 
       {/* Summary */}
-      <p style={{ fontSize: '0.80rem', color: isHadithOnly ? '#4B5563' : '#94a3b8', margin: 0, lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.80rem', color: isHadithOnly ? '#4B5563' : COLORS.silver, margin: 0, lineHeight: 1.6 }}>
         {tr ? angel.summaryTr : angel.summaryEn}
       </p>
 
@@ -356,11 +356,11 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
           {angel.alternateNames.map((n, i) => (
             <span key={i} style={{
               display: 'inline-flex', alignItems: 'center', gap: '5px',
-              background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`,
               borderRadius: RADIUS.md, padding: '4px 10px',
             }}>
               <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', color: GOLD }} lang="ar">{n.arabic}</span>
-              <span style={{ fontSize: '0.65rem', color: '#64748b' }}>{n.ref}</span>
+              <span style={{ fontSize: '0.65rem', color: COLORS.slate500 }}>{n.ref}</span>
               {n.isHadisConnection && <InfoPopover text={tr ? 'Tefsir görüşü — Kur\'an doğrudan özdeşleştirmez' : 'Tafsir view — Quran does not equate explicitly'} language={language} />}
             </span>
           ))}
@@ -397,8 +397,8 @@ function TabMelekler({ data, language, isMobile }) {
               fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 500,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
               background: filter === f.id ? COLORS.softGoldAlpha15 : 'rgba(255,255,255,0.04)',
-              border: `1px solid ${filter === f.id ? COLORS.softGoldAlpha40 : 'rgba(255,255,255,0.08)'}`,
-              color: filter === f.id ? GOLD : '#94a3b8',
+              border: `1px solid ${filter === f.id ? COLORS.softGoldAlpha40 : COLORS.glassBgStrong}`,
+              color: filter === f.id ? GOLD : COLORS.silver,
             }}
           >
             {tr ? f.labelTr : f.labelEn}
@@ -431,7 +431,7 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
-      <p style={{ fontSize: '0.85rem', color: '#64748b', fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.85rem', color: COLORS.slate500, fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
         {tr ? "Kur'an melekleri tanım değil görev üzerinden anlatır." : 'The Quran defines angels by function, not by description.'}
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -448,13 +448,13 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
               <span style={{ fontSize: '0.62rem', fontWeight: 700, color: accent, background: `${accent}15`, border: `1px solid ${accent}35`, borderRadius: RADIUS.xs, padding: '2px 7px', flexShrink: 0 }}>
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <p style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e8e6e3', margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              <p style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                 {tr ? g.titleTr : g.titleEn}
               </p>
-              <p style={{ fontSize: '0.72rem', color: '#64748b', margin: 0, marginLeft: 'auto', whiteSpace: 'nowrap' }}>{g.melek}</p>
+              <p style={{ fontSize: '0.72rem', color: COLORS.slate500, margin: 0, marginLeft: 'auto', whiteSpace: 'nowrap' }}>{g.melek}</p>
             </div>
             <VerseBlock arabic={g.arabic} translation={tr ? g.turkish : g.english} ref={g.ref} accent={accent} />
-            <p style={{ fontSize: '0.82rem', color: '#94a3b8', margin: '10px 0 0', lineHeight: 1.65 }}>
+            <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: '10px 0 0', lineHeight: 1.65 }}>
               {tr ? g.aciklamaTr : g.aciklamaEn}
             </p>
           </div>
@@ -472,7 +472,7 @@ function TabKissalar({ data, language, isMobile }) {
 
   return (
     <div>
-      <p style={{ fontSize: '0.85rem', color: '#64748b', fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.85rem', color: COLORS.slate500, fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
         {tr
           ? 'Melekler kıssalarda pasif değil — müjde taşır, şehri helak eder, peygambere yoldaş olur.'
           : 'Angels in Quranic narratives are not passive — they announce, destroy cities, accompany prophets.'}
@@ -483,7 +483,7 @@ function TabKissalar({ data, language, isMobile }) {
           return (
             <div key={k.id} style={{
               background: isOpen ? COLORS.softGoldAlpha06 : 'rgba(255,255,255,0.03)',
-              border: `1px solid ${isOpen ? COLORS.softGoldAlpha25 : 'rgba(255,255,255,0.08)'}`,
+              border: `1px solid ${isOpen ? COLORS.softGoldAlpha25 : COLORS.glassBgStrong}`,
               borderRadius: RADIUS.lg, overflow: 'hidden',
             }}>
               {/* Header row — always visible */}
@@ -500,7 +500,7 @@ function TabKissalar({ data, language, isMobile }) {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div style={{ minWidth: 0 }}>
-                    <p style={{ fontSize: '0.88rem', fontWeight: 600, color: '#e8e6e3', margin: '0 0 3px', lineHeight: 1.3 }}>
+                    <p style={{ fontSize: '0.88rem', fontWeight: 600, color: COLORS.offWhite, margin: '0 0 3px', lineHeight: 1.3 }}>
                       {tr ? k.titleTr : k.titleEn}
                     </p>
                     {!isOpen && (
@@ -522,7 +522,7 @@ function TabKissalar({ data, language, isMobile }) {
               {isOpen && (
                 <div style={{ padding: '0 18px 18px' }}>
                   <VerseBlock arabic={k.arabic} translation={tr ? k.turkish : k.english} ref={k.ref} />
-                  <p style={{ fontSize: '0.82rem', color: '#94a3b8', margin: '10px 0', lineHeight: 1.7 }}>
+                  <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: '10px 0', lineHeight: 1.7 }}>
                     {tr ? k.anlatimTr : k.anlatimEn}
                   </p>
                   {(tr ? k.infoTr : k.infoEn) && (
@@ -597,7 +597,7 @@ function TabSinir({ language, isMobile: _isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
-      <p style={{ fontSize: '0.85rem', color: '#64748b', fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.85rem', color: COLORS.slate500, fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.6 }}>
         {tr
           ? "Bu sekme sitenin en kritik akademik katkısıdır: Kur'an'da olan ile hadis geleneğinde olan ayrı gösterilir."
           : "This tab is the most critical academic contribution of this page: what is in the Quran vs. what the hadith tradition adds."}
@@ -607,12 +607,12 @@ function TabSinir({ language, isMobile: _isMobile }) {
       <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '500px' }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+            <tr style={{ borderBottom: `1px solid ${COLORS.glassBorder}` }}>
               {[tr ? 'Konu' : 'Topic', tr ? "Kur'an'da" : 'In the Quran', tr ? 'Hadis Ekler' : 'Hadith Adds'].map((h, i) => (
                 <th key={i} style={{
                   padding: '8px 12px', textAlign: 'left',
                   fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase',
-                  letterSpacing: '0.1em', color: i === 1 ? '#1D9E75' : i === 2 ? GOLD : '#64748b',
+                  letterSpacing: '0.1em', color: i === 1 ? '#1D9E75' : i === 2 ? GOLD : COLORS.slate500,
                 }}>
                   {h}
                 </th>
@@ -621,12 +621,12 @@ function TabSinir({ language, isMobile: _isMobile }) {
           </thead>
           <tbody>
             {COMPARISON_ROWS.map((row, i) => (
-              <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
-                <td style={{ padding: '9px 12px', fontSize: '0.78rem', color: '#e8e6e3', fontWeight: 500 }}>{tr ? row.konuTr : row.konuEn}</td>
+              <tr key={i} style={{ borderBottom: `1px solid ${COLORS.glassBg}`, background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
+                <td style={{ padding: '9px 12px', fontSize: '0.78rem', color: COLORS.offWhite, fontWeight: 500 }}>{tr ? row.konuTr : row.konuEn}</td>
                 <td style={{ padding: '9px 12px', fontSize: '0.75rem', color: (tr ? row.quranTr : row.quranEn).startsWith('✓') ? '#1D9E75' : '#D85A30' }}>
                   {tr ? row.quranTr : row.quranEn}
                 </td>
-                <td style={{ padding: '9px 12px', fontSize: '0.75rem', color: '#94a3b8' }}>{tr ? row.hadisTr : row.hadisEn}</td>
+                <td style={{ padding: '9px 12px', fontSize: '0.75rem', color: COLORS.silver }}>{tr ? row.hadisTr : row.hadisEn}</td>
               </tr>
             ))}
           </tbody>
@@ -638,12 +638,12 @@ function TabSinir({ language, isMobile: _isMobile }) {
         {ANALYSIS_CARDS.map((card, i) => (
           <div key={i} style={{
             background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            border: `1px solid ${COLORS.glassBgStrong}`,
             borderLeft: `3px solid ${COLORS.softGoldAlpha40}`,
             borderRadius: RADIUS.chip, padding: '14px 16px',
           }}>
             <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 8px' }}>{tr ? card.titleTr : card.titleEn}</p>
-            <p style={{ fontSize: '0.80rem', color: '#94a3b8', margin: 0, lineHeight: 1.65 }}>{tr ? card.bodyTr : card.bodyEn}</p>
+            <p style={{ fontSize: '0.80rem', color: COLORS.silver, margin: 0, lineHeight: 1.65 }}>{tr ? card.bodyTr : card.bodyEn}</p>
           </div>
         ))}
       </div>
@@ -662,7 +662,7 @@ function TabDilbilim({ data, language, isMobile }) {
       <div>
         <SectionTitle>{tr ? 'A. Kök Analizi' : 'A. Root Analysis'}</SectionTitle>
         <div style={{
-          background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
+          background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`,
           borderRadius: RADIUS.lg, padding: '18px 20px',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '14px', flexWrap: 'wrap' }}>
@@ -670,10 +670,10 @@ function TabDilbilim({ data, language, isMobile }) {
               م-ل-ك
             </p>
             <div>
-              <p style={{ fontSize: '0.95rem', fontWeight: 700, color: '#e8e6e3', margin: '0 0 4px' }}>
+              <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 4px' }}>
                 {tr ? d.kokAnalizi?.rootMeaningTr : d.kokAnalizi?.rootMeaningEn}
               </p>
-              <p style={{ fontSize: '0.75rem', color: '#64748b', margin: 0 }}>
+              <p style={{ fontSize: '0.75rem', color: COLORS.slate500, margin: 0 }}>
                 {tr ? d.kokAnalizi?.kuranicFrequencyTr : d.kokAnalizi?.kuranicFrequencyEn}
               </p>
             </div>
@@ -681,11 +681,11 @@ function TabDilbilim({ data, language, isMobile }) {
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <div style={{ textAlign: 'center' }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', margin: '0 0 4px' }} lang="ar">{d.kokAnalizi?.tekil}</p>
-              <p style={{ fontSize: '0.65rem', color: '#64748b', margin: 0 }}>{tr ? 'tekil' : 'singular'}</p>
+              <p style={{ fontSize: '0.65rem', color: COLORS.slate500, margin: 0 }}>{tr ? 'tekil' : 'singular'}</p>
             </div>
             <div style={{ textAlign: 'center' }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', margin: '0 0 4px' }} lang="ar">{d.kokAnalizi?.cogul}</p>
-              <p style={{ fontSize: '0.65rem', color: '#64748b', margin: 0 }}>{tr ? 'çoğul' : 'plural'}</p>
+              <p style={{ fontSize: '0.65rem', color: COLORS.slate500, margin: 0 }}>{tr ? 'çoğul' : 'plural'}</p>
             </div>
           </div>
         </div>
@@ -698,12 +698,12 @@ function TabDilbilim({ data, language, isMobile }) {
           {(d.benzersizSifatlar || []).map((s, i) => (
             <div key={i} style={{
               background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              border: `1px solid ${COLORS.glassBgStrong}`,
               borderLeft: `2px solid ${COLORS.softGoldAlpha30}`,
               borderRadius: RADIUS.chip, padding: '12px 14px',
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, direction: 'rtl', margin: '0 0 6px', lineHeight: 1.7 }} lang="ar">{s.arabic}</p>
-              <p style={{ fontSize: '0.78rem', color: '#e8e6e3', margin: '0 0 4px', fontWeight: 600 }}>{tr ? s.meaningTr : s.meaningEn}</p>
+              <p style={{ fontSize: '0.78rem', color: COLORS.offWhite, margin: '0 0 4px', fontWeight: 600 }}>{tr ? s.meaningTr : s.meaningEn}</p>
               <p style={{ fontSize: '0.68rem', color: `${GOLD}60`, margin: 0 }}>{s.ref}</p>
               {s.isHapax && <div style={{ marginTop: '6px' }}><HapaxBadge language={language} /></div>}
             </div>
@@ -722,7 +722,7 @@ function TabDilbilim({ data, language, isMobile }) {
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: GOLD, direction: 'rtl', margin: 0 }} lang="ar">{n.arabic}</p>
               <div>
-                <p style={{ fontSize: '0.75rem', color: '#94a3b8', margin: '0 0 3px' }}>{tr ? n.notTr : n.notEn}</p>
+                <p style={{ fontSize: '0.75rem', color: COLORS.silver, margin: '0 0 3px' }}>{tr ? n.notTr : n.notEn}</p>
                 <p style={{ fontSize: '0.65rem', color: `${GOLD}60`, margin: 0 }}>{n.ref}</p>
               </div>
               {n.isHapax && <HapaxBadge language={language} />}
@@ -746,7 +746,7 @@ function TabDilbilim({ data, language, isMobile }) {
               display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'center', textAlign: 'center',
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: n.isHadisConnection ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.5 }} lang="ar">{n.arabic}</p>
-              <p style={{ fontSize: '0.78rem', fontWeight: 600, color: n.isHadisConnection ? '#6B7280' : '#e8e6e3', margin: 0 }}>{n.nameTr}</p>
+              <p style={{ fontSize: '0.78rem', fontWeight: 600, color: n.isHadisConnection ? '#6B7280' : COLORS.offWhite, margin: 0 }}>{n.nameTr}</p>
               <p style={{ fontSize: '0.65rem', color: `${GOLD}50`, margin: 0 }}>{n.ref}</p>
               {n.isHadisConnection && (
                 <span style={{ fontSize: '0.6rem', color: '#6B7280', background: 'rgba(107,114,128,0.08)', border: '1px solid rgba(107,114,128,0.15)', borderRadius: RADIUS.pillSm, padding: '1px 7px' }}>
@@ -798,7 +798,7 @@ function TabKaynaklar({ data, language }) {
                 borderRadius: RADIUS.md, padding: '10px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px',
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ fontSize: '0.82rem', fontWeight: 600, color: '#e8e6e3' }}>{item.isim}</span>
+                  <span style={{ fontSize: '0.82rem', fontWeight: 600, color: COLORS.offWhite }}>{item.isim}</span>
                   {item.eser && (
                     url ? (
                       <a href={url} target="_blank" rel="noopener noreferrer" style={{
@@ -810,7 +810,7 @@ function TabKaynaklar({ data, language }) {
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                       </a>
                     ) : (
-                      <span style={{ fontSize: '0.75rem', color: '#64748b' }}>{item.eser}</span>
+                      <span style={{ fontSize: '0.75rem', color: COLORS.slate500 }}>{item.eser}</span>
                     )
                   )}
                 </div>
@@ -914,7 +914,7 @@ function StatCard({ value, color, labelTr, labelEn, refTr, refEn, tooltipAr, too
           }} lang="ar">
             {tooltipAr}
           </p>
-          <p style={{ fontSize: '0.75rem', color: '#94a3b8', fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.55 }}>
+          <p style={{ fontSize: '0.75rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.55 }}>
             {tr ? tooltipTr : tooltipEn}
           </p>
           {(refTr || refEn) && (
@@ -1111,7 +1111,7 @@ export default function Melekler({ onClose }) {
   };
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#0a0a1a', overflow: 'hidden', display: 'flex', flexDirection: 'column' }} role="dialog" aria-modal="true">
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack, overflow: 'hidden', display: 'flex', flexDirection: 'column' }} role="dialog" aria-modal="true">
 
       {/* ── Header ── */}
       <div style={{
@@ -1125,14 +1125,14 @@ export default function Melekler({ onClose }) {
             <PageIcon />
           </span>
           <span style={OVERLAY_TITLE}>{tr ? "Kur'an'da Melekler" : 'Angels in the Quran'}</span>
-          <span style={{ fontSize: '0.72rem', color: '#475569', marginLeft: '4px', display: isMobile ? 'none' : 'block' }}>
+          <span style={{ fontSize: '0.72rem', color: COLORS.slate600, marginLeft: '4px', display: isMobile ? 'none' : 'block' }}>
             — {tr ? 'Görünmeyenin Elçileri' : 'Messengers of the Unseen'}
           </span>
         </div>
         <button
           onClick={onClose}
           style={{ ...CLOSE_BTN, flexShrink: 0 }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
           onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           aria-label="Close"
         >
@@ -1150,7 +1150,7 @@ export default function Melekler({ onClose }) {
           <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.28em', color: COLORS.softGoldAlpha45, margin: '0 0 8px' }}>
             {tr ? "KUR'AN'DA MELEKLER" : 'ANGELS IN THE QURAN'}
           </p>
-          <h1 style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1.5rem' : '2rem', fontWeight: 700, color: '#e8e6e3', margin: '0 0 14px', lineHeight: 1.25 }}>
+          <h1 style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1.5rem' : '2rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.25 }}>
             {tr ? 'Görünmeyenin Elçileri' : 'Messengers of the Unseen'}
           </h1>
           <VerseBlock
@@ -1160,7 +1160,7 @@ export default function Melekler({ onClose }) {
               : "All praise is due to Allah, Creator of the heavens and the earth, who made the angels messengers having wings, two or three or four."}
             ref="Fâtır 35:1"
           />
-          <p style={{ fontSize: '0.82rem', color: '#64748b', margin: '14px 0 0', lineHeight: 1.7, maxWidth: '720px' }}>
+          <p style={{ fontSize: '0.82rem', color: COLORS.slate500, margin: '14px 0 0', lineHeight: 1.7, maxWidth: '720px' }}>
             {tr
               ? "Kur'an melekleri tasvir etmez — işlevlerini anlatır. Cebrail ve Mikail bizzat anılır, Harut-Marut zikredilir, ötekiler görevle tanınır. Nurdan yaratıldıkları, kanat sayıları hadis geleneğine aittir. Bu sayfa yalnızca Kur'an'da ne geçtiğini gösterir; geri kalanı ℹ️ ile işaretler."
               : "The Quran defines angels by function, not description. Jibril and Mika'il are named; Harut and Marut are mentioned; the rest are known by role. Details like being created from light come from hadith. This page shows only what the Quran says; everything else is marked ℹ️."}
@@ -1206,7 +1206,7 @@ export default function Melekler({ onClose }) {
         {/* Tab content */}
         <div style={{ padding: isMobile ? '16px' : '24px 32px', flex: 1 }}>
           {!data ? (
-            <div style={{ textAlign: 'center', padding: '40px', color: '#475569' }}>
+            <div style={{ textAlign: 'center', padding: '40px', color: COLORS.slate600 }}>
               {tr ? 'Yükleniyor...' : 'Loading...'}
             </div>
           ) : (

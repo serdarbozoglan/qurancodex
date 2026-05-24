@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import useWordTimings from '../hooks/useWordTimings';
-import { COLORS, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, BREAKPOINT_MOBILE, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
 import InterlinearView from './InterlinearView';
 import TafsirPanel from './TafsirPanel';
 import WordTooltip from './WordTooltip';
@@ -12,111 +12,8 @@ import WordPopover from './WordPopover';
 import { useInterlinearData } from '../hooks/useInterlinearData';
 import { fetchMealSurah } from '../lib/mealCache';
 
-// Clean Arabic text: remove decorative/annotation markers with no phonetic value.
-// Keep: core letters (U+0621–U+063A, U+0641–U+064A), standard harakat (U+064B–U+0655),
-//        superscript alef (U+0670), subscript alef (U+0656), extended letters.
-// Remove: waqf markers, Islamic phrase abbreviations, annotation marks, sajda sign, etc.
-// Clean Arabic: remove decorative/structural marks that have no phonetic value.
-// U+06E1 (Uthmani open-circle sukun) is kept — it is phonetic.
-// U+06EA (ARABIC EMPTY CENTRE LOW STOP) is used in the acikkuran dataset as a subscript
-// kasra diacritic (e.g. جَمِيعاً → جَمَ۪يعاً, مِنِّي → مِنّ۪ي). It renders as a circle
-// in fallback fonts so we normalize it to a standard kasra (U+0650) instead of removing it.
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    // Decomposed hamza: ي+ٔ → ئ (precomposed ya-hamza)
-    .replace(/\u064A\u0654/g, '\u0626')
-    // U+06EA (Uthmani subscript kasra / asar) — olduğu gibi korunur, font asar şeklinde render eder
-    // U+0653 (maddah above): tüm durumlar wrapWaqfOnly/applyTajweed pipeline'ında CSS overlay ile
-    // işlenir (makeShaddaMaddaWrap / makeHarakaMaddaWrap / makeBareHarakaMaddaWrap).
-    // cleanArabic'te herhangi bir stripping yapılmıyor — hareke+maddah kombinasyonu korunur.
-    // U+0671 (Arabic Letter Alef Wasla / ٱ) — KFGQPC üstünde ص işareti render ediyor
-    // Düz alef (U+0627) ile normalize et; wasl harekesi zaten hareke ile gösterilir
-    .replace(/\u0671/g, '\u0627')
-    // U+06CC (Arabic Letter Farsi Yeh / ی) — KFGQPC desteklemiyor, siyah tofu üretiyor
-    // Standart Arabic Yeh (U+064A) ile normalize et
-    .replace(/\u06CC/g, '\u064A')
-    // Islamic phrase abbreviations (U+0610–U+0614, U+0616–U+0617)
-    // U+0615 (ARABIC SMALL HIGH TAH = ط waqf işareti) hariç tutuldu — wrapWaqfOnly'de render edilecek
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    // Quranic number / footnote prefix marks (U+0600–U+0605)
-    .replace(/[\u0600-\u0605]/g, '')
-    // Waqf / pause markers (U+06D6–U+06DB) — applyTajweed/wrapWaqfOnly'de
-    // absolute konumlandırma ile gösterilir; cleanArabic'te kaldırılmıyor.
-    // U+06DC (ARABIC SMALL HIGH SEEN, sekta waqf) — ShaykhHamdullah/KFGQPC
-    // chain'inde glif eksikliği yüzünden '@' tofu olarak render oluyor
-    // (örn. Âl-i İmrân 3:4 'al-Furqānộ'). CLAUDE.md §13.15 strip listesi gereği temizleniyor.
-    // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9) da strip.
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    // Leeds Quranic Arabic Corpus encoding artifacts — literal ASCII
-    // markers (@, #, _) embedded in word strings for morphological
-    // boundaries / sajda hints. They have no Arabic typography meaning;
-    // strip so words like 'كَفَرُوا@' and 'بِ_#آيَاتِ' render cleanly.
-    .replace(/[@#_]/g, '')
-    // Decomposed alef-with-maddah: U+0627 (ا) + U+0670 (ٰ) → U+0622 (آ).
-    // API verisinde 'بِاٰيَاتِ' (Âl-i İmrân 3:4) gibi kelimelerde dagger
-    // alef bir alef'in üstüne yerleştiriliyor; bu non-standart encoding,
-    // ShaykhHamdullah/KFGQPC underscore-tofu render ediyor. Precomposed
-    // آ ile değiştirildiğinde fontlar sorunsuz çiziyor; telaffuz aynı.
-    // NOTE: 'alef + dagger alef' (U+0627 + U+0670) to alef-maddah (U+0622)
-    // conversion REMOVED \u2014 semantically wrong: dagger alef is a small
-    // vertical stroke above the alef (Diyanet/Madinah typography for the
-    // long /aa/ sound), not the wavy maddah. Fonts render the pair OK.
-    // Dagger-alef + maddah-above combo (U+0670 + U+0653) → precomposed
-    // alef-with-maddah (U+0622). Used in Uthmani 'يَٰٓأَيُّهَا' (yā-ayyuhā)
-    // to mark a long stretched alef before hamza; ShaykhHamdullah/KFGQPC
-    // render this combining pair as a misplaced miniature 'ال' glyph
-    // above the host letter. Precomposed آ renders cleanly.
-    // .replace(/\u0670\u0653/g, '\u0622') \u2014 kald\u0131r\u0131ld\u0131 (Z\u00e2riy\u00e2t 51:38 '\u0645\u064f\u0648\u0633\u0670\u0653\u0649' bug)
-    // Inject missing fatha before a dagger alef (U+0670).
-    // verse-graph-bgem3.json kaynak verisinde 3761 yerde 'consonant + \u0670'
-    // do\u011frudan kodlu \u2014 arada fatha YOK (\u00f6rn. \u0627\u064e\u0644\u0631\u064e\u0651\u062d\u0652\u0645\u0670\u0646\u0650, \u0630\u0670\u0644\u0650\u0643, \u0627\u0650\u0644\u0670\u0649, \u0645\u064f\u0648\u0633\u0670\u0649,
-    // \u0627\u064e\u0644\u0652\u0645\u064e\u0644\u0670\u0653\u0626\u0650\u0643\u064e\u0629\u064e, \u0641\u064e\u0627\u064e\u0648\u0652\u062d\u0670\u0649). Fonetik olarak dagger alef = "fatha + long alef",
-    // yani \u00f6n\u00fcndeki consonant fatha almal\u0131. Diyanet/Madinah typografisi
-    // de g\u00f6rsel olarak fatha + dagger-alef stroke birlikte g\u00f6sterir.
-    // Shadda araya girerse (\u00f6rn. \u0627\u064e\u0644\u0635\u064e\u0651\u0644\u0670\u0648\u0629\u064e \u2192 \u0644 \u0651 \u0670) shadda korunur, fatha
-    // shadda'dan sonra dagger-alef \u00f6ncesi inject edilir.
-    // NOTE: 'consonant + dagger alef' fatha injection REVERTED. Diyanet
-    // typography uses the dagger alef stroke ALONE as the visible mark
-    // (it implicitly encodes fatha + long alef). Adding a separate fatha
-    // stacked both glyphs above the consonant and they overlapped.
-    // Lam-shamsiyah missing-sukun fix. verse-graph-bgem3.json has 5278
-    // places where the silent 'al-' lam (assimilated definite article)
-    // is encoded as bare \u0644 with no hareke, immediately before a sun
-    // letter carrying shadda (e.g. \u0644\u0650\u0644\u0630\u0650\u0651\u0643\u0652\u0631\u0650 in Kamer 54:17, \u0627\u064e\u0644\u0631\u064e\u0651\u062d\u0652\u0645\u0670\u0646\u0650,
-    // \u0627\u064e\u0644\u0635\u064e\u0651\u0644\u0670\u0648\u0629\u064e, \u0627\u0644\u0630\u0650\u0651\u0643\u0652\u0631\u064e). Inject sukun on the silent lam so the
-    // letter shows the \u0645\u0652 marker Diyanet typography expects. Sun letters
-    // (14): \u062a \u062b \u062f \u0630 \u0631 \u0632 \u0633 \u0634 \u0635 \u0636 \u0637 \u0638 \u0644 \u0646.
-    // NOTE: lam-shamsiyah sukun injection REVERTED. In Diyanet typography
-    // the silent assimilated-article lam is left BARE \u2014 the shadda on the
-    // following sun letter already encodes id\u011fam-\u015fems\u00ee. Adding a sukun
-    // contradicts the source mushaf style.
-    // Reorder [waqf-marker][tenvin] \u2192 [tenvin][waqf-marker] so the
-    // kasratan/fathatan/dammatan glyph renders below/above the host
-    // letter without colliding with the small high waqf glyph stacked
-    // above it (Kamer 54:19 '\u0645\u064f\u0633\u0652\u062a\u064e\u0645\u0650\u0631\u064d\u0651\u06d9' had \u0640\u0651+\u06d9+\u0640\u064d in source \u2014 the
-    // tenvin floated under the letter's descender). Waqf range
-    // U+06D6-U+06DB covers mim/lam-alif/jeem/etc. small-high markers.
-    // Extended: was tenvin-only ([\u064b-\u064d]); now any single-letter
-    // harakah (fatha/damma/kasra/sukun + tenvin). Bakara 2:256 'الْغَيِّۚ' encoded
-    // as ya+shadda+ۚ+kasra; without this swap the kasra rendered detached
-    // below the ya's descender because the font anchored it to the waqf
-    // glyph rather than the ya. Shadda (\u0651) intentionally excluded —
-    // it's a doubling marker, not a vowel.
-    .replace(/([\u06d6-\u06db])([\u064b-\u0650\u0652])/g, '$2$1')
-    // U+06E6 (ARABIC SMALL YEH ۦ) → boşluk ile değiştir.
-    // API verisinde ۦ kelimeler arası tek ayraç olarak kullanılıyor (رِزْقِهِۦوَإِلَيْهِ).
-    // Kaldırılırsa veya ZWNJ konulursa harfler görsel olarak birleşiyor; boşluk gerekli.
-    .replace(/\u06E6/g, ' ')
-    // U+06DF (صفر مستدير/Ayn) + U+06EC (kasr) applyTajweed'e bırakılıyor — diğerleri siliniyor
-    // U+06EB (EMPTY CENTRE HIGH STOP) = med işareti (örn. Secde 32:18 "يَسْتَوُ۫نَ") — korunur
-    // U+06E8 (ARABIC SMALL HIGH NOON / nūn al-wiqāyah) — tenvin + hamzatu'l-wasl birleşmesinde
-    // koruyucu nûn'u gösterir (örn. Hac 22:11 فِتْنَةٌۨ ٱنْقَلَبَ). KFGQPC bunu destekler — korunur.
-    .replace(/[\u06E0\u06E3\u06E4\u06E7\u06ED]/g, '')
-    // Ornate parentheses
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
+import { cleanArabic } from '../lib/arabic';
 // Tajweed coloring.
 // Renk sistemi (gece / gündüz iki palet):
 //   Kalkale           (قلقلة)        ← ق ط ب ج د + sükun
@@ -879,7 +776,7 @@ const MEAL_AUTHORS = [
 // ─── Inline audio bar ────────────────────────────────────────────────────────
 function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, language, reciterIdx }) {
   const reciter = RECITERS[reciterIdx];
-  const gold = '#d4a574';
+  const gold = COLORS.gold;
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
       {/* Relative wrapper hosts the pulse rings behind the button when
@@ -889,13 +786,13 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
         {playing && !failed && (
           <>
             <span aria-hidden className="rm-audio-pulse-ring" style={{
-              position: 'absolute', inset: 0, borderRadius: '50%',
+              position: 'absolute', inset: 0, borderRadius: RADIUS.full,
               border: `1.5px solid ${gold}`,
               animation: 'rm-audio-pulse 1.6s ease-out infinite',
               pointerEvents: 'none',
             }} />
             <span aria-hidden className="rm-audio-pulse-ring" style={{
-              position: 'absolute', inset: 0, borderRadius: '50%',
+              position: 'absolute', inset: 0, borderRadius: RADIUS.full,
               border: `1.5px solid ${gold}`,
               animation: 'rm-audio-pulse 1.6s ease-out infinite',
               animationDelay: '0.8s',
@@ -909,10 +806,10 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
           title={failed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
           style={{
             position: 'relative', zIndex: 1,
-            width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+            width: '28px', height: '28px', borderRadius: RADIUS.full, flexShrink: 0,
             background: failed ? 'rgba(100,116,139,0.08)' : playing ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
-            border: `1px solid ${failed ? 'rgba(100,116,139,0.2)' : playing ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
-            color: failed ? '#475569' : gold,
+            border: `1px solid ${failed ? 'rgba(100,116,139,0.2)' : playing ? 'rgba(200,185,165,0.72)' : COLORS.goldAlpha20}`,
+            color: failed ? COLORS.slate600 : gold,
             cursor: failed ? 'not-allowed' : 'pointer',
             opacity: failed ? 0.5 : 1,
             fontSize: '0.7rem',
@@ -922,7 +819,7 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
           {playing ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
         </button>
       </div>
-      <span style={{ color: '#64748b', fontSize: '0.65rem' }}>
+      <span style={{ color: COLORS.slate500, fontSize: '0.65rem' }}>
         {language === 'tr' ? reciter.labelTr : reciter.labelEn}
       </span>
     </div>
@@ -932,7 +829,7 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
 // ─── Single verse row ─────────────────────────────────────────────────────────
 function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audioFailed, language, showTranslation, reciterIdx, currentFont, dayMode, corpusWords, onWordClick }) {
   const vt = language === 'tr' ? (cleanTr(verse.turkish) || verse.english) : (verse.english || cleanTr(verse.turkish));
-  const gold = '#d4a574';
+  const gold = COLORS.gold;
   const isSajda = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
 
   return (
@@ -954,14 +851,14 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <span style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            width: '32px', height: '32px', borderRadius: '50%',
+            width: '32px', height: '32px', borderRadius: RADIUS.full,
             border: `1.5px solid ${isActive ? 'rgba(212,165,116,0.8)' : 'rgba(212,165,116,0.35)'}`,
             background: 'radial-gradient(circle, rgba(212,165,116,0.15) 0%, rgba(212,165,116,0.04) 70%)',
-            color: isActive ? gold : '#64748b', fontSize: '0.72rem', fontWeight: 600, flexShrink: 0,
+            color: isActive ? gold : COLORS.slate500, fontSize: '0.72rem', fontWeight: 600, flexShrink: 0,
           }}>{verse.ayah}</span>
           {isSajda && (
             <span style={{
-              fontSize: '0.6rem', padding: '2px 6px', borderRadius: '4px',
+              fontSize: '0.6rem', padding: '2px 6px', borderRadius: RADIUS.xs,
               background: 'rgba(46,204,113,0.12)', border: '1px solid rgba(46,204,113,0.3)',
               color: '#2ecc71', fontFamily: currentFont, letterSpacing: '0.02em',
             }}>
@@ -982,7 +879,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
       {/* Arabic */}
       <div spellCheck={false} style={{
         fontFamily: currentFont, fontSize: '1.7rem', lineHeight: 2.2,
-        color: isActive ? '#e8c98a' : '#d4b483',
+        color: isActive ? COLORS.goldBright : COLORS.goldWarm,
         textAlign: 'right', direction: 'rtl',
       }}>
         {corpusWords && corpusWords.length > 0 ? (
@@ -997,7 +894,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
                   style={{
                     cursor: 'pointer',
                     padding: '2px 4px',
-                    borderRadius: '4px',
+                    borderRadius: RADIUS.xs,
                     transition: 'background 0.12s',
                   }}
                   title={w.en || ''}
@@ -2044,7 +1941,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     btnBorder: 'rgba(0,0,0,0.12)',
   } : {
     bg: 'rgba(10,12,24,0.98)',
-    border: 'rgba(212,165,116,0.2)',
+    border: COLORS.goldAlpha20,
     shadow: '0 8px 32px rgba(0,0,0,0.6)',
     divider: 'rgba(255,255,255,0.06)',
     text: '#a8b4c0',
@@ -2052,9 +1949,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     itemBgHover: 'rgba(255,255,255,0.04)',
     itemBgActive: 'rgba(212,165,116,0.1)',
     inputBg: 'rgba(255,255,255,0.06)',
-    inputBorder: 'rgba(212,165,116,0.2)',
-    btnBg: 'rgba(255,255,255,0.05)',
-    btnBorder: 'rgba(255,255,255,0.1)',
+    inputBorder: COLORS.goldAlpha20,
+    btnBg: COLORS.glassBg,
+    btnBorder: COLORS.glassBorder,
   };
 
   const navC = dayMode ? {
@@ -2077,14 +1974,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   } : {
     bg: COLORS.cosmicBlack,
     borderBottom: 'rgba(212,165,116,0.12)',
-    btnBg: 'rgba(255,255,255,0.05)',
-    btnBorder: 'rgba(255,255,255,0.10)',
+    btnBg: COLORS.glassBg,
+    btnBorder: COLORS.glassBorder,
     btnBgActive: 'rgba(212,165,116,0.22)',
     btnBorderActive: 'rgba(212,165,116,0.60)',
     text: 'rgba(255,255,255,0.90)',
     label: 'rgba(200,185,165,0.78)',
     labelSoft: 'rgba(200,185,165,0.55)',
-    divider: 'rgba(255,255,255,0.10)',
+    divider: COLORS.glassBorder,
     chevron: 'rgba(255,255,255,0.60)',
     chevronDisabled: 'rgba(255,255,255,0.15)',
   };
@@ -2289,7 +2186,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   return (
     <div
-      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: C.outerBg, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+      style={{ position: 'fixed', inset: 0, zIndex: 50, background: C.outerBg, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
     >
       {/* Subtle noise texture — night mode only. Breaks flat screen-glow
           perception; gives the background a material/paper quality at ~3.5%
@@ -2352,10 +2249,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 disabled={!active}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  height: isMobile ? '34px' : '40px', padding: isMobile ? '0 6px' : '0 10px', borderRadius: '8px',
+                  height: isMobile ? '34px' : '40px', padding: isMobile ? '0 6px' : '0 10px', borderRadius: RADIUS.md,
                   border: `1px solid ${active ? navC.btnBorder : 'transparent'}`,
                   background: active ? navC.btnBg : 'transparent',
-                  cursor: active ? 'pointer' : 'default', transition: 'all 0.15s', flexShrink: 0, gap: '2px',
+                  cursor: active ? 'pointer' : 'default', transition: `all ${TRANSITION.fast}`, flexShrink: 0, gap: '2px',
                   opacity: active ? 0.82 : 1,
                 }}
                 onMouseEnter={e => { if (active) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
@@ -2400,7 +2297,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 aria-label={language === 'tr' ? `Şu an: ${surahName}` : `Current: ${surahName}`}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  height: isMobile ? '32px' : '44px', padding: isMobile ? '0 8px' : '0 12px', borderRadius: '8px', cursor: 'default',
+                  height: isMobile ? '32px' : '44px', padding: isMobile ? '0 8px' : '0 12px', borderRadius: RADIUS.md, cursor: 'default',
                   border: `1px solid ${navC.btnBorderActive}`,
                   background: navC.btnBgActive,
                   gap: '2px', flexShrink: 0,
@@ -2506,10 +2403,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={tooltip || label}
               style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer',
+                width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer',
                 border: `1px solid ${active ? navC.btnBorderActive : navC.btnBorder}`,
                 background: active ? navC.btnBgActive : navC.btnBg,
-                transition: 'all 0.15s', flexShrink: 0, gap: isMobile ? '3px' : '2px',
+                transition: `all ${TRANSITION.fast}`, flexShrink: 0, gap: isMobile ? '3px' : '2px',
                 padding: 0,
               }}
               onMouseEnter={onEnter || (e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; })}
@@ -2552,11 +2449,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   minWidth: isMobile ? '36px' : '220px',
                   height: isMobile ? '42px' : '44px',
                   padding: isMobile ? 0 : '0 8px 0 12px',
-                  borderRadius: '8px',
+                  borderRadius: RADIUS.md,
                   border: `1px solid ${showSearch ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showSearch ? navC.btnBgActive : navC.btnBg,
                   cursor: 'pointer', flexShrink: 1,
-                  transition: 'all 0.15s',
+                  transition: `all ${TRANSITION.fast}`,
                   justifyContent: isMobile ? 'center' : 'flex-start',
                   fontFamily: 'Inter, system-ui, sans-serif',
                 }}
@@ -2582,9 +2479,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     <kbd style={{
                       fontSize: '0.62rem',
                       padding: '2px 6px',
-                      borderRadius: '4px',
+                      borderRadius: RADIUS.xs,
                       background: dayMode ? 'rgba(80,50,20,0.08)' : 'rgba(255,255,255,0.06)',
-                      border: `1px solid ${dayMode ? 'rgba(80,50,20,0.16)' : 'rgba(255,255,255,0.10)'}`,
+                      border: `1px solid ${dayMode ? 'rgba(80,50,20,0.16)' : COLORS.glassBorder}`,
                       color: dayMode ? 'rgba(80,50,20,0.65)' : 'rgba(200,185,165,0.7)',
                       fontFamily: 'Inter, system-ui, sans-serif',
                       fontWeight: 600,
@@ -2623,10 +2520,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   style={{
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                    width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                     border: `1px solid ${wordMode ? navC.btnBorderActive : navC.btnBorder}`,
                     background: wordMode ? navC.btnBgActive : navC.btnBg,
-                    transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                    transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                   onMouseLeave={e => { e.currentTarget.style.background = wordMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = wordMode ? navC.btnBorderActive : navC.btnBorder; }}
@@ -2657,10 +2554,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {!isMobile && (
                 <div style={{
                   display: 'flex', alignItems: 'center',
-                  height: '44px', borderRadius: '8px', overflow: 'hidden',
+                  height: '44px', borderRadius: RADIUS.md, overflow: 'hidden',
                   border: `1px solid ${showTranslation ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showTranslation ? navC.btnBgActive : navC.btnBg,
-                  transition: 'all 0.15s', flexShrink: 0,
+                  transition: `all ${TRANSITION.fast}`, flexShrink: 0,
                 }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : navC.btnBorder; }}
@@ -2714,10 +2611,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => setTafsirOpen(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${tafsirOpen ? navC.btnBorderActive : navC.btnBorder}`,
                   background: tafsirOpen ? navC.btnBgActive : navC.btnBg,
-                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                  transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = tafsirOpen ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = tafsirOpen ? navC.btnBorderActive : navC.btnBorder; }}
@@ -2743,10 +2640,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${drawMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: drawMode ? navC.btnBgActive : navC.btnBg,
-                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                  transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = drawMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = drawMode ? navC.btnBorderActive : navC.btnBorder; }}
@@ -2768,10 +2665,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => setDayMode(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${dayMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: dayMode ? navC.btnBgActive : navC.btnBg,
-                  transition: 'all 0.15s', gap: isMobile ? '3px' : '1px',
+                  transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = dayMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = dayMode ? navC.btnBorderActive : navC.btnBorder; }}
@@ -2794,10 +2691,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={toggleLanguage}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: '36px', height: '42px', borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  width: '36px', height: '42px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${navC.btnBorder}`,
                   background: navC.btnBg,
-                  transition: 'all 0.15s', gap: '3px',
+                  transition: `all ${TRANSITION.fast}`, gap: '3px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; }}
@@ -2821,10 +2718,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                   width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px',
-                  borderRadius: '8px', cursor: 'pointer', flexShrink: 0,
+                  borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${showSettingsPicker ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showSettingsPicker ? navC.btnBgActive : navC.btnBg,
-                  transition: 'all 0.15s', gap: '1px',
+                  transition: `all ${TRANSITION.fast}`, gap: '1px',
                   padding: 0,
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
@@ -2942,7 +2839,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     {[PAL.qalqala, PAL.gunne, PAL.idgamBila, PAL.iklab, PAL.ihfa, PAL.ihfaSef, PAL.med, PAL.sila].map((c, i) => (
                       <span key={i} style={{
                         width: '8px', height: '8px',
-                        borderRadius: '50%',
+                        borderRadius: RADIUS.full,
                         background: c,
                         opacity: 0.85,
                       }} />
@@ -2982,14 +2879,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       display: 'inline-flex', alignItems: 'center', gap: '7px',
                       flexShrink: 0,
                       padding: '3px 10px 3px 5px',
-                      borderRadius: '999px',
+                      borderRadius: RADIUS.pill,
                       background: dayMode ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.04)',
                       border: `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)'}`,
                     }}
                   >
                     <span style={{
                       width: '12px', height: '12px',
-                      borderRadius: '50%',
+                      borderRadius: RADIUS.full,
                       background: item.c,
                       boxShadow: `0 0 0 2px ${item.c}26`,
                       flexShrink: 0,
@@ -3030,7 +2927,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           right: isMobile ? '8px' : 'auto',
           zIndex: 220,
           background: dropC.bg, backdropFilter: 'blur(20px)',
-          border: `1px solid ${dropC.border}`, borderRadius: '10px',
+          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           width: isMobile ? 'auto' : '320px', boxShadow: dropC.shadow,
           display: 'flex', flexDirection: 'column',
         }}>
@@ -3044,7 +2941,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               placeholder={language === 'tr' ? 'Sûre · Sayfa · Cüz' : 'Surah · Page · Juz'}
               spellCheck={false}
               style={{
-                flex: 1, padding: '6px 10px', borderRadius: '6px',
+                flex: 1, padding: '6px 10px', borderRadius: RADIUS.sm,
                 background: dropC.inputBg, border: `1px solid ${dropC.inputBorder}`,
                 color: dayMode ? 'rgba(30,15,5,0.88)' : '#e2e8f0', fontSize: '16px', outline: 'none', boxSizing: 'border-box',
               }}
@@ -3053,9 +2950,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <button
                 onClick={() => setShowSurahPicker(false)}
                 style={{
-                  flexShrink: 0, width: '28px', height: '28px', borderRadius: '6px',
+                  flexShrink: 0, width: '28px', height: '28px', borderRadius: RADIUS.sm,
                   background: 'transparent', border: `1px solid ${dropC.inputBorder}`,
-                  color: dayMode ? 'rgba(30,15,5,0.5)' : '#64748b',
+                  color: dayMode ? 'rgba(30,15,5,0.5)' : COLORS.slate500,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   cursor: 'pointer', fontSize: '1rem', lineHeight: 1,
                 }}
@@ -3118,7 +3015,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   {/* Right: Arabic name */}
                   <span style={{
                     // CLAUDE.md §13.2 — KFGQPC canonical for Quranic Arabic.
-                    fontFamily: "'KFGQPC', 'Amiri Quran', 'Amiri', serif",
+                    fontFamily: FONTS.quran,
                     fontSize: isMobile ? '1.1rem' : '1.25rem',
                     color: isPicked || isActive ? gold : dropC.textMuted,
                     flexShrink: 0, direction: 'rtl', lineHeight: 1.4,
@@ -3142,8 +3039,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     display: 'flex', alignItems: 'center', gap: '10px',
                     width: '100%', padding: '9px 12px', textAlign: 'left',
                     background: dropC.itemBgActive,
-                    border: `1px solid ${dayMode ? 'rgba(154,111,16,0.18)' : 'rgba(212,165,116,0.15)'}`,
-                    borderLeft: `3px solid ${gold}`, borderRadius: '8px',
+                    border: `1px solid ${dayMode ? 'rgba(154,111,16,0.18)' : COLORS.goldAlpha15}`,
+                    borderLeft: `3px solid ${gold}`, borderRadius: RADIUS.md,
                     cursor: 'pointer', transition: 'background 0.12s',
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.14)' : 'rgba(212,165,116,0.14)'; }}
@@ -3335,7 +3232,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onKeyDown={e => { if (e.key === 'Enter') navigateToPickerSurahVerse(); if (e.key === 'Escape') { setPickerSelectedSurah(null); setPickerVerseInput(''); } }}
                   placeholder="1"
                   style={{
-                    width: '60px', padding: '5px 8px', borderRadius: '6px', flexShrink: 0,
+                    width: '60px', padding: '5px 8px', borderRadius: RADIUS.sm, flexShrink: 0,
                     background: dropC.inputBg, border: `1px solid ${dropC.inputBorder}`,
                     color: gold, fontSize: '16px', fontWeight: 700, textAlign: 'center', outline: 'none',
                   }}
@@ -3344,9 +3241,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <button
                   onClick={navigateToPickerSurahVerse}
                   style={{
-                    marginLeft: 'auto', padding: '5px 14px', borderRadius: '6px', cursor: 'pointer',
+                    marginLeft: 'auto', padding: '5px 14px', borderRadius: RADIUS.sm, cursor: 'pointer',
                     background: 'rgba(212,165,116,0.18)', border: '1px solid rgba(212,165,116,0.35)',
-                    color: gold, fontSize: '0.75rem', fontWeight: 700, transition: 'all 0.15s',
+                    color: gold, fontSize: '0.75rem', fontWeight: 700, transition: `all ${TRANSITION.fast}`,
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.28)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.18)'; }}
@@ -3364,11 +3261,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         <div style={{
           position: 'absolute', top: '54px', right: '16px', zIndex: 220,
           background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(212,165,116,0.2)', borderRadius: '10px',
+          border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.chip,
           padding: '12px 16px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
           display: 'flex', flexDirection: 'column', gap: '10px', width: '220px',
         }}>
-          <span style={{ fontSize: '0.62rem', color: '#64748b', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '0.62rem', color: COLORS.slate500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
             {language === 'tr' ? 'Yazı Boyutu' : 'Font Size'}
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -3376,12 +3273,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <button
               onClick={() => setArabicFontSize(s => Math.max(1.4, +(s - 0.2).toFixed(1)))}
               style={{
-                width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0,
-                border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)',
-                color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s',
+                width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0,
+                border: `1px solid ${COLORS.glassBorder}`, background: COLORS.glassBg,
+                color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}`,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.15)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+              onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
+              onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.borderColor = COLORS.glassBorder; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
             >−</button>
 
             {/* Slider */}
@@ -3396,12 +3293,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <button
               onClick={() => setArabicFontSize(s => Math.min(3.6, +(s + 0.2).toFixed(1)))}
               style={{
-                width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0,
-                border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)',
-                color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s',
+                width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0,
+                border: `1px solid ${COLORS.glassBorder}`, background: COLORS.glassBg,
+                color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}`,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.15)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+              onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
+              onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.borderColor = COLORS.glassBorder; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
             >+</button>
           </div>
 
@@ -3410,9 +3307,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
             <button
               onClick={() => setArabicFontSize(2.5)}
-              style={{ fontSize: '0.65rem', color: '#64748b', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+              style={{ fontSize: '0.65rem', color: COLORS.slate500, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               onMouseEnter={e => { e.currentTarget.style.color = '#a0abb8'; }}
-              onMouseLeave={e => { e.currentTarget.style.color = '#64748b'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = COLORS.slate500; }}
             >{language === 'tr' ? 'Sıfırla' : 'Reset'}</button>
           </div>
         </div>
@@ -3424,7 +3321,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           position: 'absolute', top: isMobile ? '52px' : '54px',
           right: isMobile ? '8px' : '16px', zIndex: 220,
           background: dropC.bg, backdropFilter: 'blur(20px)',
-          border: `1px solid ${dropC.border}`, borderRadius: '10px',
+          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           padding: '14px 16px', boxShadow: dropC.shadow,
           display: 'flex', flexDirection: 'column', gap: '10px',
           width: isMobile ? '220px' : '230px',
@@ -3444,11 +3341,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           </div>
 
           {/* 3-option segmented control */}
-          <div style={{ display: 'flex', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: '8px', padding: '3px', gap: '2px' }}>
+          <div style={{ display: 'flex', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: RADIUS.md, padding: '3px', gap: '2px' }}>
             {[
               { id: 'book',        labelTr: 'Kitap',      labelEn: 'Book',        icon: <BookIcon size={12} /> },
               { id: 'verse',       labelTr: 'Ayet',       labelEn: 'Verse',       icon: <ListIcon size={12} /> },
-              { id: 'interlinear', labelTr: 'Kırık Meal', labelEn: 'Interlinear', icon: <span style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '0.9rem', lineHeight: 1 }}>ك</span> },
+              { id: 'interlinear', labelTr: 'Kırık Meal', labelEn: 'Interlinear', icon: <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', lineHeight: 1 }}>ك</span> },
             ].map(({ id, labelTr, labelEn, icon }) => {
               const isActive = id === 'book'
                 ? bookMode
@@ -3465,14 +3362,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   style={{
                     flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    gap: '4px', padding: '5px 4px', borderRadius: '6px', cursor: 'pointer',
+                    gap: '4px', padding: '5px 4px', borderRadius: RADIUS.sm, cursor: 'pointer',
                     border: 'none',
                     background: isActive
-                      ? (dayMode ? 'rgba(180,83,9,0.12)' : 'rgba(212,165,116,0.15)')
+                      ? (dayMode ? 'rgba(180,83,9,0.12)' : COLORS.goldAlpha15)
                       : 'transparent',
                     color: isActive ? gold : dropC.text,
                     fontSize: '0.70rem', fontWeight: isActive ? 700 : 500,
-                    transition: 'all 0.15s', whiteSpace: 'nowrap',
+                    transition: `all ${TRANSITION.fast}`, whiteSpace: 'nowrap',
                   }}
                 >
                   {icon}
@@ -3484,18 +3381,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           {/* TR / EN lang pills — only when Kırık Meal is active */}
           {!bookMode && interlinearMode && (
-            <div style={{ display: 'flex', gap: '4px', padding: '3px', borderRadius: '8px', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}` }}>
+            <div style={{ display: 'flex', gap: '4px', padding: '3px', borderRadius: RADIUS.md, background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}` }}>
               {['tr', 'en'].map(l => (
                 <button
                   key={l}
                   onClick={() => setInterlinearLang(l)}
                   style={{
-                    flex: 1, padding: '4px 0', borderRadius: '6px', cursor: 'pointer',
+                    flex: 1, padding: '4px 0', borderRadius: RADIUS.sm, cursor: 'pointer',
                     border: 'none', fontSize: '0.72rem', fontWeight: 700,
                     fontFamily: "'Inter', sans-serif", letterSpacing: '0.04em',
                     background: interlinearLang === l ? gold : 'transparent',
-                    color: interlinearLang === l ? '#0a0a1a' : dropC.textMuted,
-                    transition: 'all 0.15s',
+                    color: interlinearLang === l ? COLORS.cosmicBlack : dropC.textMuted,
+                    transition: `all ${TRANSITION.fast}`,
                   }}
                 >
                   {l.toUpperCase()}
@@ -3512,7 +3409,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           position: 'absolute', top: isMobile ? '52px' : '54px',
           right: isMobile ? '8px' : '16px', zIndex: 220,
           background: dropC.bg, backdropFilter: 'blur(20px)',
-          border: `1px solid ${dropC.border}`, borderRadius: '10px',
+          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           padding: '14px 16px', boxShadow: dropC.shadow,
           display: 'flex', flexDirection: 'column', gap: '12px',
           width: isMobile ? '240px' : '250px',
@@ -3531,13 +3428,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               aria-label={language === 'tr' ? 'Kapat' : 'Close'}
               style={{
                 width: '24px', height: '24px',
-                borderRadius: '50%',
+                borderRadius: RADIUS.full,
                 background: 'transparent',
                 border: `1px solid ${dropC.btnBorder}`,
                 color: dropC.textMuted,
                 cursor: 'pointer', flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.15s', padding: 0,
+                transition: `all ${TRANSITION.fast}`, padding: 0,
               }}
               onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.color = dropC.text; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = dropC.textMuted; }}
@@ -3553,11 +3450,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <span style={{ fontSize: '0.65rem', color: dropC.textMuted, padding: '0 2px', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
               {language === 'tr' ? 'Görünüm' : 'View'}
             </span>
-            <div style={{ display: 'flex', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: '8px', padding: '3px', gap: '2px' }}>
+            <div style={{ display: 'flex', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: RADIUS.md, padding: '3px', gap: '2px' }}>
               {[
                 { id: 'book',        labelTr: 'Kitap',      labelEn: 'Book',        icon: <BookIcon size={12} /> },
                 { id: 'verse',       labelTr: 'Ayet',       labelEn: 'Verse',       icon: <ListIcon size={12} /> },
-                { id: 'interlinear', labelTr: 'Kırık Meal', labelEn: 'Interlinear', icon: <span style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '0.9rem', lineHeight: 1 }}>ك</span> },
+                { id: 'interlinear', labelTr: 'Kırık Meal', labelEn: 'Interlinear', icon: <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', lineHeight: 1 }}>ك</span> },
               ].map(({ id, labelTr, labelEn, icon }) => {
                 const isActive = id === 'book'
                   ? bookMode
@@ -3574,14 +3471,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }}
                     style={{
                       flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      gap: '4px', padding: '5px 4px', borderRadius: '6px', cursor: 'pointer',
+                      gap: '4px', padding: '5px 4px', borderRadius: RADIUS.sm, cursor: 'pointer',
                       border: 'none',
                       background: isActive
-                        ? (dayMode ? 'rgba(180,83,9,0.12)' : 'rgba(212,165,116,0.15)')
+                        ? (dayMode ? 'rgba(180,83,9,0.12)' : COLORS.goldAlpha15)
                         : 'transparent',
                       color: isActive ? gold : dropC.text,
                       fontSize: '0.70rem', fontWeight: isActive ? 700 : 500,
-                      transition: 'all 0.15s', whiteSpace: 'nowrap',
+                      transition: `all ${TRANSITION.fast}`, whiteSpace: 'nowrap',
                     }}
                   >
                     {icon}
@@ -3593,18 +3490,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             {/* TR / EN dil pilleri — sadece Kırık Meal seçiliyken */}
             {!bookMode && interlinearMode && (
-              <div style={{ display: 'flex', gap: '4px', padding: '3px', borderRadius: '8px', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}` }}>
+              <div style={{ display: 'flex', gap: '4px', padding: '3px', borderRadius: RADIUS.md, background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}` }}>
                 {['tr', 'en'].map(l => (
                   <button
                     key={l}
                     onClick={() => setInterlinearLang(l)}
                     style={{
-                      flex: 1, padding: '4px 0', borderRadius: '6px', cursor: 'pointer',
+                      flex: 1, padding: '4px 0', borderRadius: RADIUS.sm, cursor: 'pointer',
                       border: 'none', fontSize: '0.72rem', fontWeight: 700,
                       fontFamily: "'Inter', sans-serif", letterSpacing: '0.04em',
                       background: interlinearLang === l ? gold : 'transparent',
-                      color: interlinearLang === l ? '#0a0a1a' : dropC.textMuted,
-                      transition: 'all 0.15s',
+                      color: interlinearLang === l ? COLORS.cosmicBlack : dropC.textMuted,
+                      transition: `all ${TRANSITION.fast}`,
                     }}
                   >
                     {l.toUpperCase()}
@@ -3621,10 +3518,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowSurahPicker(false); setShowReciterPicker(false); }}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
               border: `1px solid ${showTranslation ? navC.btnBorderActive : dropC.btnBorder}`,
               background: showTranslation ? dropC.itemBgActive : dropC.btnBg,
-              transition: 'all 0.15s',
+              transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
             onMouseLeave={e => { e.currentTarget.style.background = showTranslation ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : dropC.btnBorder; }}
@@ -3643,10 +3540,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             onClick={() => { setShowReciterPicker(p => !p); setShowSettingsPicker(false); setShowMealPicker(false); setShowSurahPicker(false); }}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
               border: `1px solid ${dropC.btnBorder}`,
               background: dropC.btnBg,
-              transition: 'all 0.15s',
+              transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
             onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; }}
@@ -3687,10 +3584,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                    padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
                     border: `1px solid ${wordMode ? navC.btnBorderActive : dropC.btnBorder}`,
                     background: wordMode ? dropC.itemBgActive : dropC.btnBg,
-                    transition: 'all 0.15s',
+                    transition: `all ${TRANSITION.fast}`,
                   }}
                 >
                   <span style={{ fontSize: '0.82rem', color: wordMode ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -3713,10 +3610,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                  padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                  padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
                   border: `1px solid ${tafsirOpen ? navC.btnBorderActive : dropC.btnBorder}`,
                   background: tafsirOpen ? dropC.itemBgActive : dropC.btnBg,
-                  transition: 'all 0.15s',
+                  transition: `all ${TRANSITION.fast}`,
                 }}
               >
                 <span style={{ fontSize: '0.82rem', color: tafsirOpen ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -3737,10 +3634,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                  padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                  padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
                   border: `1px solid ${drawMode ? navC.btnBorderActive : dropC.btnBorder}`,
                   background: drawMode ? dropC.itemBgActive : dropC.btnBg,
-                  transition: 'all 0.15s',
+                  transition: `all ${TRANSITION.fast}`,
                 }}
               >
                 <span style={{ fontSize: '0.82rem', color: drawMode ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -3771,10 +3668,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={language === 'tr' ? 'Switch interface to English' : 'Arayüzü Türkçe yap'}
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
                 border: `1px solid ${dropC.btnBorder}`,
                 background: dropC.btnBg,
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
               onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; }}
@@ -3805,10 +3702,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             }}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
               border: `1px solid ${showTajweed ? navC.btnBorderActive : dropC.btnBorder}`,
               background: showTajweed ? dropC.itemBgActive : dropC.btnBg,
-              transition: 'all 0.15s',
+              transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
             onMouseLeave={e => { e.currentTarget.style.background = showTajweed ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = showTajweed ? navC.btnBorderActive : dropC.btnBorder; }}
@@ -3831,10 +3728,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 : 'Draw a classical gold frame around each page'}
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
                 border: `1px solid ${showPageFrame ? navC.btnBorderActive : dropC.btnBorder}`,
                 background: showPageFrame ? dropC.itemBgActive : dropC.btnBg,
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
               onMouseLeave={e => { e.currentTarget.style.background = showPageFrame ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = showPageFrame ? navC.btnBorderActive : dropC.btnBorder; }}
@@ -3858,10 +3755,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               : 'Meal body in italic or upright'}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+              padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
               border: `1px solid ${mealItalic ? navC.btnBorderActive : dropC.btnBorder}`,
               background: mealItalic ? dropC.itemBgActive : dropC.btnBg,
-              transition: 'all 0.15s',
+              transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
             onMouseLeave={e => { e.currentTarget.style.background = mealItalic ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = mealItalic ? navC.btnBorderActive : dropC.btnBorder; }}
@@ -3888,10 +3785,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 : 'Show two pages side-by-side (book mode) or force single page'}
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '8px 12px', borderRadius: '8px', cursor: 'pointer',
+                padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
                 border: `1px solid ${!preferSinglePage ? navC.btnBorderActive : dropC.btnBorder}`,
                 background: !preferSinglePage ? dropC.itemBgActive : dropC.btnBg,
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
               onMouseLeave={e => { e.currentTarget.style.background = !preferSinglePage ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = !preferSinglePage ? navC.btnBorderActive : dropC.btnBorder; }}
@@ -3918,7 +3815,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <button
                 onClick={() => setArabicFontSize(s => Math.max(1.4, +(s - 0.2).toFixed(1)))}
-                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
                 onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
                 onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
               >−</button>
@@ -3930,7 +3827,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               />
               <button
                 onClick={() => setArabicFontSize(s => Math.min(3.6, +(s + 0.2).toFixed(1)))}
-                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
                 onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
                 onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
               >+</button>
@@ -3956,7 +3853,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <button
                 onClick={() => setMealFontSize(s => Math.max(0.75, +(s - 0.1).toFixed(2)))}
-                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
                 onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
                 onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
               >−</button>
@@ -3968,7 +3865,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               />
               <button
                 onClick={() => setMealFontSize(s => Math.min(1.6, +(s + 0.1).toFixed(2)))}
-                style={{ width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: 'all 0.15s' }}
+                style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
                 onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
                 onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
               >+</button>
@@ -3991,7 +3888,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         <div style={{
           position: 'absolute', top: '54px', right: '16px', zIndex: 220,
           background: dropC.bg, backdropFilter: 'blur(20px)',
-          border: `1px solid ${dropC.border}`, borderRadius: '10px',
+          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           width: '260px', boxShadow: dropC.shadow,
           overflow: 'hidden',
         }}>
@@ -4002,7 +3899,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </span>
             {!isCurrentPageBookmarked && bookmarks.length < 7 && (
               <button onClick={() => { addBookmark(); }}
-                style={{ background: 'rgba(212,165,116,0.12)', border: '1px solid rgba(212,165,116,0.3)', borderRadius: '6px', color: gold, fontSize: '0.7rem', cursor: 'pointer', padding: '3px 8px' }}
+                style={{ background: 'rgba(212,165,116,0.12)', border: '1px solid rgba(212,165,116,0.3)', borderRadius: RADIUS.sm, color: gold, fontSize: '0.7rem', cursor: 'pointer', padding: '3px 8px' }}
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.22)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,165,116,0.12)'}
               >
@@ -4066,7 +3963,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         <div style={{
           position: 'absolute', top: '54px', right: '16px', zIndex: 220,
           background: dropC.bg, backdropFilter: 'blur(20px)',
-          border: `1px solid ${dropC.border}`, borderRadius: '10px',
+          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           width: '240px', boxShadow: dropC.shadow,
         }}>
           {/* On/off toggle */}
@@ -4078,18 +3975,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 width: '40px', height: '22px', borderRadius: '11px', cursor: 'pointer', position: 'relative',
                 background: showTranslation
                   ? (dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(200,185,165,0.72)')
-                  : (dayMode ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.1)'),
+                  : (dayMode ? 'rgba(0,0,0,0.12)' : COLORS.glassBorder),
                 border: `1px solid ${showTranslation
                   ? (dayMode ? 'rgba(154,111,16,0.5)' : 'rgba(212,165,116,0.7)')
                   : (dayMode ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.15)')}`,
-                transition: 'all 0.2s',
+                transition: `all ${TRANSITION.base}`,
               }}
             >
               <span style={{
                 position: 'absolute', top: '2px', left: showTranslation ? '18px' : '2px',
-                width: '16px', height: '16px', borderRadius: '50%',
+                width: '16px', height: '16px', borderRadius: RADIUS.full,
                 background: showTranslation ? gold : (dayMode ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.35)'),
-                transition: 'all 0.2s',
+                transition: `all ${TRANSITION.base}`,
               }} />
             </button>
           </div>
@@ -4171,7 +4068,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         <div style={{
           position: 'absolute', top: '54px', right: '16px', zIndex: 220,
           background: dropC.bg, backdropFilter: 'blur(20px)',
-          border: `1px solid ${dropC.border}`, borderRadius: '10px',
+          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           width: '240px', boxShadow: dropC.shadow,
           padding: '6px 0',
         }}>
@@ -4277,7 +4174,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <span
                 aria-hidden
                 style={{
-                  width: '28px', height: '16px', borderRadius: '8px', position: 'relative',
+                  width: '28px', height: '16px', borderRadius: RADIUS.md, position: 'relative',
                   background: (karaokeEnabled && hasKaraoke(reciterIdx)) ? gold : 'rgba(255,255,255,0.12)',
                   transition: 'background 0.18s', flexShrink: 0,
                 }}
@@ -4285,7 +4182,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{
                   position: 'absolute', top: '2px',
                   left: (karaokeEnabled && hasKaraoke(reciterIdx)) ? '14px' : '2px',
-                  width: '12px', height: '12px', borderRadius: '50%',
+                  width: '12px', height: '12px', borderRadius: RADIUS.full,
                   background: '#fff', transition: 'left 0.18s',
                 }} />
               </span>
@@ -4333,7 +4230,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             // backdrop. Inner soft gold ring (0 0 0 1px) reinforces the
             // "floating card" affordance without looking heavy.
             border: `1.5px solid ${dayMode ? 'rgba(197,168,90,0.55)' : 'rgba(212,165,116,0.40)'}`,
-            borderRadius: '14px',
+            borderRadius: RADIUS.xl,
             boxShadow: dayMode
               ? '0 24px 64px rgba(60,40,10,0.32), 0 8px 20px rgba(60,40,10,0.16), 0 0 0 1px rgba(212,165,116,0.10)'
               : '0 24px 64px rgba(0,0,0,0.7), 0 8px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,165,116,0.08)',
@@ -4357,7 +4254,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               placeholder={language === 'tr' ? 'Sûre, sayfa, cüz, ayet veya kelime ara…' : 'Search surah, page, juz, verse or word…'}
               style={{
                 flex: 1, background: 'none', border: 'none', outline: 'none',
-                color: dayMode ? 'rgba(30,15,5,0.88)' : '#e8e6e3',
+                color: dayMode ? 'rgba(30,15,5,0.88)' : COLORS.offWhite,
                 // Stay at exactly 1rem (16px) on mobile to avoid iOS Safari's
                 // auto-zoom on focus, while shrinking from 1.05rem desktop.
                 fontSize: isMobile ? '1rem' : '1.05rem',
@@ -4367,7 +4264,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             {searchQuery && (
               <button onClick={() => setSearchQuery('')}
                 title={language === 'tr' ? 'Aramayı temizle' : 'Clear search'}
-                style={{ background: 'none', border: 'none', color: dayMode ? 'rgba(80,50,20,0.4)' : '#64748b', cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}>
+                style={{ background: 'none', border: 'none', color: dayMode ? 'rgba(80,50,20,0.4)' : COLORS.slate500, cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}>
                 ✕
               </button>
             )}
@@ -4400,7 +4297,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 aria-label={language === 'tr' ? 'Aramayı kapat' : 'Close search'}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  width: '32px', height: '32px', borderRadius: '50%',
+                  width: '32px', height: '32px', borderRadius: RADIUS.full,
                   background: dayMode ? 'rgba(80,50,20,0.08)' : 'rgba(255,255,255,0.06)',
                   border: `1px solid ${dayMode ? 'rgba(80,50,20,0.18)' : 'rgba(255,255,255,0.12)'}`,
                   color: dayMode ? 'rgba(80,50,20,0.7)' : 'rgba(200,185,165,0.75)',
@@ -4435,8 +4332,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const itemBgHover  = dayMode ? 'rgba(122,82,21,0.06)' : 'rgba(212,165,116,0.05)';
               const dividerCol   = dayMode ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.04)';
               const labelCol     = dayMode ? 'rgba(80,50,20,0.55)' : '#7a8a9a';
-              const textMutedCol = dayMode ? 'rgba(80,50,20,0.5)'  : '#94a3b8';
-              const textCol      = dayMode ? 'rgba(30,15,5,0.85)'  : '#e8e6e3';
+              const textMutedCol = dayMode ? 'rgba(80,50,20,0.5)'  : COLORS.silver;
+              const textCol      = dayMode ? 'rgba(30,15,5,0.85)'  : COLORS.offWhite;
 
               // Shared row styles
               const srRow = {
@@ -4500,7 +4397,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       // Arabic script needs ~40% larger than the Latin sibling
                       // (0.92rem El-Fatiha ↔ 1.3rem الفاتحة) so the diacritics
                       // stay legible and the two scripts feel visually matched.
-                      fontFamily: "'KFGQPC', 'Amiri Quran', 'Amiri', serif",
+                      fontFamily: FONTS.quran,
                       fontSize: isMobile ? '1.15rem' : '1.3rem',
                       color: isActive ? gold : textMutedCol,
                       flexShrink: 0, direction: 'rtl', lineHeight: 1.4,
@@ -4543,9 +4440,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     boxSizing: 'border-box',
                     borderBottom: 'none',
                     background: dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.08)',
-                    border: `1px solid ${dayMode ? 'rgba(154,111,16,0.18)' : 'rgba(212,165,116,0.15)'}`,
+                    border: `1px solid ${dayMode ? 'rgba(154,111,16,0.18)' : COLORS.goldAlpha15}`,
                     borderLeft: `3px solid ${gold}`,
-                    borderRadius: '10px',
+                    borderRadius: RADIUS.chip,
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.16)' : 'rgba(212,165,116,0.14)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.08)'; }}
@@ -4789,16 +4686,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <div style={{ fontSize: '0.6rem', color: dayMode ? C.muted : 'rgba(200,185,165,0.5)', letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: '3px' }}>
                   {language === 'tr' ? 'Hatim Tamamlandı' : 'Khatm Completed'}
                 </div>
-                <div style={{ fontSize: '1rem', fontWeight: 700, color: gold, fontFamily: "'Playfair Display', serif" }}>
+                <div style={{ ...OVERLAY_TITLE, fontSize: '1rem' }}>
                   {language === 'tr' ? 'Hatim Duası' : 'Khatm Prayer'}
                 </div>
               </div>
               <button
                 onClick={() => setShowHatimDua(false)}
                 style={{
-                  padding: '6px 14px', borderRadius: '8px', cursor: 'pointer',
+                  padding: '6px 14px', borderRadius: RADIUS.md, cursor: 'pointer',
                   background: 'transparent',
-                  border: `1px solid ${dayMode ? 'rgba(154,111,16,0.22)' : 'rgba(212,165,116,0.2)'}`,
+                  border: `1px solid ${dayMode ? 'rgba(154,111,16,0.22)' : COLORS.goldAlpha20}`,
                   color: dayMode ? C.muted : 'rgba(200,185,165,0.65)',
                   fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.05em',
                 }}
@@ -4926,7 +4823,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               {/* Fatiha suggestion */}
               <div style={{
-                padding: '12px 16px', borderRadius: '10px',
+                padding: '12px 16px', borderRadius: RADIUS.chip,
                 background: dayMode ? 'rgba(154,111,16,0.07)' : 'rgba(212,165,116,0.06)',
                 border: `1px solid ${dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.12)'}`,
                 display: 'flex', alignItems: 'center', gap: '10px',
@@ -4958,7 +4855,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         {loading && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh', gap: '20px' }}>
             <div style={{
-              width: '48px', height: '48px', borderRadius: '50%',
+              width: '48px', height: '48px', borderRadius: RADIUS.full,
               border: `3px solid ${dayMode ? 'rgba(100,60,10,0.12)' : 'rgba(212,165,116,0.12)'}`,
               borderTopColor: dayMode ? 'rgba(100,60,10,0.6)' : 'rgba(212,165,116,0.7)',
               animation: 'rm-spin 0.9s linear infinite',
@@ -5202,7 +5099,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         backdropFilter: 'blur(20px)',
                         WebkitBackdropFilter: 'blur(20px)',
                         border: `1px solid ${dropC.border}`,
-                        borderRadius: '10px',
+                        borderRadius: RADIUS.chip,
                         boxShadow: dropC.shadow,
                         zIndex: 20,
                       }}>
@@ -5433,7 +5330,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     <span style={{
                                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                                       width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                                      textAlign: 'center', borderRadius: '50%',
+                                      textAlign: 'center', borderRadius: RADIUS.full,
                                       border: `1.5px solid ${C.gold}88`,
                                       color: C.gold,
                                       fontSize: isMobile ? '0.72rem' : '0.84rem',
@@ -5518,7 +5415,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 // to cc for stronger emphasis.
                                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                                 width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                                borderRadius: '50%', flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
+                                borderRadius: RADIUS.full, flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
                                 border: `1.5px solid ${C.gold}${isActive ? 'cc' : 'aa'}`,
                                 boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
                                 background: dayMode
@@ -5564,7 +5461,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 {isSajdaTr && (
                                   <span style={{
                                     display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle',
-                                    fontSize: '0.72rem', padding: '2px 8px', borderRadius: '4px',
+                                    fontSize: '0.72rem', padding: '2px 8px', borderRadius: RADIUS.xs,
                                     background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
                                     border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
                                     color: dayMode ? COLORS.emerald : COLORS.softEmerald,
@@ -5694,7 +5591,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           left: isMobile ? '8px' : '12px',
                           width: `${size}px`,
                           height: `${size}px`,
-                          borderRadius: '50%',
+                          borderRadius: RADIUS.full,
                           display: 'flex',
                           flexDirection: 'column',
                           alignItems: 'center',
@@ -5894,7 +5791,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           <span style={{
                             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                             width: '1.72em', height: '1.72em',
-                            textAlign: 'center', borderRadius: '50%',
+                            textAlign: 'center', borderRadius: RADIUS.full,
                             border: `1.5px solid ${isSajdaBook ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : C.gold + 'aa'}`,
                             boxShadow: isSajdaBook
                               ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`
@@ -5959,7 +5856,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     style={{
                                       ...highlightStyleL,
                                       cursor: hoverable ? 'pointer' : 'inherit',
-                                      borderRadius: '4px',
+                                      borderRadius: RADIUS.xs,
                                       padding: '0 1px',
                                       transition: 'background 0.15s',
                                     }}
@@ -6118,7 +6015,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         right: isMobile ? '8px' : '12px',
                         width: `${size}px`,
                         height: `${size}px`,
-                        borderRadius: '50%',
+                        borderRadius: RADIUS.full,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -6331,7 +6228,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       verticalAlign: 'middle',
                                       width: '1.72em', height: '1.72em',
                                       margin: '0 14px',
-                                      textAlign: 'center', borderRadius: '50%',
+                                      textAlign: 'center', borderRadius: RADIUS.full,
                                       border: `1.5px solid ${C.gold}aa`,
                                       boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
                                       color: C.gold,
@@ -6422,7 +6319,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               <span style={{
                                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                                 width: '1.72em', height: '1.72em',
-                                textAlign: 'center', borderRadius: '50%',
+                                textAlign: 'center', borderRadius: RADIUS.full,
                                 border: `1.5px solid ${isSajdaBook ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : C.gold + 'aa'}`,
                                 boxShadow: isSajdaBook
                                   ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`
@@ -6475,7 +6372,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 boxShadow: dayMode
                                   ? '0 0 16px rgba(184,134,11,0.55)'
                                   : '0 0 18px rgba(240,210,143,0.45)',
-                                borderRadius: '4px',
+                                borderRadius: RADIUS.xs,
                                 padding: '0 2px',
                                 transition: 'background 0.15s, color 120ms, box-shadow 120ms',
                                 WebkitBoxDecorationBreak: 'clone',
@@ -6537,7 +6434,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       boxShadow: dayMode
                                         ? '0 0 16px rgba(184,134,11,0.55)'
                                         : '0 0 18px rgba(240,210,143,0.45)',
-                                      borderRadius: '4px',
+                                      borderRadius: RADIUS.xs,
                                     } : {};
                                     const wordSpan = (
                                       <span
@@ -6563,7 +6460,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                         style={{
                                           ...highlightStyle,
                                           cursor: hoverable || corpusWord ? 'pointer' : 'inherit',
-                                          borderRadius: '4px',
+                                          borderRadius: RADIUS.xs,
                                           padding: '0 1px',
                                           transition: 'background 0.15s, opacity 120ms, color 120ms, text-shadow 120ms',
                                           ...karaokeStyle,
@@ -6720,7 +6617,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       minWidth: '260px', maxHeight: '360px', overflowY: 'auto',
                       background: dropC.bg,
                       backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
-                      border: `1px solid ${dropC.border}`, borderRadius: '10px',
+                      border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
                       boxShadow: dropC.shadow, zIndex: 20,
                     }}>
                       {['tr', 'en'].map((lng, lngIdx) => (
@@ -7084,7 +6981,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     backdropFilter: 'blur(20px)',
                     WebkitBackdropFilter: 'blur(20px)',
                     border: `1px solid ${dropC.border}`,
-                    borderRadius: '10px',
+                    borderRadius: RADIUS.chip,
                     boxShadow: dropC.shadow,
                     zIndex: 20,
                   }}>
@@ -7350,7 +7247,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     alignItems: 'flex-start',
                     padding: isMobile ? '10px 12px' : '12px 20px',
                     borderRadius: isMobile ? '0' : '6px',
-                    borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.05)'}` : 'none',
+                    borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : COLORS.glassBg}` : 'none',
                     background: isActive ? C.activeHighlight : 'transparent',
                     borderLeft: isMobile ? 'none' : `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                     borderRight: isMobile && isActive ? `3px solid ${C.activeBorder}` : 'none',
@@ -7399,7 +7296,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     style={{
                                       cursor: 'pointer',
                                       padding: '1px 3px',
-                                      borderRadius: '4px',
+                                      borderRadius: RADIUS.xs,
                                       transition: 'background 0.15s, color 120ms, box-shadow 120ms',
                                       ...(isKaraokeVerse && isActiveWord ? {
                                         color: dayMode ? 'inherit' : '#fff0c8',
@@ -7447,7 +7344,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               boxShadow: dayMode
                                 ? '0 0 16px rgba(184,134,11,0.55)'
                                 : '0 0 18px rgba(240,210,143,0.45)',
-                              borderRadius: '4px',
+                              borderRadius: RADIUS.xs,
                               padding: '0 2px',
                               transition: 'background 0.15s, color 120ms, box-shadow 120ms',
                               WebkitBoxDecorationBreak: 'clone',
@@ -7503,7 +7400,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       style={{
                         display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                         width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                        borderRadius: '50%', flexShrink: 0,
+                        borderRadius: RADIUS.full, flexShrink: 0,
                         border: `1.5px solid ${isSajda ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : `${C.gold}${isActive ? 'cc' : '88'}`}`,
                         background: isSajda
                           ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.20) 0%, rgba(26,122,76,0.06) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
@@ -7533,7 +7430,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           {isSajda && (
                             <span style={{
                               display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle',
-                              fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px',
+                              fontSize: '0.75rem', padding: '2px 8px', borderRadius: RADIUS.xs,
                               background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
                               border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
                               color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: currentFont,
@@ -7561,7 +7458,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     <span style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                      borderRadius: '50%', flexShrink: 0,
+                      borderRadius: RADIUS.full, flexShrink: 0,
                       border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
                       background: dayMode
                         ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
@@ -7611,7 +7508,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     style={{
                                       cursor: 'pointer',
                                       padding: '1px 3px',
-                                      borderRadius: '4px',
+                                      borderRadius: RADIUS.xs,
                                       transition: 'background 0.15s, color 120ms, box-shadow 120ms',
                                       ...(isKaraokeVerse && isActiveWord ? {
                                         color: dayMode ? 'inherit' : '#fff0c8',
@@ -7659,7 +7556,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               boxShadow: dayMode
                                 ? '0 0 16px rgba(184,134,11,0.55)'
                                 : '0 0 18px rgba(240,210,143,0.45)',
-                              borderRadius: '4px',
+                              borderRadius: RADIUS.xs,
                               padding: '0 2px',
                               transition: 'background 0.15s, color 120ms, box-shadow 120ms',
                               WebkitBoxDecorationBreak: 'clone',
@@ -7682,7 +7579,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       {isSajda && (
                         <span style={{
                           display: 'inline-block', marginRight: '8px', verticalAlign: 'middle',
-                          fontSize: '1.2rem', padding: '2px 8px', borderRadius: '4px',
+                          fontSize: '1.2rem', padding: '2px 8px', borderRadius: RADIUS.xs,
                           background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
                           border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
                           color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: currentFont,
@@ -7719,12 +7616,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               onMouseLeave={e => {
                 if (currentPage >= 604) return;
                 e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.06)' : 'rgba(212,165,116,0.06)';
-                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.25)' : COLORS.goldAlpha25;
                 e.currentTarget.style.transform = 'scale(1)';
               }}
               style={{
-                width: '36px', height: '36px', borderRadius: '50%',
-                border: `1px solid ${currentPage < 604 ? (dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)') : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
+                width: '36px', height: '36px', borderRadius: RADIUS.full,
+                border: `1px solid ${currentPage < 604 ? (dayMode ? 'rgba(100,60,10,0.25)' : COLORS.goldAlpha25) : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
                 background: currentPage < 604 ? (dayMode ? 'rgba(100,60,10,0.06)' : 'rgba(212,165,116,0.06)') : 'transparent',
                 color: currentPage < 604 ? gold : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.12)'),
                 cursor: currentPage < 604 ? 'pointer' : 'default',
@@ -7767,8 +7664,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onKeyDown={e => { if (e.key === 'Escape') { setShowPageInput(false); setPageInputValue(''); } }}
                   placeholder={String(currentPage)}
                   style={{
-                    width: '56px', padding: '4px 8px', borderRadius: '6px',
-                    background: dayMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.08)',
+                    width: '56px', padding: '4px 8px', borderRadius: RADIUS.sm,
+                    background: dayMode ? 'rgba(0,0,0,0.06)' : COLORS.glassBgStrong,
                     border: `1px solid ${dayMode ? 'rgba(100,60,10,0.35)' : 'rgba(212,165,116,0.4)'}`,
                     color: gold, fontSize: '16px', fontWeight: 700, textAlign: 'center', outline: 'none',
                   }}
@@ -7808,12 +7705,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               onMouseLeave={e => {
                 if (currentPage <= 0) return;
                 e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.06)' : 'rgba(212,165,116,0.06)';
-                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.25)' : COLORS.goldAlpha25;
                 e.currentTarget.style.transform = 'scale(1)';
               }}
               style={{
-                width: '36px', height: '36px', borderRadius: '50%',
-                border: `1px solid ${currentPage > 0 ? (dayMode ? 'rgba(100,60,10,0.25)' : 'rgba(212,165,116,0.25)') : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
+                width: '36px', height: '36px', borderRadius: RADIUS.full,
+                border: `1px solid ${currentPage > 0 ? (dayMode ? 'rgba(100,60,10,0.25)' : COLORS.goldAlpha25) : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
                 background: currentPage > 0 ? (dayMode ? 'rgba(100,60,10,0.06)' : 'rgba(212,165,116,0.06)') : 'transparent',
                 color: currentPage > 0 ? gold : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.12)'),
                 cursor: currentPage > 0 ? 'pointer' : 'default',
@@ -7870,9 +7767,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 height: '200px',
                 boxShadow: enabled ? defaultShadow : 'none',
                 background: defaultBg,
-                border: `1px solid ${defaultBorder}`,
-                borderLeft: side === 'left' ? 'none' : undefined,
-                borderRight: side === 'right' ? 'none' : undefined,
+                borderTop: `1px solid ${defaultBorder}`,
+                borderBottom: `1px solid ${defaultBorder}`,
+                borderLeft: side === 'left' ? 'none' : `1px solid ${defaultBorder}`,
+                borderRight: side === 'right' ? 'none' : `1px solid ${defaultBorder}`,
                 color: defaultColor,
                 cursor: enabled ? 'pointer' : 'default',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -7933,7 +7831,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </span>
                 {!isMobile && <span style={{
                   color: C.muted, fontSize: '0.75rem', padding: '1px 7px',
-                  border: `1px solid ${dayMode ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.08)'}`, borderRadius: '4px',
+                  border: `1px solid ${dayMode ? 'rgba(0,0,0,0.12)' : COLORS.glassBgStrong}`, borderRadius: RADIUS.xs,
                 }}>
                   {language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn}
                 </span>}
@@ -7945,9 +7843,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <button
                 onClick={() => prevVerse && handleSelectVerse(prevVerse)}
                 disabled={!prevVerse}
-                style={{ background: 'none', border: 'none', color: prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.1)'), cursor: prevVerse ? 'pointer' : 'default', padding: isMobile ? '3px' : '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
+                style={{ background: 'none', border: 'none', color: prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder), cursor: prevVerse ? 'pointer' : 'default', padding: isMobile ? '3px' : '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
                 onMouseEnter={e => { if (prevVerse) e.currentTarget.style.color = gold; }}
-                onMouseLeave={e => { e.currentTarget.style.color = prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.1)'); }}
+                onMouseLeave={e => { e.currentTarget.style.color = prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder); }}
               >
                 <ChevronLeft size={isMobile ? 15 : 20} />
               </button>
@@ -7966,13 +7864,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 {isPlaying && !isFailed && (
                   <>
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
-                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      position: 'absolute', inset: 0, borderRadius: RADIUS.full,
                       border: `2px solid ${gold}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       pointerEvents: 'none',
                     }} />
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
-                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      position: 'absolute', inset: 0, borderRadius: RADIUS.full,
                       border: `2px solid ${gold}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       animationDelay: '0.8s',
@@ -7986,10 +7884,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
                   style={{
                     position: 'relative', zIndex: 1,
-                    width: '100%', height: '100%', borderRadius: '50%',
+                    width: '100%', height: '100%', borderRadius: RADIUS.full,
                     background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? gold : 'rgba(212,165,116,0.12)',
                     border: `1.5px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? gold : 'rgba(212,165,116,0.35)'}`,
-                    color: isFailed ? '#475569' : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold,
+                    color: isFailed ? COLORS.slate600 : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold,
                     cursor: isFailed ? 'not-allowed' : 'pointer',
                     opacity: isFailed ? 0.5 : 1,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -8006,7 +7904,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     e.currentTarget.style.boxShadow = isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none';
                   }}
                 >
-                  <span style={{ color: isFailed ? '#475569' : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold }}>
+                  <span style={{ color: isFailed ? COLORS.slate600 : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold }}>
                     {isPlaying ? <PauseIcon size={16} /> : <PlayIcon size={16} />}
                   </span>
                 </button>
@@ -8015,9 +7913,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <button
                 onClick={() => nextVerse && handleSelectVerse(nextVerse)}
                 disabled={!nextVerse}
-                style={{ background: 'none', border: 'none', color: nextVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.1)'), cursor: nextVerse ? 'pointer' : 'default', padding: isMobile ? '3px' : '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
+                style={{ background: 'none', border: 'none', color: nextVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder), cursor: nextVerse ? 'pointer' : 'default', padding: isMobile ? '3px' : '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
                 onMouseEnter={e => { if (nextVerse) e.currentTarget.style.color = gold; }}
-                onMouseLeave={e => { e.currentTarget.style.color = nextVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.1)'); }}
+                onMouseLeave={e => { e.currentTarget.style.color = nextVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder); }}
               >
                 <ChevronRight size={isMobile ? 15 : 20} />
               </button>
@@ -8030,7 +7928,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 title={language === 'tr' ? 'Paylaş / Kopyala' : 'Share / Copy'}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px',
-                  padding: isMobile ? '0 8px' : '0 12px', height: isMobile ? '32px' : '40px', borderRadius: '8px', cursor: 'pointer',
+                  padding: isMobile ? '0 8px' : '0 12px', height: isMobile ? '32px' : '40px', borderRadius: RADIUS.md, cursor: 'pointer',
                   minWidth: copiedVerseId === activeVerse.id ? 'auto' : (isMobile ? '32px' : '40px'),
                   background: copiedVerseId === activeVerse.id
                     ? 'rgba(46,204,113,0.15)'
@@ -8057,7 +7955,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 title={language === 'tr' ? 'Kapat' : 'Dismiss'}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '32px' : '40px', height: isMobile ? '32px' : '40px', borderRadius: '8px', cursor: 'pointer',
+                  width: isMobile ? '32px' : '40px', height: isMobile ? '32px' : '40px', borderRadius: RADIUS.md, cursor: 'pointer',
                   background: dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(255,255,255,0.06)',
                   border: `1px solid ${dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(255,255,255,0.12)'}`,
                   color: C.muted, transition: 'all 0.18s', fontSize: isMobile ? '0.75rem' : '0.9rem',
@@ -8241,7 +8139,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     fontSize: '22px',
                     lineHeight: 1.1,
                     padding: '2px 4px',
-                    borderRadius: '4px',
+                    borderRadius: RADIUS.xs,
                     pointerEvents: interactive ? 'auto' : 'none',
                     cursor: interactive ? 'move' : 'default',
                     userSelect: 'none',
@@ -8268,7 +8166,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 alignItems: 'stretch',
                 background: 'rgba(13,27,42,0.96)',
                 border: `1px solid ${COLORS.goldAlpha25}`,
-                borderRadius: '6px',
+                borderRadius: RADIUS.sm,
                 boxShadow: '0 8px 24px rgba(0,0,0,0.45)',
                 overflow: 'hidden',
               }}
@@ -8298,7 +8196,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   width: '22px',
-                  background: 'rgba(255,255,255,0.05)',
+                  background: COLORS.glassBg,
                   borderRight: '1px solid rgba(255,255,255,0.10)',
                   color: COLORS.silver,
                   cursor: 'grab',
@@ -8364,7 +8262,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               padding: `${tbPadY}px ${tbPadX}px`,
               background: 'rgba(13,27,42,0.96)',
               border: `1px solid ${COLORS.goldAlpha25}`,
-              borderRadius: '999px',
+              borderRadius: RADIUS.pill,
               boxShadow: '0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.4)',
               backdropFilter: 'blur(10px)',
               userSelect: 'none',
@@ -8398,7 +8296,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               onPointerCancel={() => { dragStateRef.current = null; }}
               style={{
                 width: `${tbGripW}px`, height: `${tbBtnH}px`,
-                borderRadius: '6px',
+                borderRadius: RADIUS.sm,
                 background: 'transparent',
                 border: 'none',
                 color: COLORS.silver,
@@ -8431,13 +8329,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   title={name}
                   style={{
                     width: `${tbColor}px`, height: `${tbColor}px`,
-                    borderRadius: '50%',
+                    borderRadius: RADIUS.full,
                     background: c,
                     border: `2px solid ${active ? '#fff' : 'rgba(255,255,255,0.25)'}`,
                     boxShadow: active ? `0 0 0 2px ${c}88` : 'none',
                     cursor: 'pointer',
                     padding: 0, flexShrink: 0,
-                    transition: 'all 0.15s',
+                    transition: `all ${TRANSITION.fast}`,
                   }}
                 />
               );
@@ -8449,13 +8347,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={language === 'tr' ? 'Metin ekle' : 'Add text'}
               style={{
                 width: `${tbBtn}px`, height: `${tbBtnH}px`,
-                borderRadius: '8px',
-                background: drawColor === 'text' ? 'rgba(212,165,116,0.22)' : 'rgba(255,255,255,0.05)',
+                borderRadius: RADIUS.md,
+                background: drawColor === 'text' ? 'rgba(212,165,116,0.22)' : COLORS.glassBg,
                 border: `1px solid ${drawColor === 'text' ? COLORS.gold : 'rgba(255,255,255,0.15)'}`,
                 color: drawColor === 'text' ? COLORS.gold : COLORS.silver,
                 cursor: 'pointer', flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
             >
               <TextIcon size={tbIcon} />
@@ -8467,13 +8365,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={language === 'tr' ? 'Fosforlu kalem' : 'Highlighter'}
               style={{
                 width: `${tbBtn}px`, height: `${tbBtnH}px`,
-                borderRadius: '8px',
-                background: drawColor === 'highlight' ? 'rgba(212,165,116,0.22)' : 'rgba(255,255,255,0.05)',
+                borderRadius: RADIUS.md,
+                background: drawColor === 'highlight' ? 'rgba(212,165,116,0.22)' : COLORS.glassBg,
                 border: `1px solid ${drawColor === 'highlight' ? COLORS.gold : 'rgba(255,255,255,0.15)'}`,
                 color: drawColor === 'highlight' ? COLORS.gold : COLORS.silver,
                 cursor: 'pointer', flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
             >
               <HighlighterIcon size={tbIcon} />
@@ -8488,13 +8386,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={language === 'tr' ? 'Silgi' : 'Eraser'}
               style={{
                 width: `${tbBtn}px`, height: `${tbBtnH}px`,
-                borderRadius: '8px',
-                background: drawColor === 'eraser' ? 'rgba(212,165,116,0.22)' : 'rgba(255,255,255,0.05)',
+                borderRadius: RADIUS.md,
+                background: drawColor === 'eraser' ? 'rgba(212,165,116,0.22)' : COLORS.glassBg,
                 border: `1px solid ${drawColor === 'eraser' ? COLORS.gold : 'rgba(255,255,255,0.15)'}`,
                 color: drawColor === 'eraser' ? COLORS.gold : COLORS.silver,
                 cursor: 'pointer', flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
             >
               <EraserIcon size={tbIcon} />
@@ -8506,16 +8404,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={language === 'tr' ? 'Tümünü temizle' : 'Clear all'}
               style={{
                 width: `${tbBtn}px`, height: `${tbBtnH}px`,
-                borderRadius: '8px',
-                background: 'rgba(255,255,255,0.05)',
+                borderRadius: RADIUS.md,
+                background: COLORS.glassBg,
                 border: '1px solid rgba(255,255,255,0.15)',
                 color: COLORS.silver,
                 cursor: 'pointer', flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.18)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.45)'; e.currentTarget.style.color = '#f87171'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = COLORS.silver; }}
+              onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = COLORS.silver; }}
             >
               <TrashIcon size={tbIcon - 2} />
             </button>
@@ -8529,17 +8427,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={language === 'tr' ? 'Tahtayı kapat' : 'Close board'}
               style={{
                 width: `${tbBtn}px`, height: `${tbBtnH}px`,
-                borderRadius: '8px',
-                background: 'rgba(255,255,255,0.05)',
+                borderRadius: RADIUS.md,
+                background: COLORS.glassBg,
                 border: '1px solid rgba(255,255,255,0.15)',
                 color: COLORS.silver,
                 cursor: 'pointer', flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: '1rem', fontWeight: 700,
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = COLORS.offWhite; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.silver; }}
+              onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.color = COLORS.silver; }}
             >
               ✕
             </button>
@@ -8633,7 +8531,7 @@ function ConfirmDialog({ title, message, confirmLabel, cancelLabel, onConfirm, o
           width: 'min(440px, calc(100vw - 32px))',
           background: 'rgba(13,27,42,0.97)',
           border: `1px solid ${COLORS.goldAlpha25}`,
-          borderRadius: '14px',
+          borderRadius: RADIUS.xl,
           boxShadow: '0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.4)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
@@ -8644,7 +8542,7 @@ function ConfirmDialog({ title, message, confirmLabel, cancelLabel, onConfirm, o
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
           <div style={{
             width: '38px', height: '38px',
-            borderRadius: '50%',
+            borderRadius: RADIUS.full,
             background: 'rgba(231,76,60,0.18)',
             border: '1px solid rgba(231,76,60,0.35)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -8681,18 +8579,18 @@ function ConfirmDialog({ title, message, confirmLabel, cancelLabel, onConfirm, o
             onClick={onCancel}
             style={{
               padding: '9px 18px',
-              borderRadius: '8px',
-              background: 'rgba(255,255,255,0.05)',
+              borderRadius: RADIUS.md,
+              background: COLORS.glassBg,
               border: '1px solid rgba(255,255,255,0.15)',
               color: COLORS.silver,
               fontSize: '0.9rem',
               fontWeight: 600,
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               cursor: 'pointer',
-              transition: 'all 0.15s',
+              transition: `all ${TRANSITION.fast}`,
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.10)'; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.silver; }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.color = COLORS.silver; }}
           >
             {cancelLabel}
           </button>
@@ -8701,7 +8599,7 @@ function ConfirmDialog({ title, message, confirmLabel, cancelLabel, onConfirm, o
             autoFocus
             style={{
               padding: '9px 18px',
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
               background: 'linear-gradient(135deg, rgba(231,76,60,0.28), rgba(231,76,60,0.16))',
               border: '1px solid rgba(231,76,60,0.55)',
               color: '#fee2e2',
@@ -8709,7 +8607,7 @@ function ConfirmDialog({ title, message, confirmLabel, cancelLabel, onConfirm, o
               fontWeight: 700,
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               cursor: 'pointer',
-              transition: 'all 0.15s',
+              transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(231,76,60,0.40), rgba(231,76,60,0.24))'; e.currentTarget.style.borderColor = 'rgba(231,76,60,0.75)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(231,76,60,0.28), rgba(231,76,60,0.16))'; e.currentTarget.style.borderColor = 'rgba(231,76,60,0.55)'; }}
@@ -8940,17 +8838,17 @@ function VerseCompareModal({
     divider: 'rgba(180,140,80,0.18)',
   } : {
     backdrop: 'rgba(5,5,12,0.72)',
-    bg: '#0a0a1a',
+    bg: COLORS.cosmicBlack,
     cardBg: 'rgba(15,18,38,0.96)',
     border: 'rgba(212,165,116,0.32)',
-    text: '#e8e6e3',
-    textMuted: '#94a3b8',
-    label: '#d4a574',
+    text: COLORS.offWhite,
+    textMuted: COLORS.silver,
+    label: COLORS.gold,
     arabic: '#f5f1e8',
-    gold: '#d4a574',
-    goldDeep: '#d4a574',
+    gold: COLORS.gold,
+    goldDeep: COLORS.gold,
     cardItemBg: 'rgba(255,255,255,0.03)',
-    cardItemBorder: 'rgba(255,255,255,0.08)',
+    cardItemBorder: COLORS.glassBgStrong,
     chipBg: 'rgba(212,165,116,0.08)',
     chipBgActive: 'rgba(212,165,116,0.24)',
     chipBorder: 'rgba(212,165,116,0.22)',
@@ -8990,7 +8888,7 @@ function VerseCompareModal({
         style={{
           display: 'inline-flex', alignItems: 'center', gap: '6px',
           padding: isMobile ? '5px 10px' : '6px 12px',
-          borderRadius: '999px',
+          borderRadius: RADIUS.pill,
           fontSize: isMobile ? '0.72rem' : '0.78rem',
           fontFamily: 'Inter, system-ui, sans-serif',
           fontWeight: isSelected ? 600 : 500,
@@ -8999,7 +8897,7 @@ function VerseCompareModal({
           border: `1px solid ${isSelected ? C.chipBorderActive : C.chipBorder}`,
           cursor: isCurrent ? 'default' : 'pointer',
           opacity: isCurrent ? 0.92 : 1,
-          transition: 'all 0.15s',
+          transition: `all ${TRANSITION.fast}`,
           whiteSpace: 'nowrap',
         }}
         onMouseEnter={(e) => {
@@ -9093,13 +8991,13 @@ function VerseCompareModal({
                 {audioPlaying && !audioFailed && (
                   <>
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
-                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      position: 'absolute', inset: 0, borderRadius: RADIUS.full,
                       border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       pointerEvents: 'none',
                     }} />
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
-                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      position: 'absolute', inset: 0, borderRadius: RADIUS.full,
                       border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       animationDelay: '0.8s',
@@ -9128,7 +9026,7 @@ function VerseCompareModal({
                   style={{
                     position: 'relative', zIndex: 1,
                     width: '36px', height: '36px',
-                    borderRadius: '50%',
+                    borderRadius: RADIUS.full,
                     background: audioFailed
                       ? (dayMode ? 'rgba(100,116,139,0.08)' : 'rgba(100,116,139,0.10)')
                       : audioPlaying
@@ -9141,7 +9039,7 @@ function VerseCompareModal({
                         : (dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(212,165,116,0.32)')}`,
                     color: audioFailed
                       ? (dayMode ? 'rgba(0,0,0,0.35)' : 'rgba(148,163,184,0.5)')
-                      : (dayMode ? '#9a6f10' : '#d4a574'),
+                      : (dayMode ? '#9a6f10' : COLORS.gold),
                     cursor: audioFailed ? 'not-allowed' : 'pointer',
                     opacity: audioFailed ? 0.55 : 1,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -9199,14 +9097,14 @@ function VerseCompareModal({
               aria-label={language === 'tr' ? 'Önceki ayet' : 'Previous verse'}
               title={language === 'tr' ? `Önceki ayet (←)` : `Previous verse (←)`}
               style={{
-                width: '32px', height: '32px', borderRadius: '50%',
+                width: '32px', height: '32px', borderRadius: RADIUS.full,
                 background: dayMode ? 'rgba(180,140,80,0.10)' : 'rgba(255,255,255,0.06)',
                 border: `1px solid ${C.chipBorder}`,
                 color: canPrev ? C.textMuted : (dayMode ? 'rgba(106,86,56,0.35)' : 'rgba(148,163,184,0.35)'),
                 cursor: canPrev ? 'pointer' : 'not-allowed',
                 opacity: canPrev ? 1 : 0.5,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={(e) => { if (!canPrev) return; e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.20)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.text; }}
               onMouseLeave={(e) => { if (!canPrev) return; e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.10)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = C.textMuted; }}
@@ -9222,14 +9120,14 @@ function VerseCompareModal({
               aria-label={language === 'tr' ? 'Sonraki ayet' : 'Next verse'}
               title={language === 'tr' ? `Sonraki ayet (→)` : `Next verse (→)`}
               style={{
-                width: '32px', height: '32px', borderRadius: '50%',
+                width: '32px', height: '32px', borderRadius: RADIUS.full,
                 background: dayMode ? 'rgba(180,140,80,0.10)' : 'rgba(255,255,255,0.06)',
                 border: `1px solid ${C.chipBorder}`,
                 color: canNext ? C.textMuted : (dayMode ? 'rgba(106,86,56,0.35)' : 'rgba(148,163,184,0.35)'),
                 cursor: canNext ? 'pointer' : 'not-allowed',
                 opacity: canNext ? 1 : 0.5,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={(e) => { if (!canNext) return; e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.20)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.text; }}
               onMouseLeave={(e) => { if (!canNext) return; e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.10)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = C.textMuted; }}
@@ -9246,13 +9144,13 @@ function VerseCompareModal({
               title={language === 'tr' ? 'Kapat (Esc)' : 'Close (Esc)'}
               style={{
                 width: '32px', height: '32px',
-                borderRadius: '50%',
+                borderRadius: RADIUS.full,
                 background: dayMode ? 'rgba(180,140,80,0.10)' : 'rgba(255,255,255,0.06)',
                 border: `1px solid ${C.chipBorder}`,
                 color: C.textMuted,
                 cursor: 'pointer',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={(e) => { e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.20)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.text; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.10)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = C.textMuted; }}
@@ -9284,13 +9182,13 @@ function VerseCompareModal({
                 {audioPlaying && !audioFailed && (
                   <>
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
-                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      position: 'absolute', inset: 0, borderRadius: RADIUS.full,
                       border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       pointerEvents: 'none',
                     }} />
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
-                      position: 'absolute', inset: 0, borderRadius: '50%',
+                      position: 'absolute', inset: 0, borderRadius: RADIUS.full,
                       border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       animationDelay: '0.8s',
@@ -9311,7 +9209,7 @@ function VerseCompareModal({
                   }
                   style={{
                     position: 'relative', zIndex: 1,
-                    width: '34px', height: '34px', borderRadius: '50%',
+                    width: '34px', height: '34px', borderRadius: RADIUS.full,
                     background: audioFailed
                       ? (dayMode ? 'rgba(100,116,139,0.08)' : 'rgba(100,116,139,0.10)')
                       : audioPlaying
@@ -9324,7 +9222,7 @@ function VerseCompareModal({
                         : (dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(212,165,116,0.32)')}`,
                     color: audioFailed
                       ? (dayMode ? 'rgba(0,0,0,0.35)' : 'rgba(148,163,184,0.5)')
-                      : (dayMode ? '#9a6f10' : '#d4a574'),
+                      : (dayMode ? '#9a6f10' : COLORS.gold),
                     cursor: audioFailed ? 'not-allowed' : 'pointer',
                     opacity: audioFailed ? 0.55 : 1,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -9357,9 +9255,9 @@ function VerseCompareModal({
             <div style={{
               padding: isMobile ? '14px 12px' : '16px 18px',
               marginBottom: '16px',
-              background: dayMode ? 'rgba(212,165,116,0.06)' : 'rgba(212,165,116,0.04)',
+              background: dayMode ? 'rgba(212,165,116,0.06)' : COLORS.goldAlpha04,
               border: `1px solid ${C.cardItemBorder}`,
-              borderRadius: '10px',
+              borderRadius: RADIUS.chip,
               direction: 'rtl',
               textAlign: 'center',
             }}>
@@ -9389,7 +9287,7 @@ function VerseCompareModal({
             marginBottom: '18px',
             padding: isMobile ? '12px' : 0,
             background: isMobile
-              ? (dayMode ? 'rgba(212,165,116,0.04)' : 'rgba(212,165,116,0.03)')
+              ? (dayMode ? COLORS.goldAlpha04 : 'rgba(212,165,116,0.03)')
               : 'transparent',
             border: isMobile ? `1px solid ${C.cardItemBorder}` : 'none',
             borderRadius: isMobile ? '10px' : 0,
@@ -9444,7 +9342,7 @@ function VerseCompareModal({
                     padding: isMobile ? '12px 14px' : '14px 16px',
                     background: isCurrent ? (dayMode ? 'rgba(212,165,116,0.10)' : 'rgba(212,165,116,0.07)') : C.cardItemBg,
                     border: `1px solid ${isCurrent ? C.chipBorderActive : C.cardItemBorder}`,
-                    borderRadius: '10px',
+                    borderRadius: RADIUS.chip,
                   }}
                 >
                   <div style={{
@@ -9465,11 +9363,11 @@ function VerseCompareModal({
                       <span style={{
                         fontSize: '0.58rem',
                         padding: '2px 7px',
-                        borderRadius: '999px',
+                        borderRadius: RADIUS.pill,
                         // Solid gold pill in both modes — pops against the card
                         // background so "active translation" is unambiguous.
-                        background: dayMode ? '#9a7838' : '#d4a574',
-                        color: dayMode ? '#fdfaf2' : '#0a0a1a',
+                        background: dayMode ? '#9a7838' : COLORS.gold,
+                        color: dayMode ? '#fdfaf2' : COLORS.cosmicBlack,
                         border: 'none',
                         fontFamily: 'Inter, system-ui, sans-serif',
                         fontWeight: 700,
@@ -9495,13 +9393,13 @@ function VerseCompareModal({
                         aria-label={language === 'tr' ? 'Mealini kopyala' : 'Copy translation'}
                         style={{
                           width: '24px', height: '24px',
-                          borderRadius: '6px',
+                          borderRadius: RADIUS.sm,
                           background: 'transparent',
                           border: `1px solid ${C.chipBorder}`,
                           color: copiedAuthorId === authorId ? C.gold : C.textMuted,
                           cursor: 'pointer',
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          transition: 'all 0.15s',
+                          transition: `all ${TRANSITION.fast}`,
                           padding: 0,
                           flexShrink: 0,
                         }}
@@ -9571,7 +9469,7 @@ function VerseCompareModal({
             gap: '14px',
             padding: '8px 20px',
             borderTop: `1px solid ${C.divider}`,
-            background: dayMode ? 'rgba(212,165,116,0.04)' : 'rgba(255,255,255,0.02)',
+            background: dayMode ? COLORS.goldAlpha04 : 'rgba(255,255,255,0.02)',
             fontSize: '0.66rem',
             color: C.textMuted,
             fontFamily: 'Inter, system-ui, sans-serif',

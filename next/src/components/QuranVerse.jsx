@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUpItem } from './SectionWrapper';
 import { useAudioWithFallback, buildFallbackUrls } from '../hooks/useAudioWithFallback';
-import { FONTS, COLORS } from '../tokens';
+import { FONTS, COLORS, RADIUS } from '../tokens';
 
 const PlayIcon = () => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -181,7 +181,7 @@ export default function QuranVerse({
             title={hasFailed ? 'Ses yüklenemedi' : isPlaying ? 'Durdur' : 'Dinle'}
             style={{
               position: 'absolute', bottom: '14px', right: '14px',
-              width: '44px', height: '44px', borderRadius: '50%',
+              width: '44px', height: '44px', borderRadius: RADIUS.full,
               background: isPlaying
                 ? COLORS.goldAlpha15
                 : hasFailed ? 'rgba(100,116,139,0.08)' : COLORS.glassBg,

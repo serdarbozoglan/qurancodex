@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS,
   FONTS,
@@ -12,24 +13,9 @@ import {
   VERSE_DISPLAY_CARD,
   GLASS_CARD,
   BREAKPOINT_TABLET,
+  RADIUS,
 } from '../tokens';
 
-// CLAUDE.md §13.14 + §13.15 — Uthmani encoding → standard + Maddah render fix
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
 // ─── Tabs ────────────────────────────────────────────────────────────────────
 const TABS = [
@@ -384,7 +370,7 @@ function PsychologyCTA({ onClose, language, isMobile }) {
         cursor: 'pointer',
         transition: 'all 0.18s',
       }}
-      onMouseEnter={e => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(212,165,116,0.12), rgba(212,165,116,0.04))'; e.currentTarget.style.borderColor = COLORS.gold; }}
+      onMouseEnter={e => { e.currentTarget.style.background = `linear-gradient(135deg, rgba(212,165,116,0.12), ${COLORS.goldAlpha04})`; e.currentTarget.style.borderColor = COLORS.gold; }}
       onMouseLeave={e => { e.currentTarget.style.background = 'linear-gradient(135deg, rgba(212,165,116,0.06), rgba(212,165,116,0.02))'; e.currentTarget.style.borderColor = `${COLORS.gold}40`; }}
     >
       <div>
@@ -661,7 +647,7 @@ function MukabeleCard({ data, language, isMobile }) {
     <div style={{
       marginTop: '16px',
       background: 'rgba(212,165,116,0.05)',
-      border: '1px solid rgba(212,165,116,0.25)',
+      border: `1px solid ${COLORS.goldAlpha25}`,
       borderRadius: '10px',
       padding: isMobile ? '14px 14px' : '16px 18px',
     }}>
@@ -977,7 +963,7 @@ function TypologyTab({ typology, language, isMobile }) {
             height: '32px',
             background: COLORS.cosmicBlack,
             border: `1px solid ${COLORS.glassBorder}`,
-            borderRadius: '50%',
+            borderRadius: RADIUS.full,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -1228,7 +1214,7 @@ function CloseBtn({ onClose }) {
     <button
       onClick={onClose}
       style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
       onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
 import SurahLink from './SurahLink';
 
 const SURAH_NAMES = [
@@ -85,7 +85,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
           ? (isPlaying ? 'rgba(212,165,116,0.6)' : 'rgba(212,165,116,0.45)')
           : (isPlaying ? 'rgba(212,165,116,0.35)' : 'rgba(255,255,255,0.07)')
       }`,
-      borderRadius: '12px',
+      borderRadius: RADIUS.lg,
       padding: '18px 20px',
       display: 'flex',
       flexDirection: 'column',
@@ -111,7 +111,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
               background: 'rgba(212,165,116,0.18)',
               border: `1px solid ${gold}66`,
               color: gold,
-              borderRadius: '10px',
+              borderRadius: RADIUS.chip,
               fontSize: '0.65rem',
               fontWeight: 700,
               padding: '2px 8px',
@@ -126,7 +126,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
             background: cfg.color.replace('0.8)', '0.15)'),
             border: `1px solid ${cfg.color.replace('0.8)', '0.4)')}`,
             color: cfg.color.replace('0.8)', '1)'),
-            borderRadius: '10px',
+            borderRadius: RADIUS.chip,
             fontSize: '0.68rem',
             fontWeight: 600,
             padding: '2px 9px',
@@ -140,7 +140,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
               background: 'rgba(212,165,116,0.08)',
               border: '1px solid rgba(212,165,116,0.25)',
               color: gold,
-              borderRadius: '10px',
+              borderRadius: RADIUS.chip,
               fontSize: '0.65rem',
               padding: '2px 9px',
             }}>
@@ -163,10 +163,10 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
 
       {/* Arabic text — minHeight = 2 lines so shorter duas don't shift content below */}
       <div style={{
-        fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+        fontFamily: FONTS.quran,
         fontSize: '1.55rem',
         lineHeight: 2.2,
-        color: '#d4b483',
+        color: COLORS.goldWarm,
         textAlign: 'right',
         direction: 'rtl',
         padding: '6px 0 4px',
@@ -208,7 +208,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
           disabled={isFailed}
           title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
           style={{
-            width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+            width: '28px', height: '28px', borderRadius: RADIUS.full, flexShrink: 0,
             background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
             border: `1px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
             color: isFailed ? '#475569' : gold,
@@ -381,7 +381,7 @@ export default function DuaVerses({ onClose }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, zIndex: 9999,
+      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
       background: bg,
       display: 'flex', flexDirection: 'column', overflow: 'hidden',
     }}>
@@ -408,7 +408,7 @@ export default function DuaVerses({ onClose }) {
             <span style={{
               marginLeft: '4px',
               background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)',
-              borderRadius: '12px', color: gold, fontSize: '0.7rem', padding: '2px 10px', flexShrink: 0,
+              borderRadius: RADIUS.lg, color: gold, fontSize: '0.7rem', padding: '2px 10px', flexShrink: 0,
             }}>
               {filtered.length} {language === 'tr' ? 'dua' : 'supplications'}
             </span>
@@ -441,7 +441,7 @@ export default function DuaVerses({ onClose }) {
           placeholder={language === 'tr' ? 'Ayet veya dua ara...' : 'Search verses or supplications...'}
           style={{
             background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(212,165,116,0.25)',
-            borderRadius: '8px', color: '#e8e6e3', padding: '8px 14px',
+            borderRadius: RADIUS.md, color: '#e8e6e3', padding: '8px 14px',
             fontSize: '0.88rem', outline: 'none', width: '100%', boxSizing: 'border-box',
             fontFamily: 'Inter, sans-serif',
           }}
@@ -453,13 +453,13 @@ export default function DuaVerses({ onClose }) {
               flexShrink: 0,
               background: activeCategory === 'all' ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.04)',
               border: `1px solid ${activeCategory === 'all' ? 'rgba(212,165,116,0.45)' : 'rgba(255,255,255,0.08)'}`,
-              borderRadius: '14px', color: activeCategory === 'all' ? gold : silver,
+              borderRadius: RADIUS.xl, color: activeCategory === 'all' ? gold : silver,
               cursor: 'pointer', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600,
-              display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', transition: 'all 0.15s',
+              display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', transition: `all ${TRANSITION.fast}`,
             }}
           >
             {language === 'tr' ? 'Tümü' : 'All'}
-            <span style={{ background: 'rgba(212,165,116,0.15)', borderRadius: '8px', padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>
+            <span style={{ background: 'rgba(212,165,116,0.15)', borderRadius: RADIUS.md, padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>
               {categoryCounts.all || 0}
             </span>
           </button>
@@ -473,12 +473,12 @@ export default function DuaVerses({ onClose }) {
                 flexShrink: 0,
                 background: isActive ? cfg.color.replace('0.8)', '0.15)') : 'rgba(255,255,255,0.04)',
                 border: `1px solid ${isActive ? cfg.color.replace('0.8)', '0.4)') : 'rgba(255,255,255,0.08)'}`,
-                borderRadius: '14px', color: isActive ? cfg.color.replace('0.8)', '1)') : silver,
+                borderRadius: RADIUS.xl, color: isActive ? cfg.color.replace('0.8)', '1)') : silver,
                 cursor: 'pointer', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600,
-                display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', transition: 'all 0.15s',
+                display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', transition: `all ${TRANSITION.fast}`,
               }}>
                 {language === 'tr' ? cfg.label_tr : cfg.label_en}
-                <span style={{ background: isActive ? cfg.color.replace('0.8)', '0.2)') : 'rgba(255,255,255,0.06)', borderRadius: '8px', padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>
+                <span style={{ background: isActive ? cfg.color.replace('0.8)', '0.2)') : 'rgba(255,255,255,0.06)', borderRadius: RADIUS.md, padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>
                   {count}
                 </span>
               </button>

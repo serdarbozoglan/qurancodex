@@ -4,13 +4,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
+import { COLORS, RADIUS, TRANSITION } from '../tokens';
 
 const PROPHET_PROFILES = [
   {
     id: 'ibrahim',
     nameTr: 'Hz. İbrahim',
     nameEn: 'Prophet Abraham',
-    emojiColor: '#d4a574',
+    emojiColor: COLORS.gold,
     profileTr: 'Kurucu · Mimar · Baba',
     profileEn: 'Founder · Architect · Father',
     themesTr: ['Nesil ve süreklilik', 'Halk için şefaat', 'Hidayet ve zikir', 'Rızık ve minnet'],
@@ -127,7 +128,7 @@ const RABBENA_DUAS = [
     ar: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ',
     tr: 'Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver ve bizi ateş azabından koru.',
     en: 'Our Lord, grant us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.',
-    ref: 'Bakara 2:201', color: '#d4a574',
+    ref: 'Bakara 2:201', color: COLORS.gold,
     noteTr: "Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26 — Enes b. Mâlik'ten); Arafat vakfesinde okunan klasik dua.",
     noteEn: "The Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26 — from Anas b. Mālik); the classical prayer recited during the Arafat standing.",
   },
@@ -153,7 +154,7 @@ const RABBENA_DUAS = [
     ar: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
     tr: 'Rabbimiz! Bize eşlerimizden ve soyumuzdan göz aydınlığı ver; bizi muttakîlere imam (öncü) kıl.',
     en: 'Our Lord, grant us from our spouses and offspring comfort to our eyes, and make us a model for the God-conscious.',
-    ref: 'Furkan 25:74', color: '#d4a574',
+    ref: 'Furkan 25:74', color: COLORS.gold,
     noteTr: 'Talep aile mutluluğu ile bitmez — liderlik sorumluluğuyla taçlanır. İdeal mü\'min profili: önce kendi yuvası, sonra ümmet için öncülük.',
     noteEn: "The petition does not end with family harmony — it is crowned with leadership responsibility. The ideal believer profile: first one's own household, then exemplarship for the community.",
   },
@@ -187,26 +188,42 @@ export default function QuranDua() {
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero parity */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-6"
+        className="font-display font-bold text-off-white mt-4 mb-6"
+        style={{
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.15,
+          maxWidth: '60ch',
+        }}
       >
-        {tr ? '"Rabbena" ile Başlayan 40+ Dua' : '40+ Prayers Beginning with "Rabbena"'}
+        {tr ? '“Rabbena” ile Başlayan 40+ Dua' : '40+ Prayers Beginning with “Rabbena”'}
       </motion.h2>
 
-      {/* Intro */}
-      <motion.p variants={fadeUpItem} className="text-silver text-lg leading-relaxed max-w-3xl mb-12">
+      {/* Intro — Hero parity */}
+      <motion.p
+        variants={fadeUpItem}
+        className="font-body max-w-3xl mb-12"
+        style={{
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
+      >
         {tr
-          ? "Kur'an'da \"Rabbena\" (Rabbimiz!) ile başlayan 40'tan fazla dua yer alır. Bunlar sadece kelimeler değil — farklı peygamberlerin farklı anlarda, farklı ihtiyaçlarla seslendirdiği insan ruhunun haritasıdır."
-          : 'The Quran contains over 40 prayers beginning with "Rabbana" (Our Lord!). These are not merely words — they are a map of the human soul, voiced by different prophets at different moments with different needs.'}
+          ? 'Kur’an’da “Rabbena” (Rabbimiz!) ile başlayan 40’tan fazla dua yer alır. Bunlar sadece kelimeler değil — farklı peygamberlerin farklı anlarda, farklı ihtiyaçlarla seslendirdiği insan ruhunun haritasıdır.'
+          : 'The Quran contains over 40 prayers beginning with “Rabbana” (Our Lord!). These are not merely words — they are a map of the human soul, voiced by different prophets at different moments with different needs.'}
       </motion.p>
 
       {/* Linguistik gözlemler — 3 pencere: Tekil/Çoğul · Yâ Edatı · Zalemnâ Enfusenâ */}
       <motion.div variants={fadeUpItem} className="mb-10" style={{ maxWidth: '900px' }}>
         <p style={{
           fontSize: '0.65rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-          color: '#d4a574', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+          color: COLORS.gold, fontFamily: "'Inter', sans-serif", fontWeight: 700,
           marginBottom: '12px', opacity: 0.85,
         }}>
           {tr ? "Linguistik Gözlemler — Dua Dilinin Üç Penceresi" : "Linguistic Observations — Three Windows into the Language of Prayer"}
@@ -222,7 +239,7 @@ export default function QuranDua() {
             background: 'rgba(52,152,219,0.06)',
             border: '1px solid rgba(52,152,219,0.25)',
             borderTop: '2px solid #3498db',
-            borderRadius: '10px',
+            borderRadius: RADIUS.chip,
             padding: '16px 18px',
           }}>
             <div dir="rtl" lang="ar" style={{
@@ -257,7 +274,7 @@ export default function QuranDua() {
             justifyContent: 'center', minWidth: '36px',
           }}>
             <span style={{
-              color: '#d4a574', fontSize: '1.6rem', opacity: 0.55,
+              color: COLORS.gold, fontSize: '1.6rem', opacity: 0.55,
               fontFamily: "'Inter', sans-serif", lineHeight: 1,
             }}>⇋</span>
             <span style={{
@@ -276,18 +293,18 @@ export default function QuranDua() {
             background: 'rgba(212,165,116,0.06)',
             border: '1px solid rgba(212,165,116,0.25)',
             borderTop: '2px solid #d4a574',
-            borderRadius: '10px',
+            borderRadius: RADIUS.chip,
             padding: '16px 18px',
           }}>
             <div dir="rtl" lang="ar" style={{
               fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-              fontSize: '2.2rem', color: '#d4a574', textAlign: 'center',
+              fontSize: '2.2rem', color: COLORS.gold, textAlign: 'center',
               lineHeight: 1.2, marginBottom: '6px',
               textShadow: '0 0 14px rgba(212,165,116,0.18)',
             }}>
               رَبَّنَا
             </div>
-            <div style={{ textAlign: 'center', color: '#d4a574', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
+            <div style={{ textAlign: 'center', color: COLORS.gold, fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
               {tr ? 'Rabbenâ · Rabbimiz' : 'Rabbanā · our Lord'}
             </div>
             <div style={{ textAlign: 'center', color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
@@ -330,7 +347,7 @@ export default function QuranDua() {
             background: 'rgba(167,139,250,0.05)',
             border: '1px solid rgba(167,139,250,0.22)',
             borderTop: '2px solid #a78bfa',
-            borderRadius: '10px',
+            borderRadius: RADIUS.chip,
             padding: '16px 18px 14px',
           }}>
             <div style={{
@@ -369,7 +386,7 @@ export default function QuranDua() {
             background: 'rgba(231,76,60,0.05)',
             border: '1px solid rgba(231,76,60,0.22)',
             borderTop: '2px solid #e74c3c',
-            borderRadius: '10px',
+            borderRadius: RADIUS.chip,
             padding: '16px 18px 14px',
           }}>
             <div style={{
@@ -435,7 +452,7 @@ export default function QuranDua() {
         gap: '12px',
       }}>
         {[
-          { value: '40+',  labelTr: 'Rabbenâ Duası',         labelEn: 'Rabbanā Prayers',     color: '#d4a574', subTr: 'çoğul · ümmet adına',  subEn: 'plural · for community' },
+          { value: '40+',  labelTr: 'Rabbenâ Duası',         labelEn: 'Rabbanā Prayers',     color: COLORS.gold, subTr: 'çoğul · ümmet adına',  subEn: 'plural · for community' },
           { value: '40+',  labelTr: 'Rabbî Duası',           labelEn: 'Rabbī Prayers',       color: '#3498db', subTr: 'tekil · kişisel başvuru', subEn: 'singular · personal' },
           { value: '6',    labelTr: 'Peygamber Profili',      labelEn: 'Prophet Profiles',    color: '#a78bfa', subTr: 'Hz. İbrahim · Hz. Eyyub · Hz. Yusuf · Hz. Mûsâ · Hz. Yunus · Hz. Zekeriyyâ', subEn: 'Abraham · Job · Joseph · Moses · Jonah · Zechariah' },
           { value: '27',   labelTr: 'Dua İçeren Sûre',        labelEn: 'Surahs with Prayers', color: '#2ecc71', subTr: 'Mekkî · Medenî dengeli',   subEn: 'Meccan · Medinan balanced' },
@@ -444,14 +461,14 @@ export default function QuranDua() {
             background: `${s.color}10`,
             border: `1px solid ${s.color}25`,
             borderTop: `2px solid ${s.color}`,
-            borderRadius: '10px',
+            borderRadius: RADIUS.chip,
             padding: '14px 16px',
             display: 'flex', flexDirection: 'column', gap: '4px',
           }}>
             <div style={{ color: s.color, fontSize: '1.6rem', fontWeight: 800, fontFamily: "'Inter', sans-serif", lineHeight: 1 }}>
               {s.value}
             </div>
-            <div style={{ color: '#e8e6e3', fontSize: '0.82rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
+            <div style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
               {tr ? s.labelTr : s.labelEn}
             </div>
             <div style={{ color: 'rgba(148,163,184,0.6)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', lineHeight: 1.4 }}>
@@ -469,16 +486,16 @@ export default function QuranDua() {
               key={p.id}
               onClick={() => setActiveProfile(p.id)}
               style={{
-                border: `1px solid ${activeProfile === p.id ? p.emojiColor : 'rgba(255,255,255,0.1)'}`,
+                border: `1px solid ${activeProfile === p.id ? p.emojiColor : COLORS.glassBorder}`,
                 background: activeProfile === p.id ? p.emojiColor + '15' : 'transparent',
-                color: activeProfile === p.id ? p.emojiColor : '#94a3b8',
+                color: activeProfile === p.id ? p.emojiColor : COLORS.silver,
                 padding: '8px 20px',
-                borderRadius: '8px',
+                borderRadius: RADIUS.md,
                 cursor: 'pointer',
                 fontFamily: "'Inter', sans-serif",
                 fontSize: '0.875rem',
                 fontWeight: 600,
-                transition: 'all 0.2s',
+                transition: `all ${TRANSITION.base}`,
               }}
             >
               {tr ? p.nameTr : p.nameEn}
@@ -524,7 +541,7 @@ export default function QuranDua() {
                 fontFamily: "'Inter', sans-serif",
                 background: `${p.emojiColor}15`,
                 border: `1px solid ${p.emojiColor}35`,
-                padding: '4px 12px', borderRadius: '20px',
+                padding: '4px 12px', borderRadius: RADIUS.pillSm,
               }}>
                 {tr ? p.countTr : p.countEn}
               </span>
@@ -535,7 +552,7 @@ export default function QuranDua() {
               <div style={{
                 background: 'rgba(0,0,0,0.15)',
                 border: `1px solid ${p.emojiColor}20`,
-                borderRadius: '12px',
+                borderRadius: RADIUS.lg,
                 padding: '20px 24px',
                 textAlign: 'center',
               }}>
@@ -563,7 +580,7 @@ export default function QuranDua() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     {(tr ? p.themesTr : p.themesEn).map((theme, i) => (
                       <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: p.emojiColor, opacity: 0.5, flexShrink: 0 }} />
+                        <span style={{ width: '6px', height: '6px', borderRadius: RADIUS.full, background: p.emojiColor, opacity: 0.5, flexShrink: 0 }} />
                         <span style={{ color: 'rgba(232,230,227,0.65)', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif" }}>{theme}</span>
                       </div>
                     ))}
@@ -574,7 +591,7 @@ export default function QuranDua() {
                 <div style={{
                   background: `${p.emojiColor}08`,
                   border: `1px solid ${p.emojiColor}18`,
-                  borderRadius: '10px',
+                  borderRadius: RADIUS.chip,
                   padding: '16px 18px',
                   display: 'flex', flexDirection: 'column', justifyContent: 'center',
                   position: 'relative',
@@ -601,7 +618,7 @@ export default function QuranDua() {
                   background: 'rgba(255,255,255,0.02)',
                   border: `1px dashed ${p.emojiColor}33`,
                   borderLeft: `2px solid ${p.emojiColor}`,
-                  borderRadius: '8px',
+                  borderRadius: RADIUS.md,
                   display: 'flex', alignItems: 'flex-start', gap: '12px',
                 }}>
                   {/* Arrow icon */}
@@ -654,7 +671,7 @@ export default function QuranDua() {
               translitEn: 'Rabbanā — Our Lord',
               descTr: "Hitabın yakınlığı: 'yâ' edatı kullanılmaz. Allah ile dua eden arasındaki mesafe sıfırlanır.",
               descEn: "Intimacy of address: no 'yā' particle. The distance between God and the supplicant collapses.",
-              color: '#d4a574',
+              color: COLORS.gold,
             },
             {
               labelTr: 'Hâl Arzı', labelEn: 'Presentation',
@@ -694,7 +711,7 @@ export default function QuranDua() {
               background: `${stage.color}08`,
               border: `1px solid ${stage.color}25`,
               borderTop: `2px solid ${stage.color}`,
-              borderRadius: '10px',
+              borderRadius: RADIUS.chip,
               padding: '14px 14px 12px',
               display: 'flex', flexDirection: 'column', gap: '8px',
             }}>
@@ -702,7 +719,7 @@ export default function QuranDua() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                  width: '20px', height: '20px', borderRadius: '50%',
+                  width: '20px', height: '20px', borderRadius: RADIUS.full,
                   background: `${stage.color}25`,
                   color: stage.color, fontSize: '0.7rem', fontWeight: 800,
                   fontFamily: "'Inter', sans-serif",
@@ -769,7 +786,7 @@ export default function QuranDua() {
           background: 'rgba(0,0,0,0.18)',
           border: '1px solid rgba(255,255,255,0.05)',
           borderLeft: '2px solid rgba(212,165,116,0.4)',
-          borderRadius: '8px',
+          borderRadius: RADIUS.md,
           color: 'rgba(148,163,184,0.65)',
           fontSize: '0.78rem',
           fontFamily: "'Inter', sans-serif",
@@ -795,7 +812,7 @@ export default function QuranDua() {
         {/* Legend */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
           {[
-            { color: '#d4a574', labelTr: 'Câmi', labelEn: 'Comprehensive' },
+            { color: COLORS.gold, labelTr: 'Câmi', labelEn: 'Comprehensive' },
             { color: '#2ecc71', labelTr: 'Sabır', labelEn: 'Patience' },
             { color: '#a78bfa', labelTr: 'Bağışlanma', labelEn: 'Forgiveness' },
             { color: '#3498db', labelTr: 'İman', labelEn: 'Faith' },
@@ -815,7 +832,7 @@ export default function QuranDua() {
               style={{
                 borderLeft: `3px solid ${d.color}`,
                 background: 'rgba(255,255,255,0.03)',
-                borderRadius: '10px',
+                borderRadius: RADIUS.chip,
                 padding: '16px 20px',
                 borderTop: '1px solid rgba(255,255,255,0.06)',
                 borderRight: '1px solid rgba(255,255,255,0.06)',
@@ -831,7 +848,7 @@ export default function QuranDua() {
                   fontSize: '1.55rem',
                   lineHeight: 2,
                   textAlign: 'right',
-                  color: '#e8e6e3',
+                  color: COLORS.offWhite,
                   marginBottom: '8px',
                 }}
               >
@@ -839,7 +856,7 @@ export default function QuranDua() {
               </p>
               <p
                 style={{
-                  color: '#94a3b8',
+                  color: COLORS.silver,
                   fontSize: '0.85rem',
                   fontStyle: 'italic',
                   lineHeight: 1.7,
@@ -889,12 +906,12 @@ export default function QuranDua() {
             padding: '14px 24px',
             background: 'rgba(212,165,116,0.06)',
             border: '1px solid rgba(212,165,116,0.3)',
-            borderRadius: '10px',
+            borderRadius: RADIUS.chip,
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            transition: 'all 0.2s',
+            transition: `all ${TRANSITION.base}`,
           }}
           onMouseEnter={e => {
             e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
@@ -906,10 +923,10 @@ export default function QuranDua() {
           }}
         >
           <div style={{ textAlign: 'left' }}>
-            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
               {tr ? '↗ İNSAN PSİKOLOJİSİ — BÖLÜME GİT' : '↗ HUMAN PSYCHOLOGY — GO TO SECTION'}
             </p>
-            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
                 ? "Nefis · kalp · korku · savunma · Hz. Yusuf travma-iyileşme — Kur'an'ın psikoloji haritası"
                 : "Nafs · heart · fear · defenses · Joseph trauma-healing — the Qur'an's map of the mind"}
@@ -930,12 +947,12 @@ export default function QuranDua() {
             padding: '14px 24px',
             background: 'rgba(212,165,116,0.06)',
             border: '1px solid rgba(212,165,116,0.3)',
-            borderRadius: '10px',
+            borderRadius: RADIUS.chip,
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            transition: 'all 0.2s',
+            transition: `all ${TRANSITION.base}`,
           }}
           onMouseEnter={e => {
             e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
@@ -947,10 +964,10 @@ export default function QuranDua() {
           }}
         >
           <div style={{ textAlign: 'left' }}>
-            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
               {tr ? '↗ KUR\'AN\'DA DUA AYETLERİ — ARACI AÇ' : '↗ PRAYER VERSES IN THE QUR\'AN — OPEN THE TOOL'}
             </p>
-            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
                 ? "Sığınma · şifa · hidayet · şükür · tövbe — Kur'an'dan seçilmiş duaların tamamı"
                 : "Refuge · healing · guidance · gratitude · repentance — the full collection of selected supplications"}

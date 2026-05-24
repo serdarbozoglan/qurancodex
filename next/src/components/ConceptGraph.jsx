@@ -4,29 +4,15 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { surahNameTr } from '../lib/surahNames';
-import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 
+import { cleanArabicForGraph } from '../lib/arabic';
 // ─── MODULE-LEVEL CACHE ───────────────────────────────────────────────────────
 let _versesCache = null;
 let _conceptsCache = null;
 let _groupsCache = null;
 let _conceptVerseMapCache = null; // precomputed concept→verseId sets
 
-// ─── ARABIC DISPLAY CLEANUP ──────────────────────────────────────────────────
-function cleanArabicForGraph(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    .replace(/[\u06DD\u06DE\u06E9]/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u0615\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '');
-}
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 function normalizeTr(str) {
@@ -299,7 +285,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, zIndex: 9999,
+      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
       background: COLORS.overlayBg,
       display: 'flex', flexDirection: 'column',
       fontFamily: FONTS.body,
@@ -324,9 +310,9 @@ export default function ConceptGraph({ onClose, restore = null }) {
             style={{
               display: 'flex', alignItems: 'center', gap: '6px',
               background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '8px', padding: '6px 12px', cursor: 'pointer',
+              borderRadius: RADIUS.md, padding: '6px 12px', cursor: 'pointer',
               color: COLORS.silver, fontSize: '0.82rem', fontWeight: 500,
-              transition: 'all 0.15s',
+              transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => { e.currentTarget.style.color = COLORS.offWhite; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
             onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
@@ -346,12 +332,12 @@ export default function ConceptGraph({ onClose, restore = null }) {
 
         {view === 'graph' && centralConcept && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: centralConcept.color, boxShadow: `0 0 8px ${centralConcept.color}` }} />
+            <div style={{ width: '9px', height: '9px', borderRadius: RADIUS.full, background: centralConcept.color, boxShadow: `0 0 8px ${centralConcept.color}` }} />
             <span style={{ color: centralConcept.color, fontWeight: 700, fontSize: '1.05rem' }}>
               {language === 'tr' ? centralConcept.tr : centralConcept.en}
             </span>
             {graphRef.current?.nodes[0]?.verseCount != null && (
-              <span style={{ color: '#64748b', fontSize: '0.8rem' }}>
+              <span style={{ color: COLORS.slate500, fontSize: '0.8rem' }}>
                 {language === 'tr' ? `${graphRef.current.nodes[0].verseCount} ayette` : `in ${graphRef.current.nodes[0].verseCount} verses`}
               </span>
             )}
@@ -364,7 +350,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
             display: 'flex', gap: '6px', overflowX: 'auto', flex: 1,
             scrollbarWidth: 'none', padding: '0 4px',
           }}>
-            <span style={{ color: '#334155', fontSize: '0.72rem', flexShrink: 0, alignSelf: 'center', paddingRight: '2px' }}>
+            <span style={{ color: COLORS.slate700, fontSize: '0.72rem', flexShrink: 0, alignSelf: 'center', paddingRight: '2px' }}>
               {language === 'tr' ? 'bağlantılar:' : 'connected:'}
             </span>
             {graphRef.current.nodes.filter(n => !n.isCentral).map(n => (
@@ -375,9 +361,9 @@ export default function ConceptGraph({ onClose, restore = null }) {
                   flexShrink: 0, padding: '4px 10px',
                   background: 'rgba(255,255,255,0.04)',
                   border: `1px solid ${n.color}33`,
-                  borderRadius: '20px', cursor: 'pointer',
+                  borderRadius: RADIUS.pillSm, cursor: 'pointer',
                   color: n.color, fontSize: '0.75rem', fontWeight: 500,
-                  transition: 'all 0.15s', whiteSpace: 'nowrap',
+                  transition: `all ${TRANSITION.fast}`, whiteSpace: 'nowrap',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = `${n.color}18`; e.currentTarget.style.borderColor = `${n.color}66`; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = `${n.color}33`; }}
@@ -405,8 +391,8 @@ export default function ConceptGraph({ onClose, restore = null }) {
       {/* ── LOADING DATA ──────────────────────────────────────────────── */}
       {(!verses || !concepts || (view === 'graph' && !graphRef.current && !buildingGraph)) && (
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
-          <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
+          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
+          <p style={{ color: COLORS.slate500, fontSize: '0.85rem' }}>
             {language === 'tr' ? 'Ayet verileri yükleniyor…' : 'Loading verse data…'}
           </p>
           <style>{`@keyframes spin { to { transform: rotate(360deg); } } @keyframes cgFadeIn { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }`}</style>
@@ -416,8 +402,8 @@ export default function ConceptGraph({ onClose, restore = null }) {
       {/* ── BUILDING GRAPH ────────────────────────────────────────────── */}
       {buildingGraph && !loadingData && (
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
-          <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
+          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
+          <p style={{ color: COLORS.slate500, fontSize: '0.85rem' }}>
             {language === 'tr' ? 'Kavram ağı hesaplanıyor…' : 'Computing concept network…'}
           </p>
         </div>
@@ -430,7 +416,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
           {/* Top bar: intro + search */}
           <div style={{ padding: isMobile ? '16px 16px 12px' : '20px 28px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', flexShrink: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '12px' : '24px', flexWrap: 'wrap' }}>
-              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: 1.6, margin: 0, flex: 1, minWidth: isMobile ? '100%' : '200px' }}>
+              <p style={{ color: COLORS.slate600, fontSize: '0.88rem', lineHeight: 1.6, margin: 0, flex: 1, minWidth: isMobile ? '100%' : '200px' }}>
                 {language === 'tr'
                   ? 'Bir kavram seçin — hangi kavramların aynı ayetlerde geçtiğini görün.'
                   : 'Select a concept to see which ideas appear together across 6,236 verses.'}
@@ -445,7 +431,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                     width: '100%', padding: '8px 14px 8px 36px',
                     background: 'rgba(255,255,255,0.05)',
                     border: '1px solid rgba(255,255,255,0.1)',
-                    borderRadius: '8px', color: COLORS.offWhite,
+                    borderRadius: RADIUS.md, color: COLORS.offWhite,
                     fontSize: '0.85rem', fontFamily: FONTS.body,
                     outline: 'none', boxSizing: 'border-box',
                   }}
@@ -490,14 +476,14 @@ export default function ConceptGraph({ onClose, restore = null }) {
                             padding: '6px 12px',
                             background: `${catColor}12`,
                             border: `1px solid ${catColor}40`,
-                            borderRadius: '20px', cursor: 'pointer',
-                            transition: 'all 0.15s',
+                            borderRadius: RADIUS.pillSm, cursor: 'pointer',
+                            transition: `all ${TRANSITION.fast}`,
                             whiteSpace: 'nowrap',
                           }}
                           onMouseEnter={e => { e.currentTarget.style.background = `${catColor}25`; e.currentTarget.style.borderColor = `${catColor}70`; }}
                           onMouseLeave={e => { e.currentTarget.style.background = `${catColor}12`; e.currentTarget.style.borderColor = `${catColor}40`; }}
                         >
-                          <span style={{ fontFamily: "'Amiri', serif", fontSize: '1rem', color: catColor, direction: 'rtl' }}>{c.ar}</span>
+                          <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: catColor, direction: 'rtl' }}>{c.ar}</span>
                           <span style={{ color: catColor, fontSize: '0.85rem', fontWeight: 600 }}>
                             {language === 'tr' ? c.tr : c.en}
                           </span>
@@ -598,7 +584,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                         y="-2"
                         textAnchor="middle"
                         fontSize={n.radius * 0.75}
-                        fontFamily="'Amiri', serif"
+                        fontFamily={FONTS.quran}
                         fill={n.color}
                         fillOpacity={0.6}
                         style={{ pointerEvents: 'none', userSelect: 'none' }}
@@ -691,13 +677,13 @@ export default function ConceptGraph({ onClose, restore = null }) {
                       background: 'rgba(6,8,20,0.92)',
                       backdropFilter: 'blur(12px)',
                       border: `1px solid ${n.color}40`,
-                      borderRadius: '10px', padding: '8px 12px',
+                      borderRadius: RADIUS.chip, padding: '8px 12px',
                     }}
                   >
                     <p style={{ color: n.color, fontWeight: 700, fontSize: '0.85rem', margin: '0 0 2px' }}>
                       {language === 'tr' ? n.concept.tr : n.concept.en}
                     </p>
-                    <p style={{ color: '#64748b', fontSize: '0.75rem', margin: 0 }}>
+                    <p style={{ color: COLORS.slate500, fontSize: '0.75rem', margin: 0 }}>
                       {language === 'tr'
                         ? `${n.shared} paylaşılan ayet · ${n.verseCount} toplam`
                         : `${n.shared} shared · ${n.verseCount} total`}
@@ -728,19 +714,19 @@ export default function ConceptGraph({ onClose, restore = null }) {
               {focusedNode ? (
                 <>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: focusedNode.color }} />
+                    <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: focusedNode.color }} />
                     <span style={{ color: focusedNode.color, fontWeight: 700, fontSize: '0.95rem' }}>
                       {language === 'tr' ? focusedNode.concept.tr : focusedNode.concept.en}
                     </span>
                   </div>
-                  <p style={{ color: '#475569', fontSize: '0.75rem', margin: 0 }}>
+                  <p style={{ color: COLORS.slate600, fontSize: '0.75rem', margin: 0 }}>
                     {language === 'tr'
                       ? `${focusedNode.verseCount} ayet · ${focusedNode.isCentral ? 'merkez kavram' : `${focusedNode.shared} paylaşılan`}`
                       : `${focusedNode.verseCount} verses · ${focusedNode.isCentral ? 'central concept' : `${focusedNode.shared} shared`}`}
                   </p>
                 </>
               ) : (
-                <p style={{ color: '#475569', fontSize: '0.82rem', margin: 0 }}>
+                <p style={{ color: COLORS.slate600, fontSize: '0.82rem', margin: 0 }}>
                   {language === 'tr' ? 'Ayet görmek için bir düğüme dokunun' : 'Tap a node to see verses'}
                 </p>
               )}
@@ -749,7 +735,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
             {/* Verses */}
             <div style={{ flex: 1, overflowY: 'auto', minHeight: 0, padding: '8px' }}>
               {focusedVerses.length === 0 && (
-                <p style={{ color: '#334155', fontSize: '0.8rem', textAlign: 'center', marginTop: '32px' }}>
+                <p style={{ color: COLORS.slate700, fontSize: '0.8rem', textAlign: 'center', marginTop: '32px' }}>
                   {language === 'tr' ? 'Bir kavram seçin' : 'Select a concept'}
                 </p>
               )}
@@ -758,7 +744,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                   key={v.id}
                   style={{
                     padding: '12px',
-                    borderRadius: '10px',
+                    borderRadius: RADIUS.chip,
                     marginBottom: '6px',
                     background: i % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent',
                     border: '1px solid rgba(255,255,255,0.04)',
@@ -797,7 +783,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                     {language === 'tr' ? v.turkish : v.english}
                   </p>
                   {/* Reference */}
-                  <p style={{ color: '#475569', fontSize: '0.72rem', margin: 0 }}>
+                  <p style={{ color: COLORS.slate600, fontSize: '0.72rem', margin: 0 }}>
                     {surahNameTr(v.surah)} · {v.ayah}
                   </p>
                 </div>
@@ -810,12 +796,12 @@ export default function ConceptGraph({ onClose, restore = null }) {
                     padding: '10px',
                     background: 'rgba(255,255,255,0.04)',
                     border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '8px',
-                    color: '#64748b',
+                    borderRadius: RADIUS.md,
+                    color: COLORS.slate500,
                     fontSize: '0.78rem',
                     cursor: 'pointer',
                     fontFamily: FONTS.body,
-                    transition: 'all 0.15s',
+                    transition: `all ${TRANSITION.fast}`,
                     marginTop: '4px',
                   }}
                   onMouseEnter={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}

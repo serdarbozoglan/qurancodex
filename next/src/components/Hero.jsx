@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import { COLORS } from '../tokens';
 import ParticleBackground from './ParticleBackground';
 
 export default function Hero() {
@@ -22,17 +23,29 @@ export default function Hero() {
     >
       <ParticleBackground particleCount={100} />
 
-      {/* Slow-rotating Islamic pattern overlay */}
-      <div className="absolute inset-0 islamic-pattern-bg opacity-[0.03] animate-rotate-slow origin-center" />
+      {/* Slow-rotating Islamic pattern overlay — felt, not seen */}
+      <div className="absolute inset-0 islamic-pattern-bg opacity-[0.04] animate-rotate-slow origin-center" />
 
-      {/* Radial glow */}
+      {/* Centered radial glow — keeps the eye drawn to title */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,165,116,0.06)_0%,transparent_65%)]" />
+
+      {/* Lower-center warm halo — adds depth beneath the CTA, evokes a quiet
+          horizon line. Static (no rotation) so it reads as ground, not motion. */}
+      <div
+        className="absolute inset-x-0 bottom-0 pointer-events-none"
+        style={{
+          height: '55%',
+          background:
+            'radial-gradient(ellipse 60% 50% at 50% 100%, rgba(212,165,116,0.08) 0%, rgba(212,165,116,0.025) 38%, transparent 70%)',
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Title */}
+        {/* Title — softened a notch (lg: 7xl → 6xl) and looser leading,
+            so the headline invites rather than declares. */}
         <motion.h1
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-off-white leading-[1.1] mb-8 tracking-tight"
+          className="font-display text-4xl sm:text-5xl md:text-[3.25rem] lg:text-6xl font-black text-off-white leading-[1.15] mb-6 tracking-tight"
           {...entrance(
             { opacity: 0, y: 40 },
             { opacity: 1, y: 0 },
@@ -44,7 +57,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <motion.p
-          className="font-display text-gold text-lg sm:text-xl md:text-2xl mb-8 italic tracking-wide"
+          className="font-display text-gold text-lg sm:text-xl md:text-2xl mb-4 italic tracking-wide"
           {...entrance(
             { opacity: 0, y: 25 },
             { opacity: 1, y: 0 },
@@ -56,7 +69,7 @@ export default function Hero() {
 
         {/* Decorative line */}
         <motion.div
-          className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8"
+          className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"
           {...entrance(
             { scaleX: 0 },
             { scaleX: 1 },
@@ -64,17 +77,27 @@ export default function Hero() {
           )}
         />
 
-        {/* Description */}
-        <motion.p
-          className="text-silver text-base sm:text-lg max-w-3xl mx-auto leading-relaxed mb-14 font-body tracking-[0.02em]"
+        {/* Description — 3-paragraph narrative. Rendered as separate blocks
+            so paragraph spacing is controlled (tighter than line-height*2). */}
+        <motion.div
+          className="max-w-2xl mx-auto mb-10 font-body tracking-[0.01em]"
+          style={{
+            color: 'rgba(232,230,227,0.78)',
+            fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+            lineHeight: 1.7,
+          }}
           {...entrance(
             { opacity: 0, y: 20 },
             { opacity: 1, y: 0 },
             { duration: 0.9, delay: 1.2 }
           )}
         >
-          {t('hero.description')}
-        </motion.p>
+          {t('hero.description').split('\n\n').map((para, i, arr) => (
+            <p key={i} style={{ margin: i === arr.length - 1 ? 0 : '0 0 0.7em' }}>
+              {para}
+            </p>
+          ))}
+        </motion.div>
 
         {/* Single CTA — "Kur'an'ı Oku" lives in the Navbar, so the Hero
             keeps only the primary discovery action. */}
@@ -90,8 +113,13 @@ export default function Hero() {
             onClick={() =>
               document.getElementById('path-cards')?.scrollIntoView({ behavior: 'smooth' })
             }
-            className="btn-primary-gold px-12 py-3.5 font-body font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer"
-            whileHover={reduced ? undefined : { scale: 1.05, boxShadow: '0 0 48px 12px rgba(180,130,40,0.5)' }}
+            className="btn-primary-gold font-body font-semibold text-sm uppercase transition-all duration-300 cursor-pointer"
+            style={{
+              padding: '15px 56px',
+              letterSpacing: '0.18em',
+              boxShadow: `0 0 28px 4px ${COLORS.btnGoldGlow15}`,
+            }}
+            whileHover={reduced ? undefined : { scale: 1.04, boxShadow: `0 0 56px 14px ${COLORS.btnGoldGlow25}` }}
             whileTap={reduced ? undefined : { scale: 0.97 }}
           >
             {t('hero.cta')}

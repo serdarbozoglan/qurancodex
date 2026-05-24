@@ -13,6 +13,7 @@
 
 import { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import { useLanguage } from '../i18n/LanguageContext';
 
 // Map: short overlay name → Next.js route path
 // (URL şeması: tasks/url-schema.md ile uyumlu)
@@ -65,6 +66,7 @@ const OVERLAY_ROUTES = {
 
 export function useQuranNav() {
   const router = useRouter();
+  const { language } = useLanguage();
 
   /**
    * Smoothly scroll to a section by its DOM id, offset by the fixed navbar height.
@@ -99,10 +101,13 @@ export function useQuranNav() {
       console.warn(`useQuranNav.openOverlay: unknown overlay "${name}"`);
       return;
     }
+    // Prepend locale prefix so middleware doesn't re-resolve via Accept-Language
+    // (which would land Turkish users on /en/... if their browser is English-leaning).
+    const localizedRoute = `/${language}${route}`;
     // Forward `search` payload as ?q= query param (e.g. VerseGraph with verse ref)
-    const url = detail?.search ? `${route}?q=${encodeURIComponent(detail.search)}` : route;
+    const url = detail?.search ? `${localizedRoute}?q=${encodeURIComponent(detail.search)}` : localizedRoute;
     router.push(url);
-  }, [router]);
+  }, [router, language]);
 
   return { scrollToSection, openOverlay };
 }

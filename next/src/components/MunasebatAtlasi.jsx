@@ -73,7 +73,7 @@ function Header({ language, onClose }) {
         onClick={onClose}
         style={{ ...CLOSE_BTN }}
         aria-label={language === 'tr' ? 'Kapat' : 'Close'}
-        onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
         onMouseLeave={(e) => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

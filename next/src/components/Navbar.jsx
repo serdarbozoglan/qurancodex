@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useEffect, lazy, Suspense, useRef, Fragment } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, TRANSITION } from '../tokens';
+import { COLORS, TRANSITION, RADIUS, FONTS } from '../tokens';
 // v1.1 — single source of truth for tools data, shared with the modal
 import {
   FEATURED_TOOL  as IMPORTED_FEATURED,
@@ -188,13 +188,16 @@ const navSections = [
 export default function Navbar() {
   const { language, toggleLanguage } = useLanguage();
   const router = useRouter();
+  const pathname = usePathname();
+  // /oku route'unda Navbar gizlenir — ReadingMode kendi tam ekran navigation'una sahip.
+  // Tool route'ları (/arac, /atlas, /graf) için Navbar görünür kalır.
+  const hideOnReadingMode = pathname && /^\/(tr|en)\/oku(\/|$)/.test(pathname);
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [toolsOpen, setToolsOpen]       = useState(false);
   const [exploreOpen, setExploreOpen]   = useState(false);
-  const [graphOpen, setGraphOpen]       = useState(
-    () => typeof window !== 'undefined' && localStorage.getItem('qurancodex_graph_open') === 'true'
-  );
+  // Faz 4.5 — overlay state localStorage'dan hydrate edilmez; graf artık route'tur.
+  const [graphOpen, setGraphOpen]       = useState(false);
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
   const [graphReturnToWow, setGraphReturnToWow]         = useState(false);
   const [graphReturnToConcept, setGraphReturnToConcept] = useState(false);
@@ -209,9 +212,8 @@ export default function Navbar() {
   // launches Verse Graph / Concept Graph / Heatmap, store the word data
   // here so back navigation can re-open the popover where the user was.
   const wordRestoreRef = useRef(null);
-  const [readingOpen, setReadingOpen]   = useState(
-    () => typeof window !== 'undefined' && localStorage.getItem('qurancodex_reading_open') === 'true'
-  );
+  // Faz 4.5 — overlay state localStorage'dan hydrate edilmez; Oku artık route'tur.
+  const [readingOpen, setReadingOpen]   = useState(false);
   const [pendingReadingNav, setPendingReadingNav] = useState(null); // { surah, ayah } from SurahLink clicks
   const [heatmapOpen, setHeatmapOpen]   = useState(false);
   const [revelationOpen, setRevelationOpen] = useState(false);
@@ -263,14 +265,11 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Faz 4.5 — readingOpen/graphOpen artık route-driven; localStorage persist edilmez.
+  // readingModeOpened/Closed event'i hâlâ yayınlanır (legacy listeners için).
   useEffect(() => {
-    localStorage.setItem('qurancodex_reading_open', String(readingOpen));
     window.dispatchEvent(new Event(readingOpen ? 'readingModeOpened' : 'readingModeClosed'));
   }, [readingOpen]);
-
-  useEffect(() => {
-    localStorage.setItem('qurancodex_graph_open', String(graphOpen));
-  }, [graphOpen]);
 
   // Listen for openVerseGraph events from other sections (e.g. MathMiracle, WowFacts)
   useEffect(() => {
@@ -288,15 +287,19 @@ export default function Navbar() {
 
   // Listen for openReadingMode events — optional detail: { surah, ayah }
   // SurahLink components dispatch with surah/ayah; Conclusion CTA dispatches without detail.
+  // Route-mode (Faz 4.5): push to /oku route instead of opening local overlay state.
   useEffect(() => {
     const handler = (e) => {
       const d = e.detail;
-      if (d?.surah) setPendingReadingNav({ surah: d.surah, ayah: d.ayah ?? null });
-      setReadingOpen(true);
+      const base = `/${language}/oku`;
+      const url = d?.surah
+        ? (d?.ayah ? `${base}/${d.surah}?ayah=${d.ayah}` : `${base}/${d.surah}`)
+        : base;
+      router.push(url);
     };
     window.addEventListener('openReadingMode', handler);
     return () => window.removeEventListener('openReadingMode', handler);
-  }, []);
+  }, [router, language]);
 
   // Listen for openExploreMenu / openToolsMenu events (e.g. Conclusion discovery section)
   useEffect(() => {
@@ -651,7 +654,7 @@ export default function Navbar() {
   };
   // Backwards-compat alias — bazı yerlerde TOOL_TRIGGERS kullanıyor olabilir.
   const TOOL_TRIGGERS = Object.fromEntries(
-    Object.entries(TOOL_ROUTES).map(([event, route]) => [event, () => router.push(route)])
+    Object.entries(TOOL_ROUTES).map(([event, route]) => [event, () => router.push(`/${language}${route}`)])
   );
 
   // Adapt an imported tool entry to the shape Navbar's existing toolBtn renderer
@@ -692,6 +695,9 @@ export default function Navbar() {
     padding: '8px',
   };
 
+  // Reading mode kendi tam ekran chrome'una sahip — site Navbar'ını render etme.
+  if (hideOnReadingMode) return null;
+
   return (
     <>
     <nav
@@ -730,8 +736,8 @@ export default function Navbar() {
                 padding: '8px 14px', borderRadius: '8px', border: 'none',
                 background: exploreOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: exploreOpen ? '#d4a574' : '#d4d8e0',
-                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
-                cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.01em',
+                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+                cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
               onMouseEnter={e => { if (!exploreOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
               onMouseLeave={e => { if (!exploreOpen) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
@@ -792,7 +798,7 @@ export default function Navbar() {
                           scrollTo(item.target);
                         } else {
                           const route = OVERLAY_ROUTE_BY_TARGET[item.target];
-                          if (route) router.push(route);
+                          if (route) router.push(`/${language}${route}`);
                         }
                         setExploreOpen(false);
                       };
@@ -948,8 +954,8 @@ export default function Navbar() {
                 padding: '8px 14px', borderRadius: '8px', border: 'none',
                 background: toolsOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: toolsOpen ? '#d4a574' : '#d4d8e0',
-                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
-                cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.01em',
+                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+                cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
               onMouseEnter={e => { if (!toolsOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
               onMouseLeave={e => { if (!toolsOpen) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
@@ -1080,36 +1086,43 @@ export default function Navbar() {
         {/* Right: Oku + Language + Mobile */}
         <div className="flex items-center gap-3">
 
-          {/* Oku — primary CTA (v1.1: upgraded from tinted outline to solid
-              amber fill with glow, since Hero no longer has its own
-              Read Quran button and this is the sole always-visible entry). */}
+          {/* Oku — secondary outline CTA. Hero's gold-filled "Keşfe Başla"
+              is the page's primary CTA; this nav entry mirrors its color
+              language as an outline so the two never compete for dominance.
+              Mobile menu version (further below) stays filled — there is
+              no Hero CTA in view there, so no conflict. */}
           <button
-            onClick={() => setReadingOpen(true)}
-            className="hidden lg:flex items-center gap-2 transition-all duration-200"
+            onClick={() => router.push(`/${language}/oku`)}
+            title={language === 'tr' ? 'İlk emir: Oku (Alak 96:1)' : 'The first command: Read (Al-Alaq 96:1)'}
+            className="hidden lg:flex items-center gap-2.5 transition-all duration-200"
             style={{
-              background: 'linear-gradient(135deg, #c9973a 0%, #b8860b 60%, #9a6f0a 100%)',
-              border: 'none',
+              background: 'transparent',
+              border: `1.5px solid ${COLORS.goldAlpha45}`,
               borderRadius: '6px',
-              color: '#1c0f00',
+              color: COLORS.gold,
               fontFamily: "'Inter', sans-serif",
               fontSize: '0.82rem',
               fontWeight: 700,
               letterSpacing: '0.07em',
-              padding: '6px 20px',
+              padding: '6px 24px',
               height: '32px',
               cursor: 'pointer',
-              boxShadow: '0 0 20px 4px rgba(180,130,40,0.3)',
+              boxShadow: 'inset 0 0 12px rgba(180,130,40,0.06)',
               transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.boxShadow = '0 0 32px 6px rgba(180,130,40,0.5)';
+              e.currentTarget.style.borderColor = COLORS.gold;
+              e.currentTarget.style.background = COLORS.goldAlpha15;
+              e.currentTarget.style.boxShadow = `0 0 24px 3px ${COLORS.btnGoldGlow25}`;
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.boxShadow = '0 0 20px 4px rgba(180,130,40,0.3)';
+              e.currentTarget.style.borderColor = COLORS.goldAlpha45;
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.boxShadow = 'inset 0 0 12px rgba(180,130,40,0.06)';
             }}
           >
-            <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.05rem', color: '#1c0f00', opacity: 0.7, lineHeight: 1 }}>اقرأ</span>
-            {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
+            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.goldBright, opacity: 0.95, lineHeight: 1, position: 'relative', top: '-1px' }}>اقرأ</span>
+            {language === 'tr' ? 'Kur’an’ı Oku' : 'Read Quran'}
           </button>
 
           {/* Language toggle — primary gold (matches CTA, single-gold rule) */}
@@ -1139,16 +1152,21 @@ export default function Navbar() {
             {language === 'tr' ? 'EN' : 'TR'}
           </button>
 
-          {/* Mobile menu toggle — z-index above tool overlays (9999) so the
-              hamburger is always tappable even when a full-screen overlay is open */}
+          {/* Mobile menu toggle — z-index above tool overlays (z:50 post K2)
+              so the hamburger is always tappable even when an overlay is open */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-off-white p-2 hover:text-gold transition-colors"
-            style={{ position: 'relative', zIndex: 10002 }}
+            className="lg:hidden flex items-center justify-center text-off-white hover:text-gold transition-colors"
+            style={{
+              position: 'relative',
+              zIndex: 10002,
+              width: '36px',
+              height: '36px',
+            }}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               {mobileOpen ? (
                 <path d="M6 6l12 12M6 18L18 6" />
               ) : (
@@ -1166,9 +1184,9 @@ export default function Navbar() {
     </nav>
 
     {/* Mobile menu — rendered OUTSIDE <nav> so it escapes nav's stacking
-        context (z-[9999]) and can layer above tool overlays (also z-9999).
-        Without this, position:fixed + z-index:10001 inside <nav> is capped
-        by nav's own z-index and the menu hides behind any open overlay. */}
+        context (z-[9999]) and can layer above EVERYTHING. Post K2 codemod
+        tool overlays sit at z:50 (below navbar 9999), so the menu at z 10001
+        is reliably on top regardless of which overlay is open. */}
     <AnimatePresence>
       {mobileOpen && (
         <motion.div
@@ -1200,7 +1218,7 @@ export default function Navbar() {
               justifyContent: 'center',
               width: '40px',
               height: '40px',
-              borderRadius: '50%',
+              borderRadius: RADIUS.full,
               background: 'rgba(255,255,255,0.08)',
               border: '1px solid rgba(255,255,255,0.12)',
               color: '#e8e6e3',
@@ -1221,7 +1239,7 @@ export default function Navbar() {
           >
             {/* Oku — matches Hero btn-primary-gold style */}
             <button
-              onClick={() => { setReadingOpen(true); setMobileOpen(false); }}
+              onClick={() => { router.push(`/${language}/oku`); setMobileOpen(false); }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -1238,8 +1256,8 @@ export default function Navbar() {
                 cursor: 'pointer',
               }}
             >
-              <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.35rem', fontWeight: 700, color: '#1c0f00' }}>اقرأ</span>
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.81rem', fontWeight: 700, color: '#1c0f00', letterSpacing: '0.04em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
+              <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.35rem', fontWeight: 700, color: COLORS.btnGoldText }}>اقرأ</span>
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.81rem', fontWeight: 700, color: COLORS.btnGoldText, letterSpacing: '0.04em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
             </button>
 
             {/* Section anchors */}
@@ -1343,13 +1361,10 @@ export default function Navbar() {
     {prophetOpen && (
       <Suspense fallback={null}>
         <div style={{
-          // zIndex 9999 matches OVERLAY_BASE used by every other overlay
-          // (KavimlerAtlasi, KissaAtlas, etc.). Navbar itself is also 9999;
-          // because this wrapper renders later in the DOM tree, it stacks
-          // above the navbar. Previous value (200) put the wrapper *under*
-          // the navbar, leaving "Kur'an'ı Oku" + EN buttons floating over
-          // the open modal — confusing layout when the user is reading.
-          position: 'fixed', inset: 0, zIndex: 9999,
+          // Mirrors OVERLAY_BASE (post K2 codemod): inset 54px top reserves
+          // the Navbar row, zIndex 50 keeps the wrapper BELOW Navbar's z-9999
+          // so the global nav stays visible/clickable over the tool route.
+          position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
           background: '#0a0a1a',
           overflowY: 'auto',
         }}>
@@ -1359,7 +1374,11 @@ export default function Navbar() {
               so we put the chrome here in the wrapper. Inline values rather
               than tokens to avoid an extra import in this already-large file. */}
           <div style={{
-            position: 'fixed', top: 0, left: 0, right: 0, zIndex: 10000,
+            // top: '54px' sits the wrapper's own header just below the global
+            // Navbar (which is fixed at top:0, height ~54px). zIndex 10000 is
+            // bounded by the outer wrapper's z:50 stacking context, so the
+            // close button never escapes above the Navbar.
+            position: 'fixed', top: '54px', left: 0, right: 0, zIndex: 10000,
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             padding: '12px 20px', height: '54px',
             background: 'rgba(8,9,26,0.95)',
@@ -1396,7 +1415,7 @@ export default function Navbar() {
               style={{
                 background: 'rgba(255,255,255,0.06)',
                 border: '1px solid rgba(255,255,255,0.1)',
-                borderRadius: '50%', width: '36px', height: '36px',
+                borderRadius: RADIUS.full, width: '36px', height: '36px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 cursor: 'pointer', color: '#94a3b8',
                 flexShrink: 0,

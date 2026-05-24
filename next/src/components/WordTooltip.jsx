@@ -8,6 +8,9 @@ const QURAN_CDN = 'https://audio.qurancdn.com/';
 // CLAUDE.md §13.15 — KFGQPC + ShaykhHamdullah fontları yalnızca standart Arabic
 // Unicode ile düzgün çalışır. Uthmani-özel karakterleri normalize et ki tooltip
 // büyük puntoda tofu/circle göstermesin (örn. الْعَالَم۪ينَ'deki U+06EA).
+// NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: (1) maddah fix yok,
+// (2) ۦ→space DEĞİL strip (tek kelime tooltip için ayraç gereksiz), (3) Leeds
+// artifact'leri (@#_) strip listesinde. Component-local bırakıldı.
 function cleanArabicForTooltip(s) {
   if (!s) return s;
   return s

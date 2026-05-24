@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 
 // Tab definitions with mini SVG icons for visual affordance
 const TABS = [
@@ -198,7 +198,7 @@ export default function KuranYeminleri({ onClose }) {
             <div style={{
               marginTop: '18px',
               padding: '12px 14px',
-              background: 'rgba(212,165,116,0.04)',
+              background: COLORS.goldAlpha04,
               border: `1px solid ${COLORS.goldAlpha15}`,
               borderLeft: `2px solid ${COLORS.goldAlpha45}`,
               borderRadius: '8px',
@@ -501,7 +501,7 @@ function RadialViz({ categories, activeCategoryId, onSelect, language }) {
               }}
             >
               <span style={{
-                width: '10px', height: '10px', borderRadius: '50%',
+                width: '10px', height: '10px', borderRadius: RADIUS.full,
                 background: cat.accent, flexShrink: 0,
                 boxShadow: isActive ? `0 0 8px ${cat.accent}60` : 'none',
                 transition: 'box-shadow 0.2s',
@@ -554,7 +554,7 @@ function MobileAccordion({ categories, expanded, onToggle, language }) {
                 padding: '12px 14px', border: 'none', background: 'transparent', cursor: 'pointer',
               }}
             >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: cat.accent, flexShrink: 0 }} />
+              <span style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: cat.accent, flexShrink: 0 }} />
               <span style={{ flex: 1, color: isOpen ? cat.accent : COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: isOpen ? 600 : 400, textAlign: 'left' }}>
                 {language === 'tr' ? cat.tr : cat.en}
               </span>
@@ -807,7 +807,7 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
             padding: isMobile ? '18px 16px 14px' : '22px 28px 16px',
           }}>
             <div style={{
-              width: '34px', height: '34px', borderRadius: '50%',
+              width: '34px', height: '34px', borderRadius: RADIUS.full,
               background: 'rgba(212,165,116,0.08)',
               border: `1px solid ${COLORS.goldAlpha25}`,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -1006,7 +1006,7 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
                     {/* Number + title row */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <div style={{
-                        width: '26px', height: '26px', borderRadius: '50%',
+                        width: '26px', height: '26px', borderRadius: RADIUS.full,
                         background: 'rgba(212,165,116,0.08)',
                         border: `1px solid ${COLORS.goldAlpha25}`,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -1124,12 +1124,12 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
             </div>
             {/* Visual ratio bar */}
             <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: isMobile ? '100px' : '160px', height: '24px', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', overflow: 'hidden', display: 'flex' }}>
+              <div style={{ width: isMobile ? '100px' : '160px', height: '24px', background: COLORS.glassBg, borderRadius: '6px', overflow: 'hidden', display: 'flex' }}>
                 <div style={{
                   width: `${(meta.meccanCount / meta.surahsWithOaths) * 100}%`,
                   background: 'linear-gradient(90deg, #c9a227, #d4a574)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#0a0a1a', fontSize: '0.72rem', fontWeight: 800, fontFamily: FONTS.body,
+                  color: COLORS.cosmicBlack, fontSize: '0.72rem', fontWeight: 800, fontFamily: FONTS.body,
                 }}>
                   {meta.meccanCount}
                 </div>
@@ -1137,7 +1137,7 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
                   <div style={{
                     flex: 1, background: '#2ecc71',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: '#0a0a1a', fontSize: '0.72rem', fontWeight: 800, fontFamily: FONTS.body,
+                    color: COLORS.cosmicBlack, fontSize: '0.72rem', fontWeight: 800, fontFamily: FONTS.body,
                   }}>
                     {meta.medinanCount}
                   </div>
@@ -1172,7 +1172,7 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
                 transition: 'width 0.5s ease',
                 display: 'flex', alignItems: 'center', paddingLeft: '8px',
               }}>
-                <span style={{ color: '#0a0a1a', fontSize: '0.72rem', fontWeight: 700, fontFamily: FONTS.body }}>
+                <span style={{ color: COLORS.cosmicBlack, fontSize: '0.72rem', fontWeight: 700, fontFamily: FONTS.body }}>
                   {count}
                 </span>
               </div>
@@ -1295,7 +1295,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
               padding: isMobile ? '16px 16px 10px' : '20px 24px 12px',
             }}>
               <div style={{
-                width: '30px', height: '30px', borderRadius: '50%',
+                width: '30px', height: '30px', borderRadius: RADIUS.full,
                 background: 'rgba(212,165,116,0.08)',
                 border: `1px solid ${COLORS.goldAlpha25}`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -1431,7 +1431,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                           <div style={{
                             fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body,
                             fontStyle: 'italic', lineHeight: 1.55,
-                            background: 'rgba(212,165,116,0.04)',
+                            background: COLORS.goldAlpha04,
                             border: `1px dashed ${COLORS.goldAlpha25}`,
                             borderRadius: '6px', padding: '8px 10px', marginBottom: '10px',
                           }}>
@@ -1530,7 +1530,7 @@ function CloseBtn({ onClose }) {
     <button
       onClick={onClose}
       style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
       onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

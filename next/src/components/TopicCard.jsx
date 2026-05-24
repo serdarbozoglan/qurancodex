@@ -11,9 +11,9 @@
 // Hover tooltip clarifies the distinction. No badges, no extra noise.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 export default function TopicCard({
   icon,
@@ -25,6 +25,7 @@ export default function TopicCard({
   onClick,
 }) {
   const { language } = useLanguage();
+  const reduced = useReducedMotion();
   const title = language === 'tr' ? titleTr : titleEn;
   const desc  = language === 'tr' ? descTr  : descEn;
   const isOverlay = kind === 'overlay';
@@ -39,7 +40,15 @@ export default function TopicCard({
       onClick={onClick}
       title={tooltip}
       aria-label={`${title} — ${tooltip}`}
-      whileHover={{ x: 3 }}
+      whileHover={
+        reduced
+          ? undefined
+          : {
+              x: 3,
+              borderColor: COLORS.goldAlpha25,
+              backgroundColor: COLORS.goldAlpha04,
+            }
+      }
       transition={{ type: 'spring', stiffness: 320, damping: 22 }}
       style={{
         display: 'grid',
@@ -48,20 +57,14 @@ export default function TopicCard({
         gap: '12px',
         padding: '11px 14px',
         background: COLORS.glassBgFaint,
-        border: `1px solid ${COLORS.glassBorderSoft}`,
-        borderRadius: '10px',
+        // Longhand border so framer-motion borderColor animasyonu kilitlenmez.
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: COLORS.glassBorderSoft,
+        borderRadius: RADIUS.chip,
         cursor: 'pointer',
         textAlign: 'left',
         width: '100%',
-        transition: 'border-color 0.2s, background 0.2s',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = COLORS.goldAlpha25;
-        e.currentTarget.style.background = COLORS.goldAlpha04;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = COLORS.glassBorderSoft;
-        e.currentTarget.style.background = COLORS.glassBgFaint;
       }}
     >
       {/* Topic icon */}

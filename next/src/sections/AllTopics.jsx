@@ -16,7 +16,7 @@ import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import TopicCard from '../components/TopicCard';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 // v1.1 — shared categories source (used by Navbar Keşfet dropdown too)
 import { EXPLORE_CATEGORIES } from '../data/exploreCategories';
 
@@ -72,15 +72,23 @@ export default function AllTopics() {
           marginBottom: '12px',
           maxWidth: '60ch',
           lineHeight: 1.15,
+          letterSpacing: '-0.01em',
         }}
       >
         {language === 'tr' ? 'Tüm İçerikler' : 'All Topics'}
       </motion.h2>
 
-      {/* Subtitle + legend */}
+      {/* Subtitle — Hero baseline imza (paralelliği koruyalim). */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-4"
+        className="max-w-2xl mb-6"
+        style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {language === 'tr'
           ? 'Tüm konular tek yerde. Kategoriden bir başlık seç.'
@@ -99,7 +107,7 @@ export default function AllTopics() {
           padding: '10px 18px',
           background: COLORS.glassBgFaint,
           border: `1px solid ${COLORS.glassBorderSoft}`,
-          borderRadius: '999px',
+          borderRadius: RADIUS.pill,
           fontFamily: FONTS.body,
         }}
       >
@@ -121,7 +129,7 @@ export default function AllTopics() {
               justifyContent: 'center',
               width: '22px',
               height: '22px',
-              borderRadius: '50%',
+              borderRadius: RADIUS.full,
               background: COLORS.silverAlpha12,
               color: COLORS.silver,
             }}
@@ -154,7 +162,7 @@ export default function AllTopics() {
               justifyContent: 'center',
               width: '22px',
               height: '22px',
-              borderRadius: '50%',
+              borderRadius: RADIUS.full,
               background: COLORS.goldAlpha15,
               border: `1px solid ${COLORS.goldAlpha25}`,
               color: COLORS.gold,

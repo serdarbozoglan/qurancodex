@@ -11,7 +11,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, GLASS_CARD } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, RADIUS } from '../tokens';
 
 export default function PathCard({
   icon,
@@ -71,7 +71,7 @@ export default function PathCard({
         style={{
           width: '46px',
           height: '46px',
-          borderRadius: '12px',
+          borderRadius: RADIUS.lg,
           background: COLORS.goldAlpha15,
           border: `1px solid ${COLORS.goldAlpha25}`,
           display: 'flex',
@@ -112,7 +112,7 @@ export default function PathCard({
                 alignItems: 'center',
                 gap: '5px',
                 padding: '3px 8px',
-                borderRadius: '999px',
+                borderRadius: RADIUS.pill,
                 background: COLORS.goldAlpha15,
                 border: `1px solid ${COLORS.goldAlpha45}`,
                 color: COLORS.gold,
@@ -136,9 +136,11 @@ export default function PathCard({
           style={{
             fontFamily: FONTS.body,
             fontSize: '0.88rem',
-            color: COLORS.silver,
+            // Hero-paralel body tonu: silver yerine offWhite/72 → kartın gövdesi
+            // soğuk bir not değil, sıcak bir davet olur. Heading'den hâlâ ayrı.
+            color: COLORS.offWhiteAlpha72,
             margin: '6px 0 0',
-            lineHeight: 1.5,
+            lineHeight: 1.55,
           }}
         >
           {desc}
@@ -171,7 +173,7 @@ export default function PathCard({
                   color: COLORS.gold,
                   background: COLORS.goldAlpha15,
                   border: `1px solid ${COLORS.goldAlpha25}`,
-                  borderRadius: '999px',
+                  borderRadius: RADIUS.pill,
                   padding: '4px 10px',
                   whiteSpace: 'nowrap',
                 }}

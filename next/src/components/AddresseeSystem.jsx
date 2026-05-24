@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 
 const INITIAL_SHOW = 2;
 
@@ -80,7 +80,7 @@ export default function AddresseeSystem({ onClose }) {
             {language === 'tr' ? 'Muhatap Sistemi' : 'Addressee System'}
           </span>
           <button style={{ ...CLOSE_BTN }} onClick={onClose}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
             onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -121,7 +121,7 @@ export default function AddresseeSystem({ onClose }) {
         <button
           onClick={onClose}
           style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
           onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -148,14 +148,14 @@ export default function AddresseeSystem({ onClose }) {
               style={{
                 flexShrink: 0,
                 padding: '5px 14px',
-                borderRadius: '20px',
-                border: `1px solid ${isActive ? cat.accent : 'rgba(255,255,255,0.1)'}`,
+                borderRadius: RADIUS.pillSm,
+                border: `1px solid ${isActive ? cat.accent : COLORS.glassBorder}`,
                 background: isActive ? `${cat.accent}22` : 'transparent',
                 color: isActive ? cat.accent : COLORS.silver,
                 fontSize: '0.8rem', fontWeight: isActive ? 600 : 400,
                 fontFamily: FONTS.body,
                 cursor: 'pointer',
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
               }}
             >
               {language === 'tr' ? cat.tr : cat.en}
@@ -201,7 +201,7 @@ export default function AddresseeSystem({ onClose }) {
                   fontSize: '0.83rem', fontWeight: isActive ? 600 : 400,
                   fontFamily: FONTS.body,
                   cursor: 'pointer',
-                  transition: 'all 0.15s',
+                  transition: `all ${TRANSITION.fast}`,
                   textAlign: 'left',
                   width: '100%',
                 }}
@@ -296,7 +296,7 @@ export default function AddresseeSystem({ onClose }) {
                       padding: '5px 12px',
                       background: 'rgba(255,255,255,0.06)',
                       border: '1px solid rgba(255,255,255,0.12)',
-                      borderRadius: '20px',
+                      borderRadius: RADIUS.pillSm,
                       color: COLORS.offWhite,
                       fontSize: '0.8rem',
                       fontFamily: FONTS.body,
@@ -324,12 +324,12 @@ export default function AddresseeSystem({ onClose }) {
                       padding: '8px 18px',
                       background: 'transparent',
                       border: `1px solid ${accent}44`,
-                      borderRadius: '8px',
+                      borderRadius: RADIUS.md,
                       color: accent,
                       fontSize: '0.82rem',
                       fontFamily: FONTS.body,
                       cursor: 'pointer',
-                      transition: 'all 0.15s',
+                      transition: `all ${TRANSITION.fast}`,
                     }}
                     onMouseEnter={e => { e.currentTarget.style.background = `${accent}11`; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
@@ -353,7 +353,7 @@ function StatBox({ label, value, valueColor, small = false }) {
     <div style={{
       background: 'rgba(255,255,255,0.04)',
       border: '1px solid rgba(255,255,255,0.08)',
-      borderRadius: '10px',
+      borderRadius: RADIUS.chip,
       padding: '14px 16px',
     }}>
       <div style={{
@@ -400,7 +400,7 @@ function VerseCard({ verse, accent, language }) {
       background: 'rgba(255,255,255,0.04)',
       border: '1px solid rgba(255,255,255,0.08)',
       borderLeft: `3px solid ${accent}`,
-      borderRadius: '10px',
+      borderRadius: RADIUS.chip,
       padding: '16px 18px',
     }}>
       {/* Arabic */}

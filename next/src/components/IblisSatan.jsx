@@ -503,7 +503,7 @@ export default function IblisSatan({ onClose }) {
           </svg>
           <span style={OVERLAY_TITLE}>{t('iblisSatan.badge')}</span>
           <span style={{
-            fontSize: '0.72rem', color: '#475569',
+            fontSize: '0.72rem', color: COLORS.slate600,
             marginLeft: '4px',
             display: isMobile ? 'none' : 'inline',
             fontFamily: FONTS.body,
@@ -515,7 +515,7 @@ export default function IblisSatan({ onClose }) {
           onClick={onClose}
           aria-label="Close"
           style={CLOSE_BTN}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
           onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -556,7 +556,7 @@ export default function IblisSatan({ onClose }) {
             >
               <span
                 style={{
-                  width: '7px', height: '7px', borderRadius: '50%',
+                  width: '7px', height: '7px', borderRadius: RADIUS.full,
                   background: s.color, opacity: 0.85,
                   boxShadow: `0 0 5px ${s.color}66`,
                   flexShrink: 0,
@@ -625,7 +625,7 @@ export default function IblisSatan({ onClose }) {
         className="mb-16"
         style={{
           padding: isMobile ? '24px 20px' : '40px 48px',
-          background: 'rgba(212,165,116,0.04)',
+          background: COLORS.goldAlpha04,
           border: `1px solid ${COLORS.goldAlpha25}`,
           borderRadius: RADIUS.xl,
           textAlign: 'center',

@@ -26,25 +26,54 @@ export default function Conclusion() {
 
   return (
     <SectionWrapper id="conclusion" dark={false}>
-      {/* Section badge */}
+      {/* Section badge — Hero parity (0.75rem, tracking 0.3em, gold/60) */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span
+          style={{
+            color: COLORS.gold,
+            opacity: 0.6,
+            fontFamily: FONTS.body,
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+          }}
+        >
           {t('conclusion.badge')}
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero baseline H2 */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-12"
+        className="mt-4 mb-12"
+        style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.15,
+          maxWidth: '60ch',
+        }}
       >
         {t('conclusion.title')}
       </motion.h2>
 
-      {/* Summary — single powerful sentence */}
+      {/* Summary — Hero baseline section intro (offWhite/78, 1.7 leading).
+          Display italic feels heavy here against Hero parity; keep the
+          contemplative italic but drop weight to fit the new tone. */}
       <motion.p
         variants={fadeUpItem}
-        className="text-off-white/80 text-xl md:text-2xl font-display italic leading-relaxed mb-14 max-w-3xl"
+        className="max-w-3xl mb-14"
+        style={{
+          color: COLORS.offWhiteAlpha78,
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {t('conclusion.summary')}
       </motion.p>
@@ -82,25 +111,42 @@ export default function Conclusion() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, delay: 0.3 }}
-        className="flex flex-col items-center mt-14 mb-6 gap-3"
+        className="flex flex-col items-center mt-14 mb-6 gap-4"
       >
+        <div style={{
+          width: '72px', height: '1px',
+          background: `linear-gradient(90deg, transparent 0%, ${COLORS.goldAlpha45} 50%, transparent 100%)`,
+        }} />
         <p dir="rtl" lang="ar" style={{
           fontFamily: FONTS.quran,
-          fontSize: '1.6rem', color: COLORS.gold,
-          textShadow: `0 0 20px ${COLORS.goldAlpha25}`,
+          fontSize: '2.6rem', color: COLORS.gold,
+          textShadow: `0 0 20px ${COLORS.goldAlpha45}, 0 0 60px ${COLORS.goldAlpha25}`,
+          lineHeight: 1.3, letterSpacing: '0.02em',
           margin: 0,
         }}>
           فَاتَّبِعُوهُ
         </p>
         <p style={{
-          color: 'rgba(148,163,184,0.5)', fontSize: '0.78rem',
+          color: COLORS.silverAlpha70, fontSize: '1.05rem',
           fontFamily: FONTS.body, fontStyle: 'italic',
+          letterSpacing: '0.01em',
           margin: 0, textAlign: 'center',
         }}>
-          {language === 'tr'
-            ? '"Artık ona uyun." — En\'âm 6:155'
-            : '"So follow it." — Al-An\'am 6:155'}
+          {language === 'tr' ? '"Artık ona uyun."' : '"So follow it."'}
         </p>
+        <p style={{
+          color: COLORS.gold, fontSize: '0.72rem',
+          fontFamily: FONTS.body, fontWeight: 600,
+          letterSpacing: '0.18em', textTransform: 'uppercase',
+          opacity: 0.75,
+          margin: 0,
+        }}>
+          {language === 'tr' ? "En'âm 6:155" : "Al-An'am 6:155"}
+        </p>
+        <div style={{
+          width: '72px', height: '1px',
+          background: `linear-gradient(90deg, transparent 0%, ${COLORS.goldAlpha45} 50%, transparent 100%)`,
+        }} />
       </motion.div>
 
       {/* CTA Buttons — matching sizes, Navbar-style "Kur'an'ı Oku" */}

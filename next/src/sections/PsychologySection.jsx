@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 // Parse references like "Yusuf, 12:84", "Tawba 9:128", or "12:84"
 function parseRef(ref) {
@@ -23,7 +24,7 @@ function VerseAudioButton({ surah, ayah, accentColor }) {
       disabled={disabled}
       aria-label={playing ? 'Pause' : 'Play verse'}
       style={{
-        width: 26, height: 26, borderRadius: '50%', flexShrink: 0,
+        width: 26, height: 26, borderRadius: RADIUS.full, flexShrink: 0,
         background: disabled ? 'rgba(100,116,139,0.08)' : playing ? `${accentColor}28` : `${accentColor}12`,
         border: `1px solid ${disabled ? 'rgba(100,116,139,0.2)' : playing ? `${accentColor}80` : `${accentColor}30`}`,
         color: disabled ? '#475569' : accentColor,
@@ -429,18 +430,35 @@ export default function PsychologySection() {
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero/Discovery parity. */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-4"
+        style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          marginTop: '12px',
+          marginBottom: '12px',
+          maxWidth: '60ch',
+          lineHeight: 1.15,
+          letterSpacing: '-0.01em',
+        }}
       >
         {t('psychology.title')}
       </motion.h2>
 
-      {/* Intro */}
+      {/* Intro — Hero baseline imzası. */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-8 font-body"
+        className="max-w-3xl mb-8"
+        style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {t('psychology.intro')}
       </motion.p>
@@ -546,7 +564,7 @@ export default function PsychologySection() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {language === 'tr' ? '↗ KUR\'AN\'DA İBLİS / ŞEYTAN — ATLASI AÇ' : '↗ IBLĪS / SHAYṬĀN IN THE QUR\'AN — OPEN THE ATLAS'}
+              {language === 'tr' ? '↗ KUR’AN’DA İBLİS / ŞEYTAN — ATLASI AÇ' : '↗ IBLĪS / SHAYṬĀN IN THE QUR’AN — OPEN THE ATLAS'}
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, BREAKPOINT_MOBILE } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, BREAKPOINT_MOBILE, FONTS, RADIUS, TRANSITION } from '../tokens';
 
 // Strip footnote refs and parenthetical translator additions
 function cleanTr(str) {
@@ -16,6 +16,8 @@ function cleanTr(str) {
 }
 
 // Arabic display cleanup — strips waqf markers, sajda signs, rub el hizb etc.
+// NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: (1) maddah fix yok,
+// (2) U+0615 + U+06DF ek olarak strip edilir. Component-local bırakıldı.
 function cleanArabic(str) {
   if (!str) return str;
   return str
@@ -695,7 +697,7 @@ export default function WordHeatmap({ onClose }) {
       </div>
     )}
 
-    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: COLORS.cosmicBlack, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
       {/* Floating tooltip */}
       {tooltip && (
@@ -703,7 +705,7 @@ export default function WordHeatmap({ onClose }) {
           position: 'fixed', zIndex: 10010, pointerEvents: 'none',
           left: tooltip.x + 14, top: tooltip.y - 10,
           background: 'rgba(6,8,20,0.97)', border: '1px solid rgba(212,165,116,0.35)',
-          borderRadius: '8px', padding: '8px 12px', backdropFilter: 'blur(12px)',
+          borderRadius: RADIUS.md, padding: '8px 12px', backdropFilter: 'blur(12px)',
           boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
           maxWidth: '220px',
         }}>
@@ -738,7 +740,7 @@ export default function WordHeatmap({ onClose }) {
             {language === 'tr' ? "Tekrârü'l-Kelimât" : 'Lexical Frequency'}
           </span>
           {totalOccurrences > 0 && searchTerm && (
-            <span style={{ background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '12px', color: gold, fontSize: '0.7rem', padding: '2px 10px', marginLeft: '4px', flexShrink: 0 }}>
+            <span style={{ background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.lg, color: gold, fontSize: '0.7rem', padding: '2px 10px', marginLeft: '4px', flexShrink: 0 }}>
               {totalOccurrences} {language === 'tr' ? 'kez' : 'times'} · {Object.keys(freqMap).length} {language === 'tr' ? 'sûre' : 'surahs'}
             </span>
           )}
@@ -775,9 +777,9 @@ export default function WordHeatmap({ onClose }) {
                   style={{
                     background: activePreset ? 'rgba(212,165,116,0.08)' : 'rgba(255,255,255,0.06)',
                     border: `1px solid ${activePreset ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.25)'}`,
-                    borderRadius: '8px', color: '#e8e6e3',
+                    borderRadius: RADIUS.md, color: '#e8e6e3',
                     padding: hasArabic ? '6px 14px' : '7px 14px',
-                    fontFamily: hasArabic ? "'KFGQPC','Amiri Quran',serif" : undefined,
+                    fontFamily: hasArabic ? FONTS.quran : undefined,
                     fontSize: hasArabic ? '1.25rem' : '0.88rem',
                     lineHeight: hasArabic ? 1.5 : 1.4,
                     outline: 'none', flex: 1,
@@ -786,11 +788,11 @@ export default function WordHeatmap({ onClose }) {
               );
             })()}
 
-            <button onClick={() => handleSearch(inputValue)} style={{ background: 'rgba(212,165,116,0.12)', border: '1px solid rgba(212,165,116,0.3)', borderRadius: '8px', color: gold, cursor: 'pointer', padding: '7px 16px', fontSize: '0.82rem', fontWeight: 600, flexShrink: 0 }}>
+            <button onClick={() => handleSearch(inputValue)} style={{ background: 'rgba(212,165,116,0.12)', border: '1px solid rgba(212,165,116,0.3)', borderRadius: RADIUS.md, color: gold, cursor: 'pointer', padding: '7px 16px', fontSize: '0.82rem', fontWeight: 600, flexShrink: 0 }}>
               {language === 'tr' ? 'Ara' : 'Search'}
             </button>
             {searchTerm && (
-              <button onClick={clearSearch} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#4a5568', cursor: 'pointer', padding: '7px 10px', fontSize: '0.82rem', flexShrink: 0 }}>
+              <button onClick={clearSearch} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.1)', borderRadius: RADIUS.md, color: '#4a5568', cursor: 'pointer', padding: '7px 10px', fontSize: '0.82rem', flexShrink: 0 }}>
                 ✕
               </button>
             )}
@@ -801,7 +803,7 @@ export default function WordHeatmap({ onClose }) {
             {searchTerm && isArabicSearch && resolvedTerm !== searchTerm ? (
               <>
                 {language === 'tr' ? '→ Kur\'an metninde arandı: ' : '→ Searched in Quranic text: '}
-                <span style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '1rem', color: gold, direction: 'rtl', display: 'inline-block', verticalAlign: 'middle', marginInlineStart: '4px' }}>
+                <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: gold, direction: 'rtl', display: 'inline-block', verticalAlign: 'middle', marginInlineStart: '4px' }}>
                   {resolvedTerm}
                 </span>
               </>
@@ -855,12 +857,12 @@ export default function WordHeatmap({ onClose }) {
                             border: `1px solid ${isActive ? 'rgba(212,165,116,0.4)' : 'rgba(255,255,255,0.08)'}`,
                             borderRadius: isKalip ? '10px' : '12px',
                             color: isActive ? gold : '#94a3b8',
-                            cursor: 'pointer', transition: 'all 0.15s',
+                            cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                             padding: isKalip ? '5px 12px' : '3px 10px',
                             textAlign: isKalip ? 'right' : 'left',
                             display: 'flex', flexDirection: 'column', alignItems: isKalip ? 'flex-end' : 'center',
                           }}>
-                          <span style={isKalip ? { fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '1.1rem', lineHeight: 1.6, direction: 'rtl' } : { fontSize: '0.85rem' }}>
+                          <span style={isKalip ? { fontFamily: FONTS.quran, fontSize: '1.1rem', lineHeight: 1.6, direction: 'rtl' } : { fontSize: '0.85rem' }}>
                             {p.label}
                           </span>
                         </button>
@@ -869,7 +871,7 @@ export default function WordHeatmap({ onClose }) {
                     {isKalipGroup && allGroupPresets.length > KALIP_VISIBLE && (
                       <button onClick={() => setShowAllKalip(v => !v)} style={{
                         background: 'transparent', border: '1px solid rgba(255,255,255,0.08)',
-                        borderRadius: '10px', color: '#4a5568', cursor: 'pointer',
+                        borderRadius: RADIUS.chip, color: '#4a5568', cursor: 'pointer',
                         padding: '5px 12px', fontSize: '0.72rem', alignSelf: 'center',
                       }}>
                         {showAllKalip
@@ -901,12 +903,12 @@ export default function WordHeatmap({ onClose }) {
                     <button key={surah} onClick={() => { setSelectedSurah(selectedSurah === +surah ? null : +surah); setVersePage(0); }} style={{
                       background: selectedSurah === +surah ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.07)',
                       border: `1px solid ${selectedSurah === +surah ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.18)'}`,
-                      borderRadius: '8px', color: gold, cursor: 'pointer', padding: '4px 10px',
-                      fontSize: '0.73rem', display: 'flex', alignItems: 'center', gap: '4px', transition: 'all 0.15s',
+                      borderRadius: RADIUS.md, color: gold, cursor: 'pointer', padding: '4px 10px',
+                      fontSize: '0.73rem', display: 'flex', alignItems: 'center', gap: '4px', transition: `all ${TRANSITION.fast}`,
                     }}>
                       <span style={{ color: '#64748b', fontSize: '0.65rem' }}>{surah}.</span>
                       {SURAH_NAMES_TR[+surah - 1]}
-                      <span style={{ background: 'rgba(212,165,116,0.2)', borderRadius: '6px', padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>{count}</span>
+                      <span style={{ background: 'rgba(212,165,116,0.2)', borderRadius: RADIUS.sm, padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>{count}</span>
                     </button>
                   ))}
                 </div>
@@ -962,8 +964,8 @@ export default function WordHeatmap({ onClose }) {
                 {/* Baseline overlay label */}
                 {!searchTerm && (
                   <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-                    <div style={{ textAlign: 'center', background: 'rgba(10,10,26,0.6)', backdropFilter: 'blur(6px)', borderRadius: '12px', padding: '16px 24px', border: '1px solid rgba(52,152,219,0.2)' }}>
-                      <div style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '1.6rem', color: 'rgba(212,165,116,0.45)', direction: 'rtl', marginBottom: '8px', lineHeight: 1.5 }}>
+                    <div style={{ textAlign: 'center', background: 'rgba(10,10,26,0.6)', backdropFilter: 'blur(6px)', borderRadius: RADIUS.lg, padding: '16px 24px', border: '1px solid rgba(52,152,219,0.2)' }}>
+                      <div style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: 'rgba(212,165,116,0.45)', direction: 'rtl', marginBottom: '8px', lineHeight: 1.5 }}>
                         بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
                       </div>
                       <div style={{ color: 'rgba(52,152,219,0.7)', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>
@@ -1042,14 +1044,14 @@ export default function WordHeatmap({ onClose }) {
                       <button
                         onClick={() => setVersePage(p => Math.max(0, p - 1))}
                         disabled={versePage === 0}
-                        style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '4px', color: versePage === 0 ? '#2a3040' : '#94a3b8', cursor: versePage === 0 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>‹</button>
+                        style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.xs, color: versePage === 0 ? '#2a3040' : '#94a3b8', cursor: versePage === 0 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>‹</button>
                       <span style={{ color: '#4a5568', fontSize: '0.68rem', minWidth: '44px', textAlign: 'center' }}>
                         {versePage + 1} / {totalPages}
                       </span>
                       <button
                         onClick={() => setVersePage(p => Math.min(totalPages - 1, p + 1))}
                         disabled={versePage === totalPages - 1}
-                        style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: '4px', color: versePage === totalPages - 1 ? '#2a3040' : '#94a3b8', cursor: versePage === totalPages - 1 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>›</button>
+                        style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.xs, color: versePage === totalPages - 1 ? '#2a3040' : '#94a3b8', cursor: versePage === totalPages - 1 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>›</button>
                     </div>
                   )}
                 </div>
@@ -1069,7 +1071,7 @@ export default function WordHeatmap({ onClose }) {
                       <div style={{ color: gold, fontSize: '0.7rem', fontWeight: 700, marginBottom: '5px' }}>{v.id}</div>
                       {/* Arabic — always shown */}
                       {v.arabic && (
-                        <div style={{ fontFamily: "'KFGQPC','Amiri Quran',serif", fontSize: '1.35rem', lineHeight: 2.0, color: 'rgba(212,165,116,0.65)', textAlign: 'right', direction: 'rtl', marginBottom: '6px' }}>
+                        <div style={{ fontFamily: FONTS.quran, fontSize: '1.35rem', lineHeight: 2.0, color: 'rgba(212,165,116,0.65)', textAlign: 'right', direction: 'rtl', marginBottom: '6px' }}>
                           {arabicContent}
                         </div>
                       )}
@@ -1088,12 +1090,12 @@ export default function WordHeatmap({ onClose }) {
               {totalPages > 1 && (
                 <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '8px 14px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
                   <button onClick={() => setVersePage(p => Math.max(0, p - 1))} disabled={versePage === 0}
-                    style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.18)', borderRadius: '6px', color: versePage === 0 ? '#2a3040' : gold, cursor: versePage === 0 ? 'default' : 'pointer', padding: '4px 14px', fontSize: '0.8rem' }}>
+                    style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.18)', borderRadius: RADIUS.sm, color: versePage === 0 ? '#2a3040' : gold, cursor: versePage === 0 ? 'default' : 'pointer', padding: '4px 14px', fontSize: '0.8rem' }}>
                     ‹ {language === 'tr' ? 'Önceki' : 'Prev'}
                   </button>
                   <span style={{ color: '#4a5568', fontSize: '0.72rem' }}>{versePage + 1} / {totalPages}</span>
                   <button onClick={() => setVersePage(p => Math.min(totalPages - 1, p + 1))} disabled={versePage === totalPages - 1}
-                    style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.18)', borderRadius: '6px', color: versePage === totalPages - 1 ? '#2a3040' : gold, cursor: versePage === totalPages - 1 ? 'default' : 'pointer', padding: '4px 14px', fontSize: '0.8rem' }}>
+                    style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.18)', borderRadius: RADIUS.sm, color: versePage === totalPages - 1 ? '#2a3040' : gold, cursor: versePage === totalPages - 1 ? 'default' : 'pointer', padding: '4px 14px', fontSize: '0.8rem' }}>
                     {language === 'tr' ? 'Sonraki' : 'Next'} ›
                   </button>
                 </div>

@@ -146,30 +146,37 @@ export default function PathCards() {
         </span>
       </motion.div>
 
-      {/* Heading — slightly tighter than other sections so the 2x2 grid
-          plus heading + subtitle fit cleanly inside one viewport when the
-          user clicks "Keşfe Başla" from Hero. */}
+      {/* Heading — discovery zone H2 family (AllTopics + ToolsHighlight share
+          the same clamp). One ritmic step so the user feels a coherent tier
+          across the three sections that follow Hero. */}
       <motion.h2
         variants={fadeUpItem}
         style={{
           fontFamily: FONTS.display,
-          fontSize: 'clamp(1.7rem, 3.6vw, 2.4rem)',
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
           fontWeight: 700,
           color: COLORS.offWhite,
-          marginTop: '8px',
-          marginBottom: '8px',
+          marginTop: '12px',
+          marginBottom: '12px',
           maxWidth: '60ch',
           lineHeight: 1.15,
+          letterSpacing: '-0.01em',
         }}
       >
         {language === 'tr' ? 'Nereden Başlamak İstiyorsun?' : 'Where Do You Want to Begin?'}
       </motion.h2>
 
-      {/* Subtitle */}
+      {/* Subtitle — Hero baseline imza: offWhite/78, clamp, lineHeight 1.7. */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver leading-relaxed max-w-3xl mb-6"
-        style={{ fontSize: '0.95rem' }}
+        className="max-w-2xl mb-10"
+        style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {language === 'tr'
           ? 'Konuya göre bir yol seç. Her yol seni bir keşif zincirinden geçirir.'

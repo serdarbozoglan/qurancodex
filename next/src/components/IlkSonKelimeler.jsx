@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { cleanArabicMinimal as cleanArabic } from '../lib/arabic';
 import {
   COLORS, FONTS,
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
@@ -29,16 +30,6 @@ const FILTERS = [
   { id: 'medeni',           labelTr: 'Medenî',                 labelEn: 'Medinan',                   match: s => s.revelation === 'medeni' },
 ];
 
-// Arabic encoding normalizer — drop Uthmani-only marks and harmonize alef/yeh
-// variants so KFGQPC renders correctly. See CLAUDE.md §13.14 + §13.15.
-const cleanArabic = (str) => {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653');
-};
 
 export default function IlkSonKelimeler({ onClose, backRef }) {
   const { language } = useLanguage();
@@ -186,8 +177,8 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
               outline: 'none',
               transition: `border-color ${TRANSITION.fast}`,
             }}
-            onFocus={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'; }}
-            onBlur={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+            onFocus={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45 || COLORS.goldAlpha45; }}
+            onBlur={e => { e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}
           />
         </div>
 
@@ -208,8 +199,8 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
                   flexShrink: 0,
                   padding: '5px 12px', borderRadius: RADIUS.md,
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
-                  border: `1px solid ${isActive ? (COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)') : 'rgba(255,255,255,0.07)'}`,
-                  color: isActive ? COLORS.gold : 'rgba(148,163,184,0.7)',
+                  border: `1px solid ${isActive ? (COLORS.goldAlpha45 || COLORS.goldAlpha45) : 'rgba(255,255,255,0.07)'}`,
+                  color: isActive ? COLORS.gold : COLORS.silverAlpha70,
                   fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: isActive ? 600 : 400,
                   cursor: 'pointer', whiteSpace: 'nowrap',
                   display: 'flex', alignItems: 'center', gap: '6px',
@@ -224,13 +215,13 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
                 onMouseLeave={e => {
                   if (!isActive) {
                     e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.color = 'rgba(148,163,184,0.7)';
+                    e.currentTarget.style.color = COLORS.silverAlpha70;
                   }
                 }}
               >
                 {language === 'tr' ? f.labelTr : f.labelEn}
                 <span style={{
-                  background: isActive ? (COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)') : 'rgba(255,255,255,0.06)',
+                  background: isActive ? (COLORS.goldAlpha25 || COLORS.goldAlpha25) : 'rgba(255,255,255,0.06)',
                   borderRadius: RADIUS.xs,
                   color: isActive ? COLORS.gold : 'rgba(148,163,184,0.5)',
                   fontSize: '0.62rem', fontWeight: 600,
@@ -363,7 +354,7 @@ function Header({ language, onClose }) {
         </div>
       </div>
       <button style={{ ...CLOSE_BTN }} onClick={onClose}
-        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
+        onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
         onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -389,10 +380,10 @@ function Card({ surah, onClick, selected, language }) {
         textAlign: 'left',
         background: selected ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.035)',
         border: `1px solid ${selected ? COLORS.goldAlpha40 : 'rgba(255,255,255,0.12)'}`,
-        borderRadius: '8px',
+        borderRadius: RADIUS.md,
         padding: '11px 13px 12px',
         cursor: 'pointer',
-        transition: 'all 0.15s',
+        transition: `all ${TRANSITION.fast}`,
         display: 'flex', flexDirection: 'column', gap: '8px',
         fontFamily: FONTS.body,
         minHeight: '92px',
@@ -430,7 +421,7 @@ function Card({ surah, onClick, selected, language }) {
             {cleanArabic(surah.firstWord?.ar) || '—'}
           </div>
         </div>
-        <span style={{ color: COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)', fontSize: '0.85rem', opacity: 0.6 }}>←</span>
+        <span style={{ color: COLORS.goldAlpha45 || COLORS.goldAlpha45, fontSize: '0.85rem', opacity: 0.6 }}>←</span>
         <div style={{ textAlign: 'left', minWidth: 0, overflow: 'hidden' }}>
           <div dir="rtl" lang="ar" style={{
             fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite,
@@ -493,13 +484,13 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
   const panelStyle = isMobile ? {
     position: 'fixed', left: 0, right: 0, bottom: 0, top: '15%',
     background: COLORS.cosmicBlack,
-    borderTop: `1px solid ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}`,
+    borderTop: `1px solid ${COLORS.goldAlpha25 || COLORS.goldAlpha25}`,
     boxShadow: '0 -12px 40px rgba(0,0,0,0.5)',
     zIndex: 50,
     display: 'flex', flexDirection: 'column',
   } : {
     width: '420px', flexShrink: 0,
-    borderLeft: `1px solid ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}`,
+    borderLeft: `1px solid ${COLORS.goldAlpha25 || COLORS.goldAlpha25}`,
     background: 'rgba(8,9,26,0.72)',
     display: 'flex', flexDirection: 'column',
     overflow: 'hidden',
@@ -520,10 +511,10 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
           <div style={{ color: COLORS.offWhite, fontSize: '1.05rem', fontWeight: 700, fontFamily: FONTS.body }}>{name}</div>
         </div>
         <button onClick={onClose} style={{
-          width: '30px', height: '30px', borderRadius: '50%',
-          background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.1)'}`,
+          width: '30px', height: '30px', borderRadius: RADIUS.full,
+          background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBorder}`,
           color: COLORS.silver, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transition: 'all 0.15s',
+          transition: `all ${TRANSITION.fast}`,
         }}>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M18 6L6 18M6 6l12 12" />
@@ -558,7 +549,7 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
           <div style={{
             marginTop: '18px', padding: '12px 14px',
             background: 'rgba(212,165,116,0.06)', borderLeft: `2px solid ${COLORS.goldAlpha40 || 'rgba(212,165,116,0.4)'}`,
-            borderRadius: '4px', fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6,
+            borderRadius: RADIUS.xs, fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.6,
           }}>
             <div style={{ color: COLORS.gold, fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '4px', fontWeight: 700 }}>
               {language === 'tr' ? 'Not' : 'Note'}
@@ -595,7 +586,7 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
                   }}
                   onMouseEnter={e => {
                     e.currentTarget.style.background = COLORS.goldAlpha15;
-                    e.currentTarget.style.borderColor = COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)';
+                    e.currentTarget.style.borderColor = COLORS.goldAlpha45 || COLORS.goldAlpha45;
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.background = 'rgba(212,165,116,0.05)';
@@ -639,7 +630,7 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             padding: '9px 14px',
             background: 'rgba(212,165,116,0.08)',
-            border: `1px solid ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}`,
+            border: `1px solid ${COLORS.goldAlpha25 || COLORS.goldAlpha25}`,
             borderRadius: RADIUS.md,
             color: COLORS.gold,
             fontSize: '0.78rem', fontWeight: 600,
@@ -648,12 +639,12 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
             transition: `all ${TRANSITION.fast}`,
           }}
           onMouseEnter={e => {
-            e.currentTarget.style.background = 'rgba(212,165,116,0.15)';
-            e.currentTarget.style.borderColor = COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)';
+            e.currentTarget.style.background = COLORS.goldAlpha15;
+            e.currentTarget.style.borderColor = COLORS.goldAlpha45 || COLORS.goldAlpha45;
           }}
           onMouseLeave={e => {
             e.currentTarget.style.background = 'rgba(212,165,116,0.08)';
-            e.currentTarget.style.borderColor = COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)';
+            e.currentTarget.style.borderColor = COLORS.goldAlpha25 || COLORS.goldAlpha25;
           }}
         >
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -945,11 +936,11 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
                 textAlign: 'left',
                 padding: '16px 18px',
                 background: isActive ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.025)',
-                border: `1px solid ${isActive ? (COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)') : (COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)')}`,
+                border: `1px solid ${isActive ? (COLORS.goldAlpha45 || COLORS.goldAlpha45) : (COLORS.glassBorderSoft || COLORS.glassBgStrong)}`,
                 borderRadius: RADIUS.md,
                 cursor: 'pointer',
                 fontFamily: 'inherit',
-                transition: 'all 0.15s',
+                transition: `all ${TRANSITION.fast}`,
                 display: 'flex', flexDirection: 'column',
                 scrollMarginTop: '120px',
               }}
@@ -961,7 +952,7 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
               onMouseLeave={e => {
                 if (isActive) return;
                 e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
-                e.currentTarget.style.borderColor = COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)';
+                e.currentTarget.style.borderColor = COLORS.glassBorderSoft || COLORS.glassBgStrong;
               }}
             >
               {isActive && (
@@ -973,8 +964,8 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
                   color: COLORS.gold,
                   background: COLORS.goldAlpha25,
                   padding: '3px 9px',
-                  borderRadius: '999px',
-                  border: `1px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}`,
+                  borderRadius: RADIUS.pill,
+                  border: `1px solid ${COLORS.goldAlpha45 || COLORS.goldAlpha45}`,
                 }}>
                   {tr ? 'Aktif' : 'Active'}
                 </span>
@@ -1131,9 +1122,9 @@ function KnowYouDidNotKnow({ language, isMobile }) {
                 gridColumn: !isMobile && isLast ? '1 / -1' : 'auto',
                 padding: isMobile ? '20px 18px' : '24px 26px',
                 background: 'rgba(255,255,255,0.025)',
-                border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
+                border: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBgStrong}`,
                 borderRadius: RADIUS.lg,
-                transition: 'all 0.2s ease',
+                transition: `all ${TRANSITION.base}`,
                 overflow: 'hidden',
               }}
               onMouseEnter={e => {
@@ -1142,7 +1133,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
-                e.currentTarget.style.borderColor = COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)';
+                e.currentTarget.style.borderColor = COLORS.glassBorderSoft || COLORS.glassBgStrong;
               }}
             >
               {/* Big number — decorative, top-right */}
@@ -1189,7 +1180,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
                   letterSpacing: '0.18em', textTransform: 'uppercase',
                   color: COLORS.gold, opacity: 0.75,
                   padding: '4px 10px',
-                  borderRadius: '999px',
+                  borderRadius: RADIUS.pill,
                   background: COLORS.goldAlpha04,
                   border: `1px solid ${COLORS.goldAlpha25}`,
                 }}>
@@ -1264,7 +1255,7 @@ function SpotlightCard({ spotlight, language, isMobile }) {
           marginTop: '14px',
           padding: '12px 16px',
           background: 'rgba(255,255,255,0.025)',
-          borderLeft: `2px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}`,
+          borderLeft: `2px solid ${COLORS.goldAlpha45 || COLORS.goldAlpha45}`,
           borderRadius: RADIUS.sm,
         }}>
           <div style={{
@@ -1338,7 +1329,7 @@ function SpotlightSurahPanel({ surah, language }) {
     <div style={{
       padding: '16px 14px',
       background: 'rgba(255,255,255,0.03)',
-      border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
+      border: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBgStrong}`,
       borderRadius: RADIUS.md,
       textAlign: 'center',
     }}>
@@ -1386,7 +1377,7 @@ function SpotlightList({ spotlight, language, isMobile }) {
     <div style={{
       padding: isMobile ? '10px 12px' : '14px 18px',
       background: 'rgba(255,255,255,0.02)',
-      border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.08)'}`,
+      border: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBgStrong}`,
       borderRadius: RADIUS.md,
     }}>
       {spotlight.items.map((item, i) => (

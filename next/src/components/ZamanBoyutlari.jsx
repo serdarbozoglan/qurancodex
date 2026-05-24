@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Fragment } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, GLASS_CARD, BREAKPOINT_TABLET } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, GLASS_CARD, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 
 // Parse references like "Kadr 97:3", "Hac 22:47 / Secde 32:5" — first match wins
@@ -22,10 +22,10 @@ function VerseAudioButton({ surah, ayah }) {
       disabled={disabled}
       aria-label={playing ? 'Pause' : 'Play verse'}
       style={{
-        width: 22, height: 22, borderRadius: '50%', flexShrink: 0,
+        width: 22, height: 22, borderRadius: RADIUS.full, flexShrink: 0,
         background: disabled ? 'rgba(100,116,139,0.08)' : playing ? 'rgba(212,165,116,0.28)' : 'rgba(212,165,116,0.10)',
         border: `1px solid ${disabled ? 'rgba(100,116,139,0.2)' : playing ? 'rgba(212,165,116,0.6)' : 'rgba(212,165,116,0.35)'}`,
-        color: disabled ? '#475569' : '#d4a574',
+        color: disabled ? COLORS.slate600 : COLORS.gold,
         cursor: disabled ? 'not-allowed' : 'pointer',
         opacity: disabled ? 0.5 : 1,
         display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
@@ -80,7 +80,7 @@ const TIMELINE_DATA = [
     expandTr: "En yaygın yorum: 30 gece Zilkade ayına, 10 gece Zilhicce'nin ilk günlerine denk geliyor — İslam'da en faziletli dönem, Arefe günü de bu aralıkta. Ayrım takvimsel bir anlam taşıyor. (ℹ️ Tefsir görüşü, kesin değil)",
     expandEn: "Most common view: 30 nights correspond to Dhul-Qa'dah, 10 nights to the first days of Dhul-Hijjah — the most sacred period in the Islamic calendar, including the Day of Arafah. The split carries a calendrical meaning. (ℹ️ Exegetical view, not definitive)",
     logValue: 1.6,
-    color: '#d4a574',
+    color: COLORS.gold,
   },
   {
     id: 'kehf',
@@ -100,7 +100,7 @@ const TIMELINE_DATA = [
     disclaimerTr: "Bu tespit gözlemsel bir örtüşmedir; Kur'an'ın bilimsel iddiası değildir.",
     disclaimerEn: 'This is an observational overlap; not a scientific claim of the Quran.',
     logValue: 2.48,
-    color: '#d4a574',
+    color: COLORS.gold,
   },
   {
     id: 'yaratilis',
@@ -120,7 +120,7 @@ const TIMELINE_DATA = [
     disclaimerTr: 'Tefsir notu — kesin yorum değil.',
     disclaimerEn: 'Exegetical note — not a definitive interpretation.',
     logValue: 3.5,
-    color: '#d4a574',
+    color: COLORS.gold,
   },
   {
     id: 'bin',
@@ -137,7 +137,7 @@ const TIMELINE_DATA = [
     expandTr: "Hac 22:47 ve Secde 32:5'te geçer. Secde'deki bağlam: Allah'ın emirleri gökten yere iner, melekler bir günde yükselir — bu süre 1.000 insan yılına eşdeğer. İbn Kesir: Allah zamanla bağlı değildir; bu ifade insanın zaman algısının sınırlılığını gösterir. Modern yorumcular Einstein'ın görelilik teorisiyle felsefi bağlantı kurar — ama bu yorum değil, analoji. (ℹ️ Tefsir görüşü)",
     expandEn: "Appears in Hac 22:47 and Sajdah 32:5. In Sajdah's context: God's decrees descend from heaven to earth; angels ascend in a day equivalent to 1,000 human years. Ibn Kathir: God is not bound by time — this expression shows the limits of human temporal perception. Modern commentators draw philosophical parallels to Einstein's relativity — but this is analogy, not interpretation. (ℹ️ Exegetical view)",
     logValue: 3,
-    color: '#d4a574',
+    color: COLORS.gold,
   },
   {
     id: 'elli',
@@ -157,7 +157,7 @@ const TIMELINE_DATA = [
     disclaimerTr: 'Modern fizikteki gravitational time dilation ile felsefi benzerlik kurulabilir — bu bir yorum katmanıdır.',
     disclaimerEn: 'Philosophical parallel to gravitational time dilation is possible — this is an interpretive layer.',
     logValue: 4.7,
-    color: '#d4a574',
+    color: COLORS.gold,
   },
 ];
 
@@ -190,7 +190,7 @@ const LANG_CARDS = [
   },
   {
     id: 'present',
-    accentColor: '#d4a574',
+    accentColor: COLORS.gold,
     titleTr: "Şimdinin Çağrısı",
     titleEn: 'The Present Call',
     bodyTr:
@@ -503,7 +503,7 @@ export default function ZamanBoyutlari({ onClose }) {
         id: 'kissalar',
         titleTr: 'Kıssalardaki Zaman Dilimleri',
         titleEn: 'Time Spans in Stories',
-        accentColor: '#d4a574',
+        accentColor: COLORS.gold,
         ids: ['musa', 'kehf'],
       },
       {
@@ -957,7 +957,7 @@ export default function ZamanBoyutlari({ onClose }) {
                         padding: '2px 8px', borderRadius: '10px',
                         border: `1px solid ${COLORS.gold}`,
                         background: expandedRow === row.id ? COLORS.gold : 'transparent',
-                        color: expandedRow === row.id ? '#0a0a1a' : COLORS.gold,
+                        color: expandedRow === row.id ? COLORS.cosmicBlack : COLORS.gold,
                         fontSize: '0.72rem', fontFamily: FONTS.body,
                         fontWeight: 600, lineHeight: 1.4, cursor: 'pointer', transition: 'all 0.15s',
                       }}
@@ -1032,7 +1032,7 @@ export default function ZamanBoyutlari({ onClose }) {
                             padding: '2px 8px', borderRadius: '10px',
                             border: `1px solid ${COLORS.gold}`,
                             background: expandedRow === row.id ? COLORS.gold : 'transparent',
-                            color: expandedRow === row.id ? '#0a0a1a' : COLORS.gold,
+                            color: expandedRow === row.id ? COLORS.cosmicBlack : COLORS.gold,
                             fontSize: '0.72rem', fontFamily: FONTS.body,
                             fontWeight: 600, lineHeight: 1.4, cursor: 'pointer', transition: 'all 0.15s',
                           }}
@@ -1287,7 +1287,7 @@ export default function ZamanBoyutlari({ onClose }) {
           onClick={onClose}
           style={{ ...CLOSE_BTN }}
           onMouseEnter={e => {
-            e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+            e.currentTarget.style.background = COLORS.glassBorder;
             e.currentTarget.style.color = COLORS.offWhite;
           }}
           onMouseLeave={e => {

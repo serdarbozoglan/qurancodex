@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 // ── Pair colors: A/A' = gold, B/B' = emerald, C/C' = sky-blue ──
 const PAIR_COLORS = [
@@ -78,7 +79,7 @@ const SURAHS = {
     ],
     pairsEn: [
       { label: "A ↔ A'", desc: "Both are pairs of divine attributes. 'Hayy-Qayyum' (Ever-Living, Sustainer) and 'Aliyy-Azim' (Most High, Most Great). The verse opens and closes with these pairs." },
-      { label: "B ↔ B'", desc: "Both describe the limitations of creation. B: Allah never sleeps (no physiological limit). B': Humans can't grasp His knowledge (cognitive limit)." },
+      { label: "B ↔ B'", desc: "Both describe the limitations of creation. B: Allah never sleeps (no physiological limit). B’: Humans can’t grasp His knowledge (cognitive limit)." },
       { label: "C ↔ C'", desc: "C describes ownership, C' describes knowledge. 'Everything belongs to Him' ↔ 'He knows everything.' Both are absolute — complementing each other." },
       { label: "D — Center", desc: "'Who can intercede except by His permission?' This question unites ownership (C) and knowledge (C'). One who both owns and knows permits nothing without leave." },
     ],
@@ -199,16 +200,35 @@ export default function HiddenArchitecture() {
         </span>
       </motion.div>
 
+      {/* Title — Hero/Discovery parity. */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-4"
+        style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          marginTop: '12px',
+          marginBottom: '12px',
+          maxWidth: '60ch',
+          lineHeight: 1.15,
+          letterSpacing: '-0.01em',
+        }}
       >
         {t('hiddenSymmetry.title')}
       </motion.h2>
 
+      {/* Intro — Hero baseline imzası. */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-12"
+        className="max-w-3xl mb-12"
+        style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {t('hiddenSymmetry.intro')}
       </motion.p>
@@ -290,7 +310,7 @@ export default function HiddenArchitecture() {
             };
 
             const badgeBase = {
-              width: '26px', height: '26px', borderRadius: '50%',
+              width: '26px', height: '26px', borderRadius: RADIUS.full,
               border: `2px solid ${isActive ? color.text : 'rgba(255,255,255,0.2)'}`,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: '0.72rem', fontWeight: 700,
@@ -382,7 +402,7 @@ export default function HiddenArchitecture() {
               }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: surah.center.ar ? '6px' : 0 }}>
                 <span style={{
-                  width: '30px', height: '30px', borderRadius: '50%',
+                  width: '30px', height: '30px', borderRadius: RADIUS.full,
                   border: '2px solid #9b59b6',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '0.8rem', fontWeight: 800,
@@ -507,8 +527,8 @@ export default function HiddenArchitecture() {
         </div>
         <p className="text-off-white/70 text-sm font-body leading-relaxed">
           {language === 'tr'
-            ? "Raymond Farrin'in Structure and Quranic Interpretation (2014) adlı çalışması, Kur'an'da yaygın halka kompozisyon yapıları tespit eden kapsamlı akademik analizlerden biridir. Bu bulgular, metnin iç mimarisine dair sorular doğurmaktadır."
-            : "Raymond Farrin's Structure and Quranic Interpretation (2014) is among the most comprehensive academic analyses to identify widespread ring composition structures in the Quran. These findings raise questions about the text's internal architecture."}
+            ? "Raymond Farrin’in Structure and Quranic Interpretation (2014) adlı çalışması, Kur’an’da yaygın halka kompozisyon yapıları tespit eden kapsamlı akademik analizlerden biridir. Bu bulgular, metnin iç mimarisine dair sorular doğurmaktadır."
+            : "Raymond Farrin’s Structure and Quranic Interpretation (2014) is among the most comprehensive academic analyses to identify widespread ring composition structures in the Quran. These findings raise questions about the text’s internal architecture."}
         </p>
       </motion.div>
 
@@ -814,28 +834,28 @@ export default function HiddenArchitecture() {
                   }}
                 >
                   <span style={{
-                    width: '8px', height: '8px', borderRadius: '50%', flexShrink: 0,
+                    width: '8px', height: '8px', borderRadius: RADIUS.full, flexShrink: 0,
                     background: layer.color,
                     opacity: isActive ? 1 : 0.4,
                     boxShadow: isActive ? `0 0 8px ${layer.color}` : 'none',
                     transition: 'all 0.25s',
                   }}/>
                   <span style={{
-                    fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em',
+                    fontSize: '13px', fontWeight: 700, letterSpacing: '0.06em',
                     color: isActive ? layer.color : 'rgba(148,163,184,0.3)',
-                    fontFamily: "'Inter', sans-serif", minWidth: '20px', transition: 'color 0.25s',
+                    fontFamily: "'Inter', sans-serif", minWidth: '24px', transition: 'color 0.25s',
                   }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span style={{
-                    fontSize: '12px', fontWeight: isActive ? 600 : 400, flexGrow: 1,
+                    fontSize: '15px', fontWeight: isActive ? 600 : 400, flexGrow: 1,
                     color: isActive ? '#e8e6e3' : 'rgba(148,163,184,0.5)',
                     fontFamily: "'Inter', sans-serif", transition: 'color 0.25s',
                   }}>
                     {language === 'tr' ? layer.nameTr : layer.nameEn}
                   </span>
                   <span style={{
-                    fontSize: '10px',
+                    fontSize: '12px',
                     color: isActive ? layer.color + 'cc' : 'rgba(148,163,184,0.22)',
                     fontFamily: "'Inter', sans-serif", transition: 'color 0.25s',
                   }}>

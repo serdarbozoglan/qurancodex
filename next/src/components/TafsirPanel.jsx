@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 // Simple per-component cache: keyed by `${surahNumber}-${sourceId}`
 const _cache = new Map();
@@ -310,7 +310,7 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
         <div style={{
           flexShrink: 0,
           width: '54px', height: '54px',
-          borderRadius: '50%',
+          borderRadius: RADIUS.full,
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
           background: dayMode
             ? 'linear-gradient(135deg, rgba(212,165,116,0.22), rgba(212,165,116,0.08))'
@@ -437,7 +437,7 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
           style={{
             flexShrink: 0,
             width: '34px', height: '34px',
-            borderRadius: '50%',
+            borderRadius: RADIUS.full,
             background: 'transparent',
             border: `1px solid ${C.border}`,
             color: C.muted,

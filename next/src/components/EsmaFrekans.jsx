@@ -289,7 +289,7 @@ export default function EsmaFrekans({ onClose }) {
 
             {/* Card 3 */}
             <div style={statCardStyle}>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#94a3b8', fontFamily: FONTS.body, lineHeight: 1.1, marginBottom: '6px' }}>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.1, marginBottom: '6px' }}>
                 ~{HADITH_COUNT}
               </div>
               <div style={{ fontSize: '0.72rem', color: COLORS.silver, textTransform: 'uppercase', letterSpacing: '0.06em', lineHeight: 1.4 }}>

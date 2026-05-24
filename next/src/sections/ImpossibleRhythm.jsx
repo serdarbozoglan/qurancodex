@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
-import { FONTS } from '../tokens';
+import { FONTS, COLORS, RADIUS } from '../tokens';
 
 const PlayIcon = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21" /></svg>
@@ -76,7 +76,7 @@ const FASILA_SURAS = [
     labelTr: 'Duhâ (93)',
     labelEn: 'Ad-Duha (93)',
     sound: '-â',
-    color: '#d4a574',
+    color: COLORS.gold,
     glow: 'rgba(212,165,116,0.22)',
     border: 'rgba(212,165,116,0.4)',
     examples: ['وَالضُّحَىٰ', 'سَجَىٰ', 'قَلَىٰ'],
@@ -228,18 +228,35 @@ export default function ImpossibleRhythm() {
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero/Discovery parity. */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-8"
+        style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          marginTop: '12px',
+          marginBottom: '12px',
+          maxWidth: '60ch',
+          lineHeight: 1.15,
+          letterSpacing: '-0.01em',
+        }}
       >
         {t('impossibleRhythm.title')}
       </motion.h2>
 
-      {/* Intro */}
+      {/* Intro — Hero baseline imzası. */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-10"
+        className="max-w-3xl mb-10"
+        style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {(() => {
           const text = t('impossibleRhythm.intro');
@@ -248,7 +265,7 @@ export default function ImpossibleRhythm() {
           return (
             <>
               {text.slice(0, idx)}
-              <span style={{ color: '#d4a574', fontStyle: 'italic', fontWeight: 600 }}>sui generis</span>
+              <span style={{ color: COLORS.gold, fontStyle: 'italic', fontWeight: 600 }}>sui generis</span>
               {text.slice(idx + 'sui generis'.length)}
             </>
           );
@@ -290,7 +307,7 @@ export default function ImpossibleRhythm() {
             <p className="text-gold/50 text-xs font-body uppercase tracking-[0.25em] mb-4">
               {language === 'tr' ? 'Aşağıdaki ayetleri inceleyin' : 'Examine the verses below'}
             </p>
-            <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', lineHeight: 2.2, color: '#e8e6e3' }}>
+            <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', lineHeight: 2.2, color: COLORS.offWhite }}>
               وَالضُّحَىٰ ﴿١﴾ وَاللَّيْلِ إِذَا سَجَىٰ ﴿٢﴾ مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ﴿٣﴾
             </p>
             {/* Play button centered, then reference below */}
@@ -299,10 +316,10 @@ export default function ImpossibleRhythm() {
                 onClick={!duhaFailed ? toggleDuha : undefined}
                 disabled={duhaFailed}
                 style={{
-                  width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0,
+                  width: '36px', height: '36px', borderRadius: RADIUS.full, flexShrink: 0,
                   background: duhaFailed ? 'rgba(100,116,139,0.08)' : duhaPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
-                  border: `1px solid ${duhaFailed ? 'rgba(100,116,139,0.2)' : duhaPlaying ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
-                  color: duhaFailed ? '#475569' : '#d4a574',
+                  border: `1px solid ${duhaFailed ? 'rgba(100,116,139,0.2)' : duhaPlaying ? 'rgba(200,185,165,0.72)' : COLORS.goldAlpha20}`,
+                  color: duhaFailed ? COLORS.slate600 : COLORS.gold,
                   cursor: duhaFailed ? 'not-allowed' : 'pointer',
                   opacity: duhaFailed ? 0.5 : 1,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -330,8 +347,8 @@ export default function ImpossibleRhythm() {
                   <button
                     onClick={() => setDiscoveryStep(1)}
                     className="px-6 py-3 rounded-xl font-body text-sm font-medium transition-all"
-                    style={{ border: '1px solid rgba(148,163,184,0.3)', color: '#94a3b8', background: 'rgba(148,163,184,0.05)' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.12)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
+                    style={{ border: '1px solid rgba(148,163,184,0.3)', color: COLORS.silver, background: 'rgba(148,163,184,0.05)' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = COLORS.silverAlpha12; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.05)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.3)'; }}
                   >
                     {language === 'tr' ? 'Bu şiir mi?' : 'Is this poetry?'}
@@ -339,8 +356,8 @@ export default function ImpossibleRhythm() {
                   <button
                     onClick={() => setDiscoveryStep(2)}
                     className="px-6 py-3 rounded-xl font-body text-sm font-medium transition-all"
-                    style={{ border: '1px solid rgba(148,163,184,0.3)', color: '#94a3b8', background: 'rgba(148,163,184,0.05)' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.12)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
+                    style={{ border: '1px solid rgba(148,163,184,0.3)', color: COLORS.silver, background: 'rgba(148,163,184,0.05)' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = COLORS.silverAlpha12; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.05)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.3)'; }}
                   >
                     {language === 'tr' ? 'Düzyazı mı?' : 'Is this prose?'}
@@ -372,8 +389,8 @@ export default function ImpossibleRhythm() {
                   <button
                     onClick={() => setDiscoveryStep(3)}
                     className="px-6 py-3 rounded-xl font-body text-sm font-medium transition-all"
-                    style={{ border: '1px solid rgba(148,163,184,0.3)', color: '#94a3b8', background: 'rgba(148,163,184,0.05)' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.12)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
+                    style={{ border: '1px solid rgba(148,163,184,0.3)', color: COLORS.silver, background: 'rgba(148,163,184,0.05)' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = COLORS.silverAlpha12; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.05)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.3)'; }}
                   >
                     {language === 'tr' ? 'Düzyazı mı?' : 'Is this prose?'}
@@ -405,8 +422,8 @@ export default function ImpossibleRhythm() {
                   <button
                     onClick={() => setDiscoveryStep(3)}
                     className="px-6 py-3 rounded-xl font-body text-sm font-medium transition-all"
-                    style={{ border: '1px solid rgba(148,163,184,0.3)', color: '#94a3b8', background: 'rgba(148,163,184,0.05)' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.12)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
+                    style={{ border: '1px solid rgba(148,163,184,0.3)', color: COLORS.silver, background: 'rgba(148,163,184,0.05)' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = COLORS.silverAlpha12; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(148,163,184,0.05)'; e.currentTarget.style.borderColor = 'rgba(148,163,184,0.3)'; }}
                   >
                     {language === 'tr' ? 'Şiir mi?' : 'Is it poetry?'}
@@ -436,7 +453,7 @@ export default function ImpossibleRhythm() {
                   <button
                     onClick={() => setDiscoveryStep(4)}
                     className="px-8 py-3 rounded-xl font-body text-sm font-semibold transition-all"
-                    style={{ border: '1px solid rgba(212,165,116,0.5)', color: '#d4a574', background: 'rgba(212,165,116,0.08)' }}
+                    style={{ border: '1px solid rgba(212,165,116,0.5)', color: COLORS.gold, background: 'rgba(212,165,116,0.08)' }}
                     onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.18)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; }}
                   >
@@ -460,7 +477,7 @@ export default function ImpossibleRhythm() {
                 <p className="text-gold/60 text-xs uppercase tracking-[0.3em] font-body mb-3">
                   {language === 'tr' ? 'Dilbilimcilerin cevabı' : "Linguists' answer"}
                 </p>
-                <p className="font-display text-3xl md:text-4xl font-bold mb-4" style={{ color: '#d4a574' }}>
+                <p className="font-display text-3xl md:text-4xl font-bold mb-4" style={{ color: COLORS.gold }}>
                   sui generis
                 </p>
                 <p className="text-silver/70 text-base font-body leading-relaxed max-w-xl mx-auto">
@@ -496,34 +513,34 @@ export default function ImpossibleRhythm() {
                         transition={{ duration: 0.22 }}
                         style={{ overflow: 'hidden' }}
                       >
-                        <div className="mt-3 rounded-xl p-5 text-left" style={{ background: 'rgba(212,165,116,0.04)', border: '1px solid rgba(212,165,116,0.15)' }}>
+                        <div className="mt-3 rounded-xl p-5 text-left" style={{ background: COLORS.goldAlpha04, border: '1px solid rgba(212,165,116,0.15)' }}>
                           {language === 'tr' ? (
                             <div className="font-body text-sm leading-relaxed" style={{ color: 'rgba(232,230,227,0.75)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                               <p>
-                                <span style={{ color: '#d4a574', fontWeight: 600 }}>Sadece iki form değil, bilinen her form denendi.</span>{' '}
+                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>Sadece iki form değil, bilinen her form denendi.</span>{' '}
                                 7. yüzyıl Arapça'sında şiir ve düzyazının yanı sıra üç form daha vardı: <em>sac'</em> (kâhinlerin kısa kafiyeli düzyazısı), <em>hutbe</em> (hitabet düzyazısı) ve <em>mesel</em> (veciz atasözü formu). Kur'an bunların hiçbirine de uymadı.
                               </p>
                               <p>
-                                <span style={{ color: '#d4a574', fontWeight: 600 }}>Serbest şiirle farkı nedir?</span>{' '}
+                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>Serbest şiirle farkı nedir?</span>{' '}
                                 Serbest şiir (free verse) tanımlanabilir bir geleneğin içinden çıktı — 19. yüzyıl Batı edebiyatının kasıtlı bir kırılması. Kur'an ise mevcut hiçbir geleneğin kırılması değil; o geleneklerin dışında, 7. yüzyılda, referans noktasız ortaya çıktı.
                               </p>
                               <p>
-                                <span style={{ color: '#d4a574', fontWeight: 600 }}>Tahaddi — meydan okuma.</span>{' '}
+                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>Tahaddi — meydan okuma.</span>{' '}
                                 Kur'an bizzat meydan okudu: "Benzerini getirin." Bunu duyanlar hem o dili en iyi bilen hem de onu çürütmek için her nedeni olan insanlardı. 1.400 yıl boyunca kimse bu meydan okumayı karşılayamadı.
                               </p>
                             </div>
                           ) : (
                             <div className="font-body text-sm leading-relaxed" style={{ color: 'rgba(232,230,227,0.75)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                               <p>
-                                <span style={{ color: '#d4a574', fontWeight: 600 }}>Not just two forms — every known form was tested.</span>{' '}
+                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>Not just two forms — every known form was tested.</span>{' '}
                                 7th-century Arabic had more than poetry and prose: <em>saj'</em> (the rhymed cadenced prose of soothsayers), <em>khutba</em> (oratory prose), and <em>masal</em> (the concise proverb form). The Quran matched none of these either.
                               </p>
                               <p>
-                                <span style={{ color: '#d4a574', fontWeight: 600 }}>How is it different from free verse?</span>{' '}
+                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>How is it different from free verse?</span>{' '}
                                 Free verse emerged from within a recognizable tradition — a deliberate 19th-century break from Western poetic convention. The Quran, by contrast, did not break from any tradition; it appeared in the 7th century with no predecessor to define itself against.
                               </p>
                               <p>
-                                <span style={{ color: '#d4a574', fontWeight: 600 }}>The challenge — and the silence.</span>{' '}
+                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>The challenge — and the silence.</span>{' '}
                                 The Quran itself issued a challenge: produce something like it. Those who heard it were the finest masters of the language — and had every reason to respond. They could not. For 1,400 years, no one has.
                               </p>
                             </div>
@@ -606,7 +623,7 @@ export default function ImpossibleRhythm() {
         <div
           className="rounded-xl p-3 md:p-4 space-y-1"
           style={{
-            background: 'rgba(212,165,116,0.04)',
+            background: COLORS.goldAlpha04,
             border: '1px solid rgba(212,165,116,0.2)',
           }}
         >
@@ -634,7 +651,7 @@ export default function ImpossibleRhythm() {
               <div className="flex-1 text-right" dir="rtl">
                 <span
                   className="text-3xl md:text-4xl leading-loose"
-                  style={{ fontFamily: FONTS.quran, color: '#e8e6e3' }}
+                  style={{ fontFamily: FONTS.quran, color: COLORS.offWhite }}
                 >
                   {verse.ar}
                 </span>
@@ -647,10 +664,10 @@ export default function ImpossibleRhythm() {
               disabled={kawtharFailed}
               aria-label={kawtharPlaying ? 'Pause' : 'Play Kevser'}
               style={{
-                width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+                width: '28px', height: '28px', borderRadius: RADIUS.full, flexShrink: 0,
                 background: kawtharFailed ? 'rgba(100,116,139,0.08)' : kawtharPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
-                border: `1px solid ${kawtharFailed ? 'rgba(100,116,139,0.2)' : kawtharPlaying ? 'rgba(200,185,165,0.72)' : 'rgba(212,165,116,0.2)'}`,
-                color: kawtharFailed ? '#475569' : '#d4a574',
+                border: `1px solid ${kawtharFailed ? 'rgba(100,116,139,0.2)' : kawtharPlaying ? 'rgba(200,185,165,0.72)' : COLORS.goldAlpha20}`,
+                color: kawtharFailed ? COLORS.slate600 : COLORS.gold,
                 cursor: kawtharFailed ? 'not-allowed' : 'pointer',
                 opacity: kawtharFailed ? 0.5 : 1,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -686,7 +703,7 @@ export default function ImpossibleRhythm() {
                 const isSelected = selectedNajm === i;
                 const isFailed = failedNajm.has(i);
                 const isMaqta = type === 'mq';
-                const bg = type === 'aa' ? '#d4a574' : isMaqta ? '#7c3f58' : 'rgba(148,163,184,0.12)';
+                const bg = type === 'aa' ? COLORS.gold : isMaqta ? '#7c3f58' : COLORS.silverAlpha12;
                 const border = isSelected
                   ? '2px solid #fff'
                   : type === 'aa'
@@ -712,7 +729,7 @@ export default function ImpossibleRhythm() {
                     onClick={() => handleNajmClick(i)}
                     title={`${i + 1}. ayet`}
                     style={{
-                      width: '30px', height: '30px', borderRadius: '4px',
+                      width: '30px', height: '30px', borderRadius: RADIUS.xs,
                       background: bg, border,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontSize: '0.5rem', color, fontFamily: 'Inter, sans-serif', fontWeight: 600,
@@ -740,7 +757,7 @@ export default function ImpossibleRhythm() {
             style={{
               background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '12px',
+              borderRadius: RADIUS.lg,
               padding: '16px 20px',
               marginBottom: '16px',
               display: 'flex',
@@ -751,7 +768,7 @@ export default function ImpossibleRhythm() {
             }}
           >
             <div>
-              <p style={{ color: '#94a3b8', fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', marginBottom: '6px' }}>
+              <p style={{ color: COLORS.silver, fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', marginBottom: '6px' }}>
                 Necm 53:{selectedNajm + 1}
               </p>
               <p
@@ -760,7 +777,7 @@ export default function ImpossibleRhythm() {
                 style={{
                   fontFamily: FONTS.quran,
                   fontSize: '2rem',
-                  color: NAJM_FASILA[selectedNajm] === 'aa' ? '#d4a574' : NAJM_FASILA[selectedNajm] === 'mq' ? '#e8a0b8' : '#94a3b8',
+                  color: NAJM_FASILA[selectedNajm] === 'aa' ? COLORS.gold : NAJM_FASILA[selectedNajm] === 'mq' ? '#e8a0b8' : COLORS.silver,
                   lineHeight: 1.4,
                 }}
               >
@@ -772,13 +789,13 @@ export default function ImpossibleRhythm() {
                 fontSize: '0.7rem',
                 fontFamily: 'Inter, sans-serif',
                 padding: '3px 8px',
-                borderRadius: '20px',
+                borderRadius: RADIUS.pillSm,
                 background: NAJM_FASILA[selectedNajm] === 'aa'
-                  ? 'rgba(212,165,116,0.15)'
+                  ? COLORS.goldAlpha15
                   : NAJM_FASILA[selectedNajm] === 'mq'
                   ? 'rgba(180,80,120,0.2)'
                   : 'rgba(255,255,255,0.06)',
-                color: NAJM_FASILA[selectedNajm] === 'aa' ? '#d4a574' : NAJM_FASILA[selectedNajm] === 'mq' ? '#e8a0b8' : '#94a3b8',
+                color: NAJM_FASILA[selectedNajm] === 'aa' ? COLORS.gold : NAJM_FASILA[selectedNajm] === 'mq' ? '#e8a0b8' : COLORS.silver,
                 border: '1px solid currentColor',
               }}>
                 {NAJM_FASILA[selectedNajm] === 'aa'
@@ -794,14 +811,14 @@ export default function ImpossibleRhythm() {
                 width: '100%',
                 marginTop: '4px',
                 padding: '10px 14px',
-                borderRadius: '8px',
+                borderRadius: RADIUS.md,
                 background: 'rgba(148,163,184,0.06)',
                 border: '1px solid rgba(148,163,184,0.15)',
                 display: 'flex',
                 alignItems: 'flex-start',
                 gap: '8px',
               }}>
-                <span style={{ color: '#d4a574', fontSize: '0.85rem', lineHeight: 1, flexShrink: 0, marginTop: '1px' }}>⚡</span>
+                <span style={{ color: COLORS.gold, fontSize: '0.85rem', lineHeight: 1, flexShrink: 0, marginTop: '1px' }}>⚡</span>
                 <p style={{ color: 'rgba(232,230,227,0.7)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", lineHeight: 1.5, margin: 0 }}>
                   {language === 'en' ? NAJM_DEVIATION_NOTES[selectedNajm].en : NAJM_DEVIATION_NOTES[selectedNajm].tr}
                 </p>
@@ -813,7 +830,7 @@ export default function ImpossibleRhythm() {
         {/* Legend */}
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '20px', marginBottom: '14px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: '#d4a574' }} />
+            <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: COLORS.gold }} />
             <span className="text-silver text-sm font-body">'-â' {language === 'tr' ? 'sesi (55 ayet)' : 'sound (55 verses)'}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
@@ -821,7 +838,7 @@ export default function ImpossibleRhythm() {
             <span className="text-silver text-sm font-body">{language === 'tr' ? "maqta\u02BF — kapanış (6 ayet)" : "maqta\u02BF — closing (6 verses)"}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: 'rgba(148,163,184,0.12)', border: '1px solid rgba(148,163,184,0.25)' }} />
+            <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: COLORS.silverAlpha12, border: '1px solid rgba(148,163,184,0.25)' }} />
             <span className="text-silver text-sm font-body">{language === 'tr' ? 'Farklı ses (1 ayet)' : 'Other sound (1 verse)'}</span>
           </div>
         </div>
@@ -836,7 +853,7 @@ export default function ImpossibleRhythm() {
           <div className="relative" style={{ flexShrink: 0, marginTop: '1px' }}>
             <button
               onClick={() => setNajmInfoOpen(v => !v)}
-              style={{ color: '#d4a574', fontSize: '1rem', lineHeight: 1, background: 'none', border: 'none', cursor: 'pointer' }}
+              style={{ color: COLORS.gold, fontSize: '1rem', lineHeight: 1, background: 'none', border: 'none', cursor: 'pointer' }}
               aria-label="Gruplama kriteri"
             >ⓘ</button>
             {najmInfoOpen && (

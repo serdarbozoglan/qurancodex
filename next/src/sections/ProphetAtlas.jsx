@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, CLOSE_BTN } from '../tokens';
 import ProphetMap from './ProphetMap';
 
 // Revelation order — rank 1-86 Mekki, 87-114 Medeni
@@ -33,8 +33,10 @@ function fmtDuaRef(ref, lang = 'tr') {
 }
 
 
-// Dua Arapçası normalizasyonu — ReadingMode'daki cleanArabic ile birebir aynı pipeline.
-// KFGQPC, api.acikkuran.com encoding'i için tasarlanmıştır; bu fonksiyon o metni hazırlar.
+// Dua Arapçası normalizasyonu — ortak lib/arabic.js cleanArabicForDisplay'den FARKLI:
+// (1) maddah render fix YOK, (2) ek olarak U+06DF + U+0615 strip edilir.
+// Davranışsal parite koruması için component-local bırakıldı; lib güncellenirse
+// kıyaslamayı buradan yap.
 function cleanDuaAr(str) {
   if (!str) return str;
   return str
@@ -1465,7 +1467,7 @@ function buildArcPath(x1, x2, heightFactor) {
   return `M ${x1},${NODE_Y} Q ${mx},${cy} ${x2},${NODE_Y}`;
 }
 
-export default function ProphetAtlas() {
+export default function ProphetAtlas({ onClose }) {
   const { language } = useLanguage();
   // Multi-prophet selection: Set of prophet IDs
   const [selectedProphets, setSelectedProphets] = useState(new Set(['nuh']));
@@ -1572,7 +1574,7 @@ export default function ProphetAtlas() {
   const multiSelect = selectedProphets.size > 1;
 
   return (
-    <section id="math" style={{
+    <section id="prophet-atlas" style={{
       background: `linear-gradient(180deg, ${COLORS.cosmicBlack} 0%, ${COLORS.deepNavy} 50%, ${COLORS.cosmicBlack} 100%)`,
       padding: '100px 0 24px',
       position: 'relative',
@@ -1589,7 +1591,20 @@ export default function ProphetAtlas() {
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
 
         {/* Header */}
-        <div style={{ marginBottom: '48px' }}>
+        <div style={{ marginBottom: '48px', position: 'relative' }}>
+          {onClose && (
+            <button
+              onClick={onClose}
+              style={{ ...CLOSE_BTN, position: 'absolute', top: 0, right: 0 }}
+              onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
+              onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
+              aria-label="Close"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          )}
           <div style={{
             color: COLORS.gold, fontSize: '0.72rem',
             fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase',
@@ -2067,7 +2082,7 @@ export default function ProphetAtlas() {
                           }}
                         >
                           <span style={{
-                            width: '6px', height: '6px', borderRadius: '50%', flexShrink: 0,
+                            width: '6px', height: '6px', borderRadius: RADIUS.full, flexShrink: 0,
                             background: isMekki ? 'rgba(212,165,116,0.9)' : 'rgba(52,211,153,0.9)',
                           }} />
                           <span style={{
@@ -2321,7 +2336,7 @@ export default function ProphetAtlas() {
                       display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px',
                     }}>
                       <div style={{
-                        width: '10px', height: '10px', borderRadius: '50%',
+                        width: '10px', height: '10px', borderRadius: RADIUS.full,
                         background: p.color,
                         boxShadow: `0 0 8px ${p.glow}`,
                         flexShrink: 0,
@@ -2446,7 +2461,7 @@ export default function ProphetAtlas() {
                   borderRadius: RADIUS.pill,
                   color: isActive ? p.color : COLORS.slate500,
                   fontSize: '0.8rem', fontWeight: isActive ? 700 : 400,
-                  cursor: 'pointer', transition: 'all 0.2s',
+                  cursor: 'pointer', transition: `all ${TRANSITION.base}`,
                   boxShadow: isActive ? `0 0 12px ${p.glow}` : 'none',
                   fontFamily: FONTS.body,
                 }}
@@ -2951,11 +2966,11 @@ export default function ProphetAtlas() {
                     </div>
                     <div style={{ display: 'flex', gap: '14px' }}>
                       <span style={{ fontSize: '0.6rem', fontFamily: FONTS.body, color: COLORS.goldAlpha45, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        <span style={{ display: 'inline-block', width: '7px', height: '7px', borderRadius: '50%', background: COLORS.goldAlpha45 }} />
+                        <span style={{ display: 'inline-block', width: '7px', height: '7px', borderRadius: RADIUS.full, background: COLORS.goldAlpha45 }} />
                         {tr('Mekkî sûre', 'Meccan surah')}
                       </span>
                       <span style={{ fontSize: '0.6rem', fontFamily: FONTS.body, color: 'rgba(52,211,153,0.45)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        <span style={{ display: 'inline-block', width: '7px', height: '7px', borderRadius: '50%', background: 'rgba(52,211,153,0.45)' }} />
+                        <span style={{ display: 'inline-block', width: '7px', height: '7px', borderRadius: RADIUS.full, background: 'rgba(52,211,153,0.45)' }} />
                         {tr('Medenî sûre', 'Medinan surah')}
                       </span>
                     </div>

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
-import { COLORS } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 const GROUP_HIGHLIGHTS = [
   { term: 'Elif-Lâm-Mîm', color: COLORS.tealDark },
@@ -224,18 +224,35 @@ export default function LinguisticDNA() {
         </span>
       </motion.div>
 
-      {/* Title */}
+      {/* Title — Hero/Discovery parity: clamp ölçek + tight tracking + 60ch leash. */}
       <motion.h2
         variants={fadeUpItem}
-        className="font-display text-3xl md:text-5xl font-bold text-off-white mt-4 mb-6"
+        style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          marginTop: '12px',
+          marginBottom: '12px',
+          maxWidth: '60ch',
+          lineHeight: 1.15,
+          letterSpacing: '-0.01em',
+        }}
       >
         {t('linguisticDNA.title')}
       </motion.h2>
 
-      {/* Intro */}
+      {/* Intro — Hero baseline imzası: offWhiteAlpha78, clamp, lineHeight 1.7, tracking 0.01em. */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver text-lg leading-relaxed max-w-3xl mb-10"
+        className="max-w-3xl mb-10"
+        style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhiteAlpha78,
+          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+          lineHeight: 1.7,
+          letterSpacing: '0.01em',
+        }}
       >
         {highlightGroups(t('linguisticDNA.intro'))}
       </motion.p>
@@ -284,7 +301,7 @@ export default function LinguisticDNA() {
               style={{
                 width: '4rem',
                 height: '4rem',
-                borderRadius: '50%',
+                borderRadius: RADIUS.full,
                 background: 'radial-gradient(circle at center, rgba(212,165,116,0.14), rgba(212,165,116,0.04))',
                 border: '1.5px solid rgba(212,165,116,0.5)',
                 display: 'flex',
@@ -297,7 +314,7 @@ export default function LinguisticDNA() {
                 style={{
                   fontFamily: "'KFGQPC', 'Amiri Quran', serif",
                   fontSize: '1.6rem',
-                  color: '#e8c98a',
+                  color: COLORS.goldBright,
                   lineHeight: 1,
                   textShadow: '0 0 12px rgba(212,165,116,0.6)',
                 }}
@@ -307,7 +324,7 @@ export default function LinguisticDNA() {
             </motion.div>
           ))}
         </div>
-        <p className="text-center text-silver/60 text-sm font-body">
+        <p className="text-silver/60 text-sm font-body">
           {language === 'tr'
             ? 'Arap alfabesinin tam yarısı · 29 sûrenin açılışında · 14 farklı kombinasyon'
             : 'Exactly half the Arabic alphabet · Open 29 chapters · 14 unique combinations'}
@@ -614,7 +631,7 @@ export default function LinguisticDNA() {
             <>In <span style={{ color: '#d4a574' }}>25</span> of 29 Suras</>
           )}
         </p>
-        <p className="text-silver text-lg md:text-xl font-body mb-7 max-w-2xl mx-auto">
+        <p className="text-silver text-lg md:text-xl font-body mb-7 max-w-3xl">
           {language === 'tr'
             ? <>Kesik harflerin hemen ardından <span className="text-gold font-semibold">Kitab'a, Kur'an'a veya vahye</span> atıf geliyor</>
             : <>The mysterious letters are immediately followed by a reference to <span className="text-gold font-semibold">the Book, the Quran, or revelation</span></>}

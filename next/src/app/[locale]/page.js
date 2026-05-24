@@ -29,6 +29,7 @@ import HumanDefinition from '@/sections/HumanDefinition';
 import ToolsShowcase from '@/sections/ToolsShowcase';
 import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
+import ChapterProgress from '@/components/ChapterProgress';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -50,6 +51,7 @@ export default async function Home({ params }) {
   return (
     <>
       <JsonLd schemas={buildBreadcrumb(locale, '')} />
+      <ChapterProgress />
       <Hero />
       <PathCards />
       <AllTopics />

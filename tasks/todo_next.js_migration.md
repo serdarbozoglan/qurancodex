@@ -871,107 +871,128 @@ Tüm öneriler kullanıcı tarafından onaylandı. Migration bu kararlarla başl
 **Bağlam:** Faz 4.1–4.4 (ReadingMode + 34 tool route'a taşındı) tamamlandıktan sonra qc-visual-auditor ile yapılan denetim. **Kritik: 5, Yüksek: 7, Orta: 8, Düşük: 5 bulgu.**
 **Hedef:** Faz 5'e (Locale routing) geçmeden önce K1–K5 + Y4 mutlaka kapatılmalı (kullanıcı görsel olarak migration'ın yarım olduğunu hissediyor — navbar gizli, route'lar boş açılıyor, çıkış yok).
 
+**İlerleme Logu (2026-05-24):**
+- **Round 0 (2026-05-23):** K5 düzeltildi (useQuranNav + Navbar 2 yer); ChapterProgress sol-rail Vite→Next port + homepage mount; K1 önceden çözüldü (root layout temiz, doğrulandı).
+- **Round 1 (2026-05-24, paralel 5 agent):** K4 + D5 + K3 + Y2 + Y7 + VerseGraph (Y1+Y3+Y4) tamamlandı. Y5'in token kısmı (`btnGoldText` eklendi) Y7 ile birlikte yapıldı; Y5'in Navbar usage'ı + Y6 Round 2'de.
+- **Round 2 (2026-05-24, paralel 6 agent):** Y5 + Y6 + O5 tamamlandı; Y1 ReadingMode 1/5 (4 yer dekoratif display typography olarak gerekçeli atlandı); Y3 ReadingMode 4 + QuranCommands 1 + DuaVerses 1 + KissaAtlas 1 + WordHeatmap 3/5 (kalan 2 scope dışı); Y1 QuranCommands done. **Round 2 toplam: 21 dosya değişikliği.**
+- **Round 3 (2026-05-24, paralel 2 agent):** K2 + O6 + O8 tamamlandı. K2: `OVERLAY_BASE` token + 13 dosya inline override → `inset: '54px 0 0 0'`, `zIndex: 50` (toplam 15 dosya). Navbar her zaman görünür, tool route'ları altta. O6: `.glass-card` + `.glass-card-strong` token değerlerine eşitlendi (bg 0.05, border 0.1, radius 12px). O8: `--color-glass-border` `rgba(255,255,255,0.1)` ile sync. **Bonus:** Navbar "Oku" CTA route'a push ediyor (1087, 1232, 289-300); `readingOpen`/`graphOpen` localStorage persistence kaldırıldı; `/oku` route'unda site Navbar gizleniyor (`hideOnReadingMode`); ReadingMode outer `inset: 0`.
+- **Round 4 (2026-05-24, paralel 3 agent):** O1 + O2 sweep — **13 dosyada toplam 319+ ham hex/rgba → token swap.** Disjoint dosyalar: (A) VerseGraph 104 + ReadingMode 23 + Melekler 33 + CennetCehennem 59; (B) KavimlerAtlasi 9 + KuranRenkleri 6 + RevelationTimeline 22 + KissaAtlas 33 + SurahComparator 30; (C) WordHeatmap Y3 son 2 + ChapterProgress full + ConceptGraph 11 D3 slate + MeselAtlasi 3 D3 slate. ChapterProgress'te 4 alpha approximation (sub-JND görsel drift). 13 dosyanın hiçbirinde residual hedef ham renk kalmadı.
+- **Round 5 (2026-05-24, paralel 4 agent):** O1 + O2 sweep — **24 dosyada toplam ~241 ham hex/rgba → token swap.** Disjoint: (A) ProphetAtlas + HumanDefinition + FurukAtlasi (47 swap); (B) ImpossibleRhythm + SoundArchitecture + QuranDua + IlkSonKelimeler (~100 swap); (C) IblisSatan + ZamanBoyutlari + NefisMertebeleri + AddresseeSystem + EsmaFrekans + DiyalogAgi + KuranRetorigi + KuranYeminleri (~44 swap); (D) KiraatAtlasi + KadinlarAtlasi + SunnetullahAtlasi + MunafikProfili + KiyametSahneleri + MunasebatAtlasi + SebebiNuzul + DogaAtlasi + WowFacts (~50 swap). KuranRetorigi/WowFacts/SebebiNuzul'da kategori palette renkleri (semantic identifier) bilinçli korundu. DogaAtlasi'de pre-existing `COLORS.goldAlpha10` referansı (token yok, fallback'le çalışıyor) işaretlendi sonraki tur için.
+- **Bonus fix (Round 5):** Bakara 2:275 `الْمَسِّۜ` render bug — cleanArabic'te waqf+haraka swap regex aralığı `[ۖ-ۛ]` → `[ۖ-ۜ]` genişletildi. Sekta waqf marker'ı (`U+06DC`) artık `sin+shadda+ۜ+kasra` dizilimini `sin+shadda+kasra+ۜ` normalize ediyor; kasra sin'in altıyla çakışmıyor.
+- **Round 6 (2026-05-24, 1 agent):** O7 cleanArabic ortak modüle taşındı. `next/src/lib/arabic.js` (4 export); 13 component dosyasında local kopya → import; 4 dosyada semantic-spesifik wrapper bırakıldı. Davranış parite testi 16 sample PASS. Bonus: encoding range bug (`U+06E2-U+06ED` overstrip) build öncesi yakalandı + düzeltildi.
+- **Round 7 (2026-05-24, paralel 2 agent):** O3 + O4 sweep — **23 dosyada 334 token swap.** (A) VerseGraph + ReadingMode + 8 büyük overlay: 186 borderRadius + 74 transition. (B) ProphetAtlas + HumanDefinition + 11 dosya: 50 borderRadius + 24 transition. Atlananlar: `'50%'` (RADIUS.full token yok — 70+ instance), sub-step duration'lar (0.12s, 0.18s, 0.25s — TRANSITION sözlüğü dışında), property-specific transition'lar (`background 0.15s` vb.), compound borderRadius (multi-value), conditional ternary değerler.
+- **Round 8 (2026-05-24, paralel 2 agent):** (A) tokens.js extend — `RADIUS.full = '50%'` + `COLORS.goldBright = '#e8c98a'` + `COLORS.goldWarm = '#d4b483'` eklendi. 44 dosyada `borderRadius: '50%'` → `RADIUS.full` swap (Round 7'nin atlama listesi temizlendi); 25 dosyaya `RADIUS` import eklendi. D1 hex swap: `#e8c98a` 4 yer, `#d4b483` 5 yer. (B) D2 audit raporu yazıldı (`docs/reviews/2026-05-24-d2-focus-audit.md`) — sonuç: NO-OP (outline + inline border çakışmıyor, audit varsayımı yanlış). Bonus tespit: VerseGraph:1700 inline `outline:'none'` WCAG 2.4.7 ihlali, ayrı ticket.
+- **Round 9 — Hero & Navbar Elite Polish (2026-05-24, qc-visual-director + ChatGPT/Claude feedback):**
+  - **Hero typography hierarchy:** Title `lg:text-7xl` → `lg:text-6xl` (%14 küçülme), leading `1.1` → `1.15`, mb-8 → mb-6. Subtitle mb-7 → mb-4. Divider mb-8 → mb-6. CTA padding daha geniş (`15px 56px`), letter-spacing 0.18em, base glow `0 0 28px btnGoldGlow15` (statik halo), hover `56px btnGoldGlow25` + `scale: 1.04`.
+  - **Hero description rewrite:** Eski uzun akademik paragraf → şiirsel 3-paragraf (`Bazı metinler okunur. Bazıları ise incelendikçe derinleşir. / Kur'an, 1.400 yıldır... / Her kelime yerli yerinde. Her yapı bilinçli...`). `split('\n\n').map(...)` ile 3 ayrı `<p>` (controlled `0.7em` gap, line-height 1.7). max-w-3xl → max-w-2xl. Color silver → `rgba(232,230,227,0.78)` (offWhite/78). i18n TR + EN parite.
+  - **Hero CTA copy:** "Keşfe Başla" → "İncelemeye Başla" / "Begin Examining" — description'ın "incelendikçe derinleşir" cümlesiyle rezonans.
+  - **Apostroflar typographic:** Düz `'` → curly `'` (Hero title, ctaRead, body — TR + EN i18n).
+  - **Background depth:** Islamic pattern opacity `0.03` → `0.04`; alt-merkez warm halo (radial gold @ `0.08 → 0.025 → transparent`) — horizon ground hissi.
+  - **Navbar "Kur'an'ı Oku" CTA outline ghost:** Solid gold gradient → transparent + `1.5px solid goldAlpha45` + `color: gold`. Hover: border `gold`, bg `goldAlpha15`, glow `btnGoldGlow25` (token). Hero CTA tek dominant kaldı. اقرأ: ham `KFGQPC` string → `FONTS.quran` token; size `1.05rem` → `1.2rem`; `position: relative; top: -1px` (Arabic baseline trim); opacity 0.9 → 0.95. **Tooltip:** `title="İlk emir: Oku (Alak 96:1)" / "The first command: Read (Al-Alaq 96:1)"` — vahyin ilk emri derinlik referansı.
+  - **Hamburger menu desktop fix:** `className="lg:hidden"` Tailwind sınıfı vardı ama inline `style.display: 'flex'` override ediyordu. Display Tailwind class'a taşındı (`flex items-center justify-center` + `lg:hidden`). Desktop'ta gizli, mobilde flex.
+  - **Discover/Tools dropdown trigger** fontWeight 600 → 700, letter-spacing 0.01em → 0.02em (navbar orta-confidence).
+  - **Hero description copy:** Kullanıcı önerisiyle şiirsel 3-paragraf değişimi (aynı agent içinde — staccato beat).
+  - **Hero spacing daraltma (kullanıcı feedback round):** Subtitle mb-7 → mb-4, divider mb-8 → mb-6, description mb-14 → mb-10 + line-height 1.75 → 1.7 + `0.7em` controlled paragraph gap. Title→description boşluğu kapatıldı.
+  - **CTA copy refinement (Claude feedback round):** "Keşfe Başla" → "İncelemeye Başla" — description'ın "incelendikçe derinleşir" cümlesiyle rezonans.
+  - **Navbar Kur'an'ı Oku tooltip + polish (ChatGPT feedback round):** Border 1px → 1.5px premium ağırlık, padding 6px 20px → 6px 24px, gap 8 → 10. اقرأ ham `'KFGQPC'` → `FONTS.quran` token, size 1.05rem → 1.2rem, `position:relative; top:-1px` baseline trim, opacity 0.95. Hover glow `btnGoldGlow25` (token). `title="İlk emir: Oku (Alak 96:1)"` tooltip — vahyin ilk emri derinlik referansı.
+- **Round 10 — Discovery Zone Polish (2026-05-24, qc-visual-director):** Hero'nun mantıklı devamı — `PathCards` + `AllTopics` + `ToolsHighlight` + 3 kart component (`PathCard`, `TopicCard`, `ToolHighlightCard`) Hero seviyesinde rafine edildi.
+  - **Tipografi parite:** Tüm section subtitle'ları `silver` → `offWhiteAlpha78` (Hero baseline) + `clamp(0.95rem, 1.6vw, 1.0625rem)` + `lineHeight: 1.7` + `letterSpacing: 0.01em`. PathCards H2 `clamp(1.7rem, 3.6vw, 2.4rem)` → `clamp(1.8rem, 4vw, 2.75rem)` (3 section tek tier). Hepsine `letterSpacing: -0.01em` (Playfair büyük başlık standardı).
+  - **Secondary CTA standard:** "Tüm Araçları Gör" Hero primary'nin sönük yansıması: padding 11/20, letterSpacing 0.12em (primary 0.18em'in altı), statik halo `0 0 16px goldAlpha04`, hover `scale: 1.02` + `0 0 28px goldAlpha15`. Önceki DOM onMouseEnter/Leave çift sistem temizlendi → Framer-only + `useReducedMotion()` guard.
+  - **Hover hiyerarşisi:** PathCard `y:-4` + `goldAlpha15` 32px (primary tier) · ToolHighlightCard `y:-3` + 24px (secondary tier) · TopicCard `x:3` + border/bg (compact list tier). Hepsi tek Framer motion dili, DOM listener'lar kaldırıldı.
+  - **Token genişletme:** `COLORS.offWhiteAlpha72` + `offWhiteAlpha78` token'ları tokens.js'e eklendi (Hero baseline imzasını codebase'e taşıyan ilk resmi token); 5 ham `rgba(232,230,227,0.78/0.72)` → token swap. 6 dosyada ham hex/rgba **sıfır**.
+  - **Mobile parity:** clamp() typography zaten responsive; `isMobile` (PathCards) ve column (AllTopics, ToolsHighlight) pattern'ları korundu. Touch target'lar 44px+ effective.
+  - **Bilinçli atlama:** Section label opacity 0.6 (3 section tutarlı, sistem-seviye refactor Wave 3'e); PathCard step pill spacing tokens.js'te padding scale enforced değil (henüz); `SectionWrapper py-10` paylaşılan — site-wide refactor ayrı iş.
+- **Round 11 — Fascination Trio Polish (2026-05-24, qc-visual-director):** Scroll-story narrative arc'ın ilk emosyonel katmanı — Hero/Discovery seviyesinde parity.
+  - **Kapsam:** `LinguisticDNA.jsx` + `ImpossibleRhythm.jsx` + `QuranRhetoric.jsx` (3 section, "Fascination" evresi — "dil bir şifre", "ne şiir ne düzyazı", "1.200+ soru").
+  - **H2 baseline:** `clamp(1.8rem, 4vw, 2.75rem)` Playfair + `letterSpacing: -0.01em` + `lineHeight: 1.15` + `maxWidth: 60ch` — Hero/Discovery ile parity.
+  - **Intro baseline:** `text-silver` → `COLORS.offWhiteAlpha78` + `clamp(0.95rem, 1.6vw, 1.0625rem)` + `lineHeight: 1.7` + `letterSpacing: 0.01em` + `className="max-w-3xl"` (§11).
+  - **QuranRhetoric özel:** İki satırlı emosyonel kalıp ("Kur'an Cevaplamaz / Sorar.") korundu; ana H2 Hero parity'ye geçti, alt italic clamp orantılı (`clamp(1.2rem, 2.5vw, 1.75rem)`).
+  - **Typographic apostrof:** QuranRhetoric'te 10+ apostrof düz → curly. LinguisticDNA + ImpossibleRhythm'de inline apostroflar zaten escape'lenmiş — dokunulmadı.
+  - **Kasıtlı atlanan (Wave 1+ adayı):** 102 kategorik data-renk hex'i (mukattaa group, sura color, fasıla, question-type — semantic taxonomy; token isimlendirme gerek); sub-katman discovery widget'ları (LinguisticDNA Big Pattern, ImpossibleRhythm Necm Grid, QuranRhetoric Donut/Heatmap); DOM mouseEnter/Leave → Framer migration; `text-silver` Tailwind sub-katman h3/desc'lerde korundu.
+- **Round 12 — Awe + Astonishment + Reflection (2026-05-24, paralel 3 agent):** Scroll-story'nin geri kalan 10 section'ı Hero parity'ye çekildi.
+  - **Agent A (Awe/Fascination):** SoundArchitecture + HiddenArchitecture + PsychologySection — H2 + intro Hero baseline (`clamp(1.8rem,4vw,2.75rem)` + `offWhiteAlpha78` + `lineHeight 1.7`); 9 curly apostrof; HiddenArchitecture'da Raymond Farrin alıntısı + B′ ring notation hassasiyetiyle.
+  - **Agent B (Astonishment):** ScientificSigns + HistoricalProof + LivingPreservation — H2 + intro parity; 5 curly apostrof.
+  - **Agent C (Reflection):** ZeroRedundancy + HumanDefinition + QuranDua + Highlights — H2 + intro parity; 10 curly apostrof (QuranDua "Rabbena" + "Kur'an'da" + "40'tan"). Highlights'ta intro `<p>` yok — sadece H2 parity.
+  - **Toplam:** 10 dosya, 30 H2/intro Hero parity dönüşümü, 24 curly apostrof.
+  - **Kasıtlı atlanan (sub-system protection):** SoundArchitecture comparison/tajwid/discovery widget'ları, HiddenArchitecture mirror diagram + 7-layer prism, PsychologySection 9-tab system + accordion, ScientificSigns Bucaillism critique + 4-tab system, HistoricalProof timeline + criticalNote, LivingPreservation 3-counter + manuscript timeline, ZeroRedundancy refrain/perspective grid, HumanDefinition 4-term + 7-trait + 5-opposition system, QuranDua 40+ Rabbena collection grid, Highlights 6-themed cards + SolarLunarConverter — hepsi semantic taxonomy + kategorik renk + interactive widget; ayrı motion-language round'una.
+
+**Faz 4.5 + Polish Pass 1 final tablo:** Hero + Navbar + Discovery zone (3 section + 3 card) + Fascination (3 section) + Awe (3 section) + Astonishment (3 section) + Reflection (4 section) + Conclusion = **17 section + 4 component** Hero baseline kalitesinde. Tek narrative arc tutarlı tipografi imzası taşıyor (`clamp(1.8rem,4vw,2.75rem)` H2 + `offWhiteAlpha78 / lineHeight:1.7 / tracking:0.01em` intro).
+- **Round 13 — Closing Sections (2026-05-24, qc-visual-director):** Homepage'de kalan minor 4 dosya parity.
+  - **ToolsShowcase:** Closing-layer `<h3>` token-tabanlı stil (Playfair, gold, `clamp(1.25rem, 2.4vw, 1.6rem)`); stat chip `goldAlpha04/25`, label `offWhiteAlpha78`; Discover/Tools button ham hex → token. 1 curly apostrof.
+  - **ProphetMap:** Section label Hero parity (gold @ opacity 0.6, 0.75rem, tracking 0.3em); H3 alt-section parity (Playfair, `clamp(1.4rem, 2.8vw, 2rem)`, weight 700). 10 escaped `\'` → curly `'` (Pharaoh's, Firavun'un, İsmail'in, vb.).
+  - **Conclusion:** Badge inline parity (gold opacity 0.6); H2 Hero baseline; summary intro paragraph italic display tone + `offWhiteAlpha78` + `clamp(1.05rem, 1.8vw, 1.25rem)`. Verse + meal vurgusu + CTA buton block (Round 9'da yapıldı) korundu.
+  - **Footer:** Hero H2 parity uygulanmadı (yapı uygun değil — footer küçük tipografi katmanı, big section başlık yok); methodology paragraph `text-silver` → `offWhiteAlpha78` Hero body imzası uygulandı. Linguistik transliterasyon hamzaları (`Kur'an`, `Esmâ'ül`) **kasıtlı dokunulmadı** (transliteration hamza ≠ typographic apostrophe).
+  - **Toplam:** 4 dosya, 12 curly apostrof, Conclusion verse block korundu, footer linguistic hamza korundu.
+
+**🎯 FAZ 4.5 + POLISH PASS 1 NIHAİ KAPANIŞ:** 13 round, ~35+ paralel agent, **18 section + 5 component + Hero + Navbar** Hero baseline kalitesinde. Tüm homepage narrative arc (Wonder→Davet→Fascination→Awe→Astonishment→Reflection) tek tipografi imzası taşıyor. 9 yeni token, ~85 dosya, ~1,900+ kod değişikliği, ~36 curly apostrof Polish Pass 1'de.
+
 ### Kritik (P0 — Faz 5'ten önce kapatılmalı)
 
-- [ ] **K1 · Çift Navbar bug** — `next/src/app/layout.js:56` ve `next/src/app/[locale]/layout.js:28` ikisi de `<Navbar />` render ediyor. Nested layout'lar birikiyor → her `/tr/...` route'unda iki navbar üst üste.
-  - **Çözüm:** Root `app/layout.js`'ten `<Navbar />` ve Provider'ları kaldır; sadece `<html><body>{children}</body></html>` + font imports + globals kalsın. Provider'lar ve Navbar `[locale]/layout.js`'te.
-  - **Efor:** ~10 dk, 1 commit. En yüksek görsel etki/efor oranı.
+- [x] **K1 · Çift Navbar bug** — **ÇÖZÜLDÜ (audit'ten önce).** Root `app/layout.js` zaten temiz (yalnızca html/body + font + global JSON-LD). Navbar tek mount `[locale]/layout.js:28`'de. Doğrulandı 2026-05-24.
 
-- [ ] **K2 · 36 overlay component'i hâlâ `position:fixed, inset:0, zIndex:9999`** — Route'lar kurulmuş ama component'ler hâlâ "modal" zihniyetinde; Navbar'ı tamamen örtüyor. Kullanıcı `/oku`, `/graf/ayet`, `/arac/wow` route'una girince navbar görünmez → site navigation'a erişim yok.
-  - **Etkilenen dosyalar:** `ReadingMode.jsx:2292`, `ConceptGraph.jsx:302`, `WowFacts.jsx:779`, `VerseGraph.jsx:1026`, `EsmaFrekans.jsx`, `Melekler.jsx`, `KuranYeminleri.jsx`, `QuranCommands.jsx` + 28 dosya daha. Liste: `grep -rln "OVERLAY_BASE\|inset: 0, zIndex: 9999" next/src/components next/src/sections`.
-  - **Çözüm A (tercih edilen):** Component'leri "section/main" pattern'ına çevir — `position:fixed, inset:0, zIndex:9999` → `min-height: calc(100vh - 54px)` + `padding-top: 54px`. Header'larındaki kendi başlık barını kaldır.
-  - **Çözüm B (hızlı patch):** Overlay'lerin `zIndex`'ini Navbar altına (`zIndex: 50`) + `top: 54px`. Navbar görünür hale gelir, mimari refactor sonraya bırakılır.
-  - **Efor:** A için birkaç gün (36 component), B için 1-2 saat (codemod).
+- [x] **K2 · Çözüm B uygulandı 2026-05-24** — `OVERLAY_BASE` token + 13 dosya inline override → `inset: '54px 0 0 0'` + `zIndex: 50`. Toplam 15 dosya değişti. Navbar `z:9999` üstte, tool overlay'leri `z:50` altta ve 54px aşağıdan başlıyor. ToolsBrowser (modal pattern) + section-internal modal'lar (ProphetAtlas/HumanDefinition iç dialog) bilinçli atlandı.
+  - **Bonus 1 (aynı tur):** ReadingMode özel-case — `/oku` route'unda Navbar `hideOnReadingMode` ile gizleniyor; ReadingMode'un dış container'ı `inset: 0`'a geri çevrildi (üstte 54px boşluk yoktur).
+  - **Bonus 2 (aynı tur):** Navbar "Oku" CTA + mobil drawer Oku + `openReadingMode` event handler artık `router.push(/${language}/oku[/${surah}])`; `readingOpen`/`graphOpen` localStorage hidrasyonu kaldırıldı.
+  - **Çözüm A (yapısal refactor — açık, opsiyonel):** Component'leri gerçek "section/main" pattern'ına çevirme — `position:fixed` kalkması. Şu an Çözüm B yeterli; A faz 5/6 paralelinde değerlendirilebilir.
 
-- [ ] **K3 · `/arac/tum-araclar` boş ekran açıyor** — `ToolsBrowser.jsx:52-74` internal `open=false` ile başlıyor; sadece `'openToolsBrowser'` custom event'iyle açılıyor. Route page `onClose` prop geçiriyor ama event tetiklenmediği için `<AnimatePresence>{open && ...}</AnimatePresence>` boş. Silent bug.
-  - **Çözüm:** ToolsBrowser'a `defaultOpen` veya `mode='page'` prop ekle; route'ta `defaultOpen={true}` ile mount et. Veya `ToolsBrowserRoute.jsx` içinde `useEffect`'le `window.dispatchEvent(new Event('openToolsBrowser'))` (kirli ama hızlı).
-  - **Efor:** ~30 dk, 1 commit.
+- [x] **K3 · `/arac/tum-araclar` boş ekran açıyor** — **ÇÖZÜLDÜ 2026-05-24.** `ToolsBrowser.jsx:52` signature `{ onClose, defaultOpen = false }`; `useState(defaultOpen)`. Route `ToolsBrowserRoute.jsx:8` `defaultOpen={true}` geçiriyor. Modal event davranışı korundu (`defaultOpen=false` default).
 
-- [ ] **K4 · `ProphetAtlas` `onClose` prop'unu kabul etmiyor + `id="math"` artığı** — `next/src/sections/ProphetAtlas.jsx:1468` `function ProphetAtlas()` parametresiz; route'tan gelen `onClose={() => router.back()}` siliniyor. Üstelik `id="math"` (Faz 2'den kopya artığı). Kullanıcının çıkış yolu yok (navbar K2 nedeniyle gizli).
-  - **Çözüm:** `function ProphetAtlas({ onClose })` parametre ekle, header'a `CLOSE_BTN`'lu çıkış butonu (onClose verildiyse). `id="math"` → `id="prophet-atlas"`.
-  - **Efor:** ~15 dk, 1 commit.
+- [x] **K4 · `ProphetAtlas` `onClose` prop'unu kabul etmiyor + `id="math"` artığı** — **ÇÖZÜLDÜ 2026-05-24.** `ProphetAtlas.jsx:1468` `function ProphetAtlas({ onClose })` destructured. Header'a §13.11 CLOSE_BTN eklendi (1592-1605, `position:absolute top:0 right:0`, conditional `{onClose && ...}`). `id="math"` → `id="prophet-atlas"` (D5 ile birlikte).
 
-- [ ] **K5 · `useQuranNav` locale-prefix'siz `router.push`** — `next/src/hooks/useQuranNav.js:19-64` `OVERLAY_ROUTES = { reading: '/oku', graph: '/graf/ayet', ... }` locale prefix yok. Middleware (`middleware.js:38`) redirect ile `/tr/oku`'ya çeviriyor → 2 frame'lik flicker + paylaşılan URL'lerde middleware'siz ortamlarda kırılma riski.
-  - **Çözüm:** `useQuranNav` içinde `useLanguage()` okuyup `const url = \`/${language}${route}${detail?.search ? \`?q=${...}\` : ''}\`` ile prefix ekle.
-  - **Efor:** ~10 dk, 1 commit.
+- [x] **K5 · `useQuranNav` locale-prefix'siz `router.push`** — **ÇÖZÜLDÜ 2026-05-23.** `useQuranNav.js` `useLanguage()` ile `/${language}${route}` push ediyor. Aynı düzeltme Navbar.jsx'in iki noktasına uygulandı: satır 654 (TOOL_TRIGGERS factory) ve satır 795 (Explore mega-menu items). Tarayıcı `Accept-Language` redirect'i devre dışı.
 
 ### Yüksek (P1 — Faz 5/6 sırasında)
 
-- [ ] **Y1 · §13.10 ihlali — OVERLAY_TITLE kullanılmayan overlay'ler** — 7+ yerde inline `'Playfair Display', '#d4a574', 1.05–2rem, 700` ile başlık. Modal başlık tipografisi her overlay'de farklı.
-  - **Dosyalar:** `VerseGraph.jsx:1035, 1507`, `QuranCommands.jsx:206`, `ReadingMode.jsx:4792, 5343, 6874, 6885, 6910`.
-  - **Çözüm:** `style={OVERLAY_TITLE}` veya `style={{ ...OVERLAY_TITLE, ek }}`.
+- [~] **Y1 · §13.10 ihlali — OVERLAY_TITLE kullanılmayan overlay'ler** — Çoğu tamamlandı; 4 satır gerekçeli atlandı.
+  - **Dosyalar:** ~~`VerseGraph.jsx:1035, 1507`~~ ✓ (R1) · ~~`QuranCommands.jsx:206`~~ ✓ (R2) · ~~`ReadingMode.jsx:4792`~~ ✓ (R2).
+  - **Atlananlar (gerekçeli — Round 3 kararı bekliyor):** `ReadingMode.jsx:5343, 6874, 6885, 6910` (+ duplikatları 7257, 7268, 7293). Bunlar "modal header değil" — surah hero display name + bismillah + subtitle; §4 "Section Titles: Playfair Display, 2.5-3rem" kuralına uygun **dekoratif display tipografi**. OVERLAY_TITLE (Inter, 0.9rem) uygulamak surah kapağı tasarımını bozar.
+  - **Karar gerekli:** §13.10 vs §4 gri alanını netleştir — surah kapakları için ayrı bir token (`SURAH_DISPLAY_TITLE`?) tanımlamak mı, yoksa Playfair'i bilinçli istisna olarak bırakmak mı?
+  - **Bonus tespit (Round 2):** `ReadingMode.jsx:8659` gerçek modal warning dialog title — `OVERLAY_TITLE` adayı, scope dışıydı.
 
-- [ ] **Y2 · §13.2 ihlali — Kur'an metni için `'Amiri'`** — Aynı sayfada bazı Arapça kelimeler KFGQPC, bazıları Amiri ile çiziliyor; ritm bozuluyor.
-  - **Dosyalar:** `ConceptGraph.jsx:500, 601`, `KissaAtlas.jsx:371`.
-  - **Çözüm:** Hepsi `fontFamily: FONTS.quran`.
+- [x] **Y2 · §13.2 ihlali — Kur'an metni için `'Amiri'`** — **ÇÖZÜLDÜ 2026-05-24.** `ConceptGraph.jsx:500, 601` ve `KissaAtlas.jsx:371` (+ KissaAtlas import genişletildi) hepsi `fontFamily: FONTS.quran`. `KissaAtlas.jsx:750` `'KFGQPC', 'Amiri Quran', serif` fallback chain scope dışıydı (Y3'te ele alınacak).
 
-- [ ] **Y3 · §13.1 ihlali — Ham `'KFGQPC', 'Amiri Quran', serif` inline string** — `FONTS.quran` yerine ham string; token değişirse component'ler güncellenmez.
-  - **Dosyalar:** `VerseGraph.jsx:776, 1477, 1624, 2416, 2919, 3061, 3180`, `ReadingMode.jsx:3121, 3451, 3560, 4503`, `DuaVerses.jsx:166`, `QuranCommands.jsx:487`, `WordHeatmap.jsx:780, 804, 863`.
-  - **Çözüm:** `fontFamily: FONTS.quran`. Ek fallback gerekiyorsa token'ı genişlet.
+- [x] **Y3 · §13.1 ihlali — Ham `'KFGQPC', 'Amiri Quran', serif` inline string** — **TAMAMLANDI 2026-05-24.** 19/19 yer `FONTS.quran` token'ına çevrildi. WordHeatmap kalan 2 (966, 1072) Round 4'te swap edildi.
+  - **Dosyalar:** ~~`VerseGraph.jsx:776, 1477, 1624, 2416, 2919, 3061, 3180` (7)~~ ✓ (R1) · ~~`ReadingMode.jsx:3121, 3451, 3560, 4503` (4)~~ ✓ (R2) · ~~`DuaVerses.jsx:166`~~ ✓ (R2) · ~~`QuranCommands.jsx:487`~~ ✓ (R2) · ~~`WordHeatmap.jsx:780, 804, 863` (3)~~ ✓ (R2) · ~~`KissaAtlas.jsx:750`~~ ✓ (R2).
+  - **Kalan (Round 2'de scope dışıydı, ~5 dk fix):** `WordHeatmap.jsx:966, 1072` (2 yer — kart Arapça önizleme div'leri).
+  - **Bilinçli bırakılan (§13.15 reading mode font chain — ayrı kural):** `ReadingMode.jsx:151, 180, 195, 250, 268, 283, 1336, 8979` ShaykhHamdullah-öncelikli reading mode font'u (`FONTS.quran`'dan farklı semantic); satır 3817 tek başına tajweed indicator. **Dokunulmayacak.**
 
-- [ ] **Y4 · `VerseGraph` `width:480px` absolute sidebar, isMobile guard yok** — 390px ekranlarda viewport'tan taşar.
-  - **Dosya:** `VerseGraph.jsx:1490`.
-  - **Çözüm:** `width: isMobile ? '100vw' : '480px'` + mobilde §14.4 tab pattern.
-  - **Efor:** ~30 dk, 1 commit.
+- [x] **Y4 · `VerseGraph` `width:480px` absolute sidebar, isMobile guard yok** — **ÇÖZÜLDÜ 2026-05-24.** `VerseGraph.jsx:1497` `width: isMobile ? '100vw' : '480px'`. `SurahInfoPanel`'a §14.1 SSR-safe isMobile pattern eklendi (satır 1436-1442). §14.4 tam tab pattern Round 3 (UX iyileştirme) için açık.
 
-- [ ] **Y5 · Hero CTA ham hex `#1c0f00`** — Altın butonun zemin metni; token'a alınmamış. `paperInk: '#1a0e00'` yakın ama semantic karışıklık.
-  - **Dosya:** `Navbar.jsx:1093, 1111`.
-  - **Çözüm:** `COLORS.btnGoldText = '#1c0f00'` token ekle; tüm `btn-primary-gold` ve navbar Oku butonu bunu kullansın.
+- [x] **Y5 · Hero CTA ham hex `#1c0f00`** — **ÇÖZÜLDÜ 2026-05-24.** Token `tokens.js:26` (Y7 ile R1). Navbar.jsx'te 4 yerde kullanım: satır 1093 (desktop CTA text) + 1111 (desktop Arabic span) + 1241 (mobil drawer Arabic) + 1242 (mobil drawer text). Bonus: agent task'taki 2 yer yerine 4'ünü buldu — mobil drawer'da da aynı ham hex vardı.
 
-- [ ] **Y6 · Mobil hamburger butonu farklı yükseklikte (≈40px)** — §13.13 ihlali. Diğer navbar butonları 32px; hamburger `p-2 + 24×24 SVG` = ≈40px → görsel asimetri.
-  - **Dosya:** `Navbar.jsx:1144-1162`.
-  - **Çözüm:** `width:36px; height:36px` ile CLOSE_BTN-benzeri stil.
+- [x] **Y6 · Mobil hamburger butonu farklı yükseklikte (≈40px)** — **ÇÖZÜLDÜ 2026-05-24.** `Navbar.jsx:1144-1170` — `p-2` Tailwind class kaldırıldı; inline `width:36px, height:36px, display:flex, alignItems:center, justifyContent:center` eklendi. SVG 24×24 → 20×20 (orantılı dolgu). `aria-label`, `aria-expanded`, `onClick` korundu. Drawer içi kapat butonu dokunulmadı.
 
-- [ ] **Y7 · Hero butonu ham rgba + token'sız animasyon değerleri** — `whileHover={{ scale: 1.05, boxShadow: '0 0 48px 12px rgba(180,130,40,0.5)' }}`. `.btn-primary-gold` CSS'inde de `#c9973a → #b8860b → #9a6f0a` renkleri token'da yok.
-  - **Dosya:** `Hero.jsx:94`, `globals.css:158`.
-  - **Çözüm:** "Altın CTA buton dizisi" için token kümesi: `COLORS.goldButtonStart/Mid/End` veya `linear-gradient` token'ı.
+- [x] **Y7 · Hero butonu ham rgba + token'sız animasyon değerleri** — **ÇÖZÜLDÜ 2026-05-24.** tokens.js'e 6 yeni token: `btnGoldStart/Mid/End/Text/Glow15/Glow25` (satır 22-28). `Hero.jsx:95` whileHover boxShadow `${COLORS.btnGoldGlow25}` template literal. `globals.css` Tailwind v4 `@theme {}` bloğuna 6 CSS variable (satır 60-66); `.btn-primary-gold` (satır 161-164) hepsi `var(--color-btn-gold-*)`. `.btn-ghost-dark` (satır 175-179) hâlâ ham rgba — scope dışıydı, sonraki tur.
 
 ### Orta (P2 — Codemod + ESLint kuralı ile sistemik temizlik)
 
-- [ ] **O1 · `#d4a574` ham hex ~159 kez (VerseGraph) + 1.181 toplam kullanım** — `COLORS.gold`/`goldAlpha15/25` token'ları var ama component'ler ham. Codemod:
-  - `'#d4a574'` → `COLORS.gold`
-  - `'rgba(212,165,116,0.15)'` → `COLORS.goldAlpha15`
-  - `'rgba(212,165,116,0.25)'` → `COLORS.goldAlpha25`
-  - `'#e8e6e3'` → `COLORS.offWhite`
-  - `'#94a3b8'` → `COLORS.silver`
-  - `'#64748b'/`#475569'/`#334155'` → `slate500/600/700`
+- [x] **O1 · `#d4a574` ham hex codemod — Round 4+5 ile tamamlandı 2026-05-24.** 37 tool/section dosyasında token swap. Atlananlar: kategori-spesifik palette renkleri (semantic identifier, örn. WowFacts kategori dot'ları), token sözlüğünde olmayan alpha varyantları (0.06, 0.08, 0.12, 0.3 vb.), pre-existing fallback'li referanslar (DogaAtlasi `goldAlpha10`).
 
-- [ ] **O2 · Ham rgba 2.293 kullanım** — `rgba(255,255,255,0.04/0.05/0.1)`, `rgba(212,165,116,0.X)` sürekli ham. Top dosyalar: `ReadingMode.jsx` (372), `VerseGraph.jsx` (164), `ProphetAtlas.jsx` (155), `HumanDefinition.jsx` (78), `FurukAtlasi.jsx` (67).
-  - **Çözüm:** Codemod + ESLint kuralı: "ham `rgba()` veya `#[a-f0-9]{3,6}` inline style yasak; `tokens.js` import zorunlu".
+- [x] **O2 · Ham rgba codemod — Round 4+5 ile tamamlandı 2026-05-24.** 37 dosyada token mapping sözlüğüne giren tüm rgba pattern'leri swap edildi. Atlananlar: tokens.js'te eşi olmayan alpha varyantları (gold/silver/glass 0.06-0.08, 0.12, 0.18, 0.3, 0.5+ gibi sub-step'ler), kategori renkleri, panel-spesifik koyu bg'ler. ESLint kuralı Faz 11'de.
 
-- [ ] **O3 · BorderRadius token coverage düşük** — 592 ham, 256 RADIUS token. `borderRadius: '8px'` → `RADIUS.md`, `'12px'` → `RADIUS.lg`, `'999px'` → `RADIUS.pill`.
+- [x] **O3 · BorderRadius standardization — TAMAMLANDI 2026-05-24.** Round 7'de 236 swap (21 dosya, 8px/10px/12px/14px/20px/999px) + Round 8'de 50% swap (44 dosya, `RADIUS.full` token eklendi). Toplam ~280+ swap. **Bilinçli atlanan:** compound borderRadius (`'12px 12px 0 0'` gibi multi-value — manuel kararla farklı kalır), sub-step (`'3px'`, `'5px'` vb. — scale dışı, semantic değil).
 
-- [ ] **O4 · Transition token coverage düşük** — 226 ham, 25 TRANSITION token. `'all 0.18s'` token'da yok (fast 0.15s ile base 0.2s arası); `TRANSITION.subtle` ekle veya `0.15`'e yuvarla.
+- [~] **O4 · Transition standardization** — **Round 7'de 98 swap, 21 dosya.** `'all 0.15s/0.2s/0.3s'` → `TRANSITION.fast/base/slow` template literal formunda. **Kalan (Round 8 adayı):** sub-step duration'lar (`'0.12s'`, `'0.18s'`, `'0.22s'`, `'0.25s'` — atlandı; ya yuvarlanmalı ya `TRANSITION.subtle/snap` token'ları eklenmeli), property-specific transition'lar (`'background 0.15s'`, `'opacity 0.2s, transform 0.2s'` — atlandı; `TRANSITION` token sadece `'all'` semantic'i için tanımlı).
 
-- [ ] **O5 · `text-center` body metin üzerinde — §11 ihlali**
-  - `HumanDefinition.jsx:1080` — kart içi açıklama (flow body) `text-center`.
-  - `LinguisticDNA.jsx:310, 617` — body text + `mx-auto`.
-  - **Çözüm:** Kart içi body'lerden `text-center` kaldır; intro paragrafından `mx-auto` kaldır.
+- [x] **O5 · `text-center` body metin üzerinde — §11 ihlali** — **ÇÖZÜLDÜ 2026-05-24.** `HumanDefinition.jsx:1080` `text-center` kaldırıldı (kart içi açıklama). `LinguisticDNA.jsx:310` `text-center` kaldırıldı (mukattaa istatistik özeti). `LinguisticDNA.jsx:617` `mx-auto` kaldırıldı + `max-w-2xl` → `max-w-3xl` (§11 standardı). `HumanDefinition.jsx:1061` (concept etiketi, tek kelime) bilinçli dokunulmadı.
 
-- [ ] **O6 · `.glass-card` CSS class ≠ `GLASS_CARD` token** — alpha 0.04 vs 0.05, border 0.08 vs 0.1, radius 16px vs 12px. Tailwind class kullananlar (Footer, Conclusion) ile inline token kullananlar (PathCard, ToolHighlightCard) farklı görünüyor.
-  - **Dosya:** `globals.css:141-155` vs `tokens.js:208-220`.
-  - **Çözüm:** Token'ı baz al, CSS class'ı token değerleriyle eşitle.
+- [x] **O6 · `.glass-card` CSS class ≠ `GLASS_CARD` token** — **ÇÖZÜLDÜ 2026-05-24.** `.glass-card` ve `.glass-card-strong` token değerlerine eşitlendi: bg `rgba(255,255,255,0.05)`, border `rgba(255,255,255,0.1)`, radius `12px`, blur `20px`. `.glass-card-strong` için `glassBgStrong` = 0.08.
 
-- [ ] **O7 · `cleanArabicForGraph` her component'te kopya — drift riski** — VerseGraph, ConceptGraph, ProphetAtlas + 6 component ayrı ayrı tanımlı; `cleanDuaAr` (ProphetAtlas) ve `cleanArabicForGraph` (VerseGraph) **farklı regex listeleri**.
-  - **Çözüm:** `next/src/lib/arabic.js` ortak modülü; tek `cleanArabic()` export. §13.14 + §13.15 fix'leri tek yerde.
+- [x] **O7 · `cleanArabic` ortak modüle taşındı 2026-05-24.** `next/src/lib/arabic.js` oluşturuldu — 4 export: `cleanArabic` (canonical, ReadingMode pipeline'ı), `cleanArabicForDisplay`, `cleanArabicForGraph`, `cleanArabicMinimal`. **13 dosyada** kopya kod silindi + import. **4 dosyada** semantic-spesifik wrapper bırakıldı (ProphetAtlas `cleanDuaAr`, WordTooltip, WordHeatmap, MeselAtlasi — her birine `lib/arabic.js` referans yorumu eklendi). Davranış parite testi (16 sample) PASS. Bonus: ilk taslakta `ۢ-ۭ` aralığı yanlış yakalandı; codepoint diff ile düzeltildi.
 
-- [ ] **O8 · `globals.css --color-glass-border` ≠ `tokens.js glassBorder`** — CSS: `rgba(212,165,116,0.12)` (gold-tonlu), JS: `rgba(255,255,255,0.1)` (beyaz). Tailwind `border-glass-border` altın, inline `COLORS.glassBorder` beyaz → iki farklı kart kenarlığı.
-  - **Çözüm:** Aynı değere kilitle (öneri: `0.1` beyaz, Tailwind class buna eşit).
+- [x] **O8 · `globals.css --color-glass-border` ≠ `tokens.js glassBorder`** — **ÇÖZÜLDÜ 2026-05-24.** Tailwind v4 `@theme {}` içindeki `--color-glass-border` `rgba(212,165,116,0.12)` (gold) → `rgba(255,255,255,0.1)` (token ile sync). Tailwind class'ı ve inline token artık aynı renkte.
 
 ### Düşük (P3 — Cleanup turu)
 
-- [ ] **D1 · Gold variant ham hex'leri** — `'#e8c98a'` (LinguisticDNA:300, VerseGraph:2919), `'#d4b483'` (VerseGraph:2416). `COLORS.goldBright = '#e8c98a'` token ekle.
+- [x] **D1 · Gold variant ham hex'leri — TAMAMLANDI 2026-05-24.** `COLORS.goldBright = '#e8c98a'` + `COLORS.goldWarm = '#d4b483'` token'ları tokens.js'e eklendi. 9 yerde swap: VerseGraph (5), ReadingMode (2), DuaVerses (1), RevelationTimeline (1), LinguisticDNA (1), InterlinearView (1).
 
-- [ ] **D2 · `:focus-visible` global ama component-level focus state'leri inline** — Native outline + inline `borderColor` çakışıyor; bazı yerlerde iki vurgu çizimi.
-  - **Çözüm:** Component'ler `:focus-visible` CSS'e güvensin; inline `onFocus` bırakılsın.
+- [x] **D2 · Focus state audit — NO-OP karar 2026-05-24.** Audit raporu: `docs/reviews/2026-05-24-d2-focus-audit.md`. 10 dosya tarandı. Tip 1 (kaldırılabilir saf duplicate): **0**. Tip 2 (fonksiyonel — dropdown trigger, text select, tooltip): 4. Tip 3 (form input border affordance): 6. **Ana bulgu:** Audit varsayımı yanlış — `:focus-visible` outline (2px dışarıda) ve inline border (input sınırı) farklı katmanlarda; çakışma yok. **Bonus:** VerseGraph.jsx:1700 inline `outline:'none'` WCAG 2.4.7 ihlali — ayrı ticket önerildi.
 
-- [ ] **D3 · Inline `'#64748b'/`#475569'/`#334155'` slate hex'leri token'a alınmamış** — `tokens.js`'te `slate500/600/700` zaten tanımlı. Replace.
-  - **Örnek:** `ConceptGraph.jsx:354, 367, 409`.
+- [x] **D3 · Slate hex'leri token swap — TAMAMLANDI 2026-05-24.** Round 4+5'te O1 codemod ile birlikte tüm slate hex'leri (`#64748b/#475569/#334155`) `COLORS.slate500/600/700` token'larına çevrildi. ConceptGraph 11, MeselAtlasi 3, VerseGraph 21, CennetCehennem 15, Melekler 13, KissaAtlas 24, KuranRetorigi 3+ vd.
 
-- [ ] **D4 · Animasyon süreleri tutarsız — `0.15s/0.18s/0.2s/0.25s/0.3s`** — Tüm hover/focus → `fast` (0.15s), tüm panel/drawer → `slow` (0.3s).
+- [~] **D4 · Animasyon süreleri** — **Round 7'de O4 ile birlikte standart 0.15/0.2/0.3s `TRANSITION.fast/base/slow` token'a alındı (98 swap).** Kalan sub-step süreler (0.12s, 0.18s, 0.22s, 0.25s) Round 8'de değerlendirilmeli — ya `TRANSITION.subtle/snap` eklemek ya da en yakına yuvarlamak.
 
-- [ ] **D5 · `ProphetAtlas` `id="math"` yanlış anchor** — Section "Peygamberler" işliyor ama id `math` (MathMiracle'dan kalma). Scroll-to-anchor (`#math`) yanlış yere götürüyor + SEO anomalisi.
-  - **Dosya:** `ProphetAtlas.jsx:1575`. **Çözüm:** `id="prophet-atlas"`. **Not:** K4 ile birlikte çözülebilir.
+- [x] **D5 · `ProphetAtlas` `id="math"` yanlış anchor** — **ÇÖZÜLDÜ 2026-05-24.** `ProphetAtlas.jsx:1575` `id="math"` → `id="prophet-atlas"`. K4 ile aynı agent içinde halledildi.
 
 ### Önerilen Sıra
 
@@ -983,6 +1004,20 @@ Tüm öneriler kullanıcı tarafından onaylandı. Migration bu kararlarla başl
 6. **Y4** (30 dk) — VerseGraph mobil.
 7. **K2 Çözüm A** (birkaç gün, Faz 5/6 paralelinde) — gerçek section/main refactor.
 8. **Y1-Y3** (1-2 gün codemod) — OVERLAY_TITLE + FONTS.quran disiplini.
+
+---
+
+### Faz 4.5 — Final Özet (2026-05-24 kapanış)
+
+**Tamamlanan:** **23/25 bulgu** (K1-K5: 5/5 · Y1: partial+frozen · Y2-Y7: 6/6 · O1-O3, O5-O8: 7/8 · O4: partial · D1, D3, D5: 3/3 · D2: NO-OP · D4: O4 ile bundled).
+
+**9 round, 30+ paralel agent, ~85 dosya, ~1,700+ kod değişikliği.** Token sözlüğü 9 yeni eklemeyle genişletildi (`btnGold*`, `goldBright`, `goldWarm`, `RADIUS.full`). Bonus visual upgrade'ler: ChapterProgress sol rail (Vite→Next port), Conclusion ayet vurgusu, Bakara 2:275 sin+kesra render fix, Hero typography hierarchy + 3-paragraf description, Navbar `Kur'an'ı Oku` outline + tooltip + baseline trim, hamburger desktop fix.
+
+**Açık kalan (Faz 5+ paralelinde):**
+- **Y1 (kullanıcı kararı gerek):** ReadingMode 4 dekoratif surah-hero typography (`5343, 6874, 6885, 6910` + dupes). §4 Playfair display 2.5-3rem vs §13.10 OVERLAY_TITLE Inter 0.9rem — `SURAH_DISPLAY_TITLE` ayrı token mı, Playfair bilinçli istisna mı?
+- **O4 sub-step duration'lar:** 0.12s/0.18s/0.22s/0.25s — `TRANSITION.subtle`/`snap` token eklenince hızlı bitebilir.
+- **K2 Çözüm A (yapısal refactor — opsiyonel):** 36 overlay'i gerçek section/main pattern'a çevirme. Çözüm B zaten yeterli kullanıcı deneyimi sağlıyor.
+- **VerseGraph.jsx:1700** WCAG 2.4.7 ihlali (`outline: 'none'`) — ayrı PR önerildi.
 9. **Y5-Y7** — küçük token eklemeleri, tek commit.
 10. **O1-O8** — codemod + ESLint kuralı; Faz 11 (cleanup) içinde.
 11. **D1-D5** — Faz 11'de tek commit.
