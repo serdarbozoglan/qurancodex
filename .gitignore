@@ -58,3 +58,6 @@ next/.vercel/
 docs/reviews/playwright-*/desktop/
 docs/reviews/playwright-*/mobile/
 docs/reviews/playwright-*/raw-results.json
+
+# Audit screenshot snapshots — regenerable, large; keep .md reports only
+docs/screenshots/

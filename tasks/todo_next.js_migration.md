@@ -6,6 +6,19 @@
 
 ---
 
+## Tamamlanan
+
+- [x] Faz 0, 0.5, 1, 2, 3
+- [x] Faz 4 (4.1-4.5)
+- [x] Wave 14-17
+- [x] Faz 5, 6
+- [x] Faz 7 core
+- [x] Faz 8.1, 8.2, 8.4
+- [x] Faz 9.2, 9.4
+- [x] Faz 11.2
+
+---
+
 ## Mimari Kararlar (sabit referans — 2026-05-21 kullanıcı onayı)
 
 - **Router:** App Router (Next.js 16)
