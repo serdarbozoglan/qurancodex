@@ -158,6 +158,8 @@ export const COLORS = {
   backdropDim:   'rgba(0,0,0,0.50)',
   // Heavier shadow for floating panels (PathBreadcrumb, modals)
   panelShadow:   'rgba(0,0,0,0.50)',
+  // Medium-elevation shadow color for card hover lift (BigToolCard etc.)
+  shadowCardHover: 'rgba(0,0,0,0.25)',
 };
 
 // ── Fonts ─────────────────────────────────────────────────────────────────────

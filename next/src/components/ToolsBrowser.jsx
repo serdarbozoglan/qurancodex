@@ -557,12 +557,19 @@ function BigToolCard({ tool, onClick, language, fullWidth = false }) {
         width: '100%',
         height: '100%', // fill the grid cell so siblings in the same row match heights
         minHeight: '170px',
-        transition: 'all 0.2s',
+        // Baseline: no lift, no shadow. Hover handler adds both for a subtle
+        // modern card-lift effect. Explicit transform/box-shadow in the
+        // transition list (instead of 'all') keeps the hover transition
+        // crisp without animating color jumps on background/border swap.
+        transform: 'translateY(0)',
+        boxShadow: 'none',
+        transition: 'transform 0.2s ease, box-shadow 0.2s ease, background 0.2s, border-color 0.2s',
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.background = COLORS.goldAlpha04;
         e.currentTarget.style.borderColor = COLORS.goldAlpha45;
         e.currentTarget.style.transform = 'translateY(-2px)';
+        e.currentTarget.style.boxShadow = `0 8px 24px ${COLORS.shadowCardHover}`;
         e.currentTarget.querySelector('.bti').style.color = COLORS.gold;
         e.currentTarget.querySelector('.btl').style.color = COLORS.gold;
       }}
@@ -570,6 +577,7 @@ function BigToolCard({ tool, onClick, language, fullWidth = false }) {
         e.currentTarget.style.background = COLORS.glassBgFaint;
         e.currentTarget.style.borderColor = COLORS.glassBorderSoft;
         e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.boxShadow = 'none';
         e.currentTarget.querySelector('.bti').style.color = COLORS.gold;
         e.currentTarget.querySelector('.btl').style.color = COLORS.offWhite;
       }}

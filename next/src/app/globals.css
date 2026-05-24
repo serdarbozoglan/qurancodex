@@ -361,7 +361,7 @@ body {
    z-index 10003 ensures it sits above Navbar (9999) and mobile menu (10001-10002). */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: 0;
   left: 0;
   background: var(--color-gold);
   color: var(--color-cosmic-black);
@@ -371,11 +371,15 @@ body {
   text-decoration: none;
   border-radius: 0 0 8px 0;
   font-family: var(--font-body);
-  transition: top 0.15s ease-out;
+  /* transform translate Y -100% ile element her zaman tamamen viewport üstünde;
+     `top: -40px` bug'ı (padding + line-height ile element ~45px, dolayısıyla
+     bottom edge viewport'a 5px sızıyordu) bu pattern'le tamamen elimine. */
+  transform: translateY(-100%);
+  transition: transform 0.15s ease-out;
 }
 .skip-link:focus,
 .skip-link:focus-visible {
-  top: 0;
+  transform: translateY(0);
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }

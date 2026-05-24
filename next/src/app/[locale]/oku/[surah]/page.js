@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb, buildArticle, quranBook } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
@@ -35,35 +36,33 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const { locale, surah } = await params;
   const s = parseInt(surah, 10);
-  const valid = !Number.isNaN(s) && s >= 1 && s <= 114;
-  const nameTr = valid ? (SURAH_NAMES_TR[s - 1] || `Sure ${s}`) : 'Sure';
+  if (Number.isNaN(s) || s < 1 || s > 114) {
+    notFound();
+  }
+  const nameTr = SURAH_NAMES_TR[s - 1] || `Sure ${s}`;
   const isEN = locale === 'en';
-  const title = valid
-    ? (isEN ? `${nameTr} (Surah ${s})` : `${nameTr} — Sure ${s}`)
-    : 'Sure Bulunamadı';
-  const description = valid
-    ? (isEN
-        ? `Surah ${nameTr} (${s}) — full recitation, tajweed, tafsir, and word-level interlinear.`
-        : `${nameTr} suresinin tam okuması, tajweed, tefsir paneli ve interlinear çeviri.`)
-    : '';
+  const title = isEN ? `${nameTr} (Surah ${s})` : `${nameTr} — Sure ${s}`;
+  const description = isEN
+    ? `Surah ${nameTr} (${s}) — full recitation, tajweed, tafsir, and word-level interlinear.`
+    : `${nameTr} suresinin tam okuması, tajweed, tefsir paneli ve interlinear çeviri.`;
   return (
     <>
       <JsonLd
         schemas={[
-          buildBreadcrumb(locale, `/oku/${s || surah}`, title),
+          buildBreadcrumb(locale, `/oku/${s}`, title),
           buildArticle({
             locale,
-            path: `/oku/${s || surah}`,
+            path: `/oku/${s}`,
             title,
             description,
             isPartOf: quranBook(),
-            position: valid ? s : undefined,
+            position: s,
           }),
         ]}
       />
       <PageHeading title={title} description={description} />
       <SurahPagination locale={locale} surah={surah} />
-      <ReadingModeRoute initialSurah={valid ? s : undefined} />
+      <ReadingModeRoute initialSurah={s} />
     </>
   );
 }

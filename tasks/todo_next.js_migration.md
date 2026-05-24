@@ -1,7 +1,11 @@
 # QuranCodex Next.js Migration — Yol Haritası
 
 > **Branch:** `migration-to-next.js`
-> **Mevcut durum (2026-05-24):** Migration ~%95 pre-deploy hazır. Production build PASS, 8 hot route benchmark <1s avg (0 console error). Faz 0-9 functional + SEO done, 35 tool bilingual metadata, Wave 16 hydration fixes. Faz 10 cutover'a hazır.
+> **İlerleme (2026-05-24):**
+> - **Pre-deploy core migration:** ~%95 ✓ (Faz 0-9 done, deploy edilebilir)
+> - **Toplam aksiyon item'ı:** 26 done / 79 open = **%25** (Faz 12 post-cutover content writing dahil)
+> - **Cutover-blocker olmayan kalanlar:** Wave 20-24 polish + Faz 12 content & growth (90-day roadmap)
+> - **Production build PASS**, 8 hot route benchmark <1s avg (0 console error).
 > **Tamamlanan faz ve wave detayları için:** git log + `docs/reviews/` + CLAUDE.md §16 Next.js patterns.
 
 ---
@@ -98,7 +102,7 @@ Kaynak: `tasks/todo_enhancement.md` II. Önemli
 - [x] **W20-Ö6 · SurahPagination visible navigation** — `srOnly` prop eklendi (default `true` backward compat). `srOnly={false}` ile visible grid (2 col → mobile stack), arrow + sure adı + (Sure N), hover gold transition, edge cases (Fatiha/Nas). page.js wiring sonraki turda.
 - [x] **W20-Ö7 · ScientificSigns "Devamını oku" default expanded** — `expandedTabs` initial state `{ iron: true, universe: true, ocean: true, embryo: true }`. Toggle korundu (kullanıcı isterse collapse edebilir). Build PASS.
 - [x] **W20-Ö8 · KissaAtlas sahne sayısı tutarsızlığı** — audit yanlış yorumlamış: ekrandaki "3" sahne sayısı değil `surahCount`'tu (Musa 32 sure'de geçer). Mevcut sahneler zaten zengin (12-18). Yine de +13 sahne eklendi: Yusuf 12→18, İbrahim 14→18, İsa 11→14.
-- [ ] **W20-Ö9 · `/kaynakca` route** — detaylı bibliyografya, footer'da top 5 + "Tüm kaynaklar →" (F12-X3 ile birleşik)
+- [x] **W20-Ö9 · `/kaynakca` route** — 7 kategori 47 kaynak (Tefsir Klasik 7 + Modern 6 + Akademik 11 + Belağat 5 + Hadis/Siyer 6 + Bilim tartışmalı 3 + Yazılım/Veri 7). page.js + KaynakcaRoute.jsx (668L) bilingual. Footer link ekleme sonraki turda.
 - [x] **W20-Ö10 · ToolsBrowser search empty state** — search input + 6 popüler chip (TR: dua, esma, kıssa, peygamber, ayet, mucize / EN: prayer, names of god, story, prophet, verse, miracle). Locale-reactive, `!query` koşulu ile chip'ler boş arama'da görünür.
 
 ---
@@ -110,7 +114,7 @@ Kaynak: enhancement III. Polish. Batched sprint.
 - [x] **W21-P1** Hero CTA padding clamp 32-56 → 44-68 (+12px), hover 200ms ease inline (Tailwind `duration-300` kaldırıldı, çakışma engellendi)
 - [ ] **W21-P2** Karaoke highlight 80ms → 150ms ease-in-out
 - [ ] **W21-P3** Page turn glyph subtle parallax
-- [ ] **W21-P4** Tool card hover `translateY(-2px)` + box-shadow lift
+- [x] **W21-P4** Tool card hover lift — ToolsBrowser `BigToolCard` `translateY(-2px)` + `COLORS.shadowCardHover` (yeni token: 0 8px 24px rgba(0,0,0,0.25)) + explicit transition prop list (transform + box-shadow + background + border-color)
 - [x] **W21-P5** Footer link hover gold/30 underline — `hover:underline hover:decoration-gold/30 hover:underline-offset-[3px]` hem internal nav hem Sources link'lerine
 - [x] **W21-P6** Hamburger drawer 250ms easeInOut → 200ms cubic-bezier [0.4, 0, 0.2, 1] (Material Design standard easing) via framer-motion
 - [x] **W21-P7** Particle count `100 → isMobile ? 15 : 40` via ParticleBackground prop. SSR-safe isMobile (§16.6 useState(false) + useEffect)
@@ -130,7 +134,7 @@ Kaynak: enhancement IV. UX. Audit + fix gerekli.
 - [ ] **W22-U2** Browser back: tool overlay → homepage (`onClose router.push('/')` doğrula)
 - [ ] **W22-U3** Keyboard nav tab order + focus trap on modal open + restore on close
 - [ ] **W22-U4** Escape key tool overlay close — tüm tool'larda?
-- [ ] **W22-U5** Empty states: `/oku/200` 404 not-found.jsx, ConceptGraph empty data, API meal fail toast
+- [~] **W22-U5** Empty states — **`/oku/[surah]` partial done:** invalid surah (NaN/0/115+) → `notFound()` early return + locale-aware `not-found.jsx` (Arabic "لَا" decorative, h1 + helpful CTA "Tüm Sureleri Gör"). Verify: `/oku/200` `/oku/0` `/oku/abc` 404, `/oku/1` 200. Kalan: ConceptGraph empty + API meal fail toast (sonraki tur)
 - [ ] **W22-U6** Mobile spinner centered
 - [ ] **W22-U7** ReadingMode kelime tooltip mobile: tap-to-toggle
 - [ ] **W22-U8** Settings localStorage schema versionlama
