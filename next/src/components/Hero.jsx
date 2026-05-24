@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS } from '../tokens';
@@ -8,6 +9,16 @@ import ParticleBackground from './ParticleBackground';
 export default function Hero() {
   const { t } = useLanguage();
   const reduced = useReducedMotion();
+
+  // SSR-safe mobile detection (§16.6) — initial false, hydrate post-mount.
+  // Particle count is throttled on mobile for battery + scroll smoothness (W21-P7).
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 640);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   // Helper: spread onto a motion element. When reduced-motion is active,
   // mounts at final state with zero duration — choreography collapses cleanly.
@@ -21,7 +32,7 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-cosmic-black"
     >
-      <ParticleBackground particleCount={100} />
+      <ParticleBackground particleCount={isMobile ? 15 : 40} />
 
       {/* Slow-rotating Islamic pattern overlay — felt, not seen */}
       <div className="absolute inset-0 islamic-pattern-bg opacity-[0.04] animate-rotate-slow origin-center" />
@@ -113,11 +124,12 @@ export default function Hero() {
             onClick={() =>
               document.getElementById('path-cards')?.scrollIntoView({ behavior: 'smooth' })
             }
-            className="btn-primary-gold font-body font-semibold text-sm uppercase transition-all duration-300 cursor-pointer"
+            className="btn-primary-gold font-body font-semibold text-sm uppercase cursor-pointer"
             style={{
-              padding: 'clamp(13px, 1.5vw, 15px) clamp(32px, 6vw, 56px)',
+              padding: 'clamp(13px, 1.5vw, 15px) clamp(44px, 7vw, 68px)',
               letterSpacing: '0.18em',
               boxShadow: `0 0 28px 4px ${COLORS.btnGoldGlow15}`,
+              transition: 'all 200ms ease',
             }}
             whileHover={reduced ? undefined : { scale: 1.04, boxShadow: `0 0 56px 14px ${COLORS.btnGoldGlow25}` }}
             whileTap={reduced ? undefined : { scale: 0.97 }}

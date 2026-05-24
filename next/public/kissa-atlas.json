@@ -596,6 +596,96 @@
             "12": "12:93-101",
             "40": "40:34"
           }
+        },
+        {
+          "id": "yusuf_new_aziz_evi",
+          "order": 13,
+          "titleTr": "Mısır Aziz'inin Evinde Büyümesi",
+          "titleEn": "Growing Up in the House of the Egyptian Noble",
+          "verseRef": "12:21–22",
+          "surahs": [
+            12
+          ],
+          "descTr": "Mısır'ın Aziz'i Yusuf'u satın aldı, eşine 'Ona iyi davran' dedi. Yusuf orada büyüdü; Allah ona hüküm ve ilim verdi.",
+          "descEn": "The Egyptian noble who bought Yusuf told his wife to honor him. He grew up there; God granted him judgment and knowledge.",
+          "surahRefs": {
+            "12": "12:21-22"
+          }
+        },
+        {
+          "id": "yusuf_new_zuleyha_dav",
+          "order": 14,
+          "titleTr": "Züleyha'nın Daveti ve Yusuf'un Direnişi",
+          "titleEn": "Zulaikha's Advance and Yusuf's Refusal",
+          "verseRef": "12:23–29",
+          "surahs": [
+            12
+          ],
+          "descTr": "Evin hanımı kapıları kilitleyip ona yöneldi. Yusuf 'Allah'a sığınırım' dedi; gömleği arkadan yırtıldı, masumiyeti şahitle ortaya çıktı.",
+          "descEn": "She locked the doors and pressed him. Yusuf said 'I seek refuge in God'; his shirt was torn from behind, and a witness vindicated him.",
+          "surahRefs": {
+            "12": "12:23-29"
+          }
+        },
+        {
+          "id": "yusuf_new_hapis_giris",
+          "order": 15,
+          "titleTr": "Hapse Atılma ve İki Mahkumla Buluşma",
+          "titleEn": "Imprisonment and Meeting Two Fellow Inmates",
+          "verseRef": "12:35–36",
+          "surahs": [
+            12
+          ],
+          "descTr": "İftiralar üzerine hapsedildi. Hapiste iki genç onu doğru sözlü ve güvenilir bularak rüyalarını anlatmak için yanına geldi.",
+          "descEn": "After the slander, he was imprisoned. There, two young inmates — finding him truthful — came to him to interpret their dreams.",
+          "surahRefs": {
+            "12": "12:35-36"
+          }
+        },
+        {
+          "id": "yusuf_new_tevhid_dav",
+          "order": 16,
+          "titleTr": "Hapishanede Tevhid Daveti",
+          "titleEn": "Calling to Monotheism in Prison",
+          "verseRef": "12:37–40",
+          "surahs": [
+            12
+          ],
+          "descTr": "Rüyaları yorumlamadan önce mahkum arkadaşlarına atalarının dinini ve tek olan Allah'a kulluğu anlattı; sahte ilahların gerçek olmadığını söyledi.",
+          "descEn": "Before interpreting their dreams he taught his cellmates the faith of his fathers and worship of the one true God, exposing false deities.",
+          "surahRefs": {
+            "12": "12:37-40"
+          }
+        },
+        {
+          "id": "yusuf_new_beraat",
+          "order": 17,
+          "titleTr": "Beraat: Kadınların Şahitliği",
+          "titleEn": "Acquittal Through the Women's Testimony",
+          "verseRef": "12:50–53",
+          "surahs": [
+            12
+          ],
+          "descTr": "Kral'ın elçisine 'Önce kadınların durumunu sorsun' dedi. Züleyha gerçeği itiraf etti: 'Hak ortaya çıktı; o doğrulardandı.'",
+          "descEn": "He told the king's envoy to first ask about the women. Zulaikha confessed: 'The truth has emerged; he is among the truthful.'",
+          "surahRefs": {
+            "12": "12:50-53"
+          }
+        },
+        {
+          "id": "yusuf_new_bakanlik",
+          "order": 18,
+          "titleTr": "Mısır Hazinelerinin Başına Geçmesi",
+          "titleEn": "Appointed Over the Treasuries of Egypt",
+          "verseRef": "12:54–57",
+          "surahs": [
+            12
+          ],
+          "descTr": "Kral onu yanına çağırdı: 'Bugün yanımızda mevki sahibi ve güvenilirsin.' Yusuf 'Beni hazinelerin başına getir' dedi; ülke ona emanet edildi.",
+          "descEn": "The king summoned him: 'Today you are honored and trusted.' Yusuf said 'Place me over the treasuries'; the land was entrusted to him.",
+          "surahRefs": {
+            "12": "12:54-57"
+          }
         }
       ]
     },
@@ -881,6 +971,70 @@
           "surahRefs": {
             "2": "2:258"
           }
+        },
+        {
+          "id": "ibrahim_new_misafir_oglak",
+          "order": 15,
+          "titleTr": "Misafirlere Kızarmış Buzağı İkramı",
+          "titleEn": "Roasted Calf Offered to the Guests",
+          "verseRef": "11:69–70",
+          "surahs": [
+            11,
+            51
+          ],
+          "descTr": "Melekler insan suretinde geldiğinde İbrahim hemen onlara kızarmış bir buzağı ikram etti; ellerini uzatmayınca tedirgin oldu.",
+          "descEn": "When the angels came in human form, Abraham hastened with a roasted calf; their refusal to eat unsettled him.",
+          "surahRefs": {
+            "11": "11:69-70",
+            "51": "51:26-28"
+          }
+        },
+        {
+          "id": "ibrahim_new_lut_kavmi_dua",
+          "order": 16,
+          "titleTr": "Lut Kavmi İçin Allah'a Yalvarması",
+          "titleEn": "Pleading with God for the People of Lot",
+          "verseRef": "11:74–76",
+          "surahs": [
+            11
+          ],
+          "descTr": "Müjdenin ardından İbrahim, Lut kavmi için Allah'la tartışmaya başladı; ama 'Bu emir geri çevrilemez' denildi.",
+          "descEn": "After the good news, Abraham began to plead with God for Lot's people, but he was told the decree could not be reversed.",
+          "surahRefs": {
+            "11": "11:74-76"
+          }
+        },
+        {
+          "id": "ibrahim_new_zemzem",
+          "order": 17,
+          "titleTr": "Hacer ile İsmail'in Susuzluğu ve Zemzem",
+          "titleEn": "Hagar and Ishmael's Thirst and Zamzam",
+          "verseRef": "14:37",
+          "surahs": [
+            14
+          ],
+          "descTr": "Hacer ile İsmail'i ekinsiz vadiye bıraktı: 'Rabbim! Namazı dosdoğru kılsınlar diye onları burada iskân ettim.' Çocuğun ayağı dibinden su fışkırdı.",
+          "descEn": "He settled Hagar and Ishmael in a barren valley: 'My Lord! That they may establish prayer.' Water sprang at the child's feet.",
+          "surahRefs": {
+            "14": "14:37"
+          }
+        },
+        {
+          "id": "ibrahim_new_millet",
+          "order": 18,
+          "titleTr": "Hanif Milletinin Atası İlan Edilmesi",
+          "titleEn": "Declared the Father of the Hanif Tradition",
+          "verseRef": "22:78",
+          "surahs": [
+            16,
+            22
+          ],
+          "descTr": "Allah onu 'müşriklerden değil, hanif bir muvahhid' olarak nitelendirdi ve 'O sizi Müslüman diye adlandırdı' buyurdu.",
+          "descEn": "God called him a pure monotheist, never an idolater, and declared: 'It is he who named you Muslims.'",
+          "surahRefs": {
+            "16": "16:120-123",
+            "22": "22:78"
+          }
         }
       ]
     },
@@ -1098,6 +1252,53 @@
             "23": "23:50",
             "43": "43:63-65",
             "57": "57:27"
+          }
+        },
+        {
+          "id": "isa_new_meryem_secimi",
+          "order": 12,
+          "titleTr": "Meryem'in Seçilmesi ve Üstün Kılınması",
+          "titleEn": "Mary's Election and Exaltation Above Women",
+          "verseRef": "3:42–43",
+          "surahs": [
+            3
+          ],
+          "descTr": "Melekler Meryem'e seslendi: 'Allah seni seçti, tertemiz kıldı ve âlemlerin kadınlarına üstün tuttu.' Rabbine huşû ile yönelmesi emredildi.",
+          "descEn": "The angels said: 'O Mary, God has chosen and purified you, and chosen you above the women of the worlds.' She was told to devote herself in worship.",
+          "surahRefs": {
+            "3": "3:42-43"
+          }
+        },
+        {
+          "id": "isa_new_gayb_haberleri",
+          "order": 13,
+          "titleTr": "Gaybî Haberler: Evlerde Saklananlar",
+          "titleEn": "Revealing the Unseen: What People Stored at Home",
+          "verseRef": "3:49",
+          "surahs": [
+            3
+          ],
+          "descTr": "İsrailoğullarına 'Yediklerinizi ve evlerinizde biriktirdiklerinizi size haber veririm' dedi; bu Allah'tan bir delildi.",
+          "descEn": "He told the Israelites: 'I will inform you of what you eat and what you store in your homes' — a sign from God.",
+          "surahRefs": {
+            "3": "3:49"
+          }
+        },
+        {
+          "id": "isa_new_havari_iman",
+          "order": 14,
+          "titleTr": "Havarilerin İman Beyanı",
+          "titleEn": "The Disciples' Declaration of Faith",
+          "verseRef": "3:52–53",
+          "surahs": [
+            3,
+            5
+          ],
+          "descTr": "İsa 'Allah yolunda yardımcılarım kim?' deyince havariler 'Biz Allah'ın yardımcılarıyız, iman ettik; bizi şahitlerden yaz' dediler.",
+          "descEn": "When Jesus asked 'Who are my helpers for God?', the disciples answered: 'We are God's helpers; we believe — record us among the witnesses.'",
+          "surahRefs": {
+            "3": "3:52-53",
+            "5": "5:111"
           }
         }
       ]

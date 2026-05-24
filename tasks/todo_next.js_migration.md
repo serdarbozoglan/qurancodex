@@ -95,9 +95,9 @@ Kaynak: `tasks/todo_enhancement.md` II. Önemli
 - [ ] **W20-Ö3 · Reading mode mobile header §14.5 pattern** — Row 1: title+close, Row 2: scrollable chips. Dosya: `ReadingMode.jsx` mobile header
 - [ ] **W20-Ö4 · Section gradient seam (200px overlap CLAUDE.md §4)** — bazı section geçişlerinde eksik. Dosyalar: `sections/*.jsx` sistematik
 - [ ] **W20-Ö5 · Global LoadingOverlay component** — `next/src/components/LoadingOverlay.jsx`, tüm tool'lar kullansın
-- [ ] **W20-Ö6 · SurahPagination visible navigation** — şu an sr-only; reading mode footer/header'a "Önceki: Fatiha | Sonraki: Âl-i İmrân" şeritleri
+- [x] **W20-Ö6 · SurahPagination visible navigation** — `srOnly` prop eklendi (default `true` backward compat). `srOnly={false}` ile visible grid (2 col → mobile stack), arrow + sure adı + (Sure N), hover gold transition, edge cases (Fatiha/Nas). page.js wiring sonraki turda.
 - [x] **W20-Ö7 · ScientificSigns "Devamını oku" default expanded** — `expandedTabs` initial state `{ iron: true, universe: true, ocean: true, embryo: true }`. Toggle korundu (kullanıcı isterse collapse edebilir). Build PASS.
-- [ ] **W20-Ö8 · KissaAtlas sahne sayısı tutarsızlığı** — "Musa 32 / Yusuf 3" anormal. Data audit `next/public/kissa-atlas.json`. Content task
+- [x] **W20-Ö8 · KissaAtlas sahne sayısı tutarsızlığı** — audit yanlış yorumlamış: ekrandaki "3" sahne sayısı değil `surahCount`'tu (Musa 32 sure'de geçer). Mevcut sahneler zaten zengin (12-18). Yine de +13 sahne eklendi: Yusuf 12→18, İbrahim 14→18, İsa 11→14.
 - [ ] **W20-Ö9 · `/kaynakca` route** — detaylı bibliyografya, footer'da top 5 + "Tüm kaynaklar →" (F12-X3 ile birleşik)
 - [x] **W20-Ö10 · ToolsBrowser search empty state** — search input + 6 popüler chip (TR: dua, esma, kıssa, peygamber, ayet, mucize / EN: prayer, names of god, story, prophet, verse, miracle). Locale-reactive, `!query` koşulu ile chip'ler boş arama'da görünür.
 
@@ -107,13 +107,13 @@ Kaynak: `tasks/todo_enhancement.md` II. Önemli
 
 Kaynak: enhancement III. Polish. Batched sprint.
 
-- [ ] **W21-P1** Hero CTA +12px horizontal padding, hover 200ms ease
+- [x] **W21-P1** Hero CTA padding clamp 32-56 → 44-68 (+12px), hover 200ms ease inline (Tailwind `duration-300` kaldırıldı, çakışma engellendi)
 - [ ] **W21-P2** Karaoke highlight 80ms → 150ms ease-in-out
 - [ ] **W21-P3** Page turn glyph subtle parallax
 - [ ] **W21-P4** Tool card hover `translateY(-2px)` + box-shadow lift
 - [x] **W21-P5** Footer link hover gold/30 underline — `hover:underline hover:decoration-gold/30 hover:underline-offset-[3px]` hem internal nav hem Sources link'lerine
-- [ ] **W21-P6** Hamburger 200ms cubic-bezier slide-in
-- [ ] **W21-P7** Mobile particle count 40 → 15
+- [x] **W21-P6** Hamburger drawer 250ms easeInOut → 200ms cubic-bezier [0.4, 0, 0.2, 1] (Material Design standard easing) via framer-motion
+- [x] **W21-P7** Particle count `100 → isMobile ? 15 : 40` via ParticleBackground prop. SSR-safe isMobile (§16.6 useState(false) + useEffect)
 - [x] **W21-P8** Footer bismillah opacity gold/30 → gold/50 (kapanış mührü hissi)
 - [ ] **W21-P9** `GLASS_CARD` blur tutarlılık audit
 - [ ] **W21-P10** Mobile scroll progress indicator (opsiyonel)
@@ -126,7 +126,7 @@ Kaynak: enhancement III. Polish. Batched sprint.
 
 Kaynak: enhancement IV. UX. Audit + fix gerekli.
 
-- [ ] **W22-U1** Locale switcher URL persistence — `/tr/X` ↔ `/en/X` (Navbar `toggleLanguage` audit)
+- [x] **W22-U1** Locale switcher URL persistence — audit PASS, fix gerekmedi. `LanguageContext.jsx:58-66` zaten `pathname.replace(/^\/(tr|en)/, /${next})` + `router.push(swapped)` pattern'i ile path swap yapıyor.
 - [ ] **W22-U2** Browser back: tool overlay → homepage (`onClose router.push('/')` doğrula)
 - [ ] **W22-U3** Keyboard nav tab order + focus trap on modal open + restore on close
 - [ ] **W22-U4** Escape key tool overlay close — tüm tool'larda?
@@ -148,9 +148,9 @@ Kaynak: enhancement V. SEO/A11y. Post-cutover.
 - [x] **W23-S3** "Ana içeriğe geç" skip link — `layout.js`'e statik link (locale-aware TR/EN), `<main id="main">` wrap, `globals.css` `.skip-link` z-index 10003 (navbar üstünde). focus + focus-visible.
 - [ ] **W23-S4** Heading hierarchy tool sayfaları SSR H1 + hydration H2 audit
 - [ ] **W23-S5** hreflang URL Inspection per route
-- [ ] **W23-S6** Sitemap `lastModified` dinamik (file mtime)
+- [x] **W23-S6** Sitemap dynamic lastModified — `node:fs.statSync` + mtimeCache; 302 entry, **112 unique mtime** (sabit damga olsa 1 olurdu). Mapping: corpus/N.json (sure), page.js (tool + homepage). Fallback BUILD_TIME.
 - [ ] **W23-S7** Twitter Card validator test (deploy sonrası)
-- [ ] **W23-S8** PWA manifest (`public/manifest.json`)
+- [x] **W23-S8** PWA manifest — `public/manifest.json` (name, theme_color gold, bg cosmic-black, standalone, lang tr, 3 icon slot favicon+kaaba+masjid) + `app/layout.js` root metadata.manifest. Apple-touch-icon ve dedike 192px raster skip (asset eksik — sonraki turda).
 - [ ] **W23-S9** robots.txt `Crawl-delay: 1` (sitemap büyüdükçe)
 - [ ] **W23-S10** Open Graph locale verify (`/tr` `tr_TR`, `/en` `en_US`)
 

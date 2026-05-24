@@ -2,9 +2,46 @@
 // Dynamic sitemap.xml — 37 route × 2 locale = 74 URL.
 // hreflang alternates her URL için tanımlı.
 // Next.js otomatik /sitemap.xml route'unu serve eder.
+//
+// W23-S6: lastModified her route için ilgili kaynak dosyanın mtime'ından okunur.
+// Build-time'da resolve edilir; process.cwd() === next/ workspace root.
+
+import { statSync } from 'node:fs';
+import path from 'node:path';
 
 const BASE = 'https://qurancodex.com';
 const LOCALES = ['tr', 'en'];
+
+// Build-time fallback — dosya bulunamazsa kullanılır (silent fallback, asla throw).
+const BUILD_TIME = new Date();
+
+function mtimeOf(relativePath) {
+  try {
+    return statSync(path.join(process.cwd(), relativePath)).mtime;
+  } catch {
+    return BUILD_TIME;
+  }
+}
+
+// Route → source file mapping. Path'lar next/ workspace root'una göre relatif.
+function routeMtime(routePath) {
+  // Homepage ('') → root [locale]/page.js
+  if (routePath === '') {
+    return mtimeOf('src/app/[locale]/page.js');
+  }
+  // Sure deep-link: /oku/N → corpus JSON (gerçek content kaynağı).
+  // Sure 1 fatiha.json; diğerleri N.json. Fallback: page.js mtime.
+  const surahMatch = routePath.match(/^\/oku\/(\d+)$/);
+  if (surahMatch) {
+    const n = surahMatch[1];
+    const corpusFile = n === '1'
+      ? 'public/corpus/fatiha.json'
+      : `public/corpus/${n}.json`;
+    return mtimeOf(corpusFile);
+  }
+  // Diğer tüm route'lar (/oku, /atlas/*, /graf/*, /arac/*): ilgili page.js mtime'ı.
+  return mtimeOf(`src/app/[locale]${routePath}/page.js`);
+}
 
 const ROUTES = [
   // priority + changeFrequency hint
@@ -58,12 +95,18 @@ const SURAH_ROUTES = Array.from({ length: 114 }, (_, i) => ({
 }));
 
 export default function sitemap() {
-  const lastModified = new Date();
   const entries = [];
   const allRoutes = [...ROUTES, ...SURAH_ROUTES];
+  // mtime resolution route bazında — locale farkı yok (her iki locale aynı page.js).
+  const mtimeCache = new Map();
   for (const locale of LOCALES) {
-    for (const { path, priority, freq } of allRoutes) {
-      const url = `${BASE}/${locale}${path}`;
+    for (const { path: routePath, priority, freq } of allRoutes) {
+      const url = `${BASE}/${locale}${routePath}`;
+      let lastModified = mtimeCache.get(routePath);
+      if (!lastModified) {
+        lastModified = routeMtime(routePath);
+        mtimeCache.set(routePath, lastModified);
+      }
       entries.push({
         url,
         lastModified,
@@ -71,8 +114,8 @@ export default function sitemap() {
         priority,
         alternates: {
           languages: {
-            tr: `${BASE}/tr${path}`,
-            en: `${BASE}/en${path}`,
+            tr: `${BASE}/tr${routePath}`,
+            en: `${BASE}/en${routePath}`,
           },
         },
       });

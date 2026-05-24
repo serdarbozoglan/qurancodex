@@ -1193,7 +1193,7 @@ export default function Navbar() {
           initial={{ opacity: 0, x: '100%' }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: '100%' }}
-          transition={{ duration: 0.25, ease: 'easeInOut' }}
+          transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
           className="lg:hidden hide-scrollbar [&::-webkit-scrollbar]:hidden"
           style={{
             position: 'fixed',
