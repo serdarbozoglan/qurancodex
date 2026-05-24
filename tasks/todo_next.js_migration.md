@@ -555,14 +555,18 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
 - [x] Crawl-delay yok (Google ignore eder zaten)
 
 ### 7.5 OpenGraph Image Generation
-- [ ] **Dynamic OG images** Vercel'in `@vercel/og` ile:
-  - `app/opengraph-image.jsx` — default site OG
-  - `app/oku/[surah]/opengraph-image.jsx` — her sure için unique OG (sure adı + Arabic name + sure numarası + parchment background)
-  - `app/atlas/peygamber/[id]/opengraph-image.jsx` — peygamber adı + dönem
-  - `app/arac/[tool]/opengraph-image.jsx` — tool ikonu + adı
-- [ ] **Twitter image** ayrı veya OG image reuse
-- [ ] **Brand consistency:** KFGQPC font (Arabic), Playfair (Latin), antique gold, cosmic black background
-- [ ] **Test:** Twitter Card Validator, Facebook Sharing Debugger, LinkedIn Post Inspector
+- [x] **Dynamic OG images** Next.js `next/og` ImageResponse ile:
+  - `app/opengraph-image.jsx` — default site OG ✓
+  - `app/[locale]/opengraph-image.jsx` — locale-level OG (TR/EN ayrı) ✓
+  - `app/[locale]/oku/[surah]/opengraph-image.jsx` — her sure için unique OG (sure adı + numara, edge runtime) ✓
+  - `app/[locale]/atlas/opengraph-image.jsx` — atlas kategori (12 tool) ✓ (Wave 14-B)
+  - `app/[locale]/graf/opengraph-image.jsx` — graf kategori (7 tool) ✓ (Wave 14-B)
+  - `app/[locale]/arac/opengraph-image.jsx` — araç kategori (16 tool) ✓ (Wave 14-B)
+  - **Per-prophet OG (`atlas/peygamber/[id]`)** — DEFERRED. `/atlas/peygamber` tek route; per-prophet dynamic route ([id]) yok. Route eklendiğinde OG da eklenir.
+  - **Per-tool override** — POST-DEPLOY. Şu an 35 tool kategori-level OG kullanıyor; ileride yüksek-traffic tool'lara per-tool OG eklenebilir.
+- [x] **Twitter image** ayrı dosya: `app/twitter-image.jsx` ✓
+- [x] **Brand consistency:** Tüm OG'lerde cosmic-black + radial gold gradient + Playfair Display title + Inter tagline ✓
+- [ ] **Test:** Twitter Card Validator + Facebook Sharing Debugger + LinkedIn Post Inspector — POST-DEPLOY (gerçek public URL gerekli).
 
 ### 7.6 Canonical URLs  _**Tamamlandı**: pageMetadata canonical_
 - [x] Her sayfa `generateMetadata`'da:
@@ -698,15 +702,10 @@ Mevcut implementation:
 
 ### 9.1 Functional parity
 **Smoke test (curl HTTP 200):** 16 sample route + sitemap + robots + locale OG hepsi 200 ✅ (Faz 9.2 audit script).
-**Manuel UI test:** POST-DEPLOY veya local dev session'da kullanıcı tarafından yapılır (tarayıcı interaction gerekiyor):
-- [ ] Sample sureler (Fatiha, Bakara, Yâsîn, İhlâs)
-- [ ] Tool route'ları (sample ~10)
-- [ ] Cross-tool navigasyon (VerseGraph ↔ ConceptGraph back)
-- [ ] Karaoke audio + word highlight
-- [ ] Reading mode page turn
-- [ ] Meal yükleme
-- [ ] Dil değişikliği persist
-- [ ] Mobile responsive (390px - 1440px)
+**Visual regression (Playwright, Wave 16 2026-05-24):** 78 screenshot + console capture, 0 failed route, hydration mismatch'lar fix edildi (5/5 W16 bulgu çözüldü).
+**Manuel UI checklist (2026-05-24):** **YAZILDI** — `docs/test-plans/manual-ui-checklist.md` (339 satır, 12 bölüm, 70-90 dk). PASS/FAIL kriterleri, Wave 16 regression test'leri (Bakara 2:275, iblis hydration, sebebi-nuzul key) vurgulu. Kullanıcı tarafından local prod build'de çalıştırılır.
+- [x] Manual UI test plan documented
+- [ ] Manual UI test execution — kullanıcı task'i (deploy öncesi)
 
 ### 9.2 SEO parity
 - [x] **`curl -s URL | grep title/desc/h1/jsonld/og`** — 16 sample route (TR + EN homepage, 5 sure, 3 atlas, 2 graf, 4 arac) test edildi; her birinde H1 + `<title>` + `<meta name="description">` + JSON-LD + OG tag mevcut (16/16 ✅).
@@ -728,41 +727,53 @@ Mevcut implementation:
 
 ## Faz 10 — Deploy & Cutover (2-3 gün)
 
-### 10.1 Vercel deployment
-- [ ] Yeni Vercel projesi (Next.js)
-- [ ] Environment variables setup
-- [ ] Preview deployment test
-- [ ] Production deployment to staging URL
+**Detaylı plan:** `docs/migration-cutover/deploy-checklist.md` (444 satır, 10 bölüm + komut referansı). Aşağıdaki maddeler bölüm pointer'larıdır; gerçek checklist deploy-checklist.md'de.
 
-### 10.2 DNS strategi
-- [ ] Şu anki Vite deployment → staging.qurancodex.com (yedek)
-- [ ] Next.js → www.qurancodex.com (cutover)
-- [ ] DNS TTL'i önceden düşür
-- [ ] Cutover gününde DNS swap
+### 10.1 Vercel deployment — bkz. deploy-checklist.md §1-4
+- [ ] Pre-deploy (T-7): build PASS, lint clean, env var inventory, DNS TTL düşür
+- [ ] Vercel project setup (T-3): root: `next/`, framework auto, node 20/22
+- [ ] Preview deployment validation (T-2): 39 route smoke, Lighthouse >90, Twitter Card Validator
+- [ ] Production deployment (T-1): custom domain, HTTPS cert, edge cache warm
 
-### 10.3 Redirects
-- [ ] Eski Vite SPA fragment URL'leri → yeni Next.js path'leri için `next.config.js` redirects
-- [ ] Örnek: eski `/?tool=verseGraph&q=2:255` → yeni `/graf/ayet?q=2:255`
-- [ ] 301 redirect kullan (SEO equity transfer)
+### 10.2 DNS strategy — bkz. deploy-checklist.md §5
+- [ ] Pre-cutover: Vite SPA `qurancodex.com` aktif
+- [ ] Cutover: A record / CNAME → Vercel
+- [ ] Vite SPA → `legacy.qurancodex.com` yedek
+- [ ] DNS propagation izleme (`dig qurancodex.com A`)
 
-### 10.4 Search Console
-- [ ] Google Search Console'a yeni sitemap submit
-- [ ] Bing Webmaster Tools'a submit
-- [ ] İlk 2 hafta crawl errors monitör et
+### 10.3 Redirects — bkz. deploy-checklist.md §6
+- [ ] **Agent C bulgusu (2026-05-24):** Vite tool'ları state-driven overlay; public URL pattern minimal — yalnız `?verse=X:Y`, `?lang=en`, `?mihver=1` (4 redirect, brief'teki 4'lük varsayım yanlıştı).
+- [ ] `next.config.js` redirects() function (301 permanent)
+- [ ] Hash route (`#section-math`) → anchor
 
-### 10.5 Monitoring
-- [ ] Vercel Analytics aç
-- [ ] Web Vitals tracking
-- [ ] Sentry veya benzer error tracking (opsiyonel)
+### 10.4 Search Console — bkz. deploy-checklist.md §7
+- [ ] GSC property add (HTML file / DNS TXT)
+- [ ] Sitemap submit `https://qurancodex.com/sitemap.xml`
+- [ ] URL Inspection sample (5 sure + 5 tool)
+- [ ] Bing Webmaster submit
+
+### 10.5 Monitoring — bkz. deploy-checklist.md §8-9
+- [ ] Vercel Analytics + Sentry (opsiyonel)
+- [ ] Uptime monitoring (UptimeRobot)
+- [ ] CrUX Dashboard (28-day rolling)
+- [ ] Rollback plan: TTL 60s ile DNS rollback hazır
 
 ---
 
 ## Faz 11 — Post-migration cleanup (2-3 gün)
 
 ### 11.1 Vite proje sonlandır
-- [ ] Eski Vite proje kodu `legacy-vite/` altına taşı (silme — referans için sakla)
-- [ ] Vite spesifik bağımlılıkları kaldır
-- [ ] CI/CD pipeline güncelle
+**Detaylı plan:** `docs/migration-cutover/vite-legacy-archive.md` (389 satır, 8 bölüm + cheat sheet). Gerçek envanter:
+- Vite `src/`: 98 dosya / 3.9MB (55 component, 20 section, 4 hook, 3 util, 3 i18n, 4 data, 5 test)
+- **Kritik bulgu:** Shared `public/` ikiz kopya — Next bileşenleri `fetch('/foo.json')` ile `next/public/`'inden okuyor (`KuranRenkleri.jsx`, `VerseGraph.jsx` doğrulandı). Root `public/` (56M) silinebilir.
+- Vite-only: `vite.config.js`, `vitest.config.js`, `index.html`, root `package.json`/`package-lock.json`, `eslint.config.js`, `vercel.json` (framework: vite), `dist/`, `todo.md`
+- Strateji kararı: **Seçenek B (tag + delete)** — POST-CUTOVER T+30 stabilite sonrası
+- [ ] T+30: prod metrics stabil (P95 LCP <2.5s, error <1%)
+- [ ] Git tag `v1.0-vite-final` + offline bundle backup
+- [ ] Phase 1: Vite-only files (`src/`, `index.html`, configs) sil
+- [ ] Phase 2: root `package.json` Vite dependencies temizle
+- [ ] Phase 3: CI/CD pipeline güncelle
+- [ ] Phase 4: README migration notu
 
 ### 11.2 Dokümantasyon güncelle
 - [x] **CLAUDE.md §16 Next.js Patterns** — Migration sırasında keşfedilen 14 pattern dokümante edildi (TBD'den production'a):
