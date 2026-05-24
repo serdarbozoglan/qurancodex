@@ -3,30 +3,50 @@
 // alternates.languages otomatik üretilir → hreflang tag'leri Google'a doğru
 // locale URL'lerini gösterir.
 
-export async function pageMetadata({ params, path, title, description }) {
+// pageMetadata — backward-compatible bilingual helper.
+//
+// İki kullanım şekli:
+//   1) Tek dil (eski): { title, description }
+//      → her iki locale için aynı metin kullanılır.
+//   2) Bilingual (yeni): { titleTr, titleEn, descTr, descEn }
+//      → locale === 'en' ise EN versiyon, aksi halde TR versiyon seçilir.
+//      → Tek-dil prop'lar fallback olarak hâlâ kabul edilir.
+export async function pageMetadata({
+  params,
+  path,
+  title,
+  description,
+  titleTr,
+  titleEn,
+  descTr,
+  descEn,
+}) {
   const { locale } = await params;
+  const isEn = locale === 'en';
+  const finalTitle = isEn ? (titleEn || titleTr || title) : (titleTr || title);
+  const finalDesc = isEn ? (descEn || descTr || description) : (descTr || description);
   const tr = `/tr${path}`;
   const en = `/en${path}`;
-  const canonical = locale === 'en' ? en : tr;
+  const canonical = isEn ? en : tr;
   return {
-    title,
-    description,
+    title: finalTitle,
+    description: finalDesc,
     alternates: {
       canonical,
       languages: { tr, en, 'x-default': tr },
     },
     openGraph: {
-      title,
-      description,
+      title: finalTitle,
+      description: finalDesc,
       url: `https://qurancodex.com${canonical}`,
-      locale: locale === 'en' ? 'en_US' : 'tr_TR',
+      locale: isEn ? 'en_US' : 'tr_TR',
       type: 'website',
       siteName: 'QuranCodex',
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description,
+      title: finalTitle,
+      description: finalDesc,
     },
   };
 }
