@@ -110,7 +110,7 @@ export default function QuranCommands({ onClose }) {
   /* eslint-enable react-hooks/set-state-in-effect */
 
   if (!data) return (
-    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.deepNavy, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 50, background: COLORS.deepNavy, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>Yükleniyor...</div>
     </div>
   );
@@ -171,7 +171,7 @@ export default function QuranCommands({ onClose }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
+      position: 'fixed', inset: 0, zIndex: 50,
       background: COLORS.deepNavy,
       overflowY: 'auto',
       fontFamily: "'Inter', sans-serif",

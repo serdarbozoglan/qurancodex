@@ -189,9 +189,12 @@ export default function Navbar() {
   const { language, toggleLanguage } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
-  // /oku route'unda Navbar gizlenir — ReadingMode kendi tam ekran navigation'una sahip.
-  // Tool route'ları (/arac, /atlas, /graf) için Navbar görünür kalır.
-  const hideOnReadingMode = pathname && /^\/(tr|en)\/oku(\/|$)/.test(pathname);
+  // Immersive route'larda Navbar gizlenir — bu sayfalar kendi tam ekran
+  // navigation pattern'larına sahip (kapat butonu × üst-sağda).
+  // Etkilenen route'lar: /oku (reading mode), /atlas (kissa, peygamber...),
+  // /graf (ayet, kavram...), /arac (yeminler, dualar...).
+  // Sadece homepage + /kaynakca (içerik sayfası) + locale root'unda Navbar görünür.
+  const hideOnReadingMode = pathname && /^\/(tr|en)\/(oku|atlas|graf|arac)(\/|$)/.test(pathname);
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [toolsOpen, setToolsOpen]       = useState(false);

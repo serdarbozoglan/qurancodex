@@ -176,9 +176,12 @@ export const FONTS = {
 // Inner stacky elements (overlay header sticky at z 10000, dropdowns, etc.) are
 // bounded by this stacking context — so even their high local z-index stays
 // under the navbar in the global stack.
+// Navbar artık tool route'larında (/atlas, /graf, /arac, /oku) gizli (Navbar.jsx
+// hideOnReadingMode regex), bu yüzden tool overlay'leri inset: 0 ile tam ekran
+// alır. Önceki 54px top-inset artık gereksiz (navbar yok).
 export const OVERLAY_BASE = {
   position: 'fixed',
-  inset: '54px 0 0 0',
+  inset: 0,
   zIndex: 50,
   background: COLORS.overlayBg,
   overflow: 'hidden',
