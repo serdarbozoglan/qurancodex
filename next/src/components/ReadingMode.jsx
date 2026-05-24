@@ -5824,6 +5824,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // loaded for, positional pairing may be off; we
                         // accept that limitation rather than block kelime.
                         const ourWords = ar.split(/\s+/).filter(Boolean);
+                        // Bug fix: verse-graph-bgem3.json bazı ayetlerde (örn. 2:282,
+                        // tüm "يَٓا اَيُّهَا" başlangıçlı 124 ayet) kelimeleri kuran.com'dan
+                        // bir token fazla split eder. Pozisyonel pair (ourWords[i] ↔ wordListL[i])
+                        // off-by-one tooltip gösterir — kullanıcı X kelimesini hover eder,
+                        // X+1'in meta'sı görünür. Sayım uyuşmuyorsa hover'ı sessizce devre
+                        // dışı bırak; render aynı kalır, yanlış veri gösterilmez.
+                        const hoverableVerse = ourWords.length === wordListL.length;
                         if (ourWords.length > 0) {
                           const lastIdx = ourWords.length - 1;
                           return (
@@ -5833,7 +5840,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               spellCheck={false}
                             >
                               {ourWords.map((arabicWord, i) => {
-                                const wordMeta = wordListL[i] || null;
+                                const wordMeta = hoverableVerse ? (wordListL[i] || null) : null;
                                 const hoverable = !!wordMeta;
                                 const isLast = i === lastIdx;
                                 const wordSpan = (
@@ -6421,11 +6428,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             if (ourWords.length > 0) {
                               const lastIdx = ourWords.length - 1;
                               const corpusWordsForVerse = corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null;
+                              // Bug fix: verse-graph-bgem3.json bazı ayetlerde (örn. 2:282,
+                              // tüm "يَٓا اَيُّهَا" başlangıçlı 124 ayet) kelimeleri kuran.com /
+                              // Leeds corpus'tan bir token fazla split eder. Pozisyonel pair
+                              // (ourWords[i] ↔ wordList[i]) off-by-one tooltip gösterir —
+                              // kullanıcı X kelimesini hover eder, X+1'in meta'sı görünür.
+                              // Sayım uyuşmuyorsa ilgili tooltip kaynağını sessizce disable et;
+                              // render aynı kalır, yanlış veri gösterilmez.
+                              const hoverableVerse = ourWords.length === wordList.length;
+                              const corpusAligned = !!corpusWordsForVerse && ourWords.length === corpusWordsForVerse.length;
                               return (
                                 <>
                                   {ourWords.map((arabicWord, i) => {
-                                    const wordMeta = wordList?.[i] || null;
-                                    const corpusWord = corpusWordsForVerse?.[i] || null;
+                                    const wordMeta = hoverableVerse ? (wordList?.[i] || null) : null;
+                                    const corpusWord = corpusAligned ? (corpusWordsForVerse?.[i] || null) : null;
                                     const hoverable = !!wordMeta;
                                     const isLast = i === lastIdx;
                                     const isActiveWord = isKaraokeVerse && karaokeActiveWordIdx === (i + 1);

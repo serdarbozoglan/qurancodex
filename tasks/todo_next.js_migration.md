@@ -151,7 +151,7 @@ Kaynak: enhancement V. SEO/A11y. Post-cutover.
 - [x] **W23-S6** Sitemap dynamic lastModified — `node:fs.statSync` + mtimeCache; 302 entry, **112 unique mtime** (sabit damga olsa 1 olurdu). Mapping: corpus/N.json (sure), page.js (tool + homepage). Fallback BUILD_TIME.
 - [ ] **W23-S7** Twitter Card validator test (deploy sonrası)
 - [x] **W23-S8** PWA manifest — `public/manifest.json` (name, theme_color gold, bg cosmic-black, standalone, lang tr, 3 icon slot favicon+kaaba+masjid) + `app/layout.js` root metadata.manifest. Apple-touch-icon ve dedike 192px raster skip (asset eksik — sonraki turda).
-- [ ] **W23-S9** robots.txt `Crawl-delay: 1` (sitemap büyüdükçe)
+- [x] **W23-S9** robots.txt tier'li politeness — 3 user-agent grup: `*` (Bingbot/Yandex `Crawl-delay: 1`), Googlebot (no delay), AI scrapers (GPTBot/ClaudeBot/Google-Extended/CCBot/PerplexityBot `Crawl-delay: 2`). +Host direktifi (Yandex)
 - [ ] **W23-S10** Open Graph locale verify (`/tr` `tr_TR`, `/en` `en_US`)
 
 ---

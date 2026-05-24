@@ -44,6 +44,6 @@ export const config = {
   // opengraph-image|twitter-image: Next.js dosya-konvansiyonu route'ları
   // (auto-routes that serve PNG); locale-prefix uygulanmamalı.
   matcher: [
-    '/((?!_next|api|fonts|tafsir|corpus|meal-cache|audio|amthal|icons|favicon|opengraph-image|twitter-image|sitemap.xml|robots.txt|.*\\..*).*)',
+    '/((?!_next|api|kuran-proxy|fonts|tafsir|corpus|meal-cache|audio|amthal|icons|favicon|opengraph-image|twitter-image|sitemap.xml|robots.txt|.*\\..*).*)',
   ],
 };
