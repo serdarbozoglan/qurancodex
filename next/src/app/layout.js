@@ -73,6 +73,21 @@ const WEBSITE_JSONLD = {
 export default function RootLayout({ children }) {
   return (
     <html lang="tr" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        {/* LCP optimization — Faz 7.10. KFGQPC is used on every route that
+            renders an Arabic verse (homepage Hero/sections, all tool pages,
+            reading mode). Preloading lets the font fetch start in parallel
+            with the document parse, avoiding swap-in delay on first paint.
+            ShaykhHamdullah is intentionally NOT preloaded — it loads only
+            when the user reaches /oku/[surah]. */}
+        <link
+          rel="preload"
+          href="/fonts/kfgqpc-hafs.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
         <script
           type="application/ld+json"

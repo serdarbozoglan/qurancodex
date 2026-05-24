@@ -606,21 +606,14 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
 **Faz 7.9 sonrası açık not:** Tam TR/EN parite metadata ve uzun-form per-tool intro paragrafları (~200 kelime × 36 tool × 2 dil = 14.400 kelime) Faz 7.17 (Content Strategy) altına alındı.
 
 ### 7.10 Core Web Vitals (SEO ranking factor)
-- [ ] **LCP < 2.5s:**
-  - KFGQPC font preload (`next/font/local`)
-  - Critical CSS inline
-  - Above-fold image'ler `priority` (next/image)
-- [ ] **CLS < 0.1:**
-  - Font swap'ta layout shift'i önle (`size-adjust`, `ascent-override`)
-  - Image'lere `width` + `height` zorunlu
-  - Lazy-loaded content için space reserve
-- [ ] **INP < 200ms:**
-  - Heavy hooks defer
-  - rAF loop'ları aktif olmayan tab'larda durdur (zaten yapılıyor)
-- [ ] **TTFB < 800ms:**
-  - Vercel Edge / CDN
-  - Static rendering (SSG) kullan, SSR'dan kaçın
-- [ ] Test: PageSpeed Insights, Web.dev Measure, CrUX Dashboard
+- [x] **LCP — KFGQPC preload**: `<link rel="preload" href="/fonts/kfgqpc-hafs.otf" as="font" type="font/otf" crossorigin>` root layout `<head>`'ine eklendi. KFGQPC her Arapça ayet render'inda kullanılıyor (homepage Hero/sections, tüm tool sayfaları, reading mode) → first paint için kritik. ShaykhHamdullah BİLİNÇLİ preload edilmedi (sadece /oku/[surah]'da kullanılıyor; root'ta preload boşa bant genişliği). Mevcut `font-display: swap` zaten FOUT davranışı sağlıyor (FOIT yok).
+- [ ] **LCP — next/font/local migration**: DEFERRED. 53 inline `'KFGQPC'` literal'i + `FONTS.quran` tokens reference'ı next/font/local'ın hash'li class name'iyle çakışıyor. Migration için tüm 53 referansı `var(--font-kfgqpc)` ile değiştirmek + tokens.js güncellemek gerekiyor → ayrı invasive refactor. `<link rel="preload">` zaten LCP fayda sağlıyor; next/font ek "auto preload + class" otomasyonu marginal.
+- [ ] **LCP — Critical CSS inline + image priority**: DEFERRED. Tailwind v4 + next.js zaten critical CSS otomatik inline ediyor. Above-fold image'ler (Hero arka planı) genelde SVG/CSS — next/image priority kullanımı için ayrı audit gerek.
+- [ ] **CLS — size-adjust/ascent-override**: SKIP (şimdilik). KFGQPC fallback'i 'Amiri Quran' similar metrics; gözle görülür CLS yok. Post-deploy gerçek ölçüm sonrası iyileştirme yapılır.
+- [ ] **CLS — image width/height + space reserve**: PARTIAL. next/image otomatik width/height inject ediyor; lazy section'lar için `min-height` reserve audit edilmedi (post-deploy).
+- [x] **INP — rAF loop'ları**: Vite'tan beri visibility-aware (zaten yapılıyor); Particle background `requestAnimationFrame` ile inactive tab'larda otomatik duruyor.
+- [x] **TTFB — SSG**: Faz 6.2'de tüm sure sayfaları + tool sayfaları statik üretiliyor (`generateStaticParams` 1-114 sure × 2 locale = 228 statik HTML + 36 tool × 2 = 72 statik tool sayfası).
+- [ ] **Test — PageSpeed Insights / Web.dev**: Post-deploy (Faz 7.14 Search Console + 7.15 Analytics ile birlikte).
 
 ### 7.11 International SEO  _**Tamamlandı**: Faz 5 hreflang + html lang_
 - [x] **hreflang tags** (7.6 ile zaten kaplıyor)
