@@ -1,6 +1,7 @@
 import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb, buildArticle, quranBook } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
+import SurahPagination from '@/components/SurahPagination';
 import { SURAH_NAMES_TR } from '@/lib/surahNames';
 import ReadingModeRoute from './ReadingModeRoute';
 
@@ -59,6 +60,7 @@ export default async function Page({ params }) {
           }),
         ]}
       />
+      <SurahPagination locale={locale} surah={surah} />
       <ReadingModeRoute initialSurah={valid ? s : undefined} />
     </>
   );

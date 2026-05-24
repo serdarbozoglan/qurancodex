@@ -5,7 +5,7 @@ import WowFactsRoute from './WowFactsRoute';
 
 const PATH = '/arac/wow';
 const TITLE = 'Şaşırtıcı Olgular';
-const DESC = 'Modern bilimle örtüşen Kur';
+const DESC = "Modern bilimle örtüşen Kur'an ayetleri ve az bilinen şaşırtıcı gerçekler — kompakt keşif kartları.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

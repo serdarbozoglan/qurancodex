@@ -5,7 +5,7 @@ import ConceptGraphRoute from './ConceptGraphRoute';
 
 const PATH = '/graf/kavram';
 const TITLE = 'Kavram Grafiği';
-const DESC = 'Anahtar Kur';
+const DESC = "Anahtar Kur'an kavramları — tövbe, sabır, iman, takva — kavramlar arası bağlantı ağı olarak görselleştirilmiş.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

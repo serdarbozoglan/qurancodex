@@ -5,7 +5,7 @@ import AddresseeSystemRoute from './AddresseeSystemRoute';
 
 const PATH = '/arac/muhataplar';
 const TITLE = 'Muhataplar Sistemi';
-const DESC = 'Kur';
+const DESC = "Kur'an'da muhatap çağrıları — 'Ey iman edenler', 'Ey insanlar', 'Ey ehl-i kitap'; kim, ne zaman, hangi bağlamda.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

@@ -5,7 +5,7 @@ import DogaAtlasiRoute from './DogaAtlasiRoute';
 
 const PATH = '/atlas/doga';
 const TITLE = 'Doğa Atlası';
-const DESC = 'Kur';
+const DESC = "Kur'an'da kullanılan ~40 doğa unsuru — bulut, yağmur, rüzgâr, deniz, dağ, ağaç; her birinin sembolik anlamı ve geçtiği ayetler.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

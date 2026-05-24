@@ -4,8 +4,8 @@ import JsonLd from '@/components/JsonLd';
 import DuaVersesRoute from './DuaVersesRoute';
 
 const PATH = '/arac/dualar';
-const TITLE = 'Kur';
-const DESC = 'Kur';
+const TITLE = "Kur'an'dan Dualar";
+const DESC = "Kur'an'dan seçilmiş dualar — peygamberlerin yakarışları ve müminlerin niyazları; bağlam ve uygulama rehberi.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

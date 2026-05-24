@@ -5,7 +5,7 @@ import MeleklerRoute from './MeleklerRoute';
 
 const PATH = '/arac/melekler';
 const TITLE = 'Melekler';
-const DESC = 'Kur';
+const DESC = "Kur'an'da melekler — Cebrâil, Mikâil, İsrâfil, Azrail ve sınıfları; görevleri ve geçtiği ayetler.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

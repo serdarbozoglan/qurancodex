@@ -587,11 +587,13 @@ Migration sırasında bazı section'larda ham rgba değerleri kalmış.
 - [x] **No trailing slash:** `next.config.js` → `trailingSlash: false`
 
 ### 7.8 Internal Linking
-- [ ] **Breadcrumb komponentleri** her route'da (zaten 7.2'de structured data var, görsel olarak da render et)
-- [ ] **Related links** her sure sayfasında: bir önceki/sonraki sure, ilgili kıssalar, ilgili tool'lar
-- [ ] **Anchor text** anlamlı: "buraya tıkla" değil "Bakara Suresi'ni oku"
-- [ ] **Footer'da** önemli sayfa linklerini tut (kıssa atlası, peygamber atlası, ayet grafı)
-- [ ] **Sitemap.html** (kullanıcıya yönelik HTML index) opsiyonel ama faydalı
+- [ ] **Visual breadcrumb komponentleri** her route'da — DEFERRED. Tool route'ları (`atlas/*`, `graf/*`, `arac/*`, `oku/[surah]`) Vite döneminden gelen `position: fixed; inset: 0; zIndex: 9999` overlay pattern'ı kullanıyor; bir thin breadcrumb strip overlay'in altında kalır ve render edilemez. JSON-LD breadcrumb (Faz 7.2) zaten mevcut → SEO etkisi karşılandı. Tools normal-flow layout'a refactor edilince (post-migration polish faz'ı) visual breadcrumb tekrar denenecek.
+- [x] **Related links** her sure sayfasında: prev/next sure linkleri `<SurahPagination>` server component'iyle eklendi (`next/src/components/SurahPagination.jsx`). `rel="prev"`/`rel="next"` ile Google internal-linking hint; sr-only stil (ReadingMode overlay'i kapadığı için görsel parity korunur, ama HTML'de yer alır).
+- [x] **Anchor text** anlamlı: Footer "Sayfaları Keşfet" bloğundaki tüm linkler "Bakara Suresi'ni oku (Sure 2)", "Kıssa Atlası — peygamber kıssaları" pattern'iyle yazıldı.
+- [x] **Footer'da** önemli sayfa linklerini tut: 4 sütunlu internal link grid eklendi (`next/src/components/Footer.jsx`) — Atlas (5), Graf & Veri (5), Araçlar (5), Popüler Sureler (6) = 21 internal link, TR + EN varyantlarıyla.
+- [ ] **Sitemap.html** (kullanıcıya yönelik HTML index) — SKIP. XML sitemap (Faz 7.3) zaten 302 URL üretiyor; ek HTML index marginal değer. Gerekirse post-deploy eklenir.
+
+**Faz 7.2 kalıntı bug fix (bonus):** 21 page.js dosyasının TITLE/DESC alanlarında Python regex'i `'` (apostrophe) üzerinden truncate olmuştu — `'Kur'an'` → `'Kur'`. Hepsi düzeltildi: çift tırnaklı string literal kullanıldı, anlamlı 100-150 karakterlik description yazıldı. `<meta name="description">`, OG/Twitter, JSON-LD LearningResource hepsi düzgün metni alıyor.
 
 ### 7.9 Content & On-Page SEO
 - [ ] **H1 tek tane** her sayfada, sure adı veya tool adı

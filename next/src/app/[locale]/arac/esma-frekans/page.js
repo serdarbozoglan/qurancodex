@@ -4,8 +4,8 @@ import JsonLd from '@/components/JsonLd';
 import EsmaFrekansRoute from './EsmaFrekansRoute';
 
 const PATH = '/arac/esma-frekans';
-const TITLE = 'Esma';
-const DESC = 'Allah';
+const TITLE = "Esmâ'ül-Hüsnâ Frekansı";
+const DESC = "Allah'ın 99 ismi (Esmâ'ül-Hüsnâ) — Kur'an'daki frekans analizi ve tematik dağılımı.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

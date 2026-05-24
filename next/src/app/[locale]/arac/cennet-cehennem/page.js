@@ -5,7 +5,7 @@ import CennetCehennemRoute from './CennetCehennemRoute';
 
 const PATH = '/arac/cennet-cehennem';
 const TITLE = 'Cennet & Cehennem';
-const DESC = 'Kur';
+const DESC = "Kur'an'da cennet ve cehennem tasvirleri — nimetler, azaplar, mertebeler, kapılar; ayet referanslarıyla.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

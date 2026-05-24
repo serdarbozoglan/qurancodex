@@ -5,7 +5,7 @@ import FurukAtlasiRoute from './FurukAtlasiRoute';
 
 const PATH = '/atlas/furuk';
 const TITLE = 'Füruk Atlası';
-const DESC = 'Eş anlamlı kabul edilen Kur';
+const DESC = "Eş anlamlı kabul edilen Kur'an kelimeleri arasındaki ince fark — Matar/Ğays, Havf/Haşye gibi 50+ kelime ailesi.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

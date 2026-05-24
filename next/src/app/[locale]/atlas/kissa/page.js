@@ -5,7 +5,7 @@ import KissaAtlasRoute from './KissaAtlasRoute';
 
 const PATH = '/atlas/kissa';
 const TITLE = 'Kıssa Atlası';
-const DESC = 'Kur';
+const DESC = "Kur'an'daki peygamber kıssaları — Yusuf, Musa, İbrahim, İsa; hangi sûrede hangi sahne, hangi bağlam.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

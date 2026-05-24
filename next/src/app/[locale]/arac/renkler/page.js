@@ -4,8 +4,8 @@ import JsonLd from '@/components/JsonLd';
 import KuranRenkleriRoute from './KuranRenkleriRoute';
 
 const PATH = '/arac/renkler';
-const TITLE = 'Kur';
-const DESC = 'Beyaz, siyah, kırmızı, sarı, yeşil, mavi — Kur';
+const TITLE = "Kur'an'da Renkler";
+const DESC = "Beyaz, siyah, kırmızı, sarı, yeşil, mavi — Kur'an'da renklerin sembolik kullanımı ve geçtiği ayetler.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

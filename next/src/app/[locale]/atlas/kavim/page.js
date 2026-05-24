@@ -5,7 +5,7 @@ import KavimlerAtlasiRoute from './KavimlerAtlasiRoute';
 
 const PATH = '/atlas/kavim';
 const TITLE = 'Kavimler Atlası';
-const DESC = 'Kur';
+const DESC = "Kur'an'da geçen kavimler — Âd, Semûd, Lût, Medyen, Sebe' — coğrafi haritası ve helâk-yücelten örüntüleri.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

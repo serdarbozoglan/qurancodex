@@ -1,11 +1,103 @@
 'use client';
 
+import Link from 'next/link';
 import { useLanguage } from '../i18n/LanguageContext';
 import { FONTS } from '../tokens';
 
+const SITEMAP_LINKS = {
+  tr: {
+    atlas: {
+      label: 'Atlas',
+      items: [
+        { href: '/atlas/kissa',      text: "Kıssa Atlası — peygamber kıssaları" },
+        { href: '/atlas/peygamber',  text: "Peygamberler Atlası — 25 nebi, kronoloji" },
+        { href: '/atlas/kavim',      text: "Kavimler Atlası — Âd, Semûd, Sebe'" },
+        { href: '/atlas/mesel',      text: "Mesel Atlası — 50 sembolik anlatı" },
+        { href: '/atlas/doga',       text: "Doğa Atlası — bulut, yağmur, dağ" },
+      ],
+    },
+    graf: {
+      label: 'Graf & Veri',
+      items: [
+        { href: '/graf/ayet',        text: "Ayet Grafiği — 6236 ayet 3D haritası" },
+        { href: '/graf/kavram',      text: "Kavram Grafiği — tövbe, sabır, iman" },
+        { href: '/graf/kelime-isi',  text: "Kelime Isı Haritası — yoğunluk analizi" },
+        { href: '/graf/diyalog',     text: "Diyalog Ağı — Kur'an'daki konuşmalar" },
+        { href: '/graf/zaman',       text: "Nüzul Kronolojisi — 23 yıllık vahiy" },
+      ],
+    },
+    arac: {
+      label: 'Araçlar',
+      items: [
+        { href: '/arac/dualar',       text: "Kur'an'dan Dualar koleksiyonu" },
+        { href: '/arac/yeminler',     text: "Kur'an'ın Yeminleri — kasem yapıları" },
+        { href: '/arac/wow',          text: "Şaşırtıcı Olgular — bilim & ayet" },
+        { href: '/arac/esma-frekans', text: "Esmâ'ül-Hüsnâ Frekansı" },
+        { href: '/arac/tum-araclar',  text: "Tüm Araçlar — kapsamlı katalog" },
+      ],
+    },
+    sureler: {
+      label: 'Popüler Sureler',
+      items: [
+        { href: '/oku/1',   text: "Fâtiha Suresi'ni oku (Sure 1)" },
+        { href: '/oku/2',   text: "Bakara Suresi'ni oku (Sure 2)" },
+        { href: '/oku/36',  text: "Yâ-Sîn Suresi'ni oku (Sure 36)" },
+        { href: '/oku/55',  text: "Rahmân Suresi'ni oku (Sure 55)" },
+        { href: '/oku/67',  text: "Mülk Suresi'ni oku (Sure 67)" },
+        { href: '/oku/112', text: "İhlâs Suresi'ni oku (Sure 112)" },
+      ],
+    },
+  },
+  en: {
+    atlas: {
+      label: 'Atlas',
+      items: [
+        { href: '/atlas/kissa',      text: "Story Atlas — prophet narratives" },
+        { href: '/atlas/peygamber',  text: "Prophet Atlas — 25 prophets, timeline" },
+        { href: '/atlas/kavim',      text: "Tribes Atlas — Ad, Thamud, Saba'" },
+        { href: '/atlas/mesel',      text: "Parable Atlas — 50 symbolic motifs" },
+        { href: '/atlas/doga',       text: "Nature Atlas — cloud, rain, mountain" },
+      ],
+    },
+    graf: {
+      label: 'Graph & Data',
+      items: [
+        { href: '/graf/ayet',        text: "Verse Graph — 6236 verses in 3D" },
+        { href: '/graf/kavram',      text: "Concept Graph — repentance, patience, faith" },
+        { href: '/graf/kelime-isi',  text: "Word Heatmap — density analysis" },
+        { href: '/graf/diyalog',     text: "Dialogue Network — Quranic conversations" },
+        { href: '/graf/zaman',       text: "Revelation Timeline — 23-year arc" },
+      ],
+    },
+    arac: {
+      label: 'Tools',
+      items: [
+        { href: '/arac/dualar',       text: "Quranic Prayers collection" },
+        { href: '/arac/yeminler',     text: "Quranic Oaths — qasam structures" },
+        { href: '/arac/wow',          text: "Wow Facts — science & verses" },
+        { href: '/arac/esma-frekans', text: "Names of Allah Frequency" },
+        { href: '/arac/tum-araclar',  text: "All Tools — full catalog" },
+      ],
+    },
+    sureler: {
+      label: 'Popular Surahs',
+      items: [
+        { href: '/oku/1',   text: "Read Surah Al-Fatiha (Surah 1)" },
+        { href: '/oku/2',   text: "Read Surah Al-Baqara (Surah 2)" },
+        { href: '/oku/36',  text: "Read Surah Ya-Sin (Surah 36)" },
+        { href: '/oku/55',  text: "Read Surah Ar-Rahman (Surah 55)" },
+        { href: '/oku/67',  text: "Read Surah Al-Mulk (Surah 67)" },
+        { href: '/oku/112', text: "Read Surah Al-Ikhlas (Surah 112)" },
+      ],
+    },
+  },
+};
+
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const sources = t('footer.sources');
+  const links = SITEMAP_LINKS[language] || SITEMAP_LINKS.tr;
+  const exploreHeading = language === 'tr' ? 'Sayfaları Keşfet' : 'Explore Pages';
 
   return (
     <footer className="relative bg-cosmic-black border-t border-white/5 py-16 px-6">
@@ -22,6 +114,37 @@ export default function Footer() {
             {t('footer.methodology')}
           </p>
         </div>
+
+        {/* Internal links — Faz 7.8 */}
+        <nav aria-label={exploreHeading} className="glass-card p-8 mb-12">
+          <h4 className="text-off-white font-body font-semibold mb-6 text-xs uppercase tracking-[0.2em]">
+            {exploreHeading}
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {['atlas', 'graf', 'arac', 'sureler'].map((key) => {
+              const col = links[key];
+              return (
+                <div key={key}>
+                  <h5 className="text-gold font-body font-semibold mb-3 text-xs uppercase tracking-[0.15em]">
+                    {col.label}
+                  </h5>
+                  <ul className="space-y-2 text-silver text-sm leading-relaxed">
+                    {col.items.map((item, i) => (
+                      <li key={i}>
+                        <Link
+                          href={`/${language}${item.href}`}
+                          className="hover:text-gold transition-colors"
+                        >
+                          {item.text}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </nav>
 
         {/* Sources */}
         <div className="glass-card p-8 mb-12">

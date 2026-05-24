@@ -5,7 +5,7 @@ import WordHeatmapRoute from './WordHeatmapRoute';
 
 const PATH = '/graf/kelime-isi';
 const TITLE = 'Kelime Isı Haritası';
-const DESC = 'Bir kelimenin Kur';
+const DESC = "Bir kelimenin Kur'an'daki yoğunluğunu sûre-sûre ısı haritası ile gör; kavramların coğrafyasını keşfet.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

@@ -4,8 +4,8 @@ import JsonLd from '@/components/JsonLd';
 import KuranYeminleriRoute from './KuranYeminleriRoute';
 
 const PATH = '/arac/yeminler';
-const TITLE = 'Kur';
-const DESC = 'Allah';
+const TITLE = "Kur'an'ın Yeminleri";
+const DESC = "Allah'ın yeminleri — incir, zeytin, andolsun ki, kasem — 25+ yemin ve yemin-cevap (jaweb-i kasem) yapıları.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

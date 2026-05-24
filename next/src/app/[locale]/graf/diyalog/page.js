@@ -5,7 +5,7 @@ import DiyalogAgiRoute from './DiyalogAgiRoute';
 
 const PATH = '/graf/diyalog';
 const TITLE = 'Diyalog Ağı';
-const DESC = 'Kur';
+const DESC = "Kur'an'daki ~300 diyalog — Allah-Musa, İbrahim-baba, Yusuf-kardeşler; 25 eksende ağ olarak haritalanmış.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

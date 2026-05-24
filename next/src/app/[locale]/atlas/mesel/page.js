@@ -5,7 +5,7 @@ import MeselAtlasiRoute from './MeselAtlasiRoute';
 
 const PATH = '/atlas/mesel';
 const TITLE = 'Mesel Atlası';
-const DESC = 'Kur';
+const DESC = "Kur'an'da ~50 mesel — sinek, örümcek, ağaç, ışık, ateş, su — 7 imge evrenine ayrılmış sembolik dil haritası.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

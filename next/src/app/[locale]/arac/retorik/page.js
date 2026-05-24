@@ -4,8 +4,8 @@ import JsonLd from '@/components/JsonLd';
 import KuranRetorigiRoute from './KuranRetorigiRoute';
 
 const PATH = '/arac/retorik';
-const TITLE = 'Kur';
-const DESC = 'Belâgat figürleri — tezad, istiare, teşbih, iltifât, sehl-i mümteni ve daha fazlası.';
+const TITLE = "Kur'an Belâgatı";
+const DESC = "Belâgat figürleri — tezad, istiare, teşbih, iltifât, sehl-i mümteni ve daha fazlası; Kur'an üslubunun haritası.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

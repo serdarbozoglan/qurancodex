@@ -5,7 +5,7 @@ import ToolsBrowserRoute from './ToolsBrowserRoute';
 
 const PATH = '/arac/tum-araclar';
 const TITLE = 'Tüm Araçlar';
-const DESC = 'Tüm interaktif araçların kapsamlı kataloğu — atlas, graf, utility tool';
+const DESC = "Tüm interaktif araçların kapsamlı kataloğu — atlas, graf ve utility tool'lar bir arada; aramayla hızlıca erişim.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

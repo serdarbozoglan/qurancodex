@@ -5,7 +5,7 @@ import ZamanBoyutlariRoute from './ZamanBoyutlariRoute';
 
 const PATH = '/arac/zaman-boyutlari';
 const TITLE = 'Zaman Boyutları';
-const DESC = 'Kur';
+const DESC = "Kur'an'da zaman algısı — gün, sene, devir, an; göreceli zaman ölçeği ve bilimsel yorumlar.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });

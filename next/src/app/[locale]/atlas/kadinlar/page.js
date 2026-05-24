@@ -5,7 +5,7 @@ import KadinlarAtlasiRoute from './KadinlarAtlasiRoute';
 
 const PATH = '/atlas/kadinlar';
 const TITLE = 'Kadınlar Atlası';
-const DESC = 'Kur';
+const DESC = "Kur'an'da anılan, seçilen, ders olarak öne çıkan kadınlar — Meryem, Asiye, Hacer, Belkıs ve daha fazlası.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, title: TITLE, description: DESC });
