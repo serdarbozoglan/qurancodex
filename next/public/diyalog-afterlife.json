@@ -1,0 +1,92 @@
+{
+  "scenes": [
+    {
+      "id": "angels-greet-paradise",
+      "category": "cennet",
+      "titleTr": "Meleklerin Cennet Ehline Selamı",
+      "titleEn": "Angels Welcome the People of Paradise",
+      "participants": ["angels", "paradise-dwellers"],
+      "refs": ["39:73", "7:43", "13:23-24"],
+      "keyPhrase": "سَلَامٌ عَلَيْكُمْ طِبْتُمْ فَادْخُلُوهَا خَالِدِينَ",
+      "summaryTr": "Cennet kapılarında melekler mü'minleri karşılar: 'Selâmun aleykum, ne güzel yaptınız, girin burada kalın.'",
+      "summaryEn": "At the gates of paradise, angels receive the believers: 'Peace be upon you; you have done well, enter here to abide.'"
+    },
+    {
+      "id": "paradise-asks-hell",
+      "category": "cennet",
+      "titleTr": "Cennet Ehlinin Cehennem Ehline Sorusu",
+      "titleEn": "Paradise Dwellers Question the People of Hell",
+      "participants": ["paradise-dwellers", "hell-dwellers"],
+      "refs": ["7:44"],
+      "keyPhrase": "هَلْ وَجَدتُّم مَّا وَعَدَ رَبُّكُمْ حَقًّا",
+      "summaryTr": "'Rabbinizin vaadini gerçek buldunuz mu?' — 'Evet!'",
+      "summaryEn": "'Have you found what your Lord promised to be true?' — 'Yes!'"
+    },
+    {
+      "id": "hell-begs-paradise",
+      "category": "cehennem",
+      "titleTr": "Cehennem Ehlinin Su Talebi",
+      "titleEn": "People of Hell Beg for Water",
+      "participants": ["hell-dwellers", "paradise-dwellers"],
+      "refs": ["7:50"],
+      "keyPhrase": "أَفِيضُوا عَلَيْنَا مِنَ الْمَاءِ",
+      "summaryTr": "'Bize biraz su veya Allah'ın size verdiğinden atın!' — 'Allah bunları kâfirlere haram kıldı.'",
+      "summaryEn": "'Pour upon us some water!' — 'God has forbidden them to the disbelievers.'"
+    },
+    {
+      "id": "hell-begs-angels",
+      "category": "cehennem",
+      "titleTr": "Cehennem Ehlinin Zebânîlere Yalvarışı",
+      "titleEn": "People of Hell Plead with the Angels",
+      "participants": ["hell-dwellers", "angels"],
+      "refs": ["40:49-50", "43:77"],
+      "keyPhrase": "ادْعُوا رَبَّكُمْ يُخَفِّفْ عَنَّا يَوْمًا",
+      "summaryTr": "'Rabbinize dua edin, bir gün olsun azabı hafifletsin!' — 'Size elçiler gelmemiş miydi?'",
+      "summaryEn": "'Call your Lord to lighten our punishment for a day!' — 'Did not your messengers come to you?'"
+    },
+    {
+      "id": "followers-blame-leaders",
+      "category": "hesap",
+      "titleTr": "Takipçilerin Önderleri Suçlaması",
+      "titleEn": "Followers Blame Their Leaders",
+      "participants": ["munafiqun", "arrogant-leaders"],
+      "refs": ["14:21", "34:31-33", "37:27-32"],
+      "keyPhrase": "إِنَّا كُنَّا لَكُمْ تَبَعًا",
+      "summaryTr": "'Biz size uymuştuk, Allah'ın azabından bir şey savabilir misiniz?' — 'Allah bize de yol gösterseydi, size de gösterirdik.'",
+      "summaryEn": "'We were your followers — can you avert God's punishment from us?' — 'If God had guided us, we would have guided you.'"
+    },
+    {
+      "id": "satan-final-confession",
+      "category": "cehennem",
+      "titleTr": "İblis'in Son İtirafı",
+      "titleEn": "Satan's Final Confession",
+      "participants": ["iblis", "hell-dwellers"],
+      "refs": ["14:22"],
+      "keyPhrase": "إِنَّ اللَّهَ وَعَدَكُمْ وَعْدَ الْحَقِّ وَوَعَدتُّكُمْ فَأَخْلَفْتُكُمْ",
+      "summaryTr": "'Allah size gerçek vaadde bulundu, ben de vaadde bulundum ama yalan söyledim. Beni değil kendinizi suçlayın.'",
+      "summaryEn": "'God promised you the truth, and I promised you but betrayed you. So do not blame me; blame yourselves.'"
+    },
+    {
+      "id": "araf-people-dialogue",
+      "category": "araf",
+      "titleTr": "A'râf Ehli — İki Tarafa Hitap",
+      "titleEn": "People of A'raf Address Both Sides",
+      "participants": ["araf-dwellers", "paradise-dwellers", "hell-dwellers"],
+      "refs": ["7:46-49"],
+      "keyPhrase": "أَصْحَابُ الْأَعْرَافِ",
+      "summaryTr": "A'râf'takiler cennet ehline 'Selam!' der, cehennem ehline bakınca 'Rabbimiz bizi zalimlerle beraber kılma!' diye dua eder.",
+      "summaryEn": "Those in A'raf say 'Peace!' to paradise-dwellers, then pray 'Our Lord, do not place us with the wrongdoers' when looking at hell."
+    },
+    {
+      "id": "allah-judgment-day",
+      "category": "hesap",
+      "titleTr": "Allah'ın Kıyamet Sorgulaması",
+      "titleEn": "God's Questioning on Judgment Day",
+      "participants": ["allah", "all-humanity"],
+      "refs": ["36:59-64", "7:172", "5:116-117"],
+      "keyPhrase": "أَلَمْ أَعْهَدْ إِلَيْكُمْ يَا بَنِي آدَمَ",
+      "summaryTr": "'Ey Âdemoğulları! Size şeytana tapmayın diye söylemedim mi?' / İsa'ya: 'Sen mi insanlara beni ve annemi ilah edinin dedin?'",
+      "summaryEn": "'O Children of Adam, did I not command you not to follow Satan?' / To Jesus: 'Did you say to take you and your mother as gods?'"
+    }
+  ]
+}

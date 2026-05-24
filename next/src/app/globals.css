@@ -1,0 +1,395 @@
+/* QuranCodex globals — ported from Vite src/index.css (CLAUDE.md §4 design system).
+   Tailwind v4 @theme block + cosmic-dark body + scrollbar/typography rules. */
+
+@import 'leaflet/dist/leaflet.css';
+@import "tailwindcss";
+
+/* ============================================
+   FONT FACES — Self-hosted Arabic Quran fonts.
+   Ported from Vite index.html <style> block.
+   KFGQPC: King Fahd Complex Hafs — Uthmani Quranic typography.
+   ShaykhHamdullah: ReadingMode + InterlinearView (CLAUDE.md §13.2 + §13.15).
+   ============================================ */
+
+@font-face {
+  font-family: 'KFGQPC';
+  src: url('/fonts/kfgqpc-hafs.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ShaykhHamdullah';
+  src: url('/ShaykhHamdullah.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   DESIGN SYSTEM - Kur'an-ı Kerim'in Görünmeyen Mimarisi
+   ============================================ */
+
+@theme {
+  /* Palette — single source of truth, mirrors src/tokens.js (CLAUDE.md §4). */
+  --color-cosmic-black: #0a0a1a;
+  --color-deep-navy: #0d1b2a;
+  --color-gold: #d4a574;
+  --color-royal-gold: #c9a227;
+  --color-emerald: #1a7a4c;
+  --color-soft-emerald: #2ecc71;
+  --color-off-white: #e8e6e3;
+  --color-silver: #94a3b8;
+  --color-soft-red: #e74c3c;
+  --color-sky-blue: #3498db;
+  --color-teal: #1abc9c;
+  --color-violet: #9b59b6;
+  --color-orange: #e67e22;
+  --color-amber: #f0b429;
+  --color-purple: #a78bfa;
+  --color-cyan: #06b6d4;
+  --color-glass: rgba(255, 245, 220, 0.04);
+  --shadow-glow-gold: 0 0 30px rgba(212,165,116,0.20);
+  --shadow-glow-emerald: 0 0 30px rgba(46,204,113,0.20);
+  --shadow-glow-blue: 0 0 30px rgba(52,152,219,0.20);
+  --shadow-glow-red: 0 0 30px rgba(231,76,60,0.20);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-strong: rgba(255, 245, 220, 0.07);
+
+  /* Gold CTA button gradient (.btn-primary-gold) — mirrors COLORS.btnGold* in tokens.js */
+  --color-btn-gold-start: #c9973a;
+  --color-btn-gold-mid: #b8860b;
+  --color-btn-gold-end: #9a6f0a;
+  --color-btn-gold-text: #1c0f00;
+  --color-btn-gold-glow-15: rgba(180,130,40,0.3);
+  --color-btn-gold-glow-25: rgba(180,130,40,0.5);
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+/* ---- Scroll offset for fixed navbar (prevents anchor links hiding content) ---- */
+section[id], div[id] {
+  scroll-margin-top: 72px;
+}
+
+/* ---- Base ---- */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cosmic-black);
+  color: var(--color-off-white);
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+::selection {
+  background: rgba(212, 165, 116, 0.3);
+  color: var(--color-off-white);
+}
+
+/* Utility: hide scrollbar while keeping scroll functional */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { scrollbar-width: none; }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Sure info panel scrollbar gizle */
+.surah-info-panel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobilde panel tam genişlik + safe area padding */
+@media (max-width: 480px) {
+  .surah-info-panel {
+    width: 100vw !important;
+    padding-left: max(20px, env(safe-area-inset-left, 16px)) !important;
+    padding-right: max(20px, env(safe-area-inset-right, 16px)) !important;
+    overflow-x: hidden !important;
+  }
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cosmic-black);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 165, 116, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 165, 116, 0.5);
+}
+
+/* Tefsir panel day-mode scrollbar — cream track instead of cosmic-black */
+.tafsir-day-scroll {
+  scrollbar-color: rgba(154, 120, 56, 0.35) rgba(250, 246, 237, 0.6);
+}
+.tafsir-day-scroll::-webkit-scrollbar-track {
+  background: rgba(250, 246, 237, 0.6);
+}
+.tafsir-day-scroll::-webkit-scrollbar-thumb {
+  background: rgba(154, 120, 56, 0.32);
+}
+.tafsir-day-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(154, 120, 56, 0.55);
+}
+
+/* ---- Glassmorphism ---- */
+/* Values mirror GLASS_CARD / GLASS_CARD_STRONG in tokens.js (CLAUDE.md §13.7). */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.glass-card-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+/* ---- CTA Buttons ---- */
+.btn-primary-gold {
+  background: linear-gradient(135deg, var(--color-btn-gold-start) 0%, var(--color-btn-gold-mid) 60%, var(--color-btn-gold-end) 100%);
+  border: none;
+  border-radius: 6px;
+  color: var(--color-btn-gold-text);
+  box-shadow: 0 0 32px 8px var(--color-btn-gold-glow-15);
+}
+
+.btn-ghost-dark {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(180, 130, 40, 0.4);
+  border-radius: 6px;
+  box-shadow: inset 0 0 12px rgba(180, 130, 40, 0.08);
+}
+
+/* ---- Glow Effects ---- */
+.gold-glow {
+  text-shadow:
+    0 0 20px rgba(212, 165, 116, 0.5),
+    0 0 40px rgba(212, 165, 116, 0.3),
+    0 0 60px rgba(212, 165, 116, 0.1);
+}
+
+.emerald-glow {
+  text-shadow:
+    0 0 20px rgba(46, 204, 113, 0.5),
+    0 0 40px rgba(46, 204, 113, 0.3);
+}
+
+.box-glow-gold {
+  box-shadow: 0 0 30px rgba(212, 165, 116, 0.15), 0 0 60px rgba(212, 165, 116, 0.05);
+}
+
+.box-glow-emerald {
+  box-shadow: 0 0 30px rgba(46, 204, 113, 0.15), 0 0 60px rgba(46, 204, 113, 0.05);
+}
+
+/* ---- Section Gradients ---- */
+/* Cinematic section bridge — a soft fade between section background tones
+   with a delicate gold horizon line at its midpoint, so the transition
+   reads as a chapter break rather than a technical stitch.
+   CLAUDE.md §4: "Section Transitions: 200px gradient overlap between sections". */
+.gradient-divider {
+  height: 96px;
+  background:
+    /* Mid-line hairline: ultra-subtle gold horizon (10% gold alpha) */
+    linear-gradient(180deg, transparent 48%, rgba(212, 165, 116, 0.10) 50%, transparent 52%),
+    /* Main soft fade between cosmic-black and deep-navy; wider plateaus
+       at both ends prevent the seam from feeling mid-section. */
+    linear-gradient(180deg,
+      var(--color-cosmic-black) 0%,
+      var(--color-cosmic-black) 18%,
+      var(--color-deep-navy) 82%,
+      var(--color-deep-navy) 100%);
+  pointer-events: none;
+}
+
+.gradient-divider-reverse {
+  height: 96px;
+  background:
+    linear-gradient(180deg, transparent 48%, rgba(212, 165, 116, 0.10) 50%, transparent 52%),
+    linear-gradient(180deg,
+      var(--color-deep-navy) 0%,
+      var(--color-deep-navy) 18%,
+      var(--color-cosmic-black) 82%,
+      var(--color-cosmic-black) 100%);
+  pointer-events: none;
+}
+
+/* Mobile: tighter bridge (64px) — scroll economy matters on small screens. */
+@media (max-width: 640px) {
+  .gradient-divider,
+  .gradient-divider-reverse {
+    height: 64px;
+  }
+}
+
+/* ---- Animations ---- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(12px); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Audio playback pulse — soft expanding ring around the play button when
+   an ayet is actively playing. Two staggered instances of this animation
+   (offset by ~0.8s) produce a heartbeat-style continuous pulse. */
+@keyframes rm-audio-pulse {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  70%  { transform: scale(1.85); opacity: 0;    }
+  100% { transform: scale(1.85); opacity: 0;    }
+}
+
+/* Respect reduced motion preference — audio button still changes color but
+   the pulse ring stops moving. */
+@media (prefers-reduced-motion: reduce) {
+  .rm-audio-pulse-ring { animation: none !important; opacity: 0 !important; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 80s linear infinite;
+}
+
+.animate-scroll-bounce {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ---- Islamic Pattern (SVG inline) ---- */
+.islamic-pattern-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 0L74 46H120L82 74L96 120L60 92L24 120L38 74L0 46H46Z' fill='none' stroke='%23d4a574' stroke-width='0.5' opacity='0.4'/%3E%3Ccircle cx='60' cy='60' r='30' fill='none' stroke='%23d4a574' stroke-width='0.3' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+/* ---- Counter Animation Helpers ---- */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Arabic Text ---- */
+.arabic-verse {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  text-align: right;
+  line-height: 2.4;
+  unicode-bidi: bidi-override;
+  font-feature-settings: "calt" 1, "liga" 1;
+}
+
+/* Global Arabic typography polish — KFGQPC + ShaykhHamdullah ligature/kerning/
+   contextual alternates. 'calt' is the most important for Arabic: letters
+   change form based on neighboring glyphs. Applies anywhere lang=ar or RTL. */
+[lang="ar"], [dir="rtl"] {
+  font-feature-settings: 'liga' 1, 'kern' 1, 'calt' 1;
+  font-variant-ligatures: contextual common-ligatures;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Focus Styles ---- */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ---- Skip Link (a11y — W23-S3) ----
+   Keyboard-only "Skip to main content" link. Hidden off-screen by default;
+   becomes visible on keyboard focus (focus-visible avoids mouse-click flicker).
+   z-index 10003 ensures it sits above Navbar (9999) and mobile menu (10001-10002). */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--color-gold);
+  color: var(--color-cosmic-black);
+  padding: 8px 16px;
+  font-weight: 600;
+  z-index: 10003;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  font-family: var(--font-body);
+  /* transform translate Y -100% ile element her zaman tamamen viewport üstünde;
+     `top: -40px` bug'ı (padding + line-height ile element ~45px, dolayısıyla
+     bottom edge viewport'a 5px sızıyordu) bu pattern'le tamamen elimine. */
+  transform: translateY(-100%);
+  transition: transform 0.15s ease-out;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@keyframes kiraat-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(212, 165, 116, 0); }
+}
+
+@keyframes rayPulse {
+  0%, 100% { opacity: 1; stroke-width: 3.5; }
+  50% { opacity: 0.6; stroke-width: 5; }
+}

@@ -1,0 +1,323 @@
+{
+  "meta": {
+    "totalProfiles": 7,
+    "totalCoreVerses": 14,
+    "scholarTypologies": 1,
+    "authenticHadiths": 1,
+    "generatedBy": "qc-content-producer",
+    "generatedDate": "2026-04-20",
+    "sourceDraft": "docs/content-drafts/2026-04-20-munafik-profili.md"
+  },
+  "intro": {
+    "titleTr": "Münâfık Profili — Kur'ân'ın Psikolojik Anatomisi",
+    "titleEn": "The Hypocrite Profile — The Qur'anic Psychological Anatomy",
+    "subtitleTr": "7 davranış deseni, İbn Kayyim'in tipolojisi ve bir sahih hadis",
+    "subtitleEn": "7 behavioral patterns, Ibn Qayyim's typology, and one authentic hadith",
+    "descTr": "Kur'ân münâfıkları olağanüstü bir ayrıntıyla çizer. Bakara 2:8-20, Nisâ 4:140-145, Tevbe 9:64-87, Ahzâb 33:12-20, Münâfikûn Sûresi başta olmak üzere 300'ü aşkın ayette münâfık davranışı işlenir. Bu tool, Kur'ân'ın tek bir karakter tipine yaptığı en yoğun portreyi bir yerde toplar.",
+    "descEn": "The Qur'an depicts hypocrites with extraordinary detail. Over 300 verses — centered on Q 2:8-20, Q 4:140-145, Q 9:64-87, Q 33:12-20, and Sūrat al-Munāfiqūn — address hypocritical behavior. This tool gathers the Qur'an's most intensive portrait of a single character type.",
+    "etymologyTr": "Münâfık (مُنَافِق) kelimesi 'nefak' (نَفَق) kökünden gelir — Arap çöl coğrafyasındaki tarla faresinin (yerboe) iki çıkışlı yuvasını ifade eder: biri görünür, biri saklı. Tehlike geldiğinde hayvan saklı çıkıştan kaçar. Râgıb el-İsfahânî *El-Müfredât*'ta bu metaforu klasik İslamî psikolojinin çekirdeği olarak işler: münâfık iki kapısı olan kişidir — biri zâhirî (mü'min görünür), biri bâtınî (kâfir kaçar). Türkçedeki 'iki yüzlü' karşılığı bu çift-kapılı yapının ancak yüzeysel bir ifadesidir.",
+    "etymologyEn": "The word munāfiq (مُنَافِق) derives from the root nafaq (نَفَق) — the two-mouthed burrow of the desert jerboa: one entrance visible, the other concealed. When danger comes, the animal escapes through the hidden exit. Rāghib al-Iṣfahānī treats this metaphor in *al-Mufradāt* as the core of classical Islamic psychology: the hypocrite is a person with two doors — one outward (appearing as a believer), one inward (departing as a disbeliever). The English 'two-faced' captures only the surface of this dual-door structure."
+  },
+  "profiles": [
+    {
+      "id": "self-deception",
+      "titleTr": "Aldatma ve Kendini Aldatma",
+      "titleEn": "Deception and Self-Deception",
+      "color": "#e74c3c",
+      "keyVerseRef": "Bakara 2:8-10",
+      "verses": [
+        {
+          "verseRef": "Bakara 2:8",
+          "surah": 2,
+          "ayah": 8,
+          "verseAr": "وَمِنَ النَّاسِ مَنْ يَقُولُ اٰمَنَّا بِاللّٰهِ وَبِالْيَوْمِ الْاٰخِرِ وَمَا هُمْ بِمُؤْمِن۪ينَۢ",
+          "verseTr": "İnsanlardan bazıları da vardır ki, inanmadıkları halde \"Allah'a ve ahiret gününe inandık\" derler.",
+          "verseEn": "And of the people are some who say, \"We believe in Allah and the Last Day,\" but they are not believers."
+        },
+        {
+          "verseRef": "Bakara 2:9",
+          "surah": 2,
+          "ayah": 9,
+          "verseAr": "يُخَادِعُونَ اللّٰهَ وَالَّذ۪ينَ اٰمَنُواۚ وَمَا يَخْدَعُونَ اِلَّٓا اَنْفُسَهُمْ وَمَا يَشْعُرُونَۜ",
+          "verseTr": "Onlar (kendi akıllarınca) güya Allah'ı ve müminleri aldatırlar. Halbuki onlar ancak kendilerini aldatırlar ve bunun farkında değillerdir.",
+          "verseEn": "They [think to] deceive Allah and those who believe, but they deceive not except themselves and perceive [it] not."
+        },
+        {
+          "verseRef": "Bakara 2:10",
+          "surah": 2,
+          "ayah": 10,
+          "verseAr": "ف۪ي قُلُوبِهِمْ مَرَضٌۙ فَزَادَهُمُ اللّٰهُ مَرَضاًۚ وَلَهُمْ عَذَابٌ اَل۪يمٌۙ بِمَا كَانُوا يَكْذِبُونَ",
+          "verseTr": "Onların kalblerinde bir hastalık vardır. Allah da onların hastalığını çoğaltmıştır. Söylemekte oldukları yalanlar sebebiyle de onlar için elim bir azap vardır.",
+          "verseEn": "In their hearts is disease, so Allah has increased their disease; and for them is a painful punishment because they [habitually] used to lie."
+        }
+      ],
+      "behaviorPatternTr": "Sözlü iman beyanı + iç inkâr. Kur'ân dikkat çekici bir psikolojik içgörü sunar: aldatma eylemi bir öz-aldatma ile iç içe geçer ('yuhâdi'ûne... ve mâ yuhda'ûne illâ enfüsehüm'). Münâfık, aldattığını sandığı insanların değil, önce kendi farkındalığının kurbanıdır.",
+      "behaviorPatternEn": "Verbal confession of faith + inner denial. The Qur'an offers a striking psychological insight: the act of deception is entangled with self-deception — the hypocrite is first and foremost the victim of his own awareness, not of those he imagines he deceives.",
+      "classicalAnalysisTr": "Fahreddin er-Râzî, Mefâtîhu'l-Gayb'da Bakara 9'u şöyle açıklar: 'Onların aldatmaları aslında kendilerinedir, çünkü aldatma sonucu ortaya çıkan zarar — dünyadaki itibarsızlık + ahiretteki azap — münâfığın kendisine döner.' Bu tespit, klasik kelâmın 'fiil-sonuç' analizinin en net örneklerinden biridir.",
+      "classicalAnalysisEn": "Al-Rāzī, in *Mafātīḥ al-Ghayb* on Q 2:9, explains: 'Their deception is actually against themselves — because the harm that emerges (worldly disgrace plus afterlife punishment) returns to the hypocrite.' His analysis is among the clearest instances of classical *kalām*'s act-consequence logic.",
+      "modernParallelTr": "Modern psikolojide 'self-deception' kavramı Robert Trivers'ın The Folly of Fools (2011) çalışmasıyla akademik gündeme oturdu. Trivers, kendini aldatmanın başkasını aldatmaya yardım eden bir evrimsel adaptasyon olduğunu öne sürer. Klasik İslamî psikoloji aldatma ↔ kendini aldatma ilişkisini Kur'ân'ın ahlâkî/teolojik çerçevesinde tanımıştır; modern evrimsel psikoloji aynı insan fenomenini biyolojik mekanizma diliyle modeller. İki gelenek aynı deneyimi farklı kavram ağlarıyla tarif eder — bilimsel önceden biliş veya doğrulama iddiası burada yapılmaz.ir — 'bilimsel önceden biliş' değil.",
+      "modernParallelEn": "In modern psychology, *self-deception* came to academic prominence with Robert Trivers's *The Folly of Fools* (2011), which argues that self-deception is an evolutionary adaptation that aids in deceiving others. Classical Islamic psychology recognized the deception ↔ self-deception relationship within the Qur'an's ethical/theological frame; modern evolutionary psychology models the same human phenomenon through the language of biological mechanism. Two traditions describe the same experience through different conceptual networks — no claim of scientific foreknowledge or validation is made here.",
+      "sourceTr": "Râzî, Mefâtîhu'l-Gayb, Bakara 2:9; İbn Kesîr, Bakara 2:8-10; Robert Trivers, The Folly of Fools, Basic Books, 2011.",
+      "sourceEn": "Al-Rāzī, *Mafātīḥ al-Ghayb*, on Q 2:9; Ibn Kathīr on Q 2:8-10; Robert Trivers, *The Folly of Fools*, Basic Books, 2011.",
+      "infoTr": "Modern paralellik 'Kur'ân bilimi önceden bildi' iddiası olarak değil, iki farklı geleneğin aynı insan fenomenini farklı dillerde tarif etmesi olarak sunuluyor. Trivers'ın evrimsel çerçevesi ile Kur'ân'ın ahlâkî çerçevesi ontolojik olarak farklıdır.",
+      "infoEn": "This modern parallel is not presented as a 'prescient scientific claim' but as two different traditions describing the same human phenomenon in different languages. Trivers's evolutionary framework and the Qur'an's ethical framework are ontologically distinct.",
+      "ekolEtiketi": "klasik tefsir + modern biyopsikoloji paralelliği (dikkatli)"
+    },
+    {
+      "id": "reformer-identity",
+      "titleTr": "\"Biz Islah Ediciyiz\" Kimliği",
+      "titleEn": "The \"We Are Reformers\" Identity",
+      "color": "#e74c3c",
+      "keyVerseRef": "Bakara 2:11-12",
+      "verses": [
+        {
+          "verseRef": "Bakara 2:11",
+          "surah": 2,
+          "ayah": 11,
+          "verseAr": "وَاِذَا ق۪يلَ لَهُمْ لَا تُفْسِدُوا فِي الْاَرْضِۙ  قَالُٓوا اِنَّمَا نَحْنُ مُصْلِحُونَ",
+          "verseTr": "Onlara: Yeryüzünde fesat çıkarmayın, denildiği zaman, \"Biz ancak ıslah edicileriz\" derler.",
+          "verseEn": "And when it is said to them, \"Do not cause corruption on the earth,\" they say, \"We are but reformers.\""
+        },
+        {
+          "verseRef": "Bakara 2:12",
+          "surah": 2,
+          "ayah": 12,
+          "verseAr": "اَلَٓا اِنَّهُمْ هُمُ الْمُفْسِدُونَ وَلٰكِنْ لَا يَشْعُرُونَ",
+          "verseTr": "Şunu bilin ki, onlar bozguncuların ta kendileridir, lakin anlamazlar.",
+          "verseEn": "Unquestionably, it is they who are the corrupters, but they perceive [it] not."
+        }
+      ],
+      "behaviorPatternTr": "Fesat çıkaran kişinin kendisini 'ıslah edici' olarak konumlandırması. Bu, Kur'ân'ın en keskin psikolojik gözlemlerinden biridir: nifâk, eyleminin tam tersini kendi kimliğinin merkezi ilan ederek meşruiyetini kurar. Önce dış dünyaya karşı, sonra kendi zihnine karşı.",
+      "behaviorPatternEn": "The one causing corruption positions himself as a *reformer*. This is one of the Qur'an's sharpest psychological observations: hypocrisy establishes its legitimacy by declaring the very opposite of its action as the core of its identity. First outward, then inward.",
+      "classicalAnalysisTr": "Elmalılı Hamdi Yazır, Hak Dini'nde: 'Münâfık kendini ıslah edici sanmaktadır çünkü kendisinin basiret sahibi olduğunu, inananların ise sefih (akılsız) olduğunu sanır (bkz. sonraki ayet 2:13).' Bu kibirli üst-kimlik iddiası, onların iç tutarlılık mekanizmasıdır.",
+      "classicalAnalysisEn": "Elmalılı Hamdi Yazır comments on Q 2:11-12: 'The hypocrite believes himself a reformer because he thinks he possesses insight (*baṣīra*) while the believers are foolish (*sufahāʾ*) — see the next verse 2:13.' This arrogant meta-identity is the hypocrite's internal consistency mechanism.",
+      "modernParallelTr": "Leon Festinger'in cognitive dissonance teorisi (1957) bu dinamiği doğrudan tanımlar: davranış ve kimlik arasında çatışma oluşunca, insan kimliğini (ya da davranışı) yeniden yorumlayarak çatışmayı çözer. Münâfığın 'ıslah ediciyim' iddiası, dissonance'ı çözmek için seçtiği identity reframing'in saf örneğidir.",
+      "modernParallelEn": "Leon Festinger's *cognitive dissonance* theory (1957) names this dynamic directly: when behavior and identity conflict, the person resolves the conflict by reinterpreting identity (or behavior). The hypocrite's claim 'we are reformers' is a pure instance of identity reframing to dissolve dissonance.",
+      "sourceTr": "Elmalılı, Hak Dini, Bakara 2:11-13; Râzî, Mefâtîh, Bakara 2:11; Leon Festinger, A Theory of Cognitive Dissonance, Stanford University Press, 1957.",
+      "sourceEn": "Elmalılı on Q 2:11-13; Al-Rāzī on Q 2:11; Leon Festinger, *A Theory of Cognitive Dissonance*, Stanford University Press, 1957.",
+      "infoTr": "Klasik tefsir 'ıslah edici' iddiasını ahlâkî-dinî bir analiz olarak ele alır; modern psikoloji aynı fenomeni biyolojik-bilişsel bir adaptasyon olarak modeller. İki çerçeve birbirinin yerini almaz; paralel bakışlardır.",
+      "infoEn": "Classical exegesis treats the 'reformer' claim as ethical-religious analysis; modern psychology models the same phenomenon as biological-cognitive adaptation. The two frameworks are parallel, not substitutive.",
+      "ekolEtiketi": "klasik tefsir + modern sosyal psikoloji paralelliği"
+    },
+    {
+      "id": "dual-identity",
+      "titleTr": "Çift-Kimlik Davranışı",
+      "titleEn": "Dual-Identity Behavior",
+      "color": "#e74c3c",
+      "keyVerseRef": "Bakara 2:14, Münâfikûn 63:1, 63:4",
+      "verses": [
+        {
+          "verseRef": "Bakara 2:14",
+          "surah": 2,
+          "ayah": 14,
+          "verseAr": "وَاِذَا لَقُوا الَّذٖينَ اٰمَنُوا قَالُٓوا اٰمَنَّاۚ وَاِذَا خَلَوْا اِلٰى شَيَاطٖينِهِمْۙ قَالُٓوا اِنَّا مَعَكُمْۙ اِنَّمَا نَحْنُ مُسْتَهْزِؤُ۫نَ",
+          "verseTr": "(Bu münafıklar) müminlerle karşılaştıkları vakit \"(Biz de) iman ettik\" derler. (Kendilerini saptıran) şeytanları ile başbaşa kaldıklarında ise: Biz sizinle beraberiz, biz onlarla (müminlerle) sadece alay ediyoruz, derler.",
+          "verseEn": "And when they meet those who believe, they say, \"We believe\"; but when they are alone with their evil ones, they say, \"Indeed, we are with you; we were only mockers.\""
+        },
+        {
+          "verseRef": "Münâfikûn 63:1",
+          "surah": 63,
+          "ayah": 1,
+          "verseAr": "اِذَا جَٓاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ اِنَّكَ لَرَسُولُ اللّٰهِۢ وَاللّٰهُ يَعْلَمُ اِنَّكَ لَرَسُولُهُۜ وَاللّٰهُ يَشْهَدُ اِنَّ الْمُنَافِق۪ينَ لَـكَاذِبُونَۚ",
+          "verseTr": "Münafıklar sana geldiklerinde: Şahitlik ederiz ki sen Allah'ın Peygamberisin, derler. Allah da bilir ki sen elbette, O'nun Peygamberisin. Allah, münafıkların kesinlikle yalancı olduklarını bilmektedir.",
+          "verseEn": "When the hypocrites come to you, [O Muhammad], they say, \"We testify that you are the Messenger of Allah.\" And Allah knows that you are His Messenger, and Allah testifies that the hypocrites are liars."
+        },
+        {
+          "verseRef": "Münâfikûn 63:4",
+          "surah": 63,
+          "ayah": 4,
+          "verseAr": "وَاِذَا رَاَيْتَهُمْ تُعْجِبُكَ اَجْسَامُهُمْۜ وَاِنْ يَقُولُوا تَسْمَعْ لِقَوْلِهِمْۜ   كَاَنَّهُمْ خُشُبٌ مُسَنَّدَةٌۜ يَحْسَبُونَ كُلَّ صَيْحَةٍ عَلَيْهِمْۜ هُمُ الْعَدُوُّ فَاحْذَرْهُمْۜ  قَاتَلَهُمُ اللّٰهُۘ  اَنّٰى يُؤْفَـكُونَ",
+          "verseTr": "Onları gördüğün zaman kalıpları hoşuna gider, konuşurlarsa sözlerini dinlersin. Onlar sanki duvara dayanmış kütükler gibidir. Her gürültüyü kendi aleyhlerine sanırlar.",
+          "verseEn": "And when you see them, their forms please you, and if they speak, you listen to their speech. [They are] as if they were pieces of wood propped up — they think that every shout is against them."
+        }
+      ],
+      "behaviorPatternTr": "Münâfık, bağlama göre tamamen farklı bir 'ben' sunar. Mü'minlere 'inandık', kendilerine 'alay ediyoruz' der. Bu bir yalan değil — ikili bir performans düzeni, içsel gerçekliği olmayan sosyal oyun. 63:4 dikkat çekici dış görünüşe (fiziksel varlık, belâgat) karşın iç boşluğa işaret eder: 'duvara dayanmış kütükler gibi.'",
+      "behaviorPatternEn": "The hypocrite presents a completely different 'self' depending on context. To believers: 'We believe'; to their own: 'We were mocking them.' This is not merely a lie — it is a dual performance system, a social game without inner reality. Q 63:4 points to the striking outward appearance (physical presence, eloquent speech) paired with inner hollowness: 'like propped-up planks of wood.'",
+      "classicalAnalysisTr": "İbn Kesîr, Bakara 2:14'te: 'Münâfığın iki yüzü vardır: bir yüz mü'mine, bir yüz şeytanına. Her yüz, kendi ortamında doğal görünür.' İbn Kayyim, Medâricü's-Sâlikîn'de nifâk'ın en açık alâmeti olarak 'tağayyur-ı hâl bi-tağayyur-ı mekân' (bulunduğu yere göre halinin değişmesi) üzerinde durur.",
+      "classicalAnalysisEn": "Ibn Kathīr on Q 2:14: 'The hypocrite has two faces — one for the believer, one for his devil; each face appears natural in its environment.' Ibn Qayyim, in *Madārij al-Sālikīn*, identifies the clearest mark of hypocrisy as 'change of state with change of setting.'",
+      "modernParallelTr": "Erving Goffman'ın dramaturgical self yaklaşımı (The Presentation of Self in Everyday Life, 1959) ilgili paraleldir. Ancak Goffman'ın perspektifi evrensel sosyal davranışa dair nötr bir model; Kur'ân'ın münâfık tespiti normatif bir ahlâkî yargıdır.",
+      "modernParallelEn": "Erving Goffman's *dramaturgical self* (The Presentation of Self in Everyday Life, 1959) is a related parallel. But Goffman's perspective is a neutral model of universal social behavior; the Qur'an's identification of the hypocrite is a normative ethical judgment.",
+      "sourceTr": "İbn Kesîr, Bakara 2:14 ve Münâfikûn 63:4; İbn Kayyim, Medâricü's-Sâlikîn (nifâk bölümü); Erving Goffman, The Presentation of Self in Everyday Life, 1959.",
+      "sourceEn": "Ibn Kathīr on Q 2:14 and Q 63:4; Ibn Qayyim, *Madārij al-Sālikīn* (section on hypocrisy); Erving Goffman, *The Presentation of Self in Everyday Life*, 1959.",
+      "infoTr": "Goffman paralelliği nötr bir sosyolojik gözlem olarak verilir; Kur'ân'ın normatif ahlâkî yargısıyla karıştırılmaz.",
+      "infoEn": "The Goffman parallel is offered as a neutral sociological observation; it is not to be conflated with the Qur'an's normative ethical judgment.",
+      "ekolEtiketi": "klasik tefsir + sosyal psikoloji (Goffman paralelliği — dikkatli)"
+    },
+    {
+      "id": "weak-worship-show",
+      "titleTr": "Zayıf İbadet ve Gösteriş",
+      "titleEn": "Weak Worship and Ostentation",
+      "color": "#94a3b8",
+      "keyVerseRef": "Nisâ 4:142",
+      "verses": [
+        {
+          "verseRef": "Nisâ 4:142",
+          "surah": 4,
+          "ayah": 142,
+          "verseAr": "اِنَّ الْمُنَافِق۪ينَ يُخَادِعُونَ اللّٰهَ وَهُوَ خَادِعُهُمْۚ وَاِذَا قَامُٓوا اِلَى الصَّلٰوةِ قَامُوا كُسَالٰىۙ يُرَٓاؤُ۫نَ النَّاسَ وَلَا يَذْكُرُونَ اللّٰهَ اِلَّا قَل۪يلاًۘ",
+          "verseTr": "Şüphesiz münafıklar Allah'a oyun etmeye kalkışıyorlar; halbuki Allah onların oyunlarını başlarına çevirmektedir. Onlar namaza kalktıkları zaman üşenerek kalkarlar, insanlara gösteriş yaparlar, Allah'ı da pek az hatıra getirirler.",
+          "verseEn": "Indeed, the hypocrites [think to] deceive Allah, but He is deceiving them. And when they stand for prayer, they stand lazily, showing [themselves to] the people and not remembering Allah except a little."
+        }
+      ],
+      "behaviorPatternTr": "İbadetin içsel boyutu (ihlâs) ve sosyal boyutu (riyâ) arasında kopma. Münâfık ibadete katılır — çünkü sosyal mensubiyet gerektirir — ama katılımı iki işaretle kendini belli eder: (1) üşengeçlik (kusâlâ), (2) gösteriş (yurâûne'n-nâs). Üçüncü bir işaret: zikir eksikliği ('ve lâ yezkürûnallâhe illâ kalîlâ').",
+      "behaviorPatternEn": "A rupture between the inner (*ikhlāṣ*, sincerity) and social (*riyāʾ*, show) dimensions of worship. The hypocrite attends worship — because social membership requires it — but his attendance is marked by two signs: (1) listlessness (*kusālā*), (2) showing off (*yurāʾūna al-nās*). A third sign: scarcity of remembrance.",
+      "classicalAnalysisTr": "Kurtubî, el-Câmi' li-Ahkâmi'l-Kur'ân'da Nisâ 142 için: 'Namaza kalkışlarındaki üşengeçliği — ibadetin bir dış form olduğuna, iç gerçekliği olmadığına — delildir. Mü'min, ibadete koşarak kalkar; münâfık sürüklenerek.' Klasik tefsirde bu ayet 'ibâdet-i halvet' (tenha ibadet) ile 'ibâdet-i ra'y' (görünür ibadet) ayrımının anahtar metinlerindendir.",
+      "classicalAnalysisEn": "Al-Qurṭubī on Q 4:142 writes: 'The listlessness of their standing for prayer is proof that worship is for them an outer form without inner reality. The believer rises eagerly to worship; the hypocrite drags himself.' In classical exegesis this verse is a key text in the distinction between *ʿibādat al-khalwa* (solitary worship) and *ʿibādat al-raʾy* (visible worship).",
+      "modernParallelTr": "Modern din psikolojisinde Gordon Allport'un intrinsic vs. extrinsic religiosity ayrımı (1950) benzer davranışları tanımlar. Klasik İslamî gelenek aynı ayrımı 'ihlâs-riyâ' ikiliği ile çok daha önceden işlemiştir; iki çerçeve farklı dillerden aynı insan ihtilafına işaret eder.",
+      "modernParallelEn": "In modern psychology of religion, Gordon Allport's distinction between intrinsic and extrinsic religiosity (1950) names similar behaviors. The classical Islamic tradition treated the same distinction much earlier through the *ikhlāṣ*/*riyāʾ* pairing; the two frames point to the same human conflict in different languages.",
+      "sourceTr": "Kurtubî, el-Câmi' li-Ahkâmi'l-Kur'ân, Nisâ 4:142; Râzî, Mefâtîh, Nisâ 142; İbn Kayyim, Medâric (riyâ bahsi).",
+      "sourceEn": "Al-Qurṭubī on Q 4:142; Al-Rāzī on Q 4:142; Ibn Qayyim on *riyāʾ* in *Madārij*.",
+      "infoTr": "Klasik tefsir ahlâkî-dinî bir tespit yapar; modern din psikolojisi aynı davranışı ampirik olarak ölçer. İki disiplin birbirinden türetilemez ama birbirini aydınlatır.",
+      "infoEn": "Classical exegesis makes an ethical-religious identification; modern psychology of religion measures the same behavior empirically. The two disciplines do not derive from each other but illuminate each other.",
+      "ekolEtiketi": "klasik tefsir + din psikolojisi paralelliği"
+    },
+    {
+      "id": "liminal-indecision",
+      "titleTr": "Arafta Kalma / Kararsızlık",
+      "titleEn": "Liminal Indecision",
+      "color": "#94a3b8",
+      "keyVerseRef": "Nisâ 4:143",
+      "verses": [
+        {
+          "verseRef": "Nisâ 4:143",
+          "surah": 4,
+          "ayah": 143,
+          "verseAr": "مُذَبْذَب۪ينَ بَيْنَ ذٰلِكَۗ لَٓا اِلٰى هٰٓؤُ۬لَٓاءِ وَلَٓا اِلٰى هٰٓؤُ۬لَٓاءِۜ وَمَنْ يُضْلِلِ اللّٰهُ فَلَنْ تَجِدَ لَهُ سَب۪يلاً",
+          "verseTr": "Bunların arasında bocalayıp durmaktalar, ne onlara (bağlanıyorlar) ne bunlara. Allah'ın şaşırttığı kimseye asla bir (çıkar) yol bulamazsın.",
+          "verseEn": "Wavering between them, [belonging] neither to the believers nor to the disbelievers. And whoever Allah leaves astray — never will you find for him a way."
+        }
+      ],
+      "behaviorPatternTr": "Münâfık'ın 'ne mü'min, ne kâfir' halinde sıkışması. Bu bir kararsızlık değil — aktif bir kararsız kalma stratejisidir. 'Müzebzebîne' (bocalayanlar) kelimesi sadece 'kararsız' değil, zemzeme eden, salınan, yüzen — sabit bir zemini olmayan.",
+      "behaviorPatternEn": "The hypocrite is stuck 'neither believer nor disbeliever.' This is not indecision — it is an active strategy of remaining undecided. The word *mudhabdhabīn* means not just 'wavering' but oscillating, swinging, floating — having no fixed ground.",
+      "classicalAnalysisTr": "Zemahşerî, Keşşâf'ta bu ayeti belâgat şaheserleri arasında sayar: 'Müzebzebîne kelimesi, bir ipin iki ucunda asılı kalıp dönmenin tasviridir — ne mü'minlerin topluluğuna tam dâhil olabilir, ne kâfirlerin. Sonuçta iki tarafa da eklenmez.' İbn Âşûr bunu 'berzah-ı ictimâ'î' (toplumsal berzah) adlandırır.",
+      "classicalAnalysisEn": "Al-Zamakhsharī, in *al-Kashshāf*, counts this verse among the masterpieces of *balāgha*: the word *mudhabdhabīn* describes one hanging between two ropes, swinging. In the end the hypocrite is joined to neither side. Ibn ʿĀshūr calls this *barzakh al-ijtimāʿī*: a social limbo.",
+      "modernParallelTr": "Psikoloji literatüründe Erik Erikson'un identity diffusion (kimlik yayılması, 1968) kavramı bu 'hiçbir şeye tam bağlanamama' halini tanımlar. Erikson çerçevesi ahlâkî-dinî değil gelişimseldir.",
+      "modernParallelEn": "In psychology, Erik Erikson's *identity diffusion* (1968) names this inability to commit fully. Erikson's framework is developmental, not ethical-religious.",
+      "sourceTr": "Zemahşerî, el-Keşşâf, Nisâ 4:143; İbn Âşûr, Tahrîr, Nisâ 143; Elmalılı, Hak Dini, Nisâ 143.",
+      "sourceEn": "Al-Zamakhsharī, *al-Kashshāf*, on Q 4:143; Ibn ʿĀshūr on Q 4:143; Elmalılı on Q 4:143.",
+      "infoTr": "'Müzebzebîne' kelimesinin rhetorik analizi belâgatın zirve örneklerindendir.",
+      "infoEn": "The rhetorical analysis of *mudhabdhabīn* is among the peaks of *balāgha*.",
+      "ekolEtiketi": "klasik tefsir + belâgat + gelişim psikolojisi paralelliği"
+    },
+    {
+      "id": "collective-network",
+      "titleTr": "Kolektif Organizasyon (Velâyet Ağı)",
+      "titleEn": "Collective Organization (Walāya Network)",
+      "color": "#94a3b8",
+      "keyVerseRef": "Tevbe 9:67",
+      "verses": [
+        {
+          "verseRef": "Tevbe 9:67",
+          "surah": 9,
+          "ayah": 67,
+          "verseAr": "اَلْمُنَافِقُونَ وَالْمُنَافِقَاتُ بَعْضُهُمْ مِنْ بَعْضٍۢ يَأْمُرُونَ بِالْمُنْكَرِ وَيَنْهَوْنَ عَنِ الْمَعْرُوفِ وَيَقْبِضُونَ اَيْدِيَهُمْۜ نَسُوا اللّٰهَ فَنَسِيَهُمْۜ اِنَّ الْمُنَافِق۪ينَ هُمُ الْفَاسِقُونَ",
+          "verseTr": "Münafık erkekler ve münafık kadınlar (sizden değil), birbirlerindendir. Onlar kötülüğü emreder, iyilikten alıkor ve cimrilik ederler. Onlar Allah'ı unuttular. Allah da onları unuttu! Çünkü münafıklar fasıkların kendileridir.",
+          "verseEn": "The hypocrite men and hypocrite women are of one another. They enjoin what is wrong and forbid what is right and close their hands. They have forgotten Allah, so He has forgotten them. Indeed, the hypocrites — it is they who are the defiantly disobedient."
+        }
+      ],
+      "behaviorPatternTr": "Münâfıklık bir bireysel patoloji değil, kolektif bir ağdır. Kur'ân münâfıkların sosyal yapısını üç özellikle tasvir eder: (1) kendi aralarında birbirlerindendir (velâyet ağı), (2) ma'rûfa engel, münkere teşvikçi (toplumsal davranış örüntüsü), (3) cimrilik (infâktan kaçınma). Bu üç özellik bir ters ayna oluşturur: sonraki ayet 9:71'de mü'minler tam tersi ile tanımlanır.",
+      "behaviorPatternEn": "Hypocrisy is not individual pathology but a collective network. The Qur'an describes their social structure with three traits: (1) they are of one another (a *walāya* network), (2) they enjoin wrong and forbid right, (3) they withhold spending. These three form a mirror inversion: in Q 9:71 believers are described with the exact opposites.",
+      "classicalAnalysisTr": "İbn Âşûr, Tahrîr'de bu ayeti: 'Ba'duhum min ba'd (birbirlerindendir) ifadesi, münâfıkların sosyolojik bir gerçeklik olduğunu gösterir. Tek tek bireyler değil, bir kollektivite olarak hareket ederler.' Elmalılı aynı ayeti 'hicreti takip eden Medine toplumunun iç dinamiğini anlamak için anahtar' olarak kabul eder.",
+      "classicalAnalysisEn": "Ibn ʿĀshūr emphasizes this verse: 'The phrase *baʿḍuhum min baʿḍ* shows hypocrisy as a sociological reality. They act not as isolated individuals but as a collective.' Elmalılı considers this verse key to understanding the internal dynamics of post-Hijra Medinan society.",
+      "modernParallelTr": "Modern sosyolojide Henri Tajfel'in social identity theory'si (1979) in-group solidarity of deceptive identities olgusuna dair teorik zemin sağlar. Ancak Kur'ân bu olguyu tek ayette üç kategoriyle özetler — bu kısalık, klasik ulemaca belâgatın en nadir örneklerinden biri sayılır.",
+      "modernParallelEn": "In modern sociology, Henri Tajfel's social identity theory (1979) provides a theoretical grounding for 'in-group solidarity of deceptive identities.' The Qur'an, however, summarizes this phenomenon in a single verse with three categories — a concision regarded by classical scholars as among the rarest instances of *balāgha*.",
+      "sourceTr": "İbn Âşûr, et-Tahrîr ve't-Tenvîr, Tevbe 9:67; Elmalılı, Hak Dini, Tevbe 67; Taberî, Câmiu'l-Beyân, Tevbe 67.",
+      "sourceEn": "Ibn ʿĀshūr on Q 9:67; Elmalılı on Q 9:67; Al-Ṭabarī on Q 9:67.",
+      "infoTr": "Bu ayet, Kur'ân'ın münâfıklık analizini psikolojiden sosyolojiye taşıyan en önemli ayetlerden biri olarak klasik tefsirde işlenir.",
+      "infoEn": "Classical exegesis treats this verse as one of the most significant in shifting the analysis of hypocrisy from psychology to sociology.",
+      "ekolEtiketi": "klasik tefsir + sosyolojik analiz",
+      "mukabele": {
+        "titleTr": "Mukâbele — Münâfık (9:67) ↔ Mü'min (9:71)",
+        "titleEn": "Mukābala — Hypocrite (9:67) ↔ Believer (9:71)",
+        "noteTr": "Klasik Arap belâgatında 'mukâbele' (zıt karşılaştırma) sanatının zirve örneklerinden biri. Aynı sûrede dört ayet arayla münâfık ve mü'min, dört eksende ters-ayna konumunda tarif edilir.",
+        "noteEn": "One of the canonical examples of *mukābala* (antithetical pairing) in classical Arabic rhetoric. In the same sura, four verses apart, hypocrites and believers are described as mirror inversions across four axes.",
+        "mirrorVerseAr": "وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ ۚ يَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ وَيُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ",
+        "mirrorVerseTr": "Mü'min erkekler ve mü'min kadınlar birbirinin velîsidir. İyiliği emreder, kötülükten alıkoyar; namazı kılar, zekâtı verirler. — Tevbe 9:71",
+        "mirrorVerseEn": "The believing men and the believing women are allies of one another. They enjoin what is right, forbid what is wrong, establish prayer, and give zakāt. — Q 9:71",
+        "pairs": [
+          { "munafikTr": "Birbirlerindendir (ba'duhum min ba'd)",  "muminTr": "Birbirinin velîsidir (evliyâ ba'd)",        "munafikEn": "Of one another (baʿḍuhum min baʿḍ)", "muminEn": "Allies of one another (awliyāʾ baʿḍ)" },
+          { "munafikTr": "Kötülüğü emreder",                        "muminTr": "İyiliği emreder",                            "munafikEn": "Enjoin wrong",                       "muminEn": "Enjoin right" },
+          { "munafikTr": "İyilikten alıkor",                        "muminTr": "Kötülükten alıkor",                          "munafikEn": "Forbid right",                       "muminEn": "Forbid wrong" },
+          { "munafikTr": "Ellerini kapatır (cimrilik)",              "muminTr": "Namaz kılar, zekât verir",                   "munafikEn": "Close their hands (withhold)",       "muminEn": "Establish prayer, give zakāt" }
+        ]
+      }
+    },
+    {
+      "id": "cowardice-pride",
+      "titleTr": "Korkaklık ve Kibir Birlikteliği",
+      "titleEn": "Cowardice and Pride Together",
+      "color": "#94a3b8",
+      "keyVerseRef": "Münâfikûn 63:8, Ahzâb 33:12",
+      "verses": [
+        {
+          "verseRef": "Münâfikûn 63:8",
+          "surah": 63,
+          "ayah": 8,
+          "verseAr": "يَقُولُونَ لَئِنْ رَجَعْنَٓا اِلَى الْمَد۪ينَةِ لَيُخْرِجَنَّ الْاَعَزُّ مِنْهَا الْاَذَلَّۜ وَلِلّٰهِ الْعِزَّةُ وَلِرَسُولِه۪ وَلِلْمُؤْمِن۪ينَ وَلٰكِنَّ الْمُنَافِق۪ينَ لَا يَعْلَمُونَ۟",
+          "verseTr": "Onlar: Andolsun, eğer Medine'ye dönersek, üstün olan, zayıf olanı oradan mutlaka çıkaracaktır, diyorlardı. Halbuki asıl üstünlük, ancak Allah'ın, Peygamberinin ve müminlerindir. Fakat münafıklar bunu bilmezler.",
+          "verseEn": "They say, \"If we return to al-Madinah, the more honored will surely expel therefrom the more humble.\" And to Allah belongs [all] honor, and to His Messenger, and to the believers, but the hypocrites do not know."
+        },
+        {
+          "verseRef": "Ahzâb 33:12",
+          "surah": 33,
+          "ayah": 12,
+          "verseAr": "وَاِذْ يَقُولُ الْمُنَافِقُونَ وَالَّذ۪ينَ ف۪ي قُلُوبِهِمْ مَرَضٌ مَا وَعَدَنَا اللّٰهُ وَرَسُولُـهُٓ اِلَّا غُرُوراً",
+          "verseTr": "Ve o zaman, münafıklar ile kalplerinde hastalık (iman zayıflığı) bulunanlar: Meğer Allah ve Resulü bize sadece kuru vaadlerde bulunmuşlar! diyorlardı.",
+          "verseEn": "And [remember] when the hypocrites and those in whose hearts is disease said, \"Allah and His Messenger did not promise us except delusion.\""
+        }
+      ],
+      "behaviorPatternTr": "Münâfık psikolojisinde iki zıt duygu aynı anda yaşar: dış tehlike karşısında korku (Hendek'te kuşatma gelince vaadin boşluğunu iddia ederler) + iç çemberde kibir (Medine'de zayıf mü'minlere karşı izzet iddiası). Bu kombinasyon — dışarıya karşı ezik, içeriye karşı üstün — klasik ulemanın 'ayniyet-i dâhile' (iç çelişki) dediği yapıyı oluşturur.",
+      "behaviorPatternEn": "The hypocrite's psychology holds two opposite emotions simultaneously: fear toward external threat + pride within the inner circle. This combination — cowed outward, arrogant inward — is what classical scholars called *ʿayniyat al-dākhila* (internal contradiction).",
+      "classicalAnalysisTr": "Râzî, Ahzâb 12'yi tefsir ederken: 'Zorluk anında insanın kalbi açılır — ne varsa, ne yoksa görünür. Münâfık bu anda mü'minden tam tersi yöne savrulur: mü'min teslim olur, münâfık vaadin boşluğundan bahseder.' İbn Kesîr, Münâfikûn 63:8 için tarihsel bağlamı verir: Abdullah b. Übeyy bin Selûl bu sözü Benî Mustalik gazvesi dönüşünde söylemiştir — Kur'ân bu sözü aynı lâfızla kaydeder.",
+      "classicalAnalysisEn": "Al-Rāzī on Q 33:12: 'Under pressure the heart opens — whatever is inside, or missing, becomes visible. The hypocrite in such moments swings opposite the believer: the believer surrenders, the hypocrite declares the promise empty.' Ibn Kathīr provides the historical context for Q 63:8: Abdullah ibn Ubayy ibn Salūl spoke these words on the return from the Banū al-Muṣṭaliq expedition — the Qur'an records them verbatim.",
+      "sourceTr": "Râzî, Mefâtîhu'l-Gayb, Ahzâb 33:12; İbn Kesîr, Münâfikûn 63:8 (Benî Mustalik gazvesi arka planı); İbn Âşûr, Tahrîr, Münâfikûn 8.",
+      "sourceEn": "Al-Rāzī on Q 33:12; Ibn Kathīr on Q 63:8 (Banū al-Muṣṭaliq expedition context); Ibn ʿĀshūr on Q 63:8.",
+      "infoTr": "İbn Übeyy b. Selûl'ün bu sözü söylediği rivayeti Buhârî ve Müslim'de de geçer (Tefsîr kitâbı, Münâfikûn sûresi). Kur'ân'ın onun sözünü birebir kaydetmesi ve sûreye isim vermesi, klasik ulema tarafından tarihsel-olay belgeleme örneği olarak gösterilir.",
+      "infoEn": "The narration that Ibn Ubayy ibn Salūl spoke these words also appears in al-Bukhārī and Muslim (*Kitāb al-Tafsīr*, Sūrat al-Munāfiqūn). That the Qur'an records his words verbatim and names a surah after it is cited by classical scholars as an example of historical-event documentation.",
+      "ekolEtiketi": "klasik tefsir + tarihî bağlam"
+    }
+  ],
+  "typologies": [
+    {
+      "scholar": "İbn Kayyim el-Cevziyye",
+      "scholarEn": "Ibn Qayyim al-Jawziyya",
+      "work": "Medâricü's-Sâlikîn",
+      "workEn": "Madārij al-Sālikīn",
+      "titleTr": "İbn Kayyim'in Nifâk Tipolojisi",
+      "titleEn": "Ibn Qayyim's Typology of Hypocrisy",
+      "categories": [
+        {
+          "id": "itikadi",
+          "labelTr": "Nifâk-ı İ'tikâdî (İnançsal Nifak)",
+          "labelEn": "Nifāq Iʿtiqādī (Doctrinal Hypocrisy)",
+          "descTr": "Kalben küfr (inkâr) + lisanen iman (sözlü iman beyanı). İbn Kayyim'e göre bu gerçek nifaktır ve sahibini küfr hükmüne sokar. Nisâ 4:145'teki 'münâfıklar cehennemin en alt katındadır' ifadesi bu kategoriye aittir.",
+          "descEn": "Inward disbelief (*kufr*) + outward confession of faith. According to Ibn Qayyim this is true hypocrisy, placing its holder under the ruling of disbelief. The Qur'anic verse 'the hypocrites are in the lowest depths of the Fire' (Q 4:145) pertains to this category."
+        },
+        {
+          "id": "ameli",
+          "labelTr": "Nifâk-ı Amelî (Amelî Nifak)",
+          "labelEn": "Nifāq ʿAmalī (Behavioral Hypocrisy)",
+          "descTr": "İman mevcut, ama davranışta münâfık alâmeti var. İbn Kayyim, Buhârî ve Müslim'in sahih hadisine dayanarak bu kategorideki kişinin mü'min olduğunu, ancak büyük günah işlediğini söyler. Bu nifak türü kişiyi dinden çıkarmaz — tövbe ile giderilebilir — ama büyük bir tehlike alâmetidir.",
+          "descEn": "Faith is present, but behavior bears marks of hypocrisy. Citing the authentic hadith of al-Bukhārī and Muslim, Ibn Qayyim says one in this category remains a believer but commits major sin. This type does not expel one from faith — it is correctable by repentance — but signals grave danger."
+        }
+      ],
+      "sourceTr": "İbn Kayyim el-Cevziyye, Medâricü's-Sâlikîn beyne Menâzili İyyâke Na'budü ve İyyâke Neste'în (nifâk bölümü); aynı tasnif Siracüddin el-Bulkînî ve İbn Receb el-Hanbelî'de de vardır.",
+      "sourceEn": "Ibn Qayyim, *Madārij al-Sālikīn* (section on *nifāq*); the same classification appears in Sirāj al-Dīn al-Bulqīnī and Ibn Rajab al-Ḥanbalī.",
+      "ekolEtiketi": "klasik kelâm/tasavvuf (Hanbelî geleneği)"
+    }
+  ],
+  "authenticHadith": {
+    "titleTr": "Sahih Hadis — Münâfığın Üç Alâmeti",
+    "titleEn": "Authentic Hadith — The Three Signs of a Hypocrite",
+    "textTr": "Münâfığın alâmeti üçtür: Konuştuğunda yalan söyler, vaad verdiğinde sözünde durmaz, emanet edildiğinde hıyanet eder.",
+    "textEn": "The signs of a hypocrite are three: when he speaks he lies, when he promises he breaks his promise, and when entrusted he betrays.",
+    "narrator": "Ebû Hüreyre (r.a.)",
+    "source": "Buhârî, Îmân 24 (#33); Müslim, Îmân 107 (#59); benzer mânâda Tirmizî, Îmân 14",
+    "sourceEn": "Al-Bukhārī, *Kitāb al-Īmān* 24 (#33); Muslim, *Kitāb al-Īmān* 107 (#59); similarly al-Tirmidhī, *Kitāb al-Īmān* 14",
+    "statusTr": "Mütefekkun aleyh (Buhârî + Müslim ortaklaşa sahih kabul etmiş) — sahihliğinde icmâ vardır.",
+    "statusEn": "*Muttafaqun ʿalayh* (agreed-upon by both al-Bukhārī and Muslim) — unanimous agreement on its authenticity.",
+    "noteTr": "Başka bir rivayette (Buhârî'nin Îmân 24'ündeki ilave) dördüncü bir alâmet eklenir: 've izâ hâseme fecer' (tartıştığında haddi aşar). Bu ilave farklı bir sened ile verilir. Ana metin üç alâmet içerir.",
+    "noteEn": "Another narration (from al-Bukhārī's addition in Īmān 24) adds a fourth sign: *wa idhā khāṣama fajar* ('and when he argues he exceeds bounds'). This addition is given with a different chain. The main text contains three signs.",
+    "ekolEtiketi": "sahih hadis (Buhârî + Müslim ortak ravi)"
+  }
+}

@@ -48,3 +48,20 @@ __pycache__/
 
 # Work-in-progress experimental components — not in repo until ready
 src/components/MihverDemo*.jsx
+
+# Next.js migration workspace — build artifacts only (source committed)
+next/.next/
+next/out/
+next/.vercel/
+
+# Playwright visual audit artifacts — keep report.md, exclude screenshots + raw json
+docs/reviews/playwright-*/desktop/
+docs/reviews/playwright-*/mobile/
+docs/reviews/playwright-*/raw-results.json
+
+# Audit screenshot snapshots — regenerable, large; keep .md reports only
+docs/screenshots/
+
+# Meal cache prefetch output — regenerable via `node scripts/prefetch-meals.mjs`
+# (~50-80MB after full prefetch). Keep _authors.json registry tracked.
+next/public/meal-cache/[0-9]*/

@@ -1,0 +1,317 @@
+{
+  "surah": 102,
+  "name": "Surah 102",
+  "nameAr": "",
+  "nameTr": "",
+  "source": {
+    "name": "Quranic Arabic Corpus",
+    "author": "Kais Dukes",
+    "institution": "Leeds University",
+    "url": "https://corpus.quran.com",
+    "license": "GPL — atıfla / with attribution",
+    "fetchedAt": "2026-05-04",
+    "turkish": {
+      "name": "Diyanet İşleri Başkanlığı (kelime meal)",
+      "via": "QuranWBW.com (resource #77)",
+      "url": "https://quranwbw.com"
+    }
+  },
+  "verses": {
+    "1": [
+      {
+        "idx": 1,
+        "ar": "أَلْهَىٰكُمُ",
+        "pos": "V",
+        "root": "ل-ه-و",
+        "lemma": "أَلْهَىٰ",
+        "features": "perfect 3rd person masculine singular verb",
+        "featuresTr": "mâzi gâib müzekker müfred fiil",
+        "tr": "sizi oyaladı"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلتَّكَاثُرُ",
+        "pos": "N",
+        "root": "ك-ث-ر",
+        "lemma": "تَّكَاثُر",
+        "features": "masculine nominative noun",
+        "featuresTr": "müzekker merfu isim",
+        "tr": "çokluk yarışı"
+      }
+    ],
+    "2": [
+      {
+        "idx": 1,
+        "ar": "حَتَّىٰ",
+        "pos": "INC",
+        "root": null,
+        "lemma": "حَتَّىٰ",
+        "features": "inceptive particle",
+        "featuresTr": "istifham cevabı",
+        "tr": "nihayet"
+      },
+      {
+        "idx": 2,
+        "ar": "زُرْتُمُ",
+        "pos": "V",
+        "root": "ز-و-ر",
+        "lemma": "زُرْ",
+        "features": "perfect 2nd person masculine plural verb",
+        "featuresTr": "mâzi muhâtab müzekker cem fiil",
+        "tr": "ziyaret ettiniz"
+      },
+      {
+        "idx": 3,
+        "ar": "ٱلْمَقَابِرَ",
+        "pos": "N",
+        "root": "ق-ب-ر",
+        "lemma": "مَقَابِر",
+        "features": "masculine plural accusative noun",
+        "featuresTr": "müzekker çoğul mansub isim",
+        "tr": "kabirleri"
+      }
+    ],
+    "3": [
+      {
+        "idx": 1,
+        "ar": "كَلَّا",
+        "pos": "AVR",
+        "root": null,
+        "lemma": "كَلَّا",
+        "features": "aversion particle",
+        "featuresTr": "çağırma edatı",
+        "tr": "hayır"
+      },
+      {
+        "idx": 2,
+        "ar": "سَوْفَ",
+        "pos": "FUT",
+        "root": null,
+        "lemma": "سَوْف",
+        "features": "future particle",
+        "featuresTr": "gelecek zaman edatı",
+        "tr": "yakında"
+      },
+      {
+        "idx": 3,
+        "ar": "تَعْلَمُونَ",
+        "pos": "V",
+        "root": "ع-ل-م",
+        "lemma": "عَلِمَ",
+        "features": "imperfect 2nd person masculine plural verb",
+        "featuresTr": "muzâri muhâtab müzekker cem fiil",
+        "tr": "bileceksiniz"
+      }
+    ],
+    "4": [
+      {
+        "idx": 1,
+        "ar": "ثُمَّ",
+        "pos": "CONJ",
+        "root": null,
+        "lemma": "ثُمّ",
+        "features": "conjunction",
+        "featuresTr": "bağlaç",
+        "tr": "sonra"
+      },
+      {
+        "idx": 2,
+        "ar": "كَلَّا",
+        "pos": "AVR",
+        "root": null,
+        "lemma": "كَلَّا",
+        "features": "aversion particle",
+        "featuresTr": "çağırma edatı",
+        "tr": "hayır"
+      },
+      {
+        "idx": 3,
+        "ar": "سَوْفَ",
+        "pos": "FUT",
+        "root": null,
+        "lemma": "سَوْف",
+        "features": "future particle",
+        "featuresTr": "gelecek zaman edatı",
+        "tr": "yakında"
+      },
+      {
+        "idx": 4,
+        "ar": "تَعْلَمُونَ",
+        "pos": "V",
+        "root": "ع-ل-م",
+        "lemma": "عَلِمَ",
+        "features": "imperfect 2nd person masculine plural verb",
+        "featuresTr": "muzâri muhâtab müzekker cem fiil",
+        "tr": "bileceksiniz"
+      }
+    ],
+    "5": [
+      {
+        "idx": 1,
+        "ar": "كَلَّا",
+        "pos": "AVR",
+        "root": null,
+        "lemma": "كَلَّا",
+        "features": "aversion particle",
+        "featuresTr": "çağırma edatı",
+        "tr": "hayır"
+      },
+      {
+        "idx": 2,
+        "ar": "لَوْ",
+        "pos": "COND",
+        "root": null,
+        "lemma": "لَو",
+        "features": "conditional particle",
+        "featuresTr": "şart edatı",
+        "tr": "keşke"
+      },
+      {
+        "idx": 3,
+        "ar": "تَعْلَمُونَ",
+        "pos": "V",
+        "root": "ع-ل-م",
+        "lemma": "عَلِمَ",
+        "features": "imperfect 2nd person masculine plural verb",
+        "featuresTr": "muzâri muhâtab müzekker cem fiil",
+        "tr": "bilseydiniz"
+      },
+      {
+        "idx": 4,
+        "ar": "عِلْمَ",
+        "pos": "N",
+        "root": "ع-ل-م",
+        "lemma": "عِلْم",
+        "features": "masculine accusative noun",
+        "featuresTr": "müzekker mansub isim",
+        "tr": "bilgi ile"
+      },
+      {
+        "idx": 5,
+        "ar": "ٱلْيَقِينِ",
+        "pos": "N",
+        "root": "ي-ق-ن",
+        "lemma": "يَقِين",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "kesin"
+      }
+    ],
+    "6": [
+      {
+        "idx": 1,
+        "ar": "لَتَرَوُنَّ",
+        "pos": "V",
+        "root": "ر-ا-ي",
+        "lemma": "رَءَا",
+        "features": "imperfect 2nd person masculine plural verb",
+        "featuresTr": "muzâri muhâtab müzekker cem fiil",
+        "tr": "mutlaka görürdünüz"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلْجَحِيمَ",
+        "pos": "N",
+        "root": "ج-ح-م",
+        "lemma": "جَحِيم",
+        "features": "feminine accusative noun",
+        "featuresTr": "müennes mansub isim",
+        "tr": "cehennemi"
+      }
+    ],
+    "7": [
+      {
+        "idx": 1,
+        "ar": "ثُمَّ",
+        "pos": "CONJ",
+        "root": null,
+        "lemma": "ثُمّ",
+        "features": "conjunction",
+        "featuresTr": "bağlaç",
+        "tr": "sonra"
+      },
+      {
+        "idx": 2,
+        "ar": "لَتَرَوُنَّهَا",
+        "pos": "V",
+        "root": "ر-ا-ي",
+        "lemma": "رَءَا",
+        "features": "imperfect 2nd person masculine plural verb",
+        "featuresTr": "muzâri muhâtab müzekker cem fiil",
+        "tr": "onu göreceksiniz"
+      },
+      {
+        "idx": 3,
+        "ar": "عَيْنَ",
+        "pos": "N",
+        "root": "ع-ي-ن",
+        "lemma": "عَيْن",
+        "features": "feminine accusative noun",
+        "featuresTr": "müennes mansub isim",
+        "tr": "gözle"
+      },
+      {
+        "idx": 4,
+        "ar": "ٱلْيَقِينِ",
+        "pos": "N",
+        "root": "ي-ق-ن",
+        "lemma": "يَقِين",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "kesin olarak"
+      }
+    ],
+    "8": [
+      {
+        "idx": 1,
+        "ar": "ثُمَّ",
+        "pos": "CONJ",
+        "root": null,
+        "lemma": "ثُمّ",
+        "features": "conjunction",
+        "featuresTr": "bağlaç",
+        "tr": "sonra"
+      },
+      {
+        "idx": 2,
+        "ar": "لَتُسْ_#َلُنَّ",
+        "pos": "V",
+        "root": "س-ا-ل",
+        "lemma": "سَأَلَ",
+        "features": "imperfect passive 2nd person masculine plural verb",
+        "featuresTr": "muzâri meçhul muhâtab müzekker cem fiil",
+        "tr": "sorulacaksınız"
+      },
+      {
+        "idx": 3,
+        "ar": "يَوْمَئِذٍ",
+        "pos": "T",
+        "root": null,
+        "lemma": "يَوْمَئِذ",
+        "features": "time adverb",
+        "featuresTr": "zaman zarfı",
+        "tr": "o gün"
+      },
+      {
+        "idx": 4,
+        "ar": "عَنِ",
+        "pos": "P",
+        "root": null,
+        "lemma": "عَن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "ni'metlerden"
+      },
+      {
+        "idx": 5,
+        "ar": "ٱلنَّعِيمِ",
+        "pos": "N",
+        "root": "ن-ع-م",
+        "lemma": "نَعِيم",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "*"
+      }
+    ]
+  }
+}

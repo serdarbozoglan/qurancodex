@@ -1,0 +1,400 @@
+{
+  "renkler": [
+    {
+      "id": "yesil",
+      "colorNameTr": "Yeşil",
+      "colorNameEn": "Green",
+      "hexColor": "#1D9E75",
+      "tintBg": "rgba(29, 158, 117, 0.12)",
+      "tintBorder": "rgba(29, 158, 117, 0.25)",
+      "contexts": ["cennet", "doga"],
+      "primaryContext": "cennet",
+      "totalMentions": 7,
+      "mentionNote": "Yedi ayette; mudhâm türevi ve dolaylı yeşil çağrışımlar listede.",
+      "arabicTerms": [
+        {
+          "arabic": "أَخْضَر",
+          "transliteration": "ahdar",
+          "formTr": "tekil, sıfat",
+          "formEn": "singular adjective",
+          "isHapax": false,
+          "mentionCount": 2,
+          "primaryRef": "Yasin 36:80"
+        },
+        {
+          "arabic": "خُضْر",
+          "transliteration": "hudr",
+          "formTr": "çoğul",
+          "formEn": "plural",
+          "isHapax": false,
+          "mentionCount": 3,
+          "primaryRef": "Kehf 18:31"
+        },
+        {
+          "arabic": "مُدْهَامَّتَانِ",
+          "transliteration": "mudhammatân",
+          "formTr": "ikili, yoğun koyu ton",
+          "formEn": "dual, intensely dark shade",
+          "isHapax": true,
+          "mentionCount": 1,
+          "primaryRef": "Rahman 55:64"
+        }
+      ],
+      "keyVerseAr": "يَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ مُّتَّكِئِينَ فِيهَا عَلَى الْأَرَائِكِ",
+      "keyVerseTr": "İnce ipek ve kalın ipekten yeşil elbiseler giyerler; orada tahtlara yaslanırlar.",
+      "keyVerseEn": "They will wear green garments of fine silk and brocade, reclining therein on adorned couches.",
+      "keyVerseRef": "Kehf 18:31",
+      "allRefs": ["En'am 6:99", "Hac 22:63", "Yasin 36:80", "Kehf 18:31", "Rahman 55:64", "Rahman 55:76", "İnsan 76:21"],
+      "summaryTr": "Kur'an'da yeşil öncelikle cennet elbiselerinin rengidir — Kehf 18:31, Rahman 55:76 ve İnsan 76:21'de cennet sakinleri yeşil ipek giyer. Yasin 36:80 ise en güçlü zıtlığı sunar: yeşil ağaçtan ateş çıkar, canlılıktan yıkım doğar, diriliş delili olarak kullanılır.",
+      "summaryEn": "In the Quran, green primarily describes paradise garments — Kahf 18:31, Rahman 55:76, and Al-Insan 76:21 all dress paradise dwellers in green silk. Ya-Sin 36:80 presents the most powerful contrast: fire from the green tree, destruction from life, used as an argument for resurrection.",
+      "infoTr": "Yeşilin cennet rengi olduğu yorumu tefsir geleneğine dayanmaktadır. Kur'an yeşili cennet bağlamında kullanır ama 'cennet rengidir' demez.",
+      "infoEn": "The interpretation that green is the color of paradise is based on classical tafsir tradition. The Quran uses green in paradise contexts but does not state 'green is the color of paradise.'",
+      "linguisticNoteTr": "'Mudhammatân' ikili formdur — Rahman 55:62-64'teki iki cennet bahçesini tanımlar. Kökü 'd-h-m' (koyu, siyaha çalan) — yeşilin o kadar yoğun olduğu ki neredeyse siyaha döndüğü ton. Normal yeşil 'ahdar'dan farklı, özel bir yoğunluk kelimesi.",
+      "linguisticNoteEn": "'Mudhammatân' is a dual form describing the two gardens of paradise in Ar-Rahman 55:62-64. Root 'd-h-m' (dark, tending to black) — green so intense it borders on black. A special intensity word, distinct from ordinary 'ahdar'.",
+      "crossLinks": ["/cennet-cehennem", "/hapax-legomenon"]
+    },
+    {
+      "id": "beyaz",
+      "colorNameTr": "Beyaz",
+      "colorNameEn": "White",
+      "hexColor": "#C8D6E5",
+      "tintBg": "rgba(255, 255, 255, 0.06)",
+      "tintBorder": "rgba(255, 255, 255, 0.18)",
+      "contexts": ["mucize", "kiyamet", "doga"],
+      "primaryContext": "mucize",
+      "totalMentions": 12,
+      "mentionNote": "12 ayette; ebyaḍ/beyḍâ/biḍ/mubyaḍḍa/ibyaḍḍa türevlerinin tamamı dahil.",
+      "arabicTerms": [
+        {
+          "arabic": "أَبْيَض",
+          "transliteration": "abyad",
+          "formTr": "tekil, eril",
+          "formEn": "singular masculine",
+          "isHapax": false,
+          "mentionCount": 6,
+          "primaryRef": "A'raf 7:108"
+        },
+        {
+          "arabic": "بَيْضَاء",
+          "transliteration": "bayda",
+          "formTr": "tekil, dişil / parlak",
+          "formEn": "singular feminine / radiant",
+          "isHapax": false,
+          "mentionCount": 7,
+          "primaryRef": "Taha 20:22"
+        },
+        {
+          "arabic": "بِيضٌ",
+          "transliteration": "bid",
+          "formTr": "çoğul",
+          "formEn": "plural",
+          "isHapax": false,
+          "mentionCount": 3,
+          "primaryRef": "Fatir 35:27"
+        }
+      ],
+      "keyVerseAr": "وَنَزَعَ يَدَهُ فَإِذَا هِيَ بَيْضَاءُ لِلنَّاظِرِينَ",
+      "keyVerseTr": "Elini çıkardı; bir de baktılar ki bakanlara göre bembeyaz (parlıyordu).",
+      "keyVerseEn": "And he drew out his hand; thereupon it was white for the observers.",
+      "keyVerseRef": "A'raf 7:108",
+      "allRefs": ["A'raf 7:108", "Taha 20:22", "Şuara 26:33", "Neml 27:12", "Kasas 28:32", "Al-i İmran 3:106-107", "Yusuf 12:84", "Saffat 37:46", "Saffat 37:49", "Vakıa 56:23", "Fatir 35:27", "Bakara 2:187"],
+      "summaryTr": "Beyaz Kur'an'da en çok geçen renk (~18 ayette). İki ana bağlamı var: (1) Hz. Musa'nın eli — 5 farklı sûrede mucize sahnesi, beyaz ilahi onayı temsil eder; (2) Kıyamet sahnesi — Al-i İmran 3:106-107'de kurtulacakların yüzü ağarır, kaybedeceklerinki kararır.",
+      "summaryEn": "White is the most frequently occurring color in the Quran (~18 verses). Two main contexts: (1) Moses' hand — the miracle scene in 5 different suras, white representing divine approval; (2) The judgment scene — in Al Imran 3:106-107 the saved have white faces, the lost have blackened faces.",
+      "infoTr": null,
+      "infoEn": null,
+      "linguisticNoteTr": "'Beyza' aynı zamanda yumurta anlamına gelir — beyazlık ve yumurta aynı kökten. Vakıa 56:23'te cennet hurisi 'saklı yumurta gibi' (beyaz). Renk kelimesi anlam genişlemesiyle imge üretir.",
+      "linguisticNoteEn": "'Bayda' also means egg — whiteness and egg share the same Arabic root. In Al-Waqi'a 56:23, the paradise companions are described as 'like hidden eggs' (white). The color word expands semantically to generate imagery.",
+      "crossLinks": ["/cennet-cehennem"]
+    },
+    {
+      "id": "siyah",
+      "colorNameTr": "Siyah",
+      "colorNameEn": "Black",
+      "hexColor": "#2D2B55",
+      "tintBg": "rgba(30, 30, 50, 0.40)",
+      "tintBorder": "rgba(255, 255, 255, 0.10)",
+      "contexts": ["kiyamet", "doga"],
+      "primaryContext": "kiyamet",
+      "totalMentions": 5,
+      "mentionNote": "Listede 5 ana referans; eswed/ısvedde/garâbîb/muswedde türevlerinin başlıca geçişleri.",
+      "arabicTerms": [
+        {
+          "arabic": "أَسْوَد",
+          "transliteration": "esvad",
+          "formTr": "tekil, eril",
+          "formEn": "singular masculine",
+          "isHapax": false,
+          "mentionCount": 4,
+          "primaryRef": "Al-i İmran 3:106"
+        },
+        {
+          "arabic": "سُود",
+          "transliteration": "sud",
+          "formTr": "çoğul",
+          "formEn": "plural",
+          "isHapax": false,
+          "mentionCount": 3,
+          "primaryRef": "Zümer 39:60"
+        },
+        {
+          "arabic": "غَرَابِيبُ",
+          "transliteration": "garâbîb",
+          "formTr": "kuzgun siyahı — en koyu ton",
+          "formEn": "raven black — most intense shade",
+          "isHapax": true,
+          "mentionCount": 1,
+          "primaryRef": "Fatir 35:27"
+        }
+      ],
+      "keyVerseAr": "وَيَوْمَ الْقِيَامَةِ تَرَى الَّذِينَ كَذَبُوا عَلَى اللَّهِ وُجُوهُهُم مُّسْوَدَّةٌ",
+      "keyVerseTr": "Kıyamet günü Allah'a yalan söyleyenlerin yüzlerinin kararmış olduğunu görürsün.",
+      "keyVerseEn": "And on the Day of Resurrection you will see those who lied about Allah — their faces will be blackened.",
+      "keyVerseRef": "Zümer 39:60",
+      "allRefs": ["Al-i İmran 3:106", "Zümer 39:60", "Fatir 35:27", "Bakara 2:187", "Abese 80:40-41"],
+      "summaryTr": "Siyah Kur'an'da ağırlıklı olarak kıyamet cezasıyla ilişkili: kötülerin yüzleri kararır (Zümer 39:60, Al-i İmran 3:106). Fatir 35:27'de ise doğal bağlam — dağlarda 'kuzgun siyahı' (garâbîb) şeritler. Bakara 2:187'de gece (şafak öncesi siyah iplik) anlamında nötr kullanım.",
+      "summaryEn": "Black in the Quran is primarily associated with judgment punishment: the faces of wrongdoers darken (Az-Zumar 39:60, Al Imran 3:106). In Fatir 35:27 it has a natural context — 'raven black' mountain streaks. In Al-Baqarah 2:187 it's neutral — the black thread of night before dawn.",
+      "infoTr": null,
+      "infoEn": null,
+      "linguisticNoteTr": "'Garâbîb' karga/kuzgun (ghurab) kökünden gelir — siyahın en yoğun tonunu ifade eden özel kelime. 'Mudhammatân' (koyu yeşil) ile paralel: Kur'an renk yoğunluğu için ayrı kelimeler türetir.",
+      "linguisticNoteEn": "'Gharabib' derives from 'ghurab' (raven/crow) — a special word for the most intense shade of black. Parallel to 'mudhammatân' (intense green): the Quran creates distinct words for color intensity.",
+      "crossLinks": []
+    },
+    {
+      "id": "sari",
+      "colorNameTr": "Sarı",
+      "colorNameEn": "Yellow",
+      "hexColor": "#EAB308",
+      "tintBg": "rgba(234, 179, 8, 0.12)",
+      "tintBorder": "rgba(234, 179, 8, 0.28)",
+      "contexts": ["kissa", "doga", "cehennem"],
+      "primaryContext": "kissa",
+      "totalMentions": 4,
+      "arabicTerms": [
+        {
+          "arabic": "أَصْفَر",
+          "transliteration": "asfar",
+          "formTr": "sarı (tekil ve formları)",
+          "formEn": "yellow (singular and forms)",
+          "isHapax": false,
+          "mentionCount": 4,
+          "primaryRef": "Bakara 2:69"
+        }
+      ],
+      "keyVerseAr": "إِنَّهَا بَقَرَةٌ صَفْرَاءُ فَاقِعٌ لَّوْنُهَا تَسُرُّ النَّاظِرِينَ",
+      "keyVerseTr": "O, rengi pırıl pırıl sarı, bakanlara sevinç veren bir inektir.",
+      "keyVerseEn": "It is a yellow cow, bright in color, pleasing to those who see it.",
+      "keyVerseRef": "Bakara 2:69",
+      "allRefs": ["Bakara 2:69", "Zümer 39:21", "Hadid 57:20", "Mürselat 77:33"],
+      "summaryTr": "Sarı Kur'an'da iki zıt bağlamda çıkar. Bakara 2:69'da olumlu: Musa kıssasındaki inek parlak sarı, bakanlara sevinç verir. Zümer 39:21 ve Hadid 57:20'de olumsuz: bitki yeşilden sarıya, oradan kuruya gider — dünya hayatının geçiciliği. Mürselat 77:33'te cehennem kıvılcımları sarı deveye benzetilir.",
+      "summaryEn": "Yellow appears in two opposite contexts. Positively in Al-Baqarah 2:69: Moses' cow is bright yellow, pleasing to behold. Negatively in Az-Zumar 39:21 and Al-Hadid 57:20: plants go from green to yellow to dry — symbolizing worldly transience. In Al-Mursalat 77:33, Hell's sparks are compared to yellow camels.",
+      "infoTr": null,
+      "infoEn": null,
+      "linguisticNoteTr": "'Faqi'un levnuhâ' — rengi 'fâqi' yani duru, parlak, pırıl pırıl. 'Tusurru'n-nâzırîn' — bakanlara sevinç verir. Kur'an'da bir hayvanın rengi bu kadar özelleştirilen tek örnek.",
+      "linguisticNoteEn": "'Faqiun lawnuha' — its color is 'faqin', meaning pure, bright, shining. 'Tusurru al-nadhirin' — pleasing to those who see it. The only case in the Quran where an animal's color is described this specifically.",
+      "crossLinks": []
+    },
+    {
+      "id": "kirmizi",
+      "colorNameTr": "Kırmızı",
+      "colorNameEn": "Red",
+      "hexColor": "#B91C1C",
+      "tintBg": "rgba(200, 50, 50, 0.12)",
+      "tintBorder": "rgba(200, 50, 50, 0.28)",
+      "contexts": ["doga", "kozmik"],
+      "primaryContext": "doga",
+      "totalMentions": 2,
+      "arabicTerms": [
+        {
+          "arabic": "أَحْمَر",
+          "transliteration": "ahmar",
+          "formTr": "kırmızı (doğrudan isim)",
+          "formEn": "red (direct name)",
+          "isHapax": false,
+          "mentionCount": 1,
+          "primaryRef": "Fatir 35:27"
+        },
+        {
+          "arabic": "كَالدِّهَانِ",
+          "transliteration": "ked-dihân",
+          "formTr": "erimiş yağ / kırmızı deri gibi",
+          "formEn": "like molten oil / red leather",
+          "isHapax": false,
+          "mentionCount": 1,
+          "primaryRef": "Rahman 55:37"
+        }
+      ],
+      "keyVerseAr": "فَإِذَا انشَقَّتِ السَّمَاءُ فَكَانَتْ وَرْدَةً كَالدِّهَانِ",
+      "keyVerseTr": "Gök yarılıp gül (rengi) gibi, erimiş yağ gibi olduğunda...",
+      "keyVerseEn": "And when the sky breaks apart and becomes rose-red like oil.",
+      "keyVerseRef": "Rahman 55:37",
+      "allRefs": ["Fatir 35:27", "Rahman 55:37"],
+      "summaryTr": "'Ahmar' (kırmızı kelimesi) Kur'an'da yalnızca bir kez geçer — Fatir 35:27'de dağların kırmızı şeritlerini anlatmak için. Kırmızı kıyamet bağlamında ise 'ked-dihân' imgesiyle gelir (Rahman 55:37): gökyüzü yarılırken kızıl erimiş yağa dönüşür — Kur'an'ın en sinematik renk tasviri.",
+      "summaryEn": "The word 'ahmar' (red) appears only once in the Quran — to describe red mountain streaks in Fatir 35:27. Red in the judgment context comes through the image 'ked-dihan' (Ar-Rahman 55:37): as the sky splits, it turns into crimson molten oil — the Quran's most cinematic color image.",
+      "infoTr": "'Dihân' kelimesinin tam anlamı müfessirler arasında tartışmalıdır — kırmızı yağ mı, kırmızı deri mi, kırmızı boya mı? Her yorum geçerli.",
+      "infoEn": "The exact meaning of 'dihan' is debated among commentators — red oil? Red leather? Red dye? All interpretations are valid.",
+      "linguisticNoteTr": null,
+      "linguisticNoteEn": null,
+      "crossLinks": []
+    },
+    {
+      "id": "mavi",
+      "colorNameTr": "Mavi / Donuk",
+      "colorNameEn": "Blue / Glazed",
+      "hexColor": "#2563EB",
+      "tintBg": "rgba(59, 130, 246, 0.12)",
+      "tintBorder": "rgba(59, 130, 246, 0.28)",
+      "contexts": ["kiyamet"],
+      "primaryContext": "kiyamet",
+      "totalMentions": 1,
+      "arabicTerms": [
+        {
+          "arabic": "زُرْقًا",
+          "transliteration": "zurkan",
+          "formTr": "mavi / donuk / bulanık göz",
+          "formEn": "blue / glazed / dull-eyed",
+          "isHapax": true,
+          "mentionCount": 1,
+          "primaryRef": "Taha 20:102"
+        }
+      ],
+      "keyVerseAr": "يَوْمَ يُنفَخُ فِي الصُّورِ ۚ وَنَحْشُرُ الْمُجْرِمِينَ يَوْمَئِذٍ زُرْقًا",
+      "keyVerseTr": "Sur'a üfürüleceği gün, o gün suçluları gözleri donuk / mavimsi olarak haşrederiz.",
+      "keyVerseEn": "On the Day the Trumpet is blown — We will gather the criminals that Day, blue-eyed / with glazed eyes.",
+      "keyVerseRef": "Taha 20:102",
+      "allRefs": ["Taha 20:102"],
+      "summaryTr": "'Zurk' Kur'an'da yalnızca bu ayette ve yalnızca kıyamet bağlamında geçer. Kelimenin üç olası anlamı vardır ve hangi anlamın kastedildiği müfessirler arasında tartışmalıdır.",
+      "summaryEn": "'Zurq' appears only in this verse, only in the judgment context. The word has three possible meanings, and which is intended is disputed among commentators.",
+      "infoTr": "'Zurk' üç anlama gelebilir: (1) Mavi gözlü — gerçek mavi; (2) Donuk gözlü — korkudan veya hastalıktan; (3) Körlük — göz üzerinde perde indi. Müfessirler arasında görüş ayrılığı mevcuttur.",
+      "infoEn": "'Zurq' can mean: (1) Blue-eyed — literally blue; (2) Glazed-eyed — from terror or illness; (3) Blindness — a veil over the eyes. There is disagreement among commentators on which is intended.",
+      "linguisticNoteTr": "'Zurk' (زُرْق) 'zarqa' kökünden — hem mavi hem bulanık/donuk anlamına gelen Arapça kelime. Arap kültüründe 'zarqa' mavi gözü kimi zaman olumsuz olarak nitelendirir.",
+      "linguisticNoteEn": "'Zurq' (زُرْق) from root 'zarqa' — an Arabic word meaning both blue and cloudy/glazed. In Arab cultural context, 'zarqa' sometimes negatively describes blue eyes.",
+      "crossLinks": []
+    },
+    {
+      "id": "altin",
+      "colorNameTr": "Altın",
+      "colorNameEn": "Gold",
+      "hexColor": "#92680A",
+      "tintBg": "rgba(146, 104, 10, 0.15)",
+      "tintBorder": "rgba(146, 104, 10, 0.30)",
+      "contexts": ["cennet"],
+      "primaryContext": "cennet",
+      "totalMentions": 7,
+      "arabicTerms": [
+        {
+          "arabic": "ذَهَب",
+          "transliteration": "zeheb",
+          "formTr": "altın",
+          "formEn": "gold",
+          "isHapax": false,
+          "mentionCount": 6,
+          "primaryRef": "Kehf 18:31"
+        }
+      ],
+      "keyVerseAr": "يُحَلَّوْنَ فِيهَا مِنْ أَسَاوِرَ مِن ذَهَبٍ وَيَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ",
+      "keyVerseTr": "Orada altın bilezikler takınırlar ve ince ipekten yeşil elbiseler giyerler.",
+      "keyVerseEn": "They will be adorned therein with bracelets of gold and will wear green garments of fine silk and brocade.",
+      "keyVerseRef": "Kehf 18:31",
+      "allRefs": ["Al-i İmran 3:14", "Al-i İmran 3:91", "Kehf 18:31", "Hac 22:23", "Fatir 35:33", "Zühruf 43:53", "İnsan 76:21"],
+      "summaryTr": "Altın Kur'an'da iki kutupta geçer: cennet süsü olarak (Kehf 18:31, Hac 22:23, Fatir 35:33, İnsan 76:21 — yeşil elbiselerle birlikte, Kur'an'ın cennet renk ikilisi) ve dünyevî yanıltıcı süs olarak (Âl-i İmrân 3:14 — kantarlarca altın yığını; Zühruf 43:53 — Firavun'un Hz. Musa'yı 'neden altın bilezikleri yok?' diye küçümsemesi). İlki kalıcı ödül, ikincisi imtihan — aynı maden, iki ayrı sınav.",
+      "summaryEn": "Gold in the Quran appears at two opposite poles: as a paradise adornment (Al-Kahf 18:31, Al-Ḥajj 22:23, Fāṭir 35:33, Al-Insān 76:21 — paired with green garments, the Quran's paradise color duo) and as a worldly deceptive ornament (Āl ʿImrān 3:14 — heaps of gold accumulated; Az-Zukhruf 43:53 — Pharaoh dismissing Moses: 'why does he have no gold bracelets?'). The first is lasting reward, the second is a test — the same metal, two different trials.",
+      "infoTr": null,
+      "infoEn": null,
+      "linguisticNoteTr": "Cennet tasvirinde altın (zeheb) + yeşil (hudr) ikilisi üç sûrede tekrarlanır. Bu renk tutarlılığı Kur'an'da nadir — genellikle aynı renk kombinasyonu bu kadar sistematik kullanılmaz.",
+      "linguisticNoteEn": "The gold (zeheb) + green (hudr) pairing repeats across three suras in paradise imagery. This color consistency is rare in the Quran — the same color combination is seldom used this systematically.",
+      "crossLinks": ["/cennet-cehennem"]
+    },
+    {
+      "id": "gumus",
+      "colorNameTr": "Gümüş",
+      "colorNameEn": "Silver",
+      "hexColor": "#64748B",
+      "tintBg": "rgba(148, 163, 184, 0.12)",
+      "tintBorder": "rgba(148, 163, 184, 0.28)",
+      "contexts": ["cennet"],
+      "primaryContext": "cennet",
+      "totalMentions": 2,
+      "arabicTerms": [
+        {
+          "arabic": "فِضَّة",
+          "transliteration": "fidda",
+          "formTr": "gümüş",
+          "formEn": "silver",
+          "isHapax": false,
+          "mentionCount": 3,
+          "primaryRef": "İnsan 76:15"
+        }
+      ],
+      "keyVerseAr": "وَيُطَافُ عَلَيْهِم بِآنِيَةٍ مِّن فِضَّةٍ وَأَكْوَابٍ كَانَتْ قَوَارِيرَا ۝ قَوَارِيرَ مِن فِضَّةٍ",
+      "keyVerseTr": "Gümüşten kaplar ve billur kadehlerle dolaşılır — gümüşten billur.",
+      "keyVerseEn": "And there will be circulated among them vessels of silver and cups of crystal — crystal of silver.",
+      "keyVerseRef": "İnsan 76:15-16",
+      "allRefs": ["İnsan 76:15-16", "İnsan 76:21"],
+      "summaryTr": "Gümüş Kur'an'da yalnızca cennet tasvirinde geçer. İnsan 76:15-16'da 'gümüşten billur' (qawarira min fidda) — billurın şeffaflığında gümüş: iki malzemenin özelliği tek nesnede. Kur'an'ın cennet tasvirindeki en özgün malzeme tasviri.",
+      "summaryEn": "Silver appears in the Quran only in paradise imagery. Al-Insan 76:15-16 describes 'crystal of silver' (qawarira min fidda) — silver with the transparency of crystal: two material properties in one object. The Quran's most distinctive material description in its paradise imagery.",
+      "infoTr": null,
+      "infoEn": null,
+      "linguisticNoteTr": "'Qawarira min fidda' — hem gümüş parlaklığı hem billur şeffaflığı olan kap. Arapça'da iki ayrı nesnenin özelliğini birleştiren bu bileşik tasvir, Kur'an'ın cennet dilinin özelliğidir.",
+      "linguisticNoteEn": "'Qawarira min fidda' — a vessel combining silver's sheen with crystal's transparency. This compound description merging two distinct material properties is characteristic of the Quran's paradise language.",
+      "crossLinks": ["/cennet-cehennem"]
+    }
+  ],
+  "renkSekans": {
+    "id": "renk-sekans",
+    "titleTr": "Yeşil → Sarı → Renksiz",
+    "titleEn": "Green → Yellow → Colorless",
+    "descTr": "Kur'an dünya hayatının geçiciliğini iki örüntüde anlatır: tam üç aşamalı sekans (yeşil → sarı → kuru) Zümer 39:21 ve Hadîd 57:20'de geçer; iki aşamalı sekans (yeşil → kuru, sarı atlanır) Kehf 18:45 ve Yûnus 10:24'te geçer. Birinci grupta sarı (مُصْفَرًّا) açıkça geçer; ikinci grupta solma süreci atlanıp doğrudan yıkıma gidilir — حُطَامًا (hutâmen: ufalanmış çöp) ya da هَشِيمًا (heşîmen: kuru saman). Her iki kalıp da aynı tezi işler: dünya hayatının geçiciliği.",
+    "descEn": "The Quran narrates worldly transience in two patterns: the full three-stage sequence (green → yellow → dry) appears in Az-Zumar 39:21 and Al-Ḥadīd 57:20; the two-stage sequence (green → dry, yellow skipped) appears in Al-Kahf 18:45 and Yūnus 10:24. The first group has yellow (مُصْفَرًّا) explicitly; the second skips the withering and goes straight to ruin — حُطَامًا (debris) or هَشِيمًا (dry stubble). Both patterns work the same thesis: the transience of worldly life.",
+    "stages": [
+      { "hexColor": "#1D9E75", "labelTr": "Yeşil — Çıktı",    "labelEn": "Green — Sprouted",   "noteTr": "Gençlik, güç, büyüme",        "noteEn": "Youth, strength, growth" },
+      { "hexColor": "#CA8A04", "labelTr": "Sarı — Soldu",     "labelEn": "Yellow — Withered",  "noteTr": "Zirve geçti, çöküş başlıyor", "noteEn": "Peak passed, decline begins" },
+      { "hexColor": "#3a3530", "labelTr": "Renksiz — Bitti",  "labelEn": "Colorless — Done",   "noteTr": "Renk yok, form yok — son",    "noteEn": "No color, no form — the end" }
+    ],
+    "verses": [
+      {
+        "ref": "Zümer 39:21",
+        "arFull": "أَلَمْ تَرَ أَنَّ اللَّهَ أَنزَلَ مِنَ السَّمَاءِ مَاءً فَسَلَكَهُ يَنَابِيعَ فِي الْأَرْضِ ثُمَّ يُخْرِجُ بِهِ زَرْعًا مُّخْتَلِفًا أَلْوَانُهُ ثُمَّ يَهِيجُ فَتَرَاهُ مُصْفَرًّا ثُمَّ يَجْعَلُهُ حُطَامًا",
+        "trFull": "Allah'ın gökten su indirdiğini, onu yerde pınarlara akıttığını görmüyor musun? Sonra onunla renkleri birbirinden farklı ekinler çıkarıyor. Sonra o ekin kuruyup sarardığını görürsün; ardından Allah onu paramparça eder.",
+        "enFull": "Do you not see that Allah sends down rain from the sky and makes it flow as springs in the earth? Then He produces thereby crops of varying colors. Then they dry up and you see them turned yellow; then He makes them debris.",
+        "stages": [
+          { "stage": "green",  "keywordAr": "زَرْعًا مُّخْتَلِفًا أَلْوَانُهُ", "keywordTr": "renkleri farklı ekinler", "keywordEn": "crops of varying colors", "noteTr": "Yeşil dolaylı — filizlenen, renkli ekin", "noteEn": "Green implied — sprouting, colorful crops" },
+          { "stage": "yellow", "keywordAr": "مُصْفَرًّا",                         "keywordTr": "sarardığını",             "keywordEn": "turned yellow",          "noteTr": "مُصْفَرًّا — sarı kelimesinin tam karşılığı", "noteEn": "مُصْفَرًّا — the exact Arabic word for yellowing" },
+          { "stage": "dry",    "keywordAr": "حُطَامًا",                            "keywordTr": "paramparça",             "keywordEn": "debris",                  "noteTr": "حُطَامًا — çürüyüp ufalanan şey", "noteEn": "حُطَامًا — something crumbled to pieces" }
+        ]
+      },
+      {
+        "ref": "Hadid 57:20",
+        "arFull": "اعْلَمُوا أَنَّمَا الْحَيَاةُ الدُّنْيَا لَعِبٌ وَلَهْوٌ وَزِينَةٌ وَتَفَاخُرٌ بَيْنَكُمْ وَتَكَاثُرٌ فِي الْأَمْوَالِ وَالْأَوْلَادِ كَمَثَلِ غَيْثٍ أَعْجَبَ الْكُفَّارَ نَبَاتُهُ ثُمَّ يَهِيجُ فَتَرَاهُ مُصْفَرًّا ثُمَّ يَكُونُ حُطَامًا",
+        "trFull": "Bilin ki dünya hayatı bir oyun, bir eğlence, bir süs, aranızda bir övünme ve mal ile evlat çoğaltma yarışından ibarettir. Bu, yağmura benzer: onun bitirdiği ot ekicilerin hoşuna gider. Sonra kurur, onu sararmış görürsün; ardından çer çöp olur.",
+        "enFull": "Know that the life of this world is but amusement and diversion and adornment and boasting to one another and competition in increase of wealth and children — like the example of a rain whose vegetation pleases the tillers; then it dries and you see it turned yellow; then it becomes debris.",
+        "stages": [
+          { "stage": "green",  "keywordAr": "نَبَاتُهُ",   "keywordTr": "bitirdiği ot",     "keywordEn": "its vegetation",  "noteTr": "Yağmurun bitirdiği yeşil ot — yeşil aşama", "noteEn": "Green vegetation the rain produces — green stage" },
+          { "stage": "yellow", "keywordAr": "مُصْفَرًّا", "keywordTr": "sararmış",          "keywordEn": "turned yellow",   "noteTr": "Zümer'dekiyle aynı kelime: مُصْفَرًّا", "noteEn": "Same word as Az-Zumar: مُصْفَرًّا" },
+          { "stage": "dry",    "keywordAr": "حُطَامًا",    "keywordTr": "çer çöp",           "keywordEn": "debris",          "noteTr": "Zümer'dekiyle aynı son: حُطَامًا", "noteEn": "Same ending as Az-Zumar: حُطَامًا" }
+        ]
+      },
+      {
+        "ref": "Kehf 18:45",
+        "arFull": "وَاضْرِبْ لَهُم مَّثَلَ الْحَيَاةِ الدُّنْيَا كَمَاءٍ أَنزَلْنَاهُ مِنَ السَّمَاءِ فَاخْتَلَطَ بِهِ نَبَاتُ الْأَرْضِ فَأَصْبَحَ هَشِيمًا تَذْرُوهُ الرِّيَاحُ",
+        "trFull": "Onlara dünya hayatının örneğini ver: Gökten indirdiğimiz su gibi ki, onunla yerin bitkisi birbirine karışıp gürleşti; derken rüzgârların savurduğu bir çöp yığını oluverdi.",
+        "enFull": "And present to them the example of worldly life: like rain We send down from the sky, and the vegetation of the earth mingles with it; then it becomes dry stubble, scattered by the winds.",
+        "stages": [
+          { "stage": "green",  "keywordAr": "نَبَاتُ الْأَرْضِ", "keywordTr": "yerin bitkisi gürleşti", "keywordEn": "vegetation of the earth mingles", "noteTr": "Birbirine karışıp gürleşen bitki — yeşillik, bolluk", "noteEn": "Vegetation mingling and flourishing — greenness, abundance" },
+          { "stage": "yellow", "keywordAr": "هَشِيمًا",            "keywordTr": "çöp yığını",             "keywordEn": "dry stubble",                   "noteTr": "Bu ayette sarı kelimesi yok — solma ima edilir", "noteEn": "No yellow word here — withering is implied" },
+          { "stage": "dry",    "keywordAr": "تَذْرُوهُ الرِّيَاحُ", "keywordTr": "rüzgârlar savurdu",   "keywordEn": "scattered by the winds",        "noteTr": "Son aşama: dağılma, yok olma", "noteEn": "Final stage: scattering, disappearance" }
+        ]
+      },
+      {
+        "ref": "Yunus 10:24",
+        "arFull": "إِنَّمَا مَثَلُ الْحَيَاةِ الدُّنْيَا كَمَاءٍ أَنزَلْنَاهُ مِنَ السَّمَاءِ فَاخْتَلَطَ بِهِ نَبَاتُ الْأَرْضِ مِمَّا يَأْكُلُ النَّاسُ وَالْأَنْعَامُ حَتَّىٰ إِذَا أَخَذَتِ الْأَرْضُ زُخْرُفَهَا وَازَّيَّنَتْ وَظَنَّ أَهْلُهَا أَنَّهُمْ قَادِرُونَ عَلَيْهَا أَتَاهَا أَمْرُنَا لَيْلًا أَوْ نَهَارًا فَجَعَلْنَاهَا حَصِيدًا كَأَن لَّمْ تَغْنَ بِالْأَمْسِ",
+        "trFull": "Dünya hayatının örneği şöyledir: Gökten indirdiğimiz su ile yerin bitkisi — insanların ve hayvanların yediklerinden — birbirine karıştı. Nihayet yer bütün güzelliğini takınıp süslendiğinde ve sahipleri onun üzerinde güç sahibi olduklarını sandıklarında, gece ya da gündüz buyruğumuz ona geldi; onu sanki dün hiç var olmamış gibi biçilmiş hâle getirdik.",
+        "enFull": "The example of worldly life is like rain We send down from the sky — the vegetation of the earth mingles with it, from which people and animals eat — until when the earth has taken on its adornment and is beautified, and its people think they have capability over it, Our command comes to it by night or by day, and We make it as if it had never flourished yesterday.",
+        "stages": [
+          { "stage": "green",  "keywordAr": "زُخْرُفَهَا وَازَّيَّنَتْ", "keywordTr": "güzelliğini takınıp süslendi", "keywordEn": "taken on its adornment", "noteTr": "Zirvede güzellik — en parlak, en yeşil an", "noteEn": "Beauty at its peak — the brightest, greenest moment" },
+          { "stage": "yellow", "keywordAr": "قَادِرُونَ عَلَيْهَا",        "keywordTr": "güç sahibi sandılar",         "keywordEn": "suppose they have capability", "noteTr": "Sarı kelimesi yok — ama 'sandılar' tam o an: zirve geçiyor", "noteEn": "No yellow word — but 'suppose' is that exact moment: peak is passing" },
+          { "stage": "dry",    "keywordAr": "كَأَن لَّمْ تَغْنَ بِالْأَمْسِ", "keywordTr": "dün hiç var olmamış gibi", "keywordEn": "as if it had never flourished", "noteTr": "4 ayetin en güçlü sonu — bir gecede sıfır", "noteEn": "The most powerful ending of all 4 — zero overnight" }
+        ]
+      }
+    ]
+  }
+}

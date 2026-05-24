@@ -1,0 +1,453 @@
+{
+  "types": [
+    {
+      "id": "tenasub",
+      "nameTr": "Tenâsüb",
+      "nameEn": "Tanāsub",
+      "nameAr": "تَنَاسُب",
+      "color": "#2ecc71",
+      "descriptionTr": "Tematik uyum. İki surenin aynı konuyu farklı açıdan ele alması veya birbirini tamamlaması.",
+      "descriptionEn": "Thematic harmony — two surahs treating the same topic from complementary angles."
+    },
+    {
+      "id": "tedadd",
+      "nameTr": "Tedâdd",
+      "nameEn": "Taḍādd",
+      "nameAr": "تَضَادّ",
+      "color": "#e74c3c",
+      "descriptionTr": "Karşıtlık. Surelerin birbirine zıt kutupları temsil etmesi.",
+      "descriptionEn": "Contrast — surahs representing opposing poles of a theme."
+    },
+    {
+      "id": "tenzir",
+      "nameTr": "Tenzîr",
+      "nameEn": "Tanẓīr",
+      "nameAr": "تَنْظِير",
+      "color": "#3498db",
+      "descriptionTr": "Paralel yapı. Benzer kalıp, başlangıç veya kapanışla birleşme.",
+      "descriptionEn": "Parallel structure — similar pattern, opening, or closing that binds two surahs."
+    },
+    {
+      "id": "istitrad",
+      "nameTr": "İstıtrâd",
+      "nameEn": "Istiṭrād",
+      "nameAr": "اسْتِطْرَاد",
+      "color": "#c9a227",
+      "descriptionTr": "Ek, detaylandırma. Bir sureden diğerine geçerken konunun genişletilmesi.",
+      "descriptionEn": "Elaboration — a topic introduced in one surah is expanded in the next."
+    },
+    {
+      "id": "uslub-hakim",
+      "nameTr": "Uslûbü'l-Hakîm",
+      "nameEn": "Uslūb al-Ḥakīm",
+      "nameAr": "أُسْلُوب الحَكِيم",
+      "color": "#9b59b6",
+      "descriptionTr": "Hikmetli geçiş. Konuyu beklenmedik ama derin bir açıdan bağlama.",
+      "descriptionEn": "Wise transition — an unexpected yet profound pivot between topics."
+    },
+    {
+      "id": "intikal",
+      "nameTr": "İntikâl",
+      "nameEn": "Intiqāl",
+      "nameAr": "انْتِقَال",
+      "color": "#e67e22",
+      "descriptionTr": "Doğal akış. Bir sureden diğerine yumuşak, akıcı geçiş.",
+      "descriptionEn": "Natural flow — a smooth, organic transition between surahs."
+    },
+    {
+      "id": "tekamul",
+      "nameTr": "Tekâmül",
+      "nameEn": "Takāmul",
+      "nameAr": "تَكَامُل",
+      "color": "#1abc9c",
+      "descriptionTr": "Tamamlayıcılık. Çift sure olarak bir bütünün iki parçası.",
+      "descriptionEn": "Complementarity — paired surahs forming the two halves of a whole."
+    }
+  ],
+  "scholars": [
+    {
+      "id": "naysaburi",
+      "nameTr": "Ebû Bekr en-Neysâbûrî",
+      "deathH": 324,
+      "deathM": 936,
+      "roleTr": "Kurucu",
+      "roleEn": "Founder",
+      "noteTr": "Ez-Zerkeşî'ye göre ilmin ilk sistematik tartışmasını yapan âlim. Eseri kayıp.",
+      "noteEn": "According to az-Zarkashī, the first scholar to discuss this discipline systematically. His work is lost."
+    },
+    {
+      "id": "razi",
+      "nameTr": "Fahreddîn er-Râzî",
+      "deathH": 606,
+      "deathM": 1210,
+      "roleTr": "Müfessir",
+      "roleEn": "Exegete",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "noteTr": "Tefsirinde münâsebât'ı sistematik uygulayan ilk büyük müfessir. 'Kur'an'ın güzelliklerinin çoğu münâsebâtın dakikliklerine dayanır.'",
+      "noteEn": "First major exegete to apply munāsabāt systematically. 'Most of the Qurʾan's beauties rest on the subtleties of munāsabāt.'"
+    },
+    {
+      "id": "abu-hayyan",
+      "nameTr": "Ebû Hayyân el-Endelüsî",
+      "deathH": 745,
+      "deathM": 1344,
+      "roleTr": "Müfessir",
+      "roleEn": "Exegete",
+      "workTr": "el-Bahrü'l-Muhît",
+      "noteTr": "Endülüslü büyük dilbilimci-müfessir. Münâsebât'ı dilbilim metotlarıyla birleştirir.",
+      "noteEn": "Great Andalusian linguist-exegete. Combines munāsabāt with rigorous linguistics."
+    },
+    {
+      "id": "biqai",
+      "nameTr": "Burhâneddîn el-Bikā'î",
+      "deathH": 885,
+      "deathM": 1480,
+      "roleTr": "Sistemleştirici",
+      "roleEn": "Systematizer",
+      "workTr": "Nazmü'd-Dürer fî Tenâsübi'l-Âyâti ve's-Süver",
+      "noteTr": "İlmin en kapsamlı eserinin yazarı. 22 cilt. Her ayet ve her sure arasındaki bağı sistematik olarak inceler.",
+      "noteEn": "Author of the most comprehensive work in this discipline — 22 volumes. Systematically analyzes every connection between verses and surahs."
+    },
+    {
+      "id": "suyuti",
+      "nameTr": "Celâleddîn es-Süyûtî",
+      "deathH": 911,
+      "deathM": 1505,
+      "roleTr": "Teorisyen",
+      "roleEn": "Theorist",
+      "workTr": "Tenâsüku'd-Dürer + Esrâru Tertîbi'l-Kur'ân",
+      "noteTr": "İlmin teorik temellerini özetleyen iki müstakil eser. el-İtkân'ın bir bölümünü münâsebât'a ayırır.",
+      "noteEn": "Two monographs summarizing the theoretical foundations. Dedicates a section of al-Itqān to munāsabāt."
+    },
+    {
+      "id": "abduh",
+      "nameTr": "Muhammed Abduh",
+      "deathH": 1323,
+      "deathM": 1905,
+      "roleTr": "Modern",
+      "roleEn": "Modern",
+      "workTr": "Tefsîru'l-Menâr (Reşid Rızâ ile)",
+      "noteTr": "Modern dönemin ilk sistematik uygulaması. 20. yüzyıl tefsir yenilenmesinin öncüsü.",
+      "noteEn": "First systematic modern application. Pioneer of 20th-century exegetical renewal."
+    },
+    {
+      "id": "islahi",
+      "nameTr": "Emîn Ahsen Islahî",
+      "deathM": 1997,
+      "roleTr": "Modern",
+      "roleEn": "Modern",
+      "workTr": "Tedebbür-i Kur'ân (Urdu)",
+      "noteTr": "'Nazmü'l-Kur'ân' teorisi — Kur'an'ın 7 grup halinde organize olduğunu savunur. Çift-sure sisteminin modern temsilcisi.",
+      "noteEn": "Theory of 'Naẓm al-Qurʾān' — argues the Quran is organized into 7 groups. Modern proponent of the paired-surah system."
+    },
+    {
+      "id": "samarrai",
+      "nameTr": "Fâzıl Sâlih es-Sâmerrâî",
+      "roleTr": "Çağdaş",
+      "roleEn": "Contemporary",
+      "workTr": "Lemesât Beyâniyye",
+      "noteTr": "Çağdaş Iraklı âlim. Beyan ilminin münâsebât boyutunu işler. Türkçeye çevrildi.",
+      "noteEn": "Contemporary Iraqi scholar. Develops the munāsabāt dimension of ʿilm al-bayān."
+    }
+  ],
+  "connections": [
+    {
+      "id": "fatiha-baqara-qa",
+      "surahs": [1, 2],
+      "nameTr": "Soru ve Cevap",
+      "nameEn": "Prayer and Response",
+      "types": ["tenzir", "intikal"],
+      "strength": "iconic",
+      "category": "opening",
+      "anchors": [
+        {
+          "ref": "1:6",
+          "arabic": "اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+          "tr": "Bize dosdoğru yolu göster",
+          "en": "Guide us to the straight path",
+          "roleTr": "Kulun duâsı",
+          "roleEn": "The servant's prayer"
+        },
+        {
+          "ref": "2:2",
+          "arabic": "ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِلْمُتَّقِينَ",
+          "tr": "İşte bu Kitap, muttakîler için yol göstericidir",
+          "en": "This is the Book — a guidance for the God-conscious",
+          "roleTr": "İlahi cevap",
+          "roleEn": "The divine answer"
+        }
+      ],
+      "summaryTr": "Fâtiha'da kul Allah'tan yol gösterme diler. Hemen ardından gelen Bakara, bu dileğe cevap olarak 'İşte yol gösteren kitap budur' der. Kur'an'daki en açık münâsebât örneği.",
+      "summaryEn": "In al-Fātiḥa the servant asks God for guidance. Al-Baqara opens with the response: 'Here is the Book — a guidance.' The clearest case of munāsabāt in the Quran.",
+      "sources": ["razi", "biqai", "suyuti"],
+      "quote": {
+        "scholar": "razi",
+        "textTr": "Kim Fâtiha'nın son ayetinin ardından Bakara'nın ilk ayetlerini arka arkaya düşünürse, ilahi cevap mekanizmasını görür.",
+        "textEn": "Whoever reflects on the last verse of al-Fātiḥa followed by the opening of al-Baqara will see the mechanism of the divine reply.",
+        "source": "Mefâtîhu'l-Ğayb"
+      }
+    },
+    {
+      "id": "baqara-imran-zahrawan",
+      "surahs": [2, 3],
+      "nameTr": "Zehrâvân — İki Parlak",
+      "nameEn": "Az-Zahrāwān — The Two Radiant",
+      "nameAr": "الزَّهْرَاوَان",
+      "types": ["tenasub", "tenzir"],
+      "strength": "iconic",
+      "category": "paired-named",
+      "anchors": [
+        {
+          "ref": "2:1",
+          "arabic": "الٓمٓ",
+          "tr": "Elif Lâm Mîm",
+          "en": "Alif Lām Mīm",
+          "roleTr": "Ortak huruf-u mukatta'a",
+          "roleEn": "Shared disconnected letters"
+        },
+        {
+          "ref": "2:255",
+          "arabic": "اللّٰهُ لَا اِلٰهَ اِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
+          "tr": "Allah; O'ndan başka ilâh yoktur, Hayy ve Kayyûm'dur",
+          "en": "Allah — there is no deity except Him, the Ever-Living, the Sustainer",
+          "roleTr": "Âyetü'l-Kürsî'nin başı",
+          "roleEn": "The opening of Āyat al-Kursī"
+        },
+        {
+          "ref": "3:2",
+          "arabic": "اللّٰهُ لَا اِلٰهَ اِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
+          "tr": "Allah; O'ndan başka ilâh yoktur, Hayy ve Kayyûm'dur",
+          "en": "Allah — there is no deity except Him, the Ever-Living, the Sustainer",
+          "roleTr": "Âl-i İmrân 2. ayet — aynı kalıp",
+          "roleEn": "Same formula in Āl ʿImrān 3:2"
+        }
+      ],
+      "summaryTr": "Bakara yoğunlukla Yahudilerle diyalog kurar — Hz. Mûsâ kavminin tarihi, hukuku, sapmaları. Âl-i İmrân ise Hristiyanlarla diyalog kurar — Hz. Meryem, Hz. Îsâ, üçlü doktrinin düzeltilmesi. İki büyük Ehl-i Kitap cemaatiyle sistematik muhatap alma.",
+      "summaryEn": "Al-Baqara engages the Jewish community — Moses' people, their history, law, and deviations. Āl ʿImrān engages the Christian community — Mary, Jesus, the correction of trinitarian doctrine. A systematic address to the two great Peoples of the Book.",
+      "sources": ["razi", "biqai", "suyuti"],
+      "hadith": {
+        "textTr": "Bakara ve Âl-i İmrân'ı okuyun; çünkü bu iki sure kıyamet günü iki bulut veya iki gölge gibi gelip okuyanları savunacaklardır.",
+        "textEn": "Recite al-Baqara and Āl ʿImrān, for on the Day of Resurrection they will come like two clouds and defend their reciters.",
+        "source": "Sahih Müslim 804"
+      }
+    },
+    {
+      "id": "isra-kahf-hamd",
+      "surahs": [17, 18],
+      "nameTr": "Hamd İkizi",
+      "nameEn": "The Praise Pair",
+      "types": ["tenzir"],
+      "strength": "structural",
+      "category": "linguistic",
+      "anchors": [
+        {
+          "ref": "17:111",
+          "arabic": "وَقُلِ الْحَمْدُ لِلّٰهِ",
+          "tr": "De ki: Hamd Allah'a mahsustur",
+          "en": "Say: Praise belongs to Allah",
+          "roleTr": "İsrâ'nın kapanışı",
+          "roleEn": "Closing of al-Isrāʾ"
+        },
+        {
+          "ref": "18:1",
+          "arabic": "الْحَمْدُ لِلّٰهِ الَّذِي اَنْزَلَ عَلٰى عَبْدِهِ الْكِتَابَ",
+          "tr": "Hamd, kuluna Kitab'ı indiren Allah'a mahsustur",
+          "en": "Praise be to Allah who sent down the Book upon His servant",
+          "roleTr": "Kehf'in açılışı",
+          "roleEn": "Opening of al-Kahf"
+        }
+      ],
+      "summaryTr": "İsrâ hamd ile biter, Kehf hamd ile başlar. Kur'an'da sadece 5 sure hamd ile başlar (Fâtiha, En'âm, Kehf, Sebe', Fâtır) — peş peşe iki surenin bu kalıpla bağlanması tek örnektir.",
+      "summaryEn": "Al-Isrāʾ ends with ḥamd; al-Kahf opens with ḥamd. Only 5 surahs begin with ḥamd (al-Fātiḥa, al-Anʿām, al-Kahf, Sabaʾ, Fāṭir) — this is the only consecutive pair linked by it.",
+      "sources": ["biqai", "samarrai"]
+    },
+    {
+      "id": "secde-ahzab-transition",
+      "surahs": [32, 33],
+      "nameTr": "Mekkî/Medenî Geçiş",
+      "nameEn": "Meccan/Medinan Transition",
+      "types": ["intikal"],
+      "strength": "thematic",
+      "category": "structural",
+      "summaryTr": "Secde 30 ayetlik kısa Mekkî — akîde (iman temelleri) inşası. Ahzâb 73 ayetlik uzun Medenî — toplum ve savaş inşası. Kur'an'ın Mekkî'den Medenî'ye geçişinin kusursuz örneği.",
+      "summaryEn": "As-Sajda is a short Meccan surah (30 verses) building doctrine; al-Aḥzāb is a long Medinan surah (73 verses) building community and law. A textbook Meccan-to-Medinan hinge.",
+      "sources": ["biqai"]
+    },
+    {
+      "id": "vakiah-hadid-wealth",
+      "surahs": [56, 57],
+      "nameTr": "Ahiret Mahkemesi → Dünya Sınaması",
+      "nameEn": "Hereafter Court → World's Test",
+      "types": ["tenasub"],
+      "strength": "thematic",
+      "category": "thematic",
+      "anchors": [
+        {
+          "ref": "57:7",
+          "arabic": "اٰمِنُوا بِاللّٰهِ وَرَسُولِهِ وَاَنْفِقُوا مِمَّا جَعَلَكُمْ مُسْتَخْلَفِينَ فِيهِ",
+          "tr": "Allah'a ve Rasûlüne iman edin. Sizi vekil kıldığı şeylerden infak edin.",
+          "en": "Believe in Allah and His Messenger, and spend from that of which He has made you successors.",
+          "roleTr": "Hadîd'in anahtar ayeti",
+          "roleEn": "Key verse of al-Ḥadīd"
+        }
+      ],
+      "summaryTr": "Vâkıa kıyamet günündeki üç zümreyi (sağcılar, solcular, önde gidenler) anlatır. Hadîd bu dünyadaki servet sınamasını işler. Ahiretin mahkemesinden dünyanın hazırlığına köprü.",
+      "summaryEn": "Al-Wāqiʿa depicts the three classes of the Last Day (right, left, foremost). Al-Ḥadīd immediately follows with the test of wealth in this world. A bridge from the hereafter's court to this life's preparation.",
+      "sources": ["biqai"]
+    },
+    {
+      "id": "ala-ghashiya-jumah",
+      "surahs": [87, 88],
+      "nameTr": "Cuma Çifti",
+      "nameEn": "The Friday Pair",
+      "types": ["tenzir", "tenasub"],
+      "strength": "strong",
+      "category": "paired-recitation",
+      "summaryTr": "Peygamber (s.a.v.) Cuma ve bayram namazlarında bu iki sureyi okurdu. A'lâ Allah'ın adını ululama ve uyarma, Ğâşiye kıyamet günü tasviriyle onu tamamlar.",
+      "summaryEn": "The Prophet ﷺ recited these two surahs in Friday and festival prayers. Al-Aʿlā exalts God's name and warns; al-Ghāshiya completes it with the scene of the Last Day.",
+      "sources": ["razi", "suyuti"],
+      "hadith": {
+        "textTr": "Peygamber (s.a.v.) Cuma ve bayram namazlarında A'lâ ve Ğâşiye'yi okurdu.",
+        "textEn": "The Prophet ﷺ used to recite al-Aʿlā and al-Ghāshiya in Friday and festival prayers.",
+        "source": "Sahih Müslim — Nuʿmān b. Bashīr"
+      }
+    },
+    {
+      "id": "duha-inshirah-twins",
+      "surahs": [93, 94],
+      "nameTr": "Teselli İkizleri",
+      "nameEn": "The Comfort Twins",
+      "types": ["tenasub", "tekamul"],
+      "strength": "iconic",
+      "category": "paired-recitation",
+      "anchors": [
+        {
+          "ref": "93:3",
+          "arabic": "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلٰى",
+          "tr": "Rabbin seni terk etmedi ve darılmadı",
+          "en": "Your Lord has not forsaken you, nor is He displeased",
+          "roleTr": "Duhâ'nın kalbi — geçmiş teselli",
+          "roleEn": "The heart of aḍ-Ḍuḥā — past consolation"
+        },
+        {
+          "ref": "94:5",
+          "arabic": "فَاِنَّ مَعَ الْعُسْرِ يُسْرًا",
+          "tr": "Şüphesiz, zorlukla beraber bir kolaylık vardır",
+          "en": "Indeed, with hardship comes ease",
+          "roleTr": "İnşirâh'ın kalbi — gelecek teselli",
+          "roleEn": "The heart of ash-Sharḥ — future consolation"
+        }
+      ],
+      "summaryTr": "Duhâ'da Hz. Peygamber'e geçmişte verilen nimetler hatırlatılır; İnşirâh'ta aynı formatla iç dünyası (göğüs ferahlığı) ele alınır. Bu iki sure Kur'an'da başından sonuna yalnızca Peygamber'e (tekil 'sen') hitap eden tek arka arkaya çifttir. İmâmiyye fıkhında zorunlu namazda tek sure gibi birlikte okunur.",
+      "summaryEn": "Aḍ-Ḍuḥā reminds the Prophet of past blessings; ash-Sharḥ mirrors it for his inner world (expansion of the breast). These two surahs are the only consecutive pair in the Quran addressed entirely to the Prophet alone (singular 'you'). In Imāmī jurisprudence they are recited together as one unit in obligatory prayer.",
+      "sources": ["razi", "biqai", "samarrai"]
+    },
+    {
+      "id": "fil-quraysh-one-breath",
+      "surahs": [105, 106],
+      "nameTr": "Tek Soluk — Fîl ve Kureyş",
+      "nameEn": "One Breath — Elephant and Quraysh",
+      "types": ["intikal", "tekamul"],
+      "strength": "iconic",
+      "category": "paired-possibly-one",
+      "anchors": [
+        {
+          "ref": "106:1",
+          "arabic": "لِاِيلَافِ قُرَيْشٍ",
+          "tr": "Kureyş'in alıştırılması için...",
+          "en": "For the familiarity of Quraysh...",
+          "roleTr": "Dilsel köprü — Fîl'in devamı gibi okunur",
+          "roleEn": "Linguistic bridge — reads as continuation of al-Fīl"
+        }
+      ],
+      "summaryTr": "Fîl Ebrehe ordusunun helâkını anlatır. Kureyş bu helâkın SONUCU olarak Kureyş kabilesinin emniyetini anlatır. Sebep-sonuç ilişkisiyle tek bir argüman oluşturur. Übey b. Ka'b mushafında tek sure sayılmıştır; İmâmiyye fıkhında zorunlu namazda aralarında besmele olmadan birlikte okunur.",
+      "summaryEn": "Al-Fīl narrates the destruction of Abraha's army. Quraysh continues by stating the resulting safety of the Quraysh tribe. Cause-and-effect woven into a single argument. Counted as one surah in the muṣḥaf of Ubayy b. Kaʿb; in Imāmī fiqh they are recited together without basmala.",
+      "sources": ["biqai"]
+    },
+    {
+      "id": "falaq-nas-refuge",
+      "surahs": [113, 114],
+      "nameTr": "Muavvizeteyn — İki Sığınma Suresi",
+      "nameEn": "Al-Muʿawwidhatān — The Two Refuge Surahs",
+      "nameAr": "المُعَوِّذَتَان",
+      "types": ["tenasub", "tekamul"],
+      "strength": "iconic",
+      "category": "paired-named",
+      "anchors": [
+        {
+          "ref": "113:1",
+          "arabic": "قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ",
+          "tr": "De ki: Sığınırım sabahın Rabbine",
+          "en": "Say: I seek refuge in the Lord of the daybreak",
+          "roleTr": "Dış tehditlerden sığınma",
+          "roleEn": "Refuge from outer threats"
+        },
+        {
+          "ref": "114:1",
+          "arabic": "قُلْ اَعُوذُ بِرَبِّ النَّاسِ",
+          "tr": "De ki: Sığınırım insanların Rabbine",
+          "en": "Say: I seek refuge in the Lord of mankind",
+          "roleTr": "İç tehditlerden sığınma",
+          "roleEn": "Refuge from inner threats"
+        }
+      ],
+      "summaryTr": "İki sure birlikte 'Muavvizeteyn' (İki Sığınak) olarak adlandırılır. Felak dış dünyadaki tehditleri (karanlık, sihir, hased), Nâs iç dünyadaki tehditleri (vesvese, gizli düşman) kapsar. Peygamber (s.a.v.) her gece yatmadan önce ikisini birlikte okurdu.",
+      "summaryEn": "Known together as al-Muʿawwidhatān ('the two refuges'). Al-Falaq covers outer threats (darkness, sorcery, envy); an-Nās covers inner ones (whispering, hidden enmity). The Prophet ﷺ recited both every night before sleep.",
+      "sources": ["razi", "biqai"],
+      "hadith": {
+        "textTr": "Peygamber (s.a.v.) her gece yatağına girdiğinde iki elini birleştirir, üzerine Muavvizeteyn ve İhlâs'ı okur, sonra elleriyle vücudunu sıvazlardı.",
+        "textEn": "Each night the Prophet ﷺ would cup his hands, recite the Muʿawwidhatān and al-Ikhlāṣ over them, and wipe his body.",
+        "source": "Buhârî, Fedâilü'l-Kur'ân 14"
+      }
+    },
+    {
+      "id": "nas-fatiha-cycle",
+      "surahs": [114, 1],
+      "nameTr": "Döngü — Son ve Başlangıç",
+      "nameEn": "The Eternal Cycle",
+      "types": ["intikal"],
+      "strength": "thematic",
+      "category": "structural",
+      "summaryTr": "Nâs (son sure) 'şeytanın vesvesesinden sığınma' ile biter. Fâtiha (ilk sure) 'yol gösterilmesi duası' ile başlar. Kur'an'ın okunuşu biten ama bitmeyen bir döngüdür — her hatim yeni bir başlangıç.",
+      "summaryEn": "An-Nās (the last surah) ends with seeking refuge from Satan's whispers. Al-Fātiḥa (the first) begins with the prayer for guidance. Reading the Quran is a closed loop that never truly closes — each completion is a new beginning.",
+      "sources": ["samarrai"]
+    }
+  ],
+  "groups": [
+    {
+      "id": "havamim",
+      "nameTr": "Havâmîm",
+      "nameEn": "Ḥawāmīm",
+      "surahs": [40, 41, 42, 43, 44, 45, 46],
+      "lettersAr": "حم",
+      "descriptionTr": "'Hâ-Mîm' ile başlayan 7 sure. Peş peşe tek mukatta'a grubu. Tematik süreklilik: vahiy, kitap, inanç-inkâr karşıtlığı.",
+      "descriptionEn": "Seven consecutive surahs opening with Ḥā-Mīm. Thematic continuity: revelation, the Book, belief vs. denial."
+    },
+    {
+      "id": "alif-lam-ra",
+      "nameTr": "Elif Lâm Râ Grubu",
+      "nameEn": "Alif Lām Rā Group",
+      "surahs": [10, 11, 12, 13, 14, 15],
+      "lettersAr": "الر / المر",
+      "descriptionTr": "Yûnus'tan Hicr'e 6 sure. Kıssa-yoğun bölge; peygamber hikayelerinin paralel anlatımı.",
+      "descriptionEn": "Six surahs from Yūnus to al-Ḥijr. Dense with prophetic stories told in parallel."
+    },
+    {
+      "id": "tasinler",
+      "nameTr": "Tâsînler",
+      "nameEn": "Ṭā-Sīn Group",
+      "surahs": [26, 27, 28],
+      "lettersAr": "طسم / طس",
+      "descriptionTr": "Şuarâ, Neml, Kasas — üç ardışık sure. Mûsâ kıssasının farklı açılardan anlatımı.",
+      "descriptionEn": "Ash-Shuʿarāʾ, an-Naml, al-Qaṣaṣ — three consecutive surahs. The story of Moses told from complementary angles."
+    },
+    {
+      "id": "kehf-meryem-taha",
+      "nameTr": "Asrın Ortası — Kıssa Yoğunluğu",
+      "nameEn": "The Middle Arc — Story Density",
+      "surahs": [18, 19, 20],
+      "descriptionTr": "Kehf, Meryem, Tâhâ — Kur'an'ın orta bölgesinde üç sure üst üste kıssa yoğun. Ashâb-ı Kehf, Zülkarneyn, Mûsâ-Hızır, Meryem, Îsâ, Yahyâ, Mûsâ-Firavun.",
+      "descriptionEn": "Al-Kahf, Maryam, Ṭā-Hā — three consecutive story-dense surahs at the Quran's middle. People of the Cave, Dhul-Qarnayn, Moses-Khiḍr, Mary, Jesus, John, Moses-Pharaoh."
+    }
+  ]
+}

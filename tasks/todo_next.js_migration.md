@@ -1,762 +1,261 @@
-# Next.js Migration Plan — QuranCodex
+# QuranCodex Next.js Migration — Yol Haritası
 
-**Mevcut durum:** React 19.2 + Vite 7.3 SPA, Tailwind v4, Framer Motion, React Context i18n, 50+ overlay/tool, localStorage-heavy, KFGQPC Arabic font, audio karaoke, ~165 statik route potansiyeli (114 sure + tools).
-
-**Hedef:** Next.js 15 (App Router) — SSG-first, RSC nerede mümkünse, client components nerede gerek varsa.
-
-**Toplam efor tahmini:** 4-6 hafta full-time (faz bazlı paralelleştirilebilir).
-
-**Strateji kararı:** Big-bang yerine **kademeli paralel migration** — yeni `next/` klasöründe Next.js projesi kur, route route taşı, son adımda cutover. Vite proje migration süresince çalışır kalır.
-
----
-
-## Faz 0 — Hazırlık & Audit (3-5 gün)
-
-### 0.1 SSR-safety audit
-- [ ] `grep -rn "window\." src/` — tüm direct window access'lerin envanteri
-- [ ] `grep -rn "document\." src/` — tüm direct document access'lerin envanteri
-- [ ] `grep -rn "localStorage" src/` — tüm localStorage kullanımı
-- [ ] `grep -rn "useLayoutEffect" src/` — SSR-uyumsuz hook'lar
-- [ ] `grep -rn "useState(() =>" src/` — initializer'da browser API kullananlar (problemli pattern)
-- [ ] Her bulgu için: `useEffect`'e taşı / `typeof window` guard ekle / `useSyncExternalStore` kullan kararı ver
-- [ ] Bulguları `tasks/ssr-audit.md`'ye yaz
-
-### 0.2 Component envanteri
-- [ ] `ls src/components/ src/sections/` → her component için karar:
-  - **RSC adayı** (server-side render edilebilir): Sırf JSX/JSON, state yok, browser API yok
-  - **Client component** (`'use client'`): state, animasyon, interaktivite, browser API
-- [ ] Karar tablosunu `tasks/component-decisions.md`'ye yaz
-- [ ] Beklenen oran: ~%30 RSC, ~%70 client (audio/interaktif tool ağırlığı yüksek)
-
-### 0.3 Routing haritası
-- [ ] Şu an URL fragment/state ile yönetilen overlay'leri listele
-- [ ] Her overlay için yeni URL şeması belirle:
-  - `/` — Hero + sections (home)
-  - `/oku/[surah]` — ReadingMode
-  - `/oku/[surah]/[ayah]` — ReadingMode + deep-link
-  - `/atlas/kissa/[id]` — KissaAtlas
-  - `/atlas/kavim/[id]` — KavimlerAtlasi
-  - `/atlas/peygamber/[id]` — ProphetAtlas
-  - `/graf/ayet` — VerseGraph
-  - `/graf/kavram` — ConceptGraph
-  - `/graf/diyalog` — DiyalogAgi
-  - `/arac/[slug]` — generic tool wrapper (ToolsBrowser)
-  - vs.
-- [ ] URL şemasını `tasks/url-schema.md`'ye yaz, kullanıcı onayı al
-
-### 0.4 Karar: App Router vs Pages Router
-- [ ] **Öneri: App Router** (Next.js 15) — RSC, streaming, parallel/intercepting routes, layout nesting
-- [ ] Pages Router yalnızca legacy senaryo için; bu projede tercih edilmez
+> **Branch:** `migration-to-next.js`
+> **İlerleme (2026-05-24):**
+> - **Pre-deploy core migration:** ~%95 ✓ (Faz 0-9 done, deploy edilebilir)
+> - **Toplam aksiyon item'ı:** 26 done / 79 open = **%25** (Faz 12 post-cutover content writing dahil)
+> - **Cutover-blocker olmayan kalanlar:** Wave 20-24 polish + Faz 12 content & growth (90-day roadmap)
+> - **Production build PASS**, 8 hot route benchmark <1s avg (0 console error).
+> **Tamamlanan faz ve wave detayları için:** git log + `docs/reviews/` + CLAUDE.md §16 Next.js patterns.
 
 ---
 
-## Faz 0.5 — Pre-Migration SEO Quick Wins (Vite tarafında, 3-5 gün)
+## Tamamlanan
 
-> **Mantık:** Migration 4-6 hafta sürerken Google'da index pozisyonunu erkenden iyileştir. Bu çalışmaların büyük kısmı Next.js'e taşındığında zaten yeniden yazılacak ama: **(a)** bu süre boyunca SEO geliri başlıyor, **(b)** SEO patternlerine alışıyorsun, **(c)** structured data / metadata payload'larını migration'a hazır halde getiriyorsun.
-
-### 0.5.1 react-helmet-async kurulum
-- [ ] `npm install react-helmet-async`
-- [ ] `App.jsx` → `<HelmetProvider>` ile sar
-- [ ] Her major component (ReadingMode, KissaAtlas, ProphetAtlas, vb.) içinde:
-  ```jsx
-  <Helmet>
-    <title>{`${sureName} | QuranCodex`}</title>
-    <meta name="description" content={...} />
-    <meta property="og:title" content={...} />
-    <meta property="og:description" content={...} />
-    <meta property="og:image" content="/og/default.png" />
-    <link rel="canonical" href={canonicalUrl} />
-  </Helmet>
-  ```
-- [ ] Hem TR hem EN için ayrı description (locale'e göre)
-
-### 0.5.2 URL routing refactor (en yüksek SEO etkisi)
-- [ ] `npm install react-router-dom@6`
-- [ ] `BrowserRouter` ile App.jsx wrap
-- [ ] Mevcut overlay state-management'i yavaş yavaş route'a çevir:
-  - `/oku/:surah/:ayah?` — ReadingMode
-  - `/atlas/kissa/:id?` — KissaAtlas
-  - `/atlas/peygamber/:id?` — ProphetAtlas
-  - vb. (Faz 0.3 URL şeması ile aynı)
-- [ ] Navbar `onClick={() => setX(true)}` → `<Link to="/atlas/kissa">`
-- [ ] popstate handler'lar kaldır (React Router yönetir)
-- [ ] **Önemli:** Bu refactor migration'a hazırlığın da en önemli parçası — URL şeması Next.js'te aynen kullanılacak
-
-### 0.5.3 Static metadata + OG defaults
-- [ ] `index.html` head bölümüne defaults ekle:
-  ```html
-  <meta name="description" content="...">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="QuranCodex">
-  <meta property="og:image" content="https://qurancodex.com/og/default.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://qurancodex.com/">
-  ```
-- [ ] Helmet ile her route'ta override edilecek
-
-### 0.5.4 Sitemap.xml (build-time generation)
-- [ ] Vite plugin veya post-build script:
-  ```js
-  // scripts/generate-sitemap.js
-  import fs from 'fs';
-  const SURAH_COUNT = 114;
-  const TOOLS = ['kissa', 'peygamber', 'kavim', 'doga', 'mesel', ...]; // 50+
-  const urls = [];
-  urls.push({ loc: 'https://qurancodex.com/', priority: 1.0 });
-  for (let i = 1; i <= SURAH_COUNT; i++) urls.push({ loc: `https://qurancodex.com/oku/${i}`, priority: 0.9 });
-  for (const tool of TOOLS) urls.push({ loc: `https://qurancodex.com/atlas/${tool}`, priority: 0.8 });
-  // XML write
-  ```
-- [ ] `package.json` → `"build": "vite build && node scripts/generate-sitemap.js"`
-- [ ] `public/sitemap.xml` çıktısı
-
-### 0.5.5 robots.txt
-- [ ] `public/robots.txt`:
-  ```
-  User-agent: *
-  Allow: /
-  Sitemap: https://qurancodex.com/sitemap.xml
-  ```
-
-### 0.5.6 JSON-LD structured data (Helmet ile inline)
-- [ ] Root layout:
-  ```jsx
-  <Helmet>
-    <script type="application/ld+json">{JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'QuranCodex',
-      url: 'https://qurancodex.com',
-      logo: 'https://qurancodex.com/logo.png',
-    })}</script>
-  </Helmet>
-  ```
-- [ ] Sure sayfaları: `Article` schema (Faz 7.2'deki ile aynı yapı)
-- [ ] Tool sayfaları: `LearningResource` schema
-- [ ] WowFacts: `FAQPage` schema
-
-### 0.5.7 OG image generation (static)
-- [ ] **Quick win:** Tek bir default OG image (1200x630) yap, tüm sayfalar bunu paylaşsın
-- [ ] **Phase 2:** Her sure için statik OG (114 PNG) — Figma export veya Sharp ile programatik
-- [ ] `public/og/default.png` (1200x630, brand-consistent)
-
-### 0.5.8 Pre-rendering (opsiyonel, agresif SEO için)
-- [ ] **react-snap** veya **vite-plugin-prerender-spa** kur
-- [ ] Build sonrası kendi siteni gez, HTML snapshot oluştur
-- [ ] Hedef: en az home + 10 popüler sure (Fatiha, Bakara, Yasin, İhlas, vb.) için statik HTML
-- [ ] **Trade-off:** Migration zaten yaklaşıyorsa bu adımı atla — emek tekrar olur
-
-### 0.5.9 Performance audit (baseline)
-- [ ] Lighthouse rapor → baseline metrik (LCP, CLS, TBT)
-- [ ] PageSpeed Insights TR + EN versions
-- [ ] Bunları migration sonrasıyla karşılaştır
-
-### 0.5.10 Google Search Console setup
-- [ ] Property verification
-- [ ] Mevcut sitemap submit
-- [ ] Beklenen: 2-4 hafta içinde indexing başlar
-- [ ] Bu metrikler migration'ın success criteria'sı için baseline olacak
-
-**Faz 0.5 tahmini etki:** Migration'dan önce ~%40-50 SEO altyapı kazanımı. Tam Next.js gücü değil ama Search Console'a erkenden gözükmeye başlar.
+- [x] Faz 0, 0.5, 1, 2, 3
+- [x] Faz 4 (4.1-4.5)
+- [x] Wave 14-17
+- [x] Faz 5, 6
+- [x] Faz 7 core
+- [x] Faz 8.1, 8.2, 8.4
+- [x] Faz 9.2, 9.4
+- [x] Faz 11.2
 
 ---
 
-## Faz 1 — Next.js Proje Kurulumu (1-2 gün)
+## Mimari Kararlar (sabit referans — 2026-05-21 kullanıcı onayı)
 
-### 1.1 Yeni proje
-- [ ] Proje kökünde `next/` dizini oluştur
-- [ ] `cd next && npx create-next-app@latest . --typescript=false --tailwind=true --app=true --src-dir=true --import-alias='@/*'`
-- [ ] Node version pinle (`.nvmrc`)
-- [ ] `package.json` deps:
-  - `next@^15`, `react@^19`, `react-dom@^19`
-  - `framer-motion` (mevcut)
-  - `tailwindcss@^4`, `@tailwindcss/postcss` (Next.js v4 entegrasyon yolu)
-  - `tailwind.config.js` portu
-
-### 1.2 Tailwind v4 portu
-- [ ] `next/postcss.config.mjs` → `@tailwindcss/postcss` plugin
-- [ ] `tailwind.config.js`'yi olduğu gibi taşı; `content` array'ini Next.js path'lerine güncelle
-- [ ] `src/index.css`'yi `next/src/app/globals.css`'e taşı (custom CSS, font @font-face)
-- [ ] KFGQPC `@font-face` declarations'larını koru
-- [ ] Test: `npm run dev` → boş Next.js sayfası açılıyor mu?
-
-### 1.3 Klasör yapısı
-- [ ] `next/src/app/` — route'lar (page.jsx, layout.jsx)
-- [ ] `next/src/components/` — shared components (Vite'tan taşınacak)
-- [ ] `next/src/lib/` — utilities (cleanArabic, tajweed, vs.)
-- [ ] `next/src/data/` — JSON imports veya `public/` reads
-- [ ] `next/src/i18n/` — Context + tr.json + en.json
-- [ ] `next/src/tokens.js` — design tokens (Vite'tan kopya)
-
-### 1.4 Public assets
-- [ ] `public/corpus/*.json`, `public/audio/`, `public/icons/`, `public/amthal/`, vs. → `next/public/` kopyala
-- [ ] KFGQPC `.ttf/.otf` dosyaları → `next/public/fonts/`
-- [ ] `next/src/app/layout.jsx`'de `next/font/local` ile KFGQPC tanımla (FOIT/FOUT optimization)
-
-### 1.5 ESLint + Prettier
-- [ ] Next.js ESLint config (`eslint-config-next`)
-- [ ] CLAUDE.md kurallarına uyumlu prettier config
+- **Router:** App Router (Next.js 16)
+- **Dil:** JavaScript (TypeScript YOK)
+- **i18n:** URL prefix routing — `/tr/...` ve `/en/...`
+- **Tool migration:** Tool overlay'ler full-page route (SEO için)
+- **Deploy:** Vercel (Next.js native + Edge functions + OG image)
+- **Cutover:** Kademeli — Vite SPA `legacy.qurancodex.com`'a, Next `www.qurancodex.com`'a
 
 ---
 
-## Faz 2 — Shared Modules Migration (2-3 gün)
+## Yapılacaklar — Pre-Cutover (P0)
 
-### 2.1 Tokens & i18n
-- [ ] `src/tokens.js` → `next/src/tokens.js` (değişiklik yok)
-- [ ] `src/i18n/tr.json`, `en.json` → `next/src/i18n/` (değişiklik yok)
-- [ ] `src/i18n/LanguageContext.jsx` → `next/src/i18n/LanguageContext.jsx`
-  - **CRITICAL:** Initial state'i SSR-safe yap; `useState(() => localStorage...)` → `useState('tr')` + `useEffect` ile hydrate
-  - `'use client'` direktifi ekle (Context provider client zorunlu)
-  - Hydration mismatch'ten kaçınmak için cookie-based locale persistence düşün (opsiyonel ama önerilen)
+### Faz 7.5 Açık
+- [ ] **Per-prophet OG image** — `/atlas/peygamber/[id]` dynamic route eklendiğinde otomatik fallback'ten çıkar
+- [ ] **Twitter Card / FB Sharing / LinkedIn Inspector test** — POST-DEPLOY (gerçek public URL gerekli)
 
-### 2.2 Utilities
-- [ ] `src/utils/*.js` → `next/src/lib/`
-  - `cleanArabic.js`, `tajweed.js`, `pathContext.js`, vs.
-  - Bunlar pure functions → SSR'da sorunsuz çalışır
-- [ ] `src/hooks/useWordTimings.js` → `next/src/hooks/useWordTimings.js`
-  - `'use client'` direktifi (localStorage + window)
-  - Mevcut implementasyon olduğu gibi taşınabilir
+### Faz 7.13 / 8.3 / 8.4 Açık (post-deploy)
+- [ ] **Bundle size analizleri** — `@next/bundle-analyzer` kur (yeni dep, kullanıcı onayı bekliyor)
+- [ ] **Framer Motion lazy load** — bundle analyzer çıktısına göre karar
+- [ ] **KFGQPC font subset** (~600KB → ~200KB) — pyftsubset/fonttools script
+- [ ] **LCP/CLS/INP gerçek ölçümler** — PageSpeed Insights + CrUX Dashboard
 
-### 2.3 Tokens audit
-- [ ] `OVERLAY_BASE`, `GLASS_CARD`, `VERSE_BLOCK`, `TEXT`, `CHIP`, `OVERLAY_TITLE`, `CLOSE_BTN` → değişiklik yok
-- [ ] `FONTS.quran` → `"'KFGQPC', 'Amiri Quran', serif"` (next/font tanımıyla eşleşmeli)
+### Faz 9.1 / 9.3 / 9.4 Açık
+- [ ] **Manual UI test execution** — `docs/test-plans/manual-ui-checklist.md` (70-90 dk). Kullanıcı task'i, deploy öncesi
+- [ ] **Lighthouse Performance + Vite vs Next bundle karşılaştırma** — POST-DEPLOY
+- [ ] **qc-visual-auditor pre-cutover pass** — opsiyonel ek tur
 
----
+### Wave 18 — Mobile Reading Mode UX (K-3)
+- [ ] **W18-K3 · Mobile meal default-visible** — UX karar gerekli:
+  - Seçenek A: Bottom sheet (modern app pattern — Quran.com, MuslimPro)
+  - Seçenek B: Üst toggle button (`Meal Göster`)
+  - Seçenek C: Default split-screen 50/50
+  - **Karar bekliyor — kullanıcı input**
+  - Dosya: `next/src/components/ReadingMode.jsx` mobile branch
 
-## Faz 3 — Root Layout & Home Sayfası (2-3 gün)
-
-### 3.1 Root layout
-- [ ] `next/src/app/layout.jsx`:
-  - `<html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>` (locale dinamik)
-  - KFGQPC font preload (`next/font/local`)
-  - Inter, Playfair Display (`next/font/google`)
-  - Metadata defaults (title template, description, OG, Twitter)
-  - `<body>` → `LanguageProvider` ile sar
-- [ ] Particle background ve global animasyonlar için client wrapper
-
-### 3.2 Home page (`app/page.jsx`)
-- [ ] Hero → RSC (statik metin) + client wrapper (particle, animations)
-- [ ] Tüm scroll-story section'ları (`src/sections/`) sırayla import et
-- [ ] Section'ların çoğu RSC olabilir; counter ve animation içerenler `'use client'` ister
-- [ ] Footer → RSC
-
-### 3.3 Section-by-section migration
-Her section için aynı pattern:
-- [ ] Hero — client (particle, animations)
-- [ ] MathMiracle — client (animated counters)
-- [ ] LinguisticDNA — büyük kısmı RSC; interaktif kart varsa client wrapper
-- [ ] ImpossibleRhythm — RSC + client subcomponent
-- [ ] SoundArchitecture — client (audio playback)
-- [ ] HiddenArchitecture — RSC + client (ring diagram interaktif)
-- [ ] PsychologySection — RSC
-- [ ] ScientificSigns — RSC
-- [ ] HistoricalProof — RSC
-- [ ] LivingPreservation — RSC
-- [ ] ZeroRedundancy — RSC
-- [ ] Highlights / WowFacts — RSC + client (modal open)
-- [ ] HumanDefinition — RSC
-- [ ] QuranRhetoric — RSC
-- [ ] QuranDua — RSC
-- [ ] ProphetMap — client (interactive map)
-- [ ] ToolsShowcase / ToolsHighlight / PathCards / AllTopics — RSC + client (open overlay)
-- [ ] Conclusion — RSC
-
-### 3.4 Navbar
-- [ ] `'use client'` (state, dropdown, dil switcher, mobile menu)
-- [ ] Eski state-based overlay açma → `<Link>` ile gerçek navigation'a dönüştür
-- [ ] `popstate` handler'ları artık gereksiz (Next.js router yönetir)
-- [ ] Karaoke / dark mode / dil tercihleri → URL ya da cookie-backed
+### Wave 19 — Acikkuran API Prefetch (K-5)
+- [x] **W19-K5 · Build-time meal prefetch script** — `scripts/prefetch-meals.mjs` yazıldı (262 satır). 6 author × 114 sure = 684 fetch, sıralı + 200ms throttle, ~3 dk. Atomic write + idempotent (skip existing). Sample test PASS (3 fetch). Tahmini output ~50-80MB. Runtime proxy fallback wiring + `package.json` script ekleme sonraki turda.
 
 ---
 
-## Faz 4 — Overlay → Route Dönüşümü (2-3 hafta, en uzun faz)
+## Faz 10 — Deploy & Cutover
 
-### Strateji
-Her overlay iki seçenekle gelir:
-- **A) Dedicated page** (önerilen): `/atlas/kissa` gibi tam sayfa — SEO için en iyi
-- **B) Parallel/Intercepting route**: modal-like UX + URL — daha karmaşık ama SPA hissi korunur
+**Detaylı plan:** `docs/migration-cutover/deploy-checklist.md` (444 satır, 10 bölüm + komut referansı)
 
-**Öneri:** SEO-kritik tool'lar (atlas, graf, retorik) **A**; UI-yardımcı tool'lar (settings, search) **B**.
+- [ ] **10.1 Vercel deployment** — Pre-deploy → Vercel setup → Preview validation → Production deploy
+- [ ] **10.2 DNS strategy** — TTL düşür → cutover → Vite `legacy.qurancodex.com`'a
+- [ ] **10.3 Redirects** — `next.config.js` redirects() (Vite tool'ları state-driven; public URL minimal: `?verse`, `?lang`, `?mihver`)
+- [ ] **10.4 Search Console** — GSC + Bing Webmaster sitemap submit, URL inspection sample
+- [ ] **10.5 Monitoring** — Vercel Analytics + Sentry (opsiyonel) + UptimeRobot + CrUX rolling
 
-### 4.1 ReadingMode
-- [ ] `app/oku/[surah]/page.jsx` + `app/oku/[surah]/[ayah]/page.jsx`
-- [ ] `'use client'` (audio, karaoke rAF, state-heavy)
-- [ ] `generateStaticParams` ile 114 sure pre-render
-- [ ] Server'da meta üret: `generateMetadata({ params })` — sure adı, ayet sayısı, ilk ayet meal'i
-- [ ] JSON-LD: `Article` veya `Book` schema (Quran chapter)
-
-### 4.2 Atlas tool'ları
-- [ ] KissaAtlas → `app/atlas/kissa/page.jsx` + `[id]/page.jsx`
-- [ ] KavimlerAtlasi → `app/atlas/kavim/page.jsx` + `[id]/page.jsx`
-- [ ] DogaAtlasi → `app/atlas/doga/page.jsx` + `[topic]/page.jsx`
-- [ ] MeselAtlasi → `app/atlas/mesel/page.jsx` + `[id]/page.jsx`
-- [ ] FurukAtlasi → `app/atlas/furuk/page.jsx` + `[id]/page.jsx`
-- [ ] MunasebatAtlasi → `app/atlas/munasebat/page.jsx`
-- [ ] ProphetAtlas → `app/atlas/peygamber/page.jsx` + `[id]/page.jsx`
-- [ ] KiraatAtlasi → `app/atlas/kiraat/page.jsx`
-- [ ] Her biri için `generateStaticParams` (tüm id'ler), `generateMetadata`
-
-### 4.3 Graf tool'ları
-- [ ] VerseGraph → `app/graf/ayet/page.jsx` (search query: `?q=2:255`)
-- [ ] ConceptGraph → `app/graf/kavram/page.jsx`
-- [ ] DiyalogAgi → `app/graf/diyalog/page.jsx`
-- [ ] RevelationTimeline → `app/graf/zaman/page.jsx`
-- [ ] SurahComparator → `app/graf/karsilastir/page.jsx`
-- [ ] WordHeatmap → `app/graf/kelime-isi/page.jsx`
-- [ ] Cross-tool navigasyon: eski `window.dispatchEvent('openVerseGraph', ...)` → `router.push('/graf/ayet?q=...')`
-
-### 4.4 Diğer tool'lar
-- [ ] AddresseeSystem → `app/arac/muhataplar/page.jsx`
-- [ ] CennetCehennem → `app/arac/cennet-cehennem/page.jsx`
-- [ ] DuaVerses → `app/arac/dualar/page.jsx`
-- [ ] EsmaFrekans → `app/arac/esma-frekans/page.jsx`
-- [ ] KiyametSahneleri → `app/arac/kiyamet/page.jsx`
-- [ ] KuranRenkleri → `app/arac/renkler/page.jsx`
-- [ ] KuranRetorigi → `app/arac/retorik/page.jsx`
-- [ ] KuranYeminleri → `app/arac/yeminler/page.jsx`
-- [ ] Melekler → `app/arac/melekler/page.jsx`
-- [ ] QuranCommands → `app/arac/buyruklar/page.jsx`
-- [ ] SebebiNuzul → `app/arac/sebebi-nuzul/page.jsx`
-- [ ] WowFacts → `app/arac/wow/page.jsx`
-- [ ] ZamanBoyutlari → `app/arac/zaman-boyutlari/page.jsx`
-- [ ] ToolsBrowser → `app/araclar/page.jsx` (tüm tool index)
-
-### 4.5 Overlay → Page transformation pattern
-Her overlay için:
-1. `onClose` prop'unu kaldır; yerine `router.back()` veya `<Link href="/">` kullan
-2. `OVERLAY_BASE` (`position:fixed inset:0 z:9999`) yerine layout-based container
-3. CLAUDE.md §13.16 (tek scrollbar kuralı) — page level'da body scroll lock gereksiz; doğal page scroll
-4. Header pattern korunur ama `position: sticky` olur
-5. Escape key handler kaldırılır (route navigation ile değişir)
+**E2E süre:** ~10-12 saat (T-7 → T+0)
 
 ---
 
-## Faz 5 — i18n Locale Routing (1 hafta)
+## Faz 11 — Post-Migration Cleanup
 
-### 5.1 Karar
-- [ ] **Opsiyon A:** URL prefix routing — `/tr/oku/2`, `/en/oku/2`
-  - SEO için en iyi (separate URL per locale)
-  - hreflang tags otomatik
-- [ ] **Opsiyon B:** Cookie + same URL — `/oku/2` her iki dilde de
-  - SEO için zayıf; Google için tek dil indekslenmiş gibi görünebilir
-- [ ] **Öneri: A**
+**Detaylı plan:** `docs/migration-cutover/vite-legacy-archive.md` (389 satır, 8 bölüm + cheat sheet)
 
-### 5.2 Implementation (Opsiyon A)
-- [ ] `next/src/app/[locale]/layout.jsx` — locale wrapper
-- [ ] `next/src/app/[locale]/page.jsx` — home (per locale)
-- [ ] `next/src/middleware.js` — locale detection + redirect (root `/` → `/tr` veya `/en` browser language'a göre)
-- [ ] `generateStaticParams` her route'da: `[{locale: 'tr'}, {locale: 'en'}]`
-- [ ] `next-intl` paketi öneri — server component'lerde de translation çalışır
-  - Veya mevcut Context tabanlı yaklaşımı koru (sadece client component'lerde işe yarar)
-
-### 5.3 Hreflang
-- [ ] `generateMetadata` her sayfada `alternates: { languages: { tr: '/tr/...', en: '/en/...' } }`
+- [ ] **11.1 Vite legacy archive** — POST-CUTOVER T+30 stabilite sonrası
+  - Strateji: Seçenek B (tag + delete) — `v1.0-vite-final` tag + offline bundle backup
+  - 4 fazlı delete: source → deps → CI → README
+  - Kritik bulgu: Root `public/` (56MB) silinebilir — Next kendi `next/public/`'inden okuyor
+- [ ] **11.2 Dokümantasyon — yeni overlay/tool ekleme guide** — DEFERRED (her tool tipine özel checklist)
+- [ ] **11.3 `tasks/lessons.md`** — POST-CUTOVER (deploy + gerçek prod traffic sonrası)
 
 ---
 
-## Faz 6 — Data Layer (3-5 gün)
+## Wave 20 — Önemli UX Polish (Ö findings)
 
-### 6.1 JSON imports
-- [ ] Şu an: `fetch('/X.json')` (runtime fetch)
-- [ ] Yeni: `import data from '@/data/X.json'` veya `fs.readFile` (build-time)
-- [ ] Büyük JSON'lar (`verse-graph-bgem3.json`) için RSC'de `cache()` ile wrap
-- [ ] Static data → RSC'de read; client'a `props` ile geç
+Kaynak: `tasks/todo_enhancement.md` II. Önemli
 
-### 6.2 Verse-graph & corpus
-- [ ] `public/corpus/[1-114].json` → her sure ayrı dosya, route bazlı yüklenir
-- [ ] ReadingMode `/oku/[surah]` → ilgili corpus dosyasını server'da yükle, client'a geç
-- [ ] `verse-graph-bgem3.json` → `/graf/ayet` page'inde dinamik import
-
-### 6.3 acikkuran.com API
-- [ ] Şu an client-side fetch
-- [ ] Yeni: server-side fetch + Next.js cache (`{ next: { revalidate: 86400 } }`)
-- [ ] Veya pre-build sırasında tüm 6236 ayeti çek, `data/api-snapshot/` altında sakla
+- [x] **W20-Ö1 · Footer "Sayfaları Keşfet" hierarchy** — inline `glassBgFaint` (0.025) + `glassBorderSoft` (0.06) + `RADIUS.md` + `16px 20px` padding (Sources block'tan hafif). İki tier net ayrıldı.
+- [ ] **W20-Ö3 · Reading mode mobile header §14.5 pattern** — Row 1: title+close, Row 2: scrollable chips. Dosya: `ReadingMode.jsx` mobile header
+- [ ] **W20-Ö4 · Section gradient seam (200px overlap CLAUDE.md §4)** — bazı section geçişlerinde eksik. Dosyalar: `sections/*.jsx` sistematik
+- [ ] **W20-Ö5 · Global LoadingOverlay component** — `next/src/components/LoadingOverlay.jsx`, tüm tool'lar kullansın
+- [x] **W20-Ö6 · SurahPagination visible navigation** — `srOnly` prop eklendi (default `true` backward compat). `srOnly={false}` ile visible grid (2 col → mobile stack), arrow + sure adı + (Sure N), hover gold transition, edge cases (Fatiha/Nas). page.js wiring sonraki turda.
+- [x] **W20-Ö7 · ScientificSigns "Devamını oku" default expanded** — `expandedTabs` initial state `{ iron: true, universe: true, ocean: true, embryo: true }`. Toggle korundu (kullanıcı isterse collapse edebilir). Build PASS.
+- [x] **W20-Ö8 · KissaAtlas sahne sayısı tutarsızlığı** — audit yanlış yorumlamış: ekrandaki "3" sahne sayısı değil `surahCount`'tu (Musa 32 sure'de geçer). Mevcut sahneler zaten zengin (12-18). Yine de +13 sahne eklendi: Yusuf 12→18, İbrahim 14→18, İsa 11→14.
+- [x] **W20-Ö9 · `/kaynakca` route** — 7 kategori 47 kaynak (Tefsir Klasik 7 + Modern 6 + Akademik 11 + Belağat 5 + Hadis/Siyer 6 + Bilim tartışmalı 3 + Yazılım/Veri 7). page.js + KaynakcaRoute.jsx (668L) bilingual. Footer link ekleme sonraki turda.
+- [x] **W20-Ö10 · ToolsBrowser search empty state** — search input + 6 popüler chip (TR: dua, esma, kıssa, peygamber, ayet, mucize / EN: prayer, names of god, story, prophet, verse, miracle). Locale-reactive, `!query` koşulu ile chip'ler boş arama'da görünür.
 
 ---
 
-## Faz 7 — SEO Infrastructure (1 hafta — migration'ın en kritik faz'ı)
+## Wave 21 — Visual Polish Backlog
 
-> **Not:** Bu faz Next.js migration'ının ana motivasyonudur. Aşağıdaki maddeler Next.js'in sunduğu SEO superpower'ları tam kullanır. **Faz 0.5** (aşağıda eklenmiştir) Vite tarafında bile uygulanabilir SEO quick win'leri kapsar — migration'a başlamadan önce yapılması önerilir.
+Kaynak: enhancement III. Polish. Batched sprint.
 
-### 7.1 Metadata API (Next.js native)
-- [ ] **Root layout** (`app/layout.jsx`):
-  - `metadata.title.template`: `'%s | QuranCodex'`
-  - `metadata.title.default`: `"QuranCodex — Kur'an'ın Görünmeyen Mimarisi"`
-  - `metadata.description`: TR + EN versions per locale
-  - `metadata.keywords`: kuran, tefsir, ayet, sure, kıssa, mucize, dilsel analiz, structured data
-  - `metadata.authors`, `metadata.creator`, `metadata.publisher`
-  - `metadata.formatDetection`: telephone disable, email disable, address disable
-  - `metadata.metadataBase`: `new URL('https://qurancodex.com')`
-- [ ] **Per-route `generateMetadata`** her dynamic route'da:
-  - `/oku/[surah]`: title = `"${sureNameTr} (${sureNameLatin}) — Sure ${N}"`, description = ilk ayet meal'i + ayet sayısı + nüzul yeri
-  - `/atlas/kissa/[id]`: kissa başlığı + 1-line özet
-  - `/atlas/peygamber/[id]`: peygamber adı + dönem + kısa açıklama
-  - `/graf/*`: tool adı + description
-  - Her birinde `keywords` route-spesifik (örn. Bakara → "ayet'el-kürsi, en uzun sure, medeni sure")
-- [ ] **OpenGraph metadata** her sayfada:
-  - `og:title`, `og:description`, `og:url`, `og:type` (website veya article)
-  - `og:locale` (tr_TR veya en_US), `og:locale:alternate`
-  - `og:image` — 1200x630 (aşağıda 7.5)
-  - `og:site_name`: 'QuranCodex'
-- [ ] **Twitter cards** her sayfada:
-  - `card`: 'summary_large_image'
-  - `site`, `creator` (varsa Twitter handle)
-  - `title`, `description`, `image`
-
-### 7.2 Structured Data (JSON-LD) — schema.org
-- [ ] **Site geneli** (root layout'a):
-  - `@type: Organization` (logo, sameAs social links)
-  - `@type: WebSite` (name, url, potentialAction: SearchAction `/ara?q={query}`)
-- [ ] **Home page:**
-  - `@type: WebPage` + breadcrumb
-- [ ] **Sure sayfaları** (`/oku/[surah]`):
-  - `@type: Article` + custom `Book` veya `CreativeWork` properties
-  - `headline`: sure adı
-  - `articleBody`: sure özetinden snippet
-  - `inLanguage`: ar, alternate tr/en
-  - `isPartOf`: `{ @type: 'Book', name: "The Quran", numberOfPages: 604 }`
-  - `position`: surah number
-  - `numberOfWords`: kelime sayısı (varsa)
-- [ ] **Ayet sayfaları** (`/oku/[surah]/[ayah]`):
-  - `@type: Quotation` veya custom Verse schema
-  - `text`: Arabic verse + translation
-  - `citation`: `{ @type: 'CreativeWork', name: 'Quran', identifier: '${S}:${A}' }`
-- [ ] **Kıssa sayfaları:**
-  - `@type: Article` + `about` (peygamber/kavim)
-  - `character`: ilgili peygamberler (`@type: Person`)
-- [ ] **Tool sayfaları:**
-  - `@type: LearningResource` veya `WebApplication`
-  - `educationalLevel`, `learningResourceType`
-- [ ] **WowFacts, FAQ-style içerikler:**
-  - `@type: FAQPage` → `mainEntity: [{ @type: Question, name: ..., acceptedAnswer: { @type: Answer, text: ... } }]`
-- [ ] **Breadcrumb** her route'da:
-  - `@type: BreadcrumbList` → Ana Sayfa > Kategori > Sayfa
-- [ ] JSON-LD'yi component olarak yaz: `<JsonLd data={...} />` server component
-- [ ] Test: Google Rich Results Test (https://search.google.com/test/rich-results) — tüm schema'lar geçmeli
-
-### 7.3 Sitemap (`app/sitemap.js`)
-- [ ] Dinamik sitemap generator:
-  ```js
-  export default async function sitemap() {
-    const locales = ['tr', 'en'];
-    const routes = [];
-    // Home
-    for (const locale of locales) routes.push({ url: `/${locale}`, lastModified, priority: 1.0 });
-    // 114 sure
-    for (const locale of locales)
-      for (let i = 1; i <= 114; i++)
-        routes.push({ url: `/${locale}/oku/${i}`, lastModified, priority: 0.9, changeFrequency: 'monthly' });
-    // Atlas tool'ları (tüm id'ler için)
-    // Graf tool'ları
-    // Diğer tool'lar
-    return routes;
-  }
-  ```
-- [ ] **Sitemap split:** Eğer URL sayısı 50K'yı geçerse (ayet seviyesinde route'lar varsa) sitemap index oluştur
-- [ ] **hreflang sitemap:** Her URL'in alternate locale linklerini ekle (`alternates: { languages: {...} }`)
-- [ ] Beklenen URL sayısı: 165 × 2 locale = **~330 URL** (sure-bazlı) veya 6236 × 2 + diğerleri = **~13K URL** (ayet-bazlı eklenirse)
-
-### 7.4 robots.txt (`app/robots.js`)
-- [ ] `userAgent: '*'`, `allow: '/'`
-- [ ] `disallow: ['/api/', '/_next/']`
-- [ ] `sitemap: 'https://qurancodex.com/sitemap.xml'`
-- [ ] Crawl-delay yok (Google ignore eder zaten)
-
-### 7.5 OpenGraph Image Generation
-- [ ] **Dynamic OG images** Vercel'in `@vercel/og` ile:
-  - `app/opengraph-image.jsx` — default site OG
-  - `app/oku/[surah]/opengraph-image.jsx` — her sure için unique OG (sure adı + Arabic name + sure numarası + parchment background)
-  - `app/atlas/peygamber/[id]/opengraph-image.jsx` — peygamber adı + dönem
-  - `app/arac/[tool]/opengraph-image.jsx` — tool ikonu + adı
-- [ ] **Twitter image** ayrı veya OG image reuse
-- [ ] **Brand consistency:** KFGQPC font (Arabic), Playfair (Latin), antique gold, cosmic black background
-- [ ] **Test:** Twitter Card Validator, Facebook Sharing Debugger, LinkedIn Post Inspector
-
-### 7.6 Canonical URLs
-- [ ] Her sayfa `generateMetadata`'da:
-  ```js
-  alternates: {
-    canonical: '/oku/2',  // metadataBase ile absolute olur
-    languages: {
-      'tr': '/tr/oku/2',
-      'en': '/en/oku/2',
-    },
-  }
-  ```
-- [ ] **Query param normalize:** `?utm_source=...` gibi tracker'lar canonical'da kaldırılmalı
-- [ ] **www vs non-www:** Tek kanonik (öneri: www.qurancodex.com), diğeri 301 redirect
-
-### 7.7 URL Yapı Standartları (SEO-first)
-- [ ] **Lowercase only:** `/oku/bakara` değil `/oku/Bakara`
-- [ ] **Latin transliteration:** Türkçe karakter yerine ASCII (`bakara`, `ayetel-kursi`, mevcut Latin isim listesi kullan)
-- [ ] **Kebab-case:** `/atlas/peygamber-zincir` değil `/atlas/peygamberZincir`
-- [ ] **Numeric ayet:** `/oku/2/255` (insan-okunabilir + bot-friendly)
-- [ ] **Kısa path:** `/oku/2` < 80 karakter olmalı
-- [ ] **No trailing slash:** `next.config.js` → `trailingSlash: false`
-
-### 7.8 Internal Linking
-- [ ] **Breadcrumb komponentleri** her route'da (zaten 7.2'de structured data var, görsel olarak da render et)
-- [ ] **Related links** her sure sayfasında: bir önceki/sonraki sure, ilgili kıssalar, ilgili tool'lar
-- [ ] **Anchor text** anlamlı: "buraya tıkla" değil "Bakara Suresi'ni oku"
-- [ ] **Footer'da** önemli sayfa linklerini tut (kıssa atlası, peygamber atlası, ayet grafı)
-- [ ] **Sitemap.html** (kullanıcıya yönelik HTML index) opsiyonel ama faydalı
-
-### 7.9 Content & On-Page SEO
-- [ ] **H1 tek tane** her sayfada, sure adı veya tool adı
-- [ ] **Heading hierarchy** doğru (H1 → H2 → H3, atlama yok)
-- [ ] **Alt text** tüm görselleri (SVG ikonlar dahil) — TR + EN
-- [ ] **Semantik HTML:** `<article>`, `<section>`, `<nav>`, `<aside>` doğru kullan (CLAUDE.md §9 zaten zorunlu kılıyor)
-- [ ] **Meaningful first paragraph:** Her sayfa giriş paragrafı en azından 50-100 kelime, sayfa özetini açık verir
-- [ ] **Word count:** Sure sayfaları minimum 300 kelime içerik (ayet metni + meal + kısa tanıtım), tool sayfaları minimum 200 kelime tanıtım
-
-### 7.10 Core Web Vitals (SEO ranking factor)
-- [ ] **LCP < 2.5s:**
-  - KFGQPC font preload (`next/font/local`)
-  - Critical CSS inline
-  - Above-fold image'ler `priority` (next/image)
-- [ ] **CLS < 0.1:**
-  - Font swap'ta layout shift'i önle (`size-adjust`, `ascent-override`)
-  - Image'lere `width` + `height` zorunlu
-  - Lazy-loaded content için space reserve
-- [ ] **INP < 200ms:**
-  - Heavy hooks defer
-  - rAF loop'ları aktif olmayan tab'larda durdur (zaten yapılıyor)
-- [ ] **TTFB < 800ms:**
-  - Vercel Edge / CDN
-  - Static rendering (SSG) kullan, SSR'dan kaçın
-- [ ] Test: PageSpeed Insights, Web.dev Measure, CrUX Dashboard
-
-### 7.11 International SEO
-- [ ] **hreflang tags** (7.6 ile zaten kaplıyor)
-- [ ] **`<html lang="tr">` veya `<html lang="en">`** locale'e göre
-- [ ] **`dir="ltr"` Latin route'larda**, Arabic verse içeren bloklarda `dir="rtl"` (component-level, zaten CLAUDE.md §13.2)
-- [ ] **Locale-specific descriptions:** TR ve EN ayrı, makine çevirisi yapma (i18n JSON'larda zaten ayrı)
-
-### 7.12 Mobile-First SEO
-- [ ] **Mobile usability:** Tüm route'lar 390px'de tam çalışmalı (CLAUDE.md §14 zaten zorunlu kılıyor)
-- [ ] **Tap target size:** Minimum 48x48px (Lighthouse Mobile audit)
-- [ ] **Viewport meta:** Next.js root layout `viewport` export'unda — `width=device-width, initial-scale=1`
-- [ ] **No interstitials:** Cookie banner gibi şeyler içeriği gizlememeli (mobile penalty)
-
-### 7.13 Performance Budget
-- [ ] **Initial JS bundle < 100KB** (gzip) — Next.js shared chunks dahil
-- [ ] **Per-route JS bundle < 50KB** (gzip)
-- [ ] **Total page weight < 500KB** (first load)
-- [ ] **Font weight:** KFGQPC subset (sadece kullanılan glyph'ler) — büyük font dosyası
-- [ ] CI'da bundle size threshold kontrolü (`@next/bundle-analyzer` + budget script)
-
-### 7.14 Search Console & Bing Webmaster
-- [ ] **Google Search Console:**
-  - Property verification (DNS TXT veya HTML file)
-  - Sitemap submit (`/sitemap.xml`)
-  - URL inspection — örnekleme: 5 sure + 5 tool URL'i manuel test
-  - Coverage report — index hataları gözlemle
-  - Mobile usability report
-- [ ] **Bing Webmaster Tools:** Aynı şekilde submit
-- [ ] **Yandex Webmaster** (opsiyonel, MENA bölgesi için)
-
-### 7.15 Analytics & SEO Monitoring
-- [ ] **Vercel Analytics** veya **Plausible Analytics** (privacy-friendly)
-- [ ] **Google Analytics 4** (opsiyonel — GDPR/KVKK uyum gerekli)
-- [ ] **Web Vitals tracking:** `web-vitals` paketi + custom endpoint veya Vercel Analytics
-- [ ] **Search ranking monitoring:** Ahrefs, SEMrush, veya manuel SERP check (haftalık)
-- [ ] **404 monitoring:** `app/not-found.jsx` + log to analytics
-
-### 7.16 Schema.org Validation Checklist
-Her sayfa için Rich Results Test geçmeli:
-- [ ] Organization (root)
-- [ ] WebSite + SearchAction (home)
-- [ ] BreadcrumbList (her sayfa)
-- [ ] Article / Book (sure sayfaları)
-- [ ] Person (peygamber sayfaları)
-- [ ] FAQPage (WowFacts, Q&A içerikler)
-- [ ] LearningResource (tool sayfaları)
-
-### 7.17 Content Strategy for SEO (post-migration)
-- [ ] **Long-tail keyword research:** "ayetel kürsi anlamı", "yusuf kıssası tefsir", "kuran sayısal mucize", vb.
-- [ ] **Pillar content** her sure için: tam tefsir özet sayfası
-- [ ] **Cluster content:** Pillar'a bağlı yan sayfalar (esbâb-ı nüzûl, retorik, dilsel analiz)
-- [ ] **Update frequency:** Sure sayfaları içerik güncellemesi (yeni tefsir notu, yeni connection) — `lastModified` zaman damgası ile sitemap'i besle
-- [ ] **Blog/Articles route** (gelecek): `/yazi/[slug]` — derinleştirilmiş makaleler için SEO bridge
+- [x] **W21-P1** Hero CTA padding clamp 32-56 → 44-68 (+12px), hover 200ms ease inline (Tailwind `duration-300` kaldırıldı, çakışma engellendi)
+- [ ] **W21-P2** Karaoke highlight 80ms → 150ms ease-in-out
+- [ ] **W21-P3** Page turn glyph subtle parallax
+- [x] **W21-P4** Tool card hover lift — ToolsBrowser `BigToolCard` `translateY(-2px)` + `COLORS.shadowCardHover` (yeni token: 0 8px 24px rgba(0,0,0,0.25)) + explicit transition prop list (transform + box-shadow + background + border-color)
+- [x] **W21-P5** Footer link hover gold/30 underline — `hover:underline hover:decoration-gold/30 hover:underline-offset-[3px]` hem internal nav hem Sources link'lerine
+- [x] **W21-P6** Hamburger drawer 250ms easeInOut → 200ms cubic-bezier [0.4, 0, 0.2, 1] (Material Design standard easing) via framer-motion
+- [x] **W21-P7** Particle count `100 → isMobile ? 15 : 40` via ParticleBackground prop. SSR-safe isMobile (§16.6 useState(false) + useEffect)
+- [x] **W21-P8** Footer bismillah opacity gold/30 → gold/50 (kapanış mührü hissi)
+- [ ] **W21-P9** `GLASS_CARD` blur tutarlılık audit
+- [ ] **W21-P10** Mobile scroll progress indicator (opsiyonel)
+- [x] **W21-P11** KFGQPC `font-feature-settings: 'liga' 1, 'kern' 1, 'calt' 1` + `font-variant-ligatures: contextual common-ligatures` — `globals.css` `[lang="ar"], [dir="rtl"]` selector
+- [x] **W21-P12** KissaAtlas sidebar scrollbar — Firefox `scrollbar-width: thin` + `scrollbar-color` gold/15 + WebKit Tailwind arbitrary class. Sadece Scene list sidebar (center grid + detail panel dokunulmadı).
 
 ---
 
-## Faz 8 — Performance (3-5 gün)
+## Wave 22 — UX & Functionality Audit
 
-### 8.1 Font optimization
-- [ ] `next/font/local` ile KFGQPC self-host
-- [ ] `display: 'swap'` (FOIT'tan kaçın)
-- [ ] Preload critical fonts only
+Kaynak: enhancement IV. UX. Audit + fix gerekli.
 
-### 8.2 Image optimization
-- [ ] Eğer raster image varsa `next/image` ile değiştir
-- [ ] SVG'ler doğrudan import (`@svgr/webpack` Next.js config)
-
-### 8.3 Bundle analysis
-- [ ] `@next/bundle-analyzer` kur
-- [ ] Per-route bundle size kontrol et
-- [ ] Framer Motion lazy load (`dynamic(() => import('framer-motion'))`)
-- [ ] Tool route'ları zaten kendi bundle'ında — verify
-
-### 8.4 Core Web Vitals
-- [ ] LCP target: < 2.5s
-- [ ] CLS target: < 0.1
-- [ ] INP target: < 200ms
-- [ ] `next/script` strategy doğru ayarlanmış mı?
+- [x] **W22-U1** Locale switcher URL persistence — audit PASS, fix gerekmedi. `LanguageContext.jsx:58-66` zaten `pathname.replace(/^\/(tr|en)/, /${next})` + `router.push(swapped)` pattern'i ile path swap yapıyor.
+- [ ] **W22-U2** Browser back: tool overlay → homepage (`onClose router.push('/')` doğrula)
+- [ ] **W22-U3** Keyboard nav tab order + focus trap on modal open + restore on close
+- [ ] **W22-U4** Escape key tool overlay close — tüm tool'larda?
+- [~] **W22-U5** Empty states — **`/oku/[surah]` partial done:** invalid surah (NaN/0/115+) → `notFound()` early return + locale-aware `not-found.jsx` (Arabic "لَا" decorative, h1 + helpful CTA "Tüm Sureleri Gör"). Verify: `/oku/200` `/oku/0` `/oku/abc` 404, `/oku/1` 200. Kalan: ConceptGraph empty + API meal fail toast (sonraki tur)
+- [ ] **W22-U6** Mobile spinner centered
+- [ ] **W22-U7** ReadingMode kelime tooltip mobile: tap-to-toggle
+- [ ] **W22-U8** Settings localStorage schema versionlama
+- [ ] **W22-U9** Audio pause on tool overlay open
+- [ ] **W22-U10** Tool overlay'de document.title update kontrol
 
 ---
 
-## Faz 9 — Testing & QA (1 hafta)
+## Wave 23 — SEO & A11y Polish
 
-### 9.1 Functional parity
-- [ ] Her route'u manuel test et (114 sure değil — örnekleme: Fatiha, Bakara, Yâsîn, İhlas + 5 random)
-- [ ] Her tool route'unu test et (50+ tool)
-- [ ] Cross-tool navigasyon (VerseGraph ↔ ConceptGraph back)
-- [ ] Karaoke audio + word highlight
-- [ ] Reading mode page turn
-- [ ] Tüm meal'ler düzgün yükleniyor
-- [ ] Dil değişikliği persist ediyor
-- [ ] Dark mode toggle
-- [ ] Mobile responsive (390px - 1440px)
+Kaynak: enhancement V. SEO/A11y. Post-cutover.
 
-### 9.2 SEO parity
-- [ ] `curl -s URL | grep -i "<title>"` — her sayfa için doğru title
-- [ ] `view-source:` HTML'de gerçek içerik var mı (JS olmadan)
-- [ ] Google Rich Results Test — structured data validate
-- [ ] Lighthouse SEO score >= 95
-
-### 9.3 Performance regression
-- [ ] Lighthouse Performance >= 90 (mobile & desktop)
-- [ ] Bundle size karşılaştır: Vite vs Next.js (bazı route'larda Next.js daha büyük olabilir — bu kabul edilebilir trade-off)
-
-### 9.4 Visual regression
-- [ ] Playwright/Chromatic ile key route'lar için snapshot
-- [ ] qc-visual-auditor agent ile manuel kontrol
+- [ ] **W23-S1** SVG aria-* triage — 363 SVG'ye `aria-hidden="true"` / meaningful'lara `<title>+<desc>`
+- [ ] **W23-S2** Color contrast WCAG AA (`text-silver/75` /`40` audit; Lighthouse)
+- [x] **W23-S3** "Ana içeriğe geç" skip link — `layout.js`'e statik link (locale-aware TR/EN), `<main id="main">` wrap, `globals.css` `.skip-link` z-index 10003 (navbar üstünde). focus + focus-visible.
+- [ ] **W23-S4** Heading hierarchy tool sayfaları SSR H1 + hydration H2 audit
+- [ ] **W23-S5** hreflang URL Inspection per route
+- [x] **W23-S6** Sitemap dynamic lastModified — `node:fs.statSync` + mtimeCache; 302 entry, **112 unique mtime** (sabit damga olsa 1 olurdu). Mapping: corpus/N.json (sure), page.js (tool + homepage). Fallback BUILD_TIME.
+- [ ] **W23-S7** Twitter Card validator test (deploy sonrası)
+- [x] **W23-S8** PWA manifest — `public/manifest.json` (name, theme_color gold, bg cosmic-black, standalone, lang tr, 3 icon slot favicon+kaaba+masjid) + `app/layout.js` root metadata.manifest. Apple-touch-icon ve dedike 192px raster skip (asset eksik — sonraki turda).
+- [x] **W23-S9** robots.txt tier'li politeness — 3 user-agent grup: `*` (Bingbot/Yandex `Crawl-delay: 1`), Googlebot (no delay), AI scrapers (GPTBot/ClaudeBot/Google-Extended/CCBot/PerplexityBot `Crawl-delay: 2`). +Host direktifi (Yandex)
+- [ ] **W23-S10** Open Graph locale verify (`/tr` `tr_TR`, `/en` `en_US`)
 
 ---
 
-## Faz 10 — Deploy & Cutover (2-3 gün)
+## Wave 24 — Tech Debt
 
-### 10.1 Vercel deployment
-- [ ] Yeni Vercel projesi (Next.js)
-- [ ] Environment variables setup
-- [ ] Preview deployment test
-- [ ] Production deployment to staging URL
+Kaynak: enhancement VI. Kod Kalitesi. Faz 11 cleanup ile birleşir.
 
-### 10.2 DNS strategi
-- [ ] Şu anki Vite deployment → staging.qurancodex.com (yedek)
-- [ ] Next.js → www.qurancodex.com (cutover)
-- [ ] DNS TTL'i önceden düşür
-- [ ] Cutover gününde DNS swap
-
-### 10.3 Redirects
-- [ ] Eski Vite SPA fragment URL'leri → yeni Next.js path'leri için `next.config.js` redirects
-- [ ] Örnek: eski `/?tool=verseGraph&q=2:255` → yeni `/graf/ayet?q=2:255`
-- [ ] 301 redirect kullan (SEO equity transfer)
-
-### 10.4 Search Console
-- [ ] Google Search Console'a yeni sitemap submit
-- [ ] Bing Webmaster Tools'a submit
-- [ ] İlk 2 hafta crawl errors monitör et
-
-### 10.5 Monitoring
-- [ ] Vercel Analytics aç
-- [ ] Web Vitals tracking
-- [ ] Sentry veya benzer error tracking (opsiyonel)
+- [ ] **W24-T1** 53 inline `'KFGQPC'` → `var(--font-kfgqpc)` + `next/font/local`
+- [ ] **W24-T2** SSR-safe `useState` audit — 22 hook'ta kalan `localStorage` lazy init → §16.6 standardı
+- [ ] **W24-T3** Tool overlay → normal-flow refactor (uzun vadeli) — visual breadcrumb + browser back + print + mobile UX
+- [ ] **W24-T4** i18n key parity son audit (W17'de `*Tr/*En` suffix pattern false positive çıktı)
+- [ ] **W24-T5** Tool icon SVG sprite optimization
+- [ ] **W24-T6** `@next/bundle-analyzer` kurulumu (Faz 8.3 — user dep approval)
+- [ ] **W24-T7** Edge runtime cold start time ölçümü (API + OG routes)
+- [ ] **W24-T8** CSS variables ↔ `tokens.js` sync audit
 
 ---
 
-## Faz 11 — Post-migration cleanup (2-3 gün)
+## Faz 12 — Content & Growth (POST-CUTOVER, 90-day roadmap)
 
-### 11.1 Vite proje sonlandır
-- [ ] Eski Vite proje kodu `legacy-vite/` altına taşı (silme — referans için sakla)
-- [ ] Vite spesifik bağımlılıkları kaldır
-- [ ] CI/CD pipeline güncelle
+Kaynak: enhancement VII. ⭐ Strategic + VIII. KPI'lar.
+**Bağlam:** Migration core (Faz 0-11) bittikten sonra başlar. Site "araç koleksiyonu"ndan "Kur'an çalışma platformu"na taşınır.
 
-### 11.2 Dokümantasyon güncelle
-- [ ] CLAUDE.md'yi Next.js'e uyarla:
-  - §2 tech stack → React 19 + Next.js 15 (App Router)
-  - §5 file structure → Next.js layout
-  - §13 implementation rules → `'use client'` direktifi pattern'ı, server component vs client kararları
-- [ ] Yeni overlay/tool ekleme guide'ı (Faz 4.5 transformation pattern)
+### Ay 1 — Foundation (P0 — Critical / SEO Multiplier)
 
-### 11.3 Lessons learned
-- [ ] `tasks/lessons.md`'ye migration'dan çıkan ders/patternları yaz
+- [ ] **F12-İ1 · Per-Surah Landing Page Upgrade** (öncelik 1)
+  - Sure özeti (~200 kelime TR+EN), tarihsel bağlam, ana temalar, önemli ayetler, ilgili tool'lar cross-link, sebebi nüzul, prev/next navigation
+  - **Scope:** 10 popüler sure ile başla (Fatiha, Bakara, Yâsîn, Mülk, İhlâs, Felak, Nâs, Kehf, Rahman, Vâkıa)
+  - **Etki:** Her sure ~500 kelime → SEO long-tail pillar content
 
----
+- [ ] **F12-İ3 · Daily Verse** (low-effort/high-impact)
+  - Homepage hero altında deterministic-by-date rotating ayet
+  - Arapça + meal + bağlam + share button
+  - Etki: daily-fresh content sinyali, return user ritüel
 
-## Risk Matrisi
+- [ ] **F12-İ10 · About + Methodology**
+  - `/hakkinda` (vizyon, kaynaklara yaklaşım, akademik nüans)
+  - `/metodoloji` (korpus, ayet sayım, bgem3, Leeds verification)
+  - Etki: Trust/credibility, akademik atıf kabul edilebilirliği
 
-| Risk | Olasılık | Etki | Mitigation |
-|------|----------|------|-----------|
-| SSR hydration mismatch (localStorage init) | Yüksek | Orta | Cookie-based persistence; `useState` initial value sabit, `useEffect` hydration |
-| KFGQPC font loading regression | Orta | Yüksek | `next/font/local` preload, FOUT yerine FOIT kabul et veya swap |
-| Audio karaoke rAF bozulması | Düşük | Yüksek | useWordTimings hook olduğu gibi taşınır, `'use client'` zorunlu |
-| Tailwind v4 + Next.js uyumsuzluk | Düşük | Orta | `@tailwindcss/postcss` resmi yol; v4 zaten Next.js'i destekliyor |
-| Build time şişmesi (165 statik route + locale) | Orta | Düşük | ISR (incremental static regeneration) kullan; tüm route'ları force-static yapma |
-| URL değişikliği nedeniyle SEO geri-adım | Orta | Yüksek | 301 redirect, sitemap submit, 4-8 hafta indeks geri kazanma süreci kabul et |
-| Tool cross-navigasyon kırılması (returnToConcept, returnToWow) | Yüksek | Orta | Yeni router.push pattern'ı + query param ile back state |
-| Bundle size artışı (Next.js runtime) | Düşük | Düşük | Bundle analyzer ile takip; ~30-50KB ek runtime kabul edilebilir |
-| Vercel vendor lock-in | Orta | Düşük | Self-host alternative (Node.js + Next.js standalone build) her zaman mevcut |
+- [ ] **F12-İ20 · Donation / Support**
+  - `/destekle` — Stripe one-time + Patreon/BMC recurring + şeffaf maliyet
+  - Etki: Sustainability, no-ads commitment
 
----
+### Ay 2 — Content Depth (P1 — Content Writing Sprint)
 
-## Checkpoint'ler — Stop & Re-plan
+- [ ] **F12-İ1 devam** — kalan 104 sure landing page (~114k kelime total TR+EN)
+- [ ] **F12-İ2 · Tool Sayfaları Long-Form Intro** — 36 tool × 250 kelime ≈ 9k kelime. Format: tool nedir + nasıl kullanılır + 3 bulgu + metodoloji + CTA
+- [ ] **F12-İ9 · Glossary** — `/sozluk` 50+ Quranic + Islamic term (sünnetullah, esbâb-ı nüzûl, mukattaa, fasıla, iltifât, makasıd)
 
-Her faz sonunda **STOP** ve şunları doğrula:
-1. Önceki faz tam çalışıyor mu (regression yok)?
-2. Sonraki faz için ek bilgi/karar gerekli mi?
-3. Efor tahmini güncel mi?
-4. Risk matrisi değişti mi?
+### Ay 3 — Engagement (P2 — Stickiness)
 
-Eğer herhangi biri kırmızı → kullanıcıya geri rapor et, re-plan yap.
+- [ ] **F12-İ5 · Bookmark / Favoriler** — localStorage (ayet/sure/kavram/progress), Navbar kalp ikonu drawer
+- [ ] **F12-İ6 · Reading Plans** — `/plan` (30-Day hatim, tematik, custom builder), progress tracker, ICS export
+- [ ] **F12-İ7 · Comparative Meal** — Diyanet × Elmalılı × Yazır × Yıldırım × Yüksel yan yana
+- [ ] **F12-PWA** (W23-S8 ile) — offline mushaf, install prompt
 
----
+### Sonraki çeyrek (P3 — Authority & Scale)
 
-## Toplam Efor (Optimistic / Realistic / Pessimistic)
+- [ ] **F12-İ4 · Global Search** — `/arama?q=...` lunr.js client-side index
+- [ ] **F12-İ11 · Blog** — `/yazi/[slug]` long-form (1500+ kelime) deep dives
+- [ ] **F12-İ12 · Email Newsletter** — Buttondown/ConvertKit weekly
+- [ ] **F12-İ8 · Audio Upgrade** — 12+ reciter, comparison, word-sync MP3
+- [ ] **F12-İ15 · Print/PDF Export** — ReadingMode PDF (KFGQPC'li)
+- [ ] **F12-İ16 · Comparative Religious Studies** — Yusuf vs Yosef, İsa anlatısı, Tufan (disinterested ton)
+- [ ] **F12-İ18 · Light Theme** — `prefers-color-scheme` + localStorage override
 
-- **Optimistic:** 4 hafta (full-time, 1 senior dev)
-- **Realistic:** 6-7 hafta
-- **Pessimistic:** 10-12 hafta (SSR-safety sorunları + visual regression çıkarsa)
+### Geleceğe Ertelenen (P4 — Premature)
 
----
+- [ ] **F12-İ13 · Multilingual (Ar/Id/Ur/Fr)** — TR/EN stabil sonrası 6+ ay
+- [ ] **F12-İ14 · Community Discord/Forum** — content kritik kütle + moderasyon kapasitesi sonrası
+- [ ] **F12-İ17 · Developer API** — gerçek talep sonrası
+- [ ] **F12-İ19 · Native App** — 1k+ MAU sonrası
 
-## Önerilen Sıra (priority-ordered, SEO-first)
+### Faz 12 Eksik bulgular (audit kapsamadı)
 
-Eğer kademeli migration yapılacaksa:
-1. **Faz 0 (Audit)** — 3-5 gün, SSR-safety + URL şeması + component decisions
-2. **Faz 0.5 (Vite SEO quick wins)** — 3-5 gün, paralel olarak Search Console'a giriş
-   - react-helmet-async + meta + JSON-LD + sitemap + robots.txt
-   - URL routing refactor (React Router) — Next.js'e migration'da birebir kullanılacak
-3. **Faz 1-2 (Next.js iskelet + shared modules)** — 3-5 gün
-4. **Faz 3 (Home)** — 2-3 gün, sadece landing'i Next.js'te canlıya al (preview deploy), early validation
-5. **Faz 7 (SEO infrastructure)** — Faz 3'le paralel, çünkü Next.js metadata API'si home'dan itibaren kullanılır
-6. **Faz 4 (Routes)** — 2-3 hafta, en SEO-kritik route'larla başla:
-   - Önce: `/oku/[surah]` (114 sure × 2 locale = 228 URL, en yüksek SEO değeri)
-   - Sonra: atlas tool'ları (kıssa, peygamber, kavim — narrative-rich content)
-   - Sonra: graf tool'ları
-   - Sonra: kalan utility tool'lar
-7. **Faz 5 (i18n)** — Faz 4'le paralel, locale-prefix routing
-8. **Faz 6 (Data)** — Faz 4 ile birlikte, route bazlı veri yükleme
-9. **Faz 8 (Performance)** — Faz 4-7 sonrası, Core Web Vitals optimize
-10. **Faz 9 (Testing)** — Pre-cutover QA
-11. **Faz 10 (Cutover)** — Production swap, 301 redirects, Search Console resubmit
-12. **Faz 11 (Cleanup)** — Vite legacy archive, docs update
+- [ ] **F12-X1 · AI/Embedding Transparency** — bgem3 modeli disclosure (Google E-E-A-T 2025+)
+- [ ] **F12-X2 · Citation Guidelines** — akademik atıf (DOI? stable URL? archive.org?)
+- [ ] **F12-X3 · `/kaynakca` Genişlemesi** — detaylı bibliyografya (W20-Ö9 ile birleşik)
+- [ ] **F12-X4 · Content Moderation Policy** — community için
+- [ ] **F12-X5 · Performance Budget CI** — `@lhci/cli` GitHub Actions, LCP > 2.5s → fail
+- [ ] **F12-X6 · 404/500/Offline Page Parity** — error pages tutarlılık audit
+- [ ] **F12-X7 · EN Section/Tool Inline Text Quality** — K-4 metadata fix etti, component inline EN audit'lenmedi
 
-**Toplam timeline:** ~6 hafta full-time, SEO geliri Faz 0.5'ten itibaren akmaya başlar.
+### Faz 12 KPI'lar
+
+- **SEO:** Lighthouse 95+, organik trafik 3-ay 5× artış, sitelinks görünür
+- **Engagement:** Session > 4 dk, bounce < 50%, pages/session > 3
+- **Stickiness:** Returning visitor > 30%, bookmark/reading-plan kullanım > 10%
+- **Authority:** Backlinks 50+ unique domain, Google Scholar akademik atıf
+- **Conversion:** Newsletter signup > 2%, donation > 0.5% (opsiyonel)
 
 ---
 
-## Mimari Kararlar (kullanıcı onayı: 2026-05-21)
+## Referans dokümanlar
 
-Tüm öneriler kullanıcı tarafından onaylandı. Migration bu kararlarla başlayacak:
-
-- [x] **Router:** App Router (Next.js 15)
-- [x] **Dil:** JavaScript (TypeScript'e geçilmeyecek — mevcut kod base'i ile uyum, migration scope'unu küçük tutmak)
-- [x] **i18n:** URL prefix routing — `/tr/...` ve `/en/...`
-- [x] **Tool migration stratejisi:** Tool overlay'ler full page olarak taşınacak (SEO için optimal)
-- [x] **Deploy:** Vercel (Next.js'in native platformu, Edge functions + OG image generation)
-- [x] **Cutover stratejisi:** Kademeli — yeni Next.js projesi paralel kurulacak, Faz 3 sonunda live deploy ile early validation, ardından route route migration
-- [x] **i18n kütüphanesi:** next-intl (RSC'lerde de translation desteği — Context-tabanlı yaklaşıma göre daha güçlü)
-
-**Bu kararlar `migration-to-next.js` branch'inde uygulanacak. Main branch sadece bu plan dosyası için kullanılır.**
+- **CLAUDE.md** — site mimarisi (§16 Next.js patterns 14 alt başlık)
+- **`docs/test-plans/manual-ui-checklist.md`** — Faz 9.1 manuel UI test (339 satır)
+- **`docs/migration-cutover/deploy-checklist.md`** — Faz 10 deploy plan (444 satır)
+- **`docs/migration-cutover/vite-legacy-archive.md`** — Faz 11.1 cleanup plan (389 satır)
+- **`tasks/todo_enhancement.md`** — orijinal enhancement audit (630 satır referans snapshot)
+- **`docs/reviews/`** — visual + UX + Playwright audit raporları (8+ doküman)

@@ -1,0 +1,233 @@
+{
+  "surah": 114,
+  "name": "Surah 114",
+  "nameAr": "",
+  "nameTr": "",
+  "source": {
+    "name": "Quranic Arabic Corpus",
+    "author": "Kais Dukes",
+    "institution": "Leeds University",
+    "url": "https://corpus.quran.com",
+    "license": "GPL — atıfla / with attribution",
+    "fetchedAt": "2026-05-04",
+    "turkish": {
+      "name": "Diyanet İşleri Başkanlığı (kelime meal)",
+      "via": "QuranWBW.com (resource #77)",
+      "url": "https://quranwbw.com"
+    }
+  },
+  "verses": {
+    "1": [
+      {
+        "idx": 1,
+        "ar": "قُلْ",
+        "pos": "V",
+        "root": "ق-و-ل",
+        "lemma": "قَالَ",
+        "features": "imperative 2nd person masculine singular verb",
+        "featuresTr": "emir muhâtab müzekker müfred fiil",
+        "tr": "de ki"
+      },
+      {
+        "idx": 2,
+        "ar": "أَعُوذُ",
+        "pos": "V",
+        "root": "ع-و-ذ",
+        "lemma": "عُذْ",
+        "features": "imperfect 1st person singular verb",
+        "featuresTr": "muzâri mütekellim müfred fiil",
+        "tr": "sığınırım ben"
+      },
+      {
+        "idx": 3,
+        "ar": "بِرَبِّ",
+        "pos": "N",
+        "root": "ر-ب-ب",
+        "lemma": "رَبّ",
+        "features": "masculine genitive noun",
+        "featuresTr": "müzekker mecrur isim",
+        "tr": "Rabbine"
+      },
+      {
+        "idx": 4,
+        "ar": "ٱلنَّاسِ",
+        "pos": "N",
+        "root": "ن-و-س",
+        "lemma": "نَّاس",
+        "features": "masculine plural genitive noun",
+        "featuresTr": "müzekker çoğul mecrur isim",
+        "tr": "insanların"
+      }
+    ],
+    "2": [
+      {
+        "idx": 1,
+        "ar": "مَلِكِ",
+        "pos": "N",
+        "root": "م-ل-ك",
+        "lemma": "مَلِك",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "padişahına"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلنَّاسِ",
+        "pos": "N",
+        "root": "ن-و-س",
+        "lemma": "نَّاس",
+        "features": "masculine plural genitive noun",
+        "featuresTr": "müzekker çoğul mecrur isim",
+        "tr": "insanların"
+      }
+    ],
+    "3": [
+      {
+        "idx": 1,
+        "ar": "إِلَٰهِ",
+        "pos": "N",
+        "root": "ا-ل-ه",
+        "lemma": "إِلَٰه",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "tanrısına"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلنَّاسِ",
+        "pos": "N",
+        "root": "ن-و-س",
+        "lemma": "نَّاس",
+        "features": "masculine plural genitive noun",
+        "featuresTr": "müzekker çoğul mecrur isim",
+        "tr": "insanların"
+      }
+    ],
+    "4": [
+      {
+        "idx": 1,
+        "ar": "مِن",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "şerrinden"
+      },
+      {
+        "idx": 2,
+        "ar": "شَرِّ",
+        "pos": "N",
+        "root": "ش-ر-ر",
+        "lemma": "شَرّ",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "ٱلْوَسْوَاسِ",
+        "pos": "N",
+        "root": "و-س-و-س",
+        "lemma": "وَسْوَاس",
+        "features": "masculine singular genitive noun",
+        "featuresTr": "müzekker müfred mecrur isim",
+        "tr": "vesvesecinin"
+      },
+      {
+        "idx": 4,
+        "ar": "ٱلْخَنَّاسِ",
+        "pos": "ADJ",
+        "root": "خ-ن-س",
+        "lemma": "خَنَّاس",
+        "features": "masculine singular genitive adjective",
+        "featuresTr": "müzekker müfred mecrur sıfat",
+        "tr": "sinsi"
+      }
+    ],
+    "5": [
+      {
+        "idx": 1,
+        "ar": "ٱلَّذِى",
+        "pos": "REL",
+        "root": null,
+        "lemma": "ٱلَّذِى",
+        "features": "masculine singular relative pronoun",
+        "featuresTr": "müzekker müfred ilgi zamiri (mevsûl)",
+        "tr": "o ki"
+      },
+      {
+        "idx": 2,
+        "ar": "يُوَسْوِسُ",
+        "pos": "V",
+        "root": "و-س-و-س",
+        "lemma": "وَسْوَسَ",
+        "features": "imperfect 3rd person masculine singular verb",
+        "featuresTr": "muzâri gâib müzekker müfred fiil",
+        "tr": "fısıldar"
+      },
+      {
+        "idx": 3,
+        "ar": "فِى",
+        "pos": "P",
+        "root": null,
+        "lemma": "فِى",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "göğüslerine"
+      },
+      {
+        "idx": 4,
+        "ar": "صُدُورِ",
+        "pos": "N",
+        "root": "ص-د-ر",
+        "lemma": "صَدْر",
+        "features": "masculine plural genitive noun",
+        "featuresTr": "müzekker çoğul mecrur isim",
+        "tr": "*"
+      },
+      {
+        "idx": 5,
+        "ar": "ٱلنَّاسِ",
+        "pos": "N",
+        "root": "ن-و-س",
+        "lemma": "نَّاس",
+        "features": "masculine plural genitive noun",
+        "featuresTr": "müzekker çoğul mecrur isim",
+        "tr": "insanların"
+      }
+    ],
+    "6": [
+      {
+        "idx": 1,
+        "ar": "مِنَ",
+        "pos": "P",
+        "root": null,
+        "lemma": "مِن",
+        "features": "preposition",
+        "featuresTr": "edat (cer harfi)",
+        "tr": "cinlerden"
+      },
+      {
+        "idx": 2,
+        "ar": "ٱلْجِنَّةِ",
+        "pos": "N",
+        "root": "ج-ن-ن",
+        "lemma": "جِنَّة",
+        "features": "feminine genitive noun",
+        "featuresTr": "müennes mecrur isim",
+        "tr": "*"
+      },
+      {
+        "idx": 3,
+        "ar": "وَٱلنَّاسِ",
+        "pos": "N",
+        "root": "ن-و-س",
+        "lemma": "نَّاس",
+        "features": "masculine plural genitive noun",
+        "featuresTr": "müzekker çoğul mecrur isim",
+        "tr": "ve insanlar(dan);"
+      }
+    ]
+  }
+}

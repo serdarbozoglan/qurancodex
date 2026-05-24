@@ -1,0 +1,478 @@
+{
+  "dialogues": [
+    {
+      "id": "adam-creation-angels",
+      "axisId": "allah-angels",
+      "titleTr": "Halife Atanması",
+      "titleEn": "Appointing the Vicegerent",
+      "refs": ["2:30-34"],
+      "temporalLayer": "ezel",
+      "turns": [
+        {
+          "speaker": "allah",
+          "addressee": "angels",
+          "keyPhrase": "إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً",
+          "summaryTr": "Ben yeryüzünde bir halife yaratacağım.",
+          "summaryEn": "Indeed, I will make upon the earth a vicegerent."
+        },
+        {
+          "speaker": "angels",
+          "addressee": "allah",
+          "keyPhrase": "أَتَجْعَلُ فِيهَا مَن يُفْسِدُ فِيهَا",
+          "summaryTr": "Orada bozgunculuk yapacak birini mi koyacaksın?",
+          "summaryEn": "Will You place upon it one who causes corruption?"
+        },
+        {
+          "speaker": "allah",
+          "addressee": "angels",
+          "keyPhrase": "إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ",
+          "summaryTr": "Ben sizin bilmediğinizi bilirim.",
+          "summaryEn": "Indeed, I know that which you do not know."
+        }
+      ],
+      "lessonTr": "İlahi hikmetin sorgulanması ve teslimiyetin önemi.",
+      "lessonEn": "The questioning of divine wisdom and the importance of surrender."
+    },
+    {
+      "id": "iblis-refusal",
+      "axisId": "iblis-allah",
+      "titleTr": "İblis'in Secde Reddi",
+      "titleEn": "Iblis Refuses to Prostrate",
+      "refs": ["7:11-18"],
+      "temporalLayer": "ezel",
+      "turns": [
+        {
+          "speaker": "allah",
+          "addressee": "iblis",
+          "keyPhrase": "مَا مَنَعَكَ أَلَّا تَسْجُدَ",
+          "summaryTr": "Emrettiğimde seni secde etmekten ne alıkoydu?",
+          "summaryEn": "What prevented you from prostrating when I commanded you?"
+        },
+        {
+          "speaker": "iblis",
+          "addressee": "allah",
+          "keyPhrase": "أَنَا خَيْرٌ مِّنْهُ خَلَقْتَنِي مِن نَّارٍ",
+          "summaryTr": "Ben ondan üstünüm, beni ateşten yarattın.",
+          "summaryEn": "I am better than him. You created me from fire."
+        },
+        {
+          "speaker": "allah",
+          "addressee": "iblis",
+          "keyPhrase": "فَاهْبِطْ مِنْهَا فَمَا يَكُونُ لَكَ أَن تَتَكَبَّرَ",
+          "summaryTr": "Oradan in! Orada büyüklenmek sana yakışmaz.",
+          "summaryEn": "Descend from it. It is not for you to be arrogant therein."
+        },
+        {
+          "speaker": "iblis",
+          "addressee": "allah",
+          "keyPhrase": "أَنظِرْنِي إِلَىٰ يَوْمِ يُبْعَثُونَ",
+          "summaryTr": "Onların diriltileceği güne kadar bana mühlet ver.",
+          "summaryEn": "Respite me until the Day they are resurrected."
+        }
+      ],
+      "lessonTr": "Kibir, itaatsizliğin ve ilahi rahmetten kovulmanın temelidir.",
+      "lessonEn": "Arrogance is the root of disobedience and expulsion from divine mercy."
+    },
+    {
+      "id": "musa-burning-bush",
+      "axisId": "allah-musa",
+      "titleTr": "Tûr'da İlk Vahiy",
+      "titleEn": "First Revelation at the Burning Bush",
+      "refs": ["20:10-36"],
+      "temporalLayer": "dunya",
+      "turns": [
+        {
+          "speaker": "allah",
+          "addressee": "musa",
+          "keyPhrase": "إِنِّي أَنَا رَبُّكَ فَاخْلَعْ نَعْلَيْكَ",
+          "summaryTr": "Ben senin Rabbinim. Pabuçlarını çıkar.",
+          "summaryEn": "Indeed, I am your Lord, so remove your sandals."
+        },
+        {
+          "speaker": "musa",
+          "addressee": "allah",
+          "keyPhrase": "رَبِّ اشْرَحْ لِي صَدْرِي",
+          "summaryTr": "Rabbim! Göğsümü aç, işimi kolaylaştır.",
+          "summaryEn": "My Lord, expand for me my breast and ease my task."
+        },
+        {
+          "speaker": "allah",
+          "addressee": "musa",
+          "keyPhrase": "قَدْ أُوتِيتَ سُؤْلَكَ يَا مُوسَىٰ",
+          "summaryTr": "Ey Mûsâ, isteğin sana verildi.",
+          "summaryEn": "O Moses, you have been granted your request."
+        }
+      ],
+      "lessonTr": "Peygamberlik görevinin ağırlığı ve ilahi desteğin önemi.",
+      "lessonEn": "The weight of prophetic duty and the importance of divine support."
+    },
+    {
+      "id": "musa-pharaoh-first",
+      "axisId": "musa-pharaoh",
+      "titleTr": "Mûsâ-Firavun: İlk Karşılaşma",
+      "titleEn": "Moses and Pharaoh: First Encounter",
+      "refs": ["26:16-31"],
+      "temporalLayer": "dunya",
+      "turns": [
+        {
+          "speaker": "musa",
+          "addressee": "pharaoh",
+          "keyPhrase": "إِنَّا رَسُولُ رَبِّ الْعَالَمِينَ",
+          "summaryTr": "Biz âlemlerin Rabbinin elçisiyiz.",
+          "summaryEn": "Indeed, we are the messengers of the Lord of the worlds."
+        },
+        {
+          "speaker": "pharaoh",
+          "addressee": "musa",
+          "keyPhrase": "أَلَمْ نُرَبِّكَ فِينَا وَلِيدًا",
+          "summaryTr": "Seni çocukken aramızda büyütmedik mi?",
+          "summaryEn": "Did we not raise you among us as a child?"
+        },
+        {
+          "speaker": "musa",
+          "addressee": "pharaoh",
+          "keyPhrase": "فَعَلْتُهَا إِذًا وَأَنَا مِنَ الضَّالِّينَ",
+          "summaryTr": "O işi o zaman, yolumu bilmezken yaptım.",
+          "summaryEn": "I did it then while I was of those astray."
+        },
+        {
+          "speaker": "pharaoh",
+          "addressee": "musa",
+          "keyPhrase": "وَمَا رَبُّ الْعَالَمِينَ",
+          "summaryTr": "Âlemlerin Rabbi de nedir?",
+          "summaryEn": "And what is the Lord of the worlds?"
+        }
+      ],
+      "lessonTr": "Güç karşısında hakikat tebliğinin cesurca sürdürülmesi.",
+      "lessonEn": "Courageous proclamation of truth in the face of power."
+    },
+    {
+      "id": "pharaoh-drowning",
+      "axisId": "pharaoh-allah",
+      "titleTr": "Firavun'un Son Sözü",
+      "titleEn": "Pharaoh's Final Words",
+      "refs": ["10:90-92"],
+      "temporalLayer": "dunya",
+      "turns": [
+        {
+          "speaker": "pharaoh",
+          "addressee": "allah",
+          "keyPhrase": "آمَنتُ أَنَّهُ لَا إِلَٰهَ إِلَّا الَّذِي آمَنَتْ بِهِ بَنُو إِسْرَائِيلَ",
+          "summaryTr": "İsrailoğullarının iman ettiği ilahtan başka ilah olmadığına inandım.",
+          "summaryEn": "I believe that there is no god except He in whom the Children of Israel believe."
+        },
+        {
+          "speaker": "allah",
+          "addressee": "pharaoh",
+          "keyPhrase": "آلْآنَ وَقَدْ عَصَيْتَ قَبْلُ",
+          "summaryTr": "Şimdi mi? Halbuki daha önce isyan etmiştin.",
+          "summaryEn": "Now? And you had disobeyed before and were of the corrupters?"
+        }
+      ],
+      "lessonTr": "Son nefesteki imanın kabulü için hayat boyunca fırsat vardır.",
+      "lessonEn": "Deathbed faith cannot replace a lifetime of chosen rebellion."
+    },
+    {
+      "id": "ibrahim-azar-dialogue",
+      "axisId": "ibrahim-azar",
+      "titleTr": "İbrâhîm Babasına Davet Ediyor",
+      "titleEn": "Abraham Invites His Father",
+      "refs": ["19:41-48"],
+      "temporalLayer": "dunya",
+      "turns": [
+        {
+          "speaker": "ibrahim",
+          "addressee": "azar",
+          "keyPhrase": "يَا أَبَتِ لِمَ تَعْبُدُ مَا لَا يَسْمَعُ وَلَا يُبْصِرُ",
+          "summaryTr": "Ey babacığım! Neden işitmeyen, görmeyen şeylere tapıyorsun?",
+          "summaryEn": "O my father, why do you worship that which does not hear and does not see?"
+        },
+        {
+          "speaker": "azar",
+          "addressee": "ibrahim",
+          "keyPhrase": "أَرَاغِبٌ أَنتَ عَنْ آلِهَتِي يَا إِبْرَاهِيمُ",
+          "summaryTr": "İbrâhîm! Sen benim ilahlarımdan mı yüz çeviriyorsun?",
+          "summaryEn": "Are you averse to my gods, O Abraham?"
+        },
+        {
+          "speaker": "ibrahim",
+          "addressee": "azar",
+          "keyPhrase": "سَأَسْتَغْفِرُ لَكَ رَبِّي",
+          "summaryTr": "Sana Rabbimden bağışlanma dileyeceğim.",
+          "summaryEn": "I will ask forgiveness for you of my Lord."
+        }
+      ],
+      "lessonTr": "Yakınlara davet en zor ve en önemli görevdir.",
+      "lessonEn": "Calling one's own family is the most difficult and most important duty."
+    },
+    {
+      "id": "ibrahim-nimrod-debate",
+      "axisId": "ibrahim-nimrod",
+      "titleTr": "İbrâhîm-Nemrut: Akıl Tartışması",
+      "titleEn": "Abraham vs. Nimrod: The Rational Debate",
+      "refs": ["2:258"],
+      "temporalLayer": "dunya",
+      "turns": [
+        {
+          "speaker": "ibrahim",
+          "addressee": "nimrod",
+          "keyPhrase": "رَبِّيَ الَّذِي يُحْيِي وَيُمِيتُ",
+          "summaryTr": "Rabbim diriltir ve öldürür.",
+          "summaryEn": "My Lord is the one who gives life and causes death."
+        },
+        {
+          "speaker": "nimrod",
+          "addressee": "ibrahim",
+          "keyPhrase": "أَنَا أُحْيِي وَأُمِيتُ",
+          "summaryTr": "Ben de diriltir ve öldürürüm.",
+          "summaryEn": "I also give life and cause death."
+        },
+        {
+          "speaker": "ibrahim",
+          "addressee": "nimrod",
+          "keyPhrase": "فَإِنَّ اللَّهَ يَأْتِي بِالشَّمْسِ مِنَ الْمَشْرِقِ فَأْتِ بِهَا مِنَ الْمَغْرِبِ",
+          "summaryTr": "Allah güneşi doğudan getirir; sen onu batıdan getir!",
+          "summaryEn": "God brings the sun from the east; bring it from the west!"
+        }
+      ],
+      "lessonTr": "Akli delil, karşı tarafı susturmak için en güçlü araçtır.",
+      "lessonEn": "Rational argument is the most powerful tool to silence opposition."
+    },
+    {
+      "id": "yusuf-brothers-reunion",
+      "axisId": "yusuf-brothers",
+      "titleTr": "Yûsuf Kendini Tanıtıyor",
+      "titleEn": "Joseph Reveals Himself",
+      "refs": ["12:89-93"],
+      "temporalLayer": "dunya",
+      "turns": [
+        {
+          "speaker": "yusuf",
+          "addressee": "brothers",
+          "keyPhrase": "هَلْ عَلِمْتُم مَّا فَعَلْتُم بِيُوسُفَ",
+          "summaryTr": "Yûsuf'a ne yaptığınızı biliyor musunuz?",
+          "summaryEn": "Do you know what you did with Joseph?"
+        },
+        {
+          "speaker": "brothers",
+          "addressee": "yusuf",
+          "keyPhrase": "أَإِنَّكَ لَأَنتَ يُوسُفُ",
+          "summaryTr": "Sen gerçekten Yûsuf musun?",
+          "summaryEn": "Are you indeed Joseph?"
+        },
+        {
+          "speaker": "yusuf",
+          "addressee": "brothers",
+          "keyPhrase": "أَنَا يُوسُفُ وَهَٰذَا أَخِي",
+          "summaryTr": "Ben Yûsuf'um, bu da kardeşim.",
+          "summaryEn": "I am Joseph, and this is my brother."
+        },
+        {
+          "speaker": "yusuf",
+          "addressee": "brothers",
+          "keyPhrase": "لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ",
+          "summaryTr": "Bugün size kınama yok. Allah sizi bağışlasın.",
+          "summaryEn": "No blame will there be upon you today. May God forgive you."
+        }
+      ],
+      "lessonTr": "Sabır ve affedicilik, ilahi lutfun kapısını açar.",
+      "lessonEn": "Patience and forgiveness open the door to divine grace."
+    },
+    {
+      "id": "angels-welcome-paradise",
+      "axisId": "angels-paradise",
+      "titleTr": "Meleklerin Cennet Ehline Selamı",
+      "titleEn": "Angels Welcome the People of Paradise",
+      "refs": ["39:73", "13:23-24"],
+      "temporalLayer": "ahiret",
+      "turns": [
+        {
+          "speaker": "angels",
+          "addressee": "paradise-dwellers",
+          "keyPhrase": "سَلَامٌ عَلَيْكُمْ طِبْتُمْ فَادْخُلُوهَا خَالِدِينَ",
+          "summaryTr": "Selâm üzerinize olsun. Ne iyi etiniz, girin, ebediyen kalın.",
+          "summaryEn": "Peace be upon you; you have done well, so enter here to abide eternally."
+        }
+      ],
+      "lessonTr": "İman ve amelin karşılığı sonsuz bir hoşgeldindir.",
+      "lessonEn": "The reward of faith and deeds is an eternal welcome."
+    },
+    {
+      "id": "paradise-hell-dialogue",
+      "axisId": "paradise-hell",
+      "titleTr": "Cennet Ehlinden Cehennem Ehline",
+      "titleEn": "From Paradise to Hell: The Dialogue",
+      "refs": ["7:44", "7:50"],
+      "temporalLayer": "ahiret",
+      "turns": [
+        {
+          "speaker": "paradise-dwellers",
+          "addressee": "hell-dwellers",
+          "keyPhrase": "هَلْ وَجَدتُّم مَّا وَعَدَ رَبُّكُمْ حَقًّا",
+          "summaryTr": "Rabbinizin vaadini gerçek buldunuz mu?",
+          "summaryEn": "Have you found what your Lord promised to be true?"
+        },
+        {
+          "speaker": "hell-dwellers",
+          "addressee": "paradise-dwellers",
+          "keyPhrase": "نَعَمْ",
+          "summaryTr": "Evet.",
+          "summaryEn": "Yes."
+        },
+        {
+          "speaker": "hell-dwellers",
+          "addressee": "paradise-dwellers",
+          "keyPhrase": "أَفِيضُوا عَلَيْنَا مِنَ الْمَاءِ",
+          "summaryTr": "Üzerimize biraz su veya Allah'ın size verdiklerinden dökün.",
+          "summaryEn": "Pour upon us some water or some of what God has provided you."
+        },
+        {
+          "speaker": "paradise-dwellers",
+          "addressee": "hell-dwellers",
+          "keyPhrase": "إِنَّ اللَّهَ حَرَّمَهُمَا عَلَى الْكَافِرِينَ",
+          "summaryTr": "Allah bunları kâfirlere haram kılmıştır.",
+          "summaryEn": "Indeed, God has forbidden them to the disbelievers."
+        }
+      ],
+      "lessonTr": "Dünyada verilen kararların ahiretteki kalıcı sonuçları.",
+      "lessonEn": "The eternal consequences of choices made in this world."
+    },
+    {
+      "id": "iblis-final-confession",
+      "axisId": "iblis-hell-dwellers",
+      "titleTr": "İblis'in Son İtirafı",
+      "titleEn": "Satan's Final Confession",
+      "refs": ["14:22"],
+      "temporalLayer": "ahiret",
+      "turns": [
+        {
+          "speaker": "iblis",
+          "addressee": "hell-dwellers",
+          "keyPhrase": "إِنَّ اللَّهَ وَعَدَكُمْ وَعْدَ الْحَقِّ وَوَعَدتُّكُمْ فَأَخْلَفْتُكُمْ",
+          "summaryTr": "Allah size gerçek vaadde bulundu, ben de vaadde bulundum ama yalan söyledim.",
+          "summaryEn": "God promised you the truth, and I promised you but betrayed you."
+        },
+        {
+          "speaker": "iblis",
+          "addressee": "hell-dwellers",
+          "keyPhrase": "فَلَا تَلُومُونِي وَلُومُوا أَنفُسَكُمْ",
+          "summaryTr": "Beni değil, kendinizi suçlayın.",
+          "summaryEn": "So do not blame me; blame yourselves."
+        }
+      ],
+      "lessonTr": "Şeytan, mahşerde bile insanları yanıltmaya çalışır; sorumluluk insana aittir.",
+      "lessonEn": "Even on Judgment Day, Satan tries to mislead; the responsibility belongs to the human."
+    },
+    {
+      "id": "followers-blame-leaders",
+      "axisId": "followers-leaders",
+      "titleTr": "Takipçilerin Önderleri Suçlaması",
+      "titleEn": "Followers Blame Their Leaders",
+      "refs": ["14:21", "34:31-33"],
+      "temporalLayer": "ahiret",
+      "turns": [
+        {
+          "speaker": "munafiqun",
+          "addressee": "arrogant-leaders",
+          "keyPhrase": "إِنَّا كُنَّا لَكُمْ تَبَعًا فَهَلْ أَنتُم مُّغْنُونَ عَنَّا",
+          "summaryTr": "Biz size uymuştuk. Allah'ın azabından bir şey savabilir misiniz?",
+          "summaryEn": "We were your followers. Can you avert from us any punishment of God?"
+        },
+        {
+          "speaker": "arrogant-leaders",
+          "addressee": "munafiqun",
+          "keyPhrase": "لَوْ هَدَانَا اللَّهُ لَهَدَيْنَاكُمْ",
+          "summaryTr": "Allah bize yol gösterseydi, size de gösterirdik.",
+          "summaryEn": "If God had guided us, we would have guided you."
+        }
+      ],
+      "lessonTr": "Her kişi kendi tercihinden sorumludur; körlük zincirine dahil olmak özrü geçersiz kılar.",
+      "lessonEn": "Each person is responsible for their own choices; following a chain of blindness is no excuse."
+    },
+    {
+      "id": "allah-judgment-isa",
+      "axisId": "allah-isa",
+      "titleTr": "Allah'ın Îsâ'ya Sorusu",
+      "titleEn": "God Questions Jesus on Judgment Day",
+      "refs": ["5:116-117"],
+      "temporalLayer": "ahiret",
+      "turns": [
+        {
+          "speaker": "allah",
+          "addressee": "isa",
+          "keyPhrase": "أَأَنتَ قُلْتَ لِلنَّاسِ اتَّخِذُونِي وَأُمِّيَ إِلَٰهَيْنِ",
+          "summaryTr": "Sen mi insanlara 'Beni ve annemi iki ilah edinin' dedin?",
+          "summaryEn": "Did you say to the people, 'Take me and my mother as gods besides God'?"
+        },
+        {
+          "speaker": "isa",
+          "addressee": "allah",
+          "keyPhrase": "سُبْحَانَكَ مَا يَكُونُ لِي أَنْ أَقُولَ مَا لَيْسَ لِي بِحَقٍّ",
+          "summaryTr": "Seni tenzih ederim. Hakkım olmayan şeyi söylemem bana yaraşmaz.",
+          "summaryEn": "Exalted are You! It is not for me to say what I have no right to."
+        }
+      ],
+      "lessonTr": "Her peygamber tevhidin temsilcisidir; ilahlaştırma onların öğretisine aykırıdır.",
+      "lessonEn": "Every prophet stands for monotheism; deification contradicts their teaching."
+    },
+    {
+      "id": "nuh-son-ark",
+      "axisId": "nuh-son",
+      "titleTr": "Nûh'un Oğluna Son Çağrısı",
+      "titleEn": "Noah's Final Call to His Son",
+      "refs": ["11:42-43"],
+      "temporalLayer": "dunya",
+      "turns": [
+        {
+          "speaker": "nuh",
+          "addressee": "son-nuh",
+          "keyPhrase": "يَا بُنَيَّ ارْكَب مَّعَنَا",
+          "summaryTr": "Yavrucuğum, bizimle bin.",
+          "summaryEn": "O my son, come aboard with us."
+        },
+        {
+          "speaker": "son-nuh",
+          "addressee": "nuh",
+          "keyPhrase": "سَآوِي إِلَىٰ جَبَلٍ يَعْصِمُنِي مِنَ الْمَاءِ",
+          "summaryTr": "Beni sudan koruyacak bir dağa sığınacağım.",
+          "summaryEn": "I will take refuge on a mountain that will protect me from the water."
+        },
+        {
+          "speaker": "nuh",
+          "addressee": "son-nuh",
+          "keyPhrase": "لَا عَاصِمَ الْيَوْمَ مِنْ أَمْرِ اللَّهِ إِلَّا مَن رَّحِمَ",
+          "summaryTr": "Bugün Allah'ın emrinden koruyacak yoktur, ancak merhamet eden.",
+          "summaryEn": "There is no protector today from the decree of God, except for whom He gives mercy."
+        }
+      ],
+      "lessonTr": "Nesep bağı, imanın önüne geçemez.",
+      "lessonEn": "Blood ties cannot supersede faith."
+    },
+    {
+      "id": "araf-dwellers-dialogue",
+      "axisId": "araf-both",
+      "titleTr": "A'râf Ehli — İki Tarafa Hitap",
+      "titleEn": "People of A'raf Address Both Sides",
+      "refs": ["7:46-49"],
+      "temporalLayer": "ahiret",
+      "turns": [
+        {
+          "speaker": "araf-dwellers",
+          "addressee": "paradise-dwellers",
+          "keyPhrase": "سَلَامٌ عَلَيْكُمْ",
+          "summaryTr": "Selam üzerinize olsun.",
+          "summaryEn": "Peace be upon you."
+        },
+        {
+          "speaker": "araf-dwellers",
+          "addressee": "allah",
+          "keyPhrase": "رَبَّنَا لَا تَجْعَلْنَا مَعَ الْقَوْمِ الظَّالِمِينَ",
+          "summaryTr": "Rabbimiz, bizi zalimler topluluğuyla bir tutma.",
+          "summaryEn": "Our Lord, do not place us with the wrongdoing people."
+        }
+      ],
+      "lessonTr": "Berzah bir bilinç halidir — her iki sonucu gören ve Allah'a sığınan.",
+      "lessonEn": "The A'raf is a state of awareness — seeing both outcomes and seeking refuge in God."
+    }
+  ]
+}
