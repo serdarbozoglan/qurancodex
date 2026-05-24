@@ -46,7 +46,7 @@ export default async function Image({ params }) {
             fontWeight: 600,
           }}
         >
-          Quran Codex · Sure {valid ? s : '?'}
+          {`Quran Codex · Sure ${valid ? s : '?'}`}
         </div>
 
         {/* Surah name — Latin */}
