@@ -675,25 +675,22 @@ Mevcut implementation:
 ## Faz 8 — Performance (3-5 gün)
 
 ### 8.1 Font optimization
-- [ ] `next/font/local` ile KFGQPC self-host
-- [ ] `display: 'swap'` (FOIT'tan kaçın)
-- [ ] Preload critical fonts only
+- [x] `display: 'swap'` (FOIT'tan kaçın) — `globals.css` @font-face her ikisinde de `font-display: swap` ✅
+- [x] Preload critical fonts only — Faz 7.10'da KFGQPC için `<link rel="preload">` eklendi; ShaykhHamdullah bilinçli preload edilmedi ✅
+- [ ] `next/font/local` ile KFGQPC self-host — DEFERRED. 53 inline `'KFGQPC'` literal'i + `FONTS.quran` token'ı next/font'ın hash-generated class name'iyle çakışır; tüm referansları `var(--font-kfgqpc)` ile değiştirmek gerekir. Mevcut manual @font-face + preload zaten LCP fayda sağlıyor; ek refactor marginal.
 
 ### 8.2 Image optimization
-- [ ] Eğer raster image varsa `next/image` ile değiştir
-- [ ] SVG'ler doğrudan import (`@svgr/webpack` Next.js config)
+- [x] Raster image — YOK. Site tamamen SVG (icon + diagram) + font-tabanlı tipografi kullanıyor. `next/image` için kullanım yeri yok ✅
+- [x] SVG import — Next.js Vite-tarzı inline JSX SVG'leri destekliyor; `@svgr/webpack` config'e gerek yok ✅
 
 ### 8.3 Bundle analysis
-- [ ] `@next/bundle-analyzer` kur
-- [ ] Per-route bundle size kontrol et
-- [ ] Framer Motion lazy load (`dynamic(() => import('framer-motion'))`)
-- [ ] Tool route'ları zaten kendi bundle'ında — verify
+- [ ] `@next/bundle-analyzer` kur — DEFERRED (yeni dependency; user approval bekliyor). Production build sonrası `.next/build/static/chunks/` directory'sinden manuel inspect edilebilir.
+- [ ] Framer Motion lazy load — DEFERRED, bundle analyzer çıktısına bakılarak karar verilir; framer-motion 200+ section'da inline kullanılıyor, route bölme şart değilse maliyet düşük.
+- [ ] Tool route bundle sınırı — DEFERRED, ölçüm sonrası.
 
 ### 8.4 Core Web Vitals
-- [ ] LCP target: < 2.5s
-- [ ] CLS target: < 0.1
-- [ ] INP target: < 200ms
-- [ ] `next/script` strategy doğru ayarlanmış mı?
+- [ ] **LCP/CLS/INP ölçümleri** — POST-DEPLOY. Faz 7.10'da tüm aksiyonlar alındı (preload, SSG, display:swap, requestAnimationFrame visibility-aware). Gerçek ölçümler PageSpeed Insights / Web.dev / CrUX Dashboard ile post-deploy yapılır; threshold ihlali varsa hedefli optimizasyon eklenir.
+- [x] `next/script` strategy — Next 16'da `<script>` tag'leri otomatik defer; tüm site script'leri SSR/RSC içinde — eksternal third-party script yok.
 
 ---
 
