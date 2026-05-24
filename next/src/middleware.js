@@ -12,16 +12,11 @@ import { NextResponse } from 'next/server';
 const SUPPORTED = ['tr', 'en'];
 const DEFAULT = 'tr';
 
-function detectLocale(request) {
-  const acceptLang = request.headers.get('Accept-Language') || '';
-  // Naive parse: ilk match'i al
-  for (const lang of acceptLang.split(',')) {
-    const code = lang.split(';')[0].trim().toLowerCase();
-    const base = code.split('-')[0];
-    if (SUPPORTED.includes(base)) return base;
-  }
-  return DEFAULT;
-}
+// Türk-Kur'an sitesi için DEFAULT her zaman Türkçe.
+// İngilizce browser kullanan kullanıcılar otomatik /en'e redirect EDİLMEZ;
+// onlar manuel olarak Navbar'daki TR/EN switch'i ile dil değiştirir.
+// (Önceki davranış: Accept-Language header'a göre browser-locale redirect
+// — bu Türkiye'deki en/en-US browser ayarlı kullanıcılar için yanlış UX'di.)
 
 export function middleware(request) {
   const { pathname } = request.nextUrl;
@@ -32,9 +27,8 @@ export function middleware(request) {
   );
   if (hasLocale) return NextResponse.next();
 
-  // Locale-prefix ekle, redirect
-  const locale = detectLocale(request);
-  const newUrl = new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url);
+  // Locale-prefix yoksa DEFAULT (tr) ile redirect.
+  const newUrl = new URL(`/${DEFAULT}${pathname === '/' ? '' : pathname}`, request.url);
   newUrl.search = request.nextUrl.search;
   return NextResponse.redirect(newUrl);
 }
