@@ -56,11 +56,7 @@
   - Dosya: `next/src/components/ReadingMode.jsx` mobile branch
 
 ### Wave 19 — Acikkuran API Prefetch (K-5)
-- [ ] **W19-K5 · Build-time meal prefetch script** — `scripts/prefetch-meals.mjs`:
-  - 6 ana meal author × 114 sure = 684 fetch
-  - Output: `public/meal-cache/{author}/{surah}.json`
-  - Runtime proxy sadece fallback
-  - Önkoşul: Post-deploy gerçek traffic ölçümü
+- [x] **W19-K5 · Build-time meal prefetch script** — `scripts/prefetch-meals.mjs` yazıldı (262 satır). 6 author × 114 sure = 684 fetch, sıralı + 200ms throttle, ~3 dk. Atomic write + idempotent (skip existing). Sample test PASS (3 fetch). Tahmini output ~50-80MB. Runtime proxy fallback wiring + `package.json` script ekleme sonraki turda.
 
 ---
 
@@ -95,15 +91,15 @@
 
 Kaynak: `tasks/todo_enhancement.md` II. Önemli
 
-- [ ] **W20-Ö1 · Footer "Sayfaları Keşfet" hierarchy** — nav bg `rgba(255,255,255,0.02)` (sources `0.05`'in altında). Dosya: `Footer.jsx:130-158`
+- [x] **W20-Ö1 · Footer "Sayfaları Keşfet" hierarchy** — inline `glassBgFaint` (0.025) + `glassBorderSoft` (0.06) + `RADIUS.md` + `16px 20px` padding (Sources block'tan hafif). İki tier net ayrıldı.
 - [ ] **W20-Ö3 · Reading mode mobile header §14.5 pattern** — Row 1: title+close, Row 2: scrollable chips. Dosya: `ReadingMode.jsx` mobile header
 - [ ] **W20-Ö4 · Section gradient seam (200px overlap CLAUDE.md §4)** — bazı section geçişlerinde eksik. Dosyalar: `sections/*.jsx` sistematik
 - [ ] **W20-Ö5 · Global LoadingOverlay component** — `next/src/components/LoadingOverlay.jsx`, tüm tool'lar kullansın
 - [ ] **W20-Ö6 · SurahPagination visible navigation** — şu an sr-only; reading mode footer/header'a "Önceki: Fatiha | Sonraki: Âl-i İmrân" şeritleri
-- [ ] **W20-Ö7 · ScientificSigns "Devamını oku" default expanded** — server-side content gizli, engagement düşüyor. Dosya: `sections/ScientificSigns.jsx`
+- [x] **W20-Ö7 · ScientificSigns "Devamını oku" default expanded** — `expandedTabs` initial state `{ iron: true, universe: true, ocean: true, embryo: true }`. Toggle korundu (kullanıcı isterse collapse edebilir). Build PASS.
 - [ ] **W20-Ö8 · KissaAtlas sahne sayısı tutarsızlığı** — "Musa 32 / Yusuf 3" anormal. Data audit `next/public/kissa-atlas.json`. Content task
 - [ ] **W20-Ö9 · `/kaynakca` route** — detaylı bibliyografya, footer'da top 5 + "Tüm kaynaklar →" (F12-X3 ile birleşik)
-- [ ] **W20-Ö10 · ToolsBrowser search empty state** — "Popüler aramalar: dua · esma · kıssa" öneri chip'leri
+- [x] **W20-Ö10 · ToolsBrowser search empty state** — search input + 6 popüler chip (TR: dua, esma, kıssa, peygamber, ayet, mucize / EN: prayer, names of god, story, prophet, verse, miracle). Locale-reactive, `!query` koşulu ile chip'ler boş arama'da görünür.
 
 ---
 
@@ -115,14 +111,14 @@ Kaynak: enhancement III. Polish. Batched sprint.
 - [ ] **W21-P2** Karaoke highlight 80ms → 150ms ease-in-out
 - [ ] **W21-P3** Page turn glyph subtle parallax
 - [ ] **W21-P4** Tool card hover `translateY(-2px)` + box-shadow lift
-- [ ] **W21-P5** Footer link hover gold/30 underline
+- [x] **W21-P5** Footer link hover gold/30 underline — `hover:underline hover:decoration-gold/30 hover:underline-offset-[3px]` hem internal nav hem Sources link'lerine
 - [ ] **W21-P6** Hamburger 200ms cubic-bezier slide-in
 - [ ] **W21-P7** Mobile particle count 40 → 15
-- [ ] **W21-P8** Footer bismillah opacity gold/30 → gold/50
+- [x] **W21-P8** Footer bismillah opacity gold/30 → gold/50 (kapanış mührü hissi)
 - [ ] **W21-P9** `GLASS_CARD` blur tutarlılık audit
 - [ ] **W21-P10** Mobile scroll progress indicator (opsiyonel)
-- [ ] **W21-P11** KFGQPC `font-feature-settings: 'liga' 1, 'kern' 1` + `font-variant-ligatures: contextual` global
-- [ ] **W21-P12** KissaAtlas sidebar scrollbar thin + gold/15 webkit-thumb
+- [x] **W21-P11** KFGQPC `font-feature-settings: 'liga' 1, 'kern' 1, 'calt' 1` + `font-variant-ligatures: contextual common-ligatures` — `globals.css` `[lang="ar"], [dir="rtl"]` selector
+- [x] **W21-P12** KissaAtlas sidebar scrollbar — Firefox `scrollbar-width: thin` + `scrollbar-color` gold/15 + WebKit Tailwind arbitrary class. Sadece Scene list sidebar (center grid + detail panel dokunulmadı).
 
 ---
 
@@ -149,7 +145,7 @@ Kaynak: enhancement V. SEO/A11y. Post-cutover.
 
 - [ ] **W23-S1** SVG aria-* triage — 363 SVG'ye `aria-hidden="true"` / meaningful'lara `<title>+<desc>`
 - [ ] **W23-S2** Color contrast WCAG AA (`text-silver/75` /`40` audit; Lighthouse)
-- [ ] **W23-S3** "Ana içeriğe geç" skip link (focus visible)
+- [x] **W23-S3** "Ana içeriğe geç" skip link — `layout.js`'e statik link (locale-aware TR/EN), `<main id="main">` wrap, `globals.css` `.skip-link` z-index 10003 (navbar üstünde). focus + focus-visible.
 - [ ] **W23-S4** Heading hierarchy tool sayfaları SSR H1 + hydration H2 audit
 - [ ] **W23-S5** hreflang URL Inspection per route
 - [ ] **W23-S6** Sitemap `lastModified` dinamik (file mtime)

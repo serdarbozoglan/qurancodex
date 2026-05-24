@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 
 const SITEMAP_LINKS = {
   tr: {
@@ -126,8 +126,23 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Internal links — Faz 7.8 */}
-        <nav aria-label={exploreHeading} className="glass-card p-8 mb-12">
+        {/* Internal links — Faz 7.8
+            Visual hierarchy (W20-Ö1): lighter background (glassBgFaint 0.025
+            vs Sources block's standard 0.05), smaller radius (md=8px vs lg=12px),
+            and reduced padding (16-20px vs 32px). This positions internal nav
+            as secondary surface so the Sources block reads as primary mass. */}
+        <nav
+          aria-label={exploreHeading}
+          className="mb-12"
+          style={{
+            background: COLORS.glassBgFaint,
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: `1px solid ${COLORS.glassBorderSoft}`,
+            borderRadius: RADIUS.md,
+            padding: '16px 20px',
+          }}
+        >
           <h4 className="text-off-white font-body font-semibold mb-6 text-xs uppercase tracking-[0.2em]">
             {exploreHeading}
           </h4>
@@ -144,7 +159,7 @@ export default function Footer() {
                       <li key={i}>
                         <Link
                           href={`/${language}${item.href}`}
-                          className="hover:text-gold transition-colors"
+                          className="hover:text-gold hover:underline hover:decoration-gold/30 hover:underline-offset-[3px] hover:decoration-1 transition-colors"
                         >
                           {item.text}
                         </Link>
@@ -177,7 +192,7 @@ export default function Footer() {
                           href={link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="hover:text-gold transition-colors"
+                          className="hover:text-gold hover:underline hover:decoration-gold/30 hover:underline-offset-[3px] hover:decoration-1 transition-colors"
                         >
                           {name}
                         </a>
@@ -211,7 +226,7 @@ export default function Footer() {
               info@qurancodex.com
             </a>
           </div>
-          <p className="font-arabic text-sm text-gold/30" dir="rtl" lang="ar"
+          <p className="font-arabic text-sm text-gold/50" dir="rtl" lang="ar"
             style={{ fontFamily: FONTS.quran }}>
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
           </p>

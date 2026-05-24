@@ -329,6 +329,14 @@ body {
   font-feature-settings: "calt" 1, "liga" 1;
 }
 
+/* Global Arabic typography polish — KFGQPC + ShaykhHamdullah ligature/kerning/
+   contextual alternates. 'calt' is the most important for Arabic: letters
+   change form based on neighboring glyphs. Applies anywhere lang=ar or RTL. */
+[lang="ar"], [dir="rtl"] {
+  font-feature-settings: 'liga' 1, 'kern' 1, 'calt' 1;
+  font-variant-ligatures: contextual common-ligatures;
+}
+
 /* ---- Reduced Motion ---- */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -343,6 +351,31 @@ body {
 
 /* ---- Focus Styles ---- */
 :focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ---- Skip Link (a11y — W23-S3) ----
+   Keyboard-only "Skip to main content" link. Hidden off-screen by default;
+   becomes visible on keyboard focus (focus-visible avoids mouse-click flicker).
+   z-index 10003 ensures it sits above Navbar (9999) and mobile menu (10001-10002). */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-gold);
+  color: var(--color-cosmic-black);
+  padding: 8px 16px;
+  font-weight: 600;
+  z-index: 10003;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  font-family: var(--font-body);
+  transition: top 0.15s ease-out;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 0;
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }

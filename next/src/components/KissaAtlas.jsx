@@ -365,7 +365,16 @@ export default function KissaAtlas({ onClose }) {
           </div>
 
           {/* Scene list */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: '8px' }}>
+          <div
+            className="[&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gold/15 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gold/30"
+            style={{
+              flex: 1,
+              overflowY: 'auto',
+              padding: '8px',
+              scrollbarWidth: 'thin',
+              scrollbarColor: 'rgba(212,165,116,0.15) transparent',
+            }}
+          >
             {prophet.scenes.map(scene => {
               const isActive = selectedSceneId === scene.id;
               return (

@@ -25,16 +25,24 @@
 //   - Clicking a card dispatches its overlay event AND closes the modal
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_TABLET } from '../tokens';
+import { COLORS, FONTS, RADIUS, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_TABLET } from '../tokens';
 import {
   FEATURED_TOOL,
   VIZ_TOOLS,
   ANALYSIS_TOOLS,
   RESEARCH_TOOLS,
 } from '../data/tools';
+
+// ── Popular search suggestions (W20-Ö10) ────────────────────────────────────
+// Empty-state hints shown beneath the search input when query is blank.
+// Clicking a chip sets the query, giving discoverability for users who
+// don't know what terms work. Kept inline (no i18n key) — locale-aware
+// terms, 6 each.
+const POPULAR_TR = ['dua', 'esma', 'kıssa', 'peygamber', 'ayet', 'mucize'];
+const POPULAR_EN = ['prayer', 'names of god', 'story', 'prophet', 'verse', 'miracle'];
 
 // ── Filter definitions ──────────────────────────────────────────────────────
 // Each filter knows which tools to show. 'all' renders the featured banner
@@ -53,12 +61,14 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
   const { language } = useLanguage();
   const [open, setOpen] = useState(defaultOpen);
   const [activeFilter, setActiveFilter] = useState('all');
+  const [query, setQuery] = useState('');
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
 
   // Listen for the open event (dispatched by useQuranNav.openOverlay('allTools'))
   useEffect(() => {
     const handler = () => {
       setActiveFilter('all'); // reset filter on every open
+      setQuery('');           // reset query on every open
       setOpen(true);
     };
     window.addEventListener('openToolsBrowser', handler);
@@ -107,10 +117,23 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
     setOpen(false);
   };
 
-  // Active tool list driven by filter
-  const visibleTools = activeFilter === 'all'
+  // Active tool list driven by filter, then narrowed by search query.
+  const filteredByCategory = activeFilter === 'all'
     ? ALL_TOOLS
     : FILTERS.find((f) => f.id === activeFilter)?.tools ?? [];
+
+  const visibleTools = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return filteredByCategory;
+    return filteredByCategory.filter((tool) => {
+      const haystack = [
+        tool.titleTr, tool.titleEn,
+        tool.descLongTr, tool.descLongEn,
+        tool.descTr, tool.descEn,
+      ].filter(Boolean).join(' ').toLowerCase();
+      return haystack.includes(q);
+    });
+  }, [filteredByCategory, query]);
 
   return (
     <AnimatePresence>
@@ -190,6 +213,62 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                   <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
               </button>
+            </div>
+
+            {/* Search input + popular-search empty-state suggestions */}
+            <div
+              style={{
+                padding: isMobile ? '12px 16px 0' : '14px 24px 0',
+                flexShrink: 0,
+              }}
+            >
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={language === 'tr' ? 'Araçlarda ara...' : 'Search tools...'}
+                aria-label={language === 'tr' ? 'Araçlarda ara' : 'Search tools'}
+                style={{
+                  width: '100%',
+                  padding: '10px 14px',
+                  background: COLORS.glassBg,
+                  border: `1px solid ${COLORS.glassBorder}`,
+                  borderRadius: RADIUS.sm,
+                  color: COLORS.offWhite,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.88rem',
+                  outline: 'none',
+                  boxSizing: 'border-box',
+                  transition: 'border-color 0.15s',
+                }}
+                onFocus={(e) => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = COLORS.glassBorder; }}
+              />
+              {/* Empty-state popular searches — visible only when query is blank */}
+              {!query && (
+                <div
+                  style={{
+                    marginTop: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    flexWrap: 'wrap',
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: '0.75rem',
+                      color: COLORS.silver,
+                      fontFamily: FONTS.body,
+                    }}
+                  >
+                    {language === 'tr' ? 'Popüler aramalar:' : 'Popular searches:'}
+                  </span>
+                  {(language === 'tr' ? POPULAR_TR : POPULAR_EN).map((term) => (
+                    <PopularChip key={term} term={term} onClick={() => setQuery(term)} />
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Filter bar */}
@@ -321,6 +400,39 @@ function CategoryHeader({ label, first }) {
         }}
       />
     </div>
+  );
+}
+
+// Empty-state popular-search chip. Tiny pill button that injects its term
+// into the search query when clicked. Hover lifts color to gold.
+function PopularChip({ term, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      style={{
+        padding: '4px 10px',
+        borderRadius: RADIUS.pill,
+        border: `1px solid ${COLORS.glassBorder}`,
+        background: 'transparent',
+        color: COLORS.silver,
+        fontFamily: FONTS.body,
+        fontSize: '0.78rem',
+        cursor: 'pointer',
+        whiteSpace: 'nowrap',
+        transition: 'all 0.15s',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = COLORS.gold;
+        e.currentTarget.style.color = COLORS.gold;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = COLORS.glassBorder;
+        e.currentTarget.style.color = COLORS.silver;
+      }}
+    >
+      {term}
+    </button>
   );
 }
 

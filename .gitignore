@@ -61,3 +61,7 @@ docs/reviews/playwright-*/raw-results.json
 
 # Audit screenshot snapshots — regenerable, large; keep .md reports only
 docs/screenshots/
+
+# Meal cache prefetch output — regenerable via `node scripts/prefetch-meals.mjs`
+# (~50-80MB after full prefetch). Keep _authors.json registry tracked.
+next/public/meal-cache/[0-9]*/

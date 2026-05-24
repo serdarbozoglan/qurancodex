@@ -93,7 +93,7 @@ function getPreview(text, sentenceCount = 3) {
 export default function ScientificSigns() {
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState('iron');
-  const [expandedTabs, setExpandedTabs] = useState({});
+  const [expandedTabs, setExpandedTabs] = useState({ iron: true, universe: true, ocean: true, embryo: true });
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);

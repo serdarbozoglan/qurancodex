@@ -23,11 +23,16 @@ export default async function LocaleLayout({ children, params }) {
   }
 
   return (
-    <LanguageProvider initialLocale={locale}>
-      <PathProvider>
-        <Navbar />
-        {children}
-      </PathProvider>
-    </LanguageProvider>
+    <>
+      <a href="#main" className="skip-link">
+        {locale === 'en' ? 'Skip to main content' : 'Ana içeriğe geç'}
+      </a>
+      <LanguageProvider initialLocale={locale}>
+        <PathProvider>
+          <Navbar />
+          <main id="main">{children}</main>
+        </PathProvider>
+      </LanguageProvider>
+    </>
   );
 }
