@@ -1159,10 +1159,36 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // isCurrentPageBookmarked is computed below after currentPage is defined
 
   // ── Font size (persisted) ──────────────────────────────────────────────────
-  const [arabicFontSize, setArabicFontSize] = useState(() => {
-    try { return parseFloat(localStorage.getItem('qurancodex_font_size') || '2.8'); }
-    catch { return 2.8; }
-  });
+  // SSR'da `window` yok → useState init function SSR ve hydrate'te aynı değeri
+  // dönmek zorunda (hydration consistency). Bu yüzden conservative desktop default
+  // (2.8). Mobile detection mount-sonrası useEffect ile yapılır ve arabicFontSize
+  // re-set edilir (saved key veya mobile default 1.8).
+  const [arabicFontSize, setArabicFontSize] = useState(2.8);
+  // Mount sonrası: mobile/desktop'a göre saved key oku veya default ata.
+  // V1 migration: önceki test/dev sırasında localStorage'a kaydedilmiş eski
+  // değerler (2.8 mobile gibi yanlış kombinasyonlar) bir kez temizlenir,
+  // böylece kullanıcı doğru mobile default 1.8 ile başlar.
+  useEffect(() => {
+    try {
+      const ARABIC_SIZE_VERSION = '1';
+      const v = localStorage.getItem('qurancodex_arabic_size_v');
+      if (v !== ARABIC_SIZE_VERSION) {
+        localStorage.removeItem('qurancodex_font_size_mobile');
+        localStorage.removeItem('qurancodex_font_size_desktop');
+        localStorage.removeItem('qurancodex_font_size');
+        localStorage.setItem('qurancodex_arabic_size_v', ARABIC_SIZE_VERSION);
+      }
+      const isMobileNow = window.innerWidth < BREAKPOINT_MOBILE;
+      const key = isMobileNow ? 'qurancodex_font_size_mobile' : 'qurancodex_font_size_desktop';
+      const saved = localStorage.getItem(key);
+      if (saved) {
+        setArabicFontSize(parseFloat(saved));
+      } else {
+        setArabicFontSize(isMobileNow ? 1.8 : 2.8);
+      }
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   // Turkish meal / translation font size — independent of Arabic so users can
   // scale the two columns separately. Stored in rem; default 1.0 (matches the
   // pre-existing desktop literal `1rem`). Slider clamps to 0.75–1.6.
@@ -1609,7 +1635,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   }, [selectedSurah, bookPage, loading]);
 
   // Persist preferences
-  useEffect(() => { localStorage.setItem('qurancodex_font_size', String(arabicFontSize)); }, [arabicFontSize]);
+  // arabicFontSize save'i isMobile state'ine göre mobile/desktop key'ine yazılır.
+  // Böylece kullanıcının mobil ve desktop tercihleri ayrı tutulur.
+  useEffect(() => {
+    try {
+      const key = isMobile ? 'qurancodex_font_size_mobile' : 'qurancodex_font_size_desktop';
+      localStorage.setItem(key, String(arabicFontSize));
+    } catch {}
+  }, [arabicFontSize, isMobile]);
   useEffect(() => { localStorage.setItem('qurancodex_meal_font_size', String(mealFontSize)); }, [mealFontSize]);
   useEffect(() => { localStorage.setItem('qurancodex_day_mode', JSON.stringify(dayMode)); }, [dayMode]);
   useEffect(() => { localStorage.setItem('qurancodex_book_mode', JSON.stringify(bookMode)); }, [bookMode]);
@@ -2314,12 +2347,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           // book-mode page arrows. Bookmode loads surah's first verse.
           const goSurah = (n) => {
             if (n < 1 || n > 114) return;
-            setSelectedSurah(n);
             if (bookMode) {
-              const startPage = SURAH_PAGES[n - 1] || 1;
+              // SURAH_PAGES[0] = 0 (Fatiha unnumbered in Diyanet); ?? not || to preserve 0.
+              const startPage = SURAH_PAGES[n - 1] ?? 0;
               navigateToPage(startPage);
+              // selectedSurah otomatik update olur (page-detect useEffect line 1644).
             } else {
-              // Verse mode — scroll to top of new surah's verse list
+              setSelectedSurah(n);
               if (containerRef.current) containerRef.current.scrollTop = 0;
             }
           };
@@ -6174,7 +6208,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   borderRadius: showPageFrame ? '6px' : 0,
                   direction: 'rtl',
                   fontFamily: currentFont,
-                  fontSize: `${isMobile ? Math.min(arabicFontSize, 1.8) : arabicFontSize}rem`,
+                  fontSize: `${arabicFontSize}rem`,
                   lineHeight: isMobile ? 1.9 : 2.1,
                   color: C.arabic,
                   textAlign: isMobile ? 'right' : 'justify',
@@ -6445,7 +6479,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   // bismillah sayfa açılış mührüdür. Badge ise aşağıda
                                   // rem-cinsinden sabitlendi → ① halkası diğer ayet
                                   // halkalarıyla aynı boyutta (em-relative değil).
-                                  fontSize: `${isMobile ? Math.min(arabicFontSize, 2.0) : arabicFontSize}rem`,
+                                  fontSize: `${arabicFontSize}rem`,
                                   color: C.bismillah,
                                   marginTop: isMobile ? '20px' : '28px',
                                   marginBottom: isMobile ? '20px' : '30px',
@@ -6462,19 +6496,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     <span style={{
                                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                                       verticalAlign: 'middle',
-                                      // Badge boyutu DİĞER AYET halkalarıyla aynı kalsın:
-                                      // 1.72em × ayet line fontSize (em-relative bismillah
-                                      // container'a değil, ayet metnine bağlı). Böylece
-                                      // bismillah 2.0rem olsa bile ① halkası ②③④⑤⑥ ile
-                                      // tam aynı boyut.
-                                      width:  `${1.72 * (isMobile ? Math.min(arabicFontSize, 1.8) : arabicFontSize)}rem`,
-                                      height: `${1.72 * (isMobile ? Math.min(arabicFontSize, 1.8) : arabicFontSize)}rem`,
+                                      // Ayet badge ile birebir aynı CSS pattern: 1.72em + 0.54em.
+                                      // Container fontSize ayet container ile aynı (arabicFontSize rem),
+                                      // dolayısıyla em-resolution aynı pikseli verir.
+                                      width: '1.72em',
+                                      height: '1.72em',
                                       margin: '0 14px',
                                       textAlign: 'center', borderRadius: RADIUS.full,
                                       border: `1.5px solid ${C.gold}aa`,
                                       boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
                                       color: C.gold,
-                                      fontSize: `${0.54 * (isMobile ? Math.min(arabicFontSize, 1.8) : arabicFontSize)}rem`,
+                                      fontSize: '0.54em',
                                       fontFamily: currentFont,
                                       background: dayMode
                                         ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
