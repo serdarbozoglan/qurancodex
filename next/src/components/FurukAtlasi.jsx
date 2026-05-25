@@ -45,19 +45,19 @@ const CONTEXT_LABELS = {
 const TABS = [
   {
     tr: 'Panorama', en: 'Panorama',
-    icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>,
+    icon: <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>,
   },
   {
     tr: 'Grup Detayı', en: 'Group Detail',
-    icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>,
+    icon: <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>,
   },
   {
     tr: 'Prensip Kitaplığı', en: 'Principles',
-    icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>,
+    icon: <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>,
   },
   {
     tr: 'Kaynaklar', en: 'Sources',
-    icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>,
+    icon: <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>,
   },
 ];
 
@@ -782,7 +782,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
                 background: 'rgba(212,165,116,0.1)',
                 border: `1px solid ${COLORS.goldAlpha25}`,
               }}>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                   <path d="M18 20V10M12 20V4M6 20v-6" />
                 </svg>
                 {word.frequency}× {tr ? 'geçiş' : 'occurrences'}
@@ -819,7 +819,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
           borderRadius: 6,
         }}>
           {/* Quote mark */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill={word.color} opacity="0.4" style={{ flexShrink: 0, marginTop: 2 }}>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill={word.color} opacity="0.4" style={{ flexShrink: 0, marginTop: 2 }}>
             <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
           </svg>
           <div style={{ flex: 1 }}>
@@ -865,7 +865,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
             ? (tr ? 'Ayet listesini gizle' : 'Hide verse list')
             : (tr ? `${word.allOccurrences.length} ayet geçişini incele` : `Inspect ${word.allOccurrences.length} verse occurrences`)}
         </span>
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
+        <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
           style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
           <polyline points="6 9 12 15 18 9" />
         </svg>
@@ -1025,7 +1025,7 @@ function VerseRow({ occurrence, language }) {
         <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, flex: 1, lineHeight: 1.5 }}>
           {occurrence.note}
         </span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2.5" strokeLinecap="round"
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2.5" strokeLinecap="round"
           style={{ transform: open ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
           <polyline points="6 9 12 15 18 9" />
         </svg>
@@ -1161,7 +1161,7 @@ function TabPrinciples({ principles, groups, language, isMobile, onSelectGroup }
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; }}
                 >
                   <span>{tr ? 'İlgili Grup' : 'Related Group'}: {tr ? group.titleTr : group.titleEn}</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </button>
@@ -1244,7 +1244,7 @@ function TabSources({ sources, language, isMobile }) {
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function PrismIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <polygon points="12 2 22 20 2 20" />
       <line x1="12" y1="2" x2="12" y2="20" />
       <line x1="7" y1="11" x2="17" y2="11" opacity="0.5" />
@@ -1261,7 +1261,7 @@ function CloseBtn({ onClose }) {
       onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
       aria-label="Kapat"
     >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
         <path d="M18 6L6 18M6 6l12 12" />
       </svg>
     </button>

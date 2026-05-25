@@ -125,7 +125,7 @@ export default function NefisMertebeleri({ onClose }) {
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
           {/* LadderIcon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="6" y1="2" x2="6" y2="22" />
             <line x1="18" y1="2" x2="18" y2="22" />
             <line x1="6" y1="6" x2="18" y2="6" />
@@ -413,7 +413,7 @@ export default function NefisMertebeleri({ onClose }) {
                   : "The exact opposite of muṭmaʾinna: muzabzab ('the wavering') — Q 4:143. Two paths, the same human psychology, different outcomes."}
               </p>
             </div>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </button>
@@ -588,7 +588,7 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {stage.keyVerseRef && (
               <span style={chipStyle(accent)}>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                   <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
                   <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
                 </svg>
@@ -710,7 +710,7 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
                 gap: '8px',
                 marginBottom: '8px',
               }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.softRed} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.softRed} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
                   <line x1="12" y1="9" x2="12" y2="13" />
                   <line x1="12" y1="17" x2="12.01" y2="17" />
@@ -881,7 +881,7 @@ function TransitionBand({ note, isMobile, language }) {
           alignItems: 'center',
           gap: '4px',
         }}>
-          <svg width={isMobile ? '28' : '36'} height={isMobile ? '28' : '36'} viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg aria-hidden="true" width={isMobile ? '28' : '36'} height={isMobile ? '28' : '36'} viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="12" y1="19" x2="12" y2="5" />
             <polyline points="5 12 12 5 19 12" />
           </svg>
@@ -917,7 +917,7 @@ function TransitionBand({ note, isMobile, language }) {
           alignItems: 'center',
           gap: '4px',
         }}>
-          <svg width={isMobile ? '28' : '36'} height={isMobile ? '28' : '36'} viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg aria-hidden="true" width={isMobile ? '28' : '36'} height={isMobile ? '28' : '36'} viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="12" y1="5" x2="12" y2="19" />
             <polyline points="19 12 12 19 5 12" />
           </svg>

@@ -119,7 +119,7 @@ Kaynak: enhancement III. Polish. Batched sprint.
 - [x] **W21-P6** Hamburger drawer 250ms easeInOut → 200ms cubic-bezier [0.4, 0, 0.2, 1] (Material Design standard easing) via framer-motion
 - [x] **W21-P7** Particle count `100 → isMobile ? 15 : 40` via ParticleBackground prop. SSR-safe isMobile (§16.6 useState(false) + useEffect)
 - [x] **W21-P8** Footer bismillah opacity gold/30 → gold/50 (kapanış mührü hissi)
-- [ ] **W21-P9** `GLASS_CARD` blur tutarlılık audit
+- [x] **W21-P9** `GLASS_CARD` blur tutarlılık audit — `docs/reviews/2026-05-25-glass-card-audit.md`. tokens.js ↔ globals.css TAM uyumlu (drift yok). 74 inline backdropFilter: 49 token-uyumlu (%66), 18 minor drift, 4 outlier (HumanDefinition, VerseGraph, ReadingMode, ToolsBrowser). Visual impact LOW, arch hygiene MEDIUM.
 - [ ] **W21-P10** Mobile scroll progress indicator (opsiyonel)
 - [x] **W21-P11** KFGQPC `font-feature-settings: 'liga' 1, 'kern' 1, 'calt' 1` + `font-variant-ligatures: contextual common-ligatures` — `globals.css` `[lang="ar"], [dir="rtl"]` selector
 - [x] **W21-P12** KissaAtlas sidebar scrollbar — Firefox `scrollbar-width: thin` + `scrollbar-color` gold/15 + WebKit Tailwind arbitrary class. Sadece Scene list sidebar (center grid + detail panel dokunulmadı).
@@ -137,7 +137,7 @@ Kaynak: enhancement IV. UX. Audit + fix gerekli.
 - [~] **W22-U5** Empty states — **`/oku/[surah]` partial done:** invalid surah (NaN/0/115+) → `notFound()` early return + locale-aware `not-found.jsx` (Arabic "لَا" decorative, h1 + helpful CTA "Tüm Sureleri Gör"). Verify: `/oku/200` `/oku/0` `/oku/abc` 404, `/oku/1` 200. Kalan: ConceptGraph empty + API meal fail toast (sonraki tur)
 - [ ] **W22-U6** Mobile spinner centered
 - [ ] **W22-U7** ReadingMode kelime tooltip mobile: tap-to-toggle
-- [ ] **W22-U8** Settings localStorage schema versionlama
+- [x] **W22-U8** Settings localStorage schema versionlama — `qurancodex_settings_version` sentinel key + `migrateReadingModeSettings()` namespace versioning. 16 UI prefs purge-on-mismatch (theme, font, audio, karaoke, vb); navigation state + bookmarks + meal/corpus cache KORUNUR. Schema __v: 2. Future bump = silent reset.
 - [ ] **W22-U9** Audio pause on tool overlay open
 - [x] **W22-U10** Document title audit — 15/15 route temiz, unique + locale-aware (`pageMetadata` + module-level TITLE/DESC pattern prod'da hatasız). Generic "QuranCodex" placeholder hiçbir tool route'unda yok.
 
@@ -147,7 +147,7 @@ Kaynak: enhancement IV. UX. Audit + fix gerekli.
 
 Kaynak: enhancement V. SEO/A11y. Post-cutover.
 
-- [~] **W23-S1** SVG aria triage (sections partial) — 16 section dosyasında **72 decorative SVG**'ye `aria-hidden="true"` eklendi. Meaningful SVG'ler skip (data viz: HiddenArchitecture prism, ProphetAtlas haritası ve silsile, QuranRhetoric donut chart — bu 4'ü ileride `<title>+<desc>` için ayrı tur). `components/` ve `app/` SVG'leri sonraki tur.
+- [x] **W23-S1** SVG aria triage — sections (16 dosya, 72 SVG) + components (34 dosya, 154 SVG) = **226 decorative SVG'ye `aria-hidden="true"`** eklendi. Data viz SVG'leri skip (ConceptGraph canvas, IsnadTree, MeselAtlasi ring, donut chart, VerseGraph canvas, DiyalogAgi network — ayrı tur için `<title>+<desc>`). Interactive icon button'lar parent aria-label kontrolüyle korundu.
 - [ ] **W23-S2** Color contrast WCAG AA (`text-silver/75` /`40` audit; Lighthouse)
 - [x] **W23-S3** "Ana içeriğe geç" skip link — `layout.js`'e statik link (locale-aware TR/EN), `<main id="main">` wrap, `globals.css` `.skip-link` z-index 10003 (navbar üstünde). focus + focus-visible.
 - [x] **W23-S4** Heading hierarchy audit + fix — 8 sample route'ta 7/8 temiz. `QuranDua.jsx:532` H4 → H3 atlaması fix (Hz. İbrahim chip aynı section'da). Tool overlay'lerde SSR H1 sonra hydration H2 §16.5/16.12 pattern'iyle uyumlu.

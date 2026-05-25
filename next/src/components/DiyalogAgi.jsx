@@ -17,7 +17,7 @@ const TABS = [
   {
     labelTr: 'Ağ Haritası', labelEn: 'Network Map',
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>
         <circle cx="12" cy="3"  r="1.8" fill="currentColor" stroke="none"/>
         <circle cx="3"  cy="18" r="1.8" fill="currentColor" stroke="none"/>
@@ -33,7 +33,7 @@ const TABS = [
   {
     labelTr: 'Diyaloglar', labelEn: 'Dialogues',
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
     ),
@@ -41,7 +41,7 @@ const TABS = [
   {
     labelTr: 'Ahiret Sahneleri', labelEn: 'Afterlife Scenes',
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
       </svg>
     ),
@@ -49,7 +49,7 @@ const TABS = [
   {
     labelTr: 'Büyük Seriler', labelEn: 'Mega Dialogues',
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
         <polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
       </svg>
@@ -58,7 +58,7 @@ const TABS = [
   {
     labelTr: 'Konuşanlar', labelEn: 'Speakers',
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
         <circle cx="9" cy="7" r="4"/>
         <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -229,7 +229,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
       {/* Header */}
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
           <span style={OVERLAY_TITLE}>
@@ -243,7 +243,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
           onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           aria-label="Close"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
@@ -688,6 +688,7 @@ function TabDiyaloglar({ dialogues, axes: _axes, speakers, axisFilter, setAxisFi
                     {language === 'tr' ? dialogue.titleTr : dialogue.titleEn}
                   </span>
                   <svg
+                    aria-hidden="true"
                     width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver}
                     strokeWidth="2" style={{ flexShrink: 0, transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}
                   >
@@ -865,7 +866,7 @@ function TabAhiretSahneleri({ scenes, isMobile, language, cleanArabic }) {
                         }}>
                           {language === 'tr' ? scene.titleTr : scene.titleEn}
                         </span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
+                        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
                           style={{ flexShrink: 0, transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
                           <path d="M6 9l6 6 6-6"/>
                         </svg>
@@ -958,7 +959,7 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
                   }}>
                     {m.totalSurahs} {language === 'tr' ? 'sûre' : 'surahs'}
                   </span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
                     style={{ transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
                     <path d="M6 9l6 6 6-6"/>
                   </svg>
@@ -1046,7 +1047,7 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
                             <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body }}>
                               {language === 'tr' ? d.titleTr : d.titleEn}
                             </span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
+                            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2"
                               style={{ flexShrink: 0, transform: isPhaseExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
                               <path d="M6 9l6 6 6-6"/>
                             </svg>

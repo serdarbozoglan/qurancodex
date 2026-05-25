@@ -496,7 +496,7 @@ export default function KiyametSahneleri({ onClose }) {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
           {/* Trumpet (Sûr) icon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M2 6v12l10-4V10z" />
             <path d="M12 10v4M16 8v8M20 6v12" />
           </svg>

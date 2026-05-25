@@ -317,7 +317,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
             onMouseEnter={e => { e.currentTarget.style.color = COLORS.offWhite; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
             onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M19 12H5M12 5l-7 7 7 7" />
             </svg>
             {language === 'tr' ? 'Kavramlar' : 'Concepts'}
@@ -438,7 +438,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                   onFocus={e => { e.target.style.borderColor = 'rgba(212,165,116,0.4)'; }}
                   onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; }}
                 />
-                <svg style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', opacity: 0.35 }}
+                <svg aria-hidden="true" style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', opacity: 0.35 }}
                   width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e8e6e3" strokeWidth="2" strokeLinecap="round">
                   <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
                 </svg>

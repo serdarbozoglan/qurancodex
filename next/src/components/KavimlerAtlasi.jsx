@@ -169,7 +169,7 @@ export default function KavimlerAtlasi({ onClose }) {
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
           {/* GlobeIcon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
             <circle cx="12" cy="12" r="10" />
             <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
           </svg>
@@ -493,7 +493,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
 
       {/* Geography */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '8px' }}>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.slate500} strokeWidth="2" strokeLinecap="round">
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.slate500} strokeWidth="2" strokeLinecap="round">
           <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
           <circle cx="12" cy="9" r="2.5" fill={COLORS.slate500} stroke="none"/>
         </svg>
@@ -894,7 +894,7 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
                   {card.title}
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body }}>
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
                     <circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/>
                   </svg>

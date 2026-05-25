@@ -180,7 +180,7 @@ const LANG_CARDS = [
     footerEn: 'In stories, past tense flows not as history, but as guidance.',
     // icon: scroll
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
         <polyline points="14 2 14 8 20 8" />
         <line x1="9" y1="13" x2="15" y2="13" />
@@ -204,7 +204,7 @@ const LANG_CARDS = [
     footerTr: "'Oku!' emri geçmişte verildi, ama dilbilgisel zamanı hâlâ şimdiki.",
     footerEn: "The command 'Read!' was given in the past, but its grammatical tense is still present.",
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <path d="M2 12h3M19 12h3M12 2v3M12 19v3" />
         <path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" />
         <circle cx="12" cy="12" r="4" />
@@ -227,7 +227,7 @@ const LANG_CARDS = [
     footerTr: "Dilbilimciler bu yapıyı İbranice'de de görür — Sami dillere özgü bir kesinlik ifadesi.",
     footerEn: 'Linguists find this structure in Hebrew too — a Semitic expression of absolute certainty.',
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
     ),
@@ -403,15 +403,15 @@ const SOURCES = {
 // ── Tab definitions ───────────────────────────────────────────────────────────
 const TABS = [
   { id: 'olcek',         labelTr: 'Zaman Ölçeği',   labelEn: 'Time Scale',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> },
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> },
   { id: 'dil',           labelTr: 'Dil Katmanı',     labelEn: 'Language Layer',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 7h7M9 3v4M4 14c2.4 4 7 5 11 1"/><path d="M12.5 11l3 4.5M16 11l-3.5 5"/></svg> },
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 7h7M9 3v4M4 14c2.4 4 7 5 11 1"/><path d="M12.5 11l3 4.5M16 11l-3.5 5"/></svg> },
   { id: 'felsefe',       labelTr: 'Felsefe',         labelEn: 'Philosophy',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> },
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> },
   { id: 'karsilastirma', labelTr: 'Karşılaştırma',   labelEn: 'Comparison',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg> },
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg> },
   { id: 'kaynaklar',     labelTr: 'Kaynaklar',       labelEn: 'Sources',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> },
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> },
 ];
 
 // ── Main component ─────────────────────────────────────────────────────────────
@@ -648,6 +648,7 @@ export default function ZamanBoyutlari({ onClose }) {
                           }}
                         >
                           <svg
+                            aria-hidden="true"
                             width="12" height="12" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
                             style={{ transform: expandedCard === item.id ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}
@@ -1141,6 +1142,7 @@ export default function ZamanBoyutlari({ onClose }) {
               {isTr ? 'Tüm Kaynaklar' : 'All Sources'}
             </span>
             <svg
+              aria-hidden="true"
               width="16" height="16" viewBox="0 0 24 24"
               fill="none" stroke={COLORS.silver} strokeWidth="2" strokeLinecap="round"
               style={{ transition: 'transform 0.2s', transform: sourcesOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
@@ -1256,7 +1258,7 @@ export default function ZamanBoyutlari({ onClose }) {
                     {isTr ? cta.descTr : cta.descEn}
                   </p>
                 </div>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7, marginLeft: 10 }}>
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7, marginLeft: 10 }}>
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </button>
@@ -1274,7 +1276,7 @@ export default function ZamanBoyutlari({ onClose }) {
       <div style={{ ...OVERLAY_HEADER }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           {/* ClockIcon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 6 12 12 16 14" />
           </svg>

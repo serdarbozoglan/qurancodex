@@ -7,13 +7,13 @@ import { COLORS, FONTS, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE, TRANSITION,
 // ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
 const CATEGORY_ICONS = {
   ibadet: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 3C10 7 6 8 6 12s6 6 6 6 6-2 6-6-4-5-6-9z"/>
       <line x1="12" y1="18" x2="12" y2="21"/>
     </svg>
   ),
   aile: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="9" cy="7" r="2.5"/>
       <circle cx="16" cy="7" r="2"/>
       <path d="M2 21c0-4 3-6 7-6h2c4 0 7 2 7 6"/>
@@ -21,21 +21,21 @@ const CATEGORY_ICONS = {
     </svg>
   ),
   ahlak: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <line x1="12" y1="3" x2="12" y2="21"/>
       <path d="M5 8h7m-7 0l-2 5c0 2 2 3 4 3s4-1 4-3L12 8"/>
       <path d="M19 8h-7m7 0l2 5c0 2-2 3-4 3s-4-1-4-3l2-5"/>
     </svg>
   ),
   mal: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="9"/>
       <path d="M12 6v2m0 8v2"/>
       <path d="M9.5 9.5A2.5 2.5 0 0 1 12 8c1.5 0 2.5 1 2.5 2.3 0 2.7-5 2.4-5 5.2 0 1.4 1 2.5 2.5 2.5s2.5-1 2.5-2.5"/>
     </svg>
   ),
   bilgi: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/>
       <path d="M4 19h16"/>
       <line x1="8" y1="10" x2="16" y2="10"/>
@@ -43,20 +43,20 @@ const CATEGORY_ICONS = {
     </svg>
   ),
   yasaklar: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 3l8 4v5c0 5-4 9-8 10C8 21 4 17 4 12V7l8-4z"/>
       <line x1="9" y1="12" x2="15" y2="12"/>
     </svg>
   ),
   'sosyal-adalet': (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M18 11V9a4 4 0 0 0-8 0v2"/>
       <path d="M6 11v2a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2"/>
       <path d="M12 15v3m-3 2h6"/>
     </svg>
   ),
   iletisim: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
     </svg>
   ),
@@ -476,7 +476,7 @@ function CommandCard({ cmd, accent, language, L }) {
             borderRadius: RADIUS.pillSm, padding: '2px 8px',
             display: 'flex', alignItems: 'center', gap: '3px',
           }}>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             {L.unverified}
           </span>
         )}

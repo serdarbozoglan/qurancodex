@@ -921,8 +921,58 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
   );
 }
 
+// ─── Settings schema versioning (W22-U8) ──────────────────────────────────────
+// Bumped each time the shape/meaning of any persisted setting key changes in an
+// incompatible way (default flip, enum rename, type change). On mismatch we
+// silently reset settings to defaults — user navigation state (last_position,
+// last_read, bookmarks) and API caches (meal:*, corpus:*) are preserved.
+const SETTINGS_VERSION = 2;
+const SETTINGS_VERSION_KEY = 'qurancodex_settings_version';
+const VERSIONED_SETTINGS_KEYS = [
+  'qurancodex_show_translation',
+  'qurancodex_reciter_idx',
+  'qurancodex_karaoke_on',
+  'qurancodex_book_mode',
+  'qurancodex_interlinear_mode',
+  'qurancodex_interlinear_lang',
+  'qurancodex_meal_id',
+  'qurancodex_compare_authors',
+  'qurancodex_font_size',
+  'qurancodex_meal_font_size',
+  'qurancodex_day_mode',
+  'qurancodex_tajweed',
+  'qurancodex_prefer_single_page',
+  'qurancodex_page_frame',
+  'qurancodex_meal_italic',
+  'qurancodex_tajweed_legend',
+];
+// Module-level guard so the migration runs at most once per browser session
+// even if ReadingMode is mounted/unmounted multiple times.
+let _settingsMigrationDone = false;
+function migrateReadingModeSettings() {
+  if (_settingsMigrationDone) return;
+  _settingsMigrationDone = true;
+  if (typeof window === 'undefined') return;
+  try {
+    const stored = window.localStorage.getItem(SETTINGS_VERSION_KEY);
+    const current = stored == null ? null : parseInt(stored, 10);
+    if (current === SETTINGS_VERSION) return;
+    // Version mismatch (or never set) — purge settings, keep user data + caches.
+    for (const k of VERSIONED_SETTINGS_KEYS) {
+      try { window.localStorage.removeItem(k); } catch { /* quota or access denied */ }
+    }
+    try { window.localStorage.setItem(SETTINGS_VERSION_KEY, String(SETTINGS_VERSION)); }
+    catch { /* quota — accept; next mount will retry */ }
+  } catch {
+    // localStorage unavailable (private mode quota, etc.) — let useState initializers fall back to defaults.
+  }
+}
+
 // ─── Main ReadingMode component ───────────────────────────────────────────────
 export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
+  // Must run BEFORE any useState(() => localStorage.getItem(...)) initializer.
+  // Synchronous, idempotent, and SSR-safe via typeof window guard.
+  migrateReadingModeSettings();
   const { language, toggleLanguage } = useLanguage();
   const [verses, setVerses] = useState(null);
   const [loading, setLoading] = useState(true);

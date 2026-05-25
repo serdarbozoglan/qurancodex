@@ -1030,7 +1030,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
             dir="auto"
             style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: COLORS.offWhite, padding: '6px 12px 6px 30px', fontSize: '0.82rem', width: '100%', maxWidth: '260px', outline: 'none', height: '32px', boxSizing: 'border-box' }}
           />
-          <svg style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }}
+          <svg aria-hidden="true" style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }}
             width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
           </svg>
@@ -2301,7 +2301,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
             dir="auto"
             style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: COLORS.offWhite, padding: '6px 12px 6px 30px', fontSize: '0.875rem', width: '270px', outline: 'none', height: '36px', boxSizing: 'border-box' }}
           />
-          <svg style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5">
+          <svg aria-hidden="true" style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
           </svg>
           {/* Hint text below search bar */}

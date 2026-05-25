@@ -248,7 +248,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
         {selected || (
           <span style={{ color: COLORS.slate700, fontSize: '0.88rem', fontStyle: 'italic' }}>{placeholder}</span>
         )}
-        <svg style={{ marginLeft: 'auto', flexShrink: 0, opacity: 0.4, transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}
+        <svg aria-hidden="true" style={{ marginLeft: 'auto', flexShrink: 0, opacity: 0.4, transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}
           width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2.5" strokeLinecap="round">
           <path d="M6 9l6 6 6-6" />
         </svg>
@@ -602,7 +602,7 @@ export default function SurahComparator({ onClose }) {
             onMouseEnter={e => { e.currentTarget.style.color = COLORS.offWhite; }}
             onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; }}
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M19 12H5M12 5l-7 7 7 7" />
             </svg>
             {language === 'tr' ? 'Yeni Karşılaştırma' : 'New Comparison'}

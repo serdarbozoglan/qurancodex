@@ -816,7 +816,7 @@ export default function WowFacts({ onClose }) {
             onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
             onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
@@ -834,6 +834,7 @@ export default function WowFacts({ onClose }) {
           {/* Search */}
           <div style={{ position: 'relative', maxWidth: '480px' }}>
             <svg
+              aria-hidden="true"
               width="14" height="14" viewBox="0 0 24 24"
               fill="none" stroke={COLORS.silverAlpha40} strokeWidth="2" strokeLinecap="round"
               style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}

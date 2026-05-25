@@ -375,7 +375,7 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
                 }}
               >
                 <span>{source.shortName}</span>
-                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style={{ marginLeft: '2px', transform: pickerOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s' }}>
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 12 12" fill="none" style={{ marginLeft: '2px', transform: pickerOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s' }}>
                   <path d="M2.5 4l3.5 4 3.5-4" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
@@ -456,7 +456,7 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
           onMouseEnter={e => { e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.06)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = C.text; }}
           onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = C.muted; }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>

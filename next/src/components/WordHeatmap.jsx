@@ -728,7 +728,7 @@ export default function WordHeatmap({ onClose }) {
         borderBottom: '1px solid rgba(212,165,116,0.1)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
             <rect x="4" y="14" width="3.5" height="6" rx="0.5" />
             <rect x="10.25" y="9" width="3.5" height="11" rx="0.5" />
             <rect x="16.5" y="4" width="3.5" height="16" rx="0.5" />

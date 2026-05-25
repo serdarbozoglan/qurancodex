@@ -43,7 +43,7 @@ const TABS = [
   {
     labelTr: 'İmamlar', labelEn: 'Readers',
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
         <circle cx="9" cy="7" r="4"/>
         <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -54,7 +54,7 @@ const TABS = [
   {
     labelTr: 'Kanonizasyon', labelEn: 'Canonisation',
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <line x1="12" y1="2" x2="12" y2="22"/>
         <path d="M6 7l6-3 6 3M6 12l6-3 6 3M6 17l6-3 6 3"/>
       </svg>
@@ -63,7 +63,7 @@ const TABS = [
   {
     labelTr: 'Fark Analizi', labelEn: 'Variant Analysis',
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
       </svg>
     ),
@@ -71,7 +71,7 @@ const TABS = [
   {
     labelTr: 'Harita', labelEn: 'Map',
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
         <line x1="8" y1="2" x2="8" y2="18"/>
         <line x1="16" y1="6" x2="16" y2="22"/>
@@ -81,7 +81,7 @@ const TABS = [
   {
     labelTr: 'Tecvid', labelEn: 'Tajweed',
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
         <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
         <line x1="12" y1="19" x2="12" y2="22"/>
@@ -1219,7 +1219,7 @@ function TabTecvid({ isMobile, language }) {
       descTr: "Hz. Peygamber'e ulaşan güvenilir ve kesintisiz bir isnad zinciri olmalıdır. Bir kıraat ne kadar yaygın olursa olsun, senedi yoksa kabul edilmez.",
       descEn: 'A reliable and unbroken chain of transmission reaching back to the Prophet ﷺ. No matter how widespread a reading is, without isnad it is rejected.',
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
           <circle cx="5" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="19" r="2"/>
           <line x1="6.5" y1="6.5" x2="10.5" y2="10.5"/><line x1="13.5" y1="13.5" x2="17.5" y2="17.5"/>
         </svg>
@@ -1230,7 +1230,7 @@ function TabTecvid({ isMobile, language }) {
       descTr: "Hz. Osman'ın mushaflarından en az biriyle uyumlu olmalıdır. Bu kural, kıraatin metnin muhkem iskeletiyle bağını korur.",
       descEn: "Must conform to at least one of the Uthmanic codices. This rule preserves the reading's link to the solid skeleton of the text.",
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
           <polyline points="14 2 14 8 20 8"/>
           <line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/>
@@ -1242,7 +1242,7 @@ function TabTecvid({ isMobile, language }) {
       descTr: 'Klasik Arap dil bilgisiyle uyumlu olmalıdır. Bu şart, tamamen özgün ve uydurma okuyuşları dışarıda bırakır.',
       descEn: 'Must conform to classical Arabic grammar rules. This condition excludes entirely invented or idiosyncratic readings.',
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
           <path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>
         </svg>
       ),
@@ -1624,7 +1624,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
       {/* ── HEADER ─────────────────────────────────────────────── */}
       <div style={{ ...OVERLAY_HEADER }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
             <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/>
             <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>

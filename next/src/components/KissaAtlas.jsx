@@ -611,7 +611,7 @@ export default function KissaAtlas({ onClose }) {
                         padding: '0 0 12px', fontFamily: "'Inter', sans-serif",
                       }}
                     >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                         <path d="M15 18l-6-6 6-6" />
                       </svg>
                       {language === 'tr' ? 'Sahnelere dön' : 'Back to scenes'}
@@ -687,7 +687,7 @@ export default function KissaAtlas({ onClose }) {
                                   <span style={{ opacity: 0.7, fontSize: '0.7rem' }}>{rangeLabel}</span>
                                 )}
                                 {hasRef && (
-                                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.6, transform: isActive ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                                  <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.6, transform: isActive ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
                                     <path d="M6 9l6 6 6-6" />
                                   </svg>
                                 )}
