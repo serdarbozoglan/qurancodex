@@ -2359,7 +2359,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </svg>
             </button>
 
-            <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, flex: 1, alignItems: 'center', textAlign: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, alignItems: 'flex-start', textAlign: 'left' }}>
               <span style={{
                 fontFamily: FONTS.body,
                 fontSize: '0.95rem',
@@ -2410,6 +2410,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             </button>
+
+            {/* Spacer — close butonunu sağ kenara iter; prev/title/next sola yapışır */}
+            <div style={{ flex: 1 }} />
 
             <button
               onClick={onClose}
