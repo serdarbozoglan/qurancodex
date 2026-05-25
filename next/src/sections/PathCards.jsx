@@ -37,7 +37,7 @@ const PATHS = [
     ],
     icon: (
       // Sound wave / cadence
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12h2M6 7v10M10 4v16M14 7v10M18 10v4M22 12h-2" />
       </svg>
     ),
@@ -58,7 +58,7 @@ const PATHS = [
     ],
     icon: (
       // Path / footprints
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="5"  r="1.6" fill="currentColor" />
         <circle cx="7"  cy="11" r="1.4" fill="currentColor" />
         <circle cx="16" cy="13" r="1.4" fill="currentColor" />
@@ -82,7 +82,7 @@ const PATHS = [
     ],
     icon: (
       // Heart-in-circle
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9" />
         <path d="M12 16s-4-2.5-4-5.5A2.5 2.5 0 0 1 12 8a2.5 2.5 0 0 1 4 2.5C16 13.5 12 16 12 16z" />
       </svg>
@@ -107,7 +107,7 @@ const PATHS = [
     ],
     icon: (
       // Star / cosmos
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l2.4 6.5L21 9.3l-5 4.6 1.5 6.6L12 17l-5.5 3.5L8 14l-5-4.6 6.6-.8z" />
       </svg>
     ),

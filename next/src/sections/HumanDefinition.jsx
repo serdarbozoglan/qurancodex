@@ -614,12 +614,12 @@ export default function HumanDefinition() {
             }}
           >
             {muminPlaying ? (
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                 <rect x="6" y="4" width="4" height="16" rx="1"/>
                 <rect x="14" y="4" width="4" height="16" rx="1"/>
               </svg>
             ) : (
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="6,3 20,12 6,21"/>
               </svg>
             )}
@@ -1233,7 +1233,7 @@ export default function HumanDefinition() {
                 : 'ammāra · lawwāma · mulhima · muṭmaʾinna · rāḍiya · marḍiyya · ṣāfiya — the seven stations of the soul'}
             </p>
           </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>

@@ -218,7 +218,7 @@ export default function HistoricalProof() {
                           {story.criticalNote && (
                             <div className="mt-4 rounded-lg px-5 py-4 border border-white/5 border-l-2 border-l-silver/25 bg-white/[0.02]">
                               <div className="flex items-center gap-2 mb-2">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-silver/40">
+                                <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-silver/40">
                                   <path d="M12 3v18M3 9l9-6 9 6M5 21h14"/>
                                   <path d="M3 9c0 3 2 5 4 6M21 9c0 3-2 5-4 6"/>
                                 </svg>
@@ -277,7 +277,7 @@ export default function HistoricalProof() {
                 : 'ʿĀd · Thamūd · the people of Lot · Madyan · Sabaʾ · Pharaoh — the fate of nations, patterns of destruction and salvation'}
             </p>
           </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>

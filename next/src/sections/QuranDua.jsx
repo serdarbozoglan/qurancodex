@@ -529,9 +529,9 @@ export default function QuranDua() {
               flexWrap: 'wrap', gap: '12px',
             }}>
               <div>
-                <h4 style={{ color: p.emojiColor, fontFamily: "'Playfair Display', serif", fontSize: '1.3rem', fontWeight: 700, margin: '0 0 4px' }}>
+                <h3 style={{ color: p.emojiColor, fontFamily: "'Playfair Display', serif", fontSize: '1.3rem', fontWeight: 700, margin: '0 0 4px' }}>
                   {tr ? p.nameTr : p.nameEn}
-                </h4>
+                </h3>
                 <p style={{ color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', margin: 0 }}>
                   {tr ? p.profileTr : p.profileEn}
                 </p>
@@ -622,7 +622,7 @@ export default function QuranDua() {
                   display: 'flex', alignItems: 'flex-start', gap: '12px',
                 }}>
                   {/* Arrow icon */}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={p.emojiColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: '2px', opacity: 0.7 }}>
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={p.emojiColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: '2px', opacity: 0.7 }}>
                     <path d="M7 17l10-10M17 7H7M17 7v10"/>
                   </svg>
                   <div style={{ flex: 1, minWidth: 0 }}>
@@ -932,7 +932,7 @@ export default function QuranDua() {
                 : "Nafs · heart · fear · defenses · Joseph trauma-healing — the Qur'an's map of the mind"}
             </p>
           </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>
@@ -973,7 +973,7 @@ export default function QuranDua() {
                 : "Refuge · healing · guidance · gratitude · repentance — the full collection of selected supplications"}
             </p>
           </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>

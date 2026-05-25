@@ -1488,6 +1488,14 @@ export default function ProphetAtlas({ onClose }) {
       .catch(() => {}); // silently fall back to hardcoded duaAr
   }, []);
 
+  // Esc tuşuyla overlay'i kapat — CLAUDE.md §13.3 standardı (W22-U4 audit)
+  useEffect(() => {
+    if (!onClose) return;
+    const handler = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [onClose]);
+
   // Popup dışına tıklayınca kapat
   useEffect(() => {
     if (!treePopup) return;
@@ -1600,7 +1608,7 @@ export default function ProphetAtlas({ onClose }) {
               onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
               aria-label="Close"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
@@ -2858,7 +2866,7 @@ export default function ProphetAtlas({ onClose }) {
               { label: tr('kardeşler', 'brothers'), color: 'rgba(148,163,184,0.6)', dashed: true },
             ].map(({ label, color, dashed }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <svg width="28" height="10">
+                <svg aria-hidden="true" width="28" height="10">
                   <line x1="0" y1="5" x2="28" y2="5"
                     stroke={color} strokeWidth="1.5"
                     strokeDasharray={dashed ? '4,3' : undefined}/>

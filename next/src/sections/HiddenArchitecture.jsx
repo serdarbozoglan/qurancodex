@@ -514,7 +514,7 @@ export default function HiddenArchitecture() {
             background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.25)',
             borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
             </svg>
           </div>
@@ -571,7 +571,7 @@ export default function HiddenArchitecture() {
                 : '8 munāsabah spotlights · opening-pattern categories · 114-surah word catalog'}
             </p>
           </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>
@@ -885,7 +885,7 @@ export default function HiddenArchitecture() {
                 }}
               >
                 {/* Decorative prism icon */}
-                <svg width="52" height="56" viewBox="0 0 52 56" style={{ opacity: 0.15 }}>
+                <svg aria-hidden="true" width="52" height="56" viewBox="0 0 52 56" style={{ opacity: 0.15 }}>
                   <polygon points="26,2 4,54 48,54" fill="none" stroke="white" strokeWidth="1.2"/>
                   {RAY_COLORS.map((c, i) => (
                     <line key={i} x1="25" y1="30" x2="48" y2={5 + i * 7}

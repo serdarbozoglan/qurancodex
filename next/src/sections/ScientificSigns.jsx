@@ -50,7 +50,7 @@ const TAB_META = {
 const tabIcons = {
   // Meteor/meteorite — iron came from space
   iron: (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M15 4L5 14" strokeLinecap="round"/>
       <circle cx="5" cy="14" r="3"/>
       <path d="M19 2l-2 2" strokeLinecap="round" strokeOpacity="0.5"/>
@@ -59,7 +59,7 @@ const tabIcons = {
   ),
   // Expanding arrows — expanding universe
   universe: (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
       <path d="M12 12l4.5-4.5M12 12l-4.5 4.5M12 12l4.5 4.5M12 12l-4.5-4.5" strokeLinecap="round"/>
       <path d="M18 6l1.5-1.5M6 18l-1.5 1.5M18 18l1.5 1.5M6 6l-1.5-1.5" strokeLinecap="round" strokeOpacity="0.45"/>
@@ -67,7 +67,7 @@ const tabIcons = {
   ),
   // Two waves separated — ocean barrier (berzah)
   ocean: (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M2 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0" strokeLinecap="round"/>
       <line x1="12" y1="5" x2="12" y2="19" strokeWidth="1" strokeOpacity="0.35" strokeDasharray="2 2"/>
       <path d="M2 16c2-2 4-2 6 0s4 2 6 0 4-2 6 0" strokeLinecap="round"/>
@@ -75,7 +75,7 @@ const tabIcons = {
   ),
   // C-shaped embryo / alaka
   embryo: (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M17 6a7 7 0 1 0 0 12" strokeLinecap="round"/>
       <circle cx="17" cy="8" r="1.5" fill="currentColor" stroke="none"/>
     </svg>
@@ -484,7 +484,7 @@ export default function ScientificSigns() {
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                         {/* Scale icon */}
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.45)" strokeWidth="2">
+                        <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.45)" strokeWidth="2">
                           <path d="M12 3v18M3 9l9-6 9 6M5 21h14"/>
                           <path d="M3 9c0 3 2 5 4 6M21 9c0 3-2 5-4 6"/>
                         </svg>
@@ -548,7 +548,7 @@ export default function ScientificSigns() {
                 : 'The Quran’s cosmic signs (āyāt kawniyya): sky & earth · night-day · water & seas · plants, animals, mountains — a full map of nature'}
             </p>
           </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>

@@ -7,23 +7,23 @@ import AnimatedCounter from '../components/AnimatedCounter';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 // Icons for the three counter cards
 const ShieldIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+  <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
     <path d="M9 12l2 2 4-4" strokeWidth="2"/>
   </svg>
 );
 const ClockIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+  <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
     <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
   </svg>
 );
 const ZeroIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+  <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
     <circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/>
   </svg>
 );
 const ParchmentIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M4 4h11a3 3 0 013 3v13H7a3 3 0 01-3-3V4z"/>
     <path d="M15 4a3 3 0 013 3h2v10a3 3 0 01-3 3"/>
     <path d="M8 9h6"/><path d="M8 13h6"/><path d="M8 17h4"/>
@@ -172,7 +172,7 @@ export default function LivingPreservation() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: COLORS.gold, flexShrink: 0,
               }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
                 </svg>
               </div>
@@ -200,7 +200,7 @@ export default function LivingPreservation() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0, marginTop: '2px',
               }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2">
                   <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
                   <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
                 </svg>
@@ -235,7 +235,7 @@ export default function LivingPreservation() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: COLORS.softEmerald, flexShrink: 0,
               }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
                   <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
                 </svg>

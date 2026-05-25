@@ -112,7 +112,7 @@ Kaynak: `tasks/todo_enhancement.md` II. Önemli
 Kaynak: enhancement III. Polish. Batched sprint.
 
 - [x] **W21-P1** Hero CTA padding clamp 32-56 → 44-68 (+12px), hover 200ms ease inline (Tailwind `duration-300` kaldırıldı, çakışma engellendi)
-- [ ] **W21-P2** Karaoke highlight 80ms → 150ms ease-in-out
+- [x] **W21-P2** Karaoke highlight 6 render bloğunda 120ms linear → 150ms ease-in-out (Material standard). ReadingMode.jsx L6385/6482/7317/7366/7529/7578. Renk/stil değişmedi (memory'deki "gold bg + cream + glow" baseline korundu), sadece timing/easing.
 - [ ] **W21-P3** Page turn glyph subtle parallax
 - [x] **W21-P4** Tool card hover lift — ToolsBrowser `BigToolCard` `translateY(-2px)` + `COLORS.shadowCardHover` (yeni token: 0 8px 24px rgba(0,0,0,0.25)) + explicit transition prop list (transform + box-shadow + background + border-color)
 - [x] **W21-P5** Footer link hover gold/30 underline — `hover:underline hover:decoration-gold/30 hover:underline-offset-[3px]` hem internal nav hem Sources link'lerine
@@ -133,13 +133,13 @@ Kaynak: enhancement IV. UX. Audit + fix gerekli.
 - [x] **W22-U1** Locale switcher URL persistence — audit PASS, fix gerekmedi. `LanguageContext.jsx:58-66` zaten `pathname.replace(/^\/(tr|en)/, /${next})` + `router.push(swapped)` pattern'i ile path swap yapıyor.
 - [ ] **W22-U2** Browser back: tool overlay → homepage (`onClose router.push('/')` doğrula)
 - [ ] **W22-U3** Keyboard nav tab order + focus trap on modal open + restore on close
-- [ ] **W22-U4** Escape key tool overlay close — tüm tool'larda?
+- [x] **W22-U4** Escape key audit + fix — 37 tool component tarandı, 35'i temiz. 2 fix: `ProphetAtlas.jsx` ve `TafsirPanel.jsx`'e standart Esc useEffect handler eklendi. ReadingMode.jsx ve MeselAtlasi.jsx bilinçli tasarım kararı (no-op).
 - [~] **W22-U5** Empty states — **`/oku/[surah]` partial done:** invalid surah (NaN/0/115+) → `notFound()` early return + locale-aware `not-found.jsx` (Arabic "لَا" decorative, h1 + helpful CTA "Tüm Sureleri Gör"). Verify: `/oku/200` `/oku/0` `/oku/abc` 404, `/oku/1` 200. Kalan: ConceptGraph empty + API meal fail toast (sonraki tur)
 - [ ] **W22-U6** Mobile spinner centered
 - [ ] **W22-U7** ReadingMode kelime tooltip mobile: tap-to-toggle
 - [ ] **W22-U8** Settings localStorage schema versionlama
 - [ ] **W22-U9** Audio pause on tool overlay open
-- [ ] **W22-U10** Tool overlay'de document.title update kontrol
+- [x] **W22-U10** Document title audit — 15/15 route temiz, unique + locale-aware (`pageMetadata` + module-level TITLE/DESC pattern prod'da hatasız). Generic "QuranCodex" placeholder hiçbir tool route'unda yok.
 
 ---
 
@@ -147,16 +147,16 @@ Kaynak: enhancement IV. UX. Audit + fix gerekli.
 
 Kaynak: enhancement V. SEO/A11y. Post-cutover.
 
-- [ ] **W23-S1** SVG aria-* triage — 363 SVG'ye `aria-hidden="true"` / meaningful'lara `<title>+<desc>`
+- [~] **W23-S1** SVG aria triage (sections partial) — 16 section dosyasında **72 decorative SVG**'ye `aria-hidden="true"` eklendi. Meaningful SVG'ler skip (data viz: HiddenArchitecture prism, ProphetAtlas haritası ve silsile, QuranRhetoric donut chart — bu 4'ü ileride `<title>+<desc>` için ayrı tur). `components/` ve `app/` SVG'leri sonraki tur.
 - [ ] **W23-S2** Color contrast WCAG AA (`text-silver/75` /`40` audit; Lighthouse)
 - [x] **W23-S3** "Ana içeriğe geç" skip link — `layout.js`'e statik link (locale-aware TR/EN), `<main id="main">` wrap, `globals.css` `.skip-link` z-index 10003 (navbar üstünde). focus + focus-visible.
-- [ ] **W23-S4** Heading hierarchy tool sayfaları SSR H1 + hydration H2 audit
-- [ ] **W23-S5** hreflang URL Inspection per route
+- [x] **W23-S4** Heading hierarchy audit + fix — 8 sample route'ta 7/8 temiz. `QuranDua.jsx:532` H4 → H3 atlaması fix (Hz. İbrahim chip aynı section'da). Tool overlay'lerde SSR H1 sonra hydration H2 §16.5/16.12 pattern'iyle uyumlu.
+- [x] **W23-S5** hreflang audit — 8/8 route temiz, tr + en + x-default üçlüsü doğru URL'lerle mevcut. Canonical `tr` hreflang ile eşit. `pageMetadata` helper prod'da düzgün çalışıyor.
 - [x] **W23-S6** Sitemap dynamic lastModified — `node:fs.statSync` + mtimeCache; 302 entry, **112 unique mtime** (sabit damga olsa 1 olurdu). Mapping: corpus/N.json (sure), page.js (tool + homepage). Fallback BUILD_TIME.
 - [ ] **W23-S7** Twitter Card validator test (deploy sonrası)
 - [x] **W23-S8** PWA manifest — `public/manifest.json` (name, theme_color gold, bg cosmic-black, standalone, lang tr, 3 icon slot favicon+kaaba+masjid) + `app/layout.js` root metadata.manifest. Apple-touch-icon ve dedike 192px raster skip (asset eksik — sonraki turda).
 - [x] **W23-S9** robots.txt tier'li politeness — 3 user-agent grup: `*` (Bingbot/Yandex `Crawl-delay: 1`), Googlebot (no delay), AI scrapers (GPTBot/ClaudeBot/Google-Extended/CCBot/PerplexityBot `Crawl-delay: 2`). +Host direktifi (Yandex)
-- [ ] **W23-S10** Open Graph locale verify (`/tr` `tr_TR`, `/en` `en_US`)
+- [x] **W23-S10** OG locale audit — 8/8 sample (4 TR + 4 EN) doğru `og:locale`: `/tr/*` → `tr_TR`, `/en/*` → `en_US`.
 
 ---
 

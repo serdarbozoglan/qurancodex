@@ -6382,7 +6382,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   : '0 0 18px rgba(240,210,143,0.45)',
                                 borderRadius: RADIUS.xs,
                                 padding: '0 2px',
-                                transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                                transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
                                 WebkitBoxDecorationBreak: 'clone',
                                 boxDecorationBreak: 'clone',
                               };
@@ -6479,7 +6479,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                           cursor: hoverable || corpusWord ? 'pointer' : 'inherit',
                                           borderRadius: RADIUS.xs,
                                           padding: '0 1px',
-                                          transition: 'background 0.15s, opacity 120ms, color 120ms, text-shadow 120ms',
+                                          transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, opacity 120ms, text-shadow 120ms',
                                           ...karaokeStyle,
                                         }}
                                         onMouseOver={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
@@ -7314,7 +7314,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       cursor: 'pointer',
                                       padding: '1px 3px',
                                       borderRadius: RADIUS.xs,
-                                      transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                                      transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
                                       ...(isKaraokeVerse && isActiveWord ? {
                                         color: dayMode ? 'inherit' : '#fff0c8',
                                         background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
@@ -7363,7 +7363,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 : '0 0 18px rgba(240,210,143,0.45)',
                               borderRadius: RADIUS.xs,
                               padding: '0 2px',
-                              transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                              transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
                               WebkitBoxDecorationBreak: 'clone',
                               boxDecorationBreak: 'clone',
                             };
@@ -7526,7 +7526,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       cursor: 'pointer',
                                       padding: '1px 3px',
                                       borderRadius: RADIUS.xs,
-                                      transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                                      transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
                                       ...(isKaraokeVerse && isActiveWord ? {
                                         color: dayMode ? 'inherit' : '#fff0c8',
                                         background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
@@ -7575,7 +7575,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 : '0 0 18px rgba(240,210,143,0.45)',
                               borderRadius: RADIUS.xs,
                               padding: '0 2px',
-                              transition: 'background 0.15s, color 120ms, box-shadow 120ms',
+                              transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
                               WebkitBoxDecorationBreak: 'clone',
                               boxDecorationBreak: 'clone',
                             };

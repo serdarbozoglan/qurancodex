@@ -35,7 +35,7 @@ const FEATURED_TOOLS = [
     descTr: '6.236 ayeti uzayda gör · semantik ilişki ağı',
     descEn: 'See 6,236 verses in 3D space · semantic network',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none">
         <circle cx="5"  cy="6"  r="2.5" />
         <circle cx="14" cy="4"  r="1.5" />
         <circle cx="20" cy="10" r="3" />
@@ -54,7 +54,7 @@ const FEATURED_TOOLS = [
     descTr: '23 yıla yayılan anlatıların gizli haritası',
     descEn: 'The hidden map of narratives across 23 years',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <circle cx="5"  cy="12" r="2" />
         <circle cx="12" cy="5"  r="2" />
         <circle cx="19" cy="12" r="2" />
@@ -71,7 +71,7 @@ const FEATURED_TOOLS = [
     descTr: "99 ismin Kur'an'daki frekans analizi",
     descEn: 'Frequency analysis of the 99 divine names in the Quran',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
       </svg>
     ),
@@ -84,7 +84,7 @@ const FEATURED_TOOLS = [
     descTr: '~570 ayet · olay→ayet & ayet→olay · çift yönlü arama',
     descEn: '~570 verses · event→verse & verse→event · bidirectional',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
         <path d="M3 3v5h5" />
         <path d="M12 7v5l4 2" />
@@ -99,7 +99,7 @@ const FEATURED_TOOLS = [
     descTr: '4 peygamber — hangi sûrede hangi sahne?',
     descEn: '4 prophets — which scene in which surah?',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
         <polyline points="14 2 14 8 20 8" />
         <line x1="8" y1="13" x2="16" y2="13" />
@@ -115,7 +115,7 @@ const FEATURED_TOOLS = [
     descTr: 'Kim kiminle konuşuyor? ~300 diyalog · 25 eksen',
     descEn: 'Who speaks to whom? ~300 dialogues · 25 axes',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
       </svg>
     ),

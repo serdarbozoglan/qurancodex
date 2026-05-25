@@ -162,6 +162,14 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
     try { localStorage.setItem('qurancodex_tafsir_source', selectedTafsirId); } catch { /* noop */ }
   }, [selectedTafsirId]);
 
+  // Esc tuşuyla panel'i kapat — CLAUDE.md §13.3 standardı (W22-U4 audit)
+  useEffect(() => {
+    if (!open || !onClose) return;
+    const handler = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [open, onClose]);
+
   // Fetch surah tafsir JSON when open, surah, or source changes
   useEffect(() => {
     if (!open || !surah) return;
