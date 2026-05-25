@@ -6379,11 +6379,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   textAlign: 'center',
                                   direction: 'rtl',
                                   fontFamily: currentFont,
-                                  fontSize: `${arabicFontSize}rem`,
+                                  // Bismillah klasik mushaf'ta tek satırdır. Mobile'da
+                                  // arabicFontSize (default 2.8rem) viewport'a sığmaz —
+                                  // 1.4rem'a cap'le ki tek satırda kalsın.
+                                  fontSize: `${isMobile ? Math.min(arabicFontSize, 1.4) : arabicFontSize}rem`,
                                   color: C.bismillah,
                                   marginTop: isMobile ? '20px' : '28px',
                                   marginBottom: isMobile ? '20px' : '30px',
                                   lineHeight: 1.9,
+                                  whiteSpace: 'nowrap',
+                                  overflow: 'hidden',
                                   cursor: isFatihaHeader ? 'pointer' : 'default',
                                   background: isActiveFV ? C.activeHighlight : 'transparent',
                                   borderRadius: isFatihaHeader ? '6px' : 0,
@@ -6391,7 +6396,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 }}
                               >
                                 {isFatihaHeader ? (
-                                  <span style={{ whiteSpace: isMobile ? 'normal' : 'nowrap' }}>
+                                  <span>
                                     <span dangerouslySetInnerHTML={{ __html: fatihaArHtml }} />
                                     <span style={{
                                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
