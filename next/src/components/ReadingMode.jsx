@@ -4813,7 +4813,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {/* Verse list */}
       <div
         ref={containerRef}
-        style={{ flex: 1, minHeight: 0, overflowY: 'auto', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar, position: 'relative' }}
+        style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar, position: 'relative' }}
         onClick={() => { setShowSurahPicker(false); setShowMealPicker(false); setShowFontPicker(false); setShowSettingsPicker(false); }}
         onTouchStart={isMobile && bookMode ? (e) => { swipeTouchX.current = e.touches[0].clientX; swipeTouchY.current = e.touches[0].clientY; } : undefined}
         onTouchEnd={isMobile && bookMode ? (e) => {
