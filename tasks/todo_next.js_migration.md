@@ -131,7 +131,7 @@ Kaynak: enhancement III. Polish. Batched sprint.
 Kaynak: enhancement IV. UX. Audit + fix gerekli.
 
 - [x] **W22-U1** Locale switcher URL persistence — audit PASS, fix gerekmedi. `LanguageContext.jsx:58-66` zaten `pathname.replace(/^\/(tr|en)/, /${next})` + `router.push(swapped)` pattern'i ile path swap yapıyor.
-- [~] **W22-U2** Browser back audit — `docs/reviews/2026-05-25-browser-back-audit.md`. 5 senaryo + 3 bonus. **2 HIGH** (ReadingModeRoute locale-prefix eksik `router.push('/')` → router.back(); VerseGraph `?q=` vs `?verse=` searchParams uyumsuz), **1 MED** (eski Vite event-dispatch pattern 10+ component'ta), **2 LOW** (boş history back, replaceState race). Fix turu bekliyor.
+- [x] **W22-U2** Browser back audit + HIGH fixes — `docs/reviews/2026-05-25-browser-back-audit.md`. 5 senaryo + 3 bonus. **2 HIGH FIXED**: ReadingModeRoute × 2 `router.push('/')` → `router.back()` (locale-prefix + cross-tool context loss çözüldü); `useQuranNav.js` `?q=` → `?verse=` (VerseGraph deep-link uyumlu). MED (event-dispatch legacy) + LOW (boş history, replaceState race) sonraki tur.
 - [ ] **W22-U3** Keyboard nav tab order + focus trap on modal open + restore on close
 - [x] **W22-U4** Escape key audit + fix — 37 tool component tarandı, 35'i temiz. 2 fix: `ProphetAtlas.jsx` ve `TafsirPanel.jsx`'e standart Esc useEffect handler eklendi. ReadingMode.jsx ve MeselAtlasi.jsx bilinçli tasarım kararı (no-op).
 - [~] **W22-U5** Empty states — **`/oku/[surah]` partial done:** invalid surah (NaN/0/115+) → `notFound()` early return + locale-aware `not-found.jsx` (Arabic "لَا" decorative, h1 + helpful CTA "Tüm Sureleri Gör"). Verify: `/oku/200` `/oku/0` `/oku/abc` 404, `/oku/1` 200. Kalan: ConceptGraph empty + API meal fail toast (sonraki tur)

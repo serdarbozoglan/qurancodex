@@ -5,5 +5,5 @@ import ReadingMode from '@/components/ReadingMode';
 
 export default function ReadingModeRoute() {
   const router = useRouter();
-  return <ReadingMode onClose={() => router.push('/')} />;
+  return <ReadingMode onClose={() => router.back()} />;
 }

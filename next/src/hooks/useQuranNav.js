@@ -93,7 +93,7 @@ export function useQuranNav() {
    * Navigate to an overlay tool's route by its short name.
    * @param {string} name - One of the keys in OVERLAY_ROUTES
    * @param {object} [detail] - Optional payload (e.g. { search: '2:255' }) — for now
-   *   only `search` is used and converted to ?q= query param for graph routes.
+   *   only `search` is used and converted to ?verse= query param for graph routes.
    */
   const openOverlay = useCallback((name, detail) => {
     const route = OVERLAY_ROUTES[name];
@@ -104,8 +104,9 @@ export function useQuranNav() {
     // Prepend locale prefix so middleware doesn't re-resolve via Accept-Language
     // (which would land Turkish users on /en/... if their browser is English-leaning).
     const localizedRoute = `/${language}${route}`;
-    // Forward `search` payload as ?q= query param (e.g. VerseGraph with verse ref)
-    const url = detail?.search ? `${localizedRoute}?q=${encodeURIComponent(detail.search)}` : localizedRoute;
+    // Forward `search` payload as ?verse= query param (e.g. VerseGraph with verse ref).
+    // Key must match the component's window.location.search reader (VerseGraph.jsx ?verse=).
+    const url = detail?.search ? `${localizedRoute}?verse=${encodeURIComponent(detail.search)}` : localizedRoute;
     router.push(url);
   }, [router, language]);
 
