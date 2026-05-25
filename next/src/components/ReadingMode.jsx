@@ -1727,6 +1727,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     };
   }, [surahAudioUrl]);
 
+  // W22-U9: Tool route'larına navigasyon (ReadingMode unmount) sırasında per-verse
+  // audio'yu da durdur. surahAudioRef cleanup'ı yukarıdaki effect halletiyor; bu
+  // effect audioLiveRef + audioPreloadRef için aynı sorumluluğu üstlenir. Aksi
+  // takdirde /oku → /atlas/kissa geçişinde ayet sesi background'da çalmaya devam
+  // eder (memory leak + UX kırılması).
+  useEffect(() => {
+    return () => {
+      const a = audioLiveRef.current;
+      if (a) { a.onerror = null; a.onended = null; a.pause(); a.src = ''; audioLiveRef.current = null; }
+      const p = audioPreloadRef.current;
+      if (p) { p.src = ''; audioPreloadRef.current = null; }
+    };
+  }, []);
+
   // Karaoke toggled off mid-play: stop surah audio + highlight loop.
   useEffect(() => {
     if (karaokeEnabled) return;
@@ -3526,44 +3540,63 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             {language === 'tr' ? 'Yazı Boyutu' : 'Font Size'}
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            {/* Decrease */}
-            <button
-              onClick={() => setArabicFontSize(s => Math.max(1.4, +(s - 0.2).toFixed(1)))}
-              style={{
-                width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0,
-                border: `1px solid ${COLORS.glassBorder}`, background: COLORS.glassBg,
-                color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}`,
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
-              onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.borderColor = COLORS.glassBorder; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
-            >−</button>
+            {(() => {
+              // Baseline = cihaz default'u (mobile=1.8rem, desktop=2.8rem). User'a
+              // % cinsinden gösterilir (100% = baseline). Range 50%-150% (step 5%).
+              const baseline = isMobile ? 1.8 : 2.8;
+              const minPct = 50, maxPct = 150, stepPct = 5;
+              const remStep = baseline * stepPct / 100;
+              const minRem = +(baseline * minPct / 100).toFixed(2);
+              const maxRem = +(baseline * maxPct / 100).toFixed(2);
+              const currentPct = Math.round((arabicFontSize / baseline) * 100);
+              return (
+                <>
+                  {/* Decrease */}
+                  <button
+                    onClick={() => setArabicFontSize(s => Math.max(minRem, +(s - remStep).toFixed(2)))}
+                    style={{
+                      width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0,
+                      border: `1px solid ${COLORS.glassBorder}`, background: COLORS.glassBg,
+                      color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}`,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.borderColor = COLORS.glassBorder; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+                  >−</button>
 
-            {/* Slider */}
-            <input
-              type="range" min={1.4} max={3.6} step={0.2}
-              value={arabicFontSize}
-              onChange={e => setArabicFontSize(+parseFloat(e.target.value).toFixed(1))}
-              style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
-            />
+                  {/* Slider — % cinsinden */}
+                  <input
+                    type="range" min={minPct} max={maxPct} step={stepPct}
+                    value={currentPct}
+                    onChange={e => {
+                      const newPct = parseInt(e.target.value, 10);
+                      setArabicFontSize(+(baseline * newPct / 100).toFixed(2));
+                    }}
+                    style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
+                  />
 
-            {/* Increase */}
-            <button
-              onClick={() => setArabicFontSize(s => Math.min(3.6, +(s + 0.2).toFixed(1)))}
-              style={{
-                width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0,
-                border: `1px solid ${COLORS.glassBorder}`, background: COLORS.glassBg,
-                color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}`,
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
-              onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.borderColor = COLORS.glassBorder; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
-            >+</button>
+                  {/* Increase */}
+                  <button
+                    onClick={() => setArabicFontSize(s => Math.min(maxRem, +(s + remStep).toFixed(2)))}
+                    style={{
+                      width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0,
+                      border: `1px solid ${COLORS.glassBorder}`, background: COLORS.glassBg,
+                      color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}`,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.4)'; e.currentTarget.style.color = gold; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.borderColor = COLORS.glassBorder; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+                  >+</button>
+                </>
+              );
+            })()}
           </div>
 
           {/* Current value + reset */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
+            <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>
+              {Math.round((arabicFontSize / (isMobile ? 1.8 : 2.8)) * 100)}%
+            </span>
             <button
-              onClick={() => setArabicFontSize(2.5)}
+              onClick={() => setArabicFontSize(isMobile ? 1.8 : 2.8)}
               style={{ fontSize: '0.65rem', color: COLORS.slate500, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               onMouseEnter={e => { e.currentTarget.style.color = '#a0abb8'; }}
               onMouseLeave={e => { e.currentTarget.style.color = COLORS.slate500; }}
@@ -4070,29 +4103,48 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {language === 'tr' ? 'Arapça Yazı Boyutu' : 'Arabic Font Size'}
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <button
-                onClick={() => setArabicFontSize(s => Math.max(1.4, +(s - 0.2).toFixed(1)))}
-                style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
-                onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
-                onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
-              >−</button>
-              <input
-                type="range" min={1.4} max={3.6} step={0.2}
-                value={arabicFontSize}
-                onChange={e => setArabicFontSize(+parseFloat(e.target.value).toFixed(1))}
-                style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
-              />
-              <button
-                onClick={() => setArabicFontSize(s => Math.min(3.6, +(s + 0.2).toFixed(1)))}
-                style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
-                onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
-                onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
-              >+</button>
+              {(() => {
+                // Baseline = cihaz default'u (mobile=1.8rem, desktop=2.8rem).
+                // % cinsinden gösterim — 100% = baseline; range 50%-150% (step 5%).
+                const baseline = isMobile ? 1.8 : 2.8;
+                const minPct = 50, maxPct = 150, stepPct = 5;
+                const remStep = baseline * stepPct / 100;
+                const minRem = +(baseline * minPct / 100).toFixed(2);
+                const maxRem = +(baseline * maxPct / 100).toFixed(2);
+                const currentPct = Math.round((arabicFontSize / baseline) * 100);
+                return (
+                  <>
+                    <button
+                      onClick={() => setArabicFontSize(s => Math.max(minRem, +(s - remStep).toFixed(2)))}
+                      style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
+                      onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
+                    >−</button>
+                    <input
+                      type="range" min={minPct} max={maxPct} step={stepPct}
+                      value={currentPct}
+                      onChange={e => {
+                        const newPct = parseInt(e.target.value, 10);
+                        setArabicFontSize(+(baseline * newPct / 100).toFixed(2));
+                      }}
+                      style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
+                    />
+                    <button
+                      onClick={() => setArabicFontSize(s => Math.min(maxRem, +(s + remStep).toFixed(2)))}
+                      style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
+                      onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
+                    >+</button>
+                  </>
+                );
+              })()}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>{arabicFontSize.toFixed(1)} rem</span>
+              <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>
+                {Math.round((arabicFontSize / (isMobile ? 1.8 : 2.8)) * 100)}%
+              </span>
               <button
-                onClick={() => setArabicFontSize(2.5)}
+                onClick={() => setArabicFontSize(isMobile ? 1.8 : 2.8)}
                 style={{ fontSize: '0.65rem', color: dropC.textMuted, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                 onMouseEnter={e => { e.currentTarget.style.color = dropC.text; }}
                 onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
