@@ -6380,9 +6380,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   direction: 'rtl',
                                   fontFamily: currentFont,
                                   // Bismillah klasik mushaf'ta tek satırdır. Mobile'da
-                                  // arabicFontSize (default 2.8rem) viewport'a sığmaz —
-                                  // 1.4rem'a cap'le ki tek satırda kalsın.
-                                  fontSize: `${isMobile ? Math.min(arabicFontSize, 1.4) : arabicFontSize}rem`,
+                                  // arabicFontSize (default 2.8rem) viewport'a sığmaz.
+                                  // Fatiha case'inde sonda ① badge da olduğu için ekstra
+                                  // sıkışma gerek — 1.2rem; diğer surelerde 1.3rem.
+                                  fontSize: `${isMobile ? Math.min(arabicFontSize, isFatihaHeader ? 1.2 : 1.3) : arabicFontSize}rem`,
                                   color: C.bismillah,
                                   marginTop: isMobile ? '20px' : '28px',
                                   marginBottom: isMobile ? '20px' : '30px',
