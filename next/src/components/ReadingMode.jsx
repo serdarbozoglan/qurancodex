@@ -6391,7 +6391,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 }}
                               >
                                 {isFatihaHeader ? (
-                                  <span style={{ whiteSpace: 'nowrap' }}>
+                                  <span style={{ whiteSpace: isMobile ? 'normal' : 'nowrap' }}>
                                     <span dangerouslySetInnerHTML={{ __html: fatihaArHtml }} />
                                     <span style={{
                                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
