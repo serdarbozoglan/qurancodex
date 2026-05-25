@@ -6437,12 +6437,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   textAlign: 'center',
                                   direction: 'rtl',
                                   fontFamily: currentFont,
-                                  // Bismillah font-size'i ayet metnine eşit (mobile cap
-                                  // 1.6rem) — badge boyutu (1.72em) container fontSize'a
-                                  // relative, yani ① halkası diğer ayet halkalarıyla aynı
-                                  // boyutta. Sığmazsa wrap olur (badge orphan riski kabul
-                                  // edilir; okuma için tutarlı tipografi öncelikli).
-                                  fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
+                                  // Bismillah ayet metninden biraz daha büyük (mobile cap
+                                  // 2.0rem vs ayet 1.6rem). Klasik mushaf hissi —
+                                  // bismillah sayfa açılış mührüdür. Badge ise aşağıda
+                                  // rem-cinsinden sabitlendi → ① halkası diğer ayet
+                                  // halkalarıyla aynı boyutta (em-relative değil).
+                                  fontSize: `${isMobile ? Math.min(arabicFontSize, 2.0) : arabicFontSize}rem`,
                                   color: C.bismillah,
                                   marginTop: isMobile ? '20px' : '28px',
                                   marginBottom: isMobile ? '20px' : '30px',
@@ -6459,13 +6459,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     <span style={{
                                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                                       verticalAlign: 'middle',
-                                      width: '1.72em', height: '1.72em',
+                                      // Badge boyutu DİĞER AYET halkalarıyla aynı kalsın:
+                                      // 1.72em × ayet line fontSize (em-relative bismillah
+                                      // container'a değil, ayet metnine bağlı). Böylece
+                                      // bismillah 2.0rem olsa bile ① halkası ②③④⑤⑥ ile
+                                      // tam aynı boyut.
+                                      width:  `${1.72 * (isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize)}rem`,
+                                      height: `${1.72 * (isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize)}rem`,
                                       margin: '0 14px',
                                       textAlign: 'center', borderRadius: RADIUS.full,
                                       border: `1.5px solid ${C.gold}aa`,
                                       boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
                                       color: C.gold,
-                                      fontSize: '0.54em',
+                                      fontSize: `${0.54 * (isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize)}rem`,
                                       fontFamily: currentFont,
                                       background: dayMode
                                         ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
