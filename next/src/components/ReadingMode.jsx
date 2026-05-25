@@ -2306,19 +2306,60 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         position: 'relative', zIndex: 250,
       }}>
 
-        {/* Mobile Row 1 — Title + Close (CLAUDE.md §14.5). Sûre adı +
-            sayfa numarası tek satırda, sağda Kapat butonu. */}
-        {isMobile && (
+        {/* Mobile Row 1 — Prev surah + Title + Next surah + Close
+            (CLAUDE.md §14.5). Title ortada centered; sol/sağ chevron
+            butonları sure-level navigasyon (1 ↔ 114). */}
+        {isMobile && (() => {
+          // Surah-level navigation helpers — mobile only; desktop has
+          // book-mode page arrows. Bookmode loads surah's first verse.
+          const goSurah = (n) => {
+            if (n < 1 || n > 114) return;
+            setSelectedSurah(n);
+            if (bookMode) {
+              const startPage = SURAH_PAGES[n - 1] || 1;
+              navigateToPage(startPage);
+            } else {
+              // Verse mode — scroll to top of new surah's verse list
+              if (containerRef.current) containerRef.current.scrollTop = 0;
+            }
+          };
+          const canPrev = selectedSurah > 1;
+          const canNext = selectedSurah < 114;
+          const navBtnStyle = (enabled) => ({
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            width: '32px', height: '32px', borderRadius: '50%',
+            background: enabled ? 'rgba(255,255,255,0.04)' : 'transparent',
+            border: `1px solid ${enabled ? navC.btnBorder : 'transparent'}`,
+            color: enabled ? gold : 'rgba(255,255,255,0.18)',
+            cursor: enabled ? 'pointer' : 'default',
+            transition: `all ${TRANSITION.fast}`,
+            flexShrink: 0,
+            padding: 0,
+            opacity: enabled ? 1 : 0.4,
+          });
+          return (
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '8px',
-            padding: '10px 16px', // §14.6 mobile header padding
+            gap: '6px',
+            padding: '10px 12px', // §14.6 mobile header padding (sligtly tighter for 4 buttons)
             minHeight: '48px',
             borderBottom: `1px solid ${navC.divider}`,
           }}>
-            <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, flex: 1 }}>
+            {/* Prev surah */}
+            <button
+              onClick={() => goSurah(selectedSurah - 1)}
+              disabled={!canPrev}
+              title={language === 'tr' ? 'Önceki sûre' : 'Previous surah'}
+              aria-label={language === 'tr' ? 'Önceki sûre' : 'Previous surah'}
+              style={navBtnStyle(canPrev)}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+
+            <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, flex: 1, alignItems: 'center', textAlign: 'center' }}>
               <span style={{
                 fontFamily: FONTS.body,
                 fontSize: '0.95rem',
@@ -2328,6 +2369,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
+                maxWidth: '100%',
               }}>
                 {surahName}
               </span>
@@ -2355,6 +2397,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 )}
               </span>
             </div>
+
+            {/* Next surah */}
+            <button
+              onClick={() => goSurah(selectedSurah + 1)}
+              disabled={!canNext}
+              title={language === 'tr' ? 'Sonraki sûre' : 'Next surah'}
+              aria-label={language === 'tr' ? 'Sonraki sûre' : 'Next surah'}
+              style={navBtnStyle(canNext)}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+
             <button
               onClick={onClose}
               title={language === 'tr' ? 'Okuma modundan çık' : 'Exit reading mode'}
@@ -2367,6 +2423,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 color: navC.label,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, flexShrink: 0,
                 padding: 0,
+                marginLeft: '4px',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.background = 'rgba(239,68,68,0.12)';
@@ -2384,7 +2441,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </svg>
             </button>
           </div>
-        )}
+          );
+        })()}
 
         {/* Mobile Row 2 — horizontally-scrollable chip strip wrapper.
             Wraps the existing LEFT + RIGHT IIFE blocks in a flex row with
@@ -6379,17 +6437,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   textAlign: 'center',
                                   direction: 'rtl',
                                   fontFamily: currentFont,
-                                  // Bismillah klasik mushaf'ta tek satırdır. Mobile'da
-                                  // arabicFontSize (default 2.8rem) viewport'a sığmaz.
-                                  // Fatiha case'inde sonda ① badge da olduğu için ekstra
-                                  // sıkışma gerek — 1.2rem; diğer surelerde 1.3rem.
-                                  fontSize: `${isMobile ? Math.min(arabicFontSize, isFatihaHeader ? 1.2 : 1.3) : arabicFontSize}rem`,
+                                  // Bismillah font-size'i ayet metnine eşit (mobile cap
+                                  // 1.6rem) — badge boyutu (1.72em) container fontSize'a
+                                  // relative, yani ① halkası diğer ayet halkalarıyla aynı
+                                  // boyutta. Sığmazsa wrap olur (badge orphan riski kabul
+                                  // edilir; okuma için tutarlı tipografi öncelikli).
+                                  fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
                                   color: C.bismillah,
                                   marginTop: isMobile ? '20px' : '28px',
                                   marginBottom: isMobile ? '20px' : '30px',
                                   lineHeight: 1.9,
-                                  whiteSpace: 'nowrap',
-                                  overflow: 'hidden',
                                   cursor: isFatihaHeader ? 'pointer' : 'default',
                                   background: isActiveFV ? C.activeHighlight : 'transparent',
                                   borderRadius: isFatihaHeader ? '6px' : 0,
