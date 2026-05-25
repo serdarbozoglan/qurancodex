@@ -113,14 +113,14 @@ Kaynak: enhancement III. Polish. Batched sprint.
 
 - [x] **W21-P1** Hero CTA padding clamp 32-56 → 44-68 (+12px), hover 200ms ease inline (Tailwind `duration-300` kaldırıldı, çakışma engellendi)
 - [x] **W21-P2** Karaoke highlight 6 render bloğunda 120ms linear → 150ms ease-in-out (Material standard). ReadingMode.jsx L6385/6482/7317/7366/7529/7578. Renk/stil değişmedi (memory'deki "gold bg + cream + glow" baseline korundu), sadece timing/easing.
-- [ ] **W21-P3** Page turn glyph subtle parallax
+- [x] **W21-P3** Page turn glyph subtle parallax — ReadingMode book mode arrowBtn (2 glyph: left/right). `<span data-rm-page-glyph>` wrapper + `transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)`. Hover'da 4px page-turn yönünde slide. Mobile excluded.
 - [x] **W21-P4** Tool card hover lift — ToolsBrowser `BigToolCard` `translateY(-2px)` + `COLORS.shadowCardHover` (yeni token: 0 8px 24px rgba(0,0,0,0.25)) + explicit transition prop list (transform + box-shadow + background + border-color)
 - [x] **W21-P5** Footer link hover gold/30 underline — `hover:underline hover:decoration-gold/30 hover:underline-offset-[3px]` hem internal nav hem Sources link'lerine
 - [x] **W21-P6** Hamburger drawer 250ms easeInOut → 200ms cubic-bezier [0.4, 0, 0.2, 1] (Material Design standard easing) via framer-motion
 - [x] **W21-P7** Particle count `100 → isMobile ? 15 : 40` via ParticleBackground prop. SSR-safe isMobile (§16.6 useState(false) + useEffect)
 - [x] **W21-P8** Footer bismillah opacity gold/30 → gold/50 (kapanış mührü hissi)
 - [x] **W21-P9** `GLASS_CARD` blur tutarlılık audit — `docs/reviews/2026-05-25-glass-card-audit.md`. tokens.js ↔ globals.css TAM uyumlu (drift yok). 74 inline backdropFilter: 49 token-uyumlu (%66), 18 minor drift, 4 outlier (HumanDefinition, VerseGraph, ReadingMode, ToolsBrowser). Visual impact LOW, arch hygiene MEDIUM.
-- [ ] **W21-P10** Mobile scroll progress indicator (opsiyonel)
+- [x] **W21-P10** Mobile scroll progress indicator — `ScrollProgress.jsx` client component (`< 640px` only). 2px gold bar, rAF-throttled passive scroll listener, `[locale]/layout.js` global mount. SSR-safe (useState(false) + useEffect).
 - [x] **W21-P11** KFGQPC `font-feature-settings: 'liga' 1, 'kern' 1, 'calt' 1` + `font-variant-ligatures: contextual common-ligatures` — `globals.css` `[lang="ar"], [dir="rtl"]` selector
 - [x] **W21-P12** KissaAtlas sidebar scrollbar — Firefox `scrollbar-width: thin` + `scrollbar-color` gold/15 + WebKit Tailwind arbitrary class. Sadece Scene list sidebar (center grid + detail panel dokunulmadı).
 
@@ -131,11 +131,11 @@ Kaynak: enhancement III. Polish. Batched sprint.
 Kaynak: enhancement IV. UX. Audit + fix gerekli.
 
 - [x] **W22-U1** Locale switcher URL persistence — audit PASS, fix gerekmedi. `LanguageContext.jsx:58-66` zaten `pathname.replace(/^\/(tr|en)/, /${next})` + `router.push(swapped)` pattern'i ile path swap yapıyor.
-- [ ] **W22-U2** Browser back: tool overlay → homepage (`onClose router.push('/')` doğrula)
+- [~] **W22-U2** Browser back audit — `docs/reviews/2026-05-25-browser-back-audit.md`. 5 senaryo + 3 bonus. **2 HIGH** (ReadingModeRoute locale-prefix eksik `router.push('/')` → router.back(); VerseGraph `?q=` vs `?verse=` searchParams uyumsuz), **1 MED** (eski Vite event-dispatch pattern 10+ component'ta), **2 LOW** (boş history back, replaceState race). Fix turu bekliyor.
 - [ ] **W22-U3** Keyboard nav tab order + focus trap on modal open + restore on close
 - [x] **W22-U4** Escape key audit + fix — 37 tool component tarandı, 35'i temiz. 2 fix: `ProphetAtlas.jsx` ve `TafsirPanel.jsx`'e standart Esc useEffect handler eklendi. ReadingMode.jsx ve MeselAtlasi.jsx bilinçli tasarım kararı (no-op).
 - [~] **W22-U5** Empty states — **`/oku/[surah]` partial done:** invalid surah (NaN/0/115+) → `notFound()` early return + locale-aware `not-found.jsx` (Arabic "لَا" decorative, h1 + helpful CTA "Tüm Sureleri Gör"). Verify: `/oku/200` `/oku/0` `/oku/abc` 404, `/oku/1` 200. Kalan: ConceptGraph empty + API meal fail toast (sonraki tur)
-- [ ] **W22-U6** Mobile spinner centered
+- [x] **W22-U6** Mobile spinner centered — 3 dosya fix (KiyametSahneleri:646, Melekler:1209, KuranRenkleri:223) bare/top-left loader → flex-center + minHeight 40vh. Mevcut overlay-level loader'ların 20+'ı zaten doğru flex-center pattern'da.
 - [ ] **W22-U7** ReadingMode kelime tooltip mobile: tap-to-toggle
 - [x] **W22-U8** Settings localStorage schema versionlama — `qurancodex_settings_version` sentinel key + `migrateReadingModeSettings()` namespace versioning. 16 UI prefs purge-on-mismatch (theme, font, audio, karaoke, vb); navigation state + bookmarks + meal/corpus cache KORUNUR. Schema __v: 2. Future bump = silent reset.
 - [ ] **W22-U9** Audio pause on tool overlay open

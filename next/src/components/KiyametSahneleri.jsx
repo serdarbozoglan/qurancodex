@@ -643,7 +643,9 @@ export default function KiyametSahneleri({ onClose }) {
         {/* ── Tab content ── */}
         <div style={{ padding: isMobile ? '16px' : '24px 32px' }}>
           {!data ? (
-            <p style={{ color: COLORS.silver, fontFamily: FONTS.body }}>{language === 'tr' ? 'Yükleniyor...' : 'Loading...'}</p>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh' }}>
+              <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem', margin: 0 }}>{language === 'tr' ? 'Yükleniyor...' : 'Loading...'}</p>
+            </div>
           ) : (
             <>
               {activeTab === 0 && <TabKronoloji data={data} language={language} isMobile={isMobile} />}

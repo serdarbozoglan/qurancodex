@@ -7852,16 +7852,32 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(232,181,71,0.38)';
                 e.currentTarget.style.color = gold;
                 e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(232,181,71,0.75)';
+                // Subtle parallax — glyph nudges in the page-turn direction.
+                // RTL: left=next → glyph slides left; right=prev → glyph slides right.
+                const glyph = e.currentTarget.querySelector('span[data-rm-page-glyph]');
+                if (glyph) glyph.style.transform = side === 'left' ? 'translateX(-4px)' : 'translateX(4px)';
               }}}
               onMouseLeave={e => { if (enabled) {
                 e.currentTarget.style.background = defaultBg;
                 e.currentTarget.style.color = defaultColor;
                 e.currentTarget.style.borderColor = defaultBorder;
+                const glyph = e.currentTarget.querySelector('span[data-rm-page-glyph]');
+                if (glyph) glyph.style.transform = 'translateX(0)';
               }}}
             >
-              {side === 'left'
-                ? <ChevronLeft size={20} />
-                : <ChevronRight size={20} />}
+              <span
+                data-rm-page-glyph
+                aria-hidden="true"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  transition: 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                  willChange: 'transform',
+                }}
+              >
+                {side === 'left'
+                  ? <ChevronLeft size={20} />
+                  : <ChevronRight size={20} />}
+              </span>
             </button>
           );
         };

@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import { LanguageProvider } from '@/i18n/LanguageContext';
 import { PathProvider } from '@/contexts/PathContext';
 import Navbar from '@/components/Navbar';
+import ScrollProgress from '@/components/ScrollProgress';
 
 const SUPPORTED_LOCALES = ['tr', 'en'];
 
@@ -29,6 +30,7 @@ export default async function LocaleLayout({ children, params }) {
       </a>
       <LanguageProvider initialLocale={locale}>
         <PathProvider>
+          <ScrollProgress />
           <Navbar />
           <main id="main">{children}</main>
         </PathProvider>

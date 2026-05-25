@@ -220,7 +220,11 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
 function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, expandedVerse, setExpandedVerse }) {
   const tr = language === 'tr';
   const [expandedCard, setExpandedCard] = useState(null);
-  if (!data) return <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>{tr ? 'Yükleniyor…' : 'Loading…'}</p>;
+  if (!data) return (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh' }}>
+      <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem', margin: 0 }}>{tr ? 'Yükleniyor…' : 'Loading…'}</p>
+    </div>
+  );
 
   const filtered = data.renkler.filter(r => {
     if (activeFilter === 'tumu') return true;
