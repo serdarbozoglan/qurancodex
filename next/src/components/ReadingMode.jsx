@@ -6171,7 +6171,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   borderRadius: showPageFrame ? '6px' : 0,
                   direction: 'rtl',
                   fontFamily: currentFont,
-                  fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
+                  fontSize: `${isMobile ? Math.min(arabicFontSize, 1.8) : arabicFontSize}rem`,
                   lineHeight: isMobile ? 1.9 : 2.1,
                   color: C.arabic,
                   textAlign: isMobile ? 'right' : 'justify',
@@ -6464,14 +6464,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       // container'a değil, ayet metnine bağlı). Böylece
                                       // bismillah 2.0rem olsa bile ① halkası ②③④⑤⑥ ile
                                       // tam aynı boyut.
-                                      width:  `${1.72 * (isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize)}rem`,
-                                      height: `${1.72 * (isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize)}rem`,
+                                      width:  `${1.72 * (isMobile ? Math.min(arabicFontSize, 1.8) : arabicFontSize)}rem`,
+                                      height: `${1.72 * (isMobile ? Math.min(arabicFontSize, 1.8) : arabicFontSize)}rem`,
                                       margin: '0 14px',
                                       textAlign: 'center', borderRadius: RADIUS.full,
                                       border: `1.5px solid ${C.gold}aa`,
                                       boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
                                       color: C.gold,
-                                      fontSize: `${0.54 * (isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize)}rem`,
+                                      fontSize: `${0.54 * (isMobile ? Math.min(arabicFontSize, 1.8) : arabicFontSize)}rem`,
                                       fontFamily: currentFont,
                                       background: dayMode
                                         ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
