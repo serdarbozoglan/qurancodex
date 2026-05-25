@@ -5703,7 +5703,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   fontSize: `${arabicFontSize}rem`,
                   lineHeight: 2.1,
                   color: C.arabic,
-                  textAlign: 'justify',
+                  textAlign: isMobile ? 'right' : 'justify',
                   paddingTop: showPageFrame ? '18px' : '0',
                   paddingBottom: showPageFrame ? '18px' : '0',
                   background: C.bg,
@@ -6116,7 +6116,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   fontSize: `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem`,
                   lineHeight: isMobile ? 1.9 : 2.1,
                   color: C.arabic,
-                  textAlign: 'justify',
+                  textAlign: isMobile ? 'right' : 'justify',
                 };
               })()}>
                 {/* Page-level Cüz/Hizb medallion — absolute-positioned in the
