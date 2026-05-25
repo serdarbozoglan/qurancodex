@@ -219,7 +219,7 @@ export default function ImpossibleRhythm() {
   };
 
   return (
-    <SectionWrapper id="rhythm" dark={true}>
+    <SectionWrapper id="rhythm" dark={true} className="section-seam-into-deep">
 
       {/* Badge */}
       <motion.div variants={fadeUpItem}>

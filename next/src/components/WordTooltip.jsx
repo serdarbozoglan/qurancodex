@@ -122,6 +122,7 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
     <div
       ref={ref}
       onClick={(e) => e.stopPropagation()}
+      data-rm-tooltip="1"
       style={{
         position: 'fixed',
         top: pos.top, left: pos.left,

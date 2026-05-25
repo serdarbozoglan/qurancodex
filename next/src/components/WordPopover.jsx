@@ -148,6 +148,9 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
   return (
     <div
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={tr ? 'Kelime detayı' : 'Word details'}
       style={{
         position: 'fixed', inset: 0, zIndex: 10000,
         background: C.backdrop, backdropFilter: 'blur(6px)',

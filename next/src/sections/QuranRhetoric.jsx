@@ -295,7 +295,7 @@ export default function QuranRhetoric() {
   const visualType = hoveredType || activeType;
 
   return (
-    <SectionWrapper id="rhetoric" dark={false}>
+    <SectionWrapper id="rhetoric" dark={false} className="section-seam-into-black">
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">

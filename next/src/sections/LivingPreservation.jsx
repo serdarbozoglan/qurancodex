@@ -40,7 +40,7 @@ export default function LivingPreservation() {
   const { t, language } = useLanguage();
 
   return (
-    <SectionWrapper id="preservation" dark={true}>
+    <SectionWrapper id="preservation" dark={true} className="section-seam-into-deep">
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">

@@ -192,7 +192,7 @@ export default function Highlights() {
   const toggle = (i) => setExpandedIndex(expandedIndex === i ? null : i);
 
   return (
-    <SectionWrapper id="highlights" dark={true}>
+    <SectionWrapper id="highlights" dark={true} className="section-seam-into-deep">
       {/* Section badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">

@@ -241,6 +241,51 @@ body {
   }
 }
 
+/* ---- Section Seam (CLAUDE.md §4: 200px gradient overlap between sections) ----
+   In-section top fade: the previous section's bg appears at the seam top
+   (transparent), and the current section's bg becomes solid by 200px down.
+   This dissolves the hard horizontal line between adjacent sections without
+   introducing an extra DOM element.
+
+   Pair the modifier with the section's own background:
+     .section-seam-into-deep  — current bg is deep-navy
+     .section-seam-into-black — current bg is cosmic-black
+
+   Apply via SectionWrapper className prop. Section root has
+   position: relative + overflow: hidden + bg color, so the absolutely
+   positioned ::before sits naturally at the top edge. z-index 1 keeps
+   the seam under content (which is z-10 inside SectionWrapper). */
+.section-seam-into-deep,
+.section-seam-into-black {
+  position: relative;
+}
+.section-seam-into-deep::before,
+.section-seam-into-black::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  pointer-events: none;
+  z-index: 1;
+}
+.section-seam-into-deep::before {
+  background: linear-gradient(to bottom, transparent 0%, var(--color-deep-navy) 100%);
+}
+.section-seam-into-black::before {
+  background: linear-gradient(to bottom, transparent 0%, var(--color-cosmic-black) 100%);
+}
+
+/* Mobile: shorter seam (100px) — keeps overhead low and respects tighter
+   mobile rhythm (matches the gradient-divider mobile downgrade). */
+@media (max-width: 640px) {
+  .section-seam-into-deep::before,
+  .section-seam-into-black::before {
+    height: 100px;
+  }
+}
+
 /* ---- Animations ---- */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }

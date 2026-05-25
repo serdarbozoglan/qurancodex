@@ -97,7 +97,7 @@ Kaynak: `tasks/todo_enhancement.md` II. Önemli
 
 - [x] **W20-Ö1 · Footer "Sayfaları Keşfet" hierarchy** — inline `glassBgFaint` (0.025) + `glassBorderSoft` (0.06) + `RADIUS.md` + `16px 20px` padding (Sources block'tan hafif). İki tier net ayrıldı.
 - [ ] **W20-Ö3 · Reading mode mobile header §14.5 pattern** — Row 1: title+close, Row 2: scrollable chips. Dosya: `ReadingMode.jsx` mobile header
-- [ ] **W20-Ö4 · Section gradient seam (200px overlap CLAUDE.md §4)** — bazı section geçişlerinde eksik. Dosyalar: `sections/*.jsx` sistematik
+- [x] **W20-Ö4 · Section gradient seam (200px overlap)** — `.section-seam-into-deep` + `.section-seam-into-black` global utility class (globals.css). 200px desktop / 100px mobile, `::before` pseudo, pointer-events none. 8 yüksek-kontrast section'a uygulandı (AllTopics, ImpossibleRhythm, QuranRhetoric, QuranDua, HiddenArchitecture, HistoricalProof, LivingPreservation, Highlights).
 - [ ] **W20-Ö5 · Global LoadingOverlay component** — `next/src/components/LoadingOverlay.jsx`, tüm tool'lar kullansın
 - [x] **W20-Ö6 · SurahPagination visible navigation** — `srOnly` prop eklendi (default `true` backward compat). `srOnly={false}` ile visible grid (2 col → mobile stack), arrow + sure adı + (Sure N), hover gold transition, edge cases (Fatiha/Nas). page.js wiring sonraki turda.
 - [x] **W20-Ö7 · ScientificSigns "Devamını oku" default expanded** — `expandedTabs` initial state `{ iron: true, universe: true, ocean: true, embryo: true }`. Toggle korundu (kullanıcı isterse collapse edebilir). Build PASS.
@@ -132,11 +132,11 @@ Kaynak: enhancement IV. UX. Audit + fix gerekli.
 
 - [x] **W22-U1** Locale switcher URL persistence — audit PASS, fix gerekmedi. `LanguageContext.jsx:58-66` zaten `pathname.replace(/^\/(tr|en)/, /${next})` + `router.push(swapped)` pattern'i ile path swap yapıyor.
 - [x] **W22-U2** Browser back audit + HIGH fixes — `docs/reviews/2026-05-25-browser-back-audit.md`. 5 senaryo + 3 bonus. **2 HIGH FIXED**: ReadingModeRoute × 2 `router.push('/')` → `router.back()` (locale-prefix + cross-tool context loss çözüldü); `useQuranNav.js` `?q=` → `?verse=` (VerseGraph deep-link uyumlu). MED (event-dispatch legacy) + LOW (boş history, replaceState race) sonraki tur.
-- [ ] **W22-U3** Keyboard nav tab order + focus trap on modal open + restore on close
+- [~] **W22-U3** Keyboard focus trap audit — `docs/reviews/2026-05-25-keyboard-focus-trap-audit.md`. 14 modal denetlendi. **Esc pattern ✅** (40 dosyada), **Tab focus trap ❌** (hiçbir component'ta yok — WCAG 2.4.3 ihlali), focus return ❌, initial focus ⚠️ (sadece search modal'larda). Fix uygulanan: `WordPopover` role=dialog + aria-modal + aria-label. Sistematik `useFocusTrap()` hook deferred.
 - [x] **W22-U4** Escape key audit + fix — 37 tool component tarandı, 35'i temiz. 2 fix: `ProphetAtlas.jsx` ve `TafsirPanel.jsx`'e standart Esc useEffect handler eklendi. ReadingMode.jsx ve MeselAtlasi.jsx bilinçli tasarım kararı (no-op).
 - [~] **W22-U5** Empty states — **`/oku/[surah]` partial done:** invalid surah (NaN/0/115+) → `notFound()` early return + locale-aware `not-found.jsx` (Arabic "لَا" decorative, h1 + helpful CTA "Tüm Sureleri Gör"). Verify: `/oku/200` `/oku/0` `/oku/abc` 404, `/oku/1` 200. Kalan: ConceptGraph empty + API meal fail toast (sonraki tur)
 - [x] **W22-U6** Mobile spinner centered — 3 dosya fix (KiyametSahneleri:646, Melekler:1209, KuranRenkleri:223) bare/top-left loader → flex-center + minHeight 40vh. Mevcut overlay-level loader'ların 20+'ı zaten doğru flex-center pattern'da.
-- [ ] **W22-U7** ReadingMode kelime tooltip mobile: tap-to-toggle
+- [x] **W22-U7** ReadingMode kelime tooltip mobile tap-to-toggle — 4 word render block'una mobile gating: desktop'ta hover korunur, mobilde tap toggle eder, tekrar tap kapatır, dışarı tap kapatır (pointerdown listener + `[data-rm-word]` + `[data-rm-tooltip]` selector'leri). Mevcut isMobile state'i reuse edildi.
 - [x] **W22-U8** Settings localStorage schema versionlama — `qurancodex_settings_version` sentinel key + `migrateReadingModeSettings()` namespace versioning. 16 UI prefs purge-on-mismatch (theme, font, audio, karaoke, vb); navigation state + bookmarks + meal/corpus cache KORUNUR. Schema __v: 2. Future bump = silent reset.
 - [ ] **W22-U9** Audio pause on tool overlay open
 - [x] **W22-U10** Document title audit — 15/15 route temiz, unique + locale-aware (`pageMetadata` + module-level TITLE/DESC pattern prod'da hatasız). Generic "QuranCodex" placeholder hiçbir tool route'unda yok.
@@ -148,7 +148,7 @@ Kaynak: enhancement IV. UX. Audit + fix gerekli.
 Kaynak: enhancement V. SEO/A11y. Post-cutover.
 
 - [x] **W23-S1** SVG aria triage — sections (16 dosya, 72 SVG) + components (34 dosya, 154 SVG) = **226 decorative SVG'ye `aria-hidden="true"`** eklendi. Data viz SVG'leri skip (ConceptGraph canvas, IsnadTree, MeselAtlasi ring, donut chart, VerseGraph canvas, DiyalogAgi network — ayrı tur için `<title>+<desc>`). Interactive icon button'lar parent aria-label kontrolüyle korundu.
-- [ ] **W23-S2** Color contrast WCAG AA (`text-silver/75` /`40` audit; Lighthouse)
+- [x] **W23-S2** WCAG AA color contrast audit — `docs/reviews/2026-05-25-wcag-contrast-audit.md`. 30 color pair, sRGB relative luminance hesaplamasıyla. **26 PASS / 4 FAIL (0 HIGH).** Primary text (offWhite 15.74:1, silver 7.65:1) çok güvenli. MED: silverAlpha70 (4.23:1) + paperGold day-mode (4.14:1). LOW: emerald large-text only. Token önerileri: silverAlpha85, paperGoldDark.
 - [x] **W23-S3** "Ana içeriğe geç" skip link — `layout.js`'e statik link (locale-aware TR/EN), `<main id="main">` wrap, `globals.css` `.skip-link` z-index 10003 (navbar üstünde). focus + focus-visible.
 - [x] **W23-S4** Heading hierarchy audit + fix — 8 sample route'ta 7/8 temiz. `QuranDua.jsx:532` H4 → H3 atlaması fix (Hz. İbrahim chip aynı section'da). Tool overlay'lerde SSR H1 sonra hydration H2 §16.5/16.12 pattern'iyle uyumlu.
 - [x] **W23-S5** hreflang audit — 8/8 route temiz, tr + en + x-default üçlüsü doğru URL'lerle mevcut. Canonical `tr` hreflang ile eşit. `pageMetadata` helper prod'da düzgün çalışıyor.

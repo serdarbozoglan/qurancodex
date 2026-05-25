@@ -180,7 +180,7 @@ export default function QuranDua() {
   const [activeProfile, setActiveProfile] = useState('ibrahim');
 
   return (
-    <SectionWrapper id="dua-language" dark={true}>
+    <SectionWrapper id="dua-language" dark={true} className="section-seam-into-deep">
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">

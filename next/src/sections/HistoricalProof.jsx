@@ -46,7 +46,7 @@ export default function HistoricalProof() {
   };
 
   return (
-    <SectionWrapper id="history" dark={false}>
+    <SectionWrapper id="history" dark={false} className="section-seam-into-black">
       {/* Section badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">

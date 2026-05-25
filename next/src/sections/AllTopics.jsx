@@ -48,7 +48,7 @@ export default function AllTopics() {
   };
 
   return (
-    <SectionWrapper id="all-topics" dark={true}>
+    <SectionWrapper id="all-topics" dark={true} className="section-seam-into-deep">
       {/* Section label */}
       <motion.div variants={fadeUpItem}>
         <span

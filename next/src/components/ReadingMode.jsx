@@ -1265,6 +1265,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const [wordMode, setWordMode] = useState(false);
   const [hoveredWord, setHoveredWord] = useState(null); // { word, anchorRect } or null
 
+  // Mobile tap-to-toggle close-on-outside-tap:
+  // On mobile, words use onClick to open the WordTooltip (no hover events).
+  // Closing requires a tap outside both the word span and the tooltip itself.
+  // WordTooltip already closes on scroll/resize/Escape; this handles the
+  // "tap empty space" gesture. Desktop is untouched.
+  useEffect(() => {
+    if (!isMobile || !hoveredWord) return;
+    const handler = (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      // Word spans carry data-rm-word="1"; tooltip carries data-rm-tooltip="1".
+      if (t.closest('[data-rm-word="1"]') || t.closest('[data-rm-tooltip="1"]')) return;
+      setHoveredWord(null);
+    };
+    document.addEventListener('pointerdown', handler, true);
+    return () => document.removeEventListener('pointerdown', handler, true);
+  }, [isMobile, hoveredWord]);
+
   // Fetch word-by-word data (kuran.com via /kuran-proxy) only when wordMode is on.
   // Primary surah = active or selected. Multi-surah pages fall back to tajweed
   // rendering for verses outside the loaded surah (acceptable MVP trade-off).
@@ -5896,11 +5914,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 const wordSpan = (
                                   <span
                                     key={i}
-                                    onMouseEnter={hoverable ? (e) => {
+                                    data-rm-word={hoverable ? '1' : undefined}
+                                    onMouseEnter={hoverable && !isMobile ? (e) => {
                                       const rect = e.currentTarget.getBoundingClientRect();
                                       setHoveredWord({ word: wordMeta, anchorRect: rect });
                                     } : undefined}
-                                    onMouseLeave={hoverable ? () => setHoveredWord(null) : undefined}
+                                    onMouseLeave={hoverable && !isMobile ? () => setHoveredWord(null) : undefined}
                                     onClick={(e) => {
                                       if (hoverable) {
                                         e.stopPropagation();
@@ -5918,8 +5937,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       padding: '0 1px',
                                       transition: 'background 0.15s',
                                     }}
-                                    onMouseOver={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
-                                    onMouseOut={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; } : undefined}
+                                    onMouseOver={hoverable && !isMobile ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
+                                    onMouseOut={hoverable && !isMobile ? (e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; } : undefined}
                                     dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(arabicWord, dayMode) }}
                                   />
                                 );
@@ -6506,11 +6525,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     const wordSpan = (
                                       <span
                                         key={i}
-                                        onMouseEnter={hoverable ? (e) => {
+                                        data-rm-word={hoverable ? '1' : undefined}
+                                        onMouseEnter={hoverable && !isMobile ? (e) => {
                                           const rect = e.currentTarget.getBoundingClientRect();
                                           setHoveredWord({ word: wordMeta, anchorRect: rect });
                                         } : undefined}
-                                        onMouseLeave={hoverable ? () => setHoveredWord(null) : undefined}
+                                        onMouseLeave={hoverable && !isMobile ? () => setHoveredWord(null) : undefined}
                                         onClick={(e) => {
                                           if (corpusWord) {
                                             e.stopPropagation();
@@ -6532,8 +6552,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                           transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, opacity 120ms, text-shadow 120ms',
                                           ...karaokeStyle,
                                         }}
-                                        onMouseOver={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
-                                        onMouseOut={hoverable ? (e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; } : undefined}
+                                        onMouseOver={hoverable && !isMobile ? (e) => { if (!isActive) e.currentTarget.style.background = dayMode ? 'rgba(212,165,116,0.18)' : 'rgba(212,165,116,0.14)'; } : undefined}
+                                        onMouseOut={hoverable && !isMobile ? (e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; } : undefined}
                                         dangerouslySetInnerHTML={{ __html: wrapWaqfOnly(arabicWord, dayMode) }}
                                       />
                                     );
@@ -7347,8 +7367,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 return (
                                 <span key={i}>
                                   <span
-                                    onClick={(e) => { e.stopPropagation(); setHoveredWord(null); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
-                                    onMouseEnter={(e) => {
+                                    data-rm-word="1"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      if (isMobile) {
+                                        // Mobile: tap toggles the lightweight WordTooltip in place of
+                                        // hover. Re-tapping the same word closes it; tapping another
+                                        // word replaces the anchor. The richer ActiveWord overlay is
+                                        // accessed from the tooltip CTAs.
+                                        const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
+                                        setHoveredWord(prev => prev && prev.word?.arabic === wordMeta.arabic
+                                          ? null
+                                          : { word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
+                                        return;
+                                      }
+                                      setHoveredWord(null);
+                                      setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah });
+                                    }}
+                                    onMouseEnter={isMobile ? undefined : (e) => {
                                       e.currentTarget.style.background = 'rgba(212,165,116,0.14)';
                                       // Map corpus shape → WordTooltip shape: corpus uses
                                       // {ar, tr, ...} whereas WordTooltip expects
@@ -7356,7 +7392,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
                                       setHoveredWord({ word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
                                     }}
-                                    onMouseLeave={(e) => {
+                                    onMouseLeave={isMobile ? undefined : (e) => {
                                       e.currentTarget.style.background = 'transparent';
                                       setHoveredWord(null);
                                     }}
@@ -7559,8 +7595,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 return (
                                 <span key={i}>
                                   <span
-                                    onClick={(e) => { e.stopPropagation(); setHoveredWord(null); setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah }); }}
-                                    onMouseEnter={(e) => {
+                                    data-rm-word="1"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      if (isMobile) {
+                                        // Mobile: tap toggles the lightweight WordTooltip in place of
+                                        // hover. Re-tapping the same word closes it; tapping another
+                                        // word replaces the anchor. The richer ActiveWord overlay is
+                                        // accessed from the tooltip CTAs.
+                                        const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
+                                        setHoveredWord(prev => prev && prev.word?.arabic === wordMeta.arabic
+                                          ? null
+                                          : { word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
+                                        return;
+                                      }
+                                      setHoveredWord(null);
+                                      setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah });
+                                    }}
+                                    onMouseEnter={isMobile ? undefined : (e) => {
                                       e.currentTarget.style.background = 'rgba(212,165,116,0.14)';
                                       // Map corpus shape → WordTooltip shape: corpus uses
                                       // {ar, tr, ...} whereas WordTooltip expects
@@ -7568,7 +7620,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
                                       setHoveredWord({ word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
                                     }}
-                                    onMouseLeave={(e) => {
+                                    onMouseLeave={isMobile ? undefined : (e) => {
                                       e.currentTarget.style.background = 'transparent';
                                       setHoveredWord(null);
                                     }}
