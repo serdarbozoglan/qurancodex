@@ -9,6 +9,7 @@ import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
+import LoadingOverlay from './LoadingOverlay';
 
 
 // ── City colour map ───────────────────────────────────────────────────────────
@@ -1609,10 +1610,8 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
             </svg>
           </button>
         </div>
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
-          </span>
+        <div style={{ flex: 1, display: 'flex' }}>
+          <LoadingOverlay />
         </div>
       </div>
     );

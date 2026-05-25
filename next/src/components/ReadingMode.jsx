@@ -2287,19 +2287,115 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       )}
       {/* Audio is handled imperatively via audioLiveRef — no DOM <audio> element needed */}
 
-      {/* Header */}
+      {/* Header — Desktop: single grid row. Mobile (§14.5): two-row pattern —
+          Row 1 = title (sûre adı) + Kapat, Row 2 = horizontally-scrollable
+          chip strip containing all other controls. The §14.5 split keeps the
+          title legible at one glance and avoids cramming 4–5 36px-wide
+          buttons + a wide pill into a single 52px row. */}
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr auto' : '1fr auto 1fr',
-        gridTemplateRows: isMobile ? '52px' : 'auto',
-        alignItems: 'center',
-        padding: isMobile ? '0 8px' : '0 16px', height: isMobile ? 'auto' : '64px', flexShrink: 0,
+        display: isMobile ? 'flex' : 'grid',
+        flexDirection: isMobile ? 'column' : undefined,
+        gridTemplateColumns: isMobile ? undefined : '1fr auto 1fr',
+        gridTemplateRows: isMobile ? undefined : 'auto',
+        alignItems: isMobile ? 'stretch' : 'center',
+        padding: isMobile ? 0 : '0 16px', height: isMobile ? 'auto' : '64px', flexShrink: 0,
         background: navC.bg, backdropFilter: 'blur(24px)',
         borderBottom: `1px solid ${navC.borderBottom}`,
         // Lift the navbar above the Tahta canvas (zIndex 200) so its buttons remain
         // clickable while drawing — without this, the canvas swallows all clicks.
         position: 'relative', zIndex: 250,
       }}>
+
+        {/* Mobile Row 1 — Title + Close (CLAUDE.md §14.5). Sûre adı +
+            sayfa numarası tek satırda, sağda Kapat butonu. */}
+        {isMobile && (
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '8px',
+            padding: '10px 16px', // §14.6 mobile header padding
+            minHeight: '48px',
+            borderBottom: `1px solid ${navC.divider}`,
+          }}>
+            <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, flex: 1 }}>
+              <span style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.95rem',
+                fontWeight: 700,
+                color: gold,
+                lineHeight: 1.2,
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}>
+                {surahName}
+              </span>
+              {bookMode && currentPage > 0 && (
+                <span style={{
+                  fontSize: '0.62rem',
+                  color: navC.label,
+                  letterSpacing: '0.04em',
+                  lineHeight: 1.2,
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                }}>
+                  {language === 'tr' ? 'Cüz ' : 'Juz '}<span style={{ color: gold, fontWeight: 600 }}>{currentDisplayJuz}</span>
+                  {' · '}
+                  {language === 'tr' ? 'S. ' : 'P. '}<span style={{ color: gold, fontWeight: 600 }}>{currentPage}</span>
+                  <span style={{ opacity: 0.7 }}>{' / 604'}</span>
+                </span>
+              )}
+            </div>
+            <button
+              onClick={onClose}
+              title={language === 'tr' ? 'Okuma modundan çık' : 'Exit reading mode'}
+              aria-label={language === 'tr' ? 'Kapat' : 'Close'}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: '36px', height: '36px', borderRadius: '50%',
+                background: 'rgba(255,255,255,0.06)',
+                border: `1px solid ${navC.btnBorder}`,
+                color: navC.label,
+                cursor: 'pointer', transition: `all ${TRANSITION.fast}`, flexShrink: 0,
+                padding: 0,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = 'rgba(239,68,68,0.12)';
+                e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)';
+                e.currentTarget.style.color = '#f87171';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                e.currentTarget.style.borderColor = navC.btnBorder;
+                e.currentTarget.style.color = navC.label;
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        )}
+
+        {/* Mobile Row 2 — horizontally-scrollable chip strip wrapper.
+            Wraps the existing LEFT + RIGHT IIFE blocks in a flex row with
+            overflow-x: auto so the controls scroll horizontally instead
+            of compressing/overflowing. Desktop renders this wrapper as a
+            display:contents pass-through so the original 1fr/auto/1fr grid
+            placement is preserved. */}
+        <div style={isMobile ? {
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px',
+          padding: '8px 12px 10px',
+          overflowX: 'auto',
+          overflowY: 'hidden',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+        } : { display: 'contents' }}>
 
         {/* LEFT: surah navigation */}
         {(() => {
@@ -2361,28 +2457,30 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   and gave the false impression that the active pill is itself
                   an action target. Now it's a static label styled like the
                   pills around it, kept visually emphasized (gold border + bold
-                  name) so it still anchors the cluster. */}
+                  name) so it still anchors the cluster.
+                  Mobile: hidden — title moved to Row 1 of the §14.5 two-row
+                  header above (avoids duplication in the scrollable chip row). */}
+              {!isMobile && (
               <div
                 aria-label={language === 'tr' ? `Şu an: ${surahName}` : `Current: ${surahName}`}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  height: isMobile ? '32px' : '44px', padding: isMobile ? '0 8px' : '0 12px', borderRadius: RADIUS.md, cursor: 'default',
+                  height: '44px', padding: '0 12px', borderRadius: RADIUS.md, cursor: 'default',
                   border: `1px solid ${navC.btnBorderActive}`,
                   background: navC.btnBgActive,
                   gap: '2px', flexShrink: 0,
                   userSelect: 'none',
                 }}
               >
-                {!isMobile && (
-                  <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
-                    {language === 'tr' ? 'Sûre' : 'Surah'} {selectedSurah}
-                    {surahVerses.length > 0 && <span style={{ color: navC.labelSoft, marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
-                  </span>
-                )}
-                <span style={{ fontSize: isMobile ? '0.75rem' : '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
+                <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                  {language === 'tr' ? 'Sûre' : 'Surah'} {selectedSurah}
+                  {surahVerses.length > 0 && <span style={{ color: navC.labelSoft, marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
+                </span>
+                <span style={{ fontSize: '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
                   {surahName}
                 </span>
               </div>
+              )}
 
               {!isMobile && navBtn(selectedSurah + 1, nextName, 'next', () => changeSurah(selectedSurah + 1))}
 
@@ -2433,24 +2531,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </span>
               )}
 
-              {/* Mobile: cüz info only */}
-              {isMobile && bookMode && (
-                <>
-                  <div style={{ width: '1px', height: '18px', background: navC.divider, opacity: 0.5, flexShrink: 0 }} />
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', flexShrink: 0 }}>
-                    <span style={{ fontSize: '0.6rem', color: navC.label, whiteSpace: 'nowrap' }}>
-                      {language === 'tr' ? `Cüz ${currentDisplayJuz}` : `Juz ${currentDisplayJuz}`}
-                    </span>
-                    {currentPage > 0 && (
-                      <span style={{ fontSize: '0.55rem', color: navC.label, opacity: 0.55, whiteSpace: 'nowrap' }}>
-                        {language === 'tr' ? 'S.' : 'P.'}{' '}
-                        <span style={{ fontWeight: 600 }}>{currentPage}</span>
-                        {' · 604'}
-                      </span>
-                    )}
-                  </div>
-                </>
-              )}
+              {/* Mobile inline cüz info — removed; moved to Row 1 of the
+                  §14.5 two-row header. Keeping it here would duplicate the
+                  same Cüz/Sayfa numbers in the scrollable chip row. */}
             </div>
           );
         })()}
@@ -2487,7 +2570,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           );
 
           return (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: isMobile ? '4px' : '8px', gridColumn: isMobile ? '2' : undefined, gridRow: isMobile ? '1' : undefined }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: isMobile ? 'flex-start' : 'flex-end', gap: isMobile ? '6px' : '8px', flexShrink: 0 }}>
 
               {/* Unified search bar — opens command palette overlay (sûre/ayet/cüz/sayfa
                   + Son Okunan + verse text). Sits to the LEFT of Kelime so it lands near
@@ -2818,8 +2901,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {/* Divider before close — desktop only */}
               {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 12px' }} />}
 
-              {/* Kapat */}
-              {btn(false, onClose,
+              {/* Kapat — desktop only. Mobile renders the close button in
+                  Row 1 of the §14.5 two-row header (above), so this inline
+                  one would be a duplicate. */}
+              {!isMobile && btn(false, onClose,
                 language === 'tr' ? 'Kapat' : 'Close', <CloseIcon size={isMobile ? 15 : 18} />,
                 e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.querySelectorAll('span').forEach(s => { s.style.color = '#f87171'; }); },
                 e => {
@@ -2835,6 +2920,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </div>
           );
         })()}
+        </div>{/* end of mobile Row 2 wrapper / desktop contents pass-through */}
       </div>
 
       {/* ── Tecvid Legend Strip ──────────────────────────────────────────────

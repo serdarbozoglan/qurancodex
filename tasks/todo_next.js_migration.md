@@ -96,9 +96,9 @@
 Kaynak: `tasks/todo_enhancement.md` II. Önemli
 
 - [x] **W20-Ö1 · Footer "Sayfaları Keşfet" hierarchy** — inline `glassBgFaint` (0.025) + `glassBorderSoft` (0.06) + `RADIUS.md` + `16px 20px` padding (Sources block'tan hafif). İki tier net ayrıldı.
-- [ ] **W20-Ö3 · Reading mode mobile header §14.5 pattern** — Row 1: title+close, Row 2: scrollable chips. Dosya: `ReadingMode.jsx` mobile header
+- [x] **W20-Ö3 · Reading mode mobile header §14.5 pattern** — Mobile Row 1 (title gold + close 36×36 red hover) + Row 2 scrollable chips (search, day/night, TR/EN, settings). §14.6 padding `10px 16px`. Desktop `display: contents` ile struct değişmedi (sıfır regression).
 - [x] **W20-Ö4 · Section gradient seam (200px overlap)** — `.section-seam-into-deep` + `.section-seam-into-black` global utility class (globals.css). 200px desktop / 100px mobile, `::before` pseudo, pointer-events none. 8 yüksek-kontrast section'a uygulandı (AllTopics, ImpossibleRhythm, QuranRhetoric, QuranDua, HiddenArchitecture, HistoricalProof, LivingPreservation, Highlights).
-- [ ] **W20-Ö5 · Global LoadingOverlay component** — `next/src/components/LoadingOverlay.jsx`, tüm tool'lar kullansın
+- [~] **W20-Ö5 · Global LoadingOverlay component** — `LoadingOverlay.jsx` (101 satır, token-only renkler, role=status + aria-live, local keyframe). API: `message`, `fullScreen`, `size`. 2 tool demo entegrasyonu (DogaAtlasi + KiraatAtlasi). Diğer tool'lara yayma deferred.
 - [x] **W20-Ö6 · SurahPagination visible navigation** — `srOnly` prop eklendi (default `true` backward compat). `srOnly={false}` ile visible grid (2 col → mobile stack), arrow + sure adı + (Sure N), hover gold transition, edge cases (Fatiha/Nas). page.js wiring sonraki turda.
 - [x] **W20-Ö7 · ScientificSigns "Devamını oku" default expanded** — `expandedTabs` initial state `{ iron: true, universe: true, ocean: true, embryo: true }`. Toggle korundu (kullanıcı isterse collapse edebilir). Build PASS.
 - [x] **W20-Ö8 · KissaAtlas sahne sayısı tutarsızlığı** — audit yanlış yorumlamış: ekrandaki "3" sahne sayısı değil `surahCount`'tu (Musa 32 sure'de geçer). Mevcut sahneler zaten zengin (12-18). Yine de +13 sahne eklendi: Yusuf 12→18, İbrahim 14→18, İsa 11→14.
@@ -167,11 +167,11 @@ Kaynak: enhancement VI. Kod Kalitesi. Faz 11 cleanup ile birleşir.
 - [ ] **W24-T1** 53 inline `'KFGQPC'` → `var(--font-kfgqpc)` + `next/font/local`
 - [ ] **W24-T2** SSR-safe `useState` audit — 22 hook'ta kalan `localStorage` lazy init → §16.6 standardı
 - [ ] **W24-T3** Tool overlay → normal-flow refactor (uzun vadeli) — visual breadcrumb + browser back + print + mobile UX
-- [ ] **W24-T4** i18n key parity son audit (W17'de `*Tr/*En` suffix pattern false positive çıktı)
+- [x] **W24-T4** i18n key parity son audit — `docs/reviews/2026-05-25-i18n-parity-audit.md`. 934 TR / 935 EN leaf key. Strict path parity ✅ (suffix filtering sonrası 0/0). 1 gerçek missing: `soundArchitecture.phonetics.noteEn` var ama `noteTr` yok. Edge case'ler (kasıtlı `*Tr` suffix EN tarafta) ayrıştırıldı.
 - [ ] **W24-T5** Tool icon SVG sprite optimization
 - [ ] **W24-T6** `@next/bundle-analyzer` kurulumu (Faz 8.3 — user dep approval)
 - [ ] **W24-T7** Edge runtime cold start time ölçümü (API + OG routes)
-- [ ] **W24-T8** CSS variables ↔ `tokens.js` sync audit
+- [x] **W24-T8** CSS variables ↔ `tokens.js` sync audit — `docs/reviews/2026-05-25-css-vars-tokens-sync-audit.md`. 23 shared key value-for-value match. **2 HIGH drift**: glassBg warm-cream vs pure-white (dead code; .glass-card hardcoded), FONTS.quran var counterpart yok (.arabic-verse §13.2 violation). 3 MED: softGold/goldBright/goldWarm JS-only.
 
 ---
 

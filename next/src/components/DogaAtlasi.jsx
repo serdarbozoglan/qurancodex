@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
+import LoadingOverlay from './LoadingOverlay';
 
 // ── Context badge color map ───────────────────────────────────────────────────
 const ANIMAL_CONTEXT_COLORS = {
@@ -1060,10 +1061,8 @@ export default function DogaAtlasi({ onClose }) {
           </div>
           <CloseButton onClose={onClose} />
         </div>
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
-          </span>
+        <div style={{ flex: 1, display: 'flex' }}>
+          <LoadingOverlay />
         </div>
       </div>
     );
