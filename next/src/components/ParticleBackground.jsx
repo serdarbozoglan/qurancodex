@@ -9,7 +9,7 @@ import { useRef, useEffect } from 'react';
 // parite. Akademik kullanıcı için subtle ama unique brand detayı.
 const MUKATTAA_HARFLER = ['ا', 'ح', 'ر', 'س', 'ص', 'ط', 'ع', 'ق', 'ك', 'ل', 'م', 'ن', 'ه', 'ي'];
 
-export default function ParticleBackground({ particleCount = 80 }) {
+export default function ParticleBackground({ particleCount = 80, glyphRatio = 0.20 }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function ParticleBackground({ particleCount = 80 }) {
     let h = 0;
 
     const particles = Array.from({ length: particleCount }, () => {
-      const isGlyph = Math.random() < 0.20; // %20 mukattaa (her 5 particle'da 1)
+      const isGlyph = Math.random() < glyphRatio;
       // Glyph'ler için: bazıları belirgin sağa, bazıları sola süzülsün — sadece
       // yukarı düz değil. Daha güçlü horizontal drift = çoklu yön hissi.
       const glyphDirection = Math.random();
@@ -135,7 +135,7 @@ export default function ParticleBackground({ particleCount = 80 }) {
       window.removeEventListener('resize', resize);
       document.removeEventListener('visibilitychange', handleVisibility);
     };
-  }, [particleCount]);
+  }, [particleCount, glyphRatio]);
 
   return (
     <canvas

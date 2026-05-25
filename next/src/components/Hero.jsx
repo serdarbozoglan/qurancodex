@@ -32,7 +32,10 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-cosmic-black"
     >
-      <ParticleBackground particleCount={isMobile ? 15 : 40} />
+      <ParticleBackground
+        particleCount={isMobile ? 22 : 40}
+        glyphRatio={isMobile ? 0.35 : 0.20}
+      />
 
       {/* Slow-rotating Islamic pattern overlay — felt, not seen */}
       <div className="absolute inset-0 islamic-pattern-bg opacity-[0.04] animate-rotate-slow origin-center" />

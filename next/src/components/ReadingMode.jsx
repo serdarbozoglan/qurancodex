@@ -2331,22 +2331,29 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}>
                 {surahName}
               </span>
-              {bookMode && currentPage > 0 && (
-                <span style={{
-                  fontSize: '0.62rem',
-                  color: navC.label,
-                  letterSpacing: '0.04em',
-                  lineHeight: 1.2,
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}>
-                  {language === 'tr' ? 'Cüz ' : 'Juz '}<span style={{ color: gold, fontWeight: 600 }}>{currentDisplayJuz}</span>
-                  {' · '}
-                  {language === 'tr' ? 'S. ' : 'P. '}<span style={{ color: gold, fontWeight: 600 }}>{currentPage}</span>
-                  <span style={{ opacity: 0.7 }}>{' / 604'}</span>
-                </span>
-              )}
+              <span style={{
+                fontSize: '0.62rem',
+                color: navC.label,
+                letterSpacing: '0.04em',
+                lineHeight: 1.2,
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}>
+                {bookMode && currentPage > 0 ? (
+                  <>
+                    {language === 'tr' ? 'Cüz ' : 'Juz '}<span style={{ color: gold, fontWeight: 600 }}>{currentDisplayJuz}</span>
+                    {' · '}
+                    {language === 'tr' ? 'S. ' : 'P. '}<span style={{ color: gold, fontWeight: 600 }}>{currentPage}</span>
+                    <span style={{ opacity: 0.7 }}>{' / 604'}</span>
+                  </>
+                ) : (
+                  <>
+                    {language === 'tr' ? 'Sûre ' : 'Surah '}<span style={{ color: gold, fontWeight: 600 }}>{selectedSurah}</span>
+                    {' / 114'}
+                  </>
+                )}
+              </span>
             </div>
             <button
               onClick={onClose}
