@@ -1159,18 +1159,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // isCurrentPageBookmarked is computed below after currentPage is defined
 
   // ── Font size (persisted) ──────────────────────────────────────────────────
-  // SSR'da `window` yok → useState init function SSR ve hydrate'te aynı değeri
-  // dönmek zorunda (hydration consistency). Bu yüzden conservative desktop default
-  // (2.8). Mobile detection mount-sonrası useEffect ile yapılır ve arabicFontSize
-  // re-set edilir (saved key veya mobile default 1.8).
-  const [arabicFontSize, setArabicFontSize] = useState(2.8);
-  // Mount sonrası: mobile/desktop'a göre saved key oku veya default ata.
-  // V1 migration: önceki test/dev sırasında localStorage'a kaydedilmiş eski
-  // değerler (2.8 mobile gibi yanlış kombinasyonlar) bir kez temizlenir,
-  // böylece kullanıcı doğru mobile default 1.8 ile başlar.
-  useEffect(() => {
+  // ReadingMode dynamic({ssr:false}) ile yüklendiği için useState init function
+  // CLIENT-only çalışır → window mevcut, mobile detection ilk render'da yapılabilir
+  // (post-mount useEffect ile flash yok). V2 migration eski yanlış localStorage
+  // değerlerini bir kez temizler (user'ın manuel slider tercihini reset edebilir;
+  // kabul edilen trade-off — doğru default önemli).
+  const [arabicFontSize, setArabicFontSize] = useState(() => {
     try {
-      const ARABIC_SIZE_VERSION = '1';
+      if (typeof window === 'undefined') return 2.8;
+      const ARABIC_SIZE_VERSION = '2';
       const v = localStorage.getItem('qurancodex_arabic_size_v');
       if (v !== ARABIC_SIZE_VERSION) {
         localStorage.removeItem('qurancodex_font_size_mobile');
@@ -1181,14 +1178,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       const isMobileNow = window.innerWidth < BREAKPOINT_MOBILE;
       const key = isMobileNow ? 'qurancodex_font_size_mobile' : 'qurancodex_font_size_desktop';
       const saved = localStorage.getItem(key);
-      if (saved) {
-        setArabicFontSize(parseFloat(saved));
-      } else {
-        setArabicFontSize(isMobileNow ? 1.8 : 2.8);
-      }
-    } catch {}
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+      if (saved) return parseFloat(saved);
+      return isMobileNow ? 1.8 : 2.8;
+    } catch {
+      return 2.8;
+    }
+  });
   // Turkish meal / translation font size — independent of Arabic so users can
   // scale the two columns separately. Stored in rem; default 1.0 (matches the
   // pre-existing desktop literal `1rem`). Slider clamps to 0.75–1.6.
