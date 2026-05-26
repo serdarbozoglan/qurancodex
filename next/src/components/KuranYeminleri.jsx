@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 // Tab definitions with mini SVG icons for visual affordance
 const TABS = [
@@ -36,6 +37,7 @@ export default function KuranYeminleri({ onClose }) {
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const [expandedAccordion, setExpandedAccordion] = useState(null);
   const bodyRef = useRef(null);
+  const trapRef = useFocusTrap(true);
 
   useEffect(() => {
     const h = (e) => { if (e.key === 'Escape') onClose(); };
@@ -82,7 +84,13 @@ export default function KuranYeminleri({ onClose }) {
 
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div
+        ref={trapRef}
+        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+        role="dialog"
+        aria-modal="true"
+        aria-label={language === 'tr' ? "Kur'an Yeminleri" : "Oaths of the Quran"}
+      >
         <div style={OVERLAY_HEADER}>
           <span style={OVERLAY_TITLE}>{language === 'tr' ? "Kur'an'ın Yeminleri" : "Oaths of the Quran"}</span>
           <CloseBtn onClose={onClose} />
@@ -98,7 +106,13 @@ export default function KuranYeminleri({ onClose }) {
 
   const { meta, categories, depthAnalysis, ibnQayyim, sources } = data;
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+    <div
+      ref={trapRef}
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={language === 'tr' ? "Kur'an Yeminleri" : "Oaths of the Quran"}
+    >
 
       {/* ── HEADER ─────────────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>

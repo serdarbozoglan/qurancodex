@@ -3,6 +3,7 @@
 // src/components/MeselAtlasi.jsx
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useQuranNav } from '../hooks/useQuranNav';
 import {
   OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
@@ -1095,6 +1096,7 @@ const PARABLE_TYPES_DATA = [
 const ROMAN = ['I', 'II', 'III'];
 
 function TabBilgi({ metaVerses, scholars, language, isMobile }) {
+  const { openOverlay } = useQuranNav();
   return (
     <div style={{ padding: isMobile ? '12px' : '24px 28px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
 
@@ -1279,15 +1281,16 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {[
-            { event: 'openKuranRetorigi',    tr: "KUR'AN'IN RETORİĞİ", en: 'QURANIC RHETORIC',  descTr: 'Mesel & temsil belâgat sanatının parçası — teşbîh, istiâre, kinâye',                   descEn: 'Parables as part of rhetorical art — tashbīh, istiʿāra, kināya' },
-            { event: 'openDogaAtlasi',       tr: 'DOĞA ATLASI',         en: 'NATURE ATLAS',     descTr: 'Arı, deve, sığır — hayvanların kevniyye/yaratılış bağlamı',                          descEn: 'Bee, camel, cattle — animals in their cosmological context' },
-            { event: 'openMunafikProfili',   tr: 'MÜNAFIK PROFİLİ',     en: 'HYPOCRITE PROFILE', descTr: 'Bakara 2:17-19 — münafık çift mesellerinin klinik analizi',                           descEn: 'Bakara 2:17-19 — clinical analysis of paired hypocrite parables' },
-            { event: 'openCennetCehennem',   tr: 'CENNET & CEHENNEM',   en: 'PARADISE & HELL',  descTr: 'Muhammed 47:15 — cennet nehirlerinin (paradise-rivers) detaylı tasviri',              descEn: 'Muhammad 47:15 — detailed description of paradise rivers' },
-            { event: 'openKiyametSahneleri', tr: 'KIYAMET SAHNELERİ',   en: 'SCENES OF QIYĀMAH', descTr: 'Yâsîn 36:78 (kuru kemikler), Bakara 2:259 (yıkık kasaba) — diriliş meselleri',     descEn: 'Yāsīn 36:78 (dry bones), Bakara 2:259 (ruined town) — resurrection parables' },
+            { key: 'retorigi', tr: "KUR'AN'IN RETORİĞİ", en: 'QURANIC RHETORIC',  descTr: 'Mesel & temsil belâgat sanatının parçası — teşbîh, istiâre, kinâye',                   descEn: 'Parables as part of rhetorical art — tashbīh, istiʿāra, kināya' },
+            { key: 'kevni',    tr: 'DOĞA ATLASI',         en: 'NATURE ATLAS',     descTr: 'Arı, deve, sığır — hayvanların kevniyye/yaratılış bağlamı',                          descEn: 'Bee, camel, cattle — animals in their cosmological context' },
+            { key: 'munafik',  tr: 'MÜNAFIK PROFİLİ',     en: 'HYPOCRITE PROFILE', descTr: 'Bakara 2:17-19 — münafık çift mesellerinin klinik analizi',                           descEn: 'Bakara 2:17-19 — clinical analysis of paired hypocrite parables' },
+            { key: 'cennet',   tr: 'CENNET & CEHENNEM',   en: 'PARADISE & HELL',  descTr: 'Muhammed 47:15 — cennet nehirlerinin (paradise-rivers) detaylı tasviri',              descEn: 'Muhammad 47:15 — detailed description of paradise rivers' },
+            { key: 'kiyamet',  tr: 'KIYAMET SAHNELERİ',   en: 'SCENES OF QIYĀMAH', descTr: 'Yâsîn 36:78 (kuru kemikler), Bakara 2:259 (yıkık kasaba) — diriliş meselleri',     descEn: 'Yāsīn 36:78 (dry bones), Bakara 2:259 (ruined town) — resurrection parables' },
           ].map(cta => (
             <button
-              key={cta.event}
-              onClick={() => window.dispatchEvent(new CustomEvent(cta.event))}
+              key={cta.key}
+              // W22-U2: dispatchEvent → openOverlay (route push). 5 cross-page CTA.
+              onClick={() => openOverlay(cta.key)}
               style={{
                 width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 padding: '12px 16px', borderRadius: '10px',

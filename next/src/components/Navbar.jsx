@@ -323,12 +323,10 @@ export default function Navbar() {
     return () => window.removeEventListener('openDuaVerses', handler);
   }, []);
 
-  // Listen for cross-tool navigation events from KiyametSahneleri footer links
-  useEffect(() => {
-    const h = () => setCennetOpen(true);
-    window.addEventListener('openCennetCehennem', h);
-    return () => window.removeEventListener('openCennetCehennem', h);
-  }, []);
+  // W22-U2: openCennetCehennem listener removed — son dispatcher (MeselAtlasi.jsx
+  // TabBilgi CTA) artık useQuranNav.openOverlay('cennet') üzerinden route push
+  // ediyor. setCennetOpen state setter'ı tool overlay'i için korunuyor (route
+  // mount/unmount lifecycle).
 
   useEffect(() => {
     const h = () => setKavimlerOpen(true);
@@ -367,40 +365,32 @@ export default function Navbar() {
   // layer's surface explicit.
   useEffect(() => {
     const handlers = [
-      // W22-U2: openYeminler + openMelekler listener'ları kaldırıldı — son
-      // dispatcher'ları (Melekler.jsx TabKaynaklar, ZamanBoyutlari.jsx CTA) artık
-      // useQuranNav.openOverlay() üzerinden route push ediyor. State setter'ları
-      // (setYeminlerOpen, setMeleklerOpen) yine de tool overlay'leri tarafından
-      // korunuyor; sadece dead listener'lar temizlendi.
-      ['openRenkler',          () => setRenkleriOpen(true)],
-      ['openFurukAtlasi',      () => setFurukOpen(true)],
-      ['openMunasebatAtlasi',  () => setMunasebatOpen(true)],
-      ['openZamanBoyutlari',   () => setZamanOpen(true)],
-      ['openDogaAtlasi',       () => setDogaOpen(true)],
-      ['openKiyametSahneleri', () => setKiyametOpen(true)],
-      ['openWowFacts',         () => setWowOpen(true)],
+      // W22-U2: dispatcher'sız kalan listener'lar kaldırıldı. Geçmiş tur'larda
+      // openYeminler + openMelekler temizlendi; bu tur openCennetCehennem
+      // (yukarıdaki ayrı useEffect), openMunafikProfili, openKiyametSahneleri
+      // (MeselAtlasi → openOverlay'e geçti) + openRenkler, openFurukAtlasi,
+      // openMunasebatAtlasi, openSunnetullah, openKadinlarAtlasi (hiçbir
+      // dispatcher kalmadı — TOOL_TRIGGERS zaten route push yapıyor) temizlendi.
+      // Kalan listener'lar canlı dispatcher'ı olan event'ler: WordPopover, sections,
+      // CennetCehennem.jsx + PathContext.dispatchOverlayEvent. State setter'lar
+      // (setFurukOpen, setKadinlarOpen, vb.) tool overlay route'larında kullanılmaya
+      // devam ettiği için korundu.
+      ['openZamanBoyutlari',   () => setZamanOpen(true)],    // PathContext path mode
+      ['openDogaAtlasi',       () => setDogaOpen(true)],     // ScientificSigns + PathContext
       ['openConceptGraph',     (e) => {
         conceptRestoreRef.current = null;
         if (e?.detail?.returnToWord) wordRestoreRef.current = e.detail.wordRestore || null;
         setConceptOpen(true);
-      }],
-      ['openProphetAtlas',     () => setProphetOpen(true)],
+      }],                                                    // WordPopover, CennetCehennem
+      ['openProphetAtlas',     () => setProphetOpen(true)],  // PsychologySection + PathContext
       ['openHeatmap',          (e) => {
         if (e?.detail?.returnToWord) wordRestoreRef.current = e.detail.wordRestore || null;
         setHeatmapOpen(true);
-      }],
-      ['openRevelationOrder',  () => setRevelationOpen(true)],
-      ['openEsmaFrekans',      () => setEsmaOpen(true)],
-      ['openAddresseeSystem',  () => setAddresseeOpen(true)],
-      ['openSurahCommands',    () => setCommandsOpen(true)],
-      ['openSurahComparator',  () => setComparatorOpen(true)],
-      ['openDiyalogAgi',       () => setDiyalogOpen(true)],
-      ['openSunnetullah',      () => setSunnetullahOpen(true)],
-      ['openMunafikProfili',   () => setMunafikOpen(true)],
-      ['openNefisMertebeleri', () => setNefisOpen(true)],
-      ['openIblisSatan',       () => setIblisSatanOpen(true)],
-      ['openKadinlarAtlasi',   () => setKadinlarOpen(true)],
-      ['openIlkSonKelimeler',  () => setIlkSonOpen(true)],
+      }],                                                    // WordPopover
+      ['openAddresseeSystem',  () => setAddresseeOpen(true)],// CennetCehennem
+      ['openNefisMertebeleri', () => setNefisOpen(true)],    // HumanDefinition, PsychologySection
+      ['openIblisSatan',       () => setIblisSatanOpen(true)],// PsychologySection
+      ['openIlkSonKelimeler',  () => setIlkSonOpen(true)],   // HiddenArchitecture
     ];
     handlers.forEach(([name, fn]) => window.addEventListener(name, fn));
     return () => {

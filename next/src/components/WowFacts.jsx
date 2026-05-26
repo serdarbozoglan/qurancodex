@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useQuranNav } from '../hooks/useQuranNav';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, RADIUS, TRANSITION } from '../tokens';
 
 const CATEGORY_CONFIG = {
@@ -571,11 +572,14 @@ const FACTS = [
 function WowCard({ fact, language, onClose }) {
   const cfg = CATEGORY_CONFIG[fact.category];
   const [hovered, setHovered] = useState(false);
+  const { openOverlay } = useQuranNav();
 
   const handleExplore = () => {
     if (fact.explore) {
-      window.dispatchEvent(new CustomEvent('openVerseGraph', { detail: { search: fact.explore, returnToWow: true } }));
+      // W22-U2: dispatchEvent → openOverlay. `returnToWow` artık route-based
+      // (history.back ile geri dön); detail.search bgem3 ayet referansı.
       onClose();
+      openOverlay('graph', { search: fact.explore });
     } else if (fact.scrollTo) {
       document.getElementById(fact.scrollTo)?.scrollIntoView({ behavior: 'smooth' });
       onClose();

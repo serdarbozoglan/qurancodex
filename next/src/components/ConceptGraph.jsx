@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useQuranNav } from '../hooks/useQuranNav';
 import { surahNameTr } from '../lib/surahNames';
 import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 
@@ -123,6 +124,7 @@ function buildConceptGraph(verses, concepts, centralId, width, height, precomput
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
 export default function ConceptGraph({ onClose, restore = null }) {
   const { language } = useLanguage();
+  const { openOverlay } = useQuranNav();
   const [view, setView] = useState(restore?.centralConcept ? 'graph' : 'landing');
   const [loadingData, setLoadingData] = useState(true);
   const [buildingGraph, _setBuildingGraph] = useState(false);
@@ -749,14 +751,11 @@ export default function ConceptGraph({ onClose, restore = null }) {
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent'; }}
                   onClick={() => {
-                    window.dispatchEvent(new CustomEvent('openVerseGraph', {
-                      detail: {
-                        search: `${v.surah}:${v.ayah}`,
-                        returnToConcept: true,
-                        conceptRestore: { centralConcept, pinnedId },
-                      },
-                    }));
+                    // W22-U2: dispatchEvent → openOverlay. Return-to-concept
+                    // state-restore (centralConcept, pinnedId) artık route-based
+                    // değil — browser back ile concept route'a dönülür.
                     onClose();
+                    openOverlay('graph', { search: `${v.surah}:${v.ayah}` });
                   }}
                 >
                   {/* Arabic */}

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN } from '../tokens';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 // Overlay-local fadeUp — used for individual blocks; overlay has no parent stagger container.
 const fadeUpItem = {
@@ -432,6 +433,7 @@ export default function IblisSatan({ onClose }) {
   const passageRefs = useRef({});
   const [openIdx, setOpenIdx] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const trapRef = useFocusTrap(true);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 640);
@@ -487,7 +489,7 @@ export default function IblisSatan({ onClose }) {
   };
 
   return (
-    <div style={OVERLAY_BASE} role="dialog" aria-label={t('iblisSatan.title')}>
+    <div ref={trapRef} style={OVERLAY_BASE} role="dialog" aria-modal="true" aria-label={t('iblisSatan.title')}>
       {/* ─── Overlay Header (standard) ─────────────────── */}
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>

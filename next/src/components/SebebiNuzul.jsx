@@ -8,6 +8,7 @@ import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
@@ -1647,6 +1648,7 @@ export default function SebebiNuzul({ onClose }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const contentRef = useRef(null);
+  const trapRef = useFocusTrap(true);
 
   // Mobile detection
   useEffect(() => {
@@ -1699,7 +1701,7 @@ export default function SebebiNuzul({ onClose }) {
   // Loading screen
   if (loading) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', alignItems: 'center', justifyContent: 'center' }} role="dialog" aria-modal="true">
+      <div ref={trapRef} style={{ ...OVERLAY_BASE, display: 'flex', alignItems: 'center', justifyContent: 'center' }} role="dialog" aria-modal="true" aria-label={language === 'tr' ? 'Sebeb-i Nüzul' : 'Occasions of Revelation'}>
         <div style={{
           width: '36px', height: '36px', borderRadius: RADIUS.full,
           border: `3px solid ${COLORS.glassBorder}`,
@@ -1715,9 +1717,11 @@ export default function SebebiNuzul({ onClose }) {
 
   return (
     <div
+      ref={trapRef}
       style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
       role="dialog"
       aria-modal="true"
+      aria-label={language === 'tr' ? 'Sebeb-i Nüzul' : 'Occasions of Revelation'}
     >
       {/* Header */}
       <div style={{ ...OVERLAY_HEADER }}>

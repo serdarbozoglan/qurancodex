@@ -8,6 +8,7 @@ import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
 const TEMPORAL = { ezel: '#9b59b6', dunya: '#3498db', ahiret: '#f39c12' };
@@ -126,6 +127,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   const [mega, setMega]           = useState([]);
   const [loading, setLoading]     = useState(true);
   const [loadError, setLoadError] = useState(false);
+  const trapRef = useFocusTrap(true);
 
   // isMobile detector
   useEffect(() => {
@@ -225,7 +227,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   });
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-label={language === 'tr' ? 'Diyalog Ağı' : 'Dialogue Network'}>
+    <div ref={trapRef} style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-modal="true" aria-label={language === 'tr' ? 'Diyalog Ağı' : 'Dialogue Network'}>
       {/* Header */}
       <div style={OVERLAY_HEADER}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

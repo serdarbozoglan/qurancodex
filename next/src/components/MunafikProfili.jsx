@@ -15,6 +15,7 @@ import {
   BREAKPOINT_TABLET,
   RADIUS,
 } from '../tokens';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 
 // ─── Tabs ────────────────────────────────────────────────────────────────────
@@ -59,6 +60,7 @@ export default function MunafikProfili({ onClose }) {
   const [expandedProfileId, setExpandedProfileId] = useState(null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
+  const trapRef = useFocusTrap(true);
 
   // Escape to close
   useEffect(() => {
@@ -108,7 +110,13 @@ export default function MunafikProfili({ onClose }) {
 
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div
+        ref={trapRef}
+        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+        role="dialog"
+        aria-modal="true"
+        aria-label={language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}
+      >
         <div style={OVERLAY_HEADER}>
           <span style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}
@@ -128,7 +136,13 @@ export default function MunafikProfili({ onClose }) {
   const typology = typologies?.[0];
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+    <div
+      ref={trapRef}
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}
+    >
 
       {/* ── HEADER ─────────────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>

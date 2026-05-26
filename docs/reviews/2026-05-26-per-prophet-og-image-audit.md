@@ -3,7 +3,7 @@
 **Tarih:** 2026-05-26
 **Kapsam:** `/atlas/peygamber/[id]` dynamic route + per-prophet OG image üretimi
 **Karar:** Fizibıl — pre-generate önerilir, **kısmi (4 peygamber)** uygulanır; 25 hedef için veri zenginleştirme gerekir
-**Status:** DOC ONLY — implementation deferred (route henüz oluşturulmamış)
+**Status:** IMPLEMENTED 2026-05-25 — 8 statik route (4 peygamber × 2 locale) pre-rendered; OG image edge runtime'da on-demand üretiliyor
 
 ---
 
@@ -251,3 +251,63 @@ Mevcut `/atlas/opengraph-image.jsx` **dokunulmaz** — `/atlas/peygamber/[id]` d
 ---
 
 result: per-prophet OG image fizibilite + tasarim + 4 peygamber pre-gen onerisi
+
+---
+
+## 9. Implementation Notes (2026-05-25)
+
+Audit'in 8. bölümündeki sıralama büyük ölçüde takip edildi; ufak sapmalar:
+
+### 9.1 Oluşturulan dosyalar
+
+```
+next/src/app/[locale]/atlas/peygamber/[id]/
+├── page.js                  # generateStaticParams + generateMetadata + JsonLd + PageHeading
+├── ProphetDetailRoute.jsx   # 'use client' wrapper (ProphetAtlas dynamic ssr:false mount)
+└── opengraph-image.jsx      # Edge ImageResponse — per-id render
+```
+
+`next/src/lib/prophets.js` helper'ı **oluşturulmadı**; bunun yerine her iki route dosyası da `import data from '../../../../../../public/kissa-atlas.json'` ile JSON'u doğrudan import ediyor (yazma izni sadece 3 route dosyasıydı). Helper extraction defer edildi — şu an drift riski düşük çünkü id listesi tek yerden (`PROPHETS.find(...)`) okunuyor.
+
+### 9.2 `generateImageMetadata` KULLANILMADI — edge runtime ile uyumsuz
+
+İlk implementasyonda `generateImageMetadata` denendi, ama Next 16 build hatası verdi:
+
+> Error: Edge runtime is not supported with `generateStaticParams`.
+> Failed to collect page data for /[locale]/atlas/peygamber/[id]/opengraph-image/[__metadata_id__]
+
+`generateImageMetadata`'nın dahili olarak `generateStaticParams` benzeri pre-rendering attempt yaptığı ve `runtime = 'edge'` ile çakıştığı anlaşıldı. **Çözüm:** `generateImageMetadata` kaldırıldı; sibling `page.js`'in `generateStaticParams`'ı zaten her `(id, locale)` kombinasyonunu pre-render ettiği için OG image edge runtime'da on-demand üretiliyor (mevcut `/oku/[surah]/opengraph-image.jsx` ile aynı pattern). Bu, audit §5'teki "PRE-GENERATE" hedefinden ufak bir sapma: HTML pre-render edilir, OG PNG ilk talepte üretilir + 24h CDN cache'lenir.
+
+### 9.3 ProphetAtlas — `initialProphetId` prop yok
+
+ProphetAtlas signature: `export default function ProphetAtlas({ onClose })`. Deep-link id'ye odaklı UI henüz yok; `ProphetDetailRoute.jsx` şu an tüm atlas'ı mount ediyor (`router.back()` ile kapanır). `id` prop'u alınıyor ama `void id` ile no-op — ileride ProphetAtlas'a `initialProphetId` eklendiğinde aktive edilir. SEO faydası tam: page.js'in `generateMetadata` + `JsonLd` + `PageHeading` her id için unique HTML üretiyor.
+
+### 9.4 Build doğrulaması
+
+```
+├ ● /[locale]/atlas/peygamber/[id]
+│ ├ /tr/atlas/peygamber/musa
+│ ├ /tr/atlas/peygamber/yusuf
+│ ├ /tr/atlas/peygamber/ibrahim
+│ └ [+5 more paths]
+├ ƒ /-/atlas/peygamber/-/opengraph-image
+```
+
+8 statik HTML artifact (`.next/server/app/{tr,en}/atlas/peygamber/{musa,yusuf,ibrahim,isa}.html`) oluştu. Generated meta tag örnekleri (TR/musa):
+
+- `<title>Hz. Musa — Kıssalar ve Sureler | QuranCodex</title>`
+- `og:image content="https://qurancodex.com/tr/atlas/peygamber/musa/opengraph-image?<hash>"`
+- `twitter:description content="Hz. Musa ile ilgili 32 sure, 18 kıssa sahnesi..."`
+
+EN/isa için: `<title>Prophet Jesus — Narratives and Surahs | QuranCodex</title>`.
+
+### 9.5 dynamicParams = false
+
+`page.js`'e `export const dynamicParams = false;` eklendi — geçersiz id (örn. `/atlas/peygamber/adem`) gelirse runtime'da yeni route oluşturulmaz, Next 404 döner. 25-peygamber hedefi için veri eklendikçe `PROPHETS` listesi otomatik büyür, başka koda dokunmaya gerek yok.
+
+### 9.6 Sapan/atlanan adımlar
+
+- `lib/prophets.js` helper: yazılmadı (write permission scope) — JSON inline import yeterli oldu
+- KFGQPC font lazy-load: defer edildi (system-ui fallback Arabic'i render ediyor; visual parity OG audit §3'teki tasarımla uyumlu)
+- Twitter Card Validator / FB Debugger manuel test: production deploy sonrası yapılacak
+- `/atlas/peygamber/opengraph-image.jsx` kategori kartı: bu PR scope'unda değil; `/atlas/opengraph-image.jsx` cascade'i halen tutarlı

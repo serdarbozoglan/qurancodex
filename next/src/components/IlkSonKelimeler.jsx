@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicMinimal as cleanArabic } from '../lib/arabic';
 import {
@@ -464,6 +465,7 @@ function Tag({ label }) {
 
 // ─── Detail panel (right drawer on desktop, bottom sheet on mobile) ───────────
 function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
+  const router = useRouter();
   const name = language === 'tr' ? surah.nameTr : (surah.nameEn || surah.nameTr);
   const tr = language === 'tr';
 
@@ -622,9 +624,11 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
         {/* Tafsir link */}
         <button
           onClick={() => {
-            window.dispatchEvent(new CustomEvent('openTafsirPanel', {
-              detail: { surah: surah.surah, ayah: 1 },
-            }));
+            // W22-U2: dispatchEvent → route push. openTafsirPanel listener'ı
+            // mevcut değil (dead); ReadingMode route'una surah+ayet ile gidip
+            // sayfa içindeki Tefsir panelini açar.
+            onClose();
+            router.push(`/${language}/oku/${surah.surah}?ayah=1`);
           }}
           style={{
             marginTop: '20px',
