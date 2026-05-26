@@ -13,6 +13,7 @@ import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import { COLORS, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
 
 import { cleanArabicForGraph } from '../lib/arabic';
+import { VolumeOnIcon, VolumeOffIcon } from './icons';
 // ─── Strip footnotes from Suat Yıldırım translation ──────────────────────────
 // Removes {KM, Tesniye 4,35; İşaya 43,10-11} style cross-reference notes.
 function cleanTr(str) {
@@ -2492,15 +2493,9 @@ function FullGraph({ verses, onBack, language, onClose }) {
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
         >
           {muted ? (
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-              <line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" />
-            </svg>
+            <VolumeOffIcon size={15} />
           ) : (
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-            </svg>
+            <VolumeOnIcon size={15} />
           )}
         </button>
       </div>

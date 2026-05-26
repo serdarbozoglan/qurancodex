@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import { ExternalLinkIcon } from './icons';
 
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
@@ -809,7 +810,7 @@ function TabKaynaklar({ data, language }) {
                         borderBottom: `1px dashed ${COLORS.softGoldAlpha35}`,
                       }}>
                         {item.eser}
-                        <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <ExternalLinkIcon size={10} strokeWidth={2.5} />
                       </a>
                     ) : (
                       <span style={{ fontSize: '0.75rem', color: COLORS.slate500 }}>{item.eser}</span>
