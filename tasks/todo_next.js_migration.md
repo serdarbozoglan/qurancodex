@@ -43,7 +43,7 @@
 ### Faz 7.13 / 8.3 / 8.4 Açık (post-deploy)
 - [ ] **Bundle size analizleri** — `@next/bundle-analyzer` kur (yeni dep, kullanıcı onayı bekliyor)
 - [ ] **Framer Motion lazy load** — bundle analyzer çıktısına göre karar
-- [ ] **KFGQPC font subset** (~600KB → ~200KB) — pyftsubset/fonttools script
+- [~] **KFGQPC font subset** — `scripts/subset_kfgqpc.py` + `docs/reviews/2026-05-25-kfgqpc-subset-analysis.md`. Subset artifacts: 240.7 KB → 66.0 KB (%72.6 reduction). 79 unique Arabic codepoint + 21-char safety net. **Production switch YAPILMADI** — globals.css `@font-face` + layout.js preload migration ayrı tur; Fatiha visual-parity check gerekli.
 - [ ] **LCP/CLS/INP gerçek ölçümler** — PageSpeed Insights + CrUX Dashboard
 
 ### Faz 9.1 / 9.3 / 9.4 Açık
@@ -138,7 +138,7 @@ Kaynak: enhancement IV. UX. Audit + fix gerekli.
 - [x] **W22-U6** Mobile spinner centered — 3 dosya fix (KiyametSahneleri:646, Melekler:1209, KuranRenkleri:223) bare/top-left loader → flex-center + minHeight 40vh. Mevcut overlay-level loader'ların 20+'ı zaten doğru flex-center pattern'da.
 - [x] **W22-U7** ReadingMode kelime tooltip mobile tap-to-toggle — 4 word render block'una mobile gating: desktop'ta hover korunur, mobilde tap toggle eder, tekrar tap kapatır, dışarı tap kapatır (pointerdown listener + `[data-rm-word]` + `[data-rm-tooltip]` selector'leri). Mevcut isMobile state'i reuse edildi.
 - [x] **W22-U8** Settings localStorage schema versionlama — `qurancodex_settings_version` sentinel key + `migrateReadingModeSettings()` namespace versioning. 16 UI prefs purge-on-mismatch (theme, font, audio, karaoke, vb); navigation state + bookmarks + meal/corpus cache KORUNUR. Schema __v: 2. Future bump = silent reset.
-- [ ] **W22-U9** Audio pause on tool overlay open
+- [x] **W22-U9** Audio pause on tool route change — `docs/reviews/2026-05-25-audio-pause-audit.md`. Per-verse audio unmount cleanup eksikti (ReadingMode'da iki audio system var: per-verse + karaoke). ReadingMode.jsx line 1730-1741'e unmount cleanup useEffect eklendi.
 - [x] **W22-U10** Document title audit — 15/15 route temiz, unique + locale-aware (`pageMetadata` + module-level TITLE/DESC pattern prod'da hatasız). Generic "QuranCodex" placeholder hiçbir tool route'unda yok.
 
 ---
@@ -165,12 +165,12 @@ Kaynak: enhancement V. SEO/A11y. Post-cutover.
 Kaynak: enhancement VI. Kod Kalitesi. Faz 11 cleanup ile birleşir.
 
 - [ ] **W24-T1** 53 inline `'KFGQPC'` → `var(--font-kfgqpc)` + `next/font/local`
-- [ ] **W24-T2** SSR-safe `useState` audit — 22 hook'ta kalan `localStorage` lazy init → §16.6 standardı
+- [x] **W24-T2** SSR-safe `useState` audit + fix — `docs/reviews/2026-05-25-ssr-usestate-audit.md`. 30 lazy init, 21 HIGH (çoğu ReadingMode.jsx). **Quick win uygulandı**: `ReadingModeRoute` `dynamic({ssr:false})` ile yüklenir → 21 HIGH → LOW (ReadingMode artık client-only render, SSR mismatch riski 0). SEO sinyalleri server-side korundu (PageHeading + JsonLd page.js'te).
 - [ ] **W24-T3** Tool overlay → normal-flow refactor (uzun vadeli) — visual breadcrumb + browser back + print + mobile UX
 - [x] **W24-T4** i18n key parity son audit — `docs/reviews/2026-05-25-i18n-parity-audit.md`. 934 TR / 935 EN leaf key. Strict path parity ✅ (suffix filtering sonrası 0/0). 1 gerçek missing: `soundArchitecture.phonetics.noteEn` var ama `noteTr` yok. Edge case'ler (kasıtlı `*Tr` suffix EN tarafta) ayrıştırıldı.
 - [ ] **W24-T5** Tool icon SVG sprite optimization
 - [ ] **W24-T6** `@next/bundle-analyzer` kurulumu (Faz 8.3 — user dep approval)
-- [ ] **W24-T7** Edge runtime cold start time ölçümü (API + OG routes)
+- [x] **W24-T7** Edge runtime cold start ölçümü + fix — `docs/reviews/2026-05-25-edge-runtime-cold-start.md`. Meal API sağlıklı (cold 1.2s → warm 154ms CDN HIT). **OG image CDN cache yoktu** (her social-share re-render, p95 3.28s). **P1 fix uygulandı**: 7 OG route + twitter-image'a `Cache-Control: public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800` eklendi. TTFB ~%75 düşmeli.
 - [x] **W24-T8** CSS variables ↔ `tokens.js` sync audit — `docs/reviews/2026-05-25-css-vars-tokens-sync-audit.md`. 23 shared key value-for-value match. **2 HIGH drift**: glassBg warm-cream vs pure-white (dead code; .glass-card hardcoded), FONTS.quran var counterpart yok (.arabic-verse §13.2 violation). 3 MED: softGold/goldBright/goldWarm JS-only.
 
 ---
