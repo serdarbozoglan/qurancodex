@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
+import { PlayIcon, PauseIcon } from '../components/icons';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
 // Parse references like "Yusuf, 12:84", "Tawba 9:128", or "12:84"
@@ -40,9 +41,9 @@ function VerseAudioButton({ surah, ayah, accentColor }) {
           <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
         </svg>
       ) : playing ? (
-        <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/></svg>
+        <PauseIcon size={10} />
       ) : (
-        <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <PlayIcon size={10} />
       )}
     </button>
   );

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
+import { PlayIcon, PauseIcon } from '../components/icons';
 import { FONTS, COLORS, RADIUS, TRANSITION } from '../tokens';
 
 // Splits text at Arabic character sequences and wraps them with styled spans.
@@ -35,12 +36,6 @@ function calcHardnessScore(verse) {
   return Math.round((hardCount / letters.length) * 100);
 }
 
-const PlayIcon = () => (
-  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21" /></svg>
-);
-const PauseIcon = () => (
-  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/></svg>
-);
 
 // ── Sound visualization bar patterns (aesthetic — restored from earlier version) ──
 const JAGGED_PATTERN = [8, 22, 12, 30, 6, 26, 14, 32, 10, 24, 8, 28, 16, 34, 12, 22, 8, 30, 14, 26];
@@ -262,7 +257,7 @@ function ComparisonCard({ t, language }) {
             transition: 'all 0.18s', flexShrink: 0,
           }}
         >
-          {isPlaying ? <PauseIcon /> : <PlayIcon />}
+          {isPlaying ? <PauseIcon size={12} /> : <PlayIcon size={12} />}
           <span>{isPlaying ? (labels.stopLabel || (language === 'tr' ? 'Durdur' : 'Stop')) : (labels.listenLabel || (language === 'tr' ? 'Dinle' : 'Listen'))}</span>
         </button>
       </div>
@@ -706,7 +701,7 @@ function DiscoveryWidget({ t, language }) {
                     }}
                     title={audioFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
                   >
-                    {playing ? <PauseIcon /> : <PlayIcon />}
+                    {playing ? <PauseIcon size={12} /> : <PlayIcon size={12} />}
                     <span>{playing ? labels.stopLabel : labels.listenLabel}</span>
                   </button>
 
@@ -1235,7 +1230,7 @@ export default function SoundArchitecture() {
                     transition: 'all 0.18s', flexShrink: 0,
                   }}
                 >
-                  {isPlaying ? <PauseIcon /> : <PlayIcon />}
+                  {isPlaying ? <PauseIcon size={12} /> : <PlayIcon size={12} />}
                   <span>{language === 'tr' ? 'Dinle' : 'Listen'}</span>
                 </button>
               );

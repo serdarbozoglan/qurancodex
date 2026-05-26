@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
+import { PlayIcon, PauseIcon } from './icons';
 import SurahLink from './SurahLink';
 
 const SURAH_NAMES = [
@@ -54,17 +55,6 @@ function normalizeSearch(str) {
     .replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ç/g, 'c')
     .replace(/â/g, 'a').replace(/î/g, 'i').replace(/û/g, 'u');
 }
-
-const PlayIcon = ({ size = 11 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <polygon points="5,3 19,12 5,21" />
-  </svg>
-);
-const PauseIcon = ({ size = 11 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/>
-  </svg>
-);
 
 function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
   const cfg = CATEGORY_CONFIG[dua.category] || CATEGORY_CONFIG.genel;

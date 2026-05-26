@@ -1467,12 +1467,18 @@ function buildArcPath(x1, x2, heightFactor) {
   return `M ${x1},${NODE_Y} Q ${mx},${cy} ${x2},${NODE_Y}`;
 }
 
-export default function ProphetAtlas({ onClose }) {
+export default function ProphetAtlas({ onClose, initialProphetId }) {
   const { language } = useLanguage();
+  // Deep-link: /atlas/peygamber/[id] route ProphetAtlas'a initialProphetId geçer.
+  // PROPHETS array içinde id eşleşmesi var mı doğrula; yoksa default 'nuh'.
+  // Browse mode (initialProphetId yok) bozulmamalı — bu nedenle defansif.
+  const initialId = (initialProphetId && PROPHETS.some(p => p.id === initialProphetId))
+    ? initialProphetId
+    : 'nuh';
   // Multi-prophet selection: Set of prophet IDs
-  const [selectedProphets, setSelectedProphets] = useState(new Set(['nuh']));
+  const [selectedProphets, setSelectedProphets] = useState(() => new Set([initialId]));
   // focusedProphet drives the map and is the last-clicked prophet
-  const [focusedProphet, setFocusedProphet] = useState('nuh');
+  const [focusedProphet, setFocusedProphet] = useState(initialId);
   const [hoveredNode, setHoveredNode] = useState(null);
   const [disclaimerOpen, setDisclaimerOpen] = useState(false);
   const [expandedRef, setExpandedRef] = useState(null);

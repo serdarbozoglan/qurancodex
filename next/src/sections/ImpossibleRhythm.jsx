@@ -5,14 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
+import { PlayIcon, PauseIcon } from '../components/icons';
 import { FONTS, COLORS, RADIUS } from '../tokens';
-
-const PlayIcon = () => (
-  <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21" /></svg>
-);
-const PauseIcon = () => (
-  <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/></svg>
-);
 
 const KAWTHAR_VERSES = [
   { ar: 'إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ', num: '١' },
@@ -326,7 +320,7 @@ export default function ImpossibleRhythm() {
                   transition: 'all 0.18s',
                 }}
               >
-                {duhaPlaying ? <PauseIcon /> : <PlayIcon />}
+                {duhaPlaying ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
               </button>
             </div>
             <p className="text-silver/50 text-xs font-body">
@@ -674,7 +668,7 @@ export default function ImpossibleRhythm() {
                 transition: 'all 0.18s',
               }}
             >
-              {kawtharPlaying ? <PauseIcon /> : <PlayIcon />}
+              {kawtharPlaying ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
             </button>
           </div>
         </div>
