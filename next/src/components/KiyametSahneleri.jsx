@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
 
 // Local base style for verse blocks (VERSE_BLOCK not exported from tokens)
@@ -434,6 +435,7 @@ const KIYAMET_ISIMLERI = [
 
 export default function KiyametSahneleri({ onClose }) {
   const { language } = useLanguage();
+  const { openOverlay } = useQuranNav();
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
@@ -665,15 +667,15 @@ export default function KiyametSahneleri({ onClose }) {
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {[
-              { tr: 'Cennet & Cehennem →', en: 'Paradise & Hell →', event: 'openCennetCehennem' },
-              { tr: 'Kavimler Atlası →', en: 'Nations Atlas →', event: 'openKavimlerAtlasi' },
-              { tr: "Kur'an'da Melekler →", en: 'Angels in the Quran →', event: 'openMelekler' },
-              { tr: 'Nefis Mertebeleri →', en: 'Stations of the Self →', event: 'openNefisMertebeleri' },
-              { tr: 'Zaman Boyutları →', en: 'Dimensions of Time →', event: 'openZamanBoyutlari' },
+              { tr: 'Cennet & Cehennem →', en: 'Paradise & Hell →', overlay: 'cennet' },
+              { tr: 'Kavimler Atlası →', en: 'Nations Atlas →', overlay: 'kavimler' },
+              { tr: "Kur'an'da Melekler →", en: 'Angels in the Quran →', overlay: 'melekler' },
+              { tr: 'Nefis Mertebeleri →', en: 'Stations of the Self →', overlay: 'nefis' },
+              { tr: 'Zaman Boyutları →', en: 'Dimensions of Time →', overlay: 'zaman' },
             ].map(link => (
               <button
                 key={link.tr}
-                onClick={() => { window.dispatchEvent(new CustomEvent(link.event)); onClose(); }}
+                onClick={() => { openOverlay(link.overlay); onClose(); }}
                 style={{
                   background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
                   borderRadius: RADIUS.md, padding: '6px 14px', cursor: 'pointer',

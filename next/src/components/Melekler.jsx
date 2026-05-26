@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useQuranNav } from '@/hooks/useQuranNav';
 import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 
 // ── Category color system ─────────────────────────────────────────────────────
@@ -763,13 +764,14 @@ function TabDilbilim({ data, language, isMobile }) {
 
 // ── TAB 6: KAYNAKLAR ────────────────────────────────────────────────────────────
 const RELATED_PAGES = [
-  { event: 'openIblisSatan',       tr: 'İBLİS / ŞEYTAN ATLASI', en: 'IBLIS / SHAYTAN ATLAS', descTr: 'Yedi sûrede aynı sahne — kibrin başlangıcı', descEn: 'The same scene across seven suras — the origin of pride' },
-  { event: 'openMunafikProfili',   tr: 'MÜNÂFIK PROFİLİ',        en: 'PROFILE OF THE MUNAFIQ', descTr: 'İnsan psikolojisi — kalbin gizli hastalığı',     descEn: 'Human psychology — the hidden disease of the heart' },
-  { event: 'openKiyametSahneleri', tr: 'KIYAMET SAHNELERİ',      en: 'SCENES OF QIYAMAH',      descTr: 'Sûr üfleyen melek ve eskatolojik sahneler',       descEn: 'The angel of the trumpet and eschatological scenes' },
-  { event: 'openKavimlerAtlasi',   tr: 'KAVİMLER ATLASI',        en: 'NATIONS ATLAS',          descTr: 'Lût helakının melekleri — tarihsel kıssalar',     descEn: 'The angels of Lot\'s destruction — historical narratives' },
+  { overlay: 'iblisSatan', tr: 'İBLİS / ŞEYTAN ATLASI', en: 'IBLIS / SHAYTAN ATLAS', descTr: 'Yedi sûrede aynı sahne — kibrin başlangıcı', descEn: 'The same scene across seven suras — the origin of pride' },
+  { overlay: 'munafik',    tr: 'MÜNÂFIK PROFİLİ',        en: 'PROFILE OF THE MUNAFIQ', descTr: 'İnsan psikolojisi — kalbin gizli hastalığı',     descEn: 'Human psychology — the hidden disease of the heart' },
+  { overlay: 'kiyamet',    tr: 'KIYAMET SAHNELERİ',      en: 'SCENES OF QIYAMAH',      descTr: 'Sûr üfleyen melek ve eskatolojik sahneler',       descEn: 'The angel of the trumpet and eschatological scenes' },
+  { overlay: 'kavimler',   tr: 'KAVİMLER ATLASI',        en: 'NATIONS ATLAS',          descTr: 'Lût helakının melekleri — tarihsel kıssalar',     descEn: 'The angels of Lot\'s destruction — historical narratives' },
 ];
 
 function TabKaynaklar({ data, language }) {
+  const { openOverlay } = useQuranNav();
   const tr = language === 'tr';
   const k = data.kaynaklar || {};
   return (
@@ -830,8 +832,8 @@ function TabKaynaklar({ data, language }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {RELATED_PAGES.map(cta => (
             <button
-              key={cta.event}
-              onClick={() => window.dispatchEvent(new CustomEvent(cta.event))}
+              key={cta.overlay}
+              onClick={() => openOverlay(cta.overlay)}
               style={{
                 width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 padding: '12px 16px', borderRadius: RADIUS.md,

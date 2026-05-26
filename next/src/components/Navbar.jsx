@@ -367,8 +367,11 @@ export default function Navbar() {
   // layer's surface explicit.
   useEffect(() => {
     const handlers = [
-      ['openYeminler',         () => setYeminlerOpen(true)],
-      ['openMelekler',         () => setMeleklerOpen(true)],
+      // W22-U2: openYeminler + openMelekler listener'ları kaldırıldı — son
+      // dispatcher'ları (Melekler.jsx TabKaynaklar, ZamanBoyutlari.jsx CTA) artık
+      // useQuranNav.openOverlay() üzerinden route push ediyor. State setter'ları
+      // (setYeminlerOpen, setMeleklerOpen) yine de tool overlay'leri tarafından
+      // korunuyor; sadece dead listener'lar temizlendi.
       ['openRenkler',          () => setRenkleriOpen(true)],
       ['openFurukAtlasi',      () => setFurukOpen(true)],
       ['openMunasebatAtlasi',  () => setMunasebatOpen(true)],

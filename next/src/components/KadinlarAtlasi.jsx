@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import useFocusTrap from '../hooks/useFocusTrap';
 import {
   COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   BREAKPOINT_MOBILE, RADIUS,
@@ -82,6 +83,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
   const [themeFilter, setThemeFilter] = useState(null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
+  const trapRef = useFocusTrap(true);
 
   // When category filter changes, clear theme filter (avoid stale state).
   // eslint-disable-next-line react-hooks/set-state-in-effect -- reset child state when parent filter changes; firing once per filter change is the intent.
@@ -144,7 +146,13 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
   // ── Loading ────────────────────────────────────────────────────────────────
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div
+        ref={trapRef}
+        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+        role="dialog"
+        aria-modal="true"
+        aria-label={language === 'tr' ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
+      >
         <div style={OVERLAY_HEADER}>
           <span style={OVERLAY_TITLE}>
             {language === 'tr' ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
@@ -179,7 +187,13 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
   ];
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+    <div
+      ref={trapRef}
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={language === 'tr' ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
+    >
 
       {/* ── HEADER ──────────────────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>

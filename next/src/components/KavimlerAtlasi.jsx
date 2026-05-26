@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
+import useFocusTrap from '../hooks/useFocusTrap';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 
 const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI', 'KARŞILAŞTIR', 'KAYNAKLAR'];
@@ -86,6 +87,7 @@ export default function KavimlerAtlasi({ onClose }) {
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const [highlightArch, setHighlightArch] = useState(null);
   const bodyRef = useRef(null);
+  const trapRef = useFocusTrap(true);
 
   function goToArchCard(nationId) {
     setActiveTab(2);
@@ -146,7 +148,13 @@ export default function KavimlerAtlasi({ onClose }) {
 
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div
+        ref={trapRef}
+        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+        role="dialog"
+        aria-modal="true"
+        aria-label={language === 'tr' ? 'Kavimler Atlası' : 'Nations Atlas'}
+      >
         <div style={OVERLAY_HEADER}>
           <span style={OVERLAY_TITLE}>{language === 'tr' ? 'Kavimler Atlası' : 'Nations Atlas'}</span>
           <CloseBtn onClose={onClose} />
@@ -163,7 +171,13 @@ export default function KavimlerAtlasi({ onClose }) {
   const TABS = language === 'tr' ? TABS_TR : TABS_EN;
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+    <div
+      ref={trapRef}
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={language === 'tr' ? 'Kavimler Atlası' : 'Nations Atlas'}
+    >
 
       {/* ── HEADER ──────────────────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>

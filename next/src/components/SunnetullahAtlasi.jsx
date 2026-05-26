@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useQuranNav } from '@/hooks/useQuranNav';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS,
@@ -558,6 +559,7 @@ function LiteralVerseCard({ item, language, isMobile }) {
 // ─── Tab 2: Tematik Kanunlar ──────────────────────────────────────────────────
 
 function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, isMobile }) {
+  const { openOverlay } = useQuranNav();
   const active = categories.find(c => c.id === activeCategoryId) ?? categories[0];
   if (!active) return null;
 
@@ -707,7 +709,7 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
       {/* Cross-link to Kavimler Atlası — somut helâk örnekleri için */}
       {active.id === 'helak-kanunu' && (
         <button
-          onClick={() => window.dispatchEvent(new CustomEvent('openKavimlerAtlasi'))}
+          onClick={() => openOverlay('kavimler')}
           style={{
             width: '100%',
             marginTop: '20px',

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import useFocusTrap from '../hooks/useFocusTrap';
 import {
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS,
@@ -87,6 +88,7 @@ export default function FurukAtlasi({ onClose }) {
   const [selectedGroupId, setSelectedGroupId] = useState(null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const bodyRef = useRef(null);
+  const trapRef = useFocusTrap(true);
 
   // Escape
   useEffect(() => {
@@ -139,7 +141,13 @@ export default function FurukAtlasi({ onClose }) {
 
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div
+        ref={trapRef}
+        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+        role="dialog"
+        aria-modal="true"
+        aria-label={tr ? 'Furûk — Kelime Farkları' : 'Word Distinctions Atlas'}
+      >
         <div style={OVERLAY_HEADER}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
             <PrismIcon />
@@ -159,7 +167,13 @@ export default function FurukAtlasi({ onClose }) {
   const selectedGroup = data.groups.find(g => g.id === selectedGroupId) ?? data.groups[0];
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-modal="true">
+    <div
+      ref={trapRef}
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={tr ? 'Furûk — Kelime Farkları' : 'Word Distinctions Atlas'}
+    >
 
       {/* ── HEADER ────────────────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>

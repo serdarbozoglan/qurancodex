@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Fragment } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, GLASS_CARD, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 
@@ -417,6 +418,7 @@ const TABS = [
 // ── Main component ─────────────────────────────────────────────────────────────
 export default function ZamanBoyutlari({ onClose }) {
   const { language } = useLanguage();
+  const { openOverlay } = useQuranNav();
   const [activeTab, setActiveTab]         = useState('olcek');
   const [expandedRow,   setExpandedRow]   = useState(null);
   const [expandedCard,  setExpandedCard]  = useState(null);
@@ -1231,14 +1233,14 @@ export default function ZamanBoyutlari({ onClose }) {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {[
-              { event: 'openKiyametSahneleri', tr: 'KIYAMET SAHNELERİ', en: 'SCENES OF QIYĀMAH', descTr: 'Eskatolojik zaman ve ahiret sahneleri', descEn: 'Eschatological time and afterlife scenes' },
-              { event: 'openKavimlerAtlasi',   tr: 'KAVİMLER ATLASI',   en: 'NATIONS ATLAS',     descTr: 'Tarihsel kıssalar — "Yûsuf 12:111: kıssalarda ibret"', descEn: 'Historical narratives — "Yusuf 12:111: lessons in stories"' },
-              { event: 'openYeminler',         tr: "KUR'AN'IN YEMİNLERİ", en: 'OATHS OF THE QURAN', descTr: 'Kadr, Asr, Fecr — zaman üzerine yeminler', descEn: 'Qadr, Asr, Fajr — oaths upon time' },
-              { event: 'openKuranRetorigi',    tr: "KUR'AN'IN RETORİĞİ", en: 'QURANIC RHETORIC',  descTr: 'Prophetic Perfect ve apokaliptik dilbilim', descEn: 'Prophetic Perfect and apocalyptic linguistics' },
+              { overlay: 'kiyamet',  tr: 'KIYAMET SAHNELERİ', en: 'SCENES OF QIYĀMAH', descTr: 'Eskatolojik zaman ve ahiret sahneleri', descEn: 'Eschatological time and afterlife scenes' },
+              { overlay: 'kavimler', tr: 'KAVİMLER ATLASI',   en: 'NATIONS ATLAS',     descTr: 'Tarihsel kıssalar — "Yûsuf 12:111: kıssalarda ibret"', descEn: 'Historical narratives — "Yusuf 12:111: lessons in stories"' },
+              { overlay: 'yeminler', tr: "KUR'AN'IN YEMİNLERİ", en: 'OATHS OF THE QURAN', descTr: 'Kadr, Asr, Fecr — zaman üzerine yeminler', descEn: 'Qadr, Asr, Fajr — oaths upon time' },
+              { overlay: 'retorigi', tr: "KUR'AN'IN RETORİĞİ", en: 'QURANIC RHETORIC',  descTr: 'Prophetic Perfect ve apokaliptik dilbilim', descEn: 'Prophetic Perfect and apocalyptic linguistics' },
             ].map(cta => (
               <button
-                key={cta.event}
-                onClick={() => window.dispatchEvent(new CustomEvent(cta.event))}
+                key={cta.overlay}
+                onClick={() => openOverlay(cta.overlay)}
                 style={{
                   width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                   padding: '12px 16px', borderRadius: '10px',

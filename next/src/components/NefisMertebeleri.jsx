@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useQuranNav } from '@/hooks/useQuranNav';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
@@ -46,6 +47,7 @@ const chipStyle = (color = COLORS.gold) => ({
 // ─── Main component ───────────────────────────────────────────────────────────
 export default function NefisMertebeleri({ onClose }) {
   const { language } = useLanguage();
+  const { openOverlay } = useQuranNav();
   const [data, setData] = useState(null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
@@ -379,7 +381,7 @@ export default function NefisMertebeleri({ onClose }) {
           padding: isMobile ? '0 20px 24px' : '0 40px 32px',
         }}>
           <button
-            onClick={() => window.dispatchEvent(new CustomEvent('openMunafikProfili'))}
+            onClick={() => openOverlay('munafik')}
             style={{
               width: '100%',
               padding: isMobile ? '14px 16px' : '14px 22px',
