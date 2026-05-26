@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import { ExternalLinkIcon } from './icons';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Color system ──────────────────────────────────────────────────────────────
 const CENNET   = { accent: '#1D9E75', bg: 'rgba(27,110,86,0.12)',   border: 'rgba(29,158,117,0.28)' };
@@ -145,6 +146,7 @@ const TABS = [
 // ── MAIN COMPONENT ────────────────────────────────────────────────────────────
 export default function CennetCehennem({ onClose }) {
   const { language } = useLanguage();
+  const trapRef = useFocusTrap(true);
   const [data, setData]           = useState(null);
   const [activeTab, setActiveTab] = useState('isimler');
   const [isMobile, setIsMobile]   = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
@@ -174,7 +176,16 @@ export default function CennetCehennem({ onClose }) {
   }, [activeTab]);
 
   if (!data) return (
-    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: '#06080e', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cennet-cehennem-title"
+      style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: '#06080e', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+    >
+      <span id="cennet-cehennem-title" style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+        {language === 'tr' ? 'Cennet & Cehennem' : 'Paradise & Hell'}
+      </span>
       <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>
         {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
       </div>
@@ -182,12 +193,18 @@ export default function CennetCehennem({ onClose }) {
   );
 
   return (
-    <div style={{
-      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
-      background: '#06080e',
-      display: 'flex', flexDirection: 'column',
-      fontFamily: "'Inter', sans-serif",
-    }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cennet-cehennem-title"
+      style={{
+        position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
+        background: '#06080e',
+        display: 'flex', flexDirection: 'column',
+        fontFamily: "'Inter', sans-serif",
+      }}
+    >
       {/* ── HEADER ────────────────────────────────────────────────── */}
       <div style={{
         borderBottom: '1px solid rgba(255,255,255,0.07)',
@@ -205,7 +222,7 @@ export default function CennetCehennem({ onClose }) {
           <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
             <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
           </svg>
-          <span style={OVERLAY_TITLE}>
+          <span id="cennet-cehennem-title" style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Cennet & Cehennem' : 'Paradise & Hell'}
           </span>
           <div style={{ flex: 1 }} />

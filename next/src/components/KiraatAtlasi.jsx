@@ -10,6 +10,7 @@ import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import LoadingOverlay from './LoadingOverlay';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 
 // ── City colour map ───────────────────────────────────────────────────────────
@@ -1520,6 +1521,7 @@ function TabTecvid({ isMobile, language }) {
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   const { language } = useLanguage();
+  const trapRef = useFocusTrap(true);
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const tabHistoryRef = useRef([]);
@@ -1596,9 +1598,15 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   // Loading state
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div
+        ref={trapRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="kiraat-atlasi-title"
+        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      >
         <div style={{ ...OVERLAY_HEADER }}>
-          <span style={OVERLAY_TITLE}>{language === 'tr' ? 'Kıraat Atlası' : 'Qirāʾāt Atlas'}</span>
+          <span id="kiraat-atlasi-title" style={OVERLAY_TITLE}>{language === 'tr' ? 'Kıraat Atlası' : 'Qirāʾāt Atlas'}</span>
           <button
             onClick={onClose}
             style={{ ...CLOSE_BTN }}
@@ -1618,7 +1626,13 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   }
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="kiraat-atlasi-title"
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+    >
 
       {/* ── HEADER ─────────────────────────────────────────────── */}
       <div style={{ ...OVERLAY_HEADER }}>
@@ -1627,7 +1641,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
             <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/>
             <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
-          <span style={OVERLAY_TITLE}>
+          <span id="kiraat-atlasi-title" style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Kıraat Atlası' : 'Qirāʾāt Atlas'}
           </span>
         </div>

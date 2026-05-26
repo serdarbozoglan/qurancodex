@@ -361,6 +361,7 @@ export default function EsmaFrekans({ onClose }) {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '12px', alignItems: 'center' }}>
             <input
               type="text"
+              className="qc-focus-ring"
               placeholder={tr ? 'İsim veya Arapça ara…' : 'Search name or Arabic…'}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -368,6 +369,7 @@ export default function EsmaFrekans({ onClose }) {
             />
             <select
               value={sort}
+              className="qc-focus-ring"
               onChange={(e) => setSort(e.target.value)}
               style={{ ...controlInputStyle, cursor: 'pointer' }}
             >

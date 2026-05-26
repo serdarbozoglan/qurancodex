@@ -765,6 +765,7 @@ export default function WordHeatmap({ onClose }) {
               return (
                 <input
                   ref={inputRef}
+                  className="qc-focus-ring"
                   value={inputValue}
                   onChange={e => {
                     const v = e.target.value;

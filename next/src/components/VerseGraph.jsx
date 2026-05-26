@@ -1687,6 +1687,7 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
         </span>
         <input
           ref={inputRef}
+          className="qc-focus-ring"
           type="number" min={1} max={total}
           value={input}
           placeholder={selectedAyah ? `${surah}:${selectedAyah}` : `1–${total}`}

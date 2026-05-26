@@ -17,6 +17,7 @@ import {
   BREAKPOINT_TABLET,
   RADIUS,
 } from '../tokens';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 
 // ─── Small helpers ────────────────────────────────────────────────────────────
@@ -48,6 +49,7 @@ const chipStyle = (color = COLORS.gold) => ({
 export default function NefisMertebeleri({ onClose }) {
   const { language } = useLanguage();
   const { openOverlay } = useQuranNav();
+  const trapRef = useFocusTrap(true);
   const [data, setData] = useState(null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
@@ -96,9 +98,15 @@ export default function NefisMertebeleri({ onClose }) {
   // Loading state
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div
+        ref={trapRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nefis-mertebeleri-title"
+        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      >
         <div style={OVERLAY_HEADER}>
-          <span style={OVERLAY_TITLE}>
+          <span id="nefis-mertebeleri-title" style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Nefis Mertebeleri' : 'Stations of the Self'}
           </span>
           <CloseBtn onClose={onClose} />
@@ -121,7 +129,13 @@ export default function NefisMertebeleri({ onClose }) {
   ];
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="nefis-mertebeleri-title"
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+    >
 
       {/* ── HEADER ─────────────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>
@@ -135,7 +149,7 @@ export default function NefisMertebeleri({ onClose }) {
             <line x1="6" y1="14" x2="18" y2="14" />
             <line x1="6" y1="18" x2="18" y2="18" />
           </svg>
-          <span style={OVERLAY_TITLE}>
+          <span id="nefis-mertebeleri-title" style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Nefis Mertebeleri' : 'Stations of the Self'}
           </span>
           <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>

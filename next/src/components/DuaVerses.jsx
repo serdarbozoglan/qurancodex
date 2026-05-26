@@ -425,6 +425,7 @@ export default function DuaVerses({ onClose }) {
         background: 'rgba(8,10,18,0.98)',
       }}>
         <input
+          className="qc-focus-ring"
           value={searchValue}
           onChange={e => setSearchValue(e.target.value)}
           dir="auto"

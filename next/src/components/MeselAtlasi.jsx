@@ -9,6 +9,7 @@ import {
 } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
 import LoadingOverlay from './LoadingOverlay';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
 // NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: api.acikkuran.com'dan
@@ -1327,6 +1328,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
 // ────────────────────────────────────────────────────────────────────────────
 export default function MeselAtlasi({ onClose, backRef }) {
   const { language } = useLanguage();
+  const trapRef = useFocusTrap(true);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const [activeTab, setActiveTab]       = useState(0);
   const [domainFilter, setDomainFilter] = useState(null);
@@ -1416,7 +1418,16 @@ export default function MeselAtlasi({ onClose, backRef }) {
   };
 
   if (loading) return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', fontFamily: FONTS.body }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mesel-atlasi-title"
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', fontFamily: FONTS.body }}
+    >
+      <span id="mesel-atlasi-title" style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+        {language === 'tr' ? 'Mesel & Temsil Atlası' : 'Parables & Metaphors Atlas'}
+      </span>
       <LoadingOverlay />
     </div>
   );
@@ -1424,7 +1435,13 @@ export default function MeselAtlasi({ onClose, backRef }) {
   const tabs = language === 'tr' ? TABS_TR : TABS_EN;
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', fontFamily: FONTS.body }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mesel-atlasi-title"
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', fontFamily: FONTS.body }}
+    >
 
       {/* Header */}
       <div style={{
@@ -1442,7 +1459,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
             <circle cx="9" cy="12" r="7"/>
             <circle cx="15" cy="12" r="7"/>
           </svg>
-          <span style={OVERLAY_TITLE}>
+          <span id="mesel-atlasi-title" style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Mesel & Temsil Atlası' : 'Parables & Metaphors Atlas'}
           </span>
         </div>

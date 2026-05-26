@@ -17,6 +17,7 @@ import {
   RADIUS,
 } from '../tokens';
 import { AlertTriangleIcon } from './icons';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 
 // ─── Tab definitions ──────────────────────────────────────────────────────────
@@ -54,6 +55,7 @@ const TABS = [
 // ─── Main component ──────────────────────────────────────────────────────────
 export default function SunnetullahAtlasi({ onClose }) {
   const { language } = useLanguage();
+  const trapRef = useFocusTrap(true);
   const [data, setData] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [activeCategoryId, setActiveCategoryId] = useState(null);
@@ -111,9 +113,15 @@ export default function SunnetullahAtlasi({ onClose }) {
 
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div
+        ref={trapRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="sunnetullah-atlasi-title"
+        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      >
         <div style={OVERLAY_HEADER}>
-          <span style={OVERLAY_TITLE}>
+          <span id="sunnetullah-atlasi-title" style={OVERLAY_TITLE}>
             {language === 'tr' ? "Sünnetullah — Allah'ın Değişmez Kanunları" : "Sunnatullāh — Unchanging Laws of God"}
           </span>
           <CloseBtn onClose={onClose} />
@@ -130,7 +138,13 @@ export default function SunnetullahAtlasi({ onClose }) {
   const { meta, intro, literalOccurrences, thematicCategories, scholarViews } = data;
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="sunnetullah-atlasi-title"
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+    >
 
       {/* ── HEADER ─────────────────────────────────────────────────────── */}
       <div style={OVERLAY_HEADER}>
@@ -140,7 +154,7 @@ export default function SunnetullahAtlasi({ onClose }) {
             <circle cx="12" cy="12" r="10" />
             <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
           </svg>
-          <span style={{ ...OVERLAY_TITLE, color: COLORS.royalGold }}>
+          <span id="sunnetullah-atlasi-title" style={{ ...OVERLAY_TITLE, color: COLORS.royalGold }}>
             {language === 'tr' ? "Sünnetullah" : "Sunnatullāh"}
           </span>
           <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>

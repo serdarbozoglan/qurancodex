@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
 import LoadingOverlay from './LoadingOverlay';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Context badge color map ───────────────────────────────────────────────────
 const ANIMAL_CONTEXT_COLORS = {
@@ -985,6 +986,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function DogaAtlasi({ onClose }) {
   const { language } = useLanguage();
+  const trapRef = useFocusTrap(true);
   const [data, setData]       = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [isMobile, setIsMobile]   = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
@@ -1040,7 +1042,13 @@ export default function DogaAtlasi({ onClose }) {
   // Loading state
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div
+        ref={trapRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="doga-atlasi-title"
+        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      >
         <div style={{
           display: 'flex',
           alignItems: 'center',
@@ -1055,7 +1063,7 @@ export default function DogaAtlasi({ onClose }) {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ fontSize: '1.1rem' }}>🌿</span>
-            <span style={OVERLAY_TITLE}>
+            <span id="doga-atlasi-title" style={OVERLAY_TITLE}>
               {language === 'tr' ? 'Kevni Ayetler' : 'Cosmic Signs'}
             </span>
           </div>
@@ -1071,7 +1079,13 @@ export default function DogaAtlasi({ onClose }) {
   const { animals, plants, sureNames, contexts, tefsirNotes, sources } = data;
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="doga-atlasi-title"
+      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+    >
 
       {/* ── HEADER ─────────────────────────────────────────────────── */}
       <div style={{
@@ -1088,7 +1102,7 @@ export default function DogaAtlasi({ onClose }) {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
           <span style={{ fontSize: '1.1rem', flexShrink: 0 }}>🌿</span>
-          <span style={OVERLAY_TITLE}>
+          <span id="doga-atlasi-title" style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Kevni Ayetler' : 'Cosmic Signs'}
           </span>
         </div>

@@ -400,6 +400,16 @@ body {
   outline-offset: 2px;
 }
 
+/* ---- Focus Ring Override (a11y — WCAG 2.4.7) ----
+   Bazı input/select element'lerinde inline `outline: 'none'` veya
+   `border: 'none'` style'ı CSS specificity nedeniyle global :focus-visible
+   kuralını ezer. Bu utility class, klavye fokusunda outline'ı `!important`
+   ile zorlar — mouse click'inde tetiklenmez (focus-visible semantic'i). */
+.qc-focus-ring:focus-visible {
+  outline: 2px solid var(--color-gold) !important;
+  outline-offset: 2px !important;
+}
+
 /* ---- Skip Link (a11y — W23-S3) ----
    Keyboard-only "Skip to main content" link. Hidden off-screen by default;
    becomes visible on keyboard focus (focus-visible avoids mouse-click flicker).

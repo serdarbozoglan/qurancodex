@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import LoadingOverlay from './LoadingOverlay';
@@ -74,6 +75,7 @@ function parseVerseRef(ref) {
 
 export default function KissaAtlas({ onClose }) {
   const { language } = useLanguage();
+  const trapRef = useFocusTrap(true);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedProphetId, setSelectedProphetId] = useState('musa');
@@ -148,12 +150,18 @@ export default function KissaAtlas({ onClose }) {
   };
 
   if (loading) return (
-    <div style={{
-      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
-      background: '#06080e',
-      display: 'flex', flexDirection: 'column',
-      fontFamily: "'Inter', sans-serif",
-    }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="kissa-atlas-title"
+      style={{
+        position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
+        background: '#06080e',
+        display: 'flex', flexDirection: 'column',
+        fontFamily: "'Inter', sans-serif",
+      }}
+    >
       <LoadingOverlay />
     </div>
   );
@@ -176,12 +184,18 @@ export default function KissaAtlas({ onClose }) {
     prophet.scenes.filter(s => s.surahs.includes(surahNum));
 
   return (
-    <div style={{
-      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
-      background: '#06080e',
-      display: 'flex', flexDirection: 'column',
-      fontFamily: "'Inter', sans-serif",
-    }}>
+    <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="kissa-atlas-title"
+      style={{
+        position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
+        background: '#06080e',
+        display: 'flex', flexDirection: 'column',
+        fontFamily: "'Inter', sans-serif",
+      }}
+    >
 
       {/* ── HEADER ─────────────────────────────────────────────────── */}
       <div style={{
@@ -197,7 +211,7 @@ export default function KissaAtlas({ onClose }) {
           height: isMobile ? 'auto' : '60px',
           gap: '12px',
         }}>
-          <span style={OVERLAY_TITLE}>
+          <span id="kissa-atlas-title" style={OVERLAY_TITLE}>
             {language === 'tr' ? 'Kıssa Atlası' : 'Story Atlas'}
           </span>
 
