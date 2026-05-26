@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, BREAKPOINT_MOBILE, FONTS, RADIUS, TRANSITION } from '../tokens';
+import LoadingOverlay from './LoadingOverlay';
 
 // Strip footnote refs and parenthetical translator additions
 function cleanTr(str) {
@@ -887,7 +888,7 @@ export default function WordHeatmap({ onClose }) {
           </div>
 
           {/* Loading */}
-          {loading && <div style={{ color: '#64748b', fontSize: '0.85rem', textAlign: 'center', padding: '40px' }}>{language === 'tr' ? 'Yükleniyor...' : 'Loading...'}</div>}
+          {loading && <LoadingOverlay />}
 
           {/* Not found */}
           {!loading && searchTerm && totalOccurrences === 0 && (

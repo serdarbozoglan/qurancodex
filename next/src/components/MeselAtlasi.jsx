@@ -7,6 +7,7 @@ import {
   OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
+import LoadingOverlay from './LoadingOverlay';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
 // NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: api.acikkuran.com'dan
@@ -1412,10 +1413,8 @@ export default function MeselAtlasi({ onClose, backRef }) {
   };
 
   if (loading) return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px', fontFamily: FONTS.body }}>
-      <div style={{ width: '36px', height: '36px', border: `2px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
-      <p style={{ color: COLORS.silver, fontSize: '0.85rem' }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</p>
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', fontFamily: FONTS.body }}>
+      <LoadingOverlay />
     </div>
   );
 

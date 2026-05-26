@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { COLORS, FONTS, RADIUS } from '../tokens';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 // Simple per-component cache: keyed by `${surahNumber}-${sourceId}`
 const _cache = new Map();
@@ -156,6 +157,10 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
   const [error,   setError]   = useState(null);
   const [pickerOpen, setPickerOpen] = useState(false);
   const scrollRef = useRef(null);
+  // W22-U3 focus trap — modal root ref binds Tab/Shift+Tab wrapping +
+  // initial focus + return-to-trigger on close. Existing Esc handler
+  // (above) and role="complementary" + aria-label remain untouched.
+  const trapRef = useFocusTrap(open);
 
   // Persist tafsir choice
   useEffect(() => {
@@ -285,6 +290,7 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
 
   return (
     <div
+      ref={trapRef}
       style={{
         // Start below the reading-mode navbar (zIndex 250) so the panel
         // header isn't covered. Navbar is 64px desktop / 52px mobile.

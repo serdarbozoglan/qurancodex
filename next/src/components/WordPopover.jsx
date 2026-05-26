@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import { posLabel } from '../lib/corpusPos';
+import useFocusTrap from '../hooks/useFocusTrap';
 
 // Büyük puntoda KFGQPC bazı Uthmani karakterleri kötü render ediyor
 // (örn. U+06EA asar kasrası → tofu/circle). Popover gösteriminde standart Unicode'a normalize.
@@ -84,7 +85,11 @@ const isMakki = (surah) => !MADANI.has(surah);
 export default function WordPopover({ word, surah, ayah, onClose, dayMode = false }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
-  const panelRef = useRef(null);
+  // W22-U3 focus trap — WordPopover is rendered conditionally by parents
+  // (early-return on `!word` below), so the panel only mounts when active.
+  // The trap is engaged whenever the panel is mounted; ref attaches to
+  // the inner panel where focusable controls live (close hint, CTA links).
+  const panelRef = useFocusTrap(true);
 
   // Palette — light cream parchment (day) vs deep navy (night). Day mode
   // mirrors the verse compare modal (named as the reference): same warm

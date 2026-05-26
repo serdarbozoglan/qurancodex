@@ -7,6 +7,7 @@ import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRA
 import { fetchMealSurah } from '../lib/mealCache';
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
+import LoadingOverlay from './LoadingOverlay';
 // Surah names (Türkçe kısa)
 const SURAH_NAMES_TR = [
   '', 'Fatiha', 'Bakara', 'Âl-i İmrân', 'Nisâ', 'Mâide',
@@ -150,12 +151,10 @@ export default function KissaAtlas({ onClose }) {
     <div style={{
       position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
       background: '#06080e',
-      display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px',
+      display: 'flex', flexDirection: 'column',
       fontFamily: "'Inter', sans-serif",
     }}>
-      <div style={{ width: '36px', height: '36px', border: `2px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
-      <p style={{ color: COLORS.slate500, fontSize: '0.85rem' }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</p>
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      <LoadingOverlay />
     </div>
   );
 

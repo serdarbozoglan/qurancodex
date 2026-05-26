@@ -7,6 +7,7 @@ import { surahNameTr } from '../lib/surahNames';
 import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 
 import { cleanArabicForGraph } from '../lib/arabic';
+import LoadingOverlay from './LoadingOverlay';
 // ─── MODULE-LEVEL CACHE ───────────────────────────────────────────────────────
 let _versesCache = null;
 let _conceptsCache = null;
@@ -390,22 +391,16 @@ export default function ConceptGraph({ onClose, restore = null }) {
 
       {/* ── LOADING DATA ──────────────────────────────────────────────── */}
       {(!verses || !concepts || (view === 'graph' && !graphRef.current && !buildingGraph)) && (
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
-          <p style={{ color: COLORS.slate500, fontSize: '0.85rem' }}>
-            {language === 'tr' ? 'Ayet verileri yükleniyor…' : 'Loading verse data…'}
-          </p>
-          <style>{`@keyframes spin { to { transform: rotate(360deg); } } @keyframes cgFadeIn { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }`}</style>
+        <div style={{ flex: 1, display: 'flex' }}>
+          <LoadingOverlay message={language === 'tr' ? 'Ayet verileri yükleniyor…' : 'Loading verse data…'} />
+          <style>{`@keyframes cgFadeIn { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }`}</style>
         </div>
       )}
 
       {/* ── BUILDING GRAPH ────────────────────────────────────────────── */}
       {buildingGraph && !loadingData && (
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ width: '36px', height: '36px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
-          <p style={{ color: COLORS.slate500, fontSize: '0.85rem' }}>
-            {language === 'tr' ? 'Kavram ağı hesaplanıyor…' : 'Computing concept network…'}
-          </p>
+        <div style={{ flex: 1, display: 'flex' }}>
+          <LoadingOverlay message={language === 'tr' ? 'Kavram ağı hesaplanıyor…' : 'Computing concept network…'} />
         </div>
       )}
 

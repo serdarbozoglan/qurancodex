@@ -8,6 +8,7 @@ import {
   RADIUS, TRANSITION,
   BREAKPOINT_MOBILE,
 } from '../tokens';
+import LoadingOverlay from './LoadingOverlay';
 
 // ─── Semantic Map (F-2) ──────────────────────────────────────────────────────
 // 6.236 ayet üzerinde BGE-M3 embedding'i ile NetworkX Louvain topluluk
@@ -92,10 +93,8 @@ export default function SemanticMap({ onClose }) {
     return (
       <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
         <Header language={language} onClose={onClose} />
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ color: COLORS.silver, fontSize: '0.9rem' }}>
-            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
-          </span>
+        <div style={{ flex: 1, display: 'flex' }}>
+          <LoadingOverlay />
         </div>
       </div>
     );
