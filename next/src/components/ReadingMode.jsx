@@ -198,9 +198,10 @@ function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = 
   html = html.replace(WAQF_TA_RE, makeWaqfTaSpan(dayMode));
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(SEKTA_RE, makeSektaWrap(dayMode));
-  html = html.replace(KASR_RE, makeKasrWrap(dayMode));
-  html = html.replace(MED_RE, makeMedWrap(dayMode));
-  html = html.replace(NUN_WIQAYAH_RE, makeNunWiqayahWrap(dayMode));
+  // KASR_RE / MED_RE / NUN_WIQAYAH_RE overlay'leri yalnızca tajweed-on (applyTajweed) modunda
+  // çalışır. wrapWaqfOnly (varsayılan tajweed-off) modunda Mushaf-i Şerif sade
+  // görünümü için bu CSS annotation'lar render edilmez — U+06EC/U+06EB/U+06E8
+  // karakterleri font'un native glyph'i ile gösterilir.
   if (!skipAllahColor) {
     html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
     html = html.replace(LILLAHI_RE, makeAllahWrap(dayMode));
