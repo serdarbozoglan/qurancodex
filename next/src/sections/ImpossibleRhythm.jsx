@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useRef, Fragment } from 'react';
+import { useState, useEffect, useRef, Fragment } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from '../components/icons';
-import { FONTS, COLORS, RADIUS } from '../tokens';
+import { FONTS, COLORS, RADIUS, BREAKPOINT_MOBILE } from '../tokens';
 
 const KAWTHAR_VERSES = [
   { ar: 'إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ', num: '١' },
@@ -92,6 +92,15 @@ export default function ImpossibleRhythm() {
   const [selectedNajm, setSelectedNajm] = useState(null);
   const [failedNajm, setFailedNajm] = useState(new Set());
   const [najmInfoOpen, setNajmInfoOpen] = useState(false);
+  // §14.1 SSR-safe mobile detection (initial false → post-mount hydrate).
+  // Necm ses haritası kareleri mobilde wrap'lensin diye gerekli.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
   const audioRef = useRef(null);
   const najmAudioRef = useRef(null);
 
@@ -685,13 +694,22 @@ export default function ImpossibleRhythm() {
             : 'Each square is one verse. Click to hear it and see the ending word.'}
         </p>
 
-        {/* Grid — Row 1: ayets 1-31, Row 2: ayets 32-56 + [gap] + maqta' 57-62 */}
+        {/* Grid — Desktop: 2 satır (1-31, 32-62) + maqta' separator.
+            Mobile: tek satır flex-wrap, küçük kare (22px), separator gizli — maqta' magenta rengi zaten ayırt eder. */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: '16px', alignItems: 'center' }}>
-          {[
-            { data: NAJM_FASILA.slice(0, 31), offset: 0 },
-            { data: NAJM_FASILA.slice(31), offset: 31, maqtaStart: 25 },
-          ].map(({ data: row, offset, maqtaStart }, rowIdx) => (
-            <div key={rowIdx} style={{ display: 'flex', gap: '5px' }}>
+          {(isMobile
+            ? [{ data: NAJM_FASILA, offset: 0 }]
+            : [
+                { data: NAJM_FASILA.slice(0, 31), offset: 0 },
+                { data: NAJM_FASILA.slice(31), offset: 31, maqtaStart: 25 },
+              ]
+          ).map(({ data: row, offset, maqtaStart }, rowIdx) => (
+            <div key={rowIdx} style={{
+              display: 'flex',
+              gap: isMobile ? '4px' : '5px',
+              flexWrap: isMobile ? 'wrap' : 'nowrap',
+              justifyContent: 'center',
+            }}>
               {row.map((type, j) => {
                 const i = offset + j;
                 const isSelected = selectedNajm === i;
@@ -706,8 +724,9 @@ export default function ImpossibleRhythm() {
                   ? '1px solid rgba(180,80,120,0.4)'
                   : '1px solid rgba(148,163,184,0.25)';
                 const color = type === 'aa' ? 'rgba(10,10,26,0.75)' : isMaqta ? 'rgba(255,220,230,0.7)' : 'rgba(148,163,184,0.6)';
-                // Visual separator before maqta' section (verse 57 = index 56, j=25 in row 2)
-                const isMaqtaBoundary = maqtaStart && j === maqtaStart;
+                // Visual separator before maqta' section — desktop only; mobile uses color cue.
+                const isMaqtaBoundary = !isMobile && maqtaStart && j === maqtaStart;
+                const squareSize = isMobile ? 22 : 30;
                 return (
                   <Fragment key={i}>
                     {isMaqtaBoundary && (
@@ -723,15 +742,16 @@ export default function ImpossibleRhythm() {
                     onClick={() => handleNajmClick(i)}
                     title={`${i + 1}. ayet`}
                     style={{
-                      width: '30px', height: '30px', borderRadius: RADIUS.xs,
+                      width: `${squareSize}px`, height: `${squareSize}px`, borderRadius: RADIUS.xs,
                       background: bg, border,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '0.5rem', color, fontFamily: 'Inter, sans-serif', fontWeight: 600,
+                      fontSize: isMobile ? '0.45rem' : '0.5rem', color, fontFamily: 'Inter, sans-serif', fontWeight: 600,
                       cursor: 'pointer',
                       transform: isSelected ? 'scale(1.2)' : 'scale(1)',
                       transition: 'transform 0.12s, border 0.12s, opacity 0.2s',
                       boxShadow: isSelected ? '0 0 8px rgba(255,255,255,0.3)' : 'none',
                       opacity: isFailed ? 0.35 : 1,
+                      flexShrink: 0,
                     }}
                     onMouseEnter={e => { if (!isSelected) e.currentTarget.style.transform = 'scale(1.12)'; }}
                     onMouseLeave={e => { if (!isSelected) e.currentTarget.style.transform = 'scale(1)'; }}
