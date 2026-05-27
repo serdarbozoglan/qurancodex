@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
-import { COLORS, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, RADIUS, TRANSITION, BREAKPOINT_MOBILE } from '../tokens';
 
 const PROPHET_PROFILES = [
   {
@@ -179,6 +179,15 @@ export default function QuranDua() {
   const tr = language === 'tr';
   const [activeProfile, setActiveProfile] = useState('ibrahim');
 
+  // SSR-safe mobile detection (§14.1)
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   return (
     <SectionWrapper id="dua-language" dark={true} className="section-seam-into-deep">
       {/* Badge */}
@@ -230,7 +239,7 @@ export default function QuranDua() {
         </p>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(0,1fr) auto minmax(0,1fr)',
+          gridTemplateColumns: isMobile ? 'minmax(0,1fr)' : 'minmax(0,1fr) auto minmax(0,1fr)',
           gap: '14px',
           alignItems: 'stretch',
         }}>
@@ -240,7 +249,11 @@ export default function QuranDua() {
             border: '1px solid rgba(52,152,219,0.25)',
             borderTop: '2px solid #3498db',
             borderRadius: RADIUS.chip,
-            padding: '16px 18px',
+            padding: isMobile ? '14px 16px' : '16px 18px',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            overflowWrap: 'break-word',
+            wordBreak: 'break-word',
           }}>
             <div dir="rtl" lang="ar" style={{
               fontFamily: "'KFGQPC', 'Amiri Quran', serif",
@@ -268,9 +281,9 @@ export default function QuranDua() {
             </div>
           </div>
 
-          {/* Center: bağlaç sembolü */}
+          {/* Center: bağlaç sembolü — desktop only (vertical text doesn't fit narrow mobile) */}
           <div style={{
-            display: 'flex', flexDirection: 'column', alignItems: 'center',
+            display: isMobile ? 'none' : 'flex', flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center', minWidth: '36px',
           }}>
             <span style={{
@@ -294,7 +307,11 @@ export default function QuranDua() {
             border: '1px solid rgba(212,165,116,0.25)',
             borderTop: '2px solid #d4a574',
             borderRadius: RADIUS.chip,
-            padding: '16px 18px',
+            padding: isMobile ? '14px 16px' : '16px 18px',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            overflowWrap: 'break-word',
+            wordBreak: 'break-word',
           }}>
             <div dir="rtl" lang="ar" style={{
               fontFamily: "'KFGQPC', 'Amiri Quran', serif",
@@ -339,7 +356,7 @@ export default function QuranDua() {
         <div style={{
           marginTop: '20px',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
+          gridTemplateColumns: isMobile ? 'minmax(0,1fr)' : 'repeat(auto-fit, minmax(380px, 1fr))',
           gap: '14px',
         }}>
           {/* Pencere 2: "Yâ" Edatının Yokluğu */}
@@ -348,7 +365,11 @@ export default function QuranDua() {
             border: '1px solid rgba(167,139,250,0.22)',
             borderTop: '2px solid #a78bfa',
             borderRadius: RADIUS.chip,
-            padding: '16px 18px 14px',
+            padding: isMobile ? '14px 16px 12px' : '16px 18px 14px',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            overflowWrap: 'break-word',
+            wordBreak: 'break-word',
           }}>
             <div style={{
               fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
@@ -387,7 +408,11 @@ export default function QuranDua() {
             border: '1px solid rgba(231,76,60,0.22)',
             borderTop: '2px solid #e74c3c',
             borderRadius: RADIUS.chip,
-            padding: '16px 18px 14px',
+            padding: isMobile ? '14px 16px 12px' : '16px 18px 14px',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            overflowWrap: 'break-word',
+            wordBreak: 'break-word',
           }}>
             <div style={{
               fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',

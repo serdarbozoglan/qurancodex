@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -188,6 +188,14 @@ export default function HiddenArchitecture() {
   const [activePair,    setActivePair]    = useState(null);
   const [activeSurah,   setActiveSurah]   = useState('fatiha');
   const [hoveredConcept, setHoveredConcept] = useState(null); // index of hovered concept chip → pulses matching ray
+  // SSR-safe mobile detection — §14.1, §16.6 (start false, hydrate post-mount).
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 640);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
   const surah = SURAHS[activeSurah];
 
   return (
@@ -340,17 +348,18 @@ export default function HiddenArchitecture() {
                 key={pair.idx}
                 style={{
                   display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  marginBottom: '10px',
-                  paddingLeft: indent,
-                  paddingRight: indent,
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'stretch' : 'center',
+                  gap: isMobile ? '6px' : '10px',
+                  marginBottom: isMobile ? '14px' : '10px',
+                  paddingLeft: isMobile ? 0 : indent,
+                  paddingRight: isMobile ? 0 : indent,
                   opacity: isDimmed ? 0.22 : 1,
                   transition: 'opacity 0.3s, padding 0.3s',
                 }}
               >
                 {/* Left card */}
-                <button onClick={() => setActivePair(isActive ? null : pair.idx)} style={{ ...cardBase, textAlign: 'left' }}>
+                <button onClick={() => setActivePair(isActive ? null : pair.idx)} style={{ ...cardBase, textAlign: 'left', width: isMobile ? '100%' : undefined }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span style={badgeBase}>{pair.left.label}</span>
                     <span style={themeStyle}>{language === 'tr' ? pair.left.themeTr : pair.left.themeEn}</span>
@@ -360,21 +369,36 @@ export default function HiddenArchitecture() {
                   )}
                 </button>
 
-                {/* Connector */}
-                <div style={{ flexShrink: 0, width: '36px', textAlign: 'center' }}>
+                {/* Connector — ↔ on desktop, ↕ vertically stacked on mobile */}
+                <div style={{
+                  flexShrink: 0,
+                  width: isMobile ? '100%' : '36px',
+                  textAlign: 'center',
+                  lineHeight: 1,
+                  padding: isMobile ? '2px 0' : 0,
+                }}>
                   <span style={{
-                    fontSize: '1.25rem',
-                    color: isActive ? color.text : 'rgba(255,255,255,0.18)',
+                    fontSize: isMobile ? '1.1rem' : '1.25rem',
+                    color: isActive ? color.text : 'rgba(255,255,255,0.25)',
                     transition: 'color 0.25s',
                     lineHeight: 1,
-                  }}>↔</span>
+                  }}>{isMobile ? '↕' : '↔'}</span>
                 </div>
 
-                {/* Right card */}
-                <button onClick={() => setActivePair(isActive ? null : pair.idx)} style={{ ...cardBase, textAlign: 'right' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end' }}>
-                    <span style={themeStyle}>{language === 'tr' ? pair.right.themeTr : pair.right.themeEn}</span>
-                    <span style={badgeBase}>{pair.right.label}</span>
+                {/* Right card — on mobile use left-aligned natural reading flow (label first); desktop mirrors the left card. */}
+                <button onClick={() => setActivePair(isActive ? null : pair.idx)} style={{ ...cardBase, textAlign: isMobile ? 'left' : 'right', width: isMobile ? '100%' : undefined }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: isMobile ? 'flex-start' : 'flex-end' }}>
+                    {isMobile ? (
+                      <>
+                        <span style={badgeBase}>{pair.right.label}</span>
+                        <span style={themeStyle}>{language === 'tr' ? pair.right.themeTr : pair.right.themeEn}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span style={themeStyle}>{language === 'tr' ? pair.right.themeTr : pair.right.themeEn}</span>
+                        <span style={badgeBase}>{pair.right.label}</span>
+                      </>
+                    )}
                   </div>
                   {pair.right.ar && (
                     <p dir="rtl" lang="ar" style={arStyle}>{pair.right.ar}</p>
