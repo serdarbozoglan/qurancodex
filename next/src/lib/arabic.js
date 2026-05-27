@@ -47,12 +47,6 @@ export function cleanArabic(str) {
   return str
     // Decomposed hamza: ي+ٔ → ئ (precomposed ya-hamza)
     .replace(/ئ/g, 'ئ')
-    // U+0656 (ARABIC SUBSCRIPT ALEF / dagger alef below) — Uthmani imlada uzun ı
-    // sesini göstermek için kullanılır (ör. "اَلَّذٖينَ"). KFGQPC font'unda ayrı bir
-    // dagger-below glyph'i ile render olur; klasik Mushaf imlasındaki sade kasra'dan
-    // görsel olarak farklı durur. Standart kasra (U+0650) ile normalize ederek
-    // "اَلَّذِينَ" klasik imla görüntüsü elde edilir; fonetik bilgi (kasra + ya = uzun ı) korunur.
-    .replace(/ٖ/g, 'ِ')
     // U+06EA (Uthmani subscript kasra / asar) — olduğu gibi korunur, font asar şeklinde render eder
     // U+0653 (maddah above): tüm durumlar wrapWaqfOnly/applyTajweed pipeline'ında CSS overlay ile
     // işlenir (makeShaddaMaddaWrap / makeHarakaMaddaWrap / makeBareHarakaMaddaWrap).
