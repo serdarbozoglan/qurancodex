@@ -47,6 +47,14 @@ export function cleanArabic(str) {
   return str
     // Decomposed hamza: ي+ٔ → ئ (precomposed ya-hamza)
     .replace(/ئ/g, 'ئ')
+    // U+0656 (ARABIC SUBSCRIPT ALEF / dagger alef below) — primary font'umuz
+    // ShaykhHamdullah Mushaf bu karakteri DESTEKLEMİYOR (glyph=None). API'den
+    // (acikkuran) verisinde U+0656 olarak gelen "uzun ı sesi" diakritiği,
+    // U+06EA'ya normalize edilir — ShaykhHamdullah ve KFGQPC her ikisi de
+    // U+06EA'yı `subscriptalef` glyph'i ile dikey küçük çizgi olarak render
+    // eder; klasik Mushaf imlasındaki "uzun hareke" görünümü budur. Bu,
+    // acikkuran web sitesinin uyguladığı normalizasyonla birebir aynıdır.
+    .replace(/ٖ/g, '۪')
     // U+06EA (Uthmani subscript kasra / asar) — olduğu gibi korunur, font asar şeklinde render eder
     // U+0653 (maddah above): tüm durumlar wrapWaqfOnly/applyTajweed pipeline'ında CSS overlay ile
     // işlenir (makeShaddaMaddaWrap / makeHarakaMaddaWrap / makeBareHarakaMaddaWrap).
