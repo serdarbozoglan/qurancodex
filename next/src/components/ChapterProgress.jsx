@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, RADIUS } from '../tokens';
 
+const DESKTOP_BREAKPOINT = 1024;
+
 const CHAPTERS = [
   { id: 'linguistic',          labelTr: 'Dilsel DNA',           labelEn: 'Linguistic DNA'          },
   { id: 'rhythm',              labelTr: 'İmkansız Ritim',       labelEn: 'Impossible Rhythm'       },
@@ -24,6 +26,16 @@ export default function ChapterProgress() {
   const [activeId, setActiveId] = useState(null);
   const [hoveredId, setHoveredId] = useState(null);
   const [visible, setVisible] = useState(false);
+  // SSR-safe: initial false; post-mount window.innerWidth ile hydrate.
+  // §14.1 pattern. Mobilde nav tamamen gizlenir — kart içerikleri ile overlap'i engeller.
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT);
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
 
   useEffect(() => {
     function update() {
@@ -64,6 +76,8 @@ export default function ChapterProgress() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  if (!isDesktop) return null;
+
   return (
     <div
       style={{
@@ -80,7 +94,6 @@ export default function ChapterProgress() {
         pointerEvents: visible ? 'auto' : 'none',
         transition: 'opacity 0.3s ease',
       }}
-      className="hidden lg:flex"
       aria-hidden={!visible}
     >
       {CHAPTERS.map((chapter, i) => {
