@@ -28,13 +28,19 @@ const SCROLL_OFFSET = NAVBAR_HEIGHT + CHIP_NAV_HEIGHT + 12; // section üst kena
 const SCROLL_DURATION = 500; // ms — sabit süre (uzun mesafelerde de hızlı biter)
 
 // Custom RAF-based smooth scroll. Native scrollIntoView({behavior:'smooth'})
-// Safari/iOS'ta uzun mesafelerde yavaş + bouncy çalışıyor — kullanıcı "ucuyor"
-// hissi yaşıyor. RAF + sabit 500ms ile mesafe ne olursa olsun tutarlı süre.
+// Safari/iOS'ta uzun mesafelerde yavaş + bouncy çalışıyor.
+//
+// KRİTİK: globals.css'te `html { scroll-behavior: smooth }` global ayarlı —
+// window.scrollTo(0, Y) çağrısı bu CSS yüzünden **kendi başına da** smooth
+// animate eder. Bizim RAF her frame'de yeni Y verirken global smooth scroll
+// da animate ederse iki engine çakışır → "önce X'e gidip sonra Y'ye dönme"
+// jitter'ı. Her scrollTo çağrısında `behavior: 'instant'` ile global CSS'i
+// bypass ederek bunu engelliyoruz.
 function smoothScrollTo(targetY, duration = SCROLL_DURATION) {
   if (typeof window === 'undefined') return;
   const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   if (reduced) {
-    window.scrollTo(0, targetY);
+    window.scrollTo({ top: targetY, left: 0, behavior: 'instant' });
     return;
   }
   const startY = window.scrollY;
@@ -46,7 +52,7 @@ function smoothScrollTo(targetY, duration = SCROLL_DURATION) {
   function step(now) {
     const elapsed = now - startTime;
     const t = Math.min(elapsed / duration, 1);
-    window.scrollTo(0, startY + distance * ease(t));
+    window.scrollTo({ top: startY + distance * ease(t), left: 0, behavior: 'instant' });
     if (t < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);

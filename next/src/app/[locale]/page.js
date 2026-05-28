@@ -65,7 +65,6 @@ export default async function Home({ params }) {
       <QuranRhetoric />
       <QuranDua />
       <SoundArchitecture />
-      <PsychologySection />
       <HiddenArchitecture />
       <ScientificSigns />
       <HistoricalProof />
@@ -73,6 +72,7 @@ export default async function Home({ params }) {
       <ZeroRedundancy />
       <Highlights />
       <HumanDefinition />
+      <PsychologySection />
       <ToolsShowcase />
       <Conclusion />
       <Footer />
