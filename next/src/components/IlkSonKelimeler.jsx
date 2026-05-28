@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicMinimal as cleanArabic } from '../lib/arabic';
@@ -40,6 +40,7 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
   const [searchValue, setSearch]  = useState('');
   const [selected, setSelected]   = useState(null);
   const [isMobile, setIsMobile]   = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
+  const fullListRef               = useRef(null);    // "114 Sûrenin Tamamı" başlığına anchor — filter chip'lerinden smooth scroll hedefi.
 
   // Back-nav: when a category filter is active, browser-back resets it AND
   // scrolls back to the category card the user originally clicked from.
@@ -196,7 +197,16 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
             return (
               <button
                 key={f.id}
-                onClick={() => { setFilter(f.id); setSelected(null); }}
+                onClick={() => {
+                  setFilter(f.id);
+                  setSelected(null);
+                  // Filter aktive olunca alttaki "114 Sûrenin Tamamı" listesine smooth scroll.
+                  // Gemini bulgusu: kullanıcı üstte tıklıyor ama altta neyin değiştiğini göremiyor.
+                  // setTimeout ile bir tick bekle — filter state'i settle olsun, sonra scroll.
+                  setTimeout(() => {
+                    fullListRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 80);
+                }}
                 style={{
                   flexShrink: 0,
                   padding: '5px 12px', borderRadius: RADIUS.md,
@@ -268,10 +278,11 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
           )}
 
           {/* Grid section header — always visible above the surah cards */}
-          <div id="ilk-son-grid-header" style={{
+          <div ref={fullListRef} id="ilk-son-grid-header" style={{
             gridColumn: '1 / -1',
             paddingTop: '20px',
             marginBottom: '4px',
+            scrollMarginTop: '12px',
           }}>
             <div style={{
               display: 'flex', alignItems: 'center', gap: '14px',
@@ -346,14 +357,13 @@ function Header({ language, onClose }) {
           <line x1="7" y1="12" x2="17" y2="12" />
           <polyline points="14 9 17 12 14 15" />
         </svg>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
-          <span style={{ ...OVERLAY_TITLE }}>
-            {language === 'tr' ? 'İlk ve Son Kelimeler' : 'First and Last Words'}
-          </span>
-          <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body }}>
-            {language === 'tr' ? '114 sûre · açılış-kapanış kelimesi' : '114 surahs · opening-closing word'}
-          </span>
-        </div>
+        <span style={OVERLAY_TITLE}>
+          {language === 'tr' ? 'İlk ve Son Kelimeler' : 'First and Last Words'}
+        </span>
+        <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+        <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>
+          {language === 'tr' ? '114 sûre · açılış-kapanış kelimesi' : '114 surahs · opening-closing word'}
+        </span>
       </div>
       <button style={{ ...CLOSE_BTN }} onClick={onClose}
         onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
