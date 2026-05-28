@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, TRANSITION, RADIUS, FONTS } from '../tokens';
-import { CloseIcon, ChatBubbleIcon } from './icons';
+import { CloseIcon, ChatBubbleIcon, ExternalLinkIcon } from './icons';
 // v1.1 — single source of truth for tools data, shared with the modal
 import {
   FEATURED_TOOL  as IMPORTED_FEATURED,
@@ -811,9 +811,14 @@ export default function Navbar() {
                           <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
                             <Icon size={16} />
                           </span>
-                          <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                            <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                          <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0 }}>
+                            <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                               {language === 'tr' ? item.titleTr : item.titleEn}
+                              {item.kind === 'overlay' && (
+                                <span aria-hidden="true" style={{ color: 'rgba(212,165,116,0.5)', flexShrink: 0, display: 'inline-flex' }}>
+                                  <ExternalLinkIcon size={11} strokeWidth={2.2} />
+                                </span>
+                              )}
                             </span>
                             <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                               {language === 'tr' ? item.descTr : item.descEn}
@@ -1198,6 +1203,26 @@ export default function Navbar() {
             msOverflowStyle: 'none',
           }}
         >
+          {/* Wordmark — sol-üst, drawer kimliği için (Navbar'ın compact mirror'ı) */}
+          <button
+            onClick={() => { setMobileOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="text-gold font-display font-bold tracking-[0.14em]"
+            style={{
+              position: 'fixed',
+              top: '20px',
+              left: '20px',
+              zIndex: 10002,
+              fontSize: '0.95rem',
+              background: 'transparent',
+              border: 'none',
+              padding: 0,
+              cursor: 'pointer',
+            }}
+            aria-label={language === 'tr' ? 'Ana sayfaya dön' : 'Back to home'}
+          >
+            QURAN CODEX
+          </button>
+
           {/* Close button */}
           <button
             onClick={() => setMobileOpen(false)}
