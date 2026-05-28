@@ -30,6 +30,7 @@ import ToolsShowcase from '@/sections/ToolsShowcase';
 import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
 import ChapterProgress from '@/components/ChapterProgress';
+import MobileSectionChipNav from '@/components/MobileSectionChipNav';
 import ScrollToTopFab from '@/components/ScrollToTopFab';
 
 export async function generateMetadata({ params }) {
@@ -53,6 +54,7 @@ export default async function Home({ params }) {
     <>
       <JsonLd schemas={buildBreadcrumb(locale, '')} />
       <ChapterProgress />
+      <MobileSectionChipNav />
       <ScrollToTopFab />
       <Hero />
       <PathCards />
