@@ -22,7 +22,7 @@ const CHAPTERS = [
 ];
 
 const TABLET_BREAKPOINT = 1024;
-const NAVBAR_HEIGHT = 56; // Navbar scrolled-state (py-3) approximate height
+const NAVBAR_HEIGHT = 62; // Navbar scrolled-state (py-3) ~56px + 6px nefes (görsel ayrım)
 
 export default function MobileSectionChipNav() {
   const { language } = useLanguage();
