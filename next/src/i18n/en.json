@@ -195,7 +195,9 @@
         "listenLabel": "Listen",
         "stopLabel": "Stop",
         "submitLabel": "Reveal",
-        "completeLabel": "Complete"
+        "completeLabel": "Complete",
+        "perfectClosingEn": "See? Even without knowing Arabic, your ear recognizes this sonic architecture. The Quran's sounds are not random — they carry meaning.",
+        "partialClosingEn": "You caught some. The bond between sound and meaning isn't always conscious — the ear often senses before the mind catches up."
       }
     },
     "classicalSource": {

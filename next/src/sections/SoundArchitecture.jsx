@@ -790,29 +790,88 @@ function DiscoveryWidget({ t, language }) {
               transition={{ duration: 0.3 }}
               style={{ textAlign: 'center', padding: '20px 0' }}
             >
-              <p style={{
-                color: COLORS.gold, fontSize: '0.7rem', fontFamily: 'Inter, sans-serif',
-                fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase',
-                marginBottom: '10px',
-              }}>{labels.completeLabel}</p>
-              <p style={{
-                color: COLORS.offWhite, fontSize: 'clamp(2rem, 5vw, 3rem)',
-                fontFamily: "'Playfair Display', serif", fontWeight: 800,
-                marginBottom: '14px',
-              }}>{score} <span style={{ color: COLORS.silver, fontSize: '0.5em' }}>/ {items.length}</span></p>
-              <button
-                onClick={reset}
-                style={{
-                  background: 'rgba(212,165,116,0.10)',
-                  border: '1px solid rgba(212,165,116,0.35)',
-                  borderRadius: RADIUS.pillSm, padding: '8px 18px',
-                  color: COLORS.gold,
-                  fontSize: '0.82rem', fontFamily: 'Inter, sans-serif', fontWeight: 600,
-                  cursor: 'pointer', transition: 'all 0.18s',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha20; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; }}
-              >↻ {labels.resetLabel}</button>
+              {(() => {
+                const perfect = score === items.length;
+                const accent = perfect ? COLORS.softEmerald : COLORS.gold;
+                const closingText = perfect
+                  ? (language === 'tr' ? labels.perfectClosingTr : labels.perfectClosingEn)
+                  : (language === 'tr' ? labels.partialClosingTr : labels.partialClosingEn);
+                return (
+                  <>
+                    <p style={{
+                      color: accent, fontSize: '0.7rem', fontFamily: 'Inter, sans-serif',
+                      fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase',
+                      marginBottom: '10px',
+                    }}>{labels.completeLabel}</p>
+
+                    {/* Score number with spring scale + glow on perfect */}
+                    <motion.p
+                      initial={{ scale: 0.6, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ type: 'spring', stiffness: 220, damping: 14, delay: 0.1 }}
+                      style={{
+                        color: COLORS.offWhite,
+                        fontSize: 'clamp(2rem, 5vw, 3rem)',
+                        fontFamily: "'Playfair Display', serif",
+                        fontWeight: 800,
+                        marginBottom: '14px',
+                        textShadow: perfect
+                          ? `0 0 24px ${COLORS.softEmerald}55, 0 0 48px ${COLORS.softEmerald}33`
+                          : 'none',
+                        transition: 'text-shadow 0.4s',
+                      }}
+                    >
+                      <span style={{ color: accent }}>{score}</span>{' '}
+                      <span style={{ color: COLORS.silver, fontSize: '0.5em' }}>/ {items.length}</span>
+                    </motion.p>
+
+                    {/* Closing celebration / partial message */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.45, delay: 0.35 }}
+                      style={{
+                        margin: '0 auto 18px',
+                        maxWidth: '36rem',
+                        background: perfect
+                          ? `linear-gradient(135deg, ${COLORS.softEmerald}14, ${COLORS.softEmerald}06)`
+                          : 'rgba(255,255,255,0.04)',
+                        border: `1px solid ${perfect ? COLORS.softEmerald + '40' : 'rgba(255,255,255,0.10)'}`,
+                        backdropFilter: 'blur(12px)',
+                        WebkitBackdropFilter: 'blur(12px)',
+                        borderRadius: RADIUS.lg,
+                        padding: 'clamp(14px, 2.4vw, 18px) clamp(16px, 3vw, 22px)',
+                        boxShadow: perfect ? `0 0 32px ${COLORS.softEmerald}1a` : 'none',
+                      }}
+                    >
+                      <p style={{
+                        color: perfect ? COLORS.gold : COLORS.silver,
+                        fontSize: 'clamp(0.92rem, 1.6vw, 1.02rem)',
+                        fontFamily: FONTS.body,
+                        fontStyle: 'italic',
+                        lineHeight: 1.65,
+                        margin: 0,
+                      }}>
+                        {closingText}
+                      </p>
+                    </motion.div>
+
+                    <button
+                      onClick={reset}
+                      style={{
+                        background: 'rgba(212,165,116,0.10)',
+                        border: '1px solid rgba(212,165,116,0.35)',
+                        borderRadius: RADIUS.pillSm, padding: '8px 18px',
+                        color: COLORS.gold,
+                        fontSize: '0.82rem', fontFamily: 'Inter, sans-serif', fontWeight: 600,
+                        cursor: 'pointer', transition: 'all 0.18s',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha20; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; }}
+                    >↻ {labels.resetLabel}</button>
+                  </>
+                );
+              })()}
             </motion.div>
           )}
         </AnimatePresence>

@@ -194,7 +194,9 @@
         "listenLabel": "Dinle",
         "stopLabel": "Durdur",
         "submitLabel": "Cevabı Gör",
-        "completeLabel": "Tamamlandı"
+        "completeLabel": "Tamamlandı",
+        "perfectClosingTr": "Gördün mü? Arapça bilmesen de ruhun bu ses mimarisini tanıyor. Kur'an'ın sesleri rastgele değil — anlamın taşıyıcısı.",
+        "partialClosingTr": "Bazısını yakaladın. Ses ve anlamın bağı her zaman bilinçli değil — kulak çoğu zaman zihinden önce sezer."
       }
     },
     "classicalSource": {

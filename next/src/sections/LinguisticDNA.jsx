@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
+import AnimatedCounter from '../components/AnimatedCounter';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
 const GROUP_HIGHLIGHTS = [
@@ -269,25 +270,25 @@ export default function LinguisticDNA() {
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
         <StatCard
           label={t('linguisticDNA.stats.letters.label')}
-          value="14"
+          value={<AnimatedCounter target={14} />}
           description={t('linguisticDNA.stats.letters.description')}
           glowColor="gold"
         />
         <StatCard
           label={t('linguisticDNA.stats.suras.label')}
-          value="29"
+          value={<AnimatedCounter target={29} />}
           description={t('linguisticDNA.stats.suras.description')}
           glowColor="emerald"
         />
         <StatCard
           label={t('linguisticDNA.stats.coverage.label')}
-          value="25%"
+          value={<AnimatedCounter target={25} suffix="%" />}
           description={t('linguisticDNA.stats.coverage.description')}
           glowColor="blue"
         />
         <StatCard
           label={t('linguisticDNA.stats.meccan.label')}
-          value="27 / 29"
+          value={<><AnimatedCounter target={27} /> / 29</>}
           description={t('linguisticDNA.stats.meccan.description')}
           glowColor="gold"
         />
@@ -651,9 +652,9 @@ export default function LinguisticDNA() {
         </p>
         <p className="font-display text-3xl md:text-4xl font-bold text-off-white mb-3">
           {language === 'tr' ? (
-            <>29 Sûrenin <span style={{ color: '#d4a574' }}>25'inde</span></>
+            <>29 Sûrenin <span style={{ color: '#d4a574' }}><AnimatedCounter target={25} />'inde</span></>
           ) : (
-            <>In <span style={{ color: '#d4a574' }}>25</span> of 29 Suras</>
+            <>In <span style={{ color: '#d4a574' }}><AnimatedCounter target={25} /></span> of 29 Suras</>
           )}
         </p>
         <p className="text-silver text-lg md:text-xl font-body mb-7 max-w-3xl">
@@ -686,7 +687,7 @@ export default function LinguisticDNA() {
               className="absolute -top-6 font-body text-xs font-semibold"
               style={{ left: '86%', transform: 'translateX(-50%)', color: '#d4a574' }}
             >
-              %86
+              %<AnimatedCounter target={86} />
             </div>
           </div>
           <div className="flex justify-between text-silver/30 text-xs font-body mt-1">
