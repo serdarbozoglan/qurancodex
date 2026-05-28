@@ -36,17 +36,6 @@ const SITEMAP_LINKS = {
         { href: '/arac/tum-araclar',  text: "Tüm Araçlar — kapsamlı katalog" },
       ],
     },
-    sureler: {
-      label: 'Popüler Sureler',
-      items: [
-        { href: '/oku/1',   text: "Fâtiha Suresi'ni oku (Sure 1)" },
-        { href: '/oku/2',   text: "Bakara Suresi'ni oku (Sure 2)" },
-        { href: '/oku/36',  text: "Yâ-Sîn Suresi'ni oku (Sure 36)" },
-        { href: '/oku/55',  text: "Rahmân Suresi'ni oku (Sure 55)" },
-        { href: '/oku/67',  text: "Mülk Suresi'ni oku (Sure 67)" },
-        { href: '/oku/112', text: "İhlâs Suresi'ni oku (Sure 112)" },
-      ],
-    },
   },
   en: {
     atlas: {
@@ -77,17 +66,6 @@ const SITEMAP_LINKS = {
         { href: '/arac/wow',          text: "Wow Facts — science & verses" },
         { href: '/arac/esma-frekans', text: "Names of Allah Frequency" },
         { href: '/arac/tum-araclar',  text: "All Tools — full catalog" },
-      ],
-    },
-    sureler: {
-      label: 'Popular Surahs',
-      items: [
-        { href: '/oku/1',   text: "Read Surah Al-Fatiha (Surah 1)" },
-        { href: '/oku/2',   text: "Read Surah Al-Baqara (Surah 2)" },
-        { href: '/oku/36',  text: "Read Surah Ya-Sin (Surah 36)" },
-        { href: '/oku/55',  text: "Read Surah Ar-Rahman (Surah 55)" },
-        { href: '/oku/67',  text: "Read Surah Al-Mulk (Surah 67)" },
-        { href: '/oku/112', text: "Read Surah Al-Ikhlas (Surah 112)" },
       ],
     },
   },
@@ -147,7 +125,7 @@ export default function Footer() {
             {exploreHeading}
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {['atlas', 'graf', 'arac', 'sureler'].map((key) => {
+            {['atlas', 'graf', 'arac'].map((key) => {
               const col = links[key];
               return (
                 <div key={key}>
