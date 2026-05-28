@@ -998,9 +998,12 @@ export default function Navbar() {
                         onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.ti').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.tl').style.color = '#e8e6e3'; }}
                       >
                         <span className="ti" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>{tool.icon}</span>
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                          <span className="tl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0 }}>
+                          <span className="tl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                             {language === 'tr' ? tool.labelTr : tool.labelEn}
+                            <span aria-hidden="true" style={{ color: 'rgba(212,165,116,0.5)', flexShrink: 0, display: 'inline-flex' }}>
+                              <ExternalLinkIcon size={11} strokeWidth={2.2} />
+                            </span>
                           </span>
                           <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                             {language === 'tr' ? tool.descTr : tool.descEn}
