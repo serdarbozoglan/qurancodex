@@ -23,6 +23,34 @@ const CHAPTERS = [
 
 const TABLET_BREAKPOINT = 1024;
 const NAVBAR_HEIGHT = 62; // Navbar scrolled-state (py-3) ~56px + 6px nefes (görsel ayrım)
+const CHIP_NAV_HEIGHT = 48; // chip-nav padding + chip yüksekliği approx.
+const SCROLL_OFFSET = NAVBAR_HEIGHT + CHIP_NAV_HEIGHT + 12; // section üst kenarına nefes
+const SCROLL_DURATION = 500; // ms — sabit süre (uzun mesafelerde de hızlı biter)
+
+// Custom RAF-based smooth scroll. Native scrollIntoView({behavior:'smooth'})
+// Safari/iOS'ta uzun mesafelerde yavaş + bouncy çalışıyor — kullanıcı "ucuyor"
+// hissi yaşıyor. RAF + sabit 500ms ile mesafe ne olursa olsun tutarlı süre.
+function smoothScrollTo(targetY, duration = SCROLL_DURATION) {
+  if (typeof window === 'undefined') return;
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) {
+    window.scrollTo(0, targetY);
+    return;
+  }
+  const startY = window.scrollY;
+  const distance = targetY - startY;
+  if (Math.abs(distance) < 2) return;
+  const startTime = performance.now();
+  // ease-in-out cubic
+  const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  function step(now) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, startY + distance * ease(t));
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
 
 export default function MobileSectionChipNav() {
   const { language } = useLanguage();
@@ -71,13 +99,21 @@ export default function MobileSectionChipNav() {
     };
   }, [isTouch]);
 
-  // Aktif chip'i yatay scroll rail içinde ortaya çek (görünmüyorsa).
+  // Aktif chip'i yatay scroll rail içinde ortaya çek. scrollIntoView KULLANMA —
+  // Safari/Chrome'da `inline:'center'` parent container'ı kaydırırken window'u
+  // da kaydırabiliyor; chip-click sırasındaki custom window smooth-scroll ile
+  // çakışıp "önce yukarı sonra aşağı" davranışı yaratıyordu. Manuel
+  // rail.scrollTo({left}) ile sadece rail içinde yatay kayar, window dokunulmaz.
   useEffect(() => {
-    if (!activeId || !chipRefs.current[activeId]) return;
-    chipRefs.current[activeId].scrollIntoView({
+    if (!activeId) return;
+    const chip = chipRefs.current[activeId];
+    const rail = railRef.current;
+    if (!chip || !rail) return;
+    const chipCenter = chip.offsetLeft + chip.offsetWidth / 2;
+    const railCenter = rail.clientWidth / 2;
+    rail.scrollTo({
+      left: Math.max(0, chipCenter - railCenter),
       behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
     });
   }, [activeId]);
 
@@ -85,7 +121,10 @@ export default function MobileSectionChipNav() {
 
   function scrollTo(id) {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!el) return;
+    const elTop = el.getBoundingClientRect().top + window.scrollY;
+    const targetY = Math.max(0, elTop - SCROLL_OFFSET);
+    smoothScrollTo(targetY);
   }
 
   return (
