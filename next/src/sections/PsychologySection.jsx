@@ -473,47 +473,96 @@ export default function PsychologySection() {
         {t('psychology.intro')}
       </motion.p>
 
-      {/* Tab bar — desktop: yatay scroll (overflowX:auto), tek satır.
-          Mobil: flex-wrap, tüm tab'lar 2-3 satıra dağılır — keşfedilebilirlik > compact görüntü. */}
+      {/* Tab bar
+          Desktop: yatay scroll, tek satır, alt-border underline-style.
+          Mobil: 2-sütun grid, kart-style — asimetrik wrap yerine simetrik düzen,
+                  aktif tab tam-renkli border + dim background, inactive minimal. */}
       <motion.div
         variants={fadeUpItem}
-        style={{
-          display: 'flex',
-          gap: isMobile ? '4px' : '2px',
-          flexWrap: isMobile ? 'wrap' : 'nowrap',
-          overflowX: isMobile ? 'visible' : 'auto',
-          marginBottom: '24px',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
-        }}
+        style={
+          isMobile
+            ? {
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '8px',
+                marginBottom: '24px',
+              }
+            : {
+                display: 'flex',
+                gap: '2px',
+                overflowX: 'auto',
+                marginBottom: '24px',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+              }
+        }
       >
         {allTabKeys.map((key) => {
           const isActive = activeTab === key;
           const meta = TAB_META[key];
+          const mobileStyle = {
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '10px 12px',
+            borderRadius: '10px',
+            border: `1px solid ${isActive ? meta.color : 'rgba(255,255,255,0.06)'}`,
+            background: isActive ? meta.dim : 'rgba(255,255,255,0.022)',
+            color: isActive ? meta.color : '#94a3b8',
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.78rem',
+            fontWeight: isActive ? 600 : 500,
+            lineHeight: 1.25,
+            cursor: 'pointer',
+            transition: 'all 0.18s',
+            textAlign: 'left',
+            minHeight: '44px',
+          };
+          const desktopStyle = {
+            flexShrink: 0,
+            display: 'flex', alignItems: 'center', gap: '8px',
+            padding: '12px 18px',
+            border: 'none', borderRadius: '0',
+            borderBottom: isActive ? `2px solid ${meta.color}` : '2px solid transparent',
+            background: isActive ? meta.dim : 'transparent',
+            color: isActive ? meta.color : '#64748b',
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.85rem', fontWeight: isActive ? 600 : 400,
+            cursor: 'pointer', transition: 'all 0.2s',
+            whiteSpace: 'nowrap',
+          };
           return (
             <button
               key={key}
               onClick={() => setActiveTab(key)}
-              style={{
-                flexShrink: 0,
-                display: 'flex', alignItems: 'center', gap: isMobile ? '6px' : '8px',
-                padding: isMobile ? '8px 12px' : '12px 18px',
-                border: 'none', borderRadius: '0',
-                borderBottom: isActive ? `2px solid ${meta.color}` : '2px solid transparent',
-                background: isActive ? meta.dim : 'transparent',
-                color: isActive ? meta.color : '#64748b',
-                fontFamily: "'Inter', sans-serif",
-                fontSize: isMobile ? '0.78rem' : '0.85rem',
-                fontWeight: isActive ? 600 : 400,
-                cursor: 'pointer', transition: 'all 0.2s',
-                whiteSpace: 'nowrap',
+              style={isMobile ? mobileStyle : desktopStyle}
+              onMouseEnter={e => {
+                if (isActive) return;
+                if (isMobile) {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                  e.currentTarget.style.color = '#e8e6e3';
+                } else {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                  e.currentTarget.style.color = '#e8e6e3';
+                }
               }}
-              onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#e8e6e3'; } }}
-              onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#64748b'; } }}
+              onMouseLeave={e => {
+                if (isActive) return;
+                if (isMobile) {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.022)';
+                  e.currentTarget.style.color = '#94a3b8';
+                } else {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = '#64748b';
+                }
+              }}
+              aria-pressed={isActive}
             >
               <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{TAB_ICONS[key]}</span>
-              {tabs[key] || key}
+              <span style={{ whiteSpace: isMobile ? 'normal' : 'nowrap', overflow: 'hidden', textOverflow: isMobile ? 'clip' : 'ellipsis' }}>
+                {tabs[key] || key}
+              </span>
             </button>
           );
         })}
