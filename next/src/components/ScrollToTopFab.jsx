@@ -30,10 +30,10 @@ export default function ScrollToTopFab() {
         position: 'fixed',
         bottom: 'max(20px, env(safe-area-inset-bottom, 20px))',
         right: '20px',
-        width: '46px',
-        height: '46px',
+        width: '42px',
+        height: '42px',
         borderRadius: RADIUS.full,
-        background: 'rgba(10,10,26,0.72)',
+        background: 'rgba(10,10,26,0.55)',
         backdropFilter: 'blur(14px)',
         WebkitBackdropFilter: 'blur(14px)',
         border: `1px solid ${COLORS.goldAlpha25}`,
@@ -44,20 +44,25 @@ export default function ScrollToTopFab() {
         cursor: 'pointer',
         padding: 0,
         zIndex: 50,
-        opacity: visible ? 1 : 0,
+        // Idle opacity 0.6 — keşfedilebilir ama göze çarpmaz; hover/focus'ta 1.0.
+        opacity: visible ? 0.6 : 0,
         pointerEvents: visible ? 'auto' : 'none',
         transform: visible ? 'translateY(0)' : 'translateY(8px)',
-        transition: `opacity 0.25s ${TRANSITION?.easeOut || 'ease-out'}, transform 0.25s ${TRANSITION?.easeOut || 'ease-out'}`,
-        boxShadow: '0 6px 18px rgba(0,0,0,0.35)',
+        transition: `opacity 0.25s ${TRANSITION?.easeOut || 'ease-out'}, transform 0.25s ${TRANSITION?.easeOut || 'ease-out'}, background 0.2s`,
+        boxShadow: '0 6px 18px rgba(0,0,0,0.3)',
       }}
       onMouseEnter={e => {
+        e.currentTarget.style.opacity = '1';
         e.currentTarget.style.background = 'rgba(212,165,116,0.18)';
         e.currentTarget.style.transform = 'translateY(-2px)';
       }}
       onMouseLeave={e => {
-        e.currentTarget.style.background = 'rgba(10,10,26,0.72)';
+        e.currentTarget.style.opacity = '0.6';
+        e.currentTarget.style.background = 'rgba(10,10,26,0.55)';
         e.currentTarget.style.transform = 'translateY(0)';
       }}
+      onFocus={e => { e.currentTarget.style.opacity = '1'; }}
+      onBlur={e => { e.currentTarget.style.opacity = '0.6'; }}
     >
       <svg
         width="18"
