@@ -111,8 +111,9 @@ export default function MobileSectionChipNav() {
         ref={railRef}
         style={{
           display: 'flex',
+          alignItems: 'center',
           gap: '6px',
-          padding: '8px 14px',
+          padding: '11px 14px 13px',
           overflowX: 'auto',
           overflowY: 'hidden',
           scrollbarWidth: 'none',
@@ -121,6 +122,8 @@ export default function MobileSectionChipNav() {
         }}
         // iOS Safari'de scrollbar gizleme için ekstra CSS gerekebilir;
         // şu an scrollbarWidth + msOverflowStyle ile çoğu tarayıcıda gizli.
+        // Padding asymmetric (11/13) — overflowY:hidden ile birlikte chip üst
+        // kenarının clip görünmesini engeller; alignItems:center butonu rail içinde merkezler.
       >
         {CHAPTERS.map((ch, i) => {
           const isActive = activeId === ch.id;
@@ -133,7 +136,7 @@ export default function MobileSectionChipNav() {
               aria-current={isActive ? 'location' : undefined}
               style={{
                 flexShrink: 0,
-                padding: '6px 12px',
+                padding: '7px 13px',
                 borderRadius: RADIUS.pill,
                 background: isActive ? COLORS.goldAlpha15 : 'transparent',
                 border: `1px solid ${isActive ? COLORS.goldAlpha25 : COLORS.glassBorderSoft}`,
