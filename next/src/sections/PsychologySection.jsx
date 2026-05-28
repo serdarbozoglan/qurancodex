@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from '../components/icons';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, BREAKPOINT_MOBILE } from '../tokens';
 
 // Parse references like "Yusuf, 12:84", "Tawba 9:128", or "12:84"
 function parseRef(ref) {
@@ -418,6 +418,14 @@ export default function PsychologySection() {
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState('nefs');
   const tabs = t('psychology.tabs') || {};
+  // §14.1 SSR-safe mobile detect — tabs mobilde wrap'lensin diye gerekli.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const allTabKeys = [...MAIN_TABS, 'ekler'];
   const activeMeta = TAB_META[activeTab] || TAB_META.nefs;
@@ -465,12 +473,15 @@ export default function PsychologySection() {
         {t('psychology.intro')}
       </motion.p>
 
-      {/* Tab bar — horizontally scrollable, per-tab accent colors preserved */}
+      {/* Tab bar — desktop: yatay scroll (overflowX:auto), tek satır.
+          Mobil: flex-wrap, tüm tab'lar 2-3 satıra dağılır — keşfedilebilirlik > compact görüntü. */}
       <motion.div
         variants={fadeUpItem}
         style={{
-          display: 'flex', gap: '2px',
-          overflowX: 'auto',
+          display: 'flex',
+          gap: isMobile ? '4px' : '2px',
+          flexWrap: isMobile ? 'wrap' : 'nowrap',
+          overflowX: isMobile ? 'visible' : 'auto',
           marginBottom: '24px',
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -486,14 +497,15 @@ export default function PsychologySection() {
               onClick={() => setActiveTab(key)}
               style={{
                 flexShrink: 0,
-                display: 'flex', alignItems: 'center', gap: '8px',
-                padding: '12px 18px',
+                display: 'flex', alignItems: 'center', gap: isMobile ? '6px' : '8px',
+                padding: isMobile ? '8px 12px' : '12px 18px',
                 border: 'none', borderRadius: '0',
                 borderBottom: isActive ? `2px solid ${meta.color}` : '2px solid transparent',
                 background: isActive ? meta.dim : 'transparent',
                 color: isActive ? meta.color : '#64748b',
                 fontFamily: "'Inter', sans-serif",
-                fontSize: '0.85rem', fontWeight: isActive ? 600 : 400,
+                fontSize: isMobile ? '0.78rem' : '0.85rem',
+                fontWeight: isActive ? 600 : 400,
                 cursor: 'pointer', transition: 'all 0.2s',
                 whiteSpace: 'nowrap',
               }}
