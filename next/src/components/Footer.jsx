@@ -88,10 +88,6 @@ export default function Footer() {
               info@qurancodex.com
             </a>
           </div>
-          <p className="font-arabic text-sm text-gold/50" dir="rtl" lang="ar"
-            style={{ fontFamily: FONTS.quran }}>
-            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-          </p>
         </div>
       </div>
     </footer>
