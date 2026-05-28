@@ -29,7 +29,6 @@ import HumanDefinition from '@/sections/HumanDefinition';
 import ToolsShowcase from '@/sections/ToolsShowcase';
 import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
-import ChapterProgress from '@/components/ChapterProgress';
 import MobileSectionChipNav from '@/components/MobileSectionChipNav';
 import ScrollToTopFab from '@/components/ScrollToTopFab';
 
@@ -53,7 +52,6 @@ export default async function Home({ params }) {
   return (
     <>
       <JsonLd schemas={buildBreadcrumb(locale, '')} />
-      <ChapterProgress />
       <MobileSectionChipNav />
       <ScrollToTopFab />
       <Hero />

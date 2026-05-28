@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, RADIUS } from '../tokens';
 
-// CHAPTERS = ChapterProgress (desktop dot-nav) ile aynı sıra ve id'ler.
-// Mobil + tablet için chip-row, ≥1024px'te ChapterProgress dikey dot-nav kullanılır.
+// Tüm breakpoint'lerde aktif section-chip nav. Önceden desktop'ta ChapterProgress
+// (sol dikey dot-nav) kullanılıyordu; ama dot-nav label'ları hover'da fade-in
+// olduğu için keşfedilebilirlik düşüktü. Tek bir chip-row pattern → mobile +
+// desktop tutarlı UX, label'lar her zaman görünür.
 const CHAPTERS = [
   { id: 'linguistic',          labelTr: 'Dilsel DNA',           labelEn: 'Linguistic DNA'          },
   { id: 'rhythm',              labelTr: 'İmkansız Ritim',       labelEn: 'Impossible Rhythm'       },
@@ -21,7 +23,7 @@ const CHAPTERS = [
   { id: 'conclusion',          labelTr: 'Sonuç',                labelEn: 'Conclusion'              },
 ];
 
-const TABLET_BREAKPOINT = 1024;
+const DESKTOP_BREAKPOINT = 1024;
 const NAVBAR_HEIGHT = 62; // Navbar scrolled-state (py-3) ~56px + 6px nefes (görsel ayrım)
 const CHIP_NAV_HEIGHT = 48; // chip-nav padding + chip yüksekliği approx.
 const SCROLL_OFFSET = NAVBAR_HEIGHT + CHIP_NAV_HEIGHT + 12; // section üst kenarına nefes
@@ -60,21 +62,22 @@ function smoothScrollTo(targetY, duration = SCROLL_DURATION) {
 
 export default function MobileSectionChipNav() {
   const { language } = useLanguage();
-  const [isTouch, setIsTouch] = useState(false); // < 1024px (mobil + tablet)
+  // isDesktop yalnızca responsive styling için (chip padding/font/gap).
+  // Component her breakpoint'te render olur — visibility scroll-trigger'a bağlı.
+  const [isDesktop, setIsDesktop] = useState(false);
   const [visible, setVisible] = useState(false);
   const [activeId, setActiveId] = useState(null);
   const railRef = useRef(null);
   const chipRefs = useRef({});
 
   useEffect(() => {
-    const check = () => setIsTouch(window.innerWidth < TABLET_BREAKPOINT);
+    const check = () => setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT);
     check();
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
 
   useEffect(() => {
-    if (!isTouch) return;
     function update() {
       const TRIGGER = window.innerHeight * 0.35;
       const firstEl = document.getElementById(CHAPTERS[0].id);
@@ -103,7 +106,7 @@ export default function MobileSectionChipNav() {
       window.removeEventListener('scroll', update);
       window.removeEventListener('resize', update);
     };
-  }, [isTouch]);
+  }, []);
 
   // Aktif chip'i yatay scroll rail içinde ortaya çek. scrollIntoView KULLANMA —
   // Safari/Chrome'da `inline:'center'` parent container'ı kaydırırken window'u
@@ -122,8 +125,6 @@ export default function MobileSectionChipNav() {
       behavior: 'smooth',
     });
   }, [activeId]);
-
-  if (!isTouch) return null;
 
   function scrollTo(id) {
     const el = document.getElementById(id);
@@ -157,8 +158,10 @@ export default function MobileSectionChipNav() {
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
-          padding: '11px 14px 13px',
+          gap: isDesktop ? '8px' : '6px',
+          padding: isDesktop ? '12px 24px 14px' : '11px 14px 13px',
+          maxWidth: isDesktop ? '1280px' : '100%',
+          margin: '0 auto',
           overflowX: 'auto',
           overflowY: 'hidden',
           scrollbarWidth: 'none',
@@ -181,13 +184,13 @@ export default function MobileSectionChipNav() {
               aria-current={isActive ? 'location' : undefined}
               style={{
                 flexShrink: 0,
-                padding: '7px 13px',
+                padding: isDesktop ? '8px 16px' : '7px 13px',
                 borderRadius: RADIUS.pill,
                 background: isActive ? COLORS.goldAlpha15 : 'transparent',
                 border: `1px solid ${isActive ? COLORS.goldAlpha25 : COLORS.glassBorderSoft}`,
                 color: isActive ? COLORS.gold : COLORS.silver,
                 fontFamily: "'Inter', sans-serif",
-                fontSize: '0.72rem',
+                fontSize: isDesktop ? '0.78rem' : '0.72rem',
                 fontWeight: isActive ? 600 : 400,
                 lineHeight: 1.2,
                 whiteSpace: 'nowrap',
