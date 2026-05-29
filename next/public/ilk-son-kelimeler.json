@@ -184,7 +184,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "vocative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -224,7 +226,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "vocative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -264,8 +268,12 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
-      "closerTags": [],
+      "openerTags": [
+        "divine-praise"
+      ],
+      "closerTags": [
+        "divine-name-closer"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اَلْحَمْدُ لِلّٰهِ الَّذ۪ي خَلَقَ السَّمٰوَاتِ وَالْاَرْضَ وَجَعَلَ الظُّلُمَاتِ وَالنُّورَۜ  ثُمَّ الَّذ۪ينَ كَفَرُوا بِرَبِّهِمْ يَعْدِلُونَ",
@@ -761,7 +769,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "divine-praise"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -1048,7 +1058,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "تَبَارَكَ الَّذ۪ي نَزَّلَ الْفُرْقَانَ عَلٰى عَبْدِه۪ لِيَكُونَ لِلْعَالَم۪ينَ نَذ۪يراًۙ",
@@ -1381,8 +1393,12 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
-      "closerTags": [],
+      "openerTags": [
+        "vocative"
+      ],
+      "closerTags": [
+        "divine-name-closer"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "يَٓا اَيُّهَا النَّبِيُّ اتَّقِ اللّٰهَ وَلَا تُطِعِ الْكَافِر۪ينَ وَالْمُنَافِق۪ينَۜ اِنَّ اللّٰهَ كَانَ عَل۪يماً حَك۪يماًۙ",
@@ -1421,8 +1437,12 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
-      "closerTags": [],
+      "openerTags": [
+        "divine-praise"
+      ],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اَلْحَمْدُ لِلّٰهِ الَّذ۪ي لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ وَلَهُ الْحَمْدُ فِي الْاٰخِرَةِۜ  وَهُوَ الْحَك۪يمُ الْخَب۪يرُ",
@@ -1461,7 +1481,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "divine-praise"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -2049,7 +2071,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "vocative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -2259,7 +2283,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "divine-name-closer"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اِقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ",
@@ -2509,8 +2535,12 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
-      "closerTags": [],
+      "openerTags": [
+        "vocative"
+      ],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "يَٓا اَيُّهَا الَّذ۪ينَ اٰمَنُوا لَا تَتَّخِذُوا عَدُوّ۪ي وَعَدُوَّكُمْ اَوْلِيَٓاءَ تُلْقُونَ اِلَيْهِمْ بِالْمَوَدَّةِ وَقَدْ كَفَرُوا بِمَا جَٓاءَكُمْ مِنَ الْحَقِّۚ يُخْرِجُونَ الرَّسُولَ وَاِيَّاكُمْ اَنْ تُؤْمِنُوا بِاللّٰهِ رَبِّكُمْۜ اِنْ كُنْتُمْ خَرَجْتُمْ جِهَاداً ف۪ي سَب۪يل۪ي وَابْتِغَٓاءَ مَرْضَات۪ي تُسِرُّونَ اِلَيْهِمْ بِالْمَوَدَّةِۗ وَاَنَا۬ اَعْلَمُ بِمَٓا اَخْفَيْتُمْ وَمَٓا اَعْلَنْتُمْۜ وَمَنْ يَفْعَلْهُ مِنْكُمْ فَقَدْ ضَلَّ سَوَٓاءَ السَّب۪يلِ",
@@ -2711,8 +2741,12 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
-      "closerTags": [],
+      "openerTags": [
+        "vocative"
+      ],
+      "closerTags": [
+        "divine-name-closer"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "يَٓا اَيُّهَا النَّبِيُّ اِذَا طَلَّقْتُمُ النِّسَٓاءَ فَطَلِّقُوهُنَّ لِعِدَّتِهِنَّ وَاَحْصُوا الْعِدَّةَۚ وَاتَّقُوا اللّٰهَ رَبَّكُمْۚ لَا تُخْرِجُوهُنَّ مِنْ بُيُوتِهِنَّ وَلَا يَخْرُجْنَ اِلَّٓا اَنْ يَأْت۪ينَ بِفَاحِشَةٍ مُبَيِّنَةٍۜ وَتِلْكَ حُدُودُ اللّٰهِۜ وَمَنْ يَتَعَدَّ حُدُودَ اللّٰهِ فَقَدْ ظَلَمَ نَفْسَهُۜ  لَا تَدْر۪ي لَعَلَّ اللّٰهَ يُحْدِثُ بَعْدَ ذٰلِكَ اَمْراً",
@@ -2751,7 +2785,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "vocative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -2959,7 +2995,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": ["inna"],
+      "openerTags": [
+        "inna"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -3173,7 +3211,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "هَلْ اَتٰى عَلَى الْاِنْسَانِ ح۪ينٌ مِنَ الدَّهْرِ لَمْ يَكُنْ شَيْـٔاً مَذْكُوراً",
@@ -3255,7 +3295,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "عَمَّ يَتَسَٓاءَلُونَۚ",
@@ -3337,7 +3379,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "عَبَسَ وَتَوَلّٰىۙ",
@@ -3457,7 +3501,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "وَيْلٌ لِلْمُطَفِّف۪ينَۙ",
@@ -4209,7 +4255,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اَلْقَارِعَةُۙ",
@@ -4332,7 +4380,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "وَيْلٌ لِكُلِّ هُمَزَةٍ لُمَزَةٍۨۙ",
@@ -4372,7 +4422,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِاَصْحَابِ الْف۪يلِۜ",
@@ -4452,7 +4504,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اَرَاَيْتَ الَّذ۪ي يُكَذِّبُ بِالدّ۪ينِۜ",
@@ -4618,7 +4672,9 @@
         "root": null
       },
       "openerTags": [],
-      "closerTags": [],
+      "closerTags": [
+        "negative-other"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "تَبَّتْ  يَدَٓا اَب۪ي لَهَبٍ وَتَبَّۜ",
