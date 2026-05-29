@@ -26,6 +26,14 @@ const FACTS = [
     wowTr: 'Besmele sayısı, sûre sayısını yansıtır.',
     wowEn: 'The count of "Bismillah" mirrors the number of surahs.',
     explore: '27:30',
+    visualType: 'counter',
+    visualData: {
+      value: 114,
+      suffixTr: 'besmele',
+      suffixEn: 'bismillahs',
+      labelTr: 'Sûre sayısıyla eşit',
+      labelEn: 'Matching the surah count',
+    },
   },
   {
     category: 'sayisal',
@@ -49,6 +57,14 @@ const FACTS = [
     wowTr: 'Her 2,3 ayette bir — hiçbir sayfa susmuyor.',
     wowEn: 'Once every 2.3 verses — no page is silent.',
     explore: 'Allah',
+    visualType: 'counter',
+    visualData: {
+      value: 2699,
+      suffixTr: 'kez',
+      suffixEn: 'times',
+      labelTr: '"Allah" lafzı — en sık geçen kelime',
+      labelEn: '"Allah" — the most frequent word',
+    },
   },
   {
     category: 'sayisal',
@@ -60,6 +76,14 @@ const FACTS = [
     wowTr: '124.000\'den 25 — her biri bir ders, hepsi bir sistem.',
     wowEn: '25 out of 124,000 — each a lesson, together a system.',
     explore: 'resul',
+    visualType: 'counter',
+    visualData: {
+      value: 25,
+      suffixTr: 'peygamber',
+      suffixEn: 'prophets',
+      labelTr: 'İsimle anılan — her biri bir ders',
+      labelEn: 'Named in the Quran — each a lesson',
+    },
   },
 
   {
@@ -699,6 +723,20 @@ function WowCard({ fact, language, onClose }) {
       }}>
         {language === 'tr' ? fact.titleTr : fact.titleEn}
       </div>
+
+      {/* Phase 1 Visual Atom dispatch — visualType varsa render et, yoksa skip
+          (text-only fallback). İlk type: 'counter'. */}
+      {fact.visualType === 'counter' && fact.visualData && (
+        <CounterVisual
+          value={fact.visualData.value}
+          suffixTr={fact.visualData.suffixTr}
+          suffixEn={fact.visualData.suffixEn}
+          labelTr={fact.visualData.labelTr}
+          labelEn={fact.visualData.labelEn}
+          language={language}
+          cardColor={cfg.color}
+        />
+      )}
 
       {/* Body */}
       <div style={{
