@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicMinimal as cleanArabic } from '../lib/arabic';
+import { CloseIcon } from './icons';
 import {
   COLORS, FONTS,
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
@@ -155,34 +156,68 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
         display: 'flex', flexDirection: 'column', gap: '10px',
       }}>
         {/* Search */}
-        <div style={{ position: 'relative', maxWidth: '440px' }}>
-          <svg
-            aria-hidden="true"
-            width="14" height="14" viewBox="0 0 24 24"
-            fill="none" stroke="rgba(148,163,184,0.4)" strokeWidth="2" strokeLinecap="round"
-            style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="M21 21l-4.35-4.35" />
-          </svg>
-          <input
-            type="text"
-            placeholder={language === 'tr' ? 'Sûre, kelime, anlam ara…' : 'Search surah, word, meaning…'}
-            value={searchValue}
-            onChange={e => setSearch(e.target.value)}
-            style={{
-              width: '100%', boxSizing: 'border-box',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: RADIUS.md,
-              color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.85rem',
-              padding: '8px 12px 8px 36px',
-              outline: 'none',
-              transition: `border-color ${TRANSITION.fast}`,
-            }}
-            onFocus={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45 || COLORS.goldAlpha45; }}
-            onBlur={e => { e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}
-          />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', maxWidth: '440px' }}>
+          <div style={{ position: 'relative' }}>
+            <svg
+              aria-hidden="true"
+              width="14" height="14" viewBox="0 0 24 24"
+              fill="none" stroke="rgba(148,163,184,0.4)" strokeWidth="2" strokeLinecap="round"
+              style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              placeholder={language === 'tr' ? 'Sûre adı, Arapça/Latin kelime veya anlam…' : 'Surah name, Arabic/Latin word or meaning…'}
+              value={searchValue}
+              onChange={e => setSearch(e.target.value)}
+              style={{
+                width: '100%', boxSizing: 'border-box',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: RADIUS.md,
+                color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.85rem',
+                padding: searchValue ? '8px 36px 8px 36px' : '8px 12px 8px 36px',
+                outline: 'none',
+                transition: `border-color ${TRANSITION.fast}`,
+              }}
+              onFocus={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45 || COLORS.goldAlpha45; }}
+              onBlur={e => { e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}
+            />
+            {searchValue && (
+              <button
+                type="button"
+                onClick={() => setSearch('')}
+                aria-label={language === 'tr' ? 'Aramayı temizle' : 'Clear search'}
+                style={{
+                  position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: '22px', height: '22px',
+                  borderRadius: RADIUS.full,
+                  background: 'rgba(255,255,255,0.06)',
+                  border: 'none',
+                  color: 'rgba(148,163,184,0.85)',
+                  cursor: 'pointer',
+                  transition: `background ${TRANSITION.fast}, color ${TRANSITION.fast}`,
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = COLORS.offWhite; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = 'rgba(148,163,184,0.85)'; }}
+              >
+                <CloseIcon size={11} strokeWidth={2.6} />
+              </button>
+            )}
+          </div>
+          {/* Helper text — kullanıcıya örnek terimler ipucu verir */}
+          <p style={{
+            fontSize: '0.68rem', color: 'rgba(148,163,184,0.55)',
+            fontFamily: FONTS.body, margin: '0 0 0 2px',
+            fontStyle: 'italic',
+          }}>
+            {language === 'tr'
+              ? 'Örnek: "Fâtiha", "الْحَمْدُ", "ḥamd", "sapanlar"'
+              : 'Examples: "Al-Fātiḥa", "الْحَمْدُ", "ḥamd", "go astray"'}
+          </p>
         </div>
 
         {/* Filter chips */}
