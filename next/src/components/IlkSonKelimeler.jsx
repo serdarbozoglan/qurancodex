@@ -380,11 +380,15 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
   );
 }
 
-// ─── Header ───────────────────────────────────────────────────────────────────
+// ─── Header — STANDART TOOL ALT-HEADER (WowFacts parity) ─────────────────────
+// OVERLAY_HEADER token outer style + max-width 1200 container (Navbar hizalı).
+// Close button KALDIRILDI — browser back + global Navbar bu rolü yapar.
+// onClose prop tutuldu (legacy compat) ama JSX'te kullanılmıyor.
+// eslint-disable-next-line no-unused-vars
 function Header({ language, onClose }) {
   return (
-    <div style={{ ...OVERLAY_HEADER }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+    <div style={{ ...OVERLAY_HEADER, justifyContent: 'flex-start' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
         {/* BridgeIcon — iki kelime arasındaki bağ/köprü temasını anlatır:
             iki uçta dolgu nokta + bunları birleştiren ince yay (arch). */}
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
@@ -396,18 +400,10 @@ function Header({ language, onClose }) {
           {language === 'tr' ? 'İlk ve Son Kelimeler' : 'First and Last Words'}
         </span>
         <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-        <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>
+        <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
           {language === 'tr' ? '114 sûre · açılış-kapanış kelimesi' : '114 surahs · opening-closing word'}
         </span>
       </div>
-      <button style={{ ...CLOSE_BTN }} onClick={onClose}
-        onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-        onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-          <path d="M18 6L6 18M6 6l12 12" />
-        </svg>
-      </button>
     </div>
   );
 }

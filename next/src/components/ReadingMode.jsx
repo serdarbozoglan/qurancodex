@@ -985,6 +985,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   migrateReadingModeSettings();
   const { language, toggleLanguage } = useLanguage();
   const router = useRouter();
+  // Wordmark scroll-aware fade — premium reader pattern (Apple iBooks /
+  // Kindle / quran.com): scroll yapıldığında brand fısıltıya iner
+  // (immersion), top'a dönülünce normale döner. Threshold 100px.
+  const [wordmarkScrolled, setWordmarkScrolled] = useState(false);
   const [verses, setVerses] = useState(null);
   const [loading, setLoading] = useState(true);
   // initialSurah (from SurahLink click) overrides the last-read position.
