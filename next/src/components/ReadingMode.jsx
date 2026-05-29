@@ -3056,8 +3056,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   ? (language === 'tr' ? 'Yer imlerini aç — bu sayfa zaten kayıtlı' : 'Open bookmarks — this page is saved')
                   : (language === 'tr' ? 'Yer imlerini aç / bu sayfayı kaydet' : 'Open bookmarks / save this page'))}
 
-              {/* Divider before close — desktop only */}
-              {!isMobile && <div style={{ width: '5px', flexShrink: 0 }} />}
+              {/* Close button spacer kaldırıldı (user audit): kapat zaten sağ
+                  ucta natural exit position'ında, ek margin gerekmedi. Diğer
+                  group spacer'lar 5px korunur. */}
 
               {/* Kapat — desktop only. Mobile renders the close button in
                   Row 1 of the §14.5 two-row header (above), so this inline
