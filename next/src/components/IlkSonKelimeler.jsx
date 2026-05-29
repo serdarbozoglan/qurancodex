@@ -208,15 +208,15 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
               </button>
             )}
           </div>
-          {/* Helper text — kullanıcıya örnek terimler ipucu verir */}
+          {/* Helper text — kullanıcıya örnek terimler ipucu verir + scope açıklar */}
           <p style={{
             fontSize: '0.68rem', color: 'rgba(148,163,184,0.55)',
             fontFamily: FONTS.body, margin: '0 0 0 2px',
             fontStyle: 'italic',
           }}>
             {language === 'tr'
-              ? 'Örnek: "Fâtiha", "الْحَمْدُ", "ḥamd", "sapanlar"'
-              : 'Examples: "Al-Fātiḥa", "الْحَمْدُ", "ḥamd", "go astray"'}
+              ? 'Örnek: "Fâtiha", "الْحَمْدُ", "ḥamd", "sapanlar" · açılış/kapanış ayetinin tamamında arar'
+              : 'Examples: "Al-Fātiḥa", "الْحَمْدُ", "ḥamd", "go astray" · searches full opening/closing verses'}
           </p>
         </div>
 
