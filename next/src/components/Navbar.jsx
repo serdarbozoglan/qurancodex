@@ -829,7 +829,7 @@ export default function Navbar() {
                             padding: '9px 12px', borderRadius: '10px', border: 'none',
                             background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
                           }}
-                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
                           onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
                         >
                           <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
@@ -1018,7 +1018,7 @@ export default function Navbar() {
                           padding: '9px 12px', borderRadius: '10px', border: 'none',
                           background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
                         }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.07)'; e.currentTarget.querySelector('.ti').style.color = '#d4a574'; e.currentTarget.querySelector('.tl').style.color = '#d4a574'; }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; e.currentTarget.querySelector('.ti').style.color = '#d4a574'; e.currentTarget.querySelector('.tl').style.color = '#d4a574'; }}
                         onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.ti').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.tl').style.color = '#e8e6e3'; }}
                       >
                         <span className="ti" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>{tool.icon}</span>
@@ -1046,18 +1046,22 @@ export default function Navbar() {
                           style={{
                             width: '100%',
                             padding: '12px 20px',
-                            background: 'rgba(201, 162, 39, 0.06)',
+                            // Featured kart subtle elevation: 3px gold left-border
+                            // + inset gold-ring 1px = "öne çıkar" hissi sade item'lardan ayırır
+                            background: 'rgba(201, 162, 39, 0.08)',
                             borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
-                            borderTop: 'none', borderLeft: 'none', borderRight: 'none',
+                            borderTop: 'none', borderRight: 'none',
+                            borderLeft: '3px solid #c9a227',
                             borderRadius: '8px 8px 0 0',
+                            boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'space-between',
                             cursor: 'pointer',
-                            transition: 'background 0.2s ease',
+                            transition: 'background 0.2s ease, box-shadow 0.2s ease',
                           }}
-                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.10)'; }}
-                          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.06)'; }}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.14)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.22)'; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
                         >
                           <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                             <span style={{ color: '#c9a227', flexShrink: 0 }}>{featuredTool.icon}</span>
