@@ -796,25 +796,25 @@ export default function WowFacts({ onClose }) {
             Phase 4'te cinematic background motif + rotating featured eklenecek. */}
         <div style={{
           maxWidth: '1200px', width: '100%', margin: '0 auto',
-          padding: '40px 20px 24px', boxSizing: 'border-box',
+          padding: '24px 20px 16px', boxSizing: 'border-box',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '10px', flexWrap: 'wrap' }}>
-            <span style={{ color: COLORS.gold, fontSize: '1.8rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', flexWrap: 'wrap' }}>
+            <span style={{ color: COLORS.gold, fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
             <span style={{
               color: COLORS.offWhite,
               fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+              fontSize: 'clamp(1.15rem, 1.8vw, 1.4rem)',
               fontWeight: 700,
-              letterSpacing: '-0.01em',
-              lineHeight: 1.1,
+              letterSpacing: '-0.005em',
+              lineHeight: 1.2,
             }}>
               {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
             </span>
             <span style={{
               background: 'rgba(212,165,116,0.10)', border: `1px solid ${COLORS.goldAlpha20}`,
               borderRadius: RADIUS.lg, color: 'rgba(212,165,116,0.85)',
-              fontSize: '0.78rem', fontFamily: "'Inter', sans-serif",
-              padding: '4px 12px', fontWeight: 600, flexShrink: 0,
+              fontSize: '0.7rem', fontFamily: "'Inter', sans-serif",
+              padding: '2px 10px', fontWeight: 600, flexShrink: 0,
               alignSelf: 'center',
             }}>
               {filtered.length} {language === 'tr' ? 'gerçek' : 'facts'}
@@ -823,14 +823,14 @@ export default function WowFacts({ onClose }) {
           <p style={{
             color: COLORS.silver,
             fontFamily: FONTS.body,
-            fontSize: '1rem',
-            lineHeight: 1.6,
+            fontSize: '0.88rem',
+            lineHeight: 1.55,
             maxWidth: '640px',
             margin: 0,
           }}>
             {language === 'tr'
-              ? "Modern bilimden klasik tefsire — Kur'an'da az bilinen, şaşırtan gerçekler. Kategorilerden filtrele veya doğrudan ara."
-              : 'From modern science to classical exegesis — lesser-known, astonishing facts in the Quran. Filter by category or search directly.'}
+              ? "Modern bilimden klasik tefsire — Kur'an'da az bilinen, şaşırtan gerçekler."
+              : 'From modern science to classical exegesis — lesser-known, astonishing facts.'}
           </p>
         </div>
 

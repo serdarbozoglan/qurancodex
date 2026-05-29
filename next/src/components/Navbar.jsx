@@ -186,16 +186,27 @@ export default function Navbar() {
   const { language, toggleLanguage } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
-  // Reading mode (Oku) kendi tam ekran chrome'una sahip — site Navbar'ı orada
-  // render edilmez (özelleşmiş üst bar + söz/sayfa navigasyonu var).
-  // /atlas, /graf, /arac (tool route'ları): A planı Phase 0 sonrası global
-  // Navbar burada da görünür — tool'lar artık sayfa flow'unda akar, modal değil.
+  // Reading mode (Oku) + diğer 21 tool overlay sayfaları: Navbar gizlenir.
+  // İSTİSNA: /arac/wow (WowFacts) — A planı Phase 0 ile page flow'a alındı,
+  // Navbar burada görünür. Diğer 21 tool sırayla aynı pattern'a geçince
+  // istisna listesi büyür. Şimdilik tek dış kapı: wow.
   const hideOnReadingMode = (() => {
     if (!pathname) return false;
     const segs = pathname.split('/').filter(Boolean);
     if (segs.length === 0) return false;
-    // Sadece /oku route'unda gizle (locale prefix opsiyonel)
-    return segs[0] === 'oku' || (segs.length > 1 && segs[1] === 'oku');
+    // Locale prefix opsiyonel — sıyırarak normalize et
+    const noLocale = (segs[0] === 'tr' || segs[0] === 'en') ? segs.slice(1) : segs;
+    if (noLocale.length === 0) return false;
+    const kind = noLocale[0];
+    const slug = noLocale[1];
+    // Reading mode: her zaman gizle
+    if (kind === 'oku') return true;
+    // Tool route'ları: WowFacts hariç gizle
+    if (kind === 'atlas' || kind === 'graf' || kind === 'arac') {
+      if (kind === 'arac' && slug === 'wow') return false;
+      return true;
+    }
+    return false;
   })();
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
