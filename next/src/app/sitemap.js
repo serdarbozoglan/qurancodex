@@ -81,7 +81,7 @@ const ROUTES = [
   { path: '/arac/buyruklar',          priority: 0.7, freq: 'monthly' },
   { path: '/arac/sebebi-nuzul',       priority: 0.7, freq: 'monthly' },
   { path: '/arac/tum-araclar',        priority: 0.6, freq: 'monthly' },
-  { path: '/arac/wow',                priority: 0.7, freq: 'monthly' },
+  { path: '/arac/kurani-tani',                priority: 0.7, freq: 'monthly' },
   { path: '/arac/zaman-boyutlari',    priority: 0.7, freq: 'monthly' },
   { path: '/arac/iblis-seytan',       priority: 0.7, freq: 'monthly' },
   { path: '/arac/ilk-son-kelimeler',  priority: 0.7, freq: 'monthly' },

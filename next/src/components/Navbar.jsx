@@ -186,27 +186,17 @@ export default function Navbar() {
   const { language, toggleLanguage } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
-  // Reading mode (Oku) + diğer 21 tool overlay sayfaları: Navbar gizlenir.
-  // İSTİSNA: /arac/wow (WowFacts) — A planı Phase 0 ile page flow'a alındı,
-  // Navbar burada görünür. Diğer 21 tool sırayla aynı pattern'a geçince
-  // istisna listesi büyür. Şimdilik tek dış kapı: wow.
+  // Sadece Reading mode (/oku) Navbar gizler — özelleşmiş tam ekran chrome'a sahip
+  // (söz/sayfa navigasyonu vd.). Diğer tüm sayfalarda (ana sayfa + tool route'ları
+  // dahil) global Navbar görünür. Tool overlay header'larıyla geçici çakışma
+  // olabilir; sırayla page-flow pattern'a geçişle çözülecek.
   const hideOnReadingMode = (() => {
     if (!pathname) return false;
     const segs = pathname.split('/').filter(Boolean);
     if (segs.length === 0) return false;
-    // Locale prefix opsiyonel — sıyırarak normalize et
     const noLocale = (segs[0] === 'tr' || segs[0] === 'en') ? segs.slice(1) : segs;
     if (noLocale.length === 0) return false;
-    const kind = noLocale[0];
-    const slug = noLocale[1];
-    // Reading mode: her zaman gizle
-    if (kind === 'oku') return true;
-    // Tool route'ları: WowFacts hariç gizle
-    if (kind === 'atlas' || kind === 'graf' || kind === 'arac') {
-      if (kind === 'arac' && slug === 'wow') return false;
-      return true;
-    }
-    return false;
+    return noLocale[0] === 'oku';
   })();
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
@@ -639,7 +629,7 @@ export default function Navbar() {
   // Next.js migration: event-based dispatch → route navigation. URL artık her
   // tool tıklamasında değişir, SEO + paylaşım + browser back/forward çalışır.
   const TOOL_ROUTES = {
-    openWowFacts:        '/arac/wow',
+    openWowFacts:        '/arac/kurani-tani',
     openVerseGraph:      '/graf/ayet',
     openHeatmap:         '/graf/kelime-isi',
     openRevelationOrder: '/graf/zaman',

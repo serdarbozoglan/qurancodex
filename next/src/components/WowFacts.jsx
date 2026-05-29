@@ -778,11 +778,10 @@ export default function WowFacts({ onClose }) {
         }
       `}</style>
 
-      {/* A planı Phase 0 — Tool header cleanup:
-          Eski overlay pattern (position:fixed; inset:54px 0 0 0 + sticky header
-          + CLOSE_BTN) page flow'a alındı. Global Navbar her sayfada görünür.
-          Inline hero başlık tool kimliği için; close butonu artık gerekli değil
-          (browser back tuşu + Navbar bu rolü doğal olarak yapar). */}
+      {/* A planı Phase 0 (revize): Tool sayfaları için STANDART ALT-HEADER pattern.
+          Global Navbar üstte (62px sticky). Hemen altına SECOND-HEADER sticky
+          yerleşir (top:62 → Navbar'a yapışır, çakışma YOK). IlkSon parity:
+          icon · title · gri subtitle · chip. Bu pattern tüm 21 tool'a uygulanacak. */}
       <div
         style={{
           background: COLORS.cosmicBlack,
@@ -792,46 +791,38 @@ export default function WowFacts({ onClose }) {
           animation: 'wowFadeIn 0.18s ease',
         }}
       >
-        {/* Inline hero — Phase 0 sade büyük başlık.
-            Phase 4'te cinematic background motif + rotating featured eklenecek. */}
+        {/* Standart Tool Alt-Header — sticky, Navbar'a yapışır */}
         <div style={{
-          maxWidth: '1200px', width: '100%', margin: '0 auto',
-          padding: '24px 20px 16px', boxSizing: 'border-box',
+          position: 'sticky',
+          top: '62px',
+          zIndex: 40,
+          background: 'rgba(8,10,18,0.94)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: '1px solid rgba(212,165,116,0.1)',
+          padding: '0 20px',
+          height: '48px',
+          display: 'flex', alignItems: 'center',
+          flexShrink: 0,
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', flexWrap: 'wrap' }}>
-            <span style={{ color: COLORS.gold, fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
-            <span style={{
-              color: COLORS.offWhite,
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(1.15rem, 1.8vw, 1.4rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.005em',
-              lineHeight: 1.2,
-            }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+            <span style={{ color: COLORS.gold, fontSize: '1.05rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
+            <span style={OVERLAY_TITLE}>
               {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
+            </span>
+            <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+            <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {language === 'tr' ? 'Az bilinen, şaşırtan gerçekler' : 'Hidden gems & surprising facts'}
             </span>
             <span style={{
               background: 'rgba(212,165,116,0.10)', border: `1px solid ${COLORS.goldAlpha20}`,
               borderRadius: RADIUS.lg, color: 'rgba(212,165,116,0.85)',
-              fontSize: '0.7rem', fontFamily: "'Inter', sans-serif",
+              fontSize: '0.68rem', fontFamily: "'Inter', sans-serif",
               padding: '2px 10px', fontWeight: 600, flexShrink: 0,
-              alignSelf: 'center',
             }}>
               {filtered.length} {language === 'tr' ? 'gerçek' : 'facts'}
             </span>
           </div>
-          <p style={{
-            color: COLORS.silver,
-            fontFamily: FONTS.body,
-            fontSize: '0.88rem',
-            lineHeight: 1.55,
-            maxWidth: '640px',
-            margin: 0,
-          }}>
-            {language === 'tr'
-              ? "Modern bilimden klasik tefsire — Kur'an'da az bilinen, şaşırtan gerçekler."
-              : 'From modern science to classical exegesis — lesser-known, astonishing facts.'}
-          </p>
         </div>
 
         {/* Search + Category filters */}

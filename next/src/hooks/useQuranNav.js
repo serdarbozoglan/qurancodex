@@ -56,7 +56,7 @@ const OVERLAY_ROUTES = {
   renkler:    '/arac/renkler',
   zaman:      '/arac/zaman-boyutlari',
   kiyamet:    '/arac/kiyamet',
-  wow:        '/arac/wow',
+  wow:        '/arac/kurani-tani',
   esma:       '/arac/esma-frekans',
   addressee:  '/arac/muhataplar',
   commands:   '/arac/buyruklar',
