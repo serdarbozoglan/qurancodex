@@ -2452,7 +2452,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     {language === 'tr' ? 'Cüz ' : 'Juz '}<span style={{ color: gold, fontWeight: 600 }}>{currentDisplayJuz}</span>
                     {' · '}
                     {language === 'tr' ? 'S. ' : 'P. '}<span style={{ color: gold, fontWeight: 600 }}>{currentPage}</span>
-                    <span style={{ opacity: 0.7 }}>{' / 604'}</span>
+                    
                   </>
                 ) : (
                   <>
@@ -2582,13 +2582,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     background: 'transparent', border: 'none', cursor: 'pointer',
                     padding: '4px 10px', marginRight: '6px',
                     color: gold, fontFamily: "'Playfair Display', serif",
-                    fontSize: '0.92rem', fontWeight: 700, letterSpacing: '0.14em',
+                    fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.11em',
                     whiteSpace: 'nowrap', flexShrink: 0,
                     transition: `opacity ${TRANSITION.fast}`,
-                    opacity: 0.9,
+                    opacity: 0.6,
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
-                  onMouseLeave={e => { e.currentTarget.style.opacity = '0.9'; }}
+                  onMouseEnter={e => { e.currentTarget.style.opacity = '0.95'; }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = '0.6'; }}
                 >
                   QURAN CODEX
                 </button>
@@ -2672,7 +2672,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       ? `${currentPage}–${currentPage + 1}`
                       : currentPage}
                   </span>
-                  <span style={{ opacity: 0.88 }}>{' · 604'}</span>
+                  
                 </span>
               )}
 
@@ -2747,15 +2747,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   height: isMobile ? '42px' : '44px',
                   padding: isMobile ? 0 : '0 8px 0 12px',
                   borderRadius: RADIUS.md,
-                  border: `1px solid ${showSearch ? navC.btnBorderActive : navC.btnBorder}`,
-                  background: showSearch ? navC.btnBgActive : navC.btnBg,
+                  // Search button "soft paper input" hissi — navC.btnBorder zaten
+                  // transparent (premium reader pattern), ama search bir tıklama
+                  // hedefi olarak "input slot" hissi gerektiriyor: soft visible
+                  // border + soft visible bg.
+                  border: `1px solid ${showSearch ? navC.btnBorderActive : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
+                  background: showSearch ? navC.btnBgActive : (dayMode ? 'rgba(0,0,0,0.025)' : 'rgba(255,255,255,0.025)'),
                   cursor: 'pointer', flexShrink: 1,
                   transition: `all ${TRANSITION.fast}`,
                   justifyContent: isMobile ? 'center' : 'flex-start',
                   fontFamily: 'Inter, system-ui, sans-serif',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-                onMouseLeave={e => { e.currentTarget.style.background = showSearch ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showSearch ? navC.btnBorderActive : navC.btnBorder; }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = showSearch ? navC.btnBgActive : (dayMode ? 'rgba(0,0,0,0.025)' : 'rgba(255,255,255,0.025)');
+                  e.currentTarget.style.borderColor = showSearch ? navC.btnBorderActive : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)');
+                }}
               >
                 <span style={{ display: 'flex', alignItems: 'center', color: dayMode ? 'rgba(80,50,20,0.55)' : 'rgba(200,185,165,0.55)', flexShrink: 0 }}>
                   <SearchIcon size={isMobile ? 15 : 14} />
@@ -8191,7 +8198,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     color: gold, fontSize: '16px', fontWeight: 700, textAlign: 'center', outline: 'none',
                   }}
                 />
-                <span style={{ color: dayMode ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.25)', fontSize: '0.75rem' }}>· 604</span>
+                
               </form>
             ) : (
               <button
@@ -8210,7 +8217,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     ? `${currentPage}–${currentPage + 1}`
                     : currentPage}
                 </span>
-                <span style={{ color: dayMode ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.2)' }}> · 604</span>
+                
               </button>
             )}
 
