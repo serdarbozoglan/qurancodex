@@ -4802,9 +4802,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ ...srLabel, marginBottom: '1px' }}>{language === 'tr' ? 'Son Okunan' : 'Last Read'}</div>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexWrap: 'wrap' }}>
-                      {/* srMain default zaten weight 600 — burada override etmiyoruz
-                          (önceden 700 baskın görünüyordu, user audit). */}
-                      <span style={{ ...srMain, fontSize: '0.85rem' }}>{lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}</span>
+                      {/* Text rengi gold → textCol (off-white). Card vurgusu zaten
+                          left-border 3px gold + gold-alpha 0.08 bg + sağ arrow gold
+                          ile geliyor — text'i de gold yapınca aşırı baskın olur
+                          (user audit: "çok baskın görünüyor"). srMain'in defaultu
+                          gold/600 olduğu için color + weight override ediyoruz. */}
+                      <span style={{ ...srMain, fontSize: '0.85rem', color: textCol, fontWeight: 600 }}>
+                        {lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}
+                      </span>
                       <span style={{ ...srSub, marginLeft: 0 }}>
                         {/* page <= 0 (henüz scroll edilmemiş yeni session) → "Açılış" / "Start".
                             Aksi takdirde sayfa numarası gösterilir. */}
