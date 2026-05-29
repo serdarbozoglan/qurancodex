@@ -49,11 +49,18 @@ export default function ParticleBackground({ particleCount = 80, glyphRatio = 0.
       };
     });
 
-    // Canvas fillText API document'in fontunu HAZIR olmasını ister.
-    // KFGQPC preload edilmiş olsa bile, canvas için explicit load gerekiyor.
-    // Aksi halde fallback serif ile render eder — Quranic glyph estetiği kaybolur.
+    // Canvas fillText API'sı font HAZIR olmasını ister. Yenilemede KFGQPC font
+    // cache invalidate olabilir; .load() Promise'i await edilmediği için canvas
+    // çizmeye fallback serif ile başlıyordu — fallback serif Arapça mukattaa
+    // harflerini desteklemediği için harfler GÖRÜNMÜYORDU (user audit).
+    // Çözüm: bir flag ile glyph çizimini font hazır olana dek skip et.
+    let glyphsReady = false;
     if (document.fonts && document.fonts.load) {
-      document.fonts.load("32px 'KFGQPC'").catch(() => {});
+      document.fonts.load("32px 'KFGQPC'")
+        .then(() => { glyphsReady = true; })
+        .catch(() => { glyphsReady = true; });
+    } else {
+      glyphsReady = true;
     }
 
     const resize = () => {
@@ -99,6 +106,9 @@ export default function ParticleBackground({ particleCount = 80, glyphRatio = 0.
         const [r, g, b] = p.color;
 
         if (p.isGlyph) {
+          // Font yüklenene dek glyph çizimi atla — fallback serif Arapça
+          // mukattaa için tofu/boş üretir, harfler "hiç yoktu" gibi görünür.
+          if (!glyphsReady) continue;
           // Arapça mukattaa harfi: KFGQPC font + RTL ortalama
           ctx.font = `${p.size}px 'KFGQPC', 'Amiri Quran', serif`;
           ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
