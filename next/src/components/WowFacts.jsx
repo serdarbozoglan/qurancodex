@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, RADIUS, TRANSITION } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
 
 const CATEGORY_CONFIG = {
   sayisal:      { color: COLORS.gold,      labelTr: 'Sayısal',      labelEn: 'Numerical'   },
@@ -793,21 +793,23 @@ export default function WowFacts({ onClose }) {
           background: 'rgba(8,10,18,0.96)', backdropFilter: 'blur(20px)',
           borderBottom: '1px solid rgba(212,165,116,0.1)',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ color: COLORS.gold, fontSize: '1.1rem', lineHeight: 1 }}>✦</span>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-              <span style={OVERLAY_TITLE}>
-                {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
-              </span>
-              <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.68rem', fontFamily: "'Inter', sans-serif" }}>
-                {language === 'tr' ? 'Az bilinen, şaşırtan gerçekler' : 'Hidden gems & surprising facts'}
-              </span>
-            </div>
+          {/* IlkSon ile parity: single-line header — icon + title + · + gri
+              subtitle + sayı chip. Önceki dikey 2-satır (title + alt subtitle
+              + ayrı chip) yapısı şu pattern'a hizalandı. */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+            <span style={{ color: COLORS.gold, fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
+            <span style={OVERLAY_TITLE}>
+              {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
+            </span>
+            <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+            <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {language === 'tr' ? 'Az bilinen, şaşırtan gerçekler' : 'Hidden gems & surprising facts'}
+            </span>
             <span style={{
               background: 'rgba(212,165,116,0.1)', border: `1px solid ${COLORS.goldAlpha20}`,
               borderRadius: RADIUS.lg, color: 'rgba(212,165,116,0.8)',
               fontSize: '0.68rem', fontFamily: "'Inter', sans-serif",
-              padding: '2px 10px', fontWeight: 600,
+              padding: '2px 10px', fontWeight: 600, flexShrink: 0,
             }}>
               {filtered.length} {language === 'tr' ? 'gerçek' : 'facts'}
             </span>
