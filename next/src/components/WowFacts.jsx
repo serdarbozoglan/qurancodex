@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 const CATEGORY_CONFIG = {
   sayisal:      { color: COLORS.gold,      labelTr: 'Sayısal',      labelEn: 'Numerical'   },
@@ -982,34 +983,15 @@ export default function WowFacts({ onClose }) {
           animation: 'wowFadeIn 0.18s ease',
         }}
       >
-        {/* STANDART ALT-HEADER — İlkSon parity (user tutarlılık tercihi):
-            icon · title · gri subtitle · chip. Sticky değil (parent zaten
-            page-flow), Navbar'a yapışık görünüm için backdrop blur + alt border. */}
-        <div style={{
-          position: 'sticky',
-          top: '62px',
-          zIndex: 40,
-          background: 'rgba(8,10,18,0.94)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(212,165,116,0.10)',
-          padding: 0,
-          height: '48px',
-          display: 'flex', alignItems: 'center',
-          flexShrink: 0,
-        }}>
-          {/* Navbar logo ile aynı hiza: max-w-7xl (1280px) + px-4/lg:px-8 (16/32). */}
-          <div className="max-w-7xl mx-auto px-4 lg:px-8" style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, width: '100%', boxSizing: 'border-box' }}>
-            <span style={{ color: COLORS.gold, fontSize: '1.05rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
-            <span style={OVERLAY_TITLE}>
-              {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
-            </span>
-            <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-            <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {language === 'tr' ? 'Sayılar, yapılar ve gizli kalmış bağlantılar' : 'Numbers, structures, and hidden connections'}
-            </span>
-          </div>
-        </div>
+        {/* Standart ToolHeader component (tüm tool sayfalarında ortak). */}
+        <ToolHeader
+          icon={<span style={{ color: COLORS.gold, fontSize: '1.05rem', lineHeight: 1 }}>✦</span>}
+          titleTr="Kur'an'ı Tanı"
+          titleEn="Meet the Quran"
+          subtitleTr="Sayılar, yapılar ve gizli kalmış bağlantılar"
+          subtitleEn="Numbers, structures, and hidden connections"
+          language={language}
+        />
 
         {/* Search + Category filters — hero ile aynı 760 container, ortalanmış */}
         <section style={{
