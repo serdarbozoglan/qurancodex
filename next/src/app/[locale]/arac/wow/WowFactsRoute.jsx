@@ -8,5 +8,3 @@ import WowFacts from '@/components/WowFacts';
 export default function WowFactsRoute() {
   return <WowFacts onClose={() => {}} />;
 }
-</content>
-</invoke>
