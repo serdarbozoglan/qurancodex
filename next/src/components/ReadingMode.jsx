@@ -2644,7 +2644,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   Label opacity bumped to 0.72 from 0.55 — at 0.55 the labels
                   fell below WCAG AA contrast on beige bg and "Cüz/Hizb/Sayfa"
                   read as washed-out scaffolding instead of legible context. */}
-              {!isMobile && bookMode && currentPage > 0 && (
+              {/* Breadcrumb iki düzeltme (user audit):
+                  1) bookMode koşulu kaldırıldı — verse modunda da Cüz/Hizb/Sayfa
+                     görünür (hangi cüzdeyim sorusu her modda geçerli).
+                  2) currentPage > 0 → >= 0 ve Fatiha (page 0, Diyanet
+                     konvansiyonu sayfasız) için fallback 1 göster. */}
+              {!isMobile && currentPage >= 0 && (
                 <span style={{
                   marginLeft: '14px',
                   fontSize: '0.72rem',
@@ -2675,10 +2680,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   {' · ' + (language === 'tr' ? 'Sayfa ' : 'Page ')}
                   <span style={{ color: gold, fontWeight: 700 }}>
                     {spreadMode && versesOnNextPage.length > 0
-                      ? `${currentPage}–${currentPage + 1}`
-                      : currentPage}
+                      ? `${Math.max(1, currentPage)}–${Math.max(1, currentPage) + 1}`
+                      : Math.max(1, currentPage)}
                   </span>
-                  
+
                 </span>
               )}
 
