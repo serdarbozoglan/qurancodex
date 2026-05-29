@@ -422,21 +422,23 @@ function Card({ surah, onClick, selected, language }) {
         </span>
       </div>
 
-      {/* Middle: first word → last word */}
+      {/* Middle: first word → last word.
+          Akış soldan sağa (LTR sezgi): firstWord solda, lastWord sağda, ok → sağa.
+          Her hücre `dir="rtl"` Arapça metin için (kelimenin kendi içi sağdan sola çizilir). */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '6px' }}>
         <div style={{ textAlign: 'right', minWidth: 0, overflow: 'hidden' }}>
           <div dir="rtl" lang="ar" style={{
-            fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite,
+            fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite,
             lineHeight: 1.4, direction: 'rtl',
             overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
           }}>
             {cleanArabic(surah.firstWord?.ar) || '—'}
           </div>
         </div>
-        <span style={{ color: COLORS.goldAlpha45 || COLORS.goldAlpha45, fontSize: '0.85rem', opacity: 0.6 }}>←</span>
+        <span style={{ color: COLORS.goldAlpha45 || COLORS.goldAlpha45, fontSize: '0.95rem', opacity: 0.7 }}>→</span>
         <div style={{ textAlign: 'left', minWidth: 0, overflow: 'hidden' }}>
           <div dir="rtl" lang="ar" style={{
-            fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite,
+            fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite,
             lineHeight: 1.4, direction: 'rtl',
             overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
           }}>
@@ -445,21 +447,41 @@ function Card({ surah, onClick, selected, language }) {
         </div>
       </div>
 
-      {/* Tags — flat, borderless, integrated */}
-      {(surah.openerTags?.length > 0 || surah.hasMukattaa || surah.hasOath) && (
-        <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
-          {surah.hasMukattaa && <Tag label="mukattaa" />}
-          {surah.hasOath && <Tag label="yemin" />}
-          {surah.openerTags?.filter(t => t !== 'mukattaa' && t !== 'oath').map(t => (
-            <Tag key={t} label={t} />
-          ))}
-        </div>
-      )}
+      {/* Tags — opener + closer + structural; lokalize edilmiş. mukattaa/oath ayrı flag. */}
+      {(() => {
+        const openerTagsClean = (surah.openerTags || []).filter(t => t !== 'mukattaa' && t !== 'oath');
+        const closerTagsClean = (surah.closerTags || []).filter(t => t !== 'mukattaa' && t !== 'oath');
+        if (!surah.hasMukattaa && !surah.hasOath && openerTagsClean.length === 0 && closerTagsClean.length === 0) return null;
+        return (
+          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+            {surah.hasMukattaa && <Tag slug="mukattaa" language={language} />}
+            {surah.hasOath && <Tag slug="oath" language={language} />}
+            {openerTagsClean.map(t => <Tag key={'o-' + t} slug={t} language={language} />)}
+            {closerTagsClean.map(t => <Tag key={'c-' + t} slug={t} language={language} />)}
+          </div>
+        );
+      })()}
     </button>
   );
 }
 
-function Tag({ label }) {
+// Internal tag slug → lokalize label. Programatik etiketler (divine-praise gibi)
+// karta sızıyordu; bu dictionary TR/EN'ye çevirir, slug fallback kalır.
+const TAG_LABELS = {
+  'mukattaa':           { tr: 'mukattaa',          en: 'muqaṭṭaʿāt' },
+  'oath':               { tr: 'yemin',             en: 'oath' },
+  'divine-praise':      { tr: 'ilahî övgü',        en: 'divine praise' },
+  'kul-opener':         { tr: '"Kul" ile',          en: '"Qul" opener' },
+  'inna':               { tr: '"İnnâ"',             en: '"Innā"' },
+  'imperative':         { tr: 'emir fiili',        en: 'imperative' },
+  'vocative':           { tr: '"Yâ eyyuhâ"',        en: 'vocative' },
+  'negative-other':     { tr: 'olumsuz kapanış',   en: 'negative closer' },
+  'divine-name-closer': { tr: 'ilahî isimle',      en: 'divine name closer' },
+};
+
+function Tag({ slug, language }) {
+  const entry = TAG_LABELS[slug];
+  const label = entry ? (language === 'tr' ? entry.tr : entry.en) : slug;
   return (
     <span style={{
       padding: '1px 6px', borderRadius: '3px',
