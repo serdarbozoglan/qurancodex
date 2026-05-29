@@ -4556,12 +4556,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           }}>
           {/* Search input bar */}
           <div style={{
-            padding: '16px 20px',
+            padding: '11px 16px',
             borderBottom: `1px solid ${dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)'}`,
-            display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0,
+            display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0,
           }}>
             <span style={{ color: dayMode ? 'rgba(80,50,20,0.5)' : 'rgba(200,185,165,0.5)' }}>
-              <SearchIcon size={18} />
+              <SearchIcon size={16} />
             </span>
             <input
               autoFocus
@@ -4573,9 +4573,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               style={{
                 flex: 1, background: 'none', border: 'none', outline: 'none',
                 color: dayMode ? 'rgba(30,15,5,0.88)' : COLORS.offWhite,
-                // Stay at exactly 1rem (16px) on mobile to avoid iOS Safari's
-                // auto-zoom on focus, while shrinking from 1.05rem desktop.
-                fontSize: isMobile ? '1rem' : '1.05rem',
+                // Mobile stays at 1rem (16px) — iOS Safari auto-zooms on focus
+                // if font-size < 16px. Desktop tightens to 0.92rem (~14.7px) for
+                // compact command-palette feel.
+                fontSize: isMobile ? '1rem' : '0.92rem',
                 fontFamily: "'Inter', sans-serif",
               }}
             />
