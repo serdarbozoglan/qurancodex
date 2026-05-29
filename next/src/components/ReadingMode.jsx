@@ -88,7 +88,7 @@ const makeSektaWrap = (dayMode) => (_m) =>
   // as makeMedWrap's "مد" so they look visually consistent in mushaf).
   `<span style="display:inline-block;position:relative;line-height:1;color:transparent;">${_m}` +
   `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
-  `font-size:0.5em;font-weight:400;line-height:1;` +
+  `font-size:0.58em;font-weight:600;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">سكتة</span></span>`;
 // Allah lafzı renklendirme: tilde kırmızısıyla aynı renk (gündüz/gece uyumlu).
@@ -143,7 +143,7 @@ const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06
 const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
-  `font-size:0.5em;font-weight:400;line-height:1;` +
+  `font-size:0.58em;font-weight:600;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
 
@@ -161,7 +161,7 @@ const makeMedWrap = (dayMode, colorize = false) => (_, letter) => {
   return (
     `<span style="display:inline-block;position:relative;line-height:1;color:${tint};">${letter}` +
     `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
-    `font-size:0.5em;font-weight:400;line-height:1;` +
+    `font-size:0.58em;font-weight:600;line-height:1;` +
     `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
     `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">مد</span></span>`
   );
@@ -176,7 +176,7 @@ const NUN_WIQAYAH_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06
 const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-0.7em;left:-0.4em;` +
-  `font-size:0.55em;font-weight:400;line-height:1;` +
+  `font-size:0.6em;font-weight:600;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">نِ</span></span>`;
 
