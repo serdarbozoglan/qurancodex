@@ -38,14 +38,14 @@ const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; /
 
 // Vakıf işaretlerini tecvid renkleri olmadan wrap eder (tecvid kapalıyken kullanılır)
 // Vakıf + med/kasr + sekte + küçük mim/nun işaretleri — kırmızı, metnin üstünde
-// Gündüz: koyu kırmızı (#9a6f10) — Gece: yumuşak terrakota (#d4a574, göz yormaz)
+// Gündüz: koyu kırmızı (#c0392b) — Gece: yumuşak terrakota (#c87a72, göz yormaz)
 // NOT: `vertical-align:super` kullanmıyoruz — lineHeight 2.2 ile birleşince işaret
 // satır-boşluğuna taşıyor. Küçük negatif `top` offset harflerin biraz üstüne oturtur,
 // alttaki kelime ile çakışmayı önler (özellikle Vâkıa 56 başındaki لا markerları).
 const makeWaqfSpan = (dayMode) => (m) =>
   `<span style="display:inline-block;font-size:0.85em;font-weight:400;line-height:1;` +
   `position:relative;top:-0.15em;` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#9a6f10' : '#d4a574'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;">${m}</span>`;
 
 // Vakıf işaretleri:
@@ -74,7 +74,7 @@ const WAQF_TA_RE = /ۜ/gu;
 const makeWaqfTaSpan = (dayMode) => () =>
   `<span dir="ltr" style="display:inline-block;width:0;line-height:0;overflow:visible;` +
   `font-size:0.45em;position:relative;top:-1.7em;transform:translateX(-0.3em);` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#9a6f10' : '#d4a574'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;">ط</span>`;
 
 
@@ -89,7 +89,7 @@ const makeSektaWrap = (dayMode) => (_m) =>
   `<span style="display:inline-block;position:relative;line-height:1;color:transparent;">${_m}` +
   `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
   `font-size:0.5em;font-weight:400;line-height:1;` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#9a6f10' : '#d4a574'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">سكتة</span></span>`;
 // Allah lafzı renklendirme: tilde kırmızısıyla aynı renk (gündüz/gece uyumlu).
 // Eşleşme: ا + (hareke*) + ل + (hareke*) + ل (şedde dahil) + (hareke*) + ه + (hareke*)
@@ -144,7 +144,7 @@ const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
   `font-size:0.5em;font-weight:400;line-height:1;` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#9a6f10' : '#d4a574'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
 
 // U+06EB (ARABIC EMPTY CENTRE HIGH STOP): KFGQPC tarafından "مد" annotation olarak
@@ -162,7 +162,7 @@ const makeMedWrap = (dayMode, colorize = false) => (_, letter) => {
     `<span style="display:inline-block;position:relative;line-height:1;color:${tint};">${letter}` +
     `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
     `font-size:0.5em;font-weight:400;line-height:1;` +
-    `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#9a6f10' : '#d4a574'};` +
+    `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
     `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">مد</span></span>`
   );
 };
@@ -177,7 +177,7 @@ const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-0.7em;left:-0.4em;` +
   `font-size:0.55em;font-weight:400;line-height:1;` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#9a6f10' : '#d4a574'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#c87a72'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">نِ</span></span>`;
 
 // NOT: Maddah curve (U+0653) tek başına kırmızı yapılamadı (Fatiha 1:7 testi
