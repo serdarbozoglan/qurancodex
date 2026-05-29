@@ -77,6 +77,25 @@ const FACTS = [
   },
   {
     category: 'sayisal',
+    surahRef: 'Çeşitli sûreler · 55. sûre',
+    titleTr: 'Allah\'tan Sonra En Çok Geçen Esma: Er-Rahman',
+    titleEn: 'The Second Most-Frequent Divine Name: Ar-Rahman',
+    bodyTr: 'Allah lafzından sonra Kur\'an\'da en çok geçen Allah\'ın güzel ismi "Rahman" (Çok Merhametli) — yaklaşık 57 kez. Bir sûre adını Rahman\'dan alır (Er-Rahman, 55. sûre) ve onun açılışında üst üste "Rabbinizin hangi nimetlerini yalanlıyorsunuz" sorusu tekrarlanır. Rabbinin merhamet sıfatı anlatı atmosferinde sürekli yankılanır.\n\nℹ Sayım Esma-ül Hüsna\'dan Allah\'ın özel isimleri arasındaki tek tek geçişleri kapsar; "Rab" (الرَّبّ) gibi sıfat-isimler ayrı sayılmaktadır.',
+    bodyEn: 'After "Allah", the most-frequent of God\'s beautiful names is "Ar-Rahman" (The All-Merciful) — approximately 57 times. One surah is named after Him (Ar-Rahman, the 55th), opening with the recurring refrain "Which of your Lord\'s favors will you deny?". The attribute of mercy echoes continuously through the narrative.\n\nℹ The count covers occurrences of the personal divine name; attribute-names like "Rab" (Lord) are tallied separately.',
+    wowTr: 'Merhamet, Kur\'an\'ın atmosferinde sürekli yankılanır.',
+    wowEn: 'Mercy echoes continuously throughout the Quran\'s atmosphere.',
+    explore: 'Rahman',
+    visualType: 'counter',
+    visualData: {
+      value: 57,
+      suffixTr: 'kez',
+      suffixEn: 'times',
+      labelTr: 'Esma içinde Allah\'tan sonra en sık geçen isim',
+      labelEn: 'After "Allah", the most-frequent divine name',
+    },
+  },
+  {
+    category: 'sayisal',
     surahRef: 'Çeşitli sûreler',
     titleTr: 'İsimle Anılan Peygamberler',
     titleEn: 'Prophets Named in the Quran',
@@ -690,8 +709,11 @@ const FACTS = [
 
 // ── WowCard ──────────────────────────────────────────────────────────────────
 
-// ─── Visual Atomları (Phase 1 POC) ───────────────────────────────────────────
+// ─── Visual Atomları (Phase 1 + 2) ───────────────────────────────────────────
 // CounterVisual: Framer Motion'a ihtiyaç yok, raw rAF ile animated count-up.
+// RingVisual: SVG concentric arcs — yapısal fact'lar için (Fâtiha halka, ring composition).
+// TimelineVisual: horizontal connected dots — peygamberler için.
+// CalligraphyVisual: KFGQPC büyük display — dilsel/Arapça fact'lar için.
 // Card içine title'dan sonra body'den önce yerleşir; kategori rengiyle tinted.
 function CounterVisual({ value, suffixTr, suffixEn, labelTr, labelEn, language, cardColor }) {
   const [display, setDisplay] = useState(0);
@@ -743,6 +765,188 @@ function CounterVisual({ value, suffixTr, suffixEn, labelTr, labelEn, language, 
           {label}
         </span>
       )}
+    </div>
+  );
+}
+
+// ── RingVisual — yapısal kategori için concentric arc SVG ──────────────────
+function RingVisual({ segments, highlight, labelTr, labelEn, language, cardColor }) {
+  // segments: toplam halka segment sayısı (örn. 7 = Fâtiha ayet)
+  // highlight: vurgulu segment index (örn. 4 = orta ayet)
+  const size = 110;
+  const center = size / 2;
+  const radius = 38;
+  const stroke = 8;
+  const gap = 0.05; // radian — segmentler arası açı
+  const total = Math.PI * 2;
+  const segAngle = (total / segments) - gap;
+
+  return (
+    <div style={{
+      display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
+      padding: '12px 14px', margin: '4px 0',
+      background: cardColor + '0d',
+      borderRadius: RADIUS.md,
+      border: `1px solid ${cardColor + '22'}`,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <svg width={size} height={size} style={{ flexShrink: 0 }}>
+          <g transform={`translate(${center} ${center}) rotate(-90)`}>
+            {Array.from({ length: segments }).map((_, i) => {
+              const isHi = i === highlight - 1;
+              const startAngle = i * (total / segments);
+              const endAngle = startAngle + segAngle;
+              const x1 = Math.cos(startAngle) * radius;
+              const y1 = Math.sin(startAngle) * radius;
+              const x2 = Math.cos(endAngle) * radius;
+              const y2 = Math.sin(endAngle) * radius;
+              const large = segAngle > Math.PI ? 1 : 0;
+              const path = `M ${x1} ${y1} A ${radius} ${radius} 0 ${large} 1 ${x2} ${y2}`;
+              return (
+                <path
+                  key={i}
+                  d={path}
+                  stroke={isHi ? cardColor : cardColor + '55'}
+                  strokeWidth={isHi ? stroke + 2 : stroke}
+                  strokeLinecap="round"
+                  fill="none"
+                  style={{
+                    transition: 'all 0.4s ease',
+                    transitionDelay: `${i * 60}ms`,
+                  }}
+                />
+              );
+            })}
+          </g>
+          <text x={center} y={center + 5} textAnchor="middle" style={{
+            fill: cardColor,
+            fontSize: '1.4rem',
+            fontWeight: 700,
+            fontFamily: "'Playfair Display', serif",
+          }}>{highlight}</text>
+        </svg>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, minWidth: 0 }}>
+          <span style={{
+            fontSize: '0.66rem', color: 'rgba(148,163,184,0.65)',
+            fontFamily: "'Inter', sans-serif",
+            letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600,
+          }}>
+            {language === 'tr' ? `${segments} ayet halka` : `${segments}-ayah ring`}
+          </span>
+          <span style={{
+            fontSize: '0.82rem', color: COLORS.offWhite,
+            fontFamily: FONTS.body, lineHeight: 1.4,
+          }}>
+            {language === 'tr' ? labelTr : labelEn}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── TimelineVisual — peygamberler için bağlı dot zinciri ────────────────────
+function TimelineVisual({ events, highlightIndex, labelTr, labelEn, language, cardColor }) {
+  // events: ['Nûh', 'İbrâhîm', 'Mûsâ', 'Îsâ', 'Muhammed'] vb.
+  return (
+    <div style={{
+      display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
+      padding: '14px', margin: '4px 0',
+      background: cardColor + '0d',
+      borderRadius: RADIUS.md,
+      border: `1px solid ${cardColor + '22'}`,
+    }}>
+      <span style={{
+        fontSize: '0.66rem', color: 'rgba(148,163,184,0.65)',
+        fontFamily: "'Inter', sans-serif",
+        letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600,
+        marginBottom: '10px',
+      }}>
+        {language === 'tr' ? labelTr : labelEn}
+      </span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', width: '100%', overflowX: 'auto' }}>
+        {events.map((ev, i) => {
+          const isHi = i === highlightIndex;
+          return (
+            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+              <span style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                width: isHi ? 30 : 22, height: isHi ? 30 : 22,
+                borderRadius: '50%',
+                background: isHi ? cardColor + '33' : cardColor + '15',
+                border: `1.5px solid ${isHi ? cardColor : cardColor + '55'}`,
+                color: isHi ? cardColor : cardColor + 'bb',
+                fontSize: isHi ? '0.74rem' : '0.62rem',
+                fontWeight: 700,
+                fontFamily: "'Inter', sans-serif",
+                transition: 'all 0.3s',
+              }}>{i + 1}</span>
+              <span style={{
+                fontSize: isHi ? '0.78rem' : '0.7rem',
+                color: isHi ? COLORS.offWhite : 'rgba(148,163,184,0.75)',
+                fontWeight: isHi ? 600 : 400,
+                fontFamily: FONTS.body,
+                whiteSpace: 'nowrap',
+              }}>{ev}</span>
+              {i < events.length - 1 && (
+                <span style={{
+                  width: 16, height: 1,
+                  background: cardColor + '44',
+                  marginLeft: 2, marginRight: 2,
+                }} />
+              )}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ── CalligraphyVisual — dilsel kategori için büyük Arapça display ───────────
+function CalligraphyVisual({ text, transliteration, labelTr, labelEn, language, cardColor }) {
+  return (
+    <div style={{
+      display: 'flex', flexDirection: 'column', alignItems: 'center',
+      padding: '20px 16px', margin: '4px 0',
+      background: cardColor + '0d',
+      borderRadius: RADIUS.md,
+      border: `1px solid ${cardColor + '22'}`,
+      gap: '8px',
+    }}>
+      <span
+        dir="rtl"
+        lang="ar"
+        style={{
+          fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+          fontSize: '2.2rem',
+          color: cardColor,
+          lineHeight: 1.4,
+          textAlign: 'center',
+          letterSpacing: '0.02em',
+        }}
+      >
+        {text}
+      </span>
+      {transliteration && (
+        <span style={{
+          fontSize: '0.78rem',
+          color: 'rgba(200,210,224,0.75)',
+          fontFamily: "'Lora', Georgia, serif",
+          fontStyle: 'italic',
+          letterSpacing: '0.04em',
+        }}>
+          {transliteration}
+        </span>
+      )}
+      <span style={{
+        fontSize: '0.66rem', color: 'rgba(148,163,184,0.65)',
+        fontFamily: "'Inter', sans-serif",
+        letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600,
+        marginTop: '4px',
+      }}>
+        {language === 'tr' ? labelTr : labelEn}
+      </span>
     </div>
   );
 }
@@ -821,18 +1025,18 @@ function WowCard({ fact, language, onClose }) {
         {language === 'tr' ? fact.titleTr : fact.titleEn}
       </div>
 
-      {/* Phase 1 Visual Atom dispatch — visualType varsa render et, yoksa skip
-          (text-only fallback). İlk type: 'counter'. */}
+      {/* Phase 1+2 Visual Atom dispatch — counter / ring / timeline / calligraphy */}
       {fact.visualType === 'counter' && fact.visualData && (
-        <CounterVisual
-          value={fact.visualData.value}
-          suffixTr={fact.visualData.suffixTr}
-          suffixEn={fact.visualData.suffixEn}
-          labelTr={fact.visualData.labelTr}
-          labelEn={fact.visualData.labelEn}
-          language={language}
-          cardColor={cfg.color}
-        />
+        <CounterVisual {...fact.visualData} language={language} cardColor={cfg.color} />
+      )}
+      {fact.visualType === 'ring' && fact.visualData && (
+        <RingVisual {...fact.visualData} language={language} cardColor={cfg.color} />
+      )}
+      {fact.visualType === 'timeline' && fact.visualData && (
+        <TimelineVisual {...fact.visualData} language={language} cardColor={cfg.color} />
+      )}
+      {fact.visualType === 'calligraphy' && fact.visualData && (
+        <CalligraphyVisual {...fact.visualData} language={language} cardColor={cfg.color} />
       )}
 
       {/* Body */}

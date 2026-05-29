@@ -190,14 +190,14 @@ export const OVERLAY_BASE = {
 };
 
 // ── Overlay header — STANDART TOOL ALT-HEADER pattern ────────────────────────
-// Tüm 22 tool için tek source-of-truth. Global Navbar (62px, z:9999) üstte,
+// Tüm 30 tool için tek source-of-truth. Global Navbar (62px, z:9999) üstte,
 // bu header onun ALTINA sticky yerleşir → çakışma yok, görsel tutarlılık.
-// İç layout: icon + title + · separator + gri subtitle + chip(sağda close btn).
-// User direktifi (2026-05-29): "ilk ve son kelimeler ile Kur'an'ı Tanı aynı
-// standartta olmalı — bunları standartlaştır."
+// User direktifi (2026-05-29): "Navbar gibi scroll'da sabit olsun tüm sayfalar
+// için" → position: sticky + top: 62px eklendi.
 export const OVERLAY_HEADER = {
-  // OVERLAY_BASE inset:62px sayesinde header zaten Navbar'ın altında başlar;
-  // ek sticky position gerek yok (parent fixed konteyner).
+  position: 'sticky',
+  top: '62px',
+  zIndex: 40,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
