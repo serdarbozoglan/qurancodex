@@ -681,6 +681,13 @@ const MADANI_SURAHS = new Set([
   55, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 76, 98, 99, 110,
 ]);
 
+// Default-shown surahs in the search palette when the query is empty.
+// Compact list so the palette doesn't dump all 114 surahs on open;
+// covers the most-read surahs across daily/weekly Turkish practice.
+// Order: Fâtiha → Bakara → Kehf (Cuma) → Yâsîn → Rahmân → Vâkıa →
+//        Mülk (gece) → İhlâs → Felâk → Nâs.
+const POPULAR_SURAHS_IN_PALETTE = [1, 2, 18, 36, 55, 56, 67, 112, 113, 114];
+
 // Official ayah counts for all 114 surahs (Hafs an Asim)
 const SURAH_AYAH_COUNTS = [
    7,286,200,176,120,165,206, 75,129,109,
@@ -1087,6 +1094,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const [surahSearch, setSurahSearch] = useState('');
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showAllSurahsInPalette, setShowAllSurahsInPalette] = useState(false);
   const [selectedMealId, setSelectedMealId] = useState(() => {
     try { return localStorage.getItem('qurancodex_meal_id') || 'local'; }
     catch { return 'local'; }
@@ -1596,11 +1604,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       setShowBookmarks(false); setShowFontPicker(false);
       setShowSettingsPicker(false); setShowViewPicker(false);
       setSearchQuery('');
+      setShowAllSurahsInPalette(false);
       setShowSearch(true);
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, []);
+
+  useEffect(() => {
+    if (!showSearch) setShowAllSurahsInPalette(false);
+  }, [showSearch]);
 
   const surahVerses = useMemo(() => {
     if (!verses) return [];
@@ -2738,7 +2751,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       letterSpacing: '0.01em',
                       fontWeight: 400,
                     }}>
-                      {language === 'tr' ? 'Sûre, ayet, kelime ara' : 'Search surah, verse, word'}
+                      {language === 'tr' ? 'Sûre, 2:245, sayfa, kelime…' : 'Surah, 2:245, page, word…'}
                     </span>
                     <kbd style={{
                       fontSize: '0.62rem',
@@ -4556,7 +4569,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               spellCheck={false}
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              placeholder={language === 'tr' ? 'Sûre, sayfa, cüz, ayet veya kelime ara…' : 'Search surah, page, juz, verse or word…'}
+              placeholder={language === 'tr' ? 'Sûre · sayfa · 2:245 · cüz · kelime…' : 'Surah · page · 2:245 · juz · word…'}
               style={{
                 flex: 1, background: 'none', border: 'none', outline: 'none',
                 color: dayMode ? 'rgba(30,15,5,0.88)' : COLORS.offWhite,
@@ -4630,7 +4643,33 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const num = parseInt(q, 10);
               const isNum = q !== '' && !isNaN(num) && String(num) === q.replace(/^0+/, '');
               const qNorm = q ? normalizeText(q).replace(/['’ʼ`-]/g, '') : '';
-              const isText = !isNum && qNorm.length >= 2;
+
+              // Verse-address pattern: "2:245", "2.245", "2/245", "2 245"
+              // S:V — surah index 1-114 + ayah index within range
+              const verseAddrMatch = q.match(/^(\d{1,3})\s*[:.\/\s]\s*(\d{1,3})$/);
+              const verseAddrHit = verseAddrMatch ? (() => {
+                const s = parseInt(verseAddrMatch[1], 10);
+                const a = parseInt(verseAddrMatch[2], 10);
+                if (s >= 1 && s <= 114 && a >= 1 && a <= (SURAH_AYAH_COUNTS[s - 1] || 0)) return { surah: s, ayah: a };
+                return null;
+              })() : null;
+
+              // Surah-name + ayah pattern: "bakara 245", "yasin 36"
+              const nameVerseMatch = (!isNum && !verseAddrHit) ? q.match(/^(.+?)\s+(\d{1,3})$/) : null;
+              const nameVerseHit = nameVerseMatch ? (() => {
+                const namePart = normalizeText(nameVerseMatch[1]).replace(/['’ʼ`-]/g, '');
+                const a = parseInt(nameVerseMatch[2], 10);
+                if (namePart.length < 2) return null;
+                for (let i = 0; i < SURAH_NAMES_TR.length; i++) {
+                  const nameNorm = normalizeText(SURAH_NAMES_TR[i]).replace(/['’ʼ`-]/g, '');
+                  if (nameNorm.includes(namePart) && a >= 1 && a <= SURAH_AYAH_COUNTS[i]) {
+                    return { surah: i + 1, ayah: a };
+                  }
+                }
+                return null;
+              })() : null;
+
+              const isText = !isNum && !verseAddrHit && !nameVerseHit && qNorm.length >= 2;
 
               // Day/night palette helpers — kept local to avoid touching the
               // overlay's outer styles. Match the dropdown's color decisions.
@@ -4769,6 +4808,43 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </button>
               ) : null;
 
+              // ── 2a. Verse address row — "2:245" / "bakara 245" jumps to surah+ayah ──
+              const verseHit = verseAddrHit || nameVerseHit;
+              const verseRow = verseHit ? (
+                <button key="verse"
+                  onClick={() => {
+                    const { surah: vs, ayah: va } = verseHit;
+                    setShowSearch(false); setSearchQuery('');
+                    if (vs !== selectedSurah) {
+                      changeSurah(vs);
+                      setPendingScrollAyah(va);
+                    } else {
+                      const v = surahVerses.find(sv => sv.ayah === va);
+                      if (v) handleSelectVerse(v);
+                      else setPendingScrollAyah(va);
+                    }
+                  }}
+                  style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
+                >
+                  <div style={srIcon}>
+                    <svg width="17" height="19" viewBox="0 0 16 18" fill="none">
+                      <path d="M3 2v14M13 2v14" stroke={gold} strokeWidth="1.3" strokeLinecap="round"/>
+                      <path d="M3 5h10M3 9h7M3 13h10" stroke={gold} strokeWidth="1" strokeLinecap="round" strokeOpacity="0.85"/>
+                    </svg>
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={srLabel}>{language === 'tr' ? 'Ayet' : 'Verse'}</div>
+                    <span style={srMain}>{SURAH_NAMES_TR[verseHit.surah - 1]} {verseHit.surah}:{verseHit.ayah}</span>
+                    <span style={srSub}>
+                      {language === 'tr'
+                        ? `${verseHit.ayah}. ayet · ${SURAH_AYAH_COUNTS[verseHit.surah - 1]} ayet`
+                        : `verse ${verseHit.ayah} · ${SURAH_AYAH_COUNTS[verseHit.surah - 1]} verses`}
+                    </span>
+                  </div>
+                  {arrowIcon}
+                </button>
+              ) : null;
+
               // ── 2. Page match (numeric query 1-604) ─────────────────────────
               const pageRow = (isNum && num >= 1 && num <= 604) ? (
                 <button key="page"
@@ -4811,11 +4887,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </button>
               ) : null;
 
-              // ── 4. Surah list — full 114 (empty query) or filtered (text query) ──
+              // ── 4. Surah list — compact (empty query) or filtered (text/num query) ──
+              // Default state: just the popular 10. Tıklanan "Tümünü göster"
+              // toggle palette state'inde 114'e expand eder, palette kapanınca reset olur.
               let surahList = null;
+              let isCompactList = false;
               if (!q) {
-                // No query → show all 114 surahs
-                surahList = SURAH_NAMES_TR.map((_, i) => renderSurahRow(i + 1));
+                if (showAllSurahsInPalette) {
+                  surahList = SURAH_NAMES_TR.map((_, i) => renderSurahRow(i + 1));
+                } else {
+                  surahList = POPULAR_SURAHS_IN_PALETTE.map(s => renderSurahRow(s));
+                  isCompactList = true;
+                }
               } else if (isNum && num >= 1 && num <= 114) {
                 surahList = [renderSurahRow(num)];
               } else if (isText) {
@@ -4827,6 +4910,41 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 });
                 surahList = matches.map(s => renderSurahRow(s));
               }
+
+              const expandSurahsButton = (!q && isCompactList) ? (
+                <button
+                  key="expand-surahs"
+                  onClick={() => setShowAllSurahsInPalette(true)}
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                    width: 'calc(100% - 32px)', margin: '8px 16px 4px',
+                    padding: '10px 16px',
+                    background: dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.04)',
+                    border: `1px dashed ${dayMode ? 'rgba(154,111,16,0.22)' : COLORS.goldAlpha20}`,
+                    borderRadius: RADIUS.chip,
+                    color: dayMode ? 'rgba(80,50,20,0.72)' : 'rgba(200,185,165,0.78)',
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.78rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.04em',
+                    cursor: 'pointer',
+                    transition: 'background 0.15s, color 0.15s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.12)' : 'rgba(212,165,116,0.08)';
+                    e.currentTarget.style.color = gold;
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.04)';
+                    e.currentTarget.style.color = dayMode ? 'rgba(80,50,20,0.72)' : 'rgba(200,185,165,0.78)';
+                  }}
+                >
+                  <span>{language === 'tr' ? 'Tüm 114 sûreyi göster' : 'Show all 114 surahs'}</span>
+                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                    <path d="M3 4l3 3 3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              ) : null;
 
               // ── 5. Verse text matches — only when text query ────────────────
               const verseMatches = (isText && searchResults.hits.length > 0) ? (
@@ -4914,7 +5032,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               // ── Empty-state guard ───────────────────────────────────────────
               const hasAnyResult =
-                sonOkunanRow || pageRow || juzRow ||
+                sonOkunanRow || verseRow || pageRow || juzRow ||
                 (surahList && surahList.length > 0) ||
                 (isText && searchResults.hits.length > 0);
 
@@ -4930,7 +5048,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               return (
                 <>
                   {sonOkunanRow}
-                  {(pageRow || juzRow) && <SectionLabel>{language === 'tr' ? 'Hızlı atlama' : 'Quick jump'}</SectionLabel>}
+                  {(verseRow || pageRow || juzRow) && <SectionLabel>{language === 'tr' ? 'Hızlı atlama' : 'Quick jump'}</SectionLabel>}
+                  {verseRow}
                   {pageRow}
                   {juzRow}
                   {surahList && surahList.length > 0 && (
@@ -4938,9 +5057,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       <SectionLabel>
                         {q
                           ? (language === 'tr' ? `Sûreler · ${surahList.length} eşleşme` : `Surahs · ${surahList.length} matches`)
-                          : (language === 'tr' ? 'Tüm sûreler · 114' : 'All surahs · 114')}
+                          : (showAllSurahsInPalette
+                              ? (language === 'tr' ? 'Tüm sûreler · 114' : 'All surahs · 114')
+                              : (language === 'tr' ? 'Sık okunan sûreler' : 'Popular surahs'))}
                       </SectionLabel>
                       {surahList}
+                      {expandSurahsButton}
                     </>
                   )}
                   {verseMatches}
