@@ -791,51 +791,60 @@ export default function WowFacts({ onClose }) {
           animation: 'wowFadeIn 0.18s ease',
         }}
       >
-        {/* Standart Tool Alt-Header — sticky, Navbar'a yapışır */}
-        <div style={{
-          position: 'sticky',
-          top: '62px',
-          zIndex: 40,
-          background: 'rgba(8,10,18,0.94)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(212,165,116,0.1)',
-          padding: '0 20px',
-          height: '48px',
-          display: 'flex', alignItems: 'center',
-          flexShrink: 0,
+        {/* HERO SECTION — büyük başlık + paragraph + chip, ortalanmış editorial */}
+        <section style={{
+          maxWidth: '760px', width: '100%', margin: '0 auto',
+          padding: 'clamp(40px, 6vw, 72px) 24px clamp(20px, 3vw, 32px)',
+          boxSizing: 'border-box',
+          textAlign: 'center',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
-            <span style={{ color: COLORS.gold, fontSize: '1.05rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
-            <span style={OVERLAY_TITLE}>
-              {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
-            </span>
-            <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-            <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {language === 'tr' ? 'Az bilinen, şaşırtan gerçekler' : 'Hidden gems & surprising facts'}
-            </span>
-            <span style={{
-              background: 'rgba(212,165,116,0.10)', border: `1px solid ${COLORS.goldAlpha20}`,
-              borderRadius: RADIUS.lg, color: 'rgba(212,165,116,0.85)',
-              fontSize: '0.68rem', fontFamily: "'Inter', sans-serif",
-              padding: '2px 10px', fontWeight: 600, flexShrink: 0,
+          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '14px', marginBottom: '18px', flexWrap: 'wrap' }}>
+            <span style={{ color: COLORS.gold, fontSize: '1.4rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
+            <h1 style={{
+              margin: 0,
+              color: COLORS.offWhite,
+              fontFamily: "'Playfair Display', serif",
+              fontSize: 'clamp(2rem, 4.5vw, 3rem)',
+              fontWeight: 700,
+              letterSpacing: '-0.015em',
+              lineHeight: 1.1,
             }}>
-              {filtered.length} {language === 'tr' ? 'gerçek' : 'facts'}
-            </span>
+              {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
+            </h1>
           </div>
-        </div>
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: 'clamp(0.98rem, 1.4vw, 1.12rem)',
+            lineHeight: 1.6,
+            margin: '0 auto 22px',
+            maxWidth: '580px',
+          }}>
+            {language === 'tr'
+              ? "Modern akademik araştırmalar, matematiksel yapılar ve az bilinen gerçekler — kategorilerden süzün ya da doğrudan arayın."
+              : 'Modern academic research, mathematical structures, and lesser-known facts — filter by category or search directly.'}
+          </p>
+          <span style={{
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            background: 'rgba(212,165,116,0.10)', border: `1px solid ${COLORS.goldAlpha20}`,
+            borderRadius: RADIUS.lg, color: 'rgba(212,165,116,0.85)',
+            fontSize: '0.78rem', fontFamily: "'Inter', sans-serif",
+            padding: '4px 14px', fontWeight: 600,
+          }}>
+            {filtered.length} {language === 'tr' ? 'gerçek' : 'facts'}
+          </span>
+        </section>
 
-        {/* Search + Category filters */}
-        <div style={{
+        {/* Search + Category filters — hero ile aynı 760 container, ortalanmış */}
+        <section style={{
           flexShrink: 0,
-          padding: '12px 20px 0',
-          background: 'rgba(8,10,18,0.92)',
-          backdropFilter: 'blur(20px)',
-          borderBottom: `1px solid ${COLORS.glassBg}`,
-          display: 'flex', flexDirection: 'column', gap: '10px',
+          maxWidth: '760px', width: '100%', margin: '0 auto',
+          padding: '0 24px 28px',
+          boxSizing: 'border-box',
+          display: 'flex', flexDirection: 'column', gap: '14px',
         }}>
-          {/* Search */}
-          <div style={{ position: 'relative', maxWidth: '480px' }}>
+          {/* Search — full width inside 760 container */}
+          <div style={{ position: 'relative', width: '100%' }}>
             <svg
               aria-hidden="true"
               width="14" height="14" viewBox="0 0 24 24"
@@ -864,10 +873,12 @@ export default function WowFacts({ onClose }) {
             />
           </div>
 
-          {/* Category tabs */}
+          {/* Category tabs — glass-dark + gold accent + hover glow (premium chips) */}
           <div style={{
-            display: 'flex', gap: '4px',
-            overflowX: 'auto', paddingBottom: '10px',
+            display: 'flex', gap: '6px',
+            overflowX: 'auto', paddingBottom: '4px',
+            scrollbarWidth: 'none',
+            justifyContent: 'center', flexWrap: 'wrap',
           }}>
             {allCategories.map(({ key, labelTr, labelEn, color }) => {
               const isActive = activeCategory === key;
@@ -878,37 +889,44 @@ export default function WowFacts({ onClose }) {
                   onClick={() => setActiveCategory(key)}
                   style={{
                     flexShrink: 0,
-                    background: isActive ? tabColor + '18' : 'transparent',
-                    border: `1px solid ${isActive ? tabColor + '55' : 'rgba(255,255,255,0.07)'}`,
-                    borderRadius: RADIUS.md,
-                    color: isActive ? tabColor : 'rgba(148,163,184,0.6)',
+                    background: isActive
+                      ? `linear-gradient(135deg, ${tabColor}22 0%, ${tabColor}10 100%)`
+                      : 'rgba(255,255,255,0.035)',
+                    border: `1px solid ${isActive ? tabColor + '66' : 'rgba(255,255,255,0.10)'}`,
+                    borderRadius: RADIUS.lg,
+                    color: isActive ? tabColor : 'rgba(200,210,224,0.75)',
                     cursor: 'pointer',
-                    fontSize: '0.78rem', fontWeight: isActive ? 600 : 400,
+                    fontSize: '0.78rem', fontWeight: isActive ? 600 : 500,
                     fontFamily: "'Inter', sans-serif",
-                    padding: '5px 13px',
+                    padding: '7px 14px',
                     transition: `all ${TRANSITION.fast}`,
-                    display: 'flex', alignItems: 'center', gap: '5px',
+                    display: 'flex', alignItems: 'center', gap: '7px',
+                    boxShadow: isActive ? `0 0 0 1px ${tabColor}22, 0 2px 12px ${tabColor}1a` : 'none',
                   }}
                   onMouseEnter={e => {
                     if (!isActive) {
-                      e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
-                      e.currentTarget.style.color = 'rgba(148,163,184,0.9)';
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                      e.currentTarget.style.borderColor = `${tabColor}44`;
+                      e.currentTarget.style.color = 'rgba(232,230,227,0.95)';
+                      e.currentTarget.style.boxShadow = `0 0 0 1px ${tabColor}18, 0 2px 8px ${tabColor}10`;
                     }
                   }}
                   onMouseLeave={e => {
                     if (!isActive) {
-                      e.currentTarget.style.background = 'transparent';
-                      e.currentTarget.style.color = 'rgba(148,163,184,0.6)';
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.035)';
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)';
+                      e.currentTarget.style.color = 'rgba(200,210,224,0.75)';
+                      e.currentTarget.style.boxShadow = 'none';
                     }
                   }}
                 >
                   {language === 'tr' ? labelTr : labelEn}
                   <span style={{
-                    background: isActive ? tabColor + '22' : 'rgba(255,255,255,0.06)',
+                    background: isActive ? tabColor + '30' : 'rgba(255,255,255,0.08)',
                     borderRadius: RADIUS.sm,
-                    color: isActive ? tabColor : 'rgba(148,163,184,0.5)',
-                    fontSize: '0.65rem', fontWeight: 600,
-                    padding: '1px 6px',
+                    color: isActive ? tabColor : 'rgba(148,163,184,0.7)',
+                    fontSize: '0.66rem', fontWeight: 700,
+                    padding: '1px 7px',
                     transition: `all ${TRANSITION.fast}`,
                   }}>
                     {categoryCounts[key] ?? 0}
@@ -917,7 +935,7 @@ export default function WowFacts({ onClose }) {
               );
             })}
           </div>
-        </div>
+        </section>
 
         {/* Cards grid */}
         <div
