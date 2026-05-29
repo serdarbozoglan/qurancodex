@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import useWordTimings from '../hooks/useWordTimings';
@@ -983,6 +984,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // Synchronous, idempotent, and SSR-safe via typeof window guard.
   migrateReadingModeSettings();
   const { language, toggleLanguage } = useLanguage();
+  const router = useRouter();
   const [verses, setVerses] = useState(null);
   const [loading, setLoading] = useState(true);
   // initialSurah (from SurahLink click) overrides the last-read position.
@@ -2532,48 +2534,60 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           // jumps, these pills exist mainly to remind the reader of the
           // adjacent sûres — so they're rendered slightly smaller and more
           // muted than the active middle pill. Subtle hierarchy, not loud.
+          // Prev/Next sûre nav — desktop icon-only kompakt (kullanıcı audit:
+          // sol kalabalık, brand wordmark için yer açılmalı). Aktif sûre kartı
+          // ortada vurguludur, dolayısıyla yan kardeş sûreler için isim
+          // gerekmez; tooltip yeterli. ⌘K paleti tam ad listesini sunar.
           const navBtn = (surahNum, name, dir, onClick) => {
             const active = !!name;
             return (
               <button
                 onClick={onClick}
                 disabled={!active}
+                title={active ? (language === 'tr' ? `${dir === 'prev' ? 'Önceki' : 'Sonraki'} sûre: ${name}` : `${dir === 'prev' ? 'Previous' : 'Next'} surah: ${name}`) : ''}
+                aria-label={active ? (language === 'tr' ? `${dir === 'prev' ? 'Önceki' : 'Sonraki'} sûre: ${name}` : `${dir === 'prev' ? 'Previous' : 'Next'} surah: ${name}`) : ''}
                 style={{
-                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  height: isMobile ? '34px' : '40px', padding: isMobile ? '0 6px' : '0 10px', borderRadius: RADIUS.md,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: isMobile ? '32px' : '36px', height: isMobile ? '32px' : '40px',
+                  padding: 0, borderRadius: RADIUS.md,
                   border: `1px solid ${active ? navC.btnBorder : 'transparent'}`,
                   background: active ? navC.btnBg : 'transparent',
-                  cursor: active ? 'pointer' : 'default', transition: `all ${TRANSITION.fast}`, flexShrink: 0, gap: '2px',
-                  opacity: active ? 0.82 : 1,
+                  cursor: active ? 'pointer' : 'default', transition: `all ${TRANSITION.fast}`, flexShrink: 0,
+                  opacity: active ? 0.82 : 0.3, color: active ? navC.chevron : 'transparent',
                 }}
                 onMouseEnter={e => { if (active) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
                 onMouseLeave={e => { if (active) { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.opacity = '0.82'; }}}
               >
                 {active && (
-                  <>
-                    {isMobile ? (
-                      <span style={{ display: 'flex', alignItems: 'center', color: navC.chevron }}>
-                        {dir === 'prev' ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
-                      </span>
-                    ) : (
-                      <>
-                        <span style={{ fontSize: '0.50rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1, display: 'flex', alignItems: 'center', gap: '3px' }}>
-                          {dir === 'prev' && <ChevronLeft size={9} />}
-                          {language === 'tr' ? 'Sûre' : 'Surah'} {surahNum}
-                          {dir === 'next' && <ChevronRight size={9} />}
-                        </span>
-                        <span style={{ fontSize: '0.74rem', color: navC.text, fontWeight: 600, lineHeight: 1.2, maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                          {name}
-                        </span>
-                      </>
-                    )}
-                  </>
+                  dir === 'prev' ? <ChevronLeft size={isMobile ? 16 : 18} /> : <ChevronRight size={isMobile ? 16 : 18} />
                 )}
               </button>
             );
           };
           return (
             <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '4px' : '8px' }}>
+              {/* Brand wordmark — sol kapı, ana sayfaya dönüş. Desktop-only
+                  (mobile §14.5 iki-satır header'ında tıkanır, ek wordmark yok). */}
+              {!isMobile && (
+                <button
+                  onClick={() => router.push(`/${language}`)}
+                  title={language === 'tr' ? 'Ana sayfa' : 'Home'}
+                  aria-label={language === 'tr' ? 'Ana sayfa' : 'Home'}
+                  style={{
+                    background: 'transparent', border: 'none', cursor: 'pointer',
+                    padding: '4px 10px', marginRight: '6px',
+                    color: gold, fontFamily: "'Playfair Display', serif",
+                    fontSize: '0.92rem', fontWeight: 700, letterSpacing: '0.14em',
+                    whiteSpace: 'nowrap', flexShrink: 0,
+                    transition: `opacity ${TRANSITION.fast}`,
+                    opacity: 0.9,
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = '0.9'; }}
+                >
+                  QURAN CODEX
+                </button>
+              )}
               {!isMobile && navBtn(selectedSurah - 1, prevName, 'prev', () => changeSurah(selectedSurah - 1))}
 
               {/* Active surah pill — passive "you are here" indicator. Not a

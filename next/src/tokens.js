@@ -177,11 +177,13 @@ export const FONTS = {
 // bounded by this stacking context — so even their high local z-index stays
 // under the navbar in the global stack.
 // Navbar artık tool route'larında (/atlas, /graf, /arac, /oku) gizli (Navbar.jsx
-// hideOnReadingMode regex), bu yüzden tool overlay'leri inset: 0 ile tam ekran
-// alır. Önceki 54px top-inset artık gereksiz (navbar yok).
+// Navbar üstte (z:9999, 62px); tool overlay'leri Navbar'ın ALTINA yerleşir.
+// inset: 62px top → Navbar görünür kalır, alt-header çakışmaz (user audit).
+// Reading mode'da Navbar gizli ama ReadingMode kendi tam ekran container'ını
+// üretir (OVERLAY_BASE kullanmaz), etkilenmez.
 export const OVERLAY_BASE = {
   position: 'fixed',
-  inset: 0,
+  inset: '62px 0 0 0',
   zIndex: 50,
   background: COLORS.overlayBg,
   overflow: 'hidden',
