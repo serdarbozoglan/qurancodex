@@ -2086,19 +2086,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     btnBorder: COLORS.glassBorder,
   };
 
+  // ChatGPT audit + user onay (2026-05-29): "toolbar visual ağırlık çok yüksek,
+  // Kur'an metni yıldız olmalı". Inactive button bg + border kaldırıldı (Apple
+  // Books / Kindle premium reader pattern): butonlar default transparent, hover
+  // ve active'de görünür hale gelir. Net etki: tüm cluster fısıltıya iner, içerik
+  // ön plana çıkar.
   const navC = dayMode ? {
     bg: COLORS.paperCream,
     borderBottom: 'rgba(122,82,21,0.15)',
-    btnBg: 'rgba(0,0,0,0.04)',
-    btnBorder: 'rgba(0,0,0,0.12)',
+    btnBg: 'transparent',
+    btnBorder: 'transparent',
     btnBgActive: 'rgba(122,82,21,0.26)',
     btnBorderActive: 'rgba(122,82,21,0.60)',
     text: 'rgba(30,15,5,0.88)',
-    // Label bumped 0.60 → 0.75 so "SÛRE N" / "AYET" caps reach AA contrast
-    // on the beige bg (~245,238,217) — previously washed-out scaffolding.
-    label: 'rgba(80,50,20,0.75)',
-    // Soft warm tint for inline meta like "· 98 AYET" — replaces the
-    // hardcoded slate-gray (#7a8a9a) that read cold against beige.
+    label: 'rgba(80,50,20,0.70)',
     labelSoft: 'rgba(80,50,20,0.55)',
     divider: 'rgba(0,0,0,0.10)',
     chevron: 'rgba(30,15,5,0.55)',
@@ -2106,12 +2107,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   } : {
     bg: COLORS.cosmicBlack,
     borderBottom: 'rgba(212,165,116,0.12)',
-    btnBg: COLORS.glassBg,
-    btnBorder: COLORS.glassBorder,
+    btnBg: 'transparent',
+    btnBorder: 'transparent',
     btnBgActive: 'rgba(212,165,116,0.22)',
     btnBorderActive: 'rgba(212,165,116,0.60)',
     text: 'rgba(255,255,255,0.90)',
-    label: 'rgba(200,185,165,0.78)',
+    label: 'rgba(200,185,165,0.72)',
     labelSoft: 'rgba(200,185,165,0.55)',
     divider: COLORS.glassBorder,
     chevron: 'rgba(255,255,255,0.60)',
