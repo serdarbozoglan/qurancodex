@@ -2677,12 +2677,23 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     {language === 'tr' ? 'Hizb ' : 'Hizb '}
                     <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
                   </span>
-                  {' · ' + (language === 'tr' ? 'Sayfa ' : 'Page ')}
-                  <span style={{ color: gold, fontWeight: 700 }}>
-                    {spreadMode && versesOnNextPage.length > 0
-                      ? `${Math.max(1, currentPage)}–${Math.max(1, currentPage) + 1}`
-                      : Math.max(1, currentPage)}
-                  </span>
+                  {currentPage === 0 ? (
+                    <>
+                      {' · '}
+                      <span style={{ color: gold, fontWeight: 700 }}>
+                        {language === 'tr' ? 'Açılış' : 'Opening'}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      {' · ' + (language === 'tr' ? 'Sayfa ' : 'Page ')}
+                      <span style={{ color: gold, fontWeight: 700 }}>
+                        {spreadMode && versesOnNextPage.length > 0
+                          ? `${currentPage}–${currentPage + 1}`
+                          : currentPage}
+                      </span>
+                    </>
+                  )}
 
                 </span>
               )}
