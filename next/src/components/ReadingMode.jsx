@@ -4539,7 +4539,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         >
           <div style={{
             position: 'absolute', top: '70px', left: '50%', transform: 'translateX(-50%)',
-            width: 'calc(100% - 32px)', maxWidth: '680px',
+            width: 'calc(100% - 32px)', maxWidth: '560px',
             background: dayMode ? 'rgba(245,239,228,0.99)' : 'rgba(10,12,28,0.98)',
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
@@ -4679,23 +4679,38 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const textMutedCol = dayMode ? 'rgba(80,50,20,0.5)'  : COLORS.silver;
               const textCol      = dayMode ? 'rgba(30,15,5,0.85)'  : COLORS.offWhite;
 
-              // Shared row styles
+              // Shared row styles — compact-spaced (Raycast-style cmd palette)
               const srRow = {
-                display: 'flex', alignItems: 'center', gap: '12px',
-                width: '100%', padding: '11px 24px', textAlign: 'left',
+                display: 'flex', alignItems: 'center', gap: '10px',
+                width: '100%', padding: '8px 16px', textAlign: 'left',
                 background: 'transparent', border: 'none',
                 borderBottom: `1px solid ${dividerCol}`,
                 cursor: 'pointer', transition: 'background 0.12s',
               };
-              const srLabel = { fontSize: '0.6rem', color: labelCol, letterSpacing: '0.10em', textTransform: 'uppercase', marginBottom: '3px', fontWeight: 600 };
-              const srMain  = { fontSize: '0.95rem', color: gold, fontWeight: 600 };
-              const srSub   = { fontSize: '0.78rem', color: textMutedCol, marginLeft: '6px' };
-              const srIcon  = { flexShrink: 0, width: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center' };
+              const srLabel = { fontSize: '0.58rem', color: labelCol, letterSpacing: '0.10em', textTransform: 'uppercase', marginBottom: '2px', fontWeight: 600 };
+              const srMain  = { fontSize: '0.9rem', color: gold, fontWeight: 600 };
+              const srSub   = { fontSize: '0.74rem', color: textMutedCol, marginLeft: '6px' };
+              const srIcon  = { flexShrink: 0, width: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' };
               const hoverOn  = e => { e.currentTarget.style.background = itemBgHover; };
               const hoverOff = e => { e.currentTarget.style.background = 'transparent'; };
 
-              const iconMescid = <img src="/icons/masjid-al-nabawi.png" alt="" width="22" height="22" style={{ display: 'block', objectFit: 'contain' }} />;
-              const iconKaabe  = <img src="/icons/kaaba.png" alt="" width="20" height="20" style={{ display: 'block', objectFit: 'contain' }} />;
+              // Mekkî/Medenî göstergesi — Kâbe outline (Mekkî, küp) vs kubbe outline (Medenî).
+              // PNG'ler 14px'te pikselize oluyordu (Gemini audit "küçük leke" notu); outline SVG
+              // hem kompakt liste yüksekliğine uyar hem renk tonunu tek atom üzerinden alır.
+              const iconKaabe = (
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" style={{ opacity: 0.55 }}>
+                  <rect x="2.5" y="3.5" width="9" height="8" rx="0.6" stroke={gold} strokeWidth="1" />
+                  <line x1="2.5" y1="6" x2="11.5" y2="6" stroke={gold} strokeWidth="0.7" />
+                </svg>
+              );
+              const iconMescid = (
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" style={{ opacity: 0.55 }}>
+                  <path d="M3 11.5V8a4 4 0 0 1 8 0v3.5" stroke={gold} strokeWidth="1" strokeLinecap="round" />
+                  <line x1="2.5" y1="11.7" x2="11.5" y2="11.7" stroke={gold} strokeWidth="1" strokeLinecap="round" />
+                  <circle cx="7" cy="2.5" r="0.7" fill={gold} />
+                  <line x1="7" y1="3.2" x2="7" y2="4.2" stroke={gold} strokeWidth="0.7" />
+                </svg>
+              );
               const arrowIcon  = (
                 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, opacity: 0.4 }}>
                   <path d="M6 4l4 4-4 4" stroke={gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -4725,26 +4740,25 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = itemBgHover; }}
                     onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flex: 1, overflow: 'hidden' }}>
-                      <span style={{ color: textMutedCol, fontSize: '0.72rem', flexShrink: 0, minWidth: '24px', textAlign: 'right', fontWeight: 500 }}>{surah}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0, flex: 1, overflow: 'hidden' }}>
+                      <span style={{ color: textMutedCol, fontSize: '0.7rem', flexShrink: 0, minWidth: '22px', textAlign: 'right', fontWeight: 500 }}>{surah}</span>
                       <span style={{ flexShrink: 0, lineHeight: 1, display: 'flex', alignItems: 'center' }}>
                         {isMadani ? iconMescid : iconKaabe}
                       </span>
-                      <div style={{ minWidth: 0, overflow: 'hidden' }}>
-                        <div style={{ color: isActive ? gold : textCol, fontSize: '0.92rem', fontWeight: isActive ? 700 : 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</div>
-                        <div style={{ color: textMutedCol, fontSize: '0.68rem', marginTop: '1px', fontWeight: 500 }}>{ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</div>
+                      <div style={{ minWidth: 0, overflow: 'hidden', display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                        <div style={{ color: isActive ? gold : textCol, fontSize: '0.88rem', fontWeight: isActive ? 700 : 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</div>
+                        <div style={{ color: textMutedCol, fontSize: '0.66rem', fontWeight: 400, opacity: 0.7, whiteSpace: 'nowrap', flexShrink: 0 }}>{ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</div>
                       </div>
                     </div>
                     <span style={{
                       // CLAUDE.md §13.2 — KFGQPC is the canonical Quranic font.
-                      // Amiri only as fallback if KFGQPC isn't available.
-                      // Arabic script needs ~40% larger than the Latin sibling
-                      // (0.92rem El-Fatiha ↔ 1.3rem الفاتحة) so the diacritics
-                      // stay legible and the two scripts feel visually matched.
+                      // Compact palette: 1.05rem desktop / 0.95rem mobile (was 1.3 / 1.15) —
+                      // diakritik okunabilir kalır, satır yüksekliği 44-48px aralığında tutar.
                       fontFamily: FONTS.quran,
-                      fontSize: isMobile ? '1.15rem' : '1.3rem',
+                      fontSize: isMobile ? '0.95rem' : '1.05rem',
                       color: isActive ? gold : textMutedCol,
                       flexShrink: 0, direction: 'rtl', lineHeight: 1.4,
+                      opacity: isActive ? 1 : 0.78,
                     }}>
                       {nameAr}
                     </span>
@@ -4755,8 +4769,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               // Section header — small uppercase label between groups
               const SectionLabel = ({ children }) => (
                 <div style={{
-                  padding: '12px 24px 6px',
-                  fontSize: '0.62rem',
+                  padding: '10px 16px 4px',
+                  fontSize: '0.58rem',
                   color: labelCol,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
@@ -4778,9 +4792,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   style={{
                     ...srRow,
-                    margin: '10px 16px 6px',
-                    padding: '12px 16px',
-                    width: 'calc(100% - 32px)',
+                    margin: '8px 12px 4px',
+                    padding: '9px 13px',
+                    width: 'calc(100% - 24px)',
                     boxSizing: 'border-box',
                     borderBottom: 'none',
                     background: dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.08)',
@@ -4792,13 +4806,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onMouseLeave={e => { e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.08)'; }}
                 >
                   <div style={srIcon}>
-                    <svg width="14" height="17" viewBox="0 0 14 18" fill="none">
+                    <svg width="12" height="14" viewBox="0 0 14 18" fill="none">
                       <path d="M1 1h12v16l-6-4-6 4V1z" fill={gold} fillOpacity="0.15" stroke={gold} strokeWidth="1.5" strokeLinejoin="round"/>
                       <path d="M4 6h6M4 9h4" stroke={gold} strokeWidth="1.2" strokeLinecap="round"/>
                     </svg>
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ ...srLabel, marginBottom: '2px' }}>{language === 'tr' ? 'Son Okunan' : 'Last Read'}</div>
+                    <div style={{ ...srLabel, marginBottom: '1px' }}>{language === 'tr' ? 'Son Okunan' : 'Last Read'}</div>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexWrap: 'wrap' }}>
                       <span style={{ ...srMain, fontWeight: 700 }}>{lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}</span>
                       <span style={{ ...srSub, marginLeft: 0 }}>{language === 'tr' ? `s.${lastRead.page}` : `p.${lastRead.page}`}</span>

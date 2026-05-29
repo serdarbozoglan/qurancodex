@@ -98,7 +98,10 @@ export function cleanArabic(str) {
     // U+06DF (صفر مستدير/Ayn) + U+06EC (kasr) applyTajweed'e bırakılıyor — diğerleri siliniyor
     // U+06EB (EMPTY CENTRE HIGH STOP) = med işareti — korunur
     // U+06E8 (ARABIC SMALL HIGH NOON / nūn al-wiqāyah) — korunur
-    .replace(/[ۣۭ۠ۤۧ]/g, '')
+    // U+06E3 (ARABIC SMALL LOW SEEN) korunur. Hafs Mushaf'inda sad altinda kucuk
+    // seen olarak yer alir (orn. Bakara 2:245 wa-yebsutu): kiraat ihtilaf isareti.
+    // KFGQPC + ShaykhHamdullah subscript-seen glyph ile render eder.
+    .replace(/[ۭ۠ۤۧ]/g, '')
     // Ornate parentheses
     .replace(/[﴾﴿]/g, '');
 }
@@ -123,7 +126,7 @@ export function cleanArabicForDisplay(str) {
     .replace(/[؀-؅]/g, '')                           // Kur'an numara/dipnot işaretleri
     .replace(/[۝۞۩]/g, '')                      // ayet sonu, rub el hizb, secde işareti
     .replace(/ۦ/g, ' ')                                   // small yeh → boşluk (kelime ayracı)
-    .replace(/[ۖ-ۜ۠ۢ-ۭۤۧۨ]/g, '') // waqf + dekoratif tajwid
+    .replace(/[ۖ-ۭۜ۠ۢۤۧۨ]/g, '') // waqf + dekoratif tajwid
     .replace(/[﴾﴿]/g, '');                           // süslü parantezler
 }
 
@@ -145,7 +148,7 @@ export function cleanArabicForGraph(str) {
     .replace(/[؀-؅]/g, '')                                       // Quranic number/footnote marks
     .replace(/[۝۞۩]/g, '')                                  // End-of-ayah, rub el hizb, sajda sign
     .replace(/ۦ/g, ' ')                                               // Arabic small yeh → space (word separator)
-    .replace(/[ؕۖ-ۜ۟-ۭۤۧۨ]/g, '')  // waqf markers + tajweed signs (incl. U+0615)
+    .replace(/[ؕۖ-ۜ۟-ۭۢۤۧۨ]/g, '')  // waqf markers + tajweed signs (incl. U+0615)
     .replace(/[﴾﴿]/g, '');                                       // Ornate parentheses
 }
 
