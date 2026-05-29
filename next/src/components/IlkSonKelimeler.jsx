@@ -814,7 +814,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         <div style={{
           fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.65, marginBottom: '10px',
+          color: COLORS.emerald, opacity: 0.95, marginBottom: '10px',
         }}>
           {tr ? 'Münâsebât-ı Süver' : 'Munāsabāt al-Suwar'}
         </div>
@@ -836,8 +836,8 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           maxWidth: '720px',
         }}>
           {tr
-            ? 'Açılış ve kapanış arasındaki gizli bağ — 1400 yıllık bir akademik geleneğin DNA\'sı.'
-            : 'The hidden bond between opening and closing — the DNA of a 1400-year scholarly tradition.'}
+            ? 'Açılış ve kapanış arasındaki gizli bağ — klasik tefsirden modern akademiye 1400 yıllık bir okuma geleneği.'
+            : 'The hidden bond between opening and closing — a 1400-year reading tradition from classical tafsīr to modern scholarship.'}
         </p>
         <p style={{
           fontFamily: FONTS.body,
@@ -1181,8 +1181,8 @@ function KnowYouDidNotKnow({ language, isMobile }) {
           maxWidth: '640px',
         }}>
           {tr
-            ? '1400 yıllık akademik mirasın özetlediği beş örüntü — sayfanın geri kalanı bunların her birini ayrı ayrı açar.'
-            : 'Five patterns summarized by a 1400-year scholarly tradition — the rest of the page opens each one in turn.'}
+            ? 'Klasik tefsirin işaret ettiği beş örüntü — sayfanın geri kalanı bunların her birini ayrı ayrı açar.'
+            : 'Five patterns pointed out by classical tafsīr — the rest of the page opens each one in turn.'}
         </p>
       </div>
 

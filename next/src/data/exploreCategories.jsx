@@ -201,13 +201,13 @@ const LadderIcon = ({ size = 18 }) => (
   </svg>
 );
 
-// İlk ve Son Kelimeler — bookends: iki dikey sınır + ortada ok (açılış → kapanış)
+// İlk ve Son Kelimeler — bridge: iki dolgu nokta + bunları birleştiren arc/yay
+// (sayfanın "ilk kelime ile son kelime arasındaki köprü" temasını semantik anlatır)
 const BookendsIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="4" y1="5" x2="4" y2="19" />
-    <line x1="20" y1="5" x2="20" y2="19" />
-    <line x1="7" y1="12" x2="17" y2="12" />
-    <polyline points="14 9 17 12 14 15" />
+    <circle cx="5" cy="15" r="2.2" fill="currentColor" stroke="none" />
+    <circle cx="19" cy="15" r="2.2" fill="currentColor" stroke="none" />
+    <path d="M5 15 Q12 4 19 15" />
   </svg>
 );
 
