@@ -385,12 +385,12 @@ function Header({ language, onClose }) {
   return (
     <div style={{ ...OVERLAY_HEADER }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
-        {/* BookendsIcon — matches exploreCategories.jsx for navbar/header consistency */}
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-          <line x1="4" y1="5" x2="4" y2="19" />
-          <line x1="20" y1="5" x2="20" y2="19" />
-          <line x1="7" y1="12" x2="17" y2="12" />
-          <polyline points="14 9 17 12 14 15" />
+        {/* BridgeIcon — iki kelime arasındaki bağ/köprü temasını anlatır:
+            iki uçta dolgu nokta + bunları birleştiren ince yay (arch). */}
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+          <circle cx="5" cy="15" r="2.2" fill={COLORS.gold} stroke="none" />
+          <circle cx="19" cy="15" r="2.2" fill={COLORS.gold} stroke="none" />
+          <path d="M5 15 Q12 4 19 15" />
         </svg>
         <span style={OVERLAY_TITLE}>
           {language === 'tr' ? 'İlk ve Son Kelimeler' : 'First and Last Words'}
@@ -516,6 +516,10 @@ const TAG_LABELS = {
   'vocative':           { tr: '"Yâ eyyuhâ"',        en: 'vocative' },
   'negative-other':     { tr: 'olumsuz kapanış',   en: 'negative closer' },
   'divine-name-closer': { tr: 'ilahî isimle',      en: 'divine name closer' },
+  'declarative':        { tr: 'bildirim açılışı',  en: 'declarative opener' },
+  'tasbih':             { tr: 'tesbih ile',         en: 'tasbīḥ' },
+  'interrogative':      { tr: 'soru ile',           en: 'interrogative' },
+  'single-divine-name': { tr: 'tek ilahî isim',     en: 'single divine name' },
   'uncategorized':      { tr: 'sınıflandırılmamış',en: 'unclassified' },
 };
 

@@ -354,7 +354,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "interrogative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -689,7 +691,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -729,7 +733,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "tasbih"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -895,7 +901,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -977,7 +985,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -1017,7 +1027,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -1651,7 +1663,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -1988,7 +2002,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -2453,7 +2469,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -2579,7 +2597,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "tasbih"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -2619,7 +2639,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "tasbih"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -2659,8 +2681,12 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
-      "closerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
+      "closerTags": [
+        "single-divine-name"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اِذَا جَٓاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ اِنَّكَ لَرَسُولُ اللّٰهِۢ وَاللّٰهُ يَعْلَمُ اِنَّكَ لَرَسُولُهُۜ وَاللّٰهُ يَشْهَدُ اِنَّ الْمُنَافِق۪ينَ لَـكَاذِبُونَۚ",
@@ -2955,7 +2981,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -3420,7 +3448,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -3460,7 +3490,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -3542,7 +3574,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -3711,7 +3745,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "interrogative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -3963,7 +3999,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "interrogative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -4132,7 +4170,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -4172,7 +4212,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -4296,7 +4338,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -4463,7 +4507,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
@@ -4631,8 +4677,12 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
-      "closerTags": [],
+      "openerTags": [
+        "declarative"
+      ],
+      "closerTags": [
+        "single-divine-name"
+      ],
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اِذَا جَٓاءَ نَصْرُ اللّٰهِ وَالْفَتْحُۙ",
