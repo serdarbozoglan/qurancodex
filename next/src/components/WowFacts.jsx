@@ -569,6 +569,63 @@ const FACTS = [
 
 // ── WowCard ──────────────────────────────────────────────────────────────────
 
+// ─── Visual Atomları (Phase 1 POC) ───────────────────────────────────────────
+// CounterVisual: Framer Motion'a ihtiyaç yok, raw rAF ile animated count-up.
+// Card içine title'dan sonra body'den önce yerleşir; kategori rengiyle tinted.
+function CounterVisual({ value, suffixTr, suffixEn, labelTr, labelEn, language, cardColor }) {
+  const [display, setDisplay] = useState(0);
+  useEffect(() => {
+    let raf;
+    const start = performance.now();
+    const duration = 1400;
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+      setDisplay(Math.round(value * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [value]);
+  const suffix = language === 'tr' ? suffixTr : suffixEn;
+  const label = language === 'tr' ? labelTr : labelEn;
+  return (
+    <div style={{
+      display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
+      padding: '12px 14px', margin: '4px 0',
+      background: cardColor + '0d',
+      borderRadius: RADIUS.md,
+      border: `1px solid ${cardColor + '22'}`,
+    }}>
+      <span style={{
+        fontSize: '2.4rem', fontWeight: 700, color: cardColor,
+        fontFamily: "'Playfair Display', serif",
+        lineHeight: 1, letterSpacing: '-0.02em',
+        fontVariantNumeric: 'tabular-nums',
+        display: 'inline-flex', alignItems: 'baseline', gap: '8px',
+      }}>
+        {display.toLocaleString(language === 'tr' ? 'tr-TR' : 'en-US')}
+        {suffix && (
+          <span style={{
+            fontSize: '0.82rem', fontWeight: 500, color: COLORS.silver,
+            fontFamily: "'Inter', sans-serif", letterSpacing: '0.01em',
+          }}>{suffix}</span>
+        )}
+      </span>
+      {label && (
+        <span style={{
+          fontSize: '0.66rem', color: 'rgba(148,163,184,0.65)',
+          fontFamily: "'Inter', sans-serif",
+          letterSpacing: '0.05em', textTransform: 'uppercase',
+          marginTop: '6px', fontWeight: 600,
+        }}>
+          {label}
+        </span>
+      )}
+    </div>
+  );
+}
+
 function WowCard({ fact, language, onClose }) {
   const cfg = CATEGORY_CONFIG[fact.category];
   const [hovered, setHovered] = useState(false);

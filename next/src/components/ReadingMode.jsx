@@ -6154,7 +6154,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               <div style={{ height: isMobile ? '40px' : '52px' }} />
                               <div style={{
                                 fontFamily: currentFont,
-                                fontSize: isMobile ? '1.1rem' : '1.3rem',
+                                fontSize: isMobile ? '1.22rem' : '1.45rem',
                                 color: C.gold,
                                 opacity: 0.78,
                                 letterSpacing: '0.02em',
@@ -6207,7 +6207,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               )}
                               <div style={{
                                 fontFamily: currentFont,
-                                fontSize: isMobile ? '1.1rem' : '1.3rem',
+                                fontSize: isMobile ? '1.22rem' : '1.45rem',
                                 color: dayMode ? '#5a4a32' : C.muted,
                                 letterSpacing: '0.04em',
                                 lineHeight: 1.5,
@@ -6624,7 +6624,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             {/* Sūratu N — small calligraphic Arabic label */}
                             <div style={{
                               fontFamily: currentFont,
-                              fontSize: isMobile ? '1.1rem' : '1.3rem',
+                              fontSize: isMobile ? '1.22rem' : '1.45rem',
                               color: C.gold,
                               opacity: 0.78,
                               letterSpacing: '0.02em',
@@ -6672,7 +6672,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 without competing with the gold hero. */}
                             <div style={{
                               fontFamily: currentFont,
-                              fontSize: isMobile ? '1.1rem' : '1.3rem',
+                              fontSize: isMobile ? '1.22rem' : '1.45rem',
                               color: dayMode ? '#5a4a32' : C.muted,
                               letterSpacing: '0.04em',
                               lineHeight: 1.5,
