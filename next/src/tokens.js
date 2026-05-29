@@ -191,12 +191,16 @@ export const OVERLAY_BASE = {
 
 // ── Overlay header — STANDART TOOL ALT-HEADER pattern ────────────────────────
 // Tüm 30 tool için tek source-of-truth. Global Navbar (62px, z:9999) üstte,
-// bu header onun ALTINA sticky yerleşir → çakışma yok, görsel tutarlılık.
-// User direktifi (2026-05-29): "Navbar gibi scroll'da sabit olsun tüm sayfalar
-// için" → position: sticky + top: 62px eklendi.
+// bu header onun ALTINA yerleşir → çakışma yok, görsel tutarlılık.
+//
+// 2026-05-29 fix: `position: sticky; top: 62px` kullanan eski sürüm,
+// OVERLAY_BASE (position:fixed; inset:62 0 0 0; overflow:hidden) içinde
+// scrolling ancestor olmadığından sticky offset'i 62px aşağı kaydırma
+// olarak uyguluyordu → Navbar ile header arasında 62px boş alan oluşuyordu.
+// Çözüm: position:relative (offset yok) → header parent'ın üst kenarında
+// (viewport y=62) doğru render olur. Kur'an'ı Tanı parity sağlanır.
 export const OVERLAY_HEADER = {
-  position: 'sticky',
-  top: '62px',
+  position: 'relative',
   zIndex: 40,
   display: 'flex',
   alignItems: 'center',

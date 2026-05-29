@@ -89,23 +89,9 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose, selected]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock KALDIRILDI — WowFacts (Kur'an'ı Tanı) pattern'ına göre
+  // tool sayfaları normal-flow document scroll'a sahip olmalı. ToolHeader
+  // sticky:top:62 bu sayede doğru çalışır (scrolling ancestor = document).
 
   const filtered = useMemo(() => {
     if (!data) return [];
@@ -144,7 +130,12 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
   }
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px', // global Navbar yüksekliği için boşluk (WowFacts pattern)
+    }}>
       <ToolHeader
         icon={
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -300,11 +291,13 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
         </div>
       </div>
 
-      {/* Main body: grid (+ detail panel on desktop) */}
-      <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
+      {/* Main body: grid (+ detail panel on desktop)
+          WowFacts pattern: window-level scroll (no inner overflow) → ToolHeader
+          sticky:top:62 gerçekten çalışır. */}
+      <div style={{ flex: 1, display: 'flex' }}>
         {/* Grid */}
         <div id="ilk-son-grid-container" style={{
-          flex: 1, overflowY: 'auto',
+          flex: 1,
           padding: isMobile ? '14px' : '18px 24px 32px',
           display: 'grid',
           gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(200px, 1fr))',
