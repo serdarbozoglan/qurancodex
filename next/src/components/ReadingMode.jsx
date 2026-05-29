@@ -2808,8 +2808,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   Visually separates the search-bar action from the toggle
                   cluster so the user reads "search → tools" rather than
                   "search-toggle-toggle-toggle" as one undifferentiated group. */}
-              {!isMobile && <div style={{ width: '5px', flexShrink: 0 }} />}
-
+        
               {/* Kelime (word-by-word) mode toggle — visible in both book
                   and verse modes (corpus hover tooltips work in both).
                   Hidden in interlinear / kırık meal mode since that view
@@ -2968,8 +2967,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </button>}
 
               {/* Group divider: Reading tools | Visual */}
-              {!isMobile && <div style={{ width: '5px', flexShrink: 0 }} />}
-
+        
               {/* Day/Night toggle — always visible for quick access */}
               <button
                 onClick={() => setDayMode(v => !v)}
@@ -3020,8 +3018,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </button>}
 
               {/* Group divider: Visual | Auxiliary */}
-              {!isMobile && <div style={{ width: '5px', flexShrink: 0 }} />}
-
+        
               {/* Settings gear — combines view picker + meal/reciter/font/tajweed/mushaf */}
               <button
                 onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); setShowViewPicker(false); }}
