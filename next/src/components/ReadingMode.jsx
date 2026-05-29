@@ -2586,15 +2586,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     // umber, Diyanet cilt yaldız tonu, ~5.2:1 AA pass). Gece
                     // mevcut COLORS.gold + 0.6 opacity — koyu zeminde opacity
                     // gerçekten yumuşatır.
-                    color: dayMode ? '#6b4a0e' : gold,
+                    color: dayMode ? '#8a5f12' : gold,
                     fontFamily: "'Playfair Display', serif",
                     fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.11em',
                     whiteSpace: 'nowrap', flexShrink: 0,
                     transition: `opacity ${TRANSITION.fast}`,
-                    opacity: dayMode ? 1 : 0.6,
+                    opacity: dayMode ? 1 : 0.72,
                   }}
                   onMouseEnter={e => { e.currentTarget.style.opacity = dayMode ? '0.8' : '0.95'; }}
-                  onMouseLeave={e => { e.currentTarget.style.opacity = dayMode ? '1' : '0.6'; }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = dayMode ? '1' : '0.72'; }}
                 >
                   QURAN CODEX
                 </button>
@@ -3057,7 +3057,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   : (language === 'tr' ? 'Yer imlerini aç / bu sayfayı kaydet' : 'Open bookmarks / save this page'))}
 
               {/* Divider before close — desktop only */}
-              {!isMobile && <div style={{ width: '10px', flexShrink: 0 }} />}
+              {!isMobile && <div style={{ width: '5px', flexShrink: 0 }} />}
 
               {/* Kapat — desktop only. Mobile renders the close button in
                   Row 1 of the §14.5 two-row header (above), so this inline
