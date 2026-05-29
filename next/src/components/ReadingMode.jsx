@@ -2581,14 +2581,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   style={{
                     background: 'transparent', border: 'none', cursor: 'pointer',
                     padding: '4px 10px', marginRight: '6px',
-                    color: gold, fontFamily: "'Playfair Display', serif",
+                    // dayMode-aware: krem zemin antique gold'u (~1.8:1 kontrast)
+                    // yutuyordu. Burnished dark gold (#9a6f10) Diyanet Mushaf
+                    // cilt yaldızı — fısıltı ama okunur.
+                    color: dayMode ? '#9a6f10' : gold,
+                    fontFamily: "'Playfair Display', serif",
                     fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.11em',
                     whiteSpace: 'nowrap', flexShrink: 0,
                     transition: `opacity ${TRANSITION.fast}`,
-                    opacity: 0.6,
+                    opacity: dayMode ? 0.72 : 0.6,
                   }}
                   onMouseEnter={e => { e.currentTarget.style.opacity = '0.95'; }}
-                  onMouseLeave={e => { e.currentTarget.style.opacity = '0.6'; }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = dayMode ? '0.72' : '0.6'; }}
                 >
                   QURAN CODEX
                 </button>
@@ -2802,7 +2806,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   Visually separates the search-bar action from the toggle
                   cluster so the user reads "search → tools" rather than
                   "search-toggle-toggle-toggle" as one undifferentiated group. */}
-              {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 4px' }} />}
+              {!isMobile && <div style={{ width: '8px', flexShrink: 0 }} />}
 
               {/* Kelime (word-by-word) mode toggle — visible in both book
                   and verse modes (corpus hover tooltips work in both).
@@ -2962,7 +2966,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </button>}
 
               {/* Group divider: Reading tools | Visual */}
-              {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 4px' }} />}
+              {!isMobile && <div style={{ width: '8px', flexShrink: 0 }} />}
 
               {/* Day/Night toggle — always visible for quick access */}
               <button
@@ -3014,7 +3018,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </button>}
 
               {/* Group divider: Visual | Auxiliary */}
-              {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 4px' }} />}
+              {!isMobile && <div style={{ width: '8px', flexShrink: 0 }} />}
 
               {/* Settings gear — combines view picker + meal/reciter/font/tajweed/mushaf */}
               <button
@@ -3051,7 +3055,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   : (language === 'tr' ? 'Yer imlerini aç / bu sayfayı kaydet' : 'Open bookmarks / save this page'))}
 
               {/* Divider before close — desktop only */}
-              {!isMobile && <div style={{ width: '1px', height: '28px', background: navC.divider, margin: '0 12px' }} />}
+              {!isMobile && <div style={{ width: '16px', flexShrink: 0 }} />}
 
               {/* Kapat — desktop only. Mobile renders the close button in
                   Row 1 of the §14.5 two-row header (above), so this inline
