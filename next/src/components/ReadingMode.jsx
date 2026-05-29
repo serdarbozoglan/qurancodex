@@ -88,7 +88,7 @@ const makeSektaWrap = (dayMode) => (_m) =>
   // as makeMedWrap's "مد" so they look visually consistent in mushaf).
   `<span style="display:inline-block;position:relative;line-height:1;color:transparent;">${_m}` +
   `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
-  `font-size:0.58em;font-weight:600;line-height:1;` +
+  `font-size:0.5em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">سكتة</span></span>`;
 // Allah lafzı renklendirme: tilde kırmızısıyla aynı renk (gündüz/gece uyumlu).
@@ -143,7 +143,7 @@ const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06
 const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
-  `font-size:0.58em;font-weight:600;line-height:1;` +
+  `font-size:0.5em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
 
@@ -161,7 +161,7 @@ const makeMedWrap = (dayMode, colorize = false) => (_, letter) => {
   return (
     `<span style="display:inline-block;position:relative;line-height:1;color:${tint};">${letter}` +
     `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
-    `font-size:0.58em;font-weight:600;line-height:1;` +
+    `font-size:0.5em;font-weight:400;line-height:1;` +
     `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
     `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">مد</span></span>`
   );
@@ -176,7 +176,7 @@ const NUN_WIQAYAH_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06
 const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-0.7em;left:-0.4em;` +
-  `font-size:0.6em;font-weight:600;line-height:1;` +
+  `font-size:0.55em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">نِ</span></span>`;
 
@@ -186,11 +186,9 @@ const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
 //     color kullanır)
 //   - display:inline-block → renk uygulanır AMA combining mark önceki harfle
 //     bağını kaybeder; pozisyon harfin üstünden kayıp inline akışa girer
-// CSS spesifikasyonu düzeyinde combining mark'a hem bağımsız renk hem doğru
-// pozisyon vermek desteklenmiyor. Tek çözüm SVG overlay (her madda pozisyonunu
-// hesaplayıp absolute pozisyonda render) — performans/karmaşıklık sebebiyle
-// yapılmadı. Tajweed-on modunda K.med (mor) kuralı zaten med için renk
-// veriyor; tajweed-off modunda maddah curve şu an default text renginde kalır.
+//   - SVG overlay (POC denendi) → font'un native dalga glyph'inden farklı
+//     çizilmesi bozuk görünüm üretir (kullanıcı görsel reddetti)
+// Maddah curve şu an default text renginde — DOKUNULMAYACAK.
 
 function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = false) {
   if (!text) return '';
@@ -198,10 +196,13 @@ function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = 
   html = html.replace(WAQF_TA_RE, makeWaqfTaSpan(dayMode));
   html = html.replace(UTHMANI_MARKS_RE, makeWaqfSpan(dayMode));
   html = html.replace(SEKTA_RE, makeSektaWrap(dayMode));
-  // KASR_RE / MED_RE / NUN_WIQAYAH_RE overlay'leri yalnızca tajweed-on (applyTajweed) modunda
-  // çalışır. wrapWaqfOnly (varsayılan tajweed-off) modunda Mushaf-i Şerif sade
-  // görünümü için bu CSS annotation'lar render edilmez — U+06EC/U+06EB/U+06E8
-  // karakterleri font'un native glyph'i ile gösterilir.
+  // Kasr / Med / Nun-wiqayah annotation'ları tajweed-off modunda da kırmızı
+  // gösterilir. Forma müdahale yok — sadece var olan HTML span'in renk
+  // değişkeni ile rengi paletten (#c0392b / #f87171) gelir. Tajweed-on ekstra
+  // olarak taşıyıcı harfi tinler (med için magenta).
+  html = html.replace(KASR_RE, makeKasrWrap(dayMode));
+  html = html.replace(MED_RE, makeMedWrap(dayMode, false));
+  html = html.replace(NUN_WIQAYAH_RE, makeNunWiqayahWrap(dayMode));
   if (!skipAllahColor) {
     html = html.replace(ALLAH_RE, makeAllahWrap(dayMode));
     html = html.replace(LILLAHI_RE, makeAllahWrap(dayMode));
