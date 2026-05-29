@@ -12,42 +12,31 @@ const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children, initialLocale }) {
   // Faz 5 — URL-prefix locale routing aktif.
-  // initialLocale [locale]/layout.js'ten gelir (params.locale). Server'da
-  // doğru locale render edilir; client'ta localStorage hidrasyonu yok →
-  // hydration mismatch yok.
-  // Fallback: initialLocale verilmemişse 'tr' (root layout doğrudan kullanılırsa).
-  const [language, setLanguage] = useState(initialLocale === 'en' ? 'en' : 'tr');
-  // EN dict yüklenince re-render tetiklemek için
-  const [, setEnLoadedAt] = useState(0);
+  // language ARTIK useState DEĞİL — pathname'den doğrudan derive edilir.
+  // Sebep: useState + useEffect ile sync etmek async state update gecikmesine
+  // sebep oluyor; back/forward navigation'da bir frame boyunca dropdown text
+  // stale dil ile render ediliyordu (user audit). Pathname source-of-truth.
   const router = useRouter();
   const pathname = usePathname();
+  // EN dict yüklenince re-render tetiklemek için
+  const [, setEnLoadedAt] = useState(0);
 
-  // Sync language with URL locale on navigation.
-  // initialLocale prop'u Next.js App Router'da back/forward navigation'da
-  // stale kalabilir (layout instance persisted, sadece re-render). User audit:
-  // "back tuşu ile keşfet/araçlar TR/EN arası switch yapıyor" — bunun sebebi
-  // dropdown render'ı stale language state'ini kullanıyordu.
-  // Fix: pathname'i (URL'i) source-of-truth yap; initialLocale prop'unu sadece
-  // ilk render için fallback olarak kullan.
-  useEffect(() => {
-    if (initialLocale === 'en' || initialLocale === 'tr') {
-      setLanguage(initialLocale);
+  const language = useMemo(() => {
+    if (pathname) {
+      const m = pathname.match(/^\/(tr|en)(\/|$)/);
+      if (m) return m[1];
     }
-  }, [initialLocale]);
+    // Pathname yoksa veya locale yoksa initialLocale (SSR ilk render) fallback.
+    return initialLocale === 'en' ? 'en' : 'tr';
+  }, [pathname, initialLocale]);
 
-  // Pathname-based sync — URL'den locale çıkar, language ile uyumsuzsa düzelt.
-  // Browser back/forward'da pathname değişir → useEffect tetiklenir → state URL'i
-  // takip eder. Bu prop sync'i yedekler, race condition'ları kapatır.
-  useEffect(() => {
-    if (!pathname) return;
-    const match = pathname.match(/^\/(tr|en)(\/|$)/);
-    if (match) {
-      const urlLocale = match[1];
-      if (urlLocale !== language) {
-        setLanguage(urlLocale);
-      }
+  // setLanguage backwards-compat — eskiden direct çağıran component'lar için.
+  // Artık URL üzerinden navigate ediyoruz, setLanguage no-op (warn dev'de).
+  const setLanguage = useCallback((next) => {
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('[LanguageContext] setLanguage(', next, ') deprecated — use toggleLanguage or router.push to change locale.');
     }
-  }, [pathname, language]);
+  }, []);
 
   // EN seçildiğinde lazy yükle (idempotent — bir kez yüklenir, sonra cache'te durur)
   useEffect(() => {
