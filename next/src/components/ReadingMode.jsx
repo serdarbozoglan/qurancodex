@@ -7894,8 +7894,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
                               : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)'),
                         color: isSajda ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.gold,
-                        fontSize: verse.ayah >= 100 ? (isMobile ? '0.74rem' : '0.86rem') : verse.ayah >= 10 ? (isMobile ? '0.84rem' : '0.98rem') : (isMobile ? '0.94rem' : '1.08rem'),
-                        fontFamily: currentFont,
+                        fontSize: verse.ayah >= 100 ? (isMobile ? '0.82rem' : '0.94rem') : verse.ayah >= 10 ? (isMobile ? '0.94rem' : '1.08rem') : (isMobile ? '1.04rem' : '1.2rem'),
+                        fontFamily: "'Inter', sans-serif", lineHeight: 1, letterSpacing: '-0.01em',
                         fontWeight: dayMode ? 600 : 400,
                         cursor: 'pointer',
                         padding: 0,
