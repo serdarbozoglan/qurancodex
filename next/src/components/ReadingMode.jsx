@@ -2545,6 +2545,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           // gerekmez; tooltip yeterli. ⌘K paleti tam ad listesini sunar.
           const navBtn = (surahNum, name, dir, onClick) => {
             const active = !!name;
+            // Inactive (Fatiha'da prev veya Nâs'ta next) DOM'a boş buton bırakıyordu —
+            // user audit image #128: "boş card sınırları var". Hiç render etme.
+            if (!active) return null;
             return (
               <button
                 onClick={onClick}
