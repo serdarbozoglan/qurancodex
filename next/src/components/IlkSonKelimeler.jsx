@@ -1053,7 +1053,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Mushaf Cycle',
     },
     {
-      headlineTr: 'Yedi sûre tek bir harf ile başlar — حم — ve hepsi ardışık.',
+      headlineTr: 'Yedi sûre aynı iki harfle başlar — حم — ve hepsi ardışık.',
       headlineEn: 'Seven surahs begin with the same two letters — ḥā-mīm — and all are consecutive.',
       bodyTr: '40-46 arası kesintisiz bir blok. Aralarında mushaf akışı kırılmaz; her biri imanın farklı bir yüzünü gösterir.',
       bodyEn: 'Surahs 40–46 form an unbroken block. The Mushaf flow is never interrupted; each shows a different face of faith.',
