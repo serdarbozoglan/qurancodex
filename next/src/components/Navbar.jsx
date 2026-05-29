@@ -191,7 +191,18 @@ export default function Navbar() {
   // Etkilenen route'lar: /oku (reading mode), /atlas (kissa, peygamber...),
   // /graf (ayet, kavram...), /arac (yeminler, dualar...).
   // Sadece homepage + /kaynakca (içerik sayfası) + locale root'unda Navbar görünür.
-  const hideOnReadingMode = pathname && /^\/(tr|en)\/(oku|atlas|graf|arac)(\/|$)/.test(pathname);
+  //
+  // Robust segment check: pathname'in herhangi bir konumunda /oku, /atlas, /graf,
+  // /arac segment'i varsa gizle. Eski regex `^/(tr|en)/...` middleware rewrite
+  // veya locale yokken kaçırıyordu (user audit: /arac/wow'da çift header).
+  const hideOnReadingMode = (() => {
+    if (!pathname) return false;
+    const segs = pathname.split('/').filter(Boolean);
+    if (segs.length === 0) return false;
+    const TOOL_KINDS = new Set(['oku', 'atlas', 'graf', 'arac']);
+    // segs[0] locale ise segs[1]'i kontrol et; locale yoksa segs[0]'ı.
+    return TOOL_KINDS.has(segs[0]) || (segs.length > 1 && TOOL_KINDS.has(segs[1]));
+  })();
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [toolsOpen, setToolsOpen]       = useState(false);
@@ -732,9 +743,18 @@ export default function Navbar() {
         {/* Left group: logo + nav links */}
         <div className="flex items-center gap-6">
 
-        {/* Logo */}
+        {/* Logo — web UX standardı: ana sayfadaysa scroll-to-top, alt sayfada
+            ise homepage'e navigate. Önceki davranış sadece scrollTo idi → alt
+            sayfada logo "tool'un üstüne kaydır" oluyordu (yanıltıcı). */}
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => {
+            const homePath = `/${language}`;
+            if (pathname === homePath || pathname === `${homePath}/`) {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              router.push(homePath);
+            }
+          }}
           className="text-gold font-display font-bold tracking-[0.12em] sm:tracking-[0.18em] hover:text-royal-gold transition-colors"
           style={{ fontSize: '1.05rem', flexShrink: 0 }}
         >
@@ -1236,7 +1256,15 @@ export default function Navbar() {
         >
           {/* Wordmark — sol-üst, drawer kimliği için (Navbar'ın compact mirror'ı) */}
           <button
-            onClick={() => { setMobileOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            onClick={() => {
+              setMobileOpen(false);
+              const homePath = `/${language}`;
+              if (pathname === homePath || pathname === `${homePath}/`) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                router.push(homePath);
+              }
+            }}
             className="text-gold font-display font-bold tracking-[0.14em]"
             style={{
               position: 'fixed',
