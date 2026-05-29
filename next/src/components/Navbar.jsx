@@ -693,6 +693,30 @@ export default function Navbar() {
 
   return (
     <>
+    {/* Desktop dropdown backdrop — Reading mode search palette pattern (lighter):
+        blur(6px) + rgba 0.5 yoğunluğu mega menü browse context'ine uygun (Reading
+        palette 8px + 0.78 command palette içindi). Click → her iki dropdown'u kapatır.
+        z-index 9990 nav'ın 9999 altında: nav görünür kalır, dropdown'lar nav stacking
+        context'inde üst seviyede. */}
+    <AnimatePresence>
+      {(exploreOpen || toolsOpen) && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+          onClick={() => { setExploreOpen(false); setToolsOpen(false); }}
+          aria-hidden="true"
+          style={{
+            position: 'fixed', inset: 0,
+            background: 'rgba(3,5,14,0.5)',
+            backdropFilter: 'blur(6px)',
+            WebkitBackdropFilter: 'blur(6px)',
+            zIndex: 9990,
+          }}
+        />
+      )}
+    </AnimatePresence>
     <nav
       className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${
         scrolled
