@@ -1095,7 +1095,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
           letterSpacing: '0.3em', textTransform: 'uppercase',
           color: COLORS.gold, opacity: 0.7, marginBottom: '8px',
         }}>
-          {tr ? 'Bu Sayfaya Geldiğinde Bilmiyordun ki' : 'Before You Came to This Page You Did Not Know'}
+          {tr ? "Mushaf'ın Açılış-Kapanış Mimarisinden" : "From the Mushaf's Opening-Closing Architecture"}
         </div>
         <h3 style={{
           fontFamily: FONTS.display, fontWeight: 700,
