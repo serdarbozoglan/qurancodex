@@ -448,3 +448,7 @@ body {
   0%, 100% { opacity: 1; stroke-width: 3.5; }
   50% { opacity: 0.6; stroke-width: 5; }
 }
+
+/* IlkSonKelimeler — Hidden Detail collapsible (native <details>) */
+details > summary::-webkit-details-marker { display: none; }
+details[open] .ilk-son-chevron { transform: rotate(180deg); }

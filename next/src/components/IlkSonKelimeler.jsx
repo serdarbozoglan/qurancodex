@@ -1281,7 +1281,9 @@ function SpotlightCard({ spotlight, language, isMobile }) {
   const tr = language === 'tr';
   const isPair = ['bridge', 'ring', 'intra-bridge', 'intra-ring'].includes(spotlight.type);
   const isList = ['family', 'cluster'].includes(spotlight.type);
-  const arrow  = ['ring', 'intra-ring'].includes(spotlight.type) ? '↻' : '→';
+  const isRing = ['ring', 'intra-ring'].includes(spotlight.type);
+
+  const hiddenText = tr ? spotlight.hiddenTr : spotlight.hiddenEn;
 
   return (
     <div id={`spotlight-${spotlight.id}`} style={{
@@ -1291,74 +1293,117 @@ function SpotlightCard({ spotlight, language, isMobile }) {
       borderRadius: RADIUS.lg,
       scrollMarginTop: '120px',
     }}>
-      {/* Category badge */}
-      <div style={{
-        fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
-        letterSpacing: '0.28em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.7, marginBottom: '10px',
+      {/* Header: title (left) + category chip (right) */}
+      <header style={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        gap: '14px',
+        marginBottom: isMobile ? '20px' : '24px',
+        flexDirection: isMobile ? 'column-reverse' : 'row',
       }}>
-        {tr ? spotlight.categoryLabelTr : spotlight.categoryLabelEn}
-      </div>
-
-      {/* Title */}
-      <h3 style={{
-        fontFamily: FONTS.display, fontWeight: 700,
-        fontSize: isMobile ? '1.15rem' : '1.3rem',
-        color: COLORS.offWhite, margin: '0 0 22px',
-        lineHeight: 1.3,
-      }}>
-        {tr ? spotlight.titleTr : spotlight.titleEn}
-      </h3>
+        <h3 style={{
+          fontFamily: FONTS.display, fontWeight: 700,
+          fontSize: isMobile ? '1.3rem' : '1.5rem',
+          color: COLORS.offWhite,
+          margin: 0,
+          lineHeight: 1.25,
+          letterSpacing: '-0.005em',
+          flex: 1,
+        }}>
+          {tr ? spotlight.titleTr : spotlight.titleEn}
+        </h3>
+        <span style={{
+          display: 'inline-block',
+          padding: '5px 11px',
+          background: COLORS.goldAlpha15,
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          borderRadius: RADIUS.pill,
+          fontSize: '0.62rem',
+          fontFamily: FONTS.body,
+          fontWeight: 700,
+          letterSpacing: '0.22em',
+          textTransform: 'uppercase',
+          color: COLORS.gold,
+          whiteSpace: 'nowrap',
+          flexShrink: 0,
+        }}>
+          {tr ? spotlight.categoryLabelTr : spotlight.categoryLabelEn}
+        </span>
+      </header>
 
       {/* Visual: pair or list */}
-      {isPair && <SpotlightPair spotlight={spotlight} arrow={arrow} language={language} isMobile={isMobile} />}
+      {isPair && <SpotlightPair spotlight={spotlight} isRing={isRing} language={language} isMobile={isMobile} />}
       {isList && <SpotlightList spotlight={spotlight} language={language} isMobile={isMobile} />}
 
       {/* Thematic prose — split on \n\n to render multiple paragraphs */}
-      <div style={{ marginTop: '22px' }}>
+      <div style={{ marginTop: isMobile ? '20px' : '24px' }}>
         {(tr ? spotlight.thematicTr : spotlight.thematicEn)
           .split('\n\n')
-          .map((para, idx) => (
+          .map((para, idx, arr) => (
             <p key={idx} style={{
               fontFamily: FONTS.body,
-              fontSize: isMobile ? '0.86rem' : '0.92rem',
-              color: COLORS.silver, lineHeight: 1.75,
-              margin: idx === 0 ? '0 0 12px' : '0 0 12px',
+              fontSize: isMobile ? '0.94rem' : '1rem',
+              color: COLORS.offWhite,
+              lineHeight: 1.75,
+              margin: idx === arr.length - 1 ? 0 : '0 0 14px',
             }}>
               {para}
             </p>
           ))}
       </div>
 
-      {/* Hidden detail */}
-      {(spotlight.hiddenTr || spotlight.hiddenEn) && (
-        <div style={{
-          marginTop: '14px',
-          padding: '12px 16px',
+      {/* Hidden detail — collapsible */}
+      {hiddenText && (
+        <details style={{
+          marginTop: '18px',
           background: 'rgba(255,255,255,0.025)',
-          borderLeft: `2px solid ${COLORS.goldAlpha45 || COLORS.goldAlpha45}`,
+          borderLeft: `2px solid ${COLORS.goldAlpha45}`,
           borderRadius: RADIUS.sm,
+          overflow: 'hidden',
         }}>
-          <div style={{
-            fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
-            letterSpacing: '0.25em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75, marginBottom: '6px',
+          <summary style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '10px',
+            padding: '10px 14px',
+            cursor: 'pointer',
+            listStyle: 'none',
+            userSelect: 'none',
+            fontSize: '0.62rem',
+            fontFamily: FONTS.body,
+            fontWeight: 700,
+            letterSpacing: '0.25em',
+            textTransform: 'uppercase',
+            color: COLORS.gold,
+            opacity: 0.85,
           }}>
-            {tr ? 'Saklı Detay' : 'Hidden Detail'}
-          </div>
-          {(tr ? spotlight.hiddenTr : spotlight.hiddenEn)
-            .split('\n\n')
-            .map((para, idx, arr) => (
+            <span>{tr ? 'Saklı Detay' : 'Hidden Detail'}</span>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" strokeWidth="2.5"
+              strokeLinecap="round" strokeLinejoin="round"
+              style={{ transition: 'transform 0.2s', flexShrink: 0 }}
+              className="ilk-son-chevron"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </summary>
+          <div style={{ padding: '0 14px 12px' }}>
+            {hiddenText.split('\n\n').map((para, idx, arr) => (
               <p key={idx} style={{
-                fontFamily: FONTS.body, fontSize: isMobile ? '0.82rem' : '0.86rem',
-                color: COLORS.offWhite, lineHeight: 1.65,
+                fontFamily: FONTS.body,
+                fontSize: isMobile ? '0.86rem' : '0.9rem',
+                color: COLORS.offWhite,
+                lineHeight: 1.7,
                 margin: idx === arr.length - 1 ? 0 : '0 0 8px',
-                opacity: 0.88,
+                opacity: 0.9,
               }}>
                 {para}
               </p>
             ))}
-        </div>
+          </div>
+        </details>
       )}
 
       {/* Sources */}
@@ -1376,74 +1421,200 @@ function SpotlightCard({ spotlight, language, isMobile }) {
   );
 }
 
-function SpotlightPair({ spotlight, arrow, language, isMobile }) {
+function SpotlightPair({ spotlight, isRing, language, isMobile }) {
   const { leftSurah: L, rightSurah: R } = spotlight;
+
+  // Mobile: vertical flow with center connector line + arrow
+  if (isMobile) {
+    return (
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        gap: 0,
+      }}>
+        <SpotlightSurahPanel surah={L} language={language} />
+        {/* Vertical bridge connector */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '6px 0',
+        }}>
+          <div style={{
+            width: '1px',
+            height: '14px',
+            background: `linear-gradient(180deg, ${COLORS.goldAlpha45}, ${COLORS.goldAlpha15})`,
+          }} />
+          <div style={{
+            width: '26px',
+            height: '26px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: RADIUS.full,
+            background: COLORS.goldAlpha15,
+            border: `1px solid ${COLORS.goldAlpha45}`,
+            color: COLORS.gold,
+            fontSize: '0.85rem',
+            fontWeight: 700,
+            userSelect: 'none',
+          }}>
+            {isRing ? '↻' : '↓'}
+          </div>
+          <div style={{
+            width: '1px',
+            height: '14px',
+            background: `linear-gradient(180deg, ${COLORS.goldAlpha15}, ${COLORS.goldAlpha45})`,
+          }} />
+        </div>
+        <SpotlightSurahPanel surah={R} language={language} />
+      </div>
+    );
+  }
+
+  // Desktop: two panels with SVG arc bridge overlaid in the gap.
+  // arc is positioned absolutely in a relative container; the bridge gap
+  // is a real flex/grid column so the arc has space to live without
+  // overlapping panel content.
   return (
     <div style={{
+      position: 'relative',
       display: 'grid',
-      gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr',
-      gap: isMobile ? '10px' : '16px',
-      alignItems: 'center',
+      gridTemplateColumns: '1fr 96px 1fr',
+      alignItems: 'stretch',
     }}>
-      <SpotlightSurahPanel surah={L} language={language} />
+      <SpotlightSurahPanel surah={L} language={language} side="left" />
+
+      {/* Bridge column — SVG arc */}
       <div style={{
-        fontSize: isMobile ? '1.4rem' : '1.8rem',
-        color: COLORS.gold, opacity: 0.55,
-        textAlign: 'center',
-        padding: isMobile ? '4px' : '0',
-        userSelect: 'none',
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}>
-        {arrow}
+        <svg
+          width="100%"
+          height="56"
+          viewBox="0 0 96 56"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          style={{ display: 'block', overflow: 'visible' }}
+        >
+          <defs>
+            <linearGradient id={`arc-grad-${spotlight.id}`} x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"  stopColor={COLORS.gold} stopOpacity="0.05" />
+              <stop offset="50%" stopColor={COLORS.gold} stopOpacity="0.85" />
+              <stop offset="100%" stopColor={COLORS.gold} stopOpacity="0.05" />
+            </linearGradient>
+          </defs>
+          {isRing ? (
+            // Ring: dotted return curve below the arc to suggest cyclic flow
+            <>
+              <path
+                d="M 0 28 Q 48 -8 96 28"
+                fill="none"
+                stroke={`url(#arc-grad-${spotlight.id})`}
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M 0 28 Q 48 56 96 28"
+                fill="none"
+                stroke={COLORS.goldAlpha45}
+                strokeWidth="1"
+                strokeDasharray="2 3"
+                strokeLinecap="round"
+              />
+            </>
+          ) : (
+            <path
+              d="M 0 36 Q 48 -8 96 36"
+              fill="none"
+              stroke={`url(#arc-grad-${spotlight.id})`}
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          )}
+        </svg>
+        {/* Arrow node centered on top of arc */}
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '28px',
+          height: '28px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: RADIUS.full,
+          background: COLORS.goldAlpha15,
+          border: `1px solid ${COLORS.goldAlpha45}`,
+          color: COLORS.gold,
+          fontSize: '0.9rem',
+          fontWeight: 700,
+          userSelect: 'none',
+        }}>
+          {isRing ? '↻' : '→'}
+        </div>
       </div>
-      <SpotlightSurahPanel surah={R} language={language} />
+
+      <SpotlightSurahPanel surah={R} language={language} side="right" />
     </div>
   );
 }
 
-function SpotlightSurahPanel({ surah, language }) {
+function SpotlightSurahPanel({ surah, language, side }) {
   const tr = language === 'tr';
   const positionLabel =
     surah.position === 'ilk'
       ? (tr ? 'İlk' : 'First')
       : (tr ? 'Son' : 'Last');
+
+  // Asymmetric alignment for paired desktop view emphasizes left-to-right flow.
+  const align = side === 'left' ? 'right' : side === 'right' ? 'left' : 'center';
+
   return (
     <div style={{
-      padding: '16px 14px',
+      padding: '18px 16px',
       background: 'rgba(255,255,255,0.03)',
       border: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBgStrong}`,
       borderRadius: RADIUS.md,
-      textAlign: 'center',
+      textAlign: align,
     }}>
       <div style={{
-        fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
-        letterSpacing: '0.18em', textTransform: 'uppercase',
-        color: COLORS.silver, opacity: 0.7, marginBottom: '10px',
+        fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
+        letterSpacing: '0.2em', textTransform: 'uppercase',
+        color: COLORS.silver, opacity: 0.7, marginBottom: '12px',
       }}>
         {surah.num}. {tr ? surah.nameTr : surah.nameEn} · {positionLabel}
       </div>
       <p dir="rtl" lang="ar" style={{
         fontFamily: FONTS.quran,
-        fontSize: '1.6rem',
+        fontSize: '1.65rem',
         color: COLORS.gold,
-        margin: '0 0 8px',
-        lineHeight: 1.6,
+        margin: '0 0 10px',
+        lineHeight: 1.55,
       }}>
         {cleanArabic(surah.wordAr)}
       </p>
       {surah.translit && (
         <div style={{
-          fontSize: '0.74rem',
-          color: COLORS.offWhite, opacity: 0.65,
+          fontSize: '0.72rem',
+          color: COLORS.offWhite, opacity: 0.7,
           fontStyle: 'italic',
           marginBottom: '4px',
+          letterSpacing: '0.01em',
         }}>
           {surah.translit}
         </div>
       )}
       {surah.meaning && (
         <div style={{
-          fontSize: '0.78rem',
-          color: COLORS.offWhite, opacity: 0.85,
+          fontSize: '0.8rem',
+          color: COLORS.offWhite, opacity: 0.9,
+          fontWeight: 500,
         }}>
           {surah.meaning}
         </div>
@@ -1531,8 +1702,8 @@ function SpotlightList({ spotlight, language, isMobile }) {
             </span>
             {item.lastMeaning && (
               <span style={{
-                fontSize: isMobile ? '0.72rem' : '0.78rem',
-                color: COLORS.offWhite, opacity: 0.7,
+                fontSize: isMobile ? '0.74rem' : '0.8rem',
+                color: COLORS.offWhite, opacity: 0.8,
                 fontStyle: 'italic',
               }}>
                 {item.lastMeaning}
