@@ -4694,23 +4694,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const hoverOn  = e => { e.currentTarget.style.background = itemBgHover; };
               const hoverOff = e => { e.currentTarget.style.background = 'transparent'; };
 
-              // Mekkî/Medenî göstergesi — Kâbe outline (Mekkî, küp) vs kubbe outline (Medenî).
-              // PNG'ler 14px'te pikselize oluyordu (Gemini audit "küçük leke" notu); outline SVG
-              // hem kompakt liste yüksekliğine uyar hem renk tonunu tek atom üzerinden alır.
-              const iconKaabe = (
-                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" style={{ opacity: 0.55 }}>
-                  <rect x="2.5" y="3.5" width="9" height="8" rx="0.6" stroke={gold} strokeWidth="1" />
-                  <line x1="2.5" y1="6" x2="11.5" y2="6" stroke={gold} strokeWidth="0.7" />
-                </svg>
-              );
-              const iconMescid = (
-                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" style={{ opacity: 0.55 }}>
-                  <path d="M3 11.5V8a4 4 0 0 1 8 0v3.5" stroke={gold} strokeWidth="1" strokeLinecap="round" />
-                  <line x1="2.5" y1="11.7" x2="11.5" y2="11.7" stroke={gold} strokeWidth="1" strokeLinecap="round" />
-                  <circle cx="7" cy="2.5" r="0.7" fill={gold} />
-                  <line x1="7" y1="3.2" x2="7" y2="4.2" stroke={gold} strokeWidth="0.7" />
-                </svg>
-              );
+              // Mekkî/Medenî göstergesi — orijinal PNG ikonlar (Kâbe / Mescid-i Nebevî)
+              // bir tık küçültüldü (22→17, 20→15) ki kompakt satır yüksekliğine uysun.
+              const iconMescid = <img src="/icons/masjid-al-nabawi.png" alt="" width="17" height="17" style={{ display: 'block', objectFit: 'contain' }} />;
+              const iconKaabe  = <img src="/icons/kaaba.png" alt="" width="15" height="15" style={{ display: 'block', objectFit: 'contain' }} />;
               const arrowIcon  = (
                 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, opacity: 0.4 }}>
                   <path d="M6 4l4 4-4 4" stroke={gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -4752,13 +4739,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </div>
                     <span style={{
                       // CLAUDE.md §13.2 — KFGQPC is the canonical Quranic font.
-                      // Compact palette: 1.05rem desktop / 0.95rem mobile (was 1.3 / 1.15) —
-                      // diakritik okunabilir kalır, satır yüksekliği 44-48px aralığında tutar.
+                      // Compact palette but Arabic stays at 1.18 / 1.08 with full
+                      // text color — küçük + cılız (textMutedCol + opacity 0.78)
+                      // user audit'inde "ciliz" notu aldı.
                       fontFamily: FONTS.quran,
-                      fontSize: isMobile ? '0.95rem' : '1.05rem',
-                      color: isActive ? gold : textMutedCol,
+                      fontSize: isMobile ? '1.08rem' : '1.18rem',
+                      color: isActive ? gold : textCol,
                       flexShrink: 0, direction: 'rtl', lineHeight: 1.4,
-                      opacity: isActive ? 1 : 0.78,
                     }}>
                       {nameAr}
                     </span>
@@ -4815,7 +4802,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     <div style={{ ...srLabel, marginBottom: '1px' }}>{language === 'tr' ? 'Son Okunan' : 'Last Read'}</div>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexWrap: 'wrap' }}>
                       <span style={{ ...srMain, fontWeight: 700 }}>{lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}</span>
-                      <span style={{ ...srSub, marginLeft: 0 }}>{language === 'tr' ? `s.${lastRead.page}` : `p.${lastRead.page}`}</span>
+                      <span style={{ ...srSub, marginLeft: 0 }}>
+                        {/* page <= 0 (henüz scroll edilmemiş yeni session) → "Açılış" / "Start".
+                            Aksi takdirde sayfa numarası gösterilir. */}
+                        {lastRead.page > 0
+                          ? (language === 'tr' ? `s.${lastRead.page}` : `p.${lastRead.page}`)
+                          : (language === 'tr' ? 'Açılış' : 'Start')}
+                      </span>
                     </div>
                   </div>
                   {arrowIcon}
