@@ -1299,10 +1299,12 @@ export default function WowFacts({ onClose }) {
           </div>
         </section>
 
-        {/* Cards grid */}
+        {/* Cards grid — window-level scroll (no inner overflow) → ToolHeader
+            sticky:top:62 gerçekten çalışsın. .wow-scroll classı sadece scrollbar
+            stilini WebKit'te override etmek için kaldı (body scrollbar). */}
         <div
           className="wow-scroll"
-          style={{ flex: 1, overflowY: 'auto', padding: '20px' }}
+          style={{ padding: '20px' }}
         >
           {filtered.length === 0 ? (
             <div style={{

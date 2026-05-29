@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicMinimal as cleanArabic } from '../lib/arabic';
 import { CloseIcon } from './icons';
+import ToolHeader from './ToolHeader';
 import {
   COLORS, FONTS,
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
@@ -144,17 +145,34 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
 
   return (
     <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-      <Header language={language} onClose={onClose} />
+      <ToolHeader
+        icon={
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="5" cy="15" r="2.2" fill={COLORS.gold} stroke="none" />
+            <circle cx="19" cy="15" r="2.2" fill={COLORS.gold} stroke="none" />
+            <path d="M5 15 Q12 4 19 15" />
+          </svg>
+        }
+        titleTr="İlk ve Son Kelimeler"
+        titleEn="First and Last Words"
+        subtitleTr="114 sûre · açılış-kapanış kelimesi"
+        subtitleEn="114 surahs · opening-closing word"
+        language={language}
+      />
 
-      {/* Search + Filter chip row */}
-      <div style={{
-        flexShrink: 0,
-        padding: isMobile ? '12px 16px 0' : '14px 24px 0',
-        borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
-        background: 'rgba(8,10,18,0.92)',
-        backdropFilter: 'blur(20px)',
-        display: 'flex', flexDirection: 'column', gap: '10px',
-      }}>
+      {/* Search + Filter chip row — max-w-7xl container ile Navbar logoyla aynı hizada. */}
+      <div
+        className="max-w-7xl mx-auto px-4 lg:px-8"
+        style={{
+          flexShrink: 0,
+          width: '100%', boxSizing: 'border-box',
+          paddingTop: isMobile ? 12 : 14,
+          borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
+          background: 'rgba(8,10,18,0.92)',
+          backdropFilter: 'blur(20px)',
+          display: 'flex', flexDirection: 'column', gap: '10px',
+        }}
+      >
         {/* Search */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', maxWidth: '440px' }}>
           <div style={{ position: 'relative' }}>
@@ -175,14 +193,14 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
               style={{
                 width: '100%', boxSizing: 'border-box',
                 background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
+                border: `1px solid ${COLORS.glassBgStrong}`,
                 borderRadius: RADIUS.md,
                 color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.85rem',
                 padding: searchValue ? '8px 36px 8px 36px' : '8px 12px 8px 36px',
                 outline: 'none',
                 transition: `border-color ${TRANSITION.fast}`,
               }}
-              onFocus={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45 || COLORS.goldAlpha45; }}
+              onFocus={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45 || 'rgba(212,165,116,0.35)'; }}
               onBlur={e => { e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}
             />
             {searchValue && (
