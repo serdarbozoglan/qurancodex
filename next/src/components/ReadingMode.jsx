@@ -4802,7 +4802,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ ...srLabel, marginBottom: '1px' }}>{language === 'tr' ? 'Son Okunan' : 'Last Read'}</div>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexWrap: 'wrap' }}>
-                      <span style={{ ...srMain, fontWeight: 700 }}>{lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}</span>
+                      {/* srMain default zaten weight 600 — burada override etmiyoruz
+                          (önceden 700 baskın görünüyordu, user audit). */}
+                      <span style={{ ...srMain, fontSize: '0.85rem' }}>{lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}</span>
                       <span style={{ ...srSub, marginLeft: 0 }}>
                         {/* page <= 0 (henüz scroll edilmemiş yeni session) → "Açılış" / "Start".
                             Aksi takdirde sayfa numarası gösterilir. */}
