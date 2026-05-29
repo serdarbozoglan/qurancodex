@@ -393,12 +393,13 @@ function Card({ surah, onClick, selected, language }) {
         background: selected ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.035)',
         border: `1px solid ${selected ? COLORS.goldAlpha40 : 'rgba(255,255,255,0.12)'}`,
         borderRadius: RADIUS.md,
-        padding: '11px 13px 12px',
+        padding: '11px 13px 14px',
         cursor: 'pointer',
         transition: `all ${TRANSITION.fast}`,
         display: 'flex', flexDirection: 'column', gap: '8px',
         fontFamily: FONTS.body,
-        minHeight: '92px',
+        minHeight: '110px',
+        overflow: 'hidden',
       }}
       onMouseEnter={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)'; }}
       onMouseLeave={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; }}
@@ -447,17 +448,19 @@ function Card({ surah, onClick, selected, language }) {
         </div>
       </div>
 
-      {/* Tags — opener + closer + structural; lokalize edilmiş. mukattaa/oath ayrı flag. */}
+      {/* Tags — opener + closer + structural; lokalize edilmiş. mukattaa/oath ayrı flag.
+          Hiç tag yoksa (Nisâ, Mâide gibi) "uncategorized" fallback — kart layout tutarlılığı için. */}
       {(() => {
         const openerTagsClean = (surah.openerTags || []).filter(t => t !== 'mukattaa' && t !== 'oath');
         const closerTagsClean = (surah.closerTags || []).filter(t => t !== 'mukattaa' && t !== 'oath');
-        if (!surah.hasMukattaa && !surah.hasOath && openerTagsClean.length === 0 && closerTagsClean.length === 0) return null;
+        const isEmpty = !surah.hasMukattaa && !surah.hasOath && openerTagsClean.length === 0 && closerTagsClean.length === 0;
         return (
-          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: 'auto' }}>
             {surah.hasMukattaa && <Tag slug="mukattaa" language={language} />}
             {surah.hasOath && <Tag slug="oath" language={language} />}
             {openerTagsClean.map(t => <Tag key={'o-' + t} slug={t} language={language} />)}
             {closerTagsClean.map(t => <Tag key={'c-' + t} slug={t} language={language} />)}
+            {isEmpty && <Tag slug="uncategorized" language={language} />}
           </div>
         );
       })()}
@@ -477,6 +480,7 @@ const TAG_LABELS = {
   'vocative':           { tr: '"Yâ eyyuhâ"',        en: 'vocative' },
   'negative-other':     { tr: 'olumsuz kapanış',   en: 'negative closer' },
   'divine-name-closer': { tr: 'ilahî isimle',      en: 'divine name closer' },
+  'uncategorized':      { tr: 'sınıflandırılmamış',en: 'unclassified' },
 };
 
 function Tag({ slug, language }) {
