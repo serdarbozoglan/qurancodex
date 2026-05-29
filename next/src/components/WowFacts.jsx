@@ -165,6 +165,14 @@ const FACTS = [
     wowTr: 'Anlam, sûrenin tam kalbinde durur.',
     wowEn: 'Meaning stands at the exact heart of the surah.',
     explore: 'Ancak sana kulluk',
+    visualType: 'counter',
+    visualData: {
+      value: 7,
+      suffixTr: 'ayet',
+      suffixEn: 'verses',
+      labelTr: 'Merkez tam ortada — yapısal denge',
+      labelEn: 'Center at the exact middle — structural balance',
+    },
   },
   {
     category: 'yapisal',
@@ -187,6 +195,14 @@ const FACTS = [
     wowTr: 'Kur\'an\'ın en uzun ayeti ibadet değil, sözleşme hukuku düzenler.',
     wowEn: 'The Quran\'s longest verse regulates contracts, not worship.',
     explore: '2:282',
+    visualType: 'counter',
+    visualData: {
+      value: 282,
+      suffixTr: 'Bakara ayeti',
+      suffixEn: 'Al-Baqarah verse',
+      labelTr: 'Kur\'an\'ın en uzun ayeti — bir tam sayfa',
+      labelEn: "The Quran's longest verse — a full page",
+    },
   },
   {
     category: 'yapisal',
@@ -221,6 +237,14 @@ const FACTS = [
     wowTr: 'En çok okunan metin — tartışmasız, her gün, her kıtada.',
     wowEn: 'The most recited text — undisputed, every day, on every continent.',
     explore: '1:1',
+    visualType: 'counter',
+    visualData: {
+      value: 40,
+      suffixTr: 'kez/gün',
+      suffixEn: 'times/day',
+      labelTr: 'Bir Müslüman ortalama günde okur',
+      labelEn: 'Average daily recitation per Muslim',
+    },
   },
   {
     category: 'yapisal',
@@ -338,6 +362,14 @@ const FACTS = [
     wowTr: 'Kur\'an\'da en uzun hikâye, Kur\'an\'ı getiren peygamberin hikâyesi değildir.',
     wowEn: 'The longest story in the Quran is not the story of the prophet who brought it.',
     explore: 'musa',
+    visualType: 'counter',
+    visualData: {
+      value: 136,
+      suffixTr: 'kez',
+      suffixEn: 'times',
+      labelTr: 'Kur\'an\'da en çok anılan peygamber',
+      labelEn: 'The most-mentioned prophet in the Quran',
+    },
   },
   {
     category: 'peygamberler',
@@ -349,6 +381,14 @@ const FACTS = [
     wowTr: 'İslam\'ın kitabı, İsa\'yı Muhammed\'den daha sık anar.',
     wowEn: 'The book of Islam mentions Jesus more often than Muhammad.',
     explore: 'isa',
+    visualType: 'counter',
+    visualData: {
+      value: 25,
+      suffixTr: 'kez',
+      suffixEn: 'times',
+      labelTr: '"Hz. İsa" — "Muhammed" 4 kez ile karşılaştırın',
+      labelEn: '"Jesus" — compare with "Muhammad" 4 times',
+    },
   },
   {
     category: 'peygamberler',
@@ -371,6 +411,14 @@ const FACTS = [
     wowTr: '950 yıl — tarihin hiçbir sözlü geleneğinde görülmeyen kesin bir sayı.',
     wowEn: '950 years — a precise figure unmatched in any oral tradition of history.',
     explore: 'nuh',
+    visualType: 'counter',
+    visualData: {
+      value: 950,
+      suffixTr: 'yıl',
+      suffixEn: 'years',
+      labelTr: 'Halkı arasında geçirdiği süre',
+      labelEn: 'Duration spent among his people',
+    },
   },
   {
     category: 'peygamberler',
@@ -462,6 +510,14 @@ const FACTS = [
     wowTr: 'İki takvim, tek ayette, tam uyum.',
     wowEn: 'Two calendars. One verse. Perfect match.',
     explore: 'kehf',
+    visualType: 'counter',
+    visualData: {
+      value: 309,
+      suffixTr: 'yıl',
+      suffixEn: 'years',
+      labelTr: 'Mağarada uyudukları süre',
+      labelEn: 'Duration they slept in the cave',
+    },
   },
   {
     category: 'azBilinen',
