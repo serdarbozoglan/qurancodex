@@ -982,49 +982,34 @@ export default function WowFacts({ onClose }) {
           animation: 'wowFadeIn 0.18s ease',
         }}
       >
-        {/* HERO SECTION — büyük başlık + paragraph + chip, ortalanmış editorial */}
-        <section style={{
-          maxWidth: '760px', width: '100%', margin: '0 auto',
-          padding: 'clamp(40px, 6vw, 72px) 24px clamp(20px, 3vw, 32px)',
-          boxSizing: 'border-box',
-          textAlign: 'center',
+        {/* STANDART ALT-HEADER — İlkSon parity (user tutarlılık tercihi):
+            icon · title · gri subtitle · chip. Sticky değil (parent zaten
+            page-flow), Navbar'a yapışık görünüm için backdrop blur + alt border. */}
+        <div style={{
+          position: 'sticky',
+          top: '62px',
+          zIndex: 40,
+          background: 'rgba(8,10,18,0.94)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: '1px solid rgba(212,165,116,0.10)',
+          padding: 0,
+          height: '48px',
+          display: 'flex', alignItems: 'center',
+          flexShrink: 0,
         }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '14px', marginBottom: '18px', flexWrap: 'wrap' }}>
-            <span style={{ color: COLORS.gold, fontSize: '1.4rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
-            <h1 style={{
-              margin: 0,
-              color: COLORS.offWhite,
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(2rem, 4.5vw, 3rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.015em',
-              lineHeight: 1.1,
-            }}>
+          {/* Navbar logo ile aynı hiza: max-w-7xl (1280px) + px-4/lg:px-8 (16/32). */}
+          <div className="max-w-7xl mx-auto px-4 lg:px-8" style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, width: '100%', boxSizing: 'border-box' }}>
+            <span style={{ color: COLORS.gold, fontSize: '1.05rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
+            <span style={OVERLAY_TITLE}>
               {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
-            </h1>
+            </span>
+            <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+            <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {language === 'tr' ? 'Sayılar, yapılar ve gizli kalmış bağlantılar' : 'Numbers, structures, and hidden connections'}
+            </span>
           </div>
-          <p style={{
-            color: COLORS.silver,
-            fontFamily: FONTS.body,
-            fontSize: 'clamp(0.98rem, 1.4vw, 1.12rem)',
-            lineHeight: 1.6,
-            margin: '0 auto 22px',
-            maxWidth: '580px',
-          }}>
-            {language === 'tr'
-              ? "Modern akademik araştırmalar, matematiksel yapılar ve az bilinen gerçekler — kategorilerden süzün ya da doğrudan arayın."
-              : 'Modern academic research, mathematical structures, and lesser-known facts — filter by category or search directly.'}
-          </p>
-          <span style={{
-            display: 'inline-flex', alignItems: 'center', gap: '6px',
-            background: 'rgba(212,165,116,0.10)', border: `1px solid ${COLORS.goldAlpha20}`,
-            borderRadius: RADIUS.lg, color: 'rgba(212,165,116,0.85)',
-            fontSize: '0.78rem', fontFamily: "'Inter', sans-serif",
-            padding: '4px 14px', fontWeight: 600,
-          }}>
-            {filtered.length} {language === 'tr' ? 'gerçek' : 'facts'}
-          </span>
-        </section>
+        </div>
 
         {/* Search + Category filters — hero ile aynı 760 container, ortalanmış */}
         <section style={{
