@@ -856,8 +856,8 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
       filterId: 'mukattaaOpener',
       count: surahs.filter(s => s.hasMukattaa).length,
       labelTr: 'Mukattaa ile açılan', labelEn: 'Muqaṭṭaʿāt opener',
-      insightTr: '14 farklı harf kombinasyonu, 29 sûreyi şifre ile açar — anlamı sadece Allah\'ın bildiği. Hepsi vahiy/Kitap atfıyla devam eder; şifreden vaade yolculuk.',
-      insightEn: '14 different letter combinations open 29 surahs with a cipher — meaning known only to God. All continue with reference to revelation/the Book; a journey from cipher to promise.',
+      insightTr: '14 farklı harf kombinasyonu, 29 sûreyi şifre ile açar — anlamı sadece Allah\'ın bildiği. Çoğu hemen vahiy/Kitap atfıyla devam eder; şifreden vaade yolculuk — ama bu mutlak bir kural değil, klasik tefsirin dikkat çektiği baskın bir edebi eğilimdir.',
+      insightEn: '14 different letter combinations open 29 surahs with a cipher — meaning known only to God. Most are immediately followed by a reference to revelation/the Book; a journey from cipher to promise — though not an absolute rule, but a dominant literary pattern noted by classical tafsīr.',
     },
     {
       filterId: 'oathOpener',
@@ -1063,8 +1063,8 @@ function KnowYouDidNotKnow({ language, isMobile }) {
     {
       headlineTr: '"Sapanların yolu" Fâtiha\'da bitince, Bakara hemen "işte doğru yol" der.',
       headlineEn: '"The path of those who went astray" ends Al-Fātiḥa — Al-Baqara opens with "this is the guidance."',
-      bodyTr: 'Sûrelerin biri diğerine cevap verir. Râzî der ki: kul Fâtiha\'da hidayet ister, Allah Bakara\'nın açılışında onu sunar.',
-      bodyEn: 'One surah answers the other. Al-Rāzī says: the servant asks for guidance in Al-Fātiḥa, and God offers it at the start of Al-Baqara.',
+      bodyTr: 'Sûrelerin biri diğerine cevap verir. Râzî der ki: kul Fâtiha\'da hidayet ister, Allah Bakara\'nın açılışında onu sunar. Burada bağ kelime sınırını aşar — Fâtiha\'nın son ayet teması ile Bakara\'nın 2. ayetinin teması arasındadır; bu sayfadaki tek ayet-düzeyi örnektir.',
+      bodyEn: 'One surah answers the other. Al-Rāzī says: the servant asks for guidance in Al-Fātiḥa, and God offers it at the start of Al-Baqara. Here the bond crosses the word boundary — between the theme of Al-Fātiḥa\'s final verse and that of Al-Baqara\'s second verse; this is the only verse-level example on this page.',
       tagTr: 'Klasik Münâsebe',
       tagEn: 'Classical Munāsabah',
     },
