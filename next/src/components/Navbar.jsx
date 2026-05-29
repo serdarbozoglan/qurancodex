@@ -186,22 +186,16 @@ export default function Navbar() {
   const { language, toggleLanguage } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
-  // Immersive route'larda Navbar gizlenir — bu sayfalar kendi tam ekran
-  // navigation pattern'larına sahip (kapat butonu × üst-sağda).
-  // Etkilenen route'lar: /oku (reading mode), /atlas (kissa, peygamber...),
-  // /graf (ayet, kavram...), /arac (yeminler, dualar...).
-  // Sadece homepage + /kaynakca (içerik sayfası) + locale root'unda Navbar görünür.
-  //
-  // Robust segment check: pathname'in herhangi bir konumunda /oku, /atlas, /graf,
-  // /arac segment'i varsa gizle. Eski regex `^/(tr|en)/...` middleware rewrite
-  // veya locale yokken kaçırıyordu (user audit: /arac/wow'da çift header).
+  // Reading mode (Oku) kendi tam ekran chrome'una sahip — site Navbar'ı orada
+  // render edilmez (özelleşmiş üst bar + söz/sayfa navigasyonu var).
+  // /atlas, /graf, /arac (tool route'ları): A planı Phase 0 sonrası global
+  // Navbar burada da görünür — tool'lar artık sayfa flow'unda akar, modal değil.
   const hideOnReadingMode = (() => {
     if (!pathname) return false;
     const segs = pathname.split('/').filter(Boolean);
     if (segs.length === 0) return false;
-    const TOOL_KINDS = new Set(['oku', 'atlas', 'graf', 'arac']);
-    // segs[0] locale ise segs[1]'i kontrol et; locale yoksa segs[0]'ı.
-    return TOOL_KINDS.has(segs[0]) || (segs.length > 1 && TOOL_KINDS.has(segs[1]));
+    // Sadece /oku route'unda gizle (locale prefix opsiyonel)
+    return segs[0] === 'oku' || (segs.length > 1 && segs[1] === 'oku');
   })();
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);

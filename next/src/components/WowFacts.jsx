@@ -778,54 +778,60 @@ export default function WowFacts({ onClose }) {
         }
       `}</style>
 
+      {/* A planı Phase 0 — Tool header cleanup:
+          Eski overlay pattern (position:fixed; inset:54px 0 0 0 + sticky header
+          + CLOSE_BTN) page flow'a alındı. Global Navbar her sayfada görünür.
+          Inline hero başlık tool kimliği için; close butonu artık gerekli değil
+          (browser back tuşu + Navbar bu rolü doğal olarak yapar). */}
       <div
         style={{
-          position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
           background: COLORS.cosmicBlack,
+          minHeight: 'calc(100vh - 62px)',
           display: 'flex', flexDirection: 'column',
+          paddingTop: '62px', // global Navbar yüksekliği için boşluk
           animation: 'wowFadeIn 0.18s ease',
         }}
       >
-        {/* Header */}
+        {/* Inline hero — Phase 0 sade büyük başlık.
+            Phase 4'te cinematic background motif + rotating featured eklenecek. */}
         <div style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '0 20px', height: '54px', flexShrink: 0,
-          background: 'rgba(8,10,18,0.96)', backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(212,165,116,0.1)',
+          maxWidth: '1200px', width: '100%', margin: '0 auto',
+          padding: '40px 20px 24px', boxSizing: 'border-box',
         }}>
-          {/* IlkSon ile parity: single-line header — icon + title + · + gri
-              subtitle + sayı chip. Önceki dikey 2-satır (title + alt subtitle
-              + ayrı chip) yapısı şu pattern'a hizalandı. */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
-            <span style={{ color: COLORS.gold, fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
-            <span style={OVERLAY_TITLE}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '10px', flexWrap: 'wrap' }}>
+            <span style={{ color: COLORS.gold, fontSize: '1.8rem', lineHeight: 1, flexShrink: 0 }}>✦</span>
+            <span style={{
+              color: COLORS.offWhite,
+              fontFamily: "'Playfair Display', serif",
+              fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+              fontWeight: 700,
+              letterSpacing: '-0.01em',
+              lineHeight: 1.1,
+            }}>
               {language === 'tr' ? "Kur'an'ı Tanı" : 'Meet the Quran'}
             </span>
-            <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-            <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {language === 'tr' ? 'Az bilinen, şaşırtan gerçekler' : 'Hidden gems & surprising facts'}
-            </span>
             <span style={{
-              background: 'rgba(212,165,116,0.1)', border: `1px solid ${COLORS.goldAlpha20}`,
-              borderRadius: RADIUS.lg, color: 'rgba(212,165,116,0.8)',
-              fontSize: '0.68rem', fontFamily: "'Inter', sans-serif",
-              padding: '2px 10px', fontWeight: 600, flexShrink: 0,
+              background: 'rgba(212,165,116,0.10)', border: `1px solid ${COLORS.goldAlpha20}`,
+              borderRadius: RADIUS.lg, color: 'rgba(212,165,116,0.85)',
+              fontSize: '0.78rem', fontFamily: "'Inter', sans-serif",
+              padding: '4px 12px', fontWeight: 600, flexShrink: 0,
+              alignSelf: 'center',
             }}>
               {filtered.length} {language === 'tr' ? 'gerçek' : 'facts'}
             </span>
           </div>
-
-          <button
-            onClick={onClose}
-            aria-label="Kapat"
-            style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          >
-            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '1rem',
+            lineHeight: 1.6,
+            maxWidth: '640px',
+            margin: 0,
+          }}>
+            {language === 'tr'
+              ? "Modern bilimden klasik tefsire — Kur'an'da az bilinen, şaşırtan gerçekler. Kategorilerden filtrele veya doğrudan ara."
+              : 'From modern science to classical exegesis — lesser-known, astonishing facts in the Quran. Filter by category or search directly.'}
+          </p>
         </div>
 
         {/* Search + Category filters */}
