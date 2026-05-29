@@ -2099,7 +2099,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     btnBgActive: 'rgba(122,82,21,0.26)',
     btnBorderActive: 'rgba(122,82,21,0.60)',
     text: 'rgba(30,15,5,0.88)',
-    label: 'rgba(80,50,20,0.70)',
+    label: 'rgba(80,50,20,0.62)',
     labelSoft: 'rgba(80,50,20,0.55)',
     divider: 'rgba(0,0,0,0.10)',
     chevron: 'rgba(30,15,5,0.55)',
@@ -2112,7 +2112,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     btnBgActive: 'rgba(212,165,116,0.22)',
     btnBorderActive: 'rgba(212,165,116,0.60)',
     text: 'rgba(255,255,255,0.90)',
-    label: 'rgba(200,185,165,0.72)',
+    label: 'rgba(200,185,165,0.65)',
     labelSoft: 'rgba(200,185,165,0.55)',
     divider: COLORS.glassBorder,
     chevron: 'rgba(255,255,255,0.60)',
@@ -2751,8 +2751,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   width: isMobile ? '36px' : 'clamp(220px, 20vw, 280px)',
                   minWidth: isMobile ? '36px' : '220px',
                   height: isMobile ? '42px' : '44px',
-                  padding: isMobile ? 0 : '0 8px 0 12px',
-                  borderRadius: RADIUS.md,
+                  padding: isMobile ? 0 : '0 12px 0 16px',
+                  borderRadius: '999px',
                   // Search button "soft paper input" hissi — navC.btnBorder zaten
                   // transparent (premium reader pattern), ama search bir tıklama
                   // hedefi olarak "input slot" hissi gerektiriyor: soft visible
