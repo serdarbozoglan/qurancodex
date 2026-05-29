@@ -460,11 +460,12 @@ function Card({ surah, onClick, selected, language }) {
 
       {/* Middle: first word → last word.
           Akış soldan sağa (LTR sezgi): firstWord solda, lastWord sağda, ok → sağa.
-          Her hücre `dir="rtl"` Arapça metin için (kelimenin kendi içi sağdan sola çizilir). */}
+          Renk semiyotiği: ilk kelime altın (damga/açılış vurgusu), son kelime
+          off-white (nötr kapanış). */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '6px' }}>
         <div style={{ textAlign: 'right', minWidth: 0, overflow: 'hidden' }}>
           <div dir="rtl" lang="ar" style={{
-            fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite,
+            fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold,
             lineHeight: 1.4, direction: 'rtl',
             overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
           }}>
