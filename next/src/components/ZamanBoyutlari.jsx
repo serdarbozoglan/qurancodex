@@ -3,7 +3,8 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, GLASS_CARD, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import ToolHeader from './ToolHeader';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from './icons';
 
@@ -433,23 +434,7 @@ export default function ZamanBoyutlari({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Resize listener — also seeds initial isMobile (SSR-safe per §16.6)
   useEffect(() => {
@@ -1274,36 +1259,20 @@ export default function ZamanBoyutlari({ onClose }) {
 
   // ── Main render ───────────────────────────────────────────────────────────────
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-      {/* Header */}
-      <div style={{ ...OVERLAY_HEADER }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          {/* ClockIcon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <polyline points="12 6 12 12 16 14" />
-          </svg>
-          <span style={{ ...OVERLAY_TITLE }}>
-            {language === 'tr' ? 'Zamanın Boyutları' : 'Dimensions of Time'}
-          </span>
-        </div>
-        <button
-          onClick={onClose}
-          style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => {
-            e.currentTarget.style.background = COLORS.glassBorder;
-            e.currentTarget.style.color = COLORS.offWhite;
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.background = CLOSE_BTN.background;
-            e.currentTarget.style.color = COLORS.silver;
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>}
+        titleTr="Zaman Boyutları"
+        titleEn="Dimensions of Time"
+        subtitleTr="Gün · sene · devir · an"
+        subtitleEn="Day · year · epoch · instant"
+        language={language}
+      />
 
       {/* Tab bar */}
       <div style={{

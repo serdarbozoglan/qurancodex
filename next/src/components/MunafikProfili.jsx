@@ -6,15 +6,12 @@ import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS,
   FONTS,
-  OVERLAY_BASE,
-  OVERLAY_HEADER,
-  OVERLAY_TITLE,
-  CLOSE_BTN,
   VERSE_DISPLAY_CARD,
   GLASS_CARD,
   BREAKPOINT_TABLET,
   RADIUS,
 } from '../tokens';
+import ToolHeader from './ToolHeader';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 
@@ -77,23 +74,7 @@ export default function MunafikProfili({ onClose }) {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Data load
   useEffect(() => {
@@ -108,21 +89,29 @@ export default function MunafikProfili({ onClose }) {
     if (bodyRef.current) bodyRef.current.scrollTop = 0;
   }, [activeTab]);
 
+  const MUNAFIK_TOOL_HEADER = (
+    <ToolHeader
+      icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z" /><circle cx="8.5" cy="12" r="1.5" fill={COLORS.gold} /><circle cx="15.5" cy="12" r="1.5" fill={COLORS.gold} /></svg>}
+      titleTr="Münafık Profili"
+      titleEn="Profile of the Hypocrite"
+      subtitleTr="12 özellik · psikolojik portre"
+      subtitleEn="12 traits · psychological portrait"
+      language={language}
+    />
+  );
+
   if (!data) {
     return (
       <div
         ref={trapRef}
-        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
-        role="dialog"
-        aria-modal="true"
-        aria-label={language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}
+        style={{
+          background: COLORS.cosmicBlack,
+          minHeight: 'calc(100vh - 62px)',
+          display: 'flex', flexDirection: 'column',
+          paddingTop: '62px',
+        }}
       >
-        <div style={OVERLAY_HEADER}>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}
-          </span>
-          <CloseBtn onClose={onClose} />
-        </div>
+        {MUNAFIK_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
             {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
@@ -138,34 +127,17 @@ export default function MunafikProfili({ onClose }) {
   return (
     <div
       ref={trapRef}
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
-      role="dialog"
-      aria-modal="true"
-      aria-label={language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}
     >
-
-      {/* ── HEADER ─────────────────────────────────────────────────────── */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* MaskIcon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.softRed} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z" />
-            <circle cx="8.5" cy="12" r="1.5" fill={COLORS.softRed} />
-            <circle cx="15.5" cy="12" r="1.5" fill={COLORS.softRed} />
-          </svg>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Münâfık Profili' : 'The Hypocrite Profile'}
-          </span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? 'Psikolojik Anatomi' : 'Psychological Anatomy'}
-          </span>
-        </div>
-        <CloseBtn onClose={onClose} />
-      </div>
+      {MUNAFIK_TOOL_HEADER}
 
       {/* ── SCROLLABLE BODY ─────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
         <div style={{
@@ -1222,18 +1194,3 @@ function HadithTab({ hadith, language, isMobile }) {
   );
 }
 
-// ─── Close Button ────────────────────────────────────────────────────────────
-function CloseBtn({ onClose }) {
-  return (
-    <button
-      onClick={onClose}
-      style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-      onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-    >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-        <path d="M18 6L6 18M6 6l12 12" />
-      </svg>
-    </button>
-  );
-}

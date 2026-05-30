@@ -3,9 +3,9 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
-  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
 } from '../tokens';
+import ToolHeader from './ToolHeader';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 
 const SURAH_NAMES_EN = [
@@ -61,26 +61,16 @@ const TABS = [
 ];
 
 // ── Header ───────────────────────────────────────────────────────────────────
-function Header({ language, onClose }) {
+function Header({ language }) {
   return (
-    <div style={OVERLAY_HEADER}>
-      <span style={OVERLAY_TITLE}>
-        {language === 'tr'
-          ? 'Münâsebât — Sure Bağlantıları'
-          : 'Munāsabāt — Surah Connections'}
-      </span>
-      <button
-        onClick={onClose}
-        style={{ ...CLOSE_BTN }}
-        aria-label={language === 'tr' ? 'Kapat' : 'Close'}
-        onMouseEnter={(e) => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-        onMouseLeave={(e) => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-      >
-        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-          <path d="M18 6L6 18M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
+    <ToolHeader
+      icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="6" cy="6" r="2.5" /><circle cx="18" cy="6" r="2.5" /><circle cx="6" cy="18" r="2.5" /><circle cx="18" cy="18" r="2.5" /><path d="M8.5 6h7M6 8.5v7M18 8.5v7M8.5 18h7" /></svg>}
+      titleTr="Münasebât Atlası"
+      titleEn="Atlas of Surah Coherence"
+      subtitleTr="Razi geleneği · sûreler arası bağ"
+      subtitleEn="Razi tradition · inter-surah coherence"
+      language={language}
+    />
   );
 }
 
@@ -558,23 +548,7 @@ export default function MunasebatAtlasi({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Fetch data
   useEffect(() => {
@@ -605,11 +579,17 @@ export default function MunasebatAtlasi({ onClose }) {
 
   if (!data) {
     return (
-      <div style={OVERLAY_BASE} role="dialog" aria-modal="true">
-        <Header language={language} onClose={onClose} />
+      <div style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}>
+        <Header language={language} />
         <div style={{
+          flex: 1,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          height: 'calc(100vh - 54px)', color: COLORS.silver, fontFamily: FONTS.body,
+          color: COLORS.silver, fontFamily: FONTS.body,
         }}>
           {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
         </div>
@@ -620,13 +600,16 @@ export default function MunasebatAtlasi({ onClose }) {
   const contentPadding = isMobile ? '16px' : '24px 32px';
 
   return (
-    <div style={OVERLAY_BASE} role="dialog" aria-modal="true">
-      <Header language={language} onClose={onClose} />
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      <Header language={language} />
       <TabBar language={language} isMobile={isMobile} activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <div style={{
-        height: 'calc(100vh - 54px - 54px)',
-        overflowY: 'auto',
         padding: contentPadding,
       }}>
         {/* ── Intro on first tab only ────────────────────────────────────── */}

@@ -5,9 +5,9 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { surahNameTr } from '../lib/surahNames';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
-  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
+import ToolHeader from './ToolHeader';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
@@ -144,23 +144,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Load all data
   useEffect(() => {
@@ -227,29 +211,24 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   });
 
   return (
-    <div ref={trapRef} style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-modal="true" aria-label={language === 'tr' ? 'Diyalog Ağı' : 'Dialogue Network'}>
-      {/* Header */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <div ref={trapRef} style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      <ToolHeader
+        icon={
           <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Diyalog Ağı' : 'Dialogue Network'}
-          </span>
-        </div>
-        <button
-          onClick={onClose}
-          style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-          onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          aria-label="Close"
-        >
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+        }
+        titleTr="Diyalog Ağı"
+        titleEn="Dialogue Network"
+        subtitleTr="~300 diyalog · 25 eksen"
+        subtitleEn="~300 dialogues · 25 axes"
+        language={language}
+      />
 
       {/* Tab Bar */}
       <div style={tabBarStyle}>
@@ -268,7 +247,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
       </div>
 
       {/* Tab Content */}
-      <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         {loadError ? (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, color: COLORS.softRed, fontFamily: FONTS.body, fontSize: '0.9rem' }}>
             {language === 'tr' ? 'Veriler yüklenemedi.' : 'Failed to load data.'}

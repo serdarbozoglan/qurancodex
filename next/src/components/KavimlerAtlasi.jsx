@@ -5,7 +5,8 @@ import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
 import useFocusTrap from '../hooks/useFocusTrap';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI', 'KARŞILAŞTIR', 'KAYNAKLAR'];
 const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'REGION MAP', 'COMPARE', 'SOURCES'];
@@ -26,21 +27,6 @@ const HELAK_COLORS = {
 };
 
 // ── Shared helpers ────────────────────────────────────────────────────────────
-
-function CloseBtn({ onClose }) {
-  return (
-    <button
-      onClick={onClose}
-      style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-      onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-    >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-        <path d="M18 6L6 18M6 6l12 12" />
-      </svg>
-    </button>
-  );
-}
 
 function InfoTip({ textTr, textEn, language }) {
   const [visible, setVisible] = useState(false);
@@ -100,23 +86,7 @@ export default function KavimlerAtlasi({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
@@ -146,19 +116,29 @@ export default function KavimlerAtlasi({ onClose }) {
     return () => clearTimeout(t);
   }, [highlightArch]);
 
+  const KAVIMLER_TOOL_HEADER = (
+    <ToolHeader
+      icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>}
+      titleTr="Kavimler Atlası"
+      titleEn="Atlas of Quranic Peoples"
+      subtitleTr="Âd · Semûd · Lût · Medyen · Sebe'"
+      subtitleEn="ʿĀd · Thamūd · Lot · Madyan · Sabaʾ"
+      language={language}
+    />
+  );
+
   if (!data) {
     return (
       <div
         ref={trapRef}
-        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
-        role="dialog"
-        aria-modal="true"
-        aria-label={language === 'tr' ? 'Kavimler Atlası' : 'Nations Atlas'}
+        style={{
+          background: COLORS.cosmicBlack,
+          minHeight: 'calc(100vh - 62px)',
+          display: 'flex', flexDirection: 'column',
+          paddingTop: '62px',
+        }}
       >
-        <div style={OVERLAY_HEADER}>
-          <span style={OVERLAY_TITLE}>{language === 'tr' ? 'Kavimler Atlası' : 'Nations Atlas'}</span>
-          <CloseBtn onClose={onClose} />
-        </div>
+        {KAVIMLER_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
             {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
@@ -173,30 +153,14 @@ export default function KavimlerAtlasi({ onClose }) {
   return (
     <div
       ref={trapRef}
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
-      role="dialog"
-      aria-modal="true"
-      aria-label={language === 'tr' ? 'Kavimler Atlası' : 'Nations Atlas'}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}
     >
-
-      {/* ── HEADER ──────────────────────────────────────────────────────────── */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* GlobeIcon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-            <circle cx="12" cy="12" r="10" />
-            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-          </svg>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Kavimler Atlası' : 'Nations Atlas'}
-          </span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? "Kur'an'da Anılan Kavimler" : 'Nations Mentioned in the Quran'}
-          </span>
-        </div>
-        <CloseBtn onClose={onClose} />
-      </div>
+      {KAVIMLER_TOOL_HEADER}
 
       {/* ── TAB BAR — outside scroll area ───────────────────────────────────── */}
       <div style={{

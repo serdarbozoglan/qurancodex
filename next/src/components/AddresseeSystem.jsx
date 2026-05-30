@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 const INITIAL_SHOW = 2;
 
@@ -34,23 +35,7 @@ export default function AddresseeSystem({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   const categories = (data?.categories ?? []).slice().sort((a, b) => (b.stats?.count ?? 0) - (a.stats?.count ?? 0));
   const active     = categories.find(c => c.id === activeId) ?? null;
@@ -71,23 +56,34 @@ export default function AddresseeSystem({ onClose }) {
     ? active.example_verses.length - INITIAL_SHOW
     : 0;
 
+  const ADDR_TOOL_HEADER = (
+    <ToolHeader
+      icon={
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      }
+      titleTr="Muhataplar Sistemi"
+      titleEn="Quranic Addressee System"
+      subtitleTr="Ey iman edenler · Ey insanlar · Ey ehl-i kitap"
+      subtitleEn="O believers · O mankind · O People of the Book"
+      language={language}
+    />
+  );
+
   // ── Loading skeleton ─────────────────────────────────────────────────────────
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
-        <div style={{ ...OVERLAY_HEADER }}>
-          <span style={{ ...OVERLAY_TITLE }}>
-            {language === 'tr' ? 'Muhatap Sistemi' : 'Addressee System'}
-          </span>
-          <button style={{ ...CLOSE_BTN }} onClick={onClose}
-            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+      <div style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}>
+        {ADDR_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem' }}>
             {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
@@ -98,37 +94,13 @@ export default function AddresseeSystem({ onClose }) {
   }
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-
-      {/* ── HEADER ───────────────────────────────────────────────────────────── */}
-      <div style={{ ...OVERLAY_HEADER }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          <span style={{ ...OVERLAY_TITLE, flexShrink: 0 }}>
-            {language === 'tr' ? 'Muhatap Sistemi' : 'Addressee System'}
-          </span>
-          {active && (
-            <>
-              <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>›</span>
-              <span style={{
-                color: accent, fontSize: '0.82rem', fontWeight: 600,
-                fontFamily: FONTS.body, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-              }}>
-                {language === 'tr' ? active.tr : active.en}
-              </span>
-            </>
-          )}
-        </div>
-        <button
-          onClick={onClose}
-          style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-          onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      {ADDR_TOOL_HEADER}
 
       {/* ── CHIP ROW ─────────────────────────────────────────────────────────── */}
       <div style={{

@@ -5,9 +5,10 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS, FONTS,
-  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
+  CLOSE_BTN,
   BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 
 const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', 'Seçilmiş Sorular', 'Sûre Haritası'];
@@ -47,23 +48,7 @@ export default function KuranRetorigi({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // isMobile resize
   useEffect(() => {
@@ -90,13 +75,20 @@ export default function KuranRetorigi({ onClose }) {
 
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
-        <div style={OVERLAY_HEADER}>
-          <span style={OVERLAY_TITLE}>
-            {tr ? "Kur'an'ın Retoriği" : "The Quran's Rhetoric"}
-          </span>
-          <CloseBtn onClose={onClose} />
-        </div>
+      <div style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}>
+        <ToolHeader
+          icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>}
+          titleTr="Kur'an Belâgatı"
+          titleEn="Quranic Rhetoric"
+          subtitleTr="Tezad · İstiare · İltifât"
+          subtitleEn="Antithesis · Metaphor · Iltifāt"
+          language={language}
+        />
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
             {tr ? 'Yükleniyor...' : 'Loading...'}
@@ -107,26 +99,20 @@ export default function KuranRetorigi({ onClose }) {
   }
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
-
-      {/* ── HEADER ─────────────────────────────────────────────── */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" style={{ flexShrink: 0 }}>
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-            <line x1="12" y1="17" x2="12.01" y2="17"/>
-          </svg>
-          <span style={OVERLAY_TITLE}>
-            {tr ? "Kur'an'ın Retoriği" : "The Quran's Rhetoric"}
-          </span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>
-            {tr ? '1.200+ soru · 4 tür · 3 kalıp' : '1,200+ questions · 4 types · 3 patterns'}
-          </span>
-        </div>
-        <CloseBtn onClose={onClose} />
-      </div>
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>}
+        titleTr="Kur'an Belâgatı"
+        titleEn="Quranic Rhetoric"
+        subtitleTr="Tezad · İstiare · İltifât"
+        subtitleEn="Antithesis · Metaphor · Iltifāt"
+        language={language}
+      />
 
       {/* ── TAB BAR ────────────────────────────────────────────── */}
       <div style={{
@@ -161,7 +147,7 @@ export default function KuranRetorigi({ onClose }) {
       </div>
 
       {/* ── BODY ───────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflow: 'hidden', minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+      <div ref={bodyRef} style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
         {activeTab === 0 && <TabKategoriler data={data} tr={tr} isMobile={isMobile} />}
         {activeTab === 1 && <TabMuhatap data={data} tr={tr} isMobile={isMobile} />}
         {activeTab === 2 && <TabSorular data={data} tr={tr} isMobile={isMobile} />}

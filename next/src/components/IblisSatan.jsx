@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN } from '../tokens';
+import { COLORS, FONTS, RADIUS, CLOSE_BTN } from '../tokens';
+import ToolHeader from './ToolHeader';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // Overlay-local fadeUp — used for individual blocks; overlay has no parent stagger container.
@@ -449,23 +450,7 @@ export default function IblisSatan({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   const stats = [
     { ...t('iblisSatan.stats.surahs'),  color: COLORS.gold },
@@ -489,46 +474,24 @@ export default function IblisSatan({ onClose }) {
   };
 
   return (
-    <div ref={trapRef} style={OVERLAY_BASE} role="dialog" aria-modal="true" aria-label={t('iblisSatan.title')}>
-      {/* ─── Overlay Header (standard) ─────────────────── */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* DevilIcon — boynuzlu yüz: şeytan / İblis figürü — matches exploreCategories.jsx */}
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, alignSelf: 'center' }}>
-            <path d="M7 5 L9 2 L10.5 5" />
-            <path d="M17 5 L15 2 L13.5 5" />
-            <path d="M6 9c0-3 2.7-5 6-5s6 2 6 5v3c0 4-2.3 7-6 9-3.7-2-6-5-6-9z" />
-            <circle cx="10" cy="12" r="0.9" fill={COLORS.gold} />
-            <circle cx="14" cy="12" r="0.9" fill={COLORS.gold} />
-            <path d="M10 16c0.7 0.6 1.3 0.8 2 0.8s1.3-0.2 2-0.8" />
-          </svg>
-          <span style={OVERLAY_TITLE}>{t('iblisSatan.badge')}</span>
-          <span style={{
-            fontSize: '0.72rem', color: COLORS.slate600,
-            marginLeft: '4px',
-            display: isMobile ? 'none' : 'inline',
-            fontFamily: FONTS.body,
-          }}>
-            — {language === 'tr' ? 'Yedi Sûrede Aynı Sahne' : 'Same Scene in Seven Surahs'}
-          </span>
-        </div>
-        <button
-          onClick={onClose}
-          aria-label="Close"
-          style={CLOSE_BTN}
-          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-          onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-        >
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+    <div ref={trapRef} style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 5 L9 2 L10.5 5" /><path d="M17 5 L15 2 L13.5 5" /><path d="M6 9c0-3 2.7-5 6-5s6 2 6 5v3c0 4-2.3 7-6 9-3.7-2-6-5-6-9z" /><circle cx="10" cy="12" r="0.9" fill={COLORS.gold} /><circle cx="14" cy="12" r="0.9" fill={COLORS.gold} /><path d="M10 16c0.7 0.6 1.3 0.8 2 0.8s1.3-0.2 2-0.8" /></svg>}
+        titleTr="İblîs & Şeytan"
+        titleEn="Iblis & Satan"
+        subtitleTr="Yedi Sûrede Aynı Sahne"
+        subtitleEn="Same Scene in Seven Surahs"
+        language={language}
+      />
 
       {/* ─── Scrollable Body ─────────────────────────────── */}
       <div style={{
-        position: 'absolute', top: '54px', left: 0, right: 0, bottom: 0,
-        overflowY: 'auto',
+        flex: 1,
         padding: isMobile ? '24px 16px 60px' : '40px 60px 80px',
       }}>
       {/* ─── Header (in-body) ───────────────────────────── */}

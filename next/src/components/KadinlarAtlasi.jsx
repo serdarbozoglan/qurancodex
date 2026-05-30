@@ -4,9 +4,10 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import useFocusTrap from '../hooks/useFocusTrap';
 import {
-  COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
+  COLORS, FONTS,
   BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 // ── Sûre isimleri (TR + EN) ──────────────────────────────────────────────────
 const SURAH_NAMES_TR = {
@@ -60,22 +61,6 @@ const CATEGORY_COLORS = {
   diger:           COLORS.silver,      // diğer
 };
 
-// ── Shared CloseBtn (KavimlerAtlasi pattern) ─────────────────────────────────
-function CloseBtn({ onClose }) {
-  return (
-    <button
-      onClick={onClose}
-      style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-      onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-    >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-        <path d="M18 6L6 18M6 6l12 12" />
-      </svg>
-    </button>
-  );
-}
-
 export default function KadinlarAtlasi({ onClose, backRef }) {
   const { language } = useLanguage();
   const [data, setData] = useState(null);
@@ -111,23 +96,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
@@ -143,22 +112,30 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
       .catch(() => {});
   }, []);
 
+  const KADINLAR_TOOL_HEADER = (
+    <ToolHeader
+      icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="5" /><path d="M12 13v8M9 18h6" /></svg>}
+      titleTr="Kadınlar Atlası"
+      titleEn="Atlas of Women in the Quran"
+      subtitleTr="Meryem · Asiye · Hacer · Belkıs"
+      subtitleEn="Mary · Asiya · Hagar · Bilqis"
+      language={language}
+    />
+  );
+
   // ── Loading ────────────────────────────────────────────────────────────────
   if (!data) {
     return (
       <div
         ref={trapRef}
-        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
-        role="dialog"
-        aria-modal="true"
-        aria-label={language === 'tr' ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
+        style={{
+          background: COLORS.cosmicBlack,
+          minHeight: 'calc(100vh - 62px)',
+          display: 'flex', flexDirection: 'column',
+          paddingTop: '62px',
+        }}
       >
-        <div style={OVERLAY_HEADER}>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
-          </span>
-          <CloseBtn onClose={onClose} />
-        </div>
+        {KADINLAR_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
             {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
@@ -189,28 +166,17 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
   return (
     <div
       ref={trapRef}
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
-      role="dialog"
-      aria-modal="true"
-      aria-label={language === 'tr' ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}
     >
-
-      {/* ── HEADER ──────────────────────────────────────────────────────────── */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
-          </span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? 'Anılan, seçilen, ders olarak öne çıkan' : 'Named, chosen, set forth as lessons'}
-          </span>
-        </div>
-        <CloseBtn onClose={onClose} />
-      </div>
+      {KADINLAR_TOOL_HEADER}
 
       {/* ── SCROLLABLE BODY ────────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* Hero — narrative first, filter after */}
         <Hero meta={meta} figureCount={figures.length} language={language} isMobile={isMobile} />

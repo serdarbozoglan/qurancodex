@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN, TRANSITION } from '../tokens';
+import { COLORS, FONTS, TRANSITION } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 const VERIFIED_COUNT = 81;
 const HADITH_COUNT = 19;
@@ -165,23 +166,7 @@ export default function EsmaFrekans({ onClose }) {
     return () => window.removeEventListener('keydown', handler);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Load JSON
   useEffect(() => {
@@ -234,29 +219,23 @@ export default function EsmaFrekans({ onClose }) {
   /* eslint-enable react-hooks/set-state-in-effect */
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-label={tr ? 'Esmaül Hüsna Frekansları' : 'Divine Names Frequencies'}>
-
-      {/* ── Header ──────────────────────────────────────────────────────────── */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ fontSize: '1.1rem' }}>☪</span>
-          <span style={OVERLAY_TITLE}>
-            {tr ? 'Esmaül Hüsna — Kur\'an\'daki Frekanslar' : 'Divine Names — Quranic Frequencies'}
-          </span>
-        </div>
-        <button
-          style={CLOSE_BTN}
-          onClick={onClose}
-          aria-label={tr ? 'Kapat' : 'Close'}
-          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = COLORS.offWhite; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.silver; }}
-        >
-          ✕
-        </button>
-      </div>
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      <ToolHeader
+        icon={<span style={{ fontSize: '1.05rem', color: COLORS.gold, lineHeight: 1 }}>☪</span>}
+        titleTr="Esmâ'ül-Hüsnâ Frekansı"
+        titleEn="Frequency of the Divine Names"
+        subtitleTr="99 isim · Kur'an'da geçiş analizi"
+        subtitleEn="99 names · Quranic occurrence analysis"
+        language={language}
+      />
 
       {/* ── Body ────────────────────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', padding: '24px 24px 40px' }}>
+      <div ref={bodyRef} style={{ flex: 1, padding: '24px 24px 40px' }}>
 
         {/* ── SECTION 1: Hero stat cards ──────────────────────────────────── */}
         <div style={{ marginBottom: '32px' }}>

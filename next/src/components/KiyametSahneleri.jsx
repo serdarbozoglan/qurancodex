@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
-import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 // Local base style for verse blocks (VERSE_BLOCK not exported from tokens)
 const VERSE_BLOCK_BASE = {
@@ -455,23 +456,7 @@ export default function KiyametSahneleri({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Resize handler
   useEffect(() => {
@@ -485,36 +470,28 @@ export default function KiyametSahneleri({ onClose }) {
   const heroStats = language === 'tr' ? HERO_STATS_TR : HERO_STATS_EN;
 
   return (
-    <div
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
-      role="dialog"
-      aria-modal="true"
-    >
-      {/* ── Header ── */}
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '16px 24px', borderBottom: `1px solid ${COLORS.glassBorder}`,
-        background: 'rgba(8,9,26,0.95)', flexShrink: 0,
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* Trumpet (Sûr) icon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      <ToolHeader
+        icon={
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M2 6v12l10-4V10z" />
             <path d="M12 10v4M16 8v8M20 6v12" />
           </svg>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Kıyamet Sahneleri' : 'Scenes of Judgment'}
-          </span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            {language === 'tr' ? "Kur'an'ın Kıyamet Haritası" : "The Quran's Map of the Day"}
-          </span>
-        </div>
-        <CloseBtn onClose={onClose} />
-      </div>
+        }
+        titleTr="Kıyâmet Sahneleri"
+        titleEn="Scenes of the Day of Judgment"
+        subtitleTr="7 fazlı sahne · sûr · haşr · mîzân"
+        subtitleEn="7 phased scenes · trumpet · gathering · scale"
+        language={language}
+      />
 
-      {/* ── Scrollable body ── */}
-      <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
+      {/* ── Body ── */}
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 
         {/* ── Hero ── */}
         <div style={{ padding: isMobile ? '24px 16px' : '40px 32px', borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>

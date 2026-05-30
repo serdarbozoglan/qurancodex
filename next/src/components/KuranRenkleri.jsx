@@ -4,9 +4,10 @@ import { useState, useEffect, useId } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
-  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
+  CLOSE_BTN,
   FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 const TABS = {
   RENKLER:   'renkler',
@@ -1234,23 +1235,7 @@ export default function KuranRenkleri({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   const tabStyle = (id) => ({
     padding: isMobile ? '12px 14px' : '13px 22px',
@@ -1269,40 +1254,23 @@ export default function KuranRenkleri({ onClose }) {
   });
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }} role="dialog" aria-modal="true">
-      {/* ── Header ── */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="13.5" cy="6.5" r=".5" fill={COLORS.gold} />
-            <circle cx="17.5" cy="10.5" r=".5" fill={COLORS.gold} />
-            <circle cx="8.5" cy="7.5" r=".5" fill={COLORS.gold} />
-            <circle cx="6.5" cy="12.5" r=".5" fill={COLORS.gold} />
-            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.992 6.012 17.477 2 12 2z" />
-          </svg>
-          <span style={OVERLAY_TITLE}>
-            {tr ? "Kur'an'ın Renkleri" : 'Colors of the Quran'}
-          </span>
-          <span style={{ color: COLORS.silverAlpha40, fontSize: '0.85rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: 'rgba(232,230,227,0.7)', fontSize: '0.88rem', fontFamily: FONTS.body, fontWeight: 600, fontStyle: 'italic', letterSpacing: '0.02em' }}>
-            {tr ? 'Elvânü\'l-Kur\'ân' : 'Alwān al-Quran'}
-          </span>
-        </div>
-        <button
-          onClick={onClose}
-          style={CLOSE_BTN}
-          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-          onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          aria-label="Kapat"
-        >
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill={COLORS.gold} /><circle cx="17.5" cy="10.5" r=".5" fill={COLORS.gold} /><circle cx="8.5" cy="7.5" r=".5" fill={COLORS.gold} /><circle cx="6.5" cy="12.5" r=".5" fill={COLORS.gold} /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.992 6.012 17.477 2 12 2z" /></svg>}
+        titleTr="Kur'an'da Renkler"
+        titleEn="Colors in the Quran"
+        subtitleTr="Beyaz · Siyah · Yeşil · Sembolik dil"
+        subtitleEn="White · Black · Green · Symbolic language"
+        language={language}
+      />
 
-      {/* ── Scrollable body ── */}
-      <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+      {/* ── Body ── */}
+      <div style={{ flex: 1 }}>
 
         {/* ── Hero ── */}
         <div style={{ padding: isMobile ? '20px 16px 16px' : '28px 32px 24px', background: `linear-gradient(180deg,${COLORS.deepNavy} 0%,${COLORS.cosmicBlack} 100%)`, borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>

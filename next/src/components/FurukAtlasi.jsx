@@ -4,9 +4,9 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import useFocusTrap from '../hooks/useFocusTrap';
 import {
-  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS,
 } from '../tokens';
+import ToolHeader from './ToolHeader';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 import { fetchMealVerse } from '../lib/mealCache';
 
@@ -97,23 +97,7 @@ export default function FurukAtlasi({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Resize
   useEffect(() => {
@@ -139,22 +123,29 @@ export default function FurukAtlasi({ onClose }) {
     if (bodyRef.current) bodyRef.current.scrollTop = 0;
   }, [activeTab]);
 
+  const FURUK_TOOL_HEADER = (
+    <ToolHeader
+      icon={<PrismIcon />}
+      titleTr="Füruk Atlası"
+      titleEn="Atlas of Semantic Distinctions"
+      subtitleTr="Eş anlamlılarda ince fark · 50+ aile"
+      subtitleEn="Subtle distinctions · 50+ word families"
+      language={language}
+    />
+  );
+
   if (!data) {
     return (
       <div
         ref={trapRef}
-        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
-        role="dialog"
-        aria-modal="true"
-        aria-label={tr ? 'Furûk — Kelime Farkları' : 'Word Distinctions Atlas'}
+        style={{
+          background: COLORS.cosmicBlack,
+          minHeight: 'calc(100vh - 62px)',
+          display: 'flex', flexDirection: 'column',
+          paddingTop: '62px',
+        }}
       >
-        <div style={OVERLAY_HEADER}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
-            <PrismIcon />
-            <span style={OVERLAY_TITLE}>{tr ? 'Furûk — Kelime Farkları' : 'Word Distinctions Atlas'}</span>
-          </div>
-          <CloseBtn onClose={onClose} />
-        </div>
+        {FURUK_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
             {tr ? 'Yükleniyor...' : 'Loading...'}
@@ -169,29 +160,17 @@ export default function FurukAtlasi({ onClose }) {
   return (
     <div
       ref={trapRef}
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
-      role="dialog"
-      aria-modal="true"
-      aria-label={tr ? 'Furûk — Kelime Farkları' : 'Word Distinctions Atlas'}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}
     >
-
-      {/* ── HEADER ────────────────────────────────────────────────────────── */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
-          <PrismIcon />
-          <span style={OVERLAY_TITLE}>
-            {tr ? 'Furûk — Kelime Farkları' : 'Word Distinctions Atlas'}
-          </span>
-          <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.78rem', fontFamily: FONTS.body }}>
-            {tr ? "el-Furûk fi'l-Lüga" : 'al-Furūq fī al-Lugha'}
-          </span>
-        </div>
-        <CloseBtn onClose={onClose} />
-      </div>
+      {FURUK_TOOL_HEADER}
 
       {/* ── SCROLLABLE BODY ────────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ── HERO ────────────────────────────────────────────────────────── */}
         <div style={{
@@ -1266,18 +1245,3 @@ function PrismIcon() {
   );
 }
 
-function CloseBtn({ onClose }) {
-  return (
-    <button
-      onClick={onClose}
-      style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-      onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-      aria-label="Kapat"
-    >
-      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-        <path d="M18 6L6 18M6 6l12 12" />
-      </svg>
-    </button>
-  );
-}

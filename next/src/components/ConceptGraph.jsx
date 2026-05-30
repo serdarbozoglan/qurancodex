@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import { surahNameTr } from '../lib/surahNames';
 import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 import { cleanArabicForGraph } from '../lib/arabic';
 import LoadingOverlay from './LoadingOverlay';
@@ -209,23 +210,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
     return () => window.removeEventListener('keydown', h);
   }, [view, onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   const backToLanding = useCallback(() => {
     setView('landing');
@@ -288,9 +273,10 @@ export default function ConceptGraph({ onClose, restore = null }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
-      background: COLORS.overlayBg,
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
       display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
       fontFamily: FONTS.body,
     }}>
       <style>{`
@@ -298,7 +284,26 @@ export default function ConceptGraph({ onClose, restore = null }) {
         @keyframes cgFadeIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
       `}</style>
 
-      {/* ── HEADER ─────────────────────────────────────────────────── */}
+      <ToolHeader
+        icon={
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="2.5"/>
+            <circle cx="5" cy="6" r="2"/>
+            <circle cx="19" cy="6" r="2"/>
+            <circle cx="5" cy="18" r="2"/>
+            <circle cx="19" cy="18" r="2"/>
+            <path d="M10 11l-4-4M14 11l4-4M10 13l-4 4M14 13l4 4"/>
+          </svg>
+        }
+        titleTr="Kavram Grafiği"
+        titleEn="Concept Graph"
+        subtitleTr="Anahtar Kur'an kavramları · ağ bağlantıları"
+        subtitleEn="Key Quranic concepts · network of connections"
+        language={language}
+      />
+
+      {/* ── DYNAMIC SUB-HEADER (graph view: back + central concept + connected) ── */}
+      {view === 'graph' && (
       <div style={{
         display: 'flex', alignItems: 'center', gap: '12px',
         padding: '12px 20px',
@@ -307,31 +312,23 @@ export default function ConceptGraph({ onClose, restore = null }) {
         backdropFilter: 'blur(16px)',
         flexShrink: 0, flexWrap: 'wrap', minHeight: '60px',
       }}>
-        {view === 'graph' ? (
-          <button
-            onClick={backToLanding}
-            style={{
-              display: 'flex', alignItems: 'center', gap: '6px',
-              background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: RADIUS.md, padding: '6px 12px', cursor: 'pointer',
-              color: COLORS.silver, fontSize: '0.82rem', fontWeight: 500,
-              transition: `all ${TRANSITION.fast}`,
-            }}
-            onMouseEnter={e => { e.currentTarget.style.color = COLORS.offWhite; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
-            onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
-          >
-            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M19 12H5M12 5l-7 7 7 7" />
-            </svg>
-            {language === 'tr' ? 'Kavramlar' : 'Concepts'}
-          </button>
-        ) : (
-          <div>
-            <span style={OVERLAY_TITLE}>
-              {language === 'tr' ? 'Kavram Ağı' : 'Concept Network'}
-            </span>
-          </div>
-        )}
+        <button
+          onClick={backToLanding}
+          style={{
+            display: 'flex', alignItems: 'center', gap: '6px',
+            background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: RADIUS.md, padding: '6px 12px', cursor: 'pointer',
+            color: COLORS.silver, fontSize: '0.82rem', fontWeight: 500,
+            transition: `all ${TRANSITION.fast}`,
+          }}
+          onMouseEnter={e => { e.currentTarget.style.color = COLORS.offWhite; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+          onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
+        >
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M19 12H5M12 5l-7 7 7 7" />
+          </svg>
+          {language === 'tr' ? 'Kavramlar' : 'Concepts'}
+        </button>
 
         {view === 'graph' && centralConcept && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -377,19 +374,8 @@ export default function ConceptGraph({ onClose, restore = null }) {
           </div>
         )}
 
-        <div style={{ marginLeft: 'auto' }}>
-          <button
-            onClick={onClose}
-            style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
       </div>
+      )}
 
       {/* ── LOADING DATA ──────────────────────────────────────────────── */}
       {(!verses || !concepts || (view === 'graph' && !graphRef.current && !buildingGraph)) && (

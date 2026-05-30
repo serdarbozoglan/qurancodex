@@ -5,11 +5,12 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import {
-  OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
+import ToolHeader from './ToolHeader';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
 // NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: api.acikkuran.com'dan
@@ -1361,23 +1362,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
     return () => window.removeEventListener('keydown', h);
   }, [backRef]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
@@ -1417,17 +1402,34 @@ export default function MeselAtlasi({ onClose, backRef }) {
     setActiveTab(2);
   };
 
+  const MESEL_TOOL_HEADER = (
+    <ToolHeader
+      icon={
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round">
+          <circle cx="9" cy="12" r="7"/>
+          <circle cx="15" cy="12" r="7"/>
+        </svg>
+      }
+      titleTr="Mesel Atlası"
+      titleEn="Atlas of Quranic Parables"
+      subtitleTr="~50 mesel · 7 imge evreni"
+      subtitleEn="~50 parables · 7 image worlds"
+      language={language}
+    />
+  );
+
   if (loading) return (
     <div
       ref={trapRef}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="mesel-atlasi-title"
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', fontFamily: FONTS.body }}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        fontFamily: FONTS.body,
+        paddingTop: '62px',
+      }}
     >
-      <span id="mesel-atlasi-title" style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
-        {language === 'tr' ? 'Mesel & Temsil Atlası' : 'Parables & Metaphors Atlas'}
-      </span>
+      {MESEL_TOOL_HEADER}
       <LoadingOverlay />
     </div>
   );
@@ -1437,34 +1439,15 @@ export default function MeselAtlasi({ onClose, backRef }) {
   return (
     <div
       ref={trapRef}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="mesel-atlasi-title"
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', fontFamily: FONTS.body }}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        fontFamily: FONTS.body,
+        paddingTop: '62px',
+      }}
     >
-
-      {/* Header */}
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: isMobile ? '10px 16px' : '0 20px',
-        height: isMobile ? 'auto' : '54px',
-        flexShrink: 0,
-        background: 'rgba(8,9,26,0.95)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-        gap: '12px',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round">
-            <circle cx="9" cy="12" r="7"/>
-            <circle cx="15" cy="12" r="7"/>
-          </svg>
-          <span id="mesel-atlasi-title" style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Mesel & Temsil Atlası' : 'Parables & Metaphors Atlas'}
-          </span>
-        </div>
-        <CloseBtn onClose={onClose} />
-      </div>
+      {MESEL_TOOL_HEADER}
 
       {/* Tab bar */}
       <div style={{

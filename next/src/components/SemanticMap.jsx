@@ -4,11 +4,11 @@ import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
   COLORS, FONTS,
-  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   RADIUS, TRANSITION,
   BREAKPOINT_MOBILE,
 } from '../tokens';
 import LoadingOverlay from './LoadingOverlay';
+import ToolHeader from './ToolHeader';
 
 // ─── Semantic Map (F-2) ──────────────────────────────────────────────────────
 // 6.236 ayet üzerinde BGE-M3 embedding'i ile NetworkX Louvain topluluk
@@ -53,23 +53,7 @@ export default function SemanticMap({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose, selected]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   const sortedClusters = useMemo(() => {
     if (!data) return [];
@@ -89,10 +73,34 @@ export default function SemanticMap({ onClose }) {
     return list;
   }, [data, sortBy, search]);
 
+  const SEMANTIC_TOOL_HEADER = (
+    <ToolHeader
+      icon={
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="6" cy="6" r="2.5"/>
+          <circle cx="18" cy="6" r="2.5"/>
+          <circle cx="6" cy="18" r="2.5"/>
+          <circle cx="18" cy="18" r="2.5"/>
+          <path d="M8 6h8M6 8v8M18 8v8M8 18h8"/>
+        </svg>
+      }
+      titleTr="Semantik Harita"
+      titleEn="Semantic Map"
+      subtitleTr="20 küme · BGE-M3 + Louvain"
+      subtitleEn="20 clusters · BGE-M3 + Louvain"
+      language={language}
+    />
+  );
+
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
-        <Header language={language} onClose={onClose} />
+      <div style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}>
+        {SEMANTIC_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex' }}>
           <LoadingOverlay />
         </div>
@@ -103,8 +111,13 @@ export default function SemanticMap({ onClose }) {
   const themedCount = data.clusters.filter(c => c.tr).length;
 
   return (
-    <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-      <Header language={language} onClose={onClose} />
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
+      {SEMANTIC_TOOL_HEADER}
 
       {/* Method note + filter bar */}
       <div style={{

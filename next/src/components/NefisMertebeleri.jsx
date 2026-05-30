@@ -8,15 +8,12 @@ import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS,
   FONTS,
-  OVERLAY_BASE,
-  OVERLAY_HEADER,
-  OVERLAY_TITLE,
-  CLOSE_BTN,
   VERSE_DISPLAY_CARD,
   GLASS_CARD,
   BREAKPOINT_TABLET,
   RADIUS,
 } from '../tokens';
+import ToolHeader from './ToolHeader';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 
@@ -61,23 +58,7 @@ export default function NefisMertebeleri({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Resize listener
   useEffect(() => {
@@ -95,22 +76,30 @@ export default function NefisMertebeleri({ onClose }) {
       .catch(() => {});
   }, []);
 
+  const NEFIS_TOOL_HEADER = (
+    <ToolHeader
+      icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="6" y1="2" x2="6" y2="22" /><line x1="18" y1="2" x2="18" y2="22" /><line x1="6" y1="6" x2="18" y2="6" /><line x1="6" y1="10" x2="18" y2="10" /><line x1="6" y1="14" x2="18" y2="14" /><line x1="6" y1="18" x2="18" y2="18" /></svg>}
+      titleTr="Nefs Mertebeleri"
+      titleEn="Stations of the Soul"
+      subtitleTr="7 mertebe · emmâre → kâmile"
+      subtitleEn="7 stations · ammāra → kāmila"
+      language={language}
+    />
+  );
+
   // Loading state
   if (!data) {
     return (
       <div
         ref={trapRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="nefis-mertebeleri-title"
-        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+        style={{
+          background: COLORS.cosmicBlack,
+          minHeight: 'calc(100vh - 62px)',
+          display: 'flex', flexDirection: 'column',
+          paddingTop: '62px',
+        }}
       >
-        <div style={OVERLAY_HEADER}>
-          <span id="nefis-mertebeleri-title" style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Nefis Mertebeleri' : 'Stations of the Self'}
-          </span>
-          <CloseBtn onClose={onClose} />
-        </div>
+        {NEFIS_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
             {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
@@ -131,37 +120,17 @@ export default function NefisMertebeleri({ onClose }) {
   return (
     <div
       ref={trapRef}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="nefis-mertebeleri-title"
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}
     >
-
-      {/* ── HEADER ─────────────────────────────────────────────────────── */}
-      <div style={OVERLAY_HEADER}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* LadderIcon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="6" y1="2" x2="6" y2="22" />
-            <line x1="18" y1="2" x2="18" y2="22" />
-            <line x1="6" y1="6" x2="18" y2="6" />
-            <line x1="6" y1="10" x2="18" y2="10" />
-            <line x1="6" y1="14" x2="18" y2="14" />
-            <line x1="6" y1="18" x2="18" y2="18" />
-          </svg>
-          <span id="nefis-mertebeleri-title" style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Nefis Mertebeleri' : 'Stations of the Self'}
-          </span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? 'İç Yolculuk Haritası' : 'Inner Journey Map'}
-          </span>
-        </div>
-        <CloseBtn onClose={onClose} />
-      </div>
+      {NEFIS_TOOL_HEADER}
 
       {/* ── SCROLLABLE BODY ─────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ─────────────────────────────── HERO ─────────────────────────────── */}
         <div style={{
@@ -1038,18 +1007,3 @@ function FrameworkCard({ framework, isMobile, language }) {
   );
 }
 
-// ─── Close button (identical to KuranYeminleri pattern) ──────────────────────
-function CloseBtn({ onClose }) {
-  return (
-    <button
-      onClick={onClose}
-      style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-      onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-    >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-        <path d="M18 6L6 18M6 6l12 12" />
-      </svg>
-    </button>
-  );
-}

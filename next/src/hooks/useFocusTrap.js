@@ -56,17 +56,19 @@ export default function useFocusTrap(active = true) {
         (el) => !el.hasAttribute('disabled') && el.offsetParent !== null,
       );
 
-    // Move focus into the modal on mount.
+    // Move focus into the modal on mount. preventScroll: true is critical —
+    // without it, browser auto-scrolls document to make the focused element
+    // visible, jumping past sticky ToolHeader (WowFacts/IlkSon pattern).
     const initialFocusables = getFocusable();
     if (initialFocusables.length > 0) {
-      initialFocusables[0].focus();
+      initialFocusables[0].focus({ preventScroll: true });
     } else {
       // No focusable children — focus the container itself so the modal
       // is still keyboard-reachable (requires tabindex on container).
       if (!container.hasAttribute('tabindex')) {
         container.setAttribute('tabindex', '-1');
       }
-      container.focus();
+      container.focus({ preventScroll: true });
     }
 
     // Tab boundary wrapping. Re-query on every keydown because modal

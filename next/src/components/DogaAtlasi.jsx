@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { OVERLAY_BASE, OVERLAY_TITLE, CLOSE_BTN, COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
+import ToolHeader from './ToolHeader';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -999,24 +1000,7 @@ export default function DogaAtlasi({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    // Compensate for scrollbar disappearance to prevent layout shift
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Resize listener
   useEffect(() => {
@@ -1039,36 +1023,30 @@ export default function DogaAtlasi({ onClose }) {
     if (bodyRef.current) bodyRef.current.scrollTop = 0;
   }, [activeTab]);
 
+  const DOGA_TOOL_HEADER = (
+    <ToolHeader
+      icon={<span style={{ fontSize: '1.05rem', color: COLORS.gold, lineHeight: 1 }}>🌿</span>}
+      titleTr="Doğa Atlası"
+      titleEn="Atlas of Nature"
+      subtitleTr="~40 doğa unsuru · sembolik anlam"
+      subtitleEn="~40 nature elements · symbolic meaning"
+      language={language}
+    />
+  );
+
   // Loading state
   if (!data) {
     return (
       <div
         ref={trapRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="doga-atlasi-title"
-        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+        style={{
+          background: COLORS.cosmicBlack,
+          minHeight: 'calc(100vh - 62px)',
+          display: 'flex', flexDirection: 'column',
+          paddingTop: '62px',
+        }}
       >
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '12px 20px',
-          height: '56px',
-          flexShrink: 0,
-          background: 'rgba(8,9,26,0.95)',
-          backdropFilter: 'blur(20px)',
-          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          boxSizing: 'border-box',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ fontSize: '1.1rem' }}>🌿</span>
-            <span id="doga-atlasi-title" style={OVERLAY_TITLE}>
-              {language === 'tr' ? 'Kevni Ayetler' : 'Cosmic Signs'}
-            </span>
-          </div>
-          <CloseButton onClose={onClose} />
-        </div>
+        {DOGA_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex' }}>
           <LoadingOverlay />
         </div>
@@ -1081,33 +1059,14 @@ export default function DogaAtlasi({ onClose }) {
   return (
     <div
       ref={trapRef}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="doga-atlasi-title"
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}
     >
-
-      {/* ── HEADER ─────────────────────────────────────────────────── */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 20px',
-        height: '56px',
-        flexShrink: 0,
-        background: 'rgba(8,9,26,0.95)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-        boxSizing: 'border-box',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          <span style={{ fontSize: '1.1rem', flexShrink: 0 }}>🌿</span>
-          <span id="doga-atlasi-title" style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Kevni Ayetler' : 'Cosmic Signs'}
-          </span>
-        </div>
-        <CloseButton onClose={onClose} />
-      </div>
+      {DOGA_TOOL_HEADER}
 
       {/* ── BODY ───────────────────────────────────────────────────── */}
       <div

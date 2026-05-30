@@ -6,9 +6,9 @@ import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
-  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
+import ToolHeader from './ToolHeader';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -1556,23 +1556,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Body scroll lock — CLAUDE.md §13.16 Katman 1 (tek scrollbar kuralı)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
   // Resize
   useEffect(() => {
@@ -1595,29 +1579,30 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
     if (bodyRef.current) bodyRef.current.scrollTop = 0;
   }, [activeTab]);
 
+  const KIRAAT_TOOL_HEADER = (
+    <ToolHeader
+      icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>}
+      titleTr="Kıraat Atlası"
+      titleEn="Atlas of Quranic Recitations"
+      subtitleTr="10 kanonik kıraat · Hafs · Verş"
+      subtitleEn="10 canonical recitations · Hafs · Warsh"
+      language={language}
+    />
+  );
+
   // Loading state
   if (!data) {
     return (
       <div
         ref={trapRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="kiraat-atlasi-title"
-        style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+        style={{
+          background: COLORS.cosmicBlack,
+          minHeight: 'calc(100vh - 62px)',
+          display: 'flex', flexDirection: 'column',
+          paddingTop: '62px',
+        }}
       >
-        <div style={{ ...OVERLAY_HEADER }}>
-          <span id="kiraat-atlasi-title" style={OVERLAY_TITLE}>{language === 'tr' ? 'Kıraat Atlası' : 'Qirāʾāt Atlas'}</span>
-          <button
-            onClick={onClose}
-            style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+        {KIRAAT_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex' }}>
           <LoadingOverlay />
         </div>
@@ -1628,37 +1613,17 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   return (
     <div
       ref={trapRef}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="kiraat-atlasi-title"
-      style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}
     >
-
-      {/* ── HEADER ─────────────────────────────────────────────── */}
-      <div style={{ ...OVERLAY_HEADER }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/>
-            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-          </svg>
-          <span id="kiraat-atlasi-title" style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Kıraat Atlası' : 'Qirāʾāt Atlas'}
-          </span>
-        </div>
-        <button
-          onClick={onClose}
-          style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-          onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+      {KIRAAT_TOOL_HEADER}
 
       {/* ── BODY ───────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
+      <div ref={bodyRef} style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 
         {/* Tab bar — sticky */}
         <div style={{
