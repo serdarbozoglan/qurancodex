@@ -1,0 +1,564 @@
+# Tefekkür — Felsufi/Sufist Makale Migration Plan
+
+> **Bağlam:** QuranCodex'e 3. top-level navigation: **Tefekkür** (Keşfet · Araçlar · **Tefekkür**)
+> **Toplam korpus:** 49 makale — 41 Türkçe + 8 İngilizce
+> **Yazar:** Felsufi (https://sufist.medium.com/)
+> **Kaynak:** Yazarın kanonik master listesi (2026-05-30 doğrulamalı)
+> **Hedef route:** `/tefekkur` (index) + `/tefekkur/[slug]` (article page)
+> **Bilingual stratejisi:** TR-default, EN versiyonu varsa `?lang=en` veya `/en/tefekkur/[slug]`
+
+---
+
+## ⚙️ Migration Workflow — her makale için adımlar
+
+- [ ] **A.** Tam metin extract (Medium'dan veya yazardan)
+- [ ] **B.** Markdown taslağa çevir (`tasks/tefekkur-drafts/[slug].md`)
+- [ ] **C.** Proofread: typo / Türkçe orthography / Arapça encoding (her düzeltme §10 Change Log'a yazılır)
+- [ ] **D.** Site formatına uyarla — template'e göre MDX dosyası (§4 Visualization Strategy)
+- [ ] **E.** İç cross-reference link'leri site-içi URL'lere çevir (`/tefekkur/[slug]`)
+- [ ] **F.** Dış cross-link'leri ekle (mevcut tool/section)
+- [ ] **G.** Görsel inceleme — desktop + mobile
+- [ ] **H.** Yayına alındı (commit + push)
+
+---
+
+## 📚 Kategori Yapısı
+
+Yazarın kendi 7-kategori tematik bölümlemesi taban alınıyor:
+
+| ID | Kategori | Sayı | Renk teması | Template |
+|---|---|---|---|---|
+| `kavramsal` | **Kavramsal Tahlil** | 5 | Sky blue (psikoloji/içsel) | Quote-Driven Read |
+| `terminoloji` | **Terminoloji Serisi** | 9 (1-7 + 2 devam) | Royal gold (ana eser) | Series Hero + Diagram |
+| `sure-hermenotik` | **Sûre & Hermenötik** | 10 | Gold (brand primary) | Sûre Tefsir |
+| `semantik` | **Semantik Seri** | 5 (1-4 + Siccin) | Purple (semantic accent) | Root Tree |
+| `idrak-suur` | **İdrak & Şuur** | 6 | Emerald (idrak/aydınlık) | Quote-Driven Long Read |
+| `kozmoloji` | **Kozmoloji & Yaratılış** | 7 | Cosmic purple (kuantum/uzay) | Series Diagram |
+| `english` | **İngilizce (paralel)** | 8 | Soft cream (bilingual) | Same as TR counterpart + lang toggle |
+
+---
+
+## 1️⃣ Kavramsal Tahlil
+
+Kısa-orta uzunlukta psikolojik / pratik / spiritüel essay'ler.
+
+| # | Status | Başlık | URL | Tarih | Süre |
+|---|---|---|---|---|---|
+| K-01 | ⬜ | Ruhun Termostatı | [link](https://sufist.medium.com/ruhun-termostat%C4%B1-29e2f50e9640) | 2026-02-04 | 12 dk |
+| K-02 | ⬜ | Enerji Krizi: Odaklanmayı Yakıt Yönetimi Olarak Anlamak | [link](https://sufist.medium.com/enerji-krizi-odaklanmay%C4%B1-yak%C4%B1t-y%C3%B6netimi-olarak-anlamak-cb42e47e305d) | 2026-01-28 | 12 dk |
+| K-03 | ⬜ | Yapılanların Süslü Görülmesi | [link](https://sufist.medium.com/yap%C4%B1lanlar%C4%B1n-s%C3%BCsl%C3%BC-g%C3%B6r%C3%BClmesi-c6d05f32b8fa) | 2025-11-27 | 6 dk |
+| K-04 | ⬜ | Vicdan: Evrensel Tercümanımız | [link](https://sufist.medium.com/vicdan-evrensel-terc%C3%BCman%C4%B1m%C4%B1z-e88df283833b) | 2025-11-09 | 3 dk |
+| K-05 | ⬜ | Kur'an Mesajına Yabancı Kalmak | [link](https://sufist.medium.com/kur-an-mesaj%C4%B1nayabanc%C4%B1-kalmak-3e5f2cfbb31c) | 2025-09-05 | 5 dk |
+
+---
+
+## 2️⃣ Terminoloji Serisi
+
+> **Seri yapısı:** 7 numaralı seri + 1 "devam" + Pinned status'lu Terminoloji 7. Yazar bahsetti: seri max 20 parçaya çıkabilir.
+
+| # | Status | Başlık | URL | Tarih | Süre |
+|---|---|---|---|---|---|
+| T-07p | ⬜ ⭐ | **Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm** _(Pinned)_ | [link](https://sufist.medium.com/insan-kainat-ve-kuran-terminolojisi-7-kaderin-%C3%A7%C3%B6z%C3%BCn%C3%BCrl%C3%BC%C4%9F%C3%BC-tasar%C4%B1m-i%CC%87rade-ve-esnek-determinizm-a15d7879b292) | 2025-04-24 | 7 dk |
+| T-07d | ⬜ | Kaderin Çözünürlüğü ve Esnek Determinizm (devam) | [link](https://sufist.medium.com/kaderin-%C3%A7%C3%B6z%C3%BCn%C3%BCrl%C3%BC%C4%9F%C3%BC-ve-esnek-determinizm-devam-b8fb25590c6b) | 2025-04-27 | 4 dk |
+| T-06 | ⬜ | Terminoloji 6: Sema ve İsim Kavramları | [link](https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kur%C4%81n%C4%B1-okuma-terminolojisi-6-sema-ve-i%CC%87sim-kavramlar%C4%B1-b9520ea2fb44) | 2025-01-10 | 6 dk |
+| T-05 | ⬜ | Terminoloji 5: Makro ve Mikro Durumlar, Emergence ve Faz Geçişi | [link](https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kur%C4%81n%C4%B1-okuma-terminolojisi-5-makro-ve-mikro-durumlar-emergence-ve-faz-ge%C3%A7i%C5%9Fi-c6b7ee8a1c97) | 2024-12-23 | 4 dk |
+| T-04 | ⬜ | Terminoloji 4: Varlıkların Ayna Oluşu | [link](https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kur%C4%81n%C4%B1-okuma-terminolojisi-4-varl%C4%B1klar%C4%B1n-ayna-olu%C5%9Fu-e01bb25ec1ff) | 2024-12-22 | 5 dk |
+| T-03 | ⬜ | Terminoloji 3: Fizikalizmin Kırılganlığı ve Sınırları | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-3-fizikalizmin-k%C4%B1r%C4%B1lganl%C4%B1%C4%9F%C4%B1-ve-s%C4%B1n%C4%B1rlar%C4%B1-8bf7089b0ba0) | 2024-11-27 | 3 dk |
+| T-02 | ⬜ | Terminoloji 2: Parçalanamaz Bütünlerin Hikayesi | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-2-par%C3%A7alanamaz-b%C3%BCt%C3%BCnlerin-hikayesi-4b210214a1fa) | 2024-11-19 | TBD |
+| T-01 | ⬜ | Terminoloji 1: Lokal ve Global Perspektifler | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-1-lokal-ve-global-perspektifler-1f06f52eefec) | 2024-10-11 | TBD |
+
+---
+
+## 3️⃣ Sûre & Hermenötik Analizleri
+
+Belirli sûre/ayet temelli tahliller + hermenötik denemeler.
+
+| # | Status | Başlık | URL | Tarih | Süre |
+|---|---|---|---|---|---|
+| S-01p | ⬜ ⭐ | **Alak Suresi 1: İlk Besmele, Büyük Resim, ve Metafizik Paradigma** _(Pinned)_ | [link](https://sufist.medium.com/alak-suresi-1-i%CC%87lk-besmele-b%C3%BCy%C3%BCk-resim-ve-metafizik-paradigma-e5bfe74635ea) | 2024-09-21 | 4 dk |
+| S-02 | ⬜ | Alak Suresi 2-3: Fetus ve Ontolojik Öncelik | [link](https://sufist.medium.com/alak-suresi-2-3-fetus-ve-ontolojik-%C3%B6ncelik-2c1cfbdbeff2) | 2024-09-28 | TBD |
+| S-03 | ⬜ | Alak Suresi 4-5: Prefrontal korteks, yapay zeka, Kuantum Dalga Fonksiyonu | [link](https://sufist.medium.com/alak-suresi-4-5-prefrontal-korteks-yapay-zeka-ve-kuantum-dalga-fonksiyonu-984bf402a58b) | 2024-10-02 | TBD |
+| S-04 | ⬜ | Ala Suresi 1: Tesbih ve Soyutlama | [link](https://sufist.medium.com/ala-suresi-1-tesbih-ve-soyutlama-ee646d655f4d) | 2025-04-16 | 3 dk |
+| S-05 | ⬜ | Asr Suresinden Çıkarılan Temel Prensipler | [link](https://sufist.medium.com/asr-suresinden-%C3%A7%C4%B1kar%C4%B1lan-temel-prensipler-63f8db11a6cc) | 2025-06-10 | 5 dk |
+| S-06 | ⬜ | Allahu Ekber ile Seyr İlallah: Yüzeydeki Dikkat Dağıtanlardan Kurtulma | [link](https://sufist.medium.com/allahu-ekber-ile-seyr-i%CC%87lallah-y%C3%BCzeydeki-dikkat-da%C4%9F%C4%B1tanlardan-kurtulma-b92484a6a570) | 2024-10-22 | TBD |
+| S-07 | ⬜ | Kaynak ve Yüzey — Başarısız Olan Her Sistemin Ortak Yönü | [link](https://sufist.medium.com/kaynak-ve-y%C3%BCzey-ba%C5%9Far%C4%B1s%C4%B1z-olan-her-sistemin-ortak-y%C3%B6n%C3%BC-f331fc357283) | 2026-02-15 | 9 dk |
+| S-08 | ⬜ | Ayet: Gözlemden Hakikate Köprü | [link](https://sufist.medium.com/ayet-g%C3%B6zlemden-hakikate-k%C3%B6pr%C3%BC-dfc9a5956bf0) | 2025-12-26 | 3 dk |
+| S-09 | ⬜ | Emrin Ontolojik Mahiyeti: Aktualizasyon ve İşleyiş Prensibi | [link](https://sufist.medium.com/emrin-ontolojik-mahiyeti-aktualizasyon-ve-i%C5%9Fleyi%C5%9F-prensibi-223d6a053cbf) | 2025-12-11 | 3 dk |
+| S-10 | ⬜ | Kur'an'ın Ruhsal Coğrafyası: Doğru Yoldan Sapmanın Anatomisi | [link](https://sufist.medium.com/kuran%C4%B1n-ruhsal-co%C4%9Frafyas%C4%B1-do%C4%9Fru-yoldan-sapman%C4%B1n-anatomisi-8c26f0302b11) | 2025-05-31 | 6 dk |
+| S-11 | ⬜ | Kuran Okuma Prensiplerimiz-2 | [link](https://sufist.medium.com/kuran-okuma-prensiplerimiz-2-e64e5be49be0) | 2024-09-25 | TBD |
+
+---
+
+## 4️⃣ Semantik Seri
+
+Arapça kök etimoloji + Kur'ani semantik haritalama.
+
+| # | Status | Başlık | Kök | URL | Tarih | Süre |
+|---|---|---|---|---|---|---|
+| L-01 | ⬜ | Semantik Analizi-1: Sefer | س ف ر | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-1-sefer-ef110bc5ec16) | 2025-12-30 | 2 dk |
+| L-02 | ⬜ | Semantik Analizi-2: Lehv | ل ه و | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-2-lehv-ba121c258d44) | 2025-12-30 | 4 dk |
+| L-03 | ⬜ | Semantik Analizi-3: Cennet, Cin, Mecnun | ج ن ن | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-3-cennet-cin-mecnun-ca10ba0a9fdf) | 2026-01-01 | 4 dk |
+| L-04 | ⬜ | Semantik Analizi-4: Tuğyan | ط غ و | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-4-tu%C4%9Fyan-e08920551065) | 2026-01-17 | 3 dk |
+| L-05 | ⬜ | Siccin Nedir? Hapis mi Kitap mı? | س ج ن | [link](https://sufist.medium.com/siccin-nedir-hapis-mi-kitap-m%C4%B1-a4773a966838) | 2025-12-31 | TBD |
+
+---
+
+## 5️⃣ İdrak & Şuur
+
+Epistemoloji + metafizik + recursive thinking + şuur kavramı serisi.
+
+| # | Status | Başlık | URL | Tarih | Süre |
+|---|---|---|---|---|---|
+| I-01 | ⬜ | Inception Hayatlar: Recursive Düşüncenin Pratiği | [link](https://sufist.medium.com/inception-hayatlar-recursive-d%C3%BC%C5%9F%C3%BCncenin-prati%C4%9Fi-df4a6a43ea41) | 2026-01-08 | 4 dk |
+| I-02 | ⬜ | Sonsuz Nasıl Bilinir: Yönelimsel İdrak | [link](https://sufist.medium.com/sonsuz-nas%C4%B1l-bilinir-y%C3%B6nelimsel-i%CC%87drak-f6984e030bc3) | 2026-01-07 | 3 dk |
+| I-03 | ⬜ | Sonsuzluğun Merdiveni: Analojilerden Hakikate Yolculuk | [link](https://sufist.medium.com/sonsuzlu%C4%9Fun-merdiveni-analojilerden-hakikate-yolculuk-c8f9f74a0da7) | 2026-01-06 | 2 dk |
+| I-04 | ⬜ | Analitik İçgörü: Şuur Kavramı-3 | [link](https://sufist.medium.com/analitik-i%CC%87%C3%A7g%C3%B6r%C3%BC-%C5%9Fuur-kavram%C4%B1-3-c827364ca824) | 2025-12-27 | 5 dk |
+| I-05 | ⬜ | Analitik İçgörü: Şuur Kavramı-2 | [link](https://sufist.medium.com/analitik-i%CC%87%C3%A7g%C3%B6r%C3%BC-%C5%9Fuur-kavram%C4%B1-2-1271b3e8392f) | 2025-12-14 | 7 dk |
+| I-06 | ⬜ | Analitik İçgörü: Şuur Kavramı-1 | [link](https://sufist.medium.com/analitik-i%CC%87%C3%A7g%C3%B6r%C3%BC-%C5%9Fuur-kavram%C4%B1-1-3513364f772e) | 2025-12-14 | 4 dk |
+
+---
+
+## 6️⃣ Kozmoloji & Yaratılış
+
+Yaratılış serisi + kuantum + evrim tartışmaları + kozmik tasarım.
+
+| # | Status | Başlık | URL | Tarih | Süre |
+|---|---|---|---|---|---|
+| C-01 | ⬜ | Anlam, Yaratılış ve Senteninin Bariz İmzası | [link](https://sufist.medium.com/anlam-yarat%C4%B1l%C4%B1%C5%9F-ve-senteninin-bariz-imzas%C4%B1-a5369fc873aa) | 2024-12-18 | 4 dk |
+| C-02 | ⬜ | Kainat Kitabının Kuantum Bölümü-1: Kuantum Mekaniğinin Beş Büyük Gizemi | [link](https://sufist.medium.com/kainat-kitab%C4%B1n%C4%B1n-kuantum-b%C3%B6l%C3%BCm%C3%BC-1-kuantum-mekani%C4%9Finin-be%C5%9F-b%C3%BCy%C3%BCk-gizemi-c2e71cfb9657) | 2024-12-07 | TBD |
+| C-03 | ⬜ | Yaratılış Hikayesi-2: Kainatın Katmanlı Yaratılışı | [link](https://sufist.medium.com/yarat%C4%B1l%C4%B1%C5%9F-hikayesi-2-kainat%C4%B1n-katmanl%C4%B1-yarat%C4%B1l%C4%B1%C5%9Fi-b94d1bfef976) | 2025-07-27 | 5 dk |
+| C-04 | ⬜ | Yaratılış Hikayesi-1: Giriş | [link](https://sufist.medium.com/yarat%C4%B1l%C4%B1%C5%9F-hikayesi-1-giri%C5%9F-f9cb79e7230d) | 2025-07-27 | 2 dk |
+| C-05 | ⬜ | Evrim, İnanç ve Aklımızdaki Resimler | [link](https://sufist.medium.com/evrim-i%CC%87nan%C3%A7-ve-akl%C4%B1m%C4%B1zdaki-resimler-dfb9679ecf91) | 2025-10-25 | 4 dk |
+| C-06 | ⬜ | Evrim dinsizliği yayma projesidir! | [link](https://sufist.medium.com/evrim-dinsizli%C4%9Fi-yayma-projesidir-e54fa82d0be9) | 2025-05-14 | 4 dk |
+| C-07 | ⬜ | Hala mı Evrim? | [link](https://sufist.medium.com/hala-m%C4%B1-evrim-3f03b2272e50) | 2024-11-12 | TBD |
+
+---
+
+## 7️⃣ İngilizce Yayınlanan Çalışmalar
+
+Türkçe karşılığı varsa **bilingual çift**, yoksa standalone English makale.
+
+| # | Status | Başlık | URL | Tarih | TR eşi |
+|---|---|---|---|---|---|
+| E-01 | ⬜ | Contemporary Quran Readings: Emergence, Irreducibility, and Meaning | [link](https://sufist.medium.com/contemporary-quran-readings-emergence-irreducibility-and-meaning-a09fc18501e5) | 2024-12-21 | — (yeni İngilizce sentez) |
+| E-02 | ⬜ | Meaning, Creation, and the Telltale Signature of Synteny | [link](https://sufist.medium.com/meaning-creation-and-the-telltale-signature-of-synteny-2b4faec66288) | 2024-12-18 | C-01 (Anlam Yaratılış Senteni) |
+| E-03 | ⬜ | The Five Biggest Mysteries in Quantum Mechanics | [link](https://sufist.medium.com/the-five-biggest-mysteries-in-quantum-mechanics-exploring-realitys-deepest-questions-ebef9051db52) | 2024-12-07 | C-02 (Kuantum Beş Gizemi) |
+| E-04 | ⬜ | A New Cosmology: Understanding Existence Through Three Worlds | [link](https://sufist.medium.com/a-new-cosmology-understanding-existence-through-three-worlds-8d59b20b22a0) | 2024-12-02 | T-04 (Varlıkların Ayna Oluşu) yakın |
+| E-05 | ⬜ | Physicalism and Its Fragility | [link](https://sufist.medium.com/physicalism-and-its-fragility-90f9689945df) | 2024-11-27 | T-03 (Fizikalizmin Kırılganlığı) |
+| E-06 | ⬜ | Our Principles for Reading the Quran — Part 2: Hermeneutic | [link](https://sufist.medium.com/our-principles-for-reading-the-quran-part-2-hermeneutic-ee981ea60938) | 2024-10-12 | S-11 (Okuma Prensipleri 2) |
+| E-07 | ⬜ | Our Principles for Reading the Quran — Part 1: Epistemic | [link](https://sufist.medium.com/our-principles-for-reading-the-quran-part-1-epistemic-1647895e7c10) | 2024-10-12 | — (Part 1 TR eşi yok?) |
+| E-08 | ⬜ | Contemporary Quran Readings-1: Local and Global Perspectives | [link](https://sufist.medium.com/contemporary-quran-readings-1-local-and-global-perspectives-e2348a4746f3) | 2024-10-11 | T-01 (Terminoloji 1) |
+
+> Not: 6 İngilizce makalede Türkçe eş tespit edildi. Site i18n pattern'ı: makale slug aynı, content TR/EN sürümü.
+
+---
+
+## 4. 🎨 Visualization Strategy — Per-Template Sistem
+
+Frontend renderer makale MDX frontmatter'ındaki `template` alanına göre uygun layout'u seçer.
+
+### Template A — **Quote-Driven Long Read** (Kavramsal + İdrak)
+Uygulanan makaleler: K-01..K-05, I-01..I-06
+
+**Hero:**
+- Eyebrow: kategori adı + makale numarası
+- Title: Playfair display 2-2.5rem
+- Subtitle italic (varsa tldr)
+- Decorative Islamic geometric pattern arka planda (%5 opacity)
+- Meta row: yazar · okuma süresi · yayın tarihi · Medium kanonik link
+
+**Body:**
+- Section dividers: gold gradient stripe + section title
+- **Pull-quote dividers:** Büyük italic statement'lar — gold border, Playfair italic 1.5-1.8rem
+- **Analogy infographics:** Spesifik analojiler için inline SVG (termostat, yakıt göstergesi, X→∞)
+- **Ayet inline cards:** Her ayet referansı → emerald-bordered card, Arapça + meal + "Reading Mode'da aç" link
+- **Practical checklist:** Makale pratik adım veriyorsa highlighted box
+- **Hadith quote cards:** Farklı border rengi (Quranic'ten ayrı)
+
+**Sidebar (desktop):**
+- "Bu yazıda geçen N ayet" — ayet collection card
+- Related tools cross-link
+- Series prev/next
+
+### Template B — **Series Hero + Diagram** (Terminoloji + Kozmoloji)
+Uygulanan: T-01..T-07d, C-01..C-07
+
+**Hero:**
+- **Series indicator badge:** "TERMİNOLOJİ SERİSİ · 4/7" — büyük, gold border, progress dot indicator
+- Title: Playfair display + serial subtitle
+- Meta + reading time + Medium link
+- **Series timeline mini:** Sayfa üstünde 7-dot timeline gösterimi (aktif olan yanar)
+
+**Body:**
+- **Conceptual diagram hero:** İlgili kavram için inline SVG (örn. Terminoloji 4 "Varlıklar Ayna" için mirror diagram)
+- Section dividers
+- **Cross-reference series cards:** "Bu seride şu kavramlar geçti →" prev sections linkler
+- **Forward refs:** "Sonraki: Markov Blanket" sneak peek
+
+**End-of-article:**
+- **Series navigation:** Büyük prev/next kartları (full title preview)
+- Series index page link
+
+### Template C — **Sûre Tefsir** (Sûre & Hermenötik)
+Uygulanan: S-01..S-11
+
+**Hero:**
+- Eyebrow: "SÛRE TEFSİRİ · ALAK 96"
+- Title: Playfair display
+- **Büyük Arapça ayet hero:** Sûrenin merkez ayeti — 2.5-3rem KFGQPC, gold-bordered elevated card
+- Meal italic altta
+- **"Tam sûreyi oku" gold pill CTA** → Reading Mode deep link (`/oku/96`)
+- Meta row + sûre position ("Sûre 96 / 30. cüz / Mekkî / 19 ayet")
+
+**Body:**
+- **Verse-by-verse breakdown:** Her ele alınan ayet → elevated card pattern (TabBaglam'da kullanılan), Arabic + meal + tefsir
+- **Cross-surah reference:** "Bu konu şu sûrede de geçer →" diğer sûrelere kart link
+- **Bilimsel/tarihsel callout box** (Alak 4-5'te prefrontal korteks gibi)
+- **Concept badge:** Key kavramlar → ConceptGraph deep link
+
+**Sidebar:**
+- "Reading Mode'da bu sûre" — direct link
+- "Sebebi Nüzul" → SebebiNuzul deep link
+- "Bu sûre Bilimsel İşaretler'de" (ScientificSigns)
+- Diğer Sûre Tefsirleri (S kategorisi başkalarına link)
+
+### Template D — **Root Tree** (Semantik Seri)
+Uygulanan: L-01..L-05
+
+**Hero:**
+- Eyebrow: "SEMANTİK ANALİZ · #4"
+- Title: Playfair display
+- **Büyük root hero:** 3-letter Arabic root (örn. ج ن ن) — 5-6rem KFGQPC, gold + glow + decorative islamic frame
+- Altta derived form chips (cennet · cin · mecnun) — emerald accent
+- Meta row
+
+**Body:**
+- **Etymology branching diagram:** Inline SVG showing root → derivatives, interactive (hover highlight)
+- **Verse occurrence bar chart:** "Tuğyan N ayette geçer" mini görsel
+- **Semitic cognates compare table:** Hebrew / Aramaic / Ugaritic karşılaştırma
+- **Quranic citation cards:** Inline elevated card pattern
+- **Concept badge:** İnline kavram → ConceptGraph deep link
+- **Risale-i Nur quote** (varsa) → distinguished left-bordered block
+
+**Sidebar:**
+- "Bu kökü ConceptGraph'ta gör" CTA
+- "Semantik Serisinde diğer kökler" — L kategorisi navigation
+- Lane Lexicon / al-Mufradat referansları
+
+### Universal patterns (her template'te ortak)
+
+1. **Reading progress bar** — sayfa üstü gold gradient (mevcut `ScrollProgress.jsx` reuse)
+2. **Inline ayet preview** — `<VerseInline ref="96:6-7" />` → hover/tap WordPopover (mevcut pattern)
+3. **Sticky TOC sidebar** (desktop only) — sol kolon, current section highlighted
+4. **Related tools cross-link** — sonunda "Bu makale şu araçlarla zenginleşir" 3-card grid
+5. **Series navigation** — seri ise üstte "Seri N/M" + alt prev/next
+6. **Theme/typography toggle** — fontsize, day/night
+7. **Decorative Islamic geometric** — background %5 opacity (mevcut design system)
+8. **Bottom actions** — paylaş, Medium kanonik git, Tefekkür index'e dön
+
+### MDX Format
+
+```mdx
+---
+slug: tugyan
+title: "Semantik Analizi-4: Tuğyan"
+category: semantik
+seriesId: semantik-analizi
+seriesNumber: 4
+seriesTotal: 4
+template: root-tree
+publishedDate: 2026-01-17
+readingMinutes: 3
+author: { name: "Felsufi", url: "https://sufist.medium.com" }
+canonicalUrl: "https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-4-tu%C4%9Fyan-e08920551065"
+relatedTools: ["concept-graph", "verse-graph"]
+relatedVerses: ["96:6-7", "55:8", "69:11"]
+crossRefs:
+  - { type: "previous", slug: "cennet-cin-mecnun" }
+  - { type: "series", slug: "sefer" }
+tldr: "Tuğyan: kök etimoloji + Kur'ani örüntü + epistemoloji"
+englishVersion: null  # E-XX slug'ı varsa
+---
+
+<RootHero root="ط-غ-و" forms={["taga", "tugyan", "tagi"]} />
+
+## Kök Etimoloji
+<VerseInline ref="69:11" />
+Tuğyan kelimesi...
+
+<PullQuote author="Risale-i Nur">
+  Tuğyanın sebebi gaflettir.
+</PullQuote>
+```
+
+---
+
+## 5. 🚀 Pilot Seçim Önerisi (4 + 2)
+
+**4 template, 6 pilot** — her template için 1, en yüksek-impact makaleler:
+
+| Pilot | ID | Template | Neden seçildi |
+|---|---|---|---|
+| **Tuğyan** | L-04 | Root Tree | Semantik prototip; ConceptGraph entegrasyonu test |
+| **Alak Suresi 1** | S-01p | Sûre Tefsir | Pinned status, Reading Mode deep link test |
+| **Ruhun Termostatı** | K-01 | Quote-Driven | En uzun makale (12 dk), long-read layout stress test |
+| **Terminoloji 7 (Kader)** | T-07p | Series Hero | Pinned + series indicator test |
+| **Sonsuz Nasıl Bilinir** | I-02 | Quote-Driven (kısa) | En kısa makale (3 dk), short-form test |
+| **Yaratılış Hikayesi 1** | C-04 | Series Hero (Kozmoloji) | Yaratılış serisi entry-point, kozmoloji template test |
+
+Bu 6 canlıya alındıktan sonra kalan 43 makale batch-import scripti ile MDX'e dönüştürülür.
+
+---
+
+## 6. 🛠️ Frontend Infrastructure To-Do
+
+- [ ] **Navbar update** — 3. menu item "Tefekkür" eklenmesi (`Navbar.jsx`)
+  - Dropdown: 7 kategori + "Tüm Yazılar" + "Yazar Hakkında"
+- [ ] **`/tefekkur` route** — index page (kategori filter + makale grid)
+- [ ] **`/tefekkur/[slug]` route** — article page (MDX rendering)
+- [ ] **MDX setup** — `@next/mdx` veya `next-mdx-remote` kurulum
+- [ ] **JSON-LD schemas** — Article + Breadcrumb + Author (Person schema for Felsufi)
+- [ ] **Sitemap güncelleme** — 49 makale URL'i
+- [ ] **i18n pattern** — `/tr/tefekkur/[slug]` + `/en/tefekkur/[slug]` (bilingual destek)
+- [ ] **Inline JSX components:**
+  - `<VerseInline ref="X:Y" />` — hover ayet preview
+  - `<RootHero root="ج-ن-ن" forms={...} />` — büyük root display
+  - `<RootTree root="..." derivatives={[...]} />` — branching diagram
+  - `<PullQuote author="..." source="...">...</PullQuote>` — museum quote
+  - `<CalloutBox type="caveat|info|warning|hadith">...</CalloutBox>`
+  - `<RelatedToolCard tool="concept-graph" />`
+  - `<SeriesNav seriesId="..." position={4} total={7} />`
+  - `<SurahCTA surah={96} />` — Reading Mode pill button
+  - `<ConceptDiagram concept="..." />` — interactive concept map
+- [ ] **Sticky TOC component** — desktop sidebar
+- [ ] **Reading progress bar** — mevcut `ScrollProgress.jsx` reuse
+- [ ] **Theme/typography toggle** — fontsize + day/night
+- [ ] **Author profile page** — `/tefekkur/yazar/felsufi` (bio + tüm makaleleri)
+
+---
+
+## 7. ⚖️ Yazar İzni & Lisans (Mutlaka)
+
+Migration başlamadan önce yazardan açık izin alınmalı:
+
+- [ ] Yazılı izin (`docs/permissions/felsufi-tefekkur-license.md`)
+- [ ] Lisans modeli seçimi: CC BY-SA / kişisel atıf / publisher agreement
+- [ ] Her makale altında "İlk olarak Medium'da yayımlandı" badge (görünür)
+- [ ] HTML `<link rel="canonical" href="medium-url">` (SEO)
+- [ ] Yazar profil sayfası: bio + Medium / X / kişisel site linkleri
+
+---
+
+## 8. 🔗 Cross-Reference Haritası
+
+Makaleler arası iç bağlantılar — site-içi URL'lere çevirilirken referans:
+
+### Terminoloji serisi (sırayla)
+T-01 → T-02 → T-03 → T-04 → T-05 → T-06 → T-07p → T-07d
+
+### Semantik serisi (sırayla)
+L-01 (Sefer) → L-02 (Lehv) → L-03 (Cennet-Cin-Mecnun) → L-04 (Tuğyan)
+
+### Şuur serisi (sırayla)
+I-06 (Şuur 1) → I-05 (Şuur 2) → I-04 (Şuur 3)
+
+### Sonsuzluk üçlemesi (sırayla)
+I-03 (Sonsuzluğun Merdiveni) → I-02 (Sonsuz Nasıl Bilinir) → I-01 (Inception Hayatlar)
+
+### Yaratılış serisi
+C-04 (Yaratılış 1) → C-03 (Yaratılış 2)
+
+### Alak Suresi serisi
+S-01p (Alak 1) → S-02 (Alak 2-3) → S-03 (Alak 4-5)
+
+### Kader serisi
+T-07p (Kader Terminoloji 7) → T-07d (Kader devam)
+
+### Evrim grubu (içerik bağlantılı)
+C-05 (Evrim İnanç) · C-06 (Evrim Dinsizlik) · C-07 (Hala mı Evrim?)
+
+### Bilingual çiftler
+- C-01 ↔ E-02 (Synteny)
+- C-02 ↔ E-03 (Kuantum Gizemler)
+- T-03 ↔ E-05 (Physicalism)
+- T-01 ↔ E-08 (Local/Global)
+- T-04 ↔ E-04 (yakın: 3 Worlds)
+- S-11 ↔ E-06 (Hermeneutic)
+
+---
+
+## 9. 📊 Migration Tracking Summary
+
+| Toplam | Status | Dağılım |
+|---|---|---|
+| **49 makale** | ⬜ Tümü beklemede | TR: 41 · EN: 8 · Series: 32 · Standalone: 17 |
+| **Tahmini süre** | ~50 saat | Pilot 4-6 makale (15h) + kalan 43 batch import (20h) + infra (15h) |
+
+---
+
+## 10. 📝 Change Log per Article
+
+> Bu bölümde her makale için yapılan düzeltmeler (typo, dilbilgisi, Arapça encoding, kavram düzeltme) biriktirilecek.
+
+### K-01 Ruhun Termostatı
+_(taslak henüz hazırlanmadı)_
+
+### K-02 Enerji Krizi
+_(taslak henüz hazırlanmadı)_
+
+### K-03 Yapılanların Süslü Görülmesi
+_(taslak henüz hazırlanmadı — Web fetch sırasında: minor em-dash inconsistency)_
+
+### K-04 Vicdan: Evrensel Tercümanımız
+_(taslak henüz hazırlanmadı)_
+
+### K-05 Kur'an Mesajına Yabancı Kalmak
+_(taslak henüz hazırlanmadı)_
+
+### T-07p Terminoloji 7: Kader
+_(taslak henüz hazırlanmadı)_
+
+### T-07d Kaderin Çözünürlüğü devam
+_(taslak henüz hazırlanmadı)_
+
+### T-06 Terminoloji 6: Sema ve İsim
+_(taslak henüz hazırlanmadı)_
+
+### T-05 Terminoloji 5: Makro Mikro
+_(taslak henüz hazırlanmadı)_
+
+### T-04 Terminoloji 4: Varlıkların Ayna Oluşu
+_(taslak henüz hazırlanmadı)_
+
+### T-03 Terminoloji 3: Fizikalizm
+_(taslak henüz hazırlanmadı)_
+
+### T-02 Terminoloji 2: Parçalanamaz Bütünler
+_(taslak henüz hazırlanmadı)_
+
+### T-01 Terminoloji 1: Lokal/Global
+_(taslak henüz hazırlanmadı)_
+
+### S-01p Alak Suresi 1
+_(taslak henüz hazırlanmadı)_
+
+### S-02 Alak Suresi 2-3
+_(taslak henüz hazırlanmadı)_
+
+### S-03 Alak Suresi 4-5
+_(taslak henüz hazırlanmadı)_
+
+### S-04 Ala Suresi 1: Tesbih
+_(taslak henüz hazırlanmadı)_
+
+### S-05 Asr Suresi Prensipleri
+_(taslak henüz hazırlanmadı)_
+
+### S-06 Allahu Ekber ile Seyr İlallah
+_(taslak henüz hazırlanmadı)_
+
+### S-07 Kaynak ve Yüzey
+_(taslak henüz hazırlanmadı)_
+
+### S-08 Ayet: Gözlemden Hakikate
+_(taslak henüz hazırlanmadı)_
+
+### S-09 Emrin Ontolojik Mahiyeti
+_(taslak henüz hazırlanmadı)_
+
+### S-10 Kur'an Ruhsal Coğrafyası
+_(taslak henüz hazırlanmadı)_
+
+### S-11 Kuran Okuma Prensipleri 2
+_(taslak henüz hazırlanmadı)_
+
+### L-01 Semantik 1: Sefer
+_(taslak henüz hazırlanmadı)_
+
+### L-02 Semantik 2: Lehv
+_(taslak henüz hazırlanmadı)_
+
+### L-03 Semantik 3: Cennet-Cin-Mecnun
+_(taslak henüz hazırlanmadı)_
+
+### L-04 Semantik 4: Tuğyan
+_(taslak henüz hazırlanmadı)_
+
+### L-05 Siccin Nedir?
+_(taslak henüz hazırlanmadı)_
+
+### I-01 Inception Hayatlar
+_(taslak henüz hazırlanmadı)_
+
+### I-02 Sonsuz Nasıl Bilinir
+_(taslak henüz hazırlanmadı)_
+
+### I-03 Sonsuzluğun Merdiveni
+_(taslak henüz hazırlanmadı)_
+
+### I-04 Şuur 3
+_(taslak henüz hazırlanmadı)_
+
+### I-05 Şuur 2
+_(taslak henüz hazırlanmadı)_
+
+### I-06 Şuur 1
+_(taslak henüz hazırlanmadı)_
+
+### C-01 Anlam Yaratılış Senteni
+_(taslak henüz hazırlanmadı — Web fetch sırasında: "senteninin" → muhtemelen "synteny'nin" — kontrol edilecek)_
+
+### C-02 Kuantum Beş Gizemi
+_(taslak henüz hazırlanmadı)_
+
+### C-03 Yaratılış 2: Katmanlı
+_(taslak henüz hazırlanmadı — Web fetch sırasında: "Cem'den Fark'a" tutarsız punctuation)_
+
+### C-04 Yaratılış 1: Giriş
+_(taslak henüz hazırlanmadı)_
+
+### C-05 Evrim İnanç Aklımızdaki Resimler
+_(taslak henüz hazırlanmadı)_
+
+### C-06 Evrim Dinsizliği Yayma
+_(taslak henüz hazırlanmadı — yazar notu: "deliberately unpolished" — minimal edit önerilir)_
+
+### C-07 Hala mı Evrim?
+_(taslak henüz hazırlanmadı)_
+
+### E-01 Contemporary Quran Readings (Emergence)
+_(taslak henüz hazırlanmadı)_
+
+### E-02 Synteny (EN)
+_(taslak henüz hazırlanmadı)_
+
+### E-03 Five Mysteries (EN)
+_(taslak henüz hazırlanmadı)_
+
+### E-04 New Cosmology (EN)
+_(taslak henüz hazırlanmadı)_
+
+### E-05 Physicalism Fragility (EN)
+_(taslak henüz hazırlanmadı)_
+
+### E-06 Hermeneutic (EN)
+_(taslak henüz hazırlanmadı)_
+
+### E-07 Epistemic (EN)
+_(taslak henüz hazırlanmadı)_
+
+### E-08 Contemporary 1: Local/Global (EN)
+_(taslak henüz hazırlanmadı)_
+
+---
+
+## 11. ⚠️ Açık Sorular (Karar Bekleyen)
+
+1. **Yazar izni:** Felsufi sen mi (yazar sen misin), yoksa ayrı yazar mı? Yazılı izin var mı?
+2. **MDX vs JSON:** Yukarıda MDX önerdim (inline JSX component'ler için) — onaylıyor musun?
+3. **Bilingual scope:** TR-only / TR+EN parallel / TR-default + EN-where-exists?
+4. **Pilot scope:** §5'teki 6 pilot mantıklı mı, farklı seçim mi tercih edersin?
+5. **Visualization detayı:** §4'teki 4 template prototip onayı — daha fazla detay ister misin?
+6. **Navbar konumu:** "Tefekkür" sağa mı (EN/Kur'an'ı Oku öncesi) sola mı (Keşfet/Araçlar yanına)?
+
+Onayını alır almaz infra to-do'ya geçiyorum (§6).

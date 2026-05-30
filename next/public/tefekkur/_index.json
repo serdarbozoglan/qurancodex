@@ -1,0 +1,66 @@
+{
+  "categories": [
+    {
+      "id": "kavramsal",
+      "labelTr": "Kavramsal Tahlil",
+      "labelEn": "Conceptual Analysis",
+      "accent": "#3498db",
+      "descTr": "Psikolojik, içsel ve pratik tefekkür denemeleri",
+      "descEn": "Reflections on psychology, inner life, and practice"
+    },
+    {
+      "id": "terminoloji",
+      "labelTr": "Terminoloji Serisi",
+      "labelEn": "Terminology Series",
+      "accent": "#d4a574",
+      "descTr": "İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi",
+      "descEn": "Terminology for Reading Human, Universe & Quran"
+    },
+    {
+      "id": "sure-hermenotik",
+      "labelTr": "Sûre & Hermenötik",
+      "labelEn": "Surah & Hermeneutics",
+      "accent": "#c9a227",
+      "descTr": "Sûre tahlilleri ve yorum prensipleri",
+      "descEn": "Surah analyses and interpretive principles"
+    },
+    {
+      "id": "semantik",
+      "labelTr": "Semantik Seri",
+      "labelEn": "Semantic Series",
+      "accent": "#8b5cf6",
+      "descTr": "Arapça kök etimolojisi ve Kur'ani semantik haritalama",
+      "descEn": "Arabic root etymology & Quranic semantic mapping"
+    },
+    {
+      "id": "idrak-suur",
+      "labelTr": "İdrak & Şuur",
+      "labelEn": "Cognition & Consciousness",
+      "accent": "#1D9E75",
+      "descTr": "Epistemoloji, metafizik ve recursive düşünce",
+      "descEn": "Epistemology, metaphysics & recursive thought"
+    },
+    {
+      "id": "kozmoloji",
+      "labelTr": "Kozmoloji & Yaratılış",
+      "labelEn": "Cosmology & Creation",
+      "accent": "#9b59b6",
+      "descTr": "Yaratılış, kuantum ve evrim üzerine düşünce",
+      "descEn": "Creation, quantum & evolution"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "tugyan",
+      "titleTr": "Semantik Analizi-4: Tuğyan",
+      "titleEn": "Semantic Analysis-4: Tughyan",
+      "category": "semantik",
+      "seriesNumber": 4,
+      "publishedDate": "2026-01-17",
+      "readingMinutes": 3,
+      "tldrTr": "Tuğyan kavramı — kök etimoloji, semantik hiyerarşi, Kur'ani örüntüler",
+      "tldrEn": "Tughyan — root etymology, semantic hierarchy, Quranic patterns",
+      "status": "draft"
+    }
+  ]
+}

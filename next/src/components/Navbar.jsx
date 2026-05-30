@@ -1123,6 +1123,23 @@ export default function Navbar() {
               )}
             </AnimatePresence>
           </div>
+
+          {/* Tefekkür — Felsufi makaleler — 3. top-level item */}
+          <button
+            onClick={() => router.push(`/${language}/tefekkur`)}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '5px',
+              padding: '8px 14px', borderRadius: '8px', border: 'none',
+              background: pathname.includes('/tefekkur') ? 'rgba(255,255,255,0.06)' : 'transparent',
+              color: pathname.includes('/tefekkur') ? '#d4a574' : '#d4d8e0',
+              fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+              cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
+            }}
+            onMouseEnter={e => { if (!pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+            onMouseLeave={e => { if (!pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
+          >
+            {language === 'tr' ? 'Tefekkür' : 'Tefekkür'}
+          </button>
         </div>
 
         </div>{/* end left group */}

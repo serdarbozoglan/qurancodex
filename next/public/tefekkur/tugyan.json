@@ -1,0 +1,132 @@
+{
+  "slug": "tugyan",
+  "titleTr": "Semantik Analizi-4: Tuğyan",
+  "titleEn": "Semantic Analysis-4: Tughyan",
+  "category": "semantik",
+  "template": "root-tree",
+  "seriesId": "semantik-analizi",
+  "seriesNumber": 4,
+  "seriesTotal": 4,
+  "publishedDate": "2026-01-17",
+  "readingMinutes": 3,
+  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "canonicalUrl": "https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-4-tu%C4%9Fyan-e08920551065",
+  "root": {
+    "letters": "ط غ و",
+    "transliteration": "ṭ-ḡ-w / ṭ-ḡ-y",
+    "coreMeaningTr": "Haddi aşmak, sınırı geçmek",
+    "coreMeaningEn": "Exceeding bounds, transgression",
+    "derivatives": [
+      { "ar": "طُغْيَان", "translit": "tughyān", "tr": "Haddi aşma", "en": "Transgression" },
+      { "ar": "طَاغِي", "translit": "ṭāghī", "tr": "Haddi aşan", "en": "Transgressor" },
+      { "ar": "طَاغُوت", "translit": "ṭāghūt", "tr": "Sahte ilâh / tağut", "en": "False god / tyrant" }
+    ]
+  },
+  "tldrTr": "Tuğyan: 'haddi aşma' anlamındaki kökten türer. Kur'an'da hem fiziksel taşkınlık (su, ateş) hem ahlâki sapma anlamında kullanılır. İstiğnâ → tuğyan → tâğût zincirinin orta halkasıdır.",
+  "tldrEn": "Tughyan: derives from the root meaning 'to exceed bounds'. In the Quran, used for both physical overflow (water, fire) and moral deviation. It is the middle link in the istighnā → tughyān → tāghūt chain.",
+  "relatedTools": ["concept-graph", "verse-graph"],
+  "relatedVerses": ["96:6-7", "55:8", "69:11"],
+  "previousArticle": { "slug": "cennet-cin-mecnun", "titleTr": "Semantik 3: Cennet, Cin, Mecnun" },
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "section",
+      "id": "kok",
+      "titleTr": "Kök Etimoloji",
+      "titleEn": "Root Etymology"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Tuğyan kelimesi ط-غ-و (ṭ-ḡ-w) veya bazı kullanımlarda ط-غ-ي (ṭ-ḡ-y) kökünden gelir. Kökün temel anlamı 'taşmak, sınırı geçmek, haddi aşmak'tır. Fiziksel anlamda su veya ateşin doğal sınırını aşması; manevi anlamda bireyin veya toplumun ahlâki/itikadî sınırları çiğnemesi anlamına gelir.",
+      "en": "The word tughyan derives from the root ط-غ-و (ṭ-ḡ-w) or in some usages ط-غ-ي (ṭ-ḡ-y). The root's core meaning is 'to overflow, to cross a boundary, to exceed limits'. In a physical sense it refers to water or fire surpassing its natural bounds; in a spiritual sense it denotes an individual's or community's transgression of moral or doctrinal limits."
+    },
+    {
+      "type": "verseInline",
+      "ref": "69:11",
+      "noteTr": "Hâkka 69:11 — Nuh'un kavmi su 'tuğyan' ettiğinde gemiye taşındı. Burada kelime fiziksel taşkınlık anlamında kullanılır.",
+      "noteEn": "Al-Haqqa 69:11 — When the water of Noah's people 'transgressed' (overflowed), they were carried in the ship. Here the word is used in a physical sense."
+    },
+    {
+      "type": "section",
+      "id": "anlam-hiyerarsisi",
+      "titleTr": "Anlam Hiyerarşisi",
+      "titleEn": "Semantic Hierarchy"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kök anlamından çıkan kavramlar üç katmanlı bir hiyerarşi oluşturur:\n\n1. **Fiziksel taşkınlık** — su, ateş, gözyaşı, alev gibi maddi unsurların sınırı aşması\n2. **Ahlâki sapma** — bireyin nefis-kalp dengesini bozması, helâl sınırlarını çiğnemesi\n3. **Sistemik sapkınlık** — tâğût formuna ulaşmış kurumsallaşmış sahte ilâhlık",
+      "en": "Concepts derived from the root form a three-tier hierarchy:\n\n1. **Physical overflow** — water, fire, tears, flame and other material elements exceeding bounds\n2. **Moral deviation** — an individual disturbing the nafs-heart balance, crossing licit limits\n3. **Systemic perversion** — institutionalized false divinity that has reached the tāghūt form"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Tuğyanın sebebi istiğnâdır; sonucu tâğûttur.",
+      "en": "The cause of tughyan is istighnā; its consequence is tāghūt.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "kurani-kullanim",
+      "titleTr": "Kur'an'daki Kullanımlar",
+      "titleEn": "Quranic Usage"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Tuğyan kavramı Kur'an'da yaklaşık 39 yerde geçer. Bu kullanımlar üç ana eksenle haritalandırılabilir: doğal/fiziksel taşkınlık, kişisel ahlâki sapma ve toplumsal/kurumsal tağutluk.",
+      "en": "The concept of tughyan appears in approximately 39 places in the Quran. These usages can be mapped along three main axes: natural/physical overflow, personal moral deviation, and societal/institutional tāghūt."
+    },
+    {
+      "type": "verseInline",
+      "ref": "96:6-7",
+      "noteTr": "Alak 96:6-7 — 'Hayır, insan kesinlikle azar (yeṭğā). Kendini kendine yeterli görünce.' İstiğnâ (kendine yeterli görme) → tuğyan zinciri burada açıkça kurulur.",
+      "noteEn": "Al-Alaq 96:6-7 — 'No! Indeed, mankind transgresses (yaṭghā). When he sees himself as self-sufficient.' The istighnā → tughyān chain is explicitly established here."
+    },
+    {
+      "type": "verseInline",
+      "ref": "55:8",
+      "noteTr": "Rahman 55:8 — 'Ölçüde haddi aşmayın (en-lâ taṭğav fî-l-mîzân).' Burada tuğyan ölçü ve adâlet bağlamında zikredilir.",
+      "noteEn": "Ar-Rahman 55:8 — 'Do not transgress in the balance (allā taṭghaw fī al-mīzān).' Here tughyan is mentioned in the context of measure and justice."
+    },
+    {
+      "type": "section",
+      "id": "semantik-alan",
+      "titleTr": "Semantik Alan",
+      "titleEn": "Semantic Field"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Tuğyan kavramı tek başına durmaz; etrafında zincirleme nedensellik taşıyan diğer kavramlarla bağlıdır:\n\n- **İstiğnâ (kendine yeterli görme)** → tuğyanın başlangıç koşulu\n- **Hevâ (arzu/heves)** → tuğyanı besleyen iç güdü\n- **Tâğût** → kurumsal hâle gelmiş tuğyan formu\n- **Azap** → tuğyanın eskatolojik sonucu\n\nBu sistematik bağlantı, Kur'an'ın kavramları birbirine 'modüler düşünce ünitesi' olarak diziyişinin bir örneğidir.",
+      "en": "Tughyan does not stand alone; it is bound to a chain of causally connected concepts:\n\n- **Istighnā (seeing oneself as self-sufficient)** → the starting condition of tughyan\n- **Hawā (desire/whim)** → the inner drive feeding tughyan\n- **Tāghūt** → tughyan in institutionalized form\n- **Azāb (punishment)** → the eschatological consequence of tughyan\n\nThis systematic linkage exemplifies how the Quran arranges concepts as 'modular thought units' linked to one another."
+    },
+    {
+      "type": "section",
+      "id": "epistemoloji",
+      "titleTr": "Epistemolojik Boyut",
+      "titleEn": "Epistemological Dimension"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Tuğyan sadece bir ahlâkî kategori değil aynı zamanda epistemik bir bozulmadır. Kişi haddi aşınca, gerçekliği algılama kapasitesi de bozulur. Bu yüzden Kur'an tuğyan eden gruplar için 'kalpleri mühürlü', 'gözleri perdeli', 'kulakları sağır' gibi tasvirler kullanır. Tuğyan epistemik bir kapanma şeklidir: ahlâkî sınırı aşan, gerçeği görme kabiliyetini de kaybeder.",
+      "en": "Tughyan is not merely a moral category but also an epistemic disruption. When a person exceeds bounds, their capacity to perceive reality also breaks down. This is why the Quran uses descriptions such as 'sealed hearts', 'veiled eyes', 'deaf ears' for groups that transgress. Tughyan is a form of epistemic closure: he who crosses the moral boundary also loses the capacity to see truth."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Ahlâkî sınırı aşan, gerçeği görme kabiliyetini de kaybeder.",
+      "en": "He who crosses the moral boundary also loses the capacity to see truth.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "kaynaklar",
+      "titleTr": "Kaynaklar",
+      "titleEn": "Sources"
+    },
+    {
+      "type": "sources",
+      "items": [
+        { "name": "Lane's Arabic-English Lexicon", "detailTr": "ṭ-ġ-w kökü etimoloji", "detailEn": "ṭ-ġ-w root etymology" },
+        { "name": "al-Mufradāt fī Gharīb al-Qur'ān (Râgıb el-İsfehânî)", "detailTr": "Kur'an kelimelerinin semantik analizi", "detailEn": "Semantic analysis of Quranic words" },
+        { "name": "Risale-i Nur Külliyatı (Bediüzzaman)", "detailTr": "Tuğyan-istiğnâ-tâğût zinciri yorumu", "detailEn": "Commentary on the tughyan-istighnā-tāghūt chain" }
+      ]
+    }
+  ]
+}
