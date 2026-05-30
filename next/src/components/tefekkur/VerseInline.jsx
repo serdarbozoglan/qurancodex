@@ -1,6 +1,17 @@
 'use client';
 
 import { COLORS, FONTS, RADIUS } from '../../tokens';
+import { surahNameTr } from '../../lib/surahNames';
+
+// Sûre adı + ayet ref formatı (TR'de "Bakara 2:8", EN'de "2:8")
+function formatVerseRef(ref, language) {
+  if (language !== 'tr') return ref;
+  const m = /^(\d+):/.exec(ref);
+  if (!m) return ref;
+  const surah = parseInt(m[1], 10);
+  const name = surahNameTr(surah).replace(/^E[lnstrz]-/i, '').replace(/^Eş-/i, '');
+  return `${name} ${ref}`;
+}
 
 // VerseInline — makale içinde ayet referansı (inline card pattern).
 // Şimdilik static display; hover/click ile detail expand sonraki iterasyonda.
@@ -27,7 +38,7 @@ export default function VerseInline({ ref, noteTr, noteEn, language }) {
         color: '#1D9E75', fontFamily: FONTS.body,
         letterSpacing: '0.04em',
       }}>
-        {ref}
+        {formatVerseRef(ref, language)}
       </div>
 
       {/* Note */}

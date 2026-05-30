@@ -197,6 +197,66 @@ Türkçe karşılığı varsa **bilingual çift**, yoksa standalone English maka
 > edilmeden makale "tam" sayılmaz. `_index.json`'da `mediumVisualsMatched: N/N`
 > alanı opsiyonel — eksik makaleler kolay tespit için.
 
+> ### 🔑 KURAL — Ayet Referansı Formatı (ENFORCE ALWAYS)
+>
+> Tüm görsel block'larda ve inline ayet kartlarında, ayet referansları
+> **sûre adı + numara** formatında gösterilmelidir.
+>
+> **TR (Türkçe sayfa):**
+> - ✅ DOĞRU: `Bakara 2:8`, `Nâziât 79:17`, `Hâkka 69:11`
+> - ❌ YANLIŞ: `2:8`, `79:17`, `69:11` (sadece numerik — okuyucu sûre adını bilmek zorunda)
+>
+> **EN (İngilizce sayfa):**
+> - Kabul: `2:8`, `79:17` (numerik — İngilizce sûre-isim listesi şu an yok)
+> - Gelecek: `next/src/lib/surahNames.js`'e `SURAH_NAMES_EN` eklendiğinde
+>   format → `Al-Baqarah 2:8`
+>
+> **Implementasyon (helper):**
+> ```js
+> import { surahNameTr } from '@/lib/surahNames';
+> function formatVerseRef(ref, language) {
+>   if (language !== 'tr') return ref;
+>   const m = /^(\d+):/.exec(ref);
+>   if (!m) return ref;
+>   const fullName = surahNameTr(parseInt(m[1], 10));
+>   const short = fullName.replace(/^E[lnstrz]-/i, '').replace(/^Eş-/i, ''); // artikelsiz
+>   return `${short} ${ref}`;
+> }
+> ```
+>
+> Kullanan komponentler: `MorphologyTable.jsx`, `VerseInline.jsx`. Yeni
+> ayet-içeren komponent eklenirken bu helper kullanılmalıdır.
+
+> ### 🔑 KURAL — Makale Sayım Politikası (Bilingual)
+>
+> **Bir makaleyi sayarken TR + EN versiyonları AYRI sayılmaz.** Aynı içeriğin
+> iki dildeki versiyonu **tek bir makale**dir.
+>
+> **Mevcut durum (master listeye göre):**
+>
+> | Kategori | TR | EN-only | Toplam unique |
+> |---|---|---|---|
+> | Kavramsal Tahlil | 5 | 0 | 5 |
+> | Terminoloji Serisi | 8 | 0 | 8 |
+> | Sûre & Hermenötik | 11 | 0 | 11 |
+> | Semantik Seri | 5 | 0 | 5 |
+> | İdrak & Şuur | 6 | 0 | 6 |
+> | Kozmoloji & Yaratılış | 7 | 0 | 7 |
+> | **EN-only** (TR çifti yok) | — | 2 (E-01, E-07) | 2 |
+> | **TOPLAM** | **42 TR** | **2 EN-only** | **44 unique** |
+>
+> Ayrıca 6 bilingual çift mevcut: C-01↔E-02, C-02↔E-03, T-03↔E-05, T-01↔E-08,
+> T-04↔E-04, S-11↔E-06. Bu çiftler bir kez sayılır.
+>
+> **Navbar / Index banner gösterimi:**
+> - ✅ "44 makale" (unique kavram sayısı)
+> - ❌ "49 makale" (TR + EN ayrı sayım = yanlış)
+> - ❌ "50 makale" (her ID ayrı sayım)
+>
+> Yeni makale eklendiğinde: `_index.json`'a entry eklenir; Navbar'daki
+> `tefekkurCategories` count'ları manuel güncellenir; bilingual eş varsa
+> `englishVersion: "E-XX-slug"` frontmatter alanı kullanılır (gelecek).
+
 Frontend renderer makale MDX frontmatter'ındaki `template` alanına göre uygun layout'u seçer.
 
 ### Template A — **Quote-Driven Long Read** (Kavramsal + İdrak)

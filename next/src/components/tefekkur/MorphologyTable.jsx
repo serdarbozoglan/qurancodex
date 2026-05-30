@@ -2,6 +2,21 @@
 
 import { motion } from 'framer-motion';
 import { COLORS, FONTS, RADIUS } from '../../tokens';
+import { surahNameTr } from '../../lib/surahNames';
+
+// Sûre adı + ayet referansı formatı.
+// TR: "Bakara 2:8"  (kısa form — Arapça artikelsiz)
+// EN: "2:8"          (TR sûre-isim listesi yok; numerik form)
+function formatVerseRef(ref, language) {
+  if (language !== 'tr') return ref;
+  const m = /^(\d+):/.exec(ref);
+  if (!m) return ref;
+  const surahNum = parseInt(m[1], 10);
+  const fullName = surahNameTr(surahNum);
+  // "El-Bakara" → "Bakara", "Eş-Şems" → "Şems", "En-Nâziât" → "Nâziât"
+  const short = fullName.replace(/^E[lnstrz]-/i, '').replace(/^Eş-/i, '');
+  return `${short} ${ref}`;
+}
 
 // MorphologyTable — Felsufi'nin "Kuran'daki Kullanım Kalıpları" tablolarının
 // site-yerel premium karşılığı. Glassmorphism row + Arabic pattern (FONTS.quran) +
@@ -21,7 +36,7 @@ import { COLORS, FONTS, RADIUS } from '../../tokens';
 //     ]
 //   }
 
-function VerseChip({ ref: vref, delay }) {
+function VerseChip({ ref: vref, language, delay }) {
   return (
     <motion.span
       initial={{ opacity: 0, scale: 0.92 }}
@@ -44,7 +59,7 @@ function VerseChip({ ref: vref, delay }) {
         whiteSpace: 'nowrap',
       }}
     >
-      {vref}
+      {formatVerseRef(vref, language)}
     </motion.span>
   );
 }
@@ -108,7 +123,7 @@ function Row({ row, idx, language, isLast }) {
       {/* Col 3: Ayet chip'leri */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
         {verses.map((v, vi) => (
-          <VerseChip key={vi} ref={v} delay={idx * 0.06 + vi * 0.03 + 0.1} />
+          <VerseChip key={vi} ref={v} language={language} delay={idx * 0.06 + vi * 0.03 + 0.1} />
         ))}
       </div>
     </motion.div>
