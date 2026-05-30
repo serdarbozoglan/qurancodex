@@ -202,6 +202,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [toolsOpen, setToolsOpen]       = useState(false);
   const [exploreOpen, setExploreOpen]   = useState(false);
+  const [tefekkurOpen, setTefekkurOpen] = useState(false);
   // Faz 4.5 — overlay state localStorage'dan hydrate edilmez; graf artık route'tur.
   const [graphOpen, setGraphOpen]       = useState(false);
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
@@ -586,7 +587,7 @@ export default function Navbar() {
 
   // Close dropdowns on outside click
   useEffect(() => {
-    if (!toolsOpen && !exploreOpen) return;
+    if (!toolsOpen && !exploreOpen && !tefekkurOpen) return;
     const h = (e) => {
       if (!e.target.closest('[data-dropdown]')) {
         setToolsOpen(false);
@@ -595,7 +596,7 @@ export default function Navbar() {
     };
     document.addEventListener('mousedown', h);
     return () => document.removeEventListener('mousedown', h);
-  }, [toolsOpen, exploreOpen]);
+  }, [toolsOpen, exploreOpen, tefekkurOpen]);
 
   // ESC handler for overlays rendered by the Navbar wrapper (not the
   // overlay components themselves). ProphetAtlas is the notable case:
@@ -1124,22 +1125,203 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {/* Tefekkür — Felsufi makaleler — 3. top-level item */}
-          <button
-            onClick={() => router.push(`/${language}/tefekkur`)}
-            style={{
-              display: 'flex', alignItems: 'center', gap: '5px',
-              padding: '8px 14px', borderRadius: '8px', border: 'none',
-              background: pathname.includes('/tefekkur') ? 'rgba(255,255,255,0.06)' : 'transparent',
-              color: pathname.includes('/tefekkur') ? '#d4a574' : '#d4d8e0',
-              fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
-              cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
-            }}
-            onMouseEnter={e => { if (!pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
-            onMouseLeave={e => { if (!pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
-          >
-            {language === 'tr' ? 'Tefekkür' : 'Tefekkür'}
-          </button>
+          {/* Tefekkür — Felsufi makaleler — 3. top-level mega-menu */}
+          <div className="relative" data-dropdown>
+            <button
+              onClick={() => { setTefekkurOpen(p => !p); setExploreOpen(false); setToolsOpen(false); }}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '5px',
+                padding: '8px 14px', borderRadius: '8px', border: 'none',
+                background: tefekkurOpen || pathname.includes('/tefekkur') ? 'rgba(255,255,255,0.06)' : 'transparent',
+                color: tefekkurOpen || pathname.includes('/tefekkur') ? '#d4a574' : '#d4d8e0',
+                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+                cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
+              }}
+              onMouseEnter={e => { if (!tefekkurOpen && !pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+              onMouseLeave={e => { if (!tefekkurOpen && !pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
+            >
+              {language === 'tr' ? 'Tefekkür' : 'Tefekkür'}
+              <span style={{ transition: 'transform 0.2s', transform: tefekkurOpen ? 'rotate(180deg)' : 'rotate(0deg)', opacity: 0.6 }}>
+                <ChevronDown />
+              </span>
+            </button>
+
+            <AnimatePresence>
+              {tefekkurOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.15 }}
+                  style={{ ...dropdownStyle, left: 0, minWidth: '680px', padding: 0 }}
+                >
+                  {(() => {
+                    const colLabel = {
+                      color: 'rgba(148,163,184,0.4)',
+                      fontSize: '0.62rem',
+                      fontFamily: "'Inter', sans-serif",
+                      fontWeight: 700,
+                      letterSpacing: '0.13em',
+                      textTransform: 'uppercase',
+                      padding: '10px 12px 6px',
+                    };
+                    const categoryBtn = (cat) => (
+                      <button
+                        key={cat.id}
+                        onClick={() => { router.push(`/${language}/tefekkur?cat=${cat.id}`); setTefekkurOpen(false); }}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                          width: '100%', textAlign: 'left',
+                          padding: '9px 12px', borderRadius: '10px', border: 'none',
+                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = `${cat.accent}14`; e.currentTarget.querySelector('.tdot').style.boxShadow = `0 0 12px ${cat.accent}99`; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.tdot').style.boxShadow = 'none'; }}
+                      >
+                        <span className="tdot" style={{
+                          width: '8px', height: '8px', borderRadius: '50%',
+                          background: cat.accent, flexShrink: 0, transition: 'box-shadow 0.15s',
+                        }} />
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0 }}>
+                          <span style={{ color: '#e8e6e3', fontSize: '0.86rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                            {language === 'tr' ? cat.labelTr : cat.labelEn}
+                          </span>
+                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            {language === 'tr' ? cat.descTr : cat.descEn}
+                          </span>
+                        </span>
+                        <span style={{ fontSize: '0.66rem', fontWeight: 700, color: 'rgba(148,163,184,0.5)', fontFamily: "'Inter', sans-serif" }}>{cat.count}</span>
+                      </button>
+                    );
+
+                    const tefekkurCategories = [
+                      { id: 'kavramsal', accent: '#3498db', labelTr: 'Kavramsal Tahlil', labelEn: 'Conceptual Analysis', descTr: 'Psikolojik, içsel ve pratik denemeler', descEn: 'Psychology, inner life & practice', count: 5 },
+                      { id: 'terminoloji', accent: '#d4a574', labelTr: 'Terminoloji Serisi', labelEn: 'Terminology Series', descTr: 'İnsan, Kâinat ve Kur\'an\'ı Okuma', descEn: 'Reading Human, Universe & Quran', count: 9 },
+                      { id: 'sure-hermenotik', accent: '#c9a227', labelTr: 'Sûre & Hermenötik', labelEn: 'Surah & Hermeneutics', descTr: 'Sûre tahlilleri ve yorum prensipleri', descEn: 'Surah analyses & interpretation', count: 10 },
+                      { id: 'semantik', accent: '#8b5cf6', labelTr: 'Semantik Seri', labelEn: 'Semantic Series', descTr: 'Arapça kök etimolojisi', descEn: 'Arabic root etymology', count: 5 },
+                      { id: 'idrak-suur', accent: '#1D9E75', labelTr: 'İdrak & Şuur', labelEn: 'Cognition & Consciousness', descTr: 'Epistemoloji ve metafizik', descEn: 'Epistemology & metaphysics', count: 6 },
+                      { id: 'kozmoloji', accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation', descTr: 'Yaratılış, kuantum, evrim', descEn: 'Creation, quantum & evolution', count: 7 },
+                    ];
+
+                    const featuredArticles = [
+                      { slug: 'tugyan', titleTr: 'Tuğyan (Semantik 4)', titleEn: 'Tughyan (Semantic 4)', meta: '3 dk', accent: '#8b5cf6' },
+                    ];
+
+                    return (
+                      <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        {/* Featured banner — Tüm Yazılar */}
+                        <button
+                          onClick={() => { router.push(`/${language}/tefekkur`); setTefekkurOpen(false); }}
+                          style={{
+                            width: '100%',
+                            padding: '12px 20px',
+                            background: 'rgba(201, 162, 39, 0.08)',
+                            borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
+                            borderTop: 'none', borderRight: 'none',
+                            borderLeft: '3px solid #c9a227',
+                            borderRadius: '8px 8px 0 0',
+                            boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
+                            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                            cursor: 'pointer', transition: 'background 0.2s ease, box-shadow 0.2s ease',
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.14)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.22)'; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
+                        >
+                          <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <span style={{ color: '#c9a227', flexShrink: 0, display: 'inline-flex' }}>
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M12 2L14.4 8.4 21 9.3 16 14 17.5 21 12 17.5 6.5 21 8 14 3 9.3 9.6 8.4z" />
+                              </svg>
+                            </span>
+                            <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
+                              <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                                {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
+                              </span>
+                              <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                                {language === 'tr' ? '49 makale · Felsufi · semantik · tefekkür' : '49 essays · Felsufi · semantics · reflection'}
+                              </span>
+                            </span>
+                          </span>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                            <path d="M9 18l6-6-6-6" />
+                          </svg>
+                        </button>
+
+                        {/* 2-column layout: kategoriler | öne çıkanlar */}
+                        <div style={{ display: 'flex', marginTop: '-2px' }}>
+                          {/* Col 1: 6 kategori */}
+                          <div style={{ flex: 1.4, padding: '8px' }}>
+                            <div style={colLabel}>{language === 'tr' ? 'Kategoriler' : 'Categories'}</div>
+                            {tefekkurCategories.map(categoryBtn)}
+                          </div>
+                          {/* Divider */}
+                          <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
+                          {/* Col 2: Öne çıkanlar + yazar */}
+                          <div style={{ flex: 1, padding: '8px', display: 'flex', flexDirection: 'column' }}>
+                            <div style={colLabel}>{language === 'tr' ? 'Öne Çıkanlar' : 'Featured'}</div>
+                            {featuredArticles.map(art => (
+                              <button
+                                key={art.slug}
+                                onClick={() => { router.push(`/${language}/tefekkur/${art.slug}`); setTefekkurOpen(false); }}
+                                style={{
+                                  display: 'flex', flexDirection: 'column', gap: '4px',
+                                  width: '100%', textAlign: 'left',
+                                  padding: '10px 12px', borderRadius: '10px', border: 'none',
+                                  background: 'transparent', cursor: 'pointer',
+                                  borderLeft: `2px solid ${art.accent}55`,
+                                  transition: 'background 0.15s, border-color 0.15s',
+                                }}
+                                onMouseEnter={e => { e.currentTarget.style.background = `${art.accent}10`; e.currentTarget.style.borderLeftColor = art.accent; }}
+                                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderLeftColor = `${art.accent}55`; }}
+                              >
+                                <span style={{ color: '#e8e6e3', fontSize: '0.84rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                                  {language === 'tr' ? art.titleTr : art.titleEn}
+                                </span>
+                                <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif" }}>
+                                  {art.meta} · {language === 'tr' ? 'okuma' : 'read'}
+                                </span>
+                              </button>
+                            ))}
+
+                            <div style={{ ...colLabel, marginTop: '8px' }}>{language === 'tr' ? 'Yazar' : 'Author'}</div>
+                            <a
+                              href="https://sufist.medium.com"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                display: 'flex', alignItems: 'center', gap: '10px',
+                                padding: '10px 12px', borderRadius: '10px',
+                                textDecoration: 'none', transition: 'background 0.15s',
+                              }}
+                              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; }}
+                              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+                            >
+                              <span style={{
+                                width: '32px', height: '32px', borderRadius: '50%',
+                                background: 'linear-gradient(135deg, rgba(212,165,116,0.20), rgba(212,165,116,0.05))',
+                                border: '1px solid rgba(212,165,116,0.30)',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                color: '#d4a574', fontWeight: 700, fontSize: '0.9rem',
+                                fontFamily: "'Playfair Display', serif", flexShrink: 0,
+                              }}>F</span>
+                              <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1 }}>
+                                <span style={{ color: '#e8e6e3', fontSize: '0.85rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
+                                  Felsufi
+                                </span>
+                                <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.68rem', fontFamily: "'Inter', sans-serif" }}>
+                                  Medium ↗
+                                </span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         </div>{/* end left group */}

@@ -161,21 +161,38 @@ export default function TefekkurIndexRoute() {
           )}
         </div>
 
-        {/* Author footer */}
+        {/* Attribution footer — Felsufi'nin izniyle */}
         <div style={{
           marginTop: '48px',
-          padding: '20px 24px',
-          background: 'rgba(255,255,255,0.022)',
-          border: `1px solid ${COLORS.glassBorder || 'rgba(255,255,255,0.08)'}`,
+          padding: '22px 26px',
+          background: `linear-gradient(135deg, ${COLORS.goldAlpha15 || 'rgba(212,165,116,0.15)'} 0%, rgba(212,165,116,0.04) 50%, rgba(255,255,255,0.022) 100%)`,
+          border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.20)'}`,
           borderRadius: RADIUS.md,
-          fontSize: '0.85rem',
-          color: COLORS.silver,
+          fontSize: '0.92rem',
+          color: COLORS.offWhite,
           fontFamily: FONTS.body,
-          lineHeight: 1.7,
+          lineHeight: 1.75,
+          position: 'relative', overflow: 'hidden',
         }}>
-          {tr
-            ? <>Yazılar <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, textDecoration: 'none', borderBottom: `1px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}` }}>Felsufi</a> tarafından kaleme alınmıştır; Medium'da ilk olarak yayımlanmıştır. QuranCodex'te yeniden düzenlenmiş ve site araçlarıyla çapraz bağlanmıştır.</>
-            : <>Essays are authored by <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, textDecoration: 'none', borderBottom: `1px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}` }}>Felsufi</a>; originally published on Medium. Re-edited on QuranCodex and cross-linked with site tools.</>}
+          <div style={{
+            position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+            background: `linear-gradient(90deg, transparent, ${COLORS.gold}, transparent)`,
+            opacity: 0.55,
+          }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+            <span style={{ color: COLORS.gold, fontSize: '1.05rem' }}>✦</span>
+            <span style={{
+              fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.18em',
+              color: COLORS.gold, textTransform: 'uppercase',
+            }}>
+              {tr ? 'Yazara Teşekkürlerimizle' : 'With Gratitude to the Author'}
+            </span>
+          </div>
+          <p style={{ margin: 0 }}>
+            {tr
+              ? <>Bu seçilmiş yazıları paylaşmamıza izin verdiği için <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a>'ye minnetle teşekkür ederiz. Her makale yazarın onayıyla taşınmıştır; kanonik kaynak Medium'da korunmaktadır ve site araçlarıyla çift yönlü bağlıdır.</>
+              : <>We extend our heartfelt gratitude to <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a> for sharing these selected essays. Each article is included with the author's permission; the canonical source remains on Medium and is bidirectionally linked with site tools.</>}
+          </p>
         </div>
       </div>
     </div>

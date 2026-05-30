@@ -1,43 +1,62 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { COLORS, FONTS, RADIUS } from '../../tokens';
 import VerseInline from './VerseInline';
 import PullQuote from './PullQuote';
 
-// ArticleRenderer — iterates blocks from JSON content and renders each via
-// the appropriate inline component. Block-based content model — extensible
-// (add new block types by adding a case to renderBlock).
+// ArticleRenderer — iterates blocks from JSON content and renders each.
+// Phase 2 enhancements: drop cap on first paragraph, framer-motion fade-up
+// per block, scroll-margin for TOC anchor jumps.
 
-function Paragraph({ tr: trText, en: enText, language }) {
+function Paragraph({ tr: trText, en: enText, language, isFirst }) {
   const tr = language === 'tr';
   const text = tr ? trText : enText;
-  // Split paragraphs by \n\n, render markdown-light **bold**
   const paragraphs = text.split('\n\n');
   return (
     <>
-      {paragraphs.map((para, i) => (
-        <p key={i} style={{
-          margin: '0 0 18px',
-          fontSize: '1.05rem',
-          color: COLORS.offWhite,
-          fontFamily: FONTS.body,
-          lineHeight: 1.85,
-        }}>
-          {renderInlineMarkdown(para)}
-        </p>
-      ))}
+      {paragraphs.map((para, i) => {
+        const showDropCap = isFirst && i === 0;
+        const firstChar = showDropCap ? para.charAt(0) : '';
+        const rest = showDropCap ? para.slice(1) : para;
+        return (
+          <p key={i} style={{
+            margin: '0 0 20px',
+            fontSize: '1.08rem',
+            color: COLORS.offWhite,
+            fontFamily: FONTS.body,
+            lineHeight: 1.85,
+          }}>
+            {showDropCap && (
+              <span style={{
+                float: 'left',
+                fontFamily: FONTS.display,
+                fontSize: '3.6rem',
+                lineHeight: 0.9,
+                color: COLORS.gold,
+                fontWeight: 800,
+                marginRight: '10px',
+                marginTop: '4px',
+                paddingTop: '2px',
+                textShadow: `0 0 18px rgba(212,165,116,0.35)`,
+              }}>
+                {firstChar}
+              </span>
+            )}
+            {renderInlineMarkdown(rest)}
+          </p>
+        );
+      })}
     </>
   );
 }
 
-// Tiny markdown: **bold** + line breaks
 function renderInlineMarkdown(text) {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
   return parts.map((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
       return <strong key={i} style={{ color: COLORS.gold, fontWeight: 700 }}>{part.slice(2, -2)}</strong>;
     }
-    // Handle line breaks within a paragraph
     return part.split('\n').map((line, j, arr) => (
       <span key={`${i}-${j}`}>
         {line}
@@ -51,21 +70,21 @@ function SectionHeading({ titleTr, titleEn, id, language }) {
   const tr = language === 'tr';
   return (
     <div id={id} style={{
-      margin: '36px 0 18px',
+      margin: '44px 0 22px',
       display: 'flex', alignItems: 'center', gap: '14px',
-      scrollMarginTop: '80px',
+      scrollMarginTop: '120px',
     }}>
       <div style={{
-        width: '4px', height: '20px',
+        width: '4px', height: '22px',
         background: COLORS.gold,
         borderRadius: '2px',
-        boxShadow: `0 0 12px ${COLORS.gold}aa`,
+        boxShadow: `0 0 14px ${COLORS.gold}aa`,
         flexShrink: 0,
       }} />
       <h2 style={{
         margin: 0,
         fontFamily: FONTS.display,
-        fontSize: '1.5rem',
+        fontSize: '1.55rem',
         fontWeight: 700,
         color: COLORS.offWhite,
         lineHeight: 1.3,
@@ -116,12 +135,13 @@ function SourcesBlock({ items, language }) {
   );
 }
 
-function renderBlock(block, idx, language) {
+function renderBlock(block, idx, language, firstParaIdx) {
+  const isFirstPara = block.type === 'paragraph' && idx === firstParaIdx;
   switch (block.type) {
     case 'section':
       return <SectionHeading key={idx} {...block} language={language} />;
     case 'paragraph':
-      return <Paragraph key={idx} {...block} language={language} />;
+      return <Paragraph key={idx} {...block} language={language} isFirst={isFirstPara} />;
     case 'verseInline':
       return <VerseInline key={idx} {...block} language={language} />;
     case 'pullQuote':
@@ -134,13 +154,29 @@ function renderBlock(block, idx, language) {
 }
 
 export default function ArticleRenderer({ blocks, language }) {
+  // Drop cap only on the FIRST paragraph block in the article
+  const firstParaIdx = blocks.findIndex(b => b.type === 'paragraph');
   return (
-    <article style={{
-      maxWidth: '720px',
-      margin: '0 auto',
-      padding: '0 4px',
-    }}>
-      {blocks.map((block, idx) => renderBlock(block, idx, language))}
-    </article>
+    <motion.article
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
+      style={{
+        margin: '0 auto',
+        padding: '0 4px',
+      }}
+    >
+      {blocks.map((block, idx) => renderBlock(block, idx, language, firstParaIdx))}
+    </motion.article>
   );
+}
+
+// Export utility: extract TOC entries from blocks for sticky sidebar
+export function extractToc(blocks, language) {
+  return blocks
+    .filter(b => b.type === 'section')
+    .map(b => ({
+      id: b.id,
+      title: language === 'tr' ? b.titleTr : b.titleEn,
+    }));
 }
