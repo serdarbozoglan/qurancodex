@@ -12,7 +12,7 @@
   "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
   "canonicalUrl": "https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-4-tu%C4%9Fyan-dad395c89dfa",
   "root": {
-    "letters": "ط غ و",
+    "letters": "ط غ و / ط غ ي",
     "transliteration": "ṭ-ḡ-w / ṭ-ḡ-y",
     "coreMeaningTr": "Haddi aşmak, sınırı geçmek, taşmak",
     "coreMeaningEn": "Exceeding bounds, crossing limits, overflowing",
@@ -73,7 +73,7 @@
       "titleTr": "ط-غ-و/ي — Anlam Ağacı",
       "titleEn": "ṭ-ġ-w/y — Semantic Tree",
       "root": {
-        "ar": "ط غ و / ي",
+        "ar": "ط غ و / ط غ ي",
         "tr": "Sınır Aşma",
         "en": "Boundary-crossing"
       },
