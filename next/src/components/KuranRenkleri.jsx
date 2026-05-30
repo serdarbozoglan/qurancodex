@@ -31,7 +31,7 @@ const TAB_LABELS = {
 
 function HapaxBadge() {
   return (
-    <span style={{ display:'inline-flex', alignItems:'center', gap:'3px', fontSize:'0.6rem', fontWeight:700, color:COLORS.purple, background:'rgba(83,74,183,0.12)', border:'1px solid rgba(83,74,183,0.28)', borderRadius: RADIUS.pillSm, padding:'1px 7px', whiteSpace:'nowrap' }}>
+    <span style={{ display:'inline-flex', alignItems:'center', gap:'4px', fontSize:'0.72rem', fontWeight:700, color:COLORS.purple, background:'rgba(83,74,183,0.14)', border:'1px solid rgba(83,74,183,0.32)', borderRadius: RADIUS.pillSm, padding:'3px 10px', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>
       ✦ Hapax: 1
     </span>
   );
@@ -48,7 +48,7 @@ function InfoPopover({ text }) {
         onBlur={() => setOpen(false)}
         aria-label="Bilgi"
         aria-describedby={open ? tooltipId : undefined}
-        style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', width:'18px', height:'18px', borderRadius:'50%', background:'rgba(59,130,246,0.08)', border:'1px solid rgba(59,130,246,0.2)', color:'rgba(59,130,246,0.7)', fontSize:'0.6rem', fontWeight:700, cursor:'pointer', flexShrink:0 }}
+        style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', width:'22px', height:'22px', borderRadius:'50%', background:'rgba(59,130,246,0.09)', border:'1px solid rgba(59,130,246,0.22)', color:'rgba(59,130,246,0.78)', fontSize:'0.72rem', fontWeight:700, cursor:'pointer', flexShrink:0 }}
       >ℹ</button>
       {open && (
         <div
@@ -119,15 +119,15 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
         </div>
 
         {/* Badges + mention count row */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '5px' }}>
-          <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, marginRight: '2px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '7px' }}>
+          <span style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, marginRight: '3px', fontWeight: 500 }}>
             ~{renk.totalMentions}{tr ? ' ayet' : ' v.'}
           </span>
           {renk.contexts.map(ctx => {
             const b = CONTEXT_BADGES[ctx];
             if (!b) return null;
             return (
-              <span key={ctx} style={{ fontSize: '0.68rem', padding: '3px 9px', background: b.bg, color: b.color, borderRadius: RADIUS.chip, fontFamily: FONTS.body, fontWeight: 600 }}>
+              <span key={ctx} style={{ fontSize: '0.76rem', padding: '4px 11px', background: b.bg, color: b.color, borderRadius: RADIUS.pillSm, fontFamily: FONTS.body, fontWeight: 600, letterSpacing: '0.01em', border: `1px solid ${b.color}33` }}>
                 {tr ? b.labelTr : b.labelEn}
               </span>
             );
@@ -143,37 +143,48 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
           <div style={{ marginTop: '14px', paddingTop: '14px', borderTop: `1px solid ${renk.tintBorder}` }}>
             {/* All Arabic terms */}
             {renk.arabicTerms.length > 1 && (
-              <div style={{ marginBottom: '12px' }}>
-                <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 8px' }}>
+              <div style={{ marginBottom: '14px' }}>
+                <p style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 10px' }}>
                   {tr ? 'Kelime Formları' : 'Word Forms'}
                 </p>
                 {renk.arabicTerms.map(t => (
-                  <div key={t.arabic} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 0', borderBottom: `1px solid ${COLORS.glassBg}` }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{t.arabic}</span>
-                      <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{t.transliteration}</span>
+                  <div key={t.arabic} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: `1px solid ${COLORS.glassBg}` }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.gold, direction: 'rtl', lineHeight: 1.4 }} lang="ar">{t.arabic}</span>
+                      <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{t.transliteration}</span>
                       {t.isHapax && <HapaxBadge />}
                     </div>
-                    <span style={{ fontSize: '0.7rem', color: COLORS.silver, fontFamily: FONTS.body }}>{t.mentionCount}×</span>
+                    <span style={{ fontSize: '0.74rem', color: COLORS.silver, fontFamily: FONTS.body, fontWeight: 600 }}>{t.mentionCount}×</span>
                   </div>
                 ))}
               </div>
             )}
 
-            {/* Key verse */}
-            <div style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${renk.tintBorder}`, borderLeft: `3px solid ${renk.hexColor}`, borderRadius: RADIUS.md, padding: '12px 14px', marginBottom: '12px' }}>
-              <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 8px', opacity: 0.7 }}>
+            {/* Key verse — premium elevated card */}
+            <div style={{
+              background: 'rgba(0,0,0,0.32)',
+              border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
+              borderLeft: `3px solid ${renk.hexColor}`,
+              borderRadius: RADIUS.md,
+              padding: '16px 18px',
+              marginBottom: '14px',
+              boxShadow: `inset 0 0 20px ${renk.hexColor}10`,
+            }}>
+              <p style={{ fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', opacity: 0.78 }}>
                 {tr ? 'Örnek Ayet' : 'Key Verse'}
               </p>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 8px' }} lang="ar" dir="rtl">
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.75rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 12px' }} lang="ar" dir="rtl">
                 {renk.keyVerseAr}
               </p>
-              <p style={{ fontSize: '0.85rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
+              <p style={{ fontSize: '0.9rem', color: COLORS.offWhite, fontStyle: 'italic', margin: '0 0 10px', fontFamily: FONTS.body, lineHeight: 1.7 }}>
                 "{tr ? renk.keyVerseTr : renk.keyVerseEn}"
               </p>
-              <span style={{ fontSize: '0.72rem', color: `${renk.hexColor}bb`, fontWeight: 600, fontFamily: FONTS.body }}>
-                — {renk.keyVerseRef}
-              </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: renk.hexColor }} />
+                <span style={{ fontSize: '0.76rem', color: `${renk.hexColor}cc`, fontWeight: 600, fontFamily: FONTS.body, letterSpacing: '0.03em' }}>
+                  {renk.keyVerseRef}
+                </span>
+              </div>
             </div>
 
             {/* Summary */}
@@ -693,79 +704,241 @@ function TabBaglam({ language, isMobile }) {
   ];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      {sections.map((section, si) => (
-        <div key={si} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg, overflow: 'hidden' }}>
-          {/* Section header */}
-          <div style={{ padding: isMobile ? '14px' : '16px 20px', borderBottom: `1px solid ${COLORS.glassBg}`, background: `linear-gradient(135deg, rgba(0,0,0,0.2), transparent)` }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-              <div style={{ width: '3px', height: '14px', background: section.accentColor, borderRadius: '2px', flexShrink: 0 }} />
-              <span style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: section.accentColor, fontFamily: FONTS.body }}>
-                {tr ? section.titleTr : section.titleEn}
-              </span>
-            </div>
-            <p style={{ fontSize: '0.95rem', color: COLORS.silver, lineHeight: 1.7, fontFamily: FONTS.body, margin: 0 }}>
-              {tr ? section.descTr : section.descEn}
-            </p>
-          </div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+      {sections.map((section, si) => {
+        const accent = section.accentColor;
+        const hapaxCount = section.colors.filter(c => c.isHapax).length;
+        return (
+          <div
+            key={si}
+            style={{
+              background: `linear-gradient(180deg, ${accent}0F 0%, rgba(255,255,255,0.022) 30%, rgba(255,255,255,0.022) 100%)`,
+              border: `1px solid ${COLORS.glassBorder}`,
+              borderRadius: RADIUS.lg,
+              overflow: 'hidden',
+              position: 'relative',
+            }}
+          >
+            {/* Decorative accent glow — top edge */}
+            <div style={{
+              position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+              background: `linear-gradient(90deg, transparent, ${accent}, transparent)`,
+              opacity: 0.65, pointerEvents: 'none',
+            }} />
 
-          {/* Color items */}
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {section.colors.map((c, ci) => {
-              const key = `${si}-${ci}`;
-              const isOpen = expandedItem === key;
-              return (
-                <div key={ci} style={{ borderBottom: ci < section.colors.length - 1 ? `1px solid rgba(255,255,255,0.04)` : 'none' }}>
-                  {/* Row */}
-                  <button
-                    onClick={() => setExpandedItem(isOpen ? null : key)}
+            {/* ── Section header — premium upgrade ── */}
+            <div style={{
+              padding: isMobile ? '18px 16px 16px' : '22px 24px 18px',
+              borderBottom: `1px solid ${COLORS.glassBg}`,
+              position: 'relative',
+            }}>
+              {/* Top row: eyebrow label + meta count */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px', flexWrap: 'wrap', gap: '8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{
+                    width: '4px', height: '18px', borderRadius: '2px',
+                    background: accent,
+                    boxShadow: `0 0 12px ${accent}88, 0 0 24px ${accent}44`,
+                    flexShrink: 0,
+                  }} />
+                  <span style={{
+                    fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em',
+                    color: accent, textTransform: 'uppercase', fontFamily: FONTS.body,
+                  }}>
+                    {tr ? section.titleTr : section.titleEn}
+                  </span>
+                </div>
+                <span style={{
+                  fontSize: '0.66rem', fontWeight: 600, letterSpacing: '0.08em',
+                  color: COLORS.silverAlpha70 || COLORS.silver,
+                  fontFamily: FONTS.body, textTransform: 'uppercase',
+                  padding: '3px 9px', background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  borderRadius: RADIUS.pillSm,
+                }}>
+                  {section.colors.length} {tr ? 'renk' : 'colors'}{hapaxCount > 0 && (tr ? ` · ${hapaxCount} hapax` : ` · ${hapaxCount} hapax`)}
+                </span>
+              </div>
+
+              {/* Palette signature stripe — all colors at a glance */}
+              <div style={{ display: 'flex', gap: '4px', marginBottom: '14px', flexWrap: 'wrap' }}>
+                {section.colors.map((c, idx) => (
+                  <div
+                    key={idx}
+                    title={tr ? c.nameTr : c.nameEn}
                     style={{
-                      display: 'flex', alignItems: 'center', gap: '12px',
-                      width: '100%', padding: isMobile ? '10px 14px' : '12px 20px',
-                      background: isOpen ? 'rgba(255,255,255,0.04)' : 'transparent',
-                      border: 'none', cursor: 'pointer', textAlign: 'left',
-                      transition: 'background 0.15s',
+                      flex: '1 1 auto', minWidth: '40px', maxWidth: '90px',
+                      height: '8px', borderRadius: '4px',
+                      background: c.hex,
+                      boxShadow: `0 0 8px ${c.hex}55`,
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Description */}
+              <p style={{
+                fontSize: isMobile ? '0.88rem' : '0.93rem',
+                color: COLORS.silver, lineHeight: 1.7,
+                fontFamily: FONTS.body, margin: 0,
+              }}>
+                {tr ? section.descTr : section.descEn}
+              </p>
+            </div>
+
+            {/* ── Color items — premium accordion rows ── */}
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {section.colors.map((c, ci) => {
+                const key = `${si}-${ci}`;
+                const isOpen = expandedItem === key;
+                return (
+                  <div
+                    key={ci}
+                    style={{
+                      borderBottom: ci < section.colors.length - 1 ? `1px solid rgba(255,255,255,0.04)` : 'none',
+                      borderLeft: `3px solid ${isOpen ? c.hex : 'transparent'}`,
+                      transition: 'border-left-color 0.2s',
                     }}
                   >
-                    <div style={{ width: '12px', height: '12px', borderRadius: RADIUS.full, background: c.hex, flexShrink: 0, boxShadow: `0 0 6px ${c.hex}60` }} />
-                    <span style={{ flex: 1, fontSize: '0.85rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600 }}>
-                      {tr ? c.nameTr : c.nameEn}
-                    </span>
-                    <span style={{ fontSize: '0.7rem', color: COLORS.gold, fontFamily: FONTS.body, opacity: 0.8, flexShrink: 0 }}>
-                      {c.ref}
-                    </span>
-                    <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2.5" strokeLinecap="round"
-                      style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s', flexShrink: 0 }}>
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </button>
+                    {/* Row */}
+                    <button
+                      onClick={() => setExpandedItem(isOpen ? null : key)}
+                      style={{
+                        display: 'flex', alignItems: 'center', gap: '14px',
+                        width: '100%', padding: isMobile ? '12px 14px' : '14px 20px',
+                        background: isOpen ? `${c.hex}0F` : 'transparent',
+                        border: 'none', cursor: 'pointer', textAlign: 'left',
+                        transition: 'background 0.18s, transform 0.18s',
+                        fontFamily: FONTS.body,
+                      }}
+                      onMouseEnter={e => {
+                        if (!isOpen && !isMobile) {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
+                        }
+                      }}
+                      onMouseLeave={e => {
+                        if (!isOpen) e.currentTarget.style.background = 'transparent';
+                      }}
+                    >
+                      {/* Larger color swatch — premium feel */}
+                      <div style={{
+                        width: '24px', height: '24px', borderRadius: RADIUS.full,
+                        background: c.hex,
+                        border: c.hex === '#FFFFFF' || c.hex === '#F0F0F0' ? '1px solid rgba(0,0,0,0.25)' : '1px solid rgba(255,255,255,0.12)',
+                        boxShadow: `0 0 0 3px rgba(0,0,0,0.35), 0 0 14px ${c.hex}77`,
+                        flexShrink: 0,
+                      }} />
 
-                  {/* Expanded verse */}
-                  {isOpen && (
-                    <div style={{ padding: isMobile ? '12px 14px 14px' : '14px 20px 16px', background: 'rgba(0,0,0,0.2)', borderTop: `1px solid ${COLORS.glassBg}` }}>
-                      <p style={{ fontFamily: FONTS.quran, fontSize: '1.8rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 12px' }} lang="ar" dir="rtl">
-                        {c.verseAr}
-                      </p>
-                      <p style={{ fontFamily: FONTS.body, fontSize: '0.95rem', color: COLORS.offWhite, fontStyle: 'italic', margin: '0 0 10px', lineHeight: 1.7 }}>
-                        "{tr ? c.verseTr : c.verseEn}"
-                      </p>
-                      <p style={{ fontFamily: FONTS.body, fontSize: '0.9rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.65 }}>
-                        {tr ? c.noteTr : c.noteEn}
-                      </p>
-                      <span style={{ fontSize: '0.85rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600 }}>— {c.ref}</span>
+                      {/* Name */}
+                      <span style={{
+                        flex: 1,
+                        fontSize: isMobile ? '0.85rem' : '0.92rem',
+                        color: COLORS.offWhite, fontWeight: 600,
+                      }}>
+                        {tr ? c.nameTr : c.nameEn}
+                      </span>
+
+                      {/* Hapax chip — moved inline next to name */}
                       {c.isHapax && (
-                        <span style={{ marginLeft: '10px', fontSize: '0.72rem', color: COLORS.purple, fontFamily: FONTS.body, fontWeight: 600, background: 'rgba(83,74,183,0.15)', padding: '2px 8px', borderRadius: RADIUS.chip, border: '1px solid rgba(83,74,183,0.3)' }}>
-                          Hapax
+                        <span style={{
+                          fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.06em',
+                          color: COLORS.purple, fontFamily: FONTS.body,
+                          background: 'rgba(139,92,246,0.13)',
+                          padding: '2px 8px', borderRadius: RADIUS.pillSm,
+                          border: '1px solid rgba(139,92,246,0.3)',
+                          flexShrink: 0,
+                        }}>
+                          {tr ? 'HAPAX' : 'HAPAX'}
                         </span>
                       )}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+
+                      {/* Verse ref */}
+                      <span style={{
+                        fontSize: '0.72rem', color: COLORS.gold,
+                        opacity: 0.78, flexShrink: 0, fontWeight: 500,
+                      }}>
+                        {c.ref}
+                      </span>
+
+                      {/* Chevron */}
+                      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={isOpen ? c.hex : COLORS.silver} strokeWidth="2.5" strokeLinecap="round"
+                        style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.25s, stroke 0.2s', flexShrink: 0 }}>
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+
+                    {/* Expanded verse panel — gold-accented card-within-card */}
+                    {isOpen && (
+                      <div style={{
+                        padding: isMobile ? '14px 14px 18px' : '18px 24px 22px',
+                        background: `linear-gradient(180deg, ${c.hex}10 0%, rgba(0,0,0,0.28) 60%, rgba(0,0,0,0.28) 100%)`,
+                        borderTop: `1px solid ${COLORS.glassBg}`,
+                      }}>
+                        {/* Arabic verse — elevated card */}
+                        <div style={{
+                          padding: isMobile ? '14px 14px' : '18px 22px',
+                          background: 'rgba(0,0,0,0.35)',
+                          border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
+                          borderRadius: RADIUS.md,
+                          marginBottom: '14px',
+                          boxShadow: `inset 0 0 24px ${c.hex}10`,
+                        }}>
+                          <p style={{
+                            fontFamily: FONTS.quran,
+                            fontSize: isMobile ? '1.55rem' : '1.85rem',
+                            color: COLORS.gold,
+                            textAlign: 'right', direction: 'rtl',
+                            lineHeight: 2, margin: 0,
+                          }} lang="ar" dir="rtl">
+                            {c.verseAr}
+                          </p>
+                        </div>
+
+                        {/* Translation */}
+                        <p style={{
+                          fontFamily: FONTS.body,
+                          fontSize: isMobile ? '0.92rem' : '0.95rem',
+                          color: COLORS.offWhite, fontStyle: 'italic',
+                          margin: '0 0 12px', lineHeight: 1.75,
+                        }}>
+                          "{tr ? c.verseTr : c.verseEn}"
+                        </p>
+
+                        {/* Verse ref — small badge */}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                          <div style={{
+                            width: '6px', height: '6px', borderRadius: '50%',
+                            background: COLORS.gold, opacity: 0.6,
+                          }} />
+                          <span style={{
+                            fontSize: '0.78rem', fontWeight: 600,
+                            color: COLORS.gold, opacity: 0.85,
+                            letterSpacing: '0.04em',
+                          }}>
+                            {c.ref}
+                          </span>
+                        </div>
+
+                        {/* Linguistic note */}
+                        <p style={{
+                          fontFamily: FONTS.body,
+                          fontSize: isMobile ? '0.88rem' : '0.92rem',
+                          color: COLORS.silver, margin: 0,
+                          lineHeight: 1.75,
+                          paddingLeft: '14px',
+                          borderLeft: `2px solid ${c.hex}55`,
+                        }}>
+                          {tr ? c.noteTr : c.noteEn}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -785,6 +958,9 @@ function TabCennet({ language, isMobile }) {
   const analyses = [
     {
       ref: 'Kehf 18:31',
+      themeColor: '#1D9E75',  // emerald — yeşil elbise teması
+      themeTr: 'Yeşil elbise',
+      themeEn: 'Green garments',
       verseAr: 'يَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ',
       verseTr: 'İnce ipekten yeşil elbiseler giyerler.',
       verseEn: 'They wear green garments of fine silk and brocade.',
@@ -793,6 +969,9 @@ function TabCennet({ language, isMobile }) {
     },
     {
       ref: 'Rahman 55:64',
+      themeColor: '#0F4C35',  // koyu yeşil — mudhammatân
+      themeTr: 'Koyu yoğun yeşil',
+      themeEn: 'Intensely dark green',
       verseAr: 'مُدْهَامَّتَانِ',
       verseTr: 'İkisi de koyu yemyeşil.',
       verseEn: 'Both of them are intensely dark green.',
@@ -802,6 +981,9 @@ function TabCennet({ language, isMobile }) {
     },
     {
       ref: 'İnsan 76:15-16',
+      themeColor: '#64748B',  // gümüş
+      themeTr: 'Gümüşten billur',
+      themeEn: 'Crystal of silver',
       verseAr: 'وَيُطَافُ عَلَيْهِم بِآنِيَةٍ مِّن فِضَّةٍ وَأَكْوَابٍ كَانَتْ قَوَارِيرَا ۝ قَوَارِيرَ مِن فِضَّةٍ',
       verseTr: 'Gümüşten kaplar ve billur kadehlerle dolaşılır — gümüşten billur.',
       verseEn: 'Silver vessels and crystal cups circulate among them — crystal of silver.',
@@ -810,50 +992,277 @@ function TabCennet({ language, isMobile }) {
     },
   ];
 
+  const ACCENT = '#1D9E75'; // emerald — paradise accent
+  const directCount = swatches.filter(s => !s.implied).length;
+  const impliedCount = swatches.filter(s => s.implied).length;
+
   return (
     <div>
-      <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.7, fontFamily: FONTS.body, marginBottom: '20px' }}>
-        {tr
-          ? "Kur'an cennetin renklerini doğrudan adlandırmaz — nesneler aracılığıyla renk verir. Cennet tasvirinde ısınma tonları (kırmızı, turuncu) yok; serin ve sakin tonlar (yeşil, gümüş) ağırlıkta."
-          : "The Quran doesn't name paradise colors directly — it gives color through objects. Warm tones (red, orange) are absent; cool, calm tones (green, silver) dominate."}
-      </p>
+      {/* ── Hero callout ── */}
+      <div style={{
+        background: `linear-gradient(135deg, ${ACCENT}10 0%, rgba(184,134,11,0.06) 50%, transparent 100%)`,
+        border: `1px solid ${ACCENT}33`,
+        borderRadius: RADIUS.lg,
+        padding: isMobile ? '18px 16px' : '24px 28px',
+        marginBottom: '28px',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        {/* Top accent glow */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+          background: `linear-gradient(90deg, transparent, ${ACCENT}, transparent)`,
+          opacity: 0.7,
+        }} />
 
-      {/* Swatch grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(3,1fr)', gap: '8px', marginBottom: '24px' }}>
-        {swatches.map((s, i) => (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.md, overflow: 'hidden' }}>
-            <div style={{ height: '36px', background: s.hex, opacity: s.implied ? 0.7 : 1, borderBottom: s.implied ? '2px dashed rgba(255,255,255,0.25)' : 'none' }} />
-            <div style={{ padding: '8px' }}>
-              <p style={{ fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, margin: '0 0 2px' }}>
-                {tr ? s.labelTr : s.labelEn}
-                {s.implied && <span style={{ fontSize: '0.62rem', color: COLORS.silver, marginLeft: '4px', fontWeight: 400, fontStyle: 'italic' }}>{tr ? '(ima edilen)' : '(implied)'}</span>}
-              </p>
-              <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>
-                {tr ? s.noteTr : s.noteEn}
-              </p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+          <span style={{
+            fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
+            color: ACCENT, textTransform: 'uppercase', fontFamily: FONTS.body,
+          }}>
+            {tr ? 'Cennet Paleti' : 'Paradise Palette'}
+          </span>
+          <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, ${ACCENT}55, transparent)` }} />
+        </div>
+
+        <h3 style={{
+          fontFamily: FONTS.display,
+          fontSize: isMobile ? '1.3rem' : '1.6rem',
+          color: COLORS.offWhite, fontWeight: 700,
+          margin: '0 0 12px', lineHeight: 1.3,
+        }}>
+          {tr ? 'Serin, Sakin, Sade — Cennetin Üslubu' : 'Cool, Calm, Spare — The Aesthetic of Paradise'}
+        </h3>
+
+        <p style={{
+          fontSize: isMobile ? '0.92rem' : '0.96rem',
+          color: COLORS.silver, lineHeight: 1.75,
+          fontFamily: FONTS.body, margin: 0,
+        }}>
+          {tr
+            ? "Kur'an cennetin renklerini doğrudan adlandırmaz — nesneler aracılığıyla verir. Cennet tasvirinde ısınma tonları (kırmızı, turuncu) yoktur; serin ve sakin tonlar (yeşil, gümüş) ağırlıkta."
+            : "The Quran doesn't name paradise colors directly — it gives color through objects. Warm tones (red, orange) are absent; cool, calm tones (green, silver) dominate."}
+        </p>
+
+        {/* Stat strip */}
+        <div style={{ display: 'flex', gap: '20px', marginTop: '18px', flexWrap: 'wrap' }}>
+          {[
+            { value: directCount, labelTr: 'Doğrudan renk', labelEn: 'Direct colors' },
+            { value: impliedCount, labelTr: 'İma edilen', labelEn: 'Implied' },
+            { value: '0', labelTr: 'Sıcak ton', labelEn: 'Warm tones' },
+          ].map((stat, i) => (
+            <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              <span style={{
+                fontSize: '1.4rem', fontFamily: FONTS.display, fontWeight: 800,
+                color: ACCENT, lineHeight: 1,
+              }}>
+                {stat.value}
+              </span>
+              <span style={{
+                fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em',
+                color: COLORS.silver, textTransform: 'uppercase', fontFamily: FONTS.body,
+              }}>
+                {tr ? stat.labelTr : stat.labelEn}
+              </span>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      {/* Verse analyses */}
-      {analyses.map((a, i) => (
-        <div key={i} style={{ background: 'rgba(29,158,117,0.05)', border: '1px solid rgba(29,158,117,0.15)', borderRadius: RADIUS.chip, padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body }}>{a.ref}</span>
-            {a.isHapax && <HapaxBadge />}
-          </div>
-          <p style={{ fontFamily: FONTS.quran, fontSize: '1.8rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 6px' }} lang="ar" dir="rtl">
-            {a.verseAr}
-          </p>
-          <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
-            {tr ? a.verseTr : a.verseEn}
-          </p>
-          <p style={{ fontSize: '0.88rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
-            {tr ? a.noteTr : a.noteEn}
-          </p>
+      {/* ── Premium swatch grid ── */}
+      <div style={{ marginBottom: '28px' }}>
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: '12px',
+          marginBottom: '14px',
+        }}>
+          <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${ACCENT}55, transparent)` }} />
+          <span style={{
+            fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
+            color: ACCENT, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.9,
+          }}>
+            {tr ? 'Palet' : 'Palette'}
+          </span>
+          <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${ACCENT}55, transparent)` }} />
         </div>
-      ))}
+
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(3,1fr)', gap: '12px' }}>
+          {swatches.map((s, i) => (
+            <div
+              key={i}
+              style={{
+                background: 'rgba(255,255,255,0.025)',
+                border: `1px solid ${s.implied ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.09)'}`,
+                borderRadius: RADIUS.md,
+                overflow: 'hidden',
+                transition: `all ${TRANSITION.normal}`,
+                cursor: 'default',
+              }}
+              onMouseEnter={e => { if (!isMobile) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.borderColor = `${s.hex}55`; } }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = s.implied ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.09)'; }}
+            >
+              {/* Color block — taller, with subtle glow */}
+              <div style={{
+                height: '52px',
+                background: s.hex,
+                opacity: s.implied ? 0.75 : 1,
+                position: 'relative',
+                boxShadow: `inset 0 -1px 0 rgba(0,0,0,0.2)`,
+              }}>
+                {s.implied && (
+                  <div style={{
+                    position: 'absolute', top: '6px', right: '8px',
+                    fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.08em',
+                    color: 'rgba(0,0,0,0.6)', background: 'rgba(255,255,255,0.85)',
+                    padding: '2px 7px', borderRadius: RADIUS.pillSm, textTransform: 'uppercase',
+                  }}>
+                    {tr ? 'İma' : 'Implied'}
+                  </div>
+                )}
+              </div>
+              {/* Card body */}
+              <div style={{ padding: '12px 14px' }}>
+                <p style={{
+                  fontSize: '0.92rem', fontWeight: 700,
+                  color: COLORS.offWhite, fontFamily: FONTS.body,
+                  margin: '0 0 4px',
+                }}>
+                  {tr ? s.labelTr : s.labelEn}
+                </p>
+                <p style={{
+                  fontSize: '0.78rem', color: COLORS.silver,
+                  fontFamily: FONTS.body, margin: 0, lineHeight: 1.5,
+                }}>
+                  {tr ? s.noteTr : s.noteEn}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Verse analyses — premium card-within-card ── */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: '12px',
+          marginBottom: '4px',
+        }}>
+          <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${ACCENT}55, transparent)` }} />
+          <span style={{
+            fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
+            color: ACCENT, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.9,
+          }}>
+            {tr ? 'Ayet Analizleri' : 'Verse Analyses'}
+          </span>
+          <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${ACCENT}55, transparent)` }} />
+        </div>
+
+        {analyses.map((a, i) => {
+          const theme = a.themeColor || ACCENT;
+          return (
+            <div
+              key={i}
+              style={{
+                background: `linear-gradient(180deg, ${theme}10 0%, ${ACCENT}06 50%, rgba(255,255,255,0.022) 100%)`,
+                border: `1px solid ${theme}33`,
+                borderRadius: RADIUS.lg,
+                padding: isMobile ? '16px' : '20px 22px',
+                position: 'relative', overflow: 'hidden',
+                transition: 'transform 0.2s, border-color 0.2s, box-shadow 0.2s',
+              }}
+              onMouseEnter={e => {
+                if (!isMobile) {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.borderColor = `${theme}66`;
+                  e.currentTarget.style.boxShadow = `0 8px 28px rgba(0,0,0,0.25), 0 0 24px ${theme}22`;
+                }
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = `${theme}33`;
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              {/* Left accent strip — theme color */}
+              <div style={{
+                position: 'absolute', top: 0, left: 0, bottom: 0, width: '3px',
+                background: `linear-gradient(180deg, ${theme}, ${theme}44)`,
+                boxShadow: `0 0 14px ${theme}88`,
+              }} />
+
+              {/* Header: theme swatch + ref + hapax + theme label */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px', flexWrap: 'wrap' }}>
+                {/* Themed color swatch */}
+                <div style={{
+                  width: '14px', height: '14px', borderRadius: '50%',
+                  background: theme,
+                  boxShadow: `0 0 14px ${theme}aa, 0 0 0 3px rgba(0,0,0,0.35)`,
+                  flexShrink: 0,
+                }} />
+                <span style={{
+                  fontSize: '0.8rem', fontWeight: 700, color: COLORS.gold,
+                  fontFamily: FONTS.body, letterSpacing: '0.04em',
+                }}>
+                  {a.ref}
+                </span>
+                {(a.themeTr || a.themeEn) && (
+                  <span style={{
+                    fontSize: '0.72rem', color: theme, fontFamily: FONTS.body,
+                    fontStyle: 'italic', fontWeight: 600,
+                    padding: '2px 9px',
+                    background: `${theme}15`,
+                    border: `1px solid ${theme}33`,
+                    borderRadius: RADIUS.pillSm,
+                  }}>
+                    {tr ? a.themeTr : a.themeEn}
+                  </span>
+                )}
+                {a.isHapax && <HapaxBadge />}
+              </div>
+
+              {/* Arabic — elevated card */}
+              <div style={{
+                padding: isMobile ? '14px 14px' : '18px 22px',
+                background: 'rgba(0,0,0,0.32)',
+                border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
+                borderRadius: RADIUS.md,
+                marginBottom: '14px',
+                boxShadow: `inset 0 0 24px ${theme}14`,
+              }}>
+                <p style={{
+                  fontFamily: FONTS.quran,
+                  fontSize: isMobile ? '1.6rem' : '1.9rem',
+                  color: COLORS.gold,
+                  textAlign: 'right', direction: 'rtl',
+                  lineHeight: 2, margin: 0,
+                }} lang="ar" dir="rtl">
+                  {a.verseAr}
+                </p>
+              </div>
+
+              {/* Translation — bumped to 1rem desktop */}
+              <p style={{
+                fontFamily: FONTS.body,
+                fontSize: isMobile ? '0.94rem' : '1rem',
+                color: COLORS.offWhite, fontStyle: 'italic',
+                margin: '0 0 14px', lineHeight: 1.75,
+              }}>
+                "{tr ? a.verseTr : a.verseEn}"
+              </p>
+
+              {/* Linguistic note — themed left border */}
+              <p style={{
+                fontFamily: FONTS.body,
+                fontSize: isMobile ? '0.88rem' : '0.92rem',
+                color: COLORS.silver, margin: 0,
+                lineHeight: 1.75,
+                paddingLeft: '14px',
+                borderLeft: `2px solid ${theme}66`,
+              }}>
+                {tr ? a.noteTr : a.noteEn}
+              </p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -915,169 +1324,626 @@ function TabKiyamet({ language, isMobile }) {
     },
   ];
 
+  const BLACK_FACE = '#1E1B4B';
+
   return (
     <div>
-      {/* White/Black contrast header */}
-      <div style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : undefined, gridTemplateColumns: isMobile ? undefined : '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
-        <div style={{ background: 'rgba(200,214,229,0.08)', border: '1px solid rgba(200,214,229,0.2)', borderRadius: RADIUS.chip, padding: '16px', textAlign: 'center' }}>
-          <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '8px' }}>
-            {tr ? 'Kurtulanlar' : 'The Saved'}
-          </div>
-          <div style={{ fontSize: '1rem', fontWeight: 700, color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '4px' }}>
-            {tr ? 'Yüzleri Ağarır' : 'Faces Turn White'}
-          </div>
-          <p style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Al-i İmran 3:107</p>
+      {/* ── Bipolar contrast hero ── */}
+      <div style={{
+        background: `linear-gradient(135deg, ${WHITE_FACE}10 0%, transparent 45%, ${BLACK_FACE}30 100%)`,
+        border: `1px solid ${COLORS.glassBorder}`,
+        borderRadius: RADIUS.lg,
+        padding: isMobile ? '18px 16px' : '24px 28px',
+        marginBottom: '28px',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        {/* Top accent strip — bipolar gradient */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+          background: `linear-gradient(90deg, ${WHITE_FACE}, transparent 50%, ${BLACK_FACE})`,
+          opacity: 0.75,
+        }} />
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+          <span style={{
+            fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
+            color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.85,
+          }}>
+            {tr ? 'Beyaz vs Siyah' : 'White vs Black'}
+          </span>
+          <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)` }} />
         </div>
-        <div style={{ background: 'rgba(30,27,75,0.4)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.chip, padding: '16px', textAlign: 'center' }}>
-          <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '8px' }}>
-            {tr ? 'Kaybedenler' : 'The Lost'}
+
+        <h3 style={{
+          fontFamily: FONTS.display,
+          fontSize: isMobile ? '1.3rem' : '1.6rem',
+          color: COLORS.offWhite, fontWeight: 700,
+          margin: '0 0 16px', lineHeight: 1.3,
+        }}>
+          {tr ? 'Yüzlerin İki Kutbu — Renk Sınıflandırması' : 'The Two Poles of Faces — Color as Classifier'}
+        </h3>
+
+        {/* Two-pole comparison */}
+        <div style={{
+          display: isMobile ? 'flex' : 'grid',
+          flexDirection: isMobile ? 'column' : undefined,
+          gridTemplateColumns: isMobile ? undefined : '1fr auto 1fr',
+          alignItems: 'stretch',
+          gap: isMobile ? '14px' : '24px',
+        }}>
+          {/* WHITE — saved */}
+          <div style={{
+            background: `linear-gradient(180deg, ${WHITE_FACE}18, ${WHITE_FACE}06)`,
+            border: `1px solid ${WHITE_FACE}40`,
+            borderRadius: RADIUS.md,
+            padding: '18px 20px',
+            textAlign: 'center',
+            boxShadow: `0 0 24px ${WHITE_FACE}15`,
+          }}>
+            <div style={{
+              width: '46px', height: '46px', margin: '0 auto 12px',
+              borderRadius: '50%',
+              background: WHITE_FACE,
+              boxShadow: `0 0 24px ${WHITE_FACE}aa, 0 0 0 4px rgba(0,0,0,0.3)`,
+            }} />
+            <div style={{
+              fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.16em',
+              color: WHITE_FACE, fontFamily: FONTS.body, marginBottom: '6px',
+              textTransform: 'uppercase',
+            }}>
+              {tr ? 'Kurtulanlar' : 'The Saved'}
+            </div>
+            <div style={{
+              fontSize: '1.05rem', fontWeight: 700,
+              color: COLORS.offWhite, fontFamily: FONTS.body, marginBottom: '8px',
+            }}>
+              {tr ? 'Yüzleri Ağarır' : 'Faces Turn White'}
+            </div>
+            <span style={{
+              fontSize: '0.75rem', color: COLORS.gold, opacity: 0.75,
+              fontFamily: FONTS.body, fontWeight: 500, letterSpacing: '0.03em',
+            }}>
+              Âl-i İmrân 3:107
+            </span>
           </div>
-          <div style={{ fontSize: '1rem', fontWeight: 700, color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '4px' }}>
-            {tr ? 'Yüzleri Kararır' : 'Faces Turn Black'}
+
+          {/* VS divider */}
+          {!isMobile && (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+              <div style={{ width: '1px', flex: 1, background: `linear-gradient(180deg, transparent, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)` }} />
+              <span style={{
+                fontSize: '0.7rem', fontWeight: 700, color: COLORS.gold,
+                fontFamily: FONTS.display, fontStyle: 'italic', letterSpacing: '0.1em',
+              }}>
+                ✦
+              </span>
+              <div style={{ width: '1px', flex: 1, background: `linear-gradient(180deg, transparent, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)` }} />
+            </div>
+          )}
+
+          {/* BLACK — lost (Option A: saturated indigo + inset burn shadow) */}
+          <div style={{
+            background: `linear-gradient(180deg, ${BLACK_FACE}E0 0%, ${BLACK_FACE}90 45%, rgba(0,0,0,0.55) 100%)`,
+            border: `1px solid ${BLACK_FACE}AA`,
+            borderRadius: RADIUS.md,
+            padding: '18px 20px',
+            textAlign: 'center',
+            boxShadow: `0 0 28px rgba(0,0,0,0.55), inset 0 0 36px rgba(0,0,0,0.55)`,
+          }}>
+            <div style={{
+              width: '46px', height: '46px', margin: '0 auto 12px',
+              borderRadius: '50%',
+              background: '#000000',
+              border: '1px solid rgba(255,255,255,0.12)',
+              boxShadow: `0 0 22px rgba(40,40,60,0.7), 0 0 0 4px rgba(0,0,0,0.4)`,
+            }} />
+            <div style={{
+              fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.16em',
+              color: COLORS.silver, fontFamily: FONTS.body, marginBottom: '6px',
+              textTransform: 'uppercase',
+            }}>
+              {tr ? 'Kaybedenler' : 'The Lost'}
+            </div>
+            <div style={{
+              fontSize: '1.05rem', fontWeight: 700,
+              color: COLORS.offWhite, fontFamily: FONTS.body, marginBottom: '8px',
+            }}>
+              {tr ? 'Yüzleri Kararır' : 'Faces Turn Black'}
+            </div>
+            <span style={{
+              fontSize: '0.75rem', color: COLORS.gold, opacity: 0.75,
+              fontFamily: FONTS.body, fontWeight: 500, letterSpacing: '0.03em',
+            }}>
+              Zümer 39:60
+            </span>
           </div>
-          <p style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0 }}>Zümer 39:60</p>
         </div>
       </div>
 
-      {/* 4 scene cards */}
-      {scenes.map((s, i) => (
-        <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${s.hex}`, borderRadius: RADIUS.chip, padding: isMobile ? '14px' : '18px', marginBottom: '12px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-            <div style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: s.hex, flexShrink: 0 }} />
-            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? s.titleTr : s.titleEn}</span>
-            {(s.infoTr || s.infoEn) && <InfoPopover text={tr ? s.infoTr : s.infoEn} />}
-          </div>
-          <p style={{ fontFamily: FONTS.quran, fontSize: '1.8rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 6px' }} lang="ar" dir="rtl">
-            {s.verseAr}
-          </p>
-          <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
-            {tr ? s.verseTr : s.verseEn} — <span style={{ fontWeight: 600 }}>{s.ref}</span>
-          </p>
-          <p style={{ fontSize: '0.88rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
-            {tr ? s.noteTr : s.noteEn}
-          </p>
+      {/* ── Narrative timeline — cinematic sequence of 4 scenes ── */}
+      <div style={{
+        background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(255,255,255,0.018) 100%)',
+        border: `1px solid ${COLORS.glassBorder}`,
+        borderRadius: RADIUS.lg,
+        padding: isMobile ? '14px 14px 16px' : '22px 28px 18px',
+        marginBottom: '20px',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        {/* Top accent */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+          background: `linear-gradient(90deg, transparent, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)`,
+          opacity: 0.6,
+        }} />
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+          <span style={{
+            fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
+            color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.85,
+          }}>
+            {tr ? 'Sinematik Sıra' : 'Cinematic Sequence'}
+          </span>
+          <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)` }} />
         </div>
-      ))}
+
+        {/* Timeline backbone + markers */}
+        <div style={{ position: 'relative', padding: isMobile ? '6px 0' : '18px 0 8px' }}>
+          {/* Gradient backbone — horizontal desktop / vertical mobile */}
+          <motion.div
+            initial={{ scaleX: isMobile ? 1 : 0, scaleY: isMobile ? 0 : 1, opacity: 0 }}
+            animate={{ scaleX: 1, scaleY: 1, opacity: 1 }}
+            transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
+            style={{
+              position: 'absolute',
+              ...(isMobile
+                ? { left: '20px', top: '20px', bottom: '20px', width: '3px', transformOrigin: 'top center' }
+                : { left: '4%', right: '4%', top: '38px', height: '3px', transformOrigin: 'left center' }),
+              background: `linear-gradient(${isMobile ? '180deg' : '90deg'}, ${scenes[0].hex} 0%, ${scenes[1].hex} 35%, ${scenes[2].hex} 70%, ${scenes[3].hex} 100%)`,
+              borderRadius: '3px',
+              boxShadow: `0 0 14px ${scenes[0].hex}55, 0 0 26px ${scenes[3].hex}33`,
+              zIndex: 1,
+            }}
+          />
+
+          {/* Markers — color dots + labels */}
+          <div style={{
+            position: 'relative', zIndex: 2,
+            display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
+            alignItems: isMobile ? 'stretch' : 'flex-start',
+            justifyContent: isMobile ? 'flex-start' : 'space-between',
+            gap: isMobile ? '20px' : '10px',
+          }}>
+            {scenes.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.25 + i * 0.18, ease: [0.4, 0, 0.2, 1] }}
+                style={{
+                  display: 'flex',
+                  flexDirection: isMobile ? 'row' : 'column',
+                  alignItems: isMobile ? 'flex-start' : 'center',
+                  gap: isMobile ? '14px' : '8px',
+                  flex: isMobile ? 'unset' : 1,
+                  maxWidth: isMobile ? 'none' : '180px',
+                  textAlign: isMobile ? 'left' : 'center',
+                }}
+              >
+                {/* Color marker */}
+                <div style={{
+                  width: '34px', height: '34px',
+                  borderRadius: RADIUS.full,
+                  background: s.hex,
+                  border: '2px solid rgba(255,255,255,0.16)',
+                  boxShadow: `0 0 0 4px rgba(0,0,0,0.45), 0 0 22px ${s.hex}99`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: FONTS.display, fontSize: '0.78rem', fontWeight: 800,
+                  color: 'rgba(255,255,255,0.92)',
+                  flexShrink: 0,
+                }}>
+                  {i + 1}
+                </div>
+                {/* Label */}
+                <div style={{
+                  display: 'flex', flexDirection: 'column', gap: '2px',
+                  flex: isMobile ? 1 : 'unset',
+                }}>
+                  <span style={{
+                    fontSize: '0.72rem', fontWeight: 700,
+                    color: COLORS.offWhite, fontFamily: FONTS.body,
+                    letterSpacing: '0.02em', lineHeight: 1.35,
+                  }}>
+                    {tr ? s.titleTr : s.titleEn}
+                  </span>
+                  <span style={{
+                    fontSize: '0.66rem', color: COLORS.silver,
+                    fontFamily: FONTS.body, opacity: 0.75,
+                  }}>
+                    {s.ref}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Scene cards — premium ── */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
+          <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)` }} />
+          <span style={{
+            fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
+            color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.9,
+          }}>
+            {tr ? '4 Sahne — Detay' : '4 Scenes — Detail'}
+          </span>
+          <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)` }} />
+        </div>
+
+        {scenes.map((s, i) => (
+          <div
+            key={i}
+            style={{
+              background: `linear-gradient(180deg, ${s.hex}10 0%, rgba(255,255,255,0.022) 65%)`,
+              border: `1px solid ${s.hex}33`,
+              borderRadius: RADIUS.lg,
+              padding: isMobile ? '16px' : '20px 22px',
+              position: 'relative', overflow: 'hidden',
+            }}
+          >
+            {/* Left accent strip */}
+            <div style={{
+              position: 'absolute', top: 0, left: 0, bottom: 0, width: '3px',
+              background: `linear-gradient(180deg, ${s.hex}, ${s.hex}44)`,
+              boxShadow: `0 0 12px ${s.hex}88`,
+            }} />
+
+            {/* Title row: dot + title + info */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px', flexWrap: 'wrap' }}>
+              <div style={{
+                width: '12px', height: '12px', borderRadius: '50%',
+                background: s.hex,
+                boxShadow: `0 0 12px ${s.hex}aa, 0 0 0 3px rgba(0,0,0,0.35)`,
+                flexShrink: 0,
+              }} />
+              <span style={{
+                fontSize: isMobile ? '0.96rem' : '1.04rem',
+                fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body,
+                letterSpacing: '0.01em', lineHeight: 1.4, flex: 1,
+              }}>
+                {tr ? s.titleTr : s.titleEn}
+              </span>
+              {(s.infoTr || s.infoEn) && <InfoPopover text={tr ? s.infoTr : s.infoEn} />}
+            </div>
+
+            {/* Arabic — elevated card */}
+            <div style={{
+              padding: isMobile ? '14px 14px' : '18px 22px',
+              background: 'rgba(0,0,0,0.32)',
+              border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
+              borderRadius: RADIUS.md,
+              marginBottom: '14px',
+              boxShadow: `inset 0 0 24px ${s.hex}12`,
+            }}>
+              <p style={{
+                fontFamily: FONTS.quran,
+                fontSize: isMobile ? '1.6rem' : '1.9rem',
+                color: COLORS.gold,
+                textAlign: 'right', direction: 'rtl',
+                lineHeight: 2, margin: 0,
+              }} lang="ar" dir="rtl">
+                {s.verseAr}
+              </p>
+            </div>
+
+            {/* Translation + ref */}
+            <p style={{
+              fontFamily: FONTS.body,
+              fontSize: isMobile ? '0.92rem' : '0.95rem',
+              color: COLORS.offWhite, fontStyle: 'italic',
+              margin: '0 0 10px', lineHeight: 1.75,
+            }}>
+              "{tr ? s.verseTr : s.verseEn}"
+            </p>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+              <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: s.hex, opacity: 0.8 }} />
+              <span style={{
+                fontSize: '0.78rem', fontWeight: 600,
+                color: COLORS.gold, opacity: 0.82,
+                letterSpacing: '0.04em',
+              }}>
+                {s.ref}
+              </span>
+            </div>
+
+            {/* Linguistic note */}
+            <p style={{
+              fontFamily: FONTS.body,
+              fontSize: isMobile ? '0.88rem' : '0.92rem',
+              color: COLORS.silver, margin: 0,
+              lineHeight: 1.75,
+              paddingLeft: '14px',
+              borderLeft: `2px solid ${s.hex}66`,
+            }}>
+              {tr ? s.noteTr : s.noteEn}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 function TabDilbilim({ language, isMobile }) {
   const tr = language === 'tr';
-  const sectionHdrStyle = { fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` };
 
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-
-      {/* Section A: Renk yoğunluğu */}
-      <div>
-        <p style={sectionHdrStyle}>
-          {tr ? 'A — Renk Yoğunluğu Kelimeleri' : 'A — Color Intensity Words'}
-        </p>
-        <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 12px' }}>
-          {tr
-            ? "Kur'an normal renk + yoğun renk için farklı kelimeler kullanır. Bu dilbilimsel incelik başka Sami dillerinde karşılaştırıldığında Kur'an Arapçasının özgünlüğünü gösterir."
-            : "The Quran uses distinct words for normal vs. intense color. This linguistic precision demonstrates the uniqueness of Quranic Arabic compared to other Semitic languages."}
-        </p>
-        {isMobile ? (
-          /* Mobile: card layout */
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {[
-              { normal: 'أَخْضَر (ahdar)', intense: 'مُدْهَامَّتَانِ (mudhammatân)', meaningTr: 'Yeşil / Koyu Yoğun Yeşil', meaningEn: 'Green / Intensely Dark Green' },
-              { normal: 'أَسْوَد (esvad)', intense: 'غَرَابِيبُ سُودٌ (garâbîb sûd)', meaningTr: 'Siyah / Kuzgun Siyahı', meaningEn: 'Black / Raven Black' },
-            ].map((row, i) => (
-              <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.chip, padding: '14px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Normal' : 'Normal'}</span>
-                  <span style={{ fontSize: '0.85rem', color: COLORS.offWhite, fontFamily: FONTS.body }}>{row.normal}</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Yoğun' : 'Intense'}</span>
-                  <span style={{ fontSize: '0.85rem', color: COLORS.purple, fontWeight: 600, fontFamily: FONTS.body }}>{row.intense} <HapaxBadge /></span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Anlam' : 'Meaning'}</span>
-                  <span style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? row.meaningTr : row.meaningEn}</span>
-                </div>
-              </div>
-            ))}
+  // Premium section wrapper — reusable across all 5 sections
+  const SectionShell = ({ letter, accent, eyebrowTr, eyebrowEn, titleTr, titleEn, descTr, descEn, children }) => (
+    <div style={{
+      background: `linear-gradient(180deg, ${accent}0E 0%, rgba(255,255,255,0.022) 30%, rgba(255,255,255,0.022) 100%)`,
+      border: `1px solid ${COLORS.glassBorder}`,
+      borderRadius: RADIUS.lg,
+      overflow: 'hidden',
+      position: 'relative',
+    }}>
+      <div style={{
+        position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+        background: `linear-gradient(90deg, transparent, ${accent}, transparent)`,
+        opacity: 0.65, pointerEvents: 'none',
+      }} />
+      {/* Header */}
+      <div style={{
+        padding: isMobile ? '18px 16px 14px' : '22px 24px 16px',
+        borderBottom: `1px solid ${COLORS.glassBg}`,
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
+          {/* Letter badge */}
+          <div style={{
+            width: '32px', height: '32px',
+            borderRadius: '50%',
+            background: `linear-gradient(135deg, ${accent}30, ${accent}10)`,
+            border: `1px solid ${accent}55`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontFamily: FONTS.display, fontSize: '0.92rem', fontWeight: 800,
+            color: accent,
+            boxShadow: `0 0 14px ${accent}33`,
+            flexShrink: 0,
+          }}>
+            {letter}
           </div>
-        ) : (
-          /* Desktop: table */
-          <div style={{ overflowX: 'auto', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorder}` }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, fontSize: '0.85rem' }}>
-              <thead>
-                <tr style={{ background: 'rgba(255,255,255,0.04)' }}>
-                  <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Normal' : 'Normal'}</th>
-                  <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Yoğun (Özel Kelime)' : 'Intense (Special Word)'}</th>
-                  <th style={{ padding: '10px 14px', textAlign: 'left', color: COLORS.gold, fontWeight: 700, borderBottom: `1px solid ${COLORS.glassBorder}` }}>{tr ? 'Anlam' : 'Meaning'}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { normal: 'أَخْضَر (ahdar)', intense: 'مُدْهَامَّتَانِ (mudhammatân)', meaningTr: 'Yeşil / Koyu Yoğun Yeşil', meaningEn: 'Green / Intensely Dark Green' },
-                  { normal: 'أَسْوَد (esvad)', intense: 'غَرَابِيبُ سُودٌ (garâbîb sûd)', meaningTr: 'Siyah / Kuzgun Siyahı', meaningEn: 'Black / Raven Black' },
-                ].map((row, i) => (
-                  <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                    <td style={{ padding: '10px 14px', color: COLORS.offWhite }}>{row.normal}</td>
-                    <td style={{ padding: '10px 14px', color: COLORS.purple, fontWeight: 600 }}>{row.intense} <HapaxBadge /></td>
-                    <td style={{ padding: '10px 14px', color: COLORS.silver }}>{tr ? row.meaningTr : row.meaningEn}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, minWidth: 0 }}>
+            <span style={{
+              fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.2em',
+              color: accent, textTransform: 'uppercase', fontFamily: FONTS.body,
+            }}>
+              {tr ? eyebrowTr : eyebrowEn}
+            </span>
+            <h3 style={{
+              fontFamily: FONTS.display,
+              fontSize: isMobile ? '1.05rem' : '1.18rem',
+              color: COLORS.offWhite, fontWeight: 700,
+              margin: 0, lineHeight: 1.35,
+            }}>
+              {tr ? titleTr : titleEn}
+            </h3>
           </div>
+        </div>
+        {(descTr || descEn) && (
+          <p style={{
+            fontSize: isMobile ? '0.88rem' : '0.92rem',
+            color: COLORS.silver, lineHeight: 1.7,
+            fontFamily: FONTS.body, margin: '8px 0 0',
+          }}>
+            {tr ? descTr : descEn}
+          </p>
         )}
       </div>
-
-      {/* Section B: Hapax renk kelimeleri */}
-      <div>
-        <p style={sectionHdrStyle}>
-          {tr ? 'B — Hapax Renk Kelimeleri' : 'B — Hapax Color Words'}
-        </p>
-        {[
-          {
-            arabic: 'مُدْهَامَّتَانِ',
-            ref: 'Rahman 55:64',
-            formTr: 'İkili, sıfat', formEn: 'Dual adjective',
-            noteTr: "Bu formda Kur'an'da yalnızca bir kez — gerçek bir hapax legomenon. İki cennet bahçesini tanımlar, kökü 'd-h-m' (siyaha çalan koyu ton).",
-            noteEn: "Appears only once in the Quran in this form — a true hapax legomenon. Describes two paradise gardens, root 'd-h-m' (dark shade tending to black).",
-          },
-          {
-            arabic: 'كَالدِّهَانِ',
-            ref: 'Rahman 55:37',
-            formTr: 'Teşbih (benzetme)', formEn: 'Simile',
-            noteTr: "Kıyamette gökyüzünün rengi — erimiş kırmızı yağa benzetme. Bu formda nadir.",
-            noteEn: "The color of the sky at judgment — compared to melted red oil. Rare in this form.",
-          },
-        ].map((h, i) => (
-          <div key={i} style={{ background: 'rgba(83,74,183,0.08)', border: '1px solid rgba(83,74,183,0.2)', borderRadius: RADIUS.chip, padding: '14px', marginBottom: '10px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-              <span style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{h.arabic}</span>
-              <HapaxBadge />
-              <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body }}>{h.ref}</span>
-            </div>
-            <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 6px' }}>
-              <em>{tr ? h.formTr : h.formEn}</em>
-            </p>
-            <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
-              {tr ? h.noteTr : h.noteEn}
-            </p>
-          </div>
-        ))}
+      {/* Body */}
+      <div style={{ padding: isMobile ? '14px 14px 18px' : '18px 24px 22px' }}>
+        {children}
       </div>
+    </div>
+  );
 
-      {/* Section C: Zurk tartışması */}
-      <div>
-        <p style={sectionHdrStyle}>
-          {tr ? "C — 'Zurk' Tartışması (Taha 20:102)" : "C — The 'Zurq' Debate (Ta-Ha 20:102)"}
-        </p>
-        <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 14px' }}>
-          {tr
-            ? "'Zurk' kelimesi Arapça'da hem mavi hem donuk/bulanık anlamına gelir. Taha 20:102 bağlamında üç farklı yorum:"
-            : "'Zurq' in Arabic means both blue and glazed/cloudy. Three interpretations in the context of Ta-Ha 20:102:"}
-        </p>
-        <div style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : undefined, gridTemplateColumns: isMobile ? undefined : 'repeat(3,1fr)', gap: '10px' }}>
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+
+      {/* ── Section A: Renk Yoğunluğu Kelimeleri ── */}
+      <SectionShell
+        letter="A"
+        accent={COLORS.purple}
+        eyebrowTr="Renk Yoğunluğu" eyebrowEn="Color Intensity"
+        titleTr="Normal vs Yoğun — Kur'an'ın İki Renk Sicili"
+        titleEn="Normal vs Intense — The Quran's Two Color Registers"
+        descTr="Kur'an normal ve yoğun renk için farklı kelimeler kullanır. Bu dilbilimsel hassasiyet, Sami dilleri arasında Kur'an Arapçasının özgünlüğünü gösterir."
+        descEn="The Quran uses distinct words for normal vs intense color. This linguistic precision shows the uniqueness of Quranic Arabic among Semitic languages."
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {[
+            { normalAr: 'أَخْضَر', normalTrans: 'ahdar', intenseAr: 'مُدْهَامَّتَانِ', intenseTrans: 'mudhammatân', meaningTr: 'Yeşil → Koyu Yoğun Yeşil', meaningEn: 'Green → Intensely Dark Green', hex: '#0F4C35' },
+            { normalAr: 'أَسْوَد', normalTrans: 'esvad',  intenseAr: 'غَرَابِيبُ سُودٌ', intenseTrans: 'garâbîb sûd', meaningTr: 'Siyah → Kuzgun Siyahı', meaningEn: 'Black → Raven Black', hex: '#1E1B4B' },
+          ].map((row, i) => (
+            <div key={i} style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr',
+              gap: isMobile ? '10px' : '18px',
+              alignItems: 'center',
+              padding: isMobile ? '14px' : '16px 18px',
+              background: 'rgba(255,255,255,0.025)',
+              border: `1px solid ${COLORS.glassBgStrong}`,
+              borderLeft: `3px solid ${row.hex}`,
+              borderRadius: RADIUS.md,
+            }}>
+              {/* Normal */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', color: COLORS.silver, textTransform: 'uppercase', fontFamily: FONTS.body }}>
+                  {tr ? 'Normal' : 'Normal'}
+                </span>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                  <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.offWhite, direction: 'rtl', lineHeight: 1.3 }} lang="ar">{row.normalAr}</span>
+                  <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body }}>{row.normalTrans}</span>
+                </div>
+              </div>
+              {/* Arrow */}
+              {!isMobile && (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.gold, opacity: 0.5 }}>
+                  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                  </svg>
+                </div>
+              )}
+              {/* Intense */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', color: COLORS.purple, textTransform: 'uppercase', fontFamily: FONTS.body }}>
+                    {tr ? 'Yoğun' : 'Intense'}
+                  </span>
+                  <HapaxBadge />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                  <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.gold, direction: 'rtl', lineHeight: 1.3 }} lang="ar">{row.intenseAr}</span>
+                  <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body }}>{row.intenseTrans}</span>
+                </div>
+              </div>
+              {/* Meaning row spans on mobile */}
+              <div style={{
+                gridColumn: isMobile ? '1' : '1 / -1',
+                paddingTop: isMobile ? '8px' : '6px',
+                marginTop: isMobile ? '4px' : '4px',
+                borderTop: `1px solid ${COLORS.glassBg}`,
+                fontSize: '0.85rem',
+                color: COLORS.silver, fontFamily: FONTS.body,
+                fontStyle: 'italic',
+              }}>
+                {tr ? row.meaningTr : row.meaningEn}
+              </div>
+            </div>
+          ))}
+        </div>
+      </SectionShell>
+
+      {/* ── Section B: Hapax Renk Kelimeleri ── */}
+      <SectionShell
+        letter="B"
+        accent={COLORS.purple}
+        eyebrowTr="Hapax Legomena" eyebrowEn="Hapax Legomena"
+        titleTr="Bir Kez Geçen Kelimeler — Kur'an'da İz"
+        titleEn="Once-Spoken Words — Traces in the Quran"
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {[
+            {
+              arabic: 'مُدْهَامَّتَانِ', transliteration: 'mudhammatân',
+              ref: 'Rahman 55:64',
+              formTr: 'İkili, sıfat', formEn: 'Dual adjective',
+              noteTr: "Bu formda Kur'an'da yalnızca bir kez — gerçek bir hapax legomenon. İki cennet bahçesini tanımlar, kökü 'd-h-m' (siyaha çalan koyu ton).",
+              noteEn: "Appears only once in the Quran in this form — a true hapax legomenon. Describes two paradise gardens, root 'd-h-m' (dark shade tending to black).",
+            },
+            {
+              arabic: 'كَالدِّهَانِ', transliteration: 'ka-d-dihân',
+              ref: 'Rahman 55:37',
+              formTr: 'Teşbih (benzetme)', formEn: 'Simile',
+              noteTr: "Kıyamette gökyüzünün rengi — erimiş kırmızı yağa benzetme. Bu formda nadir.",
+              noteEn: "The color of the sky at judgment — compared to melted red oil. Rare in this form.",
+            },
+          ].map((h, i) => (
+            <div key={i} style={{
+              background: `linear-gradient(180deg, rgba(139,92,246,0.10) 0%, rgba(139,92,246,0.04) 60%)`,
+              border: '1px solid rgba(139,92,246,0.28)',
+              borderRadius: RADIUS.md,
+              padding: isMobile ? '14px' : '18px 20px',
+              position: 'relative', overflow: 'hidden',
+            }}>
+              {/* Left accent */}
+              <div style={{
+                position: 'absolute', top: 0, left: 0, bottom: 0, width: '3px',
+                background: `linear-gradient(180deg, ${COLORS.purple}, ${COLORS.purple}44)`,
+                boxShadow: `0 0 10px ${COLORS.purple}88`,
+              }} />
+
+              {/* Arabic — elevated */}
+              <div style={{
+                padding: isMobile ? '12px 14px' : '14px 20px',
+                background: 'rgba(0,0,0,0.3)',
+                border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
+                borderRadius: RADIUS.md,
+                marginBottom: '12px',
+                display: 'flex', flexDirection: 'column', gap: '6px',
+                boxShadow: 'inset 0 0 16px rgba(139,92,246,0.10)',
+              }}>
+                <p style={{
+                  fontFamily: FONTS.quran,
+                  fontSize: isMobile ? '1.65rem' : '1.85rem',
+                  color: COLORS.gold,
+                  textAlign: 'right', direction: 'rtl', lineHeight: 1.8,
+                  margin: 0,
+                }} lang="ar" dir="rtl">
+                  {h.arabic}
+                </p>
+                <span style={{
+                  fontSize: '0.78rem', color: COLORS.silver,
+                  fontStyle: 'italic', fontFamily: FONTS.body,
+                  textAlign: 'right', direction: 'ltr',
+                }}>
+                  {h.transliteration}
+                </span>
+              </div>
+
+              {/* Meta row */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', flexWrap: 'wrap' }}>
+                <HapaxBadge />
+                <span style={{
+                  fontSize: '0.74rem', color: COLORS.gold, opacity: 0.82,
+                  fontFamily: FONTS.body, fontWeight: 600, letterSpacing: '0.04em',
+                }}>
+                  {h.ref}
+                </span>
+                <span style={{
+                  fontSize: '0.7rem', color: COLORS.silver,
+                  fontFamily: FONTS.body, fontStyle: 'italic',
+                  padding: '2px 8px',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  borderRadius: RADIUS.pillSm,
+                }}>
+                  {tr ? h.formTr : h.formEn}
+                </span>
+              </div>
+
+              {/* Linguistic note */}
+              <p style={{
+                fontFamily: FONTS.body,
+                fontSize: isMobile ? '0.88rem' : '0.92rem',
+                color: COLORS.silver, margin: 0,
+                lineHeight: 1.75,
+                paddingLeft: '14px',
+                borderLeft: `2px solid rgba(139,92,246,0.4)`,
+              }}>
+                {tr ? h.noteTr : h.noteEn}
+              </p>
+            </div>
+          ))}
+        </div>
+      </SectionShell>
+
+      {/* ── Section C: 'Zurk' Tartışması ── */}
+      <SectionShell
+        letter="C"
+        accent="#2563EB"
+        eyebrowTr="Üç Yorum · Taha 20:102" eyebrowEn="Three Interpretations · Ta-Ha 20:102"
+        titleTr="'Zurk' Tartışması — Mavi mi, Donuk mu, Kör mü?"
+        titleEn="The 'Zurq' Debate — Blue, Glazed, or Blind?"
+        descTr="'Zurk' kelimesi Arapça'da hem mavi hem donuk/bulanık anlamına gelir. Taha 20:102 bağlamında üç klasik yorum:"
+        descEn="'Zurq' in Arabic means both blue and glazed/cloudy. Three classical interpretations in the context of Ta-Ha 20:102:"
+      >
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+          gap: '12px',
+        }}>
           {[
             {
               numTr: '1', titleTr: 'Mavi Gözlü', titleEn: 'Blue-eyed',
@@ -1098,110 +1964,258 @@ function TabDilbilim({ language, isMobile }) {
               color: '#374151',
             },
           ].map((v, i) => (
-            <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderTop: `3px solid ${v.color}`, borderRadius: RADIUS.md, padding: '12px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
-                <span style={{ width: '18px', height: '18px', borderRadius: RADIUS.full, background: v.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', color: COLORS.offWhite, fontWeight: 700, flexShrink: 0 }}>{v.numTr}</span>
-                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? v.titleTr : v.titleEn}</span>
+            <div key={i} style={{
+              background: `linear-gradient(180deg, ${v.color}12 0%, rgba(255,255,255,0.022) 65%)`,
+              border: `1px solid ${v.color}40`,
+              borderRadius: RADIUS.md,
+              padding: '16px 18px',
+              position: 'relative', overflow: 'hidden',
+            }}>
+              {/* Number circle */}
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px',
+              }}>
+                <div style={{
+                  width: '34px', height: '34px',
+                  borderRadius: '50%',
+                  background: `linear-gradient(135deg, ${v.color}, ${v.color}88)`,
+                  border: `1px solid ${v.color}`,
+                  boxShadow: `0 0 16px ${v.color}66, 0 0 0 3px rgba(0,0,0,0.35)`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: FONTS.display, fontSize: '0.95rem', fontWeight: 800,
+                  color: COLORS.offWhite,
+                  flexShrink: 0,
+                }}>
+                  {v.numTr}
+                </div>
                 <InfoPopover text={tr ? "Tefsir geleneğinde bu yorum için farklı alimler farklı gerekçeler sunar." : "Different scholars in the tafsir tradition offer different justifications for this interpretation."} />
               </div>
-              <p style={{ fontSize: '0.8rem', color: COLORS.silver, lineHeight: 1.5, fontFamily: FONTS.body, margin: 0 }}>
+              <h4 style={{
+                fontSize: '0.96rem', fontWeight: 700,
+                color: COLORS.offWhite, fontFamily: FONTS.body,
+                margin: '0 0 8px', lineHeight: 1.4,
+              }}>
+                {tr ? v.titleTr : v.titleEn}
+              </h4>
+              <p style={{
+                fontSize: '0.85rem', color: COLORS.silver,
+                lineHeight: 1.7, fontFamily: FONTS.body, margin: 0,
+              }}>
                 {tr ? v.descTr : v.descEn}
               </p>
             </div>
           ))}
         </div>
-      </div>
+      </SectionShell>
 
-      {/* Section D: İmplied colors */}
-      <div>
-        <p style={sectionHdrStyle}>
-          {tr ? 'D — Nesne Üzerinden İma Edilen Renkler' : 'D — Colors Implied Through Objects'}
-        </p>
-        <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: '0 0 14px' }}>
-          {tr
-            ? "Kur'an bazen rengi doğrudan söylemez — nesneyi vererek rengi ima eder. Bu 'söylemeden anlatmak' Kur'an'ın dil ekonomisinin özelliğidir:"
-            : "The Quran sometimes doesn't state the color directly — it implies the color by naming the object. This 'showing without telling' is characteristic of Quranic language economy:"}
-        </p>
-        {[
-          {
-            hex: '#F1F5F9',
-            objectTr: 'Süt', objectEn: 'Milk',
-            colorTr: '→ Beyaz', colorEn: '→ White',
-            verseAr: 'أَنْهَارٌ مِّن لَّبَنٍ لَّمْ يَتَغَيَّرْ طَعْمُهُ',
-            verseTr: '…tadı değişmeyen süt nehirleri…',
-            verseEn: '…rivers of milk whose taste does not change…',
-            ref: 'Muhammed 47:15',
-            noteTr: "Süt beyazdır — ama Kur'an rengi söylemez. Renk, nesnenin zihinde çağrışımıyla gelir.",
-            noteEn: "Milk is white — but the Quran doesn't say so. The color arrives through the object's mental association.",
-          },
-          {
-            hex: '#CA8A04',
-            objectTr: 'Bal', objectEn: 'Honey',
-            colorTr: '→ Amber / Sarı', colorEn: '→ Amber / Yellow',
-            verseAr: 'وَأَنْهَارٌ مِّنْ عَسَلٍ مُّصَفًّى',
-            verseTr: '…ve saf baldan nehirler…',
-            verseEn: '…and rivers of purified honey…',
-            ref: 'Muhammed 47:15',
-            noteTr: "'Musaffâ' — arındırılmış, süzülmüş. Renk adı yok; amber ton nesnenin kendisinde gizli.",
-            noteEn: "'Musaffâ' — purified, filtered. No color named; the amber hue is concealed in the object itself.",
-          },
-          {
-            hex: '#B91C1C',
-            objectTr: 'Ateş / Alev', objectEn: 'Fire / Flame',
-            colorTr: '→ Kırmızı / Turuncu', colorEn: '→ Red / Orange',
-            verseAr: 'لَوَّاحَةٌ لِّلْبَشَرِ',
-            verseTr: 'İnsanı kavuran (rengi değiştiren).',
-            verseEn: 'Scorching to the skin (altering its color).',
-            ref: 'Müddessir 74:29',
-            noteTr: "'Levvâha' kökü renk değişikliği anlamını içerir — ateş insanın tenini kızartır ve karartur. Kırmızı/siyah ama söylenmez.",
-            noteEn: "The root 'lavvâha' implies color change — fire reddens and blackens the skin. Red/black, but left unstated.",
-          },
-        ].map((row, i) => (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBgStrong}`, borderLeft: `3px solid ${row.hex}`, borderRadius: RADIUS.chip, padding: isMobile ? '12px' : '16px', marginBottom: '10px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: row.hex, flexShrink: 0 }} />
-                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body }}>{tr ? row.objectTr : row.objectEn}</span>
-              </div>
-              <span style={{ fontSize: '0.78rem', color: COLORS.gold, fontFamily: FONTS.body, fontStyle: 'italic' }}>{tr ? row.colorTr : row.colorEn}</span>
-            </div>
-            <p style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 1.9, margin: '0 0 4px' }} lang="ar" dir="rtl">
-              {row.verseAr}
-            </p>
-            <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 8px' }}>
-              {tr ? row.verseTr : row.verseEn} — <span style={{ fontWeight: 600, color: COLORS.offWhite }}>{row.ref}</span>
-            </p>
-            <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
-              {tr ? row.noteTr : row.noteEn}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* Section E: Beyazın çoğul/cinsiyet yapısı */}
-      <div>
-        <p style={sectionHdrStyle}>
-          {tr ? "E — Beyazın Kök Genişlemesi: بيض → Yumurta" : "E — White's Root Expansion: بيض → Egg"}
-        </p>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '10px' }}>
+      {/* ── Section D: Nesne Üzerinden İma Edilen Renkler ── */}
+      <SectionShell
+        letter="D"
+        accent={COLORS.gold}
+        eyebrowTr="Söylemeden Anlatmak" eyebrowEn="Showing Without Telling"
+        titleTr="Nesne Üzerinden İma Edilen Renkler"
+        titleEn="Colors Implied Through Objects"
+        descTr="Kur'an bazen rengi doğrudan söylemez — nesneyi vererek rengi ima eder. Bu 'söylemeden anlatmak' Kur'an'ın dil ekonomisinin özelliğidir."
+        descEn="The Quran sometimes doesn't state the color directly — it implies the color by naming the object. This 'showing without telling' is characteristic of Quranic language economy."
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {[
-            { ar: 'أَبْيَض', note: tr ? 'tekil, eril' : 'singular masc.' },
-            { ar: 'بَيْضَاء', note: tr ? 'tekil, dişil / parlak' : 'singular fem. / radiant' },
-            { ar: 'بِيضٌ', note: tr ? 'çoğul' : 'plural' },
-            { ar: 'بَيْضَة', note: tr ? 'yumurta — aynı kök!' : 'egg — same root!' },
-          ].map((w, i) => (
-            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', padding: '8px 12px', background: 'rgba(255,255,255,0.04)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBgStrong}` }}>
-              <span style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: COLORS.gold, direction: 'rtl' }} lang="ar">{w.ar}</span>
-              <span style={{ fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body }}>{w.note}</span>
+            {
+              hex: '#F1F5F9',
+              objectTr: 'Süt', objectEn: 'Milk',
+              colorTr: 'Beyaz', colorEn: 'White',
+              verseAr: 'أَنْهَارٌ مِّن لَّبَنٍ لَّمْ يَتَغَيَّرْ طَعْمُهُ',
+              verseTr: '…tadı değişmeyen süt nehirleri…',
+              verseEn: '…rivers of milk whose taste does not change…',
+              ref: 'Muhammed 47:15',
+              noteTr: "Süt beyazdır — ama Kur'an rengi söylemez. Renk, nesnenin zihinde çağrışımıyla gelir.",
+              noteEn: "Milk is white — but the Quran doesn't say so. The color arrives through the object's mental association.",
+            },
+            {
+              hex: '#CA8A04',
+              objectTr: 'Bal', objectEn: 'Honey',
+              colorTr: 'Amber / Sarı', colorEn: 'Amber / Yellow',
+              verseAr: 'وَأَنْهَارٌ مِّنْ عَسَلٍ مُّصَفًّى',
+              verseTr: '…ve saf baldan nehirler…',
+              verseEn: '…and rivers of purified honey…',
+              ref: 'Muhammed 47:15',
+              noteTr: "'Musaffâ' — arındırılmış, süzülmüş. Renk adı yok; amber ton nesnenin kendisinde gizli.",
+              noteEn: "'Musaffâ' — purified, filtered. No color named; the amber hue is concealed in the object itself.",
+            },
+            {
+              hex: '#B91C1C',
+              objectTr: 'Ateş / Alev', objectEn: 'Fire / Flame',
+              colorTr: 'Kırmızı / Turuncu', colorEn: 'Red / Orange',
+              verseAr: 'لَوَّاحَةٌ لِّلْبَشَرِ',
+              verseTr: 'İnsanı kavuran (rengi değiştiren).',
+              verseEn: 'Scorching to the skin (altering its color).',
+              ref: 'Müddessir 74:29',
+              noteTr: "'Levvâha' kökü renk değişikliği anlamını içerir — ateş insanın tenini kızartır ve karartır. Kırmızı/siyah ama söylenmez.",
+              noteEn: "The root 'lavvâha' implies color change — fire reddens and blackens the skin. Red/black, but left unstated.",
+            },
+          ].map((row, i) => (
+            <div key={i} style={{
+              background: `linear-gradient(180deg, ${row.hex}10 0%, rgba(255,255,255,0.022) 65%)`,
+              border: `1px solid ${row.hex}33`,
+              borderRadius: RADIUS.md,
+              padding: isMobile ? '14px' : '18px 20px',
+              position: 'relative', overflow: 'hidden',
+            }}>
+              {/* Left accent */}
+              <div style={{
+                position: 'absolute', top: 0, left: 0, bottom: 0, width: '3px',
+                background: `linear-gradient(180deg, ${row.hex}, ${row.hex}44)`,
+                boxShadow: `0 0 12px ${row.hex}88`,
+              }} />
+
+              {/* Object → Color header */}
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                marginBottom: '12px', flexWrap: 'wrap', gap: '8px',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{
+                    width: '14px', height: '14px', borderRadius: '50%',
+                    background: row.hex,
+                    border: row.hex === '#F1F5F9' ? '1px solid rgba(0,0,0,0.2)' : 'none',
+                    boxShadow: `0 0 12px ${row.hex}88, 0 0 0 3px rgba(0,0,0,0.3)`,
+                    flexShrink: 0,
+                  }} />
+                  <span style={{
+                    fontSize: isMobile ? '0.96rem' : '1.02rem',
+                    fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body,
+                  }}>
+                    {tr ? row.objectTr : row.objectEn}
+                  </span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" style={{ opacity: 0.6 }}>
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                  </svg>
+                  <span style={{
+                    fontSize: '0.85rem', color: COLORS.gold,
+                    fontFamily: FONTS.body, fontStyle: 'italic', fontWeight: 600,
+                  }}>
+                    {tr ? row.colorTr : row.colorEn}
+                  </span>
+                </div>
+              </div>
+
+              {/* Arabic — elevated card */}
+              <div style={{
+                padding: isMobile ? '12px 14px' : '16px 22px',
+                background: 'rgba(0,0,0,0.32)',
+                border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
+                borderRadius: RADIUS.md,
+                marginBottom: '12px',
+                boxShadow: `inset 0 0 22px ${row.hex}12`,
+              }}>
+                <p style={{
+                  fontFamily: FONTS.quran,
+                  fontSize: isMobile ? '1.55rem' : '1.8rem',
+                  color: COLORS.gold,
+                  textAlign: 'right', direction: 'rtl',
+                  lineHeight: 1.95, margin: 0,
+                }} lang="ar" dir="rtl">
+                  {row.verseAr}
+                </p>
+              </div>
+
+              {/* Translation */}
+              <p style={{
+                fontSize: isMobile ? '0.88rem' : '0.92rem',
+                color: COLORS.offWhite, fontStyle: 'italic',
+                fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.7,
+              }}>
+                "{tr ? row.verseTr : row.verseEn}"
+              </p>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: row.hex, opacity: 0.8 }} />
+                <span style={{
+                  fontSize: '0.74rem', fontWeight: 600,
+                  color: COLORS.gold, opacity: 0.82,
+                  letterSpacing: '0.04em',
+                }}>
+                  {row.ref}
+                </span>
+              </div>
+
+              {/* Note */}
+              <p style={{
+                fontSize: isMobile ? '0.86rem' : '0.9rem',
+                color: COLORS.silver, lineHeight: 1.75,
+                fontFamily: FONTS.body, margin: 0,
+                paddingLeft: '14px',
+                borderLeft: `2px solid ${row.hex}55`,
+              }}>
+                {tr ? row.noteTr : row.noteEn}
+              </p>
             </div>
           ))}
         </div>
-        <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+      </SectionShell>
+
+      {/* ── Section E: Beyazın Kök Genişlemesi ── */}
+      <SectionShell
+        letter="E"
+        accent={COLORS.gold}
+        eyebrowTr="بيض — Aynı Kökten Anlam Ailesi" eyebrowEn="بيض — Word Family of One Root"
+        titleTr="Beyaz'ın Kök Genişlemesi — بيض → Yumurta"
+        titleEn="White's Root Expansion — بيض → Egg"
+      >
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
+          gap: '10px',
+          marginBottom: '16px',
+        }}>
+          {[
+            { ar: 'أَبْيَض',    note: tr ? 'tekil, eril' : 'singular, masc.',                  trans: 'abyad' },
+            { ar: 'بَيْضَاء',   note: tr ? 'tekil, dişil / parlak' : 'singular, fem. / radiant', trans: 'baydâ\'' },
+            { ar: 'بِيضٌ',       note: tr ? 'çoğul' : 'plural',                                  trans: 'bîd' },
+            { ar: 'بَيْضَة',     note: tr ? 'yumurta — aynı kök!' : 'egg — same root!',           trans: 'bayda', highlight: true },
+          ].map((w, i) => (
+            <div key={i} style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
+              padding: '16px 12px',
+              background: w.highlight ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'rgba(255,255,255,0.025)',
+              border: w.highlight ? `1px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}` : `1px solid ${COLORS.glassBgStrong}`,
+              borderRadius: RADIUS.md,
+              boxShadow: w.highlight ? `0 0 18px rgba(212,165,116,0.12)` : 'none',
+              transition: 'transform 0.18s',
+            }}>
+              <span style={{
+                fontFamily: FONTS.quran, fontSize: '1.85rem',
+                color: w.highlight ? COLORS.gold : COLORS.offWhite,
+                direction: 'rtl', lineHeight: 1.3,
+              }} lang="ar">
+                {w.ar}
+              </span>
+              <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body }}>
+                {w.trans}
+              </span>
+              <span style={{
+                fontSize: '0.78rem', color: w.highlight ? COLORS.gold : COLORS.silver,
+                fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.45,
+                fontWeight: w.highlight ? 600 : 400,
+              }}>
+                {w.note}
+              </span>
+            </div>
+          ))}
+        </div>
+        <p style={{
+          fontSize: isMobile ? '0.88rem' : '0.92rem',
+          color: COLORS.silver, lineHeight: 1.75, fontFamily: FONTS.body, margin: 0,
+          paddingLeft: '14px',
+          borderLeft: `2px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}`,
+        }}>
           {tr
-            ? "'Beyza' yumurta anlamına da gelir — beyazlık ve yumurta aynı kökten. Vakıa 56:23'te cennet sakinleri 'saklı yumurta gibi' (beyaz). Renk kelimesi anlam genişlemesiyle imge üretiyor."
-            : "'Bayda' also means egg — whiteness and egg share the same root. In Al-Waqi'a 56:23, paradise companions are 'like hidden eggs' (white). The color word generates imagery through semantic extension."}
+            ? "'Beyza' yumurta anlamına da gelir — beyazlık ve yumurta aynı kökten. Vâkıa 56:23'te cennet sakinleri 'saklı yumurta gibi' (beyaz). Renk kelimesi anlam genişlemesiyle imge üretiyor."
+            : "'Bayda' also means egg — whiteness and egg share the same root. In Al-Wâqi'a 56:23, paradise companions are 'like hidden eggs' (white). The color word generates imagery through semantic extension."}
         </p>
-      </div>
+      </SectionShell>
 
     </div>
   );
@@ -1240,31 +2254,135 @@ function TabKaynaklar({ language }) {
     },
   ];
 
+  const INFO_BLUE = 'rgba(59,130,246,0.7)';
+
   return (
     <div>
-      {/* Global info note */}
-      <div style={{ background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.2)', borderRadius: RADIUS.chip, padding: '14px 16px', marginBottom: '20px', display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-        <span style={{ color: 'rgba(59,130,246,0.7)', fontSize: '0.9rem', flexShrink: 0, marginTop: '1px' }}>ℹ</span>
-        <p style={{ fontSize: '0.75rem', color: COLORS.silver, lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+      {/* ── Methodological callout — premium ── */}
+      <div style={{
+        background: `linear-gradient(135deg, rgba(59,130,246,0.10) 0%, rgba(59,130,246,0.04) 50%, rgba(255,255,255,0.022) 100%)`,
+        border: '1px solid rgba(59,130,246,0.22)',
+        borderRadius: RADIUS.lg,
+        padding: '18px 22px',
+        marginBottom: '28px',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        {/* Top accent */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+          background: `linear-gradient(90deg, transparent, ${INFO_BLUE}, transparent)`,
+          opacity: 0.75,
+        }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+          <div style={{
+            width: '26px', height: '26px', borderRadius: '50%',
+            background: 'rgba(59,130,246,0.18)',
+            border: '1px solid rgba(59,130,246,0.35)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: '0.85rem', color: INFO_BLUE, fontWeight: 700,
+            flexShrink: 0,
+          }}>ℹ</div>
+          <span style={{
+            fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.2em',
+            color: INFO_BLUE, textTransform: 'uppercase', fontFamily: FONTS.body,
+          }}>
+            {tr ? 'Metodolojik Not' : 'Methodological Note'}
+          </span>
+        </div>
+        <p style={{
+          fontSize: '0.88rem', color: COLORS.offWhite, lineHeight: 1.75,
+          fontFamily: FONTS.body, margin: 0,
+        }}>
           {tr
-            ? "Bu sayfada Kur'an'ın renk kelimelerinin taşıdığı sembolik anlamlar tefsir geleneğine dayanmaktadır. Kur'an renk sembolizmini açıkça tanımlamaz — bu yorumlar ℹ️ ile işaretlenmiştir. Renk kelimelerinin dilbilimsel analizleri Arapça sözlük ve tefsir kaynaklarına dayanmaktadır."
-            : "The symbolic meanings attributed to the Quran's color words on this page are based on the classical tafsir tradition. The Quran does not explicitly define color symbolism — such interpretations are marked with ℹ️. Linguistic analyses of color words are based on Arabic lexicography and tafsir sources."}
+            ? "Bu sayfada Kur'an'ın renk kelimelerinin taşıdığı sembolik anlamlar tefsir geleneğine dayanmaktadır. Kur'an renk sembolizmini açıkça tanımlamaz — bu yorumlar ℹ ile işaretlenmiştir. Renk kelimelerinin dilbilimsel analizleri Arapça sözlük ve tefsir kaynaklarına dayanmaktadır."
+            : "The symbolic meanings attributed to the Quran's color words on this page are based on the classical tafsir tradition. The Quran does not explicitly define color symbolism — such interpretations are marked with ℹ. Linguistic analyses of color words are based on Arabic lexicography and tafsir sources."}
         </p>
       </div>
 
-      {sections.map((sec, i) => (
-        <div key={i} style={{ marginBottom: '20px' }}>
-          <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 10px', paddingBottom: '6px', borderBottom: `1px solid ${COLORS.goldAlpha15}` }}>
-            {tr ? sec.titleTr : sec.titleEn}
-          </p>
-          {sec.items.map((item, j) => (
-            <div key={j} style={{ padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.04)', display: 'flex', alignItems: 'baseline', gap: '10px' }}>
-              <span style={{ fontSize: '0.8rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, minWidth: '140px', flexShrink: 0 }}>{item.name}</span>
-              <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{item.detail}</span>
+      {/* ── Source sections — premium cards ── */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {sections.map((sec, i) => (
+          <div
+            key={i}
+            style={{
+              background: 'rgba(255,255,255,0.022)',
+              border: `1px solid ${COLORS.glassBorder}`,
+              borderRadius: RADIUS.lg,
+              overflow: 'hidden',
+            }}
+          >
+            {/* Section header */}
+            <div style={{
+              padding: '14px 20px',
+              borderBottom: `1px solid ${COLORS.glassBg}`,
+              background: `linear-gradient(90deg, rgba(212,165,116,0.06), transparent 60%)`,
+              display: 'flex', alignItems: 'center', gap: '12px',
+            }}>
+              <div style={{
+                width: '4px', height: '16px', borderRadius: '2px',
+                background: COLORS.gold,
+                boxShadow: `0 0 10px ${COLORS.gold}88`,
+                flexShrink: 0,
+              }} />
+              <span style={{
+                fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.16em',
+                color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body,
+              }}>
+                {tr ? sec.titleTr : sec.titleEn}
+              </span>
+              <span style={{
+                marginLeft: 'auto',
+                fontSize: '0.66rem', fontWeight: 600, letterSpacing: '0.08em',
+                color: COLORS.silverAlpha70 || COLORS.silver,
+                fontFamily: FONTS.body,
+                padding: '3px 9px', background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.06)',
+                borderRadius: RADIUS.pillSm,
+              }}>
+                {sec.items.length} {tr ? 'kaynak' : 'sources'}
+              </span>
             </div>
-          ))}
-        </div>
-      ))}
+
+            {/* Items */}
+            <div style={{ padding: '8px 0' }}>
+              {sec.items.map((item, j) => (
+                <div
+                  key={j}
+                  style={{
+                    display: 'flex', alignItems: 'baseline',
+                    gap: '14px',
+                    padding: '12px 20px',
+                    borderBottom: j < sec.items.length - 1 ? '1px solid rgba(255,255,255,0.035)' : 'none',
+                    transition: 'background 0.15s',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.022)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+                >
+                  <div style={{
+                    width: '4px', height: '4px', borderRadius: '50%',
+                    background: COLORS.gold, opacity: 0.55, flexShrink: 0,
+                    alignSelf: 'center',
+                  }} />
+                  <span style={{
+                    fontSize: '0.88rem', fontWeight: 700,
+                    color: COLORS.offWhite, fontFamily: FONTS.body,
+                    minWidth: '160px', flexShrink: 0,
+                  }}>
+                    {item.name}
+                  </span>
+                  <span style={{
+                    fontSize: '0.8rem', color: COLORS.silver,
+                    fontFamily: FONTS.body, fontStyle: 'italic',
+                    lineHeight: 1.55,
+                  }}>
+                    {item.detail}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -1304,21 +2422,28 @@ export default function KuranRenkleri({ onClose }) {
 
   // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
 
-  const tabStyle = (id) => ({
-    padding: isMobile ? '12px 14px' : '13px 22px',
-    borderRadius: '0',
-    border: 'none',
-    background: activeTab === id ? COLORS.goldAlpha15 : 'transparent',
-    borderBottom: activeTab === id ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-    color: activeTab === id ? COLORS.gold : COLORS.silver,
-    fontSize: isMobile ? '0.85rem' : '0.9rem',
-    fontWeight: activeTab === id ? 600 : 400,
-    fontFamily: FONTS.body,
-    cursor: 'pointer',
-    whiteSpace: 'nowrap',
-    transition: `all ${TRANSITION.fast}`,
-    flexShrink: 0,
-  });
+  const tabStyle = (id) => {
+    const active = activeTab === id;
+    return {
+      position: 'relative',
+      padding: isMobile ? '14px 16px' : '15px 22px',
+      borderRadius: 0,
+      border: 'none',
+      background: active
+        ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)`
+        : 'transparent',
+      color: active ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+      fontSize: isMobile ? '0.78rem' : '0.82rem',
+      fontWeight: active ? 700 : 500,
+      letterSpacing: active ? '0.14em' : '0.12em',
+      textTransform: 'uppercase',
+      fontFamily: FONTS.body,
+      cursor: 'pointer',
+      whiteSpace: 'nowrap',
+      transition: `all ${TRANSITION.fast}`,
+      flexShrink: 0,
+    };
+  };
 
   return (
     <div style={{
@@ -1441,33 +2566,75 @@ export default function KuranRenkleri({ onClose }) {
           </p>
         </div>
 
-        {/* ── Tab bar ── */}
-        <div style={{ position: 'sticky', top: 0, zIndex: 10, background: 'rgba(10,10,26,0.97)', backdropFilter: 'blur(20px)' }}>
+        {/* ── Tab bar — premium ── */}
+        <div style={{
+          position: 'sticky', top: 0, zIndex: 10,
+          background: 'rgba(10,10,26,0.97)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+        }}>
+          {/* Top hairline gold accent */}
           <div style={{
-            display: 'flex', gap: '2px',
-            padding: isMobile ? '0 8px' : '0 16px',
+            position: 'absolute', top: 0, left: 0, right: 0, height: '1px',
+            background: `linear-gradient(90deg, transparent 5%, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'} 50%, transparent 95%)`,
+            pointerEvents: 'none',
+          }} />
+          <div style={{
+            display: 'flex',
+            gap: isMobile ? '0' : '6px',
+            padding: isMobile ? '0 6px' : '0 14px',
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             overflowX: 'auto', scrollbarWidth: 'none',
             flexShrink: 0,
+            position: 'relative',
           }}>
-            {Object.values(TABS).map(id => (
-              <button
-                key={id}
-                style={tabStyle(id)}
-                onClick={() => { setActiveTab(id); setExpandedVerse(null); }}
-                onMouseEnter={e => { if (activeTab !== id) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
-                onMouseLeave={e => { if (activeTab !== id) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
-              >
-                {TAB_LABELS[id][language] ?? TAB_LABELS[id].tr}
-              </button>
-            ))}
+            {Object.values(TABS).map(id => {
+              const active = activeTab === id;
+              return (
+                <button
+                  key={id}
+                  style={tabStyle(id)}
+                  onClick={() => { setActiveTab(id); setExpandedVerse(null); }}
+                  onMouseEnter={e => {
+                    if (!active) {
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.035)';
+                      e.currentTarget.style.color = COLORS.offWhite;
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!active) {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.color = COLORS.silverAlpha70 || COLORS.silver;
+                    }
+                  }}
+                >
+                  {TAB_LABELS[id][language] ?? TAB_LABELS[id].tr}
+                  {/* Active indicator — gold bottom bar with glow */}
+                  {active && (
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        position: 'absolute',
+                        bottom: '-1px',
+                        left: '14%',
+                        right: '14%',
+                        height: '2px',
+                        background: `linear-gradient(90deg, transparent, ${COLORS.gold}, transparent)`,
+                        boxShadow: `0 0 12px ${COLORS.gold}99, 0 0 4px ${COLORS.gold}`,
+                        borderRadius: '2px',
+                      }}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
           {/* Fade indicator — right edge hint for scrollable tabs on mobile */}
           {isMobile && (
             <div style={{
               position: 'absolute', top: 0, right: 0, bottom: 1,
-              width: '40px', pointerEvents: 'none',
-              background: 'linear-gradient(to right, transparent, rgba(10,10,26,0.95))',
+              width: '48px', pointerEvents: 'none',
+              background: 'linear-gradient(to right, transparent, rgba(10,10,26,0.97))',
             }} />
           )}
         </div>
