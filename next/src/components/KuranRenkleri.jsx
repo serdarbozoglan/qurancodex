@@ -237,15 +237,41 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
     <div>
       {/* Filter pills */}
       <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '20px' }}>
-        {FILTERS_CONFIG.map(f => (
-          <button
-            key={f.id}
-            onClick={() => setActiveFilter(f.id)}
-            style={{ padding: '5px 14px', borderRadius: RADIUS.pillSm, border: 'none', cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 600, transition: `all ${TRANSITION.fast}`, background: activeFilter === f.id ? COLORS.gold : 'rgba(255,255,255,0.06)', color: activeFilter === f.id ? COLORS.cosmicBlack : COLORS.silver }}
-          >
-            {tr ? f.labelTr : f.labelEn}
-          </button>
-        ))}
+        {FILTERS_CONFIG.map(f => {
+          const isActive = activeFilter === f.id;
+          return (
+            <button
+              key={f.id}
+              onClick={() => setActiveFilter(f.id)}
+              style={{
+                padding: '5px 14px',
+                borderRadius: RADIUS.pillSm,
+                border: `1px solid ${isActive ? (COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)') : 'rgba(255,255,255,0.07)'}`,
+                background: isActive ? COLORS.goldAlpha15 : 'transparent',
+                color: isActive ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+                fontFamily: FONTS.body,
+                fontSize: '0.72rem',
+                fontWeight: isActive ? 600 : 500,
+                cursor: 'pointer',
+                transition: `all ${TRANSITION.fast}`,
+              }}
+              onMouseEnter={e => {
+                if (!isActive) {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                  e.currentTarget.style.color = COLORS.offWhite;
+                }
+              }}
+              onMouseLeave={e => {
+                if (!isActive) {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = COLORS.silverAlpha70 || COLORS.silver;
+                }
+              }}
+            >
+              {tr ? f.labelTr : f.labelEn}
+            </button>
+          );
+        })}
       </div>
 
       {/* Card grid */}
@@ -276,55 +302,96 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
             {tr ? data.renkSekans.descTr : data.renkSekans.descEn}
           </p>
 
-          {/* 3-stage timeline with animated progression */}
-          <div style={{ display: 'flex', alignItems: 'stretch', gap: 0, marginBottom: '20px', borderRadius: RADIUS.chip, overflow: 'hidden', position: 'relative' }}>
-            {data.renkSekans.stages.map((s, i) => {
-              const isLight = i < 2;
-              return (
+          {/* 3-stage timeline — gradient-blended narrative bar (Gemini polish) */}
+          {(() => {
+            const stageHexes = data.renkSekans.stages.map(s => s.hexColor);
+            const gradient = `linear-gradient(${isMobile ? '180deg' : '90deg'}, ${stageHexes[0]} 0%, ${stageHexes[1]} 50%, ${stageHexes[2]} 100%)`;
+            return (
+              <div style={{
+                position: 'relative',
+                marginBottom: '24px',
+                padding: isMobile ? '8px 12px 16px' : '28px 24px 20px',
+                background: 'rgba(0,0,0,0.18)',
+                border: `1px solid ${COLORS.glassBorder}`,
+                borderRadius: RADIUS.lg,
+                overflow: 'hidden',
+              }}>
+                {/* Gradient backbone — horizontal (desktop) / vertical (mobile) */}
                 <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scaleX: 0 }}
-                  animate={{ opacity: 1, scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: i * 0.3, ease: [0.4, 0, 0.2, 1] }}
+                  initial={{ scaleX: isMobile ? 1 : 0, scaleY: isMobile ? 0 : 1, opacity: 0 }}
+                  animate={{ scaleX: 1, scaleY: 1, opacity: 1 }}
+                  transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
                   style={{
-                    flex: 1, background: s.hexColor, padding: '14px 8px',
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px',
-                    borderRight: i < 2 ? '2px solid rgba(255,255,255,0.15)' : 'none',
-                    transformOrigin: 'left center',
-                    position: 'relative',
+                    position: 'absolute',
+                    ...(isMobile
+                      ? { left: '38px', top: '40px', bottom: '40px', width: '4px', transformOrigin: 'top center' }
+                      : { left: '12%', right: '12%', top: '54px', height: '4px', transformOrigin: 'left center' }),
+                    background: gradient,
+                    borderRadius: '4px',
+                    boxShadow: `0 0 18px ${stageHexes[0]}66, 0 0 32px ${stageHexes[1]}33`,
+                    zIndex: 1,
                   }}
-                >
-                  {/* Stage number — büyütülmüş ve daha belirgin */}
-                  <span style={{
-                    width: '32px', height: '32px', borderRadius: RADIUS.full,
-                    background: isLight ? 'rgba(0,0,0,0.22)' : 'rgba(255,255,255,0.18)',
-                    border: isLight ? '1.5px solid rgba(0,0,0,0.35)' : '1.5px solid rgba(255,255,255,0.3)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: '0.95rem', fontWeight: 800, color: isLight ? COLORS.cosmicBlack : COLORS.offWhite,
-                    fontFamily: FONTS.display,
-                    boxShadow: isLight ? '0 1px 4px rgba(0,0,0,0.18)' : '0 1px 4px rgba(0,0,0,0.4)',
-                  }}>
-                    {i + 1}
-                  </span>
-                  <span style={{ fontSize: '0.72rem', fontWeight: 700, color: isLight ? COLORS.cosmicBlack : COLORS.offWhite, fontFamily: FONTS.body, textAlign: 'center' }}>
-                    {tr ? s.labelTr : s.labelEn}
-                  </span>
-                  <span style={{ fontSize: '0.6rem', color: isLight ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.5)', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.3 }}>
-                    {tr ? s.noteTr : s.noteEn}
-                  </span>
-                  {/* Arrow connector between stages */}
-                  {i < 2 && (
-                    <div style={{
-                      position: 'absolute', right: '-7px', top: '50%', transform: 'translateY(-50%)',
-                      width: 0, height: 0, zIndex: 2,
-                      borderTop: '7px solid transparent', borderBottom: '7px solid transparent',
-                      borderLeft: `7px solid ${s.hexColor}`,
-                    }} />
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
+                />
+
+                {/* Stage markers — circular dots positioned along the gradient bar */}
+                <div style={{
+                  position: 'relative', zIndex: 2,
+                  display: 'flex',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'stretch' : 'flex-start',
+                  justifyContent: isMobile ? 'flex-start' : 'space-around',
+                  gap: isMobile ? '20px' : '16px',
+                }}>
+                  {data.renkSekans.stages.map((s, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.45, delay: 0.25 + i * 0.18, ease: [0.4, 0, 0.2, 1] }}
+                      style={{
+                        display: 'flex',
+                        flexDirection: isMobile ? 'row' : 'column',
+                        alignItems: isMobile ? 'flex-start' : 'center',
+                        gap: isMobile ? '14px' : '10px',
+                        maxWidth: isMobile ? 'none' : '180px',
+                        textAlign: isMobile ? 'left' : 'center',
+                      }}
+                    >
+                      {/* Color marker dot */}
+                      <div style={{
+                        width: '40px', height: '40px',
+                        borderRadius: RADIUS.full,
+                        background: s.hexColor,
+                        border: '2px solid rgba(255,255,255,0.18)',
+                        boxShadow: `0 0 0 4px rgba(0,0,0,0.4), 0 0 22px ${s.hexColor}88`,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontFamily: FONTS.display, fontSize: '0.92rem', fontWeight: 800,
+                        color: i < 2 ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.92)',
+                        flexShrink: 0,
+                      }}>
+                        {i + 1}
+                      </div>
+                      {/* Label + note */}
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: isMobile ? 1 : 'unset' }}>
+                        <span style={{
+                          fontSize: '0.82rem', fontWeight: 700,
+                          color: COLORS.offWhite, fontFamily: FONTS.body,
+                        }}>
+                          {tr ? s.labelTr : s.labelEn}
+                        </span>
+                        <span style={{
+                          fontSize: '0.7rem', color: COLORS.silver,
+                          fontFamily: FONTS.body, lineHeight: 1.45,
+                        }}>
+                          {tr ? s.noteTr : s.noteEn}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
 
           {/* Verse buttons */}
           <p style={{ fontSize: '0.72rem', fontWeight: 600, color: COLORS.gold, fontFamily: FONTS.body, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px' }}>
@@ -1337,15 +1404,33 @@ export default function KuranRenkleri({ onClose }) {
               ? '"Dağlarda da beyaz, kırmızı — renkleri birbirinden farklı — ve simsiyah yollar/şeritler vardır."'
               : '"And among the mountains are streaks of white and red of varying shades, and some intensely black."'}
           </p>
-          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          {/* Dynamic color indicators — uniform dark base, color expressed via swatch + glow (Gemini polish) */}
+          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
             {[
-              { ar: 'بِيضٌ', label: tr ? 'Beyaz' : 'White', bg: '#C8D6E5', fg: COLORS.cosmicBlack },
-              { ar: 'حُمْرٌ', label: tr ? 'Kırmızı' : 'Red',   bg: '#B91C1C', fg: '#fff' },
-              { ar: 'غَرَابِيبُ سُودٌ', label: tr ? 'Simsiyah' : 'Jet Black', bg: '#1E1B4B', fg: COLORS.offWhite },
+              { ar: 'بِيضٌ',          label: tr ? 'Beyaz'    : 'White',     swatch: '#FFFFFF', borderRgba: 'rgba(255,255,255,0.30)', glow: 'rgba(255,255,255,0.22)', dotBorder: '1px solid rgba(255,255,255,0.40)' },
+              { ar: 'حُمْرٌ',         label: tr ? 'Kırmızı'  : 'Red',       swatch: '#7F1D1D', borderRgba: 'rgba(185,28,28,0.40)',   glow: 'rgba(185,28,28,0.32)',   dotBorder: 'none' },
+              { ar: 'غَرَابِيبُ سُودٌ', label: tr ? 'Simsiyah' : 'Jet Black', swatch: '#000000', borderRgba: 'rgba(100,100,110,0.35)', glow: 'rgba(40,40,60,0.55)',     dotBorder: '1px solid rgba(255,255,255,0.10)' },
             ].map(p => (
-              <div key={p.ar} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '7px 16px', background: p.bg, borderRadius: '24px' }}>
-                <span style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: p.fg, direction: 'rtl' }} lang="ar">{p.ar}</span>
-                <span style={{ fontSize: '0.88rem', color: p.fg, fontFamily: FONTS.body, fontWeight: 700 }}>{p.label}</span>
+              <div
+                key={p.ar}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px',
+                  padding: '14px 22px', minWidth: '128px',
+                  background: 'rgba(255,255,255,0.035)',
+                  border: `1px solid ${p.borderRgba}`,
+                  borderRadius: RADIUS.lg,
+                  boxShadow: `0 0 22px ${p.glow}`,
+                  transition: `all ${TRANSITION.normal}`,
+                }}
+              >
+                {/* Color swatch dot — the actual color expression */}
+                <div style={{
+                  width: '32px', height: '32px', borderRadius: RADIUS.full,
+                  background: p.swatch, border: p.dotBorder,
+                  boxShadow: `0 0 14px ${p.glow}`,
+                }} />
+                <span style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, direction: 'rtl', lineHeight: 1 }} lang="ar">{p.ar}</span>
+                <span style={{ fontSize: '0.85rem', color: COLORS.silver, fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.02em' }}>{p.label}</span>
               </div>
             ))}
           </div>
