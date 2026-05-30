@@ -155,6 +155,48 @@ Türkçe karşılığı varsa **bilingual çift**, yoksa standalone English maka
 
 ## 4. 🎨 Visualization Strategy — Per-Template Sistem
 
+> ### 🔑 ANA PRENSİP — Medium'daki Görselliği DAHA İYİSİ İLE Yansıtmak (ENFORCE ALWAYS)
+>
+> Felsufi'nin Medium makalelerindeki **şemalar, ağaç diyagramları, kalıp tabloları,
+> akış grafikleri, karşılaştırma kutuları metnin entelektüel omurgasıdır**.
+> Bunları sadece metin olarak özetlemek = makaleyi **yarım taşımak**.
+>
+> Kural: Bir makaleyi migrate ederken Medium'da bulunan **her görsel yapıyı**
+> (tree, table, flowchart, ikili karşılaştırma, halka diyagram, infografik) Quran
+> Codex'in **brand-içi karşılığı ile** zenginleştirilmiş hâlde yeniden inşâ et.
+> Hiçbir koşulda Medium'dan ham resim/screenshot kopyala-yapıştır YAPMA.
+>
+> **Yaklaşım — 3 Strateji:**
+>
+> 1. **Dinamik/Canlı Veri Grafikleri** — kavram zincirleri, semantik ilişkiler için
+>    interaktif SVG flowchart'lar (hover-parlama, framer-motion stagger reveal).
+>    Örn: *İstiğnâ → Tuğyân → Tâğût* zinciri → `FlowChain` component.
+> 2. **Premium Bilgi Kartları** — Medium'daki düz tabloları glassmorphism +
+>    altın çerçeveli "Analitik Odak Kutuları" olarak yeniden tasarla. Verse
+>    referansları chip-pill (verse-graph link'li). Örn: 7-row tuğyan morfoloji
+>    tablosu → `MorphologyTable` component.
+> 3. **Dark-Mode Şemalar** — açık-renk Medium grafiklerini site paletine
+>    (cosmic-black + gold + purple) uyarlanmış minimalist SVG tree olarak yeniden
+>    çiz. Örn: Anlam Hiyerarşisi ağacı → `HierarchyTree` component.
+>
+> **Component Library (Phase 3'te eklendi):**
+>
+> | Component | Kullanım | Veri şekli |
+> |---|---|---|
+> | `HierarchyTree` | Kök kavramdan dallanan anlam ağacı | `root + branches[{children[{subChildren}]}]` |
+> | `MorphologyTable` | Arapça kalıp + anlam + ayet kalıp tablosu | `rows[{ar, patternTr, meaningTr, verses[]}]` |
+> | `FlowChain` | Yatay 3+ node nedensellik akışı | `nodes[{ar?, titleTr, tone}]` (trigger/state/outcome) |
+> | `ContrastDuo` | İki-kutuplu karşılaştırma (ENE↔TABİAT, Kalp↔Kuru çekirdek) | `left + right + bridge?` |
+> | `RootHero` | Semantik makaleler için kök display | `root + derivatives[]` |
+> | `SeriesTimeline` | Seri içi pozisyon | `seriesLabel + currentNumber + total` |
+> | `VerseInline` | Tek ayet inline kartı | `ref + noteTr/En` |
+> | `PullQuote` | Vurgu alıntısı | `tr + en + source` |
+>
+> **Test:** Bir makale Medium'da N görsel içeriyorsa, Quran Codex versiyonu da
+> N veya N+1 görsel block içermelidir (matching rule). Görsel sayısı kontrol
+> edilmeden makale "tam" sayılmaz. `_index.json`'da `mediumVisualsMatched: N/N`
+> alanı opsiyonel — eksik makaleler kolay tespit için.
+
 Frontend renderer makale MDX frontmatter'ındaki `template` alanına göre uygun layout'u seçer.
 
 ### Template A — **Quote-Driven Long Read** (Kavramsal + İdrak)

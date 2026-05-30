@@ -65,8 +65,69 @@
     },
     {
       "type": "paragraph",
-      "tr": "Kökten doğan kavramlar üç katmanlı bir hiyerarşi oluşturur:\n\n1. **Fiziksel taşkınlık** — su, ateş, gözyaşı gibi maddî unsurların doğal sınırını aşması\n2. **Ahlâkî sapma** — bireyin nefis–kalp dengesini bozması, helâl sınırlarını çiğnemesi\n3. **Sistemik/kurumsal sapkınlık** — tâğût biçimine ulaşmış, kurumsallaşmış sahte ilâhlık\n\nBu katmanlar birbirinden bağımsız değildir; alttan üste doğru bir **eskalasyon zinciri** olarak okunmalıdır.",
-      "en": "Concepts arising from the root form a three-tier hierarchy:\n\n1. **Physical overflow** — water, fire, tears and other material elements crossing their natural bounds\n2. **Moral deviation** — an individual disturbing the nafs–heart equilibrium, breaching licit limits\n3. **Systemic / institutional perversion** — institutionalized false divinity that has reached the tāghūt form\n\nThese strata are not independent; they should be read bottom-up as an **escalation chain**."
+      "tr": "Kökten doğan kavramlar üç katmanlı bir hiyerarşi oluşturur:\n\n1. **Fiziksel taşkınlık** — su, ateş, gözyaşı gibi maddî unsurların doğal sınırını aşması\n2. **Ahlâkî sapma** — bireyin nefis–kalp dengesini bozması, helâl sınırlarını çiğnemesi\n3. **Sistemik/kurumsal sapkınlık** — tâğût biçimine ulaşmış, kurumsallaşmış sahte ilâhlık\n\nBu katmanlar birbirinden bağımsız değildir; alttan üste doğru bir **eskalasyon zinciri** olarak okunmalıdır. Aşağıdaki ağaç, kökten dallanan anlam haritasını gösterir:",
+      "en": "Concepts arising from the root form a three-tier hierarchy:\n\n1. **Physical overflow** — water, fire, tears and other material elements crossing their natural bounds\n2. **Moral deviation** — an individual disturbing the nafs–heart equilibrium, breaching licit limits\n3. **Systemic / institutional perversion** — institutionalized false divinity that has reached the tāghūt form\n\nThese strata are not independent; they should be read bottom-up as an **escalation chain**. The tree below shows the semantic map branching from the root:"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "ط-غ-و/ي — Anlam Ağacı",
+      "titleEn": "ṭ-ġ-w/y — Semantic Tree",
+      "root": {
+        "ar": "ط غ و / ي",
+        "tr": "Sınır Aşma",
+        "en": "Boundary-crossing"
+      },
+      "branches": [
+        {
+          "id": "fiziksel",
+          "labelTr": "Fiziksel Taşma",
+          "labelEn": "Physical Overflow",
+          "accent": "#3498db",
+          "children": [
+            {
+              "ar": "طَغَى الْمَاءُ",
+              "tr": "Su taşması (Nuh tufanı)",
+              "en": "Water overflow (the Flood)",
+              "transliteration": "ṭaġā al-māʾ"
+            }
+          ]
+        },
+        {
+          "id": "ahlaki",
+          "labelTr": "Ahlâkî / Manevî Aşırılık",
+          "labelEn": "Moral / Spiritual Excess",
+          "accent": "#8b5cf6",
+          "children": [
+            {
+              "ar": "طُغْيَان",
+              "tr": "Azgınlık, isyan",
+              "en": "Insolence, rebellion",
+              "transliteration": "ṭuġyān",
+              "subChildren": [
+                { "tr": "Fî tuğyânihim yaʿmehûn", "en": "Fī ṭuġyānihim yaʿmahūn", "secondaryTr": "Random walk — gayesiz bocalama", "secondaryEn": "Random walk — aimless staggering" },
+                { "tr": "İstikametten sapma", "en": "Deviation from the path", "secondaryTr": "Dalâlet — derin sapıklık", "secondaryEn": "Dalāla — far-gone error" }
+              ]
+            },
+            {
+              "ar": "طَاغُوت",
+              "tr": "Tâğût — azgın güç",
+              "en": "Tāghūt — tyrannical power",
+              "transliteration": "ṭāġūt",
+              "subChildren": [
+                { "tr": "Put — sınırı aşan tapınma", "en": "Idol — worship beyond bounds" },
+                { "tr": "Zâlim otorite", "en": "Tyrannical authority" },
+                { "tr": "Şeytan ve azgın cinler", "en": "Satan and rebellious jinn" }
+              ]
+            },
+            {
+              "ar": "طَاغِيَة",
+              "tr": "Azgın olay / felâket",
+              "en": "Tyrannical event / catastrophe",
+              "transliteration": "ṭāġiya"
+            }
+          ]
+        }
+      ]
     },
     {
       "type": "section",
@@ -76,8 +137,27 @@
     },
     {
       "type": "paragraph",
-      "tr": "Tuğyan kavramı Kur'an'da yaklaşık 39 yerde geçer. Bu kullanımlar üç ana eksenle haritalandırılabilir: **doğal/fiziksel taşkınlık**, **kişisel ahlâkî sapma**, ve **toplumsal/kurumsal tâğutluk**. Aşağıda zincirin başlangıç koşulunu açıkça kuran ayet:",
-      "en": "The concept appears in roughly 39 places in the Quran. Usages map onto three main axes: **natural/physical overflow**, **personal moral deviation**, and **societal/institutional tāghūt**. Below is the verse that explicitly establishes the chain's starting condition:"
+      "tr": "Tuğyan kavramı Kur'an'da yaklaşık 39 yerde geçer. Bu kullanımlar üç ana eksenle haritalandırılabilir: **doğal/fiziksel taşkınlık**, **kişisel ahlâkî sapma**, ve **toplumsal/kurumsal tâğutluk**. Kelimenin gramatik kalıbına göre dağılımı aşağıdaki tabloda görülebilir:",
+      "en": "The concept appears in roughly 39 places in the Quran. Usages map onto three main axes: **natural/physical overflow**, **personal moral deviation**, and **societal/institutional tāghūt**. The distribution by grammatical pattern is shown in the table below:"
+    },
+    {
+      "type": "morphologyTable",
+      "captionTr": "Kalıp · Anlam · Ayet Örnekleri",
+      "captionEn": "Pattern · Meaning · Verse Examples",
+      "rows": [
+        { "ar": "طَغَى",  "patternTr": "fiil — mâzî",      "patternEn": "verb — past",        "meaningTr": "Azdı, haddi aştı",        "meaningEn": "Transgressed (past)",     "verses": ["79:17", "96:6"] },
+        { "ar": "يَطْغَى", "patternTr": "fiil — muzârî",    "patternEn": "verb — imperfect",   "meaningTr": "Azar, haddi aşar",        "meaningEn": "Transgresses (present)",   "verses": ["96:6", "20:24"] },
+        { "ar": "طُغْيَان", "patternTr": "mastar",           "patternEn": "verbal noun",        "meaningTr": "Azgınlık, taşkınlık",     "meaningEn": "Insolence, overflow",      "verses": ["2:15", "10:11", "18:80"] },
+        { "ar": "طَاغُوت", "patternTr": "isim — sıfat",      "patternEn": "noun — adjective",   "meaningTr": "Tâğût (azgın varlık/güç)", "meaningEn": "Tāghūt (tyrannical entity)", "verses": ["2:256", "4:60", "5:60"] },
+        { "ar": "طَاغِيَة", "patternTr": "isim",              "patternEn": "noun",                "meaningTr": "Azgın felâket/olay",      "meaningEn": "Tyrannical event/catastrophe", "verses": ["69:5"] },
+        { "ar": "طَاغُون / طَاغِين", "patternTr": "sıfat — çoğul", "patternEn": "adjective — plural", "meaningTr": "Azgınlar",                 "meaningEn": "Transgressors",            "verses": ["38:55"] },
+        { "ar": "فِي طُغْيَانِهِمْ يَعْمَهُونَ", "patternTr": "deyim ifade", "patternEn": "idiomatic phrase", "meaningTr": "Azgınlıklarında bocalama", "meaningEn": "Staggering in their transgression", "verses": ["2:15", "7:186", "10:11"] }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Tablonun tepesindeki ayet — Alak 96:6-7 — zincirin başlangıç koşulunu açıkça kurar: istiğnâdan tuğyana geçiş.",
+      "en": "The verse at the top of the table — Al-'Alaq 96:6-7 — explicitly establishes the chain's starting condition: the passage from istighnā to tughyān."
     },
     {
       "type": "verseInline",
@@ -93,8 +173,47 @@
     },
     {
       "type": "paragraph",
-      "tr": "**Nedensel ilişkiler:**\n\n— **Sebep:** İstiğnâ (kendini yeterli görme) → Alak 96:6-7\n— **Sebep:** Dalâlet (uzak sapıklık) → Kaf 50:27\n— **Sonuç:** Ya'mehûn (bocalama, sarhoş yürüyüşü — random walk)\n— **Sonuç:** Sırât-ı müstakimden uzaklaşma",
-      "en": "**Causal links:**\n\n— **Cause:** Istighnā (self-sufficiency) → Al-Alaq 96:6-7\n— **Cause:** Dalāla (far-gone error) → Qāf 50:27\n— **Consequence:** Ya'mahūn (staggering, drunken gait — random walk)\n— **Consequence:** Drift from the straight path"
+      "tr": "**Nedensel zincir.** Felsufi'nin analizine göre tuğyan, üç-fazlı bir nedensel zincirin orta halkasıdır: tetik (istiğnâ) — hâl (tuğyan) — sonuç (tâğût). Bu zincir aşağıdaki interaktif şemada görülebilir:",
+      "en": "**Causal chain.** According to Felsufi's analysis, tughyan is the middle link of a three-phase causal chain: trigger (istighnā) — state (tughyān) — outcome (tāghūt). This chain is visualized in the interactive flow below:"
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "İstiğnâ → Tuğyân → Tâğût Zinciri",
+      "captionEn": "The Istighnā → Tughyān → Tāghūt Chain",
+      "nodes": [
+        {
+          "ar": "اِسْتِغْنَاء",
+          "transliteration": "istiġnāʾ",
+          "titleTr": "İstiğnâ",
+          "titleEn": "Istighnā",
+          "subtitleTr": "Kendini yeterli görme — ontolojik bağımlılığın inkârı",
+          "subtitleEn": "Self-sufficiency — denial of ontological dependence",
+          "tone": "trigger"
+        },
+        {
+          "ar": "طُغْيَان",
+          "transliteration": "ṭuġyān",
+          "titleTr": "Tuğyân",
+          "titleEn": "Tughyān",
+          "subtitleTr": "Haddi aşma — sınırın çiğnenmesi (fiziksel veya ahlâkî)",
+          "subtitleEn": "Boundary-crossing — violation of the limit (physical or moral)",
+          "tone": "state"
+        },
+        {
+          "ar": "طَاغُوت",
+          "transliteration": "ṭāġūt",
+          "titleTr": "Tâğût",
+          "titleEn": "Tāghūt",
+          "subtitleTr": "Kurumsallaşmış sahte ilâhlık — sapmanın sabit forma kavuşması",
+          "subtitleEn": "Institutionalized false divinity — deviation hardened into form",
+          "tone": "outcome"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Zincirin **belirtisi** ise ya'mehûn — random walk, telos kaybetmiş bir bilincin sarhoş yürüyüşü:\n\n— **Sebep:** İstiğnâ → Alak 96:6-7\n— **Sebep:** Dalâlet → Kaf 50:27\n— **Sonuç:** Ya'mehûn → Bakara 2:15, Hicr 15:72\n— **Sonuç:** Sırât-ı müstakimden uzaklaşma",
+      "en": "The **symptom** of the chain is yaʿmahūn — random walk, the drunken gait of consciousness that has lost its telos:\n\n— **Cause:** Istighnā → Al-Alaq 96:6-7\n— **Cause:** Dalāla → Qāf 50:27\n— **Consequence:** Yaʿmahūn → Al-Baqarah 2:15, Al-Ḥijr 15:72\n— **Consequence:** Drift from the straight path"
     },
     {
       "type": "paragraph",
@@ -167,6 +286,40 @@
       "type": "paragraph",
       "tr": "**Mesnevî-i Nûriye, Habbe.** Bediüzzaman, tâğût kavramını iki ana eksene yerleştirir:\n\n1. **İnsandaki tâğût:** ENE (nefs, ego) — bireysel varoluşun kendisini kendinden zannetmesi\n2. **Âlemdeki tâğût:** TABİAT — doğayı, illeti olmayan bağımsız bir 'sebep' zannetme\n\nHer ikisi de aslında **gölge ya da ayna**dır — Mutlak Vücûd'un yansıyan ışığını taşır. Ama bu gölge/ayna kendiliğinden bir varlık sanılırsa, kişi düzeyinde **firavunlaşma**, kozmoz düzeyinde **şirk** ortaya çıkar.",
       "en": "**Mathnawī al-Nūrīya, Habbah.** Bediüzzaman places tāghūt on two axes:\n\n1. **The tāghūt within man:** ENE (the ego, the self) — individual existence imagining itself as self-grounded\n2. **The tāghūt in the cosmos:** NATURE (ṭabīʿa) — treating nature as an independent, uncaused 'cause'\n\nBoth are in truth **shadow or mirror** — they bear the reflected light of the Absolute Existent. But once the shadow/mirror is mistaken for self-existence, **pharaohism** emerges at the personal level, **shirk** at the cosmic level."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Risale'nin İki Tâğûtu — ENE ⇄ TABİAT",
+      "captionEn": "The Two Tāghūts of Risale — ENE ⇄ NATURE",
+      "left": {
+        "ar": "اَنَا",
+        "titleTr": "ENE — İnsandaki Tâğût",
+        "titleEn": "ENE — The Tāghūt Within Man",
+        "descTr": "Nefsin kendi gölgeliğini unutması; 'ben'in kendi kendinin sebebi olduğu vehmi",
+        "descEn": "The self forgetting its shadow-status; the illusion of 'I' as its own cause",
+        "accent": "#8b5cf6",
+        "bullets": [
+          { "tr": "Bireysel düzey", "en": "Personal level" },
+          { "tr": "Sonuç: firavunlaşma", "en": "Outcome: pharaohism" },
+          { "tr": "Çare: Eneden Hüve'ye geçiş", "en": "Remedy: from ENE to HUWA" }
+        ]
+      },
+      "right": {
+        "ar": "طَبِيعَة",
+        "titleTr": "TABİAT — Âlemdeki Tâğût",
+        "titleEn": "NATURE — The Tāghūt in the Cosmos",
+        "descTr": "Doğanın illetsiz bağımsız sebep zannedilmesi; kozmosun ilâhî san'attan koparılması",
+        "descEn": "Treating nature as an independent, uncaused agent; severing the cosmos from divine artistry",
+        "accent": "#e74c3c",
+        "bullets": [
+          { "tr": "Kozmolojik düzey", "en": "Cosmological level" },
+          { "tr": "Sonuç: şirk", "en": "Outcome: shirk" },
+          { "tr": "Çare: Tabiattan ilâhî san'ata geçiş", "en": "Remedy: from nature to divine artistry" }
+        ]
+      },
+      "bridgeTr": "Bağımlılık Şuuru",
+      "bridgeEn": "Consciousness of Dependence",
+      "bridgeMode": "merge"
     },
     {
       "type": "paragraph",

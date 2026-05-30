@@ -4,6 +4,10 @@ import { motion } from 'framer-motion';
 import { COLORS, FONTS, RADIUS } from '../../tokens';
 import VerseInline from './VerseInline';
 import PullQuote from './PullQuote';
+import HierarchyTree from './HierarchyTree';
+import MorphologyTable from './MorphologyTable';
+import FlowChain from './FlowChain';
+import ContrastDuo from './ContrastDuo';
 
 // ArticleRenderer — iterates blocks from JSON content and renders each.
 // Phase 2 enhancements: drop cap on first paragraph, framer-motion fade-up
@@ -148,6 +152,14 @@ function renderBlock(block, idx, language, firstParaIdx) {
       return <PullQuote key={idx} {...block} language={language} />;
     case 'sources':
       return <SourcesBlock key={idx} {...block} language={language} />;
+    case 'hierarchyTree':
+      return <HierarchyTree key={idx} {...block} language={language} />;
+    case 'morphologyTable':
+      return <MorphologyTable key={idx} {...block} language={language} />;
+    case 'flowChain':
+      return <FlowChain key={idx} {...block} language={language} />;
+    case 'contrastDuo':
+      return <ContrastDuo key={idx} {...block} language={language} />;
     default:
       return null;
   }

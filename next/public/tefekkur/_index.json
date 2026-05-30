@@ -51,6 +51,18 @@
   ],
   "articles": [
     {
+      "slug": "cennet-cin-mecnun",
+      "titleTr": "Semantik Analizi-3: Cennet, Cin, Mecnun",
+      "titleEn": "Semantic Analysis-3: Jannah, Jinn, Majnun",
+      "category": "semantik",
+      "seriesNumber": 3,
+      "publishedDate": "2026-01-01",
+      "readingMinutes": 11,
+      "tldrTr": "Cennet, cin, mecnun, kalkan, cenin, kalp — hepsi ج-ن-ن kökünden. Ortak payda: gizlilik. Bahçe yapraklarıyla örter, cin görünmezdir, mecnunda akla perde iner, kalkan korur, cenin rahimde saklıdır, kalp göğüste gizlidir.",
+      "tldrEn": "Garden, jinn, majnun, shield, fetus, heart — all from j-n-n. Common thread: concealment. Garden covers with leaves, jinn is invisible, majnun has a veil over intellect, shield protects, fetus hides in womb, heart is concealed in chest.",
+      "status": "draft"
+    },
+    {
       "slug": "tugyan",
       "titleTr": "Semantik Analizi-4: Tuğyan",
       "titleEn": "Semantic Analysis-4: Tughyan",

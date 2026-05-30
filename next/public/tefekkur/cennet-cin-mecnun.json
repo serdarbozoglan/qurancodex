@@ -1,0 +1,349 @@
+{
+  "slug": "cennet-cin-mecnun",
+  "titleTr": "Semantik Analizi-3: Cennet, Cin, Mecnun",
+  "titleEn": "Semantic Analysis-3: Jannah, Jinn, Majnun",
+  "category": "semantik",
+  "template": "root-tree",
+  "seriesId": "semantik-analizi",
+  "seriesNumber": 3,
+  "seriesTotal": 4,
+  "publishedDate": "2026-01-01",
+  "readingMinutes": 11,
+  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "canonicalUrl": "https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-3-cennet-cin-mecnun-d0b674d891da",
+  "root": {
+    "letters": "ج ن ن",
+    "transliteration": "j-n-n",
+    "coreMeaningTr": "Örtmek, saklamak, perdelemek, gizlemek",
+    "coreMeaningEn": "To cover, to conceal, to veil, to hide",
+    "derivatives": [
+      { "ar": "جَنَّة", "translit": "janna(h)", "tr": "Cennet / örtülü bahçe", "en": "Garden / paradise" },
+      { "ar": "جِنّ", "translit": "jinn", "tr": "Cin (gizli varlık)", "en": "Jinn (concealed being)" },
+      { "ar": "مَجْنُون", "translit": "majnūn", "tr": "Aklına perde inen", "en": "One veiled in mind" },
+      { "ar": "جُنَّة", "translit": "junna(h)", "tr": "Kalkan (örtücü)", "en": "Shield (concealer)" },
+      { "ar": "جَنِين", "translit": "janīn", "tr": "Cenin (rahimde gizli)", "en": "Fetus (concealed in womb)" },
+      { "ar": "جَنَان", "translit": "janān", "tr": "Kalp (göğüste gizli)", "en": "Heart (concealed in chest)" }
+    ]
+  },
+  "tldrTr": "Cennet, cin, mecnun, kalkan, cenin ve kalp — hepsi ج-ن-ن kökünden gelir. Ortak payda: **gizlilik**. Bahçe yapraklarıyla örter, cin görünmezdir, mecnunda nefis ile akıl arasına perde iner, kalkan korur, cenin rahimde saklıdır, kalp göğüste gizlidir. Aynı kök bir epistemolojik şemsiye altında **kozmolojik gizlilik haritası** kurar.",
+  "tldrEn": "Garden, jinn, majnun, shield, fetus and heart — all derive from j-n-n. The common thread: **concealment**. The garden covers with leaves, the jinn is invisible, in majnun a veil falls between nafs and intellect, the shield protects, the fetus hides in the womb, the heart is concealed in the chest. One root erects a **cosmological map of concealment** under a single epistemological umbrella.",
+  "relatedTools": ["concept-graph", "verse-graph"],
+  "relatedVerses": ["6:76", "18:107", "18:35", "7:19", "34:15", "32:17", "72:14", "44:14", "68:2", "27:10", "2:35", "58:16"],
+  "previousArticle": null,
+  "nextArticle": { "slug": "tugyan", "titleTr": "Semantik 4: Tuğyan" },
+  "blocks": [
+    {
+      "type": "section",
+      "id": "temel-anlam",
+      "titleTr": "1. Temel Anlam — Etimolojik Köken",
+      "titleEn": "1. Core Meaning — Etymological Origin"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kök kavram **ج-ن-ن (C-N-N)** temel anlamı **örtme, saklama, gizleme ve perdeleme**dir. Bu kök farklı dillerde benzer semantik alanda kullanılmıştır:\n\n— **İbranice** גָּנַן (gānán) — 'korumak, örtmek'\n— **Aramice / Süryânice** ܓܢܝ (gnē) ve ܓܢܝܐ (genyā) — 'ruh, cin'\n— **Ugaritçe** 𐎂𐎐 (gn) — aynı kök\n— **Latince** *genius* — benzer semantik alan: 'gizli koruyucu ruh'\n\nFiil hali **جَنَّ** (janna) 'örtmek, saklamak, perdelemek' anlamını taşır. Kur'an'da fiilin canlı bir örneği En'âm 6:76'da geçer.",
+      "en": "The root **ج-ن-ن (j-n-n)** carries the core sense of **covering, concealment, veiling, hiding**. The same root resides in a shared semantic field across languages:\n\n— **Hebrew** גָּנַן (gānán) — 'to protect, to cover'\n— **Aramaic / Syriac** ܓܢܝ (gnē) and ܓܢܝܐ (genyā) — 'spirit, jinn'\n— **Ugaritic** 𐎂𐎐 (gn) — same root\n— **Latin** *genius* — adjacent semantic field: 'hidden guardian spirit'\n\nThe verb **جَنَّ** (janna) means 'to cover, conceal, veil'. The Quran offers a vivid usage at Al-An'ām 6:76."
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:76",
+      "noteTr": "En'âm 6:76 — 'Gece onu örttüğünde (cennehu'l-leyl), bir yıldız gördü.' Hz. İbrâhîm'in kıssasında **gece, örten/saklayan bir perde** olarak janna fiiliyle ifade edilir. Kelime kökünün ana anlamı — örtmek — burada yalın halde durur.",
+      "noteEn": "Al-An'ām 6:76 — 'When the night covered him (jannahu'l-layl), he saw a star.' In the narrative of Abraham, **night as a concealing veil** is rendered with the verb janna. The root's primary sense — to cover — stands here in its naked form."
+    },
+    {
+      "type": "section",
+      "id": "anlam-hiyerarsisi",
+      "titleTr": "2. Anlam Hiyerarşisi",
+      "titleEn": "2. Semantic Hierarchy"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kökten türeyen kavramlar **bir gizlilik haritası** oluşturur. Bu harita üç eksende açılır — fiziksel/ontolojik/epistemik — ve aşağıdaki ağaç bu üç katmanı tek bir bakışta gösterir:",
+      "en": "Concepts derived from the root form a **map of concealment**. This map unfolds along three axes — physical/ontological/epistemic — and the tree below shows these three strata at a single glance:"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "ج-ن-ن — Gizlilik Haritası",
+      "titleEn": "j-n-n — Map of Concealment",
+      "root": {
+        "ar": "ج ن ن",
+        "tr": "Örtmek · Saklamak · Gizlemek",
+        "en": "To cover · Conceal · Veil"
+      },
+      "branches": [
+        {
+          "id": "fiziksel",
+          "labelTr": "Fiziksel Örtme",
+          "labelEn": "Physical Covering",
+          "accent": "#1D9E75",
+          "children": [
+            { "ar": "جَنَّة", "tr": "Bahçe — yaprakla örten", "en": "Garden — covered by leaves", "transliteration": "janna(h)" },
+            { "ar": "جُنَّة", "tr": "Kalkan — gövdeyi örten", "en": "Shield — covering the body", "transliteration": "junna(h)" },
+            { "ar": "جَنِين", "tr": "Cenin — rahimde gizli", "en": "Fetus — hidden in womb", "transliteration": "janīn" }
+          ]
+        },
+        {
+          "id": "ontolojik",
+          "labelTr": "Ontolojik Gizlilik",
+          "labelEn": "Ontological Hiddenness",
+          "accent": "#8b5cf6",
+          "children": [
+            { "ar": "جِنّ", "tr": "Cin — görünmez varlık", "en": "Jinn — invisible being", "transliteration": "jinn" },
+            { "ar": "جَانّ", "tr": "Cânn — küçük/saklı varlık", "en": "Jānn — small/concealed being", "transliteration": "jānn" }
+          ]
+        },
+        {
+          "id": "epistemik",
+          "labelTr": "Epistemik Perdeleme",
+          "labelEn": "Epistemic Veiling",
+          "accent": "#d4a574",
+          "children": [
+            { "ar": "مَجْنُون", "tr": "Mecnûn — akla inen perde", "en": "Majnūn — veil over intellect", "transliteration": "majnūn" },
+            { "ar": "جَنَان", "tr": "Kalp — göğüste gizli merkez", "en": "Heart — concealed center in chest", "transliteration": "janān" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "kurani-kullanim",
+      "titleTr": "3. Kur'an'daki Kullanım Kalıpları",
+      "titleEn": "3. Quranic Usage Patterns"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Aynı ج-ن-ن kökünden farklı kalıplar (fiil, mastar, ism-i mef'ûl, çoğul) Kur'an'da yedi temel kavramı doğurur. Her kalıp ayrı bir varlık katmanına işaret eder — ama hepsinin ortak grameri **örtme/gizleme**dir:",
+      "en": "From the same j-n-n root, distinct patterns (verb, infinitive, passive participle, plural) generate seven core concepts in the Quran. Each pattern points to a distinct layer of being — yet they all share the same grammar of **covering / concealing**:"
+    },
+    {
+      "type": "morphologyTable",
+      "captionTr": "Kalıp · Anlam · Ayet Örnekleri",
+      "captionEn": "Pattern · Meaning · Verse Examples",
+      "rows": [
+        { "ar": "جَنَّ",       "patternTr": "fiil — mâzî",       "patternEn": "verb — past",         "meaningTr": "Örttü, sakladı, perdeledi",   "meaningEn": "Covered, concealed, veiled",     "verses": ["6:76"] },
+        { "ar": "جَنَّة",      "patternTr": "isim — tekil",      "patternEn": "noun — singular",     "meaningTr": "Bahçe / cennet",              "meaningEn": "Garden / paradise",              "verses": ["18:35", "34:15", "2:35", "7:19"] },
+        { "ar": "جَنَّات",     "patternTr": "isim — çoğul",      "patternEn": "noun — plural",       "meaningTr": "Cennetler — yedi kat",        "meaningEn": "Gardens — seven layers",         "verses": ["18:107", "32:17"] },
+        { "ar": "جِنّ",        "patternTr": "isim — tür",        "patternEn": "noun — species",      "meaningTr": "Cin (gizli varlık)",          "meaningEn": "Jinn (concealed being)",          "verses": ["72:14"] },
+        { "ar": "جَانّ",       "patternTr": "isim — sıfat",      "patternEn": "noun — adjective",    "meaningTr": "Küçük yılan / ince cin",       "meaningEn": "Small serpent / slender jinn",   "verses": ["27:10"] },
+        { "ar": "مَجْنُون",    "patternTr": "ism-i mef'ûl",      "patternEn": "passive participle",  "meaningTr": "Mecnûn — aklı örtülen",       "meaningEn": "Majnūn — one veiled in mind",    "verses": ["44:14", "68:2"] },
+        { "ar": "جُنَّة",      "patternTr": "isim",               "patternEn": "noun",                "meaningTr": "Kalkan — koruyucu örtü",      "meaningEn": "Shield — protective cover",      "verses": ["58:16"] }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "yedi-kat-cennet",
+      "titleTr": "4. Yedi Kat Cennet (جَنَّات Çoğul Kullanımı)",
+      "titleEn": "4. Seven Heavens (the Plural جَنَّات)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "İbn Abbâs'ın rivayetine göre, **Kehf 18:107**'de جَنَّات (cennetler) sözcüğünün çoğul kullanılmasının nedeni **yedi kat cennetin varlığıdır**. Yapı, cennetin **katmanlı gizlilik konseptini** yansıtır: her katman bir öncekinden daha gizli ve daha derin nimetler içerir. Bu organize katmanlanma, cennet kavramının ontolojik derinliğini vurgular.",
+      "en": "According to a tradition of Ibn 'Abbās, the plural جَنَّات (gardens) in **Al-Kahf 18:107** indicates **the existence of seven layered heavens**. The structure reflects the **stratified concealment concept of jannah**: each layer is more hidden and contains deeper bounties than the previous one. This organized stratification underscores the ontological depth of the concept."
+    },
+    {
+      "type": "verseInline",
+      "ref": "18:107",
+      "noteTr": "Kehf 18:107 — 'Şüphesiz iman edip salih amel işleyenler için **Firdevs cennetleri (cennâtu'l-firdevs)** konak olarak hazırlanmıştır.' Çoğul kullanım: tek bir 'cennet' değil, **katmanlı bir cennetler düzeni**.",
+      "noteEn": "Al-Kahf 18:107 — 'Indeed those who believe and do righteous deeds — for them are the **Gardens of Firdaws (jannāt al-firdaws)** as a lodging.' The plural: not a single 'paradise' but a **stratified order of paradises**."
+    },
+    {
+      "type": "section",
+      "id": "semantik-zitliklar",
+      "titleTr": "5. Semantik Eşdeğerler — Dört Farklı Bahçe",
+      "titleEn": "5. Semantic Equivalents — Four Different Gardens"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Cennet kavramının yakın eşdeğerleri vardır; ancak her birinin **ayırt edici semantik nüansı** mevcuttur:\n\n— **حَدِيقَة (ḥadīqa)** — sıradan, duvarla çevrili bahçe. Fiziksel ve dünyevî vurgu.\n— **بُسْتَان (bustān)** — Farsça kökenli, bağ ve meyve bahçesi. Tarımsal ve insanî emek vurgusu.\n— **فِرْدَوْس (firdaws)** — Yunanca παράδεισος'tan (paradeisos). Krali parkın geniş, çevrelenmiş hâli; cennetin **en yüksek mertebesi**.\n— **نَعِيم (naʿīm)** — nimetler, bolluk; soyut ve hâl-bildiren kullanım. **Cennetteki yaşantının niteliği** olarak.\n\nج-ن-ن kökünden gelen **جَنَّة**, bu eşdeğerlerin tümünden ayrılır: o, **gizliliğin/saklılığın** anlamsal damgasını taşır — Allah'ın 'gözlerin görmediği, kulakların işitmediği' olarak tanımladığı boyutla doğrudan akrabadır.",
+      "en": "Jannah has close equivalents — each with a **distinguishing semantic nuance**:\n\n— **حَدِيقَة (ḥadīqa)** — an ordinary walled garden. Physical, terrestrial emphasis.\n— **بُسْتَان (bustān)** — Persian origin; orchard, fruit garden. Agricultural emphasis, human labor.\n— **فِرْدَوْس (firdaws)** — from Greek παράδεισος (paradeisos). The vast enclosed royal park; **the highest rank** of paradise.\n— **نَعِيم (naʿīm)** — bounties, abundance; abstract, state-denoting. **The quality of life within paradise**.\n\n**جَنَّة** from j-n-n is distinct from all these: it carries the semantic stamp of **concealment / hiddenness** — directly cognate with the dimension God describes as 'what no eye has seen, no ear has heard.'"
+    },
+    {
+      "type": "section",
+      "id": "teolojik-boyut",
+      "titleTr": "6. Teolojik Boyutlar",
+      "titleEn": "6. Theological Dimensions"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**A. Cennet'in 'Gizlilik' Sırrı.** Cennetin جَنَّة adını almasının iki temel yorumu vardır:\n\n**(i) Fiziksel benzetme:** ağaçları yeri kaplayan, gölgeli, örtülü bir dünya bahçesi. Sebe' 34:15'te 'sağda ve solda iki bahçe (cennetân)' ve Kehf 18:35'teki zengin adamın bahçesi bu dünyevî kullanımın örnekleridir.\n\n**(ii) Metafizik gizlilik:** nimetlerin idrakimizden gizlenmesi — el-gayb boyutu. Secde 32:17 bu gizliliği tek bir ayette evrensel bir hükme dönüştürür.",
+      "en": "**A. The 'Concealment' Secret of Jannah.** Two main readings explain why paradise bears the name جَنَّة:\n\n**(i) The physical analogy:** a worldly garden whose trees cover the ground — shaded, veiled. Sabaʾ 34:15's 'two gardens (jannatān) on the right and on the left' and the rich man's garden in Al-Kahf 18:35 exemplify the terrestrial usage.\n\n**(ii) The metaphysical hiddenness:** the bounties are concealed from our perception — the dimension of al-ghayb. Sajda 32:17 distills this hiddenness into a single universal verse."
+    },
+    {
+      "type": "verseInline",
+      "ref": "32:17",
+      "noteTr": "Secde 32:17 — 'Yaptıklarına karşılık olarak, onlar için **gözleri aydınlatacak hangi nimetlerin saklı tutulduğunu hiç kimse bilmez** (fe-lâ taʿlamu nefsun mâ uḫfiye lehum min kurrati aʿyun).' Cennet'in gizliliği burada **epistemik bir vurguyla** mühürlenir: hiçbir nefis bilemez.",
+      "noteEn": "Sajda 32:17 — 'No soul knows **what comfort of the eyes has been hidden for them** as a reward for what they used to do (fa-lā taʿlamu nafsun mā ukhfiya lahum min qurrati aʿyun).' The concealment of paradise is here sealed with **epistemic emphasis**: no soul can know."
+    },
+    {
+      "type": "verseInline",
+      "ref": "34:15",
+      "noteTr": "Sebe' 34:15 — Sebe' kavmine 'sağda ve solda iki bahçe (cennetân)' ihsan edildi. Burada جَنَّة dünyevî kullanımda — fiziksel, görülebilir, dokunulabilir bir bahçe.",
+      "noteEn": "Sabaʾ 34:15 — Two gardens (jannatān) on the right and the left were granted to the people of Sheba. Here جَنَّة is in its earthly usage — a physical, visible, tangible garden."
+    },
+    {
+      "type": "section",
+      "id": "cin-insan-melek",
+      "titleTr": "7. Cin — İnsan — Melek Üçlüsü",
+      "titleEn": "7. The Jinn — Human — Angel Triad"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Gizlilik spektrumunda **üç rûhânî varlık türü** sınıflandırılır:\n\n— **أَخْيَار (Ahyâr) — İyiler:** melekler\n— **أَشْرَار (Eşrâr) — Kötüler:** şeytanlar\n— **أَوْسَاط (Evsât) — Ortadakiler:** cinler (hem iyi hem kötü)\n\nBu üçlüde **cin**, ahlâki tarafsızlığıyla insan'a paralel bir varlık olarak konumlanır — fark, yalnızca **görünürlük** boyutundadır: cin 'gizli' (jinn), insan ise 'açık'tır.",
+      "en": "Within the spectrum of concealment, **three spiritual species** are classified:\n\n— **أَخْيَار (Akhyār) — The Good:** the angels\n— **أَشْرَار (Ashrār) — The Evil:** the satans\n— **أَوْسَاط (Awsāṭ) — The Middle:** the jinn (both good and evil)\n\nIn this triad, the **jinn**, with its moral neutrality, is positioned as a being parallel to the human — the only difference lying in the dimension of **visibility**: the jinn is 'hidden' (jinn), the human 'manifest'."
+    },
+    {
+      "type": "verseInline",
+      "ref": "72:14",
+      "noteTr": "Cin 72:14 — 'Aramızda **Müslüman olanlar** olduğu gibi **gerçeğe sırt çevirenler** de vardır (ve ennâ minne'l-müslimûne ve minne'l-kâsiṭûn).' Cinler de — insanlar gibi — ahlâki seçim yapan varlıklardır; iki yola da açıktırlar.",
+      "noteEn": "Al-Jinn 72:14 — 'Among us are **Muslims**, and among us are **those who deviate from justice** (wa-annā minnā al-muslimūna wa-minnā al-qāsiṭūn).' The jinn — like humans — are beings of moral choice; both paths are open to them."
+    },
+    {
+      "type": "section",
+      "id": "mecnun",
+      "titleTr": "8. Mecnûn (مَجْنُون) — Akıl ve Perde",
+      "titleEn": "8. Majnūn (مَجْنُون) — Intellect and Veil"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**جُنُون (cunûn)**, nefis ile akıl arasına bir perdenin girmesi anlamını taşır. مَجْنُون gramatik olarak **مَفْعُول kalıbındadır** ('üzerine etki edilmiş, cin çarpmış') — yani fail değil, **mef'ûl**dür: birinin/bir şeyin **örttüğü** kişi.\n\nKullanım bağlamları çeşitlidir:\n\n— **Literal delilik:** akıl hastalığı\n— **Cin tesiri:** dış bir varlığın akla perde indirmesi\n— **Peygamberlere iftira:** Duhân 44:14'teki 'eğitilmiş bir mecnûn' (muʿallemun mecnûn) ithamı; Kalem 68:2'de Resûlullah'a yöneltilen aynı itham\n— **Aşırı tutku ve aşk deliliği:** Mecnûn ve Leylâ hikâyesi — modern Arapçada hâlâ canlı kullanım",
+      "en": "**جُنُون (junūn)** denotes a veil descending between the soul (nafs) and the intellect (ʿaql). Grammatically, مَجْنُون is in the **مَفْعُول pattern** ('one acted upon, struck by jinn') — i.e., not the agent but the **patient**: a person whom something has **covered**.\n\nContexts of usage are varied:\n\n— **Literal madness:** mental illness\n— **Influence of jinn:** an external entity drawing a veil over the intellect\n— **Slander against prophets:** the charge 'a tutored madman' (muʿallamun majnūn) in Ad-Dukhān 44:14; the same charge leveled at the Messenger in Al-Qalam 68:2\n— **Excess of passion and lovesickness:** the tale of Majnūn and Laylā — still alive in modern Arabic usage"
+    },
+    {
+      "type": "verseInline",
+      "ref": "44:14",
+      "noteTr": "Duhân 44:14 — 'Sonra ondan yüz çevirdiler ve: \"Bu, **eğitilmiş bir mecnûn** (muʿallemun mecnûn)tur\" dediler.' İftira mantığı: 'Aklı kendi değil, başka bir varlık (cin/şeytan) ona öğretiyor'. مَفْعُول kalıbının semantik gücü burada bütün açıklığıyla görünür.",
+      "noteEn": "Ad-Dukhān 44:14 — 'Then they turned away from him and said: \"He is a **tutored madman** (muʿallamun majnūn).\"' The logic of slander: 'His intellect is not his own — some other being (jinn/satan) is teaching him.' The semantic force of the مَفْعُول pattern stands here in full clarity."
+    },
+    {
+      "type": "verseInline",
+      "ref": "68:2",
+      "noteTr": "Kalem 68:2 — 'Sen, Rabbinin nimetiyle, **mecnûn değilsin** (mâ ente bi-niʿmeti rabbike bi-mecnûn).' Aynı kelime — bu kez Resûlullah'ı savunmak için kullanılır. Vahiy 'dışarıdan örtülen' bir akıl değildir; **kuşatan bir hidayet**tir.",
+      "noteEn": "Al-Qalam 68:2 — 'By the grace of your Lord, you are **not a madman** (mā anta bi-niʿmati rabbika bi-majnūn).' The same word — used here to defend the Messenger. Revelation is not an intellect 'covered from outside' but **an encompassing guidance**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Mecnun, cin çarptığı için 'mecnûn' değildir; cin onu **örttüğü** için mecnûndur. Cennet, ağaçları olduğu için 'cennet' değildir; nimetleri **örttüğü** için cennettir.",
+      "en": "The majnūn is not 'majnūn' because jinn struck him; he is majnūn because something **covered** him. Jannah is not 'jannah' because it has trees; it is jannah because it **covers** its bounties.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "risale-kalp-cekirdek",
+      "titleTr": "9. Risale-i Nur'dan: Cennet'in Çekirdek Metaforu",
+      "titleEn": "9. From Risale-i Nur: The Seed Metaphor of Paradise"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bediüzzaman, **Mesnevî-i Nûriye / Habbe**'de cennet'i tohum-ağaç çiftiyle anlatır:\n\n*'İnsanın çekirdeği olan kalb, ubudiyet ve ihlâs altında İslâmiyet ile iska edilmekle imanla intibâha gelirse, nûrânî, misâlî âlem-i emir'den gelen emirle öyle bir şecere-i nûrânî olarak yeşillenir ki, onun cismânî âlemine ruh olur. Eğer o kalb çekirdeği böyle bir terbiye görmezse, kuru bir çekirdek kalarak nura inkılâp edinceye kadar ateş ile yanması lâzımdır.'*\n\nMetaforda **kalb (جَنَان) çekirdek**tir; **cennet (جَنَّة) ise şecere-i nûrânî** — örtücü, gölge veren ağaçtır. Süreç şöyledir: **gizli çekirdek → iska/sulama → yeşerme → nûrânî ağaç (cennet).** Zıt süreç ise: **kuru çekirdek → ateş (cehennem)**.",
+      "en": "Bediüzzaman, in **Mathnawī al-Nūrīyya / Habbah**, narrates paradise through the seed-tree pair:\n\n*'If the heart, which is man's seed, is irrigated under devotion and sincerity with Islam and awakens through faith, then by an order from the luminous, archetypal Realm of Command, it greens into such a luminous tree that it becomes the spirit of his physical world. If that seed of the heart receives no such cultivation, it remains a dry seed, and must burn in fire until it transforms into light.'*\n\nIn the metaphor, the **heart (جَنَان) is the seed**; the **garden (جَنَّة) is the luminous tree** — covering, shade-giving. The process: **hidden seed → irrigation → greening → luminous tree (jannah).** The opposite process: **dry seed → fire (jahannam).**"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu metafor, جَنَّة'nin **etimolojik anlamlarını tek bir imgede birleştirir:**\n\n— **Gizlilik:** çekirdek, kalp (görünmeyen merkez)\n— **Örtme:** ağacın gölgesi (yapraklar, dallar)\n— **Nimet:** meyve, bereket (sonuç)\n\nÜç katman — fiziksel/ontolojik/epistemik — burada tek bir **organik döngüde** birleşir. Risale'nin önerdiği iki kader, aşağıdaki karşılaştırmada görülebilir:",
+      "en": "The metaphor **unifies the etymological senses of جَنَّة into a single image:**\n\n— **Concealment:** the seed, the heart (the unseen center)\n— **Covering:** the tree's shade (leaves, branches)\n— **Bounty:** the fruit, the abundance (the outcome)\n\nThree strata — physical/ontological/epistemic — fuse here in a single **organic cycle**. The two destinies Risale proposes are visible in the contrast below:"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Çekirdeğin İki Kaderi — Risale Metaforu",
+      "captionEn": "Two Destinies of the Seed — Risale Metaphor",
+      "left": {
+        "ar": "جَنَان → جَنَّة",
+        "titleTr": "Sulanan Kalp → Nûrânî Ağaç",
+        "titleEn": "Irrigated Heart → Luminous Tree",
+        "descTr": "Ubudiyet ve ihlâs ile sulanan çekirdek; imanla intibâha gelen kalp",
+        "descEn": "The seed irrigated by devotion and sincerity; the heart awakening through faith",
+        "accent": "#1D9E75",
+        "bullets": [
+          { "tr": "Süreç: gizli çekirdek → iska → yeşerme", "en": "Process: hidden seed → irrigation → greening" },
+          { "tr": "Sonuç: şecere-i nûrânî (cennet ağacı)", "en": "Outcome: luminous tree (jannah)" },
+          { "tr": "Meyve: âlem-i emirden gelen ruh", "en": "Fruit: spirit from the Realm of Command" }
+        ]
+      },
+      "right": {
+        "ar": "جَنَان → جَهَنَّم",
+        "titleTr": "Kuru Çekirdek → Ateş",
+        "titleEn": "Dry Seed → Fire",
+        "descTr": "Terbiye görmeyen, sulanmayan çekirdek; ihlâsdan mahrum kalan kalp",
+        "descEn": "The seed that receives no cultivation, no irrigation; the heart bereft of sincerity",
+        "accent": "#e74c3c",
+        "bullets": [
+          { "tr": "Süreç: gizli çekirdek → ihmâl → kuruma", "en": "Process: hidden seed → neglect → desiccation" },
+          { "tr": "Sonuç: ateşle yanma (cehennem)", "en": "Outcome: burning in fire (jahannam)" },
+          { "tr": "Dönüşüm: nura inkılâp edinceye kadar", "en": "Transmutation: until conversion into light" }
+        ]
+      },
+      "bridgeTr": "İska / Terbiye",
+      "bridgeEn": "Irrigation / Cultivation",
+      "bridgeMode": "diverge"
+    },
+    {
+      "type": "section",
+      "id": "kritik-ayrimlar",
+      "titleTr": "10. Metinlerdeki Kritik Ayrımlar",
+      "titleEn": "10. Critical Distinctions in the Text"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**A. Adem'in Cenneti — Nerede?**\n\nBakara 2:35 ve A'râf 7:19'da geçen 'Ey Âdem, sen ve eşin cennete (el-cennete) yerleşin' ifadesi tefsir tarihinde iki ana okumayla yorumlanmıştır:\n\n— **Dünyevî bahçe görüşü:** fiziksel, yeryüzünde bir yer\n— **Âhiret cenneti görüşü:** metafizik bir yer; sonra dünyaya indirildi\n\nİki okumanın da ortak paydası: **örtülü/korunaklı bir alan**. Âdem'in cennetinde özgürlük, bolluk ve 'dilediğince yiyebilme' nimetleri vurgulanır.",
+      "en": "**A. Adam's Garden — Where?**\n\nThe expression 'O Adam, dwell — you and your wife — in the garden (al-jannah)' in Al-Baqarah 2:35 and Al-A'rāf 7:19 has been interpreted along two main lines in the tafsīr tradition:\n\n— **The terrestrial-garden view:** a physical place, somewhere on earth\n— **The eschatological-jannah view:** a metaphysical place; afterwards brought down to earth\n\nThe common ground of both readings: **a veiled / protected space**. In Adam's garden, freedom, abundance and the bounty of 'eating as you please' are emphasized."
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:35",
+      "noteTr": "Bakara 2:35 — 'Ey Âdem, sen ve eşin cennete (el-cennete) yerleşin. Orada dilediğiniz yerden bolca yiyin. Yalnız şu ağaca yaklaşmayın, yoksa zalimlerden olursunuz.' Cennet'in tanımlayıcı niteliği: **bolluk + sınır** — yani örtü içinde ahlâki bir özgürlük.",
+      "noteEn": "Al-Baqarah 2:35 — 'O Adam, dwell — you and your wife — in the garden, and eat from wherever you wish. But do not approach this tree, lest you be among the wrongdoers.' The defining trait of jannah: **abundance + boundary** — moral freedom within the veil."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**B. جَانّ — Yılan mı, Cin mi?**\n\nNeml 27:10'da Hz. Mûsâ'nın asâsı için kullanılan جَانّ kelimesi iki yorum doğurmuştur:\n\n— **Yılan türü (fiziksel):** hızlı, çevik küçük bir yılan\n— **Cin türü (metafizik):** ince, küçük bir cin\n\nMûsâ'nın asâsı **gerçek bir yılana** dönüştü; ancak جَانّ ifadesi **küçük/çevik/saklanan** vurgusu yapar. **Aynı kök, farklı varlık türlerini** belirtir — ortak payda yine **gizlilik** ve **çevikliktir**.",
+      "en": "**B. جَانّ — Serpent or Jinn?**\n\nThe word جَانّ used for Moses's staff in An-Naml 27:10 has yielded two interpretations:\n\n— **Serpent type (physical):** a swift, agile small snake\n— **Jinn type (metaphysical):** a slender, small jinn\n\nMoses's staff transformed into **an actual serpent**; yet the term جَانّ emphasizes the **small/agile/hidden**. **The same root denotes different species of beings** — the common thread, once again, is **concealment** and **swiftness**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "27:10",
+      "noteTr": "Neml 27:10 — 'Onu (asâsını) **sanki bir yılan/cin (cânn) gibi titreşirken görünce**, dönüp ardına bakmadan kaçtı.' Tek bir kelimenin iki uzantısı: fiziksel hızlı yılan + metafizik ince varlık. Kök, hâl'i 'gizlenen/saklanan' olarak nitelendirir.",
+      "noteEn": "An-Naml 27:10 — 'When he saw it (the staff) **vibrating as though it were a jinn / serpent (jānn)**, he turned and fled without looking back.' One word, two extensions: the physical swift snake + the metaphysical slender being. The root qualifies the state as 'hidden / concealed.'"
+    },
+    {
+      "type": "section",
+      "id": "hadis-kalkan",
+      "titleTr": "11. Hadis ve Kavramsal Genişleme — Oruç = Kalkan",
+      "titleEn": "11. Hadith and Conceptual Extension — Fasting = Shield"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Hadiste **'الصَّوْمُ جُنَّةٌ'** ('Oruç bir kalkandır') ifadesi geçer. Semantik bağlantı şudur: **جُنَّة (kalkan) ← جَنَّ (örtmek).** Oruç, nefsi örter / korur ve günahlardan kalkan görevi görür.\n\nKur'an aynı kelimeyi metaforik bağlamda kullanır: **Mücâdele 58:16** — 'Yeminlerini kalkan (cunne) yaptılar.' Burada جُنَّة, **hile aracı** olarak — gerçek bir korumadan farklı, dış görünüşte bir savunma. Kökün anlamı her iki kullanımda da sabittir: **örten, gizleyen, perdeleyen**.",
+      "en": "A hadith states: **'al-ṣawmu junnatun'** ('Fasting is a shield'). The semantic link: **جُنَّة (shield) ← جَنَّ (to cover).** Fasting covers / protects the soul and serves as a shield against sins.\n\nThe Quran uses the same word in a metaphorical context: **Al-Mujādilah 58:16** — 'They took their oaths as a shield (junnatan).' Here جُنَّة is **an instrument of deceit** — distinct from genuine protection; an outward defense. The root's sense is constant in both usages: **covering, concealing, veiling**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "58:16",
+      "noteTr": "Mücâdele 58:16 — '**Yeminlerini kalkan (cunne) yaptılar** ve Allah yolundan alıkoydular.' Kalkanın iki yüzü: koruyucu kalkan (oruç) vs. perdeleyici kalkan (yalan yemin). Kök sabit, niyet zıt.",
+      "noteEn": "Al-Mujādilah 58:16 — '**They took their oaths as a shield (junnatan)** and barred others from God's path.' Two faces of the shield: protective shield (fasting) vs. veiling shield (false oaths). The root is constant; the intention is opposed."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Tek bir kök — ج-ن-ن — Kur'an'da **kozmolojik bir gizlilik haritası** kurar. Bahçe yapraklarıyla, cin görünmezliğiyle, mecnûn aklındaki perdeyle, kalkan koruyuculuğuyla, cenin rahimle, kalp göğüsle — hepsi aynı fiilden konuşur: **örter, saklar, gizler**.",
+      "en": "A single root — j-n-n — erects in the Quran a **cosmological map of concealment**. The garden with its leaves, the jinn with its invisibility, the majnūn with the veil on his intellect, the shield with its protection, the fetus with the womb, the heart with the chest — all speak the same verb: **it covers, it conceals, it hides**.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "kaynaklar",
+      "titleTr": "12. Kaynaklar",
+      "titleEn": "12. Sources"
+    },
+    {
+      "type": "sources",
+      "items": [
+        { "name": "Lane's Arabic-English Lexicon", "detailTr": "ج-ن-ن kökü: 'örtme/saklama' temel anlamı, fiziksel ve metaforik kullanımlar", "detailEn": "j-n-n root: core sense 'cover/conceal', physical and metaphorical usages" },
+        { "name": "al-Mufradāt fī Gharīb al-Qur'ān", "detailTr": "Râgıb el-İsfehânî — جَنَّة, جِنّ, مَجْنُون semantik analizi", "detailEn": "al-Rāghib al-Iṣfahānī — semantic analysis of jannah, jinn, majnūn" },
+        { "name": "Wiktionary — Arabic Etymology", "detailTr": "Etymology 1 (İbranice gānán paraleli), Etymology 2 (Aramca/Süryânice gnē — ruh/cin), Etymology 3 (mefʿûl kalıbı denominal türetme)", "detailEn": "Etymology 1 (Hebrew gānán parallel), Etymology 2 (Aramaic/Syriac gnē — spirit/jinn), Etymology 3 (mafʿūl pattern denominal derivation)" },
+        { "name": "İbn Abbâs (rivâyet)", "detailTr": "Kehf 18:107 'yedi kat cennet' yorumu", "detailEn": "Interpretation of Al-Kahf 18:107 'seven layered heavens'" },
+        { "name": "Ebû Sâlih (yorum)", "detailTr": "'Tüm melekler cindir' — gizlilik spektrumunda meleğin yeri", "detailEn": "'All angels are jinn' — angelic position within the spectrum of concealment" },
+        { "name": "Klasik tefsirler — İbn Kesîr, Taberî, Râzî", "detailTr": "Âdem'in cenneti, جَانّ tartışmaları, mecnûn iftirası", "detailEn": "Adam's garden, jānn debates, the slander of majnūn" },
+        { "name": "Mesnevî-i Nûriye, Habbe (Bediüzzaman)", "detailTr": "Çekirdek metaforu: kalb → cennet, kuru çekirdek → cehennem", "detailEn": "The seed metaphor: heart → jannah, dry seed → jahannam" },
+        { "name": "Karşılaştırmalı filoloji", "detailTr": "Sami diller (İbranice gānán, Aramca gnē, Ugaritçe gn) + Latince genius semantik paraleli + Farsça bustān (bağ) karşılaştırması", "detailEn": "Semitic languages (Hebrew gānán, Aramaic gnē, Ugaritic gn) + Latin genius parallel + Persian bustān (orchard) comparison" }
+      ]
+    }
+  ]
+}
