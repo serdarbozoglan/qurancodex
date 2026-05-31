@@ -1,0 +1,301 @@
+{
+  "slug": "kader",
+  "titleTr": "İnsan, Kainat ve Kur'an Terminolojisi 7 — Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm",
+  "titleEn": "Human, Cosmos, and Quranic Terminology 7 — The Resolution of Destiny: Design, Will, and Soft Determinism",
+  "category": "terminoloji",
+  "template": "series-hero",
+  "seriesId": "terminoloji",
+  "seriesNumber": 7,
+  "seriesTotal": 7,
+  "pinned": true,
+  "publishedDate": "2025-04-24",
+  "readingMinutes": 7,
+  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "canonicalUrl": "https://sufist.medium.com/ala-suresi-1-3-kader-tasar%C4%B1m-i%CC%87rade-ve-soft-determinizm-b154a637f337",
+  "tldrTr": "Alâ Sûresi 87:1-3'ten yola çıkarak — *halaka fesevvâ* (yarattı ve tasarladı) + *kaddera fe-hedâ* (takdir etti ve yöneltti) ekseninde kaderin doğası. Kader, mutlak belirleyicilik değil; **çözünürlüğü zaman ve ilişkiler içinde artan esnek, hiyerarşik, dinamik bir çerçeve**dir. İrade, dua ve ilişkiler bu çözünürlüğü şekillendirir. Bakara'daki inek örneği, kuantum dalga fonksiyonu ve 'kaddera fe-hedâ' aynı prensibi gösterir.",
+  "tldrEn": "Starting from Sūrah Al-Aʿlā 87:1-3 — *khalaqa fa-sawwā* (He created and proportioned) + *qaddara fa-hadā* (He determined and guided) — the nature of destiny. Destiny is not absolute determination but **a flexible, hierarchical, dynamic frame whose resolution grows with time and relations**. Will, prayer, and relationships shape this resolution. The cow-example in Al-Baqarah, the quantum wave function, and 'qaddara fa-hadā' display the same principle.",
+  "relatedTools": ["concept-graph", "verse-graph"],
+  "relatedVerses": ["87:1", "87:2", "87:3", "75:38", "25:2", "2:67-71", "16:120-121", "80:19-20", "92:5-7", "90:10"],
+  "previousArticle": null,
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "section",
+      "id": "giris",
+      "titleTr": "Giriş: Ayet ve Kavramsal Çerçeve",
+      "titleEn": "Introduction: The Verse and Conceptual Frame"
+    },
+    {
+      "type": "verseInline",
+      "ref": "87:1",
+      "noteTr": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — Yüce, ulvî Rabbinin ismini tesbih et!",
+      "noteEn": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — Glorify the name of your Lord, the Most High."
+    },
+    {
+      "type": "verseInline",
+      "ref": "87:2",
+      "noteTr": "اَلَّذِي خَلَقَ فَسَوّٰى — O ki yarattı ve tesviye etti; yani tasarladı, düzenledi.",
+      "noteEn": "اَلَّذِي خَلَقَ فَسَوَّى — He who created and proportioned — that is, designed and ordered."
+    },
+    {
+      "type": "verseInline",
+      "ref": "87:3",
+      "noteTr": "وَالَّذِي قَدَّرَ فَهَدٰى — O ki, takdir etti (muhtemel hâllerini sınırlandırdı) ve onu yöneltti (o hâllerden birini realize etti).",
+      "noteEn": "وَالَّذِي قَدَّرَ فَهَدَى — He who determined (constraining the possible states) and guided (actualizing one of them)."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu âyetlerde **yaratılışın, tasarımın ve yönlendirmenin** (takdir ve hidayetin) birbirine bağlı aşamalar olduğu belirtilir.\n\nBu yazıda bir biriyle irtibatlı bir çok konuya temas edeceğiz. Yazı lineer olduğu için, bir çok konuya derinlemesine girmeyip, sonra detaylı ele almak için sadece bazı işaretler koyacağız.",
+      "en": "These verses present **creation, design, and direction** (qadar and hidāya) as interlinked stages.\n\nThis essay touches many interconnected topics. Because the text is linear, we will not delve deeply into each — we will mark them as signposts for later detailed treatment."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Bu yazıdaki temel kavramlar:**\n\n— Yaratılış ve tesviye / tasarım\n— Kader, takdir (sınırlandırma, *constraint*) ve hidayet\n— İlişkisel esnek determinizm ve irade",
+      "en": "**The core concepts of this essay:**\n\n— Creation and proportioning / design\n— Destiny, *qadar* (constraint, limitation) and guidance\n— Relational soft determinism and the will"
+    },
+    {
+      "type": "verseInline",
+      "ref": "75:38",
+      "noteTr": "*Halaqa fe-sevvâ* — 'Sonra bir alak (embriyo) oldu, derken (Allah, onu) yarattı ve bir düzen içinde biçim verdi.'",
+      "noteEn": "*Khalaqa fa-sawwā* — 'Then he became a clot (embryo), then He created and gave it form in due proportion.'"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Tesviye / Tasarım.** *Sevâ*: eşitlemek, düzenlemek demektir. **Sevvâke:** 'Seni varoluş amacını gerçekleştirecek bir altyapıyla donattı' (**Râğıb**). Bir şeyin tesviyesi, onun amacı doğrultusunda (*mâ hulika leh*) işlemesini sağlayacak altyapı ve donanıma kavuşturulmasıdır.\n\nBurada yaratılışın doğrudan bir 'son durum' olarak değil, **aşamalı bir süreç (proses)** olarak murad edildiği görülür. Ağacı ve meyvelerini bir anda yaratmak yerine, **bir tohumu yaratıp içine ağacın ve meyvenin potansiyelini / programını yerleştirmek** anlatılır. Yani objeler değil, **süreçler üzerinden bir varoluş resmi** çizilmektedir.",
+      "en": "**Proportioning / design.** *Sawwā*: to equalize, to order. **Sawwāka:** 'He equipped you with an infrastructure that fulfils the purpose of your existence' (**Rāghib**). The proportioning of a thing is its being granted the infrastructure that lets it operate toward its purpose (*mā khuliqa lah*).\n\nWe see here that creation is intended not as a direct 'end-state' but as **a staged process**. Instead of bringing forth tree and fruit at once, what is described is **creating a seed and embedding within it the potential / program of tree and fruit**. A picture of existence drawn not over objects but **over processes**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Tasarım nasıl anlaşılır?** Bir kriter şudur: bir bütünde *emergent* (zuhur eden) kavramlar görünüyor ve bu kavramlar başka altyapılarla da ortaya çıkabiliyorsa, orada tasarımdan söz edilebilir.\n\nÖrneğin sandalyeyi metalden de tahtadan da, LEGO parçalarından da yapabilirsiniz. **'Sandalyelik' özelliği emergent'tir** — yani altyapıdan bağımsızdır. Parçalarında bir *invariance* (değişmezlik) kümesi bulunur. Hedeflenen şey bu emergent özelliktir. Bu da **Aristo'nun dilinde *telos***, zaman üstü bir perspektifte de **top-down causality** olarak adlandırılır.\n\nBu **teleolojik (amaçlı) sürecin başında tasarım vardır**.",
+      "en": "**How is design recognized?** One criterion: if *emergent* concepts arise within a whole and these concepts can also arise on other substrates, then design is in play.\n\nA chair can be made of metal, wood, or LEGO bricks. **'Chair-ness' is emergent** — independent of substrate. There is an *invariance* across its parts. What is targeted is this emergent feature. In **Aristotle's vocabulary, this is *telos***; from a time-transcendent vantage, **top-down causality**.\n\nAt the head of this **teleological (purposive) process lies design**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Aynı şekilde **zekâ da biyolojik altyapıya mahkûm değildir**. Silikon tabanlı bir ortamda da ortaya çıkabilir — ki yapay zeka budur. Kanat da böyledir: kuşun kanadı, uçağın kanadı… **Kanatlık özelliği emergent'tir**.\n\n**David Deutsch**'un **Constructor Theory** adını verdiği yeni fizik kuramı da tam bu noktada — bizim tasarım dediğimiz yerdeki **'bilgi' kavramını merkeze alır**. Maddenin kendisi taşıyıcıdır, asıl olan bilginin aktarımıdır der.",
+      "en": "Likewise, **intelligence is not bound to a biological substrate**. It can arise on a silicon substrate — this is artificial intelligence. So with the wing: a bird's wing, an aeroplane's wing… **'wing-ness' is emergent**.\n\n**David Deutsch's** new physical theory, **Constructor Theory**, picks up precisely here — placing at the center the **concept of 'information'** in what we have been calling design. Matter is the carrier; what is essential is the transmission of information."
+    },
+    {
+      "type": "section",
+      "id": "takdir",
+      "titleTr": "Takdir",
+      "titleEn": "Qadar (Constraint)"
+    },
+    {
+      "type": "verseInline",
+      "ref": "25:2",
+      "noteTr": "*Halaqa kulle şey'in fe-kadderahû takdîrâ* — 'O her şeyi yaratmış ve bir ölçüye (kadere) göre takdir etmiştir.'",
+      "noteEn": "*Khalaqa kulla shay'in fa-qaddarahū taqdīrā* — 'He created everything and decreed it with a measure (qadar).'"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Takdir**, sınırlandırma (*constraint*) koymak demektir. Örneğin insan DNA'sı, boy ve ten rengi gibi özellikleri belirli bir aralıkta sınırlar. **Kesin (mutlak) bir ölçü değil**, ilişkilendiği başka faktörlerle bir aralık içinde tanımlanır ve böylece harika bir uyum doğar.\n\nBu yaklaşım, **esnek determinizm** olarak da ifade edilebilir.",
+      "en": "**Qadar** is the imposition of a *constraint*. Human DNA, for example, bounds traits like height and skin colour within a certain range. **Not as an absolute measure**, but defined within an interval through its relations with other factors — and so a remarkable harmony emerges.\n\nThis approach can also be called **soft determinism**."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Tasarım → Takdir → Hidayet (Alâ 87:2-3)",
+      "captionEn": "Design → Constraint → Guidance (Al-Aʿlā 87:2-3)",
+      "nodes": [
+        {
+          "ar": "خَلَقَ فَسَوّٰى",
+          "transliteration": "khalaqa fa-sawwā",
+          "titleTr": "Yarattı ve Tasarladı",
+          "titleEn": "Created and Designed",
+          "subtitleTr": "Amacı (telos) doğrultusunda işleyecek altyapı.",
+          "subtitleEn": "An infrastructure ordered to its purpose (telos).",
+          "tone": "trigger"
+        },
+        {
+          "ar": "قَدَّرَ",
+          "transliteration": "qaddara",
+          "titleTr": "Takdir Etti (Sınırlandırdı)",
+          "titleEn": "Determined (Constrained)",
+          "subtitleTr": "Muhtemel hâllerin aralığı — mutlak değil, esnek.",
+          "subtitleEn": "The range of possible states — not absolute but flexible.",
+          "tone": "state"
+        },
+        {
+          "ar": "فَهَدٰى",
+          "transliteration": "fa-hadā",
+          "titleTr": "Yöneltti (Realize Etti)",
+          "titleEn": "Guided (Actualized)",
+          "subtitleTr": "Takdir edilen yollar arasından birinin realize edilmesi.",
+          "subtitleEn": "Actualization of one path among those determined.",
+          "tone": "outcome"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "irade-dua",
+      "titleTr": "İrade, Dua ve Kaderin Çözünürlüğünün Artması",
+      "titleEn": "Will, Prayer, and the Increasing Resolution of Destiny"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bir adım daha geriye gidelim. Varlıkta **kavramsal hiyerarşi (ontoloji)**, bir şeyin takdirinin de farklı esneklikle olabileceğine işaret eder.\n\nMesela şu ifadeler **farklı çözünürlükte fakat doğruluk değeri aynı** olan ifadeler:\n\n— Bardağın bir kısmı sıvı ile dolu.\n— Cam bardağın yarısından biraz azı su ile dolu.\n— Kırmızımsı cam bardakta 120 ml zemzem suyu var.\n\nFark ettiyseniz bir ifadenin **doğruluk değerini değiştirmeden bilgi içeriğinin çözünürlüğünü** artırıp ya da azaltabiliyorum.",
+      "en": "Let us step further back. The **conceptual hierarchy (ontology)** of existence points out that the determination (*qadar*) of a thing may itself come at different levels of flexibility.\n\nFor instance, the following are statements **at different resolutions but with the same truth value**:\n\n— Part of the glass is filled with liquid.\n— A bit less than half of the glass holds water.\n— The reddish glass holds 120 ml of Zamzam water.\n\nNote how, **without changing the truth value of a statement, I can raise or lower the resolution of its information content**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Başka bir örnek — Bakara'da inek:**\n\n— *Bir inek kurban edin* (Bakara 2:67)\n— *Ne çok yaşlı ne de çok genç, ikisi arası orta yaşta dinç bir inek kurban edin* (Bakara 2:68)\n— *Bakanlara sürûr verecek parlak renkte sapsarı, ne çok yaşlı ne de çok genç…* (Bakara 2:69)\n— *Yer sürmek ve ekin sulamak üzere boyunduruğa vurulmamış, her ayıptan temiz, hiçbir lekesi, alacası olmayan, bakanlara sürûr verecek parlak renkte sapsarı…* (Bakara 2:71)\n\nHer defasında **belirsizlik azalıp çözünürlük artıyor**. Potansiyel hâllerin sayısı azalıyor.",
+      "en": "**Another example — the cow in Al-Baqarah:**\n\n— *Sacrifice a cow* (Al-Baqarah 2:67)\n— *Sacrifice a cow neither old nor very young, midway, vigorous* (Al-Baqarah 2:68)\n— *A bright-yellow cow giving joy to onlookers, neither too old nor too young…* (Al-Baqarah 2:69)\n— *Untrained for ploughing or watering crops, sound, with no blemish or speckle, bright-yellow, joyful to onlookers…* (Al-Baqarah 2:71)\n\nAt every step **the indeterminacy decreases and the resolution rises**. The count of possible states shrinks."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Realite ile etkileştikçe, **tercihler aksiyona döndükçe çözünürlük ve kesinlik artıyor**. Ama yine öncesinde, esasta çizilmiş bir **çerçeve ve kalıp içinde kalıyor**.",
+      "en": "As one interacts with reality and **as choices turn into action, resolution and certainty grow**. Yet they still remain within a **frame and mould already drawn in essence**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Ey insanlar! Allah size haccı farz kıldı, hac ediniz! — Bir adam: 'Ya Rasûlallah! Her sene mi?' dedi. Rasûlullah sustu, cevap vermedi. O adam bu sözü üç kere tekrarladı. Bunun üzerine Rasûlullah şöyle buyurdu: 'Eğer ben evet deseydim, her sene hac etmeniz size vacip / farz olurdu ve siz de şüphesiz ki ona güç yetiremezdiniz. Ben size bir şey emretmeyip kendi hâlinize bıraktığım müddetçe siz de beni kendi hâlime bırakınız.'",
+      "en": "O people! Allah has made the Pilgrimage obligatory upon you; perform Hajj. — A man asked: 'O Messenger of Allah! Every year?' The Messenger fell silent and gave no answer. The man repeated the question three times. Then the Messenger said: 'Had I said yes, it would have become obligatory upon you every year, and you could not have borne it. So long as I leave a thing to your discretion, leave me to my discretion.'",
+      "source": "Hadis — Müslim 1337/412 (Ebû Hureyre rivayetiyle)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Âyetin **'kaddera fe-hedâ'** yani 'takdir ettikten sonra yola iletti' demesi, **takdir çerçevesi içindeki potansiyel yollar arasından birinin realize edilmesine** işaret eder. Bu açıdan ileriki âyetlerde ve başka sûrelerde geçen kişinin **el-yüsrâ**ya ya da **el-usrâ**ya iletilmesi — takdir edilen yollar arasında en kolay yola ya da en zor yola iletilmesi — kader kalemi ile çözünürlük artarken, hadiselerin belirginliği artarken, yolların da **iradenin iki elindeki dua ve istiğfar** ile seçilmesi hususuyla irtibatlıdır.\n\nİnsanın **iradesi ve duasının gücüyle kader üzerinde etki kurabilmesi**, hatta belirlenmiş kaderin farklı ihtimallerle şekillenebilmesi mümkün olur. Bu süreç, kaderin **hiyerarşik yapısının ve esnekliğinin** bir sonucudur.",
+      "en": "The verse's phrase **'qaddara fa-hadā'** — 'He determined, then guided' — signals **the actualization of one path among those laid out within the frame of constraint**. Hence the later verses, and verses in other sūrahs, that speak of one being directed to **al-yusrā** (the easy path) or **al-ʿusrā** (the hard path) — being led to the easiest or the hardest among the determined paths — relate to how, as the pen of destiny raises the resolution and events grow more distinct, paths are also selected by **prayer and seeking-forgiveness in the two hands of the will**.\n\nThrough **the power of will and prayer, the human can exert influence on destiny**, and the predetermined destiny may even take shape through different possibilities. This process is a consequence of destiny's **hierarchical structure and flexibility**."
+    },
+    {
+      "type": "section",
+      "id": "iliskisel-determinizm",
+      "titleTr": "İlişkisel Determinizm ve İhtimallerin Azalması",
+      "titleEn": "Relational Determinism and the Narrowing of Possibilities"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Örneğin bir kişinin kaza yapması kaderde belirlenmişse, bunun gerçekleşebileceği **binlerce farklı yol** vardır. Önceki gece uykusuzluk, sürüş sırasında dikkat dağıtan bir mesaj ya da aniden yola çıkan bir geyik gibi çeşitli ihtimaller söz konusudur.\n\nAncak bu ihtimalleri azaltan, **başka faktörlerin kaderle ilişkisidir**. Diğer araç sürücüsünün ya da geyiğin kaderiyle olan ilişki, ihtimalleri giderek azaltır ve sonunda tek bir sonuca indirir. **Çok bilinmeyenli denklemlerde, eşitlik / denklem sayısı arttıkça çözüm sayısının azalması gibi.**",
+      "en": "Suppose a person's traffic accident has been determined in destiny. There are **thousands of different paths** by which it might come about — sleeplessness the night before, a distracting message during the drive, a deer crossing the road, and so on.\n\nWhat narrows these possibilities is **the relations between destinies of other factors**. The destiny of the other driver, or of the deer, gradually shrinks the possibilities until only one outcome remains. **Like a system of equations: as the number of equations grows, the number of solutions shrinks.**"
+    },
+    {
+      "type": "section",
+      "id": "lokal-global",
+      "titleTr": "Lokal ve Global Perspektifler: Cüzî ve Küllî Takdir",
+      "titleEn": "Local and Global Perspectives: Particular and Universal Determination"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Her şey kader açısından eşit değildir. Bazı varlıklar daha az ilişki kurdukları için **daha lokal, cüzî bir kadere** sahiptir. Bazı varlıklar ise — **insan kalbi gibi** — çok geniş ilişkilere sahiptir. Başka galaksileri veya binlerce yıl önce yaşamış canlıları iç dünyasına yerleştirebilir. Bu durum ona **daha küllî (global) bir kimlik** kazandırır.",
+      "en": "Not all beings are equal regarding destiny. Because they form fewer relations, some beings possess **a more local, particular destiny**. Other beings — like **the human heart** — hold far broader relations. Other galaxies or living beings from thousands of years past can be inscribed within their inner world. This grants them **a more universal (global) identity**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bir şeyin **mahiyeti lokalden globale, cüziyattan külliyâta doğru genişledikçe**, kaderi de genişler ve değişir. Artık **belirlenen olmaktan çıkıp belirleyici konuma geçer**.\n\nBu sürecin nihayeti *levlâke*, *kâb-ı kavseyni ev ednâ*, *nûr-u muhammedî* veya *hakikat-i ahmediye* sırrına ulaşır. Kişi, **himmeti nispetinde külliyet kazanır**.",
+      "en": "As **a being's nature broadens from the local to the global, from the particular to the universal**, its destiny too broadens and changes. **It ceases being something determined and passes into the position of determiner**.\n\nThe final point of this process touches the secret of *lawlāka*, *qāba qawsayni aw adnā*, *nūr-i Muḥammadī*, or *ḥaqīqat-i Aḥmadiyya*. The person **gains universality in proportion to his aspiration (himma)**."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Belirlenen ⇄ Belirleyici",
+      "captionEn": "Determined ⇄ Determiner",
+      "left": {
+        "ar": "جُزْئِيّ",
+        "titleTr": "Cüzî / Lokal — Belirlenen",
+        "titleEn": "Particular / Local — The Determined",
+        "descTr": "Az ilişkili varlık; takdiri daha dar, mahiyeti daha çevreli.",
+        "descEn": "A being with few relations; narrower destiny, more circumscribed nature.",
+        "accent": "#3498db",
+        "bullets": [
+          { "tr": "Daha dar takdir aralığı", "en": "A narrower band of qadar" },
+          { "tr": "İhtimaller dış faktörlerce daraltılır", "en": "Possibilities narrowed by external factors" },
+          { "tr": "Pasif konum", "en": "A passive position" }
+        ]
+      },
+      "right": {
+        "ar": "كُلِّيّ",
+        "titleTr": "Küllî / Global — Belirleyici",
+        "titleEn": "Universal / Global — The Determiner",
+        "descTr": "Geniş ilişkili varlık (insan kalbi gibi); kaderi genişler, mahiyeti küllî olur.",
+        "descEn": "A being of broad relations (like the human heart); destiny broadens, nature turns universal.",
+        "accent": "#d4a574",
+        "bullets": [
+          { "tr": "Geniş takdir alanı", "en": "A broad field of qadar" },
+          { "tr": "İrade + dua + himmet ile genişler", "en": "Broadens through will, prayer, and aspiration (himma)" },
+          { "tr": "Aktif katılımcı / kalem", "en": "An active participant / a pen" }
+        ]
+      },
+      "bridgeTr": "Mahiyet Genişlemesi (Himmet Nispetinde)",
+      "bridgeEn": "The Broadening of Nature (in Proportion to Aspiration)",
+      "bridgeMode": "merge"
+    },
+    {
+      "type": "paragraph",
+      "tr": "*(Daha zengin bir kontekst için, Felsufi şu makaleye yönlendirir: 'İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi-1: Lokal ve Global Perspektifler' — bu seri içindeki ilk yazıdır.)*",
+      "en": "*(For richer context, Felsufi refers to: 'Human, Cosmos, and Quranic Terminology-1: Local and Global Perspectives' — the first essay of this series.)*"
+    },
+    {
+      "type": "section",
+      "id": "somutlasma",
+      "titleTr": "Somutlaştırma ve Kur'an'daki Örnekleri",
+      "titleEn": "Concretization and Quranic Examples"
+    },
+    {
+      "type": "verseInline",
+      "ref": "16:120-121",
+      "noteTr": "Nahl 16:120-121 — Hz. İbrâhîm'in seçilmesi ve sırat-ı müstakîme hidâyet edilmesi: Alâ 87:3 âyetinin müşahhas bir örneği.",
+      "noteEn": "An-Nahl 16:120-121 — The choosing of Ibrāhīm and his being guided to the straight path: a concrete instance of Al-Aʿlā 87:3."
+    },
+    {
+      "type": "paragraph",
+      "tr": "İnsan **cüz'î iradesi ve amelleriyle ilişkide bulunduğu şeyleri değiştirebilir** ve bu sayede binlerce ihtimalden başka bir ihtimal ile aynı neticeye varabilir. Bazen de irade ve dua öyle bir seviyeye çıkar ki, **kazâ hükmü de değişebilir**. Bu tarz bir organizasyon, takdirin **hiyerarşik yapı ve esnekliği** ile gerçekleşir.",
+      "en": "Through **the partial will and deeds, the human can alter the things with which he stands in relation**, and so reach the same outcome via another of the thousand possibilities. At times, will and prayer rise to a level where **even the decreed verdict (qaḍāʾ) may shift**. Such an arrangement comes about through destiny's **hierarchical structure and flexibility**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "80:19-20",
+      "noteTr": "Abese 80:19-20 — 'İnsanı nutfeden yarattı ve *kaddera*, sonra yola iletimini kolaylaştırdı.'",
+      "noteEn": "ʿAbasa 80:19-20 — 'From a drop He created him, then *qaddara* (decreed his measure), then made his path easy.'"
+    },
+    {
+      "type": "verseInline",
+      "ref": "92:5-7",
+      "noteTr": "Leyl 92:5-7 — 'Kim verirse, ittikā ederse ve el-husnâyı tasdik ederse, onu el-yüsrâ için kolaylaştırırız.'",
+      "noteEn": "Al-Layl 92:5-7 — 'Whoever gives, fears, and affirms the best — We shall ease his way to ease (al-yusrā).'"
+    },
+    {
+      "type": "verseInline",
+      "ref": "90:10",
+      "noteTr": "Beled 90:10 — *ve hedeynâhu'n-necdeyn* — 'Ve ona iki yolu (iyi ve kötü) gösterdik.'",
+      "noteEn": "Al-Balad 90:10 — *wa hadaynāhu al-najdayn* — 'And We showed him the two highways (of good and evil).'"
+    },
+    {
+      "type": "section",
+      "id": "ilmi-tezahurler",
+      "titleTr": "Kaderin İlmî ve Fiziksel Tezahürleri",
+      "titleEn": "The Knowledge-Based and Physical Manifestations of Destiny"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "İ'lem eyyühe'l-azîz! Her şeyi tahrik eden zerrât-ı müteharrikenin, muayyen hadlerine kadar hareket ettikten sonra tevakkuf ve durmalarına dikkat eden adam anlar ki, her şeyin hududunda dâima harekette bulunan zerrâtı durdurup geri çeviren bir hudut bekçisi vardır; o zerrâtı taşmaktan men'ediyor. O bekçi ise, muhît bir ilmin tecellîsidir ki, o tecellî kadere, kader de miktara, miktar da kalıba tahavvül eder. Demek, her şey, içerisindeki zerrata bir kalıptır.",
+      "en": "Know, dear one! Whoever attends to how the moving atoms that animate everything, having moved up to their appointed bounds, come to a halt and stop, comes to understand that at the limit of every thing there stands a frontier-guard turning back the atoms which would otherwise overflow — preventing them from spilling over. And this guard is the manifestation of an all-encompassing knowledge; that manifestation transforms into destiny, destiny into measure, and measure into form. Thus every thing is a mould for the atoms within it.",
+      "source": "Bediüzzaman — Mesnevî-i Nûriye (Felsufi aktarımı)"
+    },
+    {
+      "type": "section",
+      "id": "sonuc",
+      "titleTr": "Sonuç: Kaderin Dinamik Doğası ve İnsanın Konumu",
+      "titleEn": "Conclusion: The Dynamic Nature of Destiny and the Human's Position"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Yaratılış, tasarım ve kader; birbirleriyle sıkı bir ilişki içindedir. Kader kavramı **esnek, ilişkisel ve hiyerarşik bir yapıdadır**. İnsanın iradesi, duası ve kurduğu ilişkiler bu sistemi etkileyebilir ve dönüştürebilir.\n\nBöylece kader, mutlak belirleyicilik yerine **proses / süreç ile çözünürlüğü / kesinliği artan dinamik bir belirleyici** olur. **Kader bir anlamda kalem olur.** Bir elektronun konumunun *kuantum dalga fonksiyonu* ile sınırlandırılıp, gözlemlendiğinde muhtemel çok noktadan **sadece bir noktada netleşmesi, belirlenmesi (*kaddera fe-hedâ*)** gibi.",
+      "en": "Creation, design, and destiny stand in close relation. The concept of destiny is **flexible, relational, and hierarchical**. The human's will, prayer, and the relationships he builds can affect and transform this system.\n\nThus, instead of absolute determination, destiny becomes **a dynamic determiner whose resolution / certainty grows through process**. **Destiny becomes, in a sense, a pen.** Like the position of an electron — constrained by its *quantum wave function*, then, on being observed, **resolving from many possible points to only one (*qaddara fa-hadā*)**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu yazıda özellikle vurgulandığı üzere, **kader çözünürlüğü zaman ve ilişkiler içinde artmakta**, belirsizlikten belirginliğe doğru bir seyir izlemektedir. Tıpkı Bakara Sûresi'ndeki inek örneğinde olduğu gibi, başlangıçta daha az çözünürlüklü ve geniş bir çerçeve çizilirken, ilişkiler ve etkileşimler arttıkça bu çerçeve daha belirgin hâle gelmektedir.",
+      "en": "As emphasized throughout this essay, **destiny's resolution grows with time and relations**, following a course from indeterminacy to distinctness. Just as in the cow example of Sūrah Al-Baqarah, the initial frame is drawn at a low resolution and large; as relations and interactions accumulate, this frame becomes ever more defined."
+    },
+    {
+      "type": "paragraph",
+      "tr": "İrade ve amellerin kadere etkisi, **'kaddera fe-hedâ' ilkesiyle** açıklanmıştır: Allah önce takdir eder, sonra yola iletir. Bu iki aşamalı süreç, insanın kaderini **pasif bir alıcı olmaktan çıkarıp aktif bir katılımcı konumuna** yükseltir. *El-yüsrâ* (kolaylık) ve *el-usrâ* (zorluk) yolları arasındaki seçim, insanın amelleri, niyeti ve duâsıyla şekillenir.\n\nKur'an'ın **'necdeyn' (iki yol)** kavramı, insanın iradesinin kader içindeki rolünü gösterir. Her insan kendi küllî ve cüz'î kapasitesi ölçüsünde, lokalden globale uzanan bir etki alanına sahiptir. **Kişi himmeti nispetinde külliyet kazanır** ve bu külliyeti arttıkça kaderini şekillendirme yeteneği de genişler.",
+      "en": "The effect of will and deed on destiny is articulated through the principle of **'qaddara fa-hadā'**: God first decrees, then guides. This two-stage process **raises the human's destiny from a passive reception to active participation**. The choice between **al-yusrā** (the easy) and **al-ʿusrā** (the hard) is shaped by the human's deeds, intention, and prayer.\n\nThe Quran's concept of **'al-najdayn' (the two highways)** discloses the will's role within destiny. Every human possesses a sphere of influence reaching from local to global, in proportion to particular and universal capacity. **A person gains universality in proportion to aspiration (himma)** — and as this universality grows, his power to shape his destiny broadens with it."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Özetle, kader; sınırlayıcı bir hapishane değil, içinde hareket ve değişim imkânı bulunan **elastik bir çerçevedir**. İnsan, iradesi ve duâsıyla bu çerçevenin içinde dolaşabilir, bazen de bu çerçevenin kendisini genişletebilir.",
+      "en": "In sum: destiny is not a confining prison but **an elastic frame within which motion and change are possible**. Through will and prayer, the human moves within this frame — and at times, even widens the frame itself.",
+      "source": "Felsufi"
+    }
+  ]
+}

@@ -109,6 +109,19 @@
       "tldrTr": "Kur'an'daki en gizemli terimlerden birinin içine iniyoruz. Çoğu çeviri 'Hapishane' der. Ama bağlam 'Kitap' diyor.",
       "tldrEn": "We descend into one of the most enigmatic terms in the Quran. Most translations say 'Prison'. But context says 'Book'.",
       "status": "draft"
+    },
+    {
+      "slug": "kader",
+      "titleTr": "Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm",
+      "titleEn": "Terminology 7: The Resolution of Destiny — Design, Will, and Soft Determinism",
+      "category": "terminoloji",
+      "seriesNumber": 7,
+      "pinned": true,
+      "publishedDate": "2025-04-24",
+      "readingMinutes": 7,
+      "tldrTr": "Alâ Sûresi 87:1-3'ten yola çıkarak: kader mutlak belirleyicilik değil, çözünürlüğü zaman ve ilişkiler içinde artan esnek, hiyerarşik, dinamik bir çerçevedir. İrade, dua ve ilişkiler bu çözünürlüğü şekillendirir.",
+      "tldrEn": "From Sūrah Al-Aʿlā 87:1-3: destiny is not absolute determination but a flexible, hierarchical, dynamic frame whose resolution grows with time and relations. Will, prayer, and relationships shape this resolution.",
+      "status": "draft"
     }
   ]
 }
