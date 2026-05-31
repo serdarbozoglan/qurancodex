@@ -1,0 +1,364 @@
+{
+  "slug": "lehv",
+  "titleTr": "Kur'an Kavramları Semantik Analizi-2: Lehv",
+  "titleEn": "Semantic Analysis-2: Lahw",
+  "category": "semantik",
+  "template": "root-tree",
+  "seriesId": "semantik-analizi",
+  "seriesNumber": 2,
+  "seriesTotal": 5,
+  "publishedDate": "2025-12-30",
+  "readingMinutes": 5,
+  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "canonicalUrl": "https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-2-lehv-7e1054bf0fd8",
+  "root": {
+    "letters": "ل ه و",
+    "transliteration": "l-h-w (L-H-W)",
+    "coreMeaningTr": "Dikkati başka yöne çevirmek; oyalanma, eğlence",
+    "coreMeaningEn": "To divert attention elsewhere; distraction, amusement",
+    "derivatives": [
+      { "ar": "لَهِىَ", "translit": "lahiya", "tr": "Dikkatini çevirdi, unuttu (fiil)", "en": "Turned away in distraction; forgot (verb)" },
+      { "ar": "لَهْو", "translit": "lehv", "tr": "Oyalanma, eğlence — önemli olandan alıkoyan", "en": "Distraction, amusement — that which keeps from what matters" },
+      { "ar": "لَهْوَة", "translit": "lahwa", "tr": "Değirmen mandalı — akışı düzenleyen tıpa (somut köken)", "en": "Mill-stopper — the plug regulating grain flow (concrete origin)" },
+      { "ar": "لَهَاة", "translit": "lahât", "tr": "Küçük dil (uvula) — boşluğu dolduran et", "en": "Uvula — the flesh that fills the throat-cavity" },
+      { "ar": "أَلْهَى", "translit": "alhâ", "tr": "Oyaladı (IV. form — aktif dikkat dağıtma)", "en": "Distracted (IV form — active diversion)" },
+      { "ar": "لَاهِيَة", "translit": "lâhiye", "tr": "Sürekli oyalanan (ism-i fâil, müennes)", "en": "Persistently distracted (active participle, fem.)" },
+      { "ar": "مَلْهًى", "translit": "melha", "tr": "Eğlence yeri, oyalanma mekânı", "en": "Place of amusement, distraction-locale" }
+    ]
+  },
+  "tldrTr": "Kök: ل ه و (L-H-W) — Triliteral Arapça kök. Somut imge kökenli: *lahwa* (لَهْوَة) — değirmenin ağzına konulan, tahıl akışını düzenleyen mandal/tıpa. Bu 'engelleme' ve 'durdurma' imgesi, kökün semantik çekirdeğini oluşturur: dikkat akışını kesen şey.",
+  "tldrEn": "Root: ل ه و (L-H-W) — a triliteral Arabic root. Of concrete-image origin: *lahwa* (لَهْوَة) — the stopper-plug fitted to a mill's mouth, regulating the grain flow. This image of 'blocking' and 'stopping' forms the semantic core: that which interrupts the flow of attention.",
+  "relatedTools": ["concept-graph", "verse-graph"],
+  "relatedVerses": ["47:36", "29:64", "102:1", "24:37", "21:3", "21:17", "80:1-10"],
+  "previousArticle": { "slug": "sefer", "titleTr": "Semantik 1: Sefer" },
+  "nextArticle": { "slug": "cennet-cin-mecnun", "titleTr": "Semantik 3: Cennet, Cin, Mecnun" },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "**Etimolojik Köken.** Triliteral Arapça kök. **Somut imge kökenli:** *lahwa* (لَهْوَة) — değirmenin ağzına konulan, tahıl akışını düzenleyen mandalı / tıpacı ifade eder. Bu **'engelleme'** ve **'durdurma'** imgesi, kökün semantik çekirdeğini oluşturur.",
+      "en": "**Etymological origin.** A triliteral Arabic root. **Of concrete-image origin:** *lahwa* (لَهْوَة) names the plug-stopper inserted into the mouth of a mill to regulate grain flow. This image of **'blocking'** and **'stopping'** forms the semantic core of the root."
+    },
+    {
+      "type": "section",
+      "id": "temel-anlam",
+      "titleTr": "1. Temel Anlam",
+      "titleEn": "1. Core Meaning"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Asıl / Literal Anlam:**\n\n— Bir şeyden dikkatini başka yöne çevirmek, meşgul olmak (لَهِىَ عَنْهُ — *lahiya ʿanhu*)\n— Oyalanma, eğlence, boş uğraş — **önemli olandan alıkoyan şey**\n— Somut köken: değirmen mandalı → akışı engelleyen → dikkati yönlendiren",
+      "en": "**Primary / Literal Meaning:**\n\n— To turn attention away from something, to be occupied (لَهِىَ عَنْهُ — *lahiya ʿanhu*)\n— Distraction, amusement, idle occupation — **that which keeps one from what matters**\n— Concrete origin: the mill-stopper → that which blocks the flow → that which redirects attention"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Fiziksel Göstergeler:**\n\n— **لَهْوَة:** değirmen ağzındaki düzenleyici tıpa (akışı engeller)\n— **لَهَاة:** küçük dil (*uvula*) — boğazın derinliğindeki et parçası (boşluğu dolduran)\n\nİki somut form da aynı semantik prensibi paylaşır: **bir akışı / boşluğu kesen, yerleşen, dolduran nesne**.",
+      "en": "**Physical referents:**\n\n— **لَهْوَة:** the regulator-plug at the mouth of a mill (blocks the flow)\n— **لَهَاة:** the uvula — the flesh at the depth of the throat (fills the cavity)\n\nBoth concrete forms share the same semantic principle: **the object that interrupts a flow, settles, fills a void**."
+    },
+    {
+      "type": "section",
+      "id": "anlam-hiyerarsisi",
+      "titleTr": "2. Anlam Hiyerarşisi",
+      "titleEn": "2. Semantic Hierarchy"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "ل-ه-و — Anlam Ağacı",
+      "titleEn": "l-h-w — Semantic Tree",
+      "root": {
+        "ar": "ل ه و",
+        "tr": "Engelleme / Dikkati Dağıtma",
+        "en": "Blocking / Diverting Attention"
+      },
+      "branches": [
+        {
+          "id": "somut",
+          "labelTr": "Somut Köken (Fiziksel İmge)",
+          "labelEn": "Concrete Origin (Physical Image)",
+          "accent": "#3498db",
+          "children": [
+            {
+              "ar": "لَهْوَة",
+              "tr": "Lahwa — değirmen tıpası (akışı düzenler)",
+              "en": "Lahwa — mill-stopper (regulates the flow)",
+              "transliteration": "lahwa"
+            },
+            {
+              "ar": "لَهَاة",
+              "tr": "Lahât — küçük dil / uvula (boşluğu doldurur)",
+              "en": "Lahât — uvula (fills the cavity)",
+              "transliteration": "lahât"
+            }
+          ]
+        },
+        {
+          "id": "soyut",
+          "labelTr": "Soyut Boyut (Dikkat Ekonomisi)",
+          "labelEn": "Abstract Dimension (Attention Economy)",
+          "accent": "#8b5cf6",
+          "children": [
+            {
+              "ar": "لَهْو",
+              "tr": "Lehv — oyalanma, eğlence",
+              "en": "Lahw — distraction, amusement",
+              "transliteration": "lahw",
+              "subChildren": [
+                { "tr": "Önemli olandan alıkoyan şey", "en": "That which keeps one from what matters" }
+              ]
+            },
+            {
+              "ar": "أَلْهَى",
+              "tr": "Alhâ — aktif dikkat dağıtma (IV. form, fail)",
+              "en": "Alhâ — active diversion (IV form, agentive)",
+              "transliteration": "alhâ",
+              "subChildren": [
+                { "tr": "Tekâsür gibi 'failler' (Tekâsür 102:1)", "en": "Agents like takāthur (Al-Takāthur 102:1)" }
+              ]
+            },
+            {
+              "ar": "لَاهِيَة",
+              "tr": "Lâhiye — sürekli oyalanan hâl (Enbiyâ 21:3)",
+              "en": "Lâhiya — persistent distractedness (Al-Anbiyāʾ 21:3)",
+              "transliteration": "lâhiye"
+            }
+          ]
+        },
+        {
+          "id": "mekansal",
+          "labelTr": "Mekânsal Türev",
+          "labelEn": "Spatial Derivative",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "ar": "مَلْهًى",
+              "tr": "Melhâ — eğlence yeri, oyalanma mekânı",
+              "en": "Malhâ — place of amusement, locus of distraction",
+              "transliteration": "malhâ",
+              "subChildren": [
+                { "tr": "'Durma / kalma' yeri", "en": "A place of 'stopping / staying'" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "kurani-kullanim",
+      "titleTr": "3. Kur'an'daki Kullanımlar",
+      "titleEn": "3. Quranic Usage"
+    },
+    {
+      "type": "verseInline",
+      "ref": "47:36",
+      "noteTr": "Dünya hayatı ancak oyun (*laib*) ve eğlence (*lehv*).",
+      "noteEn": "The life of this world is but play (*laʿib*) and distraction (*lahw*)."
+    },
+    {
+      "type": "verseInline",
+      "ref": "29:64",
+      "noteTr": "Bu dünya hayatı sadece oyun ve oyalanma. Ontolojik durum: dünya, hakikate göre 'oyun' statüsündedir.",
+      "noteEn": "This worldly life is only play and distraction. Ontological status: the world ranks as 'play' against the real."
+    },
+    {
+      "type": "verseInline",
+      "ref": "102:1",
+      "noteTr": "*Elhâkumu't-tekâsur* — 'Çoğalma [ile övünme] sizi oyaladı / dikkatinizi dağıttı.' *Alhâ* (IV. form): aktif dikkat dağıtma — tekâsür bir 'fail' gibi. Zenginlik, çocuklar, itibar 'kabire varıncaya kadar' oyalar.",
+      "noteEn": "*Alhākum al-takāthur* — 'The mutual rivalry for piling up has distracted you.' *Alhâ* (IV form): active diversion — takāthur acts like an agent. Wealth, children, status distract 'until you visit the graves'."
+    },
+    {
+      "type": "verseInline",
+      "ref": "24:37",
+      "noteTr": "*Ricâlun lâ tulhîhim ticâratun ve lâ bey'un ʿan zikri'llâh* — 'Ne ticaret ne alışveriş onları Allah'ı anmaktan oyalamaz.' Ticaret yasak değil; iç hiyerarşi korunur: Zikr > Ticaret.",
+      "noteEn": "*Rijālun lā tulhīhim tijāratun wa-lā bayʿun ʿan dhikri'llāh* — 'Men whom neither commerce nor sale distracts from the remembrance of Allah.' Commerce is not forbidden; the inner hierarchy is preserved: Dhikr > Commerce."
+    },
+    {
+      "type": "verseInline",
+      "ref": "21:3",
+      "noteTr": "*Lâhiyeten kulûbuhum* — 'Kalpleri gaflet içinde / oyalanmakta.' *Lâhiye* (isim-i fâil, müennes): sürekli hal — kalpler 'oyalanıcı' modda. Lehv burada **epistemolojik engel**: hakikati kavramayı bloke eder.",
+      "noteEn": "*Lāhiyatan qulūbuhum* — 'Their hearts are absorbed in distraction.' *Lāhiyah* (active participle, fem.): a persistent condition — hearts in 'distracted' mode. Here lahw is an **epistemological blockage**: it bars the apprehension of truth."
+    },
+    {
+      "type": "verseInline",
+      "ref": "21:17",
+      "noteTr": "*Lev eradnâ en nettehiza lehven* — 'Eğer bir eğlence edinmek isteseydik…' Allah için lehv: teolojik imkânsızlık. Bazı müfessirler: 'eş ve çocuk' (insanî lehv sembolleri). Vurgu: Allah, oyalanmadan münezzehtir.",
+      "noteEn": "*Law aradnā an nattakhidha lahwan* — 'Had We wished to take a diversion…' Lahw for God: a theological impossibility. Some commentators read 'wife and child' (the human symbols of lahw). The emphasis: God is transcendent above all distraction."
+    },
+    {
+      "type": "section",
+      "id": "semantik-alan",
+      "titleTr": "4. Semantik Alan",
+      "titleEn": "4. Semantic Field"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**İlişkili Kavramlar (Dikkatin Dağılması / Gaflet):**\n\n— **laib** (لعب) — oyun, amaçsız uğraş (lehv ile sıkça eşleşir)\n— **gaflet** (غفلة) — unutkanlık\n— **dalâl** (ضلال) — sapma, yol kaybı\n— **tekâsür** (تكاثر) — çoklukla övünme (Tekâsür 102:1 bağlamı)\n— **zikr** (ذكر) — anma, hatırlama (lehv'in zıttı)",
+      "en": "**Related concepts (Dispersion of Attention / Heedlessness):**\n\n— **laʿib** (لعب) — play, aimless occupation (frequently paired with lahw)\n— **ghafla** (غفلة) — forgetfulness\n— **ḍalāl** (ضلال) — straying, loss of path\n— **takāthur** (تكاثر) — boasting in abundance (the context of Al-Takāthur 102:1)\n— **dhikr** (ذكر) — remembrance (the opposite of lahw)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Karşıt Kavramlar:**\n\n— **zikr** (ذكر) — Allah'ı anma, hatırlama (Nûr 24:37)\n— **ciddiyet** — ciddiyyet, önemli işe odaklanma\n— **salât** (صلاة) — namaz (lehv'den korunulan ibadet)\n— **huşû** (خشوع) — tam dikkat",
+      "en": "**Opposing concepts:**\n\n— **dhikr** (ذكر) — remembrance of God (An-Nūr 24:37)\n— **jiddiyya** — earnestness, focus on what matters\n— **ṣalāt** (صلاة) — the prayer (worship guarded from lahw)\n— **khushūʿ** (خشوع) — full attentive presence"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Lehv ⇄ Zikr",
+      "captionEn": "Lahw ⇄ Dhikr",
+      "left": {
+        "ar": "لَهْو",
+        "titleTr": "Lehv — Dikkati Dağıtan",
+        "titleEn": "Lahw — That Which Distracts",
+        "descTr": "Akışı kesen, önemli olandan alıkoyan; gaflet üreten dikkat ekonomisi açığı.",
+        "descEn": "That which interrupts the flow, keeps one from what matters; the attention-economy deficit that breeds heedlessness.",
+        "accent": "#e74c3c",
+        "bullets": [
+          { "tr": "laib — oyun", "en": "laʿib — play" },
+          { "tr": "gaflet — unutma", "en": "ghafla — forgetfulness" },
+          { "tr": "tekâsür — çoklukla övünme", "en": "takāthur — boasting in abundance" }
+        ]
+      },
+      "right": {
+        "ar": "ذِكْر",
+        "titleTr": "Zikr — Hatırlama",
+        "titleEn": "Dhikr — Remembrance",
+        "descTr": "Dikkati asıl olana yöneltme; iç hiyerarşinin korunması.",
+        "descEn": "Directing attention to the essential; preserving the inner hierarchy.",
+        "accent": "#2ecc71",
+        "bullets": [
+          { "tr": "salât — namaz", "en": "ṣalāt — prayer" },
+          { "tr": "huşû — tam dikkat", "en": "khushūʿ — attentive presence" },
+          { "tr": "ciddiyet — odaklanma", "en": "jiddiyya — earnestness" }
+        ]
+      },
+      "bridgeTr": "Dikkat Ekonomisi",
+      "bridgeEn": "The Attention Economy",
+      "bridgeMode": "merge"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Paralel Kavramlar (Benzer Semantik Alanlar):**\n\n— **ticâret** (تجارة) — ticaret (Nûr 24:37 — olumlu ama oyalayıcı potansiyeli)\n— **bey'** (بيع) — alışveriş (oyalama potansiyeli)\n— **dünya** (دنيا) — dünya hayatı (lehv ve laib olarak nitelenir)",
+      "en": "**Parallel concepts (adjacent semantic fields):**\n\n— **tijāra** (تجارة) — commerce (An-Nūr 24:37 — positive yet of distracting potential)\n— **bayʿ** (بيع) — sale (potential to distract)\n— **dunyā** (دنيا) — the worldly life (characterized as lahw and laʿib)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Semantik Gelişim Zinciri:**\n\n1. Fiziksel Engel (değirmen mandalı)\n2. Akışı Kesme\n3. Dikkati Dağıtma\n4. Oyalanma / Eğlence\n5. Asıl Amaçtan Uzaklaşma\n6. Gaflet / Unutma",
+      "en": "**Semantic development chain:**\n\n1. Physical block (the mill-stopper)\n2. Interrupting the flow\n3. Diverting attention\n4. Distraction / amusement\n5. Drifting from the true aim\n6. Heedlessness / forgetting"
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Fiziksel Engel → Dikkati Dağıtma → Gaflet",
+      "captionEn": "Physical Block → Diverted Attention → Heedlessness",
+      "nodes": [
+        {
+          "ar": "لَهْوَة",
+          "transliteration": "lahwa",
+          "titleTr": "Fiziksel Engel",
+          "titleEn": "Physical Block",
+          "subtitleTr": "Değirmen mandalı — akışı kesen somut imge.",
+          "subtitleEn": "The mill-stopper — the concrete image of blocking the flow.",
+          "tone": "trigger"
+        },
+        {
+          "ar": "لَهْو",
+          "transliteration": "lahw",
+          "titleTr": "Dikkati Dağıtma",
+          "titleEn": "Diverted Attention",
+          "subtitleTr": "Önemli olandan alıkoyan oyalanma; asıl amaçtan uzaklaşma.",
+          "subtitleEn": "Distraction that keeps one from what matters; drifting from the true aim.",
+          "tone": "state"
+        },
+        {
+          "ar": "غَفْلَة",
+          "transliteration": "ghafla",
+          "titleTr": "Gaflet / Unutma",
+          "titleEn": "Heedlessness / Forgetting",
+          "subtitleTr": "Vahyi ciddiye almama hâli; epistemolojik kapanma.",
+          "subtitleEn": "Failure to take revelation seriously; epistemic closure.",
+          "tone": "outcome"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "teolojik-ictihatlar",
+      "titleTr": "5. Teolojik ve Kavramsal İçgörüler",
+      "titleEn": "5. Theological and Conceptual Insights"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Dikkat Ekonomisi ve Ontolojik Öncelik.** Kur'an'da lehv, insanın **dikkat ve zamanının yanlış yöne kanalize edilmesi** olarak sunulur. Önemli not: لَهْو **mutlak kötü değildir** — yalnızca **önemli olandan alıkoyan** şeydir. Bu, niteliksel değil, **konumsal** bir tanım.",
+      "en": "**The attention economy and ontological priority.** In the Quran, lahw is presented as **the misdirection of human attention and time**. A crucial qualifier: لَهْو **is not absolutely evil** — it is only **that which keeps one from what matters**. The definition is not qualitative but **positional**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Dünya hayatının niteliği:**\n\n— **Muhammed 47:36:** 'Dünya hayatı ancak oyun ve eğlence.'\n— **Ankebût 29:64:** 'Bu dünya hayatı sadece oyun ve oyalanma.'\n\nOntolojik durum: dünya, **hakikate göre 'oyun' statüsündedir**.",
+      "en": "**The character of worldly life:**\n\n— **Muhammad 47:36:** 'The life of this world is only play and distraction.'\n— **Al-ʿAnkabūt 29:64:** 'This worldly life is only play and distraction.'\n\nOntological status: the world holds **the rank of 'play' against the real**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Tekâsür Âyeti Analizi (Tekâsür 102:1).** أَلْهَاكُمُ التَّكَاثُرُ — 'Çoğalma [ile övünme] sizi oyaladı / dikkatinizi dağıttı.'\n\n— **أَلْهَى** (dördüncü form): aktif dikkat dağıtma — tekâsür bir 'fail' gibi.\n— Zenginlik, çocuklar, itibar → 'kabire varıncaya kadar' oyalar.\n— Lehv burada: **asıl gerçeklikten (ölüm, âhiret) perdeleme**.",
+      "en": "**Analysis of Al-Takāthur 102:1.** أَلْهَاكُمُ التَّكَاثُرُ — 'The rivalry in piling up has distracted you.'\n\n— **أَلْهَى** (IV form): active diversion — takāthur behaves like an agent.\n— Wealth, children, status → distract 'until you visit the graves'.\n— Here lahw functions as **a veiling from the true real (death, the Hereafter)**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Nûr 24:37 — Müstesnâ İnsanlar.** رِجَالٌ لَا تُلْهِيهِمْ تِجَارَةٌ وَلَا بَيْعٌ عَنْ ذِكْرِ اللَّهِ — 'Ne ticaret ne alışveriş onları Allah'ı anmaktan oyalamaz.'\n\n— Ticaret **yasak değil**: meşru fakat oyalama potansiyeli taşır.\n— **Dikkat disiplini:** dünyevî meşguliyetler zikri engellemez.\n— İç hiyerarşi: **Zikr > Ticaret** (değer sıralaması korunur).",
+      "en": "**An-Nūr 24:37 — The exceptional men.** رِجَالٌ لَا تُلْهِيهِمْ تِجَارَةٌ وَلَا بَيْعٌ عَنْ ذِكْرِ اللَّهِ — 'Men whom neither commerce nor sale distracts from the remembrance of Allah.'\n\n— Commerce **is not forbidden**: lawful, yet bearing the potential of distraction.\n— **The discipline of attention:** worldly occupation does not block dhikr.\n— Inner hierarchy: **Dhikr > Commerce** (the order of value is preserved)."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Enbiyâ 21:3 — Gâfil Kalpler.** لَاهِيَةً قُلُوبُهُمْ — 'Kalpleri gaflet içinde / oyalanmakta.'\n\n— **لَاهِيَة** (ism-i fâil, müennes): sürekli hâl — kalpler 'oyalanıcı' modda.\n— Vahye karşı gaflet: mesajı duymama, ciddiye almama.\n— Epistemolojik engel: lehv, hakikati kavramayı bloke eder.",
+      "en": "**Al-Anbiyāʾ 21:3 — Heedless hearts.** لَاهِيَةً قُلُوبُهُمْ — 'Their hearts absorbed in distraction.'\n\n— **لَاهِيَة** (active participle, fem.): a persistent state — hearts in 'distracted' mode.\n— Heedlessness toward revelation: not hearing, not taking the message seriously.\n— Epistemological blockage: lahw bars apprehension of truth."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Eğlence Edinme İhtimâli (Enbiyâ 21:17).** لَوْ أَرَدْنَا أَنْ نَتَّخِذَ لَهْوًا — 'Eğer bir eğlence edinmek isteseydik…'\n\n— Allah için lehv: **teolojik imkânsızlık**.\n— Bazı müfessirler: 'eş ve çocuk' (insânî lehv sembolleri).\n— Transandans vurgusu: Allah, oyalanmadan münezzehtir.",
+      "en": "**The hypothetical of taking a diversion (Al-Anbiyāʾ 21:17).** لَوْ أَرَدْنَا أَنْ نَتَّخِذَ لَهْوًا — 'Had We wished to take a diversion…'\n\n— Lahw for God: **a theological impossibility**.\n— Some commentators: 'wife and child' (the human symbols of lahw).\n— The emphasis on transcendence: God is exalted above all distraction."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Pratik Etik İçerimler:**\n\n— **Lehv'den kaçınma değil, yönetme:** dünyevî uğraşlar yasak değil; ancak zikri engellememelidir.\n— **Dikkat hijyeni:** neyin oyaladığını fark etme (self-awareness).\n— **Öncelik disiplini:** ticaret yapmak ≠ ticarete gömülmek.\n— **Her seviyede olabilir:** Abese 80:1-10 — peygamberler bile öncelik sırasında Allah'ın inâyetine ve hidâyetine muhtaçtır (*telhiye*).",
+      "en": "**Practical-ethical implications:**\n\n— **Not avoidance but management of lahw:** worldly occupations are not forbidden, but they must not block dhikr.\n— **Attention hygiene:** noticing what distracts (self-awareness).\n— **The discipline of priority:** to engage in commerce ≠ to be submerged in it.\n— **Possible at every level:** ʿAbasa 80:1-10 — even the prophets, in the order of priority, are in need of God's grace and guidance (*talhiyya*)."
+    },
+    {
+      "type": "section",
+      "id": "dilbilim-katmanlar",
+      "titleTr": "6. Dilbilimsel ve Kültürel Katmanlar",
+      "titleEn": "6. Linguistic and Cultural Layers"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Somut → Soyut Metafor Gelişimi.** Lehv kökü, **somut imgeden soyut anlama** doğru gelişen klasik bir örnektir: değirmen tıpası (fiziksel engel) → dikkat tıpası (zihinsel engel) → gaflet (varoluşsal engel).",
+      "en": "**The development from concrete to abstract metaphor.** The lahw root is a classic case of growth **from concrete image to abstract meaning**: the mill-stopper (physical block) → the attention-stopper (mental block) → heedlessness (existential block)."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Atasözü:** اللُّهَى تَفْتَحُ اللُّهَى — 'Hediyeler ağızları açar.'\n\n— **لُهَى** (çoğul): hem 'hediyeler' hem 'uvulalar / ağızlar'.\n— Kelime oyunu: cömertlik, eleştiriyi 'tıkar' (uvula imgesi).",
+      "en": "**A proverb:** اللُّهَى تَفْتَحُ اللُّهَى — 'Gifts open the mouths.'\n\n— **لُهَى** (plural): both 'gifts' and 'uvulas / mouths'.\n— A pun: generosity 'plugs' criticism (the uvula-image)."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "اللُّهَى تَفْتَحُ اللُّهَى — Hediyeler ağızları açar.",
+      "en": "اللُّهَى تَفْتَحُ اللُّهَى — Gifts open the mouths.",
+      "source": "Arap atasözü (Felsufi aktarımı)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Mekânsal Kullanım:**\n\n— **مَلْهًى:** eğlence yeri, oyalanma mekânı.\n— **مَلْهَى الأَثَافِي:** ocak taşlarının tam yeri (sabit nokta).\n— Mekân, lehv ile ilişkilidir — **'durma / kalma' yeri**.",
+      "en": "**Spatial usage:**\n\n— **مَلْهًى:** a place of amusement, locus of distraction.\n— **مَلْهَى الأَثَافِي:** the very place of the hearth-stones (a fixed point).\n— Place is bound to lahw — **'a place of stopping / staying'**."
+    },
+    {
+      "type": "section",
+      "id": "kaynaklar",
+      "titleTr": "7. Kaynaklar",
+      "titleEn": "7. Sources"
+    },
+    {
+      "type": "sources",
+      "items": [
+        { "name": "Lane Lexicon", "detailTr": "لَهِىَ عَنْهُ: ondan dikkatini çevirdi, unuttu. لَهْوٌ: dikkat dağıtan oyalanma; özellikle boş / faydasız olan. آلَةُ لَهْوٍ: dikkat dağıtan alet (müzik aleti). لَهَاةٌ: küçük dil (uvula). أَلْهَانِى الشَّىْءُ: şey beni oyaladı.", "detailEn": "lahiya ʿanhu: turned away from it, forgot. lahw: distracting amusement; especially the idle / useless. ālat lahw: an instrument of distraction (a musical instrument). lahāh: the uvula. alhānī al-shayʾ: the thing distracted me." },
+        { "name": "al-Mufradât (الْمُفْرَدَات — Râgıb el-İsfehânî)", "detailTr": "لَهْو: insana önemli ve gerekli olandan alıkoyan şey. Dünya hayatı: لَعِبٌ وَلَهْوٌ (oyun ve eğlence) — Muhammed 47:36. أَلْهَاكُمُ التَّكَاثُرُ: çoklukla övünme sizi oyaladı — Tekâsür 102:1. لَاهِيَةً قُلُوبُهُمْ: kalpleri sürekli boş işlerle meşgul — Enbiyâ 21:3. Ticaret bağlamı: ne ticaret ne alışveriş zikri engellemez — Nûr 24:37. Not: ticaret yasak değil, ancak namaz / ibadete zaman ayıramamak problematiktir.", "detailEn": "lahw: that which keeps a person from what is important and necessary. The worldly life: laʿibun wa-lahw (play and distraction) — Muhammad 47:36. alhākum al-takāthur — Al-Takāthur 102:1. lāhiyatan qulūbuhum: hearts persistently occupied by empty things — Al-Anbiyāʾ 21:3. Commerce context: neither commerce nor sale blocks dhikr — An-Nūr 24:37. Note: commerce is not forbidden, but the inability to make time for prayer / worship is problematic." },
+        { "name": "Somut İmgeler (Kök kaynaklı)", "detailTr": "اللَّهْوَة: değirmen tıpası (tahıl akışını düzenler). لَهَاة / لُهَيّ: küçük dil; boşluğu dolduran. مَلْهًى: eğlence yeri, oyalanma mekânı.", "detailEn": "al-lahwa: the mill-stopper (regulates the grain flow). lahāh / luhayy: the uvula; that which fills the void. malhā: a place of amusement, locus of distraction." },
+        { "name": "Kur'ânî Teolojik Yansımalar", "detailTr": "Lehv, maddi olarak kötü değil — ancak dikkat ekonomisinde zararlı. Dünya 'oyun ve eğlence' — ontolojik statü farkı (dünya vs âhiret). Müminler: dünyevî işler onları zikirden alıkoyamaz (Nûr 24:37). Gaflet (lehv'in sonucu): vahyi ciddiye almama hâli.", "detailEn": "Lahw is not materially evil — but harmful in the attention economy. The world is 'play and distraction' — an ontological gap (world vs Hereafter). Believers: worldly affairs cannot block their dhikr (An-Nūr 24:37). Heedlessness (the outcome of lahw): the state of not taking revelation seriously." }
+      ]
+    }
+  ]
+}

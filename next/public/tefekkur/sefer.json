@@ -9,7 +9,10 @@
   "seriesTotal": 5,
   "publishedDate": "2025-12-30",
   "readingMinutes": 3,
-  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
   "canonicalUrl": "https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-1-sefer-c774bdcad262",
   "root": {
     "letters": "س ف ر",
@@ -17,20 +20,62 @@
     "coreMeaningTr": "Örtüyü kaldırmak, açığa çıkarmak",
     "coreMeaningEn": "To remove a covering; to bring forth into light",
     "derivatives": [
-      { "ar": "سَفَرَ", "translit": "safara", "tr": "Örtüyü kaldırdı, süpürdü (fiil)", "en": "Removed a covering, swept (verb)" },
-      { "ar": "سَفَر", "translit": "sefer", "tr": "Yolculuk (insan mekânını 'açık bırakır')", "en": "Travel (the traveller 'leaves his place open')" },
-      { "ar": "سِفْر", "translit": "sifr", "tr": "Kitap — gerçekleri açan", "en": "Sifr — a book that uncovers truths" },
-      { "ar": "سَفَرَة", "translit": "sefere", "tr": "Yazıcı / katip — melekler (80:15-16)", "en": "Scribes — angels (80:15-16)" },
-      { "ar": "إِسْفَار", "translit": "isfâr", "tr": "Sabahın ağarması, aydınlanma", "en": "Dawning, illumination" },
-      { "ar": "سُفْرَة", "translit": "sufra", "tr": "Sofra — yol azığının 'açıldığı' kap", "en": "Sufra — the cloth on which travel-fare is 'opened'" }
+      {
+        "ar": "سَفَرَ",
+        "translit": "safara",
+        "tr": "Örtüyü kaldırdı, süpürdü (fiil)",
+        "en": "Removed a covering, swept (verb)"
+      },
+      {
+        "ar": "سَفَر",
+        "translit": "sefer",
+        "tr": "Yolculuk (insan mekânını 'açık bırakır')",
+        "en": "Travel (the traveller 'leaves his place open')"
+      },
+      {
+        "ar": "سِفْر",
+        "translit": "sifr",
+        "tr": "Kitap — gerçekleri açan",
+        "en": "Sifr — a book that uncovers truths"
+      },
+      {
+        "ar": "سَفَرَة",
+        "translit": "sefere",
+        "tr": "Yazıcı / katip — melekler (80:15-16)",
+        "en": "Scribes — angels (80:15-16)"
+      },
+      {
+        "ar": "إِسْفَار",
+        "translit": "isfâr",
+        "tr": "Sabahın ağarması, aydınlanma",
+        "en": "Dawning, illumination"
+      },
+      {
+        "ar": "سُفْرَة",
+        "translit": "sufra",
+        "tr": "Sofra — yol azığının 'açıldığı' kap",
+        "en": "Sufra — the cloth on which travel-fare is 'opened'"
+      }
     ]
   },
   "tldrTr": "Kök: س ف ر (S-F-R) — Proto-Sami dil ailesinden. Akadca šapārum (göndermek, mesaj iletmek), İbranice סֵפֶר (séfer — kitap), Aramice סָפְרָא (sāp̄ərā — yazıcı, katip) ile akrabadır. Asıl anlamı: örtüyü kaldırmak, açığa çıkarmak.",
   "tldrEn": "Root: س ف ر (S-F-R) — from the Proto-Semitic family. Cognate with Akkadian šapārum (to send, to convey a message), Hebrew סֵפֶר (séfer — book), Aramaic סָפְרָא (sāp̄ərā — scribe). Primary meaning: to remove a covering, to bring forth into light.",
-  "relatedTools": ["concept-graph", "verse-graph"],
-  "relatedVerses": ["74:34", "80:38", "80:15-16", "62:5", "2:184"],
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "74:34",
+    "80:38",
+    "80:15-16",
+    "62:5",
+    "2:184"
+  ],
   "previousArticle": null,
-  "nextArticle": { "slug": "cennet-cin-mecnun", "titleTr": "Semantik 3: Cennet, Cin, Mecnun" },
+  "nextArticle": {
+    "slug": "lehv",
+    "titleTr": "Semantik 2: Lehv"
+  },
   "blocks": [
     {
       "type": "paragraph",
@@ -76,7 +121,10 @@
               "en": "Isfâr — the dawning of morning",
               "transliteration": "isfâr",
               "subChildren": [
-                { "tr": "Sabah ışığı (Müddessir 74:34)", "en": "Morning light (Al-Muddaththir 74:34)" }
+                {
+                  "tr": "Sabah ışığı (Müddessir 74:34)",
+                  "en": "Morning light (Al-Muddaththir 74:34)"
+                }
               ]
             },
             {
@@ -85,7 +133,10 @@
               "en": "Musfira — bright (face)",
               "transliteration": "musfira",
               "subChildren": [
-                { "tr": "Parlak yüzler (Abese 80:38)", "en": "Bright faces (Abasa 80:38)" }
+                {
+                  "tr": "Parlak yüzler (Abese 80:38)",
+                  "en": "Bright faces (Abasa 80:38)"
+                }
               ]
             }
           ]
@@ -102,8 +153,14 @@
               "en": "Sefer — travel",
               "transliteration": "sefer",
               "subChildren": [
-                { "tr": "Mekândan uzaklaşma; konfor alanından çıkma", "en": "Departure from one's place; leaving the comfort zone" },
-                { "tr": "Sefer kolaylığı: oruç izni (Bakara 2:184)", "en": "The leniency of travel: dispensation from fasting (Al-Baqarah 2:184)" }
+                {
+                  "tr": "Mekândan uzaklaşma; konfor alanından çıkma",
+                  "en": "Departure from one's place; leaving the comfort zone"
+                },
+                {
+                  "tr": "Sefer kolaylığı: oruç izni (Bakara 2:184)",
+                  "en": "The leniency of travel: dispensation from fasting (Al-Baqarah 2:184)"
+                }
               ]
             },
             {
@@ -126,7 +183,10 @@
               "en": "Sifr — a book that uncovers truths",
               "transliteration": "sifr",
               "subChildren": [
-                { "tr": "Anlaşılmadan taşınan hakikatler (Cum'a 62:5)", "en": "Truths carried without being understood (Al-Jumu'ah 62:5)" }
+                {
+                  "tr": "Anlaşılmadan taşınan hakikatler (Cum'a 62:5)",
+                  "en": "Truths carried without being understood (Al-Jumu'ah 62:5)"
+                }
               ]
             },
             {
@@ -135,7 +195,10 @@
               "en": "Sefere — scribe / writer angels",
               "transliteration": "sefere",
               "subChildren": [
-                { "tr": "Allah'ın vahyini taşıyan melekler (Abese 80:15-16)", "en": "Angels carrying God's revelation (Abasa 80:15-16)" }
+                {
+                  "tr": "Allah'ın vahyini taşıyan melekler (Abese 80:15-16)",
+                  "en": "Angels carrying God's revelation (Abasa 80:15-16)"
+                }
               ]
             },
             {
@@ -212,9 +275,18 @@
         "descEn": "Removing a covering, sweeping, scattering; travel, dawn, book, scribe — all branches of the 'opening' theme.",
         "accent": "#d4a574",
         "bullets": [
-          { "tr": "سفر — yolculuk", "en": "safar — travel" },
-          { "tr": "إسفار — aydınlanma", "en": "isfâr — illumination" },
-          { "tr": "سفر — kitap (sifr)", "en": "sifr — book" }
+          {
+            "tr": "سفر — yolculuk",
+            "en": "safar — travel"
+          },
+          {
+            "tr": "إسفار — aydınlanma",
+            "en": "isfâr — illumination"
+          },
+          {
+            "tr": "سفر — kitap (sifr)",
+            "en": "sifr — book"
+          }
         ]
       },
       "right": {
@@ -225,9 +297,18 @@
         "descEn": "To cover, to conceal, to seal; the counter-pole.",
         "accent": "#8b5cf6",
         "bullets": [
-          { "tr": "ستر — örtmek", "en": "sitr — covering" },
-          { "tr": "خفا — gizli olmak", "en": "khafā — being hidden" },
-          { "tr": "إقامة — ikamet (sefer'in zıttı)", "en": "iqāma — residence (the opposite of safar)" }
+          {
+            "tr": "ستر — örtmek",
+            "en": "sitr — covering"
+          },
+          {
+            "tr": "خفا — gizli olmak",
+            "en": "khafā — being hidden"
+          },
+          {
+            "tr": "إقامة — ikamet (sefer'in zıttı)",
+            "en": "iqāma — residence (the opposite of safar)"
+          }
         ]
       },
       "bridgeTr": "Açma ↔ Kapama",
@@ -309,10 +390,26 @@
     {
       "type": "sources",
       "items": [
-        { "name": "Lane Lexicon", "detailTr": "Kök anlam: süpürmek, örtüyü kaldırmak, dağıtmak. سفر: yolculuk (insan mekânını 'açık bırakır'). سفور: yüzü açma, peçeyi kaldırma. سِفْر: gerçekleri açan kitap.", "detailEn": "Root meaning: to sweep, to remove a covering, to scatter. Safar: travel (the traveller 'leaves his place open'). Sufūr: unveiling. Sifr: a book that uncovers truths." },
-        { "name": "el-Müfredât (Râgıb el-İsfehânî)", "detailTr": "سَفْر: sadece maddi keşif (örtüyü kaldırma). إِسْفَار: renkle alakalı — sabahın ağarması, aydınlanma. سَفَرَة: gerçekleri açıklayan melekler (yazıcı katipler). سُفْرَة: yol azığının 'açıldığı' kap.", "detailEn": "Safr: bare material uncovering. Isfâr: relating to color — the dawning of morning, illumination. Sefere: angels who disclose truths (scribe-angels). Sufra: the cloth on which travel-fare is 'opened'." },
-        { "name": "Akkadca šapārum", "detailTr": "Göndermek, mesaj iletmek, yönetmek. Semantik genişleme: fiziksel açılma → bilgi iletimi.", "detailEn": "To send, to convey a message, to govern. Semantic broadening: physical opening → knowledge transmission." },
-        { "name": "Aramice / İbranice / Süryanice", "detailTr": "סָפְרָא (sāp̄ərā): katip, yazıcı. סֵפֶר (séfer): kitap. ܣܦܪܐ (sefrā): yazılar, kitap, dil. Ortak tema: bilgiyi kaydetme ve açığa çıkarma.", "detailEn": "סָפְרָא (sāp̄ərā): scribe. סֵפֶר (séfer): book. ܣܦܪܐ (sefrā): writings, book, language. Common theme: the recording and bringing-forth of knowledge." }
+        {
+          "name": "Lane Lexicon",
+          "detailTr": "Kök anlam: süpürmek, örtüyü kaldırmak, dağıtmak. سفر: yolculuk (insan mekânını 'açık bırakır'). سفور: yüzü açma, peçeyi kaldırma. سِفْر: gerçekleri açan kitap.",
+          "detailEn": "Root meaning: to sweep, to remove a covering, to scatter. Safar: travel (the traveller 'leaves his place open'). Sufūr: unveiling. Sifr: a book that uncovers truths."
+        },
+        {
+          "name": "el-Müfredât (Râgıb el-İsfehânî)",
+          "detailTr": "سَفْر: sadece maddi keşif (örtüyü kaldırma). إِسْفَار: renkle alakalı — sabahın ağarması, aydınlanma. سَفَرَة: gerçekleri açıklayan melekler (yazıcı katipler). سُفْرَة: yol azığının 'açıldığı' kap.",
+          "detailEn": "Safr: bare material uncovering. Isfâr: relating to color — the dawning of morning, illumination. Sefere: angels who disclose truths (scribe-angels). Sufra: the cloth on which travel-fare is 'opened'."
+        },
+        {
+          "name": "Akkadca šapārum",
+          "detailTr": "Göndermek, mesaj iletmek, yönetmek. Semantik genişleme: fiziksel açılma → bilgi iletimi.",
+          "detailEn": "To send, to convey a message, to govern. Semantic broadening: physical opening → knowledge transmission."
+        },
+        {
+          "name": "Aramice / İbranice / Süryanice",
+          "detailTr": "סָפְרָא (sāp̄ərā): katip, yazıcı. סֵפֶר (séfer): kitap. ܣܦܪܐ (sefrā): yazılar, kitap, dil. Ortak tema: bilgiyi kaydetme ve açığa çıkarma.",
+          "detailEn": "סָפְרָא (sāp̄ərā): scribe. סֵפֶר (séfer): book. ܣܦܪܐ (sefrā): writings, book, language. Common theme: the recording and bringing-forth of knowledge."
+        }
       ]
     }
   ]

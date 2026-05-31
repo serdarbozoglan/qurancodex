@@ -63,6 +63,18 @@
       "status": "draft"
     },
     {
+      "slug": "lehv",
+      "titleTr": "Kur'an Kavramları Semantik Analizi-2: Lehv",
+      "titleEn": "Semantic Analysis-2: Lahw",
+      "category": "semantik",
+      "seriesNumber": 2,
+      "publishedDate": "2025-12-30",
+      "readingMinutes": 5,
+      "tldrTr": "Kök: ل ه و (L-H-W) — Triliteral Arapça kök. Somut imge kökenli: lahwa (değirmen tıpası, akışı düzenleyen mandal). Bu 'engelleme' imgesi, kökün semantik çekirdeğini oluşturur: dikkat akışını kesen şey.",
+      "tldrEn": "Root: ل ه و (L-H-W) — a triliteral Arabic root. Of concrete-image origin: lahwa (the mill-stopper that regulates grain flow). This image of 'blocking' forms the semantic core: that which interrupts the flow of attention.",
+      "status": "draft"
+    },
+    {
       "slug": "cennet-cin-mecnun",
       "titleTr": "Semantik Analizi-3: Cennet, Cin, Mecnun",
       "titleEn": "Semantic Analysis-3: Jannah, Jinn, Majnun",
