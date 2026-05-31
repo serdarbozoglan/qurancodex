@@ -1,0 +1,278 @@
+{
+  "slug": "okuma-prensipleri-2",
+  "titleTr": "Kur'an Okuma Prensiplerimiz-2: Hermenötik Prensipler",
+  "titleEn": "Our Principles for Reading the Quran-2: Hermeneutic Principles",
+  "category": "sure-hermenotik",
+  "publishedDate": "2024-09-25",
+  "readingMinutes": 9,
+  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "canonicalUrl": "https://sufist.medium.com/kuran-okuma-prensiplerimiz-2-0e9581d791f5",
+  "tldrTr": "Önceki yazı 5 epistemik prensibi açtı; bu yazı **4 hermenötik prensibi** açar: **(1) Metnin Lokasyonu** (sibak-siyak + parça-bütün, multi-scale composition), **(2) Mesajın Vektörelliği** (esbâb-ı nüzûl + transformatif fonksiyon — *trajectory hermeneutics değil*), **(3) Anlamsal ve Yapısal İlişki Ağı** (ayet öbekleri network'ü; sadece anlam değil yapısal benzerlikler de bağlam), **(4) Murakabe-Muhasebe ile Farkedilen İhtiyaç** (kişinin iç hâli bir kontekst — Müzzemmil örneği).",
+  "tldrEn": "The previous essay opened 5 epistemic principles; this one opens **4 hermeneutic principles**: **(1) Textual Location** (siyāq + part-whole, multi-scale composition), **(2) Vectoriality of the Message** (*asbāb al-nuzūl* + the transformative function — *not trajectory hermeneutics*), **(3) The Semantic-Structural Relational Web** (a network of verse-clusters; not only meaning but structural resemblances are also context), **(4) The Need Sensed Through *Murāqaba* and *Muḥāsaba*** (one's inner state as context — the Muzzammil example).",
+  "relatedTools": ["concept-graph", "verse-graph", "reading-mode"],
+  "relatedVerses": ["56:75-79", "16:112", "2:35", "2:58", "73:1-5", "75:31-32", "10:61"],
+  "previousArticle": { "slug": "okuma-prensipleri-1", "titleTr": "Okuma Prensipleri-1: Epistemik" },
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "*(Önceki yazı için: 'Kur'an Okuma Prensiplerimiz-1: Epistemik Prensipler'.)*\n\nBir önceki yazıda Kur'an okurken geniş çapta bir istifade ve **Kur'an'ın eşyâ ve hâdiseleri okuyuşunu duyabilmek** için gerekli gördüğümüz **5 epistemik prensipten** bahsetmiştik. Bu yazıda da Kur'an metninin analizini yaparken **murâd-ı subhânîye** ilettiğini umduğumuz **4 hermenötik prensipten** bahsedeceğiz.",
+      "en": "*(For the previous essay: 'Our Principles for Reading the Quran-1: Epistemic Principles'.)*\n\nIn the previous essay we set forth the **5 epistemic principles** we deem necessary for broad benefit in Quranic reading and **for being able to hear how the Quran reads things and events**. In this essay we set forth the **4 hermeneutic principles** by which, when analysing the Quranic text, we hope to be led to **the intended divine meaning (*murād al-subḥānī*)**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Prensiplere geçmeden önce birkaç kavramı tanımlamakta fayda var. Yazıda yer yer **'metin (*text*)'** kelimesini kullanacağız — bununla **tek bir harften tutun, kelime, kelime tamlaması, âyet, âyet öbeği, sûre ve Kur'an'ın tamamını kapsayan her ölçekteki yazıları** kastediyoruz.\n\n**Bağlam (*context*)** derken ise metnin anlamını oluşturan — hatta baştan sona değiştirebilecek kadar güçlü ve önemli — **arka plan bilgisini** kastediyoruz. Bu yazının ana konusu işte bu bağlamları tespit etme prensipleridir.",
+      "en": "Before turning to the principles, it helps to define a few terms. We will at times use the word ***text*** — by which we mean writings at every scale: **a single letter, a word, a phrase, a verse, a cluster of verses, a sūrah, and the whole of the Quran**.\n\nBy ***context*** we mean **the background information that constitutes a text's meaning** — strong enough to alter it from one extreme to the other. The principles for establishing these contexts are this essay's main subject."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Anlam ve onu temsil eden form dualitesi yaratılışta ve varoluştaki **en temel dualitelerden biridir**. **Semantik (anlam) — sentaks (yapı)**, maneviyat — maddiyat, melekût — mülk, ruh — ceset ve hatta **Kur'an — Kâinat** gibi nice dual kavramlar aslında **aynı ontik kökten** gelirler.",
+      "en": "The duality between meaning and the form that represents it is **one of the most fundamental dualities** in creation and being. Many dual pairs — **semantics-syntax**, spirit-matter, *malakūt*-*mulk*, soul-body, and even **Quran-Cosmos** — in fact arise from **the same ontic root**."
+    },
+    {
+      "type": "section",
+      "id": "syntax-context-semantics",
+      "titleTr": "Metnin Yapısı (Syntax), Bağlamı (Context), ve Anlamı (Semantics)",
+      "titleEn": "Syntax, Context, and Semantics of the Text"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Bir gözlemi (sentaks) anlama (semantik) dönüştüren şey bağlamdır (*context*).** İnsanın davranışını okurken de böyledir, tabiatın hâdiselerini okurken de bu böyledir, Kur'an'ın âyetlerini okurken de bu böyledir. Ama **kontekst bazen gizli (*implicit*) bazen de açık (*explicit*)** olur.\n\nMesela bir insanın **iki elini beline bağladığı hâli** gözlemlediğimizde, bunun anlamlandırılması kontekste bağlıdır. Bir mescidde bunu yapıyorsa **namaz** kılıyordur, bir devlet makamında bunu yapıyorsa **devlet büyüğüne saygı** işaretidir, ağaçlar arasında yürürken yapıyorsa **farklı bir hâldir**, vs.",
+      "en": "**What turns an observation (syntax) into meaning (semantics) is context.** This holds for reading human behaviour, for reading the events of nature, for reading the verses of the Quran. Yet **context is sometimes implicit, sometimes explicit**.\n\nSay we observe a person **with both hands held at his belt**. Its meaning depends on context. In a mosque he is **praying**; in a state office, it is a **mark of respect to a high official**; while walking among trees, it is **something else again**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Başka bir misal — bahçemize geçen sene diktiğimiz bir ağaçtan çok lezzetli elmalar çıktığını gördük diyelim. **Rahmân ve Rahîm** olan Allah'ı kontekste aldığımızda, bir takım şekiller ve gözlemlerden oluşan bu hâdise bize **minnet duygusu ve anlamı** kazandırır — insanın esasta bir hiç olduğu hâlde ona değer veren bir Zât'a yaklaşma ve O'nun murâdının mürîdi olma arzusu oluşturur.\n\n*(Bismi'llâhi'r-Rahmâni'r-Rahîm* böyle bir konteksttir, *bismi rabbike'l-lezî halak* da ayrı bir konteksttir.)",
+      "en": "Another illustration — say we see delicious apples this year on a tree we planted in our garden last year. When we take **al-Raḥmān al-Raḥīm** into context, this event of shapes and observations yields **gratitude as feeling and as meaning** — a desire to draw nearer to the One who values a human who is in essence nothing, and to become the disciple of His will.\n\n*(Bismi'llāhi'r-Raḥmāni'r-Raḥīm* is one such context; *bismi rabbika al-ladhī khalaq* is another.)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an âyetlerini okurken de **murâd-ı ilâhî olan anlamlara ulaşmak için bağlamı doğru tespit etmek** gerekir. Bu hususta belirlediğimiz ve genelleştirdiğimiz **4 bağlam çeşidi** şunlardır:\n\n1. **Metnin lokasyonu (mevkii):** öncesi, sonrası, parçası, bütünü. Sibâk-siyâkın üzerine parça-bütün ilişkisini ele alarak genelleştirir.\n2. **Mesajın vektörelliği:** mesaj kişiyi ve toplumu nereden alıp nereye dönüştürmüş. Esbâb-ı nüzûlün üzerine âyetlerin transformatif fonksiyonlarını göz önünde bulundurarak genelleştirir.\n3. **Anlamsal ve yapısal ilişki ağı:** benzer anlamdaki âyetler ve aynı kökten gelen kelimeleri kullanan diğer âyetler. Anlamsal benzerliklerin üzerine yapısal benzerlikleri de içererek genelleştirir.\n4. **Murakabe-muhâsebe ile gelen ihtiyaç:** kişinin iç hâlinin gözlem ve değerlendirmesi neticesinde kalbinde oluşan ihtiyaç tezkeresi. Kalbin zümrüt tepelerinin haritasını ele alarak yeni bir bağlam kategorisi ortaya koyar.",
+      "en": "When reading the verses of the Quran too, **establishing the right context is needed to reach the intended divine meanings**. The **four kinds of context** we have established and generalized are:\n\n1. **Textual location:** what precedes, follows, the parts, and the whole. Generalizes *siyāq* by adding the part-whole relation.\n2. **Vectoriality of the message:** from where to where the message takes the person and the society. Generalizes *asbāb al-nuzūl* by foregrounding the verses' transformative functions.\n3. **The semantic-structural relational web:** verses of similar meaning and verses that use words from the same root. Generalizes semantic similarities by including structural similarities.\n4. **The need that arises through *murāqaba* and *muḥāsaba*:** the inner-need that issues from observing and evaluating one's inner state. Sets forth a new category of context by attending to the map of the emerald hills of the heart."
+    },
+    {
+      "type": "section",
+      "id": "metnin-lokasyonu",
+      "titleTr": "1. Metnin Lokasyonu",
+      "titleEn": "1. Textual Location"
+    },
+    {
+      "type": "paragraph",
+      "tr": "En yaygın bilinen ve anlama en güçlü katkıyı yapan bağlam tipi, bir metnin öncesi ve sonrasında gelen diğer metinlerdir — buna **sibâk ve siyâk** da denir. Ancak, Kur'an için epistemik prensipler arasında saydığımız **precision (netlik)** prensibini kabul ettiğimiz için, bunu bir adım daha öteye taşıyıp **metnin parçaları olan küçük metinlerin anlamı ve metnin içinde bulunduğu daha büyük metnin anlamı** olarak iki boyut daha ekliyoruz.\n\nBunlara da **parça-bütün bağlamı** diyor, sibâk-siyâk ile beraber zikrederken de **metnin çevresi** diyoruz.",
+      "en": "The most widely known and the strongest contributor to meaning is the other texts that come before and after — what is called **sibāq and siyāq**. But since we have accepted the **precision principle** for the Quran among our epistemic principles, we take this one step further and add two more dimensions: **the meaning of the smaller texts that compose the text, and the meaning of the larger text within which it sits**.\n\nWe call these the **part-whole context** and, together with *sibāq-siyāq*, **the text's surrounding**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Parça-bütün bağlamı çok ölçekli (*multi-scale*) bir ilişki ile ortaya çıkar.** Parçalar bir araya geldiğinde bütüne anlamını verirken, **bütün de parçalarının anlamlarını tadil eder (*adjust*), ince ayar (*fine-tune*) verir**.\n\nYazılı dilin atomları — en küçük bölünmez temel parçacıkları (*elementary particles*) — Türkçe'de **harf** dediğimiz sembollerdir. Her ne kadar harf nahivde (Arapça gramerinde) *'kendi başına anlamı olmayan ve anlam için başka harflere ihtiyaç duyan'* diye tanımlansa da, **her harf anlam haritasında genişçe bir bölgeye işaret eder**. Anlam dünyasının bir haritası varsa, her harfin bir **ülkeye** işaret ettiğini düşünebiliriz.",
+      "en": "**The part-whole context arises through a multi-scale relation.** When the parts come together they give meaning to the whole; and **the whole, in turn, adjusts and fine-tunes the meanings of its parts**.\n\nThe atoms of written language — its smallest indivisible *elementary particles* — are the symbols we call **letters**. While in *naḥw* (Arabic grammar) a letter is defined as 'that which has no meaning of its own and requires other letters for meaning', **each letter in fact points to a wide region on the map of meaning**. Imagine a map of the world of meaning; each letter points to a **country** on it."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Ek bilgi:** ChatGPT'nin temelindeki yapay zeka modeli bütün metinleri — harf, kelime, cümle vs. — **1536 boyutlu bir anlam uzayında (*semantic vector space*) birer noktaya denk gelecek ayrı ayrı vektörler** olarak ele alıyor. Üretken (*generative*) bir model olduğu için bu vektörleri **kontekste göre çalışma esnasında** üretiyor.",
+      "en": "**Side note:** the AI model underlying ChatGPT treats all texts — letters, words, sentences, etc. — as **distinct vectors mapped to points within a 1536-dimensional semantic vector space**. Being a *generative* model, it produces those vectors **on the fly, according to context**.",
+      "source": "Felsufi (modern AI analoji)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Alfabenin tarih içindeki evrimine baktığımızda — kökeninin **Fenike alfabesi** olduğunu ve onun da dış dünyadaki objeleri temsil eden hiyeroglif sembollerinden dönüştüğünü, her sembolün **kendine ait bir ismi ve anlamı** olduğunu görürüz.\n\nMesela Arapça'daki **ع** harfinin orijini **göz hiyeroglifinin** Fenike alfabesindeki *ʿayin* sembolüdür. Latin alfabesinde **O** harfi, Yunanca'da **Omikron**'dur. Hâlâ modern Arapça'da bu harf **عين** (*ʿayn*) şeklinde okunur ve anlamı **göz**'dür. Yunanca'da *ophthalmos* da **ὄψ** (*ops* — göz) + **θάλαμος** (*thalamos* — odacık) yine *omikron* ile yazılır.\n\nBaşka bir örnek **ف (fe)** harfidir. Kökeni hiyeroglifte **ağız sembolü**dür, Latin alfabesindeki **p** ile akrabadır. Arapça'da **ağız** فم *'fem'* kelimesidir. **Fe** harfi ile başlayan kelimelerin çok büyük bir oranı **açmak, açılmak, dışarı çıkmak (*expansion*)** gibi anlamlara komşudur: *fetih* (açmak), *fecr* (güneşin çıkması), *fatara* (yarıp çıkarmak), *fısk* (farenin kafasını delikten çıkarması) vs.\n\nZaten **و** bağlacı iki ifadeyi yan yana koyarken, **ف** bağlacı ile sonraki gelen ifade öncekinin içinden çıkar, **yeni anlamı önceki ifadenin anlamı üzerine bina eder**.",
+      "en": "Tracing the alphabet's history we find its origin in the **Phoenician alphabet**, which itself transformed from hieroglyphic symbols representing outer-world objects; each symbol had **its own name and meaning**.\n\nThe Arabic letter **ع**, for example, has as its origin the **eye hieroglyph** rendered as *ʿayin* in Phoenician. The Latin **O**, the Greek **Omicron**. In modern Arabic the letter is still pronounced **عين** (*ʿayn*) and means **eye**. In Greek too, *ophthalmos* — **ὄψ** (*ops* — eye) + **θάλαμος** (*thalamos* — chamber) — is written with *omicron*.\n\nAnother example is the letter **ف (fā)**. Its origin in hieroglyph is the **symbol of the mouth**; it is cognate with the Latin **p**. In Arabic, *mouth* is **فم** (*fam*). A great share of words beginning with *fā* neighbour the meanings of **opening, expansion, going forth**: *fatḥ* (opening), *fajr* (the dawn's emergence), *fataṭa* (cleaving forth), *fisq* (the mouse's head emerging from the hole), and so on.\n\nIndeed, **و** sets two expressions side by side; with **ف**, the latter emerges from within the former — **building a new meaning upon the meaning of the previous**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu semboller (harfler) başka sembollerle birleşince anlam haritasında biraz daha dar — fakat gündelik hayattaki kullanıma göre hâlâ çok geniş — bir bölgeye işaret eder. Bu paketlere Türkçe'de **kelime** diyoruz.\n\nKelimeler de başka kelimelerle birleşip **kelime öbeği / tamlama (*phrase*)** oluşturunca semantik daralma olur, anlam biraz daha netleşir (**şehir**). *Phrase*'ler de başka parçalarla birleşip **cümle** oluşturunca semantik daralma olur (**mahalle**). Cümleler de başka cümlelerle birleşip **paragraf** oluşturunca (**site**), paragraflar **bölüm / chapter** (**apartman**), bölümler **kitap** oluşturunca anlamları daha da netleşir.",
+      "en": "When these symbols (letters) join other symbols they point to a region slightly narrower on the map of meaning — yet still wider than everyday usage. In Turkish we call these packets **words (*kelime*)**.\n\nWords combined with other words form **phrases**: a semantic narrowing, meaning becomes more distinct (**a city**). Phrases combined with other elements form **sentences** (**a neighbourhood**). Sentences combined into **paragraphs** (**a site**); paragraphs into **chapters** (**a building**); chapters into **a book** — meanings becoming ever more distinct."
+    },
+    {
+      "type": "verseInline",
+      "ref": "56:75-79",
+      "noteTr": "Vâkıa 56:75-79 — '**Nücûmun mevkilerine** (lokasyonlarına) kasem olsun! Bilseydiniz ki bu çok azîm bir kasemdir. Muhakkak o Kur'an-ı Kerîmdir. Korunaklı/saklı bir kitabın içindedir. Arınanlar hariç ona ve anlamına temas edemez, erişemezler.'",
+      "noteEn": "Al-Wāqiʿa 56:75-79 — 'I swear by the **stations of the stars** — and indeed, were you to know, that is a mighty oath. Indeed it is a Noble Quran, in a Preserved Book. None touches it but the purified.'"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu yüzden bir âyet incelenirken — **âyeti oluşturan kelimelerin etimolojik ve semantik anlamları**, bu kelimelerin **yapısal dizilim tercihi** (örn. isim-fiil cümlesi), âyetin öncesindeki konu, sonrasında anlatılacak konu, **içinde bulunduğu sûrenin genel rengi ve mesajı**, ve hatta bazen önceki ve sonraki sûrelerin mesajı göz önünde bulundurulursa — **'metnin çevresi' bağlamı tespit edilmiş olur**.",
+      "en": "When examining a verse, then — by attending to **the etymological and semantic meanings of the words composing it**, the **structural ordering preferred** (e.g. nominal vs verbal sentence), the topic that precedes it, the topic to follow, **the overall colour and message of the sūrah within which it sits**, and at times even the messages of the preceding and following sūrahs — **the 'text's surrounding' context has been established**."
+    },
+    {
+      "type": "section",
+      "id": "vektorellik",
+      "titleTr": "2. Mesajın Vektörelliği",
+      "titleEn": "2. The Vectoriality of the Message"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bağlam kategorilerinden biri de **Kur'an'ın vektörel okunması**dır. Bu garip tabiri önce yüzeysel, sonra da biraz daha temelden izah edelim.\n\n**Kur'an-ı Hakîm** âyetleri bütüncül bir kitaptır ve âyetler Kur'an içinde bulundukları lokasyona (*mevâkīʿ-i nücûm*) mükemmel bir uyum sağlarlar. Fâtiha'da *ihdina'ṣ-ṣirâṭa'l-mustaqîm* der hidayet isteriz; hemen ardında Bakara'nın başında *hüden li'l-müttakîn* (takvâlı olanlara hidâyettir) cevabını alırız.",
+      "en": "Among the categories of context is also **the vectorial reading of the Quran**. Let us first explain this strange phrase at the surface, then more deeply.\n\nThe verses of **the Wise Quran** form a holistic book, and they fit perfectly to the location they occupy within it (*mawāqiʿ al-nujūm*). In al-Fātiḥa we ask *ihdinā al-ṣirāṭa al-mustaqīm* — guide us to the straight path; and immediately after, at the opening of al-Baqara, we receive the reply *hudan li-l-muttaqīn* — guidance for the God-conscious."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Hâl böyle olsa da, âyet-i kerîmeler **Resûl-i Ekrem'in ve ashâb-ı kirâmın içinde bulunduğu hâle, davranışlara ve o günkü sosyal hâdiselere uygun bir şekilde** parça parça **23 senede nüzûl etmiş**, inmiştir. Bu sayede Cenâb-ı Hakîm âyetlerin indiği zamandaki şartları bağlam yaparak, önce Nebî-i Zîşân'ına, sonra sahâbelere, hadisler yolu ile de bizlere âyetlerini **tafsîl etmiştir**. Literatürde âyetlerin indiği şartlara **esbâb-ı nüzûl** denir.",
+      "en": "Even so, the noble verses descended **piece by piece across 23 years, fitted to the states, conduct, and social events of the Messenger and his noble companions**. Thereby, the All-Wise contextualized His verses with the conditions of their revelation — and **expounded** them first to His honoured Prophet, then to the companions, and through the hadith corpus to us. In the literature, the conditions surrounding the verses' descent are called **asbāb al-nuzūl**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Esbâb-ı Nüzûl metodu** yanlış anlaşıldığında, Kur'an'ı **tarihselci bakışa hapsedip tarihî bir belge seviyesine indirmek** ve günümüzdeki kişilere ve toplumlara alâkasız görmek mümkün. Öte yandan, esbâb-ı nüzûlü **bütün bütün reddedip, murâd-ı subhânîyi ıskalamak** da mümkün.\n\nBurada en tutarlı ve müstakîm gördüğümüz yaklaşım, bizim **'vektörel okuma'** dediğimiz yöntemdir.",
+      "en": "When the **method of asbāb al-nuzūl** is misunderstood, one risks **trapping the Quran in a historicist gaze, reducing it to a historical document** with no bearing on present persons and societies. Alternatively, one risks **rejecting asbāb al-nuzūl wholesale and missing the divine intent**.\n\nThe most consistent and upright approach we know is what we call **vectorial reading**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Vektör**, iki nokta arasında **yönü ve büyüklüğü** olan matematiksel soyut bir objedir. **Taşıyıcılık** anlamı da vardır. Biz de esbâb-ı nüzûlü okurken **tek bir nokta değil de, mesajın hemen öncesindeki şartları başlangıç noktası, mesajın sonrasında değişen şartları da vektörün ucu olarak ele alıp**, mesajın **kişi ve toplumu hangi yöne değiştirdiği, evirdiği** çıkarımını yaparız.\n\nBu çıkarımı göz önünde bulundurarak âyetleri **günümüzdeki içinde bulunduğumuz kişisel veya toplumsal şartlara uygulamayı** hedefleriz.",
+      "en": "A **vector** is an abstract mathematical object with **direction and magnitude** between two points. It also carries a sense of **bearing**. In reading the asbāb al-nuzūl, we take **not a single point but two**: the conditions just before the message as the start, the changed conditions after it as the head — and we infer **the direction in which the message transformed person and community**.\n\nWith this inference in hand, we aim **to apply the verses to our own personal and social conditions of today**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**İnsanın biyolojik evrimi**, yıldızların evrimi, kâinâtın sürekli genişlemesi, **entropinin** yani bilginin sürekli artması, kâinâtta durağanlık olmaması — **Kâinât kitabının âyetlerinin dinamizmini** anlattığı gibi, onun dualı olan **Kur'an kitabının da dinamizmi aynı sırda saklıdır**.\n\nKur'an'ın dinamizminin esası olan **fi sebîlillâh** ve **sırât-ı müstakîm**, **terakkî ve tekâmül**, **tevbe, evbe ve inâbe** gibi konseptler — insanın ve toplumun **irâde ve ilim vasıtalarıyla evrimini** öne çıkaran levhalardır.\n\nHatta Kur'an'da ve genel olarak İslâm'da en çok vurgulanan **namaz** ibadetinin kendisi de — hem anlamsal (Kıyâmet Sûresi 75:31-32) hem de fiziksel olarak — **bir yönelimdir, bir mîrâçtır, yolculuktur**.\n\nBu gözlemler bize varlığı ve daha genelde realiteyi **objeler esaslı değil, prosesler esaslı** — özellikle **üretken, sâlih / *generative process*'i temel alarak** — okuma prensibi kazandırır.",
+      "en": "**The biological evolution of the human**, the evolution of the stars, the ceaseless expansion of the cosmos, the continual increase of **entropy** — that is, of information — the absence of stillness in the cosmos: just as these speak of **the dynamism of the verses of the Cosmic Book**, **so too the dynamism of its dual, the Quranic Book, is hidden in the same secret**.\n\nThe Quran's central dynamism — concepts like *fī sabīlillāh* and *ṣirāṭ al-mustaqīm*, *taraqqī* and *takāmul* (ascent and perfection), *tawba, awba, ināba* (turning, returning, repenting) — these are signs that foreground **the evolution of person and society through the means of will and knowledge**.\n\nIn Islam, even the act most emphasized — **prayer** — is both in meaning (Sūrah Al-Qiyāma 75:31-32) and physically **a turning, a *miʿrāj*, a journey**.\n\nThese observations grant us a principle of reading existence and reality not on the basis of **objects** but on **processes** — especially on the basis of **generative, righteous (*ṣāliḥ*) process**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bunun bir ayağı da, **Kur'an-ı Muʿcizu'l-Beyân'ı 14 yy önce gelmiş statik bir bildirge değil, kişiyi ve toplumu onlar için çizilmiş bir hâle doğru değiştirmeyi hedefleyen transformatif bir fonksiyon** olduğunu kabul etmektir.\n\nEsbâb-ı nüzûlün — yani âyetlerin inmesine sebep görünen hâdiselerin — âyetleri tevil ve tefsir ederken göz önünde bulundurulması da **bu genel prensibin sadece küçük bir ayağıdır** ve sahâbeden günümüze kadar yer yer kullanılmıştır.\n\nAncak bu yaklaşımı **sistematik bir şekilde genelleştirmek**, esbâb-ı nüzûl konseptini **psikolojik ve sosyolojik genel durum ve çerçeve** olarak okumak, o dönemdeki şahıs ve olayların **temsil ettikleri anlam ve durumları** esas almak gerekir. Çünkü nasıl ki Mûsâ (a.s.) karşısındaki **firavun** aslında **hak mesajı karşısındaki firavunluğu**, Âdem (a.s.) karşısındaki **şeytan** insanlığın karşısındaki **şeytanlığı** anlatır — onun gibi **Ebû Cehil'in bir sözü üzerine inen âyet de tarih boyunca tekrar eden, hatta belki her insanın nefsinde bulunan Ebû Cehillik hâline karşı transformatif bir mesaja sahiptir**.",
+      "en": "One arm of this is to accept that **the Miraculously Eloquent Quran is not a static decree delivered 14 centuries ago, but a transformative function whose target is to change person and society toward a state drawn out for them**.\n\nThat the asbāb al-nuzūl — the events that appear as occasions for the verses' descent — should be considered in interpretation is **only a small arm of this general principle**, used here and there from the companions down to today.\n\nBut **to generalize this approach systematically** — to read asbāb al-nuzūl as **a psychological and sociological general state and frame**, and to take **the meanings and conditions that the persons and events of that era represent** as essential — is required. For just as **the Pharaoh facing Mūsā (peace be upon him)** in fact denotes **Pharaonism against the true message**, and the **Satan facing Adam** denotes **Satanity facing humanity** — so too **a verse descended upon a word of Abū Jahl carries a transformative message against the Abū-Jahl state that recurs throughout history, perhaps present in the *nafs* of every human**."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Vektörel Okuma ⇄ Trajectory Hermeneutics",
+      "captionEn": "Vectorial Reading ⇄ Trajectory Hermeneutics",
+      "left": {
+        "ar": "اَلْقِرَاءَة الْإِتِّجَاهِيَّة",
+        "titleTr": "Vektörel Okuma (Felsufi)",
+        "titleEn": "Vectorial Reading (Felsufi)",
+        "descTr": "Kâinât gözlemleri (bilim) gözlüğü; sosyal-hukukî yanında iç transformasyon; mensûh kabul etmez.",
+        "descEn": "The lens of cosmos-observation (science); inner transformation alongside social-legal; rejects *naskh* as nullification.",
+        "accent": "#d4a574",
+        "bullets": [
+          { "tr": "Hak/Hakikate yönelim", "en": "Orientation toward Truth/Reality" },
+          { "tr": "Kalp ve ruh hayat dereceleri", "en": "Stations of the heart and spirit" },
+          { "tr": "Asbâb-ı nüzûl = psikolojik-sosyolojik çerçeve", "en": "Asbāb al-nuzūl = psycho-sociological frame" }
+        ]
+      },
+      "right": {
+        "ar": "TRAJECTORY",
+        "titleTr": "Trajectory Hermeneutics",
+        "titleEn": "Trajectory Hermeneutics",
+        "descTr": "İncil/Eski Ahit'in sosyal hükümlerini modernizm gözüyle apologetik okuma; ters düşen emirleri tevil amaçlı.",
+        "descEn": "Modernist apologetic reading of Bible/Old Testament social rulings; aims to reinterpret commandments at odds with present sensibility.",
+        "accent": "#94a3b8",
+        "bullets": [
+          { "tr": "Modernizm/post-modernizm gözlüğü", "en": "Modernist / post-modernist lens" },
+          { "tr": "Yalnız sosyal/hukukî alan", "en": "Restricted to social/legal domain" },
+          { "tr": "Apologetik amaç", "en": "Apologetic motivation" }
+        ]
+      },
+      "bridgeTr": "Önemli ayrım — Felsufi'nin kendi tasrihi",
+      "bridgeEn": "An important distinction — Felsufi's own clarification",
+      "bridgeMode": "merge"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu okuma bize **gerçekte mensûh bir âyet olmadığını**, yani **hükmü kalkan bir âyet olmadığını** söyler. Çünkü âyetler kişiyi ve toplumu bir yerden bir yere taşımıştır — o taşıma işlemine **kişi her makamda, toplum da her asırda ihtiyaç duyar**.\n\n**Mesajın vektörelliği prensibini kabul ederek**, hem nesh olduğu söylenen âyetlerin **işâri mesajlarının devam ettiğini**, hem de **değişen ve özelleşen şartlar ile o âyetlerin sarîh hükümlerinin de uygulanabileceği** çıkarımını yapabiliriz.",
+      "en": "This reading tells us that **there is, in truth, no abrogated (*mansūkh*) verse** — no verse whose ruling has been lifted. For the verses have carried person and society from one place to another, and **the person needs that carrying at every station; the society needs it in every age**.\n\n**Accepting the vectoriality of the message**, we can infer both that **the indicative messages (*ishārī*) of the verses said to be abrogated continue**, and that **with changed and specialized conditions, their explicit rulings too may again become applicable**."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Klasik nâsih-mensûh tartışması",
+      "headingEn": "The classical nāsikh-mansūkh debate",
+      "tr": "Felsufi'nin **'gerçekte mensûh bir âyet yoktur'** sonucu klasik usûl-i tefsir geleneğiyle **doğrudan çatışan bir minority view**dir. **Cessâs, Nehhâs, İbnü'l-Arabî, Suyûtî** gibi klasik müelliflerin sayıları farklılaşsa da (200'den 5'e kadar tahminler) **nâsih-mensûh konseptinin kendisi** geleneğin merkezindedir. *Şer'î hükmü kaldıran âyetler vardır* görüşü çoğunluğun pozisyonudur. Felsufi'nin yorumu — *işâri mesaj devam eder + şartlar değişirse sarîh hüküm tekrar uygulanabilir* — vektörel okumanın özgün bir sonucudur ama **klasik fıkıh ve usûl ile sıkı bir uyumda değildir**. Bu konuda Eşʿarî, Mâtürîdî, Mâlikî, Hanefî, Şafiî, Hanbelî çevreler farklı pozisyonlara sahip olabilir.",
+      "en": "Felsufi's conclusion **'there is no truly abrogated verse'** is a **minority view that directly conflicts with the classical *uṣūl al-tafsīr* tradition**. While classical authors like **al-Jaṣṣāṣ, al-Naḥḥās, Ibn al-ʿArabī, al-Suyūṭī** disagree on numbers (estimates ranging from 200 down to 5), **the very concept of *nāsikh-mansūkh*** is central to the tradition. The position that *verses lifting an earlier ruling exist* is the majority view. Felsufi's reading — *the indicative message continues + with changed conditions the explicit ruling may be reapplied* — is an original consequence of his vectorial reading, but **does not stand in tight conformity with classical fiqh and uṣūl**. On this matter, Ashʿarī, Māturīdī, Mālikī, Ḥanafī, Shāfiʿī, and Ḥanbalī circles may hold differing positions."
+    },
+    {
+      "type": "section",
+      "id": "iliski-agi",
+      "titleTr": "3. Anlamsal ve Yapısal İlişki Ağı",
+      "titleEn": "3. The Semantic-Structural Relational Web"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an'da âyet öbekleri belli konuları ele alırlar. Bu öbekler farklı farklı yerlerde olsa da **birbirleriyle irtibatlıdır**. Öyle ki irtibatlı öbekler arasında çizgiler çekilse bir **network (ağ)** oluşur. Bu *network*'ün her bir *node*'u (düğümü) ayet öbeği (*cluster*) ile temsil edilen bir anlama karşılık gelir.\n\nÂyetler birbirleriyle irtibatlı olduğu için, bir mevzûnun izahı bazen **farklı yerlerdeki âyetler zinciri** ile cevaplanabilir. Bazen **bir yerde kısaca özetlenen bir hâdise, başka bir yerde detaylı izah edilir (*tasrîf*)**. Bazen de kalıp yapılar başka yerlerdeki bağlamından kazandıkları anlam ile okuduğumuz yeri **tafsîl** ederler.",
+      "en": "In the Quran, clusters of verses take up certain topics. Though these clusters appear in different locations, they are **interrelated**. So much so that drawing lines among related clusters yields a **network**. Each *node* of this network is a cluster that corresponds to a meaning.\n\nBecause the verses are interrelated, the exposition of a matter may sometimes be answered through a **chain of verses across different locations**. Sometimes **what is summarized briefly in one place is unfolded in detail elsewhere (*taṣrīf*)**. At other times, structural templates, by the meaning they have gained in other locations' contexts, **unfold (*tafṣīl*)** the passage we are reading."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an'a soracağımız soruya göre, içinde bulunduğumuz müşkilesine göre, **ilişkili âyet öbeklerinden hangilerinin bağlamda öncelik kazanacağı** belirlenir. **Bediüzzaman** bu bağlamı şöyle anlatır:",
+      "en": "Which related verse-clusters take priority in context depends on the question we put to the Quran and on the difficulty we face. **Bediüzzaman** describes this context thus:"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Âyetlerinin her bir necmi, vezin kaydı altına girmeyip tâ ekser âyetlere bir nevi merkez olsun ve kardeşi olsun ve mâbeynlerinde mevcut münâsebet-i mâneviyeye râbıta olmak için, o dâire-i muhîta içindeki âyetlere birer **hatt-ı münâsebet** teşkîl etmesidir.\n\nGûyâ, serbest her bir âyetin **ekser âyetlere bakar birer gözü, müteveccih birer yüzü var**. Kur'ân içinde **binler Kur'ân bulunur** ki her bir meşrep sahibine birisini verir.\n\nNasıl ki, semâda olan intizamsız yıldızların sûreten adem-i intizâmı cihetiyle her bir yıldız, kayıt altına girmeyip her birisi **ekser yıldızlara bir nevi merkez** olarak dâire-i muhîtasındaki birer birer her bir yıldıza, mevcûdât beynindeki nisbet-i hafiyeye işâret olarak, birer hatt-ı münâsebet uzatıyor.",
+      "en": "Each of the stars of the verses, freed from the constraint of metre, becomes a kind of centre to most other verses, a sibling to them, and a bond to the spiritual relation that exists between them — drawing **a line of relation** to every verse within its surrounding circle.\n\nAs if each free verse has **eyes that look upon most other verses, faces turned to them**. Within the Quran there are **thousands of Qurans** — each given to a person of a different disposition.\n\nJust as the apparent disarray of the stars in the sky is such that each star, freed from any constraint, becomes a kind of centre to most other stars — extending, to each star one by one within its surrounding circle, **a line of relation** that points to the hidden ratio among existing things.",
+      "source": "Bediüzzaman — 13. Söz (Felsufi aktarımı)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Burada **anlamsal ilişki** çok daha fazla kullanılır — ama **yapısal ilişki**, yani **aynı kelime köklerinin, *phrase*'lerin ve anlatım yapısının kullanıldığı** diğer âyetleri de bağlama almak çoğu kez gözden kaçar. Bir örnek verelim:\n\n*رَغَدًا* kelimesi — kökünden türemiş diğer kelimeler de dâhil olmak üzere — Kur'an'da **sadece 3 âyette** geçer. Bu 3 âyet **bambaşka sahneleri** anlatırlar. Fakat **yapısal olarak çok benzerler**.",
+      "en": "Here **semantic relation** is used far more — but **structural relation**, that is, attending to other verses that use the same word-roots, phrases, and narrative templates, is most often missed. An example:\n\nThe word *raghadan* — including the words derived from its root — appears in only **3 verses** in the Quran. These 3 verses tell **wholly different scenes**. Yet **they are structurally very similar**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "16:112",
+      "noteTr": "Nahl 16:112 — '(Halkı) Güvenlik ve huzur içindeydi, rızkı her yerden bol bol (*raghaden*) gelmekteydi; **FAKAT** Allah'ın nimetlerine nankörlük etti, böylece Allah yaptıklarına karşılık olarak, ona açlık ve korku elbisesini tattırdı.'",
+      "noteEn": "Al-Naḥl 16:112 — '(Its people) were in security and tranquillity, sustenance coming to them abundantly (*raghadan*) from every place; **YET** they were ungrateful for God's bounties, so God made them taste the garment of hunger and fear for what they had done.'"
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:35",
+      "noteTr": "Bakara 2:35 — 'Ey Âdem! Sen ve eşin bahçeye [cennet] yerleşin, orada dilediğiniz her şeyden bol bol (*raghaden*) yiyin; **FAKAT** şu ağaca yaklaşmayın yoksa zâlimlerden olursunuz.'",
+      "noteEn": "Al-Baqara 2:35 — 'O Adam, dwell — you and your wife — in the garden, and eat freely (*raghadan*) from wherever you wish; **YET** do not approach this tree, lest you become wrongdoers.'"
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:58",
+      "noteTr": "Bakara 2:58 — 'Girin şu şehre, istediklerinizden bol bol (*raghaden*) yiyin! **FAKAT** kapıdan tevâzu içerisinde iki büklüm girin ve *hıttah* — Bizi affet! — deyin…'",
+      "noteEn": "Al-Baqara 2:58 — 'Enter this town and eat freely (*raghadan*) from wherever you wish! **YET** enter the gate in humility and say *ḥiṭṭa* — forgive us…'"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu 3 âyette de **bir yer** (karye, cennet/bahçe, karye) ve **rızık** etrafında kullanılmış. Bu 3 yerde de mesele aynıdır: **sınırsız rızkın geleceği bir yerde yaptıklarından ötürü nankörlüğe düşüp, sonra başlarına sıkıntı ve dert açmaları** konusu.\n\nBu âyetlerden herhangi birini merkeze aldığımızda, **diğer âyetler merkeze aldığımız âyetin anlam uzayındaki konumunu netleştirir**.",
+      "en": "All three verses turn around **a place** (a town, the garden, a town) and **provision**. In all three, the matter is the same: **at a place of limitless provision, ingratitude over what one has done, and the descent of distress and harm that follows**.\n\nWhen any of these is taken as the centre, **the others clarify the position of that centre in the space of meaning**."
+    },
+    {
+      "type": "section",
+      "id": "murakabe-muhasebe",
+      "titleTr": "4. Murakabe ve Muhasebe ile Farkedilen İhtiyaç",
+      "titleEn": "4. The Need Sensed Through *Murāqaba* and *Muḥāsaba*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an âyetlerinin **anlamının insanın zihnine açılmasında** âyetin konumu, vektörelliği, diğer âyetlerle ilişkileri bağlamı önemli olduğu gibi — âyetin **transformatif nurunun kalbe işlemesinde** ise **kişinin hâl konteksti de** etkilidir.\n\n**Bir âyet kişiye belli bir hâlde bir mesaj verirken, başka bir hâlde aynı âyet başka bir mesaj verebilir.** Bu, Allah'ın âyetlerinin **manevî hazinelerin anahtarı olmasına ve ehadî tecellîsine** dayanır.\n\nMesela üzerinize **ağır bir sorumluluk yüklenmiştir**. O sırada Müzzemmil Sûresi'ni okuduğunuzda bize **gece ibâdetini reçete olarak** sunduğunu görürüz:",
+      "en": "Just as in the **opening of the meaning of the Quranic verses to the mind**, the contexts of location, vectoriality, and inter-verse relation matter — so too in the **searing of a verse's transformative light into the heart**, **the context of the person's state** is decisive.\n\n**A verse may give one message to a person in one state, another message in another.** This rests on the verses being **the keys to spiritual treasures** and on the divine *aḥadī* manifestation.\n\nSay a heavy responsibility has been laid on you. When you read Sūrah Al-Muzzammil in that state, you see it offer **night-worship as a prescription**:"
+    },
+    {
+      "type": "verseInline",
+      "ref": "73:1-5",
+      "noteTr": "Müzzemmil 73:1-5 — '1. Ey örtünüp bürünen! 2-4. Birazı hariç, geceleri kalk namaz kıl. (Gecenin) yarısını (kıl). Yahut bunu biraz azalt, ya da çoğalt — ve Kur'an'ı tâne tâne oku. 5. Doğrusu Biz sana (taşıması) ağır bir söz ilkâ edeceğiz.'",
+      "noteEn": "Al-Muzzammil 73:1-5 — '1. O you wrapped in your cloak! 2-4. Rise to pray through the night — except a little. Half of it — or lessen it a little, or add to it — and recite the Quran with measured recitation. 5. We shall cast upon you a weighty word.'"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bunun gibi nice örnekler vardır. Bu mesele kişinin **iç hâlleriyle alâkalı olduğundan** ve iç hâlleri **herkes tarafından net bir şekilde karakterize edilip anlaşılmadığından**, bu konuda yazılan eserler de insanlar nazarında biraz geri planda kaldığını düşünüyoruz.\n\nBu yüzden Kur'an okurken **mutlaka ve mutlaka iç hâlimizi gözden geçirmemiz**, onu **monitor etmemiz** ve **ilerlediği veya gerilediğine dair sürekli bir muhasebede bulunmamız** gerekir.",
+      "en": "There are many such examples. Because this matter is bound to **a person's inner states** — and because inner states are **not clearly characterized or grasped by everyone** — we think the works written on this subject have remained somewhat in the background of people's attention.\n\nFor this reason, when reading the Quran we must **absolutely review our inner state, monitor it**, and **maintain a continual *muḥāsaba* (self-accounting) of its advance or decline**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "10:61",
+      "noteTr": "Yûnus 10:61 — 'Ne zaman sen bir işte bulunsan, ne zaman Kur'an'dan bir şey okusan, ne zaman bir iş yaparsanız — o işe daldığınız zaman Biz mutlaka **üstünüzde şâhid**iziz…'",
+      "noteEn": "Yūnus 10:61 — 'You are not in any matter, you do not recite from it any Quran, you do not do any deed but We are **witnesses over you** when you are engrossed in it…'"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Tabii iç hâllerimize bakarken **'iyi hâl — kötü hâl'** gibi çok basit bir murakabe ve muhasebe değil — **kalbin zümrüt tepelerinin haritasını ele alıp**, **yüksek çözünürlüklü bir murakabe ve muhasebe** ile âyetlerin hayatımıza hayat olmasını Allah'tan dilemek lazım.",
+      "en": "Yet when looking at our inner states, not a coarse *murāqaba-muḥāsaba* of mere 'good state — bad state' — but **taking up the map of the emerald hills of the heart**, with **a high-resolution *murāqaba* and *muḥāsaba***, we should ask of God that the verses become life to our life."
+    },
+    {
+      "type": "section",
+      "id": "sonuc",
+      "titleTr": "Sonuç",
+      "titleEn": "Conclusion"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an'ın **hiçbir harfi, kelimesi, âyeti, aşrı, sûresi — ve hattâ Kur'an'ın kendisi tek başına tüm anlamı temsil etmez**.\n\n**Âyetlerin öncesi-sonrası-parçası-bütünü**, **ashâbı hangi hâlden alıp hangi hâle getirdiği**, **başka hangi âyetlerle irtibatlı olduğu** ve **bizim neye muhtaç olduğumuz farkındalığını** göz önüne almamız lazım.\n\nNaive yaklaşımla birçok bağlam adayı oluşur. Bunlar arasında **sistematik ağırlıklandırma yapmak** ve **önem sırası kurmak** mümkündür. **Teknoloji kullanarak bunun algoritmik yapılması** — *ad hoc* kişisel kararlar vermek yerine, **objektif algoritmik bağlam analizi** yapmak — tercihimizdir.\n\nÇok az sayıda kullanılan, bazen tek bir yerde kullanılan kelime ve kavramlar — normalde düşük ağırlığa sahip olan kelimenin **Kur'an dışı ve gelenekteki kullanımlarına** da bakmayı gerektirecektir.",
+      "en": "**No single letter, word, verse, *ʿushr*, or sūrah of the Quran — nor even the Quran itself, taken alone — represents the whole of the meaning**.\n\nWe must take into account **the verses' before-after-parts-whole**, **the state from which they took the companions and the state to which they brought them**, **the verses with which they are related**, and **our awareness of what we need**.\n\nA naïve approach produces many candidate contexts. Among these, **systematic weighting** and **ordering by importance** is possible. Our preference is **the algorithmic doing of this with technology** — **an objective algorithmic context analysis** in place of *ad hoc* personal decisions.\n\nFor words and concepts used very rarely — at times only once — recourse must also be had to **their uses outside the Quran and in the tradition**, as the normal weighting would be low."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Epistemik ve hermenötik prensipler belirleyerek** arkadaşlarımızla yaptığımız küçük çaptaki bu Kur'an okumalarının **iç dünyamıza, sosyal ilişkilerimize ve bilimsel konulara bakışımızı netleştirdiğini** bizatihi görüyor — ve **herkesin yeniden Kur'an'ın altın iklimine girmesini** daha içten arzu ediyoruz.\n\nBu yazı ve Allah'ın izniyle yavaş yavaş gelecek olan Kur'an okuma notlarımızı paylaşmanın gayesi: **başka yerlerde de Kur'an'ı anlama ve hayata hayat kılma heyecanını ufak da olsa tetikleyebilmek**. Tevfîk Allah'tan.",
+      "en": "**By establishing epistemic and hermeneutic principles**, we have personally seen that these small Quran-readings with our friends have **clarified our gaze upon our inner world, our social relations, and matters of science** — and we more deeply wish that **everyone re-enter the Quran's golden climate**.\n\nThe purpose of sharing this essay and — God willing — the Quran-reading notes that will follow slowly is: **to trigger, even modestly, the enthusiasm of reading the Quran and making it life to one's life in other places too**. Success is from God."
+    }
+  ]
+}
