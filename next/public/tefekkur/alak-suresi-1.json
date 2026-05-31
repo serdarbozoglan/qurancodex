@@ -1,0 +1,193 @@
+{
+  "slug": "alak-suresi-1",
+  "titleTr": "Alak Sûresi 1: İlk Besmele, Büyük Resim, ve Metafizik Paradigma",
+  "titleEn": "Sūrah Al-ʿAlaq 1: The First Bismillah, the Big Picture, and the Metaphysical Paradigm",
+  "category": "sure-hermenotik",
+  "template": "sure-tefsir",
+  "pinned": true,
+  "publishedDate": "2024-09-21",
+  "readingMinutes": 4,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/alak-suresi-giri%C5%9F-052e5f3bbf28",
+  "surah": {
+    "number": 96,
+    "nameTr": "Alak",
+    "nameEn": "Al-ʿAlaq",
+    "centralVerseRef": "96:1",
+    "readingModePath": "/oku/96"
+  },
+  "tldrTr": "Alak Sûresi 96:1 — *İkra bismi rabbike'l-lezî halak*. İlk gelen âyet, kelimelik bir 'oku' emri değil; **sembolleri, işaretleri ve gözlemleri 'Yaratan Rabbinin İsmi' çerçevesinde bir araya getirip büyük resmi görmenin emridir**. Besmele bir okuma çerçevesi — bir metafizik paradigmadır. *Mana-yı ismî*'den *mana-yı harfî*'ye geçiş; tilavetten kıraate yükseliş.",
+  "tldrEn": "Sūrah Al-ʿAlaq 96:1 — *Iqraʾ bismi rabbika alladhī khalaq*. The first verse is not a literal 'read' command; **it is the command to gather symbols, signs, and observations within the frame of 'the Name of the Lord who Created' and to see the big picture**. The Bismillah is a reading-frame — a metaphysical paradigm. The passage from *manā-ʾi ismī* to *manā-ʾi ḥarfī*; the ascent from recitation (tilāwa) to reading (qirāʾa).",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [
+    "96:1",
+    "87:1-7"
+  ],
+  "previousArticle": null,
+  "nextArticle": {
+    "slug": "alak-suresi-2-3",
+    "titleTr": "Alak Sûresi 2-3: Fetüs ve Ontolojik Öncelik"
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "id": "arkaplan",
+      "titleTr": "Arkaplan",
+      "titleEn": "Background"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Alak Sûresi'nin **ilk gelen mesaj** olduğu yaygın görüş; ilk süreç içinde gelen mesajlardan (**Müddessir, Müzzemmil, Kalem dâhil**) olduğu ise herkesin ittifak ettiği bir görüştür.\n\nMesajın **tam anlamıyla karşılık bulması için mesajı alan kişinin iç dünyasıyla rezone etmesi** (*resonate*) gerekir. Mesaj Yunanca gelse ve mesajı alan kişi Yunanca bilmese ne kadar absürd olur ve kısıtlı kelimelerle aktarılan mesajın anlamının çoğu buharlaşır. Bunun gibi, mesajın sadece **sentaksı değil, semantiği ve kontekstinin de** mesajı alan kişide karşılığı olması gerekir.",
+      "en": "It is the widespread view that Sūrah Al-ʿAlaq is **the first revealed message**; the consensus is that it stands among the earliest cluster (**including Al-Muddaththir, Al-Muzzammil, Al-Qalam**).\n\nFor the message **to find its full counterpart, the recipient must resonate with it in his inner world**. If the message arrived in Greek and the recipient knew no Greek, how absurd that would be — most of the meaning conveyed by the limited words would evaporate. Likewise, **not only the syntax but the semantics and the context** of the message must find resonance within the recipient."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Mesajın geldiği kişi vahiy öncesi de **prensip sahibi ve çevresinin normlarıyla şekillenmeyen**, üstelik o normları sorgulayan bir zat. Putlara hiç değer vermemiş, şaraptan uzak durmuş, bizatihi eline kılıç alıp kavga etmemiş, hiç yalan söylememiş, emanete sahip çıkmış **emin bir insan**.\n\nFakat ilginç bir şekilde **40 yaşına kadar içinde bulunduğu toplumu değiştirme adına başka hiçbir girişimi olmayan** ve bildiğimiz bir hareket, oluşum başlatmamış, örgütleme girişiminde bulunmamış birisi. Yaklaşık **15 yıllık bizatihi ticaret içinde bulunmuş**, bu sayede ilki 12 yaşında Ebû Tâlib'le beraber olmak üzere, 2'si Suriye'ye, 2'si Yemen'e olacak şekilde toplam 5 yolculuk yapmış ve farklı kültürlerle kısa da olsa teması olmuş birisi.",
+      "en": "Even before revelation, the recipient was **a principled person, unshaped by the norms of his surroundings** and, moreover, one who questioned those norms. He never esteemed idols, kept away from wine, never took up the sword in conflict, never lied, kept trusts — **a trusted man (al-amīn)**.\n\nYet strikingly, **until age forty he undertook no initiative for changing his society**, founded no known movement or organization, made no attempt at mobilization. He spent **about fifteen years actively in trade**, completing five journeys — the first at age twelve with Abū Ṭālib, two to Syria, two to Yemen — gaining brief contact with different cultures."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Hazret-i Resûl'ün vahiy geldiğinde **40 yaşında olduğunu**, vahiy öncesinde de **Nur Dağı'nda Hira mağarasına sıklıkla gittiği**, insanlardan uzaklaştığı ve **inziva ettiğini biliyoruz**. Göstergelerden anladığımız, vahyin hemen öncesinde **ciddî bir sorgulama süreci geçirdiği**, gözlemlediği dış dünyayı iç dünyasında anlamlandırmaya çalıştığıdır.",
+      "en": "We know that the Messenger was **forty when revelation came** and that before that he **often retreated to the Cave of Ḥirāʾ on the Mountain of Light (Jabal al-Nūr)**, withdrawing from people in **seclusion**. The signs suggest that immediately before revelation he passed through **a serious season of questioning**, striving to give inward meaning to the outer world he was observing."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Alak Sûresi'nin ilk âyetlerini de bu kontekst ile okuyacağız. Yani öncelikle **varlığı anlamlandıracak bir çerçeve, *framework*, paradigma, teorik zemin inşâ edilecek**. Nereden geldik, nereye gidiyoruz, yaratılışın esası, maksadı nedir, yaratılışı sağlayan şey/kişi nedir/kimdir, bizim onun karşısındaki durumumuz nedir, vs.\n\nBu kavramsal çerçeve inşâ edilirken de **iyi–kötü değer yargıları, iç seslerinin farkındalığı**, kişinin anlamsızlık çölündeki anlam arayışı yolculuğunda; ya da **yüzeysellikten derinliğe**, **tüketicilikten – ataletten – ölülükten başlayıp üretkenliğe – yaratıcılığa – hayata** giden yolculukta **doğru yolu (sırat-ı müstakîm) nasıl bulacağı**, bu konuda neyin rehberlik edeceği ve kişinin nasıl iç tavır takınması gerektiği anlatılacak.",
+      "en": "We will read the opening verses of Sūrah Al-ʿAlaq in this context. That is, before anything else, **a frame, a framework, a paradigm, a theoretical ground that gives meaning to existence will be built**. Where did we come from, where are we going, what is the essence and purpose of creation, what or who brings creation about, what is our standing before it, and so on.\n\nAs this conceptual frame is constructed, **judgments of good–evil, awareness of one's inner voices**, the seeker's pilgrimage for meaning in the desert of meaninglessness; or **the journey from the surface to the depth**, **from consumption – inertia – deadness to productivity – creativity – life** — and **how the right path (ṣirāṭ al-mustaqīm) is to be found**, what guides it, and what inner posture the person must take — will all be set forth."
+    },
+    {
+      "type": "section",
+      "id": "ikra-buyuk-resim",
+      "titleTr": "İkra: Büyük Resmi Gör",
+      "titleEn": "Iqraʾ: See the Big Picture"
+    },
+    {
+      "type": "verseInline",
+      "ref": "96:1",
+      "noteTr": "اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ — 'Oku Yaratan Rabbinin İsmiyle.'",
+      "noteEn": "اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ — 'Read in the name of your Lord who created.'"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**İkra**, **Kur'an** ile aynı köktendir. 'Okumak' ile tercüme edilir ama **kitap okumaktan daha temel bir semantikte** anlaşılmalıdır. *Kur'*: bütün yapmak amaçlı **parçaları toplamak** demek. Kadınlarda periyodik olarak ana rahminde **kanın toplanması ve boşalması durumu** için de *kur* kullanılır.\n\n**Lane Lexicon**'daki 1. sense budur ve şöyle örnek verilmiş:\n\n> قَرَأَتْ هٰذِهِ النَّاقَةُ سَلًى قَطُّ مَا قَرَأَتْ جَنِينًا\n> — *This she-camel has not contracted her womb upon a young one.*",
+      "en": "**Iqraʾ** is from the same root as **Qurʾān**. It is rendered 'to read' but must be heard at **a more fundamental semantic register than reading a book**. *Qurʾ*: **to gather parts** for the sake of forming a whole. *Qurʾ* is also used for **the periodic gathering and release of blood in the womb** in women.\n\nThis is the **first sense in Lane's Lexicon**, given with the example:\n\n> قَرَأَتْ هٰذِهِ النَّاقَةُ سَلًى قَطُّ مَا قَرَأَتْ جَنِينًا\n> — *This she-camel has not contracted her womb upon a young one.*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**İkra**'da sembolleri, işaretleri bir araya getirerek anlamlandırmak, buradan da harfleri bir araya getirerek okumak anlamı türemiş. Okumak da zaten **harfleri bir araya getirerek bir üst anlam seviyesine çıkmaktır**.\n\nOkuduğumuz şekillerin, sembollerin **isimleri vardır, kendilerine işaret ederler (*Mana-yı İsmî*)**. Fenikeli alfabesi günümüzdeki birçok alfabenin ortak atası olarak ele alınır. Bu alfabede her bir şekil aslında **dış dünyadaki bir objenin çizimidir** ve şekillerin isimleri o objenin ismidir. Mesela Latin alfabesindeki S, Yunan alfabesindeki Sigma ve Arap alfabesindeki Sîn harflerinin atası **Fenike'de Shin** harfidir, **diş** şeklindedir ve harfin ismi olan *Shin* **diş anlamına gelir**. Arapçada da hâlâ *sin* kelimesi aynı zamanda *diş* demektir.",
+      "en": "From **iqraʾ** the meaning of bringing symbols and signs together into intelligibility derives, and from there the meaning of combining letters to read. To read is, after all, **to ascend to a higher level of meaning by combining letters**.\n\nThe shapes and symbols we read **have names; they refer back to themselves (*manā-ʾi ismī*)**. The Phoenician alphabet is held to be the common ancestor of many of today's alphabets. In this alphabet each shape is in fact **the drawing of an object in the outer world**, and the name of the shape is the name of that object. The ancestor of Latin S, Greek Sigma, and Arabic Sīn is **the Phoenician Shin**: it is shaped like a **tooth**, and the letter's name, *Shin*, **means tooth**. In Arabic even now the word *sin* also means *tooth*."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Harfleri böyle ayrı ayrı seslendirmek, sembolleri **mana-yı ismî** ile görmek **tilâvet olsa bile kıraat değildir**.\n\nBir üst anlama çıkıp, **mana-yı harfî** ile, yani başka sembollerle birleştirip işaret ettiği konsepte ulaşmak **okumaktır**. **İkra emri** kâğıt üzerinde ya da tabiatta gördüğümüz sembolleri seslendirmek değil; **arka planda bir çerçeve (*framework*), bir kontekst ekseninde birleştirmek**, bu şekilde **zuhur eden (*emergence*) anlama ulaşmaktır**.",
+      "en": "Voicing letters one by one like this — seeing symbols through the **manā-ʾi ismī** — **is recitation (tilāwa) but not reading (qirāʾa)**.\n\nTo ascend to a higher meaning, to combine through **manā-ʾi ḥarfī** — that is, to join with other symbols and reach the concept they point to — **that is to read**. The **command of *iqraʾ*** is not the vocalizing of symbols seen on paper or in nature; it is **the combining of them upon an axis of context and a background framework**, and through this, **the reaching of an emergent meaning**."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Tilâvet (Mana-yı İsmî) ⇄ Kıraat (Mana-yı Harfî)",
+      "captionEn": "Tilāwa (Manā-ʾi Ismī) ⇄ Qirāʾa (Manā-ʾi Ḥarfī)",
+      "left": {
+        "ar": "تِلَاوَة",
+        "titleTr": "Tilâvet — Mana-yı İsmî",
+        "titleEn": "Tilāwa — Manā-ʾi Ismī",
+        "descTr": "Sembolleri kendilerine işâret eden hâlleriyle görmek; harfleri tek tek seslendirmek.",
+        "descEn": "Seeing symbols as referring only to themselves; voicing letters one by one.",
+        "accent": "#3498db",
+        "bullets": [
+          {
+            "tr": "Sembol → sembol",
+            "en": "Symbol → symbol"
+          },
+          {
+            "tr": "Seslendirme",
+            "en": "Vocalization"
+          },
+          {
+            "tr": "Üst anlam yok",
+            "en": "No higher meaning"
+          }
+        ]
+      },
+      "right": {
+        "ar": "قِرَاءَة",
+        "titleTr": "Kıraat — Mana-yı Harfî",
+        "titleEn": "Qirāʾa — Manā-ʾi Ḥarfī",
+        "descTr": "Sembolleri bir çerçeve ekseninde birleştirip emergent (zuhur eden) anlama ulaşmak.",
+        "descEn": "Combining symbols on an axis of context and reaching the emergent meaning.",
+        "accent": "#d4a574",
+        "bullets": [
+          {
+            "tr": "Sembol → konsept",
+            "en": "Symbol → concept"
+          },
+          {
+            "tr": "Framework + emergence",
+            "en": "Framework + emergence"
+          },
+          {
+            "tr": "İkra emri — büyük resmi gör",
+            "en": "The command of iqraʾ — see the big picture"
+          }
+        ]
+      },
+      "bridgeTr": "Yükseliş — Sembolden Anlama",
+      "bridgeEn": "The Ascent — From Symbol to Meaning",
+      "bridgeMode": "merge"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Parçaları toplamak ve ondan bütünü oluşturmak **bir anlam çerçevesi (*framework*), bir paradigma ve aksiyomatik gerektirir**. ***Bismi rabbike'l-lezî halak*** ifadesi ile işte bu çerçeveyi, konteksti bildiriyor.\n\nYani sembolleri, sinyalleri, gözlemleri, delilleri, âyetleri bir araya getirirken **Yaratan Rabbinin ekseninde büyük resmi, arka planını gör** diyor.\n\nNitekim, **Alâ Sûresi** de *sebbih ismi rabbike'l-aʿlâ* diye başlayıp, hemen 2. âyette *ellezî halak* diye yaratmasına işaret edip, **6. âyette *senukriuke* (sana okutacağız) der**.",
+      "en": "Gathering parts and forming a whole from them **requires a meaning-frame (a *framework*), a paradigm, and an axiomatic foundation**. By the phrase ***bismi rabbika alladhī khalaq***, exactly this frame, this context, is being declared.\n\nThat is: as you gather symbols, signals, observations, evidences, signs — **see the big picture, see the background, upon the axis of the Lord who Created**.\n\nIndeed, **Sūrah Al-Aʿlā** likewise opens *sabbiḥ isma rabbika al-aʿlā*; in the very second verse it points to creation with *alladhī khalaq*; and at **the sixth verse it says *sa-nuqriʾuka* ('We shall make you read')**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Alâ Sûresi:\n1, 2, 3, 4, 5. Tesbih Yüce Rabbinin ismini, O ki yaratıp tesviye etti (düzene koydu), O ki ölçülendirip (*kaddera*) yol gösterdi, O ki yeşil otu çıkardı sonra da onu kapkara bir sel artığına çevirdi.\n6, 7. Sana okutacağız (*nukriuke*) ve hiç unutmayacaksın, Allah'ın dilediği hariç. Şüphesiz O açığı ve gizleneni bilir.",
+      "en": "Sūrah Al-Aʿlā:\n1, 2, 3, 4, 5. Glorify the Name of your Lord Most High; He who created and proportioned; He who decreed (*qaddara*) and guided; He who brought forth the green pasture, then turned it into dark debris.\n6, 7. We shall make you read (*nuqriʾuka*) and you will not forget — except what God wills. Indeed He knows the open and the hidden.",
+      "source": "Kur'an — Sûre Alâ 87:1-7"
+    },
+    {
+      "type": "section",
+      "id": "besmele-paradigma",
+      "titleTr": "Besmele Bir Metafizik Paradigmadır",
+      "titleEn": "The Bismillah Is a Metaphysical Paradigm"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Günümüzdeki **bilimsel metodoloji de bir okumadır** — yani sembolleri belli paradigmalar etrafında anlamlandırma yöntemidir. Elektron bir sembol, bir işarettir. Bunun davranışını **Kuantum Mekaniğinde Kopenhag yorumu** ile de okuyabilirsiniz, **Many Worlds yorumu** ile de, **Pilot Wave Theory** yorumu ile de. Bunların hepsi fizik dünyasında **farklı çerçeve okuyuşlarıdır**.\n\nFizik zeminindeki bu çerçeveler olmazsa **münferit gözlemler birleşmez, anlam bulmaz**. Paradigma **bilgiyi (*information*) ilime (*knowledge*) dönüştürür**.",
+      "en": "Today's **scientific methodology is also a reading** — a way of giving meaning to symbols around certain paradigms. The electron is a symbol, a sign. Its behaviour you can read with the **Copenhagen interpretation of quantum mechanics**, with the **Many-Worlds interpretation**, or with **Pilot-Wave theory**. All of these are **different frame-readings within the physical world**.\n\nWithout these frames on the physical ground, **isolated observations do not combine, do not find meaning**. The paradigm **turns information into knowledge**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu farklı fizik okuyuşlarının her biri için de **birden çok metafizik okuyuşları mümkündür**. Metafizik okuyuş ***'Yaratan Rabbinin İsmiyle'*** çerçevesinde olduğu zaman, kişiye iç dünyasında **tevhid nurunu** hissettirir. **İlmi (*knowledge*), marifete (*acquaintance*) dönüştürür**.",
+      "en": "For each of these different physical readings, **multiple metaphysical readings are also possible**. When the metaphysical reading takes place within the frame of ***'In the Name of the Lord who Created'***, it lets the **light of tawḥīd** be felt within the inner world. It **turns knowledge (*ilm*) into acquaintance (*maʿrifa*)**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "***Ka-re-a*** kökünden gelen ***Kur'an***, kâinattaki, yaratılıştaki işaretleri (âyetleri) **bir araya getirerek bir çerçeve (*framework*) içinde okuyan** mesajın adı olmuş.\n\nKâinatı anlamlandırmak için gereken çerçeve (*framework*) ise **Kur'an'da 114 kere açıktan ifade edilen *Bismillâh***'tır. ***Bismi rabbike'l-lezî halak*** ise **ilk gelen besmele formudur**.\n\nİnsanın **evrensel gözlemi yaratılıştır**. **Rahmâniyet**'e iman ile, **Rahîmiyet**'e ise çıkarımla erişilebilirken, insan gözünü açtığında yaratılmışları/mahlûkları/objeleri **çıkarımsız, doğrudan 'objektif' olarak görür**.\n\n**İlk besmele sıfat olarak değil** (*bismi rabbike'l-Hâlık*), **fiil olarak** (*ellezî halak*) **gelir** ve 'yaratılışı görüyorsun, işte onun arkasındaki Rabbini konteskte alarak hadiseleri anlamlandır' mesajı aktarır.",
+      "en": "From the root ***qa-ra-ʾa*** comes ***Qurʾān*** — the name of the message that **gathers the signs of the cosmos and creation (the āyāt) and reads them within a framework**.\n\nThe framework required for giving meaning to the cosmos is the ***Bismillāh* declared openly 114 times in the Qurʾān**. ***Bismi rabbika alladhī khalaq*** is **the first form of the Bismillah revealed**.\n\nThe human's **universal observation is creation**. Whereas **Raḥmāniyya** is reached through faith, **Raḥīmiyya** through inference, when a human opens his eyes he sees the created/the made/the object **directly, without inference, 'objectively'**.\n\nThe first Bismillah comes **not as an attribute** (*bismi rabbika al-Khāliq*), **but as a verb** (*alladhī khalaq*), conveying: 'You see creation — make sense of all events by taking the Lord behind it into context.'"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Putperest bir topluma gelen ilk mesaj**, eşya ve hâdiseleri doğru bir okuyuşla **olması gereken eksene oturtmak**, bu sayede insanın kendisini ve toplumu sâlih, üretken, yaratıcı bir seviyeye evirmek ve **bin bir esmâyı en canlı bir şekilde temsil edip halifelik unvanını hak edecek bir kıvama eriştirmek amaçlar**.\n\nEşya ve hâdiseler, işâretler, âyetler **yanlış bir çerçevede bir araya getirilirse** savaşı ve barışı düzenleyen **Lât**, gücü ve korumayı sağlayan **Uzzâ**, zenginliği, kaderi, ölümü belirleyen **Menât** gibi putlar ortaya çıkar.\n\n***'Yaratan Rabbinin ismi ile oku'*** emri, **şîrâzesinden çıkmış ve dağılmış kişi ve topluma kendini ve kâinâtı yeniden doğru eksenle anlamlandıracağı bir serüvenin başlangıcıdır**.",
+      "en": "**The first message sent to an idolatrous society** aims to place things and events upon **the axis on which they ought to stand** through right reading, and so to bring the person and the society to **a righteous, productive, creative level** and **to ripen them into a state worthy of representing the thousand and one Names most vividly and meriting the title of caliphate (khilāfa)**.\n\nIf things and events, signs, āyāt are **gathered within the wrong frame**, idols arise: **al-Lāt** ordering war and peace, **al-ʿUzzā** providing power and protection, **Manāt** determining wealth, destiny, death.\n\nThe command ***'Read in the name of your Lord who Created'*** is **the beginning of an adventure in which the disjointed, scattered person and community will make sense of themselves and the cosmos anew upon the right axis**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kendi başına anlamı dar olan parçalar birleşince anlamı parçaların toplamından daha fazla olan bütünü oluşturur. Arkaplandaki çerçeve besmele olursa okumak kişiyi Rabbine iletir.",
+      "en": "When parts whose individual meaning is narrow come together, they form a whole whose meaning exceeds the sum of its parts. If the background frame is the Bismillah, reading delivers the person to his Lord.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "paragraph",
+      "tr": "*(Devamı için, Felsufi şu makaleye yönlendirir: 'Alak Sûresi 2-3: Fetüs ve Ontolojik Öncelik'.)*",
+      "en": "*(For the continuation, Felsufi refers to: 'Sūrah Al-ʿAlaq 2-3: The Fetus and Ontological Priority'.)*"
+    }
+  ]
+}
