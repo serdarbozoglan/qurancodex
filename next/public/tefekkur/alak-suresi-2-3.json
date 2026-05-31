@@ -6,7 +6,10 @@
   "template": "sure-tefsir",
   "publishedDate": "2024-09-28",
   "readingMinutes": 6,
-  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
   "canonicalUrl": "https://sufist.medium.com/alak-suresi-alaka-ve-ekrem-736354bedaa2",
   "surah": {
     "number": 96,
@@ -17,10 +20,39 @@
   },
   "tldrTr": "*Halaqa'l-insâne min ʿalak* + *İkraʾ ve rabbüke'l-ekrem*. Alak ('kan pıhtısı' değil, asılan / tutunan / muallak — küçüklük, muhtaçlık) → İnsana **ontolojik öncelik** kazandırma. *Kerem* = teleolojik nedensellik: planda önce gelen, inşada sonra biten. Mimar saray analojisi. Yaratılışın merkezinde el-Halık'ur Rahman; mahlûkata bakan boyutta en kerim = İnsan; insanlar arasında en kerim = Resul-u Ekrem.",
   "tldrEn": "*Khalaqa al-insāna min ʿalaq* + *Iqraʾ wa rabbuka al-akram*. ʿAlaq — not 'blood-clot' but the suspended / hanging / *muʿallaq* (smallness, neediness) → conferring **ontological priority** upon the human. *Karam* = teleological causality: that which comes first in the plan, last in the build. The architect-and-palace analogy. At the centre of creation, al-Khāliq al-Raḥmān; on the side that faces creatures, the most karīm = the Human; among humans, the most karīm = Rasūl al-Akram.",
-  "relatedTools": ["concept-graph", "verse-graph", "reading-mode"],
-  "relatedVerses": ["96:2", "96:3", "4:129", "22:5", "75:37-38", "40:67", "23:12-14", "17:62", "17:70", "2:29", "76:1", "33:72", "2:31", "2:33", "2:34", "55:3-4", "95:4", "53:9"],
-  "previousArticle": { "slug": "alak-suresi-1", "titleTr": "Alak Sûresi 1: İlk Besmele" },
-  "nextArticle": null,
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [
+    "96:2",
+    "96:3",
+    "4:129",
+    "22:5",
+    "75:37-38",
+    "40:67",
+    "23:12-14",
+    "17:62",
+    "17:70",
+    "2:29",
+    "76:1",
+    "33:72",
+    "2:31",
+    "2:33",
+    "2:34",
+    "55:3-4",
+    "95:4",
+    "53:9"
+  ],
+  "previousArticle": {
+    "slug": "alak-suresi-1",
+    "titleTr": "Alak Sûresi 1: İlk Besmele"
+  },
+  "nextArticle": {
+    "slug": "alak-suresi-4-5",
+    "titleTr": "Alak Sûresi 4-5: Prefrontal Korteks, Yapay Zekâ ve Kuantum Dalga Fonksiyonu"
+  },
   "blocks": [
     {
       "type": "paragraph",
@@ -48,6 +80,13 @@
       "type": "paragraph",
       "tr": "**Alak** kelimesini yaygın olarak **'kan pıhtısı'** diye çevirirler. Bu şekilde tercüme edilmesi, **Hippocrates metinlerinin ve eski Yunan tıp literatürünün MS 9. yy'da Arapçaya tercümesinden sonra İslâm literatürüne girmesinin neticesi** (İsmail Yakıt, *Kur'an'ı Anlamak* s. 35-43, İstanbul, 2003).\n\n**Alak** — asılan, tutunan şey, **muallak** (asılı kalan, askıda kalan) demek. Kur'an'da bu kelime kökünden türeyen kelimeler **6 âyette 7 kez** geçer:\n\n— **Nisâ 4:129:** *kelmuʿallekati* — eşlerinizden birine tam yönelip diğerini askıda bırakmayın (askıda kalmak / muallakta kalmak)\n— **Hac 22:5:** *turâb → nutfe → ʿalaka → mudgatin muhallakatin ve gayri muhallakatin* sıralaması (cenînden önceki safha: rahime asılan döllenmiş yumurta)\n— **Kıyâmet 75:37-38:** sperm sonrası döllenmiş yumurta; *fe halaqa fe-sevvâ* (sonra yaratıp tesviye etti)\n— **Mü'min 40:67:** *turâbun → nutfetun → ʿalakatun → tıflun → genç → ihtiyar → ölüm* sıralaması; ardından *kün fe-yekûn*\n— **Mü'minûn 23:12-14:** *sülaletin min tîn → nutfe (mekin yerde) → ʿalaka → mudga → kemik → et giydirildi → başka bir yaratılışa inşa*",
       "en": "**ʿAlaq** is commonly translated as **'blood-clot'**. This rendering is **the result of Hippocratic texts and the old Greek medical literature entering the Islamic corpus after the 9th-century Arabic translations** (İsmail Yakıt, *Kur'an'ı Anlamak*, pp. 35-43, Istanbul 2003).\n\n**ʿAlaq** — that which clings, that which adheres, the **muʿallaq** (the hanging, the suspended). In the Quran, words from this root appear **7 times across 6 verses**:\n\n— **An-Nisāʾ 4:129:** *ka-l-muʿallaqati* — do not turn fully to one of your wives and leave the other suspended (suspended / hanging)\n— **Al-Ḥajj 22:5:** the ordered sequence *turāb → nuṭfa → ʿalaqa → muḍghatin muḥallaqatin wa-ghayri muḥallaqatin* (the phase before the fetus: the fertilized egg clinging to the womb)\n— **Al-Qiyāmah 75:37-38:** after sperm, the fertilized egg; *fa-khalaqa fa-sawwā* (then He created and proportioned)\n— **Al-Muʾmin 40:67:** the sequence *turābun → nuṭfatun → ʿalaqatun → ṭiflun → youth → old age → death*; followed by *kun fa-yakūn*\n— **Al-Muʾminūn 23:12-14:** *sulālatin min ṭīn → nuṭfa (in a secure lodging) → ʿalaqa → muḍgha → bone → clothed with flesh → built into another creation*"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Alternatif okuma — alak kelimesi",
+      "headingEn": "Alternative reading — the word ʿalaq",
+      "tr": "Felsufi burada İsmail Yakıt'a (2003) dayanarak *alak*'ın 'kan pıhtısı' okumasının Yunan tıp literatürü etkisi olduğunu öne sürer. Ancak **klasik müfessirlerin önemli bir kısmı** *alak*'ı doğrudan embriyonik 'kan pıhtısı' / *clot* olarak okumuştur (Taberî, İbn Kesîr). *Muallak / asılan* okuması modern bir bakış açısıdır ve geleneksel çoğunluk görüşüyle örtüşmeyebilir. İki okuma birbirini dışlamaz — ama burada bir tefsir tartışması olduğu unutulmamalı.",
+      "en": "Here Felsufi follows İsmail Yakıt (2003) in arguing that the 'blood-clot' reading of *ʿalaq* is a Greek-medical residue. However, **a significant portion of classical exegetes** read *ʿalaq* directly as the embryonic 'clot' (Ṭabarī, Ibn Kathīr). The *muʿallaq / suspended* reading is a modern lens and may not overlap with the traditional majority view. The two readings need not exclude each other — but the existence of an exegetical debate should be kept in mind."
     },
     {
       "type": "paragraph",
@@ -130,9 +169,18 @@
         "descEn": "Priority in the order of justification of creation. Teleological causation. The end comes first.",
         "accent": "#d4a574",
         "bullets": [
-          { "tr": "Mimarın planında insan", "en": "The human in the architect's plan" },
-          { "tr": "Tohumdan önce ağacın meyvesi", "en": "The tree's fruit before the seed" },
-          { "tr": "*Telos* — amaç", "en": "*Telos* — purpose" }
+          {
+            "tr": "Mimarın planında insan",
+            "en": "The human in the architect's plan"
+          },
+          {
+            "tr": "Tohumdan önce ağacın meyvesi",
+            "en": "The tree's fruit before the seed"
+          },
+          {
+            "tr": "*Telos* — amaç",
+            "en": "*Telos* — purpose"
+          }
         ]
       },
       "right": {
@@ -143,9 +191,18 @@
         "descEn": "Priority in real-time ordering. Efficient causation. The process comes first.",
         "accent": "#3498db",
         "bullets": [
-          { "tr": "Sarayın inşâsında temel önce", "en": "In the build of the palace the foundation comes first" },
-          { "tr": "Tohum, fidan, sonra meyve", "en": "Seed, sapling, then fruit" },
-          { "tr": "Efficient causation", "en": "Efficient causation" }
+          {
+            "tr": "Sarayın inşâsında temel önce",
+            "en": "In the build of the palace the foundation comes first"
+          },
+          {
+            "tr": "Tohum, fidan, sonra meyve",
+            "en": "Seed, sapling, then fruit"
+          },
+          {
+            "tr": "Efficient causation",
+            "en": "Efficient causation"
+          }
         ]
       },
       "bridgeTr": "Aynı Yapının İki Okuyuşu",

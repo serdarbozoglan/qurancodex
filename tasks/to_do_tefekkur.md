@@ -288,6 +288,34 @@ Türkçe karşılığı varsa **bilingual çift**, yoksa standalone English maka
 >
 > Üçlü kökler (sahih) için bu kural geçersizdir — tek form yeterli (ج ن ن, ر ح م, vb.).
 
+> ### 🔑 KURAL — Tefekkür Tipografi Değerleri (ENFORCE ALWAYS)
+>
+> Tefekkür makaleleri uzun-form okuma için optimize edildiğinden, font değerleri
+> sitenin geri kalanından **bilinçli olarak biraz daha büyük** kullanılır.
+> CLAUDE.md §4 body spec'i (1.1rem, line-height 1.8) baz alınmış; tek-sütun
+> essay layout için micro-adjusment yapılmıştır.
+>
+> **Doğrulanmış değerler (2026-05-31 audit):**
+>
+> | Element | Değer | Bileşen | Karşılaştırma — site geri kalanı |
+> |---|---|---|---|
+> | **Body paragraph** | `fontSize: 1.08rem` · `lineHeight: 1.85` | `ArticleRenderer.Paragraph` | Hero subtitle `clamp(0.95-1.06rem)`, lineHeight 1.7 — Tefekkür ~%2 büyük + %8 daha açık satır |
+> | **H1 (article title)** | `fontSize: clamp(1.8rem, 4vw, 2.6rem)` · weight 700 | `TefekkurArticleRoute h1` | ToolsHighlight heading `clamp(1.8rem, 4vw, 2.75rem)` — pratik olarak aynı |
+> | **H2 (section heading)** | `fontSize: 1.55rem` · weight 700 | `ArticleRenderer.SectionHeading` | Yok — Tefekkür'e özgü (long-form section breaks) |
+> | **TLDR (italic)** | `fontSize: 1.05rem` · italic · silver | `TefekkurArticleRoute tldr p` | Uyumlu, Hero subtitle ile aynı bant |
+> | **Drop cap (ilk paragraf)** | `fontSize: 3.6rem` · gold · Playfair | `ArticleRenderer.Paragraph isFirst` | Yok — uzun-form ritüel |
+> | **Disclaimer / criticalNote body** | `fontSize: 0.82-0.85rem` · italic | `TefekkurArticleRoute disclaimer` + `CriticalNote` | Card body ile aynı bant (`0.82rem`) |
+>
+> **Yeni Tefekkür component'i eklerken:**
+>
+> - Body paragraph **`1.08rem`**'i geçmemeli (long-read upper bound)
+> - Section heading **`1.55rem`**'in altına düşmemeli (visual hiyerarşi)
+> - Drop cap SADECE ilk paragrafta uygulanır (per article)
+> - Mobil için clamp veya `@media` ile shrink: H1 zaten `clamp` kullanıyor; body için ekstra shrink gereksiz (1.08rem mobilde ~17.3px = WCAG min'in 9px üstünde)
+>
+> **Sebep:** Medium ortalaması ~1.125rem (18px); biz ondan biraz altta ama site
+> ortalamasından üstte — uzun-form ile kart yoğunluğu arası bir denge.
+
 > ### 🔑 KURAL — "Kur'an" Yazımı (ENFORCE ALWAYS)
 >
 > Site genelinde "Kur'an" **her zaman kesme işaretiyle** yazılır. Felsufi metninde
@@ -304,6 +332,80 @@ Türkçe karşılığı varsa **bilingual çift**, yoksa standalone English maka
 > Analizi" yazsa da JSON title alanı **"Kur'an Kavramları Semantik Analizi"**
 > olur. Bu içerik bozma değil, site içi tutarlılık kuralı (CLAUDE.md §11 ile
 > uyumlu).
+
+> ### 🔑 KURAL — Epistemic Disclaimer Sistemi (ENFORCE ALWAYS)
+>
+> Site brand integrity'sini koruyup Felsufi'nin **özgün okumalarını klasik tefsir
+> konsensüsü ile karıştırmamak** için 3 katmanlı şeffaflık sistemi:
+>
+> #### Katman 1 — Uniform Top Disclaimer (HER MAKALEDE)
+>
+> Her Tefekkür makalesinin TLDR + meta-row'undan sonra, ana içerik başlamadan
+> önce silver bordürlü kutu otomatik render edilir. Kaynak:
+> `next/src/app/[locale]/tefekkur/[slug]/TefekkurArticleRoute.jsx`
+>
+> Metin (TR):
+> > ⓘ *Bu makale **Felsufi'nin özgün bir okuma denemesi**dir. Klasik tefsir
+> > geleneğinden farklı yaklaşımlar — tasavvufî yorum, modern bilim ile sentez,
+> > Risale-i Nur perspektifi — içerebilir. Alternatif yorumlar mevcuttur; bu
+> > metin tek doğru okuma iddiasında değildir.*
+>
+> **Bu route-level olduğundan JSON'a eklenmez** — her yeni makale otomatik alır.
+> Disclaimer'ı bir makaleden gizlemek istersek route'a explicit flag eklenir
+> (`article.skipDisclaimer === true`). Default: **her makale disclaimer alır.**
+>
+> #### Katman 2 — Inline `criticalNote` Block (TARTIŞMALI PASAJLARDA)
+>
+> Felsufi'nin **klasik tefsirden açıkça ayrışan** ya da **modern eisegesis** içeren
+> pasajları için, ilgili paragraph'tan sonra `criticalNote` block'u eklenir:
+>
+> ```json
+> {
+>   "type": "criticalNote",
+>   "headingTr": "Alternatif okuma — <konu>",
+>   "headingEn": "Alternative reading — <topic>",
+>   "tr": "Felsufi burada <X> önerir. Ancak <klasik konsensüs> <Y> der. <referans>...",
+>   "en": "Here Felsufi proposes <X>. However, <classical consensus> says <Y>. <reference>..."
+> }
+> ```
+>
+> Görsel: altın sol-bordür + ✱ ikon + uppercase başlık + italic body
+> (`CriticalNote` component — `ArticleRenderer.jsx`).
+>
+> **`criticalNote` ne zaman eklenir?**
+>
+> - **Eisegesis** (metne dışarıdan modern kavram sokma) — örn. "prefrontal korteks
+>   = Kalem", "kuantum wave function = Levh-i Mahfûz"
+> - **Spekülatif etimoloji** — klasik dilciler kurmadığı bağlantı (örn. *Sicill ↔
+>   Siccîn* L/N ebdâl)
+> - **Sect-specific framework** — Risale-i Nur / Nurcu perspektifi olduğu açık olan
+>   pasajlar (diğer İslâmî ekoller paylaşmayabilir)
+> - **Minority interpretive view** — klasik müfessir çoğunluğundan ayrılan modern
+>   görüş (örn. *alak ≠ kan pıhtısı*, İsmail Yakıt 2003)
+> - **Modern bilim sentezi** — Constructor Theory, machine learning vb. kavramların
+>   Kur'ânî terimlere bağlanması
+>
+> **`criticalNote` ne zaman eklenmez?**
+>
+> - Klasik Lane / Mufradât etimolojisi
+> - Mainstream tefsir konsensüsü
+> - Tartışmasız Quranic referanslar
+> - Felsufi'nin sadece **sunum** yaptığı (yorumlama içermeyen) pasajlar
+>
+> #### Katman 3 — Index Banner Epistemic Callout (/tefekkur)
+>
+> Index sayfasında, hero callout subtitle'ından sonra **altın bordürlü standalone
+> kutu** — 3 chip (`Kişisel sentezler` · `Alternatif okumalar` · `Tasavvufî
+> perspektif`) + açıklama satırı. Kullanıcı **makaleye girmeden önce** sitenin
+> epistemik tutumunu görür.
+>
+> #### Bu Kural Neden Var?
+>
+> Sitenin geri kalanı (MathMiracle, ScientificSigns, HistoricalProof) `criticalNote`
+> ve metodolojik nüans flag'leri ile inşâ edilmiş (bkz. CLAUDE.md §6). Tefekkür
+> makaleleri **aynı epistemik disiplini** sürdürmeli — yoksa Felsufi'nin
+> spekülatif tezleri site brand'inin akademik kalitesini geriye çeker.
+> Disclaimer + criticalNote sistemi bu disiplini sağlar.
 
 > ### 🔑 KURAL — Felsufi Metnine Sadıklık (No Hallucination — ENFORCE ALWAYS)
 >

@@ -266,6 +266,34 @@ export default function TefekkurArticleRoute({ article }) {
                 />
               )}
 
+              {/* Epistemic disclaimer — every Tefekkür article shows this.
+                  Felsufi'nin özgün okumalarını klasik tefsir konsensüsü ile
+                  karıştırmayalım diye site-genelinde uniform şeffaflık notu. */}
+              <div style={{
+                margin: '20px 0 28px',
+                padding: '12px 16px 12px 18px',
+                background: 'rgba(148,163,184,0.04)',
+                border: '1px solid rgba(148,163,184,0.14)',
+                borderLeft: `2px solid ${COLORS.silverAlpha70 || COLORS.silver}`,
+                borderRadius: RADIUS.sm,
+                display: 'flex', gap: '11px', alignItems: 'flex-start',
+              }}>
+                <span aria-hidden="true" style={{
+                  color: COLORS.silver, fontSize: '0.85rem',
+                  lineHeight: 1.5, flexShrink: 0, marginTop: '1px', opacity: 0.85,
+                }}>ⓘ</span>
+                <p style={{
+                  margin: 0,
+                  fontSize: '0.78rem', color: COLORS.silver,
+                  fontFamily: FONTS.body, lineHeight: 1.65,
+                  fontStyle: 'italic',
+                }}>
+                  {tr
+                    ? <>Bu makale <strong style={{ color: COLORS.offWhite, fontStyle: 'normal', fontWeight: 600 }}>Felsufi'nin özgün bir okuma denemesi</strong>dir. Klasik tefsir geleneğinden farklı yaklaşımlar — tasavvufî yorum, modern bilim ile sentez, Risale-i Nur perspektifi — içerebilir. Alternatif yorumlar mevcuttur; bu metin tek doğru okuma iddiasında değildir.</>
+                    : <>This essay is an <strong style={{ color: COLORS.offWhite, fontStyle: 'normal', fontWeight: 600 }}>original reading by Felsufi</strong>. It may carry approaches that differ from classical tafsīr — Sufi interpretation, synthesis with modern science, the Risale-i Nur perspective. Alternative readings exist; this text does not claim to be the single correct reading.</>}
+                </p>
+              </div>
+
               {/* Block-based article body */}
               <ArticleRenderer blocks={article.blocks} language={language} />
 

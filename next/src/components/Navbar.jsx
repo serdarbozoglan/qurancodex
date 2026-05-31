@@ -1241,7 +1241,7 @@ export default function Navbar() {
                                 {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
                               </span>
                               <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                                {language === 'tr' ? '2 yayında · 44 planlanan · Felsufi · tefekkür' : '2 live · 44 planned · Felsufi · reflection'}
+                                {language === 'tr' ? '9 yayında · 44 planlanan · Felsufi · tefekkür' : '9 live · 44 planned · Felsufi · reflection'}
                               </span>
                             </span>
                           </span>
@@ -1595,7 +1595,7 @@ export default function Navbar() {
                   {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
                 </span>
                 <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.7rem', marginLeft: '4px' }}>
-                  {language === 'tr' ? '· 2 yayında / 44 planlanan' : '· 2 live / 44 planned'}
+                  {language === 'tr' ? '· 9 yayında / 44 planlanan' : '· 9 live / 44 planned'}
                 </span>
               </button>
               {[

@@ -139,6 +139,45 @@ function SourcesBlock({ items, language }) {
   );
 }
 
+// CriticalNote — inline alternatif okuma / tartışmalı pasaj uyarısı.
+// "Felsufi'nin bu yorumu klasik tefsir tartışmaları açısından nüansa muhtaç" tarzı flag.
+function CriticalNote({ tr: trText, en: enText, headingTr, headingEn, language }) {
+  const tr = language === 'tr';
+  const heading = (tr ? headingTr : headingEn) || (tr ? 'Alternatif okuma' : 'Alternative reading');
+  const body = tr ? trText : enText;
+  return (
+    <div style={{
+      margin: '16px 0 20px',
+      padding: '14px 18px 14px 20px',
+      background: 'rgba(212,165,116,0.05)',
+      border: '1px solid rgba(212,165,116,0.22)',
+      borderLeft: `3px solid ${COLORS.gold}`,
+      borderRadius: RADIUS.sm,
+      display: 'flex', gap: '12px', alignItems: 'flex-start',
+    }}>
+      <span aria-hidden="true" style={{
+        color: COLORS.gold, fontSize: '0.95rem',
+        lineHeight: 1.55, flexShrink: 0, marginTop: '1px',
+      }}>✱</span>
+      <div style={{ flex: 1 }}>
+        <div style={{
+          fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.16em',
+          color: COLORS.gold, textTransform: 'uppercase',
+          fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.9,
+        }}>
+          {heading}
+        </div>
+        <div style={{
+          fontSize: '0.85rem', color: COLORS.offWhite,
+          fontFamily: FONTS.body, lineHeight: 1.7, fontStyle: 'italic',
+        }}>
+          {renderInlineMarkdown(body)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function renderBlock(block, idx, language, firstParaIdx) {
   const isFirstPara = block.type === 'paragraph' && idx === firstParaIdx;
   switch (block.type) {
@@ -160,6 +199,8 @@ function renderBlock(block, idx, language, firstParaIdx) {
       return <FlowChain key={idx} {...block} language={language} />;
     case 'contrastDuo':
       return <ContrastDuo key={idx} {...block} language={language} />;
+    case 'criticalNote':
+      return <CriticalNote key={idx} {...block} language={language} />;
     default:
       return null;
   }

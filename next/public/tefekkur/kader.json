@@ -10,12 +10,29 @@
   "pinned": true,
   "publishedDate": "2025-04-24",
   "readingMinutes": 7,
-  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
   "canonicalUrl": "https://sufist.medium.com/ala-suresi-1-3-kader-tasar%C4%B1m-i%CC%87rade-ve-soft-determinizm-b154a637f337",
   "tldrTr": "Alâ Sûresi 87:1-3'ten yola çıkarak — *halaka fesevvâ* (yarattı ve tasarladı) + *kaddera fe-hedâ* (takdir etti ve yöneltti) ekseninde kaderin doğası. Kader, mutlak belirleyicilik değil; **çözünürlüğü zaman ve ilişkiler içinde artan esnek, hiyerarşik, dinamik bir çerçeve**dir. İrade, dua ve ilişkiler bu çözünürlüğü şekillendirir. Bakara'daki inek örneği, kuantum dalga fonksiyonu ve 'kaddera fe-hedâ' aynı prensibi gösterir.",
   "tldrEn": "Starting from Sūrah Al-Aʿlā 87:1-3 — *khalaqa fa-sawwā* (He created and proportioned) + *qaddara fa-hadā* (He determined and guided) — the nature of destiny. Destiny is not absolute determination but **a flexible, hierarchical, dynamic frame whose resolution grows with time and relations**. Will, prayer, and relationships shape this resolution. The cow-example in Al-Baqarah, the quantum wave function, and 'qaddara fa-hadā' display the same principle.",
-  "relatedTools": ["concept-graph", "verse-graph"],
-  "relatedVerses": ["87:1", "87:2", "87:3", "75:38", "25:2", "2:67-71", "16:120-121", "80:19-20", "92:5-7", "90:10"],
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "87:1",
+    "87:2",
+    "87:3",
+    "75:38",
+    "25:2",
+    "2:67-71",
+    "16:120-121",
+    "80:19-20",
+    "92:5-7",
+    "90:10"
+  ],
   "previousArticle": null,
   "nextArticle": null,
   "blocks": [
@@ -196,9 +213,18 @@
         "descEn": "A being with few relations; narrower destiny, more circumscribed nature.",
         "accent": "#3498db",
         "bullets": [
-          { "tr": "Daha dar takdir aralığı", "en": "A narrower band of qadar" },
-          { "tr": "İhtimaller dış faktörlerce daraltılır", "en": "Possibilities narrowed by external factors" },
-          { "tr": "Pasif konum", "en": "A passive position" }
+          {
+            "tr": "Daha dar takdir aralığı",
+            "en": "A narrower band of qadar"
+          },
+          {
+            "tr": "İhtimaller dış faktörlerce daraltılır",
+            "en": "Possibilities narrowed by external factors"
+          },
+          {
+            "tr": "Pasif konum",
+            "en": "A passive position"
+          }
         ]
       },
       "right": {
@@ -209,9 +235,18 @@
         "descEn": "A being of broad relations (like the human heart); destiny broadens, nature turns universal.",
         "accent": "#d4a574",
         "bullets": [
-          { "tr": "Geniş takdir alanı", "en": "A broad field of qadar" },
-          { "tr": "İrade + dua + himmet ile genişler", "en": "Broadens through will, prayer, and aspiration (himma)" },
-          { "tr": "Aktif katılımcı / kalem", "en": "An active participant / a pen" }
+          {
+            "tr": "Geniş takdir alanı",
+            "en": "A broad field of qadar"
+          },
+          {
+            "tr": "İrade + dua + himmet ile genişler",
+            "en": "Broadens through will, prayer, and aspiration (himma)"
+          },
+          {
+            "tr": "Aktif katılımcı / kalem",
+            "en": "An active participant / a pen"
+          }
         ]
       },
       "bridgeTr": "Mahiyet Genişlemesi (Himmet Nispetinde)",
@@ -280,6 +315,13 @@
       "type": "paragraph",
       "tr": "Yaratılış, tasarım ve kader; birbirleriyle sıkı bir ilişki içindedir. Kader kavramı **esnek, ilişkisel ve hiyerarşik bir yapıdadır**. İnsanın iradesi, duası ve kurduğu ilişkiler bu sistemi etkileyebilir ve dönüştürebilir.\n\nBöylece kader, mutlak belirleyicilik yerine **proses / süreç ile çözünürlüğü / kesinliği artan dinamik bir belirleyici** olur. **Kader bir anlamda kalem olur.** Bir elektronun konumunun *kuantum dalga fonksiyonu* ile sınırlandırılıp, gözlemlendiğinde muhtemel çok noktadan **sadece bir noktada netleşmesi, belirlenmesi (*kaddera fe-hedâ*)** gibi.",
       "en": "Creation, design, and destiny stand in close relation. The concept of destiny is **flexible, relational, and hierarchical**. The human's will, prayer, and the relationships he builds can affect and transform this system.\n\nThus, instead of absolute determination, destiny becomes **a dynamic determiner whose resolution / certainty grows through process**. **Destiny becomes, in a sense, a pen.** Like the position of an electron — constrained by its *quantum wave function*, then, on being observed, **resolving from many possible points to only one (*qaddara fa-hadā*)**."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Modern bilim sentezi",
+      "headingEn": "Synthesis with modern science",
+      "tr": "Felsufi burada *kaddera fe-hedâ*'yı kuantum dalga fonksiyonunun çöküşü ile analojik olarak okur ve David Deutsch'un *Constructor Theory* çerçevesini Kur'ânî kader anlayışıyla sentezler. Bu **çağdaş bir okuma denemesidir** — klasik kelâm geleneği (Eş'ariyye, Mâtürîdiyye) ve klasik tefsir bu modern kavramları kullanmaz. Bediüzzaman'ın Mesnevî-i Nûriye'sinden alınan 'muhît bir ilmin tecellîsi' pasajı Nurcu okuma için merkezi ama tüm İslâm düşüncesi tarafından paylaşılmaz.",
+      "en": "Here Felsufi reads *qaddara fa-hadā* in analogical resonance with the collapse of the quantum wave function, synthesizing David Deutsch's *Constructor Theory* with the Quranic notion of qadar. This is **a contemporary essay** — classical kalām (Ashʿarī, Māturīdī) and classical tafsīr do not employ these modern concepts. The passage quoted from Bediüzzaman's Mathnawī al-Nūrīyya is central to the Nurcu reading but is not shared by all of Islamic thought."
     },
     {
       "type": "paragraph",

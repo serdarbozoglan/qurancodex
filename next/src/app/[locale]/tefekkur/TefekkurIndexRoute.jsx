@@ -147,6 +147,56 @@ export default function TefekkurIndexRoute() {
               : <>Curated essays by Felsufi — from the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. Each essay is bidirectionally linked to <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Concept Graph</strong>, <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Verse Map</strong>, and <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Reading Mode</strong>.</>}
           </p>
 
+          {/* Epistemic transparency callout — standalone, more prominent.
+              3 etiket-chip + açıklama satırı; subtitle'a gömülü değil. */}
+          <div style={{
+            marginTop: '18px',
+            padding: '13px 16px 14px',
+            background: 'rgba(212,165,116,0.06)',
+            border: '1px solid rgba(212,165,116,0.28)',
+            borderLeft: `3px solid ${COLORS.gold}`,
+            borderRadius: RADIUS.sm,
+          }}>
+            <div style={{
+              display: 'flex', flexWrap: 'wrap', gap: '8px',
+              marginBottom: '8px',
+            }}>
+              {(tr
+                ? ['Kişisel sentezler', 'Alternatif okumalar', 'Tasavvufî perspektif']
+                : ['Personal syntheses', 'Alternative readings', 'Sufi perspective']
+              ).map((label, i) => (
+                <span key={i} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '5px',
+                  padding: '3px 10px',
+                  background: 'rgba(212,165,116,0.12)',
+                  border: '1px solid rgba(212,165,116,0.35)',
+                  borderRadius: RADIUS.pillSm,
+                  fontSize: '0.7rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  color: COLORS.gold,
+                  fontFamily: FONTS.body,
+                  textTransform: 'uppercase',
+                }}>
+                  <span aria-hidden="true" style={{ opacity: 0.85 }}>✱</span>
+                  {label}
+                </span>
+              ))}
+            </div>
+            <p style={{
+              margin: 0,
+              fontSize: '0.82rem',
+              color: COLORS.offWhite,
+              fontFamily: FONTS.body,
+              lineHeight: 1.6,
+              fontStyle: 'italic',
+            }}>
+              {tr
+                ? <>Bu metinler klasik tefsir konsensüsü değil, <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>yazarın özgün okuma denemeleridir</strong>. Tartışmalı pasajlar makale içinde <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>"alternatif okuma"</strong> kutularıyla işâret edilmiştir.</>
+                : <>These are not the consensus of classical tafsīr but <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>original reading-attempts by the author</strong>. Contested passages are flagged within the essays with <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>"alternative reading"</strong> callouts.</>}
+            </p>
+          </div>
+
           {/* Stat chip row */}
           <div style={{
             display: 'flex', flexWrap: 'wrap', gap: '10px',
