@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
@@ -28,7 +29,9 @@ export default async function Page({ params }) {
         ]}
       />
       <PageHeading title={title} description={desc} />
-      <TefekkurIndexRoute />
+      <Suspense fallback={null}>
+        <TefekkurIndexRoute />
+      </Suspense>
     </>
   );
 }
