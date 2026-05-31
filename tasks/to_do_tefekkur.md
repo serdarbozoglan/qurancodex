@@ -44,11 +44,11 @@ Kısa-orta uzunlukta psikolojik / pratik / spiritüel essay'ler.
 
 | # | Status | Başlık | URL | Tarih | Süre |
 |---|---|---|---|---|---|
-| K-01 | ⬜ | Ruhun Termostatı | [link](https://sufist.medium.com/ruhun-termostat%C4%B1-29e2f50e9640) | 2026-02-04 | 12 dk |
-| K-02 | ⬜ | Enerji Krizi: Odaklanmayı Yakıt Yönetimi Olarak Anlamak | [link](https://sufist.medium.com/enerji-krizi-odaklanmay%C4%B1-yak%C4%B1t-y%C3%B6netimi-olarak-anlamak-cb42e47e305d) | 2026-01-28 | 12 dk |
-| K-03 | ⬜ | Yapılanların Süslü Görülmesi | [link](https://sufist.medium.com/yap%C4%B1lanlar%C4%B1n-s%C3%BCsl%C3%BC-g%C3%B6r%C3%BClmesi-c6d05f32b8fa) | 2025-11-27 | 6 dk |
-| K-04 | ⬜ | Vicdan: Evrensel Tercümanımız | [link](https://sufist.medium.com/vicdan-evrensel-terc%C3%BCman%C4%B1m%C4%B1z-e88df283833b) | 2025-11-09 | 3 dk |
-| K-05 | ⬜ | Kur'an Mesajına Yabancı Kalmak | [link](https://sufist.medium.com/kur-an-mesaj%C4%B1nayabanc%C4%B1-kalmak-3e5f2cfbb31c) | 2025-09-05 | 5 dk |
+| K-01 | ⬜ | Ruhun Termostatı | [link](https://sufist.medium.com/ruhun-termostat%C4%B1-4a41bd9f8ea7) | 2026-02-04 | 12 dk |
+| K-02 | ⬜ | Enerji Krizi: Odaklanmayı Yakıt Yönetimi Olarak Anlamak | [link](https://sufist.medium.com/enerji-krizi-odaklanmay%C4%B1-yak%C4%B1t-y%C3%B6netimi-olarak-anlamak-f7c8f9db19b5) | 2026-01-28 | 12 dk |
+| K-03 | ⬜ | Yapılanların Süslü Görülmesi | [link](https://sufist.medium.com/yap%C4%B1lanlar%C4%B1n-s%C3%BCsl%C3%BC-g%C3%B6r%C3%BClmesi-4b47a9693c04) | 2025-11-27 | 6 dk |
+| K-04 | ⬜ | Vicdan: Evrensel Tercümanımız | [link](https://sufist.medium.com/vicdan-evrensel-terc%C3%BCman%C4%B1m%C4%B1z-e89c66917637) | 2025-11-09 | 3 dk |
+| K-05 | ⬜ | Kur'an Mesajına Yabancı Kalmak | [link](https://sufist.medium.com/kuran-mesaj%C4%B1na-yabanc%C4%B1-kalmak-5d75cb450a8a) | 2025-09-05 | 5 dk |
 
 ---
 
@@ -58,14 +58,14 @@ Kısa-orta uzunlukta psikolojik / pratik / spiritüel essay'ler.
 
 | # | Status | Başlık | URL | Tarih | Süre |
 |---|---|---|---|---|---|
-| T-07p | ⬜ ⭐ | **Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm** _(Pinned)_ | [link](https://sufist.medium.com/insan-kainat-ve-kuran-terminolojisi-7-kaderin-%C3%A7%C3%B6z%C3%BCn%C3%BCrl%C3%BC%C4%9F%C3%BC-tasar%C4%B1m-i%CC%87rade-ve-esnek-determinizm-a15d7879b292) | 2025-04-24 | 7 dk |
-| T-07d | ⬜ | Kaderin Çözünürlüğü ve Esnek Determinizm (devam) | [link](https://sufist.medium.com/kaderin-%C3%A7%C3%B6z%C3%BCn%C3%BCrl%C3%BC%C4%9F%C3%BC-ve-esnek-determinizm-devam-b8fb25590c6b) | 2025-04-27 | 4 dk |
-| T-06 | ⬜ | Terminoloji 6: Sema ve İsim Kavramları | [link](https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kur%C4%81n%C4%B1-okuma-terminolojisi-6-sema-ve-i%CC%87sim-kavramlar%C4%B1-b9520ea2fb44) | 2025-01-10 | 6 dk |
-| T-05 | ⬜ | Terminoloji 5: Makro ve Mikro Durumlar, Emergence ve Faz Geçişi | [link](https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kur%C4%81n%C4%B1-okuma-terminolojisi-5-makro-ve-mikro-durumlar-emergence-ve-faz-ge%C3%A7i%C5%9Fi-c6b7ee8a1c97) | 2024-12-23 | 4 dk |
-| T-04 | ⬜ | Terminoloji 4: Varlıkların Ayna Oluşu | [link](https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kur%C4%81n%C4%B1-okuma-terminolojisi-4-varl%C4%B1klar%C4%B1n-ayna-olu%C5%9Fu-e01bb25ec1ff) | 2024-12-22 | 5 dk |
-| T-03 | ⬜ | Terminoloji 3: Fizikalizmin Kırılganlığı ve Sınırları | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-3-fizikalizmin-k%C4%B1r%C4%B1lganl%C4%B1%C4%9F%C4%B1-ve-s%C4%B1n%C4%B1rlar%C4%B1-8bf7089b0ba0) | 2024-11-27 | 3 dk |
-| T-02 | ⬜ | Terminoloji 2: Parçalanamaz Bütünlerin Hikayesi | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-2-par%C3%A7alanamaz-b%C3%BCt%C3%BCnlerin-hikayesi-4b210214a1fa) | 2024-11-19 | TBD |
-| T-01 | ⬜ | Terminoloji 1: Lokal ve Global Perspektifler | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-1-lokal-ve-global-perspektifler-1f06f52eefec) | 2024-10-11 | TBD |
+| T-07p | ⬜ ⭐ | **Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm** _(Pinned)_ | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran-terminolojisi-7-kaderin-%C3%A7%C3%B6z%C3%BCn%C3%BCrl%C3%BC%C4%9F%C3%BC-tasar%C4%B1m-i%CC%87rade-ve-esnek-determinizm-cf6204c0ecdf) | 2025-04-24 | 7 dk |
+| T-07d | ⬜ | Kaderin Çözünürlüğü ve Esnek Determinizm (devam) | [link](https://sufist.medium.com/kaderin-%C3%A7%C3%B6z%C3%BCn%C3%BCrl%C3%BC%C4%9F%C3%BC-ve-esnek-determinizm-devam-ee43e622ef7a) | 2025-04-27 | 4 dk |
+| T-06 | ⬜ | Terminoloji 6: Sema ve İsim Kavramları | [link](https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kur%C3%A2n%C4%B1-okuma-terminolojisi-6-sema-ve-i%CC%87sim-kavramlar%C4%B1-a4b57cc981cc) | 2025-01-10 | 6 dk |
+| T-05 | ⬜ | Terminoloji 5: Makro ve Mikro Durumlar, Emergence ve Faz Geçişi | [link](https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kur%C3%A2n%C4%B1-okuma-terminolojisi-5-makro-ve-mikro-durumlar-emergence-ve-faz-ge%C3%A7i%C5%9Fi-90a4be29837a) | 2024-12-23 | 4 dk |
+| T-04 | ⬜ | Terminoloji 4: Varlıkların Ayna Oluşu | [link](https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kur%C3%A2n%C4%B1-okuma-terminolojisi-4-varl%C4%B1klar%C4%B1n-ayna-olu%C5%9Fu-df99859fbe94) | 2024-12-22 | 5 dk |
+| T-03 | ⬜ | Terminoloji 3: Fizikalizmin Kırılganlığı ve Sınırları | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-3-fizikalizmin-k%C4%B1r%C4%B1lganl%C4%B1%C4%9F%C4%B1-ve-s%C4%B1n%C4%B1rlar%C4%B1-026cc967ff33) | 2024-11-27 | 3 dk |
+| T-02 | ⬜ | Terminoloji 2: Parçalanamaz Bütünlerin Hikayesi | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-2-par%C3%A7alanamaz-b%C3%BCt%C3%BCnlerin-hikayesi-698fdf0b01c1) | 2024-11-19 | TBD |
+| T-01 | ⬜ | Terminoloji 1: Lokal ve Global Perspektifler | [link](https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-1-lokal-ve-global-perspektifler-2e76f9d3bdfd) | 2024-10-11 | TBD |
 
 ---
 
@@ -75,17 +75,17 @@ Belirli sûre/ayet temelli tahliller + hermenötik denemeler.
 
 | # | Status | Başlık | URL | Tarih | Süre |
 |---|---|---|---|---|---|
-| S-01p | ⬜ ⭐ | **Alak Suresi 1: İlk Besmele, Büyük Resim, ve Metafizik Paradigma** _(Pinned)_ | [link](https://sufist.medium.com/alak-suresi-1-i%CC%87lk-besmele-b%C3%BCy%C3%BCk-resim-ve-metafizik-paradigma-e5bfe74635ea) | 2024-09-21 | 4 dk |
-| S-02 | ⬜ | Alak Suresi 2-3: Fetus ve Ontolojik Öncelik | [link](https://sufist.medium.com/alak-suresi-2-3-fetus-ve-ontolojik-%C3%B6ncelik-2c1cfbdbeff2) | 2024-09-28 | TBD |
-| S-03 | ⬜ | Alak Suresi 4-5: Prefrontal korteks, yapay zeka, Kuantum Dalga Fonksiyonu | [link](https://sufist.medium.com/alak-suresi-4-5-prefrontal-korteks-yapay-zeka-ve-kuantum-dalga-fonksiyonu-984bf402a58b) | 2024-10-02 | TBD |
-| S-04 | ⬜ | Ala Suresi 1: Tesbih ve Soyutlama | [link](https://sufist.medium.com/ala-suresi-1-tesbih-ve-soyutlama-ee646d655f4d) | 2025-04-16 | 3 dk |
-| S-05 | ⬜ | Asr Suresinden Çıkarılan Temel Prensipler | [link](https://sufist.medium.com/asr-suresinden-%C3%A7%C4%B1kar%C4%B1lan-temel-prensipler-63f8db11a6cc) | 2025-06-10 | 5 dk |
-| S-06 | ⬜ | Allahu Ekber ile Seyr İlallah: Yüzeydeki Dikkat Dağıtanlardan Kurtulma | [link](https://sufist.medium.com/allahu-ekber-ile-seyr-i%CC%87lallah-y%C3%BCzeydeki-dikkat-da%C4%9F%C4%B1tanlardan-kurtulma-b92484a6a570) | 2024-10-22 | TBD |
-| S-07 | ⬜ | Kaynak ve Yüzey — Başarısız Olan Her Sistemin Ortak Yönü | [link](https://sufist.medium.com/kaynak-ve-y%C3%BCzey-ba%C5%9Far%C4%B1s%C4%B1z-olan-her-sistemin-ortak-y%C3%B6n%C3%BC-f331fc357283) | 2026-02-15 | 9 dk |
-| S-08 | ⬜ | Ayet: Gözlemden Hakikate Köprü | [link](https://sufist.medium.com/ayet-g%C3%B6zlemden-hakikate-k%C3%B6pr%C3%BC-dfc9a5956bf0) | 2025-12-26 | 3 dk |
-| S-09 | ⬜ | Emrin Ontolojik Mahiyeti: Aktualizasyon ve İşleyiş Prensibi | [link](https://sufist.medium.com/emrin-ontolojik-mahiyeti-aktualizasyon-ve-i%C5%9Fleyi%C5%9F-prensibi-223d6a053cbf) | 2025-12-11 | 3 dk |
-| S-10 | ⬜ | Kur'an'ın Ruhsal Coğrafyası: Doğru Yoldan Sapmanın Anatomisi | [link](https://sufist.medium.com/kuran%C4%B1n-ruhsal-co%C4%9Frafyas%C4%B1-do%C4%9Fru-yoldan-sapman%C4%B1n-anatomisi-8c26f0302b11) | 2025-05-31 | 6 dk |
-| S-11 | ⬜ | Kuran Okuma Prensiplerimiz-2 | [link](https://sufist.medium.com/kuran-okuma-prensiplerimiz-2-e64e5be49be0) | 2024-09-25 | TBD |
+| S-01p | ⬜ ⭐ | **Alak Suresi 1: İlk Besmele, Büyük Resim, ve Metafizik Paradigma** _(Pinned)_ | [link](https://sufist.medium.com/alak-suresi-1-i%CC%87lk-besmele-b%C3%BCy%C3%BCk-resim-ve-metafizik-paradigma-54bbd52cb3bd) | 2024-09-21 | 4 dk |
+| S-02 | ⬜ | Alak Suresi 2-3: Fetus ve Ontolojik Öncelik | [link](https://sufist.medium.com/alak-suresi-2-3-fetus-ve-ontolojik-%C3%B6ncelik-1f81dff90e5f) | 2024-09-28 | TBD |
+| S-03 | ⬜ | Alak Suresi 4-5: Prefrontal korteks, yapay zeka, Kuantum Dalga Fonksiyonu | [link](https://sufist.medium.com/alak-suresi-4-5-prefrontal-korteks-yapay-zeka-ve-kuantum-dalga-fonksiyonu-3b3fb3ffb076) | 2024-10-02 | TBD |
+| S-04 | ⬜ | Ala Suresi 1: Tesbih ve Soyutlama | [link](https://sufist.medium.com/ala-suresi-1-tesbih-ve-soyutlama-d050517406a4) | 2025-04-16 | 3 dk |
+| S-05 | ⬜ | Asr Suresinden Çıkarılan Temel Prensipler | [link](https://sufist.medium.com/asr-suresinden-%C3%A7%C4%B1kar%C4%B1lan-temel-prensipler-03ec7bfe7571) | 2025-06-10 | 5 dk |
+| S-06 | ⬜ | Allahu Ekber ile Seyr İlallah: Yüzeydeki Dikkat Dağıtanlardan Kurtulma | [link](https://sufist.medium.com/allahu-ekber-ile-seyr-i%CC%87lallah-y%C3%BCzeydeki-dikkat-da%C4%9F%C4%B1tanlardan-kurtulma-48b8b9ef5ea8) | 2024-10-22 | TBD |
+| S-07 | ⬜ | Kaynak ve Yüzey — Başarısız Olan Her Sistemin Ortak Yönü | [link](https://sufist.medium.com/kaynak-ve-y%C3%BCzey-ba%C5%9Far%C4%B1s%C4%B1z-olan-her-sistemin-ortak-y%C3%B6n%C3%BC-fbe8249b6b71) | 2026-02-15 | 9 dk |
+| S-08 | ⬜ | Ayet: Gözlemden Hakikate Köprü | [link](https://sufist.medium.com/ayet-g%C3%B6zlemden-hakikate-k%C3%B6pr%C3%BC-398df9037c77) | 2025-12-26 | 3 dk |
+| S-09 | ⬜ | Emrin Ontolojik Mahiyeti: Aktualizasyon ve İşleyiş Prensibi | [link](https://sufist.medium.com/emrin-ontolojik-mahiyeti-aktualizasyon-ve-i%C5%9Fleyi%C5%9F-prensibi-94dbf0d1a499) | 2025-12-11 | 3 dk |
+| S-10 | ⬜ | Kur'an'ın Ruhsal Coğrafyası: Doğru Yoldan Sapmanın Anatomisi | [link](https://sufist.medium.com/kuran%C4%B1n-ruhsal-co%C4%9Frafyas%C4%B1-do%C4%9Fru-yoldan-sapman%C4%B1n-anatomisi-8f5ec2781b4d) | 2025-05-31 | 6 dk |
+| S-11 | ⬜ | Kuran Okuma Prensiplerimiz-2 | [link](https://sufist.medium.com/kuran-okuma-prensiplerimiz-2-8e100f793b82) | 2024-09-25 | TBD |
 
 ---
 
@@ -95,11 +95,11 @@ Arapça kök etimoloji + Kur'ani semantik haritalama.
 
 | # | Status | Başlık | Kök | URL | Tarih | Süre |
 |---|---|---|---|---|---|---|
-| L-01 | ⬜ | Semantik Analizi-1: Sefer | س ف ر | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-1-sefer-ef110bc5ec16) | 2025-12-30 | 2 dk |
-| L-02 | ⬜ | Semantik Analizi-2: Lehv | ل ه و | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-2-lehv-ba121c258d44) | 2025-12-30 | 4 dk |
-| L-03 | ⬜ | Semantik Analizi-3: Cennet, Cin, Mecnun | ج ن ن | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-3-cennet-cin-mecnun-ca10ba0a9fdf) | 2026-01-01 | 4 dk |
-| L-04 | ⬜ | Semantik Analizi-4: Tuğyan | ط غ و | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-4-tu%C4%9Fyan-e08920551065) | 2026-01-17 | 3 dk |
-| L-05 | ⬜ | Siccin Nedir? Hapis mi Kitap mı? | س ج ن | [link](https://sufist.medium.com/siccin-nedir-hapis-mi-kitap-m%C4%B1-a4773a966838) | 2025-12-31 | TBD |
+| L-01 | ⬜ | Semantik Analizi-1: Sefer | س ف ر | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-1-sefer-14e39ec2f8b5) | 2025-12-30 | 2 dk |
+| L-02 | ⬜ | Semantik Analizi-2: Lehv | ل ه و | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-2-lehv-a4b0d061c5bd) | 2025-12-30 | 4 dk |
+| L-03 | ⬜ | Semantik Analizi-3: Cennet, Cin, Mecnun | ج ن ن | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-3-cennet-cin-mecnun-60d7ee85e492) | 2026-01-01 | 4 dk |
+| L-04 | ⬜ | Semantik Analizi-4: Tuğyan | ط غ و | [link](https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-4-tu%C4%9Fyan-dc65c527027b) | 2026-01-17 | 3 dk |
+| L-05 | ⬜ | Siccin Nedir? Hapis mi Kitap mı? | س ج ن | [link](https://sufist.medium.com/siccin-nedir-hapis-mi-kitap-m%C4%B1-9bf6786c636f) | 2025-12-31 | TBD |
 
 ---
 
@@ -109,12 +109,12 @@ Epistemoloji + metafizik + recursive thinking + şuur kavramı serisi.
 
 | # | Status | Başlık | URL | Tarih | Süre |
 |---|---|---|---|---|---|
-| I-01 | ⬜ | Inception Hayatlar: Recursive Düşüncenin Pratiği | [link](https://sufist.medium.com/inception-hayatlar-recursive-d%C3%BC%C5%9F%C3%BCncenin-prati%C4%9Fi-df4a6a43ea41) | 2026-01-08 | 4 dk |
-| I-02 | ⬜ | Sonsuz Nasıl Bilinir: Yönelimsel İdrak | [link](https://sufist.medium.com/sonsuz-nas%C4%B1l-bilinir-y%C3%B6nelimsel-i%CC%87drak-f6984e030bc3) | 2026-01-07 | 3 dk |
-| I-03 | ⬜ | Sonsuzluğun Merdiveni: Analojilerden Hakikate Yolculuk | [link](https://sufist.medium.com/sonsuzlu%C4%9Fun-merdiveni-analojilerden-hakikate-yolculuk-c8f9f74a0da7) | 2026-01-06 | 2 dk |
-| I-04 | ⬜ | Analitik İçgörü: Şuur Kavramı-3 | [link](https://sufist.medium.com/analitik-i%CC%87%C3%A7g%C3%B6r%C3%BC-%C5%9Fuur-kavram%C4%B1-3-c827364ca824) | 2025-12-27 | 5 dk |
-| I-05 | ⬜ | Analitik İçgörü: Şuur Kavramı-2 | [link](https://sufist.medium.com/analitik-i%CC%87%C3%A7g%C3%B6r%C3%BC-%C5%9Fuur-kavram%C4%B1-2-1271b3e8392f) | 2025-12-14 | 7 dk |
-| I-06 | ⬜ | Analitik İçgörü: Şuur Kavramı-1 | [link](https://sufist.medium.com/analitik-i%CC%87%C3%A7g%C3%B6r%C3%BC-%C5%9Fuur-kavram%C4%B1-1-3513364f772e) | 2025-12-14 | 4 dk |
+| I-01 | ⬜ | Inception Hayatlar: Recursive Düşüncenin Pratiği | [link](https://sufist.medium.com/inception-hayatlar-recursive-d%C3%BC%C5%9F%C3%BCncenin-prati%C4%9Fi-062dfc9c22e4) | 2026-01-08 | 4 dk |
+| I-02 | ⬜ | Sonsuz Nasıl Bilinir: Yönelimsel İdrak | [link](https://sufist.medium.com/sonsuz-nas%C4%B1l-bilinir-y%C3%B6nelimsel-idrak-46bc5604100c) | 2026-01-07 | 3 dk |
+| I-03 | ⬜ | Sonsuzluğun Merdiveni: Analojilerden Hakikate Yolculuk | [link](https://sufist.medium.com/sonsuzlu%C4%9Fun-merdiveni-analojilerden-hakikate-yolculuk-47bf1b2c4e9f) | 2026-01-06 | 2 dk |
+| I-04 | ⬜ | Analitik İçgörü: Şuur Kavramı-3 | [link](https://sufist.medium.com/analitik-i%CC%87%C3%A7g%C3%B6r%C3%BC-%C5%9Fuur-kavram%C4%B1-3-030491b41c96) | 2025-12-27 | 5 dk |
+| I-05 | ⬜ | Analitik İçgörü: Şuur Kavramı-2 | [link](https://sufist.medium.com/analitik-i%CC%87%C3%A7g%C3%B6r%C3%BC-%C5%9Fuur-kavram%C4%B1-2-19bc306fa029) | 2025-12-14 | 7 dk |
+| I-06 | ⬜ | Analitik İçgörü: Şuur Kavramı-1 | [link](https://sufist.medium.com/analitik-i%CC%87%C3%A7g%C3%B6r%C3%BC-%C5%9Fuur-kavram%C4%B1-1-e407dbb34ba8) | 2025-12-14 | 4 dk |
 
 ---
 
@@ -124,13 +124,13 @@ Yaratılış serisi + kuantum + evrim tartışmaları + kozmik tasarım.
 
 | # | Status | Başlık | URL | Tarih | Süre |
 |---|---|---|---|---|---|
-| C-01 | ⬜ | Anlam, Yaratılış ve Senteninin Bariz İmzası | [link](https://sufist.medium.com/anlam-yarat%C4%B1l%C4%B1%C5%9F-ve-senteninin-bariz-imzas%C4%B1-a5369fc873aa) | 2024-12-18 | 4 dk |
-| C-02 | ⬜ | Kainat Kitabının Kuantum Bölümü-1: Kuantum Mekaniğinin Beş Büyük Gizemi | [link](https://sufist.medium.com/kainat-kitab%C4%B1n%C4%B1n-kuantum-b%C3%B6l%C3%BCm%C3%BC-1-kuantum-mekani%C4%9Finin-be%C5%9F-b%C3%BCy%C3%BCk-gizemi-c2e71cfb9657) | 2024-12-07 | TBD |
-| C-03 | ⬜ | Yaratılış Hikayesi-2: Kainatın Katmanlı Yaratılışı | [link](https://sufist.medium.com/yarat%C4%B1l%C4%B1%C5%9F-hikayesi-2-kainat%C4%B1n-katmanl%C4%B1-yarat%C4%B1l%C4%B1%C5%9Fi-b94d1bfef976) | 2025-07-27 | 5 dk |
-| C-04 | ⬜ | Yaratılış Hikayesi-1: Giriş | [link](https://sufist.medium.com/yarat%C4%B1l%C4%B1%C5%9F-hikayesi-1-giri%C5%9F-f9cb79e7230d) | 2025-07-27 | 2 dk |
-| C-05 | ⬜ | Evrim, İnanç ve Aklımızdaki Resimler | [link](https://sufist.medium.com/evrim-i%CC%87nan%C3%A7-ve-akl%C4%B1m%C4%B1zdaki-resimler-dfb9679ecf91) | 2025-10-25 | 4 dk |
-| C-06 | ⬜ | Evrim dinsizliği yayma projesidir! | [link](https://sufist.medium.com/evrim-dinsizli%C4%9Fi-yayma-projesidir-e54fa82d0be9) | 2025-05-14 | 4 dk |
-| C-07 | ⬜ | Hala mı Evrim? | [link](https://sufist.medium.com/hala-m%C4%B1-evrim-3f03b2272e50) | 2024-11-12 | TBD |
+| C-01 | ⬜ | Anlam, Yaratılış ve Senteninin Bariz İmzası | [link](https://sufist.medium.com/anlam-yarat%C4%B1l%C4%B1%C5%9F-ve-senteninin-bariz-imzas%C4%B1-7603c6258d4a) | 2024-12-18 | 4 dk |
+| C-02 | ⬜ | Kainat Kitabının Kuantum Bölümü-1: Kuantum Mekaniğinin Beş Büyük Gizemi | [link](https://sufist.medium.com/kainat-kitab%C4%B1n%C4%B1n-kuantum-b%C3%B6l%C3%BCm%C3%BC-1-kuantum-mekani%C4%9Finin-be%C5%9F-b%C3%BCy%C3%BCk-gizemi-da8b2a32c69e) | 2024-12-07 | TBD |
+| C-03 | ⬜ | Yaratılış Hikayesi-2: Kainatın Katmanlı Yaratılışı | [link](https://sufist.medium.com/yarat%C4%B1l%C4%B1%C5%9F-hikayesi-2-kainat%C4%B1n-katmanl%C4%B1-yarat%C4%B1l%C4%B1%C5%9F%C4%B1-d0092bf22e39) | 2025-07-27 | 5 dk |
+| C-04 | ⬜ | Yaratılış Hikayesi-1: Giriş | [link](https://sufist.medium.com/yarat%C4%B1l%C4%B1%C5%9F-hikayesi-1-giri%C5%9F-7815b3c43fa9) | 2025-07-27 | 2 dk |
+| C-05 | ⬜ | Evrim, İnanç ve Aklımızdaki Resimler | [link](https://sufist.medium.com/evrim-i%CC%87nan%C3%A7-ve-akl%C4%B1m%C4%B1zdaki-resimler-4e897972ba7e) | 2025-10-25 | 4 dk |
+| C-06 | ⬜ | Evrim dinsizliği yayma projesidir! | [link](https://sufist.medium.com/evrim-dinsizli%C4%9Fi-yayma-projesidir-bd6e09e1e90d) | 2025-05-14 | 4 dk |
+| C-07 | ⬜ | Hala mı Evrim? | [link](https://sufist.medium.com/hala-m%C4%B1-evrim-e8e19c3bdae9) | 2024-11-12 | TBD |
 
 ---
 
@@ -140,14 +140,14 @@ Türkçe karşılığı varsa **bilingual çift**, yoksa standalone English maka
 
 | # | Status | Başlık | URL | Tarih | TR eşi |
 |---|---|---|---|---|---|
-| E-01 | ⬜ | Contemporary Quran Readings: Emergence, Irreducibility, and Meaning | [link](https://sufist.medium.com/contemporary-quran-readings-emergence-irreducibility-and-meaning-a09fc18501e5) | 2024-12-21 | — (yeni İngilizce sentez) |
-| E-02 | ⬜ | Meaning, Creation, and the Telltale Signature of Synteny | [link](https://sufist.medium.com/meaning-creation-and-the-telltale-signature-of-synteny-2b4faec66288) | 2024-12-18 | C-01 (Anlam Yaratılış Senteni) |
-| E-03 | ⬜ | The Five Biggest Mysteries in Quantum Mechanics | [link](https://sufist.medium.com/the-five-biggest-mysteries-in-quantum-mechanics-exploring-realitys-deepest-questions-ebef9051db52) | 2024-12-07 | C-02 (Kuantum Beş Gizemi) |
-| E-04 | ⬜ | A New Cosmology: Understanding Existence Through Three Worlds | [link](https://sufist.medium.com/a-new-cosmology-understanding-existence-through-three-worlds-8d59b20b22a0) | 2024-12-02 | T-04 (Varlıkların Ayna Oluşu) yakın |
-| E-05 | ⬜ | Physicalism and Its Fragility | [link](https://sufist.medium.com/physicalism-and-its-fragility-90f9689945df) | 2024-11-27 | T-03 (Fizikalizmin Kırılganlığı) |
-| E-06 | ⬜ | Our Principles for Reading the Quran — Part 2: Hermeneutic | [link](https://sufist.medium.com/our-principles-for-reading-the-quran-part-2-hermeneutic-ee981ea60938) | 2024-10-12 | S-11 (Okuma Prensipleri 2) |
-| E-07 | ⬜ | Our Principles for Reading the Quran — Part 1: Epistemic | [link](https://sufist.medium.com/our-principles-for-reading-the-quran-part-1-epistemic-1647895e7c10) | 2024-10-12 | — (Part 1 TR eşi yok?) |
-| E-08 | ⬜ | Contemporary Quran Readings-1: Local and Global Perspectives | [link](https://sufist.medium.com/contemporary-quran-readings-1-local-and-global-perspectives-e2348a4746f3) | 2024-10-11 | T-01 (Terminoloji 1) |
+| E-01 | ⬜ | Contemporary Quran Readings: Emergence, Irreducibility, and Meaning | [link](https://sufist.medium.com/contemporary-quran-readings-emergence-irreducibility-and-meaning-a03bece5d9e8) | 2024-12-21 | — (yeni İngilizce sentez) |
+| E-02 | ⬜ | Meaning, Creation, and the Telltale Signature of Synteny | [link](https://sufist.medium.com/meaning-creation-and-the-telltale-signature-of-synteny-dd38b009e4bf) | 2024-12-18 | C-01 (Anlam Yaratılış Senteni) |
+| E-03 | ⬜ | The Five Biggest Mysteries in Quantum Mechanics | [link](https://sufist.medium.com/the-five-biggest-mysteries-in-quantum-mechanics-exploring-realitys-deepest-questions-9db3732b2707) | 2024-12-07 | C-02 (Kuantum Beş Gizemi) |
+| E-04 | ⬜ | A New Cosmology: Understanding Existence Through Three Worlds | [link](https://sufist.medium.com/a-new-cosmology-understanding-existence-through-three-worlds-834410a56e07) | 2024-12-02 | T-04 (Varlıkların Ayna Oluşu) yakın |
+| E-05 | ⬜ | Physicalism and Its Fragility | [link](https://sufist.medium.com/physicalism-and-its-fragility-7977a4a9b6c0) | 2024-11-27 | T-03 (Fizikalizmin Kırılganlığı) |
+| E-06 | ⬜ | Our Principles for Reading the Quran — Part 2: Hermeneutic | [link](https://sufist.medium.com/our-principles-for-reading-the-quran-part-2-hermeneutic-d7ec6be130a1) | 2024-10-12 | S-11 (Okuma Prensipleri 2) |
+| E-07 | ⬜ | Our Principles for Reading the Quran — Part 1: Epistemic | [link](https://sufist.medium.com/our-principles-for-reading-the-quran-part-1-epistemic-32ef2f8cd62e) | 2024-10-12 | — (Part 1 TR eşi yok?) |
+| E-08 | ⬜ | Contemporary Quran Readings-1: Local and Global Perspectives | [link](https://sufist.medium.com/contemporary-quran-readings-1-local-and-global-perspectives-324c4e09e1e3) | 2024-10-11 | T-01 (Terminoloji 1) |
 
 > Not: 6 İngilizce makalede Türkçe eş tespit edildi. Site i18n pattern'ı: makale slug aynı, content TR/EN sürümü.
 
@@ -287,6 +287,41 @@ Türkçe karşılığı varsa **bilingual çift**, yoksa standalone English maka
 > aynı alomorf string'ini kullanmalı (drift yok).
 >
 > Üçlü kökler (sahih) için bu kural geçersizdir — tek form yeterli (ج ن ن, ر ح م, vb.).
+
+> ### 🔑 KURAL — Felsufi Metnine Sadıklık (No Hallucination — ENFORCE ALWAYS)
+>
+> Yazara ait makalede **bulunmayan yorum, tefsir, veya açıklama eklenmez.**
+> Migration sürecinde her JSON alanı için:
+>
+> - **VerseInline `noteTr/noteEn`**: SADECE Felsufi'nin kullandığı meal + (varsa)
+>   Felsufi'nin o ayet için yazdığı yorum. Genel Kur'an retoriği bilgisi (örn.
+>   *kallā* formülü, *vemâ edrâke* kalıbı), klasik tefsir notu, "dikey ayna" gibi
+>   bizim framing'imiz **eklenmez**.
+> - **sources**: SADECE Felsufi'nin metninde referans verdiği eser/kavram/kişiler.
+>   Klasik müfessir veya lexicon ekleme yasak (örn. Felsufi al-Mufradât'a referans
+>   vermiyorsa, biz de eklemeyiz).
+> - **tldr**: Felsufi'nin **açılış cümlesi + kendi tezinin özeti**nden türetilir;
+>   bizim sentez/reframing'imizle değil.
+> - **Görsel block'lar** (hierarchyTree, flowChain, contrastDuo, morphologyTable):
+>   görsel yapı brand uyumu için bizim olabilir — AMA içindeki tüm
+>   label / subtitle / bullet / bridge metinleri **Felsufi'nin kelime dağarcığından**
+>   çıkmalıdır. "Kayıt Kozmolojisi" gibi bizim sentezimiz olan üst-kavramlar
+>   kullanılmaz; Felsufi "çift anlamlı ifade" diyorsa biz de onu kullanırız.
+> - **section başlıkları**: Felsufi'nin başlık formülasyonunu birebir korur —
+>   numara + ":" formatına da müdahale etmez (örn. "1. Tabaka: Arapça Literal").
+>
+> **Test**: Bir JSON alanı için "bunu Felsufi mi yazdı, yoksa ben mi ekledim?"
+> sorusunun cevabı **"ben ekledim"** ise → kaldır veya Felsufi'nin sözüne dönüştür.
+>
+> **Pratik akış (Playwright extraction yapıldıktan sonra):**
+> 1. `next/qc-fetch-medium.mjs <URL>` ile tam metni çek (36+ blok)
+> 2. Her JSON alanı için kaynak metinde **anchor cümle** bul
+> 3. Anchor yoksa → alanı boş bırak veya çıkar
+> 4. Görsel block'lar sadece **kategorize eder**, yorum ÜRETMEZ
+>
+> **Sebep:** WebFetch fair-use kısıtlamasıyla özet veriyor → Playwright tam metin
+> getiriyor. Özet üzerinden JSON üretmek halüsinasyon riski taşır; Playwright
+> sonrası tam metne sadıklık zorunlu.
 
 > ### 🔑 KURAL — VerseInline'da Ref Tekrar Yasağı
 >
