@@ -288,6 +288,23 @@ Türkçe karşılığı varsa **bilingual çift**, yoksa standalone English maka
 >
 > Üçlü kökler (sahih) için bu kural geçersizdir — tek form yeterli (ج ن ن, ر ح م, vb.).
 
+> ### 🔑 KURAL — "Kur'an" Yazımı (ENFORCE ALWAYS)
+>
+> Site genelinde "Kur'an" **her zaman kesme işaretiyle** yazılır. Felsufi metninde
+> "Kuran" (apostrofsuz) geçse de migration sırasında "Kur'an" olarak yazılır.
+>
+> - ✅ DOĞRU: "Kur'an'da", "Kur'an mesajı", "Kur'an kavramları"
+> - ❌ YANLIŞ: "Kuran'da", "Kuran mesajı", "Kuran kavramları"
+>
+> İngilizce metinlerde: "the Quran" veya "the Qur'an" — site standardı **"Quran"**
+> (apostrofsuz, EN). Bu yalnızca Türkçe için bağlayıcıdır.
+>
+> Uygulama: Felsufi metninden alıntı yaparken bile bu transliterasyon
+> normalize edilir — yazarın orijinal başlığında "Kuran Kavramları Semantik
+> Analizi" yazsa da JSON title alanı **"Kur'an Kavramları Semantik Analizi"**
+> olur. Bu içerik bozma değil, site içi tutarlılık kuralı (CLAUDE.md §11 ile
+> uyumlu).
+
 > ### 🔑 KURAL — Felsufi Metnine Sadıklık (No Hallucination — ENFORCE ALWAYS)
 >
 > Yazara ait makalede **bulunmayan yorum, tefsir, veya açıklama eklenmez.**

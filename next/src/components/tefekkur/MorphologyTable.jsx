@@ -18,7 +18,7 @@ function formatVerseRef(ref, language) {
   return `${short} ${ref}`;
 }
 
-// MorphologyTable — Felsufi'nin "Kuran'daki Kullanım Kalıpları" tablolarının
+// MorphologyTable — Felsufi'nin "Kur'an'daki Kullanım Kalıpları" tablolarının
 // site-yerel premium karşılığı. Glassmorphism row + Arabic pattern (FONTS.quran) +
 // gramatik etiket + Türkçe/EN anlam + verse-chip pill'leri.
 //

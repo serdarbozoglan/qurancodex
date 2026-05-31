@@ -51,6 +51,18 @@
   ],
   "articles": [
     {
+      "slug": "sefer",
+      "titleTr": "Kur'an Kavramları Semantik Analizi-1: Sefer",
+      "titleEn": "Semantic Analysis-1: Safar",
+      "category": "semantik",
+      "seriesNumber": 1,
+      "publishedDate": "2025-12-30",
+      "readingMinutes": 3,
+      "tldrTr": "Kök: س ف ر (S-F-R) — Proto-Sami dil ailesinden. Akadca šapārum (göndermek, mesaj iletmek), İbranice séfer (kitap), Aramice sāp̄ərā (yazıcı) ile akrabadır. Asıl anlamı: örtüyü kaldırmak, açığa çıkarmak.",
+      "tldrEn": "Root: س ف ر (S-F-R) — from the Proto-Semitic family. Cognate with Akkadian šapārum (to send a message), Hebrew séfer (book), Aramaic sāp̄ərā (scribe). Primary meaning: to remove a covering, to bring forth into light.",
+      "status": "draft"
+    },
+    {
       "slug": "cennet-cin-mecnun",
       "titleTr": "Semantik Analizi-3: Cennet, Cin, Mecnun",
       "titleEn": "Semantic Analysis-3: Jannah, Jinn, Majnun",

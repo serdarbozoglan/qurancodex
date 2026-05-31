@@ -78,7 +78,10 @@
     "2:35",
     "58:16"
   ],
-  "previousArticle": null,
+  "previousArticle": {
+    "slug": "sefer",
+    "titleTr": "Semantik 1: Sefer"
+  },
   "nextArticle": {
     "slug": "tugyan",
     "titleTr": "Semantik 4: Tuğyan"
