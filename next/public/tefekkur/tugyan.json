@@ -9,7 +9,10 @@
   "seriesTotal": 4,
   "publishedDate": "2026-01-17",
   "readingMinutes": 8,
-  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
   "canonicalUrl": "https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-4-tu%C4%9Fyan-dad395c89dfa",
   "root": {
     "letters": "ط غ و / ط غ ي",
@@ -17,17 +20,51 @@
     "coreMeaningTr": "Haddi aşmak, sınırı geçmek, taşmak",
     "coreMeaningEn": "Exceeding bounds, crossing limits, overflowing",
     "derivatives": [
-      { "ar": "طُغْيَان", "translit": "tughyān", "tr": "Haddi aşma / azgınlık", "en": "Transgression / overflow" },
-      { "ar": "طَاغِي", "translit": "ṭāghī", "tr": "Haddi aşan, azan", "en": "Transgressor" },
-      { "ar": "طَاغُوت", "translit": "ṭāghūt", "tr": "Sahte ilâh / azgın güç", "en": "False god / tyrannical power" }
+      {
+        "ar": "طُغْيَان",
+        "translit": "tughyān",
+        "tr": "Haddi aşma / azgınlık",
+        "en": "Transgression / overflow"
+      },
+      {
+        "ar": "طَاغِي",
+        "translit": "ṭāghī",
+        "tr": "Haddi aşan, azan",
+        "en": "Transgressor"
+      },
+      {
+        "ar": "طَاغُوت",
+        "translit": "ṭāghūt",
+        "tr": "Sahte ilâh / azgın güç",
+        "en": "False god / tyrannical power"
+      }
     ]
   },
   "tldrTr": "Tuğyan: 'haddi aşmak' anlamındaki kökten türer. Fiziksel taşkınlık (suyun yatağını aşması) ile ahlâkî/itikadî sınır aşımını aynı kavramsal şemsiye altında toplar. İstiğnâ → tuğyan → tâğût zinciri; sonucu ya'mehun (rastgele sapma, sarhoş yürüyüşü) ve sırat-ı müstakimden uzaklaşmadır.",
   "tldrEn": "Tughyan: derives from the root meaning 'to exceed bounds'. Gathers physical overflow (water beyond its course) and moral/doctrinal transgression under one conceptual umbrella. The chain runs istighnā → tughyān → tāghūt; its consequence is ya'mahūn (random walk, drunken gait) and deviation from the straight path.",
-  "relatedTools": ["concept-graph", "verse-graph"],
-  "relatedVerses": ["69:11", "55:8", "96:6-7", "10:11-12", "11:112", "6:110", "50:27", "18:80", "15:72"],
-  "previousArticle": { "slug": "cennet-cin-mecnun", "titleTr": "Semantik 3: Cennet, Cin, Mecnun" },
-  "nextArticle": null,
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "69:11",
+    "55:8",
+    "96:6-7",
+    "10:11-12",
+    "11:112",
+    "6:110",
+    "50:27",
+    "18:80",
+    "15:72"
+  ],
+  "previousArticle": {
+    "slug": "cennet-cin-mecnun",
+    "titleTr": "Semantik 3: Cennet, Cin, Mecnun"
+  },
+  "nextArticle": {
+    "slug": "siccin",
+    "titleTr": "Siccin: Hapis mi Kitap mı?"
+  },
   "blocks": [
     {
       "type": "section",
@@ -48,14 +85,14 @@
     {
       "type": "verseInline",
       "ref": "69:11",
-      "noteTr": "Hâkka 69:11 — 'Su tuğyan ettiğinde (taşıp haddi aşınca) sizi gemide taşıdık.' Burada tuğyan **fiziksel taşkınlık** anlamındadır: Nuh tufanında suyun doğal sınırını aşması.",
-      "noteEn": "Al-Haqqa 69:11 — 'When the water transgressed (overflowed), We carried you in the ship.' Here tughyan denotes **physical overflow** — the waters of Noah's flood exceeding their natural bounds."
+      "noteTr": "Su tuğyan ettiğinde (taşıp haddi aşınca) sizi gemide taşıdık.",
+      "noteEn": "When the water transgressed (overflowed), We carried you in the ship."
     },
     {
       "type": "verseInline",
       "ref": "55:8",
-      "noteTr": "Rahman 55:8 — 'Ölçüde haddi aşmayın (en-lâ taṭğav fî-l-mîzân).' Burada tuğyan **ahlâkî/iktisadî** boyuttadır: terazide, hukukta, adalette sınırın çiğnenmesi.",
-      "noteEn": "Ar-Rahman 55:8 — 'Do not transgress in the balance (allā taṭghaw fī al-mīzān).' Here tughyan is in its **moral/economic** register: violating measure in the scales, in law, in justice."
+      "noteTr": "Ölçüde haddi aşmayın (en-lâ taṭğav fî-l-mîzân).",
+      "noteEn": "Do not transgress in the balance (allā taṭghaw fī al-mīzān)."
     },
     {
       "type": "section",
@@ -104,8 +141,18 @@
               "en": "Insolence, rebellion",
               "transliteration": "ṭuġyān",
               "subChildren": [
-                { "tr": "Fî tuğyânihim yaʿmehûn", "en": "Fī ṭuġyānihim yaʿmahūn", "secondaryTr": "Random walk — gayesiz bocalama", "secondaryEn": "Random walk — aimless staggering" },
-                { "tr": "İstikametten sapma", "en": "Deviation from the path", "secondaryTr": "Dalâlet — derin sapıklık", "secondaryEn": "Dalāla — far-gone error" }
+                {
+                  "tr": "Fî tuğyânihim yaʿmehûn",
+                  "en": "Fī ṭuġyānihim yaʿmahūn",
+                  "secondaryTr": "Random walk — gayesiz bocalama",
+                  "secondaryEn": "Random walk — aimless staggering"
+                },
+                {
+                  "tr": "İstikametten sapma",
+                  "en": "Deviation from the path",
+                  "secondaryTr": "Dalâlet — derin sapıklık",
+                  "secondaryEn": "Dalāla — far-gone error"
+                }
               ]
             },
             {
@@ -114,9 +161,18 @@
               "en": "Tāghūt — tyrannical power",
               "transliteration": "ṭāġūt",
               "subChildren": [
-                { "tr": "Put — sınırı aşan tapınma", "en": "Idol — worship beyond bounds" },
-                { "tr": "Zâlim otorite", "en": "Tyrannical authority" },
-                { "tr": "Şeytan ve azgın cinler", "en": "Satan and rebellious jinn" }
+                {
+                  "tr": "Put — sınırı aşan tapınma",
+                  "en": "Idol — worship beyond bounds"
+                },
+                {
+                  "tr": "Zâlim otorite",
+                  "en": "Tyrannical authority"
+                },
+                {
+                  "tr": "Şeytan ve azgın cinler",
+                  "en": "Satan and rebellious jinn"
+                }
               ]
             },
             {
@@ -145,13 +201,84 @@
       "captionTr": "Kalıp · Anlam · Ayet Örnekleri",
       "captionEn": "Pattern · Meaning · Verse Examples",
       "rows": [
-        { "ar": "طَغَى",  "patternTr": "fiil — mâzî",      "patternEn": "verb — past",        "meaningTr": "Azdı, haddi aştı",        "meaningEn": "Transgressed (past)",     "verses": ["79:17", "96:6"] },
-        { "ar": "يَطْغَى", "patternTr": "fiil — muzârî",    "patternEn": "verb — imperfect",   "meaningTr": "Azar, haddi aşar",        "meaningEn": "Transgresses (present)",   "verses": ["96:6", "20:24"] },
-        { "ar": "طُغْيَان", "patternTr": "mastar",           "patternEn": "verbal noun",        "meaningTr": "Azgınlık, taşkınlık",     "meaningEn": "Insolence, overflow",      "verses": ["2:15", "10:11", "18:80"] },
-        { "ar": "طَاغُوت", "patternTr": "isim — sıfat",      "patternEn": "noun — adjective",   "meaningTr": "Tâğût (azgın varlık/güç)", "meaningEn": "Tāghūt (tyrannical entity)", "verses": ["2:256", "4:60", "5:60"] },
-        { "ar": "طَاغِيَة", "patternTr": "isim",              "patternEn": "noun",                "meaningTr": "Azgın felâket/olay",      "meaningEn": "Tyrannical event/catastrophe", "verses": ["69:5"] },
-        { "ar": "طَاغُون / طَاغِين", "patternTr": "sıfat — çoğul", "patternEn": "adjective — plural", "meaningTr": "Azgınlar",                 "meaningEn": "Transgressors",            "verses": ["38:55"] },
-        { "ar": "فِي طُغْيَانِهِمْ يَعْمَهُونَ", "patternTr": "deyim ifade", "patternEn": "idiomatic phrase", "meaningTr": "Azgınlıklarında bocalama", "meaningEn": "Staggering in their transgression", "verses": ["2:15", "7:186", "10:11"] }
+        {
+          "ar": "طَغَى",
+          "patternTr": "fiil — mâzî",
+          "patternEn": "verb — past",
+          "meaningTr": "Azdı, haddi aştı",
+          "meaningEn": "Transgressed (past)",
+          "verses": [
+            "79:17",
+            "96:6"
+          ]
+        },
+        {
+          "ar": "يَطْغَى",
+          "patternTr": "fiil — muzârî",
+          "patternEn": "verb — imperfect",
+          "meaningTr": "Azar, haddi aşar",
+          "meaningEn": "Transgresses (present)",
+          "verses": [
+            "96:6",
+            "20:24"
+          ]
+        },
+        {
+          "ar": "طُغْيَان",
+          "patternTr": "mastar",
+          "patternEn": "verbal noun",
+          "meaningTr": "Azgınlık, taşkınlık",
+          "meaningEn": "Insolence, overflow",
+          "verses": [
+            "2:15",
+            "10:11",
+            "18:80"
+          ]
+        },
+        {
+          "ar": "طَاغُوت",
+          "patternTr": "isim — sıfat",
+          "patternEn": "noun — adjective",
+          "meaningTr": "Tâğût (azgın varlık/güç)",
+          "meaningEn": "Tāghūt (tyrannical entity)",
+          "verses": [
+            "2:256",
+            "4:60",
+            "5:60"
+          ]
+        },
+        {
+          "ar": "طَاغِيَة",
+          "patternTr": "isim",
+          "patternEn": "noun",
+          "meaningTr": "Azgın felâket/olay",
+          "meaningEn": "Tyrannical event/catastrophe",
+          "verses": [
+            "69:5"
+          ]
+        },
+        {
+          "ar": "طَاغُون / طَاغِين",
+          "patternTr": "sıfat — çoğul",
+          "patternEn": "adjective — plural",
+          "meaningTr": "Azgınlar",
+          "meaningEn": "Transgressors",
+          "verses": [
+            "38:55"
+          ]
+        },
+        {
+          "ar": "فِي طُغْيَانِهِمْ يَعْمَهُونَ",
+          "patternTr": "deyim ifade",
+          "patternEn": "idiomatic phrase",
+          "meaningTr": "Azgınlıklarında bocalama",
+          "meaningEn": "Staggering in their transgression",
+          "verses": [
+            "2:15",
+            "7:186",
+            "10:11"
+          ]
+        }
       ]
     },
     {
@@ -162,8 +289,8 @@
     {
       "type": "verseInline",
       "ref": "96:6-7",
-      "noteTr": "Alak 96:6-7 — 'Hayır, insan kesinlikle azar (yeṭğā). Kendini kendine yeterli görünce (en raāhu istağnā).' **İstiğnâ → tuğyan** zinciri burada apaçık kurulur: tuğyanın sebebi, ontolojik bağımlılığı reddetmektir.",
-      "noteEn": "Al-Alaq 96:6-7 — 'No! Indeed, mankind transgresses (yaṭghā). When he sees himself as self-sufficient (an raʾāhu istaghnā).' The **istighnā → tughyān** chain is openly established here: the cause of tughyan is the denial of ontological dependence."
+      "noteTr": "Hayır, insan kesinlikle azar (yeṭğā). Kendini kendine yeterli görünce (en raāhu istağnā).",
+      "noteEn": "No! Indeed, mankind transgresses (yaṭghā). When he sees himself as self-sufficient (an raʾāhu istaghnā)."
     },
     {
       "type": "section",
@@ -228,14 +355,14 @@
     {
       "type": "verseInline",
       "ref": "10:11-12",
-      "noteTr": "Yûnus 10:11-12 — 'İnsana bir sıkıntı dokunduğunda yan üstü, oturarak ya da ayakta bize dua eder. Sıkıntısını giderdiğimizde ise sanki kendisine dokunan sıkıntı için bize dua etmemiş gibi geçer gider.' Tuğyanın davranışsal imzası: ihtiyaç anında çağrı, ihtiyaç bittiğinde unutuş.",
-      "noteEn": "Yūnus 10:11-12 — 'When affliction touches man, he calls upon Us — lying on his side, sitting, or standing. But when We remove his affliction, he passes on as though he had never called upon Us.' The behavioral signature of tughyan: invocation in need, oblivion in ease."
+      "noteTr": "İnsana bir sıkıntı dokunduğunda yan üstü, oturarak ya da ayakta bize dua eder. Sıkıntısını giderdiğimizde ise sanki kendisine dokunan sıkıntı için bize dua etmemiş gibi geçer gider.",
+      "noteEn": "When affliction touches man, he calls upon Us — lying on his side, sitting, or standing. But when We remove his affliction, he passes on as though he had never called upon Us."
     },
     {
       "type": "verseInline",
       "ref": "15:72",
-      "noteTr": "Hicr 15:72 — 'Hayatın hakkı için onlar sarhoşlukları içinde bocalayıp duruyorlardı (lefî sekretihim yaʿmehûn).' Tuğyanın bilişsel sonucu için en güçlü Kur'anî imge: hedefsiz, sallantılı, yönsüz hareket.",
-      "noteEn": "Al-Ḥijr 15:72 — 'By your life, they were staggering in their drunkenness (la-fī sakratihim yaʿmahūn).' The strongest Quranic image for tughyan's cognitive aftermath: aimless, lurching, directionless motion."
+      "noteTr": "Hayatın hakkı için onlar sarhoşlukları içinde bocalayıp duruyorlardı (lefî sekretihim yaʿmehûn).",
+      "noteEn": "By your life, they were staggering in their drunkenness (la-fī sakratihim yaʿmahūn)."
     },
     {
       "type": "pullQuote",
@@ -299,9 +426,18 @@
         "descEn": "The self forgetting its shadow-status; the illusion of 'I' as its own cause",
         "accent": "#8b5cf6",
         "bullets": [
-          { "tr": "Bireysel düzey", "en": "Personal level" },
-          { "tr": "Sonuç: firavunlaşma", "en": "Outcome: pharaohism" },
-          { "tr": "Çare: Eneden Hüve'ye geçiş", "en": "Remedy: from ENE to HUWA" }
+          {
+            "tr": "Bireysel düzey",
+            "en": "Personal level"
+          },
+          {
+            "tr": "Sonuç: firavunlaşma",
+            "en": "Outcome: pharaohism"
+          },
+          {
+            "tr": "Çare: Eneden Hüve'ye geçiş",
+            "en": "Remedy: from ENE to HUWA"
+          }
         ]
       },
       "right": {
@@ -312,9 +448,18 @@
         "descEn": "Treating nature as an independent, uncaused agent; severing the cosmos from divine artistry",
         "accent": "#e74c3c",
         "bullets": [
-          { "tr": "Kozmolojik düzey", "en": "Cosmological level" },
-          { "tr": "Sonuç: şirk", "en": "Outcome: shirk" },
-          { "tr": "Çare: Tabiattan ilâhî san'ata geçiş", "en": "Remedy: from nature to divine artistry" }
+          {
+            "tr": "Kozmolojik düzey",
+            "en": "Cosmological level"
+          },
+          {
+            "tr": "Sonuç: şirk",
+            "en": "Outcome: shirk"
+          },
+          {
+            "tr": "Çare: Tabiattan ilâhî san'ata geçiş",
+            "en": "Remedy: from nature to divine artistry"
+          }
         ]
       },
       "bridgeTr": "Bağımlılık Şuuru",
@@ -340,10 +485,21 @@
     {
       "type": "sources",
       "items": [
-        { "name": "al-Mufradāt fī Gharīb al-Qur'ān", "detailTr": "Râgıb el-İsfehânî — ط-ġ-w/y kökü ve tâğût için klasik referans", "detailEn": "al-Rāghib al-Iṣfahānī — classical reference for the ṭ-ġ-w/y root and tāghūt" },
-        { "name": "Lane's Arabic-English Lexicon", "detailTr": "Kök etimolojisi: 'to exceed bounds, transgress' anlamsal alanı", "detailEn": "Root etymology: semantic field of 'to exceed bounds, transgress'" },
-        { "name": "Ge'ez & Aramaic loanword studies", "detailTr": "ጣዖት (ṭaʿot), טָעוּת (ṭaʿút), טעותא (ṭaʿúta) çapraz-dil bağlantıları", "detailEn": "ጣዖት (ṭaʿot), טָעוּת (ṭaʿút), טעותא (ṭaʿúta) cross-linguistic links" },
-        { "name": "Mesnevî-i Nûriye, Habbe (Bediüzzaman)", "detailTr": "İki tâğût (ENE & TABİAT) ve Ene'den Hüve'ye geçiş", "detailEn": "Two tāghūts (ENE & NATURE) and the transition from ENE to HUWA" }
+        {
+          "name": "al-Mufradât (Râgıb el-İsfehânî)",
+          "detailTr": "Haddi aşma; isyan konusunda sınır tanımama. Hem fiziksel (su taşması) hem ahlâkî (azgınlık) anlamlarda. Tâğût: her azgın ve Allah'tan başka tapınılan.",
+          "detailEn": "Transgression of bounds; refusing limit in rebellion. Used both physically (water overflow) and morally (insolence). Tāghūt: every tyrant and that which is worshipped instead of God."
+        },
+        {
+          "name": "Etimoloji: Aramî / İbranî ödünç bağlantıları",
+          "detailTr": "ṭaʿút ('hata'), ṭaʿúta ('put') — alternatif Mısır kökenli teori: Thoth. Arapça kök ط غ و/ي 'transgression' anlamsal alanı.",
+          "detailEn": "ṭaʿút ('error'), ṭaʿúta ('idol') — alternative Egyptian theory: Thoth. The Arabic root ط غ و/ي in the 'transgression' semantic field."
+        },
+        {
+          "name": "Mesnevî-i Nûriye, Habbe (Bediüzzaman)",
+          "detailTr": "İki tâğût (ENE & TABİAT) ve Ene'den Hüve'ye geçiş.",
+          "detailEn": "Two tāghūts (ENE & NATURE) and the transition from ENE to HUWA."
+        }
       ]
     }
   ]

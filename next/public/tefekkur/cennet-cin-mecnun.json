@@ -9,7 +9,10 @@
   "seriesTotal": 4,
   "publishedDate": "2026-01-01",
   "readingMinutes": 11,
-  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
   "canonicalUrl": "https://sufist.medium.com/kuran-kavramlar%C4%B1-semantik-analizi-3-cennet-cin-mecnun-d0b674d891da",
   "root": {
     "letters": "ج ن ن",
@@ -17,20 +20,69 @@
     "coreMeaningTr": "Örtmek, saklamak, perdelemek, gizlemek",
     "coreMeaningEn": "To cover, to conceal, to veil, to hide",
     "derivatives": [
-      { "ar": "جَنَّة", "translit": "janna(h)", "tr": "Cennet / örtülü bahçe", "en": "Garden / paradise" },
-      { "ar": "جِنّ", "translit": "jinn", "tr": "Cin (gizli varlık)", "en": "Jinn (concealed being)" },
-      { "ar": "مَجْنُون", "translit": "majnūn", "tr": "Aklına perde inen", "en": "One veiled in mind" },
-      { "ar": "جُنَّة", "translit": "junna(h)", "tr": "Kalkan (örtücü)", "en": "Shield (concealer)" },
-      { "ar": "جَنِين", "translit": "janīn", "tr": "Cenin (rahimde gizli)", "en": "Fetus (concealed in womb)" },
-      { "ar": "جَنَان", "translit": "janān", "tr": "Kalp (göğüste gizli)", "en": "Heart (concealed in chest)" }
+      {
+        "ar": "جَنَّة",
+        "translit": "janna(h)",
+        "tr": "Cennet / örtülü bahçe",
+        "en": "Garden / paradise"
+      },
+      {
+        "ar": "جِنّ",
+        "translit": "jinn",
+        "tr": "Cin (gizli varlık)",
+        "en": "Jinn (concealed being)"
+      },
+      {
+        "ar": "مَجْنُون",
+        "translit": "majnūn",
+        "tr": "Aklına perde inen",
+        "en": "One veiled in mind"
+      },
+      {
+        "ar": "جُنَّة",
+        "translit": "junna(h)",
+        "tr": "Kalkan (örtücü)",
+        "en": "Shield (concealer)"
+      },
+      {
+        "ar": "جَنِين",
+        "translit": "janīn",
+        "tr": "Cenin (rahimde gizli)",
+        "en": "Fetus (concealed in womb)"
+      },
+      {
+        "ar": "جَنَان",
+        "translit": "janān",
+        "tr": "Kalp (göğüste gizli)",
+        "en": "Heart (concealed in chest)"
+      }
     ]
   },
   "tldrTr": "Cennet, cin, mecnun, kalkan, cenin ve kalp — hepsi ج-ن-ن kökünden gelir. Ortak payda: **gizlilik**. Bahçe yapraklarıyla örter, cin görünmezdir, mecnunda nefis ile akıl arasına perde iner, kalkan korur, cenin rahimde saklıdır, kalp göğüste gizlidir. Aynı kök bir epistemolojik şemsiye altında **kozmolojik gizlilik haritası** kurar.",
   "tldrEn": "Garden, jinn, majnun, shield, fetus and heart — all derive from j-n-n. The common thread: **concealment**. The garden covers with leaves, the jinn is invisible, in majnun a veil falls between nafs and intellect, the shield protects, the fetus hides in the womb, the heart is concealed in the chest. One root erects a **cosmological map of concealment** under a single epistemological umbrella.",
-  "relatedTools": ["concept-graph", "verse-graph"],
-  "relatedVerses": ["6:76", "18:107", "18:35", "7:19", "34:15", "32:17", "72:14", "44:14", "68:2", "27:10", "2:35", "58:16"],
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "6:76",
+    "18:107",
+    "18:35",
+    "7:19",
+    "34:15",
+    "32:17",
+    "72:14",
+    "44:14",
+    "68:2",
+    "27:10",
+    "2:35",
+    "58:16"
+  ],
   "previousArticle": null,
-  "nextArticle": { "slug": "tugyan", "titleTr": "Semantik 4: Tuğyan" },
+  "nextArticle": {
+    "slug": "tugyan",
+    "titleTr": "Semantik 4: Tuğyan"
+  },
   "blocks": [
     {
       "type": "section",
@@ -46,8 +98,8 @@
     {
       "type": "verseInline",
       "ref": "6:76",
-      "noteTr": "En'âm 6:76 — 'Gece onu örttüğünde (cennehu'l-leyl), bir yıldız gördü.' Hz. İbrâhîm'in kıssasında **gece, örten/saklayan bir perde** olarak janna fiiliyle ifade edilir. Kelime kökünün ana anlamı — örtmek — burada yalın halde durur.",
-      "noteEn": "Al-An'ām 6:76 — 'When the night covered him (jannahu'l-layl), he saw a star.' In the narrative of Abraham, **night as a concealing veil** is rendered with the verb janna. The root's primary sense — to cover — stands here in its naked form."
+      "noteTr": "Gece onu örttüğünde (cennehu'l-leyl), bir yıldız gördü.",
+      "noteEn": "When the night covered him (jannahu al-layl), he saw a star."
     },
     {
       "type": "section",
@@ -76,9 +128,24 @@
           "labelEn": "Physical Covering",
           "accent": "#1D9E75",
           "children": [
-            { "ar": "جَنَّة", "tr": "Bahçe — yaprakla örten", "en": "Garden — covered by leaves", "transliteration": "janna(h)" },
-            { "ar": "جُنَّة", "tr": "Kalkan — gövdeyi örten", "en": "Shield — covering the body", "transliteration": "junna(h)" },
-            { "ar": "جَنِين", "tr": "Cenin — rahimde gizli", "en": "Fetus — hidden in womb", "transliteration": "janīn" }
+            {
+              "ar": "جَنَّة",
+              "tr": "Bahçe — yaprakla örten",
+              "en": "Garden — covered by leaves",
+              "transliteration": "janna(h)"
+            },
+            {
+              "ar": "جُنَّة",
+              "tr": "Kalkan — gövdeyi örten",
+              "en": "Shield — covering the body",
+              "transliteration": "junna(h)"
+            },
+            {
+              "ar": "جَنِين",
+              "tr": "Cenin — rahimde gizli",
+              "en": "Fetus — hidden in womb",
+              "transliteration": "janīn"
+            }
           ]
         },
         {
@@ -87,8 +154,18 @@
           "labelEn": "Ontological Hiddenness",
           "accent": "#8b5cf6",
           "children": [
-            { "ar": "جِنّ", "tr": "Cin — görünmez varlık", "en": "Jinn — invisible being", "transliteration": "jinn" },
-            { "ar": "جَانّ", "tr": "Cânn — küçük/saklı varlık", "en": "Jānn — small/concealed being", "transliteration": "jānn" }
+            {
+              "ar": "جِنّ",
+              "tr": "Cin — görünmez varlık",
+              "en": "Jinn — invisible being",
+              "transliteration": "jinn"
+            },
+            {
+              "ar": "جَانّ",
+              "tr": "Cânn — küçük/saklı varlık",
+              "en": "Jānn — small/concealed being",
+              "transliteration": "jānn"
+            }
           ]
         },
         {
@@ -97,8 +174,18 @@
           "labelEn": "Epistemic Veiling",
           "accent": "#d4a574",
           "children": [
-            { "ar": "مَجْنُون", "tr": "Mecnûn — akla inen perde", "en": "Majnūn — veil over intellect", "transliteration": "majnūn" },
-            { "ar": "جَنَان", "tr": "Kalp — göğüste gizli merkez", "en": "Heart — concealed center in chest", "transliteration": "janān" }
+            {
+              "ar": "مَجْنُون",
+              "tr": "Mecnûn — akla inen perde",
+              "en": "Majnūn — veil over intellect",
+              "transliteration": "majnūn"
+            },
+            {
+              "ar": "جَنَان",
+              "tr": "Kalp — göğüste gizli merkez",
+              "en": "Heart — concealed center in chest",
+              "transliteration": "janān"
+            }
           ]
         }
       ]
@@ -119,13 +206,81 @@
       "captionTr": "Kalıp · Anlam · Ayet Örnekleri",
       "captionEn": "Pattern · Meaning · Verse Examples",
       "rows": [
-        { "ar": "جَنَّ",       "patternTr": "fiil — mâzî",       "patternEn": "verb — past",         "meaningTr": "Örttü, sakladı, perdeledi",   "meaningEn": "Covered, concealed, veiled",     "verses": ["6:76"] },
-        { "ar": "جَنَّة",      "patternTr": "isim — tekil",      "patternEn": "noun — singular",     "meaningTr": "Bahçe / cennet",              "meaningEn": "Garden / paradise",              "verses": ["18:35", "34:15", "2:35", "7:19"] },
-        { "ar": "جَنَّات",     "patternTr": "isim — çoğul",      "patternEn": "noun — plural",       "meaningTr": "Cennetler — yedi kat",        "meaningEn": "Gardens — seven layers",         "verses": ["18:107", "32:17"] },
-        { "ar": "جِنّ",        "patternTr": "isim — tür",        "patternEn": "noun — species",      "meaningTr": "Cin (gizli varlık)",          "meaningEn": "Jinn (concealed being)",          "verses": ["72:14"] },
-        { "ar": "جَانّ",       "patternTr": "isim — sıfat",      "patternEn": "noun — adjective",    "meaningTr": "Küçük yılan / ince cin",       "meaningEn": "Small serpent / slender jinn",   "verses": ["27:10"] },
-        { "ar": "مَجْنُون",    "patternTr": "ism-i mef'ûl",      "patternEn": "passive participle",  "meaningTr": "Mecnûn — aklı örtülen",       "meaningEn": "Majnūn — one veiled in mind",    "verses": ["44:14", "68:2"] },
-        { "ar": "جُنَّة",      "patternTr": "isim",               "patternEn": "noun",                "meaningTr": "Kalkan — koruyucu örtü",      "meaningEn": "Shield — protective cover",      "verses": ["58:16"] }
+        {
+          "ar": "جَنَّ",
+          "patternTr": "fiil — mâzî",
+          "patternEn": "verb — past",
+          "meaningTr": "Örttü, sakladı, perdeledi",
+          "meaningEn": "Covered, concealed, veiled",
+          "verses": [
+            "6:76"
+          ]
+        },
+        {
+          "ar": "جَنَّة",
+          "patternTr": "isim — tekil",
+          "patternEn": "noun — singular",
+          "meaningTr": "Bahçe / cennet",
+          "meaningEn": "Garden / paradise",
+          "verses": [
+            "18:35",
+            "34:15",
+            "2:35",
+            "7:19"
+          ]
+        },
+        {
+          "ar": "جَنَّات",
+          "patternTr": "isim — çoğul",
+          "patternEn": "noun — plural",
+          "meaningTr": "Cennetler — yedi kat",
+          "meaningEn": "Gardens — seven layers",
+          "verses": [
+            "18:107",
+            "32:17"
+          ]
+        },
+        {
+          "ar": "جِنّ",
+          "patternTr": "isim — tür",
+          "patternEn": "noun — species",
+          "meaningTr": "Cin (gizli varlık)",
+          "meaningEn": "Jinn (concealed being)",
+          "verses": [
+            "72:14"
+          ]
+        },
+        {
+          "ar": "جَانّ",
+          "patternTr": "isim — sıfat",
+          "patternEn": "noun — adjective",
+          "meaningTr": "Küçük yılan / ince cin",
+          "meaningEn": "Small serpent / slender jinn",
+          "verses": [
+            "27:10"
+          ]
+        },
+        {
+          "ar": "مَجْنُون",
+          "patternTr": "ism-i mef'ûl",
+          "patternEn": "passive participle",
+          "meaningTr": "Mecnûn — aklı örtülen",
+          "meaningEn": "Majnūn — one veiled in mind",
+          "verses": [
+            "44:14",
+            "68:2"
+          ]
+        },
+        {
+          "ar": "جُنَّة",
+          "patternTr": "isim",
+          "patternEn": "noun",
+          "meaningTr": "Kalkan — koruyucu örtü",
+          "meaningEn": "Shield — protective cover",
+          "verses": [
+            "58:16"
+          ]
+        }
       ]
     },
     {
@@ -142,8 +297,8 @@
     {
       "type": "verseInline",
       "ref": "18:107",
-      "noteTr": "Kehf 18:107 — 'Şüphesiz iman edip salih amel işleyenler için **Firdevs cennetleri (cennâtu'l-firdevs)** konak olarak hazırlanmıştır.' Çoğul kullanım: tek bir 'cennet' değil, **katmanlı bir cennetler düzeni**.",
-      "noteEn": "Al-Kahf 18:107 — 'Indeed those who believe and do righteous deeds — for them are the **Gardens of Firdaws (jannāt al-firdaws)** as a lodging.' The plural: not a single 'paradise' but a **stratified order of paradises**."
+      "noteTr": "Şüphesiz iman edip salih amel işleyenler için Firdevs cennetleri (cennâtu'l-firdevs) konak olarak hazırlanmıştır.",
+      "noteEn": "Indeed, those who believed and did righteous deeds — for them are the Gardens of Paradise (jannāt al-firdaws) as a lodging."
     },
     {
       "type": "section",
@@ -170,14 +325,14 @@
     {
       "type": "verseInline",
       "ref": "32:17",
-      "noteTr": "Secde 32:17 — 'Yaptıklarına karşılık olarak, onlar için **gözleri aydınlatacak hangi nimetlerin saklı tutulduğunu hiç kimse bilmez** (fe-lâ taʿlamu nefsun mâ uḫfiye lehum min kurrati aʿyun).' Cennet'in gizliliği burada **epistemik bir vurguyla** mühürlenir: hiçbir nefis bilemez.",
-      "noteEn": "Sajda 32:17 — 'No soul knows **what comfort of the eyes has been hidden for them** as a reward for what they used to do (fa-lā taʿlamu nafsun mā ukhfiya lahum min qurrati aʿyun).' The concealment of paradise is here sealed with **epistemic emphasis**: no soul can know."
+      "noteTr": "Yaptıklarına karşılık olarak, onlar için gözleri aydınlatacak hangi nimetlerin saklı tutulduğunu hiç kimse bilmez (fe-lâ taʿlamu nefsun mâ uḫfiye lehum min kurrati aʿyun).",
+      "noteEn": "No soul knows what comfort of the eyes has been hidden for them as reward for what they used to do (fa-lā taʿlamu nafsun mā ukhfiya lahum min qurrati aʿyun)."
     },
     {
       "type": "verseInline",
       "ref": "34:15",
-      "noteTr": "Sebe' 34:15 — Sebe' kavmine 'sağda ve solda iki bahçe (cennetân)' ihsan edildi. Burada جَنَّة dünyevî kullanımda — fiziksel, görülebilir, dokunulabilir bir bahçe.",
-      "noteEn": "Sabaʾ 34:15 — Two gardens (jannatān) on the right and the left were granted to the people of Sheba. Here جَنَّة is in its earthly usage — a physical, visible, tangible garden."
+      "noteTr": "Sebe' kavmine sağda ve solda iki bahçe (cennetân) ihsan edildi.",
+      "noteEn": "The people of Sabaʾ were granted two gardens (jannatān) on the right and the left."
     },
     {
       "type": "section",
@@ -193,8 +348,8 @@
     {
       "type": "verseInline",
       "ref": "72:14",
-      "noteTr": "Cin 72:14 — 'Aramızda **Müslüman olanlar** olduğu gibi **gerçeğe sırt çevirenler** de vardır (ve ennâ minne'l-müslimûne ve minne'l-kâsiṭûn).' Cinler de — insanlar gibi — ahlâki seçim yapan varlıklardır; iki yola da açıktırlar.",
-      "noteEn": "Al-Jinn 72:14 — 'Among us are **Muslims**, and among us are **those who deviate from justice** (wa-annā minnā al-muslimūna wa-minnā al-qāsiṭūn).' The jinn — like humans — are beings of moral choice; both paths are open to them."
+      "noteTr": "Aramızda Müslüman olanlar olduğu gibi gerçeğe sırt çevirenler de vardır (ve ennâ minne'l-müslimûne ve minne'l-kâsiṭûn).",
+      "noteEn": "Among us are some who are Muslims, and some who deviate from justice (wa-annā minnā al-muslimūn wa-minnā al-qāsiṭūn)."
     },
     {
       "type": "section",
@@ -210,14 +365,14 @@
     {
       "type": "verseInline",
       "ref": "44:14",
-      "noteTr": "Duhân 44:14 — 'Sonra ondan yüz çevirdiler ve: \"Bu, **eğitilmiş bir mecnûn** (muʿallemun mecnûn)tur\" dediler.' İftira mantığı: 'Aklı kendi değil, başka bir varlık (cin/şeytan) ona öğretiyor'. مَفْعُول kalıbının semantik gücü burada bütün açıklığıyla görünür.",
-      "noteEn": "Ad-Dukhān 44:14 — 'Then they turned away from him and said: \"He is a **tutored madman** (muʿallamun majnūn).\"' The logic of slander: 'His intellect is not his own — some other being (jinn/satan) is teaching him.' The semantic force of the مَفْعُول pattern stands here in full clarity."
+      "noteTr": "Sonra ondan yüz çevirdiler ve: 'Bu, eğitilmiş bir mecnûn (muʿallemun mecnûn)tur' dediler.",
+      "noteEn": "Then they turned away from him and said: 'A man taught [by others], a madman (muʿallam majnūn).'"
     },
     {
       "type": "verseInline",
       "ref": "68:2",
-      "noteTr": "Kalem 68:2 — 'Sen, Rabbinin nimetiyle, **mecnûn değilsin** (mâ ente bi-niʿmeti rabbike bi-mecnûn).' Aynı kelime — bu kez Resûlullah'ı savunmak için kullanılır. Vahiy 'dışarıdan örtülen' bir akıl değildir; **kuşatan bir hidayet**tir.",
-      "noteEn": "Al-Qalam 68:2 — 'By the grace of your Lord, you are **not a madman** (mā anta bi-niʿmati rabbika bi-majnūn).' The same word — used here to defend the Messenger. Revelation is not an intellect 'covered from outside' but **an encompassing guidance**."
+      "noteTr": "Sen, Rabbinin nimetiyle, mecnûn değilsin (mâ ente bi-niʿmeti rabbike bi-mecnûn).",
+      "noteEn": "You, by the favor of your Lord, are not a madman (mā anta bi-niʿmati rabbika bi-majnūn)."
     },
     {
       "type": "pullQuote",
@@ -253,9 +408,18 @@
         "descEn": "The seed irrigated by devotion and sincerity; the heart awakening through faith",
         "accent": "#1D9E75",
         "bullets": [
-          { "tr": "Süreç: gizli çekirdek → iska → yeşerme", "en": "Process: hidden seed → irrigation → greening" },
-          { "tr": "Sonuç: şecere-i nûrânî (cennet ağacı)", "en": "Outcome: luminous tree (jannah)" },
-          { "tr": "Meyve: âlem-i emirden gelen ruh", "en": "Fruit: spirit from the Realm of Command" }
+          {
+            "tr": "Süreç: gizli çekirdek → iska → yeşerme",
+            "en": "Process: hidden seed → irrigation → greening"
+          },
+          {
+            "tr": "Sonuç: şecere-i nûrânî (cennet ağacı)",
+            "en": "Outcome: luminous tree (jannah)"
+          },
+          {
+            "tr": "Meyve: âlem-i emirden gelen ruh",
+            "en": "Fruit: spirit from the Realm of Command"
+          }
         ]
       },
       "right": {
@@ -266,9 +430,18 @@
         "descEn": "The seed that receives no cultivation, no irrigation; the heart bereft of sincerity",
         "accent": "#e74c3c",
         "bullets": [
-          { "tr": "Süreç: gizli çekirdek → ihmâl → kuruma", "en": "Process: hidden seed → neglect → desiccation" },
-          { "tr": "Sonuç: ateşle yanma (cehennem)", "en": "Outcome: burning in fire (jahannam)" },
-          { "tr": "Dönüşüm: nura inkılâp edinceye kadar", "en": "Transmutation: until conversion into light" }
+          {
+            "tr": "Süreç: gizli çekirdek → ihmâl → kuruma",
+            "en": "Process: hidden seed → neglect → desiccation"
+          },
+          {
+            "tr": "Sonuç: ateşle yanma (cehennem)",
+            "en": "Outcome: burning in fire (jahannam)"
+          },
+          {
+            "tr": "Dönüşüm: nura inkılâp edinceye kadar",
+            "en": "Transmutation: until conversion into light"
+          }
         ]
       },
       "bridgeTr": "İska / Terbiye",
@@ -289,8 +462,8 @@
     {
       "type": "verseInline",
       "ref": "2:35",
-      "noteTr": "Bakara 2:35 — 'Ey Âdem, sen ve eşin cennete (el-cennete) yerleşin. Orada dilediğiniz yerden bolca yiyin. Yalnız şu ağaca yaklaşmayın, yoksa zalimlerden olursunuz.' Cennet'in tanımlayıcı niteliği: **bolluk + sınır** — yani örtü içinde ahlâki bir özgürlük.",
-      "noteEn": "Al-Baqarah 2:35 — 'O Adam, dwell — you and your wife — in the garden, and eat from wherever you wish. But do not approach this tree, lest you be among the wrongdoers.' The defining trait of jannah: **abundance + boundary** — moral freedom within the veil."
+      "noteTr": "Ey Âdem, sen ve eşin cennete (el-cennete) yerleşin. Orada dilediğiniz yerden bolca yiyin. Yalnız şu ağaca yaklaşmayın, yoksa zalimlerden olursunuz.",
+      "noteEn": "O Adam, dwell — you and your wife — in the Garden (al-jannah). Eat from it freely wherever you wish, but do not approach this tree, lest you be among the wrongdoers."
     },
     {
       "type": "paragraph",
@@ -300,8 +473,8 @@
     {
       "type": "verseInline",
       "ref": "27:10",
-      "noteTr": "Neml 27:10 — 'Onu (asâsını) **sanki bir yılan/cin (cânn) gibi titreşirken görünce**, dönüp ardına bakmadan kaçtı.' Tek bir kelimenin iki uzantısı: fiziksel hızlı yılan + metafizik ince varlık. Kök, hâl'i 'gizlenen/saklanan' olarak nitelendirir.",
-      "noteEn": "An-Naml 27:10 — 'When he saw it (the staff) **vibrating as though it were a jinn / serpent (jānn)**, he turned and fled without looking back.' One word, two extensions: the physical swift snake + the metaphysical slender being. The root qualifies the state as 'hidden / concealed.'"
+      "noteTr": "Onu (asâsını) sanki bir yılan/cin (cânn) gibi titreşirken görünce, dönüp ardına bakmadan kaçtı.",
+      "noteEn": "When he saw it (his staff) writhing as if it were a serpent/jinn (jānn), he turned and fled without looking back."
     },
     {
       "type": "section",
@@ -317,8 +490,8 @@
     {
       "type": "verseInline",
       "ref": "58:16",
-      "noteTr": "Mücâdele 58:16 — '**Yeminlerini kalkan (cunne) yaptılar** ve Allah yolundan alıkoydular.' Kalkanın iki yüzü: koruyucu kalkan (oruç) vs. perdeleyici kalkan (yalan yemin). Kök sabit, niyet zıt.",
-      "noteEn": "Al-Mujādilah 58:16 — '**They took their oaths as a shield (junnatan)** and barred others from God's path.' Two faces of the shield: protective shield (fasting) vs. veiling shield (false oaths). The root is constant; the intention is opposed."
+      "noteTr": "Yeminlerini kalkan (cunne) yaptılar ve Allah yolundan alıkoydular.",
+      "noteEn": "They have taken their oaths as a shield (junnah) and have averted [people] from the way of Allah."
     },
     {
       "type": "pullQuote",
@@ -335,14 +508,41 @@
     {
       "type": "sources",
       "items": [
-        { "name": "Lane's Arabic-English Lexicon", "detailTr": "ج-ن-ن kökü: 'örtme/saklama' temel anlamı, fiziksel ve metaforik kullanımlar", "detailEn": "j-n-n root: core sense 'cover/conceal', physical and metaphorical usages" },
-        { "name": "al-Mufradāt fī Gharīb al-Qur'ān", "detailTr": "Râgıb el-İsfehânî — جَنَّة, جِنّ, مَجْنُون semantik analizi", "detailEn": "al-Rāghib al-Iṣfahānī — semantic analysis of jannah, jinn, majnūn" },
-        { "name": "Wiktionary — Arabic Etymology", "detailTr": "Etymology 1 (İbranice gānán paraleli), Etymology 2 (Aramca/Süryânice gnē — ruh/cin), Etymology 3 (mefʿûl kalıbı denominal türetme)", "detailEn": "Etymology 1 (Hebrew gānán parallel), Etymology 2 (Aramaic/Syriac gnē — spirit/jinn), Etymology 3 (mafʿūl pattern denominal derivation)" },
-        { "name": "İbn Abbâs (rivâyet)", "detailTr": "Kehf 18:107 'yedi kat cennet' yorumu", "detailEn": "Interpretation of Al-Kahf 18:107 'seven layered heavens'" },
-        { "name": "Ebû Sâlih (yorum)", "detailTr": "'Tüm melekler cindir' — gizlilik spektrumunda meleğin yeri", "detailEn": "'All angels are jinn' — angelic position within the spectrum of concealment" },
-        { "name": "Klasik tefsirler — İbn Kesîr, Taberî, Râzî", "detailTr": "Âdem'in cenneti, جَانّ tartışmaları, mecnûn iftirası", "detailEn": "Adam's garden, jānn debates, the slander of majnūn" },
-        { "name": "Mesnevî-i Nûriye, Habbe (Bediüzzaman)", "detailTr": "Çekirdek metaforu: kalb → cennet, kuru çekirdek → cehennem", "detailEn": "The seed metaphor: heart → jannah, dry seed → jahannam" },
-        { "name": "Karşılaştırmalı filoloji", "detailTr": "Sami diller (İbranice gānán, Aramca gnē, Ugaritçe gn) + Latince genius semantik paraleli + Farsça bustān (bağ) karşılaştırması", "detailEn": "Semitic languages (Hebrew gānán, Aramaic gnē, Ugaritic gn) + Latin genius parallel + Persian bustān (orchard) comparison" }
+        {
+          "name": "Lane's Arabic-English Lexicon",
+          "detailTr": "ج-ن-ن kökü: 'örtme/saklama' temel anlamı, fiziksel ve metaforik kullanımlar",
+          "detailEn": "j-n-n root: core sense 'cover/conceal', physical and metaphorical usages"
+        },
+        {
+          "name": "al-Mufradāt fī Gharīb al-Qur'ān",
+          "detailTr": "Râgıb el-İsfehânî — جَنَّة, جِنّ, مَجْنُون semantik analizi",
+          "detailEn": "al-Rāghib al-Iṣfahānī — semantic analysis of jannah, jinn, majnūn"
+        },
+        {
+          "name": "Wiktionary — Arabic Etymology",
+          "detailTr": "Etymology 1 (İbranice gānán paraleli), Etymology 2 (Aramca/Süryânice gnē — ruh/cin), Etymology 3 (mefʿûl kalıbı denominal türetme)",
+          "detailEn": "Etymology 1 (Hebrew gānán parallel), Etymology 2 (Aramaic/Syriac gnē — spirit/jinn), Etymology 3 (mafʿūl pattern denominal derivation)"
+        },
+        {
+          "name": "İbn Abbâs (rivâyet)",
+          "detailTr": "Kehf 18:107 'yedi kat cennet' yorumu",
+          "detailEn": "Interpretation of Al-Kahf 18:107 'seven layered heavens'"
+        },
+        {
+          "name": "Ebû Sâlih (yorum)",
+          "detailTr": "'Tüm melekler cindir' — gizlilik spektrumunda meleğin yeri",
+          "detailEn": "'All angels are jinn' — angelic position within the spectrum of concealment"
+        },
+        {
+          "name": "Klasik tefsirler — İbn Kesîr, Taberî, Râzî",
+          "detailTr": "Âdem'in cenneti, جَانّ tartışmaları, mecnûn iftirası",
+          "detailEn": "Adam's garden, jānn debates, the slander of majnūn"
+        },
+        {
+          "name": "Mesnevî-i Nûriye, Habbe (Bediüzzaman)",
+          "detailTr": "Çekirdek metaforu: kalb → cennet, kuru çekirdek → cehennem",
+          "detailEn": "The seed metaphor: heart → jannah, dry seed → jahannam"
+        }
       ]
     }
   ]

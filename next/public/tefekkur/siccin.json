@@ -1,0 +1,317 @@
+{
+  "slug": "siccin",
+  "titleTr": "Siccin Nedir? Hapis mi, Kitap mı?",
+  "titleEn": "What is Sijjin? Prison or Book?",
+  "category": "semantik",
+  "template": "root-tree",
+  "seriesId": "semantik-analizi",
+  "seriesNumber": 5,
+  "seriesTotal": 5,
+  "publishedDate": "2025-12-31",
+  "readingMinutes": 4,
+  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "canonicalUrl": "https://sufist.medium.com/siccin-nedir-hapis-mi-kitap-m%C4%B1-ee2ab03c2606",
+  "root": {
+    "letters": "س ج ن",
+    "transliteration": "s-c-n (S-J-N)",
+    "coreMeaningTr": "Hapsetmek; nihai kısıtlama kipi",
+    "coreMeaningEn": "To imprison; the mode of ultimate confinement",
+    "derivatives": [
+      { "ar": "سَجَنَ", "translit": "sajana", "tr": "Hapsetti (fiil)", "en": "Imprisoned (verb)" },
+      { "ar": "سِجْن", "translit": "sicn", "tr": "Hapishane (mekân)", "en": "Prison (place)" },
+      { "ar": "سِجِّين", "translit": "siccîn", "tr": "Mühürlü kayıt / hapis-yeri (fi'īl kalıbı)", "en": "Sealed record / prison-place (fi'īl form)" },
+      { "ar": "مَسْجُون", "translit": "mescûn", "tr": "Hapsedilen", "en": "The imprisoned one" }
+    ]
+  },
+  "tldrTr": "Kur'an'daki en gizemli terimlerden birinin içine iniyoruz. Çoğu çeviri 'Hapishane' der. Ama bağlam 'Kitap' diyor.",
+  "tldrEn": "We descend into one of the most enigmatic terms in the Quran. Most translations say 'Prison'. But context says 'Book'.",
+  "relatedTools": ["concept-graph", "verse-graph"],
+  "relatedVerses": ["83:7", "83:8", "83:9", "83:18", "105:4"],
+  "previousArticle": { "slug": "tugyan", "titleTr": "Semantik 4: Tuğyan" },
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Kur'an'daki en gizemli terimlerden birinin içine iniyoruz.",
+      "en": "We descend into one of the most enigmatic terms in the Quran."
+    },
+    {
+      "type": "section",
+      "id": "metin",
+      "titleTr": "Metin: Mutaffifîn Sûresi (83:7-9)",
+      "titleEn": "The Text: Sūrah Al-Mutaffifin (83:7-9)"
+    },
+    {
+      "type": "verseInline",
+      "ref": "83:7",
+      "noteTr": "Hayır! Şüphesiz günahkârların kaydı Siccîn'dedir.",
+      "noteEn": "Nay! Indeed, the record of the wicked is in Sijjīn."
+    },
+    {
+      "type": "verseInline",
+      "ref": "83:8",
+      "noteTr": "Siccîn'in ne olduğunu sana bildiren ne olabilir?",
+      "noteEn": "And what can make you know what Sijjīn is?"
+    },
+    {
+      "type": "verseInline",
+      "ref": "83:9",
+      "noteTr": "Mühürlü / numaralanmış bir kitap (*kitâbun merkûm*).",
+      "noteEn": "A sealed / numbered book (*kitābun marqūm*)."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Çoğu çeviri 'Hapishane' der. Ama bağlam 'Kitap' diyor.**\n\nHadi inceleyelim bakalım.",
+      "en": "**Most translations say 'Prison'. But context says 'Book'.**\n\nLet us examine."
+    },
+    {
+      "type": "section",
+      "id": "tabaka-1-arapca",
+      "titleTr": "1. Tabaka: Arapça Literal (Zindan)",
+      "titleEn": "Layer 1: Literal Arabic (The Dungeon)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Klasik Arap gramercisine sor.** Eğer Sîbeveyh'e (Arap gramerinin kurucusu) salt sarf üzerinden 'Siccîn nedir?' diye sorsanız, aldığınız analiz şudur:\n\n— **Kök:** S-J-N (Sîn–Cîm–Nûn).\n— **Anlam:** Sajana = hapsetmek; sicn = hapishane.\n— **Kalıp:** Siccîn, **fi'īl kalıbındadır** — tıpkı **sikkîn** (سِكِّين — bıçak) gibi. Bu kalıp **araç** veya **aşırı yoğunluk** bildirir.\n\nYani Siccîn 'sıradan bir hapishane' değildir; **nihai kısıtlama kipidir**. Hapishane içinde hapishane.",
+      "en": "**Ask a classical Arab grammarian.** If you pose 'what is Sijjīn?' to Sībawayh (the founder of Arabic grammar) on the basis of morphology alone, the analysis you receive is this:\n\n— **Root:** S-J-N (Sīn–Jīm–Nūn).\n— **Meaning:** *sajana* = to imprison; *sijn* = prison.\n— **Pattern:** Sijjīn stands in the **fi'īl form** — like **sikkīn** (سِكِّين — knife). This pattern marks **instrumentality** or **extreme intensity**.\n\nSo Sijjīn is not 'an ordinary prison'; it is the **mode of ultimate confinement**. A prison within a prison."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Çatışma:** 7. âyet kitabın Siccîn'de (mekân) olduğunu söyler. 9. âyet Siccîn'in bir Kitap (şey) olduğunu söyler.\n\n**Bir mekân nasıl kitap olur?**",
+      "en": "**The collision:** verse 7 says the record is in Sijjīn (a place). Verse 9 says Sijjīn is a Book (a thing).\n\n**How can a place be a book?**"
+    },
+    {
+      "type": "section",
+      "id": "tabaka-2-semitik",
+      "titleTr": "2. Tabaka: Semitik Köken (Çamur Tablet)",
+      "titleEn": "Layer 2: Semitic Origin (Clay Tablet)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Mekân-Kitap paradoksunu çözmek için dönemin komşu dillerine — Aramice ve Akadca'ya — iniyoruz.** İki bağlantı dikkati çeker:",
+      "en": "**To resolve the place-book paradox, we descend into the contemporary neighboring languages — Aramaic and Akkadian.** Two connections deserve attention:"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**'Sicill' Bağlantısı (L/N Değişimi).** Semitik dillerde **L (Lâm) ve N (Nûn)** sıklıkla yer değiştirebilir (*ebdal* fenomeni). Kur'an'da **Sicill** ise başka bir yerde 'rulo / kayıt' anlamına gelir. Sicill'in kökeni Latince **Sigillum**'dur (mühür / signet) — Aramice aracılığıyla Arapçaya geçmiştir.\n\nYani: **Siccîn, Sicill'in ağız varyantı olabilir.** Yani 'Mühürlü Kayıt'.",
+      "en": "**The 'Sicill' Connection (L/N Substitution).** In Semitic languages, **L (Lām) and N (Nūn)** often interchange (the *ibdāl* phenomenon). And in the Quran, **Sicill** elsewhere carries the meaning 'scroll / record'. Sicill itself traces back to Latin **Sigillum** (seal / signet), transmitted into Arabic via Aramaic.\n\nThat is: **Sijjīn may be a dialectal variant of Sicill** — that is, 'Sealed Record'."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**'Kil' Bağlantısı (S-J-L vs. S-J-N).** Fîl Sûresi'nde geçen **Siccîl**'i (pişmiş çamur taşları) hatırlayalım. Kökeni Farsça **Sang-i-gil** ('Taş ve Çamur'). Bu kelimelerin sembolik ilişkisi şuna dayanır: **eski yakın doğuda önemli kayıtlar kâğıda değil**, ıslak kile basılır, sonra pişirilip sert taş tabletlere (**çivi yazısı, cuneiform**) çevrilirdi.\n\nBuradan Siccîn, **taşa / pişmiş çamura kodlanmış bir kayıt** resmini zihne getirir: 'Zindan-gibi'dir, çünkü **katı, değiştirilemez, ağırdır**. 'Kitap'tır, çünkü **veriyi taşır**.",
+      "en": "**The 'Clay' Connection (S-J-L vs. S-J-N).** Recall **Sijjīl** in Sūrah Al-Fīl (stones of fired clay). Its origin: Persian **Sang-i-gil** ('Stone and Clay'). The symbolic link rests on a fact about antiquity: **in the ancient Near East, important records were not written on paper** — they were pressed into wet clay, then kiln-fired into hard stone tablets (**cuneiform**).\n\nFrom this, Sijjīn evokes a record **encoded into stone / fired clay**: 'dungeon-like', because it is **rigid, unalterable, heavy**. 'Book', because it **carries data**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "105:4",
+      "noteTr": "Fîl Sûresi'nde geçen Siccîl (pişmiş çamur taşları). Kökü Farsça Sang-i-gil (Taş ve Çamur).",
+      "noteEn": "Sijjīl in Sūrah Al-Fīl (stones of fired clay). Its root: Persian Sang-i-gil (Stone and Clay)."
+    },
+    {
+      "type": "section",
+      "id": "tabaka-3-geometrik",
+      "titleTr": "3. Tabaka: Geometrik Zıtlık (İbranice Paralel)",
+      "titleEn": "Layer 3: Geometric Inversion (Hebrew Parallel)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Kur'an, Siccîn'i İlliyyîn ile eşler** (Mutaffifîn 83:18).\n\n**İlliyyîn:** *'A-L-Y* (Yükseklik) kökünden; İbranicedeki **Elyon**'la (En Yüce / Yüksek Mekânlar) akrabadır.\n\nEğer İlliyyîn, **'Yaratılışın Zirvesi'** (Semavî Arşivler) ise, Siccîn **'Yaratılışın Dibi'** (En Aşağı Yer) olmalıdır.",
+      "en": "**The Quran pairs Sijjīn with 'Illiyyīn** (Al-Mutaffifin 83:18).\n\n**'Illiyyīn:** from the *'a-l-y* root (height); cognate with Hebrew **Elyon** (Most High / Highest Places).\n\nIf 'Illiyyīn is the **'Summit of Creation'** (the Celestial Archives), then Sijjīn must be the **'Bottom of Creation'** (the Lowest Place)."
+    },
+    {
+      "type": "verseInline",
+      "ref": "83:18",
+      "noteTr": "Hayır! Salihlerin kaydı İlliyyîn'dedir.",
+      "noteEn": "Nay! Indeed, the record of the righteous is in 'Illiyyīn."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Dikey Eksen — Siccîn ⇄ İlliyyîn",
+      "captionEn": "The Vertical Axis — Sijjīn ⇄ 'Illiyyīn",
+      "left": {
+        "ar": "سِجِّين",
+        "titleTr": "Siccîn — Yaratılışın Dibi",
+        "titleEn": "Sijjīn — Bottom of Creation",
+        "descTr": "Günahkârların kaydının yeri (En Aşağı Yer).",
+        "descEn": "Where the record of the wicked rests (the Lowest Place).",
+        "accent": "#e74c3c",
+        "bullets": [
+          { "tr": "Kök: S-J-N", "en": "Root: S-J-N" },
+          { "tr": "Kalıp: fi'īl (sikkîn gibi)", "en": "Pattern: fi'īl (like sikkīn)" }
+        ]
+      },
+      "right": {
+        "ar": "عِلِّيِّين",
+        "titleTr": "İlliyyîn — Yaratılışın Zirvesi",
+        "titleEn": "'Illiyyīn — Summit of Creation",
+        "descTr": "Salihlerin kaydının yeri (Semavî Arşivler).",
+        "descEn": "Where the record of the righteous rests (the Celestial Archives).",
+        "accent": "#2ecc71",
+        "bullets": [
+          { "tr": "Kök: 'A-L-Y (Yükseklik)", "en": "Root: 'A-L-Y (height)" },
+          { "tr": "Akraba: İbranice Elyon", "en": "Cognate: Hebrew Elyon" }
+        ]
+      },
+      "bridgeTr": "Çift Anlamlı İfade",
+      "bridgeEn": "A Double-Meaning Expression",
+      "bridgeMode": "merge"
+    },
+    {
+      "type": "section",
+      "id": "rekonstruksiyon",
+      "titleTr": "Rekonstrüksiyon (Film Sahnesi)",
+      "titleEn": "Reconstruction (The Film Scene)"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**O hâlde Siccîn nedir?** Aynı anda **iki düzlemde çalışan** bir 'çift anlamlı' ifade gibi duruyor:\n\n— **Mekân (Zindan):** En aşağı, en karanlık yeraltı derinliğidir; günahkârların 'dosyaları' orada arşivlenir.\n— **Nesne (Değişmez Hüküm):** Mürekkep-kâğıtla (silinip değiştirilebilir) değil, pişmiş çamur / taşa **'damgalanmış'** (Markûm) bir 'Kitap'tır.\n\n**Not:** Markûm, **Rakm** (sayı) ve **Rakîm** (kitabe / inşa) ile akrabadır; **dijital / sayısal / rakamsal bir kesinlik** imâ eder.",
+      "en": "**So what is Sijjīn?** It stands like a 'double-meaning' expression operating **on two registers at once**:\n\n— **Place (Dungeon):** the lowest, darkest depth of the underworld; the 'files' of the wicked are archived there.\n— **Object (Unchangeable Verdict):** not in ink-and-paper (which can be erased and altered) but a 'Book' **'stamped'** (*Marqūm*) onto fired clay / stone.\n\n**Note:** *Marqūm* is cognate with *Raqm* (number) and *Raqīm* (inscription / built structure) — it implies a **digital / numerical / quantified precision**."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Üç Tabaka",
+      "captionEn": "Three Layers",
+      "nodes": [
+        {
+          "ar": "سِجْن",
+          "transliteration": "sijn",
+          "titleTr": "1. Tabaka: Arapça Literal (Zindan)",
+          "titleEn": "Layer 1: Literal Arabic (Dungeon)",
+          "subtitleTr": "Hapishane içinde hapishane.",
+          "subtitleEn": "A prison within a prison.",
+          "tone": "trigger"
+        },
+        {
+          "ar": "سِجِّيل",
+          "transliteration": "sijjīl",
+          "titleTr": "2. Tabaka: Semitik Köken (Çamur Tablet)",
+          "titleEn": "Layer 2: Semitic Origin (Clay Tablet)",
+          "subtitleTr": "Taşa / pişmiş çamura kodlanmış bir kayıt.",
+          "subtitleEn": "A record encoded into stone / fired clay.",
+          "tone": "state"
+        },
+        {
+          "ar": "سِجِّين",
+          "transliteration": "sijjīn",
+          "titleTr": "3. Tabaka: Geometrik Zıtlık (İbranice Paralel)",
+          "titleEn": "Layer 3: Geometric Inversion (Hebrew Parallel)",
+          "subtitleTr": "Yaratılışın Dibi — İlliyyîn'in karşıtı.",
+          "subtitleEn": "The Bottom of Creation — the opposite of 'Illiyyīn.",
+          "tone": "outcome"
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Velhasıl: Günahkârın akıbeti bir kitapta 'hapsedilmiştir'. Yazının kendisi gardiyandır. Düzenlenemez, silinemez, kaybolamaz.",
+      "en": "In sum: the destiny of the wicked has been 'imprisoned' in a book. The script itself is the jailer. Unalterable, unerasable, unloseable.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "س-ج-ن — Anlam Ağacı",
+      "titleEn": "s-c-n — Semantic Tree",
+      "root": {
+        "ar": "س ج ن",
+        "tr": "Nihai Kısıtlama",
+        "en": "Ultimate Confinement"
+      },
+      "branches": [
+        {
+          "id": "mekan",
+          "labelTr": "Mekân Düzlemi",
+          "labelEn": "Spatial Register",
+          "accent": "#3498db",
+          "children": [
+            {
+              "ar": "سِجْن",
+              "tr": "Sicn — hapishane",
+              "en": "Sijn — prison",
+              "transliteration": "sijn",
+              "subChildren": [
+                { "tr": "Yûsuf kıssası: fiziksel zindan", "en": "Yusuf cycle: physical dungeon" }
+              ]
+            },
+            {
+              "ar": "سَجَنَ",
+              "tr": "Sajana — hapsetti (fiil)",
+              "en": "Sajana — imprisoned (verb)",
+              "transliteration": "sajana"
+            },
+            {
+              "ar": "مَسْجُون",
+              "tr": "Mescûn — hapsedilen kişi",
+              "en": "Masjūn — the imprisoned",
+              "transliteration": "masjūn"
+            }
+          ]
+        },
+        {
+          "id": "kayit",
+          "labelTr": "Kayıt Düzlemi (L/N Değişimi)",
+          "labelEn": "Record Register (L/N Substitution)",
+          "accent": "#8b5cf6",
+          "children": [
+            {
+              "ar": "سِجِلّ",
+              "tr": "Sicill — rulo / kayıt (Aramî akraba)",
+              "en": "Sicill — scroll / register (Aramaic cognate)",
+              "transliteration": "sicill"
+            },
+            {
+              "tr": "Latince sigillum — mühür / signet",
+              "en": "Latin sigillum — seal / signet",
+              "secondaryTr": "→ İngilizce 'seal'",
+              "secondaryEn": "→ English 'seal'"
+            },
+            {
+              "ar": "سِجِّيل",
+              "tr": "Siccîl — pişmiş çamur taşı (Fîl 105:4)",
+              "en": "Sijjīl — fired clay stone (Al-Fīl 105:4)",
+              "transliteration": "sijjīl",
+              "subChildren": [
+                { "tr": "Farsça Sang-i-gil: 'Taş + Çamur'", "en": "Persian Sang-i-gil: 'Stone + Clay'" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sentez",
+          "labelTr": "Sentez — Siccîn",
+          "labelEn": "Synthesis — Sijjīn",
+          "accent": "#e74c3c",
+          "children": [
+            {
+              "ar": "سِجِّين",
+              "tr": "Siccîn — fi'īl kalıbı: mekân + nesne",
+              "en": "Sijjīn — fi'īl form: place + object",
+              "transliteration": "sijjīn",
+              "subChildren": [
+                { "tr": "Mekân: yaratılışın dibi", "en": "Place: bottom of creation" },
+                { "tr": "Nesne: kitâbun merkûm (mühürlü kitap)", "en": "Object: kitābun marqūm (sealed book)" },
+                { "tr": "Karşıtı: İlliyyîn (83:18 — yukarı)", "en": "Opposite: 'Illiyyīn (83:18 — above)" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "kaynaklar",
+      "titleTr": "Kaynaklar",
+      "titleEn": "Sources"
+    },
+    {
+      "type": "sources",
+      "items": [
+        { "name": "Sîbeveyh", "detailTr": "Klasik Arap gramercisi — fi'īl kalıbı (sikkîn analojisi) için referans.", "detailEn": "Classical Arab grammarian — referenced for the fi'īl pattern (sikkīn analogy)." },
+        { "name": "Ebdal fenomeni (L/N değişimi)", "detailTr": "Semitik dillerde Lâm ve Nûn yer değiştirir; Sicill ↔ Siccîn varyantı için temel.", "detailEn": "Lām and Nūn interchange in Semitic languages; ground for the Sicill ↔ Sijjīn variant." },
+        { "name": "Latince Sigillum (Aramice aracılığıyla)", "detailTr": "Mühür / signet anlamı; Sicill'in kökeni.", "detailEn": "Seal / signet; the origin of Sicill via Aramaic." },
+        { "name": "Farsça Sang-i-gil ('Taş ve Çamur')", "detailTr": "Siccîl'in (Fîl 105:4) etimolojik kökeni.", "detailEn": "Etymological origin of sijjīl (Al-Fīl 105:4)." },
+        { "name": "Çivi yazısı (cuneiform)", "detailTr": "Eski yakın doğuda ıslak kile basılıp pişirilmiş kayıt geleneği.", "detailEn": "The ancient Near Eastern tradition of records pressed into wet clay and fired." },
+        { "name": "İbranice Elyon", "detailTr": "'En Yüce / Yüksek Mekânlar' — İlliyyîn ile akraba.", "detailEn": "'Most High / Highest Places' — cognate with 'Illiyyīn." }
+      ]
+    }
+  ]
+}
