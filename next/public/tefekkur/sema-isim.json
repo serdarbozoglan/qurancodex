@@ -32,7 +32,10 @@
     "7:143",
     "14:24-25"
   ],
-  "previousArticle": null,
+  "previousArticle": {
+    "slug": "makro-mikro",
+    "titleTr": "Terminoloji 5: Makro/Mikro Durumlar"
+  },
   "nextArticle": {
     "slug": "kader",
     "titleTr": "Terminoloji 7: Kaderin Çözünürlüğü"

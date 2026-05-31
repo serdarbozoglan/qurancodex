@@ -51,6 +51,17 @@
   ],
   "articles": [
     {
+      "slug": "ruhun-termostati",
+      "titleTr": "Ruhun Termostatı",
+      "titleEn": "The Thermostat of the Soul",
+      "category": "kavramsal",
+      "publishedDate": "2024-11-20",
+      "readingMinutes": 14,
+      "tldrTr": "Sabır pasif dayanma değil — ruhun aktif homeostatik regülasyonudur. Kur'an nur yayar; dağınık bir alıcı (kalp) onu yakalayamaz. Sabır = psikolojik yalıtım. Sabır↔Şükür: imanın iki yarısı; biri daralma'ya, diğeri genişleme'ye karşı kalbin sınırını korur.",
+      "tldrEn": "Sabr is not passive endurance — it is the active homeostatic regulation of the soul. The Quran broadcasts nūr; a scattered receiver (the heart) cannot tune to it. Sabr = psychological insulation. Sabr ↔ Shukr: two halves of faith; one against contraction, the other against expansion.",
+      "status": "draft"
+    },
+    {
       "slug": "sefer",
       "titleTr": "Kur'an Kavramları Semantik Analizi-1: Sefer",
       "titleEn": "Semantic Analysis-1: Safar",
@@ -108,6 +119,18 @@
       "readingMinutes": 4,
       "tldrTr": "Kur'an'daki en gizemli terimlerden birinin içine iniyoruz. Çoğu çeviri 'Hapishane' der. Ama bağlam 'Kitap' diyor.",
       "tldrEn": "We descend into one of the most enigmatic terms in the Quran. Most translations say 'Prison'. But context says 'Book'.",
+      "status": "draft"
+    },
+    {
+      "slug": "makro-mikro",
+      "titleTr": "Terminoloji 5: Makro/Mikro Durumlar, Emergence ve Faz Geçişi",
+      "titleEn": "Terminology 5: Macro/Micro States, Emergence, and Phase Transition",
+      "category": "terminoloji",
+      "seriesNumber": 5,
+      "publishedDate": "2024-12-08",
+      "readingMinutes": 5,
+      "tldrTr": "Mikro durum: parçaların ayrıntılı konfigürasyonu. Makro durum: kolektif davranıştan doğan gözlemlenebilir özellik (sıcaklık, canlılık). Aggregate (toplam) vs Emergent (non-lineer etkileşim). Faz geçişi = kritik eşikte sistem bütününün değişmesi. Tesviye + takdir için zihin aracı.",
+      "tldrEn": "Microstate: detailed configuration of parts. Macrostate: observable property emerging from collective behaviour (temperature, life). Aggregate (sum) vs Emergent (non-linear interaction). Phase transition = wholesale change of the system at a critical threshold. Cognitive tool for tesviye + taqdīr.",
       "status": "draft"
     },
     {
