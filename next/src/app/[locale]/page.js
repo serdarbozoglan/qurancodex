@@ -13,6 +13,7 @@ import Hero from '@/components/Hero';
 import PathCards from '@/sections/PathCards';
 import AllTopics from '@/sections/AllTopics';
 import ToolsHighlight from '@/sections/ToolsHighlight';
+import TefekkurHighlight from '@/sections/TefekkurHighlight';
 import LinguisticDNA from '@/sections/LinguisticDNA';
 import ImpossibleRhythm from '@/sections/ImpossibleRhythm';
 import QuranRhetoric from '@/sections/QuranRhetoric';
@@ -58,6 +59,7 @@ export default async function Home({ params }) {
       <PathCards />
       <AllTopics />
       <ToolsHighlight />
+      <TefekkurHighlight />
       <LinguisticDNA />
       <ImpossibleRhythm />
       <QuranRhetoric />

@@ -1230,7 +1230,10 @@ export default function Navbar() {
                           <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                             <span style={{ color: '#c9a227', flexShrink: 0, display: 'inline-flex' }}>
                               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M12 2L14.4 8.4 21 9.3 16 14 17.5 21 12 17.5 6.5 21 8 14 3 9.3 9.6 8.4z" />
+                                {/* Açık kitap — okuma + tefekkür */}
+                                <path d="M12 6 L4 5 L4 18 L12 19" />
+                                <path d="M12 6 L20 5 L20 18 L12 19" />
+                                <line x1="12" y1="6" x2="12" y2="19" />
                               </svg>
                             </span>
                             <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
@@ -1238,7 +1241,7 @@ export default function Navbar() {
                                 {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
                               </span>
                               <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                                {language === 'tr' ? '44 makale · Felsufi · semantik · tefekkür' : '44 essays · Felsufi · semantics · reflection'}
+                                {language === 'tr' ? '2 yayında · 44 planlanan · Felsufi · tefekkür' : '2 live · 44 planned · Felsufi · reflection'}
                               </span>
                             </span>
                           </span>
@@ -1567,6 +1570,52 @@ export default function Navbar() {
                 >
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.4, flexShrink: 0 }}><path d="M9 18l6-6-6-6" /></svg>
                   {language === 'tr' ? tool.labelTr : tool.labelEn}
+                </button>
+              ))}
+            </div>
+
+            {/* Tefekkür — Felsufi makaleler (mobile) */}
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px', marginTop: '6px' }}>
+              <p style={{ fontSize: '0.68rem', fontWeight: 600, color: '#d4a574', textTransform: 'uppercase', letterSpacing: '0.18em', margin: '0 0 6px', fontFamily: "'Inter', sans-serif" }}>
+                {language === 'tr' ? 'Tefekkür' : 'Tefekkür'}
+              </p>
+              <button
+                onClick={() => { router.push(`/${language}/tefekkur`); setMobileOpen(false); }}
+                className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
+              >
+                <span style={{ color: '#c9a227', flexShrink: 0, display: 'inline-flex' }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    {/* Açık kitap — okuma + tefekkür */}
+                    <path d="M12 6 L4 5 L4 18 L12 19" />
+                    <path d="M12 6 L20 5 L20 18 L12 19" />
+                    <line x1="12" y1="6" x2="12" y2="19" />
+                  </svg>
+                </span>
+                <span style={{ color: '#d4a574', fontWeight: 600 }}>
+                  {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
+                </span>
+                <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.7rem', marginLeft: '4px' }}>
+                  {language === 'tr' ? '· 2 yayında / 44 planlanan' : '· 2 live / 44 planned'}
+                </span>
+              </button>
+              {[
+                { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',   labelEn: 'Conceptual Analysis' },
+                { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi', labelEn: 'Terminology Series' },
+                { id: 'sure-hermenotik', accent: '#c9a227', labelTr: 'Sûre & Hermenötik',  labelEn: 'Surah & Hermeneutics' },
+                { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series' },
+                { id: 'idrak-suur',      accent: '#1D9E75', labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness' },
+                { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation' },
+              ].map(cat => (
+                <button
+                  key={cat.id}
+                  onClick={() => { router.push(`/${language}/tefekkur?cat=${cat.id}`); setMobileOpen(false); }}
+                  className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
+                >
+                  <span style={{
+                    width: '6px', height: '6px', borderRadius: '50%',
+                    background: cat.accent, opacity: 0.85, flexShrink: 0,
+                  }} />
+                  {language === 'tr' ? cat.labelTr : cat.labelEn}
                 </button>
               ))}
             </div>
