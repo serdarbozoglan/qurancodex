@@ -1,0 +1,291 @@
+{
+  "slug": "sema-isim",
+  "titleTr": "İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi 6 — Sema ve İsim Kavramları",
+  "titleEn": "Human, Cosmos, and Quranic Terminology 6 — The Concepts of Samāʾ and Ism",
+  "category": "terminoloji",
+  "template": "series-hero",
+  "seriesId": "terminoloji",
+  "seriesNumber": 6,
+  "seriesTotal": 7,
+  "publishedDate": "2024-12-15",
+  "readingMinutes": 7,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kuran-%C4%B1-okuma-terminolojisi-6-sema-ve-i%CC%87sim-kavramlar%C4%B1-7fa8dfdfd6a2",
+  "tldrTr": "Arapçada *isim* (اِسْم) ile *gök/semâ* (سَمَاء) aynı **س-م-و (s-m-w)** kökünden gelir — kökün temel anlamı 'yükselmek, yüceltmek'tir. Bir varlığa **isim vermek**, onu zihinde 'yüceltmek', soyutlamak, bir kategoriye yerleştirmektir; **semâ**yı çok katmanlı kılmak (semâvât) ise çokluğun ve düzenin ortaya çıkışıdır. Kur'an, **Âdem'e isimlerin öğretilmesi** (Bakara 2:31) üzerinden insana bahşedilen soyutlama gücünü, **'sebbih isme Rabbike'l-A'lâ'** (A'lâ 87:1) üzerinden ise yüceliği ve isim arasındaki dilsel bağı vurgular. Modern matematiğin küme/kategori teorisi de aynı zihinsel soyutlama gücüne dayanır.",
+  "tldrEn": "In Arabic, *ism* (اِسْم, name) and *samāʾ* (سَمَاء, sky/heaven) share the same root **س-م-و (s-m-w)** — whose core meaning is 'to rise, to elevate'. To **give a name** is to elevate something in the mind, to abstract it, to place it within a category; to render **samāʾ** into many layers (samāwāt) is the emergence of multiplicity and order. The Quran emphasizes the gift of abstraction granted to the human through **the teaching of names to Adam** (Al-Baqarah 2:31), and the linguistic bond between elevation and naming through **'Sabbiḥi-sma Rabbika l-Aʿlā'** (Al-Aʿlā 87:1). Modern mathematics — set theory, category theory — rests on the same cognitive abstraction.",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "87:1",
+    "87:2",
+    "59:22-24",
+    "20:4",
+    "20:8",
+    "2:29",
+    "2:31",
+    "32:5",
+    "7:143",
+    "14:24-25"
+  ],
+  "previousArticle": null,
+  "nextArticle": {
+    "slug": "kader",
+    "titleTr": "Terminoloji 7: Kaderin Çözünürlüğü"
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "id": "giris",
+      "titleTr": "Giriş: Yüceliğin Etimolojik Bağı",
+      "titleEn": "Introduction: The Etymological Bond of Elevation"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Arapçada *isim* (اِسْم) ile *gök / semâ* (سَمَاء) kelimelerinin aynı kökten — **س-م-و (s-m-w)** — geliyor olması, hem Kur'an'ın dilsel zenginliğine hem de insanın düşünce serüvenine dair çarpıcı bir ipucudur. Bu kökün temel anlamı **'yükselmek, yüceltmek'** olduğu için, bir varlığa **isim vermek** de onu zihinde bir şekilde 'yüceltmek' veya 'özel bir kümeye almak' olarak okunabilir.\n\nKur'an'da **semâ**nın, fiziksel bir gökyüzü kavramının ötesinde, **yüceliğin ve metafizik boyutun** ifadesi olarak kullanılması; insanın varlığa isim verme gücünü ve soyutlama kabiliyetini hatırlatıcı bir nitelik taşır.",
+      "en": "That *ism* (اِسْم, name) and *samāʾ* (سَمَاء, sky/heaven) share the same root — **س-م-و (s-m-w)** — is a striking clue about both the linguistic richness of the Quran and the trajectory of human thought. Because the root's core meaning is **'to rise, to elevate'**, to **give a name** to something can itself be read as a kind of mental elevation — placing the entity within a special set.\n\nThe Quran's use of **samāʾ** beyond a merely physical sky — as an expression of **elevation and metaphysical depth** — points back to the human's gift of naming and abstraction."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Aynı **s-m-w** kökünden gelen iki kavram karşımıza çıkıyor:\n\n— **Semâ (سَمَاء):** yükselik, gökte olan, üst boyut.\n— **İsim (اِسْم):** bir varlığa işaret ederken onu diğerlerinden ayırt etmek, onu zihinde 'yüceltmek' veya 'öne çıkarmak'.\n\nBu dilsel akrabalık, **bir şeye isim vermenin yalnızca dilsel bir etiketleme değil, aynı zamanda zihinsel bir yükseltme, soyutlama ve kategoriye ayırma eylemi** olduğunu düşündürür. Modern bir benzetmeyle: 'elma' denilen her bir nesneyi, 'elma olma' özelliklerini temsil eden **soyut bir kümeye** yerleştirmek gibi.",
+      "en": "Two concepts arise from the same **s-m-w** root:\n\n— **Samāʾ (سَمَاء):** elevation, that which is in the sky, the upper dimension.\n— **Ism (اِسْم):** to point to a being while setting it apart from others, to 'elevate' or 'foreground' it in the mind.\n\nThis linguistic kinship suggests that **giving a name is not merely a linguistic label, but a mental elevation, an act of abstraction and categorization**. In modern terms: like placing every object called 'apple' into an **abstract set** representing the property of 'apple-ness'."
+    },
+    {
+      "type": "section",
+      "id": "kuranda-sema-isim",
+      "titleTr": "Kur'an'da Semâ ve İsim Bağlamı",
+      "titleEn": "Samāʾ and Ism in the Quranic Context"
+    },
+    {
+      "type": "verseInline",
+      "ref": "87:1",
+      "noteTr": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — *Sebbih isme Rabbike'l-A'lâ* — 'Yüce Rabbinin ismini tesbih et (yücelt)…' **A'lâ** kelimesi, 'en yüce' anlamında yine **s-m-w** köküne yakın bir yüceltme çağrışımı taşır. Burada 'Rabbinin ismi' ile 'A'lâ' (yücelik) aynı cümlede buluşur.",
+      "noteEn": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — *Sabbiḥi-sma Rabbika l-Aʿlā* — 'Glorify the name of your Lord, the Most High…' The word **A'lā**, 'the Most High', carries a connotation close to the **s-m-w** root of elevation. Here 'the name of your Lord' and 'al-Aʿlā' (the elevation) meet in the same line."
+    },
+    {
+      "type": "verseInline",
+      "ref": "87:2",
+      "noteTr": "اَلَّذِي خَلَقَ فَسَوّٰى — '…O ki yarattı ve şekil verdi.' Kur'an, Allah'ın **yüceliği** ile O'nun **ismini yüceltme** görevini bir arada vurgular.",
+      "noteEn": "اَلَّذِي خَلَقَ فَسَوَّى — '…He who created and proportioned.' The Quran fuses Allah's **elevation** with the human's task of **elevating His name**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "59:22-24",
+      "noteTr": "*Haşr Sûresi 59:22-24* — 'O Allah, Hâlık'tır, Bârî'dir, Musavvir'dir. **En güzel isimler O'nundur.** Göklerde (semâvât) ve yerde olan her şey O'nu tesbih eder…' Burada **gökler (semâvât)** ile **Allah'ın isimleri (esmâ)** aynı bağlamda geçer; **'semâ' (yücelik)** ile **'esmâ' (isimler)** ilişkisi iç içe aktarılır.",
+      "noteEn": "*Sūrat al-Ḥashr 59:22-24* — 'He is Allah — the Creator, the Inventor, the Fashioner. **The most beautiful names are His.** Whatever is in the heavens (samāwāt) and the earth glorifies Him…' Here **the heavens (samāwāt)** and **the names of Allah (asmāʾ)** appear in the same frame; the bond between **'samāʾ' (elevation)** and **'asmāʾ' (names)** is woven together."
+    },
+    {
+      "type": "verseInline",
+      "ref": "20:4",
+      "noteTr": "*Tâhâ 20:4* — 'Bu, yeri ve **yüce gökleri (semâvât-i ulâ)** yaratan tarafından indirilmedir…'",
+      "noteEn": "*Ṭā-Hā 20:4* — 'A revelation from Him who created the earth and **the elevated heavens (samāwāt al-ʿulā)**…'"
+    },
+    {
+      "type": "verseInline",
+      "ref": "20:8",
+      "noteTr": "*Tâhâ 20:8* — 'Allah'tır O! O'ndan başka tanrı yoktur! **En güzel isimler O'nundur.**' **Yüce gökler** vurgusunun hemen ardından **Allah'ın isimlerinden** söz edilmesi, yine yücelik–isim arasındaki dilsel ve kavramsal bağı kurar.",
+      "noteEn": "*Ṭā-Hā 20:8* — 'Allah — there is no deity but He. **To Him belong the most beautiful names.**' That the verse on **the elevated heavens** is immediately followed by **the names of Allah** reaffirms the linguistic and conceptual bond between elevation and naming."
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:31",
+      "noteTr": "*Bakara 2:31* — 'Ve **Âdem'e bütün isimleri öğretti…**' Bu anlatım, insanın **soyutlama** ve **kategorizasyon** kabiliyetiyle ilgilidir. Bir-iki ayet önce (Bakara 2:29) yeryüzünün insana hazırlandığı, ardından 'göğe yönelerek onu yedi semâ hâline getirdiği' ifade edilir. **Tekil 'semâ'dan çoğul 'semâvât'a geçiş** kâinatın düzenli katmanlara ayrılmasıyla ilgilidir — tıpkı insanın varlıkları isimlendirmesi gibi.",
+      "noteEn": "*Al-Baqarah 2:31* — 'And **He taught Adam all the names…**' This narrative concerns the human's faculty of **abstraction** and **categorization**. A verse earlier (2:29), the earth is prepared for the human, and then He 'turned toward the sky and proportioned it into seven heavens'. The transition **from singular 'samāʾ' to plural 'samāwāt'** mirrors the structuring of the cosmos into ordered layers — just as the human structures beings by naming them."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "İşte şu sırr-ı azîme binaen, kâinatı hayretfezâ acip bir tertiple tanzim etmiş. En küçük tabakat-ı mahlûkattan olan zerrâttan, tâ semâvâta ve semâvâtın birinci tabakasından, tâ Arş-ı Âzama kadar birbiri üstünde teşkilât var. **Herbir semâ, bir ayrı âlemin damı ve rububiyet için bir arş ve tasarrufât-ı İlâhiye için bir merkez hükmündedir.** O dairelerde ve o tabakatta, çendan, ehadiyet itibarıyla bütün esmâ bulunabilir, bütün ünvanlarla tecellî eder. Fakat, nasıl ki adliyede hâkim-i âdil ünvanı asıldır, hâkimdir; sair ünvanlar orada onun emrine bakar, ona tâbidir. Öyle de, **herbir tabakat-ı mahlûkatta, herbir semâda bir isim, bir ünvan-ı İlâhî hâkimdir;** sair ünvanlar da onun zımnındadır.",
+      "en": "Upon this mighty secret, He has ordered the cosmos with a structure full of wonder. From the smallest layers of creation — the atoms — up to the heavens, and from the first layer of the heavens up to the Supreme Throne, there are formations stacked one upon another. **Each heaven is the canopy of a distinct world, a throne for divine lordship, a centre for divine governance.** In those spheres and layers, in respect of unity, all the names may be present and manifest through all the titles. Yet just as in a court the title 'just judge' is sovereign, and other titles defer to it, so too **in each layer of creation, in each heaven, one divine name reigns;** the other titles fall under its dominion.",
+      "source": "Bediüzzaman — Sözler, 31. Söz (Felsufi aktarımı)"
+    },
+    {
+      "type": "section",
+      "id": "kozmoloji",
+      "titleTr": "Kozmolojik Açıdan Semâvât ve Melekler",
+      "titleEn": "Cosmological Perspective: Samāwāt and the Angels"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Tasavvufî ve kelâmî yaklaşımlar, **'semâ'nın çok katmanlı hâle (semâvât) dönüşmesini** ve meleklerin bu semavatın sakinleri olarak yaratılmasını, **'birlik'ten (cem) 'çokluğa' (fark)** geçişin nüveleri ve varlığın **taayyün etmesi** olarak görür. 'Nurdan yaratılan' melekler, varlığın farklı mertebelerinde görev alarak eşyayı bir tür **ayrışma (tefrik) ve isimlendirme süzgecinden** geçirir.",
+      "en": "Sufi and theological approaches read **the transformation of 'samāʾ' into multi-layered samāwāt** — and the creation of angels as inhabitants of these heavens — as the seeds of the passage from **'unity' (jamʿ) to 'multiplicity' (farq)**, and as the **individuation (taʿayyun)** of being. The angels, 'created from light', preside over different ranks of existence and pass things through a kind of **filter of differentiation (tafrīq) and naming**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**'es-semâü mevcun mekfûf'** (Ahmed b. Hanbel, Tirmizî) ifadesi, göğün ilk başta **homojen ve kapalı** olduğunu, sonra **katmanlı** hâle geldiğini ima eder. Böylece evrendeki yerel farklılıklar — parçacıklar, etkileşimler, sayılar — ortaya çıkar.\n\nBilimsel açıdan **atom altı parçacıkların ayrışması**, maddî dünyadaki '1, 2, 3…' gibi sayılamaların mümkün hâle gelmesi de bir tür **'tefrik' süreci** gibidir. **'Semâvât' kavramı**, bu katmanlı ayrışmayı ve çokluğu hem fiziksel hem de manevi boyutta simgeler.",
+      "en": "The hadith **'al-samāʾu mawjun makfūf'** (Aḥmad ibn Ḥanbal, Tirmidhī) implies that the sky was at first **homogeneous and closed**, then became **layered**. From this emerge the local distinctions of the universe — particles, interactions, numbers.\n\nFrom a scientific angle, **the differentiation of subatomic particles** — which makes possible the counting '1, 2, 3…' of the material world — is itself a kind of **process of tafrīq (differentiation)**. The **concept of 'samāwāt'** symbolizes this layered ramification — both physically and spiritually."
+    },
+    {
+      "type": "section",
+      "id": "isim-verme",
+      "titleTr": "İnsan ve İsim Verme: Soyutlamanın Kudsiyeti",
+      "titleEn": "The Human and the Act of Naming: The Sanctity of Abstraction"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**İsim, semâ gibi, yücelikle bağlı bir kavramdır.** Semâ yüksek olduğu için, isim de **yüceltilen, değer verilen şeye verilen bir nişanedir**. Bir okyanustan alınan iki avuç su, birbirinden ayırt edilemeyecek kadar benzediği için ayrı isimlere gerek duymaz. Ancak **bir şeye isim vermek**, o şeyi diğerlerinden farklılaştırıp tanımlamak anlamına gelir. Bu, **insanın kavramsallaştırma yeteneğine** işaret eder. İsim, dış dünyadaki bir gözlemin **soyut ve kalıcı bir temsilidir;** bu, hafıza ve soyutlama kabiliyeti gerektirir.",
+      "en": "**The name, like the heaven, is tied to elevation.** Because the sky is high, the name too is **the mark conferred on what is elevated, what is valued**. Two handfuls of water taken from the ocean do not call for separate names — they are too alike to distinguish. But **to give a thing a name** is to set it apart, to define it. This points to **the human's faculty of conceptualization**. A name is an **abstract, lasting representation** of an observation in the external world — and demands memory and abstraction."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an'da **Âdem'e isimlerin öğretilmesi**, insana **soyutlama ve modelleme kabiliyetinin verilmesi** olarak okunabilir. Bu kabiliyet sayesinde insan kâinatı, kendisini ve nihayetinde Rabbini tanıma yoluna girer.\n\nBelli türden bir meyveye 'elma' adı vermek, o meyveyi **'elmalık' soyut kümesinin bir üyesi** yapmakla eşdeğerdir. Bilimde de gözlemlediğimiz nesneleri **modeller ve kavramlar üzerinden tekrar temsil ederiz**. Farklı demir atomlarını 'demir' diye tek sınıfa koyduğumuzda, aslında **ortak özelliklerini soyutlamış**, onlara 'isim' vermiş oluruz.",
+      "en": "The Quran's account of **the teaching of names to Adam** can be read as **the bestowal of the faculty of abstraction and modelling** upon the human. By this gift the human is set on the path of knowing the cosmos, himself, and ultimately his Lord.\n\nTo call a certain fruit 'apple' is to make that fruit **a member of the abstract set 'apple-ness'**. Likewise in science, we **re-present observed objects through models and concepts**. When we put different iron atoms under the single class 'iron', we are **abstracting their shared properties** — naming them."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu açıdan Kur'an, yeryüzünü (arz) insana hazırlayan, semâyı çoklu katmanlara ayıran bir kudretin, **insana da isimlendirme ve modelleme imkânı bahşederek kâinatı anlama kapısını açtığını** vurgular. **Soyutlama ve genelleme, ilahî bir lütuf olarak okunabilir.**",
+      "en": "From this angle, the Quran underscores that the same power which prepared the earth (arḍ) for the human and shaped the sky into manifold layers also **gifted the human with naming and modelling — opening the door of comprehending the cosmos**. **Abstraction and generalization can be read as a divine grant.**"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Şu âyet-i acîbe, insanın câmiiyet-i istidadı cihetiyle mazhar olduğu **bütün kemâlât-ı ilmiye ve terakkiyât-ı fenniye ve havârık-ı sun'iyeyi 'tâlim-i esmâ' ünvanıyla ifade ve tabir etmekte** şöyle lâtif bir remz-i ulvî var ki:\n\n**Herbir kemâlin, herbir ilmin, herbir terakkiyâtın, herbir fennin bir hakikat-i âliyesi var ki, o hakikat bir ism-i İlâhîye dayanıyor.** Pek çok perdeleri ve mütenevvi tecelliyâtı ve muhtelif daireleri bulunan o isme dayanmakla, o fen, o kemâlât, o san'at kemâlini bulur, hakikat olur. Yoksa, yarım yamalak bir surette, nâkıs bir gölgedir.",
+      "en": "This astonishing verse, in expressing **all the scientific perfections, technical advancements, and artistic wonders to which the human is heir — under the title 'the teaching of the names'** — bears a subtle lofty sign:\n\n**Every perfection, every science, every advance, every art has a high truth, and that truth rests upon a divine name.** Resting upon that name — with its many veils, its varied manifestations, its diverse spheres — that science, that perfection, that art finds its consummation and becomes real. Otherwise it is only a halting, deficient shadow.",
+      "source": "Bediüzzaman — Sözler, 20. Söz (Felsufi aktarımı)"
+    },
+    {
+      "type": "section",
+      "id": "tecelli",
+      "titleTr": "Semâ, Arş ve Yönetişim: Çıkış ve İniş Döngüsü",
+      "titleEn": "Samāʾ, Arsh, and Governance: The Ascending–Descending Cycle"
+    },
+    {
+      "type": "verseInline",
+      "ref": "32:5",
+      "noteTr": "*Secde 32:5* — 'Allah **gökten yere kadar işleri tedbir eder, sonra onlar O'na yükselir.**' Kur'an, semâ ile arz arasındaki **gidiş-gelişlere** işaret eder.",
+      "noteEn": "*As-Sajda 32:5* — 'Allah **arranges every matter from the heaven to the earth, then it ascends to Him.**' The Quran points to the **back-and-forth** between sky and earth."
+    },
+    {
+      "type": "verseInline",
+      "ref": "7:143",
+      "noteTr": "*A'râf 7:143* — Hz. Mûsâ kıssasında dağa **'Rabb'in tecellî etmesi'**, *tecellî* (تجلِّي) kelimesinin doğrudan geçtiği nadir örneklerden. Tasavvuf dilinde tecellî, **Allah'ın isim ve sıfatlarının varlıkta görünür olması** anlamını taşır.",
+      "noteEn": "*Al-Aʿrāf 7:143* — In the Mūsā narrative, **'the Lord's manifesting (tajallī) to the mountain'** is one of the rare passages where the word *tajallī* (تجلِّي) occurs directly. In Sufi parlance, tajallī signals **the becoming-visible of Allah's names and attributes in created being**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "14:24-25",
+      "noteTr": "*İbrahim 14:24-25* — **'Kökü yerde, dalları gökte olan ağaç'** misali. 'Güzel sözlerin semâya yükselmesi ve oradan rahmetin inmesi' temasının görsel temsilidir.",
+      "noteEn": "*Ibrāhīm 14:24-25* — The parable of **'a tree whose root is in the earth and whose branches reach to the sky'**. A visual image of the theme: 'good speech ascends to the heaven and mercy descends from it'."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu **iniş–çıkış döngüsü**, 'güzel sözlerin semâya yükselmesi ve oradan rahmetin inmesi' gibi Kur'anî temalarda da görülür. **Varlık, isimler aracılığıyla semâya yükselir; semâ ise rahmet ve vahiy ile yere iner.** Bu sürekli alışveriş, insanın kavrayışına da yansır.",
+      "en": "This **descending–ascending cycle** echoes throughout Quranic motifs — 'good speech ascends to the sky, and mercy descends from it'. **Being rises to the sky through names; the sky descends to the earth as mercy and revelation.** This continual exchange is mirrored in the human's own faculty of understanding."
+    },
+    {
+      "type": "section",
+      "id": "matematik",
+      "titleTr": "Matematiksel Bir Analoji",
+      "titleEn": "A Mathematical Analogy"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Elbette Kur'an, modern matematiğin **küme teorisi** veya **kategori teorisi**nden söz etmez. Fakat **soyutlama (*abstraction*)** ve **kategorizasyon (*classification*)** eylemlerinin dinî-metafizik anlatılarda da, matematikte de **temel bir mantık olduğu** dikkat çekicidir. Aşağıdaki benzetmeler, **salt analojik bir ufuk** vermeyi amaçlar:",
+      "en": "The Quran of course does not speak of modern mathematics' **set theory** or **category theory**. Yet it is striking that the acts of **abstraction** and **classification** are **a foundational logic** in both religious-metaphysical narrative and mathematics. The following analogies aim to give **only an analogical horizon**:"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Sema · İsim · Arz · Tecellî — Analojik Eşleşmeler",
+      "titleEn": "Samāʾ · Ism · Arḍ · Tajallī — Analogical Mappings",
+      "root": {
+        "ar": "س م و",
+        "tr": "Soyutlama ve Sınıflandırma",
+        "en": "Abstraction and Classification"
+      },
+      "branches": [
+        {
+          "id": "isim",
+          "labelTr": "İsim",
+          "labelEn": "Ism (Name)",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "ar": "اِسْم",
+              "tr": "Bir obje üzerindeki 'etiket' fonksiyonu (varlık → isim eşleştirmesi).",
+              "en": "An 'label' function on an object (entity → name mapping).",
+              "transliteration": "ism"
+            }
+          ]
+        },
+        {
+          "id": "sema",
+          "labelTr": "Semâ",
+          "labelEn": "Samāʾ (Heaven)",
+          "accent": "#c9a227",
+          "children": [
+            {
+              "ar": "سَمَاء",
+              "tr": "Kapsayan ya da üst kategori / evrensel obje (sonsuz ya da geniş bir çerçeve).",
+              "en": "The encompassing or upper category / universal object (an infinite or wide frame).",
+              "transliteration": "samāʾ"
+            }
+          ]
+        },
+        {
+          "id": "arz",
+          "labelTr": "Arz",
+          "labelEn": "Arḍ (Earth)",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "ar": "أَرْض",
+              "tr": "Taban obje veya alt küme (daha sınırlı, yerel seviye).",
+              "en": "Base object or subset (a more restricted, local level).",
+              "transliteration": "arḍ"
+            }
+          ]
+        },
+        {
+          "id": "tecelli",
+          "labelTr": "Tecellî",
+          "labelEn": "Tajallī (Manifestation)",
+          "accent": "#8b5cf6",
+          "children": [
+            {
+              "ar": "تَجَلِّي",
+              "tr": "Bir fonksiyonun 'görünür olma' hâli — *image* (imaj) veya lokal–global kesit ilişkisi (sheaf teorisi).",
+              "en": "A function's 'becoming visible' — its image, or the local–global section relation (sheaf theory).",
+              "transliteration": "tajallī"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu tür benzetmeler, **'Kur'an aslında kategori teorisinden bahsediyor'** sonucuna götürmez; ama insan zihninin hem manevi hem de bilimsel yönelimde **'soyutlama'nın ne kadar merkezî bir rol oynadığına** dikkat çeker.",
+      "en": "Such analogies do not entail the claim that **'the Quran is in fact talking about category theory'**. They rather highlight **how central a role abstraction plays** in both the spiritual and the scientific orientation of the human mind."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Analoji ↔ Delil ayrımı",
+      "headingEn": "Analogy ↔ Proof distinction",
+      "tr": "Felsufi'nin **küme teorisi / kategori teorisi / sheaf teorisi** ile semâ–isim–tecellî arasında kurduğu benzetmeler **epistemik analoji**dir, kanıt değil. Klasik kelâm ve tefsir geleneği (Râzî, Zemahşerî, İbn Kesîr, Suyûtî) bu modern matematik kavramlarını kullanmaz. Felsufi de yazıda bunu açıkça belirtir: 'Kur'an aslında kategori teorisinden bahsediyor sonucuna götürmez.' Bu tarz analojiler, çağdaş bir okurun zihninde bağ kurmasına yardım etmek üzere düşünülmüştür; klasik tefsir hiyerarşisinde **delâlet (kanıt-değer)** taşımazlar.",
+      "en": "Felsufi's analogies between **set theory / category theory / sheaf theory** and samāʾ / ism / tajallī are **epistemic analogies, not proofs**. The classical kalām and tafsīr tradition (Rāzī, Zamakhsharī, Ibn Kathīr, Suyūṭī) does not employ these modern mathematical concepts. Felsufi himself states it explicitly: 'this does not entail that the Quran is talking about category theory'. Such analogies are devised to help a contemporary reader build cognitive bridges; in the classical hierarchy of tafsīr they carry **no probative weight (dalāla)**."
+    },
+    {
+      "type": "section",
+      "id": "sonuc",
+      "titleTr": "Sonuç ve Ufuk Açıcı Perspektifler",
+      "titleEn": "Conclusion and Horizon-Opening Perspectives"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Yücelik kavramı**, hem dilde (Arapçada **s-m-w** kökü), hem Kur'anî tasvirlerde (semâ, semâvât, Allah'ın en güzel isimleri), hem de insanın **soyutlama kabiliyetinde** (isim vermek) iç içe geçen bir tema olarak karşımıza çıkar.\n\n**İsim vermek**, sadece dilsel bir eylem değildir; gerçekte **'varlığı kavramak, onu bir küme ve kategoriye yerleştirmek, zihinde yükseltmek'** anlamına gelir.",
+      "en": "**The concept of elevation** intertwines across language (the Arabic **s-m-w** root), Quranic depiction (samāʾ, samāwāt, the most beautiful names of Allah), and the human's **capacity for abstraction** (the act of naming).\n\n**To give a name** is not merely a linguistic act; in truth, it means **'to comprehend a being, to place it in a set and a category, to elevate it in the mind'**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an'ın **semâ (gök, yücelik)** ve **arz (yer, taban)** arasında çizdiği ilişki; meleklere, katmanlara, **iniş-çıkış hareketlerine** dair atıflar; **insanın modelleme gücüyle birleştiğinde** kozmolojik ve ontolojik bir bütünlük sergiler.\n\nModern matematik, soyutlama ve klasifikasyon yöntemleriyle (küme teorisi, kategori teorisi) **benzer bir temel mantıksal alt yapıda iş görür**. Bu, iki farklı alanın aynı 'hakikati' anlattığı anlamına gelmez; ama **ortak aklî süreçlere (genelleme, modelleme) dayanır**.",
+      "en": "The relation the Quran draws between **samāʾ (sky, elevation)** and **arḍ (earth, base)** — its references to angels, layers, and **ascending–descending motion** — joined with **the human's modelling power**, displays a cosmological and ontological wholeness.\n\nModern mathematics, with its methods of abstraction and classification (set theory, category theory), **operates on a similar foundational logical infrastructure**. This does not mean the two domains tell the same 'truth' — but they **rest on shared rational processes (generalization, modelling)**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Tüm bunlar bize şunu söyler: **İnsana bahşedilmiş 'isimlendirme' ve 'anlam verme' kabiliyeti**, aslında hem varlığın derin katmanlarıyla (semâvât) ilişki kurmayı mümkün kılan, hem de bilimin ve soyut düşüncenin temelini oluşturan bir **armağandır**. Kur'an, bazen gökleri ve yeri yaratması üzerinden, bazen Âdem'e isimlerin öğretilmesi üzerinden, bazen de Allah'ın esmâ-i hüsnâsına vurgu yaparak **'yüceliğin ve isimlendirmenin' insandaki ve kâinattaki izlerini** duyurur. Dinî ve metafizik anlatı ile matematiksel soyutlama arasında kurulacak benzetmeler, **insan idrakinin iki farklı cephesinde parlayan aynı cevheri — soyutlama gücünü — yeniden hatırlatır.**",
+      "en": "All of this tells us: **the faculty of 'naming' and 'giving meaning' bestowed upon the human** is in truth a **gift** — a faculty that makes possible both connection with the deep layers of being (the samāwāt) and the very foundation of science and abstract thought. The Quran — sometimes through the creation of the heavens and the earth, sometimes through the teaching of names to Adam, sometimes through emphasis on Allah's most beautiful names — proclaims **the traces of 'elevation and naming' in both the human and the cosmos**. The analogies drawn between religious-metaphysical narrative and mathematical abstraction **re-remind us of the same jewel shining on two different faces of human understanding — the power of abstraction itself.**",
+      "source": "Felsufi"
+    }
+  ]
+}
