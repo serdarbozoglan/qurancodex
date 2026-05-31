@@ -140,7 +140,7 @@ Kaynak: enhancement IV. UX. Audit + fix gerekli.
 - [x] **W22-U8** Settings localStorage schema versionlama — `qurancodex_settings_version` sentinel key + `migrateReadingModeSettings()` namespace versioning. 16 UI prefs purge-on-mismatch (theme, font, audio, karaoke, vb); navigation state + bookmarks + meal/corpus cache KORUNUR. Schema __v: 2. Future bump = silent reset.
 - [x] **W22-U9** Audio pause on tool route change — `docs/reviews/2026-05-25-audio-pause-audit.md`. Per-verse audio unmount cleanup eksikti (ReadingMode'da iki audio system var: per-verse + karaoke). ReadingMode.jsx line 1730-1741'e unmount cleanup useEffect eklendi.
 - [x] **W22-U10** Document title audit — 15/15 route temiz, unique + locale-aware (`pageMetadata` + module-level TITLE/DESC pattern prod'da hatasız). Generic "QuranCodex" placeholder hiçbir tool route'unda yok.
-
+ 
 ---
 
 ## Wave 23 — SEO & A11y Polish

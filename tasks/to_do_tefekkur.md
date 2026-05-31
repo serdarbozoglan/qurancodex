@@ -257,6 +257,64 @@ Türkçe karşılığı varsa **bilingual çift**, yoksa standalone English maka
 > `tefekkurCategories` count'ları manuel güncellenir; bilingual eş varsa
 > `englishVersion: "E-XX-slug"` frontmatter alanı kullanılır (gelecek).
 
+> ### 🔑 KURAL — Kök Çoklu-Alomorf Gösterimi
+>
+> Arapça **defektif kökler** (lām hareketli — son harfi و/ي arası değişen)
+> birden fazla alomorf formunda görünür. Felsufi'nin Medium analizleri her iki
+> formu da gösterir. JSON'da `root.letters` alanı **tüm alomorfları** içermelidir.
+>
+> **Örnekler:**
+> - ط غ و / ط غ ي (tuğyan kökü — ṭ-ḡ-w / ṭ-ḡ-y)
+> - س ع ي / س ع و (sefer/saʿy potansiyel alomorf)
+> - ر م ي / ر م و (atma fiili)
+>
+> **DOĞRU:**
+> ```json
+> "root": {
+>   "letters": "ط غ و / ط غ ي",
+>   "transliteration": "ṭ-ḡ-w / ṭ-ḡ-y",
+>   ...
+> }
+> ```
+>
+> **YANLIŞ:**
+> ```json
+> "letters": "ط غ و",         // tek alomorf — eksik
+> "transliteration": "ṭ-ḡ-w / ṭ-ḡ-y"  // translit'te iki ama Arapça'da tek
+> ```
+>
+> Hem `RootHero` (sayfa üstü büyük kök) hem `HierarchyTree` (root node)
+> aynı alomorf string'ini kullanmalı (drift yok).
+>
+> Üçlü kökler (sahih) için bu kural geçersizdir — tek form yeterli (ج ن ن, ر ح م, vb.).
+
+> ### 🔑 KURAL — VerseInline'da Ref Tekrar Yasağı
+>
+> `VerseInline` kartında badge zaten sûre adı + numarayı gösterir
+> (örn. "Hâkka 69:11"). **Not metninde aynı referansı tekrar yazmak redundant'tır.**
+>
+> ❌ YANLIŞ:
+> ```json
+> "ref": "69:11",
+> "noteTr": "Hâkka 69:11 — 'Su tuğyan ettiğinde...' Burada tuğyan fiziksel..."
+> ```
+>
+> ✅ DOĞRU (üç seçenek):
+> ```json
+> // Seçenek A — direkt ayet alıntısıyla başla
+> "noteTr": "'Su tuğyan ettiğinde (taşıp haddi aşınca) sizi gemide taşıdık.' Burada tuğyan fiziksel..."
+>
+> // Seçenek B — context cümlesi
+> "noteTr": "Hz. İbrâhîm kıssasında gece, örten/saklayan bir perde olarak janna fiiliyle ifade edilir..."
+>
+> // Seçenek C — sadece yorum
+> "noteTr": "Nuh tufanında suyun doğal sınırını aşması. Tuğyan kavramı fiziksel taşkınlık anlamında..."
+> ```
+>
+> **Component-level fix (Phase 3):** `VerseInline.jsx` artık note başındaki
+> `<sûre-adı> <ref> — ` prefix'ini regex ile otomatik strip eder. Mevcut JSON'ları
+> değiştirmeye gerek yok; gelecekteki note'lar yine de prefix'siz yazılmalı (clean data).
+
 Frontend renderer makale MDX frontmatter'ındaki `template` alanına göre uygun layout'u seçer.
 
 ### Template A — **Quote-Driven Long Read** (Kavramsal + İdrak)
