@@ -85,8 +85,11 @@ export default function TefekkurArticleRoute({ article }) {
 
       <ToolHeader
         icon={
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2 L14.4 8.4 L21 9.3 L16 14 L17.5 21 L12 17.5 L6.5 21 L8 14 L3 9.3 L9.6 8.4 Z" />
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+            {/* Açık kitap — okuma + tefekkür */}
+            <path d="M12 6 L4 5 L4 18 L12 19" />
+            <path d="M12 6 L20 5 L20 18 L12 19" />
+            <line x1="12" y1="6" x2="12" y2="19" />
           </svg>
         }
         titleTr="Tefekkür"

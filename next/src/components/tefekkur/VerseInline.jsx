@@ -13,6 +13,16 @@ function formatVerseRef(ref, language) {
   return `${name} ${ref}`;
 }
 
+// Note metni "Hâkka 69:11 — abc..." gibi prefix taşıyorsa onu temizle.
+// Badge zaten ref'i gösterir; redundancy önlemi.
+function stripRefPrefix(text, ref) {
+  if (!text) return text;
+  const escapedRef = ref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Pattern: <surah-name-words><space><ref><whitespace><em/en/hyphen><whitespace>
+  const re = new RegExp(`^[^\\d—–-]*\\b${escapedRef}\\b\\s*[—–-]\\s*`);
+  return text.replace(re, '');
+}
+
 // VerseInline — makale içinde ayet referansı (inline card pattern).
 // Şimdilik static display; hover/click ile detail expand sonraki iterasyonda.
 export default function VerseInline({ ref, noteTr, noteEn, language }) {
@@ -50,7 +60,7 @@ export default function VerseInline({ ref, noteTr, noteEn, language }) {
         fontFamily: FONTS.body,
         lineHeight: 1.7,
       }}>
-        {tr ? noteTr : noteEn}
+        {stripRefPrefix(tr ? noteTr : noteEn, ref)}
       </p>
     </div>
   );
