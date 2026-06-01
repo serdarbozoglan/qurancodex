@@ -63,6 +63,9 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 1: HERO ═══ */}
       <Hero tr={tr} />
 
+      {/* ═══ SECTION 2: MANIFESTO ═══ */}
+      <Manifesto tr={tr} />
+
       {/* Diğer section'lar sonraki task'larda eklenecek */}
     </div>
   );
@@ -71,6 +74,7 @@ export default function EsmaFrekans({ onClose }) {
 // ═════════════════════════════════════════════════════════════════════════════
 // SECTION 1: HERO — Şûrâ 42:11 + Çift-katman başlık + 4 temel ayet
 // ═════════════════════════════════════════════════════════════════════════════
+
 function Hero({ tr }) {
   return (
     <section style={{
@@ -222,5 +226,186 @@ function Hero({ tr }) {
         {tr ? '114 isim · 6.236 âyet · 1 mimar' : '114 names · 6,236 verses · one architect'}
       </motion.div>
     </section>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 2: MANIFESTO — Celal ↔ Cemal dengesi
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Editoryal sınıflandırma — temsili 5-6 isim her sütunda
+const CELAL_NAMES = [
+  { ar: 'ٱلْجَبَّار',   tr: 'El-Cebbâr',     en: 'al-Jabbār'     },
+  { ar: 'ٱلْقَهَّار',   tr: 'El-Kahhâr',     en: 'al-Qahhār'     },
+  { ar: 'ٱلْعَزِيز',    tr: 'El-Azîz',       en: 'al-ʿAzīz'      },
+  { ar: 'ٱلْمُتَكَبِّر', tr: 'El-Mütekebbir', en: 'al-Mutakabbir' },
+  { ar: 'ٱلْمُنْتَقِم',  tr: 'El-Müntekim',   en: 'al-Muntaqim'   },
+  { ar: 'ذُو ٱلْجَلَال', tr: "Zü'l-Celâl",    en: "Dhū'l-Jalāl"   },
+];
+
+const CEMAL_NAMES = [
+  { ar: 'ٱلرَّحْمَٰن',  tr: 'Er-Rahmân',     en: 'ar-Raḥmān'     },
+  { ar: 'ٱلرَّحِيم',    tr: 'Er-Rahîm',      en: 'ar-Raḥīm'      },
+  { ar: 'ٱلْوَدُود',    tr: 'El-Vedûd',      en: 'al-Wadūd'      },
+  { ar: 'ٱللَّطِيف',    tr: 'El-Latîf',      en: 'al-Laṭīf'      },
+  { ar: 'ٱلرَّؤُوف',    tr: 'Er-Raûf',       en: 'ar-Raʾūf'      },
+  { ar: 'ٱلْغَفُور',    tr: 'El-Gafûr',      en: 'al-Ghafūr'     },
+];
+
+function Manifesto({ tr }) {
+  return (
+    <section style={{
+      padding: '80px 24px',
+      background: 'linear-gradient(180deg, ' + COLORS.cosmicBlack + ' 0%, #0d1b2a 50%, ' + COLORS.cosmicBlack + ' 100%)',
+    }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={sectionLabel}>{tr ? 'Manifesto' : 'Manifesto'}</div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+          color: COLORS.offWhite,
+          fontWeight: 700,
+          margin: '0 0 16px',
+          maxWidth: '600px',
+        }}>
+          {tr ? 'Celal ↔ Cemal' : 'Jalāl ↔ Jamāl'}
+        </h2>
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '1.1rem',
+          lineHeight: 1.8,
+          maxWidth: '720px',
+          marginBottom: '50px',
+        }}>
+          {tr
+            ? "Allah kendini ne uzak ve korkulan bir güç, ne de tek başına bir sığınak olarak tanıtır. Kur'an'ın ilah tasavvuru bir dengedir — sarsılmaz kudret (Celal) ve sığınılacak şefkat (Cemal) bir arada."
+            : "God describes Himself neither as a distant feared power nor as a sole refuge. The Quran's vision of divinity is a balance — unshakable might (Jalāl) and embracing mercy (Jamāl) together."}
+        </p>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '24px',
+        }}>
+          <ColumnCelal tr={tr} />
+          <ColumnCemal tr={tr} />
+        </div>
+
+        <p style={{
+          marginTop: '40px',
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.78rem',
+          fontStyle: 'italic',
+          lineHeight: 1.6,
+          opacity: 0.7,
+        }}>
+          {tr
+            ? 'Bu sınıflandırma anlatısal bir denge gösterimi için yapılmıştır; bir isim hem celâl hem cemal boyutuna sahip olabilir.'
+            : 'This classification is for narrative balance only; a single name can carry both Jalāl and Jamāl dimensions.'}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function ColumnCelal({ tr }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.7 }}
+      style={{
+        ...GLASS_CARD,
+        background: 'linear-gradient(135deg, rgba(45,52,80,0.4), rgba(255,255,255,0.04))',
+        border: '1px solid rgba(150,160,200,0.18)',
+        padding: '28px 24px',
+      }}
+    >
+      <div style={{
+        color: '#a8b5d4',
+        fontFamily: FONTS.body,
+        fontSize: '0.72rem',
+        fontWeight: 700,
+        textTransform: 'uppercase',
+        letterSpacing: '0.18em',
+        marginBottom: '8px',
+      }}>
+        {tr ? 'Celal' : 'Jalāl'}
+      </div>
+      <div style={{
+        color: COLORS.silver,
+        fontFamily: FONTS.body,
+        fontSize: '0.78rem',
+        fontStyle: 'italic',
+        marginBottom: '24px',
+      }}>
+        {tr ? 'Sarsılmaz yücelik ve kudret' : 'Unshakable might and majesty'}
+      </div>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        {CELAL_NAMES.map(n => (
+          <li key={n.tr} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: '#c4d0ea' }}>
+              {n.ar}
+            </span>
+            <span style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver }}>
+              {tr ? n.tr : n.en}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+}
+
+function ColumnCemal({ tr }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.7 }}
+      style={{
+        ...GLASS_CARD,
+        background: 'linear-gradient(135deg, rgba(26,122,76,0.18), rgba(212,165,116,0.06))',
+        border: `1px solid ${COLORS.softGoldAlpha30}`,
+        padding: '28px 24px',
+      }}
+    >
+      <div style={{
+        color: COLORS.gold,
+        fontFamily: FONTS.body,
+        fontSize: '0.72rem',
+        fontWeight: 700,
+        textTransform: 'uppercase',
+        letterSpacing: '0.18em',
+        marginBottom: '8px',
+      }}>
+        {tr ? 'Cemal' : 'Jamāl'}
+      </div>
+      <div style={{
+        color: COLORS.silver,
+        fontFamily: FONTS.body,
+        fontSize: '0.78rem',
+        fontStyle: 'italic',
+        marginBottom: '24px',
+      }}>
+        {tr ? 'Sığınılacak şefkat ve sevgi' : 'Embracing mercy and love'}
+      </div>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        {CEMAL_NAMES.map(n => (
+          <li key={n.tr} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.gold }}>
+              {n.ar}
+            </span>
+            <span style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver }}>
+              {tr ? n.tr : n.en}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
   );
 }
