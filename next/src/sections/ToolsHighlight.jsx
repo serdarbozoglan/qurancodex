@@ -11,7 +11,7 @@
 // Tool selection (curated, justified):
 //   1. Ayet Haritası        — VerseGraph, the flagship visualization
 //   2. Peygamberler Atlası  — ProphetAtlas, narrative-spatial analysis
-//   3. Esmaül Hüsna         — EsmaFrekans, divine names frequency
+//   3. Esmâ-i Hüsnâ         — EsmaFrekans, divine names & self-description (114 names)
 //   4. Sebeb-i Nüzul        — SebebiNuzul, bidirectional event/verse search
 //   5. Kıssa Atlası         — KissaAtlas, prophet stories grid
 //   6. Diyalog Ağı          — DiyalogAgi, who speaks to whom
