@@ -1377,6 +1377,169 @@ function NameRow({ item, tr, isOpen, onToggle }) {
   );
 }
 
+// ──────────────────────────────────────────────────────────────────────────────
+// VerseChipGrid — ayet chip'leri tıklanınca aşağıda inline expansion
+// Arapça + TR/EN meal verse-graph-bgem3.json'dan lazy load. Sayfa terk edilmez.
+// ──────────────────────────────────────────────────────────────────────────────
+function VerseChipGrid({ ayetler, tr }) {
+  const [expandedId, setExpandedId] = useState(null); // 'sure:ayet' formatında
+  const [verseGraph, setVerseGraph] = useState(null);
+  const [loadingId, setLoadingId] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleClick = async (a) => {
+    const id = `${a.sure}:${a.ayet}`;
+    if (expandedId === id) {
+      setExpandedId(null);
+      return;
+    }
+    if (verseGraph) {
+      setExpandedId(id);
+      return;
+    }
+    setLoadingId(id);
+    setError(null);
+    try {
+      const map = await loadVerseGraph();
+      setVerseGraph(map);
+      setExpandedId(id);
+    } catch (e) {
+      setError(tr ? 'Ayet verisi yüklenemedi.' : 'Could not load verse data.');
+    } finally {
+      setLoadingId(null);
+    }
+  };
+
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+      {ayetler.map(a => {
+        const id = `${a.sure}:${a.ayet}`;
+        const isExpanded = expandedId === id;
+        const isLoading = loadingId === id;
+        const verse = verseGraph?.get(id);
+        return (
+          <div key={id} style={{ flex: '1 0 auto', minWidth: 'fit-content' }}>
+            <button
+              onClick={() => handleClick(a)}
+              aria-expanded={isExpanded}
+              style={{
+                background: isExpanded ? `${COLORS.gold}22` : 'rgba(255,255,255,0.04)',
+                border: isExpanded ? `1px solid ${COLORS.gold}66` : '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '12px',
+                padding: '4px 10px',
+                fontSize: '0.78rem',
+                color: isExpanded ? COLORS.gold : COLORS.silver,
+                fontFamily: FONTS.body,
+                cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+            >
+              {a.sure_adi || a.sure}:{a.ayet}
+              {isLoading && <span style={{ marginLeft: '6px', opacity: 0.6 }}>…</span>}
+            </button>
+            {isExpanded && verse && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                style={{
+                  overflow: 'hidden',
+                  flexBasis: '100%',
+                  width: '100%',
+                  marginTop: '10px',
+                  marginBottom: '6px',
+                }}
+              >
+                <div style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c, rgba(255,255,255,0.03))`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  borderRadius: '12px',
+                  padding: '18px 22px',
+                }}>
+                  <p
+                    dir="rtl"
+                    lang="ar"
+                    style={{
+                      fontFamily: FONTS.quran,
+                      fontSize: 'clamp(1.15rem, 2vw, 1.45rem)',
+                      color: COLORS.offWhite,
+                      lineHeight: 2.2,
+                      margin: '0 0 14px',
+                      textAlign: 'right',
+                    }}
+                  >
+                    {normalizeArabicForCard(verse.arabic)}
+                  </p>
+                  <p style={{
+                    color: COLORS.silver,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.92rem',
+                    fontStyle: 'italic',
+                    lineHeight: 1.7,
+                    margin: '0 0 8px',
+                  }}>
+                    "{tr ? verse.turkish : verse.english}"
+                  </p>
+                  <p style={{
+                    color: `${COLORS.gold}99`,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.1em',
+                    margin: 0,
+                    textTransform: 'uppercase',
+                  }}>
+                    — {a.sure_adi || a.sure} {a.sure}:{a.ayet}
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </div>
+        );
+      })}
+      {error && (
+        <p style={{ flexBasis: '100%', color: '#e74c3c', fontSize: '0.78rem', margin: '8px 0 0', fontStyle: 'italic' }}>
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// Şared cache: tek bir verse-graph fetch tüm NameDetail'lar arası
+let _verseGraphPromise = null;
+function loadVerseGraph() {
+  if (!_verseGraphPromise) {
+    _verseGraphPromise = fetch('/verse-graph-bgem3.json')
+      .then(r => r.json())
+      .then(arr => {
+        const map = new Map();
+        arr.forEach(v => map.set(v.id, v));
+        return map;
+      })
+      .catch(e => {
+        _verseGraphPromise = null; // re-try on next call if failed
+        throw e;
+      });
+  }
+  return _verseGraphPromise;
+}
+
+// Display-only Arabic normalization (mirror of next/src/lib/arabic.js cleanArabicForDisplay)
+function normalizeArabicForCard(str) {
+  if (!str) return str;
+  return str
+    .replace(/۪/g, 'ِ')
+    .replace(/ۡ/g, 'ْ')
+    .replace(/[ً-ْ]ٓ/gu, 'ٓ')
+    .replace(/ٱ/g, 'ا')
+    .replace(/ی/g, 'ي')
+    .replace(/[ؐ-ؔؖؗ]/g, '')
+    .replace(/[؀-؅]/g, '')
+    .replace(/[۝۞۩]/g, '')
+    .replace(/ۦ/g, ' ')
+    .replace(/[ۖ-۟ۢۨ۫۬]/g, '')
+    .replace(/[﴾﴿]/g, '');
+}
+
 function NameDetail({ item, tr, isAllah }) {
   const [showAllAyets, setShowAllAyets] = useState(false);
   const kok = KOK_ANALIZ[item.isim];
@@ -1479,26 +1642,7 @@ function NameDetail({ item, tr, isAllah }) {
           ? `${item.kuranda_gecis_sayisi} âyette geçer`
           : `Appears in ${item.kuranda_gecis_sayisi} verses`}
       </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-        {(ayetler || []).slice(0, 30).map(a => (
-          <a
-            key={`${a.sure}-${a.ayet}`}
-            href={`/${tr ? 'tr' : 'en'}/oku/${a.sure}`}
-            style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '4px 10px',
-              fontSize: '0.78rem',
-              color: COLORS.silver,
-              fontFamily: FONTS.body,
-              textDecoration: 'none',
-            }}
-          >
-            {a.sure_adi || a.sure}:{a.ayet}
-          </a>
-        ))}
-      </div>
+      <VerseChipGrid ayetler={(ayetler || []).slice(0, 30)} tr={tr} />
 
       {/* Buton sadece tum_ayetler içeriği varsa gösterilir. Aksi halde
           aldatıcı olur (kullanıcı tıklar, hiç ek ayet gelmez). */}
