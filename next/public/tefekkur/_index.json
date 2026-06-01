@@ -51,6 +51,53 @@
   ],
   "articles": [
     {
+      "slug": "ayet-koprusu",
+      "titleTr": "Ayet — Gözlemden Hakikate Köprü",
+      "titleEn": "Āya — The Bridge from Observation to Reality",
+      "category": "idrak-suur",
+      "publishedDate": "2024-08-10",
+      "readingMinutes": 6,
+      "tldrTr": "Ayet = gözlem ↔ hakikat mapping'i. Üç tecelli: Kainat (meşhud), İnsan (şâhid), Kur'an (ayet) — Gazâlî üçlüsü. Mana esas, madde mananın cesedi (telos, top-down causality). Câsiye 45'in 4 seviyesi: mümin/yakîn/akıl/tefekkür. Câsiye 45:6 — Allah ayetleri 'bize okur'. Engel: kibir (45:8).",
+      "tldrEn": "Āya = the observation ↔ truth mapping. Three manifestations: Cosmos (mashhūd), Human (shāhid), Quran (āya) — Ghazālī's triad. Meaning primary, matter the body of meaning (telos, top-down causality). Al-Jāthiya 45's four levels: believers/yaqīn/reasoners/reflectors. 45:6 — Allah 'recites' the signs to us. Obstacle: arrogance (45:8).",
+      "status": "draft"
+    },
+    {
+      "slug": "analitik-icgoru-1",
+      "titleTr": "Şuur Kavramı 1: Analitik İçgörü",
+      "titleEn": "Analytic Insight 1: The Concept of Consciousness",
+      "category": "idrak-suur",
+      "seriesNumber": 1,
+      "publishedDate": "2024-08-10",
+      "readingMinutes": 8,
+      "tldrTr": "Şuur = farkındalık dengesi: delusion (vehim) ↔ blindness (körlük) arasında dereceli. Epistemik: coarse-graining ile sonsuz konfigürasyondan semantik obje. Ontolojik: ene = afak↔enfüs musaddiki. Pencere metaforu: opak (Firavun) ↔ şeffaf (Nübüvvet) ene. Fenâ = şeffaflaşmak. Haşr 59:19 paradoksu.",
+      "tldrEn": "Consciousness = the balance of awareness between delusion and blindness, graded. Epistemic: coarse-graining infinite configurations into semantic objects. Ontological: the ene as muṣaddiq between āfāq↔anfus. Window metaphor: opaque (Pharaoh) ↔ transparent (Prophetic) ene. Fanāʾ = becoming transparent. The paradox of Al-Ḥashr 59:19.",
+      "status": "draft"
+    },
+    {
+      "slug": "analitik-icgoru-2",
+      "titleTr": "Şuur Kavramı 2: Analitik İçgörü",
+      "titleEn": "Analytic Insight 2: The Concept of Consciousness",
+      "category": "idrak-suur",
+      "seriesNumber": 2,
+      "publishedDate": "2024-08-20",
+      "readingMinutes": 12,
+      "tldrTr": "Şuur = yerel↔global utility hizalama mekanizması. Generalized Utility: kainatın maksimize ettiği nicelik. Ene şeffaflığı = alignment. İnek vs insan: aynı utility, farklı şuur açıklığı. LMEP/MEPP fiziği. Bediüzzaman 30. Lema: hayat-şuur süzülmüş hülâsa. İman = telos var; küfür = sadece efficient cause. Alignment = Transparency.",
+      "tldrEn": "Consciousness = the mechanism that aligns local↔global utility. Generalized Utility: the quantity the cosmos maximizes. Ene-transparency = alignment. Cow vs human: same utility, different consciousness-openness. MEPP physics. Bediüzzaman 30th Lemʿa: life-consciousness as distilled essence. Faith = telos exists; disbelief = only efficient cause. Alignment = Transparency.",
+      "status": "draft"
+    },
+    {
+      "slug": "analitik-icgoru-3",
+      "titleTr": "Şuur Kavramı 3: Analitik İçgörü",
+      "titleEn": "Analytic Insight 3: The Concept of Consciousness",
+      "category": "idrak-suur",
+      "seriesNumber": 3,
+      "publishedDate": "2024-08-30",
+      "readingMinutes": 11,
+      "tldrTr": "Şuurun inkişafı ↔ inhitatı. Açılma yolu: tezkiye/zamansal/ilişkisel genişleme + bil gayb + musibet & inziva + ibadet & zikir. Kapanma yolu: dar özdeşleşme + Allah'ı unutma + ene'nin kalınlaşması + tağutla özdeşleşme. Sonuç 4 boyutta: epistemik/ontolojik/ahlaki/eskatolojik.",
+      "tldrEn": "Consciousness's opening ↔ closing. Opening path: tazkiya / temporal & relational expansion / bil-ghayb / calamity & retreat / worship & dhikr. Closing path: narrow identification / forgetting Allah / thickening of the ene / ṭāghūt-identification. Results across 4 dimensions: epistemic / ontological / ethical / eschatological.",
+      "status": "draft"
+    },
+    {
       "slug": "sonsuzlugun-merdiveni",
       "titleTr": "İdrak 1: Sonsuzluğun Merdiveni",
       "titleEn": "Cognition 1: The Ladder of the Infinite",
