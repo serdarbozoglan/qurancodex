@@ -1757,11 +1757,49 @@ const KOK_ANALIZ = {
 };
 
 const CATEGORY_FILTERS = [
-  { key: 'all',          labelTr: 'Tümü',           labelEn: 'All'           },
-  { key: 'isim',         labelTr: 'Lafza-i Celâl',  labelEn: 'Divine Name'   },
-  { key: 'esma',         labelTr: 'Esmâ-i Hüsnâ',  labelEn: 'Esmā-i Ḥusnā' },
-  { key: 'kurani_sifat', labelTr: "Kur'ânî Sıfat",  labelEn: 'Quranic Attr.' },
+  { key: 'all',          labelTr: 'Tümü',              labelEn: 'All'              },
+  { key: 'favorites',    labelTr: 'Tefekkür Listem',   labelEn: 'My List'          },
+  { key: 'isim',         labelTr: 'Lafza-i Celâl',     labelEn: 'Divine Name'      },
+  { key: 'esma',         labelTr: 'Esmâ-i Hüsnâ',     labelEn: 'Esmā-i Ḥusnā'    },
+  { key: 'kurani_sifat', labelTr: "Kur'ânî Sıfat",     labelEn: 'Quranic Attr.'    },
 ];
+
+// ── useFavorites — localStorage'da Set olarak tutulan favori isim listesi
+// SSR-safe: initial state false/empty, useEffect'te hydrate.
+// Storage key versioned (v1) ki ileride şema değişikliği yönetilebilsin.
+const FAV_STORAGE_KEY = 'esma-favorites-v1';
+function useFavorites() {
+  const [favorites, setFavorites] = useState(() => new Set());
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(FAV_STORAGE_KEY);
+      if (raw) {
+        const arr = JSON.parse(raw);
+        if (Array.isArray(arr)) setFavorites(new Set(arr));
+      }
+    } catch { /* corrupted JSON → start fresh */ }
+    setHydrated(true);
+  }, []);
+
+  const persist = (next) => {
+    try { localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify([...next])); }
+    catch { /* quota or private mode — silently fail */ }
+  };
+
+  const toggle = (isim) => {
+    setFavorites(prev => {
+      const next = new Set(prev);
+      if (next.has(isim)) next.delete(isim);
+      else next.add(isim);
+      persist(next);
+      return next;
+    });
+  };
+
+  return { favorites, toggle, hydrated };
+}
 
 const SORT_OPTIONS = [
   { value: 'no',         labelTr: 'Sıra',       labelEn: 'Order'  },
@@ -1777,6 +1815,7 @@ function NamesAtlas({ data, tr }) {
   const [sort, setSort] = useState('no');
   const [openId, setOpenId] = useState(null);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const { favorites, toggle: toggleFavorite, hydrated: favHydrated } = useFavorites();
 
   const filtered = useMemo(() => {
     if (!data?.isimler) return [];
@@ -1784,7 +1823,8 @@ function NamesAtlas({ data, tr }) {
       ...n,
       displayCount: n.isim === 'Allah' ? ALLAH_CLASSIC_COUNT : n.kuranda_gecis_sayisi,
     }));
-    if (filter !== 'all') rows = rows.filter(n => n.kategori === filter);
+    if (filter === 'favorites') rows = rows.filter(n => favorites.has(n.isim));
+    else if (filter !== 'all') rows = rows.filter(n => n.kategori === filter);
     const q = search.trim().toLowerCase();
     if (q) {
       rows = rows.filter(n =>
@@ -1797,7 +1837,7 @@ function NamesAtlas({ data, tr }) {
     if (sort === 'count_desc') rows.sort((a, b) => b.displayCount - a.displayCount);
     else if (sort === 'count_asc') rows.sort((a, b) => a.displayCount - b.displayCount);
     return rows;
-  }, [data, filter, search, sort]);
+  }, [data, filter, search, sort, favorites]);
 
   useEffect(() => { setVisibleCount(PAGE_SIZE); }, [filter, search, sort]);
 
@@ -1869,26 +1909,52 @@ function NamesAtlas({ data, tr }) {
         </div>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px', overflowX: 'auto' }}>
-          {CATEGORY_FILTERS.map(f => (
-            <button
-              key={f.key}
-              onClick={() => setFilter(f.key)}
-              aria-pressed={filter === f.key}
-              style={{
-                background: filter === f.key ? `${COLORS.gold}22` : 'transparent',
-                border: filter === f.key ? `1px solid ${COLORS.gold}55` : '1px solid rgba(255,255,255,0.1)',
-                color: filter === f.key ? COLORS.gold : COLORS.silver,
-                borderRadius: '20px',
-                padding: '6px 14px',
-                fontSize: '0.82rem',
-                fontFamily: FONTS.body,
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {tr ? f.labelTr : f.labelEn}
-            </button>
-          ))}
+          {CATEGORY_FILTERS.map(f => {
+            // Favori chip'inde sayım göster — kullanıcı listesinin boyutunu görür
+            const isFav = f.key === 'favorites';
+            const showCount = isFav && favHydrated && favorites.size > 0;
+            return (
+              <button
+                key={f.key}
+                onClick={() => setFilter(f.key)}
+                aria-pressed={filter === f.key}
+                style={{
+                  background: filter === f.key ? `${COLORS.gold}22` : 'transparent',
+                  border: filter === f.key ? `1px solid ${COLORS.gold}55` : '1px solid rgba(255,255,255,0.1)',
+                  color: filter === f.key ? COLORS.gold : COLORS.silver,
+                  borderRadius: '20px',
+                  padding: '6px 14px',
+                  fontSize: '0.82rem',
+                  fontFamily: FONTS.body,
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}
+              >
+                {isFav && (
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                )}
+                {tr ? f.labelTr : f.labelEn}
+                {showCount && (
+                  <span style={{
+                    background: `${COLORS.gold}33`,
+                    color: COLORS.gold,
+                    borderRadius: '999px',
+                    padding: '1px 7px',
+                    fontSize: '0.7rem',
+                    fontWeight: 700,
+                    lineHeight: 1.5,
+                  }}>
+                    {favorites.size}
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
 
         {/* Liste */}
@@ -1900,6 +1966,9 @@ function NamesAtlas({ data, tr }) {
               tr={tr}
               isOpen={openId === n.isim}
               onToggle={() => setOpenId(openId === n.isim ? null : n.isim)}
+              isFavorite={favorites.has(n.isim)}
+              onToggleFavorite={() => toggleFavorite(n.isim)}
+              favHydrated={favHydrated}
             />
           ))}
         </div>
@@ -1926,7 +1995,11 @@ function NamesAtlas({ data, tr }) {
 
         {filtered.length === 0 && (
           <div style={{ textAlign: 'center', padding: '40px 0', color: COLORS.silver, fontSize: '0.92rem' }}>
-            {tr ? 'Sonuç bulunamadı.' : 'No results found.'}
+            {filter === 'favorites' && favorites.size === 0
+              ? (tr
+                  ? 'Listeniz boş. İsimlerin yanındaki yıldıza tıklayarak Tefekkür Listenizi oluşturun.'
+                  : 'Your list is empty. Tap the star next to any name to build your list.')
+              : (tr ? 'Sonuç bulunamadı.' : 'No results found.')}
           </div>
         )}
       </div>
@@ -1934,10 +2007,10 @@ function NamesAtlas({ data, tr }) {
   );
 }
 
-function NameRow({ item, tr, isOpen, onToggle }) {
+function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, favHydrated }) {
   const isAllah = item.isim === 'Allah';
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
@@ -1949,7 +2022,7 @@ function NameRow({ item, tr, isOpen, onToggle }) {
           background: isOpen ? 'rgba(212,165,116,0.06)' : 'rgba(255,255,255,0.02)',
           border: isOpen ? `1px solid ${COLORS.gold}44` : '1px solid rgba(255,255,255,0.06)',
           borderRadius: '10px',
-          padding: '14px 18px',
+          padding: '14px 18px 14px 50px', // sol padding 50px — yıldız butonu için
           color: COLORS.offWhite,
           fontFamily: FONTS.body,
           cursor: 'pointer',
@@ -1992,6 +2065,44 @@ function NameRow({ item, tr, isOpen, onToggle }) {
         </span>
       </button>
 
+      {/* Favori (yıldız) butonu — row'un sol başında, absolutely positioned.
+          Tıklama row toggle'ı tetiklemesin diye stopPropagation. */}
+      {favHydrated && (
+        <button
+          type="button"
+          onClick={e => { e.stopPropagation(); onToggleFavorite(); }}
+          aria-label={isFavorite
+            ? (tr ? 'Tefekkür listemden çıkar' : 'Remove from my list')
+            : (tr ? 'Tefekkür listeme ekle' : 'Add to my list')}
+          aria-pressed={isFavorite}
+          style={{
+            position: 'absolute',
+            left: '12px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '28px',
+            height: '28px',
+            borderRadius: '50%',
+            background: isFavorite ? `${COLORS.gold}22` : 'transparent',
+            border: `1px solid ${isFavorite ? COLORS.gold + '66' : 'rgba(255,255,255,0.12)'}`,
+            color: isFavorite ? COLORS.gold : 'rgba(148,163,184,0.55)',
+            cursor: 'pointer',
+            transition: 'all 0.18s',
+            padding: 0,
+            zIndex: 2,
+          }}
+          onMouseEnter={e => { if (!isFavorite) { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = `${COLORS.gold}55`; } }}
+          onMouseLeave={e => { if (!isFavorite) { e.currentTarget.style.color = 'rgba(148,163,184,0.55)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; } }}
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill={isFavorite ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" aria-hidden="true">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </button>
+      )}
+
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -2001,7 +2112,7 @@ function NameRow({ item, tr, isOpen, onToggle }) {
           <NameDetail item={item} tr={tr} isAllah={isAllah} />
         </motion.div>
       )}
-    </>
+    </div>
   );
 }
 
