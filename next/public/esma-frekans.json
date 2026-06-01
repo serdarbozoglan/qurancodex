@@ -1,1104 +1,1466 @@
 {
-  "names": [
-    {
-      "no": 1,
-      "arabic": "اللَّه",
-      "name": "Allah",
-      "meaning": "Özel İsim (tek ilah)",
-      "count": 2699,
-      "countDisplay": "2699",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 2,
-      "arabic": "الرَّحْمَٰن",
-      "name": "Er-Rahmân",
-      "meaning": "En Merhametli",
-      "count": 57,
-      "countDisplay": "57",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 3,
-      "arabic": "الرَّحِيم",
-      "name": "Er-Rahîm",
-      "meaning": "Çok Merhamet Eden",
-      "count": 114,
-      "countDisplay": "114/123",
-      "status": "disputed",
-      "tooltipTr": "Besmele dahil/hariç kaynaklara göre değişir",
-      "tooltipEn": "Varies by source depending on whether Bismillah is included"
-    },
-    {
-      "no": 4,
-      "arabic": "الْمَلِك",
-      "name": "El-Melik",
-      "meaning": "Hükümdar",
-      "count": 5,
-      "countDisplay": "5",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 5,
-      "arabic": "الْقُدُّوس",
-      "name": "El-Kuddûs",
-      "meaning": "Çok Kutsal",
-      "count": 2,
-      "countDisplay": "2",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 6,
-      "arabic": "السَّلَام",
-      "name": "Es-Selâm",
-      "meaning": "Esenlik Kaynağı",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 7,
-      "arabic": "الْمُؤْمِن",
-      "name": "El-Mü'min",
-      "meaning": "Güven Veren",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 8,
-      "arabic": "الْمُهَيْمِن",
-      "name": "El-Müheymin",
-      "meaning": "Gözetip Koruyan",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 9,
-      "arabic": "الْعَزِيز",
-      "name": "El-Azîz",
-      "meaning": "Güçlü ve Üstün",
-      "count": 92,
-      "countDisplay": "92",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 10,
-      "arabic": "الْجَبَّار",
-      "name": "El-Cebbâr",
-      "meaning": "İradesini Geçiren",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 11,
-      "arabic": "الْمُتَكَبِّر",
-      "name": "El-Mütekebbir",
-      "meaning": "Büyüklükte Eşsiz",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 12,
-      "arabic": "الْخَالِق",
-      "name": "El-Hâlik",
-      "meaning": "Yaratan",
-      "count": 8,
-      "countDisplay": "8",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 13,
-      "arabic": "الْبَارِئ",
-      "name": "El-Bârî",
-      "meaning": "Yoktan Var Eden",
-      "count": 2,
-      "countDisplay": "2/3",
-      "status": "disputed",
-      "tooltipTr": "Kaynak farkı: bazı sayımlarda 3",
-      "tooltipEn": "Source discrepancy: some counts give 3"
-    },
-    {
-      "no": 14,
-      "arabic": "الْمُصَوِّر",
-      "name": "El-Musavvir",
-      "meaning": "Şekil Veren",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 15,
-      "arabic": "الْغَفَّار",
-      "name": "El-Gaffâr",
-      "meaning": "Çok Bağışlayan",
-      "count": 5,
-      "countDisplay": "5",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 16,
-      "arabic": "الْقَهَّار",
-      "name": "El-Kahhâr",
-      "meaning": "Her Şeye Galip",
-      "count": 6,
-      "countDisplay": "6",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 17,
-      "arabic": "الْوَهَّاب",
-      "name": "El-Vehhâb",
-      "meaning": "Karşılıksız Veren",
-      "count": 3,
-      "countDisplay": "3",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 18,
-      "arabic": "الرَّزَّاق",
-      "name": "Er-Rezzâk",
-      "meaning": "Rızık Veren",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 19,
-      "arabic": "الْفَتَّاح",
-      "name": "El-Fettâh",
-      "meaning": "Çok Açan / En İyi Hakem",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 20,
-      "arabic": "الْعَلِيم",
-      "name": "El-Alîm",
-      "meaning": "Her Şeyi Bilen",
-      "count": 157,
-      "countDisplay": "157",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 21,
-      "arabic": "الْقَابِض",
-      "name": "El-Kâbid",
-      "meaning": "Tutan / Daraltan",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 22,
-      "arabic": "الْبَاسِط",
-      "name": "El-Bâsit",
-      "meaning": "Açan / Genişleten",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 23,
-      "arabic": "الْخَافِض",
-      "name": "El-Hâfid",
-      "meaning": "Alçaltan",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 24,
-      "arabic": "الرَّافِع",
-      "name": "Er-Râfi",
-      "meaning": "Yükselten",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 25,
-      "arabic": "الْمُعِزّ",
-      "name": "El-Muizz",
-      "meaning": "İzzet Veren",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 26,
-      "arabic": "الْمُذِلّ",
-      "name": "El-Müzill",
-      "meaning": "Alçaltan / Zillete Düşüren",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 27,
-      "arabic": "السَّمِيع",
-      "name": "Es-Semî",
-      "meaning": "Her Şeyi İşiten",
-      "count": 45,
-      "countDisplay": "45",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 28,
-      "arabic": "الْبَصِير",
-      "name": "El-Basîr",
-      "meaning": "Her Şeyi Gören",
-      "count": 42,
-      "countDisplay": "42",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 29,
-      "arabic": "الْحَكَم",
-      "name": "El-Hakem",
-      "meaning": "Hakem",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 30,
-      "arabic": "الْعَدْل",
-      "name": "El-Adl",
-      "meaning": "Adalet Sahibi",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 31,
-      "arabic": "اللَّطِيف",
-      "name": "El-Latîf",
-      "meaning": "Lütuf Sahibi",
-      "count": 7,
-      "countDisplay": "7",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 32,
-      "arabic": "الْخَبِير",
-      "name": "El-Habîr",
-      "meaning": "Her Şeyden Haberdar",
-      "count": 45,
-      "countDisplay": "45",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 33,
-      "arabic": "الْحَلِيم",
-      "name": "El-Halîm",
-      "meaning": "Yumuşak Davranan",
-      "count": 15,
-      "countDisplay": "15",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 34,
-      "arabic": "الْعَظِيم",
-      "name": "El-Azîm",
-      "meaning": "Büyüklük Sahibi",
-      "count": 8,
-      "countDisplay": "8",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 35,
-      "arabic": "الْغَفُور",
-      "name": "El-Gafûr",
-      "meaning": "Çok Bağışlayan",
-      "count": 91,
-      "countDisplay": "91",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 36,
-      "arabic": "الشَّكُور",
-      "name": "Eş-Şekûr",
-      "meaning": "Çok Şükredilen",
-      "count": 4,
-      "countDisplay": "4",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 37,
-      "arabic": "الْعَلِيّ",
-      "name": "El-Aliyy",
-      "meaning": "En Yüce",
-      "count": 8,
-      "countDisplay": "8",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 38,
-      "arabic": "الْكَبِير",
-      "name": "El-Kebîr",
-      "meaning": "Büyük",
-      "count": 6,
-      "countDisplay": "6",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 39,
-      "arabic": "الْحَفِيظ",
-      "name": "El-Hafîz",
-      "meaning": "Koruyan",
-      "count": 3,
-      "countDisplay": "3",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 40,
-      "arabic": "الْمُقِيت",
-      "name": "El-Mukît",
-      "meaning": "Rızkı Yaratan",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 41,
-      "arabic": "الْحَسِيب",
-      "name": "El-Hasîb",
-      "meaning": "Hesap Gören",
-      "count": 3,
-      "countDisplay": "3",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 42,
-      "arabic": "الْجَلِيل",
-      "name": "El-Celîl",
-      "meaning": "Celal Sahibi",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 43,
-      "arabic": "الْكَرِيم",
-      "name": "El-Kerîm",
-      "meaning": "Cömert ve Kerim",
-      "count": 2,
-      "countDisplay": "2/27",
-      "status": "disputed",
-      "tooltipTr": "Exact form (el-Kerîm) 2 kez; kök karîm 27 kez geçer",
-      "tooltipEn": "Exact form (al-Karîm) appears 2 times; root karîm appears 27 times"
-    },
-    {
-      "no": 44,
-      "arabic": "الرَّقِيب",
-      "name": "Er-Rakîb",
-      "meaning": "Her Şeyi Gözetleyen",
-      "count": 2,
-      "countDisplay": "2",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 45,
-      "arabic": "الْمُجِيب",
-      "name": "El-Mücîb",
-      "meaning": "Duayı Kabul Eden",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 46,
-      "arabic": "الْوَاسِع",
-      "name": "El-Vâsi",
-      "meaning": "Geniş ve Kuşatıcı",
-      "count": 9,
-      "countDisplay": "9",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 47,
-      "arabic": "الْحَكِيم",
-      "name": "El-Hakîm",
-      "meaning": "Hüküm ve Hikmet Sahibi",
-      "count": 97,
-      "countDisplay": "97",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 48,
-      "arabic": "الْوَدُود",
-      "name": "El-Vedûd",
-      "meaning": "Çok Sevgi Duyan",
-      "count": 2,
-      "countDisplay": "2",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 49,
-      "arabic": "الْمَجِيد",
-      "name": "El-Mecîd",
-      "meaning": "Şeref Sahibi",
-      "count": 2,
-      "countDisplay": "2",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 50,
-      "arabic": "الْبَاعِث",
-      "name": "El-Bâis",
-      "meaning": "Ölüleri Dirilten",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 51,
-      "arabic": "الشَّهِيد",
-      "name": "Eş-Şehîd",
-      "meaning": "Her Şeye Tanık Olan",
-      "count": 18,
-      "countDisplay": "18",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 52,
-      "arabic": "الْحَقّ",
-      "name": "El-Hakk",
-      "meaning": "Mutlak Gerçek",
-      "count": 10,
-      "countDisplay": "10",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 53,
-      "arabic": "الْوَكِيل",
-      "name": "El-Vekîl",
-      "meaning": "Vekil ve Güvenilen",
-      "count": 14,
-      "countDisplay": "14",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 54,
-      "arabic": "الْقَوِيّ",
-      "name": "El-Kaviyy",
-      "meaning": "Güçlü",
-      "count": 9,
-      "countDisplay": "9",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 55,
-      "arabic": "الْمَتِين",
-      "name": "El-Metîn",
-      "meaning": "Çok Güçlü",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 56,
-      "arabic": "الْوَلِيّ",
-      "name": "El-Veliyy",
-      "meaning": "Dost ve Yardımcı",
-      "count": 8,
-      "countDisplay": "8",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 57,
-      "arabic": "الْحَمِيد",
-      "name": "El-Hamîd",
-      "meaning": "Övgüye Layık",
-      "count": 17,
-      "countDisplay": "17",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 58,
-      "arabic": "الْمُحْصِي",
-      "name": "El-Muhsî",
-      "meaning": "Her Şeyi Sayan",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 59,
-      "arabic": "الْمُبْدِئ",
-      "name": "El-Mübdi",
-      "meaning": "İlk Yaratan",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 60,
-      "arabic": "الْمُعِيد",
-      "name": "El-Muîd",
-      "meaning": "Yeniden Yaratan",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 61,
-      "arabic": "الْمُحْيِي",
-      "name": "El-Muhyî",
-      "meaning": "Hayat Veren",
-      "count": 2,
-      "countDisplay": "2",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 62,
-      "arabic": "الْمُمِيت",
-      "name": "El-Mümît",
-      "meaning": "Öldüren",
-      "count": 2,
-      "countDisplay": "2",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 63,
-      "arabic": "الْحَيّ",
-      "name": "El-Hayy",
-      "meaning": "Diri / Ölümsüz",
-      "count": 5,
-      "countDisplay": "5",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 64,
-      "arabic": "الْقَيُّوم",
-      "name": "El-Kayyûm",
-      "meaning": "Her Şeyi Ayakta Tutan",
-      "count": 3,
-      "countDisplay": "3",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 65,
-      "arabic": "الْوَاجِد",
-      "name": "El-Vâcid",
-      "meaning": "İstediğini Bulan",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 66,
-      "arabic": "الْمَاجِد",
-      "name": "El-Mâcid",
-      "meaning": "Şan Sahibi",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 67,
-      "arabic": "الْوَاحِد",
-      "name": "El-Vâhid",
-      "meaning": "Tek ve Bir",
-      "count": 22,
-      "countDisplay": "22",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 68,
-      "arabic": "الْأَحَد",
-      "name": "El-Ahad",
-      "meaning": "Bir ve Eşsiz",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 69,
-      "arabic": "الصَّمَد",
-      "name": "Es-Samed",
-      "meaning": "Her Şey Ona Muhtaç",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 70,
-      "arabic": "الْقَادِر",
-      "name": "El-Kâdir",
-      "meaning": "Güce Sahip",
-      "count": 45,
-      "countDisplay": "45",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 71,
-      "arabic": "الْمُقْتَدِر",
-      "name": "El-Muktedir",
-      "meaning": "Üstün Güç Sahibi",
-      "count": 4,
-      "countDisplay": "4",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 72,
-      "arabic": "الْمُقَدِّم",
-      "name": "El-Mukaddim",
-      "meaning": "Öne Geçiren",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 73,
-      "arabic": "الْمُؤَخِّر",
-      "name": "El-Muahhir",
-      "meaning": "Geri Bırakan",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 74,
-      "arabic": "الْأَوَّل",
-      "name": "El-Evvel",
-      "meaning": "İlk",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 75,
-      "arabic": "الْآخِر",
-      "name": "El-Âhir",
-      "meaning": "Son",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 76,
-      "arabic": "الظَّاهِر",
-      "name": "Ez-Zâhir",
-      "meaning": "Apaçık Olan",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 77,
-      "arabic": "الْبَاطِن",
-      "name": "El-Bâtın",
-      "meaning": "Gizli Olan",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 78,
-      "arabic": "الْوَالِي",
-      "name": "El-Vâlî",
-      "meaning": "Her Şeyin Yöneticisi",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 79,
-      "arabic": "الْمُتَعَالِي",
-      "name": "El-Müteâlî",
-      "meaning": "Yüceler Yücesi",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 80,
-      "arabic": "الْبَرّ",
-      "name": "El-Berr",
-      "meaning": "İyilik Eden",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 81,
-      "arabic": "التَّوَّاب",
-      "name": "Et-Tevvâb",
-      "meaning": "Tövbeleri Kabul Eden",
-      "count": 11,
-      "countDisplay": "11",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 82,
-      "arabic": "الْمُنْتَقِم",
-      "name": "El-Müntakim",
-      "meaning": "İntikam Alan",
-      "count": 3,
-      "countDisplay": "3",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 83,
-      "arabic": "الْعَفُوّ",
-      "name": "El-Afüvv",
-      "meaning": "Affeden",
-      "count": 5,
-      "countDisplay": "5",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 84,
-      "arabic": "الرَّءُوف",
-      "name": "Er-Raûf",
-      "meaning": "Çok Şefkatli",
-      "count": 10,
-      "countDisplay": "10",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 85,
-      "arabic": "مَالِكُ الْمُلْك",
-      "name": "Mâlikü'l-Mülk",
-      "meaning": "Mülkün Gerçek Sahibi",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 86,
-      "arabic": "ذُو الْجَلَال",
-      "name": "Zü'l-Celâl",
-      "meaning": "Celal ve İkram Sahibi",
-      "count": 2,
-      "countDisplay": "2",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 87,
-      "arabic": "الْمُقْسِط",
-      "name": "El-Muksit",
-      "meaning": "Adil Davranan",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 88,
-      "arabic": "الْجَامِع",
-      "name": "El-Câmi",
-      "meaning": "Toplayan",
-      "count": 2,
-      "countDisplay": "2",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 89,
-      "arabic": "الْغَنِيّ",
-      "name": "El-Ganiyy",
-      "meaning": "Zengin ve Müstağni",
-      "count": 18,
-      "countDisplay": "18",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 90,
-      "arabic": "الْمُغْنِي",
-      "name": "El-Muğnî",
-      "meaning": "Zenginleştiren",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 91,
-      "arabic": "الْمَانِع",
-      "name": "El-Mâni",
-      "meaning": "Engelleyen",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 92,
-      "arabic": "الضَّارّ",
-      "name": "Ed-Dârr",
-      "meaning": "Zarar Veren",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 93,
-      "arabic": "النَّافِع",
-      "name": "En-Nâfi",
-      "meaning": "Fayda Veren",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 94,
-      "arabic": "النُّور",
-      "name": "En-Nûr",
-      "meaning": "Işık / Nur",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 95,
-      "arabic": "الْهَادِي",
-      "name": "El-Hâdî",
-      "meaning": "Hidayet Eden",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 96,
-      "arabic": "الْبَدِيع",
-      "name": "El-Bedî",
-      "meaning": "Eşsiz Yaratan",
-      "count": 2,
-      "countDisplay": "2",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 97,
-      "arabic": "الْبَاقِي",
-      "name": "El-Bâkî",
-      "meaning": "Bakî Olan",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
-    },
-    {
-      "no": 98,
-      "arabic": "الْوَارِث",
-      "name": "El-Vâris",
-      "meaning": "Gerçek Mirasçı",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 99,
-      "arabic": "الرَّشِيد",
-      "name": "Er-Reşîd",
-      "meaning": "Doğru Yolu Gösteren",
-      "count": 1,
-      "countDisplay": "1",
-      "status": "verified",
-      "tooltipTr": null,
-      "tooltipEn": null
-    },
-    {
-      "no": 100,
-      "arabic": "الصَّبُور",
-      "name": "Es-Sabûr",
-      "meaning": "Çok Sabırlı",
-      "count": 0,
-      "countDisplay": "—",
-      "status": "hadith_only",
-      "tooltipTr": "Bu isim hadis rivayetiyle sabittir; Kur'an'da bu exact formda geçmez",
-      "tooltipEn": "This name is established through hadith; does not appear in this exact form in the Quran"
+  "baslik": "Allah'ın Kur'an'da Kendini Tanımladığı İsim ve Sıfatlar",
+  "alt_baslik": "Esmâ-i Hüsnâ ve Kur'ânî ilahî sıfatlar — sûre ve âyet referanslarıyla",
+  "aciklama": "Bu veri kümesi, Allah'ın Kur'ân-ı Kerîm'de bizzat kendisi için kullandığı isim ve sıfatları, her birinin geçtiği sûre/âyet referanslarıyla birlikte derler. Geçiş sayıları, Uthmânî metin üzerinde Arapça kök/sıfat formları taranarak hesaplanmıştır. Düşük frekanslı isimlerde tüm âyetler, yüksek frekanslı isimlerde (≥20) ilk 15 örnek âyet ile toplam sayı verilmiştir.",
+  "metodoloji": {
+    "kaynak_metin": "Uthmânî resm-i Mushaf (tam diakritikli, 6236 âyet)",
+    "kalibrasyon": "M. Fuâd Abdülbâkî, el-Mu'cemü'l-Müfehres referans alınarak doğrulandı (ör. Rahmân 57, Rahîm 114, Zü'l-Fadli'l-Azîm 6).",
+    "onemli_not": "Bazı kısa kökler için (ör. el-Hakk 'gerçek/hak', el-Hâlik/el-Hallâk) eş-yazımlı kelimeler tefsir bağlamına göre değerlendirilmelidir. Es-Sabûr, el-Mukaddim, el-Vâcid, el-Mâcid gibi bazı esmâ Kur'an'da bu lafızla geçmeyip hadis kaynaklı esmâ listelerinde yer alır.",
+    "uyari": "Geçiş sayıları, ismin sıfat/lafız formu esas alınarak hesaplanmış yaklaşık değerlerdir; klasik konkordanslarla küçük farklar olabilir."
+  },
+  "temel_ayetler": [
+    { "sure": 7, "sure_adi": "A'râf", "ayet": 180, "meal": "En güzel isimler Allah'ındır; O'na o isimlerle dua edin." },
+    { "sure": 17, "sure_adi": "İsrâ", "ayet": 110, "meal": "De ki: İster Allah deyin, ister Rahmân deyin; hangisini deseniz en güzel isimler O'nundur." },
+    { "sure": 20, "sure_adi": "Tâhâ", "ayet": 8, "meal": "Allah — O'ndan başka ilah yoktur; en güzel isimler O'nundur." },
+    { "sure": 59, "sure_adi": "Haşr", "ayet": 24, "meal": "O, yaratan, kusursuzca var eden, şekil veren Allah'tır. En güzel isimler O'nundur." }
+  ],
+  "kategoriler": [
+    { "id": "isim", "etiket": "Lafza-i Celâl", "aciklama": "Allah'ın özel adı" },
+    { "id": "esma", "etiket": "Esmâ-i Hüsnâ", "aciklama": "Klasik 99 güzel isim çerçevesindeki isimler" },
+    { "id": "kurani_sifat", "etiket": "Kur'ânî Sıfat / Tamlama", "aciklama": "Kur'an'da geçen ilave ilahî sıfat ve tamlamalar (ör. Rabbü'l-Âlemîn, Erhamü'r-Râhimîn)" }
+  ],
+  "toplam_isim_sayisi": 114,
+  "isimler": [
+    {
+      "isim": "Allah",
+      "arapca": "ٱللَّه",
+      "okunus": "Allah",
+      "anlam": "Yüce yaratıcının özel adı (lafza-i celâl)",
+      "aciklama": "İsm-i a'zam, zâtın özel adı",
+      "kategori": "isim",
+      "kategori_etiket": "Lafza-i Celâl",
+      "kuranda_gecis_sayisi": 1813,
+      "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 1, "sure_adi": "Fâtiha", "ayet": 1 }, { "sure": 1, "sure_adi": "Fâtiha", "ayet": 2 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 7 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 8 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 9 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 10 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 15 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 17 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 19 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 20 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 22 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 23 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 26 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 27 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 28 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 1813 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Hakk", "arapca": "ٱلْحَقّ", "okunus": "al-Hakk",
+      "anlam": "Varlığı ve hâkimiyeti gerçek olan", "aciklama": "Mutlak gerçek olan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 176, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 26 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 42 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 61 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 71 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 91 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 109 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 119 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 144 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 146 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 147 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 176 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 213 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 252 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 282 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 3 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 176 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Alîm", "arapca": "ٱلْعَلِيم", "okunus": "al-Alîm",
+      "anlam": "Her şeyi hakkıyla bilen", "aciklama": "Gizli açık her şeyi bilen",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 161, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 29 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 32 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 95 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 115 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 127 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 137 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 158 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 181 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 215 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 224 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 227 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 231 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 244 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 246 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 247 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 161 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "Er-Rahîm", "arapca": "ٱلرَّحِيم", "okunus": "ar-Rahîm",
+      "anlam": "Çok merhametli, bağışlayan", "aciklama": "Âhirette müminlere özel merhamet eden",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 115, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 1, "sure_adi": "Fâtiha", "ayet": 1 }, { "sure": 1, "sure_adi": "Fâtiha", "ayet": 3 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 37 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 54 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 128 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 143 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 160 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 163 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 173 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 182 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 192 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 199 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 218 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 226 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 31 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 115 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Azîm", "arapca": "ٱلْعَظِيم", "okunus": "al-Azîm",
+      "anlam": "Pek yüce, azamet sahibi", "aciklama": "Büyüklükte sınırsız",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 107, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 7 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 49 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 105 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 114 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 255 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 74 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 105 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 172 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 174 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 176 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 179 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 13 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 27 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 40 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 48 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 107 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Azîz", "arapca": "ٱلْعَزِيز", "okunus": "al-Azîz",
+      "anlam": "Mutlak galip, izzet sahibi, yenilmez", "aciklama": "Her şeye galip, asla mağlup olmayan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 99, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 129 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 209 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 220 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 228 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 240 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 260 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 4 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 6 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 18 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 62 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 126 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 56 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 158 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 165 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 38 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 99 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Hakîm", "arapca": "ٱلْحَكِيم", "okunus": "al-Hakîm",
+      "anlam": "Her işi hikmetli olan", "aciklama": "Hikmet sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 97, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 32 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 129 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 209 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 220 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 228 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 240 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 260 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 6 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 18 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 58 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 62 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 126 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 11 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 17 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 24 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 97 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Gafûr", "arapca": "ٱلْغَفُور", "okunus": "al-Gafûr",
+      "anlam": "Çok bağışlayıcı, mağfireti bol", "aciklama": "Günahları örtüp affeden",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 91, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 173 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 182 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 192 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 199 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 218 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 225 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 226 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 235 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 31 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 89 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 129 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 155 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 23 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 25 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 43 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 91 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Melik", "arapca": "ٱلْمَلِك", "okunus": "al-Melik",
+      "anlam": "Mülkün ve her şeyin sahibi, hükümran", "aciklama": "Bütün kâinatın gerçek mâliki ve hükümdarı",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 72, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 1, "sure_adi": "Fâtiha", "ayet": 4 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 102 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 107 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 246 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 247 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 251 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 258 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 26 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 189 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 53 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 54 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 17 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 18 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 25 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 40 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 72 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Veliyy", "arapca": "ٱلْوَلِيّ", "okunus": "al-Veliyy",
+      "anlam": "Dost, yardımcı, koruyucu", "aciklama": "Müminlerin dostu ve yardımcısı",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 61, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 107 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 120 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 257 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 13 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 68 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 190 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 45 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 59 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 75 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 83 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 89 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 95 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 119 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 123 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 173 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 61 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "Er-Rahmân", "arapca": "ٱلرَّحْمَٰن", "okunus": "ar-Rahmân",
+      "anlam": "Rahmeti her şeyi kuşatan, esirgeyen", "aciklama": "Dünyada tüm yaratılmışlara merhamet eden",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 60, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 1, "sure_adi": "Fâtiha", "ayet": 1 }, { "sure": 1, "sure_adi": "Fâtiha", "ayet": 3 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 163 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 286 },
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 155 }, { "sure": 13, "sure_adi": "Ra'd", "ayet": 30 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 110 }, { "sure": 19, "sure_adi": "Meryem", "ayet": 18 },
+        { "sure": 19, "sure_adi": "Meryem", "ayet": 26 }, { "sure": 19, "sure_adi": "Meryem", "ayet": 44 },
+        { "sure": 19, "sure_adi": "Meryem", "ayet": 45 }, { "sure": 19, "sure_adi": "Meryem", "ayet": 58 },
+        { "sure": 19, "sure_adi": "Meryem", "ayet": 61 }, { "sure": 19, "sure_adi": "Meryem", "ayet": 69 },
+        { "sure": 19, "sure_adi": "Meryem", "ayet": 75 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 60 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Hâdî", "arapca": "ٱلْهَادِي", "okunus": "al-Hâdî",
+      "anlam": "Hidayet veren, doğru yola ileten", "aciklama": "Doğru yola ileten",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 59, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 26 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 142 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 196 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 213 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 258 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 264 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 272 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 86 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 2 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 16 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 51 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 67 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 97 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 108 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 88 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 59 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Basîr", "arapca": "ٱلْبَصِير", "okunus": "al-Basîr",
+      "anlam": "Her şeyi gören", "aciklama": "Gizli açık her şeyi gören",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 51, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 96 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 110 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 233 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 237 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 265 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 15 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 20 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 156 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 163 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 58 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 134 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 71 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 50 }, { "sure": 8, "sure_adi": "Enfâl", "ayet": 39 },
+        { "sure": 8, "sure_adi": "Enfâl", "ayet": 72 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 51 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "Es-Semî'", "arapca": "ٱلسَّمِيع", "okunus": "as-Semî'",
+      "anlam": "Her şeyi işiten", "aciklama": "Bütün sesleri işiten",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 47, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 127 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 137 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 181 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 224 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 227 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 244 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 256 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 34 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 35 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 38 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 121 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 58 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 134 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 148 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 76 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 47 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Habîr", "arapca": "ٱلْخَبِير", "okunus": "al-Habîr",
+      "anlam": "Her şeyden haberdar olan", "aciklama": "İçyüzünden haberdar olan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 45, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 234 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 271 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 153 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 180 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 35 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 94 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 128 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 135 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 8 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 18 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 73 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 103 },
+        { "sure": 9, "sure_adi": "Tevbe", "ayet": 16 }, { "sure": 11, "sure_adi": "Hûd", "ayet": 1 },
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 111 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 45 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "Er-Rezzâk", "arapca": "ٱلرَّزَّاق", "okunus": "ar-Rezzâk",
+      "anlam": "Bütün canlıların rızkını veren", "aciklama": "Her mahlûkun rızkını üstlenen",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 43, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 22 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 25 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 60 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 126 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 37 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 32 },
+        { "sure": 8, "sure_adi": "Enfâl", "ayet": 4 }, { "sure": 8, "sure_adi": "Enfâl", "ayet": 74 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 59 }, { "sure": 11, "sure_adi": "Hûd", "ayet": 88 },
+        { "sure": 13, "sure_adi": "Ra'd", "ayet": 26 }, { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 32 },
+        { "sure": 16, "sure_adi": "Nahl", "ayet": 67 }, { "sure": 16, "sure_adi": "Nahl", "ayet": 71 },
+        { "sure": 16, "sure_adi": "Nahl", "ayet": 73 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 43 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Kebîr", "arapca": "ٱلْكَبِير", "okunus": "al-Kebîr",
+      "anlam": "Mutlak büyük", "aciklama": "Büyüklükte eşsiz",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 36, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 217 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 219 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 282 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 2 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 34 }, { "sure": 8, "sure_adi": "Enfâl", "ayet": 73 },
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 3 }, { "sure": 11, "sure_adi": "Hûd", "ayet": 11 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 78 }, { "sure": 13, "sure_adi": "Ra'd", "ayet": 9 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 4 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 9 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 31 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 43 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 60 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 36 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "Eş-Şehîd", "arapca": "ٱلشَّهِيد", "okunus": "eş-Şehîd",
+      "anlam": "Her şeye şahit olan", "aciklama": "Her şeye tanık",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 32, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 143 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 282 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 98 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 33 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 41 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 72 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 79 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 159 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 166 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 117 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 19 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 29 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 46 }, { "sure": 13, "sure_adi": "Ra'd", "ayet": 43 },
+        { "sure": 16, "sure_adi": "Nahl", "ayet": 84 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 32 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Ehad", "arapca": "ٱلْأَحَد", "okunus": "al-Ehad",
+      "anlam": "Bölünmez biricik, mutlak tek", "aciklama": "Zâtında mutlak tek",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 32, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 102 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 136 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 285 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 73 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 84 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 153 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 43 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 152 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 6 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 80 },
+        { "sure": 9, "sure_adi": "Tevbe", "ayet": 6 }, { "sure": 9, "sure_adi": "Tevbe", "ayet": 84 },
+        { "sure": 9, "sure_adi": "Tevbe", "ayet": 127 }, { "sure": 11, "sure_adi": "Hûd", "ayet": 81 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 4 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 32 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Kâdir", "arapca": "ٱلْقَادِر", "okunus": "al-Kâdir",
+      "anlam": "Her şeye gücü yeten", "aciklama": "Mutlak kudret sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 30, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 37 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 65 },
+        { "sure": 15, "sure_adi": "Hicr", "ayet": 21 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 99 },
+        { "sure": 20, "sure_adi": "Tâhâ", "ayet": 40 }, { "sure": 23, "sure_adi": "Mü'minûn", "ayet": 18 },
+        { "sure": 33, "sure_adi": "Ahzâb", "ayet": 38 }, { "sure": 34, "sure_adi": "Sebe'", "ayet": 11 },
+        { "sure": 36, "sure_adi": "Yâsîn", "ayet": 81 }, { "sure": 41, "sure_adi": "Fussilet", "ayet": 10 },
+        { "sure": 42, "sure_adi": "Şûrâ", "ayet": 27 }, { "sure": 43, "sure_adi": "Zuhruf", "ayet": 11 },
+        { "sure": 46, "sure_adi": "Ahkâf", "ayet": 33 }, { "sure": 54, "sure_adi": "Kamer", "ayet": 12 },
+        { "sure": 54, "sure_adi": "Kamer", "ayet": 49 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 30 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Âhir", "arapca": "ٱلْآخِر", "okunus": "al-Âhir",
+      "anlam": "Sonu olmayan son", "aciklama": "Her şeyden sonra bâki kalan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 30, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 8 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 62 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 126 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 177 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 228 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 232 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 264 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 114 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 38 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 39 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 59 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 136 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 162 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 27 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 69 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 30 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Kerîm", "arapca": "ٱلْكَرِيم", "okunus": "al-Kerîm",
+      "anlam": "Çok cömert, ikram sahibi", "aciklama": "Cömertliği sınırsız",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 27, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 31 }, { "sure": 8, "sure_adi": "Enfâl", "ayet": 4 },
+        { "sure": 8, "sure_adi": "Enfâl", "ayet": 74 }, { "sure": 12, "sure_adi": "Yûsuf", "ayet": 31 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 23 }, { "sure": 22, "sure_adi": "Hac", "ayet": 50 },
+        { "sure": 23, "sure_adi": "Mü'minûn", "ayet": 116 }, { "sure": 24, "sure_adi": "Nûr", "ayet": 26 },
+        { "sure": 26, "sure_adi": "Şuarâ", "ayet": 7 }, { "sure": 26, "sure_adi": "Şuarâ", "ayet": 58 },
+        { "sure": 27, "sure_adi": "Neml", "ayet": 29 }, { "sure": 27, "sure_adi": "Neml", "ayet": 40 },
+        { "sure": 31, "sure_adi": "Lokmân", "ayet": 10 }, { "sure": 33, "sure_adi": "Ahzâb", "ayet": 31 },
+        { "sure": 33, "sure_adi": "Ahzâb", "ayet": 44 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 27 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Gaffâr", "arapca": "ٱلْغَفَّار", "okunus": "al-Gaffâr",
+      "anlam": "Günahları çokça örten, bağışlayan", "aciklama": "Tekrar tekrar bağışlayan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 25, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 286 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 16 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 147 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 193 },
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 151 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 155 },
+        { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 41 }, { "sure": 20, "sure_adi": "Tâhâ", "ayet": 82 },
+        { "sure": 23, "sure_adi": "Mü'minûn", "ayet": 109 }, { "sure": 23, "sure_adi": "Mü'minûn", "ayet": 118 },
+        { "sure": 26, "sure_adi": "Şuarâ", "ayet": 86 }, { "sure": 28, "sure_adi": "Kasas", "ayet": 16 },
+        { "sure": 36, "sure_adi": "Yâsîn", "ayet": 27 }, { "sure": 38, "sure_adi": "Sâd", "ayet": 35 },
+        { "sure": 38, "sure_adi": "Sâd", "ayet": 66 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 25 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Vekîl", "arapca": "ٱلْوَكِيل", "okunus": "al-Vekîl",
+      "anlam": "İşleri kendisine tevdi edilen, kefil", "aciklama": "Güvenilip dayanılan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 24, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 173 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 81 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 109 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 132 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 171 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 66 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 102 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 107 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 108 }, { "sure": 11, "sure_adi": "Hûd", "ayet": 12 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 66 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 2 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 54 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 65 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 68 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 24 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Ganî", "arapca": "ٱلْغَنِيّ", "okunus": "al-Ganî",
+      "anlam": "Hiçbir şeye muhtaç olmayan zengin", "aciklama": "Mutlak müstağni",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 22, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 263 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 267 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 40 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 97 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 6 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 131 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 135 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 133 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 68 }, { "sure": 12, "sure_adi": "Yûsuf", "ayet": 67 },
+        { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 8 }, { "sure": 22, "sure_adi": "Hac", "ayet": 64 },
+        { "sure": 27, "sure_adi": "Neml", "ayet": 40 }, { "sure": 29, "sure_adi": "Ankebût", "ayet": 6 },
+        { "sure": 31, "sure_adi": "Lokmân", "ayet": 12 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 22 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Muğnî", "arapca": "ٱلْمُغْنِي", "okunus": "al-Muğnî",
+      "anlam": "Dilediğini zengin kılan", "aciklama": "İhtiyaçtan kurtaran",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 21, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 48 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 36 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 68 }, { "sure": 15, "sure_adi": "Hicr", "ayet": 84 },
+        { "sure": 19, "sure_adi": "Meryem", "ayet": 42 }, { "sure": 26, "sure_adi": "Şuarâ", "ayet": 207 },
+        { "sure": 39, "sure_adi": "Zümer", "ayet": 50 }, { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 82 },
+        { "sure": 44, "sure_adi": "Duhân", "ayet": 41 }, { "sure": 45, "sure_adi": "Câsiye", "ayet": 10 },
+        { "sure": 46, "sure_adi": "Ahkâf", "ayet": 26 }, { "sure": 52, "sure_adi": "Tûr", "ayet": 46 },
+        { "sure": 53, "sure_adi": "Necm", "ayet": 28 }, { "sure": 53, "sure_adi": "Necm", "ayet": 48 },
+        { "sure": 66, "sure_adi": "Tahrîm", "ayet": 10 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 21 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Berr", "arapca": "ٱلْبَرّ", "okunus": "al-Berr",
+      "anlam": "İyiliği ve ihsanı bol, lütufkâr", "aciklama": "İyilik ve ihsan kaynağı",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 19, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 44 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 177 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 189 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 92 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 2 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 96 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 59 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 63 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 97 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 22 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 67 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 68 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 70 }, { "sure": 27, "sure_adi": "Neml", "ayet": 63 },
+        { "sure": 29, "sure_adi": "Ankebût", "ayet": 65 }, { "sure": 30, "sure_adi": "Rûm", "ayet": 41 },
+        { "sure": 31, "sure_adi": "Lokmân", "ayet": 32 }, { "sure": 52, "sure_adi": "Tûr", "ayet": 28 },
+        { "sure": 58, "sure_adi": "Mücâdele", "ayet": 9 }
+      ]
+    },
+    {
+      "isim": "El-Hâlik", "arapca": "ٱلْخَالِق", "okunus": "al-Hâlik",
+      "anlam": "Yoktan yaratan, takdir edip var eden", "aciklama": "Her şeyi ölçüyle yaratan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 17, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 54 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 69 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 4 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 34 },
+        { "sure": 13, "sure_adi": "Ra'd", "ayet": 16 }, { "sure": 15, "sure_adi": "Hicr", "ayet": 86 },
+        { "sure": 23, "sure_adi": "Mü'minûn", "ayet": 17 }, { "sure": 27, "sure_adi": "Neml", "ayet": 64 },
+        { "sure": 29, "sure_adi": "Ankebût", "ayet": 19 }, { "sure": 29, "sure_adi": "Ankebût", "ayet": 20 },
+        { "sure": 30, "sure_adi": "Rûm", "ayet": 11 }, { "sure": 30, "sure_adi": "Rûm", "ayet": 27 },
+        { "sure": 35, "sure_adi": "Fâtır", "ayet": 1 }, { "sure": 36, "sure_adi": "Yâsîn", "ayet": 68 },
+        { "sure": 36, "sure_adi": "Yâsîn", "ayet": 81 }, { "sure": 50, "sure_adi": "Kâf", "ayet": 15 },
+        { "sure": 59, "sure_adi": "Haşr", "ayet": 24 }
+      ]
+    },
+    {
+      "isim": "El-Hamîd", "arapca": "ٱلْحَمِيد", "okunus": "al-Hamîd",
+      "anlam": "Her türlü övgüye lâyık", "aciklama": "Övgüye en lâyık olan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 17, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 267 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 131 },
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 73 }, { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 1 },
+        { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 8 }, { "sure": 22, "sure_adi": "Hac", "ayet": 24 },
+        { "sure": 22, "sure_adi": "Hac", "ayet": 64 }, { "sure": 31, "sure_adi": "Lokmân", "ayet": 12 },
+        { "sure": 31, "sure_adi": "Lokmân", "ayet": 26 }, { "sure": 34, "sure_adi": "Sebe'", "ayet": 6 },
+        { "sure": 35, "sure_adi": "Fâtır", "ayet": 15 }, { "sure": 41, "sure_adi": "Fussilet", "ayet": 42 },
+        { "sure": 42, "sure_adi": "Şûrâ", "ayet": 28 }, { "sure": 57, "sure_adi": "Hadîd", "ayet": 24 },
+        { "sure": 60, "sure_adi": "Mümtehine", "ayet": 6 }, { "sure": 64, "sure_adi": "Tegâbün", "ayet": 6 },
+        { "sure": 85, "sure_adi": "Bürûc", "ayet": 8 }
+      ]
+    },
+    {
+      "isim": "En-Nâfi'", "arapca": "ٱلنَّافِع", "okunus": "en-Nâfi'",
+      "anlam": "Fayda veren", "aciklama": "Dilediğine fayda ulaştıran",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 17, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 164 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 11 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 76 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 119 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 158 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 188 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 49 }, { "sure": 13, "sure_adi": "Ra'd", "ayet": 16 },
+        { "sure": 13, "sure_adi": "Ra'd", "ayet": 17 }, { "sure": 20, "sure_adi": "Tâhâ", "ayet": 89 },
+        { "sure": 25, "sure_adi": "Furkân", "ayet": 3 }, { "sure": 26, "sure_adi": "Şuarâ", "ayet": 88 },
+        { "sure": 30, "sure_adi": "Rûm", "ayet": 57 }, { "sure": 32, "sure_adi": "Secde", "ayet": 29 },
+        { "sure": 34, "sure_adi": "Sebe'", "ayet": 42 }, { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 52 },
+        { "sure": 48, "sure_adi": "Fetih", "ayet": 11 }
+      ]
+    },
+    {
+      "isim": "El-Halîm", "arapca": "ٱلْحَلِيم", "okunus": "al-Halîm",
+      "anlam": "Cezada acele etmeyen, yumuşak", "aciklama": "Hilm sahibi, müsamahakâr",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 15, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 225 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 235 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 263 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 155 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 12 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 101 },
+        { "sure": 9, "sure_adi": "Tevbe", "ayet": 114 }, { "sure": 11, "sure_adi": "Hûd", "ayet": 75 },
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 87 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 44 },
+        { "sure": 22, "sure_adi": "Hac", "ayet": 59 }, { "sure": 33, "sure_adi": "Ahzâb", "ayet": 51 },
+        { "sure": 35, "sure_adi": "Fâtır", "ayet": 41 }, { "sure": 37, "sure_adi": "Sâffât", "ayet": 101 },
+        { "sure": 64, "sure_adi": "Tegâbün", "ayet": 17 }
+      ]
+    },
+    {
+      "isim": "El-Câmi'", "arapca": "ٱلْجَامِع", "okunus": "al-Câmi'",
+      "anlam": "Toplayan, bir araya getiren", "aciklama": "Mahşerde insanları toplayan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 14, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 9 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 140 },
+        { "sure": 18, "sure_adi": "Kehf", "ayet": 99 }, { "sure": 20, "sure_adi": "Tâhâ", "ayet": 60 },
+        { "sure": 24, "sure_adi": "Nûr", "ayet": 62 }, { "sure": 26, "sure_adi": "Şuarâ", "ayet": 38 },
+        { "sure": 28, "sure_adi": "Kasas", "ayet": 78 }, { "sure": 42, "sure_adi": "Şûrâ", "ayet": 7 },
+        { "sure": 54, "sure_adi": "Kamer", "ayet": 45 }, { "sure": 64, "sure_adi": "Tegâbün", "ayet": 9 },
+        { "sure": 70, "sure_adi": "Meâric", "ayet": 18 }, { "sure": 75, "sure_adi": "Kıyâme", "ayet": 9 },
+        { "sure": 100, "sure_adi": "Âdiyât", "ayet": 5 }, { "sure": 104, "sure_adi": "Hümeze", "ayet": 2 }
+      ]
+    },
+    {
+      "isim": "Es-Selâm", "arapca": "ٱلسَّلَام", "okunus": "as-Selâm",
+      "anlam": "Esenlik veren, her kusurdan sâlim", "aciklama": "Selâmet kaynağı, kullarını esenliğe çıkaran",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 13, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 208 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 90 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 91 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 94 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 16 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 127 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 25 }, { "sure": 16, "sure_adi": "Nahl", "ayet": 28 },
+        { "sure": 16, "sure_adi": "Nahl", "ayet": 87 }, { "sure": 19, "sure_adi": "Meryem", "ayet": 33 },
+        { "sure": 20, "sure_adi": "Tâhâ", "ayet": 47 }, { "sure": 47, "sure_adi": "Muhammed", "ayet": 35 },
+        { "sure": 59, "sure_adi": "Haşr", "ayet": 23 }
+      ]
+    },
+    {
+      "isim": "El-Vâsi'", "arapca": "ٱلْوَاسِع", "okunus": "al-Vâsi'",
+      "anlam": "İlmi ve rahmeti geniş olan", "aciklama": "Lütfu ve ilmi her şeyi kuşatan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 13, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 115 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 247 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 255 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 261 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 268 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 73 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 130 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 54 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 80 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 89 },
+        { "sure": 20, "sure_adi": "Tâhâ", "ayet": 98 }, { "sure": 24, "sure_adi": "Nûr", "ayet": 32 },
+        { "sure": 53, "sure_adi": "Necm", "ayet": 32 }
+      ]
+    },
+    {
+      "isim": "Et-Tevvâb", "arapca": "ٱلتَّوَّاب", "okunus": "et-Tevvâb",
+      "anlam": "Tövbeleri çokça kabul eden", "aciklama": "Tövbeye dönüş kapısını açan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 13, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 37 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 54 },
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 128 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 160 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 16 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 64 },
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 157 }, { "sure": 9, "sure_adi": "Tevbe", "ayet": 104 },
+        { "sure": 9, "sure_adi": "Tevbe", "ayet": 118 }, { "sure": 24, "sure_adi": "Nûr", "ayet": 10 },
+        { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 3 }, { "sure": 49, "sure_adi": "Hucurât", "ayet": 12 },
+        { "sure": 110, "sure_adi": "Nasr", "ayet": 3 }
+      ]
+    },
+    {
+      "isim": "Eş-Şekûr", "arapca": "ٱلشَّكُور", "okunus": "eş-Şekûr",
+      "anlam": "Az amele çok karşılık veren", "aciklama": "Şükre bol mükâfat veren",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 12, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 5 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 3 },
+        { "sure": 25, "sure_adi": "Furkân", "ayet": 62 }, { "sure": 31, "sure_adi": "Lokmân", "ayet": 31 },
+        { "sure": 34, "sure_adi": "Sebe'", "ayet": 13 }, { "sure": 34, "sure_adi": "Sebe'", "ayet": 19 },
+        { "sure": 35, "sure_adi": "Fâtır", "ayet": 30 }, { "sure": 35, "sure_adi": "Fâtır", "ayet": 34 },
+        { "sure": 42, "sure_adi": "Şûrâ", "ayet": 23 }, { "sure": 42, "sure_adi": "Şûrâ", "ayet": 33 },
+        { "sure": 64, "sure_adi": "Tegâbün", "ayet": 17 }, { "sure": 76, "sure_adi": "İnsân (Dehr)", "ayet": 9 }
+      ]
+    },
+    {
+      "isim": "En-Nûr", "arapca": "ٱلنُّور", "okunus": "en-Nûr",
+      "anlam": "Göklerin ve yerin nuru, aydınlatan", "aciklama": "Hidayet ve aydınlık kaynağı",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 12, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 257 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 16 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 1 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 157 },
+        { "sure": 13, "sure_adi": "Ra'd", "ayet": 16 }, { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 1 },
+        { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 5 }, { "sure": 33, "sure_adi": "Ahzâb", "ayet": 43 },
+        { "sure": 35, "sure_adi": "Fâtır", "ayet": 20 }, { "sure": 57, "sure_adi": "Hadîd", "ayet": 9 },
+        { "sure": 64, "sure_adi": "Tegâbün", "ayet": 8 }, { "sure": 65, "sure_adi": "Talâk", "ayet": 11 }
+      ]
+    },
+    {
+      "isim": "El-Hakem", "arapca": "ٱلْحَكَم", "okunus": "al-Hakem",
+      "anlam": "Mutlak hüküm veren, hakem", "aciklama": "Aralarında hükmeden yegâne hâkim",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 11, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 79 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 57 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 62 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 89 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 40 }, { "sure": 12, "sure_adi": "Yûsuf", "ayet": 67 },
+        { "sure": 19, "sure_adi": "Meryem", "ayet": 12 }, { "sure": 28, "sure_adi": "Kasas", "ayet": 70 },
+        { "sure": 28, "sure_adi": "Kasas", "ayet": 88 }, { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 12 },
+        { "sure": 45, "sure_adi": "Câsiye", "ayet": 16 }
+      ]
+    },
+    {
+      "isim": "El-Hafîz", "arapca": "ٱلْحَفِيظ", "okunus": "al-Hafîz",
+      "anlam": "Koruyup gözeten, muhafaza eden", "aciklama": "Her şeyi koruyan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 11, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 80 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 104 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 107 }, { "sure": 11, "sure_adi": "Hûd", "ayet": 57 },
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 86 }, { "sure": 12, "sure_adi": "Yûsuf", "ayet": 55 },
+        { "sure": 34, "sure_adi": "Sebe'", "ayet": 21 }, { "sure": 42, "sure_adi": "Şûrâ", "ayet": 6 },
+        { "sure": 42, "sure_adi": "Şûrâ", "ayet": 48 }, { "sure": 50, "sure_adi": "Kâf", "ayet": 4 },
+        { "sure": 50, "sure_adi": "Kâf", "ayet": 32 }
+      ]
+    },
+    {
+      "isim": "El-Kaviyy", "arapca": "ٱلْقَوِيّ", "okunus": "al-Kaviyy",
+      "anlam": "Mutlak kuvvet sahibi", "aciklama": "Kuvvette eşsiz",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 11, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 8, "sure_adi": "Enfâl", "ayet": 52 }, { "sure": 11, "sure_adi": "Hûd", "ayet": 66 },
+        { "sure": 22, "sure_adi": "Hac", "ayet": 40 }, { "sure": 22, "sure_adi": "Hac", "ayet": 74 },
+        { "sure": 27, "sure_adi": "Neml", "ayet": 39 }, { "sure": 28, "sure_adi": "Kasas", "ayet": 26 },
+        { "sure": 33, "sure_adi": "Ahzâb", "ayet": 25 }, { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 22 },
+        { "sure": 42, "sure_adi": "Şûrâ", "ayet": 19 }, { "sure": 57, "sure_adi": "Hadîd", "ayet": 25 },
+        { "sure": 58, "sure_adi": "Mücâdele", "ayet": 21 }
+      ]
+    },
+    {
+      "isim": "El-Vâlî", "arapca": "ٱلْوَالِي", "okunus": "al-Vâlî",
+      "anlam": "Kâinatı yöneten, idare eden", "aciklama": "Her şeyin yöneticisi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 11, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 13 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 190 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 111 }, { "sure": 20, "sure_adi": "Tâhâ", "ayet": 54 },
+        { "sure": 20, "sure_adi": "Tâhâ", "ayet": 128 }, { "sure": 24, "sure_adi": "Nûr", "ayet": 44 },
+        { "sure": 38, "sure_adi": "Sâd", "ayet": 43 }, { "sure": 39, "sure_adi": "Zümer", "ayet": 21 },
+        { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 54 }, { "sure": 42, "sure_adi": "Şûrâ", "ayet": 9 },
+        { "sure": 42, "sure_adi": "Şûrâ", "ayet": 28 }
+      ]
+    },
+    {
+      "isim": "Er-Raûf", "arapca": "ٱلرَّؤُوف", "okunus": "ar-Raûf",
+      "anlam": "Çok şefkatli, müşfik", "aciklama": "Şefkati derin olan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 11, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 143 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 207 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 30 }, { "sure": 9, "sure_adi": "Tevbe", "ayet": 117 },
+        { "sure": 9, "sure_adi": "Tevbe", "ayet": 128 }, { "sure": 16, "sure_adi": "Nahl", "ayet": 7 },
+        { "sure": 16, "sure_adi": "Nahl", "ayet": 47 }, { "sure": 22, "sure_adi": "Hac", "ayet": 65 },
+        { "sure": 24, "sure_adi": "Nûr", "ayet": 20 }, { "sure": 57, "sure_adi": "Hadîd", "ayet": 9 },
+        { "sure": 59, "sure_adi": "Haşr", "ayet": 10 }
+      ]
+    },
+    {
+      "isim": "El-Bâsit", "arapca": "ٱلْبَاسِط", "okunus": "al-Bâsit",
+      "anlam": "Rızkı genişleten, açan", "aciklama": "Dilediğine genişlik veren",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 10, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 13, "sure_adi": "Ra'd", "ayet": 26 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 29 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 30 }, { "sure": 28, "sure_adi": "Kasas", "ayet": 82 },
+        { "sure": 29, "sure_adi": "Ankebût", "ayet": 62 }, { "sure": 30, "sure_adi": "Rûm", "ayet": 37 },
+        { "sure": 34, "sure_adi": "Sebe'", "ayet": 36 }, { "sure": 34, "sure_adi": "Sebe'", "ayet": 39 },
+        { "sure": 39, "sure_adi": "Zümer", "ayet": 52 }, { "sure": 42, "sure_adi": "Şûrâ", "ayet": 12 }
+      ]
+    },
+    {
+      "isim": "El-Aliyy", "arapca": "ٱلْعَلِيّ", "okunus": "al-Aliyy",
+      "anlam": "Pek yüce, üstün", "aciklama": "Her şeyin üstünde yüce",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 10, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 255 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 34 },
+        { "sure": 9, "sure_adi": "Tevbe", "ayet": 40 }, { "sure": 19, "sure_adi": "Meryem", "ayet": 50 },
+        { "sure": 19, "sure_adi": "Meryem", "ayet": 57 }, { "sure": 22, "sure_adi": "Hac", "ayet": 62 },
+        { "sure": 31, "sure_adi": "Lokmân", "ayet": 30 }, { "sure": 34, "sure_adi": "Sebe'", "ayet": 23 },
+        { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 12 }, { "sure": 42, "sure_adi": "Şûrâ", "ayet": 4 }
+      ]
+    },
+    {
+      "isim": "El-Bâis", "arapca": "ٱلْبَاعِث", "okunus": "al-Bâis",
+      "anlam": "Ölüleri dirilten, gönderen", "aciklama": "Kıyamette dirilten",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 9, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 65 }, { "sure": 16, "sure_adi": "Nahl", "ayet": 38 },
+        { "sure": 19, "sure_adi": "Meryem", "ayet": 15 }, { "sure": 22, "sure_adi": "Hac", "ayet": 5 },
+        { "sure": 22, "sure_adi": "Hac", "ayet": 7 }, { "sure": 28, "sure_adi": "Kasas", "ayet": 59 },
+        { "sure": 30, "sure_adi": "Rûm", "ayet": 56 }, { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 34 },
+        { "sure": 72, "sure_adi": "Cin", "ayet": 7 }
+      ]
+    },
+    {
+      "isim": "El-Mümît", "arapca": "ٱلْمُمِيت", "okunus": "al-Mümît",
+      "anlam": "Ölümü yaratan, öldüren", "aciklama": "Eceli takdir edip öldüren",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 9, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 258 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 156 },
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 158 }, { "sure": 9, "sure_adi": "Tevbe", "ayet": 116 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 56 }, { "sure": 23, "sure_adi": "Mü'minûn", "ayet": 80 },
+        { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 68 }, { "sure": 44, "sure_adi": "Duhân", "ayet": 8 },
+        { "sure": 57, "sure_adi": "Hadîd", "ayet": 2 }
+      ]
+    },
+    {
+      "isim": "El-Afüvv", "arapca": "ٱلْعَفُوّ", "okunus": "al-Afüvv",
+      "anlam": "Günahları affeden, silen", "aciklama": "Affı bol olan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 9, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 109 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 219 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 43 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 99 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 149 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 95 },
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 199 }, { "sure": 22, "sure_adi": "Hac", "ayet": 60 },
+        { "sure": 58, "sure_adi": "Mücâdele", "ayet": 2 }
+      ]
+    },
+    {
+      "isim": "Ed-Dârr", "arapca": "ٱلضَّارّ", "okunus": "ed-Dârr",
+      "anlam": "Zarar verebilen (imtihan için)", "aciklama": "Dilerse zarar takdir eden",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 9, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 282 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 144 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 12 }, { "sure": 12, "sure_adi": "Yûsuf", "ayet": 88 },
+        { "sure": 16, "sure_adi": "Nahl", "ayet": 53 }, { "sure": 16, "sure_adi": "Nahl", "ayet": 54 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 56 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 67 },
+        { "sure": 21, "sure_adi": "Enbiyâ", "ayet": 83 }
+      ]
+    },
+    {
+      "isim": "El-Kahhâr", "arapca": "ٱلْقَهَّار", "okunus": "al-Kahhâr",
+      "anlam": "Her şeye boyun eğdiren, kahredici güç", "aciklama": "Mutlak galebe sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 8, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 18 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 61 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 39 }, { "sure": 13, "sure_adi": "Ra'd", "ayet": 16 },
+        { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 48 }, { "sure": 38, "sure_adi": "Sâd", "ayet": 65 },
+        { "sure": 39, "sure_adi": "Zümer", "ayet": 4 }, { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 16 }
+      ]
+    },
+    {
+      "isim": "El-Mübdi'", "arapca": "ٱلْمُبْدِئ", "okunus": "al-Mübdi'",
+      "anlam": "İlk defa yoktan yaratan", "aciklama": "Yaratmayı başlatan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 8, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 4 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 34 },
+        { "sure": 27, "sure_adi": "Neml", "ayet": 64 }, { "sure": 29, "sure_adi": "Ankebût", "ayet": 19 },
+        { "sure": 30, "sure_adi": "Rûm", "ayet": 11 }, { "sure": 30, "sure_adi": "Rûm", "ayet": 27 },
+        { "sure": 34, "sure_adi": "Sebe'", "ayet": 49 }, { "sure": 85, "sure_adi": "Bürûc", "ayet": 13 }
+      ]
+    },
+    {
+      "isim": "El-Muîd", "arapca": "ٱلْمُعِيد", "okunus": "al-Muîd",
+      "anlam": "Yarattığını tekrar dirilten", "aciklama": "Yaratmayı tekrarlayan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 8, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 4 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 34 },
+        { "sure": 27, "sure_adi": "Neml", "ayet": 64 }, { "sure": 29, "sure_adi": "Ankebût", "ayet": 19 },
+        { "sure": 30, "sure_adi": "Rûm", "ayet": 11 }, { "sure": 30, "sure_adi": "Rûm", "ayet": 27 },
+        { "sure": 34, "sure_adi": "Sebe'", "ayet": 49 }, { "sure": 85, "sure_adi": "Bürûc", "ayet": 13 }
+      ]
+    },
+    {
+      "isim": "El-Hayy", "arapca": "ٱلْحَيّ", "okunus": "al-Hayy",
+      "anlam": "Ezelî-ebedî diri, ölümsüz", "aciklama": "Daima diri olan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 8, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 255 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 2 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 27 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 95 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 31 }, { "sure": 25, "sure_adi": "Furkân", "ayet": 58 },
+        { "sure": 30, "sure_adi": "Rûm", "ayet": 19 }, { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 65 }
+      ]
+    },
+    {
+      "isim": "El-Fettâh", "arapca": "ٱلْفَتَّاح", "okunus": "al-Fettâh",
+      "anlam": "Hayır kapılarını açan, hükmeden", "aciklama": "Zorlukları açan, hak ile hükmeden",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 7, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 52 }, { "sure": 8, "sure_adi": "Enfâl", "ayet": 19 },
+        { "sure": 32, "sure_adi": "Secde", "ayet": 28 }, { "sure": 32, "sure_adi": "Secde", "ayet": 29 },
+        { "sure": 34, "sure_adi": "Sebe'", "ayet": 26 }, { "sure": 57, "sure_adi": "Hadîd", "ayet": 10 },
+        { "sure": 110, "sure_adi": "Nasr", "ayet": 1 }
+      ]
+    },
+    {
+      "isim": "El-Latîf", "arapca": "ٱللَّطِيف", "okunus": "al-Latîf",
+      "anlam": "En ince işleri bilen, lütufkâr", "aciklama": "İhsanı en ince yollarla ulaştıran",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 7, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 103 }, { "sure": 12, "sure_adi": "Yûsuf", "ayet": 100 },
+        { "sure": 22, "sure_adi": "Hac", "ayet": 63 }, { "sure": 31, "sure_adi": "Lokmân", "ayet": 16 },
+        { "sure": 33, "sure_adi": "Ahzâb", "ayet": 34 }, { "sure": 42, "sure_adi": "Şûrâ", "ayet": 19 },
+        { "sure": 67, "sure_adi": "Mülk", "ayet": 14 }
+      ]
+    },
+    {
+      "isim": "Er-Râfi'", "arapca": "ٱلرَّافِع", "okunus": "ar-Râfi'",
+      "anlam": "Yükselten, dereceleri yücelten", "aciklama": "Dilediğini yücelten",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 6, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 253 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 165 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 100 }, { "sure": 13, "sure_adi": "Ra'd", "ayet": 2 },
+        { "sure": 56, "sure_adi": "Vâkıa", "ayet": 3 }, { "sure": 79, "sure_adi": "Nâziât", "ayet": 28 }
+      ]
+    },
+    {
+      "isim": "El-Vâhid", "arapca": "ٱلْوَاحِد", "okunus": "al-Vâhid",
+      "anlam": "Tek olan, eşi olmayan", "aciklama": "Birliğinde eşsiz",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 6, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 39 }, { "sure": 13, "sure_adi": "Ra'd", "ayet": 16 },
+        { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 48 }, { "sure": 38, "sure_adi": "Sâd", "ayet": 65 },
+        { "sure": 39, "sure_adi": "Zümer", "ayet": 4 }, { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 16 }
+      ]
+    },
+    {
+      "isim": "El-Mâni'", "arapca": "ٱلْمَانِع", "okunus": "al-Mâni'",
+      "anlam": "Engelleyen, koruyan", "aciklama": "Dilediğini menfeden",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 6, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 114 }, { "sure": 12, "sure_adi": "Yûsuf", "ayet": 63 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 94 }, { "sure": 18, "sure_adi": "Kehf", "ayet": 55 },
+        { "sure": 50, "sure_adi": "Kâf", "ayet": 25 }, { "sure": 68, "sure_adi": "Kalem", "ayet": 12 }
+      ]
+    },
+    {
+      "isim": "El-Bâkî", "arapca": "ٱلْبَاقِي", "okunus": "al-Bâkî",
+      "anlam": "Varlığı sürekli, ebedî", "aciklama": "Daima kalıcı olan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 6, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 16, "sure_adi": "Nahl", "ayet": 96 }, { "sure": 18, "sure_adi": "Kehf", "ayet": 46 },
+        { "sure": 18, "sure_adi": "Kehf", "ayet": 52 }, { "sure": 19, "sure_adi": "Meryem", "ayet": 76 },
+        { "sure": 37, "sure_adi": "Sâffât", "ayet": 140 }, { "sure": 55, "sure_adi": "Rahmân", "ayet": 27 }
+      ]
+    },
+    {
+      "isim": "El-Adl", "arapca": "ٱلْعَدْل", "okunus": "al-Adl",
+      "anlam": "Mutlak adaletli, asla zulmetmeyen", "aciklama": "Adaletin kaynağı",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 5, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 282 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 58 },
+        { "sure": 16, "sure_adi": "Nahl", "ayet": 76 }, { "sure": 16, "sure_adi": "Nahl", "ayet": 90 },
+        { "sure": 49, "sure_adi": "Hucurât", "ayet": 9 }
+      ]
+    },
+    {
+      "isim": "Er-Rakîb", "arapca": "ٱلرَّقِيب", "okunus": "ar-Rakîb",
+      "anlam": "Her şeyi gözetleyen, murakabe eden", "aciklama": "Her an gözetleyen",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 5, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 1 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 117 },
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 93 }, { "sure": 33, "sure_adi": "Ahzâb", "ayet": 52 },
+        { "sure": 50, "sure_adi": "Kâf", "ayet": 18 }
+      ]
+    },
+    {
+      "isim": "El-Vâris", "arapca": "ٱلْوَارِث", "okunus": "al-Vâris",
+      "anlam": "Her şeyin gerçek vârisi", "aciklama": "Her şey fâni olunca bâki kalan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 5, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 233 }, { "sure": 19, "sure_adi": "Meryem", "ayet": 40 },
+        { "sure": 21, "sure_adi": "Enbiyâ", "ayet": 89 }, { "sure": 28, "sure_adi": "Kasas", "ayet": 5 },
+        { "sure": 28, "sure_adi": "Kasas", "ayet": 58 }
+      ]
+    },
+    {
+      "isim": "El-Hasîb", "arapca": "ٱلْحَسِيب", "okunus": "al-Hasîb",
+      "anlam": "Hesaba çeken, yeten", "aciklama": "Kâfi gelen ve hesap gören",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 4, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 6 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 86 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 14 }, { "sure": 33, "sure_adi": "Ahzâb", "ayet": 39 }
+      ]
+    },
+    {
+      "isim": "El-Mecîd", "arapca": "ٱلْمَجِيد", "okunus": "al-Mecîd",
+      "anlam": "Şanı yüce, şerefli", "aciklama": "Şan ve şeref sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 4, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 73 }, { "sure": 50, "sure_adi": "Kâf", "ayet": 1 },
+        { "sure": 85, "sure_adi": "Bürûc", "ayet": 15 }, { "sure": 85, "sure_adi": "Bürûc", "ayet": 21 }
+      ]
+    },
+    {
+      "isim": "El-Mü'min", "arapca": "ٱلْمُؤْمِن", "okunus": "al-Mü'min",
+      "anlam": "Güven veren, emniyet bahşeden", "aciklama": "Kullarına güven veren, vaadinde sâdık",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 92 }, { "sure": 33, "sure_adi": "Ahzâb", "ayet": 36 },
+        { "sure": 59, "sure_adi": "Haşr", "ayet": 23 }
+      ]
+    },
+    {
+      "isim": "El-Vehhâb", "arapca": "ٱلْوَهَّاب", "okunus": "al-Vehhâb",
+      "anlam": "Karşılıksız çokça veren, bağışlayan", "aciklama": "Sınırsız ihsanda bulunan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 8 }, { "sure": 38, "sure_adi": "Sâd", "ayet": 9 },
+        { "sure": 38, "sure_adi": "Sâd", "ayet": 35 }
+      ]
+    },
+    {
+      "isim": "El-Vedûd", "arapca": "ٱلْوَدُود", "okunus": "al-Vedûd",
+      "anlam": "Çok seven, sevilen", "aciklama": "Sâlih kullarını seven",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 90 }, { "sure": 21, "sure_adi": "Enbiyâ", "ayet": 78 },
+        { "sure": 85, "sure_adi": "Bürûc", "ayet": 14 }
+      ]
+    },
+    {
+      "isim": "El-Metîn", "arapca": "ٱلْمَتِين", "okunus": "al-Metîn",
+      "anlam": "Çok sağlam, dayanıklı kudret", "aciklama": "Kudreti sarsılmaz",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 183 }, { "sure": 51, "sure_adi": "Zâriyât", "ayet": 58 },
+        { "sure": 68, "sure_adi": "Kalem", "ayet": 45 }
+      ]
+    },
+    {
+      "isim": "El-Muhyî", "arapca": "ٱلْمُحْيِي", "okunus": "al-Muhyî",
+      "anlam": "Hayat veren, dirilten", "aciklama": "Can veren",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 162 }, { "sure": 30, "sure_adi": "Rûm", "ayet": 50 },
+        { "sure": 41, "sure_adi": "Fussilet", "ayet": 39 }
+      ]
+    },
+    {
+      "isim": "El-Kayyûm", "arapca": "ٱلْقَيُّوم", "okunus": "al-Kayyûm",
+      "anlam": "Her şeyi ayakta tutan, kâim", "aciklama": "Kâinatı varlıkta tutan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 255 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 2 },
+        { "sure": 20, "sure_adi": "Tâhâ", "ayet": 111 }
+      ]
+    },
+    {
+      "isim": "El-Muktedir", "arapca": "ٱلْمُقْتَدِر", "okunus": "al-Muktedir",
+      "anlam": "Her şeye mutlak iktidarı olan", "aciklama": "Kudretiyle galip",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 18, "sure_adi": "Kehf", "ayet": 45 }, { "sure": 54, "sure_adi": "Kamer", "ayet": 42 },
+        { "sure": 54, "sure_adi": "Kamer", "ayet": 55 }
+      ]
+    },
+    {
+      "isim": "El-Müntekim", "arapca": "ٱلْمُنْتَقِم", "okunus": "al-Müntekim",
+      "anlam": "Suçluları adaletle cezalandıran", "aciklama": "Zalimlerden intikam alan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 32, "sure_adi": "Secde", "ayet": 22 }, { "sure": 43, "sure_adi": "Zuhruf", "ayet": 41 },
+        { "sure": 44, "sure_adi": "Duhân", "ayet": 16 }
+      ]
+    },
+    {
+      "isim": "El-Muksit", "arapca": "ٱلْمُقْسِط", "okunus": "al-Muksit",
+      "anlam": "Adaletle hükmeden, denge kuran", "aciklama": "Adaleti seven ve uygulayan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 42 }, { "sure": 49, "sure_adi": "Hucurât", "ayet": 9 },
+        { "sure": 60, "sure_adi": "Mümtehine", "ayet": 8 }
+      ]
+    },
+    {
+      "isim": "Er-Reşîd", "arapca": "ٱلرَّشِيد", "okunus": "ar-Reşîd",
+      "anlam": "Doğruya ulaştıran, irşad eden", "aciklama": "Hidayet ve olgunluk kaynağı",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 78 }, { "sure": 11, "sure_adi": "Hûd", "ayet": 87 },
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 97 }
+      ]
+    },
+    {
+      "isim": "El-Kuddûs", "arapca": "ٱلْقُدُّوس", "okunus": "al-Kuddûs",
+      "anlam": "Her türlü eksiklikten münezzeh, mukaddes", "aciklama": "Her noksanlıktan ve ayıptan arınmış",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 59, "sure_adi": "Haşr", "ayet": 23 }, { "sure": 62, "sure_adi": "Cum'a", "ayet": 1 }
+      ]
+    },
+    {
+      "isim": "El-Muiz", "arapca": "ٱلْمُعِزّ", "okunus": "al-Muiz",
+      "anlam": "İzzet ve şeref veren", "aciklama": "Dilediğini aziz kılan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 26 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 143 }
+      ]
+    },
+    {
+      "isim": "El-Celîl", "arapca": "ٱلْجَلِيل", "okunus": "al-Celîl",
+      "anlam": "Azamet ve celâl sahibi", "aciklama": "Celâl ve ikram sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 55, "sure_adi": "Rahmân", "ayet": 27 }, { "sure": 55, "sure_adi": "Rahmân", "ayet": 78 }
+      ]
+    },
+    {
+      "isim": "El-Muhsî", "arapca": "ٱلْمُحْصِي", "okunus": "al-Muhsî",
+      "anlam": "Her şeyi tek tek sayıp bilen", "aciklama": "Her şeyi sayıyla bilen",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 18, "sure_adi": "Kehf", "ayet": 12 }, { "sure": 72, "sure_adi": "Cin", "ayet": 28 }
+      ]
+    },
+    {
+      "isim": "El-Muahhir", "arapca": "ٱلْمُؤَخِّر", "okunus": "al-Muahhir",
+      "anlam": "Dilediğini geriye bırakan", "aciklama": "Dilediğini erteleyen",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 63, "sure_adi": "Münâfikûn", "ayet": 11 }, { "sure": 71, "sure_adi": "Nûh", "ayet": 4 }
+      ]
+    },
+    {
+      "isim": "El-Evvel", "arapca": "ٱلْأَوَّل", "okunus": "al-Evvel",
+      "anlam": "Başlangıcı olmayan ilk", "aciklama": "Her şeyden önce var olan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 50, "sure_adi": "Kâf", "ayet": 15 }, { "sure": 57, "sure_adi": "Hadîd", "ayet": 3 }
+      ]
+    },
+    {
+      "isim": "Zü'l-Celâli ve'l-İkrâm", "arapca": "ذُو ٱلْجَلَالِ وَٱلْإِكْرَام", "okunus": "Zü'l-Celâli ve'l-İkrâm",
+      "anlam": "Azamet ve kerem sahibi", "aciklama": "Celâl ve ikram sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 55, "sure_adi": "Rahmân", "ayet": 27 }, { "sure": 55, "sure_adi": "Rahmân", "ayet": 78 }
+      ]
+    },
+    {
+      "isim": "El-Bedî'", "arapca": "ٱلْبَدِيع", "okunus": "al-Bedî'",
+      "anlam": "Örneksiz, eşsiz yaratan", "aciklama": "Eşi benzeri olmadan yaratan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 117 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 101 }
+      ]
+    },
+    {
+      "isim": "El-Müheymin", "arapca": "ٱلْمُهَيْمِن", "okunus": "al-Müheymin",
+      "anlam": "Gözeten, koruyup denetleyen", "aciklama": "Her şeyi görüp gözeten ve koruyan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 59, "sure_adi": "Haşr", "ayet": 23 }]
+    },
+    {
+      "isim": "El-Cebbâr", "arapca": "ٱلْجَبَّار", "okunus": "al-Cebbâr",
+      "anlam": "İradesini her şeye geçiren, ıslah edici güç", "aciklama": "Dilediğini zorla yaptıran, kırıkları onaran",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 59, "sure_adi": "Haşr", "ayet": 23 }]
+    },
+    {
+      "isim": "El-Mütekebbir", "arapca": "ٱلْمُتَكَبِّر", "okunus": "al-Mütekebbir",
+      "anlam": "Büyüklük ve azamet yalnız kendisine ait olan", "aciklama": "Yüceliğin tek gerçek sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 59, "sure_adi": "Haşr", "ayet": 23 }]
+    },
+    {
+      "isim": "El-Bâri'", "arapca": "ٱلْبَارِئ", "okunus": "al-Bâri'",
+      "anlam": "Kusursuzca var eden, örneksiz yaratan", "aciklama": "Yarattıklarını uyumlu biçimde inşa eden",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 59, "sure_adi": "Haşr", "ayet": 24 }]
+    },
+    {
+      "isim": "El-Musavvir", "arapca": "ٱلْمُصَوِّر", "okunus": "al-Musavvir",
+      "anlam": "Şekil ve sûret veren", "aciklama": "Her varlığa ayrı bir biçim veren",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 59, "sure_adi": "Haşr", "ayet": 24 }]
+    },
+    {
+      "isim": "El-Kâbid", "arapca": "ٱلْقَابِض", "okunus": "al-Kâbid",
+      "anlam": "Rızkı tutan, daraltan", "aciklama": "Dilediğine daraltan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 2, "sure_adi": "Bakara", "ayet": 245 }]
+    },
+    {
+      "isim": "El-Hâfid", "arapca": "ٱلْخَافِض", "okunus": "al-Hâfid",
+      "anlam": "Alçaltan, dereceleri düşüren", "aciklama": "Hak edeni alçaltan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 56, "sure_adi": "Vâkıa", "ayet": 3 }]
+    },
+    {
+      "isim": "El-Müzill", "arapca": "ٱلْمُذِلّ", "okunus": "al-Müzill",
+      "anlam": "Zillete düşüren, alçaltan", "aciklama": "Dilediğini zelil kılan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 26 }]
+    },
+    {
+      "isim": "El-Mukît", "arapca": "ٱلْمُقِيت", "okunus": "al-Mukît",
+      "anlam": "Rızık ve kuvvet veren, gözeten", "aciklama": "Her şeye gücü yeten gözetici",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 4, "sure_adi": "Nisâ", "ayet": 85 }]
+    },
+    {
+      "isim": "El-Mucîb", "arapca": "ٱلْمُجِيب", "okunus": "al-Mucîb",
+      "anlam": "Dualara icabet eden", "aciklama": "Duaları kabul eden",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 11, "sure_adi": "Hûd", "ayet": 61 }]
+    },
+    {
+      "isim": "Es-Samed", "arapca": "ٱلصَّمَد", "okunus": "as-Samed",
+      "anlam": "Her şey kendisine muhtaç, hiçbir şeye muhtaç olmayan", "aciklama": "Müstağni, herkesin sığınağı",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 112, "sure_adi": "İhlâs", "ayet": 2 }]
+    },
+    {
+      "isim": "Ez-Zâhir", "arapca": "ٱلظَّاهِر", "okunus": "ez-Zâhir",
+      "anlam": "Varlığı âşikâr, üstün", "aciklama": "Varlığı apaçık belli",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 57, "sure_adi": "Hadîd", "ayet": 3 }]
+    },
+    {
+      "isim": "El-Bâtın", "arapca": "ٱلْبَاطِن", "okunus": "al-Bâtın",
+      "anlam": "Gizli, idraklerin ötesinde", "aciklama": "Mahiyeti idrak edilemeyen",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 57, "sure_adi": "Hadîd", "ayet": 3 }]
+    },
+    {
+      "isim": "El-Müteâlî", "arapca": "ٱلْمُتَعَالِي", "okunus": "al-Müteâlî",
+      "anlam": "Her şeyden yüce, aşkın", "aciklama": "Noksanlıklardan münezzeh yüce",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 13, "sure_adi": "Ra'd", "ayet": 9 }]
+    },
+    {
+      "isim": "Mâlikü'l-Mülk", "arapca": "مَالِكُ ٱلْمُلْك", "okunus": "Mâlikü'l-Mülk",
+      "anlam": "Mülkün gerçek ve mutlak sahibi", "aciklama": "Bütün mülkün sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [{ "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 26 }]
+    },
+    {
+      "isim": "El-Vâcid", "arapca": "ٱلْوَاجِد", "okunus": "al-Vâcid",
+      "anlam": "İstediğini bulan, hiçbir şeye muhtaç olmayan", "aciklama": "Hiçbir şeyden yoksun olmayan",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 0, "yuksek_frekansli": false,
+      "ayetler": []
+    },
+    {
+      "isim": "El-Mâcid", "arapca": "ٱلْمَاجِد", "okunus": "al-Mâcid",
+      "anlam": "Şanı büyük, kadri yüce", "aciklama": "Yücelik ve cömertlik sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 0, "yuksek_frekansli": false,
+      "ayetler": []
+    },
+    {
+      "isim": "El-Mukaddim", "arapca": "ٱلْمُقَدِّم", "okunus": "al-Mukaddim",
+      "anlam": "Dilediğini öne alan", "aciklama": "Dilediğini öne geçiren",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 0, "yuksek_frekansli": false,
+      "ayetler": []
+    },
+    {
+      "isim": "Es-Sabûr", "arapca": "ٱلصَّبُور", "okunus": "as-Sabûr",
+      "anlam": "Çok sabırlı, cezada acele etmeyen", "aciklama": "Sonsuz sabır sahibi",
+      "kategori": "esma", "kategori_etiket": "Esmâ-i Hüsnâ",
+      "kuranda_gecis_sayisi": 0, "yuksek_frekansli": false,
+      "ayetler": []
+    },
+    {
+      "isim": "Rabbü'l-Âlemîn", "arapca": "رَبُّ ٱلْعَالَمِين", "okunus": "Rabbü'l-Âlemîn",
+      "anlam": "Âlemlerin Rabbi, terbiye edicisi", "aciklama": "Bütün âlemleri yaratıp yöneten",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 42, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 1, "sure_adi": "Fâtiha", "ayet": 2 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 131 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 28 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 45 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 71 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 162 },
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 54 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 61 },
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 67 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 104 },
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 121 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 10 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 37 }, { "sure": 26, "sure_adi": "Şuarâ", "ayet": 16 },
+        { "sure": 26, "sure_adi": "Şuarâ", "ayet": 23 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 42 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "En-Nasîr", "arapca": "ٱلنَّصِير", "okunus": "en-Nasîr",
+      "anlam": "Yardım eden, zafer veren", "aciklama": "En hayırlı yardımcı",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 24, "yuksek_frekansli": true,
+      "ornek_ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 107 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 120 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 45 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 52 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 75 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 89 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 123 }, { "sure": 4, "sure_adi": "Nisâ", "ayet": 145 },
+        { "sure": 4, "sure_adi": "Nisâ", "ayet": 173 }, { "sure": 8, "sure_adi": "Enfâl", "ayet": 40 },
+        { "sure": 9, "sure_adi": "Tevbe", "ayet": 74 }, { "sure": 9, "sure_adi": "Tevbe", "ayet": 116 },
+        { "sure": 17, "sure_adi": "İsrâ", "ayet": 75 }, { "sure": 17, "sure_adi": "İsrâ", "ayet": 80 },
+        { "sure": 22, "sure_adi": "Hac", "ayet": 71 }
+      ],
+      "gosterim_notu": "Kur'an'da yaklaşık 24 yerde geçer; ilk 15 referans listelenmiştir.",
+      "tum_ayetler": []
+    },
+    {
+      "isim": "El-Hallâk", "arapca": "ٱلْخَلَّاق", "okunus": "al-Hallâk",
+      "anlam": "Durmadan yaratan büyük yaratıcı", "aciklama": "Sürekli ve bol yaratan (Hicr 86, Yâsîn 81)",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 17, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 54 }, { "sure": 7, "sure_adi": "A'râf", "ayet": 69 },
+        { "sure": 10, "sure_adi": "Yûnus", "ayet": 4 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 34 },
+        { "sure": 13, "sure_adi": "Ra'd", "ayet": 16 }, { "sure": 15, "sure_adi": "Hicr", "ayet": 86 },
+        { "sure": 23, "sure_adi": "Mü'minûn", "ayet": 17 }, { "sure": 27, "sure_adi": "Neml", "ayet": 64 },
+        { "sure": 29, "sure_adi": "Ankebût", "ayet": 19 }, { "sure": 29, "sure_adi": "Ankebût", "ayet": 20 },
+        { "sure": 30, "sure_adi": "Rûm", "ayet": 11 }, { "sure": 30, "sure_adi": "Rûm", "ayet": 27 },
+        { "sure": 35, "sure_adi": "Fâtır", "ayet": 1 }, { "sure": 36, "sure_adi": "Yâsîn", "ayet": 68 },
+        { "sure": 36, "sure_adi": "Yâsîn", "ayet": 81 }, { "sure": 50, "sure_adi": "Kâf", "ayet": 15 },
+        { "sure": 59, "sure_adi": "Haşr", "ayet": 24 }
+      ]
+    },
+    {
+      "isim": "Şedîdü'l-İkâb", "arapca": "شَدِيدُ ٱلْعِقَاب", "okunus": "Şedîdü'l-İkâb",
+      "anlam": "Cezası çok şiddetli olan", "aciklama": "Cezalandırması şiddetli",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 14, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 196 }, { "sure": 2, "sure_adi": "Bakara", "ayet": 211 },
+        { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 11 }, { "sure": 5, "sure_adi": "Mâide", "ayet": 2 },
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 98 }, { "sure": 8, "sure_adi": "Enfâl", "ayet": 13 },
+        { "sure": 8, "sure_adi": "Enfâl", "ayet": 25 }, { "sure": 8, "sure_adi": "Enfâl", "ayet": 48 },
+        { "sure": 8, "sure_adi": "Enfâl", "ayet": 52 }, { "sure": 13, "sure_adi": "Ra'd", "ayet": 6 },
+        { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 3 }, { "sure": 40, "sure_adi": "Mü'min (Gâfir)", "ayet": 22 },
+        { "sure": 59, "sure_adi": "Haşr", "ayet": 4 }, { "sure": 59, "sure_adi": "Haşr", "ayet": 7 }
+      ]
+    },
+    {
+      "isim": "El-Mevlâ", "arapca": "ٱلْمَوْلَىٰ", "okunus": "al-Mevlâ",
+      "anlam": "Efendi, sahip, yardımcı dost", "aciklama": "Müminlerin koruyucu efendisi",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 14, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 286 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 150 },
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 62 }, { "sure": 8, "sure_adi": "Enfâl", "ayet": 40 },
+        { "sure": 9, "sure_adi": "Tevbe", "ayet": 51 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 30 },
+        { "sure": 16, "sure_adi": "Nahl", "ayet": 76 }, { "sure": 22, "sure_adi": "Hac", "ayet": 13 },
+        { "sure": 22, "sure_adi": "Hac", "ayet": 78 }, { "sure": 44, "sure_adi": "Duhân", "ayet": 41 },
+        { "sure": 47, "sure_adi": "Muhammed", "ayet": 11 }, { "sure": 57, "sure_adi": "Hadîd", "ayet": 15 },
+        { "sure": 66, "sure_adi": "Tahrîm", "ayet": 2 }, { "sure": 66, "sure_adi": "Tahrîm", "ayet": 4 }
+      ]
+    },
+    {
+      "isim": "El-Fâtır", "arapca": "فَاطِر", "okunus": "Fâtır",
+      "anlam": "Gökleri ve yeri yoktan yaran-yaratan", "aciklama": "Yoktan var eden yaratıcı",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 8, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 14 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 79 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 101 }, { "sure": 14, "sure_adi": "İbrâhîm", "ayet": 10 },
+        { "sure": 30, "sure_adi": "Rûm", "ayet": 30 }, { "sure": 35, "sure_adi": "Fâtır", "ayet": 1 },
+        { "sure": 39, "sure_adi": "Zümer", "ayet": 46 }, { "sure": 42, "sure_adi": "Şûrâ", "ayet": 11 }
+      ]
+    },
+    {
+      "isim": "Zü'l-Fadli'l-Azîm", "arapca": "ذُو ٱلْفَضْلِ ٱلْعَظِيم", "okunus": "Zü'l-Fadli'l-Azîm",
+      "anlam": "Büyük lütuf sahibi", "aciklama": "Pek büyük ihsan sahibi",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 6, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 105 }, { "sure": 3, "sure_adi": "Âl-i İmrân", "ayet": 74 },
+        { "sure": 8, "sure_adi": "Enfâl", "ayet": 29 }, { "sure": 57, "sure_adi": "Hadîd", "ayet": 21 },
+        { "sure": 57, "sure_adi": "Hadîd", "ayet": 29 }, { "sure": 62, "sure_adi": "Cum'a", "ayet": 4 }
+      ]
+    },
+    {
+      "isim": "Hayru'r-Râzıkîn", "arapca": "خَيْرُ ٱلرَّازِقِين", "okunus": "Hayru'r-Râzıkîn",
+      "anlam": "Rızık verenlerin en hayırlısı", "aciklama": "Rızık verenlerin en hayırlısı",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 5, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 5, "sure_adi": "Mâide", "ayet": 114 }, { "sure": 22, "sure_adi": "Hac", "ayet": 58 },
+        { "sure": 23, "sure_adi": "Mü'minûn", "ayet": 72 }, { "sure": 34, "sure_adi": "Sebe'", "ayet": 39 },
+        { "sure": 62, "sure_adi": "Cum'a", "ayet": 11 }
+      ]
+    },
+    {
+      "isim": "Erhamü'r-Râhimîn", "arapca": "أَرْحَمُ ٱلرَّاحِمِين", "okunus": "Erhamü'r-Râhimîn",
+      "anlam": "Merhamet edenlerin en merhametlisi", "aciklama": "Merhametlilerin en üstünü",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 4, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 151 }, { "sure": 12, "sure_adi": "Yûsuf", "ayet": 64 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 92 }, { "sure": 21, "sure_adi": "Enbiyâ", "ayet": 83 }
+      ]
+    },
+    {
+      "isim": "Hayru'l-Hâkimîn", "arapca": "خَيْرُ ٱلْحَاكِمِين", "okunus": "Hayru'l-Hâkimîn",
+      "anlam": "Hüküm verenlerin en hayırlısı", "aciklama": "Hâkimlerin en hayırlısı",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 3, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 87 }, { "sure": 10, "sure_adi": "Yûnus", "ayet": 109 },
+        { "sure": 12, "sure_adi": "Yûsuf", "ayet": 80 }
+      ]
+    },
+    {
+      "isim": "Ahkemü'l-Hâkimîn", "arapca": "أَحْكَمُ ٱلْحَاكِمِين", "okunus": "Ahkemü'l-Hâkimîn",
+      "anlam": "Hükmedenlerin en âdili", "aciklama": "Hâkimlerin en hikmetlisi",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 11, "sure_adi": "Hûd", "ayet": 45 }, { "sure": 95, "sure_adi": "Tîn", "ayet": 8 }
+      ]
+    },
+    {
+      "isim": "Zü'r-Rahme", "arapca": "ذُو ٱلرَّحْمَة", "okunus": "Zü'r-Rahme",
+      "anlam": "Rahmet sahibi", "aciklama": "Geniş rahmet sahibi",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 6, "sure_adi": "En'âm", "ayet": 133 }, { "sure": 18, "sure_adi": "Kehf", "ayet": 58 }
+      ]
+    },
+    {
+      "isim": "Bedîu's-Semâvât", "arapca": "بَدِيعُ ٱلسَّمَاوَات", "okunus": "Bedîu's-Semâvât",
+      "anlam": "Göklerin ve yerin eşsiz yaratıcısı", "aciklama": "Örneksiz yaratan",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 2, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 2, "sure_adi": "Bakara", "ayet": 117 }, { "sure": 6, "sure_adi": "En'âm", "ayet": 101 }
+      ]
+    },
+    {
+      "isim": "Hayru'l-Gâfirîn", "arapca": "خَيْرُ ٱلْغَافِرِين", "okunus": "Hayru'l-Gâfirîn",
+      "anlam": "Bağışlayanların en hayırlısı", "aciklama": "Affedenlerin en hayırlısı",
+      "kategori": "kurani_sifat", "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
+      "kuranda_gecis_sayisi": 1, "yuksek_frekansli": false,
+      "ayetler": [
+        { "sure": 7, "sure_adi": "A'râf", "ayet": 155 }
+      ]
     }
   ]
 }
