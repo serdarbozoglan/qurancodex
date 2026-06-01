@@ -74,6 +74,9 @@ export default function EsmaFrekans({ onClose }) {
 
       {/* ═══ SECTION 5: VAHYİN SESİ ═══ */}
       <DivineVoice beyanlari={beyanlari} tr={tr} />
+
+      {/* ═══ SECTION 6: 114 İSİM ATLASI ═══ */}
+      <NamesAtlas data={data} tr={tr} />
     </div>
   );
 }
@@ -869,6 +872,433 @@ function AxisCard({ eks, tr }) {
         ))}
       </div>
     </motion.div>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 6: 114 İSIM ATLASI — search + 3'lü filter + inline detay
+// ═════════════════════════════════════════════════════════════════════════════
+
+// 9 isim için kök DNA (Doküman 5)
+const KOK_ANALIZ = {
+  'Er-Rahmân':  { kok: 'ر ح م', anlamTr: 'Rahmet · şefkat · koruyuculuk', anlamEn: 'mercy · compassion · protection', notTr: '"Rahim" (anne rahmi) ile aynı köktendir.', notEn: "Same root as \"raḥim\" (mother's womb)." },
+  'Er-Rahîm':   { kok: 'ر ح م', anlamTr: 'Rahmet · şefkat · koruyuculuk', anlamEn: 'mercy · compassion · protection', notTr: '"Rahim" (anne rahmi) ile aynı köktendir.', notEn: "Same root as \"raḥim\" (mother's womb)." },
+  'El-Hâlık':   { kok: 'خ ل ق', anlamTr: 'Ölçüyle yaratmak · tasarlamak · biçim vermek', anlamEn: 'create with measure · design · shape', notTr: null, notEn: null },
+  'El-Alîm':    { kok: 'ع ل م', anlamTr: 'Bilmek · fark etmek · kesin bilgi sahibi olmak', anlamEn: 'to know · perceive · possess certain knowledge', notTr: null, notEn: null },
+  'El-Hakîm':   { kok: 'ح ك م', anlamTr: 'Hükmetmek · hikmet · düzen kurmak', anlamEn: 'to judge · wisdom · order', notTr: null, notEn: null },
+  'En-Nûr':     { kok: 'ن و ر', anlamTr: 'Işık · aydınlık · görünür kılma', anlamEn: 'light · brightness · revelation', notTr: null, notEn: null },
+  'El-Vedûd':   { kok: 'و د د', anlamTr: 'Sevgi · içten bağlılık', anlamEn: 'love · sincere attachment', notTr: null, notEn: null },
+  'El-Azîz':    { kok: 'ع ز ز', anlamTr: 'Güç · üstünlük · yenilmezlik', anlamEn: 'might · superiority · invincibility', notTr: null, notEn: null },
+  'El-Kayyûm':  { kok: 'ق و م', anlamTr: 'Ayakta tutmak · süreklilik sağlamak · varlığı devam ettirmek', anlamEn: 'sustain · maintain continuity · uphold existence', notTr: null, notEn: null },
+};
+
+const CATEGORY_FILTERS = [
+  { key: 'all',          labelTr: 'Tümü',           labelEn: 'All'           },
+  { key: 'isim',         labelTr: 'Lafza-i Celâl',  labelEn: 'Divine Name'   },
+  { key: 'esma',         labelTr: 'Esmâ-i Hüsnâ',  labelEn: 'Esmā-i Ḥusnā' },
+  { key: 'kurani_sifat', labelTr: "Kur'ânî Sıfat",  labelEn: 'Quranic Attr.' },
+];
+
+const SORT_OPTIONS = [
+  { value: 'no',         labelTr: 'Sıra',       labelEn: 'Order'  },
+  { value: 'count_desc', labelTr: 'Frekans ↓',  labelEn: 'Freq ↓' },
+  { value: 'count_asc',  labelTr: 'Frekans ↑',  labelEn: 'Freq ↑' },
+];
+
+const PAGE_SIZE = 30;
+
+function NamesAtlas({ data, tr }) {
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState('all');
+  const [sort, setSort] = useState('no');
+  const [openId, setOpenId] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  const filtered = useMemo(() => {
+    if (!data?.isimler) return [];
+    let rows = data.isimler.map(n => ({
+      ...n,
+      displayCount: n.isim === 'Allah' ? ALLAH_CLASSIC_COUNT : n.kuranda_gecis_sayisi,
+    }));
+    if (filter !== 'all') rows = rows.filter(n => n.kategori === filter);
+    const q = search.trim().toLowerCase();
+    if (q) {
+      rows = rows.filter(n =>
+        (n.isim || '').toLowerCase().includes(q) ||
+        (n.okunus || '').toLowerCase().includes(q) ||
+        (n.anlam || '').toLowerCase().includes(q) ||
+        (n.arapca || '').includes(q)
+      );
+    }
+    if (sort === 'count_desc') rows.sort((a, b) => b.displayCount - a.displayCount);
+    else if (sort === 'count_asc') rows.sort((a, b) => a.displayCount - b.displayCount);
+    return rows;
+  }, [data, filter, search, sort]);
+
+  useEffect(() => { setVisibleCount(PAGE_SIZE); }, [filter, search, sort]);
+
+  if (!data) return null;
+
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
+
+  return (
+    <section style={{ padding: '80px 24px', background: '#06080e' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={sectionLabel}>{tr ? '114 İsim Atlası' : '114 Names Atlas'}</div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+          color: COLORS.offWhite,
+          fontWeight: 700,
+          margin: '0 0 16px',
+        }}>
+          {tr ? 'Tüm İsimleri Keşfet' : 'Explore All Names'}
+        </h2>
+        <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 32px', maxWidth: '720px' }}>
+          {tr
+            ? `${data.toplam_isim_sayisi} isim · Lafza-i Celâl + 99 Esmâ-i Hüsnâ + Kur'ânî sıfat ve tamlamalar. Arama, kategori filtresi veya frekans sıralaması ile keşfet; bir isme tıklayarak detayı aç.`
+            : `${data.toplam_isim_sayisi} names · the Divine Name + 99 Esmā-i Ḥusnā + Quranic attributes and compound phrases. Search, filter, or sort by frequency; tap a name to open the detail.`}
+        </p>
+
+        {/* Controls */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
+          <input
+            type="text"
+            placeholder={tr ? 'İsim, anlam veya Arapça ara…' : 'Search name, meaning, or Arabic…'}
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            style={{
+              flex: '1 1 200px',
+              minWidth: 0,
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: '8px',
+              color: COLORS.offWhite,
+              padding: '10px 14px',
+              fontSize: '0.9rem',
+              fontFamily: FONTS.body,
+              outline: 'none',
+            }}
+          />
+          <select
+            value={sort}
+            onChange={e => setSort(e.target.value)}
+            style={{
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: '8px',
+              color: COLORS.offWhite,
+              padding: '10px 14px',
+              fontSize: '0.88rem',
+              fontFamily: FONTS.body,
+              cursor: 'pointer',
+              outline: 'none',
+            }}
+          >
+            {SORT_OPTIONS.map(o => (
+              <option key={o.value} value={o.value} style={{ background: COLORS.cosmicBlack }}>
+                {tr ? o.labelTr : o.labelEn}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px', overflowX: 'auto' }}>
+          {CATEGORY_FILTERS.map(f => (
+            <button
+              key={f.key}
+              onClick={() => setFilter(f.key)}
+              aria-pressed={filter === f.key}
+              style={{
+                background: filter === f.key ? `${COLORS.gold}22` : 'transparent',
+                border: filter === f.key ? `1px solid ${COLORS.gold}55` : '1px solid rgba(255,255,255,0.1)',
+                color: filter === f.key ? COLORS.gold : COLORS.silver,
+                borderRadius: '20px',
+                padding: '6px 14px',
+                fontSize: '0.82rem',
+                fontFamily: FONTS.body,
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {tr ? f.labelTr : f.labelEn}
+            </button>
+          ))}
+        </div>
+
+        {/* Liste */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {visible.map(n => (
+            <NameRow
+              key={n.isim}
+              item={n}
+              tr={tr}
+              isOpen={openId === n.isim}
+              onToggle={() => setOpenId(openId === n.isim ? null : n.isim)}
+            />
+          ))}
+        </div>
+
+        {hasMore && (
+          <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <button
+              onClick={() => setVisibleCount(v => v + PAGE_SIZE)}
+              style={{
+                background: 'transparent',
+                border: '1px solid rgba(212,165,116,0.4)',
+                borderRadius: '8px',
+                color: COLORS.gold,
+                padding: '10px 22px',
+                fontSize: '0.88rem',
+                fontFamily: FONTS.body,
+                cursor: 'pointer',
+              }}
+            >
+              {tr ? `${filtered.length - visibleCount} isim daha göster` : `Show ${filtered.length - visibleCount} more`}
+            </button>
+          </div>
+        )}
+
+        {filtered.length === 0 && (
+          <div style={{ textAlign: 'center', padding: '40px 0', color: COLORS.silver, fontSize: '0.92rem' }}>
+            {tr ? 'Sonuç bulunamadı.' : 'No results found.'}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function NameRow({ item, tr, isOpen, onToggle }) {
+  const isAllah = item.isim === 'Allah';
+  return (
+    <>
+      <button
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr auto',
+          gap: '14px',
+          alignItems: 'center',
+          background: isOpen ? 'rgba(212,165,116,0.06)' : 'rgba(255,255,255,0.02)',
+          border: isOpen ? `1px solid ${COLORS.gold}44` : '1px solid rgba(255,255,255,0.06)',
+          borderRadius: '10px',
+          padding: '14px 18px',
+          color: COLORS.offWhite,
+          fontFamily: FONTS.body,
+          cursor: 'pointer',
+          textAlign: 'left',
+          transition: 'all 0.18s',
+          width: '100%',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px', minWidth: 0 }}>
+          <span dir="rtl" lang="ar" style={{
+            fontFamily: FONTS.quran,
+            fontSize: '1.3rem',
+            color: COLORS.gold,
+            minWidth: '110px',
+            textAlign: 'right',
+            whiteSpace: 'nowrap',
+          }}>
+            {item.arapca}
+          </span>
+          <span style={{ fontWeight: 600, fontSize: '0.92rem' }}>{item.isim}</span>
+          <span style={{
+            color: COLORS.silver,
+            fontSize: '0.78rem',
+            fontStyle: 'italic',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            display: 'none',
+          }} className="esma-meaning-inline">
+            {item.anlam}
+          </span>
+        </div>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span style={{ color: COLORS.silver, fontSize: '0.7rem', fontFamily: FONTS.body }}>
+            {item.kategori_etiket}
+          </span>
+          <span style={{ color: COLORS.offWhite, fontSize: '0.88rem', fontWeight: 700 }}>
+            {(isAllah ? ALLAH_CLASSIC_COUNT : item.kuranda_gecis_sayisi).toLocaleString(tr ? 'tr-TR' : 'en-US')}
+          </span>
+        </span>
+      </button>
+
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          style={{ overflow: 'hidden' }}
+        >
+          <NameDetail item={item} tr={tr} isAllah={isAllah} />
+        </motion.div>
+      )}
+    </>
+  );
+}
+
+function NameDetail({ item, tr, isAllah }) {
+  const [showAllAyets, setShowAllAyets] = useState(false);
+  const kok = KOK_ANALIZ[item.isim];
+
+  const ayetler = item.yuksek_frekansli
+    ? (showAllAyets ? item.tum_ayetler : item.ornek_ayetler)
+    : item.ayetler;
+
+  return (
+    <div style={{
+      ...GLASS_CARD,
+      background: 'rgba(212,165,116,0.04)',
+      border: `1px solid ${COLORS.gold}22`,
+      padding: '28px 28px',
+      marginTop: '4px',
+      marginBottom: '8px',
+    }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '24px' }}>
+        <span dir="rtl" lang="ar" style={{
+          fontFamily: FONTS.quran,
+          fontSize: '2.6rem',
+          color: COLORS.gold,
+          lineHeight: 1.4,
+        }}>
+          {item.arapca}
+        </span>
+        <span style={{ color: COLORS.silver, fontSize: '0.85rem', fontStyle: 'italic', marginTop: '4px' }}>
+          {item.okunus} · {item.isim}
+        </span>
+      </div>
+
+      <p style={{
+        color: COLORS.offWhite,
+        fontSize: '1.05rem',
+        lineHeight: 1.7,
+        margin: '0 0 8px',
+        textAlign: 'center',
+      }}>
+        "{item.anlam}"
+      </p>
+      {item.aciklama && (
+        <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6, margin: '0 0 20px', textAlign: 'center', fontStyle: 'italic' }}>
+          {item.aciklama}
+        </p>
+      )}
+
+      {kok && (
+        <div style={{
+          background: 'rgba(255,255,255,0.04)',
+          border: '1px solid rgba(255,255,255,0.06)',
+          borderRadius: '8px',
+          padding: '14px 18px',
+          margin: '0 0 20px',
+        }}>
+          <div style={{ ...sectionLabel, marginBottom: '8px', fontSize: '0.65rem' }}>{tr ? 'Kök Analizi' : 'Root'}</div>
+          <p style={{ color: COLORS.gold, fontFamily: FONTS.quran, fontSize: '1.4rem', margin: '0 0 6px', textAlign: 'center', letterSpacing: '0.4em' }}>
+            {kok.kok}
+          </p>
+          <p style={{ color: COLORS.offWhite, fontSize: '0.85rem', lineHeight: 1.6, margin: 0, textAlign: 'center' }}>
+            {tr ? kok.anlamTr : kok.anlamEn}
+          </p>
+          {(tr ? kok.notTr : kok.notEn) && (
+            <p style={{ color: COLORS.silver, fontSize: '0.78rem', lineHeight: 1.6, margin: '8px 0 0', textAlign: 'center', fontStyle: 'italic' }}>
+              {tr ? kok.notTr : kok.notEn}
+            </p>
+          )}
+        </div>
+      )}
+
+      {isAllah && (
+        <div style={{
+          background: 'rgba(212,165,116,0.08)',
+          border: `1px solid ${COLORS.gold}33`,
+          borderRadius: '8px',
+          padding: '16px 20px',
+          marginBottom: '20px',
+        }}>
+          <div style={{ ...sectionLabel, marginBottom: '8px', fontSize: '0.65rem' }}>{tr ? 'Metodolojik Nüans' : 'Methodological Nuance'}</div>
+          <p style={{ color: COLORS.offWhite, fontSize: '0.92rem', margin: '0 0 8px' }}>
+            <strong>{tr ? 'Klasik konkordans: ' : 'Classical concordance: '}</strong>
+            {ALLAH_CLASSIC_COUNT.toLocaleString(tr ? 'tr-TR' : 'en-US')}
+            <span style={{ color: COLORS.silver, fontSize: '0.78rem', marginLeft: '6px' }}>
+              ({tr ? 'lemma — tüm morfolojik formlar dahil' : 'lemma — all morphological forms included'})
+            </span>
+          </p>
+          <p style={{ color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.6, margin: '0 0 8px' }}>
+            {tr
+              ? <>Fark, <code>li- + Allah = lillāh</code>, <code>wa- + Allah = wallāh</code>, <code>bi- + Allah = billāh</code> gibi prefiks'li formların lemma sayımında dahil, yüzey sayımında dahil olmamasındandır.</>
+              : <>The difference comes from prefixed forms like <code>li- + Allah = lillāh</code>, <code>wa- + Allah = wallāh</code>, <code>bi- + Allah = billāh</code> being counted in the lemma but not in surface counting.</>}
+          </p>
+          <p style={{ color: COLORS.silver, fontSize: '0.82rem', margin: 0 }}>
+            <strong>{tr ? 'Yalın yüzey lafzı: ' : 'Surface form only: '}</strong>
+            ~{ALLAH_SURFACE_COUNT.toLocaleString(tr ? 'tr-TR' : 'en-US')}
+          </p>
+        </div>
+      )}
+
+      <div style={{ ...sectionLabel, marginBottom: '12px', fontSize: '0.65rem' }}>
+        {tr
+          ? `${item.kuranda_gecis_sayisi} âyette geçer`
+          : `Appears in ${item.kuranda_gecis_sayisi} verses`}
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+        {(ayetler || []).slice(0, 30).map(a => (
+          <a
+            key={`${a.sure}-${a.ayet}`}
+            href={`/${tr ? 'tr' : 'en'}/oku/${a.sure}`}
+            style={{
+              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              padding: '4px 10px',
+              fontSize: '0.78rem',
+              color: COLORS.silver,
+              fontFamily: FONTS.body,
+              textDecoration: 'none',
+            }}
+          >
+            {a.sure_adi || a.sure}:{a.ayet}
+          </a>
+        ))}
+      </div>
+
+      {item.yuksek_frekansli && !showAllAyets && (ayetler || []).length === 15 && (
+        <button
+          onClick={() => setShowAllAyets(true)}
+          style={{
+            marginTop: '14px',
+            background: 'transparent',
+            border: 'none',
+            color: COLORS.gold,
+            fontSize: '0.82rem',
+            cursor: 'pointer',
+            fontFamily: FONTS.body,
+          }}
+        >
+          {tr
+            ? `Tüm ${item.kuranda_gecis_sayisi} ayeti göster →`
+            : `Show all ${item.kuranda_gecis_sayisi} verses →`}
+        </button>
+      )}
+      {item.yuksek_frekansli && showAllAyets && (
+        <p style={{ color: COLORS.silver, fontSize: '0.76rem', marginTop: '10px' }}>
+          {tr ? 'İlk 30 referans gösterilmiştir.' : 'First 30 references shown.'}
+        </p>
+      )}
+
+      <div style={{ marginTop: '20px', textAlign: 'right' }}>
+        <a
+          href={`https://corpus.quran.com/search.jsp?q=${encodeURIComponent(item.arapca)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: COLORS.gold, fontSize: '0.82rem', fontFamily: FONTS.body, textDecoration: 'none' }}
+        >
+          {tr ? "Corpus Quran'da ara →" : 'Search on Corpus Quran →'}
+        </a>
+      </div>
+    </div>
   );
 }
 
