@@ -296,12 +296,12 @@ export const ANALYSIS_TOOLS = [
   {
     id:          'esma-frekans',
     event:       'openEsmaFrekans',
-    titleTr:     'Esmaül Hüsna',
-    titleEn:     'Divine Names',
-    descTr:      "99 ismin Kur'an'daki frekans analizi",
-    descEn:      'Frequency analysis of the 99 divine names',
-    descLongTr:  "Allah'ın 99 ismi Kur'an'da kaç kez geçer ve hangi bağlamda? Frekans grafiği ve bağlamsal analiz: Rahman ile Kahhar'ın geçtiği ayetler nasıl farklılaşıyor?",
-    descLongEn:  "How often does each of God's 99 names appear in the Quran, and in what context? Frequency chart plus contextual analysis: how do verses with Ar-Rahman differ from those with Al-Qahhar?",
+    titleTr:     'Esmâ-i Hüsnâ',
+    titleEn:     'The Beautiful Names',
+    descTr:      "Allah'ın Kur'an'da kendini tanıtması · 114 isim",
+    descEn:      "How God describes Himself in the Quran · 114 names",
+    descLongTr:  "Kur'an'da Allah kendisini hangi isim, sıfat ve doğrudan beyanlarla tanıtır? 114 isim · Celal ↔ Cemal dengesi · Âyetü'l-Kürsî ve Haşr 22-24 anatomileri · frekans manzarası · doğrudan ilahi beyanlar.",
+    descLongEn:  "How does God describe Himself in the Quran — through which names, attributes, and direct statements? 114 names · Jalāl ↔ Jamāl balance · anatomies of Āyat al-Kursī and Ḥashr 22-24 · frequency landscape · direct divine self-statements.",
     icon:        EsmaIcon,
   },
   {
