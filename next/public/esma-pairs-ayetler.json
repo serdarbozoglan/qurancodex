@@ -1759,9 +1759,281 @@
           "matchedForm": "التواب الرحيم"
         }
       ]
+    },
+    {
+      "id": "rauf-rahim",
+      "trName": "Er-Raûf · Er-Rahîm",
+      "classicalCount": null,
+      "foundCount": 9,
+      "ayetler": [
+        {
+          "ref": "2:143",
+          "surah": 2,
+          "ayah": 143,
+          "surahName": "البقرة",
+          "surahNameEn": "The Cow",
+          "turkish": "İşte böylece sizin insanlığa şahitler olmanız, Resul'ün de size şahit olması için sizi mutedil bir millet kıldık. Senin (arzulayıp da şu anda) yönelmediğin kıbleyi (Kabe'yi) biz ancak Peygamber'e uyanı, ökçeleri üzerinde geri dönenden ayırdetmemiz için kıble yaptık. Bu, Allah'ın hidayet verdiği kimselerden başkasına elbette ağır gelir. Allah sizin imanınızı asla zayi edecek değildir. Zira Allah insanlara karşı şefkatli ve merhametlidir.",
+          "english": "And thus we have made you a just community that you will be witnesses over the people and the Messenger will be a witness over you. And We did not make the qiblah which you used to face except that We might make evident who would follow the Messenger from who would turn back on his heels. And indeed, it is difficult except for those whom Allah has guided. And never would Allah have caused you to lose your faith. Indeed Allah is, to the people, Kind and Merciful",
+          "matchedForm": "لرؤف رحيم"
+        },
+        {
+          "ref": "9:117",
+          "surah": 9,
+          "ayah": 117,
+          "surahName": "التوبة",
+          "surahNameEn": "The Repentance",
+          "turkish": "Andolsun ki Allah, müslümanlardan bir gurubun kalpleri eğrilmeye yüz tuttuktan sonra, Peygamberi ve güçlük zamanında ona uyan muhacirlerle ensarı affetti. Sonra da onların tevbelerini kabul etti. Çünkü O, onlara karşı çok şefkatli, pek merhametlidir.",
+          "english": "Allah has already forgiven the Prophet and the Muhajireen and the Ansar who followed him in the hour of difficulty after the hearts of a party of them had almost inclined [to doubt], and then He forgave them. Indeed, He was to them Kind and Merciful",
+          "matchedForm": "رؤف رحيم"
+        },
+        {
+          "ref": "9:128",
+          "surah": 9,
+          "ayah": 128,
+          "surahName": "التوبة",
+          "surahNameEn": "The Repentance",
+          "turkish": "Andolsun size kendinizden öyle bir Peygamber gelmiştir ki, sizin sıkıntıya uğramanız ona çok ağır gelir. O, size çok düşkün, müminlere karşı çok şefkatlidir, merhametlidir.",
+          "english": "There has certainly come to you a Messenger from among yourselves. Grievous to him is what you suffer; [he is] concerned over you and to the believers is kind and merciful",
+          "matchedForm": "رؤف رحيم"
+        },
+        {
+          "ref": "16:7",
+          "surah": 16,
+          "ayah": 7,
+          "surahName": "النحل",
+          "surahNameEn": "The Bee",
+          "turkish": "Bu hayvanlar sizin ağırlıklarınızı, ancak güçlüklere katlanarak varabileceğiniz bir memlekete taşırlar. Şüphesiz Rabbiniz çok şefkatli, pek merhametlidir.",
+          "english": "And they carry your loads to a land you could not have reached except with difficulty to yourselves. Indeed, your Lord is Kind and Merciful",
+          "matchedForm": "لرؤف رحيم"
+        },
+        {
+          "ref": "16:47",
+          "surah": 16,
+          "ayah": 47,
+          "surahName": "النحل",
+          "surahNameEn": "The Bee",
+          "turkish": "Yoksa Allah'ın kendilerini yavaş yavaş tüketerek cezalandırmayacağından (emin mi oldular)? Kuşkusuz Rabbin çok şefkatli, pek merhametlidir.",
+          "english": "Or that He would not seize them gradually [in a state of dread]? But indeed, your Lord is Kind and Merciful",
+          "matchedForm": "لرؤف رحيم"
+        },
+        {
+          "ref": "22:65",
+          "surah": 22,
+          "ayah": 65,
+          "surahName": "الحج",
+          "surahNameEn": "The Pilgrimage",
+          "turkish": "Görmedin mi, Allah, yerdeki eşyayı ve emri uyarınca denizde yüzen gemileri sizin hizmetinize verdi. Göğü de, kendi izni olmadıkça yer üzerine düşmekten korur. Çünkü Allah, insanlara çok şefkatli ve çok merhametlidir.",
+          "english": "Do you not see that Allah has subjected to you whatever is on the earth and the ships which run through the sea by His command? And He restrains the sky from falling upon the earth, unless by His permission. Indeed Allah, to the people, is Kind and Merciful",
+          "matchedForm": "لرؤف رحيم"
+        },
+        {
+          "ref": "24:20",
+          "surah": 24,
+          "ayah": 20,
+          "surahName": "النور",
+          "surahNameEn": "The Light",
+          "turkish": "Ya sizin üstünüze Allah'ın lütuf ve merhameti olmasaydı, Allah çok şefkatli ve merhametli olmasaydı (haliniz nice olurdu)!",
+          "english": "And if it had not been for the favor of Allah upon you and His mercy... and because Allah is Kind and Merciful",
+          "matchedForm": "رؤف رحيم"
+        },
+        {
+          "ref": "57:9",
+          "surah": 57,
+          "ayah": 9,
+          "surahName": "الحديد",
+          "surahNameEn": "The Iron",
+          "turkish": "Sizi karanlıklardan aydınlığa çıkarmak için kuluna apaçık ayetler indiren O'dur. Şüphesiz Allah, size karşı çok şefkatli, çok merhametlidir.",
+          "english": "It is He who sends down upon His Servant [Muhammad] verses of clear evidence that He may bring you out from darknesses into the light. And indeed, Allah is to you Kind and Merciful",
+          "matchedForm": "لرؤف رحيم"
+        },
+        {
+          "ref": "59:10",
+          "surah": 59,
+          "ayah": 10,
+          "surahName": "الحشر",
+          "surahNameEn": "The Exile",
+          "turkish": "Bunların arkasından gelenler şöyle derler: Rabbimiz! Bizi ve bizden önce gelip geçmiş imanlı kardeşlerimizi bağışla; kalplerimizde, iman edenlere karşı hiçbir kin bırakma! Rabbimiz! Şüphesiz ki sen çok şefkatli, çok merhametlisin!",
+          "english": "And [there is a share for] those who came after them, saying, \"Our Lord, forgive us and our brothers who preceded us in faith and put not in our hearts [any] resentment toward those who have believed. Our Lord, indeed You are Kind and Merciful",
+          "matchedForm": "رؤف رحيم"
+        }
+      ]
+    },
+    {
+      "id": "vasi-alim",
+      "trName": "El-Vâsi' · El-Alîm",
+      "classicalCount": null,
+      "foundCount": 7,
+      "ayetler": [
+        {
+          "ref": "2:115",
+          "surah": 2,
+          "ayah": 115,
+          "surahName": "البقرة",
+          "surahNameEn": "The Cow",
+          "turkish": "Doğu da Allah'ındır batı da. Nereye dönerseniz Allah'ın yüzü (zatı) oradadır. Şüphesiz Allah'(ın rahmeti ve nimeti) geniştir, O her şeyi bilendir.",
+          "english": "And to Allah belongs the east and the west. So wherever you [might] turn, there is the Face of Allah. Indeed, Allah is all-Encompassing and Knowing",
+          "matchedForm": "واسع عليم"
+        },
+        {
+          "ref": "2:247",
+          "surah": 2,
+          "ayah": 247,
+          "surahName": "البقرة",
+          "surahNameEn": "The Cow",
+          "turkish": "Peygamberleri onlara: Bilin ki Allah, Talut'u size hükümdar olarak gönderdi dedi. Bunun üzerine: Biz, hükümdarlığa daha layık olduğumuz halde, kendisine servet ve zenginlik yönünden geniş imkanlar verilmemişken o bize nasıl hükümdar olur? dediler. \"Allah sizin üzerinize onu seçti, ilimde ve bedende ona üstünlük verdi. Allah mülkünü dilediğine verir. Allah her şeyi ihata eden ve her şeyi bilendir\" dedi.",
+          "english": "And their prophet said to them, \"Indeed, Allah has sent to you Saul as a king.\" They said, \"How can he have kingship over us while we are more worthy of kingship than him and he has not been given any measure of wealth?\" He said, \"Indeed, Allah has chosen him over you and has increased him abundantly in knowledge and stature. And Allah gives His sovereignty to whom He wills. And Allah is all-Encompassing [in favor] and Knowing",
+          "matchedForm": "واسع عليم"
+        },
+        {
+          "ref": "2:261",
+          "surah": 2,
+          "ayah": 261,
+          "surahName": "البقرة",
+          "surahNameEn": "The Cow",
+          "turkish": "Allah yolunda mallarını harcayanların örneği, yedi başak bitiren bir dane gibidir ki, her başakta yüz dane vardır. Allah dilediğine kat kat fazlasını verir. Allah'ın lütfu geniştir, O herşeyi bilir.",
+          "english": "The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing",
+          "matchedForm": "واسع عليم"
+        },
+        {
+          "ref": "2:268",
+          "surah": 2,
+          "ayah": 268,
+          "surahName": "البقرة",
+          "surahNameEn": "The Cow",
+          "turkish": "Şeytan sizi fakirlikle korkutur ve size cimriliği telkin eder. Allah ise size katından bir mağfiret ve bir lütuf vadeder. Allah herşeyi ihata eden ve herşeyi bilendir.",
+          "english": "Satan threatens you with poverty and orders you to immorality, while Allah promises you forgiveness from Him and bounty. And Allah is all-Encompassing and Knowing",
+          "matchedForm": "واسع عليم"
+        },
+        {
+          "ref": "3:73",
+          "surah": 3,
+          "ayah": 73,
+          "surahName": "آل عمران",
+          "surahNameEn": "Family of Imran",
+          "turkish": "Sizin dininize uyanlardan başka hiçbir kimseye inanmayın. \" (Resulüm!) De ki: Doğru yol ancak Allah'ın yoludur. Yine (onlar, kendi aralarında şöyle dediler:) \"Size verilenin benzerinin başka herhangi bir kimseye verildiğine, yahut Rabbinizin huzurunda onların size karşı deliller getireceklerine de (inanmayın).\" De ki: Lütuf ve ihsan Allah'ın elindedir. Onu dilediğine verir. Allah'ın rahmeti geniştir ve O her şeyi hakkıyla bilir.",
+          "english": "And do not trust except those who follow your religion.\" Say, \"Indeed, the [true] guidance is the guidance of Allah. [Do you fear] lest someone be given [knowledge] like you were given or that they would [thereby] argue with you before your Lord?\" Say, \"Indeed, [all] bounty is in the hand of Allah - He grants it to whom He wills. And Allah is all-Encompassing and Wise",
+          "matchedForm": "واسع عليم"
+        },
+        {
+          "ref": "5:54",
+          "surah": 5,
+          "ayah": 54,
+          "surahName": "المائدة",
+          "surahNameEn": "The Table Spread",
+          "turkish": "Ey iman edenler! Sizden kim dininden dönerse (bilsin ki) Allah, sevdiği ve kendisini seven müminlere karşı alçak gönüllü (şefkatli), kafirlere karşı onurlu ve zorlu bir toplum getirecektir. (Bunlar) Allah yolunda cihad ederler ve hiçbir kınayanın kınamasından korkmazlar (hiçbir kimsenin kınamasına aldırmazlar). Bu, Allah'ın, dilediğine verdiği lütfudur. Allah'ın lütfu ve ilmi geniştir.",
+          "english": "O you who have believed, whoever of you should revert from his religion - Allah will bring forth [in place of them] a people He will love and who will love Him [who are] humble toward the believers, powerful against the disbelievers; they strive in the cause of Allah and do not fear the blame of a critic. That is the favor of Allah; He bestows it upon whom He wills. And Allah is all-Encompassing and Knowing",
+          "matchedForm": "واسع عليم"
+        },
+        {
+          "ref": "24:32",
+          "surah": 24,
+          "ayah": 32,
+          "surahName": "النور",
+          "surahNameEn": "The Light",
+          "turkish": "Aranızdaki bekarları, kölelerinizden ve cariyelerinizden elverişli olanları evlendirin. Eğer bunlar fakir iseler, Allah kendi lütfu ile onları zenginleştirir. Allah, (lütfu) geniş olan ve (her şeyi) bilendir.",
+          "english": "And marry the unmarried among you and the righteous among your male slaves and female slaves. If they should be poor, Allah will enrich them from His bounty, and Allah is all-Encompassing and Knowing",
+          "matchedForm": "واسع عليم"
+        }
+      ]
+    },
+    {
+      "id": "latif-habir",
+      "trName": "El-Latîf · El-Habîr",
+      "classicalCount": null,
+      "foundCount": 5,
+      "ayetler": [
+        {
+          "ref": "6:103",
+          "surah": 6,
+          "ayah": 103,
+          "surahName": "الأنعام",
+          "surahNameEn": "The Cattle",
+          "turkish": "Gözler O'nu göremez; halbuki O, gözleri görür. O, eşyayı pek iyi bilen, her şeyden haberdar olandır.",
+          "english": "Vision perceives Him not, but He perceives [all] vision; and He is the Subtle, the Acquainted",
+          "matchedForm": "اللطيف الخبير"
+        },
+        {
+          "ref": "22:63",
+          "surah": 22,
+          "ayah": 63,
+          "surahName": "الحج",
+          "surahNameEn": "The Pilgrimage",
+          "turkish": "Görmedin mi, Allah, gökten yağnmur indirdi de bu sayede yeryüzü yeşeriyor. Gerçekten Allah çok lütufkardır. (her şeyden) haberdardır.",
+          "english": "Do you not see that Allah has sent down rain from the sky and the earth becomes green? Indeed, Allah is Subtle and Acquainted",
+          "matchedForm": "لطيف خبير"
+        },
+        {
+          "ref": "31:16",
+          "surah": 31,
+          "ayah": 16,
+          "surahName": "لقمان",
+          "surahNameEn": "Luqman",
+          "turkish": "(Lokman, öğütlerine devamla şöyle demişti:) Yavrucuğum! Yaptığın iş (iyilik veya kötülük), bir hardal tanesi ağırlığında bile olsa ve bu, bir kayanın içinde veya göklerde yahut yerin derinliklerinde bulunsa, yine de Allah onu (senin karşına) getirir. Doğrusu Allah, en ince işleri görüp bilmektedir ve her şeyden haberdardır.",
+          "english": "[And Luqman said], \"O my son, indeed if wrong should be the weight of a mustard seed and should be within a rock or [anywhere] in the heavens or in the earth, Allah will bring it forth. Indeed, Allah is Subtle and Acquainted",
+          "matchedForm": "لطيف خبير"
+        },
+        {
+          "ref": "33:34",
+          "surah": 33,
+          "ayah": 34,
+          "surahName": "الأحزاب",
+          "surahNameEn": "The Combined Forces",
+          "turkish": "Evlerinizde okunan Allah'ın ayetlerini ve hikmeti hatırlayın. Şüphesiz Allah, her şeyin iç yüzünü bilendir ve her şeyden haberi olandır.",
+          "english": "And remember what is recited in your houses of the verses of Allah and wisdom. Indeed, Allah is ever Subtle and Acquainted [with all things]",
+          "matchedForm": "لطيفا خبيرا"
+        },
+        {
+          "ref": "67:14",
+          "surah": 67,
+          "ayah": 14,
+          "surahName": "الملك",
+          "surahNameEn": "The Sovereignty",
+          "turkish": "Hiç yaratan bilmez mi? O, en ince işleri görüp bilmektedir ve her şeyden haberdardır.",
+          "english": "Does He who created not know, while He is the Subtle, the Acquainted",
+          "matchedForm": "اللطيف الخبير"
+        }
+      ]
+    },
+    {
+      "id": "gafur-sekur",
+      "trName": "El-Gafûr · Eş-Şekûr",
+      "classicalCount": null,
+      "foundCount": 3,
+      "ayetler": [
+        {
+          "ref": "35:30",
+          "surah": 35,
+          "ayah": 30,
+          "surahName": "فاطر",
+          "surahNameEn": "Originator",
+          "turkish": "Çünkü Allah, onların mükafatlarını tam öder ve lütfundan onlara fazlasını da verir. Şüphesiz O, çok bağışlayan, şükrün karşılığını bol bol verendir.",
+          "english": "That He may give them in full their rewards and increase for them of His bounty. Indeed, He is Forgiving and Appreciative",
+          "matchedForm": "غفور شكور"
+        },
+        {
+          "ref": "35:34",
+          "surah": 35,
+          "ayah": 34,
+          "surahName": "فاطر",
+          "surahNameEn": "Originator",
+          "turkish": "(Cennette şöyle) derler: Bizden tasayı gideren Allah'a hamdolsun. Doğrusu Rabbimiz çok bağışlayan, çok nimet verendir.",
+          "english": "And they will say, \"Praise to Allah, who has removed from us [all] sorrow. Indeed, our Lord is Forgiving and Appreciative",
+          "matchedForm": "لغفور شكور"
+        },
+        {
+          "ref": "42:23",
+          "surah": 42,
+          "ayah": 23,
+          "surahName": "الشورى",
+          "surahNameEn": "The Consultation",
+          "turkish": "İşte Allah'ın, iman eden ve iyi işler yapan kullarına müjdelediği nimet budur. Deki: Ben buna karşılık sizden akrabalık sevgisinden başka bir ücret istemiyorum. Kim bir iyilik işlerse onun sevabını fazlasıyla veririz. Şüphesiz Allah bağışlayan, şükrün karşılığını verendir.",
+          "english": "It is that of which Allah gives good tidings to His servants who believe and do righteous deeds. Say, [O Muhammad], \"I do not ask you for this message any payment [but] only good will through kinship.\" And whoever commits a good deed - We will increase for him good therein. Indeed, Allah is Forgiving and Appreciative",
+          "matchedForm": "غفور شكور"
+        }
+      ]
     }
   ],
-  "generated_at": "2026-06-01T15:41:49.092Z",
+  "generated_at": "2026-06-01T16:57:10.112Z",
   "methodology": {
     "tr": "Diacritic-stripped substring match — definite (al-X al-Y) ve indefinite (X Y) formları ayrı sayılır. Klasik konkordans (Abdülbâkî) ile karşılaştırmalı.",
     "en": "Diacritic-stripped substring match — definite (al-X al-Y) and indefinite (X Y) forms counted separately. Compared against classical concordance (Abdülbāqī).",

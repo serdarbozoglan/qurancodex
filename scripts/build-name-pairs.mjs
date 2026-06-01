@@ -97,6 +97,33 @@ const PAIRS = [
     classicalCount: 6,
     patterns: [pairPattern('تواب', 'رحيم')],
   },
+  // ── Genişletilmiş pair set (v2): klasik Esmâ literatüründe iyi bilinen
+  // ek çiftler. Allow reverse ise pair anlam taşıyan ters sıra var demek.
+  {
+    id: 'rauf-rahim',
+    trName: 'Er-Raûf · Er-Rahîm',
+    classicalCount: null, // klasik sayı doğrulanmayacak, korpus tarama tek kaynak
+    // verse-graph'ta Râûf: رَؤُ۫فٌ (silent waw + U+06EB). Strip sonrası "رؤف".
+    patterns: [pairPattern('رؤف', 'رحيم'), pairPattern('رحيم', 'رؤف')],
+  },
+  {
+    id: 'vasi-alim',
+    trName: "El-Vâsi' · El-Alîm",
+    classicalCount: null,
+    patterns: [pairPattern('واسع', 'عليم'), pairPattern('عليم', 'واسع')],
+  },
+  {
+    id: 'latif-habir',
+    trName: 'El-Latîf · El-Habîr',
+    classicalCount: null,
+    patterns: [pairPattern('لطيف', 'خبير'), pairPattern('خبير', 'لطيف')],
+  },
+  {
+    id: 'gafur-sekur',
+    trName: 'El-Gafûr · Eş-Şekûr',
+    classicalCount: null,
+    patterns: [pairPattern('غفور', 'شكور'), pairPattern('شكور', 'غفور')],
+  },
 ];
 
 // ── Tara ──────────────────────────────────────────────────────────────────────

@@ -1065,6 +1065,55 @@ const NAME_PAIRS = [
     trGloss: 'Tövbe kapısı kapanmaz — açan ve karşılayan aynı şefkattir.',
     enGloss: 'The door of repentance never closes — the One who opens and receives is the same mercy.',
   },
+  // ── v2 ek pair'ler (build-name-pairs.mjs ile doğrulanmış) ──────────────────
+  {
+    id: 'rauf-rahim',
+    arabic: 'الرَّؤُوفُ الرَّحِيمُ',
+    trName: 'Er-Raûf · Er-Rahîm',
+    enName: 'ar-Raʾūf · ar-Raḥīm',
+    trMeaning: 'Çok şefkatli + Çok merhametli',
+    enMeaning: 'Most kind + Most merciful',
+    // Râzî & Râgıb el-İsfahanî: Râfet = acıyı uzaklaştırma; Rahmet = iyiliği
+    // verme. Önce acı kalkar, sonra iyilik gelir.
+    trGloss: 'Râfet acıyı uzaklaştırır, rahmet iyiliği verir — önce yara dindirilir, sonra hediye.',
+    enGloss: 'Raʾfa removes pain, raḥma bestows kindness — the wound is soothed first, then the gift arrives.',
+  },
+  {
+    id: 'vasi-alim',
+    arabic: 'الْوَاسِعُ الْعَلِيمُ',
+    trName: "El-Vâsi' · El-Alîm",
+    enName: 'al-Wāsiʿ · al-ʿAlīm',
+    trMeaning: 'Genişliği sınırsız + Bilgisi kuşatıcı',
+    enMeaning: 'Boundlessly vast + All-encompassing in knowledge',
+    // Râgıb el-İsfahanî: vüsʿat hem rahmet/rızık hem ilim genişliği. Sınırsız
+    // genişlik + ihmali olmayan dikkat.
+    trGloss: 'Sınırsız genişlik ve ihmali olmayan dikkat — rahmet kuşatıcıdır, gözden kaçan yoktur.',
+    enGloss: 'Boundless expanse with attention that misses nothing — mercy encompasses, nothing escapes notice.',
+  },
+  {
+    id: 'latif-habir',
+    arabic: 'اللَّطِيفُ الْخَبِيرُ',
+    trName: 'El-Latîf · El-Habîr',
+    enName: 'al-Laṭīf · al-Khabīr',
+    trMeaning: 'En ince ayrıntıya nüfuz eden + Her şeyden haberdar',
+    enMeaning: 'Penetrating subtlety + Aware of all',
+    // Mülk 67:14, En'âm 6:103. Latîf hem "iyilik eden" hem "ince/gözden kaçan".
+    // İnce + haberdar = görünmeyene erişen lütuf.
+    trGloss: 'Görünmeyenin içine sızar, bilinmeyene erişir — lütuf ve bilgi birleşir.',
+    enGloss: 'Penetrates the unseen, reaches the unknown — gentleness and awareness merged.',
+  },
+  {
+    id: 'gafur-sekur',
+    arabic: 'الْغَفُورُ الشَّكُورُ',
+    trName: 'El-Gafûr · Eş-Şekûr',
+    enName: 'al-Ghafūr · ash-Shakūr',
+    trMeaning: 'Büyük hatayı affeden + Küçük iyiliği takdir eden',
+    enMeaning: 'Forgives great error + Appreciates small good',
+    // Fâtır 35:30, Şûrâ 42:23, Teğâbun 64:17. Klasik tefsirde dikkat çekilen
+    // tezat: hata silinir, hayır kat kat artırılır.
+    trGloss: 'Hata silinir, küçük hayır kat kat artırılır — hesaplama Allah\'a göre asimetriktir.',
+    enGloss: 'Errors are erased, small acts of good are multiplied — His accounting is asymmetric in our favor.',
+  },
 ];
 
 function NamePairs({ tr, pairsData }) {
