@@ -20,7 +20,7 @@
           "ayet": 14,
           "sureAdTr": "Tâhâ",
           "sureAdEn": "Ta-Ha",
-          "arapca": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا۬ فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي",
+          "arapca": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي",
           "tr": "Muhakkak ki ben, yalnızca ben Allah'ım. Benden başka ilah yoktur. Bana kulluk et; beni anmak için namaz kıl.",
           "en": "Indeed, I am Allah. There is no deity except Me, so worship Me and establish prayer for My remembrance"
         },
@@ -30,7 +30,7 @@
           "ayet": 25,
           "sureAdTr": "Enbiyâ",
           "sureAdEn": "The Prophets",
-          "arapca": "وَمٓا اَرْسَلْنَا مِنْ قَبْلِكَ مِنْ رَسُولٍ اِلَّا نُوحِٓي اِلَيْهِ اَنَّهُ لٓا اِلٰهَ اِلّٓا اَنَا۬ فَاعْبُدُونِ",
+          "arapca": "وَمٓا اَرْسَلْنَا مِنْ قَبْلِكَ مِنْ رَسُولٍ اِلَّا نُوحِٓي اِلَيْهِ اَنَّهُ لٓا اِلٰهَ اِلّٓا اَنَا فَاعْبُدُونِ",
           "tr": "Senden önce hiçbir resul göndermedik ki ona: \"Benden başka İlah yoktur; şu halde bana kulluk edin\" diye vahyetmiş olmayalım.",
           "en": "And We sent not before you any messenger except that We revealed to him that, \"There is no deity except Me, so worship Me"
         },
@@ -40,7 +40,7 @@
           "ayet": 163,
           "sureAdTr": "Bakara",
           "sureAdEn": "The Cow",
-          "arapca": "وَاِلٰهُكُمْ اِلٰهٌ وَاحِدٌ  لٓا اِلٰهَ اِلَّا هُوَ الرَّحْمٰنُ الرَّحِيمُ۟",
+          "arapca": "وَاِلٰهُكُمْ اِلٰهٌ وَاحِدٌ  لٓا اِلٰهَ اِلَّا هُوَ الرَّحْمٰنُ الرَّحِيمُ",
           "tr": "İlahınız bir tek Allah'tır. O'ndan başka ilah yoktur. O, Rahmân'dır, Rahîm'dir.",
           "en": "And your god is one God. There is no deity [worthy of worship] except Him, the Entirely Merciful, the Especially Merciful"
         },
@@ -256,7 +256,7 @@
           "ayet": 29,
           "sureAdTr": "Bakara",
           "sureAdEn": "The Cow",
-          "arapca": "هُوَ الَّذِي خَلَقَ لَكُمْ مَا فِي الْاَرْضِ جَمِيعاً ثُمَّ اسْتَوٰٓى اِلَى السَّمٓاءِ فَسَوّٰيهُنَّ سَبْعَ سَمٰوَاتٍ وَهُوَ بِكُلِّ شَيْءٍ عَلِيمٌ۟",
+          "arapca": "هُوَ الَّذِي خَلَقَ لَكُمْ مَا فِي الْاَرْضِ جَمِيعاً ثُمَّ اسْتَوٰٓى اِلَى السَّمٓاءِ فَسَوّٰيهُنَّ سَبْعَ سَمٰوَاتٍ وَهُوَ بِكُلِّ شَيْءٍ عَلِيمٌ",
           "tr": "O, yerde ne varsa hepsini sizin için yarattı. Sonra (kendine has bir şekilde) semaya yöneldi, onu yedi kat olarak yaratıp düzenledi (tanzim etti). O, her şeyi hakkıyla bilendir.",
           "en": "It is He who created for you all of that which is on the earth. Then He directed Himself to the heaven, [His being above all creation], and made them seven heavens, and He is Knowing of all things"
         },
@@ -305,7 +305,7 @@
           "ayet": 20,
           "sureAdTr": "Bakara",
           "sureAdEn": "The Cow",
-          "arapca": "يَكَادُ الْبَرْقُ يَخْطَفُ اَبْصَارَهُمْ  كُلَّمٓا اَضٓاءَ لَهُمْ مَشَوْا فِيهِ وَاِذٓا اَظْلَمَ عَلَيْهِمْ قَامُوا وَلَوْ شٓاءَ اللّٰهُ لَذَهَبَ بِسَمْعِهِمْ وَاَبْصَارِهِمْ اِنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ۟",
+          "arapca": "يَكَادُ الْبَرْقُ يَخْطَفُ اَبْصَارَهُمْ  كُلَّمٓا اَضٓاءَ لَهُمْ مَشَوْا فِيهِ وَاِذٓا اَظْلَمَ عَلَيْهِمْ قَامُوا وَلَوْ شٓاءَ اللّٰهُ لَذَهَبَ بِسَمْعِهِمْ وَاَبْصَارِهِمْ اِنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ",
           "tr": "(O esnada) şimşek sanki gözlerini çıkaracakmış gibi çakar, onlar için etrafı aydınlatınca orada birazcık yürürler, karanlık üzerlerine çökünce de oldukları yerde kalırlar. Allah dileseydi elbette onların kulaklarını sağır, gözlerini kör ederdi. Allah şüphesiz her şeye kadirdir.",
           "en": "The lightning almost snatches away their sight. Every time it lights [the way] for them, they walk therein; but when darkness comes over them, they stand [still]. And if Allah had willed, He could have taken away their hearing and their sight. Indeed, Allah is over all things competent"
         },
@@ -354,7 +354,7 @@
           "ayet": 49,
           "sureAdTr": "Kehf",
           "sureAdEn": "The Cave",
-          "arapca": "وَوُضِعَ الْكِتَابُ فَتَرَى الْمُجْرِمِينَ مُشْفِقِينَ مِمَّا فِيهِ وَيَقُولُونَ يَا وَيْلَتَنَا مَالِ هٰذَا الْكِتَابِ لَا يُغَادِرُ صَغِيرَةً وَلَا كَبِيرَةً اِلّٓا اَحْصٰيهَا وَوَجَدُوا مَا عَمِلُوا حَاضِراً وَلَا يَظْلِمُ رَبُّكَ اَحَداً۟",
+          "arapca": "وَوُضِعَ الْكِتَابُ فَتَرَى الْمُجْرِمِينَ مُشْفِقِينَ مِمَّا فِيهِ وَيَقُولُونَ يَا وَيْلَتَنَا مَالِ هٰذَا الْكِتَابِ لَا يُغَادِرُ صَغِيرَةً وَلَا كَبِيرَةً اِلّٓا اَحْصٰيهَا وَوَجَدُوا مَا عَمِلُوا حَاضِراً وَلَا يَظْلِمُ رَبُّكَ اَحَداً",
           "tr": "Kitap ortaya konmuştur: Suçluların, onda yazılı olanlardan korkmuş olduklarını görürsün. \"Vay halimize! derler, bu nasıl kitapmış! Küçük büyük hiçbir şey bırakmaksızın (yaptıklarımızın) hepsini sayıp dökmüş!\" BöyIece yaptıklarını karşılarında bulmuşlardır. Senin Rabbin hiç kimseye zulmetmez.",
           "en": "And the record [of deeds] will be placed [open], and you will see the criminals fearful of that within it, and they will say, \"Oh, woe to us! What is this book that leaves nothing small or great except that it has enumerated it?\" And they will find what they did present [before them]. And your Lord does injustice to no one"
         },
@@ -383,7 +383,7 @@
           "ayet": 11,
           "sureAdTr": "Şûrâ",
           "sureAdEn": "The Consultation",
-          "arapca": "فَاطِرُ السَّمٰوَاتِ وَالْاَرْضِ جَعَلَ لَكُمْ مِنْ اَنْفُسِكُمْ اَزْوَاجاً وَمِنَ الْاَنْعَامِ اَزْوَاجاً يَذْرَؤُ۬كُمْ فِيهِ لَيْسَ كَمِثْلِهِ شَيْءٌ وَهُوَ السَّمِيعُ الْبَصِيرُ",
+          "arapca": "فَاطِرُ السَّمٰوَاتِ وَالْاَرْضِ جَعَلَ لَكُمْ مِنْ اَنْفُسِكُمْ اَزْوَاجاً وَمِنَ الْاَنْعَامِ اَزْوَاجاً يَذْرَؤُكُمْ فِيهِ لَيْسَ كَمِثْلِهِ شَيْءٌ وَهُوَ السَّمِيعُ الْبَصِيرُ",
           "tr": "O, gökleri ve yeri yoktan yaratandır. Size kendinizden eşler, hayvanlardan da (kendilerine) eşler yaratmıştır. Bu suretle çoğalmanızı sağlamıştır. O'nun benzeri hiçbir şey yoktur. O işitendir, görendir.",
           "en": "[He is] Creator of the heavens and the earth. He has made for you from yourselves, mates, and among the cattle, mates; He multiplies you thereby. There is nothing like unto Him, and He is the Hearing, the Seeing"
         },
@@ -412,7 +412,7 @@
           "ayet": 255,
           "sureAdTr": "Bakara",
           "sureAdEn": "The Cow",
-          "arapca": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ اَلْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهٓ اِلَّا بِاِذْنِهِ يَعْلَمُ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهٓ اِلَّا بِمَا شٓاءَ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَ وَلَا يَؤُ۫دُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+          "arapca": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ اَلْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهٓ اِلَّا بِاِذْنِهِ يَعْلَمُ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهٓ اِلَّا بِمَا شٓاءَ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَ وَلَا يَؤُدُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
           "tr": "Allah, O'ndan başka tanrı yoktur; O, hayydir, kayyumdur. Kendisine ne uyku gelir ne de uyuklama. Göklerde ve yerdekilerin hepsi O'nundur. İzni olmadan O'nun katında kim şefaat edebilir? O, kullarının yaptıklarını ve yapacaklarını bilir. (O'na hiçbir şey gizli kalmaz.) O'nun bildirdiklerinin dışında insanlar O'nun ilminden hiçbir şeyi tam olarak bilemezler. O'nun kürsüsü gökleri ve yeri içine alır, onları koruyup gözetmek kendisine zor gelmez. O, yücedir, büyüktür.",
           "en": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great"
         },
@@ -470,7 +470,7 @@
           "ayet": 257,
           "sureAdTr": "Bakara",
           "sureAdEn": "The Cow",
-          "arapca": "اَللّٰهُ وَلِيُّ الَّذِينَ اٰمَنُوا يُخْرِجُهُمْ مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَالَّذِينَ كَفَرٓوا اَوْلِيٓاؤُ۬هُمُ الطَّاغُوتُ يُخْرِجُونَهُمْ مِنَ النُّورِ اِلَى الظُّلُمَاتِ اُو۬لٰٓئِكَ اَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ۟",
+          "arapca": "اَللّٰهُ وَلِيُّ الَّذِينَ اٰمَنُوا يُخْرِجُهُمْ مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَالَّذِينَ كَفَرٓوا اَوْلِيٓاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُمْ مِنَ النُّورِ اِلَى الظُّلُمَاتِ اُولٰٓئِكَ اَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ",
           "tr": "Allah, inananların dostudur, onları karanlıklardan aydınlığa çıkarır. İnkar edenlere gelince, onların dostları da tağuttur, onları aydınlıktan alıp karanlığa götürür. İşte bunlar cehennemliklerdir. Onlar orada devamlı kalırlar.",
           "en": "Allah is the ally of those who believe. He brings them out from darknesses into the light. And those who disbelieve - their allies are Taghut. They take them out of the light into darknesses. Those are the companions of the Fire; they will abide eternally therein"
         }
@@ -489,7 +489,7 @@
           "ayet": 40,
           "sureAdTr": "Yûsuf",
           "sureAdEn": "Joseph",
-          "arapca": "مَا تَعْبُدُونَ مِنْ دُونِهٓ اِلّٓا اَسْمٓاءً سَمَّيْتُمُوهٓا اَنْتُمْ وَاٰبٓاؤُ۬كُمْ مٓا اَنْزَلَ اللّٰهُ بِهَا مِنْ سُلْطَانٍ اِنِ الْحُكْمُ اِلَّا لِلّٰهِ اَمَرَ اَلَّا تَعْبُدٓوا اِلّٓا اِيَّاهُ ذٰلِكَ الدِّينُ الْقَيِّمُ وَلٰكِنَّ اَكْثَرَ النَّاسِ لَا يَعْلَمُونَ",
+          "arapca": "مَا تَعْبُدُونَ مِنْ دُونِهٓ اِلّٓا اَسْمٓاءً سَمَّيْتُمُوهٓا اَنْتُمْ وَاٰبٓاؤُكُمْ مٓا اَنْزَلَ اللّٰهُ بِهَا مِنْ سُلْطَانٍ اِنِ الْحُكْمُ اِلَّا لِلّٰهِ اَمَرَ اَلَّا تَعْبُدٓوا اِلّٓا اِيَّاهُ ذٰلِكَ الدِّينُ الْقَيِّمُ وَلٰكِنَّ اَكْثَرَ النَّاسِ لَا يَعْلَمُونَ",
           "tr": "Allah'ı bırakıp da taptıklarınız, sizin ve atalarınızın taktığı birtakım isimlerden başka bir şey değildir. Allah onlar hakkında herhangi bir delil indirmemiştir. Hüküm sadece Allah'a aittir. O size kendisinden başkasına ibadet etmemenizi emretmiştir. İşte dosdoğru din budur. Fakat insanların çoğu bilmezler.",
           "en": "You worship not besides Him except [mere] names you have named them, you and your fathers, for which Allah has sent down no authority. Legislation is not but for Allah. He has commanded that you worship not except Him. That is the correct religion, but most of the people do not know"
         },
@@ -528,7 +528,7 @@
           "ayet": 152,
           "sureAdTr": "Bakara",
           "sureAdEn": "The Cow",
-          "arapca": "فَاذْكُرُونِٓي اَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ۟",
+          "arapca": "فَاذْكُرُونِٓي اَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ",
           "tr": "Öyle ise siz beni (ibadetle) anın ki ben de sizi anayım. Bana şükredin; sakın bana nankörlük etmeyin!",
           "en": "So remember Me; I will remember you. And be grateful to Me and do not deny Me"
         }
@@ -547,7 +547,7 @@
           "ayet": 255,
           "sureAdTr": "Bakara",
           "sureAdEn": "The Cow",
-          "arapca": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ اَلْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهٓ اِلَّا بِاِذْنِهِ يَعْلَمُ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهٓ اِلَّا بِمَا شٓاءَ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَ وَلَا يَؤُ۫دُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+          "arapca": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ اَلْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهٓ اِلَّا بِاِذْنِهِ يَعْلَمُ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهٓ اِلَّا بِمَا شٓاءَ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَ وَلَا يَؤُدُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
           "tr": "Allah, O'ndan başka tanrı yoktur; O, hayydir, kayyumdur. Kendisine ne uyku gelir ne de uyuklama. Göklerde ve yerdekilerin hepsi O'nundur. İzni olmadan O'nun katında kim şefaat edebilir? O, kullarının yaptıklarını ve yapacaklarını bilir. (O'na hiçbir şey gizli kalmaz.) O'nun bildirdiklerinin dışında insanlar O'nun ilminden hiçbir şeyi tam olarak bilemezler. O'nun kürsüsü gökleri ve yeri içine alır, onları koruyup gözetmek kendisine zor gelmez. O, yücedir, büyüktür.",
           "en": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great"
         },

@@ -32,7 +32,7 @@ function cleanArabicForDisplay(str) {
     .replace(/[؀-؅]/g, '')                           // Kur'an numara/dipnot işaretleri
     .replace(/[۝۞۩]/g, '')                      // ayet sonu, rub el hizb, secde işareti
     .replace(/ۦ/g, ' ')                                   // small yeh → boşluk (kelime ayracı)
-    .replace(/[ۖ-ۜۢۨ]/g, '') // waqf + dekoratif tajwid
+    .replace(/[ۖ-۟ۢۨ۫۬]/g, '') // waqf + dekoratif tajwid (U+06D6-U+06DF + U+06E2 + U+06E8 + U+06EB + U+06EC; KFGQPC bunları daire/tofu render eder)
     .replace(/[﴾﴿]/g, '');                           // süslü parantezler
 }
 
