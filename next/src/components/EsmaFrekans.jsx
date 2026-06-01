@@ -258,17 +258,20 @@ function Hero({ tr }) {
           transition={{ duration: 0.9, delay: 0.9 }}
           style={{ textAlign: 'center', marginBottom: '56px', position: 'relative' }}
         >
-          {/* Calligraphic Arabic accent above the title */}
+          {/* Calligraphic Arabic accent above the title.
+              Boyut H1'in 1/3'ü oranında — görsel denge için clamp genişletildi
+              (önce çok küçüktü: 1rem mobile, 1.4rem desktop). */}
           <p
             dir="rtl"
             lang="ar"
             style={{
               fontFamily: FONTS.quran,
-              fontSize: 'clamp(1rem, 1.8vw, 1.4rem)',
+              fontSize: 'clamp(1.7rem, 4vw, 2.7rem)',
               color: `${COLORS.gold}cc`,
-              margin: '0 0 14px',
-              lineHeight: 1,
+              margin: '0 0 16px',
+              lineHeight: 1.5,
               letterSpacing: '0.02em',
+              textShadow: `0 0 24px ${COLORS.gold}1c`,
             }}
           >
             ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ
