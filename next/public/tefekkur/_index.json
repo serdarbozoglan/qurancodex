@@ -51,6 +51,17 @@
   ],
   "articles": [
     {
+      "slug": "inception-hayatlar",
+      "titleTr": "Inception Hayatlar — Recursive Düşüncenin Pratiği",
+      "titleEn": "Inception Lives — The Practice of Recursive Thinking",
+      "category": "idrak-suur",
+      "publishedDate": "2024-10-15",
+      "readingMinutes": 8,
+      "tldrTr": "Hayat iç içe katmanlardan oluşur — Inception filmi gibi. Instagram→reel→ahiret: her katmanın 'gerçeklik' hissi var ama asıl üst katmandır. Ahiret 'sonraki' değil 'öteki' — şu an paralel akan bir boyut. Çare kesben terk değil kalben terk + cismani hayatı dönüştürme. Her amel iki deftere eşzamanlı kayıt.",
+      "tldrEn": "Life is nested layers — like Inception. Instagram→real→hereafter: each has its 'reality-feel' but the ground is the topmost. Ākhira means not only 'the later' but 'the other' — a dimension flowing in parallel now. The cure is not outward abandonment but inner detachment + transforming the bodily. Every deed is recorded simultaneously in two ledgers.",
+      "status": "draft"
+    },
+    {
       "slug": "enerji-krizi",
       "titleTr": "Enerji Krizi — Odaklanmayı Yakıt Yönetimi Olarak Anlamak",
       "titleEn": "The Energy Crisis — Reading Focus as Fuel Management",
