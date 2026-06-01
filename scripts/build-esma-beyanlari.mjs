@@ -170,12 +170,12 @@ const eksenler = [
     notEn: "Everyone in the heavens and earth asks of Him. 'Remember Me; I will remember you.'",
   },
   {
-    id: 'flagship-pasajlar',
-    baslikTr: "Kapsamlı Pasajlar",
-    baslikEn: "Comprehensive Passages",
+    id: 'toplayici-beyanlar',
+    baslikTr: "Toplayıcı Beyanlar",
+    baslikEn: "Comprehensive Statements",
     ayetRefs: ['2:255', '59:22', '59:23', '59:24'],
-    notTr: "Âyetü'l-Kürsî ve Haşr 22-24 — ilâhî isimlerin en yoğun kümelendiği pasajlar.",
-    notEn: "Āyat al-Kursī and Ḥashr 22-24 — passages with the highest density of divine names.",
+    notTr: "Âyetü'l-Kürsî ve Haşr 22-24 — ilâhî isimlerin en yoğun kümelendiği beyanlar.",
+    notEn: "Āyat al-Kursī and Ḥashr 22-24 — statements with the highest density of divine names.",
   },
 ];
 

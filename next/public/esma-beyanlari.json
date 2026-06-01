@@ -535,11 +535,11 @@
       ]
     },
     {
-      "id": "flagship-pasajlar",
-      "baslikTr": "Kapsamlı Pasajlar",
-      "baslikEn": "Comprehensive Passages",
-      "notTr": "Âyetü'l-Kürsî ve Haşr 22-24 — ilâhî isimlerin en yoğun kümelendiği pasajlar.",
-      "notEn": "Āyat al-Kursī and Ḥashr 22-24 — passages with the highest density of divine names.",
+      "id": "toplayici-beyanlar",
+      "baslikTr": "Toplayıcı Beyanlar",
+      "baslikEn": "Comprehensive Statements",
+      "notTr": "Âyetü'l-Kürsî ve Haşr 22-24 — ilâhî isimlerin en yoğun kümelendiği beyanlar.",
+      "notEn": "Āyat al-Kursī and Ḥashr 22-24 — statements with the highest density of divine names.",
       "ayetler": [
         {
           "id": "2:255",
