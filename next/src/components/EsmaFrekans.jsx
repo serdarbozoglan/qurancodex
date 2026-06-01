@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, TEXT, TRANSITION } from '../tokens';
+import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 
 // ── Sabit veriler ────────────────────────────────────────────────────────────
 
@@ -602,6 +603,7 @@ const AYET_KURSI = {
   refEn: 'Baqara 2:255',
   title: 'Âyetü\'l-Kürsî',
   titleEn: 'Āyat al-Kursī',
+  playRange: { surah: 2, from: 255, to: 255 },
   intro: 'Allah\'ın zatını uyuklamayan, tüm evreni canlı tutan sarsılmaz bir güç olarak tanımlayan en meşhur ayet.',
   introEn: 'The most famous verse describing God as the unsleeping, ever-sustaining power who holds all existence.',
   arabic: 'ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ',
@@ -621,6 +623,7 @@ const HASR_VERSE = {
   refEn: 'Ḥashr 59:22-24',
   title: 'Haşr 59:22-24',
   titleEn: 'Ḥashr 59:22-24',
+  playRange: { surah: 59, from: 22, to: 24 },
   intro: "Kur'an'da ilahî isimlerin en yoğun kümelendiği beyan — 13 isim peş peşe.",
   introEn: "The densest gathering of divine names in the Quran — 13 names in succession.",
   arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ ۝ هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ ۝ هُوَ ٱللَّهُ ٱلْخَٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ',
@@ -648,6 +651,7 @@ const IHLAS_VERSE = {
   refEn: 'Ikhlāṣ 112:1-4',
   title: 'İhlâs Suresi',
   titleEn: 'Sūrat al-Ikhlāṣ',
+  playRange: { surah: 112, from: 1, to: 4 },
   intro: "Mutlak teklik — negatif tanım ile eşsizlik (Ehad + Samed + 'kimseden doğmamış, kimseyi doğurmamış').",
   introEn: "Absolute oneness — uniqueness through negative description (al-Aḥad + aṣ-Ṣamad + 'neither begotten nor begetting').",
   arabic: 'قُلْ هُوَ ٱللَّهُ أَحَدٌ ۝ ٱللَّهُ ٱلصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ',
@@ -688,6 +692,66 @@ function FlagshipVerses({ tr }) {
 }
 
 function FlagshipCard({ verse, index, tr }) {
+  // Audio playback state — her FlagshipCard kendi sequence'ını yönetir.
+  // liveRef: unmount/stop'ta in-flight playback'i iptal etmek için.
+  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef(null);
+  const liveRef = useRef(false);
+
+  // Cleanup on unmount — eğer card unmount olurken audio çalıyorsa durdur.
+  useEffect(() => () => {
+    liveRef.current = false;
+    if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); }
+  }, []);
+
+  const stopAudio = () => {
+    liveRef.current = false;
+    if (audioRef.current) { audioRef.current.onerror = null; audioRef.current.pause(); audioRef.current = null; }
+    setPlaying(false);
+  };
+
+  const playOne = (surah, ayah, onEnded, onFailed) => {
+    const urls = buildFallbackUrls(surah, ayah);
+    const tryUrl = (i) => {
+      if (i >= urls.length) { onFailed(); return; }
+      const a = new Audio(urls[i]);
+      audioRef.current = a;
+      a.onended = onEnded;
+      a.onerror = () => {
+        if (audioRef.current !== a) return;
+        a.onerror = null;
+        tryUrl(i + 1);
+      };
+      a.play().catch(err => {
+        if (err?.name === 'AbortError') return;
+        if (audioRef.current !== a) return;
+        tryUrl(i + 1);
+      });
+    };
+    tryUrl(0);
+  };
+
+  const togglePlay = () => {
+    if (playing) { stopAudio(); return; }
+    if (!verse.playRange) return;
+    const { surah, from, to } = verse.playRange;
+    liveRef.current = true;
+    setPlaying(true);
+    let ayah = from;
+    const next = () => {
+      if (!liveRef.current || ayah > to) {
+        if (liveRef.current) { liveRef.current = false; setPlaying(false); }
+        return;
+      }
+      const a = ayah;
+      playOne(surah, a,
+        () => { if (liveRef.current) { ayah++; next(); } },
+        () => { if (liveRef.current) { ayah++; next(); } } // skip failed, continue
+      );
+    };
+    next();
+  };
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 30 }}
@@ -699,7 +763,7 @@ function FlagshipCard({ verse, index, tr }) {
         padding: '36px 28px',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px', marginBottom: '14px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px' }}>
         <span style={{
           color: COLORS.gold,
           fontFamily: FONTS.display,
@@ -718,6 +782,47 @@ function FlagshipCard({ verse, index, tr }) {
         }}>
           {tr ? verse.title : verse.titleEn}
         </h3>
+
+        {/* Play / Stop button */}
+        {verse.playRange && (
+          <button
+            type="button"
+            onClick={togglePlay}
+            aria-label={playing
+              ? (tr ? 'Tilaveti durdur' : 'Stop recitation')
+              : (tr ? 'Tilaveti dinle' : 'Listen to recitation')}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '36px',
+              height: '36px',
+              borderRadius: '50%',
+              background: playing ? `${COLORS.gold}22` : `${COLORS.gold}10`,
+              border: `1px solid ${COLORS.gold}55`,
+              color: COLORS.gold,
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              marginLeft: '6px',
+              flexShrink: 0,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}33`; }}
+            onMouseLeave={e => { e.currentTarget.style.background = playing ? `${COLORS.gold}22` : `${COLORS.gold}10`; }}
+          >
+            {playing ? (
+              // Stop icon (square)
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="5" y="5" width="14" height="14" rx="1.5" />
+              </svg>
+            ) : (
+              // Play icon (triangle)
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 4.5v15l13-7.5z" />
+              </svg>
+            )}
+          </button>
+        )}
+
         <span style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, letterSpacing: '0.08em', marginLeft: 'auto' }}>
           {tr ? verse.ref : verse.refEn}
         </span>
