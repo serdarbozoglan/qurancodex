@@ -72,7 +72,8 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 4: FREKANS MANZARASI ═══ */}
       <FrequencyLandscape data={data} tr={tr} />
 
-      {/* Diğer section'lar sonraki task'larda eklenecek */}
+      {/* ═══ SECTION 5: VAHYİN SESİ ═══ */}
+      <DivineVoice beyanlari={beyanlari} tr={tr} />
     </div>
   );
 }
@@ -732,6 +733,141 @@ function AllahLemmaNote({ tr, onClose }) {
           ? <>Bu nedenle klasik rakamlar (Allah=2.699), yalın yüzey lafzı sayımına (~{ALLAH_SURFACE_COUNT.toLocaleString('tr-TR')}) göre daha yüksek görünür. Bu metodolojik bir tercihtir, sayım hatası değildir.</>
           : <>This is why classical figures (Allah=2,699) appear higher than strict surface counts (~{ALLAH_SURFACE_COUNT.toLocaleString('en-US')}). It is a methodological choice, not a counting error.</>}
       </p>
+    </motion.div>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 5: VAHYIN SESI — 14 tematik eksen, 6 görünür + 8 expand
+// ═════════════════════════════════════════════════════════════════════════════
+
+const FOREGROUND_AXES = ['varlik-teklik', 'yakinlik', 'rahmet-af', 'yaraticilik', 'kudret', 'nur'];
+
+function DivineVoice({ beyanlari, tr }) {
+  const [expanded, setExpanded] = useState(false);
+
+  if (!beyanlari) return null;
+
+  const fg = beyanlari.eksenler.filter(e => FOREGROUND_AXES.includes(e.id));
+  const bg = beyanlari.eksenler.filter(e => !FOREGROUND_AXES.includes(e.id));
+
+  return (
+    <section style={{ padding: '80px 24px', background: COLORS.cosmicBlack }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={sectionLabel}>{tr ? 'Vahyin Sesi' : 'The Voice of Revelation'}</div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+          color: COLORS.offWhite,
+          fontWeight: 700,
+          margin: '0 0 16px',
+          maxWidth: '720px',
+        }}>
+          {tr ? "Allah'ın Doğrudan Beyanları" : "God's Direct Self-Statements"}
+        </h2>
+        <p style={{ color: COLORS.silver, fontSize: '1.05rem', lineHeight: 1.8, margin: '0 0 50px', maxWidth: '720px' }}>
+          {tr
+            ? "Allah kendisini bazen üçüncü şahıs üzerinden, bazen doğrudan birinci şahıs üzerinden (\"Ben\", \"Biz\") tanıtır. Bu pasajlar onun kendi ağzından tanımıdır."
+            : "God describes Himself sometimes in the third person, sometimes directly in the first person (\"I\", \"We\"). These passages are His self-description in His own voice."}
+        </p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          {fg.map(eks => <AxisCard key={eks.id} eks={eks} tr={tr} />)}
+        </div>
+
+        {!expanded && (
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+            <button
+              onClick={() => setExpanded(true)}
+              style={{
+                background: 'transparent',
+                border: `1px solid ${COLORS.softGoldAlpha40 || 'rgba(212,165,116,0.4)'}`,
+                borderRadius: '10px',
+                color: COLORS.gold,
+                padding: '12px 28px',
+                fontSize: '0.92rem',
+                fontFamily: FONTS.body,
+                cursor: 'pointer',
+                transition: `all ${TRANSITION?.fast || '0.15s'}`,
+              }}
+            >
+              {tr ? `Diğer ${bg.length} ekseni göster →` : `Show ${bg.length} more axes →`}
+            </button>
+          </div>
+        )}
+
+        {expanded && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            transition={{ duration: 0.5 }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginTop: '20px' }}
+          >
+            {bg.map(eks => <AxisCard key={eks.id} eks={eks} tr={tr} />)}
+          </motion.div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function AxisCard({ eks, tr }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.5 }}
+      style={{ ...GLASS_CARD, padding: '24px 22px', display: 'flex', flexDirection: 'column' }}
+    >
+      <h3 style={{
+        fontFamily: FONTS.display,
+        fontSize: '1.15rem',
+        color: COLORS.gold,
+        fontWeight: 700,
+        margin: '0 0 8px',
+      }}>
+        {tr ? eks.baslikTr : eks.baslikEn}
+      </h3>
+      <p style={{
+        color: COLORS.silver,
+        fontSize: '0.82rem',
+        fontStyle: 'italic',
+        lineHeight: 1.6,
+        margin: '0 0 18px',
+      }}>
+        {tr ? eks.notTr : eks.notEn}
+      </p>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: 1 }}>
+        {eks.ayetler.slice(0, 2).map(a => (
+          <div key={a.id} style={{
+            paddingTop: '14px',
+            borderTop: '1px solid rgba(255,255,255,0.06)',
+          }}>
+            <p
+              dir="rtl"
+              lang="ar"
+              style={{
+                fontFamily: FONTS.quran,
+                fontSize: '1rem',
+                color: COLORS.offWhite,
+                lineHeight: 2.2,
+                margin: '0 0 8px',
+                textAlign: 'right',
+              }}
+            >
+              {a.arapca}
+            </p>
+            <p style={{ color: COLORS.silver, fontSize: '0.78rem', lineHeight: 1.6, margin: '0 0 4px', fontStyle: 'italic' }}>
+              "{tr ? a.tr : a.en}"
+            </p>
+            <p style={{ color: `${COLORS.gold}99`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0, letterSpacing: '0.06em' }}>
+              — {a.sure}:{a.ayet}
+            </p>
+          </div>
+        ))}
+      </div>
     </motion.div>
   );
 }
