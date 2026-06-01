@@ -120,7 +120,7 @@ export default function EsmaFrekans({ onClose }) {
       <Hero tr={tr} />
 
       {/* ═══ SECTION 2: MANIFESTO ═══ */}
-      <Manifesto tr={tr} />
+      <Manifesto tr={tr} data={data} />
 
       {/* ═══ SECTION 3: ÜÇ TOPLAYICI BEYAN (Âyetü'l-Kürsî · Haşr 59:22-24 · İhlâs 112) ═══ */}
       <FlagshipVerses tr={tr} />
@@ -436,7 +436,27 @@ const CEMAL_NAMES = [
   { ar: 'ٱلْغَفُور',    tr: 'El-Gafûr',      en: 'al-Ghafūr'     },
 ];
 
-function Manifesto({ tr }) {
+function Manifesto({ tr, data }) {
+  // CELAL ve CEMAL listelerindeki isimlerin Kuran'da toplam geçiş sayısı.
+  // Veri yüklendikten sonra hesaplanır. Bir ismin frequency'si JSON'da
+  // bulunamazsa 0 sayılır (skip — hata değil, sessiz).
+  const balance = useMemo(() => {
+    if (!data?.isimler) return null;
+    const lookup = new Map(data.isimler.map(n => [n.isim, n.kuranda_gecis_sayisi || 0]));
+    const sum = (list) => list.reduce((acc, n) => acc + (lookup.get(n.tr) || 0), 0);
+    const celal = sum(CELAL_NAMES);
+    const cemal = sum(CEMAL_NAMES);
+    const total = celal + cemal;
+    if (total === 0) return null;
+    return {
+      celal,
+      cemal,
+      total,
+      cemalPct: (cemal / total) * 100,
+      celalPct: (celal / total) * 100,
+    };
+  }, [data]);
+
   return (
     <section style={{
       padding: '80px 24px',
@@ -476,6 +496,9 @@ function Manifesto({ tr }) {
           <ColumnCemal tr={tr} />
         </div>
 
+        {/* Terazi/balance — sayısal denge görsel olarak */}
+        {balance && <CelalCemalBalance tr={tr} balance={balance} />}
+
         <p style={{
           marginTop: '40px',
           color: COLORS.silver,
@@ -486,8 +509,8 @@ function Manifesto({ tr }) {
           opacity: 0.7,
         }}>
           {tr
-            ? 'Bu sınıflandırma anlatısal bir denge gösterimi için yapılmıştır; bir isim hem celâl hem cemal boyutuna sahip olabilir.'
-            : 'This classification is for narrative balance only; a single name can carry both Jalāl and Jamāl dimensions.'}
+            ? 'Bu sınıflandırma anlatısal bir denge gösterimi için yapılmıştır; bir isim hem celâl hem cemal boyutuna sahip olabilir. Üstteki sayım yalnız 6 + 6 örnek isimle sınırlıdır.'
+            : 'This classification is for narrative balance only; a single name can carry both Jalāl and Jamāl dimensions. The count above is limited to the 6 + 6 sample names.'}
         </p>
       </div>
     </section>
@@ -590,6 +613,97 @@ function ColumnCemal({ tr }) {
           </li>
         ))}
       </ul>
+    </motion.div>
+  );
+}
+
+// ── CelalCemalBalance ─────────────────────────────────────────────────────────
+// 6 Celal + 6 Cemal isminin Kuran'daki TOPLAM geçiş sayılarını yatay bar olarak
+// gösterir. İki rengin oranı veri-tabanlı (data.isimler.kuranda_gecis_sayisi
+// üzerinden). Sol = mavi-gri (Celal palette), Sağ = altın (Cemal palette).
+function CelalCemalBalance({ tr, balance }) {
+  const cemalDominant = balance.cemal > balance.celal;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.7 }}
+      style={{
+        marginTop: '36px',
+        padding: '22px 24px',
+        background: 'rgba(255,255,255,0.025)',
+        border: '1px solid rgba(255,255,255,0.06)',
+        borderRadius: '12px',
+      }}
+    >
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'baseline',
+        marginBottom: '12px',
+        fontSize: '0.74rem',
+        fontFamily: FONTS.body,
+        letterSpacing: '0.14em',
+        textTransform: 'uppercase',
+      }}>
+        <span style={{ color: '#a8b5d4' }}>
+          {tr ? 'Celal' : 'Jalāl'} · {balance.celal.toLocaleString(tr ? 'tr-TR' : 'en-US')}
+        </span>
+        <span style={{ color: COLORS.silver, fontStyle: 'italic', fontSize: '0.7rem', textTransform: 'none', letterSpacing: '0.02em' }}>
+          {tr
+            ? `${cemalDominant ? 'Cemal' : 'Celal'} ağırlığı: % ${Math.round(cemalDominant ? balance.cemalPct : balance.celalPct)}`
+            : `${cemalDominant ? 'Jamāl' : 'Jalāl'} share: ${Math.round(cemalDominant ? balance.cemalPct : balance.celalPct)}%`}
+        </span>
+        <span style={{ color: COLORS.gold }}>
+          {balance.cemal.toLocaleString(tr ? 'tr-TR' : 'en-US')} · {tr ? 'Cemal' : 'Jamāl'}
+        </span>
+      </div>
+
+      {/* Bar — animasyon ile büyür */}
+      <div style={{
+        position: 'relative',
+        height: '14px',
+        borderRadius: '999px',
+        overflow: 'hidden',
+        background: 'rgba(255,255,255,0.05)',
+        display: 'flex',
+      }}>
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: `${balance.celalPct}%` }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 1.1, ease: 'easeOut' }}
+          style={{
+            background: 'linear-gradient(90deg, rgba(150,160,200,0.25) 0%, rgba(150,160,200,0.55) 100%)',
+            borderRight: '1px solid rgba(255,255,255,0.1)',
+            height: '100%',
+          }}
+        />
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: `${balance.cemalPct}%` }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 1.1, ease: 'easeOut', delay: 0.15 }}
+          style={{
+            background: `linear-gradient(90deg, ${COLORS.gold}55 0%, ${COLORS.gold}cc 100%)`,
+            height: '100%',
+          }}
+        />
+      </div>
+
+      <p style={{
+        marginTop: '14px',
+        color: COLORS.silver,
+        fontSize: '0.82rem',
+        fontStyle: 'italic',
+        lineHeight: 1.6,
+        margin: '14px 0 0',
+      }}>
+        {tr
+          ? `Bu 12 örnek isimden Cemal grubu Kur'an'da yaklaşık ${Math.round(balance.cemal / balance.celal * 10) / 10}× daha sık geçer — Allah kendisini şefkat ve mağfiretle daha sık tanıtır.`
+          : `Among these 12 sample names, the Jamāl group appears about ${Math.round(balance.cemal / balance.celal * 10) / 10}× more often in the Quran — God describes Himself through mercy and forgiveness more frequently.`}
+      </p>
     </motion.div>
   );
 }
