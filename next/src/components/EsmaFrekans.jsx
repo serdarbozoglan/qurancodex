@@ -960,6 +960,7 @@ function FrequencyLandscape({ data, tr }) {
 }
 
 function FreqBar({ item, max, tr, rank }) {
+  const isAllah = item.isim === 'Allah';
   const pct = (item.displayCount / max) * 100;
 
   return (
@@ -989,8 +990,33 @@ function FreqBar({ item, max, tr, rank }) {
           }}
         />
       </div>
-      <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: 700, textAlign: 'right' }}>
-        {item.displayCount.toLocaleString(tr ? 'tr-TR' : 'en-US')}
+      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'flex-end' }}>
+        <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: 700 }}>
+          {item.displayCount.toLocaleString(tr ? 'tr-TR' : 'en-US')}
+        </span>
+        {isAllah && (
+          // ⓘ — sadece görsel ipucu, sayım hakkında açıklamanın altta
+          // olduğunu işaret eder. Tıklanmaz; bilgi zaten kalıcı görünür.
+          <span
+            aria-hidden="true"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '18px',
+              height: '18px',
+              borderRadius: '50%',
+              background: `${COLORS.gold}22`,
+              border: `1px solid ${COLORS.gold}55`,
+              color: COLORS.gold,
+              fontSize: '0.78rem',
+              lineHeight: 1,
+              flexShrink: 0,
+            }}
+          >
+            ⓘ
+          </span>
+        )}
       </span>
     </motion.div>
   );
