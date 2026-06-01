@@ -1484,6 +1484,26 @@ export default function Navbar() {
             msOverflowStyle: 'none',
           }}
         >
+          {/* Top backdrop band — fixed wordmark + close butonu arkasındaki
+              alanı kapatır. Drawer içerik scroll edildiğinde menü öğeleri bu
+              bandın arkasına geçince görünmez olur (önceden wordmark'ın
+              arkasından sızıyordu). z-index 10001: drawer (10001) ile aynı
+              katmanda ama fixed wordmark/close butonun (10002) altında. */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '62px',
+              background: COLORS.cosmicBlack,
+              zIndex: 10001,
+              borderBottom: '1px solid rgba(255,255,255,0.04)',
+              pointerEvents: 'none',
+            }}
+          />
+
           {/* Wordmark — sol-üst, drawer kimliği için (Navbar'ın compact mirror'ı) */}
           <button
             onClick={() => {
