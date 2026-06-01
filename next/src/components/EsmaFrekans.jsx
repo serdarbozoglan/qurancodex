@@ -1361,7 +1361,7 @@ function NameDetail({ item, tr, isAllah }) {
 
       <div style={{ marginTop: '20px', textAlign: 'right' }}>
         <a
-          href={`https://corpus.quran.com/search.jsp?q=${encodeURIComponent(item.arapca)}`}
+          href={`https://corpus.quran.com/search.jsp?q=${encodeURIComponent(corpusSearchQuery(item.arapca))}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: COLORS.gold, fontSize: '0.82rem', fontFamily: FONTS.body, textDecoration: 'none' }}
@@ -1504,6 +1504,19 @@ function Methodology({ data, tr }) {
       </div>
     </section>
   );
+}
+
+// Corpus Quran (corpus.quran.com) ham Uthmânî diakritiklerle 500 hatası verir.
+// Search query'yi yalın forma indir: harekeler, alef wasla, tashkeel, dekoratifler temizlenir.
+// Sadece temel harfler kalır — Corpus'un index'i bu form üzerinde çalışır.
+function corpusSearchQuery(arabic) {
+  if (!arabic) return '';
+  return arabic
+    .replace(/ٱ/g, 'ا')                         // alef wasla → düz alef
+    .replace(/ی/g, 'ي')                         // Farsi yeh → Arabic yeh
+    .replace(/[ً-ٰٟۖ-ۭ۪]/g, '')  // tüm harekeler, tashkeel, waqf, sukunlar, decorative marks
+    .replace(/[ؐ-ؚ]/g, '')           // honorifics
+    .trim();
 }
 
 // Belirtilen isimleri Arapça metinde altı çizili olarak işaretle
