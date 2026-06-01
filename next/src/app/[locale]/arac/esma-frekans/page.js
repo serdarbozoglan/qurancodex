@@ -5,10 +5,10 @@ import PageHeading from '@/components/PageHeading';
 import EsmaFrekansRoute from './EsmaFrekansRoute';
 
 const PATH = '/arac/esma-frekans';
-const TITLE_TR = "Esmâ'ül-Hüsnâ Frekansı";
-const TITLE_EN = "Frequency of the Divine Names";
-const DESC_TR = "Allah'ın 99 ismi (Esmâ'ül-Hüsnâ) — Kur'an'daki frekans analizi ve tematik dağılımı.";
-const DESC_EN = "The 99 Beautiful Names of God (al-Asmāʾ al-Ḥusnā) — frequency analysis across the Quran and their thematic distribution.";
+const TITLE_TR = "Esmâ-i Hüsnâ — Allah'ın Kendini Tanıtması";
+const TITLE_EN = "The Beautiful Names — How God Describes Himself";
+const DESC_TR = "Kur'an'da Allah'ın kendini tanıttığı 114 isim, sıfat ve doğrudan beyan. Celal ↔ Cemal dengesi, frekans haritası, Âyetü'l-Kürsî ve Haşr 22-24 anatomileri.";
+const DESC_EN = "The 114 names, attributes, and direct statements by which God describes Himself in the Quran. Jalāl ↔ Jamāl balance, frequency landscape, and anatomies of Āyat al-Kursī and Ḥashr 22-24.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
