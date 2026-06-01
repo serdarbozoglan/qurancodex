@@ -181,13 +181,17 @@ function Hero({ tr }) {
 
       <div style={{ position: 'relative', maxWidth: '900px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-        {/* Bismillah ornamenti */}
+        {/* Bismillah ornamenti — ﷽ (U+FDFD ligature presentation form).
+            CLAUDE.md §13.2 istisnası: KFGQPC glyph set'i bu özel ligature'u
+            içermez → fallback OS-bağımlı tutarsız render olurdu. Sadece bu
+            tek glyph için 'Amiri Quran' override; metin DEĞİL, dekoratif
+            sembol (Kur'an metni değil, mushaf açılış ornamenti). */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 0.85, scale: 1 }}
           transition={{ duration: 1.4, ease: 'easeOut' }}
           style={{
-            fontFamily: FONTS.quran,
+            fontFamily: "'Amiri Quran', 'Amiri', serif",
             fontSize: 'clamp(1.8rem, 3.8vw, 2.6rem)',
             color: COLORS.gold,
             marginBottom: '64px',
