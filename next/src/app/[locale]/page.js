@@ -76,7 +76,7 @@ export default async function Home({ params }) {
       <PsychologySection />
       <ToolsShowcase />
       <Conclusion />
-      <TefekkurHighlight />
+      <TefekkurHighlight compact />
       <Footer />
     </>
   );

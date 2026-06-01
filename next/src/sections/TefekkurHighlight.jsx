@@ -153,7 +153,10 @@ const TEFEKKUR_CATEGORIES = [
   },
 ];
 
-export default function TefekkurHighlight() {
+// compact=true  → ana sayfa "daha derin oku" daveti (subtitle yok, kategori
+//                grid'i yok, sadece headline + 2 essay + CTA)
+// compact=false → /tefekkur rotasında full render (mevcut hali)
+export default function TefekkurHighlight({ compact = false }) {
   const { language } = useLanguage();
   const router = useRouter();
   const reduced = useReducedMotion();
@@ -187,16 +190,16 @@ export default function TefekkurHighlight() {
         </span>
       </motion.div>
 
-      {/* Heading */}
+      {/* Heading — compact'ta küçük, full'da büyük */}
       <motion.h2
         variants={fadeUpItem}
         style={{
           fontFamily: FONTS.display,
-          fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+          fontSize: compact ? 'clamp(1.4rem, 3vw, 2rem)' : 'clamp(1.8rem, 4vw, 2.75rem)',
           fontWeight: 700,
           color: COLORS.offWhite,
           marginTop: '12px',
-          marginBottom: '12px',
+          marginBottom: compact ? '24px' : '12px',
           maxWidth: '60ch',
           lineHeight: 1.15,
           letterSpacing: '-0.01em',
@@ -207,22 +210,24 @@ export default function TefekkurHighlight() {
           : 'Curated Deep Readings from Sufist'}
       </motion.h2>
 
-      {/* Subtitle */}
-      <motion.p
-        variants={fadeUpItem}
-        className="max-w-2xl mb-10"
-        style={{
-          fontFamily: FONTS.body,
-          color: COLORS.offWhiteAlpha78,
-          fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
-          lineHeight: 1.7,
-          letterSpacing: '0.01em',
-        }}
-      >
-        {language === 'tr'
-          ? <>Felsufi'nin yazılarından — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>şu an 9 yayında</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>44 planlanan</strong> derinlikli denemeler. Kur'an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan bir tefekkür çağrısı.</>
-          : <>Essays by Felsufi — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>9 currently live</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>44 planned</strong>. From the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. One invitation to reflect.</>}
-      </motion.p>
+      {/* Subtitle — sadece full mode'da */}
+      {!compact && (
+        <motion.p
+          variants={fadeUpItem}
+          className="max-w-2xl mb-10"
+          style={{
+            fontFamily: FONTS.body,
+            color: COLORS.offWhiteAlpha78,
+            fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
+            lineHeight: 1.7,
+            letterSpacing: '0.01em',
+          }}
+        >
+          {language === 'tr'
+            ? <>Felsufi'nin yazılarından — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>şu an 9 yayında</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>44 planlanan</strong> derinlikli denemeler. Kur'an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan bir tefekkür çağrısı.</>
+            : <>Essays by Felsufi — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>9 currently live</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>44 planned</strong>. From the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. One invitation to reflect.</>}
+        </motion.p>
+      )}
 
       {/* Featured essays preview — 2 published articles with their root letters.
           Mirrors the in-article RootHero aesthetic so the discovery layer
@@ -272,55 +277,59 @@ export default function TefekkurHighlight() {
         ))}
       </motion.div>
 
-      {/* Section sub-label — categories */}
-      <motion.div
-        variants={fadeUpItem}
-        style={{
-          display: 'flex', alignItems: 'center', gap: '12px',
-          marginBottom: '14px',
-        }}
-      >
-        <span aria-hidden="true" style={{
-          width: '5px', height: '5px', borderRadius: '50%',
-          background: COLORS.softGold, boxShadow: `0 0 10px ${COLORS.softGoldAlpha60}`,
-        }} />
-        <span style={{
-          fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
-          color: COLORS.softGold, textTransform: 'uppercase', fontFamily: FONTS.body,
-          opacity: 0.85,
-        }}>
-          {language === 'tr' ? 'Altı Kategori' : 'Six Categories'}
-        </span>
-        <div style={{
-          flex: 1, height: '1px',
-          background: `linear-gradient(90deg, ${COLORS.softGoldAlpha25}, transparent)`,
-          maxWidth: '180px',
-        }} />
-      </motion.div>
+      {/* Section sub-label — categories (sadece full mode) */}
+      {!compact && (
+        <motion.div
+          variants={fadeUpItem}
+          style={{
+            display: 'flex', alignItems: 'center', gap: '12px',
+            marginBottom: '14px',
+          }}
+        >
+          <span aria-hidden="true" style={{
+            width: '5px', height: '5px', borderRadius: '50%',
+            background: COLORS.softGold, boxShadow: `0 0 10px ${COLORS.softGoldAlpha60}`,
+          }} />
+          <span style={{
+            fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
+            color: COLORS.softGold, textTransform: 'uppercase', fontFamily: FONTS.body,
+            opacity: 0.85,
+          }}>
+            {language === 'tr' ? 'Altı Kategori' : 'Six Categories'}
+          </span>
+          <div style={{
+            flex: 1, height: '1px',
+            background: `linear-gradient(90deg, ${COLORS.softGoldAlpha25}, transparent)`,
+            maxWidth: '180px',
+          }} />
+        </motion.div>
+      )}
 
-      {/* Category grid */}
-      <motion.div
-        variants={fadeUpItem}
-        style={{
-          display: 'grid',
-          gridTemplateColumns: `repeat(${columns}, 1fr)`,
-          gap: columns === 1 ? '14px' : '18px',
-        }}
-      >
-        {TEFEKKUR_CATEGORIES.map((cat) => (
-          <TefekkurCategoryCard
-            key={cat.id}
-            accent={cat.accent}
-            count={cat.count}
-            titleTr={cat.titleTr}
-            titleEn={cat.titleEn}
-            descTr={cat.descTr}
-            descEn={cat.descEn}
-            icon={cat.icon}
-            onClick={() => router.push(`/${language}/tefekkur?cat=${cat.id}`)}
-          />
-        ))}
-      </motion.div>
+      {/* Category grid — sadece full mode */}
+      {!compact && (
+        <motion.div
+          variants={fadeUpItem}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: `repeat(${columns}, 1fr)`,
+            gap: columns === 1 ? '14px' : '18px',
+          }}
+        >
+          {TEFEKKUR_CATEGORIES.map((cat) => (
+            <TefekkurCategoryCard
+              key={cat.id}
+              accent={cat.accent}
+              count={cat.count}
+              titleTr={cat.titleTr}
+              titleEn={cat.titleEn}
+              descTr={cat.descTr}
+              descEn={cat.descEn}
+              icon={cat.icon}
+              onClick={() => router.push(`/${language}/tefekkur?cat=${cat.id}`)}
+            />
+          ))}
+        </motion.div>
+      )}
 
       {/* "View all essays" CTA — same secondary signature as ToolsHighlight */}
       <motion.div
