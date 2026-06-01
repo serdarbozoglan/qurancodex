@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef, Fragment } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, TEXT, TRANSITION } from '../tokens';
@@ -97,6 +97,7 @@ export default function EsmaFrekans({ onClose }) {
   const [pairsData, setPairsData] = useState(null);
   const [koklerData, setKoklerData] = useState(null);
   const [triplesData, setTriplesData] = useState(null);
+  const [heatmapData, setHeatmapData] = useState(null);
 
   // Escape key
   useEffect(() => {
@@ -112,6 +113,7 @@ export default function EsmaFrekans({ onClose }) {
     fetch('/esma-pairs-ayetler.json').then(r => r.json()).then(setPairsData).catch(e => console.error('[EsmaPairs]', e));
     fetch('/esma-kokler.json').then(r => r.json()).then(setKoklerData).catch(e => console.error('[EsmaKokler]', e));
     fetch('/esma-triples.json').then(r => r.json()).then(setTriplesData).catch(e => console.error('[EsmaTriples]', e));
+    fetch('/esma-surah-heatmap.json').then(r => r.json()).then(setHeatmapData).catch(e => console.error('[EsmaHeatmap]', e));
   }, []);
 
   return (
@@ -141,10 +143,13 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 7: KÖK AİLELERİ ═══ */}
       <KokAileleri tr={tr} koklerData={koklerData} />
 
-      {/* ═══ SECTION 8: 114 İSİM ATLASI ═══ */}
+      {/* ═══ SECTION 8: SURE MANZARASI (HEATMAP) ═══ */}
+      <SurahNameHeatmap tr={tr} heatmapData={heatmapData} />
+
+      {/* ═══ SECTION 9: 114 İSİM ATLASI ═══ */}
       <NamesAtlas data={data} tr={tr} />
 
-      {/* ═══ SECTION 9: METODOLOJİ ve KAYNAK ═══ */}
+      {/* ═══ SECTION 10: METODOLOJİ ve KAYNAK ═══ */}
       <Methodology data={data} tr={tr} />
     </div>
   );
@@ -2151,7 +2156,174 @@ function KokCard({ kok, tr, index }) {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// SECTION 8: 114 İSIM ATLASI — search + 3'lü filter + inline detay
+// SECTION 8: SURE MANZARASI (HEATMAP) — hangi sure hangi isimleri kümeliyor
+// Data: esma-surah-heatmap.json (build-surah-name-heatmap.mjs)
+// ═════════════════════════════════════════════════════════════════════════════
+
+function SurahNameHeatmap({ tr, heatmapData }) {
+  if (!heatmapData?.matrix) return null;
+  const { names, surahs, matrix, topSurahIndices } = heatmapData;
+
+  // Sadece top 20 sureyi göster (matrix subset)
+  const rows = topSurahIndices.map(i => ({
+    surah: surahs[i],
+    counts: matrix[i],
+  }));
+
+  // Renk skalası: max'i log-scale yumuşat, küçük değerler de görünür kalsın
+  const allCounts = rows.flatMap(r => r.counts);
+  const maxCount = Math.max(...allCounts);
+
+  return (
+    <section style={{ padding: '80px 24px', background: '#06080e' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={sectionLabel}>{tr ? 'Sure Manzarası' : 'Surah Landscape'}</div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+          color: COLORS.offWhite,
+          fontWeight: 700,
+          margin: '0 0 16px',
+          maxWidth: '780px',
+          letterSpacing: '-0.01em',
+        }}>
+          {tr ? 'Hangi Sure Hangi İsimleri Kümeliyor?' : 'Which Surah Clusters Which Names?'}
+        </h2>
+        <p style={{
+          color: COLORS.silver,
+          fontSize: '1.02rem',
+          lineHeight: 1.75,
+          margin: '0 0 12px',
+          maxWidth: '760px',
+        }}>
+          {tr
+            ? 'En sık 15 ismin, en isim-yoğun 20 surede dağılımı. Koyu altın hücreler kümelendiği yeri gösterir — Bakara hukuk ekseninde, Şûrâ rahmet, Hadîd kudret diline kayar.'
+            : "Distribution of the 15 most-frequent names across the 20 most name-dense surahs. Deeper gold cells mark clustering — Bakara leans on jurisprudence, Shūrā on mercy, Ḥadīd on power."}
+        </p>
+        <p style={{
+          color: `${COLORS.gold}99`,
+          fontSize: '0.78rem',
+          fontFamily: FONTS.body,
+          letterSpacing: '0.08em',
+          margin: '0 0 30px',
+          maxWidth: '760px',
+        }}>
+          {tr
+            ? 'Sayım: QuranCodex korpusu, surface form regex match (lām, ال, accusative tanvin esnek).'
+            : 'Counting: QuranCodex corpus, surface form regex match (flexible lām, al-, accusative tanwīn).'}
+        </p>
+
+        {/* Heatmap — yatay scroll mobile için */}
+        <div style={{
+          overflowX: 'auto',
+          paddingBottom: '8px',
+          background: 'rgba(255,255,255,0.02)',
+          border: '1px solid rgba(255,255,255,0.06)',
+          borderRadius: '12px',
+          padding: '20px',
+        }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: `100px repeat(${names.length}, 1fr)`,
+            gap: '3px',
+            minWidth: '720px',
+          }}>
+            {/* Sol-üst boş, sonra üst başlıklar */}
+            <div />
+            {names.map(n => (
+              <div
+                key={n.isim}
+                title={tr ? n.isim : n.isim}
+                style={{
+                  color: COLORS.silver,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.66rem',
+                  fontWeight: 600,
+                  textAlign: 'center',
+                  padding: '6px 2px',
+                  writingMode: 'vertical-rl',
+                  transform: 'rotate(180deg)',
+                  letterSpacing: '0.02em',
+                  whiteSpace: 'nowrap',
+                  height: '88px',
+                }}
+              >
+                {n.isim}
+              </div>
+            ))}
+
+            {/* Satırlar */}
+            {rows.map(({ surah, counts }, ri) => (
+              <Fragment key={surah.surah}>
+                <div style={{
+                  color: COLORS.offWhite,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.78rem',
+                  fontWeight: 600,
+                  padding: '0 8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'flex-end',
+                  textAlign: 'right',
+                  whiteSpace: 'nowrap',
+                }}>
+                  {tr ? (SURAH_NAMES_TR[surah.surah - 1] || surah.surahName) : surah.surahNameEn}
+                </div>
+                {counts.map((c, ci) => {
+                  const intensity = c === 0 ? 0 : Math.min(1, Math.log(1 + c) / Math.log(1 + maxCount));
+                  return (
+                    <div
+                      key={ci}
+                      title={`${tr ? (SURAH_NAMES_TR[surah.surah - 1] || surah.surahName) : surah.surahNameEn} · ${names[ci].isim}: ${c}`}
+                      style={{
+                        background: c === 0
+                          ? 'rgba(255,255,255,0.03)'
+                          : `rgba(212,165,116,${0.1 + intensity * 0.7})`,
+                        border: c === 0
+                          ? '1px solid rgba(255,255,255,0.04)'
+                          : `1px solid rgba(212,165,116,${0.2 + intensity * 0.3})`,
+                        borderRadius: '4px',
+                        aspectRatio: '1',
+                        minHeight: '28px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: intensity > 0.5 ? '#0a0a1a' : (c === 0 ? 'transparent' : COLORS.gold),
+                        fontSize: '0.68rem',
+                        fontWeight: 700,
+                        fontFamily: FONTS.body,
+                      }}
+                    >
+                      {c > 0 ? c : ''}
+                    </div>
+                  );
+                })}
+              </Fragment>
+            ))}
+          </div>
+        </div>
+
+        {/* Top 3 satır özet — "Bakara'da en yoğun..." */}
+        <p style={{
+          marginTop: '20px',
+          color: COLORS.silver,
+          fontSize: '0.82rem',
+          fontStyle: 'italic',
+          opacity: 0.85,
+          maxWidth: '780px',
+          lineHeight: 1.7,
+        }}>
+          {tr
+            ? "İpucu: Her hücre o ismin o suredeki tekil görünüm sayısıdır. Mobilde yatay kaydırılır. Heatmap top 20 sureyi (en isim-yoğun) içerir — atlama eksikse altta tam atlas'tan ulaşılır."
+            : "Tip: Each cell is the name's distinct occurrences in that surah. Scrolls horizontally on mobile. Heatmap includes the top 20 name-dense surahs — for any name, use the full atlas below."}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 9: 114 İSIM ATLASI — search + 3'lü filter + inline detay
 // ═════════════════════════════════════════════════════════════════════════════
 
 // 9 isim için kök DNA (Doküman 5)
