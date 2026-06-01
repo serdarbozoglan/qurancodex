@@ -691,17 +691,24 @@ function FreqBar({ item, max, tr, rank, onAllahNoteClick }) {
         {isAllah && (
           <button
             onClick={onAllahNoteClick}
-            aria-label={tr ? 'Sayım metodolojisi' : 'Counting methodology'}
+            aria-label={tr ? 'Sayım metodolojisi açıklaması' : 'Counting methodology explanation'}
             style={{
-              background: 'none',
-              border: 'none',
+              background: `${COLORS.gold}22`,
+              border: `1px solid ${COLORS.gold}55`,
               color: COLORS.gold,
               cursor: 'pointer',
-              fontSize: '0.85rem',
-              padding: 0,
+              fontSize: '0.7rem',
+              padding: '3px 8px',
+              borderRadius: '10px',
+              fontFamily: FONTS.body,
+              fontWeight: 600,
+              lineHeight: 1,
+              whiteSpace: 'nowrap',
             }}
+            onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}44`; }}
+            onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.gold}22`; }}
           >
-            ⓘ
+            {tr ? 'ⓘ niçin?' : 'ⓘ why?'}
           </button>
         )}
       </span>
@@ -715,8 +722,10 @@ function AllahLemmaNote({ tr, onClose }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       style={{
-        marginTop: '32px',
+        marginTop: '24px',
         ...GLASS_CARD,
+        background: `linear-gradient(135deg, ${COLORS.gold}11, rgba(255,255,255,0.04))`,
+        border: `1px solid ${COLORS.gold}44`,
         padding: '24px 28px',
         position: 'relative',
       }}
@@ -724,11 +733,21 @@ function AllahLemmaNote({ tr, onClose }) {
       <button
         onClick={onClose}
         aria-label={tr ? 'Kapat' : 'Close'}
-        style={{ position: 'absolute', top: '12px', right: '12px', background: 'none', border: 'none', color: COLORS.silver, cursor: 'pointer', fontSize: '1.2rem' }}
+        style={{ position: 'absolute', top: '12px', right: '12px', background: 'none', border: 'none', color: COLORS.silver, cursor: 'pointer', fontSize: '1.4rem', lineHeight: 1, padding: '4px 8px' }}
       >
         ×
       </button>
-      <div style={{ ...sectionLabel, marginBottom: '12px' }}>{tr ? 'Metodolojik Nüans' : 'Methodological Nuance'}</div>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '14px' }}>
+        <span style={{ ...sectionLabel, marginBottom: 0 }}>{tr ? 'Niçin Allah için 2.699?' : 'Why 2,699 for Allah?'}</span>
+        <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, lineHeight: 1 }}>
+          ٱللَّه
+        </span>
+      </div>
+      <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6, margin: '0 0 16px', fontStyle: 'italic' }}>
+        {tr
+          ? "Yukarıdaki Allah satırında 2.699 yazıyor. Bu sayı klasik konkordansa dayanır ve metodolojik bir tercih içerir:"
+          : "The Allah row above shows 2,699. This figure is based on the classical concordance and reflects a methodological choice:"}
+      </p>
       <p style={{ color: COLORS.offWhite, fontSize: '0.95rem', lineHeight: 1.8, margin: '0 0 12px' }}>
         {tr
           ? <>Klasik konkordans (M. Fuâd Abdülbâkî, el-Mu'cemü'l-Müfehres) <strong>lemma sayımı</strong> esas alır: bir ismin tüm morfolojik formları (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) ve önek'li türevleri (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) tek bir isim sayılır.</>
@@ -846,7 +865,7 @@ function AxisCard({ eks, tr }) {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: 1 }}>
-        {eks.ayetler.slice(0, 2).map(a => (
+        {eks.ayetler.slice(0, 3).map(a => (
           <div key={a.id} style={{
             paddingTop: '14px',
             borderTop: '1px solid rgba(255,255,255,0.06)',
@@ -869,7 +888,7 @@ function AxisCard({ eks, tr }) {
               "{tr ? a.tr : a.en}"
             </p>
             <p style={{ color: `${COLORS.gold}99`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0, letterSpacing: '0.06em' }}>
-              — {a.sure}:{a.ayet}
+              — {tr ? (a.sureAdTr || a.sure) : (a.sureAdEn || a.sure)} {a.sure}:{a.ayet}
             </p>
           </div>
         ))}

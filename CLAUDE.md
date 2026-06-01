@@ -356,6 +356,66 @@ Bu fix, tüm Arapça metin temizleme utility'lerinde mevcut olmalıdır (`src/ut
 
 **Kur'an metni ekranda gösterilirken MUTLAKA aşağıdaki kurallara uyulmalıdır.**
 
+#### ⚠ ZORUNLU: Build Script Normalizasyon Kuralı
+
+**`next/public/*.json` dosyalarına Arapça metin yazan HER build script** (`scripts/build-*.mjs`, `scripts/extract-*.mjs`, vb.), JSON'a yazmadan **ÖNCE** mutlaka `cleanArabicForDisplay()` muadili bir normalizasyon fonksiyonu uygulamalıdır. Bu kural istisnasızdır.
+
+**Yasaklı:** `verse-graph-bgem3.json`, `acikkuran` API veya başka bir Arapça kaynaktan ham metni doğrudan yeni JSON'a kopyalamak. Ham metin `۪` (U+06EA), `ۖ` (U+06D6 waqf), `ٱ` (U+0671) gibi karakterler içerir; bunlar CSS overlay olmayan bileşenlerde (Section component'ları, atlas kartları, ayet listeleri) **daire/tofu** olarak render olur.
+
+**Doğru pattern (build script içinde):**
+
+```js
+// scripts/build-X.mjs
+function cleanArabicForDisplay(str) {
+  // next/src/lib/arabic.js cleanArabicForDisplay'in birebir kopyası.
+  // ES module port: lib import edilemediği için inline tutulur.
+  if (!str) return str;
+  return str
+    .replace(/۪/g, 'ِ')   // U+06EA → U+0650 (KRİTİK — bu eksik olursa daire görünür)
+    .replace(/ۡ/g, 'ْ')   // U+06E1 → U+0652
+    .replace(/[ً-ْ]ٓ/gu, 'ٓ')  // §13.14 maddah fix
+    .replace(/ٱ/g, 'ا')   // U+0671 → U+0627
+    .replace(/ی/g, 'ي')   // Farsi yeh → Arabic yeh
+    .replace(/[ؐ-ؔؖؗ]/g, '')        // İslami kısaltma işaretleri
+    .replace(/[؀-؅]/g, '')                    // Numara/dipnot
+    .replace(/[۝۞۩]/g, '')               // ayet sonu, rub el hizb, secde
+    .replace(/ۦ/g, ' ')                            // small yeh → boşluk
+    .replace(/[ۖ-ۜۢۨ]/g, '')  // waqf + dekoratif tajwid
+    .replace(/[﴾﴿]/g, '');                    // süslü parantezler
+}
+
+// Build script: Arapça çekildiği her yerde uygulanır
+out.ayetler = refs.map(r => ({
+  ...byId.get(r),
+  arapca: cleanArabicForDisplay(byId.get(r).arabic),  // ← MUTLAKA
+}));
+```
+
+**Doğrulama komutu (her build sonrası mutlaka çalıştırılır):**
+
+```bash
+node -e "
+const d = require('./next/public/<YENI-DOSYA>.json');
+const PROBLEM = ['۪','ۡ','ٱ','ی','۝','۞','۩','ۖ','ۗ','ۘ','ۙ','ۚ','ۛ','ۜ'];
+let h = 0;
+function walk(o) {
+  if (typeof o === 'string') PROBLEM.forEach(c => { if (o.includes(c)) h++; });
+  else if (Array.isArray(o)) o.forEach(walk);
+  else if (o && typeof o === 'object') Object.values(o).forEach(walk);
+}
+walk(d);
+console.log('Problem chars:', h);
+"
+```
+
+Çıktı **`Problem chars: 0`** olmalı. Sıfırdan farklı çıkarsa script'teki normalizasyon eksik veya hatalı — düzeltilip rebuild edilir.
+
+**İstisnalar:**
+- `ReadingMode`/`InterlinearView` için yazılan veri dosyaları farklı pipeline kullanır (CSS overlay tajwid render); bu rule uygulanmaz, `cleanArabic()` canonical varyant kullanılır.
+- Build script `next/src/lib/arabic.js`'i ES module olarak import edebiliyorsa direkt `cleanArabicForDisplay` import edilir; edilemiyorsa (Node script bağlamı, .mjs) yukarıdaki gibi inline kopyalanır.
+
+**Bu kural geçmişte ihlal edildiğinde** (örn. 2026-06-01 esma-beyanlari.json ilk build'i): KFGQPC fontunda `اِنَّـن۪ٓى` gibi metinlerde U+06EA noktalı daire olarak görünür ve "yarım hareke" yanılgısı oluşturur. Build-time normalizasyon bunu önler.
+
 #### Font Zinciri
 
 Kur'an okuma modu (`ReadingMode`, `InterlinearView`):

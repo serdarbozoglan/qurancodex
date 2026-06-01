@@ -13,6 +13,29 @@ const root = join(__dirname, '..');
 const verses = JSON.parse(readFileSync(join(root, 'next/public/verse-graph-bgem3.json'), 'utf8'));
 const byId = new Map(verses.map(v => [v.id, v]));
 
+// ──────────────────────────────────────────────────────────────────────────────
+// cleanArabicForDisplay — CSS overlay olmayan bileşenler için Arapça normalize.
+// Birebir next/src/lib/arabic.js cleanArabicForDisplay'in ES module port'u.
+// CLAUDE.md §13.15 + §16.X: data builder script'leri public JSON'a Arapça yazmadan
+// önce MUTLAKA bu fonksiyondan geçirmelidir. U+06EA gibi karakterler aksi takdirde
+// KFGQPC fontunda daire/tofu olarak render olur.
+// ──────────────────────────────────────────────────────────────────────────────
+function cleanArabicForDisplay(str) {
+  if (!str) return str;
+  return str
+    .replace(/۪/g, 'ِ')                              // Uthmani subscript kasra → standart kasra (U+06EA → U+0650)
+    .replace(/ۡ/g, 'ْ')                              // Uthmani sukun → standart sukun (U+06E1 → U+0652)
+    .replace(/[ً-ْ]ٓ/gu, 'ٓ')              // CLAUDE.md §13.14 maddah render fix
+    .replace(/ٱ/g, 'ا')                              // alef wasla → düz alef (U+0671 → U+0627)
+    .replace(/ی/g, 'ي')                              // Farsi yeh → Arabic yeh (U+06CC → U+064A)
+    .replace(/[ؐ-ؔؖؗ]/g, '')               // İslami kısaltma işaretleri
+    .replace(/[؀-؅]/g, '')                           // Kur'an numara/dipnot işaretleri
+    .replace(/[۝۞۩]/g, '')                      // ayet sonu, rub el hizb, secde işareti
+    .replace(/ۦ/g, ' ')                                   // small yeh → boşluk (kelime ayracı)
+    .replace(/[ۖ-ۜۢۨ]/g, '') // waqf + dekoratif tajwid
+    .replace(/[﴾﴿]/g, '');                           // süslü parantezler
+}
+
 // Türkçe sure adları (verse-graph EN sure adları içerir; TR adlarını ayrı tutuyoruz)
 const SUREN_TR = {
   1: 'Fâtiha', 2: 'Bakara', 3: 'Âl-i İmrân', 4: 'Nisâ', 5: 'Mâide',
@@ -184,7 +207,7 @@ const out = {
         ayet: v.ayah,
         sureAdTr: SUREN_TR[v.surah] || v.surahNameEn,
         sureAdEn: v.surahNameEn,
-        arapca: v.arabic,
+        arapca: cleanArabicForDisplay(v.arabic),
         tr: v.turkish,
         en: v.english,
       };
