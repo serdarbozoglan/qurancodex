@@ -1565,6 +1565,36 @@ export default function Navbar() {
               <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.81rem', fontWeight: 700, color: COLORS.btnGoldText, letterSpacing: '0.04em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
             </button>
 
+            {/* Esmâ-i Hüsnâ — top-level destination link (desktop parity).
+                Oku CTA'sının altında, Keşfet/Araçlar/Tefekkür sub-listelerinden
+                önce — flagship konumunu mobile'da da koruyacak şekilde. */}
+            <button
+              onClick={() => { router.push(`/${language}/arac/esma-frekans`); setMobileOpen(false); }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                width: '100%',
+                padding: '12px 14px',
+                marginBottom: '14px',
+                background: 'rgba(212,165,116,0.06)',
+                border: '1px solid rgba(212,165,116,0.32)',
+                borderRadius: '8px',
+                color: '#d4a574',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.95rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                textAlign: 'left',
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              <span>{language === 'tr' ? 'Esmâ-i Hüsnâ' : 'The Beautiful Names'}</span>
+              <span style={{ marginLeft: 'auto', color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1 }}>→</span>
+            </button>
+
             {/* Section anchors */}
             <p style={{ fontSize: '0.68rem', fontWeight: 600, color: '#d4a574', textTransform: 'uppercase', letterSpacing: '0.18em', margin: '8px 0 4px', fontFamily: "'Inter', sans-serif" }}>
               {language === 'tr' ? 'Keşfet' : 'Discover'}
