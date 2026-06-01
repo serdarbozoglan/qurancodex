@@ -20,6 +20,59 @@ const HERO_VERSE = {
 const ALLAH_CLASSIC_COUNT = 2699;   // M. Fuâd Abdülbâkî, lemma sayımı
 const ALLAH_SURFACE_COUNT = 1813;   // JSON'daki yüzey lafz sayımı
 
+// 4 temel ayet — Hero kartlarında her birinin GERÇEK quote'u (sloppy
+// tekrarlamayı engelle). Tek bir metin = "En güzel isimler O'nundur" 4x değil.
+const TEMEL_AYETLER_TR = [
+  { ref: "A'RÂF 7:180",  quote: "En güzel isimler Allah'ındır; O'na o isimlerle dua edin." },
+  { ref: "İSRÂ 17:110",  quote: "İster Allah deyin, ister Rahmân; hangisini deseniz en güzel isimler O'nundur." },
+  { ref: "TÂHÂ 20:8",    quote: "Allah — O'ndan başka ilah yoktur; en güzel isimler O'nundur." },
+  { ref: "HAŞR 59:24",   quote: "O, yaratan, kusursuzca var eden, şekil veren Allah'tır. En güzel isimler O'nundur." },
+];
+const TEMEL_AYETLER_EN = [
+  { ref: "A'RĀF 7:180",  quote: "To Allah belong the best names; so invoke Him by them." },
+  { ref: "ISRĀ 17:110",  quote: "Say Allah or say Ar-Raḥmān — by whichever you call, the best names are His." },
+  { ref: "ṬĀHĀ 20:8",    quote: "Allah — there is no deity except Him; to Him belong the best names." },
+  { ref: "ḤASHR 59:24",  quote: "He is Allah, the Creator, the Inventor, the Fashioner. To Him belong the best names." },
+];
+
+// ──────────────────────────────────────────────────────────────────────────────
+// FiligreeDivider — gold ornamental separator (Islamic motif style)
+// ──────────────────────────────────────────────────────────────────────────────
+function FiligreeDivider({ delay = 0, mt = 0, mb = 0 }) {
+  return (
+    <motion.div
+      aria-hidden
+      initial={{ opacity: 0, scaleX: 0.6 }}
+      animate={{ opacity: 0.7, scaleX: 1 }}
+      transition={{ duration: 1.1, delay, ease: 'easeOut' }}
+      style={{
+        marginTop: `${mt}px`,
+        marginBottom: `${mb}px`,
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+        color: COLORS.gold,
+      }}
+    >
+      <span style={{
+        display: 'inline-block',
+        width: '80px',
+        height: '1px',
+        background: `linear-gradient(90deg, transparent, ${COLORS.gold}99)`,
+      }} />
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" style={{ flexShrink: 0, opacity: 0.85 }}>
+        <path d="M12 3 L14 10 L21 12 L14 14 L12 21 L10 14 L3 12 L10 10 Z" />
+      </svg>
+      <span style={{
+        display: 'inline-block',
+        width: '80px',
+        height: '1px',
+        background: `linear-gradient(90deg, ${COLORS.gold}99, transparent)`,
+      }} />
+    </motion.div>
+  );
+}
+
 // ── Styles ────────────────────────────────────────────────────────────────────
 
 const sectionLabel = {
@@ -99,146 +152,260 @@ function Hero({ tr }) {
       padding: '40px 24px 60px',
       position: 'relative',
     }}>
-      {/* Bismillah ornamenti */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 0.6, scale: 1 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-        style={{
-          fontFamily: FONTS.quran,
-          fontSize: 'clamp(2.2rem, 5vw, 3rem)',
-          color: COLORS.gold,
-          marginBottom: '60px',
-          textAlign: 'center',
-          lineHeight: 1,
-        }}
-        dir="rtl"
-        lang="ar"
-      >
-        ﷽
-      </motion.div>
+      {/* Radial gradient backdrop — subtle gold glow center */}
+      <div aria-hidden style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `radial-gradient(ellipse at center, ${COLORS.gold}0a 0%, transparent 60%)`,
+      }} />
 
-      {/* Şûrâ 42:11 — hero verse */}
-      <motion.blockquote
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.2 }}
-        cite="https://quran.com/42/11"
-        style={{
-          margin: '0 0 50px',
-          textAlign: 'center',
-          maxWidth: '780px',
-        }}
-      >
-        <p
-          dir="rtl"
-          lang="ar"
+      <div style={{ position: 'relative', maxWidth: '900px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
+        {/* Bismillah ornamenti */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 0.85, scale: 1 }}
+          transition={{ duration: 1.4, ease: 'easeOut' }}
           style={{
             fontFamily: FONTS.quran,
-            fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
+            fontSize: 'clamp(2.4rem, 5.5vw, 3.4rem)',
             color: COLORS.gold,
-            lineHeight: 2.2,
-            margin: '0 0 18px',
+            marginBottom: '20px',
+            textAlign: 'center',
+            lineHeight: 1,
+          }}
+          dir="rtl"
+          lang="ar"
+        >
+          ﷽
+        </motion.div>
+
+        {/* Filigree divider */}
+        <FiligreeDivider delay={0.4} />
+
+        {/* Şûrâ 42:11 — hero anchor verse */}
+        <motion.blockquote
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.5 }}
+          cite="https://quran.com/42/11"
+          style={{
+            margin: '32px 0 0',
+            textAlign: 'center',
+            maxWidth: '820px',
           }}
         >
-          {HERO_VERSE.arabic}
-        </p>
-        <p style={{
-          color: COLORS.offWhite,
-          fontFamily: FONTS.display,
-          fontStyle: 'italic',
-          fontSize: 'clamp(1rem, 2.4vw, 1.25rem)',
-          lineHeight: 1.6,
-          margin: '0 0 8px',
-        }}>
-          "{tr ? HERO_VERSE.tr : HERO_VERSE.en}"
-        </p>
-        <p style={{
-          color: COLORS.silver,
-          fontFamily: FONTS.body,
-          fontSize: '0.85rem',
-          letterSpacing: '0.08em',
-          margin: 0,
-        }}>
-          — {tr ? HERO_VERSE.ref : HERO_VERSE.refEn}
-        </p>
-      </motion.blockquote>
-
-      {/* Çift-katman başlık */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.5 }}
-        style={{ textAlign: 'center', marginBottom: '40px' }}
-      >
-        <h1 style={{
-          fontFamily: FONTS.display,
-          fontWeight: 900,
-          fontSize: 'clamp(2.4rem, 7vw, 5rem)',
-          color: COLORS.offWhite,
-          letterSpacing: '-0.02em',
-          lineHeight: 1,
-          margin: '0 0 14px',
-        }}>
-          {tr ? 'ESMÂ-İ HÜSNÂ' : 'THE BEAUTIFUL NAMES'}
-        </h1>
-        <p style={{
-          fontFamily: FONTS.display,
-          fontStyle: 'italic',
-          fontSize: 'clamp(1.05rem, 2.4vw, 1.5rem)',
-          color: COLORS.silver,
-          fontWeight: 400,
-          margin: 0,
-        }}>
-          {tr ? "Allah'ın Kur'an'da Kendini Tanıtması" : 'How God Describes Himself in the Quran'}
-        </p>
-      </motion.div>
-
-      {/* 4 temel ayet — placeholder; veri Task 8.2'de bağlanacak */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.8 }}
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-          gap: '12px',
-          maxWidth: '780px',
-          width: '100%',
-          marginBottom: '40px',
-        }}
-      >
-        {['A\'râf 7:180', 'İsrâ 17:110', 'Tâhâ 20:8', 'Haşr 59:24'].map((ref) => (
-          <div key={ref} style={{
-            ...GLASS_CARD,
-            padding: '14px 12px',
-            textAlign: 'center',
+          <p
+            dir="rtl"
+            lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)',
+              color: COLORS.gold,
+              lineHeight: 2.1,
+              margin: '0 0 22px',
+              textShadow: `0 0 28px ${COLORS.gold}26`,
+            }}
+          >
+            {HERO_VERSE.arabic}
+          </p>
+          <p style={{
+            color: COLORS.offWhite,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: 'clamp(1.02rem, 2.4vw, 1.3rem)',
+            lineHeight: 1.65,
+            margin: '0 0 10px',
+            maxWidth: '680px',
+            marginLeft: 'auto', marginRight: 'auto',
           }}>
-            <div style={{ ...sectionLabel, marginBottom: '6px', fontSize: '0.62rem' }}>
-              {ref}
-            </div>
-            <div style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.4 }}>
-              {tr ? '"En güzel isimler O\'nundur"' : '"The most beautiful names belong to Him"'}
-            </div>
-          </div>
-        ))}
-      </motion.div>
+            "{tr ? HERO_VERSE.tr : HERO_VERSE.en}"
+          </p>
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.82rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            margin: 0,
+            opacity: 0.7,
+          }}>
+            — {tr ? HERO_VERSE.ref : HERO_VERSE.refEn}
+          </p>
+        </motion.blockquote>
 
-      {/* Sayaç şeridi */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.8 }}
-        transition={{ duration: 0.9, delay: 1.1 }}
-        style={{
-          color: COLORS.silver,
-          fontFamily: FONTS.body,
-          fontSize: '0.85rem',
-          letterSpacing: '0.12em',
-          textAlign: 'center',
-        }}
-      >
-        {tr ? '114 isim ve sıfat · 6.236 âyet · 1 mimar' : '114 names & attributes · 6,236 verses · one architect'}
-      </motion.div>
+        {/* Filigree divider 2 */}
+        <FiligreeDivider delay={0.8} mt={56} mb={48} />
+
+        {/* Çift-katman başlık */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.9 }}
+          style={{ textAlign: 'center', marginBottom: '56px', position: 'relative' }}
+        >
+          {/* Calligraphic Arabic accent above the title */}
+          <p
+            dir="rtl"
+            lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: 'clamp(1rem, 1.8vw, 1.4rem)',
+              color: `${COLORS.gold}cc`,
+              margin: '0 0 14px',
+              lineHeight: 1,
+              letterSpacing: '0.02em',
+            }}
+          >
+            ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ
+          </p>
+          <h1 style={{
+            fontFamily: FONTS.display,
+            fontWeight: 900,
+            fontSize: 'clamp(2.6rem, 7.5vw, 5.5rem)',
+            background: `linear-gradient(180deg, ${COLORS.offWhite} 0%, ${COLORS.offWhite}cc 100%)`,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            letterSpacing: '-0.025em',
+            lineHeight: 1,
+            margin: '0 0 18px',
+            display: 'inline-block',
+          }}>
+            {tr ? 'ESMÂ-İ HÜSNÂ' : 'THE BEAUTIFUL NAMES'}
+          </h1>
+          {/* Subtle gold underline glow */}
+          <div aria-hidden style={{
+            width: '120px',
+            height: '1px',
+            background: `linear-gradient(90deg, transparent, ${COLORS.gold}99, transparent)`,
+            margin: '0 auto 18px',
+          }} />
+          <p style={{
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: 'clamp(1.05rem, 2.4vw, 1.5rem)',
+            color: COLORS.silver,
+            fontWeight: 400,
+            margin: 0,
+          }}>
+            {tr ? "Allah'ın Kur'an'da Kendini Tanıtması" : 'How God Describes Himself in the Quran'}
+          </p>
+        </motion.div>
+
+        {/* 4 temel ayet — actual unique quotes from each verse */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 1.1 }}
+          style={{ width: '100%', maxWidth: '900px', marginBottom: '40px' }}
+        >
+          <p style={{
+            ...sectionLabel,
+            marginBottom: '20px',
+            textAlign: 'center',
+            color: `${COLORS.gold}aa`,
+          }}>
+            {tr ? "Allah'ın kendi beyanı" : "In His own words"}
+          </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gap: '14px',
+          }}>
+            {(tr ? TEMEL_AYETLER_TR : TEMEL_AYETLER_EN).map((ayet, i) => (
+              <motion.div
+                key={ayet.ref}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 1.25 + i * 0.1 }}
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0d 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}26`,
+                  borderRadius: '12px',
+                  padding: '18px 16px',
+                  textAlign: 'center',
+                  position: 'relative',
+                }}
+              >
+                <div style={{
+                  color: COLORS.gold,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.68rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.16em',
+                  marginBottom: '10px',
+                }}>
+                  {ayet.ref}
+                </div>
+                <div style={{
+                  color: COLORS.offWhite,
+                  fontFamily: FONTS.display,
+                  fontStyle: 'italic',
+                  fontSize: '0.86rem',
+                  lineHeight: 1.55,
+                }}>
+                  "{ayet.quote}"
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Filigree divider 3 */}
+        <FiligreeDivider delay={1.6} mt={20} mb={32} />
+
+        {/* Sayaç şeridi — premium chip treatment */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9, delay: 1.7 }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: '14px 24px',
+            fontFamily: FONTS.body,
+            color: COLORS.silver,
+            fontSize: '0.86rem',
+            letterSpacing: '0.1em',
+          }}
+        >
+          <span style={{
+            background: `${COLORS.gold}18`,
+            border: `1px solid ${COLORS.gold}44`,
+            borderRadius: '999px',
+            padding: '5px 14px',
+            color: COLORS.gold,
+            fontWeight: 600,
+          }}>
+            {tr ? '114 isim ve sıfat' : '114 names & attributes'}
+          </span>
+          <span style={{ opacity: 0.5 }}>·</span>
+          <span>{tr ? '6.236 âyet' : '6,236 verses'}</span>
+          <span style={{ opacity: 0.5 }}>·</span>
+          <span style={{ fontStyle: 'italic' }}>{tr ? '1 mimar' : 'one architect'}</span>
+        </motion.div>
+
+        {/* Scroll cue */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5, y: [0, 6, 0] }}
+          transition={{ opacity: { duration: 0.9, delay: 2 }, y: { duration: 1.8, repeat: Infinity, ease: 'easeInOut', delay: 2.4 } }}
+          style={{
+            marginTop: '48px',
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.74rem',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            textAlign: 'center',
+          }}
+        >
+          {tr ? '↓ keşfetmeye başla' : '↓ start exploring'}
+        </motion.div>
+
+      </div>
     </section>
   );
 }
