@@ -913,8 +913,6 @@ function FlagshipCard({ verse, index, tr }) {
 // ═════════════════════════════════════════════════════════════════════════════
 
 function FrequencyLandscape({ data, tr }) {
-  const [showAllahNote, setShowAllahNote] = useState(false);
-
   const top20 = useMemo(() => {
     if (!data?.isimler) return [];
     // Allah için displayCount override (klasik 2699)
@@ -950,20 +948,18 @@ function FrequencyLandscape({ data, tr }) {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {top20.map((n, i) => (
-            <FreqBar key={n.isim} item={n} max={maxCount} tr={tr} rank={i + 1} onAllahNoteClick={() => setShowAllahNote(true)} />
+            <FreqBar key={n.isim} item={n} max={maxCount} tr={tr} rank={i + 1} />
           ))}
         </div>
 
-        {showAllahNote && (
-          <AllahLemmaNote tr={tr} onClose={() => setShowAllahNote(false)} />
-        )}
+        {/* Allah lemma vs surface count — daima görünür, click-toggle değil. */}
+        <AllahLemmaNote tr={tr} />
       </div>
     </section>
   );
 }
 
-function FreqBar({ item, max, tr, rank, onAllahNoteClick }) {
-  const isAllah = item.isim === 'Allah';
+function FreqBar({ item, max, tr, rank }) {
   const pct = (item.displayCount / max) * 100;
 
   return (
@@ -993,47 +989,22 @@ function FreqBar({ item, max, tr, rank, onAllahNoteClick }) {
           }}
         />
       </div>
-      <span style={{ display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'flex-end' }}>
-        <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: 700 }}>
-          {item.displayCount.toLocaleString(tr ? 'tr-TR' : 'en-US')}
-        </span>
-        {isAllah && (
-          <button
-            onClick={onAllahNoteClick}
-            aria-label={tr ? 'Sayım metodolojisi açıklaması' : 'Counting methodology explanation'}
-            style={{
-              background: `${COLORS.gold}22`,
-              border: `1px solid ${COLORS.gold}55`,
-              color: COLORS.gold,
-              cursor: 'pointer',
-              fontSize: '0.95rem',
-              width: '22px',
-              height: '22px',
-              borderRadius: '50%',
-              padding: 0,
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              lineHeight: 1,
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}44`; }}
-            onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.gold}22`; }}
-          >
-            ⓘ
-          </button>
-        )}
+      <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: 700, textAlign: 'right' }}>
+        {item.displayCount.toLocaleString(tr ? 'tr-TR' : 'en-US')}
       </span>
     </motion.div>
   );
 }
 
-function AllahLemmaNote({ tr, onClose }) {
+function AllahLemmaNote({ tr }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.6 }}
       style={{
-        marginTop: '24px',
+        marginTop: '32px',
         ...GLASS_CARD,
         background: `linear-gradient(135deg, ${COLORS.gold}11, rgba(255,255,255,0.04))`,
         border: `1px solid ${COLORS.gold}44`,
@@ -1041,13 +1012,6 @@ function AllahLemmaNote({ tr, onClose }) {
         position: 'relative',
       }}
     >
-      <button
-        onClick={onClose}
-        aria-label={tr ? 'Kapat' : 'Close'}
-        style={{ position: 'absolute', top: '12px', right: '12px', background: 'none', border: 'none', color: COLORS.silver, cursor: 'pointer', fontSize: '1.4rem', lineHeight: 1, padding: '4px 8px' }}
-      >
-        ×
-      </button>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
         <span style={{
           display: 'inline-flex',
