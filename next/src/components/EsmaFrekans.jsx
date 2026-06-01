@@ -106,10 +106,11 @@ function Hero({ tr }) {
         transition={{ duration: 1.2, ease: 'easeOut' }}
         style={{
           fontFamily: FONTS.quran,
-          fontSize: '1.4rem',
+          fontSize: 'clamp(2.2rem, 5vw, 3rem)',
           color: COLORS.gold,
           marginBottom: '60px',
           textAlign: 'center',
+          lineHeight: 1,
         }}
         dir="rtl"
         lang="ar"
@@ -236,7 +237,7 @@ function Hero({ tr }) {
           textAlign: 'center',
         }}
       >
-        {tr ? '114 isim · 6.236 âyet · 1 mimar' : '114 names · 6,236 verses · one architect'}
+        {tr ? '114 isim ve sıfat · 6.236 âyet · 1 mimar' : '114 names & attributes · 6,236 verses · one architect'}
       </motion.div>
     </section>
   );
@@ -454,8 +455,8 @@ const HASR_VERSE = {
   intro: "Kur'an'da ilahî isimlerin en yoğun kümelendiği beyan — 13 isim peş peşe.",
   introEn: "The densest gathering of divine names in the Quran — 13 names in succession.",
   arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ ۝ هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ ۝ هُوَ ٱللَّهُ ٱلْخَٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ',
-  mealTr: "(22) O, öyle Allah'tır ki, O'ndan başka tanrı yoktur. Görülmeyeni ve görüleni bilendir. O, esirgeyendir, bağışlayandır. ◉ (23) O, öyle Allah'tır ki, kendisinden başka hiçbir tanrı yoktur. O, mülkün sahibidir, eksiklikten münezzehtir, selamet verendir, emniyete kavuşturandır, gözetip koruyandır, üstündür, istediğini zorla yaptırandır, büyüklükte eşi olmayandır. Allah, müşriklerin ortak koştukları şeylerden münezzehtir. ◉ (24) O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
-  mealEn: "(22) He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful. ◉ (23) He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him. ◉ (24) He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise.",
+  mealTr: "(22) O, öyle Allah'tır ki, O'ndan başka tanrı yoktur. Görülmeyeni ve görüleni bilendir. O, esirgeyendir, bağışlayandır. ۝(23) O, öyle Allah'tır ki, kendisinden başka hiçbir tanrı yoktur. O, mülkün sahibidir, eksiklikten münezzehtir, selamet verendir, emniyete kavuşturandır, gözetip koruyandır, üstündür, istediğini zorla yaptırandır, büyüklükte eşi olmayandır. Allah, müşriklerin ortak koştukları şeylerden münezzehtir. ۝(24) O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
+  mealEn: "(22) He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful. ۝(23) He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him. ۝(24) He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise.",
   highlighted: [
     { ar: 'ٱلرَّحْمَٰنُ', tr: 'Er-Rahmân',     en: 'ar-Raḥmān'     },
     { ar: 'ٱلرَّحِيمُ',   tr: 'Er-Rahîm',      en: 'ar-Raḥīm'      },
@@ -481,8 +482,8 @@ const IHLAS_VERSE = {
   intro: "Mutlak teklik — negatif tanım ile eşsizlik (Ehad + Samed + 'kimseden doğmamış, kimseyi doğurmamış').",
   introEn: "Absolute oneness — uniqueness through negative description (al-Aḥad + aṣ-Ṣamad + 'neither begotten nor begetting').",
   arabic: 'قُلْ هُوَ ٱللَّهُ أَحَدٌ ۝ ٱللَّهُ ٱلصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ',
-  mealTr: "(1) De ki: O, Allah birdir. ◉ (2) Allah sameddir. ◉ (3) O, doğurmamış ve doğmamıştır. ◉ (4) Onun hiçbir dengi yoktur.",
-  mealEn: "(1) Say: He is Allah, the One. ◉ (2) Allah, the Eternal Refuge. ◉ (3) He neither begets nor is born. ◉ (4) Nor is there to Him any equivalent.",
+  mealTr: "(1) De ki: O, Allah birdir. ۝(2) Allah sameddir. ۝(3) O, doğurmamış ve doğmamıştır. ۝(4) Onun hiçbir dengi yoktur.",
+  mealEn: "(1) Say: He is Allah, the One. ۝(2) Allah, the Eternal Refuge. ۝(3) He neither begets nor is born. ۝(4) Nor is there to Him any equivalent.",
   highlighted: [
     { ar: 'أَحَدٌ',   tr: 'El-Ehad',  en: 'al-Aḥad'   },
     { ar: 'ٱلصَّمَدُ', tr: 'Es-Samed', en: 'aṣ-Ṣamad'  },

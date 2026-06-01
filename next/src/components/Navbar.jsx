@@ -8,7 +8,7 @@ import { COLORS, TRANSITION, RADIUS, FONTS } from '../tokens';
 import { CloseIcon, ChatBubbleIcon, ExternalLinkIcon } from './icons';
 // v1.1 — single source of truth for tools data, shared with the modal
 import {
-  FEATURED_TOOL  as IMPORTED_FEATURED,
+  FEATURED_TOOLS as IMPORTED_FEATURED_TOOLS,
   VIZ_TOOLS      as IMPORTED_VIZ,
   ANALYSIS_TOOLS as IMPORTED_ANALYSIS,
   RESEARCH_TOOLS as IMPORTED_RESEARCH,
@@ -679,7 +679,8 @@ export default function Navbar() {
     };
   };
 
-  const featuredTool = adapt(IMPORTED_FEATURED);
+  const featuredTools = IMPORTED_FEATURED_TOOLS.map(adapt);
+  const featuredTool = featuredTools[0]; // backwards-compat: ilk featured (Kur'an'ı Tanı) — mobile + ToolsBrowser parity
   const vizTools     = IMPORTED_VIZ.map(adapt);
   const analysisTools = IMPORTED_ANALYSIS.map(adapt);
   const researchTools = IMPORTED_RESEARCH.map(adapt);
@@ -1056,44 +1057,49 @@ export default function Navbar() {
                     // (single source of truth — see line ~493)
                     return (
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        {/* Featured banner — Kur'an'ı Tanı */}
-                        <button
-                          onClick={featuredTool.action}
-                          style={{
-                            width: '100%',
-                            padding: '12px 20px',
-                            // Featured kart subtle elevation: 3px gold left-border
-                            // + inset gold-ring 1px = "öne çıkar" hissi sade item'lardan ayırır
-                            background: 'rgba(201, 162, 39, 0.08)',
-                            borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
-                            borderTop: 'none', borderRight: 'none',
-                            borderLeft: '3px solid #c9a227',
-                            borderRadius: '8px 8px 0 0',
-                            boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            cursor: 'pointer',
-                            transition: 'background 0.2s ease, box-shadow 0.2s ease',
-                          }}
-                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.14)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.22)'; }}
-                          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
-                        >
-                          <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                            <span style={{ color: '#c9a227', flexShrink: 0 }}>{featuredTool.icon}</span>
-                            <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
-                              <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
-                                {language === 'tr' ? featuredTool.labelTr : featuredTool.labelEn}
+                        {/* Featured banners — stacked, vitrin tier */}
+                        {featuredTools.map((ft, idx) => {
+                          const isFirst = idx === 0;
+                          const isLast = idx === featuredTools.length - 1;
+                          return (
+                            <button
+                              key={ft.id}
+                              onClick={ft.action}
+                              style={{
+                                width: '100%',
+                                padding: '12px 20px',
+                                background: 'rgba(201, 162, 39, 0.08)',
+                                borderBottom: isLast ? '1px solid rgba(201, 162, 39, 0.15)' : '1px solid rgba(201, 162, 39, 0.10)',
+                                borderTop: 'none', borderRight: 'none',
+                                borderLeft: '3px solid #c9a227',
+                                borderRadius: isFirst ? '8px 8px 0 0' : '0',
+                                boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                cursor: 'pointer',
+                                transition: 'background 0.2s ease, box-shadow 0.2s ease',
+                              }}
+                              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.14)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.22)'; }}
+                              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
+                            >
+                              <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                <span style={{ color: '#c9a227', flexShrink: 0 }}>{ft.icon}</span>
+                                <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
+                                  <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                                    {language === 'tr' ? ft.labelTr : ft.labelEn}
+                                  </span>
+                                  <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                                    {language === 'tr' ? ft.descTr : ft.descEn}
+                                  </span>
+                                </span>
                               </span>
-                              <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                                {language === 'tr' ? featuredTool.descTr : featuredTool.descEn}
-                              </span>
-                            </span>
-                          </span>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                            <path d="M9 18l6-6-6-6" />
-                          </svg>
-                        </button>
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                                <path d="M9 18l6-6-6-6" />
+                              </svg>
+                            </button>
+                          );
+                        })}
 
                         {/* 3-column tools grid */}
                         <div style={{ display: 'flex', marginTop: '-2px' }}>
@@ -1553,15 +1559,18 @@ export default function Navbar() {
               <p style={{ fontSize: '0.68rem', fontWeight: 600, color: '#d4a574', textTransform: 'uppercase', letterSpacing: '0.18em', margin: '0 0 6px', fontFamily: "'Inter', sans-serif" }}>
                 {language === 'tr' ? 'Araçlar' : 'Tools'}
               </p>
-              <button
-                onClick={() => { featuredTool.action(); setMobileOpen(false); }}
-                className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
-              >
-                <span style={{ color: '#c9a227', flexShrink: 0 }}>{featuredTool.icon}</span>
-                <span style={{ color: '#d4a574', fontWeight: 600 }}>
-                  {language === 'tr' ? featuredTool.labelTr : featuredTool.labelEn}
-                </span>
-              </button>
+              {featuredTools.map(ft => (
+                <button
+                  key={ft.id}
+                  onClick={() => { ft.action(); setMobileOpen(false); }}
+                  className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
+                >
+                  <span style={{ color: '#c9a227', flexShrink: 0 }}>{ft.icon}</span>
+                  <span style={{ color: '#d4a574', fontWeight: 600 }}>
+                    {language === 'tr' ? ft.labelTr : ft.labelEn}
+                  </span>
+                </button>
+              ))}
               {[...vizTools, ...analysisTools, ...researchTools].map(tool => (
                 <button
                   key={tool.id}

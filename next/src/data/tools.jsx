@@ -201,6 +201,9 @@ const FurukIcon = ({ size = 14 }) => (
 );
 
 // ── Featured ─────────────────────────────────────────────────────────────────
+// Vitrin tier — drawer'da en üstte yatay full-width banner olarak gösterilir.
+// "Araç" değil, "anlatı/vitrin" zümresine girer. ANALYSIS/VIZ/RESEARCH tools
+// listelerinden ÇIKARILIR (aksi halde iki yerde görünür).
 export const FEATURED_TOOL = {
   id:          'wow',
   event:       'openWowFacts',
@@ -212,6 +215,22 @@ export const FEATURED_TOOL = {
   descLongEn:  'Little-known, sourced, surprising facts about the Quran. Numbers, linguistics, history, science — each one anchored to a verse or a study.',
   icon:        StarIcon,
 };
+
+export const FEATURED_TOOL_ESMA = {
+  id:          'esma-frekans',
+  event:       'openEsmaFrekans',
+  titleTr:     'Esmâ-i Hüsnâ',
+  titleEn:     'The Beautiful Names',
+  descTr:      "Allah'ın Kur'an'da kendini tanıtması · 114 isim ve sıfat",
+  descEn:      'How God describes Himself in the Quran · 114 names & attributes',
+  descLongTr:  "Kur'an'da Allah kendisini hangi isim, sıfat ve doğrudan beyanlarla tanıtır? 114 isim ve sıfat · Celal ↔ Cemal dengesi · Âyetü'l-Kürsî ve Haşr 22-24 anatomileri · frekans manzarası · doğrudan ilahi beyanlar.",
+  descLongEn:  'How does God describe Himself in the Quran — through which names, attributes, and direct statements? 114 names & attributes · Jalāl ↔ Jamāl balance · anatomies of Āyat al-Kursī and Ḥashr 22-24 · frequency landscape · direct divine self-statements.',
+  icon:        EsmaIcon,
+};
+
+// Featured tier — sıralı array (Navbar drawer + ToolsBrowser her ikisi de
+// bu sırayı kullanır). Yeni vitrin eklemek için sadece bu array'e push edin.
+export const FEATURED_TOOLS = [FEATURED_TOOL, FEATURED_TOOL_ESMA];
 
 // ── Görselleştirme (6) ───────────────────────────────────────────────────────
 // Order: Ayet → Nüzul → Kelime → Kıssa → Mesel → Kıraat
@@ -293,17 +312,8 @@ export const VIZ_TOOLS = [
 // Münâsebât sits right below Sûre DNA by design: DNA compares any two surahs,
 // Münâsebât reveals the discipline-backed connections between specific pairs.
 export const ANALYSIS_TOOLS = [
-  {
-    id:          'esma-frekans',
-    event:       'openEsmaFrekans',
-    titleTr:     'Esmâ-i Hüsnâ',
-    titleEn:     'The Beautiful Names',
-    descTr:      "Allah'ın Kur'an'da kendini tanıtması · 114 isim",
-    descEn:      "How God describes Himself in the Quran · 114 names",
-    descLongTr:  "Kur'an'da Allah kendisini hangi isim, sıfat ve doğrudan beyanlarla tanıtır? 114 isim · Celal ↔ Cemal dengesi · Âyetü'l-Kürsî ve Haşr 22-24 anatomileri · frekans manzarası · doğrudan ilahi beyanlar.",
-    descLongEn:  "How does God describe Himself in the Quran — through which names, attributes, and direct statements? 114 names · Jalāl ↔ Jamāl balance · anatomies of Āyat al-Kursī and Ḥashr 22-24 · frequency landscape · direct divine self-statements.",
-    icon:        EsmaIcon,
-  },
+  // NOT: 'esma-frekans' artık FEATURED_TOOL_ESMA olarak yukarı taşındı —
+  // drawer'da Kur'an'ı Tanı altında 2. featured banner olarak gösterilir.
   {
     id:          'furuk-atlasi',
     event:       'openFurukAtlasi',
