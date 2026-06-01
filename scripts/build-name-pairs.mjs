@@ -29,9 +29,29 @@ const ROOT = join(__dirname, '..');
 const VG_PATH = join(ROOT, 'next/public/verse-graph-bgem3.json');
 const OUT_PATH = join(ROOT, 'next/public/esma-pairs-ayetler.json');
 
+// ── Display normalization (CLAUDE.md §13.15) ──────────────────────────────────
+// KFGQPC font'ta render edilecek Arapça metin için. Stripping değil —
+// Uthmani-özel karakterleri (U+06E1, U+0671, U+06EA) standart muadiliyle
+// değiştirir; hareke korunur (görsel render düzgün olsun diye).
+function cleanArabicForDisplay(str) {
+  if (!str) return str;
+  return str
+    .replace(/۪/g, 'ِ')   // U+06EA → U+0650 (KRİTİK)
+    .replace(/ۡ/g, 'ْ')   // U+06E1 → U+0652
+    .replace(/[ً-ْ]ٓ/gu, 'ٓ')  // §13.14 maddah fix
+    .replace(/ٱ/g, 'ا')   // U+0671 → U+0627
+    .replace(/ی/g, 'ي')   // Farsi yeh → Arabic yeh
+    .replace(/[ؐ-ؔؖؗ]/g, '')        // İslami kısaltma işaretleri
+    .replace(/[؀-؅]/g, '')                    // Numara/dipnot
+    .replace(/[۝۞۩]/g, '')               // ayet sonu, rub el hizb, secde
+    .replace(/ۦ/g, ' ')                            // small yeh → boşluk
+    .replace(/[ۖ-ۜۢۨ]/g, '')  // waqf + dekoratif tajwid
+    .replace(/[﴾﴿]/g, '');                    // süslü parantezler
+}
+
 // ── Diacritic strip (CLAUDE.md §13.15 + extra) ────────────────────────────────
 // Tüm hareke, sukun, shadda, Uthmani işaretleri, tajwid'i çıkarır.
-// Alef varyantlarını tek forma normalize eder.
+// Alef varyantlarını tek forma normalize eder. Sadece pattern matching için.
 function stripArabic(s) {
   if (!s) return '';
   return s
@@ -131,14 +151,15 @@ console.log('[build-name-pairs] verse-graph yükleniyor...');
 const vg = JSON.parse(readFileSync(VG_PATH, 'utf8'));
 console.log(`[build-name-pairs] ${vg.length} ayet yüklendi.`);
 
-// Her ayet için stripped form'u pre-compute
+// Her ayet için stripped form'u pre-compute + display-ready Arabic
 const verseIndex = vg.map(v => ({
   ref: v.id,
   surah: v.surah,
   ayah: v.ayah,
   surahName: v.surahName,
   surahNameEn: v.surahNameEn,
-  arabicStripped: stripArabic(v.arabic),
+  arabic: cleanArabicForDisplay(v.arabic),  // KFGQPC-ready render
+  arabicStripped: stripArabic(v.arabic),    // pattern match için
   turkish: v.turkish,
   english: v.english,
 }));
@@ -168,6 +189,7 @@ for (const pair of PAIRS) {
         ayah: v.ayah,
         surahName: v.surahName,
         surahNameEn: v.surahNameEn,
+        arabic: v.arabic,        // display-ready, KFGQPC-uyumlu
         turkish: v.turkish,
         english: v.english,
         matchedForm,

@@ -1499,7 +1499,7 @@ function PairCard({ pair, tr, index, verseData }) {
                   background: 'rgba(255,255,255,0.025)',
                   border: '1px solid rgba(255,255,255,0.06)',
                   borderRadius: '8px',
-                  padding: '10px 12px',
+                  padding: '12px 14px',
                 }}>
                   <div style={{
                     color: COLORS.gold,
@@ -1507,17 +1507,33 @@ function PairCard({ pair, tr, index, verseData }) {
                     fontSize: '0.72rem',
                     fontWeight: 700,
                     letterSpacing: '0.06em',
-                    marginBottom: '5px',
+                    marginBottom: '8px',
                   }}>
                     {tr ? (SURAH_NAMES_TR[a.surah - 1] || a.surahName) : a.surahNameEn} {a.ref}
                   </div>
+                  {a.arabic && (
+                    <p
+                      dir="rtl"
+                      lang="ar"
+                      style={{
+                        fontFamily: FONTS.quran,
+                        fontSize: '1.05rem',
+                        color: COLORS.offWhite,
+                        lineHeight: 2,
+                        margin: '0 0 8px',
+                        opacity: 0.95,
+                      }}
+                    >
+                      {a.arabic}
+                    </p>
+                  )}
                   <p style={{
                     color: COLORS.offWhite,
                     fontFamily: FONTS.body,
                     fontSize: '0.82rem',
-                    lineHeight: 1.55,
+                    lineHeight: 1.6,
                     margin: 0,
-                    opacity: 0.92,
+                    opacity: 0.88,
                   }}>
                     {tr ? a.turkish : a.english}
                   </p>
@@ -1616,27 +1632,27 @@ function AxisCard({ eks, tr }) {
     >
       <h3 style={{
         fontFamily: FONTS.display,
-        fontSize: '1.15rem',
+        fontSize: 'clamp(1.15rem, 1.6vw, 1.3rem)',
         color: COLORS.gold,
         fontWeight: 700,
-        margin: '0 0 8px',
+        margin: '0 0 10px',
       }}>
         {tr ? eks.baslikTr : eks.baslikEn}
       </h3>
       <p style={{
         color: COLORS.silver,
-        fontSize: '0.82rem',
+        fontSize: 'clamp(0.86rem, 1.2vw, 0.94rem)',
         fontStyle: 'italic',
-        lineHeight: 1.6,
-        margin: '0 0 18px',
+        lineHeight: 1.65,
+        margin: '0 0 20px',
       }}>
         {tr ? eks.notTr : eks.notEn}
       </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: 1 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', flex: 1 }}>
         {eks.ayetler.slice(0, 3).map(a => (
           <div key={a.id} style={{
-            paddingTop: '14px',
+            paddingTop: '16px',
             borderTop: '1px solid rgba(255,255,255,0.06)',
           }}>
             <p
@@ -1644,19 +1660,19 @@ function AxisCard({ eks, tr }) {
               lang="ar"
               style={{
                 fontFamily: FONTS.quran,
-                fontSize: '1rem',
+                fontSize: 'clamp(1.1rem, 1.6vw, 1.35rem)',
                 color: COLORS.offWhite,
-                lineHeight: 2.2,
-                margin: '0 0 8px',
+                lineHeight: 2.35,
+                margin: '0 0 12px',
                 textAlign: 'right',
               }}
             >
               {a.arapca}
             </p>
-            <p style={{ color: COLORS.silver, fontSize: '0.78rem', lineHeight: 1.6, margin: '0 0 4px', fontStyle: 'italic' }}>
+            <p style={{ color: COLORS.silver, fontSize: 'clamp(0.84rem, 1.2vw, 0.92rem)', lineHeight: 1.7, margin: '0 0 6px', fontStyle: 'italic' }}>
               "{tr ? a.tr : a.en}"
             </p>
-            <p style={{ color: `${COLORS.gold}99`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0, letterSpacing: '0.06em' }}>
+            <p style={{ color: `${COLORS.gold}99`, fontSize: '0.76rem', fontFamily: FONTS.body, margin: 0, letterSpacing: '0.06em' }}>
               — {tr ? (a.sureAdTr || a.sure) : (a.sureAdEn || a.sure)} {a.sure}:{a.ayet}
             </p>
           </div>
@@ -1973,7 +1989,7 @@ function VerseChipGrid({ ayetler, tr }) {
         const isLoading = loadingId === id;
         const verse = verseGraph?.get(id);
         return (
-          <div key={id} style={{ flex: '1 0 auto', minWidth: 'fit-content' }}>
+          <div key={id} style={{ flex: '0 0 auto', minWidth: 'fit-content' }}>
             <button
               onClick={() => handleClick(a)}
               aria-expanded={isExpanded}
