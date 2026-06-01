@@ -26,7 +26,21 @@ import { useQuranNav } from '../hooks/useQuranNav';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
 // ── 6 featured tools ────────────────────────────────────────────────────────
+// Esmâ-i Hüsnâ 1. sırada — sayfanın flagship vitrin parçası (114 isim ve sıfat).
 const FEATURED_TOOLS = [
+  {
+    id: 'esma',
+    overlay: 'esma',
+    titleTr: 'Esmâ-i Hüsnâ',
+    titleEn: 'The Beautiful Names',
+    descTr: "Allah'ın Kur'an'da kendini tanıtması · 114 isim ve sıfat",
+    descEn: 'How God describes Himself in the Quran · 114 names & attributes',
+    icon: (
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    ),
+  },
   {
     id: 'graph',
     overlay: 'graph',
@@ -60,19 +74,6 @@ const FEATURED_TOOLS = [
         <circle cx="19" cy="12" r="2" />
         <circle cx="12" cy="19" r="2" />
         <path d="M7 12h3M14 12h3M12 7v3M12 14v3" />
-      </svg>
-    ),
-  },
-  {
-    id: 'esma',
-    overlay: 'esma',
-    titleTr: 'Esmaül Hüsna',
-    titleEn: 'Divine Names',
-    descTr: "99 ismin Kur'an'daki frekans analizi",
-    descEn: 'Frequency analysis of the 99 divine names in the Quran',
-    icon: (
-      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
       </svg>
     ),
   },
