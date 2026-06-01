@@ -8,9 +8,12 @@ import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 
 // ── Sabit veriler ────────────────────────────────────────────────────────────
 
-// Şûrâ 42:11 — hero anchor ayeti (sabit, JSON'da gereksiz)
+// Şûrâ 42:11 — hero anchor ayeti (sabit, JSON'da gereksiz).
+// CLAUDE.md §13.15: KFGQPC standart Arabic Unicode bekler. Uthmani-özel
+// karakterler (ا U+0671,  U+06D6,   U+06E6) tarayıcıyı fallback fonta
+// (Amiri Quran) zorlar. Aşağıdaki metin temizlenmiş standart encoding.
 const HERO_VERSE = {
-  arabic: 'لَيْسَ كَمِثْلِهِۦ شَىْءٌ ۖ وَهُوَ ٱلسَّمِيعُ ٱلْبَصِيرُ',
+  arabic: 'لَيْسَ كَمِثْلِهِ شَيْءٌ وَهُوَ السَّمِيعُ الْبَصِيرُ',
   tr: "O'nun benzeri hiçbir şey yoktur. O hakkıyla işitendir, hakkıyla görendir.",
   en: "There is nothing like Him, and He is the All-Hearing, the All-Seeing.",
   ref: 'Şûrâ 42:11',
@@ -274,7 +277,7 @@ function Hero({ tr }) {
               textShadow: `0 0 24px ${COLORS.gold}1c`,
             }}
           >
-            ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ
+            الْأَسْمَاءُ الْحُسْنٰى
           </p>
           <h1 style={{
             fontFamily: FONTS.display,
@@ -434,21 +437,21 @@ function Hero({ tr }) {
 
 // Editoryal sınıflandırma — temsili 5-6 isim her sütunda
 const CELAL_NAMES = [
-  { ar: 'ٱلْجَبَّار',   tr: 'El-Cebbâr',     en: 'al-Jabbār'     },
-  { ar: 'ٱلْقَهَّار',   tr: 'El-Kahhâr',     en: 'al-Qahhār'     },
-  { ar: 'ٱلْعَزِيز',    tr: 'El-Azîz',       en: 'al-ʿAzīz'      },
-  { ar: 'ٱلْمُتَكَبِّر', tr: 'El-Mütekebbir', en: 'al-Mutakabbir' },
-  { ar: 'ٱلْمُنْتَقِم',  tr: 'El-Müntekim',   en: 'al-Muntaqim'   },
-  { ar: 'ذُو ٱلْجَلَال', tr: "Zü'l-Celâl",    en: "Dhū'l-Jalāl"   },
+  { ar: 'الْجَبَّار',   tr: 'El-Cebbâr',     en: 'al-Jabbār'     },
+  { ar: 'الْقَهَّار',   tr: 'El-Kahhâr',     en: 'al-Qahhār'     },
+  { ar: 'الْعَزِيز',    tr: 'El-Azîz',       en: 'al-ʿAzīz'      },
+  { ar: 'الْمُتَكَبِّر', tr: 'El-Mütekebbir', en: 'al-Mutakabbir' },
+  { ar: 'الْمُنْتَقِم',  tr: 'El-Müntekim',   en: 'al-Muntaqim'   },
+  { ar: 'ذُو الْجَلَال', tr: "Zü'l-Celâl",    en: "Dhū'l-Jalāl"   },
 ];
 
 const CEMAL_NAMES = [
-  { ar: 'ٱلرَّحْمَٰن',  tr: 'Er-Rahmân',     en: 'ar-Raḥmān'     },
-  { ar: 'ٱلرَّحِيم',    tr: 'Er-Rahîm',      en: 'ar-Raḥīm'      },
-  { ar: 'ٱلْوَدُود',    tr: 'El-Vedûd',      en: 'al-Wadūd'      },
-  { ar: 'ٱللَّطِيف',    tr: 'El-Latîf',      en: 'al-Laṭīf'      },
-  { ar: 'ٱلرَّؤُوف',    tr: 'Er-Raûf',       en: 'ar-Raʾūf'      },
-  { ar: 'ٱلْغَفُور',    tr: 'El-Gafûr',      en: 'al-Ghafūr'     },
+  { ar: 'الرَّحْمَٰن',  tr: 'Er-Rahmân',     en: 'ar-Raḥmān'     },
+  { ar: 'الرَّحِيم',    tr: 'Er-Rahîm',      en: 'ar-Raḥīm'      },
+  { ar: 'الْوَدُود',    tr: 'El-Vedûd',      en: 'al-Wadūd'      },
+  { ar: 'اللَّطِيف',    tr: 'El-Latîf',      en: 'al-Laṭīf'      },
+  { ar: 'الرَّؤُوف',    tr: 'Er-Raûf',       en: 'ar-Raʾūf'      },
+  { ar: 'الْغَفُور',    tr: 'El-Gafûr',      en: 'al-Ghafūr'     },
 ];
 
 function Manifesto({ tr, data }) {
@@ -745,15 +748,15 @@ const AYET_KURSI = {
   playRange: { surah: 2, from: 255, to: 255 },
   intro: 'Allah\'ın zatını uyuklamayan, tüm evreni canlı tutan sarsılmaz bir güç olarak tanımlayan en meşhur ayet.',
   introEn: 'The most famous verse describing God as the unsleeping, ever-sustaining power who holds all existence.',
-  arabic: 'ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ',
+  arabic: 'اللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ الْحَىُّ الْقَيُّومُ  لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ  لَّهُۥ مَا فِى السَّمَٰوَٰتِ وَمَا فِى الْأَرْضِ  مَن ذَا الَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِ   يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ  وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِ ٓ إِلَّا بِمَا شَآءَ  وَسِعَ كُرْسِيُّهُ السَّمَٰوَٰتِ وَالْأَرْضَ  وَلَا يَـُٔودُهُۥ حِفْظُهُمَا  وَهُوَ الْعَلِىُّ الْعَظِيمُ',
   mealTr: "Allah, O'ndan başka tanrı yoktur; O, Hayy'dır, Kayyûm'dur. Kendisine ne uyku gelir ne de uyuklama. Göklerde ve yerdekilerin hepsi O'nundur. İzni olmadan O'nun katında kim şefaat edebilir? O, kullarının yaptıklarını ve yapacaklarını bilir. (O'na hiçbir şey gizli kalmaz.) O'nun bildirdiklerinin dışında insanlar O'nun ilminden hiçbir şeyi tam olarak bilemezler. O'nun kürsüsü gökleri ve yeri içine alır, onları koruyup gözetmek kendisine zor gelmez. O, yücedir, büyüktür.",
   mealEn: "Allah — there is no deity except Him, the Ever-Living, the Sustainer of all existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursī extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
   highlighted: [
-    { ar: 'ٱللَّهُ',     tr: 'Allah',     en: 'Allah'        },
-    { ar: 'ٱلْحَىُّ',     tr: 'El-Hayy',    en: 'al-Ḥayy'     },
-    { ar: 'ٱلْقَيُّومُ',  tr: 'El-Kayyûm',  en: 'al-Qayyūm'   },
-    { ar: 'ٱلْعَلِىُّ',   tr: 'El-Aliyy',   en: 'al-ʿAlī'     },
-    { ar: 'ٱلْعَظِيمُ',   tr: 'El-Azîm',    en: 'al-ʿAẓīm'    },
+    { ar: 'اللَّهُ',     tr: 'Allah',     en: 'Allah'        },
+    { ar: 'الْحَىُّ',     tr: 'El-Hayy',    en: 'al-Ḥayy'     },
+    { ar: 'الْقَيُّومُ',  tr: 'El-Kayyûm',  en: 'al-Qayyūm'   },
+    { ar: 'الْعَلِىُّ',   tr: 'El-Aliyy',   en: 'al-ʿAlī'     },
+    { ar: 'الْعَظِيمُ',   tr: 'El-Azîm',    en: 'al-ʿAẓīm'    },
   ],
 };
 
@@ -765,24 +768,24 @@ const HASR_VERSE = {
   playRange: { surah: 59, from: 22, to: 24 },
   intro: "Kur'an'da ilahî isimlerin en yoğun kümelendiği beyan — 14 isim peş peşe.",
   introEn: "The densest gathering of divine names in the Quran — 14 names in succession.",
-  arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ ۝ هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ ۝ هُوَ ٱللَّهُ ٱلْخَٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ ۚ يُسَبِّحُ لَهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۖ وَهُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ',
-  mealTr: "(22) O, öyle Allah'tır ki, O'ndan başka tanrı yoktur. Görülmeyeni ve görüleni bilendir. O, esirgeyendir, bağışlayandır. ۝(23) O, öyle Allah'tır ki, kendisinden başka hiçbir tanrı yoktur. O, mülkün sahibidir, eksiklikten münezzehtir, selamet verendir, emniyete kavuşturandır, gözetip koruyandır, üstündür, istediğini zorla yaptırandır, büyüklükte eşi olmayandır. Allah, müşriklerin ortak koştukları şeylerden münezzehtir. ۝(24) O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
-  mealEn: "(22) He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful. ۝(23) He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him. ۝(24) He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise.",
+  arabic: 'هُوَ اللَّهُ الَّذِى لَآ إِلَٰهَ إِلَّا هُوَ  عَٰلِمُ الْغَيْبِ وَالشَّهَٰدَةِ  هُوَ الرَّحْمَٰنُ الرَّحِيمُ  هُوَ اللَّهُ الَّذِى لَآ إِلَٰهَ إِلَّا هُوَ الْمَلِكُ الْقُدُّوسُ السَّلَٰمُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَزِيزُ الْجَبَّارُ الْمُتَكَبِّرُ  سُبْحَٰنَ اللَّهِ عَمَّا يُشْرِكُونَ  هُوَ اللَّهُ الْخَٰلِقُ الْبَارِئُ الْمُصَوِّرُ  لَهُ الْأَسْمَآءُ الْحُسْنَىٰ  يُسَبِّحُ لَهُۥ مَا فِى السَّمَٰوَٰتِ وَالْأَرْضِ  وَهُوَ الْعَزِيزُ الْحَكِيمُ',
+  mealTr: "(22) O, öyle Allah'tır ki, O'ndan başka tanrı yoktur. Görülmeyeni ve görüleni bilendir. O, esirgeyendir, bağışlayandır. (23) O, öyle Allah'tır ki, kendisinden başka hiçbir tanrı yoktur. O, mülkün sahibidir, eksiklikten münezzehtir, selamet verendir, emniyete kavuşturandır, gözetip koruyandır, üstündür, istediğini zorla yaptırandır, büyüklükte eşi olmayandır. Allah, müşriklerin ortak koştukları şeylerden münezzehtir. (24) O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
+  mealEn: "(22) He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful. (23) He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him. (24) He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise.",
   highlighted: [
-    { ar: 'ٱلرَّحْمَٰنُ', tr: 'Er-Rahmân',     en: 'ar-Raḥmān'     },
-    { ar: 'ٱلرَّحِيمُ',   tr: 'Er-Rahîm',      en: 'ar-Raḥīm'      },
-    { ar: 'ٱلْمَلِكُ',    tr: 'El-Melik',      en: 'al-Malik'      },
-    { ar: 'ٱلْقُدُّوسُ',  tr: 'El-Kuddûs',     en: 'al-Quddūs'     },
-    { ar: 'ٱلسَّلَٰمُ',   tr: 'Es-Selâm',      en: 'as-Salām'      },
-    { ar: 'ٱلْمُؤْمِنُ',  tr: "El-Mü'min",     en: "al-Muʾmin"     },
-    { ar: 'ٱلْمُهَيْمِنُ',tr: 'El-Müheymin',   en: 'al-Muhaymin'   },
-    { ar: 'ٱلْعَزِيزُ',   tr: 'El-Azîz',       en: 'al-ʿAzīz'      },
-    { ar: 'ٱلْجَبَّارُ',  tr: 'El-Cebbâr',     en: 'al-Jabbār'     },
-    { ar: 'ٱلْمُتَكَبِّرُ',tr: 'El-Mütekebbir', en: 'al-Mutakabbir' },
-    { ar: 'ٱلْخَٰلِقُ',   tr: 'El-Hâlık',      en: 'al-Khāliq'     },
-    { ar: 'ٱلْبَارِئُ',   tr: "El-Bâri'",      en: "al-Bāriʾ"      },
-    { ar: 'ٱلْمُصَوِّرُ', tr: 'El-Musavvir',   en: 'al-Muṣawwir'   },
-    { ar: 'ٱلْحَكِيمُ',   tr: 'El-Hakîm',      en: 'al-Ḥakīm'      },
+    { ar: 'الرَّحْمَٰنُ', tr: 'Er-Rahmân',     en: 'ar-Raḥmān'     },
+    { ar: 'الرَّحِيمُ',   tr: 'Er-Rahîm',      en: 'ar-Raḥīm'      },
+    { ar: 'الْمَلِكُ',    tr: 'El-Melik',      en: 'al-Malik'      },
+    { ar: 'الْقُدُّوسُ',  tr: 'El-Kuddûs',     en: 'al-Quddūs'     },
+    { ar: 'السَّلَٰمُ',   tr: 'Es-Selâm',      en: 'as-Salām'      },
+    { ar: 'الْمُؤْمِنُ',  tr: "El-Mü'min",     en: "al-Muʾmin"     },
+    { ar: 'الْمُهَيْمِنُ',tr: 'El-Müheymin',   en: 'al-Muhaymin'   },
+    { ar: 'الْعَزِيزُ',   tr: 'El-Azîz',       en: 'al-ʿAzīz'      },
+    { ar: 'الْجَبَّارُ',  tr: 'El-Cebbâr',     en: 'al-Jabbār'     },
+    { ar: 'الْمُتَكَبِّرُ',tr: 'El-Mütekebbir', en: 'al-Mutakabbir' },
+    { ar: 'الْخَٰلِقُ',   tr: 'El-Hâlık',      en: 'al-Khāliq'     },
+    { ar: 'الْبَارِئُ',   tr: "El-Bâri'",      en: "al-Bāriʾ"      },
+    { ar: 'الْمُصَوِّرُ', tr: 'El-Musavvir',   en: 'al-Muṣawwir'   },
+    { ar: 'الْحَكِيمُ',   tr: 'El-Hakîm',      en: 'al-Ḥakīm'      },
   ],
 };
 
@@ -794,12 +797,12 @@ const IHLAS_VERSE = {
   playRange: { surah: 112, from: 1, to: 4 },
   intro: "Mutlak teklik — negatif tanım ile eşsizlik (Ehad + Samed + 'kimseden doğmamış, kimseyi doğurmamış').",
   introEn: "Absolute oneness — uniqueness through negative description (al-Aḥad + aṣ-Ṣamad + 'neither begotten nor begetting').",
-  arabic: 'قُلْ هُوَ ٱللَّهُ أَحَدٌ ۝ ٱللَّهُ ٱلصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ',
-  mealTr: "(1) De ki: O, Allah birdir. ۝(2) Allah sameddir. ۝(3) O, doğurmamış ve doğmamıştır. ۝(4) Onun hiçbir dengi yoktur.",
-  mealEn: "(1) Say: He is Allah, the One. ۝(2) Allah, the Eternal Refuge. ۝(3) He neither begets nor is born. ۝(4) Nor is there to Him any equivalent.",
+  arabic: 'قُلْ هُوَ اللَّهُ أَحَدٌ  اللَّهُ الصَّمَدُ  لَمْ يَلِدْ وَلَمْ يُولَدْ  وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌ',
+  mealTr: "(1) De ki: O, Allah birdir. (2) Allah sameddir. (3) O, doğurmamış ve doğmamıştır. (4) Onun hiçbir dengi yoktur.",
+  mealEn: "(1) Say: He is Allah, the One. (2) Allah, the Eternal Refuge. (3) He neither begets nor is born. (4) Nor is there to Him any equivalent.",
   highlighted: [
     { ar: 'أَحَدٌ',   tr: 'El-Ehad',  en: 'al-Aḥad'   },
-    { ar: 'ٱلصَّمَدُ', tr: 'Es-Samed', en: 'aṣ-Ṣamad'  },
+    { ar: 'الصَّمَدُ', tr: 'Es-Samed', en: 'aṣ-Ṣamad'  },
   ],
 };
 
@@ -1194,7 +1197,7 @@ function AllahLemmaNote({ tr }) {
         }}>ⓘ</span>
         <span style={{ ...sectionLabel, marginBottom: 0 }}>{tr ? 'Bu sayı nereden geliyor?' : 'Where does this number come from?'}</span>
         <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, lineHeight: 1, marginLeft: 'auto' }}>
-          ٱللَّه
+          اللَّه
         </span>
       </div>
       <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6, margin: '0 0 16px', fontStyle: 'italic' }}>
@@ -2931,17 +2934,17 @@ function loadVerseGraph() {
 function normalizeArabicForCard(str) {
   if (!str) return str;
   return str
-    .replace(/۪/g, 'ِ')
-    .replace(/ۡ/g, 'ْ')
+    .replace(/ِ/g, 'ِ')
+    .replace(/ْ/g, 'ْ')
     .replace(/[ً-ْ]ٓ/gu, 'ٓ')
-    .replace(/ٱ/g, 'ا')
-    .replace(/ی/g, 'ي')
-    .replace(/[ؐ-ؔؖؗ]/g, '')
-    .replace(/[؀-؅]/g, '')
-    .replace(/[۝۞۩]/g, '')
-    .replace(/ۦ/g, ' ')
-    .replace(/[ۖ-۟ۢۨ۫۬]/g, '')
-    .replace(/[﴾﴿]/g, '');
+    .replace(/ا/g, 'ا')
+    .replace(/ي/g, 'ي')
+    .replace(/[-]/g, '')
+    .replace(/[-]/g, '')
+    .replace(/[]/g, '')
+    .replace(/ /g, ' ')
+    .replace(/[-۫۬]/g, '')
+    .replace(/[]/g, '');
 }
 
 function NameDetail({ item, tr, isAllah }) {
@@ -3237,10 +3240,10 @@ function Methodology({ data, tr }) {
 function corpusSearchQuery(arabic) {
   if (!arabic) return '';
   return arabic
-    .replace(/ٱ/g, 'ا')                         // alef wasla → düz alef
-    .replace(/ی/g, 'ي')                         // Farsi yeh → Arabic yeh
-    .replace(/[ً-ٰٟۖ-ۭ۪]/g, '')  // tüm harekeler, tashkeel, waqf, sukunlar, decorative marks
-    .replace(/[ؐ-ؚ]/g, '')           // honorifics
+    .replace(/ا/g, 'ا')                         // alef wasla → düz alef
+    .replace(/ي/g, 'ي')                         // Farsi yeh → Arabic yeh
+    .replace(/[ً-ٰٟ-ِۭ]/g, '')  // tüm harekeler, tashkeel, waqf, sukunlar, decorative marks
+    .replace(/[-ؚ]/g, '')           // honorifics
     .trim();
 }
 
@@ -3270,7 +3273,7 @@ function highlightNames(arabic, names) {
     parts.forEach(p => {
       if (!p.plain) { newParts.push(p); return; }
       // Tüm geçişleri yakala — ilk match'le durmayalım. Bu olmadan
-      // Haşr 59:24'teki ikinci 'ٱلْعَزِيزُ' veya İhlâs 112:4'teki
+      // Haşr 59:24'teki ikinci 'الْعَزِيزُ' veya İhlâs 112:4'teki
       // ikinci 'أَحَدٌ' işaretlenmeden geçiyordu.
       let rest = p.text;
       let safety = 0;
