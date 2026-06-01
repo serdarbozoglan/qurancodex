@@ -1335,7 +1335,9 @@ function NameDetail({ item, tr, isAllah }) {
         ))}
       </div>
 
-      {item.yuksek_frekansli && !showAllAyets && (ayetler || []).length === 15 && (
+      {/* Buton sadece tum_ayetler içeriği varsa gösterilir. Aksi halde
+          aldatıcı olur (kullanıcı tıklar, hiç ek ayet gelmez). */}
+      {item.yuksek_frekansli && !showAllAyets && (item.tum_ayetler || []).length > 15 && (
         <button
           onClick={() => setShowAllAyets(true)}
           style={{
@@ -1356,6 +1358,14 @@ function NameDetail({ item, tr, isAllah }) {
       {item.yuksek_frekansli && showAllAyets && (
         <p style={{ color: COLORS.silver, fontSize: '0.76rem', marginTop: '10px' }}>
           {tr ? 'İlk 30 referans gösterilmiştir.' : 'First 30 references shown.'}
+        </p>
+      )}
+      {/* tum_ayetler boşsa: dürüst alt-not. */}
+      {item.yuksek_frekansli && !showAllAyets && (!item.tum_ayetler || item.tum_ayetler.length <= 15) && (ayetler || []).length === 15 && (
+        <p style={{ color: COLORS.silver, fontSize: '0.76rem', marginTop: '14px', fontStyle: 'italic', opacity: 0.7, lineHeight: 1.6 }}>
+          {tr
+            ? `İlk 15 referans gösterilmiştir. Toplam ${item.kuranda_gecis_sayisi} geçiş için aşağıdaki Corpus Quran linkini kullanın.`
+            : `First 15 references shown. For all ${item.kuranda_gecis_sayisi} occurrences, use the Corpus Quran link below.`}
         </p>
       )}
 
