@@ -29,7 +29,7 @@ export default function AllahKendiniTanitir() {
       id="allah-kendini-tanitir"
       style={{
         background: 'linear-gradient(180deg, #0a0a1a 0%, #0d1b2a 50%, #0a0a1a 100%)',
-        padding: '120px 24px',
+        padding: '110px 24px',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -40,118 +40,112 @@ export default function AllahKendiniTanitir() {
         background: `radial-gradient(ellipse at center, ${COLORS.gold}10 0%, transparent 55%)`,
       }} />
 
-      <div style={{
-        position: 'relative',
-        maxWidth: '880px',
-        margin: '0 auto',
-        textAlign: 'center',
-      }}>
+      {/* Portal container — glass-card frame "kapı/davet" hissi */}
+      <motion.div
+        initial={reduced ? false : { opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.9 }}
+        style={{
+          position: 'relative',
+          maxWidth: '760px',
+          margin: '0 auto',
+          textAlign: 'center',
+          padding: 'clamp(40px, 6vw, 64px) clamp(28px, 5vw, 56px)',
+          background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+          border: `1px solid ${COLORS.gold}33`,
+          borderRadius: '20px',
+          boxShadow: `inset 0 0 0 1px ${COLORS.gold}14, 0 30px 80px rgba(0,0,0,0.4)`,
+        }}
+      >
 
-        {/* Section label */}
-        <motion.div
-          initial={reduced ? false : { opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7 }}
+        {/* Section label — pure Türkçe, no 'Reflection' */}
+        <div
           style={{
             color: `${COLORS.gold}cc`,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             fontWeight: 600,
-            letterSpacing: '0.22em',
+            letterSpacing: '0.24em',
             textTransform: 'uppercase',
-            marginBottom: '24px',
+            marginBottom: '22px',
           }}
         >
-          {tr ? 'Reflection · Mimari → Mimar' : 'Reflection · Architecture → Architect'}
-        </motion.div>
+          {tr ? 'Mimari → Mimar' : 'Architecture → Architect'}
+        </div>
 
-        {/* Anchor verse */}
-        <motion.div
-          initial={reduced ? false : { opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          style={{ marginBottom: '48px' }}
+        {/* Bridge headline FIRST — sayfanın tezi en üstte */}
+        <h2
+          style={{
+            fontFamily: FONTS.display,
+            fontWeight: 700,
+            fontSize: 'clamp(1.7rem, 4vw, 2.6rem)',
+            color: COLORS.offWhite,
+            lineHeight: 1.2,
+            letterSpacing: '-0.015em',
+            margin: '0 0 40px',
+          }}
         >
+          {tr ? 'Mimariyi gördünüz. Şimdi mimarı tanıyın.' : "You've seen the architecture. Now meet the architect."}
+        </h2>
+
+        {/* Anchor verse — A'râf 7:180 (Esmâ-i Hüsnâ kavramının kuruluş ayeti) */}
+        <div style={{ marginBottom: '36px' }}>
           <p
             dir="rtl"
             lang="ar"
             style={{
               fontFamily: FONTS.quran,
-              fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
+              fontSize: 'clamp(1.4rem, 3.2vw, 1.95rem)',
               color: COLORS.gold,
-              lineHeight: 2,
-              margin: '0 0 16px',
+              lineHeight: 2.1,
+              margin: '0 0 14px',
               textShadow: `0 0 24px ${COLORS.gold}22`,
             }}
           >
-            لَيْسَ كَمِثْلِهِۦ شَىْءٌ ۖ وَهُوَ ٱلسَّمِيعُ ٱلْبَصِيرُ
+            وَلِلّٰهِ الْاَسْمَٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا
           </p>
           <p style={{
             color: COLORS.offWhite,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: 'clamp(1rem, 2.2vw, 1.2rem)',
-            lineHeight: 1.6,
+            fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
+            lineHeight: 1.65,
             margin: '0 0 6px',
-            maxWidth: '600px',
+            maxWidth: '560px',
             marginLeft: 'auto', marginRight: 'auto',
           }}>
             "{tr
-              ? "O'nun benzeri hiçbir şey yoktur. O hakkıyla işitendir, hakkıyla görendir."
-              : "There is nothing like Him, and He is the All-Hearing, the All-Seeing."}"
+              ? "En güzel isimler Allah'ındır; O'na o güzel isimlerle dua edin."
+              : "To Allah belong the best names, so invoke Him by them."}"
           </p>
           <p style={{
             color: COLORS.silver,
             fontFamily: FONTS.body,
-            fontSize: '0.76rem',
+            fontSize: '0.72rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: 0,
             opacity: 0.7,
           }}>
-            — {tr ? 'Şûrâ 42:11' : 'Shūrā 42:11'}
+            — {tr ? "A'râf 7:180" : "A'rāf 7:180"}
           </p>
-        </motion.div>
+        </div>
 
-        {/* Bridge headline */}
-        <motion.h2
-          initial={reduced ? false : { opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          style={{
-            fontFamily: FONTS.display,
-            fontWeight: 700,
-            fontSize: 'clamp(1.8rem, 4.5vw, 3rem)',
-            color: COLORS.offWhite,
-            lineHeight: 1.2,
-            letterSpacing: '-0.01em',
-            margin: '0 0 18px',
-          }}
-        >
-          {tr ? 'Mimariyi gördünüz. Şimdi mimarı tanıyın.' : "You've seen the architecture. Now meet the architect."}
-        </motion.h2>
-
-        <motion.p
-          initial={reduced ? false : { opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+        <p
           style={{
             color: COLORS.silver,
             fontFamily: FONTS.body,
-            fontSize: 'clamp(1rem, 2.2vw, 1.15rem)',
-            lineHeight: 1.8,
-            maxWidth: '680px',
-            margin: '0 auto 48px',
+            fontSize: 'clamp(0.95rem, 2vw, 1.05rem)',
+            lineHeight: 1.75,
+            maxWidth: '600px',
+            margin: '0 auto 40px',
           }}
         >
           {tr
-            ? "Allah kendisini Kur'an'da 114 isim ve sıfatla, kimi zaman üçüncü şahısla kimi zaman doğrudan kendi ağzından tanıtır. Sarsılmaz kudret (Celal) ve sığınılacak şefkat (Cemal) bir denge halinde. Bu Esmâ-i Hüsnâ deneyimi o tanıtmanın haritasıdır."
-            : "God describes Himself in the Quran through 114 names and attributes — sometimes in the third person, sometimes directly in His own voice. Unshakable might (Jalāl) and embracing mercy (Jamāl) held in balance. This Esmâ-i Hüsnâ experience is the map of that self-description."}
-        </motion.p>
+            ? "Allah Kur'an'da kendisini 114 isim ve sıfatla, kimi zaman üçüncü şahısla kimi zaman doğrudan kendi ağzından tanıtır. Sarsılmaz kudret (Celal) ve sığınılacak şefkat (Cemal) bir denge halinde."
+            : "God describes Himself in the Quran through 114 names and attributes — sometimes in the third person, sometimes directly in His own voice. Unshakable might (Jalāl) and embracing mercy (Jamāl) in balance."}
+        </p>
 
         {/* 4 isim teaser cards */}
         <motion.div
@@ -269,7 +263,7 @@ export default function AllahKendiniTanitir() {
             ? '114 isim ve sıfat · 14 tematik eksen · 1 mimar'
             : '114 names & attributes · 14 thematic axes · one architect'}
         </motion.p>
-      </div>
+      </motion.div>
     </section>
   );
 }
