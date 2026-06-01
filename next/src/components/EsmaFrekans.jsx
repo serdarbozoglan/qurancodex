@@ -2230,7 +2230,8 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             gap: '3px',
             minWidth: `${120 + names.length * 44 + 32}px`,
           }}>
-            {/* Sol-üst köşe — diğer iki sticky kenarın kesişimi, en üst z */}
+            {/* Sol-üst köşe — diğer iki sticky kenarın kesişimi, en üst z.
+                box-shadow: 3px sağa + 3px aşağı → grid gap'i de kaplar. */}
             <div style={{
               position: 'sticky',
               top: 0,
@@ -2238,9 +2239,11 @@ function SurahNameHeatmap({ tr, heatmapData }) {
               background: '#06080e',
               zIndex: 3,
               height: '88px',
+              boxShadow: '3px 0 0 #06080e, 0 3px 0 #06080e, 3px 3px 0 #06080e',
             }} />
 
-            {/* Üst başlık satırı — sticky top */}
+            {/* Üst başlık satırı — sticky top. box-shadow ile altındaki
+                3px grid gap'i kaplanır, scroll'da veri sızması engellenir. */}
             {names.map(n => (
               <div
                 key={n.isim}
@@ -2250,6 +2253,7 @@ function SurahNameHeatmap({ tr, heatmapData }) {
                   top: 0,
                   background: '#06080e',
                   zIndex: 2,
+                  boxShadow: '0 3px 0 #06080e',
                   color: COLORS.silver,
                   fontFamily: FONTS.body,
                   fontSize: '0.66rem',
@@ -2270,12 +2274,14 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             {/* Satırlar */}
             {rows.map(({ surah, counts }, ri) => (
               <Fragment key={surah.surah}>
-                {/* Sol kolon — sticky left */}
+                {/* Sol kolon — sticky left. box-shadow 3px sağa → grid gap'i
+                    kapatır, scroll'da yan veri sızmaz. */}
                 <div style={{
                   position: 'sticky',
                   left: 0,
                   background: '#06080e',
                   zIndex: 1,
+                  boxShadow: '3px 0 0 #06080e',
                   color: COLORS.offWhite,
                   fontFamily: FONTS.body,
                   fontSize: '0.78rem',
