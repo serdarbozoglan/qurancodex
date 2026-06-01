@@ -1,0 +1,316 @@
+{
+  "kokler": [
+    {
+      "kok": "ر ح م",
+      "kokArabic": "رحم",
+      "anlamTr": "Şefkat · merhamet · koruyuculuk",
+      "anlamEn": "mercy · compassion · protection",
+      "noteTr": "'Rahim' (anne rahmi) ile aynı köktendir — kuşatıcı ve doğal şefkat.",
+      "noteEn": "Same root as 'raḥim' (mother's womb) — encompassing, natural compassion.",
+      "isimler": [
+        "Er-Rahmân",
+        "Er-Rahîm"
+      ],
+      "corpusGecis": 370
+    },
+    {
+      "kok": "ع ل م",
+      "kokArabic": "علم",
+      "anlamTr": "Bilmek · kesin bilgi · fark etmek",
+      "anlamEn": "to know · certain knowledge · perceive",
+      "noteTr": "'İlim, alem, alâmet' kelimeleri aynı köktendir — bilgi ve işaret birliği.",
+      "noteEn": "'ʿIlm', 'ʿālam', 'ʿalāma' share this root — unity of knowledge and sign.",
+      "isimler": [
+        "El-Alîm"
+      ],
+      "corpusGecis": 1663
+    },
+    {
+      "kok": "ح ك م",
+      "kokArabic": "حكم",
+      "anlamTr": "Hükmetmek · hikmet · düzen kurmak",
+      "anlamEn": "to judge · wisdom · order",
+      "noteTr": "Yönetim ve bilgelik aynı kökte birleşir — hikmet, eylemli bilgidir.",
+      "noteEn": "Governance and wisdom share the same root — wisdom is enacted knowledge.",
+      "isimler": [
+        "El-Hakîm",
+        "El-Hakem"
+      ],
+      "corpusGecis": 263
+    },
+    {
+      "kok": "غ ف ر",
+      "kokArabic": "غفر",
+      "anlamTr": "Bağışlamak · örtmek · kusuru gizlemek",
+      "anlamEn": "to forgive · cover · veil the fault",
+      "noteTr": "'Miğfer' (kask, koruyucu örtü) aynı köktendir — bağışlamak, örtmektir.",
+      "noteEn": "'Mighfar' (helmet, protective cover) shares this root — to forgive is to cover.",
+      "isimler": [
+        "El-Gafûr",
+        "El-Gaffâr"
+      ],
+      "corpusGecis": 236
+    },
+    {
+      "kok": "ر ز ق",
+      "kokArabic": "رزق",
+      "anlamTr": "Rızık verme · kısmet · geçim sağlama",
+      "anlamEn": "to provide · share · sustenance",
+      "noteTr": "Yalnız maddi değil, manevi rızık da bu kökten — bilgi, sabır, evlat.",
+      "noteEn": "Not only material — knowledge, patience, children also count as rizq.",
+      "isimler": [
+        "Er-Rezzâk"
+      ],
+      "corpusGecis": 124
+    },
+    {
+      "kok": "خ ل ق",
+      "kokArabic": "خلق",
+      "anlamTr": "Yaratmak · ölçüyle var etmek · biçim verme",
+      "anlamEn": "create · originate by measure · shape",
+      "noteTr": "'Hulûk' (huy, ahlak) aynı kökten — bir şeyi 'ölçüsünde' yapma.",
+      "noteEn": "'Khuluq' (character, morality) shares this root — making by 'measure'.",
+      "isimler": [
+        "El-Hâlik",
+        "El-Hallâk"
+      ],
+      "corpusGecis": 262
+    },
+    {
+      "kok": "س م ع",
+      "kokArabic": "سمع",
+      "anlamTr": "İşitmek · duymak · kavrayışla algılama",
+      "anlamEn": "to hear · receive · perceive through listening",
+      "noteTr": "'Es-Semî'' duyu organına bağlı değil; tüm sesleri eşzamanlı kavrar.",
+      "noteEn": "'as-Samīʿ' is not bound by organ; perceives all sounds simultaneously.",
+      "isimler": [
+        "Es-Semî'"
+      ],
+      "corpusGecis": 253
+    },
+    {
+      "kok": "ب ص ر",
+      "kokArabic": "بصر",
+      "anlamTr": "Görmek · basîret · iç görü",
+      "anlamEn": "to see · insight · inner vision",
+      "noteTr": "'Basîret' iç gözle görmek — fiziksel görüşün ötesi.",
+      "noteEn": "'Baṣīra' is seeing with the inner eye — beyond physical sight.",
+      "isimler": [
+        "El-Basîr"
+      ],
+      "corpusGecis": 163
+    },
+    {
+      "kok": "و د د",
+      "kokArabic": "ودد",
+      "anlamTr": "Sevmek · içten bağlılık · sevgi göstermek",
+      "anlamEn": "to love · sincere attachment · show affection",
+      "noteTr": "'Vudd' (sevgi) kalpten gelen bağlılık — sürekli ve karşılıksız.",
+      "noteEn": "'Wudd' (love) is heartfelt attachment — sustained and unconditional.",
+      "isimler": [
+        "El-Vedûd"
+      ],
+      "corpusGecis": 22
+    },
+    {
+      "kok": "ل ط ف",
+      "kokArabic": "لطف",
+      "anlamTr": "İncelik · nezaket · görünmez lütuf",
+      "anlamEn": "subtlety · gentleness · unseen kindness",
+      "noteTr": "En ince zerreye nüfuz eden lütuf — fark edilmeyen iyilik.",
+      "noteEn": "Kindness that penetrates the smallest particle — unnoticed grace.",
+      "isimler": [
+        "El-Latîf"
+      ],
+      "corpusGecis": 33
+    },
+    {
+      "kok": "ع ز ز",
+      "kokArabic": "عزز",
+      "anlamTr": "Güç · üstünlük · yenilmezlik",
+      "anlamEn": "might · superiority · invincibility",
+      "noteTr": "'İzzet' onur ve şeref — boyun eğdirilemez güç.",
+      "noteEn": "'ʿIzza' is honor and dignity — unsubjugable might.",
+      "isimler": [
+        "El-Azîz"
+      ],
+      "corpusGecis": 100
+    },
+    {
+      "kok": "ج ب ر",
+      "kokArabic": "جبر",
+      "anlamTr": "Mecbur etme · onarma · zorlama",
+      "anlamEn": "compel · mend · constrain",
+      "noteTr": "'Cebr' hem zorla hem onarmakla bir — kırığı zorla tutturup iyileştirmek.",
+      "noteEn": "'Jabr' is both forcing and mending — binding a fracture to heal.",
+      "isimler": [
+        "El-Cebbâr"
+      ],
+      "corpusGecis": 15
+    },
+    {
+      "kok": "ك ب ر",
+      "kokArabic": "كبر",
+      "anlamTr": "Büyüklük · yücelik · ululuk",
+      "anlamEn": "greatness · majesty · loftiness",
+      "noteTr": "'Ekber' (en büyük) ve 'mütekebbir' (büyüklenen) aynı kökten — sadece Allah haklı olarak büyüktür.",
+      "noteEn": "'Akbar' (greatest) and 'mutakabbir' (acting great) share this root — only God is rightfully great.",
+      "isimler": [
+        "El-Kebîr",
+        "El-Mütekebbir"
+      ],
+      "corpusGecis": 215
+    },
+    {
+      "kok": "ق د ر",
+      "kokArabic": "قدر",
+      "anlamTr": "Güç · takdir · ölçüyle belirleme",
+      "anlamEn": "power · decree · determining by measure",
+      "noteTr": "'Kader' aynı kökten — Allah'ın gücü her şeyi 'ölçüsünce' takdirinde yatar.",
+      "noteEn": "'Qadar' (decree) shares this root — God's power lies in determining by measure.",
+      "isimler": [
+        "El-Kâdir",
+        "El-Muktedir"
+      ],
+      "corpusGecis": 180
+    },
+    {
+      "kok": "ح ي ي",
+      "kokArabic": "حيي",
+      "anlamTr": "Hayat · canlılık · diriliş",
+      "anlamEn": "life · vitality · resurrection",
+      "noteTr": "'Hayat' diridir; geri kalan her şey O'nun hayatlandırması ile var.",
+      "noteEn": "Life is His; all else exists by His giving life.",
+      "isimler": [
+        "El-Hayy"
+      ],
+      "corpusGecis": 112
+    },
+    {
+      "kok": "ق و م",
+      "kokArabic": "قوم",
+      "anlamTr": "Ayakta tutmak · süreklilik · varlığı devam ettirme",
+      "anlamEn": "sustain · maintain continuity · uphold existence",
+      "noteTr": "'Kayyûm' kendisi muhtaç olmadan tüm varlığı ayakta tutan.",
+      "noteEn": "'al-Qayyūm' upholds all existence while needing nothing Himself.",
+      "isimler": [
+        "El-Kayyûm"
+      ],
+      "corpusGecis": 689
+    },
+    {
+      "kok": "م ل ك",
+      "kokArabic": "ملك",
+      "anlamTr": "Mülk · hükümranlık · sahiplik",
+      "anlamEn": "kingship · sovereignty · ownership",
+      "noteTr": "'Melik' ve 'Mâlik' farklı boyutlarda — biri hüküm, diğeri sahiplik.",
+      "noteEn": "'Malik' and 'Mālik' differ in dimension — one rules, the other owns.",
+      "isimler": [
+        "El-Melik",
+        "Mâlikü'l-Mülk"
+      ],
+      "corpusGecis": 544
+    },
+    {
+      "kok": "ق د س",
+      "kokArabic": "قدس",
+      "anlamTr": "Kutsallık · arınmışlık · noksanlardan münezzehlik",
+      "anlamEn": "holiness · purity · transcendence of defect",
+      "noteTr": "'Beytülmukaddes' (Kudüs) aynı kökten — Allah her noksandan münezzehtir.",
+      "noteEn": "'Bayt al-Maqdis' (Jerusalem) shares this root — God is free of all defect.",
+      "isimler": [
+        "El-Kuddûs"
+      ],
+      "corpusGecis": 40
+    },
+    {
+      "kok": "س ل م",
+      "kokArabic": "سلم",
+      "anlamTr": "Selamet · esenlik · barış",
+      "anlamEn": "peace · soundness · wholeness",
+      "noteTr": "'İslam' ve 'müslim' aynı kökten — Allah her türlü kusurdan sâlimdir.",
+      "noteEn": "'Islām' and 'Muslim' share this root — God is sound from any flaw.",
+      "isimler": [
+        "Es-Selâm"
+      ],
+      "corpusGecis": 390
+    },
+    {
+      "kok": "أ م ن",
+      "kokArabic": "امن",
+      "anlamTr": "Güven · emin olma · iman",
+      "anlamEn": "safety · trust · faith",
+      "noteTr": "'İman' güven temelli — Allah hem güven veren hem güven duyulandır.",
+      "noteEn": "'Imān' rests on trust — God both grants and receives trust.",
+      "isimler": [
+        "El-Mü'min"
+      ],
+      "corpusGecis": 2816
+    },
+    {
+      "kok": "ت و ب",
+      "kokArabic": "توب",
+      "anlamTr": "Dönüş · tövbe · geriye dönerek arınma",
+      "anlamEn": "return · repentance · cleansing by returning",
+      "noteTr": "'Tövbe' kelime anlamıyla 'dönüş' — Allah hem dönüşü kabul eder hem ilk dönüşü O başlatır.",
+      "noteEn": "'Tawba' literally means 'return' — God accepts the return and also initiates it.",
+      "isimler": [
+        "Et-Tevvâb"
+      ],
+      "corpusGecis": 154
+    },
+    {
+      "kok": "ن و ر",
+      "kokArabic": "نور",
+      "anlamTr": "Işık · aydınlık · görünür kılma",
+      "anlamEn": "light · brightness · revelation",
+      "noteTr": "Görmek için ışık şart — bilinmek ve bilinmek de O'nun nuruyla.",
+      "noteEn": "Light is required to see — and to know and be known is through His light.",
+      "isimler": [
+        "En-Nûr"
+      ],
+      "corpusGecis": 173
+    },
+    {
+      "kok": "ك ر م",
+      "kokArabic": "كرم",
+      "anlamTr": "Şeref · ikram · cömertlik",
+      "anlamEn": "honor · generosity · nobility",
+      "noteTr": "'Kerem' karşılık beklemeden iyilik — Allah'ın ikramı bedelsizdir.",
+      "noteEn": "'Karam' is goodness without expectation of return — God's generosity is free.",
+      "isimler": [
+        "El-Kerîm"
+      ],
+      "corpusGecis": 249
+    },
+    {
+      "kok": "و ج د",
+      "kokArabic": "وجد",
+      "anlamTr": "Bulmak · var olmak · vücut",
+      "anlamEn": "find · exist · being",
+      "noteTr": "'El-Vâcid' istediğini bulan — eksiklik nedir bilmeyen.",
+      "noteEn": "'al-Wājid' finds whatever He wills — knows no lack.",
+      "isimler": [
+        "El-Vâcid"
+      ],
+      "corpusGecis": 84
+    },
+    {
+      "kok": "ش ك ر",
+      "kokArabic": "شكر",
+      "anlamTr": "Şükretmek · takdir · küçük iyiliği büyütmek",
+      "anlamEn": "thank · appreciate · multiply small good",
+      "noteTr": "'Şekûr' küçük şükrü büyük ödüllendiren — asimetrik karşılık.",
+      "noteEn": "'Shakūr' rewards small thanks with great recompense — asymmetric return.",
+      "isimler": [
+        "Eş-Şekûr"
+      ],
+      "corpusGecis": 81
+    }
+  ],
+  "generated_at": "2026-06-01T18:42:34.592Z",
+  "methodology": {
+    "tr": "25 kanonik 3-harf kök — Gazali (el-Maksâdü'l-Esnâ) ve Râgıb el-İsfahanî (Müfredât) referansları. İsim eşleştirmeleri esma-frekans.json'la birebir doğrulanmış. corpusGecis sayıları proxy: kökün 3 harfinin yakın aralıkta ardışık göründüğü tüm geçişler — kesin morfolojik root extraction değildir.",
+    "en": "25 canonical trilateral roots — based on al-Ghazālī (al-Maqṣad al-Asnā) and al-Rāghib al-Iṣfahānī (Mufradāt). Name matches verified against esma-frekans.json. corpusGecis is a proxy count: all occurrences where the 3 root letters appear consecutively within a small window — not strict morphological root extraction."
+  }
+}

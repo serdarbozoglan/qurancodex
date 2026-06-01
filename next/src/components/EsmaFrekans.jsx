@@ -95,6 +95,7 @@ export default function EsmaFrekans({ onClose }) {
   const [data, setData] = useState(null);
   const [beyanlari, setBeyanlari] = useState(null);
   const [pairsData, setPairsData] = useState(null);
+  const [koklerData, setKoklerData] = useState(null);
 
   // Escape key
   useEffect(() => {
@@ -108,6 +109,7 @@ export default function EsmaFrekans({ onClose }) {
     fetch('/esma-frekans.json').then(r => r.json()).then(setData).catch(e => console.error('[EsmaFrekans]', e));
     fetch('/esma-beyanlari.json').then(r => r.json()).then(setBeyanlari).catch(e => console.error('[EsmaBeyanlari]', e));
     fetch('/esma-pairs-ayetler.json').then(r => r.json()).then(setPairsData).catch(e => console.error('[EsmaPairs]', e));
+    fetch('/esma-kokler.json').then(r => r.json()).then(setKoklerData).catch(e => console.error('[EsmaKokler]', e));
   }, []);
 
   return (
@@ -134,10 +136,13 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 6: VAHYİN SESİ ═══ */}
       <DivineVoice beyanlari={beyanlari} tr={tr} />
 
-      {/* ═══ SECTION 7: 114 İSİM ATLASI ═══ */}
+      {/* ═══ SECTION 7: KÖK AİLELERİ ═══ */}
+      <KokAileleri tr={tr} koklerData={koklerData} />
+
+      {/* ═══ SECTION 8: 114 İSİM ATLASI ═══ */}
       <NamesAtlas data={data} tr={tr} />
 
-      {/* ═══ SECTION 8: METODOLOJİ ve KAYNAK ═══ */}
+      {/* ═══ SECTION 9: METODOLOJİ ve KAYNAK ═══ */}
       <Methodology data={data} tr={tr} />
     </div>
   );
@@ -1864,7 +1869,188 @@ function AxisCard({ eks, tr }) {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// SECTION 7: 114 İSIM ATLASI — search + 3'lü filter + inline detay
+// SECTION 7: KÖK AİLELERİ — 25 kanonik 3-harf kök, türeyen isimler kümelenmiş
+// Data: esma-kokler.json (build-name-roots.mjs ile üretilir)
+// Klasik kaynaklar: Gazali (el-Maksâdü'l-Esnâ), Râgıb el-İsfahanî (Müfredât)
+// ═════════════════════════════════════════════════════════════════════════════
+
+function KokAileleri({ tr, koklerData }) {
+  if (!koklerData?.kokler?.length) return null;
+
+  return (
+    <section style={{ padding: '80px 24px', background: COLORS.cosmicBlack }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={sectionLabel}>{tr ? 'Kök Aileleri' : 'Root Families'}</div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+          color: COLORS.offWhite,
+          fontWeight: 700,
+          margin: '0 0 16px',
+          maxWidth: '780px',
+          letterSpacing: '-0.01em',
+        }}>
+          {tr ? 'Bir İsim Tek Başına Anlam Üretmez' : 'A Name Does Not Stand Alone'}
+        </h2>
+        <p style={{
+          color: COLORS.silver,
+          fontSize: '1.02rem',
+          lineHeight: 1.75,
+          margin: '0 0 12px',
+          maxWidth: '760px',
+        }}>
+          {tr
+            ? "Arapça'da her isim bir 3-harf köke bağlıdır. Aynı kökten farklı isimler türer, ama hepsi tek bir anlam ailesinin farklı yüzleridir. Aşağıda 25 kanonik kök ve onlardan türeyen Esmâ-i Hüsnâ isimleri."
+            : "Every Arabic name traces back to a 3-letter root. Different names emerge from the same root, but all are faces of a single semantic family. Below: 25 canonical roots and the Beautiful Names that derive from them."}
+        </p>
+        <p style={{
+          color: `${COLORS.gold}99`,
+          fontSize: '0.78rem',
+          fontFamily: FONTS.body,
+          letterSpacing: '0.08em',
+          margin: '0 0 44px',
+          maxWidth: '760px',
+        }}>
+          {tr
+            ? 'Kaynak: Gazali (el-Maksâdü\'l-Esnâ) ve Râgıb el-İsfahanî (Müfredât).'
+            : 'Source: al-Ghazālī (al-Maqṣad al-Asnā) and al-Rāghib al-Iṣfahānī (Mufradāt).'}
+        </p>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '18px',
+        }}>
+          {koklerData.kokler.map((k, i) => <KokCard key={k.kok} kok={k} tr={tr} index={i} />)}
+        </div>
+
+        <p style={{
+          marginTop: '40px',
+          color: COLORS.silver,
+          fontSize: '0.78rem',
+          fontStyle: 'italic',
+          opacity: 0.75,
+          maxWidth: '760px',
+          lineHeight: 1.6,
+        }}>
+          {tr
+            ? "Korpus geçiş sayıları (kök ailesinin Kur'an'da yaklaşık toplam görünümü): 3 kök harfinin 0-2 harflik aralıkla ardarda göründüğü tüm geçişler — kesin morfolojik root extraction değil, üst-sınır proxy'sidir."
+            : "Corpus occurrence counts (the root family's approximate total in the Quran): all instances where the 3 root letters appear consecutively within a small gap — a proxy upper-bound, not strict morphological extraction."}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function KokCard({ kok, tr, index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5, delay: index * 0.03 }}
+      style={{
+        ...GLASS_CARD,
+        padding: '22px 22px 20px',
+        borderRadius: '12px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Üst: kök (spaced) Arapça + sağda corpus sayım */}
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px' }}>
+        <span
+          dir="rtl"
+          lang="ar"
+          style={{
+            fontFamily: FONTS.quran,
+            fontSize: 'clamp(1.6rem, 2.2vw, 1.9rem)',
+            color: COLORS.gold,
+            letterSpacing: '0.18em',
+            lineHeight: 1.3,
+            textShadow: `0 0 18px ${COLORS.gold}1c`,
+          }}
+        >
+          {kok.kok}
+        </span>
+        {kok.corpusGecis > 0 && (
+          <span style={{
+            display: 'inline-flex',
+            alignItems: 'baseline',
+            gap: '5px',
+            color: `${COLORS.gold}aa`,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.06em',
+          }}>
+            <strong style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.85rem' }}>
+              ~{kok.corpusGecis.toLocaleString(tr ? 'tr-TR' : 'en-US')}
+            </strong>
+            {tr ? 'korpus' : 'corpus'}
+          </span>
+        )}
+      </div>
+
+      {/* Anlam tek satır */}
+      <p style={{
+        color: COLORS.offWhite,
+        fontFamily: FONTS.body,
+        fontSize: '0.92rem',
+        fontWeight: 600,
+        lineHeight: 1.5,
+        margin: 0,
+        letterSpacing: '0.01em',
+      }}>
+        {tr ? kok.anlamTr : kok.anlamEn}
+      </p>
+
+      {/* İsim chip'leri */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+        {kok.isimler.map(n => (
+          <span
+            key={n}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '5px 11px',
+              borderRadius: '999px',
+              background: `${COLORS.gold}14`,
+              border: `1px solid ${COLORS.gold}40`,
+              color: COLORS.gold,
+              fontFamily: FONTS.body,
+              fontSize: '0.78rem',
+              fontWeight: 600,
+              letterSpacing: '0.01em',
+            }}
+          >
+            {n}
+          </span>
+        ))}
+      </div>
+
+      {/* Note */}
+      {(tr ? kok.noteTr : kok.noteEn) && (
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.82rem',
+          lineHeight: 1.6,
+          fontStyle: 'italic',
+          margin: '4px 0 0',
+          opacity: 0.85,
+        }}>
+          {tr ? kok.noteTr : kok.noteEn}
+        </p>
+      )}
+    </motion.div>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 8: 114 İSIM ATLASI — search + 3'lü filter + inline detay
 // ═════════════════════════════════════════════════════════════════════════════
 
 // 9 isim için kök DNA (Doküman 5)
