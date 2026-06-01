@@ -125,13 +125,16 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 4: FREKANS MANZARASI ═══ */}
       <FrequencyLandscape data={data} tr={tr} />
 
-      {/* ═══ SECTION 5: VAHYİN SESİ ═══ */}
+      {/* ═══ SECTION 5: İSİM ÇİFTLERİ ═══ */}
+      <NamePairs tr={tr} />
+
+      {/* ═══ SECTION 6: VAHYİN SESİ ═══ */}
       <DivineVoice beyanlari={beyanlari} tr={tr} />
 
-      {/* ═══ SECTION 6: 114 İSİM ATLASI ═══ */}
+      {/* ═══ SECTION 7: 114 İSİM ATLASI ═══ */}
       <NamesAtlas data={data} tr={tr} />
 
-      {/* ═══ SECTION 7: METODOLOJİ ve KAYNAK ═══ */}
+      {/* ═══ SECTION 8: METODOLOJİ ve KAYNAK ═══ */}
       <Methodology data={data} tr={tr} />
     </div>
   );
@@ -977,7 +980,266 @@ function AllahLemmaNote({ tr, onClose }) {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// SECTION 5: VAHYIN SESI — 14 tematik eksen, 6 görünür + 8 expand
+// SECTION 5: İSİM ÇİFTLERİ — Kur'an'da birlikte geçen klasik isim/sıfat
+// pair'leri. Sayılar: M. Fuâd Abdülbâkî, el-Mu'cemu'l-Müfehres (klasik
+// konkordans). Her pair, mushafta tek seferlik ardışık (ardarda gelen iki sıfat)
+// olarak geçen ayetler sayılır.
+//
+// TODO (v2): Her pair için doğrulanmış ayet referansları listesi. Build script:
+// scripts/build-name-pairs.mjs — verse-graph-bgem3.json üzerinden surface-form
+// regex match'i + manual annotation. Şu an sadece klasik konkordans sayıları.
+// ═════════════════════════════════════════════════════════════════════════════
+
+const NAME_PAIRS = [
+  {
+    id: 'gafur-rahim',
+    arabic: 'الْغَفُورُ الرَّحِيمُ',
+    trName: 'El-Gafûr · Er-Rahîm',
+    enName: 'al-Ghafūr · ar-Raḥīm',
+    trMeaning: 'Bağışlayan + Merhametli',
+    enMeaning: 'The Forgiving + The Merciful',
+    count: 72,
+    trGloss: 'Hatadan dönüş, soğuk bir affedilme değil; kucaklanmadır.',
+    enGloss: 'Return from error is not met with cold pardon, but with embrace.',
+  },
+  {
+    id: 'semi-basir',
+    arabic: 'السَّمِيعُ الْبَصِيرُ',
+    trName: "Es-Semî' · El-Basîr",
+    enName: 'as-Samīʿ · al-Baṣīr',
+    trMeaning: 'İşiten + Gören',
+    enMeaning: 'The All-Hearing + The All-Seeing',
+    count: 40,
+    trGloss: 'Algı bölünmez — duyu organına bağlı değil, kuşatıcıdır.',
+    enGloss: 'Perception is undivided — not bound by organs, but all-encompassing.',
+  },
+  {
+    id: 'aziz-hakim',
+    arabic: 'الْعَزِيزُ الْحَكِيمُ',
+    trName: 'El-Azîz · El-Hakîm',
+    enName: 'al-ʿAzīz · al-Ḥakīm',
+    trMeaning: 'Üstün + Hikmet sahibi',
+    enMeaning: 'The Almighty + The Wise',
+    count: 38,
+    trGloss: 'Kudret keyfî değil — daima hikmetle dengelidir.',
+    enGloss: 'Might is never arbitrary — always paired with wisdom.',
+  },
+  {
+    id: 'alim-hakim',
+    arabic: 'الْعَلِيمُ الْحَكِيمُ',
+    trName: 'El-Alîm · El-Hakîm',
+    enName: 'al-ʿAlīm · al-Ḥakīm',
+    trMeaning: 'Bilen + Hikmet sahibi',
+    enMeaning: 'The Knowing + The Wise',
+    count: 35,
+    trGloss: 'Bilgi yığın değil — anlam ve hüküm üreten bir hikmettir.',
+    enGloss: 'Knowledge is not accumulation — it yields meaning and judgment.',
+  },
+  {
+    id: 'tevvab-rahim',
+    arabic: 'التَّوَّابُ الرَّحِيمُ',
+    trName: 'Et-Tevvâb · Er-Rahîm',
+    enName: 'at-Tawwāb · ar-Raḥīm',
+    trMeaning: 'Tövbeleri kabul eden + Merhametli',
+    enMeaning: 'Accepting of repentance + The Merciful',
+    count: 6,
+    trGloss: 'Tövbe kapısı kapanmaz — açan ve karşılayan aynı şefkattir.',
+    enGloss: 'The door of repentance never closes — the One who opens and receives is the same mercy.',
+  },
+];
+
+function NamePairs({ tr }) {
+  return (
+    <section style={{
+      padding: '90px 24px',
+      background: 'linear-gradient(180deg, #06080e 0%, #0a0a1a 100%)',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      {/* Subtle gold radial backdrop */}
+      <div aria-hidden style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `radial-gradient(ellipse at 50% 30%, ${COLORS.gold}0a 0%, transparent 60%)`,
+      }} />
+
+      <div style={{ position: 'relative', maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={sectionLabel}>{tr ? 'İsim Çiftleri' : 'Name Pairs'}</div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+          color: COLORS.offWhite,
+          fontWeight: 700,
+          margin: '0 0 16px',
+          maxWidth: '780px',
+          letterSpacing: '-0.01em',
+        }}>
+          {tr ? 'İkili Geçen İsimler — Birlikte Üretilen Anlam' : 'Names That Travel Together'}
+        </h2>
+        <p style={{
+          color: COLORS.silver,
+          fontSize: '1.02rem',
+          lineHeight: 1.75,
+          margin: '0 0 12px',
+          maxWidth: '760px',
+        }}>
+          {tr
+            ? "Kur'an'da bazı isimler ayet sonunda ardı ardına geçer. Bu yan yana geliş tesadüfi değildir: her çift, tek bir ismin söyleyemediği bir anlamı birlikte taşır. Aşağıda klasik konkordansın işaret ettiği en sık beş ikili."
+            : 'Some names appear back-to-back at verse endings throughout the Quran. This pairing is not accidental: each pair carries a meaning neither name could carry alone. Below are the five most frequent pairs from classical concordance.'}
+        </p>
+        <p style={{
+          color: `${COLORS.gold}99`,
+          fontSize: '0.78rem',
+          fontFamily: FONTS.body,
+          letterSpacing: '0.08em',
+          margin: '0 0 44px',
+          maxWidth: '760px',
+        }}>
+          {tr
+            ? 'Sayım: M. Fuâd Abdülbâkî, el-Muʿcemu\'l-Müfehres.'
+            : 'Counts: M. Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras.'}
+        </p>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '20px',
+        }}>
+          {NAME_PAIRS.map((p, i) => <PairCard key={p.id} pair={p} tr={tr} index={i} />)}
+        </div>
+
+        {/* Footnote — explicit "more coming" honesty */}
+        <p style={{
+          marginTop: '40px',
+          color: COLORS.silver,
+          fontSize: '0.82rem',
+          fontStyle: 'italic',
+          opacity: 0.75,
+          maxWidth: '720px',
+        }}>
+          {tr
+            ? "Yakında: Her çift için ardarda geçtiği ayetlerin tam listesi (örn. Es-Semî' El-Basîr birlikte geçtiği 40 ayet) eklenecek — şu an klasik konkordans sayıları gösterilir."
+            : 'Coming soon: For each pair, the full list of verses where they appear in succession (e.g., the 40 verses where as-Samīʿ al-Baṣīr meet) — currently showing classical concordance counts only.'}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function PairCard({ pair, tr, index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.55, delay: index * 0.06 }}
+      style={{
+        ...GLASS_CARD,
+        padding: '28px 24px 24px',
+        borderRadius: '14px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '14px',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Count badge — top right */}
+      <div style={{
+        position: 'absolute',
+        top: '14px',
+        right: '14px',
+        display: 'flex',
+        alignItems: 'baseline',
+        gap: '6px',
+        background: `${COLORS.gold}14`,
+        border: `1px solid ${COLORS.gold}33`,
+        borderRadius: '999px',
+        padding: '5px 11px',
+      }}>
+        <span style={{
+          color: COLORS.gold,
+          fontFamily: FONTS.body,
+          fontSize: '0.95rem',
+          fontWeight: 700,
+          letterSpacing: '0.02em',
+        }}>
+          {pair.count}
+        </span>
+        <span style={{
+          color: `${COLORS.gold}aa`,
+          fontFamily: FONTS.body,
+          fontSize: '0.66rem',
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+        }}>
+          {tr ? 'ayet' : 'verses'}
+        </span>
+      </div>
+
+      {/* Arabic combined */}
+      <p
+        dir="rtl"
+        lang="ar"
+        style={{
+          fontFamily: FONTS.quran,
+          fontSize: 'clamp(1.55rem, 2.6vw, 1.85rem)',
+          color: COLORS.gold,
+          lineHeight: 2,
+          margin: '6px 0 0',
+          textShadow: `0 0 22px ${COLORS.gold}1c`,
+          paddingRight: '52px', // count badge'e yer
+        }}
+      >
+        {pair.arabic}
+      </p>
+
+      {/* Transliterated name */}
+      <p style={{
+        color: COLORS.offWhite,
+        fontFamily: FONTS.body,
+        fontSize: '1rem',
+        fontWeight: 600,
+        letterSpacing: '0.01em',
+        margin: 0,
+      }}>
+        {tr ? pair.trName : pair.enName}
+      </p>
+
+      {/* Meaning */}
+      <p style={{
+        color: `${COLORS.gold}cc`,
+        fontFamily: FONTS.body,
+        fontSize: '0.85rem',
+        letterSpacing: '0.04em',
+        margin: 0,
+      }}>
+        {tr ? pair.trMeaning : pair.enMeaning}
+      </p>
+
+      {/* Divider */}
+      <div style={{
+        height: '1px',
+        background: `linear-gradient(90deg, ${COLORS.gold}22 0%, transparent 100%)`,
+        margin: '4px 0 2px',
+      }} />
+
+      {/* Gloss — kısa teolojik yorum */}
+      <p style={{
+        color: COLORS.silver,
+        fontFamily: FONTS.body,
+        fontSize: '0.88rem',
+        lineHeight: 1.6,
+        fontStyle: 'italic',
+        margin: 0,
+      }}>
+        {tr ? pair.trGloss : pair.enGloss}
+      </p>
+    </motion.div>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 6: VAHYIN SESI — 14 tematik eksen, 6 görünür + 8 expand
 // ═════════════════════════════════════════════════════════════════════════════
 
 const FOREGROUND_AXES = ['varlik-teklik', 'yakinlik', 'rahmet-af', 'yaraticilik', 'kudret', 'nur'];
@@ -1112,7 +1374,7 @@ function AxisCard({ eks, tr }) {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// SECTION 6: 114 İSIM ATLASI — search + 3'lü filter + inline detay
+// SECTION 7: 114 İSIM ATLASI — search + 3'lü filter + inline detay
 // ═════════════════════════════════════════════════════════════════════════════
 
 // 9 isim için kök DNA (Doküman 5)
@@ -1693,7 +1955,7 @@ function NameDetail({ item, tr, isAllah }) {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// SECTION 7: METODOLOJI ve KAYNAK
+// SECTION 8: METODOLOJI ve KAYNAK
 // ═════════════════════════════════════════════════════════════════════════════
 
 function Methodology({ data, tr }) {
