@@ -24,18 +24,26 @@ import { COLORS, FONTS, RADIUS } from '../tokens';
 // Each shows the Arabic root prominently (mirroring the article's RootHero
 // aesthetic) so the homepage discovery layer previews actual visual character,
 // not just empty category counts. Order: most-recent first.
+// Karma seçim (framework + somut hook):
+// 1. Okuma Prensipleri 1 — sitenin Kur'an okuma metodolojisinin manifesto'su,
+//    homepage'e site kimliği açısından en uygun "neden bu site böyle yapılıyor?"
+//    sorusuna yanıt veren temel taşı.
+// 2. Semantik 3 (Cennet, Cin, Mecnun) — somut etimolojik "aha" anı; framework'ün
+//    pratik meyvelerinden bir örnek.
 const FEATURED_ESSAYS = [
   {
-    slug: 'tugyan',
-    categoryAccent: '#8b5cf6',
-    rootAr: 'ط غ و',
-    rootTranslit: 'ṭ-ḡ-w',
-    seriesNumber: 4,
-    titleTr: 'Semantik 4: Tuğyan',
-    titleEn: 'Semantic 4: Tughyan',
-    tldrTr: 'Sınır aşma — fiziksel taşkınlık ile ahlâkî haddi aşmanın aynı kavramsal şemsiye altındaki birleşimi. İstiğnâ → tuğyan → tâğût zinciri.',
-    tldrEn: 'Boundary-crossing — physical overflow and moral transgression under one conceptual umbrella. The istighnā → tughyān → tāghūt chain.',
-    readingMinutes: 8,
+    slug: 'okuma-prensipleri-1',
+    categoryAccent: '#c9a227', // sure-hermenotik kategori rengi
+    rootAr: 'تَدَبُّر',
+    rootTranslit: 'tadabbur',
+    seriesNumber: 1,
+    eyebrowTr: 'Sûre & Hermenötik',
+    eyebrowEn: 'Surah & Hermeneutics',
+    titleTr: "Kur'an Okuma Prensiplerimiz-1: Epistemik Prensipler",
+    titleEn: "Our Quran Reading Principles-1: Epistemic Principles",
+    tldrTr: "Kur'an okumayı sağlıklı yapabilmek için 5 epistemik prensip: Kapsayıcılık (her şeyi kapsar), Genelleme (ad hoc daraltma yanlış), Tutarlılık (tedebbür gerekir), Keskin Anlam (tam eş anlamlı yok), Modelleme (asâ-yı Mûsâ).",
+    tldrEn: 'Five epistemic principles for sound Quranic reading: Inclusivity, Generality, Consistency, Precision (no full synonyms), and Modeling (the Quran provides a reading model linking inner/outer observation to God).',
+    readingMinutes: 14,
   },
   {
     slug: 'cennet-cin-mecnun',
@@ -43,6 +51,8 @@ const FEATURED_ESSAYS = [
     rootAr: 'ج ن ن',
     rootTranslit: 'j-n-n',
     seriesNumber: 3,
+    eyebrowTr: 'Semantik Seri',
+    eyebrowEn: 'Semantic Series',
     titleTr: 'Semantik 3: Cennet, Cin, Mecnun',
     titleEn: 'Semantic 3: Jannah, Jinn, Majnun',
     tldrTr: 'Cennet, cin, mecnun, kalkan, cenin, kalp — hepsi tek kökten. Ortak payda: gizlilik. Bahçe yapraklarıyla örter, cin görünmezdir, mecnunda akla perde iner.',
@@ -511,7 +521,7 @@ function FeaturedEssayCard({ essay, language, reduced, onClick }) {
             fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.2em',
             color: accent, textTransform: 'uppercase',
           }}>
-            {tr ? 'Semantik Seri' : 'Semantic Series'}
+            {tr ? (essay.eyebrowTr || 'Semantik Seri') : (essay.eyebrowEn || 'Semantic Series')}
           </span>
           {essay.seriesNumber != null && (
             <span style={{
