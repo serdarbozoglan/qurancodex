@@ -2169,11 +2169,23 @@ function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, fav
             {item.anlam}
           </span>
         </div>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ color: COLORS.silver, fontSize: '0.7rem', fontFamily: FONTS.body }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <span style={{
+            color: COLORS.silver,
+            fontSize: 'clamp(0.78rem, 1vw, 0.85rem)',
+            fontFamily: FONTS.body,
+            letterSpacing: '0.02em',
+          }}>
             {item.kategori_etiket}
           </span>
-          <span style={{ color: COLORS.offWhite, fontSize: '0.88rem', fontWeight: 700 }}>
+          <span style={{
+            color: COLORS.offWhite,
+            fontSize: 'clamp(0.95rem, 1.2vw, 1.05rem)',
+            fontWeight: 700,
+            fontVariantNumeric: 'tabular-nums',
+            minWidth: '52px',
+            textAlign: 'right',
+          }}>
             {(isAllah ? ALLAH_CLASSIC_COUNT : item.kuranda_gecis_sayisi).toLocaleString(tr ? 'tr-TR' : 'en-US')}
           </span>
         </span>
@@ -2550,7 +2562,9 @@ function NameDetail({ item, tr, isAllah }) {
 // ═════════════════════════════════════════════════════════════════════════════
 
 function Methodology({ data, tr }) {
-  const [open, setOpen] = useState(false);
+  // Default açık: akademik şeffaflığı vurgu — Gemini önerisi 2.1
+  // ('Veri odaklı okuyucunun güvenini kazanmak için bu şart').
+  const [open, setOpen] = useState(true);
   if (!data?.metodoloji) return null;
 
   return (
