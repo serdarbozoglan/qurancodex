@@ -167,9 +167,9 @@ function Hero({ tr }) {
           transition={{ duration: 1.4, ease: 'easeOut' }}
           style={{
             fontFamily: FONTS.quran,
-            fontSize: 'clamp(2.4rem, 5.5vw, 3.4rem)',
+            fontSize: 'clamp(1.8rem, 3.8vw, 2.6rem)',
             color: COLORS.gold,
-            marginBottom: '20px',
+            marginBottom: '64px',
             textAlign: 'center',
             lineHeight: 1,
           }}
@@ -179,9 +179,6 @@ function Hero({ tr }) {
           ﷽
         </motion.div>
 
-        {/* Filigree divider */}
-        <FiligreeDivider delay={0.4} />
-
         {/* Şûrâ 42:11 — hero anchor verse */}
         <motion.blockquote
           initial={{ opacity: 0, y: 20 }}
@@ -189,7 +186,7 @@ function Hero({ tr }) {
           transition={{ duration: 0.9, delay: 0.5 }}
           cite="https://quran.com/42/11"
           style={{
-            margin: '32px 0 0',
+            margin: 0,
             textAlign: 'center',
             maxWidth: '820px',
           }}
