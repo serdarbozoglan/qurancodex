@@ -45,7 +45,7 @@ function cleanArabicForDisplay(str) {
     .replace(/[؀-؅]/g, '')                    // Numara/dipnot
     .replace(/[۝۞۩]/g, '')               // ayet sonu, rub el hizb, secde
     .replace(/ۦ/g, ' ')                            // small yeh → boşluk
-    .replace(/[ۖ-ۜۢۨ]/g, '')  // waqf + dekoratif tajwid
+    .replace(/[ۖ-۠ۢۨ]/g, '')  // waqf + dekoratif tajwid (U+06D6-U+06E0 inc. small high zero U+06DF + U+06E2/U+06E8)
     .replace(/[﴾﴿]/g, '');                    // süslü parantezler
 }
 

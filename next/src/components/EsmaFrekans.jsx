@@ -2308,7 +2308,7 @@ function NameDetail({ item, tr, isAllah }) {
 
       <div style={{ marginTop: '20px', textAlign: 'right' }}>
         <a
-          href={`https://corpus.quran.com/search.jsp?q=${encodeURIComponent(corpusSearchQuery(item.arapca))}`}
+          href={corpusUrl(item.arapca, item)}
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: COLORS.gold, fontSize: '0.82rem', fontFamily: FONTS.body, textDecoration: 'none' }}
@@ -2464,6 +2464,24 @@ function corpusSearchQuery(arabic) {
     .replace(/[ً-ٰٟۖ-ۭ۪]/g, '')  // tüm harekeler, tashkeel, waqf, sukunlar, decorative marks
     .replace(/[ؐ-ؚ]/g, '')           // honorifics
     .trim();
+}
+
+// Corpus URL'i üret. corpus.quran.com search.jsp belirli formlarla NullPointer
+// fırlatır (gözlemler):
+//   - 'القادر' (al- prefix + 4 harf) -> 500
+//   - 'الله' -> 500
+//   - 'قادر' (al- yok) -> 200
+// Çözüm: definite article al- prefix'i strip et — eğer kalan kelime >=3 harf
+// ise. Allah ismi (الله -> له, 2 harf < 3) için özel: search.jsp yerine
+// qurandictionary.jsp endpoint'ine yönlendir (200 dönüyor).
+function corpusUrl(arabic, item) {
+  const cleaned = corpusSearchQuery(arabic);
+  if (item?.isim === 'Allah') {
+    return `https://corpus.quran.com/qurandictionary.jsp?q=${encodeURIComponent(cleaned)}`;
+  }
+  const stripped = cleaned.replace(/^ال/, '');
+  const finalQ = stripped.length >= 3 ? stripped : cleaned;
+  return `https://corpus.quran.com/search.jsp?q=${encodeURIComponent(finalQ)}`;
 }
 
 // Belirtilen isimleri Arapça metinde altı çizili olarak işaretle
