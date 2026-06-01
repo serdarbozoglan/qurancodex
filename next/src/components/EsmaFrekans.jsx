@@ -992,6 +992,24 @@ function AllahLemmaNote({ tr, onClose }) {
 // regex match'i + manual annotation. Şu an sadece klasik konkordans sayıları.
 // ═════════════════════════════════════════════════════════════════════════════
 
+// 114 sure Türkçe ad listesi — pair expand görünümünde sure adlarını TR/EN
+// dile göre doğru göstermek için. (QuranRhetoric.jsx ile aynı liste; refactor
+// için shared lib'e taşınabilir — şimdilik inline tutuldu.)
+const SURAH_NAMES_TR = [
+  'Fatiha','Bakara','Âl-i İmrân','Nisâ','Mâide','En\'âm','A\'râf','Enfâl','Tevbe','Yûnus',
+  'Hûd','Yûsuf','Ra\'d','İbrâhim','Hicr','Nahl','İsrâ','Kehf','Meryem','Tâ-Hâ',
+  'Enbiyâ','Hac','Mü\'minûn','Nûr','Furkân','Şuarâ','Neml','Kasas','Ankebût','Rûm',
+  'Lokman','Secde','Ahzâb','Sebe\'','Fâtır','Yâsîn','Sâffât','Sâd','Zümer','Mü\'min',
+  'Fussilet','Şûrâ','Zuhruf','Duhân','Câsiye','Ahkâf','Muhammed','Fetih','Hucurât','Kâf',
+  'Zâriyât','Tûr','Necm','Kamer','Rahmân','Vâkıa','Hadîd','Mücâdele','Haşr','Mümtehine',
+  'Saf','Cuma','Münafikun','Teğâbün','Talâk','Tahrîm','Mülk','Kalem','Hâkka','Meâric',
+  'Nûh','Cin','Müzzemmil','Müddessir','Kıyâme','İnsan','Mürselât','Nebe\'','Nâziât','Abese',
+  'Tekvir','İnfitâr','Mutaffifin','İnşikâk','Bürûc','Târık','A\'lâ','Gâşiye','Fecr','Beled',
+  'Şems','Leyl','Duhâ','İnşirâh','Tîn','Alak','Kadr','Beyyine','Zilzâl','Âdiyât',
+  'Kâria','Tekâsür','Asr','Hümeze','Fîl','Kureyş','Mâûn','Kevser','Kâfirûn','Nasr',
+  'Tebbet','İhlâs','Felak','Nâs',
+];
+
 // count field'i KALDIRILDI — artık esma-pairs-ayetler.json'daki foundCount
 // kullanılır (substring tarama sonucu, tüm i'rab varyantları + ters sıra dahil).
 // Klasik konkordans değerleri farklı kaynaklarda çelişkili çıktığı için tek
@@ -1325,7 +1343,7 @@ function PairCard({ pair, tr, index, verseData }) {
                     letterSpacing: '0.06em',
                     marginBottom: '5px',
                   }}>
-                    {a.surahNameEn} {a.ref}
+                    {tr ? (SURAH_NAMES_TR[a.surah - 1] || a.surahName) : a.surahNameEn} {a.ref}
                   </div>
                   <p style={{
                     color: COLORS.offWhite,
