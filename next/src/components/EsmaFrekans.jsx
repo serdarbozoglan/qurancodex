@@ -66,6 +66,9 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 2: MANIFESTO ═══ */}
       <Manifesto tr={tr} />
 
+      {/* ═══ SECTION 3: FLAGSHIP PASAJLAR ═══ */}
+      <FlagshipVerses tr={tr} />
+
       {/* Diğer section'lar sonraki task'larda eklenecek */}
     </div>
   );
@@ -407,5 +410,210 @@ function ColumnCemal({ tr }) {
         ))}
       </ul>
     </motion.div>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 3: FLAGSHIP PASAJLAR — Âyetü'l-Kürsî · Haşr 59:22-24 · İhlâs 112
+// ═════════════════════════════════════════════════════════════════════════════
+
+const AYET_KURSI = {
+  ref: 'Bakara 2:255',
+  refEn: 'Baqara 2:255',
+  title: 'Âyetü\'l-Kürsî',
+  titleEn: 'Āyat al-Kursī',
+  intro: 'Allah\'ın zatını uyuklamayan, tüm evreni canlı tutan sarsılmaz bir güç olarak tanımlayan en meşhur ayet.',
+  introEn: 'The most famous verse describing God as the unsleeping, ever-sustaining power who holds all existence.',
+  arabic: 'ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ',
+  highlighted: [
+    { ar: 'ٱللَّهُ',     tr: 'Allah',     en: 'Allah'        },
+    { ar: 'ٱلْحَىُّ',     tr: 'El-Hayy',    en: 'al-Ḥayy'     },
+    { ar: 'ٱلْقَيُّومُ',  tr: 'El-Kayyûm',  en: 'al-Qayyūm'   },
+    { ar: 'ٱلْعَلِىُّ',   tr: 'El-Aliyy',   en: 'al-ʿAlī'     },
+    { ar: 'ٱلْعَظِيمُ',   tr: 'El-Azîm',    en: 'al-ʿAẓīm'    },
+  ],
+};
+
+const HASR_VERSE = {
+  ref: 'Haşr 59:22-24',
+  refEn: 'Ḥashr 59:22-24',
+  title: 'Haşr 59:22-24',
+  titleEn: 'Ḥashr 59:22-24',
+  intro: "Kur'an'daki en yoğun ilahi isim pasajı — 13 isim peş peşe.",
+  introEn: "The densest passage of divine names in the Quran — 13 names in succession.",
+  arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ ۝ هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ ۝ هُوَ ٱللَّهُ ٱلْخَٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ',
+  highlighted: [
+    { ar: 'ٱلرَّحْمَٰنُ', tr: 'Er-Rahmân',     en: 'ar-Raḥmān'     },
+    { ar: 'ٱلرَّحِيمُ',   tr: 'Er-Rahîm',      en: 'ar-Raḥīm'      },
+    { ar: 'ٱلْمَلِكُ',    tr: 'El-Melik',      en: 'al-Malik'      },
+    { ar: 'ٱلْقُدُّوسُ',  tr: 'El-Kuddûs',     en: 'al-Quddūs'     },
+    { ar: 'ٱلسَّلَٰمُ',   tr: 'Es-Selâm',      en: 'as-Salām'      },
+    { ar: 'ٱلْمُؤْمِنُ',  tr: "El-Mü'min",     en: "al-Muʾmin"     },
+    { ar: 'ٱلْمُهَيْمِنُ',tr: 'El-Müheymin',   en: 'al-Muhaymin'   },
+    { ar: 'ٱلْعَزِيزُ',   tr: 'El-Azîz',       en: 'al-ʿAzīz'      },
+    { ar: 'ٱلْجَبَّارُ',  tr: 'El-Cebbâr',     en: 'al-Jabbār'     },
+    { ar: 'ٱلْمُتَكَبِّرُ',tr: 'El-Mütekebbir', en: 'al-Mutakabbir' },
+    { ar: 'ٱلْخَٰلِقُ',   tr: 'El-Hâlık',      en: 'al-Khāliq'     },
+    { ar: 'ٱلْبَارِئُ',   tr: "El-Bâri'",      en: "al-Bāriʾ"      },
+    { ar: 'ٱلْمُصَوِّرُ', tr: 'El-Musavvir',   en: 'al-Muṣawwir'   },
+  ],
+};
+
+const IHLAS_VERSE = {
+  ref: 'İhlâs 112:1-4',
+  refEn: 'Ikhlāṣ 112:1-4',
+  title: 'İhlâs Suresi',
+  titleEn: 'Sūrat al-Ikhlāṣ',
+  intro: "Mutlak teklik — negatif tanım ile eşsizlik (Ehad + Samed + 'kimseden doğmamış, kimseyi doğurmamış').",
+  introEn: "Absolute oneness — uniqueness through negative description (al-Aḥad + aṣ-Ṣamad + 'neither begotten nor begetting').",
+  arabic: 'قُلْ هُوَ ٱللَّهُ أَحَدٌ ۝ ٱللَّهُ ٱلصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ',
+  highlighted: [
+    { ar: 'أَحَدٌ',   tr: 'El-Ehad',  en: 'al-Aḥad'   },
+    { ar: 'ٱلصَّمَدُ', tr: 'Es-Samed', en: 'aṣ-Ṣamad'  },
+  ],
+};
+
+const FLAGSHIPS = [AYET_KURSI, HASR_VERSE, IHLAS_VERSE];
+
+function FlagshipVerses({ tr }) {
+  return (
+    <section style={{ padding: '80px 24px', background: COLORS.cosmicBlack }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <div style={sectionLabel}>{tr ? 'Üç Flagship Pasaj' : 'Three Flagship Passages'}</div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+          color: COLORS.offWhite,
+          fontWeight: 700,
+          margin: '0 0 50px',
+          maxWidth: '720px',
+        }}>
+          {tr ? 'İsimlerin En Yoğun Kümelendiği Üç Pasaj' : 'Three Passages with the Densest Divine Names'}
+        </h2>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
+          {FLAGSHIPS.map((v, i) => (
+            <FlagshipCard key={v.ref} verse={v} index={i + 1} tr={tr} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FlagshipCard({ verse, index, tr }) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.7 }}
+      style={{
+        ...GLASS_CARD,
+        padding: '36px 28px',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px', marginBottom: '14px' }}>
+        <span style={{
+          color: COLORS.gold,
+          fontFamily: FONTS.display,
+          fontSize: '1.8rem',
+          fontWeight: 700,
+          lineHeight: 1,
+        }}>
+          {String(index).padStart(2, '0')}
+        </span>
+        <h3 style={{
+          fontFamily: FONTS.display,
+          fontSize: '1.4rem',
+          color: COLORS.offWhite,
+          fontWeight: 700,
+          margin: 0,
+        }}>
+          {tr ? verse.title : verse.titleEn}
+        </h3>
+        <span style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, letterSpacing: '0.08em', marginLeft: 'auto' }}>
+          {tr ? verse.ref : verse.refEn}
+        </span>
+      </div>
+
+      <p style={{
+        color: COLORS.silver,
+        fontFamily: FONTS.body,
+        fontSize: '0.95rem',
+        lineHeight: 1.7,
+        margin: '0 0 24px',
+        maxWidth: '720px',
+      }}>
+        {tr ? verse.intro : verse.introEn}
+      </p>
+
+      <div
+        dir="rtl"
+        lang="ar"
+        style={{
+          fontFamily: FONTS.quran,
+          fontSize: 'clamp(1.4rem, 3vw, 1.8rem)',
+          color: COLORS.offWhite,
+          lineHeight: 2.4,
+          padding: '20px 0',
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+          textAlign: 'right',
+        }}
+      >
+        {highlightNames(verse.arabic, verse.highlighted)}
+      </div>
+
+      <div style={{
+        marginTop: '20px',
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '8px',
+      }}>
+        {verse.highlighted.map(n => (
+          <span key={n.tr} style={{
+            background: COLORS.softGoldAlpha12 || 'rgba(212,165,116,0.12)',
+            border: `1px solid ${COLORS.softGoldAlpha25 || 'rgba(212,165,116,0.25)'}`,
+            borderRadius: '14px',
+            padding: '4px 12px',
+            fontSize: '0.78rem',
+            color: COLORS.gold,
+            fontFamily: FONTS.body,
+          }}>
+            {tr ? n.tr : n.en}
+          </span>
+        ))}
+      </div>
+    </motion.article>
+  );
+}
+
+// Belirtilen isimleri Arapça metinde altı çizili olarak işaretle
+function highlightNames(arabic, names) {
+  let parts = [{ text: arabic, plain: true }];
+  names.forEach(n => {
+    const newParts = [];
+    parts.forEach(p => {
+      if (!p.plain) { newParts.push(p); return; }
+      const idx = p.text.indexOf(n.ar);
+      if (idx === -1) { newParts.push(p); return; }
+      const before = p.text.slice(0, idx);
+      const after = p.text.slice(idx + n.ar.length);
+      if (before) newParts.push({ text: before, plain: true });
+      newParts.push({ text: n.ar, plain: false });
+      if (after) newParts.push({ text: after, plain: true });
+    });
+    parts = newParts;
+  });
+
+  return parts.map((p, i) =>
+    p.plain
+      ? <span key={i}>{p.text}</span>
+      : <span key={i} style={{
+          color: COLORS.gold,
+          borderBottom: `2px solid ${COLORS.gold}`,
+          paddingBottom: '2px',
+        }}>{p.text}</span>
   );
 }
