@@ -2161,13 +2161,39 @@ function KokCard({ kok, tr, index }) {
 // ═════════════════════════════════════════════════════════════════════════════
 
 function SurahNameHeatmap({ tr, heatmapData }) {
-  if (!heatmapData?.matrix) return null;
-  const { names, surahs, matrix, topSurahIndices } = heatmapData;
+  // §14.1 SSR-safe isMobile (initial false, useEffect post-mount hydrate)
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
-  // Sadece top 20 sureyi göster (matrix subset)
-  const rows = topSurahIndices.map(i => ({
+  if (!heatmapData?.matrix) return null;
+  const { names: allNames, surahs, matrix, topSurahIndices } = heatmapData;
+
+  // Mobile: top 8 isim × top 12 sure. Desktop: full top 14 isim × top 20 sure.
+  // names listesi zaten frekansa göre desc sıralı (build script).
+  // topSurahIndices zaten desc total'a göre seçilmiş 20'lik, mushaf order'lı.
+  const NAME_LIMIT = isMobile ? 8 : allNames.length;
+  const SURAH_LIMIT = isMobile ? 12 : topSurahIndices.length;
+  const names = allNames.slice(0, NAME_LIMIT);
+
+  // Sure subset: top 12 sureleri toplam'a göre seçer, mushaf order'a geri sıralar
+  const surahSubsetIndices = isMobile
+    ? [...topSurahIndices]
+        .map(i => ({ idx: i, total: surahs[i].total }))
+        .sort((a, b) => b.total - a.total)
+        .slice(0, SURAH_LIMIT)
+        .map(x => x.idx)
+        .sort((a, b) => a - b)
+    : topSurahIndices;
+
+  // Sadece seçili sure × isim subset'i
+  const rows = surahSubsetIndices.map(i => ({
     surah: surahs[i],
-    counts: matrix[i],
+    counts: matrix[i].slice(0, NAME_LIMIT),
   }));
 
   // Renk skalası: max'i log-scale yumuşat, küçük değerler de görünür kalsın
