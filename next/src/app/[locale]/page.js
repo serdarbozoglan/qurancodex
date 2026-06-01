@@ -59,7 +59,6 @@ export default async function Home({ params }) {
       <PathCards />
       <AllTopics />
       <ToolsHighlight />
-      <TefekkurHighlight />
       <LinguisticDNA />
       <ImpossibleRhythm />
       <QuranRhetoric />
@@ -75,6 +74,7 @@ export default async function Home({ params }) {
       <PsychologySection />
       <ToolsShowcase />
       <Conclusion />
+      <TefekkurHighlight />
       <Footer />
     </>
   );
