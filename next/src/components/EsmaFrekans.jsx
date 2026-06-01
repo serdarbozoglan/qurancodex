@@ -93,6 +93,7 @@ export default function EsmaFrekans({ onClose }) {
 
   const [data, setData] = useState(null);
   const [beyanlari, setBeyanlari] = useState(null);
+  const [pairsData, setPairsData] = useState(null);
 
   // Escape key
   useEffect(() => {
@@ -105,6 +106,7 @@ export default function EsmaFrekans({ onClose }) {
   useEffect(() => {
     fetch('/esma-frekans.json').then(r => r.json()).then(setData).catch(e => console.error('[EsmaFrekans]', e));
     fetch('/esma-beyanlari.json').then(r => r.json()).then(setBeyanlari).catch(e => console.error('[EsmaBeyanlari]', e));
+    fetch('/esma-pairs-ayetler.json').then(r => r.json()).then(setPairsData).catch(e => console.error('[EsmaPairs]', e));
   }, []);
 
   return (
@@ -126,7 +128,7 @@ export default function EsmaFrekans({ onClose }) {
       <FrequencyLandscape data={data} tr={tr} />
 
       {/* ═══ SECTION 5: İSİM ÇİFTLERİ ═══ */}
-      <NamePairs tr={tr} />
+      <NamePairs tr={tr} pairsData={pairsData} />
 
       {/* ═══ SECTION 6: VAHYİN SESİ ═══ */}
       <DivineVoice beyanlari={beyanlari} tr={tr} />
@@ -1048,7 +1050,13 @@ const NAME_PAIRS = [
   },
 ];
 
-function NamePairs({ tr }) {
+function NamePairs({ tr, pairsData }) {
+  // pairsData JSON'undan ref→ayet listesi map'i kur
+  const ayetlerById = useMemo(() => {
+    if (!pairsData?.pairs) return {};
+    return Object.fromEntries(pairsData.pairs.map(p => [p.id, p]));
+  }, [pairsData]);
+
   return (
     <section style={{
       padding: '90px 24px',
@@ -1104,28 +1112,43 @@ function NamePairs({ tr }) {
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '20px',
         }}>
-          {NAME_PAIRS.map((p, i) => <PairCard key={p.id} pair={p} tr={tr} index={i} />)}
+          {NAME_PAIRS.map((p, i) => (
+            <PairCard
+              key={p.id}
+              pair={p}
+              tr={tr}
+              index={i}
+              verseData={ayetlerById[p.id]}
+            />
+          ))}
         </div>
 
-        {/* Footnote — explicit "more coming" honesty */}
-        <p style={{
-          marginTop: '40px',
-          color: COLORS.silver,
-          fontSize: '0.82rem',
-          fontStyle: 'italic',
-          opacity: 0.75,
-          maxWidth: '720px',
-        }}>
-          {tr
-            ? "Yakında: Her çift için ardarda geçtiği ayetlerin tam listesi (örn. Es-Semî' El-Basîr birlikte geçtiği 40 ayet) eklenecek — şu an klasik konkordans sayıları gösterilir."
-            : 'Coming soon: For each pair, the full list of verses where they appear in succession (e.g., the 40 verses where as-Samīʿ al-Baṣīr meet) — currently showing classical concordance counts only.'}
-        </p>
+        {/* Metodolojik nüans — bulunan vs klasik */}
+        {pairsData && (
+          <p style={{
+            marginTop: '40px',
+            color: COLORS.silver,
+            fontSize: '0.82rem',
+            fontStyle: 'italic',
+            opacity: 0.75,
+            maxWidth: '760px',
+            lineHeight: 1.7,
+          }}>
+            {tr
+              ? "Not: Kart sağ üstündeki sayı klasik konkordans (Abdülbâkî) değeridir. Listede gösterilen ayetler ise QuranCodex korpusu üzerinde tüm i'rab varyantları (nominative, accusative tanvin, definite/indefinite) için substring tarama sonucudur — sayılar bazı çiftlerde klasik konkordanstan farklı çıkabilir."
+              : 'Note: The number on each card top-right is the classical concordance (Abdülbāqī) count. The verses listed below are the result of a substring scan across all iʿrāb variants (nominative, accusative tanwīn, definite/indefinite) on the QuranCodex corpus — counts may differ slightly from classical concordance.'}
+          </p>
+        )}
       </div>
     </section>
   );
 }
 
-function PairCard({ pair, tr, index }) {
+function PairCard({ pair, tr, index, verseData }) {
+  const [expanded, setExpanded] = useState(false);
+  const ayetler = verseData?.ayetler || [];
+  const foundCount = verseData?.foundCount ?? null;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -1234,6 +1257,89 @@ function PairCard({ pair, tr, index }) {
       }}>
         {tr ? pair.trGloss : pair.enGloss}
       </p>
+
+      {/* Expand toggle — sadece verse data yüklü ise */}
+      {ayetler.length > 0 && (
+        <>
+          <button
+            type="button"
+            onClick={() => setExpanded(p => !p)}
+            style={{
+              marginTop: '6px',
+              alignSelf: 'flex-start',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: expanded ? `${COLORS.gold}1f` : `${COLORS.gold}10`,
+              border: `1px solid ${COLORS.gold}3a`,
+              borderRadius: '999px',
+              padding: '6px 13px',
+              color: COLORS.gold,
+              fontFamily: FONTS.body,
+              fontSize: '0.74rem',
+              fontWeight: 600,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}24`; }}
+            onMouseLeave={e => { e.currentTarget.style.background = expanded ? `${COLORS.gold}1f` : `${COLORS.gold}10`; }}
+            aria-expanded={expanded}
+          >
+            <span>
+              {expanded
+                ? (tr ? 'Listeyi gizle' : 'Hide list')
+                : (tr ? `Tüm ${foundCount} ayeti göster` : `Show all ${foundCount} verses`)}
+            </span>
+            <span style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s', lineHeight: 1, fontSize: '0.7rem' }}>▾</span>
+          </button>
+
+          {expanded && (
+            <div style={{
+              marginTop: '12px',
+              maxHeight: '380px',
+              overflowY: 'auto',
+              paddingRight: '6px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '10px',
+              borderTop: `1px solid ${COLORS.gold}22`,
+              paddingTop: '14px',
+            }}>
+              {ayetler.map(a => (
+                <div key={a.ref} style={{
+                  background: 'rgba(255,255,255,0.025)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  borderRadius: '8px',
+                  padding: '10px 12px',
+                }}>
+                  <div style={{
+                    color: COLORS.gold,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.06em',
+                    marginBottom: '5px',
+                  }}>
+                    {a.surahNameEn} {a.ref}
+                  </div>
+                  <p style={{
+                    color: COLORS.offWhite,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.82rem',
+                    lineHeight: 1.55,
+                    margin: 0,
+                    opacity: 0.92,
+                  }}>
+                    {tr ? a.turkish : a.english}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
     </motion.div>
   );
 }
