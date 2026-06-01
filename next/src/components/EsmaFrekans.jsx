@@ -531,7 +531,7 @@ function ColumnCelal({ tr }) {
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {CELAL_NAMES.map(n => (
           <li key={n.tr} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: '#c4d0ea' }}>
+            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.35rem, 1.8vw, 1.6rem)', color: '#c4d0ea', lineHeight: 1.8 }}>
               {n.ar}
             </span>
             <span style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver }}>
@@ -581,7 +581,7 @@ function ColumnCemal({ tr }) {
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {CEMAL_NAMES.map(n => (
           <li key={n.tr} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.gold }}>
+            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.35rem, 1.8vw, 1.6rem)', color: COLORS.gold, lineHeight: 1.8 }}>
               {n.ar}
             </span>
             <span style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver }}>
@@ -1350,7 +1350,7 @@ function NamePairs({ tr, pairsData }) {
                 lineHeight: 1.55,
               }}>
                 {tr
-                  ? <>İncelenen <strong style={{ color: COLORS.offWhite }}>{pairsData.positionStats.total}</strong> geçişin tamamı ayetin son çeyreğinde — pair'ler ayet metnine değil, ayetin kapanış mührüne yerleşir.</>
+                  ? <>İncelenen <strong style={{ color: COLORS.offWhite }}>{pairsData.positionStats.total}</strong> geçişin tamamı ayetin son çeyreğinde — çiftler ayet metnine değil, kapanış mührüne yerleşir.</>
                   : <>All <strong style={{ color: COLORS.offWhite }}>{pairsData.positionStats.total}</strong> occurrences scanned land in the final quarter of the verse — pairs sit not in the body but on the closing seal.</>}
               </div>
             </div>
@@ -2483,13 +2483,22 @@ function highlightNames(arabic, names) {
     const newParts = [];
     parts.forEach(p => {
       if (!p.plain) { newParts.push(p); return; }
-      const idx = p.text.indexOf(n.ar);
-      if (idx === -1) { newParts.push(p); return; }
-      const before = p.text.slice(0, idx);
-      const after = p.text.slice(idx + n.ar.length);
-      if (before) newParts.push({ text: before, plain: true });
-      newParts.push({ text: n.ar, plain: false });
-      if (after) newParts.push({ text: after, plain: true });
+      // Tüm geçişleri yakala — ilk match'le durmayalım. Bu olmadan
+      // Haşr 59:24'teki ikinci 'ٱلْعَزِيزُ' veya İhlâs 112:4'teki
+      // ikinci 'أَحَدٌ' işaretlenmeden geçiyordu.
+      let rest = p.text;
+      let safety = 0;
+      while (safety++ < 100) {
+        const idx = rest.indexOf(n.ar);
+        if (idx === -1) {
+          if (rest) newParts.push({ text: rest, plain: true });
+          break;
+        }
+        const before = rest.slice(0, idx);
+        if (before) newParts.push({ text: before, plain: true });
+        newParts.push({ text: n.ar, plain: false });
+        rest = rest.slice(idx + n.ar.length);
+      }
     });
     parts = newParts;
   });
