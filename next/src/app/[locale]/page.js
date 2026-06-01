@@ -14,6 +14,7 @@ import PathCards from '@/sections/PathCards';
 import AllTopics from '@/sections/AllTopics';
 import ToolsHighlight from '@/sections/ToolsHighlight';
 import TefekkurHighlight from '@/sections/TefekkurHighlight';
+import AllahKendiniTanitir from '@/sections/AllahKendiniTanitir';
 import LinguisticDNA from '@/sections/LinguisticDNA';
 import ImpossibleRhythm from '@/sections/ImpossibleRhythm';
 import QuranRhetoric from '@/sections/QuranRhetoric';
@@ -70,6 +71,7 @@ export default async function Home({ params }) {
       <LivingPreservation />
       <ZeroRedundancy />
       <Highlights />
+      <AllahKendiniTanitir />
       <HumanDefinition />
       <PsychologySection />
       <ToolsShowcase />
