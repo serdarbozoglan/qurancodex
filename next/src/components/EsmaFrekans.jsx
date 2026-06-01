@@ -2672,13 +2672,20 @@ function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, fav
             {item.anlam}
           </span>
         </div>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span style={{
-            color: COLORS.silver,
-            fontSize: 'clamp(0.78rem, 1vw, 0.85rem)',
-            fontFamily: FONTS.body,
-            letterSpacing: '0.02em',
-          }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
+          {/* Kategori label mobile'de gizli — narrow viewport'ta uzun isimle
+              çakışıyordu (örn. 'El-Hakk' + 'Esmâ-i Hüsnâ' aynı satıra sığmıyor).
+              Filter chip'leri zaten aktif kategoriyi gösteriyor → redundant. */}
+          <span
+            className="esma-category-label"
+            style={{
+              color: COLORS.silver,
+              fontSize: 'clamp(0.78rem, 1vw, 0.85rem)',
+              fontFamily: FONTS.body,
+              letterSpacing: '0.02em',
+              whiteSpace: 'nowrap',
+            }}
+          >
             {item.kategori_etiket}
           </span>
           <span style={{

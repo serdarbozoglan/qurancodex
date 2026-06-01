@@ -243,6 +243,11 @@ body {
   .gradient-divider-reverse {
     height: 64px;
   }
+  /* Atlas row category label: mobile'de gizli — uzun isimle çakışıyordu.
+     Filter chip'leri zaten aktif kategoriyi gösterir, redundant. */
+  .esma-category-label {
+    display: none;
+  }
 }
 
 /* ---- Section Seam (CLAUDE.md §4: 200px gradient overlap between sections) ----
