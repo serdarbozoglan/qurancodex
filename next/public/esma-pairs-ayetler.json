@@ -15,7 +15,9 @@
           "arabic": "اِنَّمَا حَرَّمَ عَلَيْكُمُ الْمَيْتَةَ وَالدَّمَ وَلَحْمَ الْخِنْزِيرِ وَمٓا اُهِلَّ بِهِ لِغَيْرِ اللّٰهِ فَمَنِ اضْطُرَّ غَيْرَ بَاغٍ وَلَا عَادٍ فَلٓا اِثْمَ عَلَيْهِ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Allah size ancak ölüyü (leşi), kanı, domuz etini ve Allah'tan başkası adına kesileni haram kıldı. Her kim bunlardan yemeye mecbur kalırsa, başkasının hakkına saldırmadan ve haddi aşmadan bir miktar yemesinde günah yoktur. Şüphe yok ki Allah çokça bağışlayan çokça esirgeyendir.",
           "english": "He has only forbidden to you dead animals, blood, the flesh of swine, and that which has been dedicated to other than Allah. But whoever is forced [by necessity], neither desiring [it] nor transgressing [its limit], there is no sin upon him. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:182",
@@ -26,7 +28,9 @@
           "arabic": "فَمَنْ خَافَ مِنْ مُوصٍ جَنَفاً اَوْ اِثْماً فَاَصْلَحَ بَيْنَهُمْ فَلٓا اِثْمَ عَلَيْهِ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ۟",
           "turkish": "Her kim, vasiyet edenin haksızlığa yahut günaha meyletmesinden endişe eder de (alakalıların) aralarını bulursa kendisine günah yoktur. Şüphesiz Allah çok bağışlayan hem de esirgeyendir.",
           "english": "But if one fears from the bequeather [some] error or sin and corrects that which is between them, there is no sin upon him. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:192",
@@ -37,7 +41,9 @@
           "arabic": "فَاِنِ انْتَهَوْا فَاِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Eğer onlar (savaştan) vazgeçerlerse, (şunu iyi bilin ki) Allah gafur ve Rahîm'dir.",
           "english": "And if they cease, then indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:199",
@@ -48,7 +54,9 @@
           "arabic": "ثُمَّ اَفِيضُوا مِنْ حَيْثُ اَفَاضَ النَّاسُ وَاسْتَغْفِرُوا اللّٰهَ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Sonra insanların (sel gibi) aktığı yerden siz de akın. Allah'tan mağfiret isteyin. Çünkü Allah affedici ve esirgeyicidir.",
           "english": "Then depart from the place from where [all] the people depart and ask forgiveness of Allah. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:218",
@@ -59,7 +67,9 @@
           "arabic": "اِنَّ الَّذِينَ اٰمَنُوا وَالَّذِينَ هَاجَرُوا وَجَاهَدُوا فِي سَبِيلِ اللّٰهِ اُو۬لٰٓئِكَ يَرْجُونَ رَحْمَتَ اللّٰهِ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "İman edenler ve hicret edip Allah yolunda cihad edenler var ya, işte bunlar, Allah'ın rahmetini umabilirler. Allah, gafur ve Rahîm'dir.",
           "english": "Indeed, those who have believed and those who have emigrated and fought in the cause of Allah - those expect the mercy of Allah. And Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:226",
@@ -70,7 +80,9 @@
           "arabic": "لِلَّذِينَ يُؤْلُونَ مِنْ نِسٓائِهِمْ تَرَبُّصُ اَرْبَعَةِ اَشْهُرٍ فَاِنْ فٓاؤُ۫ فَاِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Kadınlarına yaklaşmamaya yemin edenler dört ay beklerler. Eğer (bu müddet içinde) kadınlarına dönerlerse, şüphesiz Allah çokça bağışlayan ve esirgeyendir.",
           "english": "For those who swear not to have sexual relations with their wives is a waiting time of four months, but if they return [to normal relations] - then indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "3:31",
@@ -81,7 +93,9 @@
           "arabic": "قُلْ اِنْ كُنْتُمْ تُحِبُّونَ اللّٰهَ فَاتَّبِعُونِي يُحْبِبْكُمُ اللّٰهُ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ  وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "(Resulüm! ) De ki: Eğer Allah'ı seviyorsanız bana uyunuz ki Allah da sizi sevsin ve günahlarınızı bağışlasın. Allah son derece bağışlayıcı ve esirgeyicidir.",
           "english": "Say, [O Muhammad], \"If you should love Allah, then follow me, [so] Allah will love you and forgive you your sins. And Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "3:89",
@@ -92,7 +106,9 @@
           "arabic": "اِلَّا الَّذِينَ تَابُوا مِنْ بَعْدِ ذٰلِكَ وَاَصْلَحُوا فَاِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Ancak, bundan sonra tevbe edip yola gelenler başka. Çünkü Allah çok bağışlayıcı ve merhametlidir.",
           "english": "Except for those who repent after that and correct themselves. For indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "3:129",
@@ -103,7 +119,9 @@
           "arabic": "وَلِلّٰهِ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ يَغْفِرُ لِمَنْ يَشٓاءُ وَيُعَذِّبُ مَنْ يَشٓاءُ وَاللّٰهُ غَفُورٌ رَحِيمٌ۟",
           "turkish": "Göklerde ve yerde ne varsa Allah'ındır. Dilediğini bağışlar, dilediğine azap eder. Allah, çok bağışlayıcı ve çok merhametlidir.",
           "english": "And to Allah belongs whatever is in the heavens and whatever is on the earth. He forgives whom He wills and punishes whom He wills. And Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:23",
@@ -114,7 +132,9 @@
           "arabic": "حُرِّمَتْ عَلَيْكُمْ اُمَّهَاتُكُمْ وَبَنَاتُكُمْ وَاَخَوَاتُكُمْ وَعَمَّاتُكُمْ وَخَالَاتُكُمْ وَبَنَاتُ الْاَخِ وَبَنَاتُ الْاُخْتِ وَاُمَّهَاتُكُمُ الّٰتٓي اَرْضَعْنَكُمْ وَاَخَوَاتُكُمْ مِنَ الرَّضَاعَةِ وَاُمَّهَاتُ نِسٓائِكُمْ وَرَبٓائِبُكُمُ الّٰتِي فِي حُجُورِكُمْ مِنْ نِسٓائِكُمُ الّٰتِي دَخَلْتُمْ بِهِنَّ فَاِنْ لَمْ تَكُونُوا دَخَلْتُمْ بِهِنَّ فَلَا جُنَاحَ عَلَيْكُمْ وَحَلٓائِلُ اَبْنٓائِكُمُ الَّذِينَ مِنْ اَصْلَابِكُمْ وَاَنْ تَجْمَعُوا بَيْنَ الْاُخْتَيْنِ اِلَّا مَا قَدْ سَلَفَ اِنَّ اللّٰهَ كَانَ غَفُوراً رَحِيماً",
           "turkish": "Analarınız, kızlarınız, kızkardeşleriniz, halalarınız, teyzeleriniz, kardeş kızları, kızkardeş kızları, sizi emziren analarınız, süt bacılarınız, eşlerinizin anaları, kendileriyle birleştiğiniz eşlerinizden olup evlerinizde bulunan üvey kızlarınız size haram kılındı. Eğer onlarla (nikahlanıp da) henüz birleşmemişseniz kızlarını almanızda size bir mahzur yoktur. Kendi sulbünüzden olan oğullarınızın eşleri ve iki kız kardeşi birden almak da size haram kılındı; ancak geçen geçmiştir. Allah çok bağışlayıcı ve esirgeyicidir.",
           "english": "Prohibited to you [for marriage] are your mothers, your daughters, your sisters, your father's sisters, your mother's sisters, your brother's daughters, your sister's daughters, your [milk] mothers who nursed you, your sisters through nursing, your wives' mothers, and your step-daughters under your guardianship [born] of your wives unto whom you have gone in. But if you have not gone in unto them, there is no sin upon you. And [also prohibited are] the wives of your sons who are from your [own] loins, and that you take [in marriage] two sisters simultaneously, except for what has already occurred. Indeed, Allah is ever Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:25",
@@ -125,7 +145,9 @@
           "arabic": "وَمَنْ لَمْ يَسْتَطِـعْ مِنْكُمْ طَوْلاً اَنْ يَنْكِـحَ الْمُحْصَنَاتِ الْمُؤْمِنَاتِ فَمِنْ مَا مَلَكَتْ اَيْمَانُكُمْ مِنْ فَتَيَاتِكُمُ الْمُؤْمِنَاتِ وَاللّٰهُ اَعْلَمُ بِاِيمَانِكُمْ بَعْضُكُمْ مِنْ بَعْضٍ فَانْكِحُوهُنَّ بِاِذْنِ اَهْلِهِنَّ وَاٰتُوهُنَّ اُجُورَهُنَّ بِالْمَعْرُوفِ مُحْصَنَاتٍ غَيْرَ مُسَافِحَاتٍ وَلَا مُتَّخِذَاتِ اَخْدَانٍ فَاِذٓا اُحْصِنَّ فَاِنْ اَتَيْنَ بِفَاحِشَةٍ فَعَلَيْهِنَّ نِصْفُ مَا عَلَى الْمُحْصَنَاتِ مِنَ الْعَذَابِ ذٰلِكَ لِمَنْ خَشِيَ الْعَنَتَ مِنْكُمْ وَاَنْ تَصْبِرُوا خَيْرٌ لَكُمْ  وَاللّٰهُ غَفُورٌ رَحِيمٌ۟",
           "turkish": "İçinizden, imanlı hür kadınlarla evlenmeye gücü yetmeyen kimse, ellerinizin altında bulunan imanlı genç kızlarınız (sayılan) cariyelerinizden alsın. Allah sizin imanınızı daha iyi bilmektedir. Hep aynı köktensiniz (insanlık bakımından aranızda fark yoktur). Öyle ise iffetli yaşamaları, zina etmemeleri ve gizli dost da tutmamaları şartı ve sahiplerinin izni ile onları (cariyeleri) nikahlayıp alın, mehirlerini de normal miktarda verin. Evlendikten sonra bir fuhuş yaparlarsa onlara, hür kadınların cezasının yarısı (uygulanır). Bu (cariye ile evlenme izni), içinizden günaha düşmekten korkanlar içindir. Sabretmeniz ise sizin için daha hayırlıdır. Allah çok bağışlayıcı ve esirgeyicidir.",
           "english": "And whoever among you cannot [find] the means to marry free, believing women, then [he may marry] from those whom your right hands possess of believing slave girls. And Allah is most knowing about your faith. You [believers] are of one another. So marry them with the permission of their people and give them their due compensation according to what is acceptable. [They should be] chaste, neither [of] those who commit unlawful intercourse randomly nor those who take [secret] lovers. But once they are sheltered in marriage, if they should commit adultery, then for them is half the punishment for free [unmarried] women. This [allowance] is for him among you who fears sin, but to be patient is better for you. And Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:96",
@@ -136,7 +158,9 @@
           "arabic": "دَرَجَاتٍ مِنْهُ وَمَغْفِرَةً وَرَحْمَةً وَكَانَ اللّٰهُ غَفُوراً رَحِيماً۟",
           "turkish": "Kendinden dereceler, bağışlama ve rahmet vermiştir. Allah çok bağışlayıcı ve esirgeyicidir.",
           "english": "Degrees [of high position] from Him and forgiveness and mercy. And Allah is ever Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:100",
@@ -147,7 +171,9 @@
           "arabic": "وَمَنْ يُهَاجِرْ فِي سَبِيلِ اللّٰهِ يَجِدْ فِي الْاَرْضِ مُرَاغَماً كَثِيراً وَسَعَةً وَمَنْ يَخْرُجْ مِنْ بَيْتِهِ مُهَاجِراً اِلَى اللّٰهِ وَرَسُولِهِ ثُمَّ يُدْرِكْهُ الْمَوْتُ فَقَدْ وَقَعَ اَجْرُهُ عَلَى اللّٰهِ وَكَانَ اللّٰهُ غَفُوراً رَحِيماً۟",
           "turkish": "Allah yolunda hicret eden kimse yeryüzünde gidecek bir çok güzel yer ve bolluk (imkan) bulur. Kim Allah ve Resulü uğrunda hicret ederek evinden çıkar da sonra kendisine ölüm yetişirse artık onun mükafatı Allah'a düşer. Allah da çok bağışlayıcı ve esirgeyicidir.",
           "english": "And whoever emigrates for the cause of Allah will find on the earth many [alternative] locations and abundance. And whoever leaves his home as an emigrant to Allah and His Messenger and then death overtakes him - his reward has already become incumbent upon Allah. And Allah is ever Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:106",
@@ -158,7 +184,9 @@
           "arabic": "وَاسْتَغْفِرِ اللّٰهَ اِنَّ اللّٰهَ كَانَ غَفُوراً رَحِيماً",
           "turkish": "Ve Allah'tan mağfiret iste, çünkü Allah, çok yarlığayıcı, ziyadesiyle esirgeyicidir.",
           "english": "And seek forgiveness of Allah. Indeed, Allah is ever Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:110",
@@ -169,7 +197,9 @@
           "arabic": "وَمَنْ يَعْمَلْ سٓوءاً اَوْ يَظْلِمْ نَفْسَهُ ثُمَّ يَسْتَغْفِرِ اللّٰهَ يَجِدِ اللّٰهَ غَفُوراً رَحِيماً",
           "turkish": "Kim bir kötülük yapar yahut nefsine zulmeder de sonra Allah'tan mağfiret dilerse, Allah'ı çok yarlığayıcı ve esirgeyici bulacaktır.",
           "english": "And whoever does a wrong or wrongs himself but then seeks forgiveness of Allah will find Allah Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:129",
@@ -180,7 +210,9 @@
           "arabic": "وَلَنْ تَسْتَطِيعٓوا اَنْ تَعْدِلُوا بَيْنَ النِّسٓاءِ وَلَوْ حَرَصْتُمْ فَلَا تَمِيلُوا كُلَّ الْمَيْلِ فَتَذَرُوهَا كَالْمُعَلَّقَةِ وَاِنْ تُصْلِحُوا وَتَتَّقُوا فَاِنَّ اللّٰهَ كَانَ غَفُوراً رَحِيماً",
           "turkish": "Üzerine düşüp uğraşsanız da kadınlar arasında adil davranmaya güç yetiremezsiniz; bari birisine tamamen kapılıp da diğerini askıya alınmış gibi bırakmayın. Eğer arayı düzeltir, günahtan sakınırsanız Allah şüphesiz çok bağışlayıcı ve esirgeyicidir.",
           "english": "And you will never be able to be equal [in feeling] between wives, even if you should strive [to do so]. So do not incline completely [toward one] and leave another hanging. And if you amend [your affairs] and fear Allah - then indeed, Allah is ever Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:152",
@@ -191,7 +223,9 @@
           "arabic": "وَالَّذِينَ اٰمَنُوا بِاللّٰهِ وَرُسُلِهِ وَلَمْ يُفَرِّقُوا بَيْنَ اَحَدٍ مِنْهُمْ اُو۬لٰٓئِكَ سَوْفَ يُؤْتِيهِمْ اُجُورَهُمْ وَكَانَ اللّٰهُ غَفُوراً رَحِيماً۟",
           "turkish": "Allah'a ve peygamberlerine iman eden ve onlardan hiçbirini diğerlerinden ayırmayanlara (gelince) işte Allah onlara bir gün mükafatlarını verecektir. Allah çok bağışlayıcı ve esirgeyicidir.",
           "english": "But they who believe in Allah and His messengers and do not discriminate between any of them - to those He is going to give their rewards. And ever is Allah Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "5:3",
@@ -202,7 +236,9 @@
           "arabic": "حُرِّمَتْ عَلَيْكُمُ الْمَيْتَةُ وَالدَّمُ وَلَحْمُ الْخِنْزِيرِ وَمٓا اُهِلَّ لِغَيْرِ اللّٰهِ بِهِ وَالْمُنْخَنِقَةُ وَالْمَوْقُوذَةُ وَالْمُتَرَدِّيَةُ وَالنَّطِيحَةُ وَمٓا اَكَلَ السَّبُعُ اِلَّا مَا ذَكَّيْتُمْ وَمَا ذُبِحَ عَلَى النُّصُبِ وَاَنْ تَسْتَقْسِمُوا بِالْاَزْلَامِ ذٰلِكُمْ فِسْقٌ  اَلْيَوْمَ يَـئِسَ الَّذِينَ كَفَرُوا مِنْ دِينِكُمْ فَلَا تَخْشَوْهُمْ وَاخْشَوْنِ اَلْيَوْمَ اَكْمَلْتُ لَكُمْ دِينَكُمْ وَاَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي وَرَضِيتُ لَكُمُ الْاِسْلَامَ دِيناً فَمَنِ اضْطُرَّ فِي مَخْمَصَةٍ غَيْرَ مُتَجَانِفٍ لِاِثْمٍ فَاِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Leş, kan, domuz eti, Allah'tan başkası adına boğazlanan, boğulmuş, (taş, ağaç vb. ile) vurulup öldürülmüş, yukarıdan yuvarlanıp ölmüş, boynuzlanıp ölmüş (hayvanlar ile) canavarların yediği hayvanlar -ölmeden yetişip kestikleriniz müstesna- dikili taşlar (putlar) üzerine boğazlanmış hayvanlar ve fal oklarıyle kısmet aramanız size haram kılındı. Bunlar yoldan çıkmaktır. Bugün kafirler, sizin dininizden (onu yok etmekten) ümit kesmişlerdir. Artık onlardan korkmayın, benden korkun. Bugün size dininizi ikmal ettim, üzerinize nimetimi tamamladım ve sizin için din olarak İslam'ı beğendim. Kim, gönülden günaha yönelmiş olmamak üzere açlık halinde dara düşerse (haram etlerden yiyebilir). Çünkü Allah çok bağışlayıcı ve esirgeyicidir.",
           "english": "Prohibited to you are dead animals, blood, the flesh of swine, and that which has been dedicated to other than Allah, and [those animals] killed by strangling or by a violent blow or by a head-long fall or by the goring of horns, and those from which a wild animal has eaten, except what you [are able to] slaughter [before its death], and those which are sacrificed on stone altars, and [prohibited is] that you seek decision through divining arrows. That is grave disobedience. This day those who disbelieve have despaired of [defeating] your religion; so fear them not, but fear Me. This day I have perfected for you your religion and completed My favor upon you and have approved for you Islam as religion. But whoever is forced by severe hunger with no inclination to sin - then indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "5:34",
@@ -213,7 +249,9 @@
           "arabic": "اِلَّا الَّذِينَ تَابُوا مِنْ قَبْلِ اَنْ تَقْدِرُوا عَلَيْهِمْ فَاعْلَمٓوا اَنَّ اللّٰهَ غَفُورٌ رَحِيمٌ۟",
           "turkish": "Ancak, siz kendilerini yenip ele geçirmeden önce tevbe edenler müstesna; biliniz ki Allah çok bağışlayıcı ve esirgeyicidir.",
           "english": "Except for those who return [repenting] before you apprehend them. And know that Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "5:39",
@@ -224,7 +262,9 @@
           "arabic": "فَمَنْ تَابَ مِنْ بَعْدِ ظُلْمِهِ وَاَصْلَحَ فَاِنَّ اللّٰهَ يَتُوبُ عَلَيْهِ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Kim (bu) haksız davranışından sonra tevbe eder ve durumunu düzeltirse şüphesiz Allah onun tevbesini kabul eder. Allah çok bağışlayıcı ve esirgeyicidir.",
           "english": "But whoever repents after his wrongdoing and reforms, indeed, Allah will turn to him in forgiveness. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "5:74",
@@ -235,7 +275,9 @@
           "arabic": "اَفَلَا يَتُوبُونَ اِلَى اللّٰهِ وَيَسْتَغْفِرُونَهُ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "Hala Allah'a tevbe edip O'ndan bağışlanmayı dilemiyecekler mi? Allah çok yarlığayıcı, çok esirgeyicidir.",
           "english": "So will they not repent to Allah and seek His forgiveness? And Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "5:98",
@@ -246,7 +288,9 @@
           "arabic": "اِعْلَمٓوا اَنَّ اللّٰهَ شَدِيدُ الْعِقَابِ وَاَنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Biliniz ki Allah'ın cezalandırması çetindir ve yine Allah'ın bağışlaması ve esirgemesi sınırsızdır.",
           "english": "Know that Allah is severe in penalty and that Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "6:54",
@@ -257,7 +301,9 @@
           "arabic": "وَاِذَا جٓاءَكَ الَّذِينَ يُؤْمِنُونَ بِاٰيَاتِنَا فَقُلْ سَلَامٌ عَلَيْكُمْ كَتَبَ رَبُّكُمْ عَلٰى نَفْسِهِ الرَّحْمَةَ اَنَّهُ مَنْ عَمِلَ مِنْكُمْ سٓوءاً بِجَهَالَةٍ ثُمَّ تَابَ مِنْ بَعْدِهِ وَاَصْلَحَ فَاَنَّهُ غَفُورٌ رَحِيمٌ",
           "turkish": "Ayetlerimize inananlar sana geldiğinde onlara de ki: Selam size! Rabbiniz merhamet etmeyi kendisine yazdı. Gerçek şu ki: Sizden kim, bilmeyerek bir kötülük yapar, sonra ardından tevbe edip de kendini ıslah ederse, bilsin ki Allah çok bağışlayan, çok esirgeyendir.",
           "english": "And when those come to you who believe in Our verses, say, \"Peace be upon you. Your Lord has decreed upon Himself mercy: that any of you who does wrong out of ignorance and then repents after that and corrects himself - indeed, He is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "6:145",
@@ -268,7 +314,9 @@
           "arabic": "قُلْ لٓا اَجِدُ فِي مٓا اُو۫حِيَ اِلَيَّ مُحَرَّماً عَلٰى طَاعِمٍ يَطْعَمُهٓ اِلّٓا اَنْ يَكُونَ مَيْتَةً اَوْ دَماً مَسْفُوحاً اَوْ لَحْمَ خِنْزِيرٍ فَاِنَّهُ رِجْسٌ اَوْ فِسْقاً اُهِلَّ لِغَيْرِ اللّٰهِ بِهِ فَمَنِ اضْطُرَّ غَيْرَ بَاغٍ وَلَا عَادٍ فَاِنَّ رَبَّكَ غَفُورٌ رَحِيمٌ",
           "turkish": "De ki: Bana vahyolunanda, leş veya akıtılmış kan yahut domuz eti -ki pisliğin kendisidir- ya da günah işlenerek Allah'tan başkası adına kesilmiş bir hayvandan başka, yiyecek kimseye haram kılınmış birşey bulamıyorum. Başkasına zarar vermemek ve sınırı aşmamak üzere kim (bunlardan) yemek zorunda kalırsa bilsin ki Rabbin bağışlayan ve esirgeyendir.",
           "english": "Say, \"I do not find within that which was revealed to me [anything] forbidden to one who would eat it unless it be a dead animal or blood spilled out or the flesh of swine - for indeed, it is impure - or it be [that slaughtered in] disobedience, dedicated to other than Allah. But whoever is forced [by necessity], neither desiring [it] nor transgressing [its limit], then indeed, your Lord is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "6:165",
@@ -279,7 +327,9 @@
           "arabic": "وَهُوَ الَّذِي جَعَلَكُمْ خَلٓائِفَ الْاَرْضِ وَرَفَعَ بَعْضَكُمْ فَوْقَ بَعْضٍ دَرَجَاتٍ لِيَبْلُوَكُمْ فِي مٓا اٰتٰيكُمْ اِنَّ رَبَّكَ سَرِيعُ الْعِقَابِ وَاِنَّهُ لَغَفُورٌ رَحِيمٌ",
           "turkish": "Sizi yeryüzünün halifeleri kılan, size verdiği (nimetler) hususunda sizi denemek için kiminizi kiminizden derecelerle üstün kılan O'dur. Şüphesiz Rabbin, cezası çabuk olandır ve gerçekten O, bağışlayan merhamet edendir.",
           "english": "And it is He who has made you successors upon the earth and has raised some of you above others in degrees [of rank] that He may try you through what He has given you. Indeed, your Lord is swift in penalty; but indeed, He is Forgiving and Merciful",
-          "matchedForm": "لغفور رحيم"
+          "matchedForm": "لغفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "7:153",
@@ -290,7 +340,9 @@
           "arabic": "وَالَّذِينَ عَمِلُوا السَّيِّـَٔاتِ ثُمَّ تَابُوا مِنْ بَعْدِهَا وَاٰمَنُوا اِنَّ رَبَّكَ مِنْ بَعْدِهَا لَغَفُورٌ رَحِيمٌ",
           "turkish": "Kötülükler yaptıktan sonra ardından tevbe edip de iman edenlere gelince, şüphesiz ki o tevbe ve imandan sonra, Rabbin elbette bağışlayan ve esirgeyendir.",
           "english": "But those who committed misdeeds and then repented after them and believed - indeed your Lord, thereafter, is Forgiving and Merciful",
-          "matchedForm": "لغفور رحيم"
+          "matchedForm": "لغفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "7:167",
@@ -301,7 +353,9 @@
           "arabic": "وَاِذْ تَاَذَّنَ رَبُّكَ لَيَبْعَثَنَّ عَلَيْهِمْ اِلٰى يَوْمِ الْقِيٰمَةِ مَنْ يَسُومُهُمْ سٓوءَ الْعَذَابِ اِنَّ رَبَّكَ لَسَرِيعُ الْعِقَابِ وَاِنَّهُ لَغَفُورٌ رَحِيمٌ",
           "turkish": "Rabbin, elbette kıyamet gününe kadar onlara en kötü eziyeti yapacak kimseler göndereceğini ilan etti. Şüphesiz Rabbin cezayı çabuk verendir. Ve O çok bağışlayan, pek esirgeyendir.",
           "english": "And [mention] when your Lord declared that He would surely [continue to] send upon them until the Day of Resurrection those who would afflict them with the worst torment. Indeed, your Lord is swift in penalty; but indeed, He is Forgiving and Merciful",
-          "matchedForm": "لغفور رحيم"
+          "matchedForm": "لغفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "8:69",
@@ -312,7 +366,9 @@
           "arabic": "فَكُلُوا مِمَّا غَنِمْتُمْ حَلَالاً طَيِّباً وَاتَّقُوا اللّٰهَ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ۟",
           "turkish": "Artık elde ettiğiniz ganimetten helal ve temiz olarak yeyin. Ve Allah'tan korkun. Şüphesiz ki Allah bağışlayan, merhamet edendir.",
           "english": "So consume what you have taken of war booty [as being] lawful and good, and fear Allah. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "8:70",
@@ -323,7 +379,9 @@
           "arabic": "يٓا اَيُّهَا النَّبِيُّ قُلْ لِمَنْ فِٓي اَيْدِيكُمْ مِنَ الْاَسْرٰٓى اِنْ يَعْلَمِ اللّٰهُ فِي قُلُوبِكُمْ خَيْراً يُؤْتِكُمْ خَيْراً مِمّٓا اُخِذَ مِنْكُمْ وَيَغْفِرْ لَكُمْ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "Ey Peygamber! Elinizdeki esirlere de ki: Eğer Allah kalplerinizde hayır olduğunu bilirse, sizden alınandan (fidyeden) daha hayırlısını size verir ve sizi bağışlar. Çünkü Allah bağışlayandır, esirgeyendir.",
           "english": "O Prophet, say to whoever is in your hands of the captives, \"If Allah knows [any] good in your hearts, He will give you [something] better than what was taken from you, and He will forgive you; and Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:5",
@@ -334,7 +392,9 @@
           "arabic": "فَاِذَا انْسَلَخَ الْاَشْهُرُ الْحُرُمُ فَاقْتُلُوا الْمُشْرِكِينَ حَيْثُ وَجَدْتُمُوهُمْ وَخُذُوهُمْ وَاحْصُرُوهُمْ وَاقْعُدُوا لَهُمْ كُلَّ مَرْصَدٍ فَاِنْ تَابُوا وَاَقَامُوا الصَّلٰوةَ وَاٰتَوُا الزَّكٰوةَ فَخَلُّوا سَبِيلَهُمْ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Haram aylar çıkınca müşrikleri bulduğunuz yerde öldürün; onları yakalayın, onları hapsedin ve onları her gözetleme yerinde oturup bekleyin. Eğer tevbe eder, namazı dosdoğru kılar, zekatı da verirlerse artık yollarını serbest bırakın. Allah yarlığayan, esirgeyendir.",
           "english": "And when the sacred months have passed, then kill the polytheists wherever you find them and capture them and besiege them and sit in wait for them at every place of ambush. But if they should repent, establish prayer, and give zakah, let them [go] on their way. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:27",
@@ -345,7 +405,9 @@
           "arabic": "ثُمَّ يَتُوبُ اللّٰهُ مِنْ بَعْدِ ذٰلِكَ عَلٰى مَنْ يَشٓاءُ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "Sonra Allah, bunun ardından yine dilediğinin tevbesini kabul eder. Zira Allah bağışlayan, esirgeyendir.",
           "english": "Then Allah will accept repentance after that for whom He wills; and Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:91",
@@ -356,7 +418,9 @@
           "arabic": "لَيْسَ عَلَى الضُّعَفٓاءِ وَلَا عَلَى الْمَرْضٰى وَلَا عَلَى الَّذِينَ لَا يَجِدُونَ مَا يُنْفِقُونَ حَرَجٌ اِذَا نَصَحُوا لِلّٰهِ وَرَسُولِهِ مَا عَلَى الْمُحْسِنِينَ مِنْ سَبِيلٍ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "Allah ve Resulü için (insanlara) öğüt verdikleri takdirde, zayıflara, hastalara ve (savaşta) harcayacak bir şey bulamayanlara günah yoktur. Zira iyilik edenlerin aleyhine bir yol (sorumluluk) yoktur. Allah çok bağışlayan ve çok esirgeyendir.",
           "english": "There is not upon the weak or upon the ill or upon those who do not find anything to spend any discomfort when they are sincere to Allah and His Messenger. There is not upon the doers of good any cause [for blame]. And Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:99",
@@ -367,7 +431,9 @@
           "arabic": "وَمِنَ الْاَعْرَابِ مَنْ يُؤْمِنُ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ وَيَتَّخِذُ مَا يُنْفِقُ قُرُبَاتٍ عِنْدَ اللّٰهِ وَصَلَوَاتِ الرَّسُولِ اَلٓا اِنَّهَا قُرْبَةٌ لَهُمْ سَيُدْخِلُهُمُ اللّٰهُ فِي رَحْمَتِهِ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ۟",
           "turkish": "Bedevilerden öylesi de vardır ki, Allah'a ve ahiret gününe inanır, (hayır için) harcayacağını Allah katında yakınlığa ve Peygamber'in dualarını almaya vesile edinir. Bilesiniz ki o (harcadıkları mal, Allah katında) onlar için bir yakınlıktır. Allah onları rahmetine (cennetine) koyacaktır. Şüphesiz Allah bağışlayan, esirgeyendir.",
           "english": "But among the bedouins are some who believe in Allah and the Last Day and consider what they spend as means of nearness to Allah and of [obtaining] invocations of the Messenger. Unquestionably, it is a means of nearness for them. Allah will admit them to His mercy. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:102",
@@ -378,7 +444,9 @@
           "arabic": "وَاٰخَرُونَ اعْتَرَفُوا بِذُنُوبِهِمْ خَلَطُوا عَمَلاً صَالِحاً وَاٰخَرَ سَيِّئاً عَسَى اللّٰهُ اَنْ يَتُوبَ عَلَيْهِمْ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Diğerleri ise günahlarını itiraf ettiler, iyi bir ameli diğer kötü bir amelle karıştırdılar. (Tevbe ederlerse) umulur ki Allah onların tevbesini kabul eder. Çünkü Allah çok bağışlayan, pek esirgeyendir.",
           "english": "And [there are] others who have acknowledged their sins. They had mixed a righteous deed with another that was bad. Perhaps Allah will turn to them in forgiveness. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "10:107",
@@ -389,7 +457,9 @@
           "arabic": "وَاِنْ يَمْسَسْكَ اللّٰهُ بِضُرٍّ فَلَا كَاشِفَ لَهٓ اِلَّا هُوَ وَاِنْ يُرِدْكَ بِخَيْرٍ فَلَا رٓادَّ لِفَضْلِهِ يُصِيبُ بِهِ مَنْ يَشٓاءُ مِنْ عِبَادِهِ وَهُوَ الْغَفُورُ الرَّحِيمُ",
           "turkish": "Eğer Allah sana bir zarar dokundurursa, onu yine O'ndan başka giderecek yoktur. Eğer sana bir hayır dilerse, O'nun keremini geri çevirecek de yoktur. O, hayrını kullarından dilediğine eriştirir. Ve O bağışlayandır, esirgeyendir.",
           "english": "And if Allah should touch you with adversity, there is no remover of it except Him; and if He intends for you good, then there is no repeller of His bounty. He causes it to reach whom He wills of His servants. And He is the Forgiving, the Merciful",
-          "matchedForm": "الغفور الرحيم"
+          "matchedForm": "الغفور الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "11:41",
@@ -400,7 +470,9 @@
           "arabic": "وَقَالَ ارْكَبُوا فِيهَا بِسْمِ اللّٰهِ مَجْرٰۭيهَا وَمُرْسٰيهَا اِنَّ رَبِّي لَغَفُورٌ رَحِيمٌ",
           "turkish": "(Nuh) dedi ki: \"Gemiye binin! Onun yüzüp gitmesi de, durması da Allah'ın adıyladır. Şüphesiz ki Rabbim çok bağışlayan, pek esirgeyendir.\"",
           "english": "And [Noah] said, \"Embark therein; in the name of Allah is its course and its anchorage. Indeed, my Lord is Forgiving and Merciful",
-          "matchedForm": "لغفور رحيم"
+          "matchedForm": "لغفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "12:53",
@@ -411,7 +483,9 @@
           "arabic": "وَمٓا اُبَرِّئُ نَفْسِي اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسّٓوءِ اِلَّا مَا رَحِمَ رَبِّي اِنَّ رَبِّي غَفُورٌ رَحِيمٌ",
           "turkish": "(Bununla beraber) nefsimi temize çıkarmıyorum. Çünkü nefis aşırı şekilde kötülüğü emreder; Rabbim acıyıp korumuş başka. Şüphesiz Rabbim çok bağışlayan, pek esirgeyendir.",
           "english": "And I do not acquit myself. Indeed, the soul is a persistent enjoiner of evil, except those upon which my Lord has mercy. Indeed, my Lord is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "12:98",
@@ -422,7 +496,9 @@
           "arabic": "قَالَ سَوْفَ اَسْتَغْفِرُ لَكُمْ رَبِّي اِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ",
           "turkish": "(Ya'kub:) Sizin için Rabbimden af dileyeceğim. Çünkü O çok bağışlayan, pek esirgeyendir, dedi.",
           "english": "He said, \"I will ask forgiveness for you from my Lord. Indeed, it is He who is the Forgiving, the Merciful",
-          "matchedForm": "الغفور الرحيم"
+          "matchedForm": "الغفور الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "14:36",
@@ -433,7 +509,9 @@
           "arabic": "رَبِّ اِنَّهُنَّ اَضْلَلْنَ كَثِيراً مِنَ النَّاسِ فَمَنْ تَبِعَنِي فَاِنَّهُ مِنِّي وَمَنْ عَصَانِي فَاِنَّكَ غَفُورٌ رَحِيمٌ",
           "turkish": "\"Çünkü, onlar (putlar), insanlardan birçoğunun sapmasına sebep oldular, Rabbim. Şimdi kim bana uyarsa o bendendir. Kim de bana karşı gelirse, artık sen gerçekten çok bağışlayan, pek esirgeyensin.\"",
           "english": "My Lord, indeed they have led astray many among the people. So whoever follows me - then he is of me; and whoever disobeys me - indeed, You are [yet] Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "15:49",
@@ -444,7 +522,9 @@
           "arabic": "نَبِّئْ عِبَادِٓي اَنِٓي اَنَا الْغَفُورُ الرَّحِيمُ",
           "turkish": "(Resulüm!) Kullarıma, benim, çok bağışlayıcı ve pek esirgeyici olduğumu haber ver.",
           "english": "[O Muhammad], inform My servants that it is I who am the Forgiving, the Merciful",
-          "matchedForm": "الغفور الرحيم"
+          "matchedForm": "الغفور الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "16:18",
@@ -455,7 +535,9 @@
           "arabic": "وَاِنْ تَعُدُّوا نِعْمَةَ اللّٰهِ لَا تُحْصُوهَا اِنَّ اللّٰهَ لَغَفُورٌ رَحِيمٌ",
           "turkish": "Allah'ın nimetini saymaya kalksanız, onu sayamazsınız. Hakikaten Allah çok bağışlayan, pek esirgeyendir.",
           "english": "And if you should count the favors of Allah, you could not enumerate them. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "لغفور رحيم"
+          "matchedForm": "لغفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "16:110",
@@ -466,7 +548,9 @@
           "arabic": "ثُمَّ اِنَّ رَبَّكَ لِلَّذِينَ هَاجَرُوا مِنْ بَعْدِ مَا فُتِنُوا ثُمَّ جَاهَدُوا وَصَبَرٓوا اِنَّ رَبَّكَ مِنْ بَعْدِهَا لَغَفُورٌ رَحِيمٌ۟",
           "turkish": "Sonra şüphesiz Rabbin, eziyet edildikten sonra hicret edip, ardından da sabrederek cihad edenlerin yardımcısıdır. Bütün bunlardan sonra Rabbin elbette çok bağışlayan, pek esirgeyendir.",
           "english": "Then, indeed your Lord, to those who emigrated after they had been compelled [to renounce their religion] and thereafter fought [for the cause of Allah] and were patient - indeed, your Lord, after that, is Forgiving and Merciful",
-          "matchedForm": "لغفور رحيم"
+          "matchedForm": "لغفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "16:115",
@@ -477,7 +561,9 @@
           "arabic": "اِنَّمَا حَرَّمَ عَلَيْكُمُ الْمَيْتَةَ وَالدَّمَ وَلَحْمَ الْخِنْزِيرِ وَمٓا اُهِلَّ لِغَيْرِ اللّٰهِ بِهِ فَمَنِ اضْطُرَّ غَيْرَ بَاغٍ وَلَا عَادٍ فَاِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "(Allah) size, sadece ölü hayvanı kanı, domuz etini ve Allah'tan başkası adına kesilen hayvanı haram kıldı. Ancak kim mecbur kalırsa (başkalarının haklarına) saldırmaksızın, sınırı da aşmadan (bunlardan yiyebilir). Çünkü Allah çok bağışlayan, pek esirgeyendir.",
           "english": "He has only forbidden to you dead animals, blood, the flesh of swine, and that which has been dedicated to other than Allah. But whoever is forced [by necessity], neither desiring [it] nor transgressing [its limit] - then indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "16:119",
@@ -488,7 +574,9 @@
           "arabic": "ثُمَّ اِنَّ رَبَّكَ لِلَّذِينَ عَمِلُوا السّٓوءَ بِجَهَالَةٍ ثُمَّ تَابُوا مِنْ بَعْدِ ذٰلِكَ وَاَصْلَحٓوا اِنَّ رَبَّكَ مِنْ بَعْدِهَا لَغَفُورٌ رَحِيمٌ۟",
           "turkish": "Sonra şüphesiz Rabbin, cahillik sebebiyle kötülük yapan, sonra da bunun ardından tevbe edip durumunu düzeltenleri (bağışlayacaktır). Çünkü onlar tevbe ettikten sonra Rabbin elbet çok bağışlayan, pek esirgeyendir.",
           "english": "Then, indeed your Lord, to those who have done wrong out of ignorance and then repent after that and correct themselves - indeed, your Lord, thereafter, is Forgiving and Merciful",
-          "matchedForm": "لغفور رحيم"
+          "matchedForm": "لغفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "24:5",
@@ -499,7 +587,9 @@
           "arabic": "اِلَّا الَّذِينَ تَابُوا مِنْ بَعْدِ ذٰلِكَ وَاَصْلَحُوا فَاِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Ancak bundan sonra tevbe edip ıslah olanlar müstesnadır. Allah çok bağışlayıcı ve merhametlidir.",
           "english": "Except for those who repent thereafter and reform, for indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "24:22",
@@ -510,7 +600,9 @@
           "arabic": "وَلَا يَأْتَلِ اُو۬لُوا الْفَضْلِ مِنْكُمْ وَالسَّعَةِ اَنْ يُؤْتٓوا اُو۬لِي الْقُرْبٰى وَالْمَسَاكِينَ وَالْمُهَاجِرِينَ فِي سَبِيلِ اللّٰهِ وَلْيَعْفُوا وَلْيَصْفَحُوا اَلَا تُحِبُّونَ اَنْ يَغْفِرَ اللّٰهُ لَكُمْ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "İçinizden faziletli ve servet sahibi kimseler akrabaya, yoksullara, Allah yolunda göç edenlere (mallarından) vermeyeceklerine yemin etmesinler; bağışlasınlar; feragat göstersinler. Allah'ın sizi bağışlamasını arzulamaz mısınız? Allah çok bağışlayandır, çok merhametlidir.",
           "english": "And let not those of virtue among you and wealth swear not to give [aid] to their relatives and the needy and the emigrants for the cause of Allah, and let them pardon and overlook. Would you not like that Allah should forgive you? And Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "24:33",
@@ -521,7 +613,9 @@
           "arabic": "وَلْيَسْتَعْفِفِ الَّذِينَ لَا يَجِدُونَ نِكَاحاً حَتّٰى يُغْنِيَهُمُ اللّٰهُ مِنْ فَضْلِهِ وَالَّذِينَ يَبْتَغُونَ الْكِتَابَ مِمَّا مَلَكَتْ اَيْمَانُكُمْ فَكَاتِبُوهُمْ اِنْ عَلِمْتُمْ فِيهِمْ خَيْراً وَاٰتُوهُمْ مِنْ مَالِ اللّٰهِ الَّـذِٓي اٰتٰيكُمْ وَلَا تُكْرِهُوا فَتَيَاتِكُمْ عَلَى الْبِغٓاءِ اِنْ اَرَدْنَ تَحَصُّناً لِتَبْتَغُوا عَرَضَ الْحَيٰوةِ الدُّنْيَا وَمَنْ يُكْرِهْهُنَّ فَاِنَّ اللّٰهَ مِنْ بَعْدِ اِكْرَاهِهِنَّ غَفُورٌ رَحِيمٌ",
           "turkish": "Evlenme imkanını bulamayanlar ise; Allah, lütfu ile kendilerini varlıklı kılıncaya kadar iffetlerini korusunlar. Ellerinizin altında bulunanlardan (köleler ve cariyelerden) mükatebe yapmak isteyenlerle, eğer kendilerinde bir hayır (kabiliyet ve güvenilirlik). görüyorsanız, hemen mükatebe yapın. Allah'ın size vermiş olduğu malından siz de onlara verin. Dünya hayatının geçici menfaatlerini elde edeceksiniz diye, namuslu kalmak isteyen cariyelerinizi fuhşa zorlamayın. Kim onları zor altında bırakırsa, bilinmelidir ki zorlanmalarından sonra Allah (onlar için) çok bağışlayıcı ve merhametlidir.",
           "english": "But let them who find not [the means for] marriage abstain [from sexual relations] until Allah enriches them from His bounty. And those who seek a contract [for eventual emancipation] from among whom your right hands possess - then make a contract with them if you know there is within them goodness and give them from the wealth of Allah which He has given you. And do not compel your slave girls to prostitution, if they desire chastity, to seek [thereby] the temporary interests of worldly life. And if someone should compel them, then indeed, Allah is [to them], after their compulsion, Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "24:62",
@@ -532,7 +626,9 @@
           "arabic": "اِنَّمَا الْمُؤْمِنُونَ الَّذِينَ اٰمَنُوا بِاللّٰهِ وَرَسُولِهِ وَاِذَا كَانُوا مَعَهُ عَلٰٓى اَمْرٍ جَامِعٍ لَمْ يَذْهَبُوا حَتّٰى يَسْتَأْذِنُوهُ اِنَّ الَّذِينَ يَسْتَأْذِنُونَكَ اُو۬لٰٓئِكَ الَّذِينَ يُؤْمِنُونَ بِاللّٰهِ وَرَسُولِهِ فَاِذَا اسْتَأْذَنُوكَ لِبَعْضِ شَأْنِهِمْ فَأْذَنْ لِمَنْ شِئْتَ مِنْهُمْ وَاسْتَغْفِرْ لَهُمُ اللّٰهَ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Müminler, ancak Allah'a ve Resulüne gönülden inanmış kimselerdir. Onlar, o Peygamber ile ortak bir iş üzerindeyken ondan izin istemedikçe bırakıp gitmezler. (Resulüm!) Şu senden izin isteyenler, hakikaten Allah'a ve Resulüne iman etmiş kimselerdir. Öyle ise, bazı işleri için senden izin istediklerinde, sen de onlardan dilediğine izin ver; onlar için Allah'tan bağış dile; Allah mağfiret edicidir, merhametlidir.",
           "english": "The believers are only those who believe in Allah and His Messenger and, when they are [meeting] with him for a matter of common interest, do not depart until they have asked his permission. Indeed, those who ask your permission, [O Muhammad] - those are the ones who believe in Allah and His Messenger. So when they ask your permission for something of their affairs, then give permission to whom you will among them and ask forgiveness for them of Allah. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "25:6",
@@ -543,7 +639,9 @@
           "arabic": "قُلْ اَنْزَلَهُ الَّذِي يَعْلَمُ السِّرَّ فِي السَّمٰوَاتِ وَالْاَرْضِ اِنَّهُ كَانَ غَفُوراً رَحِيماً",
           "turkish": "(Resulüm!) De ki: Onu göklerde ve yerdeki gizlilikleri bilen Allah indirdi. Şüphesiz O, çok bağışlayıcıdır, engin merhamet sahibidir.",
           "english": "Say, [O Muhammad], \"It has been revealed by He who knows [every] secret within the heavens and the earth. Indeed, He is ever Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "25:70",
@@ -554,7 +652,9 @@
           "arabic": "اِلَّا مَنْ تَابَ وَاٰمَنَ وَعَمِلَ عَمَلاً صَالِحاً فَاُو۬لٰٓئِكَ يُبَدِّلُ اللّٰهُ سَيِّـَٔاتِهِمْ حَسَنَاتٍ وَكَانَ اللّٰهُ غَفُوراً رَحِيماً",
           "turkish": "Ancak tevbe ve iman edip iyi davranışta bulunanlar başkadır; Allahı onların kötülüklerini iyiliklere çevirir. Allah çok bağışlayıcıdır, engin merhamet sahibidir.",
           "english": "Except for those who repent, believe and do righteous work. For them Allah will replace their evil deeds with good. And ever is Allah Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "27:11",
@@ -565,7 +665,9 @@
           "arabic": "اِلَّا مَنْ ظَلَمَ ثُمَّ بَدَّلَ حُسْناً بَعْدَ سٓوءٍ فَاِنِّي غَفُورٌ رَحِيمٌ",
           "turkish": "Ancak, kim haksızlık eder, sonra, işlediği kötülük yerine iyilik yaparsa, bilsin ki ben (ona karşı da) çok bağışlayıcıyım, çok merhamet sahibiyim.",
           "english": "Otherwise, he who wrongs, then substitutes good after evil - indeed, I am Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "28:16",
@@ -576,7 +678,9 @@
           "arabic": "قَالَ رَبِّ اِنِّي ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي فَغَفَرَ لَهُ اِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ",
           "turkish": "Musa: Rabbim! Doğrusu kendime zulmettim (başıma iş açtım). Beni bağışla dedi, Allah da onu bağışladı. Çünkü, çok bağışlayıcı, çok esirgeyici olan ancak O'dur.",
           "english": "He said, \"My Lord, indeed I have wronged myself, so forgive me,\" and He forgave him. Indeed, He is the Forgiving, the Merciful",
-          "matchedForm": "الغفور الرحيم"
+          "matchedForm": "الغفور الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "33:5",
@@ -587,7 +691,9 @@
           "arabic": "اُدْعُوهُمْ لِاٰبٓائِهِمْ هُوَ اَقْسَطُ عِنْدَ اللّٰهِ فَاِنْ لَمْ تَعْلَمٓوا اٰبٓاءَهُمْ فَاِخْوَانُكُمْ فِي الدِّينِ وَمَوَالِيكُمْ وَلَيْسَ عَلَيْكُمْ جُنَاحٌ فِيمٓا اَخْطَأْتُمْ بِهِ وَلٰكِنْ مَا تَعَمَّدَتْ قُلُوبُكُمْ وَكَانَ اللّٰهُ غَفُوراً رَحِيماً",
           "turkish": "Onları (evlat edindiklerinizi) babalarına nisbet ederek çağırın. Allah yanında en doğrusu budur. Eğer babalarının kim olduğunu bilmiyorsanız, bu takdirde onları din kardeşleriniz ve görüp gözettiğiniz kimseler olarak kabul edin. Yanılarak yaptıklarınızda size vebal yok; fakat kalplerinizin bile bile yöneldiğinde günah vardır. Allah bağışlayandır, esirgeyendir.",
           "english": "Call them by [the names of] their fathers; it is more just in the sight of Allah. But if you do not know their fathers - then they are [still] your brothers in religion and those entrusted to you. And there is no blame upon you for that in which you have erred but [only for] what your hearts intended. And ever is Allah Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "33:24",
@@ -598,7 +704,9 @@
           "arabic": "لِيَجْزِيَ اللّٰهُ الصَّادِقِينَ بِصِدْقِهِمْ وَيُعَذِّبَ الْمُنَافِقِينَ اِنْ شٓاءَ اَوْ يَتُوبَ عَلَيْهِمْ اِنَّ اللّٰهَ كَانَ غَفُوراً رَحِيماً",
           "turkish": "Çünkü Allah sadakat gösterenleri sadakatları sebebiyle mükafatlandıracak, münafıklara -dilerse- azap edecek yahut da (tevbe ederlerse) tevbelerini kabul edecektir. Şüphesiz Allah, bağışlayandır, esirgeyendir.",
           "english": "That Allah may reward the truthful for their truth and punish the hypocrites if He wills or accept their repentance. Indeed, Allah is ever Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "33:50",
@@ -609,7 +717,9 @@
           "arabic": "يٓا اَيُّهَا النَّبِيُّ اِنّٓا اَحْلَلْنَا لَكَ اَزْوَاجَكَ الّٰـتِٓي اٰتَيْتَ اُجُورَهُنَّ وَمَا مَلَكَتْ يَمِينُكَ مِمّٓا اَفٓاءَ اللّٰهُ عَلَيْكَ وَبَنَاتِ عَمِّكَ وَبَنَاتِ عَمَّاتِكَ وَبَنَاتِ خَالِكَ وَبَنَاتِ خَالَاتِكَ الّٰتِي هَاجَرْنَ مَعَكَ وَامْرَاَةً مُؤْمِنَةً اِنْ وَهَبَتْ نَفْسَهَا لِلنَّبِيِّ اِنْ اَرَادَ النَّبِيُّ اَنْ يَسْتَنْكِحَهَا خَالِصَةً لَكَ مِنْ دُونِ الْمُؤْمِنِينَ قَدْ عَلِمْنَا مَا فَرَضْنَا عَلَيْهِمْ فِٓي اَزْوَاجِهِمْ وَمَا مَلَكَتْ اَيْمَانُهُمْ لِكَيْلَا يَكُونَ عَلَيْكَ حَرَجٌ وَكَانَ اللّٰهُ غَفُوراً رَحِيماً",
           "turkish": "Ey Peygamber! Mehirlerini verdiğin hanımlarını, Allah'ın sana ganimet olarak verdiği ve elinin altında bulunan cariyeleri, amcanın, halanın, dayının ve teyzenin seninle beraber göç eden kızlarını sana helal kıldık. Bir de Peygamber kendisiyle evlenmek istediği takdirde, kendisini peygambere hibe eden mümin kadını, diğer müminlere değil, sırf sana mahsus olmak üzere (helal kıldık). Kuşkusuz biz, hanımları ve ellerinin altında bulunan cariyeleri hakkında müminlere neyi farz kıldığımızı biliriz. (Bu hususta ne yapmaları lazım geldiğini onlara açıkladık) ki, sana bir zorluk olmasın. Allah bağışlayandır, merhamet edendir.",
           "english": "O Prophet, indeed We have made lawful to you your wives to whom you have given their due compensation and those your right hand possesses from what Allah has returned to you [of captives] and the daughters of your paternal uncles and the daughters of your paternal aunts and the daughters of your maternal uncles and the daughters of your maternal aunts who emigrated with you and a believing woman if she gives herself to the Prophet [and] if the Prophet wishes to marry her, [this is] only for you, excluding the [other] believers. We certainly know what We have made obligatory upon them concerning their wives and those their right hands possess, [but this is for you] in order that there will be upon you no discomfort. And ever is Allah Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "33:59",
@@ -620,7 +730,9 @@
           "arabic": "يٓا اَيُّهَا النَّبِيُّ قُلْ لِاَزْوَاجِكَ وَبَنَاتِكَ وَنِسٓاءِ الْمُؤْمِنِينَ يُدْنِينَ عَلَيْهِنَّ مِنْ جَلَابِيبِهِنَّ ذٰلِكَ اَدْنٰٓى اَنْ يُعْرَفْنَ فَلَا يُؤْذَيْنَ وَكَانَ اللّٰهُ غَفُوراً رَحِيماً",
           "turkish": "Ey Peygamber! Hanımlarına, kızlarına ve müminlerin kadınlarına (bir ihtiyaç için dışarı çıktıkları zaman) dış örtülerini üstlerine almalarını söyle. Onların tanınması ve incitilmemesi için en elverişli olan budur. Allah bağışlayandır, esirgeyendir.",
           "english": "O Prophet, tell your wives and your daughters and the women of the believers to bring down over themselves [part] of their outer garments. That is more suitable that they will be known and not be abused. And ever is Allah Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "33:73",
@@ -631,7 +743,9 @@
           "arabic": "لِيُعَذِّبَ اللّٰهُ الْمُنَافِقِينَ وَالْمُنَافِقَاتِ وَالْمُشْرِكِينَ وَالْمُشْرِكَاتِ وَيَتُوبَ اللّٰهُ عَلَى الْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَكَانَ اللّٰهُ غَفُوراً رَحِيماً",
           "turkish": "(Allah bu emaneti insana vermek suretiyle), münafık erkeklere ve münafık kadınlara, müşrik erkeklere ve müşrik kadınlara azap edecek, inanan erkeklerin ve inanan kadınların da tevbesini kabul buyuracaktır. Allah bağışlayandır, merhamet edendir.",
           "english": "[It was] so that Allah may punish the hypocrite men and hypocrite women and the men and women who associate others with Him and that Allah may accept repentance from the believing men and believing women. And ever is Allah Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "34:2",
@@ -642,7 +756,9 @@
           "arabic": "يَعْلَمُ مَا يَلِجُ فِي الْاَرْضِ وَمَا يَخْرُجُ مِنْهَا وَمَا يَنْزِلُ مِنَ السَّمٓاءِ وَمَا يَعْرُجُ فِيهَا وَهُوَ الرَّحِيمُ الْغَفُورُ",
           "turkish": "Yerin içine gireni ve ondan çıkanı; gökten ineni, oraya çıkanı bilir. O, esirgeyendir, bağışlayandır.",
           "english": "He knows what penetrates into the earth and what emerges from it and what descends from the heaven and what ascends therein. And He is the Merciful, the Forgiving",
-          "matchedForm": "الرحيم الغفور"
+          "matchedForm": "الرحيم الغفور",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "39:53",
@@ -653,7 +769,9 @@
           "arabic": "قُلْ يَا عِبَادِيَ الَّذِينَ اَسْرَفُوا عَلٰٓى اَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللّٰهِ اِنَّ اللّٰهَ يَغْفِرُ الذُّنُوبَ جَمِيعاً اِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ",
           "turkish": "De ki: Ey kendi nefisleri aleyhine haddi aşan kullarım! Allah'ın rahmetinden ümit kesmeyin! Çünkü Allah bütün günahları bağışlar. Şüphesiz ki O, çok bağışlayan, çok esirgeyendir.",
           "english": "Say, \"O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful",
-          "matchedForm": "الغفور الرحيم"
+          "matchedForm": "الغفور الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "41:32",
@@ -664,7 +782,9 @@
           "arabic": "نُزُلاً مِنْ غَفُورٍ رَحِيمٍ۟",
           "turkish": "Gafur ve Rahîm olan Allah'ın ikramı olarak.",
           "english": "As accommodation from a [Lord who is] Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "42:5",
@@ -675,7 +795,9 @@
           "arabic": "تَكَادُ السَّمٰوَاتُ يَتَفَطَّرْنَ مِنْ فَوْقِهِنَّ وَالْمَلٰٓئِكَةُ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْ وَيَسْتَغْفِرُونَ لِمَنْ فِي الْاَرْضِ اَلٓا اِنَّ اللّٰهَ هُوَ الْغَفُورُ الرَّحِيمُ",
           "turkish": "Neredeyse yukarılarından gökler çatlayacak! Melekler de Rablerini hamd ile tesbih ediyorlar ve yerdekiler için mağfiret diliyorlar. İyi bilin ki Allah çok bağışlayan, çok esirgeyendir.",
           "english": "The heavens almost break from above them, and the angels exalt [Allah] with praise of their Lord and ask forgiveness for those on earth. Unquestionably, it is Allah who is the Forgiving, the Merciful",
-          "matchedForm": "الغفور الرحيم"
+          "matchedForm": "الغفور الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "46:8",
@@ -686,7 +808,9 @@
           "arabic": "اَمْ يَقُولُونَ افْتَرٰيهُ  قُلْ اِنِ افْتَرَيْتُهُ فَلَا تَمْلِكُونَ لِي مِنَ اللّٰهِ شَيْـٔاً هُوَ اَعْلَمُ بِمَا تُفِيضُونَ فِيهِ   كَفٰى بِهِ شَهِيداً بَيْنِي وَبَيْنَكُمْ وَهُوَ الْغَفُورُ الرَّحِيمُ",
           "turkish": "Yoksa \"Onu uydurdu\" mu diyorlar? De ki: Eğer ben onu uydurmuşsam, Allah tarafından bana gelecek şeyi savmaya gücünüz yetmez. O, sizin Kur'an hakkında yaptığınız taşkınlıkları çok daha iyi bilir. Benimle sizin aranızda şahit olarak O yeter. O, bağışlayan, esirgeyendir.",
           "english": "Or do they say, \"He has invented it?\" Say, \"If I have invented it, you will not possess for me [the power of protection] from Allah at all. He is most knowing of that in which you are involved. Sufficient is He as Witness between me and you, and He is the Forgiving the Merciful",
-          "matchedForm": "الغفور الرحيم"
+          "matchedForm": "الغفور الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "48:14",
@@ -697,7 +821,9 @@
           "arabic": "وَلِلّٰهِ مُلْكُ السَّمٰوَاتِ وَالْاَرْضِ يَغْفِرُ لِمَنْ يَشٓاءُ وَيُعَذِّبُ مَنْ يَشٓاءُ وَكَانَ اللّٰهُ غَفُوراً رَحِيماً",
           "turkish": "Göklerin ve yerin mülkü Allah'ındır. O, dilediğini bağışlar, dilediğine ceza verir. Allah çok bağışlayan, çok merhamet edendir.",
           "english": "And to Allah belongs the dominion of the heavens and the earth. He forgives whom He wills and punishes whom He wills. And ever is Allah Forgiving and Merciful",
-          "matchedForm": "غفورا رحيما"
+          "matchedForm": "غفورا رحيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "49:5",
@@ -708,7 +834,9 @@
           "arabic": "وَلَوْ اَنَّهُمْ صَبَرُوا حَتّٰى تَخْرُجَ اِلَيْهِمْ لَكَانَ خَيْراً لَهُمْ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "Eğer onlar, sen yanlarına çıkıncaya kadar sabretselerdi, elbette kendileri için daha iyi olurdu. Allah çok bağışlayan, çok esirgeyendir.",
           "english": "And if they had been patient until you [could] come out to them, it would have been better for them. But Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "49:14",
@@ -719,7 +847,9 @@
           "arabic": "قَالَتِ الْاَعْرَابُ اٰمَنَّا قُلْ لَمْ تُؤْمِنُوا وَلٰكِنْ قُولٓوا اَسْلَمْنَا وَلَمَّا يَدْخُلِ الْاِيمَانُ فِي قُلُوبِكُمْ وَاِنْ تُطِيعُوا اللّٰهَ وَرَسُولَهُ لَا يَلِتْكُمْ مِنْ اَعْمَالِكُمْ شَيْـٔاً اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Bedeviler \"İnandık\" dediler. De ki: Siz iman etmediniz, ama \"Boyun eğdik\" deyin. Henüz iman kalplerinize yerleşmedi. Eğer Allah'a ve elçisine itaat ederseniz, Allah işlerinizden hiçbir şeyi eksiltmez. Çünkü Allah çok bağışlayan, çok esirgeyendir.",
           "english": "The bedouins say, \"We have believed.\" Say, \"You have not [yet] believed; but say [instead], 'We have submitted,' for faith has not yet entered your hearts. And if you obey Allah and His Messenger, He will not deprive you from your deeds of anything. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "57:28",
@@ -730,7 +860,9 @@
           "arabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اتَّقُوا اللّٰهَ وَاٰمِنُوا بِرَسُولِهِ يُؤْتِكُمْ كِفْلَيْنِ مِنْ رَحْمَتِهِ وَيَجْعَلْ لَكُمْ نُوراً تَمْشُونَ بِهِ وَيَغْفِرْ لَكُمْ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "Ey iman edenler! Allah'tan korkun ve Peygamberine inanın ki O, size rahmetinden iki kat versin ve size ışığında yürüyeceğiniz bir nur lütfetsin; sizi bağışlasın. Allah, çok bağışlayan, çok esirgeyendir.",
           "english": "O you who have believed, fear Allah and believe in His Messenger; He will [then] give you a double portion of His mercy and make for you a light by which you will walk and forgive you; and Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "58:12",
@@ -741,7 +873,9 @@
           "arabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اِذَا نَاجَيْتُمُ الرَّسُولَ فَقَدِّمُوا بَيْنَ يَدَيْ نَجْوٰيكُمْ صَدَقَةً ذٰلِكَ خَيْرٌ لَـكُمْ وَاَطْهَرُ فَاِنْ لَمْ تَجِدُوا فَاِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Ey iman edenler! Peygamber ile gizli bir şey konuşacağınız zaman bu konuşmanızdan önce bir sadaka veriniz. Bu sizin için daha hayırlı ve daha temizdir. Şayet bir şey bulamazsanız, bilin ki Allah bağışlayandır, esirgeyendir.",
           "english": "O you who have believed, when you [wish to] privately consult the Messenger, present before your consultation a charity. That is better for you and purer. But if you find not [the means] - then indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "60:7",
@@ -752,7 +886,9 @@
           "arabic": "عَسَى اللّٰهُ اَنْ يَجْعَلَ بَيْنَكُمْ وَبَيْنَ الَّذِينَ عَادَيْتُمْ مِنْهُمْ مَوَدَّةً وَاللّٰهُ قَدِيرٌ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "Olur ki Allah sizinle düşman olduklarınız arasında yakında bir dostluk meydana getirir. Allah gücü yetendir. Allah çok bağışlayan, çok esirgeyendir.",
           "english": "Perhaps Allah will put, between you and those to whom you have been enemies among them, affection. And Allah is competent, and Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "60:12",
@@ -763,7 +899,9 @@
           "arabic": "يٓا اَيُّهَا النَّبِيُّ اِذَا جٓاءَكَ الْمُؤْمِنَاتُ يُبَايِعْنَكَ عَلٰٓى اَنْ لَا يُشْرِكْنَ بِاللّٰهِ شَيْـٔاً وَلَا يَسْرِقْنَ وَلَا يَزْنِينَ وَلَا يَقْتُلْنَ اَوْلَادَهُنَّ وَلَا يَأْتِينَ بِبُهْتَانٍ يَفْتَرِينَهُ بَيْنَ اَيْدِيهِنَّ وَاَرْجُلِهِنَّ وَلَا يَعْصِينَكَ فِي مَعْرُوفٍ فَبَايِعْهُنَّ وَاسْتَغْفِرْ لَهُنَّ اللّٰهَ اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Ey Peygamber! İnanmış kadınlar, Allah'a hiçbir şeyi ortak koşmamak, hırsızlık yapmamak, zina etmemek, çocuklarını öldürmemek, elleriyle ayakları arasında bir iftira uydurup getirmemek, iyi işi işlemekte sana karşı gelmemek hususunda sana biat etmeye geldikleri zaman, biatlarını kabul et ve onlar için Allah'tan mağfiret dile. Şüphesiz Allah, çok bağışlayandır, çok esirgeyendir.",
           "english": "O Prophet, when the believing women come to you pledging to you that they will not associate anything with Allah, nor will they steal, nor will they commit unlawful sexual intercourse, nor will they kill their children, nor will they bring forth a slander they have invented between their arms and legs, nor will they disobey you in what is right - then accept their pledge and ask forgiveness for them of Allah. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "64:14",
@@ -774,7 +912,9 @@
           "arabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اِنَّ مِنْ اَزْوَاجِكُمْ وَاَوْلَادِكُمْ عَدُواًّ لَكُمْ فَاحْذَرُوهُمْ وَاِنْ تَعْفُوا وَتَصْفَحُوا وَتَغْفِرُوا فَاِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "Ey iman edenler! Eşlerinizden ve çocuklarınızdan size düşman olanlar da vardır. Onlardan sakının. Ama affeder, kusurlarını başlarına kakmaz, kusurlarını örterseniz, bilin ki, Allah çok bağışlayan, çok esirgeyendir.",
           "english": "O you who have believed, indeed, among your wives and your children are enemies to you, so beware of them. But if you pardon and overlook and forgive - then indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "66:1",
@@ -785,7 +925,9 @@
           "arabic": "يٓا اَيُّهَا النَّبِيُّ  لِمَ تُحَرِّمُ مٓا اَحَلَّ اللّٰهُ لَكَ تَبْتَغِي مَرْضَاتَ اَزْوَاجِكَ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
           "turkish": "Ey Peygamber! Eşlerinin rızasını gözeterek Allah'ın sana helal kıldığı şeyi niçin kendine haram ediyorsun? Allah çok bağışlayan, çok esirgeyendir.",
           "english": "O Prophet, why do you prohibit [yourself from] what Allah has made lawful for you, seeking the approval of your wives? And Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "73:20",
@@ -796,7 +938,9 @@
           "arabic": "اِنَّ رَبَّكَ يَعْلَمُ اَنَّكَ تَقُومُ اَدْنٰى مِنْ ثُلُثَيِ الَّيْلِ وَنِصْفَهُ وَثُلُثَهُ وَطٓائِفَةٌ مِنَ الَّذِينَ مَعَكَ وَاللّٰهُ يُقَدِّرُ الَّيْلَ وَالنَّهَارَ عَلِمَ اَنْ لَنْ تُحْصُوهُ فَتَابَ عَلَيْكُمْ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنَ الْقُرْاٰنِ عَلِمَ اَنْ سَيَكُونُ مِنْكُمْ مَرْضٰى وَاٰخَرُونَ يَضْرِبُونَ فِي الْاَرْضِ يَبْتَغُونَ مِنْ فَضْلِ اللّٰهِ وَاٰخَرُونَ يُقَاتِلُونَ فِي سَبِيلِ اللّٰهِ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنْهُ وَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَاَقْرِضُوا اللّٰهَ قَرْضاً حَسَناً وَمَا تُقَدِّمُوا لِاَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللّٰهِ هُوَ خَيْراً وَاَعْظَمَ اَجْراً وَاسْتَغْفِرُوا اللّٰهَ  اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
           "turkish": "(Resulüm!) Senin, gecenin üçte ikisine yakın kısmını, (bazen) yarısını, (bazen de) üçte birini yatmadan (ibadetle) geçirdiğini ve beraberinde bulunanlardan bir topluluğun da (böyle yaptığını) Rabbin elbette biliyor. Gece ve gündüzü (içinde olup bitenleri iyiden iyiye) ölçüp biçen ancak Allah'tır. O sizin, bunu sayamayacağınızı bildiği için, sizi bağışladı. Artık, Kur'an'dan kolayınıza geleni okuyun. Allah bilmektedir ki, içinizde hastalar bulunacak, bir kısmınız Allah'ın lütfundan (rızık) aramaküzere yeryüzünde yol tepecekler, diğer bir kısmınız da Allah yolunda çarpışacaklardır. O halde Kur'an'dan kolayınıza geleni okuyun. Namazı kılın, zekatı verin, Allah'a gönül hoşluğuyla ödünç verin. Kendiniz için önden (dünyada iken) ne iyilik hazırlarsanız Allah katında onu bulursunuz; hem de daha üstün ve mükafatça daha büyük olmak üzere. Allah'tan mağfiret dileyin, şüphesiz Allah çok bağışlayıcı, çok esirgeyicidir.",
           "english": "Indeed, your Lord knows, [O Muhammad], that you stand [in prayer] almost two thirds of the night or half of it or a third of it, and [so do] a group of those with you. And Allah determines [the extent of] the night and the day. He has known that you [Muslims] will not be able to do it and has turned to you in forgiveness, so recite what is easy [for you] of the Qur'an. He has known that there will be among you those who are ill and others traveling throughout the land seeking [something] of the bounty of Allah and others fighting for the cause of Allah. So recite what is easy from it and establish prayer and give zakah and loan Allah a goodly loan. And whatever good you put forward for yourselves - you will find it with Allah. It is better and greater in reward. And seek forgiveness of Allah. Indeed, Allah is Forgiving and Merciful",
-          "matchedForm": "غفور رحيم"
+          "matchedForm": "غفور رحيم",
+          "position": "end",
+          "positionRatio": 1
         }
       ]
     },
@@ -815,7 +959,9 @@
           "arabic": "اِنَّ اللّٰهَ يَأْمُرُكُمْ اَنْ تُؤَدُّوا الْاَمَانَاتِ اِلٰٓى اَهْلِهَا وَاِذَا حَكَمْتُمْ بَيْنَ النَّاسِ اَنْ تَحْكُمُوا بِالْعَدْلِ اِنَّ اللّٰهَ نِعِمَّا يَعِظُـكُمْ بِهِ اِنَّ اللّٰهَ  كَانَ سَمِيعاً بَصِيراً",
           "turkish": "Allah size, mutlaka emanetleri ehli olanlara vermenizi ve insanlar arasında hükmettiğiniz zaman adaletle hükmetmenizi emreder. Allah size ne kadar güzel öğütler veriyor! Şüphesiz Allah her şeyi işitici, her şeyi görücüdür.",
           "english": "Indeed, Allah commands you to render trusts to whom they are due and when you judge between people to judge with justice. Excellent is that which Allah instructs you. Indeed, Allah is ever Hearing and Seeing",
-          "matchedForm": "سميعا بصيرا"
+          "matchedForm": "سميعا بصيرا",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:134",
@@ -826,7 +972,9 @@
           "arabic": "مَنْ كَانَ يُرِيدُ ثَوَابَ الدُّنْيَا فَعِنْدَ اللّٰهِ ثَوَابُ الدُّنْيَا وَالْاٰخِرَةِ وَكَانَ اللّٰهُ سَمِيعاً بَصِيراً۟",
           "turkish": "Kim dünya mükafatını isterse (bilsin ki) dünyanın da ahiretin de mükafatı Allah katındadır. Allah her şeyi işiten ve her şeyi görendir.",
           "english": "Whoever desires the reward of this world - then with Allah is the reward of this world and the Hereafter. And ever is Allah Hearing and Seeing",
-          "matchedForm": "سميعا بصيرا"
+          "matchedForm": "سميعا بصيرا",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "17:1",
@@ -837,7 +985,9 @@
           "arabic": "سُبْحَانَ الَّـذِٓي اَسْرٰى بِعَبْدِهِ لَيْلاً مِنَ الْمَسْجِدِ الْحَرَامِ اِلَى الْمَسْجِدِ الْاَقْصَا الَّذِي بَارَكْنَا حَوْلَهُ لِنُرِيَهُ مِنْ اٰيَاتِنَا اِنَّهُ هُوَ السَّمِيعُ الْبَصِيرُ",
           "turkish": "Bir gece, kendisine ayetlerimizden bir kısmını gösterelim diye (Muhammed) kulunu Mescid-i Haram'dan, çevresini mübarek kıldığımız Mescid-i Aksa'ya götüren Allah noksan sıfatlardan münezzehtir; O, gerçekten işitendir, görendir.",
           "english": "Exalted is He who took His Servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa, whose surroundings We have blessed, to show him of Our signs. Indeed, He is the Hearing, the Seeing",
-          "matchedForm": "السميع البصير"
+          "matchedForm": "السميع البصير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "22:61",
@@ -848,7 +998,9 @@
           "arabic": "ذٰلِكَ بِاَنَّ اللّٰهَ يُولِجُ الَّيْلَ فِي النَّهَارِ وَيُولِجُ النَّهَارَ فِي الَّيْلِ وَاَنَّ اللّٰهَ سَمِيعٌ بَصِيرٌ",
           "turkish": "Böylece (Allah, haksızlığa uğrayana yardım edecektir ve buna kadirdir). Çünkü Allah, geceyi gündüze katar, gündüzü geceye katar. Şu da muhakkak ki Allah, hakkıyla işiten ve görendir.",
           "english": "That is because Allah causes the night to enter the day and causes the day to enter the night and because Allah is Hearing and Seeing",
-          "matchedForm": "سميع بصير"
+          "matchedForm": "سميع بصير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "22:75",
@@ -859,7 +1011,9 @@
           "arabic": "اَللّٰهُ يَصْطَفِي مِنَ الْمَلٰٓئِكَةِ رُسُلاً وَمِنَ النَّاسِ اِنَّ اللّٰهَ سَمِيعٌ بَصِيرٌ",
           "turkish": "Allah meleklerden de elçiler seçer, insanlardan da. Şüphesiz Allah işitendir, görendir.",
           "english": "Allah chooses from the angels messengers and from the people. Indeed, Allah is Hearing and Seeing",
-          "matchedForm": "سميع بصير"
+          "matchedForm": "سميع بصير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "31:28",
@@ -870,7 +1024,9 @@
           "arabic": "مَا خَلْقُكُمْ وَلَا بَعْثُكُمْ اِلَّا كَنَفْسٍ وَاحِدَةٍ اِنَّ اللّٰهَ سَمِيعٌ بَصِيرٌ",
           "turkish": "(İnsanlar!) Sizin yaratılmanız ve diriltilmeniz, ancak tek bir kişinin yaratılması ve diriltilmesi gibidir. Unutulmasın ki, Allah her şeyi bilen ve görendir.",
           "english": "Your creation and your resurrection will not be but as that of a single soul. Indeed, Allah is Hearing and Seeing",
-          "matchedForm": "سميع بصير"
+          "matchedForm": "سميع بصير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "40:20",
@@ -881,7 +1037,9 @@
           "arabic": "وَاللّٰهُ يَقْضِي بِالْحَقِّ وَالَّذِينَ يَدْعُونَ مِنْ دُونِهِ لَا يَقْضُونَ بِشَيْءٍ اِنَّ اللّٰهَ هُوَ السَّمِيعُ الْبَصِيرُ۟",
           "turkish": "Allah, adaletle hükmeder. O'nu bırakıp taptıkları ise, hiçbir şeye hükmedemezler. Şüphesiz Allah, hakkıyla işiten ve görendir.",
           "english": "And Allah judges with truth, while those they invoke besides Him judge not with anything. Indeed, Allah - He is the Hearing, the Seeing",
-          "matchedForm": "السميع البصير"
+          "matchedForm": "السميع البصير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "40:56",
@@ -892,7 +1050,9 @@
           "arabic": "اِنَّ الَّذِينَ يُجَادِلُونَ فِٓي اٰيَاتِ اللّٰهِ بِغَيْرِ سُلْطَانٍ اَتٰيهُمْ اِنْ فِي صُدُورِهِمْ اِلَّا كِبْرٌ مَا هُمْ بِبَالِغِيهِ فَاسْتَعِذْ بِاللّٰهِ اِنَّهُ هُوَ السَّمِيعُ الْبَصِيرُ",
           "turkish": "Kendilerine gelmiş kesin bir delil olmaksızın, Allah'ın ayetleri hakkında münakaşa edenler var ya, hiç şüphe yok ki, onların kalplerinde, asla yetişemeyecekleri bir büyüklük hevesinden başka bir şey yoktur. Sen Allah'a sığın. Kuşkusuz O, işiten ve görendir.",
           "english": "Indeed, those who dispute concerning the signs of Allah without [any] authority having come to them - there is not within their breasts except pride, [the extent of] which they cannot reach. So seek refuge in Allah. Indeed, it is He who is the Hearing, the Seeing",
-          "matchedForm": "السميع البصير"
+          "matchedForm": "السميع البصير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "42:11",
@@ -903,7 +1063,9 @@
           "arabic": "فَاطِرُ السَّمٰوَاتِ وَالْاَرْضِ جَعَلَ لَكُمْ مِنْ اَنْفُسِكُمْ اَزْوَاجاً وَمِنَ الْاَنْعَامِ اَزْوَاجاً يَذْرَؤُ۬كُمْ فِيهِ لَيْسَ كَمِثْلِهِ شَيْءٌ وَهُوَ السَّمِيعُ الْبَصِيرُ",
           "turkish": "O, gökleri ve yeri yoktan yaratandır. Size kendinizden eşler, hayvanlardan da (kendilerine) eşler yaratmıştır. Bu suretle çoğalmanızı sağlamıştır. O'nun benzeri hiçbir şey yoktur. O işitendir, görendir.",
           "english": "[He is] Creator of the heavens and the earth. He has made for you from yourselves, mates, and among the cattle, mates; He multiplies you thereby. There is nothing like unto Him, and He is the Hearing, the Seeing",
-          "matchedForm": "السميع البصير"
+          "matchedForm": "السميع البصير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "58:1",
@@ -914,7 +1076,9 @@
           "arabic": "قَدْ سَمِعَ اللّٰهُ قَوْلَ الَّتِي تُجَادِلُكَ فِي زَوْجِهَا وَتَشْتَكِٓي اِلَى اللّٰهِ وَاللّٰهُ يَسْمَعُ تَحَاوُرَكُمَا اِنَّ اللّٰهَ سَمِيعٌ بَصِيرٌ",
           "turkish": "Kocası hakkında seninle tartışan ve Allah'a şikayette bulunan kadının sözünü Allah işitmiştir. Allah, sizin konuşmanızı işitir. Çünkü Allah işitendir, bilendir.",
           "english": "Certainly has Allah heard the speech of the one who argues with you, [O Muhammad], concerning her husband and directs her complaint to Allah. And Allah hears your dialogue; indeed, Allah is Hearing and Seeing",
-          "matchedForm": "سميع بصير"
+          "matchedForm": "سميع بصير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "76:2",
@@ -925,7 +1089,9 @@
           "arabic": "اِنَّا خَلَقْنَا الْاِنْسَانَ مِنْ نُطْفَةٍ  اَمْشَاجٍ  نَبْتَلِيهِ فَجَعَلْنَاهُ سَمِيعاً بَصِيراً",
           "turkish": "Gerçek şu ki, biz insanı katışık bir nutfeden (erkek ve kadının dölünden) yarattık; onu imtihan edelim diye, kendisini işitir ve görür kıldık.",
           "english": "Indeed, We created man from a sperm-drop mixture that We may try him; and We made him hearing and seeing",
-          "matchedForm": "سميعا بصيرا"
+          "matchedForm": "سميعا بصيرا",
+          "position": "end",
+          "positionRatio": 1
         }
       ]
     },
@@ -944,7 +1110,9 @@
           "arabic": "رَبَّنَا وَابْعَثْ فِيهِمْ رَسُولاً مِنْهُمْ يَتْلُوا عَلَيْهِمْ اٰيَاتِكَ وَيُعَلِّمُهُمُ الْكِتَابَ وَالْحِكْمَةَ وَيُزَكِّيهِمْ اِنَّكَ اَنْتَ الْعَزِيزُ الْحَكِيمُ۟",
           "turkish": "Ey Rabbimiz! Onlara, içlerinden senin ayetlerini kendilerine okuyacak, onlara kitap ve hikmeti öğretecek, onları temizleyecek bir peygamber gönder. Çünkü üstün gelen, her şeyi yerli yerince yapan yalnız sensin.",
           "english": "Our Lord, and send among them a messenger from themselves who will recite to them Your verses and teach them the Book and wisdom and purify them. Indeed, You are the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:209",
@@ -955,7 +1123,9 @@
           "arabic": "فَاِنْ زَلَلْتُمْ مِنْ بَعْدِ مَا جٓاءَتْكُمُ الْبَيِّنَاتُ فَاعْلَمٓوا اَنَّ اللّٰهَ عَزِيزٌ حَكِيمٌ",
           "turkish": "Size (Kur'an ve Sünnet gibi) apaçık deliller geldikten sonra, eğer barıştan saparsanız, şunu iyi bilin ki Allah azizdir, hakimdir.",
           "english": "But if you deviate after clear proofs have come to you, then know that Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:220",
@@ -966,7 +1136,9 @@
           "arabic": "فِي الدُّنْيَا وَالْاٰخِرَةِ وَيَسْـَٔلُونَكَ عَنِ الْيَتَامٰى قُلْ اِصْلَاحٌ لَهُمْ خَيْرٌ وَاِنْ تُخَالِطُوهُمْ فَاِخْوَانُكُمْ وَاللّٰهُ يَعْلَمُ الْمُفْسِدَ مِنَ الْمُصْلِحِ وَلَوْ شٓاءَ اللّٰهُ لَاَعْنَتَكُمْ اِنَّ اللّٰهَ عَزِيزٌ حَكِيمٌ",
           "turkish": "Dünya ve ahiret hakkında (lehinize olan davranışları düşünün ve ona göre hareket edin). Sana yetimler hakkında soruyorlar. De ki: Onları iyi yetiştirmek (yüz üstü bırakmaktan) daha hayırlıdır. Eğer onlarla birlikte yaşarsanız, (unutmayın ki) onlar sizin kardeşlerinizdir. Allah, işleri bozanla düzelteni bilir. Eğer Allah dileseydi, sizi de zahmet ve meşakkate sokardı. Çünkü Allah güçlüdür, hakimdir.",
           "english": "To this world and the Hereafter. And they ask you about orphans. Say, \"Improvement for them is best. And if you mix your affairs with theirs - they are your brothers. And Allah knows the corrupter from the amender. And if Allah had willed, He could have put you in difficulty. Indeed, Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:228",
@@ -977,7 +1149,9 @@
           "arabic": "وَالْمُطَلَّقَاتُ يَتَرَبَّصْنَ بِاَنْفُسِهِنَّ ثَلٰثَةَ قُرٓوءٍ وَلَا يَحِلُّ لَهُنَّ اَنْ يَكْتُمْنَ مَا خَلَقَ اللّٰهُ فِٓي اَرْحَامِهِنَّ اِنْ كُنَّ يُؤْمِنَّ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ وَبُعُولَتُهُنَّ اَحَقُّ بِرَدِّهِنَّ فِي ذٰلِكَ اِنْ اَرَادٓوا اِصْلَاحاً وَلَهُنَّ مِثْلُ الَّذِي عَلَيْهِنَّ بِالْمَعْرُوفِ وَلِلرِّجَالِ عَلَيْهِنَّ دَرَجَةٌ وَاللّٰهُ عَزِيزٌ حَكِيمٌ۟",
           "turkish": "Boşanmış kadınlar, kendi başlarına (evlenmeden) üç ay hali (hayız veya temizlik müddeti) beklerler. Eğer onlar Allah'a ve ahiret gününe gerçekten inanmışlarsa, rahimlerinde Allah'ın yarattığını gizlemeleri kendilerine helal olmaz. Eğer kocalar barışmak isterlerse, bu durumda boşadıkları kadınları geri almaya daha fazla hak sahibidirler. Erkeklerin kadınlar üzerindeki hakları gibi, kadınların da erkekler üzerinde belli hakları vardır. Ancak erkekler, kadınlara göre bir derece üstünlüğe sahiptirler. Allah azizdir, hakimdir.",
           "english": "Divorced women remain in waiting for three periods, and it is not lawful for them to conceal what Allah has created in their wombs if they believe in Allah and the Last Day. And their husbands have more right to take them back in this [period] if they want reconciliation. And due to the wives is similar to what is expected of them, according to what is reasonable. But the men have a degree over them [in responsibility and authority]. And Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:240",
@@ -988,7 +1162,9 @@
           "arabic": "وَالَّذِينَ يُتَوَفَّوْنَ مِنْكُمْ وَيَذَرُونَ اَزْوَاجاً وَصِيَّةً لِاَزْوَاجِهِمْ مَتَاعاً اِلَى الْحَوْلِ غَيْرَ اِخْرَاجٍ فَاِنْ خَرَجْنَ فَلَا جُنَاحَ عَلَيْكُمْ فِي مَا فَعَلْنَ فِٓي اَنْفُسِهِنَّ مِنْ مَعْرُوفٍ وَاللّٰهُ عَزِيزٌ حَكِيمٌ",
           "turkish": "Sizden ölüp de (dul) eşler bırakan kimseler, zevcelerinin, evlerinden çıkarılmadan, bir yıla kadar bıraktıkları maldan faydalanmaları hususunda (sağlıklarında) vasiyet etsinler. Eğer o kadınlar, (kendiliklerinden) çıkıp giderlerse, kendileri hakkındayaptıkları meşru şeylerden size bir günah yoktur. Allah azizdir, hakimdir.",
           "english": "And those who are taken in death among you and leave wives behind - for their wives is a bequest: maintenance for one year without turning [them] out. But if they leave [of their own accord], then there is no blame upon you for what they do with themselves in an acceptable way. And Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:260",
@@ -999,7 +1175,9 @@
           "arabic": "وَاِذْ قَالَ اِبْرٰهِيمُ رَبِّ اَرِنِي كَيْفَ تُحْـيِ الْمَوْتٰى قَالَ اَوَلَمْ تُؤْمِنْ قَالَ بَلٰى وَلٰكِنْ لِيَطْمَئِنَّ قَلْبِي قَالَ فَخُذْ اَرْبَعَةً مِنَ الطَّيْرِ فَصُرْهُنَّ اِلَيْكَ ثُمَّ اجْعَلْ عَلٰى كُلِّ جَبَلٍ مِنْهُنَّ جُزْءاً ثُمَّ ادْعُهُنَّ يَأْتِينَكَ سَعْياً وَاعْلَمْ اَنَّ اللّٰهَ عَزِيزٌ حَكِيمٌ۟",
           "turkish": "İbrahim Rabbine: Ey Rabbim! Ölüyü nasıl dirilttiğini bana göster, demişti. Rabbi ona: Yoksa inanmadın mı? dedi. İbrahim: Hayır! İnandım, fakat kalbimin mutmain olması için (görmek istedim), dedi. Bunun üzerine Allah: Öyleyse dört tane kuş yakala, onları yanına al, sonra (kesip parçala), her dağın başına onlardan bir parça koy. Sonra da onları kendine çağır; koşarak sana gelirler. Bil ki Allah azizdir, hakimdir, buyurdu.",
           "english": "And [mention] when Abraham said, \"My Lord, show me how You give life to the dead.\" [Allah] said, \"Have you not believed?\" He said, \"Yes, but [I ask] only that my heart may be satisfied.\" [Allah] said, \"Take four birds and commit them to yourself. Then [after slaughtering them] put on each hill a portion of them; then call them - they will come [flying] to you in haste. And know that Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "3:6",
@@ -1010,7 +1188,9 @@
           "arabic": "هُوَ الَّذِي يُصَوِّرُكُمْ فِي الْاَرْحَامِ كَيْفَ يَشٓاءُ   لٓا اِلٰهَ اِلَّا هُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Rahimlerde sizi dilediği gibi şekillendiren O'dur. O'ndan başka ilah yoktur. O mutlak güç ve hikmet sahibidir.",
           "english": "It is He who forms you in the wombs however He wills. There is no deity except Him, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "3:18",
@@ -1021,7 +1201,9 @@
           "arabic": "شَهِدَ اللّٰهُ اَنَّهُ لٓا اِلٰهَ اِلَّا هُوَ وَالْمَلٰٓئِكَةُ وَاُو۬لُوا الْعِلْمِ قٓائِماً بِالْقِسْطِ لٓا اِلٰهَ اِلَّا هُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Allah, adaleti ayakta tutarak (delilleriyle) şu hususu açıklamıştır ki, kendisinden başka ilah yoktur. Melekler ve ilim sahipleri de (bunu ikrar etmişlerdir. Evet) mutlak güç ve hikmet sahibi Allah'tan başka ilah yoktur.",
           "english": "Allah witnesses that there is no deity except Him, and [so do] the angels and those of knowledge - [that He is] maintaining [creation] in justice. There is no deity except Him, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "3:62",
@@ -1032,7 +1214,9 @@
           "arabic": "اِنَّ هٰذَا لَهُوَ الْقَصَصُ الْحَقُّ وَمَا مِنْ اِلٰهٍ اِلَّا اللّٰهُ وَاِنَّ اللّٰهَ لَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Şüphesiz bu (İsa hakkında söylenenler), doğru haberlerdir. Allah'tan başka ilah yoktur. Muhakkak ki Allah, evet O, mutlak güç ve hikmet sahibidir.",
           "english": "Indeed, this is the true narration. And there is no deity except Allah. And indeed, Allah is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "3:126",
@@ -1043,7 +1227,9 @@
           "arabic": "وَمَا جَعَلَهُ اللّٰهُ اِلَّا بُشْرٰى لَكُمْ وَلِتَطْمَئِنَّ قُلُوبُكُمْ بِهِ وَمَا النَّصْرُ اِلَّا مِنْ عِنْدِ اللّٰهِ الْعَزِيزِ الْحَكِيمِ",
           "turkish": "Allah, bunu size sırf bir müjde olsun ve kalpleriniz bu sayede rahatlasın diye yaptı. Zafer, yalnızca mutlak güç ve hikmet sahibi Allah katındandır.",
           "english": "And Allah made it not except as [a sign of] good tidings for you and to reassure your hearts thereby. And victory is not except from Allah, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:56",
@@ -1054,7 +1240,9 @@
           "arabic": "اِنَّ الَّذِينَ كَفَرُوا بِاٰيَاتِنَا سَوْفَ نُصْلِيهِمْ نَاراً  كُلَّمَا نَضِجَتْ جُلُودُهُمْ بَدَّلْنَاهُمْ جُلُوداً غَيْرَهَا لِيَذُوقُوا الْعَذَابَ اِنَّ اللّٰهَ  كَانَ عَزِيزاً حَكِيماً",
           "turkish": "Şüphesiz ayetlerimizi inkar edenleri gün gelecek bir ateşe sokacağız; onların derileri pişip acı duymaz hale geldikçe, derilerini başka derilerle değiştiririz ki acıyı duysunlar! Allah daima üstün ve hakimdir.",
           "english": "Indeed, those who disbelieve in Our verses - We will drive them into a Fire. Every time their skins are roasted through We will replace them with other skins so they may taste the punishment. Indeed, Allah is ever Exalted in Might and Wise",
-          "matchedForm": "عزيزا حكيما"
+          "matchedForm": "عزيزا حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:158",
@@ -1065,7 +1253,9 @@
           "arabic": "بَلْ رَفَعَهُ اللّٰهُ اِلَيْهِ وَكَانَ اللّٰهُ عَزِيزاً حَكِيماً",
           "turkish": "Bilakis Allah onu (İsa'yı) kendi nezdine kaldırmıştır. Allah izzet ve hikmet sahibidir.",
           "english": "Rather, Allah raised him to Himself. And ever is Allah Exalted in Might and Wise",
-          "matchedForm": "عزيزا حكيما"
+          "matchedForm": "عزيزا حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:165",
@@ -1076,7 +1266,9 @@
           "arabic": "رُسُلاً مُبَشِّرِينَ وَمُنْذِرِينَ لِئَلَّا يَكُونَ لِلنَّاسِ عَلَى اللّٰهِ حُجَّةٌ بَعْدَ الرُّسُلِ وَكَانَ اللّٰهُ عَزِيزاً حَكِيماً",
           "turkish": "(Yerine göre) müjdeleyici ve sakındırıcı olarak peygamberler gönderdik ki insanların peygamberlerden sonra Allah'a karşı bir bahaneleri olmasın! Allah izzet ve hikmet sahibidir.",
           "english": "[We sent] messengers as bringers of good tidings and warners so that mankind will have no argument against Allah after the messengers. And ever is Allah Exalted in Might and Wise",
-          "matchedForm": "عزيزا حكيما"
+          "matchedForm": "عزيزا حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "5:38",
@@ -1087,7 +1279,9 @@
           "arabic": "وَالسَّارِقُ وَالسَّارِقَةُ فَاقْطَعٓوا اَيْدِيَهُمَا جَزٓاءً بِمَا كَسَبَا نَكَالاً مِنَ اللّٰهِ وَاللّٰهُ عَزِيزٌ حَكِيمٌ",
           "turkish": "Hırsızlık eden erkek ve kadının, yaptıklarına karşılık bir ceza ve Allah'tan bir ibret olmak üzere ellerini kesin. Allah izzet ve hikmet sahibidir.",
           "english": "[As for] the thief, the male and the female, amputate their hands in recompense for what they committed as a deterrent [punishment] from Allah. And Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "5:118",
@@ -1098,7 +1292,9 @@
           "arabic": "اِنْ تُعَذِّبْهُمْ فَاِنَّهُمْ عِبَادُكَ وَاِنْ تَغْفِرْ لَهُمْ فَاِنَّكَ اَنْتَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Eğer kendilerine azap edersen şüphesiz onlar senin kullarındır (dilediğini yaparsın). Eğer onları bağışlarsan şüphesiz sen izzet ve hikmet sahibisin\" dedi.",
           "english": "If You should punish them - indeed they are Your servants; but if You forgive them - indeed it is You who is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "8:10",
@@ -1109,7 +1305,9 @@
           "arabic": "وَمَا جَعَلَهُ اللّٰهُ اِلَّا بُشْرٰى وَلِتَطْمَئِنَّ بِهِ قُلُوبُكُمْ وَمَا النَّصْرُ اِلَّا مِنْ عِنْدِ اللّٰهِ اِنَّ اللّٰهَ عَزِيزٌ حَكِيمٌ۟",
           "turkish": "Allah bunu (meleklerle yardımı) sadece müjde olsun ve onunla kalbiniz yatışsın diye yapmıştı. Zaten yardım yalnız Allah tarafındandır. Çünkü Allah mutlak galiptir, yegane hüküm ve hikmet sahibidir.",
           "english": "And Allah made it not but good tidings and so that your hearts would be assured thereby. And victory is not but from Allah. Indeed, Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "8:49",
@@ -1120,7 +1318,9 @@
           "arabic": "اِذْ يَقُولُ الْمُنَافِقُونَ وَالَّذِينَ فِي قُلُوبِهِمْ مَرَضٌ غَرَّ هٰٓؤُ۬لٓاءِ دِينُهُمْ وَمَنْ يَتَوَكَّلْ عَلَى اللّٰهِ فَاِنَّ اللّٰهَ عَزِيزٌ حَكِيمٌ",
           "turkish": "O zaman münafıklarla kalplerinde hastalık bulunanlar, (sizin için), \"Bunları, dinleri aldatmış\" diyorlardı. Halbuki kim Allah'a dayanırsa, bilsin ki Allah mutlak galiptir, hikmet sahibidir. (Kendisine güveneni üstün ve galip kılacak O'dur. Yoksa orduların sayı ve techizat üstünlüğü değildir).",
           "english": "[Remember] when the hypocrites and those in whose hearts was disease said, \"Their religion has deluded those [Muslims].\" But whoever relies upon Allah - then indeed, Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "8:63",
@@ -1131,7 +1331,9 @@
           "arabic": "وَاَلَّفَ بَيْنَ قُلُوبِهِمْ لَوْ اَنْفَقْتَ مَا فِي الْاَرْضِ جَمِيعاً مٓا اَلَّفْتَ بَيْنَ قُلُوبِهِمْ وَلٰكِنَّ اللّٰهَ اَلَّفَ بَيْنَهُمْ اِنَّهُ عَزِيزٌ حَكِيمٌ",
           "turkish": "Ve (Allah), onların kalplerini birleştirmiştir. Sen yeryüzünde bulunan her şeyi verseydin, yine onların gönüllerini birleştiremezdin, fakat Allah onların aralarını bulup kaynaştırdı. Çünkü O, mutlak galiptir, hikmet sahibidir.",
           "english": "And brought together their hearts. If you had spent all that is in the earth, you could not have brought their hearts together; but Allah brought them together. Indeed, He is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "8:67",
@@ -1142,7 +1344,9 @@
           "arabic": "مَا كَانَ لِنَبِيٍّ اَنْ يَكُونَ لَـهٓ اَسْرٰى حَتّٰى يُثْخِنَ فِي الْاَرْضِ تُرِيدُونَ عَرَضَ الدُّنْيَا وَاللّٰهُ يُرِيدُ الْاٰخِرَةَ وَاللّٰهُ عَزِيزٌ حَكِيمٌ",
           "turkish": "Yeryüzünde ağır basıncaya (küfrün belini kırıncaya) kadar, hiçbir peygambere esirleri bulunması yaraşmaz. Siz geçici dünya malını istiyorsunuz, halbuki Allah (sizin için) ahireti istiyor. Allah güçlüdür, hikmet sahibidir.",
           "english": "It is not for a prophet to have captives [of war] until he inflicts a massacre [upon Allah 's enemies] in the land. Some Muslims desire the commodities of this world, but Allah desires [for you] the Hereafter. And Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:40",
@@ -1153,7 +1357,9 @@
           "arabic": "اِلَّا تَنْصُرُوهُ فَقَدْ نَصَرَهُ اللّٰهُ اِذْ اَخْرَجَهُ الَّذِينَ كَفَرُوا ثَانِيَ اثْنَيْنِ اِذْ هُمَا فِي الْغَارِ اِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ اِنَّ اللّٰهَ مَعَنَا فَاَنْزَلَ اللّٰهُ سَكِينَتَهُ عَلَيْهِ وَاَيَّدَهُ بِجُنُودٍ لَمْ تَرَوْهَا وَجَعَلَ كَلِمَةَ الَّذِينَ كَفَرُوا السُّفْلٰى وَكَلِمَةُ اللّٰهِ هِيَ الْعُلْيَا وَاللّٰهُ عَزِيزٌ حَكِيمٌ",
           "turkish": "Eğer siz ona (Resulullah'a) yardım etmezseniz (bu önemli değil); ona Allah yardım etmiştir: Hani, kafirler onu, iki kişiden biri olarak (Ebu Bekir ile birlikte Mekke'den) çıkarmışlardı; hani onlar mağaradaydı; o, arkadaşına. Üzülme, çünkü Allah bizimle beraberdir, diyordu. Bunun üzerine Allah ona (sükunet sağlayan) emniyetini indirdi, onu sizin görmediğiniz bir ordu ile destekledi ve kafir olanların sözünü alçalttı. Allah'ın sözü ise zaten yücedir. Çünkü Allah üstündür, hikmet sahibidir.",
           "english": "If you do not aid the Prophet - Allah has already aided him when those who disbelieved had driven him out [of Makkah] as one of two, when they were in the cave and he said to his companion, \"Do not grieve; indeed Allah is with us.\" And Allah sent down his tranquillity upon him and supported him with angels you did not see and made the word of those who disbelieved the lowest, while the word of Allah - that is the highest. And Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:71",
@@ -1164,7 +1370,9 @@
           "arabic": "وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ اَوْلِيٓاءُ بَعْضٍ يَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ وَيُقِيمُونَ الصَّلٰوةَ وَيُؤْتُونَ الزَّكٰوةَ وَيُطِيعُونَ اللّٰهَ وَرَسُولَهُ اُو۬لٰٓئِكَ سَيَرْحَمُهُمُ اللّٰهُ اِنَّ اللّٰهَ عَزِيزٌ حَكِيمٌ",
           "turkish": "Mümin erkeklerle mümin kadınlar da birbirlerinin velileridir. Onlar iyiliği emreder, kötülükten alıkorlar, namazı dosdoğru kılarlar, zekatı verirler, Allah ve Resulüne itaat ederler. İşte onlara Allah rahmet edecektir. Şüphesiz Allah azizdir, hikmet sahibidir.",
           "english": "The believing men and believing women are allies of one another. They enjoin what is right and forbid what is wrong and establish prayer and give zakah and obey Allah and His Messenger. Those - Allah will have mercy upon them. Indeed, Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "14:4",
@@ -1175,7 +1383,9 @@
           "arabic": "وَمٓا اَرْسَلْنَا مِنْ رَسُولٍ اِلَّا بِلِسَانِ قَوْمِهِ لِيُبَيِّنَ لَهُمْ فَيُضِلُّ اللّٰهُ مَنْ يَشٓاءُ وَيَهْدِي مَنْ يَشٓاءُ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "(Allah'ın emirlerini) onlara iyice açıklasın diye her peygamberi yalnız kendi kavminin diliyle gönderdik. Artık Allah dilediğini saptırır, dilediğini de doğru yola iletir. Çünkü O, güç ve hikmet sahibidir.",
           "english": "And We did not send any messenger except [speaking] in the language of his people to state clearly for them, and Allah sends astray [thereby] whom He wills and guides whom He wills. And He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "16:60",
@@ -1186,7 +1396,9 @@
           "arabic": "لِلَّذِينَ لَا يُؤْمِنُونَ بِالْاٰخِرَةِ مَثَلُ السَّوْءِ وَلِلّٰهِ الْمَثَلُ الْاَعْلٰى وَهُوَ الْعَزِيزُ الْحَكِيمُ۟",
           "turkish": "Kötü sıfat, ahirete inanmayanlar içindir. En yüce sıfatlar ise Allah'a aittir. Çünkü O, her şeyden üstün ve hikmet sahibidir.",
           "english": "For those who do not believe in the Hereafter is the description of evil; and for Allah is the highest attribute. And He is Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "27:9",
@@ -1197,7 +1409,9 @@
           "arabic": "يَا مُوسٰٓى اِنَّـهٓ  اَنَا اللّٰهُ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Ey Musa! İyi bil ki, ben, mutlak galip ve hikmet sahibi olan Allah'ım!",
           "english": "O Moses, indeed it is I - Allah, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "29:26",
@@ -1208,7 +1422,9 @@
           "arabic": "فَاٰمَنَ لَهُ لُوطٌ وَقَالَ اِنِّي مُهَاجِرٌ اِلٰى رَبِّي اِنَّهُ هُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Bunun üzerine Lut ona iman etti ve (İbrahim): Doğrusu ben Rabbim'e(emrettiği yere) hicret ediyorum. Şüphesiz O, mutlak güç ve hikmet sahibidir, dedi.",
           "english": "And Lot believed him. [Abraham] said, \"Indeed, I will emigrate to [the service of] my Lord. Indeed, He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "29:42",
@@ -1219,7 +1435,9 @@
           "arabic": "اِنَّ اللّٰهَ يَعْلَمُ مَا يَدْعُونَ مِنْ دُونِهِ مِنْ شَيْءٍ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Allah, onlar'ın kendisini bırakıp da hangi şeye yalvardıklarını şüphesiz bilir. O, mutlak güç ve hikmet sahibidir.",
           "english": "Indeed, Allah knows whatever thing they call upon other than Him. And He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "30:27",
@@ -1230,7 +1448,9 @@
           "arabic": "وَهُوَ الَّذِي يَبْدَؤُا الْخَلْقَ ثُمَّ يُعِيدُهُ وَهُوَ اَهْوَنُ عَلَيْهِ وَلَهُ الْمَثَلُ الْاَعْلٰى فِي السَّمٰوَاتِ وَالْاَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ۟",
           "turkish": "İlkin mahlukunu yaratıp (ölümden) sonra bunu (yaratmayı) tekrarlayan O'dur, ki bu, O'nun için pek kolaydır. Göklerde ve yerde (tecelli eden) en yüce sıfat O'nundur. O, mutlak güç ve hikmet sahibidir.",
           "english": "And it is He who begins creation; then He repeats it, and that is [even] easier for Him. To Him belongs the highest attribute in the heavens and earth. And He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "31:9",
@@ -1241,7 +1461,9 @@
           "arabic": "خَالِدِينَ فِيهَا وَعْدَ اللّٰهِ حَقاًّ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Orada ebedi kalacaklardır. Bu, Allah'ın verdiği gerçek sözdür. O, mutlak güç ve hikmet sahibidir.",
           "english": "Wherein they abide eternally; [it is] the promise of Allah [which is] truth. And He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "31:27",
@@ -1252,7 +1474,9 @@
           "arabic": "وَلَوْ اَنَّ مَا فِي الْاَرْضِ مِنْ شَجَرَةٍ اَقْلَامٌ وَالْبَحْرُ يَمُدُّهُ مِنْ بَعْدِهِ سَبْعَةُ اَبْحُرٍ مَا نَفِدَتْ كَلِمَاتُ اللّٰهِ اِنَّ اللّٰهَ عَزِيزٌ حَكِيمٌ",
           "turkish": "Şayet yeryüzündeki ağaçlar kalem, deniz de arkasından yedi deniz katılarak (mürekkep olsa) yine Allah'ın sözleri (yazmakla) tükenmez. Şüphe yok ki Allah mutlak galip ve hikmet sahibidir.",
           "english": "And if whatever trees upon the earth were pens and the sea [was ink], replenished thereafter by seven [more] seas, the words of Allah would not be exhausted. Indeed, Allah is Exalted in Might and Wise",
-          "matchedForm": "عزيز حكيم"
+          "matchedForm": "عزيز حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "34:27",
@@ -1263,7 +1487,9 @@
           "arabic": "قُلْ اَرُونِيَ الَّذِينَ اَلْحَقْتُمْ بِهِ شُرَكٓاءَ كَلَّا بَلْ هُوَ اللّٰهُ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "De ki: O'na (Allah'a) kattığınız ortaklarınızı bana gösterin. Hayır! Bilakis, yegane galip ve her şeyi hikmetle idare eden ancak Allah'tır.",
           "english": "Say, \"Show me those whom you have attached to Him as partners. No! Rather, He [alone] is Allah, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "35:2",
@@ -1274,7 +1500,9 @@
           "arabic": "مَا يَفْتَحِ اللّٰهُ لِلنَّاسِ مِنْ رَحْمَةٍ فَلَا مُمْسِكَ لَهَا وَمَا يُمْسِكْ فَلَا مُرْسِلَ لَهُ مِنْ بَعْدِهِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Allah'ın insanlara açacağı herhangi bir rahmeti tutup hapseden olamaz. O'nun tuttuğunu O'ndan sonra salıverecek de yoktur. O, üstündür, hikmet sahibidir.",
           "english": "Whatever Allah grants to people of mercy - none can withhold it; and whatever He withholds - none can release it thereafter. And He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "39:1",
@@ -1285,7 +1513,9 @@
           "arabic": "تَنْزِيلُ الْكِتَابِ مِنَ اللّٰهِ الْعَزِيزِ الْحَكِيمِ",
           "turkish": "Bu Kitap izzet ve hikmet sahibi Allah katından indirilmiştir.",
           "english": "The revelation of the Qur'an is from Allah, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "40:8",
@@ -1296,7 +1526,9 @@
           "arabic": "رَبَّنَا وَاَدْخِلْهُمْ جَنَّاتِ عَدْنٍ الَّتِي وَعَدْتَهُمْ وَمَنْ صَلَحَ مِنْ اٰبٓائِهِمْ وَاَزْوَاجِهِمْ وَذُرِّيَّاتِهِمْ اِنَّكَ اَنْتَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Rabbimiz! Onları da, onların atalarından, zevcelerinden, nesillerinden iyi olanları da kendilerine vadettiğin Adn cennetlerine koy. Şüphesiz aziz ve hakim olan sensin!",
           "english": "Our Lord, and admit them to gardens of perpetual residence which You have promised them and whoever was righteous among their fathers, their spouses and their offspring. Indeed, it is You who is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "42:3",
@@ -1307,7 +1539,9 @@
           "arabic": "كَذٰلِكَ يُوحِٓي اِلَيْكَ وَاِلَى الَّذِينَ مِنْ قَبْلِكَ اللّٰهُ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Aziz ve hakim olan Allah, sana ve senden öncekilere işte böyle vahyeder.",
           "english": "Thus has He revealed to you, [O Muhammad], and to those before you - Allah, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "45:2",
@@ -1318,7 +1552,9 @@
           "arabic": "تَنْزِيلُ الْـكِتَابِ مِنَ اللّٰهِ الْعَزِيزِ الْحَكِيمِ",
           "turkish": "Kitap, aziz ve hakim olan Allah tarafından indirilmiştir.",
           "english": "The revelation of the Book is from Allah, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "45:37",
@@ -1329,7 +1565,9 @@
           "arabic": "وَلَهُ الْكِبْرِيٓاءُ فِي السَّمٰوَاتِ وَالْاَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Göklerde ve yerde azamet yalnız O'nundur. O, azizdir, hakimdir.",
           "english": "And to Him belongs [all] grandeur within the heavens and the earth, and He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "46:2",
@@ -1340,7 +1578,9 @@
           "arabic": "تَنْزِيلُ الْكِتَابِ مِنَ اللّٰهِ الْعَزِيزِ الْحَكِيمِ",
           "turkish": "Bu Kitap aziz ve hakim olan Allah tarafından indirilmiştir.",
           "english": "The revelation of the Book is from Allah, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "48:7",
@@ -1351,7 +1591,9 @@
           "arabic": "وَلِلّٰهِ جُنُودُ السَّمٰوَاتِ وَالْاَرْضِ وَكَانَ اللّٰهُ عَزِيزاً حَكِيماً",
           "turkish": "Göklerin ve yerin orduları Allah'ındır. Allah azizdir, hakimdir.",
           "english": "And to Allah belong the soldiers of the heavens and the earth. And ever is Allah Exalted in Might and Wise",
-          "matchedForm": "عزيزا حكيما"
+          "matchedForm": "عزيزا حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "48:19",
@@ -1362,7 +1604,9 @@
           "arabic": "وَمَغَانِمَ كَثِيرَةً يَأْخُذُونَهَا وَكَانَ اللّٰهُ عَزِيزاً حَكِيماً",
           "turkish": "Yine onları elde edecekleri birçok ganimetlerle de mükafalandırdı. Allah üstündür, hikmet sahibidir.",
           "english": "And much war booty which they will take. And ever is Allah Exalted in Might and Wise",
-          "matchedForm": "عزيزا حكيما"
+          "matchedForm": "عزيزا حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "57:1",
@@ -1373,7 +1617,9 @@
           "arabic": "سَبَّحَ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَالْاَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Göklerde ve yerde bulunan her şey Allah'ı tesbih etmektedir. O, azizdir, hakimdir.",
           "english": "Whatever is in the heavens and earth exalts Allah, and He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "59:1",
@@ -1384,7 +1630,9 @@
           "arabic": "سَبَّحَ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Göklerde ve yerde olanların hepsi Allah'ı tesbih etmektedir. O, üstündür, hikmet sahibidir.",
           "english": "Whatever is in the heavens and whatever is on the earth exalts Allah, and He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "59:24",
@@ -1395,7 +1643,9 @@
           "arabic": "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰى يُسَبِّـحُ لَهُ مَا فِي السَّمٰوَاتِ وَالْاَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
           "english": "He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "60:5",
@@ -1406,7 +1656,9 @@
           "arabic": "رَبَّنَا لَا تَجْعَلْنَا فِتْنَةً لِلَّذِينَ كَفَرُوا وَاغْفِرْ لَنَا رَبَّنَا اِنَّكَ اَنْتَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Rabbimiz! Bizi, inkar edenler için deneme konusu kılma, bizi bağışla! Ey Rabbimiz! Yegane galip ve hikmet sahibi, ancak sensin.",
           "english": "Our Lord, make us not [objects of] torment for the disbelievers and forgive us, our Lord. Indeed, it is You who is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "61:1",
@@ -1417,7 +1669,9 @@
           "arabic": "سَبَّحَ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Göklerde ve yerdekilerin hepsi Allah'ı tesbih eder. O, üstündür, hikmet sahibidir.",
           "english": "Whatever is in the heavens and whatever is on the earth exalts Allah, and He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "62:1",
@@ -1428,7 +1682,9 @@
           "arabic": "يُسَبِّـحُ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ الْمَلِكِ الْقُدُّوسِ الْعَزِيزِ الْحَكِيمِ",
           "turkish": "Göklerde ve yerde olanların hepsi, mülkün sahibi, eksiklikten münezzeh, aziz ve hakim olan Allah'ı tesbih eder.",
           "english": "Whatever is in the heavens and whatever is on the earth is exalting Allah, the Sovereign, the Pure, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "62:3",
@@ -1439,7 +1695,9 @@
           "arabic": "وَاٰخَرِينَ مِنْهُمْ لَمَّا يَلْحَقُوا بِهِمْ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "(Peygamberi) müminlerden henüz kendilerine katılmamış bulunan diğer insanlara da göndermiştir. O, azizdir, hakimdir.",
           "english": "And [to] others of them who have not yet joined them. And He is the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "64:18",
@@ -1450,7 +1708,9 @@
           "arabic": "عَالِمُ الْغَيْبِ وَالشَّهَادَةِ الْعَزِيزُ الْحَكِيمُ",
           "turkish": "Görülmeyeni ve görüleni bilendir. Üstündür, hikmet sahibidir.",
           "english": "Knower of the unseen and the witnessed, the Exalted in Might, the Wise",
-          "matchedForm": "العزيز الحكيم"
+          "matchedForm": "العزيز الحكيم",
+          "position": "end",
+          "positionRatio": 1
         }
       ]
     },
@@ -1469,7 +1729,9 @@
           "arabic": "قَالُوا سُبْحَانَكَ لَا عِلْمَ لَنٓا اِلَّا مَا عَلَّمْتَنَا اِنَّكَ اَنْتَ الْعَلِيمُ الْحَكِيمُ",
           "turkish": "Melekler: Ya Rab! Seni noksan sıfatlardan tenzih ederiz, senin bize öğrettiklerinden başka bizim bilgimiz yoktur. Şüphesiz alim ve hakim olan ancak sensin, dediler.",
           "english": "They said, \"Exalted are You; we have no knowledge except what You have taught us. Indeed, it is You who is the Knowing, the Wise",
-          "matchedForm": "العليم الحكيم"
+          "matchedForm": "العليم الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:11",
@@ -1480,7 +1742,9 @@
           "arabic": "يُوصِيكُمُ اللّٰهُ فِٓي اَوْلَادِكُمْ لِلذَّكَرِ مِثْلُ حَظِّ الْاُنْثَيَيْنِ فَاِنْ كُنَّ نِسٓاءً فَوْقَ اثْنَتَيْنِ فَلَهُنَّ ثُلُثَا مَا تَرَكَ وَاِنْ كَانَتْ وَاحِدَةً فَلَهَا النِّصْفُ وَلِاَبَوَيْهِ لِكُلِّ وَاحِدٍ مِنْهُمَا السُّدُسُ مِمَّا تَرَكَ اِنْ كَانَ لَهُ وَلَدٌ فَاِنْ لَمْ يَكُنْ لَهُ وَلَدٌ وَوَرِثَهٓ اَبَوَاهُ فَلِاُمِّهِ الثُّلُثُ فَاِنْ كَانَ لَهٓ اِخْوَةٌ فَلِاُمِّهِ السُّدُسُ مِنْ بَعْدِ وَصِيَّةٍ يُوصِي بِهٓا اَوْ دَيْنٍ اٰبٓاؤُ۬كُمْ وَاَبْنٓاؤُ۬كُمْ لَا تَدْرُونَ اَيُّهُمْ اَقْرَبُ لَكُمْ نَفْعاً فَرِيضَةً مِنَ اللّٰهِ  اِنَّ اللّٰهَ كَانَ عَلِيماً حَكِيماً",
           "turkish": "Allah size, çocuklarınız hakkında, erkeğe, kadının payının iki misli (miras vermenizi) emreder. (Çocuklar) ikiden fazla kadın iseler, ölünün bıraktığının üçte ikisi onlarındır. Eğer yalnız bir kadınsa yarısı onundur. Ölenin çocuğu varsa, ana-babasından her birinin mirastan altıda bir hissesi vardır. Eğer çocuğu yok da ana-babası ona varis olmuş ise, anasına üçte bir (düşer). Eğer ölenin kardeşleri varsa, anasına altıda bir (düşer. Bütün bu paylar ölenin) yapacağı vasiyetten ve borçtan sonradır. Babalarınız ve oğullarınızdan hangisinin size, fayda bakımından daha yakın olduğunu bilemezsiniz. Bunlar Allah tarafından konmuş farzlardır (paylardır). Şüphesiz Allah ilim ve hikmet sahibidir.",
           "english": "Allah instructs you concerning your children: for the male, what is equal to the share of two females. But if there are [only] daughters, two or more, for them is two thirds of one's estate. And if there is only one, for her is half. And for one's parents, to each one of them is a sixth of his estate if he left children. But if he had no children and the parents [alone] inherit from him, then for his mother is one third. And if he had brothers [or sisters], for his mother is a sixth, after any bequest he [may have] made or debt. Your parents or your children - you know not which of them are nearest to you in benefit. [These shares are] an obligation [imposed] by Allah. Indeed, Allah is ever Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:17",
@@ -1491,7 +1755,9 @@
           "arabic": "اِنَّمَا التَّوْبَةُ عَلَى اللّٰهِ لِلَّذِينَ يَعْمَلُونَ السّٓوءَ بِجَهَالَةٍ ثُمَّ يَتُوبُونَ مِنْ قَرِيبٍ فَاُو۬لٰٓئِكَ يَتُوبُ اللّٰهُ عَلَيْهِمْ وَكَانَ اللّٰهُ عَلِيماً حَكِيماً",
           "turkish": "Allah'ın kabul edeceği tevbe, ancak bilmeden kötülük edip de sonra tez elden tevbe edenlerin tevbesidir; işte Allah bunların tevbesini kabul eder; Allah her şeyi bilendir, hikmet sahibidir.",
           "english": "The repentance accepted by Allah is only for those who do wrong in ignorance [or carelessness] and then repent soon after. It is those to whom Allah will turn in forgiveness, and Allah is ever Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:24",
@@ -1502,7 +1768,9 @@
           "arabic": "وَالْمُحْصَنَاتُ مِنَ النِّسٓاءِ اِلَّا مَا مَلَكَتْ اَيْمَانُكُمْ كِتَابَ اللّٰهِ عَلَيْكُمْ وَاُحِلَّ لَكُمْ مَا وَرٓاءَ ذٰلِكُمْ اَنْ تَبْتَغُوا بِاَمْوَالِكُمْ مُحْصِنِينَ غَيْرَ مُسَافِحِينَ فَمَا اسْتَمْتَعْتُمْ بِهِ مِنْهُنَّ فَاٰتُوهُنَّ اُجُورَهُنَّ فَرِيضَةً وَلَا جُنَاحَ عَلَيْكُمْ فِيمَا تَرَاضَيْتُمْ بِهِ مِنْ بَعْدِ الْفَرِيضَةِ اِنَّ اللّٰهَ كَانَ عَلِيماً حَكِيماً",
           "turkish": "(Harp esiri olarak) sahip olduğunuz cariyeler müstesna, evli kadınlar da size haram kılındı. Allah'ın size emri budur. Bunlardan başkasını, namuslu olmak ve zina etmemek üzere mallarınızla (mehirlerini vererek) istemeniz size helal kılındı. Onlardan faydalanmanıza karşılık kararlaştırılmış olan mehirlerini verin. Mehir kesiminden sonra (bir miktar indirim için) karşılıklı anlaşmanızda size günah yoktur. Şüphesiz Allah ilim ve hikmet sahibidir.",
           "english": "And [also prohibited to you are all] married women except those your right hands possess. [This is] the decree of Allah upon you. And lawful to you are [all others] beyond these, [provided] that you seek them [in marriage] with [gifts from] your property, desiring chastity, not unlawful sexual intercourse. So for whatever you enjoy [of marriage] from them, give them their due compensation as an obligation. And there is no blame upon you for what you mutually agree to beyond the obligation. Indeed, Allah is ever Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:26",
@@ -1513,7 +1781,9 @@
           "arabic": "يُرِيدُ اللّٰهُ لِيُبَيِّنَ لَكُمْ وَيَهْدِيَكُمْ سُنَنَ الَّذِينَ مِنْ قَبْلِكُمْ وَيَتُوبَ عَلَيْكُمْ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Allah size (bilmediklerinizi) açıklamak ve sizi, sizden önceki (iyi) lerin yollarına iletmek ve sizin günahlarınızı bağışlamak istiyor. Allah hakkıyle bilicidir, yegane hikmet sahibidir.",
           "english": "Allah wants to make clear to you [the lawful from the unlawful] and guide you to the [good] practices of those before you and to accept your repentance. And Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:92",
@@ -1524,7 +1794,9 @@
           "arabic": "وَمَا كَانَ لِمُؤْمِنٍ اَنْ يَقْتُلَ مُؤْمِناً اِلَّا خَطَـٔاً وَمَنْ قَتَلَ مُـؤْمِناً خَطَــٔاً فَـتَـحْرِيرُ رَقَبَةٍ مُؤْمِنَةٍ وَدِيَةٌ مُسَلَّمَةٌ اِلٰٓى اَهْلِهٓ اِلّٓا اَنْ يَصَّدَّقُوا فَاِنْ كَانَ مِنْ قَوْمٍ عَدُوٍّ لَكُمْ وَهُوَ مُؤْمِنٌ فَتَحْرِيرُ رَقَبَةٍ مُؤْمِنَةٍ وَاِنْ كَانَ مِنْ قَوْمٍ بَيْنَكُمْ وَبَيْنَهُمْ مِيثَاقٌ فَدِيَةٌ مُسَلَّمَةٌ اِلٰٓى اَهْلِهِ وَتَحْرِيرُ رَقَبَةٍ مُؤْمِنَةٍ فَمَنْ لَمْ يَجِدْ فَصِيَامُ شَهْرَيْنِ مُتَتَابِعَيْنِ تَوْبَةً مِنَ اللّٰهِ وَكَانَ اللّٰهُ عَلِيماً حَكِيماً",
           "turkish": "Yanlışlıkla olması dışında bir müminin bir mümini öldürmeye hakkı olamaz. Yanlışlıkla bir mümini öldüren kimsenin, mümin bir köle azat etmesi ve ölenin ailesine teslim edilecek bir diyet vermesi gereklidir. Meğer ki ölünün ailesi o diyeti bağışlamış ola. (Bu takdirde diyet vermez). Eğer öldürülen mümin olduğu halde, size düşman olan bir toplumdan ise mümin bir köle azat etmek lazımdır. Eğer kendileriyle aranızda antlaşma bulunan bir toplumdan ise ailesine teslim edilecek bir diyet ve bir mümin köleyi azat etmek gerekir. Bunları bulamayan kimsenin, Allah tarafından tevbesinin kabulü için iki ay peşpeşe oruç tutması lazımdır. Allah her şeyi bilendir, hikmet sahibidir.",
           "english": "And never is it for a believer to kill a believer except by mistake. And whoever kills a believer by mistake - then the freeing of a believing slave and a compensation payment presented to the deceased's family [is required] unless they give [up their right as] charity. But if the deceased was from a people at war with you and he was a believer - then [only] the freeing of a believing slave; and if he was from a people with whom you have a treaty - then a compensation payment presented to his family and the freeing of a believing slave. And whoever does not find [one or cannot afford to buy one] - then [instead], a fast for two months consecutively, [seeking] acceptance of repentance from Allah. And Allah is ever Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:104",
@@ -1535,7 +1807,9 @@
           "arabic": "وَلَا تَهِنُوا فِي ابْتِغٓاءِ الْقَوْمِ اِنْ تَكُونُوا تَأْلَمُونَ فَاِنَّهُمْ يَأْلَمُونَ كَمَا تَأْلَمُونَ وَتَرْجُونَ مِنَ اللّٰهِ مَا لَا يَرْجُونَ وَكَانَ اللّٰهُ عَلِيماً حَكِيماً۟",
           "turkish": "O (düşman) topluluğu takip etmekte gevşeklik göstermeyin. Eğer siz acı çekiyorsanız onlar da, sizin çektiğiniz gibi acı çekmektedirler. Üstelik siz Allah'tan, onların ümit etmedikleri şeyleri umuyorsunuz. Allah ilim ve hikmet sahibidir.",
           "english": "And do not weaken in pursuit of the enemy. If you should be suffering - so are they suffering as you are suffering, but you expect from Allah that which they expect not. And Allah is ever Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:111",
@@ -1546,7 +1820,9 @@
           "arabic": "وَمَنْ يَكْسِبْ اِثْماً فَاِنَّمَا يَكْسِبُهُ عَلٰى نَفْسِهِ وَكَانَ اللّٰهُ عَلِيماً حَكِيماً",
           "turkish": "Kim bir günah kazanırsa onu ancak kendi aleyhine kazanmış olur. Allah her şeyi bilicidir, büyük hikmet sahibidir.",
           "english": "And whoever commits a sin only earns it against himself. And Allah is ever Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "4:170",
@@ -1557,7 +1833,9 @@
           "arabic": "يٓا اَيُّهَا النَّاسُ قَدْ جٓاءَكُمُ الرَّسُولُ بِالْحَقِّ مِنْ رَبِّكُمْ فَاٰمِنُوا خَيْراً لَكُمْ وَاِنْ تَكْفُرُوا فَاِنَّ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَالْاَرْضِ وَكَانَ اللّٰهُ عَلِيماً حَكِيماً",
           "turkish": "Ey insanlar! Resul size Rabbinizden gerçeği getirdi (bunda şüphe yoktur), şu halde kendi iyiliğinize olarak (ona) iman edin. Eğer inkar ederseniz, göklerde ve yerde ne varsa şüphesiz hepsi Allah'ındır. (O'nun sizin inanmanıza ihtiyacı yoktur). Allah geniş ilim ve hikmet sahibidir.",
           "english": "O Mankind, the Messenger has come to you with the truth from your Lord, so believe; it is better for you. But if you disbelieve - then indeed, to Allah belongs whatever is in the heavens and earth. And ever is Allah Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "6:83",
@@ -1568,7 +1846,9 @@
           "arabic": "وَتِلْكَ حُجَّتُنٓا اٰتَيْنَاهٓا اِبْرٰهِيمَ عَلٰى قَوْمِهِ نَرْفَعُ دَرَجَاتٍ مَنْ نَشٓاءُ اِنَّ رَبَّكَ حَكِيمٌ عَلِيمٌ",
           "turkish": "İşte bu, kavmine karşı İbrahim'e verdiğimiz delillerimizdir. Biz dilediğimiz kimselerin derecelerini yükseltiriz. Şüphesiz ki senin Rabbin hikmet sahibidir, hakkıyle bilendir.",
           "english": "And that was Our [conclusive] argument which We gave Abraham against his people. We raise by degrees whom We will. Indeed, your Lord is Wise and Knowing",
-          "matchedForm": "حكيم عليم"
+          "matchedForm": "حكيم عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "6:128",
@@ -1579,7 +1859,9 @@
           "arabic": "وَيَوْمَ يَحْشُرُهُمْ جَمِيعاً يَا مَعْشَرَ الْجِنِّ قَدِ اسْتَكْثَرْتُمْ مِنَ الْاِنْسِ وَقَالَ اَوْلِيٓاؤُ۬هُمْ مِنَ الْاِنْسِ رَبَّـنَا اسْتَمْتَعَ بَعْضُنَا بِبَعْضٍ وَبَلَغْنٓا اَجَلَنَا الَّـذِٓي اَجَّلْتَ لَنَا قَالَ النَّارُ مَثْوٰيكُمْ خَالِدِينَ فِيهٓا اِلَّا مَا شٓاءَ اللّٰهُ اِنَّ رَبَّكَ حَكِيمٌ عَلِيمٌ",
           "turkish": "Allah, onların hepsini bir araya topladığı gün, \"Ey cinler (şeytanlar) topluluğu! Siz insanlarla çok uğraştınız\" der. Onların, insanlardan olan dostları ise: \"Ey Rabbimiz! (Biz) birbirimizden yararlandık ve bize verdiğin sürenin sonuna ulaştık\" derler. Allah da buyurur ki: Allah'ın dilediği hariç, içinde ebedi kalacağınız yer ateştir. Şüphesiz Rabbin hikmet sahibidir, bilendir.",
           "english": "And [mention, O Muhammad], the Day when He will gather them together [and say], \"O company of jinn, you have [misled] many of mankind.\" And their allies among mankind will say, \"Our Lord, some of us made use of others, and we have [now] reached our term, which you appointed for us.\" He will say, \"The Fire is your residence, wherein you will abide eternally, except for what Allah wills. Indeed, your Lord is Wise and Knowing",
-          "matchedForm": "حكيم عليم"
+          "matchedForm": "حكيم عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "6:139",
@@ -1590,7 +1872,9 @@
           "arabic": "وَقَالُوا مَا فِي بُطُونِ هٰذِهِ الْاَنْعَامِ خَالِصَةٌ لِذُكُورِنَا وَمُحَرَّمٌ عَلٰٓى اَزْوَاجِنَا وَاِنْ يَكُنْ مَيْتَةً فَهُمْ فِيهِ شُرَكٓاءُ سَيَجْزِيهِمْ وَصْفَهُمْ اِنَّهُ حَكِيمٌ عَلِيمٌ",
           "turkish": "Dediler ki: \"Şu hayvanların karınlarında olanlar yalnız erkeklerimize aittir, kadınlarımıza ise haram kılınmıştır. Şayet (yavru) ölü doğarsa, o zaman (kadın erkek) hepsi onda ortaktır.\" Allah bu değerlendirmelerinin cezasını verecektir. Şüphesiz ki O hikmet sahibidir, hakkıyla bilendir.",
           "english": "And they say, \"What is in the bellies of these animals is exclusively for our males and forbidden to our females. But if it is [born] dead, then all of them have shares therein.\" He will punish them for their description. Indeed, He is Wise and Knowing",
-          "matchedForm": "حكيم عليم"
+          "matchedForm": "حكيم عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "8:71",
@@ -1601,7 +1885,9 @@
           "arabic": "وَاِنْ يُرِيدُوا خِيَانَتَكَ فَقَدْ خَانُوا اللّٰهَ مِنْ قَبْلُ فَاَمْكَنَ مِنْهُمْ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Eğer sana hainlik etmek isterlerse (üzülme, çünkü) daha önce Allah'a da hainlik etmişlerdi de Allah onlara karşı sana imkan ve kudret vermişti. Allah bilendir, hikmet sahibidir.",
           "english": "But if they intend to betray you - then they have already betrayed Allah before, and He empowered [you] over them. And Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:15",
@@ -1612,7 +1898,9 @@
           "arabic": "وَيُذْهِبْ غَيْظَ قُلُوبِهِمْ وَيَتُوبُ اللّٰهُ عَلٰى مَنْ يَشٓاءُ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Ve onların (müminlerin) kalplerinden öfkeyi gidersin. Allah dilediğinin tevbesini kabul eder. Allah bilendir, hikmet sahibidir.",
           "english": "And remove the fury in the believers' hearts. And Allah turns in forgiveness to whom He wills; and Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:28",
@@ -1623,7 +1911,9 @@
           "arabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اِنَّمَا الْمُشْرِكُونَ نَجَسٌ فَلَا يَقْرَبُوا الْمَسْجِدَ الْحَرَامَ بَعْدَ عَامِهِمْ هٰذَا وَاِنْ خِفْتُمْ عَيْلَةً فَسَوْفَ يُغْنِيكُمُ اللّٰهُ مِنْ فَضْلِهٓ اِنْ شٓاءَ اِنَّ اللّٰهَ عَلِيمٌ حَكِيمٌ",
           "turkish": "Ey iman edenler! Müşrikler ancak bir pisliktir. Onun için bu yıllarından sonra Mescid-i Haram'a yaklaşmasınlar. Eğer yoksulluktan korkarsanız, (biliniz ki) Allah dilerse sizi kendi lütfundan zengin edecektir. Şüphesiz Allah iyi bilendir, hikmet sahibidir.",
           "english": "O you who have believed, indeed the polytheists are unclean, so let them not approach al-Masjid al-Haram after this, their [final] year. And if you fear privation, Allah will enrich you from His bounty if He wills. Indeed, Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:60",
@@ -1634,7 +1924,9 @@
           "arabic": "اِنَّمَا الصَّدَقَاتُ لِلْفُقَـرٓاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَ۬لَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللّٰهِ وَابْنِ السَّبِيلِ فَرِيضَةً مِنَ اللّٰهِ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Sadakalar (zekatlar) Allah'tan bir farz olarak ancak, yoksullara, düşkünlere, (zekat toplayan) memurlara, gönülleri (İslam'a) ısındırılacak olanlara, (hürriyetlerini satın almaya çalışan) kölelere, borçlulara, Allah yolunda çalışıp cihad edenlere, yolcuya mahsustur. Allah pek iyi bilendir, hikmet sahibidir.",
           "english": "Zakah expenditures are only for the poor and for the needy and for those employed to collect [zakah] and for bringing hearts together [for Islam] and for freeing captives [or slaves] and for those in debt and for the cause of Allah and for the [stranded] traveler - an obligation [imposed] by Allah. And Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:97",
@@ -1645,7 +1937,9 @@
           "arabic": "اَلْاَعْرَابُ اَشَدُّ كُفْراً وَنِفَاقاً وَاَجْدَرُ اَلَّا يَعْلَمُوا حُدُودَ مٓا اَنْزَلَ اللّٰهُ عَلٰى رَسُولِهِ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Bedeviler, kafirlik ve münafıklık bakımından hem daha beter, hem de Allah'ın Resulüne indirdiği kanunları tanımamaya daha yatkındır. Allah çok iyi bilendir, hikmet sahibidir.",
           "english": "The bedouins are stronger in disbelief and hypocrisy and more likely not to know the limits of what [laws] Allah has revealed to His Messenger. And Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:106",
@@ -1656,7 +1950,9 @@
           "arabic": "وَاٰخَرُونَ مُرْجَوْنَ لِاَمْرِ اللّٰهِ اِمَّا يُعَذِّبُهُمْ وَاِمَّا يَتُوبُ عَلَيْهِمْ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "(Sefere katılmayanlardan) diğer bir gurup da Allah'ın emrine bırakılmışlardır. O, bunlara ya azap eder veya tevbelerini kabul eder. Allah çok bilendir, hikmet sahibidir.",
           "english": "And [there are] others deferred until the command of Allah - whether He will punish them or whether He will forgive them. And Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:110",
@@ -1667,7 +1963,9 @@
           "arabic": "لَا يَزَالُ بُنْيَانُهُمُ الَّذِي بَنَوْا رِيبَةً فِي قُلُوبِهِمْ اِلّٓا اَنْ تَقَطَّعَ قُلُوبُهُمْ وَاللّٰهُ عَلِيمٌ حَكِيمٌ۟",
           "turkish": "Yaptıkları bina, (ölüp de) kalpleri parçalanıncaya kadar yüreklerine devamlı olarak bir kuşku (sebebi) olacaktır. Allah çok iyi bilendir, hikmet sahibidir.",
           "english": "Their building which they built will not cease to be a [cause of] skepticism in their hearts until their hearts are stopped. And Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "12:6",
@@ -1678,7 +1976,9 @@
           "arabic": "وَكَذٰلِكَ يَجْتَبِيكَ رَبُّكَ وَيُعَلِّمُكَ مِنْ تَأْوِيلِ الْاَحَادِيثِ وَيُتِمُّ نِعْمَتَهُ عَلَيْكَ وَعَلٰٓى اٰلِ يَعْقُوبَ كَمٓا اَتَمَّهَا عَلٰٓى اَبَوَيْكَ مِنْ قَبْلُ اِبْرٰهِيمَ وَاِسْحٰقَ اِنَّ رَبَّكَ عَلِيمٌ حَكِيمٌ۟",
           "turkish": "İşte böylece Rabbin seni seçecek, sana (rüyada görülen) olayların yorumunu öğretecek ve daha önce iki atan İbrahim ve İshak'a nimetini tamamladığı gibi sana ve Ya'kub soyuna da nimetini tamamlayacaktır. Çünkü Rabbin çok iyi bilendir, hikmet sahibidir.",
           "english": "And thus will your Lord choose you and teach you the interpretation of narratives and complete His favor upon you and upon the family of Jacob, as He completed it upon your fathers before, Abraham and Isaac. Indeed, your Lord is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "12:83",
@@ -1689,7 +1989,9 @@
           "arabic": "قَالَ بَلْ سَوَّلَتْ لَكُمْ اَنْفُسُكُمْ اَمْراً فَصَبْرٌ جَمِيلٌ عَسَى اللّٰهُ اَنْ يَأْتِيَنِي بِهِمْ جَمِيعاً اِنَّهُ هُوَ الْعَلِيمُ الْحَكِيمُ",
           "turkish": "(Babaları) dedi ki: \"Hayır, nefisleriniz sizi (böyle) bir işe sürükledi. (Bana düşen) artık, güzel bir sabırdır. Umulur ki, Allah onların hepsini bana getirir. Çünkü O çok iyi bilendir, hikmet sahibidir.\"",
           "english": "[Jacob] said, \"Rather, your souls have enticed you to something, so patience is most fitting. Perhaps Allah will bring them to me all together. Indeed it is He who is the Knowing, the Wise",
-          "matchedForm": "العليم الحكيم"
+          "matchedForm": "العليم الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "12:100",
@@ -1700,7 +2002,9 @@
           "arabic": "وَرَفَعَ اَبَوَيْهِ عَلَى الْعَرْشِ وَخَرُّوا لَهُ سُجَّداً وَقَالَ يٓا اَبَتِ هٰذَا تَأْوِيلُ رُءْيَايَ مِنْ قَبْلُ قَدْ جَعَلَهَا رَبِّي حَقاًّ وَقَدْ اَحْسَنَ بِٓي اِذْ اَخْرَجَنِي مِنَ السِّجْنِ وَجٓاءَ بِكُمْ مِنَ الْبَدْوِ مِنْ بَعْدِ اَنْ نَزَغَ الشَّيْطَانُ بَيْنِي وَبَيْنَ اِخْوَتِي اِنَّ رَبِّي لَطِيفٌ لِمَا يَشٓاءُ اِنَّهُ هُوَ الْعَلِيمُ الْحَكِيمُ",
           "turkish": "Ana ve babasını tahtının üstüne çıkartıp oturttu ve hepsi onun için (ona kavuştukları için) secdeye kapandılar. (Yusuf) dedi ki: \"Ey babacığım! İşte bu, daha önce (gördüğüm) rüyanın yorumudur. Rabbim onu gerçekleştirdi. Doğrusu Rabbim bana (çok şey) lütfetti. Çünkü beni zindandan çıkardı ve şeytan benimle kardeşlerimin arasını bozduktan sonra sizi çölden getirdi. Şüphesiz ki Rabbim dilediğine lütfedicidir. Kuşkusuz O çok iyi bilendir, hikmet sahibidir.\"",
           "english": "And he raised his parents upon the throne, and they bowed to him in prostration. And he said, \"O my father, this is the explanation of my vision of before. My Lord has made it reality. And He was certainly good to me when He took me out of prison and brought you [here] from bedouin life after Satan had induced [estrangement] between me and my brothers. Indeed, my Lord is Subtle in what He wills. Indeed, it is He who is the Knowing, the Wise",
-          "matchedForm": "العليم الحكيم"
+          "matchedForm": "العليم الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "15:25",
@@ -1711,7 +2015,9 @@
           "arabic": "وَاِنَّ رَبَّكَ هُوَ يَحْشُرُهُمْ اِنَّهُ حَكِيمٌ عَلِيمٌ۟",
           "turkish": "Şüphesiz Rabbin onları (kıyamette) toplayacaktır. Çünkü O, hakimdir, alimdir.",
           "english": "And indeed, your Lord will gather them; indeed, He is Wise and Knowing",
-          "matchedForm": "حكيم عليم"
+          "matchedForm": "حكيم عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "22:52",
@@ -1722,7 +2028,9 @@
           "arabic": "وَمٓا اَرْسَلْنَا مِنْ قَبْلِكَ مِنْ رَسُولٍ وَلَا نَبِيٍّ اِلّٓا اِذَا تَمَنّٰٓى اَلْقَى الشَّيْطَانُ فِٓي اُمْنِيَّتِهِ فَيَنْسَخُ اللّٰهُ مَا يُلْقِي الشَّيْطَانُ ثُمَّ يُحْكِمُ اللّٰهُ اٰيَاتِهِ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "(Ey Muhammed!) Biz, senden önce hiçbir resul ve nebi göndermedik ki, o, bir temennide bulunduğunda, şeytan onun dileğine ille de (beşeri arzular) katmaya kalkışmasın. Ne var ki Allah, şeytanın katacağı şeyi iptal eder. Sonra Allah, kendi ayetlerini (lafız ve mana bakımından) sağlam olarak yerleştirir. Allah, hakkıyla bilendir, hüküm ve hikmet sahibidir.",
           "english": "And We did not send before you any messenger or prophet except that when he spoke [or recited], Satan threw into it [some misunderstanding]. But Allah abolishes that which Satan throws in; then Allah makes precise His verses. And Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "24:18",
@@ -1733,7 +2041,9 @@
           "arabic": "وَيُبَيِّنُ اللّٰهُ لَكُمُ الْاٰيَاتِ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Ve Allah ayetleri size açıklıyor. Allah, (işin iç yüzünü) çok iyi bilir, hüküm ve hikmet sahibidir.",
           "english": "And Allah makes clear to you the verses, and Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "24:58",
@@ -1744,7 +2054,9 @@
           "arabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لِيَسْتَأْذِنْكُمُ الَّذِينَ مَلَكَتْ اَيْمَانُكُمْ وَالَّذِينَ لَمْ يَبْلُغُوا الْحُلُمَ مِنْكُمْ ثَلٰثَ مَرَّاتٍ مِنْ قَبْلِ صَلٰوةِ الْفَجْرِ وَحِينَ تَضَعُونَ ثِيَابَكُمْ مِنَ الظَّهِيرَةِ وَمِنْ بَعْدِ صَلٰوةِ الْعِشٓاءِ۠ ثَلٰثُ عَوْرَاتٍ لَكُمْ لَيْسَ عَلَيْكُمْ وَلَا عَلَيْهِمْ جُنَاحٌ بَعْدَهُنَّ طَوَّافُونَ عَلَيْكُمْ بَعْضُكُمْ عَلٰى بَعْضٍ كَذٰلِكَ يُبَيِّنُ اللّٰهُ لَكُمُ الْاٰيَاتِ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Ey müminler! Ellerinizin altında bulunan (köle ve cariyeleriniz) ve içinizden henüz ergenlik çağına girmemiş olanlar, sabah namazından önce, öğleyin soyunduğunuz vakit ve yatsı namazından sonra (yanınıza gireceklerinde) sizden üç defa izin istesinler. Bunlar, mahrem (kapanmamış) halde bulunabileceğiniz üç vakittir. Bu vakitlerin dışında ne sizin için ne de onlar için bir mahzur yoktur. Birbirinizin yanına girip çıkabilirsiniz. İşte Allah ayetleri size böyle açıklar. Allah, (her şeyi) bilendir, hüküm ve hikmet sahibidir.",
           "english": "O you who have believed, let those whom your right hands possess and those who have not [yet] reached puberty among you ask permission of you [before entering] at three times: before the dawn prayer and when you put aside your clothing [for rest] at noon and after the night prayer. [These are] three times of privacy for you. There is no blame upon you nor upon them beyond these [periods], for they continually circulate among you - some of you, among others. Thus does Allah make clear to you the verses; and Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "24:59",
@@ -1755,7 +2067,9 @@
           "arabic": "وَاِذَا بَلَغَ الْاَطْفَالُ مِنْكُمُ الْحُلُمَ فَلْيَسْتَأْذِنُوا كَمَا اسْتَأْذَنَ الَّذِينَ مِنْ قَبْلِهِمْ  كَذٰلِكَ يُبَيِّنُ اللّٰهُ لَكُمْ اٰيَاتِهِ وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Çocuklarınız ergenlik çağına girdiklerinde, kendilerinden öncekiler (büyükleri) izin istedikleri gibi onlar da izin istesinler. İşte Allah, ayetlerini size böyle açıklar. Allah alimdir, hakimdir.",
           "english": "And when the children among you reach puberty, let them ask permission [at all times] as those before them have done. Thus does Allah make clear to you His verses; and Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "27:6",
@@ -1766,7 +2080,9 @@
           "arabic": "وَاِنَّكَ لَتُلَقَّى الْقُرْاٰنَ مِنْ لَدُنْ حَكِيمٍ عَلِيمٍ",
           "turkish": "(Resulüm!) Şüphesiz ki bu Kur'an, hikmet sahibi ve her şeyi bilen Allah tarafından sana verilmektedir.",
           "english": "And indeed, [O Muhammad], you receive the Qur'an from one Wise and Knowing",
-          "matchedForm": "حكيم عليم"
+          "matchedForm": "حكيم عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "33:1",
@@ -1777,7 +2093,9 @@
           "arabic": "يٓا اَيُّهَا النَّبِيُّ اتَّقِ اللّٰهَ وَلَا تُطِعِ الْكَافِرِينَ وَالْمُنَافِقِينَ اِنَّ اللّٰهَ كَانَ عَلِيماً حَكِيماً",
           "turkish": "Ey Peygamber! Allah'tan kork, kafirlere ve münafıklara boyun eğme. Elbette Allah her şeyi bilmekte ve yerli yerince yapmaktadır.",
           "english": "O Prophet, fear Allah and do not obey the disbelievers and the hypocrites. Indeed, Allah is ever Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "43:84",
@@ -1788,7 +2106,9 @@
           "arabic": "وَهُوَ الَّذِي فِي السَّمٓاءِ اِلٰهٌ وَفِي الْاَرْضِ اِلٰهٌ وَهُوَ الْحَكِيمُ الْعَلِيمُ",
           "turkish": "Gökteki İlah da, yerdeki İlah da O'dur. O, hakimdir, her şeyi bilendir.",
           "english": "And it is Allah who is [the only] deity in the heaven, and on the earth [the only] deity. And He is the Wise, the Knowing",
-          "matchedForm": "الحكيم العليم"
+          "matchedForm": "الحكيم العليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "48:4",
@@ -1799,7 +2119,9 @@
           "arabic": "هُوَ الَّـذِٓي اَنْزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ لِيَزْدَادٓوا اِيمَاناً مَعَ اِيمَانِهِمْ وَلِلّٰهِ جُنُودُ السَّمٰوَاتِ وَالْاَرْضِ وَكَانَ اللّٰهُ عَلِيماً حَكِيماً",
           "turkish": "İmanlarını bir kat daha arttırsınlar diye müminlerin kalplerine güven indiren O'dur. Göklerin ve yerin orduları Allah'ındır. Allah bilendir, her şeyi hikmetle yapandır.",
           "english": "It is He who sent down tranquillity into the hearts of the believers that they would increase in faith along with their [present] faith. And to Allah belong the soldiers of the heavens and the earth, and ever is Allah Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "49:8",
@@ -1810,7 +2132,9 @@
           "arabic": "فَضْلاً مِنَ اللّٰهِ وَنِعْمَةً وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Bu, Allah'tan bir lütuf ve nimettir. Allah alimdir, hakimdir.",
           "english": "[It is] as bounty from Allah and favor. And Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "51:30",
@@ -1821,7 +2145,9 @@
           "arabic": "قَالُوا كَذٰلِكِ قَالَ رَبُّكِ اِنَّهُ هُوَ الْحَكِيمُ الْعَلِيمُ",
           "turkish": "Onlar: \"Bu böyledir. Rabbin söylemiştir. O, hikmet sahibidir, bilendir\" dediler.",
           "english": "They said, \"Thus has said your Lord; indeed, He is the Wise, the Knowing",
-          "matchedForm": "الحكيم العليم"
+          "matchedForm": "الحكيم العليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "60:10",
@@ -1832,7 +2158,9 @@
           "arabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اِذَا جٓاءَكُمُ الْمُؤْمِنَاتُ مُهَاجِرَاتٍ فَامْتَحِنُوهُنَّ  اَللّٰهُ اَعْلَمُ بِاِيمَانِهِنَّ  فَاِنْ عَلِمْتُمُوهُنَّ مُؤْمِنَاتٍ فَلَا تَرْجِعُوهُنَّ اِلَى الْكُفَّارِ  لَا هُنَّ حِلٌّ لَهُمْ وَلَا هُمْ يَحِلُّونَ لَهُنَّ وَاٰتُوهُمْ مٓا اَنْفَقُوا وَلَا جُنَاحَ عَلَيْكُمْ اَنْ تَنْكِحُوهُنَّ اِذٓا اٰتَيْتُمُوهُنَّ اُجُورَهُنَّ وَلَا تُمْسِكُوا بِعِصَمِ الْكَوَافِرِ وَسْـَٔلُوا مٓا اَنْفَقْتُمْ وَلْيَسْـَٔلُوا مٓا اَنْفَقُوا  ذٰلِكُمْ حُكْمُ اللّٰهِ  يَحْكُمُ بَيْنَكُمْ  وَاللّٰهُ عَلِيمٌ حَكِيمٌ",
           "turkish": "Ey iman edenler! Mümin kadınlar hicret ederek size geldiği zaman, onları, imtihan edin. Allah onların imanlarını daha iyi bilir. Eğer siz de onların inanmış kadınlar olduklarını öğrenirseniz onları kafirlere geri göndermeyin. Bunlar onlara helal değildir. Onlar da bunlara helal olmazlar. Onların (kocalarının) sarfettiklerini (mehirleri) geri verin. Mehirlerini kendilerine verdiğiniz zaman onlarla evlenmenizde size bir günah yoktur. Kafir kadınları nikahınızda tutmayın, sarfettiğinizi isteyin. Onlar da sarfettiklerini istesinler. Allah'ın hükmü budur. Aranızda O hükmeder. Allah bilendir, hikmet sahibidir.",
           "english": "O you who have believed, when the believing women come to you as emigrants, examine them. Allah is most knowing as to their faith. And if you know them to be believers, then do not return them to the disbelievers; they are not lawful [wives] for them, nor are they lawful [husbands] for them. But give the disbelievers what they have spent. And there is no blame upon you if you marry them when you have given them their due compensation. And hold not to marriage bonds with disbelieving women, but ask for what you have spent and let them ask for what they have spent. That is the judgement of Allah; He judges between you. And Allah is Knowing and Wise",
-          "matchedForm": "عليم حكيم"
+          "matchedForm": "عليم حكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "66:2",
@@ -1843,7 +2171,9 @@
           "arabic": "قَدْ فَرَضَ اللّٰهُ لَـكُمْ تَحِلَّةَ اَيْمَانِكُمْ وَاللّٰهُ مَوْلٰيكُمْ وَهُوَ الْعَلِيمُ الْحَكِيمُ",
           "turkish": "Allah, (gerektiğinde) yeminlerinizi bozmanızı size meşru kılmıştır. Sizin yardımcınız Allah'tır. O, bilendir, hikmet sahibidir.",
           "english": "Allah has already ordained for you [Muslims] the dissolution of your oaths. And Allah is your protector, and He is the Knowing, the Wise",
-          "matchedForm": "العليم الحكيم"
+          "matchedForm": "العليم الحكيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "76:30",
@@ -1854,7 +2184,9 @@
           "arabic": "وَمَا تَشٓاؤُ۫نَ اِلّٓا اَنْ يَشٓاءَ اللّٰهُ اِنَّ اللّٰهَ  كَانَ عَلِيماً حَكِيماً",
           "turkish": "Sizler ancak Rabbinizin dilemesi (izin vermesi) sayesinde (bir şeyi) dileyebilirsiniz. Şüphesiz Allah her şeyi bilendir, hikmet sahibidir.",
           "english": "And you do not will except that Allah wills. Indeed, Allah is ever Knowing and Wise",
-          "matchedForm": "عليما حكيما"
+          "matchedForm": "عليما حكيما",
+          "position": "end",
+          "positionRatio": 1
         }
       ]
     },
@@ -1873,7 +2205,9 @@
           "arabic": "فَتَلَقّٰٓى اٰدَمُ مِنْ رَبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ اِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ",
           "turkish": "Bu durum devam ederken Âdem, Rabbinden bir takım ilhamlar aldı ve derhal tevbe etti. Çünkü Allah tevbeleri kabul eden ve merhameti bol olandır.",
           "english": "Then Adam received from his Lord [some] words, and He accepted his repentance. Indeed, it is He who is the Accepting of repentance, the Merciful",
-          "matchedForm": "التواب الرحيم"
+          "matchedForm": "التواب الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:54",
@@ -1884,7 +2218,9 @@
           "arabic": "وَاِذْ قَالَ مُوسٰى لِقَوْمِهِ يَا قَوْمِ اِنَّكُمْ ظَلَمْتُمْ اَنْفُسَكُمْ بِاتِّخَاذِكُمُ الْعِجْلَ فَتُوبٓوا اِلٰى بَارِئِكُمْ فَاقْتُلٓوا اَنْفُسَكُمْ  ذٰلِكُمْ خَيْرٌ لَكُمْ عِنْدَ بَارِئِكُمْ  فَتَابَ عَلَيْكُمْ  اِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ",
           "turkish": "Musa kavmine demişti ki: Ey kavmim! Şüphesiz siz, buzağıyı (tanrı) edinmekle kendinize kötülük ettiniz. Onun için Yaradanınıza tevbe edin de nefislerinizi (kötü duygularınızı) öldürün. Öyle yapmanız Yaratıcınızın katında sizin için daha iyidir. Böylece Allah tevbenizi kabul etmiş olur. Çünkü acıyıp tevbeleri kabul eden ancak O'dur.",
           "english": "And [recall] when Moses said to his people, \"O my people, indeed you have wronged yourselves by your taking of the calf [for worship]. So repent to your Creator and kill yourselves. That is best for [all of] you in the sight of your Creator.\" Then He accepted your repentance; indeed, He is the Accepting of repentance, the Merciful",
-          "matchedForm": "التواب الرحيم"
+          "matchedForm": "التواب الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:128",
@@ -1895,7 +2231,9 @@
           "arabic": "رَبَّنَا وَاجْعَلْنَا مُسْلِمَيْنِ لَكَ وَمِنْ ذُرِّيَّتِنٓا اُمَّةً مُسْلِمَةً لَكَ وَاَرِنَا مَنَاسِكَنَا وَتُبْ عَلَيْنَا اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيمُ",
           "turkish": "Ey Rabbimiz! Bizi sana boyun eğenlerden kıl, neslimizden de sana itaat eden bir ümmet çıkar, bize ibadet usullerimizi göster, tevbemizi kabul et; zira, tevbeleri çokça kabul eden, çok merhametli olan ancak sensin.",
           "english": "Our Lord, and make us Muslims [in submission] to You and from our descendants a Muslim nation [in submission] to You. And show us our rites and accept our repentance. Indeed, You are the Accepting of repentance, the Merciful",
-          "matchedForm": "التواب الرحيم"
+          "matchedForm": "التواب الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:160",
@@ -1906,7 +2244,9 @@
           "arabic": "اِلَّا الَّذِينَ تَابُوا وَاَصْلَحُوا وَبَيَّنُوا فَاُو۬لٰٓئِكَ اَتُوبُ عَلَيْهِمْ وَاَنَا التَّوَّابُ الرَّحِيمُ",
           "turkish": "Ancak tevbe edip durumlarını düzeltenler ve gerçeği açıkça ortaya koyanlar başkadır. Zira ben onların tevbelerini kabul ederim. Ben tevbeyi çokça kabul eden ve çokça esirgeyenim.",
           "english": "Except for those who repent and correct themselves and make evident [what they concealed]. Those - I will accept their repentance, and I am the Accepting of repentance, the Merciful",
-          "matchedForm": "التواب الرحيم"
+          "matchedForm": "التواب الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:104",
@@ -1917,7 +2257,9 @@
           "arabic": "اَلَمْ يَعْلَمٓوا اَنَّ اللّٰهَ هُوَ يَقْبَلُ التَّوْبَةَ عَنْ عِبَادِهِ وَيَأْخُذُ الصَّدَقَاتِ وَاَنَّ اللّٰهَ هُوَ التَّوَّابُ الرَّحِيمُ",
           "turkish": "Allah'ın, kullarının tevbesini kabul edeceğini, sadakaları geri çevirmeyeceğini ve Allah'ın tevbeyi çok kabul eden ve pek esirgeyen olduğunu hala bilmezler mi?",
           "english": "Do they not know that it is Allah who accepts repentance from His servants and receives charities and that it is Allah who is the Accepting of repentance, the Merciful",
-          "matchedForm": "التواب الرحيم"
+          "matchedForm": "التواب الرحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:118",
@@ -1928,7 +2270,9 @@
           "arabic": "وَعَلَى الثَّلٰثَةِ الَّذِينَ خُلِّفُوا حَتّٰٓى اِذَا ضَاقَتْ عَلَيْهِمُ الْاَرْضُ بِمَا رَحُبَتْ وَضَاقَتْ عَلَيْهِمْ اَنْفُسُهُمْ وَظَنّٓوا اَنْ لَا مَلْجَأَ مِنَ اللّٰهِ اِلّٓا اِلَيْهِ ثُمَّ تَابَ عَلَيْهِمْ لِيَتُوبُوا اِنَّ اللّٰهَ هُوَ التَّوَّابُ الرَّحِيمُ۟",
           "turkish": "Ve (seferden) geri bırakılan üç kişinin de (tevbelerini kabul etti). Yeryüzü, genişliğine rağmen onlara dar gelmiş, vicdanları kendilerini sıktıkça sıkmıştı. Nihayet Allah'tan (O'nun azabından) yine Allah'a sığınmaktan başka çare olmadığını anlamışlardı. Sonra (eski hallerine) dönmeleri için Allah onların tevbesini kabul etti. Çünkü Allah tevbeyi çok kabul eden, pek esirgeyendir.",
           "english": "And [He also forgave] the three who were left behind [and regretted their error] to the point that the earth closed in on them in spite of its vastness and their souls confined them and they were certain that there is no refuge from Allah except in Him. Then He turned to them so they could repent. Indeed, Allah is the Accepting of repentance, the Merciful",
-          "matchedForm": "التواب الرحيم"
+          "matchedForm": "التواب الرحيم",
+          "position": "end",
+          "positionRatio": 1
         }
       ]
     },
@@ -1947,7 +2291,9 @@
           "arabic": "وَكَذٰلِكَ جَعَلْنَاكُمْ اُمَّةً وَسَطاً لِتَكُونُوا شُهَدٓاءَ عَلَى النَّاسِ وَيَكُونَ الرَّسُولُ عَلَيْكُمْ شَهِيداً وَمَا جَعَلْنَا الْقِبْلَةَ الَّتِي كُنْتَ عَلَيْهٓا اِلَّا لِنَعْلَمَ مَنْ يَتَّبِـعُ الرَّسُولَ مِمَّنْ يَنْقَلِبُ عَلٰى عَقِبَيْهِ  وَاِنْ كَانَتْ لَكَبِيرَةً اِلَّا عَلَى الَّذِينَ هَدَى اللّٰهُ وَمَا كَانَ اللّٰهُ لِيُضِيعَ اِيمَانَكُمْ اِنَّ اللّٰهَ بِالنَّاسِ لَرَؤُ۫فٌ رَحِيمٌ",
           "turkish": "İşte böylece sizin insanlığa şahitler olmanız, Resul'ün de size şahit olması için sizi mutedil bir millet kıldık. Senin (arzulayıp da şu anda) yönelmediğin kıbleyi (Kabe'yi) biz ancak Peygamber'e uyanı, ökçeleri üzerinde geri dönenden ayırdetmemiz için kıble yaptık. Bu, Allah'ın hidayet verdiği kimselerden başkasına elbette ağır gelir. Allah sizin imanınızı asla zayi edecek değildir. Zira Allah insanlara karşı şefkatli ve merhametlidir.",
           "english": "And thus we have made you a just community that you will be witnesses over the people and the Messenger will be a witness over you. And We did not make the qiblah which you used to face except that We might make evident who would follow the Messenger from who would turn back on his heels. And indeed, it is difficult except for those whom Allah has guided. And never would Allah have caused you to lose your faith. Indeed Allah is, to the people, Kind and Merciful",
-          "matchedForm": "لرؤف رحيم"
+          "matchedForm": "لرؤف رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:117",
@@ -1958,7 +2304,9 @@
           "arabic": "لَقَدْ تَابَ اللّٰهُ عَلَى النَّبِيِّ وَالْمُهَاجِرِينَ وَالْاَنْصَارِ الَّذِينَ اتَّبَعُوهُ فِي سَاعَةِ الْعُسْرَةِ مِنْ بَعْدِ مَا كَادَ يَزِيغُ قُلُوبُ فَرِيقٍ مِنْهُمْ ثُمَّ تَابَ عَلَيْهِمْ اِنَّهُ بِهِمْ رَؤُ۫فٌ رَحِيمٌ",
           "turkish": "Andolsun ki Allah, müslümanlardan bir gurubun kalpleri eğrilmeye yüz tuttuktan sonra, Peygamberi ve güçlük zamanında ona uyan muhacirlerle ensarı affetti. Sonra da onların tevbelerini kabul etti. Çünkü O, onlara karşı çok şefkatli, pek merhametlidir.",
           "english": "Allah has already forgiven the Prophet and the Muhajireen and the Ansar who followed him in the hour of difficulty after the hearts of a party of them had almost inclined [to doubt], and then He forgave them. Indeed, He was to them Kind and Merciful",
-          "matchedForm": "رؤف رحيم"
+          "matchedForm": "رؤف رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "9:128",
@@ -1969,7 +2317,9 @@
           "arabic": "لَقَدْ جٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَزِيزٌ عَلَيْهِ مَا عَنِتُّمْ حَرِيصٌ عَلَيْكُمْ بِالْمُؤْمِنِينَ رَؤُ۫فٌ رَحِيمٌ",
           "turkish": "Andolsun size kendinizden öyle bir Peygamber gelmiştir ki, sizin sıkıntıya uğramanız ona çok ağır gelir. O, size çok düşkün, müminlere karşı çok şefkatlidir, merhametlidir.",
           "english": "There has certainly come to you a Messenger from among yourselves. Grievous to him is what you suffer; [he is] concerned over you and to the believers is kind and merciful",
-          "matchedForm": "رؤف رحيم"
+          "matchedForm": "رؤف رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "16:7",
@@ -1980,7 +2330,9 @@
           "arabic": "وَتَحْمِلُ اَثْقَالَكُمْ اِلٰى بَلَدٍ لَمْ تَكُونُوا بَالِغِيهِ اِلَّا بِشِقِّ الْاَنْفُسِ اِنَّ رَبَّكُمْ لَرَؤُ۫فٌ رَحِيمٌ",
           "turkish": "Bu hayvanlar sizin ağırlıklarınızı, ancak güçlüklere katlanarak varabileceğiniz bir memlekete taşırlar. Şüphesiz Rabbiniz çok şefkatli, pek merhametlidir.",
           "english": "And they carry your loads to a land you could not have reached except with difficulty to yourselves. Indeed, your Lord is Kind and Merciful",
-          "matchedForm": "لرؤف رحيم"
+          "matchedForm": "لرؤف رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "16:47",
@@ -1991,7 +2343,9 @@
           "arabic": "اَوْ يَأْخُذَهُمْ عَلٰى تَخَوُّفٍ فَاِنَّ رَبَّكُمْ لَرَؤُ۫فٌ رَحِيمٌ",
           "turkish": "Yoksa Allah'ın kendilerini yavaş yavaş tüketerek cezalandırmayacağından (emin mi oldular)? Kuşkusuz Rabbin çok şefkatli, pek merhametlidir.",
           "english": "Or that He would not seize them gradually [in a state of dread]? But indeed, your Lord is Kind and Merciful",
-          "matchedForm": "لرؤف رحيم"
+          "matchedForm": "لرؤف رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "22:65",
@@ -2002,7 +2356,9 @@
           "arabic": "اَلَمْ تَرَ اَنَّ اللّٰهَ سَخَّرَ لَكُمْ مَا فِي الْاَرْضِ وَالْفُلْكَ تَجْرِي فِي الْبَحْرِ بِاَمْرِهِ وَيُمْسِكُ السَّمٓاءَ اَنْ تَقَعَ عَلَى الْاَرْضِ اِلَّا بِاِذْنِهِ اِنَّ اللّٰهَ بِالنَّاسِ لَرَؤُ۫فٌ رَحِيمٌ",
           "turkish": "Görmedin mi, Allah, yerdeki eşyayı ve emri uyarınca denizde yüzen gemileri sizin hizmetinize verdi. Göğü de, kendi izni olmadıkça yer üzerine düşmekten korur. Çünkü Allah, insanlara çok şefkatli ve çok merhametlidir.",
           "english": "Do you not see that Allah has subjected to you whatever is on the earth and the ships which run through the sea by His command? And He restrains the sky from falling upon the earth, unless by His permission. Indeed Allah, to the people, is Kind and Merciful",
-          "matchedForm": "لرؤف رحيم"
+          "matchedForm": "لرؤف رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "24:20",
@@ -2013,7 +2369,9 @@
           "arabic": "وَلَوْلَا فَضْلُ اللّٰهِ عَلَيْكُمْ وَرَحْمَتُهُ وَاَنَّ اللّٰهَ رَؤُ۫فٌ رَحِيمٌ۟",
           "turkish": "Ya sizin üstünüze Allah'ın lütuf ve merhameti olmasaydı, Allah çok şefkatli ve merhametli olmasaydı (haliniz nice olurdu)!",
           "english": "And if it had not been for the favor of Allah upon you and His mercy... and because Allah is Kind and Merciful",
-          "matchedForm": "رؤف رحيم"
+          "matchedForm": "رؤف رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "57:9",
@@ -2024,7 +2382,9 @@
           "arabic": "هُوَ الَّذِي يُنَزِّلُ عَلٰى عَبْدِهٓ  اٰيَاتٍ بَيِّنَاتٍ لِيُخْرِجَكُمْ مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَاِنَّ اللّٰهَ بِكُمْ لَرَؤُ۫فٌ رَحِيمٌ",
           "turkish": "Sizi karanlıklardan aydınlığa çıkarmak için kuluna apaçık ayetler indiren O'dur. Şüphesiz Allah, size karşı çok şefkatli, çok merhametlidir.",
           "english": "It is He who sends down upon His Servant [Muhammad] verses of clear evidence that He may bring you out from darknesses into the light. And indeed, Allah is to you Kind and Merciful",
-          "matchedForm": "لرؤف رحيم"
+          "matchedForm": "لرؤف رحيم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "59:10",
@@ -2035,7 +2395,9 @@
           "arabic": "وَالَّذِينَ جٓاؤُ۫ مِنْ بَعْدِهِمْ يَقُولُونَ رَبَّـنَا اغْفِرْ لَنَا وَلِاِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْاِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلاًّ لِلَّذِينَ اٰمَنُوا رَبَّـنٓا اِنَّكَ رَؤُ۫فٌ رَحِيمٌ۟",
           "turkish": "Bunların arkasından gelenler şöyle derler: Rabbimiz! Bizi ve bizden önce gelip geçmiş imanlı kardeşlerimizi bağışla; kalplerimizde, iman edenlere karşı hiçbir kin bırakma! Rabbimiz! Şüphesiz ki sen çok şefkatli, çok merhametlisin!",
           "english": "And [there is a share for] those who came after them, saying, \"Our Lord, forgive us and our brothers who preceded us in faith and put not in our hearts [any] resentment toward those who have believed. Our Lord, indeed You are Kind and Merciful",
-          "matchedForm": "رؤف رحيم"
+          "matchedForm": "رؤف رحيم",
+          "position": "end",
+          "positionRatio": 1
         }
       ]
     },
@@ -2054,7 +2416,9 @@
           "arabic": "وَلِلّٰهِ الْمَشْرِقُ وَالْمَغْرِبُ فَاَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللّٰهِ اِنَّ اللّٰهَ وَاسِعٌ عَلِيمٌ",
           "turkish": "Doğu da Allah'ındır batı da. Nereye dönerseniz Allah'ın yüzü (zatı) oradadır. Şüphesiz Allah'(ın rahmeti ve nimeti) geniştir, O her şeyi bilendir.",
           "english": "And to Allah belongs the east and the west. So wherever you [might] turn, there is the Face of Allah. Indeed, Allah is all-Encompassing and Knowing",
-          "matchedForm": "واسع عليم"
+          "matchedForm": "واسع عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:247",
@@ -2065,7 +2429,9 @@
           "arabic": "وَقَالَ لَهُمْ نَبِيُّهُمْ اِنَّ اللّٰهَ قَدْ بَعَثَ لَكُمْ طَالُوتَ مَلِكاً قَالٓوا اَنّٰى يَكُونُ لَهُ الْمُلْكُ عَلَيْنَا وَنَحْنُ اَحَقُّ بِالْمُلْكِ مِنْهُ وَلَمْ يُؤْتَ سَعَةً مِنَ الْمَالِ قَالَ اِنَّ اللّٰهَ اصْطَفٰيهُ عَلَيْكُمْ وَزَادَهُ بَسْطَةً فِي الْعِلْمِ وَالْجِسْمِ وَاللّٰهُ يُؤْتِي مُلْكَهُ مَنْ يَشٓاءُ وَاللّٰهُ وَاسِعٌ عَلِيمٌ",
           "turkish": "Peygamberleri onlara: Bilin ki Allah, Talut'u size hükümdar olarak gönderdi dedi. Bunun üzerine: Biz, hükümdarlığa daha layık olduğumuz halde, kendisine servet ve zenginlik yönünden geniş imkanlar verilmemişken o bize nasıl hükümdar olur? dediler. \"Allah sizin üzerinize onu seçti, ilimde ve bedende ona üstünlük verdi. Allah mülkünü dilediğine verir. Allah her şeyi ihata eden ve her şeyi bilendir\" dedi.",
           "english": "And their prophet said to them, \"Indeed, Allah has sent to you Saul as a king.\" They said, \"How can he have kingship over us while we are more worthy of kingship than him and he has not been given any measure of wealth?\" He said, \"Indeed, Allah has chosen him over you and has increased him abundantly in knowledge and stature. And Allah gives His sovereignty to whom He wills. And Allah is all-Encompassing [in favor] and Knowing",
-          "matchedForm": "واسع عليم"
+          "matchedForm": "واسع عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:261",
@@ -2076,7 +2442,9 @@
           "arabic": "مَثَلُ الَّذِينَ يُنْفِقُونَ اَمْوَالَهُمْ فِي سَبِيلِ اللّٰهِ كَمَثَلِ حَبَّةٍ اَنْبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنْبُلَةٍ مِائَةُ حَبَّةٍ وَاللّٰهُ يُضَاعِفُ لِمَنْ يَشٓاءُ وَاللّٰهُ وَاسِعٌ عَلِيمٌ",
           "turkish": "Allah yolunda mallarını harcayanların örneği, yedi başak bitiren bir dane gibidir ki, her başakta yüz dane vardır. Allah dilediğine kat kat fazlasını verir. Allah'ın lütfu geniştir, O herşeyi bilir.",
           "english": "The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing",
-          "matchedForm": "واسع عليم"
+          "matchedForm": "واسع عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "2:268",
@@ -2087,7 +2455,9 @@
           "arabic": "اَلشَّيْطَانُ يَعِدُكُمُ الْفَقْرَ وَيَأْمُرُكُمْ بِالْفَحْشٓاءِ وَاللّٰهُ يَعِدُكُمْ مَغْفِرَةً مِنْهُ وَفَضْلاً وَاللّٰهُ وَاسِعٌ عَلِيمٌ",
           "turkish": "Şeytan sizi fakirlikle korkutur ve size cimriliği telkin eder. Allah ise size katından bir mağfiret ve bir lütuf vadeder. Allah herşeyi ihata eden ve herşeyi bilendir.",
           "english": "Satan threatens you with poverty and orders you to immorality, while Allah promises you forgiveness from Him and bounty. And Allah is all-Encompassing and Knowing",
-          "matchedForm": "واسع عليم"
+          "matchedForm": "واسع عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "3:73",
@@ -2098,7 +2468,9 @@
           "arabic": "وَلَا تُؤْمِنٓوا اِلَّا لِمَنْ تَبِـعَ دِينَكُمْ قُلْ اِنَّ الْهُدٰى هُدَى اللّٰهِ اَنْ يُؤْتٰٓى اَحَدٌ مِثْلَ مٓا اُو۫تِيتُمْ اَوْ يُحٓاجُّوكُمْ عِنْدَ رَبِّكُمْ قُلْ اِنَّ الْفَضْلَ بِيَدِ اللّٰهِ يُؤْتِيهِ مَنْ يَشٓاءُ وَاللّٰهُ وَاسِعٌ عَلِيمٌ",
           "turkish": "Sizin dininize uyanlardan başka hiçbir kimseye inanmayın. \" (Resulüm!) De ki: Doğru yol ancak Allah'ın yoludur. Yine (onlar, kendi aralarında şöyle dediler:) \"Size verilenin benzerinin başka herhangi bir kimseye verildiğine, yahut Rabbinizin huzurunda onların size karşı deliller getireceklerine de (inanmayın).\" De ki: Lütuf ve ihsan Allah'ın elindedir. Onu dilediğine verir. Allah'ın rahmeti geniştir ve O her şeyi hakkıyla bilir.",
           "english": "And do not trust except those who follow your religion.\" Say, \"Indeed, the [true] guidance is the guidance of Allah. [Do you fear] lest someone be given [knowledge] like you were given or that they would [thereby] argue with you before your Lord?\" Say, \"Indeed, [all] bounty is in the hand of Allah - He grants it to whom He wills. And Allah is all-Encompassing and Wise",
-          "matchedForm": "واسع عليم"
+          "matchedForm": "واسع عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "5:54",
@@ -2109,7 +2481,9 @@
           "arabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا مَنْ يَرْتَدَّ مِنْكُمْ عَنْ دِينِهِ فَسَوْفَ يَأْتِي اللّٰهُ بِقَوْمٍ يُحِبُّهُمْ وَيُحِبُّونَهٓ  اَذِلَّةٍ عَلَى الْمُؤْمِنِينَ اَعِزَّةٍ عَلَى الْكَافِرِينَ يُجَاهِدُونَ فِي سَبِيلِ اللّٰهِ وَلَا يَخَافُونَ لَوْمَةَ لٓائِمٍ ذٰلِكَ فَضْلُ اللّٰهِ يُؤْتِيهِ مَنْ يَشٓاءُ وَاللّٰهُ وَاسِعٌ عَلِيمٌ",
           "turkish": "Ey iman edenler! Sizden kim dininden dönerse (bilsin ki) Allah, sevdiği ve kendisini seven müminlere karşı alçak gönüllü (şefkatli), kafirlere karşı onurlu ve zorlu bir toplum getirecektir. (Bunlar) Allah yolunda cihad ederler ve hiçbir kınayanın kınamasından korkmazlar (hiçbir kimsenin kınamasına aldırmazlar). Bu, Allah'ın, dilediğine verdiği lütfudur. Allah'ın lütfu ve ilmi geniştir.",
           "english": "O you who have believed, whoever of you should revert from his religion - Allah will bring forth [in place of them] a people He will love and who will love Him [who are] humble toward the believers, powerful against the disbelievers; they strive in the cause of Allah and do not fear the blame of a critic. That is the favor of Allah; He bestows it upon whom He wills. And Allah is all-Encompassing and Knowing",
-          "matchedForm": "واسع عليم"
+          "matchedForm": "واسع عليم",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "24:32",
@@ -2120,7 +2494,9 @@
           "arabic": "وَاَنْكِحُوا الْاَيَامٰى مِنْكُمْ وَالصَّالِحِينَ مِنْ عِبَادِكُمْ وَاِمٓائِكُمْ اِنْ يَكُونُوا فُقَـرٓاءَ يُغْنِهِمُ اللّٰهُ مِنْ فَضْلِهِ  وَاللّٰهُ وَاسِعٌ عَلِيمٌ",
           "turkish": "Aranızdaki bekarları, kölelerinizden ve cariyelerinizden elverişli olanları evlendirin. Eğer bunlar fakir iseler, Allah kendi lütfu ile onları zenginleştirir. Allah, (lütfu) geniş olan ve (her şeyi) bilendir.",
           "english": "And marry the unmarried among you and the righteous among your male slaves and female slaves. If they should be poor, Allah will enrich them from His bounty, and Allah is all-Encompassing and Knowing",
-          "matchedForm": "واسع عليم"
+          "matchedForm": "واسع عليم",
+          "position": "end",
+          "positionRatio": 1
         }
       ]
     },
@@ -2139,7 +2515,9 @@
           "arabic": "لَا تُدْرِكُهُ الْاَبْصَارُ وَهُوَ يُدْرِكُ الْاَبْصَارَ وَهُوَ اللَّطِيفُ الْخَبِيرُ",
           "turkish": "Gözler O'nu göremez; halbuki O, gözleri görür. O, eşyayı pek iyi bilen, her şeyden haberdar olandır.",
           "english": "Vision perceives Him not, but He perceives [all] vision; and He is the Subtle, the Acquainted",
-          "matchedForm": "اللطيف الخبير"
+          "matchedForm": "اللطيف الخبير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "22:63",
@@ -2150,7 +2528,9 @@
           "arabic": "اَلَمْ تَرَ اَنَّ اللّٰهَ اَنْزَلَ مِنَ السَّمٓاءِ مٓاءً فَتُصْبِـحُ الْاَرْضُ مُخْضَرَّةً اِنَّ اللّٰهَ لَطِيفٌ خَبِيرٌ",
           "turkish": "Görmedin mi, Allah, gökten yağnmur indirdi de bu sayede yeryüzü yeşeriyor. Gerçekten Allah çok lütufkardır. (her şeyden) haberdardır.",
           "english": "Do you not see that Allah has sent down rain from the sky and the earth becomes green? Indeed, Allah is Subtle and Acquainted",
-          "matchedForm": "لطيف خبير"
+          "matchedForm": "لطيف خبير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "31:16",
@@ -2161,7 +2541,9 @@
           "arabic": "يَا بُنَيَّ اِنَّـهٓا اِنْ تَكُ مِثْقَالَ حَبَّةٍ مِنْ خَرْدَلٍ فَتَكُنْ فِي صَخْرَةٍ اَوْ فِي السَّمٰوَاتِ اَوْ فِي الْاَرْضِ يَأْتِ بِهَا اللّٰهُ اِنَّ اللّٰهَ لَطِيفٌ خَبِيرٌ",
           "turkish": "(Lokman, öğütlerine devamla şöyle demişti:) Yavrucuğum! Yaptığın iş (iyilik veya kötülük), bir hardal tanesi ağırlığında bile olsa ve bu, bir kayanın içinde veya göklerde yahut yerin derinliklerinde bulunsa, yine de Allah onu (senin karşına) getirir. Doğrusu Allah, en ince işleri görüp bilmektedir ve her şeyden haberdardır.",
           "english": "[And Luqman said], \"O my son, indeed if wrong should be the weight of a mustard seed and should be within a rock or [anywhere] in the heavens or in the earth, Allah will bring it forth. Indeed, Allah is Subtle and Acquainted",
-          "matchedForm": "لطيف خبير"
+          "matchedForm": "لطيف خبير",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "33:34",
@@ -2172,7 +2554,9 @@
           "arabic": "وَاذْكُرْنَ مَا يُتْلٰى فِي بُيُوتِكُنَّ مِنْ اٰيَاتِ اللّٰهِ وَالْحِكْمَةِ اِنَّ اللّٰهَ كَانَ لَطِيفاً خَبِيراً۟",
           "turkish": "Evlerinizde okunan Allah'ın ayetlerini ve hikmeti hatırlayın. Şüphesiz Allah, her şeyin iç yüzünü bilendir ve her şeyden haberi olandır.",
           "english": "And remember what is recited in your houses of the verses of Allah and wisdom. Indeed, Allah is ever Subtle and Acquainted [with all things]",
-          "matchedForm": "لطيفا خبيرا"
+          "matchedForm": "لطيفا خبيرا",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "67:14",
@@ -2183,7 +2567,9 @@
           "arabic": "اَلَا يَعْلَمُ مَنْ خَلَقَ وَهُوَ اللَّطِيفُ الْخَبِيرُ۟",
           "turkish": "Hiç yaratan bilmez mi? O, en ince işleri görüp bilmektedir ve her şeyden haberdardır.",
           "english": "Does He who created not know, while He is the Subtle, the Acquainted",
-          "matchedForm": "اللطيف الخبير"
+          "matchedForm": "اللطيف الخبير",
+          "position": "end",
+          "positionRatio": 1
         }
       ]
     },
@@ -2202,7 +2588,9 @@
           "arabic": "لِيُوَفِّيَهُمْ اُجُورَهُمْ وَيَزِيدَهُمْ مِنْ فَضْلِهِ اِنَّهُ غَفُورٌ شَكُورٌ",
           "turkish": "Çünkü Allah, onların mükafatlarını tam öder ve lütfundan onlara fazlasını da verir. Şüphesiz O, çok bağışlayan, şükrün karşılığını bol bol verendir.",
           "english": "That He may give them in full their rewards and increase for them of His bounty. Indeed, He is Forgiving and Appreciative",
-          "matchedForm": "غفور شكور"
+          "matchedForm": "غفور شكور",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "35:34",
@@ -2213,7 +2601,9 @@
           "arabic": "وَقَالُوا الْحَمْدُ لِلّٰهِ الَّـذِٓي اَذْهَبَ عَنَّا الْحَزَنَ اِنَّ رَبَّـنَا لَغَفُورٌ شَكُورٌ",
           "turkish": "(Cennette şöyle) derler: Bizden tasayı gideren Allah'a hamdolsun. Doğrusu Rabbimiz çok bağışlayan, çok nimet verendir.",
           "english": "And they will say, \"Praise to Allah, who has removed from us [all] sorrow. Indeed, our Lord is Forgiving and Appreciative",
-          "matchedForm": "لغفور شكور"
+          "matchedForm": "لغفور شكور",
+          "position": "end",
+          "positionRatio": 1
         },
         {
           "ref": "42:23",
@@ -2224,12 +2614,21 @@
           "arabic": "ذٰلِكَ الَّذِي يُبَشِّرُ اللّٰهُ عِبَادَهُ الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ قُلْ لٓا اَسْـَٔلُكُمْ عَلَيْهِ اَجْراً اِلَّا الْمَوَدَّةَ فِي الْقُرْبٰى وَمَنْ يَقْتَرِفْ حَسَنَةً نَزِدْ لَهُ فِيهَا حُسْناً اِنَّ اللّٰهَ غَفُورٌ شَكُورٌ",
           "turkish": "İşte Allah'ın, iman eden ve iyi işler yapan kullarına müjdelediği nimet budur. Deki: Ben buna karşılık sizden akrabalık sevgisinden başka bir ücret istemiyorum. Kim bir iyilik işlerse onun sevabını fazlasıyla veririz. Şüphesiz Allah bağışlayan, şükrün karşılığını verendir.",
           "english": "It is that of which Allah gives good tidings to His servants who believe and do righteous deeds. Say, [O Muhammad], \"I do not ask you for this message any payment [but] only good will through kinship.\" And whoever commits a good deed - We will increase for him good therein. Indeed, Allah is Forgiving and Appreciative",
-          "matchedForm": "غفور شكور"
+          "matchedForm": "غفور شكور",
+          "position": "end",
+          "positionRatio": 1
         }
       ]
     }
   ],
-  "generated_at": "2026-06-01T17:06:57.680Z",
+  "generated_at": "2026-06-01T17:12:58.030Z",
+  "positionStats": {
+    "total": 196,
+    "endCount": 196,
+    "middleCount": 0,
+    "startCount": 0,
+    "endPercent": 100
+  },
   "methodology": {
     "tr": "Diacritic-stripped substring match — definite (al-X al-Y) ve indefinite (X Y) formları ayrı sayılır. Klasik konkordans (Abdülbâkî) ile karşılaştırmalı.",
     "en": "Diacritic-stripped substring match — definite (al-X al-Y) and indefinite (X Y) forms counted separately. Compared against classical concordance (Abdülbāqī).",

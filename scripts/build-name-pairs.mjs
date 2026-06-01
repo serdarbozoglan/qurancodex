@@ -179,10 +179,21 @@ for (const pair of PAIRS) {
     }
   }
 
-  // Mushaf order
+  // Mushaf order + siyak-sibak (ayet içi konum) analizi
   const sorted = Array.from(matches.entries())
     .map(([ref, matchedForm]) => {
       const v = verseIndex.find(x => x.ref === ref);
+      // matchedForm'un stripped ayet içindeki konumu:
+      // 'end' = son %25 (fâsıla bölgesi), 'middle' = ortada, 'start' = ilk %35
+      const idx = v.arabicStripped.indexOf(matchedForm);
+      const matchEnd = idx >= 0 ? idx + matchedForm.length : -1;
+      const ratio = idx >= 0 ? matchEnd / v.arabicStripped.length : null;
+      let position = null;
+      if (ratio !== null) {
+        if (ratio >= 0.75) position = 'end';
+        else if (ratio <= 0.35) position = 'start';
+        else position = 'middle';
+      }
       return {
         ref: v.ref,
         surah: v.surah,
@@ -193,6 +204,8 @@ for (const pair of PAIRS) {
         turkish: v.turkish,
         english: v.english,
         matchedForm,
+        position,                // 'end' | 'middle' | 'start' | null
+        positionRatio: ratio,    // 0..1 — debug/visualization için ham değer
       };
     })
     .sort((a, b) => (a.surah - b.surah) || (a.ayah - b.ayah));
@@ -207,6 +220,25 @@ for (const pair of PAIRS) {
     ayetler: sorted,
   });
 }
+
+// Toplam siyak-sibak istatistiği — fâsıla iddiasının veri doğrulaması
+let endCount = 0, midCount = 0, startCount = 0, totalScanned = 0;
+for (const p of result.pairs) {
+  for (const a of p.ayetler) {
+    if (!a.position) continue;
+    totalScanned++;
+    if (a.position === 'end') endCount++;
+    else if (a.position === 'middle') midCount++;
+    else if (a.position === 'start') startCount++;
+  }
+}
+result.positionStats = {
+  total: totalScanned,
+  endCount,
+  middleCount: midCount,
+  startCount,
+  endPercent: totalScanned > 0 ? +(endCount / totalScanned * 100).toFixed(1) : 0,
+};
 
 result.methodology = {
   tr: "Diacritic-stripped substring match — definite (al-X al-Y) ve indefinite (X Y) formları ayrı sayılır. Klasik konkordans (Abdülbâkî) ile karşılaştırmalı.",

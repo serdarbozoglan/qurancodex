@@ -1282,13 +1282,80 @@ function NamePairs({ tr, pairsData }) {
           fontSize: '0.78rem',
           fontFamily: FONTS.body,
           letterSpacing: '0.08em',
-          margin: '0 0 44px',
+          margin: '0 0 28px',
           maxWidth: '760px',
         }}>
           {tr
             ? "Sayım: QuranCodex korpusu — tüm i'rab varyantları (nominative · accusative tanvin · definite · lām emphasis) ve gerekli yerde ters sıra dahil substring tarama."
             : 'Counting: QuranCodex corpus — substring scan covering all iʿrāb variants (nominative · accusative tanwīn · definite · lām emphasis) with reverse order where applicable.'}
         </p>
+
+        {/* Fâsıla bulgusu — siyak-sibak veri kanıtı */}
+        {pairsData?.positionStats?.total > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6 }}
+            style={{
+              background: `linear-gradient(135deg, ${COLORS.gold}14 0%, ${COLORS.gold}08 100%)`,
+              border: `1px solid ${COLORS.gold}38`,
+              borderRadius: '12px',
+              padding: '18px 22px',
+              margin: '0 0 44px',
+              maxWidth: '780px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '18px',
+            }}
+          >
+            {/* Mini şerit: ayet ekseni, son %25 vurgulu */}
+            <div style={{
+              position: 'relative',
+              flexShrink: 0,
+              width: '110px',
+              height: '6px',
+              borderRadius: '999px',
+              background: 'rgba(255,255,255,0.08)',
+              overflow: 'hidden',
+            }}
+              aria-hidden="true"
+            >
+              <div style={{
+                position: 'absolute',
+                top: 0, right: 0, bottom: 0,
+                width: '25%',
+                background: `linear-gradient(90deg, ${COLORS.gold}66 0%, ${COLORS.gold} 100%)`,
+                boxShadow: `0 0 12px ${COLORS.gold}44`,
+              }} />
+            </div>
+
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{
+                color: COLORS.gold,
+                fontFamily: FONTS.body,
+                fontSize: '0.95rem',
+                fontWeight: 700,
+                letterSpacing: '0.01em',
+                marginBottom: '4px',
+              }}>
+                {tr
+                  ? `% ${pairsData.positionStats.endPercent} ayet sonu (fâsıla)`
+                  : `${pairsData.positionStats.endPercent}% at verse end (fāṣila)`}
+              </div>
+              <div style={{
+                color: COLORS.silver,
+                fontFamily: FONTS.body,
+                fontSize: '0.84rem',
+                lineHeight: 1.55,
+              }}>
+                {tr
+                  ? <>İncelenen <strong style={{ color: COLORS.offWhite }}>{pairsData.positionStats.total}</strong> geçişin tamamı ayetin son çeyreğinde — pair'ler ayet metnine değil, ayetin kapanış mührüne yerleşir.</>
+                  : <>All <strong style={{ color: COLORS.offWhite }}>{pairsData.positionStats.total}</strong> occurrences scanned land in the final quarter of the verse — pairs sit not in the body but on the closing seal.</>}
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         <div style={{
           display: 'grid',
