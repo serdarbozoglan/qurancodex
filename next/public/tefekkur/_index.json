@@ -51,6 +51,17 @@
   ],
   "articles": [
     {
+      "slug": "enerji-krizi",
+      "titleTr": "Enerji Krizi — Odaklanmayı Yakıt Yönetimi Olarak Anlamak",
+      "titleEn": "The Energy Crisis — Reading Focus as Fuel Management",
+      "category": "kavramsal",
+      "publishedDate": "2024-11-10",
+      "readingMinutes": 14,
+      "tldrTr": "Namazda dağılma, çalışmada motivasyonsuzluk — ahlaki zayıflık değil mekanik tükenme. İnsan 4 enerji formu üzerinde çalışır: beslenme/gece uykusu/izlenimler/meşguliyet. Enerji kullanılınca çoğalır. En büyük hırsız: gündüz düşleri. İkinci: duygusal krizler. Yollar yürürken açılır.",
+      "tldrEn": "Distraction in prayer, no study motivation — not moral weakness but mechanical exhaustion. Four energy forms: nutrition/night-sleep/impressions/engagement. Energy multiplies with use. The greatest thief: daydreaming. Second: emotional storms. Roads open as one walks them.",
+      "status": "draft"
+    },
+    {
       "slug": "kaynak-yuzey",
       "titleTr": "Kaynak ve Yüzey — Başarısız Olan Her Sistemin Ortak Yönü",
       "titleEn": "Source and Surface — The Common Pathology of Every Failing System",
