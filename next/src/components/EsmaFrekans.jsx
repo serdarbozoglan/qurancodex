@@ -637,25 +637,35 @@ function CelalCemalBalance({ tr, balance }) {
         borderRadius: '12px',
       }}
     >
-      <div style={{
+      <div className="esma-balance-header" style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'baseline',
+        flexWrap: 'wrap',
+        gap: '8px 16px',
         marginBottom: '12px',
         fontSize: '0.74rem',
         fontFamily: FONTS.body,
         letterSpacing: '0.14em',
         textTransform: 'uppercase',
       }}>
-        <span style={{ color: '#a8b5d4' }}>
+        <span style={{ color: '#a8b5d4', whiteSpace: 'nowrap' }}>
           {tr ? 'Celal' : 'Jalāl'} · {balance.celal.toLocaleString(tr ? 'tr-TR' : 'en-US')}
         </span>
-        <span style={{ color: COLORS.silver, fontStyle: 'italic', fontSize: '0.7rem', textTransform: 'none', letterSpacing: '0.02em' }}>
+        <span style={{
+          color: COLORS.silver,
+          fontStyle: 'italic',
+          fontSize: '0.7rem',
+          textTransform: 'none',
+          letterSpacing: '0.02em',
+          whiteSpace: 'nowrap',
+          flex: '0 1 auto',
+        }}>
           {tr
             ? `${cemalDominant ? 'Cemal' : 'Celal'} ağırlığı: % ${Math.round(cemalDominant ? balance.cemalPct : balance.celalPct)}`
             : `${cemalDominant ? 'Jamāl' : 'Jalāl'} share: ${Math.round(cemalDominant ? balance.cemalPct : balance.celalPct)}%`}
         </span>
-        <span style={{ color: COLORS.gold }}>
+        <span style={{ color: COLORS.gold, whiteSpace: 'nowrap' }}>
           {balance.cemal.toLocaleString(tr ? 'tr-TR' : 'en-US')} · {tr ? 'Cemal' : 'Jamāl'}
         </span>
       </div>
