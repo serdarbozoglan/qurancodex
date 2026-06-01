@@ -292,8 +292,8 @@ function Manifesto({ tr }) {
           marginBottom: '50px',
         }}>
           {tr
-            ? "Allah kendini ne uzak ve korkulan bir güç, ne de tek başına bir sığınak olarak tanıtır. Kur'an'ın ilah tasavvuru bir dengedir — sarsılmaz kudret (Celal) ve sığınılacak şefkat (Cemal) bir arada."
-            : "God describes Himself neither as a distant feared power nor as a sole refuge. The Quran's vision of divinity is a balance — unshakable might (Jalāl) and embracing mercy (Jamāl) together."}
+            ? "Allah kendisini hem sarsılmaz kudretiyle (Celal: Cebbâr, Kahhâr, Azîz), hem de sığınılacak şefkatiyle (Cemal: Vedûd, Latîf, Gafûr) birlikte tanıtır. O yegane sığınaktır — fakat sığınak olmasıyla birlikte mutlak hâkim ve kahir olduğunu da gizlemez. Kur'an'ın ilah tasavvuru bu iki yüzün kopmaz dengesidir."
+            : "God describes Himself with both unshakable might (Jalāl: al-Jabbār, al-Qahhār, al-ʿAzīz) and embracing mercy (Jamāl: al-Wadūd, al-Laṭīf, al-Ghafūr) at once. He is the sole refuge — yet alongside being a refuge, He never veils that He is the absolute Sovereign and Subduer. The Quran's vision of divinity is the inseparable balance of these two faces."}
         </p>
 
         <div style={{
