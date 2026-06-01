@@ -66,7 +66,7 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 2: MANIFESTO ═══ */}
       <Manifesto tr={tr} />
 
-      {/* ═══ SECTION 3: FLAGSHIP PASAJLAR ═══ */}
+      {/* ═══ SECTION 3: ÜÇ TOPLAYICI BEYAN (Âyetü'l-Kürsî · Haşr 59:22-24 · İhlâs 112) ═══ */}
       <FlagshipVerses tr={tr} />
 
       {/* ═══ SECTION 4: FREKANS MANZARASI ═══ */}
@@ -424,7 +424,7 @@ function ColumnCemal({ tr }) {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// SECTION 3: FLAGSHIP PASAJLAR — Âyetü'l-Kürsî · Haşr 59:22-24 · İhlâs 112
+// SECTION 3: ÜÇ TOPLAYICI BEYAN — Âyetü'l-Kürsî · Haşr 59:22-24 · İhlâs 112
 // ═════════════════════════════════════════════════════════════════════════════
 
 const AYET_KURSI = {
@@ -449,8 +449,8 @@ const HASR_VERSE = {
   refEn: 'Ḥashr 59:22-24',
   title: 'Haşr 59:22-24',
   titleEn: 'Ḥashr 59:22-24',
-  intro: "Kur'an'daki en yoğun ilahi isim pasajı — 13 isim peş peşe.",
-  introEn: "The densest passage of divine names in the Quran — 13 names in succession.",
+  intro: "Kur'an'da ilahî isimlerin en yoğun kümelendiği beyan — 13 isim peş peşe.",
+  introEn: "The densest gathering of divine names in the Quran — 13 names in succession.",
   arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ ۝ هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ ۝ هُوَ ٱللَّهُ ٱلْخَٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ',
   highlighted: [
     { ar: 'ٱلرَّحْمَٰنُ', tr: 'Er-Rahmân',     en: 'ar-Raḥmān'     },
@@ -489,7 +489,7 @@ function FlagshipVerses({ tr }) {
   return (
     <section style={{ padding: '80px 24px', background: COLORS.cosmicBlack }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-        <div style={sectionLabel}>{tr ? 'Üç Flagship Pasaj' : 'Three Flagship Passages'}</div>
+        <div style={sectionLabel}>{tr ? 'Üç Toplayıcı Beyan' : 'Three Comprehensive Statements'}</div>
         <h2 style={{
           fontFamily: FONTS.display,
           fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
@@ -498,7 +498,7 @@ function FlagshipVerses({ tr }) {
           margin: '0 0 50px',
           maxWidth: '720px',
         }}>
-          {tr ? 'İsimlerin En Yoğun Kümelendiği Üç Pasaj' : 'Three Passages with the Densest Divine Names'}
+          {tr ? "Allah'ın Kendini En Yoğun Tanıttığı Üç Beyan" : "The Three Statements Where Divine Names Cluster Most Densely"}
         </h2>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
@@ -773,8 +773,8 @@ function DivineVoice({ beyanlari, tr }) {
         </h2>
         <p style={{ color: COLORS.silver, fontSize: '1.05rem', lineHeight: 1.8, margin: '0 0 50px', maxWidth: '720px' }}>
           {tr
-            ? "Allah kendisini bazen üçüncü şahıs üzerinden, bazen doğrudan birinci şahıs üzerinden (\"Ben\", \"Biz\") tanıtır. Bu pasajlar onun kendi ağzından tanımıdır."
-            : "God describes Himself sometimes in the third person, sometimes directly in the first person (\"I\", \"We\"). These passages are His self-description in His own voice."}
+            ? "Allah kendisini bazen üçüncü şahıs üzerinden, bazen doğrudan birinci şahıs üzerinden (\"Ben\", \"Biz\") tanıtır. Bu beyanlar onun kendi ağzından tanımıdır."
+            : "God describes Himself sometimes in the third person, sometimes directly in the first person (\"I\", \"We\"). These statements are His self-description in His own voice."}
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
