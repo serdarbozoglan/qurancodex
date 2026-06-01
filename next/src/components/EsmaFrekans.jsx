@@ -2317,6 +2317,39 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             ? "İpucu: Her hücre o ismin o suredeki tekil görünüm sayısıdır. Mobilde yatay kaydırılır. Heatmap top 20 sureyi (en isim-yoğun) içerir — atlama eksikse altta tam atlas'tan ulaşılır."
             : "Tip: Each cell is the name's distinct occurrences in that surah. Scrolls horizontally on mobile. Heatmap includes the top 20 name-dense surahs — for any name, use the full atlas below."}
         </p>
+
+        {/* Şeffaflık notu — fiil/türev vs isim ayrımı */}
+        <div style={{
+          marginTop: '14px',
+          padding: '14px 18px',
+          background: `${COLORS.gold}0a`,
+          border: `1px solid ${COLORS.gold}28`,
+          borderRadius: '10px',
+          maxWidth: '780px',
+        }}>
+          <div style={{
+            color: `${COLORS.gold}cc`,
+            fontFamily: FONTS.body,
+            fontSize: '0.68rem',
+            fontWeight: 700,
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            marginBottom: '6px',
+          }}>
+            {tr ? 'Sayma kuralı' : 'Counting rule'}
+          </div>
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.82rem',
+            lineHeight: 1.7,
+            margin: 0,
+          }}>
+            {tr
+              ? <>Sadece <strong style={{ color: COLORS.offWhite }}>isim formları</strong> sayılır — fiil çekimleri ve kök türevleri sayılmaz. Örnek: Bakara 2:163'teki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> Er-Rahmân ismidir <em>(sayılır)</em>; 2:286'daki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> "bize rahmet et" fiilidir <em>(sayılmaz)</em>. Regex pattern'ında kelime sınırı (boşluk veya satır başı/sonu) zorunlu — gömülü kök sequence'ları atlanır.</>
+              : <>Only <strong style={{ color: COLORS.offWhite }}>name forms</strong> are counted — verb conjugations and root derivatives are excluded. Example: <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> at Baqara 2:163 is the name ar-Raḥmān <em>(counted)</em>; <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> at 2:286 is the verb "have mercy on us" <em>(skipped)</em>. The regex enforces word boundaries — embedded root sequences are ignored.</>}
+          </p>
+        </div>
       </div>
     </section>
   );
