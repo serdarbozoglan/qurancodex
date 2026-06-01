@@ -435,6 +435,8 @@ const AYET_KURSI = {
   intro: 'Allah\'ın zatını uyuklamayan, tüm evreni canlı tutan sarsılmaz bir güç olarak tanımlayan en meşhur ayet.',
   introEn: 'The most famous verse describing God as the unsleeping, ever-sustaining power who holds all existence.',
   arabic: 'ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ',
+  mealTr: "Allah, O'ndan başka tanrı yoktur; O, Hayy'dır, Kayyûm'dur. Kendisine ne uyku gelir ne de uyuklama. Göklerde ve yerdekilerin hepsi O'nundur. İzni olmadan O'nun katında kim şefaat edebilir? O, kullarının yaptıklarını ve yapacaklarını bilir. (O'na hiçbir şey gizli kalmaz.) O'nun bildirdiklerinin dışında insanlar O'nun ilminden hiçbir şeyi tam olarak bilemezler. O'nun kürsüsü gökleri ve yeri içine alır, onları koruyup gözetmek kendisine zor gelmez. O, yücedir, büyüktür.",
+  mealEn: "Allah — there is no deity except Him, the Ever-Living, the Sustainer of all existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursī extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
   highlighted: [
     { ar: 'ٱللَّهُ',     tr: 'Allah',     en: 'Allah'        },
     { ar: 'ٱلْحَىُّ',     tr: 'El-Hayy',    en: 'al-Ḥayy'     },
@@ -452,6 +454,8 @@ const HASR_VERSE = {
   intro: "Kur'an'da ilahî isimlerin en yoğun kümelendiği beyan — 13 isim peş peşe.",
   introEn: "The densest gathering of divine names in the Quran — 13 names in succession.",
   arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ ۝ هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ ۝ هُوَ ٱللَّهُ ٱلْخَٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ',
+  mealTr: "(22) O, öyle Allah'tır ki, O'ndan başka tanrı yoktur. Görülmeyeni ve görüleni bilendir. O, esirgeyendir, bağışlayandır. ◉ (23) O, öyle Allah'tır ki, kendisinden başka hiçbir tanrı yoktur. O, mülkün sahibidir, eksiklikten münezzehtir, selamet verendir, emniyete kavuşturandır, gözetip koruyandır, üstündür, istediğini zorla yaptırandır, büyüklükte eşi olmayandır. Allah, müşriklerin ortak koştukları şeylerden münezzehtir. ◉ (24) O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
+  mealEn: "(22) He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful. ◉ (23) He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him. ◉ (24) He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise.",
   highlighted: [
     { ar: 'ٱلرَّحْمَٰنُ', tr: 'Er-Rahmân',     en: 'ar-Raḥmān'     },
     { ar: 'ٱلرَّحِيمُ',   tr: 'Er-Rahîm',      en: 'ar-Raḥīm'      },
@@ -477,6 +481,8 @@ const IHLAS_VERSE = {
   intro: "Mutlak teklik — negatif tanım ile eşsizlik (Ehad + Samed + 'kimseden doğmamış, kimseyi doğurmamış').",
   introEn: "Absolute oneness — uniqueness through negative description (al-Aḥad + aṣ-Ṣamad + 'neither begotten nor begetting').",
   arabic: 'قُلْ هُوَ ٱللَّهُ أَحَدٌ ۝ ٱللَّهُ ٱلصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ',
+  mealTr: "(1) De ki: O, Allah birdir. ◉ (2) Allah sameddir. ◉ (3) O, doğurmamış ve doğmamıştır. ◉ (4) Onun hiçbir dengi yoktur.",
+  mealEn: "(1) Say: He is Allah, the One. ◉ (2) Allah, the Eternal Refuge. ◉ (3) He neither begets nor is born. ◉ (4) Nor is there to Him any equivalent.",
   highlighted: [
     { ar: 'أَحَدٌ',   tr: 'El-Ehad',  en: 'al-Aḥad'   },
     { ar: 'ٱلصَّمَدُ', tr: 'Es-Samed', en: 'aṣ-Ṣamad'  },
@@ -568,12 +574,39 @@ function FlagshipCard({ verse, index, tr }) {
           lineHeight: 2.4,
           padding: '20px 0',
           borderTop: '1px solid rgba(255,255,255,0.08)',
-          borderBottom: '1px solid rgba(255,255,255,0.08)',
           textAlign: 'right',
         }}
       >
         {highlightNames(verse.arabic, verse.highlighted)}
       </div>
+
+      {(verse.mealTr || verse.mealEn) && (
+        <div style={{
+          padding: '20px 0',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+        }}>
+          <p style={{
+            color: COLORS.offWhite,
+            fontFamily: FONTS.body,
+            fontSize: '0.95rem',
+            lineHeight: 1.9,
+            margin: '0 0 8px',
+            fontStyle: 'italic',
+          }}>
+            "{tr ? verse.mealTr : verse.mealEn}"
+          </p>
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            margin: 0,
+            letterSpacing: '0.06em',
+            opacity: 0.7,
+          }}>
+            {tr ? '— Diyanet meali' : '— Sahih International'}
+          </p>
+        </div>
+      )}
 
       <div style={{
         marginTop: '20px',
@@ -697,18 +730,20 @@ function FreqBar({ item, max, tr, rank, onAllahNoteClick }) {
               border: `1px solid ${COLORS.gold}55`,
               color: COLORS.gold,
               cursor: 'pointer',
-              fontSize: '0.7rem',
-              padding: '3px 8px',
-              borderRadius: '10px',
-              fontFamily: FONTS.body,
-              fontWeight: 600,
+              fontSize: '0.95rem',
+              width: '22px',
+              height: '22px',
+              borderRadius: '50%',
+              padding: 0,
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               lineHeight: 1,
-              whiteSpace: 'nowrap',
             }}
             onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}44`; }}
             onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.gold}22`; }}
           >
-            {tr ? 'ⓘ niçin?' : 'ⓘ why?'}
+            ⓘ
           </button>
         )}
       </span>
@@ -737,9 +772,23 @@ function AllahLemmaNote({ tr, onClose }) {
       >
         ×
       </button>
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '14px' }}>
-        <span style={{ ...sectionLabel, marginBottom: 0 }}>{tr ? 'Niçin Allah için 2.699?' : 'Why 2,699 for Allah?'}</span>
-        <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, lineHeight: 1 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+        <span style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '22px',
+          height: '22px',
+          borderRadius: '50%',
+          background: `${COLORS.gold}22`,
+          border: `1px solid ${COLORS.gold}55`,
+          color: COLORS.gold,
+          fontSize: '0.95rem',
+          lineHeight: 1,
+          flexShrink: 0,
+        }}>ⓘ</span>
+        <span style={{ ...sectionLabel, marginBottom: 0 }}>{tr ? 'Bu sayı nereden geliyor?' : 'Where does this number come from?'}</span>
+        <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, lineHeight: 1, marginLeft: 'auto' }}>
           ٱللَّه
         </span>
       </div>
