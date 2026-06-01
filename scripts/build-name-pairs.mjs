@@ -49,42 +49,53 @@ function stripArabic(s) {
 }
 
 // ── Pair tanımları ────────────────────────────────────────────────────────────
-// Her pair için regex pattern. Pattern tüm i'rab durumlarını yakalar:
-//   - definite:  "(ال)" prefix opsiyonel
-//   - accusative tanvin: sonda "(ا)" opsiyonel
-//   - nominative/genitive: prefix yok, sufiks yok
+// Her pair için forward pattern + opsiyonel reverse pattern. Pattern tüm i'rab
+// durumlarını yakalar:
+//   - lām al-tawkīd:  "ل?" prefix opsiyonel — "لغفور رحيم" gibi emphasis form
+//   - definite:       "(ال)?" prefix opsiyonel
+//   - vav (wa-):      "و?" prefix ikinci ismi koordine eder
+//   - accusative tanvin: sonda "ا?" opsiyonel
 //
-// Word boundary: önce ve sonra space/anchor — kelime ortası match'i engelle.
+// allowReverse:
+//   true  → "Hakîm Alîm" gibi gerçek pair ters sırada — sayılır
+//   false → "Basîr Semî'" 11:24 zıtlık bağlamında, Esma çifti değil — sayılmaz
+//
+// Pattern factory — DRY: aynı yapı her pair için, kelimeler değişir.
+function pairPattern(w1, w2) {
+  return new RegExp(`(?:^|\\s)ل?(?:ال)?${w1}ا? و?ل?(?:ال)?${w2}ا?(?:\\s|$)`, 'u');
+}
+
 const PAIRS = [
   {
     id: 'gafur-rahim',
     trName: 'El-Gafûr · Er-Rahîm',
     classicalCount: 72,
-    pattern: /(?:^|\s)(?:ال)?غفورا? (?:ال)?رحيما?(?:\s|$)/u,
+    patterns: [pairPattern('غفور', 'رحيم'), pairPattern('رحيم', 'غفور')],
   },
   {
     id: 'semi-basir',
     trName: "Es-Semî' · El-Basîr",
     classicalCount: 40,
-    pattern: /(?:^|\s)(?:ال)?سميعا? (?:ال)?بصيرا?(?:\s|$)/u,
+    // Reverse açılmadı: 11:24 "والبصير والسميع" zıtlık bağlamı, pair değil.
+    patterns: [pairPattern('سميع', 'بصير')],
   },
   {
     id: 'aziz-hakim',
     trName: 'El-Azîz · El-Hakîm',
     classicalCount: 38,
-    pattern: /(?:^|\s)(?:ال)?عزيزا? (?:ال)?حكيما?(?:\s|$)/u,
+    patterns: [pairPattern('عزيز', 'حكيم'), pairPattern('حكيم', 'عزيز')],
   },
   {
     id: 'alim-hakim',
     trName: 'El-Alîm · El-Hakîm',
     classicalCount: 35,
-    pattern: /(?:^|\s)(?:ال)?عليما? (?:ال)?حكيما?(?:\s|$)/u,
+    patterns: [pairPattern('عليم', 'حكيم'), pairPattern('حكيم', 'عليم')],
   },
   {
     id: 'tevvab-rahim',
     trName: 'Et-Tevvâb · Er-Rahîm',
     classicalCount: 6,
-    pattern: /(?:^|\s)(?:ال)?توابا? (?:ال)?رحيما?(?:\s|$)/u,
+    patterns: [pairPattern('تواب', 'رحيم')],
   },
 ];
 
@@ -111,9 +122,12 @@ for (const pair of PAIRS) {
   const matches = new Map(); // ref → first matched form (de-dupe)
 
   for (const v of verseIndex) {
-    const m = v.arabicStripped.match(pair.pattern);
-    if (m && !matches.has(v.ref)) {
-      matches.set(v.ref, m[0].trim());
+    for (const pat of pair.patterns) {
+      const m = v.arabicStripped.match(pat);
+      if (m && !matches.has(v.ref)) {
+        matches.set(v.ref, m[0].trim());
+        break;
+      }
     }
   }
 

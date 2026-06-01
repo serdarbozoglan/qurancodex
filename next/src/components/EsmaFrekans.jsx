@@ -992,6 +992,10 @@ function AllahLemmaNote({ tr, onClose }) {
 // regex match'i + manual annotation. Şu an sadece klasik konkordans sayıları.
 // ═════════════════════════════════════════════════════════════════════════════
 
+// count field'i KALDIRILDI — artık esma-pairs-ayetler.json'daki foundCount
+// kullanılır (substring tarama sonucu, tüm i'rab varyantları + ters sıra dahil).
+// Klasik konkordans değerleri farklı kaynaklarda çelişkili çıktığı için tek
+// kanonik kaynak: QuranCodex korpusu.
 const NAME_PAIRS = [
   {
     id: 'gafur-rahim',
@@ -1000,7 +1004,6 @@ const NAME_PAIRS = [
     enName: 'al-Ghafūr · ar-Raḥīm',
     trMeaning: 'Bağışlayan + Merhametli',
     enMeaning: 'The Forgiving + The Merciful',
-    count: 72,
     trGloss: 'Hatadan dönüş, soğuk bir affedilme değil; kucaklanmadır.',
     enGloss: 'Return from error is not met with cold pardon, but with embrace.',
   },
@@ -1011,7 +1014,6 @@ const NAME_PAIRS = [
     enName: 'as-Samīʿ · al-Baṣīr',
     trMeaning: 'İşiten + Gören',
     enMeaning: 'The All-Hearing + The All-Seeing',
-    count: 40,
     trGloss: 'Algı bölünmez — duyu organına bağlı değil, kuşatıcıdır.',
     enGloss: 'Perception is undivided — not bound by organs, but all-encompassing.',
   },
@@ -1022,7 +1024,6 @@ const NAME_PAIRS = [
     enName: 'al-ʿAzīz · al-Ḥakīm',
     trMeaning: 'Üstün + Hikmet sahibi',
     enMeaning: 'The Almighty + The Wise',
-    count: 38,
     trGloss: 'Kudret keyfî değil — daima hikmetle dengelidir.',
     enGloss: 'Might is never arbitrary — always paired with wisdom.',
   },
@@ -1033,7 +1034,6 @@ const NAME_PAIRS = [
     enName: 'al-ʿAlīm · al-Ḥakīm',
     trMeaning: 'Bilen + Hikmet sahibi',
     enMeaning: 'The Knowing + The Wise',
-    count: 35,
     trGloss: 'Bilgi yığın değil — anlam ve hüküm üreten bir hikmettir.',
     enGloss: 'Knowledge is not accumulation — it yields meaning and judgment.',
   },
@@ -1044,7 +1044,6 @@ const NAME_PAIRS = [
     enName: 'at-Tawwāb · ar-Raḥīm',
     trMeaning: 'Tövbeleri kabul eden + Merhametli',
     enMeaning: 'Accepting of repentance + The Merciful',
-    count: 6,
     trGloss: 'Tövbe kapısı kapanmaz — açan ve karşılayan aynı şefkattir.',
     enGloss: 'The door of repentance never closes — the One who opens and receives is the same mercy.',
   },
@@ -1103,8 +1102,8 @@ function NamePairs({ tr, pairsData }) {
           maxWidth: '760px',
         }}>
           {tr
-            ? 'Sayım: M. Fuâd Abdülbâkî, el-Muʿcemu\'l-Müfehres.'
-            : 'Counts: M. Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras.'}
+            ? "Sayım: QuranCodex korpusu — tüm i'rab varyantları (nominative · accusative tanvin · definite · lām emphasis) ve gerekli yerde ters sıra dahil substring tarama."
+            : 'Counting: QuranCodex corpus — substring scan covering all iʿrāb variants (nominative · accusative tanwīn · definite · lām emphasis) with reverse order where applicable.'}
         </p>
 
         <div style={{
@@ -1123,7 +1122,7 @@ function NamePairs({ tr, pairsData }) {
           ))}
         </div>
 
-        {/* Metodolojik nüans — bulunan vs klasik */}
+        {/* Metodolojik nüans — pattern detayları */}
         {pairsData && (
           <p style={{
             marginTop: '40px',
@@ -1131,12 +1130,12 @@ function NamePairs({ tr, pairsData }) {
             fontSize: '0.82rem',
             fontStyle: 'italic',
             opacity: 0.75,
-            maxWidth: '760px',
-            lineHeight: 1.7,
+            maxWidth: '780px',
+            lineHeight: 1.75,
           }}>
             {tr
-              ? "Not: Kart sağ üstündeki sayı klasik konkordans (Abdülbâkî) değeridir. Listede gösterilen ayetler ise QuranCodex korpusu üzerinde tüm i'rab varyantları (nominative, accusative tanvin, definite/indefinite) için substring tarama sonucudur — sayılar bazı çiftlerde klasik konkordanstan farklı çıkabilir."
-              : 'Note: The number on each card top-right is the classical concordance (Abdülbāqī) count. The verses listed below are the result of a substring scan across all iʿrāb variants (nominative, accusative tanwīn, definite/indefinite) on the QuranCodex corpus — counts may differ slightly from classical concordance.'}
+              ? "Yöntem: Her ayet, harekeleri çıkarılmış surface form üzerinde regex pattern ile taranır. Pattern; lām al-tawkīd prefix'i (لـ), definite article (ال), ve accusative tanvin sonunu opsiyonel kabul eder — böylece 'لغفور رحيم' (Tâhâ 20:82), 'غفورا رحيما' (Nisâ 4:96) ve 'الغفور الرحيم' (Sebe 34:2) formlarının hepsi yakalanır. Gafûr-Rahîm ve Alîm-Hakîm gibi çiftlerde ters sıra ('الرحيم الغفور') da sayılır. Semî'-Basîr için ters sıra dahil edilmedi: Hûd 11:24'teki 'الْبَصِيرُ وَالسَّمِيعُ' zıtlık karşılaştırmasıdır, Esmâ çifti değildir."
+              : "Method: Each verse is scanned on a diacritic-stripped surface form using regex patterns. The pattern allows optional lām al-tawkīd prefix (li-), definite article (al-), and accusative tanwīn ending — so 'la-ghafūr raḥīm' (Ṭāhā 20:82), 'ghafūran raḥīman' (Nisāʾ 4:96), and 'al-ghafūr al-raḥīm' (Sabaʾ 34:2) are all captured. For pairs like Ghafūr-Raḥīm and ʿAlīm-Ḥakīm, reverse order is also counted. Reverse not included for Samīʿ-Baṣīr: Hūd 11:24's 'al-baṣīr wa-l-samīʿ' is a contrast comparison, not a name pair."}
           </p>
         )}
       </div>
@@ -1166,38 +1165,42 @@ function PairCard({ pair, tr, index, verseData }) {
         overflow: 'hidden',
       }}
     >
-      {/* Count badge — top right */}
-      <div style={{
-        position: 'absolute',
-        top: '14px',
-        right: '14px',
-        display: 'flex',
-        alignItems: 'baseline',
-        gap: '6px',
-        background: `${COLORS.gold}14`,
-        border: `1px solid ${COLORS.gold}33`,
-        borderRadius: '999px',
-        padding: '5px 11px',
-      }}>
-        <span style={{
-          color: COLORS.gold,
-          fontFamily: FONTS.body,
-          fontSize: '0.95rem',
-          fontWeight: 700,
-          letterSpacing: '0.02em',
+      {/* Count badge — top right. Sayı esma-pairs-ayetler.json'dan gelir
+          (korpus tarama). JSON yüklenmediyse badge gizlenir — yanıltıcı
+          "0 ayet" göstermek yerine sessiz ol. */}
+      {foundCount !== null && (
+        <div style={{
+          position: 'absolute',
+          top: '14px',
+          right: '14px',
+          display: 'flex',
+          alignItems: 'baseline',
+          gap: '6px',
+          background: `${COLORS.gold}14`,
+          border: `1px solid ${COLORS.gold}33`,
+          borderRadius: '999px',
+          padding: '5px 11px',
         }}>
-          {pair.count}
-        </span>
-        <span style={{
-          color: `${COLORS.gold}aa`,
-          fontFamily: FONTS.body,
-          fontSize: '0.66rem',
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-        }}>
-          {tr ? 'ayet' : 'verses'}
-        </span>
-      </div>
+          <span style={{
+            color: COLORS.gold,
+            fontFamily: FONTS.body,
+            fontSize: '0.95rem',
+            fontWeight: 700,
+            letterSpacing: '0.02em',
+          }}>
+            {foundCount}
+          </span>
+          <span style={{
+            color: `${COLORS.gold}aa`,
+            fontFamily: FONTS.body,
+            fontSize: '0.66rem',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+          }}>
+            {tr ? 'ayet' : 'verses'}
+          </span>
+        </div>
+      )}
 
       {/* Arabic combined */}
       <p

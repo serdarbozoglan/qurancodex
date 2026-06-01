@@ -4,7 +4,7 @@
       "id": "gafur-rahim",
       "trName": "El-Gafûr · Er-Rahîm",
       "classicalCount": 72,
-      "foundCount": 64,
+      "foundCount": 72,
       "ayetler": [
         {
           "ref": "2:173",
@@ -247,6 +247,36 @@
           "matchedForm": "غفور رحيم"
         },
         {
+          "ref": "6:165",
+          "surah": 6,
+          "ayah": 165,
+          "surahName": "الأنعام",
+          "surahNameEn": "The Cattle",
+          "turkish": "Sizi yeryüzünün halifeleri kılan, size verdiği (nimetler) hususunda sizi denemek için kiminizi kiminizden derecelerle üstün kılan O'dur. Şüphesiz Rabbin, cezası çabuk olandır ve gerçekten O, bağışlayan merhamet edendir.",
+          "english": "And it is He who has made you successors upon the earth and has raised some of you above others in degrees [of rank] that He may try you through what He has given you. Indeed, your Lord is swift in penalty; but indeed, He is Forgiving and Merciful",
+          "matchedForm": "لغفور رحيم"
+        },
+        {
+          "ref": "7:153",
+          "surah": 7,
+          "ayah": 153,
+          "surahName": "الأعراف",
+          "surahNameEn": "The Heights",
+          "turkish": "Kötülükler yaptıktan sonra ardından tevbe edip de iman edenlere gelince, şüphesiz ki o tevbe ve imandan sonra, Rabbin elbette bağışlayan ve esirgeyendir.",
+          "english": "But those who committed misdeeds and then repented after them and believed - indeed your Lord, thereafter, is Forgiving and Merciful",
+          "matchedForm": "لغفور رحيم"
+        },
+        {
+          "ref": "7:167",
+          "surah": 7,
+          "ayah": 167,
+          "surahName": "الأعراف",
+          "surahNameEn": "The Heights",
+          "turkish": "Rabbin, elbette kıyamet gününe kadar onlara en kötü eziyeti yapacak kimseler göndereceğini ilan etti. Şüphesiz Rabbin cezayı çabuk verendir. Ve O çok bağışlayan, pek esirgeyendir.",
+          "english": "And [mention] when your Lord declared that He would surely [continue to] send upon them until the Day of Resurrection those who would afflict them with the worst torment. Indeed, your Lord is swift in penalty; but indeed, He is Forgiving and Merciful",
+          "matchedForm": "لغفور رحيم"
+        },
+        {
           "ref": "8:69",
           "surah": 8,
           "ayah": 69,
@@ -327,6 +357,16 @@
           "matchedForm": "الغفور الرحيم"
         },
         {
+          "ref": "11:41",
+          "surah": 11,
+          "ayah": 41,
+          "surahName": "هود",
+          "surahNameEn": "Hud",
+          "turkish": "(Nuh) dedi ki: \"Gemiye binin! Onun yüzüp gitmesi de, durması da Allah'ın adıyladır. Şüphesiz ki Rabbim çok bağışlayan, pek esirgeyendir.\"",
+          "english": "And [Noah] said, \"Embark therein; in the name of Allah is its course and its anchorage. Indeed, my Lord is Forgiving and Merciful",
+          "matchedForm": "لغفور رحيم"
+        },
+        {
           "ref": "12:53",
           "surah": 12,
           "ayah": 53,
@@ -367,6 +407,26 @@
           "matchedForm": "الغفور الرحيم"
         },
         {
+          "ref": "16:18",
+          "surah": 16,
+          "ayah": 18,
+          "surahName": "النحل",
+          "surahNameEn": "The Bee",
+          "turkish": "Allah'ın nimetini saymaya kalksanız, onu sayamazsınız. Hakikaten Allah çok bağışlayan, pek esirgeyendir.",
+          "english": "And if you should count the favors of Allah, you could not enumerate them. Indeed, Allah is Forgiving and Merciful",
+          "matchedForm": "لغفور رحيم"
+        },
+        {
+          "ref": "16:110",
+          "surah": 16,
+          "ayah": 110,
+          "surahName": "النحل",
+          "surahNameEn": "The Bee",
+          "turkish": "Sonra şüphesiz Rabbin, eziyet edildikten sonra hicret edip, ardından da sabrederek cihad edenlerin yardımcısıdır. Bütün bunlardan sonra Rabbin elbette çok bağışlayan, pek esirgeyendir.",
+          "english": "Then, indeed your Lord, to those who emigrated after they had been compelled [to renounce their religion] and thereafter fought [for the cause of Allah] and were patient - indeed, your Lord, after that, is Forgiving and Merciful",
+          "matchedForm": "لغفور رحيم"
+        },
+        {
           "ref": "16:115",
           "surah": 16,
           "ayah": 115,
@@ -375,6 +435,16 @@
           "turkish": "(Allah) size, sadece ölü hayvanı kanı, domuz etini ve Allah'tan başkası adına kesilen hayvanı haram kıldı. Ancak kim mecbur kalırsa (başkalarının haklarına) saldırmaksızın, sınırı da aşmadan (bunlardan yiyebilir). Çünkü Allah çok bağışlayan, pek esirgeyendir.",
           "english": "He has only forbidden to you dead animals, blood, the flesh of swine, and that which has been dedicated to other than Allah. But whoever is forced [by necessity], neither desiring [it] nor transgressing [its limit] - then indeed, Allah is Forgiving and Merciful",
           "matchedForm": "غفور رحيم"
+        },
+        {
+          "ref": "16:119",
+          "surah": 16,
+          "ayah": 119,
+          "surahName": "النحل",
+          "surahNameEn": "The Bee",
+          "turkish": "Sonra şüphesiz Rabbin, cahillik sebebiyle kötülük yapan, sonra da bunun ardından tevbe edip durumunu düzeltenleri (bağışlayacaktır). Çünkü onlar tevbe ettikten sonra Rabbin elbet çok bağışlayan, pek esirgeyendir.",
+          "english": "Then, indeed your Lord, to those who have done wrong out of ignorance and then repent after that and correct themselves - indeed, your Lord, thereafter, is Forgiving and Merciful",
+          "matchedForm": "لغفور رحيم"
         },
         {
           "ref": "24:5",
@@ -505,6 +575,16 @@
           "turkish": "(Allah bu emaneti insana vermek suretiyle), münafık erkeklere ve münafık kadınlara, müşrik erkeklere ve müşrik kadınlara azap edecek, inanan erkeklerin ve inanan kadınların da tevbesini kabul buyuracaktır. Allah bağışlayandır, merhamet edendir.",
           "english": "[It was] so that Allah may punish the hypocrite men and hypocrite women and the men and women who associate others with Him and that Allah may accept repentance from the believing men and believing women. And ever is Allah Forgiving and Merciful",
           "matchedForm": "غفورا رحيما"
+        },
+        {
+          "ref": "34:2",
+          "surah": 34,
+          "ayah": 2,
+          "surahName": "سبإ",
+          "surahNameEn": "Sheba",
+          "turkish": "Yerin içine gireni ve ondan çıkanı; gökten ineni, oraya çıkanı bilir. O, esirgeyendir, bağışlayandır.",
+          "english": "He knows what penetrates into the earth and what emerges from it and what descends from the heaven and what ascends therein. And He is the Merciful, the Forgiving",
+          "matchedForm": "الرحيم الغفور"
         },
         {
           "ref": "39:53",
@@ -1248,7 +1328,7 @@
       "id": "alim-hakim",
       "trName": "El-Alîm · El-Hakîm",
       "classicalCount": 35,
-      "foundCount": 29,
+      "foundCount": 36,
       "ayetler": [
         {
           "ref": "2:32",
@@ -1339,6 +1419,36 @@
           "turkish": "Ey insanlar! Resul size Rabbinizden gerçeği getirdi (bunda şüphe yoktur), şu halde kendi iyiliğinize olarak (ona) iman edin. Eğer inkar ederseniz, göklerde ve yerde ne varsa şüphesiz hepsi Allah'ındır. (O'nun sizin inanmanıza ihtiyacı yoktur). Allah geniş ilim ve hikmet sahibidir.",
           "english": "O Mankind, the Messenger has come to you with the truth from your Lord, so believe; it is better for you. But if you disbelieve - then indeed, to Allah belongs whatever is in the heavens and earth. And ever is Allah Knowing and Wise",
           "matchedForm": "عليما حكيما"
+        },
+        {
+          "ref": "6:83",
+          "surah": 6,
+          "ayah": 83,
+          "surahName": "الأنعام",
+          "surahNameEn": "The Cattle",
+          "turkish": "İşte bu, kavmine karşı İbrahim'e verdiğimiz delillerimizdir. Biz dilediğimiz kimselerin derecelerini yükseltiriz. Şüphesiz ki senin Rabbin hikmet sahibidir, hakkıyle bilendir.",
+          "english": "And that was Our [conclusive] argument which We gave Abraham against his people. We raise by degrees whom We will. Indeed, your Lord is Wise and Knowing",
+          "matchedForm": "حكيم عليم"
+        },
+        {
+          "ref": "6:128",
+          "surah": 6,
+          "ayah": 128,
+          "surahName": "الأنعام",
+          "surahNameEn": "The Cattle",
+          "turkish": "Allah, onların hepsini bir araya topladığı gün, \"Ey cinler (şeytanlar) topluluğu! Siz insanlarla çok uğraştınız\" der. Onların, insanlardan olan dostları ise: \"Ey Rabbimiz! (Biz) birbirimizden yararlandık ve bize verdiğin sürenin sonuna ulaştık\" derler. Allah da buyurur ki: Allah'ın dilediği hariç, içinde ebedi kalacağınız yer ateştir. Şüphesiz Rabbin hikmet sahibidir, bilendir.",
+          "english": "And [mention, O Muhammad], the Day when He will gather them together [and say], \"O company of jinn, you have [misled] many of mankind.\" And their allies among mankind will say, \"Our Lord, some of us made use of others, and we have [now] reached our term, which you appointed for us.\" He will say, \"The Fire is your residence, wherein you will abide eternally, except for what Allah wills. Indeed, your Lord is Wise and Knowing",
+          "matchedForm": "حكيم عليم"
+        },
+        {
+          "ref": "6:139",
+          "surah": 6,
+          "ayah": 139,
+          "surahName": "الأنعام",
+          "surahNameEn": "The Cattle",
+          "turkish": "Dediler ki: \"Şu hayvanların karınlarında olanlar yalnız erkeklerimize aittir, kadınlarımıza ise haram kılınmıştır. Şayet (yavru) ölü doğarsa, o zaman (kadın erkek) hepsi onda ortaktır.\" Allah bu değerlendirmelerinin cezasını verecektir. Şüphesiz ki O hikmet sahibidir, hakkıyla bilendir.",
+          "english": "And they say, \"What is in the bellies of these animals is exclusively for our males and forbidden to our females. But if it is [born] dead, then all of them have shares therein.\" He will punish them for their description. Indeed, He is Wise and Knowing",
+          "matchedForm": "حكيم عليم"
         },
         {
           "ref": "8:71",
@@ -1441,6 +1551,16 @@
           "matchedForm": "العليم الحكيم"
         },
         {
+          "ref": "15:25",
+          "surah": 15,
+          "ayah": 25,
+          "surahName": "الحجر",
+          "surahNameEn": "The Rocky Tract",
+          "turkish": "Şüphesiz Rabbin onları (kıyamette) toplayacaktır. Çünkü O, hakimdir, alimdir.",
+          "english": "And indeed, your Lord will gather them; indeed, He is Wise and Knowing",
+          "matchedForm": "حكيم عليم"
+        },
+        {
           "ref": "22:52",
           "surah": 22,
           "ayah": 52,
@@ -1481,6 +1601,16 @@
           "matchedForm": "عليم حكيم"
         },
         {
+          "ref": "27:6",
+          "surah": 27,
+          "ayah": 6,
+          "surahName": "النمل",
+          "surahNameEn": "The Ant",
+          "turkish": "(Resulüm!) Şüphesiz ki bu Kur'an, hikmet sahibi ve her şeyi bilen Allah tarafından sana verilmektedir.",
+          "english": "And indeed, [O Muhammad], you receive the Qur'an from one Wise and Knowing",
+          "matchedForm": "حكيم عليم"
+        },
+        {
           "ref": "33:1",
           "surah": 33,
           "ayah": 1,
@@ -1489,6 +1619,16 @@
           "turkish": "Ey Peygamber! Allah'tan kork, kafirlere ve münafıklara boyun eğme. Elbette Allah her şeyi bilmekte ve yerli yerince yapmaktadır.",
           "english": "O Prophet, fear Allah and do not obey the disbelievers and the hypocrites. Indeed, Allah is ever Knowing and Wise",
           "matchedForm": "عليما حكيما"
+        },
+        {
+          "ref": "43:84",
+          "surah": 43,
+          "ayah": 84,
+          "surahName": "الزخرف",
+          "surahNameEn": "The Ornaments of Gold",
+          "turkish": "Gökteki İlah da, yerdeki İlah da O'dur. O, hakimdir, her şeyi bilendir.",
+          "english": "And it is Allah who is [the only] deity in the heaven, and on the earth [the only] deity. And He is the Wise, the Knowing",
+          "matchedForm": "الحكيم العليم"
         },
         {
           "ref": "48:4",
@@ -1509,6 +1649,16 @@
           "turkish": "Bu, Allah'tan bir lütuf ve nimettir. Allah alimdir, hakimdir.",
           "english": "[It is] as bounty from Allah and favor. And Allah is Knowing and Wise",
           "matchedForm": "عليم حكيم"
+        },
+        {
+          "ref": "51:30",
+          "surah": 51,
+          "ayah": 30,
+          "surahName": "الذاريات",
+          "surahNameEn": "The Winnowing Winds",
+          "turkish": "Onlar: \"Bu böyledir. Rabbin söylemiştir. O, hikmet sahibidir, bilendir\" dediler.",
+          "english": "They said, \"Thus has said your Lord; indeed, He is the Wise, the Knowing",
+          "matchedForm": "الحكيم العليم"
         },
         {
           "ref": "60:10",
@@ -1611,7 +1761,7 @@
       ]
     }
   ],
-  "generated_at": "2026-06-01T15:00:05.545Z",
+  "generated_at": "2026-06-01T15:41:49.092Z",
   "methodology": {
     "tr": "Diacritic-stripped substring match — definite (al-X al-Y) ve indefinite (X Y) formları ayrı sayılır. Klasik konkordans (Abdülbâkî) ile karşılaştırmalı.",
     "en": "Diacritic-stripped substring match — definite (al-X al-Y) and indefinite (X Y) forms counted separately. Compared against classical concordance (Abdülbāqī).",
