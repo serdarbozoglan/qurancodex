@@ -25,7 +25,10 @@
     "57:20",
     "59:19"
   ],
-  "previousArticle": null,
+  "previousArticle": {
+    "slug": "sonsuz-nasil-bilinir",
+    "titleTr": "İdrak 2: Sonsuz Nasıl Bilinir?"
+  },
   "nextArticle": null,
   "blocks": [
     {

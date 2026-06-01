@@ -1,0 +1,111 @@
+{
+  "slug": "sonsuzlugun-merdiveni",
+  "titleTr": "Sonsuzluğun Merdiveni — Analojilerden Hakikate Yolculuk",
+  "titleEn": "The Ladder of the Infinite — From Analogies to Truth",
+  "category": "idrak-suur",
+  "template": "series-hero",
+  "seriesId": "recursive-idrak",
+  "seriesNumber": 1,
+  "seriesTotal": 3,
+  "publishedDate": "2024-09-15",
+  "readingMinutes": 4,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://medium.com/@sufist/sonsuzlu%C4%9Fun-merdiveni-analojilerden-hakikate-yolculuk-7ce2de6c5096",
+  "tldrTr": "İnsan zihni **analojilerle çalışır** — en soyut kavramları bile somut, bedensel deneyim üzerine inşa eder. Nörobilim (Schubert 2005, *embodied cognition*) bunu doğrular: sosyal statüyü düşündüğünde **hipokampüsün fiziksel yükseklik bölgesi** aktive olur. *Ağır sorumluluk, sıcak karşılama, yüksek mevki, fikirleri sindirmek* — dilimiz bu analojilerle dolu. Faydalı ama tehlikeli — **haritayı arazi zannetmek tuzağı (antropomorfizm)**: protein 'yürür', evrim 'seçer', AI 'düşünür' deriz; **araç amaç zannedildiğinde** sorun başlar. Peki ya **sınırsızı** anlamaya çalışırken? *(Bir sonraki yazıda: 'Sonsuz Nasıl Bilinir?')*",
+  "tldrEn": "The human mind **works by analogy** — it builds even the most abstract concepts on top of concrete, bodily experience. Neuroscience (Schubert, 2005; *embodied cognition*) confirms this: thinking about social status activates **the same hippocampal region as physical height**. *Heavy responsibility, warm welcome, high office, digesting ideas* — our language is full of these analogies. Useful but dangerous — **the trap of mistaking the map for the territory (anthropomorphism)**: we say proteins 'walk', evolution 'selects', AI 'thinks'; trouble starts when **the means is taken for the end**. What then, when we try to grasp the **infinite**? *(Next essay: 'How is the Infinite Known?')*",
+  "relatedTools": [
+    "concept-graph"
+  ],
+  "relatedVerses": [
+    "16:60"
+  ],
+  "previousArticle": null,
+  "nextArticle": {
+    "slug": "sonsuz-nasil-bilinir",
+    "titleTr": "İdrak 2: Sonsuz Nasıl Bilinir?"
+  },
+  "blocks": [
+    {
+      "type": "pullQuote",
+      "tr": "**En güzel misaller Allah'ındır, Allah içindir.**\n\nBu seri, *insanın analojiyle düşünme kapasitesinin* — embodied cognition'dan kalan zihinsel armağanın — **sonsuza yönelik bir merdivene** nasıl dönüşeceğini soruşturur.",
+      "en": "**The most beautiful analogies belong to Allah, and are for Allah.**\n\nThis series asks how *the human's capacity to think by analogy* — the cognitive gift left over from embodied cognition — can become **a ladder oriented toward the infinite**.",
+      "source": "Felsufi (Nahl 16:60 zemininde: وَلِلّٰهِ الْمَثَلُ الْاَعْلٰى)"
+    },
+    {
+      "type": "section",
+      "id": "zihin-analoji",
+      "titleTr": "1. Zihin Analojilerle Çalışır",
+      "titleEn": "1. The Mind Works by Analogy"
+    },
+    {
+      "type": "paragraph",
+      "tr": "İnsan zihni **analojilerle çalışır**. En soyut matematiksel kavramları bile, bebeklikten itibaren deneyimlediğimiz **somut gerçekliklerin üzerine** inşa ederiz: *çokluk–azlık, büyüklük–küçüklük, önce–sonra*… **Zihnimizin gökdelenleri hep bu fiziksel tuğlalardan yükselir.**",
+      "en": "The human mind **works by analogy**. Even the most abstract mathematical concepts we build **on top of concrete realities** experienced from infancy: *more–less, big–small, before–after*… **The skyscrapers of our minds rise from physical bricks.**"
+    },
+    {
+      "type": "section",
+      "id": "beyindeki-harita",
+      "titleTr": "2. Beyindeki Harita — Embodied Cognition",
+      "titleEn": "2. The Map in the Brain — Embodied Cognition"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Hiyerarşik bir yapıyı düşündüğünde — örneğin bir binbaşının yüzbaşıdan rütbece *'üstte'* olduğunu hayal ettiğinde — beyinde ilginç bir şey olur. **Aktive olan bölgeler, fiziksel dünyada yukarıdaki bir cisme bakarken çalışan bölgelerle örtüşür**. *Hipokampüs* sosyal statüyü **fiziksel 'yükseklik' algısıyla kodlar** (Schubert, 2005).\n\nYani **soyut bir kavramı (statü), somut bir algıyı (yükseklik) yeniden kullanarak** anlarız. Bilişsel bilimde buna **'Embodied Cognition' (Bedenleşmiş Biliş)** denir.",
+      "en": "When you think of a hierarchical structure — say, imagining that a major is *'above'* a captain in rank — something interesting happens in the brain. **The regions that activate overlap with those that fire when you look at a physically high object**. The *hippocampus* **encodes social status through the perception of physical 'height'** (Schubert, 2005).\n\nThat is, **we grasp an abstract concept (status) by re-using a concrete perception (height)**. In cognitive science this is called **'Embodied Cognition'**."
+    },
+    {
+      "type": "section",
+      "id": "gunluk-analoji",
+      "titleTr": "3. Her Yerdeki Analojiler",
+      "titleEn": "3. Analogies Everywhere"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu sadece statü için değil. **Dilimiz bu analojilerle dolu:**\n\n— **'Ağır'** bir sorumluluk\n— **'Sıcak'** bir karşılama\n— **'Yüksek'** bir mevki\n— Fikirleri **'sindirmek'**\n— Bir konuyu **'kavramak'** (elle tutmak)\n\n**Fiziksel deneyimlerimiz, soyut dünyayı anlamamızın iskeletini oluşturur.** Hatta semantik çalışmalarında — çoğunlukla — bir kelime kökünün **somut kullanımı, soyut kullanımının atası** kabul edilir.",
+      "en": "Not only status. **Our language is full of these analogies:**\n\n— A **'heavy'** responsibility\n— A **'warm'** welcome\n— A **'high'** office\n— **'Digesting'** ideas\n— **'Grasping'** a topic (taking hold)\n\n**Physical experiences form the skeleton of how we understand the abstract.** In semantic studies, too — most often — the **concrete usage of a word-root is taken as the ancestor of its abstract use**."
+    },
+    {
+      "type": "section",
+      "id": "antropomorfizm",
+      "titleTr": "4. Kaçınılmaz Tuzak — Antropomorfizm",
+      "titleEn": "4. The Inevitable Trap — Anthropomorphism"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu zihinsel mekanizma **anlamamız gereken her şeye uygulanır**. Hücre içindeki motor proteinleri *'yürüyen kurye'*ye, yapay zekayı *'düşünen insan'*a, evrimi *'seçim yapan güç'*e benzetiriz. Buna **antropomorfizm** (insan biçimcilik) denir.\n\n**Araç olarak kaçınılmaz ve faydalı.** Ama tehlike şu: **haritayı arazi zannetmek**. Analojiyi, hakikatin kendisi sanmak.\n\n— Bir proteinin *'amacı'* yoktur — **biz öyle anlıyoruz**.\n— Evrim *'seçmez'* — **biz öyle kavrıyoruz**.\n— Yapay zekâ *'düşünmez'* — **biz öyle modelliyoruz**.\n\nSorun, **aracı amaç zannettiğimizde** başlar.",
+      "en": "This mental mechanism **applies to everything we try to understand**. We liken intracellular motor proteins to a *'walking courier'*, artificial intelligence to a *'thinking human'*, evolution to a *'selecting force'*. This is called **anthropomorphism**.\n\n**Indispensable and useful as a tool.** The danger lies elsewhere: **mistaking the map for the territory.** Mistaking the analogy for the reality itself.\n\n— A protein has no *'purpose'* — **we understand it that way**.\n— Evolution does not *'select'* — **we conceive it that way**.\n— Artificial intelligence does not *'think'* — **we model it that way**.\n\nThe problem begins **when the means is taken for the end.**"
+    },
+    {
+      "type": "section",
+      "id": "sonsuz-soru",
+      "titleTr": "5. Peki Ya Sonsuz? — Sonraki Adım",
+      "titleEn": "5. What of the Infinite? — The Next Step"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Somut deneyimden yola çıkarak soyutu anlıyoruz.** İyi.\n\nAma ya **anlaşılmak istenen şey sınırsızsa? Sonsuzsa?**\n\nSınırlı bir zihin, sınırsız olanı nasıl idrak edebilir? Analojilerimiz yetersiz kaldığında ne olur?\n\n*(Bu soruyu bir sonraki yazıda — 'Sonsuz Nasıl Bilinir: Yönelimsel İdrak' — ele alacağız.)*",
+      "en": "**We grasp the abstract by setting out from the concrete.** Fine.\n\nBut what if **the thing to be grasped is boundless? Infinite?**\n\nHow can a finite mind apprehend the boundless? What happens when our analogies fall short?\n\n*(This question is taken up in the next essay — 'How is the Infinite Known? — Directional Cognition'.)*"
+    },
+    {
+      "type": "sources",
+      "titleTr": "Akademik Kaynak",
+      "titleEn": "Academic Source",
+      "items": [
+        {
+          "tr": "Schubert, T. W. (2005). *Your highness: Vertical positions as perceptual symbols of power.* Journal of Personality and Social Psychology, 89(1), 1–21.",
+          "en": "Schubert, T. W. (2005). *Your highness: Vertical positions as perceptual symbols of power.* Journal of Personality and Social Psychology, 89(1), 1–21."
+        }
+      ]
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Embodied Cognition — bilim ile aşkın varlık arasında köprü kurarken",
+      "headingEn": "Embodied Cognition — bridging science to transcendence",
+      "tr": "Felsufi'nin **embodied cognition** (Lakoff & Johnson, Schubert) çerçevesini *uluhiyeti analoji ile idrak* meselesine bağlaması **çağdaş bir köprü kurma**dır. Klasik kelâm ve tasavvuf gelenekleri *teşbih–tenzih dengesi*ni **kendi içkin diliyle** formüle eder (örn. İbn Sînâ'nın *vahdet-i vücûd ↔ vahdet-i şuhûd* nüansı, Gazâlî'nin *Mişkâtu'l-Envâr*'da ışık metaforu) — *embodied cognition* deneysel literatürünü kullanmaz. Felsufi'nin sentezi **modern okur için bir mercek** sağlar; klasik kelâmî/tasavvufî formülasyonların yerini almaz, onlara yardımcı bir lisan ekler. *Schubert 2005* gerçek bir akademik çalışmadır ama 'embodied cognition' alanı içinde tartışmalı (replikasyon krizi sonrası bazı sosyal-priming çalışmaları sorgulanmıştır); konsept-mercek olarak kullanım güvenli, kanıt iddiası olarak daha temkinli alınmalıdır.",
+      "en": "Felsufi's bridging of **embodied cognition** (Lakoff & Johnson, Schubert) to *grasping divinity by analogy* is a **contemporary bridging move**. Classical kalām and Sufi traditions formulate the *tashbīh–tanzīh* balance **in their own intrinsic vocabulary** (e.g., Ibn Sīnā's *waḥdat al-wujūd ↔ waḥdat al-shuhūd* distinction, Ghazālī's light metaphor in *Mishkāt al-Anwār*) — they do not draw on the experimental embodied-cognition literature. Felsufi's synthesis offers **a lens for the modern reader**; it does not replace classical kalāmic/Sufi formulations but adds a complementary idiom. *Schubert 2005* is a real academic work, but the embodied-cognition field is contested (some social-priming studies have been questioned post replication crisis); used as a conceptual lens it is safe, but should be treated with caution as a hard evidentiary claim."
+    }
+  ]
+}

@@ -51,6 +51,30 @@
   ],
   "articles": [
     {
+      "slug": "sonsuzlugun-merdiveni",
+      "titleTr": "İdrak 1: Sonsuzluğun Merdiveni",
+      "titleEn": "Cognition 1: The Ladder of the Infinite",
+      "category": "idrak-suur",
+      "seriesNumber": 1,
+      "publishedDate": "2024-09-15",
+      "readingMinutes": 4,
+      "tldrTr": "İnsan zihni analojilerle çalışır — soyutu somut deneyim üzerine inşa eder. Schubert 2005 (embodied cognition): statü hipokampüste fiziksel yükseklikle kodlanır. Faydalı ama tehlikeli — haritayı arazi zannetme (antropomorfizm). Peki ya sonsuzu anlamaya çalışırken?",
+      "tldrEn": "The mind works by analogy — builds the abstract on bodily experience. Schubert 2005 (embodied cognition): status is encoded in the hippocampus via physical height. Useful but dangerous — mistaking the map for the territory (anthropomorphism). What then, with the infinite?",
+      "status": "draft"
+    },
+    {
+      "slug": "sonsuz-nasil-bilinir",
+      "titleTr": "İdrak 2: Sonsuz Nasıl Bilinir — Yönelimsel İdrak",
+      "titleEn": "Cognition 2: How Is the Infinite Known — Directional Cognition",
+      "category": "idrak-suur",
+      "seriesNumber": 2,
+      "publishedDate": "2024-09-25",
+      "readingMinutes": 6,
+      "tldrTr": "Sınırlı zihin sınırsızı nasıl idrak eder? Yönelimsel idrak: X=100 (kesin/sınırlı) ↔ X∈ℤ (vague) ↔ X→∞ (yönü bilinir). 'Allâhu Ekber' dinamik idrak formülü: Kıyas + Aşkınlık. Tenzih-teşbih dengesi (Şura 42:11, İhlâs 112:4). Elhamdülillah=teşbih, Subhânallah=tenzih.",
+      "tldrEn": "How does a finite mind grasp the infinite? Directional cognition: X=100 (definite/bounded) ↔ X∈ℤ (vague) ↔ X→∞ (direction known). 'Allāhu Akbar' = dynamic-cognition formula: Comparison + Transcendence. Tanzīh-tashbīh balance (42:11, 112:4). Alḥamdulillāh=tashbīh, Subḥānallāh=tanzīh.",
+      "status": "draft"
+    },
+    {
       "slug": "inception-hayatlar",
       "titleTr": "Inception Hayatlar — Recursive Düşüncenin Pratiği",
       "titleEn": "Inception Lives — The Practice of Recursive Thinking",
