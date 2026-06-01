@@ -122,10 +122,37 @@ const topSurahIndices = surahs
   .map(x => x.idx)
   .sort((a, b) => a - b); // mushaf sırası geri al
 
+// İsim sütunlarını TOP-20 SURE İÇİ TOPLAMA göre desc sırala.
+// Top 20'de 0 olan isimleri ELE (Vedûd gibi sadece az-kullanılan surede
+// görünenler heatmap'i kirletir).
+const namesTop20Totals = names.map((n, ni) => ({
+  ni,
+  isim: n.isim,
+  total: topSurahIndices.reduce((acc, si) => acc + matrix[si][ni], 0),
+}));
+const namesSorted = namesTop20Totals
+  .filter(x => x.total > 0)
+  .sort((a, b) => b.total - a.total);
+
+const reorderedNames = namesSorted.map(x => ({
+  isim: names[x.ni].isim,
+  arabic: names[x.ni].arabic,
+  total: names[x.ni].total,         // full corpus total
+  top20Total: x.total,               // top 20 sure içi
+}));
+
+// Matrix'i de yeni sıraya göre kaydır
+const reorderedMatrix = matrix.map(row =>
+  namesSorted.map(x => row[x.ni])
+);
+
+console.log('\nTop 20 içi sıra (desc):');
+namesSorted.forEach((x, i) => console.log(`  ${(i+1).toString().padStart(2)}. ${x.isim.padEnd(12)} ${x.total}`));
+
 const result = {
-  names: names.map(n => ({ isim: n.isim, arabic: n.arabic, total: n.total })),
+  names: reorderedNames,
   surahs,
-  matrix,
+  matrix: reorderedMatrix,
   topSurahIndices,
   methodology: {
     tr: "15 en sık Esmâ-i Hüsnâ ismi × 114 sure matrisi. Her hücre: o sureyi sıyıran ismin (stripped form, ال + lām + accusative tanvin esnek) toplam görünümü. Top 20 sure (mushaf sırasında) varsayılan heatmap'te görünür.",

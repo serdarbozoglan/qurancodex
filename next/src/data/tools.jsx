@@ -223,8 +223,8 @@ export const FEATURED_TOOL_ESMA = {
   titleEn:     'The Beautiful Names',
   descTr:      "Allah'ın Kur'an'da kendini tanıtması · 114 isim ve sıfat",
   descEn:      'How God describes Himself in the Quran · 114 names & attributes',
-  descLongTr:  "Kur'an'da Allah kendisini hangi isim, sıfat ve doğrudan beyanlarla tanıtır? 114 isim ve sıfat · Celal ↔ Cemal dengesi · Âyetü'l-Kürsî ve Haşr 22-24 anatomileri · frekans manzarası · doğrudan ilahi beyanlar.",
-  descLongEn:  'How does God describe Himself in the Quran — through which names, attributes, and direct statements? 114 names & attributes · Jalāl ↔ Jamāl balance · anatomies of Āyat al-Kursī and Ḥashr 22-24 · frequency landscape · direct divine self-statements.',
+  descLongTr:  "Kur'an'da Allah kendisini hangi isim, sıfat ve doğrudan beyanlarla tanıtır? 114 isim ve sıfat · Celal ↔ Cemal dengesi · Âyetü'l-Kürsî, Haşr 22-24 ve İhlâs Suresi anatomileri · frekans manzarası · doğrudan ilahi beyanlar.",
+  descLongEn:  'How does God describe Himself in the Quran — through which names, attributes, and direct statements? 114 names & attributes · Jalāl ↔ Jamāl balance · anatomies of Āyat al-Kursī, Ḥashr 22-24 and Sūrat al-Ikhlāṣ · frequency landscape · direct divine self-statements.',
   icon:        EsmaIcon,
 };
 

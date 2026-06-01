@@ -2197,8 +2197,8 @@ function SurahNameHeatmap({ tr, heatmapData }) {
           maxWidth: '760px',
         }}>
           {tr
-            ? 'En sık 15 ismin, en isim-yoğun 20 surede dağılımı. Koyu altın hücreler kümelendiği yeri gösterir — Bakara hukuk ekseninde, Şûrâ rahmet, Hadîd kudret diline kayar.'
-            : "Distribution of the 15 most-frequent names across the 20 most name-dense surahs. Deeper gold cells mark clustering — Bakara leans on jurisprudence, Shūrā on mercy, Ḥadīd on power."}
+            ? 'En sık görünen isimlerin, en isim-yoğun 20 sure üzerindeki dağılımı. İsim sütunları soldan sağa azalan frekans sırasında (top 20 sure içi toplama göre). Koyu altın hücreler kümelendiği yeri gösterir — Bakara hukuk ekseninde, Şûrâ rahmet, Hadîd kudret diline kayar.'
+            : "Distribution of the most frequent names across the 20 most name-dense surahs. Name columns are ordered by descending frequency (within top-20 surahs). Deeper gold cells mark clustering — Bakara leans on jurisprudence, Shūrā on mercy, Ḥadīd on power."}
         </p>
         <p style={{
           color: `${COLORS.gold}99`,
@@ -2213,28 +2213,43 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             : 'Counting: QuranCodex corpus, surface form regex match (flexible lām, al-, accusative tanwīn).'}
         </p>
 
-        {/* Heatmap — yatay scroll mobile için */}
+        {/* Heatmap — sticky row/column header'ları ile scroll'a dayanıklı.
+            Outer scrollContainer + position:sticky thead/leading-col yapısı. */}
         <div style={{
-          overflowX: 'auto',
-          paddingBottom: '8px',
+          overflow: 'auto',
+          maxHeight: '600px',
           background: 'rgba(255,255,255,0.02)',
           border: '1px solid rgba(255,255,255,0.06)',
           borderRadius: '12px',
-          padding: '20px',
+          padding: '14px',
+          position: 'relative',
         }}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: `100px repeat(${names.length}, 1fr)`,
+            gridTemplateColumns: `120px repeat(${names.length}, minmax(40px, 1fr))`,
             gap: '3px',
-            minWidth: '720px',
+            minWidth: `${120 + names.length * 44 + 32}px`,
           }}>
-            {/* Sol-üst boş, sonra üst başlıklar */}
-            <div />
+            {/* Sol-üst köşe — diğer iki sticky kenarın kesişimi, en üst z */}
+            <div style={{
+              position: 'sticky',
+              top: 0,
+              left: 0,
+              background: '#06080e',
+              zIndex: 3,
+              height: '88px',
+            }} />
+
+            {/* Üst başlık satırı — sticky top */}
             {names.map(n => (
               <div
                 key={n.isim}
-                title={tr ? n.isim : n.isim}
+                title={`${n.isim} · ${tr ? 'top 20 sure içi' : 'within top 20'}: ${n.top20Total ?? '—'}`}
                 style={{
+                  position: 'sticky',
+                  top: 0,
+                  background: '#06080e',
+                  zIndex: 2,
                   color: COLORS.silver,
                   fontFamily: FONTS.body,
                   fontSize: '0.66rem',
@@ -2255,7 +2270,12 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             {/* Satırlar */}
             {rows.map(({ surah, counts }, ri) => (
               <Fragment key={surah.surah}>
+                {/* Sol kolon — sticky left */}
                 <div style={{
+                  position: 'sticky',
+                  left: 0,
+                  background: '#06080e',
+                  zIndex: 1,
                   color: COLORS.offWhite,
                   fontFamily: FONTS.body,
                   fontSize: '0.78rem',
@@ -2638,7 +2658,7 @@ function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, fav
           background: isOpen ? 'rgba(212,165,116,0.06)' : 'rgba(255,255,255,0.02)',
           border: isOpen ? `1px solid ${COLORS.gold}44` : '1px solid rgba(255,255,255,0.06)',
           borderRadius: '10px',
-          padding: '14px 18px 14px 50px', // sol padding 50px — yıldız butonu için
+          padding: '14px 18px 14px 54px', // sol padding 54px — yıldız butonu (32px + 12px) için
           color: COLORS.offWhite,
           fontFamily: FONTS.body,
           cursor: 'pointer',
@@ -2705,27 +2725,27 @@ function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, fav
           aria-pressed={isFavorite}
           style={{
             position: 'absolute',
-            left: '12px',
+            left: '10px',
             top: '50%',
             transform: 'translateY(-50%)',
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: '28px',
-            height: '28px',
+            width: '32px',
+            height: '32px',
             borderRadius: '50%',
-            background: isFavorite ? `${COLORS.gold}22` : 'transparent',
-            border: `1px solid ${isFavorite ? COLORS.gold + '66' : 'rgba(255,255,255,0.12)'}`,
-            color: isFavorite ? COLORS.gold : 'rgba(148,163,184,0.55)',
+            background: isFavorite ? `${COLORS.gold}26` : 'rgba(255,255,255,0.04)',
+            border: `1px solid ${isFavorite ? COLORS.gold + '88' : 'rgba(255,255,255,0.18)'}`,
+            color: isFavorite ? COLORS.gold : 'rgba(180,195,215,0.75)',
             cursor: 'pointer',
             transition: 'all 0.18s',
             padding: 0,
             zIndex: 2,
           }}
-          onMouseEnter={e => { if (!isFavorite) { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = `${COLORS.gold}55`; } }}
-          onMouseLeave={e => { if (!isFavorite) { e.currentTarget.style.color = 'rgba(148,163,184,0.55)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; } }}
+          onMouseEnter={e => { if (!isFavorite) { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = `${COLORS.gold}66`; e.currentTarget.style.background = `${COLORS.gold}10`; } }}
+          onMouseLeave={e => { if (!isFavorite) { e.currentTarget.style.color = 'rgba(180,195,215,0.75)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; } }}
         >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill={isFavorite ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill={isFavorite ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" aria-hidden="true">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" />
           </svg>
         </button>
