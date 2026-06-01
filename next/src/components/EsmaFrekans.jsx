@@ -2213,16 +2213,17 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             : 'Counting: QuranCodex corpus, surface form regex match (flexible lām, al-, accusative tanwīn).'}
         </p>
 
-        {/* Heatmap — sticky row/column header'ları ile scroll'a dayanıklı.
-            Outer scrollContainer + position:sticky thead/leading-col yapısı. */}
+        {/* Heatmap — sticky pattern Grid içinde browser flicker üretiyor.
+            Pragmatik karar: maxHeight + sticky kaldırıldı. Heatmap full-height
+            doğal şekilde gösterilir, mobile yatay scroll için overflow-x var.
+            20 sure × 14 isim toplam ~600px yükseklik, sayfa scroll'una rahatça
+            sığar. */}
         <div style={{
-          overflow: 'auto',
-          maxHeight: '600px',
+          overflowX: 'auto',
           background: 'rgba(255,255,255,0.02)',
           border: '1px solid rgba(255,255,255,0.06)',
           borderRadius: '12px',
-          padding: '14px',
-          position: 'relative',
+          padding: '20px',
         }}>
           <div style={{
             display: 'grid',
@@ -2230,30 +2231,12 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             gap: '3px',
             minWidth: `${120 + names.length * 44 + 32}px`,
           }}>
-            {/* Sol-üst köşe — diğer iki sticky kenarın kesişimi, en üst z.
-                box-shadow: 3px sağa + 3px aşağı → grid gap'i de kaplar. */}
-            <div style={{
-              position: 'sticky',
-              top: 0,
-              left: 0,
-              background: '#06080e',
-              zIndex: 3,
-              height: '88px',
-              boxShadow: '3px 0 0 #06080e, 0 3px 0 #06080e, 3px 3px 0 #06080e',
-            }} />
-
-            {/* Üst başlık satırı — sticky top. box-shadow ile altındaki
-                3px grid gap'i kaplanır, scroll'da veri sızması engellenir. */}
+            <div style={{ height: '88px' }} />
             {names.map(n => (
               <div
                 key={n.isim}
                 title={`${n.isim} · ${tr ? 'top 20 sure içi' : 'within top 20'}: ${n.top20Total ?? '—'}`}
                 style={{
-                  position: 'sticky',
-                  top: 0,
-                  background: '#06080e',
-                  zIndex: 2,
-                  boxShadow: '0 3px 0 #06080e',
                   color: COLORS.silver,
                   fontFamily: FONTS.body,
                   fontSize: '0.66rem',
@@ -2271,17 +2254,9 @@ function SurahNameHeatmap({ tr, heatmapData }) {
               </div>
             ))}
 
-            {/* Satırlar */}
             {rows.map(({ surah, counts }, ri) => (
               <Fragment key={surah.surah}>
-                {/* Sol kolon — sticky left. box-shadow 3px sağa → grid gap'i
-                    kapatır, scroll'da yan veri sızmaz. */}
                 <div style={{
-                  position: 'sticky',
-                  left: 0,
-                  background: '#06080e',
-                  zIndex: 1,
-                  boxShadow: '3px 0 0 #06080e',
                   color: COLORS.offWhite,
                   fontFamily: FONTS.body,
                   fontSize: '0.78rem',
