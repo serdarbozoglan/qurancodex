@@ -592,6 +592,7 @@ export default function Navbar() {
       if (!e.target.closest('[data-dropdown]')) {
         setToolsOpen(false);
         setExploreOpen(false);
+        setTefekkurOpen(false);
       }
     };
     document.addEventListener('mousedown', h);
@@ -707,13 +708,13 @@ export default function Navbar() {
         z-index 9990 nav'ın 9999 altında: nav görünür kalır, dropdown'lar nav stacking
         context'inde üst seviyede. */}
     <AnimatePresence>
-      {(exploreOpen || toolsOpen) && (
+      {(exploreOpen || toolsOpen || tefekkurOpen) && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.15 }}
-          onClick={() => { setExploreOpen(false); setToolsOpen(false); }}
+          onClick={() => { setExploreOpen(false); setToolsOpen(false); setTefekkurOpen(false); }}
           aria-hidden="true"
           style={{
             position: 'fixed', inset: 0,
@@ -764,7 +765,7 @@ export default function Navbar() {
           {/* Keşfet dropdown */}
           <div className="relative" data-dropdown>
             <button
-              onClick={() => { setExploreOpen(p => !p); setToolsOpen(false); }}
+              onClick={() => { setExploreOpen(p => !p); setToolsOpen(false); setTefekkurOpen(false); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: '5px',
                 padding: '8px 14px', borderRadius: '8px', border: 'none',
@@ -987,7 +988,7 @@ export default function Navbar() {
           {/* Araçlar dropdown */}
           <div className="relative" data-dropdown>
             <button
-              onClick={() => { setToolsOpen(p => !p); setExploreOpen(false); }}
+              onClick={() => { setToolsOpen(p => !p); setExploreOpen(false); setTefekkurOpen(false); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: '5px',
                 padding: '8px 14px', borderRadius: '8px', border: 'none',
