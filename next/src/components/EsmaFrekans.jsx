@@ -77,6 +77,9 @@ export default function EsmaFrekans({ onClose }) {
 
       {/* ═══ SECTION 6: 114 İSİM ATLASI ═══ */}
       <NamesAtlas data={data} tr={tr} />
+
+      {/* ═══ SECTION 7: METODOLOJİ ve KAYNAK ═══ */}
+      <Methodology data={data} tr={tr} />
     </div>
   );
 }
@@ -1299,6 +1302,139 @@ function NameDetail({ item, tr, isAllah }) {
         </a>
       </div>
     </div>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 7: METODOLOJI ve KAYNAK
+// ═════════════════════════════════════════════════════════════════════════════
+
+function Methodology({ data, tr }) {
+  const [open, setOpen] = useState(false);
+  if (!data?.metodoloji) return null;
+
+  return (
+    <section style={{ padding: '60px 24px 100px', background: COLORS.cosmicBlack }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <div style={sectionLabel}>{tr ? 'Metodoloji ve Kaynak' : 'Methodology & Sources'}</div>
+
+        <button
+          onClick={() => setOpen(v => !v)}
+          aria-expanded={open}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '14px',
+            background: 'rgba(255,255,255,0.04)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '10px',
+            padding: '16px 22px',
+            color: COLORS.offWhite,
+            fontFamily: FONTS.body,
+            cursor: 'pointer',
+            width: '100%',
+            textAlign: 'left',
+          }}
+        >
+          <span style={{ flex: 1, fontWeight: 600 }}>
+            {tr ? 'Bu sayfa nasıl hesaplandı?' : 'How was this page calculated?'}
+          </span>
+          <span style={{ color: COLORS.gold, transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>▾</span>
+        </button>
+
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderTop: 'none',
+              borderRadius: '0 0 10px 10px',
+              padding: '24px 28px',
+              fontFamily: FONTS.body,
+            }}
+          >
+            <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
+              {tr ? 'Kaynak metin' : 'Source text'}
+            </h3>
+            <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
+              {data.metodoloji.kaynak_metin}
+            </p>
+
+            <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
+              {tr ? 'Kalibrasyon' : 'Calibration'}
+            </h3>
+            <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
+              {data.metodoloji.kalibrasyon}
+            </p>
+
+            <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
+              {tr ? 'Lemma vs Yüzey-Lafız Nüansı' : 'Lemma vs Surface-Form Nuance'}
+            </h3>
+            <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 8px' }}>
+              {tr
+                ? <>Bu sayfa <strong>klasik konkordansa</strong> (M. Fuâd Abdülbâkî, el-Mu'cemü'l-Müfehres) dayanır. <strong>Lemma sayımı:</strong> bir ismin tüm morfolojik formları (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) ve önek'li türevleri (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) tek bir isim olarak sayılır.</>
+                : <>This page is based on the <strong>classical concordance</strong> (M. Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras). <strong>Lemma counting:</strong> all morphological forms of a name (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) and prefixed forms (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) count as one name.</>}
+            </p>
+            <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
+              {tr
+                ? <>Bu nedenle klasik rakamlar (Allah=2.699), yalın yüzey lafzı sayımına (~{ALLAH_SURFACE_COUNT.toLocaleString('tr-TR')}) göre daha yüksek görünür. Bu metodolojik bir tercihtir, sayım hatası değildir.</>
+                : <>This is why classical figures (Allah=2,699) appear higher than strict surface counts (~{ALLAH_SURFACE_COUNT.toLocaleString('en-US')}). It is a methodological choice, not a counting error.</>}
+            </p>
+
+            <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
+              {tr ? 'Hadis kaynaklı isimler' : 'Hadith-sourced names'}
+            </h3>
+            <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
+              {data.metodoloji.onemli_not}
+            </p>
+
+            <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
+              {tr ? 'Uyarı' : 'Caveat'}
+            </h3>
+            <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 24px' }}>
+              {data.metodoloji.uyari}
+            </p>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+              <a
+                href="https://corpus.quran.com/search.jsp"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: 'transparent',
+                  border: `1px solid ${COLORS.softGoldAlpha40 || 'rgba(212,165,116,0.4)'}`,
+                  borderRadius: '8px',
+                  color: COLORS.gold,
+                  padding: '8px 16px',
+                  fontSize: '0.85rem',
+                  textDecoration: 'none',
+                }}
+              >
+                {tr ? 'Corpus Quran →' : 'Corpus Quran →'}
+              </a>
+              <a
+                href="https://tanzil.net/#search/ar"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: 'transparent',
+                  border: `1px solid ${COLORS.softGoldAlpha40 || 'rgba(212,165,116,0.4)'}`,
+                  borderRadius: '8px',
+                  color: COLORS.gold,
+                  padding: '8px 16px',
+                  fontSize: '0.85rem',
+                  textDecoration: 'none',
+                }}
+              >
+                {tr ? 'Tanzil →' : 'Tanzil →'}
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </section>
   );
 }
 
