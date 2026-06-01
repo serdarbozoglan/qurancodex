@@ -1055,12 +1055,19 @@ export default function Navbar() {
                     // featuredTool, vizTools, analysisTools, researchTools are
                     // now defined at the component-top from src/data/tools.jsx
                     // (single source of truth — see line ~493)
+                    // Navbar dropdown'da SADECE 1. featured banner gösterilir
+                    // (Kur'an'ı Tanı). Esmâ-i Hüsnâ artık top nav'da standalone
+                    // link olduğu için bu dropdown'da tekrar göstermek aynı
+                    // satırda duplikasyon yaratıyordu. Mobile menü ve
+                    // ToolsBrowser modal hâlâ tüm featuredTools array'ini
+                    // kullanır (Esma orada featured kalır).
+                    const dropdownFeatured = featuredTools.slice(0, 1);
                     return (
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        {/* Featured banners — stacked, vitrin tier */}
-                        {featuredTools.map((ft, idx) => {
+                        {/* Featured banner — Kur'an'ı Tanı tek vitrin */}
+                        {dropdownFeatured.map((ft, idx) => {
                           const isFirst = idx === 0;
-                          const isLast = idx === featuredTools.length - 1;
+                          const isLast = idx === dropdownFeatured.length - 1;
                           return (
                             <button
                               key={ft.id}
