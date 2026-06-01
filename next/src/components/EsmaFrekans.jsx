@@ -1074,6 +1074,17 @@ function NamePairs({ tr, pairsData }) {
     return Object.fromEntries(pairsData.pairs.map(p => [p.id, p]));
   }, [pairsData]);
 
+  // foundCount'a göre azalan sırada — JSON yüklenmemişse NAME_PAIRS sırası
+  // (hardcoded yedek). Yüklendikten sonra otomatik yeniden sıralanır.
+  const sortedPairs = useMemo(() => {
+    if (!pairsData?.pairs) return NAME_PAIRS;
+    return [...NAME_PAIRS].sort((a, b) => {
+      const ca = ayetlerById[a.id]?.foundCount ?? 0;
+      const cb = ayetlerById[b.id]?.foundCount ?? 0;
+      return cb - ca;
+    });
+  }, [pairsData, ayetlerById]);
+
   return (
     <section style={{
       padding: '90px 24px',
@@ -1129,7 +1140,7 @@ function NamePairs({ tr, pairsData }) {
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '20px',
         }}>
-          {NAME_PAIRS.map((p, i) => (
+          {sortedPairs.map((p, i) => (
             <PairCard
               key={p.id}
               pair={p}
