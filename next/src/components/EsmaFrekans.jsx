@@ -69,6 +69,9 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 3: FLAGSHIP PASAJLAR ═══ */}
       <FlagshipVerses tr={tr} />
 
+      {/* ═══ SECTION 4: FREKANS MANZARASI ═══ */}
+      <FrequencyLandscape data={data} tr={tr} />
+
       {/* Diğer section'lar sonraki task'larda eklenecek */}
     </div>
   );
@@ -586,6 +589,150 @@ function FlagshipCard({ verse, index, tr }) {
         ))}
       </div>
     </motion.article>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 4: FREKANS MANZARASI — Top 20 bar chart + Allah lemma notu
+// ═════════════════════════════════════════════════════════════════════════════
+
+function FrequencyLandscape({ data, tr }) {
+  const [showAllahNote, setShowAllahNote] = useState(false);
+
+  const top20 = useMemo(() => {
+    if (!data?.isimler) return [];
+    // Allah için displayCount override (klasik 2699)
+    const isimler = data.isimler.map(n => ({
+      ...n,
+      displayCount: n.isim === 'Allah' ? ALLAH_CLASSIC_COUNT : n.kuranda_gecis_sayisi,
+    }));
+    return [...isimler].sort((a, b) => b.displayCount - a.displayCount).slice(0, 20);
+  }, [data]);
+
+  if (!data) return null;
+  const maxCount = top20[0]?.displayCount || 1;
+
+  return (
+    <section style={{ padding: '80px 24px', background: '#06080e' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <div style={sectionLabel}>{tr ? 'Frekans Manzarası' : 'Frequency Landscape'}</div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+          color: COLORS.offWhite,
+          fontWeight: 700,
+          margin: '0 0 16px',
+          maxWidth: '720px',
+        }}>
+          {tr ? 'En Sık Geçen 20 İsim' : 'Top 20 Most Frequent Names'}
+        </h2>
+        <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '40px', maxWidth: '720px' }}>
+          {tr
+            ? 'Allah lafzası 2.699 geçişle uzak ara önde — yaklaşık her 2,3 ayette bir. Sonra El-Hakk, El-Alîm, Er-Rahîm gibi sıfat-isimler gelir.'
+            : 'The name Allah leads by far with 2,699 occurrences — roughly every 2.3 verses. Then come attribute-names like al-Ḥaqq, al-ʿAlīm, ar-Raḥīm.'}
+        </p>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          {top20.map((n, i) => (
+            <FreqBar key={n.isim} item={n} max={maxCount} tr={tr} rank={i + 1} onAllahNoteClick={() => setShowAllahNote(true)} />
+          ))}
+        </div>
+
+        {showAllahNote && (
+          <AllahLemmaNote tr={tr} onClose={() => setShowAllahNote(false)} />
+        )}
+      </div>
+    </section>
+  );
+}
+
+function FreqBar({ item, max, tr, rank, onAllahNoteClick }) {
+  const isAllah = item.isim === 'Allah';
+  const pct = (item.displayCount / max) * 100;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: rank * 0.02 }}
+      style={{ display: 'grid', gridTemplateColumns: '24px 110px 1fr 70px', gap: '12px', alignItems: 'center' }}
+    >
+      <span style={{ color: COLORS.slate500 || 'rgba(148,163,184,0.5)', fontSize: '0.7rem', fontFamily: FONTS.body, textAlign: 'right' }}>
+        {rank}
+      </span>
+      <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+        {item.isim}
+      </span>
+      <div style={{ position: 'relative', height: '24px', background: 'rgba(255,255,255,0.04)', borderRadius: '4px' }}>
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: `${pct}%` }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
+          style={{
+            height: '100%',
+            background: `linear-gradient(90deg, ${COLORS.gold}cc, ${COLORS.gold}66)`,
+            borderRadius: '4px',
+          }}
+        />
+      </div>
+      <span style={{ display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'flex-end' }}>
+        <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: 700 }}>
+          {item.displayCount.toLocaleString(tr ? 'tr-TR' : 'en-US')}
+        </span>
+        {isAllah && (
+          <button
+            onClick={onAllahNoteClick}
+            aria-label={tr ? 'Sayım metodolojisi' : 'Counting methodology'}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: COLORS.gold,
+              cursor: 'pointer',
+              fontSize: '0.85rem',
+              padding: 0,
+            }}
+          >
+            ⓘ
+          </button>
+        )}
+      </span>
+    </motion.div>
+  );
+}
+
+function AllahLemmaNote({ tr, onClose }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      style={{
+        marginTop: '32px',
+        ...GLASS_CARD,
+        padding: '24px 28px',
+        position: 'relative',
+      }}
+    >
+      <button
+        onClick={onClose}
+        aria-label={tr ? 'Kapat' : 'Close'}
+        style={{ position: 'absolute', top: '12px', right: '12px', background: 'none', border: 'none', color: COLORS.silver, cursor: 'pointer', fontSize: '1.2rem' }}
+      >
+        ×
+      </button>
+      <div style={{ ...sectionLabel, marginBottom: '12px' }}>{tr ? 'Metodolojik Nüans' : 'Methodological Nuance'}</div>
+      <p style={{ color: COLORS.offWhite, fontSize: '0.95rem', lineHeight: 1.8, margin: '0 0 12px' }}>
+        {tr
+          ? <>Klasik konkordans (M. Fuâd Abdülbâkî, el-Mu'cemü'l-Müfehres) <strong>lemma sayımı</strong> esas alır: bir ismin tüm morfolojik formları (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) ve önek'li türevleri (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) tek bir isim sayılır.</>
+          : <>The classical concordance (M. Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras) uses <strong>lemma counting</strong>: all morphological forms of a name (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) and prefixed forms (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) count as one name.</>}
+      </p>
+      <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>
+        {tr
+          ? <>Bu nedenle klasik rakamlar (Allah=2.699), yalın yüzey lafzı sayımına (~{ALLAH_SURFACE_COUNT.toLocaleString('tr-TR')}) göre daha yüksek görünür. Bu metodolojik bir tercihtir, sayım hatası değildir.</>
+          : <>This is why classical figures (Allah=2,699) appear higher than strict surface counts (~{ALLAH_SURFACE_COUNT.toLocaleString('en-US')}). It is a methodological choice, not a counting error.</>}
+      </p>
+    </motion.div>
   );
 }
 
