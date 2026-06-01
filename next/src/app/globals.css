@@ -81,6 +81,10 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Scrollbar gutter stable: modal açılışında veya kısa içeriklerde
+     scrollbar oluşma/kaybolma kaynaklı layout shift'i (navbar sağa kayma)
+     önler. */
+  scrollbar-gutter: stable;
 }
 
 

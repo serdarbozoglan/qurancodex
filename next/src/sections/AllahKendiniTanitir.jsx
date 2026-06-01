@@ -155,7 +155,9 @@ export default function AllahKendiniTanitir() {
           transition={{ duration: 0.8, delay: 0.4 }}
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+            // 4 kart için sabit 2×2 — auto-fit responsive minmax 3+1 asimetri
+            // üretiyor. <480px'de 1 sütuna düşelim.
+            gridTemplateColumns: 'repeat(2, 1fr)',
             gap: '14px',
             marginBottom: '56px',
           }}

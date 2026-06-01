@@ -1131,6 +1131,25 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
+          {/* Esmâ-i Hüsnâ — flagship sayfa, top-level direct link.
+              Dropdown yok (tek route /arac/esma-frekans). Aktif state ile
+              vurgu — Tefekkür linki ile aynı stil. */}
+          <button
+            onClick={() => { router.push(`/${language}/arac/esma-frekans`); setExploreOpen(false); setToolsOpen(false); setTefekkurOpen(false); }}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '5px',
+              padding: '8px 14px', borderRadius: '8px', border: 'none',
+              background: pathname.includes('/arac/esma-frekans') ? 'rgba(255,255,255,0.06)' : 'transparent',
+              color: pathname.includes('/arac/esma-frekans') ? '#d4a574' : '#d4d8e0',
+              fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+              cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
+            }}
+            onMouseEnter={e => { if (!pathname.includes('/arac/esma-frekans')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+            onMouseLeave={e => { if (!pathname.includes('/arac/esma-frekans')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
+          >
+            {language === 'tr' ? 'Esmâ-i Hüsnâ' : 'The Beautiful Names'}
+          </button>
+
           {/* Tefekkür — Felsufi makaleler — 3. top-level mega-menu */}
           <div className="relative" data-dropdown>
             <button
