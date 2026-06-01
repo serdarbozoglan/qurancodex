@@ -30,7 +30,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_TABLET } from '../tokens';
 import {
-  FEATURED_TOOL,
+  FEATURED_TOOLS,
   VIZ_TOOLS,
   ANALYSIS_TOOLS,
   RESEARCH_TOOLS,
@@ -294,14 +294,15 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
 
             {/* Body — scrollable */}
             <div style={{ overflow: 'auto', flex: 1 }}>
-              {/* Featured banner — only on "Tümü" view */}
-              {activeFilter === 'all' && (
+              {/* Featured banners (vitrin tier) — only on "Tümü" view */}
+              {activeFilter === 'all' && FEATURED_TOOLS.map(ft => (
                 <FeaturedBanner
-                  tool={FEATURED_TOOL}
-                  onClick={() => triggerTool(FEATURED_TOOL.event)}
+                  key={ft.id}
+                  tool={ft}
+                  onClick={() => triggerTool(ft.event)}
                   language={language}
                 />
-              )}
+              ))}
 
               {/* Card grid
                 - Filtered view: a single flat grid of that category's cards
