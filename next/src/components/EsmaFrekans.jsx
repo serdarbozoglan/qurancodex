@@ -96,6 +96,7 @@ export default function EsmaFrekans({ onClose }) {
   const [beyanlari, setBeyanlari] = useState(null);
   const [pairsData, setPairsData] = useState(null);
   const [koklerData, setKoklerData] = useState(null);
+  const [triplesData, setTriplesData] = useState(null);
 
   // Escape key
   useEffect(() => {
@@ -110,6 +111,7 @@ export default function EsmaFrekans({ onClose }) {
     fetch('/esma-beyanlari.json').then(r => r.json()).then(setBeyanlari).catch(e => console.error('[EsmaBeyanlari]', e));
     fetch('/esma-pairs-ayetler.json').then(r => r.json()).then(setPairsData).catch(e => console.error('[EsmaPairs]', e));
     fetch('/esma-kokler.json').then(r => r.json()).then(setKoklerData).catch(e => console.error('[EsmaKokler]', e));
+    fetch('/esma-triples.json').then(r => r.json()).then(setTriplesData).catch(e => console.error('[EsmaTriples]', e));
   }, []);
 
   return (
@@ -131,7 +133,7 @@ export default function EsmaFrekans({ onClose }) {
       <FrequencyLandscape data={data} tr={tr} />
 
       {/* ═══ SECTION 5: İSİM ÇİFTLERİ ═══ */}
-      <NamePairs tr={tr} pairsData={pairsData} />
+      <NamePairs tr={tr} pairsData={pairsData} triplesData={triplesData} />
 
       {/* ═══ SECTION 6: VAHYİN SESİ ═══ */}
       <DivineVoice beyanlari={beyanlari} tr={tr} />
@@ -1341,7 +1343,7 @@ const NAME_PAIRS = [
   },
 ];
 
-function NamePairs({ tr, pairsData }) {
+function NamePairs({ tr, pairsData, triplesData }) {
   // pairsData JSON'undan ref→ayet listesi map'i kur
   const ayetlerById = useMemo(() => {
     if (!pairsData?.pairs) return {};
@@ -1491,6 +1493,105 @@ function NamePairs({ tr, pairsData }) {
             />
           ))}
         </div>
+
+        {/* Üçlüden Ötesi — Âyetü'l-Kürsî dört-isim mührü vurgusu */}
+        {triplesData?.triples?.[0] && (
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.7 }}
+            style={{
+              marginTop: '40px',
+              background: `linear-gradient(135deg, ${COLORS.gold}18 0%, ${COLORS.gold}06 100%)`,
+              border: `1px solid ${COLORS.gold}3a`,
+              borderRadius: '14px',
+              padding: 'clamp(22px, 3vw, 30px) clamp(22px, 3vw, 32px)',
+              maxWidth: '900px',
+            }}
+          >
+            <div style={{
+              color: `${COLORS.gold}aa`,
+              fontFamily: FONTS.body,
+              fontSize: '0.7rem',
+              fontWeight: 700,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              marginBottom: '10px',
+            }}>
+              {tr ? 'Üçlüden Ötesi' : 'Beyond the Pair'}
+            </div>
+            <p
+              dir="rtl"
+              lang="ar"
+              style={{
+                fontFamily: FONTS.quran,
+                fontSize: 'clamp(1.35rem, 2.4vw, 1.75rem)',
+                color: COLORS.gold,
+                lineHeight: 2,
+                margin: '0 0 16px',
+                textAlign: 'right',
+                textShadow: `0 0 24px ${COLORS.gold}22`,
+              }}
+            >
+              {triplesData.triples[0].arabic}
+            </p>
+            <p style={{
+              color: COLORS.offWhite,
+              fontFamily: FONTS.body,
+              fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)',
+              fontWeight: 600,
+              margin: '0 0 6px',
+            }}>
+              {tr ? triplesData.triples[0].trName : triplesData.triples[0].enName}
+            </p>
+            <p style={{
+              color: `${COLORS.gold}cc`,
+              fontFamily: FONTS.body,
+              fontSize: '0.86rem',
+              letterSpacing: '0.02em',
+              margin: '0 0 14px',
+            }}>
+              {tr ? triplesData.triples[0].trMeaning : triplesData.triples[0].enMeaning}
+            </p>
+            <p style={{
+              color: COLORS.silver,
+              fontFamily: FONTS.body,
+              fontSize: '0.92rem',
+              lineHeight: 1.7,
+              fontStyle: 'italic',
+              margin: 0,
+            }}>
+              {tr ? triplesData.triples[0].trGloss : triplesData.triples[0].enGloss}
+            </p>
+            {triplesData.triples[0].ayetler?.length > 0 && (
+              <div style={{
+                marginTop: '14px',
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '8px',
+              }}>
+                {triplesData.triples[0].ayetler.map(a => (
+                  <span key={a.ref} style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '5px 11px',
+                    borderRadius: '999px',
+                    background: `${COLORS.gold}14`,
+                    border: `1px solid ${COLORS.gold}3a`,
+                    color: COLORS.gold,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.76rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.04em',
+                  }}>
+                    {tr ? (SURAH_NAMES_TR[a.surah - 1] || a.surahName) : a.surahNameEn} {a.ref}
+                  </span>
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
 
         {/* Metodolojik nüans — pattern detayları */}
         {pairsData && (

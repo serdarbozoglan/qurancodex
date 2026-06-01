@@ -1,0 +1,40 @@
+{
+  "triples": [
+    {
+      "id": "hayy-kayyum-aliy-azim",
+      "arabic": "ٱلْحَيُّ ٱلْقَيُّومُ … ٱلْعَلِيُّ ٱلْعَظِيمُ",
+      "trName": "El-Hayy · El-Kayyûm · El-Aliyy · El-Azîm",
+      "enName": "al-Ḥayy · al-Qayyūm · al-ʿAlī · al-ʿAẓīm",
+      "trMeaning": "Diri · Ayakta tutan · Yüce · Büyük",
+      "enMeaning": "Living · Sustaining · Most High · Magnificent",
+      "trGloss": "Âyetü'l-Kürsî'nin açılış ve kapanış mührü — diri olan ayakta tutar, yüce olan büyüktür. İkinci ayet Âl-i İmrân 3:2'de yine açılışta birlikte gelir.",
+      "enGloss": "The opening and closing seal of Āyat al-Kursī — the Living sustains, the Most High is Great. The opening pair recurs at Āl-ʿImrān 3:2.",
+      "foundCount": 2,
+      "ayetler": [
+        {
+          "ref": "2:255",
+          "surah": 2,
+          "ayah": 255,
+          "surahName": "البقرة",
+          "surahNameEn": "The Cow",
+          "arabic": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ اَلْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهٓ اِلَّا بِاِذْنِهِ يَعْلَمُ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهٓ اِلَّا بِمَا شٓاءَ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَ وَلَا يَؤُ۫دُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+          "turkish": "Allah, O'ndan başka tanrı yoktur; O, hayydir, kayyumdur. Kendisine ne uyku gelir ne de uyuklama. Göklerde ve yerdekilerin hepsi O'nundur. İzni olmadan O'nun katında kim şefaat edebilir? O, kullarının yaptıklarını ve yapacaklarını bilir. (O'na hiçbir şey gizli kalmaz.) O'nun bildirdiklerinin dışında insanlar O'nun ilminden hiçbir şeyi tam olarak bilemezler. O'nun kürsüsü gökleri ve yeri içine alır, onları koruyup gözetmek kendisine zor gelmez. O, yücedir, büyüktür.",
+          "english": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great",
+          "matchedForm": "(manuel — Âyetü'l-Kürsî açılış+kapanış kümesi)"
+        },
+        {
+          "ref": "3:2",
+          "surah": 3,
+          "ayah": 2,
+          "surahName": "آل عمران",
+          "surahNameEn": "Family of Imran",
+          "arabic": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
+          "turkish": "Hayy ve kayyum olan Allah'tan başka ilah yoktur.",
+          "english": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of existence",
+          "matchedForm": "(manuel — Âyetü'l-Kürsî açılış+kapanış kümesi)"
+        }
+      ]
+    }
+  ],
+  "generated_at": "2026-06-01T18:48:19.618Z"
+}
