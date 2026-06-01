@@ -378,6 +378,36 @@
       "notEn": "There is nothing like Him; He is the All-Hearing, the All-Seeing.",
       "ayetler": [
         {
+          "id": "17:1",
+          "sure": 17,
+          "ayet": 1,
+          "sureAdTr": "İsrâ",
+          "sureAdEn": "The Night Journey",
+          "arapca": "سُبْحَانَ الَّـذِٓي اَسْرٰى بِعَبْدِهِ لَيْلاً مِنَ الْمَسْجِدِ الْحَرَامِ اِلَى الْمَسْجِدِ الْاَقْصَا الَّذِي بَارَكْنَا حَوْلَهُ لِنُرِيَهُ مِنْ اٰيَاتِنَا اِنَّهُ هُوَ السَّمِيعُ الْبَصِيرُ",
+          "tr": "Bir gece, kendisine ayetlerimizden bir kısmını gösterelim diye (Muhammed) kulunu Mescid-i Haram'dan, çevresini mübarek kıldığımız Mescid-i Aksa'ya götüren Allah noksan sıfatlardan münezzehtir; O, gerçekten işitendir, görendir.",
+          "en": "Exalted is He who took His Servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa, whose surroundings We have blessed, to show him of Our signs. Indeed, He is the Hearing, the Seeing"
+        },
+        {
+          "id": "31:28",
+          "sure": 31,
+          "ayet": 28,
+          "sureAdTr": "Lokman",
+          "sureAdEn": "Luqman",
+          "arapca": "مَا خَلْقُكُمْ وَلَا بَعْثُكُمْ اِلَّا كَنَفْسٍ وَاحِدَةٍ اِنَّ اللّٰهَ سَمِيعٌ بَصِيرٌ",
+          "tr": "(İnsanlar!) Sizin yaratılmanız ve diriltilmeniz, ancak tek bir kişinin yaratılması ve diriltilmesi gibidir. Unutulmasın ki, Allah her şeyi bilen ve görendir.",
+          "en": "Your creation and your resurrection will not be but as that of a single soul. Indeed, Allah is Hearing and Seeing"
+        },
+        {
+          "id": "40:20",
+          "sure": 40,
+          "ayet": 20,
+          "sureAdTr": "Mü'min",
+          "sureAdEn": "The Forgiver",
+          "arapca": "وَاللّٰهُ يَقْضِي بِالْحَقِّ وَالَّذِينَ يَدْعُونَ مِنْ دُونِهِ لَا يَقْضُونَ بِشَيْءٍ اِنَّ اللّٰهَ هُوَ السَّمِيعُ الْبَصِيرُ۟",
+          "tr": "Allah, adaletle hükmeder. O'nu bırakıp taptıkları ise, hiçbir şeye hükmedemezler. Şüphesiz Allah, hakkıyla işiten ve görendir.",
+          "en": "And Allah judges with truth, while those they invoke besides Him judge not with anything. Indeed, Allah - He is the Hearing, the Seeing"
+        },
+        {
           "id": "42:11",
           "sure": 42,
           "ayet": 11,
