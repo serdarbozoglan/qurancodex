@@ -26,17 +26,20 @@ const ALLAH_SURFACE_COUNT = 1813;   // JSON'daki yüzey lafz sayımı
 
 // 4 temel ayet — Hero kartlarında her birinin GERÇEK quote'u (sloppy
 // tekrarlamayı engelle). Tek bir metin = "En güzel isimler O'nundur" 4x değil.
+// Arabic verse-graph-bgem3.json'dan çekilmiş, §13.15 cleanArabicForDisplay
+// ile normalize edilmiş — yalnız Esmâ-i Hüsnâ kümesi kısmı (tam ayet metni
+// kart boyutunu aşardı).
 const TEMEL_AYETLER_TR = [
-  { ref: "A'RÂF 7:180",  quote: "En güzel isimler Allah'ındır; O'na o isimlerle dua edin." },
-  { ref: "İSRÂ 17:110",  quote: "İster Allah deyin, ister Rahmân; hangisini deseniz en güzel isimler O'nundur." },
-  { ref: "TÂHÂ 20:8",    quote: "Allah — O'ndan başka ilah yoktur; en güzel isimler O'nundur." },
-  { ref: "HAŞR 59:24",   quote: "O, yaratan, kusursuzca var eden, şekil veren Allah'tır. En güzel isimler O'nundur." },
+  { ref: "A'RÂF 7:180",  arabic: "وَلِلّٰهِ الْاَسْمٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا", quote: "En güzel isimler Allah'ındır; O'na o isimlerle dua edin." },
+  { ref: "İSRÂ 17:110",  arabic: "قُلِ ادْعُوا اللّٰهَ اَوِ ادْعُوا الرَّحْمٰنَ اَياًّ مَا تَدْعُوا فَلَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "İster Allah deyin, ister Rahmân; hangisini deseniz en güzel isimler O'nundur." },
+  { ref: "TÂHÂ 20:8",    arabic: "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "Allah — O'ndan başka ilah yoktur; en güzel isimler O'nundur." },
+  { ref: "HAŞR 59:24",   arabic: "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "O, yaratan, kusursuzca var eden, şekil veren Allah'tır. En güzel isimler O'nundur." },
 ];
 const TEMEL_AYETLER_EN = [
-  { ref: "A'RĀF 7:180",  quote: "To Allah belong the best names; so invoke Him by them." },
-  { ref: "ISRĀ 17:110",  quote: "Say Allah or say Ar-Raḥmān — by whichever you call, the best names are His." },
-  { ref: "ṬĀHĀ 20:8",    quote: "Allah — there is no deity except Him; to Him belong the best names." },
-  { ref: "ḤASHR 59:24",  quote: "He is Allah, the Creator, the Inventor, the Fashioner. To Him belong the best names." },
+  { ref: "A'RĀF 7:180",  arabic: "وَلِلّٰهِ الْاَسْمٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا", quote: "To Allah belong the best names; so invoke Him by them." },
+  { ref: "ISRĀ 17:110",  arabic: "قُلِ ادْعُوا اللّٰهَ اَوِ ادْعُوا الرَّحْمٰنَ اَياًّ مَا تَدْعُوا فَلَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "Say Allah or say Ar-Raḥmān — by whichever you call, the best names are His." },
+  { ref: "ṬĀHĀ 20:8",    arabic: "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "Allah — there is no deity except Him; to Him belong the best names." },
+  { ref: "ḤASHR 59:24",  arabic: "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "He is Allah, the Creator, the Inventor, the Fashioner. To Him belong the best names." },
 ];
 
 // ──────────────────────────────────────────────────────────────────────────────
@@ -358,10 +361,26 @@ function Hero({ tr }) {
                   fontSize: '0.68rem',
                   fontWeight: 700,
                   letterSpacing: '0.16em',
-                  marginBottom: '10px',
+                  marginBottom: '12px',
                 }}>
                   {ayet.ref}
                 </div>
+                {ayet.arabic && (
+                  <p
+                    dir="rtl"
+                    lang="ar"
+                    style={{
+                      fontFamily: FONTS.quran,
+                      fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)',
+                      color: COLORS.gold,
+                      lineHeight: 1.9,
+                      margin: '0 0 12px',
+                      textShadow: `0 0 14px ${COLORS.gold}1a`,
+                    }}
+                  >
+                    {ayet.arabic}
+                  </p>
+                )}
                 <div style={{
                   color: COLORS.offWhite,
                   fontFamily: FONTS.display,
