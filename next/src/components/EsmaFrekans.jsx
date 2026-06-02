@@ -327,14 +327,33 @@ function Hero({ tr }) {
           transition={{ duration: 0.9, delay: 1.1 }}
           style={{ width: '100%', maxWidth: '900px', marginBottom: '40px' }}
         >
-          <p style={{
-            ...sectionLabel,
-            marginBottom: '20px',
-            textAlign: 'center',
-            color: `${COLORS.gold}aa`,
-          }}>
-            {tr ? "Allah'ın kendi beyanı" : "In His own words"}
-          </p>
+          {/* Mini-display başlık — 4 ayet kartının üst kimliği. Eyebrow küçük
+              caps (ne tip kümeleme), altında orta Playfair italik başlık. */}
+          <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+            <div style={{
+              color: `${COLORS.gold}aa`,
+              fontSize: '0.7rem',
+              fontFamily: FONTS.body,
+              fontWeight: 700,
+              letterSpacing: '0.24em',
+              textTransform: 'uppercase',
+              marginBottom: '10px',
+            }}>
+              {tr ? '4 Temel Ayet' : 'Four Anchor Verses'}
+            </div>
+            <h3 style={{
+              color: COLORS.offWhite,
+              fontFamily: FONTS.display,
+              fontSize: 'clamp(1.25rem, 2.2vw, 1.65rem)',
+              fontWeight: 700,
+              fontStyle: 'italic',
+              letterSpacing: '-0.005em',
+              margin: 0,
+              lineHeight: 1.3,
+            }}>
+              {tr ? "Allah'ın Kendi Beyanı" : "In His Own Words"}
+            </h3>
+          </div>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
