@@ -398,56 +398,116 @@ function Hero({ tr }) {
         {/* Filigree divider 3 */}
         <FiligreeDivider delay={1.6} mt={20} mb={32} />
 
-        {/* Sayaç şeridi — premium chip treatment */}
+        {/* Sayaç şeridi — premium stat treatment. 3 stat birbiriyle aynı
+            tipografik ağırlıkta, sayı vurgulu (Playfair display), kategori
+            altta küçük caps (Inter). Üçü görsel olarak eşit. */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.7 }}
           style={{
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'stretch',
             justifyContent: 'center',
             flexWrap: 'wrap',
-            gap: '14px 24px',
+            gap: '0',
             fontFamily: FONTS.body,
-            color: COLORS.silver,
-            fontSize: '0.86rem',
-            letterSpacing: '0.1em',
           }}
         >
-          <span style={{
-            background: `${COLORS.gold}18`,
-            border: `1px solid ${COLORS.gold}44`,
-            borderRadius: '999px',
-            padding: '5px 14px',
-            color: COLORS.gold,
-            fontWeight: 600,
-          }}>
-            {tr ? '114 isim ve sıfat' : '114 names & attributes'}
-          </span>
-          <span style={{ opacity: 0.5 }}>·</span>
-          <span>{tr ? '6.236 âyet' : '6,236 verses'}</span>
-          <span style={{ opacity: 0.5 }}>·</span>
-          <span style={{ fontStyle: 'italic' }}>{tr ? '1 mimar' : 'one architect'}</span>
+          {[
+            { num: '114', label: tr ? 'isim ve sıfat' : 'names & attributes' },
+            { num: '6.236', label: tr ? 'âyet' : 'verses' },
+            { num: '1', label: tr ? 'Yaratıcı' : 'Creator', italic: true },
+          ].map((stat, i, arr) => (
+            <Fragment key={i}>
+              <div style={{
+                padding: '0 clamp(18px, 3vw, 32px)',
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '4px',
+                minWidth: '90px',
+              }}>
+                <span style={{
+                  fontFamily: FONTS.display,
+                  fontSize: 'clamp(1.4rem, 2.4vw, 1.8rem)',
+                  fontWeight: 700,
+                  color: COLORS.gold,
+                  lineHeight: 1.1,
+                  letterSpacing: '-0.01em',
+                  fontStyle: stat.italic ? 'italic' : 'normal',
+                  fontVariantNumeric: 'tabular-nums',
+                }}>
+                  {stat.num}
+                </span>
+                <span style={{
+                  fontSize: '0.66rem',
+                  color: COLORS.silver,
+                  fontWeight: 500,
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                }}>
+                  {stat.label}
+                </span>
+              </div>
+              {i < arr.length - 1 && (
+                <div aria-hidden="true" style={{
+                  width: '1px',
+                  background: `linear-gradient(180deg, transparent 0%, ${COLORS.gold}55 50%, transparent 100%)`,
+                  margin: '6px 0',
+                }} />
+              )}
+            </Fragment>
+          ))}
         </motion.div>
 
-        {/* Scroll cue */}
-        <motion.div
+        {/* Scroll cue — animasyonlu interaktif. Bouncing arrow + lower text,
+            hover ile alpha artar; click ile sayfanın bir sonraki section'ına
+            smooth scroll. */}
+        <motion.button
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.5, y: [0, 6, 0] }}
-          transition={{ opacity: { duration: 0.9, delay: 2 }, y: { duration: 1.8, repeat: Infinity, ease: 'easeInOut', delay: 2.4 } }}
+          animate={{ opacity: 0.65 }}
+          transition={{ duration: 0.9, delay: 2 }}
+          onClick={() => {
+            const next = document.querySelector('#esma-manifesto') || document.querySelectorAll('section')[1];
+            next?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
           style={{
-            marginTop: '48px',
+            marginTop: '60px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '12px',
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '8px 16px',
             color: COLORS.silver,
+            transition: 'opacity 0.25s, color 0.25s',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.color = COLORS.gold; }}
+          onMouseLeave={e => { e.currentTarget.style.opacity = '0.65'; e.currentTarget.style.color = COLORS.silver; }}
+          aria-label={tr ? 'Keşfetmeye başla' : 'Start exploring'}
+        >
+          <span style={{
             fontFamily: FONTS.body,
-            fontSize: '0.74rem',
+            fontSize: 'clamp(0.86rem, 1.2vw, 0.96rem)',
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            textAlign: 'center',
-          }}
-        >
-          {tr ? '↓ keşfetmeye başla' : '↓ start exploring'}
-        </motion.div>
+            fontWeight: 600,
+          }}>
+            {tr ? 'Keşfetmeye Başla' : 'Start Exploring'}
+          </span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <polyline points="5 12 12 19 19 12" />
+            </svg>
+          </motion.div>
+        </motion.button>
 
       </div>
     </section>
