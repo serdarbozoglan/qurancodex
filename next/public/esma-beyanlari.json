@@ -430,11 +430,11 @@
       ]
     },
     {
-      "id": "hayat-sureklilik",
-      "baslikTr": "Allah'ın Hayatı ve Sürekliliği",
-      "baslikEn": "God's Life and Eternal Sustaining",
-      "notTr": "Hayy ve Kayyûm — kendisini ne bir uyuklama tutar ne uyku. Evvel'dir, Âhir'dir, Zâhir'dir, Bâtın'dır.",
-      "notEn": "The Living, the Self-Sustaining — neither slumber nor sleep overtake Him. He is the First, the Last, the Outward, the Inward.",
+      "id": "dirilik-sureklilik",
+      "baslikTr": "Allah'ın Diriliği ve Sürekliliği",
+      "baslikEn": "God's Ever-Living Nature and Continuity",
+      "notTr": "O Diri (El-Hayy) ve Ayakta Tutucu (El-Kayyûm) olandır — yaratılmış hayata benzemez; sebepsiz, zamansız, sonsuzdur.",
+      "notEn": "He is the Ever-Living (al-Ḥayy) and the Sustainer (al-Qayyūm) — unlike created life; without cause, without time, without end.",
       "ayetler": [
         {
           "id": "2:255",
@@ -569,8 +569,8 @@
       "id": "insan-iliski",
       "baslikTr": "Allah'ın İnsanla İlişkisi",
       "baslikEn": "God's Relationship with Humans",
-      "notTr": "Göklerde ve yerde bulunan herkes O'ndan ister. 'Siz beni anın ki ben de sizi anayım.'",
-      "notEn": "Everyone in the heavens and earth asks of Him. 'Remember Me; I will remember you.'",
+      "notTr": "İnsan her an Allah'a muhtaçtır; O ise zikredeni anar — karşılıklı bir münasebet.",
+      "notEn": "The human is in constant need of God; He remembers whoever remembers Him — a reciprocal relationship.",
       "ayetler": [
         {
           "id": "55:29",
@@ -640,6 +640,201 @@
           "arapca": "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰى يُسَبِّـحُ لَهُ مَا فِي السَّمٰوَاتِ وَالْاَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
           "tr": "O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
           "en": "He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise"
+        }
+      ]
+    },
+    {
+      "id": "icabet-dua",
+      "baslikTr": "Allah'ın Duayı Karşılaması",
+      "baslikEn": "God's Answering of Prayer",
+      "notTr": "Çağıran kulun çağrısı karşılıksız kalmaz; Allah dilediğine, dilediği zaman cevap verir.",
+      "notEn": "The call of the supplicant is not in vain; God responds to whom and when He wills.",
+      "ayetler": [
+        {
+          "id": "2:186",
+          "sure": 2,
+          "ayet": 186,
+          "sureAdTr": "Bakara",
+          "sureAdEn": "The Cow",
+          "arapca": "وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ اُجِيبُ دَعْوَةَ الدَّاعِ اِذَا دَعَانِ فَلْيَسْتَجِيبُوا لِي وَلْيُؤْمِنُوا بِي لَعَلَّهُمْ يَرْشُدُونَ",
+          "tr": "Kullarım sana, beni sorduğunda (söyle onlara): Ben çok yakınım. Bana dua ettiği vakit dua edenin dileğine karşılık veririm. O halde (kullarım da) benim davetime uysunlar ve bana inansınlar ki doğru yolu bulalar.",
+          "en": "And when My servants ask you, [O Muhammad], concerning Me - indeed I am near. I respond to the invocation of the supplicant when he calls upon Me. So let them respond to Me [by obedience] and believe in Me that they may be [rightly] guided"
+        },
+        {
+          "id": "14:39",
+          "sure": 14,
+          "ayet": 39,
+          "sureAdTr": "İbrâhim",
+          "sureAdEn": "Abraham",
+          "arapca": "اَلْحَمْدُ لِلّٰهِ الَّذِي وَهَبَ لِي عَلَى الْكِبَرِ اِسْمٰعِيلَ وَاِسْحٰقَ اِنَّ رَبِّي لَسَمِيعُ الدُّعٓاءِ",
+          "tr": "\"İhtiyar halimde bana İsmail'i ve İshak'ı lütfeden Allah'a hamdolsun! Şüphesiz Rabbim duayı işitendir.\"",
+          "en": "Praise to Allah, who has granted to me in old age Ishmael and Isaac. Indeed, my Lord is the Hearer of supplication"
+        },
+        {
+          "id": "40:60",
+          "sure": 40,
+          "ayet": 60,
+          "sureAdTr": "Mü'min",
+          "sureAdEn": "The Forgiver",
+          "arapca": "وَقَالَ رَبُّكُمُ ادْعُونِٓي اَسْتَجِبْ لَكُمْ اِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ",
+          "tr": "Rabbiniz şöyle buyurdu: Bana dua edin, kabul edeyim. Çünkü bana ibadeti bırakıp büyüklük taslayanlar aşağılanarak cehenneme gireceklerdir.",
+          "en": "And your Lord says, \"Call upon Me; I will respond to you.\" Indeed, those who disdain My worship will enter Hell [rendered] contemptible"
+        }
+      ]
+    },
+    {
+      "id": "sevgi",
+      "baslikTr": "Allah'ın Sevmesi ve Sevilmesi",
+      "baslikEn": "God's Love and Being Loved",
+      "notTr": "İlahî sevgi karşılıklıdır — O kullarını sever, kulları da O'nu sever.",
+      "notEn": "Divine love is mutual — He loves His servants and they love Him.",
+      "ayetler": [
+        {
+          "id": "3:31",
+          "sure": 3,
+          "ayet": 31,
+          "sureAdTr": "Âl-i İmrân",
+          "sureAdEn": "Family of Imran",
+          "arapca": "قُلْ اِنْ كُنْتُمْ تُحِبُّونَ اللّٰهَ فَاتَّبِعُونِي يُحْبِبْكُمُ اللّٰهُ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ  وَاللّٰهُ غَفُورٌ رَحِيمٌ",
+          "tr": "(Resulüm! ) De ki: Eğer Allah'ı seviyorsanız bana uyunuz ki Allah da sizi sevsin ve günahlarınızı bağışlasın. Allah son derece bağışlayıcı ve esirgeyicidir.",
+          "en": "Say, [O Muhammad], \"If you should love Allah, then follow me, [so] Allah will love you and forgive you your sins. And Allah is Forgiving and Merciful"
+        },
+        {
+          "id": "5:54",
+          "sure": 5,
+          "ayet": 54,
+          "sureAdTr": "Mâide",
+          "sureAdEn": "The Table Spread",
+          "arapca": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا مَنْ يَرْتَدَّ مِنْكُمْ عَنْ دِينِهِ فَسَوْفَ يَأْتِي اللّٰهُ بِقَوْمٍ يُحِبُّهُمْ وَيُحِبُّونَهٓ  اَذِلَّةٍ عَلَى الْمُؤْمِنِينَ اَعِزَّةٍ عَلَى الْكَافِرِينَ يُجَاهِدُونَ فِي سَبِيلِ اللّٰهِ وَلَا يَخَافُونَ لَوْمَةَ لٓائِمٍ ذٰلِكَ فَضْلُ اللّٰهِ يُؤْتِيهِ مَنْ يَشٓاءُ وَاللّٰهُ وَاسِعٌ عَلِيمٌ",
+          "tr": "Ey iman edenler! Sizden kim dininden dönerse (bilsin ki) Allah, sevdiği ve kendisini seven müminlere karşı alçak gönüllü (şefkatli), kafirlere karşı onurlu ve zorlu bir toplum getirecektir. (Bunlar) Allah yolunda cihad ederler ve hiçbir kınayanın kınamasından korkmazlar (hiçbir kimsenin kınamasına aldırmazlar). Bu, Allah'ın, dilediğine verdiği lütfudur. Allah'ın lütfu ve ilmi geniştir.",
+          "en": "O you who have believed, whoever of you should revert from his religion - Allah will bring forth [in place of them] a people He will love and who will love Him [who are] humble toward the believers, powerful against the disbelievers; they strive in the cause of Allah and do not fear the blame of a critic. That is the favor of Allah; He bestows it upon whom He wills. And Allah is all-Encompassing and Knowing"
+        },
+        {
+          "id": "11:90",
+          "sure": 11,
+          "ayet": 90,
+          "sureAdTr": "Hûd",
+          "sureAdEn": "Hud",
+          "arapca": "وَاسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبٓوا اِلَيْهِ اِنَّ رَبِّي رَحِيمٌ وَدُودٌ",
+          "tr": "Rabbinizden bağışlanma dileyin; sonra O'na tevbe edin. Muhakkak ki Rabbim çok merhametlidir, (müminleri) çok sever.",
+          "en": "And ask forgiveness of your Lord and then repent to Him. Indeed, my Lord is Merciful and Affectionate"
+        }
+      ]
+    },
+    {
+      "id": "yetinme",
+      "baslikTr": "Allah'ın Kuluna Yetmesi",
+      "baslikEn": "God's Sufficiency for the Servant",
+      "notTr": "Allah kulu için yeter; O'na güvenene O kâfîdir.",
+      "notEn": "God suffices the servant; He is enough for those who rely on Him.",
+      "ayetler": [
+        {
+          "id": "39:36",
+          "sure": 39,
+          "ayet": 36,
+          "sureAdTr": "Zümer",
+          "sureAdEn": "The Troops",
+          "arapca": "اَلَيْسَ اللّٰهُ بِكَافٍ عَبْدَهُ وَيُخَوِّفُونَكَ بِالَّذِينَ مِنْ دُونِهِ وَمَنْ يُضْلِلِ اللّٰهُ فَمَا لَهُ مِنْ هَادٍ",
+          "tr": "Allah kuluna kafi değil midir? Seni O'ndan başkalarıyla korkutuyorlar. Allah, kimi saptırırsa artık onun yolunu doğrultacak biri yoktur.",
+          "en": "Is not Allah sufficient for His Servant [Prophet Muhammad]? And [yet], they threaten you with those [they worship] other than Him. And whoever Allah leaves astray - for him there is no guide"
+        },
+        {
+          "id": "65:3",
+          "sure": 65,
+          "ayet": 3,
+          "sureAdTr": "Talâk",
+          "sureAdEn": "The Divorce",
+          "arapca": "وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ وَمَنْ يَتَوَكَّلْ عَلَى اللّٰهِ فَهُوَ حَسْبُهُ اِنَّ اللّٰهَ بَالِغُ اَمْرِهِ قَدْ جَعَلَ اللّٰهُ لِكُلِّ شَيْءٍ قَدْراً",
+          "tr": "Ve ona beklemediği yerden rızık verir. Kim Allah'a güvenirse O, ona yeter. Şüphesiz Allah, emrini yerine getirendir. Allah her şey için bir ölçü koymuştur.",
+          "en": "And will provide for him from where he does not expect. And whoever relies upon Allah - then He is sufficient for him. Indeed, Allah will accomplish His purpose. Allah has already set for everything a [decreed] extent"
+        },
+        {
+          "id": "3:159",
+          "sure": 3,
+          "ayet": 159,
+          "sureAdTr": "Âl-i İmrân",
+          "sureAdEn": "Family of Imran",
+          "arapca": "فَبِمَا رَحْمَةٍ مِنَ اللّٰهِ لِنْتَ لَهُمْ وَلَوْ كُنْتَ فَظًّا غَلِيظَ الْقَلْبِ لَانْفَضُّوا مِنْ حَوْلِكَ فَاعْفُ عَنْهُمْ وَاسْتَغْفِرْ لَهُمْ وَشَاوِرْهُمْ فِي الْاَمْرِ فَاِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى اللّٰهِ اِنَّ اللّٰهَ يُحِبُّ الْمُتَوَكِّلِينَ",
+          "tr": "O vakit Allah'tan bir rahmet ile onlara yumuşak davrandın! Şayet sen kaba, katı yürekli olsaydın, hiç şüphesiz, etrafından dağılıp giderlerdi. Şu halde onları affet; bağışlanmaları için dua et; iş hakkında onlara danış. Kararını verdiğin zaman da artık Allah'a dayanıp güven. Çünkü Allah, kendisine dayanıp güvenenleri sever.",
+          "en": "So by mercy from Allah, [O Muhammad], you were lenient with them. And if you had been rude [in speech] and harsh in heart, they would have disbanded from about you. So pardon them and ask forgiveness for them and consult them in the matter. And when you have decided, then rely upon Allah. Indeed, Allah loves those who rely [upon Him]"
+        }
+      ]
+    },
+    {
+      "id": "hidayet",
+      "baslikTr": "Allah'ın Hidayeti",
+      "baslikEn": "God's Guidance",
+      "notTr": "Doğru yola iletmek Allah'ın lütfundandır; talep edenin önüne O yol açar.",
+      "notEn": "Bringing to the right path is God's grace; He opens the way to those who seek.",
+      "ayetler": [
+        {
+          "id": "1:6",
+          "sure": 1,
+          "ayet": 6,
+          "sureAdTr": "Fatiha",
+          "sureAdEn": "The Opener",
+          "arapca": "اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+          "tr": "Bize doğru yolu göster.",
+          "en": "Guide us to the straight path"
+        },
+        {
+          "id": "2:213",
+          "sure": 2,
+          "ayet": 213,
+          "sureAdTr": "Bakara",
+          "sureAdEn": "The Cow",
+          "arapca": "كَانَ النَّاسُ اُمَّةً وَاحِدَةً فَبَعَثَ اللّٰهُ النَّبِيِّنَ مُبَشِّرِينَ وَمُنْذِرِينَ وَاَنْزَلَ مَعَهُمُ الْكِتَابَ بِالْحَقِّ لِيَحْكُمَ بَيْنَ النَّاسِ فِيمَا اخْتَلَفُوا فِيهِ وَمَا اخْتَلَفَ فِيهِ اِلَّا الَّذِينَ اُو۫تُوهُ مِنْ بَعْدِ مَا جٓاءَتْهُمُ الْبَيِّنَاتُ بَغْياً بَيْنَهُمْ فَهَدَى اللّٰهُ الَّذِينَ اٰمَنُوا لِمَا اخْتَلَفُوا فِيهِ مِنَ الْحَقِّ بِاِذْنِهِ وَاللّٰهُ يَهْدِي مَنْ يَشٓاءُ اِلٰى صِرَاطٍ مُسْتَقِيمٍ",
+          "tr": "İnsanlar bir tek ümmet idi. Sonra Allah, müjdeleyici ve uyarıcı olarak peygamberleri gönderdi. İnsanlar arasında, anlaşmazlığa düştükleri hususlarda hüküm vermeleri için, onlarla beraber hak yolu gösteren kitapları da gönderdi. Ancak kendilerine kitap verilenler, apaçık deliller geldikten sonra, aralarındaki kıskançlıktan ötürü dinde anlaşmazlığa düştüler. Bunun üzerine Allah iman edenlere, üzerinde ihtilafa düştükleri gerçeği izniyle gösterdi. Allah dilediğini doğru yola iletir.",
+          "en": "Mankind was [of] one religion [before their deviation]; then Allah sent the prophets as bringers of good tidings and warners and sent down with them the Scripture in truth to judge between the people concerning that in which they differed. And none differed over the Scripture except those who were given it - after the clear proofs came to them - out of jealous animosity among themselves. And Allah guided those who believed to the truth concerning that over which they had differed, by His permission. And Allah guides whom He wills to a straight path"
+        },
+        {
+          "id": "24:35",
+          "sure": 24,
+          "ayet": 35,
+          "sureAdTr": "Nûr",
+          "sureAdEn": "The Light",
+          "arapca": "اَللّٰهُ نُورُ السَّمٰوَاتِ وَالْاَرْضِ مَثَلُ نُورِهِ كَمِشْكٰوةٍ فِيهَا مِصْبَاحٌ  اَلْمِصْبَاحُ فِي زُجَاجَةٍ اَلزُّجَاجَةُ  كَاَنَّهَا كَوْكَبٌ دُرِّيٌّ يُوقَدُ مِنْ شَجَرَةٍ مُبَارَكَةٍ زَيْتُونَةٍ لَا شَرْقِيَّةٍ وَلَا غَرْبِيَّةٍ يَكَادُ زَيْتُهَا يُضِٓيءُ وَلَوْ لَمْ تَمْسَسْهُ نَارٌ  نُورٌ عَلٰى نُورٍ يَهْدِي اللّٰهُ لِنُورِهِ مَنْ يَشٓاءُ وَيَضْرِبُ اللّٰهُ الْاَمْثَالَ لِلنَّاسِ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
+          "tr": "Allah, göklerin ve yerin nurudur. O'nun nurunun temsili, içinde lamba bulunan bir kandillik gibidir. O lamba kristal bir fanus içindedir; o fanus da sanki inciye benzer bir yıldız gibidir ki, doğuya da, batıya da nisbet edilemeyen mübarek bir ağaçtan, yani zeytinden (çıkan yağdan) tutuşturulur. Onun yağı, neredeyse, kendisine ateş değmese dahi ışık verir. (Bu,) nur üstüne nurdur. Allah dilediği kimseyi nuruna eriştirir. Allah insanlara (işte böyle) temsiller getirir. Allah her şeyi bilir.",
+          "en": "Allah is the Light of the heavens and the earth. The example of His light is like a niche within which is a lamp, the lamp is within glass, the glass as if it were a pearly [white] star lit from [the oil of] a blessed olive tree, neither of the east nor of the west, whose oil would almost glow even if untouched by fire. Light upon light. Allah guides to His light whom He wills. And Allah presents examples for the people, and Allah is Knowing of all things"
+        }
+      ]
+    },
+    {
+      "id": "rizik",
+      "baslikTr": "Allah'ın Rızıklandırması",
+      "baslikEn": "God's Provision",
+      "notTr": "Yeryüzünde her canlının rızkı Allah'a aittir; rızık veren tek O'dur.",
+      "notEn": "The sustenance of every creature on earth belongs to God; He alone is the Provider.",
+      "ayetler": [
+        {
+          "id": "11:6",
+          "sure": 11,
+          "ayet": 6,
+          "sureAdTr": "Hûd",
+          "sureAdEn": "Hud",
+          "arapca": "وَمَا مِنْ دٓابَّةٍ فِي الْاَرْضِ اِلَّا عَلَى اللّٰهِ رِزْقُهَا وَيَعْلَمُ مُسْتَقَرَّهَا وَمُسْتَوْدَعَهَا كُلٌّ فِي كِتَابٍ مُبِينٍ",
+          "tr": "Yeryüzünde yürüyen her canlının rızkı, yalnızca Allah'ın üzerinedir. Allah o canlının durduğu yeri ve sonunda bırakılacağı mekanı bilir. (Bunların) hepsi açık bir kitapta (levh-i mahfuz'da) dır.",
+          "en": "And there is no creature on earth but that upon Allah is its provision, and He knows its place of dwelling and place of storage. All is in a clear register"
+        },
+        {
+          "id": "51:58",
+          "sure": 51,
+          "ayet": 58,
+          "sureAdTr": "Zâriyât",
+          "sureAdEn": "The Winnowing Winds",
+          "arapca": "اِنَّ اللّٰهَ هُوَ الرَّزَّاقُ ذُوالْقُوَّةِ الْمَتِينُ",
+          "tr": "Şüphesiz rızık veren, güç ve kuvvet sahibi olan ancak Allah'tır.",
+          "en": "Indeed, it is Allah who is the [continual] Provider, the firm possessor of strength"
+        },
+        {
+          "id": "67:21",
+          "sure": 67,
+          "ayet": 21,
+          "sureAdTr": "Mülk",
+          "sureAdEn": "The Sovereignty",
+          "arapca": "اَمَّنْ هٰذَا الَّذِي يَرْزُقُكُمْ اِنْ اَمْسَكَ رِزْقَهُ بَلْ لَجُّوا فِي عُتُوٍّ وَنُفُورٍ",
+          "tr": "Allah size verdiği rızkı kesiverse, size rızık verebilecek olan kimdir? Hayır, onlar azgınlık ve nefrette direnip durmaktadırlar.",
+          "en": "Or who is it that could provide for you if He withheld His provision? But they have persisted in insolence and aversion"
         }
       ]
     }

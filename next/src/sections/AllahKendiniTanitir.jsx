@@ -71,7 +71,7 @@ export default function AllahKendiniTanitir() {
             marginBottom: '22px',
           }}
         >
-          {tr ? 'Mimari → Mimar' : 'Architecture → Architect'}
+          {tr ? 'Yaratılış → Yaratıcı' : 'Creation → Creator'}
         </div>
 
         {/* Bridge headline FIRST — sayfanın tezi en üstte */}
@@ -86,7 +86,7 @@ export default function AllahKendiniTanitir() {
             margin: '0 0 40px',
           }}
         >
-          {tr ? 'Mimariyi gördünüz. Şimdi mimarı tanıyın.' : "You've seen the architecture. Now meet the architect."}
+          {tr ? 'Yaratılışı gördünüz. Şimdi Yaratıcıyı tanıyın.' : "You've seen the creation. Now meet the Creator."}
         </h2>
 
         {/* Anchor verse — A'râf 7:180 (Esmâ-i Hüsnâ kavramının kuruluş ayeti) */}
@@ -262,8 +262,8 @@ export default function AllahKendiniTanitir() {
           }}
         >
           {tr
-            ? '114 isim ve sıfat · 14 tematik eksen · 1 mimar'
-            : '114 names & attributes · 14 thematic axes · one architect'}
+            ? '114 isim ve sıfat · 19 tematik eksen · 1 Yaratıcı'
+            : '114 names & attributes · 19 thematic axes · one Creator'}
         </motion.p>
       </motion.div>
     </section>
