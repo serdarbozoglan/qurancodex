@@ -350,7 +350,7 @@ function Hero({ tr }) {
                   background: `linear-gradient(180deg, ${COLORS.gold}0d 0%, rgba(255,255,255,0.02) 100%)`,
                   border: `1px solid ${COLORS.gold}26`,
                   borderRadius: '12px',
-                  padding: '18px 16px',
+                  padding: 'clamp(20px, 2.4vw, 26px) clamp(18px, 2vw, 22px)',
                   textAlign: 'center',
                   position: 'relative',
                 }}
@@ -371,11 +371,11 @@ function Hero({ tr }) {
                     lang="ar"
                     style={{
                       fontFamily: FONTS.quran,
-                      fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)',
+                      fontSize: 'clamp(1.15rem, 1.8vw, 1.4rem)',
                       color: COLORS.gold,
-                      lineHeight: 1.9,
-                      margin: '0 0 12px',
-                      textShadow: `0 0 14px ${COLORS.gold}1a`,
+                      lineHeight: 2.1,
+                      margin: '0 0 16px',
+                      textShadow: `0 0 18px ${COLORS.gold}22`,
                     }}
                   >
                     {ayet.arabic}
@@ -385,8 +385,8 @@ function Hero({ tr }) {
                   color: COLORS.offWhite,
                   fontFamily: FONTS.display,
                   fontStyle: 'italic',
-                  fontSize: '0.86rem',
-                  lineHeight: 1.55,
+                  fontSize: 'clamp(0.94rem, 1.2vw, 1.04rem)',
+                  lineHeight: 1.65,
                 }}>
                   "{ayet.quote}"
                 </div>
