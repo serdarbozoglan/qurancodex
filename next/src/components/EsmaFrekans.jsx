@@ -1528,22 +1528,10 @@ function NamePairs({ tr, pairsData, triplesData }) {
           ))}
         </div>
 
-        {/* Üçlüden Ötesi — Âyetü'l-Kürsî dört-isim mührü vurgusu */}
-        {triplesData?.triples?.[0] && (
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.7 }}
-            style={{
-              marginTop: '40px',
-              background: `linear-gradient(135deg, ${COLORS.gold}18 0%, ${COLORS.gold}06 100%)`,
-              border: `1px solid ${COLORS.gold}3a`,
-              borderRadius: '14px',
-              padding: 'clamp(22px, 3vw, 30px) clamp(22px, 3vw, 32px)',
-              maxWidth: '900px',
-            }}
-          >
+        {/* Çoklu İsim Mührleri — 2'den fazla isim ardışık geçen klasik kümeler.
+            3 entry: 4-isim (Âyetü'l-Kürsî), 3-isim (yaratış), 8-isim (Haşr 59:23). */}
+        {triplesData?.triples?.length > 0 && (
+          <div style={{ marginTop: '48px' }}>
             <div style={{
               color: `${COLORS.gold}aa`,
               fontFamily: FONTS.body,
@@ -1551,80 +1539,31 @@ function NamePairs({ tr, pairsData, triplesData }) {
               fontWeight: 700,
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              marginBottom: '10px',
+              marginBottom: '14px',
             }}>
-              {tr ? 'Üçlüden Ötesi' : 'Beyond the Pair'}
+              {tr ? 'Çoklu İsim Mührleri' : 'Multi-Name Seals'}
             </div>
-            <p
-              dir="rtl"
-              lang="ar"
-              style={{
-                fontFamily: FONTS.quran,
-                fontSize: 'clamp(1.35rem, 2.4vw, 1.75rem)',
-                color: COLORS.gold,
-                lineHeight: 2,
-                margin: '0 0 16px',
-                textAlign: 'right',
-                textShadow: `0 0 24px ${COLORS.gold}22`,
-              }}
-            >
-              {triplesData.triples[0].arabic}
-            </p>
-            <p style={{
-              color: COLORS.offWhite,
-              fontFamily: FONTS.body,
-              fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)',
-              fontWeight: 600,
-              margin: '0 0 6px',
-            }}>
-              {tr ? triplesData.triples[0].trName : triplesData.triples[0].enName}
-            </p>
-            <p style={{
-              color: `${COLORS.gold}cc`,
-              fontFamily: FONTS.body,
-              fontSize: '0.86rem',
-              letterSpacing: '0.02em',
-              margin: '0 0 14px',
-            }}>
-              {tr ? triplesData.triples[0].trMeaning : triplesData.triples[0].enMeaning}
-            </p>
             <p style={{
               color: COLORS.silver,
-              fontFamily: FONTS.body,
-              fontSize: '0.92rem',
+              fontSize: '0.95rem',
               lineHeight: 1.7,
-              fontStyle: 'italic',
-              margin: 0,
+              margin: '0 0 24px',
+              maxWidth: '760px',
             }}>
-              {tr ? triplesData.triples[0].trGloss : triplesData.triples[0].enGloss}
+              {tr
+                ? 'İkili pair\'lerden ötesi — tek ayette 3, 4 ve hatta 8 isim ardarda. Bu kümeler Kur\'an\'da isim yoğunluğunun zirve noktaları.'
+                : 'Beyond pairs — clusters of 3, 4, and even 8 names in a single verse. These are the peak densities of divine names in the Quran.'}
             </p>
-            {triplesData.triples[0].ayetler?.length > 0 && (
-              <div style={{
-                marginTop: '14px',
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '8px',
-              }}>
-                {triplesData.triples[0].ayetler.map(a => (
-                  <span key={a.ref} style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    padding: '5px 11px',
-                    borderRadius: '999px',
-                    background: `${COLORS.gold}14`,
-                    border: `1px solid ${COLORS.gold}3a`,
-                    color: COLORS.gold,
-                    fontFamily: FONTS.body,
-                    fontSize: '0.76rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.04em',
-                  }}>
-                    {tr ? (SURAH_NAMES_TR[a.surah - 1] || a.surahName) : a.surahNameEn} {a.ref}
-                  </span>
-                ))}
-              </div>
-            )}
-          </motion.div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '18px',
+            }}>
+              {triplesData.triples.map((t, idx) => (
+                <TripleCard key={t.id} triple={t} tr={tr} index={idx} />
+              ))}
+            </div>
+          </div>
         )}
 
         {/* Metodolojik nüans — pattern detayları */}
@@ -1863,6 +1802,139 @@ function PairCard({ pair, tr, index, verseData }) {
             </div>
           )}
         </>
+      )}
+    </motion.div>
+  );
+}
+
+function TripleCard({ triple, tr, index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
+      style={{
+        background: `linear-gradient(135deg, ${COLORS.gold}14 0%, ${COLORS.gold}06 100%)`,
+        border: `1px solid ${COLORS.gold}40`,
+        borderRadius: '14px',
+        padding: '22px 22px 20px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+        position: 'relative',
+      }}
+    >
+      {/* Badge — sağ üst */}
+      {(triple.badgeTr || triple.badgeEn) && (
+        <div style={{
+          position: 'absolute',
+          top: '14px',
+          right: '14px',
+          display: 'inline-flex',
+          alignItems: 'baseline',
+          gap: '6px',
+          background: `${COLORS.gold}1f`,
+          border: `1px solid ${COLORS.gold}55`,
+          borderRadius: '999px',
+          padding: '4px 11px',
+          color: COLORS.gold,
+          fontFamily: FONTS.body,
+          fontSize: '0.66rem',
+          fontWeight: 700,
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+        }}>
+          {triple.nameCount && <span style={{ fontSize: '0.78rem' }}>{triple.nameCount}</span>}
+          <span>{tr ? triple.badgeTr : triple.badgeEn}</span>
+        </div>
+      )}
+
+      {/* Arabic — RTL, KFGQPC, top right offset for badge */}
+      <p
+        dir="rtl"
+        lang="ar"
+        style={{
+          fontFamily: FONTS.quran,
+          fontSize: 'clamp(1.15rem, 2vw, 1.45rem)',
+          color: COLORS.gold,
+          lineHeight: 2,
+          margin: '32px 0 0',
+          textShadow: `0 0 18px ${COLORS.gold}1c`,
+        }}
+      >
+        {triple.arabic}
+      </p>
+
+      {/* Transliteration */}
+      <p style={{
+        color: COLORS.offWhite,
+        fontFamily: FONTS.body,
+        fontSize: '0.92rem',
+        fontWeight: 600,
+        lineHeight: 1.5,
+        margin: 0,
+      }}>
+        {tr ? triple.trName : triple.enName}
+      </p>
+
+      {/* Meaning */}
+      <p style={{
+        color: `${COLORS.gold}cc`,
+        fontFamily: FONTS.body,
+        fontSize: '0.82rem',
+        letterSpacing: '0.02em',
+        margin: 0,
+        lineHeight: 1.55,
+      }}>
+        {tr ? triple.trMeaning : triple.enMeaning}
+      </p>
+
+      {/* Divider */}
+      <div style={{
+        height: '1px',
+        background: `linear-gradient(90deg, ${COLORS.gold}26 0%, transparent 100%)`,
+        margin: '2px 0',
+      }} />
+
+      {/* Gloss */}
+      <p style={{
+        color: COLORS.silver,
+        fontFamily: FONTS.body,
+        fontSize: '0.86rem',
+        lineHeight: 1.65,
+        fontStyle: 'italic',
+        margin: 0,
+      }}>
+        {tr ? triple.trGloss : triple.enGloss}
+      </p>
+
+      {/* Ayet ref chips */}
+      {triple.ayetler?.length > 0 && (
+        <div style={{
+          marginTop: '4px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '6px',
+        }}>
+          {triple.ayetler.map(a => (
+            <span key={a.ref} style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '4px 10px',
+              borderRadius: '999px',
+              background: `${COLORS.gold}10`,
+              border: `1px solid ${COLORS.gold}30`,
+              color: COLORS.gold,
+              fontFamily: FONTS.body,
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              letterSpacing: '0.04em',
+            }}>
+              {tr ? (SURAH_NAMES_TR[a.surah - 1] || a.surahName) : a.surahNameEn} {a.ref}
+            </span>
+          ))}
+        </div>
       )}
     </motion.div>
   );

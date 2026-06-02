@@ -44,23 +44,51 @@ function triplePattern(w1, w2, w3) {
   );
 }
 
-// Klasik tefsirden iyi bilinen üçlü/dörtlü kümeler.
-// NOT: 3-isim ARDIŞIK pattern'lar gerçekten nadirdir. Otomatik tarama
-// önerilenlerden sadece Hayy-Kayyum-Aliy-Azim'i doğrulayabiliyor (Âyetü'l-Kürsî).
-// Bu yüzden minimal tutuldu: tek küme, klasik literatürce kabul edilmiş, manuel
-// onaylı 2 ayet referansı. İleride pattern matching genişlerse buraya yeni
-// triple'lar eklenebilir.
+// Çoklu isim mührleri — KORPUSTA DOĞRULANMIŞ ardışık kümeler. Her entry
+// manuel ref'li (pattern complex; auto-scan tek-üçlüyle sınırlı kalır,
+// halüsinasyon riskinden kaçınılır).
 const TRIPLES = [
   {
     id: 'hayy-kayyum-aliy-azim',
-    arabic: 'ٱلْحَيُّ ٱلْقَيُّومُ … ٱلْعَلِيُّ ٱلْعَظِيمُ',
+    arabic: 'الْحَيُّ الْقَيُّومُ … الْعَلِيُّ الْعَظِيمُ',
     trName: 'El-Hayy · El-Kayyûm · El-Aliyy · El-Azîm',
     enName: 'al-Ḥayy · al-Qayyūm · al-ʿAlī · al-ʿAẓīm',
     trMeaning: 'Diri · Ayakta tutan · Yüce · Büyük',
     enMeaning: 'Living · Sustaining · Most High · Magnificent',
-    trGloss: "Âyetü'l-Kürsî'nin açılış ve kapanış mührü — diri olan ayakta tutar, yüce olan büyüktür. İkinci ayet Âl-i İmrân 3:2'de yine açılışta birlikte gelir.",
-    enGloss: "The opening and closing seal of Āyat al-Kursī — the Living sustains, the Most High is Great. The opening pair recurs at Āl-ʿImrān 3:2.",
+    trGloss: "Âyetü'l-Kürsî'nin açılış (Hayy-Kayyûm) ve kapanış (Aliy-Azîm) mührü. Hayy-Kayyûm çifti Âl-i İmrân 3:2'de yine açılışta gelir; ama dört-isim mührü sadece Âyetü'l-Kürsî'de tamamlanır.",
+    enGloss: "The opening (Ḥayy-Qayyūm) and closing (ʿAlī-ʿAẓīm) seal of Āyat al-Kursī. The Ḥayy-Qayyūm pair recurs at Āl-ʿImrān 3:2, but the full four-name seal is unique to Āyat al-Kursī.",
     primaryRefs: ['2:255', '3:2'],
+    badgeTr: 'Dört-isim mührü',
+    badgeEn: 'Four-name seal',
+    nameCount: 4,
+  },
+  {
+    id: 'halik-bari-musavvir',
+    arabic: 'الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ',
+    trName: "El-Hâlik · El-Bâri' · El-Musavvir",
+    enName: 'al-Khāliq · al-Bāriʾ · al-Muṣawwir',
+    trMeaning: 'Yaratan · Var eden · Şekil veren',
+    enMeaning: 'The Creator · The Maker · The Fashioner',
+    trGloss: "Yaratışın üç aşaması ardarda — Hâlik tasarlar (ölçüyle yaratma), Bâri' var eder (yokluktan getirme), Musavvir şekillendirir (her varlığa özgün biçim). Yaratışın anatomisi tek nefeste.",
+    enGloss: "Three stages of creation in succession — Khāliq designs (creation by measure), Bāriʾ originates (bringing from nothing), Muṣawwir fashions (giving each being its unique form). The anatomy of creation in one breath.",
+    primaryRefs: ['59:24'],
+    badgeTr: 'Yaratışın üçlüsü',
+    badgeEn: 'Triad of creation',
+    nameCount: 3,
+  },
+  {
+    id: 'hashr-eight-seal',
+    arabic: 'الْمَلِكُ الْقُدُّوسُ السَّلَامُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَزِيزُ الْجَبَّارُ الْمُتَكَبِّرُ',
+    trName: "El-Melik · El-Kuddûs · Es-Selâm · El-Mü'min · El-Müheymin · El-Azîz · El-Cebbâr · El-Mütekebbir",
+    enName: 'al-Malik · al-Quddūs · as-Salām · al-Muʾmin · al-Muhaymin · al-ʿAzīz · al-Jabbār · al-Mutakabbir',
+    trMeaning: 'Hükümran · Kutsi · Selamet · Güven veren · Gözeten · Üstün · Mecbur eden · Büyük',
+    enMeaning: 'Sovereign · Holy · Peace · Granter of safety · Watcher · Mighty · Compeller · Supreme',
+    trGloss: "Kur'an'daki en yoğun ardışık isim kümesi — tek ayette sekiz isim peş peşe. Mülk → kutsallık → barış → güven → gözetim → güç → adalet → büyüklük sırası; ilahî yönetimin tam mimarisi.",
+    enGloss: "The densest consecutive cluster of names in the Quran — eight names in a single verse. Sovereignty → holiness → peace → safety → vigilance → might → justice → supremacy: the complete architecture of divine governance.",
+    primaryRefs: ['59:23'],
+    badgeTr: '8 isim mührü',
+    badgeEn: 'Eight-name seal',
+    nameCount: 8,
   },
 ];
 
@@ -127,6 +155,9 @@ for (const trip of TRIPLES) {
     enMeaning: trip.enMeaning,
     trGloss: trip.trGloss,
     enGloss: trip.enGloss,
+    badgeTr: trip.badgeTr || null,
+    badgeEn: trip.badgeEn || null,
+    nameCount: trip.nameCount || null,
     foundCount: ayetler.length,
     ayetler,
   });
