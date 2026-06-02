@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { COLORS, FONTS, RADIUS } from '../../tokens';
+import { renderInlineMarkdown } from './inlineMarkdown';
 
 // HierarchyTree — kök kavramdan dallanarak alt katmanlara inen SVG-bağlantılı diyagram.
 // Felsufi'nin semantik analizi makalelerindeki "Anlam Hiyerarşisi" görselinin
@@ -98,7 +99,7 @@ function Node({ ar, tr, en, transliteration, language, tone = 'default', size = 
         lineHeight: 1.35,
         maxWidth: '180px',
       }}>
-        {language === 'tr' ? tr : (en || tr)}
+        {renderInlineMarkdown(language === 'tr' ? tr : (en || tr))}
       </span>
     </motion.div>
   );
@@ -132,7 +133,7 @@ function BranchLabel({ labelTr, labelEn, language, accent, delay = 0 }) {
         width: '6px', height: '6px', borderRadius: '50%',
         background: color, boxShadow: `0 0 8px ${color}`,
       }} />
-      {language === 'tr' ? labelTr : (labelEn || labelTr)}
+      {renderInlineMarkdown(language === 'tr' ? labelTr : (labelEn || labelTr))}
     </motion.div>
   );
 }
@@ -157,7 +158,7 @@ function SubChildPill({ tr, en, secondaryTr, secondaryEn, language, delay = 0 })
         maxWidth: '210px',
       }}
     >
-      <div style={{ fontWeight: 600 }}>{language === 'tr' ? tr : (en || tr)}</div>
+      <div style={{ fontWeight: 600 }}>{renderInlineMarkdown(language === 'tr' ? tr : (en || tr))}</div>
       {(secondaryTr || secondaryEn) && (
         <div style={{
           marginTop: '3px',
@@ -165,7 +166,7 @@ function SubChildPill({ tr, en, secondaryTr, secondaryEn, language, delay = 0 })
           color: COLORS.silver,
           fontStyle: 'italic',
         }}>
-          → {language === 'tr' ? secondaryTr : (secondaryEn || secondaryTr)}
+          → {renderInlineMarkdown(language === 'tr' ? secondaryTr : (secondaryEn || secondaryTr))}
         </div>
       )}
     </motion.div>

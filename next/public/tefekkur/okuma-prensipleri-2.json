@@ -5,13 +5,31 @@
   "category": "sure-hermenotik",
   "publishedDate": "2024-09-25",
   "readingMinutes": 9,
-  "author": { "name": "Felsufi", "url": "https://sufist.medium.com" },
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
   "canonicalUrl": "https://sufist.medium.com/kuran-okuma-prensiplerimiz-2-0e9581d791f5",
-  "tldrTr": "Önceki yazı 5 epistemik prensibi açtı; bu yazı **4 hermenötik prensibi** açar: **(1) Metnin Lokasyonu** (sibak-siyak + parça-bütün, multi-scale composition), **(2) Mesajın Vektörelliği** (esbâb-ı nüzûl + transformatif fonksiyon — *trajectory hermeneutics değil*), **(3) Anlamsal ve Yapısal İlişki Ağı** (ayet öbekleri network'ü; sadece anlam değil yapısal benzerlikler de bağlam), **(4) Murakabe-Muhasebe ile Farkedilen İhtiyaç** (kişinin iç hâli bir kontekst — Müzzemmil örneği).",
-  "tldrEn": "The previous essay opened 5 epistemic principles; this one opens **4 hermeneutic principles**: **(1) Textual Location** (siyāq + part-whole, multi-scale composition), **(2) Vectoriality of the Message** (*asbāb al-nuzūl* + the transformative function — *not trajectory hermeneutics*), **(3) The Semantic-Structural Relational Web** (a network of verse-clusters; not only meaning but structural resemblances are also context), **(4) The Need Sensed Through *Murāqaba* and *Muḥāsaba*** (one's inner state as context — the Muzzammil example).",
-  "relatedTools": ["concept-graph", "verse-graph", "reading-mode"],
-  "relatedVerses": ["56:75-79", "16:112", "2:35", "2:58", "73:1-5", "75:31-32", "10:61"],
-  "previousArticle": { "slug": "okuma-prensipleri-1", "titleTr": "Okuma Prensipleri-1: Epistemik" },
+  "tldrTr": "Önceki yazı 5 epistemik prensibi açtı; bu yazı 4 hermenötik prensibi açar: (1) Metnin Lokasyonu (sibak-siyak + parça-bütün, multi-scale composition), (2) Mesajın Vektörelliği (esbâb-ı nüzûl + transformatif fonksiyon — trajectory hermeneutics değil), (3) Anlamsal ve Yapısal İlişki Ağı (ayet öbekleri network'ü; sadece anlam değil yapısal benzerlikler de bağlam), (4) Murakabe-Muhasebe ile Farkedilen İhtiyaç (kişinin iç hâli bir kontekst — Müzzemmil örneği).",
+  "tldrEn": "The previous essay opened 5 epistemic principles; this one opens 4 hermeneutic principles: (1) Textual Location (siyāq + part-whole, multi-scale composition), (2) Vectoriality of the Message (asbāb al-nuzūl + the transformative function — not trajectory hermeneutics), (3) The Semantic-Structural Relational Web (a network of verse-clusters; not only meaning but structural resemblances are also context), **(4) The Need Sensed Through Murāqaba and *Muḥāsaba*** (one's inner state as context — the Muzzammil example).",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [
+    "56:75-79",
+    "16:112",
+    "2:35",
+    "2:58",
+    "73:1-5",
+    "75:31-32",
+    "10:61"
+  ],
+  "previousArticle": {
+    "slug": "okuma-prensipleri-1",
+    "titleTr": "Okuma Prensipleri-1: Epistemik"
+  },
   "nextArticle": null,
   "blocks": [
     {
@@ -141,9 +159,18 @@
         "descEn": "The lens of cosmos-observation (science); inner transformation alongside social-legal; rejects *naskh* as nullification.",
         "accent": "#d4a574",
         "bullets": [
-          { "tr": "Hak/Hakikate yönelim", "en": "Orientation toward Truth/Reality" },
-          { "tr": "Kalp ve ruh hayat dereceleri", "en": "Stations of the heart and spirit" },
-          { "tr": "Asbâb-ı nüzûl = psikolojik-sosyolojik çerçeve", "en": "Asbāb al-nuzūl = psycho-sociological frame" }
+          {
+            "tr": "Hak/Hakikate yönelim",
+            "en": "Orientation toward Truth/Reality"
+          },
+          {
+            "tr": "Kalp ve ruh hayat dereceleri",
+            "en": "Stations of the heart and spirit"
+          },
+          {
+            "tr": "Asbâb-ı nüzûl = psikolojik-sosyolojik çerçeve",
+            "en": "Asbāb al-nuzūl = psycho-sociological frame"
+          }
         ]
       },
       "right": {
@@ -154,9 +181,18 @@
         "descEn": "Modernist apologetic reading of Bible/Old Testament social rulings; aims to reinterpret commandments at odds with present sensibility.",
         "accent": "#94a3b8",
         "bullets": [
-          { "tr": "Modernizm/post-modernizm gözlüğü", "en": "Modernist / post-modernist lens" },
-          { "tr": "Yalnız sosyal/hukukî alan", "en": "Restricted to social/legal domain" },
-          { "tr": "Apologetik amaç", "en": "Apologetic motivation" }
+          {
+            "tr": "Modernizm/post-modernizm gözlüğü",
+            "en": "Modernist / post-modernist lens"
+          },
+          {
+            "tr": "Yalnız sosyal/hukukî alan",
+            "en": "Restricted to social/legal domain"
+          },
+          {
+            "tr": "Apologetik amaç",
+            "en": "Apologetic motivation"
+          }
         ]
       },
       "bridgeTr": "Önemli ayrım — Felsufi'nin kendi tasrihi",

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { COLORS, FONTS, RADIUS } from '../../tokens';
+import { renderInlineMarkdown } from './inlineMarkdown';
 
 // FlowChain — Felsufi'nin "İstiğnâ → Tuğyan → Tâğût" gibi nedensellik
 // zincirleri için interaktif yatay akış şeması. Her node bir kavram kartı;
@@ -105,7 +106,7 @@ function ChainNode({ node, idx, total, language }) {
         lineHeight: 1.35,
         marginTop: '2px',
       }}>
-        {tr ? node.titleTr : (node.titleEn || node.titleTr)}
+        {renderInlineMarkdown(tr ? node.titleTr : (node.titleEn || node.titleTr))}
       </div>
 
       {/* Subtitle / nuance */}
@@ -119,7 +120,7 @@ function ChainNode({ node, idx, total, language }) {
           marginTop: '2px',
           maxWidth: '200px',
         }}>
-          {tr ? node.subtitleTr : (node.subtitleEn || node.subtitleTr)}
+          {renderInlineMarkdown(tr ? node.subtitleTr : (node.subtitleEn || node.subtitleTr))}
         </div>
       )}
     </motion.div>

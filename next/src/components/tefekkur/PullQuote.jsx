@@ -1,6 +1,7 @@
 'use client';
 
 import { COLORS, FONTS } from '../../tokens';
+import { renderInlineMarkdown } from './inlineMarkdown';
 
 // PullQuote — museum-style büyük italic quote (gold-bordered).
 export default function PullQuote({ tr: trText, en: enText, source, language }) {
@@ -33,7 +34,7 @@ export default function PullQuote({ tr: trText, en: enText, source, language }) 
         lineHeight: 1.5,
         fontWeight: 500,
       }}>
-        {tr ? trText : enText}
+        {renderInlineMarkdown(tr ? trText : enText, { boldColor: COLORS.gold })}
       </p>
       {source && (
         <div style={{

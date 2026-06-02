@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { COLORS, FONTS, RADIUS } from '../../tokens';
 import { surahNameTr } from '../../lib/surahNames';
+import { renderInlineMarkdown } from './inlineMarkdown';
 
 // Sûre adı + ayet referansı formatı.
 // TR: "Bakara 2:8"  (kısa form — Arapça artikelsiz)
@@ -104,7 +105,7 @@ function Row({ row, idx, language, isLast }) {
             fontFamily: FONTS.body,
             letterSpacing: '0.04em',
           }}>
-            {tr ? row.patternTr : (row.patternEn || row.patternTr)}
+            {renderInlineMarkdown(tr ? row.patternTr : (row.patternEn || row.patternTr))}
           </span>
         )}
       </div>
@@ -117,7 +118,7 @@ function Row({ row, idx, language, isLast }) {
         fontWeight: 500,
         lineHeight: 1.5,
       }}>
-        {tr ? row.meaningTr : (row.meaningEn || row.meaningTr)}
+        {renderInlineMarkdown(tr ? row.meaningTr : (row.meaningEn || row.meaningTr))}
       </div>
 
       {/* Col 3: Ayet chip'leri */}

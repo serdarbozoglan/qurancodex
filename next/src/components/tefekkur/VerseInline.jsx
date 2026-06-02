@@ -2,6 +2,7 @@
 
 import { COLORS, FONTS, RADIUS } from '../../tokens';
 import { surahNameTr } from '../../lib/surahNames';
+import { renderInlineMarkdown } from './inlineMarkdown';
 
 // Sûre adı + ayet ref formatı (TR'de "Bakara 2:8", EN'de "2:8")
 function formatVerseRef(ref, language) {
@@ -60,7 +61,7 @@ export default function VerseInline({ ref, noteTr, noteEn, language }) {
         fontFamily: FONTS.body,
         lineHeight: 1.7,
       }}>
-        {stripRefPrefix(tr ? noteTr : noteEn, ref)}
+        {renderInlineMarkdown(stripRefPrefix(tr ? noteTr : noteEn, ref))}
       </p>
     </div>
   );

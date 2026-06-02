@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { COLORS, FONTS, RADIUS } from '../../tokens';
+import { renderInlineMarkdown } from './inlineMarkdown';
 
 // ContrastDuo — İki-kutuplu karşılaştırma paneli (ENE↔TABİAT, Kalp↔Kuru çekirdek,
 // vb). Sol/sağ iki dikey kart, ortada opsiyonel "bridge" (ok, alıntı veya
@@ -68,7 +69,7 @@ function Pole({ pole, idx, language, totalDelay = 0 }) {
           lineHeight: 1.3,
           letterSpacing: '0.01em',
         }}>
-          {tr ? pole.titleTr : (pole.titleEn || pole.titleTr)}
+          {renderInlineMarkdown(tr ? pole.titleTr : (pole.titleEn || pole.titleTr))}
         </div>
       </div>
 
@@ -82,7 +83,7 @@ function Pole({ pole, idx, language, totalDelay = 0 }) {
           fontStyle: 'italic',
           textAlign: 'center',
         }}>
-          {tr ? pole.descTr : (pole.descEn || pole.descTr)}
+          {renderInlineMarkdown(tr ? pole.descTr : (pole.descEn || pole.descTr))}
         </div>
       )}
 
@@ -107,7 +108,7 @@ function Pole({ pole, idx, language, totalDelay = 0 }) {
                   background: accent, marginTop: '7px', flexShrink: 0,
                   boxShadow: `0 0 6px ${accent}`,
                 }} />
-                <span>{text}</span>
+                <span>{renderInlineMarkdown(text)}</span>
               </div>
             );
           })}

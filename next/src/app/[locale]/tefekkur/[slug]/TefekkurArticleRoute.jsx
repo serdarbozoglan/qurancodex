@@ -10,6 +10,7 @@ import RootHero from '../../../../components/tefekkur/RootHero';
 import ArticleRenderer, { extractToc } from '../../../../components/tefekkur/ArticleRenderer';
 import RelatedToolCard from '../../../../components/tefekkur/RelatedToolCard';
 import SeriesTimeline from '../../../../components/tefekkur/SeriesTimeline';
+import { renderInlineMarkdown } from '../../../../components/tefekkur/inlineMarkdown';
 
 const CATEGORY_LABELS = {
   kavramsal:        { tr: 'Kavramsal Tahlil',         en: 'Conceptual Analysis',  accent: '#3498db' },
@@ -212,7 +213,7 @@ export default function TefekkurArticleRoute({ article }) {
                   fontFamily: FONTS.body,
                   lineHeight: 1.7,
                 }}>
-                  {tldr}
+                  {renderInlineMarkdown(tldr)}
                 </p>
 
                 {/* Meta row */}
@@ -279,9 +280,9 @@ export default function TefekkurArticleRoute({ article }) {
                 display: 'flex', gap: '11px', alignItems: 'flex-start',
               }}>
                 <span aria-hidden="true" style={{
-                  color: COLORS.silver, fontSize: '0.85rem',
-                  lineHeight: 1.5, flexShrink: 0, marginTop: '1px', opacity: 0.85,
-                }}>ⓘ</span>
+                  color: COLORS.gold, fontSize: '0.95rem',
+                  lineHeight: 1.5, flexShrink: 0, marginTop: '1px', opacity: 0.75,
+                }}>✍︎</span>
                 <p style={{
                   margin: 0,
                   fontSize: '0.78rem', color: COLORS.silver,
@@ -289,8 +290,8 @@ export default function TefekkurArticleRoute({ article }) {
                   fontStyle: 'italic',
                 }}>
                   {tr
-                    ? <>Bu makale <strong style={{ color: COLORS.offWhite, fontStyle: 'normal', fontWeight: 600 }}>Felsufi'nin özgün bir okuma denemesi</strong>dir. Klasik tefsir geleneğinden farklı yaklaşımlar — tasavvufî yorum, modern bilim ile sentez, Risale-i Nur perspektifi — içerebilir. Alternatif yorumlar mevcuttur; bu metin tek doğru okuma iddiasında değildir.</>
-                    : <>This essay is an <strong style={{ color: COLORS.offWhite, fontStyle: 'normal', fontWeight: 600 }}>original reading by Felsufi</strong>. It may carry approaches that differ from classical tafsīr — Sufi interpretation, synthesis with modern science, the Risale-i Nur perspective. Alternative readings exist; this text does not claim to be the single correct reading.</>}
+                    ? <>Aşağıdaki metin, <strong style={{ color: COLORS.offWhite, fontStyle: 'normal', fontWeight: 600 }}>Felsufi'nin kendi okuma ve tefekkür denemesi</strong>dir. Klasik tefsir geleneğinden farklı yaklaşımlar — tasavvuf, modern bilimle sentez, Risale-i Nur perspektifi — içerebilir. Yazarın <strong style={{ color: COLORS.offWhite, fontStyle: 'normal', fontWeight: 600 }}>şahsi içtihadı</strong> olduğu için alternatif klasik yorumlar mevcuttur; bu metin tek doğru okuma iddiası taşımaz, bir <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>bakış açısı</em> sunar.</>
+                    : <>The text below is <strong style={{ color: COLORS.offWhite, fontStyle: 'normal', fontWeight: 600 }}>Felsufi's own essay in reading and reflection</strong>. It may carry approaches that differ from classical tafsīr — Sufi interpretation, synthesis with modern science, the Risale-i Nur perspective. Because it is the author's <strong style={{ color: COLORS.offWhite, fontStyle: 'normal', fontWeight: 600 }}>personal ijtihād</strong>, alternative classical readings exist; this text makes no claim to a single correct reading — it offers a <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>perspective</em>.</>}
                 </p>
               </div>
 
@@ -411,7 +412,7 @@ export default function TefekkurArticleRoute({ article }) {
                     opacity: 0.5,
                   }} />
                   <div style={{
-                    display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px',
+                    display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px',
                   }}>
                     <span style={{ color: COLORS.gold, fontSize: '1rem' }}>✦</span>
                     <span style={{
@@ -423,8 +424,8 @@ export default function TefekkurArticleRoute({ article }) {
                   </div>
                   <p style={{ margin: 0 }}>
                     {tr
-                      ? <>Bu yazı, <a href={article.author?.url} target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>{article.author?.name}</a>'nin izni ve cömertliğiyle QuranCodex'te yer alıyor. Orijinal metin <a href={article.canonicalUrl} target="_blank" rel="noopener noreferrer canonical" style={{ color: COLORS.gold }}>Medium</a>'da yayımlanmıştır.</>
-                      : <>This essay appears on QuranCodex with the kind permission of <a href={article.author?.url} target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>{article.author?.name}</a>. The original text is published on <a href={article.canonicalUrl} target="_blank" rel="noopener noreferrer canonical" style={{ color: COLORS.gold }}>Medium</a>.</>}
+                      ? <>Bu yazı, <a href={article.author?.url} target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>{article.author?.name}</a>&apos;nin <strong style={{ color: COLORS.gold, fontWeight: 600 }}>sıfahi izni</strong> ve cömertliğiyle QuranCodex&apos;te yer alıyor. Yazıdaki yorum ve sentezler tamamen <strong style={{ color: COLORS.gold, fontWeight: 600 }}>yazarın şahsi tefekkürünü</strong> yansıtır; QuranCodex bu metinleri bir <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>düşünce daveti</em> olarak saygıyla aktarır. Orijinal metin <a href={article.canonicalUrl} target="_blank" rel="noopener noreferrer canonical" style={{ color: COLORS.gold }}>Medium</a>&apos;da yayımlanmıştır.</>
+                      : <>This essay appears on QuranCodex with the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>verbal permission</strong> and generosity of <a href={article.author?.url} target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>{article.author?.name}</a>. All interpretations and syntheses reflect the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>author&apos;s personal reflection</strong>; QuranCodex carries these texts respectfully as an <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>invitation to think</em>. The original text is published on <a href={article.canonicalUrl} target="_blank" rel="noopener noreferrer canonical" style={{ color: COLORS.gold }}>Medium</a>.</>}
                   </p>
                 </div>
               )}

@@ -1,0 +1,305 @@
+{
+  "slug": "yapilanlarin-suslu-gorulmesi",
+  "titleTr": "Yapılanların Süslü Görülmesi — Tezyînin Anatomisi",
+  "titleEn": "When One's Acts Appear Beautified — The Anatomy of Tazyīn",
+  "category": "kavramsal",
+  "template": "series-hero",
+  "seriesId": null,
+  "publishedDate": "2024-07-15",
+  "readingMinutes": 8,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://medium.com/@sufist/yap%C4%B1lanlar%C4%B1n-s%C3%BCsl%C3%BC-g%C3%B6r%C3%BClmesi-f651ce075aac",
+  "tldrTr": "Kur'an insanın yanlışını içeriden doğru, çirkinini güzel görme halini tek kavramla karşılar: tezyîn. Bu sadece dış aldanma değil — zihnin kendisini ikna edebilme kudretidir. Mekanizma çok katmanlı işler: (1) bireysel (En'âm 6:43, Fâtır 35:8); (2) kolektif/toplumsal (Tevbe 9:37, Enfâl 8:48); (3) epistemik karanlık (echo chambers, ideolojik tarafgirlik — 6:122, 27:4); (4) heva merkezliği (Muhammed 47:14). Salınım dinamiği: zarar→dua, genişlik→gaflet (Yunus 10:12). İki kalkan: beyyine (dış delil) + ihlâs (iç berrak) — kaynak kısıtlandığında (Fecr 89:16) gayeler teke düşer; her imtihan ihlâs imtihanıdır. Pratik soru: 'Bu bana niçin mantıklı göründü?'",
+  "tldrEn": "The Quran names the state of seeing one's own wrong as right, the ugly as beautiful with a single term: tazyīn. This is not merely outer deception — it is the mind's power to persuade itself. The mechanism works on many layers: (1) individual (Al-Anʿām 6:43, Fāṭir 35:8); (2) collective/social (Al-Tawba 9:37, Al-Anfāl 8:48); (3) epistemic darkness (echo chambers, ideological partiality — 6:122, Al-Naml 27:4); **(4) the centrality of hawā (Muḥammad 47:14). The oscillation: harm→prayer, ease→heedlessness (Yūnus 10:12). Two shields:** bayyina (outer evidence) + ikhlāṣ (inner clarity) — when resources are constrained (Al-Fajr 89:16), aims collapse to one; every trial is a trial of ikhlāṣ. The practical question: 'Why did this seem reasonable to me?'",
+  "relatedTools": [
+    "concept-graph"
+  ],
+  "relatedVerses": [
+    "2:143",
+    "6:43",
+    "6:108",
+    "6:122",
+    "6:137",
+    "8:48",
+    "9:37",
+    "10:12",
+    "15:39-40",
+    "27:4",
+    "27:24",
+    "35:8",
+    "41:25",
+    "47:14",
+    "49:13",
+    "89:16"
+  ],
+  "previousArticle": null,
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "section",
+      "id": "giris",
+      "titleTr": "Giriş — 'O Gün Bunu Nasıl Makul Görmüştüm?'",
+      "titleEn": "Introduction — 'How Did I Find This Reasonable At The Time?'"
+    },
+    {
+      "type": "paragraph",
+      "tr": "İnsan zaman zaman geriye dönüp kendi kararlarına baktığında, *'Bunu o gün nasıl bu kadar makul görmüştüm?'* diye hayret eder. **O an için son derece yerinde** görünen bir tercih, mesafe konunca problemli — hatta yanlış — görünmeye başlayabilir.\n\nKur'an bu hâli tek bir kavramla karşılar: **tezyîn** — *yapılanların süslü gösterilmesi*. Yanlışın içeriden doğru, çirkinin güzel görünmesi. Bu **yalnızca dışarıdan bir aldanma değil — zihnin kendi kendisini ikna edebilme kudreti**dir.",
+      "en": "Looking back at one's past decisions, a person sometimes wonders: *'How did I find this so reasonable at the time?'* What seemed **perfectly fitting at the moment** may, from a distance, look problematic — even wrong.\n\nThe Quran names this state with a single concept: **tazyīn** — *that one's deeds are made to appear beautified*. The wrong appears as right from within, the ugly as beautiful. This is **not merely an outer deception — it is the mind's power to persuade itself**."
+    },
+    {
+      "type": "section",
+      "id": "fitri-salinim",
+      "titleTr": "1. İnsanın Fıtrî Salınımı — İfrat ↔ Tefrit",
+      "titleEn": "1. The Innate Oscillation of the Human — Excess ↔ Deficit"
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:43",
+      "noteTr": "*En'âm 6:43* — وَزَيَّنَ لَهُمُ الشَّيْطَانُ مَا كَانُوا يَعْمَلُونَ — '**Şeytan onlara yaptıklarını süslü gösterdi**' — kalpler katılaştıktan sonra.",
+      "noteEn": "*Al-Anʿām 6:43* — وَزَيَّنَ لَهُمُ الشَّيْطَانُ مَا كَانُوا يَعْمَلُونَ — '**Satan made their deeds appear beautified to them**' — once hearts had hardened."
+    },
+    {
+      "type": "verseInline",
+      "ref": "10:12",
+      "noteTr": "*Yunus 10:12* — Zarar dokunduğunda yan yatarak/oturarak/ayakta **bize yalvarır**; zararını giderdiğimizde **sanki hiç yalvarmamış gibi geçip gider** — **müsriflere yaptıkları süslü gösterilir**.",
+      "noteEn": "*Yūnus 10:12* — When harm touches him he calls upon Us — on his side, sitting, standing; once We lift the harm, **he passes on as if he had never called Us at all** — to those who exceed bounds, their deeds are made beautiful."
+    },
+    {
+      "type": "paragraph",
+      "tr": "İnsan **fıtraten sınırları geniş** bir varlık olduğu için *ifrat* ve *tefrit*'e kolayca kayabilir. **Açken şekerli yiyeceklerin olduğundan cazip görünmesi gibi**, iç hâli dışı olduğundan farklı algılatır; insan bunu **rasyonel gerekçelerle süsler**.\n\n**Denge** ise nefse hemen haz vermediği için zahiren daha zor, **uçlar daha cazip** görünür. Mesela *haramdan sakınma niyetiyle sosyal hayatı tümden terk etmek* yüksek bir takva gibi görünse de aslında **uçta konumlanmaktır**. **Orta yol dardır ama istikrar ve iç huzur orada**dır.",
+      "en": "Because the human is **innately a being of wide bounds**, he slips easily into *ifrāṭ* (excess) and *tafrīṭ* (deficit). **Just as sweets look more enticing when you are hungry**, the inner state distorts the perception of the outer — and the human **dresses this distortion in rational justifications**.\n\n**Balance** does not give the nafs immediate pleasure — so it appears harder, while **the extremes look more attractive**. To abandon all social life out of fear of the unlawful may look like high *taqwā* — but it is in truth **a positioning at the extreme**. **The middle path is narrow, but in it lie stability and inner peace.**"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kur'an'ın tarifinde **İslam orta yoldur — sırat-ı müstakîm — müslümanlar da *ümmet-i vasat*** (Bakara 2:143). *Bu yüzden Kur'an'ın anlatımına göre 'ekstremist müslümanlık' bir oksimorondur.*",
+      "en": "In the Quran's description, **Islam is the middle way — al-ṣirāṭ al-mustaqīm — and Muslims are *the middle community*** (Al-Baqara 2:143). *On the Quran's terms, 'extremist Muslimness' is therefore an oxymoron.*",
+      "source": "Felsufi (Bakara 2:143 zemininde)"
+    },
+    {
+      "type": "section",
+      "id": "bireysel-tezyin",
+      "titleTr": "2. Bireysel Tezyîn — Amellerin Süslü Gösterilmesi",
+      "titleEn": "2. Individual Tazyīn — Deeds Made to Appear Beautified"
+    },
+    {
+      "type": "verseInline",
+      "ref": "35:8",
+      "noteTr": "*Fâtır 35:8* — اَفَمَنْ زُيِّنَ لَهُ سُٓوءُ عَمَلِه۪ فَرَاٰهُ حَسَنًا — '**Kötü ameli kendisine süslü gösterilen ve onu güzel gören** kimse…'",
+      "noteEn": "*Fāṭir 35:8* — اَفَمَنْ زُيِّنَ لَهُ سُٓوءُ عَمَلِه۪ فَرَاٰهُ حَسَنًا — '**Is one whose evil deed has been made beautiful to him, so that he sees it as good**…'"
+    },
+    {
+      "type": "verseInline",
+      "ref": "27:4",
+      "noteTr": "*Neml 27:4* — اِنَّ الَّذ۪ينَ لَا يُؤْمِنُونَ بِالْاٰخِرَةِ زَيَّنَّا لَهُمْ اَعْمَالَهُمْ — '**Ahirete inanmayanlara amellerini süsledik; onlar körlük içinde dolaşırlar**.'",
+      "noteEn": "*Al-Naml 27:4* — اِنَّ الَّذ۪ينَ لَا يُؤْمِنُونَ بِالْاٰخِرَةِ زَيَّنَّا لَهُمْ اَعْمَالَهُمْ — '**To those who do not believe in the hereafter, We have made their deeds appear beautiful; they wander in blindness**.'"
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:108",
+      "noteTr": "*En'âm 6:108* — كَذٰلِكَ زَيَّنَّا لِكُلِّ اُمَّةٍ عَمَلَهُمْ — '**Her ümmete yaptıklarını süslü gösterdik**' — *evrensel bir mekanizma*.",
+      "noteEn": "*Al-Anʿām 6:108* — كَذٰلِكَ زَيَّنَّا لِكُلِّ اُمَّةٍ عَمَلَهُمْ — '**Thus We have made the deeds of every community appear beautiful to them**' — *a universal mechanism*."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Zihin çoğu zaman *niyeti* değil, **o an kendisini rahatlatan yorumu** doğrular; bu yüzden hakikatte problemli bir tercih içeriden makul, hatta gerekli görünebilir. **Modern biçimleri:**\n\n— İhtiyaç olmayan bir ürünü *'iş için yatırım'* diye süslemek\n— Gıybete *'dert paylaşma'* etiketi takmak\n— Kırıcı söze *'açık sözlülük'* demek\n— Ertelemeye *'mükemmel ânı bekliyorum'* demek\n\nTezyîn böylece **içte savunma mekanizmasına, dışarıda kültürel bir dile** dönüşür.",
+      "en": "The mind often validates not its *intention* but **the interpretation that comforts it in that moment**; thus a choice problematic in reality may appear reasonable, even necessary, from within. **Modern forms:**\n\n— Calling a needless purchase *'an investment for work'*\n— Calling backbiting *'unburdening a worry'*\n— Calling a cutting remark *'plain speaking'*\n— Calling procrastination *'I am waiting for the perfect moment'*\n\nThus *tazyīn* turns into **a defence mechanism inwardly, a cultural idiom outwardly**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Pratik soru:** *'Bu bana niçin mantıklı göründü?'*\n\nCevabı **yargılamadan** fark etmek, tezyînin büyüsünü çözmeye atılan ilk adımdır.",
+      "en": "**The practical question:** *'Why did this seem reasonable to me?'*\n\nNoticing the answer **without judgment** is the first step in dispelling the spell of tazyīn.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "kolektif-tezyin",
+      "titleTr": "3. Kolektif Tezyîn — Toplumsal Cazibe",
+      "titleEn": "3. Collective Tazyīn — The Social Allure"
+    },
+    {
+      "type": "verseInline",
+      "ref": "9:37",
+      "noteTr": "*Tevbe 9:37* — **Haram ayları ertelediler, haramı helal kıldılar**, böylece amelleri kendilerine süslü gösterildi.",
+      "noteEn": "*Al-Tawba 9:37* — **They postponed the sacred months, made the forbidden lawful**; thus their deeds were made beautiful to them."
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:137",
+      "noteTr": "*En'âm 6:137* — Şirk anlayışları müşriklere **çocuk öldürmeyi süslü gösterdi**. *Kolektif inanç sistemi tezyîn üretir.*",
+      "noteEn": "*Al-Anʿām 6:137* — Their polytheistic notions **made killing their children appear beautiful** to them. *A collective belief-system manufactures tazyīn*."
+    },
+    {
+      "type": "verseInline",
+      "ref": "8:48",
+      "noteTr": "*Enfâl 8:48* — '**Şeytan onlara amellerini süslü gösterdi** ve dedi ki: *Bugün sizi kimse yenemez; ben sizin yardımcınızım*.' *Toplulukla birlikte hareket etmek, haksızlığı meşrulaştıran psikolojik kalkan üretir.*",
+      "noteEn": "*Al-Anfāl 8:48* — '**Satan made their deeds appear beautified to them** and said: *No human shall overcome you today; I am your protector*.' *Acting in a crowd creates a psychological shield that legitimates wrong.*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Tezyîn sadece bireysel değil **toplumsal düzeyde** de işler. Haram ayların ertelenmesi, çocukların öldürülmesi, güneşe secde edilmesi — bir topluluk hakikatten uzaklaşmış, fakat **bulunduğu noktayı kendisine süslü göstermiştir**.\n\n**Modern karşılıkları:**\n\n— Faiz → *'finansal enstrüman'*\n— Aşırı performans baskısı → *'çocuğun geleceğini düşünmek'*\n— Kariyer putlaştırması → *'kendini gerçekleştirmek'*\n— Hamaset → *'toplum yapısını korumak'*\n\n**Grup hâlinde yapılan iş**, kişiye haklılık ve güven duygusu verdiği için **sorgulanmaz**.\n\n*Koruyucu soru:* **'Bu gerçekten kendi başına değerli mi — yoksa herkes yaptığı için mi değerli görünüyor?'**",
+      "en": "*Tazyīn* operates not only individually but also **socially**. The postponement of sacred months, the killing of children, prostration to the sun — a community had drifted from truth, yet **made its position appear beautiful to itself**.\n\n**Modern parallels:**\n\n— Interest → *'a financial instrument'*\n— Extreme performance pressure → *'thinking of the child's future'*\n— Idolizing career → *'self-actualization'*\n— Demagogy → *'preserving the social fabric'*\n\n**What is done in a group** carries a feeling of rightness and safety to the individual — and **goes unquestioned**.\n\n*The protective question:* **'Is this valuable in itself — or does it only appear valuable because everyone does it?'**"
+    },
+    {
+      "type": "section",
+      "id": "epistemik-karanlik",
+      "titleTr": "4. Epistemik Karanlık — Echo Chambers ve Perspektif Kaybı",
+      "titleEn": "4. Epistemic Darkness — Echo Chambers and Loss of Perspective"
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:122",
+      "noteTr": "*En'âm 6:122* — **Nur verilen** kimse ile **karanlıklarda kalıp çıkamayan** bir olur mu? Kâfirlere amelleri **böyle süslü gösterilir**. *Karanlık = bilgi eksikliğinden çok perspektif kaybı.*",
+      "noteEn": "*Al-Anʿām 6:122* — Is the one to whom **We gave light** the same as one who is **stuck in darkness and cannot emerge**? Thus to the disbelievers their deeds are **made beautiful**. *Darkness = less the absence of information than the loss of perspective.*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an'daki *'karanlıklar'* teşbihi, **bilgi eksikliğinden çok perspektif kaybı**na işaret eder. İnsan, elindeki *bilginin ne olduğundan ziyade hangi bilgiye baktığına göre* düşünür.\n\n— Algoritmaların benzer fikirleri sürekli önümüze getirdiği **yankı odaları (echo chambers)**\n— **İdeolojik tarafgirlikle** kendi tarafının açık yanlışını bile görememe\n— *'Herkes yapıyor'* diyerek vicdanın ince sesini bastırma\n\nHepsi **daralmış bir bakışın tezahürü**. Dışarıdan özgür görünen insan, gerçekte **zihninde kurduğu epistemik hapishanede volta atıyor** olabilir.",
+      "en": "The Quranic image of *'darknesses'* points **less to a lack of information than to the loss of perspective**. The human thinks according not so much to *what information he has* as to *which information he is looking at*.\n\n— **Echo chambers** in which algorithms keep returning similar ideas\n— **Ideological partiality** that cannot see even the clear errors of one's own side\n— Saying *'everyone does it'* and so muting the small voice of conscience\n\nAll are manifestations of **a narrowed gaze**. The person who looks free from outside may, in truth, **be pacing in the epistemic prison of his own mind**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "49:13",
+      "noteTr": "*Hucurat 49:13* — يَٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَآئِلَ لِتَعَارَفُوا — '**Sizi şubeler-kabileler kıldık ki birbirinizi tanıyasınız**.' **Li tearefû** — kontrast olmadan kendini tanıyamazsın.",
+      "noteEn": "*Al-Ḥujurāt 49:13* — يَٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَآئِلَ لِتَعَارَفُوا — '**We made you peoples and tribes so that you might know one another**.' **Li-taʿārafū** — without contrast, you cannot know yourself."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Varsayımlarını sorgulamak, kendinden farklı düşünen biri hakkında bir an durup **'O neden böyle düşünüyor olabilir?'** sorusunu sormak — bu epistemik kafesten çıkmanın vesilesi. Hucurat 13'ün veciz anlatımı içinde insan, **kontrast görerek** kendini tanır (*li tearefû*).",
+      "en": "To question one's assumptions; to pause about someone who thinks differently and ask **'Why might he think this way?'** — these are the openings out of the epistemic cage. In the dense formula of Al-Ḥujurāt 13, the human comes to know himself **through contrast** (*li-taʿārafū*)."
+    },
+    {
+      "type": "section",
+      "id": "heva-kalp",
+      "titleTr": "5. Heva, Telkin ve Kalbin Yumuşaklığı",
+      "titleEn": "5. Hawā, Suggestion, and the Softness of the Heart"
+    },
+    {
+      "type": "verseInline",
+      "ref": "47:14",
+      "noteTr": "*Muhammed 47:14* — '**Rabbinden beyyine üzere olan kimse ile, kötü ameli kendisine süslü gösterilen ve hevalarına uyan kimseler bir olur mu?**' Tezyîn'in tam karşıtı: *beyyine + hakikate uyum*.",
+      "noteEn": "*Muḥammad 47:14* — '**Is one who stands on a clear sign from his Lord like the one whose evil deed is made beautiful to him and follows his desires?**' The direct opposite of *tazyīn*: *bayyina + adherence to truth*."
+    },
+    {
+      "type": "verseInline",
+      "ref": "15:39-40",
+      "noteTr": "*Hicr 15:39-40* — *İblis*: 'Yeryüzünde onlara süsler yapacağım, hepsini saptıracağım — **ancak ihlâslı kulların müstesna**.' Tezyîn'in tek panzehiri **ihlâs**.",
+      "noteEn": "*Al-Ḥijr 15:39-40* — *Iblīs*: 'I will make things appear beautiful for them on earth and will lead them astray, all of them — **except Your sincere servants**.' The single antidote to *tazyīn*: **ikhlāṣ**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "41:25",
+      "noteTr": "*Fussilet 41:25* — 'Onlara birtakım yakınlar (akran) **sardırdık**; önlerindekini ve arkalarındakini onlara süslü gösterdiler.' Tezyîn **sosyal ağ** üzerinden de iletilir.",
+      "noteEn": "*Fuṣṣilat 41:25* — 'We assigned to them companions, who made beautiful to them what lay before and behind.' Tazyīn travels also through **the social network**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Kalp yöneldiği şeyi büyütür.** Hevâ merkeze alındığında **duygular hakikatin önüne geçer**. *'Sinirliydim, o yüzden söyledim'* cümlesinde belirleyici hakikat değil duygudur.\n\n**Kalbin katılaşma göstergeleri:**\n— Zikre veya Kur'an'a oturduğunda bir anda akla üşüşen işler; aynı işlerin **dizi izlerken hiç aciliyet hissettirmemesi**\n— Başta rahatsız eden bir günahın zamanla **şaka malzemesi** hâline gelmesi\n\n**Kalbin yumuşamasının göstergesi:** merhamet, sabır ve tevazunun **görünür hâle gelmesi**.\n\n**Basit egzersiz:** gün içinde üç dakikalık bir sessizlik; sakince oturup nefesi izlemek. **Hiçbir şey 'yapmadan' kalabilmek** — kalbin yumuşamasına açılan küçük bir kapı.",
+      "en": "**The heart magnifies what it turns toward.** When *hawā* is at the centre, **emotion overtakes truth**. *'I was angry, so I said it'* — the determiner is not truth but feeling.\n\n**Signs of the heart hardening:**\n— A flood of urgent tasks that arrives the moment you sit for dhikr or Quran, yet **does not feel urgent at all while watching a series**\n— A sin that once disturbed turns, over time, into **material for jokes**\n\n**Sign of the heart softening:** mercy, patience, and humility **become visible**.\n\n**Simple exercise:** three minutes of silence during the day; sit quietly and observe the breath. **The capacity to remain doing nothing** — a small door that opens to the softening of the heart."
+    },
+    {
+      "type": "section",
+      "id": "salinim-dongusu",
+      "titleTr": "6. Salınımlar ve Sonuçsuz Döngüler",
+      "titleEn": "6. Oscillations and Inconclusive Cycles"
+    },
+    {
+      "type": "paragraph",
+      "tr": "İnsana bir darlık dokunduğunda kalbi Allah'a yönelmeye meyleder; genişlik halinde çoğu zaman eski hâline döner — *tabiatın salınımı*.\n\n**Modern örnekler:**\n— Kriz anında yoğun dua; rahatlıkta eski gaflet\n— *'Bir terfi daha alırsam huzura ereceğim'* diyerek **her basamakta aynı boşluk**\n— Peş peşe kişisel-gelişim denemeleri; hiçbirine gerçekten bağlanamama\n\nAmaç salınımı yok etmek değil — **tanıyıp iç disiplin oluşturmak**. **Negatif taraftan kontrol** daha kolaydır:\n— Gelen sıkıntıda **şiddetli tepki vermemek**\n— Bunun için **şikayet etmeyi azaltmak**\n— Bunun için **negatif hisleri dillendirmemek**\n— Tek adımda olmuyorsa, **negatif ifadeleri daha yumuşak hâle çevirmek**\n\nÇok tecrübeyle sabit, başarılı bir yöntem.",
+      "en": "When hardship touches a person, the heart inclines to turn toward Allah; in ease it usually returns to its old state — *the oscillation of nature*.\n\n**Modern examples:**\n— Intense prayer during a crisis; old heedlessness in comfort\n— *'When I get the next promotion, I'll find peace'* — **the same emptiness at every rung**\n— A string of self-improvement attempts; never quite committed to any of them\n\nThe aim is not to abolish the oscillation — but to **recognize it and build inner discipline**. **Control from the negative side** is easier:\n— Not reacting **violently** when difficulty comes\n— So as to **reduce complaint**\n— So as to **not voice negative feelings**\n— If not possible in one step, **soften negative expressions**\n\nA method long proven by experience."
+    },
+    {
+      "type": "section",
+      "id": "beyyine-ihlas",
+      "titleTr": "7. Beyyine ve İhlâs — İki Kalkan",
+      "titleEn": "7. Bayyina and Ikhlāṣ — Two Shields"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Beyyine ⇄ İhlâs — Dış Delil + İç Berrak",
+      "captionEn": "Bayyina ⇄ Ikhlāṣ — Outer Evidence + Inner Clarity",
+      "left": {
+        "ar": "بَيِّنَة",
+        "titleTr": "Beyyine — Dış Delil",
+        "titleEn": "Bayyina — Outer Evidence",
+        "descTr": "**Hakkı hak, batılı batıl olarak görebilmek.** Tezyîn'in karanlığını yararak hakikatin keskin hatlarını fark etme kapasitesi.",
+        "descEn": "**To see truth as truth, and falsehood as falsehood.** The capacity to cut through the darkness of tazyīn and see the sharp outlines of reality.",
+        "accent": "#d4a574",
+        "bullets": [
+          {
+            "tr": "Muhammed 47:14 — *beyyine üzere olan*",
+            "en": "Muḥammad 47:14 — *the one upon a clear sign*"
+          },
+          {
+            "tr": "Pratik: belli aralıklarla niyet gözden geçirme",
+            "en": "Practice: periodically review intention"
+          }
+        ]
+      },
+      "right": {
+        "ar": "إِخْلَاص",
+        "titleTr": "İhlâs — İç Berrak",
+        "titleEn": "Ikhlāṣ — Inner Clarity",
+        "descTr": "**Niyetin berraklaşması.** Görünmeyen ameller, gizli dualar, gösterişten uzak iyilikler kalbi besler. **İblis'in 'müstesna' kıldığı tek grup** (Hicr 15:40).",
+        "descEn": "**The clarifying of intention.** Unseen deeds, secret prayers, kindnesses without display nourish the heart. **The only group Iblīs himself excepts** (Al-Ḥijr 15:40).",
+        "accent": "#1D9E75",
+        "bullets": [
+          {
+            "tr": "Hicr 15:39-40 — *illâ ibâdeke minhumu'l-muhlasîn*",
+            "en": "Al-Ḥijr 15:39-40 — *except Your sincere servants*"
+          },
+          {
+            "tr": "Modern karşılık: 'Bu iş Allah katında nasıl bir değer taşıyor?'",
+            "en": "Modern parallel: 'What value does this work hold with Allah?'"
+          }
+        ]
+      },
+      "bridgeTr": "**Beyyine** dışarıyı netleştirir; **ihlâs** içeriyi berraklaştırır. Tezyîn'e karşı çift kalkan.",
+      "bridgeEn": "**Bayyina** clarifies the outer; **ikhlāṣ** clarifies the inner. A double shield against tazyīn.",
+      "bridgeMode": "merge"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "اَللّٰهُمَّ اَرِنَا الْحَقَّ حَقًّا وَارْزُقْنَا اتِّبَاعَهُ، وَاَرِنَا الْبَاطِلَ بَاطِلًا وَارْزُقْنَا اجْتِنَابَهُ\n\n'Allah'ım, **bize hakkı hak olarak göster ve ona uymayı nasip et**; batılı da batıl olarak göster ve ondan sakınmayı nasip et.'",
+      "en": "Allāhumma arinā l-ḥaqqa ḥaqqan wa-rzuqnā ttibāʿah, wa-arinā l-bāṭila bāṭilan wa-rzuqnā jtinābah\n\n'O Allah, **show us truth as truth and grant us its following**; show us falsehood as falsehood and grant us turning from it.'",
+      "source": "Dua — Hz. Ömer'e atfedilen meşhur niyaz"
+    },
+    {
+      "type": "verseInline",
+      "ref": "89:16",
+      "noteTr": "*Fecr 89:16* — فَقَدَرَ عَلَيْهِ رِزْقَهُ — '**Rızkını ona daralttı.**' Kaynak kısıtlandığında insanın birden fazla gayesi azalır; **nihayetinde teke düşer**. *Tüm imtihanlar bir açıdan ihlâs imtihanıdır.*",
+      "noteEn": "*Al-Fajr 89:16* — فَقَدَرَ عَلَيْهِ رِزْقَهُ — '**He has constrained his provision.**' When resources are constrained, one's multiple aims shrink — and **finally collapse to a single one**. *Every trial is, in a sense, a trial of ikhlāṣ.*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Yapılan işlerin hemen hepsinde **birden fazla gaye ve sonuç beklentisi** olabilir. Ama kaynaklar kısıtlandığında (*fe-kadere aleyhi rizkahu*, Fecr 89:16) **bu gayeler azalır ve nihayetinde teke düşer**. Dışarı çıkarken normalde hem postaneye, hem markete, hem benzine uğrarsın. Ama yarım saatte dönmen gerekiyorsa — **tek bir sonucu seçmek zorunda kalırsın**.\n\n**Tüm imtihanlar bir açıdan kaynak kısıtlamasıdır — ve esasında ihlâs imtihanıdır.**",
+      "en": "Most of our actions carry **multiple aims and expected outcomes**. But when resources are constrained (*fa-qadara ʿalayhi rizqahu*, Al-Fajr 89:16), **these aims shrink and at last collapse to one**. On a normal errand, one stops at the post office, the supermarket, the gas station. But if you must return within half an hour — **you must choose only one outcome**.\n\n**Every trial is, on one level, a resource constraint — and in essence a trial of ikhlāṣ.**"
+    },
+    {
+      "type": "section",
+      "id": "modern-tezyin",
+      "titleTr": "8. Modern Dünyada Tezyîn ve Epistemik Özgürlük",
+      "titleEn": "8. Tazyīn in the Modern World and Epistemic Freedom"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bugünün dünyası **dikkat ve arzular üzerine kurulu bir 'süsleme düzeni'** gibi çalışır:\n\n— Dijital mecralarda sergilenen **filtrelenmiş hayatlar**\n— Tüketimde *'stil'* diye pazarlanan sadelik\n— Nefsin *'öz sevgi'* ve *'kendini gerçekleştirme'* kavramlarıyla **merkeze alınması**\n\nHep aynı mekanizmanın farklı yüzleri. Bu yüzden **'amellerin süslü gösterilmesi'** uyarısı tarihte kalmış bir kıssa değil — **çağımızın psikolojisini okuyan bir anahtar**.",
+      "en": "Today's world operates like **an 'order of beautification' built on attention and desire**:\n\n— **Filtered lives** displayed on digital media\n— Simplicity marketed as *'style'* in consumption\n— The nafs **placed at the centre** through the vocabulary of *'self-love'* and *'self-actualization'*\n\nAll of these are faces of the same mechanism. So the warning *'one's deeds appear beautified'* is not a relic in history — it is **a key that reads the psychology of our age**."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "*Ekstremist müslümanlık oksimorondur* + Hz. Ömer duası nüansı",
+      "headingEn": "*Extremist Muslimness is an oxymoron* + the Caliph ʿUmar prayer nuance",
+      "tr": "Felsufi'nin **'ekstremist müslümanlık oksimorondur — İslâm orta yoldur, vasat ümmettir'** cümlesi güçlü ve retorik olarak isabetli; **Bakara 2:143** *vasat ümmet* ifadesi bunu destekler. Ancak klasik tefsir (Taberî, Râzî, Kurtubî) *vasat*'ı yalnızca 'orta yol' değil aynı zamanda **'âdil, seçkin, şahit'** anlamlarıyla okur — Felsufi'nin kullanımı meşrudur ama tek tefsir değildir. **Hz. Ömer'e atfedilen 'Allâhümme erinâ'l-hakka hakkan' duası** İslâm geleneğinde **çok yaygın** olarak rivayet edilir; ama bazı hadis kaynaklarında **isnad zayıflığı** veya 'mevkuf' (Ömer'e dayanan) ya da 'merfû' (Hz. Peygamber'e dayanan) versiyonları arasında ihtilaf vardır. Mana itibariyle sahih bir niyazdır — *'bu da uyduruldu'* iddiası abartı; ama *'sahih hadis'* iddiası da hadis tahkiki açısından dikkat ister. **Echo chamber + algoritmik tarafgirlik** modern teknoloji-eleştirisi dilinden gelir; klasik tefsir bu kavramları kullanmaz, ama **Kur'an'ın *'karanlıklar' (zulümât)* teşbihi** çağdaş yankı odası kavramıyla **gerçekten örtüşür** — bu çağdaş okuma katmanı **organik** bir köprü.",
+      "en": "Felsufi's statement **'extremist Muslimness is an oxymoron — Islam is the middle way, the *umma wasaṭ*'** is forceful and rhetorically apt; **Al-Baqara 2:143**'s *umma wasaṭ* supports it. But classical tafsīr (Ṭabarī, Rāzī, Qurṭubī) reads *wasaṭ* not only as 'middle way' but also as **'just, choice, witness'** — Felsufi's usage is legitimate but not the sole reading. The **prayer attributed to Caliph ʿUmar — 'Allāhumma arinā l-ḥaqqa ḥaqqan'** is **very widely** transmitted in Islamic tradition; yet some ḥadīth sources record **weakness in the isnād** or disputes between *mawqūf* (resting on ʿUmar) and *marfūʿ* (going back to the Prophet) versions. In its meaning it is a sound supplication — to claim *'it was fabricated'* would be exaggeration; but the claim *'it is a sound ḥadīth'* requires caution from the standpoint of ḥadīth-criticism. **Echo chamber + algorithmic partiality** comes from modern technology-criticism; classical tafsīr does not use these terms, yet **the Quranic image of *'darknesses' (ẓulumāt)*** does **genuinely** overlap with the contemporary notion of the echo chamber — this contemporary reading-layer is an **organic** bridge."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "*'Ne yapıyorum?'* sorusu değerli — ama yanında *'Yaptığımı niçin güzel görüyorum?'* sorusu da gerekli.\n\nBu soruyu sormak insanı hem **kendi duygularının** hem **çağın telkinlerinin** baskısından kısmen özgürleştirir. Kıyas, yetersizlik ve acelecilik yerine, **sade bir tatmin ve iç huzur** hissi ortaya çıkmaya başlar.",
+      "en": "*'What am I doing?'* is a valuable question — but it must be joined by *'Why do I find what I am doing beautiful?'*\n\nAsking this question partially frees the human from the pressure of **his own emotions** and of **the age's suggestions**. In place of comparison, inadequacy, and haste, **a simple satisfaction and inner peace** begin to emerge.",
+      "source": "Felsufi"
+    }
+  ]
+}

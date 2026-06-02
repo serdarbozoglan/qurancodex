@@ -151,15 +151,30 @@ export default function TefekkurIndexRoute() {
               3 etiket-chip + açıklama satırı; subtitle'a gömülü değil. */}
           <div style={{
             marginTop: '18px',
-            padding: '13px 16px 14px',
+            padding: '14px 18px 16px',
             background: 'rgba(212,165,116,0.06)',
             border: '1px solid rgba(212,165,116,0.28)',
             borderLeft: `3px solid ${COLORS.gold}`,
             borderRadius: RADIUS.sm,
           }}>
+            {/* Header line — author attribution */}
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              marginBottom: '10px',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              letterSpacing: '0.04em',
+              color: COLORS.gold,
+              fontFamily: FONTS.body,
+            }}>
+              <span aria-hidden="true" style={{ opacity: 0.85, fontSize: '0.95rem' }}>✍︎</span>
+              {tr
+                ? 'Felsufi’nin kendi tefekkür denemelerinden seçmeler'
+                : 'A curated selection of Felsufi’s own essays in reflection'}
+            </div>
             <div style={{
               display: 'flex', flexWrap: 'wrap', gap: '8px',
-              marginBottom: '8px',
+              marginBottom: '10px',
             }}>
               {(tr
                 ? ['Kişisel sentezler', 'Alternatif okumalar', 'Tasavvufî perspektif']
@@ -192,8 +207,8 @@ export default function TefekkurIndexRoute() {
               fontStyle: 'italic',
             }}>
               {tr
-                ? <>Bu metinler klasik tefsir konsensüsü değil, <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>yazarın özgün okuma denemeleridir</strong>. Tartışmalı pasajlar makale içinde <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>"alternatif okuma"</strong> kutularıyla işâret edilmiştir.</>
-                : <>These are not the consensus of classical tafsīr but <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>original reading-attempts by the author</strong>. Contested passages are flagged within the essays with <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>"alternative reading"</strong> callouts.</>}
+                ? <>Bu metinler klasik tefsir konsensüsü değil, <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>yazarın şahsi içtihad ve okuma denemeleri</strong>dir. Alternatif klasik yorumlar mevcuttur; tartışmalı pasajlar makale içinde <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>&quot;alternatif okuma&quot;</strong> kutularıyla nazikçe işaret edilmiştir.</>
+                : <>These are not the consensus of classical tafsīr but the <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>author&apos;s personal ijtihād and reading-attempts</strong>. Alternative classical readings exist; contested passages are gently flagged within the essays with <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>&quot;alternative reading&quot;</strong> callouts.</>}
             </p>
           </div>
 
@@ -305,8 +320,8 @@ export default function TefekkurIndexRoute() {
           </div>
           <p style={{ margin: 0 }}>
             {tr
-              ? <>Bu seçilmiş yazıları paylaşmamıza izin verdiği için <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a>'ye minnetle teşekkür ederiz. Her makale yazarın onayıyla taşınmıştır; kanonik kaynak Medium'da korunmaktadır ve site araçlarıyla çift yönlü bağlıdır.</>
-              : <>We extend our heartfelt gratitude to <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a> for sharing these selected essays. Each article is included with the author's permission; the canonical source remains on Medium and is bidirectionally linked with site tools.</>}
+              ? <>Bu seçilmiş yazıları paylaşmamıza <strong style={{ color: COLORS.gold, fontWeight: 600 }}>sıfahi izin</strong> verdiği için <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a>&apos;ye minnetle teşekkür ederiz. Yazılardaki yorum ve sentezler tamamen <strong style={{ color: COLORS.gold, fontWeight: 600 }}>yazarın şahsi tefekkürünü</strong> yansıtır; QuranCodex bu metinleri bir <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>düşünce daveti</em> olarak saygıyla aktarır. Kanonik kaynak Medium&apos;da korunmakta ve site araçlarıyla çift yönlü bağlıdır.</>
+              : <>We extend our heartfelt gratitude to <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a> for the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>verbal permission</strong> to share these selected essays. All interpretations and syntheses reflect the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>author&apos;s personal reflection</strong>; QuranCodex carries these texts respectfully as an <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>invitation to think</em>. The canonical source remains on Medium and is bidirectionally linked with site tools.</>}
           </p>
         </div>
       </div>

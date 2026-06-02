@@ -8,6 +8,7 @@ import HierarchyTree from './HierarchyTree';
 import MorphologyTable from './MorphologyTable';
 import FlowChain from './FlowChain';
 import ContrastDuo from './ContrastDuo';
+import { renderInlineMarkdown } from './inlineMarkdown';
 
 // ArticleRenderer — iterates blocks from JSON content and renders each.
 // Phase 2 enhancements: drop cap on first paragraph, framer-motion fade-up
@@ -55,21 +56,6 @@ function Paragraph({ tr: trText, en: enText, language, isFirst }) {
   );
 }
 
-function renderInlineMarkdown(text) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
-  return parts.map((part, i) => {
-    if (part.startsWith('**') && part.endsWith('**')) {
-      return <strong key={i} style={{ color: COLORS.gold, fontWeight: 700 }}>{part.slice(2, -2)}</strong>;
-    }
-    return part.split('\n').map((line, j, arr) => (
-      <span key={`${i}-${j}`}>
-        {line}
-        {j < arr.length - 1 && <br />}
-      </span>
-    ));
-  });
-}
-
 function SectionHeading({ titleTr, titleEn, id, language }) {
   const tr = language === 'tr';
   return (
@@ -99,8 +85,10 @@ function SectionHeading({ titleTr, titleEn, id, language }) {
   );
 }
 
-function SourcesBlock({ items, language }) {
+function SourcesBlock({ titleTr, titleEn, items, language }) {
   const tr = language === 'tr';
+  if (!items || items.length === 0) return null;
+  const heading = (tr ? titleTr : titleEn) || (tr ? 'Kaynaklar' : 'Sources');
   return (
     <div style={{
       marginTop: '20px',
@@ -109,32 +97,62 @@ function SourcesBlock({ items, language }) {
       border: `1px solid ${COLORS.glassBorder || 'rgba(255,255,255,0.08)'}`,
       borderRadius: RADIUS.md,
     }}>
-      {items.map((item, i) => (
-        <div key={i} style={{
-          padding: '8px 0',
-          borderBottom: i < items.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
-          display: 'flex', alignItems: 'baseline', gap: '12px',
-        }}>
-          <div style={{
-            width: '4px', height: '4px', borderRadius: '50%',
-            background: COLORS.gold, opacity: 0.6, flexShrink: 0, alignSelf: 'center',
-          }} />
-          <span style={{
-            fontSize: '0.9rem', fontWeight: 700,
-            color: COLORS.offWhite, fontFamily: FONTS.body,
-            minWidth: '180px', flexShrink: 0,
+      <div style={{
+        fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.18em',
+        color: COLORS.gold, textTransform: 'uppercase',
+        fontFamily: FONTS.body, marginBottom: '10px', opacity: 0.85,
+      }}>
+        {heading}
+      </div>
+      {items.map((item, i) => {
+        // Support two schemas:
+        //   (a) { name, detailTr, detailEn }
+        //   (b) { tr, en } — single-line citation
+        const hasName = item.name || item.detailTr || item.detailEn;
+        const singleLine = !hasName && (item.tr || item.en);
+        return (
+          <div key={i} style={{
+            padding: '8px 0',
+            borderBottom: i < items.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
+            display: 'flex', alignItems: 'baseline', gap: '12px',
           }}>
-            {item.name}
-          </span>
-          <span style={{
-            fontSize: '0.82rem', color: COLORS.silver,
-            fontFamily: FONTS.body, fontStyle: 'italic',
-            lineHeight: 1.55,
-          }}>
-            {tr ? item.detailTr : item.detailEn}
-          </span>
-        </div>
-      ))}
+            <div style={{
+              width: '4px', height: '4px', borderRadius: '50%',
+              background: COLORS.gold, opacity: 0.6, flexShrink: 0, alignSelf: 'center',
+            }} />
+            {singleLine ? (
+              <span style={{
+                fontSize: '0.85rem',
+                color: COLORS.offWhite,
+                fontFamily: FONTS.body,
+                lineHeight: 1.6,
+                flex: 1,
+              }}>
+                {renderInlineMarkdown(tr ? (item.tr || item.en) : (item.en || item.tr))}
+              </span>
+            ) : (
+              <>
+                {item.name && (
+                  <span style={{
+                    fontSize: '0.9rem', fontWeight: 700,
+                    color: COLORS.offWhite, fontFamily: FONTS.body,
+                    minWidth: '180px', flexShrink: 0,
+                  }}>
+                    {item.name}
+                  </span>
+                )}
+                <span style={{
+                  fontSize: '0.82rem', color: COLORS.silver,
+                  fontFamily: FONTS.body, fontStyle: 'italic',
+                  lineHeight: 1.55,
+                }}>
+                  {renderInlineMarkdown(tr ? item.detailTr : item.detailEn)}
+                </span>
+              </>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
