@@ -479,11 +479,41 @@
     },
     {
       "id": "koruyuculuk",
-      "baslikTr": "Allah'ın Koruyuculuğu",
-      "baslikEn": "God's Protection",
-      "notTr": "Rabbim her şeyi koruyandır; Allah iman edenlerin velisidir.",
-      "notEn": "My Lord is the Guardian of all things; God is the protector of those who believe.",
+      "baslikTr": "Allah'ın Koruyuculuğu ve Vekâleti",
+      "baslikEn": "God's Protection and Trusteeship",
+      "notTr": "Rabbim her şeyi koruyandır; Allah iman edenlerin velisi ve ne güzel vekildir.",
+      "notEn": "My Lord is the Guardian of all; God is the protector of believers and the best disposer of affairs.",
       "ayetler": [
+        {
+          "id": "2:257",
+          "sure": 2,
+          "ayet": 257,
+          "sureAdTr": "Bakara",
+          "sureAdEn": "The Cow",
+          "arapca": "اَللّٰهُ وَلِيُّ الَّذِينَ اٰمَنُوا يُخْرِجُهُمْ مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَالَّذِينَ كَفَرٓوا اَوْلِيٓاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُمْ مِنَ النُّورِ اِلَى الظُّلُمَاتِ اُولٰٓئِكَ اَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ",
+          "tr": "Allah, inananların dostudur, onları karanlıklardan aydınlığa çıkarır. İnkar edenlere gelince, onların dostları da tağuttur, onları aydınlıktan alıp karanlığa götürür. İşte bunlar cehennemliklerdir. Onlar orada devamlı kalırlar.",
+          "en": "Allah is the ally of those who believe. He brings them out from darknesses into the light. And those who disbelieve - their allies are Taghut. They take them out of the light into darknesses. Those are the companions of the Fire; they will abide eternally therein"
+        },
+        {
+          "id": "3:173",
+          "sure": 3,
+          "ayet": 173,
+          "sureAdTr": "Âl-i İmrân",
+          "sureAdEn": "Family of Imran",
+          "arapca": "اَلَّذِينَ قَالَ لَهُمُ النَّاسُ اِنَّ النَّاسَ قَدْ جَمَعُوا لَكُمْ فَاخْشَوْهُمْ فَزَادَهُمْ اِيمَاناً وَقَالُوا حَسْبُنَا اللّٰهُ وَنِعْمَ الْوَكِيلُ",
+          "tr": "Bir kısım insanlar, müminlere: \"Düşmanlarınız olan insanlar, size karşı asker topladılar; aman sakının onlardan!\" dediklerinde bu, onların imanlarını bir kat daha arttırdı ve \"Allah bize yeter. O ne güzel vekildir!\" dediler.",
+          "en": "Those to whom hypocrites said, \"Indeed, the people have gathered against you, so fear them.\" But it [merely] increased them in faith, and they said, \"Sufficient for us is Allah, and [He is] the best Disposer of affairs"
+        },
+        {
+          "id": "4:81",
+          "sure": 4,
+          "ayet": 81,
+          "sureAdTr": "Nisâ",
+          "sureAdEn": "The Women",
+          "arapca": "وَيَقُولُونَ طَاعَةٌ فَاِذَا بَرَزُوا مِنْ عِنْدِكَ بَيَّتَ طٓائِفَةٌ مِنْهُمْ غَيْرَ الَّذِي تَقُولُ وَاللّٰهُ يَكْتُبُ مَا يُبَيِّتُونَ فَاَعْرِضْ عَنْهُمْ وَتَوَكَّلْ عَلَى اللّٰهِ وَكَفٰى بِاللّٰهِ وَكِيلاً",
+          "tr": "\"Başüstüne\" derler, ama yanından ayrılınca onlardan bir kısmı, senin dediğinden başkasını gizlice kurar. Allah da onların gizlice kurduklarını yazar. Sen onlara aldırma ve Allah'a dayan; sana vekil olarak Allah yeter.",
+          "en": "And they say, \"[We pledge] obedience.\" But when they leave you, a group of them spend the night determining to do other than what you say. But Allah records what they plan by night. So leave them alone and rely upon Allah. And sufficient is Allah as Disposer of affairs"
+        },
         {
           "id": "11:57",
           "sure": 11,
@@ -495,14 +525,14 @@
           "en": "But if they turn away, [say], \"I have already conveyed that with which I was sent to you. My Lord will give succession to a people other than you, and you will not harm Him at all. Indeed my Lord is, over all things, Guardian"
         },
         {
-          "id": "2:257",
-          "sure": 2,
-          "ayet": 257,
-          "sureAdTr": "Bakara",
-          "sureAdEn": "The Cow",
-          "arapca": "اَللّٰهُ وَلِيُّ الَّذِينَ اٰمَنُوا يُخْرِجُهُمْ مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَالَّذِينَ كَفَرٓوا اَوْلِيٓاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُمْ مِنَ النُّورِ اِلَى الظُّلُمَاتِ اُولٰٓئِكَ اَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ",
-          "tr": "Allah, inananların dostudur, onları karanlıklardan aydınlığa çıkarır. İnkar edenlere gelince, onların dostları da tağuttur, onları aydınlıktan alıp karanlığa götürür. İşte bunlar cehennemliklerdir. Onlar orada devamlı kalırlar.",
-          "en": "Allah is the ally of those who believe. He brings them out from darknesses into the light. And those who disbelieve - their allies are Taghut. They take them out of the light into darknesses. Those are the companions of the Fire; they will abide eternally therein"
+          "id": "39:62",
+          "sure": 39,
+          "ayet": 62,
+          "sureAdTr": "Zümer",
+          "sureAdEn": "The Troops",
+          "arapca": "اَللّٰهُ خَالِقُ كُلِّ شَيْءٍ وَهُوَ عَلٰى كُلِّ شَيْءٍ وَكِيلٌ",
+          "tr": "Allah her şeyin yaratıcısıdır. O, her şeye vekildir.",
+          "en": "Allah is the Creator of all things, and He is, over all things, Disposer of affairs"
         }
       ]
     },
