@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import Link from 'next/link';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
 import { COLORS, FONTS, RADIUS } from '../tokens';
@@ -505,6 +506,59 @@ export default function ZeroRedundancy() {
           — {t('zeroRedundancy.zemahseriAttribution')}
         </cite>
       </motion.blockquote>
+
+      {/* ── Cross-tool CTA strip — 3 refrain sûresi ──────────────────────── */}
+      <motion.div variants={fadeUpItem} className="mt-10">
+        <div className="text-center mb-5">
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { surahNum: 55, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: '"Fe-bi-eyyi âlâ\'i Rabbikumâ tukezzibân" — aynı ayet 31 kez. Her tekrar farklı bir nimet için.', descEn: '"Fa-bi-ayyi ālāʾi rabbikumā tukadhdhibān" — the same verse 31 times. Each repetition follows a different blessing.' },
+            { surahNum: 77, titleTr: 'Mürselât Sûresi (77)', titleEn: 'Sura al-Mursalāt (77)', descTr: '"Veylun yevmeizin lil-mukezzibîn" — 10 kez tekrar; her tekrar farklı bir uyarı bağlamında.', descEn: '"Waylun yawmaʾidhin lil-mukadhdhibīn" — 10 repetitions, each anchored to a different warning.' },
+            { surahNum: 54, titleTr: 'Kamer Sûresi (54)', titleEn: 'Sura al-Qamar (54)', descTr: '"Velekad yessernel-Kur\'âne lizzikri fe hel min muddekir" — 4 kez; her kıssayı kapatan didaktik mühür.', descEn: '"Wa-laqad yassarnā l-Qurʾāna li-dh-dhikri fa-hal min muddakir" — 4 repetitions, each closing a sealing didactic call.' },
+          ].map((tt, i) => (
+            <motion.div
+              key={tt.surahNum}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={`/${language}/oku/${tt.surahNum}`}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {language === 'tr' ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {language === 'tr' ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </SectionWrapper>
   );
 }
