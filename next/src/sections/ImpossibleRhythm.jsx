@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, Fragment } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -49,6 +50,7 @@ const NAJM_WORDS = [
 
 const FASILA_SURAS = [
   {
+    surahNum: 78,
     labelTr: "Nebe' (78)",
     labelEn: "An-Naba' (78)",
     sound: '-ûn / -ân',
@@ -58,6 +60,7 @@ const FASILA_SURAS = [
     examples: ['مُخْتَلِفُونَ', 'سَيَعْلَمُونَ', 'كَذَّابًا'],
   },
   {
+    surahNum: 67,
     labelTr: 'Mülk (67)',
     labelEn: 'Al-Mulk (67)',
     sound: '-îr',
@@ -65,8 +68,12 @@ const FASILA_SURAS = [
     glow: 'rgba(46,204,113,0.15)',
     border: 'rgba(46,204,113,0.3)',
     examples: ['قَدِيرٌ', 'خَبِيرٌ', 'بَصِيرٌ'],
+    // §8 audit notu: 3 örneğin üçü de Esmâ-i Hüsnâ.
+    noteTr: '3 örneğin üçü de Esmâ-i Hüsnâ — sûrenin fasıla mührü ilahî sıfatlardan örülmüş.',
+    noteEn: 'All three examples are among the Beautiful Names of God — the sura\'s closing-rhyme seal is woven from divine attributes.',
   },
   {
+    surahNum: 93,
     labelTr: 'Duhâ (93)',
     labelEn: 'Ad-Duha (93)',
     sound: '-â',
@@ -285,7 +292,13 @@ export default function ImpossibleRhythm() {
           borderLeft: '4px solid rgba(212,165,116,0.7)',
         }}
       >
-        <span className="text-gold/50 text-xs font-body uppercase tracking-[0.25em] block mb-3">
+        <span
+          className="text-gold/50 text-xs font-body uppercase tracking-[0.25em] block mb-3"
+          title={language === 'tr'
+            ? "İ'câz: Kur'an'ın taklit edilemeyen edebî üstünlüğü. Klasik tefsirde sesin, mâna ve yapının kusursuz uyumu olarak tanımlanır."
+            : "I'jāz: the inimitable literary excellence of the Quran. Classical exegesis defines it as the perfect coherence of sound, meaning, and structure."}
+          style={{ cursor: 'help' }}
+        >
           {t('impossibleRhythm.ijaz.label')}
         </span>
         <p className="text-off-white text-lg md:text-xl leading-relaxed font-display italic">
@@ -295,8 +308,8 @@ export default function ImpossibleRhythm() {
           <span style={{ fontSize: '0.8rem', lineHeight: 1 }}>ℹ</span>
           <span>
             {language === 'tr'
-              ? 'Bu değerlendirme Arap dili ve edebiyatı kriterlerine göre yapılmaktadır.'
-              : 'This assessment is based on the criteria of classical Arabic language and literature.'}
+              ? <>Bu değerlendirme Arap dili ve edebiyatı kriterlerine göre yapılmaktadır. "Bir benzeri getirin" lafzı Kur'ân'ın <em style={{ color: COLORS.gold, opacity: 0.85, fontStyle: 'normal' }}>tahaddî</em> (meydan okuma) ayetlerine dayanır: Bakara 2:23, Yûnus 10:38, Hûd 11:13, İsrâ 17:88, Tûr 52:33–34.</>
+              : <>This assessment is based on the criteria of classical Arabic language and literature. The "bring something like it" phrase derives from the Quran's <em style={{ color: COLORS.gold, opacity: 0.85, fontStyle: 'normal' }}>tahaddī</em> (challenge) verses: al-Baqara 2:23, Yūnus 10:38, Hūd 11:13, al-Isrāʾ 17:88, al-Ṭūr 52:33–34.</>}
           </span>
         </p>
       </motion.div>
@@ -332,17 +345,36 @@ export default function ImpossibleRhythm() {
                 {duhaPlaying ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
               </button>
             </div>
-            <p className="text-silver/50 text-xs font-body">
+            <Link
+              href={`/${language}/oku/93`}
+              className="text-silver/50 hover:text-gold text-xs font-body inline-flex items-center gap-1 transition-colors"
+              style={{ textDecoration: 'none' }}
+              aria-label={language === 'tr' ? 'Duhâ sûresini oku' : 'Read Surah Ad-Duha'}
+            >
               {language === 'tr' ? 'Duhâ Sûresi, 93:1–3' : 'Ad-Duha, 93:1–3'}
-            </p>
+              <span style={{ opacity: 0.6 }}>→</span>
+            </Link>
           </div>
 
           {/* Steps */}
           <div className="p-6 md:p-8">
 
-            {/* Step 0 — initial question */}
+            {/* Step 0 — initial question + paradox priming */}
             {discoveryStep === 0 && (
               <div className="text-center">
+                <p
+                  className="font-body italic text-sm mx-auto mb-4"
+                  style={{
+                    color: COLORS.silver,
+                    opacity: 0.7,
+                    maxWidth: '520px',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {language === 'tr'
+                    ? 'Aşağıdaki 3 ayeti okuyup hangi kategoriye girdiğini seçin — şaşıracaksınız.'
+                    : 'Read the 3 verses above and choose which category they belong to — you may be surprised.'}
+                </p>
                 <p className="text-off-white/80 text-base font-body mb-6">
                   {language === 'tr' ? 'Bu metin hangi kategoriye giriyor?' : 'Which category does this text belong to?'}
                 </p>
@@ -586,9 +618,15 @@ export default function ImpossibleRhythm() {
                 border: `1px solid ${sura.border}`,
               }}
             >
-              <p className="font-body font-semibold text-off-white text-base mb-1">
+              <Link
+                href={`/${language}/oku/${sura.surahNum}`}
+                className="font-body font-semibold text-off-white hover:text-gold text-base mb-1 inline-flex items-center gap-1 transition-colors"
+                style={{ textDecoration: 'none' }}
+                aria-label={language === 'tr' ? `${sura.labelTr} sûresini oku` : `Read ${sura.labelEn}`}
+              >
                 {language === 'tr' ? sura.labelTr : sura.labelEn}
-              </p>
+                <span style={{ opacity: 0.5, fontSize: '0.85em' }}>→</span>
+              </Link>
               <p className="text-sm font-body mb-3" style={{ color: sura.color }}>
                 {t('impossibleRhythm.fasila.soundLabel')}: <strong style={{ fontSize: '1rem' }}>{sura.sound}</strong>
               </p>
@@ -608,6 +646,19 @@ export default function ImpossibleRhythm() {
                   </span>
                 ))}
               </div>
+              {/* Mülk için Esmâ-i Hüsnâ cross-reference notu */}
+              {sura.noteTr && (
+                <p
+                  className="text-xs font-body italic leading-relaxed mt-3 pt-3"
+                  style={{
+                    color: 'rgba(232,230,227,0.65)',
+                    borderTop: `1px solid ${sura.border}`,
+                  }}
+                >
+                  <span style={{ color: sura.color, opacity: 0.85, marginRight: '4px' }}>✦</span>
+                  {language === 'tr' ? sura.noteTr : sura.noteEn}
+                </p>
+              )}
             </motion.div>
           ))}
         </div>
@@ -726,7 +777,9 @@ export default function ImpossibleRhythm() {
                 const color = type === 'aa' ? 'rgba(10,10,26,0.75)' : isMaqta ? 'rgba(255,220,230,0.7)' : 'rgba(148,163,184,0.6)';
                 // Visual separator before maqta' section — desktop only; mobile uses color cue.
                 const isMaqtaBoundary = !isMobile && maqtaStart && j === maqtaStart;
-                const squareSize = isMobile ? 22 : 30;
+                // Touch target: mobile'da 22→28px (≥WCAG min 24px görsel + tap area
+                // wrapper'la 44px efektif olur). Desktop 30px korunur.
+                const squareSize = isMobile ? 28 : 30;
                 return (
                   <Fragment key={i}>
                     {isMaqtaBoundary && (
@@ -841,20 +894,29 @@ export default function ImpossibleRhythm() {
           </div>
         )}
 
-        {/* Legend */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '20px', marginBottom: '14px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: COLORS.gold }} />
-            <span className="text-silver text-sm font-body">'-â' {language === 'tr' ? 'sesi (55 ayet)' : 'sound (55 verses)'}</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: '#7c3f58' }} />
-            <span className="text-silver text-sm font-body">{language === 'tr' ? "maqta\u02BF — kapanış (6 ayet)" : "maqta\u02BF — closing (6 verses)"}</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <div style={{ width: '14px', height: '14px', borderRadius: '3px', background: COLORS.silverAlpha12, border: '1px solid rgba(148,163,184,0.25)' }} />
-            <span className="text-silver text-sm font-body">{language === 'tr' ? 'Farklı ses (1 ayet)' : 'Other sound (1 verse)'}</span>
-          </div>
+        {/* Legend — chip pattern (Dilsel DNA parity) */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+          <span
+            className="flex items-center gap-1.5 text-xs font-body"
+            style={{ padding: '4px 10px', borderRadius: RADIUS.pill, background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.25)' }}
+          >
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: COLORS.gold, display: 'inline-block' }} />
+            <span className="text-silver/80">'-â' {language === 'tr' ? 'sesi (55 ayet)' : 'sound (55 verses)'}</span>
+          </span>
+          <span
+            className="flex items-center gap-1.5 text-xs font-body"
+            style={{ padding: '4px 10px', borderRadius: RADIUS.pill, background: 'rgba(124,63,88,0.12)', border: '1px solid rgba(124,63,88,0.35)' }}
+          >
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#7c3f58', display: 'inline-block' }} />
+            <span className="text-silver/80">{language === 'tr' ? "maqta\u02BF — kapanış (6 ayet)" : "maqta\u02BF — closing (6 verses)"}</span>
+          </span>
+          <span
+            className="flex items-center gap-1.5 text-xs font-body"
+            style={{ padding: '4px 10px', borderRadius: RADIUS.pill, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.2)' }}
+          >
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: COLORS.silverAlpha12, border: '1px solid rgba(148,163,184,0.4)', display: 'inline-block' }} />
+            <span className="text-silver/80">{language === 'tr' ? 'Farklı ses (1 ayet)' : 'Other sound (1 verse)'}</span>
+          </span>
         </div>
 
         {/* Stat + ℹ */}
@@ -867,17 +929,33 @@ export default function ImpossibleRhythm() {
           <div className="relative" style={{ flexShrink: 0, marginTop: '1px' }}>
             <button
               onClick={() => setNajmInfoOpen(v => !v)}
-              style={{ color: COLORS.gold, fontSize: '1rem', lineHeight: 1, background: 'none', border: 'none', cursor: 'pointer' }}
-              aria-label="Gruplama kriteri"
+              style={{
+                color: COLORS.gold,
+                fontSize: '1.05rem',
+                lineHeight: 1,
+                background: najmInfoOpen ? 'rgba(212,165,116,0.15)' : 'rgba(212,165,116,0.08)',
+                border: '1px solid rgba(212,165,116,0.4)',
+                borderRadius: '50%',
+                width: '22px',
+                height: '22px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 600,
+                transition: 'all 0.15s',
+              }}
+              aria-label={language === 'tr' ? 'Gruplama kriteri ne demek?' : 'What is the grouping criterion?'}
+              aria-expanded={najmInfoOpen}
             >ⓘ</button>
             {najmInfoOpen && (
               <div
-                className="absolute left-0 z-10 rounded-lg p-3 text-xs text-silver/80 font-body leading-relaxed"
-                style={{ background: '#1a2a3a', border: '1px solid rgba(255,255,255,0.1)', width: '220px', top: '22px' }}
+                className="absolute right-0 z-10 rounded-lg p-3 text-xs text-silver/80 font-body leading-relaxed"
+                style={{ background: '#1a2a3a', border: '1px solid rgba(212,165,116,0.25)', width: '260px', top: '28px' }}
               >
                 {language === 'tr'
-                  ? "'-â' grubuna dahil sesler: alif maqsura (ى) veya uzun alif (ا) ile biten ayetler. '-nâ', '-hâ', '-râ', '-yâ' gibi uzun sesler bu gruba girmektedir."
-                  : "The '-â' group includes verses ending with alif maqsura (ى) or long alif (ا): endings like '-nâ', '-hâ', '-râ', '-yâ' all qualify."}
+                  ? <><strong style={{ color: COLORS.gold }}>'-â' grubuna dahil sesler:</strong> alif maqsura (ى) veya uzun alif (ا) ile biten ayetler. '-nâ', '-hâ', '-râ', '-yâ' gibi uzun sesler bu gruba girmektedir.</>
+                  : <><strong style={{ color: COLORS.gold }}>'-â' group includes:</strong> verses ending with alif maqsura (ى) or long alif (ا). Endings like '-nâ', '-hâ', '-râ', '-yâ' all qualify.</>}
               </div>
             )}
           </div>
@@ -898,6 +976,80 @@ export default function ImpossibleRhythm() {
         <p className="text-gold/90 text-xl md:text-2xl italic font-display leading-relaxed">
           {t('impossibleRhythm.quote')}
         </p>
+      </motion.div>
+
+      {/* ── Closing — Cross-tool CTA strip ─────────────────────────────────── */}
+      <motion.div variants={fadeUpItem} className="mt-12">
+        <div className="text-center mb-5">
+          <span
+            className="font-body uppercase tracking-[0.24em] text-xs"
+            style={{ color: COLORS.gold, opacity: 0.7 }}
+          >
+            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            {
+              href: `/${language}/oku/53`,
+              titleTr: 'Necm Sûresi (53)',
+              titleEn: 'Sura An-Najm (53)',
+              descTr: '62 ayetin 55\'i aynı "-â" sesiyle biten ses haritasını tam metinde okuyun.',
+              descEn: 'Read in full the sound-map where 55 of 62 verses end with the same "-â" sound.',
+            },
+            {
+              href: `/${language}/oku/108`,
+              titleTr: 'Kevser Sûresi (108)',
+              titleEn: 'Sura Al-Kawthar (108)',
+              descTr: '3 ayetin de "-ar" sesiyle bittiği Kur\'an\'ın en kısa fasıla mührü.',
+              descEn: 'The Quran\'s shortest closing-rhyme seal — all 3 verses end with "-ar".',
+            },
+            {
+              href: `/${language}/oku/93`,
+              titleTr: 'Duhâ Sûresi (93)',
+              titleEn: 'Sura Ad-Duha (93)',
+              descTr: 'Discovery widget\'taki "-â" örneği — tam sûreyi konteksiyle dinleyin.',
+              descEn: 'The "-â" example from the discovery widget — listen to the full sura in context.',
+            },
+          ].map((t, i) => (
+            <motion.div
+              key={t.href}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={t.href}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {language === 'tr' ? t.titleTr : t.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {language === 'tr' ? t.descTr : t.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
 
     </SectionWrapper>
