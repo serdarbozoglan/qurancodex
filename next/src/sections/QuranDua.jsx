@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -1002,6 +1003,59 @@ export default function QuranDua() {
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>
+      </motion.div>
+
+      {/* ── Cross-tool CTA strip — 3 anchor sûre ─────────────────────────── */}
+      <motion.div variants={fadeUpItem} className="mt-6">
+        <div className="text-center mb-5">
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+            {tr ? 'Daha Derine — Duanın Mührü' : 'Go Deeper — The Seal of Prayer'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { surahNum: 1, titleTr: 'Fâtiha Sûresi (1)', titleEn: 'Sura al-Fātiḥa (1)', descTr: 'Kur\'an\'ın ilk duası — günde 17+ kez kulun Rabbiyle diyaloğu.', descEn: 'The Quran\'s first prayer — the servant\'s daily 17+ dialogue with the Lord.' },
+            { surahNum: 2, titleTr: 'Bakara 2:186', titleEn: 'al-Baqara 2:186', descTr: '"Kullarım Beni sorarsa — Ben yakınım, dua edenin duasına icabet ederim."', descEn: '"When My servants ask about Me — I am near; I respond to the call of the caller."' },
+            { surahNum: 40, titleTr: 'Mü\'min 40:60', titleEn: 'al-Muʾmin 40:60', descTr: '"Bana dua edin, size icabet edeyim" — Rabbinin doğrudan emri.', descEn: '"Call upon Me; I will respond to you" — your Lord\'s direct command.' },
+          ].map((tt, i) => (
+            <motion.div
+              key={tt.surahNum}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={`/${language}/oku/${tt.surahNum}`}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {tr ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {tr ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </SectionWrapper>
   );
