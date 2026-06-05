@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -1033,6 +1034,80 @@ export default function HiddenArchitecture() {
             })()}
           </AnimatePresence>
 
+        </div>
+      </motion.div>
+
+      {/* ── Cross-tool CTA strip ─────────────────────────────────────────── */}
+      <motion.div variants={fadeUpItem} className="mt-12">
+        <div className="text-center mb-5">
+          <span
+            className="font-body uppercase tracking-[0.24em] text-xs"
+            style={{ color: COLORS.gold, opacity: 0.7 }}
+          >
+            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            {
+              href: `/${language}/oku/1`,
+              titleTr: 'Fâtiha Sûresi (1)',
+              titleEn: 'Sura Al-Fātiḥa (1)',
+              descTr: '7 ayetin halka kompozisyonunu tam metinde inceleyin.',
+              descEn: 'Examine the 7-verse ring composition in the full sura.',
+            },
+            {
+              href: `/${language}/oku/2`,
+              titleTr: 'Bakara 2:255 (Âyet\'el-Kürsî)',
+              titleEn: 'al-Baqara 2:255 (Āyat al-Kursī)',
+              descTr: 'Tek bir ayet içinde halka simetrisi — Bakara sûresinin kalbi.',
+              descEn: 'Ring symmetry within a single verse — the heart of Sura al-Baqara.',
+            },
+            {
+              href: `/${language}/oku/24`,
+              titleTr: 'Nûr Sûresi (24)',
+              titleEn: 'Sura An-Nūr (24)',
+              descTr: 'Mişkat ayetinin (24:35) yedi katmanlı sembolizmini bağlamında okuyun.',
+              descEn: 'Read the seven-layered symbolism of the Mishkat verse (24:35) in context.',
+            },
+          ].map((tt, i) => (
+            <motion.div
+              key={tt.href}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={tt.href}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {language === 'tr' ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {language === 'tr' ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
 
