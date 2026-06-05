@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -513,10 +514,65 @@ export default function ScientificSigns() {
         })}
       </AnimatePresence>
 
-      {/* CTA — Doga Atlas link (bilimsel işaretler ↔ tüm doğa olguları) */}
-      <motion.div variants={fadeUpItem} className="mt-10">
-        <button
-          onClick={() => window.dispatchEvent(new CustomEvent('openDogaAtlasi'))}
+      {/* ── Cross-tool CTA strip — 4 anchor sûre ──────────────────────── */}
+      <motion.div variants={fadeUpItem} className="mt-12">
+        <div className="text-center mb-5">
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {[
+            { surahNum: 57, titleTr: 'Hadîd (57)', titleEn: 'al-Ḥadīd (57)', descTr: 'Demir ayetinin (57:25) tam bağlamı.', descEn: 'Full context of the Iron verse (57:25).' },
+            { surahNum: 51, titleTr: 'Zâriyât (51)', titleEn: 'aẓ-Ẓāriyāt (51)', descTr: 'Evren genişlemesi (51:47) sûre içinde.', descEn: 'Cosmic expansion (51:47) within the sura.' },
+            { surahNum: 55, titleTr: 'Rahmân (55)', titleEn: 'ar-Raḥmān (55)', descTr: 'Denizler ayeti (55:19-20) ve nimet ritmi.', descEn: 'Two-seas verse (55:19-20) and the rhythm of blessings.' },
+            { surahNum: 23, titleTr: 'Mü\'minûn (23)', titleEn: 'al-Muʾminūn (23)', descTr: 'Embriyoloji ayeti (23:12-14) tam bağlamı.', descEn: 'Embryology verse (23:12-14) in full context.' },
+          ].map((tt, i) => (
+            <motion.div
+              key={tt.surahNum}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+            >
+              <Link
+                href={`/${language}/oku/${tt.surahNum}`}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {language === 'tr' ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {language === 'tr' ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* CTA — Doga Atlas link (bilimsel işaretler ↔ tüm doğa olguları).
+          CustomEvent dispatch → Next Link migration. */}
+      <motion.div variants={fadeUpItem} className="mt-6">
+        <Link
+          href={`/${language}/atlas/doga`}
           style={{
             width: '100%',
             padding: '14px 24px',
@@ -528,6 +584,7 @@ export default function ScientificSigns() {
             alignItems: 'center',
             justifyContent: 'space-between',
             transition: 'all 0.2s',
+            textDecoration: 'none',
           }}
           onMouseEnter={e => {
             e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
@@ -551,7 +608,7 @@ export default function ScientificSigns() {
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
-        </button>
+        </Link>
       </motion.div>
     </SectionWrapper>
   );
