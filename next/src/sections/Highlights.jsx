@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -414,6 +415,59 @@ export default function Highlights() {
               </motion.div>
             );
           })}
+      </motion.div>
+
+      {/* ── Cross-tool CTA strip — 3 sûre kart ─────────────────────────── */}
+      <motion.div variants={fadeUpItem} className="mt-12">
+        <div className="text-center mb-5">
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+            {language === 'tr' ? 'Daha Derine — Wow Anlarının Bağlamı' : 'Go Deeper — Context for the Wow Moments'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { surahNum: 18, titleTr: 'Kehf Sûresi (18)', titleEn: 'Sura al-Kahf (18)', descTr: '300 + 9 yıl çevirisi (18:25) — Ashâb-ı Kehf kıssası tam metinde.', descEn: '300 + 9 year conversion (18:25) — the full story of the People of the Cave.' },
+            { surahNum: 75, titleTr: 'Kıyâmet Sûresi (75)', titleEn: 'Sura al-Qiyāma (75)', descTr: 'Parmak izi ayeti (75:3-4) — diriliş ve insanın tanımsız kimliği.', descEn: 'The fingerprint verse (75:3-4) — resurrection and humanity\'s unique identity.' },
+            { surahNum: 96, titleTr: 'Alak Sûresi (96)', titleEn: 'Sura al-ʿAlaq (96)', descTr: 'İlk inen ayetler (96:1-5) + prefrontal korteks (96:15-16) "nâsiyatun kâzibah".', descEn: 'First-revealed verses (96:1-5) + prefrontal cortex (96:15-16) "nāṣiya kādhiba".' },
+          ].map((tt, i) => (
+            <motion.div
+              key={tt.surahNum}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={`/${language}/oku/${tt.surahNum}`}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {language === 'tr' ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {language === 'tr' ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </SectionWrapper>
   );
