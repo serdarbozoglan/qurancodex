@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -299,6 +300,59 @@ export default function LivingPreservation() {
         }}>
           {t('livingPreservation.experiment')}
         </p>
+      </motion.div>
+
+      {/* ── Cross-tool CTA strip — Hicr 15:9 + Fâtiha + Bakara ──────────── */}
+      <motion.div variants={fadeUpItem} className="mt-10">
+        <div className="text-center mb-5">
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { surahNum: 15, titleTr: 'Hicr Sûresi (15)', titleEn: 'Sura al-Ḥijr (15)', descTr: 'Korumayı garanti eden ilahî beyan: "Zikri Biz indirdik, koruyucu da Biziz" (15:9).', descEn: 'The divine guarantee of preservation: "We sent down the Reminder, and We shall preserve it" (15:9).' },
+            { surahNum: 1, titleTr: 'Fâtiha Sûresi (1)', titleEn: 'Sura al-Fātiḥa (1)', descTr: 'Her Müslümanın günde en az 17 kez okuduğu sûre — sözel naklin örnek omurgası.', descEn: 'Recited by every Muslim at least 17 times daily — the exemplary backbone of oral transmission.' },
+            { surahNum: 2, titleTr: 'Bakara Sûresi (2)', titleEn: 'Sura al-Baqara (2)', descTr: 'Kur\'an\'ın en uzun sûresinin (286 ayet) her detayı 1.400 yıldır kelimesi kelimesine korunuyor.', descEn: 'The Quran\'s longest sura (286 verses) preserved word-by-word for 1,400 years.' },
+          ].map((tt, i) => (
+            <motion.div
+              key={tt.surahNum}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={`/${language}/oku/${tt.surahNum}`}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {language === 'tr' ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {language === 'tr' ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
 
     </SectionWrapper>
