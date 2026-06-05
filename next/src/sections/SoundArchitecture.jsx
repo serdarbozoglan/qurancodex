@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -1295,6 +1296,31 @@ export default function SoundArchitecture() {
               );
             })()}
           </div>
+
+          {/* Read full sura link — under description, subtle */}
+          {(() => {
+            const surahNum = parseAudioKey(activeSura.audioKey).surah;
+            const sName = language === 'tr' ? activeSura.labelTr : activeSura.labelEn;
+            return (
+              <div style={{ marginTop: '12px', textAlign: 'right' }}>
+                <Link
+                  href={`/${language}/oku/${surahNum}`}
+                  style={{
+                    fontSize: '0.72rem',
+                    color: activeSura.color,
+                    opacity: 0.75,
+                    textDecoration: 'none',
+                    fontFamily: 'Inter, sans-serif',
+                    letterSpacing: '0.04em',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = 0.75; }}
+                >
+                  {language === 'tr' ? `${sName} sûresinin tamamını oku` : `Read the full ${sName} sura`} →
+                </Link>
+              </div>
+            );
+          })()}
         </motion.div>
       )}
 
@@ -1329,6 +1355,80 @@ export default function SoundArchitecture() {
         <p className="text-2xl md:text-4xl font-display font-bold leading-snug" style={{ color: COLORS.gold }}>
           {t('soundArchitecture.closing')}
         </p>
+      </motion.div>
+
+      {/* ── Cross-tool CTA strip ─────────────────────────────────────────── */}
+      <motion.div variants={fadeUpItem} className="mt-12">
+        <div className="text-center mb-5">
+          <span
+            className="font-body uppercase tracking-[0.24em] text-xs"
+            style={{ color: COLORS.gold, opacity: 0.7 }}
+          >
+            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            {
+              href: `/${language}/oku/55`,
+              titleTr: 'Rahmân Sûresi (55)',
+              titleEn: 'Sura Ar-Raḥmān (55)',
+              descTr: 'ر، ح، م، ن seslerinin nimet ritmini tüm sûrede izleyin.',
+              descEn: 'Follow the merciful rhythm of ر، ح، م، ن sounds through the entire sura.',
+            },
+            {
+              href: `/${language}/oku/101`,
+              titleTr: 'Kâria Sûresi (101)',
+              titleEn: "Sura Al-Qāriʿa (101)",
+              descTr: 'Kıyametin patlayıcı ق ve tınlayan ر sesini tam metinde dinleyin.',
+              descEn: 'Hear the apocalyptic explosive ق and rolling ر in full context.',
+            },
+            {
+              href: `/${language}/oku/19`,
+              titleTr: 'Meryem Sûresi (19)',
+              titleEn: 'Sura Maryam (19)',
+              descTr: 'Nazal ح، ن، م rahmet seslerinin uzun anlatımdaki örgüsü.',
+              descEn: 'The weave of nasal ح، ن، م mercy-sounds across the long narrative.',
+            },
+          ].map((tt, i) => (
+            <motion.div
+              key={tt.href}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={tt.href}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {language === 'tr' ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {language === 'tr' ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </SectionWrapper>
   );
