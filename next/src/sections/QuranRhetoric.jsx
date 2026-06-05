@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -773,6 +774,59 @@ export default function QuranRhetoric() {
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>
+      </motion.div>
+
+      {/* ── Cross-tool CTA strip — retoriği yoğun 3 sûre ──────────────── */}
+      <motion.div variants={fadeUpItem} className="mt-6">
+        <div className="text-center mb-5">
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+            {tr ? 'Daha Derine — Retoriği Yoğun Sûreler' : 'Go Deeper — Suras Rich in Rhetoric'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { surahNum: 55, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: '31 kez tekrarlanan retorik soru: "Hangi nimetinizi yalanlarsınız?"', descEn: 'The 31-time rhetorical refrain: "Which of your Lord\'s blessings will you deny?"' },
+            { surahNum: 56, titleTr: 'Vâkıa Sûresi (56)', titleEn: 'Sura al-Wāqiʿa (56)', descTr: 'Üç insan tipi + "Hiç düşündünüz mü?" zinciri (yarattığınızı, ektiğinizi, suyu, ateşi).', descEn: 'Three human types + "Have you considered?" chain (what you create, sow, the water, the fire).' },
+            { surahNum: 36, titleTr: 'Yâsîn Sûresi (36)', titleEn: 'Sura Yā-Sīn (36)', descTr: 'Diriliş kanıtları için zincirleme retorik sorular (36:77-83).', descEn: 'A chain of rhetorical proofs for resurrection (36:77-83).' },
+          ].map((tt, i) => (
+            <motion.div
+              key={tt.surahNum}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={`/${language}/oku/${tt.surahNum}`}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {tr ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {tr ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
 
     </SectionWrapper>
