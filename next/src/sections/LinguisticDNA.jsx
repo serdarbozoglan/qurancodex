@@ -606,8 +606,8 @@ export default function LinguisticDNA() {
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-14">
           {[
-            { ar: 'المص', num: 7,  name: "A'râf",  nameEn: "Al-A'raf",  desc: language === 'tr' ? 'Elif-Lâm-Mîm + Sâd — ALM ailesini genişleten hibrit köprü' : 'ALM + Ṣād — a hybrid bridge extending the ALM family' },
-            { ar: 'المر', num: 13, name: "Ra'd",   nameEn: "Ar-Ra'd",   desc: language === 'tr' ? 'Elif-Lâm-Mîm + Râ — ALM ve ALR ailelerini birleştiren köprü' : 'ALM + Rā — a bridge connecting ALM and ALR families' },
+            { ar: 'المص', num: 7,  name: "A'râf",  nameEn: "Al-A'raf",  desc: language === 'tr' ? 'Elif-Lâm-Mîm + Sâd — Elif-Lâm-Mîm ailesini genişleten hibrit köprü' : 'Alif-Lām-Mīm + Ṣād — a hybrid bridge extending the Alif-Lām-Mīm family' },
+            { ar: 'المر', num: 13, name: "Ra'd",   nameEn: "Ar-Ra'd",   desc: language === 'tr' ? 'Elif-Lâm-Mîm + Râ — Elif-Lâm-Mîm ve Elif-Lâm-Râ ailelerini birleştiren köprü' : 'Alif-Lām-Mīm + Rā — a bridge connecting the Alif-Lām-Mīm and Alif-Lām-Rā families' },
             { ar: 'كهيعص', num: 19, name: 'Meryem', nameEn: 'Maryam',   desc: language === 'tr' ? '5 harfli en kompleks açılış; mucizevi doğum kıssalarının habercisi' : '5-letter, most complex opening; heralds the miraculous birth narratives' },
             { ar: 'طه',   num: 20, name: "Tâ-Hâ",  nameEn: "Ta-Ha",    desc: language === 'tr' ? 'doğrudan hitap — huruf-i mukattaanın seslenme olarak kullanıldığı nadir örneklerden' : 'direct address — a rare use of opening letters as a call' },
             { ar: 'يس',   num: 36, name: "Yâ-Sîn", nameEn: "Ya-Sin",   desc: language === 'tr' ? '"Hikmetli Kur\'an\'a andolsun" — hemen ardından Kur\'an yemini' : '"By the wise Quran" — immediately followed by an oath on the Quran' },
@@ -793,8 +793,8 @@ export default function LinguisticDNA() {
           }}
         >
           {language === 'tr'
-            ? <>29 sûre · 14 harf · 1.400 yıldır <em style={{ fontStyle: 'normal', color: COLORS.gold }}>okumadan vazgeçilmeyen</em> bir sır. Anlamı bulamasak da, örüntü ortada.</>
-            : <>29 suras · 14 letters · A mystery <em style={{ fontStyle: 'normal', color: COLORS.gold }}>never abandoned</em> for 1,400 years. We may not grasp the meaning, but the pattern is undeniable.</>}
+            ? <>29 sûre · 14 harf · 1.400 yıldır <em style={{ fontStyle: 'normal', color: COLORS.gold }}>okumadan vazgeçilmeyen</em> bir sır. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Yorumlar çok, örüntü tek.</em></>
+            : <>29 suras · 14 letters · A mystery <em style={{ fontStyle: 'normal', color: COLORS.gold }}>never abandoned</em> for 1,400 years. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Many interpretations, one pattern.</em></>}
         </p>
 
         <div className="text-center mb-5">

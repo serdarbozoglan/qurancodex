@@ -35,7 +35,10 @@ export default function StatCard({
         </div>
       )}
       {description && (
-        <p className="text-off-white/70 text-sm leading-relaxed font-body">
+        <p
+          className="text-off-white/70 text-sm leading-relaxed font-body"
+          style={{ whiteSpace: 'pre-line' }}
+        >
           {description}
         </p>
       )}

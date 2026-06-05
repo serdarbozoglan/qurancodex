@@ -22,7 +22,7 @@
     "stats": {
       "letters": {
         "label": "Unique Letters",
-        "description": "Half of the Arabic alphabet (14 out of 28)"
+        "description": "Half of the Arabic alphabet\n(14 out of 28)"
       },
       "suras": {
         "label": "Chapters",
