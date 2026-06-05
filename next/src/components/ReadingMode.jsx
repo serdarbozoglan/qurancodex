@@ -1085,9 +1085,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     try { return localStorage.getItem('qurancodex_interlinear_lang') || 'en'; }
     catch { return 'en'; }
   });
+  // bookPage — localStorage'daki son pozisyon, ANCAK initialSurah açıkça
+  // verilmişse (URL'den /oku/11 gibi) ve farklı bir sureye işaret ediyorsa
+  // null'la başlat → yeni surenin ilk sayfasından başlasın. Aksi takdirde
+  // book modunda eski sayfa render edilir ve URL'deki sure görünmez.
   const [bookPage, setBookPage] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('qurancodex_last_position') || 'null')?.page ?? null; }
-    catch { return null; }
+    try {
+      const saved = JSON.parse(localStorage.getItem('qurancodex_last_position') || 'null');
+      if (initialSurah && saved?.surah && saved.surah !== initialSurah) {
+        return null;
+      }
+      return saved?.page ?? null;
+    } catch { return null; }
   });
   const [showHatimDua, setShowHatimDua] = useState(false);
   const [pickerSelectedSurah, setPickerSelectedSurah] = useState(null); // surah selected in picker, awaiting verse input

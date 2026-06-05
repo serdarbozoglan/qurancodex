@@ -621,9 +621,23 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', h);
   }, [prophetOpen]);
 
+  // scrollTo — Keşfet menüsündeki section anchor handler.
+  // (a) Ana sayfadaysa: direkt scroll + URL hash'i güncelle. Hash'i koymak
+  //     visitor başka route'a (örn. /oku/11) gidip back yaptığında browser'ın
+  //     /tr#linguistic'e dönmesini sağlar — auto scroll-to-anchor restore.
+  // (b) Farklı route'tan (örn. /arac/esma-frekans) tıklandığında: ana sayfaya
+  //     navigate edip hash anchor'a kaydır.
   const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const homePath = `/${language}`;
+    const onHome = pathname === homePath || pathname === `${homePath}/`;
+    if (onHome) {
+      try { window.history.replaceState(null, '', `#${id}`); } catch { /* noop */ }
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      router.push(`${homePath}#${id}`);
+    }
     setMobileOpen(false);
+    setExploreOpen(false);
   };
 
   // ── v1.1 redesign — tools data is now imported from src/data/tools.jsx

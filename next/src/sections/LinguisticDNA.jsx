@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -8,11 +9,16 @@ import StatCard from '../components/StatCard';
 import AnimatedCounter from '../components/AnimatedCounter';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
+// Intro highlight'ları — 3 mukatta harf grubu burada ÖRNEK olarak veriliyor,
+// taxonomic kategori olarak değil. Renk semantiği (teal = karma, gold = Mekkî)
+// daha sonra group cards + color legend'da uygulanıyor; visitor henüz legend'ı
+// görmedi, dolayısıyla intro'da gold uniform — "bunlar mukatta örnekleri" diye
+// okunur, "bunlar farklı kategorilerdir" yanılgısı oluşmaz.
 const GROUP_HIGHLIGHTS = [
-  { term: 'Elif-Lâm-Mîm', color: COLORS.tealDark },
+  { term: 'Elif-Lâm-Mîm', color: COLORS.gold },
   { term: 'Hâ-Mîm',       color: COLORS.gold },
   { term: 'Yâ-Sîn',       color: COLORS.gold },
-  { term: 'Alif-Lam-Mim', color: COLORS.tealDark },
+  { term: 'Alif-Lam-Mim', color: COLORS.gold },
   { term: 'Ha-Mim',       color: COLORS.gold },
   { term: 'Ya-Sin',       color: COLORS.gold },
 ];
@@ -389,7 +395,19 @@ export default function LinguisticDNA() {
               key={i}
               variants={fadeUpItem}
               onClick={() => setOpenGroup(isOpen ? null : i)}
-              className="relative overflow-hidden rounded-2xl cursor-pointer"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setOpenGroup(isOpen ? null : i);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-expanded={isOpen}
+              aria-label={language === 'tr'
+                ? `${group.latin} grubu — ${isOpen ? 'detayı kapat' : 'detayı aç'}`
+                : `${group.latinEn || group.latin} group — ${isOpen ? 'collapse details' : 'expand details'}`}
+              className="relative overflow-hidden rounded-2xl cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-cosmic-black"
               style={{
                 background: isOpen
                   ? `linear-gradient(135deg, ${group.glowColor}, rgba(255,255,255,0.02))`
@@ -398,6 +416,7 @@ export default function LinguisticDNA() {
                 boxShadow: isOpen ? `0 0 32px ${group.glowColor}` : 'none',
                 transition: 'all 0.35s ease',
                 alignSelf: 'start',
+                outlineColor: group.color,
               }}
             >
               {/* Arabic watermark */}
@@ -473,20 +492,26 @@ export default function LinguisticDNA() {
                   {language === 'tr' ? group.pattern : group.patternEn}
                 </p>
 
-                {/* Sura tags — all visible when open, max 4 + overflow when closed */}
+                {/* Sura tags — clickable Link → /oku/{num}. Each chip opens
+                    the Reading Mode for that sura. stopPropagation gerekli;
+                    yoksa card expand handler de tetiklenir. */}
                 <div className="flex flex-wrap gap-1.5 mb-2">
                   {(isOpen ? group.suras : group.suras.slice(0, 4)).map((s, j) => (
-                    <span
+                    <Link
                       key={j}
-                      className="text-xs font-body px-2 py-0.5 rounded-full"
+                      href={`/${language}/oku/${s.num}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-xs font-body px-2 py-0.5 rounded-full hover:brightness-125 transition-all"
                       style={{
                         background: group.glowColor,
                         color: group.color,
                         border: `1px solid ${group.borderColor}`,
+                        textDecoration: 'none',
                       }}
+                      aria-label={language === 'tr' ? `${s.num}. ${s.name} sûresini oku` : `Read sura ${s.num}. ${s.name}`}
                     >
                       {s.num}. {s.name}
-                    </span>
+                    </Link>
                   ))}
                   {!isOpen && group.suras.length > 4 && (
                     <span
@@ -548,17 +573,20 @@ export default function LinguisticDNA() {
                   </motion.div>
                 )}
 
-                {/* Expand hint — proper touch target */}
+                {/* Expand hint — proper touch target. Görsel sadece; tıklama
+                    işi parent div'in onClick'ine bırakılmış (focus ring de
+                    parent'ta). aria-hidden çünkü grup card zaten aria-expanded
+                    + role=button taşıyor. */}
                 <div className="flex justify-end mt-auto pt-2">
-                  <button
+                  <span
+                    aria-hidden="true"
                     className="font-body text-xs min-h-[44px] min-w-[44px] flex items-center justify-end px-1"
-                    style={{ color: `${group.color}80`, background: 'transparent', border: 'none', cursor: 'pointer' }}
-                    aria-label={isOpen ? 'Kapat' : 'Detayı göster'}
+                    style={{ color: `${group.color}80` }}
                   >
                     {isOpen
                       ? (language === 'tr' ? '▲ kapat' : '▲ close')
                       : (language === 'tr' ? '▼ detay' : '▼ detail')}
-                  </button>
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -573,8 +601,8 @@ export default function LinguisticDNA() {
         </h3>
         <p className="text-silver/65 text-base font-body mb-6">
           {language === 'tr'
-            ? <>Standart grupların dışında kalan özel yapılar — hibrit kodlar, tek harfli açılışlar ve benzersiz istisnalar. Çoğunluğunda <span className="text-gold font-semibold">vahyin formülüne (Kitap, Kur'ân, Zikir)</span> atıf gelir; Kalem (68) bu kalıbın dışında kalan dikkat çekici istisnadır.</>
-            : <>Unique structures outside the standard groups — hybrid codes, single-letter openings, and singular exceptions. Most reference <span className="text-gold font-semibold">the formula of revelation (Book, Qur'ān, Remembrance)</span>; Al-Qalam (68) is the notable exception that breaks this pattern.</>}
+            ? <>Standart grupların dışında kalan özel yapılar — hibrit kodlar, tek harfli açılışlar ve benzersiz istisnalar. Çoğunluğunda <span className="text-gold font-semibold">vahyin formülüne (Kitap, Kur'ân, <span title="Zikir — Kur'an'ın kendine verdiği isimlerden biri: hatırlatma/öğüt. Hicr 15:9 'إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ' (Şüphesiz Zikr'i biz indirdik)." style={{ borderBottom: '1px dotted rgba(212,165,116,0.5)', cursor: 'help' }}>Zikir</span>)</span> atıf gelir; Kalem (68) bu kalıbın dışında kalan dikkat çekici istisnadır.</>
+            : <>Unique structures outside the standard groups — hybrid codes, single-letter openings, and singular exceptions. Most reference <span className="text-gold font-semibold">the formula of revelation (Book, Qur'ān, <span title="Dhikr — one of the names the Quran gives itself: remembrance/reminder. Al-Hijr 15:9: 'إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ' (Indeed, it is We who sent down the Dhikr)." style={{ borderBottom: '1px dotted rgba(212,165,116,0.5)', cursor: 'help' }}>Remembrance</span>)</span>; Al-Qalam (68) is the notable exception that breaks this pattern.</>}
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-14">
           {[
@@ -594,17 +622,22 @@ export default function LinguisticDNA() {
                 key={i}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(212,165,116,0.12)', borderColor: 'rgba(212,165,116,0.35)' }}
+                whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(212,165,116,0.18)', borderColor: 'rgba(212,165,116,0.5)' }}
                 transition={{ delay: i * 0.06, duration: 0.4 }}
                 viewport={{ once: true }}
-                className="relative overflow-hidden rounded-xl flex flex-col items-center justify-between pt-5 pb-4 px-3 text-center cursor-default"
-                style={{
-                  background: 'rgba(148,163,184,0.04)',
-                  border: '1px solid rgba(148,163,184,0.15)',
-                  minHeight: '140px',
-                  transition: 'border-color 0.2s, box-shadow 0.2s',
-                }}
               >
+                <Link
+                  href={`/${language}/oku/${s.num}`}
+                  className="relative overflow-hidden rounded-xl flex flex-col items-center justify-between pt-5 pb-4 px-3 text-center cursor-pointer h-full"
+                  style={{
+                    background: 'rgba(148,163,184,0.04)',
+                    border: '1px solid rgba(148,163,184,0.15)',
+                    minHeight: '140px',
+                    transition: 'border-color 0.2s, box-shadow 0.2s',
+                    textDecoration: 'none',
+                  }}
+                  aria-label={language === 'tr' ? `${s.num}. ${s.name} sûresini oku` : `Read sura ${s.num}. ${s.nameEn}`}
+                >
                 {/* Arabic letter — size varies by letter count */}
                 <span
                   style={{
@@ -632,6 +665,7 @@ export default function LinguisticDNA() {
                 </span>
                 {/* Desc — muted white, not gold */}
                 <span className="text-sm font-body leading-tight" style={{ color: 'rgba(232,230,227,0.55)' }}>{s.desc}</span>
+                </Link>
               </motion.div>
             );
           })}
@@ -745,7 +779,101 @@ export default function LinguisticDNA() {
         ))}
       </div>
 
+      {/* ── Closing reflection + Cross-tool CTA strip ─────────────────────── */}
+      <motion.div variants={fadeUpItem} className="mb-8">
+        <p
+          className="font-display italic text-center mx-auto"
+          style={{
+            color: COLORS.silver,
+            fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
+            lineHeight: 1.7,
+            maxWidth: '700px',
+            marginBottom: '40px',
+            opacity: 0.9,
+          }}
+        >
+          {language === 'tr'
+            ? <>29 sûre · 14 harf · 1.400 yıldır <em style={{ fontStyle: 'normal', color: COLORS.gold }}>okumadan vazgeçilmeyen</em> bir sır. Anlamı bulamasak da, örüntü ortada.</>
+            : <>29 suras · 14 letters · A mystery <em style={{ fontStyle: 'normal', color: COLORS.gold }}>never abandoned</em> for 1,400 years. We may not grasp the meaning, but the pattern is undeniable.</>}
+        </p>
 
+        <div className="text-center mb-5">
+          <span
+            className="font-body uppercase tracking-[0.24em] text-xs"
+            style={{ color: COLORS.gold, opacity: 0.7 }}
+          >
+            {language === 'tr' ? 'Daha Derine — İlgili Araçlar' : 'Go Deeper — Related Tools'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            {
+              href: `/${language}/graf/kelime-isi`,
+              titleTr: 'Kelime Isı Haritası',
+              titleEn: 'Word Heatmap',
+              descTr: 'Mukatta harflerinin Kur\'an genelindeki dağılımını görselleştirin.',
+              descEn: 'Visualize the distribution of muqaṭṭaʿāt letters across the Quran.',
+            },
+            {
+              href: `/${language}/oku/68`,
+              titleTr: 'Kalem Sûresi (68)',
+              titleEn: 'Sura Al-Qalam (68)',
+              descTr: '"Nun" ile açılan istisna sûreyi yeminler bağlamında okuyun.',
+              descEn: 'Read the exceptional "Nūn"-opening sura in its oath context.',
+            },
+            {
+              href: `/${language}/oku/19`,
+              titleTr: 'Meryem Sûresi (19)',
+              titleEn: 'Sura Maryam (19)',
+              descTr: 'En karmaşık 5-harf açılış (Kâf-Hâ-Yâ-Ayn-Sâd) — mucizevi doğum kıssalarına önsöz.',
+              descEn: 'The most complex 5-letter opening (Kāf-Hā-Yā-ʿAyn-Ṣād) — prelude to miraculous birth narratives.',
+            },
+          ].map((t, i) => (
+            <motion.div
+              key={t.href}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={t.href}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4
+                    className="font-body font-bold text-base"
+                    style={{ color: COLORS.gold, margin: 0 }}
+                  >
+                    {language === 'tr' ? t.titleTr : t.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p
+                  className="font-body text-sm leading-relaxed"
+                  style={{ color: COLORS.silver, margin: 0 }}
+                >
+                  {language === 'tr' ? t.descTr : t.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
     </SectionWrapper>
   );
