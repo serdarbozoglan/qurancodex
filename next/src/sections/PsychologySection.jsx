@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -639,6 +640,59 @@ export default function PsychologySection() {
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>
+      </motion.div>
+
+      {/* ── Cross-tool CTA strip — 3 anchor psikolojik sûre ───────────── */}
+      <motion.div variants={fadeUpItem} className="mt-6">
+        <div className="text-center mb-5">
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+            {language === 'tr' ? 'Daha Derine — Psikolojik Derinliği Yüksek Sûreler' : 'Go Deeper — Suras of Psychological Depth'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { surahNum: 12, titleTr: 'Yûsuf Sûresi (12)', titleEn: 'Sura Yūsuf (12)', descTr: 'Travma, hased, sabır, iyileşme — peygamber kıssalarının psikolojik atlası.', descEn: 'Trauma, envy, patience, healing — the psychological atlas of prophetic narratives.' },
+            { surahNum: 12, titleTr: 'Yûsuf 12:53', titleEn: 'Yūsuf 12:53', descTr: '"إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ" — nefs-i emmâre öğretisi.', descEn: '"Indeed, the soul is ever inclined to evil" — the doctrine of the commanding soul.' },
+            { surahNum: 75, titleTr: 'Kıyâmet 75:2', titleEn: 'al-Qiyāma 75:2', descTr: '"وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ" — nefs-i levvâme: kendini kınayan vicdan.', descEn: '"I swear by the self-reproaching soul" — al-nafs al-lawwāma: the reproaching conscience.' },
+          ].map((tt, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={`/${language}/oku/${tt.surahNum}`}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {language === 'tr' ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {language === 'tr' ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
 
     </SectionWrapper>
