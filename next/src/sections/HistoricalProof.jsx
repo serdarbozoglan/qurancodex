@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
@@ -242,10 +243,64 @@ export default function HistoricalProof() {
         </div>
       </div>
 
-      {/* CTA — Kavimler Atlas link (tarihsel doğrulama ↔ tüm Kur'ânî kavimler) */}
-      <motion.div variants={fadeUpItem} className="mt-10">
-        <button
-          onClick={() => window.dispatchEvent(new CustomEvent('openKavimlerAtlasi'))}
+      {/* ── Cross-tool CTA strip — 3 anchor sûre ──────────────────────── */}
+      <motion.div variants={fadeUpItem} className="mt-12">
+        <div className="text-center mb-5">
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { surahNum: 10, titleTr: 'Yûnus Sûresi (10)', titleEn: 'Sura Yūnus (10)', descTr: 'Firavun bedeni ayetinin (10:92) tam anlatımı içinde.', descEn: 'The Pharaoh\'s body verse (10:92) within its full narrative.' },
+            { surahNum: 28, titleTr: 'Kasas Sûresi (28)', titleEn: 'Sura al-Qaṣaṣ (28)', descTr: 'Hâmân\'ın geçtiği ayetin (28:38) bağlamı: Hz. Mûsâ kıssasının tam biyografisi.', descEn: 'Context of the Hāmān verse (28:38): the full biography of Moses (AS).' },
+            { surahNum: 30, titleTr: 'Rûm Sûresi (30)', titleEn: 'Sura ar-Rūm (30)', descTr: 'Bizans-Pers kehaneti (30:2-4) ile açılan sûreyi tam okuyun.', descEn: 'Read in full the sura opening with the Byzantine-Persian prophecy (30:2-4).' },
+          ].map((tt, i) => (
+            <motion.div
+              key={tt.surahNum}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={`/${language}/oku/${tt.surahNum}`}
+                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
+                style={{
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
+                    {language === 'tr' ? tt.titleTr : tt.titleEn}
+                  </h4>
+                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                </div>
+                <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
+                  {language === 'tr' ? tt.descTr : tt.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* CTA — Kavimler Atlas link (tarihsel doğrulama ↔ tüm Kur'ânî kavimler).
+          CustomEvent dispatch → Next Link migration. */}
+      <motion.div variants={fadeUpItem} className="mt-6">
+        <Link
+          href={`/${language}/atlas/kavim`}
           style={{
             width: '100%',
             padding: '14px 24px',
@@ -257,6 +312,7 @@ export default function HistoricalProof() {
             alignItems: 'center',
             justifyContent: 'space-between',
             transition: 'all 0.2s',
+            textDecoration: 'none',
           }}
           onMouseEnter={e => {
             e.currentTarget.style.background = 'rgba(212,165,116,0.12)';
@@ -280,7 +336,7 @@ export default function HistoricalProof() {
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
-        </button>
+        </Link>
       </motion.div>
     </SectionWrapper>
   );
