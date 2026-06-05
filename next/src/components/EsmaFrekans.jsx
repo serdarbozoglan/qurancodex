@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo, useRef, Fragment } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, TEXT, TRANSITION } from '../tokens';
@@ -155,10 +156,48 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 9: 114 İSİM ATLASI ═══ */}
       <NamesAtlas data={data} tr={tr} />
 
-      {/* ═══ SECTION 10: METODOLOJİ ve KAYNAK ═══ */}
+      {/* ═══ SECTION 10: KAPANIŞ + İLGİLİ ARAÇLAR ═══ */}
+      <ClosingReflection tr={tr} language={language} />
+
+      {/* ═══ SECTION 11: METODOLOJİ ve KAYNAK ═══ */}
       <Methodology data={data} tr={tr} />
     </div>
   );
+}
+
+// ─── highlightPhrase — runtime hierarchy via opacity ──────────────────────────
+// 4-kart kümesinde 4 ayetin de paylaştığı "الْاَسْمٓاءُ الْحُسْنٰى" ve "en güzel
+// isimler" / "best names" frase'lerini *fade-the-rest* yöntemiyle vurgular:
+// yeni renk EKLEMEZ — sadece highlight-DIŞI metni opacity 0.55'e indirip
+// vurgulu parçayı tam opacity + 600 weight'te tutar. Visitor'ın gözü doğal
+// olarak parlak olana kayar; palet bozulmaz, reverence korunur.
+const HIGHLIGHT_AR = /الْاَسْم[َٓ]{0,2}اءُ\s+الْحُسْنٰى/gu;
+const HIGHLIGHT_TR = /en güzel isimler/giu;
+const HIGHLIGHT_EN = /best names/giu;
+const FADE_OPACITY = 0.55;
+
+function highlightPhrase(text, regex) {
+  const matches = [...text.matchAll(regex)];
+  if (matches.length === 0) return text;
+  const out = [];
+  let cursor = 0;
+  matches.forEach((m, i) => {
+    if (m.index > cursor) {
+      out.push(
+        <span key={`d-${i}`} style={{ opacity: FADE_OPACITY }}>{text.slice(cursor, m.index)}</span>
+      );
+    }
+    out.push(
+      <span key={`h-${i}-${m.index}`} style={{ fontWeight: 600 }}>{m[0]}</span>
+    );
+    cursor = m.index + m[0].length;
+  });
+  if (cursor < text.length) {
+    out.push(
+      <span key="d-end" style={{ opacity: FADE_OPACITY }}>{text.slice(cursor)}</span>
+    );
+  }
+  return out;
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -258,8 +297,30 @@ function Hero({ tr }) {
           </p>
         </motion.blockquote>
 
+        {/* Framing whisper — tanzîh köprüsü. Şûrâ 42:11 → 114 isim
+            geçişinin teolojik çerçevesini visitor'a önceden açar. */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 0.85, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.75 }}
+          style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: 'clamp(0.92rem, 1.6vw, 1rem)',
+            lineHeight: 1.7,
+            textAlign: 'center',
+            maxWidth: '640px',
+            margin: '32px auto 0',
+          }}
+        >
+          {tr
+            ? <>İsimleri konuşacağız — ama "O'nun benzeri bir şey yoktur" diyen ayetle başlamak şart. 114 isim O'nu <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tanır</em>, ama <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>kuşatmaz</em>.</>
+            : <>We will speak of His names — but we must begin with the verse that says "nothing is like Him." 114 names <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>describe</em> Him, they do not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>contain</em> Him.</>}
+        </motion.p>
+
         {/* Filigree divider 2 */}
-        <FiligreeDivider delay={0.8} mt={56} mb={48} />
+        <FiligreeDivider delay={0.95} mt={48} mb={48} />
 
         {/* Çift-katman başlık */}
         <motion.div
@@ -397,7 +458,7 @@ function Hero({ tr }) {
                       textShadow: `0 0 18px ${COLORS.gold}22`,
                     }}
                   >
-                    {ayet.arabic}
+                    {highlightPhrase(ayet.arabic, HIGHLIGHT_AR)}
                   </p>
                 )}
                 <div style={{
@@ -407,7 +468,7 @@ function Hero({ tr }) {
                   fontSize: 'clamp(0.94rem, 1.2vw, 1.04rem)',
                   lineHeight: 1.65,
                 }}>
-                  "{ayet.quote}"
+                  "{highlightPhrase(ayet.quote, tr ? HIGHLIGHT_TR : HIGHLIGHT_EN)}"
                 </div>
               </motion.div>
             ))}
@@ -1630,7 +1691,7 @@ function NamePairs({ tr, pairsData, triplesData }) {
               maxWidth: '760px',
             }}>
               {tr
-                ? 'İkili pair\'lerden ötesi — tek ayette 3, 4 ve hatta 8 isim ardarda. Bu kümeler Kur\'an\'da isim yoğunluğunun zirve noktaları.'
+                ? 'İkililerin ötesi — tek ayette 3, 4 ve hatta 8 isim ardarda. Bu kümeler Kur\'an\'da isim yoğunluğunun zirve noktaları.'
                 : 'Beyond pairs — clusters of 3, 4, and even 8 names in a single verse. These are the peak densities of divine names in the Quran.'}
             </p>
             <div style={{
@@ -1679,7 +1740,7 @@ function PairCard({ pair, tr, index, verseData }) {
       transition={{ duration: 0.55, delay: index * 0.06 }}
       style={{
         ...GLASS_CARD,
-        padding: '28px 24px 24px',
+        padding: '60px 24px 24px',
         borderRadius: '14px',
         display: 'flex',
         flexDirection: 'column',
@@ -1725,7 +1786,7 @@ function PairCard({ pair, tr, index, verseData }) {
         </div>
       )}
 
-      {/* Arabic combined */}
+      {/* Arabic combined — top padding card seviyesinde badge'i clear ediyor */}
       <p
         dir="rtl"
         lang="ar"
@@ -1734,9 +1795,8 @@ function PairCard({ pair, tr, index, verseData }) {
           fontSize: 'clamp(1.55rem, 2.6vw, 1.85rem)',
           color: COLORS.gold,
           lineHeight: 2,
-          margin: '6px 0 0',
+          margin: 0,
           textShadow: `0 0 22px ${COLORS.gold}1c`,
-          paddingRight: '52px', // count badge'e yer
         }}
       >
         {pair.arabic}
@@ -2049,8 +2109,8 @@ function DivineVoice({ beyanlari, tr }) {
         </h2>
         <p style={{ color: COLORS.silver, fontSize: '1.05rem', lineHeight: 1.8, margin: '0 0 50px', maxWidth: '720px' }}>
           {tr
-            ? "Allah kendisini bazen üçüncü şahıs üzerinden, bazen doğrudan birinci şahıs üzerinden (\"Ben\", \"Biz\") tanıtır. Bu beyanlar onun kendi ağzından tanımıdır."
-            : "God describes Himself sometimes in the third person, sometimes directly in the first person (\"I\", \"We\"). These statements are His self-description in His own voice."}
+            ? "Allah kendisini bazen üçüncü şahıs üzerinden, bazen doğrudan birinci şahıs üzerinden (\"Ben\", \"Biz\") tanıtır. Bu beyanlar O'nun kendisi hakkındaki doğrudan beyanlarıdır."
+            : "God describes Himself sometimes in the third person, sometimes directly in the first person (\"I\", \"We\"). These statements are His direct self-disclosure."}
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
@@ -3277,6 +3337,251 @@ function NameDetail({ item, tr, isAllah }) {
 // SECTION 8: METODOLOJI ve KAYNAK
 // ═════════════════════════════════════════════════════════════════════════════
 
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 10 — KAPANIŞ + İLGİLİ ARAÇLAR (Closing Reflection)
+// Narrative arc'ın Reflection evresinin kapanış noktası. NamesAtlas'tan
+// Methodology'ye geçişte sayfaya bir "nefes" ve sonraki adım için 3 araç
+// köprüsü sağlar.
+// ═════════════════════════════════════════════════════════════════════════════
+
+function ClosingReflection({ tr, language }) {
+  const tools = [
+    {
+      href: `/${language}/graf/kavram`,
+      titleTr: 'Kavram Grafiği',
+      titleEn: 'Concept Graph',
+      descTr: 'Bu eksenlerin (Rahmet, Adalet, Vekâlet…) Kur\'an genelindeki bağlantılarını ağ olarak gezin.',
+      descEn: 'Explore the network connections of these axes (Mercy, Justice, Trust…) across the Quran.',
+    },
+    {
+      href: `/${language}/graf/kelime-isi`,
+      titleTr: 'Kelime Isı Haritası',
+      titleEn: 'Word Heatmap',
+      descTr: 'Tek bir isim/kelimenin 114 sure boyunca dağılım yoğunluğunu görselleştirin.',
+      descEn: 'Visualize the distribution density of a single name/word across all 114 surahs.',
+    },
+    {
+      href: `/${language}/graf/ayet`,
+      titleTr: 'Ayet Grafiği',
+      titleEn: 'Verse Graph',
+      descTr: 'Tek bir ismin geçtiği her ayeti — semantik komşularıyla birlikte — ağ olarak inceleyin.',
+      descEn: 'Examine every verse containing a single name — together with its semantic neighbors — as a network.',
+    },
+  ];
+
+  return (
+    <section style={{
+      padding: '100px 24px 90px',
+      background: 'linear-gradient(180deg, #0a0a1a 0%, #0d1b2a 50%, #0a0a1a 100%)',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      <div aria-hidden style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `radial-gradient(ellipse at center top, ${COLORS.gold}0d 0%, transparent 60%)`,
+      }} />
+
+      <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
+        <div style={{ ...sectionLabel, textAlign: 'center' }}>
+          {tr ? 'Tefekkür' : 'Reflection'}
+        </div>
+
+        {/* Reflection statement — manifest closing */}
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontWeight: 700,
+          fontSize: 'clamp(1.7rem, 3.6vw, 2.5rem)',
+          color: COLORS.offWhite,
+          lineHeight: 1.3,
+          textAlign: 'center',
+          letterSpacing: '-0.01em',
+          margin: '0 auto 36px',
+          maxWidth: '720px',
+        }}>
+          {tr
+            ? <>114 isim · 6 236 ayet · <span style={{ color: COLORS.gold }}>tek Yaratıcı.</span></>
+            : <>114 names · 6 236 verses · <span style={{ color: COLORS.gold }}>one Creator.</span></>}
+        </h2>
+
+        {/* Closing verse — Bakara 2:186 ("Ben yakınım, dua edene icabet ederim").
+            Tefekkür kapanışı için: 114 isim öğrenildikten sonra dua-icabet ekseninde
+            "İnnī qarīb" (Ben yakınım) — birinci şahıs intimacy ile arc'ı bitirir.
+            4-kart kümesindeki ayetlerin dışı; duplikasyon yok. */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8 }}
+          style={{
+            background: `linear-gradient(180deg, ${COLORS.gold}0a 0%, rgba(255,255,255,0.02) 100%)`,
+            border: `1px solid ${COLORS.gold}26`,
+            borderRadius: '16px',
+            padding: 'clamp(28px, 4vw, 40px) clamp(24px, 4vw, 48px)',
+            textAlign: 'center',
+            marginBottom: '40px',
+          }}
+        >
+          <p
+            dir="rtl"
+            lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: 'clamp(1.3rem, 3vw, 1.85rem)',
+              color: COLORS.gold,
+              lineHeight: 2.1,
+              margin: '0 0 18px',
+              textShadow: `0 0 22px ${COLORS.gold}22`,
+            }}
+          >
+            وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ
+          </p>
+          <p style={{
+            color: COLORS.offWhite,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: 'clamp(0.95rem, 1.8vw, 1.1rem)',
+            lineHeight: 1.7,
+            margin: '0 0 10px',
+            maxWidth: '600px',
+            marginLeft: 'auto', marginRight: 'auto',
+          }}>
+            "{tr
+              ? "Kullarım sana Beni sorduklarında, (bilsinler ki) Ben yakınım. Bana dua edenin duasına, dua ettiği zaman icabet ederim."
+              : "When My servants ask you concerning Me — indeed I am near. I respond to the call of the caller when he calls upon Me."}"
+          </p>
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            margin: 0,
+            opacity: 0.7,
+          }}>
+            — {tr ? 'Bakara 2:186' : 'al-Baqara 2:186'}
+          </p>
+        </motion.div>
+
+        {/* Tanzîh ↔ qurb synthesis — Hero whisper'ın delivery'si.
+            Açılışta "kuşatmaz" dedik (tanzîh); şimdi "yakındır" diyoruz (qurb).
+            İki ayet tek hakikati iki yönden gösterir; whisper'ın "şart" claim'i
+            burada kapanıyor. */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 0.9, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: 'clamp(1rem, 1.7vw, 1.1rem)',
+            lineHeight: 1.75,
+            textAlign: 'center',
+            maxWidth: '680px',
+            margin: '0 auto 70px',
+          }}
+        >
+          {tr
+            ? <>Açılışta dedik: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>"O'nu kuşatamayız."</em> Şimdi söylüyoruz: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>"O bize bizden daha yakındır."</em> İki ayet birbirini iptal etmez — tek hakikati iki yönden gösterir. Tanzîh ve yakınlık aynı anda.</>
+            : <>At the opening we said: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>"We cannot contain Him."</em> Now we say: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>"He is nearer than our own selves."</em> The two verses do not cancel — they show one truth from two sides. Transcendence and nearness, at once.</>}
+        </motion.p>
+
+        {/* Cross-tool CTA strip — 3 araç */}
+        <div style={{ ...sectionLabel, textAlign: 'center', marginBottom: '16px' }}>
+          {tr ? 'Daha Derine — İlgili Araçlar' : 'Go Deeper — Related Tools'}
+        </div>
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.95rem',
+          lineHeight: 1.7,
+          textAlign: 'center',
+          maxWidth: '640px',
+          margin: '0 auto 30px',
+        }}>
+          {tr
+            ? "Esmâ-i Hüsnâ'yı bu sayfada panoramik gördünüz. Tekil bir ismi, bir ekseni veya bir ayeti derinleştirmek için aşağıdaki araçlar:"
+            : "You've seen Esmāʾ al-Ḥusnā in panorama. To go deeper into a single name, axis, or verse, use the tools below:"}
+        </p>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: '16px',
+        }}>
+          {tools.map((t, i) => (
+            <motion.div
+              key={t.href}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <Link
+                href={t.href}
+                style={{
+                  display: 'block',
+                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                  border: `1px solid ${COLORS.gold}33`,
+                  borderRadius: '14px',
+                  padding: '22px 20px',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                  height: '100%',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
+                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  marginBottom: '10px',
+                }}>
+                  <h3 style={{
+                    color: COLORS.gold,
+                    fontFamily: FONTS.body,
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.01em',
+                    margin: 0,
+                  }}>
+                    {tr ? t.titleTr : t.titleEn}
+                  </h3>
+                  <span style={{
+                    color: COLORS.gold,
+                    fontSize: '1.1rem',
+                    lineHeight: 1,
+                    opacity: 0.7,
+                  }}>→</span>
+                </div>
+                <p style={{
+                  color: COLORS.silver,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.86rem',
+                  lineHeight: 1.6,
+                  margin: 0,
+                }}>
+                  {tr ? t.descTr : t.descEn}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Methodology({ data, tr }) {
   // Default açık: akademik şeffaflığı vurgu — Gemini önerisi 2.1
   // ('Veri odaklı okuyucunun güvenini kazanmak için bu şart').
@@ -3325,6 +3630,18 @@ function Methodology({ data, tr }) {
               fontFamily: FONTS.body,
             }}
           >
+            {/* Yorumlama ilkesi — Hero whisper'ın akademik delivery'si.
+                "Şart" claim'i burada somut yorumlama kuralına bağlanıyor:
+                isimler tanır, kuşatmaz; bu sayfa tanzîh çerçevesi içinde okunmalıdır. */}
+            <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
+              {tr ? 'Yorumlama İlkesi — Tanzîh' : 'Interpretive Principle — Tanzīh'}
+            </h3>
+            <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
+              {tr
+                ? <>Sayfa açılışında Şûrâ 42:11'i ("O'nun benzeri bir şey yoktur") koymamız tesadüf değil — tüm okuma <strong style={{ color: COLORS.offWhite }}>tanzîh</strong> çerçevesinde yapılır: <strong style={{ color: COLORS.offWhite }}>isimler O'nu tarif eder, sınırlamaz</strong>. Beşerî dilden ödünç aldığımız her sıfat ("hayy", "semîʿ", "basîr"…) insan referansından arınmış olarak anlaşılır; antropomorfik okuma yanılgıdır. "El-Hayy" (Diri) insan canlılığı değil; "Es-Semîʿ" (İşiten) kulak organı değil. Bu sayfada görülen 114 isim O'nu <strong style={{ color: COLORS.offWhite }}>tanır</strong>, ama O'nu kuşatmaz — kuşatamaz.</>
+                : <>Opening with Shūrā 42:11 ("There is nothing like Him") is not incidental — the entire reading operates within the framework of <strong style={{ color: COLORS.offWhite }}>tanzīh</strong>: <strong style={{ color: COLORS.offWhite }}>the names describe Him, they do not delimit Him</strong>. Every attribute we borrow from human language ("ḥayy", "samīʿ", "baṣīr"…) is understood stripped of its anthropomorphic reference; reading these as human-like attributes is the central error. "al-Ḥayy" (Living) is not biological life; "as-Samīʿ" (Hearing) is not an auditory organ. The 114 names on this page <strong style={{ color: COLORS.offWhite }}>describe</strong> Him — they do not contain Him, and cannot.</>}
+            </p>
+
             <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
               {tr ? 'Kaynak metin' : 'Source text'}
             </h3>

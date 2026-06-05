@@ -143,8 +143,8 @@ export default function AllahKendiniTanitir() {
           }}
         >
           {tr
-            ? "Allah Kur'an'da kendisini 114 isim ve sıfatla, kimi zaman üçüncü şahısla kimi zaman doğrudan kendi ağzından tanıtır. Sarsılmaz kudret (Celal) ve sığınılacak şefkat (Cemal) bir denge halinde."
-            : "God describes Himself in the Quran through 114 names and attributes — sometimes in the third person, sometimes directly in His own voice. Unshakable might (Jalāl) and embracing mercy (Jamāl) in balance."}
+            ? "Allah Kur'an'da kendisini 114 isim ve sıfatla, kimi zaman üçüncü şahısla kimi zaman doğrudan birinci şahısla tanıtır. Sarsılmaz kudret (Celal) ve sığınılacak şefkat (Cemal) bir denge halinde."
+            : "God describes Himself in the Quran through 114 names and attributes — sometimes in the third person, sometimes directly in the first person. Unshakable might (Jalāl) and embracing mercy (Jamāl) in balance."}
         </p>
 
         {/* 4 isim teaser cards */}

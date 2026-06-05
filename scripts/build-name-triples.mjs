@@ -58,8 +58,8 @@ const TRIPLES = [
     trGloss: "Âyetü'l-Kürsî'nin açılış (Hayy-Kayyûm) ve kapanış (Aliy-Azîm) mührü. Hayy-Kayyûm çifti Âl-i İmrân 3:2'de yine açılışta gelir; ama dört-isim mührü sadece Âyetü'l-Kürsî'de tamamlanır.",
     enGloss: "The opening (Ḥayy-Qayyūm) and closing (ʿAlī-ʿAẓīm) seal of Āyat al-Kursī. The Ḥayy-Qayyūm pair recurs at Āl-ʿImrān 3:2, but the full four-name seal is unique to Āyat al-Kursī.",
     primaryRefs: ['2:255', '3:2'],
-    badgeTr: 'Dört-isim mührü',
-    badgeEn: 'Four-name seal',
+    badgeTr: 'isim mührü',
+    badgeEn: 'name seal',
     nameCount: 4,
   },
   {
@@ -86,8 +86,8 @@ const TRIPLES = [
     trGloss: "Kur'an'daki en yoğun ardışık isim kümesi — tek ayette sekiz isim peş peşe. Mülk → kutsallık → barış → güven → gözetim → güç → adalet → büyüklük sırası; ilahî yönetimin tam mimarisi.",
     enGloss: "The densest consecutive cluster of names in the Quran — eight names in a single verse. Sovereignty → holiness → peace → safety → vigilance → might → justice → supremacy: the complete architecture of divine governance.",
     primaryRefs: ['59:23'],
-    badgeTr: '8 isim mührü',
-    badgeEn: 'Eight-name seal',
+    badgeTr: 'isim mührü',
+    badgeEn: 'name seal',
     nameCount: 8,
   },
 ];
