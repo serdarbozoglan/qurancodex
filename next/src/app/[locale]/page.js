@@ -33,6 +33,7 @@ import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
 import MobileSectionChipNav from '@/components/MobileSectionChipNav';
 import ScrollToTopFab from '@/components/ScrollToTopFab';
+import HashAnchorScroll from '@/components/HashAnchorScroll';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -54,6 +55,7 @@ export default async function Home({ params }) {
   return (
     <>
       <JsonLd schemas={buildBreadcrumb(locale, '')} />
+      <HashAnchorScroll />
       <MobileSectionChipNav />
       <ScrollToTopFab />
       <Hero />
