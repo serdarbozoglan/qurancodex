@@ -625,8 +625,12 @@ export default function Navbar() {
   // (a) Ana sayfadaysa: direkt scroll + URL hash'i güncelle. Hash'i koymak
   //     visitor başka route'a (örn. /oku/11) gidip back yaptığında browser'ın
   //     /tr#linguistic'e dönmesini sağlar — auto scroll-to-anchor restore.
-  // (b) Farklı route'tan (örn. /arac/esma-frekans) tıklandığında: ana sayfaya
-  //     navigate edip hash anchor'a kaydır.
+  // (b) Farklı route'tan (örn. /arac/esma-frekans) tıklandığında: önceden
+  //     router.push kullanılıyordu — Next.js App Router hash scroll quirk'i:
+  //     SPA navigation sırasında section'lar lazy-load ettiği için scroll
+  //     pozisyonu yanlış noktaya yapışıyor (section'ın SONUNA). Çözüm:
+  //     window.location.href ile full reload — browser native hash handling
+  //     devreye girer ve doğru anchor pozisyonuna scroll yapar.
   const scrollTo = (id) => {
     const homePath = `/${language}`;
     const onHome = pathname === homePath || pathname === `${homePath}/`;
@@ -634,7 +638,7 @@ export default function Navbar() {
       try { window.history.replaceState(null, '', `#${id}`); } catch { /* noop */ }
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      router.push(`${homePath}#${id}`);
+      window.location.href = `${homePath}#${id}`;
     }
     setMobileOpen(false);
     setExploreOpen(false);
