@@ -2464,32 +2464,148 @@ export default function KuranRenkleri({ onClose }) {
       {/* ── Body ── */}
       <div style={{ flex: 1 }}>
 
-        {/* ── Hero ── */}
-        <div style={{ padding: isMobile ? '20px 16px 16px' : '28px 32px 24px', background: `linear-gradient(180deg,${COLORS.deepNavy} 0%,${COLORS.cosmicBlack} 100%)`, borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
-          {/* Page label */}
-          <div style={{ fontSize: '0.62rem', letterSpacing: '0.15em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '8px' }}>
-            {tr ? "KUR'AN'IN RENK PALETİ" : "THE QURAN'S COLOR PALETTE"}
+        {/* ════ CINEMATIC HERO — Premium Template (Bismillah + Fâtır 35:27 +
+            framing whisper + dramatic title + stat strip) ══════════════════ */}
+        <div style={{
+          padding: isMobile ? '40px 16px 28px' : '60px 32px 36px',
+          background: `linear-gradient(180deg,${COLORS.deepNavy} 0%,${COLORS.cosmicBlack} 100%)`,
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          textAlign: 'center',
+        }}>
+          {/* Bismillah ornament — Amiri Quran ligature (§13.2 documented exception) */}
+          <div
+            dir="rtl"
+            lang="ar"
+            aria-label="Bismillāh"
+            style={{
+              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontSize: isMobile ? '1.6rem' : '2rem',
+              color: COLORS.gold,
+              opacity: 0.85,
+              lineHeight: 1,
+              marginBottom: isMobile ? '28px' : '40px',
+              textShadow: `0 0 20px ${COLORS.gold}22`,
+            }}
+          >
+            ﷽
           </div>
 
-          {/* Title */}
-          <h1 style={{ fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, fontFamily: FONTS.display, color: COLORS.offWhite, margin: '0 0 16px', lineHeight: 1.3 }}>
+          {/* Anchor verse — Fâtır 35:27 */}
+          <p
+            dir="rtl"
+            lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.3rem, 2.4vw, 1.75rem)',
+              color: COLORS.gold,
+              lineHeight: 2.1,
+              margin: '0 auto 18px',
+              maxWidth: '800px',
+              textShadow: `0 0 22px ${COLORS.gold}1c`,
+            }}
+          >
+            اَلَمْ تَرَ اَنَّ اللّٰهَ اَنْزَلَ مِنَ السَّمَٓاءِ مَٓاءًۚ فَاَخْرَجْنَا بِهٖ ثَمَرَاتٍ مُخْتَلِفًا اَلْوَانُهَا
+          </p>
+
+          <p style={{
+            color: COLORS.offWhite,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 8px',
+            maxWidth: '620px',
+            opacity: 0.95,
+          }}>
+            "{tr
+              ? 'Allah\'ın gökten su indirdiğini ve onunla renkleri birbirinden farklı meyveler çıkardığımızı görmüyor musun?'
+              : 'Do you not see that Allah sends down rain from the sky, and We produce thereby fruits of varying colors?'}"
+          </p>
+
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            margin: '0 0 36px',
+            opacity: 0.65,
+          }}>
+            — {tr ? 'Fâtır 35:27' : 'Fāṭir 35:27'}
+          </p>
+
+          {/* Framing whisper — page thesis */}
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.5vw, 1.02rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 40px',
+            maxWidth: '660px',
+            opacity: 0.88,
+          }}>
+            {tr
+              ? <>Renk, Allah'ın yarattığı dilin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sessiz alfabesidir</em>. 14 kelime, 8 ton — her biri başka bir hakikatin işareti.</>
+              : <>Color is the <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>silent alphabet</em> of the language Allah created. 14 words, 8 tones — each pointing to a different truth.</>}
+          </p>
+
+          {/* Filigree divider */}
+          <div aria-hidden="true" style={{
+            width: '120px',
+            height: '1px',
+            background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+            margin: '0 auto 32px',
+          }} />
+
+          {/* Eyebrow */}
+          <div style={{
+            fontSize: '0.68rem', letterSpacing: '0.3em',
+            color: COLORS.gold, textTransform: 'uppercase',
+            fontFamily: FONTS.body, fontWeight: 700,
+            opacity: 0.7,
+            marginBottom: '14px',
+          }}>
+            {tr ? "KUR'AN'IN RENK PALETİ · 14 KELİME, 8 TON" : "THE QURAN'S COLOR PALETTE · 14 WORDS, 8 TONES"}
+          </div>
+
+          {/* Big Title */}
+          <h1 style={{
+            fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
+            fontWeight: 700, fontFamily: FONTS.display,
+            color: COLORS.offWhite,
+            margin: '0 auto 16px',
+            lineHeight: 1.15,
+            letterSpacing: '-0.015em',
+            maxWidth: '760px',
+          }}>
             {tr ? "Allah'ın Seçtiği Renkler" : 'The Colors Allah Chose'}
           </h1>
 
-          {/* Arabic verse */}
-          <div style={{ textAlign: 'center', padding: isMobile ? '12px' : '16px', background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: RADIUS.chip, marginBottom: '16px' }}>
-            <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.6rem' : '2rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 2, margin: '0 0 12px' }} lang="ar" dir="rtl">
-              أَلَمْ تَرَ أَنَّ اللَّهَ أَنزَلَ مِنَ السَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ ثَمَرَاتٍ مُّخْتَلِفًا أَلْوَانُهَا
-            </p>
-            <p style={{ fontSize: isMobile ? '0.85rem' : '0.95rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic', margin: 0, lineHeight: 1.7 }}>
-              {tr
-                ? '"Allah\'ın gökten su indirdiğini ve onunla renkleri birbirinden farklı meyveler çıkardığımızı görmüyor musun?" — Fâtır 35:27'
-                : '"Do you not see that Allah sends down rain from the sky, and We produce thereby fruits of varying colors?" — Fatir 35:27'}
-            </p>
-          </div>
+          {/* Dramatic subtitle */}
+          <p style={{
+            fontFamily: FONTS.display,
+            fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+            color: COLORS.gold,
+            margin: '0 auto 32px',
+            lineHeight: 1.5,
+            fontStyle: 'italic',
+            maxWidth: '680px',
+            opacity: 0.92,
+          }}>
+            {tr
+              ? 'Dünya hayatı bir renk geçişidir — sonunda hepsi tek bir tona, koyu yeşile çağrılır.'
+              : 'Worldly life is a transition of colors — at the end, all are called to a single tone: deep green.'}
+          </p>
 
-          {/* Stat strip — horizontal scroll on mobile, single row on desktop */}
-          <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: '4px', WebkitOverflowScrolling: 'touch' }}>
+          {/* Stat strip — refined: centered, wrap, less cramped */}
+          <div style={{
+            display: 'flex', gap: '8px',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            maxWidth: '720px',
+            margin: '0 auto',
+          }}>
             {[
               { num: '8',   labelTr: 'Temel Renk',   labelEn: 'Core Colors' },
               { num: '14',  labelTr: 'Renk Kelimesi', labelEn: 'Color Words' },
@@ -2661,6 +2777,143 @@ export default function KuranRenkleri({ onClose }) {
           )}
         </div>
 
+        {/* ════ CLOSING — Paradox Synthesis + Cross-tool CTA Strip ════════ */}
+        <ColorsClosing language={language} isMobile={isMobile} />
+
+      </div>
+    </div>
+  );
+}
+
+// ─── Closing Synthesis — Premium Template Kapanışı ───────────────────────────
+// Renkler sayfasının tezi: renk anlatıdır, renksizlik vaattir.
+// Hero'da açtığımız "sessiz alfabe" framing whisper'ını sentez olarak kapatır.
+function ColorsClosing({ language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      marginTop: isMobile ? '40px' : '60px',
+      padding: isMobile ? '50px 20px 60px' : '80px 32px 80px',
+      borderTop: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
+      maxWidth: '900px',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    }}>
+      {/* Eyebrow */}
+      <div style={{
+        fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+        letterSpacing: '0.3em', textTransform: 'uppercase',
+        color: COLORS.gold, opacity: 0.7,
+        marginBottom: '20px', textAlign: 'center',
+      }}>
+        {tr ? 'Tefekkür' : 'Reflection'}
+      </div>
+
+      {/* Paradox synthesis — Hero'daki "sessiz alfabe" tezi burada
+          cennetin tek tonuna (مُدْهَامَّتَانِ) bağlanır */}
+      <h3 style={{
+        fontFamily: FONTS.display, fontWeight: 700,
+        fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.7rem, 2.8vw, 2.15rem)',
+        color: COLORS.offWhite,
+        textAlign: 'center',
+        lineHeight: 1.3,
+        letterSpacing: '-0.01em',
+        margin: '0 auto 28px',
+        maxWidth: '780px',
+      }}>
+        {tr
+          ? <>Renk <em style={{ fontStyle: 'normal', color: COLORS.gold }}>dünyayı anlatır</em>. <em style={{ fontStyle: 'normal', color: '#2ecc71' }}>Yeşil</em> cenneti <em style={{ fontStyle: 'normal', color: '#2ecc71' }}>vaad eder</em>.</>
+          : <><em style={{ fontStyle: 'normal', color: COLORS.gold }}>Color narrates</em> the world. <em style={{ fontStyle: 'normal', color: '#2ecc71' }}>Green promises</em> the Paradise.</>}
+      </h3>
+
+      {/* Synthesis paragraph */}
+      <p style={{
+        fontFamily: FONTS.display, fontStyle: 'italic',
+        color: COLORS.silver,
+        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.7vw, 1.12rem)',
+        lineHeight: 1.75,
+        textAlign: 'center',
+        margin: '0 auto 50px',
+        maxWidth: '740px',
+        opacity: 0.92,
+      }}>
+        {tr
+          ? <>Allah dünyayı renklerle yazdı — yeşil, sarı, beyaz, siyah. Renk bu dünyada bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alfabe</strong>, bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>anlatım</strong>. Cennet ise söze sığmaz: <strong style={{ color: '#2ecc71', fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (koyu yeşil iki bahçe, 55:64), yeşil sündüs ve istebrak (18:31, 76:21), yeşil rafraf (55:76), inci, yâkut, dört nehir. Bütün bunların habercisi tek renkten gelir — <strong style={{ color: '#2ecc71', fontStyle: 'normal', fontWeight: 600 }}>yeşilden</strong>.</>
+          : <>Allah wrote the world with colors — green, yellow, white, black. In this world, color is an <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alphabet</strong>, a <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>narrative</strong>. Paradise exceeds words: <strong style={{ color: '#2ecc71', fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (two deep-green gardens, 55:64), green sundus and istabraq silk (18:31, 76:21), green rafraf (55:76), pearls, rubies, four rivers. Yet the herald of all these comes from one color — <strong style={{ color: '#2ecc71', fontStyle: 'normal', fontWeight: 600 }}>green</strong>.</>}
+      </p>
+
+      {/* Cross-tool CTA strip — 3 derin link */}
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          textAlign: 'center', marginBottom: '20px',
+        }}>
+          <span style={{
+            fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+            letterSpacing: '0.24em', textTransform: 'uppercase',
+            color: COLORS.gold, opacity: 0.7,
+          }}>
+            {tr ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+          </span>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+          gap: '12px',
+        }}>
+          {[
+            { href: `/${language}/oku/35`, titleTr: 'Fâtır Sûresi (35)', titleEn: 'Sura Fāṭir (35)', descTr: 'Anchor verse 35:27 — yağmurdan farklı renklerde meyveler, dağlardan farklı renklerde yollar.', descEn: 'Anchor verse 35:27 — fruits of varying colors from rain, paths of varying colors in mountains.' },
+            { href: `/${language}/oku/55`, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: 'Hapax مُدْهَامَّتَانِ (55:64) — Kur\'an\'da bir kez geçen "koyu yeşil" kelimesinin cennet bağlamı.', descEn: 'Hapax مُدْهَامَّتَانِ (55:64) — the once-occurring word "deep green" in its paradise context.' },
+            { href: `/${language}/oku/2`, titleTr: 'Bakara 2:187', titleEn: 'al-Baqara 2:187', descTr: 'Beyaz iplik / siyah iplik — oruç ayetindeki renklerin işlevsel kullanımı.', descEn: 'The white thread / black thread — the functional use of colors in the fasting verse.' },
+          ].map((tt, i) => (
+            <a
+              key={i}
+              href={tt.href}
+              style={{
+                display: 'block',
+                background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`,
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                borderRadius: RADIUS.lg,
+                padding: isMobile ? '20px 18px' : '22px 22px',
+                textDecoration: 'none',
+                transition: `all ${TRANSITION.base}`,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.05) 100%)`;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                marginBottom: '8px',
+              }}>
+                <h4 style={{
+                  fontFamily: FONTS.body, fontWeight: 700,
+                  fontSize: '0.95rem',
+                  color: COLORS.gold, margin: 0,
+                }}>
+                  {tr ? tt.titleTr : tt.titleEn}
+                </h4>
+                <span style={{ color: COLORS.gold, opacity: 0.65, fontSize: '1rem' }}>→</span>
+              </div>
+              <p style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.85rem',
+                color: COLORS.silver,
+                lineHeight: 1.6,
+                margin: 0, opacity: 0.85,
+              }}>
+                {tr ? tt.descTr : tt.descEn}
+              </p>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

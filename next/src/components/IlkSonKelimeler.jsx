@@ -387,6 +387,15 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
       {selected && isMobile && (
         <DetailPanel surah={selected} spotlights={spotlights} onClose={() => setSelected(null)} language={language} isMobile={true} />
       )}
+
+      {/* ════ Closing — Paradox Synthesis + Cross-tool CTA Strip ════════
+          Flex parent DIŞINDA: yoksa grid ile yan yana yerleşip 2-kolon
+          layout oluşturur. Burada full-width block flow olarak iner.
+          Sadece varsayılan (filtresiz) görünümde çıkar; filtreli görünümde
+          visitor "tarama modunda" — bekleyen closing kesintiye uğratmaz. */}
+      {activeFilter === 'all' && searchValue.trim().length < 2 && (
+        <ClosingSynthesis language={language} isMobile={isMobile} />
+      )}
     </div>
   );
 }
@@ -816,36 +825,141 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
       margin: '0 auto 32px',
       padding: isMobile ? '0 4px' : 0,
     }}>
-      {/* Hero — manifesto + thesis */}
-      <div style={{ marginBottom: '32px' }}>
-        <div style={{
-          fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
-          letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.emerald, opacity: 0.95, marginBottom: '10px',
+      {/* ════ CINEMATIC HERO — Premium Template Pilot ══════════════════════
+          Bismillah ornament + Nisâ 4:82 (sayfanın tezi) + framing whisper.
+          Premium tool page template'in ilk pilotu — Esma flagship pattern. */}
+      <div style={{
+        marginBottom: '36px',
+        padding: isMobile ? '40px 8px 24px' : '60px 0 32px',
+        textAlign: 'center',
+        position: 'relative',
+      }}>
+        {/* Bismillah ornament — small decorative, KFGQPC'de U+FDFD glyph yok,
+            Amiri Quran ligature kullanılır (§13.2 documented exception) */}
+        <div
+          dir="rtl"
+          lang="ar"
+          aria-label="Bismillāh"
+          style={{
+            fontFamily: "'Amiri Quran', 'Amiri', serif",
+            fontSize: isMobile ? '1.6rem' : '2rem',
+            color: COLORS.gold,
+            opacity: 0.85,
+            lineHeight: 1,
+            marginBottom: isMobile ? '32px' : '44px',
+            textShadow: `0 0 20px ${COLORS.gold}22`,
+          }}
+        >
+          ﷽
+        </div>
+
+        {/* Anchor verse — Nisâ 4:82 (Kur'an'ın iç tutarlılığını argüman yapan ayet) */}
+        <p
+          dir="rtl"
+          lang="ar"
+          style={{
+            fontFamily: FONTS.quran,
+            fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.3rem, 2.6vw, 1.8rem)',
+            color: COLORS.gold,
+            lineHeight: 2.1,
+            margin: '0 auto 18px',
+            maxWidth: '780px',
+            textShadow: `0 0 22px ${COLORS.gold}1c`,
+          }}
+        >
+          اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فٖيهِ اخْتِلَافًا كَثٖيرًا
+        </p>
+
+        <p style={{
+          color: COLORS.offWhite,
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+          lineHeight: 1.7,
+          margin: '0 auto 8px',
+          maxWidth: '620px',
+          opacity: 0.95,
         }}>
-          {tr ? 'Münâsebât-ı Süver' : 'Munāsabāt al-Suwar'}
+          "{tr
+            ? 'Hâlâ Kur\'an üzerinde gereği gibi düşünmeyecekler mi? Eğer O Allah\'tan başkasından gelseydi, içinde birçok çelişki bulurlardı.'
+            : 'Will they not then ponder the Qur\'an? Had it been from any other than Allah, they would have found many contradictions in it.'}"
+        </p>
+
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.72rem',
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          margin: '0 0 36px',
+          opacity: 0.65,
+        }}>
+          — {tr ? 'Nisâ 4:82' : 'al-Nisāʾ 4:82'}
+        </p>
+
+        {/* Framing whisper — sayfanın tezi visitor'a önceden açar */}
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.5vw, 1.02rem)',
+          lineHeight: 1.7,
+          margin: '0 auto 40px',
+          maxWidth: '640px',
+          opacity: 0.85,
+        }}>
+          {tr
+            ? <>Açılış ve kapanış arasındaki uyum tesadüf olabilir mi? <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>Tutarlılık iddianın değil, metnin kendi şahididir.</em></>
+            : <>Could the harmony between opening and closing be coincidence? <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>Coherence is the witness of the text itself, not of any claim.</em></>}
+        </p>
+
+        {/* Filigree divider */}
+        <div aria-hidden="true" style={{
+          width: '120px',
+          height: '1px',
+          background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+          margin: '0 auto 32px',
+        }} />
+
+        {/* Eyebrow + Title — Manifesto Statement */}
+        <div style={{
+          fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+          letterSpacing: '0.3em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.7, marginBottom: '14px',
+        }}>
+          {tr ? 'Münâsebât-ı Süver · 114 Mührün Şifresi' : 'Munāsabāt al-Suwar · The Cipher of 114 Seals'}
         </div>
         <h2 style={{
           fontFamily: FONTS.display, fontWeight: 700,
-          fontSize: isMobile ? '1.5rem' : '1.85rem',
-          color: COLORS.offWhite, margin: '0 0 8px',
+          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
+          color: COLORS.offWhite, margin: '0 0 16px',
           lineHeight: 1.15,
-          letterSpacing: '-0.01em',
+          letterSpacing: '-0.015em',
+          maxWidth: '760px',
+          marginLeft: 'auto', marginRight: 'auto',
         }}>
           {tr ? 'Sûrelerin Damgaları' : 'The Seals of the Surahs'}
         </h2>
+
+        {/* Dramatic subtitle — page thesis in single line */}
         <p style={{
-          fontFamily: FONTS.body,
-          fontSize: isMobile ? '0.92rem' : '1rem',
-          color: COLORS.gold, opacity: 0.8,
-          margin: '0 0 18px', lineHeight: 1.5,
+          fontFamily: FONTS.display,
+          fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+          color: COLORS.gold,
+          margin: '0 auto 28px',
+          lineHeight: 1.5,
           fontStyle: 'italic',
-          maxWidth: '720px',
+          maxWidth: '680px',
+          opacity: 0.92,
         }}>
           {tr
-            ? 'Açılış ve kapanış arasındaki gizli bağ — klasik tefsirden modern akademiye 1400 yıllık bir okuma geleneği.'
-            : 'The hidden bond between opening and closing — a 1400-year reading tradition from classical tafsīr to modern scholarship.'}
+            ? 'Her sûre bir mektup gibi açılır, ve bir cevapla kapanır.'
+            : 'Every surah opens like a letter — and closes with a reply.'}
         </p>
+      </div>
+
+      {/* ════ Manifesto descriptive paragraphs ════════════════════════════ */}
+      <div style={{ marginBottom: '32px', textAlign: isMobile ? 'left' : 'left' }}>
         <p style={{
           fontFamily: FONTS.body,
           fontSize: isMobile ? '0.9rem' : '0.95rem',
@@ -914,6 +1028,139 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         activeFilter={activeFilter}
         onFilterClick={onFilterClick}
       />
+    </div>
+  );
+}
+
+// ─── Closing Synthesis — Paradox Conclusion + Cross-tool CTA Strip ───────────
+// Premium template kapanışı: Hero'da açtığımız tezi (Nisâ 4:82 + framing
+// whisper) burada SENTEZ olarak bağlar; ardından 3 cross-tool kart.
+function ClosingSynthesis({ language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      marginTop: isMobile ? '40px' : '60px',
+      padding: isMobile ? '50px 20px 60px' : '80px 32px 80px',
+      borderTop: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
+      maxWidth: '900px',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    }}>
+      {/* Eyebrow */}
+      <div style={{
+        fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+        letterSpacing: '0.3em', textTransform: 'uppercase',
+        color: COLORS.gold, opacity: 0.7,
+        marginBottom: '20px', textAlign: 'center',
+      }}>
+        {tr ? 'Tefekkür' : 'Reflection'}
+      </div>
+
+      {/* Paradox synthesis statement — Hero'daki Nisâ 4:82'yi cevaplayan kapanış */}
+      <h3 style={{
+        fontFamily: FONTS.display, fontWeight: 700,
+        fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.7rem, 2.8vw, 2.15rem)',
+        color: COLORS.offWhite,
+        textAlign: 'center',
+        lineHeight: 1.3,
+        letterSpacing: '-0.01em',
+        margin: '0 auto 28px',
+        maxWidth: '780px',
+      }}>
+        {tr
+          ? <>İlk söz: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Bismillâh</em>. Son söz: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>"Bu, insanların Rabbidir."</em></>
+          : <>The first word: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Bismillāh</em>. The last word: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>"This is the Lord of mankind."</em></>}
+      </h3>
+
+      {/* Synthesis paragraph */}
+      <p style={{
+        fontFamily: FONTS.display, fontStyle: 'italic',
+        color: COLORS.silver,
+        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.7vw, 1.12rem)',
+        lineHeight: 1.75,
+        textAlign: 'center',
+        margin: '0 auto 50px',
+        maxWidth: '700px',
+        opacity: 0.92,
+      }}>
+        {tr
+          ? <>114 sûre arasında, açılışta vaad edilen rahmet sonunda sığınılan koruma olur. <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>Mushaf bir döngüdür</strong> — ama döngü her seferinde aynı yere bağlanmaz; yeni bir mühre açılır.</>
+          : <>Across the 114 surahs, the mercy promised at the opening becomes the refuge sought at the end. <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>The Mushaf is a cycle</strong> — but the cycle never returns to the same place; it opens onto a new seal.</>}
+      </p>
+
+      {/* Cross-tool CTA strip — 3 derin link */}
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          textAlign: 'center', marginBottom: '20px',
+        }}>
+          <span style={{
+            fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+            letterSpacing: '0.24em', textTransform: 'uppercase',
+            color: COLORS.gold, opacity: 0.7,
+          }}>
+            {tr ? 'Daha Derine — İlgili Araçlar' : 'Go Deeper — Related Tools'}
+          </span>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+          gap: '12px',
+        }}>
+          {[
+            { href: `/${language}/oku/1`, titleTr: 'Fâtiha\'dan Başla', titleEn: 'Begin with Al-Fātiḥa', descTr: 'Mushafın açılış mührü — namazın ve duanın yapı taşı.', descEn: 'The opening seal of the Mushaf — the foundation of prayer and supplication.' },
+            { href: `/${language}/oku/114`, titleTr: 'Nâs ile Mührle', titleEn: 'Seal with An-Nās', descTr: 'Son sûre — "İnsanların Rabbi" sığınma mührüyle Mushafı kapat ve döngüyü yaşa.', descEn: 'The final sura — close the Mushaf with the refuge-seal of "the Lord of mankind."' },
+            { href: `/${language}/graf/kavram`, titleTr: 'Sûreler Arası Ağı Gör', titleEn: 'See the Inter-Sura Network', descTr: 'Kavram Grafiği: 114 sûrenin tematik bağlantılarını ağ olarak gezin.', descEn: 'Concept Graph: explore the thematic connections between the 114 suras as a network.' },
+          ].map((t, i) => (
+            <a
+              key={i}
+              href={t.href}
+              style={{
+                display: 'block',
+                background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`,
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                borderRadius: RADIUS.lg,
+                padding: isMobile ? '20px 18px' : '22px 22px',
+                textDecoration: 'none',
+                transition: `all ${TRANSITION.base}`,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.05) 100%)`;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                marginBottom: '8px',
+              }}>
+                <h4 style={{
+                  fontFamily: FONTS.body, fontWeight: 700,
+                  fontSize: '0.95rem',
+                  color: COLORS.gold, margin: 0,
+                }}>
+                  {tr ? t.titleTr : t.titleEn}
+                </h4>
+                <span style={{ color: COLORS.gold, opacity: 0.65, fontSize: '1rem' }}>→</span>
+              </div>
+              <p style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.85rem',
+                color: COLORS.silver,
+                lineHeight: 1.6,
+                margin: 0, opacity: 0.85,
+              }}>
+                {tr ? t.descTr : t.descEn}
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -1111,13 +1358,17 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
   );
 }
 
-// ─── Bilmediğin 5 Şey — teaser hooks ─────────────────────────────────────────
-// Hero altı, Spotlights üstü; numbered card layout (01-05) + 2-col grid.
-// Her kart aşağıdaki ilgili spotlight veya kategoriye işaret eden bir tag taşır.
+// ─── Beş Keşif — Scrollytelling Chapters (Premium Template) ───────────────────
+// Mevcut 2-col grid → vertical full-bleed panels. Her keşif tematik bir renk
+// (semantic palette: emerald=halka, gold=imza, teal=klasik, sky=intra-zikr,
+// violet=şifre) ve büyük numara ile dramatik scrollytelling sunar.
 function KnowYouDidNotKnow({ language, isMobile }) {
   const tr = language === 'tr';
   const items = [
     {
+      themeColor: '#2ecc71',      // emerald — eternal cycle
+      themeBg: 'rgba(46,204,113,0.05)',
+      themeBorder: 'rgba(46,204,113,0.25)',
       headlineTr: 'Mushaf, kendi sonundan başına dönen bir halkadır.',
       headlineEn: 'The Mushaf is a loop that returns from its own end to its beginning.',
       bodyTr: 'Nâs sûresi insanın şerlerden sığınmasıyla biter — Fâtiha hemen ardından Allah\'a hamd ile başlar. Mushaf\'ı bitiren kişi onu kapatmaz, çevirir.',
@@ -1126,6 +1377,9 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Mushaf Cycle',
     },
     {
+      themeColor: '#d4a574',      // gold — family signature
+      themeBg: 'rgba(212,165,116,0.05)',
+      themeBorder: 'rgba(212,165,116,0.28)',
       headlineTr: 'Yedi sûre aynı iki harfle başlar — حم — ve hepsi ardışık.',
       headlineEn: 'Seven surahs begin with the same two letters — ḥā-mīm — and all are consecutive.',
       bodyTr: '40-46 arası kesintisiz bir blok. Aralarında mushaf akışı kırılmaz; her biri imanın farklı bir yüzünü gösterir.',
@@ -1134,6 +1388,9 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Family Signature',
     },
     {
+      themeColor: '#2ab5a0',      // teal — classical scholarship
+      themeBg: 'rgba(42,181,160,0.05)',
+      themeBorder: 'rgba(42,181,160,0.28)',
       headlineTr: '"Sapanların yolu" Fâtiha\'da bitince, Bakara hemen "işte doğru yol" der.',
       headlineEn: '"The path of those who went astray" ends Al-Fātiḥa — Al-Baqara opens with "this is the guidance."',
       bodyTr: 'Sûrelerin biri diğerine cevap verir. Râzî der ki: kul Fâtiha\'da hidayet ister, Allah Bakara\'nın açılışında onu sunar. Burada bağ kelime sınırını aşar — Fâtiha\'nın son ayet teması ile Bakara\'nın 2. ayetinin teması arasındadır; bu sayfadaki tek ayet-düzeyi örnektir.',
@@ -1142,6 +1399,9 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Classical Munāsabah',
     },
     {
+      themeColor: '#3498db',      // sky blue — tasbîh/takbîr remembrance
+      themeBg: 'rgba(52,152,219,0.05)',
+      themeBorder: 'rgba(52,152,219,0.28)',
       headlineTr: 'İsrâ tesbih ile açılır, tekbir ile mühürlenir — namaz sonrası tesbihâtın iki ucu.',
       headlineEn: 'Al-Isrāʾ opens with tasbīḥ and is sealed with takbīr — the two ends of post-prayer remembrance.',
       bodyTr: 'Sübhân ile başlar (subḥâne\'llezî esrâ), kebbir ile biter (ve kebbirhu tekbîrâ). Mü\'minin her namaz sonrası söylediği Sübhânallah ve Allahu Ekber zikrinin iki kelimesi, sûrenin iki ucudur.',
@@ -1150,6 +1410,9 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Intra-Surah Ring',
     },
     {
+      themeColor: '#8b5cf6',      // violet — cipher mystery
+      themeBg: 'rgba(139,92,246,0.05)',
+      themeBorder: 'rgba(139,92,246,0.28)',
       headlineTr: 'Mukattaa harfleriyle açılan sûreler hemen ardından neredeyse hep Kitap/vahiy atfıyla devam eder.',
       headlineEn: 'Surahs that open with muqaṭṭaʿāt almost always follow them with a reference to the Book or revelation.',
       bodyTr: '29 sûre 14 farklı harf kombinasyonuyla açılır; çoğunda hemen ardından "ذَٰلِكَ الْكِتَابُ" / "تِلْكَ آيَاتُ الْكِتَابِ" / "تَنْزِيلُ الْكِتَابِ" gelir. Şifre çözülmez ama hemen yanı başında neye işaret ettiği söylenir: Bu Kitap.',
@@ -1160,32 +1423,32 @@ function KnowYouDidNotKnow({ language, isMobile }) {
   ];
 
   return (
-    <div style={{ marginBottom: '40px' }}>
-      {/* Section header */}
-      <div style={{ marginBottom: '20px' }}>
+    <div style={{ marginBottom: '60px' }}>
+      {/* Section header — centered, dramatic */}
+      <div style={{ marginBottom: '40px', textAlign: 'center' }}>
         <div style={{
-          fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
+          fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.7, marginBottom: '8px',
+          color: COLORS.gold, opacity: 0.7, marginBottom: '12px',
         }}>
           {tr ? "Mushaf'ın Açılış-Kapanış Mimarisinden" : "From the Mushaf's Opening-Closing Architecture"}
         </div>
         <h3 style={{
           fontFamily: FONTS.display, fontWeight: 700,
-          fontSize: isMobile ? '1.4rem' : '1.7rem',
-          color: COLORS.offWhite, margin: '0 0 8px',
-          lineHeight: 1.2,
-          letterSpacing: '-0.01em',
+          fontSize: isMobile ? 'clamp(1.6rem, 6vw, 2rem)' : 'clamp(1.9rem, 3.4vw, 2.4rem)',
+          color: COLORS.offWhite, margin: '0 auto 14px',
+          lineHeight: 1.15,
+          letterSpacing: '-0.015em',
         }}>
           {tr ? 'Beş Keşif' : 'Five Discoveries'}
         </h3>
         <p style={{
-          fontSize: isMobile ? '0.86rem' : '0.92rem',
-          fontFamily: FONTS.body,
-          color: COLORS.gold, opacity: 0.75,
-          margin: 0, lineHeight: 1.5,
+          fontSize: isMobile ? '0.9rem' : 'clamp(0.95rem, 1.5vw, 1.02rem)',
+          fontFamily: FONTS.display,
+          color: COLORS.gold, opacity: 0.85,
+          margin: '0 auto', lineHeight: 1.6,
           fontStyle: 'italic',
-          maxWidth: '640px',
+          maxWidth: '620px',
         }}>
           {tr
             ? 'Klasik tefsirin işaret ettiği beş örüntü — sayfanın geri kalanı bunların her birini ayrı ayrı açar.'
@@ -1193,89 +1456,98 @@ function KnowYouDidNotKnow({ language, isMobile }) {
         </p>
       </div>
 
-      {/* Discovery cards grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
-        gap: '12px',
-      }}>
+      {/* Vertical scrollytelling chapters — single column, full-bleed, generous spacing */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? '20px' : '28px' }}>
         {items.map((it, i) => {
-          const isLast = i === items.length - 1;
           const num = String(i + 1).padStart(2, '0');
           return (
             <div
               key={i}
               style={{
                 position: 'relative',
-                gridColumn: !isMobile && isLast ? '1 / -1' : 'auto',
-                padding: isMobile ? '20px 18px' : '24px 26px',
-                background: 'rgba(255,255,255,0.025)',
-                border: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBgStrong}`,
+                padding: isMobile ? '32px 22px 26px' : '40px 44px 32px',
+                background: `linear-gradient(135deg, ${it.themeBg} 0%, rgba(255,255,255,0.015) 100%)`,
+                border: `1px solid ${it.themeBorder}`,
+                borderLeft: `3px solid ${it.themeColor}`,
                 borderRadius: RADIUS.lg,
-                transition: `all ${TRANSITION.base}`,
                 overflow: 'hidden',
+                transition: `all ${TRANSITION.base}`,
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = COLORS.goldAlpha04;
-                e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = `0 18px 40px ${it.themeBorder}, 0 0 0 1px ${it.themeColor}40`;
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
-                e.currentTarget.style.borderColor = COLORS.glassBorderSoft || COLORS.glassBgStrong;
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              {/* Big number — decorative, top-right */}
-              <div style={{
+              {/* Watermark numeral — large, decorative */}
+              <div aria-hidden="true" style={{
                 position: 'absolute',
-                top: isMobile ? '12px' : '16px',
-                right: isMobile ? '14px' : '20px',
+                top: isMobile ? '6px' : '8px',
+                right: isMobile ? '12px' : '24px',
                 fontFamily: FONTS.display, fontWeight: 800,
-                fontSize: isMobile ? '2.2rem' : '2.8rem',
-                color: COLORS.gold, opacity: 0.18,
+                fontSize: isMobile ? '4.2rem' : '6rem',
+                color: it.themeColor, opacity: 0.12,
                 lineHeight: 1,
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.04em',
                 pointerEvents: 'none',
                 userSelect: 'none',
               }}>
                 {num}
               </div>
 
-              {/* Content */}
-              <div style={{ position: 'relative', zIndex: 1, paddingRight: isMobile ? '50px' : '70px' }}>
-                <div style={{
-                  fontFamily: FONTS.display, fontWeight: 700,
-                  fontSize: isMobile ? '1.02rem' : '1.1rem',
-                  color: COLORS.offWhite, lineHeight: 1.35,
-                  marginBottom: '10px',
-                  letterSpacing: '-0.005em',
+              {/* Inline chapter number — small caps eyebrow */}
+              <div style={{
+                position: 'relative', zIndex: 1,
+                display: 'flex', alignItems: 'center', gap: '10px',
+                marginBottom: '14px',
+              }}>
+                <span style={{
+                  fontFamily: FONTS.display, fontWeight: 800,
+                  fontSize: isMobile ? '1.1rem' : '1.3rem',
+                  color: it.themeColor,
+                  letterSpacing: '-0.01em',
+                }}>{num}</span>
+                <span aria-hidden="true" style={{
+                  width: '24px', height: '1px',
+                  background: `linear-gradient(to right, ${it.themeColor}, transparent)`,
+                  flexShrink: 0,
+                }} />
+                <span style={{
+                  fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
+                  letterSpacing: '0.22em', textTransform: 'uppercase',
+                  color: it.themeColor, opacity: 0.75,
                 }}>
-                  {tr ? it.headlineTr : it.headlineEn}
-                </div>
-                <p style={{
-                  fontFamily: FONTS.body,
-                  fontSize: isMobile ? '0.84rem' : '0.88rem',
-                  color: COLORS.silver, lineHeight: 1.7,
-                  margin: '0 0 16px', opacity: 0.9,
-                }}>
-                  {tr ? it.bodyTr : it.bodyEn}
-                </p>
-                {/* Tag badge */}
-                <div style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
-                  letterSpacing: '0.18em', textTransform: 'uppercase',
-                  color: COLORS.gold, opacity: 0.75,
-                  padding: '4px 10px',
-                  borderRadius: RADIUS.pill,
-                  background: COLORS.goldAlpha04,
-                  border: `1px solid ${COLORS.goldAlpha25}`,
-                }}>
-                  <span style={{ fontSize: '0.78rem', lineHeight: 1 }}>↳</span>
-                  <span>{tr ? it.tagTr : it.tagEn}</span>
-                </div>
+                  {tr ? it.tagTr : it.tagEn}
+                </span>
               </div>
+
+              {/* Headline — larger, dramatic */}
+              <div style={{
+                position: 'relative', zIndex: 1,
+                fontFamily: FONTS.display, fontWeight: 700,
+                fontSize: isMobile ? 'clamp(1.15rem, 4.5vw, 1.35rem)' : 'clamp(1.3rem, 1.9vw, 1.55rem)',
+                color: COLORS.offWhite, lineHeight: 1.3,
+                marginBottom: '16px',
+                letterSpacing: '-0.008em',
+                maxWidth: '760px',
+              }}>
+                {tr ? it.headlineTr : it.headlineEn}
+              </div>
+
+              {/* Body — explanation */}
+              <p style={{
+                position: 'relative', zIndex: 1,
+                fontFamily: FONTS.body,
+                fontSize: isMobile ? '0.92rem' : '0.96rem',
+                color: COLORS.silver, lineHeight: 1.8,
+                margin: 0, opacity: 0.92,
+                maxWidth: '760px',
+              }}>
+                {tr ? it.bodyTr : it.bodyEn}
+              </p>
             </div>
           );
         })}
