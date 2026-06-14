@@ -6884,12 +6884,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             const totalWords = spacePositions.length + 1;
                             const M = karaokeActiveWordIdx;
                             if (M >= 1 && M <= totalWords) {
+                              // Karaoke aktif kelime — refined (kalınlık şikayeti).
                               const karaokeWordStyle = {
                                 color: dayMode ? 'inherit' : '#fff0c8',
-                                background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                                background: dayMode ? 'rgba(184,134,11,0.15)' : 'rgba(212,165,116,0.13)',
                                 boxShadow: dayMode
-                                  ? '0 0 16px rgba(184,134,11,0.55)'
-                                  : '0 0 18px rgba(240,210,143,0.45)',
+                                  ? '0 0 10px rgba(184,134,11,0.30)'
+                                  : '0 0 10px rgba(240,210,143,0.26)',
                                 borderRadius: RADIUS.xs,
                                 padding: '0 2px',
                                 transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
@@ -6955,12 +6956,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     const hoverable = !!wordMeta;
                                     const isLast = i === lastIdx;
                                     const isActiveWord = isKaraokeVerse && karaokeActiveWordIdx === (i + 1);
+                                    // Karaoke aktif kelime stili — user feedback (kalınlık şikayeti):
+                                    // bg opacity 0.26-0.28 → 0.13-0.15, glow 16-18px@0.45-0.55 →
+                                    // 10px@0.26-0.30. Daha incelmiş, hâlâ visible. Cream/glow tonu
+                                    // korunuyor (önceden user-approved baseline).
                                     const karaokeStyle = isKaraokeVerse && isActiveWord ? {
                                       color: dayMode ? 'inherit' : '#fff0c8',
-                                      background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                                      background: dayMode ? 'rgba(184,134,11,0.15)' : 'rgba(212,165,116,0.13)',
                                       boxShadow: dayMode
-                                        ? '0 0 16px rgba(184,134,11,0.55)'
-                                        : '0 0 18px rgba(240,210,143,0.45)',
+                                        ? '0 0 10px rgba(184,134,11,0.30)'
+                                        : '0 0 10px rgba(240,210,143,0.26)',
                                       borderRadius: RADIUS.xs,
                                     } : {};
                                     const wordSpan = (
@@ -7842,12 +7847,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       padding: '1px 3px',
                                       borderRadius: RADIUS.xs,
                                       transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
+                                      // Karaoke aktif kelime — refined (bg opacity ve glow yarıya).
                                       ...(isKaraokeVerse && isActiveWord ? {
                                         color: dayMode ? 'inherit' : '#fff0c8',
-                                        background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                                        background: dayMode ? 'rgba(184,134,11,0.15)' : 'rgba(212,165,116,0.13)',
                                         boxShadow: dayMode
-                                          ? '0 0 16px rgba(184,134,11,0.55)'
-                                          : '0 0 18px rgba(240,210,143,0.45)',
+                                          ? '0 0 10px rgba(184,134,11,0.30)'
+                                          : '0 0 10px rgba(240,210,143,0.26)',
                                       } : {}),
                                     }}
                                   >
@@ -7882,12 +7888,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           if (M >= 1 && M <= totalWords) {
                             const wordStart = M === 1 ? 0 : spacePositions[M - 2] + 1;
                             const wordEnd = M < totalWords ? spacePositions[M - 1] : fullHtml.length;
+                            // Karaoke aktif kelime — refined (kalınlık şikayeti).
                             const karaokeWordStyle = {
                               color: dayMode ? 'inherit' : '#fff0c8',
-                              background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                              background: dayMode ? 'rgba(184,134,11,0.15)' : 'rgba(212,165,116,0.13)',
                               boxShadow: dayMode
-                                ? '0 0 16px rgba(184,134,11,0.55)'
-                                : '0 0 18px rgba(240,210,143,0.45)',
+                                ? '0 0 10px rgba(184,134,11,0.30)'
+                                : '0 0 10px rgba(240,210,143,0.26)',
                               borderRadius: RADIUS.xs,
                               padding: '0 2px',
                               transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
@@ -8070,12 +8077,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       padding: '1px 3px',
                                       borderRadius: RADIUS.xs,
                                       transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
+                                      // Karaoke aktif kelime — refined (bg opacity ve glow yarıya).
                                       ...(isKaraokeVerse && isActiveWord ? {
                                         color: dayMode ? 'inherit' : '#fff0c8',
-                                        background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                                        background: dayMode ? 'rgba(184,134,11,0.15)' : 'rgba(212,165,116,0.13)',
                                         boxShadow: dayMode
-                                          ? '0 0 16px rgba(184,134,11,0.55)'
-                                          : '0 0 18px rgba(240,210,143,0.45)',
+                                          ? '0 0 10px rgba(184,134,11,0.30)'
+                                          : '0 0 10px rgba(240,210,143,0.26)',
                                       } : {}),
                                     }}
                                   >
@@ -8110,12 +8118,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           if (M >= 1 && M <= totalWords) {
                             const wordStart = M === 1 ? 0 : spacePositions[M - 2] + 1;
                             const wordEnd = M < totalWords ? spacePositions[M - 1] : fullHtml.length;
+                            // Karaoke aktif kelime — refined (kalınlık şikayeti).
                             const karaokeWordStyle = {
                               color: dayMode ? 'inherit' : '#fff0c8',
-                              background: dayMode ? 'rgba(184,134,11,0.28)' : 'rgba(212,165,116,0.26)',
+                              background: dayMode ? 'rgba(184,134,11,0.15)' : 'rgba(212,165,116,0.13)',
                               boxShadow: dayMode
-                                ? '0 0 16px rgba(184,134,11,0.55)'
-                                : '0 0 18px rgba(240,210,143,0.45)',
+                                ? '0 0 10px rgba(184,134,11,0.30)'
+                                : '0 0 10px rgba(240,210,143,0.26)',
                               borderRadius: RADIUS.xs,
                               padding: '0 2px',
                               transition: 'background 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
