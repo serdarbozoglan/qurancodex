@@ -1363,7 +1363,7 @@ export default function Navbar() {
                                   Felsufi
                                 </span>
                                 <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.68rem', fontFamily: "'Inter', sans-serif" }}>
-                                  Medium ↗
+                                  {language === 'tr' ? 'Yazarın Medium profili ↗' : "Author's Medium profile ↗"}
                                 </span>
                               </span>
                             </a>
