@@ -64,14 +64,20 @@ export default function MobileSectionChipNav() {
   const { language } = useLanguage();
   // isDesktop yalnızca responsive styling için (chip padding/font/gap).
   // Component her breakpoint'te render olur — visibility scroll-trigger'a bağlı.
+  // EXCEPT: ≥1280px geniş ekranlarda DesktopSidebarTOC devreye girer; o yüzden
+  // chip nav otomatik gizlenir (premium feedback: çift navigasyon yorucu).
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isWideDesktop, setIsWideDesktop] = useState(false);
   const [visible, setVisible] = useState(false);
   const [activeId, setActiveId] = useState(null);
   const railRef = useRef(null);
   const chipRefs = useRef({});
 
   useEffect(() => {
-    const check = () => setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT);
+    const check = () => {
+      setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT);
+      setIsWideDesktop(window.innerWidth >= 1280);
+    };
     check();
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
@@ -133,6 +139,9 @@ export default function MobileSectionChipNav() {
     const targetY = Math.max(0, elTop - SCROLL_OFFSET);
     smoothScrollTo(targetY);
   }
+
+  // ≥1280px geniş ekran → DesktopSidebarTOC takes over, chip gizle.
+  if (isWideDesktop) return null;
 
   return (
     <nav

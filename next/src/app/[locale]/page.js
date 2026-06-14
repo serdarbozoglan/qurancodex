@@ -32,6 +32,7 @@ import ToolsShowcase from '@/sections/ToolsShowcase';
 import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
 import MobileSectionChipNav from '@/components/MobileSectionChipNav';
+import DesktopSidebarTOC from '@/components/DesktopSidebarTOC';
 import ScrollToTopFab from '@/components/ScrollToTopFab';
 import HashAnchorScroll from '@/components/HashAnchorScroll';
 
@@ -57,6 +58,7 @@ export default async function Home({ params }) {
       <JsonLd schemas={buildBreadcrumb(locale, '')} />
       <HashAnchorScroll />
       <MobileSectionChipNav />
+      <DesktopSidebarTOC />
       <ScrollToTopFab />
       <Hero />
       <PathCards />
