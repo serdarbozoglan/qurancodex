@@ -14,9 +14,14 @@ import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
+// CHAPTERS — homepage section order ile birebir uyumlu olmalı. Eksik bölüm
+// olursa visitor "atlandı mı?" hissi yaşar (UX hatası).
+// Order: page.js dosyasındaki render sırasını birebir takip eder.
 const CHAPTERS = [
   { id: 'linguistic',          labelTr: 'Dilsel DNA',           labelEn: 'Linguistic DNA'          },
   { id: 'rhythm',              labelTr: 'İmkansız Ritim',       labelEn: 'Impossible Rhythm'       },
+  { id: 'rhetoric',            labelTr: "Kur'an'ın Retoriği",   labelEn: "Quran's Rhetoric"        },
+  { id: 'dua-language',        labelTr: 'Dua Dili',             labelEn: 'Language of Prayer'      },
   { id: 'sounds',              labelTr: 'Ses Mimarisi',         labelEn: 'Sound Architecture'      },
   { id: 'hidden-architecture', labelTr: 'Yapısal Mimari',       labelEn: 'Structural Architecture' },
   { id: 'science',             labelTr: 'Bilimsel İşaretler',   labelEn: 'Scientific Signs'        },
