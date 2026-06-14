@@ -2819,7 +2819,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       letterSpacing: '0.01em',
                       fontWeight: 400,
                     }}>
-                      {language === 'tr' ? 'Sûre, 2:245, sayfa, kelime…' : 'Surah, 2:245, page, word…'}
+                      {language === 'tr' ? 'Sure, sayfa veya ayet ara…' : 'Search surah, page or verse…'}
                     </span>
                     <kbd style={{
                       fontSize: '0.62rem',
