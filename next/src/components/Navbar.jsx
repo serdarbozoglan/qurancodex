@@ -203,6 +203,9 @@ export default function Navbar() {
   const [toolsOpen, setToolsOpen]       = useState(false);
   const [exploreOpen, setExploreOpen]   = useState(false);
   const [tefekkurOpen, setTefekkurOpen] = useState(false);
+  // Dynamic featured tefekkur article — _index.json'dan publishedDate DESC en yeni 1 makale.
+  // Önce hardcoded 'tugyan' idi; yeni makale eklenince auto-update edemiyordu.
+  const [tefekkurFeatured, setTefekkurFeatured] = useState(null);
   // Faz 4.5 — overlay state localStorage'dan hydrate edilmez; graf artık route'tur.
   const [graphOpen, setGraphOpen]       = useState(false);
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
@@ -342,6 +345,33 @@ export default function Navbar() {
     const h = () => setRetorigiOpen(true);
     window.addEventListener('openKuranRetorigi', h);
     return () => window.removeEventListener('openKuranRetorigi', h);
+  }, []);
+
+  // Tefekkür dropdown — en yeni makaleyi _index.json'dan dinamik çek (önceden
+  // 'tugyan' hardcoded'tı; yeni makale eklenince güncelleme manuel oluyordu).
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/tefekkur/_index.json')
+      .then(r => r.json())
+      .then(data => {
+        if (cancelled) return;
+        const articles = (data?.articles || []).filter(a => a.publishedDate);
+        if (!articles.length) return;
+        // publishedDate DESC sort, en yeni 1 makaleyi seç
+        articles.sort((a, b) => (b.publishedDate || '').localeCompare(a.publishedDate || ''));
+        const latest = articles[0];
+        // Kategorisinden accent rengini bul
+        const catAccent = (data?.categories || []).find(c => c.id === latest.category)?.accent || '#d4a574';
+        setTefekkurFeatured({
+          slug: latest.slug,
+          titleTr: latest.titleTr,
+          titleEn: latest.titleEn,
+          meta: `${latest.readingMinutes || '~5'} dk`,
+          accent: catAccent,
+        });
+      })
+      .catch(err => console.warn('[Navbar] tefekkur _index fetch failed:', err));
+    return () => { cancelled = true; };
   }, []);
 
   // Listen for ToolsShowcase events
@@ -1277,9 +1307,11 @@ export default function Navbar() {
                       { id: 'kozmoloji', accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation', descTr: 'Yaratılış, kuantum, evrim', descEn: 'Creation, quantum & evolution', count: 7 },
                     ];
 
-                    const featuredArticles = [
-                      { slug: 'tugyan', titleTr: 'Tuğyan (Semantik 4)', titleEn: 'Tughyan (Semantic 4)', meta: '3 dk', accent: '#8b5cf6' },
-                    ];
+                    // Dynamic featured — _index.json'dan en yeni makale.
+                    // Fetch henüz tamamlanmadıysa fallback olarak Tuğyan.
+                    const featuredArticles = tefekkurFeatured
+                      ? [tefekkurFeatured]
+                      : [{ slug: 'tugyan', titleTr: 'Tuğyan (Semantik 4)', titleEn: 'Tughyan (Semantic 4)', meta: '3 dk', accent: '#8b5cf6' }];
 
                     return (
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
