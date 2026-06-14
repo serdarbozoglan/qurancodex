@@ -35,6 +35,11 @@ export default function SectionWrapper({
   // after Hero gets a breathing gap. Mobile gets a larger lift
   // (pt-14) while desktop keeps the default (md:pt-10).
   firstAfterHero = false,
+  // Section seam filigree — minimal decorative divider at section top.
+  // Default true (her section'ın başında subtle ✦ + line); homepage
+  // breathing room iyileştirmesi (kullanıcı feedback).
+  // İlk section (firstAfterHero) için kapalı — Hero ile çakışmasın.
+  seam = true,
 }) {
   // lang attribute ensures CSS text-transform: uppercase uses the correct
   // locale rules for ALL child elements. Without this, html[lang="tr"]
@@ -48,6 +53,11 @@ export default function SectionWrapper({
   // fadeUpItem or inherit from staggerContainer — single-point accessibility.
   const reduced = useReducedMotion();
 
+  // Padding sistemi — user feedback: 'çok kalabalık, breathing room az'.
+  // Eski: py-10 (40px top + 40px bottom). Yeni: py-16 md:py-24 (64-96px).
+  // ~2x breathing room artışı. Section'lar arası tonlanmış nefes ritmi oluşur.
+  const showSeam = seam && !firstAfterHero;
+
   return (
     <motion.section
       id={id}
@@ -55,13 +65,49 @@ export default function SectionWrapper({
       className={`relative overflow-hidden ${
         noPadding
           ? ''
-          : `py-10 px-6 md:px-12 lg:px-16${firstAfterHero ? ' pt-14 md:pt-10' : ''}`
+          : `py-16 md:py-24 px-6 md:px-12 lg:px-16${firstAfterHero ? ' pt-14 md:pt-10' : ''}`
       } ${dark ? 'bg-deep-navy' : 'bg-cosmic-black'} ${className}`}
       variants={reduced ? undefined : staggerContainer}
       initial={reduced ? false : 'hidden'}
       whileInView={reduced ? undefined : 'visible'}
       viewport={{ once: true, margin: '-80px' }}
     >
+      {/* Section seam — subtle filigree divider at top.
+          Visitor'a "yeni bir bölüme girdim" hissi verir; cinematic rhythm. */}
+      {showSeam && !noPadding && (
+        <div
+          aria-hidden="true"
+          className="relative z-10 flex items-center justify-center gap-3 mb-10 md:mb-14"
+        >
+          <span
+            className="block"
+            style={{
+              width: 'clamp(80px, 16vw, 140px)',
+              height: '1px',
+              background: 'linear-gradient(to right, transparent, rgba(212,165,116,0.45), transparent)',
+            }}
+          />
+          <span
+            style={{
+              color: 'rgba(212,165,116,0.55)',
+              fontSize: '0.65rem',
+              letterSpacing: '0.2em',
+              lineHeight: 1,
+            }}
+          >
+            ✦
+          </span>
+          <span
+            className="block"
+            style={{
+              width: 'clamp(80px, 16vw, 140px)',
+              height: '1px',
+              background: 'linear-gradient(to right, transparent, rgba(212,165,116,0.45), transparent)',
+            }}
+          />
+        </div>
+      )}
+
       <div className="relative z-10 max-w-6xl mx-auto">
         {children}
       </div>

@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS } from '../tokens';
+import { COLORS, FONTS } from '../tokens';
 import ParticleBackground from './ParticleBackground';
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const reduced = useReducedMotion();
 
   // SSR-safe mobile detection (§16.6) — initial false, hydrate post-mount.
@@ -56,6 +56,111 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+
+        {/* Bismillah ornament — premium pattern (Esma flagship parity).
+            Reverence sinyali; meta-discovery framing'i bozmadan ekler. */}
+        <motion.div
+          dir="rtl"
+          lang="ar"
+          aria-label="Bismillāh"
+          style={{
+            fontFamily: "'Amiri Quran', 'Amiri', serif",
+            fontSize: isMobile ? '1.45rem' : '1.85rem',
+            color: COLORS.gold,
+            opacity: 0.85,
+            lineHeight: 1,
+            marginBottom: isMobile ? '28px' : '40px',
+            textShadow: `0 0 22px ${COLORS.gold}28`,
+          }}
+          {...entrance(
+            { opacity: 0, y: 12 },
+            { opacity: 0.85, y: 0 },
+            { duration: 1.1, delay: 0.15, ease: 'easeOut' }
+          )}
+        >
+          ﷽
+        </motion.div>
+
+        {/* Anchor verse — Şûrâ 42:11 (tanzîh: O'nun benzeri yoktur).
+            Tüm sayfanın theological guard rail'i — isimler/yapılar O'nu
+            tanır, ama kuşatmaz. */}
+        <motion.p
+          dir="rtl"
+          lang="ar"
+          style={{
+            fontFamily: FONTS.quran,
+            fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.4vw, 1.7rem)',
+            color: COLORS.gold,
+            lineHeight: 2.1,
+            margin: '0 auto 16px',
+            maxWidth: '760px',
+            textShadow: `0 0 20px ${COLORS.gold}1c`,
+          }}
+          {...entrance(
+            { opacity: 0, y: 16 },
+            { opacity: 1, y: 0 },
+            { duration: 1.0, delay: 0.45 }
+          )}
+        >
+          لَيْسَ كَمِثْلِهٖ شَيْءٌ وَهُوَ السَّمٖيعُ الْبَصٖيرُ
+        </motion.p>
+
+        <motion.p
+          style={{
+            color: 'rgba(232,230,227,0.92)',
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.05rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 6px',
+            maxWidth: '580px',
+          }}
+          {...entrance(
+            { opacity: 0, y: 12 },
+            { opacity: 0.92, y: 0 },
+            { duration: 0.9, delay: 0.7 }
+          )}
+        >
+          "{language === 'tr'
+            ? "O'nun benzeri hiçbir şey yoktur. O hakkıyla işitendir, hakkıyla görendir."
+            : "Nothing is like Him; and He is the All-Hearing, the All-Seeing."}"
+        </motion.p>
+
+        <motion.p
+          style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            margin: '0 0 36px',
+            opacity: 0.6,
+          }}
+          {...entrance(
+            { opacity: 0 },
+            { opacity: 0.6 },
+            { duration: 0.7, delay: 0.85 }
+          )}
+        >
+          — {language === 'tr' ? 'Şûrâ 42:11' : 'al-Shūrā 42:11'}
+        </motion.p>
+
+        {/* Filigree divider — anchor verse'ten ana başlığa geçiş eşiği */}
+        <motion.div
+          aria-hidden="true"
+          style={{
+            width: '160px',
+            height: '1px',
+            background: `linear-gradient(to right, transparent, ${COLORS.gold}70, transparent)`,
+            margin: '0 auto 36px',
+          }}
+          {...entrance(
+            { scaleX: 0, opacity: 0 },
+            { scaleX: 1, opacity: 1 },
+            { duration: 0.9, delay: 1.0 }
+          )}
+        />
+
         {/* Title — softened a notch (lg: 7xl → 6xl) and looser leading,
             so the headline invites rather than declares. */}
         <motion.h1
@@ -63,7 +168,7 @@ export default function Hero() {
           {...entrance(
             { opacity: 0, y: 40 },
             { opacity: 1, y: 0 },
-            { duration: 1.2, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
+            { duration: 1.2, delay: 1.15, ease: [0.25, 0.46, 0.45, 0.94] }
           )}
         >
           {t('hero.title')}
@@ -75,7 +180,7 @@ export default function Hero() {
           {...entrance(
             { opacity: 0, y: 25 },
             { opacity: 1, y: 0 },
-            { duration: 0.9, delay: 0.8 }
+            { duration: 0.9, delay: 1.5 }
           )}
         >
           {t('hero.subtitle')}
@@ -87,7 +192,7 @@ export default function Hero() {
           {...entrance(
             { scaleX: 0 },
             { scaleX: 1 },
-            { duration: 0.8, delay: 1.1 }
+            { duration: 0.8, delay: 1.75 }
           )}
         />
 
@@ -103,7 +208,7 @@ export default function Hero() {
           {...entrance(
             { opacity: 0, y: 20 },
             { opacity: 1, y: 0 },
-            { duration: 0.9, delay: 1.2 }
+            { duration: 0.9, delay: 1.95 }
           )}
         >
           {t('hero.description').split('\n\n').map((para, i, arr) => (
@@ -120,7 +225,7 @@ export default function Hero() {
           {...entrance(
             { opacity: 0, y: 10 },
             { opacity: 1, y: 0 },
-            { duration: 0.8, delay: 1.5 }
+            { duration: 0.8, delay: 2.25 }
           )}
         >
           <motion.button
@@ -148,7 +253,7 @@ export default function Hero() {
         {...entrance(
           { opacity: 0 },
           { opacity: 1 },
-          { delay: 2.5, duration: 1 }
+          { delay: 3.0, duration: 1 }
         )}
       >
         <span className="text-gold/25 text-xs font-body tracking-widest uppercase">
