@@ -8637,12 +8637,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 ctx.lineCap = 'round';
                 ctx.strokeStyle = 'rgba(0,0,0,1)';
               } else if (drawColor === 'highlight') {
-                // Translucent thick stroke; "multiply" blends like a real marker but
-                // looks muddy on a transparent canvas — source-over with low alpha is cleaner.
+                // Highlighter — user feedback (2026-06-14): "kalın ve user friendly değil".
+                // İncelttim ve daha şeffaf yaptım:
+                //   lineWidth: 18 → 14 (daha az fiziksel kalınlık)
+                //   alpha:     0x55 (~33%) → 0x2e (~18%) (overlap'te bile metin okunabilir)
+                // 'square' cap korundu — gerçek highlighter kalemi hissi için.
                 ctx.globalCompositeOperation = 'source-over';
-                ctx.lineWidth = 18;
+                ctx.lineWidth = 14;
                 ctx.lineCap = 'square';
-                ctx.strokeStyle = lastColor + '55'; // ~33% alpha
+                ctx.strokeStyle = lastColor + '2e'; // ~18% alpha
               } else {
                 ctx.globalCompositeOperation = 'source-over';
                 ctx.lineWidth = 3;
