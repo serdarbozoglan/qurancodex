@@ -1223,11 +1223,26 @@ export default function Navbar() {
                         style={{
                           display: 'flex', alignItems: 'center', gap: '12px',
                           width: '100%', textAlign: 'left',
-                          padding: '9px 12px', borderRadius: '10px', border: 'none',
-                          background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
+                          padding: '10px 12px', borderRadius: '10px', border: '1px solid transparent',
+                          background: 'transparent', cursor: 'pointer',
+                          transition: 'background 0.15s, border-color 0.15s, transform 0.12s',
                         }}
-                        onMouseEnter={e => { e.currentTarget.style.background = `${cat.accent}14`; e.currentTarget.querySelector('.tdot').style.boxShadow = `0 0 12px ${cat.accent}99`; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.tdot').style.boxShadow = 'none'; }}
+                        onMouseEnter={e => {
+                          e.currentTarget.style.background = `${cat.accent}14`;
+                          e.currentTarget.style.borderColor = `${cat.accent}30`;
+                          e.currentTarget.style.transform = 'translateX(2px)';
+                          e.currentTarget.querySelector('.tdot').style.boxShadow = `0 0 12px ${cat.accent}99`;
+                          const arrow = e.currentTarget.querySelector('.tarr');
+                          if (arrow) { arrow.style.opacity = '1'; arrow.style.transform = 'translateX(2px)'; arrow.style.color = cat.accent; }
+                        }}
+                        onMouseLeave={e => {
+                          e.currentTarget.style.background = 'transparent';
+                          e.currentTarget.style.borderColor = 'transparent';
+                          e.currentTarget.style.transform = 'translateX(0)';
+                          e.currentTarget.querySelector('.tdot').style.boxShadow = 'none';
+                          const arrow = e.currentTarget.querySelector('.tarr');
+                          if (arrow) { arrow.style.opacity = '0.35'; arrow.style.transform = 'translateX(0)'; arrow.style.color = 'rgba(148,163,184,0.55)'; }
+                        }}
                       >
                         <span className="tdot" style={{
                           width: '8px', height: '8px', borderRadius: '50%',
@@ -1242,6 +1257,14 @@ export default function Navbar() {
                           </span>
                         </span>
                         <span style={{ fontSize: '0.66rem', fontWeight: 700, color: 'rgba(148,163,184,0.5)', fontFamily: "'Inter', sans-serif" }}>{cat.count}</span>
+                        <span className="tarr" style={{
+                          color: 'rgba(148,163,184,0.55)',
+                          opacity: 0.35,
+                          fontSize: '0.85rem', lineHeight: 1,
+                          transition: 'opacity 0.15s, transform 0.15s, color 0.15s',
+                          fontFamily: "'Inter', sans-serif",
+                          flexShrink: 0,
+                        }}>→</span>
                       </button>
                     );
 
@@ -1318,22 +1341,45 @@ export default function Navbar() {
                                 key={art.slug}
                                 onClick={() => { router.push(`/${language}/tefekkur/${art.slug}`); setTefekkurOpen(false); }}
                                 style={{
-                                  display: 'flex', flexDirection: 'column', gap: '4px',
+                                  display: 'flex', alignItems: 'flex-start', gap: '10px',
                                   width: '100%', textAlign: 'left',
                                   padding: '10px 12px', borderRadius: '10px', border: 'none',
                                   background: 'transparent', cursor: 'pointer',
                                   borderLeft: `2px solid ${art.accent}55`,
-                                  transition: 'background 0.15s, border-color 0.15s',
+                                  transition: 'background 0.15s, border-color 0.15s, transform 0.12s',
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = `${art.accent}10`; e.currentTarget.style.borderLeftColor = art.accent; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderLeftColor = `${art.accent}55`; }}
+                                onMouseEnter={e => {
+                                  e.currentTarget.style.background = `${art.accent}10`;
+                                  e.currentTarget.style.borderLeftColor = art.accent;
+                                  e.currentTarget.style.transform = 'translateX(2px)';
+                                  const arr = e.currentTarget.querySelector('.farr');
+                                  if (arr) { arr.style.opacity = '1'; arr.style.transform = 'translateX(2px)'; arr.style.color = art.accent; }
+                                }}
+                                onMouseLeave={e => {
+                                  e.currentTarget.style.background = 'transparent';
+                                  e.currentTarget.style.borderLeftColor = `${art.accent}55`;
+                                  e.currentTarget.style.transform = 'translateX(0)';
+                                  const arr = e.currentTarget.querySelector('.farr');
+                                  if (arr) { arr.style.opacity = '0.35'; arr.style.transform = 'translateX(0)'; arr.style.color = 'rgba(148,163,184,0.55)'; }
+                                }}
                               >
-                                <span style={{ color: '#e8e6e3', fontSize: '0.84rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
-                                  {language === 'tr' ? art.titleTr : art.titleEn}
+                                <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, minWidth: 0 }}>
+                                  <span style={{ color: '#e8e6e3', fontSize: '0.84rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                                    {language === 'tr' ? art.titleTr : art.titleEn}
+                                  </span>
+                                  <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif" }}>
+                                    {art.meta} · {language === 'tr' ? 'okuma' : 'read'}
+                                  </span>
                                 </span>
-                                <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif" }}>
-                                  {art.meta} · {language === 'tr' ? 'okuma' : 'read'}
-                                </span>
+                                <span className="farr" style={{
+                                  color: 'rgba(148,163,184,0.55)',
+                                  opacity: 0.35,
+                                  fontSize: '0.85rem', lineHeight: 1,
+                                  transition: 'opacity 0.15s, transform 0.15s, color 0.15s',
+                                  fontFamily: "'Inter', sans-serif",
+                                  flexShrink: 0,
+                                  marginTop: '3px',
+                                }}>→</span>
                               </button>
                             ))}
 
