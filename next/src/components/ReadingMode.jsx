@@ -1265,6 +1265,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const drawCanvasRef = useRef(null);
   const drawingActiveRef = useRef(false);
   const drawLastPointRef = useRef(null);
+  // Highlighter snap-to-line rectangle state:
+  // - highlightStartRef: stroke başlangıç noktası (sabit Y için anchor)
+  // - highlightSnapshotRef: pointerdown anındaki canvas image data (preview clear için)
+  // User feedback (2026-06-14): brush stroke uchsuz/inconsistent → snap-to-line
+  // rectangle. Visitor yatay drag yapar, sabit y'de düz horizontal bar görünür.
+  const highlightStartRef = useRef(null);
+  const highlightSnapshotRef = useRef(null);
   // Tahta canvas anchors to scroll container content (not viewport) so
   // drawings move with the verses when user scrolls. Tracked in state so
   // CSS transform on canvas stays in sync.
@@ -8621,6 +8628,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               e.currentTarget.setPointerCapture(e.pointerId);
               drawingActiveRef.current = true;
               drawLastPointRef.current = { x, y };
+              // Highlighter modu için snap-to-line rectangle state:
+              // pointerdown'da canvas snapshot al (preview clear için) + start anchor
+              if (drawColor === 'highlight') {
+                const c = drawCanvasRef.current;
+                if (c) {
+                  const ctx = c.getContext('2d');
+                  try {
+                    highlightSnapshotRef.current = ctx.getImageData(0, 0, c.width, c.height);
+                    highlightStartRef.current = { x, y };
+                  } catch { /* CORS / tainted canvas — fallback brush */ }
+                }
+              }
             }}
             onPointerMove={(e) => {
               if (!drawingActiveRef.current) return;
@@ -8636,32 +8655,76 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 ctx.lineWidth = 22;
                 ctx.lineCap = 'round';
                 ctx.strokeStyle = 'rgba(0,0,0,1)';
+                ctx.beginPath();
+                ctx.moveTo(last.x, last.y);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                hasDrawnRef.current = true;
+                drawLastPointRef.current = { x, y };
               } else if (drawColor === 'highlight') {
-                // Highlighter — user feedback (2026-06-14): "kalın ve user friendly değil".
-                // İncelttim ve daha şeffaf yaptım:
-                //   lineWidth: 18 → 14 (daha az fiziksel kalınlık)
-                //   alpha:     0x55 (~33%) → 0x2e (~18%) (overlap'te bile metin okunabilir)
-                // 'square' cap korundu — gerçek highlighter kalemi hissi için.
+                // Snap-to-line rectangle: brush stroke yerine sabit y'de düz
+                // horizontal bar. Visitor X axis'te drag yapar, Y kilitli kalır.
+                // Tutarlı, "fırça darbesi" görünümü yok.
+                const start = highlightStartRef.current;
+                const snapshot = highlightSnapshotRef.current;
+                if (!start || !snapshot) {
+                  // Snapshot başarısız → eski brush davranışına fallback
+                  ctx.globalCompositeOperation = 'source-over';
+                  ctx.lineWidth = 14;
+                  ctx.lineCap = 'square';
+                  ctx.strokeStyle = lastColor + '2e';
+                  ctx.beginPath();
+                  ctx.moveTo(last.x, last.y);
+                  ctx.lineTo(x, y);
+                  ctx.stroke();
+                  drawLastPointRef.current = { x, y };
+                  hasDrawnRef.current = true;
+                  return;
+                }
+                // 1. Canvas'ı pointerdown anına restore et (preview clear)
+                ctx.putImageData(snapshot, 0, 0);
+                // 2. Sabit y'de düz horizontal rectangle çiz
+                const rectHeight = 22;
+                const rectY = start.y - rectHeight / 2;
+                const rectX = Math.min(start.x, x);
+                const rectW = Math.abs(x - start.x);
                 ctx.globalCompositeOperation = 'source-over';
-                ctx.lineWidth = 14;
-                ctx.lineCap = 'square';
-                ctx.strokeStyle = lastColor + '2e'; // ~18% alpha
+                ctx.fillStyle = lastColor + '2e'; // ~18% alpha
+                ctx.fillRect(rectX, rectY, rectW, rectHeight);
+                hasDrawnRef.current = true;
+                drawLastPointRef.current = { x, y };
               } else {
                 ctx.globalCompositeOperation = 'source-over';
                 ctx.lineWidth = 3;
                 ctx.lineCap = 'round';
                 ctx.strokeStyle = drawColor;
+                ctx.beginPath();
+                ctx.moveTo(last.x, last.y);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                hasDrawnRef.current = true;
+                drawLastPointRef.current = { x, y };
               }
-              ctx.beginPath();
-              ctx.moveTo(last.x, last.y);
-              ctx.lineTo(x, y);
-              ctx.stroke();
-              hasDrawnRef.current = true;
-              drawLastPointRef.current = { x, y };
             }}
-            onPointerUp={() => { drawingActiveRef.current = false; drawLastPointRef.current = null; }}
-            onPointerCancel={() => { drawingActiveRef.current = false; drawLastPointRef.current = null; }}
-            onPointerLeave={() => { drawingActiveRef.current = false; drawLastPointRef.current = null; }}
+            onPointerUp={() => {
+              drawingActiveRef.current = false;
+              drawLastPointRef.current = null;
+              // Highlighter snap-to-line state cleanup
+              highlightStartRef.current = null;
+              highlightSnapshotRef.current = null;
+            }}
+            onPointerCancel={() => {
+              drawingActiveRef.current = false;
+              drawLastPointRef.current = null;
+              highlightStartRef.current = null;
+              highlightSnapshotRef.current = null;
+            }}
+            onPointerLeave={() => {
+              drawingActiveRef.current = false;
+              drawLastPointRef.current = null;
+              highlightStartRef.current = null;
+              highlightSnapshotRef.current = null;
+            }}
           />
 
           {/* Persistent text annotations — clickable to edit, draggable to move (only in text mode).
