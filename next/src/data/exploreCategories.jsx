@@ -265,15 +265,6 @@ export const EXPLORE_CATEGORIES = [
         descEn: 'Ring composition & symmetry',
       },
       {
-        id:     'mukattaa',
-        kind:   'overlay',
-        target: 'mukattaa',
-        icon:   LinguisticIcon,
-        titleTr: 'Huruf-i Mukattaa',      titleEn: 'Mukattaʿāt',
-        descTr: '14 gizemli harf · 29 sûre · 4 aile',
-        descEn: '14 mysterious letters · 29 suras · 4 families',
-      },
-      {
         id:     'ilkSon',
         kind:   'overlay',
         target: 'ilkSon',
