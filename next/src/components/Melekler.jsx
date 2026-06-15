@@ -436,6 +436,63 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
       <p style={{ fontSize: '0.85rem', color: COLORS.slate500, fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
         {tr ? "Kur'an melekleri tanım değil görev üzerinden anlatır." : 'The Quran defines angels by function, not by description.'}
       </p>
+
+      {/* ── VAHY-İ TABÎÎ — Vahyin 4 Katmanı ──────────────────── */}
+      <div style={{
+        background: 'rgba(212,165,116,0.04)',
+        border: `1px solid ${COLORS.goldAlpha25}`,
+        borderLeft: `3px solid ${GOLD}`,
+        borderRadius: RADIUS.lg,
+        padding: '20px 22px',
+        marginBottom: '24px',
+        maxWidth: '780px',
+      }}>
+        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: GOLD, opacity: 0.85, margin: '0 0 12px', fontFamily: FONTS.body }}>
+          {tr ? "Vahyin Dört Katmanı" : "Four Levels of Revelation"}
+        </p>
+        <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
+          {tr ? "Allah sadece peygamberlere değil — arılara da, göklere de vahyeder" : "Allah reveals not only to prophets — but also to bees and to the heavens"}
+        </p>
+        <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: '0 0 16px', fontFamily: FONTS.body }}>
+          {tr
+            ? "Klasik tefsir vahyi (وَحْي) 4 katmana ayırır. Bu çerçeve, meleklerin nasıl çalıştığını ve doğa ile ilişkimizi anlamanın anahtarıdır."
+            : "Classical tafsir distinguishes four levels of waḥy (وَحْي). This framework is the key to understanding how angels operate and our relationship with nature."}
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>
+              {tr ? "1. Vahy-i Şer'î (peygamberlere)" : "1. Waḥy-i Sharʿī (to prophets)"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+              {tr ? "Cibrîl aracılığıyla peygamberlere indirilen şeriat vahyi. Şûrâ 42:51-52 üç tarz tanımlar: arkadan, perde ardından, elçi ile." : "Sharia revelation sent down to prophets via Jibrīl. Shūrā 42:51-52 names three modes: from behind, behind a veil, through an envoy."}
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>
+              {tr ? "2. İlhâm (peygamber olmayan insanlara)" : "2. Ilhām (to non-prophets)"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+              {tr ? "Kasas 28:7'de Hz. Mûsâ'nın annesine \"vahyettik\" denir — peygamber olmayan biridir. Anlamı: kalbe ilkâ, içsel yönlendirme." : "In Qaṣaṣ 28:7, Allah says He 'revealed to' Moses's mother — yet she is not a prophet. Meaning: ilqāʾ to the heart, inner guidance."}
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>
+              {tr ? "3. Vahy-i Tabîî (hayvanlara, göklere)" : "3. Waḥy-i Ṭabīʿī (to animals, to the heavens)"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+              {tr ? "Nahl 16:68: \"Rabbin arıya vahyetti.\" Fussilet 41:12: \"Her göğe görevini vahyetti.\" Doğal içgüdü ve fiziksel yasalar — meleklerin tasarrufu olarak okunabilir (klasik Eşârî/Mâturîdî pozisyon)." : "Naḥl 16:68: 'Your Lord revealed to the bee.' Fuṣṣilat 41:12: 'He revealed to each sky its command.' Natural instinct and physical laws — readable as angelic mediation (classical Ashʿarī/Māturīdī position)."}
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>
+              {tr ? "4. Vesvese (şeytanın fısıltısı — anti-vahy)" : "4. Waswasa (Satanic whisper — anti-revelation)"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+              {tr ? "Nâs 114:5: \"İnsanların göğüslerine vesvese veren.\" Vahy ile aynı kanalı kullanır — kalbe ilkâ — ama tersi yönde. Klasik tasavvuf bu ikisini ayırt etmenin yöntemlerini geliştirir." : "Nās 114:5: 'who whispers into the breasts of mankind.' It uses the same channel as waḥy — ilqāʾ to the heart — but in the opposite direction. Classical Sufism develops methods to distinguish the two."}
+            </p>
+          </div>
+        </div>
+      </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
         {(data.gorevler || []).map((g, i) => {
           const accent = GOREV_COLORS[g.id] || GOLD;

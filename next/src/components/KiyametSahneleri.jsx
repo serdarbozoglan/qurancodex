@@ -783,6 +783,61 @@ function TabKronoloji({ data, language, isMobile: _isMobile }) {
         </p>
       </div>
 
+      {/* ── EŞRÂT-I SÂAT — Klasik 3 Aşama ──────────────────────── */}
+      <div style={{
+        background: 'rgba(212,165,116,0.04)',
+        border: `1px solid ${COLORS.goldAlpha25}`,
+        borderLeft: `3px solid ${GOLD}`,
+        borderRadius: RADIUS.lg,
+        padding: '20px 22px',
+        marginBottom: '28px',
+        maxWidth: '780px',
+      }}>
+        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: GOLD, opacity: 0.85, margin: '0 0 12px', fontFamily: FONTS.body }}>
+          {language === 'tr' ? "Eşrât-ı Sâat · Klasik 3 Aşama" : "Ashrāṭ al-Sāʿa · Three Classical Phases"}
+        </p>
+        <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
+          {language === 'tr' ? "Saatin Alâmetleri — Üç Halka" : "Signs of the Hour — Three Concentric Circles"}
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>
+              {language === 'tr' ? "1. Küçük Alâmetler (eşrâtu's-suğrâ)" : "1. Minor Signs (ashrāṭ al-ṣughrā)"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+              {language === 'tr'
+                ? "Hz. Peygamber'in gelişi (Muhammed 47:18), Mekke fethi, ilim çekilmesi, ahlâkın bozulması — hadisle aktarılan, ahlâkî/kültürel işaretler. Buhârî · Müslim'de yüzlerce rivayet."
+                : "The Prophet's coming (Muhammad 47:18), the conquest of Mecca, the recession of knowledge, the corruption of morals — moral/cultural signs transmitted via hadith. Hundreds of reports in al-Bukhārī and Muslim."}
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>
+              {language === 'tr' ? "2. Orta Alâmetler (eşrâtu'l-vüstâ)" : "2. Middle Signs (ashrāṭ al-wusṭā)"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+              {language === 'tr'
+                ? "Ye'cûc-Me'cûc (Kehf 18:94-98, Enbiyâ 21:96), Dâbbetü'l-Arz (Neml 27:82), Duman (Duhân 44:10) — Kur'an'da doğrudan zikredilen, çağ-üstü işaretler."
+                : "Gog and Magog (Kahf 18:94-98, Anbiyāʾ 21:96), the Beast of the Earth (Naml 27:82), the Smoke (Dukhān 44:10) — meta-historical signs explicitly named in the Quran."}
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>
+              {language === 'tr' ? "3. Büyük Alâmetler (eşrâtu'l-kübrâ)" : "3. Major Signs (ashrāṭ al-kubrā)"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+              {language === 'tr'
+                ? "Sûr'a ilk üfürüş (Zümer 39:68), göğün yarılması (Furkan 25:25, İnşikâk 84:1), dağların pamuk gibi atılması (Kâria 101:5), denizlerin tutuşması (Tekvîr 81:6) — kozmik düzenin çözülüşü, Kur'an'ın özünde tasvir ettiği."
+                : "First blast of the trumpet (Zumar 39:68), the splitting of the sky (Furqān 25:25, Inshiqāq 84:1), mountains scattered like wool (Qāriʿa 101:5), seas set ablaze (Takwīr 81:6) — the unraveling of cosmic order, the Quran's core depiction."}
+            </p>
+          </div>
+        </div>
+        <p style={{ fontSize: '0.72rem', color: COLORS.silver, opacity: 0.65, margin: '14px 0 0', fontFamily: FONTS.body, lineHeight: 1.5 }}>
+          {language === 'tr'
+            ? "Üç halka iç içe geçer: küçük olanlar yaşadığımız zaman içinde, orta olanlar tarihin sonuna doğru, büyük olanlar saatin ilk anında. — Suyûtî, Buhârî Eşrâtu's-Sâat fasılları"
+            : "The three rings nest within each other: minor signs unfold in lived history, middle in history's closing, major in the Hour's first instant. — al-Suyūṭī; al-Bukhārī, chapters on Ashrāṭ al-Sāʿa"}
+        </p>
+      </div>
+
       {phases.map(phaseNum => {
         const scenes = data.scenes.filter(s => s.phase === phaseNum);
         const pc = PHASE_COLORS[phaseNum];

@@ -806,6 +806,61 @@ export default function ZamanBoyutlari({ onClose }) {
             : "The Quranic understanding of time: philosophical and linguistic dimensions"}
         </p>
 
+        {/* ── KLASİK FİLOZOFLAR + MODERN FİZİK — Karşılaştırma Callout ───── */}
+        <div style={{
+          background: 'rgba(212,165,116,0.04)',
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          borderLeft: `3px solid ${COLORS.gold}`,
+          borderRadius: RADIUS.lg,
+          padding: '22px 24px',
+          marginBottom: '24px',
+          maxWidth: '780px',
+        }}>
+          <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.85, margin: '0 0 12px', fontFamily: FONTS.body }}>
+            {language === 'tr' ? "Zaman · Filozoflar ve Fizikçiler" : "Time · Philosophers and Physicists"}
+          </p>
+          <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
+            {language === 'tr' ? "Zamanın Akışı Sabit Değildir" : "The Flow of Time Is Not Fixed"}
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div>
+              <p style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 4px', fontFamily: FONTS.body }}>
+                {language === 'tr' ? "İmam Gazâlî (ö. 1111) — \"An\" kavramı" : "Imam al-Ghazālī (d. 1111) — The concept of \"an\""}
+              </p>
+              <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+                {language === 'tr'
+                  ? "Tehâfütü'l-Felâsife'de zamanın bölünmez \"an\" parçalarından oluştuğunu savunur — Aristoteles'in sürekli zaman görüşüne karşı atomcu zaman. Allah'ın yaratımı her an yenilenir; süreklilik bir illüzyondur."
+                  : "In Tahāfut al-Falāsifa, he argues time is made of indivisible 'an' (instants) — atomistic time against Aristotle's continuous time. God's creation renews every instant; continuity is an illusion."}
+              </p>
+            </div>
+            <div>
+              <p style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 4px', fontFamily: FONTS.body }}>
+                {language === 'tr' ? "İbn Sînâ (ö. 1037) — \"Dehr\" ve \"Sermed\"" : "Ibn Sīnā (d. 1037) — \"Dahr\" and \"Sarmad\""}
+              </p>
+              <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+                {language === 'tr'
+                  ? "Üç zaman türü: zamân (insan zamanı, hareketle ölçülen), dehr (ezeli akış, akıllar âlemi), sermed (mutlak — Allah'ın \"şu an\"ı). Üç katmanlı kozmoloji."
+                  : "Three kinds of time: zamān (human time, measured by motion), dahr (eternal flow, the realm of intelligences), sarmad (absolute — God's 'now'). A three-layered cosmology."}
+              </p>
+            </div>
+            <div>
+              <p style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 4px', fontFamily: FONTS.body }}>
+                {language === 'tr' ? "Einstein (1905, 1915) — Göreli zaman" : "Einstein (1905, 1915) — Relative time"}
+              </p>
+              <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
+                {language === 'tr'
+                  ? "Özel görelilik: hıza bağlı zaman uzaması. Genel görelilik: kütle çekimi zamanı yavaşlatır. Saat, gözlemcinin durumuna göre değişir — bir saat gerçekten 1.000 yıl gibi geçebilir. Kur'an'ın \"bir gün Rabbinin katında bin yıl gibidir\" (Hac 22:47) ifadesi, modern fizik perspektifinden çağrışım uyandırır — ama bu nedensel bir çıkarsama değil, kavramsal bir resonanstır."
+                  : "Special relativity: time dilation with velocity. General relativity: gravity slows time. A clock varies with the observer's frame — a day really can pass like 1,000 years. The Quran's 'a day with your Lord is like a thousand years' (Ḥajj 22:47) resonates conceptually with modern physics — but the link is one of evocation, not causal inference."}
+              </p>
+            </div>
+          </div>
+          <p style={{ fontSize: '0.72rem', color: COLORS.silver, opacity: 0.65, margin: '14px 0 0', fontFamily: FONTS.body, lineHeight: 1.5 }}>
+            {language === 'tr'
+              ? "Üç çerçeve birbirini doğrulamaz; üçü birden zamanın \"sabit akan bir nehir\" olmadığını söyler. Kur'an'ın 23 yıllık iniş hatları boyunca bu sezgiyi sürekli geri çağırması, üzerinde durulmaya değer bir dilbilim olgusudur."
+              : "The three frames do not validate each other; together they say time is not 'a steadily flowing river.' That the Quran returns to this intuition across its 23-year revelation is a linguistic fact worth pausing on."}
+          </p>
+        </div>
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {ACCORDION_ITEMS.map(item => (
             <div key={item.id} style={{

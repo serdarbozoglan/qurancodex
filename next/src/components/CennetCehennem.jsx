@@ -1067,6 +1067,50 @@ function TabAraf({ data, language, isMobile }) {
         {tr ? araf.aciklamaTr : araf.aciklamaEn}
       </p>
 
+      {/* ── KLASİK TEFSİR TARTIŞMASI — A'râf Ehli Kimdir? ─── */}
+      <div style={{
+        background: `${ARAF.bg}`,
+        border: `1px solid ${ARAF.border}`,
+        borderLeft: `3px solid ${ARAF.accent}`,
+        borderRadius: RADIUS.lg,
+        padding: isMobile ? '18px 18px' : '22px 26px',
+        marginBottom: '24px',
+        maxWidth: '760px',
+      }}>
+        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: ARAF.accent, opacity: 0.85, margin: '0 0 12px' }}>
+          {tr ? "Klasik Tefsir Tartışması" : "Classical Tafsir Debate"}
+        </p>
+        <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3 }}>
+          {tr ? "A'râf Ehli kimlerdir?" : "Who are the People of al-Aʿrāf?"}
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: ARAF.accent, margin: '0 0 4px' }}>
+              {tr ? "1. Hasan-i Basrî · İbn Abbâs" : "1. al-Ḥasan al-Baṣrī · Ibn ʿAbbās"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0 }}>
+              {tr ? "İyilikleri ile kötülükleri eşit gelen, ne cennete ne cehenneme girebilen mukrik kişiler. Allah'ın hükmüne bırakılırlar (Tabarî 12:418-419)." : "Those whose good and evil deeds balance exactly — neither admitted to paradise nor cast into hell. Their case is reserved for divine judgment (al-Ṭabarī 12:418-419)."}
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: ARAF.accent, margin: '0 0 4px' }}>
+              {tr ? "2. Mücâhid · Suddî" : "2. Mujāhid · al-Suddī"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0 }}>
+              {tr ? "Peygamberler ve şehidlerdir; Cennet ile Cehennem arasındaki yüksek mevkide oturup iki tarafa da bakarlar — sınır gözcüleri." : "Prophets and martyrs — stationed on the high vantage between paradise and hell, watching both sides — sentinels of the partition."}
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: '0.82rem', fontWeight: 700, color: ARAF.accent, margin: '0 0 4px' }}>
+              {tr ? "3. Râzî · Modern Okuma" : "3. al-Rāzī · Modern Reading"}
+            </p>
+            <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0 }}>
+              {tr ? "Bir ara-evre değil bir hâl: imanın berraklaşması için bekletme; nihai hüküm Allah'ındır. Klasik tefsir bu üç görüşü uzlaştırmaz, üç ayrı pencere bırakır." : "Not an intermediate place but a state: a pause for faith to clarify; the final ruling belongs to Allah. Classical tafsir does not reconcile the three — it leaves three windows."}
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Questions */}
       <SectionTitle color={ARAF.accent}>
         {tr ? 'A\'râf Hakkında Üç Soru' : 'Three Questions About A\'raf'}
