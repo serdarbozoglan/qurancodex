@@ -162,28 +162,39 @@ export default function KavimlerAtlasi({ onClose }) {
     >
       {KAVİMLER_TOOL_HEADER}
 
-      {/* ── TAB BAR — outside scroll area ───────────────────────────────────── */}
-      <div style={{
+      {/* ── TAB BAR — outside scroll area; id for scrollIntoView ──────────── */}
+      <div id="kavim-tab-bar" style={{
         display: 'flex', gap: '2px', padding: '0 16px',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         background: 'rgba(0,0,0,0.3)',
         overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
+        scrollMarginTop: '72px',
       }}>
         {TABS.map((tab, i) => (
           <button
             key={i}
-            onClick={() => setActiveTab(i)}
+            onClick={() => {
+              setActiveTab(i);
+              // Tab change'de Hero'yu geç, content alanına scroll — visitor
+              // 'değişen bir şey olmadı' hissini yaşamasın (user feedback).
+              setTimeout(() => {
+                const tabBar = document.getElementById('kavim-tab-bar');
+                if (tabBar) tabBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 50);
+            }}
             style={{
               flexShrink: 0,
-              padding: isMobile ? '9px 10px' : '10px 14px',
+              padding: isMobile ? '14px 14px' : '15px 20px',
               border: 'none', background: 'transparent',
               borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-              color: activeTab === i ? COLORS.gold : COLORS.silver,
-              fontSize: isMobile ? '0.69rem' : '0.79rem',
-              fontWeight: activeTab === i ? 600 : 400,
+              color: activeTab === i ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+              fontSize: isMobile ? '0.74rem' : '0.82rem',
+              fontWeight: activeTab === i ? 700 : 500,
               fontFamily: FONTS.body,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
-              letterSpacing: '0.04em',
+              letterSpacing: activeTab === i ? '0.14em' : '0.12em',
+              textTransform: 'uppercase',
+              whiteSpace: 'nowrap',
             }}
           >
             {tab}

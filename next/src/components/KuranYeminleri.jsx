@@ -336,7 +336,7 @@ export default function KuranYeminleri({ onClose }) {
         <YeminCevapReveal language={language} isMobile={isMobile} />
 
         {/* ── TAB BAR — directly above tab content ────────────────────── */}
-        <div style={{
+        <div id="yemin-tab-bar" style={{
           display: 'flex',
           gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
@@ -346,27 +346,38 @@ export default function KuranYeminleri({ onClose }) {
           overflowX: 'auto',
           scrollbarWidth: 'none',
           flexShrink: 0,
+          scrollMarginTop: '72px',
         }}>
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
             return (
               <button
                 key={i}
-                onClick={() => setActiveTab(i)}
+                onClick={() => {
+                  setActiveTab(i);
+                  // Visitor 'değişiklik göremedim' hissi yaşamasın — tab
+                  // bar viewport tepesine kaysın.
+                  setTimeout(() => {
+                    const tb = document.getElementById('yemin-tab-bar');
+                    if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 50);
+                }}
                 style={{
                   flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: isMobile ? '12px 14px' : '13px 22px',
+                  padding: isMobile ? '14px 16px' : '15px 22px',
                   border: 'none',
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                   borderRadius: '0',
-                  color: isActive ? COLORS.gold : COLORS.silver,
-                  fontSize: isMobile ? '0.85rem' : '0.9rem',
+                  color: isActive ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+                  fontSize: isMobile ? '0.78rem' : '0.82rem',
+                  fontWeight: isActive ? 700 : 500,
+                  letterSpacing: isActive ? '0.14em' : '0.12em',
+                  textTransform: 'uppercase',
                   fontFamily: FONTS.body,
-                  fontWeight: isActive ? 600 : 400,
                   cursor: 'pointer',
                   transition: 'all 0.15s',
                   whiteSpace: 'nowrap',
