@@ -481,11 +481,18 @@ export default function IblisSatan({ onClose }) {
       paddingTop: '62px',
     }}>
       <ToolHeader
-        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 5 L9 2 L10.5 5" /><path d="M17 5 L15 2 L13.5 5" /><path d="M6 9c0-3 2.7-5 6-5s6 2 6 5v3c0 4-2.3 7-6 9-3.7-2-6-5-6-9z" /><circle cx="10" cy="12" r="0.9" fill={COLORS.gold} /><circle cx="14" cy="12" r="0.9" fill={COLORS.gold} /><path d="M10 16c0.7 0.6 1.3 0.8 2 0.8s1.3-0.2 2-0.8" /></svg>}
+        icon={
+          /* Stylized flame — İblis was created from nâr (Hicr 15:27, Sâd 38:76).
+             Replaces previous horned-skull motif (deemed unfitting). */
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2.5c1.6 3.2 4.8 5.4 4.8 9.4 0 3.6-2.4 6.6-4.8 6.6s-4.8-3-4.8-6.6c0-1.8 0.7-3 1.6-4.1" />
+            <path d="M12 8c0.9 1.7 2.6 2.9 2.6 5.1 0 1.9-1.3 3.5-2.6 3.5s-2.6-1.6-2.6-3.5c0-1 0.4-1.6 0.9-2.2" />
+          </svg>
+        }
         titleTr="İblîs & Şeytan"
         titleEn="Iblis & Satan"
-        subtitleTr="Yedi Sûrede Aynı Sahne"
-        subtitleEn="Same Scene in Seven Surahs"
+        subtitleTr="Yedi sûrede aynı sahne · ateşten reddediş"
+        subtitleEn="Same scene in seven surahs · refusal from fire"
         language={language}
       />
 
@@ -494,6 +501,25 @@ export default function IblisSatan({ onClose }) {
         flex: 1,
         padding: isMobile ? '24px 16px 60px' : '40px 60px 80px',
       }}>
+
+      {/* ─── Bismillah ornament — Amiri Quran ligature ───── */}
+      <motion.div
+        initial="hidden" animate="visible" variants={fadeUpItem}
+        dir="rtl" lang="ar" aria-label="Bismillāh"
+        style={{
+          textAlign: 'center',
+          fontFamily: "'Amiri Quran', 'Amiri', serif",
+          fontSize: isMobile ? '1.4rem' : '1.8rem',
+          color: COLORS.gold,
+          opacity: 0.78,
+          lineHeight: 1,
+          marginBottom: isMobile ? '24px' : '36px',
+          textShadow: `0 0 22px ${COLORS.gold}28`,
+        }}
+      >
+        ﷽
+      </motion.div>
+
       {/* ─── Header (in-body) ───────────────────────────── */}
       {/* 7-Marker Preview: her nokta = bir sûrenin accent rengi.
           Aşağıdaki passage kartlarında aynı renk başlık olarak görünür —

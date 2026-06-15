@@ -12,7 +12,7 @@ const SEGMENT_LABELS = {
   tr: {
     oku: "Oku", atlas: 'Atlas', graf: 'Graf', arac: 'Araç',
     kissa: 'Kıssa Atlası', kavim: 'Kavimler Atlası', peygamber: 'Peygamberler Atlası',
-    doga: 'Doğa Atlası', mesel: 'Mesel Atlası', furuk: 'Füruk Atlası',
+    doga: 'Tabiat Atlası', mesel: 'Mesel Atlası', furuk: 'Füruk Atlası',
     munasebat: 'Münasebât Atlası', kiraat: 'Kıraat Atlası',
     sunnetullah: 'Sünnetullah Atlası', munafik: 'Münafık Profili',
     'nefs-mertebeleri': 'Nefs Mertebeleri', kadinlar: 'Kadınlar Atlası',

@@ -141,20 +141,121 @@ export default function MunafikProfili({ onClose }) {
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
         <div style={{
-          padding: isMobile ? '28px 20px 24px' : '40px 40px 32px',
+          padding: isMobile ? '40px 20px 28px' : '56px 40px 36px',
           background: 'linear-gradient(180deg, rgba(231,76,60,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         }}>
+          {/* Bismillah ornament */}
+          <div
+            dir="rtl" lang="ar" aria-label="Bismillāh"
+            style={{
+              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontSize: isMobile ? '1.5rem' : '1.9rem',
+              color: COLORS.gold,
+              opacity: 0.82,
+              lineHeight: 1,
+              textAlign: 'center',
+              marginBottom: isMobile ? '28px' : '40px',
+              textShadow: `0 0 22px ${COLORS.gold}28`,
+            }}
+          >
+            ﷽
+          </div>
+
+          {/* Anchor verse — Bakara 2:8 (KFGQPC, centered) */}
+          <p
+            dir="rtl" lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.2rem, 2.2vw, 1.6rem)',
+              color: COLORS.gold,
+              lineHeight: 2.1,
+              margin: '0 auto 16px',
+              maxWidth: '820px',
+              textAlign: 'center',
+              textShadow: `0 0 20px ${COLORS.gold}1c`,
+            }}
+          >
+            وَمِنَ النَّاسِ مَنْ يَقُولُ اٰمَنَّا بِاللّٰهِ وَبِالْيَوْمِ الْاٰخِرِ وَمَا هُمْ بِمُؤْمِن۪ينَ
+          </p>
+
+          <p style={{
+            color: COLORS.offWhite,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 8px',
+            maxWidth: '620px',
+            textAlign: 'center',
+            opacity: 0.95,
+          }}>
+            "{language === 'tr'
+              ? "İnsanlardan kimi de vardır ki, inanmadıkları halde, 'Allah'a ve âhiret gününe inandık' derler."
+              : "Among the people are some who say 'We believe in Allah and the Last Day,' but they are not believers."}"
+          </p>
+
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            margin: '0 0 32px',
+            textAlign: 'center',
+            opacity: 0.65,
+          }}>
+            — {language === 'tr' ? 'Bakara 2:8' : 'Al-Baqarah 2:8'}
+          </p>
+
+          {/* Framing whisper */}
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 36px',
+            maxWidth: '700px',
+            textAlign: 'center',
+            opacity: 0.88,
+          }}>
+            {language === 'tr'
+              ? <>İmanı inkâr etmek değil, <em style={{ fontStyle: 'normal', color: '#e74c3c', opacity: 0.95 }}>inkârı imanla maskelemek</em>. Kur'an bu tipi diğer tüm günahkârlardan ayrı tutar.</>
+              : <>Not denying belief but <em style={{ fontStyle: 'normal', color: '#e74c3c', opacity: 0.95 }}>masking denial with belief</em>. The Quran sets this type apart from every other sinner.</>}
+          </p>
+
+          {/* Filigree divider */}
+          <div aria-hidden="true" style={{
+            width: '120px',
+            height: '1px',
+            background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+            margin: '0 auto 32px',
+          }} />
+
+          {/* Eyebrow */}
+          <div style={{
+            fontSize: '0.68rem', letterSpacing: '0.3em',
+            color: '#e74c3c', textTransform: 'uppercase',
+            fontFamily: FONTS.body, fontWeight: 700,
+            opacity: 0.78,
+            marginBottom: '14px',
+            textAlign: 'center',
+          }}>
+            {language === 'tr' ? "PSİKOLOJİ · 300+ AYET" : "PSYCHOLOGY · 300+ VERSES"}
+          </div>
+
           {/* Big pull quote */}
           <h1 style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.55rem' : '2.35rem',
+            fontSize: isMobile ? '1.55rem' : 'clamp(1.9rem, 3.4vw, 2.55rem)',
             fontWeight: 700,
             color: COLORS.gold,
-            lineHeight: 1.25,
-            margin: '0 0 14px 0',
-            letterSpacing: '-0.01em',
+            lineHeight: 1.2,
+            margin: '0 auto 14px',
+            letterSpacing: '-0.015em',
             maxWidth: '780px',
+            textAlign: 'center',
           }}>
             {language === 'tr'
               ? '300+ ayet tek bir karakter tipine ayrıldı.'
@@ -247,8 +348,8 @@ export default function MunafikProfili({ onClose }) {
           </div>
         </div>
 
-        {/* ── TAB BAR ───────────────────────────────────────────────────── */}
-        <div style={{
+        {/* ── TAB BAR (UPPERCASE site-wide pattern) ──────────────────────── */}
+        <div id="munafik-tab-bar" style={{
           display: 'flex',
           gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
@@ -261,27 +362,36 @@ export default function MunafikProfili({ onClose }) {
           position: 'sticky',
           top: 0,
           zIndex: 2,
+          scrollMarginTop: '72px',
         }}>
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
             return (
               <button
                 key={i}
-                onClick={() => setActiveTab(i)}
+                onClick={() => {
+                  setActiveTab(i);
+                  setTimeout(() => {
+                    const tb = document.getElementById('munafik-tab-bar');
+                    if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 50);
+                }}
                 style={{
                   flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: isMobile ? '12px 14px' : '13px 22px',
+                  padding: isMobile ? '14px 16px' : '16px 26px',
                   border: 'none',
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                   borderRadius: 0,
                   color: isActive ? COLORS.gold : COLORS.silver,
-                  fontSize: isMobile ? '0.82rem' : '0.9rem',
+                  fontSize: isMobile ? '0.72rem' : '0.78rem',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
                   fontFamily: FONTS.body,
-                  fontWeight: isActive ? 600 : 400,
+                  fontWeight: isActive ? 700 : 500,
                   cursor: 'pointer',
                   transition: 'all 0.15s',
                   whiteSpace: 'nowrap',

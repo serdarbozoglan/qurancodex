@@ -220,25 +220,25 @@ function FilterPills({ filters, labels, counts, active, onChange }) {
       {filters.map(f => {
         const isActive = active === f;
         const count = counts ? counts[f] : undefined;
-        const isEmpty = count === 0;
+        // Hide zero-count filters entirely (except "Tümü" which always shows).
+        // Visitor sees only filters that actually match items — no dead chips.
+        if (count === 0 && f !== 'Tümü') return null;
         return (
           <button
             key={f}
-            onClick={() => !isEmpty && onChange(f)}
-            disabled={isEmpty}
+            onClick={() => onChange(f)}
             style={{
               flexShrink: 0,
               padding: '5px 14px',
               borderRadius: '99px',
               border: isActive ? `1px solid ${COLORS.gold}` : `1px solid ${COLORS.glassBorder}`,
               background: isActive ? COLORS.goldAlpha15 : 'transparent',
-              color: isEmpty ? COLORS.slate500 : isActive ? COLORS.gold : COLORS.silver,
+              color: isActive ? COLORS.gold : COLORS.silver,
               fontSize: '0.8rem',
               fontFamily: FONTS.body,
-              cursor: isEmpty ? 'not-allowed' : 'pointer',
+              cursor: 'pointer',
               transition: 'all 0.15s',
               fontWeight: isActive ? 600 : 400,
-              opacity: isEmpty ? 0.45 : 1,
             }}
           >
             {labels[f] ?? f}
@@ -871,46 +871,137 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
 
   return (
     <div style={{
-      padding: isMobile ? '24px 16px 20px' : '40px 32px 28px',
+      padding: isMobile ? '40px 16px 28px' : '60px 32px 36px',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       background: 'linear-gradient(180deg, rgba(20,30,48,0.6) 0%, transparent 100%)',
+      textAlign: 'center',
     }}>
-      {/* Arabic verse */}
-      <p style={{
-        fontFamily: FONTS.quran,
-        color: COLORS.gold,
-        fontSize: isMobile ? '1.3rem' : '1.6rem',
-        direction: 'rtl',
-        textAlign: 'right',
-        margin: '0 0 6px',
-        lineHeight: 1.7,
-      }}>
-        أَفَلَا يَنظُرُونَ إِلَى الْإِبِلِ كَيْفَ خُلِقَتْ
+      {/* Bismillah ornament — Amiri Quran ligature */}
+      <div
+        dir="rtl"
+        lang="ar"
+        aria-label="Bismillāh"
+        style={{
+          fontFamily: "'Amiri Quran', 'Amiri', serif",
+          fontSize: isMobile ? '1.6rem' : '2rem',
+          color: COLORS.gold,
+          opacity: 0.85,
+          lineHeight: 1,
+          marginBottom: isMobile ? '28px' : '40px',
+          textShadow: `0 0 22px ${COLORS.gold}28`,
+        }}
+      >
+        ﷽
+      </div>
+
+      {/* Anchor verse — Ğâşiye 88:17 (KFGQPC, centered) */}
+      <p
+        dir="rtl"
+        lang="ar"
+        style={{
+          fontFamily: FONTS.quran,
+          fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
+          color: COLORS.gold,
+          lineHeight: 2.1,
+          margin: '0 auto 18px',
+          maxWidth: '820px',
+          textShadow: `0 0 20px ${COLORS.gold}1c`,
+        }}
+      >
+        اَفَلَا يَنْظُرُونَ اِلَى الْاِبِلِ كَيْفَ خُلِقَتْ
       </p>
+
+      <p style={{
+        color: COLORS.offWhite,
+        fontFamily: FONTS.display,
+        fontStyle: 'italic',
+        fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+        lineHeight: 1.7,
+        margin: '0 auto 8px',
+        maxWidth: '620px',
+        opacity: 0.95,
+      }}>
+        "{language === 'tr'
+          ? 'Onlar deveye bakmıyorlar mı, nasıl yaratılmıştır?'
+          : 'Do they not look at the camel — how it was created?'}"
+      </p>
+
       <p style={{
         color: COLORS.silver,
         fontFamily: FONTS.body,
-        fontSize: '0.85rem',
-        fontStyle: 'italic',
-        margin: '0 0 24px',
-        textAlign: 'right',
+        fontSize: '0.72rem',
+        letterSpacing: '0.16em',
+        textTransform: 'uppercase',
+        margin: '0 0 36px',
+        opacity: 0.65,
       }}>
-        {language === 'tr'
-          ? '"Onlar deveye bakmıyorlar mı, nasıl yaratılmıştır?" — Ğaşiye 88:17'
-          : '"Do they not look at the camel — how it was created?" — Al-Ghashiyah 88:17'}
+        — {language === 'tr' ? 'Ğâşiye 88:17' : 'Al-Ghāshiyah 88:17'}
       </p>
 
-      {/* Title */}
-      <h2 style={{
+      {/* Framing whisper */}
+      <p style={{
+        color: COLORS.silver,
         fontFamily: FONTS.display,
-        color: COLORS.gold,
-        fontSize: isMobile ? '1.5rem' : '2rem',
-        fontWeight: 700,
-        margin: '0 0 10px',
-        lineHeight: 1.2,
+        fontStyle: 'italic',
+        fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+        lineHeight: 1.7,
+        margin: '0 auto 40px',
+        maxWidth: '700px',
+        opacity: 0.88,
       }}>
-        {language === 'tr' ? "Kevni Ayetler — Kur'an'ın Tabiat Atlası" : "Cosmic Signs — The Quran's Nature Atlas"}
-      </h2>
+        {language === 'tr'
+          ? <>Kur'an iki kitabı işaret eder: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>okunan</em> ve <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>yaratılan</em>. Bu atlas, ikincisinin sayfalarını çevirir.</>
+          : <>The Quran points to two books: the one <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>recited</em> and the one <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>created</em>. This atlas turns the pages of the second.</>}
+      </p>
+
+      {/* Filigree divider */}
+      <div aria-hidden="true" style={{
+        width: '120px',
+        height: '1px',
+        background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+        margin: '0 auto 32px',
+      }} />
+
+      {/* Eyebrow */}
+      <div style={{
+        fontSize: '0.68rem', letterSpacing: '0.3em',
+        color: COLORS.gold, textTransform: 'uppercase',
+        fontFamily: FONTS.body, fontWeight: 700,
+        opacity: 0.7,
+        marginBottom: '14px',
+      }}>
+        {language === 'tr' ? `KEVNÎ AYETLER · ${counts.animals + counts.plants}+ TÜR` : `COSMIC SIGNS · ${counts.animals + counts.plants}+ SPECIES`}
+      </div>
+
+      {/* Big Title (h1 — server-rendered SEO heading already in PageHeading; this is the visible h1) */}
+      <h1 style={{
+        fontFamily: FONTS.display,
+        color: COLORS.offWhite,
+        fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
+        fontWeight: 700,
+        margin: '0 auto 16px',
+        lineHeight: 1.15,
+        letterSpacing: '-0.015em',
+        maxWidth: '760px',
+      }}>
+        {language === 'tr' ? "Kur'an'ın Tabiat Atlası" : "The Quran's Nature Atlas"}
+      </h1>
+
+      {/* Dramatic subtitle */}
+      <p style={{
+        fontFamily: FONTS.display,
+        fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+        color: COLORS.gold,
+        margin: '0 auto 32px',
+        lineHeight: 1.5,
+        fontStyle: 'italic',
+        maxWidth: '700px',
+        opacity: 0.92,
+      }}>
+        {language === 'tr'
+          ? 'Her canlı bir delildir. Her bitki bir cümledir. Tabiat, okunmayı bekleyen başka bir Kur\'an.'
+          : 'Every creature is a proof. Every plant a sentence. Nature is another Quran, waiting to be read.'}
+      </p>
 
       {/* Âyât-ı Kevniyye framing */}
       <div style={{
@@ -941,7 +1032,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         }}>
           {language === 'tr' ? (
             <>
-              Klasik tefsir Kur'an'ın iki tür ayetinden bahseder: <strong style={{ color: COLORS.gold }}>âyât-ı tilâvet</strong> (okunan ayetler — Mushaf'taki metin) ve <strong style={{ color: COLORS.gold }}>âyât-ı kevniyye</strong> (yaratılış ayetleri — doğanın kendisi). Kur'an, doğayı <em>kitâb-ı kâinât</em> (yaratılışın kitabı) olarak sunar; her canlı, okunması gereken bir delildir.
+              Klasik tefsir Kur'an'ın iki tür ayetinden bahseder: <strong style={{ color: COLORS.gold }}>âyât-ı tilâvet</strong> (okunan ayetler — Mushaf'taki metin) ve <strong style={{ color: COLORS.gold }}>âyât-ı kevniyye</strong> (yaratılış ayetleri — tabiatın kendisi). Kur'an, tabiatı <em>kitâb-ı kâinât</em> (yaratılışın kitabı) olarak sunar; her canlı, okunması gereken bir delildir.
             </>
           ) : (
             <>
@@ -1026,10 +1117,10 @@ export default function DogaAtlasi({ onClose }) {
   const DOGA_TOOL_HEADER = (
     <ToolHeader
       icon={<span style={{ fontSize: '1.05rem', color: COLORS.gold, lineHeight: 1 }}>🌿</span>}
-      titleTr="Doğa Atlası"
+      titleTr="Tabiat Atlası"
       titleEn="Atlas of Nature"
-      subtitleTr="~40 doğa unsuru · sembolik anlam"
-      subtitleEn="~40 nature elements · symbolic meaning"
+      subtitleTr="Kevnî ayetler · hayvan · bitki · gök · tabiat"
+      subtitleEn="Cosmic signs · fauna · flora · sky · nature"
       language={language}
     />
   );
@@ -1088,8 +1179,8 @@ export default function DogaAtlasi({ onClose }) {
           onTabChange={setActiveTab}
         />
 
-        {/* Tab bar — sticky */}
-        <div style={{
+        {/* Tab bar — sticky, UPPERCASE pattern (site-wide consistency) */}
+        <div id="kevni-tab-bar" style={{
           position: 'sticky',
           top: 0,
           zIndex: 10,
@@ -1102,25 +1193,34 @@ export default function DogaAtlasi({ onClose }) {
           overflowX: 'auto',
           scrollbarWidth: 'none',
           flexShrink: 0,
+          scrollMarginTop: '72px',
         }}>
           {TABS.map((tab, i) => (
             <button
               key={i}
-              onClick={() => setActiveTab(i)}
+              onClick={() => {
+                setActiveTab(i);
+                setTimeout(() => {
+                  const tb = document.getElementById('kevni-tab-bar');
+                  if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+              }}
               style={{
                 flexShrink: 0,
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: isMobile ? '12px 14px' : '13px 22px',
+                padding: isMobile ? '14px 16px' : '16px 26px',
                 border: 'none',
                 background: activeTab === i ? `${COLORS.goldAlpha15}` : 'transparent',
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 borderRadius: '0',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
-                fontSize: isMobile ? '0.85rem' : '0.9rem',
+                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
                 fontFamily: FONTS.body,
-                fontWeight: activeTab === i ? 600 : 400,
+                fontWeight: activeTab === i ? 700 : 500,
                 cursor: 'pointer',
                 transition: 'all 0.15s',
                 whiteSpace: 'nowrap',
