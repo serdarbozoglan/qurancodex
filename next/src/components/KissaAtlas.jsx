@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
+import ToolHeader from './ToolHeader';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
@@ -149,19 +150,29 @@ export default function KissaAtlas({ onClose }) {
       });
   };
 
+  const KISSA_TOOL_HEADER = (
+    <ToolHeader
+      icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>}
+      titleTr="Kıssa Atlası"
+      titleEn="Story Atlas"
+      subtitleTr="Peygamberler · sahneler · sûreler"
+      subtitleEn="Prophets · scenes · surahs"
+      language={language}
+    />
+  );
+
   if (loading) return (
     <div
       ref={trapRef}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="kissa-atlas-title"
       style={{
-        position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
-        background: '#06080e',
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
         display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
         fontFamily: "'Inter', sans-serif",
       }}
     >
+      {KISSA_TOOL_HEADER}
       <LoadingOverlay />
     </div>
   );
@@ -186,38 +197,37 @@ export default function KissaAtlas({ onClose }) {
   return (
     <div
       ref={trapRef}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="kissa-atlas-title"
       style={{
-        position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
-        background: '#06080e',
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
         display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
         fontFamily: "'Inter', sans-serif",
       }}
     >
 
-      {/* ── HEADER ─────────────────────────────────────────────────── */}
+      {KISSA_TOOL_HEADER}
+
+      {/* ── PROPHET TAB BAR — sticky top:110 (Navbar 62 + ToolHeader 48) ───────── */}
       <div style={{
         borderBottom: '1px solid rgba(255,255,255,0.07)',
-        background: 'rgba(6,8,14,0.96)',
-        backdropFilter: 'blur(16px)',
+        background: 'rgb(6, 8, 14)',
         flexShrink: 0,
+        position: 'sticky',
+        top: '110px',
+        zIndex: 20,
+        isolation: 'isolate',
       }}>
-        {/* Row 1: Title + Close */}
+        {/* Row 1: Prophet tabs (desktop inline / mobile scrollable) */}
         <div style={{
           display: 'flex', alignItems: 'center',
           padding: isMobile ? '10px 16px' : '0 20px',
-          height: isMobile ? 'auto' : '60px',
+          height: isMobile ? 'auto' : '52px',
           gap: '12px',
         }}>
-          <span id="kissa-atlas-title" style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Kıssa Atlası' : 'Story Atlas'}
-          </span>
-
           {/* Prophet tabs — inline on desktop */}
           {!isMobile && (
-            <div style={{ display: 'flex', gap: '4px', marginLeft: '8px' }}>
+            <div style={{ display: 'flex', gap: '4px' }}>
               {data.prophets.map(p => (
                 <button
                   key={p.id}
@@ -250,18 +260,6 @@ export default function KissaAtlas({ onClose }) {
             </div>
           )}
 
-          <div style={{ flex: 1 }} />
-
-          <button
-            onClick={onClose}
-            style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
         </div>
 
         {/* Row 2 (mobile only): Prophet tabs scrollable */}

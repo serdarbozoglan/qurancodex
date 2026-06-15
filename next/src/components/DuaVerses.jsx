@@ -3,8 +3,9 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
 import { PlayIcon, PauseIcon } from './icons';
+import ToolHeader from './ToolHeader';
 import SurahLink from './SurahLink';
 
 const SURAH_NAMES = [
@@ -371,50 +372,19 @@ export default function DuaVerses({ onClose }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
       background: bg,
-      display: 'flex', flexDirection: 'column', overflow: 'hidden',
+      minHeight: 'calc(100vh - 62px)',
+      paddingTop: '62px',
+      display: 'flex', flexDirection: 'column',
     }}>
-      {/* Header */}
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 20px', height: '54px', flexShrink: 0,
-        background: 'rgba(8,10,18,0.95)', backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(212,165,116,0.1)',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          {/* HandsIcon — matches exploreCategories.jsx (Dua Dili) for navbar/header consistency */}
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M11 14V8a2 2 0 1 0-4 0M7 12V6a2 2 0 0 0-4 0v9c0 4 3 7 7 7h2a7 7 0 0 0 7-7V9a2 2 0 0 0-4 0M15 11V6a2 2 0 0 0-4 0" />
-          </svg>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Dua Ayetleri' : 'Quranic Supplications'}
-          </span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: 'Inter, sans-serif' }}>
-            {language === 'tr' ? "Edʿiyetü'l-Kur'an" : "Adʿiyat al-Qur'an"}
-          </span>
-          {!loading && (
-            <span style={{
-              marginLeft: '4px',
-              background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)',
-              borderRadius: RADIUS.lg, color: gold, fontSize: '0.7rem', padding: '2px 10px', flexShrink: 0,
-            }}>
-              {filtered.length} {language === 'tr' ? 'dua' : 'supplications'}
-            </span>
-          )}
-        </div>
-        <button
-          onClick={onClose}
-          style={{ ...CLOSE_BTN }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 14V8a2 2 0 1 0-4 0M7 12V6a2 2 0 0 0-4 0v9c0 4 3 7 7 7h2a7 7 0 0 0 7-7V9a2 2 0 0 0-4 0M15 11V6a2 2 0 0 0-4 0" /></svg>}
+        titleTr="Dua Ayetleri"
+        titleEn="Quranic Supplications"
+        subtitleTr="Edʿiyetü'l-Kur'an · 11 kategori"
+        subtitleEn="Adʿiyat al-Qur'an · 11 categories"
+        language={language}
+      />
 
       {/* ── HERO (Cinematic) — Bakara 2:186 ─────────────────────── */}
       <div style={{

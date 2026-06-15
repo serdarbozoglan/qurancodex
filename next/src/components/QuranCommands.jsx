@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE, TRANSITION, RADIUS } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, TRANSITION, RADIUS } from '../tokens';
 import { AlertTriangleIcon } from './icons';
+import ToolHeader from './ToolHeader';
 
 // ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
 const CATEGORY_ICONS = {
@@ -111,7 +112,7 @@ export default function QuranCommands({ onClose }) {
   /* eslint-enable react-hooks/set-state-in-effect */
 
   if (!data) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 50, background: COLORS.deepNavy, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>Yükleniyor...</div>
     </div>
   );
@@ -172,30 +173,19 @@ export default function QuranCommands({ onClose }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, zIndex: 50,
-      background: COLORS.deepNavy,
-      overflowY: 'auto',
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      paddingTop: '62px',
       fontFamily: "'Inter', sans-serif",
     }}>
-      {/* Close button */}
-      <button
-        onClick={onClose}
-        aria-label="Kapat"
-        style={{
-          position: 'fixed', top: '16px', right: '20px', zIndex: 10000,
-          background: 'rgba(255,255,255,0.08)',
-          border: '1px solid rgba(255,255,255,0.15)',
-          borderRadius: RADIUS.full, width: '36px', height: '36px',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer', color: COLORS.silver, transition: `all ${TRANSITION.fast}`,
-        }}
-        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = '#fff'; }}
-        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#94a3b8'; }}
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>}
+        titleTr="Kur'an'ın Emirleri"
+        titleEn="Quran Commands"
+        subtitleTr="Emir · nehiy · 5 hüküm"
+        subtitleEn="Command · prohibition · 5 rulings"
+        language={language}
+      />
 
       {/* Header — Cinematic Hero (Bismillah + Nahl 16:90 anchor + framing + filigree) */}
       <div style={{ padding: isMobile ? '56px 16px 28px' : '60px 32px 36px', maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)', textAlign: 'center' }}>
