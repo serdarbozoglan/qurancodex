@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS, CLOSE_BTN } from '../tokens';
+import { COLORS, FONTS, RADIUS } from '../tokens';
 import ToolHeader from './ToolHeader';
 import useFocusTrap from '../hooks/useFocusTrap';
 

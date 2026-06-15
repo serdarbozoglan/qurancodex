@@ -8,8 +8,7 @@ import { CloseIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import {
   COLORS, FONTS,
-  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, CLOSE_BTN,
-  RADIUS, TRANSITION,
+  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, RADIUS, TRANSITION,
   BREAKPOINT_MOBILE,
 } from '../tokens';
 
