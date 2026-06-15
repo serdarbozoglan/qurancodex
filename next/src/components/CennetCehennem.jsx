@@ -246,13 +246,14 @@ export default function CennetCehennem({ onClose }) {
         {/* Tab bar MOVED to body (after Hero) — Premium pattern parity with Yeminler/Kavim/Renkler */}
       </div>
 
-      {/* ── BODY ──────────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '16px 14px 48px' : '24px 32px 48px' }}>
+      {/* ── BODY — padding-top SIFIR (sticky tab bar için).
+            Üstteki Hero padding'i kendi içinden veriyor. ────── */}
+      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '0 14px 48px' : '0 32px 48px' }}>
         <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
 
           {/* ── HERO (Cinematic — Bismillah + Rahman 55:46 + framing + filigree) ─────── */}
           <div style={{
-            padding: isMobile ? '24px 0 20px' : '32px 0 24px',
+            padding: isMobile ? '40px 0 20px' : '56px 0 24px',
             textAlign: 'center',
             marginBottom: isMobile ? '20px' : '28px',
           }}>
