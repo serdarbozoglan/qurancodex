@@ -44,14 +44,14 @@ const LETTERS_14 = [
   { ar: 'م', tr: 'Mîm',  en: 'Mīm' },
   { ar: 'ص', tr: 'Sâd',  en: 'Ṣād' },
   { ar: 'ر', tr: 'Râ',   en: 'Rāʾ' },
-  { ar: 'ك', tr: 'Kâf',  en: 'Kāf' },
-  { ar: 'ه', tr: 'Hâ',   en: 'Hāʾ' },
-  { ar: 'ي', tr: 'Yâ',   en: 'Yāʾ' },
+  { ar: 'ك', tr: 'Kef',  en: 'Kāf' },
+  { ar: 'ه', tr: 'He',   en: 'Hāʾ' },
+  { ar: 'ي', tr: 'Ye',   en: 'Yāʾ' },
   { ar: 'ع', tr: 'Ayn',  en: 'ʿAyn' },
   { ar: 'ط', tr: 'Tâ',   en: 'Ṭāʾ' },
   { ar: 'س', tr: 'Sîn',  en: 'Sīn' },
-  { ar: 'ح', tr: 'Ḥâ',   en: 'Ḥāʾ' },
-  { ar: 'ق', tr: 'Kâf (ك\'den farklı)', en: 'Qāf' },
+  { ar: 'ح', tr: 'Ha',   en: 'Ḥāʾ' },
+  { ar: 'ق', tr: 'Kâf',  en: 'Qāf' },
   { ar: 'ن', tr: 'Nûn',  en: 'Nūn' },
 ];
 
@@ -237,6 +237,39 @@ export default function LinguisticDNA() {
   const { t, language } = useLanguage();
   const [openGroup, setOpenGroup] = useState(null);
   const [hoveredLetter, setHoveredLetter] = useState(null);
+
+  // ── Bell-like tone on letter hover ──────────────────────────────────────────
+  // Web Audio API; her harf farklı frekansta (14 nota — D♯ minor pentatonik'in
+  // 2 oktava yayılmış hâli). Asset gerekmez, programatik sine + exp decay.
+  const playLetterTone = (idx) => {
+    if (typeof window === 'undefined') return;
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!window.__lingDnaCtx) window.__lingDnaCtx = new AC();
+      const ctx = window.__lingDnaCtx;
+      if (ctx.state === 'suspended') ctx.resume();
+
+      // 14 frekans — D♯3-merkezli pentatonik genişletilmiş (sıcak, doğu hissi)
+      const freqs = [261.63, 311.13, 349.23, 392.00, 440.00, 523.25, 587.33,
+                     659.25, 739.99, 830.61, 932.33, 1046.50, 1174.66, 1318.51];
+      const freq = freqs[idx % freqs.length];
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      const now = ctx.currentTime;
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(0.07, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.5);
+    } catch (e) {
+      // sessizce geç — ses kritik değil
+    }
+  };
   // §14.1 SSR-safe mobile detection — initial false to avoid hydration mismatch
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {

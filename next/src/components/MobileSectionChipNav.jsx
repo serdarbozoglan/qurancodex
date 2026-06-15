@@ -11,7 +11,6 @@ import { COLORS, RADIUS } from '../tokens';
 // CHAPTERS — homepage section order ile birebir uyumlu olmalı. Aksi takdirde
 // "atlandı mı?" UX hatası oluşur. Order: page.js render sırasını izler.
 const CHAPTERS = [
-  { id: 'linguistic',          labelTr: 'Dilsel DNA',           labelEn: 'Linguistic DNA'          },
   { id: 'rhythm',              labelTr: 'İmkansız Ritim',       labelEn: 'Impossible Rhythm'       },
   { id: 'rhetoric',            labelTr: "Kur'an'ın Retoriği",   labelEn: "Quran's Rhetoric"        },
   { id: 'dua-language',        labelTr: 'Dua Dili',             labelEn: 'Language of Prayer'      },
