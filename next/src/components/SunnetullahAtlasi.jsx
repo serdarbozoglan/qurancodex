@@ -14,6 +14,7 @@ import {
 } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 
@@ -408,6 +409,17 @@ export default function SunnetullahAtlasi({ onClose }) {
           {activeTab === 2 && (
             <TabUlemaGorusleri views={scholarViews} language={language} isMobile={isMobile} />
           )}
+
+          {/* Cross-tool CTA — sayfa sonu */}
+          <CrossToolCTA
+            language={language}
+            isMobile={isMobile}
+            links={[
+              { href: `/${language}/atlas/kavim`,        titleTr: 'Kavimler Atlası',      titleEn: 'Nations Atlas',         descTr: 'Sünnetullah\'ın somut kayıtları — 20+ kavmin helak biçimleri ve gerekçeleri.',     descEn: 'Concrete records of sunnatullāh — modes of destruction of 20+ peoples and their causes.' },
+              { href: `/${language}/atlas/kissa`,        titleTr: 'Kıssa Atlası',         titleEn: 'Story Atlas',           descTr: 'Peygamberlerin tekrarlanan örüntüsü: davet, ret, helak — sünnetullah\'ın yapısı.', descEn: 'The repeated pattern of prophets: call, rejection, destruction — the structure of sunnatullāh.' },
+              { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stations of the Self',  descTr: 'İçsel sünnetullah — nefs-i emmâreden mutmainneye giden değişmeyen yasalar.',       descEn: 'Inner sunnatullāh — the unchanging laws from ammāra to muṭmaʾinna.' },
+            ]}
+          />
         </div>
       </div>
     </div>

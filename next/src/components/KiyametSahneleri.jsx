@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 // Local base style for verse blocks (VERSE_BLOCK not exported from tokens)
 const VERSE_BLOCK_BASE = {
@@ -734,32 +735,17 @@ export default function KiyametSahneleri({ onClose }) {
           )}
         </div>
 
-        {/* ── Cross-page links ── */}
-        <div style={{ padding: isMobile ? '16px' : '24px 32px', borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>
-          <p style={{ fontSize: '0.75rem', color: COLORS.slate500, margin: '0 0 10px', fontFamily: FONTS.body, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-            {language === 'tr' ? 'İlgili Sayfalar' : 'Related Pages'}
-          </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-            {[
-              { tr: 'Cennet & Cehennem →', en: 'Paradise & Hell →', overlay: 'cennet' },
-              { tr: 'Kavimler Atlası →', en: 'Nations Atlas →', overlay: 'kavimler' },
-              { tr: "Kur'an'da Melekler →", en: 'Angels in the Quran →', overlay: 'melekler' },
-              { tr: 'Nefis Mertebeleri →', en: 'Stations of the Self →', overlay: 'nefis' },
-              { tr: 'Zaman Boyutları →', en: 'Dimensions of Time →', overlay: 'zaman' },
-            ].map(link => (
-              <button
-                key={link.tr}
-                onClick={() => { openOverlay(link.overlay); onClose(); }}
-                style={{
-                  background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-                  borderRadius: RADIUS.md, padding: '6px 14px', cursor: 'pointer',
-                  color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, minHeight: '36px',
-                }}
-              >
-                {language === 'tr' ? link.tr : link.en}
-              </button>
-            ))}
-          </div>
+        {/* ── Cross-tool CTA — sayfa sonu (Renkler/İlk-Son pattern) ── */}
+        <div style={{ padding: isMobile ? '0 16px 28px' : '0 32px 36px' }}>
+          <CrossToolCTA
+            language={language}
+            isMobile={isMobile}
+            links={[
+              { href: `/${language}/arac/cennet-cehennem`, titleTr: 'Cennet & Cehennem', titleEn: 'Paradise & Hell',     descTr: 'Hesap sonrası nihai mekân — 9 cennet, 7 cehennem ismi, A\'râf perdesi.',           descEn: 'The final abode after the reckoning — 9 names for paradise, 7 for hell, the partition of al-Aʿrāf.' },
+              { href: `/${language}/arac/iblis-seytan`,     titleTr: 'İblîs & Şeytan',    titleEn: 'Iblis & Satan',       descTr: 'Kıyametin "sebebi": kibrin başlangıcı — yedi sûrede aynı sahne.',                  descEn: 'The "reason" for judgment: the origin of pride — the same scene across seven surahs.' },
+              { href: `/${language}/atlas/kavim`,           titleTr: 'Kavimler Atlası',   titleEn: 'Nations Atlas',       descTr: 'Toplumsal kıyamet — kavimlerin helak biçimleri sünnetullah\'a tabi.',              descEn: 'Communal judgment — modes of destruction of nations follow sunnatullāh.' },
+            ]}
+          />
         </div>
 
       </div>

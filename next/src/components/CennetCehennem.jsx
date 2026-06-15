@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Color system ──────────────────────────────────────────────────────────────
@@ -431,6 +432,17 @@ export default function CennetCehennem({ onClose }) {
           {activeTab === 'araf'      && <TabAraf      data={data} language={language} isMobile={isMobile} />}
           {activeTab === 'rahman'    && <TabRahman    data={data} language={language} isMobile={isMobile} />}
           {activeTab === 'kaynaklar' && <TabKaynaklar data={data} language={language} isMobile={isMobile} />}
+
+          {/* Cross-tool CTA — sayfa sonu */}
+          <CrossToolCTA
+            language={language}
+            isMobile={isMobile}
+            links={[
+              { href: `/${language}/arac/kiyamet`,        titleTr: 'Kıyâmet Sahneleri', titleEn: 'Scenes of Judgment',  descTr: 'Cennet/Cehennem öncesi: sûr, haşr, mîzân — sahneler dizisi.',                 descEn: 'Before paradise/hell: trumpet, gathering, scale — the sequence of scenes.' },
+              { href: `/${language}/arac/iblis-seytan`,   titleTr: 'İblîs & Şeytan',    titleEn: 'Iblis & Satan',       descTr: 'Cehennemin "ilk müşterisi" — kibrin başlangıcı, 7 sûrede aynı sahne.',         descEn: 'Hell\'s "first inhabitant" — the origin of pride, the same scene in 7 surahs.' },
+              { href: `/${language}/arac/melekler`,       titleTr: 'Melekler',          titleEn: 'Angels',              descTr: 'Cennet/Cehennem bekçileri (Rıdvan, Mâlik, Hâzin) — kabir sorgusu (Münker-Nekir).', descEn: 'Guardians of paradise/hell (Riḍwān, Mālik, Khāzin) — grave inquiry (Munkar-Nakīr).' },
+            ]}
+          />
 
         </div>
       </div>

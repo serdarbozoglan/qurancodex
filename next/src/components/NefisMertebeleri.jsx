@@ -14,6 +14,7 @@ import {
   RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 
@@ -511,6 +512,19 @@ export default function NefisMertebeleri({ onClose }) {
               ? "Bu atlas, Kur'ân'ın 3 kesin mertebesini + tasavvufî 4 eklemeyi eşit mesafeyle sunar. Birini diğerinin yerine koymaz."
               : "This atlas presents the Qur'an's 3 definitive stages + the Sufi 4 additions at equal distance. It does not substitute one for the other."}
           </p>
+        </div>
+
+        {/* Cross-tool CTA — sayfa sonu */}
+        <div style={{ padding: isMobile ? '0 20px 36px' : '0 40px 60px' }}>
+          <CrossToolCTA
+            language={language}
+            isMobile={isMobile}
+            links={[
+              { href: `/${language}/atlas/munafik`,        titleTr: 'Münâfık Profili',      titleEn: 'Profile of the Hypocrite', descTr: 'Nefs-i emmârenin sosyal yüzü: 300+ ayet tek karakter tipine ayrılır.', descEn: 'The social face of the commanding self: 300+ verses devoted to one character type.' },
+              { href: `/${language}/arac/iblis-seytan`,    titleTr: 'İblîs & Şeytan',       titleEn: 'Iblis & Satan',             descTr: 'Nefsin baş düşmanı — vesvese kanalı (Nâs 114:5), 7 sûrede aynı sahne.',     descEn: 'The self\'s chief enemy — the waswasa channel (Nās 114:5), the same scene across 7 surahs.' },
+              { href: `/${language}/arac/melekler`,        titleTr: 'Melekler',             titleEn: 'Angels',                    descTr: 'İlham ve vahy-i tabîî — nefse rağmen kalbe inen doğru sesler.',          descEn: 'Ilhām and natural revelation — voices descending into the heart despite the self.' },
+            ]}
+          />
         </div>
       </div>
     </div>
