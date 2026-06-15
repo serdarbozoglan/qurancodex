@@ -5,7 +5,10 @@
 // ile garantili render. Kart yapısını değiştirmez — sadece sarmalar.
 // ──────────────────────────────────────────────────────────────────────────────
 
-export default function FeaturedWrap({ children, language = 'tr' }) {
+import { useLanguage } from '../i18n/LanguageContext';
+
+export default function FeaturedWrap({ children }) {
+  const { language } = useLanguage();
   const label = language === 'tr' ? 'ÖNE ÇIKAN' : 'FEATURED';
   return (
     <div className="featured-card-wrap" style={{ position: 'relative' }}>
