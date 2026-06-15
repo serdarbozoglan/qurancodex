@@ -249,7 +249,7 @@ export const EXPLORE_CATEGORIES = [
       {
         id:     'sounds',
         kind:   'section',
-        target: 'sounds',
+        target: 'ses-card',
         icon:   SpeakerIcon,
         titleTr: 'Ses Mimarisi',          titleEn: 'Sound Architecture',
         descTr: 'Sert ve yumuşak ünsüzler',
@@ -258,7 +258,7 @@ export const EXPLORE_CATEGORIES = [
       {
         id:     'hidden-architecture',
         kind:   'section',
-        target: 'hidden-architecture',
+        target: 'halka-card',
         icon:   LayersIcon,
         titleTr: 'Yapısal Mimari',        titleEn: 'Hidden Architecture',
         descTr: 'Halka kompozisyon ve simetri',
@@ -310,7 +310,7 @@ export const EXPLORE_CATEGORIES = [
       {
         id:     'rhetoric',
         kind:   'section',
-        target: 'rhetoric',
+        target: 'retorik-card',
         icon:   ScrollIcon,
         titleTr: "Kur'an'ın Retoriği",    titleEn: 'Quranic Rhetoric',
         descTr: 'İltifât, takdîm-tehîr, fâsıla',
@@ -319,7 +319,7 @@ export const EXPLORE_CATEGORIES = [
       {
         id:     'dua-language',
         kind:   'section',
-        target: 'dua-language',
+        target: 'dua-card',
         icon:   HandsIcon,
         titleTr: 'Dua Dili',              titleEn: 'Language of Prayer',
         descTr: 'Yakarışın gramatik kalıbı',
@@ -344,7 +344,7 @@ export const EXPLORE_CATEGORIES = [
       {
         id:     'history',
         kind:   'section',
-        target: 'history',
+        target: 'tarih-card',
         icon:   LandmarkIcon,
         titleTr: 'Tarihsel Kanıtlar',     titleEn: 'Historical Proof',
         descTr: 'Firavun, Haman, Roma',
@@ -353,7 +353,7 @@ export const EXPLORE_CATEGORIES = [
       {
         id:     'human-definition',
         kind:   'section',
-        target: 'human-definition',
+        target: 'insan-tanimi-card',
         icon:   UserIcon,
         titleTr: "Kur'an'da İnsan",       titleEn: 'The Human in the Quran',
         descTr: 'Nefs, kalp, ruh',
@@ -362,7 +362,7 @@ export const EXPLORE_CATEGORIES = [
       {
         id:     'psychology',
         kind:   'section',
-        target: 'psychology',
+        target: 'psikoloji-card',
         icon:   BrainIcon,
         titleTr: 'İnsan Psikolojisi',     titleEn: 'Human Psychology',
         descTr: "Kur'an'ın iç dünya haritası",
@@ -423,7 +423,7 @@ export const EXPLORE_CATEGORIES = [
       {
         id:     'science',
         kind:   'section',
-        target: 'science',
+        target: 'bilimsel-card',
         icon:   StarIcon,
         titleTr: 'Bilimsel İşaretler',    titleEn: 'Scientific Signs',
         descTr: 'Demir, embriyo, denizler',

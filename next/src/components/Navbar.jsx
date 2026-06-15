@@ -873,9 +873,20 @@ export default function Navbar() {
                       nefis:       '/atlas/nefs-mertebeleri',
                       iblisSatan:  '/arac/iblis-seytan',
                       kadinlar:    '/atlas/kadinlar',
-                      ilkSon:      '/arac/ilk-son-kelimeler',
-                      mukattaa:    '/arac/mukattaa',
-                      ritim:       '/arac/ritim',
+                      ilkSon:           '/arac/ilk-son-kelimeler',
+                      mukattaa:         '/arac/mukattaa',
+                      ritim:            '/arac/ritim',
+                      retorikSorular:   '/arac/retorik-sorular',
+                      duaDili:          '/arac/dua-dili',
+                      sesMimarisi:      '/arac/ses-mimarisi',
+                      halkaKomp:        '/arac/halka-kompozisyon',
+                      bilimselIsaretler:'/arac/bilimsel-isaretler',
+                      tarihselKanitlar: '/arac/tarihsel-kanitlar',
+                      korumaZinciri:    '/arac/koruma-zinciri',
+                      tekrarAnatomi:    '/arac/tekrar-anatomi',
+                      altiKonu:         '/arac/alti-konu',
+                      insanTanimi:      '/atlas/insan-tanimi',
+                      insanPsikolojisi: '/atlas/insan-psikolojisi',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;

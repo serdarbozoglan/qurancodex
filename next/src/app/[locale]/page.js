@@ -1,10 +1,6 @@
-// Migration home — Batch 3e wiring (final scroll-story katmanı):
-// Reflection + Misc: QuranRhetoric, QuranDua, ToolsShowcase, Conclusion
-// Eklenmedi: ProphetMap (leaflet bağımlısı — Faz 4'te react-leaflet + L
-// kurulunca taşınacak)
-//
-// Final ana sayfa sırası Vite App.jsx ile uyumlu (eksik: ProphetMap).
-// Navbar henüz yok — Faz 4'te 50+ tool route registry'siyle gelecek.
+// Home — 13 tanıtıcı kart + 3 navigasyon + kapanış.
+// Anasayfa anlatı bölümleri tool sayfalarına AYNEN taşındı; burada kart kapı.
+// Hedef tool sayfaları için bkz. /arac/{slug} + /atlas/{slug}.
 
 import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb } from '@/lib/jsonld';
@@ -14,20 +10,25 @@ import PathCards from '@/sections/PathCards';
 import AllTopics from '@/sections/AllTopics';
 import ToolsHighlight from '@/sections/ToolsHighlight';
 import TefekkurHighlight from '@/sections/TefekkurHighlight';
-import AllahKendiniTanitir from '@/sections/AllahKendiniTanitir';
+
+// 13 tanıtıcı kart (anlatı bölümleri → tool sayfasına yönlendiren portal)
 import MukattaaCard from '@/sections/MukattaaCard';
 import RitimCard from '@/sections/RitimCard';
-import QuranRhetoric from '@/sections/QuranRhetoric';
-import QuranDua from '@/sections/QuranDua';
-import SoundArchitecture from '@/sections/SoundArchitecture';
-import PsychologySection from '@/sections/PsychologySection';
-import HiddenArchitecture from '@/sections/HiddenArchitecture';
-import ScientificSigns from '@/sections/ScientificSigns';
-import HistoricalProof from '@/sections/HistoricalProof';
-import LivingPreservation from '@/sections/LivingPreservation';
-import ZeroRedundancy from '@/sections/ZeroRedundancy';
-import Highlights from '@/sections/Highlights';
-import HumanDefinition from '@/sections/HumanDefinition';
+import RetorikSorularCard from '@/sections/RetorikSorularCard';
+import DuaDiliCard from '@/sections/DuaDiliCard';
+import SesMimarisiCard from '@/sections/SesMimarisiCard';
+import HalkaCard from '@/sections/HalkaCard';
+import BilimselCard from '@/sections/BilimselCard';
+import TarihselCard from '@/sections/TarihselCard';
+import KorumaCard from '@/sections/KorumaCard';
+import TekrarCard from '@/sections/TekrarCard';
+import AltiKonuCard from '@/sections/AltiKonuCard';
+import InsanTanimiCard from '@/sections/InsanTanimiCard';
+import PsikolojiCard from '@/sections/PsikolojiCard';
+
+// Esmâ köprüsü (zaten kapı formunda — kart pattern'ı ile uyumlu)
+import AllahKendiniTanitir from '@/sections/AllahKendiniTanitir';
+
 import ToolsShowcase from '@/sections/ToolsShowcase';
 import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
@@ -61,23 +62,33 @@ export default async function Home({ params }) {
       <DesktopSidebarTOC />
       <ScrollToTopFab />
       <Hero />
+
+      {/* Navigasyon katmanı (mevcut — SixGates ileride bunları konsolide edecek) */}
       <PathCards />
       <AllTopics />
       <ToolsHighlight />
+
+      {/* ─── Anlatı kartları (Fascination cluster) ─── */}
       <MukattaaCard />
       <RitimCard />
-      <QuranRhetoric />
-      <QuranDua />
-      <SoundArchitecture />
-      <HiddenArchitecture />
-      <ScientificSigns />
-      <HistoricalProof />
-      <LivingPreservation />
-      <ZeroRedundancy />
-      <Highlights />
+      <RetorikSorularCard />
+      <SesMimarisiCard />
+      <HalkaCard />
+      <TekrarCard />
+
+      {/* ─── Anlatı kartları (Astonishment cluster) ─── */}
+      <BilimselCard />
+      <TarihselCard />
+      <KorumaCard />
+
+      {/* ─── Anlatı kartları (Reflection cluster) ─── */}
+      <DuaDiliCard />
+      <AltiKonuCard />
       <AllahKendiniTanitir />
-      <HumanDefinition />
-      <PsychologySection />
+      <InsanTanimiCard />
+      <PsikolojiCard />
+
+      {/* Kapanış katmanı */}
       <ToolsShowcase />
       <Conclusion />
       <TefekkurHighlight compact />
