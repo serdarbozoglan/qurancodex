@@ -238,8 +238,8 @@ export default function CennetCehennem({ onClose }) {
           </button>
         </div>
 
-        {/* Tab bar */}
-        <div style={{
+        {/* Tab bar — UPPERCASE site-wide pattern */}
+        <div id="cennet-tab-bar" style={{
           display: 'flex', gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
@@ -248,22 +248,31 @@ export default function CennetCehennem({ onClose }) {
           overflowX: 'auto',
           scrollbarWidth: 'none',
           flexShrink: 0,
+          scrollMarginTop: '72px',
         }}>
           {TABS.map(tab => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  setTimeout(() => {
+                    const tb = document.getElementById('cennet-tab-bar');
+                    if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 50);
+                }}
                 style={{
                   display: 'flex', alignItems: 'center', gap: '8px',
-                  padding: isMobile ? '12px 14px' : '13px 22px',
+                  padding: isMobile ? '14px 16px' : '16px 26px',
                   border: 'none', borderRadius: '0', flexShrink: 0,
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
                   color: isActive ? COLORS.gold : COLORS.silver,
-                  fontSize: isMobile ? '0.85rem' : '0.9rem',
-                  fontWeight: isActive ? 600 : 400,
+                  fontSize: isMobile ? '0.72rem' : '0.78rem',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  fontWeight: isActive ? 700 : 500,
                   cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                   fontFamily: FONTS.body,
                   whiteSpace: 'nowrap',
@@ -283,7 +292,137 @@ export default function CennetCehennem({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '16px 14px 48px' : '24px 32px 48px' }}>
         <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
 
-          {/* ── HERO BANNER ─────────────────────────────────────── */}
+          {/* ── HERO (Cinematic — Bismillah + Rahman 55:46 + framing + filigree) ─────── */}
+          <div style={{
+            padding: isMobile ? '24px 0 20px' : '32px 0 24px',
+            textAlign: 'center',
+            marginBottom: isMobile ? '20px' : '28px',
+          }}>
+            {/* Bismillah */}
+            <div
+              dir="rtl" lang="ar" aria-label="Bismillāh"
+              style={{
+                fontFamily: "'Amiri Quran', 'Amiri', serif",
+                fontSize: isMobile ? '1.5rem' : '1.95rem',
+                color: GOLD,
+                opacity: 0.82,
+                lineHeight: 1,
+                marginBottom: isMobile ? '26px' : '36px',
+                textShadow: `0 0 22px ${GOLD}28`,
+              }}
+            >
+              ﷽
+            </div>
+
+            {/* Anchor verse — Rahman 55:46 */}
+            <p
+              dir="rtl" lang="ar"
+              style={{
+                fontFamily: FONTS.quran,
+                fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+                color: GOLD,
+                lineHeight: 2.1,
+                margin: '0 auto 16px',
+                maxWidth: '820px',
+                textShadow: `0 0 20px ${GOLD}1c`,
+              }}
+            >
+              وَلِمَنْ خَافَ مَقَامَ رَبِّه۪ جَنَّتَانِ
+            </p>
+
+            <p style={{
+              color: COLORS.offWhite,
+              fontFamily: FONTS.display,
+              fontStyle: 'italic',
+              fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+              lineHeight: 1.7,
+              margin: '0 auto 8px',
+              maxWidth: '660px',
+              opacity: 0.95,
+            }}>
+              "{language === 'tr'
+                ? 'Rabbinin makamından korkana iki cennet vardır.'
+                : 'And for the one who fears the standing before his Lord — two gardens.'}"
+            </p>
+
+            <p style={{
+              color: COLORS.silver,
+              fontFamily: FONTS.body,
+              fontSize: '0.72rem',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              margin: '0 0 36px',
+              opacity: 0.65,
+            }}>
+              — {language === 'tr' ? 'Rahmân 55:46' : 'Ar-Raḥmān 55:46'}
+            </p>
+
+            {/* Framing whisper */}
+            <p style={{
+              color: COLORS.silver,
+              fontFamily: FONTS.display,
+              fontStyle: 'italic',
+              fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+              lineHeight: 1.7,
+              margin: '0 auto 40px',
+              maxWidth: '700px',
+              opacity: 0.88,
+            }}>
+              {language === 'tr'
+                ? <>İki son, <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>ayrı dil</em> ile anlatılır. Cennette nehir, gölge, eş; cehennemde ateş, zincir, zakkum. Aralarındaki <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>perde</em>, A'râf'tır.</>
+                : <>The two endings are told in <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>two registers</em>. Rivers, shade, companions in paradise; fire, chains, zaqqūm in hell. Between them stands <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>al-Aʿrāf</em>, the partition.</>}
+            </p>
+
+            {/* Filigree divider */}
+            <div aria-hidden="true" style={{
+              width: '120px',
+              height: '1px',
+              background: `linear-gradient(to right, transparent, ${GOLD}66, transparent)`,
+              margin: '0 auto 32px',
+            }} />
+
+            {/* Eyebrow */}
+            <p style={{
+              fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.3em',
+              textTransform: 'uppercase', color: GOLD,
+              fontFamily: FONTS.body, opacity: 0.72,
+              margin: '0 0 12px',
+            }}>
+              {language === 'tr' ? 'CENNET · CEHENNEM · ARAF' : 'PARADISE · HELL · AL-AʿRĀF'}
+            </p>
+
+            {/* Big Title */}
+            <h1 style={{
+              fontFamily: FONTS.display,
+              fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+              fontWeight: 700,
+              color: COLORS.offWhite,
+              margin: '0 auto 14px',
+              lineHeight: 1.18,
+              letterSpacing: '-0.015em',
+              maxWidth: '780px',
+            }}>
+              {language === 'tr' ? 'İki Son, İki Dil' : 'Two Endings, Two Languages'}
+            </h1>
+
+            {/* Dramatic subtitle */}
+            <p style={{
+              fontFamily: FONTS.display,
+              fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+              color: GOLD,
+              margin: '0 auto 8px',
+              lineHeight: 1.55,
+              fontStyle: 'italic',
+              maxWidth: '700px',
+              opacity: 0.92,
+            }}>
+              {language === 'tr'
+                ? '9 cennet adı · 7 cehennem adı · arada A\'râf.'
+                : '9 names for paradise · 7 for hell · between them, al-Aʿrāf.'}
+            </p>
+          </div>
+
+          {/* ── HERO BANNER (stat panel) ─────────────────────────── */}
           <HeroBanner data={data} language={language} isMobile={isMobile} />
 
           {activeTab === 'isimler'   && <TabIsimler   data={data} language={language} isMobile={isMobile} />}

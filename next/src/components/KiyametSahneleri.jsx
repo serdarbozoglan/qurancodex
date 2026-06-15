@@ -493,37 +493,113 @@ export default function KiyametSahneleri({ onClose }) {
       {/* ── Body ── */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 
-        {/* ── Hero ── */}
-        <div style={{ padding: isMobile ? '24px 16px' : '40px 32px', borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
+        {/* ── Hero (Cinematic — Bismillah + anchor + framing + filigree) ── */}
+        <div style={{ padding: isMobile ? '40px 16px 28px' : '56px 32px 36px', borderBottom: `1px solid ${COLORS.glassBorderSoft}`, textAlign: 'center' }}>
+          {/* Bismillah */}
+          <div
+            dir="rtl" lang="ar" aria-label="Bismillāh"
+            style={{
+              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              color: GOLD,
+              opacity: 0.82,
+              lineHeight: 1,
+              marginBottom: isMobile ? '28px' : '40px',
+              textShadow: `0 0 22px ${GOLD}28`,
+            }}
+          >
+            ﷽
+          </div>
+
+          {/* Anchor verse — İbrahim 14:48 (the canonical "Earth replaced" verse) */}
+          <p
+            dir="rtl" lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+              color: GOLD,
+              lineHeight: 2.1,
+              margin: '0 auto 16px',
+              maxWidth: '820px',
+              textShadow: `0 0 20px ${GOLD}1c`,
+            }}
+          >
+            يَوْمَ تُبَدَّلُ الْاَرْضُ غَيْرَ الْاَرْضِ وَالسَّمٰوَاتُ
+          </p>
+
           <p style={{
-            fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em',
-            textTransform: 'uppercase', color: GOLD, margin: '0 0 10px', fontFamily: FONTS.body,
+            color: COLORS.offWhite,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 8px',
+            maxWidth: '660px',
+            opacity: 0.95,
+          }}>
+            "{language === 'tr'
+              ? 'O gün yer, başka bir yerle; gökler de başka göklerle değiştirilir.'
+              : 'On the Day the earth will be replaced by another earth, and the heavens as well.'}"
+          </p>
+
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            margin: '0 0 36px',
+            opacity: 0.65,
+          }}>
+            — {language === 'tr' ? 'İbrâhîm 14:48' : 'Ibrāhīm 14:48'}
+          </p>
+
+          {/* Framing whisper */}
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 40px',
+            maxWidth: '700px',
+            opacity: 0.88,
+          }}>
+            {language === 'tr'
+              ? <>Kur'an kıyameti <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>bir an</em> olarak değil — <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>sahneler dizisi</em> olarak anlatır. Sûr, haşr, mîzân, kitap; her biri ayrı bir perdedir.</>
+              : <>The Quran tells the Last Day not as <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>a moment</em> but as <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>a sequence of scenes</em>. Trumpet, gathering, balance, book — each a separate act.</>}
+          </p>
+
+          {/* Filigree divider */}
+          <div aria-hidden="true" style={{
+            width: '120px',
+            height: '1px',
+            background: `linear-gradient(to right, transparent, ${GOLD}66, transparent)`,
+            margin: '0 auto 32px',
+          }} />
+
+          {/* Eyebrow */}
+          <p style={{
+            fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.3em',
+            textTransform: 'uppercase', color: GOLD, margin: '0 0 12px', fontFamily: FONTS.body,
+            opacity: 0.72,
           }}>
             {language === 'tr' ? "KUR'AN'IN KIYAMET HARİTASI" : "THE QURAN'S MAP OF JUDGMENT"}
           </p>
+
+          {/* Big Title */}
           <h1 style={{
-            fontFamily: FONTS.display, fontSize: isMobile ? '1.6rem' : '2.2rem',
-            fontWeight: 900, color: COLORS.offWhite, margin: '0 0 16px', lineHeight: 1.25,
+            fontFamily: FONTS.display,
+            fontSize: isMobile ? 'clamp(1.65rem, 7vw, 2.05rem)' : 'clamp(2.05rem, 3.7vw, 2.8rem)',
+            fontWeight: 900, color: COLORS.offWhite, margin: '0 auto 16px',
+            lineHeight: 1.18,
+            letterSpacing: '-0.015em',
+            maxWidth: '780px',
           }}>
             {language === 'tr' ? 'O Gün Her Şey Farklı Olacak' : 'On That Day, Everything Will Be Different'}
           </h1>
-          <div style={{ textAlign: 'center', margin: '0 0 20px' }}>
-            <p style={{
-              fontFamily: FONTS.quran, fontSize: isMobile ? '1.4rem' : '1.8rem',
-              color: GOLD, direction: 'rtl', lineHeight: 2, margin: '0 0 6px',
-            }} dir="rtl" lang="ar">
-              يَوْمَ تُبَدَّلُ الْأَرْضُ غَيْرَ الْأَرْضِ وَالسَّمَاوَاتُ
-            </p>
-            <p style={{ fontSize: '0.85rem', color: COLORS.offWhite, fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
-              {language === 'tr'
-                ? '"O gün yer, başka bir yerle; gökler de başka göklerle değiştirilir."'
-                : '"On the Day the earth will be replaced by another earth, and the heavens as well."'}
-            </p>
-            <p style={{ fontSize: '0.75rem', color: COLORS.slate500, margin: 0, fontFamily: FONTS.body }}>
-              — {language === 'tr' ? 'İbrahim 14:48' : 'Ibrahim 14:48'}
-            </p>
-          </div>
-          <p style={{ fontSize: '0.95rem', color: COLORS.silver, lineHeight: 1.8, maxWidth: '48rem', margin: '0 0 24px', fontFamily: FONTS.body }}>
+
+          <p style={{ fontSize: '0.95rem', color: COLORS.silver, lineHeight: 1.8, maxWidth: '48rem', margin: '0 auto 24px', fontFamily: FONTS.body, textAlign: 'left' }}>
             {language === 'tr'
               ? "Kur'an kıyameti bir anda değil sahneler halinde anlatır. Yüzlerce ayette dağılan kozmik düzen, dirilen ölüler, toplanan insanlık, tartılan ameller ve açılan kitaplar tek tek zikredilir. Bu sayfa Kur'an'daki tüm kıyamet sahnelerini kronolojik faz sırasına göre sunar. Kronolojik sıra müfessirlerin görüşüne dayanır — Kur'an kesin bir takvim vermez."
               : "The Quran does not describe the Day of Judgment as a single moment but as a sequence of scenes. Across hundreds of verses, it narrates the unraveling of cosmic order, the resurrection of the dead, the gathering of all humanity, the weighing of deeds, and the opening of books. This page presents all Quranic judgment scenes in chronological phase order. The sequence follows the majority view of classical tafsir — the Quran itself does not provide a fixed timeline."}
@@ -591,28 +667,49 @@ export default function KiyametSahneleri({ onClose }) {
           </div>
         </div>
 
-        {/* ── Tab nav ── */}
-        <div style={{
+        {/* ── Tab nav — UPPERCASE site-wide pattern ── */}
+        <div id="kiyamet-tab-bar" style={{
           display: 'flex', gap: '4px',
           overflowX: 'auto', scrollbarWidth: 'none',
-          padding: isMobile ? '12px 16px 0' : '16px 32px 0',
+          padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          background: 'rgba(10,10,26,0.97)',
+          backdropFilter: 'blur(20px)',
           flexShrink: 0,
+          position: 'sticky',
+          top: 0,
+          zIndex: 10,
+          scrollMarginTop: '72px',
         }}>
           {tabs.map((tab, i) => (
             <button
               key={i}
-              onClick={() => setActiveTab(i)}
+              onClick={() => {
+                setActiveTab(i);
+                setTimeout(() => {
+                  const tb = document.getElementById('kiyamet-tab-bar');
+                  if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+              }}
               style={{
-                flexShrink: 0, padding: '8px 14px',
-                background: 'none', border: 'none',
+                flexShrink: 0,
+                padding: isMobile ? '14px 16px' : '16px 26px',
+                background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
+                border: 'none',
+                borderRadius: 0,
                 borderBottom: activeTab === i ? `2px solid ${GOLD}` : '2px solid transparent',
                 color: activeTab === i ? GOLD : COLORS.silver,
-                fontSize: '0.75rem', fontWeight: 600,
-                letterSpacing: '0.06em', cursor: 'pointer',
-                fontFamily: FONTS.body, transition: 'color 0.15s',
-                minHeight: '44px',
+                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                fontWeight: activeTab === i ? 700 : 500,
+                cursor: 'pointer',
+                fontFamily: FONTS.body,
+                transition: 'all 0.15s',
+                whiteSpace: 'nowrap',
               }}
+              onMouseEnter={e => { if (activeTab !== i) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+              onMouseLeave={e => { if (activeTab !== i) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
             >
               {tab}
             </button>
