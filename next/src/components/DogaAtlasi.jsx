@@ -58,6 +58,8 @@ const TAB_ICONS = [
   <svg aria-hidden="true" key="t0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="7" cy="8" r="2"/><circle cx="17" cy="8" r="2"/><circle cx="4.5" cy="13.5" r="1.5"/><circle cx="19.5" cy="13.5" r="1.5"/><path d="M8.5 14s1.5-1 3.5-1 3.5 1 3.5 1l1 3.5a2 2 0 0 1-2 2.5h-5a2 2 0 0 1-2-2.5z"/></svg>,
   // Bitkiler — leaf
   <svg aria-hidden="true" key="t1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22V12"/><path d="M5 3c0 0 1 11 7 9s7 9 7 9"/><path d="M5 3s4 4 7 9"/></svg>,
+  // Gök Cisimleri — moon + star
+  <svg aria-hidden="true" key="t-gok" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M18.5 4.5l0.6 1.4 1.4 0.6-1.4 0.6-0.6 1.4-0.6-1.4-1.4-0.6 1.4-0.6z"/></svg>,
   // Sûre İsimleri — book
   <svg aria-hidden="true" key="t2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>,
   // Bağlam — layers
@@ -66,11 +68,93 @@ const TAB_ICONS = [
   <svg aria-hidden="true" key="t4" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>,
 ];
 const TABS = [
-  { icon: TAB_ICONS[0], labelTr: 'Hayvanlar',    labelEn: 'Animals',     shortTr: 'Hayvan', shortEn: 'Animal'   },
-  { icon: TAB_ICONS[1], labelTr: 'Bitkiler',      labelEn: 'Plants',      shortTr: 'Bitki',  shortEn: 'Plant'    },
-  { icon: TAB_ICONS[2], labelTr: 'Sûre İsimleri', labelEn: 'Surah Names', shortTr: 'Sûre',   shortEn: 'Surah'    },
-  { icon: TAB_ICONS[3], labelTr: 'Bağlam',        labelEn: 'Context',     shortTr: 'Bağlam', shortEn: 'Context'  },
-  { icon: TAB_ICONS[4], labelTr: 'Tefsir',        labelEn: 'Tafsir',      shortTr: 'Tefsir', shortEn: 'Tafsir'   },
+  { icon: TAB_ICONS[0], labelTr: 'Hayvanlar',     labelEn: 'Animals',           shortTr: 'Hayvan',  shortEn: 'Animal'   },
+  { icon: TAB_ICONS[1], labelTr: 'Bitkiler',      labelEn: 'Plants',            shortTr: 'Bitki',   shortEn: 'Plant'    },
+  { icon: TAB_ICONS[2], labelTr: 'Gök Cisimleri', labelEn: 'Celestial Bodies',  shortTr: 'Gök',     shortEn: 'Sky'      },
+  { icon: TAB_ICONS[3], labelTr: 'Sûre İsimleri', labelEn: 'Surah Names',       shortTr: 'Sûre',    shortEn: 'Surah'    },
+  { icon: TAB_ICONS[4], labelTr: 'Bağlam',        labelEn: 'Context',           shortTr: 'Bağlam',  shortEn: 'Context'  },
+  { icon: TAB_ICONS[5], labelTr: 'Tefsir',        labelEn: 'Tafsir',            shortTr: 'Tefsir',  shortEn: 'Tafsir'   },
+];
+
+// ── Celestial bodies data — inline, verified Quran refs (no API call)
+// Sıralama anlam derinliğine göre: önce sık (Güneş/Ay), sonra hapax (Hunnes), sonra genel (Semâ)
+const CELESTIAL_BODIES = [
+  {
+    id: 'gunes',
+    arabic: 'الشَّمْس',
+    nameTr: 'Güneş', nameEn: 'Sun',
+    frequency: '~33 kez',
+    sureRef: 'Şems 91:1, Yâsîn 36:38, Nûr 24:35, Furkan 25:61',
+    noteTr: "Kur'an'da en sık geçen gök cismi. Şems suresi onunla yeminle başlar (وَالشَّمْسِ وَضُحَاهَا). Yâsîn 36:38'de \"kendi yörüngesinde akıp giden\" (تَجْري لِمُسْتَقَرٍّ لَهَا) olarak tasvir edilir — klasik tefsirin Allah'ın koyduğu düzen olarak okuduğu; modern astronomik perspektiften de dikkat çekici bir ifade.",
+    noteEn: "The most frequently mentioned celestial body in the Quran. Surah Ash-Shams opens with an oath by it (وَالشَّمْسِ وَضُحَاهَا). In Ya-Sin 36:38, it is described as 'running to its appointed station' (تَجْري لِمُسْتَقَرٍّ لَهَا) — read by classical tafsir as God's appointed order, and notable from a modern astronomical view.",
+    featured: true,
+  },
+  {
+    id: 'ay',
+    arabic: 'الْقَمَر',
+    nameTr: 'Ay', nameEn: 'Moon',
+    frequency: '~27 kez',
+    sureRef: 'Kamer 54:1, Yâsîn 36:39, Yûnus 10:5, İsrâ 17:78',
+    noteTr: "Kamer suresi (54:1) \"O saat yaklaştı ve ay yarıldı\" (اِقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ) ile başlar. Yûnus 10:5'te ay \"menziller\" (manâzil) ile birlikte anılır — vakit ölçüsü olarak. Klasik takvim ve oruç saatleri ay'a bağlanır.",
+    noteEn: "Surah Al-Qamar (54:1) opens with 'The Hour has come near, and the moon has split' (اِقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ). In Yunus 10:5, the moon is mentioned with its 'stations' (manāzil) — as a measure of time. Classical calendar and fasting hours hinge on the moon.",
+    featured: true,
+  },
+  {
+    id: 'yildiz',
+    arabic: 'النَّجْم · النُّجُوم',
+    nameTr: 'Yıldız', nameEn: 'Star',
+    frequency: '~13 kez',
+    sureRef: 'Necm 53:1, Vâkıa 56:75, Târık 86:3, Mursalât 77:8',
+    noteTr: "Necm suresi (53:1) bir yıldıza yeminle başlar (وَالنَّجْمِ اِذَا هَوٰى). Vâkıa 56:75'te \"yıldızların yerlerine\" (مَوَاقِعِ النُّجُومِ) yemin edilir — modern astronomide ışığın geliş süresi yüzünden gördüğümüz şeyin yıldızın geçmiş konumu olduğu hatırlanır. Klasik tefsirde gemi yolu yön bulma (Nahl 16:16: وَبِالنَّجْمِ هُمْ يَهْتَدُونَ).",
+    noteEn: "Surah An-Najm (53:1) opens with an oath by a star (وَالنَّجْمِ اِذَا هَوٰى). Wāqi'a 56:75 swears 'by the locations of the stars' (مَوَاقِعِ النُّجُومِ) — in modern astronomy, what we see is the star's past position due to light travel time. Classical tafsir notes navigation by stars (Nahl 16:16: وَبِالنَّجْمِ هُمْ يَهْتَدُونَ).",
+  },
+  {
+    id: 'buruc',
+    arabic: 'الْبُرُوج',
+    nameTr: 'Burçlar', nameEn: 'Constellations',
+    frequency: '4 kez',
+    sureRef: 'Burûc 85:1, Furkan 25:61, Hicr 15:16',
+    noteTr: "Burûc suresi (85:1) gökyüzündeki burçlara yeminle başlar (وَالسَّمَاءِ ذَاتِ الْبُرُوجِ). Klasik tefsirde Mücâhid ve İbn Abbas burûcu 12 zodyak burcu olarak okur; Hasan-i Basrî büyük yıldız grupları olarak yorumlar. Furkan 25:61 ve Hicr 15:16'da gökyüzünün süslenmesi bağlamında geçer.",
+    noteEn: "Surah Al-Buruj (85:1) opens with an oath by the constellations in the sky (وَالسَّمَاءِ ذَاتِ الْبُرُوجِ). Classical tafsir: Mujahid and Ibn Abbas read 'burūj' as the 12 zodiac signs; al-Hasan al-Basri reads them as large stellar groups. Furqan 25:61 and Hijr 15:16 use it in the context of the sky's adornment.",
+  },
+  {
+    id: 'hunnes-kunnes',
+    arabic: 'الْخُنَّس · الْكُنَّس',
+    nameTr: 'Hunnes & Künnes', nameEn: 'Hunnes & Kunnes',
+    frequency: '1 kez (hapax pair)',
+    sureRef: 'Tekvîr 81:15-16',
+    noteTr: "Tekvîr 81:15-16: \"Andolsun o sinip kaybolanlara, akıp akıp yuvasına girenlere\" (فَلَا اُقْسِمُ بِالْخُنَّسِ الْجَوَارِ الْكُنَّسِ). Klasik tefsirde Hz. Ali, Mücâhid, Hasan-i Basrî bu ikiliyi gündüz görünmeyip gece sinen, gözden kaybolup tekrar görünen gezegenler olarak okur (Merkür, Venüs, Mars, Jüpiter, Satürn). Modern astronomi perspektifinden de geriye-hareket (retrograde motion) ile uyumlu — Kur'an'da gezegenlerin tek doğrudan referansı.",
+    noteEn: "Takwir 81:15-16: 'I swear by the receding stars, those that move and disappear, those that sweep' (فَلَا اُقْسِمُ بِالْخُنَّسِ الْجَوَارِ الْكُنَّسِ). Classical tafsir: 'Ali, Mujāhid, al-Hasan al-Basrī read this pair as planets that hide during day and 'sink into their burrows' — Mercury, Venus, Mars, Jupiter, Saturn. From a modern view, this matches retrograde motion — the Quran's only direct reference to planets.",
+    featured: true,
+  },
+  {
+    id: 'tarik',
+    arabic: 'الطَّارِق',
+    nameTr: 'Târık (Gece Geleni)', nameEn: 'Tariq (Night-Comer)',
+    frequency: '1 kez (sûre adı)',
+    sureRef: 'Târık 86:1-3',
+    noteTr: "Târık suresi (86:1-3): \"Andolsun göğe ve Târık'a! Târık'ın ne olduğunu sana bildiren nedir? O, delici yıldızdır\" (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Klasik tefsirde meteor, parlak yıldız ya da Süreyya yıldız kümesi olarak yorumlanır. Modern okumalarda (örn. astronom Z. Naik) periyodik atımlı pulsarlara işaret olabileceği önerilir — pulsarlar ilk kez 1967'de keşfedildi, periyodik radyo darbeleri verir.",
+    noteEn: "Surah At-Tariq (86:1-3): 'By the sky and the night-comer! What can make you know what the night-comer is? It is the piercing star' (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Classical tafsir: meteors, bright stars, or the Pleiades. In modern readings (e.g. Z. Naik), pulsars are proposed — pulsars were discovered in 1967 and emit periodic radio pulses.",
+    featured: true,
+  },
+  {
+    id: 'felak',
+    arabic: 'الْفَلَق',
+    nameTr: 'Felak (Şafak)', nameEn: 'Falaq (Daybreak)',
+    frequency: '1 kez (sûre adı)',
+    sureRef: 'Felak 113:1',
+    noteTr: "Felak suresinin (113:1) ilk kelimesi: \"De ki: Sığınırım sabahın Rabbine\" (قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ). Klasik tefsirde iki ana okuma: (1) sabah aydınlığının karanlığı yarması (İbn Abbas, Mücâhid); (2) genişçe yaratılışın bütünü — tohumun yarılması, bulutun yarılması, gözün açılması (Hasan-i Basrî). \"Falaqa\" kökü \"yarıp ortaya çıkarmak\" demektir.",
+    noteEn: "The opening word of Surah Al-Falaq (113:1): 'Say: I take refuge in the Lord of daybreak' (قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ). Two main classical readings: (1) the breaking of dawn through darkness (Ibn Abbas, Mujahid); (2) the whole of creation — seed splitting, cloud splitting, eye opening (al-Hasan al-Basri). The root falaqa means 'to split open and bring forth'.",
+  },
+  {
+    id: 'sema',
+    arabic: 'السَّمَاء · السَّمٰوَات',
+    nameTr: 'Semâ (Gök/Gökler)', nameEn: 'Heaven(s)',
+    frequency: '~310 kez',
+    sureRef: 'Bakara 2:22, Enbiyâ 21:32, Fussilet 41:11-12, Mülk 67:3',
+    noteTr: "Tekil \"semâ\" (gök/atmosfer) ve çoğul \"semâvât\" (yedi gök) farklı bağlamlarda kullanılır. Enbiyâ 21:32'de gök \"korunmuş bir tavan\" (سَقْفاً مَحْفُوظاً) olarak nitelenir — klasik tefsir bunu meteor-yıldız düşmelerinden koruma (Hicr 15:17 ile bağ) ve modern okumada manyetosfer/ozon tabakası olarak yorumlar. Mülk 67:3'te göklerin \"yedi kat\" olduğu söylenir.",
+    noteEn: "Singular 'samaʾ' (sky/atmosphere) and plural 'samawāt' (seven heavens) are used in different contexts. Anbiya 21:32 calls the sky 'a protected ceiling' (سَقْفاً مَحْفُوظاً) — classical tafsir: protection from meteors and shooting stars (linked with Hijr 15:17); modern reading: magnetosphere or ozone layer. Mulk 67:3 mentions 'seven heavens'.",
+  },
 ];
 
 // ── Stat Card ─────────────────────────────────────────────────────────────────
@@ -656,7 +740,88 @@ function TabBitkiler({ plants, isMobile, language }) {
   );
 }
 
-// ── Tab 2: Sûre İsimleri ──────────────────────────────────────────────────────
+// ── Tab 2: Gök Cisimleri ──────────────────────────────────────────────────────
+function TabGokCisimleri({ bodies, isMobile, language }) {
+  const featured = bodies.filter(b => b.featured);
+  const others   = bodies.filter(b => !b.featured);
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      {/* Featured spotlights */}
+      {featured.length > 0 && (
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+          gap: '12px',
+          marginBottom: '4px',
+        }}>
+          {featured.map(b => <CelestialCard key={`f-${b.id}`} body={b} language={language} featured />)}
+        </div>
+      )}
+      {/* Rest */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+        gap: '12px',
+      }}>
+        {others.map(b => <CelestialCard key={b.id} body={b} language={language} />)}
+      </div>
+    </div>
+  );
+}
+
+function CelestialCard({ body, language, featured = false }) {
+  return (
+    <div style={{
+      ...GLASS_CARD,
+      padding: '18px 20px',
+      border: featured ? `1px solid ${COLORS.gold}55` : GLASS_CARD.border,
+      background: featured
+        ? 'linear-gradient(135deg, rgba(212,165,116,0.08), rgba(212,165,116,0.02))'
+        : GLASS_CARD.background,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '10px',
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px' }}>
+        <p style={{
+          fontFamily: FONTS.quran,
+          color: COLORS.gold,
+          fontSize: '1.55rem',
+          direction: 'rtl',
+          margin: 0,
+          lineHeight: 1.4,
+          textShadow: `0 0 14px ${COLORS.gold}1a`,
+        }}>
+          {body.arabic}
+        </p>
+        <span style={{
+          flexShrink: 0,
+          padding: '3px 11px',
+          borderRadius: '99px',
+          background: COLORS.glassBg,
+          border: `1px solid ${COLORS.glassBorder}`,
+          color: COLORS.silver,
+          fontSize: '0.72rem',
+          fontFamily: FONTS.body,
+          whiteSpace: 'nowrap',
+        }}>
+          {body.frequency}
+        </span>
+      </div>
+      <p style={{ margin: 0, color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '1rem' }}>
+        {language === 'tr' ? body.nameTr : (body.nameEn ?? body.nameTr)}
+      </p>
+      <p style={{ margin: 0, color: COLORS.gold, opacity: 0.85, fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+        {body.sureRef}
+      </p>
+      <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.65 }}>
+        {language === 'tr' ? body.noteTr : (body.noteEn ?? body.noteTr)}
+      </p>
+    </div>
+  );
+}
+
+// ── Tab 3: Sûre İsimleri ──────────────────────────────────────────────────────
 function TabSureIsimleri({ sureNames, isMobile, language }) {
   return (
     <div style={{
@@ -970,7 +1135,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         opacity: 0.7,
         marginBottom: '14px',
       }}>
-        {language === 'tr' ? `KEVNÎ AYETLER · ${counts.animals + counts.plants}+ TÜR` : `COSMIC SIGNS · ${counts.animals + counts.plants}+ SPECIES`}
+        {language === 'tr' ? `KEVNÎ AYETLER · ${counts.animals + counts.plants + counts.celestial}+ DELİL` : `COSMIC SIGNS · ${counts.animals + counts.plants + counts.celestial}+ PROOFS`}
       </div>
 
       {/* Big Title (h1 — server-rendered SEO heading already in PageHeading; this is the visible h1) */}
@@ -1171,6 +1336,7 @@ export default function DogaAtlasi({ onClose }) {
           counts={{
             animals: animals.length,
             plants: plants.length,
+            celestial: CELESTIAL_BODIES.length,
             sureNames: sureNames.length,
             contexts: contexts.length,
             featured: animals.filter(a => a.featured).length,
@@ -1240,11 +1406,12 @@ export default function DogaAtlasi({ onClose }) {
 
         {/* Tab content */}
         <div style={{ padding: isMobile ? '16px' : '24px 32px', flex: 1 }}>
-          {activeTab === 0 && <TabHayvanlar animals={animals} isMobile={isMobile} language={language} />}
-          {activeTab === 1 && <TabBitkiler plants={plants} isMobile={isMobile} language={language} />}
-          {activeTab === 2 && <TabSureIsimleri sureNames={sureNames} isMobile={isMobile} language={language} />}
-          {activeTab === 3 && <TabBaglamAnalizi contexts={contexts} language={language} />}
-          {activeTab === 4 && <TabTefsirNotlari tefsirNotes={tefsirNotes} sources={sources} language={language} />}
+          {activeTab === 0 && <TabHayvanlar      animals={animals}                   isMobile={isMobile} language={language} />}
+          {activeTab === 1 && <TabBitkiler        plants={plants}                     isMobile={isMobile} language={language} />}
+          {activeTab === 2 && <TabGokCisimleri    bodies={CELESTIAL_BODIES}           isMobile={isMobile} language={language} />}
+          {activeTab === 3 && <TabSureIsimleri    sureNames={sureNames}               isMobile={isMobile} language={language} />}
+          {activeTab === 4 && <TabBaglamAnalizi   contexts={contexts}                                     language={language} />}
+          {activeTab === 5 && <TabTefsirNotlari   tefsirNotes={tefsirNotes} sources={sources}             language={language} />}
         </div>
       </div>
     </div>
