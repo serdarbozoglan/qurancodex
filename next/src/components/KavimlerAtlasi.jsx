@@ -116,7 +116,7 @@ export default function KavimlerAtlasi({ onClose }) {
     return () => clearTimeout(t);
   }, [highlightArch]);
 
-  const KAVIMLER_TOOL_HEADER = (
+  const KAVİMLER_TOOL_HEADER = (
     <ToolHeader
       icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>}
       titleTr="Kavimler Atlası"
@@ -138,7 +138,7 @@ export default function KavimlerAtlasi({ onClose }) {
           paddingTop: '62px',
         }}
       >
-        {KAVIMLER_TOOL_HEADER}
+        {KAVİMLER_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
             {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
@@ -160,7 +160,7 @@ export default function KavimlerAtlasi({ onClose }) {
         paddingTop: '62px',
       }}
     >
-      {KAVIMLER_TOOL_HEADER}
+      {KAVİMLER_TOOL_HEADER}
 
       {/* ── TAB BAR — outside scroll area ───────────────────────────────────── */}
       <div style={{
@@ -256,7 +256,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
         maxWidth: '780px',
       }}>
         {tr
-          ? <>{totalNations} kavım. {totalNations} <em style={{ fontStyle: 'normal', color: COLORS.gold }}>aynı imtihan</em>.</>
+          ? <>{totalNations} kavim. {totalNations} <em style={{ fontStyle: 'normal', color: COLORS.gold }}>aynı imtihan</em>.</>
           : <>{totalNations} nations. {totalNations} <em style={{ fontStyle: 'normal', color: COLORS.gold }}>same trial</em>.</>}
       </h3>
 
@@ -402,7 +402,7 @@ function HeroSection({ meta, language, isMobile }) {
           textShadow: `0 0 20px ${COLORS.gold}1c`,
         }}
       >
-        اَفَلَمْ يَس۪يرُوا فِي الْاَرْضِ فَيَنْظُرُوا كَيْفَ كَانَ عَاقِبَةُ الَّذ۪ينَ مِنْ قَبْلِهِمْ
+        اَفَلَمْ يَسِيرُوا فِي الْاَرْضِ فَيَنْظُرُوا كَيْفَ كَانَ عَاقِبَةُ الَّذِينَ مِنْ قَبْلِهِمْ
       </p>
 
       <p style={{
@@ -493,7 +493,7 @@ function HeroSection({ meta, language, isMobile }) {
         opacity: 0.92,
       }}>
         {language === 'tr'
-          ? 'Her kavım bir peygamberle imtihan oldu. Her helak biçimi, bir cevap mıydı?'
+          ? 'Her kavim bir peygamberle imtihan oldu. Her helak biçimi, bir cevap mıydı?'
           : 'Every nation was tested with a prophet. Was every form of destruction an answer?'}
       </p>
 

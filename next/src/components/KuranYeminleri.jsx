@@ -309,6 +309,10 @@ export default function KuranYeminleri({ onClose }) {
               display: 'flex',
               gap: '10px',
               alignItems: 'flex-start',
+              maxWidth: '900px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              textAlign: 'left',
             }}>
               <span style={{ color: COLORS.gold, fontSize: '0.78rem', flexShrink: 0, lineHeight: 1.5, fontWeight: 700, letterSpacing: '0.04em' }}>
                 {language === 'tr' ? 'METOD' : 'METHOD'}
@@ -319,6 +323,17 @@ export default function KuranYeminleri({ onClose }) {
             </div>
           )}
         </div>
+
+        {/* ════ VÂKIA 56:75-76 SPOTLIGHT — Premium Tier B ════════════════════
+            Kur'an'ın KENDİ yeminini tefsir ettiği eşsiz ayet.
+            Hero ile tab arasında dramatic banner. */}
+        <VakiaSpotlight language={language} isMobile={isMobile} />
+
+        {/* ════ YEMİN → CEVAP INTERACTIVE REVEAL — Premium Tier B ════════════
+            Visitor bir yemin'e tıklar, ardından gelen cevap cümlesi reveal
+            olur. Yeminlerin asıl gücü buradadır: ne'ye yemin edildiği değil,
+            yeminin ardından ne'nin geldiği. */}
+        <YeminCevapReveal language={language} isMobile={isMobile} />
 
         {/* ── TAB BAR — directly above tab content ────────────────────── */}
         <div style={{
@@ -1753,6 +1768,391 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
             </a>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── VakiaSpotlight — Vâkıa 56:75-76 dramatic banner ─────────────────────────
+// "Şayet bilirseniz bu büyük bir yemindir" — Kur'an'ın KENDİ yeminini
+// büyük olarak nitelediği unique meta-ayet. Visitor'a "yeminin önemi"ni
+// dramatic biçimde sunar.
+function VakiaSpotlight({ language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      margin: isMobile ? '20px 16px 0' : '32px auto 0',
+      maxWidth: '900px',
+      padding: isMobile ? '24px 20px' : '36px 40px',
+      background: 'linear-gradient(135deg, rgba(212,165,116,0.10) 0%, rgba(201,162,39,0.05) 50%, rgba(212,165,116,0.10) 100%)',
+      border: `1px solid ${COLORS.goldAlpha25}`,
+      borderRadius: RADIUS.lg,
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      {/* Subtle radial glow */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `radial-gradient(ellipse at center, ${COLORS.gold}11 0%, transparent 60%)`,
+      }} />
+
+      <div style={{ position: 'relative', textAlign: 'center' }}>
+        <div style={{
+          fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
+          letterSpacing: '0.3em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.75,
+          marginBottom: '14px',
+        }}>
+          {tr ? "Kur'an Kendi Yeminini Tefsir Ediyor" : "The Quran Interprets Its Own Oath"}
+        </div>
+
+        <p
+          dir="rtl"
+          lang="ar"
+          style={{
+            fontFamily: FONTS.quran,
+            fontSize: isMobile ? 'clamp(1.05rem, 4vw, 1.35rem)' : 'clamp(1.3rem, 2.2vw, 1.7rem)',
+            color: COLORS.gold,
+            lineHeight: 2.1,
+            margin: '0 auto 18px',
+            maxWidth: '780px',
+            textShadow: `0 0 20px ${COLORS.gold}28`,
+          }}
+        >
+          فَلَا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ ۙ وَاِنَّهُ لَقَسَمٌ لَوْ تَعْلَمُونَ عَظِيمٌ
+        </p>
+
+        <p style={{
+          color: COLORS.offWhite,
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.95rem' : 'clamp(1rem, 1.6vw, 1.1rem)',
+          lineHeight: 1.7,
+          margin: '0 auto 12px',
+          maxWidth: '640px',
+          opacity: 0.95,
+        }}>
+          "{tr
+            ? 'Yıldızların yerlerine yemin ederim — ve bu, bilseydiniz, gerçekten çok büyük bir yemindir.'
+            : 'I swear by the positions of the stars — and indeed, if you only knew, it is a tremendous oath.'}"
+        </p>
+
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.72rem',
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          margin: '0 0 20px',
+          opacity: 0.7,
+        }}>
+          — {tr ? 'Vâkıa 56:75-76' : 'al-Wāqiʿa 56:75-76'}
+        </p>
+
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.84rem',
+          lineHeight: 1.7,
+          margin: '0 auto',
+          maxWidth: '640px',
+          opacity: 0.85,
+        }}>
+          {tr
+            ? <>Bu nadir bir andır: <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Allah</strong>, ettiği yeminin <strong style={{ color: COLORS.gold, fontWeight: 600 }}>büyüklüğünü</strong> insana açıkça söylüyor. Yeminin önemini ifade eden meta-ayet — Kur'an'da yalnızca burada geçer.</>
+            : <>This is a rare moment: <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Allah</strong> explicitly tells humanity the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>greatness</strong> of His own oath. A meta-verse on the weight of swearing — found only here in the Quran.</>}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ─── YeminCevapReveal — Yemin'in ardından gelen mesajı reveal ────────────────
+// Yeminin asıl gücü: ardından gelen söz. Visitor "Yemini gör" → "Cevabı gör"
+// reveal pattern ile yeminin işlevini somut hisseder.
+const YEMIN_CEVAP_DATA = [
+  {
+    id: 'sems',
+    oathRefTr: 'Şems 91:1-7',
+    oathRefEn: 'al-Shams 91:1-7',
+    oathAr: 'وَالشَّمْسِ وَضُحٰيهَاۙ وَالْقَمَرِ اِذَا تَلٰيهَاۙ وَالنَّهَارِ اِذَا جَلّٰيهَاۙ وَالَّيْلِ اِذَا يَغْشٰيهَاۙ وَالسَّمَٓاءِ وَمَا بَنٰيهَاۙ وَالْاَرْضِ وَمَا طَحٰيهَاۙ وَنَفْسٍ وَمَا سَوّٰيهَا',
+    oathTr: 'Güneşe ve onun aydınlığına; ay\'a — onu takip ettiğinde; gündüze — onu açığa çıkardığında; geceye — onu örttüğünde; göğe ve onu yapana; yere ve onu döşeyene; nefse ve onu düzenleyene.',
+    oathEn: 'By the sun and its morning brightness; the moon when it follows; the day when it reveals it; the night when it veils it; the sky and Who built it; the earth and Who spread it; the soul and Who shaped it.',
+    answerRefTr: 'Şems 91:9-10',
+    answerRefEn: 'al-Shams 91:9-10',
+    answerAr: 'قَدْ اَفْلَحَ مَنْ زَكّٰيهَاۖ وَقَدْ خَابَ مَنْ دَسّٰيهَاۜ',
+    answerTr: 'Nefsini arındıran kurtuluşa ermiştir. Onu (kötülüğe) gömen ise mahvolmuştur.',
+    answerEn: 'Successful is the one who purifies the soul; failed is the one who corrupts it.',
+    insightTr: '7 büyük yemin → 1 hüküm. Kâinatın tüm tanıkları: insanın iç temizliği üzerine.',
+    insightEn: 'Seven mighty oaths → one verdict. All cosmic witnesses converge on the soul\'s purity.',
+  },
+  {
+    id: 'asr',
+    oathRefTr: 'Asr 103:1',
+    oathRefEn: 'al-ʿAṣr 103:1',
+    oathAr: 'وَالْعَصْرِۙ',
+    oathTr: 'Asra (zamana) andolsun.',
+    oathEn: 'By the passage of time.',
+    answerRefTr: 'Asr 103:2-3',
+    answerRefEn: 'al-ʿAṣr 103:2-3',
+    answerAr: 'اِنَّ الْاِنْسَانَ لَفِي خُسْرٍۙ اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ ەۙ وَتَوَاصَوْا بِالصَّبْرِ',
+    answerTr: 'İnsan kesinlikle ziyandadır — iman edip salih amel işleyenler, birbirine hakkı ve sabrı tavsiye edenler hariç.',
+    answerEn: 'Indeed, humanity is in loss — except those who believe, do righteous deeds, and counsel each other in truth and patience.',
+    insightTr: '3 ayetin tezi: zaman karşısında insanın yapısal hâli. Şâfiî: "Sadece bu sûre inseydi yeterdi" demiştir.',
+    insightEn: 'Three verses, one thesis: humanity\'s structural state against time. Al-Shafiʿi: "If only this sura were revealed, it would suffice."',
+  },
+  {
+    id: 'buruc',
+    oathRefTr: 'Burûc 85:1-3',
+    oathRefEn: 'al-Burūj 85:1-3',
+    oathAr: 'وَالسَّمَٓاءِ ذَاتِ الْبُرُوجِۙ وَالْيَوْمِ الْمَوْعُودِۙ وَشَاهِدٍ وَمَشْهُودٍۜ',
+    oathTr: 'Burçlarla dolu göğe; vaad edilen güne; tanık olana ve tanık olunana andolsun.',
+    oathEn: 'By the sky full of constellations; by the promised day; by the witness and the witnessed.',
+    answerRefTr: 'Burûc 85:4-7',
+    answerRefEn: 'al-Burūj 85:4-7',
+    answerAr: 'قُتِلَ اَصْحَابُ الْاُخْدُودِۙ اَلنَّارِ ذَاتِ الْوَقُودِۙ اِذْ هُمْ عَلَيْهَا قُعُودٌۙ وَهُمْ عَلٰى مَا يَفْعَلُونَ بِالْمُؤْمِنِينَ شُهُودٌۜ',
+    answerTr: 'Hendek halkı (Ashâb-ı Uhdûd) kahrolsun — yakacaklı ateşin sahipleri; ateşin başında oturmuş, müminlere yaptıklarını seyrediyorlardı.',
+    answerEn: 'Cursed be the people of the trench — those of the fueled fire; sitting beside it, watching what they did to the believers.',
+    insightTr: 'Kozmik yemin → tarihsel zulüm. Gök tanık; zalimler de tanık. Aynı kelime: "şahid".',
+    insightEn: 'Cosmic oath → historical injustice. The sky witnesses; the oppressors also witness. Same word: "shāhid".',
+  },
+];
+
+function YeminCevapReveal({ language, isMobile }) {
+  const tr = language === 'tr';
+  const [revealed, setRevealed] = useState({});
+
+  return (
+    <div style={{
+      margin: isMobile ? '32px 16px 0' : '48px auto 0',
+      maxWidth: '900px',
+      padding: isMobile ? '0' : '0 8px',
+    }}>
+      <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+        <div style={{
+          fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
+          letterSpacing: '0.3em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.7,
+          marginBottom: '12px',
+        }}>
+          {tr ? 'Yeminin Ardındaki Mesaj' : 'The Message Behind the Oath'}
+        </div>
+        <h2 style={{
+          fontFamily: FONTS.display,
+          fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.6rem, 2.6vw, 2rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          margin: '0 auto 12px',
+          lineHeight: 1.25,
+          letterSpacing: '-0.01em',
+          maxWidth: '700px',
+        }}>
+          {tr ? 'Yemin → Cevap' : 'Oath → Answer'}
+        </h2>
+        <p style={{
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          color: COLORS.silver,
+          fontSize: isMobile ? '0.9rem' : '0.95rem',
+          lineHeight: 1.7,
+          margin: '0 auto',
+          maxWidth: '640px',
+          opacity: 0.88,
+        }}>
+          {tr
+            ? "Yeminin gerçek gücü 'neye' yemin edildiğinde değil — ardından gelen sözdedir. Aşağıdaki 3 örnekte yemini okuyun, ardından cevabı açın."
+            : "The oath's true power is not in 'what' is sworn by — but in what follows. Read each oath below, then reveal the answer."}
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        {YEMIN_CEVAP_DATA.map(item => {
+          const isRevealed = !!revealed[item.id];
+          return (
+            <div
+              key={item.id}
+              style={{
+                background: 'rgba(255,255,255,0.025)',
+                border: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBgStrong}`,
+                borderRadius: RADIUS.lg,
+                overflow: 'hidden',
+              }}
+            >
+              {/* Oath section */}
+              <div style={{ padding: isMobile ? '20px 18px' : '24px 28px' }}>
+                <div style={{
+                  display: 'flex', alignItems: 'center', gap: '10px',
+                  marginBottom: '14px',
+                }}>
+                  <span style={{
+                    fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
+                    letterSpacing: '0.2em', textTransform: 'uppercase',
+                    color: COLORS.gold, opacity: 0.8,
+                    padding: '3px 8px',
+                    background: COLORS.goldAlpha04,
+                    border: `1px solid ${COLORS.goldAlpha25}`,
+                    borderRadius: RADIUS.pillSm,
+                  }}>
+                    {tr ? 'Yemin' : 'Oath'}
+                  </span>
+                  <span style={{
+                    fontSize: '0.74rem', color: COLORS.silver, opacity: 0.75,
+                    fontFamily: FONTS.body,
+                  }}>
+                    {tr ? item.oathRefTr : item.oathRefEn}
+                  </span>
+                </div>
+
+                <p
+                  dir="rtl"
+                  lang="ar"
+                  style={{
+                    fontFamily: FONTS.quran,
+                    fontSize: isMobile ? 'clamp(0.95rem, 3.8vw, 1.2rem)' : 'clamp(1.05rem, 1.85vw, 1.4rem)',
+                    color: COLORS.gold,
+                    lineHeight: 2.1,
+                    margin: '0 0 14px',
+                    textShadow: `0 0 16px ${COLORS.gold}1a`,
+                  }}
+                >
+                  {item.oathAr}
+                </p>
+
+                <p style={{
+                  color: COLORS.silver,
+                  fontFamily: FONTS.body,
+                  fontStyle: 'italic',
+                  fontSize: '0.86rem',
+                  lineHeight: 1.7,
+                  margin: 0,
+                  opacity: 0.88,
+                }}>
+                  "{tr ? item.oathTr : item.oathEn}"
+                </p>
+              </div>
+
+              {/* Reveal toggle button — DRAMATIC */}
+              <button
+                onClick={() => setRevealed(r => ({ ...r, [item.id]: !r[item.id] }))}
+                style={{
+                  width: '100%',
+                  padding: '12px 20px',
+                  background: isRevealed ? COLORS.goldAlpha04 : 'transparent',
+                  border: 'none',
+                  borderTop: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBgStrong}`,
+                  borderBottom: isRevealed ? `1px solid ${COLORS.glassBorderSoft || COLORS.glassBgStrong}` : 'none',
+                  color: COLORS.gold,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.78rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  transition: 'background 0.15s',
+                }}
+                onMouseEnter={e => { if (!isRevealed) e.currentTarget.style.background = COLORS.goldAlpha04; }}
+                onMouseLeave={e => { if (!isRevealed) e.currentTarget.style.background = 'transparent'; }}
+              >
+                <span>{isRevealed ? (tr ? '▴ Cevabı Kapat' : '▴ Hide the Answer') : (tr ? '▾ Cevabı Aç' : '▾ Reveal the Answer')}</span>
+              </button>
+
+              {/* Answer section — reveal */}
+              {isRevealed && (
+                <div style={{
+                  padding: isMobile ? '20px 18px 24px' : '24px 28px 28px',
+                  background: 'rgba(212,165,116,0.04)',
+                }}>
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: '10px',
+                    marginBottom: '14px',
+                  }}>
+                    <span style={{
+                      fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
+                      letterSpacing: '0.2em', textTransform: 'uppercase',
+                      color: '#2ecc71',
+                      padding: '3px 8px',
+                      background: 'rgba(46,204,113,0.08)',
+                      border: '1px solid rgba(46,204,113,0.25)',
+                      borderRadius: RADIUS.pillSm,
+                    }}>
+                      {tr ? 'Cevap' : 'Answer'}
+                    </span>
+                    <span style={{
+                      fontSize: '0.74rem', color: COLORS.silver, opacity: 0.75,
+                      fontFamily: FONTS.body,
+                    }}>
+                      {tr ? item.answerRefTr : item.answerRefEn}
+                    </span>
+                  </div>
+
+                  <p
+                    dir="rtl"
+                    lang="ar"
+                    style={{
+                      fontFamily: FONTS.quran,
+                      fontSize: isMobile ? 'clamp(0.95rem, 3.8vw, 1.2rem)' : 'clamp(1.05rem, 1.85vw, 1.4rem)',
+                      color: '#2ecc71',
+                      lineHeight: 2.1,
+                      margin: '0 0 14px',
+                      textShadow: '0 0 16px rgba(46,204,113,0.18)',
+                    }}
+                  >
+                    {item.answerAr}
+                  </p>
+
+                  <p style={{
+                    color: COLORS.offWhite,
+                    fontFamily: FONTS.body,
+                    fontStyle: 'italic',
+                    fontSize: '0.9rem',
+                    lineHeight: 1.7,
+                    margin: '0 0 14px',
+                    opacity: 0.95,
+                  }}>
+                    "{tr ? item.answerTr : item.answerEn}"
+                  </p>
+
+                  {/* Insight micro-paragraph */}
+                  <div style={{
+                    padding: '10px 14px',
+                    background: COLORS.goldAlpha04,
+                    borderLeft: `2px solid ${COLORS.gold}99`,
+                    borderRadius: '0 6px 6px 0',
+                    marginTop: '8px',
+                  }}>
+                    <span style={{
+                      color: COLORS.gold,
+                      fontFamily: FONTS.body,
+                      fontSize: '0.6rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      display: 'block',
+                      marginBottom: '4px',
+                      opacity: 0.85,
+                    }}>
+                      ✦ {tr ? 'İçgörü' : 'Insight'}
+                    </span>
+                    <p style={{
+                      color: COLORS.silver,
+                      fontFamily: FONTS.body,
+                      fontSize: '0.82rem',
+                      lineHeight: 1.6,
+                      margin: 0,
+                      opacity: 0.92,
+                    }}>
+                      {tr ? item.insightTr : item.insightEn}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
