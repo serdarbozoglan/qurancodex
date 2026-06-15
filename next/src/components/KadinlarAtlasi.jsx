@@ -383,7 +383,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
   const v10En = "Allah sets forth an example for those who disbelieved: the wife of Noah and the wife of Lot. They were under two of Our righteous servants but betrayed them...";
   const v10Ref = "Tahrîm 66:10";
 
-  const anchorAr = "وَضَرَبَ اللّٰهُ مَثَلاً لِلَّذ۪ينَ اٰمَنُوا امْرَاَتَ فِرْعَوْنَۢ اِذْ قَالَتْ رَبِّ ابْنِ ل۪ي عِنْدَكَ بَيْتاً فِي الْجَنَّةِ";
+  const anchorAr = "وَضَرَبَ اللّٰهُ مَثَلاً لِلَّذِينَ اٰمَنُوا امْرَاَتَ فِرْعَوْنَۢ اِذْ قَالَتْ رَبِّ ابْنِ لِي عِنْدَكَ بَيْتاً فِي الْجَنَّةِ";
   const anchorTr = "Allah, inananlara da Firavun'un karısını örnek gösterdi: \"Rabbim! Bana katında, cennette bir ev yap...\"";
   const anchorEn = "And Allah presents an example of those who believed: the wife of Pharaoh, when she said, \"My Lord, build for me near You a house in Paradise...\"";
   const anchorRef = "Tahrîm 66:11";
