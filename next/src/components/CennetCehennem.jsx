@@ -378,14 +378,15 @@ export default function CennetCehennem({ onClose }) {
           {/* ── HERO BANNER (stat panel) ─────────────────────────── */}
           <HeroBanner data={data} language={language} isMobile={isMobile} />
 
-          {/* Tab bar — sticky after Hero (Premium pattern: Hero ÖNCE, tabs SONRA) */}
+          {/* Tab bar — sticky after Hero (Premium pattern: Hero ÖNCE, tabs SONRA)
+              Background fully opaque (#06080e) — body bg ile aynı; transparan rgba
+              kullanmak scroll'da altındaki kartların sızmasına neden oluyordu. */}
           <div id="cennet-tab-bar" style={{
             display: 'flex', gap: '2px',
             padding: isMobile ? '0 8px' : '0 16px',
             margin: isMobile ? '0 -14px 24px' : '0 -32px 28px',
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-            background: 'rgba(10,10,26,0.97)',
-            backdropFilter: 'blur(20px)',
+            background: '#06080e',
             overflowX: 'auto',
             scrollbarWidth: 'none',
             position: 'sticky',
