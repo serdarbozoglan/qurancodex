@@ -86,13 +86,15 @@
       "type": "verseInline",
       "ref": "69:11",
       "noteTr": "Su tuğyan ettiğinde (taşıp haddi aşınca) sizi gemide taşıdık.",
-      "noteEn": "When the water transgressed (overflowed), We carried you in the ship."
+      "noteEn": "When the water transgressed (overflowed), We carried you in the ship.",
+      "ar": "اِنَّا لَمَّا طَغَا الْمٓاءُ حَمَلْنَاكُمْ فِي الْجَارِيَةِ"
     },
     {
       "type": "verseInline",
       "ref": "55:8",
       "noteTr": "Ölçüde haddi aşmayın (en-lâ taṭğav fî-l-mîzân).",
-      "noteEn": "Do not transgress in the balance (allā taṭghaw fī al-mīzān)."
+      "noteEn": "Do not transgress in the balance (allā taṭghaw fī al-mīzān).",
+      "ar": "اَلَّا تَطْغَوْا فِي الْمِيزَانِ"
     },
     {
       "type": "section",
@@ -290,7 +292,9 @@
       "type": "verseInline",
       "ref": "96:6-7",
       "noteTr": "Hayır, insan kesinlikle azar (yeṭğā). Kendini kendine yeterli görünce (en raāhu istağnā).",
-      "noteEn": "No! Indeed, mankind transgresses (yaṭghā). When he sees himself as self-sufficient (an raʾāhu istaghnā)."
+      "noteEn": "No! Indeed, mankind transgresses (yaṭghā). When he sees himself as self-sufficient (an raʾāhu istaghnā).",
+      "ar": "كَلٓا اِنَّ الْاِنْسَانَ لَيَطْغٰى",
+      "isRange": true
     },
     {
       "type": "section",
@@ -356,13 +360,16 @@
       "type": "verseInline",
       "ref": "10:11-12",
       "noteTr": "İnsana bir sıkıntı dokunduğunda yan üstü, oturarak ya da ayakta bize dua eder. Sıkıntısını giderdiğimizde ise sanki kendisine dokunan sıkıntı için bize dua etmemiş gibi geçer gider.",
-      "noteEn": "When affliction touches man, he calls upon Us — lying on his side, sitting, or standing. But when We remove his affliction, he passes on as though he had never called upon Us."
+      "noteEn": "When affliction touches man, he calls upon Us — lying on his side, sitting, or standing. But when We remove his affliction, he passes on as though he had never called upon Us.",
+      "ar": "وَلَوْ يُعَجِّلُ اللّٰهُ لِلنَّاسِ الشَّرَّ اسْتِعْجَالَهُمْ بِالْخَيْرِ لَقُضِيَ اِلَيْهِمْ اَجَلُهُمْ فَنَذَرُ الَّذِينَ لَا يَرْجُونَ لِقٓاءَنَا فِي طُغْيَانِهِمْ يَعْمَهُونَ",
+      "isRange": true
     },
     {
       "type": "verseInline",
       "ref": "15:72",
       "noteTr": "Hayatın hakkı için onlar sarhoşlukları içinde bocalayıp duruyorlardı (lefî sekretihim yaʿmehûn).",
-      "noteEn": "By your life, they were staggering in their drunkenness (la-fī sakratihim yaʿmahūn)."
+      "noteEn": "By your life, they were staggering in their drunkenness (la-fī sakratihim yaʿmahūn).",
+      "ar": "لَعَمْرُكَ اِنَّهُمْ لَفِي سَكْرَتِهِمْ يَعْمَهُونَ"
     },
     {
       "type": "pullQuote",

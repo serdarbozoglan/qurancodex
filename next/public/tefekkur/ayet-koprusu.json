@@ -49,13 +49,15 @@
       "type": "verseInline",
       "ref": "13:3",
       "noteTr": "*Ra'd 13:3* — وَهُوَ الَّذِي مَدَّ الْاَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَاَنْهَارًا… اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '…**Bunda tefekkür eden bir kavim için ayetler vardır.**' Hadiseleri Allah ile ilişkilendiren *tefekkür* seviyesi.",
-      "noteEn": "*Al-Raʿd 13:3* — وَهُوَ الَّذِي مَدَّ الْاَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَاَنْهَارًا… اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '…**In that are signs for a people who reflect.**' The level of *tafakkur* — relating phenomena to Allah."
+      "noteEn": "*Al-Raʿd 13:3* — وَهُوَ الَّذِي مَدَّ الْاَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَاَنْهَارًا… اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '…**In that are signs for a people who reflect.**' The level of *tafakkur* — relating phenomena to Allah.",
+      "ar": "وَهُوَ الَّذِي مَدَّ الْاَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَاَنْهَاراً وَمِنْ كُلِّ الثَّمَرَاتِ جَعَلَ فِيهَا زَوْجَيْنِ اثْنَيْنِ يُغْشِي الَّيْلَ النَّهَارَ اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ"
     },
     {
       "type": "verseInline",
       "ref": "14:5",
       "noteTr": "*İbrahim 14:5* — وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ — '**Onlara Allah'ın günlerini hatırlat.**' Ayet olarak *eyyamullah* — tarihte Allah'ın açtığı pencereler; **sabr ↔ şükür** sahibi için ayet olur.",
-      "noteEn": "*Ibrāhīm 14:5* — وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ — '**Remind them of the Days of Allah.**' *Ayyām Allāh* as āya — the windows Allah has opened in history; signs *for the one of sabr and shukr*."
+      "noteEn": "*Ibrāhīm 14:5* — وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ — '**Remind them of the Days of Allah.**' *Ayyām Allāh* as āya — the windows Allah has opened in history; signs *for the one of sabr and shukr*.",
+      "ar": "وَلَقَدْ اَرْسَلْنَا مُوسٰى بِاٰيَاتِنٓا اَنْ اَخْرِجْ قَوْمَكَ مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِكُلِّ صَبَّارٍ شَكُورٍ"
     },
     {
       "type": "section",
@@ -245,25 +247,29 @@
       "type": "verseInline",
       "ref": "45:3",
       "noteTr": "*Câsiye 45:3* — اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ — '**Göklerde ve yerde müminler için ayetler vardır.**'",
-      "noteEn": "*Al-Jāthiya 45:3* — اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ — '**In the heavens and the earth are signs for the believers.**'"
+      "noteEn": "*Al-Jāthiya 45:3* — اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ — '**In the heavens and the earth are signs for the believers.**'",
+      "ar": "اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ"
     },
     {
       "type": "verseInline",
       "ref": "45:4",
       "noteTr": "*Câsiye 45:4* — وَفِي خَلْقِكُمْ وَمَا يَبُثُّ مِنْ دَآبَّةٍ اٰيَاتٌ لِقَوْمٍ يُوقِنُونَ — '**Sizin ve yeryüzünde yaydığı canlıların yaratılışında, yakine erenler için ayetler vardır.**'",
-      "noteEn": "*Al-Jāthiya 45:4* — وَفِي خَلْقِكُمْ وَمَا يَبُثُّ مِنْ دَآبَّةٍ اٰيَاتٌ لِقَوْمٍ يُوقِنُونَ — '**In your own creation and the creatures He has scattered, signs for a people of certainty.**'"
+      "noteEn": "*Al-Jāthiya 45:4* — وَفِي خَلْقِكُمْ وَمَا يَبُثُّ مِنْ دَآبَّةٍ اٰيَاتٌ لِقَوْمٍ يُوقِنُونَ — '**In your own creation and the creatures He has scattered, signs for a people of certainty.**'",
+      "ar": "وَفِي خَلْقِكُمْ وَمَا يَبُثُّ مِنْ دٓابَّةٍ اٰيَاتٌ لِقَوْمٍ يُوقِنُونَ"
     },
     {
       "type": "verseInline",
       "ref": "45:5",
       "noteTr": "*Câsiye 45:5* — وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ… اٰيَاتٌ لِقَوْمٍ يَعْقِلُونَ — '**Gece-gündüzün ardarda gelişinde… akleden bir kavim için ayetler vardır.**'",
-      "noteEn": "*Al-Jāthiya 45:5* — وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ… اٰيَاتٌ لِقَوْمٍ يَعْقِلُونَ — '**In the alternation of night and day… signs for a people who reason.**'"
+      "noteEn": "*Al-Jāthiya 45:5* — وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ… اٰيَاتٌ لِقَوْمٍ يَعْقِلُونَ — '**In the alternation of night and day… signs for a people who reason.**'",
+      "ar": "وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ وَمٓا اَنْزَلَ اللّٰهُ مِنَ السَّمٓاءِ مِنْ رِزْقٍ فَاَحْيَا بِهِ الْاَرْضَ بَعْدَ مَوْتِهَا وَتَصْرِيفِ الرِّيَاحِ اٰيَاتٌ لِقَوْمٍ يَعْقِلُونَ"
     },
     {
       "type": "verseInline",
       "ref": "45:13",
       "noteTr": "*Câsiye 45:13* — اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '**Bunda tefekkür eden bir kavim için ayetler vardır.**'",
-      "noteEn": "*Al-Jāthiya 45:13* — اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '**In that are signs for a people who reflect.**'"
+      "noteEn": "*Al-Jāthiya 45:13* — اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '**In that are signs for a people who reflect.**'",
+      "ar": "وَسَخَّرَ لَكُمْ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ جَمِيعاً مِنْهُ اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ"
     },
     {
       "type": "section",
@@ -275,7 +281,8 @@
       "type": "verseInline",
       "ref": "45:6",
       "noteTr": "*Câsiye 45:6* — تِلْكَ اٰيَاتُ اللّٰهِ نَتْلُوهَا عَلَيْكَ بِالْحَقِّ — '**Bunlar Allah'ın âyetleridir; sana onları hakkıyla okuruz (*netlûhâ* / *tilâvet*).**' Allah, tabiatta gözlemlediğimiz hadiselere **'ayetleri'** der ve **bunları bize okur**. *Şu kainat mescid-i kebirinde Kur'an okunuyor.*",
-      "noteEn": "*Al-Jāthiya 45:6* — تِلْكَ اٰيَاتُ اللّٰهِ نَتْلُوهَا عَلَيْكَ بِالْحَقِّ — '**These are Allah's signs (āyāt); We recite them to you in truth (*natlū* / *tilāwa*).**' Allah names the phenomena we observe in nature as **'His āyāt'** — and **recites them to us**. *In the great mosque of the cosmos, the Quran is being read.*"
+      "noteEn": "*Al-Jāthiya 45:6* — تِلْكَ اٰيَاتُ اللّٰهِ نَتْلُوهَا عَلَيْكَ بِالْحَقِّ — '**These are Allah's signs (āyāt); We recite them to you in truth (*natlū* / *tilāwa*).**' Allah names the phenomena we observe in nature as **'His āyāt'** — and **recites them to us**. *In the great mosque of the cosmos, the Quran is being read.*",
+      "ar": "تِلْكَ اٰيَاتُ اللّٰهِ نَتْلُوهَا عَلَيْكَ بِالْحَقِّ فَبِاَيِّ حَدِيثٍ بَعْدَ اللّٰهِ وَاٰيَاتِهِ يُؤْمِنُونَ"
     },
     {
       "type": "section",
@@ -292,7 +299,8 @@
       "type": "verseInline",
       "ref": "45:8",
       "noteTr": "*Câsiye 45:8* — يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِرًا — '**Ayetlerin kendisine okunduğunu işitir, sonra büyüklenerek inkârında direnir.**' **Kibir, ayetin anlaşılmasına en büyük engel.**",
-      "noteEn": "*Al-Jāthiya 45:8* — يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِرًا — '**He hears Allah's signs recited to him, then arrogantly persists in rejection.**' **Arrogance is the greatest barrier to understanding the āya.**"
+      "noteEn": "*Al-Jāthiya 45:8* — يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِرًا — '**He hears Allah's signs recited to him, then arrogantly persists in rejection.**' **Arrogance is the greatest barrier to understanding the āya.**",
+      "ar": "يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِراً كَاَنْ لَمْ يَسْمَعْهَا فَبَشِّرْهُ بِعَذَابٍ اَلِيمٍ"
     },
     {
       "type": "criticalNote",

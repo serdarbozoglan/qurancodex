@@ -56,7 +56,8 @@
       "type": "verseInline",
       "ref": "2:286",
       "noteTr": "*Bakara 2:286* — لَا يُكَلِّفُ اللّٰهُ نَفْسًا اِلَّا وُسْعَهَا — '**Allah bir nefsi ancak gücünün yettiği kadarıyla yükümlü kılar.**' Âyet temel bir gerçeği varsayar: insanın **bir kapasitesi vardır ve sınırları vardır**. Sonsuz değiliz; öyle olmamız da beklenmez. Sınırı görmezden geldiğimizde **daha erdemli olmuyoruz — tükeniyoruz.**",
-      "noteEn": "*Al-Baqara 2:286* — لَا يُكَلِّفُ اللّٰهُ نَفْسًا اِلَّا وُسْعَهَا — '**Allah does not burden a soul beyond its capacity.**' The verse presupposes a basic truth: the human **has a capacity, and that capacity has limits.** We are not infinite; we are not expected to be. When we ignore the limit, **we do not become more virtuous — we burn out.**"
+      "noteEn": "*Al-Baqara 2:286* — لَا يُكَلِّفُ اللّٰهُ نَفْسًا اِلَّا وُسْعَهَا — '**Allah does not burden a soul beyond its capacity.**' The verse presupposes a basic truth: the human **has a capacity, and that capacity has limits.** We are not infinite; we are not expected to be. When we ignore the limit, **we do not become more virtuous — we burn out.**",
+      "ar": "لَا يُكَلِّفُ اللّٰهُ نَفْساً اِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنٓا اِنْ نَسِينٓا اَوْ اَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنٓا اِصْراً كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا۠ وَاغْفِرْ لَنَا۠ وَارْحَمْنَا۠ اَنْتَ مَوْلٰينَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ"
     },
     {
       "type": "paragraph",
@@ -164,44 +165,52 @@
     {
       "type": "verseInline",
       "ref": "7:31",
-      "noteTr": "*A'râf 7:31* — كُلُوا وَاشْرَبُوا وَلَا تُسْرِفُٓوا — 'Yiyin ve için, ama haddi aşmayın.' İki uç da — yoksunluk ve aşırı tüketim — enerjiyi yok eder.",
-      "noteEn": "*Al-Aʿrāf 7:31* — كُلُوا وَاشْرَبُوا وَلَا تُسْرِفُٓوا — 'Eat and drink, but do not exceed.' Both extremes — deprivation and excess — destroy energy."
+      "noteTr": "*A'râf 7:31* — كُلُوا وَاشْرَبُوا وَلَا تُسْرِفٓوا — 'Yiyin ve için, ama haddi aşmayın.' İki uç da — yoksunluk ve aşırı tüketim — enerjiyi yok eder.",
+      "noteEn": "*Al-Aʿrāf 7:31* — كُلُوا وَاشْرَبُوا وَلَا تُسْرِفٓوا — 'Eat and drink, but do not exceed.' Both extremes — deprivation and excess — destroy energy.",
+      "ar": "يَا بَنِٓي اٰدَمَ خُذُوا زِينَتَكُمْ عِنْدَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا اِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ۟"
     },
     {
       "type": "verseInline",
       "ref": "16:66",
       "noteTr": "*Nahl 16:66* — لَبَنًا خَالِصًا سَآئِغًا لِلشَّارِبِينَ — '…**içenler için halis, hoş süt.**' Kur'an'ın belirli bir nimete bu kadar somut dikkat vermesi tesadüf değil — **fiziksel beslenme temeldir**.",
-      "noteEn": "*Al-Naḥl 16:66* — لَبَنًا خَالِصًا سَآئِغًا لِلشَّارِبِينَ — '…**pure milk, pleasant for those who drink.**' The Quran's concrete attention to a specific nourishment is no accident — **physical nutrition is foundational**."
+      "noteEn": "*Al-Naḥl 16:66* — لَبَنًا خَالِصًا سَآئِغًا لِلشَّارِبِينَ — '…**pure milk, pleasant for those who drink.**' The Quran's concrete attention to a specific nourishment is no accident — **physical nutrition is foundational**.",
+      "ar": "وَاِنَّ لَكُمْ فِي الْاَنْعَامِ لَعِبْرَةً  نُسْقِيكُمْ مِمَّا فِي بُطُونِهِ مِنْ بَيْنِ فَرْثٍ وَدَمٍ لَبَناً خَالِصاً سٓائِغاً لِلشَّارِبِينَ"
     },
     {
       "type": "verseInline",
       "ref": "78:9-11",
       "noteTr": "*Nebe 78:9-11* — وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا • وَجَعَلْنَا الَّيْلَ لِبَاسًا • وَجَعَلْنَا النَّهَارَ مَعَاشًا — '**Uykunuzu istirahat (subâta), geceyi örtü, gündüzü geçim vasıtası kıldık.**' *Subât* = bir kesme, **sistem reset'i**.",
-      "noteEn": "*Al-Nabaʾ 78:9-11* — وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا • وَجَعَلْنَا الَّيْلَ لِبَاسًا • وَجَعَلْنَا النَّهَارَ مَعَاشًا — '**We made your sleep a rest (subāt), the night a covering, and the day for livelihood.**' *Subāt* = a cutting, **a system reset**."
+      "noteEn": "*Al-Nabaʾ 78:9-11* — وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا • وَجَعَلْنَا الَّيْلَ لِبَاسًا • وَجَعَلْنَا النَّهَارَ مَعَاشًا — '**We made your sleep a rest (subāt), the night a covering, and the day for livelihood.**' *Subāt* = a cutting, **a system reset**.",
+      "ar": "وَجَعَلْنَا نَوْمَكُمْ سُبَاتاً",
+      "isRange": true
     },
     {
       "type": "verseInline",
       "ref": "73:6",
       "noteTr": "*Müzzemmil 73:6* — اِنَّ نَاشِئَةَ الَّيْلِ هِيَ اَشَدُّ وَطْـًٔا وَاَقْوَمُ قِيلًا — 'Şüphesiz **geceleyin uyanmak tesir bakımından daha güçlü, söz bakımından daha doğrudur.**' Gece saatlerinin gündüzün tekrar edemeyeceği kalitesi.",
-      "noteEn": "*Al-Muzzammil 73:6* — اِنَّ نَاشِئَةَ الَّيْلِ هِيَ اَشَدُّ وَطْـًٔا وَاَقْوَمُ قِيلًا — 'Truly, **the night-rising is stronger in effect and more upright in word.**' A quality of the night-hours the day cannot reproduce."
+      "noteEn": "*Al-Muzzammil 73:6* — اِنَّ نَاشِئَةَ الَّيْلِ هِيَ اَشَدُّ وَطْـًٔا وَاَقْوَمُ قِيلًا — 'Truly, **the night-rising is stronger in effect and more upright in word.**' A quality of the night-hours the day cannot reproduce.",
+      "ar": "اِنَّ نَاشِئَةَ الَّيْلِ هِيَ اَشَدُّ وَطْـٔاً وَاَقْوَمُ قِيلاً"
     },
     {
       "type": "verseInline",
       "ref": "29:20",
       "noteTr": "*Ankebût 29:20* — قُلْ سِيرُوا فِي الْاَرْضِ فَانْظُرُوا — '**De ki: Yeryüzünde gezin ve nasıl başladığına bakın.**' Sadece seyahat değil — **gözlemleme, yeni izlenim alma, yaratılışı yeniden görme.**",
-      "noteEn": "*Al-ʿAnkabūt 29:20* — قُلْ سِيرُوا فِي الْاَرْضِ فَانْظُرُوا — '**Say: travel through the earth and observe how He began creation.**' Not just travel — **observing, gathering new impressions, seeing creation afresh.**"
+      "noteEn": "*Al-ʿAnkabūt 29:20* — قُلْ سِيرُوا فِي الْاَرْضِ فَانْظُرُوا — '**Say: travel through the earth and observe how He began creation.**' Not just travel — **observing, gathering new impressions, seeing creation afresh.**",
+      "ar": "قُلْ سِيرُوا فِي الْاَرْضِ فَانْظُرُوا كَيْفَ بَدَاَ الْخَلْقَ ثُمَّ اللّٰهُ يُنْشِئُ النَّشْاَةَ الْاٰخِرَةَ اِنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ"
     },
     {
       "type": "verseInline",
       "ref": "14:7",
       "noteTr": "*İbrahim 14:7* — لَئِنْ شَكَرْتُمْ لَاَزِيدَنَّكُمْ — '**Eğer şükrederseniz, elbette size daha fazlasını veririm.**' Şükür yeni nimet *çekmez* — **zaten var olan nimetleri açığa çıkarır.**",
-      "noteEn": "*Ibrāhīm 14:7* — لَئِنْ شَكَرْتُمْ لَاَزِيدَنَّكُمْ — '**If you give thanks, I shall give you more.**' Thanks does not *attract* new blessing — it **uncovers blessings that are already there.**"
+      "noteEn": "*Ibrāhīm 14:7* — لَئِنْ شَكَرْتُمْ لَاَزِيدَنَّكُمْ — '**If you give thanks, I shall give you more.**' Thanks does not *attract* new blessing — it **uncovers blessings that are already there.**",
+      "ar": "وَاِذْ تَاَذَّنَ رَبُّكُمْ لَئِنْ شَكَرْتُمْ لَاَزِيدَنَّكُمْ وَلَئِنْ كَفَرْتُمْ اِنَّ عَذَابِي لَشَدِيدٌ"
     },
     {
       "type": "verseInline",
       "ref": "16:18",
       "noteTr": "*Nahl 16:18* — وَاِنْ تَعُدُّوا نِعْمَةَ اللّٰهِ لَا تُحْصُوهَا — '**Allah'ın nimetlerini saymaya kalkışsanız, sayamazsınız.**' Nimetler zaten sonsuzdur — problem **algı**dadır. Nankör kişi onları örter (kâfir = örten); örtülünce yenilik de görünmez olur, hayat bayatlar.",
-      "noteEn": "*Al-Naḥl 16:18* — وَاِنْ تَعُدُّوا نِعْمَةَ اللّٰهِ لَا تُحْصُوهَا — '**If you tried to count the blessings of Allah, you could not enumerate them.**' Blessings are already infinite — the problem is **perception**. The ingrate covers them (kāfir = the coverer); once covered, novelty too becomes invisible — and life goes stale."
+      "noteEn": "*Al-Naḥl 16:18* — وَاِنْ تَعُدُّوا نِعْمَةَ اللّٰهِ لَا تُحْصُوهَا — '**If you tried to count the blessings of Allah, you could not enumerate them.**' Blessings are already infinite — the problem is **perception**. The ingrate covers them (kāfir = the coverer); once covered, novelty too becomes invisible — and life goes stale.",
+      "ar": "وَاِنْ تَعُدُّوا نِعْمَةَ اللّٰهِ لَا تُحْصُوهَا اِنَّ اللّٰهَ لَغَفُورٌ رَحِيمٌ"
     },
     {
       "type": "section",
@@ -218,13 +227,15 @@
       "type": "verseInline",
       "ref": "29:69",
       "noteTr": "*Ankebût 29:69* — وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا — '**Bizim yolumuzda cihad edenlere elbette yollarımızı gösteririz.**' Cihad sadece sonradan ödüllendirilmez — **yeni yollar açar.** Çabanın eylemi kapasite yaratır.",
-      "noteEn": "*Al-ʿAnkabūt 29:69* — وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا — '**Those who strive in Our way — We will surely guide them to Our paths.**' Jihād is not merely rewarded afterwards — **it opens new paths.** The act of striving creates capacity."
+      "noteEn": "*Al-ʿAnkabūt 29:69* — وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا — '**Those who strive in Our way — We will surely guide them to Our paths.**' Jihād is not merely rewarded afterwards — **it opens new paths.** The act of striving creates capacity.",
+      "ar": "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا وَاِنَّ اللّٰهَ لَمَعَ الْمُحْسِنِينَ"
     },
     {
       "type": "verseInline",
       "ref": "29:45",
       "noteTr": "*Ankebût 29:45* — اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشَآءِ وَالْمُنْكَرِ — '**Şüphesiz namaz hayasızlıktan ve kötülükten alıkoyar.**' *Nasıl?* Alışkanlığın kasıtlı-şuurlu kesintisi yoluyla. Ayakta durmak, rüku, secde — **bedenin normal kalıplarını kıran enerji üreten fiziksel kesintiler**. Sembolik değil mekanik.",
-      "noteEn": "*Al-ʿAnkabūt 29:45* — اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشَآءِ وَالْمُنْكَرِ — '**Truly, prayer prevents indecency and wrong.**' *How?* Through the deliberate-conscious interruption of habit. Standing, bowing, prostrating — **energy-producing physical breaks that disrupt the body's normal patterns**. Not symbolic — mechanical."
+      "noteEn": "*Al-ʿAnkabūt 29:45* — اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشَآءِ وَالْمُنْكَرِ — '**Truly, prayer prevents indecency and wrong.**' *How?* Through the deliberate-conscious interruption of habit. Standing, bowing, prostrating — **energy-producing physical breaks that disrupt the body's normal patterns**. Not symbolic — mechanical.",
+      "ar": "اُتْلُ مٓا اُو۫حِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ  اَكْبَرُ  وَاللّٰهُ  يَعْلَمُ  مَا  تَصْنَعُونَ"
     },
     {
       "type": "section",
@@ -247,7 +258,8 @@
       "type": "verseInline",
       "ref": "23:3",
       "noteTr": "*Mü'minûn 23:3* — وَالَّذِينَ هُمْ عَنِ اللَّغْوِ مُعْرِضُونَ — '**Onlar boş iş ve sözlerden yüz çevirenlerdir.**' *Lağv* sadece sözel saçmalık değil — **zihinsel gürültü**: hiçbir yere gitmeyen fantezilerin içsel gevezeliği. Hadiste de: *min hüsni İslâmi'l-mer'i terkühü mâ lâ ya'nîh* — kişinin İslam'ının güzelliğinden biri, **kendisini ilgilendirmeyeni terk etmesidir** (Tirmizî, Zühd 11). Buna başrolünde sen olduğun zihinsel filmler de dahildir.",
-      "noteEn": "*Al-Muʾminūn 23:3* — وَالَّذِينَ هُمْ عَنِ اللَّغْوِ مُعْرِضُونَ — '**Those who turn away from idle talk.**' *Laghw* is not just verbal triviality — it includes **mental noise**: the inner chatter of fantasies that go nowhere. The ḥadīth too: *min ḥusni islām al-marʾ tarkuhu mā lā yaʿnīh* — among the marks of a person's good Islam is **leaving what does not concern them** (Tirmidhī, Zuhd 11). That includes mental films in which you star."
+      "noteEn": "*Al-Muʾminūn 23:3* — وَالَّذِينَ هُمْ عَنِ اللَّغْوِ مُعْرِضُونَ — '**Those who turn away from idle talk.**' *Laghw* is not just verbal triviality — it includes **mental noise**: the inner chatter of fantasies that go nowhere. The ḥadīth too: *min ḥusni islām al-marʾ tarkuhu mā lā yaʿnīh* — among the marks of a person's good Islam is **leaving what does not concern them** (Tirmidhī, Zuhd 11). That includes mental films in which you star.",
+      "ar": "وَالَّذِينَ هُمْ عَنِ اللَّغْوِ مُعْرِضُونَ"
     },
     {
       "type": "paragraph",
@@ -269,19 +281,22 @@
       "type": "verseInline",
       "ref": "3:134",
       "noteTr": "*Âl-i İmrân 3:134* — وَالْكَاظِمِينَ الْغَيْظَ — '…**öfkelerini yutanlar.**' *Yakzimûn* = yutmak — **aktif, kassal bir kısıtlama**; pasif kabul değil, kasıtlı kontrol. Çünkü öfke bir kez salındığında **hasar sistemik**tir.",
-      "noteEn": "*Āl ʿImrān 3:134* — وَالْكَاظِمِينَ الْغَيْظَ — '…**those who swallow their rage.**' *Yakẓimūn* = to swallow — **active, muscular restraint**; not passive acceptance but deliberate control. Because once anger is released, **the damage is systemic.**"
+      "noteEn": "*Āl ʿImrān 3:134* — وَالْكَاظِمِينَ الْغَيْظَ — '…**those who swallow their rage.**' *Yakẓimūn* = to swallow — **active, muscular restraint**; not passive acceptance but deliberate control. Because once anger is released, **the damage is systemic.**",
+      "ar": "اَلَّذِينَ يُنْفِقُونَ فِي السَّرٓاءِ وَالضَّرٓاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللّٰهُ يُحِبُّ الْمُحْسِنِينَ"
     },
     {
       "type": "verseInline",
       "ref": "4:32",
       "noteTr": "*Nisâ 4:32* — وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللّٰهُ بِهِ بَعْضَكُمْ عَلٰى بَعْضٍ — '**Allah'ın kiminize kiminizden fazla verdiği şeyleri temenni etmeyin.**' *Haset* sadece ruhu değil bedeni de tüketir. Hasut kişi **kendi nimetlerinin tadını çıkaramaz** — başkasınınkilere sabitlenmiştir. Şükre, büyümeye gidecek enerji kızgınlığa gider.",
-      "noteEn": "*Al-Nisāʾ 4:32* — وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللّٰهُ بِهِ بَعْضَكُمْ عَلٰى بَعْضٍ — '**Do not covet what Allah has given some of you over others.**' *Envy* depletes not only the soul but the body. The envier **cannot enjoy their own blessings** — fixed on those of others. Energy that could go to gratitude and growth goes to resentment."
+      "noteEn": "*Al-Nisāʾ 4:32* — وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللّٰهُ بِهِ بَعْضَكُمْ عَلٰى بَعْضٍ — '**Do not covet what Allah has given some of you over others.**' *Envy* depletes not only the soul but the body. The envier **cannot enjoy their own blessings** — fixed on those of others. Energy that could go to gratitude and growth goes to resentment.",
+      "ar": "وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللّٰهُ بِهِ بَعْضَكُمْ عَلٰى بَعْضٍ لِلرِّجَالِ نَصِيبٌ مِمَّا اكْتَسَبُوا وَلِلنِّسٓاءِ نَصِيبٌ مِمَّا اكْتَسَبْنَ وَسْـَٔلُوا اللّٰهَ مِنْ فَضْلِهِ اِنَّ اللّٰهَ كَانَ بِكُلِّ شَيْءٍ عَلِيماً"
     },
     {
       "type": "verseInline",
       "ref": "39:53",
       "noteTr": "*Zümer 39:53* — لَا تَقْنَطُوا مِنْ رَحْمَةِ اللّٰهِ — '**Allah'ın rahmetinden ümit kesmeyin.**' Dört kaynak (beslenme, uyku, izlenim, meşguliyet) çökünce sonuç modern psikolojinin **depresyon** dediği, Kur'an'ın **kunût** dediği şeydir — **enerji sisteminin nihai çöküşü.** Klasik alimler kunût'u büyük günah sayar — ahlaksız olduğu için değil, **yıkıcı olduğu için**; tekrar ayağa kalkmayı engellediği için.",
-      "noteEn": "*Al-Zumar 39:53* — لَا تَقْنَطُوا مِنْ رَحْمَةِ اللّٰهِ — '**Do not despair of the mercy of Allah.**' When the four sources (nutrition, sleep, impression, engagement) collapse, the outcome is what modern psychology calls **depression** and the Quran calls **qunūṭ** — the **final collapse of the energy system.** Classical scholars classified qunūṭ as a major sin — not for being immoral, but **for being destructive**; for preventing one from rising again."
+      "noteEn": "*Al-Zumar 39:53* — لَا تَقْنَطُوا مِنْ رَحْمَةِ اللّٰهِ — '**Do not despair of the mercy of Allah.**' When the four sources (nutrition, sleep, impression, engagement) collapse, the outcome is what modern psychology calls **depression** and the Quran calls **qunūṭ** — the **final collapse of the energy system.** Classical scholars classified qunūṭ as a major sin — not for being immoral, but **for being destructive**; for preventing one from rising again.",
+      "ar": "قُلْ يَا عِبَادِيَ الَّذِينَ اَسْرَفُوا عَلٰٓى اَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللّٰهِ اِنَّ اللّٰهَ يَغْفِرُ الذُّنُوبَ جَمِيعاً اِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ"
     },
     {
       "type": "criticalNote",
@@ -342,13 +357,15 @@
       "type": "verseInline",
       "ref": "4:82",
       "noteTr": "*Nisâ 4:82* — اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ — '**Kur'an üzerinde düşünmezler mi?**' *Tedebbür* = içsel yansıma, tefekkür, perspektif kayması. Dışsal emirlerle (29:20) **birlikte** çalışmalı.",
-      "noteEn": "*Al-Nisāʾ 4:82* — اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ — '**Will they not reflect on the Quran?**' *Tadabbur* = inner reflection, contemplation, shift of perspective. Must work **together** with outer commands (29:20)."
+      "noteEn": "*Al-Nisāʾ 4:82* — اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ — '**Will they not reflect on the Quran?**' *Tadabbur* = inner reflection, contemplation, shift of perspective. Must work **together** with outer commands (29:20).",
+      "ar": "اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً"
     },
     {
       "type": "verseInline",
       "ref": "13:11",
       "noteTr": "*Ra'd 13:11* — اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ — '**Allah, bir kavmin kendilerinde olanı değiştirmedikçe, onların durumunu değiştirmez.**' Değişim içten başlar — ama **dışa yansımalıdır**. Dış eylem olmayan iç perspektif = yanılsama. İç kayma olmayan dış eylem = tükenme.",
-      "noteEn": "*Al-Raʿd 13:11* — اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ — '**Allah does not change a people's state until they change what is in themselves.**' Change begins inside — but **must be expressed outwardly**. Inner perspective without outer action = illusion. Outer action without inner shift = burnout."
+      "noteEn": "*Al-Raʿd 13:11* — اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ — '**Allah does not change a people's state until they change what is in themselves.**' Change begins inside — but **must be expressed outwardly**. Inner perspective without outer action = illusion. Outer action without inner shift = burnout.",
+      "ar": "لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ اَمْرِ اللّٰهِ اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ وَاِذٓا اَرَادَ اللّٰهُ بِقَوْمٍ سٓوءاً فَلَا مَرَدَّ لَهُ وَمَا لَهُمْ مِنْ دُونِهِ مِنْ وَالٍ"
     },
     {
       "type": "section",
@@ -366,19 +383,23 @@
       "type": "verseInline",
       "ref": "9:105",
       "noteTr": "*Tevbe 9:105* — وَقُلِ اعْمَلُوا فَسَيَرَى اللّٰهُ عَمَلَكُمْ — '**De ki: Çalışın, Allah sizin amelinizi görecek.**'",
-      "noteEn": "*Al-Tawba 9:105* — وَقُلِ اعْمَلُوا فَسَيَرَى اللّٰهُ عَمَلَكُمْ — '**Say: Work — Allah will see your work.**'"
+      "noteEn": "*Al-Tawba 9:105* — وَقُلِ اعْمَلُوا فَسَيَرَى اللّٰهُ عَمَلَكُمْ — '**Say: Work — Allah will see your work.**'",
+      "ar": "وَقُلِ اعْمَلُوا فَسَيَرَى اللّٰهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ وَسَتُرَدُّونَ اِلٰى عَالِمِ الْغَيْبِ وَالشَّهَادَةِ فَيُنَبِّئُكُمْ بِمَا كُنْتُمْ تَعْمَلُونَ"
     },
     {
       "type": "verseInline",
       "ref": "67:2",
       "noteTr": "*Mülk 67:2* — لِيَبْلُوَكُمْ اَيُّكُمْ اَحْسَنُ عَمَلًا — '**Hanginizin amelde daha güzel olduğunu sınamak için.**' Niyette en iyi değil, inançta en iyi değil — **çalışmada en iyi**.",
-      "noteEn": "*Al-Mulk 67:2* — لِيَبْلُوَكُمْ اَيُّكُمْ اَحْسَنُ عَمَلًا — '**That He may test which of you is best in deed.**' Not best in intention, not best in belief — **best in deed.**"
+      "noteEn": "*Al-Mulk 67:2* — لِيَبْلُوَكُمْ اَيُّكُمْ اَحْسَنُ عَمَلًا — '**That He may test which of you is best in deed.**' Not best in intention, not best in belief — **best in deed.**",
+      "ar": "اَلَّذِي خَلَقَ الْمَوْتَ وَالْحَيٰوةَ لِيَبْلُوَكُمْ اَيُّكُمْ اَحْسَنُ عَمَلاً وَهُوَ الْعَزِيزُ الْغَفُورُ"
     },
     {
       "type": "verseInline",
       "ref": "94:7-8",
       "noteTr": "*İnşirah 94:7-8* — فَاِذَا فَرَغْتَ فَانْصَبْ • وَاِلٰى رَبِّكَ فَارْغَبْ — '**Bir işten boşaldığında hemen diğerine koyul. Ve Rabbine yönel.**' Bir işi bitirince tembelliğe çökme — ayağa kalk, sıradakine başla.",
-      "noteEn": "*Al-Sharḥ 94:7-8* — فَاِذَا فَرَغْتَ فَانْصَبْ • وَاِلٰى رَبِّكَ فَارْغَبْ — '**When you have finished a task, set to the next. And to your Lord, turn.**' When one work ends, do not sink into idleness — rise, begin the next."
+      "noteEn": "*Al-Sharḥ 94:7-8* — فَاِذَا فَرَغْتَ فَانْصَبْ • وَاِلٰى رَبِّكَ فَارْغَبْ — '**When you have finished a task, set to the next. And to your Lord, turn.**' When one work ends, do not sink into idleness — rise, begin the next.",
+      "ar": "فَاِذَا فَرَغْتَ فَانْصَبْ",
+      "isRange": true
     },
     {
       "type": "paragraph",

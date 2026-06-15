@@ -80,19 +80,22 @@
       "type": "verseInline",
       "ref": "83:7",
       "noteTr": "Hayır! Şüphesiz günahkârların kaydı Siccîn'dedir.",
-      "noteEn": "Nay! Indeed, the record of the wicked is in Sijjīn."
+      "noteEn": "Nay! Indeed, the record of the wicked is in Sijjīn.",
+      "ar": "كَلٓا اِنَّ كِتَابَ الْفُجَّارِ لَفِي سِجِّينٍ"
     },
     {
       "type": "verseInline",
       "ref": "83:8",
       "noteTr": "Siccîn'in ne olduğunu sana bildiren ne olabilir?",
-      "noteEn": "And what can make you know what Sijjīn is?"
+      "noteEn": "And what can make you know what Sijjīn is?",
+      "ar": "وَمٓا اَدْرٰيكَ مَا سِجِّينٌ"
     },
     {
       "type": "verseInline",
       "ref": "83:9",
       "noteTr": "Mühürlü / numaralanmış bir kitap (*kitâbun merkûm*).",
-      "noteEn": "A sealed / numbered book (*kitābun marqūm*)."
+      "noteEn": "A sealed / numbered book (*kitābun marqūm*).",
+      "ar": "كِتَابٌ مَرْقُومٌ"
     },
     {
       "type": "paragraph",
@@ -147,7 +150,8 @@
       "type": "verseInline",
       "ref": "105:4",
       "noteTr": "Fîl Sûresi'nde geçen Siccîl (pişmiş çamur taşları). Kökü Farsça Sang-i-gil (Taş ve Çamur).",
-      "noteEn": "Sijjīl in Sūrah Al-Fīl (stones of fired clay). Its root: Persian Sang-i-gil (Stone and Clay)."
+      "noteEn": "Sijjīl in Sūrah Al-Fīl (stones of fired clay). Its root: Persian Sang-i-gil (Stone and Clay).",
+      "ar": "تَرْمِيهِمْ بِحِجَارَةٍ مِنْ سِجِّيلٍ"
     },
     {
       "type": "section",
@@ -164,7 +168,8 @@
       "type": "verseInline",
       "ref": "83:18",
       "noteTr": "Hayır! Salihlerin kaydı İlliyyîn'dedir.",
-      "noteEn": "Nay! Indeed, the record of the righteous is in 'Illiyyīn."
+      "noteEn": "Nay! Indeed, the record of the righteous is in 'Illiyyīn.",
+      "ar": "كَلٓا اِنَّ كِتَابَ الْاَبْرَارِ لَفِي عِلِّيِّينَ"
     },
     {
       "type": "contrastDuo",

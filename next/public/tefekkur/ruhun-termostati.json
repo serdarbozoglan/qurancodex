@@ -51,7 +51,8 @@
       "type": "verseInline",
       "ref": "14:1",
       "noteTr": "*İbrahim 14:1* — لِتُخْرِجَ النَّاسَ مِنَ الظُّلُمَاتِ اِلَى النُّورِ — 'İnsanları karanlıklardan nura çıkarmak için…'",
-      "noteEn": "*Ibrāhīm 14:1* — لِتُخْرِجَ النَّاسَ مِنَ الظُّلُمَاتِ اِلَى النُّورِ — '…to bring forth the people from the depths of darkness into the light.'"
+      "noteEn": "*Ibrāhīm 14:1* — لِتُخْرِجَ النَّاسَ مِنَ الظُّلُمَاتِ اِلَى النُّورِ — '…to bring forth the people from the depths of darkness into the light.'",
+      "ar": "الٓـرٰ۠ كِتَابٌ اَنْزَلْنَاهُ اِلَيْكَ لِتُخْرِجَ النَّاسَ مِنَ الظُّلُمَاتِ اِلَى النُّورِ بِـاِذْنِ رَبِّهِمْ اِلٰى صِرَاطِ الْعَزِيزِ الْحَمِيدِ"
     },
     {
       "type": "paragraph",
@@ -62,19 +63,23 @@
       "type": "verseInline",
       "ref": "14:5",
       "noteTr": "*İbrahim 14:5* — اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِكُلِّ صَبَّارٍ شَكُورٍ — 'Şüphesiz bunda, çok sabreden ve çok şükreden herkes için ayetler vardır.' Sıradan sabırlı değil — **صَبَّار**, *yoğun biçimde, alışkanlık olarak* sabırlı; **iç hali stabiliteye eğitilmiş** kişi.",
-      "noteEn": "*Ibrāhīm 14:5* — اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِكُلِّ صَبَّارٍ شَكُورٍ — 'Verily, in that are signs for every patient, thankful one.' Not merely patient — **ṣabbār**: intensely, habitually patient; one **trained into inner stability**."
+      "noteEn": "*Ibrāhīm 14:5* — اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِكُلِّ صَبَّارٍ شَكُورٍ — 'Verily, in that are signs for every patient, thankful one.' Not merely patient — **ṣabbār**: intensely, habitually patient; one **trained into inner stability**.",
+      "ar": "وَلَقَدْ اَرْسَلْنَا مُوسٰى بِاٰيَاتِنٓا اَنْ اَخْرِجْ قَوْمَكَ مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِكُلِّ صَبَّارٍ شَكُورٍ"
     },
     {
       "type": "verseInline",
       "ref": "42:32-33",
       "noteTr": "*Şura 42:32-33* — 'O'nun ayetlerinden biri de denizde dağlar gibi yüzen gemilerdir… Şüphesiz bunda, **çok sabreden ve çok şükreden** herkes için ayetler vardır.' Aynı *ṣabbâr-şekûr* formülü.",
-      "noteEn": "*Al-Shūrā 42:32-33* — 'And among His signs are the ships that sail like mountains on the sea… verily in that are signs for every **patient, thankful** one.' The same *ṣabbār-shakūr* pairing."
+      "noteEn": "*Al-Shūrā 42:32-33* — 'And among His signs are the ships that sail like mountains on the sea… verily in that are signs for every **patient, thankful** one.' The same *ṣabbār-shakūr* pairing.",
+      "ar": "وَمِنْ اٰيَاتِهِ الْجَوَارِ فِي الْبَحْرِ كَالْاَعْلَامِ",
+      "isRange": true
     },
     {
       "type": "verseInline",
       "ref": "41:35",
       "noteTr": "*Fussilet 41:35* — وَمَا يُلَقَّيٰهَآ اِلَّا الَّذِينَ صَبَرُوا — 'Ona ancak sabredenler kavuşturulur.' Yayın stabil alıcıya iner.",
-      "noteEn": "*Fuṣṣilat 41:35* — وَمَا يُلَقَّيٰهَآ اِلَّا الَّذِينَ صَبَرُوا — 'But none is granted it save those who endure.' The signal arrives only at the stable receiver."
+      "noteEn": "*Fuṣṣilat 41:35* — وَمَا يُلَقَّيٰهَآ اِلَّا الَّذِينَ صَبَرُوا — 'But none is granted it save those who endure.' The signal arrives only at the stable receiver.",
+      "ar": "وَمَا يُلَقّٰيهٓا اِلَّا الَّذِينَ صَبَرُوا وَمَا يُلَقّٰيهٓا اِلَّا ذُوحَظٍّ عَظِيمٍ"
     },
     {
       "type": "paragraph",
@@ -166,25 +171,29 @@
       "type": "verseInline",
       "ref": "31:17",
       "noteTr": "*Lokman 31:17* — وَاصْبِرْ عَلٰى مَآ اَصَابَكَ — 'Başına gelene sabret.' Dış zorluk tüm iç dünyanı işgal etmesin diye **iç tepkini kısıtla**.",
-      "noteEn": "*Luqmān 31:17* — وَاصْبِرْ عَلٰى مَآ اَصَابَكَ — 'And bear with patience whatever befalls you.' Restrain your inner reaction so the outer hardship does not occupy your whole inner world."
+      "noteEn": "*Luqmān 31:17* — وَاصْبِرْ عَلٰى مَآ اَصَابَكَ — 'And bear with patience whatever befalls you.' Restrain your inner reaction so the outer hardship does not occupy your whole inner world.",
+      "ar": "يَا بُنَيَّ اَقِمِ الصَّلٰوةَ وَأْمُرْ بِالْمَعْرُوفِ وَانْهَ عَنِ الْمُنْكَرِ وَاصْبِرْ عَلٰى مٓا اَصَابَكَ اِنَّ ذٰلِكَ مِنْ عَزْمِ الْاُمُورِ"
     },
     {
       "type": "verseInline",
       "ref": "3:200",
       "noteTr": "*Âl-i İmrân 3:200* — اِصْبِرُوا وَصَابِرُوا وَرَابِطُوا — 'Sabredin, sebat gösterin, nöbet bekleşin.' **صَابِرُوا** (sâbirû) karşılıklı, sürdürülen formdur — **iç halinizi birlikte koruyun**; anlık sabredin, sabrınızı devam ettirin, güzel hâli bozacak şeyler için **proaktif teyakkuzda** olun.",
-      "noteEn": "*Āl ʿImrān 3:200* — اِصْبِرُوا وَصَابِرُوا وَرَابِطُوا — 'Be patient, be steadfast, hold ranks together.' **ṣābirū** is the reciprocal, sustained form — **preserve your inner state together**; bear patiently in the moment, sustain that patience, and stand **proactively alert** against what would undo it."
+      "noteEn": "*Āl ʿImrān 3:200* — اِصْبِرُوا وَصَابِرُوا وَرَابِطُوا — 'Be patient, be steadfast, hold ranks together.' **ṣābirū** is the reciprocal, sustained form — **preserve your inner state together**; bear patiently in the moment, sustain that patience, and stand **proactively alert** against what would undo it.",
+      "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ"
     },
     {
       "type": "verseInline",
       "ref": "39:10",
       "noteTr": "*Zümer 39:10* — اِنَّمَا يُوَفَّى الصَّابِرُونَ اَجْرَهُمْ بِغَيْرِ حِسَابٍ — 'Sabredenlere mükâfatları **hesapsız** ödenecektir.' Neden hesapsız? **Çünkü sabır diğer tüm ibadetlerin temelidir** — o olmadan başka hiçbir şey stabilize olmaz.",
-      "noteEn": "*Al-Zumar 39:10* — اِنَّمَا يُوَفَّى الصَّابِرُونَ اَجْرَهُمْ بِغَيْرِ حِسَابٍ — 'Those who are patient will be given their reward **without measure**.' Why without measure? **Because sabr is the ground of every other worship** — without it, nothing else stabilizes."
+      "noteEn": "*Al-Zumar 39:10* — اِنَّمَا يُوَفَّى الصَّابِرُونَ اَجْرَهُمْ بِغَيْرِ حِسَابٍ — 'Those who are patient will be given their reward **without measure**.' Why without measure? **Because sabr is the ground of every other worship** — without it, nothing else stabilizes.",
+      "ar": "قُلْ يَا عِبَادِ الَّذِينَ اٰمَنُوا اتَّقُوا رَبَّكُمْ لِلَّذِينَ اَحْسَنُوا فِي هٰذِهِ الدُّنْيَا حَسَنَةٌ وَاَرْضُ اللّٰهِ وَاسِعَةٌ اِنَّمَا يُوَفَّى الصَّابِرُونَ اَجْرَهُمْ بِغَيْرِ حِسَابٍ"
     },
     {
       "type": "verseInline",
       "ref": "19:65",
       "noteTr": "*Meryem 19:65* — فَاعْبُدْهُ وَاصْطَبِرْ لِعِبَادَتِهِ — 'O'na ibadet et ve ibadette sabırlı ol.' **اصْطَبِرْ** (*iṣṭabir*) yoğunlaştırılmış form — derin, sürdürülen kısıtlama. Koşullara bakılmaksızın ibadet — ilham aldığında da, kuruduğunda da.",
-      "noteEn": "*Maryam 19:65* — فَاعْبُدْهُ وَاصْطَبِرْ لِعِبَادَتِهِ — 'So worship Him and be steadfast in His worship.' **iṣṭabir** is the intensified form — deep, sustained restraint. Worship regardless of conditions — whether inspired, or dry."
+      "noteEn": "*Maryam 19:65* — فَاعْبُدْهُ وَاصْطَبِرْ لِعِبَادَتِهِ — 'So worship Him and be steadfast in His worship.' **iṣṭabir** is the intensified form — deep, sustained restraint. Worship regardless of conditions — whether inspired, or dry.",
+      "ar": "رَبُّ السَّمٰوَاتِ وَالْاَرْضِ وَمَا بَيْنَهُمَا فَاعْبُدْهُ وَاصْطَبِرْ لِعِبَادَتِهِ هَلْ تَعْلَمُ لَهُ سَمِياًّ۟"
     },
     {
       "type": "section",
@@ -273,7 +282,8 @@
       "type": "verseInline",
       "ref": "3:134",
       "noteTr": "*Âl-i İmrân 3:134* — وَالْكَاظِمِينَ الْغَيْظَ — '…öfkelerini yutanlar.' 'Öfke hissetmeyenler' değil — **ifadesini kısıtlayanlar.** Duyguyu çocuksuluktan (patlamacı) yetişkinliğe (kontrollü) eğitmek.",
-      "noteEn": "*Āl ʿImrān 3:134* — وَالْكَاظِمِينَ الْغَيْظَ — '…and those who restrain their anger.' Not 'those who feel no anger' — **those who restrain its expression.** Training emotion from the childlike (explosive) to the adult (governed)."
+      "noteEn": "*Āl ʿImrān 3:134* — وَالْكَاظِمِينَ الْغَيْظَ — '…and those who restrain their anger.' Not 'those who feel no anger' — **those who restrain its expression.** Training emotion from the childlike (explosive) to the adult (governed).",
+      "ar": "اَلَّذِينَ يُنْفِقُونَ فِي السَّرٓاءِ وَالضَّرٓاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللّٰهُ يُحِبُّ الْمُحْسِنِينَ"
     },
     {
       "type": "paragraph",
@@ -322,7 +332,8 @@
       "type": "verseInline",
       "ref": "2:45",
       "noteTr": "*Bakara 2:45* — وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ — 'Sabır ve namazla yardım isteyin.' Sadece namazla değil — **sabır VE namazla birlikte**. Çünkü sabır olmadan namaz stabilize olmaz: sporadik, kriz odaklı, sürdürülemez olur.",
-      "noteEn": "*Al-Baqara 2:45* — وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ — 'Seek help in sabr and ṣalāh.' Not in prayer alone — **in sabr AND prayer together.** Because without sabr, prayer does not stabilize: it becomes sporadic, crisis-driven, unsustainable."
+      "noteEn": "*Al-Baqara 2:45* — وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ — 'Seek help in sabr and ṣalāh.' Not in prayer alone — **in sabr AND prayer together.** Because without sabr, prayer does not stabilize: it becomes sporadic, crisis-driven, unsustainable.",
+      "ar": "وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ وَاِنَّهَا لَكَبِيرَةٌ اِلَّا عَلَى الْخَاشِعِينَ"
     },
     {
       "type": "section",
@@ -394,7 +405,8 @@
       "type": "verseInline",
       "ref": "46:35",
       "noteTr": "*Ahkâf 46:35* — فَاصْبِرْ كَمَا صَبَرَ اُولُوا الْعَزْمِ مِنَ الرُّسُلِ — 'Azim sahibi peygamberlerin sabrettiği gibi sabret.' Peygamberlerin **azmi (عزم)** sabra dayanır.",
-      "noteEn": "*Al-Aḥqāf 46:35* — فَاصْبِرْ كَمَا صَبَرَ اُولُوا الْعَزْمِ مِنَ الرُّسُلِ — 'So be patient as the messengers of firm resolve were patient.' The prophets' **resolve (ʿazm)** rests on sabr."
+      "noteEn": "*Al-Aḥqāf 46:35* — فَاصْبِرْ كَمَا صَبَرَ اُولُوا الْعَزْمِ مِنَ الرُّسُلِ — 'So be patient as the messengers of firm resolve were patient.' The prophets' **resolve (ʿazm)** rests on sabr.",
+      "ar": "فَاصْبِرْ كَمَا صَبَرَ اُو۬لُوا الْعَزْمِ مِنَ الرُّسُلِ وَلَا تَسْتَعْجِلْ لَهُمْ  كَاَنَّهُمْ يَوْمَ يَرَوْنَ مَا يُوعَدُونَ لَمْ يَلْبَثٓوا اِلَّا سَاعَةً مِنْ نَهَارٍ  بَلَاغٌ  فَهَلْ يُهْلَكُ اِلَّا الْقَوْمُ الْفَاسِقُونَ"
     },
     {
       "type": "paragraph",
@@ -522,7 +534,8 @@
       "type": "verseInline",
       "ref": "24:37",
       "noteTr": "*Nur 24:37* — رِجَالٌ لَا تُلْهِيهِمْ تِجَارَةٌ وَلَا بَيْعٌ عَنْ ذِكْرِ اللّٰهِ — 'Öyle adamlar ki ne ticaret ne de alışveriş onları Allah'ı anmaktan alıkoymaz.' **Çarşıdalar, meşguller — ama tüketilmiyorlar.** Dış faaliyet iç hâli üzerine yazmıyor. Model budur.",
-      "noteEn": "*Al-Nūr 24:37* — رِجَالٌ لَا تُلْهِيهِمْ تِجَارَةٌ وَلَا بَيْعٌ عَنْ ذِكْرِ اللّٰهِ — 'Men whom neither trade nor sale distracts from the remembrance of Allah.' **They are in the marketplace, fully engaged — but not consumed.** External activity does not overwrite the inner state. This is the model."
+      "noteEn": "*Al-Nūr 24:37* — رِجَالٌ لَا تُلْهِيهِمْ تِجَارَةٌ وَلَا بَيْعٌ عَنْ ذِكْرِ اللّٰهِ — 'Men whom neither trade nor sale distracts from the remembrance of Allah.' **They are in the marketplace, fully engaged — but not consumed.** External activity does not overwrite the inner state. This is the model.",
+      "ar": "رِجَالٌ  لَا تُلْهِيهِمْ تِجَارَةٌ وَلَا بَيْعٌ عَنْ ذِكْرِ اللّٰهِ وَاِقَامِ الصَّلٰوةِ وَاِيتٓاءِ الزَّكٰوةِ يَخَافُونَ يَوْماً تَتَقَلَّبُ فِيهِ الْقُلُوبُ وَالْاَبْصَارُ"
     },
     {
       "type": "section",
@@ -533,14 +546,16 @@
     {
       "type": "verseInline",
       "ref": "48:4",
-      "noteTr": "*Fetih 48:4* — هُوَ الَّذِٓي اَنْزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ — 'O, müminlerin kalplerine huzur (*sekîne*) indirendir.' Sekîne **ödül değil — gerekliliktir**. O olmadan kalp yaşanmaz; iman büyüyemez; ibadet baskı altında çöker. **Ve sekîne nasıl korunur? Sabır yoluyla.**",
-      "noteEn": "*Al-Fatḥ 48:4* — هُوَ الَّذِٓي اَنْزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ — 'It is He who sent down *sakīna* into the hearts of the believers.' Sakīna is **not a reward — it is a necessity.** Without it the heart is uninhabitable; faith cannot grow; worship collapses under pressure. **And how is sakīna preserved? Through sabr.**"
+      "noteTr": "*Fetih 48:4* — هُوَ الَّذٓي اَنْزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ — 'O, müminlerin kalplerine huzur (*sekîne*) indirendir.' Sekîne **ödül değil — gerekliliktir**. O olmadan kalp yaşanmaz; iman büyüyemez; ibadet baskı altında çöker. **Ve sekîne nasıl korunur? Sabır yoluyla.**",
+      "noteEn": "*Al-Fatḥ 48:4* — هُوَ الَّذٓي اَنْزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ — 'It is He who sent down *sakīna* into the hearts of the believers.' Sakīna is **not a reward — it is a necessity.** Without it the heart is uninhabitable; faith cannot grow; worship collapses under pressure. **And how is sakīna preserved? Through sabr.**",
+      "ar": "هُوَ الَّـذِٓي اَنْزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ لِيَزْدَادٓوا اِيمَاناً مَعَ اِيمَانِهِمْ وَلِلّٰهِ جُنُودُ السَّمٰوَاتِ وَالْاَرْضِ وَكَانَ اللّٰهُ عَلِيماً حَكِيماً"
     },
     {
       "type": "verseInline",
       "ref": "13:28",
       "noteTr": "*Ra'd 13:28* — اَلَّذِينَ اٰمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللّٰهِ — 'İman edenler ve kalpleri Allah'ı anmakla huzur bulanlar.' **Zikir, sabrın aktif bileşenidir** — Allah'ı andığında, farkındalığına **değişmeyen bir şey** yerleştirirsin; iç hâlini **koşulların ötesinde bir şeye demirlersin.**",
-      "noteEn": "*Al-Raʿd 13:28* — اَلَّذِينَ اٰمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللّٰهِ — 'Those who believe, and whose hearts find peace in the remembrance of Allah.' **Dhikr is the active component of sabr** — when you remember Allah, you place **something unchanging** within your awareness; you **anchor the inner state to something beyond conditions.**"
+      "noteEn": "*Al-Raʿd 13:28* — اَلَّذِينَ اٰمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللّٰهِ — 'Those who believe, and whose hearts find peace in the remembrance of Allah.' **Dhikr is the active component of sabr** — when you remember Allah, you place **something unchanging** within your awareness; you **anchor the inner state to something beyond conditions.**",
+      "ar": "اَلَّذِينَ اٰمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللّٰهِ اَلَا بِذِكْرِ اللّٰهِ تَطْمَئِنُّ الْقُلُوبُ"
     },
     {
       "type": "paragraph",

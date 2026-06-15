@@ -129,13 +129,15 @@
       "type": "verseInline",
       "ref": "79:24",
       "noteTr": "*Nâziât 79:24* — Firavun: اَنَا رَبُّكُمُ الْاَعْلٰى — '**Ben sizin en yüce rabbinizim.**' *Opak ene'nin tam-mutlaklaşması* — yerel faydayı kainatın faydası ilan etmek.",
-      "noteEn": "*Al-Nāziʿāt 79:24* — Pharaoh: اَنَا رَبُّكُمُ الْاَعْلٰى — '**I am your Lord, the Most High.**' *The full absolutization of the opaque ene* — declaring local utility as the cosmos's utility."
+      "noteEn": "*Al-Nāziʿāt 79:24* — Pharaoh: اَنَا رَبُّكُمُ الْاَعْلٰى — '**I am your Lord, the Most High.**' *The full absolutization of the opaque ene* — declaring local utility as the cosmos's utility.",
+      "ar": "فَقَالَ اَنَا۬ رَبُّكُمُ الْاَعْلٰى"
     },
     {
       "type": "verseInline",
       "ref": "18:110",
-      "noteTr": "*Kehf 18:110* — قُلْ اِنَّمَٓا اَنَا بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ — '**De ki: Ben de sizin gibi bir beşerim — bana vahyolunuyor.**' *Şeffaf ene'nin paradigması* — kendi varlığını **aktarımın aracı** olarak konumlamak.",
-      "noteEn": "*Al-Kahf 18:110* — قُلْ اِنَّمَٓا اَنَا بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ — '**Say: I am only a human being like you — to whom revelation is given.**' *The paradigm of the transparent ene* — placing one's own existence as **the conduit of transmission**."
+      "noteTr": "*Kehf 18:110* — قُلْ اِنَّمٓا اَنَا بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ — '**De ki: Ben de sizin gibi bir beşerim — bana vahyolunuyor.**' *Şeffaf ene'nin paradigması* — kendi varlığını **aktarımın aracı** olarak konumlamak.",
+      "noteEn": "*Al-Kahf 18:110* — قُلْ اِنَّمٓا اَنَا بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ — '**Say: I am only a human being like you — to whom revelation is given.**' *The paradigm of the transparent ene* — placing one's own existence as **the conduit of transmission**.",
+      "ar": "قُلْ اِنَّـمٓا اَنَا۬ بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ اَنَّـمٓا اِلٰهُكُمْ اِلٰهٌ وَاحِدٌ فَمَنْ كَانَ يَرْجُوا لِقٓاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلاً صَالِحاً وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهٓ اَحَداً"
     },
     {
       "type": "section",
@@ -314,7 +316,8 @@
       "type": "verseInline",
       "ref": "2:3",
       "noteTr": "*Bakara 2:3* — اَلَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ — '**Gayba iman edenler.**' İmanın *aksiyomatik temeli*: maddenin arkasında, özünde **bir amaç, bir generalized utility** olduğuna iman.",
-      "noteEn": "*Al-Baqara 2:3* — اَلَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ — '**Those who believe in the unseen.**' The *axiomatic foundation* of faith: faith that behind matter, in its essence, **there is a purpose, a generalized utility**."
+      "noteEn": "*Al-Baqara 2:3* — اَلَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ — '**Those who believe in the unseen.**' The *axiomatic foundation* of faith: faith that behind matter, in its essence, **there is a purpose, a generalized utility**.",
+      "ar": "اَلَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلٰوةَ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ"
     },
     {
       "type": "section",

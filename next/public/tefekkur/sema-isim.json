@@ -67,37 +67,44 @@
       "type": "verseInline",
       "ref": "87:1",
       "noteTr": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — *Sebbih isme Rabbike'l-A'lâ* — 'Yüce Rabbinin ismini tesbih et (yücelt)…' **A'lâ** kelimesi, 'en yüce' anlamında yine **s-m-w** köküne yakın bir yüceltme çağrışımı taşır. Burada 'Rabbinin ismi' ile 'A'lâ' (yücelik) aynı cümlede buluşur.",
-      "noteEn": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — *Sabbiḥi-sma Rabbika l-Aʿlā* — 'Glorify the name of your Lord, the Most High…' The word **A'lā**, 'the Most High', carries a connotation close to the **s-m-w** root of elevation. Here 'the name of your Lord' and 'al-Aʿlā' (the elevation) meet in the same line."
+      "noteEn": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — *Sabbiḥi-sma Rabbika l-Aʿlā* — 'Glorify the name of your Lord, the Most High…' The word **A'lā**, 'the Most High', carries a connotation close to the **s-m-w** root of elevation. Here 'the name of your Lord' and 'al-Aʿlā' (the elevation) meet in the same line.",
+      "ar": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى"
     },
     {
       "type": "verseInline",
       "ref": "87:2",
       "noteTr": "اَلَّذِي خَلَقَ فَسَوّٰى — '…O ki yarattı ve şekil verdi.' Kur'an, Allah'ın **yüceliği** ile O'nun **ismini yüceltme** görevini bir arada vurgular.",
-      "noteEn": "اَلَّذِي خَلَقَ فَسَوَّى — '…He who created and proportioned.' The Quran fuses Allah's **elevation** with the human's task of **elevating His name**."
+      "noteEn": "اَلَّذِي خَلَقَ فَسَوَّى — '…He who created and proportioned.' The Quran fuses Allah's **elevation** with the human's task of **elevating His name**.",
+      "ar": "اَلَّذِي خَلَقَ فَسَوّٰى"
     },
     {
       "type": "verseInline",
       "ref": "59:22-24",
       "noteTr": "*Haşr Sûresi 59:22-24* — 'O Allah, Hâlık'tır, Bârî'dir, Musavvir'dir. **En güzel isimler O'nundur.** Göklerde (semâvât) ve yerde olan her şey O'nu tesbih eder…' Burada **gökler (semâvât)** ile **Allah'ın isimleri (esmâ)** aynı bağlamda geçer; **'semâ' (yücelik)** ile **'esmâ' (isimler)** ilişkisi iç içe aktarılır.",
-      "noteEn": "*Sūrat al-Ḥashr 59:22-24* — 'He is Allah — the Creator, the Inventor, the Fashioner. **The most beautiful names are His.** Whatever is in the heavens (samāwāt) and the earth glorifies Him…' Here **the heavens (samāwāt)** and **the names of Allah (asmāʾ)** appear in the same frame; the bond between **'samāʾ' (elevation)** and **'asmāʾ' (names)** is woven together."
+      "noteEn": "*Sūrat al-Ḥashr 59:22-24* — 'He is Allah — the Creator, the Inventor, the Fashioner. **The most beautiful names are His.** Whatever is in the heavens (samāwāt) and the earth glorifies Him…' Here **the heavens (samāwāt)** and **the names of Allah (asmāʾ)** appear in the same frame; the bond between **'samāʾ' (elevation)** and **'asmāʾ' (names)** is woven together.",
+      "ar": "هُوَ اللّٰهُ الَّذِي لٓا اِلٰهَ اِلَّا هُوَ عَالِمُ الْغَيْبِ وَالشَّهَادَةِ هُوَ الرَّحْمٰنُ الرَّحِيمُ",
+      "isRange": true
     },
     {
       "type": "verseInline",
       "ref": "20:4",
       "noteTr": "*Tâhâ 20:4* — 'Bu, yeri ve **yüce gökleri (semâvât-i ulâ)** yaratan tarafından indirilmedir…'",
-      "noteEn": "*Ṭā-Hā 20:4* — 'A revelation from Him who created the earth and **the elevated heavens (samāwāt al-ʿulā)**…'"
+      "noteEn": "*Ṭā-Hā 20:4* — 'A revelation from Him who created the earth and **the elevated heavens (samāwāt al-ʿulā)**…'",
+      "ar": "تَنْزِيلاً مِمَّنْ خَلَقَ الْاَرْضَ وَالسَّمٰوَاتِ الْعُلٰى"
     },
     {
       "type": "verseInline",
       "ref": "20:8",
       "noteTr": "*Tâhâ 20:8* — 'Allah'tır O! O'ndan başka tanrı yoktur! **En güzel isimler O'nundur.**' **Yüce gökler** vurgusunun hemen ardından **Allah'ın isimlerinden** söz edilmesi, yine yücelik–isim arasındaki dilsel ve kavramsal bağı kurar.",
-      "noteEn": "*Ṭā-Hā 20:8* — 'Allah — there is no deity but He. **To Him belong the most beautiful names.**' That the verse on **the elevated heavens** is immediately followed by **the names of Allah** reaffirms the linguistic and conceptual bond between elevation and naming."
+      "noteEn": "*Ṭā-Hā 20:8* — 'Allah — there is no deity but He. **To Him belong the most beautiful names.**' That the verse on **the elevated heavens** is immediately followed by **the names of Allah** reaffirms the linguistic and conceptual bond between elevation and naming.",
+      "ar": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ  لَهُ الْاَسْمٓاءُ الْحُسْنٰى"
     },
     {
       "type": "verseInline",
       "ref": "2:31",
       "noteTr": "*Bakara 2:31* — 'Ve **Âdem'e bütün isimleri öğretti…**' Bu anlatım, insanın **soyutlama** ve **kategorizasyon** kabiliyetiyle ilgilidir. Bir-iki ayet önce (Bakara 2:29) yeryüzünün insana hazırlandığı, ardından 'göğe yönelerek onu yedi semâ hâline getirdiği' ifade edilir. **Tekil 'semâ'dan çoğul 'semâvât'a geçiş** kâinatın düzenli katmanlara ayrılmasıyla ilgilidir — tıpkı insanın varlıkları isimlendirmesi gibi.",
-      "noteEn": "*Al-Baqarah 2:31* — 'And **He taught Adam all the names…**' This narrative concerns the human's faculty of **abstraction** and **categorization**. A verse earlier (2:29), the earth is prepared for the human, and then He 'turned toward the sky and proportioned it into seven heavens'. The transition **from singular 'samāʾ' to plural 'samāwāt'** mirrors the structuring of the cosmos into ordered layers — just as the human structures beings by naming them."
+      "noteEn": "*Al-Baqarah 2:31* — 'And **He taught Adam all the names…**' This narrative concerns the human's faculty of **abstraction** and **categorization**. A verse earlier (2:29), the earth is prepared for the human, and then He 'turned toward the sky and proportioned it into seven heavens'. The transition **from singular 'samāʾ' to plural 'samāwāt'** mirrors the structuring of the cosmos into ordered layers — just as the human structures beings by naming them.",
+      "ar": "وَعَلَّمَ اٰدَمَ الْاَسْمٓاءَ كُلَّهَا ثُمَّ عَرَضَهُمْ عَلَى الْمَلٰٓئِكَةِ فَقَالَ اَنْبِؤُ۫نِي بِاَسْمٓاءِ هٰٓؤُ۬لٓاءِ اِنْ كُنْتُمْ صَادِقِينَ"
     },
     {
       "type": "pullQuote",
@@ -158,19 +165,23 @@
       "type": "verseInline",
       "ref": "32:5",
       "noteTr": "*Secde 32:5* — 'Allah **gökten yere kadar işleri tedbir eder, sonra onlar O'na yükselir.**' Kur'an, semâ ile arz arasındaki **gidiş-gelişlere** işaret eder.",
-      "noteEn": "*As-Sajda 32:5* — 'Allah **arranges every matter from the heaven to the earth, then it ascends to Him.**' The Quran points to the **back-and-forth** between sky and earth."
+      "noteEn": "*As-Sajda 32:5* — 'Allah **arranges every matter from the heaven to the earth, then it ascends to Him.**' The Quran points to the **back-and-forth** between sky and earth.",
+      "ar": "يُدَبِّرُ الْاَمْرَ مِنَ السَّمٓاءِ اِلَى الْاَرْضِ ثُمَّ يَعْرُجُ اِلَيْهِ فِي يَوْمٍ كَانَ مِقْدَارُهٓ اَلْفَ سَنَةٍ مِمَّا تَعُدُّونَ"
     },
     {
       "type": "verseInline",
       "ref": "7:143",
       "noteTr": "*A'râf 7:143* — Hz. Mûsâ kıssasında dağa **'Rabb'in tecellî etmesi'**, *tecellî* (تجلِّي) kelimesinin doğrudan geçtiği nadir örneklerden. Tasavvuf dilinde tecellî, **Allah'ın isim ve sıfatlarının varlıkta görünür olması** anlamını taşır.",
-      "noteEn": "*Al-Aʿrāf 7:143* — In the Mūsā narrative, **'the Lord's manifesting (tajallī) to the mountain'** is one of the rare passages where the word *tajallī* (تجلِّي) occurs directly. In Sufi parlance, tajallī signals **the becoming-visible of Allah's names and attributes in created being**."
+      "noteEn": "*Al-Aʿrāf 7:143* — In the Mūsā narrative, **'the Lord's manifesting (tajallī) to the mountain'** is one of the rare passages where the word *tajallī* (تجلِّي) occurs directly. In Sufi parlance, tajallī signals **the becoming-visible of Allah's names and attributes in created being**.",
+      "ar": "وَلَمَّا جٓاءَ مُوسٰى لِمِيقَاتِنَا وَكَلَّمَهُ رَبُّهُ قَالَ رَبِّ اَرِنِٓي اَنْظُرْ اِلَيْكَ قَالَ لَنْ تَرٰينِي وَلٰكِنِ انْظُرْ اِلَى الْجَبَلِ فَاِنِ اسْتَقَرَّ مَكَانَهُ فَسَوْفَ تَرٰينِي فَلَمَّا تَجَلّٰى رَبُّهُ لِلْجَبَلِ جَعَلَهُ دَكاًّ وَخَرَّ مُوسٰى صَعِقاً فَلَمٓا اَفَاقَ قَالَ سُبْحَانَكَ تُبْتُ اِلَيْكَ وَاَنَا۬ اَوَّلُ الْمُؤْمِنِينَ"
     },
     {
       "type": "verseInline",
       "ref": "14:24-25",
       "noteTr": "*İbrahim 14:24-25* — **'Kökü yerde, dalları gökte olan ağaç'** misali. 'Güzel sözlerin semâya yükselmesi ve oradan rahmetin inmesi' temasının görsel temsilidir.",
-      "noteEn": "*Ibrāhīm 14:24-25* — The parable of **'a tree whose root is in the earth and whose branches reach to the sky'**. A visual image of the theme: 'good speech ascends to the heaven and mercy descends from it'."
+      "noteEn": "*Ibrāhīm 14:24-25* — The parable of **'a tree whose root is in the earth and whose branches reach to the sky'**. A visual image of the theme: 'good speech ascends to the heaven and mercy descends from it'.",
+      "ar": "اَلَمْ تَرَ كَيْفَ ضَرَبَ اللّٰهُ مَثَلاً كَلِمَةً طَيِّبَةً كَشَجَرَةٍ طَيِّبَةٍ اَصْلُهَا ثَابِتٌ وَفَرْعُهَا فِي السَّمٓاءِ",
+      "isRange": true
     },
     {
       "type": "paragraph",

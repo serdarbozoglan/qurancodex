@@ -52,13 +52,15 @@
       "type": "verseInline",
       "ref": "96:4",
       "noteTr": "اَلَّذِي عَلَّمَ بِالْقَلَمِ — 'O ki kalemle öğretti.'",
-      "noteEn": "اَلَّذِي عَلَّمَ بِالْقَلَمِ — 'He who taught by the Pen.'"
+      "noteEn": "اَلَّذِي عَلَّمَ بِالْقَلَمِ — 'He who taught by the Pen.'",
+      "ar": "اَلَّذِي عَلَّمَ بِالْقَلَمِ"
     },
     {
       "type": "verseInline",
       "ref": "96:5",
       "noteTr": "عَلَّمَ الْاِنْسَانَ مَا لَمْ يَعْلَمْ — 'İnsana bilmediğini öğretti.'",
-      "noteEn": "عَلَّمَ الْاِنْسَانَ مَا لَمْ يَعْلَمْ — 'Taught the human what he knew not.'"
+      "noteEn": "عَلَّمَ الْاِنْسَانَ مَا لَمْ يَعْلَمْ — 'Taught the human what he knew not.'",
+      "ar": "عَلَّمَ الْاِنْسَانَ مَا لَمْ يَعْلَمْ"
     },
     {
       "type": "paragraph",
@@ -95,7 +97,8 @@
       "type": "verseInline",
       "ref": "2:31",
       "noteTr": "Bakara 2:31 — 'Âdem'e bütün isimleri öğretti. Sonra onları meleklere sundu: «Doğru sözlüyseniz şunların isimlerinden bana haber verin» dedi.'",
-      "noteEn": "Al-Baqarah 2:31 — 'He taught Adam all the names; then He laid them before the angels and said: «Inform Me of the names of these, if you are truthful.»'"
+      "noteEn": "Al-Baqarah 2:31 — 'He taught Adam all the names; then He laid them before the angels and said: «Inform Me of the names of these, if you are truthful.»'",
+      "ar": "وَعَلَّمَ اٰدَمَ الْاَسْمٓاءَ كُلَّهَا ثُمَّ عَرَضَهُمْ عَلَى الْمَلٰٓئِكَةِ فَقَالَ اَنْبِؤُ۫نِي بِاَسْمٓاءِ هٰٓؤُ۬لٓاءِ اِنْ كُنْتُمْ صَادِقِينَ"
     },
     {
       "type": "paragraph",
@@ -122,7 +125,8 @@
       "type": "verseInline",
       "ref": "31:27",
       "noteTr": "Lokman 31:27 — 'Eğer yeryüzündeki ağaçların tümü kalem ve deniz de — onun ardından yedi deniz daha eklenerek (mürekkep) olsa — yine de Allah'ın kelimeleri (yazmakla) tükenmez.'",
-      "noteEn": "Luqmān 31:27 — 'If all the trees on earth were pens and the sea — followed by seven seas — were ink, the words of Allah would still not be exhausted.'"
+      "noteEn": "Luqmān 31:27 — 'If all the trees on earth were pens and the sea — followed by seven seas — were ink, the words of Allah would still not be exhausted.'",
+      "ar": "وَلَوْ اَنَّ مَا فِي الْاَرْضِ مِنْ شَجَرَةٍ اَقْلَامٌ وَالْبَحْرُ يَمُدُّهُ مِنْ بَعْدِهِ سَبْعَةُ اَبْحُرٍ مَا نَفِدَتْ كَلِمَاتُ اللّٰهِ اِنَّ اللّٰهَ عَزِيزٌ حَكِيمٌ"
     },
     {
       "type": "paragraph",
@@ -156,7 +160,9 @@
       "type": "verseInline",
       "ref": "68:1-2",
       "noteTr": "Kalem 68:1-2 — 'Nûn. Kaleme ve satır satır yazdıklarına andolsun. Sen, Rabbinin nimetiyle bir deli (mecnûn) değilsin.'",
-      "noteEn": "Al-Qalam 68:1-2 — 'Nūn. By the Pen and what they write in lines. You, by the favour of your Lord, are not possessed (majnūn).'"
+      "noteEn": "Al-Qalam 68:1-2 — 'Nūn. By the Pen and what they write in lines. You, by the favour of your Lord, are not possessed (majnūn).'",
+      "ar": "نٓ وَالْقَلَمِ وَمَا يَسْطُرُونَ",
+      "isRange": true
     },
     {
       "type": "paragraph",
@@ -167,7 +173,9 @@
       "type": "verseInline",
       "ref": "96:15-16",
       "noteTr": "Alak 96:15-16 — 'Hayır, kesinlikle öyle değil! Eğer gerçekten vazgeçmezse perçeminden (nâsiye) yakalarız. Yalancı ve yanlış yapan perçeminden.'",
-      "noteEn": "Al-ʿAlaq 96:15-16 — 'Nay! If he ceases not, We shall seize him by the forelock (*nāṣiya*) — a lying, sinful forelock.'"
+      "noteEn": "Al-ʿAlaq 96:15-16 — 'Nay! If he ceases not, We shall seize him by the forelock (*nāṣiya*) — a lying, sinful forelock.'",
+      "ar": "كَلَّا لَئِنْ لَمْ يَنْتَهِ۬ لَنَسْفَعاً بِالنَّاصِيَةِ",
+      "isRange": true
     },
     {
       "type": "paragraph",
@@ -178,7 +186,8 @@
       "type": "verseInline",
       "ref": "55:41",
       "noteTr": "Rahmân 55:41 — 'Suçlular simalarından tanınır. Alınlarından ve ayaklarından yakalanırlar.'",
-      "noteEn": "Ar-Raḥmān 55:41 — 'The guilty are known by their marks. They are seized by the forelocks and the feet.'"
+      "noteEn": "Ar-Raḥmān 55:41 — 'The guilty are known by their marks. They are seized by the forelocks and the feet.'",
+      "ar": "يُعْرَفُ الْمُجْرِمُونَ بِسِيمٰيهُمْ فَيُؤْخَذُ بِالنَّوَاصِي وَالْاَقْدَامِ"
     },
     {
       "type": "paragraph",

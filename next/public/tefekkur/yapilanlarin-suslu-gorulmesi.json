@@ -59,13 +59,15 @@
       "type": "verseInline",
       "ref": "6:43",
       "noteTr": "*En'âm 6:43* — وَزَيَّنَ لَهُمُ الشَّيْطَانُ مَا كَانُوا يَعْمَلُونَ — '**Şeytan onlara yaptıklarını süslü gösterdi**' — kalpler katılaştıktan sonra.",
-      "noteEn": "*Al-Anʿām 6:43* — وَزَيَّنَ لَهُمُ الشَّيْطَانُ مَا كَانُوا يَعْمَلُونَ — '**Satan made their deeds appear beautified to them**' — once hearts had hardened."
+      "noteEn": "*Al-Anʿām 6:43* — وَزَيَّنَ لَهُمُ الشَّيْطَانُ مَا كَانُوا يَعْمَلُونَ — '**Satan made their deeds appear beautified to them**' — once hearts had hardened.",
+      "ar": "فَلَوْلٓا اِذْ جٓاءَهُمْ بَأْسُنَا تَضَرَّعُوا وَلٰكِنْ قَسَتْ قُلُوبُهُمْ وَزَيَّنَ لَهُمُ الشَّيْطَانُ مَا كَانُوا يَعْمَلُونَ"
     },
     {
       "type": "verseInline",
       "ref": "10:12",
       "noteTr": "*Yunus 10:12* — Zarar dokunduğunda yan yatarak/oturarak/ayakta **bize yalvarır**; zararını giderdiğimizde **sanki hiç yalvarmamış gibi geçip gider** — **müsriflere yaptıkları süslü gösterilir**.",
-      "noteEn": "*Yūnus 10:12* — When harm touches him he calls upon Us — on his side, sitting, standing; once We lift the harm, **he passes on as if he had never called Us at all** — to those who exceed bounds, their deeds are made beautiful."
+      "noteEn": "*Yūnus 10:12* — When harm touches him he calls upon Us — on his side, sitting, standing; once We lift the harm, **he passes on as if he had never called Us at all** — to those who exceed bounds, their deeds are made beautiful.",
+      "ar": "وَاِذَا مَسَّ الْاِنْسَانَ الضُّرُّ دَعَانَا لِجَنْبِهٓ اَوْ قَاعِداً اَوْ قٓائِماً فَلَمَّا كَشَفْنَا عَنْهُ ضُرَّهُ مَرَّ كَاَنْ لَمْ يَدْعُنٓا اِلٰى ضُرٍّ مَسَّهُ كَذٰلِكَ زُيِّنَ لِلْمُسْرِفِينَ مَا كَانُوا يَعْمَلُونَ"
     },
     {
       "type": "paragraph",
@@ -87,20 +89,23 @@
     {
       "type": "verseInline",
       "ref": "35:8",
-      "noteTr": "*Fâtır 35:8* — اَفَمَنْ زُيِّنَ لَهُ سُٓوءُ عَمَلِه۪ فَرَاٰهُ حَسَنًا — '**Kötü ameli kendisine süslü gösterilen ve onu güzel gören** kimse…'",
-      "noteEn": "*Fāṭir 35:8* — اَفَمَنْ زُيِّنَ لَهُ سُٓوءُ عَمَلِه۪ فَرَاٰهُ حَسَنًا — '**Is one whose evil deed has been made beautiful to him, so that he sees it as good**…'"
+      "noteTr": "*Fâtır 35:8* — اَفَمَنْ زُيِّنَ لَهُ سٓوءُ عَمَلِهِ فَرَاٰهُ حَسَنًا — '**Kötü ameli kendisine süslü gösterilen ve onu güzel gören** kimse…'",
+      "noteEn": "*Fāṭir 35:8* — اَفَمَنْ زُيِّنَ لَهُ سٓوءُ عَمَلِهِ فَرَاٰهُ حَسَنًا — '**Is one whose evil deed has been made beautiful to him, so that he sees it as good**…'",
+      "ar": "اَفَمَنْ زُيِّنَ لَهُ سٓوءُ عَمَلِهِ فَرَاٰهُ حَسَناً فَاِنَّ اللّٰهَ يُضِلُّ مَنْ يَشٓاءُ وَيَهْدِي مَنْ يَشٓاءُ فَلَا تَذْهَبْ نَفْسُكَ عَلَيْهِمْ حَسَرَاتٍ اِنَّ اللّٰهَ عَلِيمٌ بِمَا يَصْنَعُونَ"
     },
     {
       "type": "verseInline",
       "ref": "27:4",
-      "noteTr": "*Neml 27:4* — اِنَّ الَّذ۪ينَ لَا يُؤْمِنُونَ بِالْاٰخِرَةِ زَيَّنَّا لَهُمْ اَعْمَالَهُمْ — '**Ahirete inanmayanlara amellerini süsledik; onlar körlük içinde dolaşırlar**.'",
-      "noteEn": "*Al-Naml 27:4* — اِنَّ الَّذ۪ينَ لَا يُؤْمِنُونَ بِالْاٰخِرَةِ زَيَّنَّا لَهُمْ اَعْمَالَهُمْ — '**To those who do not believe in the hereafter, We have made their deeds appear beautiful; they wander in blindness**.'"
+      "noteTr": "*Neml 27:4* — اِنَّ الَّذِينَ لَا يُؤْمِنُونَ بِالْاٰخِرَةِ زَيَّنَّا لَهُمْ اَعْمَالَهُمْ — '**Ahirete inanmayanlara amellerini süsledik; onlar körlük içinde dolaşırlar**.'",
+      "noteEn": "*Al-Naml 27:4* — اِنَّ الَّذِينَ لَا يُؤْمِنُونَ بِالْاٰخِرَةِ زَيَّنَّا لَهُمْ اَعْمَالَهُمْ — '**To those who do not believe in the hereafter, We have made their deeds appear beautiful; they wander in blindness**.'",
+      "ar": "اِنَّ الَّذِينَ لَا يُؤْمِنُونَ بِالْاٰخِرَةِ زَيَّنَّا لَهُمْ اَعْمَالَهُمْ فَهُمْ يَعْمَهُونَ"
     },
     {
       "type": "verseInline",
       "ref": "6:108",
       "noteTr": "*En'âm 6:108* — كَذٰلِكَ زَيَّنَّا لِكُلِّ اُمَّةٍ عَمَلَهُمْ — '**Her ümmete yaptıklarını süslü gösterdik**' — *evrensel bir mekanizma*.",
-      "noteEn": "*Al-Anʿām 6:108* — كَذٰلِكَ زَيَّنَّا لِكُلِّ اُمَّةٍ عَمَلَهُمْ — '**Thus We have made the deeds of every community appear beautiful to them**' — *a universal mechanism*."
+      "noteEn": "*Al-Anʿām 6:108* — كَذٰلِكَ زَيَّنَّا لِكُلِّ اُمَّةٍ عَمَلَهُمْ — '**Thus We have made the deeds of every community appear beautiful to them**' — *a universal mechanism*.",
+      "ar": "وَلَا تَسُبُّوا الَّذِينَ يَدْعُونَ مِنْ دُونِ اللّٰهِ فَيَسُبُّوا اللّٰهَ عَدْواً بِغَيْرِ عِلْمٍ   كَذٰلِكَ زَيَّنَّا لِكُلِّ اُمَّةٍ عَمَلَهُمْ ثُمَّ اِلٰى رَبِّهِمْ مَرْجِعُهُمْ فَيُنَبِّئُهُمْ بِمَا كَانُوا يَعْمَلُونَ"
     },
     {
       "type": "paragraph",
@@ -123,19 +128,22 @@
       "type": "verseInline",
       "ref": "9:37",
       "noteTr": "*Tevbe 9:37* — **Haram ayları ertelediler, haramı helal kıldılar**, böylece amelleri kendilerine süslü gösterildi.",
-      "noteEn": "*Al-Tawba 9:37* — **They postponed the sacred months, made the forbidden lawful**; thus their deeds were made beautiful to them."
+      "noteEn": "*Al-Tawba 9:37* — **They postponed the sacred months, made the forbidden lawful**; thus their deeds were made beautiful to them.",
+      "ar": "اِنَّمَا النَّسِٓيءُ زِيَادَةٌ فِي الْكُفْرِ يُضَلُّ بِهِ الَّذِينَ كَفَرُوا يُحِلُّونَهُ عَاماً وَيُحَرِّمُونَهُ عَاماً لِيُوَاطِؤُ۫ا عِدَّةَ مَا حَرَّمَ اللّٰهُ فَيُحِلُّوا مَا حَرَّمَ اللّٰهُ زُيِّنَ لَهُمْ سٓوءُ اَعْمَالِهِمْ وَاللّٰهُ لَا يَهْدِي الْقَوْمَ الْكَافِرِينَ۟"
     },
     {
       "type": "verseInline",
       "ref": "6:137",
       "noteTr": "*En'âm 6:137* — Şirk anlayışları müşriklere **çocuk öldürmeyi süslü gösterdi**. *Kolektif inanç sistemi tezyîn üretir.*",
-      "noteEn": "*Al-Anʿām 6:137* — Their polytheistic notions **made killing their children appear beautiful** to them. *A collective belief-system manufactures tazyīn*."
+      "noteEn": "*Al-Anʿām 6:137* — Their polytheistic notions **made killing their children appear beautiful** to them. *A collective belief-system manufactures tazyīn*.",
+      "ar": "وَكَذٰلِكَ زَيَّنَ لِكَثِيرٍ مِنَ الْمُشْرِكِينَ قَتْلَ اَوْلَادِهِمْ شُرَكٓاؤُ۬هُمْ لِيُرْدُوهُمْ وَلِيَلْبِسُوا عَلَيْهِمْ دِينَهُمْ وَلَوْ شٓاءَ اللّٰهُ مَا فَعَلُوهُ فَذَرْهُمْ وَمَا يَفْتَرُونَ"
     },
     {
       "type": "verseInline",
       "ref": "8:48",
       "noteTr": "*Enfâl 8:48* — '**Şeytan onlara amellerini süslü gösterdi** ve dedi ki: *Bugün sizi kimse yenemez; ben sizin yardımcınızım*.' *Toplulukla birlikte hareket etmek, haksızlığı meşrulaştıran psikolojik kalkan üretir.*",
-      "noteEn": "*Al-Anfāl 8:48* — '**Satan made their deeds appear beautified to them** and said: *No human shall overcome you today; I am your protector*.' *Acting in a crowd creates a psychological shield that legitimates wrong.*"
+      "noteEn": "*Al-Anfāl 8:48* — '**Satan made their deeds appear beautified to them** and said: *No human shall overcome you today; I am your protector*.' *Acting in a crowd creates a psychological shield that legitimates wrong.*",
+      "ar": "وَاِذْ زَيَّنَ لَهُمُ الشَّيْطَانُ اَعْمَالَهُمْ وَقَالَ لَا غَالِبَ لَكُمُ الْيَوْمَ مِنَ النَّاسِ وَاِنِّي جَارٌ لَكُمْ فَلَمَّا تَرٓاءَتِ الْفِئَتَانِ نَكَصَ عَلٰى عَقِبَيْهِ وَقَالَ اِنِّي بَرِٓيءٌ  مِنْكُمْ اِنِٓي اَرٰى مَا لَا تَرَوْنَ اِنِٓي اَخَافُ اللّٰهَ وَاللّٰهُ شَدِيدُ الْعِقَابِ۟"
     },
     {
       "type": "paragraph",
@@ -152,7 +160,8 @@
       "type": "verseInline",
       "ref": "6:122",
       "noteTr": "*En'âm 6:122* — **Nur verilen** kimse ile **karanlıklarda kalıp çıkamayan** bir olur mu? Kâfirlere amelleri **böyle süslü gösterilir**. *Karanlık = bilgi eksikliğinden çok perspektif kaybı.*",
-      "noteEn": "*Al-Anʿām 6:122* — Is the one to whom **We gave light** the same as one who is **stuck in darkness and cannot emerge**? Thus to the disbelievers their deeds are **made beautiful**. *Darkness = less the absence of information than the loss of perspective.*"
+      "noteEn": "*Al-Anʿām 6:122* — Is the one to whom **We gave light** the same as one who is **stuck in darkness and cannot emerge**? Thus to the disbelievers their deeds are **made beautiful**. *Darkness = less the absence of information than the loss of perspective.*",
+      "ar": "اَوَمَنْ كَانَ مَيْتاً فَاَحْيَيْنَاهُ وَجَعَلْنَا لَهُ نُوراً يَمْشِي بِهِ فِي النَّاسِ كَمَنْ مَثَلُهُ فِي الظُّلُمَاتِ لَيْسَ بِخَارِجٍ مِنْهَا   كَذٰلِكَ زُيِّنَ لِلْكَافِرِينَ مَا كَانُوا يَعْمَلُونَ"
     },
     {
       "type": "paragraph",
@@ -162,8 +171,9 @@
     {
       "type": "verseInline",
       "ref": "49:13",
-      "noteTr": "*Hucurat 49:13* — يَٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَآئِلَ لِتَعَارَفُوا — '**Sizi şubeler-kabileler kıldık ki birbirinizi tanıyasınız**.' **Li tearefû** — kontrast olmadan kendini tanıyamazsın.",
-      "noteEn": "*Al-Ḥujurāt 49:13* — يَٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَآئِلَ لِتَعَارَفُوا — '**We made you peoples and tribes so that you might know one another**.' **Li-taʿārafū** — without contrast, you cannot know yourself."
+      "noteTr": "*Hucurat 49:13* — يٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَآئِلَ لِتَعَارَفُوا — '**Sizi şubeler-kabileler kıldık ki birbirinizi tanıyasınız**.' **Li tearefû** — kontrast olmadan kendini tanıyamazsın.",
+      "noteEn": "*Al-Ḥujurāt 49:13* — يٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَآئِلَ لِتَعَارَفُوا — '**We made you peoples and tribes so that you might know one another**.' **Li-taʿārafū** — without contrast, you cannot know yourself.",
+      "ar": "يٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوباً وَقَـبٓائِلَ لِتَعَارَفُوا اِنَّ اَكْرَمَكُمْ عِنْدَ اللّٰهِ اَتْقٰيكُمْ اِنَّ اللّٰهَ عَلِيمٌ خَبِيرٌ"
     },
     {
       "type": "paragraph",
@@ -180,19 +190,23 @@
       "type": "verseInline",
       "ref": "47:14",
       "noteTr": "*Muhammed 47:14* — '**Rabbinden beyyine üzere olan kimse ile, kötü ameli kendisine süslü gösterilen ve hevalarına uyan kimseler bir olur mu?**' Tezyîn'in tam karşıtı: *beyyine + hakikate uyum*.",
-      "noteEn": "*Muḥammad 47:14* — '**Is one who stands on a clear sign from his Lord like the one whose evil deed is made beautiful to him and follows his desires?**' The direct opposite of *tazyīn*: *bayyina + adherence to truth*."
+      "noteEn": "*Muḥammad 47:14* — '**Is one who stands on a clear sign from his Lord like the one whose evil deed is made beautiful to him and follows his desires?**' The direct opposite of *tazyīn*: *bayyina + adherence to truth*.",
+      "ar": "اَفَمَنْ كَانَ عَلٰى بَيِّنَةٍ مِنْ رَبِّهِ كَمَنْ زُيِّنَ لَهُ سٓوءُ عَمَلِهِ وَاتَّبَعٓوا اَهْوٓاءَهُمْ"
     },
     {
       "type": "verseInline",
       "ref": "15:39-40",
       "noteTr": "*Hicr 15:39-40* — *İblis*: 'Yeryüzünde onlara süsler yapacağım, hepsini saptıracağım — **ancak ihlâslı kulların müstesna**.' Tezyîn'in tek panzehiri **ihlâs**.",
-      "noteEn": "*Al-Ḥijr 15:39-40* — *Iblīs*: 'I will make things appear beautiful for them on earth and will lead them astray, all of them — **except Your sincere servants**.' The single antidote to *tazyīn*: **ikhlāṣ**."
+      "noteEn": "*Al-Ḥijr 15:39-40* — *Iblīs*: 'I will make things appear beautiful for them on earth and will lead them astray, all of them — **except Your sincere servants**.' The single antidote to *tazyīn*: **ikhlāṣ**.",
+      "ar": "قَالَ رَبِّ بِمٓا اَغْوَيْتَنِي لَاُزَيِّنَنَّ لَهُمْ فِي الْاَرْضِ وَلَاُغْوِيَنَّهُمْ اَجْمَعِينَ",
+      "isRange": true
     },
     {
       "type": "verseInline",
       "ref": "41:25",
       "noteTr": "*Fussilet 41:25* — 'Onlara birtakım yakınlar (akran) **sardırdık**; önlerindekini ve arkalarındakini onlara süslü gösterdiler.' Tezyîn **sosyal ağ** üzerinden de iletilir.",
-      "noteEn": "*Fuṣṣilat 41:25* — 'We assigned to them companions, who made beautiful to them what lay before and behind.' Tazyīn travels also through **the social network**."
+      "noteEn": "*Fuṣṣilat 41:25* — 'We assigned to them companions, who made beautiful to them what lay before and behind.' Tazyīn travels also through **the social network**.",
+      "ar": "وَقَيَّضْنَا لَهُمْ قُرَنٓاءَ فَزَيَّنُوا لَهُمْ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَحَقَّ عَلَيْهِمُ الْقَوْلُ فِٓي اُمَمٍ قَدْ خَلَتْ مِنْ قَبْلِهِمْ مِنَ الْجِنِّ وَالْاِنْسِ اِنَّهُمْ كَانُوا خَاسِرِينَ۟"
     },
     {
       "type": "paragraph",
@@ -270,7 +284,8 @@
       "type": "verseInline",
       "ref": "89:16",
       "noteTr": "*Fecr 89:16* — فَقَدَرَ عَلَيْهِ رِزْقَهُ — '**Rızkını ona daralttı.**' Kaynak kısıtlandığında insanın birden fazla gayesi azalır; **nihayetinde teke düşer**. *Tüm imtihanlar bir açıdan ihlâs imtihanıdır.*",
-      "noteEn": "*Al-Fajr 89:16* — فَقَدَرَ عَلَيْهِ رِزْقَهُ — '**He has constrained his provision.**' When resources are constrained, one's multiple aims shrink — and **finally collapse to a single one**. *Every trial is, in a sense, a trial of ikhlāṣ.*"
+      "noteEn": "*Al-Fajr 89:16* — فَقَدَرَ عَلَيْهِ رِزْقَهُ — '**He has constrained his provision.**' When resources are constrained, one's multiple aims shrink — and **finally collapse to a single one**. *Every trial is, in a sense, a trial of ikhlāṣ.*",
+      "ar": "وَاَمٓا اِذَا مَا ابْتَلٰيهُ فَقَدَرَ عَلَيْهِ رِزْقَهُ فَيَقُولُ رَبِٓي اَهَانَنِ"
     },
     {
       "type": "paragraph",

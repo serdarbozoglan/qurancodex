@@ -49,19 +49,22 @@
       "type": "verseInline",
       "ref": "87:1",
       "noteTr": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — Yüce, ulvî Rabbinin ismini tesbih et!",
-      "noteEn": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — Glorify the name of your Lord, the Most High."
+      "noteEn": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى — Glorify the name of your Lord, the Most High.",
+      "ar": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى"
     },
     {
       "type": "verseInline",
       "ref": "87:2",
       "noteTr": "اَلَّذِي خَلَقَ فَسَوّٰى — O ki yarattı ve tesviye etti; yani tasarladı, düzenledi.",
-      "noteEn": "اَلَّذِي خَلَقَ فَسَوَّى — He who created and proportioned — that is, designed and ordered."
+      "noteEn": "اَلَّذِي خَلَقَ فَسَوَّى — He who created and proportioned — that is, designed and ordered.",
+      "ar": "اَلَّذِي خَلَقَ فَسَوّٰى"
     },
     {
       "type": "verseInline",
       "ref": "87:3",
       "noteTr": "وَالَّذِي قَدَّرَ فَهَدٰى — O ki, takdir etti (muhtemel hâllerini sınırlandırdı) ve onu yöneltti (o hâllerden birini realize etti).",
-      "noteEn": "وَالَّذِي قَدَّرَ فَهَدَى — He who determined (constraining the possible states) and guided (actualizing one of them)."
+      "noteEn": "وَالَّذِي قَدَّرَ فَهَدَى — He who determined (constraining the possible states) and guided (actualizing one of them).",
+      "ar": "وَالَّذِي قَدَّرَ فَهَدٰى"
     },
     {
       "type": "paragraph",
@@ -77,7 +80,8 @@
       "type": "verseInline",
       "ref": "75:38",
       "noteTr": "*Halaqa fe-sevvâ* — 'Sonra bir alak (embriyo) oldu, derken (Allah, onu) yarattı ve bir düzen içinde biçim verdi.'",
-      "noteEn": "*Khalaqa fa-sawwā* — 'Then he became a clot (embryo), then He created and gave it form in due proportion.'"
+      "noteEn": "*Khalaqa fa-sawwā* — 'Then he became a clot (embryo), then He created and gave it form in due proportion.'",
+      "ar": "ثُمَّ  كَانَ عَلَقَةً فَخَلَقَ فَسَوّٰى"
     },
     {
       "type": "paragraph",
@@ -104,7 +108,8 @@
       "type": "verseInline",
       "ref": "25:2",
       "noteTr": "*Halaqa kulle şey'in fe-kadderahû takdîrâ* — 'O her şeyi yaratmış ve bir ölçüye (kadere) göre takdir etmiştir.'",
-      "noteEn": "*Khalaqa kulla shay'in fa-qaddarahū taqdīrā* — 'He created everything and decreed it with a measure (qadar).'"
+      "noteEn": "*Khalaqa kulla shay'in fa-qaddarahū taqdīrā* — 'He created everything and decreed it with a measure (qadar).'",
+      "ar": "اَلَّذِي لَهُ مُلْكُ السَّمٰوَاتِ وَالْاَرْضِ وَلَمْ يَتَّخِذْ وَلَداً وَلَمْ يَكُنْ لَهُ شَرِيكٌ فِي الْمُلْكِ وَخَلَقَ كُلَّ شَيْءٍ فَقَدَّرَهُ تَقْدِيراً"
     },
     {
       "type": "paragraph",
@@ -271,7 +276,9 @@
       "type": "verseInline",
       "ref": "16:120-121",
       "noteTr": "Nahl 16:120-121 — Hz. İbrâhîm'in seçilmesi ve sırat-ı müstakîme hidâyet edilmesi: Alâ 87:3 âyetinin müşahhas bir örneği.",
-      "noteEn": "An-Nahl 16:120-121 — The choosing of Ibrāhīm and his being guided to the straight path: a concrete instance of Al-Aʿlā 87:3."
+      "noteEn": "An-Nahl 16:120-121 — The choosing of Ibrāhīm and his being guided to the straight path: a concrete instance of Al-Aʿlā 87:3.",
+      "ar": "اِنَّ اِبْرٰهِيمَ كَانَ اُمَّةً قَانِتاً لِلّٰهِ حَنِيفاً وَلَمْ يَكُ مِنَ الْمُشْرِكِينَ",
+      "isRange": true
     },
     {
       "type": "paragraph",
@@ -282,19 +289,24 @@
       "type": "verseInline",
       "ref": "80:19-20",
       "noteTr": "Abese 80:19-20 — 'İnsanı nutfeden yarattı ve *kaddera*, sonra yola iletimini kolaylaştırdı.'",
-      "noteEn": "ʿAbasa 80:19-20 — 'From a drop He created him, then *qaddara* (decreed his measure), then made his path easy.'"
+      "noteEn": "ʿAbasa 80:19-20 — 'From a drop He created him, then *qaddara* (decreed his measure), then made his path easy.'",
+      "ar": "مِنْ نُطْفَةٍ خَلَقَهُ فَقَدَّرَهُ",
+      "isRange": true
     },
     {
       "type": "verseInline",
       "ref": "92:5-7",
       "noteTr": "Leyl 92:5-7 — 'Kim verirse, ittikā ederse ve el-husnâyı tasdik ederse, onu el-yüsrâ için kolaylaştırırız.'",
-      "noteEn": "Al-Layl 92:5-7 — 'Whoever gives, fears, and affirms the best — We shall ease his way to ease (al-yusrā).'"
+      "noteEn": "Al-Layl 92:5-7 — 'Whoever gives, fears, and affirms the best — We shall ease his way to ease (al-yusrā).'",
+      "ar": "فَاَمَّا مَنْ اَعْطٰى وَاتَّقٰى",
+      "isRange": true
     },
     {
       "type": "verseInline",
       "ref": "90:10",
       "noteTr": "Beled 90:10 — *ve hedeynâhu'n-necdeyn* — 'Ve ona iki yolu (iyi ve kötü) gösterdik.'",
-      "noteEn": "Al-Balad 90:10 — *wa hadaynāhu al-najdayn* — 'And We showed him the two highways (of good and evil).'"
+      "noteEn": "Al-Balad 90:10 — *wa hadaynāhu al-najdayn* — 'And We showed him the two highways (of good and evil).'",
+      "ar": "وَهَدَيْنَاهُ النَّجْدَيْنِ"
     },
     {
       "type": "section",

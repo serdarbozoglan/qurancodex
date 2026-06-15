@@ -102,7 +102,8 @@
       "type": "verseInline",
       "ref": "6:76",
       "noteTr": "Gece onu örttüğünde (cennehu'l-leyl), bir yıldız gördü.",
-      "noteEn": "When the night covered him (jannahu al-layl), he saw a star."
+      "noteEn": "When the night covered him (jannahu al-layl), he saw a star.",
+      "ar": "فَلَمَّا جَنَّ عَلَيْهِ الَّيْلُ رَاٰ كَوْكَباً قَالَ هٰذَا رَبِّي فَلَمٓا اَفَلَ قَالَ لٓا اُحِبُّ الْاٰفِلِينَ"
     },
     {
       "type": "section",
@@ -301,7 +302,8 @@
       "type": "verseInline",
       "ref": "18:107",
       "noteTr": "Şüphesiz iman edip salih amel işleyenler için Firdevs cennetleri (cennâtu'l-firdevs) konak olarak hazırlanmıştır.",
-      "noteEn": "Indeed, those who believed and did righteous deeds — for them are the Gardens of Paradise (jannāt al-firdaws) as a lodging."
+      "noteEn": "Indeed, those who believed and did righteous deeds — for them are the Gardens of Paradise (jannāt al-firdaws) as a lodging.",
+      "ar": "اِنَّ الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ كَانَتْ لَهُمْ جَنَّاتُ الْفِرْدَوْسِ نُزُلاً"
     },
     {
       "type": "section",
@@ -329,13 +331,15 @@
       "type": "verseInline",
       "ref": "32:17",
       "noteTr": "Yaptıklarına karşılık olarak, onlar için gözleri aydınlatacak hangi nimetlerin saklı tutulduğunu hiç kimse bilmez (fe-lâ taʿlamu nefsun mâ uḫfiye lehum min kurrati aʿyun).",
-      "noteEn": "No soul knows what comfort of the eyes has been hidden for them as reward for what they used to do (fa-lā taʿlamu nafsun mā ukhfiya lahum min qurrati aʿyun)."
+      "noteEn": "No soul knows what comfort of the eyes has been hidden for them as reward for what they used to do (fa-lā taʿlamu nafsun mā ukhfiya lahum min qurrati aʿyun).",
+      "ar": "فَلَا تَعْلَمُ نَفْسٌ مٓا اُخْفِيَ لَهُمْ مِنْ قُرَّةِ اَعْيُنٍ جَزٓاءً بِمَا كَانُوا يَعْمَلُونَ"
     },
     {
       "type": "verseInline",
       "ref": "34:15",
       "noteTr": "Sebe' kavmine sağda ve solda iki bahçe (cennetân) ihsan edildi.",
-      "noteEn": "The people of Sabaʾ were granted two gardens (jannatān) on the right and the left."
+      "noteEn": "The people of Sabaʾ were granted two gardens (jannatān) on the right and the left.",
+      "ar": "لَقَدْ كَانَ لِسَبَأٍ فِي مَسْكَنِهِمْ اٰيَةٌ جَنَّتَانِ عَنْ يَمِينٍ وَشِمَالٍ كُلُوا مِنْ رِزْقِ رَبِّكُمْ وَاشْكُرُوا لَهُ بَلْدَةٌ طَيِّبَةٌ وَرَبٌّ غَفُورٌ"
     },
     {
       "type": "section",
@@ -352,7 +356,8 @@
       "type": "verseInline",
       "ref": "72:14",
       "noteTr": "Aramızda Müslüman olanlar olduğu gibi gerçeğe sırt çevirenler de vardır (ve ennâ minne'l-müslimûne ve minne'l-kâsiṭûn).",
-      "noteEn": "Among us are some who are Muslims, and some who deviate from justice (wa-annā minnā al-muslimūn wa-minnā al-qāsiṭūn)."
+      "noteEn": "Among us are some who are Muslims, and some who deviate from justice (wa-annā minnā al-muslimūn wa-minnā al-qāsiṭūn).",
+      "ar": "وَاَنَّا مِنَّا الْمُسْلِمُونَ وَمِنَّا الْقَاسِطُونَ  فَمَنْ اَسْلَمَ فَاُو۬لٰٓئِكَ تَحَرَّوْا رَشَداً"
     },
     {
       "type": "section",
@@ -369,13 +374,15 @@
       "type": "verseInline",
       "ref": "44:14",
       "noteTr": "Sonra ondan yüz çevirdiler ve: 'Bu, eğitilmiş bir mecnûn (muʿallemun mecnûn)tur' dediler.",
-      "noteEn": "Then they turned away from him and said: 'A man taught [by others], a madman (muʿallam majnūn).'"
+      "noteEn": "Then they turned away from him and said: 'A man taught [by others], a madman (muʿallam majnūn).'",
+      "ar": "ثُمَّ تَوَلَّوْا عَنْهُ وَقَالُوا مُعَلَّمٌ مَجْنُونٌ"
     },
     {
       "type": "verseInline",
       "ref": "68:2",
       "noteTr": "Sen, Rabbinin nimetiyle, mecnûn değilsin (mâ ente bi-niʿmeti rabbike bi-mecnûn).",
-      "noteEn": "You, by the favor of your Lord, are not a madman (mā anta bi-niʿmati rabbika bi-majnūn)."
+      "noteEn": "You, by the favor of your Lord, are not a madman (mā anta bi-niʿmati rabbika bi-majnūn).",
+      "ar": "مٓا اَنْتَ بِنِعْمَةِ رَبِّكَ بِمَجْنُونٍ"
     },
     {
       "type": "pullQuote",
@@ -466,7 +473,8 @@
       "type": "verseInline",
       "ref": "2:35",
       "noteTr": "Ey Âdem, sen ve eşin cennete (el-cennete) yerleşin. Orada dilediğiniz yerden bolca yiyin. Yalnız şu ağaca yaklaşmayın, yoksa zalimlerden olursunuz.",
-      "noteEn": "O Adam, dwell — you and your wife — in the Garden (al-jannah). Eat from it freely wherever you wish, but do not approach this tree, lest you be among the wrongdoers."
+      "noteEn": "O Adam, dwell — you and your wife — in the Garden (al-jannah). Eat from it freely wherever you wish, but do not approach this tree, lest you be among the wrongdoers.",
+      "ar": "وَقُلْنَا يٓا اٰدَمُ اسْكُنْ اَنْتَ وَزَوْجُكَ الْجَنَّةَ وَكُلَا مِنْهَا رَغَداً حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هٰذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ"
     },
     {
       "type": "paragraph",
@@ -477,7 +485,8 @@
       "type": "verseInline",
       "ref": "27:10",
       "noteTr": "Onu (asâsını) sanki bir yılan/cin (cânn) gibi titreşirken görünce, dönüp ardına bakmadan kaçtı.",
-      "noteEn": "When he saw it (his staff) writhing as if it were a serpent/jinn (jānn), he turned and fled without looking back."
+      "noteEn": "When he saw it (his staff) writhing as if it were a serpent/jinn (jānn), he turned and fled without looking back.",
+      "ar": "وَاَلْقِ عَصَاكَ فَلَمَّا رَاٰهَا تَهْتَزُّ  كَاَنَّهَا جٓانٌّ وَلّٰى مُدْبِراً وَلَمْ يُعَقِّبْ يَا مُوسٰى لَا تَخَفْ اِنِّي لَا يَخَافُ لَدَيَّ الْمُرْسَلُونَ"
     },
     {
       "type": "section",
@@ -494,7 +503,8 @@
       "type": "verseInline",
       "ref": "58:16",
       "noteTr": "Yeminlerini kalkan (cunne) yaptılar ve Allah yolundan alıkoydular.",
-      "noteEn": "They have taken their oaths as a shield (junnah) and have averted [people] from the way of Allah."
+      "noteEn": "They have taken their oaths as a shield (junnah) and have averted [people] from the way of Allah.",
+      "ar": "اِتَّخَذٓوا اَيْمَانَهُمْ جُنَّةً فَصَدُّوا عَنْ سَبِيلِ اللّٰهِ فَلَهُمْ عَذَابٌ مُهِينٌ"
     },
     {
       "type": "pullQuote",
