@@ -1,17 +1,23 @@
 'use client';
 
-// ─── AllahKendiniTanitir — Reflection köprüsü (KART PATTERN) ───────────────────
-// CLAUDE.md §17.3 referans pattern. Anasayfanın "minimum kart" formunun
-// kanonik örneği — Wonder/Awe arc'ından "Reflection" köprüsüne geçiş.
-// Pilot 1 sonucu: TEASER_NAMES + 4-kart grid + 2-cümle paragraf çıkarıldı;
-// derinlik hedef sayfada (/arac/esma-frekans, 99 isim) zaten var → duplikasyon
-// kaldırıldı, kart sade-portal formuna indi.
+// ─── AllahKendiniTanitir — Reflection köprüsü ─────────────────────────────────
+// Site narrative arc'ının "Reflection" evresinde, Conclusion'dan hemen önce
+// gelir. Mimariyi anlattıktan sonra "kim?" sorusuna geçişi yapar ve okuyucuyu
+// Esmâ-i Hüsnâ flagship sayfasına yönlendirir.
+// CLAUDE.md §1: Wonder → Shock → Fascination → Awe → Astonishment → Reflection
 // ──────────────────────────────────────────────────────────────────────────────
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
+
+const TEASER_NAMES = [
+  { ar: 'ٱللَّه',       trName: 'Allah',     enName: 'Allāh',      count: 2699 },
+  { ar: 'ٱلرَّحْمَٰن',  trName: 'Er-Rahmân', enName: 'ar-Raḥmān',  count: 60   },
+  { ar: 'ٱلْعَلِيم',    trName: 'El-Alîm',   enName: 'al-ʿAlīm',   count: 161  },
+  { ar: 'ٱلْحَكِيم',    trName: 'El-Hakîm',  enName: 'al-Ḥakīm',   count: 97   },
+];
 
 export default function AllahKendiniTanitir() {
   const { language } = useLanguage();
@@ -23,7 +29,7 @@ export default function AllahKendiniTanitir() {
       id="allah-kendini-tanitir"
       style={{
         background: 'linear-gradient(180deg, #0a0a1a 0%, #0d1b2a 50%, #0a0a1a 100%)',
-        padding: '80px 24px',
+        padding: '110px 24px',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -133,13 +139,78 @@ export default function AllahKendiniTanitir() {
             fontSize: 'clamp(0.95rem, 2vw, 1.05rem)',
             lineHeight: 1.75,
             maxWidth: '600px',
-            margin: '0 auto 48px',
+            margin: '0 auto 40px',
           }}
         >
           {tr
-            ? "Allah Kur'an'da kendisini 114 isim ve sıfatla tanıtır — sarsılmaz kudret (Celâl) ve sığınılacak şefkat (Cemâl) bir denge halinde."
-            : "God describes Himself in the Quran through 114 names and attributes — unshakable might (Jalāl) and embracing mercy (Jamāl) in balance."}
+            ? "Allah Kur'an'da kendisini 114 isim ve sıfatla, kimi zaman üçüncü şahısla kimi zaman doğrudan birinci şahısla tanıtır. Sarsılmaz kudret (Celal) ve sığınılacak şefkat (Cemal) bir denge halinde."
+            : "God describes Himself in the Quran through 114 names and attributes — sometimes in the third person, sometimes directly in the first person. Unshakable might (Jalāl) and embracing mercy (Jamāl) in balance."}
         </p>
+
+        {/* 4 isim teaser cards */}
+        <motion.div
+          initial={reduced ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          style={{
+            display: 'grid',
+            // 4 kart için sabit 2×2 — auto-fit responsive minmax 3+1 asimetri
+            // üretiyor. <480px'de 1 sütuna düşelim.
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '14px',
+            marginBottom: '56px',
+          }}
+        >
+          {TEASER_NAMES.map((n, i) => (
+            <motion.div
+              key={n.trName}
+              initial={reduced ? false : { opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: 0.5 + i * 0.08 }}
+              style={{
+                background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
+                border: `1px solid ${COLORS.gold}26`,
+                borderRadius: '14px',
+                padding: '22px 16px',
+                textAlign: 'center',
+              }}
+            >
+              <p
+                dir="rtl"
+                lang="ar"
+                style={{
+                  fontFamily: FONTS.quran,
+                  fontSize: 'clamp(1.4rem, 2.4vw, 1.7rem)',
+                  color: COLORS.gold,
+                  lineHeight: 1.4,
+                  margin: '0 0 10px',
+                }}
+              >
+                {n.ar}
+              </p>
+              <p style={{
+                color: COLORS.offWhite,
+                fontFamily: FONTS.body,
+                fontSize: '0.86rem',
+                fontWeight: 600,
+                margin: '0 0 6px',
+              }}>
+                {tr ? n.trName : n.enName}
+              </p>
+              <p style={{
+                color: `${COLORS.gold}aa`,
+                fontFamily: FONTS.body,
+                fontSize: '0.74rem',
+                letterSpacing: '0.06em',
+                margin: 0,
+              }}>
+                {n.count.toLocaleString(tr ? 'tr-TR' : 'en-US')} {tr ? 'geçiş' : 'occurrences'}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* CTA */}
         <motion.div
