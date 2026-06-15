@@ -1606,6 +1606,107 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
           </div>
         </div>
       )}
+
+      {/* ── YÖNTEM UYGULAMADA — 3 Ünlü Yemin Sûresi ──────────────────── */}
+      <div style={{ marginTop: '36px' }}>
+        <div style={{
+          paddingBottom: '12px',
+          borderBottom: `1px solid ${COLORS.goldAlpha25}`,
+          marginBottom: '20px',
+        }}>
+          <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '6px' }}>
+            {language === 'tr' ? "Yöntem Uygulamada" : "The Method in Action"}
+          </div>
+          <h3 style={{ color: COLORS.gold, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.35 }}>
+            {language === 'tr' ? "Üç Ünlü Yemin Sûresi — İbn Kayyim'in Merceğinden" : "Three Famous Oath Surahs — Through Ibn Qayyim's Lens"}
+          </h3>
+          <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
+            {language === 'tr'
+              ? "Her yeminin üç boyutu: yemin objesi (muksam bihi), yemin cevabı (muksam aleyhi) ve aralarındaki örtük ilişki (münâsebe). İbn Kayyim'in tezi: yemin objesi, cevabın doğruluğunu içkin olarak gösterir."
+              : "Three dimensions of every oath: the object sworn by (muqsam bihi), the matter sworn upon (muqsam ʿalayhi), and the implicit relationship (munāsaba). Ibn Qayyim's thesis: the oath-object inherently demonstrates the truth of the oath-subject."}
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {[
+            {
+              ar: "وَالشَّمْسِ وَضُحَاهَا · قَدْ اَفْلَحَ مَنْ زَكَّاهَا",
+              ref: language === 'tr' ? "Şems 91:1-10" : "Al-Shams 91:1-10",
+              objectTr: "7'li yemin zinciri: güneş + ay + gündüz + gece + gök + yer + nefs",
+              objectEn: "Sevenfold oath chain: sun + moon + day + night + sky + earth + soul",
+              answerTr: "\"Nefsini arındıran kurtulmuştur, kötülüklere gömen ise zarar etmiştir.\"",
+              answerEn: "\"He who purifies his soul has succeeded; he who corrupts it has lost.\"",
+              relationTr: "Tüm yemin objeleri 'tezatlar arası denge' örneği: gündüz ↔ gece, gök ↔ yer, güneş ↔ ay. Nefs de aynı tezat ekseninde — fücur ↔ takvâ. Yedi kozmik tanık, bir psikolojik gerçeği teyit eder.",
+              relationEn: "Every oath-object exemplifies 'balance amid opposites': day ↔ night, sky ↔ earth, sun ↔ moon. The soul moves along the same axis — fujūr ↔ taqwā. Seven cosmic witnesses confirm one psychological truth.",
+            },
+            {
+              ar: "وَالْعَصْرِ · اِنَّ الْاِنْسَانَ لَفِي خُسْرٍ",
+              ref: language === 'tr' ? "Asr 103:1-3" : "Al-ʿAṣr 103:1-3",
+              objectTr: "Asr — zaman (gündüz vakti? mutlak süre? Resul'ün asrı?)",
+              objectEn: "Al-ʿAṣr — time (the afternoon? absolute duration? the age of the Messenger?)",
+              answerTr: "\"İnsan gerçekten ziyandadır.\"",
+              answerEn: "\"Humankind is truly in loss.\"",
+              relationTr: "İmam Şafiî'nin ünlü sözü: \"Bu sûreden başka inmeseydi yeterdi.\" Yemin objesi (akıp giden zaman) cevabı (insanın ziyanı) içinde taşır — zaman geçtikçe sermaye eksilir, ancak iman+amel+tavsiye-i hak+sabr bu denklemi tersine çevirir. İbn Kayyim'in 'objesi cevabı kanıtlar' tezinin en saf örneği.",
+              relationEn: "Imam al-Shāfiʿī's famous line: 'Had only this sura been revealed, it would suffice.' The oath-object (flowing time) carries the answer (humankind's loss) within itself — as time passes, capital depletes; only iman + ʿamal + counsel to truth + patience reverses the equation. The purest example of Ibn Qayyim's 'the object proves the subject' thesis.",
+            },
+            {
+              ar: "فَلَا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ · اِنَّهُ لَقُرْاٰنٌ كَرِيمٌ",
+              ref: language === 'tr' ? "Vâkıa 56:75-77" : "Al-Wāqiʿa 56:75-77",
+              objectTr: "Yıldızların \"konumları\" (mevâkiʿu'n-nucûm) — sadece yıldızlar değil yörüngeleri",
+              objectEn: "The 'locations of the stars' (mawāqiʿ al-nujūm) — not the stars themselves but their positions",
+              answerTr: "\"Bu, gerçekten değerli bir Kur'an'dır.\"",
+              answerEn: "\"Indeed, it is a noble Quran.\"",
+              relationTr: "Kur'an, kendi ininin \"yıldızların konumları\" gibi olduğunu söyler — parça parça, hesaplı, evrensel düzene yerleşmiş. Modern astronomi açısından da dikkat çekici: yıldızı değil 'konumunu' anar — ışığın geliş süresi nedeniyle gördüğümüz, yıldızın geçmiş konumudur. İbn Kayyim'in 'gizli ilişki' (münâsebe hafiyye) örneği: yemin objesi bir kozmoloji, cevap o kozmolojiye dair bir metin.",
+              relationEn: "The Quran says its own descent resembles 'the locations of the stars' — in stages, by calculation, placed within universal order. Notably for modern astronomy: not the star but its 'location' — what we see, due to light travel, is the star's past position. Ibn Qayyim's 'hidden relationship' (munāsaba khafiyya) at work: the oath-object is a cosmology, the answer is a text about that cosmology.",
+            },
+          ].map((ex, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.025)',
+              border: `1px solid ${COLORS.glassBorder}`,
+              borderRadius: '12px',
+              overflow: 'hidden',
+            }}>
+              <div style={{ height: '2px', background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)` }} />
+              <div style={{ padding: isMobile ? '18px 16px' : '22px 26px' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px', marginBottom: '14px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: 700, color: COLORS.gold, opacity: 0.85, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
+                    {String(i + 1).padStart(2, '0')} · {ex.ref}
+                  </span>
+                </div>
+                <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.2rem' : '1.4rem', color: COLORS.gold, lineHeight: 2.0, margin: '0 0 18px', textAlign: 'right', textShadow: `0 0 14px ${COLORS.gold}1a` }}>
+                  {ex.ar}
+                </p>
+                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+                  <div style={{ background: 'rgba(212,165,116,0.05)', border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: '8px', padding: '12px 14px' }}>
+                    <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
+                      {language === 'tr' ? "Muksam Bihi · Yemin Objesi" : "Muqsam Bihi · The Oath-Object"}
+                    </div>
+                    <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
+                      {language === 'tr' ? ex.objectTr : ex.objectEn}
+                    </p>
+                  </div>
+                  <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '8px', padding: '12px 14px' }}>
+                    <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
+                      {language === 'tr' ? "Muksam Aleyhi · Yemin Cevabı" : "Muqsam ʿAlayhi · The Oath-Subject"}
+                    </div>
+                    <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.6, margin: 0 }}>
+                      {language === 'tr' ? ex.answerTr : ex.answerEn}
+                    </p>
+                  </div>
+                </div>
+                <div style={{ background: 'rgba(212,165,116,0.03)', borderLeft: `2px solid ${COLORS.gold}`, padding: '10px 14px', borderRadius: '4px' }}>
+                  <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
+                    {language === 'tr' ? "Münâsebe · İbn Kayyim'in Çözümlemesi" : "Munāsaba · Ibn Qayyim's Reading"}
+                  </div>
+                  <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
+                    {language === 'tr' ? ex.relationTr : ex.relationEn}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
