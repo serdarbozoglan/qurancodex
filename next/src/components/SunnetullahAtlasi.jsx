@@ -144,7 +144,7 @@ export default function SunnetullahAtlasi({ onClose }) {
         {/* ── HERO ──────────────────────────────────────────────────────── */}
         <div style={{
           padding: isMobile ? '40px 20px 28px' : '60px 48px 36px',
-          background: 'linear-gradient(180deg, rgba(201,162,36,0.08) 0%, transparent 100%)',
+          background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
         }}>
@@ -154,11 +154,11 @@ export default function SunnetullahAtlasi({ onClose }) {
             style={{
               fontFamily: "'Amiri Quran', 'Amiri', serif",
               fontSize: isMobile ? '1.5rem' : '1.95rem',
-              color: COLORS.royalGold,
+              color: COLORS.gold,
               opacity: 0.85,
               lineHeight: 1,
               marginBottom: isMobile ? '28px' : '40px',
-              textShadow: '0 0 22px rgba(201,162,36,0.28)',
+              textShadow: `0 0 22px ${COLORS.gold}28`,
             }}
           >
             ﷽
@@ -170,11 +170,11 @@ export default function SunnetullahAtlasi({ onClose }) {
             style={{
               fontFamily: FONTS.quran,
               fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
-              color: COLORS.royalGold,
+              color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 auto 16px',
               maxWidth: '820px',
-              textShadow: '0 0 20px rgba(201,162,36,0.18)',
+              textShadow: `0 0 20px ${COLORS.gold}1c`,
             }}
           >
             فَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَبْدِيلاً وَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَحْوِيلاً
@@ -219,22 +219,22 @@ export default function SunnetullahAtlasi({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>Tarih tesadüf değildir. Aynı suç <em style={{ fontStyle: 'normal', color: COLORS.royalGold, opacity: 0.95 }}>aynı sonucu</em> doğurur — bu, Allah'ın <em style={{ fontStyle: 'normal', color: COLORS.royalGold, opacity: 0.95 }}>değişmeyen yasası</em>dır.</>
-              : <>History is no accident. The same sin produces <em style={{ fontStyle: 'normal', color: COLORS.royalGold, opacity: 0.95 }}>the same consequence</em> — this is Allah's <em style={{ fontStyle: 'normal', color: COLORS.royalGold, opacity: 0.95 }}>unchanging law</em>.</>}
+              ? <>Tarih tesadüf değildir. Aynı suç <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>aynı sonucu</em> doğurur — bu, Allah'ın <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>değişmeyen yasası</em>dır.</>
+              : <>History is no accident. The same sin produces <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the same consequence</em> — this is Allah's <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>unchanging law</em>.</>}
           </p>
 
           {/* Filigree divider */}
           <div aria-hidden="true" style={{
             width: '120px',
             height: '1px',
-            background: `linear-gradient(to right, transparent, ${COLORS.royalGold}66, transparent)`,
+            background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
             margin: '0 auto 32px',
           }} />
 
           {/* Eyebrow */}
           <div style={{
             fontSize: '0.68rem', letterSpacing: '0.3em',
-            color: COLORS.royalGold, textTransform: 'uppercase',
+            color: COLORS.gold, textTransform: 'uppercase',
             fontFamily: FONTS.body, fontWeight: 700,
             opacity: 0.72,
             marginBottom: '14px',
@@ -260,7 +260,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           <p style={{
             fontFamily: FONTS.display,
             fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
-            color: COLORS.royalGold,
+            color: COLORS.gold,
             margin: '0 auto 28px',
             lineHeight: 1.55,
             fontStyle: 'italic',
@@ -292,7 +292,7 @@ export default function SunnetullahAtlasi({ onClose }) {
             flexWrap: 'wrap',
           }}>
             {[
-              { value: meta.totalLiteralOccurrences, tr: 'lafzî ayet', en: 'literal verses', color: COLORS.royalGold },
+              { value: meta.totalLiteralOccurrences, tr: 'lafzî ayet', en: 'literal verses', color: COLORS.gold },
               { value: meta.totalThematicCategories, tr: 'tematik kanun', en: 'thematic laws', color: COLORS.emerald },
               { value: scholarViews.length, tr: 'ulema', en: 'scholars', color: COLORS.skyBlue },
             ].map((s, i) => (
@@ -357,10 +357,10 @@ export default function SunnetullahAtlasi({ onClose }) {
                   gap: '8px',
                   padding: isMobile ? '12px 14px' : '13px 22px',
                   border: 'none',
-                  background: isActive ? 'rgba(201,162,36,0.12)' : 'transparent',
-                  borderBottom: isActive ? `2px solid ${COLORS.royalGold}` : '2px solid transparent',
+                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
+                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                   borderRadius: '0',
-                  color: isActive ? COLORS.royalGold : COLORS.silver,
+                  color: isActive ? COLORS.gold : COLORS.silver,
                   fontSize: isMobile ? '0.82rem' : '0.9rem',
                   fontFamily: FONTS.body,
                   fontWeight: isActive ? 600 : 400,
@@ -454,12 +454,12 @@ function LiteralVerseCard({ item, language, isMobile }) {
       onMouseLeave={() => setHover(false)}
       style={{
         ...GLASS_CARD,
-        borderLeft: `3px solid ${COLORS.royalGold}`,
+        borderLeft: `3px solid ${COLORS.gold}`,
         border: hover
-          ? `1px solid ${COLORS.royalGold}55`
+          ? `1px solid ${COLORS.gold}55`
           : `1px solid ${COLORS.glassBorder}`,
         borderLeftWidth: '3px',
-        borderLeftColor: COLORS.royalGold,
+        borderLeftColor: COLORS.gold,
         padding: isMobile ? '16px 16px 14px' : '20px 22px 18px',
         transform: hover ? 'translateY(-2px)' : 'translateY(0)',
         transition: 'all 0.2s',
@@ -485,9 +485,9 @@ function LiteralVerseCard({ item, language, isMobile }) {
         <span style={{
           padding: '3px 10px',
           background: 'rgba(201,162,36,0.14)',
-          border: `1px solid ${COLORS.royalGold}40`,
+          border: `1px solid ${COLORS.gold}40`,
           borderRadius: '999px',
-          color: COLORS.royalGold,
+          color: COLORS.gold,
           fontSize: '0.68rem',
           fontFamily: FONTS.body,
           fontWeight: 700,
@@ -517,8 +517,8 @@ function LiteralVerseCard({ item, language, isMobile }) {
       {/* Highlight phrase (the subject!) */}
       <div style={{
         background: 'rgba(201,162,36,0.08)',
-        border: `1px solid ${COLORS.royalGold}35`,
-        borderLeft: `2px solid ${COLORS.royalGold}`,
+        border: `1px solid ${COLORS.gold}35`,
+        borderLeft: `2px solid ${COLORS.gold}`,
         borderRadius: '6px',
         padding: '10px 12px',
         display: 'flex',
@@ -531,7 +531,7 @@ function LiteralVerseCard({ item, language, isMobile }) {
           style={{
             fontFamily: FONTS.quran,
             fontSize: isMobile ? '1rem' : '1.1rem',
-            color: COLORS.royalGold,
+            color: COLORS.gold,
             direction: 'rtl',
             textAlign: 'right',
             lineHeight: 1.8,
@@ -735,7 +735,7 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
           fontWeight: 700,
           textTransform: 'uppercase',
           letterSpacing: '0.12em',
-          color: COLORS.royalGold,
+          color: COLORS.gold,
           fontFamily: FONTS.body,
           marginBottom: '10px',
         }}>
@@ -972,7 +972,7 @@ function TabUlemaGorusleri({ views, language, isMobile }) {
 
 function ScholarCard({ view, language, isMobile }) {
   const isFazlur = view.id === 'fazlur-rahman';
-  const accent = isFazlur ? COLORS.softRed : COLORS.royalGold;
+  const accent = isFazlur ? COLORS.softRed : COLORS.gold;
 
   return (
     <div style={{

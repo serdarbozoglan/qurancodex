@@ -3,8 +3,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
-import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import { ExternalLinkIcon } from './icons';
+import ToolHeader from './ToolHeader';
 
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
@@ -1137,26 +1138,10 @@ export default function Melekler({ onClose }) {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  // CLAUDE.md §13.16 Katman 1 — body+html scroll lock with scrollbar gutter compensation
+  // Body scroll lock kaldırıldı — full-page route pattern (Cennet/Cehennem ile aynı)
+  // Escape key handler korunur (route navigation için onClose tetiklenebilir)
   useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad  = body.style.paddingRight;
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
-
-  useEffect(() => {
-    const h = (e) => { if (e.key === 'Escape') onClose(); };
+    const h = (e) => { if (e.key === 'Escape' && onClose) onClose(); };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
@@ -1171,36 +1156,22 @@ export default function Melekler({ onClose }) {
   };
 
   return (
-    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack, overflow: 'hidden', display: 'flex', flexDirection: 'column' }} role="dialog" aria-modal="true">
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', flexDirection: 'column',
+      paddingTop: '62px',
+    }}>
 
-      {/* ── Header ── */}
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 20px', height: '54px', flexShrink: 0,
-        background: 'rgba(8,9,26,0.95)', backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ color: COLORS.softGoldAlpha55, flexShrink: 0, display: 'flex' }}>
-            <PageIcon />
-          </span>
-          <span style={OVERLAY_TITLE}>{tr ? "Kur'an'da Melekler" : 'Angels in the Quran'}</span>
-          <span style={{ fontSize: '0.72rem', color: COLORS.slate600, marginLeft: '4px', display: isMobile ? 'none' : 'block' }}>
-            — {tr ? 'Görünmeyenin Elçileri' : 'Messengers of the Unseen'}
-          </span>
-        </div>
-        <button
-          onClick={onClose}
-          style={{ ...CLOSE_BTN, flexShrink: 0 }}
-          onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-          onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          aria-label="Close"
-        >
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+      {/* ── Header (standart ToolHeader pattern — Navbar logo hizalı) ── */}
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" /><line x1="16" y1="8" x2="2" y2="22" /><line x1="17.5" y1="15" x2="9" y2="15" /></svg>}
+        titleTr="Kur'an'da Melekler"
+        titleEn="Angels in the Quran"
+        subtitleTr="Görünmeyenin Elçileri"
+        subtitleEn="Messengers of the Unseen"
+        language={language}
+      />
 
       {/* ── Body (scrollable) ── */}
       <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
@@ -1347,15 +1318,17 @@ export default function Melekler({ onClose }) {
           </div>
         </div>
 
-        {/* ── Tab bar — sticky, UPPERCASE site-wide pattern ── */}
+        {/* ── Tab bar — sticky top:110 (Navbar 62 + ToolHeader 48) ── */}
         <div id="melekler-tab-bar" style={{
-          position: 'sticky', top: 0, zIndex: 10,
+          position: 'sticky', top: '110px', zIndex: 20,
           display: 'flex', gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: '1px solid rgba(255,255,255,0.06)',
-          background: 'rgba(10,10,26,0.97)', backdropFilter: 'blur(20px)',
+          background: 'rgb(6, 8, 14)',
+          backgroundColor: 'rgb(6, 8, 14)',
+          isolation: 'isolate',
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
-          scrollMarginTop: '72px',
+          scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
             <button
