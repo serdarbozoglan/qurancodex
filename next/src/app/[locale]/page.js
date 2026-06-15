@@ -98,7 +98,8 @@ export default async function Home({ params }) {
       <InsanTanimiCard />
       <CardSeam />
       <PsikolojiCard />
-      <CardSeam variant="seal" />
+      {/* Cluster seal kaldırıldı — ToolsHighlight kendi ✦ filigree seam'iyle başlıyor (SectionWrapper),
+          aksi takdirde iki ayıraç üst üste binar. */}
 
       {/* ─── İnteraktif Araçlar (anlatı sonrası teknik katman) ───
           NOT: ClusterHeader kaldırıldı — ToolsHighlight kendi zengin başlığı
