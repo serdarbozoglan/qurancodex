@@ -15,6 +15,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 
@@ -512,6 +513,20 @@ export default function NefisMertebeleri({ onClose }) {
               ? "Bu atlas, Kur'ân'ın 3 kesin mertebesini + tasavvufî 4 eklemeyi eşit mesafeyle sunar. Birini diğerinin yerine koymaz."
               : "This atlas presents the Qur'an's 3 definitive stages + the Sufi 4 additions at equal distance. It does not substitute one for the other."}
           </p>
+        </div>
+
+        {/* Klasik Kaynaklar */}
+        <div style={{ padding: isMobile ? '0 20px' : '0 40px' }}>
+          <SourcesCitation
+            language={language}
+            isMobile={isMobile}
+            sources={[
+              { author: 'İmam Gazâlî',             workTr: 'İhyâ\'u Ulûmi\'d-Dîn',     workEn: 'Iḥyāʾ ʿUlūm al-Dīn',       period: '1058–1111 (Tûs)',    noteTr: 'Nefs terbiyesi (Riyâzetü\'n-Nefs) — emmâreden mutmainneye yöntem.', noteEn: 'Discipline of the self (Riyāḍa al-Nafs) — the path from ammāra to muṭmaʾinna.' },
+              { author: 'İbn Kayyim el-Cevziyye',  workTr: 'Medâricu\'s-Sâlikîn',       workEn: 'Madārij al-Sālikīn',        period: '1292–1350 (Şâm)',    noteTr: 'Üç mertebe sistemi (Kur\'ânî) — sufi 7\'liye karşı eleştirel okuma.', noteEn: 'The three-stage system (Qurʾanic) — critical reading vs the Sufi sevenfold.' },
+              { author: 'Necmüddîn-i Kübrâ',       workTr: 'Fevâihu\'l-Cemâl',           workEn: 'Fawāʾiḥ al-Jamāl',          period: '1145–1221 (Hârizm)', noteTr: 'Tasavvufî 7 mertebe — Kübreviyye geleneğinin temel metni.', noteEn: 'The Sufi sevenfold stations — foundational text of the Kubrāwiyya order.' },
+              { author: 'er-Râzî',                 workTr: 'Mefâtîhu\'l-Ğayb',           workEn: 'Mafātīḥ al-Ghayb',          period: '1149–1209 (Rey)',    noteTr: 'Fecr 89:27–28 tefsiri — \"mutmainne\" mertebesinin kelâmî okunuşu.', noteEn: 'Commentary on Fajr 89:27–28 — kalāmic reading of the muṭmaʾinna station.' },
+            ]}
+          />
         </div>
 
         {/* Cross-tool CTA — sayfa sonu */}
