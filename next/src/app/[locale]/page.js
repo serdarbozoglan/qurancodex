@@ -10,6 +10,9 @@ import Hero from '@/components/Hero';
 // Navigasyon
 import SixGates from '@/sections/SixGates';
 import CardSeam from '@/sections/CardSeam';
+import ClusterWhisper from '@/sections/ClusterWhisper';
+import QuietParticles from '@/sections/QuietParticles';
+import FeaturedWrap from '@/sections/FeaturedWrap';
 import ToolsHighlight from '@/sections/ToolsHighlight';
 import TefekkurHighlight from '@/sections/TefekkurHighlight';
 
@@ -67,39 +70,58 @@ export default async function Home({ params }) {
       <SixGates />
 
       {/* ─── Hayranlık cluster — dil ve mimari (6 kart) ─── */}
-      <MukattaaCard />
-      <CardSeam />
-      <RitimCard />
-      <CardSeam />
-      <RetorikSorularCard />
-      <CardSeam />
-      <SesMimarisiCard />
-      <CardSeam />
-      <HalkaCard />
-      <CardSeam />
-      <TekrarCard />
-      <CardSeam variant="seal" />
+      <div className="cluster-fascination">
+        <QuietParticles />
+        <FeaturedWrap><MukattaaCard /></FeaturedWrap>
+        <CardSeam />
+        <RitimCard />
+        <CardSeam />
+        <RetorikSorularCard />
+        <CardSeam />
+        <SesMimarisiCard />
+        <CardSeam />
+        <HalkaCard />
+        <CardSeam />
+        <TekrarCard />
+        <ClusterWhisper
+          tr="Yorum çok, örüntü tek. Dil bir kapı; girene yeni bir oda açılır."
+          en="Many interpretations, one pattern. Language is a door; for those who enter, a new room opens."
+        />
+        <CardSeam variant="seal" />
+      </div>
 
       {/* ─── Hayret cluster — bilim ve tarih (3 kart) ─── */}
-      <BilimselCard />
-      <CardSeam />
-      <TarihselCard />
-      <CardSeam />
-      <KorumaCard />
-      <CardSeam variant="seal" />
+      <div className="cluster-astonishment">
+        <QuietParticles />
+        <FeaturedWrap><BilimselCard /></FeaturedWrap>
+        <CardSeam />
+        <TarihselCard />
+        <CardSeam />
+        <KorumaCard />
+        <ClusterWhisper
+          tr="Bilim bir gün gelir, doğrular. Tarih bir gün gelir, eğilir. Metin değişmez."
+          en="Science arrives one day and confirms. History arrives one day and bows. The text does not change."
+        />
+        <CardSeam variant="seal" />
+      </div>
 
       {/* ─── İçe Bakış cluster — insan ve Yaratıcı (5 kart) ─── */}
-      <DuaDiliCard />
-      <CardSeam />
-      <AltiKonuCard />
-      <CardSeam />
-      <AllahKendiniTanitir />
-      <CardSeam />
-      <InsanTanimiCard />
-      <CardSeam />
-      <PsikolojiCard />
-      {/* Cluster seal kaldırıldı — ToolsHighlight kendi ✦ filigree seam'iyle başlıyor (SectionWrapper),
-          aksi takdirde iki ayıraç üst üste binar. */}
+      <div className="cluster-reflection">
+        <QuietParticles />
+        <DuaDiliCard />
+        <CardSeam />
+        <AltiKonuCard />
+        <CardSeam />
+        <FeaturedWrap><AllahKendiniTanitir /></FeaturedWrap>
+        <CardSeam />
+        <InsanTanimiCard />
+        <CardSeam />
+        <PsikolojiCard />
+        <ClusterWhisper
+          tr="O seni yarattı, bilir; çağrını bilir, yakındır. İçe baktıkça O'nu görürsün."
+          en="He created you, He knows; He hears your call, He is near. As you look within, you see Him."
+        />
+      </div>
 
       {/* ─── İnteraktif Araçlar (anlatı sonrası teknik katman) ───
           NOT: ClusterHeader kaldırıldı — ToolsHighlight kendi zengin başlığı
