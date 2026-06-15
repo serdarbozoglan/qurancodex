@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import { ExternalLinkIcon } from './icons';
+import ToolHeader from './ToolHeader';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Color system ──────────────────────────────────────────────────────────────
@@ -181,19 +182,34 @@ export default function CennetCehennem({ onClose }) {
     if (bodyRef.current) bodyRef.current.scrollTop = 0;
   }, [activeTab]);
 
+  const TOOL_ICON = (
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+    </svg>
+  );
+
   if (!data) return (
     <div
       ref={trapRef}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="cennet-cehennem-title"
-      style={{ position: 'fixed', inset: '62px 0 0 0', zIndex: 50, background: '#06080e', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}
     >
-      <span id="cennet-cehennem-title" style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
-        {language === 'tr' ? 'Cennet & Cehennem' : 'Paradise & Hell'}
-      </span>
-      <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>
-        {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+      <ToolHeader
+        icon={TOOL_ICON}
+        titleTr="Cennet & Cehennem"
+        titleEn="Paradise & Hell"
+        subtitleTr="9 cennet · 7 cehennem · A'râf"
+        subtitleEn="9 paradises · 7 hells · al-Aʿrāf"
+        language={language}
+      />
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
+          {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+        </span>
       </div>
     </div>
   );
@@ -201,54 +217,24 @@ export default function CennetCehennem({ onClose }) {
   return (
     <div
       ref={trapRef}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="cennet-cehennem-title"
       style={{
-        position: 'fixed', inset: '62px 0 0 0', zIndex: 50,
-        background: '#06080e',
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
         display: 'flex', flexDirection: 'column',
-        fontFamily: "'Inter', sans-serif",
+        paddingTop: '62px',
       }}
     >
-      {/* ── HEADER — fully opaque, no backdrop blur (sızma fix) ─── */}
-      <div style={{
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
-        background: '#06080e',
-        flexShrink: 0,
-      }}>
-        {/* Top row: title + close */}
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: '12px',
-          padding: isMobile ? '10px 14px' : '0 20px',
-          height: isMobile ? 'auto' : '52px',
-        }}>
-          {/* FlameIcon — matches exploreCategories.jsx for navbar/header consistency */}
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
-          </svg>
-          <span id="cennet-cehennem-title" style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Cennet & Cehennem' : 'Paradise & Hell'}
-          </span>
-          <div style={{ flex: 1 }} />
-          <button
-            onClick={onClose}
-            style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+      <ToolHeader
+        icon={TOOL_ICON}
+        titleTr="Cennet & Cehennem"
+        titleEn="Paradise & Hell"
+        subtitleTr="9 cennet · 7 cehennem · A'râf"
+        subtitleEn="9 paradises · 7 hells · al-Aʿrāf"
+        language={language}
+      />
 
-        {/* Tab bar MOVED to body (after Hero) — Premium pattern parity with Yeminler/Kavim/Renkler */}
-      </div>
-
-      {/* ── BODY — padding-top SIFIR (sticky tab bar için).
-            Üstteki Hero padding'i kendi içinden veriyor. ────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '0 14px 48px' : '0 32px 48px' }}>
+      {/* ── BODY ────────────────────────────────────────────────── */}
+      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden', padding: isMobile ? '0 14px 48px' : '0 32px 48px' }}>
         <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
 
           {/* ── HERO (Cinematic — Bismillah + Rahman 55:46 + framing + filigree) ─────── */}
@@ -384,9 +370,7 @@ export default function CennetCehennem({ onClose }) {
           {/* ── HERO BANNER (stat panel) ─────────────────────────── */}
           <HeroBanner data={data} language={language} isMobile={isMobile} />
 
-          {/* Tab bar — STICKY (Melekler-reference) — bulletproof opaque
-              backgroundColor explicit + isolation stacking context + high zIndex.
-              `background: '#06080e'` tek başına bazı render sızmalarına yol açmıştı. */}
+          {/* Tab bar — STICKY (Melekler-reference) — sticky top:48 = ToolHeader yüksekliği */}
           <div id="cennet-tab-bar" style={{
             display: 'flex', gap: '2px',
             padding: isMobile ? '0 8px' : '0 16px',
@@ -394,15 +378,13 @@ export default function CennetCehennem({ onClose }) {
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             background: 'rgb(6, 8, 14)',
             backgroundColor: 'rgb(6, 8, 14)',
-            backdropFilter: 'none',
-            WebkitBackdropFilter: 'none',
             isolation: 'isolate',
             overflowX: 'auto',
             scrollbarWidth: 'none',
             position: 'sticky',
-            top: 0,
+            top: '110px',
             zIndex: 20,
-            scrollMarginTop: '72px',
+            scrollMarginTop: '120px',
             width: 'auto',
             boxSizing: 'border-box',
           }}>
