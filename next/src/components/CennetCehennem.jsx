@@ -135,12 +135,18 @@ function InfoNote({ text }) {
 
 // ── TABS definition ───────────────────────────────────────────────────────────
 const TABS = [
-  { id: 'isimler',   labelTr: 'İsimler',       labelEn: 'Names',        icon: '📖' },
-  { id: 'cennet',    labelTr: 'Cennet',         labelEn: 'Paradise',     icon: '🌿' },
-  { id: 'cehennem',  labelTr: 'Cehennem',       labelEn: 'Hell',         icon: '🔥' },
-  { id: 'araf',      labelTr: "A'râf",          labelEn: "A'raf",        icon: '⚖️' },
-  { id: 'rahman',    labelTr: 'Rahman Simetrisi', labelEn: 'Al-Rahman Symmetry', icon: '↔️' },
-  { id: 'kaynaklar', labelTr: 'Kaynaklar',      labelEn: 'Sources',      icon: '📚' },
+  { id: 'isimler',   labelTr: 'İsimler',       labelEn: 'Names',
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> },
+  { id: 'cennet',    labelTr: 'Cennet',         labelEn: 'Paradise',
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22V12"/><path d="M5 3c0 0 1 11 7 9s7 9 7 9"/><path d="M5 3s4 4 7 9"/></svg> },
+  { id: 'cehennem',  labelTr: 'Cehennem',       labelEn: 'Hell',
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.5c1.6 3.2 4.8 5.4 4.8 9.4 0 3.6-2.4 6.6-4.8 6.6s-4.8-3-4.8-6.6c0-1.8 0.7-3 1.6-4.1"/><path d="M12 8c0.9 1.7 2.6 2.9 2.6 5.1 0 1.9-1.3 3.5-2.6 3.5s-2.6-1.6-2.6-3.5c0-1 0.4-1.6 0.9-2.2"/></svg> },
+  { id: 'araf',      labelTr: "A'râf",          labelEn: "A'raf",
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/><circle cx="12" cy="12" r="3"/></svg> },
+  { id: 'rahman',    labelTr: 'Rahman Simetrisi', labelEn: 'Al-Rahman Symmetry',
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg> },
+  { id: 'kaynaklar', labelTr: 'Kaynaklar',      labelEn: 'Sources',
+    icon: <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> },
 ];
 
 // ── MAIN COMPONENT ────────────────────────────────────────────────────────────

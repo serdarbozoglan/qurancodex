@@ -82,11 +82,15 @@ function TabBar({ language, isMobile, activeTab, setActiveTab }) {
         display: 'flex',
         gap: '4px',
         padding: isMobile ? '10px 12px' : '12px 20px',
-        background: 'rgba(8,9,26,0.85)',
+        background: '#06080e',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         overflowX: 'auto',
         scrollbarWidth: 'none',
         flexShrink: 0,
+        position: 'sticky',
+        top: 0,
+        zIndex: 10,
+        scrollMarginTop: '72px',
       }}
     >
       {TABS.map((t, i) => {

@@ -335,17 +335,19 @@ export default function KuranYeminleri({ onClose }) {
             yeminin ardından ne'nin geldiği. */}
         <YeminCevapReveal language={language} isMobile={isMobile} />
 
-        {/* ── TAB BAR — directly above tab content ────────────────────── */}
+        {/* ── TAB BAR — directly above tab content (sticky, Melekler-reference) ─ */}
         <div id="yemin-tab-bar" style={{
           display: 'flex',
           gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          background: 'rgba(10,10,26,0.97)',
-          backdropFilter: 'blur(20px)',
+          background: '#06080e',
           overflowX: 'auto',
           scrollbarWidth: 'none',
           flexShrink: 0,
+          position: 'sticky',
+          top: 0,
+          zIndex: 10,
           scrollMarginTop: '72px',
         }}>
           {TABS.map((tab, i) => {

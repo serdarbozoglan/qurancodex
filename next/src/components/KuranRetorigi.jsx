@@ -147,14 +147,17 @@ export default function KuranRetorigi({ onClose }) {
         </p>
       </div>
 
-      {/* ── TAB BAR ────────────────────────────────────────────── */}
+      {/* ── TAB BAR (sticky, Melekler-reference) ─────────────────── */}
       <div id="retorik-tab-bar" style={{
         display: 'flex',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-        background: 'rgba(8,9,26,0.6)',
+        background: '#06080e',
         flexShrink: 0,
         overflowX: 'auto',
         scrollbarWidth: 'none',
+        position: 'sticky',
+        top: 0,
+        zIndex: 10,
         scrollMarginTop: '72px',
       }}>
         {TABS.map((tab, i) => (
