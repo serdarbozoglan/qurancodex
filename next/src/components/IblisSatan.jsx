@@ -509,16 +509,164 @@ export default function IblisSatan({ onClose }) {
         style={{
           textAlign: 'center',
           fontFamily: "'Amiri Quran', 'Amiri', serif",
-          fontSize: isMobile ? '1.4rem' : '1.8rem',
+          fontSize: isMobile ? '1.5rem' : '1.95rem',
           color: COLORS.gold,
-          opacity: 0.78,
+          opacity: 0.82,
           lineHeight: 1,
-          marginBottom: isMobile ? '24px' : '36px',
+          marginBottom: isMobile ? '28px' : '40px',
           textShadow: `0 0 22px ${COLORS.gold}28`,
         }}
       >
         ﷽
       </motion.div>
+
+      {/* ─── Eyebrow: BÜYÜK REDDEDİŞ — ÇEKİRDEK ANLATIM ─── */}
+      <motion.div
+        initial="hidden" animate="visible" variants={fadeUpItem}
+        style={{
+          textAlign: 'center',
+          fontSize: '0.68rem',
+          letterSpacing: '0.3em',
+          textTransform: 'uppercase',
+          color: COLORS.gold,
+          fontFamily: FONTS.body,
+          fontWeight: 700,
+          opacity: 0.72,
+          marginBottom: '18px',
+        }}
+      >
+        {t('iblisSatan.subBlockLabel')} · {t('iblisSatan.anchorVerseTitle')}
+      </motion.div>
+
+      {/* ─── Anchor verse (Bakara 2:34) — Cinematic Hero pattern ───── */}
+      <motion.p
+        initial="hidden" animate="visible" variants={fadeUpItem}
+        dir="rtl" lang="ar"
+        style={{
+          fontFamily: FONTS.quran,
+          fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+          color: COLORS.gold,
+          lineHeight: 2.1,
+          margin: '0 auto 16px',
+          maxWidth: '820px',
+          textAlign: 'center',
+          textShadow: `0 0 20px ${COLORS.gold}1c`,
+        }}
+      >
+        {normalizeAr(t('iblisSatan.anchorVerseAr'))}
+      </motion.p>
+
+      <motion.p
+        initial="hidden" animate="visible" variants={fadeUpItem}
+        style={{
+          color: COLORS.offWhite,
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+          lineHeight: 1.7,
+          margin: '0 auto 8px',
+          maxWidth: '680px',
+          textAlign: 'center',
+          opacity: 0.95,
+        }}
+      >
+        "{t('iblisSatan.anchorVerseTr')}"
+      </motion.p>
+
+      <motion.p
+        initial="hidden" animate="visible" variants={fadeUpItem}
+        style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.72rem',
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          margin: '0 0 28px',
+          textAlign: 'center',
+          opacity: 0.65,
+        }}
+      >
+        — {t('iblisSatan.anchorVerseRef')}
+      </motion.p>
+
+      {/* ─── Anahtar Fiiller (key verbs callout) — compact ──── */}
+      <motion.div
+        initial="hidden" animate="visible" variants={fadeUpItem}
+        style={{
+          textAlign: 'center',
+          padding: isMobile ? '14px 16px' : '16px 24px',
+          background: COLORS.goldAlpha04,
+          border: `1px solid ${COLORS.goldAlpha15}`,
+          borderRadius: RADIUS.md,
+          maxWidth: '720px',
+          margin: '0 auto 36px',
+        }}
+      >
+        <div style={{
+          fontSize: '0.6rem', color: COLORS.gold, opacity: 0.65,
+          letterSpacing: '0.25em', textTransform: 'uppercase',
+          fontFamily: FONTS.body, fontWeight: 700,
+          marginBottom: '10px',
+        }}>
+          {language === 'tr' ? 'Anahtar Fiiller' : 'Key Verbs'}
+        </div>
+        <div style={{
+          display: 'flex', flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: isMobile ? '6px 12px' : '8px 18px',
+        }}>
+          {[
+            { ar: 'ebā',                  tr: 'yüz çevirdi',      en: 'refused' },
+            { ar: 'istekbera',            tr: 'büyüklendi',       en: 'grew arrogant' },
+            { ar: "kāne mine'l-kāfirīn",  tr: 'kâfirlerden oldu', en: 'became of the disbelievers' },
+          ].map((v, i, arr) => (
+            <span key={i} style={{
+              display: 'inline-flex', alignItems: 'baseline', gap: '6px',
+              fontFamily: FONTS.body, fontSize: isMobile ? '0.78rem' : '0.85rem',
+            }}>
+              <span style={{ color: COLORS.gold, fontWeight: 600 }}>{v.ar}</span>
+              <span style={{ color: COLORS.silver, opacity: 0.85 }}>
+                ({language === 'tr' ? v.tr : v.en})
+              </span>
+              {i < arr.length - 1 && (
+                <span style={{ color: COLORS.silver, opacity: 0.4, marginLeft: '4px' }}>·</span>
+              )}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* ─── Framing whisper ───────────────────────────── */}
+      <motion.p
+        initial="hidden" animate="visible" variants={fadeUpItem}
+        style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+          lineHeight: 1.7,
+          margin: '0 auto 40px',
+          maxWidth: '700px',
+          textAlign: 'center',
+          opacity: 0.88,
+        }}
+      >
+        {language === 'tr'
+          ? <>Tek bir sahne, <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>yedi farklı sûrede</em> yedi farklı kameradan anlatıldı. Her anlatımda <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>başka bir ayrıntı</em> öne çıkar.</>
+          : <>One scene, retold across <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>seven surahs</em> from seven angles. Each retelling foregrounds <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>a different detail</em>.</>}
+      </motion.p>
+
+      {/* ─── Filigree divider ──────────────────────────── */}
+      <motion.div
+        initial="hidden" animate="visible" variants={fadeUpItem}
+        aria-hidden="true"
+        style={{
+          width: '120px',
+          height: '1px',
+          background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+          margin: '0 auto 36px',
+        }}
+      />
 
       {/* ─── Header (in-body) ───────────────────────────── */}
       {/* 7-Marker Preview: her nokta = bir sûrenin accent rengi.
@@ -596,112 +744,6 @@ export default function IblisSatan({ onClose }) {
       >
         {t('iblisSatan.intro')}
       </motion.p>
-
-      {/* ─── Sub-block divider ──────────────────────────── */}
-      <motion.div
-        initial="hidden" animate="visible" variants={fadeUpItem}
-        className="flex items-center gap-4 mb-10 mt-4"
-      >
-        <div className="flex-1 h-px" style={{ background: `linear-gradient(to right, transparent, ${COLORS.goldAlpha25}, transparent)` }} />
-        <span className="text-gold/70 text-xs font-body uppercase tracking-[0.25em]">
-          {t('iblisSatan.subBlockLabel')}
-        </span>
-        <div className="flex-1 h-px" style={{ background: `linear-gradient(to right, transparent, ${COLORS.goldAlpha25}, transparent)` }} />
-      </motion.div>
-
-      {/* ─── Anchor Verse Hero ───────────────────────────── */}
-      <motion.div
-        initial="hidden" animate="visible" variants={fadeUpItem}
-        className="mb-16"
-        style={{
-          padding: isMobile ? '24px 20px' : '40px 48px',
-          background: COLORS.goldAlpha04,
-          border: `1px solid ${COLORS.goldAlpha25}`,
-          borderRadius: RADIUS.xl,
-          textAlign: 'center',
-          maxWidth: '900px',
-          margin: '0 auto 64px',
-        }}
-      >
-        <div style={{
-          fontSize: '0.62rem', color: COLORS.silver,
-          letterSpacing: '0.25em', textTransform: 'uppercase',
-          fontFamily: FONTS.body, marginBottom: '20px',
-        }}>
-          {t('iblisSatan.anchorVerseTitle')}
-        </div>
-        <p
-          dir="rtl" lang="ar"
-          style={{
-            fontFamily: FONTS.quran,
-            fontSize: isMobile ? '1.7rem' : '2.4rem',
-            lineHeight: isMobile ? 2.0 : 2.2,
-            color: COLORS.gold,
-            margin: '0 0 24px',
-          }}
-        >
-          {normalizeAr(t('iblisSatan.anchorVerseAr'))}
-        </p>
-        <p style={{
-          color: COLORS.offWhite, fontSize: isMobile ? '0.95rem' : '1.05rem',
-          fontStyle: 'italic', fontFamily: FONTS.body,
-          lineHeight: 1.7, margin: '0 0 12px',
-          maxWidth: '720px', marginInline: 'auto',
-        }}>
-          {t('iblisSatan.anchorVerseTr')}
-        </p>
-        <p style={{
-          color: COLORS.gold, fontSize: '0.82rem',
-          fontFamily: FONTS.body, fontWeight: 600,
-          letterSpacing: '0.08em', margin: 0,
-        }}>
-          — {t('iblisSatan.anchorVerseRef')}
-        </p>
-
-        {/* ─── Anahtar Fiiller (key verbs callout) ──────────── */}
-        <div style={{
-          marginTop: isMobile ? '24px' : '32px',
-          paddingTop: isMobile ? '20px' : '24px',
-          borderTop: `1px solid ${COLORS.goldAlpha15}`,
-          maxWidth: '720px',
-          marginInline: 'auto',
-        }}>
-          <div style={{
-            fontSize: '0.6rem', color: COLORS.gold, opacity: 0.65,
-            letterSpacing: '0.25em', textTransform: 'uppercase',
-            fontFamily: FONTS.body, fontWeight: 700,
-            marginBottom: '12px',
-          }}>
-            {language === 'tr' ? 'Anahtar Fiiller' : 'Key Verbs'}
-          </div>
-          <div style={{
-            display: 'flex', flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: isMobile ? '6px 12px' : '8px 18px',
-          }}>
-            {[
-              { ar: 'ebā',                  tr: 'yüz çevirdi',      en: 'refused' },
-              { ar: 'istekbera',            tr: 'büyüklendi',       en: 'grew arrogant' },
-              { ar: "kāne mine'l-kāfirīn",  tr: 'kâfirlerden oldu', en: 'became of the disbelievers' },
-            ].map((v, i, arr) => (
-              <span key={i} style={{
-                display: 'inline-flex', alignItems: 'baseline', gap: '6px',
-                fontFamily: FONTS.body, fontSize: isMobile ? '0.78rem' : '0.85rem',
-              }}>
-                <span style={{ color: COLORS.gold, fontWeight: 600 }}>
-                  {v.ar}
-                </span>
-                <span style={{ color: COLORS.silver, opacity: 0.85 }}>
-                  ({language === 'tr' ? v.tr : v.en})
-                </span>
-                {i < arr.length - 1 && (
-                  <span style={{ color: COLORS.silver, opacity: 0.4, marginLeft: '4px' }}>·</span>
-                )}
-              </span>
-            ))}
-          </div>
-        </div>
-      </motion.div>
 
       {/* ─── Stats Banner ────────────────────────────────── */}
       <motion.div initial="hidden" animate="visible" variants={fadeUpItem} className="mb-5">
