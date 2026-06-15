@@ -240,7 +240,7 @@ export const EXPLORE_CATEGORIES = [
       {
         id:     'rhythm',
         kind:   'section',
-        target: 'rhythm',
+        target: 'ritim-card',
         icon:   PulseIcon,
         titleTr: 'İmkansız Ritim',        titleEn: 'Impossible Rhythm',
         descTr: 'Ne şiir ne düzyazı',

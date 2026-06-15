@@ -19,7 +19,7 @@ import { COLORS, FONTS } from '../tokens';
 // Order: page.js dosyasındaki render sırasını birebir takip eder.
 const CHAPTERS = [
   { id: 'mukattaa-card',       labelTr: 'Dilsel DNA',           labelEn: 'Linguistic DNA'          },
-  { id: 'rhythm',              labelTr: 'İmkansız Ritim',       labelEn: 'Impossible Rhythm'       },
+  { id: 'ritim-card',          labelTr: 'İmkansız Ritim',       labelEn: 'Impossible Rhythm'       },
   { id: 'rhetoric',            labelTr: "Kur'an'ın Retoriği",   labelEn: "Quran's Rhetoric"        },
   { id: 'dua-language',        labelTr: 'Dua Dili',             labelEn: 'Language of Prayer'      },
   { id: 'sounds',              labelTr: 'Ses Mimarisi',         labelEn: 'Sound Architecture'      },

@@ -875,6 +875,7 @@ export default function Navbar() {
                       kadinlar:    '/atlas/kadinlar',
                       ilkSon:      '/arac/ilk-son-kelimeler',
                       mukattaa:    '/arac/mukattaa',
+                      ritim:       '/arac/ritim',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;
