@@ -1105,3 +1105,63 @@ Page.js'te `TITLE`/`DESC` const'larını mutlaka **module-level**'da tut. Functi
 ### 16.14 Bilinen Turbopack Dev-Mode Quirk
 
 `[locale]/oku/[surah]/opengraph-image.jsx` route'unda Turbopack `[__metadata_id__]` segment manifest'i ENOENT verebilir. Çözüm: `pkill next && next dev`. **Production `next build`** pre-generate ettiği için bu sorun production'da yok.
+
+---
+
+## 17. AKTİF İŞ — ANASAYFA YENİDEN YAPILANDIRMA (2026-06-15+)
+
+**Durum:** Sürüyor. Anasayfanın 14 derin bölümü "hook + görsel + 2 satır + Keşfet →" kart formatına indiriliyor.
+
+### 17.1 Geri Dönüş Noktası — UZUN ANASAYFA FORMATI
+
+Kullanıcı *"UZUN ANASAYFA FORMATINA DÖN"* dediğinde, anasayfayı yeniden yapılandırma ÖNCESİ haline döndür:
+
+```
+Tag      : homepage-uzun-format-2026-06-15
+Commit   : 0e78d1ad094d6bba62fd2d37f153e1af644312bc
+Mesaj    : feat(tefekkur): VerseInline'a build-time Arapça inject + §13.15 normalize
+Tarih    : 2026-06-15 01:18:55 -0400
+```
+
+**Tam revert komutu** (working tree dahil her şeyi geri al):
+```bash
+git reset --hard homepage-uzun-format-2026-06-15
+```
+
+**Sadece anasayfa dosyaları için kısmi revert:**
+```bash
+git checkout homepage-uzun-format-2026-06-15 -- next/src/sections/ next/src/app/\[locale\]/page.js
+```
+
+Tag local — push edilmedi. Kaybolmaması için `.git/refs/tags/` altında saklı.
+
+### 17.2 Plan Referansı
+
+- **Envanter mapping tablosu:** `tasks/anasayfa-envanter-2026-06-15.md` — 14 bölümün hedef tool sayfası ile derinlik eşleşmesi (TAM / KISMEN / YOK).
+- **Pilot sırası:**
+  1. **Pilot 1 — AllahKendiniTanitir → /arac/esma-frekans** (Katman A · TAM). Minimum kart pattern'ı kurma.
+  2. **Pilot 2 — ScientificSigns → /atlas/doga (Tabiat Atlası)** (Katman B · KISMEN). İçerik göçü pattern'ı.
+  3. **Pilot 3 — LinguisticDNA → yeni /arac/mukattaa** (Katman C · YOK). Yeni tool sayfası yaratma pattern'ı.
+  4. Pattern oturduktan sonra kalan 11 bölüm çoğaltma.
+
+### 17.3 Kart Pattern Referansı
+
+Pilot 1'in sonucunda ortaya çıkan "minimum kart" formatı tüm Katman A/B/C kart-ize işlerinde **referans pattern**'dır:
+
+- Gold-glow portal frame (max-width 760px, border `${COLORS.gold}33`)
+- Eyebrow (UPPERCASE 0.24em, gold opacity 0.8)
+- Hook headline (clamp 1.7→2.6rem, FONTS.display, off-white)
+- Anchor verse (KFGQPC, gold, U+0650 §13.15 compliant, lineHeight 2.1) + italik çeviri + UPPERCASE referans label
+- 1 cümlelik giriş (max 25-30 kelime, silver)
+- CTA pill button (background `${COLORS.gold}1a` → hover `${COLORS.gold}33`)
+- Closing whisper (Playfair italic, opacity 0.6, "stat özeti" formatında: "X · Y · Z")
+
+**YASAK:**
+- Anasayfa kartında 4+ teaser sub-card (hedef tool sayfasına devredilmeli — duplikasyon olur)
+- 2 paragraf+ giriş metni (kart formatı tek cümle)
+- Anchor verse'i çıkarmak (Wonder-ankrası — kalır)
+- Hedef tool sayfasında olmayan derinliği karta sıkıştırmak (önce göç et, sonra kart-ize)
+
+### 17.4 Çalışma Kuralı — Push Onayı
+
+Bu yeniden yapılandırma boyunca her commit local'de kalır. **Main'e push sadece kullanıcı explicit onayıyla** (her push ayrı onay). Vercel auto-deploy + chunk hash mismatch + user stale tab 404 riski (memory: `feedback_local_test_first.md`).
