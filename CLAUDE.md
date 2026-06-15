@@ -39,12 +39,12 @@ A mesmerizing, cinematic single-page website that reveals the hidden architectur
 ## 4. DESIGN SYSTEM
 
 ### Color Palette
-| Role | Color | Hex |
-|------|-------|-----|
-| Background (deep) | Cosmic Black | `#0a0a1a` |
-| Background (section) | Deep Navy | `#0d1b2a` |
-| Primary accent | Antique Gold | `#d4a574` |
-| Secondary accent | Royal Gold | `#c9a227` |
+| Role | Color | Hex | Usage Standardı |
+|------|-------|-----|---|
+| Background (deep) | Cosmic Black | `#0a0a1a` | Tüm tool sayfası body bg |
+| Background (section) | Deep Navy | `#0d1b2a` | Section gradient'leri |
+| **Primary accent** | **Antique Gold** | **`#d4a574`** | **Anchor verse · Hero başlık · Eyebrow · Tab active · Tüm UI accent** |
+| Secondary accent | Royal Gold | `#c9a227` | **Sadece** stat sayıları, sekonder vurgular — anchor verse veya Hero için **YASAK** (2026-06-15 standartlaştırıldı) |
 | Quranic Green | Emerald | `#1a7a4c` |
 | Quranic Green (light) | Soft Emerald | `#2ecc71` |
 | Text (primary) | Off-White | `#e8e6e3` |
@@ -277,42 +277,34 @@ Her yeni tool için `public/` altına bir JSON oluşturulur. Yapı şeması:
 
 ---
 
-### 13.10 Overlay/Modal Başlık Stili Kuralı — OVERLAY_TITLE
+### 13.10 Overlay/Modal Başlık Stili — OVERLAY_TITLE (⚠ DEPRECATED for tool pages)
 
-**Modal, dialog veya overlay UI'larındaki header başlık metni `OVERLAY_TITLE` token'ını kullanır.**
+> **2026-06-14 itibariyle tool sayfalarında DEPRECATED.** Tool sayfaları artık full-page route layout'unda `ToolHeader` component'ı kullanır (bkz. §13.17). `OVERLAY_TITLE` token'ı yalnızca **gerçek modal/dialog** UI'larında geçerlidir: settings modal, search modal, parallel/intercepting route modal'ları, in-page detail panel'ler.
 
-> Migration sonrası tool'lar full-page route'lara dönüşür ve overlay header kullanmaz; ancak settings modal, search modal, parallel/intercepting route modal'ları gibi modal/dialog UI'larında bu kural geçerliliğini korur.
-
+Eski pattern (sadece gerçek modal için):
 ```jsx
 import { OVERLAY_TITLE } from '../tokens';
 
-<span style={OVERLAY_TITLE}>
-  {language === 'tr' ? 'Araç Adı' : 'Tool Name'}
-</span>
+<span style={OVERLAY_TITLE}>{language === 'tr' ? 'Modal Başlığı' : 'Modal Title'}</span>
 ```
 
 `OVERLAY_TITLE` = `{ color: COLORS.gold, fontSize: '0.9rem', fontWeight: 700, fontFamily: FONTS.body, margin: 0 }`
 
-- ❌ YASAK: `fontFamily: 'Playfair Display, serif'` — modal başlıkları için display font kullanılmaz
-- ❌ YASAK: `color: '#e8e6e3'` veya `color: COLORS.offWhite` — başlık her zaman altın rengindedir
-- ❌ YASAK: `fontSize: '1.1rem'` veya daha büyük — başlık 0.9rem'dir
-- ✅ DOĞRU: `style={OVERLAY_TITLE}` veya `style={{ ...OVERLAY_TITLE, ek: 'stil' }}`
+- ❌ YASAK: Tool sayfası ana header'ında — onun yerine `<ToolHeader />` kullan (§13.17).
 
 ---
 
-### 13.11 Kapat Butonu Kuralı — CLOSE_BTN
+### 13.11 Kapat Butonu — CLOSE_BTN (⚠ DEPRECATED for tool pages)
 
-**Modal/dialog header'larındaki kapat butonu `CLOSE_BTN` token'ını kullanır.**
+> **2026-06-14 itibariyle tool sayfalarında DEPRECATED.** Tool sayfaları full-page route'tur (modal değil), × close button gerekmez. Browser back navigation veya tool kataloğu üzerinden geri dönülür.
+>
+> `CLOSE_BTN` token'ı yalnızca **gerçek modal/dialog** UI'larında (in-page detail panel, settings/search modal) geçerlidir.
 
+Eski pattern (sadece gerçek modal için):
 ```jsx
 import { CLOSE_BTN, COLORS } from '../tokens';
 
-<button
-  onClick={onClose}
-  style={{ ...CLOSE_BTN }}
-  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
-  onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
->
+<button onClick={onClose} style={{ ...CLOSE_BTN }}>
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
     <path d="M18 6L6 18M6 6l12 12" />
   </svg>
@@ -321,10 +313,9 @@ import { CLOSE_BTN, COLORS } from '../tokens';
 
 `CLOSE_BTN` = `{ display:'flex', alignItems:'center', justifyContent:'center', width:'36px', height:'36px', borderRadius:'50%', background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', color:COLORS.silver, cursor:'pointer', transition:'all 0.15s', flexShrink:0 }`
 
-- ❌ YASAK: `borderRadius: '8px'` veya `'6px'` — kapat butonu her zaman tam daire (`50%`)
-- ❌ YASAK: Text `×` veya `✕` — her zaman SVG icon kullanılır
-- ❌ YASAK: Inline duplicate style — `width:'36px', height:'36px', borderRadius:'50%'...` tekrar yazılmaz
-- ✅ DOĞRU: `style={{ ...CLOSE_BTN }}` — token'dan spread
+- ❌ YASAK: Tool sayfası ana header'ında × button — route navigation yeterli.
+- ❌ YASAK: `borderRadius: '8px'` veya `'6px'` (modal context'inde de) — her zaman tam daire (`50%`).
+- ❌ YASAK: Text `×` veya `✕` — SVG icon kullanılır.
 
 ---
 
@@ -627,6 +618,216 @@ Bu yapı çift scrollbar üretir. **Sadece birinde** `overflow: auto` olmalı.
 2. Tab'lar arası geçtiğinde scroll position sıfırlanıyor mu?
 3. Modal kapatıldığında arka plan sayfası eski scroll position'ına dönüyor mu? (cleanup gerekli)
 4. Mobile'da yatay scroll var mı? (overflowX: hidden gerekli)
+
+---
+
+### 13.17 ToolHeader Pattern — TOOL SAYFASI STANDART HEADER (2026-06-14+)
+
+**Tüm tool sayfaları (`/arac/*`, `/atlas/*`, `/graf/*`) sticky `ToolHeader` component'ını kullanır.** Custom modal header (`position:fixed` + × button + `OVERLAY_TITLE`) **artık YASAK** — tool sayfaları full-page route layout'undadır.
+
+#### Outer Wrapper
+
+```jsx
+return (
+  <div style={{
+    background: COLORS.cosmicBlack,
+    minHeight: 'calc(100vh - 62px)',
+    display: 'flex', flexDirection: 'column',
+    paddingTop: '62px', // Navbar yüksekliği
+  }}>
+    <ToolHeader
+      icon={<svg /* gold stroke SVG */ />}
+      titleTr="Sayfa Adı"
+      titleEn="Page Name"
+      subtitleTr="Gri ton açıklayıcı alt başlık"
+      subtitleEn="Gray secondary description"
+      language={language}
+      chip={/* opsiyonel JSX badge */}
+    />
+    {/* Body ve içerik */}
+  </div>
+);
+```
+
+#### ToolHeader Pattern Spec (read-only — bkz. `next/src/components/ToolHeader.jsx`)
+
+- **Pozisyon:** `position: sticky; top: 62px; z-index: 40` — Navbar'a yapışır, çakışma yok
+- **Yükseklik:** `48px`
+- **Background:** `rgba(8,10,18,0.94)` + `backdropFilter: blur(20px)`
+- **Border-bottom:** `1px solid rgba(212,165,116,0.10)`
+- **Inner container:** `max-w-7xl mx-auto px-4 lg:px-8` → **Navbar logo ile birebir sol kenar hizası** (kullanıcı tutarlılık feedback'i 2026-06-14)
+- **Layout:** `[icon] [OVERLAY_TITLE title] · [gri subtitle] [opsiyonel chip]`
+
+#### YASAKLAR
+
+- ❌ **YASAK:** `position: 'fixed', inset: '54px 0 0 0'` veya `inset: '62px 0 0 0'` modal wrapper — full-page route layout kullan.
+- ❌ **YASAK:** `role="dialog"` + `aria-modal="true"` — tool sayfası modal değildir.
+- ❌ **YASAK:** Custom header'da × close button (`CLOSE_BTN`) — route navigation yeterli (`onClose` prop opsiyonel; sadece Escape key handler için tutulabilir).
+- ❌ **YASAK:** Custom header inline (`<div style={{padding: '0 20px', height: '54px', ...}}>` + title + close) — `<ToolHeader />` kullan.
+- ❌ **YASAK:** `body+html` scroll lock — full-page route'larda gerekmez (window scroll doğal akışta).
+
+#### Refactor Referansları
+
+Bu pattern'a uygun sayfalar (örnek): İlk-Son Kelimeler, Münâfık Profili, Sünnetullah Atlası, Cennet & Cehennem, Melekler, Kıyâmet, Zaman Boyutları, Buyruklar, Sebebi-Nüzûl, Dualar, KissaAtlas, WordHeatmap, SurahComparator, RevelationTimeline.
+
+**İstisna:** Interactive fullscreen canvas tool'ları (VerseGraph, ConceptGraph) — immersive UX için modal pattern korunur. EsmaFrekans — kendi flagship pattern'ında.
+
+---
+
+### 13.18 Cinematic Hero — PREMIUM TEMPLATE (2026-06-14+)
+
+**Tool sayfası Hero'su standart Premium Template'i takip eder.** Sırayla:
+
+1. **Bismillah ornament** — `﷽` Amiri Quran font, gold (#d4a574), opacity 0.82, centered
+2. **Anchor verse** — KFGQPC font, gold, lineHeight 2.1, **maksimum 1 ayet**, U+0650 standart Unicode (§13.15)
+3. **İtalik çeviri** — Playfair Display italic, off-white, max-w 660px
+4. **Reference label** — UPPERCASE, letterSpacing 0.16em, silver, opacity 0.65 (örn: "— Bakara 2:186")
+5. **Framing whisper** — Playfair italic, silver, max-w 700px, "şu sayfa neyi anlatır" cümlesi (em vurguları gold)
+6. **Filigree divider** — 120px gold gradient horizontal
+7. **Eyebrow** — UPPERCASE 0.3em letterSpacing, gold opacity 0.72 (örn: "İLAHÎ ÖRÜNTÜ · TARİHİN YASASI")
+8. **H1 title** — Playfair, off-white, `clamp(1.6rem, 7vw, 2rem)` mobile / `clamp(2rem, 3.6vw, 2.7rem)` desktop
+9. **Dramatic subtitle** — Playfair italic, gold, `clamp(1.05rem, 1.8vw, 1.18rem)`
+
+#### Anchor Verse Renk Kuralı
+
+- ✅ **STANDART:** `COLORS.gold` (#d4a574 antika altın — §4 Primary accent)
+- ❌ **YASAK:** `COLORS.royalGold` (#c9a227) — Secondary accent, anchor verse için kullanma. Sünnetullah'ta hatalı kullanılmıştı, 2026-06-15 standartlaştırıldı.
+
+#### Hero Container
+
+```jsx
+<div style={{
+  padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+  background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+  borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+  textAlign: 'center',
+}}>
+  {/* 9 element yukarıdaki sırayla */}
+</div>
+```
+
+---
+
+### 13.19 Sticky Tab Bar — MELEKLER-REFERENCE PATTERN (2026-06-14+)
+
+**Tab bar `position: sticky; top: 110px` ile Navbar+ToolHeader altına yapışır.** Background **mutlaka opak** olmalı, transparan rgba kullanmak scroll'da sızmaya yol açar.
+
+```jsx
+<div id="X-tab-bar" style={{
+  display: 'flex', gap: '2px',
+  padding: isMobile ? '0 8px' : '0 16px',
+  borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+  background: 'rgb(6, 8, 14)',          // OPAQUE — rgba(...,0.97) DEĞİL
+  backgroundColor: 'rgb(6, 8, 14)',      // Bulletproof: hem background hem backgroundColor
+  isolation: 'isolate',                  // Stacking context guard
+  position: 'sticky',
+  top: '110px',                          // 62px Navbar + 48px ToolHeader = 110px
+  zIndex: 20,
+  scrollMarginTop: '120px',
+  overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
+}}>
+  {TABS.map((tab, i) => (
+    <button
+      onClick={() => {
+        setActiveTab(i);
+        setTimeout(() => {
+          document.getElementById('X-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      }}
+      style={{
+        padding: isMobile ? '14px 16px' : '16px 26px',
+        fontSize: isMobile ? '0.72rem' : '0.78rem',
+        letterSpacing: '0.14em',
+        textTransform: 'uppercase',         // UPPERCASE site-wide standardı
+        fontWeight: activeTab === i ? 700 : 500,
+        color: activeTab === i ? COLORS.gold : COLORS.silver,
+        borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+        background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
+        // ...
+      }}
+    >
+      {/* icon + label */}
+    </button>
+  ))}
+</div>
+```
+
+#### YASAKLAR
+
+- ❌ **YASAK:** `background: 'rgba(10,10,26,0.97)'` — transparan; scroll'da arkadaki kartlar sızar (user 2026-06-14'te 3 kez raporladı).
+- ❌ **YASAK:** `backdropFilter: 'blur(20px)'` sticky tab bar'da — render gecikmesi + sızma.
+- ❌ **YASAK:** `top: 0` — ToolHeader altında 48px boşluk yok, çakışır. Daima `top: '110px'`.
+- ❌ **YASAK:** Tab label lowercase — UPPERCASE site-wide pattern.
+- ❌ **YASAK:** Body container'da `padding-top` — sticky tab bar'ı padding'in altından sticky'ler, gap'ten içerik sızar. Body padding-top 0 olmalı; Hero kendi padding'ini içeride versin.
+
+---
+
+### 13.20 CrossToolCTA Pattern (2026-06-14+)
+
+**Sayfa sonunda 2-3 ilgili tool linkine yönlendiren CTA strip.** Reusable component: `next/src/components/CrossToolCTA.jsx`.
+
+```jsx
+import CrossToolCTA from './CrossToolCTA';
+
+<CrossToolCTA
+  language={language}
+  isMobile={isMobile}
+  links={[
+    { href: `/${language}/arac/X`, titleTr: 'Tool Adı', titleEn: 'Tool Name', descTr: '1 cümle açıklama.', descEn: '1 sentence description.' },
+    // 2-3 link
+  ]}
+/>
+```
+
+#### Spec
+
+- **Eyebrow:** "DAHA DERİNE — İLGİLİ ARAÇLAR" / "GO DEEPER — RELATED TOOLS" (opsiyonel `labelTr`/`labelEn` ile override)
+- **Grid:** Mobile 1-col, Desktop `repeat(N, 1fr)` (N max 3)
+- **Kart:** Gold title + → arrow + gri açıklama
+- **Hover:** `translateY(-2px)` + brighten
+
+#### Kullanım Yeri
+
+Sayfa sonunda, ana içerik bittikten sonra. Pages: Cennet/Cehennem, Kıyâmet, Nefs Mertebeleri, Sünnetullah Atlası vd.
+
+---
+
+### 13.21 SourcesCitation Pattern (2026-06-15+)
+
+**Sayfa sonunda klasik tefsir kaynaklarını listeleyen callout.** Reusable component: `next/src/components/SourcesCitation.jsx`.
+
+```jsx
+import SourcesCitation from './SourcesCitation';
+
+<SourcesCitation
+  language={language}
+  isMobile={isMobile}
+  sources={[
+    {
+      author: 'er-Râzî',
+      workTr: "Mefâtîhu'l-Ğayb",
+      workEn: 'Mafātīḥ al-Ghayb',
+      period: '1149–1209 (Rey)',
+      noteTr: 'Sayfaya özel açıklama (1 cümle).',
+      noteEn: 'Page-specific note (1 sentence).',
+    },
+    // 2-6 kaynak
+  ]}
+/>
+```
+
+#### Spec
+
+- **Eyebrow:** "KLASİK KAYNAKLAR" / "CLASSICAL SOURCES"
+- **Grid:** Mobile 1-col, Desktop 2-col
+- **Kart:** Gold author + italic work + gri period + opsiyonel note
+- **Container:** Soft gold border + 0.03 gold tint
+
+#### Kullanım Yeri
+
+Sayfa sonunda (CrossToolCTA üstünde veya altında). Pages: Münâfık, Nefs, İblis (sayfaya özel klasik tefsir referansları).
+
+**İstisna:** Zaten kendi içsel "Kaynaklar" tab'ı olan sayfalar (KavimlerAtlasi, KiyametSahneleri, Melekler, CennetCehennem, ZamanBoyutlari, KuranYeminleri, SebebiNuzul) — SourcesCitation eklenmez (duplicate).
 
 ---
 
