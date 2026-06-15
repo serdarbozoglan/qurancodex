@@ -48,6 +48,17 @@ const LayersIcon = ({ size = 18 }) => (
   </svg>
 );
 
+// Linguistic / Mukattaa — orbit (atomic) icon: 3 elliptic orbits + nucleus
+// Mukattaa harflerinin "Kur'an'ın dilsel DNA'sı" temasına uygun atomik görsel.
+const LinguisticIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+    <ellipse cx="12" cy="12" rx="10" ry="4.5" />
+    <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)" />
+    <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)" />
+  </svg>
+);
+
 const PaletteIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
@@ -252,6 +263,15 @@ export const EXPLORE_CATEGORIES = [
         titleTr: 'Yapısal Mimari',        titleEn: 'Hidden Architecture',
         descTr: 'Halka kompozisyon ve simetri',
         descEn: 'Ring composition & symmetry',
+      },
+      {
+        id:     'mukattaa',
+        kind:   'overlay',
+        target: 'mukattaa',
+        icon:   LinguisticIcon,
+        titleTr: 'Huruf-i Mukattaa',      titleEn: 'Mukattaʿāt',
+        descTr: '14 gizemli harf · 29 sûre · 4 aile',
+        descEn: '14 mysterious letters · 29 suras · 4 families',
       },
       {
         id:     'ilkSon',

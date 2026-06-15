@@ -874,6 +874,7 @@ export default function Navbar() {
                       iblisSatan:  '/arac/iblis-seytan',
                       kadinlar:    '/atlas/kadinlar',
                       ilkSon:      '/arac/ilk-son-kelimeler',
+                      mukattaa:    '/arac/mukattaa',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;

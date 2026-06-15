@@ -37,8 +37,23 @@ function highlightGroups(text) {
   });
 }
 
-// 14 unique letters used in huruf-i mukattaa
-const LETTERS_14 = ['ا','ل','م','ص','ر','ك','ه','ي','ع','ط','س','ح','ق','ن'];
+// 14 unique letters used in huruf-i mukattaa — with TR/EN names for hover
+const LETTERS_14 = [
+  { ar: 'ا', tr: 'Elif', en: 'Alif' },
+  { ar: 'ل', tr: 'Lâm',  en: 'Lām' },
+  { ar: 'م', tr: 'Mîm',  en: 'Mīm' },
+  { ar: 'ص', tr: 'Sâd',  en: 'Ṣād' },
+  { ar: 'ر', tr: 'Râ',   en: 'Rāʾ' },
+  { ar: 'ك', tr: 'Kâf',  en: 'Kāf' },
+  { ar: 'ه', tr: 'Hâ',   en: 'Hāʾ' },
+  { ar: 'ي', tr: 'Yâ',   en: 'Yāʾ' },
+  { ar: 'ع', tr: 'Ayn',  en: 'ʿAyn' },
+  { ar: 'ط', tr: 'Tâ',   en: 'Ṭāʾ' },
+  { ar: 'س', tr: 'Sîn',  en: 'Sīn' },
+  { ar: 'ح', tr: 'Ḥâ',   en: 'Ḥāʾ' },
+  { ar: 'ق', tr: 'Kâf (ك\'den farklı)', en: 'Qāf' },
+  { ar: 'ن', tr: 'Nûn',  en: 'Nūn' },
+];
 
 const GROUPS = [
   {
@@ -221,6 +236,7 @@ const DISCOVERIES = [
 export default function LinguisticDNA() {
   const { t, language } = useLanguage();
   const [openGroup, setOpenGroup] = useState(null);
+  const [hoveredLetter, setHoveredLetter] = useState(null);
   // §14.1 SSR-safe mobile detection — initial false to avoid hydration mismatch
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -307,38 +323,88 @@ export default function LinguisticDNA() {
         </p>
         {/* M-Y2: Mobile harf boyutu 3rem (48px ≥ touch target), gap daralt — 5 harf/satır × 3 satır */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-4">
-          {LETTERS_14.map((letter, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.6 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.05, duration: 0.45, type: 'spring', stiffness: 200 }}
-              viewport={{ once: true }}
-              style={{
-                width: isMobile ? '3rem' : '4rem',
-                height: isMobile ? '3rem' : '4rem',
-                borderRadius: RADIUS.full,
-                background: 'radial-gradient(circle at center, rgba(212,165,116,0.14), rgba(212,165,116,0.04))',
-                border: '1.5px solid rgba(212,165,116,0.5)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 0 18px rgba(212,165,116,0.18), inset 0 0 12px rgba(212,165,116,0.06)',
-              }}
-            >
-              <span
+          {LETTERS_14.map((letter, i) => {
+            const isHovered = hoveredLetter === i;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.6 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.14, y: -3 }}
+                transition={{ delay: i * 0.05, duration: 0.45, type: 'spring', stiffness: 200 }}
+                viewport={{ once: true }}
+                onMouseEnter={() => setHoveredLetter(i)}
+                onMouseLeave={() => setHoveredLetter(null)}
+                onFocus={() => setHoveredLetter(i)}
+                onBlur={() => setHoveredLetter(null)}
+                tabIndex={0}
+                role="img"
+                aria-label={`${letter.ar} — ${language === 'tr' ? letter.tr : letter.en}`}
                 style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
-                  fontSize: isMobile ? '1.25rem' : '1.6rem',
-                  color: COLORS.goldBright,
-                  lineHeight: 1,
-                  textShadow: '0 0 12px rgba(212,165,116,0.6)',
+                  position: 'relative',
+                  width: isMobile ? '3rem' : '4rem',
+                  height: isMobile ? '3rem' : '4rem',
+                  borderRadius: RADIUS.full,
+                  background: isHovered
+                    ? 'radial-gradient(circle at center, rgba(212,165,116,0.32), rgba(212,165,116,0.08))'
+                    : 'radial-gradient(circle at center, rgba(212,165,116,0.14), rgba(212,165,116,0.04))',
+                  border: `1.5px solid ${isHovered ? 'rgba(212,165,116,0.95)' : 'rgba(212,165,116,0.5)'}`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: isHovered
+                    ? '0 0 36px rgba(212,165,116,0.55), inset 0 0 20px rgba(212,165,116,0.18)'
+                    : '0 0 18px rgba(212,165,116,0.18), inset 0 0 12px rgba(212,165,116,0.06)',
+                  cursor: 'pointer',
+                  transition: 'background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
+                  outline: 'none',
                 }}
               >
-                {letter}
-              </span>
-            </motion.div>
-          ))}
+                <span
+                  style={{
+                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontSize: isMobile ? '1.25rem' : '1.6rem',
+                    color: COLORS.goldBright,
+                    lineHeight: 1,
+                    textShadow: isHovered
+                      ? '0 0 20px rgba(212,165,116,0.95)'
+                      : '0 0 12px rgba(212,165,116,0.6)',
+                    transition: 'text-shadow 0.25s ease',
+                  }}
+                >
+                  {letter.ar}
+                </span>
+
+                {/* Tooltip — harfin TR/EN okunuşu, hover'da fade-in */}
+                <span
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: '50%',
+                    transform: `translate(-50%, ${isHovered ? '8px' : '4px'})`,
+                    marginTop: '6px',
+                    padding: '4px 10px',
+                    background: 'rgba(8,10,18,0.95)',
+                    border: `1px solid rgba(212,165,116,${isHovered ? '0.7' : '0'})`,
+                    borderRadius: '999px',
+                    color: COLORS.gold,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.05em',
+                    whiteSpace: 'nowrap',
+                    opacity: isHovered ? 1 : 0,
+                    pointerEvents: 'none',
+                    transition: 'opacity 0.22s ease, transform 0.22s ease, border-color 0.22s ease',
+                    zIndex: 10,
+                  }}
+                >
+                  {language === 'tr' ? letter.tr : letter.en}
+                </span>
+              </motion.div>
+            );
+          })}
         </div>
         <p className="text-silver/60 text-sm font-body">
           {language === 'tr'
