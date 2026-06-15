@@ -226,7 +226,7 @@ export default function FurukAtlasi({ onClose }) {
 
         {/* ── TAB BAR ─────────────────────────────────────────────────────── */}
         <div style={{ position: 'sticky', top: 0, zIndex: 10, background: 'rgba(10,10,26,0.97)', backdropFilter: 'blur(20px)' }}>
-          <div style={{
+          <div id="furuk-tab-bar" style={{
             display: 'flex', gap: 2,
             padding: isMobile ? '0 8px' : '0 16px',
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
@@ -237,8 +237,10 @@ export default function FurukAtlasi({ onClose }) {
               return (
                 <button
                   key={i}
-                  onClick={() => setActiveTab(i)}
+                  onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('furuk-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
                   style={{
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.12em',
                     flexShrink: 0,
                     display: 'flex', alignItems: 'center', gap: 8,
                     padding: isMobile ? '12px 14px' : '13px 22px',

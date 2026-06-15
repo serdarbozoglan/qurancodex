@@ -246,7 +246,7 @@ export default function SunnetullahAtlasi({ onClose }) {
         </div>
 
         {/* ── TAB BAR ───────────────────────────────────────────────────── */}
-        <div style={{
+        <div id="sunnetullah-tab-bar" style={{
           display: 'flex',
           gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
@@ -265,8 +265,10 @@ export default function SunnetullahAtlasi({ onClose }) {
             return (
               <button
                 key={i}
-                onClick={() => setActiveTab(i)}
+                onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('sunnetullah-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
                 style={{
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
                   flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',

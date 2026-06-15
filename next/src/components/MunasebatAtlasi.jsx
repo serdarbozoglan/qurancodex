@@ -77,7 +77,7 @@ function Header({ language }) {
 // ── Tab Bar ──────────────────────────────────────────────────────────────────
 function TabBar({ language, isMobile, activeTab, setActiveTab }) {
   return (
-    <div
+    <div id="munasebat-tab-bar"
       style={{
         display: 'flex',
         gap: '4px',
@@ -94,8 +94,10 @@ function TabBar({ language, isMobile, activeTab, setActiveTab }) {
         return (
           <button
             key={t.id}
-            onClick={() => setActiveTab(i)}
+            onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('munasebat-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
             style={{
+              textTransform: 'uppercase',
+              letterSpacing: '0.12em',
               padding: '8px 14px',
               borderRadius: '8px',
               border: `1px solid ${active ? COLORS.goldAlpha45 : 'transparent'}`,

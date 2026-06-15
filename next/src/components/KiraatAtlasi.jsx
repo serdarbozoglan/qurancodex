@@ -404,7 +404,7 @@ function TabImamlar({ data, isMobile, language, setActiveTab }) {
         <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver, margin: '-12px 0 20px', lineHeight: 1.5 }}>
           {language === 'tr' ? 'Bu sistemin tarihî arka planı için → ' : 'For the historical background of this system → '}
           <button
-            onClick={() => setActiveTab(1)}
+            onClick={() => { setActiveTab(1); setTimeout(() => { const _tb = document.getElementById('kiraat-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
             style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.gold, textDecoration: 'underline', textUnderlineOffset: 3 }}
           >
             {language === 'tr' ? 'Kanonizasyon →' : 'Canonisation →'}

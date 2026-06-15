@@ -115,30 +115,39 @@ export default function KuranRetorigi({ onClose }) {
       />
 
       {/* ── TAB BAR ────────────────────────────────────────────── */}
-      <div style={{
+      <div id="retorik-tab-bar" style={{
         display: 'flex',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         background: 'rgba(8,9,26,0.6)',
         flexShrink: 0,
         overflowX: 'auto',
         scrollbarWidth: 'none',
+        scrollMarginTop: '72px',
       }}>
         {TABS.map((tab, i) => (
           <button
             key={i}
-            onClick={() => setActiveTab(i)}
+            onClick={() => {
+              setActiveTab(i);
+              setTimeout(() => {
+                const tb = document.getElementById('retorik-tab-bar');
+                if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 50);
+            }}
             style={{
-              padding: isMobile ? '10px 14px' : '12px 20px',
-              fontSize: '0.82rem',
+              padding: isMobile ? '14px 14px' : '15px 20px',
+              fontSize: isMobile ? '0.74rem' : '0.82rem',
               fontFamily: FONTS.body,
-              fontWeight: activeTab === i ? 600 : 400,
-              color: activeTab === i ? COLORS.gold : COLORS.silver,
+              fontWeight: activeTab === i ? 700 : 500,
+              color: activeTab === i ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
               background: 'transparent',
               border: 'none',
               borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
               transition: 'color 0.15s',
+              textTransform: 'uppercase',
+              letterSpacing: activeTab === i ? '0.14em' : '0.12em',
             }}
           >
             {tab}
