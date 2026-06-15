@@ -68,7 +68,7 @@ export default function TekrarCard() {
           letterSpacing: '-0.015em',
           margin: '0 0 36px',
         }}>
-          {tr ? "Tekrar Değil — Refrain" : "Not Repetition — Refrain"}
+          {tr ? "Tekrar Değil — Nakarat" : "Not Repetition — Refrain (Nakarat)"}
         </h2>
 
         <div style={{ marginBottom: '36px' }}>

@@ -69,6 +69,7 @@ export default function Hero() {
             color: COLORS.gold,
             opacity: 0.85,
             lineHeight: 1,
+            marginTop: isMobile ? '60px' : '80px',
             marginBottom: isMobile ? '28px' : '40px',
             textShadow: `0 0 22px ${COLORS.gold}28`,
           }}
@@ -247,33 +248,8 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        {...entrance(
-          { opacity: 0 },
-          { opacity: 1 },
-          { delay: 3.0, duration: 1 }
-        )}
-      >
-        <span className="text-gold/25 text-xs font-body tracking-widest uppercase">
-          {t('hero.scroll')}
-        </span>
-        <div className="animate-scroll-bounce text-gold/30">
-          <svg
-            aria-hidden="true"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          >
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
-        </div>
-      </motion.div>
+      {/* Scroll indicator kaldırıldı — buton üstünde overlap yapıyordu (kullanıcı raporu 2026-06-15);
+          modern UX'te 'scroll cue' gerek değil, kullanıcı doğal olarak scroll eder. */}
     </section>
   );
 }

@@ -68,7 +68,7 @@ export default function PsikolojiCard() {
           letterSpacing: '-0.015em',
           margin: '0 0 36px',
         }}>
-          {tr ? "Yûsuf'tan Modern Travma Teorisine" : "From Yūsuf to Modern Trauma Theory"}
+          {tr ? "Hz. Yûsuf'tan Modern Travma Teorisine" : "From Yūsuf (AS) to Modern Trauma Theory"}
         </h2>
 
         <div style={{ marginBottom: '36px' }}>

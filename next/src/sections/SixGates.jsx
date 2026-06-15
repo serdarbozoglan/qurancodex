@@ -157,6 +157,8 @@ function Gate({ gate, isMobile, language }) {
       style={{
         position: 'relative',
         height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
         padding: isMobile ? '22px 20px' : '26px 24px',
         background: `linear-gradient(180deg, ${gate.accent}10 0%, rgba(255,255,255,0.02) 100%)`,
         border: `1px solid ${gate.accent}40`,
@@ -217,7 +219,7 @@ function Gate({ gate, isMobile, language }) {
       </p>
 
       {/* Chips */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '14px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '14px', flexGrow: 1, alignContent: 'flex-start' }}>
         {chips.map((chip, i) => (
           <span key={i} style={{
             padding: '3px 9px',
@@ -235,8 +237,9 @@ function Gate({ gate, isMobile, language }) {
         ))}
       </div>
 
-      {/* CTA */}
+      {/* CTA — margin-top: auto sayesinde tüm kartlarda aynı hizada (en altta) */}
       <div style={{
+        marginTop: 'auto',
         display: 'inline-flex',
         alignItems: 'center',
         gap: '8px',
@@ -246,6 +249,7 @@ function Gate({ gate, isMobile, language }) {
         fontWeight: 600,
         letterSpacing: '0.08em',
         textTransform: 'uppercase',
+        paddingTop: '6px',
       }}>
         <span>{gate.scrollTo ? (tr ? 'Bu yola atla' : 'Jump to path') : (tr ? 'Sayfaya git' : 'Visit page')}</span>
         <span style={{ fontSize: '0.95rem', lineHeight: 1 }}>→</span>
@@ -342,9 +346,14 @@ export default function SixGates() {
         {/* 6 gates grid — 2 col mobile, 3 col tablet, 3 col desktop */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '16px',
-        }}>
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+          gridAutoFlow: 'row',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          gap: '18px',
+        }}
+        className="six-gates-grid"
+        >
           {GATES.map(gate => (
             <Gate key={gate.id} gate={gate} isMobile={false} language={language} />
           ))}

@@ -110,15 +110,9 @@ export default async function Home({ params }) {
       <InsanTanimiCard />
       <PsikolojiCard />
 
-      {/* ─── İnteraktif Araçlar (anlatı sonrası teknik katman) ─── */}
-      <ClusterHeader
-        eyebrowTr="ARAÇLAR · İNTERAKTİF KEŞİF"
-        eyebrowEn="TOOLS · INTERACTIVE EXPLORATION"
-        titleTr="Veriyle Keşfet"
-        titleEn="Discover by Data"
-        subtitleTr="Ayet graf · kavram ağı · kelime ısı · sûre karşılaştırma · atlas tool'ları"
-        subtitleEn="Verse graph · concept network · word heat · sura comparison · atlas tools"
-      />
+      {/* ─── İnteraktif Araçlar (anlatı sonrası teknik katman) ───
+          NOT: ClusterHeader kaldırıldı — ToolsHighlight kendi zengin başlığı
+          ile geliyor (eyebrow + h2 + alt + 6 grid + "tüm araçları gör" CTA). */}
       <ToolsHighlight />
 
       {/* Kapanış */}

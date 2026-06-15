@@ -68,7 +68,7 @@ export default function HalkaCard() {
           letterSpacing: '-0.015em',
           margin: '0 0 36px',
         }}>
-          {tr ? "Aynalarda Ayna — A-B-C-D-C'-B'-A'" : "Mirrors in Mirrors — A-B-C-D-C'-B'-A'"}
+          {tr ? "Aynalarda Ayna · Halka Kompozisyon" : "Mirrors in Mirrors · Ring Composition"}
         </h2>
 
         <div style={{ marginBottom: '36px' }}>
