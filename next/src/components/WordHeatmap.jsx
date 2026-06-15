@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, BREAKPOINT_MOBILE, FONTS, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, BREAKPOINT_MOBILE, FONTS, RADIUS, TRANSITION } from '../tokens';
+import ToolHeader from './ToolHeader';
 import LoadingOverlay from './LoadingOverlay';
 
 // Strip footnote refs and parenthetical translator additions
@@ -699,7 +700,7 @@ export default function WordHeatmap({ onClose }) {
       </div>
     )}
 
-    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', flexDirection: 'column' }}>
 
       {/* Floating tooltip */}
       {tooltip && (
@@ -721,36 +722,20 @@ export default function WordHeatmap({ onClose }) {
         </div>
       )}
 
-      {/* Header */}
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 20px', height: '50px', flexShrink: 0,
-        background: 'rgba(8,10,18,0.95)', backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(212,165,116,0.1)',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-            <rect x="4" y="14" width="3.5" height="6" rx="0.5" />
-            <rect x="10.25" y="9" width="3.5" height="11" rx="0.5" />
-            <rect x="16.5" y="4" width="3.5" height="16" rx="0.5" />
-          </svg>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Kelime Frekans Haritası' : 'Word Frequency Map'}
+      {/* Header — ToolHeader standartı */}
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="14" width="3.5" height="6" rx="0.5" /><rect x="10.25" y="9" width="3.5" height="11" rx="0.5" /><rect x="16.5" y="4" width="3.5" height="16" rx="0.5" /></svg>}
+        titleTr="Kelime Frekans Haritası"
+        titleEn="Word Frequency Map"
+        subtitleTr="Tekrârü'l-Kelimât"
+        subtitleEn="Lexical Frequency"
+        language={language}
+        chip={totalOccurrences > 0 && searchTerm ? (
+          <span style={{ background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.lg, color: gold, fontSize: '0.7rem', padding: '2px 10px' }}>
+            {totalOccurrences} {language === 'tr' ? 'kez' : 'times'} · {Object.keys(freqMap).length} {language === 'tr' ? 'sûre' : 'surahs'}
           </span>
-          <span style={{ color: '#64748b', fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-          <span style={{ color: '#64748b', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif" }}>
-            {language === 'tr' ? "Tekrârü'l-Kelimât" : 'Lexical Frequency'}
-          </span>
-          {totalOccurrences > 0 && searchTerm && (
-            <span style={{ background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.lg, color: gold, fontSize: '0.7rem', padding: '2px 10px', marginLeft: '4px', flexShrink: 0 }}>
-              {totalOccurrences} {language === 'tr' ? 'kez' : 'times'} · {Object.keys(freqMap).length} {language === 'tr' ? 'sûre' : 'surahs'}
-            </span>
-          )}
-        </div>
-        <button onClick={onClose} style={{ ...CLOSE_BTN }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#e8e6e3'; }} onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = '#94a3b8'; }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
-        </button>
-      </div>
+        ) : null}
+      />
 
       {/* Main layout: sidebar for verses + full-height grid area */}
       <div style={{ flex: 1, display: 'flex', flexDirection: isMobile ? 'column' : 'row', overflow: 'hidden', minHeight: 0 }}>

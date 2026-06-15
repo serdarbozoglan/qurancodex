@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, RADIUS, TRANSITION } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 const SURAH_NAMES_TR = [
   'El-Fatiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide',
@@ -79,31 +80,34 @@ export default function RevelationTimeline({ onClose }) {
   }, [orderData]);
 
   return (
-    <div style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-      {/* Header */}
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', flexDirection: 'column' }}>
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>}
+        titleTr="Nüzul Sırası Haritası"
+        titleEn="Revelation Order Map"
+        subtitleTr="Mushaf vs nüzul · Mekkî & Medenî"
+        subtitleEn="Mushaf vs revelation · Meccan & Medinan"
+        language={language}
+      />
+
+      {/* Toolbar — filter + view mode */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 20px', height: '54px', flexShrink: 0,
-        background: 'rgba(8,10,18,0.95)', backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(212,165,116,0.1)',
+        padding: '12px 20px', flexShrink: 0,
+        borderBottom: '1px solid rgba(212,165,116,0.10)',
+        gap: '12px', flexWrap: 'wrap',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span style={OVERLAY_TITLE}>
-            {language === 'tr' ? 'Nüzul Sırası Haritası' : 'Revelation Order Map'}
-          </span>
-          <div style={{ display: 'flex', gap: '4px' }}>
-            {[['all', language === 'tr' ? 'Tümü (114)' : 'All (114)'], ['mekki', `Mekkî (${mekki.length})`], ['medeni', `Medenî (${medeni.length})`]].map(([v, l]) => (
-              <button key={v} onClick={() => setFilter(v)} style={{
-                background: filter === v ? 'rgba(212,165,116,0.18)' : 'transparent',
-                border: `1px solid ${filter === v ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.12)'}`,
-                borderRadius: RADIUS.sm, color: filter === v ? gold : COLORS.slate500,
-                cursor: 'pointer', padding: '3px 10px', fontSize: '0.72rem', transition: `all ${TRANSITION.fast}`,
-              }}>{l}</button>
-            ))}
-          </div>
+        <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+          {[['all', language === 'tr' ? 'Tümü (114)' : 'All (114)'], ['mekki', `Mekkî (${mekki.length})`], ['medeni', `Medenî (${medeni.length})`]].map(([v, l]) => (
+            <button key={v} onClick={() => setFilter(v)} style={{
+              background: filter === v ? 'rgba(212,165,116,0.18)' : 'transparent',
+              border: `1px solid ${filter === v ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.12)'}`,
+              borderRadius: RADIUS.sm, color: filter === v ? gold : COLORS.slate500,
+              cursor: 'pointer', padding: '4px 12px', fontSize: '0.74rem', transition: `all ${TRANSITION.fast}`,
+            }}>{l}</button>
+          ))}
         </div>
         <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-          {/* View mode toggle */}
           {[['grid', language === 'tr' ? 'Kart' : 'Card'], ['timeline', language === 'tr' ? 'Zaman Çizelgesi' : 'Timeline']].map(([m, label]) => (
             <button key={m} onClick={() => setViewMode(m)} style={{
               background: viewMode === m ? COLORS.goldAlpha15 : 'transparent',
@@ -112,14 +116,6 @@ export default function RevelationTimeline({ onClose }) {
               cursor: 'pointer', padding: '4px 10px', fontSize: '0.75rem', fontWeight: viewMode === m ? 600 : 400,
             }}>{label}</button>
           ))}
-          <button
-            onClick={onClose}
-            style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
-          </button>
         </div>
       </div>
 

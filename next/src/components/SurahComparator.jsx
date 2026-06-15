@@ -3,7 +3,8 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import ToolHeader from './ToolHeader';
 
 // ── MODULE-LEVEL CACHES ───────────────────────────────────────────────────────
 let cachedVerses = null;
@@ -575,21 +576,32 @@ export default function SurahComparator({ onClose }) {
 
   return (
     <div style={{
-      position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
-      background: '#06080e',
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      paddingTop: '62px',
       display: 'flex', flexDirection: 'column',
       fontFamily: "'Inter', sans-serif",
     }}>
 
-      {/* ── HEADER ─────────────────────────────────────────────────── */}
-      <div style={{
-        display: 'flex', alignItems: 'center', gap: '14px',
-        padding: '0 20px', height: '60px',
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
-        background: 'rgba(6,8,14,0.96)', backdropFilter: 'blur(16px)',
-        flexShrink: 0,
-      }}>
-        {view === 'result' ? (
+      <ToolHeader
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>}
+        titleTr="Sûre DNA Karşılaştırıcı"
+        titleEn="Surah DNA Comparator"
+        subtitleTr="İki sûrenin yapısal parmak izi"
+        subtitleEn="Two surahs, side by side"
+        language={language}
+        chip={view === 'result' && surahA && surahB ? (
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ color: COLOR_A, fontWeight: 700, fontSize: '0.78rem' }}>{SURAH_NAMES_TR[surahA]}</span>
+            <span style={{ color: COLORS.slate700, fontSize: '0.7rem' }}>vs</span>
+            <span style={{ color: COLOR_B, fontWeight: 700, fontSize: '0.78rem' }}>{SURAH_NAMES_TR[surahB]}</span>
+          </span>
+        ) : null}
+      />
+
+      {/* "Yeni Karşılaştırma" geri tuşu — sadece result view'da */}
+      {view === 'result' && (
+        <div style={{ padding: isMobile ? '12px 16px 0' : '14px 32px 0', flexShrink: 0 }}>
           <button
             onClick={() => setView('landing')}
             style={{
@@ -607,39 +619,8 @@ export default function SurahComparator({ onClose }) {
             </svg>
             {language === 'tr' ? 'Yeni Karşılaştırma' : 'New Comparison'}
           </button>
-        ) : (
-          <div>
-            <span style={OVERLAY_TITLE}>
-              {language === 'tr' ? 'Sûre DNA Karşılaştırıcı' : 'Surah DNA Comparator'}
-            </span>
-          </div>
-        )}
-
-        {view === 'result' && surahA && surahB && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
-            <span style={{ color: COLOR_A, fontWeight: 700, fontSize: '0.95rem', flexShrink: 0 }}>
-              {SURAH_NAMES_TR[surahA]}
-            </span>
-            <span style={{ color: COLORS.slate700, fontSize: '0.8rem' }}>vs</span>
-            <span style={{ color: COLOR_B, fontWeight: 700, fontSize: '0.95rem', flexShrink: 0 }}>
-              {SURAH_NAMES_TR[surahB]}
-            </span>
-          </div>
-        )}
-
-        <div style={{ marginLeft: 'auto' }}>
-          <button
-            onClick={onClose}
-            style={{ ...CLOSE_BTN }}
-            onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-            onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
         </div>
-      </div>
+      )}
 
       {/* ── LOADING ───────────────────────────────────────────────────── */}
       {loading && (
