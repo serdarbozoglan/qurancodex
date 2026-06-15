@@ -231,7 +231,7 @@ export default function Hero() {
         >
           <motion.button
             onClick={() =>
-              document.getElementById('path-cards')?.scrollIntoView({ behavior: 'smooth' })
+              document.getElementById('six-gates')?.scrollIntoView({ behavior: 'smooth' })
             }
             className="btn-primary-gold font-body font-semibold text-sm uppercase cursor-pointer"
             style={{
