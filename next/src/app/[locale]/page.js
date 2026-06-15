@@ -9,7 +9,7 @@ import Hero from '@/components/Hero';
 
 // Navigasyon
 import SixGates from '@/sections/SixGates';
-import ClusterHeader from '@/sections/ClusterHeader';
+import CardSeam from '@/sections/CardSeam';
 import ToolsHighlight from '@/sections/ToolsHighlight';
 import TefekkurHighlight from '@/sections/TefekkurHighlight';
 
@@ -66,49 +66,39 @@ export default async function Home({ params }) {
       {/* 6 Kapı — kategorize edici navigasyon */}
       <SixGates />
 
-      {/* ─── Fascination cluster ─── */}
-      <ClusterHeader
-        eyebrowTr="FASCINATION · DİL VE MİMARİ"
-        eyebrowEn="FASCINATION · LANGUAGE & ARCHITECTURE"
-        titleTr="Görünmeyen Mimari"
-        titleEn="The Invisible Architecture"
-        subtitleTr="14 harf · 16 vezin · ses · halka · refrain — Kur'an'ın yapısal parmak izi"
-        subtitleEn="14 letters · 16 meters · sound · ring · refrain — the Quran's structural fingerprint"
-      />
+      {/* ─── Hayranlık cluster — dil ve mimari (6 kart) ─── */}
       <MukattaaCard />
+      <CardSeam />
       <RitimCard />
+      <CardSeam />
       <RetorikSorularCard />
+      <CardSeam />
       <SesMimarisiCard />
+      <CardSeam />
       <HalkaCard />
+      <CardSeam />
       <TekrarCard />
+      <CardSeam variant="seal" />
 
-      {/* ─── Astonishment cluster ─── */}
-      <ClusterHeader
-        eyebrowTr="ASTONISHMENT · BİLİM VE TARİH"
-        eyebrowEn="ASTONISHMENT · SCIENCE & HISTORY"
-        titleTr="1.400 Yıl Önce"
-        titleEn="Fourteen Centuries Earlier"
-        subtitleTr="Kevnî işaretler · tarihsel kanıtlar · yaşayan koruma — modern ile paralellikler ve sınırlar"
-        subtitleEn="Cosmic signs · historical proofs · living preservation — parallels and limits with modernity"
-      />
+      {/* ─── Hayret cluster — bilim ve tarih (3 kart) ─── */}
       <BilimselCard />
+      <CardSeam />
       <TarihselCard />
+      <CardSeam />
       <KorumaCard />
+      <CardSeam variant="seal" />
 
-      {/* ─── Reflection cluster ─── */}
-      <ClusterHeader
-        eyebrowTr="REFLECTION · İNSAN VE YARATICI"
-        eyebrowEn="REFLECTION · HUMANITY & CREATOR"
-        titleTr="Kur'an Seni Nasıl Tanımlıyor?"
-        titleEn="How Does the Quran Define You?"
-        subtitleTr="Yakarış · sırlar · isimler · insan · psikoloji — iç dünyanın haritası"
-        subtitleEn="Prayer · secrets · names · humanity · psychology — the map of the inner world"
-      />
+      {/* ─── İçe Bakış cluster — insan ve Yaratıcı (5 kart) ─── */}
       <DuaDiliCard />
+      <CardSeam />
       <AltiKonuCard />
+      <CardSeam />
       <AllahKendiniTanitir />
+      <CardSeam />
       <InsanTanimiCard />
+      <CardSeam />
       <PsikolojiCard />
+      <CardSeam variant="seal" />
 
       {/* ─── İnteraktif Araçlar (anlatı sonrası teknik katman) ───
           NOT: ClusterHeader kaldırıldı — ToolsHighlight kendi zengin başlığı
