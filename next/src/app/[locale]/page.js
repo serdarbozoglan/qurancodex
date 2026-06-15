@@ -1,35 +1,34 @@
-// Home — 13 tanıtıcı kart + 3 navigasyon + kapanış.
-// Anasayfa anlatı bölümleri tool sayfalarına AYNEN taşındı; burada kart kapı.
-// Hedef tool sayfaları için bkz. /arac/{slug} + /atlas/{slug}.
+// Home — Yeni iskelet (2026-06-15 gece, 13 kart taşıma sonrası):
+//   Hero → SixGates → 3 cluster (14 kart) → İnteraktif Araçlar → Kapanış
+// PathCards + AllTopics + ToolsShowcase kaldırıldı (redundant — SixGates bunları konsolide eder).
 
 import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
 import Hero from '@/components/Hero';
-import PathCards from '@/sections/PathCards';
-import AllTopics from '@/sections/AllTopics';
+
+// Navigasyon
+import SixGates from '@/sections/SixGates';
+import ClusterHeader from '@/sections/ClusterHeader';
 import ToolsHighlight from '@/sections/ToolsHighlight';
 import TefekkurHighlight from '@/sections/TefekkurHighlight';
 
-// 13 tanıtıcı kart (anlatı bölümleri → tool sayfasına yönlendiren portal)
+// 14 tanıtıcı kart (anlatı bölümleri → tool sayfasına yönlendiren portal)
 import MukattaaCard from '@/sections/MukattaaCard';
 import RitimCard from '@/sections/RitimCard';
 import RetorikSorularCard from '@/sections/RetorikSorularCard';
-import DuaDiliCard from '@/sections/DuaDiliCard';
 import SesMimarisiCard from '@/sections/SesMimarisiCard';
 import HalkaCard from '@/sections/HalkaCard';
+import TekrarCard from '@/sections/TekrarCard';
 import BilimselCard from '@/sections/BilimselCard';
 import TarihselCard from '@/sections/TarihselCard';
 import KorumaCard from '@/sections/KorumaCard';
-import TekrarCard from '@/sections/TekrarCard';
+import DuaDiliCard from '@/sections/DuaDiliCard';
 import AltiKonuCard from '@/sections/AltiKonuCard';
+import AllahKendiniTanitir from '@/sections/AllahKendiniTanitir';
 import InsanTanimiCard from '@/sections/InsanTanimiCard';
 import PsikolojiCard from '@/sections/PsikolojiCard';
 
-// Esmâ köprüsü (zaten kapı formunda — kart pattern'ı ile uyumlu)
-import AllahKendiniTanitir from '@/sections/AllahKendiniTanitir';
-
-import ToolsShowcase from '@/sections/ToolsShowcase';
 import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
 import MobileSectionChipNav from '@/components/MobileSectionChipNav';
@@ -61,14 +60,21 @@ export default async function Home({ params }) {
       <MobileSectionChipNav />
       <DesktopSidebarTOC />
       <ScrollToTopFab />
+
       <Hero />
 
-      {/* Navigasyon katmanı (mevcut — SixGates ileride bunları konsolide edecek) */}
-      <PathCards />
-      <AllTopics />
-      <ToolsHighlight />
+      {/* 6 Kapı — kategorize edici navigasyon */}
+      <SixGates />
 
-      {/* ─── Anlatı kartları (Fascination cluster) ─── */}
+      {/* ─── Fascination cluster ─── */}
+      <ClusterHeader
+        eyebrowTr="FASCINATION · DİL VE MİMARİ"
+        eyebrowEn="FASCINATION · LANGUAGE & ARCHITECTURE"
+        titleTr="Görünmeyen Mimari"
+        titleEn="The Invisible Architecture"
+        subtitleTr="14 harf · 16 vezin · ses · halka · refrain — Kur'an'ın yapısal parmak izi"
+        subtitleEn="14 letters · 16 meters · sound · ring · refrain — the Quran's structural fingerprint"
+      />
       <MukattaaCard />
       <RitimCard />
       <RetorikSorularCard />
@@ -76,20 +82,46 @@ export default async function Home({ params }) {
       <HalkaCard />
       <TekrarCard />
 
-      {/* ─── Anlatı kartları (Astonishment cluster) ─── */}
+      {/* ─── Astonishment cluster ─── */}
+      <ClusterHeader
+        eyebrowTr="ASTONISHMENT · BİLİM VE TARİH"
+        eyebrowEn="ASTONISHMENT · SCIENCE & HISTORY"
+        titleTr="1.400 Yıl Önce"
+        titleEn="Fourteen Centuries Earlier"
+        subtitleTr="Kevnî işaretler · tarihsel kanıtlar · yaşayan koruma — modern ile paralellikler ve sınırlar"
+        subtitleEn="Cosmic signs · historical proofs · living preservation — parallels and limits with modernity"
+      />
       <BilimselCard />
       <TarihselCard />
       <KorumaCard />
 
-      {/* ─── Anlatı kartları (Reflection cluster) ─── */}
+      {/* ─── Reflection cluster ─── */}
+      <ClusterHeader
+        eyebrowTr="REFLECTION · İNSAN VE YARATICI"
+        eyebrowEn="REFLECTION · HUMANITY & CREATOR"
+        titleTr="Kur'an Seni Nasıl Tanımlıyor?"
+        titleEn="How Does the Quran Define You?"
+        subtitleTr="Yakarış · sırlar · isimler · insan · psikoloji — iç dünyanın haritası"
+        subtitleEn="Prayer · secrets · names · humanity · psychology — the map of the inner world"
+      />
       <DuaDiliCard />
       <AltiKonuCard />
       <AllahKendiniTanitir />
       <InsanTanimiCard />
       <PsikolojiCard />
 
-      {/* Kapanış katmanı */}
-      <ToolsShowcase />
+      {/* ─── İnteraktif Araçlar (anlatı sonrası teknik katman) ─── */}
+      <ClusterHeader
+        eyebrowTr="ARAÇLAR · İNTERAKTİF KEŞİF"
+        eyebrowEn="TOOLS · INTERACTIVE EXPLORATION"
+        titleTr="Veriyle Keşfet"
+        titleEn="Discover by Data"
+        subtitleTr="Ayet graf · kavram ağı · kelime ısı · sûre karşılaştırma · atlas tool'ları"
+        subtitleEn="Verse graph · concept network · word heat · sura comparison · atlas tools"
+      />
+      <ToolsHighlight />
+
+      {/* Kapanış */}
       <Conclusion />
       <TefekkurHighlight compact />
       <Footer />
