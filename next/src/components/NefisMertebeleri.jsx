@@ -134,12 +134,97 @@ export default function NefisMertebeleri({ onClose }) {
 
         {/* ─────────────────────────────── HERO ─────────────────────────────── */}
         <div style={{
-          padding: isMobile ? '32px 20px 28px' : '48px 40px 36px',
+          padding: isMobile ? '40px 20px 32px' : '56px 40px 36px',
           background: 'linear-gradient(180deg, rgba(139,0,0,0.05) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          textAlign: 'center',
         }}>
-          <div style={sectionLabel()}>
-            {language === 'tr' ? 'Reflection · İç Yolculuk' : 'Reflection · Inner Journey'}
+          {/* Bismillah ornament */}
+          <div
+            dir="rtl" lang="ar" aria-label="Bismillāh"
+            style={{
+              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              color: COLORS.gold,
+              opacity: 0.82,
+              lineHeight: 1,
+              marginBottom: isMobile ? '28px' : '40px',
+              textShadow: `0 0 22px ${COLORS.gold}28`,
+            }}
+          >
+            ﷽
+          </div>
+
+          {/* Anchor verse — Fecr 89:27-28 (mutmainne — the highest station) */}
+          <p
+            dir="rtl" lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+              color: COLORS.gold,
+              lineHeight: 2.1,
+              margin: '0 auto 16px',
+              maxWidth: '820px',
+              textShadow: `0 0 20px ${COLORS.gold}1c`,
+            }}
+          >
+            يَٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِع۪ٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً
+          </p>
+
+          <p style={{
+            color: COLORS.offWhite,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 8px',
+            maxWidth: '660px',
+            opacity: 0.95,
+          }}>
+            "{language === 'tr'
+              ? 'Ey huzura ermiş nefis! Razı olmuş ve razı olunmuş olarak Rabbine dön.'
+              : 'O serene soul! Return to your Lord, well-pleased and pleasing.'}"
+          </p>
+
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            margin: '0 0 36px',
+            opacity: 0.65,
+          }}>
+            — {language === 'tr' ? 'Fecr 89:27-28' : 'Al-Fajr 89:27-28'}
+          </p>
+
+          {/* Framing whisper */}
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 40px',
+            maxWidth: '700px',
+            opacity: 0.88,
+          }}>
+            {language === 'tr'
+              ? <>Nefs <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sabit</em> değildir. Emmâreden mutmainneye uzanan bir <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>basamak sistemi</em>dir — Kur'an yedi tabakanın üçünü açıkça anar.</>
+              : <>The self is not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>fixed</em>. It is a <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>graded system</em> reaching from ammāra to muṭmaʾinna — the Quran names three of the seven stations explicitly.</>}
+          </p>
+
+          {/* Filigree divider */}
+          <div aria-hidden="true" style={{
+            width: '120px',
+            height: '1px',
+            background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+            margin: '0 auto 32px',
+          }} />
+
+          {/* Eyebrow */}
+          <div style={{ ...sectionLabel(), marginBottom: '12px' }}>
+            {language === 'tr' ? 'REFLECTION · İÇ YOLCULUK · 7 BASAMAK' : 'REFLECTION · INNER JOURNEY · 7 STATIONS'}
           </div>
 
           {/* Playfair italic quote */}
@@ -148,10 +233,11 @@ export default function NefisMertebeleri({ onClose }) {
             fontStyle: 'italic',
             fontWeight: 700,
             color: COLORS.offWhite,
-            fontSize: isMobile ? '1.55rem' : '2.3rem',
-            lineHeight: 1.3,
-            margin: '14px 0 10px 0',
-            maxWidth: '760px',
+            fontSize: isMobile ? 'clamp(1.55rem, 6.5vw, 1.9rem)' : 'clamp(2rem, 3.4vw, 2.55rem)',
+            lineHeight: 1.22,
+            margin: '0 auto 12px',
+            maxWidth: '780px',
+            letterSpacing: '-0.01em',
           }}>
             {language === 'tr'
               ? '"İnsan nefsi sabit bir şey değildir."'

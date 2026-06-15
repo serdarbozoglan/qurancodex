@@ -1148,53 +1148,179 @@ export default function Melekler({ onClose }) {
       {/* ── Body (scrollable) ── */}
       <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
 
-        {/* Hero — scrolls away */}
-        <div style={{ padding: isMobile ? '20px 16px 16px' : '28px 32px 20px' }}>
-          <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.28em', color: COLORS.softGoldAlpha45, margin: '0 0 8px' }}>
-            {tr ? "KUR'AN'DA MELEKLER" : 'ANGELS IN THE QURAN'}
+        {/* Hero — Premium Cinematic (Bismillah + Fâtır 35:1 + framing whisper + filigree + title) */}
+        <div style={{
+          padding: isMobile ? '36px 16px 24px' : '52px 32px 28px',
+          textAlign: 'center',
+          background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, transparent 100%)',
+        }}>
+          {/* Bismillah */}
+          <div
+            dir="rtl" lang="ar" aria-label="Bismillāh"
+            style={{
+              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              color: COLORS.gold,
+              opacity: 0.82,
+              lineHeight: 1,
+              marginBottom: isMobile ? '26px' : '36px',
+              textShadow: `0 0 22px ${COLORS.gold}28`,
+            }}
+          >
+            ﷽
+          </div>
+
+          {/* Anchor verse — Fâtır 35:1 (angels-with-wings, foundational) */}
+          <p
+            dir="rtl" lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+              color: COLORS.gold,
+              lineHeight: 2.1,
+              margin: '0 auto 16px',
+              maxWidth: '820px',
+              textShadow: `0 0 20px ${COLORS.gold}1c`,
+            }}
+          >
+            اَلْحَمْدُ لِلّٰهِ فَاطِرِ السَّمٰوَاتِ وَالْاَرْضِ جَاعِلِ الْمَلٰٓئِكَةِ رُسُلاً اُو۬ل۪ٓي اَجْنِحَةٍ
           </p>
-          <h1 style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1.5rem' : '2rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.25 }}>
+
+          <p style={{
+            color: COLORS.offWhite,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 8px',
+            maxWidth: '680px',
+            opacity: 0.95,
+          }}>
+            "{tr
+              ? "Gökleri ve yeri yaratan, melekleri ikişer, üçer, dörder kanatlı elçiler kılan Allah'a hamdolsun."
+              : "All praise is due to Allah, Creator of the heavens and earth, who made the angels messengers with wings — two, three, or four."}"
+          </p>
+
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            margin: '0 0 36px',
+            opacity: 0.65,
+          }}>
+            — {tr ? 'Fâtır 35:1' : 'Fāṭir 35:1'}
+          </p>
+
+          {/* Framing whisper */}
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 40px',
+            maxWidth: '700px',
+            opacity: 0.88,
+          }}>
+            {tr
+              ? <>Kur'an meleği <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tasvir etmez</em> — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>işlevini anlatır</em>. İsim verir, görev verir; geri kalanı hadise bırakır.</>
+              : <>The Quran does not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>describe</em> the angel — it tells you <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>what it does</em>. Names and tasks; the rest is left to hadith.</>}
+          </p>
+
+          {/* Filigree divider */}
+          <div aria-hidden="true" style={{
+            width: '120px',
+            height: '1px',
+            background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+            margin: '0 auto 32px',
+          }} />
+
+          {/* Eyebrow */}
+          <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.3em', color: COLORS.gold, opacity: 0.72, margin: '0 0 12px' }}>
+            {tr ? "KUR'AN'DA MELEKLER · GÖRÜNMEYEN ELÇİLER" : 'ANGELS IN THE QURAN · UNSEEN MESSENGERS'}
+          </p>
+
+          {/* Big Title */}
+          <h1 style={{
+            fontFamily: FONTS.display,
+            fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+            fontWeight: 700,
+            color: COLORS.offWhite,
+            margin: '0 auto 14px',
+            lineHeight: 1.18,
+            letterSpacing: '-0.015em',
+            maxWidth: '760px',
+          }}>
             {tr ? 'Görünmeyenin Elçileri' : 'Messengers of the Unseen'}
           </h1>
-          <VerseBlock
-            arabic="الْحَمْدُ لِلَّهِ فَاطِرِ السَّمَاوَاتِ وَالْأَرْضِ جَاعِلِ الْمَلَائِكَةِ رُسُلًا أُولِي أَجْنِحَةٍ"
-            translation={tr
-              ? "Gökleri ve yeri yaratan, melekleri ikişer, üçer, dörder kanatlı elçiler kılan Allah'a hamdolsun."
-              : "All praise is due to Allah, Creator of the heavens and the earth, who made the angels messengers having wings, two or three or four."}
-            ref="Fâtır 35:1"
-          />
-          <p style={{ fontSize: '0.82rem', color: COLORS.slate500, margin: '14px 0 0', lineHeight: 1.7, maxWidth: '720px' }}>
+
+          {/* Dramatic subtitle */}
+          <p style={{
+            fontFamily: FONTS.display,
+            fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+            color: COLORS.gold,
+            margin: '0 auto 22px',
+            lineHeight: 1.55,
+            fontStyle: 'italic',
+            maxWidth: '700px',
+            opacity: 0.92,
+          }}>
+            {tr
+              ? 'Cebrail vahyi getirir. Mikail rızkı dağıtır. Münker-Nekir kabri sorgular. Yedi melek tipi — yedi farklı boyut.'
+              : 'Jibril brings revelation. Mika\'il distributes provision. Munkar-Nakir question the grave. Seven angel roles — seven distinct dimensions.'}
+          </p>
+
+          {/* Description (left-aligned body) */}
+          <p style={{
+            fontSize: '0.86rem',
+            color: COLORS.slate500,
+            margin: '0 auto 20px',
+            lineHeight: 1.75,
+            maxWidth: '720px',
+            textAlign: 'left',
+          }}>
             {tr
               ? "Kur'an melekleri tasvir etmez — işlevlerini anlatır. Cebrail ve Mikail bizzat anılır, Harut-Marut zikredilir, ötekiler görevle tanınır. Nurdan yaratıldıkları, kanat sayıları hadis geleneğine aittir. Bu sayfa yalnızca Kur'an'da ne geçtiğini gösterir; geri kalanı ℹ️ ile işaretler."
               : "The Quran defines angels by function, not description. Jibril and Mika'il are named; Harut and Marut are mentioned; the rest are known by role. Details like being created from light come from hadith. This page shows only what the Quran says; everything else is marked ℹ️."}
           </p>
-          <div style={{ marginTop: '16px' }}>
+          <div style={{ marginTop: '8px' }}>
             <HeroStats language={language} />
           </div>
         </div>
 
-        {/* ── Tab bar — sticky (DogaAtlasi pattern) ── */}
-        <div style={{
+        {/* ── Tab bar — sticky, UPPERCASE site-wide pattern ── */}
+        <div id="melekler-tab-bar" style={{
           position: 'sticky', top: 0, zIndex: 10,
           display: 'flex', gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: '1px solid rgba(255,255,255,0.06)',
           background: 'rgba(10,10,26,0.97)', backdropFilter: 'blur(20px)',
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
+          scrollMarginTop: '72px',
         }}>
           {TABS.map((tab, i) => (
             <button
               key={i}
-              onClick={() => handleTab(i)}
+              onClick={() => {
+                handleTab(i);
+                setTimeout(() => {
+                  const tb = document.getElementById('melekler-tab-bar');
+                  if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+              }}
               style={{
                 flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px',
-                padding: isMobile ? '12px 14px' : '13px 22px',
+                padding: isMobile ? '14px 16px' : '16px 26px',
                 border: 'none', borderRadius: '0',
                 background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
-                fontSize: isMobile ? '0.85rem' : '0.9rem',
-                fontFamily: FONTS.body, fontWeight: activeTab === i ? 600 : 400,
+                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 500,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, whiteSpace: 'nowrap',
               }}
               onMouseEnter={e => { if (activeTab !== i) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}

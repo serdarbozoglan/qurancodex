@@ -143,61 +143,143 @@ export default function SunnetullahAtlasi({ onClose }) {
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
         <div style={{
-          padding: isMobile ? '28px 20px 26px' : '44px 48px 36px',
+          padding: isMobile ? '40px 20px 28px' : '60px 48px 36px',
           background: 'linear-gradient(180deg, rgba(201,162,36,0.08) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          textAlign: 'center',
         }}>
-          {/* Arabic hero calligraphy */}
-          <div style={{
-            fontFamily: FONTS.quran,
-            fontSize: isMobile ? '2.2rem' : '3.1rem',
-            color: COLORS.royalGold,
-            direction: 'rtl',
-            textAlign: 'center',
-            lineHeight: 1.6,
-            marginBottom: '18px',
-            textShadow: '0 0 30px rgba(201,162,36,0.18)',
-          }} dir="rtl" lang="ar">
-            سُنَّةُ اللّٰهِ
+          {/* Bismillah ornament */}
+          <div
+            dir="rtl" lang="ar" aria-label="Bismillāh"
+            style={{
+              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              color: COLORS.royalGold,
+              opacity: 0.85,
+              lineHeight: 1,
+              marginBottom: isMobile ? '28px' : '40px',
+              textShadow: '0 0 22px rgba(201,162,36,0.28)',
+            }}
+          >
+            ﷽
           </div>
 
-          {/* Title */}
+          {/* Anchor verse — Fâtır 35:43 (the classical Sunnetullah verse) */}
+          <p
+            dir="rtl" lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
+              color: COLORS.royalGold,
+              lineHeight: 2.1,
+              margin: '0 auto 16px',
+              maxWidth: '820px',
+              textShadow: '0 0 20px rgba(201,162,36,0.18)',
+            }}
+          >
+            فَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَبْد۪يلاً وَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَحْو۪يلاً
+          </p>
+
+          <p style={{
+            color: COLORS.offWhite,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 8px',
+            maxWidth: '660px',
+            opacity: 0.95,
+          }}>
+            "{language === 'tr'
+              ? "Allah'ın sünnetinde asla bir değişme bulamazsın; Allah'ın sünnetinde asla bir sapma da bulamazsın."
+              : "You will never find any change in the way of Allah; you will never find any deviation in the way of Allah."}"
+          </p>
+
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            margin: '0 0 36px',
+            opacity: 0.65,
+          }}>
+            — {language === 'tr' ? 'Fâtır 35:43' : 'Fāṭir 35:43'}
+          </p>
+
+          {/* Framing whisper */}
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 40px',
+            maxWidth: '700px',
+            opacity: 0.88,
+          }}>
+            {language === 'tr'
+              ? <>Tarih tesadüf değildir. Aynı suç <em style={{ fontStyle: 'normal', color: COLORS.royalGold, opacity: 0.95 }}>aynı sonucu</em> doğurur — bu, Allah'ın <em style={{ fontStyle: 'normal', color: COLORS.royalGold, opacity: 0.95 }}>değişmeyen yasası</em>dır.</>
+              : <>History is no accident. The same sin produces <em style={{ fontStyle: 'normal', color: COLORS.royalGold, opacity: 0.95 }}>the same consequence</em> — this is Allah's <em style={{ fontStyle: 'normal', color: COLORS.royalGold, opacity: 0.95 }}>unchanging law</em>.</>}
+          </p>
+
+          {/* Filigree divider */}
+          <div aria-hidden="true" style={{
+            width: '120px',
+            height: '1px',
+            background: `linear-gradient(to right, transparent, ${COLORS.royalGold}66, transparent)`,
+            margin: '0 auto 32px',
+          }} />
+
+          {/* Eyebrow */}
+          <div style={{
+            fontSize: '0.68rem', letterSpacing: '0.3em',
+            color: COLORS.royalGold, textTransform: 'uppercase',
+            fontFamily: FONTS.body, fontWeight: 700,
+            opacity: 0.72,
+            marginBottom: '14px',
+          }}>
+            {language === 'tr' ? 'İLAHÎ ÖRÜNTÜ · TARİHİN YASASI' : 'DIVINE PATTERN · LAW OF HISTORY'}
+          </div>
+
+          {/* Big Title */}
           <h1 style={{
             color: COLORS.offWhite,
-            fontSize: isMobile ? '1.4rem' : '1.95rem',
+            fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
             fontWeight: 700,
-            fontFamily: FONTS.body,
-            margin: '0 0 8px 0',
-            lineHeight: 1.3,
-            textAlign: 'center',
+            fontFamily: FONTS.display,
+            margin: '0 auto 14px',
+            lineHeight: 1.18,
+            letterSpacing: '-0.015em',
+            maxWidth: '760px',
           }}>
             {language === 'tr' ? intro.titleTr : intro.titleEn}
           </h1>
 
-          {/* Subtitle */}
+          {/* Dramatic subtitle */}
           <p style={{
-            color: COLORS.silver,
-            fontSize: isMobile ? '0.85rem' : '0.95rem',
-            fontFamily: FONTS.body,
-            margin: '0 0 22px 0',
-            lineHeight: 1.65,
-            textAlign: 'center',
-            maxWidth: '680px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
+            fontFamily: FONTS.display,
+            fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+            color: COLORS.royalGold,
+            margin: '0 auto 28px',
+            lineHeight: 1.55,
+            fontStyle: 'italic',
+            maxWidth: '700px',
+            opacity: 0.92,
           }}>
             {language === 'tr' ? intro.subtitleTr : intro.subtitleEn}
           </p>
 
-          {/* Description */}
+          {/* Description (left-aligned body) */}
           <p style={{
-            color: COLORS.offWhite,
+            color: COLORS.silver,
             fontSize: '0.9rem',
             fontFamily: FONTS.body,
-            margin: '0 auto 26px',
+            margin: '0 auto 28px',
             lineHeight: 1.75,
             maxWidth: '720px',
-            opacity: 0.92,
+            opacity: 0.95,
+            textAlign: 'left',
           }}>
             {language === 'tr' ? intro.descTr : intro.descEn}
           </p>

@@ -165,9 +165,10 @@ const navSections = [
     id: 'iblis-satan', keyTr: "Kur'an'da İblis / Şeytan", keyEn: 'Iblis / Satan in the Quran',
     descTr: 'Yedi sûrede aynı sahne — kibrin başlangıcı', descEn: 'Same scene in seven surahs — the origin of pride',
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+      /* Stylized flame — İblis ateşten yaratıldı (Hicr 15:27, Sâd 38:76). */
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2.5c1.6 3.2 4.8 5.4 4.8 9.4 0 3.6-2.4 6.6-4.8 6.6s-4.8-3-4.8-6.6c0-1.8 0.7-3 1.6-4.1" />
+        <path d="M12 8c0.9 1.7 2.6 2.9 2.6 5.1 0 1.9-1.3 3.5-2.6 3.5s-2.6-1.6-2.6-3.5c0-1 0.4-1.6 0.9-2.2" />
       </svg>
     ),
   },

@@ -1269,13 +1269,145 @@ export default function ZamanBoyutlari({ onClose }) {
         icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>}
         titleTr="Zaman Boyutları"
         titleEn="Dimensions of Time"
-        subtitleTr="Gün · sene · devir · an"
-        subtitleEn="Day · year · epoch · instant"
+        subtitleTr="Gün · sene · devir · an · esneklik"
+        subtitleEn="Day · year · epoch · instant · elasticity"
         language={language}
       />
 
-      {/* Tab bar */}
+      {/* ── HERO (Cinematic) ──────────────────────────────────────────────── */}
       <div style={{
+        padding: isMobile ? '40px 20px 28px' : '56px 48px 36px',
+        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+        textAlign: 'center',
+      }}>
+        {/* Bismillah */}
+        <div
+          dir="rtl" lang="ar" aria-label="Bismillāh"
+          style={{
+            fontFamily: "'Amiri Quran', 'Amiri', serif",
+            fontSize: isMobile ? '1.5rem' : '1.95rem',
+            color: COLORS.gold,
+            opacity: 0.82,
+            lineHeight: 1,
+            marginBottom: isMobile ? '28px' : '40px',
+            textShadow: `0 0 22px ${COLORS.gold}28`,
+          }}
+        >
+          ﷽
+        </div>
+
+        {/* Anchor verse — Hac 22:47 (the canonical time-dilation verse) */}
+        <p
+          dir="rtl" lang="ar"
+          style={{
+            fontFamily: FONTS.quran,
+            fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+            color: COLORS.gold,
+            lineHeight: 2.1,
+            margin: '0 auto 16px',
+            maxWidth: '820px',
+            textShadow: `0 0 20px ${COLORS.gold}1c`,
+          }}
+        >
+          وَاِنَّ يَوْماً عِنْدَ رَبِّكَ كَاَلْفِ سَنَةٍ مِمَّا تَعُدُّونَ
+        </p>
+
+        <p style={{
+          color: COLORS.offWhite,
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+          lineHeight: 1.7,
+          margin: '0 auto 8px',
+          maxWidth: '660px',
+          opacity: 0.95,
+        }}>
+          "{language === 'tr'
+            ? 'Rabbinin katında bir gün, sizin saymakta olduklarınızdan bin yıl gibidir.'
+            : 'A day with your Lord is like a thousand years of what you count.'}"
+        </p>
+
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.72rem',
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          margin: '0 0 36px',
+          opacity: 0.65,
+        }}>
+          — {language === 'tr' ? 'Hac 22:47' : 'Al-Ḥajj 22:47'}
+        </p>
+
+        {/* Framing whisper */}
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+          lineHeight: 1.7,
+          margin: '0 auto 40px',
+          maxWidth: '700px',
+          opacity: 0.88,
+        }}>
+          {language === 'tr'
+            ? <>Zaman, Kur'an'da <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tek bir akış</em> değildir. Bir gece <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bin aydan hayırlı</em>; bir gün <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bin yıla denk</em>; bir an, sonsuza bedel.</>
+            : <>In the Quran, time is <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>not one stream</em>. One night exceeds <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>a thousand months</em>; one day equals <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>a thousand years</em>; one instant outweighs forever.</>}
+        </p>
+
+        {/* Filigree divider */}
+        <div aria-hidden="true" style={{
+          width: '120px',
+          height: '1px',
+          background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+          margin: '0 auto 32px',
+        }} />
+
+        {/* Eyebrow */}
+        <div style={{
+          fontSize: '0.68rem', letterSpacing: '0.3em',
+          color: COLORS.gold, textTransform: 'uppercase',
+          fontFamily: FONTS.body, fontWeight: 700,
+          opacity: 0.72,
+          marginBottom: '14px',
+        }}>
+          {language === 'tr' ? 'KOZMOS · ZAMAN · ESNEKLİK' : 'COSMOS · TIME · ELASTICITY'}
+        </div>
+
+        {/* Big Title */}
+        <h1 style={{
+          color: COLORS.offWhite,
+          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          fontWeight: 700,
+          fontFamily: FONTS.display,
+          margin: '0 auto 14px',
+          lineHeight: 1.18,
+          letterSpacing: '-0.015em',
+          maxWidth: '760px',
+        }}>
+          {language === 'tr' ? "Kur'an'da Zaman Boyutları" : "Dimensions of Time in the Quran"}
+        </h1>
+
+        {/* Dramatic subtitle */}
+        <p style={{
+          fontFamily: FONTS.display,
+          fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          color: COLORS.gold,
+          margin: '0 auto 24px',
+          lineHeight: 1.55,
+          fontStyle: 'italic',
+          maxWidth: '700px',
+          opacity: 0.92,
+        }}>
+          {language === 'tr'
+            ? 'Saat doğrusal akar; vahiy katmanlı — kalitesi miktarından üstün.'
+            : 'Clock-time flows linearly; revealed time is layered — its quality outweighs its quantity.'}
+        </p>
+      </div>
+
+      {/* Tab bar — UPPERCASE site-wide pattern */}
+      <div id="zaman-tab-bar" style={{
         flexShrink: 0,
         display: 'flex',
         gap: '2px',
@@ -1285,26 +1417,38 @@ export default function ZamanBoyutlari({ onClose }) {
         background: 'rgba(10,10,26,0.97)',
         backdropFilter: 'blur(20px)',
         scrollbarWidth: 'none',
+        position: 'sticky',
+        top: 0,
+        zIndex: 10,
+        scrollMarginTop: '72px',
       }}>
         {TABS.map(tab => {
           const isActive = tab.id === activeTab;
           return (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => {
+                setActiveTab(tab.id);
+                setTimeout(() => {
+                  const tb = document.getElementById('zaman-tab-bar');
+                  if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+              }}
               style={{
                 flexShrink: 0,
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: isMobile ? '12px 14px' : '13px 22px',
+                padding: isMobile ? '14px 16px' : '16px 26px',
                 border: 'none',
                 borderRadius: '0',
                 borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 background: isActive ? COLORS.goldAlpha15 : 'transparent',
                 color: isActive ? COLORS.gold : COLORS.silver,
-                fontSize: isMobile ? '0.85rem' : '0.9rem',
-                fontWeight: isActive ? 600 : 400,
+                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                fontWeight: isActive ? 700 : 500,
                 fontFamily: FONTS.body,
                 cursor: 'pointer',
                 transition: 'all 0.15s',
