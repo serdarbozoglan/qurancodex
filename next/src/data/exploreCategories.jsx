@@ -229,6 +229,15 @@ export const EXPLORE_CATEGORIES = [
     titleEn: 'LANGUAGE & STRUCTURE',
     items: [
       {
+        id:     'linguistic',
+        kind:   'section',
+        target: 'mukattaa-card',
+        icon:   WaveIcon,
+        titleTr: 'Dilsel DNA',            titleEn: 'Linguistic DNA',
+        descTr: '14 gizemli harf ve şifresi',
+        descEn: '14 mysterious letters & their code',
+      },
+      {
         id:     'rhythm',
         kind:   'section',
         target: 'rhythm',

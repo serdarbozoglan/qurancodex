@@ -15,6 +15,7 @@ import AllTopics from '@/sections/AllTopics';
 import ToolsHighlight from '@/sections/ToolsHighlight';
 import TefekkurHighlight from '@/sections/TefekkurHighlight';
 import AllahKendiniTanitir from '@/sections/AllahKendiniTanitir';
+import MukattaaCard from '@/sections/MukattaaCard';
 import ImpossibleRhythm from '@/sections/ImpossibleRhythm';
 import QuranRhetoric from '@/sections/QuranRhetoric';
 import QuranDua from '@/sections/QuranDua';
@@ -63,6 +64,7 @@ export default async function Home({ params }) {
       <PathCards />
       <AllTopics />
       <ToolsHighlight />
+      <MukattaaCard />
       <ImpossibleRhythm />
       <QuranRhetoric />
       <QuranDua />
