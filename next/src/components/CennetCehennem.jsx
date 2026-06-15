@@ -327,7 +327,7 @@ export default function CennetCehennem({ onClose }) {
                 textShadow: `0 0 20px ${GOLD}1c`,
               }}
             >
-              وَلِمَنْ خَافَ مَقَامَ رَبِّه۪ جَنَّتَانِ
+              وَلِمَنْ خَافَ مَقَامَ رَبِّهِ جَنَّتَانِ
             </p>
 
             <p style={{
