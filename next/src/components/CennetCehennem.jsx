@@ -378,9 +378,8 @@ export default function CennetCehennem({ onClose }) {
           {/* ── HERO BANNER (stat panel) ─────────────────────────── */}
           <HeroBanner data={data} language={language} isMobile={isMobile} />
 
-          {/* Tab bar — sticky after Hero (Premium pattern: Hero ÖNCE, tabs SONRA)
-              Background fully opaque (#06080e) — body bg ile aynı; transparan rgba
-              kullanmak scroll'da altındaki kartların sızmasına neden oluyordu. */}
+          {/* Tab bar — NORMAL scroll (sticky kaldırıldı user feedback ile).
+              Scroll'da içerikle birlikte yukarı kayar; ekranda kalıcı olmaz. */}
           <div id="cennet-tab-bar" style={{
             display: 'flex', gap: '2px',
             padding: isMobile ? '0 8px' : '0 16px',
@@ -389,9 +388,6 @@ export default function CennetCehennem({ onClose }) {
             background: '#06080e',
             overflowX: 'auto',
             scrollbarWidth: 'none',
-            position: 'sticky',
-            top: 0,
-            zIndex: 10,
             scrollMarginTop: '72px',
           }}>
             {TABS.map(tab => {
